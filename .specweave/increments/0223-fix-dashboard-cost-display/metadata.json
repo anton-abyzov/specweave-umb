@@ -1,0 +1,14 @@
+{
+  "id": "0223-fix-dashboard-cost-display",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-02-16T00:11:27.033Z",
+  "lastActivity": "2026-02-17T02:32:00.000Z",
+  "completedAt": "2026-02-17T02:32:00.000Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
