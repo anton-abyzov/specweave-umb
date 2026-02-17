@@ -143,9 +143,21 @@
     "childRepos": [
       {
         "id": "specweave",
-        "path": "../specweave",
+        "path": "repositories/anton-abyzov/specweave",
         "name": "specweave",
         "prefix": "SPE"
+      },
+      {
+        "id": "vskill",
+        "path": "repositories/anton-abyzov/vskill",
+        "name": "vskill",
+        "prefix": "VSK"
+      },
+      {
+        "id": "vskill-platform",
+        "path": "repositories/anton-abyzov/vskill-platform",
+        "name": "vskill-platform",
+        "prefix": "VPL"
       }
     ]
   }

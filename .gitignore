@@ -45,12 +45,6 @@ build/
 # Child repositories (tracked independently via their own git)
 repositories/
 
-# Documentation build output
-docs-site/build/
-docs-site/build-internal/
-docs-site/.docusaurus/
-docs-site/node_modules/
-
 # Temporary files
 tmp/
 temp/
