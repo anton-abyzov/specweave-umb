@@ -3,7 +3,7 @@ increment: 0228-dashboard-realtime-sse-fix
 title: "Dashboard Real-Time SSE Fix"
 type: bug
 priority: P1
-status: planned
+status: completed
 created: 2026-02-16
 structure: user-stories
 test_mode: test-after

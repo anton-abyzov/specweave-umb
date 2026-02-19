@@ -3,7 +3,7 @@ increment: 0233-github-oauth-registration
 title: "GitHub OAuth Registration"
 type: feature
 priority: P1
-status: planned
+status: completed
 created: 2026-02-17
 structure: user-stories
 test_mode: TDD
@@ -26,13 +26,13 @@ Add GitHub OAuth authentication to VSkill website so skill authors can authentic
 **So that** I can authenticate to submit skills with my verified identity
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: "Login with GitHub" button visible on the website
-- [ ] **AC-US1-02**: Clicking redirects to GitHub OAuth with `read:user` scope
-- [ ] **AC-US1-03**: State parameter validated on callback (CSRF protection)
-- [ ] **AC-US1-04**: User record created (or found) in database with githubId, githubUsername, avatarUrl
-- [ ] **AC-US1-05**: HttpOnly secure cookies set with access and refresh JWT tokens
-- [ ] **AC-US1-06**: User redirected to submit page after successful login
-- [ ] **AC-US1-07**: OAuth failure/denial shows error page with retry option
+- [x] **AC-US1-01**: "Login with GitHub" button visible on the website
+- [x] **AC-US1-02**: Clicking redirects to GitHub OAuth with `read:user` scope
+- [x] **AC-US1-03**: State parameter validated on callback (CSRF protection)
+- [x] **AC-US1-04**: User record created (or found) in database with githubId, githubUsername, avatarUrl
+- [x] **AC-US1-05**: HttpOnly secure cookies set with access and refresh JWT tokens
+- [x] **AC-US1-06**: User redirected to submit page after successful login
+- [x] **AC-US1-07**: OAuth failure/denial shows error page with retry option
 
 ---
 
@@ -44,11 +44,11 @@ Add GitHub OAuth authentication to VSkill website so skill authors can authentic
 **So that** my submission is linked to my GitHub identity
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Submit page requires authentication (redirects to login if not)
-- [ ] **AC-US2-02**: Form collects GitHub repo URL and skill name
-- [ ] **AC-US2-03**: Submission linked to authenticated user via `userId`
-- [ ] **AC-US2-04**: Success shows confirmation with submission ID
-- [ ] **AC-US2-05**: Unauthenticated users redirected to login page
+- [x] **AC-US2-01**: Submit page requires authentication (redirects to login if not)
+- [x] **AC-US2-02**: Form collects GitHub repo URL and skill name
+- [x] **AC-US2-03**: Submission linked to authenticated user via `userId`
+- [x] **AC-US2-04**: Success shows confirmation with submission ID
+- [x] **AC-US2-05**: Unauthenticated users redirected to login page
 
 ---
 
@@ -60,9 +60,9 @@ Add GitHub OAuth authentication to VSkill website so skill authors can authentic
 **So that** I can authenticate and submit through the website
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `vskill submit owner/repo` opens browser to submit page with repo pre-filled
-- [ ] **AC-US3-02**: CLI outputs message telling user to complete submission in browser
-- [ ] **AC-US3-03**: `--email` flag removed (no longer needed)
+- [x] **AC-US3-01**: `vskill submit owner/repo` opens browser to submit page with repo pre-filled
+- [x] **AC-US3-02**: CLI outputs message telling user to complete submission in browser
+- [x] **AC-US3-03**: `--email` flag removed (no longer needed)
 
 ---
 
@@ -74,10 +74,10 @@ Add GitHub OAuth authentication to VSkill website so skill authors can authentic
 **So that** I do not have to log in every time
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Access token in HttpOnly cookie with 24h expiry
-- [ ] **AC-US4-02**: Refresh token in HttpOnly cookie with 7d expiry
-- [ ] **AC-US4-03**: Expired access token auto-refreshes via refresh token
-- [ ] **AC-US4-04**: Logout clears all auth cookies and deletes refresh token from DB
+- [x] **AC-US4-01**: Access token in HttpOnly cookie with 24h expiry
+- [x] **AC-US4-02**: Refresh token in HttpOnly cookie with 7d expiry
+- [x] **AC-US4-03**: Expired access token auto-refreshes via refresh token
+- [x] **AC-US4-04**: Logout clears all auth cookies and deletes refresh token from DB
 
 ## Functional Requirements
 

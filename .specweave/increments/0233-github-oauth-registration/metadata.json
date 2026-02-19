@@ -1,6 +1,7 @@
 {
   "id": "0233-github-oauth-registration",
-  "status": "planned",
+  "status": "completed",
+  "completedAt": "2026-02-17T23:42:00.000Z",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-17T02:45:14.201Z",

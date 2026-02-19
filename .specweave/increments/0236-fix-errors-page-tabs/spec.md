@@ -3,7 +3,7 @@ increment: 0236-fix-errors-page-tabs
 title: "Fix Errors Page Tab Switching & URL State Batching"
 type: bug
 priority: P0
-status: active
+status: completed
 created: 2026-02-17
 structure: user-stories
 test_mode: test-after
@@ -43,11 +43,11 @@ IncrementsPage and ActivityPage each use 2 `useUrlState` hooks but currently nev
 **So that** I can investigate errors by group, individual error, timeline, or session
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Clicking "All Errors" tab switches to the all-errors view and URL updates to `?tab=errors`
-- [ ] **AC-US1-02**: Clicking "Timeline" tab shows the error density chart and URL updates to `?tab=timeline`
-- [ ] **AC-US1-03**: Clicking "Sessions" tab shows the session list and URL updates to `?tab=sessions`
-- [ ] **AC-US1-04**: Clicking "Error Groups" returns to the default view and the `tab` param is removed from URL
-- [ ] **AC-US1-05**: Browser back/forward navigation between tabs works correctly
+- [x] **AC-US1-01**: Clicking "All Errors" tab switches to the all-errors view and URL updates to `?tab=errors`
+- [x] **AC-US1-02**: Clicking "Timeline" tab shows the error density chart and URL updates to `?tab=timeline`
+- [x] **AC-US1-03**: Clicking "Sessions" tab shows the session list and URL updates to `?tab=sessions`
+- [x] **AC-US1-04**: Clicking "Error Groups" returns to the default view and the `tab` param is removed from URL
+- [x] **AC-US1-05**: Browser back/forward navigation between tabs works correctly
 
 ---
 
@@ -59,10 +59,10 @@ IncrementsPage and ActivityPage each use 2 `useUrlState` hooks but currently nev
 **So that** I can find relevant errors quickly without scrolling through hundreds of entries
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Typing a query and pressing Enter/clicking Search switches to All Errors tab with results filtered by the query
-- [ ] **AC-US2-02**: Clicking an error group's count navigates to All Errors filtered by that error type
-- [ ] **AC-US2-03**: "Clear all" button removes both type filter and search query simultaneously
-- [ ] **AC-US2-04**: URL reflects all active filters (e.g., `?tab=errors&type=tool_failure&q=sibling`)
+- [x] **AC-US2-01**: Typing a query and pressing Enter/clicking Search switches to All Errors tab with results filtered by the query
+- [x] **AC-US2-02**: Clicking an error group's count navigates to All Errors filtered by that error type
+- [x] **AC-US2-03**: "Clear all" button removes both type filter and search query simultaneously
+- [x] **AC-US2-04**: URL reflects all active filters (e.g., `?tab=errors&type=tool_failure&q=sibling`)
 
 ---
 
@@ -74,10 +74,10 @@ IncrementsPage and ActivityPage each use 2 `useUrlState` hooks but currently nev
 **So that** any page using multiple URL-persisted state values can call setters freely without race conditions
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Multiple `useUrlState` setters called in the same synchronous handler produce a single `setSearchParams` call containing all changes
-- [ ] **AC-US3-02**: The batching mechanism uses `queueMicrotask` to coalesce within a single event loop tick
-- [ ] **AC-US3-03**: Existing pages (IncrementsPage, ActivityPage) continue working with no changes
-- [ ] **AC-US3-04**: Unit tests verify that 3 setters called synchronously result in all 3 URL params being set
+- [x] **AC-US3-01**: Multiple `useUrlState` setters called in the same synchronous handler produce a single `setSearchParams` call containing all changes
+- [x] **AC-US3-02**: The batching mechanism uses `queueMicrotask` to coalesce within a single event loop tick
+- [x] **AC-US3-03**: Existing pages (IncrementsPage, ActivityPage) continue working with no changes
+- [x] **AC-US3-04**: Unit tests verify that 3 setters called synchronously result in all 3 URL params being set
 
 ## Functional Requirements
 

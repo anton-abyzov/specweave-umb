@@ -1,0 +1,12 @@
+{
+  "id": "0239-fix-external-issue-closure",
+  "status": "active",
+  "type": "bugfix",
+  "priority": "P1",
+  "created": "2026-02-18T12:00:00.000Z",
+  "lastActivity": "2026-02-18T12:00:00.000Z",
+  "feature_id": "FS-239",
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-02-18T12:00:00.000Z"
+}

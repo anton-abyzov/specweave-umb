@@ -3,7 +3,7 @@ increment: 0222-docs-preview-public-internal-separation
 title: "Docs Preview Public/Internal Separation"
 type: feature
 priority: P1
-status: active
+status: completed
 created: 2026-02-15
 structure: user-stories
 test_mode: test-after

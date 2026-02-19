@@ -1,6 +1,7 @@
 {
   "id": "0224-dashboard-sync-and-error-drilling",
-  "status": "planned",
+  "status": "completed",
+  "completed": "2026-02-17T00:00:00Z",
   "type": "bug",
   "priority": "P1",
   "created": "2026-02-16T00:12:49.775Z",

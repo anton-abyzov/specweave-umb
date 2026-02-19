@@ -1,6 +1,7 @@
 {
   "id": "0229-tier2-llm-security-judge",
-  "status": "active",
+  "status": "completed",
+  "completedDate": "2026-02-18T00:00:00.000Z",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-16T08:52:21.591Z",

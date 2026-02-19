@@ -3,7 +3,7 @@ increment: 0229-tier2-llm-security-judge
 title: "Tier 2 LLM Security Judge"
 type: feature
 priority: P1
-status: active
+status: completed
 created: 2026-02-16
 structure: user-stories
 test_mode: TDD

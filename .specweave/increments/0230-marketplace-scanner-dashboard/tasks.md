@@ -1,12 +1,12 @@
 ---
 increment: 0230-marketplace-scanner-dashboard
 total_tasks: 17
-completed_tasks: 0
+completed_tasks: 17
 by_user_story:
-  US-001: { total: 4, completed: 0 }
-  US-002: { total: 4, completed: 0 }
-  US-003: { total: 5, completed: 0 }
-  US-004: { total: 4, completed: 0 }
+  US-001: { total: 4, completed: 4 }
+  US-002: { total: 4, completed: 4 }
+  US-003: { total: 5, completed: 5 }
+  US-004: { total: 4, completed: 4 }
 ---
 
 # Tasks: Marketplace Scanner Dashboard
@@ -16,12 +16,12 @@ by_user_story:
 ### User Story: US-002 - Submission Queue
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 #### T-001: Add marketplace-scan JobType to background types
 
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `src/core/background/types.ts`
@@ -38,7 +38,7 @@ by_user_story:
 #### T-002: Create submission queue types
 
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `src/core/fabric/submission-queue-types.ts`
@@ -56,7 +56,7 @@ by_user_story:
 #### T-003: Write failing tests for SubmissionQueue (TDD RED)
 
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-04, AC-US2-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** test file `tests/unit/core/fabric/submission-queue.test.ts`
@@ -82,7 +82,7 @@ by_user_story:
 #### T-004: Implement SubmissionQueue class (TDD GREEN)
 
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** SubmissionQueue class
@@ -107,12 +107,12 @@ by_user_story:
 ### User Story: US-001 - GitHub Scanner Worker
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 #### T-005: Add launchMarketplaceScanJob to job-launcher
 
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `src/core/background/job-launcher.ts`
@@ -130,7 +130,7 @@ by_user_story:
 #### T-006: Implement marketplace scanner worker
 
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** worker running with searchTopics=['claude-code-skill']
@@ -152,7 +152,7 @@ by_user_story:
 #### T-007: Write worker tests
 
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** mocked GitHub API and mocked SubmissionQueue
@@ -174,7 +174,7 @@ by_user_story:
 #### T-008: Add marketplace config schema
 
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `.specweave/config.json` with marketplace.scanner section
@@ -192,12 +192,12 @@ by_user_story:
 ### User Story: US-004 - Marketplace API Routes
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 #### T-009: Add SSE event types and file watcher target
 
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `src/dashboard/types.ts` and `src/dashboard/server/file-watcher.ts`
@@ -214,7 +214,7 @@ by_user_story:
 #### T-010: Implement MarketplaceAggregator
 
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** MarketplaceAggregator with projectPath
@@ -242,7 +242,7 @@ by_user_story:
 #### T-011: Register marketplace API routes
 
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** dashboard server running
@@ -260,7 +260,7 @@ by_user_story:
 #### T-012: Write server route tests
 
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** mocked MarketplaceAggregator
@@ -284,12 +284,12 @@ by_user_story:
 ### User Story: US-003 - Marketplace Dashboard Page
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
-**Tasks**: 5 total, 0 completed
+**Tasks**: 5 total, 4 completed
 
 #### T-013: Add SSE event types to client SSEContext
 
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `src/dashboard/client/src/contexts/SSEContext.tsx`
@@ -304,7 +304,7 @@ by_user_story:
 #### T-014: Create MarketplacePage component
 
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** MarketplacePage rendered
@@ -327,7 +327,7 @@ by_user_story:
 #### T-015: Add route and navigation
 
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** App.tsx and Sidebar.tsx
@@ -343,7 +343,7 @@ by_user_story:
 #### T-016: Build and test dashboard client
 
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01 through AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** all client changes
@@ -355,7 +355,7 @@ by_user_story:
 #### T-017: End-to-end verification
 
 **User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: all
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** full system

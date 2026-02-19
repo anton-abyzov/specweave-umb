@@ -1,0 +1,20 @@
+{
+  "id": "0237-security-hardening",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-18T05:37:49.287Z",
+  "lastActivity": "2026-02-18T06:34:15.170Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-02-18T05:37:49.288Z",
+  "approvedAt": "2026-02-18T06:34:15.170Z",
+  "github": {
+    "issue": 1177,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1177",
+    "synced": "2026-02-18T06:34:35.710Z"
+  }
+}

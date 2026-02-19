@@ -1,10 +1,10 @@
 ---
 increment: 0230-marketplace-scanner-dashboard
-title: "Marketplace Scanner Dashboard"
+title: Marketplace Scanner Dashboard
 type: feature
 priority: P1
-status: active
-created: 2026-02-16
+status: completed
+created: 2026-02-16T00:00:00.000Z
 structure: user-stories
 test_mode: test-after
 coverage_target: 80
@@ -33,11 +33,11 @@ SpecWeave has zero workers scanning GitHub for community skills. The marketplace
 **So that** the marketplace automatically discovers new skills without manual effort
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given configured search topics, when scanner runs, then it queries GitHub Search API for repos matching topics/filenames
-- [ ] **AC-US1-02**: Given GitHub rate limits, when limit is approached, then scanner applies exponential backoff
-- [ ] **AC-US1-03**: Given a scanner crash, when restarted, then it resumes from last checkpoint cursor
-- [ ] **AC-US1-04**: Given a previously discovered repo, when seen again, then it is skipped (dedup by full_name)
-- [ ] **AC-US1-05**: Given config with intervalMinutes=30, when scanner runs, then it sleeps 30 min between scans
+- [x] **AC-US1-01**: Given configured search topics, when scanner runs, then it queries GitHub Search API for repos matching topics/filenames
+- [x] **AC-US1-02**: Given GitHub rate limits, when limit is approached, then scanner applies exponential backoff
+- [x] **AC-US1-03**: Given a scanner crash, when restarted, then it resumes from last checkpoint cursor
+- [x] **AC-US1-04**: Given a previously discovered repo, when seen again, then it is skipped (dedup by full_name)
+- [x] **AC-US1-05**: Given config with intervalMinutes=30, when scanner runs, then it sleeps 30 min between scans
 
 ---
 
@@ -49,11 +49,11 @@ SpecWeave has zero workers scanning GitHub for community skills. The marketplace
 **So that** only vetted skills reach verified status
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a discovered repo, when added to queue, then entry persists in `.specweave/state/skill-submissions.json`
-- [ ] **AC-US2-02**: Given a new submission, when autoScanOnDiscover is true, then Tier 1 regex scan runs automatically
-- [ ] **AC-US2-03**: Given a Tier 1 passed skill, when Tier 2 triggered, then consent gate checks before LLM analysis
-- [ ] **AC-US2-04**: Given corrupted queue JSON, when loaded, then auto-recovers from backup file
-- [ ] **AC-US2-05**: Given an operator action, when approve/reject called, then submission status updates with reason
+- [x] **AC-US2-01**: Given a discovered repo, when added to queue, then entry persists in `.specweave/state/skill-submissions.json`
+- [x] **AC-US2-02**: Given a new submission, when autoScanOnDiscover is true, then Tier 1 regex scan runs automatically
+- [x] **AC-US2-03**: Given a Tier 1 passed skill, when Tier 2 triggered, then consent gate checks before LLM analysis
+- [x] **AC-US2-04**: Given corrupted queue JSON, when loaded, then auto-recovers from backup file
+- [x] **AC-US2-05**: Given an operator action, when approve/reject called, then submission status updates with reason
 
 ---
 
@@ -65,11 +65,11 @@ SpecWeave has zero workers scanning GitHub for community skills. The marketplace
 **So that** I can monitor the skill discovery pipeline in real-time
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given no scanner running, when page loads, then shows onboarding CTA with Start Scanner button
-- [ ] **AC-US3-02**: Given active scanner, when page loads, then shows KPIs: worker health, last scan time, repos scanned, rate limit remaining
-- [ ] **AC-US3-03**: Given submissions in queue, when page loads, then shows filterable table with status, tier, date, security score
-- [ ] **AC-US3-04**: Given verified skills, when page loads, then shows gallery cards with security scores and author info
-- [ ] **AC-US3-05**: Given a submission status change, when SSE event fires, then page updates without refresh
+- [x] **AC-US3-01**: Given no scanner running, when page loads, then shows onboarding CTA with Start Scanner button
+- [x] **AC-US3-02**: Given active scanner, when page loads, then shows KPIs: worker health, last scan time, repos scanned, rate limit remaining
+- [x] **AC-US3-03**: Given submissions in queue, when page loads, then shows filterable table with status, tier, date, security score
+- [x] **AC-US3-04**: Given verified skills, when page loads, then shows gallery cards with security scores and author info
+- [x] **AC-US3-05**: Given a submission status change, when SSE event fires, then page updates without refresh
 
 ---
 
@@ -81,11 +81,11 @@ SpecWeave has zero workers scanning GitHub for community skills. The marketplace
 **So that** the frontend can fetch, filter, and manage the pipeline
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given GET /api/marketplace/scanner/status, when called, then returns worker health and scan statistics
-- [ ] **AC-US4-02**: Given GET /api/marketplace/queue with status filter, when called, then returns paginated results (20/page default)
-- [ ] **AC-US4-03**: Given POST /api/marketplace/queue/:id/approve, when called, then updates submission to verified
-- [ ] **AC-US4-04**: Given GET /api/marketplace/insights, when called, then returns aggregated discovery timeline and pass/fail rates
-- [ ] **AC-US4-05**: Given POST /api/marketplace/scanner/start, when called, then launches scanner worker via job manager
+- [x] **AC-US4-01**: Given GET /api/marketplace/scanner/status, when called, then returns worker health and scan statistics
+- [x] **AC-US4-02**: Given GET /api/marketplace/queue with status filter, when called, then returns paginated results (20/page default)
+- [x] **AC-US4-03**: Given POST /api/marketplace/queue/:id/approve, when called, then updates submission to verified
+- [x] **AC-US4-04**: Given GET /api/marketplace/insights, when called, then returns aggregated discovery timeline and pass/fail rates
+- [x] **AC-US4-05**: Given POST /api/marketplace/scanner/start, when called, then launches scanner worker via job manager
 
 ## Out of Scope
 

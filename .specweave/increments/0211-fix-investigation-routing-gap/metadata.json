@@ -1,6 +1,6 @@
 {
   "id": "0211-fix-investigation-routing-gap",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-02-15T05:45:30.481Z",
@@ -9,5 +9,6 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "completedDate": "2026-02-18"
 }

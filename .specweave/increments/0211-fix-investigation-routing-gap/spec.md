@@ -3,7 +3,7 @@ increment: 0211-fix-investigation-routing-gap
 title: "Fix investigation/debugging routing gap in detect-intent"
 type: bug
 priority: P1
-status: planned
+status: completed
 created: 2026-02-15
 structure: user-stories
 test_mode: TDD

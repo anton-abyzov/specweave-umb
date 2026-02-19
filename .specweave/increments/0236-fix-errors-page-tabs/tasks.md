@@ -22,7 +22,7 @@
 - In `setValue`: add update to `pendingUpdates` map, store `setSearchParams` in ref, schedule flush via `queueMicrotask` if not already scheduled
 - In flush: iterate `pendingUpdates`, apply all changes to a single `URLSearchParams`, call `setSearchParams` once, clear state
 
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ## Phase 2: Verification
 
@@ -32,7 +32,7 @@
 
 **References**: AC-US3-03
 
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ### T-003: Manual verification checklist
 
@@ -50,4 +50,4 @@
 
 **References**: AC-US1-01 through AC-US1-05, AC-US2-01 through AC-US2-04, AC-US3-03
 
-**Status**: [ ] Not Started
+**Status**: [x] Completed

@@ -1,6 +1,7 @@
 {
   "id": "0222-docs-preview-public-internal-separation",
-  "status": "planned",
+  "status": "completed",
+  "completed": "2026-02-17T00:00:00Z",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-15T23:32:25.146Z",

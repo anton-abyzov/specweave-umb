@@ -1,10 +1,11 @@
 {
   "id": "0232-switch-to-vskill-plugin-install",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-16T09:11:17.263Z",
-  "lastActivity": "2026-02-16T09:11:17.263Z",
+  "lastActivity": "2026-02-17T21:05:00.000Z",
+  "completedAt": "2026-02-17T21:05:00.000Z",
   "testMode": "test-after",
   "coverageTarget": 80,
   "feature_id": null,

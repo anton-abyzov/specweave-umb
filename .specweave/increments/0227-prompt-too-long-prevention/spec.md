@@ -3,7 +3,7 @@ increment: 0227-prompt-too-long-prevention
 title: "Prompt-Too-Long Prevention & Dashboard Visibility"
 type: feature
 priority: P1
-status: active
+status: completed
 created: 2026-02-16
 structure: user-stories
 test_mode: TDD

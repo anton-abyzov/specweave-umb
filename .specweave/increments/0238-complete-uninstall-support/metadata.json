@@ -1,0 +1,20 @@
+{
+  "id": "0238-complete-uninstall-support",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-18T23:03:50.646Z",
+  "lastActivity": "2026-02-19T02:58:28.586Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-02-18T23:03:50.646Z",
+  "approvedAt": "2026-02-19T02:58:28.587Z",
+  "github": {
+    "issue": 1187,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1187",
+    "synced": "2026-02-19T02:58:35.074Z"
+  }
+}

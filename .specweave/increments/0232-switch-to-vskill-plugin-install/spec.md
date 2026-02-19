@@ -3,7 +3,7 @@ increment: 0232-switch-to-vskill-plugin-install
 title: "Switch Plugin Installation to vskill"
 type: feature
 priority: P1
-status: active
+status: completed
 created: 2026-02-16
 structure: user-stories
 test_mode: test-after
@@ -26,12 +26,12 @@ Replace all Claude Code marketplace plugin installations (`claude plugin install
 **So that** every plugin is security-scanned before installation
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `specweave init` installs core `sw` plugin via vskill instead of `claude plugin install`
-- [ ] **AC-US1-02**: Plugin is scanned by vskill Tier 1 scanner before installation
-- [ ] **AC-US1-03**: Scan result (PASS/CONCERNS/FAIL) is displayed to the user
-- [ ] **AC-US1-04**: `vskill.lock` file is created in project root tracking installed plugins
-- [ ] **AC-US1-05**: Installed plugin is placed in `~/.claude/plugins/cache/specweave/sw/<version>/` preserving Claude Code's expected directory structure
-- [ ] **AC-US1-06**: Plugin is enabled in `~/.claude/settings.json`
+- [x] **AC-US1-01**: `specweave init` installs core `sw` plugin via vskill instead of `claude plugin install`
+- [x] **AC-US1-02**: Plugin is scanned by vskill Tier 1 scanner before installation
+- [x] **AC-US1-03**: Scan result (PASS/CONCERNS/FAIL) is displayed to the user
+- [x] **AC-US1-04**: `vskill.lock` file is created in project root tracking installed plugins
+- [x] **AC-US1-05**: Installed plugin is placed in `~/.claude/plugins/cache/specweave/sw/<version>/` preserving Claude Code's expected directory structure
+- [x] **AC-US1-06**: Plugin is enabled in `~/.claude/settings.json`
 
 ---
 
@@ -43,11 +43,11 @@ Replace all Claude Code marketplace plugin installations (`claude plugin install
 **So that** updates are security-scanned before being applied
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `specweave refresh-plugins` delegates to vskill for installation/update
-- [ ] **AC-US2-02**: `specweave refresh-marketplace` is a deprecated alias that prints a deprecation notice and calls `refresh-plugins`
-- [ ] **AC-US2-03**: Content hash comparison detects changed plugins
-- [ ] **AC-US2-04**: Changed plugins are re-scanned before update
-- [ ] **AC-US2-05**: `vskill.lock` is updated with new scan dates and content hashes
+- [x] **AC-US2-01**: `specweave refresh-plugins` delegates to vskill for installation/update
+- [x] **AC-US2-02**: `specweave refresh-marketplace` is a deprecated alias that prints a deprecation notice and calls `refresh-plugins`
+- [x] **AC-US2-03**: Content hash comparison detects changed plugins
+- [x] **AC-US2-04**: Changed plugins are re-scanned before update
+- [x] **AC-US2-05**: `vskill.lock` is updated with new scan dates and content hashes
 
 ---
 
@@ -59,10 +59,10 @@ Replace all Claude Code marketplace plugin installations (`claude plugin install
 **So that** even on-demand plugins are security-scanned
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `user-prompt-submit.sh` hook calls vskill instead of `claude plugin install` for auto-detected plugins
-- [ ] **AC-US3-02**: Installation latency remains under 5 seconds
-- [ ] **AC-US3-03**: Already-installed plugins detected from `vskill.lock` are skipped (no re-scan)
-- [ ] **AC-US3-04**: Hook output remains compatible with Claude Code's `additionalContext` format
+- [x] **AC-US3-01**: `user-prompt-submit.sh` hook calls vskill instead of `claude plugin install` for auto-detected plugins
+- [x] **AC-US3-02**: Installation latency remains under 5 seconds
+- [x] **AC-US3-03**: Already-installed plugins detected from `vskill.lock` are skipped (no re-scan)
+- [x] **AC-US3-04**: Hook output remains compatible with Claude Code's `additionalContext` format
 
 ---
 
@@ -74,10 +74,10 @@ Replace all Claude Code marketplace plugin installations (`claude plugin install
 **So that** I don't lose my installed plugins or configuration
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: `specweave migrate-to-vskill` creates `vskill.lock` from currently installed plugins
-- [ ] **AC-US4-02**: Existing plugin files in `~/.claude/plugins/cache/specweave/` are preserved
-- [ ] **AC-US4-03**: Claude marketplace registration is optionally removed (with user confirmation)
-- [ ] **AC-US4-04**: `specweave init` detects marketplace-based installation and offers migration
+- [x] **AC-US4-01**: `specweave migrate-to-vskill` creates `vskill.lock` from currently installed plugins
+- [x] **AC-US4-02**: Existing plugin files in `~/.claude/plugins/cache/specweave/` are preserved
+- [x] **AC-US4-03**: Claude marketplace registration is optionally removed (with user confirmation)
+- [x] **AC-US4-04**: `specweave init` detects marketplace-based installation and offers migration
 
 ---
 
@@ -89,10 +89,10 @@ Replace all Claude Code marketplace plugin installations (`claude plugin install
 **So that** plugins with skills, hooks, commands, and agents install correctly
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: `vskill add <owner/repo> --plugin <name>` installs a specific plugin from a multi-plugin repository
-- [ ] **AC-US5-02**: Full plugin directory structure is preserved (skills/, hooks/, commands/, agents/, .claude-plugin/)
-- [ ] **AC-US5-03**: Hook scripts get executable permissions fixed (chmod +x) after installation
-- [ ] **AC-US5-04**: Security scanning covers all plugin files (hooks, scripts, commands), not just SKILL.md
+- [x] **AC-US5-01**: `vskill add <owner/repo> --plugin <name>` installs a specific plugin from a multi-plugin repository
+- [x] **AC-US5-02**: Full plugin directory structure is preserved (skills/, hooks/, commands/, agents/, .claude-plugin/)
+- [x] **AC-US5-03**: Hook scripts get executable permissions fixed (chmod +x) after installation
+- [x] **AC-US5-04**: Security scanning covers all plugin files (hooks, scripts, commands), not just SKILL.md
 
 ## Out of Scope
 

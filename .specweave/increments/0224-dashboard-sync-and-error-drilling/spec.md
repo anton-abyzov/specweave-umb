@@ -3,7 +3,7 @@ increment: 0224-dashboard-sync-and-error-drilling
 title: "Fix Dashboard Sync Health & Error Drilling"
 type: bug
 priority: P1
-status: in-progress
+status: completed
 created: 2026-02-16
 structure: user-stories
 test_mode: test-after
