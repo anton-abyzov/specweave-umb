@@ -1,0 +1,9 @@
+{
+  "id": "0240",
+  "name": "prod-deploy-and-skill-visibility",
+  "title": "Production Deploy & Skill Visibility Investigation",
+  "status": "active",
+  "priority": "critical",
+  "createdAt": "2026-02-19T04:30:00Z",
+  "repo": "vskill-platform"
+}
