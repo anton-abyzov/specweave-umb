@@ -24,6 +24,7 @@
 - **Purpose**: Step-by-step tutorials
 - **Contents**: How-to guides, tutorials, best practices
 - **Audience**: End users, developers
+- **Featured**: [OpenClaw Agent Setup](guides/openclaw-agent-setup.md) — Project agents vs. role agents configuration
 
 ### `/faq/` - Frequently Asked Questions
 - **Purpose**: Common questions and answers

@@ -41,6 +41,14 @@ Welcome to the SpecWeave internal documentation! This is your comprehensive guid
 
 ---
 
+## OpenClaw Agent Setup
+
+For multi-project development, we use a **thread-based agent pattern** instead of per-person identity files. See **[OpenClaw: Optimal Agent Workflow](guides/openclaw-optimal-workflow.md)** for the full guide.
+
+**Quick summary**: Project agents = working_folder + skills + tools (no identity needed). Role agents (marketing, social media) = identity + personality + skills + tools.
+
+---
+
 ## Six Core Folders
 
 ### 1. Strategy - The "Why"

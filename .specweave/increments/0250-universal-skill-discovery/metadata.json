@@ -1,0 +1,11 @@
+{
+  "id": "0250",
+  "name": "universal-skill-discovery",
+  "title": "Universal Skill Discovery Pipeline",
+  "status": "active",
+  "type": "feature",
+  "priority": "high",
+  "created": "2026-02-20",
+  "repo": "specweave",
+  "description": "Multi-source skill discovery: broader GitHub search, skills.sh import, npm registry scanning, and SKILL.md content fetching with security scoring"
+}
