@@ -19,30 +19,30 @@ We need an internal security scanning capability that runs against our own SKILL
 As a plugin author, I want to run a security scan against SKILL.md files before publishing, so that external auditors find fewer issues.
 
 **Acceptance Criteria:**
-- [ ] AC-US1-01: Scan detects CREDENTIALS_UNSAFE — skills that instruct agents to collect or write secrets
-- [ ] AC-US1-02: Scan detects DATA_EXFILTRATION — skills that read secrets and transmit to user-controlled destinations without strict validation
-- [ ] AC-US1-03: Scan detects COMMAND_EXECUTION — skills using Bash with unquoted variable interpolation in shell commands
-- [ ] AC-US1-04: Scan detects PROMPT_INJECTION — skills that interpolate untrusted input without boundary markers or sanitization
-- [ ] AC-US1-05: Scan produces a report with finding, severity, line reference, and suggested fix
-- [ ] AC-US1-06: Exit code reflects scan result (0=pass, 1=concerns, 2=fail)
+- [x] AC-US1-01: Scan detects CREDENTIALS_UNSAFE — skills that instruct agents to collect or write secrets
+- [x] AC-US1-02: Scan detects DATA_EXFILTRATION — skills that read secrets and transmit to user-controlled destinations without strict validation
+- [x] AC-US1-03: Scan detects COMMAND_EXECUTION — skills using Bash with unquoted variable interpolation in shell commands
+- [x] AC-US1-04: Scan detects PROMPT_INJECTION — skills that interpolate untrusted input without boundary markers or sanitization
+- [x] AC-US1-05: Scan produces a report with finding, severity, line reference, and suggested fix
+- [x] AC-US1-06: Exit code reflects scan result (0=pass, 1=concerns, 2=fail)
 
 ### US-002: Pre-Publish Hook Integration
 
 As a plugin author, I want the security scan to run automatically before `npm publish` or `/sw:npm`, so I can't accidentally publish a flagged skill.
 
 **Acceptance Criteria:**
-- [ ] AC-US2-01: Scan integrates as a pre-publish step in the npm release workflow
-- [ ] AC-US2-02: Publish is blocked if any CRITICAL or HIGH findings exist
-- [ ] AC-US2-03: MEDIUM and LOW findings produce warnings but don't block
+- [x] AC-US2-01: Scan integrates as a pre-publish step in the npm release workflow
+- [x] AC-US2-02: Publish is blocked if any CRITICAL or HIGH findings exist
+- [x] AC-US2-03: MEDIUM and LOW findings produce warnings but don't block
 
 ### US-003: Scan All Plugins in Batch
 
 As a maintainer, I want to scan all plugins at once and get a summary report, so I can prioritize fixes across the entire plugin ecosystem.
 
 **Acceptance Criteria:**
-- [ ] AC-US3-01: Batch scan covers all `plugins/*/skills/*/SKILL.md` files
-- [ ] AC-US3-02: Summary table shows skill name, finding count by severity, and overall status
-- [ ] AC-US3-03: Results are exportable as JSON for CI integration
+- [x] AC-US3-01: Batch scan covers all `plugins/*/skills/*/SKILL.md` files
+- [x] AC-US3-02: Summary table shows skill name, finding count by severity, and overall status
+- [x] AC-US3-03: Results are exportable as JSON for CI integration
 
 ## Detection Rules
 
