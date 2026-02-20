@@ -1,10 +1,11 @@
 {
   "id": "0249-skill-detail-repo-link-extensibility",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-20T07:04:48.454Z",
   "lastActivity": "2026-02-20T07:04:48.454Z",
+  "completedAt": "2026-02-20",
   "testMode": "test-after",
   "coverageTarget": 80,
   "feature_id": null,

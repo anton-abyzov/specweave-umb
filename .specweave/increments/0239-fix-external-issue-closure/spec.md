@@ -3,7 +3,7 @@ increment: 0239-fix-external-issue-closure
 title: Fix External Issue Closure on Increment Completion
 type: bugfix
 priority: P1
-status: active
+status: completed
 created: 2026-02-18T12:00:00.000Z
 structure: user-stories
 ---
@@ -24,8 +24,8 @@ When increments are completed via `/sw:done`, per-user-story GitHub issues are N
 **So that** all per-user-story GitHub issues are closed automatically
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `autoCloseExternalIssues()` calls `syncIncrementClosure()` instead of `syncIncrementCompletion()`
-- [ ] **AC-US1-02**: Success log reports `closedIssues` count from the closure result
+- [x] **AC-US1-01**: `autoCloseExternalIssues()` calls `syncIncrementClosure()` instead of `syncIncrementCompletion()`
+- [x] **AC-US1-02**: Success log reports `closedIssues` count from the closure result
 
 ---
 
@@ -37,8 +37,8 @@ When increments are completed via `/sw:done`, per-user-story GitHub issues are N
 **So that** issue closure completes before the process exits
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: COMPLETED transitions run sync logic directly (no setTimeout)
-- [ ] **AC-US2-02**: Non-completion transitions still use non-blocking setTimeout
+- [x] **AC-US2-01**: COMPLETED transitions run sync logic directly (no setTimeout)
+- [x] **AC-US2-02**: Non-completion transitions still use non-blocking setTimeout
 
 ---
 
@@ -50,8 +50,8 @@ When increments are completed via `/sw:done`, per-user-story GitHub issues are N
 **So that** even if the compiled trigger fails, the skill-based fallback works
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Step 9C instructs closing all per-US issues by search pattern, not just metadata.github.issue
-- [ ] **AC-US3-02**: Step 9 includes a sync result summary showing closure outcomes
+- [x] **AC-US3-01**: Step 9C instructs closing all per-US issues by search pattern, not just metadata.github.issue
+- [x] **AC-US3-02**: Step 9 includes a sync result summary showing closure outcomes
 
 ---
 
@@ -63,8 +63,8 @@ When increments are completed via `/sw:done`, per-user-story GitHub issues are N
 **So that** the issue tracker reflects the actual state of completed work
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: All FS-237 issues (#1177-#1186) closed
-- [ ] **AC-US4-02**: All FS-238 issues (#1187-#1189) closed
-- [ ] **AC-US4-03**: All FS-230 issues (#1173-#1176) closed
-- [ ] **AC-US4-04**: All FS-220 issues (#1168-#1169) closed
-- [ ] **AC-US4-05**: FS-202 issue (#1160) assessed and handled appropriately
+- [x] **AC-US4-01**: All FS-237 issues (#1177-#1186) closed
+- [x] **AC-US4-02**: All FS-238 issues (#1187-#1189) closed
+- [x] **AC-US4-03**: All FS-230 issues (#1173-#1176) closed
+- [x] **AC-US4-04**: All FS-220 issues (#1168-#1169) closed
+- [x] **AC-US4-05**: FS-202 issue (#1160) assessed and handled appropriately

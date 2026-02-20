@@ -35,5 +35,5 @@
 **Dependencies**: T-003
 
 #### T-005: Run full test suite and verify
-**User Story**: US-001 | **Satisfies ACs**: all | **Status**: [x] completed
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05, AC-US1-06, AC-US1-07 | **Status**: [x] completed
 **Dependencies**: T-004

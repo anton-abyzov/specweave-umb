@@ -3,8 +3,9 @@
   "name": "appstore-connect-skill",
   "title": "App Store Connect CLI Skill for specweave-mobile",
   "type": "feature",
-  "status": "active",
+  "status": "completed",
   "priority": "high",
   "createdAt": "2026-02-19T00:00:00.000Z",
+  "completedAt": "2026-02-20T00:00:00.000Z",
   "tags": ["mobile", "ios", "app-store", "cli", "automation", "skill"]
 }

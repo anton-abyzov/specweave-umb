@@ -1,6 +1,7 @@
 {
   "id": "0239-fix-external-issue-closure",
-  "status": "active",
+  "status": "completed",
+  "completedAt": "2026-02-20",
   "type": "bugfix",
   "priority": "P1",
   "created": "2026-02-18T12:00:00.000Z",

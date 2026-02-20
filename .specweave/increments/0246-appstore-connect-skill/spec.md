@@ -13,66 +13,66 @@ As a mobile developer, I want an agent to handle the full TestFlight distributio
 
 **Acceptance Criteria:**
 - [x] AC-US1-01: Skill detects `asc` CLI availability and guides installation if missing
-- [ ] AC-US1-02: Skill authenticates via `asc auth status` or guides `asc auth login` setup
-- [ ] AC-US1-03: `--testflight` mode uploads IPA and distributes to specified beta groups
-- [ ] AC-US1-04: Skill handles build processing wait and reports distribution status
-- [ ] AC-US1-05: Skill manages beta testers (add/remove from groups)
+- [x] AC-US1-02: Skill authenticates via `asc auth status` or guides `asc auth login` setup
+- [x] AC-US1-03: `--testflight` mode uploads IPA and distributes to specified beta groups
+- [x] AC-US1-04: Skill handles build processing wait and reports distribution status
+- [x] AC-US1-05: Skill manages beta testers (add/remove from groups)
 
 ### US-002: App Store Submission Workflow
 As a mobile developer, I want an agent to submit my app to the App Store with pre-submission validation so that I avoid common rejection reasons.
 
 **Acceptance Criteria:**
-- [ ] AC-US2-01: `--submit` mode creates App Store version, attaches build, submits for review
-- [ ] AC-US2-02: Pre-submission validation runs `asc validate` before submitting
-- [ ] AC-US2-03: Skill checks metadata completeness (localizations, screenshots, age rating)
-- [ ] AC-US2-04: `--status` mode checks current submission/review status
-- [ ] AC-US2-05: Phased release management (create, pause, resume)
+- [x] AC-US2-01: `--submit` mode creates App Store version, attaches build, submits for review
+- [x] AC-US2-02: Pre-submission validation runs `asc validate` before submitting
+- [x] AC-US2-03: Skill checks metadata completeness (localizations, screenshots, age rating)
+- [x] AC-US2-04: `--status` mode checks current submission/review status
+- [x] AC-US2-05: Phased release management (create, pause, resume)
 
 ### US-003: Build & Metadata Management
 As a mobile developer, I want to manage builds and app metadata from my IDE so that I don't need to context-switch to App Store Connect web.
 
 **Acceptance Criteria:**
-- [ ] AC-US3-01: List/inspect builds with filtering by version and platform
-- [ ] AC-US3-02: Expire old builds (with `--dry-run` safety)
-- [ ] AC-US3-03: Update app metadata (description, keywords, what's new) per locale
-- [ ] AC-US3-04: Upload/manage screenshots and preview videos
-- [ ] AC-US3-05: Manage app categories and pricing
+- [x] AC-US3-01: List/inspect builds with filtering by version and platform
+- [x] AC-US3-02: Expire old builds (with `--dry-run` safety)
+- [x] AC-US3-03: Update app metadata (description, keywords, what's new) per locale
+- [x] AC-US3-04: Upload/manage screenshots and preview videos
+- [x] AC-US3-05: Manage app categories and pricing
 
 ### US-004: Signing & Certificates
 As a mobile developer, I want the agent to help manage signing identities so that I can resolve certificate/profile issues without navigating the web portal.
 
 **Acceptance Criteria:**
-- [ ] AC-US4-01: `asc signing fetch --create-missing` for quick signing setup
-- [ ] AC-US4-02: List/create/revoke certificates
-- [ ] AC-US4-03: List/create/download provisioning profiles
-- [ ] AC-US4-04: Bundle ID management with capabilities
+- [x] AC-US4-01: `asc signing fetch --create-missing` for quick signing setup
+- [x] AC-US4-02: List/create/revoke certificates
+- [x] AC-US4-03: List/create/download provisioning profiles
+- [x] AC-US4-04: Bundle ID management with capabilities
 
 ### US-005: Analytics, Finance & Subscriptions
 As a mobile developer, I want to query app analytics and manage in-app purchases from the CLI so that agents can include data in reports and automate IAP setup.
 
 **Acceptance Criteria:**
-- [ ] AC-US5-01: Download sales reports and analytics data
-- [ ] AC-US5-02: Subscription group and subscription CRUD
-- [ ] AC-US5-03: In-app purchase management
-- [ ] AC-US5-04: Customer review monitoring and response
-- [ ] AC-US5-05: Finance report download by region
+- [x] AC-US5-01: Download sales reports and analytics data
+- [x] AC-US5-02: Subscription group and subscription CRUD
+- [x] AC-US5-03: In-app purchase management
+- [x] AC-US5-04: Customer review monitoring and response
+- [x] AC-US5-05: Finance report download by region
 
 ### US-006: CI/CD Integration (Xcode Cloud & Notarization)
 As a mobile developer, I want agents to trigger Xcode Cloud builds and handle macOS notarization so that delivery pipelines are fully automated.
 
 **Acceptance Criteria:**
-- [ ] AC-US6-01: Trigger Xcode Cloud workflows with `--wait` for completion
-- [ ] AC-US6-02: Check build run status and download artifacts
-- [ ] AC-US6-03: Submit macOS apps for notarization with `--wait`
-- [ ] AC-US6-04: Check notarization status and retrieve logs
+- [x] AC-US6-01: Trigger Xcode Cloud workflows with `--wait` for completion
+- [x] AC-US6-02: Check build run status and download artifacts
+- [x] AC-US6-03: Submit macOS apps for notarization with `--wait`
+- [x] AC-US6-04: Check notarization status and retrieve logs
 
 ### US-007: Workflow Automation
 As a power user, I want to define reusable multi-step workflows so that complex delivery sequences are repeatable.
 
 **Acceptance Criteria:**
-- [ ] AC-US7-01: Document `.asc/workflow.json` usage in the skill
-- [ ] AC-US7-02: Validate, list, and run workflows
-- [ ] AC-US7-03: Support for dry-run mode on all destructive operations
+- [x] AC-US7-01: Document `.asc/workflow.json` usage in the skill
+- [x] AC-US7-02: Validate, list, and run workflows
+- [x] AC-US7-03: Support for dry-run mode on all destructive operations
 
 ## Command Modes
 
