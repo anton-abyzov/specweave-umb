@@ -146,7 +146,7 @@
 ---
 
 ### T-011: Update docs command for umbrella awareness
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [x] completed
 **File**: `src/cli/commands/docs.ts`
 **Test**: Given an umbrella project with child repos -> When `specweave docs preview` runs -> Then serves umbrella-level docs with child repo content in sidebar
 
@@ -159,7 +159,7 @@
 ---
 
 ### T-012: Update project-detector for umbrella mode
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02 | **Status**: [x] completed
 **File**: `src/utils/docs-preview/project-detector.ts`
 **Test**: Given an umbrella project -> When `detectProjectMetadata()` runs -> Then metadata includes umbrella name and categories from child repos
 
@@ -171,7 +171,7 @@
 ## Phase 4: Testing
 
 ### T-013: Write unit tests
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04 | **Status**: [x] completed
 **File**: `tests/unit/core/migration/umbrella-migrator.test.ts`
 **Test**: Given test suite -> When `npm test` runs -> Then all migration tests pass with 80%+ coverage
 
