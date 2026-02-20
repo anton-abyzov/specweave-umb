@@ -56,3 +56,12 @@ As a platform operator, I want scan result webhooks to be authenticated and the 
 - Snyk Code integration (requires org enablement, add later)
 - CodeQL integration (complex setup, add later)
 - Pre-publish blocking (external scans are post-publish async)
+
+## Extended References
+
+<!-- These files extend this spec. Load with: cat docs/architecture.md docs/providers.md docs/evidence.md -->
+<!-- In Claude Code, use: @.specweave/increments/0245-external-sast-scanner-integration/docs/architecture.md -->
+
+@docs/architecture.md
+@docs/providers.md
+@docs/evidence.md
