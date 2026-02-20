@@ -3,7 +3,7 @@ increment: 0247-user-preferences-theme
 title: "Server-Persisted User Preferences (Theme)"
 type: feature
 priority: P1
-status: planned
+status: completed
 created: 2026-02-19
 structure: user-stories
 test_mode: test-after
