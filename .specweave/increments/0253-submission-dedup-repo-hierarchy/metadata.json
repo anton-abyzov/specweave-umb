@@ -3,8 +3,9 @@
   "name": "submission-dedup-repo-hierarchy",
   "title": "Submission Deduplication and Repository Hierarchy",
   "type": "feature",
-  "status": "planned",
+  "status": "completed",
   "priority": "high",
   "createdAt": "2026-02-20T12:15:00Z",
-  "repository": "vskill-platform"
+  "repository": "vskill-platform",
+  "completedAt": "2026-02-20T23:14:55Z"
 }

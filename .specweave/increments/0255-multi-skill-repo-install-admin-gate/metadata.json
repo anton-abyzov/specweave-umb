@@ -1,6 +1,6 @@
 {
   "id": "0255-multi-skill-repo-install-admin-gate",
-  "status": "in-progress",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-20T19:04:50.873Z",
@@ -9,5 +9,6 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "completedAt": "2026-02-20T23:14:55Z"
 }
