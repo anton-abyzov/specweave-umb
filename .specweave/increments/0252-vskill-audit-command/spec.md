@@ -98,8 +98,8 @@ Integrates with SpecWeave via a `/sw:security-scan` skill wrapper.
 
 **Acceptance Criteria**:
 - [x] **AC-US5-01**: `/sw:security-scan` skill wrapper invokes `vskill audit` on the current project
-- [ ] **AC-US5-02**: Results are formatted for SpecWeave consumption and stored in increment reports directory
-- [ ] **AC-US5-03**: Skill respects SpecWeave project context (scans the correct repository in multi-repo setups)
+- [x] **AC-US5-02**: Results are formatted for SpecWeave consumption and stored in increment reports directory
+- [x] **AC-US5-03**: Skill respects SpecWeave project context (scans the correct repository in multi-repo setups)
 
 ## Functional Requirements
 

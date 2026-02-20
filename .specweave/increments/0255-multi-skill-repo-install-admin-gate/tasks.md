@@ -80,7 +80,7 @@
 ## Phase 2: Multi-Skill Install Loop (vskill CLI)
 
 ### T-003: Implement multi-skill discovery + install loop in addCommand
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05, AC-US1-06, AC-US1-07 | **Status**: [ ] Not Started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05, AC-US1-06, AC-US1-07 | **Status**: [x] Completed
 
 **Description**: Wire the discovery module into `addCommand` so that `vskill add owner/repo` discovers and installs all skills.
 
@@ -127,7 +127,7 @@
 ## Phase 3: Queue Admin Gate (vskill-platform)
 
 ### T-004: Gate batch submission form behind isAdmin check [P]
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-05 | **Status**: [ ] Not Started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-05 | **Status**: [x] Completed
 
 **Description**: Wrap the batch submission UI section on the queue page with an `isAdmin` conditional.
 
@@ -162,7 +162,7 @@
 ## Phase 4: Verification
 
 ### T-005: Run full test suite and verify acceptance criteria
-**User Story**: US-001, US-002 | **Satisfies ACs**: All | **Status**: [ ] Not Started
+**User Story**: US-001, US-002 | **Satisfies ACs**: All | **Status**: [x] Completed
 
 **Description**: Run all tests across both projects and verify every AC is satisfied.
 

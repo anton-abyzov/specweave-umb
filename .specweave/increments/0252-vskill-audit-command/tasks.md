@@ -623,6 +623,6 @@
 
 ## Phase 5: Verification
 
-- [ ] [T-060] Run full test suite and verify >= 90% coverage
-- [ ] [T-061] Verify all existing scanner tests still pass
-- [ ] [T-062] Verify all acceptance criteria in spec.md
+- [x] [T-060] Run full test suite and verify >= 90% coverage
+- [x] [T-061] Verify all existing scanner tests still pass
+- [x] [T-062] Verify all acceptance criteria in spec.md

@@ -30,13 +30,13 @@ Two targeted improvements across the vskill ecosystem:
 **So that** I don't have to run separate `add` commands for each skill in a multi-skill repository
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `vskill add owner/repo` (without `--skill`) fetches the GitHub Trees API to discover all `SKILL.md` files (root + `skills/*/SKILL.md`)
-- [ ] **AC-US1-02**: Each discovered SKILL.md is fetched, scanned (blocklist + platform security + tier1), and installed independently
-- [ ] **AC-US1-03**: If any single skill fails the scan, only that skill is skipped; remaining skills are still installed
-- [ ] **AC-US1-04**: Each installed skill gets its own entry in the lockfile with the correct skill name derived from its path (root -> repo name, `skills/foo/SKILL.md` -> `foo`)
-- [ ] **AC-US1-05**: The summary output lists all installed skills with their individual scan verdicts
-- [ ] **AC-US1-06**: `--skill <name>` flag continues to work as before, installing only the specified skill (backward compatible)
-- [ ] **AC-US1-07**: If the repo contains only a root SKILL.md (no `skills/` directory), behavior is identical to current single-skill install
+- [x] **AC-US1-01**: `vskill add owner/repo` (without `--skill`) fetches the GitHub Trees API to discover all `SKILL.md` files (root + `skills/*/SKILL.md`)
+- [x] **AC-US1-02**: Each discovered SKILL.md is fetched, scanned (blocklist + platform security + tier1), and installed independently
+- [x] **AC-US1-03**: If any single skill fails the scan, only that skill is skipped; remaining skills are still installed
+- [x] **AC-US1-04**: Each installed skill gets its own entry in the lockfile with the correct skill name derived from its path (root -> repo name, `skills/foo/SKILL.md` -> `foo`)
+- [x] **AC-US1-05**: The summary output lists all installed skills with their individual scan verdicts
+- [x] **AC-US1-06**: `--skill <name>` flag continues to work as before, installing only the specified skill (backward compatible)
+- [x] **AC-US1-07**: If the repo contains only a root SKILL.md (no `skills/` directory), behavior is identical to current single-skill install
 
 ---
 
@@ -48,11 +48,11 @@ Two targeted improvements across the vskill ecosystem:
 **So that** regular users cannot flood the queue with bulk submissions and the form is only available to trusted operators
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: The "Submit Skills" button and batch submission form on `/queue` are only visible when `isAdmin` is true
-- [ ] **AC-US2-02**: Non-admin authenticated users see the queue list but no batch submission controls
-- [ ] **AC-US2-03**: Unauthenticated users see the queue list but no batch submission controls
-- [ ] **AC-US2-04**: The existing `/submit` page remains available to all authenticated users for individual skill submission (unaffected)
-- [ ] **AC-US2-05**: Admin status is determined by the existing `useAdminStatus` hook (no new auth mechanism needed)
+- [x] **AC-US2-01**: The "Submit Skills" button and batch submission form on `/queue` are only visible when `isAdmin` is true
+- [x] **AC-US2-02**: Non-admin authenticated users see the queue list but no batch submission controls
+- [x] **AC-US2-03**: Unauthenticated users see the queue list but no batch submission controls
+- [x] **AC-US2-04**: The existing `/submit` page remains available to all authenticated users for individual skill submission (unaffected)
+- [x] **AC-US2-05**: Admin status is determined by the existing `useAdminStatus` hook (no new auth mechanism needed)
 
 ## Non-Functional Requirements
 
