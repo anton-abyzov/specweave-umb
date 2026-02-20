@@ -1,0 +1,13 @@
+{
+  "id": "0261-tier1-scanner-verification-gaps",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-02-20T22:59:35.722Z",
+  "lastActivity": "2026-02-20T22:59:35.722Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
