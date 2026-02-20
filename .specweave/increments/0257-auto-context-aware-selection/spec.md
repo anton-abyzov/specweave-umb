@@ -30,11 +30,11 @@ Auto mode currently selects increments via blind filesystem-order first-match. W
 **So that** I don't waste turns working on the wrong increment
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: When user provides free-text prompt to `/sw:auto`, the system scores all active/in-progress increments against the prompt using keyword overlap and selects the best match
-- [ ] **AC-US1-02**: When user provides an explicit increment ID, that ID is used directly (no scoring)
-- [ ] **AC-US1-03**: When only one active increment exists, it is selected without scoring (fast path)
-- [ ] **AC-US1-04**: When no prompt is given and multiple increments are active, the system falls back to most-recent-activity ordering instead of filesystem order
-- [ ] **AC-US1-05**: The selected increment(s) and the reason for selection are logged to `.specweave/logs/auto-sessions.log`
+- [x] **AC-US1-01**: When user provides free-text prompt to `/sw:auto`, the system scores all active/in-progress increments against the prompt using keyword overlap and selects the best match
+- [x] **AC-US1-02**: When user provides an explicit increment ID, that ID is used directly (no scoring)
+- [x] **AC-US1-03**: When only one active increment exists, it is selected without scoring (fast path)
+- [x] **AC-US1-04**: When no prompt is given and multiple increments are active, the system falls back to most-recent-activity ordering instead of filesystem order
+- [x] **AC-US1-05**: The selected increment(s) and the reason for selection are logged to `.specweave/logs/auto-sessions.log`
 
 ---
 
@@ -46,10 +46,10 @@ Auto mode currently selects increments via blind filesystem-order first-match. W
 **So that** the stop hook and other tools can reference why the session was started
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `setup-auto.sh` writes `userGoal` field to `auto-mode.json` from the user's free-text prompt or `--prompt` argument
-- [ ] **AC-US2-02**: When no prompt is provided, `userGoal` is set to `null` (not "optional")
-- [ ] **AC-US2-03**: The `/sw:auto` SKILL.md schema example shows `userGoal` as `null` instead of `"optional"`
-- [ ] **AC-US2-04**: `auto-mode.json` `userGoal` field is populated before the session start banner is displayed
+- [x] **AC-US2-01**: `setup-auto.sh` writes `userGoal` field to `auto-mode.json` from the user's free-text prompt or `--prompt` argument
+- [x] **AC-US2-02**: When no prompt is provided, `userGoal` is set to `null` (not "optional")
+- [x] **AC-US2-03**: The `/sw:auto` SKILL.md schema example shows `userGoal` as `null` instead of `"optional"`
+- [x] **AC-US2-04**: `auto-mode.json` `userGoal` field is populated before the session start banner is displayed
 
 ---
 
@@ -61,10 +61,10 @@ Auto mode currently selects increments via blind filesystem-order first-match. W
 **So that** I can understand at a glance what needs to happen next without reading task files
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Stop hook block message includes the title of the next pending task (first `[ ]` in tasks.md) for each incomplete increment
-- [ ] **AC-US3-02**: When `userGoal` is set in auto-mode.json, the stop hook block message includes it as a "Goal:" line
-- [ ] **AC-US3-03**: Stop hook block message includes a one-line progress summary (e.g., "7/12 tasks complete, 3 ACs remaining")
-- [ ] **AC-US3-04**: The enriched feedback does not increase stop hook execution time by more than 100ms (measured via existing timing infrastructure)
+- [x] **AC-US3-01**: Stop hook block message includes the title of the next pending task (first `[ ]` in tasks.md) for each incomplete increment
+- [x] **AC-US3-02**: When `userGoal` is set in auto-mode.json, the stop hook block message includes it as a "Goal:" line
+- [x] **AC-US3-03**: Stop hook block message includes a one-line progress summary (e.g., "7/12 tasks complete, 3 ACs remaining")
+- [x] **AC-US3-04**: The enriched feedback does not increase stop hook execution time by more than 100ms (measured via existing timing infrastructure)
 
 ---
 
@@ -76,9 +76,9 @@ Auto mode currently selects increments via blind filesystem-order first-match. W
 **So that** the model focuses on the right work first
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: When multiple increments have pending work AND `userGoal` is set, the block message orders increments by relevance to userGoal (keyword match scoring)
-- [ ] **AC-US4-02**: The increment listed first in the block message is the one the model should work on next
-- [ ] **AC-US4-03**: When `userGoal` is null, increments are ordered by pending task count (most work first)
+- [x] **AC-US4-01**: When multiple increments have pending work AND `userGoal` is set, the block message orders increments by relevance to userGoal (keyword match scoring)
+- [x] **AC-US4-02**: The increment listed first in the block message is the one the model should work on next
+- [x] **AC-US4-03**: When `userGoal` is null, increments are ordered by pending task count (most work first)
 
 ## Functional Requirements
 
