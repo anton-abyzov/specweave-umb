@@ -29,6 +29,7 @@
     "preset": "bidirectional",
     "autoSync": true,
     "settings": {
+      "canUpsertInternalItems": true,
       "canUpdateExternalItems": true,
       "canUpdateStatus": true,
       "autoSyncOnCompletion": true

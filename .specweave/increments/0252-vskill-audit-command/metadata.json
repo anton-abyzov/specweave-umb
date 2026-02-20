@@ -1,0 +1,13 @@
+{
+  "id": "0252-vskill-audit-command",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-20T18:31:01.965Z",
+  "lastActivity": "2026-02-20T18:31:01.965Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
