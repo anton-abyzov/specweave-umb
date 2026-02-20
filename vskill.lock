@@ -1,7 +1,17 @@
 {
   "version": 1,
-  "agents": [],
-  "skills": {},
+  "agents": [
+    "claude-code"
+  ],
+  "skills": {
+    "sw": {
+      "version": "1.0.225",
+      "sha": "89f9f4b0df07",
+      "tier": "BUNDLED",
+      "installedAt": "2026-02-20T01:00:16.984Z",
+      "source": "local:specweave"
+    }
+  },
   "createdAt": "2026-02-19T03:13:28.638Z",
-  "updatedAt": "2026-02-19T03:43:44.105Z"
+  "updatedAt": "2026-02-20T01:00:16.984Z"
 }
