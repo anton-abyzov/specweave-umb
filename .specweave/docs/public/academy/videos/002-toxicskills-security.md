@@ -278,7 +278,8 @@ SpecWeave's defense model: automated scanning (26 patterns) + LLM behavioral rev
 ## Related Videos
 
 - **Previous**: [001 - SpecWeave Complete Masterclass](./001-specweave-complete-masterclass.md)
-- **Next**: [003 - TBD]
+- **Next**: [003 - ClawHub Postmortem](./003-clawhub-postmortem.md) — Deep dive with visual evidence of the attack
+- **See also**: [Why Verified Skill Matters](../../guides/why-verified-skill-matters.md) — Public guide with full ClawHub evidence
 - **See also**: [Skills Ecosystem Security Guide](https://spec-weave.com/docs/guides/skills-ecosystem-security)
 
 ---

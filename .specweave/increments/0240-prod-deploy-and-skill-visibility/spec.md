@@ -10,23 +10,23 @@ Production site (verified-skill.com/skills) shows only **15 skills**, but seed-d
 As a visitor, I should see all 89 seed skills on /skills.
 
 **Acceptance Criteria:**
-- [ ] AC-US1-01: Production shows 89+ skills on /skills page
-- [ ] AC-US1-02: Homepage shows correct total count
-- [ ] AC-US1-03: All vendors represented (Anthropic 16, OpenAI 32, Google 20, Community 21)
+- [x] AC-US1-01: Production shows 89+ skills on /skills page
+- [x] AC-US1-02: Homepage shows correct total count
+- [x] AC-US1-03: All vendors represented (Anthropic 16, OpenAI 32, Google 20, Community 21)
 
 ### US-002: Submitted skills appear in registry
 As a submitter, PUBLISHED skills should appear on /skills.
 
 **Acceptance Criteria:**
-- [ ] AC-US2-01: KV published skills appear in /skills listing
-- [ ] AC-US2-02: KV published skills show as VERIFIED tier
+- [x] AC-US2-01: KV published skills appear in /skills listing
+- [x] AC-US2-02: KV published skills show as VERIFIED tier
 
 ### US-003: Auto-deploy on push
 As a developer, pushing to main should deploy to Cloudflare automatically.
 
 **Acceptance Criteria:**
-- [ ] AC-US3-01: Local post-push git hook runs `npm run deploy` for vskill-platform
-- [ ] AC-US3-02: Deploy goes directly to Cloudflare Workers (no CI cost)
+- [x] AC-US3-01: Local post-push git hook runs `npm run deploy` for vskill-platform
+- [x] AC-US3-02: Deploy goes directly to Cloudflare Workers (no CI cost)
 
 ## Root Cause
 

@@ -1,0 +1,9 @@
+{
+  "id": "0241",
+  "name": "fix-plugin-install-self-sufficient",
+  "type": "hotfix",
+  "status": "active",
+  "priority": "critical",
+  "createdAt": "2026-02-19T12:00:00.000Z",
+  "description": "Fix broken plugin installation by replacing vskill CLI dependency with inline first-party plugin copier"
+}

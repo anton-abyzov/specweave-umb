@@ -1,0 +1,11 @@
+{
+  "id": "0242",
+  "name": "malicious-skills-registry",
+  "title": "Malicious Skills Registry & Security Audits Dashboard",
+  "status": "active",
+  "type": "feature",
+  "priority": "high",
+  "created": "2026-02-19",
+  "repo": "vskill-platform",
+  "description": "Public security audits dashboard, malicious skills blocklist, installation prevention, and cross-platform scanning for verified-skill.com"
+}

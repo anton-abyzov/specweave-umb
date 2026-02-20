@@ -1,0 +1,11 @@
+{
+  "id": "0245",
+  "name": "external-sast-scanner-integration",
+  "type": "feature",
+  "status": "active",
+  "createdAt": "2026-02-19T17:30:00Z",
+  "repositories": [
+    "repositories/anton-abyzov/vskill-platform",
+    "repositories/anton-abyzov/vskill"
+  ]
+}
