@@ -9,7 +9,7 @@
     "suggestOnly": false
   },
   "multiProject": {
-    "enabled": false
+    "enabled": true
   },
   "billing": {
     "planType": "subscription",

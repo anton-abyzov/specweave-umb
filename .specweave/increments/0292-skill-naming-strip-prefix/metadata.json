@@ -1,0 +1,14 @@
+{
+  "id": "0292-skill-naming-strip-prefix",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-21T16:58:31.252Z",
+  "lastActivity": "2026-02-21T16:58:31.252Z",
+  "completedAt": "2026-02-21",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

@@ -1,0 +1,18 @@
+{
+  "id": "0295-multi-repo-docs-restructuring",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-21T17:35:37.333Z",
+  "lastActivity": "2026-02-21T18:55:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "github": {
+    "issue": 1233,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1233",
+    "synced": "2026-02-21T17:39:04.593Z"
+  }
+}

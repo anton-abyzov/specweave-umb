@@ -1,0 +1,31 @@
+{
+  "id": "0294-skill-page-agent-pills",
+  "status": "completed",
+  "completedAt": "2026-02-21",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-21T17:01:04.935Z",
+  "lastActivity": "2026-02-21T17:01:04.935Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1231,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1231",
+        "createdAt": "2026-02-21T17:02:22.476Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1232,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1232",
+        "createdAt": "2026-02-21T17:02:28.907Z"
+      }
+    ],
+    "lastSync": "2026-02-21T17:02:28.907Z"
+  }
+}
