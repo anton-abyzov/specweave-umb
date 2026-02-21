@@ -1,7 +1,7 @@
 ---
 id: US-001
 feature: FS-275
-title: GitHub Issues Auto-Close When status:complete Label Applied
+title: "GitHub Issues Auto-Close When status:complete Label Applied"
 status: complete
 priority: P1
 created: 2026-02-21

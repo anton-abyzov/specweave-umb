@@ -1,12 +1,12 @@
 ---
 id: FS-275
-title: Auto-Close External Issues on status:complete Sync
+title: "Auto-Close External Issues on status:complete Sync"
 type: feature
 status: planning
 priority: P1
 created: 2026-02-21
 lastUpdated: 2026-02-21
-tldr: Auto-Close External Issues on status:complete Sync
+tldr: "Auto-Close External Issues on status:complete Sync"
 complexity: medium
 auto_created: true
 external_tools:
