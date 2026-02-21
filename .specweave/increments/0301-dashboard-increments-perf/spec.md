@@ -26,8 +26,8 @@ The `/api/increments` endpoint is extremely slow for projects with 300+ incremen
 **So that** I can view and filter my project status without long wait times
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: In-memory TTL cache for increment data with configurable TTL (default 30s), matching the analytics cache pattern
-- [ ] **AC-US1-02**: Synchronous filesystem reads (`readFileSync`, `readdirSync`, `existsSync`, `statSync`) in `scanIncrementsFromFilesystem()` converted to async equivalents (`readFile`, `readdir`, `stat`, `access`)
+- [x] **AC-US1-01**: In-memory TTL cache for increment data with configurable TTL (default 30s), matching the analytics cache pattern
+- [x] **AC-US1-02**: Synchronous filesystem reads (`readFileSync`, `readdirSync`, `existsSync`, `statSync`) in `scanIncrementsFromFilesystem()` converted to async equivalents (`readFile`, `readdir`, `stat`, `access`)
 - [ ] **AC-US1-03**: `getOverview()` reuses cached increment scan results from `getIncrements()` instead of performing a duplicate filesystem scan
 - [ ] **AC-US1-04**: Response time for `/api/increments` with 300 increments under 200ms on cache hit, under 2000ms on cold scan
 
