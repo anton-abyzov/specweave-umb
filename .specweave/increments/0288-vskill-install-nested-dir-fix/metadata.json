@@ -1,0 +1,9 @@
+{
+  "id": "0288",
+  "slug": "vskill-install-nested-dir-fix",
+  "title": "Fix vskill install nested directory bug",
+  "status": "in_progress",
+  "createdAt": "2026-02-21T00:00:00.000Z",
+  "updatedAt": "2026-02-21T00:00:00.000Z",
+  "testing": { "defaultTestMode": "TDD" }
+}
