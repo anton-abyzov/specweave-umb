@@ -2,7 +2,8 @@
   "id": "0269",
   "name": "remotion-hero-animation",
   "type": "feature",
-  "status": "active",
+  "status": "completed",
   "created": "2026-02-21",
+  "completedAt": "2026-02-21",
   "priority": "medium"
 }

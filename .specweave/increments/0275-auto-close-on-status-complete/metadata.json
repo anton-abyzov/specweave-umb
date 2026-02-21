@@ -1,0 +1,13 @@
+{
+  "id": "0275-auto-close-on-status-complete",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-02-21T06:34:49.755Z",
+  "lastActivity": "2026-02-21T06:34:49.755Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

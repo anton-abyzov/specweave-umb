@@ -29,11 +29,11 @@ Two UX improvements to `vskill install`:
 **So that** skills are installed in the correct location (e.g., `.claude/commands/` at the project root) instead of relative to my current working directory
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: When running `vskill install` from a subdirectory (e.g., `src/components/`), the CLI walks up the directory tree to find the project root by looking for marker files (`.git/`, `package.json`, `Cargo.toml`, `go.mod`, `pyproject.toml`, `.specweave/`, `vskill.lock`)
-- [ ] **AC-US1-02**: When a project root is found, local skills install to `<project-root>/<agent.localSkillsDir>` instead of `<cwd>/<agent.localSkillsDir>`
-- [ ] **AC-US1-03**: When no project root is found (walking up to filesystem root), fall back to `cwd` (current behavior) and print a warning
-- [ ] **AC-US1-04**: A `--cwd` flag allows the user to override the auto-detected root and force install relative to cwd
-- [ ] **AC-US1-05**: The detected project root is printed in the install output so the user can see where files were installed
+- [x] **AC-US1-01**: When running `vskill install` from a subdirectory (e.g., `src/components/`), the CLI walks up the directory tree to find the project root by looking for marker files (`.git/`, `package.json`, `Cargo.toml`, `go.mod`, `pyproject.toml`, `.specweave/`, `vskill.lock`)
+- [x] **AC-US1-02**: When a project root is found, local skills install to `<project-root>/<agent.localSkillsDir>` instead of `<cwd>/<agent.localSkillsDir>`
+- [x] **AC-US1-03**: When no project root is found (walking up to filesystem root), fall back to `cwd` (current behavior) and print a warning
+- [x] **AC-US1-04**: A `--cwd` flag allows the user to override the auto-detected root and force install relative to cwd
+- [x] **AC-US1-05**: The detected project root is printed in the install output so the user can see where files were installed
 
 ---
 
@@ -45,11 +45,11 @@ Two UX improvements to `vskill install`:
 **So that** I can keep my agents' skill sets separate and avoid polluting agents I don't use for a project
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `--agent <id>` flag limits installation to the specified agent only (e.g., `--agent claude-code`)
-- [ ] **AC-US2-02**: `--agent` can be specified multiple times to target several agents (e.g., `--agent claude-code --agent cursor`)
-- [ ] **AC-US2-03**: If a specified agent is not detected/installed, print an error listing available agents and exit with code 1
-- [ ] **AC-US2-04**: Without `--agent`, default behavior is unchanged (install to all detected agents)
-- [ ] **AC-US2-05**: `--agent` works with both GitHub installs, registry installs, and plugin installs
+- [x] **AC-US2-01**: `--agent <id>` flag limits installation to the specified agent only (e.g., `--agent claude-code`)
+- [x] **AC-US2-02**: `--agent` can be specified multiple times to target several agents (e.g., `--agent claude-code --agent cursor`)
+- [x] **AC-US2-03**: If a specified agent is not detected/installed, print an error listing available agents and exit with code 1
+- [x] **AC-US2-04**: Without `--agent`, default behavior is unchanged (install to all detected agents)
+- [x] **AC-US2-05**: `--agent` works with both GitHub installs, registry installs, and plugin installs
 
 ## Functional Requirements
 

@@ -1,0 +1,14 @@
+{
+  "id": "0274-extensible-skills-filter",
+  "status": "completed",
+  "completedAt": "2026-02-21",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-21T06:22:04.961Z",
+  "lastActivity": "2026-02-21T06:22:04.961Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

@@ -1,6 +1,7 @@
 {
   "id": "0270-auto-close-increments",
-  "status": "planned",
+  "status": "completed",
+  "completedAt": "2026-02-21T12:00:00.000Z",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-21T05:54:23.374Z",

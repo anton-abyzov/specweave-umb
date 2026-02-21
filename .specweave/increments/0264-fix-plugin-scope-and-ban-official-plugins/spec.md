@@ -31,11 +31,11 @@ The scope guard is also broken: it uninstalls from user scope, then re-runs `ins
 
 ## Acceptance Criteria
 
-- [ ] AC-01: `install_plugin_direct()` installs to `${SW_PROJECT_ROOT}/.claude/commands/${plugin}` (project scope)
-- [ ] AC-02: `OFFICIAL_PLUGINS` constant removed from `llm-plugin-detector.ts`; `ALL_VALID_PLUGINS` contains only specweave plugins
-- [ ] AC-03: Detection prompt in `buildDetectionPrompt()` contains no official plugin suggestions (no gitlab, firebase, slack, etc.)
-- [ ] AC-04: Hook's `claude-plugins-official` auto-install branch removed
-- [ ] AC-05: Scope guard uninstalls `*@claude-plugins-official` from both user and project settings without reinstalling
-- [ ] AC-06: `~/.claude/settings.json` has sw-github and sw-jira removed from enabledPlugins
-- [ ] AC-07: vskill is tried first (via node + resolved path) before falling back to direct copy
-- [ ] AC-08: Tests pass; no test references official plugins as valid auto-install targets
+- [x] AC-01: `install_plugin_direct()` installs to `${SW_PROJECT_ROOT}/.claude/commands/${plugin}` (project scope)
+- [x] AC-02: `OFFICIAL_PLUGINS` constant removed from `llm-plugin-detector.ts`; `ALL_VALID_PLUGINS` contains only specweave plugins
+- [x] AC-03: Detection prompt in `buildDetectionPrompt()` contains no official plugin suggestions (no gitlab, firebase, slack, etc.)
+- [x] AC-04: Hook's `claude-plugins-official` auto-install branch removed
+- [x] AC-05: Scope guard uninstalls `*@claude-plugins-official` from both user and project settings without reinstalling
+- [x] AC-06: `~/.claude/settings.json` has sw-github and sw-jira removed from enabledPlugins
+- [x] AC-07: vskill is tried first (via node + resolved path) before falling back to direct copy
+- [x] AC-08: Tests pass; no test references official plugins as valid auto-install targets

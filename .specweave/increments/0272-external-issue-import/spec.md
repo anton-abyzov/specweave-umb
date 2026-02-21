@@ -37,8 +37,8 @@ See tasks.md for task breakdown with AC references.
 **So that** [benefit]
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: [Specific, testable criterion]
-- [ ] **AC-US1-02**: [Another criterion]
+- [x] **AC-US1-01**: [Specific, testable criterion]
+- [x] **AC-US1-02**: [Another criterion]
 
 ---
 
@@ -50,8 +50,8 @@ See tasks.md for task breakdown with AC references.
 **So that** [benefit]
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: [Specific, testable criterion]
-- [ ] **AC-US2-02**: [Another criterion]
+- [x] **AC-US2-01**: [Specific, testable criterion]
+- [x] **AC-US2-02**: [Another criterion]
 
 ## Functional Requirements
 

@@ -3,7 +3,7 @@ increment: 0270-auto-close-increments
 title: "Auto-Close Increments in Auto/Team-Lead Modes"
 type: feature
 priority: P1
-status: planned
+status: completed
 created: 2026-02-21
 structure: user-stories
 test_mode: test-after
@@ -32,10 +32,10 @@ This increment fixes all three gaps so that auto and team-lead modes produce ful
 **So that** Claude receives a systemMessage instructing it to run `/sw:done` and the session does not silently end with an unclosed increment
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: When all tasks and ACs are complete, stop-auto-v5.sh emits `{"decision":"block"}` with a systemMessage containing `/sw:done`
-- [ ] **AC-US1-02**: The block message includes the increment ID(s) that need closure
-- [ ] **AC-US1-03**: Session state files (auto-mode.json, turn counter) are NOT cleaned up on all-complete block -- they are only cleaned up after /sw:done succeeds or turn limit is hit
-- [ ] **AC-US1-04**: A dedicated reason code `"all_complete_needs_closure"` is used so it is distinguishable from `"work_remaining"` blocks
+- [x] **AC-US1-01**: When all tasks and ACs are complete, stop-auto-v5.sh emits `{"decision":"block"}` with a systemMessage containing `/sw:done`
+- [x] **AC-US1-02**: The block message includes the increment ID(s) that need closure
+- [x] **AC-US1-03**: Session state files (auto-mode.json, turn counter) are NOT cleaned up on all-complete block -- they are only cleaned up after /sw:done succeeds or turn limit is hit
+- [x] **AC-US1-04**: A dedicated reason code `"all_complete_needs_closure"` is used so it is distinguishable from `"work_remaining"` blocks
 
 ---
 
@@ -47,10 +47,10 @@ This increment fixes all three gaps so that auto and team-lead modes produce ful
 **So that** increments can be closed programmatically in unattended sessions
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `/sw:done <id> --auto` skips the "yes to close, no to cancel" confirmation prompt in Step 4
-- [ ] **AC-US2-02**: All other validation gates (grill, judge-llm, Gate 0, PM gates) still execute normally
-- [ ] **AC-US2-03**: The `--auto` flag is documented in the skill's Usage section
-- [ ] **AC-US2-04**: When grill or judge-llm finds BLOCKERs/CRITICALs, `--auto` mode still blocks (does not auto-override safety gates)
+- [x] **AC-US2-01**: `/sw:done <id> --auto` skips the "yes to close, no to cancel" confirmation prompt in Step 4
+- [x] **AC-US2-02**: All other validation gates (grill, judge-llm, Gate 0, PM gates) still execute normally
+- [x] **AC-US2-03**: The `--auto` flag is documented in the skill's Usage section
+- [x] **AC-US2-04**: When grill or judge-llm finds BLOCKERs/CRITICALs, `--auto` mode still blocks (does not auto-override safety gates)
 
 ---
 
@@ -62,9 +62,9 @@ This increment fixes all three gaps so that auto and team-lead modes produce ful
 **So that** increments are automatically closed at the end of autonomous sessions
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: The `/sw:auto` SKILL.md Step 3 includes explicit instruction to run `/sw:done --auto <id>` when all tasks are complete
-- [ ] **AC-US3-02**: After `/sw:done` succeeds, the auto session cleans up state files and emits `<!-- auto-complete:DONE -->`
-- [ ] **AC-US3-03**: If `/sw:done` fails (gate failure), the auto session reports the failure and does NOT clean up session state
+- [x] **AC-US3-01**: The `/sw:auto` SKILL.md Step 3 includes explicit instruction to run `/sw:done --auto <id>` when all tasks are complete
+- [x] **AC-US3-02**: After `/sw:done` succeeds, the auto session cleans up state files and emits `<!-- auto-complete:DONE -->`
+- [x] **AC-US3-03**: If `/sw:done` fails (gate failure), the auto session reports the failure and does NOT clean up session state
 
 ---
 
@@ -76,9 +76,9 @@ This increment fixes all three gaps so that auto and team-lead modes produce ful
 **So that** team-lead sessions produce fully closed increments without manual `/sw:done` invocation
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: The team-lead SKILL.md Section 8 (Quality Gates > Orchestrator Quality Gate) includes an explicit step to run `/sw:done --auto <id>` for each increment in dependency order
-- [ ] **AC-US4-02**: The `/sw:team-merge` skill runs `/sw:done --auto <id>` instead of bare `/sw:done <id>` in Step 4
-- [ ] **AC-US4-03**: If any `/sw:done --auto` fails, team-lead reports the failure and continues with remaining increments
+- [x] **AC-US4-01**: The team-lead SKILL.md Section 8 (Quality Gates > Orchestrator Quality Gate) includes an explicit step to run `/sw:done --auto <id>` for each increment in dependency order
+- [x] **AC-US4-02**: The `/sw:team-merge` skill runs `/sw:done --auto <id>` instead of bare `/sw:done <id>` in Step 4
+- [x] **AC-US4-03**: If any `/sw:done --auto` fails, team-lead reports the failure and continues with remaining increments
 
 ## Functional Requirements
 

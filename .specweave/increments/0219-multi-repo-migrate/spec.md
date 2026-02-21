@@ -113,7 +113,7 @@ The umbrella `config.json` references the original project by relative path:
 - [x] **AC-US4-01**: `specweave docs preview` works correctly from an umbrella root, serving `.specweave/docs/internal/` at the umbrella level
 - [x] **AC-US4-02**: Documentation sidebar aggregates child repo docs when child repos have their own `.specweave/docs/`
 - [x] **AC-US4-03**: `specweave docs status` shows umbrella docs summary including child repo doc counts
-- [ ] **AC-US4-04**: SpecWeave's own `docs-site/` remains untouched (product website concern, not framework concern)
+- [x] **AC-US4-04**: SpecWeave's own `docs-site/` remains untouched (product website concern, not framework concern)
 
 ---
 

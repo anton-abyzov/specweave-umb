@@ -69,10 +69,10 @@ The `remotion-best-practices` skill is already installed in the project, providi
 **so that** I can preview and render the hero video.
 
 **Acceptance Criteria:**
-- [ ] AC-US1-01: Remotion dependencies installed (`remotion`, `@remotion/cli`, `@remotion/bundler`)
-- [ ] AC-US1-02: `remotion/` directory created with `Root.tsx` and composition registration
-- [ ] AC-US1-03: `npx remotion preview` shows the composition in the Remotion Studio
-- [ ] AC-US1-04: `npm run remotion:preview` script added to `package.json`
+- [x] AC-US1-01: Remotion dependencies installed (`remotion`, `@remotion/cli`, `@remotion/bundler`)
+- [x] AC-US1-02: `remotion/` directory created with `Root.tsx` and composition registration
+- [x] AC-US1-03: `npx remotion preview` shows the composition in the Remotion Studio
+- [x] AC-US1-04: `npm run remotion:preview` script added to `package.json`
 
 ### US-002: 5-Scene Composition
 **As a** viewer,
@@ -80,13 +80,13 @@ The `remotion-best-practices` skill is already installed in the project, providi
 **so that** I understand why V-Skills matter.
 
 **Acceptance Criteria:**
-- [ ] AC-US2-01: Scene 1 displays 36.82% statistic with floating threat snippets
-- [ ] AC-US2-02: Scene 2 shows scanning animation with green scan line and BLOCKED result
-- [ ] AC-US2-03: Scene 3 presents three tiers with bouncy badge animations
-- [ ] AC-US2-04: Scene 4 shows terminal typewriter with `npx vskill add` flow
-- [ ] AC-US2-05: Scene 5 shows SpecWeave wordmark with "Ship safely" tagline
-- [ ] AC-US2-06: Scene transitions use opacity crossfades (30 frame overlap)
-- [ ] AC-US2-07: Spring physics used for badge/card entrances, typewriter for terminal text
+- [x] AC-US2-01: Scene 1 displays 36.82% statistic with floating threat snippets
+- [x] AC-US2-02: Scene 2 shows scanning animation with green scan line and BLOCKED result
+- [x] AC-US2-03: Scene 3 presents three tiers with bouncy badge animations
+- [x] AC-US2-04: Scene 4 shows terminal typewriter with `npx vskill add` flow
+- [x] AC-US2-05: Scene 5 shows SpecWeave wordmark with "Ship safely" tagline
+- [x] AC-US2-06: Scene transitions use opacity crossfades (30 frame overlap)
+- [x] AC-US2-07: Spring physics used for badge/card entrances, typewriter for terminal text
 
 ### US-003: Video Render & Homepage Integration
 **As a** homepage visitor,
@@ -94,11 +94,11 @@ The `remotion-best-practices` skill is already installed in the project, providi
 **so that** the security story plays as I browse.
 
 **Acceptance Criteria:**
-- [ ] AC-US3-01: Video rendered to MP4 (H.264) and WebM
-- [ ] AC-US3-02: `npm run remotion:render` script produces output
-- [ ] AC-US3-03: Video embedded in homepage with `autoPlay muted loop playsInline`
-- [ ] AC-US3-04: Fallback poster image for browsers without autoplay
-- [ ] AC-US3-05: Video file committed to `static/video/` (or CDN if too large)
+- [x] AC-US3-01: Video rendered to MP4 (H.264) and WebM
+- [x] AC-US3-02: `npm run remotion:render` script produces output
+- [x] AC-US3-03: Video embedded in homepage with `autoPlay muted loop playsInline`
+- [x] AC-US3-04: Fallback poster image for browsers without autoplay
+- [x] AC-US3-05: Video file committed to `static/video/` (or CDN if too large)
 
 ## Out of Scope
 

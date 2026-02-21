@@ -28,12 +28,12 @@ This is SEPARATE from the existing SecurityReport model, which handles security 
 **So that** I can quickly flag bugs, request features, or report content issues with relevant context pre-filled
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: A "Report a problem" button is visible on each skill detail page
-- [ ] **AC-US1-02**: Clicking the button opens a modal form (client-side) pre-filled with the skill name
-- [ ] **AC-US1-03**: The modal requires authentication -- unauthenticated users see a "Login to report" prompt
-- [ ] **AC-US1-04**: The form includes: type selector (BUG, FEATURE_REQUEST, CONTENT_ISSUE, OTHER), title (required, max 200 chars), description (required, max 5000 chars)
-- [ ] **AC-US1-05**: On successful submission, the modal shows a confirmation message and closes
-- [ ] **AC-US1-06**: Validation errors are displayed inline in the form
+- [x] **AC-US1-01**: A "Report a problem" button is visible on each skill detail page
+- [x] **AC-US1-02**: Clicking the button opens a modal form (client-side) pre-filled with the skill name
+- [x] **AC-US1-03**: The modal requires authentication -- unauthenticated users see a "Login to report" prompt
+- [x] **AC-US1-04**: The form includes: type selector (BUG, FEATURE_REQUEST, CONTENT_ISSUE, OTHER), title (required, max 200 chars), description (required, max 5000 chars)
+- [x] **AC-US1-05**: On successful submission, the modal shows a confirmation message and closes
+- [x] **AC-US1-06**: Validation errors are displayed inline in the form
 
 ---
 
@@ -45,12 +45,12 @@ This is SEPARATE from the existing SecurityReport model, which handles security 
 **So that** I can report general platform issues or problems not tied to a specific skill
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: A `/report` page exists and is accessible from site navigation
-- [ ] **AC-US2-02**: The page requires authentication -- redirects or shows login prompt for unauthenticated users
-- [ ] **AC-US2-03**: The form includes an optional skill selector dropdown (fetches published skills)
-- [ ] **AC-US2-04**: The form includes: type selector, title, description (same validation as modal)
-- [ ] **AC-US2-05**: On successful submission, a confirmation message is shown
-- [ ] **AC-US2-06**: If navigated to with `?skill=<name>` query param, the skill is pre-selected
+- [x] **AC-US2-01**: A `/report` page exists and is accessible from site navigation
+- [x] **AC-US2-02**: The page requires authentication -- redirects or shows login prompt for unauthenticated users
+- [x] **AC-US2-03**: The form includes an optional skill selector dropdown (fetches published skills)
+- [x] **AC-US2-04**: The form includes: type selector, title, description (same validation as modal)
+- [x] **AC-US2-05**: On successful submission, a confirmation message is shown
+- [x] **AC-US2-06**: If navigated to with `?skill=<name>` query param, the skill is pre-selected
 
 ---
 
@@ -62,11 +62,11 @@ This is SEPARATE from the existing SecurityReport model, which handles security 
 **So that** I can track whether my feedback has been acknowledged or resolved
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: A "My Reports" page exists at `/report/my-reports`
-- [ ] **AC-US3-02**: The page lists all reports submitted by the current user, ordered by newest first
-- [ ] **AC-US3-03**: Each report shows: title, type, skill name (if any), status (OPEN, IN_REVIEW, RESOLVED, CLOSED), creation date
-- [ ] **AC-US3-04**: Reports are paginated (20 per page)
-- [ ] **AC-US3-05**: The page requires authentication
+- [x] **AC-US3-01**: A "My Reports" page exists at `/report/my-reports`
+- [x] **AC-US3-02**: The page lists all reports submitted by the current user, ordered by newest first
+- [x] **AC-US3-03**: Each report shows: title, type, skill name (if any), status (OPEN, IN_REVIEW, RESOLVED, CLOSED), creation date
+- [x] **AC-US3-04**: Reports are paginated (20 per page)
+- [x] **AC-US3-05**: The page requires authentication
 
 ---
 
@@ -78,9 +78,9 @@ This is SEPARATE from the existing SecurityReport model, which handles security 
 **So that** I can triage and respond to user feedback promptly
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: An email is sent to the configured admin address on each new report submission
-- [ ] **AC-US4-02**: The email includes: report title, type, skill name (if any), reporter username, and a link to the admin dashboard
-- [ ] **AC-US4-03**: Email sending is best-effort and does not block the submission response
+- [x] **AC-US4-01**: An email is sent to the configured admin address on each new report submission
+- [x] **AC-US4-02**: The email includes: report title, type, skill name (if any), reporter username, and a link to the admin dashboard
+- [x] **AC-US4-03**: Email sending is best-effort and does not block the submission response
 
 ## Functional Requirements
 

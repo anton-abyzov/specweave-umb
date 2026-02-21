@@ -1,13 +1,37 @@
 {
   "id": "0271-fix-external-sync-pipeline",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-02-21T06:09:03.352Z",
   "lastActivity": "2026-02-21T06:09:03.352Z",
+  "completedAt": "2026-02-21",
   "testMode": "test-after",
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1199,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1199",
+        "createdAt": "2026-02-21T06:51:01.240Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1200,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1200",
+        "createdAt": "2026-02-21T06:51:06.581Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1201,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1201",
+        "createdAt": "2026-02-21T06:51:12.066Z"
+      }
+    ],
+    "lastSync": "2026-02-21T06:51:12.066Z"
+  }
 }

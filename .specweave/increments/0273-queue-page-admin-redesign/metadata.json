@@ -1,0 +1,12 @@
+{
+  "id": "0273-queue-page-admin-redesign",
+  "title": "Queue Page Admin Dashboard Redesign",
+  "description": "Redesign /queue page from card-based grouped layout to information-dense table view with clickable stat card filters, Prisma-backed full-text search, GitHub links, queue status bar, pagination, and keyboard shortcuts.",
+  "type": "feature",
+  "priority": "P1",
+  "status": "completed",
+  "project": "vskill-platform",
+  "createdAt": "2026-02-21T00:00:00Z",
+  "updatedAt": "2026-02-21T00:00:00Z",
+  "completedAt": "2026-02-21T00:00:00Z"
+}

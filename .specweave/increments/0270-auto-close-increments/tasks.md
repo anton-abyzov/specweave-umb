@@ -3,7 +3,7 @@
 ## Phase 1: Stop Hook Change
 
 ### T-001: Change stop-auto-v5.sh all-complete path from approve to block
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04 | **Status**: [x] completed
 **Test**: Given an active auto session with all tasks/ACs complete -> When the stop hook fires -> Then it emits `{"decision":"block"}` with reason code `all_complete_needs_closure` and a systemMessage containing `/sw:done --auto` and the increment ID(s)
 
 **Implementation Details**:
@@ -18,7 +18,7 @@
 ---
 
 ### T-002: Update stop-auto-v5 integration tests
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-04 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-04 | **Status**: [x] completed
 **Test**: Given the updated stop-auto-v5.sh -> When running the test suite -> Then all tests pass including the new all-complete-blocks-for-closure test
 
 **Implementation Details**:
@@ -35,7 +35,7 @@
 ## Phase 2: /sw:done --auto Flag
 
 ### T-003: Add --auto flag to /sw:done SKILL.md
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [x] completed
 **Test**: Given the updated done SKILL.md -> When reading it -> Then it documents `--auto` in argument-hint and Options, and Step 4 conditionally skips user confirmation when `--auto` is present
 
 **Implementation Details**:
@@ -51,7 +51,7 @@
 ## Phase 3: Auto Skill Closure Loop
 
 ### T-004: Add closure step to /sw:auto SKILL.md
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] completed
 **Test**: Given the updated auto SKILL.md -> When reading Step 3 -> Then it contains explicit instructions to run `/sw:done --auto <id>` after all tasks complete, handle success/failure, and clean up session state
 
 **Implementation Details**:
@@ -68,7 +68,7 @@
 ## Phase 4: Team-Lead Auto-Close
 
 ### T-005: Add auto-close step to /sw:team-lead SKILL.md
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-03 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-03 | **Status**: [x] completed
 **Test**: Given the updated team-lead SKILL.md -> When reading Section 8 -> Then it contains an explicit step to run `/sw:done --auto <id>` in dependency order after quality gates pass
 
 **Implementation Details**:
@@ -82,7 +82,7 @@
 ---
 
 ### T-006: Update /sw:team-merge to use --auto flag
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-02 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-02 | **Status**: [x] completed
 **Test**: Given the updated team-merge SKILL.md -> When reading Step 4 -> Then it uses `/sw:done --auto <id>` instead of bare `/sw:done <id>`
 
 **Implementation Details**:
@@ -96,7 +96,7 @@
 ## Phase 5: Sync Mirror Copies
 
 ### T-007: Sync all changes to mirror directories
-**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: all | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: all | **Status**: [x] completed
 **Test**: Given all source changes are made -> When running rebuild/sync -> Then all mirror directories (.claude, .cursor, .kiro, .pi, .windsurf, .antigravity, node_modules/specweave) contain the updated files
 
 **Implementation Details**:

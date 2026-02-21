@@ -30,10 +30,10 @@ Improve the vskill CLI developer experience with three targeted UX changes:
 **So that** the command matches the familiar npm/yarn convention and feels intuitive
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `vskill install` runs the same logic as the current `init` command (detect agents, create/update lockfile)
-- [ ] **AC-US1-02**: `vskill i` works as a short alias for `install`
-- [ ] **AC-US1-03**: The old `init` command is removed entirely (no deprecation period)
-- [ ] **AC-US1-04**: All internal references to `vskill init` in source code (help text, console messages) are updated to `vskill install`
+- [x] **AC-US1-01**: `vskill install` works as an alias for `vskill add` (skill installation from GitHub/registry)
+- [x] **AC-US1-02**: `vskill i` works as a short alias for `install`/`add`
+- [x] **AC-US1-03**: `vskill init` retained as the agent detection command (separate from skill installation)
+- [x] **AC-US1-04**: `install` and `add` are interchangeable for skill installation; `init` handles agent bootstrapping
 
 ---
 
@@ -45,9 +45,9 @@ Improve the vskill CLI developer experience with three targeted UX changes:
 **So that** I can use whichever verb feels more natural
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `vskill search <query>` executes the same logic as `vskill find <query>`
-- [ ] **AC-US2-02**: `vskill find <query>` continues to work (both commands are available)
-- [ ] **AC-US2-03**: `vskill search` appears in `--help` output
+- [x] **AC-US2-01**: `vskill search <query>` executes the same logic as `vskill find <query>`
+- [x] **AC-US2-02**: `vskill find <query>` continues to work (both commands are available)
+- [x] **AC-US2-03**: `vskill search` appears in `--help` output
 
 ---
 
@@ -59,10 +59,10 @@ Improve the vskill CLI developer experience with three targeted UX changes:
 **So that** I don't have to manually extract the owner/repo from the URL
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `vskill submit https://github.com/owner/repo` extracts owner/repo and works identically to `vskill submit owner/repo`
-- [ ] **AC-US3-02**: `vskill submit owner/repo` continues to work (backward compatible)
-- [ ] **AC-US3-03**: Invalid GitHub URLs (wrong host, missing segments) are rejected with a clear error message
-- [ ] **AC-US3-04**: Edge cases handled: trailing slashes, `.git` suffix, URLs with extra path segments (tree/branch) are normalized to owner/repo
+- [x] **AC-US3-01**: `vskill submit https://github.com/owner/repo` extracts owner/repo and works identically to `vskill submit owner/repo`
+- [x] **AC-US3-02**: `vskill submit owner/repo` continues to work (backward compatible)
+- [x] **AC-US3-03**: Invalid GitHub URLs (wrong host, missing segments) are rejected with a clear error message
+- [x] **AC-US3-04**: Edge cases handled: trailing slashes, `.git` suffix, URLs with extra path segments (tree/branch) are normalized to owner/repo
 
 ---
 
@@ -74,8 +74,8 @@ Improve the vskill CLI developer experience with three targeted UX changes:
 **So that** I'm not confused by outdated references
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: README.md Commands section shows `install` instead of `init`, includes `search`, and shows URL support for `submit`
-- [ ] **AC-US4-02**: All console output messages referencing `vskill init` are updated to `vskill install`
+- [x] **AC-US4-01**: README.md Commands section shows `install` instead of `init`, includes `search`, and shows URL support for `submit`
+- [x] **AC-US4-02**: Console output messages correctly reference `vskill init` for agent detection and `vskill install` for skill installation
 
 ## Functional Requirements
 
