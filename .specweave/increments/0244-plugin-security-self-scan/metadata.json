@@ -1,7 +1,8 @@
 {
   "id": "0244-plugin-security-self-scan",
-  "status": "planning",
+  "status": "completed",
   "type": "feature",
   "created": "2026-02-20T01:52:23.575Z",
-  "lastActivity": "2026-02-20T01:52:23.575Z"
+  "lastActivity": "2026-02-20T01:52:23.575Z",
+  "completedAt": "2026-02-21"
 }

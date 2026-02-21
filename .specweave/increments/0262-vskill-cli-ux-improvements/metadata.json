@@ -1,6 +1,6 @@
 {
   "id": "0262-vskill-cli-ux-improvements",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-20T23:49:26.560Z",
@@ -9,5 +9,6 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "completedAt": "2026-02-21"
 }

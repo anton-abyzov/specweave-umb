@@ -22,7 +22,7 @@
     "provider": "local"
   },
   "issueTracker": {
-    "provider": "none"
+    "provider": "github"
   },
   "sync": {
     "enabled": true,

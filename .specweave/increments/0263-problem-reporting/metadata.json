@@ -1,6 +1,6 @@
 {
   "id": "0263-problem-reporting",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-21T00:03:11.488Z",
@@ -9,5 +9,6 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "completedAt": "2026-02-21"
 }

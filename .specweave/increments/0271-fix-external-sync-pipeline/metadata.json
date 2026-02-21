@@ -1,0 +1,13 @@
+{
+  "id": "0271-fix-external-sync-pipeline",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-02-21T06:09:03.352Z",
+  "lastActivity": "2026-02-21T06:09:03.352Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

@@ -1,10 +1,11 @@
 {
   "id": "0257-auto-context-aware-selection",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-20T20:07:56.392Z",
-  "lastActivity": "2026-02-20T20:07:56.392Z",
+  "lastActivity": "2026-02-21T00:00:00.000Z",
+  "completionDate": "2026-02-21T00:00:00.000Z",
   "testMode": "TDD",
   "coverageTarget": 80,
   "feature_id": null,

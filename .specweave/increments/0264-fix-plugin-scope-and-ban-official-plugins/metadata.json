@@ -2,8 +2,9 @@
   "id": "0264",
   "name": "fix-plugin-scope-and-ban-official-plugins",
   "type": "bugfix",
-  "status": "ready_for_review",
+  "status": "completed",
   "createdAt": "2026-02-20T00:00:00Z",
   "updatedAt": "2026-02-20T00:00:00Z",
-  "updated": "2026-02-21T00:36:43.000Z"
+  "updated": "2026-02-21T00:36:43.000Z",
+  "completedAt": "2026-02-21"
 }
