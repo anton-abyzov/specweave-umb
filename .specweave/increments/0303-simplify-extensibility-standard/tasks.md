@@ -28,7 +28,7 @@
   - Then zero type errors
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -66,7 +66,7 @@
   - Then tier is NOT `extensible`
 
 **Dependencies**: T-001
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -88,7 +88,7 @@
 - **TC-006**: All tests pass with `npx vitest run extensibility-detector`
 
 **Dependencies**: T-002
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -110,7 +110,7 @@
   - Then counts match expected values for extensible, semi-extensible, not-extensible
 
 **Dependencies**: T-001
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -132,7 +132,7 @@
 - **TC-009**: Seed data contains exactly 1 `extensible`, 20 `semi-extensible` skills
 
 **Dependencies**: T-001
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -154,7 +154,7 @@
 - **TC-011**: `ext=true` returns union of extensible + semi-extensible skills
 
 **Dependencies**: T-004, T-005
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -173,7 +173,7 @@
 - **TC-012**: Detail page renders correct tier badge for each category
 
 **Dependencies**: T-005
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -195,7 +195,7 @@
 - Update conformance requirements
 
 **Dependencies**: T-002 (detector logic must be finalized first)
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -214,7 +214,7 @@
 - Keep FAQ section (update tier references)
 
 **Dependencies**: T-008
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -229,4 +229,4 @@
 - Update links to standard and guide
 
 **Dependencies**: T-008
-**Status**: [ ] Not Started
+**Status**: [x] Completed

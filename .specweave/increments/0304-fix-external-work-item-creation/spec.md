@@ -53,10 +53,10 @@ Two bugs in the external work item creation pipeline cause garbage GitHub issues
 **So that** placeholder text like `[Story Title]` never appears in my GitHub issues
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `ExternalIssueAutoCreator.createForIncrement()` checks `isTemplateFile(specPath)` before parsing user stories, and returns `skipped: true` with reason `spec.md is still a template` when true
-- [ ] **AC-US1-02**: `autoCreateExternalIssue()` gracefully handles the template guard, logging a message that external issue creation was deferred
-- [ ] **AC-US1-03**: Unit test verifies that when spec.md contains template markers (`[Story Title]`, `[user type]`, `{{RESOLVED_PROJECT}}`), no GitHub API calls are made
-- [ ] **AC-US1-04**: Unit test verifies that when spec.md has real user stories (no template markers), GitHub issues ARE created normally
+- [x] **AC-US1-01**: `ExternalIssueAutoCreator.createForIncrement()` checks `isTemplateFile(specPath)` before parsing user stories, and returns `skipped: true` with reason `spec.md is still a template` when true
+- [x] **AC-US1-02**: `autoCreateExternalIssue()` gracefully handles the template guard, logging a message that external issue creation was deferred
+- [x] **AC-US1-03**: Unit test verifies that when spec.md contains template markers (`[Story Title]`, `[user type]`, `{{RESOLVED_PROJECT}}`), no GitHub API calls are made
+- [x] **AC-US1-04**: Unit test verifies that when spec.md has real user stories (no template markers), GitHub issues ARE created normally
 
 ---
 
@@ -68,11 +68,11 @@ Two bugs in the external work item creation pipeline cause garbage GitHub issues
 **So that** the proper GitHub issue creation pipeline (UserStoryIssueBuilder) has living docs to work with
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `HookConfiguration.post_increment_planning` type includes optional `sync_living_docs: boolean` field
-- [ ] **AC-US2-02**: `LifecycleHookDispatcher.onIncrementPlanned()` calls `LivingDocsSync.syncIncrement()` when `hooks.post_increment_planning.sync_living_docs` is true
-- [ ] **AC-US2-03**: Living docs sync runs BEFORE external issue auto-creation (order matters: living docs must exist for the proper sync pipeline)
-- [ ] **AC-US2-04**: Config templates and defaults include `sync_living_docs: true` in `post_increment_planning`
-- [ ] **AC-US2-05**: Unit test verifies that `onIncrementPlanned` triggers both living docs sync and external issue creation in the correct order
+- [x] **AC-US2-01**: `HookConfiguration.post_increment_planning` type includes optional `sync_living_docs: boolean` field
+- [x] **AC-US2-02**: `LifecycleHookDispatcher.onIncrementPlanned()` calls `LivingDocsSync.syncIncrement()` when `hooks.post_increment_planning.sync_living_docs` is true
+- [x] **AC-US2-03**: Living docs sync runs BEFORE external issue auto-creation (order matters: living docs must exist for the proper sync pipeline)
+- [x] **AC-US2-04**: Config templates and defaults include `sync_living_docs: true` in `post_increment_planning`
+- [x] **AC-US2-05**: Unit test verifies that `onIncrementPlanned` triggers both living docs sync and external issue creation in the correct order
 
 ---
 
@@ -84,10 +84,10 @@ Two bugs in the external work item creation pipeline cause garbage GitHub issues
 **So that** regressions in external issue creation are caught early
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Unit test for `ExternalIssueAutoCreator` verifies the template guard with multiple template marker variants
-- [ ] **AC-US3-02**: Unit test for `LifecycleHookDispatcher.onIncrementPlanned` verifies living docs sync is called when enabled
-- [ ] **AC-US3-03**: Unit test for `LifecycleHookDispatcher.onIncrementPlanned` verifies order: living docs sync THEN external issue creation
-- [ ] **AC-US3-04**: Existing tests continue to pass after changes
+- [x] **AC-US3-01**: Unit test for `ExternalIssueAutoCreator` verifies the template guard with multiple template marker variants
+- [x] **AC-US3-02**: Unit test for `LifecycleHookDispatcher.onIncrementPlanned` verifies living docs sync is called when enabled
+- [x] **AC-US3-03**: Unit test for `LifecycleHookDispatcher.onIncrementPlanned` verifies order: living docs sync THEN external issue creation
+- [x] **AC-US3-04**: Existing tests continue to pass after changes
 
 ## Functional Requirements
 

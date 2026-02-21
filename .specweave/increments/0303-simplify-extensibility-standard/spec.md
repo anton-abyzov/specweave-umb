@@ -48,16 +48,16 @@ Replace E0-E4 with three clear categories:
 **So that** the codebase is simpler and the classification is honest about what "extensible" actually means
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `ExtensibilityTier` type in `types.ts` is `"extensible" | "semi-extensible" | "not-extensible"`
-- [ ] **AC-US1-02**: `detectExtensibility()` classifies skills with DCI blocks referencing `skill-memories` as `extensible`
-- [ ] **AC-US1-03**: `detectExtensibility()` classifies skills with keyword signals (template, hook, config, plugin, context) as `semi-extensible`
-- [ ] **AC-US1-04**: `detectExtensibility()` classifies skills with no signals as `not-extensible`
-- [ ] **AC-US1-05**: Frontmatter extensibility detection (E2) is removed — zero skills use it
-- [ ] **AC-US1-06**: Portability matrix is removed from `ExtensibilityResult` — only Claude Code runs skills today
-- [ ] **AC-US1-07**: `extensible: boolean` backward-compat field preserved: `true` for both `extensible` and `semi-extensible`, `false` for `not-extensible`
-- [ ] **AC-US1-08**: All extensibility-detector tests rewritten covering all 3 tiers plus edge cases
-- [ ] **AC-US1-09**: `getExtensibilityStats()` in `data.ts` returns counts for 3 categories instead of 5 tiers
-- [ ] **AC-US1-10**: Fenced code block stripping still works (DCI patterns inside ``` blocks are ignored)
+- [x] **AC-US1-01**: `ExtensibilityTier` type in `types.ts` is `"extensible" | "semi-extensible" | "not-extensible"`
+- [x] **AC-US1-02**: `detectExtensibility()` classifies skills with DCI blocks referencing `skill-memories` as `extensible`
+- [x] **AC-US1-03**: `detectExtensibility()` classifies skills with keyword signals (template, hook, config, plugin, context) as `semi-extensible`
+- [x] **AC-US1-04**: `detectExtensibility()` classifies skills with no signals as `not-extensible`
+- [x] **AC-US1-05**: Frontmatter extensibility detection (E2) is removed — zero skills use it
+- [x] **AC-US1-06**: Portability matrix is removed from `ExtensibilityResult` — only Claude Code runs skills today
+- [x] **AC-US1-07**: `extensible: boolean` backward-compat field preserved: `true` for both `extensible` and `semi-extensible`, `false` for `not-extensible`
+- [x] **AC-US1-08**: All extensibility-detector tests rewritten covering all 3 tiers plus edge cases
+- [x] **AC-US1-09**: `getExtensibilityStats()` in `data.ts` returns counts for 3 categories instead of 5 tiers
+- [x] **AC-US1-10**: Fenced code block stripping still works (DCI patterns inside ``` blocks are ignored)
 
 ---
 
@@ -69,12 +69,12 @@ Replace E0-E4 with three clear categories:
 **So that** I can quickly understand which skills I can customize via skill-memories vs which require skill-specific knowledge
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: All 20 former-E1 skills in `seed-data.ts` are reclassified as `semi-extensible` with existing extension points preserved
-- [ ] **AC-US2-02**: The 1 former-E4 skill (specweave) is reclassified as `extensible`
-- [ ] **AC-US2-03**: Skills list page filter shows 3 categories (Extensible / Semi-Extensible / Not Extensible) instead of E0-E4 sub-filters
-- [ ] **AC-US2-04**: Skill detail page shows new tier label with appropriate styling (green=extensible, yellow=semi-extensible, gray=not-extensible)
-- [ ] **AC-US2-05**: `ext=true` URL query param still works (returns both extensible and semi-extensible skills)
-- [ ] **AC-US2-06**: New URL params `ext=extensible` and `ext=semi-extensible` filter to specific tiers
+- [x] **AC-US2-01**: All 20 former-E1 skills in `seed-data.ts` are reclassified as `semi-extensible` with existing extension points preserved
+- [x] **AC-US2-02**: The 1 former-E4 skill (specweave) is reclassified as `extensible`
+- [x] **AC-US2-03**: Skills list page filter shows 3 categories (Extensible / Semi-Extensible / Not Extensible) instead of E0-E4 sub-filters
+- [x] **AC-US2-04**: Skill detail page shows new tier label with appropriate styling (green=extensible, yellow=semi-extensible, gray=not-extensible)
+- [x] **AC-US2-05**: `ext=true` URL query param still works (returns both extensible and semi-extensible skills)
+- [x] **AC-US2-06**: New URL params `ext=extensible` and `ext=semi-extensible` filter to specific tiers
 
 ---
 
@@ -86,12 +86,12 @@ Replace E0-E4 with three clear categories:
 **So that** I understand exactly what "extensible" means and how to make my skill extensible
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `extensible-skills-standard.md` defines 3 categories with clear definitions
-- [ ] **AC-US3-02**: `extensible-skills-guide.md` simplified — removes E0-E4 tier table, portability matrix, frontmatter schema section
-- [ ] **AC-US3-03**: `extensible-skills.md` landing page uses 3-category quick reference table
-- [ ] **AC-US3-04**: DCI block documentation preserved and still accurate
-- [ ] **AC-US3-05**: Skill memories documentation preserved and still accurate
-- [ ] **AC-US3-06**: Docs clearly state Reflect/auto-learning is an optional feature orthogonal to extensibility classification
+- [x] **AC-US3-01**: `extensible-skills-standard.md` defines 3 categories with clear definitions
+- [x] **AC-US3-02**: `extensible-skills-guide.md` simplified — removes E0-E4 tier table, portability matrix, frontmatter schema section
+- [x] **AC-US3-03**: `extensible-skills.md` landing page uses 3-category quick reference table
+- [x] **AC-US3-04**: DCI block documentation preserved and still accurate
+- [x] **AC-US3-05**: Skill memories documentation preserved and still accurate
+- [x] **AC-US3-06**: Docs clearly state Reflect/auto-learning is an optional feature orthogonal to extensibility classification
 
 ## Functional Requirements
 

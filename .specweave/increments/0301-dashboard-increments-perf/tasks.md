@@ -13,7 +13,7 @@
 ### US-001: Fast Increments Loading with Server-Side Caching (P1)
 
 #### T-001: Add in-memory TTL cache for increments data
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 
 **Description**: Add `incrementsCache`, `incrementsCacheTime`, and `incrementsCacheTTL` private fields to `DashboardDataAggregator`, following the exact pattern of the existing `analyticsCache`. Modify `getIncrements()` to check cache first and return cached data on hit.
 
@@ -44,7 +44,7 @@
 ---
 
 #### T-002: Convert readJsonFile() to async
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [x] completed
 
 **Description**: Convert the private `readJsonFile()` method from sync `fs.readFileSync`/`fs.existsSync` to async `fs.promises.readFile`/`fs.promises.access`. Update all callers.
 
@@ -73,7 +73,7 @@
 ---
 
 #### T-003: Convert scanIncrementsFromFilesystem() to async
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [x] completed
 
 **Description**: Convert `scanIncrementsFromFilesystem()` from synchronous to async. This is the critical hot path that currently does ~7 sync I/O calls per increment.
 
@@ -103,7 +103,7 @@
 ---
 
 #### T-004: Share scan results between getOverview() and getIncrements()
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [x] completed
 
 **Description**: Eliminate the redundant filesystem scan in `getOverview()`. Currently `getOverview()` independently calls `this.scanIncrementsFromFilesystem()` on line 41. It should instead call `this.getIncrements()` which will use the cache.
 
@@ -126,7 +126,7 @@
 ---
 
 #### T-005: Wire cache invalidation to file watcher events
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 
 **Description**: When the `FileWatcher` detects changes in the increments directory, call `invalidateIncrementsCache()` on the aggregator so the next request gets fresh data.
 
@@ -152,7 +152,7 @@
 ### US-002: Server-Side Pagination for Increments API (P1)
 
 #### T-006: Extend IncrementListPayload type with pagination metadata
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [x] completed
 
 **Description**: Add pagination metadata fields to the `IncrementListPayload` interface.
 
@@ -177,7 +177,7 @@
 ---
 
 #### T-007: Add server-side pagination and filtering to /api/increments route
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-05 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-05 | **Status**: [x] completed
 
 **Description**: Parse pagination and filter query parameters in the `/api/increments` route handler. Apply filtering and pagination on the server side.
 
@@ -221,7 +221,7 @@
 ### US-003: Smart SSE Refetch Behavior (P2)
 
 #### T-008: Add SSE debounce to IncrementsPage
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-03 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-03 | **Status**: [x] completed
 
 **Description**: Add debounced SSE event handling to prevent rapid-fire full refetches when multiple increment files change in quick succession.
 
@@ -246,7 +246,7 @@
 ---
 
 #### T-009: Update IncrementsPage for server-side pagination
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-04 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-04 | **Status**: [x] completed
 
 **Description**: Update `IncrementsPage` to use server-side pagination and filtering instead of loading all increments and filtering client-side.
 
@@ -273,7 +273,7 @@
 ### US-004: Performance Test Coverage (P2)
 
 #### T-010: Write unit tests for cache mechanism
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01 | **Status**: [ ] not started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01 | **Status**: [x] completed
 
 **Description**: Write comprehensive unit tests for the TTL cache mechanism added in T-001.
 
@@ -288,7 +288,7 @@
 ---
 
 #### T-011: Write unit tests for async scan and pagination
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-02, AC-US4-03, AC-US4-04 | **Status**: [ ] not started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-02, AC-US4-03, AC-US4-04 | **Status**: [x] completed
 
 **Description**: Write unit tests for the async filesystem scan and pagination logic.
 
@@ -303,7 +303,7 @@
 ---
 
 #### T-012: Verify existing tests pass after async migration
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-02 | **Status**: [ ] not started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-02 | **Status**: [x] completed
 
 **Description**: Run the full test suite to ensure the sync-to-async migration does not break existing functionality.
 

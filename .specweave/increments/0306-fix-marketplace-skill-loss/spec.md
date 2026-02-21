@@ -3,7 +3,7 @@ increment: 0306-fix-marketplace-skill-loss
 title: "Fix Marketplace Skill Loss - Restore KV Enumeration + Prisma Migration"
 type: bug
 priority: P0
-status: planned
+status: completed
 created: 2026-02-21
 structure: user-stories
 test_mode: TDD
@@ -49,12 +49,12 @@ The marketplace data layer (`data.ts`) merges 118 seed skills with community ski
 **So that** I can discover community skills even when the KV index blob is stale or corrupted
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: New function `enumeratePublishedSkills()` in `submission-store.ts` uses `kv.list({ prefix: "skill:" })` with pagination to discover all individual skill keys, excluding `skill:alias:*` keys
-- [ ] **AC-US1-02**: `getPublishedSkillsList()` calls both the index blob AND `enumeratePublishedSkills()`, returns whichever has MORE entries (with dedup by slug)
-- [ ] **AC-US1-03**: When enumeration finds more skills than the index, the index is rebuilt from the enumerated data (write-through repair)
-- [ ] **AC-US1-04**: `enumeratePublishedSkills()` handles KV list pagination correctly (cursor-based, handles `list_complete` flag)
-- [ ] **AC-US1-05**: Performance: KV enumeration adds at most 500ms latency for up to 5000 keys; results are cached in the existing `_publishedCache` for 60s
-- [ ] **AC-US1-06**: Unit tests cover: empty index + populated keys scenario, populated index + fewer keys scenario, pagination with multiple pages, alias key exclusion
+- [x] **AC-US1-01**: New function `enumeratePublishedSkills()` in `submission-store.ts` uses `kv.list({ prefix: "skill:" })` with pagination to discover all individual skill keys, excluding `skill:alias:*` keys
+- [x] **AC-US1-02**: `getPublishedSkillsList()` calls both the index blob AND `enumeratePublishedSkills()`, returns whichever has MORE entries (with dedup by slug)
+- [x] **AC-US1-03**: When enumeration finds more skills than the index, the index is rebuilt from the enumerated data (write-through repair)
+- [x] **AC-US1-04**: `enumeratePublishedSkills()` handles KV list pagination correctly (cursor-based, handles `list_complete` flag)
+- [x] **AC-US1-05**: Performance: KV enumeration adds at most 500ms latency for up to 5000 keys; results are cached in the existing `_publishedCache` for 60s
+- [x] **AC-US1-06**: Unit tests cover: empty index + populated keys scenario, populated index + fewer keys scenario, pagination with multiple pages, alias key exclusion
 
 ---
 
@@ -66,11 +66,11 @@ The marketplace data layer (`data.ts`) merges 118 seed skills with community ski
 **So that** I have a durable, queryable source of truth that survives KV corruption
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `publishSkill()` in `submission-store.ts` upserts a record into `Skill` table (via Prisma) in addition to writing to KV; uses `repoUrl` + `name` for dedup
-- [ ] **AC-US2-02**: Prisma `Skill` fields populated from submission + scan data: name (slug), displayName (skillName), description, author (extracted from repoUrl), repoUrl, category (default "development"), currentVersion ("1.0.0"), certTier (SCANNED), certMethod (AUTOMATED_SCAN), certScore, certifiedAt, labels (["community","verified"])
-- [ ] **AC-US2-03**: If Prisma write fails (e.g., DB unreachable), the KV-only path still succeeds (graceful degradation)
-- [ ] **AC-US2-04**: Extensibility metadata (extensible, extensionPoints) stored as JSON in Skill labels or a new column if needed
-- [ ] **AC-US2-05**: Unit tests cover: successful dual write, Prisma failure with KV success, duplicate skill upsert updates instead of errors
+- [x] **AC-US2-01**: `publishSkill()` in `submission-store.ts` upserts a record into `Skill` table (via Prisma) in addition to writing to KV; uses `repoUrl` + `name` for dedup
+- [x] **AC-US2-02**: Prisma `Skill` fields populated from submission + scan data: name (slug), displayName (skillName), description, author (extracted from repoUrl), repoUrl, category (default "development"), currentVersion ("1.0.0"), certTier (SCANNED), certMethod (AUTOMATED_SCAN), certScore, certifiedAt, labels (["community","verified"])
+- [x] **AC-US2-03**: If Prisma write fails (e.g., DB unreachable), the KV-only path still succeeds (graceful degradation)
+- [x] **AC-US2-04**: Extensibility metadata (extensible, extensionPoints) stored as JSON in Skill labels or a new column if needed
+- [x] **AC-US2-05**: Unit tests cover: successful dual write, Prisma failure with KV success, duplicate skill upsert updates instead of errors
 
 ---
 
@@ -82,13 +82,13 @@ The marketplace data layer (`data.ts`) merges 118 seed skills with community ski
 **So that** the marketplace is resilient to KV blob corruption and can leverage SQL filtering/sorting
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: New function `getPublishedSkillsFromDb()` in `data.ts` queries `Skill` table with support for category, certTier, author, search, sorting, pagination, and extensibility filtering
-- [ ] **AC-US3-02**: `getSkills()` reads from Prisma if available, falls back to seed+KV if Prisma fails (e.g., at build time when no DATABASE_URL)
-- [ ] **AC-US3-03**: `getSkillByName()` checks Prisma before KV; returns Prisma data if found
-- [ ] **AC-US3-04**: `getSkillCount()` and `getSkillCategories()` also query Prisma when available
-- [ ] **AC-US3-05**: Seed data is still merged (not duplicated): skills that exist in seed AND Prisma use the seed data (seed is canonical for those 118 skills)
-- [ ] **AC-US3-06**: Performance: Prisma query for paginated listing completes in <200ms (existing indexes on category, certTier, trendingScore7d)
-- [ ] **AC-US3-07**: Unit tests mock Prisma client to verify fallback path, merge logic, and filter support
+- [x] **AC-US3-01**: New function `getPublishedSkillsFromDb()` in `data.ts` queries `Skill` table with support for category, certTier, author, search, sorting, pagination, and extensibility filtering
+- [x] **AC-US3-02**: `getSkills()` reads from Prisma if available, falls back to seed+KV if Prisma fails (e.g., at build time when no DATABASE_URL)
+- [x] **AC-US3-03**: `getSkillByName()` checks Prisma before KV; returns Prisma data if found
+- [x] **AC-US3-04**: `getSkillCount()` and `getSkillCategories()` also query Prisma when available
+- [x] **AC-US3-05**: Seed data is still merged (not duplicated): skills that exist in seed AND Prisma use the seed data (seed is canonical for those 118 skills)
+- [x] **AC-US3-06**: Performance: Prisma query for paginated listing completes in <200ms (existing indexes on category, certTier, trendingScore7d)
+- [x] **AC-US3-07**: Unit tests mock Prisma client to verify fallback path, merge logic, and filter support
 
 ---
 
@@ -100,12 +100,12 @@ The marketplace data layer (`data.ts`) merges 118 seed skills with community ski
 **So that** I can recover from a corrupted index without manual KV surgery
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: New `POST /api/v1/admin/rebuild-index` endpoint, authenticated via X-Internal-Key or SUPER_ADMIN JWT
-- [ ] **AC-US4-02**: Endpoint enumerates all `skill:*` keys (excluding `skill:alias:*`), reads each value, rebuilds the `skills:published-index` blob
-- [ ] **AC-US4-03**: Also populates Prisma `Skill` table from the KV data (backfill for US-002)
-- [ ] **AC-US4-04**: Returns a report: `{ rebuilt: N, errors: M, orphanedAliases: K }`
-- [ ] **AC-US4-05**: Idempotent: running multiple times produces the same result
-- [ ] **AC-US4-06**: Unit tests cover: rebuild from 0 keys, rebuild from 50 keys with 2 aliases, error handling for malformed KV values
+- [x] **AC-US4-01**: New `POST /api/v1/admin/rebuild-index` endpoint, authenticated via X-Internal-Key or SUPER_ADMIN JWT
+- [x] **AC-US4-02**: Endpoint enumerates all `skill:*` keys (excluding `skill:alias:*`), reads each value, rebuilds the `skills:published-index` blob
+- [x] **AC-US4-03**: Also populates Prisma `Skill` table from the KV data (backfill for US-002)
+- [x] **AC-US4-04**: Returns a report: `{ rebuilt: N, errors: M, orphanedAliases: K }`
+- [x] **AC-US4-05**: Idempotent: running multiple times produces the same result
+- [x] **AC-US4-06**: Unit tests cover: rebuild from 0 keys, rebuild from 50 keys with 2 aliases, error handling for malformed KV values
 
 ---
 
@@ -117,10 +117,10 @@ The marketplace data layer (`data.ts`) merges 118 seed skills with community ski
 **So that** the published index stays consistent under queue concurrency
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: `addToPublishedIndex()` is made idempotent and resilient to concurrent writes: either uses KV metadata versioning for optimistic concurrency, or the index becomes a secondary cache that is periodically rebuilt (US-004 approach)
-- [ ] **AC-US5-02**: Since Prisma is now the primary source (US-002/US-003), the KV index becomes a performance cache; if a race loses an entry, the next cache rebuild or Prisma read recovers it
-- [ ] **AC-US5-03**: Document in code comments that `skills:published-index` is a best-effort cache, not source of truth
-- [ ] **AC-US5-04**: Unit tests verify that concurrent calls to `addToPublishedIndex()` with different slugs do not lose entries (simulated with delayed reads)
+- [x] **AC-US5-01**: `addToPublishedIndex()` is made idempotent and resilient to concurrent writes: either uses KV metadata versioning for optimistic concurrency, or the index becomes a secondary cache that is periodically rebuilt (US-004 approach)
+- [x] **AC-US5-02**: Since Prisma is now the primary source (US-002/US-003), the KV index becomes a performance cache; if a race loses an entry, the next cache rebuild or Prisma read recovers it
+- [x] **AC-US5-03**: Document in code comments that `skills:published-index` is a best-effort cache, not source of truth
+- [x] **AC-US5-04**: Unit tests verify that concurrent calls to `addToPublishedIndex()` with different slugs do not lose entries (simulated with delayed reads)
 
 ---
 
@@ -132,11 +132,11 @@ The marketplace data layer (`data.ts`) merges 118 seed skills with community ski
 **So that** DB-based dedup does not silently fail and new skills continue to be discovered
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: The scheduled handler in `worker-with-queues.js` sets `process.env.DATABASE_URL` from `env.DATABASE_URL` (or via `setWorkerEnv`) before calling `runGitHubDiscovery(env)`
-- [ ] **AC-US6-02**: `getDb()` in `db.ts` also checks the worker env (via `getWorkerEnv()`) for DATABASE_URL, similar to how `getKV()` uses worker context as fallback
-- [ ] **AC-US6-03**: If DATABASE_URL is not available, discovery logs a clear error message (not a silent catch) and falls back gracefully
-- [ ] **AC-US6-04**: Add `DATABASE_URL` as a secret binding in `wrangler.jsonc` vars or secrets (or document that it must be configured)
-- [ ] **AC-US6-05**: Unit tests verify that `getDb()` uses worker context when `process.env.DATABASE_URL` is not set
+- [x] **AC-US6-01**: The scheduled handler in `worker-with-queues.js` sets `process.env.DATABASE_URL` from `env.DATABASE_URL` (or via `setWorkerEnv`) before calling `runGitHubDiscovery(env)`
+- [x] **AC-US6-02**: `getDb()` in `db.ts` also checks the worker env (via `getWorkerEnv()`) for DATABASE_URL, similar to how `getKV()` uses worker context as fallback
+- [x] **AC-US6-03**: If DATABASE_URL is not available, discovery logs a clear error message (not a silent catch) and falls back gracefully
+- [x] **AC-US6-04**: Add `DATABASE_URL` as a secret binding in `wrangler.jsonc` vars or secrets (or document that it must be configured)
+- [x] **AC-US6-05**: Unit tests verify that `getDb()` uses worker context when `process.env.DATABASE_URL` is not set
 
 ---
 
@@ -148,11 +148,11 @@ The marketplace data layer (`data.ts`) merges 118 seed skills with community ski
 **So that** I can detect skill loss early before users are affected
 
 **Acceptance Criteria**:
-- [ ] **AC-US7-01**: New `GET /api/v1/admin/health/skills` endpoint returns `{ kv_index_count, kv_enumerated_count, prisma_count, seed_count, drift_detected, drifts: [] }`
-- [ ] **AC-US7-02**: Drift is flagged when any count differs from another by more than 5% or more than 10 skills
-- [ ] **AC-US7-03**: Endpoint is authenticated (SUPER_ADMIN or X-Internal-Key)
-- [ ] **AC-US7-04**: Response includes a `recommendations` array with actionable suggestions (e.g., "Run rebuild-index to fix KV drift")
-- [ ] **AC-US7-05**: Unit tests cover: no drift scenario, KV index < KV keys drift, Prisma < KV drift
+- [x] **AC-US7-01**: New `GET /api/v1/admin/health/skills` endpoint returns `{ kv_index_count, kv_enumerated_count, prisma_count, seed_count, drift_detected, drifts: [] }`
+- [x] **AC-US7-02**: Drift is flagged when any count differs from another by more than 5% or more than 10 skills
+- [x] **AC-US7-03**: Endpoint is authenticated (SUPER_ADMIN or X-Internal-Key)
+- [x] **AC-US7-04**: Response includes a `recommendations` array with actionable suggestions (e.g., "Run rebuild-index to fix KV drift")
+- [x] **AC-US7-05**: Unit tests cover: no drift scenario, KV index < KV keys drift, Prisma < KV drift
 
 ## Functional Requirements
 

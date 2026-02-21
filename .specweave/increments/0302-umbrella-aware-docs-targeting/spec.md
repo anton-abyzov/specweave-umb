@@ -28,12 +28,12 @@ The fix adds a `--project <id>` flag to all `specweave docs` subcommands (previe
 **So that** the command operates on the specified child repo's docs instead of the umbrella root
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `specweave docs preview --project vskill` resolves the docs path to `repositories/anton-abyzov/vskill/.specweave/docs/internal/` and launches preview from there
-- [ ] **AC-US1-02**: `specweave docs build --project specweave` builds docs from the specweave child repo's `.specweave/docs/`
-- [ ] **AC-US1-03**: `specweave docs validate --project vskill-platform` validates docs in the vskill-platform child repo
-- [ ] **AC-US1-04**: `specweave docs status --project vskill` shows status for the vskill child repo's docs only
-- [ ] **AC-US1-05**: When `--project <id>` is given but the ID doesn't match any `umbrella.childRepos[].id` in config.json, the command exits with a clear error listing valid repo IDs
-- [ ] **AC-US1-06**: The `--project` flag works with both `--scope internal` and `--scope public`
+- [x] **AC-US1-01**: `specweave docs preview --project vskill` resolves the docs path to `repositories/anton-abyzov/vskill/.specweave/docs/internal/` and launches preview from there
+- [x] **AC-US1-02**: `specweave docs build --project specweave` builds docs from the specweave child repo's `.specweave/docs/`
+- [x] **AC-US1-03**: `specweave docs validate --project vskill-platform` validates docs in the vskill-platform child repo
+- [x] **AC-US1-04**: `specweave docs status --project vskill` shows status for the vskill child repo's docs only
+- [x] **AC-US1-05**: When `--project <id>` is given but the ID doesn't match any `umbrella.childRepos[].id` in config.json, the command exits with a clear error listing valid repo IDs
+- [x] **AC-US1-06**: The `--project` flag works with both `--scope internal` and `--scope public`
 
 ---
 
@@ -45,10 +45,10 @@ The fix adds a `--project <id>` flag to all `specweave docs` subcommands (previe
 **So that** I know how to target the correct repo instead of getting a silent failure
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: When umbrella mode is detected and no `--project` flag is given, preview/build/validate commands print a list of child repos with doc counts and suggest using `--project <id>`
-- [ ] **AC-US2-02**: If the umbrella root itself has docs (`.specweave/docs/internal/` exists), the command proceeds with those docs but also shows a notice about child repos being available via `--project`
-- [ ] **AC-US2-03**: If the umbrella root has NO docs AND no `--project` is given, the command exits with a clear message listing available child repos
-- [ ] **AC-US2-04**: `specweave docs status` (without --project) shows a combined view of umbrella root + all child repos (existing behavior enhanced)
+- [x] **AC-US2-01**: When umbrella mode is detected and no `--project` flag is given, preview/build/validate commands print a list of child repos with doc counts and suggest using `--project <id>`
+- [x] **AC-US2-02**: If the umbrella root itself has docs (`.specweave/docs/internal/` exists), the command proceeds with those docs but also shows a notice about child repos being available via `--project`
+- [x] **AC-US2-03**: If the umbrella root has NO docs AND no `--project` is given, the command exits with a clear message listing available child repos
+- [x] **AC-US2-04**: `specweave docs status` (without --project) shows a combined view of umbrella root + all child repos (existing behavior enhanced)
 
 ---
 
@@ -60,9 +60,9 @@ The fix adds a `--project <id>` flag to all `specweave docs` subcommands (previe
 **So that** I get relevant documentation regardless of which repo the docs belong to
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: The `/sw:docs` skill dashboard shows docs from all child repos, grouped by repo
-- [ ] **AC-US3-02**: `/sw:docs <topic>` searches across all child repos' docs, not just the umbrella root
-- [ ] **AC-US3-03**: `/sw:docs --serve` guidance includes `--project <id>` usage for umbrella projects
+- [x] **AC-US3-01**: The `/sw:docs` skill dashboard shows docs from all child repos, grouped by repo
+- [x] **AC-US3-02**: `/sw:docs <topic>` searches across all child repos' docs, not just the umbrella root
+- [x] **AC-US3-03**: `/sw:docs --serve` guidance includes `--project <id>` usage for umbrella projects
 
 ## Functional Requirements
 

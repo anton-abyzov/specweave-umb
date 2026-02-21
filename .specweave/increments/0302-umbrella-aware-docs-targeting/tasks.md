@@ -14,7 +14,7 @@
 
 #### T-001: Extract getUmbrellaConfig() and create resolveDocsRoot()
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05, AC-US1-06 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05, AC-US1-06 | **Status**: [x] completed
 
 **Description**: Extract umbrella config parsing into a reusable `getUmbrellaConfig()` function. Create `resolveDocsRoot()` that accepts an optional `project` string and returns the effective project root path. When `project` is given, resolve from `umbrella.childRepos`. When not given, return `process.cwd()`.
 
@@ -48,13 +48,13 @@
     - Then warning is logged, effectiveRoot equals projectRoot
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-002: Add --project option to all docs subcommands
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-06 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-06 | **Status**: [x] completed
 
 **Description**: Add `project?: string` to all Options interfaces (DocsPreviewOptions, DocsBuildOptions, DocsValidateOptions). Update each command function to call `resolveDocsRoot()` and use the effective root instead of `process.cwd()`.
 
@@ -83,13 +83,13 @@
     - Then validation runs on vskill-platform docs
 
 **Dependencies**: T-001
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-003: Register --project flag in CLI entry point
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 
 **Description**: Add `.option('--project <id>', 'Target specific child repo in umbrella project')` to all `specweave docs` subcommands in `bin/specweave.js`.
 
@@ -102,7 +102,7 @@
 - Manual verification (bin/specweave.js is not unit tested)
 
 **Dependencies**: T-002
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ## Phase 2: Guidance & UX
 
@@ -110,7 +110,7 @@
 
 #### T-004: Add umbrella guidance to docs commands
 
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [x] completed
 
 **Description**: When umbrella mode is detected and no `--project` is given, enhance the output to guide users. If umbrella root has docs, proceed but show notice. If no docs at root, show child repo listing and exit.
 
@@ -139,7 +139,7 @@
     - Then proceeds with root docs and shows child repo notice
 
 **Dependencies**: T-001, T-002
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ## Phase 3: Skill Update
 
@@ -147,7 +147,7 @@
 
 #### T-005: Update SKILL.md with umbrella-aware search
 
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] completed
 
 **Description**: Update the `/sw:docs` skill definition (SKILL.md) to detect umbrella mode and search docs across all child repos.
 
@@ -161,13 +161,13 @@
 - Manual verification (SKILL.md is a prompt template, not executable code)
 
 **Dependencies**: T-003
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ## Phase 4: Verification
 
 #### T-006: End-to-end verification
 
-**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US2-01 | **Status**: [ ] not started
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US2-01 | **Status**: [x] completed
 
 **Description**: Run existing tests, verify no regressions, confirm coverage target.
 
@@ -181,4 +181,4 @@
 - All tests pass, coverage meets target
 
 **Dependencies**: T-001, T-002, T-003, T-004, T-005
-**Status**: [ ] Not Started
+**Status**: [x] Completed

@@ -3,7 +3,7 @@
 ## Phase 1: Immediate Fix (P0)
 
 ### T-001: Add enumeratePublishedSkills() function
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-04 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-04 | **Status**: [x] completed
 **Test**: Given KV contains 50 `skill:*` keys and 3 `skill:alias:*` keys → When `enumeratePublishedSkills()` is called → Then it returns 50 `PublishedSkillSummary` objects (aliases excluded), handling pagination across multiple list pages
 
 **Implementation**:
@@ -16,7 +16,7 @@
 ---
 
 ### T-002: Update getPublishedSkillsList() with enumeration fallback
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03 | **Status**: [x] completed
 **Test**: Given KV index blob has 5 entries but KV enumeration finds 50 → When `getPublishedSkillsList()` is called → Then it returns 50 entries AND triggers index rebuild
 
 **Implementation**:
@@ -28,7 +28,7 @@
 ---
 
 ### T-003: Cache enumeration results in existing published cache
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-05 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-05 | **Status**: [x] completed
 **Test**: Given `enumeratePublishedSkills()` takes 300ms → When `getPublishedSkillsList()` is called twice within 60s → Then the second call returns in <5ms from cache
 
 **Implementation**:
@@ -39,7 +39,7 @@
 ---
 
 ### T-004: Unit tests for KV enumeration
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-06 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-06 | **Status**: [x] completed
 **Test**: Test suite covers: empty index + populated keys, populated index + fewer keys, pagination with multiple pages, alias key exclusion, malformed value handling
 
 **Implementation**:
@@ -50,7 +50,7 @@
 ---
 
 ### T-005: Document addToPublishedIndex as best-effort cache
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-02, AC-US5-03 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-02, AC-US5-03 | **Status**: [x] completed
 **Test**: Given `submission-store.ts` → When reviewed → Then `addToPublishedIndex()` has JSDoc comment explaining it is a cache, not source of truth
 
 **Implementation**:
@@ -63,7 +63,7 @@
 ## Phase 2: Durable Source of Truth (P0-P1)
 
 ### T-006: Add Prisma write to publishSkill()
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [x] completed
 **Test**: Given a submission with ID "sub_123" and scan score 92 → When `publishSkill()` is called → Then a Prisma `Skill` record is upserted with correct fields AND the KV write also succeeds
 
 **Implementation**:
@@ -76,7 +76,7 @@
 ---
 
 ### T-007: Unit tests for dual publish (KV + Prisma)
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-05 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-05 | **Status**: [x] completed
 **Test**: Test suite covers: successful dual write, Prisma failure with KV success, duplicate skill upsert
 
 **Implementation**:
@@ -88,7 +88,7 @@
 ---
 
 ### T-008: Add getPublishedSkillsFromDb() to data.ts
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01 | **Status**: [x] completed
 **Test**: Given Prisma `Skill` table has 200 records → When `getPublishedSkillsFromDb()` is called with `{ category: "development", limit: 20 }` → Then it returns 20 development-category skills sorted by trendingScore7d
 
 **Implementation**:
@@ -100,7 +100,7 @@
 ---
 
 ### T-009: Update getSkills() to Prisma-primary
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-02, AC-US3-05 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-02, AC-US3-05 | **Status**: [x] completed
 **Test**: Given Prisma has 200 skills and seed has 118 → When `getSkills()` is called → Then it returns 200 + unique seed skills not in Prisma (merged without duplicates)
 
 **Implementation**:
@@ -112,7 +112,7 @@
 ---
 
 ### T-010: Update getSkillByName() to check Prisma
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-03 | **Status**: [x] completed
 **Test**: Given skill "my-cool-skill" exists in Prisma but not in KV → When `getSkillByName("my-cool-skill")` is called → Then it returns the Prisma skill data
 
 **Implementation**:
@@ -123,7 +123,7 @@
 ---
 
 ### T-011: Update getSkillCount() and getSkillCategories()
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Status**: [x] completed
 **Test**: Given Prisma has 200 skills → When `getSkillCount()` is called → Then returns 200 + unique seed skills
 
 **Implementation**:
@@ -133,7 +133,7 @@
 ---
 
 ### T-012: Unit tests for Prisma-primary data layer
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-07 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-07 | **Status**: [x] completed
 **Test**: Test suite covers: Prisma available path, Prisma failure fallback, merge with seed, filter support, pagination
 
 **Implementation**:
@@ -143,7 +143,7 @@
 ---
 
 ### T-013: Create admin rebuild-index endpoint
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05 | **Status**: [x] completed
 **Test**: Given KV has 50 `skill:*` keys → When POST /api/v1/admin/rebuild-index is called → Then `skills:published-index` is rebuilt with 50 entries AND Prisma is backfilled with 50 Skill records
 
 **Implementation**:
@@ -157,7 +157,7 @@
 ---
 
 ### T-014: Unit tests for rebuild-index endpoint
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-06 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-06 | **Status**: [x] completed
 **Test**: Test suite covers: rebuild from 0 keys, rebuild from 50 keys with aliases, malformed values, auth check
 
 **Implementation**:
@@ -168,7 +168,7 @@
 ---
 
 ### T-015: Fix DATABASE_URL in worker/cron context
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03 | **Status**: [x] completed
 **Test**: Given worker env has DATABASE_URL but process.env does not → When `getDb()` is called from cron context → Then it returns a working PrismaClient using the worker env URL
 
 **Implementation**:
@@ -179,7 +179,7 @@
 ---
 
 ### T-016: Document DATABASE_URL worker binding
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-04 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-04 | **Status**: [x] completed
 **Test**: Given wrangler.jsonc → When reviewed → Then DATABASE_URL is documented as required secret
 
 **Implementation**:
@@ -189,7 +189,7 @@
 ---
 
 ### T-017: Unit tests for getDb() worker context fallback
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-05 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-05 | **Status**: [x] completed
 **Test**: Test suite covers: process.env available, worker env fallback, neither available (throws)
 
 **Implementation**:
@@ -201,7 +201,7 @@
 ## Phase 3: Monitoring (P2)
 
 ### T-018: Create health monitoring endpoint
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04 | **Status**: [x] completed
 **Test**: Given KV index has 45 entries, KV enumeration finds 50, Prisma has 48 → When GET /api/v1/admin/health/skills is called → Then response shows drift_detected: true with specific drifts and recommendations
 
 **Implementation**:
@@ -214,7 +214,7 @@
 ---
 
 ### T-019: Unit tests for health endpoint
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-05 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-05 | **Status**: [x] completed
 **Test**: Test suite covers: no drift, KV index < KV keys, Prisma < KV, auth check
 
 **Implementation**:
