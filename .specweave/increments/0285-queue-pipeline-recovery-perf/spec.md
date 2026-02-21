@@ -3,7 +3,7 @@ increment: 0285-queue-pipeline-recovery-perf
 title: "Queue Pipeline Recovery + Q Page Performance Overhaul"
 type: hotfix
 priority: P0
-status: planned
+status: completed
 created: 2026-02-21
 structure: user-stories
 test_mode: TDD
@@ -27,8 +27,8 @@ The Cloudflare submission verification pipeline is stuck due to a TypeScript bui
 
 **Acceptance Criteria**:
 - [x] **AC-US1-01**: All `useRef<ReturnType<typeof setTimeout>>(undefined)` calls replaced with `useRef<ReturnType<typeof setTimeout> | null>(null)` across codebase (3 files: queue/page.tsx, AnimatedTerminal.tsx, ThemeToggle.tsx)
-- [ ] **AC-US1-02**: `next build` succeeds without TypeScript errors
-- [ ] **AC-US1-03**: Production deploy via push-deploy.sh completes
+- [x] **AC-US1-02**: `next build` succeeds without TypeScript errors
+- [x] **AC-US1-03**: Production deploy via push-deploy.sh completes
 
 ---
 
@@ -40,9 +40,9 @@ The Cloudflare submission verification pipeline is stuck due to a TypeScript bui
 **So that** the queue never stays accidentally paused forever, blocking all submissions
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: POST /api/v1/admin/queue/pause accepts optional `ttlSeconds` body parameter (default: 3600)
-- [ ] **AC-US2-02**: KV `put` call uses `expirationTtl` so the flag auto-expires
-- [ ] **AC-US2-03**: Consumer behavior unchanged (still checks `queue:paused` key existence)
+- [x] **AC-US2-01**: POST /api/v1/admin/queue/pause accepts optional `ttlSeconds` body parameter (default: 3600)
+- [x] **AC-US2-02**: KV `put` call uses `expirationTtl` so the flag auto-expires
+- [x] **AC-US2-03**: Consumer behavior unchanged (still checks `queue:paused` key existence)
 
 ---
 
@@ -54,11 +54,11 @@ The Cloudflare submission verification pipeline is stuck due to a TypeScript bui
 **So that** the page loads fast regardless of total submission count
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: GET /api/v1/submissions supports `state` filter, `sort`, `sortDir`, `limit`, `offset` query params with proper server-side application
-- [ ] **AC-US3-02**: Queue page fetches only current page from API (default 50 per page) instead of all 500
-- [ ] **AC-US3-03**: Filter by state (all/active/published/rejected) triggers server-side re-fetch with state param
-- [ ] **AC-US3-04**: Sort column changes trigger server-side re-fetch with sort/sortDir params
-- [ ] **AC-US3-05**: Stat card counts (total, active, published, rejected, avg score) fetched from a lightweight `/api/v1/submissions/stats` endpoint instead of derived from all rows
+- [x] **AC-US3-01**: GET /api/v1/submissions supports `state` filter, `sort`, `sortDir`, `limit`, `offset` query params with proper server-side application
+- [x] **AC-US3-02**: Queue page fetches only current page from API (default 50 per page) instead of all 500
+- [x] **AC-US3-03**: Filter by state (all/active/published/rejected) triggers server-side re-fetch with state param
+- [x] **AC-US3-04**: Sort column changes trigger server-side re-fetch with sort/sortDir params
+- [x] **AC-US3-05**: Stat card counts (total, active, published, rejected, avg score) fetched from a lightweight `/api/v1/submissions/stats` endpoint instead of derived from all rows
 
 ---
 
@@ -70,11 +70,11 @@ The Cloudflare submission verification pipeline is stuck due to a TypeScript bui
 **So that** the UI stays responsive and network usage is minimal
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: SSE `state_changed` event updates the matching submission row in React state without calling fetchQueue
-- [ ] **AC-US4-02**: SSE `submission_created` event prepends new submission to current page if it matches the active filter
-- [ ] **AC-US4-03**: SSE `scan_complete` event updates score for the matching row in-place
-- [ ] **AC-US4-04**: Stat card counters update optimistically from SSE events (increment/decrement based on state transition)
-- [ ] **AC-US4-05**: Polling fallback interval increased from 5s to 30s when SSE is disconnected
+- [x] **AC-US4-01**: SSE `state_changed` event updates the matching submission row in React state without calling fetchQueue
+- [x] **AC-US4-02**: SSE `submission_created` event prepends new submission to current page if it matches the active filter
+- [x] **AC-US4-03**: SSE `scan_complete` event updates score for the matching row in-place
+- [x] **AC-US4-04**: Stat card counters update optimistically from SSE events (increment/decrement based on state transition)
+- [x] **AC-US4-05**: Polling fallback interval increased from 5s to 30s when SSE is disconnected
 
 ---
 
@@ -86,8 +86,8 @@ The Cloudflare submission verification pipeline is stuck due to a TypeScript bui
 **So that** stat cards can be populated without fetching all submission rows
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: GET /api/v1/submissions/stats returns `{ total, active, published, rejected, avgScore }` computed from KV index
-- [ ] **AC-US5-02**: Response time under 100ms (single KV read + in-memory aggregation)
+- [x] **AC-US5-01**: GET /api/v1/submissions/stats returns `{ total, active, published, rejected, avgScore }` computed from KV index
+- [x] **AC-US5-02**: Response time under 100ms (single KV read + in-memory aggregation)
 
 ## Functional Requirements
 

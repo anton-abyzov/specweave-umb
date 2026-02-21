@@ -13,6 +13,6 @@ Root cause: `resolveInstallBase()` blindly joins `projectRoot + localSkillsDir`.
 ## Acceptance Criteria
 
 - [x] AC-01: `resolveInstallBase` does NOT create nested agent dir when projectRoot ends with agent base folder
-- [ ] AC-02: Test proves the bug (RED before fix)
-- [ ] AC-03: Fix passes the test (GREEN)
-- [ ] AC-04: `--cwd` path also avoids nesting when cwd is inside agent dir
+- [x] AC-02: Test proves the bug (RED before fix)
+- [x] AC-03: Fix passes the test (GREEN)
+- [x] AC-04: `--cwd` path also avoids nesting when cwd is inside agent dir

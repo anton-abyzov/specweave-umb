@@ -3,7 +3,7 @@ increment: 0277-multi-package-manager-docs
 title: "Multi-Package-Manager Documentation Update"
 type: feature
 priority: P1
-status: planned
+status: completed
 created: 2026-02-21
 structure: user-stories
 test_mode: test-after

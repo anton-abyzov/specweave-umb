@@ -1,10 +1,10 @@
 ---
 increment: 0286-vskill-install-ux
-title: "vskill install UX improvements"
+title: vskill install UX improvements
 type: feature
 priority: P1
-status: planned
-created: 2026-02-21
+status: completed
+created: 2026-02-21T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 80
@@ -26,9 +26,9 @@ The `vskill install` interactive wizard has several UX issues that create fricti
 **So that** I understand what each input does without guessing
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Checkbox list prompt shows "Toggle: 1-N, ranges (1-3), comma-separated (1,3,5). a=all. Enter=done" instead of "space to toggle"
-- [ ] **AC-US1-02**: Scope prompt label reads "Scope" instead of "Installation scope:" (colon removed, more concise)
-- [ ] **AC-US1-03**: Method prompt label reads "Method" instead of "Installation method:" (colon removed, more concise)
+- [x] **AC-US1-01**: Checkbox list prompt shows "Toggle: 1-N, ranges (1-3), comma-separated (1,3,5). a=all. Enter=done" instead of "space to toggle"
+- [x] **AC-US1-02**: Scope prompt label reads "Scope" instead of "Installation scope:" (colon removed, more concise)
+- [x] **AC-US1-03**: Method prompt label reads "Method" instead of "Installation method:" (colon removed, more concise)
 
 ---
 
@@ -40,9 +40,9 @@ The `vskill install` interactive wizard has several UX issues that create fricti
 **So that** pressing up/down/left/right does not produce garbage output or break the prompt
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: ANSI escape sequences (ESC [ A/B/C/D for arrow keys) are detected and ignored in `promptCheckboxList`
-- [ ] **AC-US2-02**: ANSI escape sequences are detected and ignored in `promptChoice`
-- [ ] **AC-US2-03**: Other common escape sequences (home, end, delete) do not produce errors
+- [x] **AC-US2-01**: ANSI escape sequences (ESC [ A/B/C/D for arrow keys) are detected and ignored in `promptCheckboxList`
+- [x] **AC-US2-02**: ANSI escape sequences are detected and ignored in `promptChoice`
+- [x] **AC-US2-03**: Other common escape sequences (home, end, delete) do not produce errors
 
 ---
 
@@ -54,11 +54,11 @@ The `vskill install` interactive wizard has several UX issues that create fricti
 **So that** the install flow is faster and less tedious
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Scope defaults to "Project" and method defaults to "Symlink" without prompting -- wizard skips steps 3 and 4
-- [ ] **AC-US3-02**: Only skills and agents are prompted (when applicable); scope and method use defaults
-- [ ] **AC-US3-03**: Summary shows defaults for scope and method before confirmation
-- [ ] **AC-US3-04**: New `--copy` flag forces copy method without prompt
-- [ ] **AC-US3-05**: Existing `--global` flag still forces global scope without prompt
+- [x] **AC-US3-01**: Scope defaults to "Project" and method defaults to "Symlink" without prompting -- wizard skips steps 3 and 4
+- [x] **AC-US3-02**: Only skills and agents are prompted (when applicable); scope and method use defaults
+- [x] **AC-US3-03**: Summary shows defaults for scope and method before confirmation
+- [x] **AC-US3-04**: New `--copy` flag forces copy method without prompt
+- [x] **AC-US3-05**: Existing `--global` flag still forces global scope without prompt
 
 ---
 
@@ -70,11 +70,11 @@ The `vskill install` interactive wizard has several UX issues that create fricti
 **So that** I can efficiently select/deselect groups without toggling one by one
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Input "1-3" toggles items 1, 2, and 3
-- [ ] **AC-US4-02**: Input "1,3,5" toggles items 1, 3, and 5
-- [ ] **AC-US4-03**: Input "1-3,5,7-9" toggles items 1, 2, 3, 5, 7, 8, 9 (mixed syntax)
-- [ ] **AC-US4-04**: Invalid ranges (e.g., "5-2", "0", "999") are silently ignored (no crash)
-- [ ] **AC-US4-05**: Ranges work in both skill selection and agent selection checkbox lists
+- [x] **AC-US4-01**: Input "1-3" toggles items 1, 2, and 3
+- [x] **AC-US4-02**: Input "1,3,5" toggles items 1, 3, and 5
+- [x] **AC-US4-03**: Input "1-3,5,7-9" toggles items 1, 2, 3, 5, 7, 8, 9 (mixed syntax)
+- [x] **AC-US4-04**: Invalid ranges (e.g., "5-2", "0", "999") are silently ignored (no crash)
+- [x] **AC-US4-05**: Ranges work in both skill selection and agent selection checkbox lists
 
 ---
 
@@ -86,10 +86,10 @@ The `vskill install` interactive wizard has several UX issues that create fricti
 **So that** I can make informed decisions about which skills to install
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: `DiscoveredSkill` interface includes optional `description` field
-- [ ] **AC-US5-02**: Discovery fetches the first non-empty, non-heading line from each SKILL.md as description (truncated to 80 chars)
-- [ ] **AC-US5-03**: Wizard checkbox list shows skill name with description as hint text (using existing `description` field on `CheckboxItem`)
-- [ ] **AC-US5-04**: Missing descriptions (fetch failure or empty content) gracefully fall back to no hint
+- [x] **AC-US5-01**: `DiscoveredSkill` interface includes optional `description` field
+- [x] **AC-US5-02**: Discovery fetches the first non-empty, non-heading line from each SKILL.md as description (truncated to 80 chars)
+- [x] **AC-US5-03**: Wizard checkbox list shows skill name with description as hint text (using existing `description` field on `CheckboxItem`)
+- [x] **AC-US5-04**: Missing descriptions (fetch failure or empty content) gracefully fall back to no hint
 
 ## Functional Requirements
 

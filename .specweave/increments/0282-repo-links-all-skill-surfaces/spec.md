@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0282: Repository Links on All Skill Surfaces
 
 ## Problem

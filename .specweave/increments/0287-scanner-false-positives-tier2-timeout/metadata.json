@@ -1,6 +1,7 @@
 {
   "id": "0287-scanner-false-positives-tier2-timeout",
-  "status": "planned",
+  "status": "completed",
+  "completedAt": "2026-02-21",
   "type": "bug",
   "priority": "P1",
   "created": "2026-02-21T09:49:48.064Z",

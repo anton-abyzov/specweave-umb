@@ -33,7 +33,7 @@
     - Then no TypeScript errors are reported
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -51,7 +51,7 @@
     - Then exit code is 0 with no TypeScript errors
 
 **Dependencies**: T-001
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -86,7 +86,7 @@
     - Then KV.put uses expirationTtl: 86400
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -126,7 +126,7 @@
     - Then 10 submissions returned starting from index 20, total=100
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -163,7 +163,7 @@
     - Then `{ total: 0, active: 0, published: 0, rejected: 0, avgScore: 0 }`
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -193,7 +193,7 @@
     - Then returns ["RECEIVED", "TIER1_SCANNING", "TIER2_SCANNING"]
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -235,7 +235,7 @@
     - Then stat cards show correct counts from API, not derived from row data
 
 **Dependencies**: T-004, T-005, T-006
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -273,7 +273,7 @@
     - Then interval is 30000ms, not 5000ms
 
 **Dependencies**: T-006, T-007
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -303,4 +303,4 @@
     - Then all suites pass with coverage >= 80% on new code
 
 **Dependencies**: T-001 through T-008
-**Status**: [ ] Not Started
+**Status**: [x] Completed

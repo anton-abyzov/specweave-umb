@@ -1,6 +1,6 @@
 {
   "id": "0285-queue-pipeline-recovery-perf",
-  "status": "planned",
+  "status": "completed",
   "type": "hotfix",
   "priority": "P0",
   "created": "2026-02-21T09:45:46.531Z",
