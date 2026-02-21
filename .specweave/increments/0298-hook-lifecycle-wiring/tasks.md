@@ -17,7 +17,7 @@
 
 #### T-001: Create LifecycleHookDispatcher module
 
-**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US2-01, AC-US2-02, AC-US2-03, AC-US3-01, AC-US3-02, AC-US3-03, AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [ ] Not Started
+**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US2-01, AC-US2-02, AC-US2-03, AC-US3-01, AC-US3-02, AC-US3-03, AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [x] completed
 
 **Description**: Create `src/core/hooks/LifecycleHookDispatcher.ts` with three static methods:
 
@@ -28,14 +28,14 @@
 All methods: non-blocking (fire-and-forget async), error-isolated (catch + log), skip in test environment.
 
 **Implementation**:
-- [ ] Create LifecycleHookDispatcher class with static methods
-- [ ] Read hooks config via ConfigManager
-- [ ] `onIncrementPlanned`: check `auto_create_github_issue`, call autoCreateExternalIssue
-- [ ] `onTaskCompleted`: check `sync_tasks_md` and `external_tracker_sync`, dispatch accordingly
-- [ ] `onIncrementDone`: check `sync_living_docs`, `sync_to_github_project`, `close_github_issue`, `update_living_docs_first`
-- [ ] Guard: skip all dispatch if `process.env.NODE_ENV === 'test'` or `process.env.VITEST`
-- [ ] Guard: skip if no `hooks` key in config (safe default)
-- [ ] Handle partial config gracefully (optional chaining)
+- [x] Create LifecycleHookDispatcher class with static methods
+- [x] Read hooks config via ConfigManager
+- [x] `onIncrementPlanned`: check `auto_create_github_issue`, call autoCreateExternalIssue
+- [x] `onTaskCompleted`: check `sync_tasks_md` and `external_tracker_sync`, dispatch accordingly
+- [x] `onIncrementDone`: check `sync_living_docs`, `sync_to_github_project`, `close_github_issue`, `update_living_docs_first`
+- [x] Guard: skip all dispatch if `process.env.NODE_ENV === 'test'` or `process.env.VITEST`
+- [x] Guard: skip if no `hooks` key in config (safe default)
+- [x] Handle partial config gracefully (optional chaining)
 
 **Test Plan**:
 - **File**: `tests/unit/core/hooks/lifecycle-hook-dispatcher.test.ts`
@@ -98,14 +98,14 @@ All methods: non-blocking (fire-and-forget async), error-isolated (catch + log),
 
 #### T-002: Wire onIncrementPlanned into createIncrementCommand
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-03 | **Status**: [ ] Not Started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-03 | **Status**: [x] completed
 
 **Description**: In `src/cli/commands/create-increment.ts`, after `createIncrementTemplates()` succeeds, call `LifecycleHookDispatcher.onIncrementPlanned()`. The call must be non-blocking (fire-and-forget).
 
 **Implementation**:
-- [ ] Import LifecycleHookDispatcher
-- [ ] After `result.success` check, call `onIncrementPlanned(projectRoot, id)` in fire-and-forget pattern
-- [ ] Ensure errors don't affect the success output to user
+- [x] Import LifecycleHookDispatcher
+- [x] After `result.success` check, call `onIncrementPlanned(projectRoot, id)` in fire-and-forget pattern
+- [x] Ensure errors don't affect the success output to user
 
 **Test Plan**:
 - **File**: `tests/unit/cli/commands/create-increment.test.ts` (extend existing or create)
@@ -126,14 +126,14 @@ All methods: non-blocking (fire-and-forget async), error-isolated (catch + log),
 
 #### T-003: Wire onIncrementDone into completeIncrement
 
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01 | **Status**: [ ] Not Started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01 | **Status**: [x] completed
 
 **Description**: In `src/core/increment/status-commands.ts` `completeIncrement()`, after successful status update to COMPLETED, call `LifecycleHookDispatcher.onIncrementDone()`. Must coordinate with existing StatusChangeSyncTrigger to avoid duplicate work.
 
 **Implementation**:
-- [ ] Import LifecycleHookDispatcher (dynamic import to avoid circular deps)
-- [ ] After `MetadataManager.updateStatus(incrementId, COMPLETED)` succeeds, call `onIncrementDone`
-- [ ] Fire-and-forget pattern with error catching
+- [x] Import LifecycleHookDispatcher (dynamic import to avoid circular deps)
+- [x] After `MetadataManager.updateStatus(incrementId, COMPLETED)` succeeds, call `onIncrementDone`
+- [x] Fire-and-forget pattern with error catching
 
 **Test Plan**:
 - **File**: `tests/unit/core/increment/status-commands.test.ts` (extend or create)
@@ -156,15 +156,15 @@ All methods: non-blocking (fire-and-forget async), error-isolated (catch + log),
 
 #### T-004: Run existing test suite and verify no regressions
 
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01 | **Status**: [ ] Not Started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01 | **Status**: [x] completed
 
 **Description**: Run the full Vitest suite to confirm zero regressions. Ensure the test environment guard prevents real dispatch during tests.
 
 **Implementation**:
-- [ ] Run `npm test` in the specweave repo
-- [ ] Verify all existing tests pass
-- [ ] Verify new tests pass
-- [ ] Confirm no accidental real API calls in test environment
+- [x] Run `npm test` in the specweave repo
+- [x] Verify all existing tests pass
+- [x] Verify new tests pass
+- [x] Confirm no accidental real API calls in test environment
 
 **Test Plan**:
 - **Tests**:

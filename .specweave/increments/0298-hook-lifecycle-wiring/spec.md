@@ -34,9 +34,9 @@ The existing lifecycle events (in `createIncrementTemplates`, `MetadataManager.u
 **So that** I don't have to manually run /sw-github:create
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: After `createIncrementTemplates()` succeeds, the dispatcher checks `config.hooks.post_increment_planning.auto_create_github_issue` and calls `autoCreateExternalIssue()` if true
-- [ ] **AC-US1-02**: If `auto_create_github_issue` is false or hooks config is missing, no issue is created
-- [ ] **AC-US1-03**: Hook dispatch is non-blocking - failures log warnings but don't crash increment creation
+- [x] **AC-US1-01**: After `createIncrementTemplates()` succeeds, the dispatcher checks `config.hooks.post_increment_planning.auto_create_github_issue` and calls `autoCreateExternalIssue()` if true
+- [x] **AC-US1-02**: If `auto_create_github_issue` is false or hooks config is missing, no issue is created
+- [x] **AC-US1-03**: Hook dispatch is non-blocking - failures log warnings but don't crash increment creation
 
 ---
 
@@ -48,9 +48,9 @@ The existing lifecycle events (in `createIncrementTemplates`, `MetadataManager.u
 **So that** external trackers stay in sync automatically
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: The dispatcher is callable from task completion flows, checks `config.hooks.post_task_completion`, and triggers `sync_tasks_md` sync if enabled
-- [ ] **AC-US2-02**: External tracker sync fires when `external_tracker_sync=true`
-- [ ] **AC-US2-03**: When both settings are false, no sync operations run
+- [x] **AC-US2-01**: The dispatcher is callable from task completion flows, checks `config.hooks.post_task_completion`, and triggers `sync_tasks_md` sync if enabled
+- [x] **AC-US2-02**: External tracker sync fires when `external_tracker_sync=true`
+- [x] **AC-US2-03**: When both settings are false, no sync operations run
 
 ---
 
@@ -62,9 +62,9 @@ The existing lifecycle events (in `createIncrementTemplates`, `MetadataManager.u
 **So that** all external tools are updated on completion per my config
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: The dispatcher is called from `completeIncrement()` and checks `config.hooks.post_increment_done`
-- [ ] **AC-US3-02**: Each setting (`sync_living_docs`, `sync_to_github_project`, `close_github_issue`) independently controls whether its action fires
-- [ ] **AC-US3-03**: When `update_living_docs_first=true`, living docs sync runs before GitHub sync
+- [x] **AC-US3-01**: The dispatcher is called from `completeIncrement()` and checks `config.hooks.post_increment_done`
+- [x] **AC-US3-02**: Each setting (`sync_living_docs`, `sync_to_github_project`, `close_github_issue`) independently controls whether its action fires
+- [x] **AC-US3-03**: When `update_living_docs_first=true`, living docs sync runs before GitHub sync
 
 ---
 
@@ -76,9 +76,9 @@ The existing lifecycle events (in `createIncrementTemplates`, `MetadataManager.u
 **So that** I can disable/enable specific automations without code changes
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: When no `hooks` key exists in config, all hook-based actions are skipped (safe default)
-- [ ] **AC-US4-02**: Each hook trigger can be independently configured
-- [ ] **AC-US4-03**: The dispatcher gracefully handles partial/missing config (e.g., hooks.post_increment_planning exists but post_task_completion does not)
+- [x] **AC-US4-01**: When no `hooks` key exists in config, all hook-based actions are skipped (safe default)
+- [x] **AC-US4-02**: Each hook trigger can be independently configured
+- [x] **AC-US4-03**: The dispatcher gracefully handles partial/missing config (e.g., hooks.post_increment_planning exists but post_task_completion does not)
 
 ## Functional Requirements
 

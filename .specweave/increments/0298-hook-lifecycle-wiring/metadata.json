@@ -1,6 +1,6 @@
 {
   "id": "0298-hook-lifecycle-wiring",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-21T18:20:15.345Z",
@@ -9,5 +9,6 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "completedAt": "2026-02-21T21:50:00.000Z"
 }
