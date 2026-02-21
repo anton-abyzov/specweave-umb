@@ -2,9 +2,10 @@
   "id": "0313",
   "name": "parallelize-kv-reads-fix-worker-race",
   "title": "Parallelize remaining sequential KV reads and fix worker-context module-level race",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "bugfix",
   "createdAt": "2026-02-21T00:00:00.000Z",
   "testingMode": "TDD",
-  "updated": "2026-02-21T22:29:48.000Z"
+  "updated": "2026-02-21T22:29:48.000Z",
+  "completedAt": "2026-02-21T22:36:51.686Z"
 }
