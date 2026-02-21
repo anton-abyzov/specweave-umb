@@ -45,5 +45,5 @@
 **Test**: Given authenticated user → When 11th submission in 1 hour → Then allowed (limit is 30/hour, not 10)
 
 ### T-010: Deploy and verify all fixes
-**User Story**: ALL | **Status**: [ ] pending
+**User Story**: ALL | **Status**: [x] completed
 **Test**: Given all changes deployed → When queue runs → Then stuck items recover, new submissions dedup properly

@@ -47,7 +47,7 @@
     - Then ghost files are deleted and summary is in fixSuggestion
 
 **Dependencies**: None
-**Status**: [x] Completed
+**Status**: [x] completed
 
 ---
 
@@ -89,7 +89,7 @@
     - Then dir still exists (only reported)
 
 **Dependencies**: T-001 (shares the class file)
-**Status**: [x] Completed
+**Status**: [x] completed
 
 ---
 
@@ -131,7 +131,7 @@
     - Then status is 'skip'
 
 **Dependencies**: T-001 (shares the class file)
-**Status**: [x] Completed
+**Status**: [x] completed
 
 ---
 
@@ -170,7 +170,7 @@
     - Then pollution files are deleted
 
 **Dependencies**: T-001 (shares the class file)
-**Status**: [x] Completed
+**Status**: [x] completed
 
 ---
 
@@ -191,7 +191,7 @@
 - If specweave not found, suggest `npm install -g specweave`
 
 **Dependencies**: T-001 through T-004 (checker must exist for useful output)
-**Status**: [x] Completed
+**Status**: [x] completed
 
 ---
 
@@ -222,7 +222,7 @@
     - Then returns "specweave refresh-plugins"
 
 **Dependencies**: T-001 through T-004
-**Status**: [x] Completed
+**Status**: [x] completed
 
 ---
 
@@ -242,4 +242,4 @@
 - Verify idempotency (run --fix twice, same result)
 
 **Dependencies**: T-001 through T-006
-**Status**: [x] Completed
+**Status**: [x] completed

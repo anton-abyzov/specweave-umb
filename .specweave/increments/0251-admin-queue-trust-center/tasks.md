@@ -42,7 +42,7 @@
     - Then isAdmin is false and isLoading is false
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 ---
 
@@ -76,7 +76,7 @@
     - Then the fetch is called with status=PASS parameter
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 ---
 
@@ -110,7 +110,7 @@
     - Then only entries with "malware" in skill name are shown
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 ---
 
@@ -148,7 +148,7 @@
     - Then the Blocked Skills tab content is shown
 
 **Dependencies**: T-002, T-003
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 ---
 
@@ -172,7 +172,7 @@
     - Then text containing "coming soon" is displayed
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 ---
 
@@ -207,7 +207,7 @@
     - Then 400 is returned with error message
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 ---
 
@@ -243,7 +243,7 @@
     - Then 400 is returned
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 ---
 
@@ -280,7 +280,7 @@
     - Then fetchQueue is called to refresh
 
 **Dependencies**: T-001, T-006, T-007
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 ---
 
@@ -311,7 +311,7 @@
     - Then redirect() is called with /trust?tab=blocked
 
 **Dependencies**: T-004
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 ---
 
@@ -346,7 +346,7 @@
     - Then no link with text "Blocklist" exists
 
 **Dependencies**: T-004
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 ---
 
@@ -382,4 +382,4 @@
     - Then the build completes successfully
 
 **Dependencies**: T-001 through T-010
-**Status**: [ ] Not Started
+**Status**: [x] completed
