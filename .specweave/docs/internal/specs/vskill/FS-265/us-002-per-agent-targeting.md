@@ -9,7 +9,7 @@ project: vskill
 external:
   github:
     issue: 1193
-    url: https://github.com/anton-abyzov/specweave/issues/1193
+    url: "https://github.com/anton-abyzov/specweave/issues/1193"
 ---
 # US-002: Per-Agent Targeting
 

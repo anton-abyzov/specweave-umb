@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 913
-    url: https://github.com/anton-abyzov/specweave/issues/913
+    url: "https://github.com/anton-abyzov/specweave/issues/913"
 ---
 
 # US-007: Enable and Audit E2E Tests (P2)

@@ -8,7 +8,7 @@ completed: 2025-11-15
 external:
   github:
     issue: 573
-    url: https://github.com/anton-abyzov/specweave/issues/573
+    url: "https://github.com/anton-abyzov/specweave/issues/573"
 ---
 
 # US-002: DORA Metrics Persistent Tracking (P1)

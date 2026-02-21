@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 976
-    url: https://github.com/anton-abyzov/specweave/issues/976
+    url: "https://github.com/anton-abyzov/specweave/issues/976"
 ---
 
 # US-006: LSP Integration Examples for Skills

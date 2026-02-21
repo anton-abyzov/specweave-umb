@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1008
-    url: https://github.com/anton-abyzov/specweave/issues/1008
+    url: "https://github.com/anton-abyzov/specweave/issues/1008"
 ---
 
 # US-005: Auto Mode TDD Injection

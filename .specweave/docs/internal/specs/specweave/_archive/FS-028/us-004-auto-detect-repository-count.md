@@ -8,7 +8,7 @@ completed: 2025-11-15
 external:
   github:
     issue: 582
-    url: https://github.com/anton-abyzov/specweave/issues/582
+    url: "https://github.com/anton-abyzov/specweave/issues/582"
 ---
 
 # US-004: Auto-Detect Repository Count

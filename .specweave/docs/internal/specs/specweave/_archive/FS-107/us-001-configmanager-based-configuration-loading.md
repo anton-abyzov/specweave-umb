@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 833
-    url: https://github.com/anton-abyzov/specweave/issues/833
+    url: "https://github.com/anton-abyzov/specweave/issues/833"
 ---
 
 # US-001: ConfigManager-Based Configuration Loading

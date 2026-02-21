@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 975
-    url: https://github.com/anton-abyzov/specweave/issues/975
+    url: "https://github.com/anton-abyzov/specweave/issues/975"
 ---
 
 # US-005: Confidence-Based Detection

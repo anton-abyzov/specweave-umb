@@ -8,7 +8,7 @@ created: 2025-12-06
 external:
   github:
     issue: 784
-    url: https://github.com/anton-abyzov/specweave/issues/784
+    url: "https://github.com/anton-abyzov/specweave/issues/784"
 ---
 
 # US-005: Skill-Based Discoverability (NEW)

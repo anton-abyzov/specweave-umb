@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 858
-    url: https://github.com/anton-abyzov/specweave/issues/858
+    url: "https://github.com/anton-abyzov/specweave/issues/858"
 ---
 
 # US-001: Multi-Ecosystem Detection

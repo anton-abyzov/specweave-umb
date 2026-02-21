@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 843
-    url: https://github.com/anton-abyzov/specweave/issues/843
+    url: "https://github.com/anton-abyzov/specweave/issues/843"
 ---
 
 # US-002: Write Path - Incremental Updates

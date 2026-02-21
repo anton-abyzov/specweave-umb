@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 822
-    url: https://github.com/anton-abyzov/specweave/issues/822
+    url: "https://github.com/anton-abyzov/specweave/issues/822"
 ---
 
 # US-006: Beta Testing Infrastructure

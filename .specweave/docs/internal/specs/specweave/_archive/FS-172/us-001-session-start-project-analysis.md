@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1023
-    url: https://github.com/anton-abyzov/specweave/issues/1023
+    url: "https://github.com/anton-abyzov/specweave/issues/1023"
 ---
 
 # US-001: Session-Start Project Analysis

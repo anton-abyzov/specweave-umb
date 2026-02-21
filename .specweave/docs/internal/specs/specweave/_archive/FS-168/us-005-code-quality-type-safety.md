@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1019
-    url: https://github.com/anton-abyzov/specweave/issues/1019
+    url: "https://github.com/anton-abyzov/specweave/issues/1019"
 ---
 
 # US-005: Code Quality - Type Safety

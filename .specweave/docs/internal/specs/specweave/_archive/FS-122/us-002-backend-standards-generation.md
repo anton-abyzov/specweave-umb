@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 859
-    url: https://github.com/anton-abyzov/specweave/issues/859
+    url: "https://github.com/anton-abyzov/specweave/issues/859"
 ---
 
 # US-002: Backend Standards Generation

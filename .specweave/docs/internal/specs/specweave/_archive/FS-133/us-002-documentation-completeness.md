@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 878
-    url: https://github.com/anton-abyzov/specweave/issues/878
+    url: "https://github.com/anton-abyzov/specweave/issues/878"
 ---
 
 # US-002: Documentation Completeness

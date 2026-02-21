@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1032
-    url: https://github.com/anton-abyzov/specweave/issues/1032
+    url: "https://github.com/anton-abyzov/specweave/issues/1032"
 ---
 
 # US-010: Documentation Update

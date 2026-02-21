@@ -4,7 +4,7 @@ title: Complete uninstall support for specweave and vskill
 type: feature
 status: completed
 priority: P1
-created: 2026-02-18T00:00:00.000Z
+created: "2026-02-18T00:00:00.000Z"
 lastUpdated: 2026-02-19
 tldr: "Add uninstall/remove commands at all levels: `vskill remove` for
   individual skills, `specweave uninstall` for full project cleanup, and npm
@@ -15,7 +15,7 @@ external_tools:
   github:
     type: milestone
     id: 2
-    url: https://github.com/anton-abyzov/specweave-umb/milestone/2
+    url: "https://github.com/anton-abyzov/specweave-umb/milestone/2"
 ---
 
 # Complete uninstall support for specweave and vskill

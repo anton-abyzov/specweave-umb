@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 983
-    url: https://github.com/anton-abyzov/specweave/issues/983
+    url: "https://github.com/anton-abyzov/specweave/issues/983"
 ---
 
 # US-001: Intelligent Prompt Chunking

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 935
-    url: https://github.com/anton-abyzov/specweave/issues/935
+    url: "https://github.com/anton-abyzov/specweave/issues/935"
 ---
 
 # US-006: JIRA Sync Adapter (P1)

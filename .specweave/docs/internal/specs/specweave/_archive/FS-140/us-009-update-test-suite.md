@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 906
-    url: https://github.com/anton-abyzov/specweave/issues/906
+    url: "https://github.com/anton-abyzov/specweave/issues/906"
 ---
 
 # US-009: Update Test Suite

@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 55
-    url: https://github.com/anton-abyzov/specweave/milestone/55
+    url: "https://github.com/anton-abyzov/specweave/milestone/55"
 ---
 
 # 0140: Remove Frontmatter Project Field

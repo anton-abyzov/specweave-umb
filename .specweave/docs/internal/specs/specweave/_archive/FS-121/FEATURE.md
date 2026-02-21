@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 44
-    url: https://github.com/anton-abyzov/specweave/milestone/44
+    url: "https://github.com/anton-abyzov/specweave/milestone/44"
 ---
 
 # ADO/JIRA Feature Parity P2/P3 Implementation

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1025
-    url: https://github.com/anton-abyzov/specweave/issues/1025
+    url: "https://github.com/anton-abyzov/specweave/issues/1025"
 ---
 
 # US-003: CLI detect-intent Command

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 900
-    url: https://github.com/anton-abyzov/specweave/issues/900
+    url: "https://github.com/anton-abyzov/specweave/issues/900"
 ---
 
 # US-003: Update Living Docs Sync to Use Resolution Service

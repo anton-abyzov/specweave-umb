@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 934
-    url: https://github.com/anton-abyzov/specweave/issues/934
+    url: "https://github.com/anton-abyzov/specweave/issues/934"
 ---
 
 # US-005: ADO Sync Adapter (P1)

@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 69
-    url: https://github.com/anton-abyzov/specweave/milestone/69
+    url: "https://github.com/anton-abyzov/specweave/milestone/69"
 ---
 
 # Eliminate Duplicate Prompts in GitHub + GitHub Issues Init Flow

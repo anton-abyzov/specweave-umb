@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 865
-    url: https://github.com/anton-abyzov/specweave/issues/865
+    url: "https://github.com/anton-abyzov/specweave/issues/865"
 ---
 
 # US-004: Project/Board-Based Team Organization

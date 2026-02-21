@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 83
-    url: https://github.com/anton-abyzov/specweave/milestone/83
+    url: "https://github.com/anton-abyzov/specweave/milestone/83"
 ---
 
 # TDD Enforcement - Behavioral Implementation

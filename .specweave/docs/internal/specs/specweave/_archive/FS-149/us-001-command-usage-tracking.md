@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 963
-    url: https://github.com/anton-abyzov/specweave/issues/963
+    url: "https://github.com/anton-abyzov/specweave/issues/963"
 ---
 
 # US-001: Command Usage Tracking

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 864
-    url: https://github.com/anton-abyzov/specweave/issues/864
+    url: "https://github.com/anton-abyzov/specweave/issues/864"
 ---
 
 # US-003: Comprehensive Team Documentation

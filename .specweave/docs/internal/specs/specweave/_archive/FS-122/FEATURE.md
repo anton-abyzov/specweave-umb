@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 45
-    url: https://github.com/anton-abyzov/specweave/milestone/45
+    url: "https://github.com/anton-abyzov/specweave/milestone/45"
 ---
 
 # Multi-Technology Governance Standards Detection

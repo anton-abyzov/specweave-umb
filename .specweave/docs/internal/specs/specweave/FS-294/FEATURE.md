@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 114
-    url: https://github.com/anton-abyzov/specweave/milestone/114
+    url: "https://github.com/anton-abyzov/specweave/milestone/114"
 ---
 # Skill page Works-with colorful agent pills
 

@@ -4,7 +4,7 @@ feature: FS-286
 title: "Skill Descriptions in Wizard (P2)"
 status: completed
 priority: P1
-created: 2026-02-21T00:00:00.000Z
+created: "2026-02-21T00:00:00.000Z"
 tldr: "**As a** CLI user choosing skills from a multi-skill repo
 **I want** to see a brief description of each skill
 **So that** I can make informed decisions about which skills to install."

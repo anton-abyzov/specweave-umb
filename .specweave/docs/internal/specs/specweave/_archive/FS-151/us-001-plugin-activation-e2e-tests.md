@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 986
-    url: https://github.com/anton-abyzov/specweave/issues/986
+    url: "https://github.com/anton-abyzov/specweave/issues/986"
 ---
 
 # US-001: Plugin Activation E2E Tests

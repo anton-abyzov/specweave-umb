@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 894
-    url: https://github.com/anton-abyzov/specweave/issues/894
+    url: "https://github.com/anton-abyzov/specweave/issues/894"
 ---
 
 # US-005: Config Migration for Existing Repos (P0)

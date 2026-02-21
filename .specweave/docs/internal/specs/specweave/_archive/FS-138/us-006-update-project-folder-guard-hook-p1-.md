@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 895
-    url: https://github.com/anton-abyzov/specweave/issues/895
+    url: "https://github.com/anton-abyzov/specweave/issues/895"
 ---
 
 # US-006: Update Project Folder Guard Hook (P1)

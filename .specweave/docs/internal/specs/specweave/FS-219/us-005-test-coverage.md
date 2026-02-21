@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1198
-    url: https://github.com/anton-abyzov/specweave/issues/1198
+    url: "https://github.com/anton-abyzov/specweave/issues/1198"
 ---
 # US-005: Test Coverage
 

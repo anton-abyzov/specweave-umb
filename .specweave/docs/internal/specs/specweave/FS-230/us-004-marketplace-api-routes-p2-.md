@@ -4,7 +4,7 @@ feature: FS-230
 title: "Marketplace API Routes (P2)"
 status: completed
 priority: P1
-created: 2026-02-16T00:00:00.000Z
+created: "2026-02-16T00:00:00.000Z"
 tldr: "**As a** dashboard client
 **I want** REST endpoints for marketplace data and scanner control
 **So that** the frontend can fetch, filter, and manage the pipeline."

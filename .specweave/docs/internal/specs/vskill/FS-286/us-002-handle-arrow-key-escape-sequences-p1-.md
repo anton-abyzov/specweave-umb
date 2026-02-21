@@ -4,7 +4,7 @@ feature: FS-286
 title: "Handle Arrow Key Escape Sequences (P1)"
 status: completed
 priority: P1
-created: 2026-02-21T00:00:00.000Z
+created: "2026-02-21T00:00:00.000Z"
 tldr: "**As a** CLI user
 **I want** arrow key presses to be silently ignored
 **So that** pressing up/down/left/right does not produce garbage output or break the prompt."

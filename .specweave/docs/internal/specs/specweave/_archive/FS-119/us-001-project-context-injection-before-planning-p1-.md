@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 847
-    url: https://github.com/anton-abyzov/specweave/issues/847
+    url: "https://github.com/anton-abyzov/specweave/issues/847"
 ---
 
 # US-001: Project Context Injection Before Planning (P1)

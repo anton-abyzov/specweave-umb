@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 862
-    url: https://github.com/anton-abyzov/specweave/issues/862
+    url: "https://github.com/anton-abyzov/specweave/issues/862"
 ---
 
 # US-001: Human-Readable ADR Names

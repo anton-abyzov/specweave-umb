@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 973
-    url: https://github.com/anton-abyzov/specweave/issues/973
+    url: "https://github.com/anton-abyzov/specweave/issues/973"
 ---
 
 # US-003: Smart Marketplace Merge System

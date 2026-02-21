@@ -8,7 +8,7 @@ completed: 2025-11-15
 external:
   github:
     issue: 591
-    url: https://github.com/anton-abyzov/specweave/issues/591
+    url: "https://github.com/anton-abyzov/specweave/issues/591"
 ---
 
 # US-002: Auto-Detect and Resolve Conflicts

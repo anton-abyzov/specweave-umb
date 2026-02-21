@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1208
-    url: https://github.com/anton-abyzov/specweave/issues/1208
+    url: "https://github.com/anton-abyzov/specweave/issues/1208"
 ---
 # US-001: GitHub Issues Auto-Close When status:complete Label Applied
 

@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 60
-    url: https://github.com/anton-abyzov/specweave/milestone/60
+    url: "https://github.com/anton-abyzov/specweave/milestone/60"
 ---
 
 # 0144: Frontmatter Removal - Migration & Rollout (Part 2 of 2)

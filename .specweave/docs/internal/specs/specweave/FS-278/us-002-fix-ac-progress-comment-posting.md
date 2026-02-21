@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1213
-    url: https://github.com/anton-abyzov/specweave/issues/1213
+    url: "https://github.com/anton-abyzov/specweave/issues/1213"
 ---
 # US-002: Fix AC progress comment posting
 

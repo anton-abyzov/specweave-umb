@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 972
-    url: https://github.com/anton-abyzov/specweave/issues/972
+    url: "https://github.com/anton-abyzov/specweave/issues/972"
 ---
 
 # US-002: SpecWeave Project Detection

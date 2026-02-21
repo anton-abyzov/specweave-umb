@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 86
-    url: https://github.com/anton-abyzov/specweave/milestone/86
+    url: "https://github.com/anton-abyzov/specweave/milestone/86"
 ---
 
 # Enterprise Readiness Refactoring

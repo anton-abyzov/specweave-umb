@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 6
-    url: https://github.com/anton-abyzov/specweave/milestone/6
+    url: "https://github.com/anton-abyzov/specweave/milestone/6"
 ---
 
 # Release Management Plugin Enhancements

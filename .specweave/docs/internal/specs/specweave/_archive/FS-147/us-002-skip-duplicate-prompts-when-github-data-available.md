@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 981
-    url: https://github.com/anton-abyzov/specweave/issues/981
+    url: "https://github.com/anton-abyzov/specweave/issues/981"
 ---
 
 # US-002: Skip Duplicate Prompts When GitHub Data Available

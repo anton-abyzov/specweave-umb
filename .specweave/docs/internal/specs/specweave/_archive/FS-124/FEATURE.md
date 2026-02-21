@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 47
-    url: https://github.com/anton-abyzov/specweave/milestone/47
+    url: "https://github.com/anton-abyzov/specweave/milestone/47"
 ---
 
 # Fix spec-project-validator Hook Regex to Match All Increment Patterns

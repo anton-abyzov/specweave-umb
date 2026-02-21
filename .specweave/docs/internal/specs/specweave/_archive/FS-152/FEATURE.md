@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 73
-    url: https://github.com/anton-abyzov/specweave/milestone/73
+    url: "https://github.com/anton-abyzov/specweave/milestone/73"
 ---
 
 # Auto Mode Reliability Improvements for Long-Running Sessions

@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 51
-    url: https://github.com/anton-abyzov/specweave/milestone/51
+    url: "https://github.com/anton-abyzov/specweave/milestone/51"
 ---
 
 # Process Lifecycle - Part 3: Testing & Documentation

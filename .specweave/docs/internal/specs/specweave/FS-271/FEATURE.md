@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 104
-    url: https://github.com/anton-abyzov/specweave/milestone/104
+    url: "https://github.com/anton-abyzov/specweave/milestone/104"
 ---
 # Fix External Sync Pipeline
 

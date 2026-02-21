@@ -9,7 +9,7 @@ project: vskill
 external:
   github:
     issue: 1192
-    url: https://github.com/anton-abyzov/specweave/issues/1192
+    url: "https://github.com/anton-abyzov/specweave/issues/1192"
 ---
 # US-001: Smart Project Root Detection
 

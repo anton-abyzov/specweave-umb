@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 849
-    url: https://github.com/anton-abyzov/specweave/issues/849
+    url: "https://github.com/anton-abyzov/specweave/issues/849"
 ---
 
 # US-003: CLI Helper for Project Selection (P2)

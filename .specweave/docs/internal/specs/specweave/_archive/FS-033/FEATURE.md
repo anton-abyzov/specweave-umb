@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 8
-    url: https://github.com/anton-abyzov/specweave/milestone/8
+    url: "https://github.com/anton-abyzov/specweave/milestone/8"
 ---
 
 # Duplicate Increment Prevention System

@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 75
-    url: https://github.com/anton-abyzov/specweave/milestone/75
+    url: "https://github.com/anton-abyzov/specweave/milestone/75"
 ---
 
 # Skill Routing Optimization and Self-Awareness Guards

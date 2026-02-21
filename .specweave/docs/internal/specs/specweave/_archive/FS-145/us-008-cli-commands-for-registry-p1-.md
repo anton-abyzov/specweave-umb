@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 937
-    url: https://github.com/anton-abyzov/specweave/issues/937
+    url: "https://github.com/anton-abyzov/specweave/issues/937"
 ---
 
 # US-008: CLI Commands for Registry (P1)

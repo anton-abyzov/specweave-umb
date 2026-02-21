@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 39
-    url: https://github.com/anton-abyzov/specweave/milestone/39
+    url: "https://github.com/anton-abyzov/specweave/milestone/39"
 ---
 
 # Ultra-Smart Project/Board Selection

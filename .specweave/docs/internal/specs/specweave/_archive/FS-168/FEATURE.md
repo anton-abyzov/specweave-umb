@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 85
-    url: https://github.com/anton-abyzov/specweave/milestone/85
+    url: "https://github.com/anton-abyzov/specweave/milestone/85"
 ---
 
 # Implement Code Review Fixes

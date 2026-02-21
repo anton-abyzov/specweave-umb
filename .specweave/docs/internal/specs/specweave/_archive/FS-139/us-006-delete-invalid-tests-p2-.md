@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 912
-    url: https://github.com/anton-abyzov/specweave/issues/912
+    url: "https://github.com/anton-abyzov/specweave/issues/912"
 ---
 
 # US-006: Delete Invalid Tests (P2)

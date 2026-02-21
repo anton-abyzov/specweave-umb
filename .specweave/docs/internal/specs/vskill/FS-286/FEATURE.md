@@ -4,7 +4,7 @@ title: vskill install UX improvements
 type: feature
 status: completed
 priority: P1
-created: 2026-02-21T00:00:00.000Z
+created: "2026-02-21T00:00:00.000Z"
 lastUpdated: 2026-02-21
 tldr: The `vskill install` interactive wi.
 complexity: high
@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 112
-    url: https://github.com/anton-abyzov/specweave/milestone/112
+    url: "https://github.com/anton-abyzov/specweave/milestone/112"
 ---
 
 # vskill install UX improvements

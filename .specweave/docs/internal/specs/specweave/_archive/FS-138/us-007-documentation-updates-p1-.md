@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 896
-    url: https://github.com/anton-abyzov/specweave/issues/896
+    url: "https://github.com/anton-abyzov/specweave/issues/896"
 ---
 
 # US-007: Documentation Updates (P1)

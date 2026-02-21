@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 917
-    url: https://github.com/anton-abyzov/specweave/issues/917
+    url: "https://github.com/anton-abyzov/specweave/issues/917"
 ---
 
 # US-004: Update Validation Hooks

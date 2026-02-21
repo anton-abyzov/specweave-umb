@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 884
-    url: https://github.com/anton-abyzov/specweave/issues/884
+    url: "https://github.com/anton-abyzov/specweave/issues/884"
 ---
 
 # US-001: Auto-Trigger Sync-Specs After Increment Creation

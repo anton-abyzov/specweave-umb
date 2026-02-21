@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1026
-    url: https://github.com/anton-abyzov/specweave/issues/1026
+    url: "https://github.com/anton-abyzov/specweave/issues/1026"
 ---
 
 # US-004: CLAUDE.md Embedded Router Instructions

@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 103
-    url: https://github.com/anton-abyzov/specweave/milestone/103
+    url: "https://github.com/anton-abyzov/specweave/milestone/103"
 ---
 # Multi-Repo Migration Tool
 

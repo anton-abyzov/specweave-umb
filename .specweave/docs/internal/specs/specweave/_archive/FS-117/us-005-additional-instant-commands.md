@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 846
-    url: https://github.com/anton-abyzov/specweave/issues/846
+    url: "https://github.com/anton-abyzov/specweave/issues/846"
 ---
 
 # US-005: Additional Instant Commands

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 873
-    url: https://github.com/anton-abyzov/specweave/issues/873
+    url: "https://github.com/anton-abyzov/specweave/issues/873"
 ---
 
 # US-004: Automated Zombie Cleanup Service

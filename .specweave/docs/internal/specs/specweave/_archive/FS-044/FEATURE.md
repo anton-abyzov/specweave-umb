@@ -4,7 +4,7 @@ title: "Integration Testing - Status Line and Hooks"
 type: feature
 status: completed
 priority: P2
-created: 2025-11-19T00:00:00.000Z
+created: "2025-11-19T00:00:00.000Z"
 lastUpdated: 2025-11-24
 ---
 

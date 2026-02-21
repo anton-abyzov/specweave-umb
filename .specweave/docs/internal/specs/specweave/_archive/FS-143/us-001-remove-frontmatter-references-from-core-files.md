@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 922
-    url: https://github.com/anton-abyzov/specweave/issues/922
+    url: "https://github.com/anton-abyzov/specweave/issues/922"
 ---
 
 # US-001: Remove Frontmatter References from Core Files

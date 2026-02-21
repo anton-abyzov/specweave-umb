@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 848
-    url: https://github.com/anton-abyzov/specweave/issues/848
+    url: "https://github.com/anton-abyzov/specweave/issues/848"
 ---
 
 # US-002: Validation Guard for spec.md Project/Board (P1)

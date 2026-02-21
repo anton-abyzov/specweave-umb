@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 837
-    url: https://github.com/anton-abyzov/specweave/issues/837
+    url: "https://github.com/anton-abyzov/specweave/issues/837"
 ---
 
 # US-005: Test Migration and Documentation

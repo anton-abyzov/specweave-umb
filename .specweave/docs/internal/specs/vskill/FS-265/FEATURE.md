@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 102
-    url: https://github.com/anton-abyzov/specweave/milestone/102
+    url: "https://github.com/anton-abyzov/specweave/milestone/102"
 ---
 # vskill install UX: smart directory resolution and agent selection
 

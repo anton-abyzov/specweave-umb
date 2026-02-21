@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 832
-    url: https://github.com/anton-abyzov/specweave/issues/832
+    url: "https://github.com/anton-abyzov/specweave/issues/832"
 ---
 
 # US-003: Technical Debt & Inconsistency Detection

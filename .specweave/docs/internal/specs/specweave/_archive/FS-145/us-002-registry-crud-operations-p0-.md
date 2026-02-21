@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 931
-    url: https://github.com/anton-abyzov/specweave/issues/931
+    url: "https://github.com/anton-abyzov/specweave/issues/931"
 ---
 
 # US-002: Registry CRUD Operations (P0)

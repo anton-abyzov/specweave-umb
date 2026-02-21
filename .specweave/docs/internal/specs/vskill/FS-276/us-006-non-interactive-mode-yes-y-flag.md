@@ -9,7 +9,7 @@ project: vskill
 external:
   github:
     issue: 1207
-    url: https://github.com/anton-abyzov/specweave/issues/1207
+    url: "https://github.com/anton-abyzov/specweave/issues/1207"
 ---
 # US-006: Non-Interactive Mode (`--yes` / `-y` flag)
 

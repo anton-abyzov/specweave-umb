@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 821
-    url: https://github.com/anton-abyzov/specweave/issues/821
+    url: "https://github.com/anton-abyzov/specweave/issues/821"
 ---
 
 # US-005: Performance Benchmarking

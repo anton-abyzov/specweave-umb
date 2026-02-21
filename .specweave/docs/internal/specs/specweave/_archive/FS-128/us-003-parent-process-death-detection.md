@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 812
-    url: https://github.com/anton-abyzov/specweave/issues/812
+    url: "https://github.com/anton-abyzov/specweave/issues/812"
 ---
 
 # US-003: Parent Process Death Detection

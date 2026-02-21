@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 985
-    url: https://github.com/anton-abyzov/specweave/issues/985
+    url: "https://github.com/anton-abyzov/specweave/issues/985"
 ---
 
 # US-003: Self-Healing Test Loop

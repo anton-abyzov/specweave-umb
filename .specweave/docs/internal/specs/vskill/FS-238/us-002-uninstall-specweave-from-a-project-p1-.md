@@ -4,7 +4,7 @@ feature: FS-238
 title: "Uninstall SpecWeave from a project (P1)"
 status: completed
 priority: P1
-created: 2026-02-18T00:00:00.000Z
+created: "2026-02-18T00:00:00.000Z"
 tldr: "**As a** developer
 **I want** to run `specweave uninstall` to completely remove SpecWeave from my project
 **So that** I can cleanly decommission the framework without manual cleanup."

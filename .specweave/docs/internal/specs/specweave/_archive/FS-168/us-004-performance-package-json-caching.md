@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1018
-    url: https://github.com/anton-abyzov/specweave/issues/1018
+    url: "https://github.com/anton-abyzov/specweave/issues/1018"
 ---
 
 # US-004: Performance - Package.json Caching

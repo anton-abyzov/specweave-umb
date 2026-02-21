@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1006
-    url: https://github.com/anton-abyzov/specweave/issues/1006
+    url: "https://github.com/anton-abyzov/specweave/issues/1006"
 ---
 
 # US-003: Execution Awareness in /sw:do

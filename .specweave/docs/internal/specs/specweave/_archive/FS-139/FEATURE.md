@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 56
-    url: https://github.com/anton-abyzov/specweave/milestone/56
+    url: "https://github.com/anton-abyzov/specweave/milestone/56"
 ---
 
 # Test Suite Audit and Systematic Fixes

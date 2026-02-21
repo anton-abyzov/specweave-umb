@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 61
-    url: https://github.com/anton-abyzov/specweave/milestone/61
+    url: "https://github.com/anton-abyzov/specweave/milestone/61"
 ---
 
 # Project Registry with EDA-Based Synchronization

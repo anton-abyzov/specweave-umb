@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 860
-    url: https://github.com/anton-abyzov/specweave/issues/860
+    url: "https://github.com/anton-abyzov/specweave/issues/860"
 ---
 
 # US-003: Frontend Framework Detection

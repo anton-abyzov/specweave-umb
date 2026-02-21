@@ -4,7 +4,7 @@ feature: FS-063
 title: "Feature Folder Structure for Imports"
 status: completed
 priority: P1
-created: 2025-11-25T11:40:00Z
+created: "2025-11-25T11:40:00Z"
 ---
 
 # US-002: Feature Folder Structure for Imports

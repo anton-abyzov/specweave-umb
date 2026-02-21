@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 991
-    url: https://github.com/anton-abyzov/specweave/issues/991
+    url: "https://github.com/anton-abyzov/specweave/issues/991"
 ---
 
 # US-002: Convert Architect Agent to Skill

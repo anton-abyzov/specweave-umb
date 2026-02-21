@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 841
-    url: https://github.com/anton-abyzov/specweave/issues/841
+    url: "https://github.com/anton-abyzov/specweave/issues/841"
 ---
 
 # US-004: Per-US Assignment (P1)

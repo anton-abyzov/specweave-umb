@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 43
-    url: https://github.com/anton-abyzov/specweave/milestone/43
+    url: "https://github.com/anton-abyzov/specweave/milestone/43"
 ---
 
 # ADO vs JIRA Feature Parity Analysis

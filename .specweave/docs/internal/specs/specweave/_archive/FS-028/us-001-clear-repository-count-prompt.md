@@ -8,7 +8,7 @@ completed: 2025-11-15
 external:
   github:
     issue: 579
-    url: https://github.com/anton-abyzov/specweave/issues/579
+    url: "https://github.com/anton-abyzov/specweave/issues/579"
 ---
 
 # US-001: Clear Repository Count Prompt

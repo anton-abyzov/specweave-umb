@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 836
-    url: https://github.com/anton-abyzov/specweave/issues/836
+    url: "https://github.com/anton-abyzov/specweave/issues/836"
 ---
 
 # US-004: Quality Gates for Config Architecture

@@ -8,7 +8,7 @@ completed: 2025-11-15
 external:
   github:
     issue: 576
-    url: https://github.com/anton-abyzov/specweave/issues/576
+    url: "https://github.com/anton-abyzov/specweave/issues/576"
 ---
 
 # US-005: GitFlow Release Branch Automation (P2)

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 803
-    url: https://github.com/anton-abyzov/specweave/issues/803
+    url: "https://github.com/anton-abyzov/specweave/issues/803"
 ---
 
 # US-002: Bitbucket Multi-Repo Cloning

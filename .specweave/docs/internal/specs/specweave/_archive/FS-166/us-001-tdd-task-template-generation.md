@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1004
-    url: https://github.com/anton-abyzov/specweave/issues/1004
+    url: "https://github.com/anton-abyzov/specweave/issues/1004"
 ---
 
 # US-001: TDD Task Template Generation

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 942
-    url: https://github.com/anton-abyzov/specweave/issues/942
+    url: "https://github.com/anton-abyzov/specweave/issues/942"
 ---
 
 # US-003: Token Passthrough for Other GitHub Files

@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 41
-    url: https://github.com/anton-abyzov/specweave/milestone/41
+    url: "https://github.com/anton-abyzov/specweave/milestone/41"
 ---
 
 # External Tool Sync on Increment Start

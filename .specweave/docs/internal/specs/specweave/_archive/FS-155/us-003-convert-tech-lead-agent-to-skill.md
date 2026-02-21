@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 992
-    url: https://github.com/anton-abyzov/specweave/issues/992
+    url: "https://github.com/anton-abyzov/specweave/issues/992"
 ---
 
 # US-003: Convert Tech-Lead Agent to Skill

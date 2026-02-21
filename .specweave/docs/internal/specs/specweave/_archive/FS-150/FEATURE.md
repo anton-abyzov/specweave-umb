@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 71
-    url: https://github.com/anton-abyzov/specweave/milestone/71
+    url: "https://github.com/anton-abyzov/specweave/milestone/71"
 ---
 
 # Auto Mode World-Class Testing & Intelligent Chunking

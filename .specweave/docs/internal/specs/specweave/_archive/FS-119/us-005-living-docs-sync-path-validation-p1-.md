@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 851
-    url: https://github.com/anton-abyzov/specweave/issues/851
+    url: "https://github.com/anton-abyzov/specweave/issues/851"
 ---
 
 # US-005: Living Docs Sync Path Validation (P1)

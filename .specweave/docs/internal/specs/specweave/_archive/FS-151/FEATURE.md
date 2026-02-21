@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 72
-    url: https://github.com/anton-abyzov/specweave/milestone/72
+    url: "https://github.com/anton-abyzov/specweave/milestone/72"
 ---
 
 # Plugin/LSP Activation E2E Tests and Fixes

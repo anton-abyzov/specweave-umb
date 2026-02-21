@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 108
-    url: https://github.com/anton-abyzov/specweave/milestone/108
+    url: "https://github.com/anton-abyzov/specweave/milestone/108"
 ---
 # Fix GitHub Sync Links and AC Comments
 

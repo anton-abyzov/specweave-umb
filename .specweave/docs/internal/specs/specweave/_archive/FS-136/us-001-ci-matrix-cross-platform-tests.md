@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 817
-    url: https://github.com/anton-abyzov/specweave/issues/817
+    url: "https://github.com/anton-abyzov/specweave/issues/817"
 ---
 
 # US-001: CI Matrix Cross-Platform Tests

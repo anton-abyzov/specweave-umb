@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 835
-    url: https://github.com/anton-abyzov/specweave/issues/835
+    url: "https://github.com/anton-abyzov/specweave/issues/835"
 ---
 
 # US-003: ADO Integration Config Migration

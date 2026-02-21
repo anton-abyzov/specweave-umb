@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 965
-    url: https://github.com/anton-abyzov/specweave/issues/965
+    url: "https://github.com/anton-abyzov/specweave/issues/965"
 ---
 
 # US-003: Analytics Dashboard Command

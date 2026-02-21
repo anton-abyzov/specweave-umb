@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 910
-    url: https://github.com/anton-abyzov/specweave/issues/910
+    url: "https://github.com/anton-abyzov/specweave/issues/910"
 ---
 
 # US-004: Fix user-story-issue-builder.test.ts Failures (P1 - 3 failures)

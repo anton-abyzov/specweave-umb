@@ -4,7 +4,7 @@ title: Marketplace Scanner Dashboard
 type: feature
 status: completed
 priority: P1
-created: 2026-02-16T00:00:00.000Z
+created: "2026-02-16T00:00:00.000Z"
 lastUpdated: 2026-02-18
 tldr: SpecWeave has.
 complexity: high
@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 1
-    url: https://github.com/anton-abyzov/specweave-umb/milestone/1
+    url: "https://github.com/anton-abyzov/specweave-umb/milestone/1"
 ---
 
 # Marketplace Scanner Dashboard

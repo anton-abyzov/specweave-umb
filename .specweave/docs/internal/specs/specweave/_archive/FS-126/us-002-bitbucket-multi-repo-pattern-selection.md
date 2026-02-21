@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 869
-    url: https://github.com/anton-abyzov/specweave/issues/869
+    url: "https://github.com/anton-abyzov/specweave/issues/869"
 ---
 
 # US-002: Bitbucket Multi-Repo Pattern Selection

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1231
-    url: https://github.com/anton-abyzov/specweave/issues/1231
+    url: "https://github.com/anton-abyzov/specweave/issues/1231"
 ---
 # US-001: Shared agent branding constants
 

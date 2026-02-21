@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 819
-    url: https://github.com/anton-abyzov/specweave/issues/819
+    url: "https://github.com/anton-abyzov/specweave/issues/819"
 ---
 
 # US-003: Crash Recovery E2E Test

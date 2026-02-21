@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1014
-    url: https://github.com/anton-abyzov/specweave/issues/1014
+    url: "https://github.com/anton-abyzov/specweave/issues/1014"
 ---
 
 # US-006: Code Quality

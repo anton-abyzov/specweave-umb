@@ -4,7 +4,7 @@ feature: FS-230
 title: "GitHub Scanner Worker (P1)"
 status: completed
 priority: P1
-created: 2026-02-16T00:00:00.000Z
+created: "2026-02-16T00:00:00.000Z"
 tldr: "**As a** marketplace operator
 **I want** a background worker that scans GitHub for community Claude Code skills
 **So that** the marketplace automatically discovers new skills without manual effort."

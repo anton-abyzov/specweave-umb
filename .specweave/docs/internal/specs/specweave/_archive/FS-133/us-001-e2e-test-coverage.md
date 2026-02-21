@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 877
-    url: https://github.com/anton-abyzov/specweave/issues/877
+    url: "https://github.com/anton-abyzov/specweave/issues/877"
 ---
 
 # US-001: E2E Test Coverage

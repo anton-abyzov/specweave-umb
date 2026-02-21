@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 818
-    url: https://github.com/anton-abyzov/specweave/issues/818
+    url: "https://github.com/anton-abyzov/specweave/issues/818"
 ---
 
 # US-002: Normal Session Lifecycle E2E Test

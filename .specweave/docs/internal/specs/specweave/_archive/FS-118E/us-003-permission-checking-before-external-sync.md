@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 886
-    url: https://github.com/anton-abyzov/specweave/issues/886
+    url: "https://github.com/anton-abyzov/specweave/issues/886"
 ---
 
 # US-003: Permission Checking Before External Sync

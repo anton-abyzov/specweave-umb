@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 839
-    url: https://github.com/anton-abyzov/specweave/issues/839
+    url: "https://github.com/anton-abyzov/specweave/issues/839"
 ---
 
 # US-002: Keyword-Based Auto-Detection (P1)

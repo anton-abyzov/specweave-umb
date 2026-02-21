@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 857
-    url: https://github.com/anton-abyzov/specweave/issues/857
+    url: "https://github.com/anton-abyzov/specweave/issues/857"
 ---
 
 # US-005: Parent Item Recovery

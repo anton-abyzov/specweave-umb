@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1031
-    url: https://github.com/anton-abyzov/specweave/issues/1031
+    url: "https://github.com/anton-abyzov/specweave/issues/1031"
 ---
 
 # US-009: Integration Testing

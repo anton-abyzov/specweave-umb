@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 78
-    url: https://github.com/anton-abyzov/specweave/milestone/78
+    url: "https://github.com/anton-abyzov/specweave/milestone/78"
 ---
 
 # Hook Execution Visibility and Command Reliability

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1003
-    url: https://github.com/anton-abyzov/specweave/issues/1003
+    url: "https://github.com/anton-abyzov/specweave/issues/1003"
 ---
 
 # US-003: Debugging-Friendly Masking

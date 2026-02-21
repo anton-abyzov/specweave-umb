@@ -4,7 +4,7 @@ feature: FS-286
 title: "Fix Misleading Prompt Text (P1)"
 status: completed
 priority: P1
-created: 2026-02-21T00:00:00.000Z
+created: "2026-02-21T00:00:00.000Z"
 tldr: "**As a** CLI user installing skills from a multi-skill repo
 **I want** clear, accurate prompt instructions
 **So that** I understand what each input does without guessing."

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1011
-    url: https://github.com/anton-abyzov/specweave/issues/1011
+    url: "https://github.com/anton-abyzov/specweave/issues/1011"
 ---
 
 # US-003: Security Analysis

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 905
-    url: https://github.com/anton-abyzov/specweave/issues/905
+    url: "https://github.com/anton-abyzov/specweave/issues/905"
 ---
 
 # US-008: Update Documentation and Best Practices

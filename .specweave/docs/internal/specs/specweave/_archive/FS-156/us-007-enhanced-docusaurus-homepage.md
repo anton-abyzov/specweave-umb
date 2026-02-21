@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 977
-    url: https://github.com/anton-abyzov/specweave/issues/977
+    url: "https://github.com/anton-abyzov/specweave/issues/977"
 ---
 
 # US-007: Enhanced Docusaurus Homepage

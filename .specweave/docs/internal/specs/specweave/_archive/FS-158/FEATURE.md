@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 76
-    url: https://github.com/anton-abyzov/specweave/milestone/76
+    url: "https://github.com/anton-abyzov/specweave/milestone/76"
 ---
 
 # Smart Completion Conditions with Project Type Detection

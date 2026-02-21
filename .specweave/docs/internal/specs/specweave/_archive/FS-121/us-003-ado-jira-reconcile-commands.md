@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 855
-    url: https://github.com/anton-abyzov/specweave/issues/855
+    url: "https://github.com/anton-abyzov/specweave/issues/855"
 ---
 
 # US-003: ADO/JIRA Reconcile Commands

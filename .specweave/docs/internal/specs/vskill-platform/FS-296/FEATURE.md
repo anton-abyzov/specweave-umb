@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 117
-    url: https://github.com/anton-abyzov/specweave/milestone/117
+    url: "https://github.com/anton-abyzov/specweave/milestone/117"
 ---
 # Fix slug mismatch bugs from 0292 strip-prefix rollout
 

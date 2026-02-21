@@ -3,7 +3,7 @@ increment: 0291-bulk-skill-discovery-scale
 title: "Bulk Skill Discovery - Scale Queue Ingestion to 60k+"
 type: feature
 priority: P1
-status: planned
+status: ready_for_review
 created: 2026-02-21
 structure: user-stories
 test_mode: TDD

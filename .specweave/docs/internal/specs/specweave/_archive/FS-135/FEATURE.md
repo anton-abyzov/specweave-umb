@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 53
-    url: https://github.com/anton-abyzov/specweave/milestone/53
+    url: "https://github.com/anton-abyzov/specweave/milestone/53"
 ---
 
 # Intelligent Living Docs - Visualization & Integration (Part 2)

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1029
-    url: https://github.com/anton-abyzov/specweave/issues/1029
+    url: "https://github.com/anton-abyzov/specweave/issues/1029"
 ---
 
 # US-007: Hook Performance Optimization

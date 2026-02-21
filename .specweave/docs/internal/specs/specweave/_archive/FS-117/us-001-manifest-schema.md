@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 842
-    url: https://github.com/anton-abyzov/specweave/issues/842
+    url: "https://github.com/anton-abyzov/specweave/issues/842"
 ---
 
 # US-001: Cache Infrastructure

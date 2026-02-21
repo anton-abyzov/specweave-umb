@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 995
-    url: https://github.com/anton-abyzov/specweave/issues/995
+    url: "https://github.com/anton-abyzov/specweave/issues/995"
 ---
 
 # US-006: Tests for Skill Activation

@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 70
-    url: https://github.com/anton-abyzov/specweave/milestone/70
+    url: "https://github.com/anton-abyzov/specweave/milestone/70"
 ---
 
 # Usage Analytics - Command & Plugin Tracking

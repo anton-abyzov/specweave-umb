@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 62
-    url: https://github.com/anton-abyzov/specweave/milestone/62
+    url: "https://github.com/anton-abyzov/specweave/milestone/62"
 ---
 
 # GitHub CLI Token Passthrough Fix

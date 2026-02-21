@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 980
-    url: https://github.com/anton-abyzov/specweave/issues/980
+    url: "https://github.com/anton-abyzov/specweave/issues/980"
 ---
 
 # US-001: Pass GitHub Repository Selection Through Init Workflow

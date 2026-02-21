@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 66
-    url: https://github.com/anton-abyzov/specweave/milestone/66
+    url: "https://github.com/anton-abyzov/specweave/milestone/66"
 ---
 
 # Per-Skill Reflection with MEMORY.md Override System

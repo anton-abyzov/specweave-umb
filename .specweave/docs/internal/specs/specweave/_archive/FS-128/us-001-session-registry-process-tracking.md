@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 810
-    url: https://github.com/anton-abyzov/specweave/issues/810
+    url: "https://github.com/anton-abyzov/specweave/issues/810"
 ---
 
 # US-001: Session Registry & Process Tracking

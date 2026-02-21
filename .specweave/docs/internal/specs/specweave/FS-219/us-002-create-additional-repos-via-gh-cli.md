@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1195
-    url: https://github.com/anton-abyzov/specweave/issues/1195
+    url: "https://github.com/anton-abyzov/specweave/issues/1195"
 ---
 # US-002: Create Additional Repos via gh CLI
 

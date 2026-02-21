@@ -9,7 +9,7 @@ project: vskill
 external:
   github:
     issue: 1205
-    url: https://github.com/anton-abyzov/specweave/issues/1205
+    url: "https://github.com/anton-abyzov/specweave/issues/1205"
 ---
 # US-004: Interactive Install Method Selection
 

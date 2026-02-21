@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 890
-    url: https://github.com/anton-abyzov/specweave/issues/890
+    url: "https://github.com/anton-abyzov/specweave/issues/890"
 ---
 
 # US-001: Fix Auto-Enable Bug During Init (P0)

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 885
-    url: https://github.com/anton-abyzov/specweave/issues/885
+    url: "https://github.com/anton-abyzov/specweave/issues/885"
 ---
 
 # US-002: Increment Creation Workflow Update

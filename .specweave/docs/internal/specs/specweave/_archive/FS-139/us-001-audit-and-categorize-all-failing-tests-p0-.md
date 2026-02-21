@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 907
-    url: https://github.com/anton-abyzov/specweave/issues/907
+    url: "https://github.com/anton-abyzov/specweave/issues/907"
 ---
 
 # US-001: Audit and Categorize All Failing Tests (P0)

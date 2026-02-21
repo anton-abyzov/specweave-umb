@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 875
-    url: https://github.com/anton-abyzov/specweave/issues/875
+    url: "https://github.com/anton-abyzov/specweave/issues/875"
 ---
 
 # US-006: SessionStart Hook Integration

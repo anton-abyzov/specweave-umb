@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 883
-    url: https://github.com/anton-abyzov/specweave/issues/883
+    url: "https://github.com/anton-abyzov/specweave/issues/883"
 ---
 
 # US-009: Hook Integration for Automatic Updates

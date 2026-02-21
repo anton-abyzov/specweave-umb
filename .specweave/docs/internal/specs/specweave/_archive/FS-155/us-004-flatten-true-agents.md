@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 993
-    url: https://github.com/anton-abyzov/specweave/issues/993
+    url: "https://github.com/anton-abyzov/specweave/issues/993"
 ---
 
 # US-004: Flatten TRUE Agents

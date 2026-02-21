@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 838
-    url: https://github.com/anton-abyzov/specweave/issues/838
+    url: "https://github.com/anton-abyzov/specweave/issues/838"
 ---
 
 # US-001: Auto-Select When Only One Option (P1)

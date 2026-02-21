@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 105
-    url: https://github.com/anton-abyzov/specweave/milestone/105
+    url: "https://github.com/anton-abyzov/specweave/milestone/105"
 ---
 # Interactive Skill Installation Wizard
 

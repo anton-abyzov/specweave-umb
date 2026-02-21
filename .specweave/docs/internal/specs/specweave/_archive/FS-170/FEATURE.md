@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 89
-    url: https://github.com/anton-abyzov/specweave/milestone/89
+    url: "https://github.com/anton-abyzov/specweave/milestone/89"
 ---
 
 # Parallel Auto Mode - Multi-Agent Orchestration Extension

@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 84
-    url: https://github.com/anton-abyzov/specweave/milestone/84
+    url: "https://github.com/anton-abyzov/specweave/milestone/84"
 ---
 
 # Comprehensive Code Review & Architecture Analysis

@@ -4,7 +4,7 @@ feature: FS-058
 title: "Auto GitHub Sync on Status Change (P0)"
 status: completed
 priority: P0
-created: 2025-11-24T00:00:00.000Z
+created: "2025-11-24T00:00:00.000Z"
 ---
 
 # US-002: Auto GitHub Sync on Status Change (P0)

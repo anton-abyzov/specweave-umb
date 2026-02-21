@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1010
-    url: https://github.com/anton-abyzov/specweave/issues/1010
+    url: "https://github.com/anton-abyzov/specweave/issues/1010"
 ---
 
 # US-002: Architecture Analysis

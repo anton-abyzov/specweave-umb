@@ -4,7 +4,7 @@ feature: FS-230
 title: "Submission Queue (P1)"
 status: completed
 priority: P1
-created: 2026-02-16T00:00:00.000Z
+created: "2026-02-16T00:00:00.000Z"
 tldr: "**As a** marketplace operator
 **I want** discovered skills queued for automated security verification
 **So that** only vetted skills reach verified status."

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 911
-    url: https://github.com/anton-abyzov/specweave/issues/911
+    url: "https://github.com/anton-abyzov/specweave/issues/911"
 ---
 
 # US-005: Fix Integration Test Failures (P1 - 3 failures)

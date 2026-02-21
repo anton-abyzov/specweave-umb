@@ -8,7 +8,7 @@ completed: 2025-11-15
 external:
   github:
     issue: 580
-    url: https://github.com/anton-abyzov/specweave/issues/580
+    url: "https://github.com/anton-abyzov/specweave/issues/580"
 ---
 
 # US-002: Single-Value Repository ID Input

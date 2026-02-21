@@ -4,7 +4,7 @@ feature: FS-043
 title: "Status Line Shows Correct Active Increment (Priority: P1 - CRITICAL)"
 status: completed
 priority: P1
-created: 2025-11-18T00:00:00.000Z
+created: "2025-11-18T00:00:00.000Z"
 ---
 
 # US-001: Status Line Shows Correct Active Increment (Priority: P1 - CRITICAL)

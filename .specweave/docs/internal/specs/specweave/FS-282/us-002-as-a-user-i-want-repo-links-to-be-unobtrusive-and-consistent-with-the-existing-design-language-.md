@@ -12,7 +12,7 @@ project: specweave
 external:
   github:
     issue: 1225
-    url: https://github.com/anton-abyzov/specweave/issues/1225
+    url: "https://github.com/anton-abyzov/specweave/issues/1225"
 ---
 
 # US-002: As a user, I want repo links to be unobtrusive and consistent with the existing design language.

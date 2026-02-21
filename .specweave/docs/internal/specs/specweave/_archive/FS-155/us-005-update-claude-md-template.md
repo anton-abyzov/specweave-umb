@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 994
-    url: https://github.com/anton-abyzov/specweave/issues/994
+    url: "https://github.com/anton-abyzov/specweave/issues/994"
 ---
 
 # US-005: Update CLAUDE.md Template

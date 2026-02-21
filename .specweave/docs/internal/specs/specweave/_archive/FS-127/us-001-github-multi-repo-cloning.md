@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 802
-    url: https://github.com/anton-abyzov/specweave/issues/802
+    url: "https://github.com/anton-abyzov/specweave/issues/802"
 ---
 
 # US-001: GitHub Multi-Repo Cloning

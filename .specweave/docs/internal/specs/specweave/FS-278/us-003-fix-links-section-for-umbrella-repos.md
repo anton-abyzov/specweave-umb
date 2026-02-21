@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1214
-    url: https://github.com/anton-abyzov/specweave/issues/1214
+    url: "https://github.com/anton-abyzov/specweave/issues/1214"
 ---
 # US-003: Fix Links section for umbrella repos
 

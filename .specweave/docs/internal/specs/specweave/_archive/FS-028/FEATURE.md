@@ -4,7 +4,7 @@ title: "Multi-Repository Setup UX Improvements"
 type: feature
 status: planning
 priority: P1
-created: 2025-11-15T19:55:42.548Z
+created: "2025-11-15T19:55:42.548Z"
 lastUpdated: 2025-11-15T19:55:42.552Z
 projects: ["specweave"]
 
@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 7
-    url: https://github.com/anton-abyzov/specweave/milestone/7
+    url: "https://github.com/anton-abyzov/specweave/milestone/7"
 ---
 
 # Multi-Repository Setup UX Improvements

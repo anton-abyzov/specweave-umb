@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 897
-    url: https://github.com/anton-abyzov/specweave/issues/897
+    url: "https://github.com/anton-abyzov/specweave/issues/897"
 ---
 
 # US-008: Living Docs Sync Respects Mode (P1)

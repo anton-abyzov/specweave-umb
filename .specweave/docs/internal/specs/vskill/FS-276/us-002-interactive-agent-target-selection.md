@@ -9,7 +9,7 @@ project: vskill
 external:
   github:
     issue: 1203
-    url: https://github.com/anton-abyzov/specweave/issues/1203
+    url: "https://github.com/anton-abyzov/specweave/issues/1203"
 ---
 # US-002: Interactive Agent Target Selection
 

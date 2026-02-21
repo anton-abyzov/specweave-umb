@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1200
-    url: https://github.com/anton-abyzov/specweave/issues/1200
+    url: "https://github.com/anton-abyzov/specweave/issues/1200"
 ---
 # US-002: Surface suppressed errors
 

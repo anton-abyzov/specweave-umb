@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 901
-    url: https://github.com/anton-abyzov/specweave/issues/901
+    url: "https://github.com/anton-abyzov/specweave/issues/901"
 ---
 
 # US-004: Remove Frontmatter Project from Templates

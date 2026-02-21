@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 63
-    url: https://github.com/anton-abyzov/specweave/milestone/63
+    url: "https://github.com/anton-abyzov/specweave/milestone/63"
 ---
 
 # Intelligent Living Docs - Core Engine & Analysis (Part 1)

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 928
-    url: https://github.com/anton-abyzov/specweave/issues/928
+    url: "https://github.com/anton-abyzov/specweave/issues/928"
 ---
 
 # US-005: Update Documentation (Phase 1)

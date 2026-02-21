@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 943
-    url: https://github.com/anton-abyzov/specweave/issues/943
+    url: "https://github.com/anton-abyzov/specweave/issues/943"
 ---
 
 # US-004: Unit Tests for Token Passthrough

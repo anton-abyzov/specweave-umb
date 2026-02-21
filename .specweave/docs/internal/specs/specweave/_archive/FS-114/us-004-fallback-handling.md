@@ -8,7 +8,7 @@ created: 2025-12-06
 external:
   github:
     issue: 783
-    url: https://github.com/anton-abyzov/specweave/issues/783
+    url: "https://github.com/anton-abyzov/specweave/issues/783"
 ---
 
 # US-004: Fallback Handling

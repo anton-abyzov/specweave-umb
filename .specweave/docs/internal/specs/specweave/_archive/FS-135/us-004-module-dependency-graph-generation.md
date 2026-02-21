@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 879
-    url: https://github.com/anton-abyzov/specweave/issues/879
+    url: "https://github.com/anton-abyzov/specweave/issues/879"
 ---
 
 # US-004: Module & Dependency Graph Generation

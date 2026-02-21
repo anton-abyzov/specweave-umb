@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1021
-    url: https://github.com/anton-abyzov/specweave/issues/1021
+    url: "https://github.com/anton-abyzov/specweave/issues/1021"
 ---
 
 # US-002: On-Demand Plugin Installation

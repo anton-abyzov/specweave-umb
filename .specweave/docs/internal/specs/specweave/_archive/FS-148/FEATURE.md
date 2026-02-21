@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 64
-    url: https://github.com/anton-abyzov/specweave/milestone/64
+    url: "https://github.com/anton-abyzov/specweave/milestone/64"
 ---
 
 # Autonomous Execution Engine with Stop Hook Integration

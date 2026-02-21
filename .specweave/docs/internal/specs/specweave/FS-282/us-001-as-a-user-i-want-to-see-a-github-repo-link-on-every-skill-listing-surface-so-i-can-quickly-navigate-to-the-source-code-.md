@@ -12,7 +12,7 @@ project: specweave
 external:
   github:
     issue: 1224
-    url: https://github.com/anton-abyzov/specweave/issues/1224
+    url: "https://github.com/anton-abyzov/specweave/issues/1224"
 ---
 
 # US-001: As a user, I want to see a GitHub repo link on every skill listing surface so I can quickly navigate to the source code.

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 936
-    url: https://github.com/anton-abyzov/specweave/issues/936
+    url: "https://github.com/anton-abyzov/specweave/issues/936"
 ---
 
 # US-007: Migration from config.json (P0)

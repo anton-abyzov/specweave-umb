@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1030
-    url: https://github.com/anton-abyzov/specweave/issues/1030
+    url: "https://github.com/anton-abyzov/specweave/issues/1030"
 ---
 
 # US-008: Keyword-to-Plugin Mapping Expansion

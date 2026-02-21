@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 867
-    url: https://github.com/anton-abyzov/specweave/issues/867
+    url: "https://github.com/anton-abyzov/specweave/issues/867"
 ---
 
 # US-002: Ensure JIRA Board Detection Works for 2-Level (P1)

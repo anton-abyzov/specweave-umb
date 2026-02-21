@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 899
-    url: https://github.com/anton-abyzov/specweave/issues/899
+    url: "https://github.com/anton-abyzov/specweave/issues/899"
 ---
 
 # US-002: Implement Centralized Project Resolution Service

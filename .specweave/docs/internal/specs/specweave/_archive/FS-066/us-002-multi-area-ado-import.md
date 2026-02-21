@@ -4,7 +4,7 @@ feature: FS-066
 title: "Multi-Area ADO Import"
 status: completed
 priority: P1
-created: 2025-11-26T14:00:00Z
+created: "2025-11-26T14:00:00Z"
 ---
 
 # US-002: Multi-Area ADO Import

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 902
-    url: https://github.com/anton-abyzov/specweave/issues/902
+    url: "https://github.com/anton-abyzov/specweave/issues/902"
 ---
 
 # US-005: Update Validation Hooks for Optional Frontmatter

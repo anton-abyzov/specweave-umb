@@ -4,7 +4,7 @@ title: "Fix spec.md/metadata.json Desync + Add Validation Tools"
 type: feature
 status: completed
 priority: P1
-created: 2025-11-18T00:00:00.000Z
+created: "2025-11-18T00:00:00.000Z"
 lastUpdated: 2025-11-24
 ---
 

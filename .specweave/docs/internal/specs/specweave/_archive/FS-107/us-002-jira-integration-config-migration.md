@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 834
-    url: https://github.com/anton-abyzov/specweave/issues/834
+    url: "https://github.com/anton-abyzov/specweave/issues/834"
 ---
 
 # US-002: JIRA Integration Config Migration

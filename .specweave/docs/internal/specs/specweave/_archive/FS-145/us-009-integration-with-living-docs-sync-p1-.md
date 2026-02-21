@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 938
-    url: https://github.com/anton-abyzov/specweave/issues/938
+    url: "https://github.com/anton-abyzov/specweave/issues/938"
 ---
 
 # US-009: Integration with Living Docs Sync (P1)

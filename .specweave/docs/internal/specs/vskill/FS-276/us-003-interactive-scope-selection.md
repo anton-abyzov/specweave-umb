@@ -9,7 +9,7 @@ project: vskill
 external:
   github:
     issue: 1204
-    url: https://github.com/anton-abyzov/specweave/issues/1204
+    url: "https://github.com/anton-abyzov/specweave/issues/1204"
 ---
 # US-003: Interactive Scope Selection
 

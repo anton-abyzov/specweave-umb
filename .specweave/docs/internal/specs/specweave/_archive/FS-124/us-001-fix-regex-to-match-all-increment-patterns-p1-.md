@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 866
-    url: https://github.com/anton-abyzov/specweave/issues/866
+    url: "https://github.com/anton-abyzov/specweave/issues/866"
 ---
 
 # US-001: Fix Regex to Match All Increment Patterns (P1)

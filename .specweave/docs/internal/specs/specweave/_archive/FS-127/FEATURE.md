@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 32
-    url: https://github.com/anton-abyzov/specweave/milestone/32
+    url: "https://github.com/anton-abyzov/specweave/milestone/32"
 ---
 
 # GitHub and Bitbucket Multi-Repo Cloning Parity with ADO

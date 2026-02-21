@@ -4,7 +4,7 @@ feature: FS-230
 title: "Marketplace Dashboard Page (P1)"
 status: completed
 priority: P1
-created: 2026-02-16T00:00:00.000Z
+created: "2026-02-16T00:00:00.000Z"
 tldr: "**As a** SpecWeave user
 **I want** a Marketplace page showing scanner status, queue, and verified skills
 **So that** I can monitor the skill discovery pipeline in real-time."

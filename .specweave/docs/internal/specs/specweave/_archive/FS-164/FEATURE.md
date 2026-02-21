@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 81
-    url: https://github.com/anton-abyzov/specweave/milestone/81
+    url: "https://github.com/anton-abyzov/specweave/milestone/81"
 ---
 
 # E2E Test Infrastructure Fix

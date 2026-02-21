@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 982
-    url: https://github.com/anton-abyzov/specweave/issues/982
+    url: "https://github.com/anton-abyzov/specweave/issues/982"
 ---
 
 # US-003: Parent Repository Selection for Multi-Repo GitHub Issues

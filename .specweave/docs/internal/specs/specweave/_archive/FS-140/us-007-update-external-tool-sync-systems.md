@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 904
-    url: https://github.com/anton-abyzov/specweave/issues/904
+    url: "https://github.com/anton-abyzov/specweave/issues/904"
 ---
 
 # US-007: Update External Tool Sync Systems

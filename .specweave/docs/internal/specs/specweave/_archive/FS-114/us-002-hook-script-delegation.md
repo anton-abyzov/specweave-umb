@@ -8,7 +8,7 @@ created: 2025-12-06
 external:
   github:
     issue: 781
-    url: https://github.com/anton-abyzov/specweave/issues/781
+    url: "https://github.com/anton-abyzov/specweave/issues/781"
 ---
 
 # US-002: Hook Script Delegation

@@ -4,7 +4,7 @@ title: "Safe Feature Deletion Command"
 type: feature
 status: completed
 priority: P1
-created: 2025-11-23T00:00:00.000Z
+created: "2025-11-23T00:00:00.000Z"
 lastUpdated: 2025-11-24
 ---
 

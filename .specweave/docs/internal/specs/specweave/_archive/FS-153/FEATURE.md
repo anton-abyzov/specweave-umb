@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 65
-    url: https://github.com/anton-abyzov/specweave/milestone/65
+    url: "https://github.com/anton-abyzov/specweave/milestone/65"
 ---
 
 # Documentation Site SEO Enhancements

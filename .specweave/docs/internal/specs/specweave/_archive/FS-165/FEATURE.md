@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 82
-    url: https://github.com/anton-abyzov/specweave/milestone/82
+    url: "https://github.com/anton-abyzov/specweave/milestone/82"
 ---
 
 # Credential Masking Implementation

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1005
-    url: https://github.com/anton-abyzov/specweave/issues/1005
+    url: "https://github.com/anton-abyzov/specweave/issues/1005"
 ---
 
 # US-002: TDD Template Files

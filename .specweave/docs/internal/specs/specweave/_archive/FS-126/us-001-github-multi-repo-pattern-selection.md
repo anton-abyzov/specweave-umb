@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 868
-    url: https://github.com/anton-abyzov/specweave/issues/868
+    url: "https://github.com/anton-abyzov/specweave/issues/868"
 ---
 
 # US-001: GitHub Multi-Repo Pattern Selection

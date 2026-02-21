@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 110
-    url: https://github.com/anton-abyzov/specweave/milestone/110
+    url: "https://github.com/anton-abyzov/specweave/milestone/110"
 ---
 
 # 0282: Repository Links on All Skill Surfaces

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1197
-    url: https://github.com/anton-abyzov/specweave/issues/1197
+    url: "https://github.com/anton-abyzov/specweave/issues/1197"
 ---
 # US-004: Umbrella-Aware Docs
 

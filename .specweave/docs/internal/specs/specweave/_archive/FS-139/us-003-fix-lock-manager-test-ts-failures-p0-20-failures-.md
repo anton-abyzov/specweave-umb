@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 909
-    url: https://github.com/anton-abyzov/specweave/issues/909
+    url: "https://github.com/anton-abyzov/specweave/issues/909"
 ---
 
 # US-003: Fix lock-manager.test.ts Failures (P0 - ~20 failures)

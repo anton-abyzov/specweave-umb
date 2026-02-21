@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 984
-    url: https://github.com/anton-abyzov/specweave/issues/984
+    url: "https://github.com/anton-abyzov/specweave/issues/984"
 ---
 
 # US-002: Test Result Parsing (Not Just Execution)

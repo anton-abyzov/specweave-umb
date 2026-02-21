@@ -4,7 +4,7 @@ feature: FS-063
 title: "External ID Flow Through Increment Lifecycle"
 status: completed
 priority: P1
-created: 2025-11-25T11:40:00Z
+created: "2025-11-25T11:40:00Z"
 ---
 
 # US-004: External ID Flow Through Increment Lifecycle

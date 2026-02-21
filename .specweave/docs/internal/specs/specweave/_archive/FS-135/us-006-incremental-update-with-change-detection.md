@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 881
-    url: https://github.com/anton-abyzov/specweave/issues/881
+    url: "https://github.com/anton-abyzov/specweave/issues/881"
 ---
 
 # US-006: Incremental Update with Change Detection

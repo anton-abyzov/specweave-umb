@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 964
-    url: https://github.com/anton-abyzov/specweave/issues/964
+    url: "https://github.com/anton-abyzov/specweave/issues/964"
 ---
 
 # US-002: Skill & Agent Tracking

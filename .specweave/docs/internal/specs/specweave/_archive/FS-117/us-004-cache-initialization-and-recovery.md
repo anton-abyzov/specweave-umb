@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 845
-    url: https://github.com/anton-abyzov/specweave/issues/845
+    url: "https://github.com/anton-abyzov/specweave/issues/845"
 ---
 
 # US-004: Cache Initialization and Recovery

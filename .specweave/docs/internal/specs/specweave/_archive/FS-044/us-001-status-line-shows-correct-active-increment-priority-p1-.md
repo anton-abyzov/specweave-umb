@@ -4,7 +4,7 @@ feature: FS-044
 title: "Status Line Shows Correct Active Increment (Priority: P1)"
 status: completed
 priority: P2
-created: 2025-11-19T00:00:00.000Z
+created: "2025-11-19T00:00:00.000Z"
 ---
 
 # US-001: Status Line Shows Correct Active Increment (Priority: P1)

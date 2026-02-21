@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1024
-    url: https://github.com/anton-abyzov/specweave/issues/1024
+    url: "https://github.com/anton-abyzov/specweave/issues/1024"
 ---
 
 # US-002: User-Prompt Keyword Detection Hook

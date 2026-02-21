@@ -8,7 +8,7 @@ created: 2025-12-06
 external:
   github:
     issue: 782
-    url: https://github.com/anton-abyzov/specweave/issues/782
+    url: "https://github.com/anton-abyzov/specweave/issues/782"
 ---
 
 # US-003: Core Status Scripts

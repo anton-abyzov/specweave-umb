@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 109
-    url: https://github.com/anton-abyzov/specweave/milestone/109
+    url: "https://github.com/anton-abyzov/specweave/milestone/109"
 ---
 # Skill Trust and Security Scanning
 

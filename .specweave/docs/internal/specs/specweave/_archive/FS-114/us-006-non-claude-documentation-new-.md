@@ -8,7 +8,7 @@ created: 2025-12-06
 external:
   github:
     issue: 785
-    url: https://github.com/anton-abyzov/specweave/issues/785
+    url: "https://github.com/anton-abyzov/specweave/issues/785"
 ---
 
 # US-006: Non-Claude Documentation (NEW)

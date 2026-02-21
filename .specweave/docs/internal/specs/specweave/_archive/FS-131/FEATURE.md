@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 49
-    url: https://github.com/anton-abyzov/specweave/milestone/49
+    url: "https://github.com/anton-abyzov/specweave/milestone/49"
 ---
 
 # Process Lifecycle - Part 1: Foundation & Core

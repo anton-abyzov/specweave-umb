@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1009
-    url: https://github.com/anton-abyzov/specweave/issues/1009
+    url: "https://github.com/anton-abyzov/specweave/issues/1009"
 ---
 
 # US-001: Code Duplication Analysis

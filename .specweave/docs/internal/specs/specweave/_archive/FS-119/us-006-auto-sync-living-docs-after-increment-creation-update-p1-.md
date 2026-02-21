@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 852
-    url: https://github.com/anton-abyzov/specweave/issues/852
+    url: "https://github.com/anton-abyzov/specweave/issues/852"
 ---
 
 # US-006: Auto-Sync Living Docs After Increment Creation/Update (P1)

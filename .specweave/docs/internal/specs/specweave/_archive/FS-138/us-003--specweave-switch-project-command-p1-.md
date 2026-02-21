@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 892
-    url: https://github.com/anton-abyzov/specweave/issues/892
+    url: "https://github.com/anton-abyzov/specweave/issues/892"
 ---
 
 # US-003: /specweave:switch-project Command (P1)

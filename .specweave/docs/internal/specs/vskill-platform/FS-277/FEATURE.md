@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 106
-    url: https://github.com/anton-abyzov/specweave/milestone/106
+    url: "https://github.com/anton-abyzov/specweave/milestone/106"
 ---
 # Multi-Package-Manager Documentation Update
 

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 987
-    url: https://github.com/anton-abyzov/specweave/issues/987
+    url: "https://github.com/anton-abyzov/specweave/issues/987"
 ---
 
 # US-002: Skill Trigger Index Generation

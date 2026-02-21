@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 87
-    url: https://github.com/anton-abyzov/specweave/milestone/87
+    url: "https://github.com/anton-abyzov/specweave/milestone/87"
 ---
 
 # Lazy Plugin Loading - Conditional SpecWeave Activation

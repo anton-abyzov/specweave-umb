@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1194
-    url: https://github.com/anton-abyzov/specweave/issues/1194
+    url: "https://github.com/anton-abyzov/specweave/issues/1194"
 ---
 # US-001: Single-to-Umbrella Migration Command
 

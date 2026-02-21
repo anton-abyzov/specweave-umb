@@ -4,7 +4,7 @@ feature: FS-051
 title: "Idempotency via Caching"
 status: completed
 priority: P0
-created: 2025-11-22T00:00:00.000Z
+created: "2025-11-22T00:00:00.000Z"
 ---
 
 # US-003: Idempotency via Caching

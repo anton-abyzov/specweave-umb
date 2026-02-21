@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 33
-    url: https://github.com/anton-abyzov/specweave/milestone/33
+    url: "https://github.com/anton-abyzov/specweave/milestone/33"
 ---
 
 # Process Lifecycle Management - Zombie Prevention System

@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 107
-    url: https://github.com/anton-abyzov/specweave/milestone/107
+    url: "https://github.com/anton-abyzov/specweave/milestone/107"
 ---
 # Auto-Close External Issues on status:complete Sync
 

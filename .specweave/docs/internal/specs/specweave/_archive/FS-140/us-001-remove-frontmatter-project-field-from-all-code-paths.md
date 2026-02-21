@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 898
-    url: https://github.com/anton-abyzov/specweave/issues/898
+    url: "https://github.com/anton-abyzov/specweave/issues/898"
 ---
 
 # US-001: Remove Frontmatter Project Field from All Code Paths

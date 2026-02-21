@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 74
-    url: https://github.com/anton-abyzov/specweave/milestone/74
+    url: "https://github.com/anton-abyzov/specweave/milestone/74"
 ---
 
 # Native Claude Code Plugin/Skill Architecture

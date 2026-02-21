@@ -4,7 +4,7 @@ feature: FS-043
 title: "Living Docs Sync Triggers External Tool Updates (Priority: P1 - CRITICAL)"
 status: completed
 priority: P1
-created: 2025-11-18T00:00:00.000Z
+created: "2025-11-18T00:00:00.000Z"
 ---
 
 # US-005: Living Docs Sync Triggers External Tool Updates (Priority: P1 - CRITICAL)

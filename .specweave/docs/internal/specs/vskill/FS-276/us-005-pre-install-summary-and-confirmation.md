@@ -9,7 +9,7 @@ project: vskill
 external:
   github:
     issue: 1206
-    url: https://github.com/anton-abyzov/specweave/issues/1206
+    url: "https://github.com/anton-abyzov/specweave/issues/1206"
 ---
 # US-005: Pre-Install Summary and Confirmation
 

@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 54
-    url: https://github.com/anton-abyzov/specweave/milestone/54
+    url: "https://github.com/anton-abyzov/specweave/milestone/54"
 ---
 
 # Single-Project-First Architecture - Fix Auto-Enable Multi-Project Bug

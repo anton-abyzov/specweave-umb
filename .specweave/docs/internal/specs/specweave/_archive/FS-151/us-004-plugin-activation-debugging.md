@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 989
-    url: https://github.com/anton-abyzov/specweave/issues/989
+    url: "https://github.com/anton-abyzov/specweave/issues/989"
 ---
 
 # US-004: Plugin Activation Debugging

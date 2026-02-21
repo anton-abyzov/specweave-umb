@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 933
-    url: https://github.com/anton-abyzov/specweave/issues/933
+    url: "https://github.com/anton-abyzov/specweave/issues/933"
 ---
 
 # US-004: GitHub Sync Adapter (P1)

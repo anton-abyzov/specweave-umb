@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 46
-    url: https://github.com/anton-abyzov/specweave/milestone/46
+    url: "https://github.com/anton-abyzov/specweave/milestone/46"
 ---
 
 # Intelligent Living Docs Content Generation

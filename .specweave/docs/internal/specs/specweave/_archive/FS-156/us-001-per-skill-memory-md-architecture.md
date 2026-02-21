@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 971
-    url: https://github.com/anton-abyzov/specweave/issues/971
+    url: "https://github.com/anton-abyzov/specweave/issues/971"
 ---
 
 # US-001: Per-Skill MEMORY.md Architecture

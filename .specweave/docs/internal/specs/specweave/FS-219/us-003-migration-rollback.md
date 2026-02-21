@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1196
-    url: https://github.com/anton-abyzov/specweave/issues/1196
+    url: "https://github.com/anton-abyzov/specweave/issues/1196"
 ---
 # US-003: Migration Rollback
 

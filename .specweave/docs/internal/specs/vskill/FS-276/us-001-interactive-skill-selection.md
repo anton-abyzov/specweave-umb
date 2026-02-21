@@ -9,7 +9,7 @@ project: vskill
 external:
   github:
     issue: 1202
-    url: https://github.com/anton-abyzov/specweave/issues/1202
+    url: "https://github.com/anton-abyzov/specweave/issues/1202"
 ---
 # US-001: Interactive Skill Selection
 

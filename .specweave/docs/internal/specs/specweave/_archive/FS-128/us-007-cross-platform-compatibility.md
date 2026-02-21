@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 816
-    url: https://github.com/anton-abyzov/specweave/issues/816
+    url: "https://github.com/anton-abyzov/specweave/issues/816"
 ---
 
 # US-007: Cross-Platform Compatibility

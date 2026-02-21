@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 88
-    url: https://github.com/anton-abyzov/specweave/milestone/88
+    url: "https://github.com/anton-abyzov/specweave/milestone/88"
 ---
 
 # True Auto Plugin Loading - Hook-Based Automatic Installation

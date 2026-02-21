@@ -4,7 +4,7 @@ feature: FS-057
 title: "Verify Status Line Updates on Creation (P0)"
 status: not_started
 priority: P0
-created: 2025-11-24T00:00:00.000Z
+created: "2025-11-24T00:00:00.000Z"
 ---
 
 # US-001: Verify Status Line Updates on Creation (P0)

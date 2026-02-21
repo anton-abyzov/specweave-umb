@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1199
-    url: https://github.com/anton-abyzov/specweave/issues/1199
+    url: "https://github.com/anton-abyzov/specweave/issues/1199"
 ---
 # US-001: Fix loadUserStoriesForIncrement fallback
 

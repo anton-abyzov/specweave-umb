@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 926
-    url: https://github.com/anton-abyzov/specweave/issues/926
+    url: "https://github.com/anton-abyzov/specweave/issues/926"
 ---
 
 # US-004: Create Migration Script

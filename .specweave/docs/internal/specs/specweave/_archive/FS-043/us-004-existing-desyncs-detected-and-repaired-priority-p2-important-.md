@@ -4,7 +4,7 @@ feature: FS-043
 title: "Existing Desyncs Detected and Repaired (Priority: P2 - Important)"
 status: completed
 priority: P1
-created: 2025-11-18T00:00:00.000Z
+created: "2025-11-18T00:00:00.000Z"
 ---
 
 # US-004: Existing Desyncs Detected and Repaired (Priority: P2 - Important)

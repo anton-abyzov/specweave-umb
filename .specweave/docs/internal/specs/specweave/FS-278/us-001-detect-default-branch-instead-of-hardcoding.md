@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1212
-    url: https://github.com/anton-abyzov/specweave/issues/1212
+    url: "https://github.com/anton-abyzov/specweave/issues/1212"
 ---
 # US-001: Detect default branch instead of hardcoding
 

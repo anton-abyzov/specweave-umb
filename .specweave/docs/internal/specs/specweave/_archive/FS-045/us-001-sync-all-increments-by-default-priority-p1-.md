@@ -4,7 +4,7 @@ feature: FS-045
 title: "Sync All Increments by Default (Priority: P1)"
 status: completed
 priority: P1
-created: 2025-11-19T00:00:00.000Z
+created: "2025-11-19T00:00:00.000Z"
 ---
 
 # US-001: Sync All Increments by Default (Priority: P1)

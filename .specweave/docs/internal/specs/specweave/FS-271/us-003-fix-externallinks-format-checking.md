@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1201
-    url: https://github.com/anton-abyzov/specweave/issues/1201
+    url: "https://github.com/anton-abyzov/specweave/issues/1201"
 ---
 # US-003: Fix externalLinks format checking
 

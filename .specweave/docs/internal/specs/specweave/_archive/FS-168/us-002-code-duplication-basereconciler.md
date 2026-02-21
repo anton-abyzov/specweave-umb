@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1016
-    url: https://github.com/anton-abyzov/specweave/issues/1016
+    url: "https://github.com/anton-abyzov/specweave/issues/1016"
 ---
 
 # US-002: Code Duplication - BaseReconciler

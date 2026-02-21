@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 927
-    url: https://github.com/anton-abyzov/specweave/issues/927
+    url: "https://github.com/anton-abyzov/specweave/issues/927"
 ---
 
 # US-002: Production Migration & Rollout

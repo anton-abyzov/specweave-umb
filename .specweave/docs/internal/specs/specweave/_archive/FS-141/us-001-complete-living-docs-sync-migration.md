@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 914
-    url: https://github.com/anton-abyzov/specweave/issues/914
+    url: "https://github.com/anton-abyzov/specweave/issues/914"
 ---
 
 # US-001: Complete Living Docs Sync Migration

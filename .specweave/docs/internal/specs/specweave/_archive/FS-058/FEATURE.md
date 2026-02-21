@@ -4,7 +4,7 @@ title: "Fix Status Sync Desync Bug + Auto GitHub Sync on Status Change"
 type: feature
 status: completed
 priority: P0
-created: 2025-11-24T00:00:00.000Z
+created: "2025-11-24T00:00:00.000Z"
 lastUpdated: 2025-11-26
 ---
 

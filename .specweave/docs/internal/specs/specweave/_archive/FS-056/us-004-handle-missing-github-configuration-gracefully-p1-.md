@@ -4,7 +4,7 @@ feature: FS-056
 title: "Handle Missing GitHub Configuration Gracefully (P1)"
 status: not_started
 priority: P0
-created: 2025-11-24T00:00:00.000Z
+created: "2025-11-24T00:00:00.000Z"
 ---
 
 # US-004: Handle Missing GitHub Configuration Gracefully (P1)

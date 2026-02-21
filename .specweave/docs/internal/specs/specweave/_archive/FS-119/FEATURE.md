@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 42
-    url: https://github.com/anton-abyzov/specweave/milestone/42
+    url: "https://github.com/anton-abyzov/specweave/milestone/42"
 ---
 
 # Enforce Project/Board Context in Increment Planning

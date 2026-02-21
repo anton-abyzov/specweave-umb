@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 887
-    url: https://github.com/anton-abyzov/specweave/issues/887
+    url: "https://github.com/anton-abyzov/specweave/issues/887"
 ---
 
 # US-004: Fallback for Manual Sync

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 861
-    url: https://github.com/anton-abyzov/specweave/issues/861
+    url: "https://github.com/anton-abyzov/specweave/issues/861"
 ---
 
 # US-004: Unified Standards Summary

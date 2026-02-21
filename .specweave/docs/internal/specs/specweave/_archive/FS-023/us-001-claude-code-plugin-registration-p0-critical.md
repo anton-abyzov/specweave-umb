@@ -8,7 +8,7 @@ completed: 2025-11-15
 external:
   github:
     issue: 572
-    url: https://github.com/anton-abyzov/specweave/issues/572
+    url: "https://github.com/anton-abyzov/specweave/issues/572"
 ---
 
 # US-001: Claude Code Plugin Registration (P0 - Critical)

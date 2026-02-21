@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 863
-    url: https://github.com/anton-abyzov/specweave/issues/863
+    url: "https://github.com/anton-abyzov/specweave/issues/863"
 ---
 
 # US-002: Rich Module Documentation

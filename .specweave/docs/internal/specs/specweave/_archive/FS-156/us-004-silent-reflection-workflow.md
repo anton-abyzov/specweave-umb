@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 974
-    url: https://github.com/anton-abyzov/specweave/issues/974
+    url: "https://github.com/anton-abyzov/specweave/issues/974"
 ---
 
 # US-004: Silent Reflection Workflow

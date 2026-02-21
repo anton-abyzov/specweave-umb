@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 871
-    url: https://github.com/anton-abyzov/specweave/issues/871
+    url: "https://github.com/anton-abyzov/specweave/issues/871"
 ---
 
 # US-002: Coordinated Daemon Startup Prevention

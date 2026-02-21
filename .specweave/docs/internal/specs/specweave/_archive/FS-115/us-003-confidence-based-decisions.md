@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 840
-    url: https://github.com/anton-abyzov/specweave/issues/840
+    url: "https://github.com/anton-abyzov/specweave/issues/840"
 ---
 
 # US-003: Confidence-Based Decisions (P1)

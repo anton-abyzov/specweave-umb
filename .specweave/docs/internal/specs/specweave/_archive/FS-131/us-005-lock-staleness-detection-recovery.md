@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 874
-    url: https://github.com/anton-abyzov/specweave/issues/874
+    url: "https://github.com/anton-abyzov/specweave/issues/874"
 ---
 
 # US-005: Lock Staleness Detection & Recovery

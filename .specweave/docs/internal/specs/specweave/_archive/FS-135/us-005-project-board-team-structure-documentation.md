@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 880
-    url: https://github.com/anton-abyzov/specweave/issues/880
+    url: "https://github.com/anton-abyzov/specweave/issues/880"
 ---
 
 # US-005: Project/Board/Team Structure Documentation

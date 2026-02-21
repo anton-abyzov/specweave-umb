@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1210
-    url: https://github.com/anton-abyzov/specweave/issues/1210
+    url: "https://github.com/anton-abyzov/specweave/issues/1210"
 ---
 # US-003: ADO Work Items Auto-Close on AC Completion in Progress Sync
 

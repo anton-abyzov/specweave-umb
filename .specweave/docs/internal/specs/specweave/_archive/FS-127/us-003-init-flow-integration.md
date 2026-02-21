@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 804
-    url: https://github.com/anton-abyzov/specweave/issues/804
+    url: "https://github.com/anton-abyzov/specweave/issues/804"
 ---
 
 # US-003: Init Flow Integration

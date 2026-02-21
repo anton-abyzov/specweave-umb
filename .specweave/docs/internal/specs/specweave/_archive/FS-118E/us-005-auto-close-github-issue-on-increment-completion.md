@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 888
-    url: https://github.com/anton-abyzov/specweave/issues/888
+    url: "https://github.com/anton-abyzov/specweave/issues/888"
 ---
 
 # US-005: Auto-Close GitHub Issue on Increment Completion

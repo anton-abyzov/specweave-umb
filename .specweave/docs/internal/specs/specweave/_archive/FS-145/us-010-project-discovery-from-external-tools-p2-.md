@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 939
-    url: https://github.com/anton-abyzov/specweave/issues/939
+    url: "https://github.com/anton-abyzov/specweave/issues/939"
 ---
 
 # US-010: Project Discovery from External Tools (P2)

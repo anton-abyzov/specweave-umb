@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 820
-    url: https://github.com/anton-abyzov/specweave/issues/820
+    url: "https://github.com/anton-abyzov/specweave/issues/820"
 ---
 
 # US-004: Concurrent Sessions E2E Test

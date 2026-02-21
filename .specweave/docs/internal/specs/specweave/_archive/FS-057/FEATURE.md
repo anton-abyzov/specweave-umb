@@ -4,7 +4,7 @@ title: "Test Status Line Sync Verification"
 type: feature
 status: completed
 priority: P0
-created: 2025-11-24T00:00:00.000Z
+created: "2025-11-24T00:00:00.000Z"
 lastUpdated: 2025-11-26
 ---
 

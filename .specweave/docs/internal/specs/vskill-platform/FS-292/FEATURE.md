@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 116
-    url: https://github.com/anton-abyzov/specweave/milestone/116
+    url: "https://github.com/anton-abyzov/specweave/milestone/116"
 ---
 # Fix skill naming: strip org/repo prefix from slugs
 

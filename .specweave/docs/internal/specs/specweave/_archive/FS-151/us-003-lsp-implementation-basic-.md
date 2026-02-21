@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 988
-    url: https://github.com/anton-abyzov/specweave/issues/988
+    url: "https://github.com/anton-abyzov/specweave/issues/988"
 ---
 
 # US-003: LSP Implementation (Basic)

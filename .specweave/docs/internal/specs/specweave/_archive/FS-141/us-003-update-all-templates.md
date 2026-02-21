@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 916
-    url: https://github.com/anton-abyzov/specweave/issues/916
+    url: "https://github.com/anton-abyzov/specweave/issues/916"
 ---
 
 # US-003: Update All Templates

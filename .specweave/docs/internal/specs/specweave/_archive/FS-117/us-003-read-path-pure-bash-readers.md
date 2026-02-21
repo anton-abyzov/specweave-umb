@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 844
-    url: https://github.com/anton-abyzov/specweave/issues/844
+    url: "https://github.com/anton-abyzov/specweave/issues/844"
 ---
 
 # US-003: Read Path - Pure Bash Readers

@@ -14,7 +14,7 @@ external_tools:
   github:
     type: milestone
     id: 115
-    url: https://github.com/anton-abyzov/specweave/milestone/115
+    url: "https://github.com/anton-abyzov/specweave/milestone/115"
 ---
 
 # Multi-Repo Docs Restructuring

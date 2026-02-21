@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 929
-    url: https://github.com/anton-abyzov/specweave/issues/929
+    url: "https://github.com/anton-abyzov/specweave/issues/929"
 ---
 
 # US-006: Comprehensive Testing

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 856
-    url: https://github.com/anton-abyzov/specweave/issues/856
+    url: "https://github.com/anton-abyzov/specweave/issues/856"
 ---
 
 # US-004: ADO/JIRA Cleanup-Duplicates Commands

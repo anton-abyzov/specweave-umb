@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 57
-    url: https://github.com/anton-abyzov/specweave/milestone/57
+    url: "https://github.com/anton-abyzov/specweave/milestone/57"
 ---
 
 # 0141: Frontmatter Project Removal - Part 1: Core Implementation

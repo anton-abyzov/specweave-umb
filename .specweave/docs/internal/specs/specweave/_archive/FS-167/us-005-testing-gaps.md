@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1013
-    url: https://github.com/anton-abyzov/specweave/issues/1013
+    url: "https://github.com/anton-abyzov/specweave/issues/1013"
 ---
 
 # US-005: Testing Gaps

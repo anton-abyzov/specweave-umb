@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 882
-    url: https://github.com/anton-abyzov/specweave/issues/882
+    url: "https://github.com/anton-abyzov/specweave/issues/882"
 ---
 
 # US-007: Generic Algorithm for Any SpecWeave Project

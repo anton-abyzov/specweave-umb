@@ -1,0 +1,19 @@
+{
+  "id": "0301-dashboard-increments-perf",
+  "title": "Dashboard Increments List Performance Optimization",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-21T19:14:15.790Z",
+  "lastActivity": "2026-02-21T19:14:15.790Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "github": {
+    "issue": 1237,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1237",
+    "synced": "2026-02-21T19:14:21.400Z"
+  }
+}

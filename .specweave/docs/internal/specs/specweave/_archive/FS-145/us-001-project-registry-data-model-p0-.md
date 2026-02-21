@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 930
-    url: https://github.com/anton-abyzov/specweave/issues/930
+    url: "https://github.com/anton-abyzov/specweave/issues/930"
 ---
 
 # US-001: Project Registry Data Model (P0)

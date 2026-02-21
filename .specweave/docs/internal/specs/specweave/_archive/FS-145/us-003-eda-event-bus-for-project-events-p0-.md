@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 932
-    url: https://github.com/anton-abyzov/specweave/issues/932
+    url: "https://github.com/anton-abyzov/specweave/issues/932"
 ---
 
 # US-003: EDA Event Bus for Project Events (P0)

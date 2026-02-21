@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1232
-    url: https://github.com/anton-abyzov/specweave/issues/1232
+    url: "https://github.com/anton-abyzov/specweave/issues/1232"
 ---
 # US-002: Brand-colored agent pills on skill detail page
 

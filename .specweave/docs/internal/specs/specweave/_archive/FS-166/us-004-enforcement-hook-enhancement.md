@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1007
-    url: https://github.com/anton-abyzov/specweave/issues/1007
+    url: "https://github.com/anton-abyzov/specweave/issues/1007"
 ---
 
 # US-004: Enforcement Hook Enhancement

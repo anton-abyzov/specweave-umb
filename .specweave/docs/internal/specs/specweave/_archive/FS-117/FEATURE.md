@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 40
-    url: https://github.com/anton-abyzov/specweave/milestone/40
+    url: "https://github.com/anton-abyzov/specweave/milestone/40"
 ---
 
 # Instant Dashboard Cache

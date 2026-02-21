@@ -8,7 +8,7 @@ created: 2025-12-06
 external:
   github:
     issue: 780
-    url: https://github.com/anton-abyzov/specweave/issues/780
+    url: "https://github.com/anton-abyzov/specweave/issues/780"
 ---
 
 # US-001: Script Infrastructure

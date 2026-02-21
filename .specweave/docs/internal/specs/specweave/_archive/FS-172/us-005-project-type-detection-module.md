@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1027
-    url: https://github.com/anton-abyzov/specweave/issues/1027
+    url: "https://github.com/anton-abyzov/specweave/issues/1027"
 ---
 
 # US-005: Project Type Detection Module

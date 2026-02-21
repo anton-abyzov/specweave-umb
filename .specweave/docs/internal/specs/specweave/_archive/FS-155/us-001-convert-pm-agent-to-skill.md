@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 990
-    url: https://github.com/anton-abyzov/specweave/issues/990
+    url: "https://github.com/anton-abyzov/specweave/issues/990"
 ---
 
 # US-001: Convert PM Agent to Skill

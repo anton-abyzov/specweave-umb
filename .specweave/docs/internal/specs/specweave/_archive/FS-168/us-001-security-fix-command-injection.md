@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1015
-    url: https://github.com/anton-abyzov/specweave/issues/1015
+    url: "https://github.com/anton-abyzov/specweave/issues/1015"
 ---
 
 # US-001: Security Fix - Command Injection

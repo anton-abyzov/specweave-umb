@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1017
-    url: https://github.com/anton-abyzov/specweave/issues/1017
+    url: "https://github.com/anton-abyzov/specweave/issues/1017"
 ---
 
 # US-003: Architecture - Status Single Source of Truth

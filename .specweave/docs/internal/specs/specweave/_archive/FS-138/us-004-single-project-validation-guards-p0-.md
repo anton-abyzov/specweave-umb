@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 893
-    url: https://github.com/anton-abyzov/specweave/issues/893
+    url: "https://github.com/anton-abyzov/specweave/issues/893"
 ---
 
 # US-004: Single-Project Validation Guards (P0)

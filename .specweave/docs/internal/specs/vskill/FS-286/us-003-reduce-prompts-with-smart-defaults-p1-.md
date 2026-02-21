@@ -4,7 +4,7 @@ feature: FS-286
 title: "Reduce Prompts with Smart Defaults (P1)"
 status: completed
 priority: P1
-created: 2026-02-21T00:00:00.000Z
+created: "2026-02-21T00:00:00.000Z"
 tldr: "**As a** CLI user installing skills
 **I want** fewer prompts during the wizard
 **So that** the install flow is faster and less tedious."

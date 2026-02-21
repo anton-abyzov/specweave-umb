@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 50
-    url: https://github.com/anton-abyzov/specweave/milestone/50
+    url: "https://github.com/anton-abyzov/specweave/milestone/50"
 ---
 
 # Process Lifecycle - Part 2: Hook Integration & Cross-Platform

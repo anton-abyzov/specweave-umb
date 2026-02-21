@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1001
-    url: https://github.com/anton-abyzov/specweave/issues/1001
+    url: "https://github.com/anton-abyzov/specweave/issues/1001"
 ---
 
 # US-001: Credential Masking in Logs

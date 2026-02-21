@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 29
-    url: https://github.com/anton-abyzov/specweave/milestone/29
+    url: "https://github.com/anton-abyzov/specweave/milestone/29"
 ---
 
 # Slash Command Script Delegation

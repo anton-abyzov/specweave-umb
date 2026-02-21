@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 903
-    url: https://github.com/anton-abyzov/specweave/issues/903
+    url: "https://github.com/anton-abyzov/specweave/issues/903"
 ---
 
 # US-006: Migrate Existing Increments (Backward Compatibility)

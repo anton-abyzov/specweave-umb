@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 77
-    url: https://github.com/anton-abyzov/specweave/milestone/77
+    url: "https://github.com/anton-abyzov/specweave/milestone/77"
 ---
 
 # Fix VSCode Instant Command Execution via systemMessage

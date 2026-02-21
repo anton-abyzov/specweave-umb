@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 941
-    url: https://github.com/anton-abyzov/specweave/issues/941
+    url: "https://github.com/anton-abyzov/specweave/issues/941"
 ---
 
 # US-002: Token Passthrough for Feature Sync

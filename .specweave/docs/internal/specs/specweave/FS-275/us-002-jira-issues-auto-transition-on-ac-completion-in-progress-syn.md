@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1209
-    url: https://github.com/anton-abyzov/specweave/issues/1209
+    url: "https://github.com/anton-abyzov/specweave/issues/1209"
 ---
 # US-002: JIRA Issues Auto-Transition on AC Completion in Progress Sync
 

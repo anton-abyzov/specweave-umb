@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 891
-    url: https://github.com/anton-abyzov/specweave/issues/891
+    url: "https://github.com/anton-abyzov/specweave/issues/891"
 ---
 
 # US-002: /specweave:enable-multiproject Command (P0)

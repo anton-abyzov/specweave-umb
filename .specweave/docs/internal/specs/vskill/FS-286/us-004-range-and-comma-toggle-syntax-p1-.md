@@ -4,7 +4,7 @@ feature: FS-286
 title: "Range and Comma Toggle Syntax (P1)"
 status: completed
 priority: P1
-created: 2026-02-21T00:00:00.000Z
+created: "2026-02-21T00:00:00.000Z"
 tldr: "**As a** CLI user with many discovered skills
 **I want** to toggle multiple items using ranges (1-3) and comma-separated lists (1,3,5)
 **So that** I can efficiently select/deselect groups without toggling one by one."

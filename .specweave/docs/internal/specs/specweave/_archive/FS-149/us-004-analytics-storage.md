@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 966
-    url: https://github.com/anton-abyzov/specweave/issues/966
+    url: "https://github.com/anton-abyzov/specweave/issues/966"
 ---
 
 # US-004: Analytics Storage

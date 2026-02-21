@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1211
-    url: https://github.com/anton-abyzov/specweave/issues/1211
+    url: "https://github.com/anton-abyzov/specweave/issues/1211"
 ---
 # US-004: Existing Closed Issues Not Reopened by Label Sync
 

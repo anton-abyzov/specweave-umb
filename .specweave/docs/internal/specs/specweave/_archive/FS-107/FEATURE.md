@@ -10,7 +10,7 @@ external_tools:
   github:
     type: milestone
     id: 38
-    url: https://github.com/anton-abyzov/specweave/milestone/38
+    url: "https://github.com/anton-abyzov/specweave/milestone/38"
 ---
 
 # FS-107: Enforce Config JSON Separation
