@@ -1,10 +1,11 @@
 {
   "id": "0284-homepage-trust-signals-ux",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-21T08:41:55.578Z",
   "lastActivity": "2026-02-21T08:41:55.578Z",
+  "completedAt": "2026-02-21",
   "testMode": "test-after",
   "coverageTarget": 80,
   "feature_id": null,

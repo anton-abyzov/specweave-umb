@@ -3,7 +3,7 @@ increment: 0284-homepage-trust-signals-ux
 title: "Homepage trust signals and UX clarity improvements"
 type: feature
 priority: P1
-status: planned
+status: completed
 created: 2026-02-21
 structure: user-stories
 test_mode: test-after
@@ -29,10 +29,10 @@ Three targeted improvements to the vskill-platform frontend:
 **So that** I understand the scanning is done by vskill's own scanner (38 patterns) rather than assuming it's a third-party tool
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Security callout banner on homepage shows "Powered by vskill scanner" attribution text with pattern count (38 patterns)
-- [ ] **AC-US1-02**: Attribution does NOT reference Snyk (Snyk is only used for blocklist data, not scanning)
-- [ ] **AC-US1-03**: The pattern count in the banner matches the actual count from `patterns.ts` (currently 38, displayed as "37" in some places -- normalize to the correct count)
-- [ ] **AC-US1-04**: Attribution styling is subtle (uses `--text-faint` color, small font) so it doesn't dominate the banner
+- [x] **AC-US1-01**: Security callout banner on homepage shows "Powered by vskill scanner" attribution text with pattern count (52 patterns)
+- [x] **AC-US1-02**: Attribution does NOT reference Snyk (Snyk is only used for blocklist data, not scanning)
+- [x] **AC-US1-03**: The pattern count in the banner matches the actual count from `patterns.ts` (52 patterns, normalized across all references)
+- [x] **AC-US1-04**: Attribution styling is subtle (uses `--text-faint` color, small font) so it doesn't dominate the banner
 
 ---
 
@@ -44,9 +44,9 @@ Three targeted improvements to the vskill-platform frontend:
 **So that** I'm not confused about whether "verified" means the total skill count or the "VERIFIED" certification tier
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Hero headline uses unambiguous phrasing that doesn't conflict with the VERIFIED tier name (e.g., "{totalSkills} skills" or "{totalSkills} security-scanned skills" instead of "{totalSkills} verified skills")
-- [ ] **AC-US2-02**: Inline stats section clearly shows the tier breakdown with explicit labels (e.g., "68 certified tier" + "1656 verified tier" or uses icons/badges)
-- [ ] **AC-US2-03**: The "How verification works" tree list uses consistent terminology (currently says "Scanned" / "Verified" / "Certified" -- the tier names should match what's used in badges)
+- [x] **AC-US2-01**: Hero headline uses unambiguous phrasing that doesn't conflict with the VERIFIED tier name (e.g., "{totalSkills} skills" or "{totalSkills} security-scanned skills" instead of "{totalSkills} verified skills")
+- [x] **AC-US2-02**: Inline stats section clearly shows the tier breakdown with explicit labels (e.g., "68 certified tier" + "1656 verified tier" or uses icons/badges)
+- [x] **AC-US2-03**: The "How verification works" tree list uses consistent terminology (currently says "Scanned" / "Verified" / "Certified" -- the tier names should match what's used in badges)
 
 ---
 
@@ -58,10 +58,10 @@ Three targeted improvements to the vskill-platform frontend:
 **So that** I can quickly assess whether the skill meets my needs
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Popularity section includes NPM downloads stat card (data already available in `SkillData.npmDownloads`)
-- [ ] **AC-US3-02**: Meta section shows "Last updated" date derived from `updatedAt` field
-- [ ] **AC-US3-03**: Security section shows the correct pattern count (38, matching `patterns.ts`)
-- [ ] **AC-US3-04**: NPM downloads stat card only renders when `npmDownloads > 0` (avoid displaying zero-value stats)
+- [x] **AC-US3-01**: Popularity section includes NPM downloads stat card (data already available in `SkillData.npmDownloads`)
+- [x] **AC-US3-02**: Meta section shows "Last updated" date derived from `updatedAt` field
+- [x] **AC-US3-03**: Security section shows the correct pattern count (52, matching `patterns.ts`)
+- [x] **AC-US3-04**: NPM downloads stat card only renders when `npmDownloads > 0` (avoid displaying zero-value stats)
 
 ## Functional Requirements
 
