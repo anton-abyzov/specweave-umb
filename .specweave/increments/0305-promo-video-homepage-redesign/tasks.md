@@ -228,7 +228,7 @@
     - Then "Browse Skills" link and "npx vskill init" copy button are present
 
 **Dependencies**: T-009 (needs video files)
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -260,7 +260,7 @@
     - Then container has opacity 0 style
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -291,7 +291,7 @@
     - Then flex-direction changes (visual comes first in DOM)
 
 **Dependencies**: T-011
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -318,7 +318,7 @@
     - Then img has data-nanobanana-prompt="futuristic workflow"
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -335,7 +335,7 @@
 - Image placeholder: spec workflow diagram
 
 **Dependencies**: T-012, T-013
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -353,7 +353,7 @@
 - Image placeholder: multi-agent orchestration visual
 
 **Dependencies**: T-012, T-013
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -371,7 +371,7 @@
 - Image placeholder: security shield
 
 **Dependencies**: T-012, T-013
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -388,7 +388,7 @@
 - Image placeholder: agent ecosystem visual
 
 **Dependencies**: T-012, T-013
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -410,7 +410,7 @@
 - Each SVG has gradient background, centered text with dimensions, and prompt description
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -446,7 +446,7 @@
     - Then skill data populates dashboard and trending sections
 
 **Dependencies**: T-010, T-014, T-015, T-016, T-017, T-018
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -465,7 +465,7 @@
 - Mobile breakpoints (768px, 480px)
 
 **Dependencies**: T-019
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -485,7 +485,7 @@
 - Color contrast check on new text elements
 
 **Dependencies**: T-019, T-020
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -503,7 +503,7 @@
 - Verify no horizontal overflow
 
 **Dependencies**: T-021
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -518,4 +518,4 @@
 - Lighthouse performance score check (target: >80 performance)
 
 **Dependencies**: T-022
-**Status**: [ ] Not Started
+**Status**: [x] Completed

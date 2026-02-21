@@ -37,12 +37,12 @@ Create a world-class promotional video (~45s looping) and redesign the spec-weav
 **So that** the first impression is premium and engaging
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Full-width hero section with video player, max-width 1080px centered
-- [ ] **AC-US2-02**: Video autoplays muted, loops, with subtle play/pause overlay toggle
-- [ ] **AC-US2-03**: Below video: tagline "Spec-Driven Development for AI Agents" in large Geist Mono
-- [ ] **AC-US2-04**: Two CTA buttons: "Browse Skills >>" and "npx vskill init" (copy-to-clipboard)
-- [ ] **AC-US2-05**: Hero section uses dark gradient background (--bg to transparent) with subtle grain texture
-- [ ] **AC-US2-06**: Responsive: video scales down on mobile, stacks vertically on narrow screens
+- [x] **AC-US2-01**: Full-width hero section with video player, max-width 1080px centered
+- [x] **AC-US2-02**: Video autoplays muted, loops, with subtle play/pause overlay toggle
+- [x] **AC-US2-03**: Below video: tagline "Spec-Driven Development for AI Agents" in large Geist Mono
+- [x] **AC-US2-04**: Two CTA buttons: "Browse Skills >>" and "npx vskill init" (copy-to-clipboard)
+- [x] **AC-US2-05**: Hero section uses dark gradient background (--bg to transparent) with subtle grain texture
+- [x] **AC-US2-06**: Responsive: video scales down on mobile, stacks vertically on narrow screens
 
 ---
 
@@ -54,14 +54,14 @@ Create a world-class promotional video (~45s looping) and redesign the spec-weav
 **So that** I understand the product capabilities before browsing skills
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Section 1 "Spec-First Development" — increment workflow visualization with animated terminal
-- [ ] **AC-US3-02**: Section 2 "Multi-Agent Teams" — diagram showing team-lead spawning domain experts
-- [ ] **AC-US3-03**: Section 3 "Security-Verified Skills" — three-tier verification visual with tier badges
-- [ ] **AC-US3-04**: Section 4 "Works With 39 Agents" — agent grid with branded icons/colors
-- [ ] **AC-US3-05**: Each section alternates layout (text-left/visual-right, then reversed)
-- [ ] **AC-US3-06**: Sections use scroll-triggered fade-in animations (IntersectionObserver)
-- [ ] **AC-US3-07**: Sections have nanobanana-generated illustration placeholders (256x256 or larger)
-- [ ] **AC-US3-08**: Market dashboard (stars, installs, npm, quality score) preserved below features
+- [x] **AC-US3-01**: Section 1 "Spec-First Development" — increment workflow visualization with animated terminal
+- [x] **AC-US3-02**: Section 2 "Multi-Agent Teams" — diagram showing team-lead spawning domain experts
+- [x] **AC-US3-03**: Section 3 "Security-Verified Skills" — three-tier verification visual with tier badges
+- [x] **AC-US3-04**: Section 4 "Works With 39 Agents" — agent grid with branded icons/colors
+- [x] **AC-US3-05**: Each section alternates layout (text-left/visual-right, then reversed)
+- [x] **AC-US3-06**: Sections use scroll-triggered fade-in animations (IntersectionObserver)
+- [x] **AC-US3-07**: Sections have nanobanana-generated illustration placeholders (256x256 or larger)
+- [x] **AC-US3-08**: Market dashboard (stars, installs, npm, quality score) preserved below features
 
 ---
 
@@ -73,10 +73,10 @@ Create a world-class promotional video (~45s looping) and redesign the spec-weav
 **So that** nanobanana-generated images can be dropped in without code changes
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Each feature section has an `<img>` tag with `data-nanobanana-prompt` attribute describing the desired image
-- [ ] **AC-US4-02**: Placeholder images use SVG gradient placeholders with dimensions overlay
-- [ ] **AC-US4-03**: At minimum 4 placeholder slots: spec workflow, multi-agent, security shield, agent ecosystem
-- [ ] **AC-US4-04**: Images are in `/public/images/homepage/` directory with descriptive filenames
+- [x] **AC-US4-01**: Each feature section has an `<img>` tag with `data-nanobanana-prompt` attribute describing the desired image
+- [x] **AC-US4-02**: Placeholder images use SVG gradient placeholders with dimensions overlay
+- [x] **AC-US4-03**: At minimum 4 placeholder slots: spec workflow, multi-agent, security shield, agent ecosystem
+- [x] **AC-US4-04**: Images are in `/public/images/homepage/` directory with descriptive filenames
 
 ---
 
@@ -88,11 +88,11 @@ Create a world-class promotional video (~45s looping) and redesign the spec-weav
 **So that** I don't lose access to the data-driven content I rely on
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Market dashboard (MetricCard grid) appears after the feature sections
-- [ ] **AC-US5-02**: Trending skills table preserved with current functionality
-- [ ] **AC-US5-03**: Category navigator + search preserved
-- [ ] **AC-US5-04**: "How verification works" and "Works with N agents" sections preserved (may be restyled)
-- [ ] **AC-US5-05**: No regression in server-side data fetching (getSkills, getSkillCategories)
+- [x] **AC-US5-01**: Market dashboard (MetricCard grid) appears after the feature sections
+- [x] **AC-US5-02**: Trending skills table preserved with current functionality
+- [x] **AC-US5-03**: Category navigator + search preserved
+- [x] **AC-US5-04**: "How verification works" and "Works with N agents" sections preserved (may be restyled)
+- [x] **AC-US5-05**: No regression in server-side data fetching (getSkills, getSkillCategories)
 
 ## Out of Scope
 
