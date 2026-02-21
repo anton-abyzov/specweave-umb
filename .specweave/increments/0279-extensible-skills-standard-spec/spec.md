@@ -3,7 +3,7 @@ increment: 0279-extensible-skills-standard-spec
 title: "Extensible Skills Standard Formalization"
 type: feature
 priority: P1
-status: planned
+status: completed
 created: 2026-02-21
 structure: user-stories
 test_mode: TDD
