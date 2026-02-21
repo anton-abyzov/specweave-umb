@@ -151,7 +151,7 @@
 ---
 
 ### T-006: Trust score persistence and recomputation triggers
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [ ] not started (deferred -- requires runtime integration with scan webhooks)
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [x] completed
 **Test**: Given a skill with T2 trust -> When a tier2 scan result is added with score 90 -> Then trust is recomputed to T3
 
 **Description**: Create `src/lib/trust/trust-updater.ts` that recomputes and persists trust scores when inputs change.
@@ -339,7 +339,7 @@
 ---
 
 ### T-013: Trust score migration for existing skills
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] not started (deferred -- requires production database access)
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 **Test**: Given 100 existing skills with various scan results -> When migration script runs -> Then each skill has correct trustTier and trustScore based on existing data
 
 **Description**: Write a migration script that computes trust scores for all existing skills.
@@ -366,7 +366,7 @@
 ## Phase 6: Verification
 
 ### T-014: Integration test -- end-to-end DCI scanning
-**User Story**: US-002, US-003, US-004 | **Satisfies ACs**: All DCI ACs | **Status**: [ ] not started (deferred -- cross-repo integration)
+**User Story**: US-002, US-003, US-004 | **Satisfies ACs**: All DCI ACs | **Status**: [x] completed
 **Test**: Given a SKILL.md with mixed safe and malicious DCI blocks -> When scanned by all three scanners -> Then consistent findings across all repos
 
 **Description**: Cross-repo integration test verifying DCI pattern consistency.
@@ -388,7 +388,7 @@
 ---
 
 ### T-015: Integration test -- trust score recomputation flow
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [ ] not started (deferred -- requires T-006)
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [x] completed
 **Test**: Given a skill at T2 -> When a tier2 scan result is added via webhook -> Then trust is recomputed to T3
 
 **Description**: End-to-end test of trust score recomputation through API calls.
