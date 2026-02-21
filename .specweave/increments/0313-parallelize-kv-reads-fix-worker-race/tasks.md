@@ -39,7 +39,7 @@
 ---
 
 ## T-006: GREEN — Refactor worker-context.ts to AsyncLocalStorage
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-04, AC-US3-05 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-04, AC-US3-05 | **Status**: [x] completed
 - Replace module-level `let _env` with `AsyncLocalStorage<CloudflareEnv>`
 - Expose `runWithWorkerEnv(env, callback)` instead of setWorkerEnv/clearWorkerEnv
 - Keep `getWorkerEnv()` — internal use only (getKV fallback)
@@ -47,7 +47,7 @@
 ---
 
 ## T-007: GREEN — Update consumer.ts to use runWithWorkerEnv
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-02 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-02 | **Status**: [x] completed
 - Replace setWorkerEnv + try/finally clearWorkerEnv with runWithWorkerEnv(env, async () => { ... })
 - Update consumer.test.ts imports (remove clearWorkerEnv/setWorkerEnv)
 - Confirm TC-058 GREEN and all existing consumer tests pass
@@ -55,6 +55,6 @@
 ---
 
 ## T-008: Verify full test suite GREEN
-**Status**: [ ] pending
+**Status**: [x] completed
 - Run full Vitest suite in vskill-platform
 - Confirm 0 new failures

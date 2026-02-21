@@ -22,9 +22,9 @@ Additionally, `worker-context.ts` uses a **module-level `let _env`** variable sh
 
 **Acceptance Criteria:**
 
-- [ ] AC-US1-01: `getStuckSubmissions` uses `Promise.allSettled` to initiate all `kv.get()` calls concurrently
-- [ ] AC-US1-02: Keys that return null or throw are silently skipped (same resilience as current code)
-- [ ] AC-US1-03: Test TC-056 proves maxConcurrent > 1 during getStuckSubmissions (concurrency counter pattern)
+- [x] AC-US1-01: `getStuckSubmissions` uses `Promise.allSettled` to initiate all `kv.get()` calls concurrently
+- [x] AC-US1-02: Keys that return null or throw are silently skipped (same resilience as current code)
+- [x] AC-US1-03: Test TC-056 proves maxConcurrent > 1 during getStuckSubmissions (concurrency counter pattern)
 
 ---
 
@@ -36,9 +36,9 @@ Additionally, `worker-context.ts` uses a **module-level `let _env`** variable sh
 
 **Acceptance Criteria:**
 
-- [ ] AC-US2-01: `enumeratePublishedSkills` uses `Promise.allSettled` to initiate all `kv.get()` calls concurrently
-- [ ] AC-US2-02: Keys that return null or throw are silently skipped
-- [ ] AC-US2-03: Test TC-057 proves maxConcurrent > 1 during enumeratePublishedSkills
+- [x] AC-US2-01: `enumeratePublishedSkills` uses `Promise.allSettled` to initiate all `kv.get()` calls concurrently
+- [x] AC-US2-02: Keys that return null or throw are silently skipped
+- [x] AC-US2-03: Test TC-057 proves maxConcurrent > 1 during enumeratePublishedSkills
 
 ---
 
@@ -50,8 +50,8 @@ Additionally, `worker-context.ts` uses a **module-level `let _env`** variable sh
 
 **Acceptance Criteria:**
 
-- [ ] AC-US3-01: `worker-context.ts` uses `AsyncLocalStorage<CloudflareEnv>` instead of module-level `let _env`
-- [ ] AC-US3-02: `consumer.ts` uses `workerEnvStorage.run(env, callback)` — no explicit `setWorkerEnv` / `clearWorkerEnv` calls needed
-- [ ] AC-US3-03: Test TC-058 verifies that two concurrent "batches" using different envs each see only their own env (no cross-contamination)
-- [ ] AC-US3-04: `clearWorkerEnv()` is removed from the public API (AsyncLocalStorage handles cleanup automatically when the run() scope exits)
-- [ ] AC-US3-05: `setWorkerEnv(env)` is removed from the public API; replaced by `runWithWorkerEnv(env, callback)`
+- [x] AC-US3-01: `worker-context.ts` uses `AsyncLocalStorage<CloudflareEnv>` instead of module-level `let _env`
+- [x] AC-US3-02: `consumer.ts` uses `workerEnvStorage.run(env, callback)` — no explicit `setWorkerEnv` / `clearWorkerEnv` calls needed
+- [x] AC-US3-03: Test TC-058 verifies that two concurrent "batches" using different envs each see only their own env (no cross-contamination)
+- [x] AC-US3-04: `clearWorkerEnv()` is removed from the public API (AsyncLocalStorage handles cleanup automatically when the run() scope exits)
+- [x] AC-US3-05: `setWorkerEnv(env)` is removed from the public API; replaced by `runWithWorkerEnv(env, callback)`
