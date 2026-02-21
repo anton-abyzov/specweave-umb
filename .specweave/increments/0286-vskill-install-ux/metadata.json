@@ -5,7 +5,7 @@
   "priority": "P1",
   "created": "2026-02-21T09:47:43.475Z",
   "lastActivity": "2026-02-21T09:47:43.475Z",
-  "testMode": "test-after",
+  "testMode": "TDD",
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
