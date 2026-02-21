@@ -16,9 +16,10 @@ coverage_target: 80
 
 Auto mode currently selects increments via blind filesystem-order first-match. When a user says `/sw:auto` in a conversation about a specific feature, the system picks whichever active increment happens to appear first in the directory listing -- not the one contextually relevant to the conversation. This increment fixes three concrete problems:
 
-1. **Blind first-match selection** -- `setup-auto.sh` grabs the first `active`/`in-progress` increment found by `find` order, ignoring conversation context.
+1. **Blind first-match selection** -- `setup-auto.sh` grabs the first `active`/`in-progress` increment found by glob order, ignoring conversation context.
 2. **`userGoal` is dead code** -- the `auto-mode.json` schema defines `userGoal` but nothing populates it and the stop hook never reads it.
 3. **Stop hook feedback is purely mechanical** -- `stop-auto-v5.sh` outputs raw task/AC counts with no semantic context about what work relates to the user's stated intent.
+4. **`/sw:do` ignores auto-mode context** -- it reads `auto-mode.json` only to skip the strategy check, never reading `incrementIds` or `userGoal`, so even with perfect stop hook feedback it picks the wrong increment.
 
 ## User Stories
 
@@ -35,6 +36,7 @@ Auto mode currently selects increments via blind filesystem-order first-match. W
 - [x] **AC-US1-03**: When only one active increment exists, it is selected without scoring (fast path)
 - [x] **AC-US1-04**: When no prompt is given and multiple increments are active, the system falls back to most-recent-activity ordering instead of filesystem order
 - [x] **AC-US1-05**: The selected increment(s) and the reason for selection are logged to `.specweave/logs/auto-sessions.log`
+- [x] **AC-US1-06**: All scoring and selection changes exist in the source repo (not just installed plugin)
 
 ---
 
@@ -48,8 +50,10 @@ Auto mode currently selects increments via blind filesystem-order first-match. W
 **Acceptance Criteria**:
 - [x] **AC-US2-01**: `setup-auto.sh` writes `userGoal` field to `auto-mode.json` from the user's free-text prompt or `--prompt` argument
 - [x] **AC-US2-02**: When no prompt is provided, `userGoal` is set to `null` (not "optional")
-- [x] **AC-US2-03**: The `/sw:auto` SKILL.md schema example shows `userGoal` as `null` instead of `"optional"`
+- [x] **AC-US2-03**: The `/sw:auto` SKILL.md schema example shows `userGoal` as `null` instead of `"optional"`, with LLM instructions to populate from conversation context
 - [x] **AC-US2-04**: `auto-mode.json` `userGoal` field is populated before the session start banner is displayed
+- [x] **AC-US2-05**: `auto.ts` CLI path also sets `userGoal` in the session marker (defaults to `null`)
+- [x] **AC-US2-06**: All userGoal wiring exists in the source repo (not just installed plugin)
 
 ---
 
@@ -63,8 +67,9 @@ Auto mode currently selects increments via blind filesystem-order first-match. W
 **Acceptance Criteria**:
 - [x] **AC-US3-01**: Stop hook block message includes the title of the next pending task (first `[ ]` in tasks.md) for each incomplete increment
 - [x] **AC-US3-02**: When `userGoal` is set in auto-mode.json, the stop hook block message includes it as a "Goal:" line
-- [x] **AC-US3-03**: Stop hook block message includes a one-line progress summary (e.g., "7/12 tasks complete, 3 ACs remaining")
+- [x] **AC-US3-03**: Stop hook block message includes a progress summary per increment (e.g., "7/12 tasks")
 - [x] **AC-US3-04**: The enriched feedback does not increase stop hook execution time by more than 100ms (measured via existing timing infrastructure)
+- [x] **AC-US3-05**: Stop hook block message ends with explicit increment guidance (e.g., "Continue: /sw:do 0252")
 
 ---
 
@@ -77,8 +82,23 @@ Auto mode currently selects increments via blind filesystem-order first-match. W
 
 **Acceptance Criteria**:
 - [x] **AC-US4-01**: When multiple increments have pending work AND `userGoal` is set, the block message orders increments by relevance to userGoal (keyword match scoring)
-- [x] **AC-US4-02**: The increment listed first in the block message is the one the model should work on next
+- [x] **AC-US4-02**: The increment listed first in the block message is the one recommended for `/sw:do`
 - [x] **AC-US4-03**: When `userGoal` is null, increments are ordered by pending task count (most work first)
+
+---
+
+### US-005: `/sw:do` Auto-Mode Context Override (P1)
+**Project**: specweave
+
+**As a** developer in an active auto session
+**I want** `/sw:do` to respect the stop hook's increment recommendation
+**So that** the execution loop stays focused on the contextually correct increment
+
+**Acceptance Criteria**:
+- [x] **AC-US5-01**: When running inside an active auto session and no explicit ID is passed, `/sw:do` reads `incrementIds` from `auto-mode.json` and uses the first entry
+- [x] **AC-US5-02**: When the stop hook feedback mentions a specific increment ID (e.g., "Continue: /sw:do 0252"), `/sw:do` uses that ID
+- [x] **AC-US5-03**: When an explicit ID is passed to `/sw:do`, it takes priority over auto-mode context
+- [x] **AC-US5-04**: `/sw:do` Step 1 filesystem scanning is skipped when auto-mode context provides an increment ID
 
 ## Functional Requirements
 
@@ -89,7 +109,10 @@ A pure function that scores an increment against a text query using keyword over
 `setup-auto.sh` captures the user's free-text prompt (already parsed as `$PROMPT`) and writes it to `auto-mode.json` as `userGoal`. The `/sw:auto` SKILL.md instructs the LLM to populate `userGoal` from conversation context when calling setup.
 
 ### FR-003: Stop Hook Enrichment
-`stop-auto-v5.sh` reads `userGoal` and the next pending task title from tasks.md. These are included in the `systemMessage` JSON field of the block response.
+`stop-auto-v5.sh` reads `userGoal` and the next pending task title from tasks.md. These are included in the `systemMessage` JSON field of the block response, along with explicit increment guidance.
+
+### FR-004: `/sw:do` Auto-Mode Integration
+`/sw:do` SKILL.md adds a Step 1.5 that reads `auto-mode.json` for `incrementIds` when running inside auto mode, overriding the default filesystem scanning.
 
 ## Success Criteria
 
@@ -101,7 +124,6 @@ A pure function that scores an increment against a text query using keyword over
 
 - LLM-based semantic matching (too expensive for a stop hook; keyword overlap only)
 - Changes to `/sw:team-lead` increment selection (separate concern)
-- Changing how `/sw:do` selects increments (handled separately in that skill)
 - Persistent learning from past selections
 
 ## Dependencies

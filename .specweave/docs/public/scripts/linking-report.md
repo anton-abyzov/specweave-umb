@@ -627,7 +627,7 @@
 #### AC-ID (Acceptance Criteria Identifier) (→ `/docs/glossary/terms/ac-id`)
 
 - **Line 216:** `**Links user stories to commits** (via AC-IDs):...`
-- **Line 396:** `4. **Use AC-IDs for traceability**: Link tasks to user stories via AC-US{story}-{number}...`
+- **Line 396:** `4. **Use AC-IDs for traceability**: Link tasks to user stories via AC-US\{story\}-\{number\}...`
 
 #### Acceptance Criteria (AC) (→ `/docs/glossary/terms/acceptance-criteria`)
 
@@ -686,7 +686,7 @@
 - **Line 11:** `| **CONTENT** | SpecWeave → External Tool | `.specweave/docs/internal/specs/` | Title, Description, ...`
 - **Line 128:** `**User Stories**:...`
 - **Line 216:** `**Links user stories to commits** (via AC-IDs):...`
-- **Line 396:** `4. **Use AC-IDs for traceability**: Link tasks to user stories via AC-US{story}-{number}...`
+- **Line 396:** `4. **Use AC-IDs for traceability**: Link tasks to user stories via AC-US\{story\}-\{number\}...`
 - **Line 11:** `| **CONTENT** | SpecWeave → External Tool | `.specweave/docs/internal/specs/` | Title, Description, ...`
 - *...and 3 more occurrences*
 
@@ -760,7 +760,7 @@
 - **Line 30:** `4. Cross-linked for traceability...`
 - **Line 35:** `**Problem**: Traditional approach copies entire `spec.md` to living docs as a single file:...`
 - **Line 66:** `- ✅ **Multi-project support**: Separate docs for backend/frontend/mobile...`
-- **Line 117:** `| **User Story** | US-XXX pattern, "As a" format, Acceptance Criteria | US-001, US-002 | `specs/{pro...`
+- **Line 117:** `| **User Story** | US-XXX pattern, "As a" format, Acceptance Criteria | US-001, US-002 | specs/\{pro...`
 - **Line 129:** `Intelligent sync detects which project (backend/frontend/mobile) an increment belongs to:...`
 - *...and 11 more occurrences*
 
@@ -824,10 +824,10 @@
 
 #### Specifications (Specs) (→ `/docs/glossary/terms/specs`)
 
-- **Line 117:** `| **User Story** | US-XXX pattern, "As a" format, Acceptance Criteria | US-001, US-002 | `specs/{pro...`
-- **Line 118:** `| **NFR** | NFR-XXX pattern, performance metrics, SLAs | NFR-001, "99.9% uptime" | `specs/{project}/...`
-- **Line 125:** `| **Overview** | Introduction, summary sections | "Quick Overview", "Executive Summary" | `specs/{pr...`
-- **Line 432:** `**Result**: Simple copy of `spec.md` to `docs/internal/specs/spec-{id}.md` (legacy behavior)...`
+- **Line 117:** `| **User Story** | US-XXX pattern, "As a" format, Acceptance Criteria | US-001, US-002 | specs/\{pro...`
+- **Line 118:** `| **NFR** | NFR-XXX pattern, performance metrics, SLAs | NFR-001, "99.9% uptime" | specs/\{project\}/...`
+- **Line 125:** `| **Overview** | Introduction, summary sections | "Quick Overview", "Executive Summary" | specs/\{pr...`
+- **Line 432:** `**Result**: Simple copy of spec.md to docs/internal/specs/spec-\{id\}.md (legacy behavior)...`
 - **Line 694:** `**Step 4 - Keep legacy specs** (optional):...`
 - *...and 5 more occurrences*
 

@@ -1,8 +1,10 @@
-# Implementation Plan: Context-Aware Auto Mode: Intent-Based Increment Selection
+# Implementation Plan: Context-Aware Auto Mode (REOPENED)
 
 ## Overview
 
-This is a shell-script-only change across three existing files (`setup-auto.sh`, `stop-auto-v5.sh`, SKILL.md) plus one new helper script (`score-increment.sh`). No TypeScript, no Node.js dependencies, no new npm packages. All scoring is done via `grep`/`awk` keyword matching to stay within the stop hook's performance budget.
+Changes across shell scripts (`setup-auto.sh`, `stop-auto-v5.sh`, `score-increment.sh`), SKILL.md prompt files (`/sw:auto`, `/sw:do`), and TypeScript (`auto.ts`). Previous implementation was done in the installed plugin (`~/.claude/commands/sw/`) but never ported to the source repo, and critical pieces (stop hook enrichment, `/sw:do` integration) were never actually done.
+
+**Source repo**: `repositories/anton-abyzov/specweave/plugins/specweave/`
 
 ## Architecture
 

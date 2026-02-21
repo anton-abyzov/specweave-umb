@@ -9,140 +9,120 @@
 - Model hints: haiku (simple), opus (default)
 - TDD markers: `[RED]` write failing test, `[GREEN]` make it pass, `[REFACTOR]` clean up
 
-## Phase 1: Foundation -- Scoring Function + userGoal Wiring
+## Phase 1: Port existing work to source repo
 
-### US-001: Intent-Based Increment Selection / US-002: Wire Up userGoal
+### US-001 / US-002: Port scoring + userGoal from installed plugin to source
 
-#### T-001: [RED] Write tests for score_increment function
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
+#### T-001: Port score-increment.sh to source repo
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-06 | **Status**: [x] completed
 
-**Description**: Test script that sources `score-increment.sh` and validates scoring against known inputs.
+**Description**: Copy `score-increment.sh` from installed plugin to source repo. Verify identical content.
 
-**Test Plan**: `~/.claude/commands/sw/hooks/lib/tests/score-increment.test.sh` (9 tests, all pass)
+**Files**:
+- From: `~/.claude/commands/sw/hooks/lib/score-increment.sh`
+- To: `repositories/anton-abyzov/specweave/plugins/specweave/hooks/lib/score-increment.sh`
 
 **Dependencies**: None
 
 ---
 
-#### T-002: [GREEN] Implement score_increment function
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
+#### T-002: Port setup-auto.sh scoring + userGoal changes to source
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US1-04, AC-US2-01, AC-US2-02, AC-US2-06 | **Status**: [x] completed
 
-**Description**: Created `~/.claude/commands/sw/hooks/lib/score-increment.sh`. Keyword overlap scoring (0-100) using increment dir name + metadata title + spec.md overview + task titles as corpus.
+**Description**: Replace blind first-match loop (source lines 252-267) with `select_best_increment()` from installed version. Add userGoal wiring block. Verify scoring script path resolves correctly.
 
-**Test Plan**: Run T-001 tests — 9/9 pass.
+**Files**:
+- Source (old): `repositories/anton-abyzov/specweave/plugins/specweave/scripts/setup-auto.sh`
+- Reference (new): `~/.claude/commands/sw/scripts/setup-auto.sh`
 
 **Dependencies**: T-001
 
 ---
 
-#### T-003: [RED] Write tests for userGoal wiring in setup-auto.sh
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-04 | **Status**: [x] completed
+#### T-003: Port test files to source repo
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-06, AC-US2-06 | **Status**: [x] completed
 
-**Description**: Tests verifying `setup-auto.sh` writes `userGoal` to `auto-mode.json`.
+**Description**: Copy 4 test files from installed plugin to source repo. Adjust paths if needed.
 
-**Test Plan**: `~/.claude/commands/sw/scripts/tests/test-setup-auto-usergoal.sh` (7 tests, all pass)
+**Files**:
+- `~/.claude/commands/sw/scripts/tests/test-setup-auto-usergoal.sh` → source
+- `~/.claude/commands/sw/scripts/tests/test-setup-auto-selection.sh` → source
+- `~/.claude/commands/sw/hooks/tests/test-stop-auto-enriched.sh` → source
+- `~/.claude/commands/sw/hooks/tests/test-auto-context-integration.sh` → source
 
 **Dependencies**: None
 
+## Phase 2: Enrich stop hook feedback (THE CORE FIX)
+
+### US-003 / US-004: Semantic Stop Hook Feedback + Multi-Increment Prioritization
+
+#### T-004: Modify stop-auto-v5.sh — enriched block message
+**User Story**: US-003, US-004 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05, AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [x] completed
+
+**Description**: Modify `stop-auto-v5.sh` section 7 (scan) and section 9 (block message) to include:
+1. Read `userGoal` from auto-mode.json
+2. For each incomplete increment: extract next pending task title, done/total progress
+3. Score increments against userGoal (if set) using score-increment.sh
+4. Build enriched BMSG with: Goal line, per-increment progress + next task, explicit `Continue: /sw:do <id>` guidance
+5. All ops must stay within 100ms budget
+
+**File**: `repositories/anton-abyzov/specweave/plugins/specweave/hooks/stop-auto-v5.sh`
+
+**Dependencies**: T-001
+
 ---
 
-#### T-004: [GREEN] Wire userGoal into setup-auto.sh session marker
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-04 | **Status**: [x] completed
+#### T-005: Write/update tests for enriched stop hook
+**User Story**: US-003, US-004 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-05, AC-US4-01, AC-US4-03 | **Status**: [x] completed
 
-**Description**: Modified `setup-auto.sh` to write `userGoal` from `$PROMPT` to `auto-mode.json` BEFORE the session start banner (lines 515-527). Updates existing file or creates stub.
+**Description**: Update test file to verify enriched block message content: next task title, userGoal, progress fraction, increment ordering, explicit `/sw:do <id>` guidance.
 
-**Test Plan**: Run T-003 tests — 7/7 pass.
+**File**: `repositories/anton-abyzov/specweave/plugins/specweave/hooks/tests/test-stop-auto-enriched.sh`
 
-**Dependencies**: T-003
+**Dependencies**: T-004
 
----
+## Phase 3: `/sw:do` auto-mode awareness (THE MISSING PIECE)
 
-#### T-005: Fix SKILL.md userGoal schema example
+### US-005: `/sw:do` Auto-Mode Context Override
+
+#### T-006: Modify /sw:do SKILL.md — respect auto-mode context
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04 | **Status**: [x] completed
+
+**Description**: Add Step 1.5 "Auto-Mode Context Override" between Step 1 (auto-selection) and Step 2 (load context). When running inside active auto session: read `incrementIds` from `auto-mode.json`, use first entry. If stop hook mentions specific ID, use that. Explicit ID always takes priority. Skip filesystem scanning when auto-mode provides ID.
+
+**File**: `repositories/anton-abyzov/specweave/plugins/specweave/skills/do/SKILL.md`
+
+**Dependencies**: None
+
+## Phase 4: SKILL.md schema fix + auto.ts
+
+### US-002: Wire Up userGoal
+
+#### T-007: Fix /sw:auto SKILL.md schema
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [x] completed
 
-**Description**: Changed `~/.claude/commands/sw/auto/SKILL.md` line 78: `"userGoal": "optional"` → `"userGoal": null`.
+**Description**: Change `"userGoal": "optional"` → `"userGoal": null`. Add instruction: "Set `userGoal` to the user's stated intent from conversation context. If no clear intent, set to null."
 
-**Test Plan**: Manual verification — confirmed.
+**File**: `repositories/anton-abyzov/specweave/plugins/specweave/skills/auto/SKILL.md`
 
 **Dependencies**: None
 
-## Phase 2: Smart Selection -- setup-auto.sh
-
-### US-001: Intent-Based Increment Selection
-
-#### T-006: [RED] Write tests for scored increment selection
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-03, AC-US1-04 | **Status**: [x] completed
-
-**Description**: Tests verifying scored selection picks the correct increment based on prompt.
-
-**Test Plan**: `~/.claude/commands/sw/scripts/tests/test-setup-auto-selection.sh` (6 tests, all pass)
-
-**Dependencies**: T-002
-
 ---
 
-#### T-007: [GREEN] Implement scored selection in setup-auto.sh
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05 | **Status**: [x] completed
+#### T-008: Wire userGoal into auto.ts CLI path
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-05 | **Status**: [x] completed
 
-**Description**: Replaced blind first-match with `select_best_increment()` function. With prompt: scores via score-increment.sh, picks best. Without prompt: picks most-recently-modified. Logs selection to auto-sessions.log.
+**Description**: Add `userGoal` field (default `null`) to the session marker JSON created by `printStartMessage()`. This is a secondary entry point — `setup-auto.sh` is primary.
 
-**Test Plan**: Run T-006 tests — 6/6 pass.
+**File**: `repositories/anton-abyzov/specweave/src/cli/commands/auto.ts`
 
-**Dependencies**: T-002, T-006
+**Dependencies**: None
 
----
+## Phase 5: Verification
 
-#### T-008: [REFACTOR] Clean up setup-auto.sh selection logic
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
+#### T-009: Run all tests and verify integration
+**User Story**: US-001, US-002, US-003, US-004, US-005 | **Satisfies ACs**: AC-US3-04 | **Status**: [x] completed
 
-**Description**: Selection logic extracted into `select_best_increment()` function with header comment. Old first-match code removed. All paths log selection reason to auto-sessions.log.
+**Description**: Run all test files from Phase 1 against the source repo versions. Verify stop hook timing stays under 500ms. Manual spot-check of enriched block message format.
 
-**Test Plan**: Re-run T-006 tests — no regressions.
-
-**Dependencies**: T-007
-
-## Phase 3: Stop Hook Enrichment -- stop-auto-v5.sh
-
-### US-003: Semantic Stop Hook Feedback / US-004: Multi-Increment Prioritization
-
-#### T-009: [RED] Write tests for enriched stop hook feedback
-**User Story**: US-003, US-004 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [x] completed
-
-**Description**: Tests for stop hook helper functions.
-
-**Test Plan**: `~/.claude/commands/sw/hooks/tests/test-stop-auto-enriched.sh` (10 tests, all pass)
-
-**Dependencies**: T-002
-
----
-
-#### T-010: [GREEN] Implement enriched feedback in stop-auto-v5.sh
-**User Story**: US-003, US-004 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [x] completed
-
-**Description**: Added `count_completed_tasks()` and `get_next_task_title()` helpers to `stop-auto-v5.sh`. Block message now includes: next pending task title, done/total progress fraction, Goal line (when userGoal set), increments ordered by relevance score (or pending count when no goal).
-
-**Test Plan**: Run T-009 tests — 10/10 pass.
-
-**Dependencies**: T-002, T-009
-
----
-
-#### T-011: [REFACTOR] Extract stop hook enrichment into helper functions
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Status**: [x] completed
-
-**Description**: Helper functions `count_completed_tasks()`, `get_next_task_title()` added. Enrichment uses existing `_get_duration_ms()` timing infrastructure. Block JSON `systemMessage` properly escaped via jq.
-
-**Test Plan**: Run full test suite (T-009) — all pass.
-
-**Dependencies**: T-010
-
-## Phase 4: Integration Verification
-
-#### T-012: Integration test -- full auto session with scored selection
-**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-01, AC-US2-01, AC-US3-01 | **Status**: [x] completed
-
-**Description**: End-to-end integration test with two mock increments verifying scored selection, userGoal wiring, and stop hook enrichment.
-
-**Test Plan**: `~/.claude/commands/sw/hooks/tests/test-auto-context-integration.sh` (6 tests, all pass)
-
-**Dependencies**: T-007, T-010
+**Dependencies**: T-001, T-002, T-003, T-004, T-005

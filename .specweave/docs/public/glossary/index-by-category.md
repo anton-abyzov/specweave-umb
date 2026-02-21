@@ -1,5 +1,4 @@
 ---
-id: glossary-by-category
 title: Glossary by Category
 sidebar_label: By Category
 ---

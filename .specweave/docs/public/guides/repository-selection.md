@@ -44,7 +44,7 @@ Question: How many repositories are in this project?
 
 ### Method 2: All Repositories from Account/Org
 
-**Best for**: Small organizations (<20 repos total)
+**Best for**: Small organizations (&lt;20 repos total)
 
 **How it works**:
 1. Provide GitHub username or org name
@@ -56,7 +56,7 @@ Question: How many repositories are in this project?
 
 ### Method 3: Manual Selection
 
-**Best for**: Irregular naming or few repositories (<5 repos)
+**Best for**: Irregular naming or few repositories (&lt;5 repos)
 
 **How it works**:
 1. Enter each repository URL manually
@@ -462,7 +462,7 @@ specweave init --add-repos
 
 **Scenario**: Small team, 5 repositories, simple names
 
-**Selection method**: Manual selection (fastest for <5 repos)
+**Selection method**: Manual selection (fastest for &lt;5 repos)
 ```
 Repositories:
 1. https://github.com/myorg/frontend

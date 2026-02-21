@@ -19,7 +19,7 @@ Strategic Init automatically detects compliance requirements based on your data 
 | **FedRAMP** | Government | US Federal | Security, Compliance | $10,000+ |
 | **FISMA** | Government | US Federal | CISO, Security | $5,000+ |
 | **FERPA** | Student Records | US | Privacy | $300+ |
-| **COPPA** | Children (<13) | US | Privacy, Legal | $500+ |
+| **COPPA** | Children (&lt;13) | US | Privacy, Legal | $500+ |
 
 ---
 
@@ -120,7 +120,7 @@ Cost: Similar to traditional, but operational overhead reduced
 - **Level 1**: 6M+ transactions/year - Annual on-site audit required
 - **Level 2**: 1M-6M transactions/year - Annual self-assessment
 - **Level 3**: 20K-1M transactions/year - Annual self-assessment
-- **Level 4**: <20K transactions/year - Annual self-assessment
+- **Level 4**: &lt;20K transactions/year - Annual self-assessment
 
 **Team Impact**:
 - **Payments Team** (1-2 engineers): Tokenization, gateway integration
@@ -314,8 +314,8 @@ Recommendation: Use payment gateway unless processing 100K+ transactions/month
 **Data Types**: Data from children under 13
 
 **When it applies**:
-- Apps/websites directed at children <13
-- Apps with actual knowledge of users <13
+- Apps/websites directed at children &lt;13
+- Apps with actual knowledge of users &lt;13
 
 **Key Requirements**:
 - Parental consent before collecting data
