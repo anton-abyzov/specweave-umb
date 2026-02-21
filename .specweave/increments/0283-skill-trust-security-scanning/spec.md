@@ -111,7 +111,7 @@ The current security posture has four gaps:
 - [x] **AC-US5-01**: When a SecurityReport is resolved with `resolutionNote` containing "confirmed_malware" or "confirmed malware", a BlocklistEntry is automatically created for the reported `skillName`
 - [x] **AC-US5-02**: The auto-created BlocklistEntry includes: `threatType` from the report's `reportType`, `severity` set to "critical", `reason` from the report's `description`, `evidenceUrls` from the report's `evidenceUrls`
 - [x] **AC-US5-03**: If a BlocklistEntry already exists for the skill name, it is not duplicated (idempotent)
-- [ ] **AC-US5-04**: The admin UI shows a confirmation when auto-propagation occurs
+- [x] **AC-US5-04**: The admin UI shows a confirmation when auto-propagation occurs
 
 ---
 
@@ -141,7 +141,7 @@ The current security posture has four gaps:
 - [x] **AC-US7-01**: The scan pipeline records the SHA-256 hash of the SKILL.md content at scan time in the ScanResult record
 - [x] **AC-US7-02**: Before publishing a skill version, the content hash is re-verified against the scanned content hash
 - [x] **AC-US7-03**: If hashes do not match, the submission is moved to a "RESCAN_REQUIRED" state and the previous scan results are invalidated
-- [ ] **AC-US7-04**: The admin UI shows a tamper warning when content hash mismatch is detected
+- [x] **AC-US7-04**: The admin UI shows a tamper warning when content hash mismatch is detected
 
 ---
 
@@ -168,9 +168,9 @@ The current security posture has four gaps:
 **So that** I can understand the overall security posture of the ecosystem
 
 **Acceptance Criteria**:
-- [ ] **AC-US9-01**: The `/trust` page shows trust tier distribution (count of skills per T0-T4 tier)
+- [x] **AC-US9-01**: The `/trust` page shows trust tier distribution (count of skills per T0-T4 tier)
 - [x] **AC-US9-02**: The `/api/v1/stats` endpoint includes trust tier breakdown in its response
-- [ ] **AC-US9-03**: The skill detail pages show the trust tier badge alongside the existing certification badge
+- [x] **AC-US9-03**: The skill detail pages show the trust tier badge alongside the existing certification badge
 
 ## Functional Requirements
 

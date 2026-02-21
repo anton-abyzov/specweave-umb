@@ -315,7 +315,7 @@
 ---
 
 ### T-012: Trust tier display in platform UI
-**User Story**: US-009 | **Satisfies ACs**: AC-US9-01, AC-US9-02, AC-US9-03 | **Status**: [ ] not started (deferred -- UI components)
+**User Story**: US-009 | **Satisfies ACs**: AC-US9-01, AC-US9-02, AC-US9-03 | **Status**: [x] completed
 **Test**: Given the Trust Center page -> When loaded -> Then trust tier distribution chart shows counts per T0-T4
 
 **Description**: Add trust tier visualization to the platform web UI.
