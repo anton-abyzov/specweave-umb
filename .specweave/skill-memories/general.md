@@ -14,4 +14,3 @@
 - **2026-02-21**: Task tool subagents do NOT inherit skills by default - skills must be listed explicitly or injected via prompt. Native Agent Teams (experimental) DO inherit skills automatically as full Claude Code sessions. Custom subagent definitions (.claude/agents/*.md) support native `skills` frontmatter field as alternative to prompt injection.
 - **2026-02-21**: Use /sw:grill before completing features to validate quality and identify issues before shipping - grill output determines if increment is ready for /sw:done
 - **2026-02-21**: User prompt can be duplicated in additionalContext when skill invocation is triggered, causing context bloat - always truncate user prompts in hook additionalContext to max 2000 chars and in detect-intent calls to max 3000 chars
-- **2026-02-21**: Create /sw:increment before planning or coding any implementation task - enforce spec-first workflow discipline

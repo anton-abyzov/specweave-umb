@@ -1,0 +1,14 @@
+{
+  "id": "0282-repo-links-all-skill-surfaces",
+  "status": "done",
+  "completedAt": "2026-02-21",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-02-21T00:00:00.000Z",
+  "lastActivity": "2026-02-21T00:00:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

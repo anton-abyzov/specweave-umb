@@ -3,7 +3,7 @@ increment: 0278-fix-github-sync-links-and-comments
 title: "Fix GitHub Sync Links and AC Comments"
 type: bug
 priority: P1
-status: planned
+status: completed
 created: 2026-02-21
 structure: user-stories
 test_mode: test-after
@@ -32,10 +32,10 @@ Three critical issues in the GitHub external sync pipeline cause broken user exp
 **So that** links in GitHub issues point to valid URLs regardless of the repo's default branch
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `GitHubFeatureSync.syncFeatureToGitHub()` detects the default branch from GitHub API instead of hardcoding `'develop'`
-- [ ] **AC-US1-02**: `UserStoryIssueBuilder` receives the detected branch and uses it for all URL generation
-- [ ] **AC-US1-03**: `UserStoryContentBuilder.buildIssueBody()` uses detected branch instead of hardcoded `'develop'`
-- [ ] **AC-US1-04**: Default branch detection is cached per sync session (one API call per feature sync, not per user story)
+- [x] **AC-US1-01**: `GitHubFeatureSync.syncFeatureToGitHub()` detects the default branch from GitHub API instead of hardcoding `'develop'`
+- [x] **AC-US1-02**: `UserStoryIssueBuilder` receives the detected branch and uses it for all URL generation
+- [x] **AC-US1-03**: `UserStoryContentBuilder.buildIssueBody()` uses detected branch instead of hardcoded `'develop'`
+- [x] **AC-US1-04**: Default branch detection is cached per sync session (one API call per feature sync, not per user story)
 
 ---
 
@@ -47,9 +47,9 @@ Three critical issues in the GitHub external sync pipeline cause broken user exp
 **So that** GitHub issues reflect real-time progress on acceptance criteria
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `parseIssueLinks()` in `github-ac-comment-poster.ts` reads issue numbers from **metadata.json** (`github.issues[]` and `externalLinks.github.issues`) instead of spec.md frontmatter
-- [ ] **AC-US2-02**: When an AC is completed in spec.md, a progress comment is posted to the corresponding GitHub issue
-- [ ] **AC-US2-03**: The metadata.json path is derived from the spec.md path (sibling file in the same increment folder)
+- [x] **AC-US2-01**: `parseIssueLinks()` in `github-ac-comment-poster.ts` reads issue numbers from **metadata.json** (`github.issues[]` and `externalLinks.github.issues`) instead of spec.md frontmatter
+- [x] **AC-US2-02**: When an AC is completed in spec.md, a progress comment is posted to the corresponding GitHub issue
+- [x] **AC-US2-03**: The metadata.json path is derived from the spec.md path (sibling file in the same increment folder)
 
 ---
 
@@ -61,10 +61,10 @@ Three critical issues in the GitHub external sync pipeline cause broken user exp
 **So that** GitHub issue links lead to valid content instead of 404 pages
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: When the sync repo differs from the umbrella repo, links point to the increment's spec.md in the sync target repo (which is always pushed) rather than the umbrella's living docs
-- [ ] **AC-US3-02**: Feature Spec link uses the increment spec.md path as fallback when living docs are not in the target repo
-- [ ] **AC-US3-03**: User Story File link uses the increment spec.md path as fallback when living docs are not in the target repo
-- [ ] **AC-US3-04**: Increment link always points to the increment folder in the target repo
+- [x] **AC-US3-01**: When the sync repo differs from the umbrella repo, links point to the increment's spec.md in the sync target repo (which is always pushed) rather than the umbrella's living docs
+- [x] **AC-US3-02**: Feature Spec link uses the increment spec.md path as fallback when living docs are not in the target repo
+- [x] **AC-US3-03**: User Story File link uses the increment spec.md path as fallback when living docs are not in the target repo
+- [x] **AC-US3-04**: Increment link always points to the increment folder in the target repo
 
 ## Functional Requirements
 

@@ -1,0 +1,14 @@
+{
+  "id": "0281-queue-loading-worker-context-kv-fixes",
+  "status": "completed",
+  "completedAt": "2026-02-21",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-02-21T08:19:23.129Z",
+  "lastActivity": "2026-02-21T08:19:23.129Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

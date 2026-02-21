@@ -1,13 +1,37 @@
 {
   "id": "0278-fix-github-sync-links-and-comments",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-02-21T07:10:39.861Z",
+  "completedAt": "2026-02-21",
   "lastActivity": "2026-02-21T07:10:39.861Z",
   "testMode": "test-after",
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1212,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1212",
+        "createdAt": "2026-02-21T07:46:51.754Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1213,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1213",
+        "createdAt": "2026-02-21T07:46:57.753Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1214,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1214",
+        "createdAt": "2026-02-21T07:47:03.362Z"
+      }
+    ],
+    "lastSync": "2026-02-21T07:47:03.362Z"
+  }
 }

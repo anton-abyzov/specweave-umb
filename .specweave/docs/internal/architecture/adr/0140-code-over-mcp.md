@@ -68,6 +68,27 @@ LSP is fundamentally different from generic MCP tools:
 
 See [ADR-0222: Smart LSP Integration](./0222-smart-lsp-integration.md) for full details.
 
+## Industry Validation
+
+### Cloudflare Code Mode (February 2026)
+
+Cloudflare independently arrived at the same conclusion when scaling their MCP server to cover 2,500+ API endpoints. Their traditional MCP approach required **1.17 million tokens** to load all tool definitions. Their solution — **Code Mode** — exposes just two tools: `search()` and `execute()`. The agent writes JavaScript against a typed OpenAPI spec to discover and call endpoints programmatically.
+
+**Result: 99.9% token reduction** (~1,000 tokens vs 1.17M).
+
+This validates SpecWeave's ADR-0140 at the API layer:
+
+| Approach | SpecWeave (Skills) | Cloudflare (Code Mode) |
+|----------|-------------------|----------------------|
+| Core idea | Skills provide patterns, agent writes code | Schema provides types, agent writes code |
+| Token reduction | 70-98% | 99.9% |
+| Tool count | Minimal (keyword-activated) | 2 (`search` + `execute`) |
+| Execution | Local code execution | Sandboxed Worker isolate |
+
+Cloudflare also open-sourced their [Code Mode SDK](https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/) for building custom MCP servers with this pattern.
+
+**Takeaway**: When an API surface grows beyond ~50 endpoints, the "many tools" MCP pattern breaks down. Both SpecWeave and Cloudflare converged on the same solution — let the model write code against a schema rather than choose from enumerated tools.
+
 ## Consequences
 
 ### Positive
@@ -120,3 +141,5 @@ description: Processes data files. Activates for CSV, JSON, data analysis.
 - [Anthropic: Code Execution with MCP](https://www.anthropic.com/engineering/code-execution-with-mcp)
 - [Anthropic: Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
 - [Claude Code Sub-Agents](https://docs.claude.com/en/docs/claude-code/sub-agents)
+- [Cloudflare: Code Mode MCP (Feb 2026)](https://blog.cloudflare.com/code-mode-mcp/)
+- [Cloudflare: MCP Servers for Cloudflare](https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/)
