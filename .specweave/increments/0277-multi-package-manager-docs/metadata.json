@@ -1,0 +1,14 @@
+{
+  "id": "0277-multi-package-manager-docs",
+  "status": "done",
+  "completedAt": "2026-02-21",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-21T06:56:18.155Z",
+  "lastActivity": "2026-02-21T06:56:18.155Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
