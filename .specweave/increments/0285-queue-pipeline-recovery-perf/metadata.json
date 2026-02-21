@@ -1,0 +1,13 @@
+{
+  "id": "0285-queue-pipeline-recovery-perf",
+  "status": "planned",
+  "type": "hotfix",
+  "priority": "P0",
+  "created": "2026-02-21T09:45:46.531Z",
+  "lastActivity": "2026-02-21T09:45:46.531Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
