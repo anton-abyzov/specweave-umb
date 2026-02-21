@@ -1,9 +1,10 @@
 {
   "id": "0275-auto-close-on-status-complete",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-02-21T06:34:49.755Z",
+  "completedAt": "2026-02-21",
   "lastActivity": "2026-02-21T06:34:49.755Z",
   "testMode": "TDD",
   "coverageTarget": 80,

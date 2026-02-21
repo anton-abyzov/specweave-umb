@@ -109,7 +109,7 @@
 ## Phase 3: Verification
 
 ### T-005: Verify all tests pass and no regressions
-**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US4-02 | **Status**: [ ] not started
+**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US4-02 | **Status**: [x] completed
 **Test**: Given all changes from T-001..T-004 are applied -> When full test suite runs -> Then all existing tests pass + new tests pass
 
 **Description**: Run the full test suite to verify no regressions.

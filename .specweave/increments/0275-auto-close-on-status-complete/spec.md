@@ -38,11 +38,11 @@ The fix: `updateStatusLabels()` in `github-feature-sync.ts` should also close th
 **So that** issues with `status:complete` label are not left in OPEN state (like issue #1198)
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `updateStatusLabels()` in `github-feature-sync.ts` closes the issue via `gh issue close` when the new status label is `status:complete` and the issue is currently OPEN
-- [ ] **AC-US1-02**: If the issue is already CLOSED, `updateStatusLabels()` does not attempt a redundant close operation
-- [ ] **AC-US1-03**: A completion comment is posted before closing (consistent with existing closure flows)
-- [ ] **AC-US1-04**: Unit tests verify that `updateStatusLabels()` with `overallComplete=true` triggers issue closure on an OPEN issue
-- [ ] **AC-US1-05**: Unit tests verify that `updateStatusLabels()` with `overallComplete=true` skips closure on an already-CLOSED issue
+- [x] **AC-US1-01**: `updateStatusLabels()` in `github-feature-sync.ts` closes the issue via `gh issue close` when the new status label is `status:complete` and the issue is currently OPEN
+- [x] **AC-US1-02**: If the issue is already CLOSED, `updateStatusLabels()` does not attempt a redundant close operation
+- [x] **AC-US1-03**: A completion comment is posted before closing (consistent with existing closure flows)
+- [x] **AC-US1-04**: Unit tests verify that `updateStatusLabels()` with `overallComplete=true` triggers issue closure on an OPEN issue
+- [x] **AC-US1-05**: Unit tests verify that `updateStatusLabels()` with `overallComplete=true` skips closure on an already-CLOSED issue
 
 ---
 
@@ -54,8 +54,8 @@ The fix: `updateStatusLabels()` in `github-feature-sync.ts` should also close th
 **So that** I do not have to wait for increment closure to see JIRA issues resolved
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `syncJiraACProgress()` in `ac-progress-sync.ts` already transitions to Done when `isAllComplete()` returns true -- verify this works correctly with an integration-level test scenario
-- [ ] **AC-US2-02**: The progress-sync CLI (`sync-progress.ts`) invokes the JIRA AC sync path (not just GitHub checkbox sync) when JIRA is configured
+- [x] **AC-US2-01**: `syncJiraACProgress()` in `ac-progress-sync.ts` already transitions to Done when `isAllComplete()` returns true -- verify this works correctly with an integration-level test scenario
+- [x] **AC-US2-02**: The progress-sync CLI (`sync-progress.ts`) invokes the JIRA AC sync path (not just GitHub checkbox sync) when JIRA is configured
 
 ---
 
@@ -67,8 +67,8 @@ The fix: `updateStatusLabels()` in `github-feature-sync.ts` should also close th
 **So that** ADO work items reflect the actual completion state without waiting for increment closure
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `syncAdoACProgress()` in `ac-progress-sync.ts` already transitions to Closed when `isAllComplete()` returns true -- verify this works correctly with an integration-level test scenario
-- [ ] **AC-US3-02**: The progress-sync CLI (`sync-progress.ts`) invokes the ADO AC sync path when ADO is configured
+- [x] **AC-US3-01**: `syncAdoACProgress()` in `ac-progress-sync.ts` already transitions to Closed when `isAllComplete()` returns true -- verify this works correctly with an integration-level test scenario
+- [x] **AC-US3-02**: The progress-sync CLI (`sync-progress.ts`) invokes the ADO AC sync path when ADO is configured
 
 ---
 
@@ -80,9 +80,9 @@ The fix: `updateStatusLabels()` in `github-feature-sync.ts` should also close th
 **So that** already-closed issues are not reopened or double-closed
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Running progress-sync on an already-closed issue with `status:complete` label is a no-op (does not post duplicate comments or attempt re-close)
-- [ ] **AC-US4-02**: The fix does not interfere with the existing `updateUserStoryIssue()` closure path in `github-feature-sync.ts` (no double-close race)
-- [ ] **AC-US4-03**: Unit tests verify idempotency: calling `updateStatusLabels()` twice with `overallComplete=true` on a CLOSED issue produces no side effects
+- [x] **AC-US4-01**: Running progress-sync on an already-closed issue with `status:complete` label is a no-op (does not post duplicate comments or attempt re-close)
+- [x] **AC-US4-02**: The fix does not interfere with the existing `updateUserStoryIssue()` closure path in `github-feature-sync.ts` (no double-close race)
+- [x] **AC-US4-03**: Unit tests verify idempotency: calling `updateStatusLabels()` twice with `overallComplete=true` on a CLOSED issue produces no side effects
 
 ## Functional Requirements
 
