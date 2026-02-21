@@ -1,6 +1,6 @@
 {
   "id": "0296-strip-prefix-rollout-fixes",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-02-21T18:12:09.092Z",
@@ -9,5 +9,6 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "completedAt": "2026-02-21T21:35:00.000Z"
 }

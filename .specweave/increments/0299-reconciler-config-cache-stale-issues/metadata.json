@@ -1,0 +1,8 @@
+{
+  "id": "0299-reconciler-config-cache-stale-issues",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-02-21",
+  "project": "specweave"
+}

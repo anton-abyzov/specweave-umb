@@ -11,7 +11,7 @@
 ## Phase 1: Extract Shared Slug Utility
 
 ### T-001: Extract makeSlug to shared slug.ts module
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 
 **Description**: Create `src/lib/slug.ts` with the `makeSlug()` function extracted from `submission-store.ts`. Update `submission-store.ts` to re-import from `slug.ts`. This makes `makeSlug` safely importable from client components.
 
@@ -49,7 +49,7 @@
 ## Phase 2: Fix Submit Page Slug Mismatch (US-001)
 
 ### T-002: Replace inline regex with makeSlug on submit page
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02 | **Status**: [x] completed
 
 **Description**: In `src/app/submit/[id]/page.tsx`, replace two instances of inline regex slug computation with `makeSlug()` from `@/lib/slug`.
 
@@ -79,7 +79,7 @@
 ## Phase 3: Fix URL Encoding (US-002)
 
 ### T-003: [P] Add encodeURIComponent to homepage trending links
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01 | **Status**: [x] completed
 
 **Description**: In `src/app/page.tsx`, wrap `skill.name` with `encodeURIComponent()` in the trending skill link href.
 
@@ -96,7 +96,7 @@
 ---
 
 ### T-004: [P] Add encodeURIComponent to SearchPalette links
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-02 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-02 | **Status**: [x] completed
 
 **Description**: In `src/app/components/SearchPalette.tsx`, wrap `r.name` with `encodeURIComponent()` in skill result href.
 
@@ -114,7 +114,7 @@
 ## Phase 4: Fix Category Counts (US-003)
 
 ### T-005: Include KV-published skills in getSkillCategories
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] completed
 
 **Description**: Update `getSkillCategories()` in `src/lib/data.ts` to include KV-published skills in category counts.
 
@@ -148,7 +148,7 @@
 ## Phase 5: Fix Trending Score (US-004)
 
 ### T-006: Set baseline trending score for KV-published skills
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [ ] not started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [x] completed
 
 **Description**: In `src/lib/data.ts`, change hardcoded `trendingScore7d: 0` and `trendingScore30d: 0` to `1` for KV-published skills in both `getSkills()` and `getSkillByName()`.
 
@@ -177,7 +177,7 @@
 ## Phase 6: Verification
 
 ### T-007: Run full test suite and verify all ACs
-**User Story**: All | **Satisfies ACs**: All | **Status**: [ ] not started
+**User Story**: All | **Satisfies ACs**: All | **Status**: [x] completed
 
 **Description**: Run `npm test` in vskill-platform to verify all existing and new tests pass. Manually verify the four fixes are working correctly.
 

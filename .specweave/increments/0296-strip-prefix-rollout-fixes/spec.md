@@ -34,9 +34,9 @@ Increment 0292 changed `makeSlug()` to strip the org/repo prefix from skill slug
 **So that** I can verify my published skill page without manually guessing the URL
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: The submit status page (`/submit/[id]`) imports and calls `makeSlug()` from `submission-store.ts` instead of using inline regex to compute the skill slug
-- [ ] **AC-US1-02**: The `ExternalScanStatus` component uses the same `makeSlug()` call for the security API URL and the security report link
-- [ ] **AC-US1-03**: Unit test confirms the slug on the submit page matches the slug stored in KV after `publishSkill()` runs
+- [x] **AC-US1-01**: The submit status page (`/submit/[id]`) imports and calls `makeSlug()` from `submission-store.ts` instead of using inline regex to compute the skill slug
+- [x] **AC-US1-02**: The `ExternalScanStatus` component uses the same `makeSlug()` call for the security API URL and the security report link
+- [x] **AC-US1-03**: Unit test confirms the slug on the submit page matches the slug stored in KV after `publishSkill()` runs
 
 ---
 
@@ -48,8 +48,8 @@ Increment 0292 changed `makeSlug()` to strip the org/repo prefix from skill slug
 **So that** clicking a trending skill or search result always navigates to the correct page
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Homepage trending skill links use `encodeURIComponent(skill.name)` in the href
-- [ ] **AC-US2-02**: SearchPalette skill result links use `encodeURIComponent(r.name)` in the href
+- [x] **AC-US2-01**: Homepage trending skill links use `encodeURIComponent(skill.name)` in the href
+- [x] **AC-US2-02**: SearchPalette skill result links use `encodeURIComponent(r.name)` in the href
 
 ---
 
@@ -61,9 +61,9 @@ Increment 0292 changed `makeSlug()` to strip the org/repo prefix from skill slug
 **So that** the development category count reflects the actual number of skills
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `getSkillCategories()` merges published KV skills into category counts (using each skill's category, defaulting to "development")
-- [ ] **AC-US3-02**: Seed-data skills that overlap with KV-published slugs are not double-counted
-- [ ] **AC-US3-03**: When KV is unavailable (build time), the function falls back gracefully to seed-data-only counts
+- [x] **AC-US3-01**: `getSkillCategories()` merges published KV skills into category counts (using each skill's category, defaulting to "development")
+- [x] **AC-US3-02**: Seed-data skills that overlap with KV-published slugs are not double-counted
+- [x] **AC-US3-03**: When KV is unavailable (build time), the function falls back gracefully to seed-data-only counts
 
 ---
 
@@ -75,9 +75,9 @@ Increment 0292 changed `makeSlug()` to strip the org/repo prefix from skill slug
 **So that** they appear in trending lists instead of being permanently buried at the bottom
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: KV-published skills in `getSkills()` receive a baseline `trendingScore7d` value (e.g., 1) instead of hardcoded 0
-- [ ] **AC-US4-02**: KV-published skills in `getSkillByName()` also receive the same baseline score
-- [ ] **AC-US4-03**: Skills enriched with live metrics (`ENABLE_LIVE_METRICS=true`) override the baseline with real values
+- [x] **AC-US4-01**: KV-published skills in `getSkills()` receive a baseline `trendingScore7d` value (e.g., 1) instead of hardcoded 0
+- [x] **AC-US4-02**: KV-published skills in `getSkillByName()` also receive the same baseline score
+- [x] **AC-US4-03**: Skills enriched with live metrics (`ENABLE_LIVE_METRICS=true`) override the baseline with real values
 
 ## Functional Requirements
 
