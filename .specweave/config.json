@@ -146,19 +146,29 @@
         "id": "specweave",
         "path": "repositories/anton-abyzov/specweave",
         "name": "specweave",
-        "prefix": "SPE"
+        "prefix": "SPE",
+        "sync": {
+          "github": { "owner": "anton-abyzov", "repo": "specweave" },
+          "jira": { "projectKey": "WTTC" }
+        }
       },
       {
         "id": "vskill",
         "path": "repositories/anton-abyzov/vskill",
         "name": "vskill",
-        "prefix": "VSK"
+        "prefix": "VSK",
+        "sync": {
+          "github": { "owner": "anton-abyzov", "repo": "vskill" }
+        }
       },
       {
         "id": "vskill-platform",
         "path": "repositories/anton-abyzov/vskill-platform",
         "name": "vskill-platform",
-        "prefix": "VPL"
+        "prefix": "VPL",
+        "sync": {
+          "github": { "owner": "anton-abyzov", "repo": "vskill-platform" }
+        }
       }
     ]
   }
