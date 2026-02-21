@@ -36,7 +36,7 @@
     - Then browser opens with preview player
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -63,7 +63,7 @@
     - Then it displays with correct typography, colors, and animations
 
 **Dependencies**: T-001
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -81,7 +81,7 @@
 - Big text overlay: "Spec-First. Always."
 
 **Dependencies**: T-002
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -100,7 +100,7 @@
 - Big text: "Parallel Expert Teams"
 
 **Dependencies**: T-002
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -118,7 +118,7 @@
 - Big text: "Security-Verified Skills"
 
 **Dependencies**: T-002
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -135,7 +135,7 @@
 - Big text: "Docs Write Themselves"
 
 **Dependencies**: T-002
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -153,7 +153,7 @@
 - Big text: "One CLI. Every Agent."
 
 **Dependencies**: T-002
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -172,7 +172,7 @@
 - Add easing curves (spring, ease-in-out)
 
 **Dependencies**: T-003, T-004, T-005, T-006, T-007
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -190,7 +190,7 @@
 - Verify loop playback in browser
 
 **Dependencies**: T-008
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 

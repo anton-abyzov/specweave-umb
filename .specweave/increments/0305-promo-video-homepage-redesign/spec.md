@@ -14,18 +14,18 @@ Create a world-class promotional video (~45s looping) and redesign the spec-weav
 **So that** I immediately understand SpecWeave's value proposition and workflow
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Video is ~45s long, loops seamlessly, autoplays muted with play/pause control
-- [ ] **AC-US1-02**: Video showcases increment creation workflow (terminal typing animation)
-- [ ] **AC-US1-03**: Video showcases team-lead multi-agent orchestration with nested expert agents
-- [ ] **AC-US1-04**: Video showcases verified skills with tier badges (Scanned/Verified/Certified)
-- [ ] **AC-US1-05**: Video showcases documentation generation and code writing
-- [ ] **AC-US1-06**: Big, readable typography (Geist Mono) with smooth transitions between scenes
-- [ ] **AC-US1-07**: Agent icons displayed for Claude Code, Codex, OpenClaw, Cursor, etc.
-- [ ] **AC-US1-08**: vskill CLI command visualization (install, scan, init)
+- [x] **AC-US1-01**: Video is ~45s long, loops seamlessly, autoplays muted with play/pause control
+- [x] **AC-US1-02**: Video showcases increment creation workflow (terminal typing animation)
+- [x] **AC-US1-03**: Video showcases team-lead multi-agent orchestration with nested expert agents
+- [x] **AC-US1-04**: Video showcases verified skills with tier badges (Scanned/Verified/Certified)
+- [x] **AC-US1-05**: Video showcases documentation generation and code writing
+- [x] **AC-US1-06**: Big, readable typography (Geist Mono) with smooth transitions between scenes
+- [x] **AC-US1-07**: Agent icons displayed for Claude Code, Codex, OpenClaw, Cursor, etc.
+- [x] **AC-US1-08**: vskill CLI command visualization (install, scan, init)
 - [ ] **AC-US1-09**: Energetic background music or ambient soundtrack (royalty-free)
-- [ ] **AC-US1-10**: Video built with Remotion (React-based) for maintainability and iteration
-- [ ] **AC-US1-11**: Video renders to MP4 (H.264) at 1920x1080, 30fps, and WebM fallback
-- [ ] **AC-US1-12**: Slick scene transitions (fade, slide, scale) with easing curves
+- [x] **AC-US1-10**: Video built with Remotion (React-based) for maintainability and iteration
+- [x] **AC-US1-11**: Video renders to MP4 (H.264) at 1920x1080, 30fps, and WebM fallback
+- [x] **AC-US1-12**: Slick scene transitions (fade, slide, scale) with easing curves
 
 ---
 
