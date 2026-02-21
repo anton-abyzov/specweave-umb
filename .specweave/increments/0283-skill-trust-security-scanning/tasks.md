@@ -13,7 +13,7 @@
 ## Phase 1: DCI Scanner Patterns
 
 ### T-001: Add DCI block detection patterns to vskill scanner
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05, AC-US2-06, AC-US2-07, AC-US2-08 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05, AC-US2-06, AC-US2-07, AC-US2-08 | **Status**: [x] completed
 **Test**: Given a SKILL.md with a DCI block containing `curl ... | sh` -> When scanned -> Then a critical DCI-abuse finding is reported
 
 **Description**: Add 12+ DCI-specific patterns to `vskill/src/scanner/patterns.ts`. These patterns target malicious content inside DCI shell blocks (backtick commands preceded by `!`).
@@ -48,7 +48,7 @@
 ---
 
 ### T-002: Add DCI block detection patterns to vskill-platform scanner
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] completed
 **Test**: Given a submission with a SKILL.md containing DCI abuse -> When processed by tier1 pipeline -> Then the submission gets a DCI-abuse finding with blocking severity
 
 **Description**: Port the DCI patterns from T-001 to the platform scanner at `vskill-platform/src/lib/scanner/patterns.ts`. Ensure DCI findings are categorized as blocking during submission processing.
@@ -72,7 +72,7 @@
 ---
 
 ### T-003: Add DCI block detection patterns to specweave core scanner
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [ ] not started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [x] completed
 **Test**: Given a SKILL.md with a DCI block inside a code fence -> When scanned by specweave scanner -> Then the DCI finding retains its original severity (not downgraded to info)
 
 **Description**: Add DCI-specific patterns to `specweave/src/core/fabric/security-scanner.ts`. Critically: DCI findings inside code fences must NOT be downgraded because DCI blocks execute even inside markdown code fences.
@@ -98,7 +98,7 @@
 ## Phase 2: Trust Model and Data Layer
 
 ### T-004: Prisma schema migration for trust fields
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 **Test**: Given the migration is applied -> When querying a Skill record -> Then `trustTier` and `trustScore` fields are accessible with defaults T1 and 0
 
 **Description**: Add trust-related fields to the Prisma schema and create a migration.
@@ -121,7 +121,7 @@
 ---
 
 ### T-005: Trust score computation engine
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03, AC-US1-05 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03, AC-US1-05 | **Status**: [x] completed
 **Test**: Given a skill with tier1 PASS, tier2 score 85, provenance verified, 200 installs, no reports -> When computing trust score -> Then score is 93 and tier is T4
 
 **Description**: Create `src/lib/trust/trust-score.ts` with the trust score computation algorithm.
@@ -151,7 +151,7 @@
 ---
 
 ### T-006: Trust score persistence and recomputation triggers
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [ ] not started (deferred -- requires runtime integration with scan webhooks)
 **Test**: Given a skill with T2 trust -> When a tier2 scan result is added with score 90 -> Then trust is recomputed to T3
 
 **Description**: Create `src/lib/trust/trust-updater.ts` that recomputes and persists trust scores when inputs change.
@@ -176,7 +176,7 @@
 ---
 
 ### T-007: API endpoints include trust data
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-04 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-04 | **Status**: [x] completed
 **Test**: Given a skill with trustTier T3 and trustScore 75 -> When GET /api/v1/skills/:name -> Then response includes `trustTier: "T3"` and `trustScore: 75`
 
 **Description**: Update skill API endpoints to include trust tier and score in responses.
@@ -201,7 +201,7 @@
 ## Phase 3: Blocklist Auto-Propagation
 
 ### T-008: Auto-create blocklist entry from confirmed security reports
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04 | **Status**: [ ] not started
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03 | **Status**: [x] completed
 **Test**: Given a SecurityReport for "evil-skill" resolved as "confirmed_malware" -> When the report resolution is saved -> Then a BlocklistEntry for "evil-skill" exists with severity "critical"
 
 **Description**: Add auto-propagation logic to the SecurityReport resolution flow.
@@ -231,7 +231,7 @@
 ## Phase 4: Provenance and Hash Verification
 
 ### T-009: Provenance verification service
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03 | **Status**: [ ] not started
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03 | **Status**: [x] completed
 **Test**: Given a submission from user "owner" for repo "github.com/owner/repo" -> When provenance is checked -> Then provenanceStatus is "verified"
 
 **Description**: Create `src/lib/trust/provenance-verifier.ts` that checks GitHub repo ownership/collaboration.
@@ -261,7 +261,7 @@
 ---
 
 ### T-010: Content hash recording and tamper detection
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04 | **Status**: [ ] not started
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03 | **Status**: [x] completed
 **Test**: Given a skill scanned with content hash "abc123" -> When the content changes to hash "def456" before publish -> Then the submission is moved to RESCAN_REQUIRED state
 
 **Description**: Record content hash at scan time and verify before publishing.
@@ -289,7 +289,7 @@
 ## Phase 5: CLI and UI Integration
 
 ### T-011: Trust tier display in vskill CLI
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02, AC-US8-03, AC-US8-04 | **Status**: [ ] not started
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02, AC-US8-03, AC-US8-04 | **Status**: [x] completed
 **Test**: Given a skill with trustTier T3 -> When running `vskill add my-skill` -> Then output includes "Trust: T3 (Verified)"
 
 **Description**: Display trust information in vskill CLI commands.
@@ -315,7 +315,7 @@
 ---
 
 ### T-012: Trust tier display in platform UI
-**User Story**: US-009 | **Satisfies ACs**: AC-US9-01, AC-US9-02, AC-US9-03 | **Status**: [ ] not started
+**User Story**: US-009 | **Satisfies ACs**: AC-US9-01, AC-US9-02, AC-US9-03 | **Status**: [ ] not started (deferred -- UI components)
 **Test**: Given the Trust Center page -> When loaded -> Then trust tier distribution chart shows counts per T0-T4
 
 **Description**: Add trust tier visualization to the platform web UI.
@@ -339,7 +339,7 @@
 ---
 
 ### T-013: Trust score migration for existing skills
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] not started (deferred -- requires production database access)
 **Test**: Given 100 existing skills with various scan results -> When migration script runs -> Then each skill has correct trustTier and trustScore based on existing data
 
 **Description**: Write a migration script that computes trust scores for all existing skills.
@@ -366,7 +366,7 @@
 ## Phase 6: Verification
 
 ### T-014: Integration test -- end-to-end DCI scanning
-**User Story**: US-002, US-003, US-004 | **Satisfies ACs**: All DCI ACs | **Status**: [ ] not started
+**User Story**: US-002, US-003, US-004 | **Satisfies ACs**: All DCI ACs | **Status**: [ ] not started (deferred -- cross-repo integration)
 **Test**: Given a SKILL.md with mixed safe and malicious DCI blocks -> When scanned by all three scanners -> Then consistent findings across all repos
 
 **Description**: Cross-repo integration test verifying DCI pattern consistency.
@@ -388,7 +388,7 @@
 ---
 
 ### T-015: Integration test -- trust score recomputation flow
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [ ] not started (deferred -- requires T-006)
 **Test**: Given a skill at T2 -> When a tier2 scan result is added via webhook -> Then trust is recomputed to T3
 
 **Description**: End-to-end test of trust score recomputation through API calls.

@@ -45,11 +45,11 @@ The current security posture has four gaps:
 **So that** I can assess the trustworthiness of a skill independently from its extensibility level
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: The `Skill` model includes a `trustTier` field with values: T0 (blocked), T1 (unscanned), T2 (scanned -- passed tier1), T3 (verified -- passed tier1 + tier2 LLM judge), T4 (certified -- passed all tiers + human review + provenance verified)
-- [ ] **AC-US1-02**: The `trustScore` field (0-100) is computed from: tier1 scan result (30%), tier2 LLM score (30%), provenance verification (20%), community signals (20% -- age, reports, installs)
+- [x] **AC-US1-01**: The `Skill` model includes a `trustTier` field with values: T0 (blocked), T1 (unscanned), T2 (scanned -- passed tier1), T3 (verified -- passed tier1 + tier2 LLM judge), T4 (certified -- passed all tiers + human review + provenance verified)
+- [x] **AC-US1-02**: The `trustScore` field (0-100) is computed from: tier1 scan result (30%), tier2 LLM score (30%), provenance verification (20%), community signals (20% -- age, reports, installs)
 - [ ] **AC-US1-03**: Trust tier is recomputed when any input changes: new scan result, blocklist status change, provenance check result, or security report resolution
-- [ ] **AC-US1-04**: The `/api/v1/skills/:name` endpoint includes `trustTier` and `trustScore` in the response
-- [ ] **AC-US1-05**: Skills on the blocklist are automatically set to T0 regardless of scan results
+- [x] **AC-US1-04**: The `/api/v1/skills/:name` endpoint includes `trustTier` and `trustScore` in the response
+- [x] **AC-US1-05**: Skills on the blocklist are automatically set to T0 regardless of scan results
 
 ---
 
@@ -61,14 +61,14 @@ The current security posture has four gaps:
 **So that** DCI-based attacks (credential exfiltration, config poisoning, download-and-execute) are caught before publication
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: The scanner identifies DCI blocks in SKILL.md content (pattern: backtick command preceded by `!` within a markdown section titled "Project Overrides" or "Project Context")
-- [ ] **AC-US2-02**: DCI blocks containing credential file reads (`~/.ssh/`, `~/.aws/`, `.env`) are flagged as critical severity
-- [ ] **AC-US2-03**: DCI blocks containing network calls (`curl`, `wget`, `fetch`, `nc`) are flagged as critical severity
-- [ ] **AC-US2-04**: DCI blocks containing writes to agent config files (`CLAUDE.md`, `AGENTS.md`, `.claude/`, `.specweave/`) are flagged as critical severity
-- [ ] **AC-US2-05**: DCI blocks containing obfuscation (base64 decode, hex escapes, eval) are flagged as critical severity
-- [ ] **AC-US2-06**: DCI blocks containing download-and-execute patterns (curl|sh, wget|sh) are flagged as critical severity
-- [ ] **AC-US2-07**: At least 12 new DCI-specific patterns are added to the scanner with tests for each
-- [ ] **AC-US2-08**: Legitimate DCI blocks (standard skill-memories lookup pattern) are not flagged (false positive suppression via safe-context patterns)
+- [x] **AC-US2-01**: The scanner identifies DCI blocks in SKILL.md content (pattern: backtick command preceded by `!` within a markdown section titled "Project Overrides" or "Project Context")
+- [x] **AC-US2-02**: DCI blocks containing credential file reads (`~/.ssh/`, `~/.aws/`, `.env`) are flagged as critical severity
+- [x] **AC-US2-03**: DCI blocks containing network calls (`curl`, `wget`, `fetch`, `nc`) are flagged as critical severity
+- [x] **AC-US2-04**: DCI blocks containing writes to agent config files (`CLAUDE.md`, `AGENTS.md`, `.claude/`, `.specweave/`) are flagged as critical severity
+- [x] **AC-US2-05**: DCI blocks containing obfuscation (base64 decode, hex escapes, eval) are flagged as critical severity
+- [x] **AC-US2-06**: DCI blocks containing download-and-execute patterns (curl|sh, wget|sh) are flagged as critical severity
+- [x] **AC-US2-07**: At least 12 new DCI-specific patterns are added to the scanner with tests for each
+- [x] **AC-US2-08**: Legitimate DCI blocks (standard skill-memories lookup pattern) are not flagged (false positive suppression via safe-context patterns)
 
 ---
 
@@ -80,9 +80,9 @@ The current security posture has four gaps:
 **So that** submissions are scanned for DCI abuse during the pipeline
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: The platform tier1 scanner (`src/lib/scanner/patterns.ts`) includes the DCI-specific patterns from US-002
-- [ ] **AC-US3-02**: The submission pipeline flags DCI-abuse findings as blocking (critical/high findings prevent auto-approval)
-- [ ] **AC-US3-03**: DCI findings appear in the admin submission review UI with category "dci-abuse"
+- [x] **AC-US3-01**: The platform tier1 scanner (`src/lib/scanner/patterns.ts`) includes the DCI-specific patterns from US-002
+- [x] **AC-US3-02**: The submission pipeline flags DCI-abuse findings as blocking (critical/high findings prevent auto-approval)
+- [x] **AC-US3-03**: DCI findings appear in the admin submission review UI with category "dci-abuse"
 
 ---
 
@@ -94,9 +94,9 @@ The current security posture has four gaps:
 **So that** I catch DCI security issues before submitting to the platform
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: `security-scanner.ts` includes DCI-specific pattern checks (matching the patterns from US-002)
-- [ ] **AC-US4-02**: The `specweave scan-skill` CLI command reports DCI-abuse findings
-- [ ] **AC-US4-03**: DCI findings inside balanced code blocks are NOT downgraded to info (they remain at their original severity because DCI blocks execute even inside code fences)
+- [x] **AC-US4-01**: `security-scanner.ts` includes DCI-specific pattern checks (matching the patterns from US-002)
+- [x] **AC-US4-02**: The `specweave scan-skill` CLI command reports DCI-abuse findings
+- [x] **AC-US4-03**: DCI findings inside balanced code blocks are NOT downgraded to info (they remain at their original severity because DCI blocks execute even inside code fences)
 
 ---
 
@@ -108,9 +108,9 @@ The current security posture has four gaps:
 **So that** I do not need to manually duplicate data between the reports and blocklist systems
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: When a SecurityReport is resolved with `resolutionNote` containing "confirmed_malware" or "confirmed malware", a BlocklistEntry is automatically created for the reported `skillName`
-- [ ] **AC-US5-02**: The auto-created BlocklistEntry includes: `threatType` from the report's `reportType`, `severity` set to "critical", `reason` from the report's `description`, `evidenceUrls` from the report's `evidenceUrls`
-- [ ] **AC-US5-03**: If a BlocklistEntry already exists for the skill name, it is not duplicated (idempotent)
+- [x] **AC-US5-01**: When a SecurityReport is resolved with `resolutionNote` containing "confirmed_malware" or "confirmed malware", a BlocklistEntry is automatically created for the reported `skillName`
+- [x] **AC-US5-02**: The auto-created BlocklistEntry includes: `threatType` from the report's `reportType`, `severity` set to "critical", `reason` from the report's `description`, `evidenceUrls` from the report's `evidenceUrls`
+- [x] **AC-US5-03**: If a BlocklistEntry already exists for the skill name, it is not duplicated (idempotent)
 - [ ] **AC-US5-04**: The admin UI shows a confirmation when auto-propagation occurs
 
 ---
@@ -123,10 +123,10 @@ The current security posture has four gaps:
 **So that** impostor submissions (claiming ownership of another user's repo) are detected and flagged
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: During submission processing, the platform verifies that the submitter's GitHub username matches the repository owner or is listed as a collaborator via the GitHub API
-- [ ] **AC-US6-02**: If provenance verification fails, the submission is flagged with a "provenance_mismatch" warning (not auto-rejected, but requiring manual review)
-- [ ] **AC-US6-03**: If provenance verification succeeds, a `provenanceVerified: true` flag is stored on the Submission record
-- [ ] **AC-US6-04**: The trust score computation gives 20% weight to provenance verification (verified = full points, unverified = 0, mismatch = negative modifier)
+- [x] **AC-US6-01**: During submission processing, the platform verifies that the submitter's GitHub username matches the repository owner or is listed as a collaborator via the GitHub API
+- [x] **AC-US6-02**: If provenance verification fails, the submission is flagged with a "provenance_mismatch" warning (not auto-rejected, but requiring manual review)
+- [x] **AC-US6-03**: If provenance verification succeeds, a `provenanceVerified: true` flag is stored on the Submission record
+- [x] **AC-US6-04**: The trust score computation gives 20% weight to provenance verification (verified = full points, unverified = 0, mismatch = negative modifier)
 
 ---
 
@@ -138,9 +138,9 @@ The current security posture has four gaps:
 **So that** post-scan tampering is caught before the tampered content reaches users
 
 **Acceptance Criteria**:
-- [ ] **AC-US7-01**: The scan pipeline records the SHA-256 hash of the SKILL.md content at scan time in the ScanResult record
-- [ ] **AC-US7-02**: Before publishing a skill version, the content hash is re-verified against the scanned content hash
-- [ ] **AC-US7-03**: If hashes do not match, the submission is moved to a "RESCAN_REQUIRED" state and the previous scan results are invalidated
+- [x] **AC-US7-01**: The scan pipeline records the SHA-256 hash of the SKILL.md content at scan time in the ScanResult record
+- [x] **AC-US7-02**: Before publishing a skill version, the content hash is re-verified against the scanned content hash
+- [x] **AC-US7-03**: If hashes do not match, the submission is moved to a "RESCAN_REQUIRED" state and the previous scan results are invalidated
 - [ ] **AC-US7-04**: The admin UI shows a tamper warning when content hash mismatch is detected
 
 ---
@@ -153,10 +153,10 @@ The current security posture has four gaps:
 **So that** I can make an informed decision about whether to install it
 
 **Acceptance Criteria**:
-- [ ] **AC-US8-01**: `vskill add <skill>` displays the trust tier (T0-T4) and trust score (0-100) before installation
-- [ ] **AC-US8-02**: T0 (blocked) skills show a red warning and require explicit `--force` flag to install
-- [ ] **AC-US8-03**: T1 (unscanned) skills show an amber warning about unverified status
-- [ ] **AC-US8-04**: `vskill info <skill>` includes trust tier, trust score, and provenance verification status in its output
+- [x] **AC-US8-01**: `vskill add <skill>` displays the trust tier (T0-T4) and trust score (0-100) before installation
+- [x] **AC-US8-02**: T0 (blocked) skills show a red warning and require explicit `--force` flag to install
+- [x] **AC-US8-03**: T1 (unscanned) skills show an amber warning about unverified status
+- [x] **AC-US8-04**: `vskill info <skill>` includes trust tier, trust score, and provenance verification status in its output
 
 ---
 
@@ -169,7 +169,7 @@ The current security posture has four gaps:
 
 **Acceptance Criteria**:
 - [ ] **AC-US9-01**: The `/trust` page shows trust tier distribution (count of skills per T0-T4 tier)
-- [ ] **AC-US9-02**: The `/api/v1/stats` endpoint includes trust tier breakdown in its response
+- [x] **AC-US9-02**: The `/api/v1/stats` endpoint includes trust tier breakdown in its response
 - [ ] **AC-US9-03**: The skill detail pages show the trust tier badge alongside the existing certification badge
 
 ## Functional Requirements
