@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "User Stories",
-    "permalink": "/glossary/terms/user-stories"
-  },
-  "next": {
-    "title": "Overview",
-    "permalink": "/guides"
-  }
+  "frontMatter": {}
 }

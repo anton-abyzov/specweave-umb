@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "What is an Increment?",
-    "permalink": "/guides/core-concepts/what-is-an-increment"
-  },
-  "next": {
-    "title": "Deep Interview Mode",
-    "permalink": "/guides/deep-interview-mode"
-  }
+  "frontMatter": {}
 }

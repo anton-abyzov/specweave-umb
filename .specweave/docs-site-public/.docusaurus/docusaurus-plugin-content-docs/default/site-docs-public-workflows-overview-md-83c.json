@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Implementation Workflow: The /specweave:do Command",
-    "permalink": "/workflows/implementation"
-  },
-  "next": {
-    "title": "Planning Workflow: From Idea to Tasks",
-    "permalink": "/workflows/planning"
-  }
+  "frontMatter": {}
 }

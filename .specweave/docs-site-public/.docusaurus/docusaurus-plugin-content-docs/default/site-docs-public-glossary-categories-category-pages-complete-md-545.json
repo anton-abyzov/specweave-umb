@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Backend Development",
-    "permalink": "/glossary/categories/backend-category"
-  },
-  "next": {
-    "title": "Collaboration & Management",
-    "permalink": "/glossary/categories/collaboration-category"
-  }
+  "frontMatter": {}
 }

@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Best Practices for SpecWeave with Claude Code",
-    "permalink": "/guides/best-practices"
-  },
-  "next": {
-    "title": "SpecWeave Command Reference - By Priority",
-    "permalink": "/guides/command-reference-by-priority"
-  }
+  "frontMatter": {}
 }

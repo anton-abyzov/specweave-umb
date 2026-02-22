@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "SpecWeave vs SpecKit",
-    "permalink": "/guides/specweave-vs-speckit"
-  },
-  "next": {
-    "title": "Backlog Management Guide",
-    "permalink": "/guides/backlog-management"
-  }
+  "frontMatter": {}
 }

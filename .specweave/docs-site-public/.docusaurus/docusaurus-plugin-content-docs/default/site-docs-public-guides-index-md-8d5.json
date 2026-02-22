@@ -14,14 +14,5 @@
     "title": "Guides",
     "sidebar_label": "Overview",
     "slug": "/guides"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "WIP Limits (Work In Progress)",
-    "permalink": "/glossary/terms/wip-limits"
-  },
-  "next": {
-    "title": "Autonomous Execution Guide",
-    "permalink": "/guides/autonomous-execution"
   }
 }

@@ -11,14 +11,5 @@
   "tags": [],
   "version": "current",
   "sidebarPosition": 2,
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Video 001: Finally: A Framework That Works on Legacy, Startup, AND Enterprise",
-    "permalink": "/academy/videos/specweave-complete-masterclass"
-  },
-  "next": {
-    "title": "Video 003: ClawHub Is Dead. The Problem Isn't.",
-    "permalink": "/academy/videos/clawhub-postmortem"
-  }
+  "frontMatter": {}
 }

@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Overview",
-    "permalink": "/development"
-  },
-  "next": {
-    "title": "Glossary Overview",
-    "permalink": "/glossary/"
-  }
+  "frontMatter": {}
 }

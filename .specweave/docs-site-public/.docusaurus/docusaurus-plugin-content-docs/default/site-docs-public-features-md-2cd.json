@@ -10,10 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Public Documentation",
-    "permalink": "/"
-  }
+  "frontMatter": {}
 }

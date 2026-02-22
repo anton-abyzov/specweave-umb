@@ -15,14 +15,5 @@
     "title": "Backend Development Fundamentals",
     "sidebar_label": "Backend Fundamentals",
     "description": "Complete guide to backend/server-side development - [API](/docs/glossary/terms/api) design, databases, authentication, [microservices](/docs/glossary/terms/microservices), and production best practices"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Overview",
-    "permalink": "/learn"
-  },
-  "next": {
-    "title": "Claude Code Basics",
-    "permalink": "/learn/foundations/claude-code-basics"
   }
 }

@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Increment Status Reference",
-    "permalink": "/guides/increment-status-reference"
-  },
-  "next": {
-    "title": "Advanced Kafka Usage with SpecWeave",
-    "permalink": "/guides/kafka-advanced-usage"
-  }
+  "frontMatter": {}
 }

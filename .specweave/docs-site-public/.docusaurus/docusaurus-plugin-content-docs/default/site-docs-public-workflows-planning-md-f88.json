@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Workflows: The Complete Journey",
-    "permalink": "/workflows/overview"
-  },
-  "next": {
-    "title": "Public Documentation",
-    "permalink": "/"
-  }
+  "frontMatter": {}
 }

@@ -14,14 +14,5 @@
     "id": "infrastructure-category",
     "title": "Infrastructure & Operations",
     "sidebar_label": "Infrastructure & Operations"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Frontend Development",
-    "permalink": "/glossary/categories/frontend-category"
-  },
-  "next": {
-    "title": "ML/AI",
-    "permalink": "/glossary/categories/ml-ai-category"
   }
 }

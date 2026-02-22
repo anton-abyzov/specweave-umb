@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Issue Tracker Integration",
-    "permalink": "/integrations/issue-trackers"
-  },
-  "next": {
-    "title": "Overview",
-    "permalink": "/learn"
-  }
+  "frontMatter": {}
 }

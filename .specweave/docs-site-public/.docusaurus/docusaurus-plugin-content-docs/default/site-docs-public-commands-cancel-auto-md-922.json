@@ -13,14 +13,5 @@
   "sidebarPosition": 12,
   "frontMatter": {
     "sidebar_position": 12
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "/sw:auto-status - Session Status",
-    "permalink": "/commands/auto-status"
-  },
-  "next": {
-    "title": "/specweave:jobs - Background Jobs Monitor",
-    "permalink": "/commands/jobs"
   }
 }

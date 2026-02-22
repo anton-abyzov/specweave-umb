@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Migration Guide: spec.md Project/Board Fields (v0.31.0)",
-    "permalink": "/guides/migration-v031-project-fields"
-  },
-  "next": {
-    "title": "Model Selection Guide",
-    "permalink": "/guides/model-selection"
-  }
+  "frontMatter": {}
 }

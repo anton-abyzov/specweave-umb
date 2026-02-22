@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Playwright",
-    "permalink": "/glossary/terms/playwright"
-  },
-  "next": {
-    "title": "Project Detection",
-    "permalink": "/glossary/terms/project-detection"
-  }
+  "frontMatter": {}
 }

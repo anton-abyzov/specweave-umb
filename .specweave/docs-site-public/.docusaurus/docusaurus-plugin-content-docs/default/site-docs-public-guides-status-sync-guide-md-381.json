@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "v2.0 Quick Start Guide",
-    "permalink": "/guides/specs-organization-guide"
-  },
-  "next": {
-    "title": "Status Sync Migration Guide",
-    "permalink": "/guides/status-sync-migration"
-  }
+  "frontMatter": {}
 }

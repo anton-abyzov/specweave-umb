@@ -27,14 +27,5 @@
       "ml",
       "integration"
     ]
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Overview",
-    "permalink": "/overview"
-  },
-  "next": {
-    "title": "Key Features",
-    "permalink": "/overview/features"
   }
 }

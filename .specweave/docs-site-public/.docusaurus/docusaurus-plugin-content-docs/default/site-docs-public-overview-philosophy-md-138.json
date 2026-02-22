@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "What is SpecWeave?",
-    "permalink": "/overview/introduction"
-  },
-  "next": {
-    "title": "Overview",
-    "permalink": "/reference"
-  }
+  "frontMatter": {}
 }

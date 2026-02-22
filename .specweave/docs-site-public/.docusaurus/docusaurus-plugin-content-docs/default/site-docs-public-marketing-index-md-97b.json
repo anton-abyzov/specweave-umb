@@ -14,14 +14,5 @@
     "title": "Marketing",
     "sidebar_label": "Overview",
     "slug": "/marketing"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Testing Fundamentals",
-    "permalink": "/learn/testing/testing-fundamentals"
-  },
-  "next": {
-    "title": "Claude Code Hook Limitations: No Skill Invocation & Lazy Plugin Loading (And How I Solved It)",
-    "permalink": "/marketing/dev-to-article-clean"
   }
 }

@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Overview",
-    "permalink": "/scripts"
-  },
-  "next": {
-    "title": "Glossary Linking Opportunities Report",
-    "permalink": "/scripts/linking-report"
-  }
+  "frontMatter": {}
 }

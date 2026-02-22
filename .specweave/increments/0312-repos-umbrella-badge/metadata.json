@@ -1,8 +1,9 @@
 {
   "id": "0312",
   "name": "repos-umbrella-badge",
-  "status": "active",
+  "status": "completed",
   "type": "enhancement",
   "created": "2026-02-21",
+  "completedAt": "2026-02-22",
   "repository": "specweave"
 }

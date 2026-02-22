@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Scheduling and Planning with SpecWeave",
-    "permalink": "/guides/scheduling-and-planning"
-  },
-  "next": {
-    "title": "Spec Commit Sync: Automatic Traceability from Specs to Code",
-    "permalink": "/guides/spec-commit-sync"
-  }
+  "frontMatter": {}
 }

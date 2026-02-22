@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Understanding Sync Strategies - Simple Guide",
-    "permalink": "/guides/sync-strategies"
-  },
-  "next": {
-    "title": "Overview",
-    "permalink": "/integrations"
-  }
+  "frontMatter": {}
 }

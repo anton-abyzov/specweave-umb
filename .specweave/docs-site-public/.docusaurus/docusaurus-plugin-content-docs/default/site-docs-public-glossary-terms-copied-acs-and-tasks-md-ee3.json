@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Content Classification",
-    "permalink": "/glossary/terms/content-classification"
-  },
-  "next": {
-    "title": "Cross-Linking",
-    "permalink": "/glossary/terms/cross-linking"
-  }
+  "frontMatter": {}
 }

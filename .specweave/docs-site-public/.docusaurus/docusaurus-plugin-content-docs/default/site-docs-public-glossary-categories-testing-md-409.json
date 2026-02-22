@@ -14,14 +14,5 @@
     "id": "testing-category",
     "title": "Testing & Quality",
     "sidebar_label": "Testing & Quality"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Performance & Scalability",
-    "permalink": "/glossary/categories/performance-category"
-  },
-  "next": {
-    "title": "By Category",
-    "permalink": "/glossary/index-by-category"
   }
 }

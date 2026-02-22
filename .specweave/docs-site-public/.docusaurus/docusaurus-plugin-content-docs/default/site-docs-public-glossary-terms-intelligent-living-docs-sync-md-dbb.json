@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Integration Testing",
-    "permalink": "/glossary/terms/integration-testing"
-  },
-  "next": {
-    "title": "Kubernetes (K8s)",
-    "permalink": "/glossary/terms/kubernetes"
-  }
+  "frontMatter": {}
 }

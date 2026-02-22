@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Migration Guide: v0.23.x → v0.24.0",
-    "permalink": "/guides/migration-v024"
-  },
-  "next": {
-    "title": "React Native & Expo Setup Guide",
-    "permalink": "/guides/mobile/react-native-setup-guide"
-  }
+  "frontMatter": {}
 }

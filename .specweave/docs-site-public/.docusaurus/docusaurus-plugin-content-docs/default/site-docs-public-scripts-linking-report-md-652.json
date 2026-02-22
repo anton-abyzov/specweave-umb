@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Duplicate Skill Loading Analysis & Prevention",
-    "permalink": "/scripts/duplicate-skill-loading-analysis"
-  },
-  "next": {
-    "title": "🎯 Bulk Glossary Linking - Mission Complete!",
-    "permalink": "/scripts/linking-summary"
-  }
+  "frontMatter": {}
 }

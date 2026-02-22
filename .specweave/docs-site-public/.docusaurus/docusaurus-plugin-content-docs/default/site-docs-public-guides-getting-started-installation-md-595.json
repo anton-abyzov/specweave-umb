@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Deep Interview Mode",
-    "permalink": "/guides/deep-interview-mode"
-  },
-  "next": {
-    "title": "Quick Fix: Global Packages Lost After Node Upgrade (nvm)",
-    "permalink": "/guides/getting-started/nvm-global-packages-fix"
-  }
+  "frontMatter": {}
 }

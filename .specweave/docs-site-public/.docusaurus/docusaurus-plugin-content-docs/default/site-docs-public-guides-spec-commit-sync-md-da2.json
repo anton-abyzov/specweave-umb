@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Bidirectional Spec Synchronization",
-    "permalink": "/guides/spec-bidirectional-sync"
-  },
-  "next": {
-    "title": "v2.0 Quick Start Guide",
-    "permalink": "/guides/specs-organization-guide"
-  }
+  "frontMatter": {}
 }

@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Backlog Management Guide",
-    "permalink": "/guides/backlog-management"
-  },
-  "next": {
-    "title": "Bidirectional Task ↔ User Story Linking",
-    "permalink": "/guides/bidirectional-linking"
-  }
+  "frontMatter": {}
 }

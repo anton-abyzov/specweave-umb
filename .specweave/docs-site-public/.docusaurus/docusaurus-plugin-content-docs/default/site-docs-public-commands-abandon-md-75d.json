@@ -13,14 +13,5 @@
   "sidebarPosition": 4,
   "frontMatter": {
     "sidebar_position": 4
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "resume",
-    "permalink": "/commands/resume"
-  },
-  "next": {
-    "title": "status",
-    "permalink": "/commands/status"
   }
 }

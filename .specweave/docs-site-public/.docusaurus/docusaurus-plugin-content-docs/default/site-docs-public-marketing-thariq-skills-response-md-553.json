@@ -14,14 +14,5 @@
     "title": "Response to Thariq's Skills Merge Announcement",
     "date": "2026-01-23T00:00:00.000Z",
     "context": "Reply to @trq212 announcing slash commands merged into skills"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Bypassing Claude Code's Hook-Skill Limitation",
-    "permalink": "/marketing/hooks-skill-workaround-posts"
-  },
-  "next": {
-    "title": "ToxicSkills: 1 in 3 AI Agent Skills Has a Security Flaw",
-    "permalink": "/marketing/toxicskills-security-posts"
   }
 }

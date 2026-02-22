@@ -14,14 +14,5 @@
     "title": "Development",
     "sidebar_label": "Overview",
     "slug": "/development"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "/specweave:jobs - Background Jobs Monitor",
-    "permalink": "/commands/jobs"
-  },
-  "next": {
-    "title": "Claude CLI Automation Patterns",
-    "permalink": "/development/claude-cli-automation"
   }
 }

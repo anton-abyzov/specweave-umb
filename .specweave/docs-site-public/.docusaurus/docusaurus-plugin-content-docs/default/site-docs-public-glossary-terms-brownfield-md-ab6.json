@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Bidirectional Sync",
-    "permalink": "/glossary/terms/bidirectional-sync"
-  },
-  "next": {
-    "title": "CI/CD",
-    "permalink": "/glossary/terms/ci-cd"
-  }
+  "frontMatter": {}
 }

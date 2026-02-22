@@ -14,14 +14,5 @@
     "id": "spa",
     "title": "SPA (Single Page Application)",
     "sidebar_label": "SPA"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Source of Truth",
-    "permalink": "/glossary/terms/source-of-truth"
-  },
-  "next": {
-    "title": "Specifications (Specs)",
-    "permalink": "/glossary/terms/specs"
   }
 }

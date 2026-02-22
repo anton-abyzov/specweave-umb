@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "TypeScript",
-    "permalink": "/glossary/terms/typescript"
-  },
-  "next": {
-    "title": "User Stories",
-    "permalink": "/glossary/terms/user-stories"
-  }
+  "frontMatter": {}
 }

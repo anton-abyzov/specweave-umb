@@ -14,14 +14,5 @@
     "id": "typescript",
     "title": "TypeScript",
     "sidebar_label": "TypeScript"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Three-Permission Architecture",
-    "permalink": "/glossary/terms/three-permission-architecture"
-  },
-  "next": {
-    "title": "Unit Testing",
-    "permalink": "/glossary/terms/unit-testing"
   }
 }

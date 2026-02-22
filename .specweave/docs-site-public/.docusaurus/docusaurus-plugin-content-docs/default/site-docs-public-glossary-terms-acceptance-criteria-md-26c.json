@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "AC-ID (Acceptance Criteria Identifier)",
-    "permalink": "/glossary/terms/ac-id"
-  },
-  "next": {
-    "title": "ADR",
-    "permalink": "/glossary/terms/adr"
-  }
+  "frontMatter": {}
 }

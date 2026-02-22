@@ -15,14 +15,5 @@
     "sidebar_position": 5,
     "title": "SpecWeave vs SpecKit",
     "description": "Understanding how SpecWeave extends the spec-driven development foundation laid by GitHub's SpecKit"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Autonomous Execution Guide",
-    "permalink": "/guides/autonomous-execution"
-  },
-  "next": {
-    "title": "Azure DevOps Multi-Project Migration Guide",
-    "permalink": "/guides/ado-multi-project-migration"
   }
 }

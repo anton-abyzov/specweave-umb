@@ -14,14 +14,5 @@
     "id": "backend-category",
     "title": "Backend Development",
     "sidebar_label": "Backend Development"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Architecture & Design",
-    "permalink": "/glossary/categories/architecture-category"
-  },
-  "next": {
-    "title": "Glossary Category Pages - Completion Report",
-    "permalink": "/glossary/categories/category-pages-complete"
   }
 }

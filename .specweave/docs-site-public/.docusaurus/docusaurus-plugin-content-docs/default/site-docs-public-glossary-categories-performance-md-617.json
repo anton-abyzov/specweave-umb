@@ -14,14 +14,5 @@
     "id": "performance-category",
     "title": "Performance & Scalability",
     "sidebar_label": "Performance & Scalability"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "ML/AI",
-    "permalink": "/glossary/categories/ml-ai-category"
-  },
-  "next": {
-    "title": "Testing & Quality",
-    "permalink": "/glossary/categories/testing-category"
   }
 }

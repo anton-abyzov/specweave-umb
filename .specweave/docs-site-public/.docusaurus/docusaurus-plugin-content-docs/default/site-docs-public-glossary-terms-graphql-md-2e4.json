@@ -14,14 +14,5 @@
     "id": "graphql",
     "title": "GraphQL",
     "sidebar_label": "GraphQL"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "GitHub Actions",
-    "permalink": "/glossary/terms/github-actions"
-  },
-  "next": {
-    "title": "Greenfield Development",
-    "permalink": "/glossary/terms/greenfield"
   }
 }

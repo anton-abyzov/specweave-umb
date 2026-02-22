@@ -14,14 +14,5 @@
     "id": "ml-ai-category",
     "title": "ML/AI & Machine Learning",
     "sidebar_label": "ML/AI"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Infrastructure & Operations",
-    "permalink": "/glossary/categories/infrastructure-category"
-  },
-  "next": {
-    "title": "Performance & Scalability",
-    "permalink": "/glossary/categories/performance-category"
   }
 }

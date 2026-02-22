@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "GitHub Actions Integration Setup Guide",
-    "permalink": "/guides/github-action-setup"
-  },
-  "next": {
-    "title": "Universal Hierarchy Mapping",
-    "permalink": "/guides/hierarchy-mapping"
-  }
+  "frontMatter": {}
 }

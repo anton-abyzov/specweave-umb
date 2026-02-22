@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Test Pyramid",
-    "permalink": "/glossary/terms/test-pyramid"
-  },
-  "next": {
-    "title": "Three-Permission Architecture",
-    "permalink": "/glossary/terms/three-permission-architecture"
-  }
+  "frontMatter": {}
 }

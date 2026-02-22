@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Cross-Linking",
-    "permalink": "/glossary/terms/cross-linking"
-  },
-  "next": {
-    "title": "Docusaurus Frontmatter",
-    "permalink": "/glossary/terms/docusaurus-frontmatter"
-  }
+  "frontMatter": {}
 }

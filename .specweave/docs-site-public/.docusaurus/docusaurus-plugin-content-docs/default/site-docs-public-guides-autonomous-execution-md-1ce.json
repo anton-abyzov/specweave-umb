@@ -14,14 +14,5 @@
   "frontMatter": {
     "sidebar_position": 5,
     "title": "Autonomous Execution Guide"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Overview",
-    "permalink": "/guides"
-  },
-  "next": {
-    "title": "SpecWeave vs SpecKit",
-    "permalink": "/guides/specweave-vs-speckit"
   }
 }

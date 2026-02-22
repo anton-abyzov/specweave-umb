@@ -14,14 +14,5 @@
     "id": "role-orchestrator",
     "title": "Role Orchestrator",
     "sidebar_label": "Role Orchestrator"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "RFC",
-    "permalink": "/glossary/terms/rfc"
-  },
-  "next": {
-    "title": "Skills vs Agents",
-    "permalink": "/glossary/terms/skills-vs-agents"
   }
 }

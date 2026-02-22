@@ -14,14 +14,5 @@
     "id": "rest",
     "title": "REST (REpresentational State Transfer)",
     "sidebar_label": "REST"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "React",
-    "permalink": "/glossary/terms/react"
-  },
-  "next": {
-    "title": "RFC",
-    "permalink": "/glossary/terms/rfc"
   }
 }

@@ -22,14 +22,5 @@
       "session restart",
       "context evaporation"
     ]
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Overview",
-    "permalink": "/troubleshooting"
-  },
-  "next": {
-    "title": "Troubleshooting: Plugins Keep Reinstalling",
-    "permalink": "/troubleshooting/plugin-auto-reinstall"
   }
 }

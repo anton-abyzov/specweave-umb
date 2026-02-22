@@ -13,14 +13,5 @@
   "frontMatter": {
     "title": "Glossary by Category",
     "sidebar_label": "By Category"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Testing & Quality",
-    "permalink": "/glossary/categories/testing-category"
-  },
-  "next": {
-    "title": "AC-ID (Acceptance Criteria Identifier)",
-    "permalink": "/glossary/terms/ac-id"
   }
 }

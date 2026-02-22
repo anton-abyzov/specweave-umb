@@ -14,14 +14,5 @@
     "id": "strategic-init",
     "title": "Strategic Init",
     "sidebar_label": "Strategic Init"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "SSR",
-    "permalink": "/glossary/terms/ssr"
-  },
-  "next": {
-    "title": "TDD (Test-Driven Development)",
-    "permalink": "/glossary/terms/tdd"
   }
 }

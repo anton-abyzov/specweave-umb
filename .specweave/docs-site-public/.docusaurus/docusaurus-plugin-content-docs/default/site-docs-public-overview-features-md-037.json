@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Plugin Ecosystem",
-    "permalink": "/overview/plugins-ecosystem"
-  },
-  "next": {
-    "title": "What is SpecWeave?",
-    "permalink": "/overview/introduction"
-  }
+  "frontMatter": {}
 }

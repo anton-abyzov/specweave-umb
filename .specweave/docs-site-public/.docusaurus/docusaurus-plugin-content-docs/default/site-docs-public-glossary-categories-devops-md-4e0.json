@@ -14,14 +14,5 @@
     "id": "devops-category",
     "title": "DevOps & Tools",
     "sidebar_label": "DevOps & Tools"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Collaboration & Management",
-    "permalink": "/glossary/categories/collaboration-category"
-  },
-  "next": {
-    "title": "Frontend Development",
-    "permalink": "/glossary/categories/frontend-category"
   }
 }

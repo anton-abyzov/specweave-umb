@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Multi-Project Setup Guide",
-    "permalink": "/guides/multi-project-setup"
-  },
-  "next": {
-    "title": "Multilingual Guide - SpecWeave Internationalization",
-    "permalink": "/guides/multilingual-guide"
-  }
+  "frontMatter": {}
 }

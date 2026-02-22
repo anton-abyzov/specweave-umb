@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Profile-Based Sync",
-    "permalink": "/glossary/terms/profile-based-sync"
-  },
-  "next": {
-    "title": "Project-Specific Tasks",
-    "permalink": "/glossary/terms/project-specific-tasks"
-  }
+  "frontMatter": {}
 }

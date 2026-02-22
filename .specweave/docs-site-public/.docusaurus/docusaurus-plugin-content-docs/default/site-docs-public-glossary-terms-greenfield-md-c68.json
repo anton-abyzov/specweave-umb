@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "GraphQL",
-    "permalink": "/glossary/terms/graphql"
-  },
-  "next": {
-    "title": "HIPAA (Health Insurance Portability and Accountability Act)",
-    "permalink": "/glossary/terms/hipaa"
-  }
+  "frontMatter": {}
 }

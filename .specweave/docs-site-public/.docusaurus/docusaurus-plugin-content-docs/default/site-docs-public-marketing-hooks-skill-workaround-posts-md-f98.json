@@ -47,14 +47,5 @@
       "specweave",
       "developer-tools"
     ]
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Claude Code Hook Limitations: No Skill Invocation & Lazy Plugin Loading (And How I Solved It)",
-    "permalink": "/marketing/dev-to-article-clean"
-  },
-  "next": {
-    "title": "Response to Thariq's Skills Merge Announcement",
-    "permalink": "/marketing/thariq-skills-response"
   }
 }

@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "COPIED ACs and Tasks",
-    "permalink": "/glossary/terms/copied-acs-and-tasks"
-  },
-  "next": {
-    "title": "Docker",
-    "permalink": "/glossary/terms/docker"
-  }
+  "frontMatter": {}
 }

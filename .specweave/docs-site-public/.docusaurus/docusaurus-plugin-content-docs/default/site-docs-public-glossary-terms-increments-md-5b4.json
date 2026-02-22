@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "IaC",
-    "permalink": "/glossary/terms/iac"
-  },
-  "next": {
-    "title": "Integration Testing",
-    "permalink": "/glossary/terms/integration-testing"
-  }
+  "frontMatter": {}
 }

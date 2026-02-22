@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "CI/CD",
-    "permalink": "/glossary/terms/ci-cd"
-  },
-  "next": {
-    "title": "COPIED ACs and Tasks",
-    "permalink": "/glossary/terms/copied-acs-and-tasks"
-  }
+  "frontMatter": {}
 }

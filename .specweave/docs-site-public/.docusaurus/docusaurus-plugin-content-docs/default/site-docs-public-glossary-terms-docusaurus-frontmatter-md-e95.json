@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Docker",
-    "permalink": "/glossary/terms/docker"
-  },
-  "next": {
-    "title": "E2E Testing",
-    "permalink": "/glossary/terms/e2e"
-  }
+  "frontMatter": {}
 }

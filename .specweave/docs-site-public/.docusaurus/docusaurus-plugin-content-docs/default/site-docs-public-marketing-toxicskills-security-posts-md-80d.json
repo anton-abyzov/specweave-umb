@@ -53,14 +53,5 @@
       "prompt-injection",
       "supply-chain"
     ]
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Response to Thariq's Skills Merge Announcement",
-    "permalink": "/marketing/thariq-skills-response"
-  },
-  "next": {
-    "title": "DORA Metrics Dashboard",
-    "permalink": "/metrics"
   }
 }

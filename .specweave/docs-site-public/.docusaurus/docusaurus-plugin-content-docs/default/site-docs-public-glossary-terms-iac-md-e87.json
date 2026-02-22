@@ -14,14 +14,5 @@
     "id": "iac",
     "title": "IaC (Infrastructure as Code)",
     "sidebar_label": "IaC"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Hooks",
-    "permalink": "/glossary/terms/hooks"
-  },
-  "next": {
-    "title": "Increments",
-    "permalink": "/glossary/terms/increments"
   }
 }

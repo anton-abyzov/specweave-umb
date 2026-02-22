@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "🎯 Bulk Glossary Linking - Mission Complete!",
-    "permalink": "/scripts/linking-summary"
-  },
-  "next": {
-    "title": "Overview",
-    "permalink": "/troubleshooting"
-  }
+  "frontMatter": {}
 }

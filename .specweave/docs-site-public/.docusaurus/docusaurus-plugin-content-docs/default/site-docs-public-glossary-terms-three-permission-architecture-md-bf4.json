@@ -14,14 +14,5 @@
     "id": "three-permission-architecture",
     "title": "Three-Permission Architecture",
     "sidebar_label": "Three-Permission Architecture"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Three-Layer Architecture",
-    "permalink": "/glossary/terms/three-layer-architecture"
-  },
-  "next": {
-    "title": "TypeScript",
-    "permalink": "/glossary/terms/typescript"
   }
 }

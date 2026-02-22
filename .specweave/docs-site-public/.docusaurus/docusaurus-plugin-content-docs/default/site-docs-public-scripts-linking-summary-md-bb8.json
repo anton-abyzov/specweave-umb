@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Glossary Linking Opportunities Report",
-    "permalink": "/scripts/linking-report"
-  },
-  "next": {
-    "title": "🎉 Phase 2 Complete: Top 5 Critical Pages Enhanced!",
-    "permalink": "/scripts/phase-2-complete"
-  }
+  "frontMatter": {}
 }

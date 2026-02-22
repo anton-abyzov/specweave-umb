@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "API",
-    "permalink": "/glossary/terms/api"
-  },
-  "next": {
-    "title": "Bidirectional Sync",
-    "permalink": "/glossary/terms/bidirectional-sync"
-  }
+  "frontMatter": {}
 }

@@ -3,7 +3,7 @@ increment: 0306-fix-marketplace-skill-loss
 title: "Fix Marketplace Skill Loss - Restore KV Enumeration + Prisma Migration"
 type: bug
 priority: P0
-status: active
+status: completed
 created: 2026-02-21
 structure: user-stories
 test_mode: TDD
@@ -50,8 +50,8 @@ The marketplace data layer (`data.ts`) merges 118 seed skills with community ski
 
 **Acceptance Criteria**:
 - [x] **AC-US1-01**: New function `enumeratePublishedSkills()` in `submission-store.ts` uses `kv.list({ prefix: "skill:" })` with pagination to discover all individual skill keys, excluding `skill:alias:*` keys
-- [x] **AC-US1-02**: `getPublishedSkillsList()` calls both the index blob AND `enumeratePublishedSkills()`, returns whichever has MORE entries (with dedup by slug)
-- [x] **AC-US1-03**: When enumeration finds more skills than the index, the index is rebuilt from the enumerated data (write-through repair)
+- [x] **AC-US1-02**: `getPublishedSkillsList()` reads the index blob first; if non-empty, returns it immediately (short-circuit for performance since Prisma is now primary). Only enumerates `skill:*` keys when the index is empty or missing.
+- [x] **AC-US1-03**: When index is empty and enumeration finds skills, the index is rebuilt from the enumerated data (write-through repair)
 - [x] **AC-US1-04**: `enumeratePublishedSkills()` handles KV list pagination correctly (cursor-based, handles `list_complete` flag)
 - [x] **AC-US1-05**: Performance: KV enumeration adds at most 500ms latency for up to 5000 keys; results are cached in the existing `_publishedCache` for 60s
 - [x] **AC-US1-06**: Unit tests cover: empty index + populated keys scenario, populated index + fewer keys scenario, pagination with multiple pages, alias key exclusion

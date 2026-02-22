@@ -14,14 +14,5 @@
     "title": "Integrations",
     "sidebar_label": "Overview",
     "slug": "/integrations"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Why Verified Skill Matters — Lessons from ClawHub's Collapse",
-    "permalink": "/guides/why-verified-skill-matters"
-  },
-  "next": {
-    "title": "Issue Tracker Integration",
-    "permalink": "/integrations/issue-trackers"
   }
 }

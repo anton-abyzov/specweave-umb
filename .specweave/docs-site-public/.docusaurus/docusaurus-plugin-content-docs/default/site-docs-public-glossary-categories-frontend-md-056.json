@@ -14,14 +14,5 @@
     "id": "frontend-category",
     "title": "Frontend Development",
     "sidebar_label": "Frontend Development"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "DevOps & Tools",
-    "permalink": "/glossary/categories/devops-category"
-  },
-  "next": {
-    "title": "Infrastructure & Operations",
-    "permalink": "/glossary/categories/infrastructure-category"
   }
 }

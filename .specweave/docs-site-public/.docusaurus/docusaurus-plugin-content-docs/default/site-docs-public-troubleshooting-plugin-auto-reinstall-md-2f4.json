@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "\"Prompt is Too Long\" — Context Exhaustion",
-    "permalink": "/troubleshooting/prompt-too-long-context-exhaustion"
-  },
-  "next": {
-    "title": "Plugin Enabled State Corruption",
-    "permalink": "/troubleshooting/plugin-enabled-state-corruption"
-  }
+  "frontMatter": {}
 }

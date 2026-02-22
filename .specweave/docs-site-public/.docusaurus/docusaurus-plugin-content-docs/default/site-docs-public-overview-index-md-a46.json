@@ -14,14 +14,5 @@
     "title": "Overview",
     "sidebar_label": "Overview",
     "slug": "/overview"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "DORA Metrics Dashboard",
-    "permalink": "/metrics"
-  },
-  "next": {
-    "title": "Plugin Ecosystem",
-    "permalink": "/overview/plugins-ecosystem"
   }
 }

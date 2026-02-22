@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Plugin Naming Conventions",
-    "permalink": "/troubleshooting/plugin-naming-conventions"
-  },
-  "next": {
-    "title": "Skill Name Field: Plugin Prefix Stripping",
-    "permalink": "/troubleshooting/skill-name-prefix-stripping"
-  }
+  "frontMatter": {}
 }

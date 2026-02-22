@@ -27,14 +27,5 @@
       "test coverage",
       "QA"
     ]
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "CLI & Hook Integration Testing Guide",
-    "permalink": "/learn/testing/cli-integration-testing"
-  },
-  "next": {
-    "title": "Overview",
-    "permalink": "/marketing"
   }
 }

@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Project-Specific Tasks",
-    "permalink": "/guides/project-specific-tasks"
-  },
-  "next": {
-    "title": "Scheduling and Planning with SpecWeave",
-    "permalink": "/guides/scheduling-and-planning"
-  }
+  "frontMatter": {}
 }

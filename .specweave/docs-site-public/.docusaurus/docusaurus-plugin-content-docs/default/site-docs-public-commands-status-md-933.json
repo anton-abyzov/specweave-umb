@@ -13,14 +13,5 @@
   "sidebarPosition": 5,
   "frontMatter": {
     "sidebar_position": 5
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "abandon",
-    "permalink": "/commands/abandon"
-  },
-  "next": {
-    "title": "/sw:auto - Autonomous Execution",
-    "permalink": "/commands/auto"
   }
 }

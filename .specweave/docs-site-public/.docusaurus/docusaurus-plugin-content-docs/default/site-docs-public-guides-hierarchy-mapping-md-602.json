@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "GitHub Integration Guide",
-    "permalink": "/guides/github-integration"
-  },
-  "next": {
-    "title": "Increment Status Reference",
-    "permalink": "/guides/increment-status-reference"
-  }
+  "frontMatter": {}
 }

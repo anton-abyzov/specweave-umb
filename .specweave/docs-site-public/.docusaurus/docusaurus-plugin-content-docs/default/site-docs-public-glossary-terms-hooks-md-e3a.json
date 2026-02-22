@@ -14,14 +14,5 @@
     "id": "hooks",
     "title": "Hooks",
     "sidebar_label": "Hooks"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "HIPAA (Health Insurance Portability and Accountability Act)",
-    "permalink": "/glossary/terms/hipaa"
-  },
-  "next": {
-    "title": "IaC",
-    "permalink": "/glossary/terms/iac"
   }
 }

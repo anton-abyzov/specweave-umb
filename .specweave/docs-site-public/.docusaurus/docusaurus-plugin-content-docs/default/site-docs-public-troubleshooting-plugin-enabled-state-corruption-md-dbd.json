@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Troubleshooting: Plugins Keep Reinstalling",
-    "permalink": "/troubleshooting/plugin-auto-reinstall"
-  },
-  "next": {
-    "title": "Plugin Naming Conventions",
-    "permalink": "/troubleshooting/plugin-naming-conventions"
-  }
+  "frontMatter": {}
 }

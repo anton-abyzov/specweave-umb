@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "SpecWeave Command Reference - By Priority",
-    "permalink": "/guides/command-reference-by-priority"
-  },
-  "next": {
-    "title": "Background Jobs",
-    "permalink": "/guides/core-concepts/background-jobs"
-  }
+  "frontMatter": {}
 }

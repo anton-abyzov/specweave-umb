@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Living Docs Sync Strategy",
-    "permalink": "/guides/core-concepts/living-docs-sync-strategy"
-  },
-  "next": {
-    "title": "What is an Increment?",
-    "permalink": "/guides/core-concepts/what-is-an-increment"
-  }
+  "frontMatter": {}
 }

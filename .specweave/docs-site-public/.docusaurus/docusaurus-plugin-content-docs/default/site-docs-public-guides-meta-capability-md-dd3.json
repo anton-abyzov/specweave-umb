@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Kafka Troubleshooting Guide",
-    "permalink": "/guides/kafka-troubleshooting"
-  },
-  "next": {
-    "title": "Migration Guide: v0.23.x → v0.24.0",
-    "permalink": "/guides/migration-v024"
-  }
+  "frontMatter": {}
 }

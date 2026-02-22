@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "FDA (Food and Drug Administration) - Medical Device Software Regulations",
-    "permalink": "/glossary/terms/fda"
-  },
-  "next": {
-    "title": "GitHub Actions",
-    "permalink": "/glossary/terms/github-actions"
-  }
+  "frontMatter": {}
 }

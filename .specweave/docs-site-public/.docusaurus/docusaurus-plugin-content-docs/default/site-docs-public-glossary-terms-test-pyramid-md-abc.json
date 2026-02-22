@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Test Coverage",
-    "permalink": "/glossary/terms/test-coverage"
-  },
-  "next": {
-    "title": "Three-Layer Architecture",
-    "permalink": "/glossary/terms/three-layer-architecture"
-  }
+  "frontMatter": {}
 }

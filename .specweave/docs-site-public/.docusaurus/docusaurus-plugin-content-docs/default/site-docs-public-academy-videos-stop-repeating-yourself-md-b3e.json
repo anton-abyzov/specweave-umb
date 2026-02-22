@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Video XXX: [Title]",
-    "permalink": "/academy/videos/_TEMPLATE"
-  },
-  "next": {
-    "title": "Frequently Asked Questions (FAQ)",
-    "permalink": "/faq"
-  }
+  "frontMatter": {}
 }

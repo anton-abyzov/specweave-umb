@@ -14,14 +14,5 @@
     "id": "glossary",
     "title": "Glossary",
     "sidebar_label": "Glossary Overview"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Claude CLI Automation Patterns",
-    "permalink": "/development/claude-cli-automation"
-  },
-  "next": {
-    "title": "Architecture & Design",
-    "permalink": "/glossary/categories/architecture-category"
   }
 }

@@ -14,14 +14,5 @@
     "id": "architecture-category",
     "title": "Architecture & Design",
     "sidebar_label": "Architecture & Design"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Glossary Overview",
-    "permalink": "/glossary/"
-  },
-  "next": {
-    "title": "Backend Development",
-    "permalink": "/glossary/categories/backend-category"
   }
 }

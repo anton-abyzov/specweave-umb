@@ -14,14 +14,5 @@
     "id": "iac-fundamentals",
     "title": "Infrastructure as Code Fundamentals",
     "sidebar_label": "IaC Fundamentals"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Frontend Fundamentals",
-    "permalink": "/learn/frontend/frontend-fundamentals"
-  },
-  "next": {
-    "title": "ML/AI Integration",
-    "permalink": "/learn/ml-ai/ml-fundamentals"
   }
 }

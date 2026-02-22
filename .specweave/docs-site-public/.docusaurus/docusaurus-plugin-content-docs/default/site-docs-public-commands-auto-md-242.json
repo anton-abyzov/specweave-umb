@@ -13,14 +13,5 @@
   "sidebarPosition": 10,
   "frontMatter": {
     "sidebar_position": 10
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "status",
-    "permalink": "/commands/status"
-  },
-  "next": {
-    "title": "/sw:auto-status - Session Status",
-    "permalink": "/commands/auto-status"
   }
 }

@@ -13,14 +13,5 @@
   "sidebarPosition": 11,
   "frontMatter": {
     "sidebar_position": 11
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "/sw:auto - Autonomous Execution",
-    "permalink": "/commands/auto"
-  },
-  "next": {
-    "title": "/sw:cancel-auto - Cancel Auto Session",
-    "permalink": "/commands/cancel-auto"
   }
 }

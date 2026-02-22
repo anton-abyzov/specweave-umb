@@ -14,14 +14,5 @@
     "id": "ml-fundamentals",
     "title": "ML/AI Integration Fundamentals",
     "sidebar_label": "ML/AI Integration"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "IaC Fundamentals",
-    "permalink": "/learn/infrastructure/iac-fundamentals"
-  },
-  "next": {
-    "title": "CLI & Hook Integration Testing Guide",
-    "permalink": "/learn/testing/cli-integration-testing"
   }
 }

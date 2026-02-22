@@ -10,10 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "next": {
-    "title": "Video 001: Finally: A Framework That Works on Legacy, Startup, AND Enterprise",
-    "permalink": "/academy/videos/specweave-complete-masterclass"
-  }
+  "frontMatter": {}
 }

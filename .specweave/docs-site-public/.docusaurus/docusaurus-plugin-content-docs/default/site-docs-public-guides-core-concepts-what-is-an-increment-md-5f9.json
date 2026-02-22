@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Living Documentation",
-    "permalink": "/guides/core-concepts/living-documentation"
-  },
-  "next": {
-    "title": "Cost Optimization Guide",
-    "permalink": "/guides/cost-optimization"
-  }
+  "frontMatter": {}
 }

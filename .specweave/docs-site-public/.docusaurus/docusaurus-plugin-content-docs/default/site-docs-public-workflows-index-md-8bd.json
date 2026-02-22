@@ -14,14 +14,5 @@
     "title": "Workflows",
     "sidebar_label": "Overview",
     "slug": "/workflows"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "VSCode Debug Mode: Child Process Failures",
-    "permalink": "/troubleshooting/vscode-debug-child-processes"
-  },
-  "next": {
-    "title": "Brownfield Workflow: Working with Existing Code",
-    "permalink": "/workflows/brownfield"
   }
 }

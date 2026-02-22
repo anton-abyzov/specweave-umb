@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Intelligent Living Docs Sync - User Guide",
-    "permalink": "/guides/intelligent-living-docs-sync"
-  },
-  "next": {
-    "title": "Getting Started with SpecWeave Kafka",
-    "permalink": "/guides/kafka-getting-started"
-  }
+  "frontMatter": {}
 }

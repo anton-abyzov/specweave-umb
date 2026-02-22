@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Planning Workflow: From Idea to Tasks",
-    "permalink": "/workflows/planning"
-  },
-  "next": {
-    "title": "SpecWeave Features & Capabilities",
-    "permalink": "/features"
-  }
+  "frontMatter": {}
 }

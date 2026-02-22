@@ -13,14 +13,5 @@
   "sidebarPosition": 1,
   "frontMatter": {
     "sidebar_position": 1
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "YouTube Script: Stop Repeating Yourself",
-    "permalink": "/academy/videos/stop-repeating-yourself"
-  },
-  "next": {
-    "title": "API",
-    "permalink": "/api/"
   }
 }

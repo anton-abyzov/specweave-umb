@@ -14,14 +14,5 @@
     "title": "Scripts",
     "sidebar_label": "Overview",
     "slug": "/scripts"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Cost Tracking Reference",
-    "permalink": "/reference/cost-tracking"
-  },
-  "next": {
-    "title": "Duplicate Skill Loading Analysis & Prevention",
-    "permalink": "/scripts/duplicate-skill-loading-analysis"
   }
 }

@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Git",
-    "permalink": "/glossary/terms/git"
-  },
-  "next": {
-    "title": "GraphQL",
-    "permalink": "/glossary/terms/graphql"
-  }
+  "frontMatter": {}
 }

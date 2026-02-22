@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Advanced Kafka Usage with SpecWeave",
-    "permalink": "/guides/kafka-advanced-usage"
-  },
-  "next": {
-    "title": "Kafka Infrastructure as Code - Terraform Guide",
-    "permalink": "/guides/kafka-terraform"
-  }
+  "frontMatter": {}
 }

@@ -14,14 +14,5 @@
     "id": "angular",
     "title": "Angular",
     "sidebar_label": "Angular"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "ADR",
-    "permalink": "/glossary/terms/adr"
-  },
-  "next": {
-    "title": "API",
-    "permalink": "/glossary/terms/api"
   }
 }

@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Model Selection Guide",
-    "permalink": "/guides/model-selection"
-  },
-  "next": {
-    "title": "Multi-Project Sync Architecture - Complete Guide",
-    "permalink": "/guides/multi-project-sync-architecture"
-  }
+  "frontMatter": {}
 }

@@ -42,14 +42,5 @@
       "productivity"
     ],
     "cover_image": "https://spec-weave.com/img/specweave-social-card.jpg"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Overview",
-    "permalink": "/marketing"
-  },
-  "next": {
-    "title": "Bypassing Claude Code's Hook-Skill Limitation",
-    "permalink": "/marketing/hooks-skill-workaround-posts"
   }
 }

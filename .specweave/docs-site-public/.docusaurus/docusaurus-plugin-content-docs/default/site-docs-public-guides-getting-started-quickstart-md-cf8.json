@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Quick Fix: Global Packages Lost After Node Upgrade (nvm)",
-    "permalink": "/guides/getting-started/nvm-global-packages-fix"
-  },
-  "next": {
-    "title": "GitHub Actions Integration Setup Guide",
-    "permalink": "/guides/github-action-setup"
-  }
+  "frontMatter": {}
 }

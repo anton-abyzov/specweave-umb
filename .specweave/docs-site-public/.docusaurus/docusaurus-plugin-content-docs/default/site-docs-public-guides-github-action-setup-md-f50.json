@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Quick Start",
-    "permalink": "/guides/getting-started/quickstart"
-  },
-  "next": {
-    "title": "GitHub Integration Guide",
-    "permalink": "/guides/github-integration"
-  }
+  "frontMatter": {}
 }

@@ -14,14 +14,5 @@
     "id": "collaboration-category",
     "title": "Collaboration & Management",
     "sidebar_label": "Collaboration & Management"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Glossary Category Pages - Completion Report",
-    "permalink": "/glossary/categories/category-pages-complete"
-  },
-  "next": {
-    "title": "DevOps & Tools",
-    "permalink": "/glossary/categories/devops-category"
   }
 }

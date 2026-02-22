@@ -27,14 +27,5 @@
       "responsive design",
       "accessibility"
     ]
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Terminal Basics",
-    "permalink": "/learn/foundations/terminal-empowerment"
-  },
-  "next": {
-    "title": "IaC Fundamentals",
-    "permalink": "/learn/infrastructure/iac-fundamentals"
   }
 }

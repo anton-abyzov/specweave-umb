@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Unit Testing",
-    "permalink": "/glossary/terms/unit-testing"
-  },
-  "next": {
-    "title": "WIP Limits (Work In Progress)",
-    "permalink": "/glossary/terms/wip-limits"
-  }
+  "frontMatter": {}
 }

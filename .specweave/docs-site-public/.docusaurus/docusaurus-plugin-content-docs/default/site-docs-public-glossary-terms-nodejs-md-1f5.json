@@ -14,14 +14,5 @@
     "id": "nodejs",
     "title": "Node.js",
     "sidebar_label": "Node.js"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Next.js",
-    "permalink": "/glossary/terms/nextjs"
-  },
-  "next": {
-    "title": "Playwright",
-    "permalink": "/glossary/terms/playwright"
   }
 }

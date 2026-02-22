@@ -14,14 +14,5 @@
     "id": "react",
     "title": "React",
     "sidebar_label": "React"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Project-Specific Tasks",
-    "permalink": "/glossary/terms/project-specific-tasks"
-  },
-  "next": {
-    "title": "REST",
-    "permalink": "/glossary/terms/rest"
   }
 }

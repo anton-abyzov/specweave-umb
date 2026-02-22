@@ -14,14 +14,5 @@
     "id": "nextjs",
     "title": "Next.js",
     "sidebar_label": "Next.js"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Monolith",
-    "permalink": "/glossary/terms/monolith"
-  },
-  "next": {
-    "title": "Node.js",
-    "permalink": "/glossary/terms/nodejs"
   }
 }

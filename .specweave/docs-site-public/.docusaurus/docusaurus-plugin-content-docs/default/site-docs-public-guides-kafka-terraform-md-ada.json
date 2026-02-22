@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Getting Started with SpecWeave Kafka",
-    "permalink": "/guides/kafka-getting-started"
-  },
-  "next": {
-    "title": "Kafka Troubleshooting Guide",
-    "permalink": "/guides/kafka-troubleshooting"
-  }
+  "frontMatter": {}
 }

@@ -25,14 +25,5 @@
       "SKILL.md",
       "subagents"
     ]
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Backend Fundamentals",
-    "permalink": "/learn/backend/backend-fundamentals"
-  },
-  "next": {
-    "title": "Enterprise App Development",
-    "permalink": "/learn/foundations/enterprise-app-development"
   }
 }

@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Azure DevOps Multi-Project Migration Guide",
-    "permalink": "/guides/ado-multi-project-migration"
-  },
-  "next": {
-    "title": "Best Practices for SpecWeave with Claude Code",
-    "permalink": "/guides/best-practices"
-  }
+  "frontMatter": {}
 }

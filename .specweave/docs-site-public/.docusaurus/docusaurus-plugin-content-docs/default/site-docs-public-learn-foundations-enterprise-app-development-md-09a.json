@@ -14,14 +14,5 @@
     "id": "enterprise-app-development",
     "title": "Enterprise Application Development 101",
     "sidebar_label": "Enterprise App Development"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Claude Code Basics",
-    "permalink": "/learn/foundations/claude-code-basics"
-  },
-  "next": {
-    "title": "Engineering Roles",
-    "permalink": "/learn/foundations/software-engineering-roles"
   }
 }

@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Background Jobs",
-    "permalink": "/guides/core-concepts/background-jobs"
-  },
-  "next": {
-    "title": "Living Documentation",
-    "permalink": "/guides/core-concepts/living-documentation"
-  }
+  "frontMatter": {}
 }

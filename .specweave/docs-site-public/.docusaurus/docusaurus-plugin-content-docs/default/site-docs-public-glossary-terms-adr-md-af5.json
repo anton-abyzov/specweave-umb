@@ -14,14 +14,5 @@
     "id": "adr",
     "title": "Architecture Decision Record (ADR)",
     "sidebar_label": "ADR"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Acceptance Criteria (AC)",
-    "permalink": "/glossary/terms/acceptance-criteria"
-  },
-  "next": {
-    "title": "Angular",
-    "permalink": "/glossary/terms/angular"
   }
 }

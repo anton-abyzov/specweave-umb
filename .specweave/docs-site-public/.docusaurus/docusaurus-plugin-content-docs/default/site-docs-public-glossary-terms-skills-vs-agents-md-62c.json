@@ -14,14 +14,5 @@
     "id": "skills-vs-agents",
     "title": "Skills vs Agents",
     "sidebar_label": "Skills vs Agents"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Role Orchestrator",
-    "permalink": "/glossary/terms/role-orchestrator"
-  },
-  "next": {
-    "title": "SOC 2 (Service Organization Control 2)",
-    "permalink": "/glossary/terms/soc2"
   }
 }

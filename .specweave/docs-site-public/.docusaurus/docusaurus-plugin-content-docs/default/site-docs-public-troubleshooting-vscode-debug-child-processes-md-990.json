@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Skill Truncation: Character Budget Limit",
-    "permalink": "/troubleshooting/skill-truncation-budget"
-  },
-  "next": {
-    "title": "Overview",
-    "permalink": "/workflows"
-  }
+  "frontMatter": {}
 }

@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "BDD (Behavior-Driven Development)",
-    "permalink": "/glossary/terms/bdd"
-  },
-  "next": {
-    "title": "Brownfield Development",
-    "permalink": "/glossary/terms/brownfield"
-  }
+  "frontMatter": {}
 }

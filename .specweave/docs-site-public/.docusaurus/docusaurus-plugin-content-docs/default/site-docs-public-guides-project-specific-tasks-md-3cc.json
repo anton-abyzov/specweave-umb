@@ -22,14 +22,5 @@
       "github sync",
       "traceability"
     ]
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Plugin Management Guide",
-    "permalink": "/guides/plugin-management"
-  },
-  "next": {
-    "title": "Repository Selection Guide",
-    "permalink": "/guides/repository-selection"
   }
 }

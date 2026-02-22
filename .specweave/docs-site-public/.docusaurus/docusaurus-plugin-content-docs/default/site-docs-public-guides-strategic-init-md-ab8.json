@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Status Sync Migration Guide",
-    "permalink": "/guides/status-sync-migration"
-  },
-  "next": {
-    "title": "Sync Configuration Guide",
-    "permalink": "/guides/sync-configuration"
-  }
+  "frontMatter": {}
 }

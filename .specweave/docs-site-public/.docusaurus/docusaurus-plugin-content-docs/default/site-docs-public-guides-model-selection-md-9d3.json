@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "React Native & Expo Setup Guide",
-    "permalink": "/guides/mobile/react-native-setup-guide"
-  },
-  "next": {
-    "title": "Multi-Project Setup Guide",
-    "permalink": "/guides/multi-project-setup"
-  }
+  "frontMatter": {}
 }

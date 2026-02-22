@@ -14,14 +14,5 @@
     "id": "rfc",
     "title": "RFC (Request for Comments)",
     "sidebar_label": "RFC"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "REST",
-    "permalink": "/glossary/terms/rest"
-  },
-  "next": {
-    "title": "Role Orchestrator",
-    "permalink": "/glossary/terms/role-orchestrator"
   }
 }

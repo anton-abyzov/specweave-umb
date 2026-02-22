@@ -14,14 +14,5 @@
     "id": "ssg",
     "title": "SSG (Static Site Generation)",
     "sidebar_label": "SSG"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Specifications (Specs)",
-    "permalink": "/glossary/terms/specs"
-  },
-  "next": {
-    "title": "SSR",
-    "permalink": "/glossary/terms/ssr"
   }
 }

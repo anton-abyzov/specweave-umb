@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "The Meta-Capability: Agents Build Agents, Skills Build Skills",
-    "permalink": "/guides/meta-capability"
-  },
-  "next": {
-    "title": "Migration Guide: spec.md Project/Board Fields (v0.31.0)",
-    "permalink": "/guides/migration-v031-project-fields"
-  }
+  "frontMatter": {}
 }

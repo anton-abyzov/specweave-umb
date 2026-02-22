@@ -14,14 +14,5 @@
     "id": "microservices",
     "title": "Microservices",
     "sidebar_label": "Microservices"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Living Documentation",
-    "permalink": "/glossary/terms/living-docs"
-  },
-  "next": {
-    "title": "Monolith",
-    "permalink": "/glossary/terms/monolith"
   }
 }

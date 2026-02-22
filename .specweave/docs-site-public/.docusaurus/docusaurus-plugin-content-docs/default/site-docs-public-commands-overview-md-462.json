@@ -13,14 +13,5 @@
   "sidebarPosition": 1,
   "frontMatter": {
     "sidebar_position": 1
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Overview",
-    "permalink": "/commands"
-  },
-  "next": {
-    "title": "pause",
-    "permalink": "/commands/pause"
   }
 }

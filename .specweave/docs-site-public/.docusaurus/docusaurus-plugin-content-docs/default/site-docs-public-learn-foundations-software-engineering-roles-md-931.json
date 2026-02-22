@@ -27,14 +27,5 @@
       "engineering roles",
       "software development"
     ]
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Enterprise App Development",
-    "permalink": "/learn/foundations/enterprise-app-development"
-  },
-  "next": {
-    "title": "Terminal Basics",
-    "permalink": "/learn/foundations/terminal-empowerment"
   }
 }

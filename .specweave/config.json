@@ -86,6 +86,7 @@
     "directories": [
       ".specweave/docs"
     ],
+    "publicSitePath": "repositories/anton-abyzov/specweave/docs-site",
     "preview": {
       "enabled": false,
       "autoInstall": false,

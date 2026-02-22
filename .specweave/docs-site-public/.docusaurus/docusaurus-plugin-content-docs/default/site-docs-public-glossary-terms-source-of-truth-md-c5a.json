@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "SOC 2 (Service Organization Control 2)",
-    "permalink": "/glossary/terms/soc2"
-  },
-  "next": {
-    "title": "SPA",
-    "permalink": "/glossary/terms/spa"
-  }
+  "frontMatter": {}
 }

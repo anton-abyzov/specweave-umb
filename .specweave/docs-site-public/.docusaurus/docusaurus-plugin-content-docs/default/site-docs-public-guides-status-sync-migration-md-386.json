@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Status Synchronization Guide",
-    "permalink": "/guides/status-sync-guide"
-  },
-  "next": {
-    "title": "Strategic Init Guide",
-    "permalink": "/guides/strategic-init"
-  }
+  "frontMatter": {}
 }

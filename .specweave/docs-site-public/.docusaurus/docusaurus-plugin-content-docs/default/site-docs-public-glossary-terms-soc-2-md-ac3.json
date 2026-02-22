@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Skills vs Agents",
-    "permalink": "/glossary/terms/skills-vs-agents"
-  },
-  "next": {
-    "title": "Source of Truth",
-    "permalink": "/glossary/terms/source-of-truth"
-  }
+  "frontMatter": {}
 }

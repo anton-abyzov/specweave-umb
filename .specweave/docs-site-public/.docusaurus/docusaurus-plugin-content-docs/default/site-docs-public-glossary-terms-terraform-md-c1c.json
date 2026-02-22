@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "TDD (Test-Driven Development)",
-    "permalink": "/glossary/terms/tdd"
-  },
-  "next": {
-    "title": "Test Coverage",
-    "permalink": "/glossary/terms/test-coverage"
-  }
+  "frontMatter": {}
 }

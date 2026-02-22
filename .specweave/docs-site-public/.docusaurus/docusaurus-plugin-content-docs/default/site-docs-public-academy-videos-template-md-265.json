@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Video 003: ClawHub Is Dead. The Problem Isn't.",
-    "permalink": "/academy/videos/clawhub-postmortem"
-  },
-  "next": {
-    "title": "YouTube Script: Stop Repeating Yourself",
-    "permalink": "/academy/videos/stop-repeating-yourself"
-  }
+  "frontMatter": {}
 }

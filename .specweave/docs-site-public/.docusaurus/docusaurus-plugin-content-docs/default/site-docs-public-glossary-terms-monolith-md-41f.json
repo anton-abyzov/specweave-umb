@@ -14,14 +14,5 @@
     "id": "monolith",
     "title": "Monolith",
     "sidebar_label": "Monolith"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Microservices",
-    "permalink": "/glossary/terms/microservices"
-  },
-  "next": {
-    "title": "Next.js",
-    "permalink": "/glossary/terms/nextjs"
   }
 }

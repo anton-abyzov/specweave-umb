@@ -23,14 +23,5 @@
       "bash",
       "developer tools"
     ]
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Engineering Roles",
-    "permalink": "/learn/foundations/software-engineering-roles"
-  },
-  "next": {
-    "title": "Frontend Fundamentals",
-    "permalink": "/learn/frontend/frontend-fundamentals"
   }
 }

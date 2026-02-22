@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "By Category",
-    "permalink": "/glossary/index-by-category"
-  },
-  "next": {
-    "title": "Acceptance Criteria (AC)",
-    "permalink": "/glossary/terms/acceptance-criteria"
-  }
+  "frontMatter": {}
 }

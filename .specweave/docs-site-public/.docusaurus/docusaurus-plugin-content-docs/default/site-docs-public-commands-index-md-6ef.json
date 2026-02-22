@@ -14,14 +14,5 @@
     "title": "Commands",
     "sidebar_label": "Overview",
     "slug": "/commands"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "API",
-    "permalink": "/api/"
-  },
-  "next": {
-    "title": "Commands Overview",
-    "permalink": "/commands/overview"
   }
 }

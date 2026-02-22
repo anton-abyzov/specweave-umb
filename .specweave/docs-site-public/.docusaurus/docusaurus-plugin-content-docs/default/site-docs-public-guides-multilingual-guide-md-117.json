@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Multi-Project Sync Architecture - Complete Guide",
-    "permalink": "/guides/multi-project-sync-architecture"
-  },
-  "next": {
-    "title": "OpenClaw Agent Setup Guide",
-    "permalink": "/guides/openclaw-agent-setup"
-  }
+  "frontMatter": {}
 }

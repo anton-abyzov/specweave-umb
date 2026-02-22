@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Project Detection",
-    "permalink": "/glossary/terms/project-detection"
-  },
-  "next": {
-    "title": "React",
-    "permalink": "/glossary/terms/react"
-  }
+  "frontMatter": {}
 }

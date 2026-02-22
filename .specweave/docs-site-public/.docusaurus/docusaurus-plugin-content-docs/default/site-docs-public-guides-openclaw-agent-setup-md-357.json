@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Multilingual Guide - SpecWeave Internationalization",
-    "permalink": "/guides/multilingual-guide"
-  },
-  "next": {
-    "title": "Plugin Management Guide",
-    "permalink": "/guides/plugin-management"
-  }
+  "frontMatter": {}
 }

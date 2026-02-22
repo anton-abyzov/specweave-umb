@@ -11,14 +11,5 @@
   "tags": [],
   "version": "current",
   "sidebarPosition": 1,
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "SpecWeave Academy",
-    "permalink": "/academy/"
-  },
-  "next": {
-    "title": "Video 002: The AI Skills Security Crisis — ToxicSkills Breakdown",
-    "permalink": "/academy/videos/toxicskills-security"
-  }
+  "frontMatter": {}
 }

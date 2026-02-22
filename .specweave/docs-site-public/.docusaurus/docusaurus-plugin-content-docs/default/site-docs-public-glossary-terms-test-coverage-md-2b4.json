@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Terraform",
-    "permalink": "/glossary/terms/terraform"
-  },
-  "next": {
-    "title": "Test Pyramid",
-    "permalink": "/glossary/terms/test-pyramid"
-  }
+  "frontMatter": {}
 }

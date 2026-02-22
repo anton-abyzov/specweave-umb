@@ -16,14 +16,5 @@
     "status": "DRAFT",
     "category": "testing",
     "created": "2026-02-11T00:00:00.000Z"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "ML/AI Integration",
-    "permalink": "/learn/ml-ai/ml-fundamentals"
-  },
-  "next": {
-    "title": "Testing Fundamentals",
-    "permalink": "/learn/testing/testing-fundamentals"
   }
 }

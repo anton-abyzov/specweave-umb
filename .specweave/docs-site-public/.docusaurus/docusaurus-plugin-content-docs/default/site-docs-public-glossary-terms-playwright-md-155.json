@@ -10,14 +10,5 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "frontMatter": {},
-  "sidebar": "docs",
-  "previous": {
-    "title": "Node.js",
-    "permalink": "/glossary/terms/nodejs"
-  },
-  "next": {
-    "title": "Profile-Based Sync",
-    "permalink": "/glossary/terms/profile-based-sync"
-  }
+  "frontMatter": {}
 }

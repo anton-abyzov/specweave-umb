@@ -14,14 +14,5 @@
     "id": "ssr",
     "title": "SSR (Server-Side Rendering)",
     "sidebar_label": "SSR"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "SSG",
-    "permalink": "/glossary/terms/ssg"
-  },
-  "next": {
-    "title": "Strategic Init",
-    "permalink": "/glossary/terms/strategic-init"
   }
 }

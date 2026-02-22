@@ -14,14 +14,5 @@
     "title": "Reference",
     "sidebar_label": "Overview",
     "slug": "/reference"
-  },
-  "sidebar": "docs",
-  "previous": {
-    "title": "Philosophy",
-    "permalink": "/overview/philosophy"
-  },
-  "next": {
-    "title": "Cost Tracking Reference",
-    "permalink": "/reference/cost-tracking"
   }
 }
