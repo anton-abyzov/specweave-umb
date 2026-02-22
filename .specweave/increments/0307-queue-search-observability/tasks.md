@@ -42,7 +42,7 @@
     - Then returns 403
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -66,7 +66,7 @@
 - Follow existing inline style patterns (mono font, card bg/border CSS vars)
 
 **Dependencies**: T-001
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 #### T-003: Add search bar, state filter dropdown, and submission results table
 
@@ -106,7 +106,7 @@
     - Then state filter dropdown updates to "RECEIVED"
 
 **Dependencies**: T-001, T-002
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -125,7 +125,7 @@
 - Everything else on dashboard stays unchanged
 
 **Dependencies**: T-001
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -148,7 +148,7 @@
 - Graceful degradation: if SSE fails, fall back to existing 30s polling (already in place)
 
 **Dependencies**: T-002
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -167,7 +167,7 @@
 - Test cases per TC-001, TC-002, TC-003 from T-001
 
 **Dependencies**: T-001
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 #### T-007: Write tests for queue page enhancements
 
@@ -181,7 +181,7 @@
 - Test cases per TC-004, TC-005, TC-006, TC-007 from T-003
 
 **Dependencies**: T-002, T-003
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 #### T-008: Verify all ACs and cross-page consistency
 
@@ -197,4 +197,4 @@
 - Verify SSE connection indicator works
 
 **Dependencies**: T-001, T-002, T-003, T-004, T-005, T-006, T-007
-**Status**: [ ] Not Started
+**Status**: [x] Completed

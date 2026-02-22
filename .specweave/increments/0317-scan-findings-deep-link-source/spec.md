@@ -3,7 +3,7 @@ increment: 0317-scan-findings-deep-link-source
 title: "Scan Findings Deep-Link to Source Code Lines"
 type: feature
 priority: P1
-status: planned
+status: completed
 created: 2026-02-22
 structure: user-stories
 test_mode: TDD
@@ -36,12 +36,12 @@ requires three foundational changes:
 **So that** findings from multi-file scans can be attributed to the correct file
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `ScanFinding` interface gains an optional `file?: string` field
-- [ ] **AC-US1-02**: `scanContent()` accepts a new optional `fileBoundaries` parameter mapping line ranges to file paths
-- [ ] **AC-US1-03**: When `fileBoundaries` is provided, each finding's `file` is populated and `lineNumber` is adjusted to be file-relative
-- [ ] **AC-US1-04**: When `fileBoundaries` is omitted (single-file scan), behavior is unchanged (backward compatible)
-- [ ] **AC-US1-05**: `process-submission.ts` builds `fileBoundaries` from the concatenated file list (skillMd + additionalFiles) before calling `runTier1Scan`
-- [ ] **AC-US1-06**: `StoredScanFinding` gains an optional `file?: string` field that is persisted to KV
+- [x] **AC-US1-01**: `ScanFinding` interface gains an optional `file?: string` field
+- [x] **AC-US1-02**: `scanContent()` accepts a new optional `fileBoundaries` parameter mapping line ranges to file paths
+- [x] **AC-US1-03**: When `fileBoundaries` is provided, each finding's `file` is populated and `lineNumber` is adjusted to be file-relative
+- [x] **AC-US1-04**: When `fileBoundaries` is omitted (single-file scan), behavior is unchanged (backward compatible)
+- [x] **AC-US1-05**: `process-submission.ts` builds `fileBoundaries` from the concatenated file list (skillMd + additionalFiles) before calling `runTier1Scan`
+- [x] **AC-US1-06**: `StoredScanFinding` gains an optional `file?: string` field that is persisted to KV
 
 ---
 
@@ -53,11 +53,11 @@ requires three foundational changes:
 **So that** deep links point to the precise revision, not a moving HEAD
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: A new utility `resolveCommitSha(owner, repo, branch?)` calls the GitHub API (`GET /repos/{owner}/{repo}/commits/{ref}`) and returns the commit SHA string
-- [ ] **AC-US2-02**: `process-submission.ts` calls `resolveCommitSha` during scan and stores the SHA on `StoredScanResult`
-- [ ] **AC-US2-03**: `StoredScanResult` interface gains a `commitSha?: string` field
-- [ ] **AC-US2-04**: The commit SHA is resilient to API failures (returns `null` on error, scan proceeds)
-- [ ] **AC-US2-05**: The resolved SHA is propagated to `UnifiedSecurityReport` so downstream pages can use it for deep links
+- [x] **AC-US2-01**: A new utility `resolveCommitSha(owner, repo, branch?)` calls the GitHub API (`GET /repos/{owner}/{repo}/commits/{ref}`) and returns the commit SHA string
+- [x] **AC-US2-02**: `process-submission.ts` calls `resolveCommitSha` during scan and stores the SHA on `StoredScanResult`
+- [x] **AC-US2-03**: `StoredScanResult` interface gains a `commitSha?: string` field
+- [x] **AC-US2-04**: The commit SHA is resilient to API failures (returns `null` on error, scan proceeds)
+- [x] **AC-US2-05**: The resolved SHA is propagated to `UnifiedSecurityReport` so downstream pages can use it for deep links
 
 ---
 
@@ -69,11 +69,11 @@ requires three foundational changes:
 **So that** I can immediately inspect the flagged code in context
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: A pure function `buildGitHubPermalink(owner, repo, commitSha, filePath, lineNumber)` returns a `https://github.com/{owner}/{repo}/blob/{sha}/{path}#L{line}` URL
-- [ ] **AC-US3-02**: When `commitSha` is unavailable, the function falls back to the default branch name (e.g., `main`)
-- [ ] **AC-US3-03**: When `file` is unavailable on a finding, the function returns `null` (no link)
-- [ ] **AC-US3-04**: The admin submission detail page renders line numbers as `<a>` tags linking to the permalink, opening in a new tab
-- [ ] **AC-US3-05**: The public security report page also renders finding line numbers as clickable permalinks when data is available
+- [x] **AC-US3-01**: A pure function `buildGitHubPermalink(owner, repo, commitSha, filePath, lineNumber)` returns a `https://github.com/{owner}/{repo}/blob/{sha}/{path}#L{line}` URL
+- [x] **AC-US3-02**: When `commitSha` is unavailable, the function falls back to the default branch name (e.g., `main`)
+- [x] **AC-US3-03**: When `file` is unavailable on a finding, the function returns `null` (no link)
+- [x] **AC-US3-04**: The admin submission detail page renders line numbers as `<a>` tags linking to the permalink, opening in a new tab
+- [x] **AC-US3-05**: The public security report page also renders finding line numbers as clickable permalinks when data is available
 
 ---
 
@@ -85,11 +85,11 @@ requires three foundational changes:
 **So that** there is one canonical finding shape across backend and frontend
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: The admin submission detail page's `Finding` interface is replaced with `StoredScanFinding` (imported from `submission-store.ts`)
-- [ ] **AC-US4-02**: Field mapping: `pattern` -> `patternId`, `message` -> `context`, `line` -> `lineNumber`, new fields: `patternName`, `category`, `match`, `file`
-- [ ] **AC-US4-03**: The mock data in the admin API route uses the `StoredScanFinding` shape
-- [ ] **AC-US4-04**: The finding row component renders all available fields: severity badge, patternId, patternName, context, file, lineNumber (as link)
-- [ ] **AC-US4-05**: Backward compatibility: findings without `file` or `commitSha` still render correctly (plain text line number, no link)
+- [x] **AC-US4-01**: The admin submission detail page's `Finding` interface is replaced with `StoredScanFinding` (imported from `submission-store.ts`)
+- [x] **AC-US4-02**: Field mapping: `pattern` -> `patternId`, `message` -> `context`, `line` -> `lineNumber`, new fields: `patternName`, `category`, `match`, `file`
+- [x] **AC-US4-03**: The mock data in the admin API route uses the `StoredScanFinding` shape
+- [x] **AC-US4-04**: The finding row component renders all available fields: severity badge, patternId, patternName, context, file, lineNumber (as link)
+- [x] **AC-US4-05**: Backward compatibility: findings without `file` or `commitSha` still render correctly (plain text line number, no link)
 
 ## Functional Requirements
 

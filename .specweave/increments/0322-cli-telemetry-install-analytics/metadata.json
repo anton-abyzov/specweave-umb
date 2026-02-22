@@ -1,0 +1,13 @@
+{
+  "id": "0322-cli-telemetry-install-analytics",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-22T07:58:31.161Z",
+  "lastActivity": "2026-02-22T07:58:31.161Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

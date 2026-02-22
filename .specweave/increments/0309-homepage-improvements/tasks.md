@@ -11,7 +11,7 @@
 ## Phase 1: CLI Command Examples (US-001)
 
 ### T-001: Replace generic vskill placeholder with real install/find examples
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04 | **Status**: [x] completed
 
 **Description**: In `src/app/page.tsx`, replace the `$ npx vskill ...` code element with two concrete CLI examples showing `vskill install` and `vskill find` commands using real skill repo/names from seed data.
 
@@ -43,7 +43,7 @@
 ## Phase 2: Category Chart Data Fix (US-002)
 
 ### T-002: Write failing test for getSkillCategories with DB skills (TDD RED)
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-04 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-04 | **Status**: [x] completed
 
 **Description**: Write a test that verifies `getSkillCategories()` includes counts from DB-published skills (not just seed data). This test should fail initially because the current implementation may not properly aggregate.
 
@@ -68,11 +68,12 @@
 
 **Dependencies**: None
 **Model Hint**: sonnet
+**Notes**: Implementation already correct — tests pass on first run (TDD validated existing behavior)
 
 ---
 
 ### T-003: Fix getSkillCategories to properly merge DB counts (TDD GREEN)
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02 | **Status**: [x] completed
 
 **Description**: Ensure `getSkillCategories()` in `src/lib/data.ts` properly merges Prisma DB category counts with seed data counts so the category chart matches the total skills count.
 
@@ -83,6 +84,7 @@
 - Make T-002 test pass
 
 **Test Plan**: T-002 tests should now pass
+**Notes**: No code changes needed — implementation was already correct. Tests from T-002 pass immediately.
 
 **Dependencies**: T-002
 **Model Hint**: sonnet
@@ -90,17 +92,17 @@
 ---
 
 ### T-004: Verify KV fallback still works for getSkillCategories
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [x] completed
 
 **Description**: Ensure when Prisma is unavailable, `getSkillCategories()` falls back to KV and still includes community skill counts.
 
 **Implementation Details**:
-- Add/verify test in `src/lib/__tests__/data.test.ts` for KV fallback
+- Add/verify test in `src/lib/__tests__/data-prisma.test.ts` for KV fallback
 - Mock Prisma to throw, mock KV to return published skills
 - Assert category counts include KV-published skills
 
 **Test Plan**:
-- **File**: `src/lib/__tests__/data.test.ts`
+- **File**: `src/lib/__tests__/data-prisma.test.ts`
 - **Tests**:
   - **TC-005**: getSkillCategories falls back to KV when Prisma unavailable
     - Given Prisma throws an error
@@ -116,7 +118,7 @@
 ## Phase 3: Trending Score Documentation (US-003)
 
 ### T-005: Add JSDoc to trendingScore fields in SkillData interface [P]
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-03 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-03 | **Status**: [x] completed
 
 **Description**: Document the trendingScore scale and methodology in the `SkillData` interface in `src/lib/types.ts`.
 
@@ -138,7 +140,7 @@
 ---
 
 ### T-006: Add scale documentation comment to seed-data.ts [P]
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-03 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-03 | **Status**: [x] completed
 
 **Description**: Add a comment block near the top of `src/lib/seed-data.ts` documenting the trending score scale and explaining how momentum deltas are computed.
 
@@ -158,7 +160,7 @@
 ---
 
 ### T-007: Adjust top trending skill score deltas for meaningful momentum display
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-02, AC-US3-04 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-02, AC-US3-04 | **Status**: [x] completed
 
 **Description**: Review and adjust the trendingScore7d and trendingScore30d values in seed data so that the top 8 trending skills (those shown on the homepage) have visually meaningful momentum deltas.
 
@@ -169,6 +171,16 @@
 - Keep 1-2 skills with flat momentum (delta ~0) for contrast
 - Keep 1-2 skills with slight negative momentum for variety
 - Ensure scores remain within 0-100 range and maintain relative ordering
+
+**Adjustments made** (only trendingScore30d changed, 7d unchanged):
+- openai-docs: 94.2→87.8 (delta +8.0, strong up)
+- mcp-builder: 91.4→84.2 (delta +10.0, strong up)
+- imagegen: 91.8→86.2 (delta +7.0, strong up)
+- frontend-design: 88.3→92.3 (delta −0.2, flat)
+- web-artifacts: 86.7→83.1 (delta +6.0, strong up)
+- sora-video: 87.3→92.1 (delta −3.0, negative)
+- word-documents: 85.4→88.3 (delta −0.2, flat)
+- figma: 84.1→88.3 (delta −2.0, negative)
 
 **Test Plan**:
 - **File**: `src/lib/__tests__/seed-data-trending.test.ts` (new)
@@ -194,7 +206,7 @@
 ## Phase 4: Verification
 
 ### T-008: Run full test suite and verify all ACs
-**User Story**: All | **Satisfies ACs**: All | **Status**: [ ] not started
+**User Story**: All | **Satisfies ACs**: All | **Status**: [x] completed
 
 **Description**: Run the complete test suite, verify homepage renders correctly, and check all acceptance criteria.
 
@@ -206,6 +218,7 @@
 - Mark all ACs as complete in spec.md
 
 **Test Plan**: Full test suite execution
+**Results**: 79/79 owned tests pass. 15 pre-existing failures in unrelated files (bulk-submission, discovery-enrichment, admin/queue, blocklist-e2e).
 
 **Dependencies**: T-001, T-003, T-004, T-007
 **Model Hint**: haiku

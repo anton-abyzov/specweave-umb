@@ -1,6 +1,6 @@
 {
   "id": "0309-homepage-improvements",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-21T21:51:39.448Z",
@@ -9,5 +9,31 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "github": {
+    "issue": 1258,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1258",
+    "synced": "2026-02-22T07:59:54.547Z",
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1258,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1258",
+        "createdAt": "2026-02-22T08:00:11.617Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1259,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1259",
+        "createdAt": "2026-02-22T08:00:16.826Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1260,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1260",
+        "createdAt": "2026-02-22T08:00:22.117Z"
+      }
+    ],
+    "lastSync": "2026-02-22T08:00:22.117Z"
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "id": "0324-homepage-metrics-real-data",
+  "status": "abandoned",
+  "abandonedReason": "Superseded by 0325-homepage-metrics-accuracy which has full spec, tasks, and implementation",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-22T08:33:16.624Z",
+  "lastActivity": "2026-02-22T08:33:16.624Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

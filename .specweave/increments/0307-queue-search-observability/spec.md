@@ -3,7 +3,7 @@ increment: 0307-queue-search-observability
 title: "Queue Search, Observability & Monitoring for Admin"
 type: feature
 priority: P1
-status: planned
+status: completed
 created: 2026-02-21
 structure: user-stories
 test_mode: test-after
@@ -30,12 +30,12 @@ The admin queue page currently shows metrics, stuck submissions, and DLQ — but
 **So that** I can quickly find any submission by skill name and understand its current state
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Queue page has a search input that filters submissions by skill name (case-insensitive, debounced 300ms)
-- [ ] **AC-US1-02**: Queue page has a state filter dropdown with all SubmissionState values plus "All" option
-- [ ] **AC-US1-03**: Search results show submission table with: skill name, repo URL, state badge, submitted date, and link to detail page
-- [ ] **AC-US1-04**: Results are paginated (20 items/page) with server-side pagination via existing `/api/v1/admin/submissions` endpoint
-- [ ] **AC-US1-05**: Searching "remotion-best-practices" returns matching submissions when they exist
-- [ ] **AC-US1-06**: Empty state shows "No submissions found" with a clear filters button
+- [x] **AC-US1-01**: Queue page has a search input that filters submissions by skill name (case-insensitive, debounced 300ms)
+- [x] **AC-US1-02**: Queue page has a state filter dropdown with all SubmissionState values plus "All" option
+- [x] **AC-US1-03**: Search results show submission table with: skill name, repo URL, state badge, submitted date, and link to detail page
+- [x] **AC-US1-04**: Results are paginated (20 items/page) with server-side pagination via existing `/api/v1/admin/submissions` endpoint
+- [x] **AC-US1-05**: Searching "remotion-best-practices" returns matching submissions when they exist
+- [x] **AC-US1-06**: Empty state shows "No submissions found" with a clear filters button
 
 ---
 
@@ -47,10 +47,10 @@ The admin queue page currently shows metrics, stuck submissions, and DLQ — but
 **So that** I can understand what's happening in the pipeline without counting manually
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Queue page header shows count cards for each SubmissionState (RECEIVED, TIER1_SCANNING, TIER1_FAILED, TIER2_SCANNING, AUTO_APPROVED, PUBLISHED, REJECTED, VENDOR_APPROVED, DEQUEUED, RESCAN_REQUIRED)
-- [ ] **AC-US2-02**: Counts are fetched via a single `groupBy` API endpoint (not N+1 queries)
-- [ ] **AC-US2-03**: Clicking a state card filters the submission list to that state
-- [ ] **AC-US2-04**: Total submission count is displayed prominently
+- [x] **AC-US2-01**: Queue page header shows count cards for each SubmissionState (RECEIVED, TIER1_SCANNING, TIER1_FAILED, TIER2_SCANNING, AUTO_APPROVED, PUBLISHED, REJECTED, VENDOR_APPROVED, DEQUEUED, RESCAN_REQUIRED)
+- [x] **AC-US2-02**: Counts are fetched via a single `groupBy` API endpoint (not N+1 queries)
+- [x] **AC-US2-03**: Clicking a state card filters the submission list to that state
+- [x] **AC-US2-04**: Total submission count is displayed prominently
 
 ---
 
@@ -62,9 +62,9 @@ The admin queue page currently shows metrics, stuck submissions, and DLQ — but
 **So that** I can monitor the pipeline live as submissions flow through
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: SSE stream (existing `/api/v1/submissions/stream`) is wired into queue page
-- [ ] **AC-US3-02**: State distribution counts auto-refresh when `state_changed` or `submission_created` events arrive
-- [ ] **AC-US3-03**: Connection status indicator shows whether the live feed is connected
+- [x] **AC-US3-01**: SSE stream (existing `/api/v1/submissions/stream`) is wired into queue page
+- [x] **AC-US3-02**: State distribution counts auto-refresh when `state_changed` or `submission_created` events arrive
+- [x] **AC-US3-03**: Connection status indicator shows whether the live feed is connected
 
 ---
 
@@ -76,8 +76,8 @@ The admin queue page currently shows metrics, stuck submissions, and DLQ — but
 **So that** the page loads faster and doesn't make N+1 API calls
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Dashboard uses the new `state-counts` API instead of individual per-state queries
-- [ ] **AC-US4-02**: State distribution section loads in a single network request
+- [x] **AC-US4-01**: Dashboard uses the new `state-counts` API instead of individual per-state queries
+- [x] **AC-US4-02**: State distribution section loads in a single network request
 
 ## Functional Requirements
 

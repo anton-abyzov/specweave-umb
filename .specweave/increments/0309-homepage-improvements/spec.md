@@ -3,7 +3,7 @@ increment: 0309-homepage-improvements
 title: "Homepage improvements: CLI examples, category chart fix, trending data consistency"
 type: feature
 priority: P1
-status: planned
+status: completed
 created: 2026-02-21
 structure: user-stories
 test_mode: TDD
@@ -29,10 +29,10 @@ Three focused improvements to the vskill-platform homepage:
 **So that** I can immediately understand how to use the CLI without reading separate docs
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: The hero section shows at least one concrete `vskill install` example (e.g., `$ npx vskill install anthropics/skills`)
-- [ ] **AC-US1-02**: The hero section shows at least one concrete `vskill find` example (e.g., `$ npx vskill find security`)
-- [ ] **AC-US1-03**: The examples use real skill names/repos that exist in the seed data
-- [ ] **AC-US1-04**: The `or bunx / pnpx / yarn dlx` hint is preserved
+- [x] **AC-US1-01**: The hero section shows at least one concrete `vskill install` example (e.g., `$ npx vskill install anthropics/skills`)
+- [x] **AC-US1-02**: The hero section shows at least one concrete `vskill find` example (e.g., `$ npx vskill find security`)
+- [x] **AC-US1-03**: The examples use real skill names/repos that exist in the seed data
+- [x] **AC-US1-04**: The `or bunx / pnpx / yarn dlx` hint is preserved
 
 ---
 
@@ -44,10 +44,10 @@ Three focused improvements to the vskill-platform homepage:
 **So that** the chart counts match the total skills number shown in the hero
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `getSkillCategories()` returns counts from seed + Prisma DB (not seed-only when DB is available)
-- [ ] **AC-US2-02**: Category chart sum equals the total skills count shown in the hero section
-- [ ] **AC-US2-03**: When Prisma is unavailable, fallback behavior (seed + KV) still works correctly
-- [ ] **AC-US2-04**: Existing tests pass and new tests cover the DB-merged category counts
+- [x] **AC-US2-01**: `getSkillCategories()` returns counts from seed + Prisma DB (not seed-only when DB is available)
+- [x] **AC-US2-02**: Category chart sum equals the total skills count shown in the hero section
+- [x] **AC-US2-03**: When Prisma is unavailable, fallback behavior (seed + KV) still works correctly
+- [x] **AC-US2-04**: Existing tests pass and new tests cover the DB-merged category counts
 
 ---
 
@@ -59,10 +59,10 @@ Three focused improvements to the vskill-platform homepage:
 **So that** the trending section displays useful differentiation between skills
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: The `SkillData` type or seed-data file documents the trendingScore scale (0-100, what the score represents)
-- [ ] **AC-US3-02**: Seed data trendingScore7d and trendingScore30d values produce visually distinguishable momentum arrows (i.e., non-trivial deltas for top trending skills)
-- [ ] **AC-US3-03**: A code comment or JSDoc on the trendingScore fields explains the scoring methodology
-- [ ] **AC-US3-04**: The MomentumArrow component renders correctly for the full range of possible delta values
+- [x] **AC-US3-01**: The `SkillData` type or seed-data file documents the trendingScore scale (0-100, what the score represents)
+- [x] **AC-US3-02**: Seed data trendingScore7d and trendingScore30d values produce visually distinguishable momentum arrows (i.e., non-trivial deltas for top trending skills)
+- [x] **AC-US3-03**: A code comment or JSDoc on the trendingScore fields explains the scoring methodology
+- [x] **AC-US3-04**: The MomentumArrow component renders correctly for the full range of possible delta values
 
 ## Functional Requirements
 

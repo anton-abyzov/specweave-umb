@@ -1,0 +1,29 @@
+{
+  "id": "0320-search-palette-github-stars",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-02-22T12:00:00.000Z",
+  "lastActivity": "2026-02-22T09:35:02.153Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-02-22T12:00:00.000Z",
+  "approvedAt": "2026-02-22T09:35:02.153Z",
+  "github": {
+    "issue": 1292,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1292",
+    "synced": "2026-02-22T09:35:04.498Z",
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1293,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1293",
+        "createdAt": "2026-02-22T09:35:07.601Z"
+      }
+    ],
+    "lastSync": "2026-02-22T09:35:07.601Z"
+  }
+}

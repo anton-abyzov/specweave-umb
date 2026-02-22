@@ -1,0 +1,35 @@
+{
+  "id": "0323-error-dashboard-fixes",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-02-22T03:00:00Z",
+  "lastActivity": "2026-02-22T09:22:48.932Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": "FS-323",
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-02-22T03:00:00Z",
+  "approvedAt": "2026-02-22T09:22:48.932Z",
+  "github": {
+    "issue": 1274,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1274",
+    "synced": "2026-02-22T09:22:55.315Z",
+    "issues": [
+      {
+        "userStory": "US-002",
+        "number": 1277,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1277",
+        "createdAt": "2026-02-22T09:22:58.350Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1276,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1276",
+        "createdAt": "2026-02-22T09:22:58.776Z"
+      }
+    ],
+    "lastSync": "2026-02-22T09:22:58.776Z"
+  }
+}

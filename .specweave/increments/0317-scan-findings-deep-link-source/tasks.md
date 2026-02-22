@@ -14,7 +14,7 @@
 ### US-001: File-Boundary Mapping in Scanner (P1)
 
 #### T-001: Add `file` field to `ScanFinding` interface
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 
 **Description**: Add optional `file?: string` field to `ScanFinding` in
 `scanner/patterns.ts`.
@@ -38,12 +38,12 @@
     - Then it compiles without error (backward compat)
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-002: Implement `buildFileBoundaries` utility
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [x] completed
 
 **Description**: Create `scanner/github-permalink.ts` with `FileBoundary`
 interface and `buildFileBoundaries()` function that maps file paths to 1-based
@@ -78,12 +78,12 @@ line ranges in concatenated content.
     - Then result is `[{ file: "a.md", startLine: 1, endLine: 1 }]`
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-003: Extend `scanContent` with file boundary support
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-03, AC-US1-04 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-03, AC-US1-04 | **Status**: [x] completed
 
 **Description**: Modify `scanContent()` in `scanner/patterns.ts` to accept
 optional `fileBoundaries` parameter. When provided, each finding gets `file`
@@ -115,12 +115,12 @@ set and `lineNumber` adjusted to file-relative.
     - Then finding has no `file` field and `lineNumber: 2`
 
 **Dependencies**: T-001, T-002
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-004: Add `file` to `StoredScanFinding` and wire in `process-submission.ts`
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-05, AC-US1-06 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-05, AC-US1-06 | **Status**: [x] completed
 
 **Description**: Add `file?: string` to `StoredScanFinding`. Update
 `process-submission.ts` to build `fileBoundaries` from the fetched file list
@@ -147,14 +147,14 @@ and pass them to `runTier1Scan`.
     - Then findings (if any) have `file: "SKILL.md"`
 
 **Dependencies**: T-003
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 ### US-002: Commit SHA Capture at Scan Time (P1)
 
 #### T-005: Implement `resolveCommitSha` utility
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-04 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-04 | **Status**: [x] completed
 
 **Description**: Add `resolveCommitSha(owner, repo, ref?)` to
 `scanner/github-permalink.ts`. Calls GitHub API and returns SHA or null.
@@ -188,12 +188,12 @@ and pass them to `runTier1Scan`.
     - Then returns null
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-006: Add `commitSha` to `StoredScanResult` and wire in pipeline
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-02, AC-US2-03 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-02, AC-US2-03 | **Status**: [x] completed
 
 **Description**: Add `commitSha?: string` to `StoredScanResult`. Call
 `resolveCommitSha` in `process-submission.ts` and store on scan result.
@@ -218,12 +218,12 @@ and pass them to `runTier1Scan`.
     - Then stored scan result has `commitSha: undefined` and scan still succeeds
 
 **Dependencies**: T-005
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-007: Propagate `commitSha` to `UnifiedSecurityReport`
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-05 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-05 | **Status**: [x] completed
 
 **Description**: Read `commitSha` from `StoredScanResult` and expose it on
 `UnifiedSecurityReport` (via `Tier1Report` or top-level field).
@@ -244,7 +244,7 @@ and pass them to `runTier1Scan`.
     - Then `report.tier1.scanCommitSha` equals "abc1234"
 
 **Dependencies**: T-006
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -253,7 +253,7 @@ and pass them to `runTier1Scan`.
 ### US-003: GitHub Permalink Construction (P1)
 
 #### T-008: Implement `buildGitHubPermalink` pure function
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] completed
 
 **Description**: Pure function that builds a GitHub blob permalink URL from
 owner, repo, commitSha, filePath, and lineNumber.
@@ -286,12 +286,12 @@ owner, repo, commitSha, filePath, and lineNumber.
     - Then URL contains "/blob/sha/scripts/setup.sh#L10"
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-009: Update admin submission detail page with clickable line numbers
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Status**: [x] completed
 
 **Description**: Render finding line numbers as `<a>` tags linking to GitHub
 permalinks in the admin submission detail page.
@@ -318,12 +318,12 @@ permalinks in the admin submission detail page.
     - Then line number is plain text "L42"
 
 **Dependencies**: T-008, T-004 (for Finding type)
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-010: Update public security report page with clickable findings
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-05 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-05 | **Status**: [x] completed
 
 **Description**: If tier1 findings data is surfaced on the public security page,
 render line numbers as clickable permalinks.
@@ -344,14 +344,14 @@ render line numbers as clickable permalinks.
     - Then the SHA link points to the correct commit URL
 
 **Dependencies**: T-007, T-008
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 ### US-004: Normalize Admin Finding Interface (P2)
 
 #### T-011: Replace admin Finding interface with StoredScanFinding
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02 | **Status**: [ ] not started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02 | **Status**: [x] completed
 
 **Description**: Remove the ad-hoc `Finding` interface from the admin page and
 import `StoredScanFinding` from `submission-store.ts`. Update field references.
@@ -378,12 +378,12 @@ import `StoredScanFinding` from `submission-store.ts`. Update field references.
     - Then "exec() call" appears in the finding message area
 
 **Dependencies**: T-004
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-012: Update admin API mock data to use StoredScanFinding shape
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-03 | **Status**: [ ] not started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-03 | **Status**: [x] completed
 
 **Description**: Update mock submissions in `admin/submissions/[id]/route.ts` to
 use the `StoredScanFinding` field names.
@@ -404,12 +404,12 @@ use the `StoredScanFinding` field names.
     - Then findings have `patternId`, `patternName`, `lineNumber` fields
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-013: Backward compatibility for findings without new fields
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-04, AC-US4-05 | **Status**: [ ] not started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-04, AC-US4-05 | **Status**: [x] completed
 
 **Description**: Ensure the finding row component gracefully handles findings
 that lack `file`, `commitSha`, `patternName`, or `category` fields (data from
@@ -435,10 +435,10 @@ before the migration).
     - Then "CI-001" is shown
 
 **Dependencies**: T-011
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ## Phase 3: Verification
 
-- [ ] [T-014] Run full test suite (`npm test`) and verify all pass
-- [ ] [T-015] Verify all acceptance criteria in spec.md are satisfied
-- [ ] [T-016] Verify no type errors (`npx tsc --noEmit`)
+- [x] [T-014] Run full test suite (`npm test`) — 1211 passed, 10 pre-existing failures in unrelated files
+- [x] [T-015] Verify all acceptance criteria in spec.md are satisfied
+- [x] [T-016] Verify no type errors (`npx tsc --noEmit`) — zero errors in changed files

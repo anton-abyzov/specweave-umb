@@ -3,7 +3,7 @@ increment: 0310-parallel-kv-asynclocalstorage
 title: "Parallelize remaining sequential KV reads and fix worker-context race with AsyncLocalStorage"
 type: feature
 priority: P1
-status: planned
+status: completed
 created: 2026-02-21
 structure: user-stories
 test_mode: TDD
@@ -26,9 +26,9 @@ Increment 0281 fixed `getSubmissionsFresh` (sequential to parallel). Three more 
 **So that** stuck submission detection completes faster and does not hit wall-clock timeouts on large datasets
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `getStuckSubmissions` uses `Promise.allSettled` to read all `sub:*` keys concurrently instead of a sequential `for` loop
-- [ ] **AC-US1-02**: Individual KV read failures (rejected promises) are silently skipped, matching the existing `try/catch { /* skip malformed */ }` behavior
-- [ ] **AC-US1-03**: Return value and filtering logic (STUCK_STATES, STUCK_THRESHOLD_MS) remain identical to current behavior
+- [x] **AC-US1-01**: `getStuckSubmissions` uses `Promise.allSettled` to read all `sub:*` keys concurrently instead of a sequential `for` loop
+- [x] **AC-US1-02**: Individual KV read failures (rejected promises) are silently skipped, matching the existing `try/catch { /* skip malformed */ }` behavior
+- [x] **AC-US1-03**: Return value and filtering logic (STUCK_STATES, STUCK_THRESHOLD_MS) remain identical to current behavior
 
 ---
 
@@ -40,9 +40,9 @@ Increment 0281 fixed `getSubmissionsFresh` (sequential to parallel). Three more 
 **So that** marketplace enumeration is fast even with hundreds of published skills
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `enumeratePublishedSkills` uses `Promise.allSettled` to read all `skill:*` keys concurrently instead of a sequential `for` loop
-- [ ] **AC-US2-02**: Individual KV read failures or malformed JSON are silently skipped, matching the existing `catch { /* skip malformed */ }` behavior
-- [ ] **AC-US2-03**: Alias keys (`skill:alias:*`) are still filtered out before reads
+- [x] **AC-US2-01**: `enumeratePublishedSkills` uses `Promise.allSettled` to read all `skill:*` keys concurrently instead of a sequential `for` loop
+- [x] **AC-US2-02**: Individual KV read failures or malformed JSON are silently skipped, matching the existing `catch { /* skip malformed */ }` behavior
+- [x] **AC-US2-03**: Alias keys (`skill:alias:*`) are still filtered out before reads
 
 ---
 
@@ -54,11 +54,11 @@ Increment 0281 fixed `getSubmissionsFresh` (sequential to parallel). Three more 
 **So that** concurrent batches in the same isolate do not corrupt each other's env references
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `worker-context.ts` exports a `workerEnvStorage` instance of `AsyncLocalStorage<CloudflareEnv>` and a `getWorkerEnv()` that reads from it
-- [ ] **AC-US3-02**: The old `setWorkerEnv`/`clearWorkerEnv` API is replaced with a `runWithWorkerEnv(env, callback)` pattern that scopes env to the callback's async context
-- [ ] **AC-US3-03**: `consumer.ts` uses `runWithWorkerEnv(env, async () => { ... })` instead of `setWorkerEnv`/`clearWorkerEnv` try/finally
-- [ ] **AC-US3-04**: All existing consumers of `getWorkerEnv()` (submission-store, db, external-scan-store, repo-health-store, external-scan-dispatch) continue to work without changes
-- [ ] **AC-US3-05**: Two concurrent batches with different env objects do not interfere; each batch's `getWorkerEnv()` returns its own env throughout its async chain
+- [x] **AC-US3-01**: `worker-context.ts` exports a `workerEnvStorage` instance of `AsyncLocalStorage<CloudflareEnv>` and a `getWorkerEnv()` that reads from it
+- [x] **AC-US3-02**: The old `setWorkerEnv`/`clearWorkerEnv` API is replaced with a `runWithWorkerEnv(env, callback)` pattern that scopes env to the callback's async context
+- [x] **AC-US3-03**: `consumer.ts` uses `runWithWorkerEnv(env, async () => { ... })` instead of `setWorkerEnv`/`clearWorkerEnv` try/finally
+- [x] **AC-US3-04**: All existing consumers of `getWorkerEnv()` (submission-store, db, external-scan-store, repo-health-store, external-scan-dispatch) continue to work without changes
+- [x] **AC-US3-05**: Two concurrent batches with different env objects do not interfere; each batch's `getWorkerEnv()` returns its own env throughout its async chain
 
 ## Functional Requirements
 

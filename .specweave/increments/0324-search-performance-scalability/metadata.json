@@ -1,0 +1,54 @@
+{
+  "id": "0324-search-performance-scalability",
+  "title": "Search Performance & Scalability for 70k+ Skills",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-22T15:00:00.000Z",
+  "lastActivity": "2026-02-22T09:34:16.934Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-02-22T08:38:00.000Z",
+  "approvedAt": "2026-02-22T09:34:16.934Z",
+  "github": {
+    "issue": 1280,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1280",
+    "synced": "2026-02-22T09:34:26.230Z",
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1282,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1282",
+        "createdAt": "2026-02-22T09:34:27.149Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1284,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1284",
+        "createdAt": "2026-02-22T09:34:27.541Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1281,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1281",
+        "createdAt": "2026-02-22T09:34:27.584Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1283,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1283",
+        "createdAt": "2026-02-22T09:34:27.970Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 1285,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1285",
+        "createdAt": "2026-02-22T09:34:30.186Z"
+      }
+    ],
+    "lastSync": "2026-02-22T09:34:30.186Z"
+  }
+}

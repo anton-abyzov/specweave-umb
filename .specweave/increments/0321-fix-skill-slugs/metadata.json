@@ -1,0 +1,30 @@
+{
+  "id": "0321-fix-skill-slugs",
+  "title": "Fix Skill Slugs — Recompute All from DisplayName",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-02-22T00:00:00Z",
+  "lastActivity": "2026-02-22T09:34:05.162Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-02-22T09:30:00.000Z",
+  "approvedAt": "2026-02-22T09:34:05.162Z",
+  "github": {
+    "issue": 1278,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1278",
+    "synced": "2026-02-22T09:34:07.309Z",
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1279,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1279",
+        "createdAt": "2026-02-22T09:34:10.741Z"
+      }
+    ],
+    "lastSync": "2026-02-22T09:34:10.741Z"
+  }
+}

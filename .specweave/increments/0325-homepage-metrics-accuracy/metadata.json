@@ -1,0 +1,53 @@
+{
+  "id": "0325-homepage-metrics-accuracy",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-22T12:00:00.000Z",
+  "lastActivity": "2026-02-22T09:34:40.485Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-02-22T12:00:00.000Z",
+  "approvedAt": "2026-02-22T09:34:40.485Z",
+  "github": {
+    "issue": 1286,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1286",
+    "synced": "2026-02-22T09:34:49.503Z",
+    "issues": [
+      {
+        "userStory": "US-004",
+        "number": 1290,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1290",
+        "createdAt": "2026-02-22T09:34:49.651Z"
+      },
+      {
+        "userStory": "US-001",
+        "number": 1288,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1288",
+        "createdAt": "2026-02-22T09:34:50.476Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1287,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1287",
+        "createdAt": "2026-02-22T09:34:50.891Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1289,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1289",
+        "createdAt": "2026-02-22T09:34:51.270Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 1291,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1291",
+        "createdAt": "2026-02-22T09:34:52.085Z"
+      }
+    ],
+    "lastSync": "2026-02-22T09:34:52.085Z"
+  }
+}

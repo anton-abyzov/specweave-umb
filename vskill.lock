@@ -11,145 +11,145 @@
   "skills": {
     "sw": {
       "version": "1.0.225",
-      "sha": "29933f3e52de",
+      "sha": "ad5035a40cfd",
       "tier": "BUNDLED",
-      "installedAt": "2026-02-22T04:56:13.854Z",
+      "installedAt": "2026-02-22T08:16:13.085Z",
       "source": "local:specweave"
     },
     "sw-github": {
       "version": "1.0.0",
-      "sha": "50ab06a37204",
+      "sha": "342f38b8b9dc",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:24.630Z",
       "source": "local:specweave"
     },
     "sw-jira": {
       "version": "1.0.0",
-      "sha": "562b2db28f15",
+      "sha": "831bdc3407af",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:25.186Z",
       "source": "local:specweave"
     },
     "sw-ado": {
       "version": "1.0.0",
-      "sha": "bd1c2683a437",
+      "sha": "b28f828c9c2a",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:26.604Z",
       "source": "local:specweave"
     },
     "sw-infra": {
       "version": "1.0.0",
-      "sha": "d7c272d6adc3",
+      "sha": "ac92b05a0788",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:27.594Z",
       "source": "local:specweave"
     },
     "sw-ml": {
       "version": "1.0.0",
-      "sha": "98b663b8e4b3",
+      "sha": "10bae916b480",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:28.614Z",
       "source": "local:specweave"
     },
     "sw-release": {
       "version": "1.0.0",
-      "sha": "919904cf6152",
+      "sha": "885600a42bed",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:29.654Z",
       "source": "local:specweave"
     },
     "sw-kafka": {
       "version": "1.0.0",
-      "sha": "0751f870e760",
+      "sha": "0c142e875232",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:30.774Z",
       "source": "local:specweave"
     },
     "sw-kafka-streams": {
       "version": "1.0.0",
-      "sha": "67d3f67437a4",
+      "sha": "c9bd64ab9433",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:31.628Z",
       "source": "local:specweave"
     },
     "sw-n8n": {
       "version": "1.0.0",
-      "sha": "fc88733a6e4c",
+      "sha": "8390a926f996",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:32.590Z",
       "source": "local:specweave"
     },
     "sw-backend": {
       "version": "1.0.0",
-      "sha": "adfc8dfb8e92",
+      "sha": "72f2c4897576",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:33.586Z",
       "source": "local:specweave"
     },
     "sw-confluent": {
       "version": "1.0.0",
-      "sha": "5ee83f429995",
+      "sha": "516a9f0418b6",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:34.469Z",
       "source": "local:specweave"
     },
     "sw-k8s": {
       "version": "1.0.0",
-      "sha": "153d4c00f107",
+      "sha": "aea97dd1b129",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:35.392Z",
       "source": "local:specweave"
     },
     "sw-mobile": {
       "version": "1.0.0",
-      "sha": "60c44de830e8",
+      "sha": "53d3a8d7d78f",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:36.287Z",
       "source": "local:specweave"
     },
     "sw-payments": {
       "version": "1.0.0",
-      "sha": "fc129f08fcdb",
+      "sha": "e701b76dcc47",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:37.223Z",
       "source": "local:specweave"
     },
     "sw-frontend": {
       "version": "1.0.0",
-      "sha": "cf21f82d036d",
+      "sha": "e20cf97d612a",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:38.165Z",
       "source": "local:specweave"
     },
     "sw-testing": {
       "version": "1.0.0",
-      "sha": "ce3c7f6a10d5",
+      "sha": "856fe93419b9",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:39.092Z",
       "source": "local:specweave"
     },
     "sw-diagrams": {
       "version": "1.0.0",
-      "sha": "db60d98d66d9",
+      "sha": "eb9b56babab1",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:40.073Z",
       "source": "local:specweave"
     },
     "sw-docs": {
       "version": "1.0.0",
-      "sha": "d377155e6850",
+      "sha": "93c2c67336aa",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:42.081Z",
       "source": "local:specweave"
     },
     "sw-cost": {
       "version": "1.0.0",
-      "sha": "59105a67ed9d",
+      "sha": "1d6bfb23d05f",
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:43.224Z",
       "source": "local:specweave"
     }
   },
   "createdAt": "2026-02-19T03:13:28.638Z",
-  "updatedAt": "2026-02-22T04:56:43.224Z"
+  "updatedAt": "2026-02-22T08:16:13.085Z"
 }

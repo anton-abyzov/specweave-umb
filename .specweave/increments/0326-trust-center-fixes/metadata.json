@@ -1,0 +1,47 @@
+{
+  "id": "0326-trust-center-fixes",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-22T09:24:52.609Z",
+  "lastActivity": "2026-02-22T17:41:34.098Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-02-22T09:24:52.609Z",
+  "approvedAt": "2026-02-22T17:41:34.098Z",
+  "github": {
+    "issue": 1294,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1294",
+    "synced": "2026-02-22T17:41:42.745Z",
+    "issues": [
+      {
+        "userStory": "US-002",
+        "number": 1295,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1295",
+        "createdAt": "2026-02-22T17:41:43.042Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1297,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1297",
+        "createdAt": "2026-02-22T17:41:43.491Z"
+      },
+      {
+        "userStory": "US-001",
+        "number": 1296,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1296",
+        "createdAt": "2026-02-22T17:41:43.686Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1298,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1298",
+        "createdAt": "2026-02-22T17:41:46.030Z"
+      }
+    ],
+    "lastSync": "2026-02-22T17:41:46.030Z"
+  }
+}

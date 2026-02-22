@@ -1,6 +1,6 @@
 {
   "id": "0310-parallel-kv-asynclocalstorage",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-21T21:58:28.250Z",
@@ -9,5 +9,28 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1261,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1261",
+        "createdAt": "2026-02-22T08:07:25.493Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1262,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1262",
+        "createdAt": "2026-02-22T08:07:31.724Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1263,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1263",
+        "createdAt": "2026-02-22T08:07:37.490Z"
+      }
+    ],
+    "lastSync": "2026-02-22T08:07:37.490Z"
+  }
 }
