@@ -1,6 +1,6 @@
 // @ts-check
 // Auto-generated documentation site configuration
-// Generated: 2026-02-22T04:31:22.321Z
+// Generated: 2026-02-22T04:59:30.512Z
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
