@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1249
-    url: https://github.com/anton-abyzov/specweave/issues/1249
+    url: "https://github.com/anton-abyzov/specweave/issues/1249"
 ---
 # US-003: Migrate getSkills() to Prisma-Primary
 

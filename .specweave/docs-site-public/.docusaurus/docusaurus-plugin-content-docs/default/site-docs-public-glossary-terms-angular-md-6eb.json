@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/angular",
+  "title": "Angular",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/angular.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/angular",
+  "permalink": "/glossary/terms/angular",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "angular",
+    "title": "Angular",
+    "sidebar_label": "Angular"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "ADR",
+    "permalink": "/glossary/terms/adr"
+  },
+  "next": {
+    "title": "API",
+    "permalink": "/glossary/terms/api"
+  }
+}

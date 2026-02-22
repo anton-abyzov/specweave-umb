@@ -1,0 +1,877 @@
+{
+  "/__docusaurus/debug-5ff": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/config-5ba": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/content-a2b": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    },
+    "__props": "__props---docusaurus-debug-content-3-c-0-be2"
+  },
+  "/__docusaurus/debug/globalData-c3c": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/metadata-156": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/registry-88c": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/routes-000": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/-2e1": {
+    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
+    "__context": {
+      "plugin": "plugin---a-74-9d6"
+    },
+    "config": "config---5-e-9-4f3"
+  },
+  "/-377": {
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__context": {
+      "plugin": "plugin---aba-d70"
+    }
+  },
+  "/-ac9": {
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "__props": "__props---22-d-307"
+  },
+  "/tags-ce1": {
+    "__comp": "__comp---theme-doc-tags-list-page-372-89e",
+    "__props": "__props---tags-59-a-1ee"
+  },
+  "/tags/ai-144": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-ai-12-e-ec3"
+  },
+  "/tags/ai-agents-d48": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-ai-agents-98-a-8b1"
+  },
+  "/tags/ai-coding-b3e": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-ai-coding-34-d-3b2"
+  },
+  "/tags/anthropic-2a3": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-anthropicab-4-212"
+  },
+  "/tags/claude-code-f2d": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-claude-codedf-1-ea1"
+  },
+  "/tags/claudecode-b90": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-claudecode-9-eb-e9b"
+  },
+  "/tags/developer-tools-31e": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-developer-tools-38-e-cf4"
+  },
+  "/tags/productivity-7f3": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-productivity-9-fd-3c2"
+  },
+  "/tags/prompt-injection-b87": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-prompt-injection-2-ef-473"
+  },
+  "/tags/security-84b": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-security-165-f9b"
+  },
+  "/tags/specweave-b85": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-specweave-337-2ec"
+  },
+  "/tags/supply-chain-fd5": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-supply-chain-1-a-6-9fa"
+  },
+  "/tags/webdev-a08": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---tags-webdev-157-462"
+  },
+  "/-83e": {
+    "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/academy/-728": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---academy-9-d-3-511"
+  },
+  "/academy/videos/_TEMPLATE-580": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---academy-videos-template-265-fe7"
+  },
+  "/academy/videos/clawhub-postmortem-101": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---academy-videos-clawhub-postmortem-895-544"
+  },
+  "/academy/videos/specweave-complete-masterclass-fbc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---academy-videos-specweave-complete-masterclass-558-0ae"
+  },
+  "/academy/videos/stop-repeating-yourself-dbc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---academy-videos-stop-repeating-yourselfb-3-e-128"
+  },
+  "/academy/videos/toxicskills-security-4bc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---academy-videos-toxicskills-security-63-a-500"
+  },
+  "/api/-b86": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---api-9-e-8-83f"
+  },
+  "/commands-05c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---commands-6-ef-ccf"
+  },
+  "/commands/abandon-b36": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---commands-abandon-75-d-022"
+  },
+  "/commands/auto-7fa": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---commands-auto-242-62c"
+  },
+  "/commands/auto-status-79e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---commands-auto-status-7-ac-59e"
+  },
+  "/commands/cancel-auto-d3f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---commands-cancel-auto-922-50b"
+  },
+  "/commands/do-ba5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---commands-do-1-f-6-905"
+  },
+  "/commands/jobs-7e3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---commands-jobs-8-b-2-231"
+  },
+  "/commands/overview-ba9": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---commands-overview-462-7c2"
+  },
+  "/commands/pause-354": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---commands-pause-605-451"
+  },
+  "/commands/resume-688": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---commands-resumedf-9-f69"
+  },
+  "/commands/status-6e0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---commands-status-933-986"
+  },
+  "/commands/status-management-c63": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---commands-status-management-801-954"
+  },
+  "/development-e86": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---development-36-b-7f8"
+  },
+  "/development/claude-cli-automation-7cd": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---development-claude-cli-automation-2-a-8-95e"
+  },
+  "/faq-def": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---faq-536-a43"
+  },
+  "/features-43c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---features-2-cd-650"
+  },
+  "/glossary/-5c3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-33-f-289"
+  },
+  "/glossary/categories/architecture-category-022": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-categories-architecture-categoryd-0-f-7bc"
+  },
+  "/glossary/categories/backend-category-1d8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-categories-backend-category-978-d43"
+  },
+  "/glossary/categories/category-pages-complete-2b1": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-categories-category-pages-complete-545-ae6"
+  },
+  "/glossary/categories/collaboration-category-c6a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-categories-collaboration-category-8-e-1-5d7"
+  },
+  "/glossary/categories/devops-category-e30": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-categories-devops-category-4-e-0-3db"
+  },
+  "/glossary/categories/frontend-category-ac0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-categories-frontend-category-056-fd4"
+  },
+  "/glossary/categories/infrastructure-category-6e3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-categories-infrastructure-category-195-650"
+  },
+  "/glossary/categories/ml-ai-category-561": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-categories-ml-ai-categoryba-4-45b"
+  },
+  "/glossary/categories/performance-category-d64": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-categories-performance-category-617-551"
+  },
+  "/glossary/categories/testing-category-e73": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-categories-testing-category-409-db9"
+  },
+  "/glossary/index-by-category-8e7": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-index-by-category-754-cd8"
+  },
+  "/glossary/terms/ac-id-a3f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-ac-ida-97-934"
+  },
+  "/glossary/terms/acceptance-criteria-25e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-acceptance-criteria-26-c-dfb"
+  },
+  "/glossary/terms/adr-792": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-adraf-5-978"
+  },
+  "/glossary/terms/angular-711": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-angular-6-eb-e19"
+  },
+  "/glossary/terms/api-2b0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-api-9-c-3-751"
+  },
+  "/glossary/terms/bdd-c22": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-bdd-2-d-1-9ed"
+  },
+  "/glossary/terms/bidirectional-sync-b5c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-bidirectional-syncf-74-37e"
+  },
+  "/glossary/terms/brownfield-3d8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-brownfieldab-6-613"
+  },
+  "/glossary/terms/ci-cd-982": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-ci-cdfdd-b87"
+  },
+  "/glossary/terms/content-classification-48a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-content-classification-19-a-8f0"
+  },
+  "/glossary/terms/copied-acs-and-tasks-f1a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-copied-acs-and-tasksee-3-c56"
+  },
+  "/glossary/terms/cross-linking-b9b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-cross-linking-1-e-3-b49"
+  },
+  "/glossary/terms/docker-952": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-docker-19-b-b28"
+  },
+  "/glossary/terms/docusaurus-frontmatter-e16": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-docusaurus-frontmattere-95-5c7"
+  },
+  "/glossary/terms/e2e-2bb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-e-2-e-64-e-b35"
+  },
+  "/glossary/terms/fda-263": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-fdab-8-a-1ec"
+  },
+  "/glossary/terms/git-d27": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-git-8-ef-834"
+  },
+  "/glossary/terms/github-actions-cf1": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-github-actions-3-e-6-e39"
+  },
+  "/glossary/terms/graphql-34d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-graphql-2-e-4-d03"
+  },
+  "/glossary/terms/greenfield-fa2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-greenfieldc-68-902"
+  },
+  "/glossary/terms/hipaa-ecf": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-hipaa-32-e-72d"
+  },
+  "/glossary/terms/hooks-2ab": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-hookse-3-a-d01"
+  },
+  "/glossary/terms/iac-9f2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-iace-87-db0"
+  },
+  "/glossary/terms/increments-6d2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-increments-5-b-4-31c"
+  },
+  "/glossary/terms/integration-testing-76f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-integration-testinge-52-6d7"
+  },
+  "/glossary/terms/intelligent-living-docs-sync-d09": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-intelligent-living-docs-syncdbb-c82"
+  },
+  "/glossary/terms/kubernetes-ba6": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-kubernetesd-45-517"
+  },
+  "/glossary/terms/living-docs-bfc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-living-docs-9-fd-b92"
+  },
+  "/glossary/terms/microservices-68f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-microservices-676-71b"
+  },
+  "/glossary/terms/monolith-422": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-monolith-41-f-84a"
+  },
+  "/glossary/terms/nextjs-04e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-nextjs-231-c3e"
+  },
+  "/glossary/terms/nodejs-74c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-nodejs-1-f-5-e7b"
+  },
+  "/glossary/terms/playwright-8a2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-playwright-155-7e1"
+  },
+  "/glossary/terms/profile-based-sync-717": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-profile-based-syncf-52-edd"
+  },
+  "/glossary/terms/project-detection-412": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-project-detection-5-f-5-b53"
+  },
+  "/glossary/terms/project-specific-tasks-788": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-project-specific-tasksafb-0e3"
+  },
+  "/glossary/terms/react-740": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-reacte-86-5d0"
+  },
+  "/glossary/terms/rest-982": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-restf-30-deb"
+  },
+  "/glossary/terms/rfc-05c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-rfc-87-c-97e"
+  },
+  "/glossary/terms/role-orchestrator-d10": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-role-orchestrator-60-f-8dd"
+  },
+  "/glossary/terms/skills-vs-agents-c07": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-skills-vs-agents-62-c-e81"
+  },
+  "/glossary/terms/soc2-9eb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-soc-2-ac-3-def"
+  },
+  "/glossary/terms/source-of-truth-a4e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-source-of-truthc-5-a-805"
+  },
+  "/glossary/terms/spa-e63": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-spa-36-a-374"
+  },
+  "/glossary/terms/specs-106": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-specse-27-95f"
+  },
+  "/glossary/terms/ssg-b78": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-ssg-461-9fe"
+  },
+  "/glossary/terms/ssr-e6c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-ssrca-4-da3"
+  },
+  "/glossary/terms/strategic-init-429": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-strategic-initd-5-b-159"
+  },
+  "/glossary/terms/tdd-905": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-tdd-911-7b0"
+  },
+  "/glossary/terms/terraform-eba": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-terraformc-1-c-2df"
+  },
+  "/glossary/terms/test-coverage-cc2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-test-coverage-2-b-4-a28"
+  },
+  "/glossary/terms/test-pyramid-a42": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-test-pyramidabc-b7b"
+  },
+  "/glossary/terms/three-layer-architecture-822": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-three-layer-architectured-7-f-223"
+  },
+  "/glossary/terms/three-permission-architecture-591": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-three-permission-architecturebf-4-c21"
+  },
+  "/glossary/terms/typescript-973": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-typescripte-0-d-b13"
+  },
+  "/glossary/terms/unit-testing-b2b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-unit-testing-47-b-6bd"
+  },
+  "/glossary/terms/user-stories-e2a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-user-stories-122-b7a"
+  },
+  "/glossary/terms/wip-limits-f28": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---glossary-terms-wip-limitsd-44-fb4"
+  },
+  "/guides-df2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-8-d-5-f9c"
+  },
+  "/guides/ado-multi-project-migration-6b6": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-ado-multi-project-migration-83-c-e98"
+  },
+  "/guides/autonomous-execution-553": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-autonomous-execution-1-ce-6b0"
+  },
+  "/guides/backlog-management-2f9": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-backlog-management-258-c1f"
+  },
+  "/guides/best-practices-b2f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-best-practices-5-ba-472"
+  },
+  "/guides/bidirectional-linking-f23": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-bidirectional-linking-533-bc5"
+  },
+  "/guides/command-reference-by-priority-556": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-command-reference-by-priority-3-c-0-425"
+  },
+  "/guides/compliance-standards-751": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-compliance-standardse-05-9ce"
+  },
+  "/guides/core-concepts/background-jobs-b1d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-core-concepts-background-jobs-40-b-4fe"
+  },
+  "/guides/core-concepts/living-docs-sync-strategy-580": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-core-concepts-living-docs-sync-strategy-783-666"
+  },
+  "/guides/core-concepts/living-documentation-c40": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-core-concepts-living-documentationb-10-365"
+  },
+  "/guides/core-concepts/what-is-an-increment-609": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-core-concepts-what-is-an-increment-5-f-9-8c3"
+  },
+  "/guides/cost-optimization-b2a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-cost-optimization-3-b-2-49d"
+  },
+  "/guides/deep-interview-mode-4a9": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-deep-interview-modee-5-a-126"
+  },
+  "/guides/getting-started/installation-aca": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-getting-started-installation-595-755"
+  },
+  "/guides/getting-started/nvm-global-packages-fix-627": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-getting-started-nvm-global-packages-fix-36-c-750"
+  },
+  "/guides/getting-started/quickstart-324": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-getting-started-quickstartcf-8-63f"
+  },
+  "/guides/github-action-setup-b5b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-github-action-setupf-50-c12"
+  },
+  "/guides/github-integration-77a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-github-integration-2-f-3-f9e"
+  },
+  "/guides/hierarchy-mapping-32e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-hierarchy-mapping-602-eda"
+  },
+  "/guides/increment-status-reference-fd3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-increment-status-referencec-19-c35"
+  },
+  "/guides/intelligent-living-docs-sync-6e5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-intelligent-living-docs-sync-2-be-ebd"
+  },
+  "/guides/kafka-advanced-usage-6ae": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-kafka-advanced-usage-56-f-03c"
+  },
+  "/guides/kafka-getting-started-ce7": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-kafka-getting-started-1-e-4-f72"
+  },
+  "/guides/kafka-terraform-f0f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-kafka-terraformada-204"
+  },
+  "/guides/kafka-troubleshooting-449": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-kafka-troubleshootinge-06-c82"
+  },
+  "/guides/meta-capability-7ac": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-meta-capabilitydd-3-79a"
+  },
+  "/guides/migration-v024-e81": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-migration-v-0246-f-1-4c8"
+  },
+  "/guides/migration-v031-project-fields-39a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-migration-v-031-project-fields-71-d-5cf"
+  },
+  "/guides/mobile/react-native-setup-guide-cf2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-mobile-react-native-setup-guidefa-7-380"
+  },
+  "/guides/model-selection-d45": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-model-selection-9-d-3-7b7"
+  },
+  "/guides/multi-project-setup-be7": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-multi-project-setup-6-da-c2f"
+  },
+  "/guides/multi-project-sync-architecture-422": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-multi-project-sync-architectureec-2-4da"
+  },
+  "/guides/multilingual-guide-99c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-multilingual-guide-117-939"
+  },
+  "/guides/openclaw-agent-setup-12d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-openclaw-agent-setup-357-1af"
+  },
+  "/guides/plugin-management-c5b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-plugin-management-288-907"
+  },
+  "/guides/project-specific-tasks-a6e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-project-specific-tasks-3-cc-ca2"
+  },
+  "/guides/repository-selection-02b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-repository-selection-501-004"
+  },
+  "/guides/scheduling-and-planning-cc0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-scheduling-and-planninge-3-b-cf3"
+  },
+  "/guides/spec-bidirectional-sync-6f9": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-spec-bidirectional-sync-493-06b"
+  },
+  "/guides/spec-commit-sync-253": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-spec-commit-syncda-2-772"
+  },
+  "/guides/specs-organization-guide-707": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-specs-organization-guidefdd-c42"
+  },
+  "/guides/specweave-vs-speckit-182": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-specweave-vs-speckitfe-0-5be"
+  },
+  "/guides/status-sync-guide-7ed": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-status-sync-guide-381-f73"
+  },
+  "/guides/status-sync-migration-2ae": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-status-sync-migration-386-d82"
+  },
+  "/guides/strategic-init-80d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-strategic-initab-8-0fe"
+  },
+  "/guides/sync-configuration-d30": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-sync-configuration-288-e0a"
+  },
+  "/guides/sync-strategies-5ad": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-sync-strategies-96-c-875"
+  },
+  "/guides/why-verified-skill-matters-4cb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---guides-why-verified-skill-matters-368-519"
+  },
+  "/integrations-557": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---integrations-4-f-2-701"
+  },
+  "/integrations/generic-ai-tools-da5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---integrations-generic-ai-tools-07-d-1c5"
+  },
+  "/integrations/issue-trackers-45b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---integrations-issue-trackersc-48-4e5"
+  },
+  "/learn-cbf": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---learn-688-5b9"
+  },
+  "/learn/backend/backend-fundamentals-026": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---learn-backend-backend-fundamentals-567-ec1"
+  },
+  "/learn/foundations/claude-code-basics-72a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---learn-foundations-claude-code-basics-305-de9"
+  },
+  "/learn/foundations/enterprise-app-development-cbe": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---learn-foundations-enterprise-app-development-09-a-2ee"
+  },
+  "/learn/foundations/software-engineering-roles-578": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---learn-foundations-software-engineering-roles-931-d63"
+  },
+  "/learn/foundations/terminal-empowerment-3a1": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---learn-foundations-terminal-empowerment-89-d-a62"
+  },
+  "/learn/frontend/frontend-fundamentals-723": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---learn-frontend-frontend-fundamentalsf-48-a73"
+  },
+  "/learn/infrastructure/iac-fundamentals-093": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---learn-infrastructure-iac-fundamentalsfb-7-39b"
+  },
+  "/learn/ml-ai/ml-fundamentals-f8c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---learn-ml-ai-ml-fundamentals-0-e-8-25e"
+  },
+  "/learn/testing/cli-integration-testing-6d3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---learn-testing-cli-integration-testingfa-3-171"
+  },
+  "/learn/testing/testing-fundamentals-75f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---learn-testing-testing-fundamentalsd-0-b-e2c"
+  },
+  "/marketing-6dc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---marketing-97-b-d0e"
+  },
+  "/marketing/dev-to-article-clean-2b9": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---marketing-dev-to-article-clean-814-d1f"
+  },
+  "/marketing/hooks-skill-workaround-posts-5ef": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---marketing-hooks-skill-workaround-postsf-98-feb"
+  },
+  "/marketing/thariq-skills-response-d2b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---marketing-thariq-skills-response-553-fea"
+  },
+  "/marketing/toxicskills-security-posts-d6e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---marketing-toxicskills-security-posts-80-d-11c"
+  },
+  "/metrics-c46": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---metrics-007-5fd"
+  },
+  "/overview-1c7": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---overviewa-46-125"
+  },
+  "/overview/features-215": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---overview-features-037-9d6"
+  },
+  "/overview/introduction-943": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---overview-introduction-080-fc8"
+  },
+  "/overview/philosophy-f07": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---overview-philosophy-138-e6f"
+  },
+  "/overview/plugins-ecosystem-796": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---overview-plugins-ecosystem-12-a-58d"
+  },
+  "/reference-6b8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---reference-862-925"
+  },
+  "/reference/cost-tracking-09b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---reference-cost-tracking-156-d4d"
+  },
+  "/scripts-09a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---scriptsade-b07"
+  },
+  "/scripts/duplicate-skill-loading-analysis-7cf": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---scripts-duplicate-skill-loading-analysise-73-9cd"
+  },
+  "/scripts/linking-report-7ac": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---scripts-linking-report-652-045"
+  },
+  "/scripts/linking-summary-6c0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---scripts-linking-summarybb-8-047"
+  },
+  "/scripts/phase-2-complete-5bb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---scripts-phase-2-complete-15-f-bc1"
+  },
+  "/troubleshooting-98b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---troubleshooting-238-ae2"
+  },
+  "/troubleshooting/plugin-auto-reinstall-13b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---troubleshooting-plugin-auto-reinstall-2-f-4-4be"
+  },
+  "/troubleshooting/plugin-enabled-state-corruption-10d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---troubleshooting-plugin-enabled-state-corruptiondbd-3a3"
+  },
+  "/troubleshooting/plugin-naming-conventions-f6b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---troubleshooting-plugin-naming-conventions-802-503"
+  },
+  "/troubleshooting/prompt-too-long-context-exhaustion-f29": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---troubleshooting-prompt-too-long-context-exhaustion-7-e-5-e78"
+  },
+  "/troubleshooting/react-native-expo-crashes-5d8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---troubleshooting-react-native-expo-crashes-128-c31"
+  },
+  "/troubleshooting/skill-name-prefix-stripping-859": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---troubleshooting-skill-name-prefix-stripping-8-fe-789"
+  },
+  "/troubleshooting/skill-truncation-budget-e9c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---troubleshooting-skill-truncation-budget-638-d23"
+  },
+  "/troubleshooting/vscode-debug-child-processes-ae1": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---troubleshooting-vscode-debug-child-processes-990-c0d"
+  },
+  "/workflows-a5d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---workflows-8-bd-27e"
+  },
+  "/workflows/brownfield-b0a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---workflows-brownfield-175-786"
+  },
+  "/workflows/implementation-2ef": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---workflows-implementation-91-a-14b"
+  },
+  "/workflows/overview-82d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---workflows-overview-83-c-316"
+  },
+  "/workflows/planning-5e3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---workflows-planningf-88-51a"
+  },
+  "/-c6e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---059-803"
+  }
+}

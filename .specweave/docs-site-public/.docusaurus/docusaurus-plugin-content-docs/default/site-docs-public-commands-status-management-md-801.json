@@ -1,0 +1,26 @@
+{
+  "id": "commands/status-management",
+  "title": "Status Command",
+  "description": "Monitor your increment progress and work-in-progress limits with the /status command.",
+  "source": "@site/../docs/public/commands/status-management.md",
+  "sourceDirName": "commands",
+  "slug": "/commands/status-management",
+  "permalink": "/commands/status-management",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "pause",
+    "permalink": "/commands/pause"
+  },
+  "next": {
+    "title": "/sw:do - Execute Tasks",
+    "permalink": "/commands/do"
+  }
+}

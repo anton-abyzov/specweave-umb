@@ -2,8 +2,8 @@
 title: "Claude Code Hook Limitations: No Skill Invocation & Lazy Plugin Loading (And How I Solved It)"
 published: true
 description: "Hooks can't invoke skills. Here's the solution that enables lazy plugin loading and deterministic AI workflows."
-tags: claudecode, ai, webdev, productivity
-cover_image: https://spec-weave.com/img/specweave-social-card.jpg
+tags: [claudecode, ai, webdev, productivity]
+cover_image: "https://spec-weave.com/img/specweave-social-card.jpg"
 ---
 
 # Claude Code Hook Limitations: No Skill Invocation & Lazy Plugin Loading

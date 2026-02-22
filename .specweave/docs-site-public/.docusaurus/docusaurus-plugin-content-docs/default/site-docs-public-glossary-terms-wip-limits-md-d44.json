@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/wip-limits",
+  "title": "WIP Limits (Work In Progress)",
+  "description": "WIP Limits restrict the number of active increments to maximize focus and productivity. SpecWeave defaults to ONE active increment based on research showing single-tasking produces 100% productivity while multi-tasking reduces productivity by 20-40% due to context switching costs.",
+  "source": "@site/../docs/public/glossary/terms/wip-limits.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/wip-limits",
+  "permalink": "/glossary/terms/wip-limits",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "User Stories",
+    "permalink": "/glossary/terms/user-stories"
+  },
+  "next": {
+    "title": "Overview",
+    "permalink": "/guides"
+  }
+}

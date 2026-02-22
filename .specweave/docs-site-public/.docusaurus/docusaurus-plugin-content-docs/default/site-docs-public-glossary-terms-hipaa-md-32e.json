@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/hipaa",
+  "title": "HIPAA (Health Insurance Portability and Accountability Act)",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/hipaa.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/hipaa",
+  "permalink": "/glossary/terms/hipaa",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Greenfield Development",
+    "permalink": "/glossary/terms/greenfield"
+  },
+  "next": {
+    "title": "Hooks",
+    "permalink": "/glossary/terms/hooks"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "commands/do",
+  "title": "/sw:do - Execute Tasks",
+  "description": "Implementation Execution: Execute increment tasks following spec.md and plan.md.",
+  "source": "@site/../docs/public/commands/do.md",
+  "sourceDirName": "commands",
+  "slug": "/commands/do",
+  "permalink": "/commands/do",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Status Command",
+    "permalink": "/commands/status-management"
+  },
+  "next": {
+    "title": "resume",
+    "permalink": "/commands/resume"
+  }
+}

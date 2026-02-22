@@ -1,0 +1,24 @@
+{
+  "id": "academy/videos/clawhub-postmortem",
+  "title": "Video 003: ClawHub Is Dead. The Problem Isn't.",
+  "description": "Video",
+  "source": "@site/../docs/public/academy/videos/003-clawhub-postmortem.md",
+  "sourceDirName": "academy/videos",
+  "slug": "/academy/videos/clawhub-postmortem",
+  "permalink": "/academy/videos/clawhub-postmortem",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Video 002: The AI Skills Security Crisis — ToxicSkills Breakdown",
+    "permalink": "/academy/videos/toxicskills-security"
+  },
+  "next": {
+    "title": "Video XXX: [Title]",
+    "permalink": "/academy/videos/_TEMPLATE"
+  }
+}

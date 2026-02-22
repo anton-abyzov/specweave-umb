@@ -1,0 +1,28 @@
+{
+  "id": "learn/backend/backend-fundamentals",
+  "title": "Backend Development Fundamentals",
+  "description": "Complete guide to backend/server-side development - [API](/docs/glossary/terms/api) design, databases, authentication, [microservices](/docs/glossary/terms/microservices), and production best practices",
+  "source": "@site/../docs/public/learn/backend/backend-fundamentals.md",
+  "sourceDirName": "learn/backend",
+  "slug": "/learn/backend/backend-fundamentals",
+  "permalink": "/learn/backend/backend-fundamentals",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "backend-fundamentals",
+    "title": "Backend Development Fundamentals",
+    "sidebar_label": "Backend Fundamentals",
+    "description": "Complete guide to backend/server-side development - [API](/docs/glossary/terms/api) design, databases, authentication, [microservices](/docs/glossary/terms/microservices), and production best practices"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Overview",
+    "permalink": "/learn"
+  },
+  "next": {
+    "title": "Claude Code Basics",
+    "permalink": "/learn/foundations/claude-code-basics"
+  }
+}

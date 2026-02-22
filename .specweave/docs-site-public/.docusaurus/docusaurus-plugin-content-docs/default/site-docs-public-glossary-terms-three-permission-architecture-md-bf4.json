@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/three-permission-architecture",
+  "title": "Three-Permission Architecture",
+  "description": "Three-Permission Architecture replaces the old \"bidirectional sync\" binary flag with granular control over three distinct sync operations.",
+  "source": "@site/../docs/public/glossary/terms/three-permission-architecture.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/three-permission-architecture",
+  "permalink": "/glossary/terms/three-permission-architecture",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "three-permission-architecture",
+    "title": "Three-Permission Architecture",
+    "sidebar_label": "Three-Permission Architecture"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Three-Layer Architecture",
+    "permalink": "/glossary/terms/three-layer-architecture"
+  },
+  "next": {
+    "title": "TypeScript",
+    "permalink": "/glossary/terms/typescript"
+  }
+}

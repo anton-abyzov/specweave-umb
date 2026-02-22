@@ -1,0 +1,26 @@
+{
+  "id": "commands/status",
+  "title": "status",
+  "description": "Show comprehensive increment status overview with progress tracking and suggestions.",
+  "source": "@site/../docs/public/commands/status.md",
+  "sourceDirName": "commands",
+  "slug": "/commands/status",
+  "permalink": "/commands/status",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "abandon",
+    "permalink": "/commands/abandon"
+  },
+  "next": {
+    "title": "/sw:auto - Autonomous Execution",
+    "permalink": "/commands/auto"
+  }
+}

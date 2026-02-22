@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/skills-vs-agents",
+  "title": "Skills vs Agents",
+  "description": "SpecWeave uses two types of AI components: Skills (auto-activating knowledge) and Agents (explicitly invoked workers). Understanding the difference is crucial for effective use.",
+  "source": "@site/../docs/public/glossary/terms/skills-vs-agents.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/skills-vs-agents",
+  "permalink": "/glossary/terms/skills-vs-agents",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "skills-vs-agents",
+    "title": "Skills vs Agents",
+    "sidebar_label": "Skills vs Agents"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Role Orchestrator",
+    "permalink": "/glossary/terms/role-orchestrator"
+  },
+  "next": {
+    "title": "SOC 2 (Service Organization Control 2)",
+    "permalink": "/glossary/terms/soc2"
+  }
+}

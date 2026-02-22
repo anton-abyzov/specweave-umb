@@ -1,0 +1,27 @@
+{
+  "id": "integrations/index",
+  "title": "Integrations",
+  "description": "Integrations documentation",
+  "source": "@site/../docs/public/integrations/index.md",
+  "sourceDirName": "integrations",
+  "slug": "/integrations",
+  "permalink": "/integrations",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Integrations",
+    "sidebar_label": "Overview",
+    "slug": "/integrations"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Why Verified Skill Matters — Lessons from ClawHub's Collapse",
+    "permalink": "/guides/why-verified-skill-matters"
+  },
+  "next": {
+    "title": "Issue Tracker Integration",
+    "permalink": "/integrations/issue-trackers"
+  }
+}

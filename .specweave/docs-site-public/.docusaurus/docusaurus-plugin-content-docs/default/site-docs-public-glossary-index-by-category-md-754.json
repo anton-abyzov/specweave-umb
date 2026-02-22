@@ -1,0 +1,26 @@
+{
+  "id": "glossary/index-by-category",
+  "title": "Glossary by Category",
+  "description": "Explore technical terms organized by related concepts.",
+  "source": "@site/../docs/public/glossary/index-by-category.md",
+  "sourceDirName": "glossary",
+  "slug": "/glossary/index-by-category",
+  "permalink": "/glossary/index-by-category",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Glossary by Category",
+    "sidebar_label": "By Category"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Testing & Quality",
+    "permalink": "/glossary/categories/testing-category"
+  },
+  "next": {
+    "title": "AC-ID (Acceptance Criteria Identifier)",
+    "permalink": "/glossary/terms/ac-id"
+  }
+}

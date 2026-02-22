@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/ssg",
+  "title": "SSG (Static Site Generation)",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/ssg.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/ssg",
+  "permalink": "/glossary/terms/ssg",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "ssg",
+    "title": "SSG (Static Site Generation)",
+    "sidebar_label": "SSG"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Specifications (Specs)",
+    "permalink": "/glossary/terms/specs"
+  },
+  "next": {
+    "title": "SSR",
+    "permalink": "/glossary/terms/ssr"
+  }
+}

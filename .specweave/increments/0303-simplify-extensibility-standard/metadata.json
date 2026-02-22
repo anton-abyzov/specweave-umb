@@ -1,10 +1,11 @@
 {
   "id": "0303-simplify-extensibility-standard",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-21T19:39:14.429Z",
   "lastActivity": "2026-02-21T19:39:14.429Z",
+  "completedAt": "2026-02-21T23:50:00.000Z",
   "testMode": "test-after",
   "coverageTarget": 80,
   "feature_id": null,

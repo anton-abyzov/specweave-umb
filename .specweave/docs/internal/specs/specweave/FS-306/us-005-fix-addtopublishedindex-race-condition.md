@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1251
-    url: https://github.com/anton-abyzov/specweave/issues/1251
+    url: "https://github.com/anton-abyzov/specweave/issues/1251"
 ---
 # US-005: Fix addToPublishedIndex Race Condition
 

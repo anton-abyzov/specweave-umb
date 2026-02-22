@@ -1,0 +1,35 @@
+{
+  "id": "guides/project-specific-tasks",
+  "title": "Project-Specific Tasks",
+  "description": "User stories with checkable task lists for better traceability and GitHub collaboration",
+  "source": "@site/../docs/public/guides/project-specific-tasks.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/project-specific-tasks",
+  "permalink": "/guides/project-specific-tasks",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "project-specific-tasks",
+    "title": "Project-Specific Tasks",
+    "sidebar_label": "Project-Specific Tasks",
+    "description": "User stories with checkable task lists for better traceability and GitHub collaboration",
+    "keywords": [
+      "tasks",
+      "user stories",
+      "project isolation",
+      "github sync",
+      "traceability"
+    ]
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Plugin Management Guide",
+    "permalink": "/guides/plugin-management"
+  },
+  "next": {
+    "title": "Repository Selection Guide",
+    "permalink": "/guides/repository-selection"
+  }
+}

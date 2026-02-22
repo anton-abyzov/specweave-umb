@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/spa",
+  "title": "SPA (Single Page Application)",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/spa.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/spa",
+  "permalink": "/glossary/terms/spa",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "spa",
+    "title": "SPA (Single Page Application)",
+    "sidebar_label": "SPA"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Source of Truth",
+    "permalink": "/glossary/terms/source-of-truth"
+  },
+  "next": {
+    "title": "Specifications (Specs)",
+    "permalink": "/glossary/terms/specs"
+  }
+}

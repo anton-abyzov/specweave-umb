@@ -1,0 +1,23 @@
+{
+  "id": "guides/openclaw-agent-setup",
+  "title": "OpenClaw Agent Setup Guide",
+  "description": "How to configure OpenClaw agents for maximum productivity — whether you're building software or managing marketing campaigns.",
+  "source": "@site/../docs/public/guides/openclaw-agent-setup.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/openclaw-agent-setup",
+  "permalink": "/guides/openclaw-agent-setup",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Multilingual Guide - SpecWeave Internationalization",
+    "permalink": "/guides/multilingual-guide"
+  },
+  "next": {
+    "title": "Plugin Management Guide",
+    "permalink": "/guides/plugin-management"
+  }
+}

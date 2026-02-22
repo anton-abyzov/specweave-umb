@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/graphql",
+  "title": "GraphQL",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/graphql.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/graphql",
+  "permalink": "/glossary/terms/graphql",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "graphql",
+    "title": "GraphQL",
+    "sidebar_label": "GraphQL"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "GitHub Actions",
+    "permalink": "/glossary/terms/github-actions"
+  },
+  "next": {
+    "title": "Greenfield Development",
+    "permalink": "/glossary/terms/greenfield"
+  }
+}

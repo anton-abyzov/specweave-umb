@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/e2e",
+  "title": "E2E (End-to-End Testing)",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/e2e.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/e2e",
+  "permalink": "/glossary/terms/e2e",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "e2e",
+    "title": "E2E (End-to-End Testing)",
+    "sidebar_label": "E2E Testing"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Docusaurus Frontmatter",
+    "permalink": "/glossary/terms/docusaurus-frontmatter"
+  },
+  "next": {
+    "title": "FDA (Food and Drug Administration) - Medical Device Software Regulations",
+    "permalink": "/glossary/terms/fda"
+  }
+}

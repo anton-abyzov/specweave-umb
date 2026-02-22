@@ -1,0 +1,40 @@
+{
+  "id": "learn/frontend/frontend-fundamentals",
+  "title": "Frontend Development Fundamentals",
+  "description": "Comprehensive guide to modern frontend development including [React](/docs/glossary/terms/react), [Next.js](/docs/glossary/terms/nextjs), state management, styling, testing, and deployment strategies.",
+  "source": "@site/../docs/public/learn/frontend/frontend-fundamentals.md",
+  "sourceDirName": "learn/frontend",
+  "slug": "/learn/frontend/frontend-fundamentals",
+  "permalink": "/learn/frontend/frontend-fundamentals",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "frontend-fundamentals",
+    "title": "Frontend Development Fundamentals",
+    "sidebar_label": "Frontend Fundamentals",
+    "description": "Comprehensive guide to modern frontend development including [React](/docs/glossary/terms/react), [Next.js](/docs/glossary/terms/nextjs), state management, styling, testing, and deployment strategies.",
+    "keywords": [
+      "frontend",
+      "react",
+      "nextjs",
+      "javascript",
+      "typescript",
+      "components",
+      "state management",
+      "css",
+      "responsive design",
+      "accessibility"
+    ]
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Terminal Basics",
+    "permalink": "/learn/foundations/terminal-empowerment"
+  },
+  "next": {
+    "title": "IaC Fundamentals",
+    "permalink": "/learn/infrastructure/iac-fundamentals"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/source-of-truth",
+  "title": "Source of Truth",
+  "description": "Source of Truth is the single, authoritative location for data. In SpecWeave's architecture, .specweave/ is the source of truth for content (user stories, specs, architecture), while external tools (GitHub, JIRA, ADO) are sources of truth for status (issue state, labels, assignees). This split architecture prevents conflicts and ensures clarity.",
+  "source": "@site/../docs/public/glossary/terms/source-of-truth.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/source-of-truth",
+  "permalink": "/glossary/terms/source-of-truth",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "SOC 2 (Service Organization Control 2)",
+    "permalink": "/glossary/terms/soc2"
+  },
+  "next": {
+    "title": "SPA",
+    "permalink": "/glossary/terms/spa"
+  }
+}

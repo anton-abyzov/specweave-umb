@@ -1,6 +1,6 @@
 ---
 sidebar_position: 8
-title: "Prompt is Too Long" — Context Exhaustion
+title: '"Prompt is Too Long" — Context Exhaustion'
 description: Why Claude Code shows "prompt is too long" during long sessions and how SpecWeave's increment-based workflow eliminates the problem
 keywords: [prompt too long, context window, context exhaustion, session restart, context evaporation]
 ---

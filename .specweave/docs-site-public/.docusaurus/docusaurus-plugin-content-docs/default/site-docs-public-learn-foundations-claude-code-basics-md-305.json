@@ -1,0 +1,38 @@
+{
+  "id": "learn/foundations/claude-code-basics",
+  "title": "Claude Code Basics",
+  "description": "Essential concepts for working with Claude Code - skills, commands, plugins, and agents explained",
+  "source": "@site/../docs/public/learn/foundations/claude-code-basics.md",
+  "sourceDirName": "learn/foundations",
+  "slug": "/learn/foundations/claude-code-basics",
+  "permalink": "/learn/foundations/claude-code-basics",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "claude-code-basics",
+    "title": "Claude Code Basics",
+    "sidebar_label": "Claude Code Basics",
+    "description": "Essential concepts for working with Claude Code - skills, commands, plugins, and agents explained",
+    "keywords": [
+      "claude code",
+      "skills",
+      "commands",
+      "plugins",
+      "agents",
+      "slash commands",
+      "SKILL.md",
+      "subagents"
+    ]
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Backend Fundamentals",
+    "permalink": "/learn/backend/backend-fundamentals"
+  },
+  "next": {
+    "title": "Enterprise App Development",
+    "permalink": "/learn/foundations/enterprise-app-development"
+  }
+}

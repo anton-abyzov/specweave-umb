@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/copied-acs-and-tasks",
+  "title": "COPIED ACs and Tasks",
+  "description": "Category: Architecture",
+  "source": "@site/../docs/public/glossary/terms/copied-acs-and-tasks.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/copied-acs-and-tasks",
+  "permalink": "/glossary/terms/copied-acs-and-tasks",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Content Classification",
+    "permalink": "/glossary/terms/content-classification"
+  },
+  "next": {
+    "title": "Cross-Linking",
+    "permalink": "/glossary/terms/cross-linking"
+  }
+}

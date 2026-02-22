@@ -1,0 +1,27 @@
+{
+  "id": "glossary/glossary",
+  "title": "Glossary",
+  "description": "Welcome to the SpecWeave Technical Glossary! This comprehensive reference explains all technical terms used in enterprise software development, with practical examples and diagrams.",
+  "source": "@site/../docs/public/glossary/README.md",
+  "sourceDirName": "glossary",
+  "slug": "/glossary/",
+  "permalink": "/glossary/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "glossary",
+    "title": "Glossary",
+    "sidebar_label": "Glossary Overview"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Claude CLI Automation Patterns",
+    "permalink": "/development/claude-cli-automation"
+  },
+  "next": {
+    "title": "Architecture & Design",
+    "permalink": "/glossary/categories/architecture-category"
+  }
+}

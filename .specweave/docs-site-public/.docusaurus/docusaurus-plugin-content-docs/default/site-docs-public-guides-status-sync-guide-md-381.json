@@ -1,0 +1,23 @@
+{
+  "id": "guides/status-sync-guide",
+  "title": "Status Synchronization Guide",
+  "description": "Bidirectional status sync between SpecWeave increments and external tools (GitHub, JIRA, Azure DevOps)",
+  "source": "@site/../docs/public/guides/status-sync-guide.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/status-sync-guide",
+  "permalink": "/guides/status-sync-guide",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "v2.0 Quick Start Guide",
+    "permalink": "/guides/specs-organization-guide"
+  },
+  "next": {
+    "title": "Status Sync Migration Guide",
+    "permalink": "/guides/status-sync-migration"
+  }
+}

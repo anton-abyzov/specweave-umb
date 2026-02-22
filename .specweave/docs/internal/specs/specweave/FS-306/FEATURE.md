@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 118
-    url: https://github.com/anton-abyzov/specweave/milestone/118
+    url: "https://github.com/anton-abyzov/specweave/milestone/118"
 ---
 # Fix Marketplace Skill Loss - Restore KV Enumeration + Prisma Migration
 

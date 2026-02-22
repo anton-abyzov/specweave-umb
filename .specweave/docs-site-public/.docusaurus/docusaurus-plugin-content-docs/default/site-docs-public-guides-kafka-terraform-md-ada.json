@@ -1,0 +1,23 @@
+{
+  "id": "guides/kafka-terraform",
+  "title": "Kafka Infrastructure as Code - Terraform Guide",
+  "description": "Deploy production-ready Kafka clusters with Terraform modules",
+  "source": "@site/../docs/public/guides/kafka-terraform.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/kafka-terraform",
+  "permalink": "/guides/kafka-terraform",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Getting Started with SpecWeave Kafka",
+    "permalink": "/guides/kafka-getting-started"
+  },
+  "next": {
+    "title": "Kafka Troubleshooting Guide",
+    "permalink": "/guides/kafka-troubleshooting"
+  }
+}

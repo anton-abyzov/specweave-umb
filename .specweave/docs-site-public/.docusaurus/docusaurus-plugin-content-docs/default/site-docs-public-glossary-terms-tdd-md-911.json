@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/tdd",
+  "title": "TDD (Test-Driven Development)",
+  "description": "Test-Driven Development (TDD) is a software development methodology where tests are written before the implementation code. The developer writes a failing test, then writes the minimum code to pass the test, and finally refactors the code while keeping tests passing.",
+  "source": "@site/../docs/public/glossary/terms/tdd.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/tdd",
+  "permalink": "/glossary/terms/tdd",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Strategic Init",
+    "permalink": "/glossary/terms/strategic-init"
+  },
+  "next": {
+    "title": "Terraform",
+    "permalink": "/glossary/terms/terraform"
+  }
+}

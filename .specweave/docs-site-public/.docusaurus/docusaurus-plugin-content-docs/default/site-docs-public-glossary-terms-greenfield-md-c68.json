@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/greenfield",
+  "title": "Greenfield Development",
+  "description": "Category: Development Methodology",
+  "source": "@site/../docs/public/glossary/terms/greenfield.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/greenfield",
+  "permalink": "/glossary/terms/greenfield",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "GraphQL",
+    "permalink": "/glossary/terms/graphql"
+  },
+  "next": {
+    "title": "HIPAA (Health Insurance Portability and Accountability Act)",
+    "permalink": "/glossary/terms/hipaa"
+  }
+}

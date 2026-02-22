@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/integration-testing",
+  "title": "Integration Testing",
+  "description": "Integration Testing validates that different components or systems work correctly together. Unlike unit tests that isolate individual functions, integration tests verify the interactions between multiple units, services, or external systems.",
+  "source": "@site/../docs/public/glossary/terms/integration-testing.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/integration-testing",
+  "permalink": "/glossary/terms/integration-testing",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Increments",
+    "permalink": "/glossary/terms/increments"
+  },
+  "next": {
+    "title": "Intelligent Living Docs Sync",
+    "permalink": "/glossary/terms/intelligent-living-docs-sync"
+  }
+}

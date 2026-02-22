@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/rest",
+  "title": "REST (REpresentational State Transfer)",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/rest.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/rest",
+  "permalink": "/glossary/terms/rest",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "rest",
+    "title": "REST (REpresentational State Transfer)",
+    "sidebar_label": "REST"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "React",
+    "permalink": "/glossary/terms/react"
+  },
+  "next": {
+    "title": "RFC",
+    "permalink": "/glossary/terms/rfc"
+  }
+}

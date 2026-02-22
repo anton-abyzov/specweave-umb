@@ -1,0 +1,26 @@
+{
+  "id": "guides/core-concepts/background-jobs",
+  "title": "Background Jobs",
+  "description": "SpecWeave's Background Jobs System enables long-running operations to continue even after you close Claude. This is essential for enterprise workflows with thousands of repositories and tens of thousands of work items.",
+  "source": "@site/../docs/public/guides/core-concepts/background-jobs.md",
+  "sourceDirName": "guides/core-concepts",
+  "slug": "/guides/core-concepts/background-jobs",
+  "permalink": "/guides/core-concepts/background-jobs",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Compliance Standards Reference",
+    "permalink": "/guides/compliance-standards"
+  },
+  "next": {
+    "title": "Living Docs Sync Strategy",
+    "permalink": "/guides/core-concepts/living-docs-sync-strategy"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "metrics",
+  "title": "DORA Metrics Dashboard",
+  "description": "Live DORA metrics for SpecWeave development performance",
+  "source": "@site/../docs/public/metrics.md",
+  "sourceDirName": ".",
+  "slug": "/metrics",
+  "permalink": "/metrics",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 10,
+  "frontMatter": {
+    "sidebar_position": 10,
+    "title": "DORA Metrics Dashboard",
+    "description": "Live DORA metrics for SpecWeave development performance"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "ToxicSkills: 1 in 3 AI Agent Skills Has a Security Flaw",
+    "permalink": "/marketing/toxicskills-security-posts"
+  },
+  "next": {
+    "title": "Overview",
+    "permalink": "/overview"
+  }
+}

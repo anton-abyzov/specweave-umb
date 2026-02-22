@@ -1,0 +1,27 @@
+{
+  "id": "guides/autonomous-execution",
+  "title": "Autonomous Execution Guide",
+  "description": "Learn how to use SpecWeave's autonomous execution mode (/sw:auto) to work hands-free until all tasks are complete.",
+  "source": "@site/../docs/public/guides/autonomous-execution.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/autonomous-execution",
+  "permalink": "/guides/autonomous-execution",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5,
+    "title": "Autonomous Execution Guide"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Overview",
+    "permalink": "/guides"
+  },
+  "next": {
+    "title": "SpecWeave vs SpecKit",
+    "permalink": "/guides/specweave-vs-speckit"
+  }
+}

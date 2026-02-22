@@ -1,0 +1,29 @@
+{
+  "id": "learn/testing/cli-integration-testing",
+  "title": "CLI & Hook Integration Testing Guide",
+  "description": "How to write reliable integration tests for CLI commands, shell hooks, and terminal tools. Based on best practices from OpenClaw, pnpm, oclif/Salesforce, and Bubbletea.",
+  "source": "@site/../docs/public/learn/testing/cli-integration-testing.md",
+  "sourceDirName": "learn/testing",
+  "slug": "/learn/testing/cli-integration-testing",
+  "permalink": "/learn/testing/cli-integration-testing",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "cli-integration-testing",
+    "title": "CLI & Hook Integration Testing Guide",
+    "status": "DRAFT",
+    "category": "testing",
+    "created": "2026-02-11T00:00:00.000Z"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "ML/AI Integration",
+    "permalink": "/learn/ml-ai/ml-fundamentals"
+  },
+  "next": {
+    "title": "Testing Fundamentals",
+    "permalink": "/learn/testing/testing-fundamentals"
+  }
+}

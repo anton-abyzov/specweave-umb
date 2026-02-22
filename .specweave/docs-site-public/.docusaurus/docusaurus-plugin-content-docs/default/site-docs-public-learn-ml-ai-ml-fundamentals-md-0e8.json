@@ -1,0 +1,27 @@
+{
+  "id": "learn/ml-ai/ml-fundamentals",
+  "title": "ML/AI Integration Fundamentals",
+  "description": "Table of Contents",
+  "source": "@site/../docs/public/learn/ml-ai/ml-fundamentals.md",
+  "sourceDirName": "learn/ml-ai",
+  "slug": "/learn/ml-ai/ml-fundamentals",
+  "permalink": "/learn/ml-ai/ml-fundamentals",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "ml-fundamentals",
+    "title": "ML/AI Integration Fundamentals",
+    "sidebar_label": "ML/AI Integration"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "IaC Fundamentals",
+    "permalink": "/learn/infrastructure/iac-fundamentals"
+  },
+  "next": {
+    "title": "CLI & Hook Integration Testing Guide",
+    "permalink": "/learn/testing/cli-integration-testing"
+  }
+}

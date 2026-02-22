@@ -1,0 +1,27 @@
+{
+  "id": "glossary/categories/frontend-category",
+  "title": "Frontend Development",
+  "description": "Understanding client-side application development, UI frameworks, and user experiences.",
+  "source": "@site/../docs/public/glossary/categories/frontend.md",
+  "sourceDirName": "glossary/categories",
+  "slug": "/glossary/categories/frontend-category",
+  "permalink": "/glossary/categories/frontend-category",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "frontend-category",
+    "title": "Frontend Development",
+    "sidebar_label": "Frontend Development"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "DevOps & Tools",
+    "permalink": "/glossary/categories/devops-category"
+  },
+  "next": {
+    "title": "Infrastructure & Operations",
+    "permalink": "/glossary/categories/infrastructure-category"
+  }
+}

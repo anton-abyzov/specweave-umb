@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/api",
+  "title": "API (Application Programming Interface)",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/api.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/api",
+  "permalink": "/glossary/terms/api",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "api",
+    "title": "API (Application Programming Interface)",
+    "sidebar_label": "API"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Angular",
+    "permalink": "/glossary/terms/angular"
+  },
+  "next": {
+    "title": "BDD (Behavior-Driven Development)",
+    "permalink": "/glossary/terms/bdd"
+  }
+}

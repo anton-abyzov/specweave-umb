@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/hooks",
+  "title": "Hooks",
+  "description": "Hooks are automated scripts that execute at specific lifecycle events in SpecWeave. They enable automatic documentation sync, external tool updates, and workflow automation without manual intervention.",
+  "source": "@site/../docs/public/glossary/terms/hooks.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/hooks",
+  "permalink": "/glossary/terms/hooks",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "hooks",
+    "title": "Hooks",
+    "sidebar_label": "Hooks"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "HIPAA (Health Insurance Portability and Accountability Act)",
+    "permalink": "/glossary/terms/hipaa"
+  },
+  "next": {
+    "title": "IaC",
+    "permalink": "/glossary/terms/iac"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/typescript",
+  "title": "TypeScript",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/typescript.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/typescript",
+  "permalink": "/glossary/terms/typescript",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "typescript",
+    "title": "TypeScript",
+    "sidebar_label": "TypeScript"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Three-Permission Architecture",
+    "permalink": "/glossary/terms/three-permission-architecture"
+  },
+  "next": {
+    "title": "Unit Testing",
+    "permalink": "/glossary/terms/unit-testing"
+  }
+}

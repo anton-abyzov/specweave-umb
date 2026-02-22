@@ -1,0 +1,23 @@
+{
+  "id": "workflows/planning",
+  "title": "Planning Workflow: From Idea to Tasks",
+  "description": "The planning phase transforms a feature idea into a complete, executable implementation plan with specifications, architecture, tasks, and tests.",
+  "source": "@site/../docs/public/workflows/planning.md",
+  "sourceDirName": "workflows",
+  "slug": "/workflows/planning",
+  "permalink": "/workflows/planning",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Workflows: The Complete Journey",
+    "permalink": "/workflows/overview"
+  },
+  "next": {
+    "title": "Public Documentation",
+    "permalink": "/"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "guides/strategic-init",
+  "title": "Strategic Init Guide",
+  "description": "SpecWeave's AI-Powered Strategic Planning Session",
+  "source": "@site/../docs/public/guides/strategic-init.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/strategic-init",
+  "permalink": "/guides/strategic-init",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Status Sync Migration Guide",
+    "permalink": "/guides/status-sync-migration"
+  },
+  "next": {
+    "title": "Sync Configuration Guide",
+    "permalink": "/guides/sync-configuration"
+  }
+}

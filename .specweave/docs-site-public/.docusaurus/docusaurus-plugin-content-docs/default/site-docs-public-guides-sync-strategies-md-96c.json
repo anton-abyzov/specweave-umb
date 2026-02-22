@@ -1,0 +1,23 @@
+{
+  "id": "guides/sync-strategies",
+  "title": "Understanding Sync Strategies - Simple Guide",
+  "description": "For: SpecWeave Users",
+  "source": "@site/../docs/public/guides/sync-strategies.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/sync-strategies",
+  "permalink": "/guides/sync-strategies",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Sync Configuration Guide",
+    "permalink": "/guides/sync-configuration"
+  },
+  "next": {
+    "title": "Why Verified Skill Matters — Lessons from ClawHub's Collapse",
+    "permalink": "/guides/why-verified-skill-matters"
+  }
+}

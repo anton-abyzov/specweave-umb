@@ -1,0 +1,26 @@
+{
+  "id": "commands/auto",
+  "title": "/sw:auto - Autonomous Execution",
+  "description": "Start autonomous execution session using Claude Code's Stop Hook.",
+  "source": "@site/../docs/public/commands/auto.md",
+  "sourceDirName": "commands",
+  "slug": "/commands/auto",
+  "permalink": "/commands/auto",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 10,
+  "frontMatter": {
+    "sidebar_position": 10
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "status",
+    "permalink": "/commands/status"
+  },
+  "next": {
+    "title": "/sw:auto-status - Session Status",
+    "permalink": "/commands/auto-status"
+  }
+}

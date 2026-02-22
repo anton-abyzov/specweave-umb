@@ -1,0 +1,27 @@
+{
+  "id": "guides/index",
+  "title": "Guides",
+  "description": "How-to guides and tutorials",
+  "source": "@site/../docs/public/guides/index.md",
+  "sourceDirName": "guides",
+  "slug": "/guides",
+  "permalink": "/guides",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Guides",
+    "sidebar_label": "Overview",
+    "slug": "/guides"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "WIP Limits (Work In Progress)",
+    "permalink": "/glossary/terms/wip-limits"
+  },
+  "next": {
+    "title": "Autonomous Execution Guide",
+    "permalink": "/guides/autonomous-execution"
+  }
+}

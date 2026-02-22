@@ -1,0 +1,26 @@
+{
+  "id": "commands/auto-status",
+  "title": "/sw:auto-status - Session Status",
+  "description": "Show the current auto session status and progress.",
+  "source": "@site/../docs/public/commands/auto-status.md",
+  "sourceDirName": "commands",
+  "slug": "/commands/auto-status",
+  "permalink": "/commands/auto-status",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 11,
+  "frontMatter": {
+    "sidebar_position": 11
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "/sw:auto - Autonomous Execution",
+    "permalink": "/commands/auto"
+  },
+  "next": {
+    "title": "/sw:cancel-auto - Cancel Auto Session",
+    "permalink": "/commands/cancel-auto"
+  }
+}

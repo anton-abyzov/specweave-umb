@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/ssr",
+  "title": "SSR (Server-Side Rendering)",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/ssr.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/ssr",
+  "permalink": "/glossary/terms/ssr",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "ssr",
+    "title": "SSR (Server-Side Rendering)",
+    "sidebar_label": "SSR"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "SSG",
+    "permalink": "/glossary/terms/ssg"
+  },
+  "next": {
+    "title": "Strategic Init",
+    "permalink": "/glossary/terms/strategic-init"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "guides/getting-started/installation",
+  "title": "SpecWeave Installation",
+  "description": "Comprehensive installation guide for all scenarios.",
+  "source": "@site/../docs/public/guides/getting-started/installation.md",
+  "sourceDirName": "guides/getting-started",
+  "slug": "/guides/getting-started/installation",
+  "permalink": "/guides/getting-started/installation",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Deep Interview Mode",
+    "permalink": "/guides/deep-interview-mode"
+  },
+  "next": {
+    "title": "Quick Fix: Global Packages Lost After Node Upgrade (nvm)",
+    "permalink": "/guides/getting-started/nvm-global-packages-fix"
+  }
+}

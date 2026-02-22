@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/react",
+  "title": "React",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/react.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/react",
+  "permalink": "/glossary/terms/react",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "react",
+    "title": "React",
+    "sidebar_label": "React"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Project-Specific Tasks",
+    "permalink": "/glossary/terms/project-specific-tasks"
+  },
+  "next": {
+    "title": "REST",
+    "permalink": "/glossary/terms/rest"
+  }
+}

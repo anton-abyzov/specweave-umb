@@ -1,0 +1,26 @@
+{
+  "id": "commands/cancel-auto",
+  "title": "/sw:cancel-auto - Cancel Auto Session",
+  "description": "Cancel the running auto session and generate summary.",
+  "source": "@site/../docs/public/commands/cancel-auto.md",
+  "sourceDirName": "commands",
+  "slug": "/commands/cancel-auto",
+  "permalink": "/commands/cancel-auto",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 12,
+  "frontMatter": {
+    "sidebar_position": 12
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "/sw:auto-status - Session Status",
+    "permalink": "/commands/auto-status"
+  },
+  "next": {
+    "title": "/specweave:jobs - Background Jobs Monitor",
+    "permalink": "/commands/jobs"
+  }
+}

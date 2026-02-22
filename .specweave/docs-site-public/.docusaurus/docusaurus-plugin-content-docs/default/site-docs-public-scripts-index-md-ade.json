@@ -1,0 +1,27 @@
+{
+  "id": "scripts/index",
+  "title": "Scripts",
+  "description": "Scripts documentation",
+  "source": "@site/../docs/public/scripts/index.md",
+  "sourceDirName": "scripts",
+  "slug": "/scripts",
+  "permalink": "/scripts",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Scripts",
+    "sidebar_label": "Overview",
+    "slug": "/scripts"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Cost Tracking Reference",
+    "permalink": "/reference/cost-tracking"
+  },
+  "next": {
+    "title": "Duplicate Skill Loading Analysis & Prevention",
+    "permalink": "/scripts/duplicate-skill-loading-analysis"
+  }
+}

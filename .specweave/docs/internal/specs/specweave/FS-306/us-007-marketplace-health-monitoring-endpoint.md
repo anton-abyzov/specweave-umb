@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1253
-    url: https://github.com/anton-abyzov/specweave/issues/1253
+    url: "https://github.com/anton-abyzov/specweave/issues/1253"
 ---
 # US-007: Marketplace Health Monitoring Endpoint
 

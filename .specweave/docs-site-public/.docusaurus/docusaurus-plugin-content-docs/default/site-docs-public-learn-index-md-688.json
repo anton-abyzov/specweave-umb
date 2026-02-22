@@ -1,0 +1,27 @@
+{
+  "id": "learn/index",
+  "title": "Learn",
+  "description": "Learn documentation",
+  "source": "@site/../docs/public/learn/index.md",
+  "sourceDirName": "learn",
+  "slug": "/learn",
+  "permalink": "/learn",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Learn",
+    "sidebar_label": "Overview",
+    "slug": "/learn"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "SpecWeave Integration Guide for Non-Claude AI Tools",
+    "permalink": "/integrations/generic-ai-tools"
+  },
+  "next": {
+    "title": "Backend Fundamentals",
+    "permalink": "/learn/backend/backend-fundamentals"
+  }
+}

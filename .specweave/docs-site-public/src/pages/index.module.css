@@ -1,0 +1,254 @@
+/* ===== Animations ===== */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Hero Banner ===== */
+.heroBanner {
+  padding: 6rem 0 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #3730a3 0%, #4f46e5 30%, #6366f1 60%, #818cf8 100%);
+  color: white;
+}
+
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+[data-theme='dark'] .heroBanner {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #3730a3 60%, #4338ca 100%);
+}
+
+/* ===== Hero Title ===== */
+.heroTitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: white;
+  line-height: 1.2;
+  position: relative;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* ===== Brand Name — gradient shimmer text ===== */
+.brandName {
+  display: block;
+  font-size: 4.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #e0e7ff 25%,
+    #ffffff 50%,
+    #c7d2fe 75%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 6s linear infinite, fadeInUp 0.5s ease-out;
+  filter: drop-shadow(0 2px 30px rgba(255, 255, 255, 0.2));
+}
+
+/* ===== "DOCUMENTATION" label ===== */
+.heroWord {
+  display: inline-block;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.2rem;
+  animation: fadeInUp 0.7s ease-out;
+}
+
+/* ===== Tagline ===== */
+.heroSubtitle {
+  font-size: 1.15rem;
+  opacity: 0;
+  max-width: 500px;
+  margin: 1.5rem auto;
+  padding: 0 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  animation: fadeInUp 0.8s ease-out 0.1s forwards;
+}
+
+/* ===== CTA Button ===== */
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  animation: fadeInUp 0.9s ease-out 0.2s both;
+}
+
+.buttons a {
+  background: rgba(255, 255, 255, 0.95);
+  color: #4f46e5;
+  border: none;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 0.85rem 2.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.buttons a:hover {
+  background: white;
+  color: #3730a3;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+/* ===== Category Grid ===== */
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0 2rem;
+}
+
+.categoryCard {
+  background: var(--ifm-card-background-color, white);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 14px;
+  padding: 1.75rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none !important;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.categoryCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-primary-light));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.categoryCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+  border-color: var(--ifm-color-primary-lightest);
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.categoryCard:hover::after {
+  opacity: 1;
+}
+
+[data-theme='dark'] .categoryCard:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+.categoryCard h3 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.categoryCard p {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.5;
+}
+
+.categoryIcon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.docCount {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-500);
+  font-weight: 500;
+}
+
+/* ===== Empty State ===== */
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.emptyState p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 3.5rem 1.5rem 3rem;
+  }
+
+  .brandName {
+    font-size: 3.25rem;
+  }
+
+  .heroWord {
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+  }
+
+  .categoryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .categoryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .brandName {
+    font-size: 2.5rem;
+  }
+
+  .heroWord {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/git",
+  "title": "Git",
+  "description": "Category: Infrastructure & DevOps",
+  "source": "@site/../docs/public/glossary/terms/git.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/git",
+  "permalink": "/glossary/terms/git",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "FDA (Food and Drug Administration) - Medical Device Software Regulations",
+    "permalink": "/glossary/terms/fda"
+  },
+  "next": {
+    "title": "GitHub Actions",
+    "permalink": "/glossary/terms/github-actions"
+  }
+}

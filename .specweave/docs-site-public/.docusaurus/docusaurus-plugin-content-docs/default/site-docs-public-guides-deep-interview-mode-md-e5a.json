@@ -1,0 +1,23 @@
+{
+  "id": "guides/deep-interview-mode",
+  "title": "Deep Interview Mode",
+  "description": "Version: 1.0.195+",
+  "source": "@site/../docs/public/guides/deep-interview-mode.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/deep-interview-mode",
+  "permalink": "/guides/deep-interview-mode",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Cost Optimization Guide",
+    "permalink": "/guides/cost-optimization"
+  },
+  "next": {
+    "title": "SpecWeave Installation",
+    "permalink": "/guides/getting-started/installation"
+  }
+}

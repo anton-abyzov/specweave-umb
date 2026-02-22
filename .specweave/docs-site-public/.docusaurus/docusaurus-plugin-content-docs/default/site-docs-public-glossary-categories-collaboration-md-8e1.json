@@ -1,0 +1,27 @@
+{
+  "id": "glossary/categories/collaboration-category",
+  "title": "Collaboration & Management",
+  "description": "Understanding agile methodologies, project management, and team collaboration practices.",
+  "source": "@site/../docs/public/glossary/categories/collaboration.md",
+  "sourceDirName": "glossary/categories",
+  "slug": "/glossary/categories/collaboration-category",
+  "permalink": "/glossary/categories/collaboration-category",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "collaboration-category",
+    "title": "Collaboration & Management",
+    "sidebar_label": "Collaboration & Management"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Glossary Category Pages - Completion Report",
+    "permalink": "/glossary/categories/category-pages-complete"
+  },
+  "next": {
+    "title": "DevOps & Tools",
+    "permalink": "/glossary/categories/devops-category"
+  }
+}

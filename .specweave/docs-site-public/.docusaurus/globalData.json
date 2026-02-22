@@ -1,0 +1,973 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/",
+          "mainDocId": "README",
+          "docs": [
+            {
+              "id": "academy/README",
+              "path": "/academy/",
+              "sidebar": "docs"
+            },
+            {
+              "id": "academy/videos/_TEMPLATE",
+              "path": "/academy/videos/_TEMPLATE",
+              "sidebar": "docs"
+            },
+            {
+              "id": "academy/videos/clawhub-postmortem",
+              "path": "/academy/videos/clawhub-postmortem",
+              "sidebar": "docs"
+            },
+            {
+              "id": "academy/videos/specweave-complete-masterclass",
+              "path": "/academy/videos/specweave-complete-masterclass",
+              "sidebar": "docs"
+            },
+            {
+              "id": "academy/videos/stop-repeating-yourself",
+              "path": "/academy/videos/stop-repeating-yourself",
+              "sidebar": "docs"
+            },
+            {
+              "id": "academy/videos/toxicskills-security",
+              "path": "/academy/videos/toxicskills-security",
+              "sidebar": "docs"
+            },
+            {
+              "id": "api/README",
+              "path": "/api/",
+              "sidebar": "docs"
+            },
+            {
+              "id": "commands/abandon",
+              "path": "/commands/abandon",
+              "sidebar": "docs"
+            },
+            {
+              "id": "commands/auto",
+              "path": "/commands/auto",
+              "sidebar": "docs"
+            },
+            {
+              "id": "commands/auto-status",
+              "path": "/commands/auto-status",
+              "sidebar": "docs"
+            },
+            {
+              "id": "commands/cancel-auto",
+              "path": "/commands/cancel-auto",
+              "sidebar": "docs"
+            },
+            {
+              "id": "commands/do",
+              "path": "/commands/do",
+              "sidebar": "docs"
+            },
+            {
+              "id": "commands/index",
+              "path": "/commands",
+              "sidebar": "docs"
+            },
+            {
+              "id": "commands/jobs",
+              "path": "/commands/jobs",
+              "sidebar": "docs"
+            },
+            {
+              "id": "commands/overview",
+              "path": "/commands/overview",
+              "sidebar": "docs"
+            },
+            {
+              "id": "commands/pause",
+              "path": "/commands/pause",
+              "sidebar": "docs"
+            },
+            {
+              "id": "commands/resume",
+              "path": "/commands/resume",
+              "sidebar": "docs"
+            },
+            {
+              "id": "commands/status",
+              "path": "/commands/status",
+              "sidebar": "docs"
+            },
+            {
+              "id": "commands/status-management",
+              "path": "/commands/status-management",
+              "sidebar": "docs"
+            },
+            {
+              "id": "development/claude-cli-automation",
+              "path": "/development/claude-cli-automation",
+              "sidebar": "docs"
+            },
+            {
+              "id": "development/index",
+              "path": "/development",
+              "sidebar": "docs"
+            },
+            {
+              "id": "faq",
+              "path": "/faq",
+              "sidebar": "docs"
+            },
+            {
+              "id": "features",
+              "path": "/features",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/categories/architecture-category",
+              "path": "/glossary/categories/architecture-category",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/categories/backend-category",
+              "path": "/glossary/categories/backend-category",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/categories/category-pages-complete",
+              "path": "/glossary/categories/category-pages-complete",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/categories/collaboration-category",
+              "path": "/glossary/categories/collaboration-category",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/categories/devops-category",
+              "path": "/glossary/categories/devops-category",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/categories/frontend-category",
+              "path": "/glossary/categories/frontend-category",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/categories/infrastructure-category",
+              "path": "/glossary/categories/infrastructure-category",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/categories/ml-ai-category",
+              "path": "/glossary/categories/ml-ai-category",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/categories/performance-category",
+              "path": "/glossary/categories/performance-category",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/categories/testing-category",
+              "path": "/glossary/categories/testing-category",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/glossary",
+              "path": "/glossary/",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/index-by-category",
+              "path": "/glossary/index-by-category",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/ac-id",
+              "path": "/glossary/terms/ac-id",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/acceptance-criteria",
+              "path": "/glossary/terms/acceptance-criteria",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/adr",
+              "path": "/glossary/terms/adr",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/angular",
+              "path": "/glossary/terms/angular",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/api",
+              "path": "/glossary/terms/api",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/bdd",
+              "path": "/glossary/terms/bdd",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/bidirectional-sync",
+              "path": "/glossary/terms/bidirectional-sync",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/brownfield",
+              "path": "/glossary/terms/brownfield",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/ci-cd",
+              "path": "/glossary/terms/ci-cd",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/content-classification",
+              "path": "/glossary/terms/content-classification",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/copied-acs-and-tasks",
+              "path": "/glossary/terms/copied-acs-and-tasks",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/cross-linking",
+              "path": "/glossary/terms/cross-linking",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/docker",
+              "path": "/glossary/terms/docker",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/docusaurus-frontmatter",
+              "path": "/glossary/terms/docusaurus-frontmatter",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/e2e",
+              "path": "/glossary/terms/e2e",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/fda",
+              "path": "/glossary/terms/fda",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/git",
+              "path": "/glossary/terms/git",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/github-actions",
+              "path": "/glossary/terms/github-actions",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/graphql",
+              "path": "/glossary/terms/graphql",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/greenfield",
+              "path": "/glossary/terms/greenfield",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/hipaa",
+              "path": "/glossary/terms/hipaa",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/hooks",
+              "path": "/glossary/terms/hooks",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/iac",
+              "path": "/glossary/terms/iac",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/increments",
+              "path": "/glossary/terms/increments",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/integration-testing",
+              "path": "/glossary/terms/integration-testing",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/intelligent-living-docs-sync",
+              "path": "/glossary/terms/intelligent-living-docs-sync",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/kubernetes",
+              "path": "/glossary/terms/kubernetes",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/living-docs",
+              "path": "/glossary/terms/living-docs",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/microservices",
+              "path": "/glossary/terms/microservices",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/monolith",
+              "path": "/glossary/terms/monolith",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/nextjs",
+              "path": "/glossary/terms/nextjs",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/nodejs",
+              "path": "/glossary/terms/nodejs",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/playwright",
+              "path": "/glossary/terms/playwright",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/profile-based-sync",
+              "path": "/glossary/terms/profile-based-sync",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/project-detection",
+              "path": "/glossary/terms/project-detection",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/project-specific-tasks",
+              "path": "/glossary/terms/project-specific-tasks",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/react",
+              "path": "/glossary/terms/react",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/rest",
+              "path": "/glossary/terms/rest",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/rfc",
+              "path": "/glossary/terms/rfc",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/role-orchestrator",
+              "path": "/glossary/terms/role-orchestrator",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/skills-vs-agents",
+              "path": "/glossary/terms/skills-vs-agents",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/soc2",
+              "path": "/glossary/terms/soc2",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/source-of-truth",
+              "path": "/glossary/terms/source-of-truth",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/spa",
+              "path": "/glossary/terms/spa",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/specs",
+              "path": "/glossary/terms/specs",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/ssg",
+              "path": "/glossary/terms/ssg",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/ssr",
+              "path": "/glossary/terms/ssr",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/strategic-init",
+              "path": "/glossary/terms/strategic-init",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/tdd",
+              "path": "/glossary/terms/tdd",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/terraform",
+              "path": "/glossary/terms/terraform",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/test-coverage",
+              "path": "/glossary/terms/test-coverage",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/test-pyramid",
+              "path": "/glossary/terms/test-pyramid",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/three-layer-architecture",
+              "path": "/glossary/terms/three-layer-architecture",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/three-permission-architecture",
+              "path": "/glossary/terms/three-permission-architecture",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/typescript",
+              "path": "/glossary/terms/typescript",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/unit-testing",
+              "path": "/glossary/terms/unit-testing",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/user-stories",
+              "path": "/glossary/terms/user-stories",
+              "sidebar": "docs"
+            },
+            {
+              "id": "glossary/terms/wip-limits",
+              "path": "/glossary/terms/wip-limits",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/ado-multi-project-migration",
+              "path": "/guides/ado-multi-project-migration",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/autonomous-execution",
+              "path": "/guides/autonomous-execution",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/backlog-management",
+              "path": "/guides/backlog-management",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/best-practices",
+              "path": "/guides/best-practices",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/bidirectional-linking",
+              "path": "/guides/bidirectional-linking",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/command-reference-by-priority",
+              "path": "/guides/command-reference-by-priority",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/compliance-standards",
+              "path": "/guides/compliance-standards",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/core-concepts/background-jobs",
+              "path": "/guides/core-concepts/background-jobs",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/core-concepts/living-docs-sync-strategy",
+              "path": "/guides/core-concepts/living-docs-sync-strategy",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/core-concepts/living-documentation",
+              "path": "/guides/core-concepts/living-documentation",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/core-concepts/what-is-an-increment",
+              "path": "/guides/core-concepts/what-is-an-increment",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/cost-optimization",
+              "path": "/guides/cost-optimization",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/deep-interview-mode",
+              "path": "/guides/deep-interview-mode",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/getting-started/installation",
+              "path": "/guides/getting-started/installation",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/getting-started/nvm-global-packages-fix",
+              "path": "/guides/getting-started/nvm-global-packages-fix",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/getting-started/quickstart",
+              "path": "/guides/getting-started/quickstart",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/github-action-setup",
+              "path": "/guides/github-action-setup",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/github-integration",
+              "path": "/guides/github-integration",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/hierarchy-mapping",
+              "path": "/guides/hierarchy-mapping",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/increment-status-reference",
+              "path": "/guides/increment-status-reference",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/index",
+              "path": "/guides",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/intelligent-living-docs-sync",
+              "path": "/guides/intelligent-living-docs-sync",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/kafka-advanced-usage",
+              "path": "/guides/kafka-advanced-usage",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/kafka-getting-started",
+              "path": "/guides/kafka-getting-started",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/kafka-terraform",
+              "path": "/guides/kafka-terraform",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/kafka-troubleshooting",
+              "path": "/guides/kafka-troubleshooting",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/meta-capability",
+              "path": "/guides/meta-capability",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/migration-v024",
+              "path": "/guides/migration-v024",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/migration-v031-project-fields",
+              "path": "/guides/migration-v031-project-fields",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/mobile/react-native-setup-guide",
+              "path": "/guides/mobile/react-native-setup-guide",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/model-selection",
+              "path": "/guides/model-selection",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/multi-project-setup",
+              "path": "/guides/multi-project-setup",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/multi-project-sync-architecture",
+              "path": "/guides/multi-project-sync-architecture",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/multilingual-guide",
+              "path": "/guides/multilingual-guide",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/openclaw-agent-setup",
+              "path": "/guides/openclaw-agent-setup",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/plugin-management",
+              "path": "/guides/plugin-management",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/project-specific-tasks",
+              "path": "/guides/project-specific-tasks",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/repository-selection",
+              "path": "/guides/repository-selection",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/scheduling-and-planning",
+              "path": "/guides/scheduling-and-planning",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/spec-bidirectional-sync",
+              "path": "/guides/spec-bidirectional-sync",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/spec-commit-sync",
+              "path": "/guides/spec-commit-sync",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/specs-organization-guide",
+              "path": "/guides/specs-organization-guide",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/specweave-vs-speckit",
+              "path": "/guides/specweave-vs-speckit",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/status-sync-guide",
+              "path": "/guides/status-sync-guide",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/status-sync-migration",
+              "path": "/guides/status-sync-migration",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/strategic-init",
+              "path": "/guides/strategic-init",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/sync-configuration",
+              "path": "/guides/sync-configuration",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/sync-strategies",
+              "path": "/guides/sync-strategies",
+              "sidebar": "docs"
+            },
+            {
+              "id": "guides/why-verified-skill-matters",
+              "path": "/guides/why-verified-skill-matters",
+              "sidebar": "docs"
+            },
+            {
+              "id": "integrations/generic-ai-tools",
+              "path": "/integrations/generic-ai-tools",
+              "sidebar": "docs"
+            },
+            {
+              "id": "integrations/index",
+              "path": "/integrations",
+              "sidebar": "docs"
+            },
+            {
+              "id": "integrations/issue-trackers",
+              "path": "/integrations/issue-trackers",
+              "sidebar": "docs"
+            },
+            {
+              "id": "learn/backend/backend-fundamentals",
+              "path": "/learn/backend/backend-fundamentals",
+              "sidebar": "docs"
+            },
+            {
+              "id": "learn/foundations/claude-code-basics",
+              "path": "/learn/foundations/claude-code-basics",
+              "sidebar": "docs"
+            },
+            {
+              "id": "learn/foundations/enterprise-app-development",
+              "path": "/learn/foundations/enterprise-app-development",
+              "sidebar": "docs"
+            },
+            {
+              "id": "learn/foundations/software-engineering-roles",
+              "path": "/learn/foundations/software-engineering-roles",
+              "sidebar": "docs"
+            },
+            {
+              "id": "learn/foundations/terminal-empowerment",
+              "path": "/learn/foundations/terminal-empowerment",
+              "sidebar": "docs"
+            },
+            {
+              "id": "learn/frontend/frontend-fundamentals",
+              "path": "/learn/frontend/frontend-fundamentals",
+              "sidebar": "docs"
+            },
+            {
+              "id": "learn/index",
+              "path": "/learn",
+              "sidebar": "docs"
+            },
+            {
+              "id": "learn/infrastructure/iac-fundamentals",
+              "path": "/learn/infrastructure/iac-fundamentals",
+              "sidebar": "docs"
+            },
+            {
+              "id": "learn/ml-ai/ml-fundamentals",
+              "path": "/learn/ml-ai/ml-fundamentals",
+              "sidebar": "docs"
+            },
+            {
+              "id": "learn/testing/cli-integration-testing",
+              "path": "/learn/testing/cli-integration-testing",
+              "sidebar": "docs"
+            },
+            {
+              "id": "learn/testing/testing-fundamentals",
+              "path": "/learn/testing/testing-fundamentals",
+              "sidebar": "docs"
+            },
+            {
+              "id": "marketing/dev-to-article-clean",
+              "path": "/marketing/dev-to-article-clean",
+              "sidebar": "docs"
+            },
+            {
+              "id": "marketing/hooks-skill-workaround-posts",
+              "path": "/marketing/hooks-skill-workaround-posts",
+              "sidebar": "docs"
+            },
+            {
+              "id": "marketing/index",
+              "path": "/marketing",
+              "sidebar": "docs"
+            },
+            {
+              "id": "marketing/thariq-skills-response",
+              "path": "/marketing/thariq-skills-response",
+              "sidebar": "docs"
+            },
+            {
+              "id": "marketing/toxicskills-security-posts",
+              "path": "/marketing/toxicskills-security-posts",
+              "sidebar": "docs"
+            },
+            {
+              "id": "metrics",
+              "path": "/metrics",
+              "sidebar": "docs"
+            },
+            {
+              "id": "overview/features",
+              "path": "/overview/features",
+              "sidebar": "docs"
+            },
+            {
+              "id": "overview/index",
+              "path": "/overview",
+              "sidebar": "docs"
+            },
+            {
+              "id": "overview/introduction",
+              "path": "/overview/introduction",
+              "sidebar": "docs"
+            },
+            {
+              "id": "overview/philosophy",
+              "path": "/overview/philosophy",
+              "sidebar": "docs"
+            },
+            {
+              "id": "overview/plugins-ecosystem",
+              "path": "/overview/plugins-ecosystem",
+              "sidebar": "docs"
+            },
+            {
+              "id": "README",
+              "path": "/",
+              "sidebar": "docs"
+            },
+            {
+              "id": "reference/cost-tracking",
+              "path": "/reference/cost-tracking",
+              "sidebar": "docs"
+            },
+            {
+              "id": "reference/index",
+              "path": "/reference",
+              "sidebar": "docs"
+            },
+            {
+              "id": "scripts/duplicate-skill-loading-analysis",
+              "path": "/scripts/duplicate-skill-loading-analysis",
+              "sidebar": "docs"
+            },
+            {
+              "id": "scripts/index",
+              "path": "/scripts",
+              "sidebar": "docs"
+            },
+            {
+              "id": "scripts/linking-report",
+              "path": "/scripts/linking-report",
+              "sidebar": "docs"
+            },
+            {
+              "id": "scripts/linking-summary",
+              "path": "/scripts/linking-summary",
+              "sidebar": "docs"
+            },
+            {
+              "id": "scripts/phase-2-complete",
+              "path": "/scripts/phase-2-complete",
+              "sidebar": "docs"
+            },
+            {
+              "id": "troubleshooting/index",
+              "path": "/troubleshooting",
+              "sidebar": "docs"
+            },
+            {
+              "id": "troubleshooting/plugin-auto-reinstall",
+              "path": "/troubleshooting/plugin-auto-reinstall",
+              "sidebar": "docs"
+            },
+            {
+              "id": "troubleshooting/plugin-enabled-state-corruption",
+              "path": "/troubleshooting/plugin-enabled-state-corruption",
+              "sidebar": "docs"
+            },
+            {
+              "id": "troubleshooting/plugin-naming-conventions",
+              "path": "/troubleshooting/plugin-naming-conventions",
+              "sidebar": "docs"
+            },
+            {
+              "id": "troubleshooting/prompt-too-long-context-exhaustion",
+              "path": "/troubleshooting/prompt-too-long-context-exhaustion",
+              "sidebar": "docs"
+            },
+            {
+              "id": "troubleshooting/react-native-expo-crashes",
+              "path": "/troubleshooting/react-native-expo-crashes",
+              "sidebar": "docs"
+            },
+            {
+              "id": "troubleshooting/skill-name-prefix-stripping",
+              "path": "/troubleshooting/skill-name-prefix-stripping",
+              "sidebar": "docs"
+            },
+            {
+              "id": "troubleshooting/skill-truncation-budget",
+              "path": "/troubleshooting/skill-truncation-budget",
+              "sidebar": "docs"
+            },
+            {
+              "id": "troubleshooting/vscode-debug-child-processes",
+              "path": "/troubleshooting/vscode-debug-child-processes",
+              "sidebar": "docs"
+            },
+            {
+              "id": "workflows/brownfield",
+              "path": "/workflows/brownfield",
+              "sidebar": "docs"
+            },
+            {
+              "id": "workflows/implementation",
+              "path": "/workflows/implementation",
+              "sidebar": "docs"
+            },
+            {
+              "id": "workflows/index",
+              "path": "/workflows",
+              "sidebar": "docs"
+            },
+            {
+              "id": "workflows/overview",
+              "path": "/workflows/overview",
+              "sidebar": "docs"
+            },
+            {
+              "id": "workflows/planning",
+              "path": "/workflows/planning",
+              "sidebar": "docs"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "docs": {
+              "link": {
+                "path": "/academy/",
+                "label": "Academy"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

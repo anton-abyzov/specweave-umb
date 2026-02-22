@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/nextjs",
+  "title": "Next.js",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/nextjs.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/nextjs",
+  "permalink": "/glossary/terms/nextjs",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "nextjs",
+    "title": "Next.js",
+    "sidebar_label": "Next.js"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Monolith",
+    "permalink": "/glossary/terms/monolith"
+  },
+  "next": {
+    "title": "Node.js",
+    "permalink": "/glossary/terms/nodejs"
+  }
+}

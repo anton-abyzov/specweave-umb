@@ -1,0 +1,23 @@
+{
+  "id": "overview/features",
+  "title": "Key Features",
+  "description": "SpecWeave provides a comprehensive suite of tools and workflows for building production-grade software with AI assistance.",
+  "source": "@site/../docs/public/overview/features.md",
+  "sourceDirName": "overview",
+  "slug": "/overview/features",
+  "permalink": "/overview/features",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Plugin Ecosystem",
+    "permalink": "/overview/plugins-ecosystem"
+  },
+  "next": {
+    "title": "What is SpecWeave?",
+    "permalink": "/overview/introduction"
+  }
+}

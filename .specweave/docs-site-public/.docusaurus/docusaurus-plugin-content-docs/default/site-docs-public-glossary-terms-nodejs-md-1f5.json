@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/nodejs",
+  "title": "Node.js",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/nodejs.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/nodejs",
+  "permalink": "/glossary/terms/nodejs",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "nodejs",
+    "title": "Node.js",
+    "sidebar_label": "Node.js"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Next.js",
+    "permalink": "/glossary/terms/nextjs"
+  },
+  "next": {
+    "title": "Playwright",
+    "permalink": "/glossary/terms/playwright"
+  }
+}

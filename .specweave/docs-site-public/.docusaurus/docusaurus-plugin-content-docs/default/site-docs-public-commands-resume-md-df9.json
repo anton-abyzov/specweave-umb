@@ -1,0 +1,26 @@
+{
+  "id": "commands/resume",
+  "title": "resume",
+  "description": "System command used by SpecWeave to resume paused increments when blockages are resolved.",
+  "source": "@site/../docs/public/commands/resume.md",
+  "sourceDirName": "commands",
+  "slug": "/commands/resume",
+  "permalink": "/commands/resume",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "/sw:do - Execute Tasks",
+    "permalink": "/commands/do"
+  },
+  "next": {
+    "title": "abandon",
+    "permalink": "/commands/abandon"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "troubleshooting/index",
+  "title": "Troubleshooting",
+  "description": "Debugging guides and known issues",
+  "source": "@site/../docs/public/troubleshooting/index.md",
+  "sourceDirName": "troubleshooting",
+  "slug": "/troubleshooting",
+  "permalink": "/troubleshooting",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Troubleshooting",
+    "sidebar_label": "Overview",
+    "slug": "/troubleshooting"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "🎉 Phase 2 Complete: Top 5 Critical Pages Enhanced!",
+    "permalink": "/scripts/phase-2-complete"
+  },
+  "next": {
+    "title": "\"Prompt is Too Long\" — Context Exhaustion",
+    "permalink": "/troubleshooting/prompt-too-long-context-exhaustion"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "overview/index",
+  "title": "Overview",
+  "description": "Overview documentation",
+  "source": "@site/../docs/public/overview/index.md",
+  "sourceDirName": "overview",
+  "slug": "/overview",
+  "permalink": "/overview",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Overview",
+    "sidebar_label": "Overview",
+    "slug": "/overview"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "DORA Metrics Dashboard",
+    "permalink": "/metrics"
+  },
+  "next": {
+    "title": "Plugin Ecosystem",
+    "permalink": "/overview/plugins-ecosystem"
+  }
+}

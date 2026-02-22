@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/role-orchestrator",
+  "title": "Role Orchestrator",
+  "description": "Role Orchestrator is SpecWeave's multi-agent coordination system that sequences specialized AI agents (PM, Architect, Tech Lead, QA, DevOps) to work together on complex tasks.",
+  "source": "@site/../docs/public/glossary/terms/role-orchestrator.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/role-orchestrator",
+  "permalink": "/glossary/terms/role-orchestrator",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "role-orchestrator",
+    "title": "Role Orchestrator",
+    "sidebar_label": "Role Orchestrator"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "RFC",
+    "permalink": "/glossary/terms/rfc"
+  },
+  "next": {
+    "title": "Skills vs Agents",
+    "permalink": "/glossary/terms/skills-vs-agents"
+  }
+}

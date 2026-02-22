@@ -1,0 +1,27 @@
+{
+  "id": "commands/index",
+  "title": "Commands",
+  "description": "Commands documentation",
+  "source": "@site/../docs/public/commands/index.md",
+  "sourceDirName": "commands",
+  "slug": "/commands",
+  "permalink": "/commands",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Commands",
+    "sidebar_label": "Overview",
+    "slug": "/commands"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "API",
+    "permalink": "/api/"
+  },
+  "next": {
+    "title": "Commands Overview",
+    "permalink": "/commands/overview"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "marketing/dev-to-article-clean",
+  "title": "Claude Code Hook Limitations: No Skill Invocation & Lazy Plugin Loading (And How I Solved It)",
+  "description": "Hooks can't invoke skills. Here's the solution that enables lazy plugin loading and deterministic AI workflows.",
+  "source": "@site/../docs/public/marketing/dev-to-article-clean.md",
+  "sourceDirName": "marketing",
+  "slug": "/marketing/dev-to-article-clean",
+  "permalink": "/marketing/dev-to-article-clean",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "claudecode",
+      "permalink": "/tags/claudecode"
+    },
+    {
+      "inline": true,
+      "label": "ai",
+      "permalink": "/tags/ai"
+    },
+    {
+      "inline": true,
+      "label": "webdev",
+      "permalink": "/tags/webdev"
+    },
+    {
+      "inline": true,
+      "label": "productivity",
+      "permalink": "/tags/productivity"
+    }
+  ],
+  "version": "current",
+  "frontMatter": {
+    "title": "Claude Code Hook Limitations: No Skill Invocation & Lazy Plugin Loading (And How I Solved It)",
+    "published": true,
+    "description": "Hooks can't invoke skills. Here's the solution that enables lazy plugin loading and deterministic AI workflows.",
+    "tags": [
+      "claudecode",
+      "ai",
+      "webdev",
+      "productivity"
+    ],
+    "cover_image": "https://spec-weave.com/img/specweave-social-card.jpg"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Overview",
+    "permalink": "/marketing"
+  },
+  "next": {
+    "title": "Bypassing Claude Code's Hook-Skill Limitation",
+    "permalink": "/marketing/hooks-skill-workaround-posts"
+  }
+}

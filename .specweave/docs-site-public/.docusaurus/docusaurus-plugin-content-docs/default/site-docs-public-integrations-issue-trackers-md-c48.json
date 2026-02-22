@@ -1,0 +1,27 @@
+{
+  "id": "integrations/issue-trackers",
+  "title": "Issue Tracker Integration",
+  "description": "SpecWeave integrates with Jira, GitHub Issues, and Azure DevOps to sync your increments with external project tracking tools.",
+  "source": "@site/../docs/public/integrations/issue-trackers.md",
+  "sourceDirName": "integrations",
+  "slug": "/integrations/issue-trackers",
+  "permalink": "/integrations/issue-trackers",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_label": "Issue Tracker Integration",
+    "sidebar_position": 1
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Overview",
+    "permalink": "/integrations"
+  },
+  "next": {
+    "title": "SpecWeave Integration Guide for Non-Claude AI Tools",
+    "permalink": "/integrations/generic-ai-tools"
+  }
+}

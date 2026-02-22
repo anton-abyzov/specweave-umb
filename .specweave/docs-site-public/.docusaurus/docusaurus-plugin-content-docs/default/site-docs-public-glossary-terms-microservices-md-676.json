@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/microservices",
+  "title": "Microservices",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/microservices.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/microservices",
+  "permalink": "/glossary/terms/microservices",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "microservices",
+    "title": "Microservices",
+    "sidebar_label": "Microservices"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Living Documentation",
+    "permalink": "/glossary/terms/living-docs"
+  },
+  "next": {
+    "title": "Monolith",
+    "permalink": "/glossary/terms/monolith"
+  }
+}

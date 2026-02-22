@@ -1,0 +1,23 @@
+{
+  "id": "reference/cost-tracking",
+  "title": "Cost Tracking Reference",
+  "description": "Technical reference for SpecWeave cost tracking system",
+  "source": "@site/../docs/public/reference/cost-tracking.md",
+  "sourceDirName": "reference",
+  "slug": "/reference/cost-tracking",
+  "permalink": "/reference/cost-tracking",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Overview",
+    "permalink": "/reference"
+  },
+  "next": {
+    "title": "Overview",
+    "permalink": "/scripts"
+  }
+}

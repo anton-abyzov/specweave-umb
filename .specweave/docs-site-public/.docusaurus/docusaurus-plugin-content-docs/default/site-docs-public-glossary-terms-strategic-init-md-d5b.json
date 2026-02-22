@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/strategic-init",
+  "title": "Strategic Init",
+  "description": "Strategic Init is SpecWeave's AI-powered project initialization that guides you through 6 research phases to determine optimal architecture, compliance requirements, team sizing, and cost estimates.",
+  "source": "@site/../docs/public/glossary/terms/strategic-init.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/strategic-init",
+  "permalink": "/glossary/terms/strategic-init",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "strategic-init",
+    "title": "Strategic Init",
+    "sidebar_label": "Strategic Init"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "SSR",
+    "permalink": "/glossary/terms/ssr"
+  },
+  "next": {
+    "title": "TDD (Test-Driven Development)",
+    "permalink": "/glossary/terms/tdd"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "workflows/implementation",
+  "title": "Implementation Workflow: The /specweave:do Command",
+  "description": "The implementation phase is where specs and plans become working code—with SpecWeave handling the tedious parts automatically.",
+  "source": "@site/../docs/public/workflows/implementation.md",
+  "sourceDirName": "workflows",
+  "slug": "/workflows/implementation",
+  "permalink": "/workflows/implementation",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Brownfield Workflow: Working with Existing Code",
+    "permalink": "/workflows/brownfield"
+  },
+  "next": {
+    "title": "Workflows: The Complete Journey",
+    "permalink": "/workflows/overview"
+  }
+}

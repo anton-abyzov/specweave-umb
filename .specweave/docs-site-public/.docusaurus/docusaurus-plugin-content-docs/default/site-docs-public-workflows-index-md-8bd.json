@@ -1,0 +1,27 @@
+{
+  "id": "workflows/index",
+  "title": "Workflows",
+  "description": "Workflows documentation",
+  "source": "@site/../docs/public/workflows/index.md",
+  "sourceDirName": "workflows",
+  "slug": "/workflows",
+  "permalink": "/workflows",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Workflows",
+    "sidebar_label": "Overview",
+    "slug": "/workflows"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "VSCode Debug Mode: Child Process Failures",
+    "permalink": "/troubleshooting/vscode-debug-child-processes"
+  },
+  "next": {
+    "title": "Brownfield Workflow: Working with Existing Code",
+    "permalink": "/workflows/brownfield"
+  }
+}

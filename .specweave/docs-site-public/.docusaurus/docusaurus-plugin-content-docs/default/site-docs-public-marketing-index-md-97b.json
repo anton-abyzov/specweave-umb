@@ -1,0 +1,27 @@
+{
+  "id": "marketing/index",
+  "title": "Marketing",
+  "description": "Marketing documentation",
+  "source": "@site/../docs/public/marketing/index.md",
+  "sourceDirName": "marketing",
+  "slug": "/marketing",
+  "permalink": "/marketing",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Marketing",
+    "sidebar_label": "Overview",
+    "slug": "/marketing"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Testing Fundamentals",
+    "permalink": "/learn/testing/testing-fundamentals"
+  },
+  "next": {
+    "title": "Claude Code Hook Limitations: No Skill Invocation & Lazy Plugin Loading (And How I Solved It)",
+    "permalink": "/marketing/dev-to-article-clean"
+  }
+}

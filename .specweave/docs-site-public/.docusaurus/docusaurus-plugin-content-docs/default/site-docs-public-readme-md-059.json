@@ -1,0 +1,23 @@
+{
+  "id": "README",
+  "title": "Public Documentation",
+  "description": "This documentation IS published publicly. It is customer-facing and should contain no secrets or internal details.",
+  "source": "@site/../docs/public/README.md",
+  "sourceDirName": ".",
+  "slug": "/",
+  "permalink": "/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Planning Workflow: From Idea to Tasks",
+    "permalink": "/workflows/planning"
+  },
+  "next": {
+    "title": "SpecWeave Features & Capabilities",
+    "permalink": "/features"
+  }
+}

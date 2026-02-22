@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/test-pyramid",
+  "title": "Test Pyramid",
+  "description": "The Test Pyramid is a testing strategy that defines the ideal distribution of test types in a software project. It recommends having many unit tests, some integration tests, and few end-to-end tests to achieve optimal test coverage, speed, and reliability.",
+  "source": "@site/../docs/public/glossary/terms/test-pyramid.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/test-pyramid",
+  "permalink": "/glossary/terms/test-pyramid",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Test Coverage",
+    "permalink": "/glossary/terms/test-coverage"
+  },
+  "next": {
+    "title": "Three-Layer Architecture",
+    "permalink": "/glossary/terms/three-layer-architecture"
+  }
+}

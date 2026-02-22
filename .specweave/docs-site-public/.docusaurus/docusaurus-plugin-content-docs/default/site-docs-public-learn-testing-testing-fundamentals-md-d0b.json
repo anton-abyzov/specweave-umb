@@ -1,0 +1,40 @@
+{
+  "id": "learn/testing/testing-fundamentals",
+  "title": "Testing Fundamentals & Quality Assurance",
+  "description": "Comprehensive guide to software testing covering the testing pyramid, TDD, BDD, test levels, coverage metrics, CI/CD integration, and SpecWeave testing approach",
+  "source": "@site/../docs/public/learn/testing/testing-fundamentals.md",
+  "sourceDirName": "learn/testing",
+  "slug": "/learn/testing/testing-fundamentals",
+  "permalink": "/learn/testing/testing-fundamentals",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "testing-fundamentals",
+    "title": "Testing Fundamentals & Quality Assurance",
+    "sidebar_label": "Testing Fundamentals",
+    "description": "Comprehensive guide to software testing covering the testing pyramid, TDD, BDD, test levels, coverage metrics, CI/CD integration, and SpecWeave testing approach",
+    "keywords": [
+      "testing",
+      "quality assurance",
+      "TDD",
+      "BDD",
+      "test pyramid",
+      "unit testing",
+      "integration testing",
+      "E2E testing",
+      "test coverage",
+      "QA"
+    ]
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "CLI & Hook Integration Testing Guide",
+    "permalink": "/learn/testing/cli-integration-testing"
+  },
+  "next": {
+    "title": "Overview",
+    "permalink": "/marketing"
+  }
+}

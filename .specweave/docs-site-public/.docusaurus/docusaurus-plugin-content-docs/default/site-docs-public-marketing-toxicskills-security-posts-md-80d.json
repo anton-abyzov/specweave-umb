@@ -1,0 +1,66 @@
+{
+  "id": "marketing/toxicskills-security-posts",
+  "title": "ToxicSkills: 1 in 3 AI Agent Skills Has a Security Flaw",
+  "description": "How prompt injection, credential theft, and typosquatting are weaponizing the AI skills ecosystem - and what you can do about it",
+  "source": "@site/../docs/public/marketing/toxicskills-security-posts.md",
+  "sourceDirName": "marketing",
+  "slug": "/marketing/toxicskills-security-posts",
+  "permalink": "/marketing/toxicskills-security-posts",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "security",
+      "permalink": "/tags/security"
+    },
+    {
+      "inline": true,
+      "label": "ai-agents",
+      "permalink": "/tags/ai-agents"
+    },
+    {
+      "inline": true,
+      "label": "claude-code",
+      "permalink": "/tags/claude-code"
+    },
+    {
+      "inline": true,
+      "label": "specweave",
+      "permalink": "/tags/specweave"
+    },
+    {
+      "inline": true,
+      "label": "prompt-injection",
+      "permalink": "/tags/prompt-injection"
+    },
+    {
+      "inline": true,
+      "label": "supply-chain",
+      "permalink": "/tags/supply-chain"
+    }
+  ],
+  "version": "current",
+  "frontMatter": {
+    "title": "ToxicSkills: 1 in 3 AI Agent Skills Has a Security Flaw",
+    "description": "How prompt injection, credential theft, and typosquatting are weaponizing the AI skills ecosystem - and what you can do about it",
+    "date": "2026-02-15T00:00:00.000Z",
+    "tags": [
+      "security",
+      "ai-agents",
+      "claude-code",
+      "specweave",
+      "prompt-injection",
+      "supply-chain"
+    ]
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Response to Thariq's Skills Merge Announcement",
+    "permalink": "/marketing/thariq-skills-response"
+  },
+  "next": {
+    "title": "DORA Metrics Dashboard",
+    "permalink": "/metrics"
+  }
+}

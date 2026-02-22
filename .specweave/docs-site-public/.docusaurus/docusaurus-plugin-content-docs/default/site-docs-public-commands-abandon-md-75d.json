@@ -1,0 +1,26 @@
+{
+  "id": "commands/abandon",
+  "title": "abandon",
+  "description": "Permanently abandon an increment when requirements change or work becomes obsolete.",
+  "source": "@site/../docs/public/commands/abandon.md",
+  "sourceDirName": "commands",
+  "slug": "/commands/abandon",
+  "permalink": "/commands/abandon",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "resume",
+    "permalink": "/commands/resume"
+  },
+  "next": {
+    "title": "status",
+    "permalink": "/commands/status"
+  }
+}

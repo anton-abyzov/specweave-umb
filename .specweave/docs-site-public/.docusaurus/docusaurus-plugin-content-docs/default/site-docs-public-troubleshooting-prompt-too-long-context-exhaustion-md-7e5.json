@@ -1,0 +1,35 @@
+{
+  "id": "troubleshooting/prompt-too-long-context-exhaustion",
+  "title": "\"Prompt is Too Long\" — Context Exhaustion",
+  "description": "Why Claude Code shows \"prompt is too long\" during long sessions and how SpecWeave's increment-based workflow eliminates the problem",
+  "source": "@site/../docs/public/troubleshooting/prompt-too-long-context-exhaustion.md",
+  "sourceDirName": "troubleshooting",
+  "slug": "/troubleshooting/prompt-too-long-context-exhaustion",
+  "permalink": "/troubleshooting/prompt-too-long-context-exhaustion",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 8,
+  "frontMatter": {
+    "sidebar_position": 8,
+    "title": "\"Prompt is Too Long\" — Context Exhaustion",
+    "description": "Why Claude Code shows \"prompt is too long\" during long sessions and how SpecWeave's increment-based workflow eliminates the problem",
+    "keywords": [
+      "prompt too long",
+      "context window",
+      "context exhaustion",
+      "session restart",
+      "context evaporation"
+    ]
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Overview",
+    "permalink": "/troubleshooting"
+  },
+  "next": {
+    "title": "Troubleshooting: Plugins Keep Reinstalling",
+    "permalink": "/troubleshooting/plugin-auto-reinstall"
+  }
+}

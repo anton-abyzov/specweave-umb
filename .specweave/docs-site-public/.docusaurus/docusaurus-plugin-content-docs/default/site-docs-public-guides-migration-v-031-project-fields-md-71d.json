@@ -1,0 +1,23 @@
+{
+  "id": "guides/migration-v031-project-fields",
+  "title": "Migration Guide: spec.md Project/Board Fields (v0.31.0)",
+  "description": "Version: 0.31.0",
+  "source": "@site/../docs/public/guides/migration-v031-project-fields.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/migration-v031-project-fields",
+  "permalink": "/guides/migration-v031-project-fields",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Migration Guide: v0.23.x → v0.24.0",
+    "permalink": "/guides/migration-v024"
+  },
+  "next": {
+    "title": "React Native & Expo Setup Guide",
+    "permalink": "/guides/mobile/react-native-setup-guide"
+  }
+}

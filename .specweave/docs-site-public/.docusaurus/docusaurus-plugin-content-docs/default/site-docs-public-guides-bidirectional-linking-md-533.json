@@ -1,0 +1,23 @@
+{
+  "id": "guides/bidirectional-linking",
+  "title": "Bidirectional Task ↔ User Story Linking",
+  "description": "Status: Production Ready",
+  "source": "@site/../docs/public/guides/bidirectional-linking.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/bidirectional-linking",
+  "permalink": "/guides/bidirectional-linking",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Best Practices for SpecWeave with Claude Code",
+    "permalink": "/guides/best-practices"
+  },
+  "next": {
+    "title": "SpecWeave Command Reference - By Priority",
+    "permalink": "/guides/command-reference-by-priority"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/content-classification",
+  "title": "Content Classification",
+  "description": "Content Classification is SpecWeave's automatic system for categorizing documentation into nine distinct types (user stories, NFRs, architecture, ADRs, operations, delivery, strategy, governance, overview). Each category has specific detection patterns, confidence scoring, and target folders for intelligent organization.",
+  "source": "@site/../docs/public/glossary/terms/content-classification.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/content-classification",
+  "permalink": "/glossary/terms/content-classification",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "CI/CD",
+    "permalink": "/glossary/terms/ci-cd"
+  },
+  "next": {
+    "title": "COPIED ACs and Tasks",
+    "permalink": "/glossary/terms/copied-acs-and-tasks"
+  }
+}

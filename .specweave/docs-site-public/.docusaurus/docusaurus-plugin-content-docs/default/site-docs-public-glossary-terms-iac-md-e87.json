@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/iac",
+  "title": "IaC (Infrastructure as Code)",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/iac.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/iac",
+  "permalink": "/glossary/terms/iac",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "iac",
+    "title": "IaC (Infrastructure as Code)",
+    "sidebar_label": "IaC"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Hooks",
+    "permalink": "/glossary/terms/hooks"
+  },
+  "next": {
+    "title": "Increments",
+    "permalink": "/glossary/terms/increments"
+  }
+}

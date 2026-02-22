@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/monolith",
+  "title": "Monolith",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/monolith.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/monolith",
+  "permalink": "/glossary/terms/monolith",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "monolith",
+    "title": "Monolith",
+    "sidebar_label": "Monolith"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Microservices",
+    "permalink": "/glossary/terms/microservices"
+  },
+  "next": {
+    "title": "Next.js",
+    "permalink": "/glossary/terms/nextjs"
+  }
+}

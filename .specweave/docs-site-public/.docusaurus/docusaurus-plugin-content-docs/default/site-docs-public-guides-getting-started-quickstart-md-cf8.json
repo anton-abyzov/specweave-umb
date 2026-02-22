@@ -1,0 +1,23 @@
+{
+  "id": "guides/getting-started/quickstart",
+  "title": "Quick Start",
+  "description": "Get running in 30 seconds.",
+  "source": "@site/../docs/public/guides/getting-started/quickstart.md",
+  "sourceDirName": "guides/getting-started",
+  "slug": "/guides/getting-started/quickstart",
+  "permalink": "/guides/getting-started/quickstart",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Quick Fix: Global Packages Lost After Node Upgrade (nvm)",
+    "permalink": "/guides/getting-started/nvm-global-packages-fix"
+  },
+  "next": {
+    "title": "GitHub Actions Integration Setup Guide",
+    "permalink": "/guides/github-action-setup"
+  }
+}

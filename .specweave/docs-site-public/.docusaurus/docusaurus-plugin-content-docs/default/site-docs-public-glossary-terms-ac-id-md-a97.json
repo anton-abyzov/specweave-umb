@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/ac-id",
+  "title": "AC-ID (Acceptance Criteria Identifier)",
+  "description": "AC-ID is a unique identifier for acceptance criteria that enables complete traceability from specifications through implementation to tests. The format AC-US-{number} creates an unbroken chain of accountability ensuring every requirement is implemented and tested.",
+  "source": "@site/../docs/public/glossary/terms/ac-id.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/ac-id",
+  "permalink": "/glossary/terms/ac-id",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "By Category",
+    "permalink": "/glossary/index-by-category"
+  },
+  "next": {
+    "title": "Acceptance Criteria (AC)",
+    "permalink": "/glossary/terms/acceptance-criteria"
+  }
+}

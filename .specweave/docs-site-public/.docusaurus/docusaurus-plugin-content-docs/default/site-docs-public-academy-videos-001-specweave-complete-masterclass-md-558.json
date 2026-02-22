@@ -1,0 +1,24 @@
+{
+  "id": "academy/videos/specweave-complete-masterclass",
+  "title": "Video 001: Finally: A Framework That Works on Legacy, Startup, AND Enterprise",
+  "description": "The Complete SpecWeave Masterclass - From Zero to Production",
+  "source": "@site/../docs/public/academy/videos/001-specweave-complete-masterclass.md",
+  "sourceDirName": "academy/videos",
+  "slug": "/academy/videos/specweave-complete-masterclass",
+  "permalink": "/academy/videos/specweave-complete-masterclass",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "SpecWeave Academy",
+    "permalink": "/academy/"
+  },
+  "next": {
+    "title": "Video 002: The AI Skills Security Crisis — ToxicSkills Breakdown",
+    "permalink": "/academy/videos/toxicskills-security"
+  }
+}

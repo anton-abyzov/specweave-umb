@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/bidirectional-sync",
+  "title": "Bidirectional Sync",
+  "description": "⚠️ DEPRECATED as of v0.24.0: The \"bidirectional sync\" terminology has been replaced with the Three-Permission Architecture for more granular control.",
+  "source": "@site/../docs/public/glossary/terms/bidirectional-sync.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/bidirectional-sync",
+  "permalink": "/glossary/terms/bidirectional-sync",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "BDD (Behavior-Driven Development)",
+    "permalink": "/glossary/terms/bdd"
+  },
+  "next": {
+    "title": "Brownfield Development",
+    "permalink": "/glossary/terms/brownfield"
+  }
+}

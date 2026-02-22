@@ -1,0 +1,26 @@
+{
+  "id": "commands/jobs",
+  "title": "/specweave:jobs - Background Jobs Monitor",
+  "description": "Monitor and manage long-running background operations.",
+  "source": "@site/../docs/public/commands/jobs.md",
+  "sourceDirName": "commands",
+  "slug": "/commands/jobs",
+  "permalink": "/commands/jobs",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 15,
+  "frontMatter": {
+    "sidebar_position": 15
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "/sw:cancel-auto - Cancel Auto Session",
+    "permalink": "/commands/cancel-auto"
+  },
+  "next": {
+    "title": "Overview",
+    "permalink": "/development"
+  }
+}

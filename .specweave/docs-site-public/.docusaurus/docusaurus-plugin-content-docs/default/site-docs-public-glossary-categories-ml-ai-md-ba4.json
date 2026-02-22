@@ -1,0 +1,27 @@
+{
+  "id": "glossary/categories/ml-ai-category",
+  "title": "ML/AI & Machine Learning",
+  "description": "Understanding machine learning, artificial intelligence, and LLM-powered applications.",
+  "source": "@site/../docs/public/glossary/categories/ml-ai.md",
+  "sourceDirName": "glossary/categories",
+  "slug": "/glossary/categories/ml-ai-category",
+  "permalink": "/glossary/categories/ml-ai-category",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "ml-ai-category",
+    "title": "ML/AI & Machine Learning",
+    "sidebar_label": "ML/AI"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Infrastructure & Operations",
+    "permalink": "/glossary/categories/infrastructure-category"
+  },
+  "next": {
+    "title": "Performance & Scalability",
+    "permalink": "/glossary/categories/performance-category"
+  }
+}

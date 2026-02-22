@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/adr",
+  "title": "Architecture Decision Record (ADR)",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/adr.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/adr",
+  "permalink": "/glossary/terms/adr",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "adr",
+    "title": "Architecture Decision Record (ADR)",
+    "sidebar_label": "ADR"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Acceptance Criteria (AC)",
+    "permalink": "/glossary/terms/acceptance-criteria"
+  },
+  "next": {
+    "title": "Angular",
+    "permalink": "/glossary/terms/angular"
+  }
+}

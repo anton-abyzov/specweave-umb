@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/user-stories",
+  "title": "User Stories",
+  "description": "A User Story is a concise, user-focused description of a feature or requirement written from the perspective of the end user. User stories follow the format: \"As a [user type], I want [goal], so that [benefit]\". They serve as the primary unit of requirements in SpecWeave and are the foundation for implementation planning.",
+  "source": "@site/../docs/public/glossary/terms/user-stories.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/user-stories",
+  "permalink": "/glossary/terms/user-stories",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Unit Testing",
+    "permalink": "/glossary/terms/unit-testing"
+  },
+  "next": {
+    "title": "WIP Limits (Work In Progress)",
+    "permalink": "/glossary/terms/wip-limits"
+  }
+}

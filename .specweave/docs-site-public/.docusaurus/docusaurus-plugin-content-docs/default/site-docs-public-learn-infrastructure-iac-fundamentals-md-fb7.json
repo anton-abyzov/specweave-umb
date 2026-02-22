@@ -1,0 +1,27 @@
+{
+  "id": "learn/infrastructure/iac-fundamentals",
+  "title": "Infrastructure as Code Fundamentals",
+  "description": "Target Audience: Developers learning DevOps and infrastructure management",
+  "source": "@site/../docs/public/learn/infrastructure/iac-fundamentals.md",
+  "sourceDirName": "learn/infrastructure",
+  "slug": "/learn/infrastructure/iac-fundamentals",
+  "permalink": "/learn/infrastructure/iac-fundamentals",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "iac-fundamentals",
+    "title": "Infrastructure as Code Fundamentals",
+    "sidebar_label": "IaC Fundamentals"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Frontend Fundamentals",
+    "permalink": "/learn/frontend/frontend-fundamentals"
+  },
+  "next": {
+    "title": "ML/AI Integration",
+    "permalink": "/learn/ml-ai/ml-fundamentals"
+  }
+}

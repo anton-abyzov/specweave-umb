@@ -1,0 +1,60 @@
+{
+  "id": "marketing/hooks-skill-workaround-posts",
+  "title": "Bypassing Claude Code's Hook-Skill Limitation",
+  "description": "How to invoke skills from hooks when Claude Code doesn't support it natively",
+  "source": "@site/../docs/public/marketing/hooks-skill-workaround-posts.md",
+  "sourceDirName": "marketing",
+  "slug": "/marketing/hooks-skill-workaround-posts",
+  "permalink": "/marketing/hooks-skill-workaround-posts",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "claude-code",
+      "permalink": "/tags/claude-code"
+    },
+    {
+      "inline": true,
+      "label": "anthropic",
+      "permalink": "/tags/anthropic"
+    },
+    {
+      "inline": true,
+      "label": "ai-coding",
+      "permalink": "/tags/ai-coding"
+    },
+    {
+      "inline": true,
+      "label": "specweave",
+      "permalink": "/tags/specweave"
+    },
+    {
+      "inline": true,
+      "label": "developer-tools",
+      "permalink": "/tags/developer-tools"
+    }
+  ],
+  "version": "current",
+  "frontMatter": {
+    "title": "Bypassing Claude Code's Hook-Skill Limitation",
+    "description": "How to invoke skills from hooks when Claude Code doesn't support it natively",
+    "date": "2026-01-23T00:00:00.000Z",
+    "tags": [
+      "claude-code",
+      "anthropic",
+      "ai-coding",
+      "specweave",
+      "developer-tools"
+    ]
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Claude Code Hook Limitations: No Skill Invocation & Lazy Plugin Loading (And How I Solved It)",
+    "permalink": "/marketing/dev-to-article-clean"
+  },
+  "next": {
+    "title": "Response to Thariq's Skills Merge Announcement",
+    "permalink": "/marketing/thariq-skills-response"
+  }
+}

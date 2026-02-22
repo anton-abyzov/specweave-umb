@@ -1,0 +1,23 @@
+{
+  "id": "overview/introduction",
+  "title": "What is SpecWeave?",
+  "description": "SpecWeave is the AI development framework that doesn't lose your work.",
+  "source": "@site/../docs/public/overview/introduction.md",
+  "sourceDirName": "overview",
+  "slug": "/overview/introduction",
+  "permalink": "/overview/introduction",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Key Features",
+    "permalink": "/overview/features"
+  },
+  "next": {
+    "title": "Philosophy",
+    "permalink": "/overview/philosophy"
+  }
+}

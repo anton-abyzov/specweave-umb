@@ -1,0 +1,23 @@
+{
+  "id": "workflows/overview",
+  "title": "Workflows: The Complete Journey",
+  "description": "SpecWeave provides clear, repeatable workflows for every phase of software development—from initial concept to production deployment.",
+  "source": "@site/../docs/public/workflows/overview.md",
+  "sourceDirName": "workflows",
+  "slug": "/workflows/overview",
+  "permalink": "/workflows/overview",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Implementation Workflow: The /specweave:do Command",
+    "permalink": "/workflows/implementation"
+  },
+  "next": {
+    "title": "Planning Workflow: From Idea to Tasks",
+    "permalink": "/workflows/planning"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "guides/best-practices",
+  "title": "Best Practices for SpecWeave with Claude Code",
+  "description": "This guide combines SpecWeave's spec-driven methodology with Claude Code's best practices to maximize your productivity.",
+  "source": "@site/../docs/public/guides/best-practices.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/best-practices",
+  "permalink": "/guides/best-practices",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Backlog Management Guide",
+    "permalink": "/guides/backlog-management"
+  },
+  "next": {
+    "title": "Bidirectional Task ↔ User Story Linking",
+    "permalink": "/guides/bidirectional-linking"
+  }
+}

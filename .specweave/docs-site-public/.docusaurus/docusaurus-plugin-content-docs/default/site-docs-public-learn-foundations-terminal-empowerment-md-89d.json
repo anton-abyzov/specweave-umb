@@ -1,0 +1,36 @@
+{
+  "id": "learn/foundations/terminal-empowerment",
+  "title": "Terminal Empowerment - Your Superpower",
+  "description": "Why terminal gives you full control and simplifies everything - don't be afraid of it!",
+  "source": "@site/../docs/public/learn/foundations/terminal-empowerment.md",
+  "sourceDirName": "learn/foundations",
+  "slug": "/learn/foundations/terminal-empowerment",
+  "permalink": "/learn/foundations/terminal-empowerment",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "terminal-empowerment",
+    "title": "Terminal Empowerment - Your Superpower",
+    "sidebar_label": "Terminal Basics",
+    "description": "Why terminal gives you full control and simplifies everything - don't be afraid of it!",
+    "keywords": [
+      "terminal",
+      "command line",
+      "CLI",
+      "claude code",
+      "bash",
+      "developer tools"
+    ]
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Engineering Roles",
+    "permalink": "/learn/foundations/software-engineering-roles"
+  },
+  "next": {
+    "title": "Frontend Fundamentals",
+    "permalink": "/learn/frontend/frontend-fundamentals"
+  }
+}

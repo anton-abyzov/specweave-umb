@@ -1,0 +1,27 @@
+{
+  "id": "reference/index",
+  "title": "Reference",
+  "description": "Reference documentation",
+  "source": "@site/../docs/public/reference/index.md",
+  "sourceDirName": "reference",
+  "slug": "/reference",
+  "permalink": "/reference",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Reference",
+    "sidebar_label": "Overview",
+    "slug": "/reference"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Philosophy",
+    "permalink": "/overview/philosophy"
+  },
+  "next": {
+    "title": "Cost Tracking Reference",
+    "permalink": "/reference/cost-tracking"
+  }
+}

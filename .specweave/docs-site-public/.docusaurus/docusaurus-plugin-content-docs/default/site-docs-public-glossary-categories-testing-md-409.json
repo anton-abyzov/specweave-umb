@@ -1,0 +1,27 @@
+{
+  "id": "glossary/categories/testing-category",
+  "title": "Testing & Quality",
+  "description": "Understanding how to ensure software quality through comprehensive testing strategies.",
+  "source": "@site/../docs/public/glossary/categories/testing.md",
+  "sourceDirName": "glossary/categories",
+  "slug": "/glossary/categories/testing-category",
+  "permalink": "/glossary/categories/testing-category",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "testing-category",
+    "title": "Testing & Quality",
+    "sidebar_label": "Testing & Quality"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Performance & Scalability",
+    "permalink": "/glossary/categories/performance-category"
+  },
+  "next": {
+    "title": "By Category",
+    "permalink": "/glossary/index-by-category"
+  }
+}

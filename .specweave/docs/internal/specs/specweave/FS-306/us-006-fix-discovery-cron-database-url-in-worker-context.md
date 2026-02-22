@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1252
-    url: https://github.com/anton-abyzov/specweave/issues/1252
+    url: "https://github.com/anton-abyzov/specweave/issues/1252"
 ---
 # US-006: Fix Discovery Cron DATABASE_URL in Worker Context
 

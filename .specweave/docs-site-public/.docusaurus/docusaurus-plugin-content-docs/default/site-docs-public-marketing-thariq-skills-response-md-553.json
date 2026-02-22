@@ -1,0 +1,27 @@
+{
+  "id": "marketing/thariq-skills-response",
+  "title": "Response to Thariq's Skills Merge Announcement",
+  "description": "Best Response (Quote Tweet/Reply)",
+  "source": "@site/../docs/public/marketing/thariq-skills-response.md",
+  "sourceDirName": "marketing",
+  "slug": "/marketing/thariq-skills-response",
+  "permalink": "/marketing/thariq-skills-response",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Response to Thariq's Skills Merge Announcement",
+    "date": "2026-01-23T00:00:00.000Z",
+    "context": "Reply to @trq212 announcing slash commands merged into skills"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "Bypassing Claude Code's Hook-Skill Limitation",
+    "permalink": "/marketing/hooks-skill-workaround-posts"
+  },
+  "next": {
+    "title": "ToxicSkills: 1 in 3 AI Agent Skills Has a Security Flaw",
+    "permalink": "/marketing/toxicskills-security-posts"
+  }
+}

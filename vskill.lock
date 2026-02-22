@@ -11,12 +11,12 @@
   "skills": {
     "sw": {
       "version": "1.0.225",
-      "sha": "ff917de2b164",
+      "sha": "ee3ab30772db",
       "tier": "BUNDLED",
-      "installedAt": "2026-02-21T20:46:11.040Z",
+      "installedAt": "2026-02-22T04:36:16.347Z",
       "source": "local:specweave"
     }
   },
   "createdAt": "2026-02-19T03:13:28.638Z",
-  "updatedAt": "2026-02-21T20:46:11.040Z"
+  "updatedAt": "2026-02-22T04:36:16.347Z"
 }

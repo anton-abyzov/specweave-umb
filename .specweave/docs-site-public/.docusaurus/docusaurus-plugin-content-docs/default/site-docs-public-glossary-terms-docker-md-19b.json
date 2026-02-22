@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/docker",
+  "title": "Docker",
+  "description": "Category: Infrastructure & DevOps",
+  "source": "@site/../docs/public/glossary/terms/docker.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/docker",
+  "permalink": "/glossary/terms/docker",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Cross-Linking",
+    "permalink": "/glossary/terms/cross-linking"
+  },
+  "next": {
+    "title": "Docusaurus Frontmatter",
+    "permalink": "/glossary/terms/docusaurus-frontmatter"
+  }
+}

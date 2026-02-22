@@ -1,0 +1,27 @@
+{
+  "id": "glossary/terms/rfc",
+  "title": "RFC (Request for Comments)",
+  "description": "Definition",
+  "source": "@site/../docs/public/glossary/terms/rfc.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/rfc",
+  "permalink": "/glossary/terms/rfc",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "rfc",
+    "title": "RFC (Request for Comments)",
+    "sidebar_label": "RFC"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "REST",
+    "permalink": "/glossary/terms/rest"
+  },
+  "next": {
+    "title": "Role Orchestrator",
+    "permalink": "/glossary/terms/role-orchestrator"
+  }
+}

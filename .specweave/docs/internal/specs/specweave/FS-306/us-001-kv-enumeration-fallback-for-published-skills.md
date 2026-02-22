@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1245
-    url: https://github.com/anton-abyzov/specweave/issues/1245
+    url: "https://github.com/anton-abyzov/specweave/issues/1245"
 ---
 # US-001: KV Enumeration Fallback for Published Skills
 

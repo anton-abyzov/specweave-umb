@@ -1,7 +1,7 @@
 ---
 increment: 0313-post-closure-sync-pipeline
 total_tasks: 7
-completed_tasks: 0
+completed_tasks: 7
 ---
 
 # Tasks: Fix post-closure sync pipeline
@@ -9,7 +9,7 @@ completed_tasks: 0
 ## Phase 1: TDD RED - Write failing tests
 
 ### T-001: Write tests for sync_to_github_project handler in LifecycleHookDispatcher
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-04, AC-US3-05 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-04, AC-US3-05 | **Status**: [x] completed
 **Test**: Given hooks config with `sync_to_github_project: true` -> When `onIncrementDone()` is called -> Then the GitHub feature sync module is invoked with the correct feature ID
 
 **Implementation Details**:
@@ -26,7 +26,7 @@ completed_tasks: 0
 ---
 
 ### T-002: Write tests for awaited hook dispatch in completeIncrement
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03, AC-US1-04 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03, AC-US1-04 | **Status**: [x] completed
 **Test**: Given a valid increment -> When `completeIncrement()` is called -> Then `LifecycleHookDispatcher.onIncrementDone()` is awaited (not fire-and-forget) and errors are logged
 
 **Implementation Details**:
@@ -42,7 +42,7 @@ completed_tasks: 0
 ## Phase 2: TDD GREEN - Implement changes
 
 ### T-003: Add sync_to_github_project handler to LifecycleHookDispatcher.onIncrementDone()
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05 | **Status**: [ ] not started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05 | **Status**: [x] completed
 **Test**: Given T-001 tests pass -> When handler is implemented -> Then all TC-017 through TC-020 go GREEN
 
 **Implementation Details**:
@@ -61,7 +61,7 @@ completed_tasks: 0
 ---
 
 ### T-004: Change fire-and-forget to awaited hook dispatch in completeIncrement()
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03 | **Status**: [x] completed
 **Test**: Given T-002 tests exist -> When void IIFE is replaced with await -> Then T-002 tests go GREEN
 
 **Implementation Details**:
@@ -75,7 +75,7 @@ completed_tasks: 0
 ---
 
 ### T-005: Update done skill Step 8 to use CLI completion path
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] not started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 **Test**: Given done SKILL.md -> When Step 8 is read -> Then it instructs to run `specweave complete <id>` instead of direct metadata.json edit
 
 **Implementation Details**:
@@ -94,7 +94,7 @@ completed_tasks: 0
 ## Phase 3: Create missing skill + cleanup
 
 ### T-006: Create sw:sync-docs skill
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [ ] not started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [x] completed
 **Test**: Given skill file exists at `plugins/specweave/skills/sync-docs/SKILL.md` -> When loaded by Claude Code -> Then it appears as `/sw:sync-docs` command
 
 **Implementation Details**:
@@ -114,7 +114,7 @@ completed_tasks: 0
 ---
 
 ### T-007: Update done skill Step 9/10 to reflect unified pipeline
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02 | **Status**: [ ] not started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02 | **Status**: [x] completed
 **Test**: Given done SKILL.md -> When Steps 9-10 are read -> Then they correctly describe sync as part of CLI completion and show result summary guidance
 
 **Implementation Details**:

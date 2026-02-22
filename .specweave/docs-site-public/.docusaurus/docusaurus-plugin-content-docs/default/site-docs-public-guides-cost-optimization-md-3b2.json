@@ -1,0 +1,23 @@
+{
+  "id": "guides/cost-optimization",
+  "title": "Cost Optimization Guide",
+  "description": "Save 60-70% on AI costs with SpecWeave's intelligent model selection",
+  "source": "@site/../docs/public/guides/cost-optimization.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/cost-optimization",
+  "permalink": "/guides/cost-optimization",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "What is an Increment?",
+    "permalink": "/guides/core-concepts/what-is-an-increment"
+  },
+  "next": {
+    "title": "Deep Interview Mode",
+    "permalink": "/guides/deep-interview-mode"
+  }
+}

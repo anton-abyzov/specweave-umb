@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/living-docs",
+  "title": "Living Documentation",
+  "description": "Living Documentation is documentation that stays automatically synchronized with your codebase and project state. Unlike traditional static documentation that becomes outdated, living docs are updated automatically through hooks, automation, and bidirectional sync with external systems.",
+  "source": "@site/../docs/public/glossary/terms/living-docs.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/living-docs",
+  "permalink": "/glossary/terms/living-docs",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Kubernetes (K8s)",
+    "permalink": "/glossary/terms/kubernetes"
+  },
+  "next": {
+    "title": "Microservices",
+    "permalink": "/glossary/terms/microservices"
+  }
+}

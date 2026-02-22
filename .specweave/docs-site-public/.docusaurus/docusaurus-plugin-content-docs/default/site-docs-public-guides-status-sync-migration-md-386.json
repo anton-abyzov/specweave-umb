@@ -1,0 +1,23 @@
+{
+  "id": "guides/status-sync-migration",
+  "title": "Status Sync Migration Guide",
+  "description": "Upgrading from basic external tool sync to the new status synchronization system",
+  "source": "@site/../docs/public/guides/status-sync-migration.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/status-sync-migration",
+  "permalink": "/guides/status-sync-migration",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Status Synchronization Guide",
+    "permalink": "/guides/status-sync-guide"
+  },
+  "next": {
+    "title": "Strategic Init Guide",
+    "permalink": "/guides/strategic-init"
+  }
+}

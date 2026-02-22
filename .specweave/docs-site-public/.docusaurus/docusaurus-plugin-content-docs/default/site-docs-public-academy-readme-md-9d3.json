@@ -1,0 +1,19 @@
+{
+  "id": "academy/README",
+  "title": "SpecWeave Academy",
+  "description": "Your complete learning hub for AI-assisted development.",
+  "source": "@site/../docs/public/academy/README.md",
+  "sourceDirName": "academy",
+  "slug": "/academy/",
+  "permalink": "/academy/",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "next": {
+    "title": "Video 001: Finally: A Framework That Works on Legacy, Startup, AND Enterprise",
+    "permalink": "/academy/videos/specweave-complete-masterclass"
+  }
+}

@@ -1,11 +1,12 @@
 {
   "id": "0301-dashboard-increments-perf",
   "title": "Dashboard Increments List Performance Optimization",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-21T19:14:15.790Z",
   "lastActivity": "2026-02-21T19:14:15.790Z",
+  "completedAt": "2026-02-21T23:45:00.000Z",
   "testMode": "test-after",
   "coverageTarget": 80,
   "feature_id": null,

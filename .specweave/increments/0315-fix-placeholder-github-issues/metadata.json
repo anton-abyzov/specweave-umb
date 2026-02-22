@@ -1,0 +1,13 @@
+{
+  "id": "0315-fix-placeholder-github-issues",
+  "status": "active",
+  "type": "bug",
+  "priority": "P0",
+  "created": "2026-02-21T23:25:50.223Z",
+  "lastActivity": "2026-02-21T23:25:50.223Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

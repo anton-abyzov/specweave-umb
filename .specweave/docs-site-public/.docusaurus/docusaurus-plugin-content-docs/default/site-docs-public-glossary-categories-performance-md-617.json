@@ -1,0 +1,27 @@
+{
+  "id": "glossary/categories/performance-category",
+  "title": "Performance & Scalability",
+  "description": "Understanding how to build fast, scalable systems that handle growth.",
+  "source": "@site/../docs/public/glossary/categories/performance.md",
+  "sourceDirName": "glossary/categories",
+  "slug": "/glossary/categories/performance-category",
+  "permalink": "/glossary/categories/performance-category",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "performance-category",
+    "title": "Performance & Scalability",
+    "sidebar_label": "Performance & Scalability"
+  },
+  "sidebar": "docs",
+  "previous": {
+    "title": "ML/AI",
+    "permalink": "/glossary/categories/ml-ai-category"
+  },
+  "next": {
+    "title": "Testing & Quality",
+    "permalink": "/glossary/categories/testing-category"
+  }
+}

@@ -1,0 +1,283 @@
+/**
+ * Professional documentation theme
+ * Auto-generated — customize as needed
+ */
+
+/* ===== Color Palette ===== */
+:root {
+
+  --ifm-color-primary: #4f46e5;
+  --ifm-color-primary-dark: #4338ca;
+  --ifm-color-primary-darker: #3730a3;
+  --ifm-color-primary-darkest: #312e81;
+  --ifm-color-primary-light: #6366f1;
+  --ifm-color-primary-lighter: #818cf8;
+  --ifm-color-primary-lightest: #a5b4fc;
+  --ifm-code-font-size: 95%;
+  --ifm-heading-font-weight: 600;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.65;
+  --docusaurus-highlighted-code-line-bg: rgba(79, 70, 229, 0.1);
+}
+
+[data-theme='dark'] {
+
+  --ifm-color-primary: #818cf8;
+  --ifm-color-primary-dark: #6366f1;
+  --ifm-color-primary-darker: #4f46e5;
+  --ifm-color-primary-darkest: #4338ca;
+  --ifm-color-primary-light: #a5b4fc;
+  --ifm-color-primary-lighter: #c7d2fe;
+  --ifm-color-primary-lightest: #e0e7ff;
+  --docusaurus-highlighted-code-line-bg: rgba(99, 102, 241, 0.15);
+}
+
+/* ===== Global ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar,
+.menu__link,
+.pagination-nav__link,
+.footer,
+pre,
+blockquote,
+table tbody tr,
+.categoryCard {
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  backdrop-filter: blur(8px);
+}
+
+.navbar__title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='dark'] .navbar__title {
+  background: linear-gradient(135deg, var(--ifm-color-primary-light) 0%, var(--ifm-color-primary-lighter) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar__logo img {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.navbar__logo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* ===== Sidebar ===== */
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.menu__link {
+  border-radius: 6px;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.75rem;
+  transition: all 0.15s ease;
+}
+
+.menu__link:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.menu__link--active {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary-lightest);
+}
+
+[data-theme='dark'] .menu__link--active {
+  background: rgba(99, 102, 241, 0.12);
+}
+
+.menu__list-item-collapsible .menu__caret::before {
+  filter: var(--ifm-menu-color-active);
+}
+
+/* ===== Content ===== */
+.markdown {
+  --ifm-h1-font-size: 2rem;
+  --ifm-h2-font-size: 1.5rem;
+  --ifm-h3-font-size: 1.25rem;
+  max-width: 48rem;
+}
+
+.markdown h1, .markdown h2, .markdown h3 {
+  letter-spacing: -0.02em;
+}
+
+.markdown h2 {
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* ===== Links ===== */
+.markdown a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.markdown a:hover {
+  border-bottom-color: var(--ifm-color-primary);
+}
+
+/* ===== Code Blocks ===== */
+.prism-code {
+  font-size: 0.875rem;
+  border-radius: 8px;
+}
+
+pre {
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] pre {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+code {
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+/* ===== Tables ===== */
+table {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+table thead tr {
+  background: var(--ifm-color-emphasis-100);
+}
+
+table thead th {
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--ifm-color-emphasis-200);
+}
+
+table tbody td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+table tbody tr:hover {
+  background: var(--ifm-color-emphasis-50, rgba(0, 0, 0, 0.02));
+}
+
+/* ===== Blockquotes ===== */
+blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+  font-style: normal;
+}
+
+/* ===== Admonitions ===== */
+.admonition {
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Cards (prev/next navigation) ===== */
+.pagination-nav__link {
+  border-radius: 10px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all 0.2s ease;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.1);
+}
+
+/* ===== Mermaid ===== */
+.docusaurus-mermaid-container {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+}
+
+/* ===== Table of Contents ===== */
+.table-of-contents__link--active {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+/* ===== Footer ===== */
+.footer--dark {
+  background: var(--ifm-color-emphasis-900, #1e1e2e);
+}
+
+[data-theme='dark'] .footer--dark {
+  background: var(--ifm-color-emphasis-1000, #111118);
+}
+
+/* ===== Scrollbar ===== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ifm-color-emphasis-300) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-emphasis-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-emphasis-500);
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 996px) {
+  .markdown h2 {
+    margin-top: 2rem;
+  }
+}

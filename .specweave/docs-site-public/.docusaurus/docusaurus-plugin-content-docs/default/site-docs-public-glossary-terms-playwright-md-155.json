@@ -1,0 +1,23 @@
+{
+  "id": "glossary/terms/playwright",
+  "title": "Playwright",
+  "description": "Playwright is a modern end-to-end (E2E) testing framework for web applications that enables reliable testing across all modern browsers (Chromium, Firefox, WebKit). Created by Microsoft, Playwright provides a powerful API for browser automation, testing, and web scraping.",
+  "source": "@site/../docs/public/glossary/terms/playwright.md",
+  "sourceDirName": "glossary/terms",
+  "slug": "/glossary/terms/playwright",
+  "permalink": "/glossary/terms/playwright",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Node.js",
+    "permalink": "/glossary/terms/nodejs"
+  },
+  "next": {
+    "title": "Profile-Based Sync",
+    "permalink": "/glossary/terms/profile-based-sync"
+  }
+}
