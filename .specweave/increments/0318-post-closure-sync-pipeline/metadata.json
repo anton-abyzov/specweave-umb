@@ -1,0 +1,42 @@
+{
+  "id": "0318-post-closure-sync-pipeline",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-21T22:22:12.328Z",
+  "lastActivity": "2026-02-21T22:22:12.328Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1254,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1254",
+        "createdAt": "2026-02-22T07:05:25.363Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1255,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1255",
+        "createdAt": "2026-02-22T07:05:30.721Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1256,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1256",
+        "createdAt": "2026-02-22T07:05:36.277Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1257,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1257",
+        "createdAt": "2026-02-22T07:05:41.337Z"
+      }
+    ],
+    "lastSync": "2026-02-22T07:05:41.337Z"
+  }
+}

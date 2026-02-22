@@ -1,5 +1,5 @@
 ---
-increment: 0313-post-closure-sync-pipeline
+increment: 0318-post-closure-sync-pipeline
 title: "Fix post-closure sync pipeline"
 type: feature
 priority: P1
