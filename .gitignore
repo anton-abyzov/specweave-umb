@@ -73,3 +73,17 @@ vskill.lock
 .vscode
 *.swp
 *.swo
+
+# AI coding tools
+.agent/
+.aider/
+.codex/
+.continue/
+.cursor/
+.gemini/
+.junie/
+.kiro/
+.opencode/
+.pi/
+.trae/
+.windsurf/
