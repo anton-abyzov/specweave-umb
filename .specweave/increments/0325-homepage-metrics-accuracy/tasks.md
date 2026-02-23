@@ -299,7 +299,7 @@ title: "Tasks: Homepage Metrics Accuracy"
 ## Phase 6: Seed Data Real Metrics (US-006)
 
 ### T-017: Write Seed Data Accuracy Tests + Update GitHub Metrics
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-03, AC-US6-04, AC-US6-05, AC-US6-06, AC-US6-07, AC-US6-08, AC-US6-09, AC-US6-10, AC-US6-11, AC-US6-12 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-03, AC-US6-04, AC-US6-05, AC-US6-06, AC-US6-07, AC-US6-08, AC-US6-09, AC-US6-10, AC-US6-11, AC-US6-12 | **Status**: [x] completed
 **Test**: Given seed-data.ts -> When all skills sharing `anthropics/skills` repoUrl are checked -> Then all 16 have `githubStars: 73059` and `githubForks: 7481`
 
 **Steps**:
@@ -316,7 +316,7 @@ title: "Tasks: Homepage Metrics Accuracy"
 ---
 
 ### T-018: Update NPM Downloads and Fix specweave Version
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-02, AC-US6-13 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-02, AC-US6-13 | **Status**: [x] completed
 **Test**: Given seed-data.ts -> When specweave skill is checked -> Then `npmDownloads: 20002` and `currentVersion: "1.0.313"`
 
 **Steps**:
@@ -337,7 +337,7 @@ title: "Tasks: Homepage Metrics Accuracy"
 ## Phase 7: Remove vskillInstalls from UI (US-007)
 
 ### T-019: Remove Installs StatCard from Skill Detail Page
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-01 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-01 | **Status**: [x] completed
 **Test**: Given a skill detail page renders -> When viewing Popularity section -> Then no "Installs" StatCard appears
 
 **Steps**:
@@ -349,7 +349,7 @@ title: "Tasks: Homepage Metrics Accuracy"
 ---
 
 ### T-020: Replace Installs with Trust in VerifiedSkillsTab
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-02, AC-US7-03 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-02, AC-US7-03 | **Status**: [x] completed
 **Test**: Given VerifiedSkillsTab renders -> When viewing table -> Then column header says "Trust" not "Installs"
 
 **Steps**:
@@ -364,7 +364,7 @@ title: "Tasks: Homepage Metrics Accuracy"
 ---
 
 ### T-021: Integration Verification (Phase 6-7)
-**User Story**: ALL (US-006, US-007) | **Satisfies ACs**: ALL | **Status**: [ ] pending
+**User Story**: ALL (US-006, US-007) | **Satisfies ACs**: ALL | **Status**: [x] completed
 **Test**: Given all changes applied -> When running full test suite -> Then all tests pass
 
 **Steps**:

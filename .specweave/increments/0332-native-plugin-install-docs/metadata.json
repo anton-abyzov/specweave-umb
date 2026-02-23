@@ -1,0 +1,13 @@
+{
+  "id": "0332-native-plugin-install-docs",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-23T07:25:15.742Z",
+  "lastActivity": "2026-02-23T07:25:15.742Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

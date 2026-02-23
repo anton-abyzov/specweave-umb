@@ -1,8 +1,35 @@
-<!-- SW:META template="claude" version="1.0.313" sections="header,lsp,start,autodetect,metarule,rules,workflow,reflect,context,structure,taskformat,secrets,syncing,testing,tdd,api,limits,troubleshooting,lazyloading,principles,linking,mcp,auto,docs" -->
+<!-- SW:META template="claude" version="1.0.314" sections="hook-priority,header,claude-code-concepts,lsp,start,autodetect,metarule,rules,workflow,save-nested-repos,reflect,context,structure,taskformat,secrets,syncing,testing,tdd,api,limits,troubleshooting,lazyloading,principles,linking,mcp,auto,docs,non-claude" -->
 
-<!-- SW:SECTION:header version="1.0.313" -->
+<!-- SW:SECTION:hook-priority version="1.0.314" -->
+## Hook Instructions Override Everything
+
+`<system-reminder>` hook output = **BLOCKING PRECONDITIONS**.
+
+| Hook Message | Action |
+|---|---|
+| **"RESTART REQUIRED"** | ALL tools blocked → STOP, wait for restart |
+| **"SKILL FIRST"** | Call shown skill FIRST → chain domain skills → implement |
+<!-- SW:END:hook-priority -->
+
+<!-- SW:SECTION:header version="1.0.314" -->
 **Framework**: SpecWeave | **Truth**: `spec.md` + `tasks.md`
 <!-- SW:END:header -->
+
+<!-- SW:SECTION:claude-code-concepts version="1.0.314" -->
+## Skills & Plugins
+
+**Invoke**: `/skill-name` | auto-trigger by keywords | `Skill({ skill: "name" })`
+**Parallel work**: Append "use subagents" to requests
+
+**Key skills**: `sw:pm`, `sw:architect`, `sw:grill`, `sw:tdd-cycle`, `sw-frontend:*`, `sw-backend:*`, `sw-testing:*`
+
+**Skill chaining** — skills are NOT "one and done":
+1. **Planning**: `sw:pm` (specs) → `sw:architect` (design)
+2. **Implementation**: Invoke domain skill per tech (React → `sw-frontend:frontend-architect`, .NET → `sw-backend:dotnet-backend`, Stripe → `sw-payments:stripe-integration`, etc.)
+3. **Closure**: `sw:grill` runs automatically via `/sw:done`
+
+If auto-activation fails, invoke explicitly: `Skill({ skill: "name" })`
+<!-- SW:END:claude-code-concepts -->
 
 <!-- SW:SECTION:lsp version="1.0.313" -->
 ## LSP (Code Intelligence)
@@ -16,7 +43,7 @@
 **Initial increment**: `0001-project-setup` (auto-created by `specweave init`)
 
 **Options**:
-1. **Start fresh**: `rm -rf .specweave/increments/0001-project-setup` → `/sw:increment "your-feature"`
+1. **Start fresh**: Delete `.specweave/increments/0001-project-setup/` → `/sw:increment "your-feature"`
 2. **Customize**: Edit spec.md and use for setup tasks
 <!-- SW:END:start -->
 
@@ -96,6 +123,12 @@ Good: npm run build → node script.js → Success
 
 **Natural language**: "Let's build X" → `/sw:increment` | "What's status?" → `/sw:progress` | "We're done" → `/sw:done` | "Ship while sleeping" → `/sw:auto`
 <!-- SW:END:workflow -->
+
+<!-- SW:SECTION:save-nested-repos version="1.0.314" -->
+## Nested Repos
+
+Before git operations, scan: `for d in repositories packages services apps libs workspace; do [ -d "$d" ] && find "$d" -maxdepth 2 -name ".git" -type d; done`
+<!-- SW:END:save-nested-repos -->
 
 <!-- SW:SECTION:reflect version="1.0.313" -->
 ## Skill Memories
@@ -227,3 +260,9 @@ Pattern: IMPLEMENT → TEST → FAIL? → FIX → PASS → NEXT. STOP & ASK if s
 
 [spec-weave.com](https://spec-weave.com)
 <!-- SW:END:docs -->
+
+<!-- SW:SECTION:non-claude version="1.0.314" -->
+## Using SpecWeave with Other AI Tools
+
+See **AGENTS.md** for Cursor, Copilot, Windsurf, Aider instructions.
+<!-- SW:END:non-claude -->
