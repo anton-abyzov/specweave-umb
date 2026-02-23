@@ -6,7 +6,15 @@
     "cursor",
     "kiro-cli",
     "pi",
-    "windsurf"
+    "windsurf",
+    "aider",
+    "codex",
+    "continue",
+    "gemini-cli",
+    "github-copilot",
+    "junie",
+    "opencode",
+    "trae"
   ],
   "skills": {
     "sw": {
@@ -148,8 +156,29 @@
       "tier": "BUNDLED",
       "installedAt": "2026-02-22T04:56:43.224Z",
       "source": "local:specweave"
+    },
+    "testing": {
+      "version": "1.0.0",
+      "sha": "c04b9da8e23f",
+      "tier": "SCANNED",
+      "installedAt": "2026-02-23T09:28:50.561Z",
+      "source": "github:anton-abyzov/vskill#plugin:testing"
+    },
+    "frontend": {
+      "version": "1.0.0",
+      "sha": "407b77a2bb29",
+      "tier": "SCANNED",
+      "installedAt": "2026-02-23T09:51:29.693Z",
+      "source": "github:anton-abyzov/vskill#plugin:frontend"
+    },
+    "backend": {
+      "version": "1.0.0",
+      "sha": "889794a0d16d",
+      "tier": "SCANNED",
+      "installedAt": "2026-02-23T14:05:34.285Z",
+      "source": "github:anton-abyzov/vskill#plugin:backend"
     }
   },
   "createdAt": "2026-02-19T03:13:28.638Z",
-  "updatedAt": "2026-02-22T08:16:13.085Z"
+  "updatedAt": "2026-02-23T14:05:34.285Z"
 }
