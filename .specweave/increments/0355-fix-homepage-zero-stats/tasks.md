@@ -1,64 +1,50 @@
 # Tasks: Fix Homepage Zero Stats
 
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA TASK BUILDER SKILL
-====================================================================
+## Phase 1: Core Stats Fix (P0)
 
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the tasks below.
+### T-001: Fix computeMinimalStats to compute real stats
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-04 | **Status**: [x] completed
+**File**: `repositories/anton-abyzov/vskill-platform/src/lib/stats-compute.ts`
+**Test**: Given computeFullStats fails → When computeMinimalStats runs → Then individual queries return real data with per-query try/catch
 
-To complete this task list, run:
-  Tell Claude: "Create tasks for increment [ID]"
+### T-002: Increase DB timeout for full stats computation
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [x] completed
+**File**: `repositories/anton-abyzov/vskill-platform/src/lib/stats-compute.ts`
+**Test**: Given cold Neon DB → When 12 parallel queries run → Then 25s timeout provides enough headroom
 
-This will activate the test-aware planner which will:
-- Generate detailed implementation tasks
-- Add embedded test plans (BDD format)
-- Set task dependencies
-- Assign model hints
+### T-003: Add structured error logging to stats computation
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [x] completed
+**File**: `repositories/anton-abyzov/vskill-platform/src/lib/stats-compute.ts`
+**Test**: Given computeFullStats throws → When error is caught → Then error message and stack trace are logged
 
-====================================================================
--->
+## Phase 2: Enrichment Pipeline Fix (P0)
 
-## Task Notation
+### T-004: Fix enrichment starvation — always advance updatedAt
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01 | **Status**: [x] completed
+**File**: `repositories/anton-abyzov/vskill-platform/src/lib/cron/enrichment.ts`
+**Test**: Given skill with no valid GitHub URL → When enrichment runs → Then updatedAt is still advanced
 
-- `[T###]`: Task ID
-- `[P]`: Parallelizable
-- `[ ]`: Not started
-- `[x]`: Completed
-- Model hints: haiku (simple), opus (default)
+### T-005: Increase enrichment batch size to 50
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-02 | **Status**: [x] completed
+**File**: `repositories/anton-abyzov/vskill-platform/src/lib/cron/enrichment.ts`
 
-## Phase 1: Setup
+### T-006: Add recency boost to trending score formula
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02 | **Status**: [x] completed
+**File**: `repositories/anton-abyzov/vskill-platform/src/lib/cron/enrichment.ts`
+**Test**: Given newly created skill with 0 stars → When trending scores computed → Then score > 0 due to recency boost
 
-- [ ] [T001] [P] haiku - Initialize project structure
-- [ ] [T002] haiku - Setup testing framework
+## Phase 3: Cron & Observability (P1)
 
-## Phase 2: Core Implementation
+### T-007: Isolate stats refresh in cron + add timing logs + remove KV TTL
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [x] completed
+**Files**: `scripts/build-worker-entry.ts`, `src/lib/cron/stats-refresh.ts`
 
-### US-001: [User Story Title] (P1)
+## Phase 4: Admin Endpoints (P1-P2)
 
-#### T-003: Implement [component]
+### T-008: Add admin bulk enrichment endpoint
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04 | **Status**: [x] completed
+**File**: `repositories/anton-abyzov/vskill-platform/src/app/api/v1/admin/enrich/route.ts` (NEW)
 
-**Description**: [What needs to be done]
-
-**References**: AC-US1-01, AC-US1-02
-
-**Implementation Details**:
-- [Step 1]
-- [Step 2]
-
-**Test Plan**:
-- **File**: `tests/unit/component.test.ts`
-- **Tests**:
-  - **TC-001**: [Test name]
-    - Given [precondition]
-    - When [action]
-    - Then [expected result]
-
-**Dependencies**: None
-**Status**: [ ] Not Started
-
-## Phase 3: Testing
-
-- [ ] [T050] Run integration tests
-- [ ] [T051] Verify all acceptance criteria
+### T-009: Add stats health check endpoint
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02 | **Status**: [x] completed
+**File**: `repositories/anton-abyzov/vskill-platform/src/app/api/v1/stats/health/route.ts` (NEW)
