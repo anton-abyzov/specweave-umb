@@ -1,64 +1,27 @@
 # Tasks: Fix intermittent search failures and preferences 500 on cold starts
 
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA TASK BUILDER SKILL
-====================================================================
-
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the tasks below.
-
-To complete this task list, run:
-  Tell Claude: "Create tasks for increment [ID]"
-
-This will activate the test-aware planner which will:
-- Generate detailed implementation tasks
-- Add embedded test plans (BDD format)
-- Set task dependencies
-- Assign model hints
-
-====================================================================
--->
-
 ## Task Notation
 
 - `[T###]`: Task ID
-- `[P]`: Parallelizable
 - `[ ]`: Not started
 - `[x]`: Completed
-- Model hints: haiku (simple), opus (default)
 
-## Phase 1: Setup
+## Phase 1: Core Fixes
 
-- [ ] [T001] [P] haiku - Initialize project structure
-- [ ] [T002] haiku - Setup testing framework
+### T-001: Fix getCloudflareContext({ async: true }) in search.ts
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02 | **Status**: [x] completed
+**Test**: Given search.ts getKv() → When inspecting the getCloudflareContext call → Then it uses `{ async: true }` parameter
 
-## Phase 2: Core Implementation
+### T-002: Add retry logic to preferences GET route
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-03, AC-US2-04 | **Status**: [x] completed
+**Test**: Given preferences GET endpoint → When DB fails on first attempt → Then retries once and succeeds
 
-### US-001: [User Story Title] (P1)
+### T-003: Add retry logic to preferences PATCH route
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [x] completed
+**Test**: Given preferences PATCH endpoint → When DB fails on first attempt → Then retries the full read-merge-write
 
-#### T-003: Implement [component]
+## Phase 2: Verification
 
-**Description**: [What needs to be done]
-
-**References**: AC-US1-01, AC-US1-02
-
-**Implementation Details**:
-- [Step 1]
-- [Step 2]
-
-**Test Plan**:
-- **File**: `tests/unit/component.test.ts`
-- **Tests**:
-  - **TC-001**: [Test name]
-    - Given [precondition]
-    - When [action]
-    - Then [expected result]
-
-**Dependencies**: None
-**Status**: [ ] Not Started
-
-## Phase 3: Testing
-
-- [ ] [T050] Run integration tests
-- [ ] [T051] Verify all acceptance criteria
+### T-004: Run tests and build
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US2-05 | **Status**: [x] completed
+**Test**: Given all changes → When running test suite and build → Then all pass with no regressions

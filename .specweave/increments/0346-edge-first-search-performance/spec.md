@@ -1,10 +1,10 @@
 ---
 increment: 0346-edge-first-search-performance
-title: "Edge-First Search Performance"
+title: Edge-First Search Performance
 type: feature
 priority: P1
-status: ready_for_review
-created: 2026-02-24
+status: completed
+created: 2026-02-24T00:00:00.000Z
 structure: user-stories
 test_mode: test-after
 coverage_target: 80
@@ -20,7 +20,7 @@ The goal is to move 95%+ of search queries to a sharded KV search index served a
 
 ## Solution
 
-Build a compact, sharded search index in Cloudflare KV. Each shard contains a JSON array of skill summaries (name, displayName, author, category, certTier, githubStars, repoUrl) keyed by a shard identifier (first character of the normalized skill name). The search API reads one or more shards from KV, performs prefix matching and category filtering in-memory at the edge, and falls back to Postgres when KV yields zero results. The index is incrementally updated via a queue message dispatched after each `publishSkill()` call, with full rebuild available via the existing admin endpoint. SearchPalette gains client-side SWR caching and a reduced 100ms debounce. Highlights are computed client-side via regex.
+Build a compact, sharded search index in Cloudflare KV. Each shard contains a JSON array of skill summaries (name, displayName, author, category, certTier, githubStars, repoUrl) keyed by a shard identifier (first character of the normalized skill name). The search API reads one or more shards from KV, performs prefix matching and category filtering in-memory at the edge, and falls back to Postgres when KV yields zero results. The index is incrementally updated via a queue message dispatched after each `publishSkill()` call, with full rebuild available via the existing admin endpoint. SearchPalette gains client-side SWR caching and a reduced 150ms debounce. Highlights are computed client-side via regex.
 
 ## User Stories
 
@@ -49,7 +49,7 @@ Build a compact, sharded search index in Cloudflare KV. Each shard contains a JS
 
 **Acceptance Criteria**:
 - [x] **AC-US2-01**: New `searchSkillsEdge(options)` function in `src/lib/search.ts` reads the appropriate shard(s) from KV based on the query's first character
-- [x] **AC-US2-02**: Prefix matching: each query term is matched as a prefix against `name` and `displayName` fields (case-insensitive), matching current tsquery behavior
+- [x] **AC-US2-02**: Prefix/substring matching: each query term is matched against `name` (substring), `displayName` (prefix), `author` (prefix), and `repoUrl` (substring) fields (case-insensitive)
 - [x] **AC-US2-03**: Category filtering is applied in-memory after the KV read when `category` param is provided
 - [x] **AC-US2-04**: Results are paginated in-memory: slice the filtered array for `page`/`limit` and compute `hasMore`
 - [x] **AC-US2-05**: `highlight` field is empty string from edge results (highlighting is handled client-side per US-005)
@@ -192,7 +192,7 @@ interface SearchIndexEntry {
 7. **Postgres fallback on zero results** -- safest transition path, KV handles 95%+
 8. **In-memory category filtering** -- single KV read per shard, filter after read
 9. **Client-side SWR** -- in-memory cache in SearchPalette, 60s TTL, stale-while-revalidate
-10. **100ms debounce** -- down from 300ms, justified by sub-50ms edge responses
+10. **150ms debounce** -- down from 300ms, justified by sub-50ms edge responses
 11. **Pagination preserved** -- API contract unchanged, internally served from single KV read
 
 ## Success Metrics

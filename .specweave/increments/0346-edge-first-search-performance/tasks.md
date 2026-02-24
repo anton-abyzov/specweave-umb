@@ -383,16 +383,16 @@ by_user_story:
 
 **Test Plan**:
 - **Given** a user types "re" in the search palette
-- **When** 100ms elapses after last keystroke
+- **When** 150ms elapses after last keystroke
 - **Then** a fetch is triggered (not 300ms)
 
 **Test Cases**:
 1. **Unit**: `src/app/components/__tests__/SearchPalette.test.tsx` (extended)
-   - testDebounce100ms(): fetch fires after 100ms, not sooner
+   - testDebounce150ms(): fetch fires after 150ms, not sooner
    - testMinQueryLength2Preserved(): single-char query does not trigger fetch
    - testAbortControllerPreserved(): typing replaces previous fetch with AbortController cancel
    - **Coverage Target**: 85%
 
 **Implementation**:
-1. Change `setTimeout` delay in SearchPalette debounced search effect from `300` to `100`
-2. Extract debounce constant: `const SEARCH_DEBOUNCE_MS = 100;`
+1. Change `setTimeout` delay in SearchPalette debounced search effect from `300` to `150`
+2. Extract debounce constant: `const SEARCH_DEBOUNCE_MS = 150;`
