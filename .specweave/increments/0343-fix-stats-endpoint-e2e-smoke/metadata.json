@@ -1,7 +1,7 @@
 {
   "id": "0343",
   "name": "fix-stats-endpoint-e2e-smoke",
-  "status": "active",
+  "status": "completed",
   "repo": "vskill-platform",
   "createdAt": "2026-02-23T12:00:00.000Z"
 }

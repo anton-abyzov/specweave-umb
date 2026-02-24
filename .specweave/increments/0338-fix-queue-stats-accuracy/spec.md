@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0338 — Fix Queue Stats Accuracy + Page Performance
 
 ## Problem
@@ -10,7 +13,7 @@ As an admin viewing the queue page, I want the stats counters (Active, Published
 
 **Acceptance Criteria:**
 - [x] AC-US1-01: Stats endpoint uses Prisma DB as source of truth instead of stale KV index
-- [x] AC-US1-02: Stats are cached in KV with 30s TTL to avoid Neon cold starts on every poll
+- [x] AC-US1-02: Stats are cached in KV with 60s TTL to avoid Neon cold starts on every poll
 - [x] AC-US1-03: List endpoint total count comes from DB, not stale KV array length
 
 ### US-002: Faster page load

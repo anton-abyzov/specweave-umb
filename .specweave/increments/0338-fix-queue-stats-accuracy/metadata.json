@@ -1,7 +1,21 @@
 {
   "id": "0338",
   "name": "fix-queue-stats-accuracy",
-  "status": "active",
+  "title": "Fix Queue Stats Accuracy + Page Performance",
+  "type": "feature",
+  "priority": "P1",
+  "status": "completed",
   "repo": "vskill-platform",
-  "createdAt": "2026-02-23T20:45:00Z"
+  "created": "2026-02-23T20:45:00Z",
+  "lastActivity": "2026-02-24T04:32:00.250Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "externalLinks": {},
+  "updated": "2026-02-23T23:30:00Z",
+  "approvedAt": "2026-02-24T04:32:00.251Z",
+  "github": {
+    "issue": 1302,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1302",
+    "synced": "2026-02-24T04:32:04.669Z"
+  }
 }
