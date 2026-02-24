@@ -1118,6 +1118,49 @@ claude mcp add postgres -- npx -y @modelcontextprotocol/server-postgres
 
 > "MCP servers are cross-platform. Same commands everywhere. Node.js required for npx."
 
+#### The Skill Discovery Problem — Real Talk
+
+**[VISUAL: Scrolling through MCP marketplace / npm search results]**
+
+> "Now here's something nobody talks about. Finding the RIGHT MCP server or skill? It's hard.
+>
+> We're constantly adding skills to SpecWeave — we have over 100 now — and we're always working to make discovery easier. But the broader MCP ecosystem? It's the Wild West.
+>
+> I've installed skills that looked promising and they just... never stop. They exceed the token budget, burn through your usage, and produce nothing useful. You sit there watching your API credits drain while the agent loops in circles."
+
+**[VISUAL: Terminal showing a skill spinning with no output — fast-forward effect]**
+
+> "So let me save you some pain. When you're evaluating an MCP server, look for:
+>
+> - **Focused scope** — does one thing well, not everything poorly
+> - **Reasonable token usage** — shouldn't eat your entire context window
+> - **Active maintenance** — check the last commit date
+>
+> Here's a great example that's hard to find in 'most popular' lists but is genuinely one of the best for what it does."
+
+#### Quick Demo: Excalidraw MCP — Diagrams on the Fly
+
+**[VISUAL: Terminal showing installation]**
+
+```bash
+# One command to install
+npx mcp_excalidraw
+```
+
+> "Excalidraw MCP. You can create diagrams on the fly — architecture diagrams, flowcharts, wireframes — directly from Claude Code. No browser, no copy-paste, no context switching.
+>
+> Let me show you a quick demo with vskill."
+
+**[VISUAL: Live demo — Claude generating an Excalidraw diagram via MCP]**
+
+> "See? Focused. Fast. Doesn't burn tokens. THAT's what a good MCP server looks like.
+>
+> The takeaway: don't just install everything. Be selective. Test before you trust. And if you find a good one that nobody's talking about — share it with the community."
+
+**[VISUAL: GitHub link for mcp_excalidraw appearing]**
+
+---
+
 #### What Just Happened?
 
 **[VISUAL: File tree appearing]**

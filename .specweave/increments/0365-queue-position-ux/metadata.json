@@ -1,0 +1,12 @@
+{
+  "id": "0365-queue-position-ux",
+  "title": "Queue Position UX: Show Position, Processing Order, Estimated Time",
+  "status": "completed",
+  "project": "vskill-platform",
+  "feature": "FS-338",
+  "type": "feature",
+  "created": "2026-02-24T18:00:00Z",
+  "updated": "2026-02-24T21:08:36.246Z",
+  "lastActivity": "2026-02-24T21:08:36.246Z",
+  "approvedAt": "2026-02-24T21:08:36.246Z"
+}
