@@ -6,6 +6,10 @@ status: not-started
 priority: P1
 created: 2026-02-23
 project: vskill-platform
+external:
+  github:
+    issue: 1303
+    url: https://github.com/anton-abyzov/specweave/issues/1303
 ---
 # US-002: JWT Secret Isolate-Lifetime Cache
 

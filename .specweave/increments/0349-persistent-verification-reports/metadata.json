@@ -1,0 +1,10 @@
+{
+  "id": "0349",
+  "slug": "persistent-verification-reports",
+  "title": "Persistent Verification Reports & Package History",
+  "status": "active",
+  "priority": "P1",
+  "createdAt": "2026-02-24T12:00:00Z",
+  "repo": "vskill-platform",
+  "feature": "FS-349"
+}

@@ -16,6 +16,21 @@
   "github": {
     "issue": 1302,
     "url": "https://github.com/anton-abyzov/specweave/issues/1302",
-    "synced": "2026-02-24T04:32:04.669Z"
+    "synced": "2026-02-24T04:32:04.669Z",
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1302,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1302",
+        "createdAt": "2026-02-24T04:35:30.551Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1303,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1303",
+        "createdAt": "2026-02-24T04:35:35.513Z"
+      }
+    ],
+    "lastSync": "2026-02-24T04:35:35.513Z"
   }
 }

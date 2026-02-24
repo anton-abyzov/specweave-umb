@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0333: Fix Crawl Dispatch process.env Mismatch
 
 ## Problem

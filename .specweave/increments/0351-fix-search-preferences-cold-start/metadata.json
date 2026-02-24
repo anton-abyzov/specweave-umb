@@ -1,0 +1,13 @@
+{
+  "id": "0351-fix-search-preferences-cold-start",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-02-24T05:51:28.102Z",
+  "lastActivity": "2026-02-24T05:51:28.102Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

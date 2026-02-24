@@ -1,0 +1,8 @@
+{
+  "id": "0348-consolidate-github-sync-path",
+  "title": "Consolidate GitHub sync to single GitHubFeatureSync path",
+  "status": "active",
+  "feature_id": "FS-348",
+  "project": "specweave",
+  "createdAt": "2026-02-23T00:00:00.000Z"
+}

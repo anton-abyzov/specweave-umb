@@ -1,7 +1,30 @@
 {
   "id": "0333-fix-crawl-dispatch-env",
-  "status": "planning",
+  "status": "completed",
   "type": "feature",
+  "repo": "vskill-platform",
+  "lastActivity": "2026-02-24T04:45:36.389Z",
   "created": "2026-02-23T07:58:23.800Z",
-  "lastActivity": "2026-02-23T07:58:23.800Z"
+  "updated": "2026-02-23T07:58:23.800Z",
+  "approvedAt": "2026-02-24T04:45:36.389Z",
+  "github": {
+    "issue": 1304,
+    "url": "https://github.com/anton-abyzov/specweave/issues/1304",
+    "synced": "2026-02-24T04:45:43.223Z",
+    "issues": [
+      {
+        "userStory": "US-002",
+        "number": 1305,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1305",
+        "createdAt": "2026-02-24T04:45:45.234Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1307,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1307",
+        "createdAt": "2026-02-24T04:45:45.941Z"
+      }
+    ],
+    "lastSync": "2026-02-24T04:45:45.941Z"
+  }
 }
