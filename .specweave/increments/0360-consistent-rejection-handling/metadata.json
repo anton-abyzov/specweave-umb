@@ -1,0 +1,14 @@
+{
+  "id": "0360-consistent-rejection-handling",
+  "status": "ready_for_review",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-24T07:45:27.330Z",
+  "lastActivity": "2026-02-24T07:45:27.330Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-02-24T08:04:14.000Z"
+}

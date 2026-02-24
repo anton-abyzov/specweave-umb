@@ -1,0 +1,9 @@
+{
+  "id": "0361",
+  "slug": "auth-hardening-short-lived-tokens-pkce",
+  "title": "Auth hardening: short-lived tokens + PKCE + proactive refresh",
+  "type": "feature",
+  "status": "active",
+  "repository": "vskill-platform",
+  "createdAt": "2026-02-24T01:00:00Z"
+}
