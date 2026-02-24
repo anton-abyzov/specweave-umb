@@ -1,0 +1,9 @@
+{
+  "id": "0364",
+  "slug": "admin-rejected-skills-bulk-actions",
+  "title": "Admin-only rejected skills with bulk actions",
+  "status": "active",
+  "priority": "high",
+  "createdAt": "2026-02-24T12:00:00.000Z",
+  "repository": "vskill-platform"
+}

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-21T21:59:15.660Z",
+  "lastUpdated": "2026-02-24T14:47:59.016Z",
   "repos": {
     "vskill": {
       "github": {
@@ -8,5 +8,20 @@
         "lastSyncResult": "success"
       }
     }
+  },
+  "jira": {
+    "lastImport": "2026-02-24T14:47:59.013Z",
+    "lastImportCount": 0,
+    "lastSyncResult": "failed"
+  },
+  "ado": {
+    "lastImport": "2026-02-24T14:47:59.014Z",
+    "lastImportCount": 0,
+    "lastSyncResult": "failed"
+  },
+  "github": {
+    "lastImport": "2026-02-24T14:47:59.016Z",
+    "lastImportCount": 0,
+    "lastSyncResult": "failed"
   }
 }

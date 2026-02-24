@@ -1,20 +1,24 @@
 ---
+id: US-001
+feature: FS-362
+title: npm Package Ownership Verification
 status: completed
+priority: P1
+created: 2026-02-24
+tldr: npm Package Ownership Verification
+external:
+  github:
+    issue: 1311
+    url: https://github.com/anton-abyzov/specweave/issues/1311
 ---
-# 0362: Validate npm Package Ownership
 
-## Problem
+# US-001: npm Package Ownership Verification
 
-Homepage shows 527M npm downloads across 6 "npm packages" — but these are mainstream packages (eslint, sentry, playwright) arbitrarily linked to skills. The `Skill.npmPackage` field has no ownership validation, so any skill can claim any npm package.
+**Feature**: [FS-362](./FEATURE.md)
 
-## Solution
+---
 
-During enrichment, cross-reference each skill's `npmPackage` against the npm registry's `repository.url` to verify the skill repo actually publishes that package. Only count verified packages in stats.
-
-## User Stories
-
-### US-001: npm Package Ownership Verification
-As the platform, I verify that a skill's claimed npm package actually belongs to its repository, so that download stats are accurate.
+## Acceptance Criteria
 
 - [x] **AC-US1-01**: Prisma schema has `npmPackageVerified Boolean @default(false)` on Skill model
 - [x] **AC-US1-02**: `normalizeNpmRepoUrl()` handles git+, git://, SSH, github: shorthand formats
@@ -26,3 +30,16 @@ As the platform, I verify that a skill's claimed npm package actually belongs to
 - [x] **AC-US1-08**: Stats queries filter by `npmPackageVerified = true` for npm counts/downloads
 - [x] **AC-US1-09**: Admin bulk enrich endpoint also performs verification
 - [x] **AC-US1-10**: All existing tests pass, new tests cover verification scenarios
+
+---
+
+## Implementation
+
+**Increment**: [0362-validate-npm-package-ownership](../../../../../increments/0362-validate-npm-package-ownership/spec.md)
+
+**Tasks**: See increment tasks.md for implementation details.
+
+
+## Tasks
+
+_No tasks defined for this user story_

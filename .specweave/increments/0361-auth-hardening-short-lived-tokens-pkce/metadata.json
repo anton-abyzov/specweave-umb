@@ -1,5 +1,5 @@
 {
-  "id": "0361",
+  "id": "0361-auth-hardening-short-lived-tokens-pkce",
   "slug": "auth-hardening-short-lived-tokens-pkce",
   "title": "Auth hardening: short-lived tokens + PKCE + proactive refresh",
   "type": "feature",
