@@ -26,23 +26,23 @@
     },
     "sw-github": {
       "version": "1.0.0",
-      "sha": "342f38b8b9dc",
+      "sha": "90a41e3172df",
       "tier": "BUNDLED",
-      "installedAt": "2026-02-22T04:56:24.630Z",
+      "installedAt": "2026-02-25T05:49:44.882Z",
       "source": "local:specweave"
     },
     "sw-jira": {
       "version": "1.0.0",
-      "sha": "831bdc3407af",
+      "sha": "75b927bec8ed",
       "tier": "BUNDLED",
-      "installedAt": "2026-02-22T04:56:25.186Z",
+      "installedAt": "2026-02-25T05:49:45.302Z",
       "source": "local:specweave"
     },
     "sw-ado": {
       "version": "1.0.0",
-      "sha": "b28f828c9c2a",
+      "sha": "8f0e457b6c30",
       "tier": "BUNDLED",
-      "installedAt": "2026-02-22T04:56:26.604Z",
+      "installedAt": "2026-02-25T05:49:45.741Z",
       "source": "local:specweave"
     },
     "sw-infra": {
@@ -61,9 +61,9 @@
     },
     "sw-release": {
       "version": "1.0.0",
-      "sha": "885600a42bed",
+      "sha": "a6f00c492acc",
       "tier": "BUNDLED",
-      "installedAt": "2026-02-22T04:56:29.654Z",
+      "installedAt": "2026-02-25T05:49:46.754Z",
       "source": "local:specweave"
     },
     "sw-kafka": {
@@ -138,16 +138,16 @@
     },
     "sw-diagrams": {
       "version": "1.0.0",
-      "sha": "eb9b56babab1",
+      "sha": "4b59291d3f54",
       "tier": "BUNDLED",
-      "installedAt": "2026-02-22T04:56:40.073Z",
+      "installedAt": "2026-02-25T05:49:47.246Z",
       "source": "local:specweave"
     },
     "sw-docs": {
       "version": "1.0.0",
-      "sha": "93c2c67336aa",
+      "sha": "a89f54ce77c0",
       "tier": "BUNDLED",
-      "installedAt": "2026-02-22T04:56:42.081Z",
+      "installedAt": "2026-02-25T05:49:47.912Z",
       "source": "local:specweave"
     },
     "sw-cost": {
@@ -177,8 +177,15 @@
       "tier": "SCANNED",
       "installedAt": "2026-02-23T14:05:34.285Z",
       "source": "github:anton-abyzov/vskill#plugin:backend"
+    },
+    "sw-media": {
+      "version": "1.0.0",
+      "sha": "bc9157326b3f",
+      "tier": "BUNDLED",
+      "installedAt": "2026-02-25T05:49:48.387Z",
+      "source": "local:specweave"
     }
   },
   "createdAt": "2026-02-19T03:13:28.638Z",
-  "updatedAt": "2026-02-25T04:54:03.406Z"
+  "updatedAt": "2026-02-25T05:49:48.387Z"
 }

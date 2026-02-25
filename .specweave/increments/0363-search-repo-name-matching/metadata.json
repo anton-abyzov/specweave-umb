@@ -2,7 +2,7 @@
   "id": "0363",
   "slug": "search-repo-name-matching",
   "title": "Fix search to match by repository name and supplement edge results",
-  "status": "active",
+  "status": "completed",
   "created": "2026-02-24T10:00:00.000Z",
   "repository": "repositories/anton-abyzov/vskill-platform",
   "github": {

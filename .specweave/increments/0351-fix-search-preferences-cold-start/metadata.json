@@ -1,6 +1,6 @@
 {
   "id": "0351-fix-search-preferences-cold-start",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-02-24T05:51:28.102Z",

@@ -2,7 +2,7 @@
   "id": "0358-improve-submission-report",
   "featureId": "FS-358",
   "title": "Improve submission report with clickable lines and dedup",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "feature",
   "project": "vskill-platform",
   "createdAt": "2026-02-24"

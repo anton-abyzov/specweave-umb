@@ -1,7 +1,7 @@
 {
   "id": "0357-remove-seed-data-fallbacks",
   "title": "Remove seed data fallbacks from data layer",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "createdAt": "2026-02-24T12:00:00Z",
