@@ -1,6 +1,6 @@
-<!-- SW:META template="agents" version="1.0.325" sections="index,quickstart,rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,plugincommands,troubleshooting,docs" -->
+<!-- SW:META template="agents" version="1.0.326" sections="index,quickstart,rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,plugincommands,troubleshooting,docs" -->
 
-<!-- SW:SECTION:index version="1.0.325" -->
+<!-- SW:SECTION:index version="1.0.326" -->
 ## Section Index (Use Ctrl+F to Navigate)
 
 | Section | Search For | Purpose |
@@ -16,7 +16,7 @@
 | Troubleshoot | `#troubleshooting` | Common issues |
 <!-- SW:END:index -->
 
-<!-- SW:SECTION:quickstart version="1.0.325" -->
+<!-- SW:SECTION:quickstart version="1.0.326" -->
 ## Quick Start
 
 1. **Get Project Context FIRST**: `specweave context projects` (save the output!)
@@ -25,7 +25,7 @@
 4. **Execute**: `/sw:do` to start implementation
 <!-- SW:END:quickstart -->
 
-<!-- SW:SECTION:rules version="1.0.325" -->
+<!-- SW:SECTION:rules version="1.0.326" -->
 ## Essential Rules {#essential-rules}
 
 ```
@@ -79,7 +79,7 @@
 ```
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:orchestration version="1.0.325" -->
+<!-- SW:SECTION:orchestration version="1.0.326" -->
 ## Workflow Orchestration {#workflow-orchestration}
 
 **Claude Code has built-in orchestration features. Non-Claude tools must implement these manually.**
@@ -237,7 +237,7 @@ git diff  # Review what actually changed
 5. Are environment variables configured?
 <!-- SW:END:orchestration -->
 
-<!-- SW:SECTION:principles version="1.0.325" -->
+<!-- SW:SECTION:principles version="1.0.326" -->
 ## Core Principles (Quality) {#core-principles}
 
 ### Simplicity First
@@ -277,7 +277,7 @@ git diff  # Review what actually changed
 - Re-read the plan between tasks to stay aligned
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:commands version="1.0.325" -->
+<!-- SW:SECTION:commands version="1.0.326" -->
 ## Commands Reference {#commands}
 
 ### Core Commands
@@ -301,7 +301,7 @@ git diff  # Review what actually changed
 | `/sw-ado:sync 0001` | Sync to Azure DevOps |
 <!-- SW:END:commands -->
 
-<!-- SW:SECTION:nonclaudetools version="1.0.325" -->
+<!-- SW:SECTION:nonclaudetools version="1.0.326" -->
 ## Non-Claude Tools (Cursor, Copilot, etc.) {#non-claude-tools}
 
 **CRITICAL**: Claude Code has automatic hooks and orchestration. Other tools DO NOT.
@@ -563,7 +563,7 @@ cat plugins/specweave/commands/increment.md
 **Without these manual steps, your work won't be tracked!**
 <!-- SW:END:nonclaudetools -->
 
-<!-- SW:SECTION:syncworkflow version="1.0.325" -->
+<!-- SW:SECTION:syncworkflow version="1.0.326" -->
 ## Sync Workflow {#sync-workflow}
 
 ### Source of Truth Hierarchy
@@ -646,7 +646,7 @@ TASK COMPLETED
 **Non-Claude tools**: NO HOOKS EXIST. See "Hook Behavior You Must Mimic" section above.
 <!-- SW:END:syncworkflow -->
 
-<!-- SW:SECTION:contextloading version="1.0.325" -->
+<!-- SW:SECTION:contextloading version="1.0.326" -->
 ## Context Loading {#context-loading}
 
 ### Efficient Context Management
@@ -666,7 +666,7 @@ Read only what's needed for the current task:
 4. Avoid loading entire documentation trees
 <!-- SW:END:contextloading -->
 
-<!-- SW:SECTION:structure version="1.0.325" -->
+<!-- SW:SECTION:structure version="1.0.326" -->
 ## Project Structure
 
 ```
@@ -705,7 +705,7 @@ umbrella-project/
 **Rules**: Each repo manages its own increments. Never create agent increments in the umbrella root.
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:agents version="1.0.325" -->
+<!-- SW:SECTION:agents version="1.0.326" -->
 ## Agents (Roles)
 
 {AGENTS_SECTION}
@@ -713,7 +713,7 @@ umbrella-project/
 **Usage**: Adopt role perspective when working on related tasks.
 <!-- SW:END:agents -->
 
-<!-- SW:SECTION:skills version="1.0.325" -->
+<!-- SW:SECTION:skills version="1.0.326" -->
 ## Skills (Capabilities)
 
 {SKILLS_SECTION}
@@ -763,7 +763,7 @@ AI: [Creates .specweave/increments/0001-auth/spec.md with **Project**: my-app pe
 **⛔ CRITICAL**: The AI MUST run `specweave context projects` BEFORE creating spec.md, and use the output values in every `**Project**:` field!
 <!-- SW:END:skills -->
 
-<!-- SW:SECTION:taskformat version="1.0.325" -->
+<!-- SW:SECTION:taskformat version="1.0.326" -->
 ## Task Format
 
 ```markdown
@@ -777,7 +777,7 @@ AI: [Creates .specweave/increments/0001-auth/spec.md with **Project**: my-app pe
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:usformat version="1.0.325" -->
+<!-- SW:SECTION:usformat version="1.0.326" -->
 ## User Story Format (CRITICAL for spec.md) {#user-story-format}
 
 **⛔ MANDATORY: Every User Story MUST have `**Project**:` field!**
@@ -811,7 +811,7 @@ specweave context projects
 ```
 <!-- SW:END:usformat -->
 
-<!-- SW:SECTION:workflows version="1.0.325" -->
+<!-- SW:SECTION:workflows version="1.0.326" -->
 ## Workflows
 
 ### Creating Increment
@@ -868,7 +868,7 @@ title: "Feature Title"
 4. GitHub issue closed (if enabled)
 <!-- SW:END:workflows -->
 
-<!-- SW:SECTION:plugincommands version="1.0.325" -->
+<!-- SW:SECTION:plugincommands version="1.0.326" -->
 ## Plugin Commands
 
 | Command | Plugin |
@@ -878,7 +878,7 @@ title: "Feature Title"
 | `/sw-ado:sync` | Azure DevOps |
 <!-- SW:END:plugincommands -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.325" -->
+<!-- SW:SECTION:troubleshooting version="1.0.326" -->
 ## Troubleshooting {#troubleshooting}
 
 ### Commands Not Working
@@ -983,7 +983,7 @@ npx playwright test
 - Running `npx` instead of MCP tools (better anyway!)
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:docs version="1.0.325" -->
+<!-- SW:SECTION:docs version="1.0.326" -->
 ## Documentation
 
 | Resource | Purpose |
@@ -993,3 +993,41 @@ npx playwright test
 | spec-weave.com | Official documentation |
 | .specweave/docs/ | Project-specific docs |
 <!-- SW:END:docs -->
+
+---
+<!-- ↓ ORIGINAL ↓ -->
+
+## Project Overview
+
+Umbrella repo containing SpecWeave and related repositories under `repositories/anton-abyzov/`.
+
+## Key Rules
+
+1. All repos at `repositories/{org}/{repo-name}/` — never directly under `repositories/`
+2. Only 4 files in increment root: `metadata.json`, `spec.md`, `plan.md`, `tasks.md`
+3. Reports/scripts/logs go in subfolders, never at increment root
+4. Max 1500 lines per file — extract before adding
+5. Check ADRs before implementing changes
+
+## Principles
+
+1. **Simplicity First**: Minimal code, minimal impact
+2. **No Laziness**: Root causes, senior standards
+3. **DRY**: Flag and eliminate repetitions
+4. **Plan before code**: Review approach before making changes
+5. **Verify**: Run tests and demonstrate correctness
+
+## Testing
+
+- BDD style, unit coverage >80%
+- `.test.ts` (Vitest), ESM mocking with `vi.hoisted()` + `vi.mock()`
+
+## Structure
+
+```
+.specweave/
+├── increments/####-name/     # metadata.json, spec.md, plan.md, tasks.md
+├── docs/internal/specs/      # Living docs
+└── config.json
+```
+

@@ -1,43 +1,16 @@
-<!-- SW:META template="claude" version="1.0.325" sections="header,lsp,start,autodetect,metarule,rules,workflow,reflect,context,structure,taskformat,secrets,syncing,testing,tdd,api,limits,troubleshooting,lazyloading,principles,linking,mcp,auto,docs" -->
+<!-- SW:META template="claude" version="1.0.326" sections="header,lsp,start,autodetect,metarule,rules,workflow,reflect,context,structure,taskformat,secrets,syncing,testing,tdd,api,limits,troubleshooting,lazyloading,principles,linking,mcp,auto,docs" -->
 
-<!-- SW:SECTION:hook-priority version="1.0.314" -->
-## Hook Instructions Override Everything
-
-`<system-reminder>` hook output = **BLOCKING PRECONDITIONS**.
-
-| Hook Message | Action |
-|---|---|
-| **"RESTART REQUIRED"** | ALL tools blocked → STOP, wait for restart |
-| **"SKILL FIRST"** | Call shown skill FIRST → chain domain skills → implement |
-<!-- SW:END:hook-priority -->
-
-<!-- SW:SECTION:header version="1.0.325" -->
+<!-- SW:SECTION:header version="1.0.326" -->
 **Framework**: SpecWeave | **Truth**: `spec.md` + `tasks.md`
 <!-- SW:END:header -->
 
-<!-- SW:SECTION:claude-code-concepts version="1.0.314" -->
-## Skills & Plugins
-
-**Invoke**: `/skill-name` | auto-trigger by keywords | `Skill({ skill: "name" })`
-**Parallel work**: Append "use subagents" to requests
-
-**Key skills**: `sw:pm`, `sw:architect`, `sw:grill`, `sw:tdd-cycle`, `frontend:*`, `backend:*`, `testing:*`
-
-**Skill chaining** — skills are NOT "one and done":
-1. **Planning**: `sw:pm` (specs) → `sw:architect` (design)
-2. **Implementation**: Invoke domain skill per tech (React → `frontend:architect`, .NET → `backend:dotnet`, Stripe → `payments:payment-core`, etc.)
-3. **Closure**: `sw:grill` runs automatically via `/sw:done`
-
-If auto-activation fails, invoke explicitly: `Skill({ skill: "name" })`
-<!-- SW:END:claude-code-concepts -->
-
-<!-- SW:SECTION:lsp version="1.0.325" -->
+<!-- SW:SECTION:lsp version="1.0.326" -->
 ## LSP (Code Intelligence)
 
 **Native LSP broken in v2.1.0+.** Use: `specweave lsp refs|def|hover src/file.ts SymbolName`
 <!-- SW:END:lsp -->
 
-<!-- SW:SECTION:start version="1.0.325" -->
+<!-- SW:SECTION:start version="1.0.326" -->
 ## Getting Started
 
 **Initial increment**: `0001-project-setup` (auto-created by `specweave init`)
@@ -47,7 +20,7 @@ If auto-activation fails, invoke explicitly: `Skill({ skill: "name" })`
 2. **Customize**: Edit spec.md and use for setup tasks
 <!-- SW:END:start -->
 
-<!-- SW:SECTION:autodetect version="1.0.325" -->
+<!-- SW:SECTION:autodetect version="1.0.326" -->
 ## Auto-Detection
 
 SpecWeave auto-detects product descriptions and routes to `/sw:increment`:
@@ -57,7 +30,7 @@ SpecWeave auto-detects product descriptions and routes to `/sw:increment`:
 **Opt-out phrases**: "Just brainstorm first" | "Don't plan yet" | "Quick discussion" | "Let's explore ideas"
 <!-- SW:END:autodetect -->
 
-<!-- SW:SECTION:metarule version="1.0.325" -->
+<!-- SW:SECTION:metarule version="1.0.326" -->
 ## Workflow Orchestration
 
 ### 1. Plan Mode Default (MANDATORY)
@@ -88,7 +61,7 @@ Good: npm run build → node script.js → Success
 ```
 <!-- SW:END:metarule -->
 
-<!-- SW:SECTION:rules version="1.0.325" -->
+<!-- SW:SECTION:rules version="1.0.326" -->
 ## Rules
 
 1. **Files** → `.specweave/increments/####-name/` (see Structure section for details)
@@ -104,7 +77,7 @@ Good: npm run build → node script.js → Success
 8. **Multi-repo**: ALL repos MUST be at `repositories/{org}/{repo-name}/` — NEVER directly under `repositories/`
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:workflow version="1.0.325" -->
+<!-- SW:SECTION:workflow version="1.0.326" -->
 ## Workflow
 
 `/sw:increment "X"` → `/sw:do` → `/sw:progress` → `/sw:done 0001`
@@ -124,13 +97,7 @@ Good: npm run build → node script.js → Success
 **Natural language**: "Let's build X" → `/sw:increment` | "What's status?" → `/sw:progress` | "We're done" → `/sw:done` | "Ship while sleeping" → `/sw:auto`
 <!-- SW:END:workflow -->
 
-<!-- SW:SECTION:save-nested-repos version="1.0.314" -->
-## Nested Repos
-
-Before git operations, scan: `for d in repositories packages services apps libs workspace; do [ -d "$d" ] && find "$d" -maxdepth 2 -name ".git" -type d; done`
-<!-- SW:END:save-nested-repos -->
-
-<!-- SW:SECTION:reflect version="1.0.325" -->
+<!-- SW:SECTION:reflect version="1.0.326" -->
 ## Skill Memories
 
 SpecWeave learns from corrections. Learnings saved here automatically. Edit or delete as needed.
@@ -138,7 +105,7 @@ SpecWeave learns from corrections. Learnings saved here automatically. Edit or d
 **Disable**: Set `"reflect": { "enabled": false }` in `.specweave/config.json`
 <!-- SW:END:reflect -->
 
-<!-- SW:SECTION:context version="1.0.325" -->
+<!-- SW:SECTION:context version="1.0.326" -->
 ## Context
 
 **Before implementing**: Check ADRs at `.specweave/docs/internal/architecture/adr/`
@@ -146,7 +113,7 @@ SpecWeave learns from corrections. Learnings saved here automatically. Edit or d
 **Load context**: `/sw:docs <topic>` loads relevant living docs into conversation
 <!-- SW:END:context -->
 
-<!-- SW:SECTION:structure version="1.0.325" -->
+<!-- SW:SECTION:structure version="1.0.326" -->
 ## Structure
 
 ```
@@ -161,7 +128,7 @@ SpecWeave learns from corrections. Learnings saved here automatically. Edit or d
 **Everything else → subfolders**: `reports/` | `logs/` | `scripts/` | `backups/`
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:taskformat version="1.0.325" -->
+<!-- SW:SECTION:taskformat version="1.0.326" -->
 ## Task Format
 
 ```markdown
@@ -171,41 +138,41 @@ SpecWeave learns from corrections. Learnings saved here automatically. Edit or d
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:secrets version="1.0.325" -->
+<!-- SW:SECTION:secrets version="1.0.326" -->
 ## Secrets
 
 Before CLI tools, check existing config (`grep -q` only — never display values).
 <!-- SW:END:secrets -->
 
-<!-- SW:SECTION:syncing version="1.0.325" -->
+<!-- SW:SECTION:syncing version="1.0.326" -->
 ## External Sync
 
 Primary: `/sw:progress-sync`. Individual: `/sw-github:push`, `/sw-github:close`. Mapping: Feature→Milestone | Story→Issue | Task→Checkbox.
 <!-- SW:END:syncing -->
 
-<!-- SW:SECTION:testing version="1.0.325" -->
+<!-- SW:SECTION:testing version="1.0.326" -->
 ## Testing
 
 BDD in tasks.md | Unit >80% | `.test.ts` (Vitest) | ESM mocking: `vi.hoisted()` + `vi.mock()`
 <!-- SW:END:testing -->
 
-<!-- SW:SECTION:tdd version="1.0.325" -->
+<!-- SW:SECTION:tdd version="1.0.326" -->
 ## TDD
 
 When `testing.defaultTestMode: "TDD"` in config.json: RED→GREEN→REFACTOR. Use `/sw:tdd-cycle`. Enforcement via `testing.tddEnforcement` (strict|warn|off).
 <!-- SW:END:tdd -->
 
-<!-- SW:SECTION:api version="1.0.325" -->
+<!-- SW:SECTION:api version="1.0.326" -->
 <!-- API: Enable `apiDocs` in config.json. Commands: /sw:api-docs -->
 <!-- SW:END:api -->
 
-<!-- SW:SECTION:limits version="1.0.325" -->
+<!-- SW:SECTION:limits version="1.0.326" -->
 ## Limits
 
 **Max 1500 lines/file** — extract before adding
 <!-- SW:END:limits -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.325" -->
+<!-- SW:SECTION:troubleshooting version="1.0.326" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -216,13 +183,13 @@ When `testing.defaultTestMode: "TDD"` in config.json: RED→GREEN→REFACTOR. Us
 | Session stuck | `rm -f .specweave/state/*.lock` + restart |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:lazyloading version="1.0.325" -->
+<!-- SW:SECTION:lazyloading version="1.0.326" -->
 ## Plugin Auto-Loading
 
 Plugins load automatically. Manual: `vskill install --repo anton-abyzov/vskill --plugin frontend`. Disable: `export SPECWEAVE_DISABLE_AUTO_LOAD=1`
 <!-- SW:END:lazyloading -->
 
-<!-- SW:SECTION:principles version="1.0.325" -->
+<!-- SW:SECTION:principles version="1.0.326" -->
 ## Principles
 
 1. **Spec-first**: `/sw:increment` before coding
@@ -233,7 +200,7 @@ Plugins load automatically. Manual: `vskill install --repo anton-abyzov/vskill -
 6. **Plan Review**: Review the plan thoroughly before making any code changes
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:linking version="1.0.325" -->
+<!-- SW:SECTION:linking version="1.0.326" -->
 ## Bidirectional Linking
 
 Tasks ↔ User Stories auto-linked via AC-IDs: `AC-US1-01` → `US-001`
@@ -241,13 +208,13 @@ Tasks ↔ User Stories auto-linked via AC-IDs: `AC-US1-01` → `US-001`
 Task format: `**AC**: AC-US1-01, AC-US1-02` (CRITICAL for linking)
 <!-- SW:END:linking -->
 
-<!-- SW:SECTION:mcp version="1.0.325" -->
+<!-- SW:SECTION:mcp version="1.0.326" -->
 ## External Services
 
 CLI tools first (`gh`, `wrangler`, `supabase`) → MCP for complex integrations.
 <!-- SW:END:mcp -->
 
-<!-- SW:SECTION:auto version="1.0.325" -->
+<!-- SW:SECTION:auto version="1.0.326" -->
 ## Auto Mode
 
 `/sw:auto` (start) | `/sw:auto-status` (check) | `/sw:cancel-auto` (emergency)
@@ -255,14 +222,78 @@ CLI tools first (`gh`, `wrangler`, `supabase`) → MCP for complex integrations.
 Pattern: IMPLEMENT → TEST → FAIL? → FIX → PASS → NEXT. STOP & ASK if spec conflicts or ambiguity.
 <!-- SW:END:auto -->
 
-<!-- SW:SECTION:docs version="1.0.325" -->
+<!-- SW:SECTION:docs version="1.0.326" -->
 ## Docs
 
 [spec-weave.com](https://spec-weave.com)
 <!-- SW:END:docs -->
 
-<!-- SW:SECTION:non-claude version="1.0.314" -->
-## Using SpecWeave with Other AI Tools
+---
+<!-- ↓ ORIGINAL ↓ -->
 
-See **AGENTS.md** for Cursor, Copilot, Windsurf, Aider instructions.
-<!-- SW:END:non-claude -->
+## Project Structure
+
+- **Umbrella repo**: specweave-umb with repos under `repositories/anton-abyzov/`
+- **Multi-repo**: ALL repos at `repositories/{org}/{repo-name}/` — never directly under `repositories/`
+
+## Nested Repos
+
+Before git operations, scan for nested .git dirs:
+```bash
+for d in repositories packages services apps libs workspace; do [ -d "$d" ] && find "$d" -maxdepth 2 -name ".git" -type d; done
+```
+
+## Workflow Orchestration
+
+### Plan Mode
+- **ALWAYS enter plan mode** for non-trivial tasks (3+ steps or architectural decisions)
+- Do NOT start implementation until the plan is reviewed and approved
+- If something goes sideways, **STOP and re-plan** — do not keep pushing
+
+### Subagent Strategy
+- Use subagents to keep main context clean
+- Offload research, exploration, and parallel analysis to subagents
+- One task per subagent for focused execution
+
+### Verification
+- Never mark a task complete without proving it works
+- Ask yourself: **"Would a staff engineer approve this?"**
+- Run tests, check logs, demonstrate correctness
+
+### Think-Before-Act (Dependencies)
+Satisfy dependencies BEFORE dependent operations.
+```
+Bad:  node script.js → Error → npm run build
+Good: npm run build → node script.js → Success
+```
+
+## Principles
+
+1. **Simplicity First**: Minimal code, minimal impact
+2. **No Laziness**: Root causes, senior standards
+3. **DRY**: Flag and eliminate repetitions aggressively
+4. **Plan before code**: Review the plan thoroughly before making any code changes
+5. **Verify before done**: Run tests, check logs, demonstrate correctness
+
+## Testing
+
+- BDD style | Unit >80% coverage
+- `.test.ts` files (Vitest)
+- ESM mocking: `vi.hoisted()` + `vi.mock()`
+
+## Limits
+
+**Max 1500 lines/file** — extract before adding
+
+## External Services
+
+CLI tools first (`gh`, `wrangler`, `supabase`) — MCP for complex integrations.
+
+## Secrets
+
+Before CLI tools, check existing config (`grep -q` only — never display values).
+
+## Context
+
+Check ADRs at `.specweave/docs/internal/architecture/adr/` before implementing.
+
