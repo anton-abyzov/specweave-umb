@@ -6,6 +6,10 @@ status: active
 priority: P2
 created: 2026-02-24
 project: vskill-platform
+external:
+  github:
+    issue: 1317
+    url: https://github.com/anton-abyzov/specweave/issues/1317
 ---
 # US-006: Admin Timeout Metrics
 

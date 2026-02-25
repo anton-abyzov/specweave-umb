@@ -8,5 +8,40 @@
   "created": "2026-02-24T18:00:00Z",
   "updated": "2026-02-24T21:08:36.246Z",
   "lastActivity": "2026-02-24T21:08:36.246Z",
-  "approvedAt": "2026-02-24T21:08:36.246Z"
+  "approvedAt": "2026-02-24T21:08:36.246Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1333,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1333",
+        "createdAt": "2026-02-24T22:38:32.959Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1334,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1334",
+        "createdAt": "2026-02-24T22:38:39.729Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1335,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1335",
+        "createdAt": "2026-02-24T22:38:46.862Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1337,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1337",
+        "createdAt": "2026-02-24T22:38:53.395Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 1339,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1339",
+        "createdAt": "2026-02-24T22:39:00.175Z"
+      }
+    ],
+    "lastSync": "2026-02-24T22:39:00.175Z"
+  }
 }

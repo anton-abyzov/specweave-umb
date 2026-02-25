@@ -1,6 +1,6 @@
 {
   "id": "0367-stuck-submission-detection",
-  "status": "planned",
+  "status": "ready_for_review",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-24T21:14:31.369Z",
@@ -9,5 +9,46 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1312,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1312",
+        "createdAt": "2026-02-24T22:28:30.560Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1313,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1313",
+        "createdAt": "2026-02-24T22:28:37.471Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1314,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1314",
+        "createdAt": "2026-02-24T22:28:44.183Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1315,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1315",
+        "createdAt": "2026-02-24T22:28:51.521Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 1316,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1316",
+        "createdAt": "2026-02-24T22:28:58.449Z"
+      },
+      {
+        "userStory": "US-006",
+        "number": 1317,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1317",
+        "createdAt": "2026-02-24T22:29:05.127Z"
+      }
+    ],
+    "lastSync": "2026-02-24T22:29:05.127Z"
+  }
 }

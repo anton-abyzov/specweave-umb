@@ -9,5 +9,22 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1330,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1330",
+        "createdAt": "2026-02-24T22:37:46.339Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1331,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1331",
+        "createdAt": "2026-02-24T22:37:53.415Z"
+      }
+    ],
+    "lastSync": "2026-02-24T22:37:53.415Z"
+  }
 }

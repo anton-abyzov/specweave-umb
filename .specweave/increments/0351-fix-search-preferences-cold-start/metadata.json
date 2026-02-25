@@ -1,6 +1,6 @@
 {
   "id": "0351-fix-search-preferences-cold-start",
-  "status": "planned",
+  "status": "ready_for_review",
   "type": "bug",
   "priority": "P1",
   "created": "2026-02-24T05:51:28.102Z",
@@ -9,5 +9,16 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1324,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1324",
+        "createdAt": "2026-02-24T22:30:22.777Z"
+      }
+    ],
+    "lastSync": "2026-02-24T22:30:22.778Z"
+  }
 }

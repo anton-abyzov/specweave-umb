@@ -4,5 +4,22 @@
   "title": "Fix search to match by repository name and supplement edge results",
   "status": "active",
   "created": "2026-02-24T10:00:00.000Z",
-  "repository": "repositories/anton-abyzov/vskill-platform"
+  "repository": "repositories/anton-abyzov/vskill-platform",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1325,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1325",
+        "createdAt": "2026-02-24T22:36:52.130Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1326,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1326",
+        "createdAt": "2026-02-24T22:36:58.602Z"
+      }
+    ],
+    "lastSync": "2026-02-24T22:36:58.602Z"
+  }
 }

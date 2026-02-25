@@ -19,9 +19,9 @@
   "skills": {
     "sw": {
       "version": "1.0.225",
-      "sha": "48046e6a989f",
+      "sha": "4fa089d40c2e",
       "tier": "BUNDLED",
-      "installedAt": "2026-02-24T07:11:58.905Z",
+      "installedAt": "2026-02-24T22:15:01.741Z",
       "source": "local:specweave"
     },
     "sw-github": {
@@ -180,5 +180,5 @@
     }
   },
   "createdAt": "2026-02-19T03:13:28.638Z",
-  "updatedAt": "2026-02-24T07:11:58.905Z"
+  "updatedAt": "2026-02-24T22:15:01.741Z"
 }

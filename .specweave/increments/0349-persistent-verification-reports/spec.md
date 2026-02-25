@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0349 — Persistent Verification Reports & Package History
 
 ## Problem

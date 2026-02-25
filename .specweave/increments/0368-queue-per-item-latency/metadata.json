@@ -1,0 +1,51 @@
+{
+  "id": "0368",
+  "slug": "queue-per-item-latency",
+  "title": "Queue Per-Item Latency Optimization",
+  "status": "completed",
+  "priority": "P1",
+  "type": "performance",
+  "created": "2026-02-24",
+  "project": "vskill-platform",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1318,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1318",
+        "createdAt": "2026-02-24T22:29:12.443Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1319,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1319",
+        "createdAt": "2026-02-24T22:29:19.315Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1320,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1320",
+        "createdAt": "2026-02-24T22:29:26.072Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1321,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1321",
+        "createdAt": "2026-02-24T22:29:32.445Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 1322,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1322",
+        "createdAt": "2026-02-24T22:29:39.179Z"
+      },
+      {
+        "userStory": "US-006",
+        "number": 1323,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1323",
+        "createdAt": "2026-02-24T22:29:45.670Z"
+      }
+    ],
+    "lastSync": "2026-02-24T22:29:45.670Z"
+  }
+}

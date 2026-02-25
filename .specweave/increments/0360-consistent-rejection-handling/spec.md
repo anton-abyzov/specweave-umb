@@ -1,10 +1,10 @@
 ---
 increment: 0360-consistent-rejection-handling
-title: "Consistent Rejection Handling"
+title: Consistent Rejection Handling
 type: feature
 priority: P1
-status: in-progress
-created: 2026-02-24
+status: completed
+created: 2026-02-24T00:00:00.000Z
 structure: user-stories
 test_mode: test-after
 coverage_target: 80

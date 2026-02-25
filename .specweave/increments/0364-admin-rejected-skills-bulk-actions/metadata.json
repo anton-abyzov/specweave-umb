@@ -1,9 +1,32 @@
 {
-  "id": "0364",
-  "slug": "admin-rejected-skills-bulk-actions",
+  "id": "0364-admin-rejected-skills-bulk-actions",
   "title": "Admin-only rejected skills with bulk actions",
-  "status": "active",
-  "priority": "high",
+  "status": "ready_for_review",
+  "type": "feature",
+  "priority": "P1",
   "createdAt": "2026-02-24T12:00:00.000Z",
-  "repository": "vskill-platform"
+  "repository": "vskill-platform",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1327,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1327",
+        "createdAt": "2026-02-24T22:37:23.180Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1328,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1328",
+        "createdAt": "2026-02-24T22:37:30.210Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1329,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1329",
+        "createdAt": "2026-02-24T22:37:37.904Z"
+      }
+    ],
+    "lastSync": "2026-02-24T22:37:37.904Z"
+  }
 }

@@ -3,7 +3,7 @@ increment: 0351-fix-search-preferences-cold-start
 title: "Fix intermittent search failures and preferences 500 on cold starts"
 type: bug
 priority: P1
-status: in-progress
+status: active
 created: 2026-02-24
 structure: user-stories
 test_mode: test-after

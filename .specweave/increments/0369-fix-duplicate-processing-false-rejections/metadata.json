@@ -1,7 +1,30 @@
 {
   "id": "0369",
   "name": "fix-duplicate-processing-false-rejections",
-  "status": "in-progress",
+  "status": "completed",
   "createdAt": "2026-02-24T21:00:00.000Z",
-  "repo": "vskill-platform"
+  "repo": "vskill-platform",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1336,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1336",
+        "createdAt": "2026-02-24T22:38:47.679Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1338,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1338",
+        "createdAt": "2026-02-24T22:38:54.408Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1340,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1340",
+        "createdAt": "2026-02-24T22:39:01.223Z"
+      }
+    ],
+    "lastSync": "2026-02-24T22:39:01.223Z"
+  }
 }
