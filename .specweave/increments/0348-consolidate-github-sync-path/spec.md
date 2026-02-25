@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # FS-348: Consolidate GitHub Sync to Single Path
 
 **Project**: specweave

@@ -1,8 +1,25 @@
 {
   "id": "0348-consolidate-github-sync-path",
   "title": "Consolidate GitHub sync to single GitHubFeatureSync path",
-  "status": "active",
+  "status": "completed",
+  "type": "refactor",
+  "priority": "P1",
   "feature_id": "FS-348",
   "project": "specweave",
-  "createdAt": "2026-02-23T00:00:00.000Z"
+  "created": "2026-02-23",
+  "updated": "2026-02-25T07:06:40.459Z",
+  "lastActivity": "2026-02-25T07:06:47.517Z",
+  "readyForReviewAt": "2026-02-25T07:06:40.459Z",
+  "approvedAt": "2026-02-25T07:06:47.517Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1355,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1355",
+        "createdAt": "2026-02-25T07:06:53.427Z"
+      }
+    ],
+    "lastSync": "2026-02-25T07:06:53.427Z"
+  }
 }
