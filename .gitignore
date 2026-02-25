@@ -76,11 +76,13 @@ vskill.lock
 
 # AI coding tools
 .agent/
+.agents/
 .aider/
 .codex/
 .continue/
 .cursor/
 .gemini/
+.github/copilot/
 .junie/
 .kiro/
 .opencode/
