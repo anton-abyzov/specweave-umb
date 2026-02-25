@@ -487,6 +487,27 @@ Tracks AI costs, suggests optimizations.
 
 ---
 
+## The Skills Ecosystem Fragmentation Problem
+
+Before diving into how SpecWeave's plugins work together, it's worth understanding a real problem in the broader skills ecosystem: **duplication and fragmentation**.
+
+Skills can be defined in different repositories, published through different channels (standalone skills vs plugins), and there's no single source of truth. This is already happening — even at Anthropic.
+
+Take the `frontend-design` skill. It exists in two different Anthropic repos:
+
+| Location | How You Get It |
+|----------|----------------|
+| [`anthropics/skills`](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md) | Install as a standalone skill |
+| [`anthropics/claude-code`](https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md) | Comes bundled in a plugin |
+
+Same skill, two repos. If you install the standalone skill AND the plugin, you get duplicates loaded into context. If the two copies diverge over time, you get inconsistent behavior depending on which one Claude picks up.
+
+This fragmentation compounds across the ecosystem — community skills, marketplace plugins, vendor-published skills, GitHub repos — all with no coordination. It's the early days of npm and pip all over again, but with the added complexity that skills are natural language instructions rather than versioned code packages.
+
+SpecWeave addresses this through its plugin marketplace architecture: skills are namespaced (`plugin:skill`), deduplicated on install, and version-pinned in lockfiles. The [vskill](https://github.com/anton-abyzov/vskill) installer handles the messy reality so you don't have to.
+
+---
+
 ## 🎯 How Plugins Work Together
 
 ### Example: Full-Stack Feature Implementation
