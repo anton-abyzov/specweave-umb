@@ -11,51 +11,51 @@ The enrichment pipeline has multiple reliability issues: metrics can never decre
 As a platform operator, I want metrics to reflect real values even when they drop, so the platform does not show inflated numbers for deleted/declined repos.
 
 **Acceptance Criteria:**
-- [ ] AC-US1-01: Enrichment batch updates stars/forks/downloads to fetched value regardless of direction
-- [ ] AC-US1-02: Live enrichment path also removes >0 guard
-- [ ] AC-US1-03: Null/error responses still skip update (only successful fetches overwrite)
+- [x] AC-US1-01: Enrichment batch updates stars/forks/downloads to fetched value regardless of direction
+- [x] AC-US1-02: Live enrichment path also removes >0 guard
+- [x] AC-US1-03: Null/error responses still skip update (only successful fetches overwrite)
 
 ### US-002: Atomic enrichment with trending recalc
 
 As a platform operator, I want metric updates and trending recalc to be atomic so crashes cannot leave scores desynced.
 
 **Acceptance Criteria:**
-- [ ] AC-US2-01: Per-skill metric update and trending score update happen in the same transaction
-- [ ] AC-US2-02: Failed metric update preserves old trending score
+- [x] AC-US2-01: Per-skill metric update and trending score update happen in the same transaction
+- [x] AC-US2-02: Failed metric update preserves old trending score
 
 ### US-003: Track and display data freshness
 
 As a user, I want to see when metrics were last refreshed so I can assess data currency.
 
 **Acceptance Criteria:**
-- [ ] AC-US3-01: Skill model has `metricsRefreshedAt DateTime?` column
-- [ ] AC-US3-02: Enrichment sets `metricsRefreshedAt` on each successful update
-- [ ] AC-US3-03: Skill detail page shows "Metrics updated X ago" in Popularity section
+- [x] AC-US3-01: Skill model has `metricsRefreshedAt DateTime?` column
+- [x] AC-US3-02: Enrichment sets `metricsRefreshedAt` on each successful update
+- [x] AC-US3-03: Skill detail page shows "Metrics updated X ago" in Popularity section
 
 ### US-004: Handle API rate limiting
 
 As a platform operator, I want the enrichment batch to detect 429 responses and back off.
 
 **Acceptance Criteria:**
-- [ ] AC-US4-01: GitHub 429 triggers exponential backoff with Retry-After header
-- [ ] AC-US4-02: npm 429 triggers same backoff
-- [ ] AC-US4-03: Rate-limit events are logged with retry-after value
+- [x] AC-US4-01: GitHub 429 triggers exponential backoff with Retry-After header
+- [x] AC-US4-02: npm 429 triggers same backoff
+- [x] AC-US4-03: Rate-limit events are logged with retry-after value
 
 ### US-005: Invalidate stats cache after enrichment
 
 As a platform operator, I want fresh stats after enrichment completes, not stale 2h cached data.
 
 **Acceptance Criteria:**
-- [ ] AC-US5-01: Stats KV key is invalidated/refreshed after enrichment batch
-- [ ] AC-US5-02: Next homepage render picks up updated stats
+- [x] AC-US5-01: Stats KV key is invalidated/refreshed after enrichment batch
+- [x] AC-US5-02: Next homepage render picks up updated stats
 
 ### US-006: Increase batch throughput
 
 As a platform operator, I want more skills refreshed per hour.
 
 **Acceptance Criteria:**
-- [ ] AC-US6-01: Default batch size is 50 (was 20)
-- [ ] AC-US6-02: Batch size configurable via environment variable
+- [x] AC-US6-01: Default batch size is 50 (was 20)
+- [x] AC-US6-02: Batch size configurable via environment variable
 
 ## Out of Scope
 

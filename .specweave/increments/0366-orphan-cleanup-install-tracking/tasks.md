@@ -14,7 +14,7 @@
 
 #### T-001: Create orphan cleanup module
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-04, AC-US1-05 | **Status**: [ ] Not Started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-04, AC-US1-05 | **Status**: [x] Completed
 
 **Description**: Create `src/lib/orphan-cleanup.ts` with a function that deprecates stale Skill records when a skill is being re-submitted.
 
@@ -47,13 +47,13 @@
     - Then only the 2 matching skills are deprecated
 
 **Dependencies**: None
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-002: Integrate orphan cleanup into submission route
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-03 | **Status**: [ ] Not Started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-03 | **Status**: [x] Completed
 
 **Description**: Call `deprecateOrphanSkills()` inside `POST /api/v1/submissions` for both single-skill and batch submission paths, before creating submission records.
 
@@ -81,7 +81,7 @@
     - Then the submission is still created successfully (201 response)
 
 **Dependencies**: T-001
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -91,7 +91,7 @@
 
 #### T-003: Create install tracking API endpoint
 
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-06, AC-US2-07, AC-US2-08, AC-US2-09 | **Status**: [ ] Not Started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-06, AC-US2-07, AC-US2-08, AC-US2-09 | **Status**: [x] Completed
 
 **Description**: Create `POST /api/v1/skills/:name/installs` endpoint that increments `vskillInstalls`.
 
@@ -125,7 +125,7 @@
     - Then the install is still counted (rate limiting is best-effort)
 
 **Dependencies**: None (parallel with T-001/T-002)
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -133,7 +133,7 @@
 
 #### T-004: Add reportInstall function to CLI API client
 
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [ ] Not Started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [x] Completed
 
 **Description**: Add a `reportInstall(skillName: string)` function to `src/api/client.ts` in the vskill CLI repo.
 
@@ -167,13 +167,13 @@
     - Then the abort signal fires after 2000ms
 
 **Dependencies**: T-003 (endpoint must exist, but CLI tests mock fetch)
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
 #### T-005: Call reportInstall from add command
 
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-04 | **Status**: [ ] Not Started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-04 | **Status**: [x] Completed
 
 **Description**: Integrate `reportInstall()` into `src/commands/add.ts` at all successful install exit points.
 
@@ -192,7 +192,7 @@
     - Then `reportInstall` is called with the installed skill name
 
 **Dependencies**: T-004
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ---
 
@@ -200,7 +200,7 @@
 
 #### T-006: End-to-end verification
 
-**User Story**: US-001, US-002 | **Satisfies ACs**: All | **Status**: [ ] Not Started
+**User Story**: US-001, US-002 | **Satisfies ACs**: All | **Status**: [x] Completed
 
 **Description**: Run all tests, verify builds succeed for both repos, and confirm acceptance criteria.
 
@@ -216,4 +216,4 @@
 - Build succeeds in both repos
 
 **Dependencies**: T-001, T-002, T-003, T-004, T-005
-**Status**: [ ] Not Started
+**Status**: [x] Completed

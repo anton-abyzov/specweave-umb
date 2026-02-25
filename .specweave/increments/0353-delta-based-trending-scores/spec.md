@@ -11,38 +11,38 @@ The current trending formula (`githubStars * 0.01 + npmDownloads * 0.0001 + vski
 As a platform operator, I want periodic snapshots of skill metrics so delta-based trending can be computed.
 
 **Acceptance Criteria:**
-- [ ] AC-US1-01: `MetricsSnapshot` model exists with id, skillId, githubStars, githubForks, npmDownloads, vskillInstalls, capturedAt
-- [ ] AC-US1-02: Index on (skillId, capturedAt DESC) for fast delta queries
-- [ ] AC-US1-03: Enrichment batch inserts snapshot row for each updated skill
-- [ ] AC-US1-04: Snapshots older than 90 days are pruned (configurable)
+- [x] AC-US1-01: `MetricsSnapshot` model exists with id, skillId, githubStars, githubForks, npmDownloads, vskillInstalls, capturedAt
+- [x] AC-US1-02: Index on (skillId, capturedAt DESC) for fast delta queries
+- [x] AC-US1-03: Enrichment batch inserts snapshot row for each updated skill
+- [x] AC-US1-04: Snapshots older than 90 days are pruned (configurable)
 
 ### US-002: Compute delta-based trending scores
 
 As a user, I want trending to reflect actual momentum — skills gaining popularity fastest, not just the most popular.
 
 **Acceptance Criteria:**
-- [ ] AC-US2-01: 7d score = weighted sum of deltas: (current - 7d_ago) for stars, downloads, installs
-- [ ] AC-US2-02: 30d score uses 30-day-old snapshot for comparison
-- [ ] AC-US2-03: Missing snapshot → score 0 (new skill, no momentum data yet)
-- [ ] AC-US2-04: Negative deltas contribute 0 (score cannot go below 0)
-- [ ] AC-US2-05: Scores clamped to 0-100
+- [x] AC-US2-01: 7d score = weighted sum of deltas: (current - 7d_ago) for stars, downloads, installs
+- [x] AC-US2-02: 30d score uses 30-day-old snapshot for comparison
+- [x] AC-US2-03: Missing snapshot → score 0 (new skill, no momentum data yet)
+- [x] AC-US2-04: Negative deltas contribute 0 (score cannot go below 0)
+- [x] AC-US2-05: Scores clamped to 0-100
 
 ### US-003: Update trending UI
 
 As a user, I want the trending display to show trending scores and meaningful momentum, not raw star counts.
 
 **Acceptance Criteria:**
-- [ ] AC-US3-01: TrendingSkills spark bar shows trendingScore7d, not githubStars
-- [ ] AC-US3-02: MomentumArrow shows real acceleration (7d vs 30d delta scores)
-- [ ] AC-US3-03: Skill detail shows "7d Trend" label instead of "Trending"
+- [x] AC-US3-01: TrendingSkills spark bar shows trendingScore7d, not githubStars
+- [x] AC-US3-02: MomentumArrow shows real acceleration (7d vs 30d delta scores)
+- [x] AC-US3-03: Skill detail shows "7d Trend" label instead of "Trending"
 
 ### US-004: Fair treatment for non-GitHub skills
 
 As a skill author hosting on GitLab, I want my skill to be fairly ranked by available metrics.
 
 **Acceptance Criteria:**
-- [ ] AC-US4-01: Missing GitHub data = 0 delta contribution, not penalty
-- [ ] AC-US4-02: npm downloads and vskill installs still contribute normally
+- [x] AC-US4-01: Missing GitHub data = 0 delta contribution, not penalty
+- [x] AC-US4-02: npm downloads and vskill installs still contribute normally
 
 ## Out of Scope
 

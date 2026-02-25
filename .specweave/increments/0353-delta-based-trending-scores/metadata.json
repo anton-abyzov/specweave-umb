@@ -1,6 +1,6 @@
 {
   "id": "0353-delta-based-trending-scores",
-  "status": "planned",
+  "status": "done",
   "type": "enhancement",
   "priority": "P1",
   "created": "2026-02-24T14:00:00.000Z",
@@ -9,5 +9,61 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1373,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1373",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1374,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1374",
+          "status": "created"
+        },
+        "US-003": {
+          "issueNumber": 1375,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1375",
+          "status": "created"
+        },
+        "US-004": {
+          "issueNumber": 1376,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1376",
+          "status": "created"
+        }
+      },
+      "milestone": 160,
+      "syncedAt": "2026-02-25T07:54:52Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1373,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1373",
+        "createdAt": "2026-02-25T07:54:52Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1374,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1374",
+        "createdAt": "2026-02-25T07:54:52Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1375,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1375",
+        "createdAt": "2026-02-25T07:54:52Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1376,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1376",
+        "createdAt": "2026-02-25T07:54:52Z"
+      }
+    ],
+    "lastSync": "2026-02-25T07:54:52Z"
+  }
 }

@@ -12,13 +12,13 @@ by_user_story:
 ## User Story: US-001 - Scale Queue Processing Capacity
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03
-**Tasks**: 1 total, 0 completed
+**Tasks**: 1 total, 1 completed
 
 ### T-001: Bump queue config in wrangler.jsonc
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** wrangler.jsonc with `max_batch_size: 3` and `max_concurrency: 10`
@@ -42,13 +42,13 @@ by_user_story:
 ## User Story: US-002 - Authenticate GitHub API Calls in Processing Pipeline
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05, AC-US2-06, AC-US2-07, AC-US2-08
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 ### T-002: Add githubToken to ProcessSubmissionOptions and consumer
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-08
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** handleSubmissionQueue receives env with GITHUB_TOKEN set
@@ -70,7 +70,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-03, AC-US2-04, AC-US2-07
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-002
 
 **Test Plan**:
@@ -100,7 +100,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-05, AC-US2-06, AC-US2-07
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-002
 
 **Test Plan**:
@@ -127,7 +127,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-07
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-003, T-004
 
 **Test Plan**:
@@ -150,13 +150,13 @@ by_user_story:
 ## User Story: US-003 - Lower Fast-Approve Threshold
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03
-**Tasks**: 1 total, 0 completed
+**Tasks**: 1 total, 1 completed
 
 ### T-006: Lower FAST_APPROVE_THRESHOLD from 85 to 75
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a code-skill with Tier 1 weighted score of 76
@@ -187,13 +187,13 @@ by_user_story:
 ## User Story: US-004 - Bulk-Enqueue Admin Endpoint
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05, AC-US4-06, AC-US4-07, AC-US4-08
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ### T-007: Create bulk-enqueue route with auth and validation
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-07, AC-US4-08
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a POST request without auth headers
@@ -229,7 +229,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-04, AC-US4-05, AC-US4-06
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-007
 
 **Test Plan**:
@@ -260,13 +260,13 @@ by_user_story:
 ## User Story: US-005 - Parallelize Discovery Submission Loop
 
 **Linked ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04, AC-US5-05, AC-US5-06
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ### T-009: Refactor submission loop to parallel batches
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** 100 candidates with maxResults=50
@@ -297,7 +297,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-04, AC-US5-05, AC-US5-06
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-009
 
 **Test Plan**:

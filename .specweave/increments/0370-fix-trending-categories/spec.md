@@ -27,8 +27,8 @@ Two bugs on the vskill-platform homepage: (1) "Skills by Category" section rende
 
 **Acceptance Criteria**:
 - [x] **AC-US1-01**: `computeFullStats()` uses `Promise.allSettled` so individual query failures don't kill all results
-- [ ] **AC-US1-02**: `computeMinimalStats()` attempts category groupBy with try/catch instead of hard-coding `categories: []`
-- [ ] **AC-US1-03**: `computeMinimalStats()` attempts topStarRepos recovery with try/catch instead of hard-coding `topStarRepos: []`
+- [x] **AC-US1-02**: `computeMinimalStats()` attempts category groupBy with try/catch instead of hard-coding `categories: []`
+- [x] **AC-US1-03**: `computeMinimalStats()` attempts topStarRepos recovery with try/catch instead of hard-coding `topStarRepos: []`
 
 ---
 
@@ -40,11 +40,11 @@ Two bugs on the vskill-platform homepage: (1) "Skills by Category" section rende
 **So that** I can see which skills are gaining traction vs. stable
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Trending formula uses logarithmic scaling (LN) instead of linear multipliers to prevent cap saturation
-- [ ] **AC-US2-02**: Skills with 95k+ stars no longer show identical 7d/30d scores (both pinned at 100)
-- [ ] **AC-US2-03**: MomentumArrow threshold adjusted to show meaningful deltas at log scale
-- [ ] **AC-US2-04**: Trending formula extracted to shared module (DRY — single source of truth)
-- [ ] **AC-US2-05**: Both enrichment.ts and admin/enrich/route.ts use the shared formula
+- [x] **AC-US2-01**: Trending formula uses logarithmic scaling (LN) instead of linear multipliers to prevent cap saturation
+- [x] **AC-US2-02**: Skills with 95k+ stars no longer show identical 7d/30d scores (both pinned at 100)
+- [x] **AC-US2-03**: MomentumArrow threshold adjusted to show meaningful deltas at log scale
+- [x] **AC-US2-04**: Trending formula extracted to shared module (DRY — single source of truth)
+- [x] **AC-US2-05**: Both enrichment.ts and admin/enrich/route.ts use the shared formula
 
 ## Out of Scope
 

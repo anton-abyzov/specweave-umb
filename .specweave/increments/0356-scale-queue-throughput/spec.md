@@ -3,7 +3,7 @@ increment: 0356-scale-queue-throughput
 title: "Scale Queue Throughput for Thousands of Repositories"
 type: feature
 priority: P1
-status: planned
+status: completed
 created: 2026-02-24
 structure: user-stories
 test_mode: test-after
@@ -34,9 +34,9 @@ This increment makes five targeted changes to increase end-to-end throughput by 
 **So that** the pipeline can handle thousands of submissions per hour instead of hundreds
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `wrangler.jsonc` queue consumer `max_batch_size` is set to 10 (was 3)
-- [ ] **AC-US1-02**: `wrangler.jsonc` queue consumer `max_concurrency` is set to 20 (was 10)
-- [ ] **AC-US1-03**: No other queue config values are changed (max_retries, max_batch_timeout, retry_delay, dead_letter_queue remain unchanged)
+- [x] **AC-US1-01**: `wrangler.jsonc` queue consumer `max_batch_size` is set to 10 (was 3)
+- [x] **AC-US1-02**: `wrangler.jsonc` queue consumer `max_concurrency` is set to 20 (was 10)
+- [x] **AC-US1-03**: No other queue config values are changed (max_retries, max_batch_timeout, retry_delay, dead_letter_queue remain unchanged)
 
 ---
 
@@ -48,14 +48,14 @@ This increment makes five targeted changes to increase end-to-end throughput by 
 **So that** the rate limit increases from 60 req/hr (unauthenticated) to 5000 req/hr (authenticated), preventing 403 errors during high-volume processing
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `handleSubmissionQueue` in `consumer.ts` reads `GITHUB_TOKEN` from worker `env` and passes it to `processSubmission` via a new `githubToken` option field
-- [ ] **AC-US2-02**: `ProcessSubmissionOptions` interface gains an optional `githubToken?: string` field
-- [ ] **AC-US2-03**: `processSubmission` passes `githubToken` to `fetchRepoFiles(repoUrl, skillPath, githubToken)` calls (both vendor and non-vendor paths)
-- [ ] **AC-US2-04**: `fetchRepoFiles` accepts an optional `token` parameter and includes `Authorization: Bearer <token>` header on all `raw.githubusercontent.com` fetches and GitHub API calls when token is provided
-- [ ] **AC-US2-05**: `resolveCommitSha` in `github-permalink.ts` accepts an optional `token` parameter and includes `Authorization: Bearer <token>` header when provided
-- [ ] **AC-US2-06**: `processSubmission` passes `githubToken` to `resolveCommitSha(owner, repo, "HEAD", token)` call
-- [ ] **AC-US2-07**: When no token is provided (e.g. direct API route calls), all functions fall back to unauthenticated requests (backward-compatible)
-- [ ] **AC-US2-08**: `GITHUB_TOKEN` env binding is declared in the `handleSubmissionQueue` env type (optional string)
+- [x] **AC-US2-01**: `handleSubmissionQueue` in `consumer.ts` reads `GITHUB_TOKEN` from worker `env` and passes it to `processSubmission` via a new `githubToken` option field
+- [x] **AC-US2-02**: `ProcessSubmissionOptions` interface gains an optional `githubToken?: string` field
+- [x] **AC-US2-03**: `processSubmission` passes `githubToken` to `fetchRepoFiles(repoUrl, skillPath, githubToken)` calls (both vendor and non-vendor paths)
+- [x] **AC-US2-04**: `fetchRepoFiles` accepts an optional `token` parameter and includes `Authorization: Bearer <token>` header on all `raw.githubusercontent.com` fetches and GitHub API calls when token is provided
+- [x] **AC-US2-05**: `resolveCommitSha` in `github-permalink.ts` accepts an optional `token` parameter and includes `Authorization: Bearer <token>` header when provided
+- [x] **AC-US2-06**: `processSubmission` passes `githubToken` to `resolveCommitSha(owner, repo, "HEAD", token)` call
+- [x] **AC-US2-07**: When no token is provided (e.g. direct API route calls), all functions fall back to unauthenticated requests (backward-compatible)
+- [x] **AC-US2-08**: `GITHUB_TOKEN` env binding is declared in the `handleSubmissionQueue` env type (optional string)
 
 ---
 
@@ -67,9 +67,9 @@ This increment makes five targeted changes to increase end-to-end throughput by 
 **So that** more code-skills with clean Tier 1 scans skip the expensive Tier 2 LLM analysis, reducing processing time and AI API costs
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `FAST_APPROVE_THRESHOLD` constant in `process-submission.ts` is changed from 85 to 75
-- [ ] **AC-US3-02**: The fast-approve short-circuit logic (`hasCodeFiles && tier1WeightedScore > FAST_APPROVE_THRESHOLD`) remains unchanged -- only the threshold value changes
-- [ ] **AC-US3-03**: Pure prompt-only skills are still never fast-approved (the `hasCodeFiles` guard remains)
+- [x] **AC-US3-01**: `FAST_APPROVE_THRESHOLD` constant in `process-submission.ts` is changed from 85 to 75
+- [x] **AC-US3-02**: The fast-approve short-circuit logic (`hasCodeFiles && tier1WeightedScore > FAST_APPROVE_THRESHOLD`) remains unchanged -- only the threshold value changes
+- [x] **AC-US3-03**: Pure prompt-only skills are still never fast-approved (the `hasCodeFiles` guard remains)
 
 ---
 
@@ -81,14 +81,14 @@ This increment makes five targeted changes to increase end-to-end throughput by 
 **So that** VMs running external discovery scripts can submit thousands of repos directly without the overhead of per-repo HTTP calls to `/api/v1/submissions`
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: `POST /api/v1/admin/queue/bulk-enqueue` route exists at `src/app/api/v1/admin/queue/bulk-enqueue/route.ts`
-- [ ] **AC-US4-02**: Authentication requires either `X-Internal-Key` header matching `INTERNAL_BROADCAST_KEY` or `SUPER_ADMIN` JWT (same pattern as `/api/v1/admin/discovery/bulk`)
-- [ ] **AC-US4-03**: Request body accepts `{ items: Array<{ repoUrl: string; skillName: string; skillPath?: string }> }` with a max of 1000 items per request
-- [ ] **AC-US4-04**: Endpoint uses `createSubmissionsBatch` from `submission-store.ts` to batch-create KV + DB records
-- [ ] **AC-US4-05**: Endpoint uses `SUBMISSION_QUEUE.sendBatch` in chunks of 100 (CF Queue limit) to enqueue all items
-- [ ] **AC-US4-06**: Response returns `{ ok: true, enqueued: number, skipped: number, errors: string[] }` with HTTP 200
-- [ ] **AC-US4-07**: Items with invalid `repoUrl` (not matching GitHub URL regex) are skipped with reason in `errors`
-- [ ] **AC-US4-08**: Returns 400 if `items` is missing, not an array, or exceeds 1000 entries
+- [x] **AC-US4-01**: `POST /api/v1/admin/queue/bulk-enqueue` route exists at `src/app/api/v1/admin/queue/bulk-enqueue/route.ts`
+- [x] **AC-US4-02**: Authentication requires either `X-Internal-Key` header matching `INTERNAL_BROADCAST_KEY` or `SUPER_ADMIN` JWT (same pattern as `/api/v1/admin/discovery/bulk`)
+- [x] **AC-US4-03**: Request body accepts `{ items: Array<{ repoUrl: string; skillName: string; skillPath?: string }> }` with a max of 1000 items per request
+- [x] **AC-US4-04**: Endpoint uses `createSubmissionsBatch` from `submission-store.ts` to batch-create KV + DB records
+- [x] **AC-US4-05**: Endpoint uses `SUBMISSION_QUEUE.sendBatch` in chunks of 100 (CF Queue limit) to enqueue all items
+- [x] **AC-US4-06**: Response returns `{ ok: true, enqueued: number, skipped: number, errors: string[] }` with HTTP 200
+- [x] **AC-US4-07**: Items with invalid `repoUrl` (not matching GitHub URL regex) are skipped with reason in `errors`
+- [x] **AC-US4-08**: Returns 400 if `items` is missing, not an array, or exceeds 1000 entries
 
 ---
 
@@ -100,12 +100,12 @@ This increment makes five targeted changes to increase end-to-end throughput by 
 **So that** the enqueue phase (which is currently a sequential for-loop with per-repo dedup + HTTP call) completes faster when processing thousands of candidates
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: The sequential `for (const candidate of allCandidates)` loop in `runGitHubDiscovery` is replaced with batched `Promise.allSettled` processing
-- [ ] **AC-US5-02**: Batch size is configurable via a constant (default 20 candidates per batch)
-- [ ] **AC-US5-03**: The `maxResults` cap is still respected -- processing stops once `enqueued >= maxResults`
-- [ ] **AC-US5-04**: Per-skill dedup via `hasBeenDiscovered` / `markDiscovered` still works correctly under parallelism (no duplicate submissions)
-- [ ] **AC-US5-05**: Error counting (`errors`) and dedup counting (`skippedDedup`) remain accurate
-- [ ] **AC-US5-06**: Per-repo stats logging (`repoStats`) remains functional
+- [x] **AC-US5-01**: The sequential `for (const candidate of allCandidates)` loop in `runGitHubDiscovery` is replaced with batched `Promise.allSettled` processing
+- [x] **AC-US5-02**: Batch size is configurable via a constant (default 20 candidates per batch)
+- [x] **AC-US5-03**: The `maxResults` cap is still respected -- processing stops once `enqueued >= maxResults`
+- [x] **AC-US5-04**: Per-skill dedup via `hasBeenDiscovered` / `markDiscovered` still works correctly under parallelism (no duplicate submissions)
+- [x] **AC-US5-05**: Error counting (`errors`) and dedup counting (`skippedDedup`) remain accurate
+- [x] **AC-US5-06**: Per-repo stats logging (`repoStats`) remains functional
 
 ## Functional Requirements
 

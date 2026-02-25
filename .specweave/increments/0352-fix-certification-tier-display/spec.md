@@ -22,24 +22,24 @@ As a user browsing skills, I want to see which skills have only been auto-scanne
 As a platform operator, I want skills to auto-upgrade from SCANNED to VERIFIED when Tier 2 completes with PASS verdict.
 
 **Acceptance Criteria:**
-- [ ] AC-US2-01: When Tier 2 scan returns PASS for a SCANNED skill, `certTier` updates to VERIFIED
-- [ ] AC-US2-02: Only PASS verdict triggers upgrade; CONCERNS and FAIL do not
+- [x] AC-US2-01: When Tier 2 scan returns PASS for a SCANNED skill, `certTier` updates to VERIFIED
+- [x] AC-US2-02: Only PASS verdict triggers upgrade; CONCERNS and FAIL do not
 
 ### US-003: Trigger trust recalc on report resolution
 
 As a platform operator, I want trust scores recalculated on all report resolutions, not just auto-blocking.
 
 **Acceptance Criteria:**
-- [ ] AC-US3-01: Report status change to RESOLVED/DISMISSED triggers `updateSkillTrust` for affected skill
-- [ ] AC-US3-02: Trust recalc runs regardless of auto-block status
+- [x] AC-US3-01: Report status change to RESOLVED/DISMISSED triggers `updateSkillTrust` for affected skill
+- [x] AC-US3-02: Trust recalc runs regardless of auto-block status
 
 ### US-004: Clarify cert vs trust badges
 
 As a user viewing a skill, I want tooltips explaining what each badge represents.
 
 **Acceptance Criteria:**
-- [ ] AC-US4-01: TierBadge has `title` attribute explaining certification tiers
-- [ ] AC-US4-02: TrustBadge has `title` attribute explaining trust score
+- [x] AC-US4-01: TierBadge has `title` attribute explaining certification tiers
+- [x] AC-US4-02: TrustBadge has `title` attribute explaining trust score
 
 ## Out of Scope
 

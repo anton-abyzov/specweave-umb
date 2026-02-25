@@ -1,6 +1,6 @@
 {
   "id": "0352-fix-certification-tier-display",
-  "status": "planned",
+  "status": "done",
   "type": "bug",
   "priority": "P1",
   "created": "2026-02-24T14:00:00.000Z",
@@ -9,5 +9,61 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1363,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1363",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1364,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1364",
+          "status": "created"
+        },
+        "US-003": {
+          "issueNumber": 1365,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1365",
+          "status": "created"
+        },
+        "US-004": {
+          "issueNumber": 1366,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1366",
+          "status": "created"
+        }
+      },
+      "milestone": 158,
+      "syncedAt": "2026-02-25T07:40:52Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1363,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1363",
+        "createdAt": "2026-02-25T07:40:52Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1364,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1364",
+        "createdAt": "2026-02-25T07:40:52Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1365,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1365",
+        "createdAt": "2026-02-25T07:40:52Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1366,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1366",
+        "createdAt": "2026-02-25T07:40:52Z"
+      }
+    ],
+    "lastSync": "2026-02-25T07:40:52Z"
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "0370-fix-trending-categories",
-  "status": "planned",
+  "status": "done",
   "type": "bug",
   "priority": "P1",
   "created": "2026-02-24T22:16:20.787Z",
@@ -9,5 +9,39 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1356,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1356",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1357,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1357",
+          "status": "created"
+        }
+      },
+      "milestone": 154,
+      "syncedAt": "2026-02-25T07:37:03Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1356,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1356",
+        "createdAt": "2026-02-25T07:37:03Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1357,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1357",
+        "createdAt": "2026-02-25T07:37:03Z"
+      }
+    ],
+    "lastSync": "2026-02-25T07:37:03Z"
+  }
 }
