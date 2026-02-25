@@ -4,5 +4,73 @@
   "status": "active",
   "feature": "FS-338",
   "project": "vskill-platform",
-  "createdAt": "2026-02-24T00:00:00.000Z"
+  "createdAt": "2026-02-24T00:00:00.000Z",
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1347,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1347",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1348,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1348",
+          "status": "created"
+        },
+        "US-003": {
+          "issueNumber": 1349,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1349",
+          "status": "created"
+        },
+        "US-004": {
+          "issueNumber": 1350,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1350",
+          "status": "created"
+        },
+        "US-005": {
+          "issueNumber": 1351,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1351",
+          "status": "created"
+        }
+      },
+      "milestone": 151,
+      "syncedAt": "2026-02-25T07:03:35Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1347,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1347",
+        "createdAt": "2026-02-25T07:03:35Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1348,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1348",
+        "createdAt": "2026-02-25T07:03:35Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1349,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1349",
+        "createdAt": "2026-02-25T07:03:35Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1350,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1350",
+        "createdAt": "2026-02-25T07:03:35Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 1351,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1351",
+        "createdAt": "2026-02-25T07:03:35Z"
+      }
+    ],
+    "lastSync": "2026-02-25T07:03:35Z"
+  }
 }

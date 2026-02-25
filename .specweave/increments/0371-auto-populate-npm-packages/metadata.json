@@ -1,0 +1,42 @@
+{
+  "id": "0371",
+  "name": "auto-populate-npm-packages",
+  "status": "in-progress",
+  "created": "2026-02-25T12:00:00Z",
+  "repo": "vskill-platform",
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1341,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1341",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1342,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1342",
+          "status": "created"
+        }
+      },
+      "milestone": 149,
+      "syncedAt": "2026-02-25T05:49:16Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1341,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1341",
+        "createdAt": "2026-02-25T05:49:16Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1342,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1342",
+        "createdAt": "2026-02-25T05:49:16Z"
+      }
+    ],
+    "lastSync": "2026-02-25T05:49:16Z"
+  }
+}

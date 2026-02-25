@@ -3,7 +3,64 @@
   "slug": "auth-hardening-short-lived-tokens-pkce",
   "title": "Auth hardening: short-lived tokens + PKCE + proactive refresh",
   "type": "feature",
-  "status": "active",
+  "status": "done",
   "repository": "vskill-platform",
-  "createdAt": "2026-02-24T01:00:00Z"
+  "createdAt": "2026-02-24T01:00:00Z",
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1343,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1343",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1344,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1344",
+          "status": "created"
+        },
+        "US-003": {
+          "issueNumber": 1345,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1345",
+          "status": "created"
+        },
+        "US-004": {
+          "issueNumber": 1346,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1346",
+          "status": "created"
+        }
+      },
+      "milestone": 150,
+      "syncedAt": "2026-02-25T07:03:17Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1343,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1343",
+        "createdAt": "2026-02-25T07:03:17Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1344,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1344",
+        "createdAt": "2026-02-25T07:03:17Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1345,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1345",
+        "createdAt": "2026-02-25T07:03:17Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1346,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1346",
+        "createdAt": "2026-02-25T07:03:17Z"
+      }
+    ],
+    "lastSync": "2026-02-25T07:03:17Z"
+  }
 }
