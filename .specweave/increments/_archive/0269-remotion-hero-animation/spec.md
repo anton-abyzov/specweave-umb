@@ -35,7 +35,7 @@ The `remotion-best-practices` skill is already installed in the project, providi
 
 ### Scene 4: THE INSTALL FLOW (26-37s, overlaps Scene 3)
 - **Visual**: macOS-style terminal window (traffic light dots, dark background)
-- **Animation**: Typewriter effect types `$ npx vskill add @specweave/react-frontend` at 2 frames/char with blinking cursor
+- **Animation**: Typewriter effect types `$ npx vskill install @specweave/react-frontend` at 2 frames/char with blinking cursor
 - **Output lines** appear one by one:
   1. "Fetching SKILL.md..."
   2. "Running 41-pattern scan..."
@@ -83,7 +83,7 @@ The `remotion-best-practices` skill is already installed in the project, providi
 - [x] AC-US2-01: Scene 1 displays 36.82% statistic with floating threat snippets
 - [x] AC-US2-02: Scene 2 shows scanning animation with green scan line and BLOCKED result
 - [x] AC-US2-03: Scene 3 presents three tiers with bouncy badge animations
-- [x] AC-US2-04: Scene 4 shows terminal typewriter with `npx vskill add` flow
+- [x] AC-US2-04: Scene 4 shows terminal typewriter with `npx vskill install` flow
 - [x] AC-US2-05: Scene 5 shows SpecWeave wordmark with "Ship safely" tagline
 - [x] AC-US2-06: Scene transitions use opacity crossfades (30 frame overlap)
 - [x] AC-US2-07: Spring physics used for badge/card entrances, typewriter for terminal text

@@ -6,7 +6,7 @@ status: planned
 priority: P1
 created: 2026-02-23
 lastUpdated: 2026-02-23
-tldr: Document vskill add as the native plugin/skill installation method for AI
+tldr: Document vskill install as the native plugin/skill installation method for AI
   agents.
 complexity: medium
 stakeholder_relevant: true
@@ -21,13 +21,13 @@ external_tools:
 
 ## TL;DR
 
-**What**: Document vskill add as the native plugin/skill installation method for AI agents.
+**What**: Document vskill install as the native plugin/skill installation method for AI agents.
 **Status**: planned | **Priority**: P1
 **User Stories**: 2
 
 ## Overview
 
-Document vskill add as the native plugin/skill installation method for AI agents
+Document vskill install as the native plugin/skill installation method for AI agents
 
 ## Implementation History
 

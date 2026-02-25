@@ -19,11 +19,11 @@ Move ~75 fully-generic domain expertise skills from SpecWeave plugins to the vsk
 
 ### US-002: Remote Plugin Installation via CLI
 **As a** vskill user,
-**I want to** run `vskill add --repo anton-abyzov/vskill --plugin frontend`,
+**I want to** run `vskill install --repo anton-abyzov/vskill --plugin frontend`,
 **So that** skills install with namespace prefix (e.g., `/frontend:nextjs`).
 
 **Acceptance Criteria:**
-- [ ] AC-US2-01: `--repo` flag added to `vskill add` command
+- [ ] AC-US2-01: `--repo` flag added to `vskill install` command
 - [ ] AC-US2-02: Fetches marketplace.json from GitHub, resolves plugin, installs skills with namespace
 - [ ] AC-US2-03: Lockfile records `source: "github:{owner}/{repo}#plugin:{name}"`
 - [ ] AC-US2-04: Tests pass for --repo installation flow

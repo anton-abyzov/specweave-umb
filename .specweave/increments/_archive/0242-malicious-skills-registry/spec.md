@@ -37,7 +37,7 @@ As a platform operator, I want to maintain a public blocklist of known-malicious
 As a developer using vskill CLI, I want to be blocked from installing known-malicious skills, so I'm protected even if I attempt to install directly.
 
 **Acceptance Criteria:**
-- [x] AC-US3-01: `vskill add` checks blocklist before installation
+- [x] AC-US3-01: `vskill install` checks blocklist before installation
 - [x] AC-US3-02: If skill matches blocklist entry, installation is refused with clear error message showing why it's blocked
 - [x] AC-US3-03: Blocklist check runs against skill name AND content hash (to catch renamed copies)
 - [x] AC-US3-04: Force-install flag (`--force`) available but shows prominent warning and requires explicit confirmation

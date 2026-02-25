@@ -69,7 +69,7 @@ Skills.sh has zero versioning — `npx skills add` always gets HEAD of main bran
 
 ```
 INSTALL FLOW:
-1. npx vskill add anthropics/skills --skill frontend-design
+1. npx vskill install anthropics/skills --skill frontend-design
 2. Fetches skill content + records git SHA / version tag
 3. Runs Tier 1 scan on THAT specific version
 4. Stores: vskill.lock (version pinning)
@@ -85,7 +85,7 @@ INSTALL FLOW:
 5. Installs to agent dirs (symlink or copy, user choice)
 
 UPDATE FLOW:
-1. npx vskill update (or npx vskill add --latest)
+1. npx vskill update (or npx vskill install --latest)
 2. Fetches new version
 3. Runs DIFF SCAN — compares old vs new version
 4. Highlights NEW patterns: "v1.3.1 adds: eval(), fetch() — REVIEW REQUIRED"

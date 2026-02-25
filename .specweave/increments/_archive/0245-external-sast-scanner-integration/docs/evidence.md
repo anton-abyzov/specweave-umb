@@ -154,7 +154,7 @@ However, the combined verdict from semgrep's FAIL overrides this to overall FAIL
    - Used by `/api/v1/skills/evolver/security` API endpoint
 
 3. **Blocklist**: `BlocklistEntry` with `threatType = "external-sast"`
-   - Causes `vskill add evolver` to exit with code 1
+   - Causes `vskill install evolver` to exit with code 1
 
 4. **Security page**: `/skills/evolver/security`
    - Shows Commit column: `a1b2c3d` → links to `https://github.com/anton-abyzov/evolver/commit/<full-sha>`

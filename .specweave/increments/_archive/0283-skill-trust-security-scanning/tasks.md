@@ -290,12 +290,12 @@
 
 ### T-011: Trust tier display in vskill CLI
 **User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02, AC-US8-03, AC-US8-04 | **Status**: [x] completed
-**Test**: Given a skill with trustTier T3 -> When running `vskill add my-skill` -> Then output includes "Trust: T3 (Verified)"
+**Test**: Given a skill with trustTier T3 -> When running `vskill install my-skill` -> Then output includes "Trust: T3 (Verified)"
 
 **Description**: Display trust information in vskill CLI commands.
 
 **Implementation Details**:
-- Update `vskill add` to fetch and display trust tier + score from platform API
+- Update `vskill install` to fetch and display trust tier + score from platform API
 - T0: Red warning + require `--force` flag
 - T1: Amber warning about unverified status
 - T2-T4: Green display with tier label

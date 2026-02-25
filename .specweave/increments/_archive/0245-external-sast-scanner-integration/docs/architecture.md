@@ -94,7 +94,7 @@ reason:     "<provider> found N critical findings"
 discoveredBy: "external-scan"
 ```
 
-This causes `vskill add <skill>` to fail with exit code 1 and a link to the report.
+This causes `vskill install <skill>` to fail with exit code 1 and a link to the report.
 
 ## Deduplication and Rate Limiting
 

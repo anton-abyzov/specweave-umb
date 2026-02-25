@@ -54,17 +54,17 @@
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-03 | **Status**: [x] completed
 **Test**: Given blocklist API returns entries → When syncBlocklist() called → Then entries cached to ~/.vskill/blocklist.json with fetchedAt timestamp; Given cache exists and is <1hr old → When checkBlocklist("evil-skill") called → Then uses cache without API call; Given cache is >1hr old → When checkBlocklist() called → Then refreshes from API first; Given API is unreachable → When checkBlocklist() called → Then falls back to cached version
 
-### T-013: Integrate blocklist check into `vskill add` (GitHub path)
+### T-013: Integrate blocklist check into `vskill install` (GitHub path)
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02 | **Status**: [x] completed
-**Test**: Given "evil-skill" is blocklisted → When `vskill add owner/evil-skill` → Then installation is refused with error showing threat type and reason, exit code 1; Given "safe-skill" is not blocklisted → When `vskill add owner/safe-skill` → Then proceeds to Tier 1 scan as normal
+**Test**: Given "evil-skill" is blocklisted → When `vskill install owner/evil-skill` → Then installation is refused with error showing threat type and reason, exit code 1; Given "safe-skill" is not blocklisted → When `vskill install owner/safe-skill` → Then proceeds to Tier 1 scan as normal
 
-### T-014: Integrate blocklist check into `vskill add` (plugin path)
+### T-014: Integrate blocklist check into `vskill install` (plugin path)
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02 | **Status**: [x] completed
-**Test**: Given "evil-plugin" is blocklisted → When `vskill add source --plugin evil-plugin` → Then installation is refused; Given "safe-plugin" → When installed → Then proceeds normally
+**Test**: Given "evil-plugin" is blocklisted → When `vskill install source --plugin evil-plugin` → Then installation is refused; Given "safe-plugin" → When installed → Then proceeds normally
 
 ### T-015: Add --force override with prominent warning for blocked skills
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Status**: [x] completed
-**Test**: Given "evil-skill" is blocklisted → When `vskill add owner/evil-skill --force` → Then shows WARNING banner (red, multi-line) explaining the skill is known-malicious, but proceeds with installation; Given --force NOT passed → When blocked skill attempted → Then refuses without option to continue inline
+**Test**: Given "evil-skill" is blocklisted → When `vskill install owner/evil-skill --force` → Then shows WARNING banner (red, multi-line) explaining the skill is known-malicious, but proceeds with installation; Given --force NOT passed → When blocked skill attempted → Then refuses without option to continue inline
 
 ### T-016: Add `vskill blocklist` CLI command (list, sync, check)
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01 | **Status**: [x] completed

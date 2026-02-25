@@ -44,7 +44,7 @@ verified-skill.com becomes the **shields.io for AI agent skills** — the canoni
 
 > "Install skills you can trust. Every skill on verified-skill.com has been scanned for malicious patterns, verified by AI analysis, and version-pinned so updates can't sneak in malware."
 
-- **Security-first installation**: `npx vskill add` scans before installing
+- **Security-first installation**: `npx vskill install` scans before installing
 - **Version pinning**: Badge says "verified at v1.3.0" — not just "verified"
 - **39-agent support**: One install command, all agents updated
 - **Diff scanning on updates**: See exactly what changed before accepting
@@ -300,7 +300,7 @@ The landing page features a prominent 4-step onboarding flow positioned below th
 Below the steps, an interactive terminal demo shows the complete flow:
 
 ```
-$ npx vskill add anthropics/skills --skill frontend-design
+$ npx vskill install anthropics/skills --skill frontend-design
 
   Fetching skill... done
   Running security scan...

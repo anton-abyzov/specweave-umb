@@ -18,7 +18,7 @@ Two related improvements to the vskill platform:
 
 1. **Orphan cleanup**: When a skill is re-submitted (new submission for same repo+skillName), automatically deprecate the previous Skill record using the existing `isDeprecated` field. This runs in the same transaction as the batch submission flow, requiring only one `findMany` + one `updateMany` query.
 
-2. **Install tracking phone-home**: The vskill CLI sends a fire-and-forget POST to the platform after each successful `vskill add`, incrementing `Skill.vskillInstalls`. Enabled by default, opt-out via `VSKILL_NO_TELEMETRY=1` env var. The CLI uses a 2-second timeout and swallows all errors silently.
+2. **Install tracking phone-home**: The vskill CLI sends a fire-and-forget POST to the platform after each successful `vskill install`, incrementing `Skill.vskillInstalls`. Enabled by default, opt-out via `VSKILL_NO_TELEMETRY=1` env var. The CLI uses a 2-second timeout and swallows all errors silently.
 
 ## User Stories
 
@@ -46,7 +46,7 @@ Two related improvements to the vskill platform:
 **So that** `vskillInstalls` reflects real usage and feeds into trending scores
 
 **Acceptance Criteria**:
-- [x] **AC-US2-01**: After a successful `vskill add <skill>`, the CLI sends `POST /api/v1/skills/:name/installs` to the platform
+- [x] **AC-US2-01**: After a successful `vskill install <skill>`, the CLI sends `POST /api/v1/skills/:name/installs` to the platform
 - [x] **AC-US2-02**: The phone-home uses the same `BASE_URL` ("https://verified-skill.com") as existing API calls
 - [x] **AC-US2-03**: The phone-home has a 2-second timeout and silently swallows ALL errors (network, HTTP, parse)
 - [x] **AC-US2-04**: The phone-home never blocks or delays the CLI command -- it runs as fire-and-forget
@@ -75,7 +75,7 @@ After a successful skill installation in `src/commands/add.ts`, fire a non-block
 
 - Orphan Skill records are cleaned up within the same request as re-submission (no background job, no cron)
 - `vskillInstalls` counter reflects actual CLI installs within eventual consistency window
-- CLI `vskill add` latency is unchanged (phone-home is non-blocking)
+- CLI `vskill install` latency is unchanged (phone-home is non-blocking)
 - No new Prisma migrations required (uses existing `isDeprecated` field and `vskillInstalls` column)
 
 ## Out of Scope

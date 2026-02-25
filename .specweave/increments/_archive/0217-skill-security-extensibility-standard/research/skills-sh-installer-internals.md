@@ -600,7 +600,7 @@ Based on the analysis, here are the key areas where a `vskill` CLI could improve
 ### 8.1 Security Scanning Before Install
 
 ```
-vskill add owner/repo
+vskill install owner/repo
   -> Clone
   -> Discover SKILL.md files
   -> SCAN each SKILL.md for:

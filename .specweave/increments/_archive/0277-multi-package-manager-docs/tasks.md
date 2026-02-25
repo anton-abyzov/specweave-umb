@@ -31,7 +31,7 @@
 **File**: `repositories/anton-abyzov/vskill-platform/src/app/components/AnimatedTerminal.tsx`
 **Details**:
 - Scenario "init": keep `npx vskill init`
-- Scenario "add": change to `bunx vskill add anthropics/frontend-design`
+- Scenario "add": change to `bunx vskill install anthropics/frontend-design`
 - Scenario "scan": change to `pnpx vskill scan ./SKILL.md`
 
 ---

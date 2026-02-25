@@ -22,7 +22,7 @@
 | US-002 | AC-US2-03 | Blocklist queryable via API | PASS |
 | US-002 | AC-US2-04 | Blocklist entries include all required fields | PASS |
 | US-002 | AC-US2-05 | Blocklist continuously updated | PASS |
-| US-003 | AC-US3-01 | vskill add checks blocklist before installation | PASS |
+| US-003 | AC-US3-01 | vskill install checks blocklist before installation | PASS |
 | US-003 | AC-US3-02 | Blocked skill shows clear error with reason | PASS |
 | US-003 | AC-US3-03 | Check by skill name AND content hash | PASS |
 | US-003 | AC-US3-04 | --force flag with prominent warning | PASS |
@@ -47,8 +47,8 @@
 | Phase 2 | T-010 | "Add to Blocklist" action on admin submission detail | DONE |
 | Phase 2 | T-011 | Admin blocklist management page | DONE |
 | Phase 3 | T-012 | Blocklist module with API client and local cache | DONE |
-| Phase 3 | T-013 | Blocklist check in vskill add (GitHub path) | DONE |
-| Phase 3 | T-014 | Blocklist check in vskill add (plugin path) | DONE |
+| Phase 3 | T-013 | Blocklist check in vskill install (GitHub path) | DONE |
+| Phase 3 | T-014 | Blocklist check in vskill install (plugin path) | DONE |
 | Phase 3 | T-015 | --force override with prominent warning | DONE |
 | Phase 3 | T-016 | vskill blocklist CLI command | DONE |
 | Phase 4 | T-017 | POST /api/v1/admin/scan-external endpoint | DONE |

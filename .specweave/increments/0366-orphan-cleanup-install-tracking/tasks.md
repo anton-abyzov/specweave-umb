@@ -186,7 +186,7 @@
 **Test Plan**:
 - **File**: Manual verification (add.ts is a CLI entry point, tested via integration)
 - **Tests**:
-  - **TC-016**: verify phone-home fires after successful `vskill add`
+  - **TC-016**: verify phone-home fires after successful `vskill install`
     - Given a successful skill installation
     - When the install completes
     - Then `reportInstall` is called with the installed skill name

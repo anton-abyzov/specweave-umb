@@ -14,7 +14,7 @@ coverage_target: 80
 
 ## Overview
 
-Skills that fail the verification pipeline (REJECTED, TIER1_FAILED, DEQUEUED) are invisible to CLI users and Trust Center visitors. The CLI only checks the blocklist — `vskill add owner/repo` installs a skill the platform already rejected. The Trust Center shows "Verified" and "Blocked" tabs but has no visibility into rejected submissions.
+Skills that fail the verification pipeline (REJECTED, TIER1_FAILED, DEQUEUED) are invisible to CLI users and Trust Center visitors. The CLI only checks the blocklist — `vskill install owner/repo` installs a skill the platform already rejected. The Trust Center shows "Verified" and "Blocked" tabs but has no visibility into rejected submissions.
 
 This increment makes rejection a first-class concept alongside blocking — distinct (failed verification != malicious) but both resulting in a hard install block from the CLI.
 
@@ -40,7 +40,7 @@ This increment makes rejection a first-class concept alongside blocking — dist
 **Project**: vskill
 
 **As a** CLI user
-**I want** `vskill add` to refuse installing a skill that failed platform verification
+**I want** `vskill install` to refuse installing a skill that failed platform verification
 **So that** I don't install skills the platform has determined are problematic
 
 **Acceptance Criteria**:
@@ -95,8 +95,8 @@ CLI error messages for blocked vs rejected MUST be visually distinct. Blocked = 
 
 ## Success Criteria
 
-- `vskill add` of a rejected skill without `--force` exits with rejection error
-- `vskill add` of a rejected skill with `--force` shows warning and installs
+- `vskill install` of a rejected skill without `--force` exits with rejection error
+- `vskill install` of a rejected skill with `--force` shows warning and installs
 - Trust Center `/trust?tab=rejected` shows rejected submissions
 - Blocked skill expanded detail shows rejection cross-reference when applicable
 - All existing tests pass

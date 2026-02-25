@@ -23,7 +23,7 @@ This feature spans two repos (vskill-platform + vskill CLI) across three domains
 ┌───────────────────▼─────────────────────────────────┐
 │                vskill CLI                             │
 │                                                       │
-│  vskill add <source>                                  │
+│  vskill install <source>                                  │
 │    └── blocklist check (API + local cache)            │
 │        ├── BLOCKED → refuse with reason               │
 │        └── CLEAR → proceed to Tier 1 scan             │
@@ -184,7 +184,7 @@ function getCachedBlocklist(): BlocklistCache | null
 
 **Cache strategy:**
 - Store blocklist in `~/.vskill/blocklist.json`
-- Auto-refresh on `vskill add` if cache is >1 hour old
+- Auto-refresh on `vskill install` if cache is >1 hour old
 - Manual refresh via `vskill blocklist sync`
 - Offline fallback: use cached version if API unreachable
 
@@ -211,7 +211,7 @@ Source: Snyk ToxicSkills report + Aikido Security research.
 
 | Risk | Mitigation |
 |------|------------|
-| Blocklist API latency slows `vskill add` | Local cache with 1hr TTL; fail-open if API unreachable |
+| Blocklist API latency slows `vskill install` | Local cache with 1hr TTL; fail-open if API unreachable |
 | False positives in blocklist | Admin review before adding; SUPER_ADMIN can deactivate entries |
 | Blocklist becomes stale | Automated scanning of external platforms (Phase 4, US-004) |
 | Content hash collision | Use full SHA-256; hash is supplementary to name check |

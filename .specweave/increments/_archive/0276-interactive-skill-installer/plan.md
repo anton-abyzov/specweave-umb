@@ -2,7 +2,7 @@
 
 ## Overview
 
-Add interactive prompts to the `vskill add` / `vskill install` command for multi-skill repos. The implementation introduces a zero-dependency prompt module (Node.js `readline`), a canonical `.agents/skills/` directory with symlink fan-out, and a `--yes` flag for non-interactive CI usage. The existing single-skill and non-interactive flows remain completely unchanged.
+Add interactive prompts to the `vskill install` / `vskill install` command for multi-skill repos. The implementation introduces a zero-dependency prompt module (Node.js `readline`), a canonical `.agents/skills/` directory with symlink fan-out, and a `--yes` flag for non-interactive CI usage. The existing single-skill and non-interactive flows remain completely unchanged.
 
 ## Architecture
 
@@ -39,7 +39,7 @@ src/
 ### Data Flow
 
 ```
-vskill add owner/repo
+vskill install owner/repo
   |
   v
 Parse source, discover skills (existing)

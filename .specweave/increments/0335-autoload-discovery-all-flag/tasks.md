@@ -24,7 +24,7 @@
 
 ## Phase 2: --all Flag (vskill)
 
-### T-006: Add --all flag to vskill add command
+### T-006: Add --all flag to vskill install command
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [x] completed
 **Test**: Given --repo --all → When run → Then all plugins installed
 

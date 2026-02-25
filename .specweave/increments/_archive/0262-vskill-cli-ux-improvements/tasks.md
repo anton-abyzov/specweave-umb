@@ -42,7 +42,7 @@
 **Description**: Update console output messages in `src/commands/init.ts` and any other files that reference `vskill init` in user-facing strings.
 
 **Implementation Details**:
-- In `src/commands/init.ts` line 51: change `vskill add` prompt (already correct, but verify)
+- In `src/commands/init.ts` line 51: change `vskill install` prompt (already correct, but verify)
 - In `src/commands/add.ts`: search for `vskill init` references and update to `vskill install`
 - In `src/commands/update.ts`: same search
 - In `src/commands/list.ts`: same search

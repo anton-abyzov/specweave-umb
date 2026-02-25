@@ -21,7 +21,7 @@ Replace the single-line `$ npm install -g vskill` code element in the homepage h
 ### AD-003: AnimatedTerminal Variation
 Distribute package runners across the three existing scenarios:
 - Scenario "init": keep `npx vskill init` (most familiar)
-- Scenario "add": change to `bunx vskill add ...` (showcase bun)
+- Scenario "add": change to `bunx vskill install ...` (showcase bun)
 - Scenario "scan": change to `pnpx vskill scan ...` (showcase pnpm)
 
 This demonstrates variety without adding new scenarios or complicating the animation logic.

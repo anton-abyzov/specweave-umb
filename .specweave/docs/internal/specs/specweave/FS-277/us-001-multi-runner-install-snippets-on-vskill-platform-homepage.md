@@ -21,7 +21,7 @@ developer visiting the vskill homepage
 
 - [x] **AC-US1-01**: The homepage hero `$ npm install -g vskill` code snippet is replaced with a tabbed/multi-line snippet showing npx, bunx, pnpx, and yarn dlx alternatives
 - [x] **AC-US1-02**: The AnimatedTerminal component cycles through different package runners (not just npx) in its demo scenarios
-- [x] **AC-US1-03**: The skill detail page install command shows all four package runners, not just `$ npx vskill add`
+- [x] **AC-US1-03**: The skill detail page install command shows all four package runners, not just `$ npx vskill install`
 
 ---
 

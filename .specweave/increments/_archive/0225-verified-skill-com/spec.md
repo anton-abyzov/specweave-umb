@@ -158,7 +158,7 @@ Full implementation and deployment of verified-skill.com — the trusted registr
 **So that** I never install a malicious skill unknowingly
 
 **Acceptance Criteria**:
-- [x] **AC-US8-01**: `vskill add <owner/repo>` installs skill after security scan
+- [x] **AC-US8-01**: `vskill install <owner/repo>` installs skill after security scan
 - [x] **AC-US8-02**: `vskill scan <source>` scans without installing
 - [x] **AC-US8-03**: `vskill list` shows installed skills with verification status
 - [x] **AC-US8-04**: `vskill submit <source>` submits skill for verification on verified-skill.com
@@ -236,7 +236,7 @@ Use free Cloudflare Workers AI (`@cf/meta/llama-3.1-70b-instruct`) via `env.AI` 
 - verified-skill.com loads in browser with distinctive landing page
 - Pre-verified skills from 3 marketplaces visible in listing
 - Submit a test skill → flows through Tier 1 + Tier 2 → auto-approve
-- `npx vskill add anthropics/skills --skill frontend-design` works
+- `npx vskill install anthropics/skills --skill frontend-design` works
 - Admin dashboard: login, view queue, approve/reject
 - Cron runs: imports new skills, checks for updates
 - Playwright E2E tests all pass

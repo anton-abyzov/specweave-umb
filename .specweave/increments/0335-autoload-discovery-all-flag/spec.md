@@ -6,8 +6,8 @@ Increment 0331 migrated ~75 generic domain skills from specweave to vskill repo 
 
 ## Solution
 
-1. Update specweave auto-loading to use new plugin names and install migrated plugins via `vskill add --repo`
-2. Add `--all` flag to `vskill add --repo` for bulk plugin installation
+1. Update specweave auto-loading to use new plugin names and install migrated plugins via `vskill install --repo`
+2. Add `--all` flag to `vskill install --repo` for bulk plugin installation
 3. Create a "scout" discovery skill that searches verified-skill.com and installs matching skills
 
 ## User Stories
@@ -26,7 +26,7 @@ As a SpecWeave user, I want auto-loading to install domain plugins from the vski
 As a developer, I want to install all plugins from a repo marketplace at once so I don't have to install each one individually.
 
 **Acceptance Criteria**:
-- [x] AC-US2-01: `vskill add --repo owner/repo --all` installs all plugins from marketplace.json
+- [x] AC-US2-01: `vskill install --repo owner/repo --all` installs all plugins from marketplace.json
 - [x] AC-US2-02: `--all` implies `--yes` (non-interactive)
 - [x] AC-US2-03: Progress shown during bulk install
 - [x] AC-US2-04: `source` argument optional when `--repo` is present

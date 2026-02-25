@@ -100,7 +100,7 @@ Committed to the project repository for team-wide consistency.
 
 ```mermaid
 flowchart LR
-    INSTALL[vskill add] --> LOCK[Update vskill.lock]
+    INSTALL[vskill install] --> LOCK[Update vskill.lock]
     LOCK --> COMMIT[git commit]
     COMMIT --> SHARE[Team pulls lock file]
     SHARE --> VERIFY[vskill verify - check integrity]

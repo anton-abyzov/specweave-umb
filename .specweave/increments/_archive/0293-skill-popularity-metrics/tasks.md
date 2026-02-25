@@ -272,9 +272,9 @@
 
 ---
 
-### T-010: Implement skills.sh URL resolver in `vskill add` [P]
+### T-010: Implement skills.sh URL resolver in `vskill install` [P]
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04, AC-US6-05 | **Status**: [x] completed
-**Test**: Given `vskill add https://skills.sh/owner/toolkit/skill` -> When add runs -> Then skill is resolved without /.well-known/ probe
+**Test**: Given `vskill install https://skills.sh/owner/toolkit/skill` -> When add runs -> Then skill is resolved without /.well-known/ probe
 
 **Implementation Details**:
 - Create or extend `src/resolvers/url-resolver.ts` in vskill CLI
@@ -329,7 +329,7 @@
   3. **Critical path discrepancy**: vskill uses `.claude/commands/` for Claude Code; skills.sh uses `.claude/skills/` — document migration strategy
   4. **Lock file interop**: Can vskill read `.skill-lock.json`? Should it dual-read for cross-tool visibility in `vskill list`?
   5. **Cross-tool visibility test**: Install via `npx skills add`, check `vskill list` — document what's visible/invisible and why
-  6. **Reverse visibility test**: Install via `vskill add`, check `npx skills list` — same
+  6. **Reverse visibility test**: Install via `vskill install`, check `npx skills list` — same
   7. **Document all 50+ agents** from skills.sh `src/agents.ts` and diff against vskill's `src/agents/agents-registry.ts`
 - **Draft implementation plan**: For each gap, propose specific code changes with file paths and function signatures
 
@@ -368,7 +368,7 @@
   - When `vskill list` runs
   - Then that skill appears in output
 - **TC-046**: Skills installed by vskill are in `.agents/skills/` canonical dir
-  - Given a skill installed by vskill add
+  - Given a skill installed by vskill install
   - When checking filesystem
   - Then `.agents/skills/{name}/SKILL.md` exists
 
@@ -388,7 +388,7 @@
 - Verify TypeScript compiles cleanly with `npx tsc --noEmit`
 - Manual check: set `ENABLE_LIVE_METRICS=true` and verify a skill page shows real GitHub metrics (local dev)
 - Run vskill CLI test suite: `npm test` in `repositories/anton-abyzov/vskill/`
-- Manual check: `vskill find human` shows install hint; `vskill add https://skills.sh/softaworks/agent-toolkit/humanizer` resolves without error
+- Manual check: `vskill find human` shows install hint; `vskill install https://skills.sh/softaworks/agent-toolkit/humanizer` resolves without error
 
 **Test Plan**:
 - **TC-027**: All existing tests pass
@@ -397,6 +397,6 @@
 - **TC-038**: vskill CLI tests for T-009 and T-010 all pass
 - **TC-039**: Manual end-to-end: skills.sh URL install resolves correctly
 - **TC-047**: Cross-tool: skill installed by `npx skills` visible in `vskill list`
-- **TC-048**: Cross-tool: skill installed by `vskill add` visible in `npx skills list`
+- **TC-048**: Cross-tool: skill installed by `vskill install` visible in `npx skills list`
 
 **Dependencies**: T-001 through T-012

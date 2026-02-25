@@ -14,7 +14,7 @@ coverage_target: 80
 
 ## Overview
 
-Add a multi-step interactive installation wizard to the vskill CLI that matches the UX of `npx skills` (vercel-labs/skills). When a user runs `vskill add owner/repo` (or `vskill install owner/repo`) and the repo contains multiple skills, the CLI presents an interactive flow with:
+Add a multi-step interactive installation wizard to the vskill CLI that matches the UX of `npx skills` (vercel-labs/skills). When a user runs `vskill install owner/repo` (or `vskill install owner/repo`) and the repo contains multiple skills, the CLI presents an interactive flow with:
 
 1. **Skill selection** -- toggle individual skills or select all
 2. **Agent detection** -- show all 39 agents with installed status
@@ -143,7 +143,7 @@ A new `installWithMethod(skills, agents, opts)` function in the add command that
 
 ## Success Criteria
 
-- All existing non-interactive `vskill add` / `vskill install` usage continues to work unchanged
+- All existing non-interactive `vskill install` / `vskill install` usage continues to work unchanged
 - When stdin is not a TTY, behaves identically to `--yes` mode
 - All 39 agents display correctly in the agent selection prompt
 - Symlink mode creates valid relative symlinks that work when cd'ing into the project

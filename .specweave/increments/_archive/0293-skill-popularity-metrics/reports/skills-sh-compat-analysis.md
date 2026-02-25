@@ -61,9 +61,9 @@ Skills installed by `npx skills add` go to `.claude/skills/`. Since vskill scans
 
 **Fix**: Change Claude Code path to `.claude/skills/` (see section 3).
 
-## 6. Cross-Tool Visibility: vskill add -> npx skills list
+## 6. Cross-Tool Visibility: vskill install -> npx skills list
 
-Skills installed by `vskill add` go to `.claude/commands/`. Since `npx skills list` scans `.claude/skills/`, these are invisible.
+Skills installed by `vskill install` go to `.claude/commands/`. Since `npx skills list` scans `.claude/skills/`, these are invisible.
 
 **Fix**: Same path change resolves this direction too.
 

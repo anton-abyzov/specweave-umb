@@ -14,7 +14,7 @@ The vskill CLI must install, scan, and manage skills across every AI coding agen
 
 The registry serves three critical functions in the vskill ecosystem:
 
-1. **Multi-agent installation**: When a user runs `vskill add owner/repo`, the CLI must detect which agents are installed on the machine and install the skill to all of them simultaneously. Without a registry, vskill would only target a single agent, leaving others without the skill.
+1. **Multi-agent installation**: When a user runs `vskill install owner/repo`, the CLI must detect which agents are installed on the machine and install the skill to all of them simultaneously. Without a registry, vskill would only target a single agent, leaving others without the skill.
 
 2. **Agent-aware security scanning**: Different agents have different feature support levels. A skill using `allowed-tools` will work on Claude Code but silently fail on Kiro CLI. A skill using `context: fork` only works on Claude Code. The registry enables vskill to flag compatibility issues during scanning.
 
@@ -991,7 +991,7 @@ After skill installation, Kiro CLI requires users to manually register skills by
 
 This is the only agent that requires a separate configuration step after file installation. The skills CLI does not automate this step.
 
-**Impact on vskill**: Post-install instructions must be displayed to the user. Consider automating this JSON editing in `vskill add --agent kiro-cli`.
+**Impact on vskill**: Post-install instructions must be displayed to the user. Consider automating this JSON editing in `vskill install --agent kiro-cli`.
 
 ### 6.6 Trae / Trae CN: Shared Local, Different Global
 
@@ -1027,9 +1027,9 @@ Mistral Vibe uses `.vibe/` (not `.mistral-vibe/`) and Qwen Code uses `.qwen/` (n
 
 ## 7. Use in vskill CLI
 
-### 7.1 `vskill add`: Multi-Agent Installation
+### 7.1 `vskill install`: Multi-Agent Installation
 
-When a user runs `vskill add owner/repo`, the CLI uses the registry in this sequence:
+When a user runs `vskill install owner/repo`, the CLI uses the registry in this sequence:
 
 ```
 1. Parse source (owner/repo -> GitHub clone URL)

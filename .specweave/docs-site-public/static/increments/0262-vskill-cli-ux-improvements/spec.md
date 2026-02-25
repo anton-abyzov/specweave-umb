@@ -30,7 +30,7 @@ Improve the vskill CLI developer experience with three targeted UX changes:
 **So that** the command matches the familiar npm/yarn convention and feels intuitive
 
 **Acceptance Criteria**:
-- [x] **AC-US1-01**: `vskill install` works as an alias for `vskill add` (skill installation from GitHub/registry)
+- [x] **AC-US1-01**: `vskill install` works as an alias for `vskill install` (skill installation from GitHub/registry)
 - [x] **AC-US1-02**: `vskill i` works as a short alias for `install`/`add`
 - [x] **AC-US1-03**: `vskill init` retained as the agent detection command (separate from skill installation)
 - [x] **AC-US1-04**: `install` and `add` are interchangeable for skill installation; `init` handles agent bootstrapping

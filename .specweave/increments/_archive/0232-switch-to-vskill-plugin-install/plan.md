@@ -15,8 +15,8 @@ refresh       → specweave refresh-marketplace → claude plugin install (per p
 
 ### New Flow
 ```
-specweave init → vskill add --plugin sw → Tier 1 scan → install to cache → enable in settings
-lazy loading  → detect-intent → vskill add --plugin sw-X (fast-path: check vskill.lock first)
+specweave init → vskill install --plugin sw → Tier 1 scan → install to cache → enable in settings
+lazy loading  → detect-intent → vskill install --plugin sw-X (fast-path: check vskill.lock first)
 refresh       → specweave refresh-plugins → vskill update (per plugin from marketplace.json)
 ```
 
@@ -47,7 +47,7 @@ refresh       → specweave refresh-plugins → vskill update (per plugin from m
 - Use local monorepo path during this increment
 - npm publish deferred to 0225
 
-### ADR-5: Full plugin directory support in vskill add
+### ADR-5: Full plugin directory support in vskill install
 - Extend `add` command for Claude Code plugin structure
 - Copy entire directory tree, fix permissions, scan all files
 

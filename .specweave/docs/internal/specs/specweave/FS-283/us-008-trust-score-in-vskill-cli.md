@@ -19,7 +19,7 @@ developer using the vskill CLI
 
 ## Acceptance Criteria
 
-- [x] **AC-US8-01**: `vskill add <skill>` displays the trust tier (T0-T4) and trust score (0-100) before installation
+- [x] **AC-US8-01**: `vskill install <skill>` displays the trust tier (T0-T4) and trust score (0-100) before installation
 - [x] **AC-US8-02**: T0 (blocked) skills show a red warning and require explicit `--force` flag to install
 - [x] **AC-US8-03**: T1 (unscanned) skills show an amber warning about unverified status
 - [x] **AC-US8-04**: `vskill info <skill>` includes trust tier, trust score, and provenance verification status in its output

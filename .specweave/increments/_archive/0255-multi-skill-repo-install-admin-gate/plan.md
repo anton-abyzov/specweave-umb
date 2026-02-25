@@ -72,7 +72,7 @@ No new API endpoints. The GitHub Trees API is a read-only external call:
 **Architecture Decisions**:
 
 - **GitHub Trees API vs. multiple fetches**: Trees API returns the entire repo structure in one request, avoiding N+1 fetches. This is critical for repos with 100+ skills.
-- **No new CLI flags**: Discovery is automatic when `--skill` is absent. This keeps the UX simple -- `vskill add owner/repo` "just works" for multi-skill repos.
+- **No new CLI flags**: Discovery is automatic when `--skill` is absent. This keeps the UX simple -- `vskill install owner/repo` "just works" for multi-skill repos.
 - **Partial failure model**: Each skill is installed independently. A scan failure for one skill does not abort the others. This is important for large repos where one skill might have legitimate issues.
 - **UI-only admin gate**: The submission API is not changed. Admin gating is enforced in the React component because the API already has its own auth checks and the batch form is a convenience UI, not a security boundary.
 

@@ -152,7 +152,7 @@ The AI Skills ecosystem is a security disaster. Snyk's ToxicSkills study (Feb 5,
 **So that** I never install a malicious or vulnerable skill unknowingly
 
 **Acceptance Criteria**:
-- [x] **AC-US8-01**: `npx vskill add owner/repo` command design (mirrors `npx skills add` API)
+- [x] **AC-US8-01**: `npx vskill install owner/repo` command design (mirrors `npx skills add` API)
 - [x] **AC-US8-02**: Auto-detection of all 39 installed agents (verified from `skills@1.3.9` source)
 - [x] **AC-US8-03**: Security scan runs automatically before install (Tier 1 minimum)
 - [x] **AC-US8-04**: Security score displayed with findings summary, user chooses to proceed or abort

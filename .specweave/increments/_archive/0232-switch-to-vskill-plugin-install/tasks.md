@@ -25,15 +25,15 @@
 - **Tests**:
   - **TC-001**: `--plugin <name>` flag selects sub-plugin from multi-plugin repo
     - Given a local repo path with `plugins/specweave-frontend/`
-    - When `vskill add <repo> --plugin sw-frontend`
+    - When `vskill install <repo> --plugin sw-frontend`
     - Then the `sw-frontend` plugin directory is selected and installed
   - **TC-002**: Full directory structure preserved
     - Given a plugin with skills/, hooks/, commands/, agents/, .claude-plugin/
-    - When installed via vskill add --plugin
+    - When installed via vskill install --plugin
     - Then all subdirectories are copied to `~/.claude/plugins/cache/specweave/sw-frontend/<version>/`
   - **TC-003**: Hook permissions fixed
     - Given a plugin with .sh files in hooks/
-    - When installed via vskill add --plugin
+    - When installed via vskill install --plugin
     - Then all .sh files have executable permission (chmod +x)
   - **TC-004**: Full file scanning covers hooks
     - Given a plugin with hooks containing dangerous patterns (rm -rf, curl)
@@ -363,7 +363,7 @@
   - **TC-020**: Detector uses vskill for installation
     - Given plugin detection result with `["sw-frontend"]`
     - When `installPluginViaCli()` is called
-    - Then vskill add is invoked (not `claude plugin install`)
+    - Then vskill install is invoked (not `claude plugin install`)
   - **TC-021**: Fast-path skip for already-installed plugins
     - Given `sw-frontend` already in vskill.lock
     - When hook detects `sw-frontend` needed
@@ -384,7 +384,7 @@
 **Description**: Modify lazy loading to use vskill. Make T-018 tests pass.
 
 **Implementation Details**:
-- **Hook** (`plugins/specweave/hooks/user-prompt-submit.sh`): Replace `claude plugin install` with vskill add
+- **Hook** (`plugins/specweave/hooks/user-prompt-submit.sh`): Replace `claude plugin install` with vskill install
 - Add `vskill.lock` check: if plugin+version already in lockfile, skip entirely
 - **LLM detector** (`llm-plugin-detector.ts`): Update `installPluginViaCli()` to call vskill
 - Ensure latency stays under 5s (fast-path: lockfile check <1ms)
@@ -506,7 +506,7 @@
 
 **Implementation Details**:
 - Search-replace across all PLUGIN.md files in `plugins/`
-- Replace `claude plugin install <name>@specweave` with `vskill add` equivalent
+- Replace `claude plugin install <name>@specweave` with `vskill install` equivalent
 - Verify consistent formatting
 
 **Dependencies**: T-002

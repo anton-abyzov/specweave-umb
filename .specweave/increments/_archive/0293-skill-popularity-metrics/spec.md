@@ -125,11 +125,11 @@ Currently, skill popularity metrics (githubStars, githubForks, npmDownloads) in 
 
 ---
 
-### US-006: Smart URL Resolver for `vskill add` / `skills add` (P1)
+### US-006: Smart URL Resolver for `vskill install` / `skills add` (P1)
 **Project**: vskill CLI
 
 **As a** developer installing a skill from a marketplace browse URL
-**I want** `vskill add https://skills.sh/owner/toolkit/skill` to resolve correctly
+**I want** `vskill install https://skills.sh/owner/toolkit/skill` to resolve correctly
 **So that** I can copy-paste URLs from the browser without getting confusing errors
 
 **Acceptance Criteria**:
@@ -151,7 +151,7 @@ Currently, skill popularity metrics (githubStars, githubForks, npmDownloads) in 
 **Acceptance Criteria**:
 - [x] **AC-US7-01**: Research task produces a compatibility gap analysis with actionable recommendations and a draft implementation plan
 - [x] **AC-US7-02**: Skills installed by `npx skills` in `.agents/skills/{name}/` are visible to `vskill list`
-- [x] **AC-US7-03**: Skills installed by `vskill add` are visible to `npx skills list`
+- [x] **AC-US7-03**: Skills installed by `vskill install` are visible to `npx skills list`
 - [x] **AC-US7-04**: Agent detection covers at least the same agents as skills.sh (50+ agents)
 - [x] **AC-US7-05**: Claude Code agent uses `.claude/skills/` path (matching skills.sh), not `.claude/commands/`
 

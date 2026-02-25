@@ -29,7 +29,7 @@ verified-skill.com is the authoritative registry for security-verified AI agent 
 ```mermaid
 flowchart TD
     subgraph CLI [npx vskill]
-        ADD[vskill add] --> SCAN[Security Scan]
+        ADD[vskill install] --> SCAN[Security Scan]
         SCAN --> INSTALL[Install to Agents]
         INSTALL --> LOCK[Update vskill.lock]
     end

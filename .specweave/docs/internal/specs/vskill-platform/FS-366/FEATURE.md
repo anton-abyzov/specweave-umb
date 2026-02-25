@@ -26,7 +26,7 @@ external_tools:
 
 ## Overview
 
-Two related improvements: (1) When a skill is re-submitted, automatically deprecate the previous Skill record using the existing `isDeprecated` field. (2) The vskill CLI sends a fire-and-forget POST to the platform after each successful `vskill add`, incrementing `Skill.vskillInstalls`.
+Two related improvements: (1) When a skill is re-submitted, automatically deprecate the previous Skill record using the existing `isDeprecated` field. (2) The vskill CLI sends a fire-and-forget POST to the platform after each successful `vskill install`, incrementing `Skill.vskillInstalls`.
 
 ## User Stories
 

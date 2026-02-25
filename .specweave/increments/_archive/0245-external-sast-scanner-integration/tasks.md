@@ -78,9 +78,9 @@
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-05 | **Status**: [x] completed
 **Test**: Given platform returns security data → When checkPlatformSecurity("my-skill") is called → Then returns { hasCritical, overallVerdict, providers[], reportUrl } AND returns null on network error
 
-### T-017: Update vskill add to check external scan results
+### T-017: Update vskill install to check external scan results
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-02, AC-US3-03, AC-US3-04 | **Status**: [x] completed
-**Test**: Given a skill with CRITICAL semgrep findings → When running `vskill add owner/repo` → Then prints error with provider names AND prints report URL AND exits with code 1 AND `--force` overrides the block
+**Test**: Given a skill with CRITICAL semgrep findings → When running `vskill install owner/repo` → Then prints error with provider names AND prints report URL AND exits with code 1 AND `--force` overrides the block
 
 ## Phase 8: Hardening
 

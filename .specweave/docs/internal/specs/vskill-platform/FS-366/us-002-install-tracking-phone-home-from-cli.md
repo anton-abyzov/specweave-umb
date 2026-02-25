@@ -23,7 +23,7 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: After a successful `vskill add <skill>`, the CLI sends `POST /api/v1/skills/:name/installs` to the platform
+- [ ] **AC-US2-01**: After a successful `vskill install <skill>`, the CLI sends `POST /api/v1/skills/:name/installs` to the platform
 - [ ] **AC-US2-02**: The phone-home uses the same `BASE_URL` ("https://verified-skill.com") as existing API calls
 - [ ] **AC-US2-03**: The phone-home has a 2-second timeout and silently swallows ALL errors (network, HTTP, parse)
 - [ ] **AC-US2-04**: The phone-home never blocks or delays the CLI command -- it runs as fire-and-forget

@@ -16,7 +16,7 @@
 | AC-US1-03 | Hash-based skip works (unchanged plugins not re-copied) | PASS |
 | AC-US2-01 | plugin-installer.ts uses inline copier | PASS |
 | AC-US2-02 | enablePluginsInSettings() still called after install | PASS |
-| AC-US3-01 | user-prompt-submit.sh uses direct copy instead of npx vskill add | PASS |
+| AC-US3-01 | user-prompt-submit.sh uses direct copy instead of npx vskill install | PASS |
 | AC-US3-02 | Hook still checks vskill.lock as fast-path skip | PASS |
 
 ### Tasks (8/8 completed)

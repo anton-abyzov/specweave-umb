@@ -14,7 +14,7 @@ coverage_target: 80
 
 ## Overview
 
-Document vskill add as the native plugin/skill installation method for AI agents
+Document vskill install as the native plugin/skill installation method for AI agents
 
 <!--
 ====================================================================

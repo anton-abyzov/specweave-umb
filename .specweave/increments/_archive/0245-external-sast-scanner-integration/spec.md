@@ -31,10 +31,10 @@ As a user, I want to see per-provider security scan results on a dedicated page 
 - [x] AC-US2-05: Per-provider SVG badges at `/api/v1/skills/{name}/badge/{provider}`
 
 ### US-003: CLI Install Security Gate
-As a developer, I want `vskill add` to check external scan results and block installation of skills with CRITICAL findings so that I don't install vulnerable skills.
+As a developer, I want `vskill install` to check external scan results and block installation of skills with CRITICAL findings so that I don't install vulnerable skills.
 
 **ACs:**
-- [x] AC-US3-01: `vskill add` fetches `/api/v1/skills/{name}/security` before installing
+- [x] AC-US3-01: `vskill install` fetches `/api/v1/skills/{name}/security` before installing
 - [x] AC-US3-02: If any provider has CRITICAL findings: print error, show report URL, exit code 1
 - [x] AC-US3-03: If scans are PENDING: show informational message, proceed with install
 - [x] AC-US3-04: `--force` flag overrides security blocks with warning

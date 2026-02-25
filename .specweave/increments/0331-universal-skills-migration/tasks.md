@@ -32,9 +32,9 @@
 
 ## Phase 2: vskill CLI — --repo flag
 
-### T-008: Add --repo flag to vskill add command
+### T-008: Add --repo flag to vskill install command
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03 | **Status**: [x] completed
-**Test**: Given --repo flag → When vskill add --repo owner/repo --plugin name → Then skills installed with namespace
+**Test**: Given --repo flag → When vskill install --repo owner/repo --plugin name → Then skills installed with namespace
 
 ### T-009: Add tests for --repo flag
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-04 | **Status**: [x] completed

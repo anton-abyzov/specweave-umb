@@ -16,7 +16,7 @@ coverage_target: 80
 
 Two targeted improvements across the vskill ecosystem:
 
-1. **vskill CLI**: `vskill add owner/repo` currently installs only a single SKILL.md (root or `--skill <name>`). Repos that contain multiple skills (root SKILL.md + `skills/*/SKILL.md`) require separate `add` invocations for each. The CLI should discover and install ALL skills from a repo in a single command.
+1. **vskill CLI**: `vskill install owner/repo` currently installs only a single SKILL.md (root or `--skill <name>`). Repos that contain multiple skills (root SKILL.md + `skills/*/SKILL.md`) require separate `add` invocations for each. The CLI should discover and install ALL skills from a repo in a single command.
 
 2. **vskill-platform**: The queue page (`/queue`) exposes a batch submission form to any authenticated user. This form should be restricted to admin users only, since batch submission is an operational tool, not a public user feature.
 
@@ -26,11 +26,11 @@ Two targeted improvements across the vskill ecosystem:
 **Project**: vskill
 
 **As a** developer installing skills via the CLI
-**I want** `vskill add owner/repo` to discover and install all skills from a GitHub repo
+**I want** `vskill install owner/repo` to discover and install all skills from a GitHub repo
 **So that** I don't have to run separate `add` commands for each skill in a multi-skill repository
 
 **Acceptance Criteria**:
-- [x] **AC-US1-01**: `vskill add owner/repo` (without `--skill`) fetches the GitHub Trees API to discover all `SKILL.md` files (root + `skills/*/SKILL.md`)
+- [x] **AC-US1-01**: `vskill install owner/repo` (without `--skill`) fetches the GitHub Trees API to discover all `SKILL.md` files (root + `skills/*/SKILL.md`)
 - [x] **AC-US1-02**: Each discovered SKILL.md is fetched, scanned (blocklist + platform security + tier1), and installed independently
 - [x] **AC-US1-03**: If any single skill fails the scan, only that skill is skipped; remaining skills are still installed
 - [x] **AC-US1-04**: Each installed skill gets its own entry in the lockfile with the correct skill name derived from its path (root -> repo name, `skills/foo/SKILL.md` -> `foo`)
@@ -58,12 +58,12 @@ Two targeted improvements across the vskill ecosystem:
 
 - **NFR-01**: Multi-skill discovery must use the GitHub Trees API (single request) rather than N individual raw.githubusercontent.com fetches for discovery
 - **NFR-02**: The CLI must handle repos with up to 200 skills without timeout
-- **NFR-03**: All existing `vskill add` tests must continue to pass (backward compatibility)
+- **NFR-03**: All existing `vskill install` tests must continue to pass (backward compatibility)
 - **NFR-04**: The queue page admin gate is a UI-only change; the submission API endpoints remain unchanged
 
 ## Success Criteria
 
-- `vskill add owner/multi-skill-repo` installs N skills in a single invocation where N > 1
+- `vskill install owner/multi-skill-repo` installs N skills in a single invocation where N > 1
 - Existing single-skill repos install identically to before (zero regression)
 - Queue page batch form is invisible to non-admin users
 

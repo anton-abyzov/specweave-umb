@@ -116,7 +116,7 @@ Platform only. GitHub API integration for submitter identity verification and co
 ### Phase 5: CLI + UI Integration (P2)
 Display trust tier and score in vskill CLI and platform web UI.
 
-- CLI: `vskill add` and `vskill info` trust display
+- CLI: `vskill install` and `vskill info` trust display
 - Platform: Trust Center page updates, skill detail page badges
 - Stats endpoint trust breakdown
 

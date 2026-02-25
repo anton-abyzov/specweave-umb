@@ -24,5 +24,5 @@ As a new specweave user, I want `specweave init` to install the core plugin with
 ### US-003: Lazy loading works without vskill
 As a specweave user, I want on-demand plugin loading to work without `npx vskill`.
 
-- [x] AC-US3-01: `user-prompt-submit.sh` uses direct copy instead of `npx vskill add`
+- [x] AC-US3-01: `user-prompt-submit.sh` uses direct copy instead of `npx vskill install`
 - [x] AC-US3-02: Hook still checks vskill.lock as fast-path skip

@@ -89,7 +89,7 @@ Replace all Claude Code marketplace plugin installations (`claude plugin install
 **So that** plugins with skills, hooks, commands, and agents install correctly
 
 **Acceptance Criteria**:
-- [x] **AC-US5-01**: `vskill add <owner/repo> --plugin <name>` installs a specific plugin from a multi-plugin repository
+- [x] **AC-US5-01**: `vskill install <owner/repo> --plugin <name>` installs a specific plugin from a multi-plugin repository
 - [x] **AC-US5-02**: Full plugin directory structure is preserved (skills/, hooks/, commands/, agents/, .claude-plugin/)
 - [x] **AC-US5-03**: Hook scripts get executable permissions fixed (chmod +x) after installation
 - [x] **AC-US5-04**: Security scanning covers all plugin files (hooks, scripts, commands), not just SKILL.md

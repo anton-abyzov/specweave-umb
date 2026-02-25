@@ -28,7 +28,7 @@ Update homepage and docs across vskill-platform, vskill CLI, and specweave docs-
 **Acceptance Criteria**:
 - [x] **AC-US1-01**: The homepage hero `$ npm install -g vskill` code snippet is replaced with a tabbed/multi-line snippet showing npx, bunx, pnpx, and yarn dlx alternatives
 - [x] **AC-US1-02**: The AnimatedTerminal component cycles through different package runners (not just npx) in its demo scenarios
-- [x] **AC-US1-03**: The skill detail page install command shows all four package runners, not just `$ npx vskill add`
+- [x] **AC-US1-03**: The skill detail page install command shows all four package runners, not just `$ npx vskill install`
 
 ---
 
@@ -66,16 +66,16 @@ All multi-runner snippets use a consistent format across all three repos. The pr
 
 ```bash
 # npm
-npx vskill add anthropics/frontend-design
+npx vskill install anthropics/frontend-design
 
 # bun
-bunx vskill add anthropics/frontend-design
+bunx vskill install anthropics/frontend-design
 
 # pnpm
-pnpx vskill add anthropics/frontend-design
+pnpx vskill install anthropics/frontend-design
 
 # yarn
-yarn dlx vskill add anthropics/frontend-design
+yarn dlx vskill install anthropics/frontend-design
 ```
 
 ### FR-002: Tabbed UI for Platform Pages

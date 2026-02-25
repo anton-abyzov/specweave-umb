@@ -19,10 +19,10 @@
 
 ## 2. Command Reference
 
-### 2.1 `vskill add` — Install a skill with security scanning
+### 2.1 `vskill install` — Install a skill with security scanning
 
 ```
-npx vskill add <source> [options]
+npx vskill install <source> [options]
 
 ARGUMENTS
   <source>    GitHub repo (owner/repo), URL, or local path
@@ -39,10 +39,10 @@ OPTIONS
   --quiet            Minimal output
 
 EXAMPLES
-  npx vskill add anthropics/skills --skill frontend-design
-  npx vskill add owner/repo --agent claude-code cursor
-  npx vskill add ./local/skill --global
-  npx vskill add https://github.com/org/repo.git
+  npx vskill install anthropics/skills --skill frontend-design
+  npx vskill install owner/repo --agent claude-code cursor
+  npx vskill install ./local/skill --global
+  npx vskill install https://github.com/org/repo.git
 ```
 
 #### Installation Flow
@@ -69,7 +69,7 @@ flowchart TD
 #### Security Scan Display
 
 ```
-$ npx vskill add secondsky/bun-package-manager
+$ npx vskill install secondsky/bun-package-manager
 
   Fetching secondsky/bun-package-manager... done
   Found 1 skill: bun-package-manager
@@ -354,7 +354,7 @@ $ npx vskill init
   Created: vskill.lock (empty)
   Created: .vskillrc (agent config)
 
-  Ready! Run `npx vskill add <owner/repo>` to install your first skill.
+  Ready! Run `npx vskill install <owner/repo>` to install your first skill.
 ```
 
 ---
@@ -412,12 +412,12 @@ All agents use `existsSync()` on known config directories:
 
 ## 4. Security Scan-Before-Install Flow
 
-Every `vskill add` command runs a security scan before installing. This is the core differentiator from `npx skills add`.
+Every `vskill install` command runs a security scan before installing. This is the core differentiator from `npx skills add`.
 
 ### 4.1 Flow
 
 ```
-User runs: npx vskill add owner/repo
+User runs: npx vskill install owner/repo
                     |
                     v
             ┌───────────────┐
@@ -478,7 +478,7 @@ function isVendorAutoVerified(repoOwner: string): boolean {
 
 **Display for vendor skills**:
 ```
-$ npx vskill add anthropics/skills --skill frontend-design
+$ npx vskill install anthropics/skills --skill frontend-design
 
   Fetching anthropics/skills... done
   Found skill: frontend-design
@@ -617,7 +617,7 @@ The CLI reads and writes `vskill.lock` for version pinning. See [version-pinned-
 
 | Command | Lock File Action |
 |---------|-----------------|
-| `vskill add` | Add entry with SHA, scan date, tier |
+| `vskill install` | Add entry with SHA, scan date, tier |
 | `vskill update` | Update entry after diff scan approval |
 | `vskill remove` | Remove entry |
 | `vskill list` | Read entries for display |
@@ -662,10 +662,10 @@ The CLI reads and writes `vskill.lock` for version pinning. See [version-pinned-
 
 ```bash
 # Environment variable
-DISABLE_TELEMETRY=1 npx vskill add owner/repo
+DISABLE_TELEMETRY=1 npx vskill install owner/repo
 
 # Or
-DO_NOT_TRACK=1 npx vskill add owner/repo
+DO_NOT_TRACK=1 npx vskill install owner/repo
 
 # Or in config
 echo '{"telemetry": false}' > ~/.vskillrc

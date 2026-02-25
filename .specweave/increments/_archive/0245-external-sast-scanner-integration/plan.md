@@ -35,7 +35,7 @@ POST /api/v1/submissions (existing, unchanged)
 4. **Dispatch** (T-007, T-008): Dispatch module (HTTP round-robin), submission integration
 5. **APIs + Badges** (T-009, T-010, T-011): Security APIs, SVG badges
 6. **UI Pages** (T-012-T-015): Security overview, provider detail, skill page, audits
-7. **CLI** (T-016, T-017): Platform security check, `vskill add` gate
+7. **CLI** (T-016, T-017): Platform security check, `vskill install` gate
 8. **Hardening** (T-018, T-019): Admin rescan, timeout sweep
 
 ## Key Decisions

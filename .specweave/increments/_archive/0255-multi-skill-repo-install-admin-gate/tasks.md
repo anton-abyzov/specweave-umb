@@ -82,7 +82,7 @@
 ### T-003: Implement multi-skill discovery + install loop in addCommand
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05, AC-US1-06, AC-US1-07 | **Status**: [x] completed
 
-**Description**: Wire the discovery module into `addCommand` so that `vskill add owner/repo` discovers and installs all skills.
+**Description**: Wire the discovery module into `addCommand` so that `vskill install owner/repo` discovers and installs all skills.
 
 **Implementation Details**:
 - In `addCommand`, when `--skill` is NOT provided:
