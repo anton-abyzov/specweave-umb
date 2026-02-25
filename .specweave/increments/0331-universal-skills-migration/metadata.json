@@ -2,7 +2,7 @@
   "id": "0331",
   "name": "universal-skills-migration",
   "type": "change-request",
-  "status": "in-progress",
+  "status": "active",
   "priority": "high",
   "createdAt": "2026-02-23",
   "repositories": ["vskill", "specweave", "vskill-platform"]
