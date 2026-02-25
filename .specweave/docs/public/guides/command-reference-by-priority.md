@@ -169,17 +169,17 @@ Edge cases and specialized integrations.
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `/sw-infra:monitor-setup` | Setup monitoring | `/sw-infra:monitor-setup` |
-| `/sw-infra:slo-implement` | Implement SLOs | `/sw-infra:slo-implement` |
+| `/infra:monitor-setup` | Setup monitoring | `/infra:monitor-setup` |
+| `/infra:slo-implement` | Implement SLOs | `/infra:slo-implement` |
 
 ### ML/AI Workflows
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `/sw-ml:pipeline` | Design ML pipeline | `/sw-ml:pipeline` |
-| `/sw-ml:evaluate` | Evaluate ML model | `/sw-ml:evaluate` |
-| `/sw-ml:explain` | Model explainability | `/sw-ml:explain` |
-| `/sw-ml:deploy` | Deploy ML model | `/sw-ml:deploy` |
+| `/ml:pipeline` | Design ML pipeline | `/ml:pipeline` |
+| `/ml:evaluate` | Evaluate ML model | `/ml:evaluate` |
+| `/ml:explain` | Model explainability | `/ml:explain` |
+| `/ml:deploy` | Deploy ML model | `/ml:deploy` |
 
 ### Release Management
 

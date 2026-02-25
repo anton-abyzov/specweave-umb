@@ -920,7 +920,7 @@ claude mcp add playwright -- npx -y @playwright/mcp@latest
 | MCP Server | Why You Need It |
 |------------|-----------------|
 | **Context7** | Current library docs — stops AI hallucinations |
-| **Playwright** | E2E testing with `sw-testing:qa-engineer` skill |
+| **Playwright** | E2E testing with `testing:qa` skill |
 | **Supabase/Postgres** | If using database — direct queries |
 | **Vercel** | If deploying frontend — deployment management |
 

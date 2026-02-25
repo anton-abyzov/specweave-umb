@@ -95,9 +95,9 @@ When you say: "Create React dashboard with Stripe checkout and .NET backend"
 - Auto-activation unreliable
 
 **Skills that may NOT activate:**
-- `sw-frontend:frontend-architect` (React patterns)
-- `sw-payments:stripe-integration` (Stripe patterns)
-- `sw-backend:dotnet-backend` (.NET patterns)
+- `frontend:architect` (React patterns)
+- `payments:payment-core` (Stripe patterns)
+- `backend:dotnet` (.NET patterns)
 
 ### After Fix (30K budget)
 
@@ -107,9 +107,9 @@ However, even with increased budget, explicit invocation is recommended for mult
 
 ```typescript
 // Best practice: Explicitly invoke all relevant skills
-Skill({ skill: "sw-frontend:frontend-architect" })
-Skill({ skill: "sw-payments:stripe-integration" })
-Skill({ skill: "sw-backend:dotnet-backend" })
+Skill({ skill: "frontend:architect" })
+Skill({ skill: "payments:payment-core" })
+Skill({ skill: "backend:dotnet" })
 ```
 
 ## Why Explicit Invocation is Still Better
@@ -125,9 +125,9 @@ Even with 30K budget, **explicit skill invocation is more reliable** because:
 ```typescript
 // For multi-domain requests, ALWAYS invoke explicitly:
 Skill({ skill: "sw:increment" })                  // Planning
-Skill({ skill: "sw-frontend:frontend-architect" }) // React patterns
-Skill({ skill: "sw-backend:dotnet-backend" })     // .NET patterns
-Skill({ skill: "sw-payments:stripe-integration" }) // Stripe patterns
+Skill({ skill: "frontend:architect" }) // React patterns
+Skill({ skill: "backend:dotnet" })     // .NET patterns
+Skill({ skill: "payments:payment-core" }) // Stripe patterns
 // After code generation:
 // LSP works AUTOMATICALLY - use "findReferences" and "goToDefinition" for code quality
 ```

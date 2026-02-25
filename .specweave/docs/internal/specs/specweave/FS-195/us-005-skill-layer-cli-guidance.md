@@ -17,7 +17,7 @@ project: specweave
 
 ## Acceptance Criteria
 
-- [x] **AC-US5-01**: `sw-testing:e2e-testing` SKILL.md documents CLI vs MCP routing
+- [x] **AC-US5-01**: `testing:e2e` SKILL.md documents CLI vs MCP routing
 - [x] **AC-US5-02**: `ui-automate.md` command routes to CLI by default when installed
 - [x] **AC-US5-03**: `ui-inspect.md` command documents MCP preference for inspection
 - [x] **AC-US5-04**: `e2e-setup.md` command includes CLI configuration section

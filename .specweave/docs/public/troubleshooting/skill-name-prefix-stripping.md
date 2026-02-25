@@ -33,7 +33,7 @@ Result: Skill registers as `/sw:grill` (prefix from plugin.json `name` field)
 
 ## How Plugin Prefixes Work
 
-1. Each plugin has a `plugin.json` with `"name": "sw"` (or `sw-testing`, etc.)
+1. Each plugin has a `plugin.json` with `"name": "sw"` (or `testing`, etc.)
 2. Claude Code uses this as the namespace prefix: `sw:*`
 3. Skill/command names are derived from:
    - **Skills**: Directory name (`skills/grill/SKILL.md` → `grill`)

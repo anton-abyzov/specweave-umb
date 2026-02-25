@@ -80,8 +80,8 @@ In `.specweave/config.json`:
 
 This will show suggestions like:
 ```
-Plugins that may help: sw-frontend, sw-payments
-To install: claude plugin install sw-frontend@specweave
+Plugins that may help: frontend, payments
+To install: claude plugin install frontend@vskill
 ```
 
 ### Option B: Disable Auto-Load Completely
@@ -116,7 +116,7 @@ grep "for plugin in sw" \
   ~/.claude/plugins/cache/specweave/sw/*/hooks/startup-health-check.sh
 ```
 
-If counts are > 0 or you see `for plugin in sw sw-github sw-testing`, your cache has old hooks. Update by reinstalling:
+If counts are > 0 or you see `for plugin in sw sw-github testing`, your cache has old hooks. Update by reinstalling:
 
 ```bash
 claude plugin uninstall sw@specweave
@@ -172,8 +172,8 @@ tail -100 ~/.specweave/logs/lazy-loading.log
 
 # Example entries:
 # [2026-01-25T00:10:35] detect-intent | duration=1500ms
-# [2026-01-25T00:10:36] plugins | installed=sw-frontend | already=none
-# [2026-01-25T00:10:36] keyword-fallback | plugins=sw-testing | reason=llm_failed
+# [2026-01-25T00:10:36] plugins | installed=frontend | already=none
+# [2026-01-25T00:10:36] keyword-fallback | plugins=testing | reason=llm_failed
 ```
 
 If you see `keyword-fallback`, your cache has old hooks.

@@ -95,19 +95,19 @@ Since Claude Code lacks plugin introspection APIs, SpecWeave skills should:
 
 | SpecWeave Skill/Agent | Files Edited | LSP Automatically Activates |
 |-----------------------|--------------|------------------------------|
-| `sw-mobile:mobile-architect` | `.swift`, `.kt` | swift-lsp, kotlin-lsp |
-| `sw-frontend:frontend-architect` | `.ts`, `.tsx` | typescript-lsp |
-| `sw-backend:dotnet-backend` | `.cs` | csharp-lsp |
-| `sw-backend:nodejs-backend` | `.ts`, `.js` | typescript-lsp |
-| `sw-ml:ml-engineer` | `.py` | pyright-lsp |
+| `mobile:react-native` | `.swift`, `.kt` | swift-lsp, kotlin-lsp |
+| `frontend:architect` | `.ts`, `.tsx` | typescript-lsp |
+| `backend:dotnet` | `.cs` | csharp-lsp |
+| `backend:nodejs` | `.ts`, `.js` | typescript-lsp |
+| `ml:engineer` | `.py` | pyright-lsp |
 
 #### Developer Tools
 
 | SpecWeave Skill/Agent | Plugin | Benefit |
 |-----------------------|--------|---------|
 | **ALL skills** | `hookify` | Safety rails for destructive operations |
-| `sw-testing:qa-engineer` | `hookify` | Enforce test-before-commit patterns |
-| `sw-frontend:frontend-architect` | `frontend-design` | Production-grade UI aesthetics |
+| `testing:qa` | `hookify` | Enforce test-before-commit patterns |
+| `frontend:architect` | `frontend-design` | Production-grade UI aesthetics |
 | `/code-review` (built-in) | `code-review` | Multi-agent PR review with confidence scoring |
 
 #### External Integrations
@@ -115,10 +115,10 @@ Since Claude Code lacks plugin introspection APIs, SpecWeave skills should:
 | SpecWeave Skill/Agent | Plugin | Benefit |
 |-----------------------|--------|---------|
 | Living Docs Sync | `greptile` | AI-powered semantic codebase search |
-| `sw-frontend:frontend-architect` | `vercel` MCP | Deployment, logs, project management |
-| `sw-payments:payment-integration` | `stripe` | Native Stripe API access |
-| `sw-backend` | `supabase`, `firebase` | Backend service integration |
-| `sw-testing:qa-engineer` | `playwright` | E2E test automation |
+| `frontend:architect` | `vercel` MCP | Deployment, logs, project management |
+| `payments:payment-core` | `stripe` | Native Stripe API access |
+| `backend` | `supabase`, `firebase` | Backend service integration |
+| `testing:qa` | `playwright` | E2E test automation |
 
 ### Hookify Integration (Critical)
 
@@ -235,7 +235,7 @@ Integrate `@playwright/cli` as a **complementary** tool alongside the existing P
 
 ### Routing Logic
 
-The `sw-testing` Skill Fabric routes automatically:
+The `testing` Skill Fabric routes automatically:
 - **CLI preferred** (80% of tasks): `ui-automate`, `e2e-test-run`, `screenshot`, `form-automation`, `ci-testing`
 - **MCP preferred** (20% of tasks): `ui-inspect`, `page-exploration`, `self-healing-test`
 - **Fallback**: If CLI is not installed, all tasks route to MCP (graceful degradation)

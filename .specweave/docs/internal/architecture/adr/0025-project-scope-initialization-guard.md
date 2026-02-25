@@ -18,7 +18,7 @@ SpecWeave skills were appearing in ALL Claude Code projects, even those not init
    {
      "enabledPlugins": {
        "sw@specweave": true,
-       "sw-frontend@specweave": true
+       "frontend@vskill": true
      }
    }
    ```

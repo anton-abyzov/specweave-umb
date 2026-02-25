@@ -1,41 +1,55 @@
 # Plugin Naming Conventions
 
-SpecWeave plugins use two naming systems that must be used correctly in different contexts.
+SpecWeave plugins are split across two marketplaces and use two naming systems that must be used correctly in different contexts.
+
+## The Two Marketplaces
+
+| Marketplace | Scope | Plugin Examples |
+|-------------|-------|-----------------|
+| **@specweave** | Core framework plugins (keep `sw-` prefix) | `sw`, `sw-github` |
+| **@vskill** | Domain plugins (no `sw-` prefix) | `frontend`, `backend`, `testing`, `mobile`, `infra`, `k8s`, `ml`, `payments`, `kafka` |
 
 ## The Two Naming Systems
 
 | System | Format | Examples |
 |--------|--------|----------|
-| **Marketplace names** | `sw`, `sw-*` | `sw`, `sw-frontend`, `sw-github`, `sw-router` |
-| **Directory names** | `specweave`, `specweave-*` | `specweave`, `specweave-frontend`, `specweave-github` |
+| **Marketplace names** | `sw`, `sw-*` (core) / bare name (domain) | `sw`, `sw-github`, `frontend`, `backend`, `testing` |
+| **Directory names** | `specweave`, `specweave-*` (core) / bare name (domain) | `specweave`, `specweave-github`, `frontend`, `backend` |
 
 ## When to Use Each Format
 
-### Use Marketplace Names (`sw-*`) For:
+### Use Marketplace Names For:
 
 1. **Claude CLI commands**:
    ```bash
+   # Core plugins (@specweave marketplace)
    claude plugin install sw@specweave
-   claude plugin install sw-frontend@specweave
+   claude plugin install sw-github@specweave
+   # Domain plugins (@vskill marketplace)
+   claude plugin install frontend@vskill
+   claude plugin install backend@vskill
    ```
 
 2. **API inputs** (function parameters):
    ```typescript
    await cacheManager.installPlugins({ plugins: ['sw', 'sw-github'] });
+   await cacheManager.installPlugins({ plugins: ['frontend', 'backend'], marketplace: 'vskill' });
    ```
 
 3. **LLM responses** (detectPluginsViaLLM returns these):
    ```typescript
    const result = await detectPluginsViaLLM(prompt);
-   // result.plugins = ['sw-frontend', 'sw-backend']
+   // result.plugins = ['frontend', 'backend']
    ```
 
 4. **Registry keys** in `~/.claude/plugins/installed_plugins.json`:
    ```json
    {
      "plugins": {
-       "sw-router@specweave": [{ "scope": "user", ... }],
-       "sw-github@specweave": [{ "scope": "user", ... }]
+       "sw@specweave": [{ "scope": "user", ... }],
+       "sw-github@specweave": [{ "scope": "user", ... }],
+       "frontend@vskill": [{ "scope": "user", ... }],
+       "backend@vskill": [{ "scope": "user", ... }]
      }
    }
    ```
@@ -43,29 +57,33 @@ SpecWeave plugins use two naming systems that must be used correctly in differen
 5. **State files** (`loadedPlugins` array):
    ```json
    {
-     "loadedPlugins": ["sw", "sw-github", "sw-frontend"]
+     "loadedPlugins": ["sw", "sw-github", "frontend", "backend"]
    }
    ```
 
 6. **Keyword detector constants**:
    ```typescript
    // keyword-detector.ts
-   PLUGIN_GROUPS = { frontend: 'sw-frontend', ... }
-   KEYWORD_PLUGIN_MAP = { react: 'sw-frontend', ... }
+   PLUGIN_GROUPS = { frontend: 'frontend', ... }
+   KEYWORD_PLUGIN_MAP = { react: 'frontend', ... }
    ```
 
-### Use Directory Names (`specweave-*`) For:
+### Use Directory Names For:
 
 1. **Filesystem paths** (marketplace directories):
    ```
-   ~/.claude/plugins/marketplaces/specweave/plugins/specweave-frontend/
+   # Core plugins (specweave marketplace)
    ~/.claude/plugins/marketplaces/specweave/plugins/specweave-github/
+   # Domain plugins (vskill marketplace)
+   ~/.claude/plugins/marketplaces/vskill/plugins/frontend/
+   ~/.claude/plugins/marketplaces/vskill/plugins/backend/
    ```
 
 2. **Test mocks for directories**:
    ```typescript
    createMockPlugin(path, 'specweave');
-   createMockPlugin(path, 'specweave-frontend');
+   createMockPlugin(path, 'specweave-github');
+   createMockPlugin(path, 'frontend');   // vskill marketplace
    ```
 
 ## Conversion Functions
@@ -78,13 +96,16 @@ import {
   directoryToMarketplaceName
 } from './cache-manager.js';
 
-// Convert marketplace name to directory name
+// Core plugins (specweave marketplace): sw-* ↔ specweave-*
 marketplaceNameToDirectory('sw')          // → 'specweave'
-marketplaceNameToDirectory('sw-frontend') // → 'specweave-frontend'
+marketplaceNameToDirectory('sw-github')   // → 'specweave-github'
 
-// Convert directory name to marketplace name
 directoryToMarketplaceName('specweave')          // → 'sw'
-directoryToMarketplaceName('specweave-frontend') // → 'sw-frontend'
+directoryToMarketplaceName('specweave-github')   // → 'sw-github'
+
+// Domain plugins (vskill marketplace): name stays the same
+marketplaceNameToDirectory('frontend')    // → 'frontend'
+directoryToMarketplaceName('frontend')    // → 'frontend'
 ```
 
 ## Common Issues
@@ -93,24 +114,26 @@ directoryToMarketplaceName('specweave-frontend') // → 'sw-frontend'
 
 ```typescript
 // ❌ WRONG - using directory name for registry check
-isPluginRegistered('specweave-router');  // Registry uses 'sw-router@specweave'
+isPluginRegistered('specweave-github');  // Registry uses 'sw-github@specweave'
 
-// ✅ CORRECT - using marketplace name
-isPluginRegistered('sw-router');
+// ✅ CORRECT - using marketplace name with marketplace qualifier
+isPluginRegistered('sw-github');       // core plugin
+isPluginRegistered('frontend');        // domain plugin (@vskill)
 ```
 
 ### 2. Wrong Format in Plugin Map
 
 ```typescript
-// ❌ WRONG - using directory names in keyword map
+// ❌ WRONG - using old sw-* names for domain plugins
 const KEYWORD_PLUGIN_MAP = {
-  react: 'specweave-frontend',  // Should be 'sw-frontend'
+  react: 'sw-frontend',  // Should be 'frontend'
+  nodejs: 'sw-backend',  // Should be 'backend'
 };
 
-// ✅ CORRECT - using marketplace names
+// ✅ CORRECT - domain plugins use bare names
 const KEYWORD_PLUGIN_MAP = {
-  react: 'sw-frontend',
-  nodejs: 'sw-backend',
+  react: 'frontend',
+  nodejs: 'backend',
 };
 ```
 
@@ -120,17 +143,18 @@ When testing, always use the appropriate format:
 
 ```typescript
 // For CLI commands (marketplace names)
-execFileNoThrowSync('claude', ['plugin', 'install', 'sw-frontend@specweave']);
+execFileNoThrowSync('claude', ['plugin', 'install', 'frontend@vskill']);
+execFileNoThrowSync('claude', ['plugin', 'install', 'sw-github@specweave']);
 
 // For checking filesystem (directory names)
-fs.existsSync(path.join(marketplacePath, 'specweave-frontend'));
+fs.existsSync(path.join(vskillMarketplacePath, 'frontend'));
+fs.existsSync(path.join(specweaveMarketplacePath, 'specweave-github'));
 
 // Both can be checked with fallback mapping
 const PLUGIN_FOLDER_TO_SHORT = {
   specweave: 'sw',
-  'specweave-frontend': 'sw-frontend',
-  'specweave-router': 'sw-router',
-  // ...
+  'specweave-github': 'sw-github',
+  // vskill domain plugins have no mapping needed (same name)
 };
 ```
 
@@ -140,28 +164,32 @@ The installed plugin cache uses marketplace names in registry but stores files w
 
 ```
 ~/.claude/plugins/
-├── installed_plugins.json           # Uses: sw-frontend@specweave
+├── installed_plugins.json           # Uses: sw-github@specweave, frontend@vskill
 └── cache/
-    └── specweave/                   # Marketplace name
-        └── sw-frontend/             # Plugin short name (not specweave-frontend!)
-            └── 1.0.0/               # Version
-                └── hooks/           # Plugin files
+    ├── specweave/                   # Core marketplace
+    │   └── sw-github/              # Core plugin short name
+    │       └── 1.0.0/
+    │           └── hooks/
+    └── vskill/                      # Domain marketplace
+        └── frontend/                # Domain plugin name (no sw- prefix)
+            └── 1.0.0/
+                └── hooks/
 ```
 
-**Important**: The cache directory uses `sw-frontend`, not `specweave-frontend`. This is different from the marketplace source directory.
+**Important**: Domain plugins in the `vskill` marketplace use bare names (`frontend`, not `sw-frontend`). Core plugins in `specweave` keep the `sw-` prefix.
 
-| Location | Name Format | Example |
-|----------|-------------|---------|
-| Registry key | `sw-*@specweave` | `sw-frontend@specweave` |
-| Cache path | `specweave/sw-*/version/` | `cache/specweave/sw-frontend/1.0.0/` |
-| Marketplace source | `specweave-*` | `marketplaces/specweave/plugins/specweave-frontend/` |
+| Location | Core Plugin Example | Domain Plugin Example |
+|----------|--------------------|-----------------------|
+| Registry key | `sw-github@specweave` | `frontend@vskill` |
+| Cache path | `cache/specweave/sw-github/1.0.0/` | `cache/vskill/frontend/1.0.0/` |
+| Marketplace source | `marketplaces/specweave/plugins/specweave-github/` | `marketplaces/vskill/plugins/frontend/` |
 
 ## Key Rules
 
-1. **Registry keys**: Always use `sw-*@specweave` format
-2. **Cache paths**: Use `sw-*` (short name) under `specweave/` directory
-3. **Marketplace source**: Use `specweave-*` format
-4. **API calls**: Always use `sw-*` format
+1. **Core plugins** (`sw`, `sw-github`): Use `sw-*@specweave` format in registry
+2. **Domain plugins** (`frontend`, `backend`, etc.): Use `name@vskill` format in registry
+3. **Cache paths**: Core under `specweave/`, domain under `vskill/`
+4. **API calls**: Use the correct marketplace-qualified name
 5. **Use conversion functions** when crossing between contexts
 
 ## Related

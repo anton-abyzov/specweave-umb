@@ -70,7 +70,7 @@ User: "Build a React dashboard"
        ↓
 Hook detects: frontend domain
        ↓
-Loads: ONLY sw-frontend plugin (~3K tokens)
+Loads: ONLY frontend plugin (~3K tokens)
        ↓
 Claude responds with specialized expertise
 ```
@@ -101,7 +101,7 @@ Since Claude is terminal-first, a hook can spawn a process. This is the key insi
 claude -p "What plugins for: $PROMPT" --model haiku
 
 # Install plugins SYNCHRONOUSLY
-claude plugin install sw-frontend@specweave
+claude plugin install frontend@vskill
 ```
 
 **Key insight:** `claude plugin install` blocks until done. Plugin is ready for the CURRENT response!

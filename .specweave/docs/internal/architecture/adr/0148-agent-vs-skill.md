@@ -48,7 +48,7 @@ You are an expert Frontend Architect...
 **Invocation**: Via Skill tool (explicit) or auto-activation
 ```typescript
 await Skill({
-  skill: "sw-frontend:frontend-architect",
+  skill: "frontend:architect",
   args: "Design React component architecture for..."
 });
 ```

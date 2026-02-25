@@ -74,13 +74,13 @@ When you use a SpecWeave skill and edit code files, LSP activates **automaticall
 
 | SpecWeave Skill/Agent | Files You Edit | LSP Auto-Activates |
 |-----------------------|----------------|---------------------|
-| `sw-mobile:mobile-architect` | `.swift`, `.kt`, `.ts` | swift-lsp, kotlin-lsp, typescript-lsp |
-| `sw-frontend:frontend-architect` | `.ts`, `.tsx` | typescript-lsp |
-| `sw-backend:dotnet-backend` | `.cs` | csharp-lsp |
-| `sw-backend:nodejs-backend` | `.ts`, `.js` | typescript-lsp |
-| `sw-ml:ml-engineer` | `.py` | pyright-lsp |
-| `sw-infra:devops` | `.go`, `.py` | gopls-lsp, pyright-lsp |
-| `sw-k8s:kubernetes-architect` | `.go`, `.py` | gopls-lsp, pyright-lsp |
+| `mobile:react-native` | `.swift`, `.kt`, `.ts` | swift-lsp, kotlin-lsp, typescript-lsp |
+| `frontend:architect` | `.ts`, `.tsx` | typescript-lsp |
+| `backend:dotnet` | `.cs` | csharp-lsp |
+| `backend:nodejs` | `.ts`, `.js` | typescript-lsp |
+| `ml:engineer` | `.py` | pyright-lsp |
+| `infra:devops` | `.go`, `.py` | gopls-lsp, pyright-lsp |
+| `k8s:manifests` | `.go`, `.py` | gopls-lsp, pyright-lsp |
 
 ### LSP Best Practices
 
@@ -206,13 +206,13 @@ Or connect to official endpoint: `https://mcp.vercel.com`
 - Monitor project status
 - Read-only (secure by default)
 
-**SpecWeave Integration**: Recommended for `sw-frontend:frontend-architect` and deployment workflows.
+**SpecWeave Integration**: Recommended for `frontend:architect` and deployment workflows.
 
 ### Stripe
 
 **Purpose**: Payment processing integration.
 
-**SpecWeave Integration**: `sw-payments:payment-integration` skill.
+**SpecWeave Integration**: `payments:payment-core` skill.
 
 ### Supabase
 
@@ -236,7 +236,7 @@ Or connect to official endpoint: `https://mcp.vercel.com`
 
 **Purpose**: Browser automation and E2E testing.
 
-**SpecWeave Integration**: `sw-testing:qa-engineer` skill.
+**SpecWeave Integration**: `testing:qa` skill.
 
 ---
 

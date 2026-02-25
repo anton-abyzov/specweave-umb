@@ -26,14 +26,14 @@ LLM (Claude Haiku) analyzes prompt
     ↓
 Returns JSON:
 {
-  "plugins": ["sw-frontend", "sw-payments"],
+  "plugins": ["frontend", "payments"],
   "increment": {
     "action": "new",
     "suggestedName": "dashboard-stripe",
     "confidence": 0.9
   },
   "routing": {
-    "skills": ["frontend-architect", "payment-integration"]
+    "skills": ["architect", "payment-core"]
   }
 }
     ↓
@@ -109,8 +109,8 @@ The LLM evaluates whether user needs an increment:
 | Plugin | Marketplace Name | Skill Invocation |
 |--------|------------------|------------------|
 | Core SpecWeave | `sw` | `Skill({ skill: "sw:increment-planner" })` |
-| Frontend | `sw-frontend` | `Skill({ skill: "sw-frontend:frontend-architect" })` |
-| Payments | `sw-payments` | `Skill({ skill: "sw-payments:payment-integration" })` |
+| Frontend | `frontend` | `Skill({ skill: "frontend:architect" })` |
+| Payments | `payments` | `Skill({ skill: "payments:payment-core" })` |
 | GitHub | `sw-github` | `Skill({ skill: "sw-github:create" })` |
 | JIRA | `sw-jira` | `Skill({ skill: "sw-jira:create" })` |
 | ADO | `sw-ado` | `Skill({ skill: "sw-ado:create" })` |
@@ -148,7 +148,7 @@ When plugins are installed during detection, the hook injects an emphatic restar
 ⚠️  PLUGINS INSTALLED - RESTART REQUIRED
 ════════════════════════════════════════════════════════════
 
-✅ Installed: sw-frontend, sw-payments
+✅ Installed: frontend, payments
 
 **CRITICAL**: Skills/agents from these plugins are NOT available in this session!
 

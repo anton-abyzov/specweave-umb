@@ -23,9 +23,9 @@ project: specweave
 
 ## Acceptance Criteria
 
-- [x] **AC-US3-01**: `full-stack` preset: frontend (`sw-frontend:frontend-architect`) + backend + shared (`sw:architect`)
+- [x] **AC-US3-01**: `full-stack` preset: frontend (`frontend:architect`) + backend + shared (`sw:architect`)
 - [x] **AC-US3-02**: `review` preset: security (`sw:security`) + code quality (`sw:grill`/`sw:tech-lead`) + documentation (`sw:docs-updater`)
-- [x] **AC-US3-03**: `testing` preset: unit (`sw-testing:unit-testing`) + e2e (`sw-testing:e2e-testing`) + coverage (`sw-testing:qa-engineer`)
+- [x] **AC-US3-03**: `testing` preset: unit (`testing:unit`) + e2e (`testing:e2e`) + coverage (`testing:qa`)
 - [x] **AC-US3-04**: `migration` preset: schema (`sw:architect`) + backend + frontend (for DB migrations)
 - [x] **AC-US3-05**: `tdd` preset: red agent (`sw:tdd-red`) + green agent (`sw:tdd-green`) + refactor agent (`sw:tdd-refactor`)
 - [x] **AC-US3-06**: Usage: `/sw:team-build --preset full-stack "Build checkout"`

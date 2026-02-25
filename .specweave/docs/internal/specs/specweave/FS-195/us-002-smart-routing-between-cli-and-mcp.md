@@ -18,8 +18,8 @@ project: specweave
 ## Acceptance Criteria
 
 - [x] **AC-US2-01**: Detection utility identifies whether `@playwright/cli` is installed
-- [x] **AC-US2-02**: `sw-testing:ui-automate` routes to CLI for script generation tasks
-- [x] **AC-US2-03**: `sw-testing:ui-inspect` routes to MCP for interactive element inspection
+- [x] **AC-US2-02**: `testing:ui-automate` routes to CLI for script generation tasks
+- [x] **AC-US2-03**: `testing:ui-inspect` routes to MCP for interactive element inspection
 - [x] **AC-US2-04**: Fallback to MCP if CLI is not installed (graceful degradation)
 
 ---
