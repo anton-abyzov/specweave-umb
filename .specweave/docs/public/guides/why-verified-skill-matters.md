@@ -91,7 +91,7 @@ An AI rejected the security fix. The platform had no infrastructure for safety.
 
 ## The Industry Response — And Its Limits
 
-After ClawHub's collapse, the industry started responding. Vercel — which runs skills.sh, the largest active skill marketplace — partnered with Gen Digital, Socket, and Snyk to add automated security audits. Every skill now gets scanned by three independent providers:
+After ClawHub's collapse, the industry started responding. Some of the larger platforms partnered with security providers like Gen Digital, Socket, and Snyk to add automated security audits. On certain platforms, every skill now gets scanned by multiple independent providers:
 
 | Provider | What It Checks |
 |----------|----------------|
@@ -101,25 +101,35 @@ After ClawHub's collapse, the industry started responding. Vercel — which runs
 
 Results appear publicly on each skill's detail page. Skills flagged as malicious are hidden from search and leaderboards. This is meaningful progress.
 
-**But there's a critical gap: detection vs prevention.**
+**But there are two critical gaps: submission model and detection vs prevention.**
 
-Consider the `capability-evolver` skill on skills.sh (by `autogame-17`). It FAILS two security audits (Gen Agent Trust Hub, Socket) and gets a WARN from Snyk. Yet it remains live, installable, and receives **55 weekly downloads**. The audits inform. They don't block.
+### Gap 1: Open Listing Without Verification
+
+On most community platforms, getting a skill listed requires no submission and no review. A skill author pushes a markdown file to a public GitHub repository. Users install it via a CLI command. The platform tracks install telemetry and automatically surfaces the skill on its leaderboard or directory. The more installs, the higher it ranks.
+
+There is no gate between "someone pushed a file to GitHub" and "the skill is listed as a top result for developers to install." Popularity — not safety — is the ranking signal. A malicious skill that tricks a hundred developers into installing it outranks a safe skill with ten installs.
+
+This is fundamentally different from verified-skill.com, where every skill must pass through a verification pipeline before it ever appears in the registry. You cannot install a skill from verified-skill.com that hasn't been scanned. The gate exists before publication, not after.
+
+### Gap 2: Detection Without Prevention
+
+Even platforms that have added security auditing post-ClawHub face a second gap. Consider a skill that FAILS two independent security audits and gets a WARN from a third provider. On most open platforms, it remains live, installable, and continues receiving weekly downloads. The audits inform. They don't block.
 
 This is the difference between **labeling** and **gating**:
-- **skills.sh model**: Scan, label, warn — but let developers install anyway
+- **Open platform model**: Scan, label, warn — but let developers install anyway
 - **verified-skill.com model**: Scan, judge, review — reject before publication. A skill that fails Tier 1 never reaches the registry.
 
 Both approaches have value. But when 5 of the top 7 most-downloaded skills on ClawHub were malware, labeling alone isn't enough. Developers under time pressure will click through warnings. Prevention must be the default.
 
-### The skills.sh Audits Dashboard
+### The Audit Dashboard Paradox
 
-Skills.sh now provides a public Security Audits page (`skills.sh/audits`) showing combined results from all three providers in a single table. Each skill displays its Gen, Socket, and Snyk ratings side by side.
+Some platforms now provide public security audit pages showing combined results from multiple providers in a single table. This is progress — transparency matters.
 
-Even this dashboard reveals the gap: `browser-use` shows CRITICAL across all three providers yet remains listed. Official skills from Vercel and Anthropic show MED RISK or HIGH RISK from Snyk — demonstrating that even trusted-vendor skills can flag patterns that need review.
+But even these dashboards reveal the gap. Skills showing CRITICAL ratings across all audit providers remain listed and installable. Even official skills from major vendors flag MED RISK or HIGH RISK from at least one provider. The audits are informational, not blocking. The gate is open.
 
 ### What verified-skill.com Adds: Prevention + Public Blocklist
 
-We match the transparency of skills.sh's multi-provider audit model, but add two critical layers:
+We match the transparency of the best multi-provider audit models, but add two critical layers:
 
 1. **Prevention by default**: A skill that fails Tier 1 scanning is rejected. It never appears in the registry. Developers cannot install a skill that hasn't passed verification. This is the difference between a warning label and a locked gate.
 
@@ -141,9 +151,9 @@ The malicious skill files were copied, forked, and republished. A public GitHub 
 
 ### 2. Other Marketplaces Face the Same Risks
 
-- **Skills.sh**: 59,000+ skills. No automated scanning.
-- **SkillsMP**: 96,000+ skills. Minimal verification.
-- **At least 10 competing registries** — none share a security standard.
+- **The largest open registries** have 50,000-100,000+ skills each. Most use telemetry-based listing with no pre-publication verification.
+- **At least 10 competing platforms** — none share a security standard.
+- On most of them, a skill gets listed simply by accumulating install counts. No submission review. No security gate.
 
 The Snyk ToxicSkills audit (February 2026) found that **36.82% of skills across registries have security flaws**. That's more than 1 in 3. ClawHub wasn't uniquely bad — it was just the first to get caught at scale.
 

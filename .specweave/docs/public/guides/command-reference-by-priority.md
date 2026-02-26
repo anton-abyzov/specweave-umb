@@ -5,6 +5,10 @@
 
 This guide organizes all SpecWeave commands by priority, from essential daily workflow to specialized features.
 
+:::tip You don't need to memorize commands
+Every command below can also be triggered with natural language. For example, instead of typing `/sw:increment "User auth"`, you can just say **"Let's build user authentication"** — SpecWeave detects the intent and activates the same skill under the hood. Slash commands give you explicit control; natural language gives you convenience.
+:::
+
 ---
 
 ## P0: Critical/Core Workflow (Use Daily)
@@ -201,23 +205,28 @@ Edge cases and specialized integrations.
 
 ## Quick Start Guide - Essential 5 Commands
 
-If you're new to SpecWeave, start with these 5 commands:
+If you're new to SpecWeave, start with these 5 commands. You can type the slash command **or** just describe what you want — both work identically:
 
 ```bash
 # 1. Plan new work
 /sw:increment "Add user authentication"
+# Or just say: "Let's build user authentication"
 
 # 2. Execute tasks
 /sw:do
+# Or: "Start working" / "Continue tasks"
 
 # 3. Check progress
 /sw:progress
+# Or: "How far along are we?" / "What's the status?"
 
 # 4. Close when done
 /sw:done 0031
+# Or: "We're done" / "Close the increment"
 
 # 5. (NEW!) Reopen if issues found
 /sw:reopen 0031 --reason "Auth broken in prod"
+# Or just describe the issue: "The auth is broken in production"
 ```
 
 ---
@@ -227,22 +236,25 @@ If you're new to SpecWeave, start with these 5 commands:
 **Monday - Start New Feature**:
 ```bash
 /sw:increment "Implement payment processing"
+# Or just say: "I need to build payment processing with Stripe"
 # → Creates increment 0032, generates spec/plan/tasks
 ```
 
 **Tuesday-Thursday - Execute Work**:
 ```bash
 /sw:do
+# Or: "Continue working" / "Start the tasks"
 # → Smart resume, continues last active increment
-# Work on tasks, mark [x] as you complete them
 
 /sw:progress
+# Or: "How's it going?" / "Show progress"
 # → Check: 15/20 tasks (75%)
 ```
 
 **Friday - Complete or Pause**:
 ```bash
 /sw:done 0032
+# Or: "We're done with this increment"
 # → PM validates, syncs to living docs, closes increment
 
 # OR if blocked:

@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0328: Fix Trust Score Calculation & Pipeline Publishing Gaps
 
 ## Problem

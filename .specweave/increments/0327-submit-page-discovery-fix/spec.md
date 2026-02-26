@@ -1,10 +1,10 @@
 ---
 increment: 0327-submit-page-discovery-fix
-title: "Fix submit page skill discovery bug + remove selection step"
+title: Fix submit page skill discovery bug + remove selection step
 type: feature
 priority: P1
-status: in-progress
-created: 2026-02-22
+status: completed
+created: 2026-02-22T00:00:00.000Z
 structure: user-stories
 test_mode: test-after
 coverage_target: 80

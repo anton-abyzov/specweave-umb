@@ -30,12 +30,14 @@ SpecWeave's task format enforces this naturally:
 
 ## The SpecWeave Workflow (Aligned with Claude Code's Explore → Plan → Code → Commit)
 
-| Claude Code Phase | SpecWeave Equivalent | Command |
-|-------------------|----------------------|---------|
-| **Explore** | Research/brownfield analysis | `/sw:docs`, `/sw:discrepancies` |
-| **Plan** | Increment planning | `/sw:increment "feature"` |
-| **Code** | Task execution | `/sw:do` |
-| **Commit** | Validation + closure | `/sw:validate`, `/sw:done` |
+| Claude Code Phase | SpecWeave Equivalent | Slash Command | Or Just Say... |
+|-------------------|----------------------|---------------|----------------|
+| **Explore** | Research/brownfield analysis | `/sw:docs`, `/sw:discrepancies` | "Show me the docs" |
+| **Plan** | Increment planning | `/sw:increment "feature"` | "Let's build [feature]" |
+| **Code** | Task execution | `/sw:do` | "Start working" |
+| **Commit** | Validation + closure | `/sw:validate`, `/sw:done` | "We're done" |
+
+> Every slash command has a natural language equivalent. SpecWeave detects your intent and activates the same skill under the hood.
 
 ### When to Skip Planning
 
@@ -348,12 +350,12 @@ Skills trigger on keywords in their descriptions:
 ### Essential Commands
 
 ```bash
-# SpecWeave
-/sw:increment "feature"   # Plan new work
-/sw:do                    # Execute tasks
-/sw:progress              # Check status
-/sw:validate              # Quality check
-/sw:done                  # Close increment
+# SpecWeave — use slash commands or natural language (both work the same way)
+/sw:increment "feature"   # Or: "Let's build [feature]"
+/sw:do                    # Or: "Start working" / "Continue tasks"
+/sw:progress              # Or: "What's the status?"
+/sw:validate              # Or: "Run quality checks"
+/sw:done                  # Or: "We're done"
 
 # Claude Code Context
 /clear                    # Reset context

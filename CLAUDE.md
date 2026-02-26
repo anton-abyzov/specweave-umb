@@ -94,7 +94,15 @@ Good: npm run build → node script.js → Success
 | `/sw:progress-sync` | Sync progress to all external tools |
 | `/sw-github:push` | Push progress to GitHub |
 
-**Natural language**: "Let's build X" → `/sw:increment` | "What's status?" → `/sw:progress` | "We're done" → `/sw:done` | "Ship while sleeping" → `/sw:auto`
+**Natural language works too** — every slash command above has a plain-English equivalent that triggers the same skill:
+
+| Instead of typing... | You can just say... |
+|----------------------|---------------------|
+| `/sw:increment "X"` | "Let's build X" or "I need feature X" |
+| `/sw:do` | "Start working" or "Continue tasks" |
+| `/sw:progress` | "What's the status?" or "How far along?" |
+| `/sw:done` | "We're done" or "Close the increment" |
+| `/sw:auto` | "Ship while I sleep" or "Go autonomous" |
 <!-- SW:END:workflow -->
 
 <!-- SW:SECTION:reflect version="1.0.326" -->

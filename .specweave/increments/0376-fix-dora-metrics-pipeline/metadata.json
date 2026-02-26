@@ -1,0 +1,13 @@
+{
+  "id": "0376-fix-dora-metrics-pipeline",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-25T23:31:28.788Z",
+  "lastActivity": "2026-02-25T23:31:28.788Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

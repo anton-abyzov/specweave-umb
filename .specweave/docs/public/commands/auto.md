@@ -11,7 +11,11 @@ Auto mode enables continuous autonomous execution until all tasks are complete. 
 ## Usage
 
 ```bash
+# Slash command
 /sw:auto [INCREMENT_IDS...] [OPTIONS]
+
+# Or natural language — same skill, same behavior:
+# "Go autonomous" / "Ship while I sleep" / "Go to sleep. Review in the morning."
 ```
 
 ## Arguments

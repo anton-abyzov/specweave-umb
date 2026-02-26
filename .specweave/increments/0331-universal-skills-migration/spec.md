@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0331: Universal Skills Migration — SpecWeave to vskill
 
 ## Overview

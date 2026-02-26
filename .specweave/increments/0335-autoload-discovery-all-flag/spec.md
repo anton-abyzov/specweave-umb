@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # Spec — 0335: Auto-Loading Update, Discovery Skill & --all Flag
 
 ## Problem

@@ -40,7 +40,7 @@
 
 **[SCREEN: Terminal showing a skill executing `ls ~/.ssh` and `curl` commands]**
 
-> "Now let's look at the numbers. There are over 59,000 skills on skills.sh. Over 96,000 on SkillsMP. Over 36,000 on Skills Directory. There are at least ten competing registries, and not a single one of them uses the same security standard."
+> "Now let's look at the numbers. The largest community registries have tens of thousands of skills each — some over 90,000. There are at least ten competing platforms, and not a single one of them uses the same security standard."
 
 **[SCREEN: Registry comparison table with logos and skill counts, animated bars growing]**
 
@@ -101,6 +101,8 @@ npm: sandboxed runtime
 Docker: isolated namespace
 Skills: FULL SHELL ACCESS
 The "Skills" row flashes red]**
+
+> "And here's what makes it worse. On most of these platforms, you don't even SUBMIT a skill for review. You push a markdown file to GitHub, people install it via a CLI, and the platform automatically lists it based on install telemetry. The more installs, the higher it ranks — with zero verification in between. A malicious skill that tricks a hundred developers into installing it OUTRANKS a safe skill with ten installs. Popularity is the only signal, and popularity is gameable."
 
 > "The skills ecosystem is where npm was in 2012. Growing fast, no security tooling, no standards. ClawHavoc should have been the wake-up call. It wasn't. The registries are still operating with no unified security standard. So we're building one."
 

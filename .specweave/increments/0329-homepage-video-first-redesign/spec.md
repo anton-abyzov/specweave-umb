@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0329: Homepage Video-First Redesign
 
 **Type**: feature | **Priority**: P1 | **Status**: in-progress

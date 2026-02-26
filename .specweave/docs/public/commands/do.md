@@ -11,11 +11,14 @@ This is the main command for doing work in SpecWeave. It smart-resumes from wher
 ## Usage
 
 ```bash
-# Auto-resumes from last incomplete task
+# Slash command — auto-resumes from last incomplete task
 /sw:do [increment-id]
 
 # Or let it find active increment automatically
 /sw:do
+
+# Natural language — same result, triggers the same skill:
+# "Start working" / "Continue tasks" / "Implement the next task"
 
 # Override model selection (advanced)
 /sw:do 0007 --model haiku

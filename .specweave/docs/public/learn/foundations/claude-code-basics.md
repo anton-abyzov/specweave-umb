@@ -132,7 +132,7 @@ Per [official Anthropic documentation](https://code.claude.com/docs/en/skills):
 1. **Auto-Activation (Primary)**: Skills auto-activate when their description keywords match your request
 2. **Explicit Invocation (Fallback)**: Use `/skill-name` or Skill tool when auto-activation doesn't trigger
 
-### Explicit Invocation (User Types Command)
+### Explicit Invocation (Slash Commands)
 
 ```bash
 /sw:do                              # Execute tasks
@@ -140,15 +140,20 @@ Per [official Anthropic documentation](https://code.claude.com/docs/en/skills):
 /sw:status                          # Show status
 ```
 
-### Auto-Activation (Claude Detects Keywords)
+### Natural Language (Same Result, Under the Hood)
 
-Just describe what you need - Claude loads the relevant skill:
+Just describe what you want — SpecWeave detects your intent and activates the **exact same skill** as the slash command:
 
 ```
+"Let's build user authentication"         # → same as /sw:increment "user authentication"
+"Start working on the tasks"              # → same as /sw:do
+"How far along are we?"                   # → same as /sw:progress
+"We're done"                              # → same as /sw:done
 "Design the authentication architecture"  # → architect skill
-"Help me plan this product feature"       # → PM skill
 "Review my code for security issues"      # → security skill
 ```
+
+Both approaches are fully interchangeable. Use whichever feels more natural — slash commands for precision, plain English for convenience.
 
 ### Fallback: Skill Tool (When Auto-Activation Fails)
 

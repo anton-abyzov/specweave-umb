@@ -43,11 +43,16 @@ Auto mode enables continuous autonomous execution using Claude Code's Stop Hook 
 
 ## Quick Start
 
+You can start auto mode with a slash command or natural language — both trigger the same skill:
+
 ### Basic Usage
 
 ```bash
-# Start auto on current active increment
+# Slash command
 /sw:auto
+
+# Or just say it naturally:
+# "Go autonomous" / "Ship while I sleep" / "Go to sleep. Review in the morning."
 
 # Start on specific increment
 /sw:auto 0001-user-authentication

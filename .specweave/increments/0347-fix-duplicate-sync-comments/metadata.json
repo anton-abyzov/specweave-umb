@@ -1,13 +1,15 @@
 {
   "id": "0347-fix-duplicate-sync-comments",
-  "status": "active",
-  "type": "bugfix",
+  "status": "completed",
+  "type": "bug",
   "priority": "P2",
   "created": "2026-02-23T12:00:00.000Z",
-  "lastActivity": "2026-02-23T12:00:00.000Z",
+  "lastActivity": "2026-02-25T23:23:52.105Z",
   "testMode": "test-after",
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "updated": "2026-02-23T12:00:00.000Z",
+  "approvedAt": "2026-02-25T23:23:52.105Z"
 }

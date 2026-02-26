@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0347 - Fix Duplicate Completion Comments on External Tools
 
 ## Problem

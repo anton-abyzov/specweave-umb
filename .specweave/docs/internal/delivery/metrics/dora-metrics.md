@@ -2,9 +2,9 @@
 
 **Purpose**: Track DORA (DevOps Research and Assessment) metrics to measure engineering excellence and continuous improvement.
 
-**Last Updated**: 2025-11-04 (Auto-updated by CI/CD)
+**Last Updated**: 2026-02-25 (Auto-updated by CI/CD)
 **Owner**: Engineering Leadership
-**Data Source**: `.specweave/metrics/dora-latest.json` (updated daily at 06:00 UTC)
+**Data Source**: `.specweave/metrics/dora-latest.json` (updated twice daily at 06:00 and 18:00 UTC)
 
 ---
 
@@ -26,103 +26,58 @@ DORA metrics are four key metrics that indicate the performance of software deli
 | Metric | Elite | High | Medium | Low |
 |--------|-------|------|--------|-----|
 | **Deployment Frequency** | On-demand (multiple/day) | Weekly - Monthly | Monthly - 6 months | < 6 months |
-| **Lead Time for Changes** | < 1 hour | 1 day - 1 week | 1 week - 1 month | 1-6 months |
-| **Change Failure Rate** | 0-15% | 16-30% | 31-45% | > 45% |
+| **Lead Time for Changes** | < 1 hour | 1 hour - 1 week | 1 week - 1 month | > 1 month |
+| **Change Failure Rate** | 0-15% | 15-30% | 30-45% | > 45% |
 | **Time to Restore Service** | < 1 hour | < 1 day | 1 day - 1 week | > 1 week |
 
 **Goal**: Achieve **High** performance across all metrics (Elite is aspirational).
 
 ---
 
-## Current SpecWeave Performance (ACTUAL)
+## Current SpecWeave Performance
 
-**Last Calculated**: November 4, 2025 at 20:27 UTC
+Current values are auto-generated and stored in `.specweave/metrics/dora-latest.json`.
+See the live dashboard at [spec-weave.com/docs/metrics](https://spec-weave.com/docs/metrics) and the detailed report at `.specweave/metrics/dora-report.md`.
 
-| Metric | Current Value | Tier | Goal | Status |
-|--------|--------------|------|------|--------|
-| **Deployment Frequency** | **8 deploys/month** | 🟢 **High** | Weekly-Monthly | ✅ Meets High |
-| **Lead Time for Changes** | **16 hours** (median: 5h, p90: 60h) | 🟢 **High** | < 1 week | ✅ Meets High |
-| **Change Failure Rate** | **0%** (0 failures / 8 releases) | 🟢 **Elite** | < 15% | ✅ Exceeds Elite |
-| **Time to Restore Service** | **0 minutes** | ⚪ **N/A** | < 1 day | ⚪ No incidents |
-
-**Overall Rating**: 🟢 **High** (3/3 measured metrics at High or Elite)
-
-**Key Insights**:
-- ✅ **Deployment cadence is healthy** - Releasing ~2x per week
-- ✅ **Lead time is excellent** - Median 5 hours from commit to production
-- ✅ **Zero failures** - All 8 releases succeeded without rollbacks
-- ℹ️ **MTTR N/A** - No production incidents in measurement period (good sign!)
-
-**Data Source**: Calculated from GitHub releases, commits, and CI/CD logs via automated workflow
+**Data Source**: Calculated from GitHub commits, releases, and issues via automated workflow (twice daily).
 
 ---
 
 ## How We Measure
 
 ### 1. Deployment Frequency
-**Data Source**: CI/CD logs, GitHub Actions workflow runs
+**Data Source**: Commits to the `develop` branch (each commit = 1 deployment in trunk-based development)
 
-**Calculation**:
-```sql
-SELECT
-  COUNT(*) / DATE_DIFF(MAX(deployed_at), MIN(deployed_at), DAY) AS deploys_per_day
-FROM deployments
-WHERE deployed_at >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
-  AND environment = 'production'
-  AND status = 'success'
-```
+**Calculation**: Count commits to develop in last 30 days, extrapolate to annual rate for tier classification.
 
-**Tracking**: Automated via CI/CD pipeline (post-deployment hook logs to metrics DB)
+**Tracking**: Automated via GitHub Actions workflow (`dora-metrics.yml`)
 
 ---
 
 ### 2. Lead Time for Changes
-**Data Source**: Git commits, CI/CD pipeline timestamps
+**Data Source**: Git commits and GitHub Releases API
 
-**Calculation**:
-```sql
-SELECT
-  AVG(TIMESTAMP_DIFF(deployed_at, commit_timestamp, HOUR)) AS avg_lead_time_hours
-FROM deployments d
-JOIN commits c ON d.commit_sha = c.sha
-WHERE deployed_at >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
-  AND environment = 'production'
-```
+**Calculation**: For each release, find commits since previous release, compute time delta (commit date → release date). Reports average, P50, and P90.
 
-**Tracking**: Git commit → CI/CD pipeline → production deployment (tracked automatically)
+**Tracking**: Automated via GitHub Actions workflow (`dora-metrics.yml`)
 
 ---
 
 ### 3. Change Failure Rate
-**Data Source**: Deployments, rollbacks, incident logs
+**Data Source**: GitHub Issues labeled `incident` or `production-bug`, and GitHub Releases
 
-**Calculation**:
-```sql
-SELECT
-  COUNT(CASE WHEN rollback = TRUE OR incident_count > 0 THEN 1 END) * 100.0 / COUNT(*) AS failure_rate_pct
-FROM deployments
-WHERE deployed_at >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
-  AND environment = 'production'
-```
+**Calculation**: Link each incident to the most recent release before it, calculate percentage of releases with incidents.
 
-**Tracking**: Manual incident tagging + automated rollback detection
+**Tracking**: Automated via GitHub Actions workflow (`dora-metrics.yml`)
 
 ---
 
-### 4. Time to Restore Service
-**Data Source**: Incident management system (PagerDuty, Opsgenie, or manual logs)
+### 4. Time to Restore Service (MTTR)
+**Data Source**: Closed GitHub Issues labeled `incident` or `production-bug`
 
-**Calculation**:
-```sql
-SELECT
-  AVG(TIMESTAMP_DIFF(resolved_at, detected_at, MINUTE)) AS avg_mttr_minutes
-FROM incidents
-WHERE detected_at >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
-  AND severity IN ('P1', 'P2')  -- Critical and high severity
-  AND status = 'resolved'
-```
+**Calculation**: Time from `created_at` to `closed_at` for each closed incident. Reports average, P50, and P90.
 
-**Tracking**: Incident logs → MTTR calculation (updated after incident resolution)
+**Tracking**: Automated via GitHub Actions workflow (`dora-metrics.yml`)
 
 ---
 
@@ -152,15 +107,9 @@ WHERE detected_at >= DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
 
 ## Dashboard
 
-**Tool**: Grafana / DataDog / Custom Dashboard
+**Live Dashboard**: [spec-weave.com/docs/metrics](https://spec-weave.com/docs/metrics) (Shields.io dynamic badges pulling from `dora-latest.json`)
 
-**Panels**:
-1. Deployment Frequency (line chart, last 90 days)
-2. Lead Time for Changes (histogram, p50/p90/p95)
-3. Change Failure Rate (line chart, last 90 days)
-4. Time to Restore Service (histogram, p50/p90/p95)
-
-**Access**: [Internal Dashboard Link] (replace with actual link)
+**Historical Data**: `.specweave/metrics/dora-history.jsonl` (append-only JSONL for trending)
 
 ---
 

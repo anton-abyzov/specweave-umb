@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "fs-extra": "^11.3.3",
-    "specweave": "^1.0.321"
+    "specweave": "^1.0.327"
   }
 }

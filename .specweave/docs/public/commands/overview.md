@@ -6,8 +6,25 @@ sidebar_position: 1
 
 SpecWeave provides slash commands for every stage of your development workflow. This page covers the **main workflow commands** you'll use daily.
 
+## Two Ways to Use SpecWeave
+
+You can invoke any SpecWeave workflow in two ways — **natural language** or **slash commands**. Both trigger the same underlying skill:
+
+| Natural Language (just type it) | Slash Command (explicit) | What Happens |
+|--------------------------------|--------------------------|--------------|
+| "Let's build user authentication" | `/sw:increment "User authentication"` | Plans a new increment |
+| "Start working" or "Continue tasks" | `/sw:do` | Executes tasks from active increment |
+| "What's the progress?" or "How far along?" | `/sw:progress` | Shows task completion status |
+| "Run quality checks" | `/sw:validate 0007` | Validates increment quality |
+| "We're done" or "Close the increment" | `/sw:done 0007` | Closes increment with PM validation |
+| "Ship while I sleep" | `/sw:auto` | Starts autonomous execution |
+
+:::tip Just describe what you want
+You don't need to memorize commands. Simply describe your intent in plain English — SpecWeave detects keywords and activates the right skill automatically. The slash commands listed throughout this guide are the explicit equivalents, useful when auto-detection doesn't trigger or when you want precise control.
+:::
+
 :::info Command Prefix
-All SpecWeave commands use the `/sw:*` namespace prefix. For example: `/sw:increment`, `/sw:do`, `/sw:auto`.
+When using slash commands explicitly, all SpecWeave commands use the `/sw:*` namespace prefix. For example: `/sw:increment`, `/sw:do`, `/sw:auto`.
 :::
 
 ## The Core Workflow
@@ -38,9 +55,13 @@ graph LR
 **Most frequently used command** - Start every new feature here.
 
 ```bash
+# Slash command
 /sw:increment "User authentication with JWT"
-/sw:increment "Payment processing with Stripe"
-/sw:increment "Real-time notifications"
+
+# Or just describe what you want to build — same result:
+# "Let's add user authentication with JWT"
+# "I need payment processing with Stripe"
+# "Build real-time notifications"
 ```
 
 **What it does**:
@@ -345,9 +366,12 @@ Monitor long-running operations that continue even after closing Claude.
 
 ## Workflow Example: Standard Feature Development
 
+You can use slash commands, natural language, or mix both — they're interchangeable:
+
 ```bash
 # 1. Plan new feature
 /sw:increment "User authentication"
+# Or just say: "Let's build user authentication"
 # → Creates: spec.md, plan.md, tasks.md
 
 # 2. Review docs (optional)
@@ -359,12 +383,12 @@ Monitor long-running operations that continue even after closing Claude.
 # → Pre-implementation quality check
 
 # 4. Implement tasks (choose one)
-/sw:do 0007                 # Manual execution
-/sw:auto 0007               # Autonomous execution
+/sw:do 0007                 # Manual execution — or say "start working"
+/sw:auto 0007               # Autonomous execution — or say "ship while I sleep"
 
 # 5. Check progress
 /sw:progress 0007
-# → See completion status
+# Or say: "How far along are we?"
 
 # 6. Validate quality
 /sw:qa 0007 --gate
@@ -376,7 +400,7 @@ Monitor long-running operations that continue even after closing Claude.
 
 # 8. Close increment
 /sw:done 0007
-# → PM validates and closes
+# Or say: "We're done" — PM validates and closes
 
 # 9. Update living docs
 /sw:sync-docs update
@@ -390,21 +414,23 @@ Monitor long-running operations that continue even after closing Claude.
 ```bash
 # 1. Plan feature
 /sw:increment "Payment processing"
+# Or: "I need payment processing with Stripe"
 
 # 2. Start autonomous execution
 /sw:auto 0008 --max-hours 8
+# Or: "Go to sleep. Review in the morning."
 # → Works until all tasks complete (max 8 hours)
 
 # 3. Check status anytime
 /sw:auto-status
-# → See iteration, progress, any gates pending
+# Or: "What's the auto session status?"
 
 # 4. Cancel if needed
 /sw:cancel-auto --reason "Need to pivot"
-# → Generates summary, preserves progress
 
 # 5. Resume work anytime
 /sw:do
+# Or: "Continue working"
 # → Continues from where auto left off
 ```
 
@@ -546,4 +572,4 @@ Understanding SpecWeave terminology:
 ---
 
 **Philosophy**:
-> SpecWeave commands are designed for **intelligent automation**. The system detects intent, suggests actions, and handles workflow management - you focus on building.
+> SpecWeave commands are designed for **intelligent automation**. You don't need to memorize slash commands — just describe what you want in plain English. The system detects your intent, activates the right skill, and handles workflow management. Slash commands are there when you want explicit control, but natural language works just as well.
