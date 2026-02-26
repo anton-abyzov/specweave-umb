@@ -1,0 +1,34 @@
+{
+  "id": "0377-cache-trending-skills-in-kv",
+  "title": "Cache trending skills in KV stats blob",
+  "description": "Add trending skills array to the existing platform:stats KV blob so the homepage TrendingSkills component reads from cache instead of issuing a live DB query on every request.",
+  "type": "feature",
+  "priority": "P2",
+  "status": "planning",
+  "project": "vskill-platform",
+  "createdAt": "2026-02-25T00:00:00.000Z",
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1387,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1387",
+          "status": "created"
+        }
+      },
+      "milestone": 165,
+      "syncedAt": "2026-02-26T01:05:22Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1387,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1387",
+        "createdAt": "2026-02-26T01:05:22Z"
+      }
+    ],
+    "lastSync": "2026-02-26T01:05:22Z"
+  }
+}

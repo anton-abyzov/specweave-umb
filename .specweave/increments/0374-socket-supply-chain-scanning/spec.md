@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0374 — Socket.dev Supply Chain Scanning
 
 ## Overview

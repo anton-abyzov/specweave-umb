@@ -1,0 +1,13 @@
+{
+  "id": "0378-snyk-scanner-external-report-links",
+  "status": "planning",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-02-26T01:09:17.646Z",
+  "lastActivity": "2026-02-26T01:09:17.646Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
