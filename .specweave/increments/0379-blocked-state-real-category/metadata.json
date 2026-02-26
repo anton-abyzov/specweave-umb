@@ -1,0 +1,66 @@
+{
+  "id": "0379",
+  "name": "blocked-state-real-category",
+  "type": "enhancement",
+  "status": "active",
+  "priority": "high",
+  "created": "2026-02-26",
+  "repo": "repositories/anton-abyzov/vskill-platform",
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1388,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1388",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1389,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1389",
+          "status": "created"
+        },
+        "US-003": {
+          "issueNumber": 1390,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1390",
+          "status": "created"
+        },
+        "US-004": {
+          "issueNumber": 1391,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1391",
+          "status": "created"
+        }
+      },
+      "milestone": 166,
+      "syncedAt": "2026-02-26T08:29:30Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1388,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1388",
+        "createdAt": "2026-02-26T08:29:30Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1389,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1389",
+        "createdAt": "2026-02-26T08:29:30Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1390,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1390",
+        "createdAt": "2026-02-26T08:29:30Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1391,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1391",
+        "createdAt": "2026-02-26T08:29:30Z"
+      }
+    ],
+    "lastSync": "2026-02-26T08:29:30Z"
+  }
+}
