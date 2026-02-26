@@ -1,0 +1,66 @@
+{
+  "id": "0381",
+  "name": "skillmd-validation-gap",
+  "type": "bugfix",
+  "status": "active",
+  "priority": "high",
+  "created": "2026-02-26",
+  "repo": "repositories/anton-abyzov/vskill-platform",
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1392,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1392",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1393,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1393",
+          "status": "created"
+        },
+        "US-003": {
+          "issueNumber": 1394,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1394",
+          "status": "created"
+        },
+        "US-004": {
+          "issueNumber": 1395,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1395",
+          "status": "created"
+        }
+      },
+      "milestone": 167,
+      "syncedAt": "2026-02-26T18:20:29Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1392,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1392",
+        "createdAt": "2026-02-26T18:20:29Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1393,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1393",
+        "createdAt": "2026-02-26T18:20:29Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1394,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1394",
+        "createdAt": "2026-02-26T18:20:29Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1395,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1395",
+        "createdAt": "2026-02-26T18:20:29Z"
+      }
+    ],
+    "lastSync": "2026-02-26T18:20:29Z"
+  }
+}
