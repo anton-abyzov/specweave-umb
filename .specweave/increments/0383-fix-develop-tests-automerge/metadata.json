@@ -1,0 +1,93 @@
+{
+  "id": "0383-fix-develop-tests-automerge",
+  "title": "Fix failing develop branch tests and unblock Dependabot auto-merge pipeline",
+  "type": "bug",
+  "priority": "P1",
+  "status": "in-progress",
+  "project": "specweave",
+  "created": "2026-02-27",
+  "labels": [
+    "ci",
+    "testing",
+    "dependabot"
+  ],
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1400,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1400",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1401,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1401",
+          "status": "created"
+        },
+        "US-003": {
+          "issueNumber": 1402,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1402",
+          "status": "created"
+        },
+        "US-004": {
+          "issueNumber": 1403,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1403",
+          "status": "created"
+        },
+        "US-005": {
+          "issueNumber": 1404,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1404",
+          "status": "created"
+        },
+        "US-006": {
+          "issueNumber": 1405,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1405",
+          "status": "created"
+        }
+      },
+      "milestone": 171,
+      "syncedAt": "2026-02-27T08:12:56Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1400,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1400",
+        "createdAt": "2026-02-27T08:12:56Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1401,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1401",
+        "createdAt": "2026-02-27T08:12:56Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1402,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1402",
+        "createdAt": "2026-02-27T08:12:56Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1403,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1403",
+        "createdAt": "2026-02-27T08:12:56Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 1404,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1404",
+        "createdAt": "2026-02-27T08:12:56Z"
+      },
+      {
+        "userStory": "US-006",
+        "number": 1405,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1405",
+        "createdAt": "2026-02-27T08:12:56Z"
+      }
+    ],
+    "lastSync": "2026-02-27T08:12:56Z"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "incrementId": "0382-marketplace-install-mode",
+  "timestamp": "2026-02-27T10:10:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 1, "critical": 0, "high": 0, "medium": 0 },
+  "findings": [
+    {
+      "title": "installedSet uses loose .includes() matching",
+      "severity": "low",
+      "confidence": 75,
+      "category": "correctness",
+      "file": "src/commands/add.ts:149",
+      "issue": "entry.source?.includes() could false-match partial repo names",
+      "suggestion": "Use startsWith('marketplace:owner/repo#') for exact prefix matching",
+      "impact": "Could show '(installed)' incorrectly for unrelated plugins. Low practical risk."
+    }
+  ]
+}

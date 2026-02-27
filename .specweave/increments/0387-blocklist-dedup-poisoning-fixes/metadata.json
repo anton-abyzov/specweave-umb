@@ -1,0 +1,58 @@
+{
+  "id": "0387-blocklist-dedup-poisoning-fixes",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-02-27T15:02:22.949Z",
+  "lastActivity": "2026-02-27T15:02:22.949Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1413,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1413",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1414,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1414",
+          "status": "created"
+        },
+        "US-003": {
+          "issueNumber": 1415,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1415",
+          "status": "created"
+        }
+      },
+      "milestone": 175,
+      "syncedAt": "2026-02-27T15:04:54Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1413,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1413",
+        "createdAt": "2026-02-27T15:04:54Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1414,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1414",
+        "createdAt": "2026-02-27T15:04:54Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1415,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1415",
+        "createdAt": "2026-02-27T15:04:54Z"
+      }
+    ],
+    "lastSync": "2026-02-27T15:04:54Z"
+  }
+}

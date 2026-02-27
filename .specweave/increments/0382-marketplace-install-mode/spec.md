@@ -1,10 +1,10 @@
 ---
 increment: 0382-marketplace-install-mode
-title: "Claude Code Plugin Marketplace Install Mode"
+title: Claude Code Plugin Marketplace Install Mode
 type: feature
 priority: P1
-status: planned
-created: 2026-02-27
+status: completed
+created: 2026-02-27T00:00:00.000Z
 structure: user-stories
 test_mode: test-after
 coverage_target: 80

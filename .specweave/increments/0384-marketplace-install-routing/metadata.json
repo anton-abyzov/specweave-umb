@@ -1,0 +1,82 @@
+{
+  "id": "0384-marketplace-install-routing",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-27T08:32:37.775Z",
+  "lastActivity": "2026-02-27T14:39:05.649Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1407,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1407",
+          "status": "closed"
+        },
+        "US-002": {
+          "issueNumber": 1408,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1408",
+          "status": "closed"
+        },
+        "US-003": {
+          "issueNumber": 1409,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1409",
+          "status": "closed"
+        },
+        "US-004": {
+          "issueNumber": 1410,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1410",
+          "status": "closed"
+        },
+        "US-005": {
+          "issueNumber": 1411,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1411",
+          "status": "closed"
+        }
+      },
+      "milestone": 172,
+      "syncedAt": "2026-02-27T08:40:16Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1407,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1407",
+        "createdAt": "2026-02-27T08:40:16Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1408,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1408",
+        "createdAt": "2026-02-27T08:40:16Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1409,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1409",
+        "createdAt": "2026-02-27T08:40:16Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1410,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1410",
+        "createdAt": "2026-02-27T08:40:16Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 1411,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1411",
+        "createdAt": "2026-02-27T08:40:16Z"
+      }
+    ],
+    "lastSync": "2026-02-27T08:40:16Z"
+  },
+  "updated": "2026-02-27T08:32:37.775Z",
+  "approvedAt": "2026-02-27T14:39:05.649Z"
+}

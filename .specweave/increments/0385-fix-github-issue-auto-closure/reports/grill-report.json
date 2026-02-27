@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "incrementId": "0385-fix-github-issue-auto-closure",
+  "timestamp": "2026-02-27T09:21:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 2,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "fixed": 2
+  },
+  "findings": [
+    {
+      "title": "Metadata write marks ALL issues as closed regardless of outcome",
+      "severity": "high",
+      "confidence": 90,
+      "category": "correctness",
+      "file": "src/sync/github-reconciler.ts:754",
+      "status": "FIXED",
+      "fix": "Added closedNumbers set to track actually-closed issues; metadata update now only marks issues whose number is in closedNumbers"
+    },
+    {
+      "title": "Logger parameter accepted but never used for per-issue reporting",
+      "severity": "medium",
+      "confidence": 85,
+      "category": "maintainability",
+      "file": "src/sync/github-reconciler.ts:657",
+      "status": "FIXED",
+      "fix": "Added log variable from logger parameter; closure loop now logs per-issue status"
+    }
+  ]
+}

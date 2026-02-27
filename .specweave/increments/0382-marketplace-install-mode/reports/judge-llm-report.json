@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0382-marketplace-install-mode",
+  "timestamp": "2026-02-27T10:10:30.000Z",
+  "verdict": "WAIVED",
+  "reason": "No ANTHROPIC_API_KEY available for external model validation",
+  "findings": []
+}

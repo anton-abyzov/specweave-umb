@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0384-marketplace-install-routing",
+  "timestamp": "2026-02-27T09:36:00Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels consent not configured",
+  "findings": []
+}

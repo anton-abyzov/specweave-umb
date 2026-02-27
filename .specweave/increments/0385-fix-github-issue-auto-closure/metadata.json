@@ -1,0 +1,33 @@
+{
+  "id": "0385-fix-github-issue-auto-closure",
+  "status": "completed",
+  "type": "bug",
+  "created": "2026-02-27T14:22:46.192Z",
+  "lastActivity": "2026-02-27T14:42:16.418Z",
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1412,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1412",
+          "status": "closed"
+        }
+      },
+      "milestone": 173,
+      "syncedAt": "2026-02-27T14:45:00Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1412,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1412",
+        "createdAt": "2026-02-27T14:32:15Z"
+      }
+    ],
+    "lastSync": "2026-02-27T14:32:15Z"
+  },
+  "updated": "2026-02-27T09:30:00.000Z",
+  "approvedAt": "2026-02-27T14:42:16.418Z"
+}

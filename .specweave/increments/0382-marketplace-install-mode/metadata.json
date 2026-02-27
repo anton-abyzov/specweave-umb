@@ -1,10 +1,10 @@
 {
   "id": "0382-marketplace-install-mode",
-  "status": "in-progress",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-27T07:12:58.861Z",
-  "lastActivity": "2026-02-27T07:12:58.861Z",
+  "lastActivity": "2026-02-27T08:10:37.875Z",
   "testMode": "test-after",
   "coverageTarget": 80,
   "feature_id": null,
@@ -15,26 +15,26 @@
         "US-001": {
           "issueNumber": 1396,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1396",
-          "status": "created"
+          "status": "closed"
         },
         "US-002": {
           "issueNumber": 1397,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1397",
-          "status": "created"
+          "status": "closed"
         },
         "US-003": {
           "issueNumber": 1398,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1398",
-          "status": "created"
+          "status": "closed"
         },
         "US-004": {
           "issueNumber": 1399,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1399",
-          "status": "created"
+          "status": "closed"
         }
       },
       "milestone": 170,
-      "syncedAt": "2026-02-27T07:15:04Z"
+      "syncedAt": "2026-02-27T08:30:00Z"
     }
   },
   "github": {
@@ -64,6 +64,8 @@
         "createdAt": "2026-02-27T07:15:04Z"
       }
     ],
-    "lastSync": "2026-02-27T07:15:04Z"
-  }
+    "lastSync": "2026-02-27T08:30:00Z"
+  },
+  "updated": "2026-02-27T07:12:58.861Z",
+  "approvedAt": "2026-02-27T08:10:37.875Z"
 }

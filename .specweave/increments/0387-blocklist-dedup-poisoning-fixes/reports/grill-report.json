@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "incrementId": "0387-blocklist-dedup-poisoning-fixes",
+  "timestamp": "2026-02-27T10:35:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 2,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "resolved": 2
+  },
+  "findings": [
+    {
+      "title": "Fire-and-forget blocklist upsert in process-submission.ts",
+      "severity": "high",
+      "confidence": 75,
+      "category": "correctness",
+      "file": "src/lib/queue/process-submission.ts:459-470",
+      "issue": "Critical-scan blocklist upsert used import().then() fire-and-forget pattern.",
+      "resolution": "FIXED — changed to await with try/catch, matching finalize-scan pattern.",
+      "status": "resolved"
+    },
+    {
+      "title": "Inconsistent error handling between process-submission and finalize-scan critical block paths",
+      "severity": "high",
+      "confidence": 72,
+      "category": "maintainability",
+      "file": "src/lib/queue/process-submission.ts:458-470",
+      "issue": "process-submission used fire-and-forget while finalize-scan used synchronous try/catch.",
+      "resolution": "FIXED — both paths now use identical try { await import(); await upsert(); } catch {} pattern.",
+      "status": "resolved"
+    }
+  ],
+  "acsValidated": 16,
+  "acsTotal": 16,
+  "testsStatus": "2058 passed, 13 pre-existing failures, 0 regressions"
+}

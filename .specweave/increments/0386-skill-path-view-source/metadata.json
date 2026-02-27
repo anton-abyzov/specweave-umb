@@ -1,0 +1,47 @@
+{
+  "id": "0386-skill-path-view-source",
+  "status": "in-progress",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-02-27T14:56:53.254Z",
+  "lastActivity": "2026-02-27T14:56:53.254Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1416,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1416",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1417,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1417",
+          "status": "created"
+        }
+      },
+      "milestone": 176,
+      "syncedAt": "2026-02-27T15:18:09Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1416,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1416",
+        "createdAt": "2026-02-27T15:18:09Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1417,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1417",
+        "createdAt": "2026-02-27T15:18:09Z"
+      }
+    ],
+    "lastSync": "2026-02-27T15:18:09Z"
+  }
+}

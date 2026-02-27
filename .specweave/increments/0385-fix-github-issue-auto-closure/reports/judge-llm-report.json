@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0385-fix-github-issue-auto-closure",
+  "timestamp": "2026-02-27T09:32:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels consent not configured",
+  "findings": []
+}

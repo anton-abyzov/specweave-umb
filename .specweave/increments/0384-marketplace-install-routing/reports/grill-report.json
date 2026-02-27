@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "incrementId": "0384-marketplace-install-routing",
+  "timestamp": "2026-02-27T09:35:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 2, "critical": 0, "high": 1, "medium": 0 },
+  "findings": [
+    {
+      "title": "discoverSkills never calls warnRateLimitOnce on 403",
+      "severity": "high",
+      "confidence": 90,
+      "category": "correctness",
+      "file": "src/discovery/github-tree.ts:131",
+      "status": "FIXED",
+      "resolution": "Added warnRateLimitOnce(res) call before return [] on !res.ok path"
+    },
+    {
+      "title": "Unused dim import in github-tree.ts",
+      "severity": "low",
+      "confidence": 95,
+      "category": "maintainability",
+      "file": "src/discovery/github-tree.ts:5",
+      "status": "FIXED",
+      "resolution": "Removed unused dim import"
+    }
+  ]
+}
