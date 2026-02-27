@@ -1,6 +1,6 @@
-<!-- SW:META template="agents" version="1.0.331" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
+<!-- SW:META template="agents" version="1.0.334" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
 
-<!-- SW:SECTION:rules version="1.0.331" -->
+<!-- SW:SECTION:rules version="1.0.334" -->
 ## Essential Rules
 
 ```
@@ -29,7 +29,7 @@
 ```
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:orchestration version="1.0.331" -->
+<!-- SW:SECTION:orchestration version="1.0.334" -->
 ## Workflow Orchestration
 
 ### 1. Plan Before Code
@@ -59,7 +59,7 @@ Good: npm run build → node script.js → Success
 ```
 <!-- SW:END:orchestration -->
 
-<!-- SW:SECTION:principles version="1.0.331" -->
+<!-- SW:SECTION:principles version="1.0.334" -->
 ## Core Principles (Quality)
 
 ### Simplicity First
@@ -99,7 +99,7 @@ Good: npm run build → node script.js → Success
 - Re-read the plan between tasks to stay aligned
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:commands version="1.0.331" -->
+<!-- SW:SECTION:commands version="1.0.334" -->
 ## Commands Reference
 
 | Command | Purpose |
@@ -116,7 +116,7 @@ Good: npm run build → node script.js → Success
 | `/sw-ado:sync 0001` | Sync to Azure DevOps |
 <!-- SW:END:commands -->
 
-<!-- SW:SECTION:nonclaudetools version="1.0.331" -->
+<!-- SW:SECTION:nonclaudetools version="1.0.334" -->
 ## Non-Claude Tools (Cursor, Copilot, etc.)
 
 Claude Code has automatic hooks and orchestration. Other tools must do these manually.
@@ -156,7 +156,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 **Background jobs**: Monitor with `specweave jobs` (clone-repos, import-issues, living-docs-builder, sync-external).
 <!-- SW:END:nonclaudetools -->
 
-<!-- SW:SECTION:syncworkflow version="1.0.331" -->
+<!-- SW:SECTION:syncworkflow version="1.0.334" -->
 ## Sync Workflow
 
 ### Source of Truth
@@ -181,7 +181,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 | `/sw-ado:sync <id>` | After each task |
 <!-- SW:END:syncworkflow -->
 
-<!-- SW:SECTION:contextloading version="1.0.331" -->
+<!-- SW:SECTION:contextloading version="1.0.334" -->
 ## Context Loading
 
 ### Efficient Context Management
@@ -201,7 +201,7 @@ Read only what's needed for the current task:
 4. Avoid loading entire documentation trees
 <!-- SW:END:contextloading -->
 
-<!-- SW:SECTION:structure version="1.0.331" -->
+<!-- SW:SECTION:structure version="1.0.334" -->
 ## Project Structure
 
 ```
@@ -240,7 +240,7 @@ umbrella-project/
 **Rules**: Each repo manages its own increments. Never create agent increments in the umbrella root.
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:agents version="1.0.331" -->
+<!-- SW:SECTION:agents version="1.0.334" -->
 ## Agents (Roles)
 
 {AGENTS_SECTION}
@@ -248,7 +248,7 @@ umbrella-project/
 **Usage**: Adopt role perspective when working on related tasks.
 <!-- SW:END:agents -->
 
-<!-- SW:SECTION:skills version="1.0.331" -->
+<!-- SW:SECTION:skills version="1.0.334" -->
 ## Skills (Capabilities)
 
 {SKILLS_SECTION}
@@ -262,7 +262,7 @@ umbrella-project/
 4. Run `specweave context projects` BEFORE creating any increment
 <!-- SW:END:skills -->
 
-<!-- SW:SECTION:taskformat version="1.0.331" -->
+<!-- SW:SECTION:taskformat version="1.0.334" -->
 ## Task Format
 
 ```markdown
@@ -276,7 +276,7 @@ umbrella-project/
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:usformat version="1.0.331" -->
+<!-- SW:SECTION:usformat version="1.0.334" -->
 ## User Story Format (CRITICAL for spec.md)
 
 **MANDATORY: Every User Story MUST have `**Project**:` field!**
@@ -310,7 +310,7 @@ specweave context projects
 ```
 <!-- SW:END:usformat -->
 
-<!-- SW:SECTION:workflows version="1.0.331" -->
+<!-- SW:SECTION:workflows version="1.0.334" -->
 ## Workflows
 
 ### Creating Increment
@@ -333,7 +333,7 @@ specweave context projects
 3. GitHub/Jira issue closed if enabled
 <!-- SW:END:workflows -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.331" -->
+<!-- SW:SECTION:troubleshooting version="1.0.334" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -347,7 +347,7 @@ specweave context projects
 | Skills not activating (non-Claude) | Expected — read SKILL.md from `plugins/specweave*/skills/` |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:docs version="1.0.331" -->
+<!-- SW:SECTION:docs version="1.0.334" -->
 ## Documentation
 
 | Resource | Purpose |
