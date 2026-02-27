@@ -133,7 +133,7 @@
 ## Phase 3: Testing & Verification
 
 ### T-006: Integration tests for full marketplace flow
-**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-01, AC-US2-01, AC-US3-05 | **Status**: [ ] not started
+**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-01, AC-US2-01, AC-US3-05 | **Status**: [x] completed
 
 **Description**: End-to-end test covering the complete flow: detection -> selection -> installation -> summary.
 
@@ -149,7 +149,7 @@
 ---
 
 ### T-007: Run full test suite and verify no regressions
-**User Story**: All | **Satisfies ACs**: All | **Status**: [ ] not started
+**User Story**: All | **Satisfies ACs**: All | **Status**: [x] completed
 
 **Description**: Run `npx vitest run` to ensure all existing tests pass and new tests pass.
 
