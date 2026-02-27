@@ -1,10 +1,10 @@
 ---
 increment: 0380-skillmd-validation-internal-submissions
-title: "Enforce SKILL.md validation for internal/crawler submissions"
+title: Enforce SKILL.md validation for internal/crawler submissions
 type: feature
 priority: P1
-status: planned
-created: 2026-02-26
+status: completed
+created: 2026-02-26T00:00:00.000Z
 structure: user-stories
 test_mode: test-after
 coverage_target: 80
@@ -14,67 +14,25 @@ coverage_target: 80
 
 ## Overview
 
-Fix skill submission pipeline to enforce SKILL.md validation for internal/crawler submissions, preventing repos without SKILL.md from entering the skills database
-
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA PM/ARCHITECT SKILLS
-====================================================================
-
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the placeholders below.
-
-To complete this specification, run:
-  Tell Claude: "Complete the spec for increment 0380-skillmd-validation-internal-submissions"
-
-This will activate the PM skill which will:
-- Define proper user stories with acceptance criteria
-- Conduct market research and competitive analysis
-- Create user personas
-- Define success metrics
-
-====================================================================
--->
+Add explicit SKILL.md validation contract to the `enqueue-submissions` internal endpoint. Currently, the endpoint trusts the upstream caller (queue-processor) to have validated SKILL.md, but this trust is implicit. Adding a `skillMdVerified` boolean flag makes the contract explicit and rejects items that weren't validated upstream.
 
 ## User Stories
 
-### US-001: [Story Title] (P1)
+### US-001: Explicit SKILL.md verification contract (P1)
 **Project**: vskill-platform
 
-**As a** [user type]
-**I want** [goal]
-**So that** [benefit]
+**As a** platform operator
+**I want** the enqueue-submissions endpoint to require an explicit `skillMdVerified: true` flag
+**So that** items cannot enter the processing queue without upstream validation attestation
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: [Specific, testable criterion]
-- [ ] **AC-US1-02**: [Another criterion]
-
----
-
-### US-002: [Story Title] (P2)
-**Project**: vskill-platform
-
-**As a** [user type]
-**I want** [goal]
-**So that** [benefit]
-
-**Acceptance Criteria**:
-- [ ] **AC-US2-01**: [Specific, testable criterion]
-- [ ] **AC-US2-02**: [Another criterion]
-
-## Functional Requirements
-
-### FR-001: [Requirement]
-[Detailed description]
-
-## Success Criteria
-
-[Measurable outcomes - metrics, KPIs]
+- [x] **AC-US1-01**: `EnqueueItem` interface includes `skillMdVerified?: boolean` field
+- [x] **AC-US1-02**: Items without `skillMdVerified: true` are filtered out before enqueueing
+- [x] **AC-US1-03**: Response includes `skippedNoSkillMd` count showing how many items were filtered
+- [x] **AC-US1-04**: Queue-processor sends `skillMdVerified: true` for items that passed `checkSkillMdExists`
 
 ## Out of Scope
 
-[What this explicitly does NOT include]
-
-## Dependencies
-
-[Other features or systems this depends on]
+- Adding expensive GitHub API calls to the endpoint (must remain DB-free and fast)
+- Changing the existing validation in processSubmission or finalize-scan
+- Modifying the public submissions endpoint

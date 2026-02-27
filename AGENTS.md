@@ -1,6 +1,6 @@
-<!-- SW:META template="agents" version="1.0.336" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
+<!-- SW:META template="agents" version="1.0.338" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
 
-<!-- SW:SECTION:rules version="1.0.336" -->
+<!-- SW:SECTION:rules version="1.0.338" -->
 ## Essential Rules
 
 ```
@@ -29,7 +29,7 @@
 ```
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:orchestration version="1.0.336" -->
+<!-- SW:SECTION:orchestration version="1.0.338" -->
 ## Workflow Orchestration
 
 ### 1. Plan Before Code
@@ -45,9 +45,10 @@ See **Task Format** and **User Story Format** sections for templates.
 
 Never mark a task complete without proving it works:
 - Code compiles/builds successfully
-- Tests pass
+- Run tests after every task: `npx vitest run` + `npx playwright test`
+- `/sw:grill` writes `grill-report.json` — CLI blocks closure without it
+- `/sw:judge-llm` writes `judge-llm-report.json` — WAIVED if consent denied
 - Acceptance criteria actually satisfied
-- Ask: "Would a staff engineer approve this?"
 
 ### 3. Dependencies First
 
@@ -59,7 +60,7 @@ Good: npm run build → node script.js → Success
 ```
 <!-- SW:END:orchestration -->
 
-<!-- SW:SECTION:principles version="1.0.336" -->
+<!-- SW:SECTION:principles version="1.0.338" -->
 ## Core Principles (Quality)
 
 ### Simplicity First
@@ -97,9 +98,15 @@ Good: npm run build → node script.js → Success
 - Verify plan covers all ACs and edge cases before implementation
 - If the plan has gaps, fix the plan first — don't discover them mid-coding
 - Re-read the plan between tasks to stay aligned
+
+### Test Before Ship
+- Tests pass at every step — unit after each task, E2E before close, no exceptions
+- `/sw:test-aware-planner` generates BDD test plans during design — verify they exist before `/sw:do`
+- TDD cycle: `/sw:tdd-red` → `/sw:tdd-green` → `/sw:tdd-refactor`
+- E2E with Playwright CLI (`npx playwright test`) is a blocking closure gate
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:commands version="1.0.336" -->
+<!-- SW:SECTION:commands version="1.0.338" -->
 ## Commands Reference
 
 | Command | Purpose |
@@ -116,7 +123,7 @@ Good: npm run build → node script.js → Success
 | `/sw-ado:sync 0001` | Sync to Azure DevOps |
 <!-- SW:END:commands -->
 
-<!-- SW:SECTION:nonclaudetools version="1.0.336" -->
+<!-- SW:SECTION:nonclaudetools version="1.0.338" -->
 ## Non-Claude Tools (Cursor, Copilot, etc.)
 
 Claude Code has automatic hooks and orchestration. Other tools must do these manually.
@@ -156,7 +163,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 **Background jobs**: Monitor with `specweave jobs` (clone-repos, import-issues, living-docs-builder, sync-external).
 <!-- SW:END:nonclaudetools -->
 
-<!-- SW:SECTION:syncworkflow version="1.0.336" -->
+<!-- SW:SECTION:syncworkflow version="1.0.338" -->
 ## Sync Workflow
 
 ### Source of Truth
@@ -181,7 +188,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 | `/sw-ado:sync <id>` | After each task |
 <!-- SW:END:syncworkflow -->
 
-<!-- SW:SECTION:contextloading version="1.0.336" -->
+<!-- SW:SECTION:contextloading version="1.0.338" -->
 ## Context Loading
 
 ### Efficient Context Management
@@ -201,7 +208,7 @@ Read only what's needed for the current task:
 4. Avoid loading entire documentation trees
 <!-- SW:END:contextloading -->
 
-<!-- SW:SECTION:structure version="1.0.336" -->
+<!-- SW:SECTION:structure version="1.0.338" -->
 ## Project Structure
 
 ```
@@ -240,7 +247,7 @@ umbrella-project/
 **Rules**: Each repo manages its own increments. Never create agent increments in the umbrella root.
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:agents version="1.0.336" -->
+<!-- SW:SECTION:agents version="1.0.338" -->
 ## Agents (Roles)
 
 {AGENTS_SECTION}
@@ -248,7 +255,7 @@ umbrella-project/
 **Usage**: Adopt role perspective when working on related tasks.
 <!-- SW:END:agents -->
 
-<!-- SW:SECTION:skills version="1.0.336" -->
+<!-- SW:SECTION:skills version="1.0.338" -->
 ## Skills (Capabilities)
 
 {SKILLS_SECTION}
@@ -262,7 +269,7 @@ umbrella-project/
 4. Run `specweave context projects` BEFORE creating any increment
 <!-- SW:END:skills -->
 
-<!-- SW:SECTION:taskformat version="1.0.336" -->
+<!-- SW:SECTION:taskformat version="1.0.338" -->
 ## Task Format
 
 ```markdown
@@ -276,7 +283,7 @@ umbrella-project/
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:usformat version="1.0.336" -->
+<!-- SW:SECTION:usformat version="1.0.338" -->
 ## User Story Format (CRITICAL for spec.md)
 
 **MANDATORY: Every User Story MUST have `**Project**:` field!**
@@ -310,7 +317,7 @@ specweave context projects
 ```
 <!-- SW:END:usformat -->
 
-<!-- SW:SECTION:workflows version="1.0.336" -->
+<!-- SW:SECTION:workflows version="1.0.338" -->
 ## Workflows
 
 ### Creating Increment
@@ -320,20 +327,28 @@ specweave context projects
 4. Create `spec.md` — every US needs `**Project**:` field (see User Story Format)
 5. Create `tasks.md` (task checklist with BDD tests)
 6. Optional: `plan.md` for complex features
+7. **Verify** tasks.md has `**Test Plan**:` for every task with testable ACs
+8. **Verify** E2E scenarios exist for user-facing user stories — re-run `/sw:test-aware-planner` if missing
 
 ### Completing Tasks
 1. Implement the task
-2. Update tasks.md: `[ ] pending` → `[x] completed`
-3. Update spec.md: check off satisfied ACs
-4. Sync to external trackers if enabled
+2. Run unit tests: `npx vitest run`
+3. Run E2E tests (if task touches UI/API): `npx playwright test`
+4. Only mark task `[x]` after tests pass
+5. Update tasks.md: `[ ] pending` → `[x] completed`
+6. Update spec.md: check off satisfied ACs
+7. Sync to external trackers if enabled
+8. If 3 consecutive test failures: STOP, re-plan, ask user
 
 ### Closing Increment
-1. `/sw:done 0001` — PM validates 3 gates (tasks, tests, docs)
-2. Living docs synced automatically
-3. GitHub/Jira issue closed if enabled
+1. Full test suite: `npx vitest run`
+2. Full E2E: `npx playwright test`
+3. `/sw:grill <id>` — writes `grill-report.json` (CLI requires it)
+4. User acceptance for critical flows (UI, auth, payments)
+5. `/sw:done <id>` — validates report files + PM 3 gates (tasks, tests, docs)
 <!-- SW:END:workflows -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.336" -->
+<!-- SW:SECTION:troubleshooting version="1.0.338" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -347,7 +362,7 @@ specweave context projects
 | Skills not activating (non-Claude) | Expected — read SKILL.md from `plugins/specweave*/skills/` |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:docs version="1.0.336" -->
+<!-- SW:SECTION:docs version="1.0.338" -->
 ## Documentation
 
 | Resource | Purpose |

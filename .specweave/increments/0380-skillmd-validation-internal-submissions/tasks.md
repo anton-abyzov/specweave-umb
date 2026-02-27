@@ -1,64 +1,15 @@
 # Tasks: Enforce SKILL.md validation for internal/crawler submissions
 
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA TASK BUILDER SKILL
-====================================================================
+### T-001: Add skillMdVerified flag to enqueue-submissions endpoint
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [x] completed
+**Test**: Given a POST to /api/v1/internal/enqueue-submissions with items missing skillMdVerified -> When the endpoint processes them -> Then those items are filtered out. Given items with skillMdVerified: true -> Then they are enqueued normally. Response includes skippedNoSkillMd count.
 
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the tasks below.
+**Files**: `src/app/api/v1/internal/enqueue-submissions/route.ts`
 
-To complete this task list, run:
-  Tell Claude: "Create tasks for increment [ID]"
+---
 
-This will activate the test-aware planner which will:
-- Generate detailed implementation tasks
-- Add embedded test plans (BDD format)
-- Set task dependencies
-- Assign model hints
+### T-002: Update queue-processor to send skillMdVerified flag
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-04 | **Status**: [x] completed
+**Test**: Given the queue-processor validates SKILL.md exists for an item -> When it adds the item to validItems -> Then the item includes `skillMdVerified: true`
 
-====================================================================
--->
-
-## Task Notation
-
-- `[T###]`: Task ID
-- `[P]`: Parallelizable
-- `[ ]`: Not started
-- `[x]`: Completed
-- Model hints: haiku (simple), opus (default)
-
-## Phase 1: Setup
-
-- [ ] [T001] [P] haiku - Initialize project structure
-- [ ] [T002] haiku - Setup testing framework
-
-## Phase 2: Core Implementation
-
-### US-001: [User Story Title] (P1)
-
-#### T-003: Implement [component]
-
-**Description**: [What needs to be done]
-
-**References**: AC-US1-01, AC-US1-02
-
-**Implementation Details**:
-- [Step 1]
-- [Step 2]
-
-**Test Plan**:
-- **File**: `tests/unit/component.test.ts`
-- **Tests**:
-  - **TC-001**: [Test name]
-    - Given [precondition]
-    - When [action]
-    - Then [expected result]
-
-**Dependencies**: None
-**Status**: [ ] Not Started
-
-## Phase 3: Testing
-
-- [ ] [T050] Run integration tests
-- [ ] [T051] Verify all acceptance criteria
+**Files**: `crawl-worker/sources/queue-processor.js`

@@ -1,10 +1,10 @@
 ---
 increment: 0376-fix-dora-metrics-pipeline
-title: "Fix broken DORA metrics pipeline and dashboard"
+title: Fix broken DORA metrics pipeline and dashboard
 type: bug
 priority: P1
-status: active
-created: 2026-02-25
+status: completed
+created: 2026-02-25T00:00:00.000Z
 structure: user-stories
 test_mode: test-after
 coverage_target: 80

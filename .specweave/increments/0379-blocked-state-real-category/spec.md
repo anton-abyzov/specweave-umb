@@ -1,3 +1,7 @@
+---
+project: vskill-platform
+status: completed
+---
 # 0379 — Make BLOCKED a Real SubmissionState
 
 ## Problem

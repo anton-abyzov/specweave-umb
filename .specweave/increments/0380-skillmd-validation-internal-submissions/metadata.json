@@ -1,13 +1,16 @@
 {
   "id": "0380-skillmd-validation-internal-submissions",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-02-26T17:52:12.852Z",
-  "lastActivity": "2026-02-26T17:52:12.852Z",
+  "lastActivity": "2026-02-27T07:55:13.731Z",
   "testMode": "test-after",
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "updated": "2026-02-26T17:52:12.852Z",
+  "readyForReviewAt": "2026-02-27T07:55:13.598Z",
+  "approvedAt": "2026-02-27T07:55:13.731Z"
 }

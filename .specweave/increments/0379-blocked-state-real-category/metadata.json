@@ -1,8 +1,8 @@
 {
   "id": "0379",
   "name": "blocked-state-real-category",
-  "type": "enhancement",
-  "status": "active",
+  "type": "feature",
+  "status": "completed",
   "priority": "high",
   "created": "2026-02-26",
   "repo": "repositories/anton-abyzov/vskill-platform",
@@ -62,5 +62,9 @@
       }
     ],
     "lastSync": "2026-02-26T08:29:30Z"
-  }
+  },
+  "updated": "2026-02-27T06:14:15.354Z",
+  "lastActivity": "2026-02-27T06:14:15.440Z",
+  "readyForReviewAt": "2026-02-27T06:14:15.354Z",
+  "approvedAt": "2026-02-27T06:14:15.440Z"
 }

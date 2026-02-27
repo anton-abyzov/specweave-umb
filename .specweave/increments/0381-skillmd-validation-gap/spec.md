@@ -1,3 +1,7 @@
+---
+status: completed
+project: vskill-platform
+---
 # 0381 — Fix SKILL.md Validation Gap in Submission Pipeline
 
 ## Problem

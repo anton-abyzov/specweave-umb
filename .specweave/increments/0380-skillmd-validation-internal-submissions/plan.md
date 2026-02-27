@@ -1,70 +1,20 @@
 # Implementation Plan: Enforce SKILL.md validation for internal/crawler submissions
 
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA ARCHITECT SKILL
-====================================================================
-
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the placeholders below.
-
-To complete this plan, run:
-  Tell Claude: "Design architecture for increment [ID]"
-
-This will activate the Architect skill which will:
-- Create system architecture diagrams
-- Define data models and API contracts
-- Document architecture decisions (ADRs)
-- Identify technical challenges
-
-====================================================================
--->
-
 ## Overview
 
-[Technical summary of implementation approach]
+Add a lightweight `skillMdVerified` boolean flag to the enqueue-submissions contract. The endpoint filters out items without the flag. The queue-processor (Hetzner) already validates SKILL.md before enqueue — it just needs to attest this by setting the flag.
 
-## Architecture
+## Changes by File
 
-### Components
-- [Component 1]: [Purpose]
-- [Component 2]: [Purpose]
+### 1. `src/app/api/v1/internal/enqueue-submissions/route.ts`
+- Add `skillMdVerified?: boolean` to `EnqueueItem` interface
+- After field validation, filter items where `skillMdVerified !== true`
+- Add `skippedNoSkillMd` to response for observability
 
-### Data Model
-- [Entity 1]: [Fields, relationships]
-- [Entity 2]: [Fields, relationships]
+### 2. `crawl-worker/sources/queue-processor.js`
+- Add `skillMdVerified: true` to valid items pushed to `validItems` array (line 213)
 
-### API Contracts
-- `POST /api/resource`: [Purpose, request/response]
-- `GET /api/resource/:id`: [Purpose, request/response]
-
-## Technology Stack
-
-- **Language/Framework**: [Choice]
-- **Libraries**: [List]
-- **Tools**: [List]
-
-**Architecture Decisions**:
-- [Decision 1]: [Why this choice? Alternatives considered?]
-- [Decision 2]: [Rationale]
-
-## Implementation Phases
-
-### Phase 1: Foundation
-- [Setup, infrastructure, base components]
-
-### Phase 2: Core Functionality
-- [Primary features from P1 user stories]
-
-### Phase 3: Enhancement
-- [P2 features and optimizations]
-
-## Testing Strategy
-
-[High-level testing approach - details in tasks.md]
-
-## Technical Challenges
-
-### Challenge 1: [Description]
-**Solution**: [Approach]
-**Risk**: [Mitigation]
+## Risk Assessment
+- **Low risk**: Additive change — items that already set the flag work; items that don't are filtered
+- Queue-processor must be redeployed to Hetzner VMs after this change
+- processSubmission still validates as defense-in-depth

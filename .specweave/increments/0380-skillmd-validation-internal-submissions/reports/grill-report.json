@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "incrementId": "0380-skillmd-validation-internal-submissions",
+  "timestamp": "2026-02-27T00:00:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "findings": []
+}
