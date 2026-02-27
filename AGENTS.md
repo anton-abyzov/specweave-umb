@@ -1,6 +1,6 @@
-<!-- SW:META template="agents" version="1.0.334" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
+<!-- SW:META template="agents" version="1.0.336" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
 
-<!-- SW:SECTION:rules version="1.0.334" -->
+<!-- SW:SECTION:rules version="1.0.336" -->
 ## Essential Rules
 
 ```
@@ -29,7 +29,7 @@
 ```
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:orchestration version="1.0.334" -->
+<!-- SW:SECTION:orchestration version="1.0.336" -->
 ## Workflow Orchestration
 
 ### 1. Plan Before Code
@@ -59,7 +59,7 @@ Good: npm run build → node script.js → Success
 ```
 <!-- SW:END:orchestration -->
 
-<!-- SW:SECTION:principles version="1.0.334" -->
+<!-- SW:SECTION:principles version="1.0.336" -->
 ## Core Principles (Quality)
 
 ### Simplicity First
@@ -99,7 +99,7 @@ Good: npm run build → node script.js → Success
 - Re-read the plan between tasks to stay aligned
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:commands version="1.0.334" -->
+<!-- SW:SECTION:commands version="1.0.336" -->
 ## Commands Reference
 
 | Command | Purpose |
@@ -116,7 +116,7 @@ Good: npm run build → node script.js → Success
 | `/sw-ado:sync 0001` | Sync to Azure DevOps |
 <!-- SW:END:commands -->
 
-<!-- SW:SECTION:nonclaudetools version="1.0.334" -->
+<!-- SW:SECTION:nonclaudetools version="1.0.336" -->
 ## Non-Claude Tools (Cursor, Copilot, etc.)
 
 Claude Code has automatic hooks and orchestration. Other tools must do these manually.
@@ -156,7 +156,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 **Background jobs**: Monitor with `specweave jobs` (clone-repos, import-issues, living-docs-builder, sync-external).
 <!-- SW:END:nonclaudetools -->
 
-<!-- SW:SECTION:syncworkflow version="1.0.334" -->
+<!-- SW:SECTION:syncworkflow version="1.0.336" -->
 ## Sync Workflow
 
 ### Source of Truth
@@ -181,7 +181,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 | `/sw-ado:sync <id>` | After each task |
 <!-- SW:END:syncworkflow -->
 
-<!-- SW:SECTION:contextloading version="1.0.334" -->
+<!-- SW:SECTION:contextloading version="1.0.336" -->
 ## Context Loading
 
 ### Efficient Context Management
@@ -201,7 +201,7 @@ Read only what's needed for the current task:
 4. Avoid loading entire documentation trees
 <!-- SW:END:contextloading -->
 
-<!-- SW:SECTION:structure version="1.0.334" -->
+<!-- SW:SECTION:structure version="1.0.336" -->
 ## Project Structure
 
 ```
@@ -240,7 +240,7 @@ umbrella-project/
 **Rules**: Each repo manages its own increments. Never create agent increments in the umbrella root.
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:agents version="1.0.334" -->
+<!-- SW:SECTION:agents version="1.0.336" -->
 ## Agents (Roles)
 
 {AGENTS_SECTION}
@@ -248,7 +248,7 @@ umbrella-project/
 **Usage**: Adopt role perspective when working on related tasks.
 <!-- SW:END:agents -->
 
-<!-- SW:SECTION:skills version="1.0.334" -->
+<!-- SW:SECTION:skills version="1.0.336" -->
 ## Skills (Capabilities)
 
 {SKILLS_SECTION}
@@ -262,7 +262,7 @@ umbrella-project/
 4. Run `specweave context projects` BEFORE creating any increment
 <!-- SW:END:skills -->
 
-<!-- SW:SECTION:taskformat version="1.0.334" -->
+<!-- SW:SECTION:taskformat version="1.0.336" -->
 ## Task Format
 
 ```markdown
@@ -276,7 +276,7 @@ umbrella-project/
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:usformat version="1.0.334" -->
+<!-- SW:SECTION:usformat version="1.0.336" -->
 ## User Story Format (CRITICAL for spec.md)
 
 **MANDATORY: Every User Story MUST have `**Project**:` field!**
@@ -310,7 +310,7 @@ specweave context projects
 ```
 <!-- SW:END:usformat -->
 
-<!-- SW:SECTION:workflows version="1.0.334" -->
+<!-- SW:SECTION:workflows version="1.0.336" -->
 ## Workflows
 
 ### Creating Increment
@@ -333,7 +333,7 @@ specweave context projects
 3. GitHub/Jira issue closed if enabled
 <!-- SW:END:workflows -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.334" -->
+<!-- SW:SECTION:troubleshooting version="1.0.336" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -347,7 +347,7 @@ specweave context projects
 | Skills not activating (non-Claude) | Expected — read SKILL.md from `plugins/specweave*/skills/` |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:docs version="1.0.334" -->
+<!-- SW:SECTION:docs version="1.0.336" -->
 ## Documentation
 
 | Resource | Purpose |
@@ -373,18 +373,50 @@ Umbrella repo containing SpecWeave and related repositories under `repositories/
 4. Max 1500 lines per file — extract before adding
 5. Check ADRs before implementing changes
 
+## Workflow Overrides (Testing Gates)
+
+### Creating Increment
+After `/sw:increment` creates spec.md + plan.md + tasks.md:
+- Verify tasks.md has `**Test Plan**:` for every task with testable ACs
+- Verify E2E scenarios exist for user-facing user stories
+- If missing: re-run `/sw:test-aware-planner` before proceeding to `/sw:do`
+
+### Completing Tasks
+After implementing each task in `/sw:do`:
+1. Run unit tests: `npx vitest run`
+2. Run E2E tests (if task touches UI/API): `npx playwright test`
+3. Only mark task `[x]` after tests pass
+4. If 3 consecutive test failures: STOP, re-plan, ask user
+
+### Closing Increment
+Before `/sw:done`:
+1. Full test suite: `npx vitest run` (all unit + integration)
+2. Full E2E suite: `npx playwright test` (all scenarios)
+3. Coverage check: `npx vitest run --coverage` (must meet targets in config.json)
+4. Ask user for manual acceptance: new UI, auth, payments, data migrations
+
 ## Principles
 
 1. **Simplicity First**: Minimal code, minimal impact
 2. **No Laziness**: Root causes, senior standards
 3. **DRY**: Flag and eliminate repetitions
 4. **Plan before code**: Review approach before making changes
-5. **Verify**: Run tests and demonstrate correctness
+5. **Test before ship**: Tests pass at every step — after each task and before close
+6. **Verify**: `/sw:grill` + `/sw:validate` + user acceptance for critical flows
 
-## Testing
+## Testing Pipeline (MANDATORY)
 
-- BDD style, unit coverage >80%
-- `.test.ts` (Vitest), ESM mocking with `vi.hoisted()` + `vi.mock()`
+Testing is enforced at 3 lifecycle stages:
+
+| Stage | Skills / Actions | Blocking? |
+|-------|-----------------|-----------|
+| **Design** (`/sw:increment`) | `/sw:test-aware-planner` generates BDD test plans per AC; E2E scenarios for UI features | Yes — tasks.md must have test plans |
+| **Implementation** (`/sw:do`) | `/sw:tdd-red` → `/sw:tdd-green` → `/sw:tdd-refactor`; run `npx vitest run` + `npx playwright test` after each task | Yes — task not `[x]` until tests pass |
+| **Closing** (`/sw:done`) | `/sw:grill` + `/sw:validate`; E2E via Playwright CLI; user acceptance for critical flows | Yes — gates block closure |
+
+- Unit/Integration: Vitest (`.test.ts`), ESM: `vi.hoisted()` + `vi.mock()`
+- E2E: Playwright CLI (`npx playwright test`)
+- Coverage: unit 95%, integration 90%, e2e 100% AC scenarios
 
 ## Structure
 

