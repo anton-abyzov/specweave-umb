@@ -18,15 +18,15 @@ Eliminate the live `getTrendingSkills` DB call from the homepage request path by
 **So that** homepage renders are faster and don't require a live DB query for trending data
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `PlatformStats` interface includes a `trendingSkills` array field with the same shape as `SkillData` (at minimum: name, displayName, author, repoUrl, category, certTier, trendingScore7d, trendingScore30d, trustTier, trustScore)
-- [ ] **AC-US1-02**: `computePlatformStats()` (both full and minimal paths) fetches top 8 trending skills by `trendingScore7d DESC` (non-deprecated) and includes them in the returned `PlatformStats` object
-- [ ] **AC-US1-03**: `EMPTY_STATS` constant in `stats-refresh.ts` includes `trendingSkills: []` as fallback
-- [ ] **AC-US1-04**: `TrendingSkillsSection` component reads trending data from `getHomeStats()` return value instead of calling `getTrendingSkills()` directly
-- [ ] **AC-US1-05**: The `getTrendingSkills` import is removed from `TrendingSkills.tsx` (no direct DB call on homepage render)
-- [ ] **AC-US1-06**: `getPlatformStats` backfill logic handles missing `trendingSkills` field for cached data written before this change (defaults to `[]`)
-- [ ] **AC-US1-07**: Existing tests for `getTrendingSkills` in `data.ts` remain passing (function not removed, just no longer called from homepage)
-- [ ] **AC-US1-08**: New/updated tests verify that `computePlatformStats` includes `trendingSkills` in its output
-- [ ] **AC-US1-09**: `TrendingSkillsSection` gracefully handles empty `trendingSkills` array (renders nothing, same as current behavior)
+- [x] **AC-US1-01**: `PlatformStats` interface includes a `trendingSkills` array field with the same shape as `SkillData` (at minimum: name, displayName, author, repoUrl, category, certTier, trendingScore7d, trendingScore30d, trustTier, trustScore)
+- [x] **AC-US1-02**: `computePlatformStats()` (both full and minimal paths) fetches top 8 trending skills by `trendingScore7d DESC` (non-deprecated) and includes them in the returned `PlatformStats` object
+- [x] **AC-US1-03**: `EMPTY_STATS` constant in `stats-refresh.ts` includes `trendingSkills: []` as fallback
+- [x] **AC-US1-04**: `TrendingSkillsSection` component reads trending data from `getHomeStats()` return value instead of calling `getTrendingSkills()` directly
+- [x] **AC-US1-05**: The `getTrendingSkills` import is removed from `TrendingSkills.tsx` (no direct DB call on homepage render)
+- [x] **AC-US1-06**: `getPlatformStats` backfill logic handles missing `trendingSkills` field for cached data written before this change (defaults to `[]`)
+- [x] **AC-US1-07**: Existing tests for `getTrendingSkills` in `data.ts` remain passing (function not removed, just no longer called from homepage)
+- [x] **AC-US1-08**: New/updated tests verify that `computePlatformStats` includes `trendingSkills` in its output
+- [x] **AC-US1-09**: `TrendingSkillsSection` gracefully handles empty `trendingSkills` array (renders nothing, same as current behavior)
 
 ## Technical Notes
 

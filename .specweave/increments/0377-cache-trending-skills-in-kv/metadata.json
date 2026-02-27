@@ -4,7 +4,7 @@
   "description": "Add trending skills array to the existing platform:stats KV blob so the homepage TrendingSkills component reads from cache instead of issuing a live DB query on every request.",
   "type": "feature",
   "priority": "P2",
-  "status": "planning",
+  "status": "completed",
   "project": "vskill-platform",
   "createdAt": "2026-02-25T00:00:00.000Z",
   "externalLinks": {

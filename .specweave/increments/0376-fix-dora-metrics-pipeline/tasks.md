@@ -1,64 +1,31 @@
-# Tasks: Fix broken DORA metrics pipeline and dashboard
+# Tasks: Fix DORA metrics pipeline
 
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA TASK BUILDER SKILL
-====================================================================
+### T-001: Fix CFR tier boundary in tier-classifier.ts
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04 | **Status**: [x] completed
+**Test**: Given classifyChangeFailureRate(15) -> Then returns 'Elite'. Given classifyChangeFailureRate(30) -> Then returns 'High'. Given classifyChangeFailureRate(45) -> Then returns 'Medium'.
 
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the tasks below.
+**Files**: `src/metrics/utils/tier-classifier.ts`
 
-To complete this task list, run:
-  Tell Claude: "Create tasks for increment [ID]"
+---
 
-This will activate the test-aware planner which will:
-- Generate detailed implementation tasks
-- Add embedded test plans (BDD format)
-- Set task dependencies
-- Assign model hints
+### T-002: Fix Lead Time benchmark text in metrics.md
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01 | **Status**: [x] completed
+**Test**: Given metrics.md Lead Time High benchmark -> When I read it -> Then it says "1 hour to 1 week"
 
-====================================================================
--->
+**Files**: `.specweave/docs/public/metrics.md`
 
-## Task Notation
+---
 
-- `[T###]`: Task ID
-- `[P]`: Parallelizable
-- `[ ]`: Not started
-- `[x]`: Completed
-- Model hints: haiku (simple), opus (default)
+### T-003: Fix CFR benchmark text in metrics.md
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-02 | **Status**: [x] completed
+**Test**: Given metrics.md CFR benchmarks -> When I read them -> Then they say "0-15%", "15-30%", "30-45%"
 
-## Phase 1: Setup
+**Files**: `.specweave/docs/public/metrics.md`
 
-- [ ] [T001] [P] haiku - Initialize project structure
-- [ ] [T002] haiku - Setup testing framework
+---
 
-## Phase 2: Core Implementation
+### T-004: Update stale goals in metrics.md
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [x] completed
+**Test**: Given the goals section -> When I read it -> Then DF goal reflects Elite status achieved, Lead Time goal is new target, CFR reflects Elite maintained
 
-### US-001: [User Story Title] (P1)
-
-#### T-003: Implement [component]
-
-**Description**: [What needs to be done]
-
-**References**: AC-US1-01, AC-US1-02
-
-**Implementation Details**:
-- [Step 1]
-- [Step 2]
-
-**Test Plan**:
-- **File**: `tests/unit/component.test.ts`
-- **Tests**:
-  - **TC-001**: [Test name]
-    - Given [precondition]
-    - When [action]
-    - Then [expected result]
-
-**Dependencies**: None
-**Status**: [ ] Not Started
-
-## Phase 3: Testing
-
-- [ ] [T050] Run integration tests
-- [ ] [T051] Verify all acceptance criteria
+**Files**: `.specweave/docs/public/metrics.md`

@@ -1,70 +1,21 @@
-# Implementation Plan: Fix broken DORA metrics pipeline and dashboard
-
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA ARCHITECT SKILL
-====================================================================
-
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the placeholders below.
-
-To complete this plan, run:
-  Tell Claude: "Design architecture for increment [ID]"
-
-This will activate the Architect skill which will:
-- Create system architecture diagrams
-- Define data models and API contracts
-- Document architecture decisions (ADRs)
-- Identify technical challenges
-
-====================================================================
--->
+# Implementation Plan: Fix DORA metrics pipeline
 
 ## Overview
 
-[Technical summary of implementation approach]
+Three targeted fixes: (1) CFR boundary bug in tier-classifier.ts, (2) doc/code threshold alignment in metrics.md, (3) stale goals update.
 
-## Architecture
+## Changes by File
 
-### Components
-- [Component 1]: [Purpose]
-- [Component 2]: [Purpose]
+### 1. `src/metrics/utils/tier-classifier.ts` -- Fix CFR boundaries
+- Change `< 15` to `<= 15`, `< 30` to `<= 30`, `< 45` to `<= 45`
+- This aligns with the documented "0-15%", "15-30%", "30-45%" ranges
 
-### Data Model
-- [Entity 1]: [Fields, relationships]
-- [Entity 2]: [Fields, relationships]
+### 2. `.specweave/docs/public/metrics.md` -- Fix doc inconsistencies
+- Lead Time High: "1 day to 1 week" to "1 hour to 1 week"
+- CFR High: "16-30%" to "15-30%"
+- CFR Medium: "31-45%" to "30-45%"
+- Update goals to reflect current performance
 
-### API Contracts
-- `POST /api/resource`: [Purpose, request/response]
-- `GET /api/resource/:id`: [Purpose, request/response]
-
-## Technology Stack
-
-- **Language/Framework**: [Choice]
-- **Libraries**: [List]
-- **Tools**: [List]
-
-**Architecture Decisions**:
-- [Decision 1]: [Why this choice? Alternatives considered?]
-- [Decision 2]: [Rationale]
-
-## Implementation Phases
-
-### Phase 1: Foundation
-- [Setup, infrastructure, base components]
-
-### Phase 2: Core Functionality
-- [Primary features from P1 user stories]
-
-### Phase 3: Enhancement
-- [P2 features and optimizations]
-
-## Testing Strategy
-
-[High-level testing approach - details in tasks.md]
-
-## Technical Challenges
-
-### Challenge 1: [Description]
-**Solution**: [Approach]
-**Risk**: [Mitigation]
+## Risk Assessment
+- **Low risk**: Threshold changes only affect exact boundary values (15, 30, 45)
+- CFR=0% currently, so no production impact on current tier classification

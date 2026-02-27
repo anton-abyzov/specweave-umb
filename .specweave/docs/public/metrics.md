@@ -46,7 +46,7 @@ Real-time DevOps performance metrics for SpecWeave, updated daily.
 **What it measures:** Time from commit to production
 **Industry benchmarks:**
 - 🏆 **Elite**: Less than 1 hour
-- ⭐ **High**: 1 day to 1 week
+- ⭐ **High**: 1 hour to 1 week
 - 📊 **Medium**: 1 week to 1 month
 - ⚠️ **Low**: More than 1 month
 
@@ -68,8 +68,8 @@ Real-time DevOps performance metrics for SpecWeave, updated daily.
 **What it measures:** Percentage of deployments that fail
 **Industry benchmarks:**
 - 🏆 **Elite**: 0-15%
-- ⭐ **High**: 16-30%
-- 📊 **Medium**: 31-45%
+- ⭐ **High**: 15-30%
+- 📊 **Medium**: 30-45%
 - ⚠️ **Low**: More than 45%
 
 **Failed Releases:** ![Failed](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/anton-abyzov/specweave/develop/.specweave/metrics/dora-latest.json&query=$.metrics.changeFailureRate.failedReleases&label=Failed&color=red) / ![Total](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/anton-abyzov/specweave/develop/.specweave/metrics/dora-latest.json&query=$.metrics.changeFailureRate.totalReleases&label=Total&color=blue)
@@ -167,7 +167,7 @@ The DORA (DevOps Research and Assessment) metrics are industry-standard KPIs for
 Track our progress over time as we optimize SpecWeave's delivery performance:
 
 **Current Goals:**
-- 🚀 Deployment Frequency: High → Elite (8/month → 30/month)
-- ⚡ Lead Time: High → Elite (15.6h → &lt;1h)
-- ✅ Change Failure Rate: Elite (maintain 0-15%)
-- 🔧 MTTR: Track once we have incidents (target: &lt;1 hour)
+- 🚀 Deployment Frequency: Elite achieved (100/month) — maintain
+- ⚡ Lead Time: High (3.4h) → Elite (&lt;1h)
+- ✅ Change Failure Rate: Elite (0%) — maintain
+- 🔧 MTTR: N/A (no incidents yet) — target &lt;1 hour when applicable
