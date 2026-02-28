@@ -1,10 +1,10 @@
 {
   "id": "0388-pattern-guided-llm-verdict",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-02-27T18:00:00.000Z",
-  "lastActivity": "2026-02-27T18:00:00.000Z",
+  "lastActivity": "2026-02-28T07:50:12.077Z",
   "testMode": "TDD",
   "coverageTarget": 80,
   "feature_id": null,
@@ -66,5 +66,7 @@
       }
     ],
     "lastSync": "2026-02-27T20:58:52Z"
-  }
+  },
+  "readyForReviewAt": "2026-02-28T07:36:51.969Z",
+  "approvedAt": "2026-02-28T07:50:12.077Z"
 }

@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "incrementId": "0388",
+  "timestamp": "2026-02-28T12:30:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 2,
+    "suppressed": 1,
+    "critical": 0,
+    "high": 0,
+    "medium": 2
+  },
+  "findings": [
+    {
+      "title": "Missing criticalValidation in Tier2Payload type",
+      "severity": "medium",
+      "confidence": 72,
+      "category": "maintainability",
+      "file": "src/app/api/v1/internal/finalize-scan/route.ts:54",
+      "issue": "Tier2Payload interface does not include criticalValidation field, reducing TypeScript safety",
+      "suggestion": "Add criticalValidation to Tier2Payload type definition",
+      "impact": "Code works due to JS dynamic nature but TypeScript won't catch type errors"
+    },
+    {
+      "title": "Negation word 60-char lookback window boundary",
+      "severity": "low",
+      "confidence": 68,
+      "category": "edge-case",
+      "file": "crawl-worker/lib/scanner-patterns.js:766",
+      "issue": "Fixed 60-char lookback window may miss negation words on very long lines",
+      "suggestion": "Document the limit or consider expanding to 100 chars",
+      "impact": "Rare edge case for very long lines with distant negation words"
+    }
+  ],
+  "scope": {
+    "filesExamined": 8,
+    "acsValidated": "31/31"
+  }
+}

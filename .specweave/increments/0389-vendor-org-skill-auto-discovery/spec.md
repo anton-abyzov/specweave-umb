@@ -1,10 +1,10 @@
 ---
 increment: 0389-vendor-org-skill-auto-discovery
-title: "Vendor org skill auto-discovery and import"
+title: Vendor org skill auto-discovery and import
 type: feature
 priority: P1
-status: planned
-created: 2026-02-28
+status: completed
+created: 2026-02-28T00:00:00.000Z
 structure: user-stories
 test_mode: test-after
 coverage_target: 80

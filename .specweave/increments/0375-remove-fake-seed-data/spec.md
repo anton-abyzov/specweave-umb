@@ -1,10 +1,10 @@
 ---
 increment: 0375-remove-fake-seed-data
-title: "Remove fake seed data from vskill-platform"
+title: Remove fake seed data from vskill-platform
 type: refactor
 priority: P1
-status: planned
-created: 2026-02-25
+status: completed
+created: 2026-02-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 80

@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "incrementId": "0389",
+  "timestamp": "2026-02-28T12:30:00Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels not configured in .specweave/config.json",
+  "model": null,
+  "findings": []
+}

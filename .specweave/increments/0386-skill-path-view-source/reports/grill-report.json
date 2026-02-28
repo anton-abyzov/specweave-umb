@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "incrementId": "0386",
+  "timestamp": "2026-02-28T12:30:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 1,
+    "suppressed": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 1
+  },
+  "findings": [
+    {
+      "title": "Backfill script does not filter by submission state",
+      "severity": "low",
+      "confidence": 55,
+      "category": "correctness",
+      "file": "scripts/backfill-skill-path.ts:48",
+      "issue": "findFirst query does not filter by state, could link rejected submission",
+      "suggestion": "Add state filter, though practical risk is low since rejected submissions are rarely linked to Skills",
+      "impact": "Minimal - backfill is one-time, rejected submissions still have valid skillPath"
+    }
+  ],
+  "scope": {
+    "filesExamined": 7,
+    "acsValidated": "7/7"
+  }
+}

@@ -3,7 +3,7 @@
   "title": "Fix failing develop branch tests and unblock Dependabot auto-merge pipeline",
   "type": "bug",
   "priority": "P1",
-  "status": "in-progress",
+  "status": "completed",
   "project": "specweave",
   "created": "2026-02-27",
   "labels": [
@@ -89,5 +89,9 @@
       }
     ],
     "lastSync": "2026-02-27T08:12:56Z"
-  }
+  },
+  "updated": "2026-02-28T07:45:47.798Z",
+  "lastActivity": "2026-02-28T07:45:48.907Z",
+  "readyForReviewAt": "2026-02-28T07:45:47.798Z",
+  "approvedAt": "2026-02-28T07:45:48.907Z"
 }

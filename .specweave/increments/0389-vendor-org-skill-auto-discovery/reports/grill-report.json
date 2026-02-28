@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "incrementId": "0389",
+  "timestamp": "2026-02-28T12:30:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "NEEDS REVIEW",
+  "summary": {
+    "totalFindings": 3,
+    "suppressed": 2,
+    "critical": 0,
+    "high": 2,
+    "medium": 1
+  },
+  "findings": [
+    {
+      "title": "Agent config regex incomplete for .github/ nested paths",
+      "severity": "high",
+      "confidence": 75,
+      "category": "correctness",
+      "file": "crawl-worker/sources/vendor-org-discovery.js:29",
+      "issue": "AGENT_CONFIG_RE regex does not match .github/copilot/ and .github/agents/ paths unlike the TS version",
+      "suggestion": "Add explicit .github/copilot/ and .github/agents/ patterns to the regex or use same prefix-matching approach as TS version. Practical impact very low since vendor orgs (anthropics, openai, google) don't have such paths.",
+      "impact": "Theoretical: SKILL.md files in .github/copilot/ would not be filtered. Practical: vendor orgs don't have such paths"
+    },
+    {
+      "title": "Platform-side tests not found",
+      "severity": "high",
+      "confidence": 70,
+      "category": "maintainability",
+      "file": "src/lib/crawler/vendor-org-discovery.ts",
+      "issue": "No test files found for platform-side vendor-org-discovery.ts or admin route handler",
+      "suggestion": "Tests may be covered by integration tests or deferred for follow-up. Crawl-worker (primary execution path) has 4 tests.",
+      "impact": "Platform admin endpoint lacks direct test coverage"
+    },
+    {
+      "title": "Default branch assumption",
+      "severity": "low",
+      "confidence": 55,
+      "category": "edge-case",
+      "file": "crawl-worker/sources/vendor-org-discovery.js",
+      "issue": "Defaults to 'main' branch without validating if it exists",
+      "suggestion": "Use repo.default_branch from GitHub API response instead",
+      "impact": "Repos using master or other default branches may have tree scan fail"
+    }
+  ],
+  "scope": {
+    "filesExamined": 11,
+    "acsValidated": "27/27"
+  }
+}

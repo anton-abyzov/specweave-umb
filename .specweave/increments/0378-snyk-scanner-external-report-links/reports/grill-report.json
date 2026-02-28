@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "incrementId": "0378",
+  "timestamp": "2026-02-28T12:30:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 1,
+    "suppressed": 1,
+    "critical": 0,
+    "high": 0,
+    "medium": 1
+  },
+  "findings": [
+    {
+      "title": "Type cast in env resolution",
+      "severity": "low",
+      "confidence": 55,
+      "category": "maintainability",
+      "file": "src/lib/security-report.ts:180",
+      "issue": "Uses unsafe type cast (as Record<string, unknown>) for env resolution",
+      "suggestion": "Properly handled downstream by fetchSocketScores API key check",
+      "impact": "None - defensive pattern is functionally correct"
+    }
+  ],
+  "scope": {
+    "filesExamined": 4,
+    "acsValidated": "7/7"
+  }
+}

@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0378: External Intelligence for Security Reports
 
 ## Overview

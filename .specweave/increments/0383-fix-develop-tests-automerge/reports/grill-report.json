@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "incrementId": "0383",
+  "timestamp": "2026-02-28T12:30:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 1,
+    "suppressed": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 1
+  },
+  "findings": [
+    {
+      "title": "Hook line count assertion may become tight",
+      "severity": "low",
+      "confidence": 60,
+      "category": "maintainability",
+      "file": "stop-auto-v5-helpers.test.ts",
+      "issue": "Specific assertion of 248 lines may need updating if hook grows",
+      "suggestion": "Consider using range assertion or generous headroom",
+      "impact": "Minor - test would fail if hook grows, easy to update"
+    }
+  ],
+  "scope": {
+    "filesExamined": 15,
+    "acsValidated": "18/18"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "0390-fix-marketplace-source-registration",
+  "status": "planned",
+  "type": "bugfix",
+  "priority": "P1",
+  "created": "2026-02-28T09:03:23.992Z",
+  "lastActivity": "2026-02-28T09:03:23.992Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1432,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1432",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1433,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1433",
+          "status": "created"
+        }
+      },
+      "milestone": 186,
+      "syncedAt": "2026-02-28T09:07:41Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1432,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1432",
+        "createdAt": "2026-02-28T09:07:41Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1433,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1433",
+        "createdAt": "2026-02-28T09:07:41Z"
+      }
+    ],
+    "lastSync": "2026-02-28T09:07:41Z"
+  }
+}

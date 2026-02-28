@@ -19,25 +19,26 @@
 | 10:30 | Docs Architecture: Internal vs Public + Hosting | 3 min |
 | 13:30 | Enterprise Engineering 101 + Hierarchy Mapping | 6 min |
 | 19:30 | Project-Aware Sync & The /next Flow | 4 min |
-| 23:30 | Plugins & Skills System + **Framework Trade-offs (NEW!)** | 4 min |
-| 27:30 | **MCP Servers & Context7 (NEW!)** | 3.5 min |
-| 31:00 | **Installation + Plugin Tiers + MCP Setup (EXPANDED!)** | 9 min |
-| 40:00 | VS Code + 4-Terminal Setup | 4 min |
-| 44:00 | DEMO 1: Greenfield Project | 4 min |
-| 48:00 | DEMO 2: Translation Feature | 3 min |
-| 51:00 | PRO TIP: React Native / Expo Module-Level Crashes | 2 min |
-| 53:00 | **PRO TIP: Self-Improving Skills with Reflect (NEW!)** | 2 min |
-| 55:00 | DEMO 3: Brownfield with Living Docs Builder (NEW!) | 10 min |
-| 65:00 | DEMO 4: GitHub Sync with Bidirectional Pull (NEW!) | 4 min |
-| 69:00 | DEMO 5: JIRA Sync | 3 min |
-| 72:00 | DEMO 6: Azure DevOps with Hierarchy Intelligence (NEW!) | 4 min |
-| 76:00 | **DEMO 7: External Increments — Work Starts Outside (NEW!)** | 3.5 min |
-| 79:30 | Background Jobs Monitoring (NEW!) | 2 min |
-| 81:30 | AGENT.md for Non-Claude Tools | 2 min |
-| 83:30 | Academy + Resources | 1.5 min |
-| 85:00 | Outro (This was HUGE work!) | 1 min |
+| 23:30 | Plugins & Skills System + **Framework Trade-offs** | 4 min |
+| 27:30 | **vskill: 41 Domain Expert Skills + App Store Demo (NEW!)** | 4 min |
+| 31:30 | **MCP Servers & Context7** | 3.5 min |
+| 35:00 | **Installation + Plugin Tiers + MCP Setup (EXPANDED!)** | 9 min |
+| 44:00 | VS Code + 4-Terminal Setup | 4 min |
+| 48:00 | DEMO 1: Greenfield Project | 4 min |
+| 52:00 | DEMO 2: Translation Feature | 3 min |
+| 55:00 | PRO TIP: React Native / Expo Module-Level Crashes | 2 min |
+| 57:00 | **PRO TIP: Self-Improving Skills with Reflect (NEW!)** | 2 min |
+| 59:00 | DEMO 3: Brownfield with Living Docs Builder (NEW!) | 10 min |
+| 69:00 | DEMO 4: GitHub Sync with Bidirectional Pull (NEW!) | 4 min |
+| 73:00 | DEMO 5: JIRA Sync | 3 min |
+| 76:00 | DEMO 6: Azure DevOps with Hierarchy Intelligence (NEW!) | 4 min |
+| 80:00 | **DEMO 7: External Increments — Work Starts Outside (NEW!)** | 3.5 min |
+| 83:30 | Background Jobs Monitoring (NEW!) | 2 min |
+| 85:30 | AGENT.md for Non-Claude Tools | 2 min |
+| 87:30 | Academy + Resources | 1.5 min |
+| 89:00 | Outro (This was HUGE work!) | 1 min |
 
-**Total: ~86 minutes** (extended for plugin tiers + MCP + framework trade-offs + external increments + Reflect)
+**Total: ~90 minutes** (extended for vskill showcase + plugin tiers + MCP + framework trade-offs + external increments + Reflect)
 
 ---
 
@@ -765,6 +766,95 @@ npx specweave init .
 # → Select: GitHub, JIRA, or ADO
 # → Plugins auto-install
 ```
+
+#### vskill — 41 Domain Expert Skills
+
+**[VISUAL: vskill plugin grid animating in — 12 domains, 41 skills]**
+
+> "But that's just the SpecWeave workflow plugins. Here's where it gets really interesting.
+>
+> vskill is our universal package manager for AI skills. 41 expert skills. 12 domain plugins. And they install to ANY of 49 agent platforms — Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, Gemini CLI, you name it."
+
+```bash
+# Install a domain plugin
+npx vskill install --repo anton-abyzov/vskill --plugin mobile
+
+# Or install everything
+npx vskill install --repo anton-abyzov/vskill --all
+```
+
+> "Each skill gives your AI agent deep, production-ready expertise. Not generic advice — real patterns, real CLI tools, real code you can ship."
+
+**[VISUAL: Domain grid with skill counts]**
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                    vskill DOMAIN PLUGINS                          │
+├──────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  MOBILE (9 skills)        │  FRONTEND (5 skills)                 │
+│  React Native, Flutter,   │  React 19, Next.js 15,               │
+│  SwiftUI, Jetpack,        │  Figma design-to-code,               │
+│  Expo, App Store via asc  │  i18n, design systems                │
+│                           │                                       │
+│  INFRA (7 skills)         │  ML (5 skills)                       │
+│  AWS CDK, Azure Bicep,    │  RAG, LangChain, HuggingFace,       │
+│  GCP Terraform, CI/CD,    │  fine-tuning, edge ML                │
+│  secrets, observability   │                                       │
+│                           │                                       │
+│  KAFKA (2) + CONFLUENT (3)│  TESTING (3 skills)                  │
+│  Streams, ksqlDB, CDC,    │  Accessibility, performance,         │
+│  Schema Registry, n8n     │  mutation testing                    │
+│                           │                                       │
+│  PAYMENTS (2 skills)      │  SECURITY (1 skill)                  │
+│  Billing, PCI compliance  │  Vulnerability pattern detection     │
+│                           │                                       │
+│  BACKEND (2 skills)       │  BLOCKCHAIN (1 skill)                │
+│  Java Spring Boot, Rust   │  Solidity, Foundry, gas optimization │
+│                                                                   │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+> "Let me highlight the one that makes people say 'wait, it can do THAT?'"
+
+#### Spotlight: Mobile App Store Automation
+
+**[VISUAL: Terminal showing asc commands executing]**
+
+> "The mobile plugin has a skill called `appstore`. It uses a CLI tool called `asc` — App Store Connect — a single Go binary that wraps Apple's ENTIRE App Store Connect API.
+>
+> Your AI agent can upload builds to TestFlight. Distribute to beta testers. Submit to the App Store for review. Manage in-app purchases and subscriptions. Upload screenshots — programmatically, no dragging files into a browser. Handle code signing. Pull sales analytics. Trigger Xcode Cloud builds. Even notarize macOS apps."
+
+**[VISUAL: Command flow animating step by step]**
+
+```bash
+# Build with whatever framework you use
+eas build --platform ios
+
+# Agent takes over from here:
+asc builds upload my-app.ipa --wait     # Upload to App Store Connect
+asc publish testflight                   # Distribute to beta testers
+# ... collect feedback, iterate ...
+asc publish appstore                     # Submit for App Store review
+```
+
+> "The ENTIRE App Store Connect web portal — replaced by a CLI that returns structured JSON. The agent parses every response, makes decisions, and acts. No browser tabs. No manual clicking. No 'click here, wait, click there.'
+>
+> And it works with ANY mobile framework. Build your IPA with Xcode, Expo, Flutter, React Native, Capacitor — `asc` handles the delivery side."
+
+**[VISUAL: Quick montage of other impressive skills]**
+
+> "That's just one skill. The `testing` skill uses Maestro for YAML-based E2E tests across iOS AND Android. The `mutation` testing skill answers the question your code coverage number can't: 'would my tests actually catch a bug?' The `security:patterns` skill finds GitHub Actions injection attacks that generic linters completely miss.
+>
+> The `ml:edge` skill deploys models to phones — Core ML for iOS, TensorFlow Lite for Android. The `infra:github-actions` skill sets up OIDC authentication so you never store cloud secrets again.
+>
+> 41 skills. Each one is what a senior specialist would tell you on their best day."
+
+**[VISUAL: vskill install terminal animation]**
+
+> "One command to install. Security-scanned before installation — no exceptions. And they work in 49 different AI agents."
+
+---
 
 #### Framework Trade-offs — Be Honest
 
@@ -2884,7 +2974,8 @@ TIMESTAMPS:
 13:30 - Enterprise Engineering + Hierarchy Mapping
 19:30 - Project-aware sync & /next flow
 23:30 - Plugins & Skills
-27:30 - Installation (Mac + Windows)
+27:30 - vskill: 41 Domain Expert Skills + App Store Demo (NEW!)
+31:30 - Installation (Mac + Windows)
 32:30 - VS Code Setup
 36:30 - DEMO: Greenfield
 40:30 - DEMO: Translation

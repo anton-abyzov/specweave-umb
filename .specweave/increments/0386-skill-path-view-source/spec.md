@@ -1,10 +1,10 @@
 ---
 increment: 0386-skill-path-view-source
-title: "Add skillPath to Skill model and View Source link"
+title: Add skillPath to Skill model and View Source link
 type: feature
 priority: P1
-status: in-progress
-created: 2026-02-27
+status: completed
+created: 2026-02-27T00:00:00.000Z
 structure: user-stories
 test_mode: test-after
 coverage_target: 80

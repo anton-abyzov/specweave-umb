@@ -5,7 +5,7 @@ title: >-
   mentioning dangerous patterns
 type: bug
 priority: P1
-status: active
+status: completed
 created: 2026-02-27T00:00:00.000Z
 structure: user-stories
 test_mode: TDD

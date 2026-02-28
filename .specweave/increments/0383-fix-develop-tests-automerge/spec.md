@@ -3,7 +3,7 @@ increment: 0383-fix-develop-tests-automerge
 title: Fix failing develop branch tests and unblock Dependabot auto-merge pipeline
 type: bug
 priority: P1
-status: in-progress
+status: completed
 created: 2026-02-27T00:00:00.000Z
 structure: user-stories
 test_mode: test-after
