@@ -32,5 +32,5 @@
 ## Phase 5: Verification
 
 ### T-006: Verify build passes
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 **Test**: Given all changes → When npm run build → Then no type errors
