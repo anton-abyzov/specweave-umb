@@ -1,0 +1,58 @@
+{
+  "id": "0394-unified-plugin-install-via-repo",
+  "status": "active",
+  "type": "change-request",
+  "priority": "P1",
+  "created": "2026-03-01T20:00:00.000Z",
+  "lastActivity": "2026-03-01T20:00:00.000Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1455,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1455",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1456,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1456",
+          "status": "created"
+        },
+        "US-003": {
+          "issueNumber": 1457,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1457",
+          "status": "created"
+        }
+      },
+      "milestone": 191,
+      "syncedAt": "2026-03-01T22:31:12Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1455,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1455",
+        "createdAt": "2026-03-01T22:31:12Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1456,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1456",
+        "createdAt": "2026-03-01T22:31:12Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1457,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1457",
+        "createdAt": "2026-03-01T22:31:12Z"
+      }
+    ],
+    "lastSync": "2026-03-01T22:31:12Z"
+  }
+}
