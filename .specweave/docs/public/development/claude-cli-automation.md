@@ -179,7 +179,7 @@ jobs:
 | Quick fixes, simple tasks | Haiku | `--model haiku` |
 | Standard development | Sonnet | (default) |
 | Complex analysis, architecture | Opus | `--model opus` |
-| Extended reasoning (ultrathink) | Opus 4.5 | `--model opus` |
+| Extended reasoning (ultrathink) | Opus 4.6 | `--model opus` |
 
 ### When to Use Each Model
 

@@ -6,12 +6,28 @@
   "skills": {
     "sw": {
       "version": "1.0.323",
-      "sha": "3fadf349c0ba",
+      "sha": "bb72a9695034",
       "tier": "BUNDLED",
-      "installedAt": "2026-02-28T09:22:00.614Z",
+      "installedAt": "2026-02-28T18:37:08.862Z",
       "source": "local:specweave"
+    },
+    "infra": {
+      "version": "2.2.0",
+      "sha": "4e2c05e671fd",
+      "tier": "VERIFIED",
+      "installedAt": "2026-03-01T05:43:16.405Z",
+      "source": "github:anton-abyzov/vskill#plugin:infra",
+      "scope": "project"
+    },
+    "ml": {
+      "version": "2.2.0",
+      "sha": "8c2e77d171c0",
+      "tier": "VERIFIED",
+      "installedAt": "2026-03-01T06:08:43.242Z",
+      "source": "github:anton-abyzov/vskill#plugin:ml",
+      "scope": "project"
     }
   },
   "createdAt": "2026-02-25T22:10:22.975Z",
-  "updatedAt": "2026-02-28T09:22:00.614Z"
+  "updatedAt": "2026-03-01T06:08:43.242Z"
 }

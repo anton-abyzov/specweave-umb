@@ -184,6 +184,42 @@ Main Context (100K tokens)
 
 ---
 
+## When to Create a Skill
+
+**The repetition signal**: If you find yourself repeatedly giving Claude the same instructions — the same convention, workflow step, or "always do X before Y" — that's your signal to create a skill.
+
+Instead of typing the same guidance every session, capture it in a `SKILL.md` file. Claude will follow it automatically, every time, without reminders.
+
+Think of it as the **DRY principle for AI instructions** — repeating yourself to an AI is like copy-pasting code. It works, but it doesn't scale.
+
+### Examples of repetition → skill opportunities
+
+| You keep saying... | Create a skill for... |
+|---|---|
+| "Always use React Hook Form, not useState" | Form handling conventions |
+| "Run lint before committing" | Pre-commit workflow |
+| "Check the design system before creating components" | Component creation rules |
+| "Use snake_case for database columns" | Naming conventions |
+| "Add error boundaries around async components" | Error handling patterns |
+
+### How to create one
+
+```markdown
+# .claude/skills/my-convention.md
+---
+description: Enforces [your pattern]. Activates when [keywords].
+---
+
+## Rules
+1. Always do X before Y
+2. Use Z library for W
+3. Never use deprecated pattern Q
+```
+
+Once saved, the skill auto-activates when relevant keywords appear — no manual invocation needed.
+
+---
+
 ## Best Practices
 
 ### Skills

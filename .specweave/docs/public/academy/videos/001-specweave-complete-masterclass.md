@@ -5,7 +5,7 @@
 **Duration**: ~86 minutes
 **YouTube**: [Link pending]
 
-**Tags**: SpecWeave, AI coding framework, living documentation, spec-driven development, Claude Code, Opus 4.5, JIRA sync, GitHub sync, Azure DevOps, plugins, skills, AI agents, enterprise engineering, open source, free tools, BMAD alternative, developer productivity, GPT, Gemini, Copilot, translation, multilingual
+**Tags**: SpecWeave, AI coding framework, living documentation, spec-driven development, Claude Code, Opus 4.6, JIRA sync, GitHub sync, Azure DevOps, plugins, skills, AI agents, enterprise engineering, open source, free tools, BMAD alternative, developer productivity, GPT, Gemini, Copilot, translation, multilingual
 
 ---
 
@@ -416,7 +416,7 @@ Contains:
 
 > It's not magic. It's structure. And structure is what makes AI productive."
 
-#### Pro Tip: Keep Increments Small (2-3x Faster with Opus 4.5!)
+#### Pro Tip: Keep Increments Small (2-3x Faster with Opus 4.6!)
 
 **[VISUAL: Small vs large increment comparison + speed metrics]**
 
@@ -436,22 +436,22 @@ Contains:
 > - Fewer tasks = higher accuracy per task
 > - Easier to validate acceptance criteria
 >
-> **GAME CHANGER: Claude Opus 4.5**
+> **GAME CHANGER: Claude Opus 4.6**
 >
-> Here's the thing that's absolutely transforming my workflow. With **Claude Opus 4.5** (released November 2025), the development speed has increased **2-3x** — some developers report even **5-10x** faster completions!
+> Here's the thing that's absolutely transforming my workflow. With **Claude Opus 4.6** (released November 2025), the development speed has increased **2-3x** — some developers report even **5-10x** faster completions!
 >
-> The secret? Formulate small, well-defined increments, and Opus 4.5 can complete them almost **without manual interaction**:
+> The secret? Formulate small, well-defined increments, and Opus 4.6 can complete them almost **without manual interaction**:
 >
 > 1. Define clear user stories and acceptance criteria in spec.md
 > 2. Let the Architect agent create the plan
 > 3. Run `/specweave:do`
 > 4. **Just review what's done** — Opus handles the rest
 >
-> I've had increments where I typed `/specweave:do`, went for coffee, and came back to working, tested, documented code. That's the power of small increments + Opus 4.5.
+> I've had increments where I typed `/specweave:do`, went for coffee, and came back to working, tested, documented code. That's the power of small increments + Opus 4.6.
 >
 > **Anti-pattern**: 50-task mega-increment that runs for weeks. You lose context. AI loses context. Nothing ships.
 >
-> **Good pattern**: Small increments, quick wins, fast iterations. Each one COMPLETE before the next. With Opus 4.5, you're mostly reviewing, not hand-holding."
+> **Good pattern**: Small increments, quick wins, fast iterations. Each one COMPLETE before the next. With Opus 4.6, you're mostly reviewing, not hand-holding."
 
 #### Universal Hierarchy Mapping (External Tools)
 
