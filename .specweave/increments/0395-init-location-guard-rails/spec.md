@@ -1,10 +1,10 @@
 ---
 increment: 0395-init-location-guard-rails
-title: "Init Location Guard Rails"
+title: Init Location Guard Rails
 type: feature
 priority: P1
-status: active
-created: 2026-03-01
+status: completed
+created: 2026-03-01T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 95

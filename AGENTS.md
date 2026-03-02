@@ -1,6 +1,6 @@
-<!-- SW:META template="agents" version="1.0.343" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
+<!-- SW:META template="agents" version="1.0.349" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
 
-<!-- SW:SECTION:rules version="1.0.343" -->
+<!-- SW:SECTION:rules version="1.0.349" -->
 ## Essential Rules
 
 ```
@@ -29,7 +29,7 @@
 ```
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:orchestration version="1.0.343" -->
+<!-- SW:SECTION:orchestration version="1.0.349" -->
 ## Workflow Orchestration
 
 ### 1. Plan Before Code
@@ -46,9 +46,17 @@ See **Task Format** and **User Story Format** sections for templates.
 Never mark a task complete without proving it works:
 - Code compiles/builds successfully
 - Run tests after every task: `npx vitest run` + `npx playwright test`
+- Review code quality before committing — check for duplication, readability issues, and inefficiencies (Claude Code: `/simplify`; other tools: manual review or linter)
 - `/sw:grill` writes `grill-report.json` — CLI blocks closure without it
 - `/sw:judge-llm` writes `judge-llm-report.json` — WAIVED if consent denied
 - Acceptance criteria actually satisfied
+
+### 4. Large-Scale Changes
+
+For codebase-wide migrations or bulk refactors:
+- **Claude Code**: Use `/batch` — decomposes work into parallel agents with worktree isolation, each producing its own PR
+- **Other tools**: Break work into isolated branches (one per unit), implement each independently, review and merge separately
+- Always get approval on the decomposition plan before executing
 
 ### 3. Dependencies First
 
@@ -60,7 +68,7 @@ Good: npm run build → node script.js → Success
 ```
 <!-- SW:END:orchestration -->
 
-<!-- SW:SECTION:principles version="1.0.343" -->
+<!-- SW:SECTION:principles version="1.0.349" -->
 ## Core Principles (Quality)
 
 ### Simplicity First
@@ -106,7 +114,7 @@ Good: npm run build → node script.js → Success
 - E2E with Playwright CLI (`npx playwright test`) is a blocking closure gate
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:commands version="1.0.343" -->
+<!-- SW:SECTION:commands version="1.0.349" -->
 ## Commands Reference
 
 | Command | Purpose |
@@ -123,7 +131,7 @@ Good: npm run build → node script.js → Success
 | `/sw-ado:sync 0001` | Sync to Azure DevOps |
 <!-- SW:END:commands -->
 
-<!-- SW:SECTION:nonclaudetools version="1.0.343" -->
+<!-- SW:SECTION:nonclaudetools version="1.0.349" -->
 ## Non-Claude Tools (Cursor, Copilot, etc.)
 
 Claude Code has automatic hooks and orchestration. Other tools must do these manually.
@@ -135,6 +143,8 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 | **Plan Mode** | `EnterPlanMode` → `/sw:increment` | Manual: Create spec.md + plan.md + tasks.md |
 | **Subagents** | `Task` tool for parallel work | Split into multiple chat sessions |
 | **Verification** | PostToolUse hooks auto-validate | Manual: Run tests, check ACs |
+| **Code quality** | `/simplify` (3 parallel review agents) | Manual: lint, review for duplication/readability/perf |
+| **Batch migration** | `/batch` (worktree-isolated parallel agents) | Manual: one branch per unit, implement separately |
 | **Hooks** | Auto-run on events | YOU must mimic (see below) |
 | **Task sync** | Automatic AC updates | Manual: Edit tasks.md + spec.md |
 | **Skills** | Auto-activate on keywords | Read SKILL.md, follow manually |
@@ -144,8 +154,9 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 **After EVERY task completion:**
 1. Update tasks.md: `[ ] pending` → `[x] completed`
 2. Update spec.md ACs if satisfied: `[ ] AC` → `[x] AC`
-3. Run `/sw:progress-sync`
-4. Run `/sw-github:sync <id>` (if GitHub configured)
+3. Review code quality: check for duplication, readability, performance issues (Claude Code: `/simplify`)
+4. Run `/sw:progress-sync`
+5. Run `/sw-github:sync <id>` (if GitHub configured)
 
 **After all ACs for a User Story are done:**
 - Run `/sw:sync-docs update`
@@ -163,7 +174,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 **Background jobs**: Monitor with `specweave jobs` (clone-repos, import-issues, living-docs-builder, sync-external).
 <!-- SW:END:nonclaudetools -->
 
-<!-- SW:SECTION:syncworkflow version="1.0.343" -->
+<!-- SW:SECTION:syncworkflow version="1.0.349" -->
 ## Sync Workflow
 
 ### Source of Truth
@@ -188,7 +199,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 | `/sw-ado:sync <id>` | After each task |
 <!-- SW:END:syncworkflow -->
 
-<!-- SW:SECTION:contextloading version="1.0.343" -->
+<!-- SW:SECTION:contextloading version="1.0.349" -->
 ## Context Loading
 
 ### Efficient Context Management
@@ -208,7 +219,7 @@ Read only what's needed for the current task:
 4. Avoid loading entire documentation trees
 <!-- SW:END:contextloading -->
 
-<!-- SW:SECTION:structure version="1.0.343" -->
+<!-- SW:SECTION:structure version="1.0.349" -->
 ## Project Structure
 
 ```
@@ -247,7 +258,7 @@ umbrella-project/
 **Rules**: Each repo manages its own increments. Never create agent increments in the umbrella root.
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:agents version="1.0.343" -->
+<!-- SW:SECTION:agents version="1.0.349" -->
 ## Agents (Roles)
 
 {AGENTS_SECTION}
@@ -255,7 +266,7 @@ umbrella-project/
 **Usage**: Adopt role perspective when working on related tasks.
 <!-- SW:END:agents -->
 
-<!-- SW:SECTION:skills version="1.0.343" -->
+<!-- SW:SECTION:skills version="1.0.349" -->
 ## Skills (Capabilities)
 
 {SKILLS_SECTION}
@@ -269,7 +280,7 @@ umbrella-project/
 4. Run `specweave context projects` BEFORE creating any increment
 <!-- SW:END:skills -->
 
-<!-- SW:SECTION:taskformat version="1.0.343" -->
+<!-- SW:SECTION:taskformat version="1.0.349" -->
 ## Task Format
 
 ```markdown
@@ -283,7 +294,7 @@ umbrella-project/
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:usformat version="1.0.343" -->
+<!-- SW:SECTION:usformat version="1.0.349" -->
 ## User Story Format (CRITICAL for spec.md)
 
 **MANDATORY: Every User Story MUST have `**Project**:` field!**
@@ -317,7 +328,7 @@ specweave context projects
 ```
 <!-- SW:END:usformat -->
 
-<!-- SW:SECTION:workflows version="1.0.343" -->
+<!-- SW:SECTION:workflows version="1.0.349" -->
 ## Workflows
 
 ### Creating Increment
@@ -335,10 +346,11 @@ specweave context projects
 2. Run unit tests: `npx vitest run`
 3. Run E2E tests (if task touches UI/API): `npx playwright test`
 4. Only mark task `[x]` after tests pass
-5. Update tasks.md: `[ ] pending` → `[x] completed`
-6. Update spec.md: check off satisfied ACs
-7. Sync to external trackers if enabled
-8. If 3 consecutive test failures: STOP, re-plan, ask user
+5. Review code quality before committing (Claude Code: `/simplify`; other tools: lint + manual review)
+6. Update tasks.md: `[ ] pending` → `[x] completed`
+7. Update spec.md: check off satisfied ACs
+8. Sync to external trackers if enabled
+9. If 3 consecutive test failures: STOP, re-plan, ask user
 
 ### Closing Increment
 1. Full test suite: `npx vitest run`
@@ -348,7 +360,7 @@ specweave context projects
 5. `/sw:done <id>` — validates report files + PM 3 gates (tasks, tests, docs)
 <!-- SW:END:workflows -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.343" -->
+<!-- SW:SECTION:troubleshooting version="1.0.349" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -362,7 +374,7 @@ specweave context projects
 | Skills not activating (non-Claude) | Expected — read SKILL.md from `plugins/specweave*/skills/` |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:docs version="1.0.343" -->
+<!-- SW:SECTION:docs version="1.0.349" -->
 ## Documentation
 
 | Resource | Purpose |

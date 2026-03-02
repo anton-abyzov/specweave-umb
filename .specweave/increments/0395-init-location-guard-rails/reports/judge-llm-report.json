@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0395-init-location-guard-rails",
+  "timestamp": "2026-03-02T05:00:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels consent not configured in config.json",
+  "findings": []
+}

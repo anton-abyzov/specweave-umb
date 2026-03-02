@@ -1,13 +1,13 @@
 ---
 sidebar_position: 2
 title: Plugin Ecosystem
-description: Complete guide to SpecWeave's 21 plugins covering integrations, tech stacks, ML, infrastructure, and more
+description: Complete guide to SpecWeave's 20 plugins covering integrations, tech stacks, ML, infrastructure, and more
 keywords: [plugins, skills, agents, commands, github, jira, kubernetes, react, ml, integration]
 ---
 
 # 🧩 Plugin Ecosystem
 
-SpecWeave's power comes from its **modular plugin architecture**. With **21 specialized plugins**, you get enterprise-grade capabilities that activate automatically based on your project needs.
+SpecWeave's power comes from its **modular plugin architecture**. With **20 specialized plugins** (8 core SpecWeave + 12 tech-stack via vskill), you get enterprise-grade capabilities that activate automatically based on your project needs.
 
 :::tip Key Insight
 **Progressive Disclosure**: Only relevant plugins activate based on context. Working on React? Frontend plugin loads. Mention Kubernetes? Infrastructure plugin activates. This keeps your AI context lean and efficient.
@@ -19,7 +19,7 @@ All plugins are **automatically installed** during `specweave init`:
 
 ```bash
 npx specweave init .
-# ✅ Installs all 21 plugins (GitHub, JIRA, K8s, React, ML, etc.)
+# ✅ Installs all 20 plugins (GitHub, JIRA, React, ML, infra, etc.)
 # ✅ Registers marketplace globally
 # ✅ Ready to use immediately!
 ```
@@ -32,14 +32,14 @@ npx specweave init .
 The foundation of SpecWeave, always loaded in every project.
 
 **Key Capabilities:**
-- 🎯 **9 Skills**: increment, spec-generator, tdd-workflow, brownfield-analyzer, context-optimizer
-- 🤖 **22 Agents**: PM, Architect, Tech Lead, QA Lead, Security Engineer, Code Reviewer
-- ⚡ **22 Commands**: Full increment lifecycle management
+- 🎯 **24 Skills**: increment, pm, architect, spec-generator, tdd-cycle, grill, validate, judge-llm, team-lead, and more
+- 🤖 **Role-Based Agents**: PM, Architect, Tech Lead, QA Lead spawn as subagents from skills
+- ⚡ **28 Commands**: Full increment lifecycle management (do, done, progress, sync-docs, etc.)
 
 **Example: Planning a New Feature**
 ```bash
 # The PM agent (from core plugin) helps you create a spec
-/specweave:increment "User authentication with OAuth"
+/sw:increment "User authentication with OAuth"
 
 # Output: Creates spec.md, plan.md, tasks.md with:
 # - User stories with acceptance criteria
@@ -69,24 +69,24 @@ Bidirectional sync between SpecWeave increments and GitHub Issues.
 **Example: Auto-Sync Workflow**
 ```bash
 # 1. Create increment (issue auto-created!)
-/specweave:increment "Add dark mode"
+/sw:increment "Add dark mode"
 # 🔗 GitHub Issue #42 created automatically
 
 # 2. Start work
-/specweave:do
+/sw:do
 
 # 3. Complete a task
 # ✅ GitHub issue checkbox updates automatically!
 
 # 4. Manual sync (if needed)
-/specweave-github:sync 0023 --time-range 1M
+/sw-github:sync 0023 --time-range 1M
 ```
 
 **Commands:**
-- `/specweave-github:sync` - Bidirectional sync with time range filtering
-- `/specweave-github:create-issue` - Manual issue creation
-- `/specweave-github:sync-epic` - Sync Epic folder to GitHub Milestone
-- `/specweave-github:status` - Check sync status
+- `/sw-github:sync` - Bidirectional sync with time range filtering
+- `/sw-github:create-issue` - Manual issue creation
+- `/sw-github:sync-epic` - Sync Epic folder to GitHub Milestone
+- `/sw-github:status` - Check sync status
 
 **Configuration:**
 ```json
@@ -123,13 +123,13 @@ Enterprise JIRA integration with Epic/Story sync.
 **Example: JIRA Sync**
 ```bash
 # Sync increment to JIRA
-/specweave-jira:sync 0042
+/sw-jira:sync 0042
 
 # Sync Epic folder (20+ user stories)
-/specweave-jira:sync-epic FS-031-authentication
+/sw-jira:sync-epic FS-031-authentication
 
 # Check status
-/specweave-jira:status 0042
+/sw-jira:status 0042
 ```
 
 **Status Mapping:**
@@ -157,13 +157,13 @@ Enterprise Azure DevOps sync with Work Items.
 **Example:**
 ```bash
 # Sync to Azure DevOps
-/specweave-ado:sync 0031
+/sw-ado:sync 0031
 
 # Create work item manually
-/specweave-ado:create-workitem 0031
+/sw-ado:create-workitem 0031
 
 # Check sync status
-/specweave-ado:status 0031
+/sw-ado:status 0031
 ```
 
 ---
@@ -180,7 +180,7 @@ Connect designs to implementation.
 
 ### 💻 Tech Stack Plugins
 
-#### **specweave-frontend** - Frontend Development
+#### **frontend** (`frontend@vskill`) - Frontend Development
 React, Vue, Angular, Next.js expertise.
 
 **Agents:**
@@ -209,7 +209,7 @@ React, Vue, Angular, Next.js expertise.
 
 ---
 
-#### **specweave-backend** - Backend Development
+#### **backend** (`backend@vskill`) - Backend Development
 Node.js, Python, .NET expertise.
 
 **Agents:**
@@ -232,7 +232,7 @@ Node.js, Python, .NET expertise.
 
 ---
 
-#### **specweave-mobile** - Mobile Development
+#### **mobile** (`mobile@vskill`) - Mobile Development
 React Native and Expo expertise.
 
 **Skills:**
@@ -254,8 +254,8 @@ React Native and Expo expertise.
 
 ### ☁️ Infrastructure & DevOps
 
-#### **specweave-infrastructure** - Infrastructure Engineering
-Cloud infrastructure with Hetzner, DigitalOcean, monitoring.
+#### **infra** (`infra@vskill`) - Infrastructure Engineering
+Cloud infrastructure, DevOps, SRE, monitoring, K8s.
 
 **Agents:**
 - **devops**: CI/CD pipelines, cloud deployments
@@ -289,8 +289,8 @@ Cloud infrastructure with Hetzner, DigitalOcean, monitoring.
 
 ---
 
-#### **specweave-kubernetes** - Kubernetes Orchestration
-Cloud-native K8s architecture, GitOps, service mesh.
+#### Kubernetes (part of `infra@vskill`)
+Cloud-native K8s architecture, GitOps, service mesh. Bundled within the infra plugin.
 
 **Agent:**
 - **kubernetes-architect**: EKS/AKS/GKE, Helm, ArgoCD/Flux, Istio
@@ -312,7 +312,7 @@ Cloud-native K8s architecture, GitOps, service mesh.
 
 ### 🤖 Machine Learning & Data Science
 
-#### **specweave-ml** - ML Engineering
+#### **ml** (`ml@vskill`) - ML Engineering
 Complete ML lifecycle from data to deployment.
 
 **Agents:**
@@ -321,15 +321,15 @@ Complete ML lifecycle from data to deployment.
 - **mlops-engineer**: MLflow, Kubeflow, experiment tracking
 
 **Commands:**
-- `/specweave-ml:pipeline` - Design complete ML pipeline
-- `/specweave-ml:evaluate` - Evaluate model with metrics
-- `/specweave-ml:deploy` - Generate deployment artifacts
-- `/specweave-ml:explain` - Model explainability (SHAP, LIME)
+- `/sw-ml:pipeline` - Design complete ML pipeline
+- `/sw-ml:evaluate` - Evaluate model with metrics
+- `/sw-ml:deploy` - Generate deployment artifacts
+- `/sw-ml:explain` - Model explainability (SHAP, LIME)
 
 **Example: ML Pipeline**
 ```bash
 # Design complete ML workflow
-/specweave-ml:pipeline "Customer churn prediction"
+/sw-ml:pipeline "Customer churn prediction"
 
 # Generates:
 # 1. Data preprocessing (feature engineering, scaling)
@@ -352,7 +352,7 @@ Complete ML lifecycle from data to deployment.
 
 ### 💳 Specialized Domains
 
-#### **specweave-payments** - Payment Integration
+#### **payments** (`payments@vskill`) - Payment Integration
 Stripe, PayPal, payment processor expertise.
 
 **Agent:**
@@ -379,20 +379,20 @@ Stripe, PayPal, payment processor expertise.
 Documentation generation, organization, and live Docusaurus preview with hot reload.
 
 **Commands:**
-- `/specweave-docs:view` - Launch interactive docs server (internal or public)
-- `/specweave-docs:build` - Build static site for deployment
-- `/specweave-docs:generate` - Generate documentation
-- `/specweave-docs:organize` - Organize large doc folders
-- `/specweave-docs:health` - Documentation health report
-- `/specweave-docs:validate` - Validate documentation (MDX, YAML, links)
+- `/sw-docs:view` - Launch interactive docs server (internal or public)
+- `/sw-docs:build` - Build static site for deployment
+- `/sw-docs:generate` - Generate documentation
+- `/sw-docs:organize` - Organize large doc folders
+- `/sw-docs:health` - Documentation health report
+- `/sw-docs:validate` - Validate documentation (MDX, YAML, links)
 
 **Example:**
 ```bash
 # View internal docs (default) - port 3015
-/specweave-docs:view
+/sw-docs:view
 
 # View public docs - port 3016
-/specweave-docs:view --public
+/sw-docs:view --public
 
 # Output:
 # 🚀 Server running at http://localhost:3015 (or 3016 for public)
@@ -442,30 +442,30 @@ Multi-repo releases, semantic versioning, RC workflows.
 - **release-manager**: Coordinates releases across monorepo/polyrepo
 
 **Commands:**
-- `/specweave-release:init` - Initialize release strategy
-- `/specweave-release:align` - Align versions across repos
-- `/specweave-release:rc` - Manage Release Candidate lifecycle
-- `/specweave-release:platform` - Multi-repo platform releases
+- `/sw-release:init` - Initialize release strategy
+- `/sw-release:align` - Align versions across repos
+- `/sw-release:rc` - Manage Release Candidate lifecycle
+- `/sw-release:platform` - Multi-repo platform releases
 
 **Example:**
 ```bash
 # Initialize release strategy
-/specweave-release:init
+/sw-release:init
 # Analyzes git history, CI/CD configs, recommends strategy
 
 # Create Release Candidate
-/specweave-release:rc create v1.5.0-rc.1
+/sw-release:rc create v1.5.0-rc.1
 
 # Promote to production
-/specweave-release:rc promote v1.5.0-rc.3
+/sw-release:rc promote v1.5.0-rc.3
 ```
 
 ---
 
 ### 🎨 UI Testing & Automation
 
-#### **specweave-ui** - Browser Automation
-Playwright integration with MCP protocol.
+#### Browser Automation (part of `testing@vskill`)
+Playwright integration with MCP protocol. Bundled within the testing plugin.
 
 **Features:**
 - Browser automation for E2E testing
@@ -477,8 +477,8 @@ Playwright integration with MCP protocol.
 
 ### 🔧 Utilities
 
-#### **specweave-cost-optimizer** - AI Cost Optimization
-Tracks AI costs, suggests optimizations.
+#### Cost Optimization (built into core)
+Tracks AI costs, suggests optimizations. Available via core plugin context management.
 
 **Features:**
 - Cost tracking per increment
@@ -514,7 +514,7 @@ SpecWeave addresses this through its plugin marketplace architecture: skills are
 
 ```bash
 # 1. PM Agent (Core) creates spec
-/specweave:increment "Real-time chat feature"
+/sw:increment "Real-time chat feature"
 
 # 2. Architect Agent (Core) designs system
 # - WebSocket architecture
@@ -541,7 +541,7 @@ SpecWeave addresses this through its plugin marketplace architecture: skills are
 # - Links to increment
 
 # 7. Start implementation
-/specweave:do
+/sw:do
 
 # 8. All agents collaborate during implementation!
 ```
@@ -558,7 +558,7 @@ SpecWeave addresses this through its plugin marketplace architecture: skills are
 | **React Feature** | Core + Frontend | ~18K tokens |
 | **Full-Stack API** | Core + Frontend + Backend | ~24K tokens |
 | **ML Pipeline** | Core + ML + Infrastructure | ~28K tokens |
-| **Enterprise (All)** | All 21 plugins | ~30K tokens |
+| **Enterprise (All)** | All 20 plugins | ~30K tokens |
 
 **Result**: 75% smaller than monolithic architecture!
 
@@ -568,42 +568,51 @@ SpecWeave addresses this through its plugin marketplace architecture: skills are
 
 | I want to... | Use Plugin | Key Command |
 |-------------|-----------|-------------|
-| Plan increment | **specweave** | `/specweave:increment` |
-| Sync to GitHub | **specweave-github** | `/specweave-github:sync` |
-| Deploy to K8s | **specweave-kubernetes** | Agent auto-activates |
-| Build React app | **specweave-frontend** | Agent auto-activates |
-| Create ML pipeline | **specweave-ml** | `/specweave-ml:pipeline` |
-| View docs | **specweave-docs** | `/specweave-docs:view` |
-| Handle incidents | **specweave-infrastructure** | SRE agent + playbooks |
-| Generate diagrams | **specweave-diagrams** | Agent auto-activates |
-| Integrate Stripe | **specweave-payments** | Agent auto-activates |
-| Manage releases | **specweave-release** | `/specweave-release:init` |
+| Plan increment | **specweave** | `/sw:increment` |
+| Execute tasks | **specweave** | `/sw:do` |
+| Quality review | **specweave** | `/sw:grill` |
+| Sync to GitHub | **specweave-github** | `/sw-github:push` |
+| Build React app | **frontend** | Auto-activates on keywords |
+| Build API | **backend** | Auto-activates on keywords |
+| Deploy infra / K8s | **infra** | Auto-activates on keywords |
+| Create ML pipeline | **ml** | Auto-activates on keywords |
+| Integrate Stripe | **payments** | Auto-activates on keywords |
+| Manage releases | **specweave-release** | `/sw-release:init` |
+| Find skills | **skills** | `/skills:scout` |
 
 ---
 
-## 🚀 Quick Reference: All 19 Plugins
+## 🚀 Quick Reference: All 20 Plugins
 
-| Plugin | Purpose | Key Features |
-|--------|---------|--------------|
-| **specweave** | Core framework | 22 agents, 22 commands, increment lifecycle |
-| **specweave-github** | GitHub sync | Bidirectional sync, auto-issue creation |
-| **specweave-jira** | JIRA sync | Epic/Story sync, status mapping |
-| **specweave-ado** | Azure DevOps | Work items, multi-project strategies |
-| **specweave-frontend** | Frontend dev | React, Vue, Angular, Next.js |
-| **specweave-backend** | Backend dev | Node.js, Python, .NET, APIs |
-| **specweave-mobile** | Mobile dev | React Native, Expo, offline-first |
-| **specweave-infrastructure** | DevOps | SRE, monitoring, incident response |
-| **specweave-kubernetes** | K8s orchestration | Helm, GitOps, service mesh |
-| **specweave-ml** | Machine Learning | MLOps, pipelines, deployment |
-| **specweave-release** | Release mgmt | Semantic versioning, RC workflow |
-| **specweave-payments** | Payments | Stripe, PayPal, PCI compliance |
-| **specweave-ui** | Browser automation | Playwright, E2E testing |
-| **specweave-diagrams** | Diagram generation | Mermaid, C4 Model |
-| **specweave-figma** | Design integration | Figma → Components |
-| **specweave-cost-optimizer** | Cost tracking | AI cost optimization |
-| **specweave-docs** | Documentation | Guides, API docs, Docusaurus preview |
-| **specweave-testing** | Testing utilities | Test automation |
-| **specweave-tooling** | Development tools | CLI utilities |
+### SpecWeave Core Plugins (8)
+
+| Plugin | Install Name | Purpose |
+|--------|-------------|---------|
+| **specweave** | `sw@specweave` | Core framework: 24 skills, 28 commands, increment lifecycle |
+| **specweave-github** | `sw-github@specweave` | GitHub sync: bidirectional issues, auto-creation |
+| **specweave-jira** | `sw-jira@specweave` | JIRA sync: Epic/Story mapping, status sync |
+| **specweave-ado** | `sw-ado@specweave` | Azure DevOps: work items, multi-project |
+| **specweave-docs** | `sw-docs@specweave` | Documentation: Docusaurus preview, hot reload |
+| **specweave-diagrams** | `sw-diagrams@specweave` | Diagrams: Mermaid, C4 Model |
+| **specweave-release** | `sw-release@specweave` | Release mgmt: semantic versioning, RC workflow |
+| **specweave-media** | `sw-media@specweave` | Media: AI image generation, assets |
+
+### Tech Stack Plugins (12, via vskill)
+
+| Plugin | Install Name | Purpose |
+|--------|-------------|---------|
+| **frontend** | `frontend@vskill` | React, Vue, Angular, Next.js |
+| **backend** | `backend@vskill` | Node.js, Python, .NET, APIs |
+| **mobile** | `mobile@vskill` | React Native, Expo, offline-first |
+| **infra** | `infra@vskill` | DevOps, SRE, K8s, monitoring, CI/CD |
+| **testing** | `testing@vskill` | Playwright, Vitest, TDD |
+| **ml** | `ml@vskill` | MLOps, pipelines, deployment |
+| **payments** | `payments@vskill` | Stripe, PayPal, PCI compliance |
+| **kafka** | `kafka@vskill` | Kafka, event streaming |
+| **skills** | `skills@vskill` | Skill discovery (scout) via verified-skill.com |
+| **blockchain** | `blockchain@vskill` | Web3, smart contracts, DApps |
+| **confluent** | `confluent@vskill` | Confluent platform, Schema Registry |
+| **security** | `security@vskill` | Security analysis, OWASP, vulnerability scanning |
 
 ---
 
@@ -625,13 +634,13 @@ For large projects with 100+ files:
 ### 3. Leverage Command Shortcuts
 ```bash
 # Planning
-/specweave:increment → /specweave:do → /specweave:done
+/sw:increment → /sw:do → /sw:done
 
 # Quality
-/specweave:validate → /specweave:qa → /specweave:check-tests
+/sw:validate → /sw:qa → /sw:check-tests
 
 # Sync
-/specweave-github:sync → /specweave:sync-docs
+/sw-github:sync → /sw:sync-docs
 ```
 
 ### 4. Multi-Project Setup
@@ -732,10 +741,10 @@ Want to add a new plugin? See [CLAUDE.md](https://github.com/anton-abyzov/specwe
 
 :::tip Next Steps
 1. ✅ Install: `npx specweave init .`
-2. 🎯 Plan: `/specweave:increment "Your feature"`
-3. ⚡ Implement: `/specweave:do`
-4. 🔗 Sync: `/specweave-github:sync`
-5. ✅ Complete: `/specweave:done`
+2. 🎯 Plan: `/sw:increment "Your feature"`
+3. ⚡ Implement: `/sw:do`
+4. 🔗 Sync: `/sw-github:sync`
+5. ✅ Complete: `/sw:done`
 
-**All 21 plugins are ready to help you build faster!**
+**All 20 plugins are ready to help you build faster!**
 :::

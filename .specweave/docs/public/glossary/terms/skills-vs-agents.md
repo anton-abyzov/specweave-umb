@@ -46,10 +46,10 @@ graph LR
 ### Example Skills
 
 ```
-specweave:increment            # Activates for "plan increment"
-specweave:brownfield-analyzer  # Activates for "existing project"
-specweave:tdd-workflow         # Activates for "TDD", "red-green"
-specweave:serverless-recommender  # Activates for "serverless", "Lambda"
+sw:increment            # Activates for "plan increment"
+sw:architect            # Activates for "architecture", "system design"
+sw:pm                   # Activates for "product", "MVP", "requirements"
+sw:tdd-cycle            # Activates for "TDD", "red-green-refactor"
 ```
 
 ### Skill File Structure
@@ -80,7 +80,7 @@ description: Plan and create SpecWeave increments with PM and Architect
 
 ```mermaid
 graph LR
-    A["/specweave:increment"] --> B[PM Agent spawned]
+    A["/sw:increment"] --> B[PM Agent spawned]
     B --> C[Isolated context]
     C --> D[Generate spec.md]
     D --> E[Return to main context]

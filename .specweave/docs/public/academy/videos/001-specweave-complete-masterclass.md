@@ -159,19 +159,19 @@
 
 ```bash
 # Plan work
-/specweave:increment "Add user authentication"
+/sw:increment "Add user authentication"
 
 # Execute tasks
-/specweave:do
+/sw:do
 
 # Check progress
-/specweave:progress
+/sw:progress
 
 # Sync to GitHub/JIRA/ADO
-/specweave:sync-progress
+/sw:sync-progress
 
 # Close when done
-/specweave:done 0042
+/sw:done 0042
 ```
 
 > "Five commands. That's your daily workflow."
@@ -412,7 +412,7 @@ Contains:
 
 > "Here's the key insight: Claude reads spec.md. It sees the user stories. It understands the acceptance criteria. It generates tasks that SATISFY those criteria.
 
-> Then when you run `/specweave:do`, Claude checks off tasks, which checks off ACs, which completes stories.
+> Then when you run `/sw:do`, Claude checks off tasks, which checks off ACs, which completes stories.
 
 > It's not magic. It's structure. And structure is what makes AI productive."
 
@@ -444,10 +444,10 @@ Contains:
 >
 > 1. Define clear user stories and acceptance criteria in spec.md
 > 2. Let the Architect agent create the plan
-> 3. Run `/specweave:do`
+> 3. Run `/sw:do`
 > 4. **Just review what's done** — Opus handles the rest
 >
-> I've had increments where I typed `/specweave:do`, went for coffee, and came back to working, tested, documented code. That's the power of small increments + Opus 4.6.
+> I've had increments where I typed `/sw:do`, went for coffee, and came back to working, tested, documented code. That's the power of small increments + Opus 4.6.
 >
 > **Anti-pattern**: 50-task mega-increment that runs for weeks. You lose context. AI loses context. Nothing ships.
 >
@@ -535,18 +535,18 @@ PATTERN 2: Multi-Project (Enterprise)
 
 #### How Increment Generation Works
 
-**[VISUAL: Terminal showing /specweave:increment]**
+**[VISUAL: Terminal showing /sw:increment]**
 
-> "When you run `/specweave:increment`, SpecWeave doesn't just create files. It UNDERSTANDS your project."
+> "When you run `/sw:increment`, SpecWeave doesn't just create files. It UNDERSTANDS your project."
 
 ```bash
-/specweave:increment "Add payment processing"
+/sw:increment "Add payment processing"
 ```
 
 **[VISUAL: Behind-the-scenes flow]**
 
 ```
-YOU TYPE: /specweave:increment "Add payment processing"
+YOU TYPE: /sw:increment "Add payment processing"
 
 SPECWEAVE DOES:
 1. Detects current project (frontend? backend? mobile?)
@@ -555,7 +555,7 @@ SPECWEAVE DOES:
 4. Architect agent designs approach
 5. Tasks generated with AC links
 6. Metadata tracks external IDs
-7. Ready for /specweave:do
+7. Ready for /sw:do
 ```
 
 > "One command. Full spec. Full plan. Full task list. All project-aware."
@@ -577,7 +577,7 @@ SPECWEAVE DOES:
 │   │   metadata   │               │  Comments    │                   │
 │   └──────────────┘               └──────────────┘                   │
 │                                                                      │
-│   /specweave:sync-progress                                          │
+│   /sw:sync-progress                                          │
 │   ─────────────────────────────                                     │
 │   • Reads tasks.md completion status                                │
 │   • Updates spec.md acceptance criteria                             │
@@ -591,20 +591,20 @@ SPECWEAVE DOES:
 
 > "See that? Bidirectional. You check a box in JIRA — SpecWeave sees it. You complete a task locally — GitHub updates. This is REAL sync, not one-way export."
 
-#### The Magic: /specweave:next
+#### The Magic: /sw:next
 
 **[VISUAL: Terminal showing /next command]**
 
-> "Now the command that ties it ALL together: `/specweave:next`"
+> "Now the command that ties it ALL together: `/sw:next`"
 
 ```bash
-/specweave:next
+/sw:next
 ```
 
 **[VISUAL: Flow chart of /next decision tree]**
 
 ```
-/specweave:next DOES:
+/sw:next DOES:
 │
 ├─▶ Is current increment done?
 │   ├─ YES: Run quality gates (tasks/tests/docs)
@@ -621,7 +621,7 @@ SPECWEAVE DOES:
 
 > "One command. It figures out what to do. Close this? Start that? Review specs? Just keep clicking next.
 
-> This is the flow I use every day. Start morning. `/specweave:next`. Keep going until lunch. `/specweave:next`. It's INTUITIVE."
+> This is the flow I use every day. Start morning. `/sw:next`. Keep going until lunch. `/sw:next`. It's INTUITIVE."
 
 #### Sync Commands Reference
 
@@ -629,19 +629,19 @@ SPECWEAVE DOES:
 
 ```bash
 # Full sync (tasks → docs → external)
-/specweave:sync-progress
+/sw:sync-progress
 
 # Just GitHub
-/specweave:github-sync
+/sw:github-sync
 
 # Just JIRA
-/specweave:jira-sync
+/sw:jira-sync
 
 # Just ADO
-/specweave:ado-sync
+/sw:ado-sync
 
 # The flow command
-/specweave:next
+/sw:next
 ```
 
 > "That's the sync system. Months of work. Battle-tested on real projects. And it just WORKS."
@@ -671,7 +671,7 @@ SPECWEAVE DOES:
 │                                                      │
 │  2. SLASH COMMANDS (.claude/commands/)              │
 │     └─ User-invoked actions                         │
-│     └─ /specweave:do, /specweave:progress           │
+│     └─ /sw:do, /sw:progress           │
 │                                                      │
 │  3. HOOKS (hooks.json)                              │
 │     └─ React to events                              │
@@ -711,11 +711,11 @@ When user asks to plan work, follow these steps...
 > "Slash commands are explicit actions. You type them, they run."
 
 ```bash
-/specweave:increment "Add dark mode"    # Plan new work
-/specweave:do                           # Execute tasks
-/specweave:progress                     # Show status
-/specweave:done 0001                    # Close increment
-/specweave:github-sync                  # Sync to GitHub
+/sw:increment "Add dark mode"    # Plan new work
+/sw:do                           # Execute tasks
+/sw:progress                     # Show status
+/sw:done 0001                    # Close increment
+/sw:github-sync                  # Sync to GitHub
 ```
 
 > "Each command is a markdown file that expands into a full prompt. Claude executes it."
@@ -868,7 +868,7 @@ asc publish appstore                     # Submit for App Store review
 >
 > Automation. Hooks fire automatically. Status syncs without thinking.
 >
-> Extensibility. 24 plugins. Growing ecosystem. Write your own skills.
+> Extensibility. 20 plugins. Growing ecosystem. Write your own skills.
 >
 > Flexibility. GitHub OR JIRA OR Azure DevOps. Swap at any time."
 
@@ -1267,7 +1267,7 @@ npx mcp_excalidraw
 └── state/               # Runtime state
 ```
 
-> "Plus 24 plugins loaded in Claude Code. Plus MCP servers ready. Your spec-driven workspace is live."
+> "Plus 20 plugins loaded in Claude Code. Plus MCP servers ready. Your spec-driven workspace is live."
 
 ---
 
@@ -1397,7 +1397,7 @@ source ~/.zshrc
 
 > "Here's why this matters:
 
-> **Terminal 1** — Your main Claude. This is where you do the actual work. `/specweave:do`, implementing features, writing code.
+> **Terminal 1** — Your main Claude. This is where you do the actual work. `/sw:do`, implementing features, writing code.
 
 > **Terminal 2** — Research Claude. Ask questions without interrupting your main work. 'Hey Claude, how does this API work?' Your main session stays focused.
 
@@ -1439,10 +1439,10 @@ npx specweave init .
 
 #### Step 2: Plan First Increment
 
-**[VISUAL: Claude running /specweave:increment]**
+**[VISUAL: Claude running /sw:increment]**
 
 ```bash
-/specweave:increment "Build REST API for task management with CRUD operations"
+/sw:increment "Build REST API for task management with CRUD operations"
 ```
 
 > "Watch what happens. Claude becomes your product manager."
@@ -1482,10 +1482,10 @@ As a user, I want to create a new task...
 
 #### Step 4: Execute
 
-**[VISUAL: Terminal running /specweave:do]**
+**[VISUAL: Terminal running /sw:do]**
 
 ```bash
-/specweave:do
+/sw:do
 ```
 
 > "This is the magic command. Claude reads the spec, reads the tasks, and starts building.
@@ -1501,7 +1501,7 @@ As a user, I want to create a new task...
 **[VISUAL: Progress output]**
 
 ```bash
-/specweave:progress
+/sw:progress
 ```
 
 ```
@@ -1529,7 +1529,7 @@ Pending:
 **[VISUAL: Closing increment]**
 
 ```bash
-/specweave:done 0001
+/sw:done 0001
 ```
 
 > "SpecWeave validates:
@@ -1562,7 +1562,7 @@ Pending:
 **[VISUAL: Translation command]**
 
 ```bash
-/specweave:translate --target es,de,fr
+/sw:translate --target es,de,fr
 ```
 
 > "One command. Watch."
@@ -1582,7 +1582,7 @@ Pending:
 **[VISUAL: spec.md being translated]**
 
 ```bash
-/specweave:specweave-translate --increment 0001 --target ru
+/sw:specweave-translate --increment 0001 --target ru
 ```
 
 > "Even your specs can be translated. Teams in different countries read specs in their language. Code stays English. Specs go multilingual."
@@ -1980,7 +1980,7 @@ utils/        → EASY-012                        (1 item)
 #### Step 6: Continue with Enhanced Context
 
 ```bash
-/specweave:increment "Refactor payment refund flow"
+/sw:increment "Refactor payment refund flow"
 ```
 
 > "When Claude generates the spec, it reads the GENERATED docs. It understands your codebase from the analysis. It knows about the 47 JIRA items. It saw the gaps."
@@ -2025,7 +2025,7 @@ npx specweave init .
 #### Create Increment → Auto-Create Issue
 
 ```bash
-/specweave:increment "Add dark mode toggle"
+/sw:increment "Add dark mode toggle"
 ```
 
 **[VISUAL: Split screen - terminal and GitHub]**
@@ -2033,7 +2033,7 @@ npx specweave init .
 > "Increment created locally. Now watch GitHub..."
 
 ```bash
-/specweave:github-create-issue --increment 0003
+/sw:github-create-issue --increment 0003
 ```
 
 **[VISUAL: GitHub issue appearing]**
@@ -2053,7 +2053,7 @@ npx specweave init .
 > "When you complete tasks locally, SpecWeave pushes to GitHub automatically."
 
 ```bash
-/specweave:do
+/sw:do
 # Task completed...
 # Hook fires automatically...
 # GitHub issue checkbox updates!
@@ -2070,7 +2070,7 @@ npx specweave init .
 ```bash
 # PM closes an issue in GitHub at 3am...
 # You start work next morning:
-/specweave:sync-pull
+/sw:sync-pull
 
 # Or it runs automatically on session start!
 ```
@@ -2113,7 +2113,7 @@ All logged for compliance.
 #### Full Sync Command
 
 ```bash
-/specweave:sync-progress
+/sw:sync-progress
 ```
 
 > "One command syncs EVERYTHING:
@@ -2151,7 +2151,7 @@ JIRA_PROJECT_KEY=PROJ
 #### Import Existing JIRA Epics
 
 ```bash
-/specweave:jira-sync --mode import --project PROJ
+/sw:jira-sync --mode import --project PROJ
 ```
 
 **[VISUAL: JIRA epics flowing into SpecWeave]**
@@ -2163,8 +2163,8 @@ JIRA_PROJECT_KEY=PROJ
 #### Create and Push Back
 
 ```bash
-/specweave:increment "Performance optimization sprint"
-/specweave:jira-sync --mode export --increment 0004
+/sw:increment "Performance optimization sprint"
+/sw:jira-sync --mode export --increment 0004
 ```
 
 **[VISUAL: JIRA epic being created]**
@@ -2302,13 +2302,13 @@ AFTER v0.28 (Intelligent):
 
 ```bash
 # Import with auto-detection
-/specweave:ado-sync --mode import
+/sw:ado-sync --mode import
 
 # Export preserving hierarchy
-/specweave:ado-sync --mode export --increment 0005
+/sw:ado-sync --mode export --increment 0005
 
 # Bidirectional with pull
-/specweave:ado-sync --mode bidirectional
+/sw:ado-sync --mode bidirectional
 ```
 
 #### Area Path Support
@@ -2361,7 +2361,7 @@ Created: 3 days ago
 **[VISUAL: Terminal running import command]**
 
 ```bash
-/specweave:import-external --source github --since "7 days"
+/sw:import-external --source github --since "7 days"
 ```
 
 ```
@@ -2418,7 +2418,7 @@ cat .specweave/docs/internal/specs/specweave/FS-118E/us-014e-bug-external-tool-s
 **[VISUAL: Terminal creating increment]**
 
 ```bash
-/specweave:increment --from-external FS-118E/us-014e
+/sw:increment --from-external FS-118E/us-014e
 ```
 
 ```
@@ -2452,7 +2452,7 @@ Increment ready: .specweave/increments/0118E-external-tool-sync-fix/
 **[VISUAL: Standard SpecWeave workflow]**
 
 ```bash
-/specweave:do
+/sw:do
 ```
 
 > "Now you work exactly like any other increment. Read the spec. Complete tasks. Check off acceptance criteria.
@@ -2474,7 +2474,7 @@ Syncing to external tool...
 #### Step 5: Close and Sync Back
 
 ```bash
-/specweave:done 0118E
+/sw:done 0118E
 ```
 
 ```
@@ -2549,13 +2549,13 @@ Increment archived to: _archive/0118E-external-tool-sync-fix/
 
 ```bash
 # GitHub
-/specweave:import-external --source github --since "7 days"
+/sw:import-external --source github --since "7 days"
 
 # JIRA
-/specweave:import-external --source jira --project PROJ --since "30 days"
+/sw:import-external --source jira --project PROJ --since "30 days"
 
 # Azure DevOps
-/specweave:import-external --source ado --project MyProject --since "14 days"
+/sw:import-external --source ado --project MyProject --since "14 days"
 ```
 
 > "Same pattern for JIRA epics, ADO work items, GitHub issues. Import. Create increment. Work. Sync back. Close.
@@ -3021,11 +3021,11 @@ npm install -g @anthropic-ai/claude-code
 npx specweave init .
 
 # Daily Commands
-/specweave:increment "feature"   # Plan work
-/specweave:do                    # Execute
-/specweave:progress              # Check status
-/specweave:sync-progress         # Sync all tools (bidirectional!)
-/specweave:done 0001             # Close increment
+/sw:increment "feature"   # Plan work
+/sw:do                    # Execute
+/sw:progress              # Check status
+/sw:sync-progress         # Sync all tools (bidirectional!)
+/sw:done 0001             # Close increment
 
 # NEW in v0.28: Background Jobs
 specweave jobs                   # List all jobs
@@ -3035,12 +3035,12 @@ specweave jobs --kill <id>       # Pause job
 specweave jobs --resume <id>     # Resume from checkpoint
 
 # NEW in v0.28: Pull Sync
-/specweave:sync-pull             # Pull external changes
+/sw:sync-pull             # Pull external changes
 
 # External Sync
-/specweave:github-sync
-/specweave:jira-sync
-/specweave:ado-sync
+/sw:github-sync
+/sw:jira-sync
+/sw:ado-sync
 
 # VS Code Auto-Launch (Mac)
 Add to settings.json:

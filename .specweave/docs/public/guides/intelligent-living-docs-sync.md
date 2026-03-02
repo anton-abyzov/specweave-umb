@@ -453,7 +453,7 @@ Add:
 
 **Step 2**: Complete a task:
 ```bash
-/specweave:do
+/sw:do
 # Complete tasks...
 ```
 
@@ -516,10 +516,10 @@ project: backend    # ← Explicit (100% confidence)
 **Solution 2 - Add keywords to increment name**:
 ```bash
 # ❌ Ambiguous
-/specweave:increment "0016-authentication"
+/sw:increment "0016-authentication"
 
 # ✅ Clear
-/specweave:increment "0016-backend-authentication"
+/sw:increment "0016-backend-authentication"
 ```
 
 **Solution 3 - Add project keywords to spec**:
@@ -686,7 +686,7 @@ project: backend
 
 **In increment name**:
 ```bash
-/specweave:increment "0016-backend-authentication"
+/sw:increment "0016-backend-authentication"
 ```
 
 ### 3. Use Descriptive Headings
@@ -733,7 +733,7 @@ Already using simple mode? Migrate gradually:
 
 **Step 2 - Complete a new task**:
 ```bash
-/specweave:do
+/sw:do
 # Complete task → Automatic sync!
 ```
 

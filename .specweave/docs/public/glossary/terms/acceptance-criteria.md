@@ -342,7 +342,7 @@ SpecWeave validates AC coverage automatically:
 ### Validation Command
 
 ```bash
-/specweave:check-tests 0008
+/sw:check-tests 0008
 
 # Output:
 ## AC Coverage Report
@@ -547,7 +547,7 @@ SpecWeave validates AC coverage automatically:
 ### Creation (PM Agent)
 
 ```bash
-/specweave:increment "user authentication"
+/sw:increment "user authentication"
 
 # PM Agent generates spec.md with:
 # - User stories (US-001, US-002, US-003)
@@ -558,7 +558,7 @@ SpecWeave validates AC coverage automatically:
 ### Implementation (Developer)
 
 ```bash
-/specweave:do
+/sw:do
 
 # Developer implements tasks:
 # T-001: Implement AuthService
@@ -569,7 +569,7 @@ SpecWeave validates AC coverage automatically:
 ### Validation (QA)
 
 ```bash
-/specweave:check-tests 0008
+/sw:check-tests 0008
 
 # Validates:
 # ✅ All AC-IDs have tests?

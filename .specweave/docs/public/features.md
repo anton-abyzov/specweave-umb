@@ -120,19 +120,25 @@ Comprehensive overview of what SpecWeave supports.
 
 | Skill | Activation Keywords |
 |-------|---------------------|
-| `increment` | "plan increment", "new feature", "build" |
-| `spec-generator` | "spec", "requirements", "user stories" |
-| `brownfield-analyzer` | "existing project", "legacy", "migrate" |
-| `tdd-workflow` | "TDD", "test-driven", "red-green" |
-| `serverless-recommender` | "serverless", "Lambda", "Azure Functions" |
+| `sw:increment` | "plan increment", "new feature", "build" |
+| `sw:pm` | "write specs", "define requirements", "plan MVP" |
+| `sw:architect` | "system architecture", "database design", "ADR" |
+| `sw:do` | "implement", "start working", "execute tasks" |
+| `sw:done` | "close increment", "we're done", "finish up" |
+| `sw:grill` | "review my code", "critique implementation" |
+| `sw:validate` | "check quality", "verify increment" |
+| `sw:tdd-cycle` | "TDD", "test-driven", "red-green-refactor" |
+| `sw:spec-generator` | "generate spec", "create specification" |
+| `sw:team-lead` | "team setup", "parallel agents", "agent teams" |
 
 ### Integration Skills
 
 | Skill | Activation Keywords |
 |-------|---------------------|
-| `external-sync-wizard` | "sync GitHub", "JIRA integration" |
-| `compliance-architecture` | "HIPAA", "SOC2", "GDPR" |
-| `roadmap-planner` | "roadmap", "prioritization", "RICE" |
+| `sw:progress-sync` | "sync progress", "push progress" |
+| `sw:sync-docs` | "sync docs", "update living docs" |
+| `sw:import` | "import issues", "pull from github" |
+| `skills:scout` | "find skill", "search skills", "discover" |
 
 ---
 
@@ -142,46 +148,46 @@ Comprehensive overview of what SpecWeave supports.
 
 | Command | Purpose |
 |---------|---------|
-| `/specweave:increment "title"` | Create new increment |
-| `/specweave:do` | Execute implementation |
-| `/specweave:done 0001` | Complete with validation |
-| `/specweave:progress` | Show all increment status |
-| `/specweave:validate 0001` | Quality check |
-| `/specweave:pause 0001` | Pause increment |
-| `/specweave:resume 0001` | Resume increment |
-| `/specweave:abandon 0001` | Abandon increment |
-| `/specweave:reopen 0001` | Reopen completed increment |
+| `/sw:increment "title"` | Create new increment |
+| `/sw:do` | Execute implementation |
+| `/sw:done 0001` | Complete with validation |
+| `/sw:progress` | Show all increment status |
+| `/sw:validate 0001` | Quality check |
+| `/sw:pause 0001` | Pause increment |
+| `/sw:resume 0001` | Resume increment |
+| `/sw:abandon 0001` | Abandon increment |
+| `/sw:reopen 0001` | Reopen completed increment |
 
 ### Sync Commands
 
 | Command | Purpose |
 |---------|---------|
-| `/specweave:sync-progress` | Full multi-system sync |
-| `/specweave:sync-docs` | Sync to living docs |
-| `/specweave-github:sync 0001` | Sync to GitHub |
-| `/specweave-github:create-issue 0001` | Create GitHub issue |
-| `/specweave-github:close-issue 0001` | Close GitHub issue |
-| `/specweave-jira:sync` | Sync to JIRA |
-| `/specweave-ado:sync` | Sync to Azure DevOps |
+| `/sw:sync-progress` | Full multi-system sync |
+| `/sw:sync-docs` | Sync to living docs |
+| `/sw-github:sync 0001` | Sync to GitHub |
+| `/sw-github:create-issue 0001` | Create GitHub issue |
+| `/sw-github:close-issue 0001` | Close GitHub issue |
+| `/sw-jira:sync` | Sync to JIRA |
+| `/sw-ado:sync` | Sync to Azure DevOps |
 
 ### Quality Commands
 
 | Command | Purpose |
 |---------|---------|
-| `/specweave:qa 0001` | Run quality assessment |
-| `/specweave:check-tests` | Validate test coverage |
-| `/specweave:tdd-cycle` | Full TDD workflow |
-| `/specweave:tdd-red` | Write failing tests |
-| `/specweave:tdd-green` | Make tests pass |
-| `/specweave:tdd-refactor` | Refactor with safety |
+| `/sw:qa 0001` | Run quality assessment |
+| `/sw:check-tests` | Validate test coverage |
+| `/sw:tdd-cycle` | Full TDD workflow |
+| `/sw:tdd-red` | Write failing tests |
+| `/sw:tdd-green` | Make tests pass |
+| `/sw:tdd-refactor` | Refactor with safety |
 
 ### Import/Export Commands
 
 | Command | Purpose |
 |---------|---------|
-| `/specweave:import-docs` | Import from Notion, Confluence, Wiki |
-| `/specweave:import-external` | Import from issue trackers |
-| `/specweave:translate` | Translate project content |
+| `/sw:import-docs` | Import from Notion, Confluence, Wiki |
+| `/sw:import-external` | Import from issue trackers |
+| `/sw:translate` | Translate project content |
 
 ---
 
@@ -189,10 +195,10 @@ Comprehensive overview of what SpecWeave supports.
 
 | Hook | Event | Default Actions |
 |------|-------|-----------------|
-| `post-increment-planning` | After `/specweave:increment` | Create GitHub issue, translate |
+| `post-increment-planning` | After `/sw:increment` | Create GitHub issue, translate |
 | `post-task-completion` | After task complete | Sync docs, update external |
-| `post-increment-done` | After `/specweave:done` | Close issue, archive |
-| `pre-implementation` | Before `/specweave:do` | Validate environment |
+| `post-increment-done` | After `/sw:done` | Close issue, archive |
+| `pre-implementation` | Before `/sw:do` | Validate environment |
 
 ---
 
@@ -269,25 +275,28 @@ Comprehensive overview of what SpecWeave supports.
 
 ### Official Plugins
 
-| Plugin | Focus |
-|--------|-------|
-| `specweave` | Core (PM, Architect, 22 agents) |
-| `specweave-github` | GitHub Issues integration |
-| `specweave-jira` | JIRA integration |
-| `specweave-ado` | Azure DevOps integration |
-| `specweave-ml` | Machine learning workflows |
-| `specweave-infrastructure` | DevOps, SRE, observability |
-| `specweave-kafka` | Kafka streaming architecture |
-| `specweave-release` | Release management |
-| `specweave-diagrams` | Mermaid diagram generation |
-| `specweave-frontend` | Frontend architecture |
-| `specweave-testing` | QA engineering |
-| `specweave-backend` | Database optimization |
-| `specweave-mobile` | Mobile architecture |
-| `specweave-payments` | Payment integration |
-| `specweave-kubernetes` | K8s architecture |
-| `specweave-docs` | Documentation & preview |
-| `specweave-tooling` | Plugin development |
+| Plugin | Install Name | Focus |
+|--------|-------------|-------|
+| **specweave** | `sw@specweave` | Core (24 skills, 28 commands, increment lifecycle) |
+| **specweave-github** | `sw-github@specweave` | GitHub Issues integration |
+| **specweave-jira** | `sw-jira@specweave` | JIRA integration |
+| **specweave-ado** | `sw-ado@specweave` | Azure DevOps integration |
+| **specweave-docs** | `sw-docs@specweave` | Documentation & preview |
+| **specweave-diagrams** | `sw-diagrams@specweave` | Mermaid diagram generation |
+| **specweave-release** | `sw-release@specweave` | Release management |
+| **specweave-media** | `sw-media@specweave` | AI image generation, assets |
+| **frontend** | `frontend@vskill` | React, Vue, Angular, Next.js |
+| **backend** | `backend@vskill` | Node.js, Python, .NET, APIs |
+| **mobile** | `mobile@vskill` | React Native, Expo |
+| **infra** | `infra@vskill` | DevOps, SRE, K8s, CI/CD |
+| **testing** | `testing@vskill` | Playwright, Vitest, TDD |
+| **ml** | `ml@vskill` | ML pipelines, MLOps |
+| **payments** | `payments@vskill` | Stripe, PayPal, PCI |
+| **kafka** | `kafka@vskill` | Kafka event streaming |
+| **skills** | `skills@vskill` | Skill discovery (scout) |
+| **blockchain** | `blockchain@vskill` | Web3, smart contracts |
+| **confluent** | `confluent@vskill` | Confluent platform |
+| **security** | `security@vskill` | Security analysis, OWASP |
 
 ---
 

@@ -47,7 +47,7 @@ SpecWeave enforces **Spec-Driven Development**:
 ### 1. One Command Creates Foundation
 
 ```bash
-/specweave:increment "Add dark mode toggle"
+/sw:increment "Add dark mode toggle"
 ```
 
 AI agents (PM, Architect, Planner) create:
@@ -62,7 +62,7 @@ AI agents (PM, Architect, Planner) create:
 ### 2. One Command Builds
 
 ```bash
-/specweave:do
+/sw:do
 ```
 
 Autonomous execution through all tasks with quality validation.
@@ -70,7 +70,7 @@ Autonomous execution through all tasks with quality validation.
 ### 3. One Command Closes
 
 ```bash
-/specweave:done 0001
+/sw:done 0001
 ```
 
 Three quality gates validate completion:
@@ -108,7 +108,7 @@ Your work syncs to [GitHub](/docs/glossary/terms/github-actions) Issues, JIRA, a
 | **Living Documentation** | Specs auto-update after every task via hooks—never drift from code | ⭐ Unique |
 | **External Sync** | Push specs to GitHub/JIRA/ADO, read status back—keep existing workflows | Strong |
 | **Quality Gates** | Three-gate validation (tasks + 60%+ tests + docs) before closing | Strong |
-| **68+ AI Agents** | PM, Architect, Tech Lead, QA, Security, DevOps work autonomously (Claude Opus 4.6) | Good |
+| **80+ Skills & Agents** | PM, Architect, Tech Lead, QA, Security, DevOps work autonomously across 20 plugins | Good |
 | **Universal Stack** | Works with ANY tech stack and ANY AI tool (Claude, Cursor, Copilot) | Expected |
 
 ## What You Get vs. Current State
@@ -134,12 +134,12 @@ specweave init .
 
 Then in Claude Code:
 ```bash
-/specweave:increment "Add dark mode toggle"
-/specweave:do
-/specweave:done 0001
+/sw:increment "Add dark mode toggle"
+/sw:do
+/sw:done 0001
 ```
 
-**Pro tip**: Use `/specweave:next` to flow through the entire cycle. One command auto-closes completed work and suggests what's next — review specs/tasks when needed, otherwise just keep clicking "next".
+**Pro tip**: Use `/sw:next` to flow through the entire cycle. One command auto-closes completed work and suggests what's next — review specs/tasks when needed, otherwise just keep clicking "next".
 
 **[Full Quickstart Guide](/docs/guides/getting-started/quickstart)**
 

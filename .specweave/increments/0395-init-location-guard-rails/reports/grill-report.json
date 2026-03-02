@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "incrementId": "0395-init-location-guard-rails",
+  "timestamp": "2026-03-02T05:00:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "suppressed": 2, "critical": 0, "high": 0, "medium": 2 },
+  "findings": []
+}

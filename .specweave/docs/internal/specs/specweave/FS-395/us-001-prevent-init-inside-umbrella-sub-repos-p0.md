@@ -4,7 +4,7 @@ feature: FS-395
 title: "Prevent Init Inside Umbrella Sub-Repos (P0)"
 status: completed
 priority: P1
-created: 2026-03-01
+created: 2026-03-01T00:00:00.000Z
 tldr: "**As a** developer working in a multi-repo umbrella project."
 project: specweave
 ---

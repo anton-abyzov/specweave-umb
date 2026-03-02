@@ -36,7 +36,7 @@ Infrastructure and operations terms cover the deployment, scaling, monitoring, a
 - Container orchestration platform
 - Automates deployment, scaling, and management
 - Industry standard for cloud-native applications
-- SpecWeave plugin: `specweave-kubernetes` for K8s-specific features
+- SpecWeave plugin: `infra@vskill` includes K8s architecture expertise
 
 **[Docker](/docs/glossary/terms/docker)**
 - Container platform for packaging applications
@@ -227,7 +227,7 @@ spec:
 When creating infrastructure-related increments:
 
 ```bash
-/specweave:increment "Deploy API to Kubernetes"
+/sw:increment "Deploy API to Kubernetes"
 ```
 
 The Architect agent:
@@ -238,11 +238,11 @@ The Architect agent:
 
 ### 2. Plugin System for Infrastructure
 
-**specweave-kubernetes plugin** (planned):
+**infra plugin** (`infra@vskill`):
 - Kubernetes-specific skills (deployment, scaling, monitoring)
 - Helm chart generation
 - K8s configuration validation
-- kubectl command suggestions
+- Infrastructure-as-Code, CI/CD, SRE
 
 **specweave-terraform plugin** (planned):
 - Terraform module templates

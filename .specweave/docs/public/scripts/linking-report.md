@@ -39,7 +39,7 @@
 - **Line 40:** `- **Output**: `plan.md`, Architecture Decision Records (ADRs), diagrams...`
 - **Line 165:** `- Create Architecture Decision Records (ADRs)...`
 - **Line 193:** `**Example Output** (ADR):...`
-- **Line 224:** `Architect Agent stores ADRs permanently in living docs, updated via `/specweave:sync-docs`....`
+- **Line 224:** `Architect Agent stores ADRs permanently in living docs, updated via `/sw:sync-docs`....`
 - *...and 12 more occurrences*
 
 #### API (Application Programming Interface) (→ `/docs/glossary/terms/api`)
@@ -74,7 +74,7 @@
 #### Living Documentation (→ `/docs/glossary/terms/living-docs`)
 
 - **Line 87:** `- **Activates**: When generating documentation, updating living docs...`
-- **Line 224:** `Architect Agent stores ADRs permanently in living docs, updated via `/specweave:sync-docs`....`
+- **Line 224:** `Architect Agent stores ADRs permanently in living docs, updated via `/sw:sync-docs`....`
 - **Line 634:** `4. Syncs living docs...`
 
 #### Specifications (Specs) (→ `/docs/glossary/terms/specs`)
@@ -90,7 +90,7 @@
 - **Line 57:** `**5. TDD Orchestrator Agent** (`tdd-orchestrator`)...`
 - **Line 58:** `- **Role**: TDD (Test-Driven Development) Workflow Leader...`
 - **Line 60:** `- **Activates**: When using TDD workflow...`
-- **Line 61:** `- **Commands**: `/specweave:tdd-cycle`, `/specweave:tdd-red`, `/specweave:tdd-green`, `/specweave:td...`
+- **Line 61:** `- **Commands**: `/sw:tdd-cycle`, `/sw:tdd-red`, `/sw:tdd-green`, `/sw:td...`
 - *...and 25 more occurrences*
 
 #### Test Coverage (→ `/docs/glossary/terms/test-coverage`)
@@ -98,7 +98,7 @@
 - **Line 53:** `- **Activates**: When planning test coverage, validating quality...`
 - **Line 67:** `- **Activates**: When generating `tasks.md` with test coverage...`
 - **Line 294:** `- Ensure test coverage meets requirements...`
-- **Line 305:** `- Validates test coverage via `/specweave:check-tests`...`
+- **Line 305:** `- Validates test coverage via `/sw:check-tests`...`
 - **Line 53:** `- **Activates**: When planning test coverage, validating quality...`
 - *...and 3 more occurrences*
 
@@ -1935,8 +1935,8 @@
 
 #### Git (→ `/docs/glossary/terms/git`)
 
-- **Line 480:** `3. **Don't bypass hooks** (use `/specweave:do`, not raw git)...`
-- **Line 480:** `3. **Don't bypass hooks** (use `/specweave:do`, not raw git)...`
+- **Line 480:** `3. **Don't bypass hooks** (use `/sw:do`, not raw git)...`
+- **Line 480:** `3. **Don't bypass hooks** (use `/sw:do`, not raw git)...`
 
 #### Specifications (Specs) (→ `/docs/glossary/terms/specs`)
 
@@ -2151,8 +2151,8 @@
 
 #### Acceptance Criteria (AC) (→ `/docs/glossary/terms/acceptance-criteria`)
 
-- **Line 10:** `All commands MUST use the `/specweave:*` namespace prefix. Shortcuts like `/inc`, `/do`, `/pause`, `...`
-- **Line 10:** `All commands MUST use the `/specweave:*` namespace prefix. Shortcuts like `/inc`, `/do`, `/pause`, `...`
+- **Line 10:** `All commands MUST use the `/sw:*` namespace prefix. Shortcuts like `/inc`, `/do`, `/pause`, `...`
+- **Line 10:** `All commands MUST use the `/sw:*` namespace prefix. Shortcuts like `/inc`, `/do`, `/pause`, `...`
 - **Line 380:** `> SpecWeave commands are designed for **intelligent automation**. The system detects intent, suggest...`
 
 #### Git (→ `/docs/glossary/terms/git`)

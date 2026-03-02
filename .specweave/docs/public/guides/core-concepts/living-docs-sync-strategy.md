@@ -11,7 +11,7 @@ This guide explains **when**, **why**, and **how** living documentation stays sy
 |----------|---------|------------|-------------|
 | Task Completion | TodoWrite hook | Yes | Eventually (60s) |
 | Increment Creation | IncrementCreated hook | Yes | Immediate |
-| Increment Completion | `/specweave:done` | Yes | Immediate |
+| Increment Completion | `/sw:done` | Yes | Immediate |
 | Bulk Import (ADO/JIRA) | Job completion | Yes | Eventually |
 | Manual Changes | Drift detection | No | On-demand |
 | Brownfield Import | `/import-docs` | Yes | One-time |
@@ -43,7 +43,7 @@ This guide explains **when**, **why**, and **how** living documentation stays sy
 
 ```bash
 # You complete a task
-/specweave:do
+/sw:do
 
 # Behind the scenes:
 # 1. TodoWrite marks task complete
@@ -62,10 +62,10 @@ This guide explains **when**, **why**, and **how** living documentation stays sy
 
 ### 2. Increment Creation (Automatic)
 
-**Trigger**: Creating a new increment with `/specweave:increment`
+**Trigger**: Creating a new increment with `/sw:increment`
 
 ```bash
-/specweave:increment "Add user authentication"
+/sw:increment "Add user authentication"
 
 # Behind the scenes:
 # 1. PM agent creates spec.md
@@ -86,10 +86,10 @@ This guide explains **when**, **why**, and **how** living documentation stays sy
 
 ### 3. Increment Completion (Automatic)
 
-**Trigger**: Closing an increment with `/specweave:done`
+**Trigger**: Closing an increment with `/sw:done`
 
 ```bash
-/specweave:done 0057
+/sw:done 0057
 
 # Behind the scenes:
 # 1. Validates all ACs complete
@@ -113,14 +113,14 @@ This guide explains **when**, **why**, and **how** living documentation stays sy
 
 ```bash
 # During init or via command
-/specweave:import-external --source ado --since 2024-01-01
+/sw:import-external --source ado --since 2024-01-01
 
 # Behind the scenes (background job):
 # 1. Fetches items in batches (200 per request)
 # 2. Paginates through 10K+ items
 # 3. Converts to living docs format
 # 4. Batch-writes to living docs (100 items per batch)
-# 5. Reports progress via /specweave:jobs
+# 5. Reports progress via /sw:jobs
 ```
 
 **Consistency**: Eventually consistent (background processing)
@@ -133,8 +133,8 @@ This guide explains **when**, **why**, and **how** living documentation stays sy
 
 **Monitor progress**:
 ```bash
-/specweave:jobs                    # List active jobs
-/specweave:jobs --follow <jobId>   # Real-time progress
+/sw:jobs                    # List active jobs
+/sw:jobs --follow <jobId>   # Real-time progress
 ```
 
 ### 5. Brownfield Doc Import (Notion, Confluence)
@@ -142,7 +142,7 @@ This guide explains **when**, **why**, and **how** living documentation stays sy
 **Trigger**: Importing existing docs from external sources
 
 ```bash
-/specweave:import-docs --source ~/notion-export/
+/sw:import-docs --source ~/notion-export/
 
 # Behind the scenes:
 # 1. Scans folder for markdown files
@@ -175,20 +175,20 @@ git push
 
 ```bash
 # Check for drift
-/specweave:detect-drift
+/sw:detect-drift
 
 # Output:
 # Unmatched Commits (last 30 days):
 # - abc123: "fix: critical auth bug" (2 files)
 #   → Suggested: Update FS-AUTH status
 #
-# Run `/specweave:reconcile` to fix
+# Run `/sw:reconcile` to fix
 
 # Auto-reconcile
-/specweave:reconcile --auto
+/sw:reconcile --auto
 
 # Or interactive
-/specweave:reconcile --interactive
+/sw:reconcile --interactive
 ```
 
 **Best practice**: Always create increments, but use drift detection as a safety net.
@@ -200,7 +200,7 @@ git push
 │                      YOUR ACTIONS                                │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
-│    /specweave:increment     /specweave:do      /specweave:done  │
+│    /sw:increment     /sw:do      /sw:done  │
 │           │                      │                   │          │
 │           ▼                      ▼                   ▼          │
 │    ┌────────────┐         ┌──────────┐        ┌──────────┐     │
@@ -302,9 +302,9 @@ Even for "quick" changes, create an increment:
 git commit -m "fix: auth bug"
 
 # Do:
-/specweave:increment "Fix auth token expiry"
+/sw:increment "Fix auth token expiry"
 # ... fix the bug ...
-/specweave:done
+/sw:done
 ```
 
 **Why**: Automatic docs sync, audit trail, velocity tracking.
@@ -313,10 +313,10 @@ git commit -m "fix: auth bug"
 
 ```bash
 # 10K+ items? Use background import
-/specweave:import-external --background
+/sw:import-external --background
 
 # Monitor progress
-/specweave:jobs --follow <jobId>
+/sw:jobs --follow <jobId>
 ```
 
 **Why**: Doesn't block your terminal, survives disconnects.
@@ -325,7 +325,7 @@ git commit -m "fix: auth bug"
 
 ```bash
 # Weekly drift check
-/specweave:detect-drift --since "-7d"
+/sw:detect-drift --since "-7d"
 ```
 
 **Why**: Catches manual changes that bypassed increments.
@@ -373,7 +373,7 @@ grep "throttled" .specweave/logs/hooks-debug.log
 
 **Fix**: Wait 60s or run manual sync:
 ```bash
-/specweave:sync-progress <incrementId>
+/sw:sync-progress <incrementId>
 ```
 
 ### External Tools Not Updating
@@ -398,25 +398,25 @@ gh auth status  # GitHub
 
 1. Check job status:
 ```bash
-/specweave:jobs
+/sw:jobs
 ```
 
 2. Check for rate limits:
 ```bash
-/specweave:jobs --id <jobId>
+/sw:jobs --id <jobId>
 # Look for "paused" status
 ```
 
 3. Resume if paused:
 ```bash
-/specweave:jobs --resume <jobId>
+/sw:jobs --resume <jobId>
 ```
 
 ## FAQ
 
 **Q: Can I disable automatic sync?**
 
-A: Yes, set `autoSyncOnCompletion: false` in config. You'll need to run `/specweave:sync-docs` manually.
+A: Yes, set `autoSyncOnCompletion: false` in config. You'll need to run `/sw:sync-docs` manually.
 
 **Q: What happens if sync fails?**
 

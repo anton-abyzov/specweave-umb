@@ -2,7 +2,7 @@
 
 ## Problem
 
-Claude Code has a **15,000 character default budget** for skill/command descriptions. When you have many plugins installed (like SpecWeave's 24 plugins with ~180 skills), approximately **26% of skills are EXCLUDED** from Claude's context.
+Claude Code has a **15,000 character default budget** for skill/command descriptions. When you have many plugins installed (like SpecWeave's 20 plugins with ~80 skills), a significant portion of skills can be **EXCLUDED** from Claude's context.
 
 **Symptoms:**
 - Skills don't auto-activate even when keywords match
@@ -16,14 +16,14 @@ Claude Code uses the `SLASH_COMMAND_TOOL_CHAR_BUDGET` environment variable to li
 
 ```
 Default: 15,000 characters
-SpecWeave needs: ~23,000 characters (for 180+ skills)
-Result: 46 skills (26%) are EXCLUDED from context!
+SpecWeave needs: ~23,000 characters (for 80+ skills across 20 plugins)
+Result: Skills may be EXCLUDED from context!
 ```
 
 **Evidence** from SpecWeave session analysis:
-- Total skills: 179 (82 skills + 97 commands)
-- Skills visible in context: ~133
-- Skills truncated/excluded: ~46 (26%)
+- Total skills: 80+ (across 20 plugins, deduplicated)
+- Skills visible in default budget: varies by active plugins
+- Skills truncated/excluded: depends on how many plugins are loaded
 
 ## Solution
 
@@ -159,7 +159,7 @@ Skill({ skill: "payments:payment-core" }) // Stripe patterns
 
 When creating content about SpecWeave skill usage, mention:
 
-> "If your SpecWeave skills aren't auto-activating, you may be hitting the default 15,000 character budget for skill descriptions. SpecWeave has over 180 skills, requiring about 23,000 characters. Add `export SLASH_COMMAND_TOOL_CHAR_BUDGET=30000` to your shell profile (like `.zshrc`) to fix this. But remember: for multi-domain requests like 'React + .NET + Stripe', explicit skill invocation is still more reliable than auto-activation."
+> "If your SpecWeave skills aren't auto-activating, you may be hitting the default 15,000 character budget for skill descriptions. SpecWeave has 80+ skills across 20 plugins, requiring about 23,000 characters. Add `export SLASH_COMMAND_TOOL_CHAR_BUDGET=30000` to your shell profile (like `.zshrc`) to fix this. But remember: for multi-domain requests like 'React + .NET + Stripe', explicit skill invocation is still more reliable than auto-activation."
 
 ---
 

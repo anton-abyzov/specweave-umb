@@ -283,7 +283,7 @@ export SLASH_COMMAND_TOOL_CHAR_BUDGET=30000
 | **Web dev** | sw + frontend + backend | ~12,000 |
 | **Full stack** | sw + frontend + backend + infra + testing | ~20,000 |
 | **Mobile** | sw + mobile + payments | ~10,000 |
-| **Everything** | All 24 plugins | ~56,000 (never fits!) |
+| **Everything** | All 20 plugins | ~56,000 (never fits!) |
 
 ### Disabling Unused Plugins
 

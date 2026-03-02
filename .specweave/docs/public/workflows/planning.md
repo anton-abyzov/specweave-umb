@@ -19,7 +19,7 @@ graph LR
 
 **Duration**: 15-60 minutes (automated)
 
-**Command**: `/specweave:increment "feature description"`
+**Command**: `/sw:increment "feature description"`
 
 **Output**: Complete increment with spec.md, plan.md, tasks.md
 
@@ -30,7 +30,7 @@ graph LR
 Simply describe what you want to build:
 
 ```bash
-/specweave:increment "Add real-time chat with WebSocket support"
+/sw:increment "Add real-time chat with WebSocket support"
 ```
 
 **What happens:**
@@ -391,14 +391,14 @@ coverage_target: 88%
 📊 Estimated Effort: 3-5 days
 
 Would you like to:
-1. Proceed with implementation (/specweave:do)
+1. Proceed with implementation (/sw:do)
 2. Modify scope (edit spec)
 3. Adjust architecture (edit plan)
-4. Regenerate tasks (/specweave:increment --regenerate)
+4. Regenerate tasks (/sw:increment --regenerate)
 ```
 
 **Options:**
-- ✅ Proceed → `/specweave:do`
+- ✅ Proceed → `/sw:do`
 - 🔄 Modify → Edit files, regenerate
 - ❌ Cancel → Delete increment
 
@@ -507,7 +507,7 @@ rm .specweave/increments/0012-chat/plan.md
 rm .specweave/increments/0012-chat/tasks.md
 
 # 3. Regenerate with updated spec
-/specweave:increment "0012-real-time-chat" --regenerate
+/sw:increment "0012-real-time-chat" --regenerate
 ```
 
 **During implementation** (mid-coding discovery):
@@ -515,7 +515,7 @@ rm .specweave/increments/0012-chat/tasks.md
 # 1. Stop coding — don't push through with a known-bad plan
 # 2. Update spec.md/plan.md/tasks.md to reflect new understanding
 # 3. Review changes for consistency across all three files
-# 4. Resume implementation with /specweave:do
+# 4. Resume implementation with /sw:do
 ```
 
 The key rule: **never let code drift from the plan**. If they diverge, fix one to match the other immediately.
@@ -556,7 +556,7 @@ Before moving to implementation:
 Planning complete! Move to implementation:
 
 ```bash
-/specweave:do
+/sw:do
 ```
 
 **Learn more:**

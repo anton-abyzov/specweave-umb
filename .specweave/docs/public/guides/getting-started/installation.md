@@ -281,14 +281,14 @@ cat .gitignore              # Should exist
 # For Claude Code users
 ls -la .claude/agents/      # Should have 11 agents
 ls -la .claude/skills/      # Should have 17 skills
-ls -la .claude/commands/    # Should have 22 commands
+ls -la .claude/commands/    # Should have 28 commands
 ls -la .claude/hooks/       # Should have 8 hooks
 
 # For other AI tool users
 cat AGENTS.md               # Should exist
 
 # Test a command (Claude Code only)
-# Open Claude Code and type: /specweave:progress
+# Open Claude Code and type: /sw:progress
 ```
 
 ### Verification Checklist
@@ -324,7 +324,7 @@ cat AGENTS.md               # Should exist
 
 ```bash
 # In Claude Code:
-/specweave:increment "my first feature"
+/sw:increment "my first feature"
 
 # This creates:
 # ✅ .specweave/increments/0001-my-first-feature/
