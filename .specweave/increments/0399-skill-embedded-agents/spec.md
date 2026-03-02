@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # FS-399: Skill-Embedded Agents & Token Isolation
 
 **Status**: in-progress | **Created**: 2026-03-02 | **Type**: enhancement
@@ -17,7 +20,7 @@ SpecWeave skills have inline agent bloat (team-lead: 310 lines of agent template
 - [x] **AC-US1-01**: 5 agent .md files in `plugins/specweave/skills/team-lead/agents/`
 - [x] **AC-US1-02**: team-lead SKILL.md Section 4 replaced with reference table + "Read agents/{name}.md"
 - [x] **AC-US1-03**: team-lead SKILL.md reduced by ~250 lines (927→653)
-- [ ] **AC-US1-04**: spawned agents receive identical prompt content (behavioral equivalence)
+- [x] **AC-US1-04**: spawned agents receive identical prompt content (behavioral equivalence)
 
 ### US-002: Token Isolation for Non-Interactive Skills
 **Project**: specweave
@@ -28,7 +31,7 @@ SpecWeave skills have inline agent bloat (team-lead: 310 lines of agent template
 - [x] **AC-US2-01**: `architect/SKILL.md` has `context: fork` and `model: opus`
 - [x] **AC-US2-02**: `test-aware-planner/SKILL.md` has `context: fork` and `model: opus`
 - [x] **AC-US2-03**: `grill/SKILL.md` has `context: fork` and `model: opus`
-- [ ] **AC-US2-04**: `/sw:increment` produces equivalent quality output
+- [x] **AC-US2-04**: `/sw:increment` produces equivalent quality output
 
 ### US-003: vskill Installer Supports agents/ Subdirectory
 **Project**: vskill
