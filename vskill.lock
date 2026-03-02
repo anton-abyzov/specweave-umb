@@ -6,9 +6,9 @@
   "skills": {
     "sw": {
       "version": "1.0.323",
-      "sha": "bb72a9695034",
+      "sha": "a30624dbed49",
       "tier": "BUNDLED",
-      "installedAt": "2026-02-28T18:37:08.862Z",
+      "installedAt": "2026-03-02T00:44:17.128Z",
       "source": "local:specweave"
     },
     "infra": {
@@ -26,8 +26,48 @@
       "installedAt": "2026-03-01T06:08:43.242Z",
       "source": "github:anton-abyzov/vskill#plugin:ml",
       "scope": "project"
+    },
+    "frontend": {
+      "version": "2.2.0",
+      "sha": "e6398afcd074",
+      "tier": "VERIFIED",
+      "installedAt": "2026-03-01T08:43:40.455Z",
+      "source": "github:anton-abyzov/vskill#plugin:frontend",
+      "scope": "project"
+    },
+    "backend": {
+      "version": "2.2.0",
+      "sha": "8892b4c2343d",
+      "tier": "VERIFIED",
+      "installedAt": "2026-03-01T08:43:43.150Z",
+      "source": "github:anton-abyzov/vskill#plugin:backend",
+      "scope": "project"
+    },
+    "testing": {
+      "version": "2.2.0",
+      "sha": "993b9f344d3f",
+      "tier": "VERIFIED",
+      "installedAt": "2026-03-01T17:13:10.872Z",
+      "source": "github:anton-abyzov/vskill#plugin:testing",
+      "scope": "project"
+    },
+    "mobile": {
+      "version": "2.2.0",
+      "sha": "f07d15523d97",
+      "tier": "VERIFIED",
+      "installedAt": "2026-03-01T18:17:47.786Z",
+      "source": "github:anton-abyzov/vskill#plugin:mobile",
+      "scope": "project"
+    },
+    "sw-github": {
+      "version": "1.0.0",
+      "sha": "90aa55a9ed36",
+      "tier": "VERIFIED",
+      "installedAt": "2026-03-01T22:36:29.533Z",
+      "source": "github:anton-abyzov/specweave#plugin:sw-github",
+      "scope": "project"
     }
   },
   "createdAt": "2026-02-25T22:10:22.975Z",
-  "updatedAt": "2026-03-01T06:08:43.242Z"
+  "updatedAt": "2026-03-02T00:44:17.128Z"
 }

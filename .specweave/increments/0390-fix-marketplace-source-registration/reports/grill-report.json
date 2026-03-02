@@ -1,0 +1,20 @@
+{
+  "incrementId": "0390-fix-marketplace-source-registration",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "timestamp": "2026-03-01T19:10:00Z",
+  "summary": {
+    "totalFindings": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "filesExamined": 4,
+    "linesChanged": 15,
+    "acsValidated": 7,
+    "acsTotal": 7,
+    "testsRun": 638,
+    "testsPassed": 638
+  },
+  "findings": [],
+  "notes": "Fix already applied: registerMarketplace() called with git URL instead of tmpDir. JSDoc updated, parameter renamed to 'source'. All 638 tests pass. TC-004 in add.test.ts validates registerMarketplace called with 'https://github.com/owner/repo'. claude-cli.test.ts covers owner/repo shorthand and HTTPS URL formats."
+}

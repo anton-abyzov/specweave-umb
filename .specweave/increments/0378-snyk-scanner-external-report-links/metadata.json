@@ -15,12 +15,12 @@
         "US-001": {
           "issueNumber": 1420,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1420",
-          "status": "created"
+          "status": "closed"
         },
         "US-002": {
           "issueNumber": 1421,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1421",
-          "status": "created"
+          "status": "closed"
         }
       },
       "milestone": 178,

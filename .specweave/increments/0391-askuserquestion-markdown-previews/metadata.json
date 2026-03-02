@@ -1,0 +1,71 @@
+{
+  "id": "0391-askuserquestion-markdown-previews",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-01T17:33:17.377Z",
+  "lastActivity": "2026-03-01T18:59:16.802Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1444,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1444",
+          "status": "closed"
+        },
+        "US-002": {
+          "issueNumber": 1445,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1445",
+          "status": "closed"
+        },
+        "US-003": {
+          "issueNumber": 1446,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1446",
+          "status": "closed"
+        },
+        "US-004": {
+          "issueNumber": 1447,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1447",
+          "status": "closed"
+        }
+      },
+      "milestone": 189,
+      "syncedAt": "2026-03-01T17:46:08Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1444,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1444",
+        "createdAt": "2026-03-01T17:46:08Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1445,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1445",
+        "createdAt": "2026-03-01T17:46:08Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1446,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1446",
+        "createdAt": "2026-03-01T17:46:08Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1447,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1447",
+        "createdAt": "2026-03-01T17:46:08Z"
+      }
+    ],
+    "lastSync": "2026-03-01T17:46:08Z"
+  },
+  "updated": "2026-03-01T17:33:17.377Z",
+  "approvedAt": "2026-03-01T18:59:16.802Z"
+}

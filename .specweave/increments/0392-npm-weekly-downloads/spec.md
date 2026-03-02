@@ -1,10 +1,10 @@
 ---
 increment: 0392-npm-weekly-downloads
-title: "npm Weekly Download Stats Integration"
+title: npm Weekly Download Stats Integration
 type: feature
 priority: P1
-status: in-progress
-created: 2026-03-01
+status: completed
+created: 2026-03-01T00:00:00.000Z
 structure: user-stories
 test_mode: test-after
 coverage_target: 80

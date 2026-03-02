@@ -1,0 +1,8 @@
+{
+  "incrementId": "0392-npm-weekly-downloads",
+  "verdict": "WAIVED",
+  "reason": "externalModels consent not configured",
+  "timestamp": "2026-03-01T19:00:00Z",
+  "model": "none",
+  "details": "Judge-LLM validation waived: externalModels not set in config.json"
+}

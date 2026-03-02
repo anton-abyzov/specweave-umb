@@ -1,0 +1,97 @@
+{
+  "version": "1.0",
+  "incrementId": "cross-cutting-v1.0.345-346",
+  "timestamp": "2026-03-01T21:10:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 8,
+    "suppressed": 4,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "note": "All high/critical findings fixed in v1.0.347 before shipping"
+  },
+  "findings": [
+    {
+      "id": "F-001",
+      "title": "|| vs ?? for coverageTarget allows 0 to be overridden",
+      "severity": "high",
+      "confidence": 90,
+      "category": "correctness",
+      "file": "src/cli/helpers/init/initial-increment-generator.ts:62-63",
+      "status": "FIXED",
+      "fix": "Changed || to ?? and default from 80 to 90"
+    },
+    {
+      "id": "F-002",
+      "title": "YAML frontmatter injection via unsanitized title containing double quotes",
+      "severity": "high",
+      "confidence": 90,
+      "category": "security",
+      "file": "src/core/living-docs/sync-helpers/generators.ts:113,261,201,296",
+      "status": "FIXED",
+      "fix": "Added .replace(/\"/g, \"'\") to all title fields in YAML frontmatter"
+    },
+    {
+      "id": "F-003",
+      "title": "Rename can silently overwrite existing file belonging to different story",
+      "severity": "high",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "src/core/living-docs/living-docs-sync.ts:325-336,468-480",
+      "status": "FIXED",
+      "fix": "Added fs.stat check before rename to skip if destination exists"
+    },
+    {
+      "id": "F-004",
+      "title": "coverageTarget default 80 vs 90 inconsistency",
+      "severity": "medium",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "src/cli/helpers/init/initial-increment-generator.ts:57",
+      "status": "FIXED",
+      "fix": "Changed default from 80 to 90 to match template-creator"
+    },
+    {
+      "id": "F-005",
+      "title": "readConfig catch silently swallows malformed JSON errors",
+      "severity": "medium",
+      "confidence": 95,
+      "category": "maintainability",
+      "file": "src/cli/commands/create-increment.ts:50-52",
+      "status": "FIXED",
+      "fix": "Added JSON parse error detection and warning log"
+    },
+    {
+      "id": "F-006",
+      "title": "BRACKET_PLACEHOLDER regex overly broad, matches markdown links",
+      "severity": "high",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "src/core/increment/template-creator.ts:43",
+      "status": "FIXED",
+      "fix": "Added negative lookahead (?!\\() to exclude markdown link brackets"
+    },
+    {
+      "id": "F-007",
+      "title": "slugifyTitle returns empty string for unicode/all-special/empty titles",
+      "severity": "medium",
+      "confidence": 95,
+      "category": "edge-case",
+      "file": "src/core/living-docs/sync-helpers/generators.ts:23-28",
+      "status": "ACCEPTED",
+      "note": "Edge case unlikely in practice - titles always have ASCII content from spec parser"
+    },
+    {
+      "id": "F-008",
+      "title": "Template guard returns success:true with empty featureId and non-empty errors",
+      "severity": "medium",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "src/core/living-docs/living-docs-sync.ts:147-162",
+      "status": "ACCEPTED",
+      "note": "Intentional - template skip is a successful operation (skip, don't fail)"
+    }
+  ]
+}

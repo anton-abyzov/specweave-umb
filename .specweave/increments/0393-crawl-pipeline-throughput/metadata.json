@@ -1,0 +1,93 @@
+{
+  "id": "0393-crawl-pipeline-throughput",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-01T18:10:35.246Z",
+  "lastActivity": "2026-03-01T18:59:40.354Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1449,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1449",
+          "status": "closed"
+        },
+        "US-002": {
+          "issueNumber": 1450,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1450",
+          "status": "closed"
+        },
+        "US-003": {
+          "issueNumber": 1451,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1451",
+          "status": "closed"
+        },
+        "US-004": {
+          "issueNumber": 1452,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1452",
+          "status": "closed"
+        },
+        "US-005": {
+          "issueNumber": 1453,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1453",
+          "status": "closed"
+        },
+        "US-006": {
+          "issueNumber": 1454,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1454",
+          "status": "closed"
+        }
+      },
+      "milestone": 190,
+      "syncedAt": "2026-03-01T18:17:09Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1449,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1449",
+        "createdAt": "2026-03-01T18:17:09Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1450,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1450",
+        "createdAt": "2026-03-01T18:17:09Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1451,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1451",
+        "createdAt": "2026-03-01T18:17:09Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1452,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1452",
+        "createdAt": "2026-03-01T18:17:09Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 1453,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1453",
+        "createdAt": "2026-03-01T18:17:09Z"
+      },
+      {
+        "userStory": "US-006",
+        "number": 1454,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1454",
+        "createdAt": "2026-03-01T18:17:09Z"
+      }
+    ],
+    "lastSync": "2026-03-01T18:17:09Z"
+  },
+  "updated": "2026-03-01T18:10:35.246Z",
+  "approvedAt": "2026-03-01T18:59:40.354Z"
+}

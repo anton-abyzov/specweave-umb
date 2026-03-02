@@ -1,7 +1,7 @@
 ---
 increment: 0390-fix-marketplace-source-registration
 total_tasks: 4
-completed_tasks: 0
+completed_tasks: 4
 by_user_story:
   US-001: [T-001, T-002, T-003]
   US-002: [T-001, T-002]
@@ -12,13 +12,13 @@ by_user_story:
 ## User Story: US-001 - Persistent marketplace registration after plugin install
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ### T-001: RED - Write tests asserting GitHub source registration
 
 **User Story**: US-001, US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `registerMarketplace` is called with `"owner/repo"` format
@@ -49,7 +49,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `installMarketplaceRepo("owner", "repo", manifest, opts)` is called
@@ -72,7 +72,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `registerMarketplace()` function signature
@@ -99,7 +99,7 @@ All AC-US2 acceptance criteria are satisfied by T-001 which writes the RED-phase
 
 **User Story**: US-001, US-002
 **Satisfies ACs**: all
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** all changes applied

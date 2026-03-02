@@ -1,0 +1,48 @@
+{
+  "id": "0395-init-location-guard-rails",
+  "status": "ready_for_review",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-01T23:23:53.471Z",
+  "lastActivity": "2026-03-01T23:23:53.471Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1458,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1458",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1459,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1459",
+          "status": "created"
+        }
+      },
+      "milestone": 193,
+      "syncedAt": "2026-03-01T23:29:26Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1458,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1458",
+        "createdAt": "2026-03-01T23:29:26Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1459,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1459",
+        "createdAt": "2026-03-01T23:29:26Z"
+      }
+    ],
+    "lastSync": "2026-03-01T23:29:26Z"
+  },
+  "updated": "2026-03-02T00:04:30.000Z"
+}

@@ -1,10 +1,10 @@
 {
   "id": "0390-fix-marketplace-source-registration",
-  "status": "planned",
-  "type": "bugfix",
+  "status": "completed",
+  "type": "bug",
   "priority": "P1",
   "created": "2026-02-28T09:03:23.992Z",
-  "lastActivity": "2026-02-28T09:03:23.992Z",
+  "lastActivity": "2026-03-01T19:23:45.723Z",
   "testMode": "test-after",
   "coverageTarget": 80,
   "feature_id": null,
@@ -15,12 +15,12 @@
         "US-001": {
           "issueNumber": 1432,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1432",
-          "status": "created"
+          "status": "closed"
         },
         "US-002": {
           "issueNumber": 1433,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1433",
-          "status": "created"
+          "status": "closed"
         }
       },
       "milestone": 186,
@@ -43,5 +43,7 @@
       }
     ],
     "lastSync": "2026-02-28T09:07:41Z"
-  }
+  },
+  "updated": "2026-02-28T09:03:23.992Z",
+  "approvedAt": "2026-03-01T19:23:45.723Z"
 }

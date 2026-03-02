@@ -30,10 +30,10 @@ When `vskill install owner/repo` installs from a Claude Code plugin marketplace,
 **So that** Claude Code can resolve the marketplace for future operations (list, update, uninstall) without relying on a temp directory that gets deleted
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `installMarketplaceRepo()` calls `registerMarketplace()` with `${owner}/${repo}` (GitHub shorthand) instead of `tmpDir`
-- [ ] **AC-US1-02**: `registerMarketplace()` JSDoc `@param` is updated from "Absolute path to the repo root" to document it accepts any valid marketplace source (path, URL, or GitHub `owner/repo`)
-- [ ] **AC-US1-03**: The shallow clone to tmpDir is still performed (needed for fallback extraction), but tmpDir is no longer passed to `registerMarketplace()`
-- [ ] **AC-US1-04**: `tryNativeClaudeInstall()` continues to use `resolve(basePath)` (local persistent path) -- no change needed there
+- [x] **AC-US1-01**: `installMarketplaceRepo()` calls `registerMarketplace()` with `${owner}/${repo}` (GitHub shorthand) instead of `tmpDir`
+- [x] **AC-US1-02**: `registerMarketplace()` JSDoc `@param` is updated from "Absolute path to the repo root" to document it accepts any valid marketplace source (path, URL, or GitHub `owner/repo`)
+- [x] **AC-US1-03**: The shallow clone to tmpDir is still performed (needed for fallback extraction), but tmpDir is no longer passed to `registerMarketplace()`
+- [x] **AC-US1-04**: `tryNativeClaudeInstall()` continues to use `resolve(basePath)` (local persistent path) -- no change needed there
 
 ### US-002: Test coverage for GitHub source registration (P1)
 **Project**: vskill
@@ -43,9 +43,9 @@ When `vskill install owner/repo` installs from a Claude Code plugin marketplace,
 **So that** regressions are caught before release
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `claude-cli.test.ts` tests for `registerMarketplace()` include a case with GitHub `owner/repo` format input
-- [ ] **AC-US2-02**: `add.test.ts` marketplace integration tests assert that `registerMarketplace` is called with `owner/repo` (not a temp dir path) when installing from a GitHub marketplace repo
-- [ ] **AC-US2-03**: Existing `registerMarketplace` tests for local paths and paths-with-spaces continue to pass (no regression)
+- [x] **AC-US2-01**: `claude-cli.test.ts` tests for `registerMarketplace()` include a case with GitHub `owner/repo` format input
+- [x] **AC-US2-02**: `add.test.ts` marketplace integration tests assert that `registerMarketplace` is called with `owner/repo` (not a temp dir path) when installing from a GitHub marketplace repo
+- [x] **AC-US2-03**: Existing `registerMarketplace` tests for local paths and paths-with-spaces continue to pass (no regression)
 
 ## Functional Requirements
 

@@ -15,27 +15,27 @@
         "US-001": {
           "issueNumber": 1377,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1377",
-          "status": "created"
+          "status": "closed"
         },
         "US-002": {
           "issueNumber": 1378,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1378",
-          "status": "created"
+          "status": "closed"
         },
         "US-003": {
           "issueNumber": 1379,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1379",
-          "status": "created"
+          "status": "closed"
         },
         "US-004": {
           "issueNumber": 1380,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1380",
-          "status": "created"
+          "status": "closed"
         },
         "US-005": {
           "issueNumber": 1381,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1381",
-          "status": "created"
+          "status": "closed"
         }
       },
       "milestone": 161,
