@@ -9,7 +9,18 @@
   "coverageTarget": 95,
   "feature_id": "FS-400",
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1466,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1466",
+          "status": "active"
+        }
+      },
+      "syncedAt": "2026-03-02T21:51:09.626Z"
+    }
+  },
   "updated": "2026-03-02T20:00:00Z",
   "readyForReviewAt": "2026-03-02T21:50:06.566Z",
   "github": {

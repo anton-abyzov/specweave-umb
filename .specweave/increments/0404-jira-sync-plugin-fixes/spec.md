@@ -1,7 +1,8 @@
 ---
-status: ready_for_review
+status: completed
+project: specweave
 ---
-# Spec: JIRA Sync Plugin Critical Fixes (0403)
+# Spec: JIRA Sync Plugin Critical Fixes (0404)
 
 ## Overview
 

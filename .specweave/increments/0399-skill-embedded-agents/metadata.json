@@ -9,7 +9,18 @@
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1465,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1465",
+          "status": "active"
+        }
+      },
+      "syncedAt": "2026-03-02T21:21:27.988Z"
+    }
+  },
   "github": {
     "issues": [
       {
