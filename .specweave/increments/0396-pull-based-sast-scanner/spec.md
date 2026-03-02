@@ -41,10 +41,10 @@ The crawl-worker already has a proven pull-based pattern (`submission-scanner.js
 **So that** I can pull work items instead of relying on push dispatch
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `GET /api/v1/internal/pending-sast-scans` returns ExternalScanResult rows with status=PENDING, ordered by dispatchedAt ASC, limited to 50 per request
-- [ ] **AC-US1-02**: The endpoint also returns RUNNING rows where claimedAt is older than 15 minutes (stuck/timed-out scans eligible for re-claim)
-- [ ] **AC-US1-03**: The endpoint requires `X-Internal-Key` header matching `INTERNAL_BROADCAST_KEY` env var (same auth as other internal endpoints)
-- [ ] **AC-US1-04**: Response shape: `{ scans: [{ id, skillName, provider, status, dispatchedAt, claimedAt, claimedBy }] }`
+- [x] **AC-US1-01**: `GET /api/v1/internal/pending-sast-scans` returns ExternalScanResult rows with status=PENDING, ordered by dispatchedAt ASC, limited to 50 per request
+- [x] **AC-US1-02**: The endpoint also returns RUNNING rows where claimedAt is older than 15 minutes (stuck/timed-out scans eligible for re-claim)
+- [x] **AC-US1-03**: The endpoint requires `X-Internal-Key` header matching `INTERNAL_BROADCAST_KEY` env var (same auth as other internal endpoints)
+- [x] **AC-US1-04**: Response shape: `{ scans: [{ id, skillName, provider, status, dispatchedAt, claimedAt, claimedBy }] }`
 
 ---
 
@@ -56,10 +56,10 @@ The crawl-worker already has a proven pull-based pattern (`submission-scanner.js
 **So that** multiple VMs cannot process the same scan simultaneously
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `POST /api/v1/internal/claim-sast-scan` accepts `{ scanId, claimedBy }` and atomically updates status PENDING->RUNNING with claimedAt=now and claimedBy set
-- [ ] **AC-US2-02**: The claim uses a Prisma `updateMany` with `where: { id, status: PENDING }` (or status=RUNNING with claimedAt >15min) to ensure atomicity -- returns `{ ok: false }` if already claimed
-- [ ] **AC-US2-03**: The endpoint requires `X-Internal-Key` header authentication
-- [ ] **AC-US2-04**: Response shape: `{ ok: true, scan: { id, skillName, provider, status } }` on success, `{ ok: false, reason: "already_claimed" }` on conflict
+- [x] **AC-US2-01**: `POST /api/v1/internal/claim-sast-scan` accepts `{ scanId, claimedBy }` and atomically updates status PENDING->RUNNING with claimedAt=now and claimedBy set
+- [x] **AC-US2-02**: The claim uses a Prisma `updateMany` with `where: { id, status: PENDING }` (or status=RUNNING with claimedAt >15min) to ensure atomicity -- returns `{ ok: false }` if already claimed
+- [x] **AC-US2-03**: The endpoint requires `X-Internal-Key` header authentication
+- [x] **AC-US2-04**: Response shape: `{ ok: true, scan: { id, skillName, provider, status } }` on success, `{ ok: false, reason: "already_claimed" }` on conflict
 
 ---
 
@@ -71,10 +71,10 @@ The crawl-worker already has a proven pull-based pattern (`submission-scanner.js
 **So that** the claim endpoint can track which worker owns each scan and detect stuck scans
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Prisma schema adds `claimedAt DateTime?` to ExternalScanResult model
-- [ ] **AC-US3-02**: Prisma schema adds `claimedBy String?` to ExternalScanResult model
-- [ ] **AC-US3-03**: Migration runs cleanly against the existing database (nullable columns, no data loss)
-- [ ] **AC-US3-04**: The `@@index([status])` index on ExternalScanResult is retained for efficient pending queries
+- [x] **AC-US3-01**: Prisma schema adds `claimedAt DateTime?` to ExternalScanResult model
+- [x] **AC-US3-02**: Prisma schema adds `claimedBy String?` to ExternalScanResult model
+- [x] **AC-US3-03**: Migration runs cleanly against the existing database (nullable columns, no data loss)
+- [x] **AC-US3-04**: The `@@index([status])` index on ExternalScanResult is retained for efficient pending queries
 
 ---
 
@@ -86,12 +86,12 @@ The crawl-worker already has a proven pull-based pattern (`submission-scanner.js
 **So that** external SAST scans run reliably without depending on push dispatch from Cloudflare Workers
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: New file `crawl-worker/sources/sast-scanner.js` exports a default `crawl(config)` function following the crawl-worker source contract
-- [ ] **AC-US4-02**: The source fetches pending scans via `GET /api/v1/internal/pending-sast-scans`, claims each via `POST /api/v1/internal/claim-sast-scan`, then dispatches to `http://localhost:9500/scan` with the existing scanner-worker payload format (`{ skillName, repoOwner, repoName, provider, callbackUrl }`)
-- [ ] **AC-US4-03**: The source uses `X-Worker-Signature` header with `WORKER_SECRET` env var for scanner-worker auth (same as current push dispatch)
-- [ ] **AC-US4-04**: Failed claims (already claimed by another VM) are skipped gracefully with a log line
-- [ ] **AC-US4-05**: The source processes one scan at a time (sequential claim-dispatch, no concurrency within a single cycle) for simplicity
-- [ ] **AC-US4-06**: The crawl function returns `{ checked, dispatched, skipped, errors }` summary matching the crawl-worker source return convention
+- [x] **AC-US4-01**: New file `crawl-worker/sources/sast-scanner.js` exports a default `crawl(config)` function following the crawl-worker source contract
+- [x] **AC-US4-02**: The source fetches pending scans via `GET /api/v1/internal/pending-sast-scans`, claims each via `POST /api/v1/internal/claim-sast-scan`, then dispatches to `http://localhost:9500/scan` with the existing scanner-worker payload format (`{ skillName, repoOwner, repoName, provider, callbackUrl }`)
+- [x] **AC-US4-03**: The source uses `X-Worker-Signature` header with `WORKER_SECRET` env var for scanner-worker auth (same as current push dispatch)
+- [x] **AC-US4-04**: Failed claims (already claimed by another VM) are skipped gracefully with a log line
+- [x] **AC-US4-05**: The source processes one scan at a time (sequential claim-dispatch, no concurrency within a single cycle) for simplicity
+- [x] **AC-US4-06**: The crawl function returns `{ checked, dispatched, skipped, errors }` summary matching the crawl-worker source return convention
 
 ---
 
@@ -103,11 +103,11 @@ The crawl-worker already has a proven pull-based pattern (`submission-scanner.js
 **So that** the platform enqueues work for the pull-based source instead of pushing to workers
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: When `SAST_PULL_MODE` env var is truthy, `dispatchExternalScans()` writes PENDING status to KV and creates/upserts the ExternalScanResult DB row with status=PENDING, then returns without making HTTP calls to scanner workers
-- [ ] **AC-US5-02**: When `SAST_PULL_MODE` is falsy or absent, the existing push dispatch behavior is preserved unchanged (round-robin POST to SCANNER_WORKERS)
-- [ ] **AC-US5-03**: The DB upsert uses `@@unique([skillName, provider])` constraint -- if a row already exists with PENDING or RUNNING status, the enqueue is skipped (dedup, same as current KV dedup logic)
-- [ ] **AC-US5-04**: The GitHub Actions fallback code path is left in place (removal deferred to follow-up increment)
-- [ ] **AC-US5-05**: All three call sites (process-submission, finalize-scan, admin/scan-external) use the updated `dispatchExternalScans()` with no call-site changes needed
+- [x] **AC-US5-01**: When `SAST_PULL_MODE` env var is truthy, `dispatchExternalScans()` writes PENDING status to KV and creates/upserts the ExternalScanResult DB row with status=PENDING, then returns without making HTTP calls to scanner workers
+- [x] **AC-US5-02**: When `SAST_PULL_MODE` is falsy or absent, the existing push dispatch behavior is preserved unchanged (round-robin POST to SCANNER_WORKERS)
+- [x] **AC-US5-03**: The DB upsert uses `@@unique([skillName, provider])` constraint -- if a row already exists with PENDING or RUNNING status, the enqueue is skipped (dedup, same as current KV dedup logic)
+- [x] **AC-US5-04**: The GitHub Actions fallback code path is left in place (removal deferred to follow-up increment)
+- [x] **AC-US5-05**: All three call sites (process-submission, finalize-scan, admin/scan-external) use the updated `dispatchExternalScans()` with no call-site changes needed
 
 ---
 
@@ -119,10 +119,10 @@ The crawl-worker already has a proven pull-based pattern (`submission-scanner.js
 **So that** SAST scans are continuously pulled and processed
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: `scheduler.js` SOURCE_TIMEOUTS includes `"sast-scanner": 30 * 60 * 1000` (30 min timeout -- scans are quick, each cycle dispatches to scanner-worker which handles the actual work)
-- [ ] **AC-US6-02**: `scheduler.js` SOURCE_COOLDOWNS includes `"sast-scanner": 30 * 1000` (30s cooldown -- check for new work frequently but not aggressively)
-- [ ] **AC-US6-03**: `.env.vm2` has `sast-scanner` appended to ASSIGNED_SOURCES
-- [ ] **AC-US6-04**: The callbackUrl constructed by sast-scanner.js uses `config.platformUrl` (defaults to `https://verified-skill.com`) so webhook results route back to the platform
+- [x] **AC-US6-01**: `scheduler.js` SOURCE_TIMEOUTS includes `"sast-scanner": 30 * 60 * 1000` (30 min timeout -- scans are quick, each cycle dispatches to scanner-worker which handles the actual work)
+- [x] **AC-US6-02**: `scheduler.js` SOURCE_COOLDOWNS includes `"sast-scanner": 30 * 1000` (30s cooldown -- check for new work frequently but not aggressively)
+- [x] **AC-US6-03**: `.env.vm2` has `sast-scanner` appended to ASSIGNED_SOURCES
+- [x] **AC-US6-04**: The callbackUrl constructed by sast-scanner.js uses `config.platformUrl` (defaults to `https://verified-skill.com`) so webhook results route back to the platform
 
 ## Functional Requirements
 

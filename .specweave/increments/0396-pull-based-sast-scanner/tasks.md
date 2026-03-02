@@ -3,7 +3,7 @@
 ---
 increment: 0396-pull-based-sast-scanner
 total_tasks: 11
-completed: 0
+completed: 11
 by_user_story:
   US-003: [T-001]
   US-001: [T-002, T-003]
@@ -24,7 +24,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the existing ExternalScanResult Prisma model
@@ -54,7 +54,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** ExternalScanResult rows with various statuses (PENDING, RUNNING with stale claimedAt, PASS, FAIL)
@@ -88,7 +88,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** mocked Prisma DB with ExternalScanResult + Skill data
@@ -114,7 +114,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a PENDING ExternalScanResult row with id "scan-1"
@@ -148,7 +148,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** mocked Prisma DB with updateMany returning count 0 or 1
@@ -176,7 +176,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04, AC-US5-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `SAST_PULL_MODE=true` in Cloudflare env
@@ -211,7 +211,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** mocked env with SAST_PULL_MODE set/unset
@@ -237,7 +237,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05, AC-US4-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** platform API returns 3 pending scans, scanner-worker on localhost:9500 is healthy
@@ -275,7 +275,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05, AC-US4-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** mocked fetch for platform API and scanner-worker
@@ -303,7 +303,7 @@ by_user_story:
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the scheduler.js SOURCE_TIMEOUTS and SOURCE_COOLDOWNS maps
@@ -324,7 +324,7 @@ by_user_story:
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** SAST_PULL_MODE=true set as CF secret, sast-scanner deployed on VM-2
