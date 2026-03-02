@@ -66,8 +66,24 @@
       "installedAt": "2026-03-01T22:36:29.533Z",
       "source": "github:anton-abyzov/specweave#plugin:sw-github",
       "scope": "project"
+    },
+    "sw-jira": {
+      "version": "1.0.0",
+      "sha": "17dccc3cd81e",
+      "tier": "VERIFIED",
+      "installedAt": "2026-03-02T08:16:13.255Z",
+      "source": "github:anton-abyzov/specweave#plugin:sw-jira",
+      "scope": "project"
+    },
+    "sw-ado": {
+      "version": "1.0.0",
+      "sha": "df0bde9cc3ea",
+      "tier": "VERIFIED",
+      "installedAt": "2026-03-02T08:16:18.742Z",
+      "source": "github:anton-abyzov/specweave#plugin:sw-ado",
+      "scope": "project"
     }
   },
   "createdAt": "2026-02-25T22:10:22.975Z",
-  "updatedAt": "2026-03-02T04:47:17.356Z"
+  "updatedAt": "2026-03-02T08:16:18.742Z"
 }
