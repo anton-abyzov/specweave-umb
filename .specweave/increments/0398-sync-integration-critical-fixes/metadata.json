@@ -1,0 +1,13 @@
+{
+  "id": "0398-sync-integration-critical-fixes",
+  "status": "active",
+  "type": "bug",
+  "priority": "P0",
+  "created": "2026-03-02T09:44:33.732Z",
+  "lastActivity": "2026-03-02T09:44:33.732Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": "FS-398",
+  "epic_id": null,
+  "externalLinks": {}
+}
