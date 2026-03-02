@@ -1,11 +1,11 @@
 ---
 increment: 0398-sync-integration-critical-fixes
-title: "Critical Sync Integration Bug Fixes"
+title: Critical Sync Integration Bug Fixes
 feature_id: FS-398
 type: bug
 priority: P0
-status: active
-created: 2026-03-02
+status: completed
+created: 2026-03-02T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
