@@ -11,4 +11,4 @@ End-to-end smoke test to verify the SpecWeave → GitHub sync pipeline works cor
 **So that** external stakeholders can track progress via GitHub
 
 #### Acceptance Criteria
-- [ ] AC-US1-01: GitHub issue is created for this user story with correct title format `[FS-405][US-001]`
+- [x] AC-US1-01: GitHub issue is created for this user story with correct title format `[FS-405][US-001]`
