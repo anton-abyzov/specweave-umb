@@ -1,10 +1,10 @@
 ---
 increment: 0396-pull-based-sast-scanner
-title: "Pull-based SAST scanning"
+title: Pull-based SAST scanning
 type: feature
 priority: P1
-status: planned
-created: 2026-03-02
+status: completed
+created: 2026-03-02T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
