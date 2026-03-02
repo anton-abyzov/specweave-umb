@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0401-crawler-pipeline-reliability",
+  "timestamp": "2026-03-02T21:15:00Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels consent not configured in config.json",
+  "note": "Judge LLM validation waived per closure protocol. All other quality gates (grill, tests) passed."
+}

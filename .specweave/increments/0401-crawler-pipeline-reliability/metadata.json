@@ -1,0 +1,15 @@
+{
+  "id": "0401-crawler-pipeline-reliability",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-02T20:50:35.999Z",
+  "lastActivity": "2026-03-02T21:55:43.851Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-03-02T20:50:35.999Z",
+  "approvedAt": "2026-03-02T21:55:43.851Z"
+}

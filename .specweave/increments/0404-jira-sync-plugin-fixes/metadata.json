@@ -1,0 +1,21 @@
+{
+  "id": "0404-jira-sync-plugin-fixes",
+  "title": "JIRA Sync Plugin Critical Fixes",
+  "status": "ready_for_review",
+  "type": "bug",
+  "created": "2026-03-02T16:00:00Z",
+  "priority": "P0",
+  "scope": "repositories/anton-abyzov/specweave/plugins/specweave-jira/",
+  "tags": [
+    "jira",
+    "sync",
+    "bugfix",
+    "data-integrity",
+    "compatibility"
+  ],
+  "externalLinks": {},
+  "lastActivity": "2026-03-02T22:16:26.452Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-03-02T22:16:26.452Z"
+}

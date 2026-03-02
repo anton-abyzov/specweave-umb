@@ -1,0 +1,18 @@
+{
+  "id": "0405-github-sync-smoke-test",
+  "title": "GitHub Sync Smoke Test",
+  "type": "test",
+  "status": "active",
+  "created": "2026-03-02T20:00:00Z",
+  "updated": "2026-03-02T20:00:00Z",
+  "github": {
+    "owner": "anton-abyzov",
+    "repo": "specweave",
+    "issues": []
+  },
+  "externalLinks": {
+    "github": {
+      "issues": []
+    }
+  }
+}
