@@ -1,0 +1,34 @@
+{
+  "id": "0406-github-sync-smoke-test-2",
+  "title": "GitHub Sync Smoke Test 2",
+  "type": "test",
+  "status": "completed",
+  "created": "2026-03-02T22:35:00Z",
+  "updated": "2026-03-02T22:45:00Z",
+  "github": {
+    "owner": "anton-abyzov",
+    "repo": "specweave",
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1468,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1468",
+        "createdAt": "2026-03-02T22:42:31Z"
+      }
+    ],
+    "lastSync": "2026-03-02T22:42:31Z"
+  },
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1468,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1468",
+          "status": "closed"
+        }
+      },
+      "milestone": 198,
+      "syncedAt": "2026-03-02T22:42:31Z"
+    }
+  }
+}
