@@ -1,0 +1,13 @@
+{
+  "id": "0399-skill-embedded-agents",
+  "status": "active",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-03-02T18:00:00Z",
+  "lastActivity": "2026-03-02T18:00:00Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

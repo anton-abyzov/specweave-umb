@@ -1,0 +1,13 @@
+{
+  "id": "0400-sync-pipeline-reliability",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-02T20:00:00Z",
+  "lastActivity": "2026-03-02T20:00:00Z",
+  "testMode": "TDD",
+  "coverageTarget": 95,
+  "feature_id": "FS-400",
+  "epic_id": null,
+  "externalLinks": {}
+}
