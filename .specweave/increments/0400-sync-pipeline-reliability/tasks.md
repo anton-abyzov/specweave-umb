@@ -31,11 +31,11 @@
 ## US-003: externalLinks and github fields stay consistent
 
 ### T-007: GitHubFeatureSync writes both metadata fields
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01 | **Status**: [x] completed
 **Test**: Given increment syncs to GitHub → When `syncFeatureToGitHub()` completes → Then both `externalLinks.github.issues` AND `github.issues[]` contain matching data
 
 ### T-008: LivingDocsSync syncToGitHub writes both fields
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-02 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-02 | **Status**: [x] completed
 **Test**: Given living docs sync runs → When `syncToGitHub()` completes → Then both metadata fields are populated with matching milestone and issue data
 
 ### T-009: Migration utility normalizes existing metadata
@@ -54,13 +54,13 @@
 
 ## US-005: Metadata schema validation on load
 
-### T-012: Validate required fields in MetadataManager.load()
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02 | **Status**: [ ] pending
-**Test**: Given metadata with `id: "0399"` (missing slug) and `createdAt` instead of `created` → When `MetadataManager.load()` runs → Then warning lists "id should be full slug '0399-name'", "use 'created' not 'createdAt'"
+### T-012: Create shared validateMetadataSchema() and enforce on create + load
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-04 | **Status**: [x] completed
+**Test**: Given `MetadataManager.create()` called with `id: "0399"` (no slug) → Then it auto-expands to full slug AND initializes `externalLinks: {}`. Given `MetadataManager.load()` reads metadata with `createdAt` field → Then it renames to `created` and writes corrected file back.
 
 ### T-013: Map non-standard type values with warning
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-03 | **Status**: [ ] pending
-**Test**: Given metadata with `type: "enhancement"` → When loaded → Then type is mapped to "feature" with warning "non-standard type 'enhancement' mapped to 'feature'"
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-03 | **Status**: [x] completed
+**Test**: Given metadata with `type: "enhancement"` → When created or loaded → Then type is mapped to "feature" with warning "non-standard type 'enhancement' mapped to 'feature'"
 
 ## US-006: Stale milestone cleanup command
 
