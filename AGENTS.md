@@ -1,6 +1,6 @@
-<!-- SW:META template="agents" version="1.0.354" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
+<!-- SW:META template="agents" version="1.0.355" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
 
-<!-- SW:SECTION:rules version="1.0.354" -->
+<!-- SW:SECTION:rules version="1.0.355" -->
 ## Essential Rules
 
 ```
@@ -29,15 +29,19 @@
 ```
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:orchestration version="1.0.354" -->
+<!-- SW:SECTION:orchestration version="1.0.355" -->
 ## Workflow Orchestration
 
-### 1. Plan Before Code
+### 1. Plan Before Code (MANDATORY)
 
-BEFORE implementing ANY non-trivial task (3+ steps):
+BEFORE implementing ANY task — create an increment FIRST:
 1. Create increment: spec.md (WHAT/WHY) + plan.md (HOW) + tasks.md (checklist)
 2. Get user approval before implementing
 3. If something goes sideways → STOP and re-plan
+
+**No exceptions for "simple" tasks** — "simple", "quick", "basic" still require an increment. The only exception: user explicitly says "don't create an increment."
+
+**Setup/config actions are NOT implementation** — "connect github", "setup sync", "import issues" → use the matching setup command directly, not the increment workflow.
 
 See **Task Format** and **User Story Format** sections for templates.
 
@@ -51,13 +55,6 @@ Never mark a task complete without proving it works:
 - `/sw:judge-llm` writes `judge-llm-report.json` — WAIVED if consent denied
 - Acceptance criteria actually satisfied
 
-### 4. Large-Scale Changes
-
-For codebase-wide migrations or bulk refactors:
-- **Claude Code**: Use `/batch` — decomposes work into parallel agents with worktree isolation, each producing its own PR
-- **Other tools**: Break work into isolated branches (one per unit), implement each independently, review and merge separately
-- Always get approval on the decomposition plan before executing
-
 ### 3. Dependencies First
 
 Satisfy dependencies BEFORE dependent operations.
@@ -68,7 +65,7 @@ Good: npm run build → node script.js → Success
 ```
 <!-- SW:END:orchestration -->
 
-<!-- SW:SECTION:principles version="1.0.354" -->
+<!-- SW:SECTION:principles version="1.0.355" -->
 ## Core Principles (Quality)
 
 ### Simplicity First
@@ -76,6 +73,7 @@ Good: npm run build → node script.js → Success
 - Avoid over-engineering and premature optimization
 - One function = one responsibility
 - If you can delete code and tests still pass, delete it
+- **Match tooling to complexity** — simple tasks (calculator, todo) need 0 domain plugins and vanilla code. Don't load heavyweight frameworks, design systems, or i18n for trivial features
 
 ### No Laziness
 - Don't leave TODO comments for "later"
@@ -114,7 +112,7 @@ Good: npm run build → node script.js → Success
 - E2E with Playwright CLI (`npx playwright test`) is a blocking closure gate
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:commands version="1.0.354" -->
+<!-- SW:SECTION:commands version="1.0.355" -->
 ## Commands Reference
 
 | Command | Purpose |
@@ -129,9 +127,11 @@ Good: npm run build → node script.js → Success
 | `/sw-github:sync 0001` | Sync increment to GitHub issue |
 | `/sw-jira:sync 0001` | Sync to Jira |
 | `/sw-ado:sync 0001` | Sync to Azure DevOps |
+| `/sw:sync-setup` | Connect GitHub/Jira/ADO integration |
+| `/sw:import` | Import issues from external tools |
 <!-- SW:END:commands -->
 
-<!-- SW:SECTION:nonclaudetools version="1.0.354" -->
+<!-- SW:SECTION:nonclaudetools version="1.0.355" -->
 ## Non-Claude Tools (Cursor, Copilot, etc.)
 
 Claude Code has automatic hooks and orchestration. Other tools must do these manually.
@@ -174,7 +174,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 **Background jobs**: Monitor with `specweave jobs` (clone-repos, import-issues, living-docs-builder, sync-external).
 <!-- SW:END:nonclaudetools -->
 
-<!-- SW:SECTION:syncworkflow version="1.0.354" -->
+<!-- SW:SECTION:syncworkflow version="1.0.355" -->
 ## Sync Workflow
 
 ### Source of Truth
@@ -199,7 +199,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 | `/sw-ado:sync <id>` | After each task |
 <!-- SW:END:syncworkflow -->
 
-<!-- SW:SECTION:contextloading version="1.0.354" -->
+<!-- SW:SECTION:contextloading version="1.0.355" -->
 ## Context Loading
 
 ### Efficient Context Management
@@ -219,7 +219,7 @@ Read only what's needed for the current task:
 4. Avoid loading entire documentation trees
 <!-- SW:END:contextloading -->
 
-<!-- SW:SECTION:structure version="1.0.354" -->
+<!-- SW:SECTION:structure version="1.0.355" -->
 ## Project Structure
 
 ```
@@ -258,7 +258,7 @@ umbrella-project/
 **Rules**: Each repo manages its own increments. Never create agent increments in the umbrella root.
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:agents version="1.0.354" -->
+<!-- SW:SECTION:agents version="1.0.355" -->
 ## Agents (Roles)
 
 {AGENTS_SECTION}
@@ -266,7 +266,7 @@ umbrella-project/
 **Usage**: Adopt role perspective when working on related tasks.
 <!-- SW:END:agents -->
 
-<!-- SW:SECTION:skills version="1.0.354" -->
+<!-- SW:SECTION:skills version="1.0.355" -->
 ## Skills (Capabilities)
 
 {SKILLS_SECTION}
@@ -280,7 +280,7 @@ umbrella-project/
 4. Run `specweave context projects` BEFORE creating any increment
 <!-- SW:END:skills -->
 
-<!-- SW:SECTION:taskformat version="1.0.354" -->
+<!-- SW:SECTION:taskformat version="1.0.355" -->
 ## Task Format
 
 ```markdown
@@ -294,7 +294,7 @@ umbrella-project/
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:usformat version="1.0.354" -->
+<!-- SW:SECTION:usformat version="1.0.355" -->
 ## User Story Format (CRITICAL for spec.md)
 
 **MANDATORY: Every User Story MUST have `**Project**:` field!**
@@ -328,7 +328,7 @@ specweave context projects
 ```
 <!-- SW:END:usformat -->
 
-<!-- SW:SECTION:workflows version="1.0.354" -->
+<!-- SW:SECTION:workflows version="1.0.355" -->
 ## Workflows
 
 ### Creating Increment
@@ -360,7 +360,7 @@ specweave context projects
 5. `/sw:done <id>` — validates report files + PM 3 gates (tasks, tests, docs)
 <!-- SW:END:workflows -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.354" -->
+<!-- SW:SECTION:troubleshooting version="1.0.355" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -374,7 +374,7 @@ specweave context projects
 | Skills not activating (non-Claude) | Expected — read SKILL.md from `plugins/specweave*/skills/` |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:docs version="1.0.354" -->
+<!-- SW:SECTION:docs version="1.0.355" -->
 ## Documentation
 
 | Resource | Purpose |
@@ -386,70 +386,19 @@ specweave context projects
 <!-- SW:END:docs -->
 
 ---
-<!-- ↓ ORIGINAL ↓ -->
+<!-- ↓ PROJECT-SPECIFIC ↓ -->
 
 ## Project Overview
 
 Umbrella repo containing SpecWeave and related repositories under `repositories/anton-abyzov/`.
 
-## Key Rules
+## Project-Specific Gates
 
-1. All repos at `repositories/{org}/{repo-name}/` — never directly under `repositories/`
-2. Only 4 files in increment root: `metadata.json`, `spec.md`, `plan.md`, `tasks.md`
-3. Reports/scripts/logs go in subfolders, never at increment root
-4. Max 1500 lines per file — extract before adding
-5. Check ADRs before implementing changes
+### Closing Increment (additional steps)
+Before `/sw:done`, also run:
+- Coverage check: `npx vitest run --coverage` (must meet targets in config.json)
+- Ask user for manual acceptance: new UI, auth, payments, data migrations
 
-## Workflow Overrides (Testing Gates)
-
-### Creating Increment
-After `/sw:increment` creates spec.md + plan.md + tasks.md:
-- Verify tasks.md has `**Test Plan**:` for every task with testable ACs
-- Verify E2E scenarios exist for user-facing user stories
-- If missing: re-run `/sw:test-aware-planner` before proceeding to `/sw:do`
-
-### Completing Tasks
-After implementing each task in `/sw:do`:
-1. Run unit tests: `npx vitest run`
-2. Run E2E tests (if task touches UI/API): `npx playwright test`
-3. Only mark task `[x]` after tests pass
-4. If 3 consecutive test failures: STOP, re-plan, ask user
-
-### Closing Increment
-Before `/sw:done`:
-1. Full test suite: `npx vitest run` (all unit + integration)
-2. Full E2E suite: `npx playwright test` (all scenarios)
-3. Coverage check: `npx vitest run --coverage` (must meet targets in config.json)
-4. Ask user for manual acceptance: new UI, auth, payments, data migrations
-
-## Principles
-
-1. **Simplicity First**: Minimal code, minimal impact
-2. **No Laziness**: Root causes, senior standards
-3. **DRY**: Flag and eliminate repetitions
-4. **Plan before code**: Review approach before making changes
-5. **Test before ship**: Tests pass at every step — after each task and before close
-6. **Verify**: `/sw:grill` + `/sw:validate` + user acceptance for critical flows
-
-## Testing Pipeline (MANDATORY)
-
-Testing is enforced at 3 lifecycle stages:
-
-| Stage | Skills / Actions | Blocking? |
-|-------|-----------------|-----------|
-| **Design** (`/sw:increment`) | `/sw:test-aware-planner` generates BDD test plans per AC; E2E scenarios for UI features | Yes — tasks.md must have test plans |
-| **Implementation** (`/sw:do`) | `/sw:tdd-red` → `/sw:tdd-green` → `/sw:tdd-refactor`; run `npx vitest run` + `npx playwright test` after each task | Yes — task not `[x]` until tests pass |
-| **Closing** (`/sw:done`) | `/sw:grill` + `/sw:validate`; E2E via Playwright CLI; user acceptance for critical flows | Yes — gates block closure |
-
-- Unit/Integration: Vitest (`.test.ts`), ESM: `vi.hoisted()` + `vi.mock()`
-- E2E: Playwright CLI (`npx playwright test`)
-- Coverage: unit 95%, integration 90%, e2e 100% AC scenarios
-
-## Structure
-
-```
-.specweave/
-├── increments/####-name/     # metadata.json, spec.md, plan.md, tasks.md
-├── docs/internal/specs/      # Living docs
-└── config.json
-```
+### File Limits
+- Max 1500 lines per file — extract before adding
+- Check ADRs at `.specweave/docs/internal/architecture/adr/` before implementing changes
