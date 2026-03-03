@@ -1,6 +1,6 @@
-<!-- SW:META template="agents" version="1.0.355" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
+<!-- SW:META template="agents" version="1.0.356" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
 
-<!-- SW:SECTION:rules version="1.0.355" -->
+<!-- SW:SECTION:rules version="1.0.356" -->
 ## Essential Rules
 
 ```
@@ -29,7 +29,7 @@
 ```
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:orchestration version="1.0.355" -->
+<!-- SW:SECTION:orchestration version="1.0.356" -->
 ## Workflow Orchestration
 
 ### 1. Plan Before Code (MANDATORY)
@@ -55,6 +55,13 @@ Never mark a task complete without proving it works:
 - `/sw:judge-llm` writes `judge-llm-report.json` — WAIVED if consent denied
 - Acceptance criteria actually satisfied
 
+### 4. Large-Scale Changes
+
+For codebase-wide migrations or bulk refactors:
+- **Claude Code**: Use `/batch` — decomposes work into parallel agents with worktree isolation, each producing its own PR
+- **Other tools**: Break work into isolated branches (one per unit), implement each independently, review and merge separately
+- Always get approval on the decomposition plan before executing
+
 ### 3. Dependencies First
 
 Satisfy dependencies BEFORE dependent operations.
@@ -65,7 +72,7 @@ Good: npm run build → node script.js → Success
 ```
 <!-- SW:END:orchestration -->
 
-<!-- SW:SECTION:principles version="1.0.355" -->
+<!-- SW:SECTION:principles version="1.0.356" -->
 ## Core Principles (Quality)
 
 ### Simplicity First
@@ -112,7 +119,7 @@ Good: npm run build → node script.js → Success
 - E2E with Playwright CLI (`npx playwright test`) is a blocking closure gate
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:commands version="1.0.355" -->
+<!-- SW:SECTION:commands version="1.0.356" -->
 ## Commands Reference
 
 | Command | Purpose |
@@ -131,7 +138,7 @@ Good: npm run build → node script.js → Success
 | `/sw:import` | Import issues from external tools |
 <!-- SW:END:commands -->
 
-<!-- SW:SECTION:nonclaudetools version="1.0.355" -->
+<!-- SW:SECTION:nonclaudetools version="1.0.356" -->
 ## Non-Claude Tools (Cursor, Copilot, etc.)
 
 Claude Code has automatic hooks and orchestration. Other tools must do these manually.
@@ -174,7 +181,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 **Background jobs**: Monitor with `specweave jobs` (clone-repos, import-issues, living-docs-builder, sync-external).
 <!-- SW:END:nonclaudetools -->
 
-<!-- SW:SECTION:syncworkflow version="1.0.355" -->
+<!-- SW:SECTION:syncworkflow version="1.0.356" -->
 ## Sync Workflow
 
 ### Source of Truth
@@ -199,7 +206,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 | `/sw-ado:sync <id>` | After each task |
 <!-- SW:END:syncworkflow -->
 
-<!-- SW:SECTION:contextloading version="1.0.355" -->
+<!-- SW:SECTION:contextloading version="1.0.356" -->
 ## Context Loading
 
 ### Efficient Context Management
@@ -219,7 +226,7 @@ Read only what's needed for the current task:
 4. Avoid loading entire documentation trees
 <!-- SW:END:contextloading -->
 
-<!-- SW:SECTION:structure version="1.0.355" -->
+<!-- SW:SECTION:structure version="1.0.356" -->
 ## Project Structure
 
 ```
@@ -258,7 +265,7 @@ umbrella-project/
 **Rules**: Each repo manages its own increments. Never create agent increments in the umbrella root.
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:agents version="1.0.355" -->
+<!-- SW:SECTION:agents version="1.0.356" -->
 ## Agents (Roles)
 
 {AGENTS_SECTION}
@@ -266,7 +273,7 @@ umbrella-project/
 **Usage**: Adopt role perspective when working on related tasks.
 <!-- SW:END:agents -->
 
-<!-- SW:SECTION:skills version="1.0.355" -->
+<!-- SW:SECTION:skills version="1.0.356" -->
 ## Skills (Capabilities)
 
 {SKILLS_SECTION}
@@ -280,7 +287,7 @@ umbrella-project/
 4. Run `specweave context projects` BEFORE creating any increment
 <!-- SW:END:skills -->
 
-<!-- SW:SECTION:taskformat version="1.0.355" -->
+<!-- SW:SECTION:taskformat version="1.0.356" -->
 ## Task Format
 
 ```markdown
@@ -294,7 +301,7 @@ umbrella-project/
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:usformat version="1.0.355" -->
+<!-- SW:SECTION:usformat version="1.0.356" -->
 ## User Story Format (CRITICAL for spec.md)
 
 **MANDATORY: Every User Story MUST have `**Project**:` field!**
@@ -328,7 +335,7 @@ specweave context projects
 ```
 <!-- SW:END:usformat -->
 
-<!-- SW:SECTION:workflows version="1.0.355" -->
+<!-- SW:SECTION:workflows version="1.0.356" -->
 ## Workflows
 
 ### Creating Increment
@@ -360,7 +367,7 @@ specweave context projects
 5. `/sw:done <id>` — validates report files + PM 3 gates (tasks, tests, docs)
 <!-- SW:END:workflows -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.355" -->
+<!-- SW:SECTION:troubleshooting version="1.0.356" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -374,7 +381,7 @@ specweave context projects
 | Skills not activating (non-Claude) | Expected — read SKILL.md from `plugins/specweave*/skills/` |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:docs version="1.0.355" -->
+<!-- SW:SECTION:docs version="1.0.356" -->
 ## Documentation
 
 | Resource | Purpose |
