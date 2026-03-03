@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "incrementId": "0411J-cli-health-check",
+  "timestamp": "2026-03-03T07:08:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 1, "critical": 0, "high": 0, "medium": 1 },
+  "findings": [
+    {
+      "title": "Unused registerHealthCommand export",
+      "severity": "low",
+      "confidence": 72,
+      "category": "maintainability",
+      "file": "src/cli/commands/health.ts:383",
+      "issue": "registerHealthCommand is exported but registration is done inline in bin/specweave.js via dynamic import of runHealthCheck. The function is dead code.",
+      "suggestion": "Remove registerHealthCommand or use it from bin/specweave.js",
+      "impact": "No runtime impact, minor code hygiene"
+    }
+  ]
+}

@@ -22,17 +22,42 @@
     "provider": "local"
   },
   "issueTracker": {
-    "provider": "github"
+    "provider": "jira",
+    "domain": "antonabyzov.atlassian.net",
+    "projects": [
+      { "key": "SWE2E", "id": "10139", "name": "SpecWeave E2E Test" },
+      { "key": "WTTC", "id": "10001", "name": "What To Code" }
+    ]
   },
   "sync": {
     "enabled": true,
     "preset": "bidirectional",
+    "direction": "bidirectional",
     "autoSync": true,
+    "provider": "jira",
+    "defaultProfile": "jira-swe2e",
     "settings": {
       "canUpsertInternalItems": true,
       "canUpdateExternalItems": true,
       "canUpdateStatus": true,
       "autoSyncOnCompletion": true
+    },
+    "profiles": {
+      "jira-swe2e": {
+        "platform": "jira",
+        "config": {
+          "domain": "antonabyzov.atlassian.net",
+          "projectKey": "SWE2E",
+          "projectId": "10139"
+        }
+      },
+      "jira-wttc": {
+        "platform": "jira",
+        "config": {
+          "domain": "antonabyzov.atlassian.net",
+          "projectKey": "WTTC"
+        }
+      }
     },
     "github": {
       "enabled": true,
@@ -42,7 +67,7 @@
     "jira": {
       "enabled": true,
       "domain": "antonabyzov.atlassian.net",
-      "projectKey": "WTTC"
+      "projectKey": "SWE2E"
     },
     "ado": {
       "enabled": true,
