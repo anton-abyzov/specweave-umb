@@ -35,13 +35,13 @@ The vskill platform homepage has several UX issues: metric cards render at unequ
 **So that** I can navigate to detailed views from any metric
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: All 4 metric cards render at equal height regardless of content
-- [ ] **AC-US1-02**: GitHub Stars card links to /skills?sort=stars
-- [ ] **AC-US1-03**: Submissions card links to /queue
-- [ ] **AC-US1-04**: Blocked card links to /trust?tab=blocked
-- [ ] **AC-US1-05**: Avg Score card links to /audits
-- [ ] **AC-US1-06**: Each card shows a description explaining the metric
-- [ ] **AC-US1-07**: Each card shows a footer link label (e.g., "View queue >>")
+- [x] **AC-US1-01**: All 4 metric cards render at equal height regardless of content
+- [x] **AC-US1-02**: GitHub Stars card links to /skills?sort=stars
+- [x] **AC-US1-03**: Submissions card links to /queue
+- [x] **AC-US1-04**: Blocked card links to /trust?tab=blocked
+- [x] **AC-US1-05**: Avg Score card links to /audits
+- [x] **AC-US1-06**: Each card shows a description explaining the metric
+- [x] **AC-US1-07**: Each card shows a footer link label (e.g., "View queue >>")
 
 ---
 
@@ -53,10 +53,10 @@ The vskill platform homepage has several UX issues: metric cards render at unequ
 **So that** I understand the verification process at a glance
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Pipeline shows 4 connected steps: Authors -> Submitted -> Scanned -> Published
-- [ ] **AC-US2-02**: Each step displays a relevant metric from platform stats
-- [ ] **AC-US2-03**: Each step links to its corresponding page (/authors, /queue, /audits, /skills)
-- [ ] **AC-US2-04**: Pipeline renders horizontally on desktop and vertically on mobile
+- [x] **AC-US2-01**: Pipeline shows 4 connected steps: Authors -> Submitted -> Scanned -> Published
+- [x] **AC-US2-02**: Each step displays a relevant metric from platform stats
+- [x] **AC-US2-03**: Each step links to its corresponding page (/authors, /queue, /audits, /skills)
+- [x] **AC-US2-04**: Pipeline renders horizontally on desktop and vertically on mobile
 
 ---
 
@@ -68,10 +68,10 @@ The vskill platform homepage has several UX issues: metric cards render at unequ
 **So that** I can quickly understand what vskill is and start searching
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Hero has 4 distinct rows: heading, subtitle+security, search, CTAs+stats
-- [ ] **AC-US3-02**: Search bar is full-width and prominent
-- [ ] **AC-US3-03**: Security callout is compact inline text (not a full-width block)
-- [ ] **AC-US3-04**: "Submit a Skill" secondary CTA is visible
+- [x] **AC-US3-01**: Hero has 4 distinct rows: heading, subtitle+security, search, CTAs+stats
+- [x] **AC-US3-02**: Search bar is full-width and prominent
+- [x] **AC-US3-03**: Security callout is compact inline text (not a full-width block)
+- [x] **AC-US3-04**: "Submit a Skill" secondary CTA is visible
 
 ---
 
@@ -83,8 +83,8 @@ The vskill platform homepage has several UX issues: metric cards render at unequ
 **So that** I can discover skills by topic
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Each category bar is a clickable link to /skills?category=X
-- [ ] **AC-US4-02**: Bars show hover state with background highlight
+- [x] **AC-US4-01**: Each category bar is a clickable link to /skills?category=X
+- [x] **AC-US4-02**: Bars show hover state with background highlight
 
 ---
 
@@ -96,8 +96,8 @@ The vskill platform homepage has several UX issues: metric cards render at unequ
 **So that** I'm guided from understanding to exploration
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Section order: Hero -> Pipeline -> Dashboard -> Categories -> Trending -> Trust
-- [ ] **AC-US5-02**: CategoryNav appears before TrendingSkills
+- [x] **AC-US5-01**: Section order: Hero -> Pipeline -> Dashboard -> Categories -> Trending -> Trust
+- [x] **AC-US5-02**: CategoryNav appears before TrendingSkills
 
 ## Functional Requirements
 

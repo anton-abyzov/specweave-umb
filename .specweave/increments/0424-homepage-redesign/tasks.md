@@ -8,7 +8,7 @@ by_user_story:
   US-004: [T-004]
   US-005: [T-007, T-008]
 tasks_total: 8
-tasks_completed: 0
+tasks_completed: 8
 ---
 
 # Tasks: Redesign vskill Platform Homepage
@@ -16,13 +16,13 @@ tasks_completed: 0
 ## User Story: US-001 - Metric Card Alignment and Navigation
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05, AC-US1-06, AC-US1-07
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
 ### T-001: Enhance MetricCard with description, linkLabel, and href props
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-06, AC-US1-07
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a MetricCard rendered with `href`, `description`, and `linkLabel` props
@@ -51,7 +51,7 @@ tasks_completed: 0
 
 ### T-002: Wire MetricCard navigation targets in MarketDashboard
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05, AC-US1-06, AC-US1-07
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the MarketDashboard component rendering 4 MetricCards
@@ -82,13 +82,13 @@ tasks_completed: 0
 ## User Story: US-002 - Pipeline Flow Visualization
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Tasks**: 1 total, 0 completed
+**Tasks**: 1 total, 1 completed
 
 ---
 
 ### T-003: Create PipelineFlow component
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the PipelineFlow component rendered with platform stats
@@ -121,13 +121,13 @@ tasks_completed: 0
 ## User Story: US-004 - Interactive Category Chart
 
 **Linked ACs**: AC-US4-01, AC-US4-02
-**Tasks**: 1 total, 0 completed
+**Tasks**: 1 total, 1 completed
 
 ---
 
 ### T-004: Convert CategoryDistribution from SVG to clickable HTML bars
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the CategoryDistribution component rendered with category data
@@ -159,13 +159,13 @@ tasks_completed: 0
 ## User Story: US-003 - Hero Section Cleanup
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
 ### T-005: Restructure hero section in page.tsx
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-03, AC-US3-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the homepage rendered
@@ -196,7 +196,7 @@ tasks_completed: 0
 
 ### T-006: Remove size constraints from HeroSearchInput
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the HeroSearchInput component rendered
@@ -220,13 +220,13 @@ tasks_completed: 0
 ## User Story: US-005 - Section Reordering and Visual Connection
 
 **Linked ACs**: AC-US5-01, AC-US5-02
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
 ### T-007: Reorder page sections and integrate PipelineFlow
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the homepage rendered with all sections
@@ -251,7 +251,7 @@ tasks_completed: 0
 
 ### T-008: Add PipelineSkeleton and responsive CSS
 **User Story**: US-005 | **Satisfies ACs**: AC-US2-04, AC-US5-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the homepage loading state and the pipeline section on various viewports
