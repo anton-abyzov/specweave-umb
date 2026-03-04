@@ -1,0 +1,121 @@
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#1e88e5','primaryTextColor':'#fff','primaryBorderColor':'#1565c0','lineColor':'#424242','secondaryColor':'#43a047','tertiaryColor':'#fff'}}}%%
+
+sequenceDiagram
+    autonumber
+    participant User
+    participant Main as Main Conversation
+    participant Inc as /sw:increment skill
+    participant CLI as specweave CLI
+    participant PM_A as sw-pm subagent
+    participant PM_S as sw:pm skill (preloaded)
+    participant Arch_A as sw-architect subagent
+    participant Arch_S as sw:architect skill (preloaded)
+    participant Plan_A as sw-planner subagent
+    participant Plan_S as sw:test-aware-planner skill (preloaded)
+    participant FS as File System
+    participant Guard as Guard Hooks (shell)
+
+    rect rgb(230, 240, 255)
+        Note over User,Inc: PHASE 1: Plan Mode + Pre-Flight
+        User->>Main: "Build feature X"
+        Main->>Inc: Skill({ skill: "sw:increment" })
+        Inc->>Inc: EnterPlanMode (MANDATORY)
+        Inc->>Inc: Step 0A: Discipline check
+        Inc->>Inc: Step 0B: WIP enforcement
+        Inc->>Inc: Step 0C: Tech stack detection
+    end
+
+    rect rgb(240, 255, 240)
+        Note over Inc,CLI: PHASE 2: Create Increment Folder
+        Inc->>CLI: specweave create-increment --id "0425-feature-x"
+        CLI->>FS: mkdir .specweave/increments/0425-feature-x/
+        CLI->>FS: Write metadata.json (status: "planned")
+        CLI-->>Inc: Increment folder ready
+    end
+
+    rect rgb(255, 245, 230)
+        Note over Inc,PM_S: PHASE 3: PM Subagent writes spec.md
+        Note over Inc: Agent({ subagent_type: "sw:sw-pm", prompt: "..." })
+
+        Inc->>PM_A: Spawn subagent (isolated context)
+        Note over PM_A: model: opus | memory: project
+        PM_A->>PM_S: skills: [sw:pm] — content injected at startup
+        Note over PM_S: Full domain logic: phases, templates, validation
+
+        PM_A->>PM_A: Load agent memory (.claude/agent-memory/sw-pm/)
+        PM_A->>PM_S: Follow preloaded skill instructions
+
+        PM_S->>Guard: STEP 0: Register skill-chain marker
+        Guard->>FS: Write .specweave/state/skill-chain-0425-feature-x.json
+        Note over Guard: { pm_invoked: true }
+
+        PM_S->>PM_S: Phase 01: Research requirements
+        PM_S->>PM_S: Phase 02: Spec creation (chunked)
+        PM_S->>PM_S: Phase 03: Validation
+
+        PM_S->>Guard: Write spec.md
+        Guard->>Guard: Check marker: pm_invoked? YES
+        Guard->>FS: ALLOW write spec.md
+        PM_S->>FS: Write spec.md (user stories + ACs)
+
+        PM_A->>PM_A: Save learnings to agent memory
+        PM_A-->>Inc: spec.md complete (3 US, 9 ACs)
+    end
+
+    rect rgb(230, 230, 255)
+        Note over Inc,Arch_S: PHASE 4: Architect Subagent writes plan.md
+        Note over Inc: Agent({ subagent_type: "sw:sw-architect", prompt: "..." })
+
+        Inc->>Arch_A: Spawn subagent (isolated context)
+        Note over Arch_A: model: opus | memory: project
+        Arch_A->>Arch_S: skills: [sw:architect] — content injected
+
+        Arch_A->>FS: Read spec.md (from PM output)
+        Arch_A->>FS: Read ADRs at .specweave/docs/internal/architecture/adr/
+
+        Arch_S->>Guard: STEP 0: Register marker
+        Guard->>FS: Update skill-chain state
+        Note over Guard: { architect_invoked: true }
+
+        Arch_S->>Arch_S: Design architecture
+        Arch_S->>Arch_S: Component breakdown + trade-offs
+
+        Arch_S->>Guard: Write plan.md
+        Guard->>Guard: Check marker: architect_invoked? YES
+        Guard->>FS: ALLOW write plan.md
+        Arch_S->>FS: Write plan.md
+
+        Arch_A-->>Inc: plan.md complete
+    end
+
+    rect rgb(255, 240, 240)
+        Note over Inc,Plan_S: PHASE 5: Planner Subagent writes tasks.md
+        Note over Inc: Agent({ subagent_type: "sw:sw-planner", prompt: "..." })
+
+        Inc->>Plan_A: Spawn subagent (isolated context)
+        Note over Plan_A: model: sonnet | memory: project
+        Plan_A->>Plan_S: skills: [sw:test-aware-planner] — content injected
+
+        Plan_A->>FS: Read spec.md + plan.md
+
+        Plan_S->>Guard: STEP 0: Register marker
+        Guard->>FS: Update skill-chain state
+        Note over Guard: { planner_invoked: true }
+
+        loop For each User Story (one at a time)
+            Plan_S->>Plan_S: Generate tasks with BDD test plans
+            Plan_S->>FS: Append to tasks.md (< 2000 tokens)
+        end
+
+        Plan_A-->>Inc: tasks.md complete (15 tasks)
+    end
+
+    rect rgb(240, 255, 255)
+        Note over Inc,User: PHASE 6: Post-Creation + Strategy
+        Inc->>Inc: Post-sync (living docs, GitHub)
+        Inc->>Inc: Analyze complexity → recommend execution strategy
+        Inc->>Inc: ExitPlanMode
+        Inc-->>Main: Increment ready
+        Main-->>User: Increment 0425-feature-x created
+        Note over User: Next: /sw:do | /sw:auto | /sw:team-lead
+    end
