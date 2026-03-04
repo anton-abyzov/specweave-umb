@@ -168,7 +168,6 @@
   },
   "umbrella": {
     "enabled": true,
-    "syncStrategy": "distributed",
     "projectName": "specweave-umb",
     "sync": {
       "github": { "owner": "anton-abyzov", "repo": "specweave-umb" },

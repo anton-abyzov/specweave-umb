@@ -20,4 +20,4 @@ How-to guides and tutorials
 - [Project Frontmatter Migration](project-frontmatter-migration.md)
 - [Reflect Feature User Guide](reflect-feature-user-guide.md)
 - [TDD Config Behavior Mapping](tdd-config-behavior-mapping.md)
-- **[Umbrella Sync Routing](../../../repositories/anton-abyzov/specweave/docs-site/docs/guides/umbrella-sync-routing.md)** — How sync targets are resolved per child repo in distributed and centralized modes
+- **[Umbrella Sync Routing](../../../repositories/anton-abyzov/specweave/docs-site/docs/guides/umbrella-sync-routing.md)** — How sync targets are resolved per child repo based on the Project field
