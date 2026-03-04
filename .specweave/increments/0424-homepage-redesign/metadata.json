@@ -1,0 +1,13 @@
+{
+  "id": "0424-homepage-redesign",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-04T06:58:10.620Z",
+  "lastActivity": "2026-03-04T06:58:10.620Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

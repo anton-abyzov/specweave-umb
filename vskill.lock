@@ -1,7 +1,14 @@
 {
   "version": 1,
   "agents": [
-    "claude-code"
+    "claude-code",
+    "aider",
+    "antigravity",
+    "codex",
+    "cursor",
+    "kiro-cli",
+    "pi",
+    "windsurf"
   ],
   "skills": {
     "sw": {
@@ -31,7 +38,7 @@
       "version": "2.2.0",
       "sha": "ed0b129be3da",
       "tier": "VERIFIED",
-      "installedAt": "2026-03-03T18:30:48.426Z",
+      "installedAt": "2026-03-04T06:55:24.033Z",
       "source": "github:anton-abyzov/vskill#plugin:frontend",
       "scope": "project"
     },
@@ -110,5 +117,5 @@
     }
   },
   "createdAt": "2026-02-25T22:10:22.975Z",
-  "updatedAt": "2026-03-03T23:30:06.039Z"
+  "updatedAt": "2026-03-04T06:55:24.033Z"
 }
