@@ -1,0 +1,50 @@
+{
+  "id": "0421-umbrella-docs-update",
+  "status": "active",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-03-03T23:17:05.011Z",
+  "lastActivity": "2026-03-03T23:17:05.011Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": "FS-421",
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "userStories": {
+        "US-001": {
+          "issueKey": "SWE2E-10",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-10",
+          "syncedAt": "2026-03-03T23:29:26.718Z"
+        }
+      }
+    },
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 69,
+          "issueUrl": "https://github.com/anton-abyzov/specweave-umb/issues/69",
+          "status": "active"
+        }
+      },
+      "milestone": 9,
+      "syncedAt": "2026-03-03T23:33:44.509Z"
+    }
+  },
+  "jira": {
+    "issue": "SWE2E-10",
+    "url": "https://antonabyzov.atlassian.net/browse/SWE2E-10",
+    "synced": "2026-03-03T23:29:26.718Z"
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 69,
+        "url": "https://github.com/anton-abyzov/specweave-umb/issues/69",
+        "createdAt": "2026-03-03T23:33:44.509Z"
+      }
+    ],
+    "lastSync": "2026-03-03T23:33:44.509Z"
+  }
+}

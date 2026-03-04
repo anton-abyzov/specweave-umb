@@ -6,9 +6,9 @@
   "skills": {
     "sw": {
       "version": "1.0.323",
-      "sha": "513ff5d1a822",
+      "sha": "bb1ba5c2c08c",
       "tier": "BUNDLED",
-      "installedAt": "2026-03-03T04:41:32.324Z",
+      "installedAt": "2026-03-03T23:29:54.057Z",
       "source": "local:specweave"
     },
     "infra": {
@@ -29,9 +29,9 @@
     },
     "frontend": {
       "version": "2.2.0",
-      "sha": "e6398afcd074",
+      "sha": "ed0b129be3da",
       "tier": "VERIFIED",
-      "installedAt": "2026-03-01T08:43:40.455Z",
+      "installedAt": "2026-03-03T18:30:48.426Z",
       "source": "github:anton-abyzov/vskill#plugin:frontend",
       "scope": "project"
     },
@@ -61,37 +61,54 @@
     },
     "sw-github": {
       "version": "1.0.0",
-      "sha": "90aa55a9ed36",
-      "tier": "VERIFIED",
-      "installedAt": "2026-03-01T22:36:29.533Z",
-      "source": "github:anton-abyzov/specweave#plugin:sw-github",
-      "scope": "project"
+      "sha": "dfc83717fcff",
+      "tier": "BUNDLED",
+      "installedAt": "2026-03-03T23:30:00.824Z",
+      "source": "local:specweave"
     },
     "sw-jira": {
       "version": "1.0.0",
-      "sha": "17dccc3cd81e",
-      "tier": "VERIFIED",
-      "installedAt": "2026-03-02T08:16:13.255Z",
-      "source": "github:anton-abyzov/specweave#plugin:sw-jira",
-      "scope": "project"
+      "sha": "b2c92cd0df8f",
+      "tier": "BUNDLED",
+      "installedAt": "2026-03-03T23:30:01.712Z",
+      "source": "local:specweave"
     },
     "sw-ado": {
       "version": "1.0.0",
-      "sha": "df0bde9cc3ea",
-      "tier": "VERIFIED",
-      "installedAt": "2026-03-02T08:16:18.742Z",
-      "source": "github:anton-abyzov/specweave#plugin:sw-ado",
-      "scope": "project"
+      "sha": "f60079f6bae2",
+      "tier": "BUNDLED",
+      "installedAt": "2026-03-03T23:30:02.558Z",
+      "source": "local:specweave"
     },
     "sw-media": {
       "version": "1.0.0",
-      "sha": "90deb06caa65",
-      "tier": "VERIFIED",
-      "installedAt": "2026-03-03T02:46:32.169Z",
-      "source": "github:anton-abyzov/specweave#plugin:sw-media",
-      "scope": "project"
+      "sha": "68b1ead4b784",
+      "tier": "BUNDLED",
+      "installedAt": "2026-03-03T23:30:06.039Z",
+      "source": "local:specweave"
+    },
+    "sw-release": {
+      "version": "1.0.0",
+      "sha": "f1b9a098829d",
+      "tier": "BUNDLED",
+      "installedAt": "2026-03-03T23:30:03.586Z",
+      "source": "local:specweave"
+    },
+    "sw-diagrams": {
+      "version": "1.0.0",
+      "sha": "a8ea8deb21a7",
+      "tier": "BUNDLED",
+      "installedAt": "2026-03-03T23:30:04.416Z",
+      "source": "local:specweave"
+    },
+    "docs": {
+      "version": "1.0.0",
+      "sha": "87e0f211e36d",
+      "tier": "BUNDLED",
+      "installedAt": "2026-03-03T23:30:05.222Z",
+      "source": "local:specweave"
     }
   },
   "createdAt": "2026-02-25T22:10:22.975Z",
-  "updatedAt": "2026-03-03T04:41:32.324Z"
+  "updatedAt": "2026-03-03T23:30:06.039Z"
 }

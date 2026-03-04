@@ -168,6 +168,12 @@
   },
   "umbrella": {
     "enabled": true,
+    "syncStrategy": "distributed",
+    "projectName": "specweave-umb",
+    "sync": {
+      "github": { "owner": "anton-abyzov", "repo": "specweave-umb" },
+      "jira": { "projectKey": "SWE2E" }
+    },
     "childRepos": [
       {
         "id": "specweave",
