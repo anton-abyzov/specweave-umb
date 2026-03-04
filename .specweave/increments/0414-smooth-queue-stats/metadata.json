@@ -1,0 +1,58 @@
+{
+  "id": "0414-smooth-queue-stats",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-03T18:43:44.309Z",
+  "lastActivity": "2026-03-03T18:43:44.309Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1478,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1478",
+          "status": "created"
+        },
+        "US-002": {
+          "issueNumber": 1479,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1479",
+          "status": "created"
+        },
+        "US-003": {
+          "issueNumber": 1480,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1480",
+          "status": "created"
+        }
+      },
+      "milestone": 206,
+      "syncedAt": "2026-03-03T18:47:05Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1478,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1478",
+        "createdAt": "2026-03-03T18:47:05Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1479,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1479",
+        "createdAt": "2026-03-03T18:47:05Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1480,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1480",
+        "createdAt": "2026-03-03T18:47:05Z"
+      }
+    ],
+    "lastSync": "2026-03-03T18:47:05Z"
+  }
+}

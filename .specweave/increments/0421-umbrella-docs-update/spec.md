@@ -3,7 +3,7 @@ increment: 0421-umbrella-docs-update
 title: "Update umbrella project documentation"
 type: feature
 priority: P2
-status: planned
+status: completed
 created: 2026-03-03
 project: specweave-umb
 structure: user-stories

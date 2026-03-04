@@ -1,0 +1,43 @@
+---
+id: FS-420
+title: Vendor Skill Freshness
+type: feature
+status: planned
+priority: P1
+created: 2026-03-03
+lastUpdated: 2026-03-03
+tldr: 14 of 16 official Anthropic skills from `anthropics/skills` are missing
+  from vskill search results.
+complexity: medium
+stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 1
+    url: https://github.com/anton-abyzov/vskill-platform/milestone/1
+---
+
+# Vendor Skill Freshness
+
+## TL;DR
+
+**What**: 14 of 16 official Anthropic skills from `anthropics/skills` are missing from vskill search results.
+**Status**: planned | **Priority**: P1
+**User Stories**: 2
+
+![Vendor Skill Freshness illustration](assets/feature-fs-420.jpg)
+
+## Overview
+
+14 of 16 official Anthropic skills from `anthropics/skills` are missing from vskill search results. The discovery pipeline's 30-day dedup TTL prevents re-scanning vendor repos for new skills, and the cron job excludes `vendor-orgs` from its discovery sources. When Anthropic (or any vendor org) adds new skills, they remain invisible until an admin manually triggers a force re-import.
+
+## Implementation History
+
+| Increment | Status | Completion Date |
+|-----------|--------|----------------|
+| [0420-vendor-skill-freshness](../../../../../increments/0420-vendor-skill-freshness/spec.md) | ⏳ planned | 2026-03-03 |
+
+## User Stories
+
+- [US-001: Vendor skills bypass discovery dedup (P0)](./us-001-vendor-skills-bypass-discovery-dedup-p0.md)
+- [US-002: Vendor discovery runs on cron schedule (P1)](./us-002-vendor-discovery-runs-on-cron-schedule-p1.md)

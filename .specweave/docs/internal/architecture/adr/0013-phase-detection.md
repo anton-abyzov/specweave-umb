@@ -138,7 +138,7 @@ private readonly commandPhaseMap: Record<string, Phase> = {
   '/specweave:validate': 'review',
   '/validate': 'review',
   '/specweave:done': 'review',
-  '/spec-driven-brainstorming': 'planning',
+  '/sw:brainstorm': 'planning',
 };
 
 analyzeCommand(context: ExecutionContext): void {

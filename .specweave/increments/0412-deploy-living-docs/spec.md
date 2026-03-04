@@ -3,7 +3,7 @@ increment: 0412-deploy-living-docs
 title: "Deploy latest living docs to specweave website"
 type: feature
 priority: P2
-status: in-progress
+status: completed
 created: 2026-03-03
 structure: user-stories
 test_mode: test-after

@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "incrementId": "0416-umbrella-sync-consolidation",
+  "timestamp": "2026-03-03T20:59:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 2,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "fixed": 2
+  },
+  "findings": [
+    {
+      "title": "scanDocsRecursive produced doubled destination paths",
+      "severity": "critical",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "src/core/migration/consolidation-engine.ts:200-208",
+      "issue": "to was computed as path.join(umbrellaDocsDir, relativePath) but umbrellaDocsDir already had the correct target path via recursion. relativePath added one more directory level, producing doubled paths like docs/internal/specs/specs/",
+      "status": "FIXED",
+      "fix": "Removed relativePath computation, used umbrellaDocsDir directly as to path. Added regression test checking for doubled paths."
+    },
+    {
+      "title": "Method 3 in syncToGitHub overwrites previous methods unconditionally",
+      "severity": "high",
+      "confidence": 75,
+      "category": "correctness",
+      "file": "src/core/living-docs/living-docs-sync.ts:1819-1827",
+      "issue": "resolveSyncTarget result was applied unconditionally. In centralized mode it returns global config which would clobber Method 2 (multiProject) values if both modes were active.",
+      "status": "FIXED",
+      "fix": "Added source !== 'global' guard so Method 3 only applies when resolver found a non-global match."
+    }
+  ]
+}

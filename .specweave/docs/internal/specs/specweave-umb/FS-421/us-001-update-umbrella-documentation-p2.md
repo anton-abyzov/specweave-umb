@@ -9,8 +9,8 @@ tldr: "**As a** SpecWeave umbrella user."
 project: specweave-umb
 external:
   github:
-    issue: 69
-    url: https://github.com/anton-abyzov/specweave-umb/issues/69
+    issue: 1486
+    url: https://github.com/anton-abyzov/specweave/issues/1486
 ---
 
 # US-001: Update Umbrella Documentation (P2)

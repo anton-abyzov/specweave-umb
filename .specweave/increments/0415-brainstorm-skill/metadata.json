@@ -1,0 +1,19 @@
+{
+  "id": "0415-brainstorm-skill",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-03T18:44:48.420Z",
+  "lastActivity": "2026-03-03T18:44:48.420Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {},
+      "milestone": 207,
+      "syncedAt": "2026-03-03T18:49:39Z"
+    }
+  }
+}

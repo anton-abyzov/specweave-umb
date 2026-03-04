@@ -1,0 +1,31 @@
+{
+  "id": "0419G-vskill-version-flag",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-03T22:02:20.722Z",
+  "lastActivity": "2026-03-03T22:02:20.722Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "userStories": {
+        "US-001": {
+          "issueKey": "SWE2E-9",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-9",
+          "syncedAt": "2026-03-03T22:04:09.232Z"
+        }
+      }
+    }
+  },
+  "external_ref": "github#anton-abyzov/vskill#2",
+  "origin": "external",
+  "source_platform": "github",
+  "jira": {
+    "issue": "SWE2E-9",
+    "url": "https://antonabyzov.atlassian.net/browse/SWE2E-9",
+    "synced": "2026-03-03T22:04:09.232Z"
+  }
+}
