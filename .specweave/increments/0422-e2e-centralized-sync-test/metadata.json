@@ -1,0 +1,49 @@
+{
+  "id": "0422-e2e-centralized-sync-test",
+  "status": "active",
+  "type": "experiment",
+  "priority": "P3",
+  "created": "2026-03-04T00:00:00.000Z",
+  "lastActivity": "2026-03-04T00:00:00.000Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "feature_id": "FS-422",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1487,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1487",
+        "createdAt": "2026-03-04T02:14:17.122Z"
+      }
+    ],
+    "lastSync": "2026-03-04T02:14:17.122Z"
+  },
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1487,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1487",
+          "status": "active"
+        }
+      },
+      "milestone": 212,
+      "syncedAt": "2026-03-04T02:14:17.122Z"
+    },
+    "jira": {
+      "userStories": {
+        "US-001": {
+          "issueKey": "SWE2E-11",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-11",
+          "syncedAt": "2026-03-04T02:14:21.666Z"
+        }
+      }
+    }
+  },
+  "jira": {
+    "issue": "SWE2E-11",
+    "url": "https://antonabyzov.atlassian.net/browse/SWE2E-11",
+    "synced": "2026-03-04T02:14:21.666Z"
+  }
+}
