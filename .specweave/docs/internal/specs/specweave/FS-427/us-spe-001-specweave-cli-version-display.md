@@ -1,19 +1,13 @@
 ---
 id: US-SPE-001
 feature: FS-427
-title: Specweave CLI Version Display
-status: not_started
+title: "Specweave CLI Version Display"
+status: completed
 priority: P1
 created: 2026-03-05
 tldr: "**As a** developer."
 project: specweave
-related_projects:
-  - vskill
-  - vskill-platform
-external:
-  github:
-    issue: 1490
-    url: https://github.com/anton-abyzov/specweave/issues/1490
+related_projects: [vskill, vskill-platform]
 ---
 
 # US-SPE-001: Specweave CLI Version Display
@@ -28,8 +22,8 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-SPE-US1-01**: Sync output includes specweave version number
-- [ ] **AC-SPE-US1-02**: Version matches package.json
+- [x] **AC-SPE-US1-01**: Sync output includes specweave version number
+- [x] **AC-SPE-US1-02**: Version matches package.json
 
 ---
 
@@ -42,4 +36,4 @@ external:
 
 ## Tasks
 
-- [ ] **T-001**: Verify sync-progress routes to all three repos
+- [x] **T-001**: Verify sync-progress routes to all three repos

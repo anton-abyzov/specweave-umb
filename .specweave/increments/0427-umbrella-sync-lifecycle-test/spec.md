@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # Umbrella Sync Lifecycle Test
 
 **Type**: Feature
@@ -18,8 +21,8 @@ End-to-end lifecycle test for umbrella cross-project sync. Tests that creating a
 **So that** I can verify which version is running
 
 #### Acceptance Criteria
-- [ ] **AC-SPE-US1-01**: Sync output includes specweave version number
-- [ ] **AC-SPE-US1-02**: Version matches package.json
+- [x] **AC-SPE-US1-01**: Sync output includes specweave version number
+- [x] **AC-SPE-US1-02**: Version matches package.json
 
 ### US-VSK-001: VSkill Sync Routing Verification
 **Project**: vskill
@@ -29,8 +32,8 @@ End-to-end lifecycle test for umbrella cross-project sync. Tests that creating a
 **So that** GitHub issues appear in anton-abyzov/vskill
 
 #### Acceptance Criteria
-- [ ] **AC-VSK-US1-01**: GitHub milestone created in vskill repo
-- [ ] **AC-VSK-US1-02**: GitHub issue created with [FS-427][US-VSK-001] title
+- [x] **AC-VSK-US1-01**: GitHub milestone created in vskill repo
+- [x] **AC-VSK-US1-02**: GitHub issue created with [FS-427][US-VSK-001] title
 
 ### US-VPL-001: VSkill-Platform Sync Routing Verification
 **Project**: vskill-platform
@@ -40,5 +43,5 @@ End-to-end lifecycle test for umbrella cross-project sync. Tests that creating a
 **So that** GitHub issues appear in anton-abyzov/vskill-platform
 
 #### Acceptance Criteria
-- [ ] **AC-VPL-US1-01**: GitHub milestone created in vskill-platform repo
-- [ ] **AC-VPL-US1-02**: GitHub issue created with [FS-427][US-VPL-001] title
+- [x] **AC-VPL-US1-01**: GitHub milestone created in vskill-platform repo
+- [x] **AC-VPL-US1-02**: GitHub issue created with [FS-427][US-VPL-001] title

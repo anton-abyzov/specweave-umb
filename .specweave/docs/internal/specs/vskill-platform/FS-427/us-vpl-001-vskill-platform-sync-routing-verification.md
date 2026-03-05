@@ -1,19 +1,13 @@
 ---
 id: US-VPL-001
 feature: FS-427
-title: VSkill-Platform Sync Routing Verification
-status: not_started
+title: "VSkill-Platform Sync Routing Verification"
+status: completed
 priority: P1
 created: 2026-03-05
 tldr: "**As a** developer."
 project: vskill-platform
-related_projects:
-  - specweave
-  - vskill
-external:
-  github:
-    issue: 13
-    url: https://github.com/anton-abyzov/vskill-platform/issues/13
+related_projects: [specweave, vskill]
 ---
 
 # US-VPL-001: VSkill-Platform Sync Routing Verification
@@ -28,8 +22,8 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-VPL-US1-01**: GitHub milestone created in vskill-platform repo
-- [ ] **AC-VPL-US1-02**: GitHub issue created with [FS-427][US-VPL-001] title
+- [x] **AC-VPL-US1-01**: GitHub milestone created in vskill-platform repo
+- [x] **AC-VPL-US1-02**: GitHub issue created with [FS-427][US-VPL-001] title
 
 ---
 

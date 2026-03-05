@@ -1,19 +1,13 @@
 ---
 id: US-VSK-001
 feature: FS-427
-title: VSkill Sync Routing Verification
-status: not_started
+title: "VSkill Sync Routing Verification"
+status: completed
 priority: P1
 created: 2026-03-05
 tldr: "**As a** developer."
 project: vskill
-related_projects:
-  - specweave
-  - vskill-platform
-external:
-  github:
-    issue: 5
-    url: https://github.com/anton-abyzov/vskill/issues/5
+related_projects: [specweave, vskill-platform]
 ---
 
 # US-VSK-001: VSkill Sync Routing Verification
@@ -28,8 +22,8 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-VSK-US1-01**: GitHub milestone created in vskill repo
-- [ ] **AC-VSK-US1-02**: GitHub issue created with [FS-427][US-VSK-001] title
+- [x] **AC-VSK-US1-01**: GitHub milestone created in vskill repo
+- [x] **AC-VSK-US1-02**: GitHub issue created with [FS-427][US-VSK-001] title
 
 ---
 
@@ -42,5 +36,5 @@ external:
 
 ## Tasks
 
-- [ ] **T-001**: Verify sync-progress routes to all three repos
-- [ ] **T-002**: Verify GitHub issues created per child repo
+- [x] **T-001**: Verify sync-progress routes to all three repos
+- [x] **T-002**: Verify GitHub issues created per child repo
