@@ -122,8 +122,24 @@
       "installedAt": "2026-03-05T01:27:07.348Z",
       "source": "github:anton-abyzov/vskill#plugin:security",
       "scope": "project"
+    },
+    "kafka": {
+      "version": "2.2.0",
+      "sha": "9934b055140c",
+      "tier": "VERIFIED",
+      "installedAt": "2026-03-05T19:48:16.036Z",
+      "source": "github:anton-abyzov/vskill#plugin:kafka",
+      "scope": "project"
+    },
+    "payments": {
+      "version": "2.2.0",
+      "sha": "f1a32f29a51e",
+      "tier": "VERIFIED",
+      "installedAt": "2026-03-05T19:48:19.301Z",
+      "source": "github:anton-abyzov/vskill#plugin:payments",
+      "scope": "project"
     }
   },
   "createdAt": "2026-02-25T22:10:22.975Z",
-  "updatedAt": "2026-03-05T08:23:56.832Z"
+  "updatedAt": "2026-03-05T19:48:19.302Z"
 }
