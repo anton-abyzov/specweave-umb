@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "fs-extra": "^11.3.3",
-    "specweave": "^1.0.380"
+    "specweave": "^1.0.382"
   },
   "version": "0.0.1"
 }
