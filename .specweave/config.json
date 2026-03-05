@@ -171,7 +171,8 @@
     "projectName": "specweave-umb",
     "sync": {
       "github": { "owner": "anton-abyzov", "repo": "specweave-umb" },
-      "jira": { "projectKey": "SWE2E" }
+      "jira": { "projectKey": "SWE2E" },
+      "ado": { "organization": "EasyChamp", "project": "SpecWeaveSync" }
     },
     "childRepos": [
       {
@@ -181,7 +182,8 @@
         "prefix": "SPE",
         "sync": {
           "github": { "owner": "anton-abyzov", "repo": "specweave" },
-          "jira": { "projectKey": "WTTC" }
+          "jira": { "projectKey": "WTTC" },
+          "ado": { "organization": "EasyChamp", "project": "SpecWeaveSync" }
         }
       },
       {
@@ -190,7 +192,9 @@
         "name": "vskill",
         "prefix": "VSK",
         "sync": {
-          "github": { "owner": "anton-abyzov", "repo": "vskill" }
+          "github": { "owner": "anton-abyzov", "repo": "vskill" },
+          "jira": { "projectKey": "SWE2E" },
+          "ado": { "organization": "EasyChamp", "project": "VSkillSync" }
         }
       },
       {
@@ -199,7 +203,9 @@
         "name": "vskill-platform",
         "prefix": "VPL",
         "sync": {
-          "github": { "owner": "anton-abyzov", "repo": "vskill-platform" }
+          "github": { "owner": "anton-abyzov", "repo": "vskill-platform" },
+          "jira": { "projectKey": "SWE2E" },
+          "ado": { "organization": "EasyChamp", "project": "VSkillPlatformSync" }
         }
       }
     ]
