@@ -29,9 +29,9 @@ Verify that umbrella sync routing correctly routes GitHub issues, JIRA tickets, 
 **So that** GitHub issues go to anton-abyzov/specweave, JIRA to WTTC, ADO to SpecWeaveSync
 
 **Acceptance Criteria**:
-- [ ] **AC-SPE-US1-01**: GitHub issue created in anton-abyzov/specweave (not specweave-umb)
-- [ ] **AC-SPE-US1-02**: JIRA ticket created in WTTC project (not SWE2E)
-- [ ] **AC-SPE-US1-03**: ADO work item created in SpecWeaveSync project
+- [x] **AC-SPE-US1-01**: GitHub issue created in anton-abyzov/specweave (not specweave-umb)
+- [x] **AC-SPE-US1-02**: JIRA ticket created in WTTC project (not SWE2E)
+- [x] **AC-SPE-US1-03**: ADO work item created in SpecWeaveSync project
 
 ### US-VSK-001: VSkill Repo Sync Verification
 **Project**: vskill
@@ -41,9 +41,9 @@ Verify that umbrella sync routing correctly routes GitHub issues, JIRA tickets, 
 **So that** GitHub issues go to anton-abyzov/vskill, JIRA to SWE2E, ADO to VSkillSync
 
 **Acceptance Criteria**:
-- [ ] **AC-VSK-US1-01**: GitHub issue created in anton-abyzov/vskill (not specweave-umb)
-- [ ] **AC-VSK-US1-02**: JIRA ticket created in SWE2E project
-- [ ] **AC-VSK-US1-03**: ADO work item created in VSkillSync project
+- [x] **AC-VSK-US1-01**: GitHub issue created in anton-abyzov/vskill (not specweave-umb)
+- [x] **AC-VSK-US1-02**: JIRA ticket created in SWE2E project
+- [x] **AC-VSK-US1-03**: ADO work item created in VSkillSync project
 
 ### US-VPL-001: VSkill-Platform Repo Sync Verification
 **Project**: vskill-platform
@@ -53,9 +53,9 @@ Verify that umbrella sync routing correctly routes GitHub issues, JIRA tickets, 
 **So that** GitHub issues go to anton-abyzov/vskill-platform, JIRA to SWE2E, ADO to VSkillPlatformSync
 
 **Acceptance Criteria**:
-- [ ] **AC-VPL-US1-01**: GitHub issue created in anton-abyzov/vskill-platform (not specweave-umb)
-- [ ] **AC-VPL-US1-02**: JIRA ticket created in SWE2E project
-- [ ] **AC-VPL-US1-03**: ADO work item created in VSkillPlatformSync project
+- [x] **AC-VPL-US1-01**: GitHub issue created in anton-abyzov/vskill-platform (not specweave-umb)
+- [x] **AC-VPL-US1-02**: JIRA ticket created in SWE2E project
+- [x] **AC-VPL-US1-03**: ADO work item created in VSkillPlatformSync project
 
 ## Out of Scope
 

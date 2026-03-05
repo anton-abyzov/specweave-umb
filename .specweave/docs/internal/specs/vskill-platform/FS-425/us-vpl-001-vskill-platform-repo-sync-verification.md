@@ -2,7 +2,7 @@
 id: US-VPL-001
 feature: FS-425
 title: "VSkill-Platform Repo Sync Verification"
-status: not_started
+status: completed
 priority: P2
 created: 2026-03-04
 tldr: "**As a** developer."
@@ -26,9 +26,9 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-VPL-US1-01**: GitHub issue created in anton-abyzov/vskill-platform (not specweave-umb)
-- [ ] **AC-VPL-US1-02**: JIRA ticket created in SWE2E project
-- [ ] **AC-VPL-US1-03**: ADO work item created in VSkillPlatformSync project
+- [x] **AC-VPL-US1-01**: GitHub issue created in anton-abyzov/vskill-platform (not specweave-umb)
+- [x] **AC-VPL-US1-02**: JIRA ticket created in SWE2E project
+- [x] **AC-VPL-US1-03**: ADO work item created in VSkillPlatformSync project
 
 ---
 

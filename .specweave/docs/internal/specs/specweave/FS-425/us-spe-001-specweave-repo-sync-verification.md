@@ -2,7 +2,7 @@
 id: US-SPE-001
 feature: FS-425
 title: "Specweave Repo Sync Verification"
-status: not_started
+status: completed
 priority: P2
 created: 2026-03-04
 tldr: "**As a** developer."
@@ -26,9 +26,9 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-SPE-US1-01**: GitHub issue created in anton-abyzov/specweave (not specweave-umb)
-- [ ] **AC-SPE-US1-02**: JIRA ticket created in WTTC project (not SWE2E)
-- [ ] **AC-SPE-US1-03**: ADO work item created in SpecWeaveSync project
+- [x] **AC-SPE-US1-01**: GitHub issue created in anton-abyzov/specweave (not specweave-umb)
+- [x] **AC-SPE-US1-02**: JIRA ticket created in WTTC project (not SWE2E)
+- [x] **AC-SPE-US1-03**: ADO work item created in SpecWeaveSync project
 
 ---
 
@@ -42,5 +42,5 @@ external:
 ## Tasks
 
 - [x] **T-001**: Verify resolver routes all three platforms for each child repo
-- [ ] **T-005**: Verify JIRA routing per child repo
-- [ ] **T-006**: Verify ADO routing per child repo
+- [x] **T-005**: Verify JIRA routing per child repo
+- [x] **T-006**: Verify ADO routing per child repo

@@ -13,15 +13,15 @@ complexity: low
 stakeholder_relevant: true
 externalLinks:
   jira:
-    epicKey: WTTC-34
-    epicUrl: https://antonabyzov.atlassian.net/browse/WTTC-34
-    syncedAt: 2026-03-05T19:16:16.332Z
+    epicKey: WTTC-36
+    epicUrl: https://antonabyzov.atlassian.net/browse/WTTC-36
+    syncedAt: 2026-03-05T19:46:05.129Z
     projectKey: WTTC
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 26
-    featureUrl: https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/26
-    syncedAt: 2026-03-05T19:16:17.586Z
+    featureId: 28
+    featureUrl: https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/28
+    syncedAt: 2026-03-05T19:46:05.712Z
     organization: EasyChamp
     project: SpecWeaveSync
 updated: 2026-03-05
