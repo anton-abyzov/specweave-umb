@@ -1,13 +1,15 @@
 {
   "id": "0432-bold-website-redesign",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-05T07:39:08.484Z",
-  "lastActivity": "2026-03-05T07:39:08.484Z",
+  "lastActivity": "2026-03-05T20:20:54.141Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "updated": "2026-03-05T20:06:57.000Z",
+  "approvedAt": "2026-03-05T20:20:54.141Z"
 }

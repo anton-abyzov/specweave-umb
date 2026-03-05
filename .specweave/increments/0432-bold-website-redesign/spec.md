@@ -1,10 +1,10 @@
 ---
 increment: 0432-bold-website-redesign
-title: "Bold Website Redesign"
+title: Bold Website Redesign
 type: feature
 priority: P1
-status: active
-created: 2026-03-05
+status: completed
+created: 2026-03-05T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

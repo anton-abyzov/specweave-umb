@@ -1,21 +1,8 @@
 ---
 increment: 0432-bold-website-redesign
 title: "Bold Website Redesign"
-by_user_story:
-  US-001: [T-001, T-002]
-  US-002: [T-003, T-004]
-  US-003: [T-005, T-006, T-007, T-008]
-  US-004: [T-009, T-010]
-  US-005: [T-011, T-012, T-013, T-014]
-  US-006: [T-015, T-016, T-017, T-018]
-  US-007: [T-019, T-020, T-021, T-022, T-023]
-  US-008: [T-024, T-025, T-026, T-027]
-  US-009: [T-028, T-029, T-030]
-  US-010: [T-031, T-032]
-  US-011: [T-033, T-034]
-  US-012: [T-035, T-036]
 total_tasks: 36
-completed: 36
+completed_tasks: 36
 ---
 
 # Tasks: Bold Website Redesign
