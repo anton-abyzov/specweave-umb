@@ -42,10 +42,10 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 **So that** all components share a consistent, maintainable visual language
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given the tokens.css file, when inspected, then it contains organized token sections for: colors (primary 50-900, semantic, neutral, surface, text, border), typography (font families, fluid sizes, weights, line heights, letter spacing), spacing (4px grid 0-96px+), border radius, shadows (xs through glow plus elevation and glass morphism shadows), transitions (fast/base/slow/spring), and motion (duration, easing curves, stagger delays)
-- [ ] **AC-US1-02**: Given a dark mode toggle, when the user switches themes, then all surface, text, border, and shadow tokens update via [data-theme='dark'] overrides without flash of unstyled content
-- [ ] **AC-US1-03**: Given the token file, when the Infima mapping section is reviewed, then all --ifm-* variables correctly reference --sw-* tokens so Docusaurus default components inherit the design system
-- [ ] **AC-US1-04**: Given the token file, when counted, then there are at least 350 unique CSS custom properties defined across light and dark modes combined
+- [x] **AC-US1-01**: Given the tokens.css file, when inspected, then it contains organized token sections for: colors (primary 50-900, semantic, neutral, surface, text, border), typography (font families, fluid sizes, weights, line heights, letter spacing), spacing (4px grid 0-96px+), border radius, shadows (xs through glow plus elevation and glass morphism shadows), transitions (fast/base/slow/spring), and motion (duration, easing curves, stagger delays)
+- [x] **AC-US1-02**: Given a dark mode toggle, when the user switches themes, then all surface, text, border, and shadow tokens update via [data-theme='dark'] overrides without flash of unstyled content
+- [x] **AC-US1-03**: Given the token file, when the Infima mapping section is reviewed, then all --ifm-* variables correctly reference --sw-* tokens so Docusaurus default components inherit the design system
+- [x] **AC-US1-04**: Given the token file, when counted, then there are at least 350 unique CSS custom properties defined across light and dark modes combined
 
 ---
 
@@ -56,10 +56,10 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 **So that** headings and body text are always optimally sized without breakpoint jumps
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given display headings (hero title, section titles), when the viewport is resized from 375px to 1440px, then font sizes scale fluidly using CSS clamp() from a mobile minimum to a desktop maximum (display sizes ranging 48px to 80px)
-- [ ] **AC-US2-02**: Given body text and UI text, when the viewport is resized, then base font sizes remain readable at all widths with appropriate line-height adjustments
-- [ ] **AC-US2-03**: Given the typography token definitions, when reviewed, then they use clamp() functions referencing viewport units (e.g., clamp(3rem, 2.5rem + 2vw, 5rem)) rather than static rem values for display and heading sizes
-- [ ] **AC-US2-04**: Given the 12-column CSS Grid system, when a layout is viewed at any viewport width, then content respects max-width constraints and columns collapse gracefully on mobile
+- [x] **AC-US2-01**: Given display headings (hero title, section titles), when the viewport is resized from 375px to 1440px, then font sizes scale fluidly using CSS clamp() from a mobile minimum to a desktop maximum (display sizes ranging 48px to 80px)
+- [x] **AC-US2-02**: Given body text and UI text, when the viewport is resized, then base font sizes remain readable at all widths with appropriate line-height adjustments
+- [x] **AC-US2-03**: Given the typography token definitions, when reviewed, then they use clamp() functions referencing viewport units (e.g., clamp(3rem, 2.5rem + 2vw, 5rem)) rather than static rem values for display and heading sizes
+- [x] **AC-US2-04**: Given the 12-column CSS Grid system, when a layout is viewed at any viewport width, then content respects max-width constraints and columns collapse gracefully on mobile
 
 ---
 
@@ -114,11 +114,11 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 **So that** the page feels polished and professional without excessive loading weight
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: Given the AnimateOnScroll component wrapping a child element, when the element enters the viewport (IntersectionObserver threshold 0.1), then it transitions from opacity 0 / translateY(24px) to opacity 1 / translateY(0) over 600ms with an ease-out curve
-- [ ] **AC-US6-02**: Given the WordAnimation component, when rendered with a text string, then it reveals words one at a time with staggered delays (Anthropic-style word-by-word), completing the full reveal within 2 seconds
-- [ ] **AC-US6-03**: Given the CountUp component, when its container scrolls into view, then it animates a number from 0 to the target value over 2 seconds using an ease-out interpolation
-- [ ] **AC-US6-04**: Given any animation component, when the user has prefers-reduced-motion enabled, then all animations are disabled and content displays immediately at its final state
-- [ ] **AC-US6-05**: Given SSR (Docusaurus build), when the page is server-rendered, then all animated content is visible by default (opacity: 1, no transform) and animations are only applied after client-side hydration via useEffect
+- [x] **AC-US6-01**: Given the AnimateOnScroll component wrapping a child element, when the element enters the viewport (IntersectionObserver threshold 0.1), then it transitions from opacity 0 / translateY(24px) to opacity 1 / translateY(0) over 600ms with an ease-out curve
+- [x] **AC-US6-02**: Given the WordAnimation component, when rendered with a text string, then it reveals words one at a time with staggered delays (Anthropic-style word-by-word), completing the full reveal within 2 seconds
+- [x] **AC-US6-03**: Given the CountUp component, when its container scrolls into view, then it animates a number from 0 to the target value over 2 seconds using an ease-out interpolation
+- [x] **AC-US6-04**: Given any animation component, when the user has prefers-reduced-motion enabled, then all animations are disabled and content displays immediately at its final state
+- [x] **AC-US6-05**: Given SSR (Docusaurus build), when the page is server-rendered, then all animated content is visible by default (opacity: 1, no transform) and animations are only applied after client-side hydration via useEffect
 
 ---
 

@@ -15,7 +15,7 @@ by_user_story:
   US-011: [T-033, T-034]
   US-012: [T-035, T-036]
 total_tasks: 36
-completed: 0
+completed: 8
 ---
 
 # Tasks: Bold Website Redesign
@@ -25,13 +25,13 @@ completed: 0
 ## User Story: US-001 - Design Token System Expansion
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ### T-001: Expand tokens.css to 350+ CSS Custom Properties
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the `docs-site/src/css/tokens.css` file
@@ -58,7 +58,7 @@ completed: 0
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a page with the `[data-theme='dark']` attribute applied
@@ -86,13 +86,13 @@ completed: 0
 ## User Story: US-002 - Fluid Typography System
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ### T-003: Implement Fluid Typography Tokens with clamp()
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the typography token definitions in `tokens.css`
@@ -124,7 +124,7 @@ completed: 0
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a Section component rendered in a browser
@@ -466,13 +466,13 @@ completed: 0
 ## User Story: US-006 - Animation Components
 
 **Linked ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04, AC-US6-05
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 ### T-015: Build Shared Hooks (useIntersectionObserver + useReducedMotion)
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-04, AC-US6-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the `useReducedMotion` hook
@@ -502,7 +502,7 @@ completed: 0
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-01, AC-US6-04, AC-US6-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the AnimateOnScroll component wrapping a child element
@@ -529,7 +529,7 @@ completed: 0
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-02, AC-US6-04, AC-US6-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the WordAnimation component rendered with a text string of 5 words
@@ -556,7 +556,7 @@ completed: 0
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-03, AC-US6-04, AC-US6-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the CountUp component with target={500} and duration={2000}
