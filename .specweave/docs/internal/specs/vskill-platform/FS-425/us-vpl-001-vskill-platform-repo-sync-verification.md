@@ -1,15 +1,13 @@
 ---
 id: US-VPL-001
 feature: FS-425
-title: VSkill-Platform Repo Sync Verification
+title: "VSkill-Platform Repo Sync Verification"
 status: not_started
 priority: P2
 created: 2026-03-04
 tldr: "**As a** developer."
 project: vskill-platform
-related_projects:
-  - specweave
-  - vskill
+related_projects: [specweave, vskill]
 external:
   github:
     issue: 12

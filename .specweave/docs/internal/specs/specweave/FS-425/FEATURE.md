@@ -4,13 +4,27 @@ title: Umbrella Sync E2E Verification
 type: feature
 status: active
 priority: P2
-created: 2026-03-04
-lastUpdated: 2026-03-05
+created: 2026-03-04T00:00:00.000Z
+lastUpdated: 2026-03-05T00:00:00.000Z
 tldr: Verify that umbrella sync routing correctly routes GitHub issues, JIRA
   tickets, and ADO work items to per-child-repo targets based on the **Project**
   field in each user story.
 complexity: low
 stakeholder_relevant: true
+externalLinks:
+  jira:
+    epicKey: WTTC-34
+    epicUrl: https://antonabyzov.atlassian.net/browse/WTTC-34
+    syncedAt: 2026-03-05T19:16:16.332Z
+    projectKey: WTTC
+    domain: antonabyzov.atlassian.net
+  ado:
+    featureId: 26
+    featureUrl: https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/26
+    syncedAt: 2026-03-05T19:16:17.586Z
+    organization: EasyChamp
+    project: SpecWeaveSync
+updated: 2026-03-05
 external_tools:
   github:
     type: milestone

@@ -1,15 +1,13 @@
 ---
 id: US-SPE-001
 feature: FS-425
-title: Specweave Repo Sync Verification
+title: "Specweave Repo Sync Verification"
 status: not_started
 priority: P2
 created: 2026-03-04
 tldr: "**As a** developer."
 project: specweave
-related_projects:
-  - vskill
-  - vskill-platform
+related_projects: [vskill, vskill-platform]
 external:
   github:
     issue: 1489
