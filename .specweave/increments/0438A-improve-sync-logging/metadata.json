@@ -1,0 +1,54 @@
+{
+  "id": "0438A-improve-sync-logging",
+  "title": "Improve sync logging and diagnostics",
+  "type": "feature",
+  "status": "active",
+  "priority": "P2",
+  "created": "2026-03-05",
+  "project": "specweave",
+  "origin": "external",
+  "source_platform": "ado",
+  "external_ref": "ado#EasyChamp/SpecWeaveSync#40",
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1500,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1500",
+          "status": "active"
+        }
+      }
+    },
+    "ado": {
+      "userStories": {
+        "US-001": {
+          "workItemId": 44,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/44",
+          "syncedAt": "2026-03-05T22:31:03.679Z"
+        }
+      }
+    },
+    "jira": {
+      "userStories": {
+        "US-001": {
+          "issueKey": "WTTC-53",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/WTTC-53",
+          "syncedAt": "2026-03-05T22:31:03.280Z"
+        }
+      }
+    }
+  },
+  "lastActivity": "2026-03-05",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "jira": {
+    "issue": "WTTC-53",
+    "url": "https://antonabyzov.atlassian.net/browse/WTTC-53",
+    "synced": "2026-03-05T22:31:03.280Z"
+  },
+  "ado": {
+    "workItem": 44,
+    "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/44",
+    "synced": "2026-03-05T22:31:03.679Z"
+  }
+}

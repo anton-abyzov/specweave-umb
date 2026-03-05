@@ -1,5 +1,5 @@
 {
-  "id": "0435G-improve-error-messages",
+  "id": "0436G-improve-error-messages",
   "title": "Improve error messages",
   "type": "bug",
   "status": "active",
@@ -32,7 +32,7 @@
       "userStories": {
         "US-001": {
           "workItemId": 39,
-          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_apis/wit/workItems/39",
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/39",
           "syncedAt": "2026-03-05T21:57:20.456Z"
         }
       }
@@ -48,7 +48,7 @@
   },
   "ado": {
     "workItem": 39,
-    "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_apis/wit/workItems/39",
+    "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/39",
     "synced": "2026-03-05T21:57:20.456Z"
   }
 }

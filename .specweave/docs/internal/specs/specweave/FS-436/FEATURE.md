@@ -1,34 +1,33 @@
 ---
-id: FS-435
-title: '[EXTERNAL] Improve error messages'
+id: FS-436
+title: "[EXTERNAL] Improve error messages"
 type: feature
 status: active
 priority: P2
 created: 2026-03-05T00:00:00.000Z
 lastUpdated: 2026-03-05T00:00:00.000Z
-tldr: 'When sync fails, error messages are not helpful.'
+tldr: When sync fails, error messages are not helpful.
 complexity: low
 stakeholder_relevant: true
-external_tools:
-  github:
-    type: milestone
-    id: 222
-    url: 'https://github.com/anton-abyzov/specweave/milestone/222'
 externalLinks:
   jira:
-    epicKey: WTTC-46
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/WTTC-46'
-    syncedAt: '2026-03-05T21:57:18.157Z'
+    epicKey: WTTC-54
+    epicUrl: https://antonabyzov.atlassian.net/browse/WTTC-54
+    syncedAt: 2026-03-05T22:41:48.167Z
     projectKey: WTTC
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 38
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/38
-    syncedAt: '2026-03-05T21:57:18.581Z'
+    featureId: 45
+    featureUrl: https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/45
+    syncedAt: 2026-03-05T22:41:49.235Z
     organization: EasyChamp
     project: SpecWeaveSync
-updated: '2026-03-05'
+updated: 2026-03-05
+external_tools:
+  github:
+    type: milestone
+    id: 225
+    url: https://github.com/anton-abyzov/specweave/milestone/225
 ---
 
 # [EXTERNAL] Improve error messages
@@ -47,7 +46,7 @@ When sync fails, error messages are not helpful. Improve them to show specific d
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0435G-improve-error-messages](../../../../../increments/0435G-improve-error-messages/spec.md) | ⏳ active | 2026-03-05 |
+| [0436G-improve-error-messages](../../../../../increments/0436G-improve-error-messages/spec.md) | ⏳ active | 2026-03-05 |
 
 ## User Stories
 

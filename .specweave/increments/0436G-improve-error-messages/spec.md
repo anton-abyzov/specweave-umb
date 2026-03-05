@@ -1,5 +1,5 @@
 ---
-increment: 0435G-improve-error-messages
+increment: 0436G-improve-error-messages
 title: "[EXTERNAL] Improve error messages"
 status: active
 priority: P2
@@ -29,6 +29,6 @@ When sync fails, error messages are not helpful. Improve them to show specific d
 **So that** I can quickly diagnose and fix sync failures
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Error messages include the platform name (GitHub/JIRA/ADO)
-- [ ] **AC-US1-02**: Error messages include the specific API endpoint that failed
-- [ ] **AC-US1-03**: Error messages suggest common fixes (check credentials, verify project exists)
+- [x] **AC-US1-01**: Error messages include the platform name (GitHub/JIRA/ADO)
+- [x] **AC-US1-02**: Error messages include the specific API endpoint that failed
+- [x] **AC-US1-03**: Error messages suggest common fixes (check credentials, verify project exists)
