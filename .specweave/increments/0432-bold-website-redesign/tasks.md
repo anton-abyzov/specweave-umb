@@ -15,7 +15,7 @@ by_user_story:
   US-011: [T-033, T-034]
   US-012: [T-035, T-036]
 total_tasks: 36
-completed: 8
+completed: 23
 ---
 
 # Tasks: Bold Website Redesign
@@ -151,13 +151,13 @@ completed: 8
 ## User Story: US-003 - UI Primitive Components
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 ### T-005: Build Button Component (4 Variants + Dark Mode)
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the Button component rendered with each variant (primary, secondary, ghost, outline)
@@ -192,7 +192,7 @@ completed: 8
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-02, AC-US3-03, AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the Badge component rendered with each variant (default, success, warning, info, primary)
@@ -228,7 +228,7 @@ completed: 8
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-04, AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the CodeBlock component rendered with code content
@@ -257,7 +257,7 @@ completed: 8
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the Divider component rendered
@@ -280,13 +280,13 @@ completed: 8
 ## User Story: US-004 - Section Layout Components
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ### T-009: Build Section Component (4 Variants + Responsive Padding)
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-03, AC-US4-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the Section component rendered with each variant (default, dark, gradient, accent)
@@ -319,7 +319,7 @@ completed: 8
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-02, AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the SectionHeader component rendered with label, title, and subtitle props
@@ -346,13 +346,13 @@ completed: 8
 ## User Story: US-005 - Card Components
 
 **Linked ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04, AC-US5-05
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 ### T-011: Build FeatureCard and StatCard Components
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-03, AC-US5-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the FeatureCard component rendered with icon, title, and description props
@@ -386,7 +386,7 @@ completed: 8
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-02, AC-US5-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the ContentCard component rendered with image, tag, title, description, and link props including reading_time and difficulty
@@ -414,7 +414,7 @@ completed: 8
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-04, AC-US5-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the IntegrationCard component rendered with logo SVG slug, name, and description
@@ -440,7 +440,7 @@ completed: 8
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the PricingCard component rendered with plan, price, features, and CTA props
@@ -589,7 +589,7 @@ completed: 8
 
 **User Story**: US-007
 **Satisfies ACs**: AC-US7-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the HeroSection component rendered
@@ -621,7 +621,7 @@ completed: 8
 
 **User Story**: US-007
 **Satisfies ACs**: AC-US7-02, AC-US7-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the TrustedBySection rendered
@@ -653,7 +653,7 @@ completed: 8
 
 **User Story**: US-007
 **Satisfies ACs**: AC-US7-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the HowItWorksSection rendered
@@ -681,7 +681,7 @@ completed: 8
 
 **User Story**: US-007
 **Satisfies ACs**: AC-US7-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the CapabilitiesSection rendered
@@ -707,7 +707,7 @@ completed: 8
 
 **User Story**: US-007
 **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the refactored `pages/index.tsx` with sections 1-5
@@ -736,7 +736,7 @@ completed: 8
 
 **User Story**: US-008
 **Satisfies ACs**: AC-US8-01, AC-US8-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the AcademyPromoSection rendered
@@ -768,7 +768,7 @@ completed: 8
 
 **User Story**: US-008
 **Satisfies ACs**: AC-US8-03, AC-US8-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the IntegrationsSection rendered
@@ -798,7 +798,7 @@ completed: 8
 
 **User Story**: US-008
 **Satisfies ACs**: AC-US8-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the CTASection rendered
@@ -823,7 +823,7 @@ completed: 8
 
 **User Story**: US-008
 **Satisfies ACs**: AC-US8-01, AC-US8-02, AC-US8-03, AC-US8-04, AC-US8-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the final `pages/index.tsx`
@@ -850,13 +850,13 @@ completed: 8
 ## User Story: US-009 - Navigation Redesign
 
 **Linked ACs**: AC-US9-01, AC-US9-02, AC-US9-03, AC-US9-04, AC-US9-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ### T-028: Swizzle NavbarItem in Wrap Mode with Mega-Menu
 
 **User Story**: US-009
 **Satisfies ACs**: AC-US9-01, AC-US9-02, AC-US9-04, AC-US9-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the swizzled NavbarItem component loaded in a browser
@@ -891,7 +891,7 @@ completed: 8
 
 **User Story**: US-009
 **Satisfies ACs**: AC-US9-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the ejected custom Footer component loaded on any page
@@ -920,7 +920,7 @@ completed: 8
 
 **User Story**: US-009
 **Satisfies ACs**: AC-US9-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** both swizzled component files (NavbarItem and Footer)
@@ -948,7 +948,7 @@ completed: 8
 
 **User Story**: US-010
 **Satisfies ACs**: AC-US10-01, AC-US10-02, AC-US10-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the enhanced academy index page rendered
@@ -980,7 +980,7 @@ completed: 8
 
 **User Story**: US-010
 **Satisfies ACs**: AC-US10-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the difficulty badge on an academy ContentCard
@@ -1003,13 +1003,13 @@ completed: 8
 ## User Story: US-011 - Remotion Video Overhaul
 
 **Linked ACs**: AC-US11-01, AC-US11-02, AC-US11-03, AC-US11-04, AC-US11-05
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ### T-033: Update Remotion Theme to 1920x1080 with Aligned Colors
 
 **User Story**: US-011
 **Satisfies ACs**: AC-US11-01, AC-US11-02, AC-US11-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the updated `remotion/lib/theme.ts`
@@ -1037,7 +1037,7 @@ completed: 8
 
 **User Story**: US-011
 **Satisfies ACs**: AC-US11-04, AC-US11-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the updated render script executed via `npm run remotion:render`

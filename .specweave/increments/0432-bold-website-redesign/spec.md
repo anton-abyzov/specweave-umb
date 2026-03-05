@@ -70,11 +70,11 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 **So that** I can compose sections with consistent styling and behavior
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given the Button component, when rendered with variant prop (primary, secondary, ghost, outline), then each variant displays correct colors, borders, hover/focus states, and disabled state using design tokens
-- [ ] **AC-US3-02**: Given the Badge component, when rendered with variant prop (default, success, warning, info, primary), then each displays the correct background, text color, and border-radius from tokens
-- [ ] **AC-US3-03**: Given the Icon component, when rendered with a Lucide icon name or a brand SVG slug, then it renders the correct SVG at the specified size with currentColor inheritance
-- [ ] **AC-US3-04**: Given the CodeBlock component, when rendered with code content and an optional copy button, then it displays syntax-highlighted code in a styled container with a one-click copy-to-clipboard action and visual feedback
-- [ ] **AC-US3-05**: Given any UI primitive, when rendered in dark mode, then all colors, borders, and shadows adapt correctly via token overrides
+- [x] **AC-US3-01**: Given the Button component, when rendered with variant prop (primary, secondary, ghost, outline), then each variant displays correct colors, borders, hover/focus states, and disabled state using design tokens
+- [x] **AC-US3-02**: Given the Badge component, when rendered with variant prop (default, success, warning, info, primary), then each displays the correct background, text color, and border-radius from tokens
+- [x] **AC-US3-03**: Given the Icon component, when rendered with a Lucide icon name or a brand SVG slug, then it renders the correct SVG at the specified size with currentColor inheritance
+- [x] **AC-US3-04**: Given the CodeBlock component, when rendered with code content and an optional copy button, then it displays syntax-highlighted code in a styled container with a one-click copy-to-clipboard action and visual feedback
+- [x] **AC-US3-05**: Given any UI primitive, when rendered in dark mode, then all colors, borders, and shadows adapt correctly via token overrides
 
 ---
 
@@ -85,10 +85,10 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 **So that** every section has consistent padding, max-width, and heading hierarchy
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given the Section component, when rendered with variant prop (default, dark, gradient, accent), then the background, padding, and inner max-width are applied from tokens with correct light/dark mode behavior
-- [ ] **AC-US4-02**: Given the SectionHeader component, when rendered with label, title, and subtitle props, then it displays an uppercase label, a large title using fluid typography, and a muted subtitle paragraph beneath
-- [ ] **AC-US4-03**: Given a Section with variant="dark", when rendered, then the section uses --sw-surface-dark background with light text tokens and the SectionHeader label uses the primary accent color
-- [ ] **AC-US4-04**: Given sections on mobile viewport (375px), when viewed, then section vertical padding reduces proportionally and content stacks vertically
+- [x] **AC-US4-01**: Given the Section component, when rendered with variant prop (default, dark, gradient, accent), then the background, padding, and inner max-width are applied from tokens with correct light/dark mode behavior
+- [x] **AC-US4-02**: Given the SectionHeader component, when rendered with label, title, and subtitle props, then it displays an uppercase label, a large title using fluid typography, and a muted subtitle paragraph beneath
+- [x] **AC-US4-03**: Given a Section with variant="dark", when rendered, then the section uses --sw-surface-dark background with light text tokens and the SectionHeader label uses the primary accent color
+- [x] **AC-US4-04**: Given sections on mobile viewport (375px), when viewed, then section vertical padding reduces proportionally and content stacks vertically
 
 ---
 
@@ -99,11 +99,11 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 **So that** content is presented in visually rich, consistent card layouts
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given the FeatureCard component, when rendered with icon, title, and description props, then it displays a 64px icon area, bold title, and body text in a bordered card with hover shadow elevation
-- [ ] **AC-US5-02**: Given the ContentCard component, when rendered with image, tag, title, description, and link props, then it displays a card suitable for academy course listings with reading time and difficulty metadata
-- [ ] **AC-US5-03**: Given the StatCard component, when rendered with value, label, and optional suffix props, then it displays the value in a large display font with the label beneath, suitable for a stats section
-- [ ] **AC-US5-04**: Given the IntegrationCard component, when rendered with logo SVG, name, and description props, then it shows the integration logo at 48px, the integration name, and a short description in a card layout
-- [ ] **AC-US5-05**: Given any card component, when viewed in dark mode, then backgrounds use elevated surface tokens and borders use dark-mode border tokens
+- [x] **AC-US5-01**: Given the FeatureCard component, when rendered with icon, title, and description props, then it displays a 64px icon area, bold title, and body text in a bordered card with hover shadow elevation
+- [x] **AC-US5-02**: Given the ContentCard component, when rendered with image, tag, title, description, and link props, then it displays a card suitable for academy course listings with reading time and difficulty metadata
+- [x] **AC-US5-03**: Given the StatCard component, when rendered with value, label, and optional suffix props, then it displays the value in a large display font with the label beneath, suitable for a stats section
+- [x] **AC-US5-04**: Given the IntegrationCard component, when rendered with logo SVG, name, and description props, then it shows the integration logo at 48px, the integration name, and a short description in a card layout
+- [x] **AC-US5-05**: Given any card component, when viewed in dark mode, then backgrounds use elevated surface tokens and borders use dark-mode border tokens
 
 ---
 
@@ -129,11 +129,11 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 **So that** I immediately understand what SpecWeave does and why it matters
 
 **Acceptance Criteria**:
-- [ ] **AC-US7-01**: Given the Hero section, when rendered, then it fills the full viewport height with a dark background, displays gradient text on the headline using WordAnimation, shows two CTAs (primary "Get Started" and secondary "Watch Demo"), and includes animated pill badges
-- [ ] **AC-US7-02**: Given the Trusted By section, when rendered, then it displays a horizontal logo marquee with CSS scroll animation (no JS) showing technology and community logos with seamless infinite loop
-- [ ] **AC-US7-03**: Given the Demo Video section, when rendered, then it shows the Remotion video inside a browser chrome frame with a glow shadow, using lazy loading with a poster frame and play-on-visible via IntersectionObserver
-- [ ] **AC-US7-04**: Given the How It Works section, when rendered, then it displays a horizontal timeline with 3 steps (64px numbered circles), each showing a command, title, description, and a CodeBlock example, connected by a progress line
-- [ ] **AC-US7-05**: Given the Capabilities section, when rendered, then it uses an alternating left-right layout showing 6 features with icons, titles, descriptions, and optional code snippets, each wrapped in AnimateOnScroll
+- [x] **AC-US7-01**: Given the Hero section, when rendered, then it fills the full viewport height with a dark background, displays gradient text on the headline using WordAnimation, shows two CTAs (primary "Get Started" and secondary "Watch Demo"), and includes animated pill badges
+- [x] **AC-US7-02**: Given the Trusted By section, when rendered, then it displays a horizontal logo marquee with CSS scroll animation (no JS) showing technology and community logos with seamless infinite loop
+- [x] **AC-US7-03**: Given the Demo Video section, when rendered, then it shows the Remotion video inside a browser chrome frame with a glow shadow, using lazy loading with a poster frame and play-on-visible via IntersectionObserver
+- [x] **AC-US7-04**: Given the How It Works section, when rendered, then it displays a horizontal timeline with 3 steps (64px numbered circles), each showing a command, title, description, and a CodeBlock example, connected by a progress line
+- [x] **AC-US7-05**: Given the Capabilities section, when rendered, then it uses an alternating left-right layout showing 6 features with icons, titles, descriptions, and optional code snippets, each wrapped in AnimateOnScroll
 
 ---
 
@@ -144,11 +144,11 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 **So that** I see social proof, ecosystem breadth, and clear next steps
 
 **Acceptance Criteria**:
-- [ ] **AC-US8-01**: Given the Academy Promo section, when rendered, then it uses a dark variant with 3 ContentCards showing featured courses with reading time, difficulty badges, and links to the academy
-- [ ] **AC-US8-02**: Given the Stats section, when rendered, then it displays 4 StatCards with CountUp animations showing key metrics (e.g., skills count, autonomous hours, increments shipped, community size)
-- [ ] **AC-US8-03**: Given the Integrations section, when rendered, then it shows IntegrationCards in a 4-column grid for GitHub, JIRA, Azure DevOps, and Claude/Cursor/Copilot with logos and descriptions
-- [ ] **AC-US8-04**: Given the Verified Skills section, when rendered as a full-width section, then it displays the three-tier trust ladder (Scanned, Verified, Certified) with visual progression and link to verified-skill.com
-- [ ] **AC-US8-05**: Given the CTA section, when rendered, then it shows a violet gradient background, a compelling headline, a CodeBlock with the install command (including copy button), and primary/secondary CTA buttons
+- [x] **AC-US8-01**: Given the Academy Promo section, when rendered, then it uses a dark variant with 3 ContentCards showing featured courses with reading time, difficulty badges, and links to the academy
+- [x] **AC-US8-02**: Given the Stats section, when rendered, then it displays 4 StatCards with CountUp animations showing key metrics (e.g., skills count, autonomous hours, increments shipped, community size)
+- [x] **AC-US8-03**: Given the Integrations section, when rendered, then it shows IntegrationCards in a 4-column grid for GitHub, JIRA, Azure DevOps, and Claude/Cursor/Copilot with logos and descriptions
+- [x] **AC-US8-04**: Given the Verified Skills section, when rendered as a full-width section, then it displays the three-tier trust ladder (Scanned, Verified, Certified) with visual progression and link to verified-skill.com
+- [x] **AC-US8-05**: Given the CTA section, when rendered, then it shows a violet gradient background, a compelling headline, a CodeBlock with the install command (including copy button), and primary/secondary CTA buttons
 
 ---
 
@@ -159,11 +159,11 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 **So that** I can discover all site areas efficiently and the navigation matches the site's professional quality
 
 **Acceptance Criteria**:
-- [ ] **AC-US9-01**: Given the navbar, when a top-level item (Docs, Skills, Learn) is hovered or clicked, then a mega-menu dropdown panel opens with a 12-column grid layout showing categorized links, descriptions, and optional featured content
-- [ ] **AC-US9-02**: Given the mega-menu implementation, when inspected, then it uses Docusaurus swizzle wrap mode for NavbarItem to extend (not replace) the default navbar behavior
-- [ ] **AC-US9-03**: Given the custom footer, when rendered, then it displays a 4-column layout (Product, Docs, Community, Company) with styled links, social icons, and copyright, implemented via Docusaurus swizzle eject mode for the Footer component
-- [ ] **AC-US9-04**: Given the mega-menu on mobile (viewport < 768px), when tapped, then dropdowns convert to an accordion-style expandable menu within the mobile hamburger drawer
-- [ ] **AC-US9-05**: Given keyboard navigation, when a user tabs through the mega-menu, then focus management follows ARIA menubar patterns with escape-to-close and arrow-key navigation within panels
+- [x] **AC-US9-01**: Given the navbar, when a top-level item (Docs, Skills, Learn) is hovered or clicked, then a mega-menu dropdown panel opens with a 12-column grid layout showing categorized links, descriptions, and optional featured content
+- [x] **AC-US9-02**: Given the mega-menu implementation, when inspected, then it uses Docusaurus swizzle wrap mode for NavbarItem to extend (not replace) the default navbar behavior
+- [x] **AC-US9-03**: Given the custom footer, when rendered, then it displays a 4-column layout (Product, Docs, Community, Company) with styled links, social icons, and copyright, implemented via Docusaurus swizzle eject mode for the Footer component
+- [x] **AC-US9-04**: Given the mega-menu on mobile (viewport < 768px), when tapped, then dropdowns convert to an accordion-style expandable menu within the mobile hamburger drawer
+- [x] **AC-US9-05**: Given keyboard navigation, when a user tabs through the mega-menu, then focus management follows ARIA menubar patterns with escape-to-close and arrow-key navigation within panels
 
 ---
 
@@ -174,10 +174,10 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 **So that** I can quickly find courses matching my experience level and time availability
 
 **Acceptance Criteria**:
-- [ ] **AC-US10-01**: Given the academy index page, when rendered, then it displays courses as a grid of ContentCards showing title, description, estimated reading time, difficulty level (beginner/intermediate/advanced), and prerequisites
-- [ ] **AC-US10-02**: Given course metadata, when a course frontmatter includes reading_time, difficulty, and prerequisites fields, then the ContentCard renders these as styled badges and metadata line items
-- [ ] **AC-US10-03**: Given the difficulty badges, when rendered, then beginner shows green, intermediate shows amber, and advanced shows purple, using Badge component variants
-- [ ] **AC-US10-04**: Given the academy page on mobile, when viewed at 375px, then the card grid collapses to a single column with cards stacking vertically
+- [x] **AC-US10-01**: Given the academy index page, when rendered, then it displays courses as a grid of ContentCards showing title, description, estimated reading time, difficulty level (beginner/intermediate/advanced), and prerequisites
+- [x] **AC-US10-02**: Given course metadata, when a course frontmatter includes reading_time, difficulty, and prerequisites fields, then the ContentCard renders these as styled badges and metadata line items
+- [x] **AC-US10-03**: Given the difficulty badges, when rendered, then beginner shows green, intermediate shows amber, and advanced shows purple, using Badge component variants
+- [x] **AC-US10-04**: Given the academy page on mobile, when viewed at 375px, then the card grid collapses to a single column with cards stacking vertically
 
 ---
 
@@ -188,11 +188,11 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 **So that** the video matches the redesigned site's visual quality
 
 **Acceptance Criteria**:
-- [ ] **AC-US11-01**: Given the Remotion config, when inspected, then the video resolution is set to 1920x1080 (up from 1280x720)
-- [ ] **AC-US11-02**: Given the Remotion theme, when inspected, then colors reference the new token values (--sw-color-primary-500 equivalent hex values) and font sizes are scaled approximately 1.5x from current values
-- [ ] **AC-US11-03**: Given the video scenes, when rendered, then text elements use professional SVG icons from Lucide (replacing inline text elements where applicable) with richer gradient backgrounds
-- [ ] **AC-US11-04**: Given the rendered video, when exported, then both MP4 (H.264) and WebM (VP9) formats are produced and placed in static/video/
-- [ ] **AC-US11-05**: Given the remotion:render script, when executed, then it outputs both formats at 1920x1080 resolution
+- [x] **AC-US11-01**: Given the Remotion config, when inspected, then the video resolution is set to 1920x1080 (up from 1280x720)
+- [x] **AC-US11-02**: Given the Remotion theme, when inspected, then colors reference the new token values (--sw-color-primary-500 equivalent hex values) and font sizes are scaled approximately 1.5x from current values
+- [x] **AC-US11-03**: Given the video scenes, when rendered, then text elements use professional SVG icons from Lucide (replacing inline text elements where applicable) with richer gradient backgrounds
+- [x] **AC-US11-04**: Given the rendered video, when exported, then both MP4 (H.264) and WebM (VP9) formats are produced and placed in static/video/
+- [x] **AC-US11-05**: Given the remotion:render script, when executed, then it outputs both formats at 1920x1080 resolution
 
 ---
 
