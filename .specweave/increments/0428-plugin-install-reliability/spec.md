@@ -1,80 +1,97 @@
 ---
 increment: 0428-plugin-install-reliability
-title: "Fix vskill plugin install: stale temp dirs, missing prompts, confusing errors"
+title: "Plugin install reliability: temp dirs, interactive selection, error messages"
 type: bug
-priority: P1
-status: planned
+priority: P2
+status: active
 created: 2026-03-05
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
 ---
 
-# Feature: Fix vskill plugin install: stale temp dirs, missing prompts, confusing errors
+# Plugin Install Reliability
 
-## Overview
+## Problem Statement
 
-Fix plugin install failures caused by stale temp directory marketplace registration, add missing interactive plugin selection, improve error messages with diagnostic output
+`vskill install` fails with confusing errors when installing marketplace plugins. Three root causes have been identified:
 
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA PM/ARCHITECT SKILLS
-====================================================================
+1. **Stale temp directory registration** -- `registerMarketplace()` in `src/utils/claude-cli.ts` passes paths that may originate from `os.tmpdir()`. When the temp directory is cleaned up, the marketplace registration becomes stale and all subsequent plugin installs fail silently.
 
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the placeholders below.
+2. **Missing interactive selection** -- Single-plugin marketplaces proceed without showing the user what will be installed. `installPluginDir()` begins scanning immediately with no pre-install overview showing plugin name and source.
 
-To complete this specification, run:
-  Tell Claude: "Complete the spec for increment 0428-plugin-install-reliability"
+3. **Silent failures and confusing errors** -- `registerMarketplace()` returns a bare `boolean` with no stderr capture. Plugin-not-found errors do not list available alternatives. There is no structured validation function for diagnosing marketplace issues.
 
-This will activate the PM skill which will:
-- Define proper user stories with acceptance criteria
-- Conduct market research and competitive analysis
-- Create user personas
-- Define success metrics
+## Goals
 
-====================================================================
--->
+- Eliminate stale temp directory paths from marketplace registration
+- Give users clear visibility into what gets installed before it happens
+- Surface actionable diagnostics when install fails
 
 ## User Stories
 
-### US-001: [Story Title] (P1)
+### US-001: Reliable marketplace registration
 **Project**: vskill
-
-**As a** [user type]
-**I want** [goal]
-**So that** [benefit]
+**As a** plugin developer
+**I want** marketplace registration to never use temp directory paths
+**So that** my plugins don't break after install
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: [Specific, testable criterion]
-- [ ] **AC-US1-02**: [Another criterion]
+- [x] **AC-US1-01**: Given a source path matching the `os.tmpdir()` prefix, when `registerMarketplace()` is called, then the temp path is detected and skipped with a clear warning message logged to stderr
+- [x] **AC-US1-02**: Given any call to `registerMarketplace()`, when the underlying `claude plugin marketplace add` command runs, then stderr is captured and the return type is `{ success: boolean; stderr?: string }` instead of bare `boolean`
+- [x] **AC-US1-03**: Given a failed registration, when `registerMarketplace()` detects the failure, then it retries once after deregistering the stale entry via `claude plugin marketplace remove`, returning success only if the retry succeeds
 
 ---
 
-### US-002: [Story Title] (P2)
+### US-002: Interactive plugin selection
 **Project**: vskill
-
-**As a** [user type]
-**I want** [goal]
-**So that** [benefit]
+**As a** plugin user
+**I want** to see what will be installed and confirm before proceeding
+**So that** I'm never surprised by what gets installed
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: [Specific, testable criterion]
-- [ ] **AC-US2-02**: [Another criterion]
+- [x] **AC-US2-01**: Given a single-plugin marketplace in TTY mode without `--yes`, when the user runs `vskill install`, then plugin name, version, and description are displayed and the user is prompted for confirmation before proceeding
+- [x] **AC-US2-02**: Given the `--yes` flag is passed, when `vskill install` runs in any environment (TTY or CI), then confirmation is bypassed and install proceeds automatically
+- [x] **AC-US2-03**: Given a call to `installPluginDir()`, when scanning begins, then a pre-install overview line showing the plugin name and source path/URL is printed before the "Collecting plugin files" message
 
-## Functional Requirements
+---
 
-### FR-001: [Requirement]
-[Detailed description]
+### US-003: Clear error messages
+**Project**: vskill
+**As a** plugin user
+**I want** actionable error messages when install fails
+**So that** I know what went wrong and how to fix it
 
-## Success Criteria
-
-[Measurable outcomes - metrics, KPIs]
+**Acceptance Criteria**:
+- [x] **AC-US3-01**: Given a plugin name that does not exist in marketplace.json, when the user runs `vskill install`, then the error message lists all available plugin names from marketplace.json
+- [x] **AC-US3-02**: Given a marketplace registration failure, when the error is displayed to the user, then captured stderr from the `claude` CLI is shown in dim text below the primary error message
+- [x] **AC-US3-03**: Given any marketplace validation call, when `validateMarketplace()` is invoked, then it returns a structured object with `{ valid: boolean; errors: Array<{ code: string; message: string }> }` covering specific error reasons (missing manifest, empty plugin list, invalid JSON, unreachable source)
 
 ## Out of Scope
 
-[What this explicitly does NOT include]
+- Refactoring the extraction-based fallback install path
+- Changes to the Claude Code CLI itself (`claude plugin` commands)
+- Multi-marketplace conflict resolution
+- Offline/cached marketplace support
 
-## Dependencies
+## Technical Notes
 
-[Other features or systems this depends on]
+### Files to modify
+- `src/utils/claude-cli.ts` -- `registerMarketplace()` signature change (US-001)
+- `src/commands/add.ts` -- `installMarketplaceRepo()` for interactive selection (US-002), `installPluginDir()` for pre-install overview (US-002), plugin-not-found error handling (US-003)
+- `src/marketplace/` -- new `validateMarketplace()` function (US-003)
+
+### Constraints
+- Must remain backward-compatible: callers of `registerMarketplace()` need updating for the new return type
+- `--yes` flag already exists; US-002 adds confirmation behavior when it is absent
+- TTY detection via existing `isTTY()` utility in `src/utils/prompts.ts`
+
+### Dependencies
+- `os.tmpdir()` from Node.js `os` module for temp path detection
+- Existing `createPrompter()` for interactive confirmation prompts
+
+## Success Metrics
+
+- Zero stale-temp-dir registration failures in marketplace installs
+- All install error messages include at least one actionable suggestion
+- Single-plugin marketplace installs show confirmation prompt in TTY mode
