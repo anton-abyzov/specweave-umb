@@ -1,0 +1,66 @@
+{
+  "id": "0429-centralized-sync-test",
+  "incrementId": "0429",
+  "name": "centralized-sync-test",
+  "status": "completed",
+  "type": "experiment",
+  "created": "2026-03-05",
+  "priority": "medium",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1491,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1491",
+          "status": "closed"
+        }
+      },
+      "milestone": 219,
+      "syncedAt": "2026-03-05T06:58:15.618Z"
+    },
+    "jira": {
+      "userStories": {
+        "US-001": {
+          "issueKey": "SWE2E-13",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-13",
+          "syncedAt": "2026-03-05T06:49:36.192Z"
+        }
+      }
+    },
+    "ado": {
+      "userStories": {
+        "US-001": {
+          "workItemId": 23,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_apis/wit/workItems/23",
+          "syncedAt": "2026-03-05T06:49:37.002Z"
+        }
+      }
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1491,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1491",
+        "createdAt": "2026-03-05T06:49:33.256Z"
+      }
+    ],
+    "lastSync": "2026-03-05T06:49:33.256Z"
+  },
+  "jira": {
+    "issue": "SWE2E-13",
+    "url": "https://antonabyzov.atlassian.net/browse/SWE2E-13",
+    "synced": "2026-03-05T06:49:36.192Z"
+  },
+  "ado": {
+    "workItem": 23,
+    "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_apis/wit/workItems/23",
+    "synced": "2026-03-05T06:49:37.002Z"
+  },
+  "lastActivity": "2026-03-05T06:58:10.917Z",
+  "readyForReviewAt": "2026-03-05T06:58:05.198Z",
+  "approvedAt": "2026-03-05T06:58:10.917Z"
+}

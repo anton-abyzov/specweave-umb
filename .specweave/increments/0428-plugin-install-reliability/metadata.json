@@ -1,0 +1,13 @@
+{
+  "id": "0428-plugin-install-reliability",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-05T06:27:54.238Z",
+  "lastActivity": "2026-03-05T06:27:54.238Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

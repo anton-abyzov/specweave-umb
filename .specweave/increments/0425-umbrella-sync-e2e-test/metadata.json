@@ -6,11 +6,6 @@
   "priority": "P2",
   "created": "2026-03-04",
   "project": "specweave-umb",
-  "jira": {
-    "issue": "WTTC-25",
-    "url": "https://antonabyzov.atlassian.net/browse/WTTC-25",
-    "synced": "2026-03-04T23:58:33.650Z"
-  },
   "github": {
     "issues": [
       {
@@ -54,10 +49,58 @@
         }
       },
       "milestone": 3,
-      "syncedAt": "2026-03-05T00:17:50.561Z"
+      "syncedAt": "2026-03-05T06:46:24.088Z"
+    },
+    "jira": {
+      "userStories": {
+        "US-SPE-001": {
+          "issueKey": "WTTC-28",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/WTTC-28",
+          "syncedAt": "2026-03-05T06:46:37.645Z"
+        },
+        "US-VSK-001": {
+          "issueKey": "WTTC-29",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/WTTC-29",
+          "syncedAt": "2026-03-05T06:46:37.645Z"
+        },
+        "US-VPL-001": {
+          "issueKey": "WTTC-30",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/WTTC-30",
+          "syncedAt": "2026-03-05T06:46:37.645Z"
+        }
+      }
+    },
+    "ado": {
+      "userStories": {
+        "US-SPE-001": {
+          "workItemId": 20,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_apis/wit/workItems/20",
+          "syncedAt": "2026-03-05T06:46:41.184Z"
+        },
+        "US-VSK-001": {
+          "workItemId": 21,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_apis/wit/workItems/21",
+          "syncedAt": "2026-03-05T06:46:41.184Z"
+        },
+        "US-VPL-001": {
+          "workItemId": 22,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_apis/wit/workItems/22",
+          "syncedAt": "2026-03-05T06:46:41.184Z"
+        }
+      }
     }
   },
   "lastActivity": "2026-03-04",
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "jira": {
+    "issue": "WTTC-27",
+    "url": "https://antonabyzov.atlassian.net/browse/WTTC-27",
+    "synced": "2026-03-05T06:46:37.645Z"
+  },
+  "ado": {
+    "workItem": 19,
+    "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_apis/wit/workItems/19",
+    "synced": "2026-03-05T06:46:41.184Z"
+  }
 }
