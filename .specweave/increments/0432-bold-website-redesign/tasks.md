@@ -15,7 +15,7 @@ by_user_story:
   US-011: [T-033, T-034]
   US-012: [T-035, T-036]
 total_tasks: 36
-completed: 23
+completed: 36
 ---
 
 # Tasks: Bold Website Redesign
@@ -1064,13 +1064,13 @@ completed: 23
 ## User Story: US-012 - Cross-Browser Polish and Accessibility
 
 **Linked ACs**: AC-US12-01, AC-US12-02, AC-US12-03, AC-US12-04, AC-US12-05
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ### T-035: Lighthouse Audit and Cross-Browser Performance Verification
 
 **User Story**: US-012
 **Satisfies ACs**: AC-US12-01, AC-US12-02, AC-US12-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the redesigned landing page in a production build
@@ -1105,7 +1105,7 @@ completed: 23
 
 **User Story**: US-012
 **Satisfies ACs**: AC-US12-03, AC-US12-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the landing page with `prefers-reduced-motion: reduce` active

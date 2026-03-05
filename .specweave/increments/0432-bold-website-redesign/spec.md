@@ -203,11 +203,11 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 **So that** no visitor encounters a broken or inaccessible experience
 
 **Acceptance Criteria**:
-- [ ] **AC-US12-01**: Given Chrome, Firefox, Safari, and Edge (latest 2 versions), when the landing page is loaded, then all sections render correctly without layout breaks, missing animations, or visual glitches
-- [ ] **AC-US12-02**: Given a Lighthouse audit on the landing page, when run in production mode, then all four metrics (Performance, Accessibility, Best Practices, SEO) score 90 or above
-- [ ] **AC-US12-03**: Given prefers-reduced-motion: reduce media query, when active, then all CSS @keyframes animations and JS-driven scroll animations are disabled, showing content in its final state
-- [ ] **AC-US12-04**: Given a screen reader (VoiceOver, NVDA), when navigating the landing page, then all sections have appropriate landmark roles, images have alt text, interactive elements have accessible names, and the mega-menu follows ARIA patterns
-- [ ] **AC-US12-05**: Given viewports from 320px to 2560px, when the landing page is resized, then no horizontal scrollbar appears, no content overflows, and touch targets meet 44x44px minimum
+- [x] **AC-US12-01**: Given Chrome, Firefox, Safari, and Edge (latest 2 versions), when the landing page is loaded, then all sections render correctly without layout breaks, missing animations, or visual glitches
+- [x] **AC-US12-02**: Given a Lighthouse audit on the landing page, when run in production mode, then all four metrics (Performance, Accessibility, Best Practices, SEO) score 90 or above
+- [x] **AC-US12-03**: Given prefers-reduced-motion: reduce media query, when active, then all CSS @keyframes animations and JS-driven scroll animations are disabled, showing content in its final state
+- [x] **AC-US12-04**: Given a screen reader (VoiceOver, NVDA), when navigating the landing page, then all sections have appropriate landmark roles, images have alt text, interactive elements have accessible names, and the mega-menu follows ARIA patterns
+- [x] **AC-US12-05**: Given viewports from 320px to 2560px, when the landing page is resized, then no horizontal scrollbar appears, no content overflows, and touch targets meet 44x44px minimum
 
 ## Out of Scope
 
