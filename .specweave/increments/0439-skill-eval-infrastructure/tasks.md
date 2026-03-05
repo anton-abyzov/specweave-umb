@@ -30,7 +30,7 @@ by_user_story:
 
 **User Story**: US-CLI-005 (also foundational for US-CLI-001)
 **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** an evals.json with missing required field `skill_name`
@@ -74,7 +74,7 @@ by_user_story:
 
 **User Story**: US-CLI-001
 **Satisfies ACs**: AC-US1-01 (prerequisite), AC-US1-02 (prerequisite)
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `ANTHROPIC_API_KEY` is set and the SDK call succeeds
@@ -111,7 +111,7 @@ by_user_story:
 
 **User Story**: US-CLI-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill directory with `SKILL.md` and no existing `evals/evals.json`
@@ -161,7 +161,7 @@ by_user_story:
 
 **User Story**: US-CLI-001, US-CLI-003, US-CLI-004
 **Satisfies ACs**: AC-US1-01 (wiring), AC-US3-01 (scanner), AC-US4-01 (scanner)
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a temp directory with structure `plugins/marketing/skills/social-media-posting/SKILL.md` and a co-located `evals/evals.json`
@@ -209,7 +209,7 @@ by_user_story:
 
 **User Story**: US-CLI-002
 **Satisfies ACs**: AC-US2-01, AC-US2-03 (benchmark format)
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** an LLM output "The report has been saved to reports/q1.csv" and assertion text "The response mentions a file path"
@@ -250,7 +250,7 @@ by_user_story:
 
 **User Story**: US-CLI-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill with a valid evals.json containing 2 cases, each with 3 assertions
@@ -298,7 +298,7 @@ by_user_story:
 
 **User Story**: US-CLI-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a repository with 3 skills: one with no evals.json, one with evals.json but no benchmark.json, one with both and all assertions passing
@@ -340,7 +340,7 @@ by_user_story:
 
 **User Story**: US-CLI-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a repository with 3 skills where 1 already has evals.json
@@ -475,7 +475,7 @@ by_user_story:
 
 **User Story**: US-WEB-001
 **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the admin navigates to `/admin/evals`
@@ -513,7 +513,7 @@ by_user_story:
 
 **User Story**: US-WEB-001, US-WEB-002
 **Satisfies ACs**: AC-US6-03, AC-US6-04, AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** an eval is loaded in viewer state
@@ -607,14 +607,14 @@ by_user_story:
 
 | Task | User Story | ACs Covered | Status |
 |------|-----------|-------------|--------|
-| T-001 | US-CLI-005 | AC-US5-01, AC-US5-02, AC-US5-03, AC-US1-05 | [ ] pending |
-| T-002 | US-CLI-001 | AC-US1-01 (prereq), AC-US1-02 (prereq) | [ ] pending |
-| T-003 | US-CLI-001 | AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05 | [ ] pending |
-| T-004 | US-CLI-001, US-CLI-003, US-CLI-004 | AC-US1-01 (wiring), AC-US3-01, AC-US4-01 | [ ] pending |
-| T-005 | US-CLI-002 | AC-US2-01, AC-US2-03 (format) | [ ] pending |
-| T-006 | US-CLI-002 | AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | [ ] pending |
-| T-007 | US-CLI-003 | AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05 | [ ] pending |
-| T-008 | US-CLI-004 | AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | [ ] pending |
+| T-001 | US-CLI-005 | AC-US5-01, AC-US5-02, AC-US5-03, AC-US1-05 | [x] completed |
+| T-002 | US-CLI-001 | AC-US1-01 (prereq), AC-US1-02 (prereq) | [x] completed |
+| T-003 | US-CLI-001 | AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05 | [x] completed |
+| T-004 | US-CLI-001, US-CLI-003, US-CLI-004 | AC-US1-01 (wiring), AC-US3-01, AC-US4-01 | [x] completed |
+| T-005 | US-CLI-002 | AC-US2-01, AC-US2-03 (format) | [x] completed |
+| T-006 | US-CLI-002 | AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | [x] completed |
+| T-007 | US-CLI-003 | AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05 | [x] completed |
+| T-008 | US-CLI-004 | AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | [x] completed |
 | T-009 | US-WEB-001, US-WEB-002 | AC-US7-03, AC-US7-04, AC-US7-05 (GitHub layer) | [ ] pending |
 | T-010 | US-WEB-001, US-WEB-002 | AC-US6-01, AC-US6-04, AC-US7-03, AC-US7-04, AC-US7-05 | [ ] pending |
 | T-011 | US-WEB-001 | AC-US6-01, AC-US6-02, AC-US6-05 | [ ] pending |

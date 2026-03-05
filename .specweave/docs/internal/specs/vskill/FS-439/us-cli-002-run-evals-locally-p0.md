@@ -39,5 +39,5 @@ No acceptance criteria defined.
 
 ## Tasks
 
-- [ ] **T-005**: Implement assertion judge and benchmark writer
-- [ ] **T-006**: Implement eval run command
+- [x] **T-005**: Implement assertion judge and benchmark writer
+- [x] **T-006**: Implement eval run command

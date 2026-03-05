@@ -4,13 +4,9 @@ feature: FS-437
 title: "Add Retry Logic to Sync Operations"
 status: completed
 priority: P2
-created: 2026-03-05
+created: 2026-03-05T00:00:00.000Z
 tldr: "**As a** developer."
 project: specweave
-external:
-  github:
-    issue: 1499
-    url: https://github.com/anton-abyzov/specweave/issues/1499
 ---
 
 # US-001: Add Retry Logic to Sync Operations

@@ -39,6 +39,6 @@ No acceptance criteria defined.
 
 ## Tasks
 
-- [ ] **T-002**: Implement Anthropic LLM client wrapper
-- [ ] **T-003**: Implement prompt builder and eval init command
-- [ ] **T-004**: Implement skill scanner and eval command router
+- [x] **T-002**: Implement Anthropic LLM client wrapper
+- [x] **T-003**: Implement prompt builder and eval init command
+- [x] **T-004**: Implement skill scanner and eval command router

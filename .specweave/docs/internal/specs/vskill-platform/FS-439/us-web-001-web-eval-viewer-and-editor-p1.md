@@ -41,5 +41,5 @@ No acceptance criteria defined.
 
 - [x] **T-009**: Implement GitHub eval content client
 - [x] **T-010**: Implement platform API routes for eval editor
-- [ ] **T-011**: Implement admin evals viewer page (read-only states)
-- [ ] **T-012**: Implement edit mode and Save & Commit flow
+- [x] **T-011**: Implement admin evals viewer page (read-only states)
+- [x] **T-012**: Implement edit mode and Save & Commit flow

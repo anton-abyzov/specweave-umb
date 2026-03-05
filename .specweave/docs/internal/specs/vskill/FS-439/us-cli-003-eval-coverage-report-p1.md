@@ -39,5 +39,5 @@ No acceptance criteria defined.
 
 ## Tasks
 
-- [ ] **T-004**: Implement skill scanner and eval command router
-- [ ] **T-007**: Implement eval coverage command
+- [x] **T-004**: Implement skill scanner and eval command router
+- [x] **T-007**: Implement eval coverage command

@@ -1,14 +1,14 @@
 ---
 increment: 0437J-add-retry-logic
-title: "[EXTERNAL] Add retry logic to sync operations"
-status: active
+title: '[EXTERNAL] Add retry logic to sync operations'
+status: completed
 priority: P2
 type: feature
-created: 2026-03-05
+created: 2026-03-05T00:00:00.000Z
 external:
   platform: jira
-  ref: "jira#WTTC#WTTC-49"
-  url: "https://antonabyzov.atlassian.net/browse/WTTC-49"
+  ref: jira#WTTC#WTTC-49
+  url: 'https://antonabyzov.atlassian.net/browse/WTTC-49'
 ---
 
 # Add Retry Logic to Sync Operations

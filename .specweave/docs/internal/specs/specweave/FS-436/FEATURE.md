@@ -1,33 +1,34 @@
 ---
 id: FS-436
-title: "[EXTERNAL] Improve error messages"
+title: '[EXTERNAL] Improve error messages'
 type: feature
-status: active
+status: completed
 priority: P2
 created: 2026-03-05T00:00:00.000Z
 lastUpdated: 2026-03-05T00:00:00.000Z
-tldr: When sync fails, error messages are not helpful.
+tldr: 'When sync fails, error messages are not helpful.'
 complexity: low
 stakeholder_relevant: true
-externalLinks:
-  jira:
-    epicKey: WTTC-54
-    epicUrl: https://antonabyzov.atlassian.net/browse/WTTC-54
-    syncedAt: 2026-03-05T22:41:48.167Z
-    projectKey: WTTC
-    domain: antonabyzov.atlassian.net
-  ado:
-    featureId: 45
-    featureUrl: https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/45
-    syncedAt: 2026-03-05T22:41:49.235Z
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: 2026-03-05
 external_tools:
   github:
     type: milestone
     id: 225
-    url: https://github.com/anton-abyzov/specweave/milestone/225
+    url: 'https://github.com/anton-abyzov/specweave/milestone/225'
+externalLinks:
+  jira:
+    epicKey: WTTC-60
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/WTTC-60'
+    syncedAt: '2026-03-05T23:11:54.853Z'
+    projectKey: WTTC
+    domain: antonabyzov.atlassian.net
+  ado:
+    featureId: 60
+    featureUrl: >-
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/60
+    syncedAt: '2026-03-05T23:11:55.223Z'
+    organization: EasyChamp
+    project: SpecWeaveSync
+updated: '2026-03-05'
 ---
 
 # [EXTERNAL] Improve error messages
@@ -35,8 +36,10 @@ external_tools:
 ## TL;DR
 
 **What**: When sync fails, error messages are not helpful.
-**Status**: active | **Priority**: P2
+**Status**: completed | **Priority**: P2
 **User Stories**: 1
+
+![[EXTERNAL] Improve error messages illustration](assets/feature-fs-436.jpg)
 
 ## Overview
 
@@ -46,7 +49,7 @@ When sync fails, error messages are not helpful. Improve them to show specific d
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0436G-improve-error-messages](../../../../../increments/0436G-improve-error-messages/spec.md) | ⏳ active | 2026-03-05 |
+| [0436G-improve-error-messages](../../../../../increments/0436G-improve-error-messages/spec.md) | ✅ completed | 2026-03-05T00:00:00.000Z |
 
 ## User Stories
 

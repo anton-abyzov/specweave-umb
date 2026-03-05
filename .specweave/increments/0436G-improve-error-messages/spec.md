@@ -1,14 +1,14 @@
 ---
 increment: 0436G-improve-error-messages
-title: "[EXTERNAL] Improve error messages"
-status: active
+title: '[EXTERNAL] Improve error messages'
+status: completed
 priority: P2
 type: bug
-created: 2026-03-05
+created: 2026-03-05T00:00:00.000Z
 external:
   platform: github
-  ref: "github#anton-abyzov/specweave#1497"
-  url: "https://github.com/anton-abyzov/specweave/issues/1497"
+  ref: github#anton-abyzov/specweave#1497
+  url: 'https://github.com/anton-abyzov/specweave/issues/1497'
 ---
 
 # Improve Error Messages

@@ -1,14 +1,14 @@
 ---
 increment: 0438A-improve-sync-logging
-title: "[EXTERNAL] Improve sync logging and diagnostics"
-status: active
+title: '[EXTERNAL] Improve sync logging and diagnostics'
+status: completed
 priority: P2
 type: feature
-created: 2026-03-05
+created: 2026-03-05T00:00:00.000Z
 external:
   platform: ado
-  ref: "ado#EasyChamp/SpecWeaveSync#40"
-  url: "https://dev.azure.com/easychamp/SpecWeaveSync/_apis/wit/workItems/40"
+  ref: ado#EasyChamp/SpecWeaveSync#40
+  url: 'https://dev.azure.com/easychamp/SpecWeaveSync/_apis/wit/workItems/40'
 ---
 
 # Improve Sync Logging and Diagnostics

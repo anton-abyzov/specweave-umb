@@ -2,7 +2,7 @@
   "id": "0437J-add-retry-logic",
   "title": "Add retry logic to sync operations",
   "type": "feature",
-  "status": "active",
+  "status": "completed",
   "priority": "P2",
   "created": "2026-03-05",
   "project": "specweave",
@@ -45,7 +45,7 @@
       }
     }
   },
-  "lastActivity": "2026-03-05",
+  "lastActivity": "2026-03-05T23:12:04.067Z",
   "testMode": "test-after",
   "coverageTarget": 80,
   "jira": {
@@ -57,5 +57,7 @@
     "workItem": 42,
     "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/42",
     "synced": "2026-03-05T22:18:18.187Z"
-  }
+  },
+  "readyForReviewAt": "2026-03-05T23:11:59.186Z",
+  "approvedAt": "2026-03-05T23:12:04.067Z"
 }
