@@ -1,6 +1,6 @@
 {
   "id": "0440-fix-anthropic-skills-search",
-  "status": "active",
+  "status": "ready_for_review",
   "type": "bug",
   "priority": "P1",
   "created": "2026-03-06T03:58:50.058Z",
@@ -9,5 +9,51 @@
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 17,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/17",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 18,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/18",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 20,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/20",
+          "status": "active"
+        }
+      },
+      "milestone": 7,
+      "syncedAt": "2026-03-06T04:12:54.552Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 17,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/17",
+        "createdAt": "2026-03-06T04:12:36.934Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 18,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/18",
+        "createdAt": "2026-03-06T04:12:46.122Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 20,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/20",
+        "createdAt": "2026-03-06T04:12:54.552Z"
+      }
+    ],
+    "lastSync": "2026-03-06T04:12:54.552Z"
+  },
+  "updated": "2026-03-06T04:13:43.000Z"
 }

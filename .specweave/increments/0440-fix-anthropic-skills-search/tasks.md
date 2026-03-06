@@ -14,7 +14,7 @@ by_user_story:
 ## User Story: US-003 - Sync VENDOR_ORGS Lists Across Codebase
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -22,7 +22,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `crawl-worker/sources/vendor-org-discovery.js` has VENDOR_ORGS with only 4 orgs (anthropics, openai, google-gemini, google)
@@ -63,7 +63,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the VENDOR_ORGS lists have been updated and the crawl-worker is deployed to all 3 VMs
@@ -84,7 +84,7 @@ by_user_story:
 ## User Story: US-001 - Remove Zero-Star Filter for Vendor Orgs
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -92,7 +92,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a vendor org (anthropics) has a public repo with 0 GitHub stars, fork=false, and a SKILL.md
@@ -126,7 +126,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a vendor org repo with stargazers_count === 0 and fork === false
@@ -161,7 +161,7 @@ by_user_story:
 ## User Story: US-002 - Add CertTier Boost to Search Ranking
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -169,7 +169,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a SearchIndexEntry with certTier="CERTIFIED"
@@ -230,7 +230,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the tsvector query in `searchSkills()` currently has `ORDER BY rank DESC, "trustScore" DESC, "npmDownloadsWeekly" DESC`
@@ -259,7 +259,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the ILIKE fallback query in `searchSkills()` currently has `ORDER BY "trustScore" DESC, "githubStars" DESC, "npmDownloadsWeekly" DESC`
