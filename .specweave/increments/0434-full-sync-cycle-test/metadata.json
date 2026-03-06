@@ -2,7 +2,7 @@
   "id": "0434-full-sync-cycle-test",
   "title": "Full Sync Cycle E2E Test",
   "type": "experiment",
-  "status": "active",
+  "status": "completed",
   "priority": "P2",
   "created": "2026-03-05",
   "project": "specweave-umb",

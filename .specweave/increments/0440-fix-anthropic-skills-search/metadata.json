@@ -1,0 +1,13 @@
+{
+  "id": "0440-fix-anthropic-skills-search",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-06T03:58:50.058Z",
+  "lastActivity": "2026-03-06T03:58:50.058Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
