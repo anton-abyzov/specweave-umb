@@ -16,7 +16,7 @@ by_user_story:
 ## User Story: US-001 - Hierarchical Skill URLs
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 ---
 
@@ -24,7 +24,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-02, AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the Prisma schema for the `Skill` model
@@ -49,7 +49,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-02, AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a GitHub repo URL and a SKILL.md path
@@ -76,7 +76,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill name in hierarchical format `owner/repo/slug`
@@ -102,7 +102,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill with hierarchical name `dailydotdev/daily/daily`
@@ -127,7 +127,7 @@ by_user_story:
 ## User Story: US-002 - Legacy URL Redirects
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -135,7 +135,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill with `legacySlug = "dailydotdev-daily"` stored in DB
@@ -162,7 +162,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill API endpoint at `/api/v1/skills/dailydotdev-daily`
@@ -188,7 +188,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-02, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** existing skills with flat `name` values and `repoUrl`/`skillPath` data
@@ -216,7 +216,7 @@ by_user_story:
 ## User Story: US-003 - Publishing Pipeline with Hierarchical Names
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -224,7 +224,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a submission from `github.com/acme/tools` with SKILL.md at `plugins/linter/skills/eslint-helper/SKILL.md`
@@ -252,7 +252,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill with hierarchical name `acme/tools/linter`
@@ -277,7 +277,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US1-05, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a KV store with both `skill:acme/tools/linter` (primary) and `skill:alias:acme-tools-linter` (alias) entries
@@ -301,7 +301,7 @@ by_user_story:
 ## User Story: US-004 - CLI Compatibility with Hierarchical URLs
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -309,7 +309,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-04, AC-US4-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a hierarchical skill name `facebook/react/react-hooks`
@@ -335,7 +335,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-02, AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a newly installed skill with hierarchical name `acme/tools/linter`
@@ -359,7 +359,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the `vskill info acme/tools/linter` command
@@ -381,7 +381,7 @@ by_user_story:
 ## User Story: US-005 - Admin Interface with Hierarchical Names
 
 **Linked ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -389,7 +389,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** an admin block request for skill `acme/tools/linter`
@@ -416,7 +416,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-03, AC-US5-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a repo-block operation on `dailydotdev/daily`
@@ -439,7 +439,7 @@ by_user_story:
 ## User Story: US-006 - Publisher Page Skill Links
 
 **Linked ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -447,7 +447,7 @@ by_user_story:
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill with hierarchical name `facebook/react/react-hooks`
@@ -475,7 +475,7 @@ by_user_story:
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the skill detail page for `acme/tools/linter`

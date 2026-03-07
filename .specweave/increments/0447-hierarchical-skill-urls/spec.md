@@ -3,7 +3,7 @@ increment: 0447-hierarchical-skill-urls
 title: "Restructure skill URLs to /{owner}/{repo}/{skill-slug}"
 type: feature
 priority: P1
-status: planned
+status: completed
 created: 2026-03-07
 structure: user-stories
 test_mode: TDD
@@ -32,11 +32,11 @@ Skills currently use flat slugs (e.g., `dailydotdev-daily`) that obscure the sou
 **So that** I can identify the source repository directly from the URL
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a skill from `github.com/dailydotdev/daily` with SKILL.md in `plugins/news/skills/daily/SKILL.md`, when I visit `/skills/dailydotdev/daily/daily`, then the skill detail page renders correctly
-- [ ] **AC-US1-02**: Given Prisma schema, when the migration runs, then `Skill` model has new columns `ownerSlug`, `repoSlug`, `skillSlug`, and `legacySlug` (all non-null after migration), and the unique constraint is on `(ownerSlug, repoSlug, skillSlug)` instead of flat `name`
-- [ ] **AC-US1-03**: Given the `Skill.name` field, when a skill is created or updated, then `name` stores the format `owner/repo/skillSlug` (e.g., `dailydotdev/daily/daily`)
-- [ ] **AC-US1-04**: Given Next.js App Router, when the route `/skills/[owner]/[repo]/[skillSlug]` is requested, then the page resolves the skill by the three path segments and renders the detail page with correct badge URLs, metadata, and OG tags
-- [ ] **AC-US1-05**: Given KV cache entries, when a skill is published or updated, then the KV key uses the hierarchical format `skill:owner/repo/skillSlug` instead of `skill:flat-slug`
+- [x] **AC-US1-01**: Given a skill from `github.com/dailydotdev/daily` with SKILL.md in `plugins/news/skills/daily/SKILL.md`, when I visit `/skills/dailydotdev/daily/daily`, then the skill detail page renders correctly
+- [x] **AC-US1-02**: Given Prisma schema, when the migration runs, then `Skill` model has new columns `ownerSlug`, `repoSlug`, `skillSlug`, and `legacySlug` (all non-null after migration), and the unique constraint is on `(ownerSlug, repoSlug, skillSlug)` instead of flat `name`
+- [x] **AC-US1-03**: Given the `Skill.name` field, when a skill is created or updated, then `name` stores the format `owner/repo/skillSlug` (e.g., `dailydotdev/daily/daily`)
+- [x] **AC-US1-04**: Given Next.js App Router, when the route `/skills/[owner]/[repo]/[skillSlug]` is requested, then the page resolves the skill by the three path segments and renders the detail page with correct badge URLs, metadata, and OG tags
+- [x] **AC-US1-05**: Given KV cache entries, when a skill is published or updated, then the KV key uses the hierarchical format `skill:owner/repo/skillSlug` instead of `skill:flat-slug`
 
 ---
 
@@ -47,10 +47,10 @@ Skills currently use flat slugs (e.g., `dailydotdev-daily`) that obscure the sou
 **So that** existing bookmarks, README badges, and external links continue to work
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a skill with `legacySlug = "dailydotdev-daily"`, when a request hits `/skills/dailydotdev-daily`, then the server responds with a 301 redirect to `/skills/dailydotdev/daily/daily`
-- [ ] **AC-US2-02**: Given the data migration, when it runs on existing skills, then every skill row has `legacySlug` populated with its current flat `name` value before the name is updated to hierarchical format
-- [ ] **AC-US2-03**: Given the redirect route, when a slug matches no `legacySlug` and no hierarchical skill, then a 404 page is shown
-- [ ] **AC-US2-04**: Given KV alias entries, when the migration runs, then `skill:alias:{legacySlug}` KV keys point to the new `owner/repo/skillSlug` value for fast redirect resolution without DB lookup
+- [x] **AC-US2-01**: ~~Given a skill with `legacySlug = "dailydotdev-daily"`, when a request hits `/skills/dailydotdev-daily`, then the server responds with a 301 redirect to `/skills/dailydotdev/daily/daily`~~ — DESCOPED: No backward compat needed per user decision; old routes removed entirely
+- [x] **AC-US2-02**: Given the data migration, when it runs on existing skills, then every skill row has `legacySlug` populated with its current flat `name` value before the name is updated to hierarchical format
+- [x] **AC-US2-03**: ~~Given the redirect route, when a slug matches no `legacySlug` and no hierarchical skill, then a 404 page is shown~~ — DESCOPED: Old routes removed entirely
+- [x] **AC-US2-04**: ~~Given KV alias entries, when the migration runs, then `skill:alias:{legacySlug}` KV keys point to the new `owner/repo/skillSlug` value for fast redirect resolution without DB lookup~~ — DESCOPED: No KV aliases needed without legacy redirects
 
 ---
 
@@ -61,11 +61,11 @@ Skills currently use flat slugs (e.g., `dailydotdev-daily`) that obscure the sou
 **So that** newly submitted skills get correct URLs from the start
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a submission from `github.com/acme/tools` with SKILL.md at `plugins/linter/skills/eslint-helper/SKILL.md`, when `publishSkill` runs, then `Skill.name` is set to `acme/tools/eslint-helper` and `skillSlug` is `eslint-helper` (parent folder name of SKILL.md)
-- [ ] **AC-US3-02**: Given a submission with SKILL.md at the repository root (`SKILL.md`), when `publishSkill` runs, then `skillSlug` is derived from the repo name (e.g., repo `acme/my-skill` produces `skillSlug = "my-skill"`)
-- [ ] **AC-US3-03**: Given the new naming scheme, when `resolveSlug` is called, then it no longer needs hash-based collision disambiguation (owner/repo/slug is inherently unique), and the old `makeSlug` flat-slug function is deprecated
-- [ ] **AC-US3-04**: Given the `slug.ts` module, when updated, then a new `buildHierarchicalName(repoUrl, skillPath)` function computes `ownerSlug`, `repoSlug`, and `skillSlug` from the repo URL and SKILL.md path
-- [ ] **AC-US3-05**: Given email notifications (submitted, auto-approved, rejected), when sent, then skill names in subject lines and body text use the hierarchical format, and badge URLs point to the new 3-segment path
+- [x] **AC-US3-01**: Given a submission from `github.com/acme/tools` with SKILL.md at `plugins/linter/skills/eslint-helper/SKILL.md`, when `publishSkill` runs, then `Skill.name` is set to `acme/tools/eslint-helper` and `skillSlug` is `eslint-helper` (parent folder name of SKILL.md)
+- [x] **AC-US3-02**: Given a submission with SKILL.md at the repository root (`SKILL.md`), when `publishSkill` runs, then `skillSlug` is derived from the repo name (e.g., repo `acme/my-skill` produces `skillSlug = "my-skill"`)
+- [x] **AC-US3-03**: Given the new naming scheme, when `resolveSlug` is called, then it no longer needs hash-based collision disambiguation (owner/repo/slug is inherently unique), and the old `makeSlug` flat-slug function is deprecated
+- [x] **AC-US3-04**: Given the `slug.ts` module, when updated, then a new `buildHierarchicalName(repoUrl, skillPath)` function computes `ownerSlug`, `repoSlug`, and `skillSlug` from the repo URL and SKILL.md path
+- [x] **AC-US3-05**: Given email notifications (submitted, auto-approved, rejected), when sent, then skill names in subject lines and body text use the hierarchical format, and badge URLs point to the new 3-segment path
 
 ---
 
@@ -76,11 +76,11 @@ Skills currently use flat slugs (e.g., `dailydotdev-daily`) that obscure the sou
 **So that** I can search, install, and submit skills using the updated URL scheme
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given `vskill find react`, when the API returns skills with hierarchical names (e.g., `facebook/react/react-hooks`), then the CLI displays the name in `owner/repo/skill-slug` format and the URL as `https://verified-skill.com/skills/facebook/react/react-hooks`
-- [ ] **AC-US4-02**: Given the lockfile (`vskill.lock`), when a skill is installed, then the lockfile key uses the hierarchical name `owner/repo/skillSlug` instead of the flat slug
-- [ ] **AC-US4-03**: Given backward compatibility, when a lockfile contains old flat-slug keys, then `vskill list` and `vskill update` still read them correctly (graceful degradation)
-- [ ] **AC-US4-04**: Given the `vskill info <name>` command, when the user provides a hierarchical name like `acme/tools/linter`, then the CLI fetches and displays the skill detail
-- [ ] **AC-US4-05**: Given the blocklist check, when comparing skill names, then the check uses the hierarchical name format and the API endpoint accepts hierarchical names in the `name` query parameter
+- [x] **AC-US4-01**: Given `vskill find react`, when the API returns skills with hierarchical names (e.g., `facebook/react/react-hooks`), then the CLI displays the name in `owner/repo/skill-slug` format and the URL as `https://verified-skill.com/skills/facebook/react/react-hooks`
+- [x] **AC-US4-02**: Given the lockfile (`vskill.lock`), when a skill is installed, then the lockfile key uses the hierarchical name `owner/repo/skillSlug` instead of the flat slug
+- [x] **AC-US4-03**: Given backward compatibility, when a lockfile contains old flat-slug keys, then `vskill list` and `vskill update` still read them correctly (graceful degradation)
+- [x] **AC-US4-04**: Given the `vskill info <name>` command, when the user provides a hierarchical name like `acme/tools/linter`, then the CLI fetches and displays the skill detail
+- [x] **AC-US4-05**: Given the blocklist check, when comparing skill names, then the check uses the hierarchical name format and the API endpoint accepts hierarchical names in the `name` query parameter
 
 ---
 
@@ -91,10 +91,10 @@ Skills currently use flat slugs (e.g., `dailydotdev-daily`) that obscure the sou
 **So that** I can manage skills using the new URL format
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given the admin skill block endpoint (`/api/v1/admin/skills/[name]/block`), when the route receives a hierarchical name with slashes, then Next.js catch-all routing (`[...name]`) correctly parses `owner/repo/skillSlug` and the block operation succeeds
-- [ ] **AC-US5-02**: Given the admin skill delete endpoint (`/api/v1/admin/skills/[name]/delete`), when called with a hierarchical name, then the skill is deleted and its KV entries (both hierarchical key and legacy alias) are cleaned up
-- [ ] **AC-US5-03**: Given the admin submissions list, when displaying pending or processed submissions, then skill names are shown in `owner/repo/skillSlug` format with links to the new URL structure
-- [ ] **AC-US5-04**: Given the repo-block endpoint, when a repo is blocked, then all skills from that repo (identified by `ownerSlug` + `repoSlug`) are blocked and their KV entries updated
+- [x] **AC-US5-01**: Given the admin skill block endpoint (`/api/v1/admin/skills/[name]/block`), when the route receives a hierarchical name with slashes, then Next.js catch-all routing (`[...name]`) correctly parses `owner/repo/skillSlug` and the block operation succeeds
+- [x] **AC-US5-02**: Given the admin skill delete endpoint (`/api/v1/admin/skills/[name]/delete`), when called with a hierarchical name, then the skill is deleted and its KV entries (both hierarchical key and legacy alias) are cleaned up
+- [x] **AC-US5-03**: Given the admin submissions list, when displaying pending or processed submissions, then skill names are shown in `owner/repo/skillSlug` format with links to the new URL structure
+- [x] **AC-US5-04**: Given the repo-block endpoint, when a repo is blocked, then all skills from that repo (identified by `ownerSlug` + `repoSlug`) are blocked and their KV entries updated
 
 ---
 
@@ -105,10 +105,10 @@ Skills currently use flat slugs (e.g., `dailydotdev-daily`) that obscure the sou
 **So that** clicking a skill from a publisher page takes me to the correct `/skills/{owner}/{repo}/{skillSlug}` URL
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: Given the `PublisherSkillsList` component, when rendering skill cards, then each card's `href` uses `/skills/${ownerSlug}/${repoSlug}/${skillSlug}` instead of `/skills/${encodeURIComponent(skill.name)}`
-- [ ] **AC-US6-02**: Given the `TrendingSkills` component, when rendering skill links on the homepage, then links use the 3-segment hierarchical URL format
-- [ ] **AC-US6-03**: Given the `SearchPalette` component, when displaying search results, then result links navigate to `/skills/{owner}/{repo}/{skillSlug}`
-- [ ] **AC-US6-04**: Given the skill detail page badge markdown snippet, when displayed, then the badge link URL uses the hierarchical format (e.g., `https://verified-skill.com/skills/owner/repo/skill-slug`)
+- [x] **AC-US6-01**: Given the `PublisherSkillsList` component, when rendering skill cards, then each card's `href` uses `/skills/${ownerSlug}/${repoSlug}/${skillSlug}` instead of `/skills/${encodeURIComponent(skill.name)}`
+- [x] **AC-US6-02**: Given the `TrendingSkills` component, when rendering skill links on the homepage, then links use the 3-segment hierarchical URL format
+- [x] **AC-US6-03**: Given the `SearchPalette` component, when displaying search results, then result links navigate to `/skills/{owner}/{repo}/{skillSlug}`
+- [x] **AC-US6-04**: Given the skill detail page badge markdown snippet, when displayed, then the badge link URL uses the hierarchical format (e.g., `https://verified-skill.com/skills/owner/repo/skill-slug`)
 
 ## Out of Scope
 
