@@ -1,0 +1,13 @@
+{
+  "id": "0449-fix-skill-display-names",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-07T06:03:59.945Z",
+  "lastActivity": "2026-03-07T06:03:59.945Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

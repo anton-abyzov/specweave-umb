@@ -22,7 +22,7 @@ by_user_story:
 ### User Story: US-CLI-005 + US-CLI-001 Foundation — Schema Validation and LLM Client
 
 **Linked ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US1-01, AC-US1-02, AC-US1-05
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 ---
 
@@ -380,7 +380,7 @@ by_user_story:
 ### User Story: US-WEB-001 + US-WEB-002 — Web Eval Editor
 
 **Linked ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04, AC-US6-05, AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 ---
 
@@ -567,7 +567,7 @@ by_user_story:
 
 **User Story**: US-SW-001
 **Satisfies ACs**: AC-US8-01, AC-US8-02, AC-US8-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the `--root` flag is passed with a path to specweave's skills directory
@@ -615,11 +615,11 @@ by_user_story:
 | T-006 | US-CLI-002 | AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | [x] completed |
 | T-007 | US-CLI-003 | AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05 | [x] completed |
 | T-008 | US-CLI-004 | AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | [x] completed |
-| T-009 | US-WEB-001, US-WEB-002 | AC-US7-03, AC-US7-04, AC-US7-05 (GitHub layer) | [ ] pending |
-| T-010 | US-WEB-001, US-WEB-002 | AC-US6-01, AC-US6-04, AC-US7-03, AC-US7-04, AC-US7-05 | [ ] pending |
-| T-011 | US-WEB-001 | AC-US6-01, AC-US6-02, AC-US6-05 | [ ] pending |
-| T-012 | US-WEB-001, US-WEB-002 | AC-US6-03, AC-US6-04, AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05 | [ ] pending |
-| T-013 | US-SW-001 | AC-US8-01, AC-US8-02, AC-US8-03 | [ ] pending |
+| T-009 | US-WEB-001, US-WEB-002 | AC-US7-03, AC-US7-04, AC-US7-05 (GitHub layer) | [x] completed |
+| T-010 | US-WEB-001, US-WEB-002 | AC-US6-01, AC-US6-04, AC-US7-03, AC-US7-04, AC-US7-05 | [x] completed |
+| T-011 | US-WEB-001 | AC-US6-01, AC-US6-02, AC-US6-05 | [x] completed |
+| T-012 | US-WEB-001, US-WEB-002 | AC-US6-03, AC-US6-04, AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05 | [x] completed |
+| T-013 | US-SW-001 | AC-US8-01, AC-US8-02, AC-US8-03 | [x] completed |
 
-**Total**: 13 tasks, 0 completed
+**Total**: 13 tasks, 13 completed
 **AC Coverage**: All 28 ACs from spec.md covered (AC-US1-01 through AC-US8-03)

@@ -34,11 +34,11 @@ Skills across vskill (42 plugin skills) and specweave (48 skills) lack a systema
 **So that** I have realistic test cases and objectively verifiable assertions without writing them from scratch
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a skill with a SKILL.md at `plugins/<plugin>/skills/<skill>/SKILL.md`, when `vskill eval init <plugin>/<skill>` is run, then an `evals/evals.json` file is created in that skill's directory matching the established schema (`skill_name`, `evals[]` with `id`, `name`, `prompt`, `expected_output`, `files`, `assertions[]`)
-- [ ] **AC-US1-02**: Given the LLM prompt used for generation, it MUST include: (a) the full SKILL.md content of the target skill, (b) the evals.json schema with the social-media-posting example as reference, (c) best practices from the skill-creator guidelines -- realistic prompts with substantive detail like file paths and column names, objectively verifiable assertions with descriptive names that read clearly in a benchmark viewer, skip assertions for subjective skills, and (d) instructions to generate 2-3 test cases with specific prompts that represent what a real user would actually say
-- [ ] **AC-US1-03**: Given a skill that already has an `evals/evals.json`, when `vskill eval init` is run without flags, then the command exits with the message "evals.json already exists, use --force to overwrite" and does not modify the existing file
-- [ ] **AC-US1-04**: Given the `--force` flag is passed, when the skill already has evals.json, then the existing file is overwritten with freshly generated content
-- [ ] **AC-US1-05**: Given the generated evals.json, then it passes JSON schema validation: valid JSON, all required fields present, assertion IDs unique within each eval case, at least 1 assertion per eval case
+- [x] **AC-US1-01**: Given a skill with a SKILL.md at `plugins/<plugin>/skills/<skill>/SKILL.md`, when `vskill eval init <plugin>/<skill>` is run, then an `evals/evals.json` file is created in that skill's directory matching the established schema (`skill_name`, `evals[]` with `id`, `name`, `prompt`, `expected_output`, `files`, `assertions[]`)
+- [x] **AC-US1-02**: Given the LLM prompt used for generation, it MUST include: (a) the full SKILL.md content of the target skill, (b) the evals.json schema with the social-media-posting example as reference, (c) best practices from the skill-creator guidelines -- realistic prompts with substantive detail like file paths and column names, objectively verifiable assertions with descriptive names that read clearly in a benchmark viewer, skip assertions for subjective skills, and (d) instructions to generate 2-3 test cases with specific prompts that represent what a real user would actually say
+- [x] **AC-US1-03**: Given a skill that already has an `evals/evals.json`, when `vskill eval init` is run without flags, then the command exits with the message "evals.json already exists, use --force to overwrite" and does not modify the existing file
+- [x] **AC-US1-04**: Given the `--force` flag is passed, when the skill already has evals.json, then the existing file is overwritten with freshly generated content
+- [x] **AC-US1-05**: Given the generated evals.json, then it passes JSON schema validation: valid JSON, all required fields present, assertion IDs unique within each eval case, at least 1 assertion per eval case
 
 ---
 
@@ -50,11 +50,11 @@ Skills across vskill (42 plugin skills) and specweave (48 skills) lack a systema
 **So that** I can measure whether my skill works correctly and identify failing assertions
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a skill with a valid evals.json, when `vskill eval run <plugin>/<skill>` is executed, then for each eval case the command sends the prompt to an LLM, collects the output, and uses an LLM judge to grade each assertion as pass or fail by comparing the output against the assertion text
-- [ ] **AC-US2-02**: Given the run completes, then a terminal table is printed showing: eval name, assertion ID, assertion text (truncated to 60 chars), and pass/fail status for each assertion
-- [ ] **AC-US2-03**: Given the run completes, then a `benchmark.json` file is written to `<skill>/evals/benchmark.json` containing: run timestamp, model used, per-eval-case results with individual assertion pass/fail verdicts, and per-case pass rate (passed assertions / total assertions)
-- [ ] **AC-US2-04**: Given an eval case where the LLM call fails (timeout, API error), then that case is marked as "error" in the benchmark with the error message, and the run continues with remaining cases
-- [ ] **AC-US2-05**: Given a skill with no evals.json or an invalid evals.json, when `vskill eval run` is executed, then the command exits with a clear error message ("No evals.json found" or "Invalid evals.json: <validation errors>")
+- [x] **AC-US2-01**: Given a skill with a valid evals.json, when `vskill eval run <plugin>/<skill>` is executed, then for each eval case the command sends the prompt to an LLM, collects the output, and uses an LLM judge to grade each assertion as pass or fail by comparing the output against the assertion text
+- [x] **AC-US2-02**: Given the run completes, then a terminal table is printed showing: eval name, assertion ID, assertion text (truncated to 60 chars), and pass/fail status for each assertion
+- [x] **AC-US2-03**: Given the run completes, then a `benchmark.json` file is written to `<skill>/evals/benchmark.json` containing: run timestamp, model used, per-eval-case results with individual assertion pass/fail verdicts, and per-case pass rate (passed assertions / total assertions)
+- [x] **AC-US2-04**: Given an eval case where the LLM call fails (timeout, API error), then that case is marked as "error" in the benchmark with the error message, and the run continues with remaining cases
+- [x] **AC-US2-05**: Given a skill with no evals.json or an invalid evals.json, when `vskill eval run` is executed, then the command exits with a clear error message ("No evals.json found" or "Invalid evals.json: <validation errors>")
 
 ---
 
@@ -66,11 +66,11 @@ Skills across vskill (42 plugin skills) and specweave (48 skills) lack a systema
 **So that** I can identify gaps and prioritize eval authoring
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a repository with multiple plugin skills, when `vskill eval coverage` is run, then a table is printed with columns: Plugin, Skill, Cases, Assertions, Last Run, Status
-- [ ] **AC-US3-02**: Given a skill with no `evals/evals.json`, then its Status column shows "MISSING" and Cases/Assertions show "-"
-- [ ] **AC-US3-03**: Given a skill with evals.json but no benchmark.json (never run), then Status shows "PENDING" and Last Run shows "-"
-- [ ] **AC-US3-04**: Given a skill with both evals.json and benchmark.json where all assertions passed in the latest run, then Status shows "PASS" and Last Run shows the benchmark timestamp
-- [ ] **AC-US3-05**: Given a skill with benchmark.json where any assertion failed in the latest run, then Status shows "FAIL"
+- [x] **AC-US3-01**: Given a repository with multiple plugin skills, when `vskill eval coverage` is run, then a table is printed with columns: Plugin, Skill, Cases, Assertions, Last Run, Status
+- [x] **AC-US3-02**: Given a skill with no `evals/evals.json`, then its Status column shows "MISSING" and Cases/Assertions show "-"
+- [x] **AC-US3-03**: Given a skill with evals.json but no benchmark.json (never run), then Status shows "PENDING" and Last Run shows "-"
+- [x] **AC-US3-04**: Given a skill with both evals.json and benchmark.json where all assertions passed in the latest run, then Status shows "PASS" and Last Run shows the benchmark timestamp
+- [x] **AC-US3-05**: Given a skill with benchmark.json where any assertion failed in the latest run, then Status shows "FAIL"
 
 ---
 
@@ -82,10 +82,10 @@ Skills across vskill (42 plugin skills) and specweave (48 skills) lack a systema
 **So that** I can bootstrap eval coverage across an entire plugin repository in one command
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given a repository with 42 skills where 1 already has evals.json, when `vskill eval generate-all` is run, then it generates evals.json for the 41 skills that lack one, skipping the skill that already has evals.json
-- [ ] **AC-US4-02**: Given a skill where LLM generation fails (API error, invalid JSON output), then that skill is skipped with a warning logged, and the command continues processing remaining skills
-- [ ] **AC-US4-03**: Given the batch completes, then a summary is printed: total skills scanned, generated count, skipped count (already had evals), failed count, and a list of failed skill paths
-- [ ] **AC-US4-04**: Given the `--force` flag is passed, then evals.json is regenerated even for skills that already have one
+- [x] **AC-US4-01**: Given a repository with 42 skills where 1 already has evals.json, when `vskill eval generate-all` is run, then it generates evals.json for the 41 skills that lack one, skipping the skill that already has evals.json
+- [x] **AC-US4-02**: Given a skill where LLM generation fails (API error, invalid JSON output), then that skill is skipped with a warning logged, and the command continues processing remaining skills
+- [x] **AC-US4-03**: Given the batch completes, then a summary is printed: total skills scanned, generated count, skipped count (already had evals), failed count, and a list of failed skill paths
+- [x] **AC-US4-04**: Given the `--force` flag is passed, then evals.json is regenerated even for skills that already have one
 
 ---
 
@@ -97,9 +97,9 @@ Skills across vskill (42 plugin skills) and specweave (48 skills) lack a systema
 **So that** malformed eval files are caught early with clear error messages rather than causing cryptic runtime failures
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given an evals.json with missing required fields (e.g., no `skill_name`, no `evals` array, eval entry missing `prompt` or `assertions`), when any eval command loads it, then a validation error is logged listing the specific missing fields and the file is skipped
-- [ ] **AC-US5-02**: Given an evals.json with duplicate assertion IDs within a single eval case, when loaded, then a validation error is logged identifying the duplicate IDs
-- [ ] **AC-US5-03**: Given an evals.json that is not valid JSON (syntax error), when loaded, then a parse error is logged with the file path and line/character offset, and the file is skipped
+- [x] **AC-US5-01**: Given an evals.json with missing required fields (e.g., no `skill_name`, no `evals` array, eval entry missing `prompt` or `assertions`), when any eval command loads it, then a validation error is logged listing the specific missing fields and the file is skipped
+- [x] **AC-US5-02**: Given an evals.json with duplicate assertion IDs within a single eval case, when loaded, then a validation error is logged identifying the duplicate IDs
+- [x] **AC-US5-03**: Given an evals.json that is not valid JSON (syntax error), when loaded, then a parse error is logged with the file path and line/character offset, and the file is skipped
 
 ---
 
@@ -111,11 +111,11 @@ Skills across vskill (42 plugin skills) and specweave (48 skills) lack a systema
 **So that** I can review and refine eval definitions through a visual interface without touching the filesystem
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: Given the admin navigates to `/admin/evals`, then a skill selector (dropdown or search) is shown listing all skills, and selecting a skill loads its evals.json content via API
-- [ ] **AC-US6-02**: Given a skill is selected and has evals.json, then the viewer displays each eval case as a card showing: name, prompt, expected_output, and each assertion with its ID and text
-- [ ] **AC-US6-03**: Given the admin clicks "Edit", then the view switches to edit mode where eval case fields (name, prompt, expected_output) and assertions (add/remove/edit) can be modified inline, and an explicit "Save" button is visible
-- [ ] **AC-US6-04**: Given the admin clicks "Save" in edit mode, then the modified evals.json is persisted via API and a success confirmation is shown. There is no auto-save -- only the explicit Save button writes changes
-- [ ] **AC-US6-05**: Given a skill with no evals.json, then the viewer shows a "No evals found" message
+- [x] **AC-US6-01**: Given the admin navigates to `/admin/evals`, then a skill selector (dropdown or search) is shown listing all skills, and selecting a skill loads its evals.json content via API
+- [x] **AC-US6-02**: Given a skill is selected and has evals.json, then the viewer displays each eval case as a card showing: name, prompt, expected_output, and each assertion with its ID and text
+- [x] **AC-US6-03**: Given the admin clicks "Edit", then the view switches to edit mode where eval case fields (name, prompt, expected_output) and assertions (add/remove/edit) can be modified inline, and an explicit "Save" button is visible
+- [x] **AC-US6-04**: Given the admin clicks "Save" in edit mode, then the modified evals.json is persisted via API and a success confirmation is shown. There is no auto-save -- only the explicit Save button writes changes
+- [x] **AC-US6-05**: Given a skill with no evals.json, then the viewer shows a "No evals found" message
 
 ---
 
@@ -127,11 +127,11 @@ Skills across vskill (42 plugin skills) and specweave (48 skills) lack a systema
 **So that** I can update eval definitions in the source repository without leaving the browser
 
 **Acceptance Criteria**:
-- [ ] **AC-US7-01**: Given the admin has saved changes to evals.json via the editor, then a "Commit to GitHub" button is available
-- [ ] **AC-US7-02**: Given the admin clicks "Commit to GitHub", then a diff preview is shown comparing the current file content on GitHub with the modified version
-- [ ] **AC-US7-03**: Given the admin confirms the commit after reviewing the diff, then the file is committed directly to the main branch of the skill's source repository using the GitHub Contents API
-- [ ] **AC-US7-04**: Given the commit succeeds, then a success message with the commit SHA is displayed
-- [ ] **AC-US7-05**: Given the commit fails (auth error, merge conflict, network error), then the error is displayed and the local edits are preserved so the admin can retry
+- [x] **AC-US7-01**: Given the admin has saved changes to evals.json via the editor, then a "Commit to GitHub" button is available
+- [x] **AC-US7-02**: Given the admin clicks "Commit to GitHub", then a diff preview is shown comparing the current file content on GitHub with the modified version
+- [x] **AC-US7-03**: Given the admin confirms the commit after reviewing the diff, then the file is committed directly to the main branch of the skill's source repository using the GitHub Contents API
+- [x] **AC-US7-04**: Given the commit succeeds, then a success message with the commit SHA is displayed
+- [x] **AC-US7-05**: Given the commit fails (auth error, merge conflict, network error), then the error is displayed and the local edits are preserved so the admin can retry
 
 ---
 
@@ -143,9 +143,9 @@ Skills across vskill (42 plugin skills) and specweave (48 skills) lack a systema
 **So that** the specweave skill library has eval coverage parity with vskill
 
 **Acceptance Criteria**:
-- [ ] **AC-US8-01**: Given the specweave repo contains 48 skills across its skill directories, when batch generation is run, then each skill directory that lacks evals.json gets an `evals/evals.json` file generated
-- [ ] **AC-US8-02**: Given the generated evals, then each evals.json has 2-3 test cases with realistic prompts specific to that skill's domain and objectively verifiable assertions following the embedded best practices
-- [ ] **AC-US8-03**: Given the specweave repo uses a different directory layout than vskill plugins, then the generation tooling accepts a `--root <path>` flag to specify the skills root directory, enabling the same `eval generate-all` command to work across both repos
+- [x] **AC-US8-01**: Given the specweave repo contains 48 skills across its skill directories, when batch generation is run, then each skill directory that lacks evals.json gets an `evals/evals.json` file generated
+- [x] **AC-US8-02**: Given the generated evals, then each evals.json has 2-3 test cases with realistic prompts specific to that skill's domain and objectively verifiable assertions following the embedded best practices
+- [x] **AC-US8-03**: Given the specweave repo uses a different directory layout than vskill plugins, then the generation tooling accepts a `--root <path>` flag to specify the skills root directory, enabling the same `eval generate-all` command to work across both repos
 
 ## Out of Scope
 

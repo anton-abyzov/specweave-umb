@@ -3,7 +3,7 @@ increment: 0426-skill-page-redesign
 title: "Skill Detail Page Redesign"
 status: planned
 total_tasks: 10
-completed_tasks: 0
+completed_tasks: 10
 by_user_story:
   US-001: [T-001, T-002, T-003, T-004]
   US-002: [T-005, T-006, T-007]
@@ -19,7 +19,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 ## User Story: US-001 - Above-the-fold hero zone
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, all completed
 
 ---
 
@@ -27,7 +27,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the file has existing style constants (`MONO`, `TIER_LABELS`, etc.)
@@ -52,7 +52,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill with `displayName`, `authorUsername`, `categoryKey`, repo info, `skillPath`, `currentVersion`, `TierBadge`, `TrustBadge`, and `lastUpdated`
@@ -80,7 +80,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the current page order places the install `TerminalBlock` after Meta and Popularity sections
@@ -104,7 +104,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill with Tier 1, Tier 2, and external security scan results
@@ -130,7 +130,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 ## User Story: US-002 - Duplicate elimination
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, all completed
 
 ---
 
@@ -138,7 +138,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the page after T-002 renders category in the hero byline
@@ -162,7 +162,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill where `skill.extensible` is truthy
@@ -189,7 +189,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** author, version, repository, source path, and last-updated are all rendered in the hero byline (T-002)
@@ -214,7 +214,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 ## User Story: US-003 - Compact stats and demoted secondary content
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, all completed
 
 ---
 
@@ -222,7 +222,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill with `vskillInstalls`, `uniqueInstalls`, `npmDownloads`, `npmDownloadsWeekly`, `githubStars`, `githubForks`, and `metricsRefreshedAt`
@@ -251,7 +251,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill that has a badge embed (markdown badge string)
@@ -277,7 +277,7 @@ Target file: `repositories/anton-abyzov/vskill-platform/src/app/skills/[name]/pa
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a universal skill (`isUniversal === true`) and a specific-compatibility skill (`isUniversal === false`)

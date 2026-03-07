@@ -1,82 +1,36 @@
 {
   "version": "1.0",
   "incrementId": "0439-skill-eval-infrastructure",
-  "timestamp": "2026-03-06T01:56:00.000Z",
+  "timestamp": "2026-03-07T22:13:00Z",
   "verdict": "PASS",
   "shipReadiness": "READY",
   "summary": {
-    "totalFindings": 5,
-    "suppressed": 2,
+    "totalFindings": 2,
     "critical": 0,
     "high": 0,
-    "medium": 5
+    "medium": 0,
+    "suppressed": 9,
+    "fixedBeforeShip": 2
   },
   "findings": [
     {
-      "title": "Platform page tests 100% broken due to missing useSearchParams mock",
+      "title": "btoa(...spread) crashes on large files — FIXED",
       "severity": "critical",
-      "confidence": 100,
-      "category": "correctness",
-      "file": "repositories/anton-abyzov/vskill-platform/src/app/admin/evals/__tests__/page.test.tsx:11",
-      "issue": "vi.mock('next/navigation') was missing useSearchParams export while page.tsx uses useSearchParams(). All 9 page tests failed.",
-      "suggestion": "Added useSearchParams: () => new URLSearchParams() to the mock.",
-      "impact": "No test coverage for the entire admin evals UI page.",
-      "status": "FIXED"
-    },
-    {
-      "title": "Batch generation missing rate limiting delay",
-      "severity": "high",
       "confidence": 95,
       "category": "correctness",
-      "file": "repositories/anton-abyzov/vskill/src/commands/eval/generate-all.ts:60",
-      "issue": "The spec mandates rate limiting for batch generation (line 168) and the task plan specifies a 2-second delay between LLM calls (T-008 step 4). No delay was implemented.",
-      "suggestion": "Added 2-second delay after each successful generation.",
-      "impact": "Running generate-all on 42+ skills would flood the Anthropic API with rapid sequential requests, likely triggering rate limits.",
-      "status": "FIXED"
+      "file": "src/lib/github/eval-content.ts:121",
+      "status": "fixed",
+      "fix": "Replaced spread operator with loop-based binary string construction"
     },
     {
-      "title": "UTF-8 encoding bug in GitHub eval-content client",
+      "title": "No content validation before GitHub commit — FIXED",
       "severity": "high",
-      "confidence": 85,
+      "confidence": 88,
       "category": "correctness",
-      "file": "repositories/anton-abyzov/vskill-platform/src/lib/github/eval-content.ts:87",
-      "issue": "atob/btoa only handle Latin1 characters. If evals.json contains UTF-8 characters (non-Latin text, emojis), decode/encode would fail or corrupt data.",
-      "suggestion": "Changed to TextDecoder/TextEncoder for proper UTF-8 support in both fetch and commit paths.",
-      "impact": "Silently corrupted content when editing/committing evals with non-ASCII characters.",
-      "status": "FIXED"
-    },
-    {
-      "title": "DiffView uses naive line-by-line comparison instead of proper diff algorithm",
-      "severity": "medium",
-      "confidence": 90,
-      "category": "maintainability",
-      "file": "repositories/anton-abyzov/vskill-platform/src/app/admin/evals/page.tsx:470",
-      "issue": "The DiffView component does simple index-based line comparison. Inserting or removing a line causes all subsequent lines to show as changed, producing noisy, misleading diffs.",
-      "suggestion": "Consider implementing LCS-based diff or using a lightweight diff library. Acceptable for V1 given JSON structure (most changes are value edits, not line insertions).",
-      "impact": "Poor UX when reviewing structural changes, but functional for typical value edits.",
-      "status": "NOTED"
-    },
-    {
-      "title": "benchmark.ts async functions use sync fs operations",
-      "severity": "medium",
-      "confidence": 80,
-      "category": "maintainability",
-      "file": "repositories/anton-abyzov/vskill/src/eval/benchmark.ts:31",
-      "issue": "writeBenchmark and readBenchmark are declared async but use writeFileSync/readFileSync. Callers await them expecting non-blocking I/O, but they block the event loop.",
-      "suggestion": "Either use fs.promises (writeFile/readFile) or remove the async keyword. Low priority since CLI context is single-threaded.",
-      "impact": "No functional impact in CLI context. Misleading API contract.",
-      "status": "NOTED"
+      "file": "src/app/api/v1/admin/evals/commit/route.ts:35",
+      "status": "fixed",
+      "fix": "Added JSON.parse validation before committing"
     }
   ],
-  "acCoverage": {
-    "total": 35,
-    "implemented": 32,
-    "pending": 3,
-    "pendingACs": ["AC-US8-01", "AC-US8-02", "AC-US8-03"],
-    "note": "AC-US8-01/02/03 are in T-013 (pending) which requires actual batch generation against specweave repo with real LLM calls."
-  },
-  "testResults": {
-    "vskill": { "files": 10, "tests": 60, "passed": 60, "failed": 0 },
-    "vskillPlatform": { "files": 3, "tests": 30, "passed": 30, "failed": 0 }
-  }
+  "notes": "90 tests passing across both repos (60 vskill CLI + 30 vskill-platform). Two blocking issues found and fixed during grill."
 }

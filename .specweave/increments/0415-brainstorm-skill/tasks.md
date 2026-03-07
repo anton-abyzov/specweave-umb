@@ -10,7 +10,7 @@ by_user_story:
 ## User Story: US-001 - Multi-Perspective Brainstorming Before Implementation
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, all completed
 
 ---
 
@@ -18,7 +18,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the SKILL.md exists at `plugins/specweave/skills/brainstorm/SKILL.md`
@@ -46,7 +46,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** tests from T-001 exist
@@ -64,7 +64,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** SKILL.md is currently 721 lines (exceeds 600-line limit per ADR-0133)
@@ -83,7 +83,7 @@ by_user_story:
 ## User Story: US-002 - Structured Ideation with Cognitive Frameworks
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, all completed
 
 ---
 
@@ -91,7 +91,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the SKILL.md defines 5 lenses with parallel/sequential dispatch
@@ -124,7 +124,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** tests from T-004 exist
@@ -142,7 +142,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** SKILL.md may have been modified in T-005
@@ -163,7 +163,7 @@ by_user_story:
 ## User Story: US-003 - Persistent Brainstorm Documents with Increment Handoff
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05, AC-US3-06, AC-US3-07, AC-US3-08, AC-US3-09
-**Tasks**: 6 total, 0 completed
+**Tasks**: 6 total, all completed
 
 ---
 
@@ -171,7 +171,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-09
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** SKILL.md defines output doc structure, state file schema, handoff protocol, and auto-activation keywords
@@ -197,7 +197,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-09
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** tests from T-007 exist
@@ -215,7 +215,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-04, AC-US3-05, AC-US3-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** plugin PLUGIN.md files and TypeScript source files have been updated
@@ -243,7 +243,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-04, AC-US3-05, AC-US3-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** tests from T-009 exist
@@ -261,7 +261,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-07, AC-US3-08
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** CLAUDE.md template and docs-site files have been updated
@@ -286,7 +286,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-07, AC-US3-08
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** tests from T-011 exist

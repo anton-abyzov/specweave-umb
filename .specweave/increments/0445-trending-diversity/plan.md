@@ -1,70 +1,38 @@
-# Implementation Plan: Trending Skills Diversity: Cap Per-Repo + Show 10
+---
+increment: 0445-trending-diversity
+title: "Trending Skills Diversity: Cap Per-Repo + Show 10"
+---
 
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA ARCHITECT SKILL
-====================================================================
-
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the placeholders below.
-
-To complete this plan, run:
-  Tell Claude: "Design architecture for increment [ID]"
-
-This will activate the Architect skill which will:
-- Create system architecture diagrams
-- Define data models and API contracts
-- Document architecture decisions (ADRs)
-- Identify technical challenges
-
-====================================================================
--->
+# Architecture Plan: Trending Skills Diversity
 
 ## Overview
 
-[Technical summary of implementation approach]
+Add a `diversifyTrending()` pure function to `stats-compute.ts` that caps per-repo skill count and limits total trending list size. Integrate into both stats computation paths.
 
-## Architecture
+## Key Decisions
 
-### Components
-- [Component 1]: [Purpose]
-- [Component 2]: [Purpose]
+### ADR-001: Pure function approach
+**Decision**: Implement diversity filtering as a standalone pure function rather than SQL-level filtering.
+**Rationale**: Easier to test, more flexible (works with both full and minimal stats paths), and the DB query already fetches top 50 sorted by score — post-processing is simpler than complex SQL windowing.
 
-### Data Model
-- [Entity 1]: [Fields, relationships]
-- [Entity 2]: [Fields, relationships]
+### ADR-002: Repo URL as grouping key with author fallback
+**Decision**: Group by `repoUrl`, falling back to `author` when repoUrl is empty.
+**Rationale**: repoUrl is the most accurate grouping key, but some skills may not have one. Author provides a reasonable fallback.
 
-### API Contracts
-- `POST /api/resource`: [Purpose, request/response]
-- `GET /api/resource/:id`: [Purpose, request/response]
+## Components
 
-## Technology Stack
+### 1. `diversifyTrending()` function
+- **File**: `src/lib/stats-compute.ts`
+- **Input**: sorted skills array, maxPerRepo, limit
+- **Output**: filtered array preserving input order
+- **Logic**: Single-pass with repo counter map
 
-- **Language/Framework**: [Choice]
-- **Libraries**: [List]
-- **Tools**: [List]
+### 2. Integration in `computeFullStats()`
+- Call after momentum sort, before returning trending array
 
-**Architecture Decisions**:
-- [Decision 1]: [Why this choice? Alternatives considered?]
-- [Decision 2]: [Rationale]
+### 3. Integration in `computeMinimalStats()`
+- Same pattern for consistency
 
-## Implementation Phases
-
-### Phase 1: Foundation
-- [Setup, infrastructure, base components]
-
-### Phase 2: Core Functionality
-- [Primary features from P1 user stories]
-
-### Phase 3: Enhancement
-- [P2 features and optimizations]
-
-## Testing Strategy
-
-[High-level testing approach - details in tasks.md]
-
-## Technical Challenges
-
-### Challenge 1: [Description]
-**Solution**: [Approach]
-**Risk**: [Mitigation]
+### 4. Unit tests
+- **File**: `src/lib/__tests__/stats-compute.test.ts`
+- Test: capping, limit, order preservation, empty repoUrl fallback, empty input, momentum interaction

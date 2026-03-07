@@ -2,10 +2,10 @@
 id: FS-439
 title: Skill Eval Infrastructure
 type: feature
-status: active
+status: ready_for_review
 priority: P1
 created: 2026-03-05
-lastUpdated: 2026-03-05
+lastUpdated: 2026-03-07
 tldr: Skills across vskill (42 plugin skills) and specweave (48 skills) lack a
   systematic evaluation framework.
 complexity: medium
@@ -22,7 +22,7 @@ external_tools:
 ## TL;DR
 
 **What**: Skills across vskill (42 plugin skills) and specweave (48 skills) lack a systematic evaluation framework.
-**Status**: active | **Priority**: P1
+**Status**: ready_for_review | **Priority**: P1
 **User Stories**: 2
 
 ![Skill Eval Infrastructure illustration](assets/feature-fs-439.jpg)
@@ -35,7 +35,7 @@ Skills across vskill (42 plugin skills) and specweave (48 skills) lack a systema
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0439-skill-eval-infrastructure](../../../../../increments/0439-skill-eval-infrastructure/spec.md) | ⏳ active | 2026-03-05 |
+| [0439-skill-eval-infrastructure](../../../../../increments/0439-skill-eval-infrastructure/spec.md) | ⏳ ready_for_review | 2026-03-05 |
 
 ## User Stories
 

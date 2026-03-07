@@ -10,7 +10,7 @@ by_user_story:
     tasks: [T-004, T-005, T-006, T-007]
     acs: [AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05]
 total_tasks: 7
-completed_tasks: 0
+completed_tasks: 7
 ---
 
 # Tasks: Redesign vskill find command with install counts
@@ -19,7 +19,7 @@ completed_tasks: 0
 
 **Project**: vskill-platform
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -27,7 +27,7 @@ completed_tasks: 0
 
 **User Story**: US-VPL-002
 **Satisfies ACs**: AC-US2-03, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the `SearchIndexEntry` type in `src/lib/search-index.ts`
@@ -69,7 +69,7 @@ completed_tasks: 0
 
 **User Story**: US-VPL-002
 **Satisfies ACs**: AC-US2-01, AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `buildSearchIndex()` in `src/lib/search-index.ts`
@@ -107,7 +107,7 @@ completed_tasks: 0
 
 **User Story**: US-VPL-002
 **Satisfies ACs**: AC-US2-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a search query handled by `searchSkills()` (Postgres path)
@@ -152,7 +152,7 @@ completed_tasks: 0
 
 **User Story**: US-VSK-001
 **Satisfies ACs**: AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `formatInstalls(0)` is called
@@ -203,7 +203,7 @@ completed_tasks: 0
 
 **User Story**: US-VSK-001
 **Satisfies ACs**: AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a user runs `vskill find typescript` without `--limit`
@@ -237,7 +237,7 @@ completed_tasks: 0
 
 **User Story**: US-VSK-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** two results with `vskillInstalls: 100` and `vskillInstalls: 500`
@@ -283,7 +283,7 @@ completed_tasks: 0
 
 **User Story**: US-VSK-001
 **Satisfies ACs**: AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** stdout is not a TTY (piped output)

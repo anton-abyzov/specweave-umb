@@ -32,11 +32,11 @@ The `vskill find` command currently displays results in a grouped marketplace ta
 **So that** I can quickly identify and install the most popular skills
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a user runs `vskill find <query>`, when results are returned, then they are sorted by `vskillInstalls` descending with relevance score as tiebreaker
-- [ ] **AC-US1-02**: Given a TTY terminal, when results are displayed, then each result shows `repo@skill-name  1.2K installs` on the first line and `  URL` (clickable OSC 8 link) on the next line, with no marketplace grouping or table headers
-- [ ] **AC-US1-03**: Given the user does not pass `--limit`, when the command runs, then the default limit is 15 (not 50) and a hint `Use --limit N for more` appears when `hasMore` is true
-- [ ] **AC-US1-04**: Given a blocked skill in the results, when it is displayed, then it shows threat info (severity and threat type) instead of install count
-- [ ] **AC-US1-05**: Given `--json` flag, when results are displayed, then the JSON output includes a `vskillInstalls` field for each result
+- [x] **AC-US1-01**: Given a user runs `vskill find <query>`, when results are returned, then they are sorted by `vskillInstalls` descending with relevance score as tiebreaker
+- [x] **AC-US1-02**: Given a TTY terminal, when results are displayed, then each result shows `repo@skill-name  1.2K installs` on the first line and `  URL` (clickable OSC 8 link) on the next line, with no marketplace grouping or table headers
+- [x] **AC-US1-03**: Given the user does not pass `--limit`, when the command runs, then the default limit is 15 (not 50) and a hint `Use --limit N for more` appears when `hasMore` is true
+- [x] **AC-US1-04**: Given a blocked skill in the results, when it is displayed, then it shows threat info (severity and threat type) instead of install count
+- [x] **AC-US1-05**: Given `--json` flag, when results are displayed, then the JSON output includes a `vskillInstalls` field for each result
 
 ### US-VPL-002: Install counts in search API response (P1)
 **Project**: vskill-platform
@@ -45,10 +45,10 @@ The `vskill find` command currently displays results in a grouped marketplace ta
 **So that** I can display install popularity in the CLI output
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a search API request to `/api/v1/skills/search`, when the edge KV path returns results, then each result includes a `vskillInstalls` number field
-- [ ] **AC-US2-02**: Given a search API request, when the Postgres fallback path returns results, then each result includes `vskillInstalls` read from the `Skill` table
-- [ ] **AC-US2-03**: Given the `SearchIndexEntry` type, when it is updated, then it includes a `vskillInstalls` field and the `INDEX_VERSION` constant is bumped from 4 to 5 to trigger a full index rebuild
-- [ ] **AC-US2-04**: Given the `SearchResult` type, when it is updated, then it includes a `vskillInstalls` number field with a default of 0 for backward compatibility
+- [x] **AC-US2-01**: Given a search API request to `/api/v1/skills/search`, when the edge KV path returns results, then each result includes a `vskillInstalls` number field
+- [x] **AC-US2-02**: Given a search API request, when the Postgres fallback path returns results, then each result includes `vskillInstalls` read from the `Skill` table
+- [x] **AC-US2-03**: Given the `SearchIndexEntry` type, when it is updated, then it includes a `vskillInstalls` field and the `INDEX_VERSION` constant is bumped from 4 to 5 to trigger a full index rebuild
+- [x] **AC-US2-04**: Given the `SearchResult` type, when it is updated, then it includes a `vskillInstalls` number field with a default of 0 for backward compatibility
 
 ## Out of Scope
 

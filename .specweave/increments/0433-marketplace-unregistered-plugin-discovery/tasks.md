@@ -1,7 +1,7 @@
 ---
 increment: 0433-marketplace-unregistered-plugin-discovery
 total_tasks: 12
-completed_tasks: 0
+completed_tasks: 12
 by_user_story:
   US-001: [T-001, T-002]
   US-002: [T-003, T-004]
@@ -21,7 +21,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 ## User Story: US-001 - Discover Unregistered Plugin Directories
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -29,7 +29,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a marketplace repo where `plugins/` contains `frontend`, `backend`, `marketing` and marketplace.json lists only `frontend`, `backend`
@@ -72,7 +72,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the export is added to `src/marketplace/index.ts`
@@ -92,7 +92,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 ## User Story: US-002 - Display Unregistered Plugins in Picker UI
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -100,7 +100,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** 12 registered plugins and 1 unregistered plugin `marketing`
@@ -134,7 +134,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** combined picker returns indices `[0, 2, 13]` where indices 0-11 are registered and 12+ are unregistered
@@ -164,7 +164,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 ## User Story: US-003 - Gate Unregistered Plugin Installation Behind --force
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -172,7 +172,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a user selects unregistered plugin `marketing` without `--force`
@@ -217,7 +217,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-02, AC-US3-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `installRepoPlugin()` is called with `overrideSource: "plugins/marketing"`
@@ -258,7 +258,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `--plugin marketing` targets a plugin not in marketplace.json but discovered as unregistered, without `--force`
@@ -287,7 +287,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 ## User Story: US-004 - Non-TTY and Auto-Select Mode Handling
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -295,7 +295,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** non-TTY mode with 2 registered and 1 unregistered plugin
@@ -326,7 +326,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-02, AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `--yes` with 2 registered and 1 unregistered plugin
@@ -364,7 +364,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 ## User Story: US-005 - Repo Re-Submission for Platform Scanning
 
 **Linked ACs**: AC-US5-01, AC-US5-02, AC-US5-03
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -372,7 +372,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the user accepts the re-submission prompt
@@ -407,7 +407,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `--force` is used to install an unregistered plugin
@@ -431,7 +431,7 @@ Test files go in `repositories/anton-abyzov/vskill/tests/unit/`.
 
 **User Story**: all
 **Satisfies ACs**: AC-US1-01 through AC-US5-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** all tasks T-001 through T-011 are complete

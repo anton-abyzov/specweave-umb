@@ -39,4 +39,4 @@ No acceptance criteria defined.
 
 ## Tasks
 
-- [ ] **T-013**: Verify --root flag and batch-generate evals for specweave skills
+- [x] **T-013**: Verify --root flag and batch-generate evals for specweave skills

@@ -34,11 +34,11 @@ Developers and product owners currently jump straight from a rough idea to `sw:i
 **So that** I make better architectural decisions
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given the core specweave plugin, when the skill is registered, then a `skills/brainstorm/SKILL.md` file exists with frontmatter containing `context: fork` and `model: opus`
-- [ ] **AC-US1-02**: Given a user invokes `sw:brainstorm "topic"`, when the skill starts, then it executes a 5-phase flow in order: Frame (problem definition), Diverge (idea generation), Evaluate (scoring/ranking), Deepen (drill into top ideas), Output (structured document)
-- [ ] **AC-US1-03**: Given the skill supports 3 depth modes, when a user specifies `--depth quick`, then only Phase 1 (Frame) and Phase 3 (Evaluate) execute; when `--depth standard` (default), then Phases 1-3 and 5 execute; when `--depth deep`, then all 5 phases execute
-- [ ] **AC-US1-04**: Given the brainstorm session completes, when the Output phase runs, then it produces a DOT-notation process flow graph embedded in the output document showing the phases executed and decisions made
-- [ ] **AC-US1-05**: Given each phase has a token budget, when a phase executes, then Frame uses at most 500 tokens, Diverge at most 800 tokens, Evaluate at most 600 tokens, Deepen at most 1000 tokens, and Output at most 400 tokens
+- [x] **AC-US1-01**: Given the core specweave plugin, when the skill is registered, then a `skills/brainstorm/SKILL.md` file exists with frontmatter containing `context: fork` and `model: opus`
+- [x] **AC-US1-02**: Given a user invokes `sw:brainstorm "topic"`, when the skill starts, then it executes a 5-phase flow in order: Frame (problem definition), Diverge (idea generation), Evaluate (scoring/ranking), Deepen (drill into top ideas), Output (structured document)
+- [x] **AC-US1-03**: Given the skill supports 3 depth modes, when a user specifies `--depth quick`, then only Phase 1 (Frame) and Phase 3 (Evaluate) execute; when `--depth standard` (default), then Phases 1-3 and 5 execute; when `--depth deep`, then all 5 phases execute
+- [x] **AC-US1-04**: Given the brainstorm session completes, when the Output phase runs, then it produces a DOT-notation process flow graph embedded in the output document showing the phases executed and decisions made
+- [x] **AC-US1-05**: Given each phase has a token budget, when a phase executes, then Frame uses at most 500 tokens, Diverge at most 800 tokens, Evaluate at most 600 tokens, Deepen at most 1000 tokens, and Output at most 400 tokens
 
 ### US-002: Structured Ideation with Cognitive Frameworks (P1)
 **Project**: specweave
@@ -47,11 +47,11 @@ Developers and product owners currently jump straight from a rough idea to `sw:i
 **So that** I consider angles I might miss on my own
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given the brainstorm skill, when the user selects a lens, then exactly 5 lenses are available: Default (unstructured divergent thinking), Six Thinking Hats (White/Red/Black/Yellow/Green/Blue facets), SCAMPER (Substitute/Combine/Adapt/Modify/Put-to-other-uses/Eliminate/Reverse), TRIZ (Inventive Principles, Contradiction Matrix, Ideal Final Result), and Adjacent Possible (analogies from adjacent domains)
-- [ ] **AC-US2-02**: Given the user selects `--lens six-hats` and `--depth deep`, when the Diverge phase runs, then each of the 6 hat facets (White, Red, Black, Yellow, Green, Blue) is dispatched as a parallel subagent, and results are collected and merged before proceeding to Evaluate
-- [ ] **AC-US2-03**: Given the user selects `--lens scamper` and `--depth deep`, when the Diverge phase runs, then each of the 7 SCAMPER operators is dispatched as a parallel subagent
-- [ ] **AC-US2-04**: Given a lens is selected with `--depth quick` or `--depth standard`, when the Diverge phase runs (standard only), then the lens facets execute sequentially in a single agent context rather than as parallel subagents
-- [ ] **AC-US2-05**: Given no `--lens` flag is provided, when the skill starts, then the Default lens is used automatically
+- [x] **AC-US2-01**: Given the brainstorm skill, when the user selects a lens, then exactly 5 lenses are available: Default (unstructured divergent thinking), Six Thinking Hats (White/Red/Black/Yellow/Green/Blue facets), SCAMPER (Substitute/Combine/Adapt/Modify/Put-to-other-uses/Eliminate/Reverse), TRIZ (Inventive Principles, Contradiction Matrix, Ideal Final Result), and Adjacent Possible (analogies from adjacent domains)
+- [x] **AC-US2-02**: Given the user selects `--lens six-hats` and `--depth deep`, when the Diverge phase runs, then each of the 6 hat facets (White, Red, Black, Yellow, Green, Blue) is dispatched as a parallel subagent, and results are collected and merged before proceeding to Evaluate
+- [x] **AC-US2-03**: Given the user selects `--lens scamper` and `--depth deep`, when the Diverge phase runs, then each of the 7 SCAMPER operators is dispatched as a parallel subagent
+- [x] **AC-US2-04**: Given a lens is selected with `--depth quick` or `--depth standard`, when the Diverge phase runs (standard only), then the lens facets execute sequentially in a single agent context rather than as parallel subagents
+- [x] **AC-US2-05**: Given no `--lens` flag is provided, when the skill starts, then the Default lens is used automatically
 
 ### US-003: Persistent Brainstorm Documents with Increment Handoff (P1)
 **Project**: specweave
@@ -60,15 +60,15 @@ Developers and product owners currently jump straight from a rough idea to `sw:i
 **So that** decision rationale is preserved
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a brainstorm session completes, when the Output phase finishes, then a markdown document is saved to `.specweave/docs/brainstorms/{timestamp}-{slug}.md` containing: topic, lens used, depth mode, all phase outputs, the DOT process graph, and a ranked list of ideas with scores
-- [ ] **AC-US3-02**: Given the brainstorm session is interrupted (context limit, user abort, crash), when the session resumes, then a state file at `.specweave/state/brainstorm-{session-id}.json` tracks completed phases and partial results, allowing the skill to resume from the last completed phase
-- [ ] **AC-US3-03**: Given a brainstorm document exists and the user says "proceed to increment" or similar, when the handoff triggers, then `sw:increment` is invoked with the brainstorm document path as context, and the increment's spec.md references the brainstorm doc in a `## Background` section
-- [ ] **AC-US3-04**: Given the skill is added to the core specweave plugin, when the `specweave` PLUGIN.md skill table is read, then `brainstorm` appears as a listed skill with its description
-- [ ] **AC-US3-05**: Given the `specweave-docs` plugin currently lists `spec-driven-brainstorming`, when this increment is complete, then `specweave-docs/PLUGIN.md` marks `spec-driven-brainstorming` as deprecated with a note directing users to `sw:brainstorm`
-- [ ] **AC-US3-06**: Given the source code references the old brainstorming skill, when this increment is complete, then `src/core/lazy-loading/llm-plugin-detector.ts` updates the `docs:` skill group to remove or replace `docs:brainstorming` with `sw:brainstorm`, `src/adapters/claude-md-generator.ts` updates the framework skills list and trigger description to reference `brainstorm` instead of `spec-driven-brainstorming`, and `src/utils/generate-skills-index.ts` continues to detect the brainstorm skill name correctly
-- [ ] **AC-US3-07**: Given the CLAUDE.md template at `src/templates/CLAUDE.md.template`, when this increment is complete, then the auto-detection opt-out phrase "Just brainstorm first" is updated or a note is added clarifying that `sw:brainstorm` is the dedicated skill for brainstorming (distinct from the opt-out phrase)
-- [ ] **AC-US3-08**: Given the public documentation site, when this increment is complete, then `docs-site/docs/reference/skills.md` lists `sw:brainstorm` with usage examples, and `docs-site/docs/workflows/planning.md` references brainstorming as an optional pre-increment step
-- [ ] **AC-US3-09**: Given the brainstorm skill, when auto-activation keywords are detected in user input (e.g., "brainstorm", "explore ideas", "think through", "what if", "ideate", "diverge"), then the skill is suggested or auto-invoked per the plugin auto-load configuration
+- [x] **AC-US3-01**: Given a brainstorm session completes, when the Output phase finishes, then a markdown document is saved to `.specweave/docs/brainstorms/{timestamp}-{slug}.md` containing: topic, lens used, depth mode, all phase outputs, the DOT process graph, and a ranked list of ideas with scores
+- [x] **AC-US3-02**: Given the brainstorm session is interrupted (context limit, user abort, crash), when the session resumes, then a state file at `.specweave/state/brainstorm-{session-id}.json` tracks completed phases and partial results, allowing the skill to resume from the last completed phase
+- [x] **AC-US3-03**: Given a brainstorm document exists and the user says "proceed to increment" or similar, when the handoff triggers, then `sw:increment` is invoked with the brainstorm document path as context, and the increment's spec.md references the brainstorm doc in a `## Background` section
+- [x] **AC-US3-04**: Given the skill is added to the core specweave plugin, when the `specweave` PLUGIN.md skill table is read, then `brainstorm` appears as a listed skill with its description
+- [x] **AC-US3-05**: Given the `specweave-docs` plugin currently lists `spec-driven-brainstorming`, when this increment is complete, then `specweave-docs/PLUGIN.md` marks `spec-driven-brainstorming` as deprecated with a note directing users to `sw:brainstorm`
+- [x] **AC-US3-06**: Given the source code references the old brainstorming skill, when this increment is complete, then `src/core/lazy-loading/llm-plugin-detector.ts` updates the `docs:` skill group to remove or replace `docs:brainstorming` with `sw:brainstorm`, `src/adapters/claude-md-generator.ts` updates the framework skills list and trigger description to reference `brainstorm` instead of `spec-driven-brainstorming`, and `src/utils/generate-skills-index.ts` continues to detect the brainstorm skill name correctly
+- [x] **AC-US3-07**: Given the CLAUDE.md template at `src/templates/CLAUDE.md.template`, when this increment is complete, then the auto-detection opt-out phrase "Just brainstorm first" is updated or a note is added clarifying that `sw:brainstorm` is the dedicated skill for brainstorming (distinct from the opt-out phrase)
+- [x] **AC-US3-08**: Given the public documentation site, when this increment is complete, then `docs-site/docs/reference/skills.md` lists `sw:brainstorm` with usage examples, and `docs-site/docs/workflows/planning.md` references brainstorming as an optional pre-increment step
+- [x] **AC-US3-09**: Given the brainstorm skill, when auto-activation keywords are detected in user input (e.g., "brainstorm", "explore ideas", "think through", "what if", "ideate", "diverge"), then the skill is suggested or auto-invoked per the plugin auto-load configuration
 
 ## Out of Scope
 

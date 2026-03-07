@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "incrementId": "0433-marketplace-unregistered-plugin-discovery",
+  "timestamp": "2026-03-08T22:35:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "findings": [],
+  "notes": "Implementation verified across marketplace.ts (discoverUnregisteredPlugins with best-effort error handling), add.ts (picker integration, --force gate, overrideSource, non-TTY, --yes/--force handling, resubmission logic), and index.ts exports. 778 tests passing across 55 test files including 4 marketplace discovery tests and 3 add command unregistered plugin integration tests."
+}
