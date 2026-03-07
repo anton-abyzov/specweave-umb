@@ -1,0 +1,13 @@
+{
+  "id": "0452-rejected-skill-detail-view",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-07T18:15:10.437Z",
+  "lastActivity": "2026-03-07T18:15:10.437Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
