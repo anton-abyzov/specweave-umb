@@ -38,11 +38,11 @@ Increment 0447 introduced hierarchical skill URLs (`owner/repo/skillSlug`) and s
 **So that** I can quickly identify skills without seeing duplicated or garbled owner prefixes
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given `SearchIndexEntry`, `SearchResult`, `TrendingSkillEntry`, and `SkillData` types, when the type definitions are inspected, then each includes `ownerSlug: string`, `repoSlug: string`, and `skillSlug: string` fields alongside the existing `name` field.
-- [ ] **AC-US1-02**: Given a search API response, when the search query endpoint (`/api/v1/skills/search`) returns results, then each result object includes populated `ownerSlug`, `repoSlug`, and `skillSlug` values sourced from the DB columns.
-- [ ] **AC-US1-03**: Given the search palette, when a user types a query and sees results, then each result label shows `skillSlug` as the primary name and `ownerSlug/repoSlug` as a secondary context (no owner duplication in the label).
-- [ ] **AC-US1-04**: Given the trending skills section on the homepage, when trending skills render, then each skill shows `skillSlug` as the primary name and `ownerSlug/repoSlug` as the faint publisher prefix (replacing the current `skill.author/skill.name` pattern).
-- [ ] **AC-US1-05**: Given the skills browse page, when `PublisherLink` receives skill data, then it receives `skillSlug` for the display name (not the full hierarchical `name`) and renders `author / skillSlug` without duplication.
+- [x] **AC-US1-01**: Given `SearchIndexEntry`, `SearchResult`, `TrendingSkillEntry`, and `SkillData` types, when the type definitions are inspected, then each includes `ownerSlug: string`, `repoSlug: string`, and `skillSlug: string` fields alongside the existing `name` field.
+- [x] **AC-US1-02**: Given a search API response, when the search query endpoint (`/api/v1/skills/search`) returns results, then each result object includes populated `ownerSlug`, `repoSlug`, and `skillSlug` values sourced from the DB columns.
+- [x] **AC-US1-03**: Given the search palette, when a user types a query and sees results, then each result label shows `skillSlug` as the primary name and `ownerSlug/repoSlug` as a secondary context (no owner duplication in the label).
+- [x] **AC-US1-04**: Given the trending skills section on the homepage, when trending skills render, then each skill shows `skillSlug` as the primary name and `ownerSlug/repoSlug` as the faint publisher prefix (replacing the current `skill.author/skill.name` pattern).
+- [x] **AC-US1-05**: Given the skills browse page, when `PublisherLink` receives skill data, then it receives `skillSlug` for the display name (not the full hierarchical `name`) and renders `author / skillSlug` without duplication.
 
 ---
 
@@ -54,9 +54,9 @@ Increment 0447 introduced hierarchical skill URLs (`owner/repo/skillSlug`) and s
 **So that** I can identify and install skills without seeing duplicated `owner/repo@owner/repo/skillSlug` text
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given the `SkillSearchResult` interface in the CLI API client, when the type definition is inspected, then it includes `ownerSlug?: string`, `repoSlug?: string`, and `skillSlug?: string` fields.
-- [ ] **AC-US2-02**: Given `vskill find <query>` output, when results render in the terminal, then the label shows `ownerSlug/repoSlug@skillSlug` (or just `skillSlug` if slug fields are absent for backwards compatibility) instead of the current `owner/repo@owner/repo/skillSlug` duplication.
-- [ ] **AC-US2-03**: Given a skill with a hierarchical `name` field but missing slug fields in the API response, when `formatSkillId` renders the label, then it falls back gracefully to parsing `name` into segments rather than duplicating prefixes.
+- [x] **AC-US2-01**: Given the `SkillSearchResult` interface in the CLI API client, when the type definition is inspected, then it includes `ownerSlug?: string`, `repoSlug?: string`, and `skillSlug?: string` fields.
+- [x] **AC-US2-02**: Given `vskill find <query>` output, when results render in the terminal, then the label shows `ownerSlug/repoSlug@skillSlug` (or just `skillSlug` if slug fields are absent for backwards compatibility) instead of the current `owner/repo@owner/repo/skillSlug` duplication.
+- [x] **AC-US2-03**: Given a skill with a hierarchical `name` field but missing slug fields in the API response, when `formatSkillId` renders the label, then it falls back gracefully to parsing `name` into segments rather than duplicating prefixes.
 
 ## Out of Scope
 

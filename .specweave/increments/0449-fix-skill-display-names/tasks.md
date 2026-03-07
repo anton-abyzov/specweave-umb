@@ -4,12 +4,12 @@ title: "Fix skill display names after hierarchical URL migration"
 by_user_story:
   US-001:
     tasks: [T-001, T-002, T-003, T-004, T-005, T-006]
-    status: pending
+    status: completed
   US-002:
     tasks: [T-007, T-008, T-009]
-    status: pending
+    status: completed
 total_tasks: 9
-completed_tasks: 0
+completed_tasks: 9
 ---
 
 # Tasks: Fix Skill Display Names After Hierarchical URL Migration
@@ -26,7 +26,7 @@ completed_tasks: 0
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the four type definitions in vskill-platform (`SkillData`, `SearchIndexEntry`, `SearchResult`, `TrendingSkillEntry`)
@@ -52,7 +52,7 @@ completed_tasks: 0
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a Prisma `Skill` row with populated `ownerSlug`, `repoSlug`, `skillSlug` columns
@@ -92,7 +92,7 @@ completed_tasks: 0
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** search results that include `ownerSlug`, `repoSlug`, `skillSlug` fields
@@ -119,7 +119,7 @@ completed_tasks: 0
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a trending skill with `ownerSlug = "dailydotdev"`, `skillSlug = "news-digest"`, `author = "dailydotdev"`, `name = "dailydotdev/daily/news-digest"`
@@ -145,7 +145,7 @@ completed_tasks: 0
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill with `skillSlug = "news-digest"` and `name = "dailydotdev/daily/news-digest"`
@@ -171,7 +171,7 @@ completed_tasks: 0
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a production DB with some `Skill` rows having NULL `ownerSlug`, `repoSlug`, `skillSlug`
@@ -207,7 +207,7 @@ completed_tasks: 0
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the `SkillSearchResult` interface in `src/api/client.ts`
@@ -234,7 +234,7 @@ completed_tasks: 0
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a `SkillSearchResult` with `ownerSlug = "dailydotdev"`, `repoSlug = "daily"`, `skillSlug = "news-digest"`
@@ -262,7 +262,7 @@ completed_tasks: 0
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill API response that has a hierarchical `name` but no `ownerSlug`, `repoSlug`, or `skillSlug` fields (old API response format)
