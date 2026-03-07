@@ -1,10 +1,10 @@
 ---
 id: US-004
 feature: FS-424
-title: Interactive Category Chart (P2)
-status: not_started
+title: "Interactive Category Chart (P2)"
+status: completed
 priority: P1
-created: 2026-03-04
+created: 2026-03-04T00:00:00.000Z
 tldr: "**As a** visitor."
 project: vskill-platform
 external:
@@ -25,8 +25,8 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US4-01**: Each category bar is a clickable link to /skills?category=X
-- [ ] **AC-US4-02**: Bars show hover state with background highlight
+- [x] **AC-US4-01**: Each category bar is a clickable link to /skills?category=X
+- [x] **AC-US4-02**: Bars show hover state with background highlight
 
 ---
 

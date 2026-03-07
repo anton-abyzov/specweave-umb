@@ -4,7 +4,7 @@ feature: FS-440
 title: "Add CertTier Boost to Search Ranking"
 status: not_started
 priority: P0
-created: 2026-03-06
+created: 2026-03-06T00:00:00.000Z
 tldr: "**As a** user searching for a skill by name."
 project: vskill-platform
 external:

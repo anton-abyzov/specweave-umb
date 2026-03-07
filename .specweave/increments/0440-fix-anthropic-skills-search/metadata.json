@@ -1,10 +1,10 @@
 {
   "id": "0440-fix-anthropic-skills-search",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-03-06T03:58:50.058Z",
-  "lastActivity": "2026-03-06T03:58:50.058Z",
+  "lastActivity": "2026-03-07T01:56:00.097Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,21 +15,21 @@
         "US-001": {
           "issueNumber": 17,
           "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/17",
-          "status": "active"
+          "status": "closed"
         },
         "US-002": {
           "issueNumber": 18,
           "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/18",
-          "status": "active"
+          "status": "closed"
         },
         "US-003": {
           "issueNumber": 20,
           "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/20",
-          "status": "active"
+          "status": "closed"
         }
       },
       "milestone": 7,
-      "syncedAt": "2026-03-06T04:12:54.552Z"
+      "syncedAt": "2026-03-07T01:56:06.994Z"
     }
   },
   "github": {
@@ -55,5 +55,6 @@
     ],
     "lastSync": "2026-03-06T04:12:54.552Z"
   },
-  "updated": "2026-03-06T04:13:43.000Z"
+  "updated": "2026-03-06T04:13:43.000Z",
+  "approvedAt": "2026-03-07T01:56:00.097Z"
 }

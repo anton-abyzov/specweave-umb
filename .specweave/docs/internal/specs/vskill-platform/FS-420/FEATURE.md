@@ -1,20 +1,14 @@
 ---
 id: FS-420
-title: Vendor Skill Freshness
+title: "Vendor Skill Freshness"
 type: feature
-status: planned
+status: completed
 priority: P1
-created: 2026-03-03
-lastUpdated: 2026-03-03
-tldr: 14 of 16 official Anthropic skills from `anthropics/skills` are missing
-  from vskill search results.
+created: 2026-03-03T00:00:00.000Z
+lastUpdated: 2026-03-07
+tldr: "14 of 16 official Anthropic skills from `anthropics/skills` are missing from vskill search results."
 complexity: medium
 stakeholder_relevant: true
-external_tools:
-  github:
-    type: milestone
-    id: 1
-    url: https://github.com/anton-abyzov/vskill-platform/milestone/1
 ---
 
 # Vendor Skill Freshness
@@ -22,7 +16,7 @@ external_tools:
 ## TL;DR
 
 **What**: 14 of 16 official Anthropic skills from `anthropics/skills` are missing from vskill search results.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 2
 
 ![Vendor Skill Freshness illustration](assets/feature-fs-420.jpg)
@@ -35,7 +29,7 @@ external_tools:
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0420-vendor-skill-freshness](../../../../../increments/0420-vendor-skill-freshness/spec.md) | ⏳ planned | 2026-03-03 |
+| [0420-vendor-skill-freshness](../../../../../increments/0420-vendor-skill-freshness/spec.md) | ✅ completed | 2026-03-03T00:00:00.000Z |
 
 ## User Stories
 

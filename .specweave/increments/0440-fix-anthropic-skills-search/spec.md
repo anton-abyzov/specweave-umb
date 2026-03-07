@@ -1,10 +1,10 @@
 ---
 increment: 0440-fix-anthropic-skills-search
-title: "Fix Anthropic Skills Missing from Search"
+title: Fix Anthropic Skills Missing from Search
 type: bug
 priority: P0
-status: planned
-created: 2026-03-06
+status: completed
+created: 2026-03-06T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

@@ -1,10 +1,10 @@
 ---
 id: US-002
 feature: FS-420
-title: Vendor discovery runs on cron schedule (P1)
-status: not_started
+title: "Vendor discovery runs on cron schedule (P1)"
+status: completed
 priority: P1
-created: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
 tldr: "**As a** platform operator."
 project: vskill-platform
 external:
@@ -25,8 +25,8 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given the cron scheduled handler fires at the :00 minute, when discovery runs, then `vendor-orgs` is included in the sources list alongside `npm`
-- [ ] **AC-US2-02**: Given vendor-orgs discovery runs hourly with dedup bypass, when a vendor adds a new skill, then it appears in search results within ~1 hour
+- [x] **AC-US2-01**: Given the cron scheduled handler fires at the :00 minute, when discovery runs, then `vendor-orgs` is included in the sources list alongside `npm`
+- [x] **AC-US2-02**: Given vendor-orgs discovery runs hourly with dedup bypass, when a vendor adds a new skill, then it appears in search results within ~1 hour
 
 ---
 

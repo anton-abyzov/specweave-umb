@@ -1,20 +1,14 @@
 ---
 id: FS-440
-title: Fix Anthropic Skills Missing from Search
+title: "Fix Anthropic Skills Missing from Search"
 type: feature
-status: ready_for_review
+status: completed
 priority: P0
-created: 2026-03-06
-lastUpdated: 2026-03-06
-tldr: Anthropic's official skills (skill-creator, etc.) are completely absent
-  from verified-skill.com search results.
+created: 2026-03-06T00:00:00.000Z
+lastUpdated: 2026-03-07
+tldr: "Anthropic's official skills (skill-creator, etc.) are completely absent from verified-skill.com search results."
 complexity: medium
 stakeholder_relevant: true
-external_tools:
-  github:
-    type: milestone
-    id: 7
-    url: https://github.com/anton-abyzov/vskill-platform/milestone/7
 ---
 
 # Fix Anthropic Skills Missing from Search
@@ -22,7 +16,7 @@ external_tools:
 ## TL;DR
 
 **What**: Anthropic's official skills (skill-creator, etc.) are completely absent from verified-skill.com search results.
-**Status**: ready_for_review | **Priority**: P0
+**Status**: completed | **Priority**: P0
 **User Stories**: 3
 
 ![Fix Anthropic Skills Missing from Search illustration](assets/feature-fs-440.jpg)
@@ -35,7 +29,7 @@ Anthropic's official skills (skill-creator, etc.) are completely absent from ver
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0440-fix-anthropic-skills-search](../../../../../increments/0440-fix-anthropic-skills-search/spec.md) | ⏳ ready_for_review | 2026-03-06 |
+| [0440-fix-anthropic-skills-search](../../../../../increments/0440-fix-anthropic-skills-search/spec.md) | ✅ completed | 2026-03-06T00:00:00.000Z |
 
 ## User Stories
 

@@ -2,9 +2,9 @@
 id: US-001
 feature: FS-443
 title: Star-based search ranking (P1)
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-07
+created: 2026-03-07T00:00:00.000Z
 tldr: "**As a** developer searching for skills on verified-skill.com."
 project: vskill-platform
 external:
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a search query matching multiple skills, when results are returned from the edge KV path, then results are sorted by githubStars descending within each certification tier
-- [ ] **AC-US1-02**: Given a search query matching multiple skills, when results are returned from the Postgres tsvector path, then results are sorted by githubStars descending within each certification tier
-- [ ] **AC-US1-03**: Given a search query matching multiple skills, when results are returned from the Postgres ILIKE fallback path, then results are sorted by githubStars descending within each certification tier
-- [ ] **AC-US1-04**: Given skills with equal star counts, when sorted, then the blended relevance rank (tsvector path) or computeSearchRank (edge path) is used as tiebreaker
+- [x] **AC-US1-01**: Given a search query matching multiple skills, when results are returned from the edge KV path, then results are sorted by githubStars descending within each certification tier
+- [x] **AC-US1-02**: Given a search query matching multiple skills, when results are returned from the Postgres tsvector path, then results are sorted by githubStars descending within each certification tier
+- [x] **AC-US1-03**: Given a search query matching multiple skills, when results are returned from the Postgres ILIKE fallback path, then results are sorted by githubStars descending within each certification tier
+- [x] **AC-US1-04**: Given skills with equal star counts, when sorted, then the blended relevance rank (tsvector path) or computeSearchRank (edge path) is used as tiebreaker
 
 ---
 

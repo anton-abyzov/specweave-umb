@@ -1,10 +1,10 @@
 ---
 increment: 0443-search-rank-by-stars
-title: "Fix search ranking to sort by star count"
+title: Fix search ranking to sort by star count
 type: bug
 priority: P1
-status: active
-created: 2026-03-07
+status: completed
+created: 2026-03-07T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

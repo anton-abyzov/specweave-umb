@@ -4,7 +4,7 @@ feature: FS-440
 title: "Remove Zero-Star Filter for Vendor Orgs"
 status: not_started
 priority: P0
-created: 2026-03-06
+created: 2026-03-06T00:00:00.000Z
 tldr: "**As a** user searching for official vendor skills."
 project: vskill-platform
 external:

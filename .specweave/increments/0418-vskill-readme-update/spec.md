@@ -1,10 +1,10 @@
 ---
 increment: 0418-vskill-readme-update
-title: "Update vskill README with latest features"
+title: Update vskill README with latest features
 type: feature
 priority: P2
 status: completed
-created: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

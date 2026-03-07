@@ -2,10 +2,10 @@
 id: FS-418
 title: Update vskill README with latest features
 type: feature
-status: planned
+status: completed
 priority: P2
-created: 2026-03-03
-lastUpdated: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
+lastUpdated: 2026-03-07
 tldr: The vskill README needs updating to document recent CLI features and
   configuration options.
 complexity: low
@@ -22,7 +22,7 @@ external_tools:
 ## TL;DR
 
 **What**: The vskill README needs updating to document recent CLI features and configuration options.
-**Status**: planned | **Priority**: P2
+**Status**: completed | **Priority**: P2
 **User Stories**: 1
 
 ![Update vskill README with latest features illustration](assets/feature-fs-418.jpg)
@@ -35,7 +35,7 @@ The vskill README needs updating to document recent CLI features and configurati
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0418-vskill-readme-update](../../../../../increments/0418-vskill-readme-update/spec.md) | ⏳ planned | 2026-03-03 |
+| [0418-vskill-readme-update](../../../../../increments/0418-vskill-readme-update/spec.md) | ✅ completed | 2026-03-03T00:00:00.000Z |
 
 ## User Stories
 

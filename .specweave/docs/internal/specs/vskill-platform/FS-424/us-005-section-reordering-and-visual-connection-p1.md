@@ -1,10 +1,10 @@
 ---
 id: US-005
 feature: FS-424
-title: Section Reordering and Visual Connection (P1)
-status: not_started
+title: "Section Reordering and Visual Connection (P1)"
+status: completed
 priority: P1
-created: 2026-03-04
+created: 2026-03-04T00:00:00.000Z
 tldr: "**As a** visitor."
 project: vskill-platform
 external:
@@ -25,8 +25,8 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US5-01**: Section order: Hero -> Pipeline -> Dashboard -> Categories -> Trending -> Trust
-- [ ] **AC-US5-02**: CategoryNav appears before TrendingSkills
+- [x] **AC-US5-01**: Section order: Hero -> Pipeline -> Dashboard -> Categories -> Trending -> Trust
+- [x] **AC-US5-02**: CategoryNav appears before TrendingSkills
 
 ---
 

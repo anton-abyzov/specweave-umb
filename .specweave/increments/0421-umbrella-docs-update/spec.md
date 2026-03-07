@@ -1,10 +1,10 @@
 ---
 increment: 0421-umbrella-docs-update
-title: "Update umbrella project documentation"
+title: Update umbrella project documentation
 type: feature
 priority: P2
 status: completed
-created: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
 project: specweave-umb
 structure: user-stories
 test_mode: TDD

@@ -1,10 +1,10 @@
 ---
 increment: 0414-smooth-queue-stats
-title: "Smooth Queue Stats Display"
+title: Smooth Queue Stats Display
 type: feature
 priority: P1
 status: completed
-created: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

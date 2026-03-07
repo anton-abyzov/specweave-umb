@@ -1,10 +1,10 @@
 ---
 increment: 0419G-vskill-version-flag
-title: "Add --version flag to vskill CLI"
+title: Add --version flag to vskill CLI
 type: feature
 priority: P2
 status: completed
-created: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
 project: vskill
 structure: user-stories
 test_mode: TDD

@@ -1,13 +1,93 @@
 {
   "id": "0444-filter-framework-plugin-skills",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-03-07T00:46:08.613Z",
-  "lastActivity": "2026-03-07T00:46:08.613Z",
+  "lastActivity": "2026-03-07T01:55:47.700Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1504,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1504",
+          "status": "closed"
+        },
+        "US-002": {
+          "issueNumber": 32,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/32",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 33,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/33",
+          "status": "active"
+        },
+        "US-004": {
+          "issueNumber": 34,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/34",
+          "status": "active"
+        },
+        "US-005": {
+          "issueNumber": 35,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/35",
+          "status": "active"
+        },
+        "US-006": {
+          "issueNumber": 36,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/36",
+          "status": "active"
+        }
+      },
+      "milestone": 10,
+      "syncedAt": "2026-03-07T01:55:51.532Z"
+    }
+  },
+  "updated": "2026-03-07T01:04:14.000Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1504,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1504",
+        "createdAt": "2026-03-07T01:05:06.455Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 32,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/32",
+        "createdAt": "2026-03-07T01:06:15.719Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 33,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/33",
+        "createdAt": "2026-03-07T01:06:26.632Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 34,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/34",
+        "createdAt": "2026-03-07T01:06:36.832Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 35,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/35",
+        "createdAt": "2026-03-07T01:06:47.643Z"
+      },
+      {
+        "userStory": "US-006",
+        "number": 36,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/36",
+        "createdAt": "2026-03-07T01:06:58.455Z"
+      }
+    ],
+    "lastSync": "2026-03-07T01:06:58.455Z"
+  },
+  "approvedAt": "2026-03-07T01:55:47.700Z"
 }

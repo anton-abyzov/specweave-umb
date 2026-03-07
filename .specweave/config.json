@@ -163,7 +163,7 @@
   },
   "limits": {
     "maxActiveIncrements": 3,
-    "hardCap": 7,
+    "hardCap": 25,
     "allowEmergencyInterrupt": true
   },
   "umbrella": {

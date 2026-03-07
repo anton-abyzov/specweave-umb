@@ -4,9 +4,13 @@ feature: FS-417
 title: "Update migrate-to-umbrella Help Text"
 status: completed
 priority: P2
-created: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
 tldr: "**As a** SpecWeave user."
 project: specweave
+external:
+  github:
+    issue: 1484
+    url: https://github.com/anton-abyzov/specweave/issues/1484
 ---
 
 # US-001: Update migrate-to-umbrella Help Text

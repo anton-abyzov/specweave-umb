@@ -1,10 +1,10 @@
 ---
 id: US-001
 feature: FS-419
-title: Version Flag Support (P2)
+title: "Version Flag Support (P2)"
 status: completed
 priority: P2
-created: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
 tldr: "**As a** vskill CLI user."
 project: vskill
 external:

@@ -1,14 +1,14 @@
 ---
 increment: 0417J-update-cli-help-umbrella
-title: "E2E Test: Update CLI help text for umbrella commands"
+title: 'E2E Test: Update CLI help text for umbrella commands'
 type: feature
 priority: P2
 status: completed
-created: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
-external_ref: "jira#SWE2E#SWE2E-6"
+external_ref: jira#SWE2E#SWE2E-6
 project: specweave
 ---
 

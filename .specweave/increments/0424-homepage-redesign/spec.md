@@ -1,10 +1,10 @@
 ---
 increment: 0424-homepage-redesign
-title: "Redesign vskill Platform Homepage"
+title: Redesign vskill Platform Homepage
 type: feature
 priority: P1
-status: planned
-created: 2026-03-04
+status: completed
+created: 2026-03-04T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

@@ -1,10 +1,10 @@
 ---
 increment: 0428-plugin-install-reliability
-title: "Plugin install reliability: temp dirs, interactive selection, error messages"
+title: 'Plugin install reliability: temp dirs, interactive selection, error messages'
 type: bug
 priority: P2
-status: active
-created: 2026-03-05
+status: completed
+created: 2026-03-05T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

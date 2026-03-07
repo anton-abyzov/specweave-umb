@@ -1,10 +1,10 @@
 ---
 id: US-001
 feature: FS-420
-title: Vendor skills bypass discovery dedup (P0)
-status: not_started
+title: "Vendor skills bypass discovery dedup (P0)"
+status: completed
 priority: P1
-created: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
 tldr: "**As a** vskill user searching for official skills."
 project: vskill-platform
 external:
@@ -25,8 +25,8 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a candidate from `vendor-orgs` source where `hasBeenDiscovered` returns true, when `processRepo` processes it, then the candidate is NOT skipped and is submitted for processing
-- [ ] **AC-US1-02**: Given a candidate from `github-code` source where `hasBeenDiscovered` returns true, when `processRepo` processes it, then the candidate IS skipped (existing dedup behavior preserved)
+- [x] **AC-US1-01**: Given a candidate from `vendor-orgs` source where `hasBeenDiscovered` returns true, when `processRepo` processes it, then the candidate is NOT skipped and is submitted for processing
+- [x] **AC-US1-02**: Given a candidate from `github-code` source where `hasBeenDiscovered` returns true, when `processRepo` processes it, then the candidate IS skipped (existing dedup behavior preserved)
 
 ---
 

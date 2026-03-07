@@ -1,10 +1,10 @@
 ---
 id: US-003
 feature: FS-424
-title: Hero Section Cleanup (P1)
-status: not_started
+title: "Hero Section Cleanup (P1)"
+status: completed
 priority: P1
-created: 2026-03-04
+created: 2026-03-04T00:00:00.000Z
 tldr: "**As a** visitor."
 project: vskill-platform
 external:
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: Hero has 4 distinct rows: heading, subtitle+security, search, CTAs+stats
-- [ ] **AC-US3-02**: Search bar is full-width and prominent
-- [ ] **AC-US3-03**: Security callout is compact inline text (not a full-width block)
-- [ ] **AC-US3-04**: "Submit a Skill" secondary CTA is visible
+- [x] **AC-US3-01**: Hero has 4 distinct rows: heading, subtitle+security, search, CTAs+stats
+- [x] **AC-US3-02**: Search bar is full-width and prominent
+- [x] **AC-US3-03**: Security callout is compact inline text (not a full-width block)
+- [x] **AC-US3-04**: "Submit a Skill" secondary CTA is visible
 
 ---
 

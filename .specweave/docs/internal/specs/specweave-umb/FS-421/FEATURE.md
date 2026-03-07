@@ -1,21 +1,14 @@
 ---
 id: FS-421
-title: Update umbrella project documentation
+title: "Update umbrella project documentation"
 type: feature
-status: active
+status: completed
 priority: P2
-created: 2026-03-03
-lastUpdated: 2026-03-03
-tldr: Update the umbrella project's README and configuration documentation to
-  reflect the new distributed sync, consolidation, and umbrella-aware project
-  routing features.
+created: 2026-03-03T00:00:00.000Z
+lastUpdated: 2026-03-07
+tldr: "Update the umbrella project's README and configuration documentation to reflect the new distributed sync, consolidation, and umbrella-aware project routing features."
 complexity: low
 stakeholder_relevant: true
-external_tools:
-  github:
-    type: milestone
-    id: 9
-    url: https://github.com/anton-abyzov/specweave-umb/milestone/9
 ---
 
 # Update umbrella project documentation
@@ -23,7 +16,7 @@ external_tools:
 ## TL;DR
 
 **What**: Update the umbrella project's README and configuration documentation to reflect the new distributed sync, consolidation, and umbrella-aware project routing features.
-**Status**: active | **Priority**: P2
+**Status**: completed | **Priority**: P2
 **User Stories**: 1
 
 ![Update umbrella project documentation illustration](assets/feature-fs-421.jpg)
@@ -36,7 +29,7 @@ Update the umbrella project's README and configuration documentation to reflect 
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0421-umbrella-docs-update](../../../../../increments/0421-umbrella-docs-update/spec.md) | ⏳ active | 2026-03-03 |
+| [0421-umbrella-docs-update](../../../../../increments/0421-umbrella-docs-update/spec.md) | ✅ completed | 2026-03-03T00:00:00.000Z |
 
 ## User Stories
 

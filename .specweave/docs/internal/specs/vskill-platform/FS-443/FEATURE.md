@@ -2,9 +2,9 @@
 id: FS-443
 title: Fix search ranking to sort by star count
 type: feature
-status: planned
+status: completed
 priority: P1
-created: 2026-03-07
+created: 2026-03-07T00:00:00.000Z
 lastUpdated: 2026-03-07
 tldr: Search results on verified-skill.com do not reflect user expectations.
 complexity: medium
@@ -21,8 +21,10 @@ external_tools:
 ## TL;DR
 
 **What**: Search results on verified-skill.com do not reflect user expectations.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 2
+
+![Fix search ranking to sort by star count illustration](assets/feature-fs-443.jpg)
 
 ## Overview
 
@@ -32,7 +34,7 @@ Search results on verified-skill.com do not reflect user expectations. The Anthr
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0443-search-rank-by-stars](../../../../../increments/0443-search-rank-by-stars/spec.md) | ⏳ planned | 2026-03-07 |
+| [0443-search-rank-by-stars](../../../../../increments/0443-search-rank-by-stars/spec.md) | ✅ completed | 2026-03-07T00:00:00.000Z |
 
 ## User Stories
 

@@ -1,10 +1,10 @@
 ---
 increment: 0444-filter-framework-plugin-skills
-title: "Filter Framework Plugin Skills from Marketplace"
+title: Filter Framework Plugin Skills from Marketplace
 type: bug
 priority: P0
-status: active
-created: 2026-03-07
+status: completed
+created: 2026-03-07T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -34,10 +34,10 @@ Root cause: `isAgentConfigPath()` in `skill-path-validation.ts` only filters age
 **So that** framework-bundled skills never enter the community marketplace
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a path matching `^plugins/specweave[^/]*/skills/`, when `isFrameworkPluginPath()` is called, then it returns `true`
-- [ ] **AC-US1-02**: Given a path like `plugins/community-tool/skills/foo/SKILL.md` (not specweave-prefixed), when `isFrameworkPluginPath()` is called, then it returns `false`
-- [ ] **AC-US1-03**: Given edge-case inputs (empty string, backslashes, leading slashes), when `isFrameworkPluginPath()` is called, then it normalizes and handles them without error
-- [ ] **AC-US1-04**: Given a framework plugin path, when `frameworkPluginRejectionReason()` is called, then it returns a human-readable reason string
+- [x] **AC-US1-01**: Given a path matching `^plugins/specweave[^/]*/skills/`, when `isFrameworkPluginPath()` is called, then it returns `true`
+- [x] **AC-US1-02**: Given a path like `plugins/community-tool/skills/foo/SKILL.md` (not specweave-prefixed), when `isFrameworkPluginPath()` is called, then it returns `false`
+- [x] **AC-US1-03**: Given edge-case inputs (empty string, backslashes, leading slashes), when `isFrameworkPluginPath()` is called, then it normalizes and handles them without error
+- [x] **AC-US1-04**: Given a framework plugin path, when `frameworkPluginRejectionReason()` is called, then it returns a human-readable reason string
 
 ---
 
@@ -49,10 +49,10 @@ Root cause: `isAgentConfigPath()` in `skill-path-validation.ts` only filters age
 **So that** call sites use one function for all path rejection logic
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a path inside `.claude/skills/`, when `shouldRejectSkillPath()` is called, then it returns `true` (agent-config rejection still works)
-- [ ] **AC-US2-02**: Given a path inside `plugins/specweave/skills/`, when `shouldRejectSkillPath()` is called, then it returns `true` (framework-plugin rejection works)
-- [ ] **AC-US2-03**: Given a legitimate skill path like `skills/frontend/SKILL.md`, when `shouldRejectSkillPath()` is called, then it returns `false`
-- [ ] **AC-US2-04**: `isAgentConfigPath()` remains exported for backward compatibility; `shouldRejectSkillPath()` is the recommended entrypoint
+- [x] **AC-US2-01**: Given a path inside `.claude/skills/`, when `shouldRejectSkillPath()` is called, then it returns `true` (agent-config rejection still works)
+- [x] **AC-US2-02**: Given a path inside `plugins/specweave/skills/`, when `shouldRejectSkillPath()` is called, then it returns `true` (framework-plugin rejection works)
+- [x] **AC-US2-03**: Given a legitimate skill path like `skills/frontend/SKILL.md`, when `shouldRejectSkillPath()` is called, then it returns `false`
+- [x] **AC-US2-04**: `isAgentConfigPath()` remains exported for backward compatibility; `shouldRejectSkillPath()` is the recommended entrypoint
 
 ---
 
@@ -64,11 +64,11 @@ Root cause: `isAgentConfigPath()` in `skill-path-validation.ts` only filters age
 **So that** framework plugin paths are filtered at every ingestion point in the platform
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given `src/lib/scanner.ts` (2 call sites), when the scanner encounters a framework plugin path, then it is rejected
-- [ ] **AC-US3-02**: Given `src/app/api/v1/submissions/route.ts` (2 call sites), when a submission has a framework plugin path, then it is rejected with a reason
-- [ ] **AC-US3-03**: Given `src/app/api/v1/submissions/bulk/route.ts` (1 call site), when a bulk submission contains framework plugin paths, then those entries are rejected
-- [ ] **AC-US3-04**: Given `src/lib/crawler/github-discovery.ts` (2 call sites), when discovery finds a framework plugin SKILL.md, then it is skipped
-- [ ] **AC-US3-05**: Given `src/lib/crawler/vendor-org-discovery.ts` (1 call site), when vendor org scan finds a framework plugin path, then it is skipped
+- [x] **AC-US3-01**: Given `src/lib/scanner.ts` (2 call sites), when the scanner encounters a framework plugin path, then it is rejected
+- [x] **AC-US3-02**: Given `src/app/api/v1/submissions/route.ts` (2 call sites), when a submission has a framework plugin path, then it is rejected with a reason
+- [x] **AC-US3-03**: Given `src/app/api/v1/submissions/bulk/route.ts` (1 call site), when a bulk submission contains framework plugin paths, then those entries are rejected
+- [x] **AC-US3-04**: Given `src/lib/crawler/github-discovery.ts` (2 call sites), when discovery finds a framework plugin SKILL.md, then it is skipped
+- [x] **AC-US3-05**: Given `src/lib/crawler/vendor-org-discovery.ts` (1 call site), when vendor org scan finds a framework plugin path, then it is skipped
 
 ---
 
@@ -80,10 +80,10 @@ Root cause: `isAgentConfigPath()` in `skill-path-validation.ts` only filters age
 **So that** the crawl workers (running on Hetzner VMs) also reject framework plugin paths
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given `crawl-worker/lib/repo-files.js`, when updated, then it exports `isFrameworkPluginPath()` and `shouldRejectSkillPath()` alongside existing exports
-- [ ] **AC-US4-02**: Given `crawl-worker/lib/skill-discovery.js`, when updated, then it imports and uses `shouldRejectSkillPath` from `repo-files.js`
-- [ ] **AC-US4-03**: Given `crawl-worker/sources/queue-processor.js`, when updated, then it has an inline `isFrameworkPluginPath()` and combined check (does not import from repo-files)
-- [ ] **AC-US4-04**: Given `crawl-worker/sources/vendor-org-discovery.js`, when updated, then it has an inline framework plugin regex and combined check (does not import from repo-files)
+- [x] **AC-US4-01**: Given `crawl-worker/lib/repo-files.js`, when updated, then it exports `isFrameworkPluginPath()` and `shouldRejectSkillPath()` alongside existing exports
+- [x] **AC-US4-02**: Given `crawl-worker/lib/skill-discovery.js`, when updated, then it imports and uses `shouldRejectSkillPath` from `repo-files.js`
+- [x] **AC-US4-03**: Given `crawl-worker/sources/queue-processor.js`, when updated, then it has an inline `isFrameworkPluginPath()` and combined check (does not import from repo-files)
+- [x] **AC-US4-04**: Given `crawl-worker/sources/vendor-org-discovery.js`, when updated, then it has an inline framework plugin regex and combined check (does not import from repo-files)
 
 ---
 
@@ -95,10 +95,10 @@ Root cause: `isAgentConfigPath()` in `skill-path-validation.ts` only filters age
 **So that** users only see legitimate community skills
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given submissions with `skillPath` matching `plugins/specweave*/skills/`, when the cleanup script runs, then their state is set to REJECTED with reason `framework_plugin`
-- [ ] **AC-US5-02**: Given published Skill rows linked to those submissions, when the cleanup script runs, then the Skill rows are hard-deleted from the database
-- [ ] **AC-US5-03**: The cleanup script logs how many submissions were rejected and how many Skill rows were deleted
-- [ ] **AC-US5-04**: The cleanup script is idempotent -- running it twice produces no additional changes
+- [x] **AC-US5-01**: Given submissions with `skillPath` matching `plugins/specweave*/skills/`, when the cleanup script runs, then their state is set to REJECTED with reason `framework_plugin`
+- [x] **AC-US5-02**: Given published Skill rows linked to those submissions, when the cleanup script runs, then the Skill rows are hard-deleted from the database
+- [x] **AC-US5-03**: The cleanup script logs how many submissions were rejected and how many Skill rows were deleted
+- [x] **AC-US5-04**: The cleanup script is idempotent -- running it twice produces no additional changes
 
 ---
 
@@ -110,9 +110,9 @@ Root cause: `isAgentConfigPath()` in `skill-path-validation.ts` only filters age
 **So that** tests validate the new behavior and do not produce false passes
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: Given `skill-path-validation.test.ts`, when run, then it includes tests for `isFrameworkPluginPath()`, `shouldRejectSkillPath()`, and `frameworkPluginRejectionReason()`
-- [ ] **AC-US6-02**: Given the existing test case `accepts plugins/*/skills/*/SKILL.md` that asserts `isAgentConfigPath("plugins/specweave/skills/do/SKILL.md")` returns `false`, when updated, then it reflects the new expected behavior (rejected by `shouldRejectSkillPath`)
-- [ ] **AC-US6-03**: Given `multi-skill-expand.test.ts` which uses `plugins/specweave/skills/` paths as test data, when updated, then test data uses non-specweave paths or the test accounts for rejection
+- [x] **AC-US6-01**: Given `skill-path-validation.test.ts`, when run, then it includes tests for `isFrameworkPluginPath()`, `shouldRejectSkillPath()`, and `frameworkPluginRejectionReason()`
+- [x] **AC-US6-02**: Given the existing test case `accepts plugins/*/skills/*/SKILL.md` that asserts `isAgentConfigPath("plugins/specweave/skills/do/SKILL.md")` returns `false`, when updated, then it reflects the new expected behavior (rejected by `shouldRejectSkillPath`)
+- [x] **AC-US6-03**: Given `multi-skill-expand.test.ts` which uses `plugins/specweave/skills/` paths as test data, when updated, then test data uses non-specweave paths or the test accounts for rejection
 
 ## Out of Scope
 

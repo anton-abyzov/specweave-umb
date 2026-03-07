@@ -1,16 +1,16 @@
 ---
 id: US-001
 feature: FS-421
-title: Update Umbrella Documentation (P2)
+title: "Update Umbrella Documentation (P2)"
 status: completed
 priority: P2
-created: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
 tldr: "**As a** SpecWeave umbrella user."
 project: specweave-umb
 external:
   github:
-    issue: 1486
-    url: https://github.com/anton-abyzov/specweave/issues/1486
+    issue: 69
+    url: https://github.com/anton-abyzov/specweave-umb/issues/69
 ---
 
 # US-001: Update Umbrella Documentation (P2)

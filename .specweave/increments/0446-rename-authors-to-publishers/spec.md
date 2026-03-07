@@ -1,10 +1,10 @@
 ---
 increment: 0446-rename-authors-to-publishers
-title: "Rename Authors to Publishers + Show publisher/skill-name Format"
-status: active
+title: Rename Authors to Publishers + Show publisher/skill-name Format
+status: completed
 priority: P1
 type: feature
-created: 2026-03-07
+created: 2026-03-07T00:00:00.000Z
 ---
 
 # Rename Authors to Publishers + Show publisher/skill-name Format
