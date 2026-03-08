@@ -1,10 +1,10 @@
 ---
 increment: 0453-unify-skill-page-badges
-title: "Unify skill page badges: remove redundant TierBadge"
+title: 'Unify skill page badges: remove redundant TierBadge'
 type: feature
 priority: P1
-status: planned
-created: 2026-03-07
+status: completed
+created: 2026-03-07T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

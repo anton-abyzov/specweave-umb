@@ -142,7 +142,8 @@ handlers/
 The existing `processor.ts` routes internal SpecWeave events (increment.created, spec.updated, etc.) to bash handlers. In the new system:
 - `post-tool-use.ts` detects file writes to `.specweave/increments/` and emits internal events
 - Internal events are processed by TypeScript equivalents of the bash handlers
-- The existing bash handlers (`living-specs-handler.sh`, `github-sync-handler.sh`, etc.) are NOT ported in this increment. Instead, the PostToolUse handler calls the existing `processor.ts` event routing, reusing its `processEvent` function but calling TypeScript handler stubs that delegate to the bash scripts via `child_process.execFile` for backward compatibility
+- The existing bash handlers (`living-specs-handler.sh`, `github-sync-handler.sh`, etc.) are NOT ported in this increment. Instead, the PostToolUse handler calls the bash scripts directly via `child_process.execFile` for backward compatibility (same mechanism the processor daemon uses internally)
+- `processor.ts` is a standalone daemon, NOT an importable library — do not attempt to import from it
 - Full TypeScript ports of each bash handler happen in follow-up increments
 
 **PreToolUse blocking rules** (AC-US1-02):

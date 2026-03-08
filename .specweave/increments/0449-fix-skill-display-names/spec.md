@@ -1,10 +1,10 @@
 ---
 increment: 0449-fix-skill-display-names
-title: "Fix skill display names after hierarchical URL migration"
+title: Fix skill display names after hierarchical URL migration
 type: bugfix
 priority: P1
-status: planned
-created: 2026-03-07
+status: completed
+created: 2026-03-07T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

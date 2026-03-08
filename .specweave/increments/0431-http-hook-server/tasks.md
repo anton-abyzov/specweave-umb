@@ -19,7 +19,7 @@ by_user_story:
 ## User Story: US-001 - HTTP Hook Event Receiver
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -27,7 +27,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `src/dashboard/types.ts` is updated with hook-related types
@@ -55,7 +55,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a `HookEventRouter` instance with registered handlers
@@ -86,7 +86,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the dashboard server is started with `hooksEnabled: true`
@@ -116,7 +116,7 @@ by_user_story:
 ## User Story: US-002 - In-Memory Event Store with JSONL Persistence
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -124,7 +124,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-03, AC-US2-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a `HookEventStore` instance with a temp directory
@@ -158,7 +158,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-02, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `events.jsonl` and `agents.jsonl` contain valid JSON lines from a previous session
@@ -190,7 +190,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the dashboard server starts and stops
@@ -219,7 +219,7 @@ by_user_story:
 ## User Story: US-003 - Dashboard Server Auto-Start on Session Begin
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -227,7 +227,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-03, AC-US3-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the dashboard server is started with `hooksEnabled: true`
@@ -255,7 +255,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `hooks.httpMode: true` and no server running
@@ -284,7 +284,7 @@ by_user_story:
 ## User Story: US-004 - Command-Bridge for Command-Only Events
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -292,7 +292,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `command-bridge.mjs Notification` is invoked with a JSON payload on stdin
@@ -325,7 +325,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `hooks.httpMode: true` in `.specweave/config.json`
@@ -355,7 +355,7 @@ by_user_story:
 ## User Story: US-005 - TypeScript Event Handlers Replacing Bash
 
 **Linked ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04, AC-US5-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -363,7 +363,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US1-02, AC-US5-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a `PreToolUse` event with tool name `Write` targeting a protected path
@@ -395,7 +395,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-03, AC-US5-04, AC-US5-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a `SubagentStart` event with `agent_id` and `agent_type` in payload
@@ -427,7 +427,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a `Notification` or `ConfigChange` event arrives
@@ -446,10 +446,10 @@ by_user_story:
 1. Create `src/dashboard/server/hooks/handlers/passthrough.ts`
 2. Export `passthroughHandler: HookHandler` that calls `store.addEvent` and returns `{ status: 200, body: {} }`
 3. Create `src/dashboard/server/hooks/handlers/session-lifecycle.ts`
-4. Export `sessionStartHandler`: store event, delegate to existing `processor.ts` `processEvent` for EDA routing
+4. Export `sessionStartHandler`: store event, call existing bash handler scripts directly via `child_process.execFile` for EDA routing (same mechanism the processor daemon uses)
 5. Export `sessionEndHandler`: store event, call `store.flush()`
-6. Create `src/dashboard/server/hooks/handlers/post-tool-use.ts`: detect file writes to `.specweave/increments/`, delegate to `processor.ts` for EDA event routing
-7. Create `src/dashboard/server/hooks/handlers/stop.ts`: store event, call existing stop-reflect/stop-auto logic via `processor.ts`
+6. Create `src/dashboard/server/hooks/handlers/post-tool-use.ts`: detect file writes to `.specweave/increments/`, call bash handler scripts via `child_process.execFile` for EDA event routing (NOTE: `processor.ts` is a standalone daemon, NOT importable)
+7. Create `src/dashboard/server/hooks/handlers/stop.ts`: store event, call existing bash handler scripts for stop-reflect/stop-auto logic via `child_process.execFile`
 8. Register all handlers in `HookEventRouter` constructor
 9. Run unit tests
 
@@ -458,7 +458,7 @@ by_user_story:
 ## User Story: US-006 - HooksPage Dashboard UI
 
 **Linked ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -466,7 +466,7 @@ by_user_story:
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-01, AC-US6-03, AC-US6-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the HooksPage is rendered and SSE is connected
@@ -500,7 +500,7 @@ by_user_story:
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the HooksPage displays 10 events across two sessions
@@ -527,7 +527,7 @@ by_user_story:
 ## User Story: US-007 - AgentsPage Dashboard UI
 
 **Linked ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -535,7 +535,7 @@ by_user_story:
 
 **User Story**: US-007
 **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the AgentsPage is rendered with one running agent and one completed agent
@@ -568,7 +568,7 @@ by_user_story:
 
 **User Story**: US-007
 **Satisfies ACs**: AC-US7-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** agents from two sessions are displayed on AgentsPage
@@ -594,7 +594,7 @@ by_user_story:
 ## User Story: US-008 - Settings Generator and Migration Config
 
 **Linked ACs**: AC-US8-01, AC-US8-02, AC-US8-03, AC-US8-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -602,7 +602,7 @@ by_user_story:
 
 **User Story**: US-008
 **Satisfies ACs**: AC-US8-02, AC-US8-03, AC-US8-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `hooks.httpMode` is absent from config.json
@@ -632,7 +632,7 @@ by_user_story:
 
 **User Story**: US-008
 **Satisfies ACs**: AC-US8-01, AC-US8-02, AC-US8-03, AC-US8-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the dashboard server starts with `hooksEnabled: true` and config has `hooks.httpMode: true`

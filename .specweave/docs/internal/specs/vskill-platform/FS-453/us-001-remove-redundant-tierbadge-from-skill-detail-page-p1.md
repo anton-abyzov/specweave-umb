@@ -1,21 +1,23 @@
 ---
 id: US-001
 feature: FS-453
-title: Remove redundant TierBadge from skill detail page
-status: complete
+title: "Remove redundant TierBadge from skill detail page (P1)"
+status: completed
 priority: P1
-created: 2026-03-07
+created: 2026-03-07T00:00:00.000Z
+tldr: "**As a** skill consumer."
 project: vskill-platform
 external:
   github:
     issue: 1513
     url: https://github.com/anton-abyzov/specweave/issues/1513
 ---
-# US-001: Remove redundant TierBadge from skill detail page
+
+# US-001: Remove redundant TierBadge from skill detail page (P1)
 
 **Feature**: [FS-453](./FEATURE.md)
 
-skill consumer
+**As a** skill consumer
 **I want** a single unified trust badge on the skill detail page
 **So that** I'm not confused by redundant "VERIFIED" + "T3 VERIFIED" badges
 
@@ -33,3 +35,9 @@ skill consumer
 
 **Increment**: [0453-unify-skill-page-badges](../../../../../increments/0453-unify-skill-page-badges/spec.md)
 
+**Tasks**: See increment tasks.md for implementation details.
+
+
+## Tasks
+
+_No tasks defined for this user story_

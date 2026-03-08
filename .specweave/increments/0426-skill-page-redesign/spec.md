@@ -1,10 +1,10 @@
 ---
 increment: 0426-skill-page-redesign
-title: "Skill Detail Page Redesign"
+title: Skill Detail Page Redesign
 type: feature
 priority: P1
-status: planned
-created: 2026-03-05
+status: completed
+created: 2026-03-05T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

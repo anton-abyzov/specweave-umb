@@ -1,0 +1,13 @@
+{
+  "id": "0455-skill-eval-ui",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-08T08:20:13.208Z",
+  "lastActivity": "2026-03-08T08:20:13.208Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
