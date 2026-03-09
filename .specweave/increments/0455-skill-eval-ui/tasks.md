@@ -12,7 +12,7 @@ by_user_story:
   US-007: [T-013, T-014]
   US-008: [T-015, T-016]
 total_tasks: 16
-completed_tasks: 0
+completed_tasks: 16
 ---
 
 # Tasks: 0455 - Skill Eval UI
@@ -20,7 +20,7 @@ completed_tasks: 0
 ## User Story: US-001 - Eval Server Command
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -28,7 +28,7 @@ completed_tasks: 0
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `startEvalServer({ port: 3457, root: './plugins' })` is called
@@ -61,7 +61,7 @@ completed_tasks: 0
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the user runs `vskill eval serve --port 4000 --root ./my-plugins`
@@ -87,7 +87,7 @@ completed_tasks: 0
 ## User Story: US-002 - Skill Browser and Eval Case CRUD
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -95,7 +95,7 @@ completed_tasks: 0
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-03, AC-US2-04, AC-US2-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill directory with `evals/` subdirectory
@@ -130,7 +130,7 @@ completed_tasks: 0
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a valid `PUT /api/skills/:plugin/:skill/evals` request with updated eval case data
@@ -157,7 +157,7 @@ completed_tasks: 0
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the SPA loads in a browser
@@ -189,7 +189,7 @@ completed_tasks: 0
 ## User Story: US-003 - Assertion-Level Benchmark Runner
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -197,7 +197,7 @@ completed_tasks: 0
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a `POST /api/skills/:plugin/:skill/benchmark` request
@@ -222,7 +222,7 @@ completed_tasks: 0
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the BenchmarkPage is rendered for a skill with 2 eval cases
@@ -248,7 +248,7 @@ completed_tasks: 0
 ## User Story: US-004 - WITH vs WITHOUT Skill Comparison
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -256,7 +256,7 @@ completed_tasks: 0
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a `POST /api/skills/:plugin/:skill/compare` request
@@ -281,7 +281,7 @@ completed_tasks: 0
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a comparison run has completed and results are displayed
@@ -307,7 +307,7 @@ completed_tasks: 0
 ## User Story: US-005 - Benchmark History and Regression Detection
 
 **Linked ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -315,7 +315,7 @@ completed_tasks: 0
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** two benchmark runs exist for a skill where assertion A was PASS then FAIL
@@ -345,7 +345,7 @@ completed_tasks: 0
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill has 3 benchmark runs in history
@@ -373,7 +373,7 @@ completed_tasks: 0
 ## User Story: US-006 - Auto-Activation Description Testing (P2)
 
 **Linked ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04
-**Tasks**: 1 total, 0 completed
+**Tasks**: 1 total, 1 completed
 
 ---
 
@@ -381,7 +381,7 @@ completed_tasks: 0
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** sample prompts with "should activate" or "should not activate" labels
@@ -414,7 +414,7 @@ completed_tasks: 0
 ## User Story: US-007 - REST API Layer
 
 **Linked ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -422,7 +422,7 @@ completed_tasks: 0
 
 **User Story**: US-007
 **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** all API route handlers registered in `api-routes.ts`
@@ -452,7 +452,7 @@ completed_tasks: 0
 
 **User Story**: US-007
 **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the repository with all new source files
@@ -479,7 +479,7 @@ completed_tasks: 0
 ## User Story: US-008 - Playwright E2E Tests
 
 **Linked ACs**: AC-US8-01, AC-US8-02, AC-US8-03, AC-US8-04, AC-US8-05
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -487,7 +487,7 @@ completed_tasks: 0
 
 **User Story**: US-008
 **Satisfies ACs**: AC-US8-01, AC-US8-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `npx playwright test` runs in CI
@@ -515,7 +515,7 @@ completed_tasks: 0
 
 **User Story**: US-008
 **Satisfies ACs**: AC-US8-02, AC-US8-03, AC-US8-04, AC-US8-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** mock LLM responses via `page.route()` and the fixture plugin directory
