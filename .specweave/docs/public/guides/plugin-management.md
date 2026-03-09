@@ -35,6 +35,12 @@ If you're developing SpecWeave plugins:
 - Running session uses `~/.claude/plugins/cache/specweave/sw/<version>/hooks/`
 - Changes only take effect after reinstalling the plugin OR copying to cache
 
+## Consent-First Plugin Installation
+
+SpecWeave respects user control over what gets installed into the development environment. By default, the system detects which plugins would help with a given task and shows recommendations with specific install commands, but it never installs plugins without explicit user action. This applies to both domain plugins (frontend, backend, etc.) and LSP plugins -- all follow the consent-first model and are suggested rather than silently installed.
+
+To opt into fully automatic installation, set `"suggestOnly": false` in your project config (see Configuration below).
+
 ## Plugin Auto-Loading
 
 ### How It Works (v1.0.159+)
@@ -42,13 +48,13 @@ If you're developing SpecWeave plugins:
 1. **User submits prompt** (e.g., "Build a React dashboard with Stripe checkout")
 2. **LLM analyzes intent** via `specweave detect-intent`
 3. **If BUILD task detected**, LLM recommends plugins
-4. **Plugins install** via `claude plugin install`
-5. **Session restart required** for new skills to be available
+4. **Plugins are suggested** with specific install commands (default behavior as of v1.0.397)
+5. **User runs the install command** manually, then restarts the session
 
-### When Plugins Install
+### When Plugins Are Suggested
 
-| Prompt Type | Plugins Install? | Example |
-|-------------|------------------|---------|
+| Prompt Type | Plugins Suggested? | Example |
+|-------------|-------------------|---------|
 | BUILD request | Yes | "Build React dashboard" |
 | IMPLEMENT request | Yes | "Implement Stripe checkout" |
 | Questions | No | "How does React work?" |
@@ -64,15 +70,15 @@ Control auto-loading in `.specweave/config.json`:
 {
   "pluginAutoLoad": {
     "enabled": true,       // Master switch for auto-loading
-    "suggestOnly": false   // If true: suggest but don't install
+    "suggestOnly": true    // Default (v1.0.397+): suggest with install commands, don't auto-install
   }
 }
 ```
 
 | Setting | Behavior |
 |---------|----------|
-| `enabled: true, suggestOnly: false` | **Default**: Auto-install when LLM detects BUILD task |
-| `enabled: true, suggestOnly: true` | Show suggestions, user installs manually |
+| `enabled: true, suggestOnly: true` | **Default (v1.0.397+)**: Suggest plugins with install commands, user installs manually |
+| `enabled: true, suggestOnly: false` | Auto-install when LLM detects BUILD task (opt-in) |
 | `enabled: false` | No detection, no suggestions, fully manual |
 
 ### Environment Variable Override
@@ -316,7 +322,7 @@ Start with only core plugins:
 - `sw@specweave` - Core workflow
 - `sw-router@specweave` - Smart routing
 
-Let the system install others when you actually need them.
+The system will suggest additional plugins when you need them. Install only the ones relevant to your task.
 
 ### For Teams
 
@@ -325,7 +331,7 @@ Let the system install others when you actually need them.
    {
      "pluginAutoLoad": {
        "enabled": true,
-       "suggestOnly": false
+       "suggestOnly": true
      }
    }
    ```

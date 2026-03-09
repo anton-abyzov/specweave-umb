@@ -158,9 +158,9 @@ Handles detection via:
 
 ## Usage
 
-### Automatic (Default)
+### Suggest-Only (Default)
 
-Just use SpecWeave normally. The `user-prompt-submit` hook detects your intent and loads appropriate plugins.
+Just use SpecWeave normally. The `user-prompt-submit` hook detects your intent and recommends appropriate plugins. Plugins are detected but not installed automatically -- instead, you see recommendations with install commands to run manually.
 
 ### Manual Fallback
 

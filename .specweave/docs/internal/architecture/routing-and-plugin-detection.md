@@ -38,7 +38,7 @@ Returns JSON:
 }
     ↓
 Hook processes result:
-  1. Installs missing plugins (shows emphatic restart warning)
+  1. Suggests missing plugins (shows install commands)
   2. Injects TDD context if testing.defaultTestMode: "TDD"
   3. Injects increment suggestion if action: "new"
   4. Injects skill routing hints
@@ -168,7 +168,7 @@ When plugins are installed during detection, the hook injects an emphatic restar
 {
   "pluginAutoLoad": {
     "enabled": true,      // Master switch (default: true)
-    "suggestOnly": false  // If true, only suggest, don't install
+    "suggestOnly": true   // Default: true — only suggest, don't auto-install
   }
 }
 ```
