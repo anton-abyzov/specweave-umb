@@ -1,10 +1,10 @@
 ---
 increment: 0455-skill-eval-ui
-title: "Skill Eval UI"
+title: Skill Eval UI
 type: feature
 priority: P1
-status: planned
-created: 2026-03-08
+status: completed
+created: 2026-03-08T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
