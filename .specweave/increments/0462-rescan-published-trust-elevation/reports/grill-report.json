@@ -1,15 +1,16 @@
 {
   "version": "1.0",
   "incrementId": "0462-rescan-published-trust-elevation",
-  "timestamp": "2026-03-09T13:30:00.000Z",
+  "timestamp": "2026-03-09T19:10:00.000Z",
   "verdict": "PASS",
   "shipReadiness": "READY",
   "summary": {
-    "totalFindings": 3,
+    "totalFindings": 7,
     "suppressed": 0,
     "critical": 0,
     "high": 0,
-    "medium": 3
+    "medium": 7,
+    "note": "All findings from both grill passes fixed in-place"
   },
   "findings": [
     {
@@ -18,33 +19,64 @@
       "confidence": 90,
       "category": "correctness",
       "file": "src/app/api/v1/admin/rescan-published/route.ts",
-      "status": "FIXED",
-      "issue": "Original code fetched limit+100 rows and used >= comparison for hasMore, producing unreliable pagination signals",
-      "fix": "Removed overfetch, changed to skills.length === limit (matching bulk-reprocess pattern)"
+      "status": "FIXED"
     },
     {
-      "title": "Incomplete in-progress states list",
+      "title": "Incomplete in-progress states list (pass 1)",
       "severity": "medium",
       "confidence": 85,
       "category": "correctness",
       "file": "src/app/api/v1/admin/rescan-published/route.ts",
-      "status": "FIXED",
-      "issue": "NON_TERMINAL_STATES only had 3 states, missing AUTO_APPROVED, ON_HOLD, RESCAN_REQUIRED",
-      "fix": "Expanded to 6 states covering all non-terminal submission states"
+      "status": "FIXED"
     },
     {
-      "title": "Blocklist filter applied in memory instead of DB",
+      "title": "Blocklist filter in memory instead of DB",
       "severity": "medium",
       "confidence": 80,
       "category": "correctness",
       "file": "src/app/api/v1/admin/rescan-published/route.ts",
+      "status": "FIXED"
+    },
+    {
+      "title": "No unit tests",
+      "severity": "critical",
+      "confidence": 100,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/rescan-published/__tests__/route.test.ts",
       "status": "FIXED",
-      "issue": "In-memory blocklist filter caused unreliable batch sizes and hasMore signal",
-      "fix": "Moved to Prisma name: { notIn: blockedNameList } filter"
+      "issue": "10 test cases required by spec, 0 existed. Created 13 tests covering all ACs."
+    },
+    {
+      "title": "displayName used instead of name for skillName",
+      "severity": "high",
+      "confidence": 80,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/rescan-published/route.ts:158",
+      "status": "FIXED",
+      "issue": "Used displayName instead of unique name identifier. Changed to skill.name."
+    },
+    {
+      "title": "DEQUEUED missing from IN_PROGRESS_STATES",
+      "severity": "high",
+      "confidence": 75,
+      "category": "edge-case",
+      "file": "src/app/api/v1/admin/rescan-published/route.ts:38-46",
+      "status": "FIXED",
+      "issue": "DEQUEUED state omitted, risking duplicate submissions. Added."
+    },
+    {
+      "title": "Audit trigger string mismatch",
+      "severity": "high",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/rescan-published/route.ts:187",
+      "status": "FIXED",
+      "issue": "Code had 'rescan-published: re-queued for T2 LLM scanning' vs spec 'rescan-published: trust elevation'. Fixed."
     }
   ],
   "filesReviewed": [
-    "src/app/api/v1/admin/rescan-published/route.ts"
+    "src/app/api/v1/admin/rescan-published/route.ts",
+    "src/app/api/v1/admin/rescan-published/__tests__/route.test.ts"
   ],
   "acsValidated": {
     "total": 8,
