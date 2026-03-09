@@ -353,6 +353,17 @@ Always define WHAT and WHY before HOW:
 ✅ Right: "Write spec.md, then plan.md, then implement"
 ```
 
+### 1b. Plan Integrity
+
+The plan is the source of truth — code is its derivative. If anything changes mid-implementation (AI discovers a better approach, user requests new behavior, tests reveal a gap), **stop coding, update the plan, then resume**:
+
+```
+❌ Wrong: "Just add it to the code, we'll update the spec later"
+✅ Right: "Stop, update spec.md/plan.md/tasks.md, then implement the change"
+```
+
+See [Philosophy: Plan as Source of Truth](/docs/overview/philosophy#1-plan-as-source-of-truth).
+
 ### 2. One Increment at a Time
 
 Focus prevents context switching:

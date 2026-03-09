@@ -495,7 +495,7 @@ test_mode: TDD  # or "standard"
 
 ### Q: What if requirements change during planning or implementation?
 
-**A**: The plan is the source of truth — update the plan first, then adjust code:
+**A**: The plan is the source of truth — update the plan first, then adjust code. This applies whether the change comes from an AI agent discovering a better approach, a user requesting new functionality, or a test revealing a gap.
 
 **During planning** (before implementation starts):
 ```bash
@@ -510,15 +510,18 @@ rm .specweave/increments/0012-chat/tasks.md
 /sw:increment "0012-real-time-chat" --regenerate
 ```
 
-**During implementation** (mid-coding discovery):
+**During implementation** (mid-coding discovery or user request):
 ```bash
-# 1. Stop coding — don't push through with a known-bad plan
-# 2. Update spec.md/plan.md/tasks.md to reflect new understanding
+# 1. Stop coding — don't push through with a stale plan
+# 2. Update spec.md/plan.md/tasks.md to reflect the change
+#    - AI discovered better auth approach? Update plan.md
+#    - User asked for rate limiting? Add AC to spec.md, task to tasks.md
+#    - Test revealed missing validation? Add task to tasks.md
 # 3. Review changes for consistency across all three files
 # 4. Resume implementation with /sw:do
 ```
 
-The key rule: **never let code drift from the plan**. If they diverge, fix one to match the other immediately.
+The key rule: **never let code drift from the plan**. If they diverge, fix the plan first, then adjust code. This is non-negotiable — it's what keeps your specifications trustworthy and your documentation accurate. See [Philosophy: Plan as Source of Truth](/docs/overview/philosophy#1-plan-as-source-of-truth).
 
 ## Planning Checklist
 

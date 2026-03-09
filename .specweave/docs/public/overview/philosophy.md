@@ -48,9 +48,11 @@ This is why SpecWeave places human review at the **plan level** — catching a m
 
 **What this means in practice:**
 - **Before implementing**: Read and understand the current plan
-- **Mid-implementation discovery**: If you find a better approach, **stop coding**, update the plan first, then resume implementation based on the updated plan
+- **Mid-implementation discovery**: If the AI agent or developer finds a better approach, **stop coding**, update the plan first, then resume implementation based on the updated plan
+- **User-requested changes**: If new requirements or scope changes arrive mid-implementation, **stop coding**, update spec.md/plan.md/tasks.md to incorporate the change, then resume — treat the request as a plan change, not a code change
 - **Bug fixes**: Assess impact on the plan before writing a fix — update tasks.md if the fix changes scope
 - **Code and plan must always match**: If they diverge, update the plan first, then adjust code to follow — never retrofit the plan to match code you've already written
+- **No exceptions**: This applies whether changes are discovered by the AI, requested by the user, or revealed by test failures. The route is always: stop → update plan → resume
 
 **Why this matters**: Plans are cheap to change. Code is expensive to change. By keeping the plan as the authoritative source, you catch design problems early (in the plan) rather than late (in code review or production). AI agents working with Claude Code are most efficient in plan mode — skipping planning wastes more tokens on rework than planning costs upfront. As long as the spec and plan are good, and you can track progress through external tools (GitHub, JIRA, ADO), the implementation follows naturally — one increment at a time.
 

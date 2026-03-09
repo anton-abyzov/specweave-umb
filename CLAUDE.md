@@ -1,6 +1,6 @@
-<!-- SW:META template="claude" version="1.0.396" sections="hook-priority,header,claude-code-concepts,lsp,start,autodetect,metarule,rules,workflow,save-nested-repos,reflect,context,structure,taskformat,secrets,syncing,testing,tdd,api,limits,troubleshooting,lazyloading,principles,linking,mcp,auto,docs,non-claude" -->
+<!-- SW:META template="claude" version="1.0.398" sections="hook-priority,header,claude-code-concepts,lsp,start,autodetect,metarule,rules,workflow,save-nested-repos,reflect,context,structure,taskformat,secrets,syncing,testing,tdd,api,limits,troubleshooting,lazyloading,principles,linking,mcp,auto,docs,non-claude" -->
 
-<!-- SW:SECTION:hook-priority version="1.0.396" -->
+<!-- SW:SECTION:hook-priority version="1.0.398" -->
 ## Hook Instructions Override Everything
 
 `<system-reminder>` hook output = **BLOCKING PRECONDITIONS**.
@@ -15,11 +15,11 @@
 **Setup actions are NOT implementation** — "connect github", "setup sync", "import issues" → route to the matching setup skill (`sw:sync-setup`, `sw:import`, `sw:progress-sync`), NOT `/sw:increment`.
 <!-- SW:END:hook-priority -->
 
-<!-- SW:SECTION:header version="1.0.396" -->
+<!-- SW:SECTION:header version="1.0.398" -->
 **Framework**: SpecWeave | **Truth**: `spec.md` + `tasks.md`
 <!-- SW:END:header -->
 
-<!-- SW:SECTION:claude-code-concepts version="1.0.396" -->
+<!-- SW:SECTION:claude-code-concepts version="1.0.398" -->
 ## Skills & Plugins
 
 **Invoke**: `/skill-name` | auto-trigger by keywords | `Skill({ skill: "name" })`
@@ -41,13 +41,13 @@
 If auto-activation fails, invoke explicitly: `Skill({ skill: "name" })`
 <!-- SW:END:claude-code-concepts -->
 
-<!-- SW:SECTION:lsp version="1.0.396" -->
+<!-- SW:SECTION:lsp version="1.0.398" -->
 ## LSP (Code Intelligence)
 
 **Native LSP broken in v2.1.0+.** Use: `specweave lsp refs|def|hover src/file.ts SymbolName`
 <!-- SW:END:lsp -->
 
-<!-- SW:SECTION:start version="1.0.396" -->
+<!-- SW:SECTION:start version="1.0.398" -->
 ## Getting Started
 
 **Initial increment**: `0001-project-setup` (auto-created by `specweave init`)
@@ -57,7 +57,7 @@ If auto-activation fails, invoke explicitly: `Skill({ skill: "name" })`
 2. **Customize**: Edit spec.md and use for setup tasks
 <!-- SW:END:start -->
 
-<!-- SW:SECTION:autodetect version="1.0.396" -->
+<!-- SW:SECTION:autodetect version="1.0.398" -->
 ## Auto-Detection
 
 SpecWeave auto-detects product descriptions and routes to `/sw:increment`:
@@ -73,7 +73,7 @@ SpecWeave auto-detects product descriptions and routes to `/sw:increment`:
 **Setup/config requests bypass auto-detection** → route directly to the matching skill (e.g., `sw:sync-setup`, `sw:import`)
 <!-- SW:END:autodetect -->
 
-<!-- SW:SECTION:metarule version="1.0.396" -->
+<!-- SW:SECTION:metarule version="1.0.398" -->
 ## Workflow Orchestration
 
 ### 1. Plan Mode Default (MANDATORY)
@@ -105,9 +105,31 @@ SpecWeave auto-detects product descriptions and routes to `/sw:increment`:
 Bad:  node script.js → Error → npm run build
 Good: npm run build → node script.js → Success
 ```
+
+### 5. Plan Integrity (MANDATORY)
+**The plan (spec.md + plan.md + tasks.md) is the single source of truth. Code MUST NOT diverge from it.**
+
+If during implementation you discover a better approach, a missing requirement, a flaw in the design, **or the user requests changes not covered by the current plan**:
+
+1. **STOP implementation immediately** — do not push through with a known-stale plan
+2. **Update the plan first** — edit spec.md, plan.md, and/or tasks.md to reflect the new understanding or request
+3. **Review consistency** — ensure changes are coherent across all three files
+4. **Resume implementation** — now working from the corrected plan
+
+```
+Plan → Code (always)
+Code → Plan (never)
+```
+
+**This applies to ALL mid-flight changes:**
+- LLM discovers a better architecture mid-task → stop, update plan, resume
+- User requests a new feature or behavior change → stop, update plan, resume
+- Bug reveals a spec gap → stop, update plan, resume
+
+**Why**: Plans are cheap to change (a few lines of markdown). Code is expensive to change (refactoring, re-testing, debugging). Skipping plan updates creates spec-implementation discrepancy — the exact drift SpecWeave exists to prevent.
 <!-- SW:END:metarule -->
 
-<!-- SW:SECTION:rules version="1.0.396" -->
+<!-- SW:SECTION:rules version="1.0.398" -->
 ## Rules
 
 1. **Files** → `.specweave/increments/####-name/` (see Structure section for details)
@@ -123,7 +145,7 @@ Good: npm run build → node script.js → Success
 8. **Multi-repo**: ALL repos MUST be at `repositories/{org}/{repo-name}/` — NEVER directly under `repositories/`
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:workflow version="1.0.396" -->
+<!-- SW:SECTION:workflow version="1.0.398" -->
 ## Workflow
 
 `/sw:increment "X"` → `/sw:do` → `/sw:progress` → `/sw:done 0001`
@@ -147,13 +169,13 @@ Good: npm run build → node script.js → Success
 **Large-scale changes**: For codebase-wide migrations or bulk refactors, use `/batch` — decomposes work into parallel agents with worktree isolation, each producing its own PR. Example: `/batch migrate from Solid to React`
 <!-- SW:END:workflow -->
 
-<!-- SW:SECTION:save-nested-repos version="1.0.396" -->
+<!-- SW:SECTION:save-nested-repos version="1.0.398" -->
 ## Nested Repos
 
 Before git operations, scan: `for d in repositories packages services apps libs workspace; do [ -d "$d" ] && find "$d" -maxdepth 2 -name ".git" -type d; done`
 <!-- SW:END:save-nested-repos -->
 
-<!-- SW:SECTION:reflect version="1.0.396" -->
+<!-- SW:SECTION:reflect version="1.0.398" -->
 ## Skill Memories
 
 SpecWeave learns from corrections. Learnings saved here automatically. Edit or delete as needed.
@@ -169,7 +191,7 @@ SpecWeave learns from corrections. Learnings saved here automatically. Edit or d
 - **2026-03-03**: Agents in team contexts should NOT run /sw:done or /sw:grill themselves — team-lead handles centralized closure to prevent context overflow and enable parallel work
 - **2026-03-03**: Team-lead MUST activate master increment (set metadata.json status to "active") BEFORE spawning agents. `specweave complete` silently exits on "planned" status — agents don't manage lifecycle transitions. Closure must retry on failure (max 2) rather than skip.
 
-<!-- SW:SECTION:context version="1.0.396" -->
+<!-- SW:SECTION:context version="1.0.398" -->
 ## Context
 
 **Before implementing**: Check ADRs at `.specweave/docs/internal/architecture/adr/`
@@ -177,7 +199,7 @@ SpecWeave learns from corrections. Learnings saved here automatically. Edit or d
 **Load context**: `/sw:docs <topic>` loads relevant living docs into conversation
 <!-- SW:END:context -->
 
-<!-- SW:SECTION:structure version="1.0.396" -->
+<!-- SW:SECTION:structure version="1.0.398" -->
 ## Structure
 
 ```
@@ -192,7 +214,7 @@ SpecWeave learns from corrections. Learnings saved here automatically. Edit or d
 **Everything else → subfolders**: `reports/` | `logs/` | `scripts/` | `backups/`
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:taskformat version="1.0.396" -->
+<!-- SW:SECTION:taskformat version="1.0.398" -->
 ## Task Format
 
 ```markdown
@@ -202,19 +224,19 @@ SpecWeave learns from corrections. Learnings saved here automatically. Edit or d
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:secrets version="1.0.396" -->
+<!-- SW:SECTION:secrets version="1.0.398" -->
 ## Secrets
 
 Before CLI tools, check existing config (`grep -q` only — never display values).
 <!-- SW:END:secrets -->
 
-<!-- SW:SECTION:syncing version="1.0.396" -->
+<!-- SW:SECTION:syncing version="1.0.398" -->
 ## External Sync
 
 Primary: `/sw:progress-sync`. Individual: `/sw-github:push`, `/sw-github:close`. Mapping: Feature→Milestone | Story→Issue | Task→Checkbox.
 <!-- SW:END:syncing -->
 
-<!-- SW:SECTION:testing version="1.0.396" -->
+<!-- SW:SECTION:testing version="1.0.398" -->
 ## Testing Pipeline (MANDATORY)
 
 **Testing is a pipeline step, not an afterthought.**
@@ -241,23 +263,23 @@ Primary: `/sw:progress-sync`. Individual: `/sw-github:push`, `/sw-github:close`.
 - Coverage targets: unit 95%, integration 90%, e2e 100% of AC scenarios
 <!-- SW:END:testing -->
 
-<!-- SW:SECTION:tdd version="1.0.396" -->
+<!-- SW:SECTION:tdd version="1.0.398" -->
 ## TDD
 
 When `testing.defaultTestMode: "TDD"` in config.json: RED→GREEN→REFACTOR. Use `/sw:tdd-cycle`. Enforcement via `testing.tddEnforcement` (strict|warn|off).
 <!-- SW:END:tdd -->
 
-<!-- SW:SECTION:api version="1.0.396" -->
+<!-- SW:SECTION:api version="1.0.398" -->
 <!-- API: Enable `apiDocs` in config.json. Commands: /sw:api-docs -->
 <!-- SW:END:api -->
 
-<!-- SW:SECTION:limits version="1.0.396" -->
+<!-- SW:SECTION:limits version="1.0.398" -->
 ## Limits
 
 **Max 1500 lines/file** — extract before adding
 <!-- SW:END:limits -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.396" -->
+<!-- SW:SECTION:troubleshooting version="1.0.398" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -268,17 +290,17 @@ When `testing.defaultTestMode: "TDD"` in config.json: RED→GREEN→REFACTOR. Us
 | Session stuck | `rm -f .specweave/state/*.lock` + restart |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:lazyloading version="1.0.396" -->
+<!-- SW:SECTION:lazyloading version="1.0.398" -->
 ## Plugin Auto-Loading
 
 Plugins load automatically. Manual: `vskill install --repo anton-abyzov/vskill --plugin frontend`. Disable: `export SPECWEAVE_DISABLE_AUTO_LOAD=1`
 <!-- SW:END:lazyloading -->
 
-<!-- SW:SECTION:principles version="1.0.396" -->
+<!-- SW:SECTION:principles version="1.0.398" -->
 ## Principles
 
 1. **Spec-first**: `/sw:increment` before coding — mandatory for ALL implementation requests, no exceptions unless user explicitly opts out
-2. **Docs = truth**: Specs guide implementation
+2. **Plan = truth**: Specs drive implementation, never the reverse. If code and plan diverge, update the plan first, then adjust code — never retrofit the plan to match code already written. Mid-implementation discoveries and user-requested changes MUST go through the plan before touching code
 3. **Simplicity First**: Minimal code, minimal impact
 4. **No Laziness**: Root causes, senior standards
 5. **DRY**: Don't Repeat Yourself — flag and eliminate repetitions aggressively
@@ -286,7 +308,7 @@ Plugins load automatically. Manual: `vskill install --repo anton-abyzov/vskill -
 7. **Test before ship**: Tests pass at every step — unit after each task, E2E before close, no exceptions
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:linking version="1.0.396" -->
+<!-- SW:SECTION:linking version="1.0.398" -->
 ## Bidirectional Linking
 
 Tasks ↔ User Stories auto-linked via AC-IDs: `AC-US1-01` → `US-001`
@@ -294,13 +316,13 @@ Tasks ↔ User Stories auto-linked via AC-IDs: `AC-US1-01` → `US-001`
 Task format: `**AC**: AC-US1-01, AC-US1-02` (CRITICAL for linking)
 <!-- SW:END:linking -->
 
-<!-- SW:SECTION:mcp version="1.0.396" -->
+<!-- SW:SECTION:mcp version="1.0.398" -->
 ## External Services
 
 CLI tools first (`gh`, `wrangler`, `supabase`) → MCP for complex integrations.
 <!-- SW:END:mcp -->
 
-<!-- SW:SECTION:auto version="1.0.396" -->
+<!-- SW:SECTION:auto version="1.0.398" -->
 ## Auto Mode
 
 `/sw:auto` (start) | `/sw:auto-status` (check) | `/sw:cancel-auto` (emergency)
@@ -308,7 +330,7 @@ CLI tools first (`gh`, `wrangler`, `supabase`) → MCP for complex integrations.
 Pattern: IMPLEMENT → TEST → FAIL? → FIX → PASS → NEXT. STOP & ASK if spec conflicts or ambiguity.
 <!-- SW:END:auto -->
 
-<!-- SW:SECTION:docs version="1.0.396" -->
+<!-- SW:SECTION:docs version="1.0.398" -->
 ## Docs
 
 [spec-weave.com](https://spec-weave.com)
@@ -325,7 +347,7 @@ Pattern: IMPLEMENT → TEST → FAIL? → FIX → PASS → NEXT. STOP & ASK if s
 
 Ask user to manually verify: new UI flows, auth changes, payment flows, data migrations.
 
-<!-- SW:SECTION:non-claude version="1.0.396" -->
+<!-- SW:SECTION:non-claude version="1.0.398" -->
 ## Using SpecWeave with Other AI Tools
 
 See **AGENTS.md** for Cursor, Copilot, Windsurf, Aider instructions.

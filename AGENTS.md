@@ -1,6 +1,6 @@
-<!-- SW:META template="agents" version="1.0.396" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
+<!-- SW:META template="agents" version="1.0.398" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
 
-<!-- SW:SECTION:rules version="1.0.396" -->
+<!-- SW:SECTION:rules version="1.0.398" -->
 ## Essential Rules
 
 ```
@@ -29,7 +29,7 @@
 ```
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:orchestration version="1.0.396" -->
+<!-- SW:SECTION:orchestration version="1.0.398" -->
 ## Workflow Orchestration
 
 ### 1. Plan Before Code (MANDATORY)
@@ -70,9 +70,32 @@ Satisfy dependencies BEFORE dependent operations.
 Bad:  node script.js → Error → npm run build
 Good: npm run build → node script.js → Success
 ```
+
+### 5. Plan Integrity (MANDATORY)
+
+**The plan (spec.md + plan.md + tasks.md) is the single source of truth. Code MUST NOT diverge from it.**
+
+If during implementation you discover a better approach, a missing requirement, a flaw in the design, or the user requests changes not covered by the current plan:
+
+1. **STOP implementation** — do not push through with a known-stale plan
+2. **Update the plan first** — edit spec.md, plan.md, and/or tasks.md to reflect the new understanding
+3. **Review consistency** — ensure changes are coherent across all three files
+4. **Resume implementation** — work from the corrected plan
+
+```
+Plan → Code (always)
+Code → Plan (never)
+```
+
+**This applies to ALL mid-flight changes:**
+- Discover a better architecture mid-task → stop, update plan, resume
+- User requests a new feature or behavior change → stop, update plan, resume
+- Bug reveals a spec gap → stop, update plan, resume
+
+**Why**: Plans are cheap to change (a few lines of markdown). Code is expensive to change (refactoring, re-testing, debugging). Skipping plan updates creates spec-implementation discrepancy — the exact drift SpecWeave exists to prevent.
 <!-- SW:END:orchestration -->
 
-<!-- SW:SECTION:principles version="1.0.396" -->
+<!-- SW:SECTION:principles version="1.0.398" -->
 ## Core Principles (Quality)
 
 ### Simplicity First
@@ -111,6 +134,7 @@ Good: npm run build → node script.js → Success
 - Verify plan covers all ACs and edge cases before implementation
 - If the plan has gaps, fix the plan first — don't discover them mid-coding
 - Re-read the plan between tasks to stay aligned
+- If mid-implementation discoveries or user requests invalidate the plan, STOP coding, update spec.md/plan.md/tasks.md, then resume — never let code drift from the plan
 
 ### Test Before Ship
 - Tests pass at every step — unit after each task, E2E before close, no exceptions
@@ -119,7 +143,7 @@ Good: npm run build → node script.js → Success
 - E2E with Playwright CLI (`npx playwright test`) is a blocking closure gate
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:commands version="1.0.396" -->
+<!-- SW:SECTION:commands version="1.0.398" -->
 ## Commands Reference
 
 | Command | Purpose |
@@ -138,7 +162,7 @@ Good: npm run build → node script.js → Success
 | `/sw:import` | Import issues from external tools |
 <!-- SW:END:commands -->
 
-<!-- SW:SECTION:nonclaudetools version="1.0.396" -->
+<!-- SW:SECTION:nonclaudetools version="1.0.398" -->
 ## Non-Claude Tools (Cursor, Copilot, etc.)
 
 Claude Code has automatic hooks and orchestration. Other tools must do these manually.
@@ -181,7 +205,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 **Background jobs**: Monitor with `specweave jobs` (clone-repos, import-issues, living-docs-builder, sync-external).
 <!-- SW:END:nonclaudetools -->
 
-<!-- SW:SECTION:syncworkflow version="1.0.396" -->
+<!-- SW:SECTION:syncworkflow version="1.0.398" -->
 ## Sync Workflow
 
 ### Source of Truth
@@ -206,7 +230,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 | `/sw-ado:sync <id>` | After each task |
 <!-- SW:END:syncworkflow -->
 
-<!-- SW:SECTION:contextloading version="1.0.396" -->
+<!-- SW:SECTION:contextloading version="1.0.398" -->
 ## Context Loading
 
 ### Efficient Context Management
@@ -226,7 +250,7 @@ Read only what's needed for the current task:
 4. Avoid loading entire documentation trees
 <!-- SW:END:contextloading -->
 
-<!-- SW:SECTION:structure version="1.0.396" -->
+<!-- SW:SECTION:structure version="1.0.398" -->
 ## Project Structure
 
 ```
@@ -265,7 +289,7 @@ umbrella-project/
 **Rules**: Each repo manages its own increments. Never create agent increments in the umbrella root.
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:agents version="1.0.396" -->
+<!-- SW:SECTION:agents version="1.0.398" -->
 ## Agents (Roles)
 
 {AGENTS_SECTION}
@@ -273,7 +297,7 @@ umbrella-project/
 **Usage**: Adopt role perspective when working on related tasks.
 <!-- SW:END:agents -->
 
-<!-- SW:SECTION:skills version="1.0.396" -->
+<!-- SW:SECTION:skills version="1.0.398" -->
 ## Skills (Capabilities)
 
 {SKILLS_SECTION}
@@ -287,7 +311,7 @@ umbrella-project/
 4. Run `specweave context projects` BEFORE creating any increment
 <!-- SW:END:skills -->
 
-<!-- SW:SECTION:taskformat version="1.0.396" -->
+<!-- SW:SECTION:taskformat version="1.0.398" -->
 ## Task Format
 
 ```markdown
@@ -301,7 +325,7 @@ umbrella-project/
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:usformat version="1.0.396" -->
+<!-- SW:SECTION:usformat version="1.0.398" -->
 ## User Story Format (CRITICAL for spec.md)
 
 **MANDATORY: Every User Story MUST have `**Project**:` field!**
@@ -335,7 +359,7 @@ specweave context projects
 ```
 <!-- SW:END:usformat -->
 
-<!-- SW:SECTION:workflows version="1.0.396" -->
+<!-- SW:SECTION:workflows version="1.0.398" -->
 ## Workflows
 
 ### Creating Increment
@@ -367,7 +391,7 @@ specweave context projects
 5. `/sw:done <id>` — validates report files + PM 3 gates (tasks, tests, docs)
 <!-- SW:END:workflows -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.396" -->
+<!-- SW:SECTION:troubleshooting version="1.0.398" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -381,7 +405,7 @@ specweave context projects
 | Skills not activating (non-Claude) | Expected — read SKILL.md from `plugins/specweave*/skills/` |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:docs version="1.0.396" -->
+<!-- SW:SECTION:docs version="1.0.398" -->
 ## Documentation
 
 | Resource | Purpose |

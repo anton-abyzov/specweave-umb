@@ -290,25 +290,35 @@ Code → Plan (never)
 
 ### Mid-Implementation Course Corrections
 
-If you discover a better approach, a missing requirement, or a flaw in the design **while coding**:
+If you discover a better approach, a missing requirement, or a flaw in the design **while coding** — or if the **user requests changes** not covered by the current plan:
 
-1. **Stop coding immediately** — don't push through with a known-bad plan
-2. **Update the plan** — edit spec.md, plan.md, or tasks.md to reflect the new understanding
+1. **Stop coding immediately** — don't push through with a known-stale plan
+2. **Update the plan** — edit spec.md, plan.md, or tasks.md to reflect the new understanding or request
 3. **Review the updated plan** — ensure changes are consistent across all three files
 4. **Resume implementation** — now working from the corrected plan
 
+This applies to **all** sources of change:
+
+| Trigger | Example | Action |
+|---------|---------|--------|
+| **AI discovers issue** | WebSocket needs different auth strategy | Stop, update plan.md, resume |
+| **User requests change** | "Add rate limiting to the API" | Stop, update spec.md + tasks.md, resume |
+| **Test reveals gap** | E2E test exposes missing validation | Stop, update tasks.md, resume |
+| **External dependency** | Library API changed since planning | Stop, update plan.md, resume |
+
 ```bash
-# Example: You discover WebSocket needs a different auth strategy
+# Example: User asks to add rate limiting (not in original spec)
 
 # 1. Stop current task
-# 2. Update plan.md with new auth approach
-# 3. Update tasks.md if task breakdown changes
-# 4. Resume /sw:do with updated plan
+# 2. Add rate limiting AC to spec.md (e.g., AC-US1-04)
+# 3. Update plan.md with rate limiting approach
+# 4. Add new task(s) to tasks.md
+# 5. Resume /sw:do with updated plan
 ```
 
-**Why this matters**: Plans are cheap to change (a few lines of markdown). Code is expensive to change (refactoring, re-testing, debugging). Catching design problems in the plan prevents costly rework later. AI agents are also most token-efficient when working from a clear, accurate plan.
+**Why this matters**: Plans are cheap to change (a few lines of markdown). Code is expensive to change (refactoring, re-testing, debugging). Catching design problems in the plan prevents costly rework later. AI agents are also most token-efficient when working from a clear, accurate plan. Skipping this step creates spec-implementation discrepancy — the exact drift that makes documentation untrustworthy.
 
-> **Tip (Claude Code Users)**: If using Claude Code, entering plan mode (`EnterPlanMode`) before making changes is the most efficient workflow — it prevents wasted tokens on implementation that will need to be redone.
+> **Tip (Claude Code Users)**: If using Claude Code, entering plan mode (`EnterPlanMode`) before making plan changes is the most efficient workflow — it prevents wasted tokens on implementation that will need to be redone.
 
 ---
 
@@ -444,7 +454,7 @@ While implementing ChatService, you discover:
 /sw:increment "0013-chat-admin-dashboard"
 ```
 
-**Remember**: Never add unplanned work directly to code. Update the plan first, then implement from the updated plan.
+**Remember**: Never add unplanned work directly to code — whether it's something you discovered or something the user requested. The route is always the same: **update the plan first, then implement from the updated plan.** This is what keeps specs trustworthy.
 
 ### Challenge 3: Blocked by Dependencies
 
