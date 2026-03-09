@@ -1,0 +1,14 @@
+{
+  "id": "0460-vendor-provider-discovery",
+  "status": "ready_for_review",
+  "type": "feature",
+  "priority": "P0",
+  "created": "2026-03-09T12:34:02.232Z",
+  "lastActivity": "2026-03-09T12:34:02.232Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-03-09T13:05:35.000Z"
+}
