@@ -1,0 +1,67 @@
+{
+  "version": "1.0",
+  "incrementId": "0451-skill-naming-plugin-metadata",
+  "timestamp": "2026-03-09T03:12:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "NEEDS REVIEW",
+  "summary": {
+    "totalFindings": 5,
+    "critical": 0,
+    "high": 3,
+    "medium": 1,
+    "low": 1
+  },
+  "findings": [
+    {
+      "title": "Zero test coverage for derivePluginName()",
+      "severity": "high",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "src/lib/__tests__/slug.test.ts",
+      "issue": "derivePluginName() has no unit tests. tasks.md specifies 7 test cases. None exist.",
+      "suggestion": "Add 7 test cases from T-001 test plan.",
+      "impact": "Regressions to plugin name derivation would go undetected."
+    },
+    {
+      "title": "Zero test coverage for publishSkill pluginName wiring",
+      "severity": "high",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "src/lib/__tests__/submission-store.test.ts",
+      "issue": "publishSkill() pluginName behavior has no tests. tasks.md specifies 3 test cases.",
+      "suggestion": "Add tests verifying upsert is called with correct pluginName.",
+      "impact": "Silent regression if publishSkill is refactored."
+    },
+    {
+      "title": "Zero test coverage for CLI find pluginName display",
+      "severity": "high",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "vskill/src/commands/__tests__/find.test.ts",
+      "issue": "find.ts pluginName display has no tests. tasks.md specifies 4 test cases.",
+      "suggestion": "Add TTY and piped mode tests for pluginName suffix.",
+      "impact": "Display regressions in CLI output."
+    },
+    {
+      "title": "Backfill cannot clear incorrect pluginName values",
+      "severity": "medium",
+      "confidence": 90,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/backfill-slugs/route.ts:178",
+      "issue": "Update logic skips null pluginName values. AC-US3-03 not fully satisfied.",
+      "suggestion": "Always set pluginName in update (drop conditional spread).",
+      "impact": "Low in practice — pluginName is only set by system."
+    },
+    {
+      "title": "derivePluginName() lowercases output vs spec 'raw folder name'",
+      "severity": "low",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "src/lib/slug.ts:96",
+      "issue": ".toLowerCase() applied to plugin folder name despite spec saying 'raw folder name only'.",
+      "suggestion": "Remove .toLowerCase() or document intentional normalization.",
+      "impact": "Minimal — all plugin folders are already lowercase."
+    }
+  ],
+  "notes": "XSS issue found and fixed in-session (SearchPalette no-query path). Implementation logic is correct. Main gap is zero test coverage for new code."
+}

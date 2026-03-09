@@ -1,0 +1,57 @@
+{
+  "version": "1.0",
+  "incrementId": "0462-rescan-published-trust-elevation",
+  "timestamp": "2026-03-09T13:30:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 3,
+    "suppressed": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 3
+  },
+  "findings": [
+    {
+      "title": "hasMore overfetch bug",
+      "severity": "medium",
+      "confidence": 90,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/rescan-published/route.ts",
+      "status": "FIXED",
+      "issue": "Original code fetched limit+100 rows and used >= comparison for hasMore, producing unreliable pagination signals",
+      "fix": "Removed overfetch, changed to skills.length === limit (matching bulk-reprocess pattern)"
+    },
+    {
+      "title": "Incomplete in-progress states list",
+      "severity": "medium",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/rescan-published/route.ts",
+      "status": "FIXED",
+      "issue": "NON_TERMINAL_STATES only had 3 states, missing AUTO_APPROVED, ON_HOLD, RESCAN_REQUIRED",
+      "fix": "Expanded to 6 states covering all non-terminal submission states"
+    },
+    {
+      "title": "Blocklist filter applied in memory instead of DB",
+      "severity": "medium",
+      "confidence": 80,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/rescan-published/route.ts",
+      "status": "FIXED",
+      "issue": "In-memory blocklist filter caused unreliable batch sizes and hasMore signal",
+      "fix": "Moved to Prisma name: { notIn: blockedNameList } filter"
+    }
+  ],
+  "filesReviewed": [
+    "src/app/api/v1/admin/rescan-published/route.ts"
+  ],
+  "acsValidated": {
+    "total": 8,
+    "passed": 8,
+    "list": [
+      "AC-US1-01", "AC-US1-02", "AC-US1-03", "AC-US1-04", "AC-US1-05",
+      "AC-US2-01", "AC-US2-02", "AC-US2-03"
+    ]
+  }
+}
