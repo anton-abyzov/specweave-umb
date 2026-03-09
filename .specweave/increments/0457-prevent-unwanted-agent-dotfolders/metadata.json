@@ -1,0 +1,13 @@
+{
+  "id": "0457-prevent-unwanted-agent-dotfolders",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-09T05:22:16.914Z",
+  "lastActivity": "2026-03-09T05:22:16.914Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
