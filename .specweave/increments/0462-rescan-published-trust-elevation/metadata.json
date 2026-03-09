@@ -1,6 +1,6 @@
 {
   "id": "0462-rescan-published-trust-elevation",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-09T12:34:30.182Z",
@@ -20,7 +20,7 @@
         "US-002": {
           "issueNumber": 43,
           "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/43",
-          "status": "active"
+          "status": "closed"
         }
       },
       "milestone": 14,
