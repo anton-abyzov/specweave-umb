@@ -1,37 +1,32 @@
 ---
 id: FS-458
-title: Eval Run History & A/B Benchmarking
+title: "Eval Run History & A/B Benchmarking"
 type: feature
-status: planned
+status: completed
 priority: P1
 created: 2026-03-09T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
-tldr: >-
-  The vskill eval system has basic benchmark history and A/B comparison, but the
-  stored data lacks granularity (no per-case token breakdowns, no input/output
-  token split, no baseline-only assertion results).
+lastUpdated: 2026-03-10
+tldr: "The vskill eval system has basic benchmark history and A/B comparison, but the stored data lacks granularity (no per-case token breakdowns, no input/output token split, no baseline-only assertion results)."
 complexity: high
 stakeholder_relevant: true
 external_tools:
   github:
-    type: milestone
+    type: 'milestone'
     id: 13
     url: 'https://github.com/anton-abyzov/vskill/milestone/13'
 externalLinks:
   jira:
-    epicKey: SWE2E-107
+    epicKey: 'SWE2E-107'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-107'
     syncedAt: '2026-03-10T09:45:19.263Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 172
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/172
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/172'
     syncedAt: '2026-03-10T09:45:19.661Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-10'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Eval Run History & A/B Benchmarking
@@ -39,7 +34,7 @@ updated: '2026-03-10'
 ## TL;DR
 
 **What**: The vskill eval system has basic benchmark history and A/B comparison, but the stored data lacks granularity (no per-case token breakdowns, no input/output token split, no baseline-only assertion results).
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 8
 
 ![Eval Run History & A/B Benchmarking illustration](assets/feature-fs-458.jpg)
@@ -52,7 +47,7 @@ The vskill eval system has basic benchmark history and A/B comparison, but the s
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0458-eval-run-history](../../../../../increments/0458-eval-run-history/spec.md) | ⏳ planned | 2026-03-09 |
+| [0458-eval-run-history](../../../../../increments/0458-eval-run-history/spec.md) | ✅ completed | 2026-03-09T00:00:00.000Z |
 
 ## User Stories
 

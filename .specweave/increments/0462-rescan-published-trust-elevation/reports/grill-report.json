@@ -1,7 +1,8 @@
 {
   "version": "1.0",
   "incrementId": "0462-rescan-published-trust-elevation",
-  "timestamp": "2026-03-09T19:10:00.000Z",
+  "timestamp": "2026-03-10T14:16:00.000Z",
+  "grillPasses": 3,
   "verdict": "PASS",
   "shipReadiness": "READY",
   "summary": {
@@ -85,5 +86,24 @@
       "AC-US1-01", "AC-US1-02", "AC-US1-03", "AC-US1-04", "AC-US1-05",
       "AC-US2-01", "AC-US2-02", "AC-US2-03"
     ]
+  },
+  "tests": {
+    "total": 13,
+    "passed": 13,
+    "failed": 0,
+    "file": "src/app/api/v1/admin/rescan-published/__tests__/route.test.ts"
+  },
+  "productionState": {
+    "measuredAt": "2026-03-10T14:15:00.000Z",
+    "trustTierDistribution": {
+      "T0": 0,
+      "T1": 654,
+      "T2": 33128,
+      "T3": 55545,
+      "T4": 295
+    },
+    "t3Elevated": 6073,
+    "remainingWithoutT2Scan": 15172,
+    "note": "Workers still processing queue. Numbers will continue improving."
   }
 }

@@ -2,9 +2,9 @@
 id: US-008
 feature: FS-458
 title: "Per-Test-Case History (P1)"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-09
+created: 2026-03-09T00:00:00.000Z
 tldr: "**As a** skill author."
 project: vskill
 external:
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US8-01**: Given the API endpoint `GET /api/skills/:plugin/:skill/history/case/:evalId`, when called with a valid eval ID, then it returns an array of per-run results for that case extracted from all history files, each including: timestamp, model, type, pass_rate, durationMs, tokens, inputTokens, outputTokens, assertions array, and provider
-- [ ] **AC-US8-02**: Given the BenchmarkPage shows eval case results, when a user clicks on a completed eval case card, then a per-case history panel expands below it showing all historical results for that case sorted newest-first, with model, pass rate, time, and tokens for each
-- [ ] **AC-US8-03**: Given the per-case history view, when multiple runs exist for that case, then a mini trend line shows pass rate across runs with model labels on each data point
-- [ ] **AC-US8-04**: Given the per-case history endpoint, when called with optional `?model=X` query param, then only results from that model are returned
+- [x] **AC-US8-01**: Given the API endpoint `GET /api/skills/:plugin/:skill/history/case/:evalId`, when called with a valid eval ID, then it returns an array of per-run results for that case extracted from all history files, each including: timestamp, model, type, pass_rate, durationMs, tokens, inputTokens, outputTokens, assertions array, and provider
+- [x] **AC-US8-02**: Given the BenchmarkPage shows eval case results, when a user clicks on a completed eval case card, then a per-case history panel expands below it showing all historical results for that case sorted newest-first, with model, pass rate, time, and tokens for each
+- [x] **AC-US8-03**: Given the per-case history view, when multiple runs exist for that case, then a mini trend line shows pass rate across runs with model labels on each data point
+- [x] **AC-US8-04**: Given the per-case history endpoint, when called with optional `?model=X` query param, then only results from that model are returned
 
 ---
 

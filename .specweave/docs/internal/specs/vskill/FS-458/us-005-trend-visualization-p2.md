@@ -2,9 +2,9 @@
 id: US-005
 feature: FS-458
 title: "Trend Visualization (P2)"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-09
+created: 2026-03-09T00:00:00.000Z
 tldr: "**As a** skill author."
 project: vskill
 external:
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US5-01**: Given the HistoryPage has history entries, when the page loads, then a fixed-width SVG trend chart renders above the timeline showing pass rate (0-100%) on Y axis and runs chronologically on X axis
-- [ ] **AC-US5-02**: Given runs of different types exist, when the chart renders, then benchmark runs are one color, comparison runs are another, and baseline runs are a third
-- [ ] **AC-US5-03**: Given the chart is rendered, when hovering over a data point, then a tooltip shows the run timestamp, model, type, and pass rate
-- [ ] **AC-US5-04**: Given fewer than 2 history entries exist, when the HistoryPage loads, then the trend chart is not displayed
+- [x] **AC-US5-01**: Given the HistoryPage has history entries, when the page loads, then a fixed-width SVG trend chart renders above the timeline showing pass rate (0-100%) on Y axis and runs chronologically on X axis
+- [x] **AC-US5-02**: Given runs of different types exist, when the chart renders, then benchmark runs are one color, comparison runs are another, and baseline runs are a third
+- [x] **AC-US5-03**: Given the chart is rendered, when hovering over a data point, then a tooltip shows the run timestamp, model, type, and pass rate
+- [x] **AC-US5-04**: Given fewer than 2 history entries exist, when the HistoryPage loads, then the trend chart is not displayed
 
 ---
 

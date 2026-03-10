@@ -2,9 +2,9 @@
 id: US-006
 feature: FS-458
 title: "Rerun Capabilities (P2)"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-09
+created: 2026-03-09T00:00:00.000Z
 tldr: "**As a** skill author."
 project: vskill
 external:
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US6-01**: Given the HistoryPage detail view for a selected run, when displayed, then three rerun buttons appear: "Rerun Benchmark" (with-skill), "Run Baseline", and "Run A/B Comparison"
-- [ ] **AC-US6-02**: Given the BenchmarkPage, when displayed, then alongside the existing "Run All" button, a "Run Baseline" button and a "Run A/B Comparison" button appear
-- [ ] **AC-US6-03**: Given a user clicks any rerun button, when the run starts, then the UI navigates to the appropriate page (BenchmarkPage for benchmark/baseline, ComparisonPage for A/B) and starts the run
-- [ ] **AC-US6-04**: Given a baseline rerun completes, when history is refreshed, then the new baseline entry appears in the timeline
+- [x] **AC-US6-01**: Given the HistoryPage detail view for a selected run, when displayed, then three rerun buttons appear: "Rerun Benchmark" (with-skill), "Run Baseline", and "Run A/B Comparison"
+- [x] **AC-US6-02**: Given the BenchmarkPage, when displayed, then alongside the existing "Run All" button, a "Run Baseline" button and a "Run A/B Comparison" button appear
+- [x] **AC-US6-03**: Given a user clicks any rerun button, when the run starts, then the UI navigates to the appropriate page (BenchmarkPage for benchmark/baseline, ComparisonPage for A/B) and starts the run
+- [x] **AC-US6-04**: Given a baseline rerun completes, when history is refreshed, then the new baseline entry appears in the timeline
 
 ---
 

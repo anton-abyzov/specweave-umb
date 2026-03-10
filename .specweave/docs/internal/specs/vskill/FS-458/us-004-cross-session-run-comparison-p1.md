@@ -2,9 +2,9 @@
 id: US-004
 feature: FS-458
 title: "Cross-Session Run Comparison (P1)"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-09
+created: 2026-03-09T00:00:00.000Z
 tldr: "**As a** skill author."
 project: vskill
 external:
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US4-01**: Given the HistoryPage timeline, when a user checks exactly two run checkboxes, then a "Compare" button becomes visible
-- [ ] **AC-US4-02**: Given the user clicks "Compare" with two runs selected, when the comparison loads, then a side-by-side view shows per-case pass/fail status for both runs with regressions highlighted in red and improvements in green
-- [ ] **AC-US4-03**: Given a compare API endpoint `GET /api/skills/:plugin/:skill/history-compare?a={timestamp}&b={timestamp}`, when called with two valid timestamps, then it returns per-case diff data using the existing `computeRegressions` function
-- [ ] **AC-US4-04**: Given one run has eval cases that the other does not (different eval sets), when comparing, then unmatched cases are shown with a "new" or "removed" indicator
+- [x] **AC-US4-01**: Given the HistoryPage timeline, when a user checks exactly two run checkboxes, then a "Compare" button becomes visible
+- [x] **AC-US4-02**: Given the user clicks "Compare" with two runs selected, when the comparison loads, then a side-by-side view shows per-case pass/fail status for both runs with regressions highlighted in red and improvements in green
+- [x] **AC-US4-03**: Given a compare API endpoint `GET /api/skills/:plugin/:skill/history-compare?a={timestamp}&b={timestamp}`, when called with two valid timestamps, then it returns per-case diff data using the existing `computeRegressions` function
+- [x] **AC-US4-04**: Given one run has eval cases that the other does not (different eval sets), when comparing, then unmatched cases are shown with a "new" or "removed" indicator
 
 ---
 
