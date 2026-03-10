@@ -20,6 +20,20 @@
       },
       "milestone": 20,
       "syncedAt": "2026-03-10T19:43:47.077Z"
+    },
+    "jira": {
+      "epicKey": "SWE2E-127",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-127",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-10T20:40:43.050Z"
+    },
+    "ado": {
+      "featureId": "191",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/191",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-10T20:40:45.250Z"
     }
   },
   "github": {
