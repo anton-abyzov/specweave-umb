@@ -2,9 +2,9 @@
 id: US-007
 feature: FS-477
 title: "Dead Code Cleanup"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** developer."
 project: vskill-platform
 ---
@@ -21,10 +21,10 @@ project: vskill-platform
 
 ## Acceptance Criteria
 
-- [ ] **AC-US7-01**: Given the cleanup is complete, when checking the file system, then `HomepageDemoHero.tsx` and `MarketDashboard.tsx` (and related files) are deleted
-- [ ] **AC-US7-02**: Given the cleanup, when checking `HomeSkeleton.tsx`, then unused skeleton components (`HeroStatsSkeleton`, `DashboardSkeleton`) are removed if no longer imported anywhere
-- [ ] **AC-US7-03**: Given the cleanup, when running `npx tsc --noEmit`, then there are zero type errors (no dangling imports)
-- [ ] **AC-US7-04**: Given the cleanup, when running the full test suite, then all tests pass with no regressions
+- [x] **AC-US7-01**: Given the cleanup is complete, when checking the file system, then `HomepageDemoHero.tsx` and `MarketDashboard.tsx` (and related files) are deleted
+- [x] **AC-US7-02**: Given the cleanup, when checking `HomeSkeleton.tsx`, then unused skeleton components (`HeroStatsSkeleton`, `DashboardSkeleton`) are removed if no longer imported anywhere
+- [x] **AC-US7-03**: Given the cleanup, when running `npx tsc --noEmit`, then there are zero type errors (no dangling imports)
+- [x] **AC-US7-04**: Given the cleanup, when running the full test suite, then all tests pass with no regressions
 
 ---
 

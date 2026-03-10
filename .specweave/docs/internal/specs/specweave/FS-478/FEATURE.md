@@ -1,31 +1,27 @@
 ---
 id: FS-478
-title: Align skills documentation rhetoric with Anthropic official terminology
+title: "Align skills documentation rhetoric with Anthropic official terminology"
 type: feature
-status: planned
+status: completed
 priority: P1
 created: 2026-03-10T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
-tldr: >-
-  SpecWeave's skills documentation currently frames several built-in Claude Code
-  features as SpecWeave inventions.
+lastUpdated: 2026-03-10
+tldr: "SpecWeave's skills documentation currently frames several built-in Claude Code features as SpecWeave inventions."
 complexity: medium
 stakeholder_relevant: true
 externalLinks:
   jira:
-    epicKey: SWE2E-121
+    epicKey: 'SWE2E-121'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-121'
     syncedAt: '2026-03-10T17:14:26.034Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 186
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/186
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/186'
     syncedAt: '2026-03-10T17:14:27.716Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-10'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Align skills documentation rhetoric with Anthropic official terminology
@@ -33,8 +29,10 @@ updated: '2026-03-10'
 ## TL;DR
 
 **What**: SpecWeave's skills documentation currently frames several built-in Claude Code features as SpecWeave inventions.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 3
+
+![Align skills documentation rhetoric with Anthropic official terminology illustration](assets/feature-fs-478.jpg)
 
 ## Overview
 
@@ -44,7 +42,7 @@ SpecWeave's skills documentation currently frames several built-in Claude Code f
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0478-skills-docs-rhetoric-alignment](../../../../../increments/0478-skills-docs-rhetoric-alignment/spec.md) | ⏳ planned | 2026-03-10 |
+| [0478-skills-docs-rhetoric-alignment](../../../../../increments/0478-skills-docs-rhetoric-alignment/spec.md) | ✅ completed | 2026-03-10T00:00:00.000Z |
 
 ## User Stories
 

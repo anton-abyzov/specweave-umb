@@ -1,10 +1,10 @@
 ---
 increment: 0478-skills-docs-rhetoric-alignment
-title: "Align skills documentation rhetoric with Anthropic official terminology"
+title: Align skills documentation rhetoric with Anthropic official terminology
 type: change-request
 priority: P1
-status: active
-created: 2026-03-10
+status: completed
+created: 2026-03-10T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

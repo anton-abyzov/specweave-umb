@@ -2,9 +2,9 @@
 id: US-006
 feature: FS-477
 title: "Homepage SEO Structured Data"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** search engine crawler."
 project: vskill-platform
 ---
@@ -21,8 +21,8 @@ project: vskill-platform
 
 ## Acceptance Criteria
 
-- [ ] **AC-US6-01**: Given the homepage HTML, when inspecting the head, then a `<script type="application/ld+json">` tag contains a WebSite schema with `potentialAction` of type `SearchAction` pointing to `/skills?q={search_term_string}`
-- [ ] **AC-US6-02**: Given the JSON-LD, when validated, then it conforms to schema.org WebSite + SearchAction specification
+- [x] **AC-US6-01**: Given the homepage HTML, when inspecting the head, then a `<script type="application/ld+json">` tag contains a WebSite schema with `potentialAction` of type `SearchAction` pointing to `/skills?q={search_term_string}`
+- [x] **AC-US6-02**: Given the JSON-LD, when validated, then it conforms to schema.org WebSite + SearchAction specification
 
 ---
 

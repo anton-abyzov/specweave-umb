@@ -1,37 +1,32 @@
 ---
 id: FS-456
-title: Prevent unwanted agent dot-folder creation
+title: "Prevent unwanted agent dot-folder creation"
 type: feature
-status: planned
+status: completed
 priority: P1
 created: 2026-03-09T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
-tldr: >-
-  Running `vskill add` from a parent or umbrella directory creates agent
-  dot-folders (`.aider/`, `.kiro/`, `.pi/`, `.codex/`, `.cursor/`, `.agent/`,
-  `.windsurf/`, etc.) in the wrong location.
+lastUpdated: 2026-03-10
+tldr: "Running `vskill add` from a parent or umbrella directory creates agent dot-folders (`.aider/`, `.kiro/`, `.pi/`, `.codex/`, `.cursor/`, `.agent/`, `.windsurf/`, etc.) in the wrong location."
 complexity: medium
 stakeholder_relevant: true
 external_tools:
   github:
-    type: milestone
+    type: 'milestone'
     id: 12
     url: 'https://github.com/anton-abyzov/vskill/milestone/12'
 externalLinks:
   jira:
-    epicKey: SWE2E-104
+    epicKey: 'SWE2E-104'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-104'
     syncedAt: '2026-03-10T09:44:32.312Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 169
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/169
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/169'
     syncedAt: '2026-03-10T09:44:32.764Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-10'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Prevent unwanted agent dot-folder creation
@@ -39,7 +34,7 @@ updated: '2026-03-10'
 ## TL;DR
 
 **What**: Running `vskill add` from a parent or umbrella directory creates agent dot-folders (`.aider/`, `.kiro/`, `.pi/`, `.codex/`, `.cursor/`, `.agent/`, `.windsurf/`, etc.) in the wrong location.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 3
 
 ![Prevent unwanted agent dot-folder creation illustration](assets/feature-fs-456.jpg)
@@ -52,7 +47,7 @@ Running `vskill add` from a parent or umbrella directory creates agent dot-folde
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0456-prevent-unwanted-agent-dotfolders](../../../../../increments/0456-prevent-unwanted-agent-dotfolders/spec.md) | ⏳ planned | 2026-03-09 |
+| [0456-prevent-unwanted-agent-dotfolders](../../../../../increments/0456-prevent-unwanted-agent-dotfolders/spec.md) | ✅ completed | 2026-03-09T00:00:00.000Z |
 
 ## User Stories
 

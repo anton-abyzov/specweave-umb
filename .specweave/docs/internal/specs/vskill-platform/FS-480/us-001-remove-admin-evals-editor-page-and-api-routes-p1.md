@@ -4,9 +4,13 @@ feature: FS-480
 title: "Remove admin evals editor page and API routes (P1)"
 status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** platform maintainer."
 project: vskill-platform
+external:
+  github:
+    issue: 57
+    url: https://github.com/anton-abyzov/vskill-platform/issues/57
 ---
 
 # US-001: Remove admin evals editor page and API routes (P1)

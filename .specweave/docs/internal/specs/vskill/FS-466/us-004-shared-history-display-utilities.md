@@ -1,10 +1,10 @@
 ---
 id: US-004
 feature: FS-466
-title: Shared History Display Utilities
+title: "Shared History Display Utilities"
 status: completed
 priority: P1
-created: 2026-03-09
+created: 2026-03-09T00:00:00.000Z
 tldr: "**As a** developer maintaining the eval-ui codebase."
 project: vskill
 external:

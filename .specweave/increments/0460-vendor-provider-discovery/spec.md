@@ -1,10 +1,10 @@
 ---
 increment: 0460-vendor-provider-discovery
-title: "Vendor & Provider Skill Discovery Enhancement"
+title: Vendor & Provider Skill Discovery Enhancement
 type: feature
 priority: P0
-status: active
-created: 2026-03-09
+status: completed
+created: 2026-03-09T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

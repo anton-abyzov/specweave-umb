@@ -1,10 +1,10 @@
 ---
 id: US-002
 feature: FS-466
-title: Real Markdown Preview in EditorPanel
+title: "Real Markdown Preview in EditorPanel"
 status: completed
 priority: P1
-created: 2026-03-09
+created: 2026-03-09T00:00:00.000Z
 tldr: "**As a** skill author."
 project: vskill
 external:

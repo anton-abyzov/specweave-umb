@@ -1,32 +1,27 @@
 ---
 id: FS-477
-title: 'Homepage Simplification, Studio Landing Page, and Navigation Restructure'
+title: "Homepage Simplification, Studio Landing Page, and Navigation Restructure"
 type: feature
-status: planned
+status: completed
 priority: P1
 created: 2026-03-10T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
-tldr: >-
-  The verified-skill.com homepage crams 7+ sections together -- video hero, role
-  cards, search input, trending skills, Skill Studio promo, category nav, market
-  dashboard, verification explainer, and agent badges.
+lastUpdated: 2026-03-10
+tldr: "The verified-skill.com homepage crams 7+ sections together -- video hero, role cards, search input, trending skills, Skill Studio promo, category nav, market dashboard, verification explainer, and agent badges."
 complexity: high
 stakeholder_relevant: true
 externalLinks:
   jira:
-    epicKey: SWE2E-120
+    epicKey: 'SWE2E-120'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-120'
     syncedAt: '2026-03-10T16:16:55.809Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 185
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/185
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/185'
     syncedAt: '2026-03-10T16:16:57.612Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-10'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Homepage Simplification, Studio Landing Page, and Navigation Restructure
@@ -34,8 +29,10 @@ updated: '2026-03-10'
 ## TL;DR
 
 **What**: The verified-skill.com homepage crams 7+ sections together -- video hero, role cards, search input, trending skills, Skill Studio promo, category nav, market dashboard, verification explainer, and agent badges.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 7
+
+![Homepage Simplification, Studio Landing Page, and Navigation Restructure illustration](assets/feature-fs-477.jpg)
 
 ## Overview
 
@@ -45,7 +42,7 @@ The verified-skill.com homepage crams 7+ sections together -- video hero, role c
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0477-homepage-studio-nav-redesign](../../../../../increments/0477-homepage-studio-nav-redesign/spec.md) | ⏳ planned | 2026-03-10 |
+| [0477-homepage-studio-nav-redesign](../../../../../increments/0477-homepage-studio-nav-redesign/spec.md) | ✅ completed | 2026-03-10T00:00:00.000Z |
 
 ## User Stories
 

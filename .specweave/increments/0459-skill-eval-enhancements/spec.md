@@ -1,10 +1,10 @@
 ---
 increment: 0459-skill-eval-enhancements
-title: "Skill Eval UI Enhancements"
+title: Skill Eval UI Enhancements
 type: feature
 priority: P1
-status: active
-created: 2026-03-09
+status: completed
+created: 2026-03-09T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

@@ -1,34 +1,32 @@
 ---
 id: FS-460
-title: Vendor & Provider Skill Discovery Enhancement
+title: "Vendor & Provider Skill Discovery Enhancement"
 type: feature
-status: ready_for_review
+status: completed
 priority: P0
 created: 2026-03-09T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
-tldr: '`npx vskill find frontend-design` returns 15 community results but.'
+lastUpdated: 2026-03-10
+tldr: "`npx vskill find frontend-design` returns 15 community results but."
 complexity: medium
 stakeholder_relevant: true
 external_tools:
   github:
-    type: milestone
+    type: 'milestone'
     id: 17
     url: 'https://github.com/anton-abyzov/vskill-platform/milestone/17'
 externalLinks:
   jira:
-    epicKey: SWE2E-109
+    epicKey: 'SWE2E-109'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-109'
     syncedAt: '2026-03-10T09:45:44.813Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 174
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/174
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/174'
     syncedAt: '2026-03-10T09:45:45.699Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-10'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Vendor & Provider Skill Discovery Enhancement
@@ -36,7 +34,7 @@ updated: '2026-03-10'
 ## TL;DR
 
 **What**: `npx vskill find frontend-design` returns 15 community results but.
-**Status**: ready_for_review | **Priority**: P0
+**Status**: completed | **Priority**: P0
 **User Stories**: 3
 
 ![Vendor & Provider Skill Discovery Enhancement illustration](assets/feature-fs-460.jpg)
@@ -49,7 +47,7 @@ updated: '2026-03-10'
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0460-vendor-provider-discovery](../../../../../increments/0460-vendor-provider-discovery/spec.md) | ⏳ ready_for_review | 2026-03-09 |
+| [0460-vendor-provider-discovery](../../../../../increments/0460-vendor-provider-discovery/spec.md) | ✅ completed | 2026-03-09T00:00:00.000Z |
 
 ## User Stories
 

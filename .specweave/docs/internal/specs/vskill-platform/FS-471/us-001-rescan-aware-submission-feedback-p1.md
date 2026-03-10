@@ -4,7 +4,7 @@ feature: FS-471
 title: "Rescan-aware submission feedback (P1)"
 status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** skill author resubmitting a repo with existing verified skills."
 project: vskill-platform
 external:

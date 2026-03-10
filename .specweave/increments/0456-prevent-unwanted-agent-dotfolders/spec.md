@@ -1,10 +1,10 @@
 ---
 increment: 0456-prevent-unwanted-agent-dotfolders
-title: "Prevent unwanted agent dot-folder creation"
-status: active
+title: Prevent unwanted agent dot-folder creation
+status: completed
 priority: P1
 type: bugfix
-created: 2026-03-09
+created: 2026-03-09T00:00:00.000Z
 ---
 
 # Prevent Unwanted Agent Dot-Folders in Wrong Location

@@ -4,7 +4,7 @@ feature: FS-459
 title: "AI-Powered Skill Improvement"
 status: completed
 priority: P1
-created: 2026-03-09
+created: 2026-03-09T00:00:00.000Z
 tldr: "**As a** skill developer."
 project: vskill
 external:

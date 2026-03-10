@@ -4,7 +4,7 @@ feature: FS-413
 title: "Add API Rate Limiting (P1)"
 status: completed
 priority: P1
-created: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
 tldr: "**As a** SpecWeave API consumer."
 project: specweave
 ---

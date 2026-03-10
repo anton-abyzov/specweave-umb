@@ -1,10 +1,10 @@
 ---
 increment: 0412-deploy-living-docs
-title: "Deploy latest living docs to specweave website"
+title: Deploy latest living docs to specweave website
 type: feature
 priority: P2
 status: completed
-created: 2026-03-03
+created: 2026-03-03T00:00:00.000Z
 structure: user-stories
 test_mode: test-after
 coverage_target: 80

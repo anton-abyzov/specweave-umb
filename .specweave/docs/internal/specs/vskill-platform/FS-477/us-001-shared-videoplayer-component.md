@@ -2,9 +2,9 @@
 id: US-001
 feature: FS-477
 title: "Shared VideoPlayer Component"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** developer."
 project: vskill-platform
 ---
@@ -21,10 +21,10 @@ project: vskill-platform
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given the VideoPlayer component, when rendered with a `src` prop (mp4 + webm), then it displays a video element with play/pause overlay button, autoPlay, muted, loop, and playsInline attributes
-- [ ] **AC-US1-02**: Given the VideoPlayer component with default props, when the video enters the viewport, then it starts loading via IntersectionObserver (lazy-load by default)
-- [ ] **AC-US1-03**: Given the VideoPlayer component with `eager={true}`, when the page loads, then the video loads immediately without waiting for intersection
-- [ ] **AC-US1-04**: Given the VideoPlayer component, when rendered, then it accepts `ariaLabel`, `accentColor`, and `className` props for customization, and the play/pause button border uses the accent color
+- [x] **AC-US1-01**: Given the VideoPlayer component, when rendered with a `src` prop (mp4 + webm), then it displays a video element with play/pause overlay button, autoPlay, muted, loop, and playsInline attributes
+- [x] **AC-US1-02**: Given the VideoPlayer component with default props, when the video enters the viewport, then it starts loading via IntersectionObserver (lazy-load by default)
+- [x] **AC-US1-03**: Given the VideoPlayer component with `eager={true}`, when the page loads, then the video loads immediately without waiting for intersection
+- [x] **AC-US1-04**: Given the VideoPlayer component, when rendered, then it accepts `ariaLabel`, `accentColor`, and `className` props for customization, and the play/pause button border uses the accent color
 
 ---
 

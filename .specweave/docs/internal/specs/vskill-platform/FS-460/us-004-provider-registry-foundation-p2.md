@@ -4,7 +4,7 @@ feature: FS-460
 title: "Provider registry foundation (P2)"
 status: completed
 priority: P0
-created: 2026-03-09
+created: 2026-03-09T00:00:00.000Z
 tldr: "**As a** platform architect."
 project: vskill-platform
 related_projects: [vskill]

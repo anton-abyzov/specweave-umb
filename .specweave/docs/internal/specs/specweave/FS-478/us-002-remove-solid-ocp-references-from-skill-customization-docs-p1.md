@@ -2,9 +2,9 @@
 id: US-002
 feature: FS-478
 title: "Remove SOLID/OCP references from skill customization docs (P1)"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** developer evaluating SpecWeave's skill extensibility model."
 project: specweave
 ---
@@ -21,9 +21,9 @@ project: specweave
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: All references to "Open/Closed Principle" and "SOLID" are removed or replaced with plain-language explanations across ALL docs-site markdown files (not limited to the 15 initially listed files)
-- [ ] **AC-US2-02**: The replacement text explains the same concept without jargon -- e.g., "core skill logic stays stable; your project-specific customizations layer on top" or equivalent
-- [ ] **AC-US2-03**: No occurrences of "Open/Closed Principle" or "SOLID" remain in any docs-site markdown file (drafts/ excluded from this requirement)
+- [x] **AC-US2-01**: All references to "Open/Closed Principle" and "SOLID" are removed or replaced with plain-language explanations across ALL docs-site markdown files (not limited to the 15 initially listed files)
+- [x] **AC-US2-02**: The replacement text explains the same concept without jargon -- e.g., "core skill logic stays stable; your project-specific customizations layer on top" or equivalent
+- [x] **AC-US2-03**: No occurrences of "Open/Closed Principle" or "SOLID" remain in any docs-site markdown file (drafts/ excluded from this requirement)
 
 ---
 

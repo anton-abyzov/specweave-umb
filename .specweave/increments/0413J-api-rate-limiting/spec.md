@@ -1,16 +1,16 @@
 ---
 increment: 0413J-api-rate-limiting
-title: "Add API rate limiting configuration"
+title: Add API rate limiting configuration
 type: feature
 priority: P1
-status: in-progress
-created: 2026-03-03
+status: completed
+created: 2026-03-03T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
 project: specweave
 source_platform: jira
-external_ref: "jira#SWE2E#SWE2E-5"
+external_ref: jira#SWE2E#SWE2E-5
 ---
 
 # Feature: Add API rate limiting configuration

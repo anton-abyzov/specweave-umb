@@ -1,34 +1,32 @@
 ---
 id: FS-466
-title: 'Skill Builder: MD Preview & Per-Case History'
+title: "Skill Builder: MD Preview & Per-Case History"
 type: feature
-status: planned
+status: completed
 priority: P1
 created: 2026-03-09T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
-tldr: 'The Skill Builder workspace (localhost:3162) has two usability gaps.'
+lastUpdated: 2026-03-10
+tldr: "The Skill Builder workspace (localhost:3162) has two usability gaps."
 complexity: high
 stakeholder_relevant: true
 external_tools:
   github:
-    type: milestone
+    type: 'milestone'
     id: 17
     url: 'https://github.com/anton-abyzov/vskill/milestone/17'
 externalLinks:
   jira:
-    epicKey: SWE2E-114
+    epicKey: 'SWE2E-114'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-114'
     syncedAt: '2026-03-10T09:48:23.634Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 179
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/179
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/179'
     syncedAt: '2026-03-10T09:48:24.500Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-10'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Skill Builder: MD Preview & Per-Case History
@@ -36,7 +34,7 @@ updated: '2026-03-10'
 ## TL;DR
 
 **What**: The Skill Builder workspace (localhost:3162) has two usability gaps.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 4
 
 ![Skill Builder: MD Preview & Per-Case History illustration](assets/feature-fs-466.jpg)
@@ -49,7 +47,7 @@ The Skill Builder workspace (localhost:3162) has two usability gaps. First, the 
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0466-skill-builder-preview-history](../../../../../increments/0466-skill-builder-preview-history/spec.md) | ⏳ planned | 2026-03-09 |
+| [0466-skill-builder-preview-history](../../../../../increments/0466-skill-builder-preview-history/spec.md) | ✅ completed | 2026-03-09T00:00:00.000Z |
 
 ## User Stories
 

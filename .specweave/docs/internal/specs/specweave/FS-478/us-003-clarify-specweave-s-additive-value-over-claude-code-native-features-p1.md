@@ -2,9 +2,9 @@
 id: US-003
 feature: FS-478
 title: "Clarify SpecWeave's additive value over Claude Code native features (P1)"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** developer evaluating whether to adopt SpecWeave."
 project: specweave
 ---
@@ -21,9 +21,9 @@ project: specweave
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: The skills landing page (skills/index.md) includes a brief section or inline note that acknowledges Claude Code's native skill system and positions SpecWeave's contributions (Verified Skills, vskill CLI, marketplace, extensibility conventions) as building on top of it
-- [ ] **AC-US3-02**: The additive framing uses collaborative tone ("SpecWeave builds on Claude Code's native skill system by adding...") rather than contrasting/delineation tone
-- [ ] **AC-US3-03**: Pages that describe dynamic context injection reference it as a Claude Code built-in capability that SpecWeave leverages, not a SpecWeave invention
+- [x] **AC-US3-01**: The skills landing page (skills/index.md) includes a brief section or inline note that acknowledges Claude Code's native skill system and positions SpecWeave's contributions (Verified Skills, vskill CLI, marketplace, extensibility conventions) as building on top of it
+- [x] **AC-US3-02**: The additive framing uses collaborative tone ("SpecWeave builds on Claude Code's native skill system by adding...") rather than contrasting/delineation tone
+- [x] **AC-US3-03**: Pages that describe dynamic context injection reference it as a Claude Code built-in capability that SpecWeave leverages, not a SpecWeave invention
 
 ---
 

@@ -1,10 +1,10 @@
 ---
 increment: 0477-homepage-studio-nav-redesign
-title: "Homepage Simplification, Studio Landing Page, and Navigation Restructure"
-status: active
+title: 'Homepage Simplification, Studio Landing Page, and Navigation Restructure'
+status: completed
 priority: P1
 type: feature
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

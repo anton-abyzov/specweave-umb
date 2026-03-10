@@ -1,3 +1,10 @@
+---
+increment: 0412-deploy-living-docs
+title: "Deploy Living Docs to Website"
+by_user_story:
+  US-001: [T-001, T-002]
+---
+
 # Tasks: Deploy Living Docs to Website
 
 ## User Story: US-001 - Deploy Living Docs

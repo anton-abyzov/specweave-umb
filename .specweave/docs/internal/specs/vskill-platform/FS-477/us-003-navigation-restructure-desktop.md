@@ -2,9 +2,9 @@
 id: US-003
 feature: FS-477
 title: "Navigation Restructure -- Desktop"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** visitor."
 project: vskill-platform
 ---
@@ -21,9 +21,9 @@ project: vskill-platform
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: Given the desktop nav in `layout.tsx`, when rendered, then it contains links in this order: Skills, Studio, Publishers, Trust, Docs -- and does NOT contain Queue or Submit links
-- [ ] **AC-US3-02**: Given the desktop nav, when the Studio link is present, then it links to `/studio`
-- [ ] **AC-US3-03**: Given the footer in `layout.tsx`, when rendered, then it retains all existing links AND adds a Studio link, keeping Queue and Submit accessible from the footer
+- [x] **AC-US3-01**: Given the desktop nav in `layout.tsx`, when rendered, then it contains links in this order: Skills, Studio, Publishers, Trust, Docs -- and does NOT contain Queue or Submit links
+- [x] **AC-US3-02**: Given the desktop nav, when the Studio link is present, then it links to `/studio`
+- [x] **AC-US3-03**: Given the footer in `layout.tsx`, when rendered, then it retains all existing links AND adds a Studio link, keeping Queue and Submit accessible from the footer
 
 ---
 

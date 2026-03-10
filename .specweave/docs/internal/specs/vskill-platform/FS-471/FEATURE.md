@@ -1,36 +1,32 @@
 ---
 id: FS-471
-title: 'Submit page: distinguish new vs rescan submissions'
+title: "Submit page: distinguish new vs rescan submissions"
 type: feature
-status: planned
+status: completed
 priority: P1
 created: 2026-03-10T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
-tldr: >-
-  The submit page at `/submit` treats all discovered skills identically
-  regardless of whether they already exist on the platform.
+lastUpdated: 2026-03-10
+tldr: "The submit page at `/submit` treats all discovered skills identically regardless of whether they already exist on the platform."
 complexity: low
 stakeholder_relevant: true
 external_tools:
   github:
-    type: milestone
+    type: 'milestone'
     id: 15
     url: 'https://github.com/anton-abyzov/vskill-platform/milestone/15'
 externalLinks:
   jira:
-    epicKey: SWE2E-117
+    epicKey: 'SWE2E-117'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-117'
     syncedAt: '2026-03-10T09:51:34.922Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 182
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/182
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/182'
     syncedAt: '2026-03-10T09:51:35.400Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-10'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Submit page: distinguish new vs rescan submissions
@@ -38,7 +34,7 @@ updated: '2026-03-10'
 ## TL;DR
 
 **What**: The submit page at `/submit` treats all discovered skills identically regardless of whether they already exist on the platform.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 1
 
 ![Submit page: distinguish new vs rescan submissions illustration](assets/feature-fs-471.jpg)
@@ -51,7 +47,7 @@ The submit page at `/submit` treats all discovered skills identically regardless
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0471-submit-rescan-feedback](../../../../../increments/0471-submit-rescan-feedback/spec.md) | ⏳ planned | 2026-03-10 |
+| [0471-submit-rescan-feedback](../../../../../increments/0471-submit-rescan-feedback/spec.md) | ✅ completed | 2026-03-10T00:00:00.000Z |
 
 ## User Stories
 
