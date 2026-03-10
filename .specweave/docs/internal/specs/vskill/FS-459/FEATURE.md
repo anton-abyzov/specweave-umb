@@ -14,18 +14,23 @@ tldr: >-
   required by their skills.
 complexity: high
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 14
+    url: 'https://github.com/anton-abyzov/vskill/milestone/14'
 externalLinks:
   jira:
-    epicKey: SWE2E-70
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-70'
-    syncedAt: '2026-03-10T08:18:07.281Z'
+    epicKey: SWE2E-108
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-108'
+    syncedAt: '2026-03-10T09:45:32.934Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 135
+    featureId: 173
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/135
-    syncedAt: '2026-03-10T08:18:07.735Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/173
+    syncedAt: '2026-03-10T09:45:33.416Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'

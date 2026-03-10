@@ -11,18 +11,23 @@ tldr: >-
   only.
 complexity: high
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 10
+    url: 'https://github.com/anton-abyzov/vskill/milestone/10'
 externalLinks:
   jira:
-    epicKey: SWE2E-65
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-65'
-    syncedAt: '2026-03-10T08:17:51.861Z'
+    epicKey: SWE2E-103
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-103'
+    syncedAt: '2026-03-10T09:44:20.239Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 130
+    featureId: 168
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/130
-    syncedAt: '2026-03-10T08:17:52.951Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/168
+    syncedAt: '2026-03-10T09:44:21.386Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'

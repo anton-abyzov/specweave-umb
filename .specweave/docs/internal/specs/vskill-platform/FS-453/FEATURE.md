@@ -1,14 +1,36 @@
 ---
 id: FS-453
-title: "Unify skill page badges: remove redundant TierBadge"
+title: 'Unify skill page badges: remove redundant TierBadge'
 type: feature
 status: completed
 priority: P1
 created: 2026-03-07T00:00:00.000Z
-lastUpdated: 2026-03-10
-tldr: "The skill detail page renders TierBadge ('VERIFIED') and TrustBadge ('T3 VERIFIED') side-by-side."
+lastUpdated: 2026-03-10T00:00:00.000Z
+tldr: >-
+  The skill detail page renders TierBadge ('VERIFIED') and TrustBadge ('T3
+  VERIFIED') side-by-side.
 complexity: low
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 16
+    url: 'https://github.com/anton-abyzov/vskill-platform/milestone/16'
+externalLinks:
+  jira:
+    epicKey: SWE2E-102
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-102'
+    syncedAt: '2026-03-10T09:43:58.529Z'
+    projectKey: SWE2E
+    domain: antonabyzov.atlassian.net
+  ado:
+    featureId: 167
+    featureUrl: >-
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/167
+    syncedAt: '2026-03-10T09:43:58.906Z'
+    organization: EasyChamp
+    project: SpecWeaveSync
+updated: '2026-03-10'
 ---
 
 # Unify skill page badges: remove redundant TierBadge

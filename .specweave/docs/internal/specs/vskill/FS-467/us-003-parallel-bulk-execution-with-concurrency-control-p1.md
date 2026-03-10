@@ -1,12 +1,16 @@
 ---
 id: US-003
 feature: FS-467
-title: "Parallel Bulk Execution with Concurrency Control (P1)"
+title: Parallel Bulk Execution with Concurrency Control (P1)
 status: not_started
 priority: P1
 created: 2026-03-10
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 55
+    url: https://github.com/anton-abyzov/vskill/issues/55
 ---
 
 # US-003: Parallel Bulk Execution with Concurrency Control (P1)

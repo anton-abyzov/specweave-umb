@@ -12,18 +12,23 @@ tldr: >-
   Tier 2 LLM analysis.
 complexity: medium
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 14
+    url: 'https://github.com/anton-abyzov/vskill-platform/milestone/14'
 externalLinks:
   jira:
-    epicKey: SWE2E-74
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-74'
-    syncedAt: '2026-03-10T08:18:18.733Z'
+    epicKey: SWE2E-112
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-112'
+    syncedAt: '2026-03-10T09:46:16.196Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 139
+    featureId: 177
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/139
-    syncedAt: '2026-03-10T08:18:19.583Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/177
+    syncedAt: '2026-03-10T09:46:16.649Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'

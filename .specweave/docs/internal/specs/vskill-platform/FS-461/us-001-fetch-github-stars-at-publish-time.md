@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** skill searcher."
 project: vskill-platform
+external:
+  github:
+    issue: 49
+    url: https://github.com/anton-abyzov/vskill-platform/issues/49
 ---
 
 # US-001: Fetch GitHub Stars at Publish Time

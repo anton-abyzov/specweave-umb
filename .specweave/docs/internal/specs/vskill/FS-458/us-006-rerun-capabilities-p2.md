@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** skill author."
 project: vskill
+external:
+  github:
+    issue: 33
+    url: https://github.com/anton-abyzov/vskill/issues/33
 ---
 
 # US-006: Rerun Capabilities (P2)

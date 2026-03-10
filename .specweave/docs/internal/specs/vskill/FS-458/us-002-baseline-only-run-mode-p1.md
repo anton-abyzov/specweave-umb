@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** skill author."
 project: vskill
+external:
+  github:
+    issue: 29
+    url: https://github.com/anton-abyzov/vskill/issues/29
 ---
 
 # US-002: Baseline-Only Run Mode (P1)

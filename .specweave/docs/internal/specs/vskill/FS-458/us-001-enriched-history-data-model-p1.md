@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** skill author."
 project: vskill
+external:
+  github:
+    issue: 28
+    url: https://github.com/anton-abyzov/vskill/issues/28
 ---
 
 # US-001: Enriched History Data Model (P1)

@@ -1,12 +1,16 @@
 ---
 id: US-002
 feature: FS-465
-title: "SKILL.md Editor with Live Preview (P1)"
+title: SKILL.md Editor with Live Preview (P1)
 status: not_started
 priority: P1
 created: 2026-03-09
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 42
+    url: https://github.com/anton-abyzov/vskill/issues/42
 ---
 
 # US-002: SKILL.md Editor with Live Preview (P1)

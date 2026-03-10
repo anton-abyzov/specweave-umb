@@ -1,12 +1,16 @@
 ---
 id: US-001
 feature: FS-465
-title: "Unified Workspace Shell (P0)"
+title: Unified Workspace Shell (P0)
 status: not_started
 priority: P1
 created: 2026-03-09
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 41
+    url: https://github.com/anton-abyzov/vskill/issues/41
 ---
 
 # US-001: Unified Workspace Shell (P0)

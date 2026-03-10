@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** skill author."
 project: vskill
+external:
+  github:
+    issue: 31
+    url: https://github.com/anton-abyzov/vskill/issues/31
 ---
 
 # US-004: Cross-Session Run Comparison (P1)

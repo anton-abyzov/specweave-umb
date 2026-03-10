@@ -12,18 +12,23 @@ tldr: >-
   `.windsurf/`, etc.) in the wrong location.
 complexity: medium
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 12
+    url: 'https://github.com/anton-abyzov/vskill/milestone/12'
 externalLinks:
   jira:
-    epicKey: SWE2E-66
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-66'
-    syncedAt: '2026-03-10T08:17:55.686Z'
+    epicKey: SWE2E-104
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-104'
+    syncedAt: '2026-03-10T09:44:32.312Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 131
+    featureId: 169
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/131
-    syncedAt: '2026-03-10T08:17:56.096Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/169
+    syncedAt: '2026-03-10T09:44:32.764Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'

@@ -11,18 +11,23 @@ tldr: >-
   user consent.
 complexity: high
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 234
+    url: 'https://github.com/anton-abyzov/specweave/milestone/234'
 externalLinks:
   jira:
-    epicKey: SWE2E-67
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-67'
-    syncedAt: '2026-03-10T08:17:58.828Z'
+    epicKey: SWE2E-105
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-105'
+    syncedAt: '2026-03-10T09:44:51.248Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 132
+    featureId: 170
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/132
-    syncedAt: '2026-03-10T08:17:59.198Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/170
+    syncedAt: '2026-03-10T09:44:51.771Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'

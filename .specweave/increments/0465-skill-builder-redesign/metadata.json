@@ -9,5 +9,105 @@
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 41,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/41",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 42,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/42",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 43,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/43",
+          "status": "active"
+        },
+        "US-004": {
+          "issueNumber": 44,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/44",
+          "status": "active"
+        },
+        "US-005": {
+          "issueNumber": 45,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/45",
+          "status": "active"
+        },
+        "US-006": {
+          "issueNumber": 46,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/46",
+          "status": "active"
+        },
+        "US-007": {
+          "issueNumber": 47,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/47",
+          "status": "active"
+        },
+        "US-008": {
+          "issueNumber": 48,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/48",
+          "status": "active"
+        }
+      },
+      "milestone": 16,
+      "syncedAt": "2026-03-10T09:47:34.016Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 41,
+        "url": "https://github.com/anton-abyzov/vskill/issues/41",
+        "createdAt": "2026-03-10T09:46:28.296Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 42,
+        "url": "https://github.com/anton-abyzov/vskill/issues/42",
+        "createdAt": "2026-03-10T09:46:38.331Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 43,
+        "url": "https://github.com/anton-abyzov/vskill/issues/43",
+        "createdAt": "2026-03-10T09:46:47.593Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 44,
+        "url": "https://github.com/anton-abyzov/vskill/issues/44",
+        "createdAt": "2026-03-10T09:46:56.898Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 45,
+        "url": "https://github.com/anton-abyzov/vskill/issues/45",
+        "createdAt": "2026-03-10T09:47:05.956Z"
+      },
+      {
+        "userStory": "US-006",
+        "number": 46,
+        "url": "https://github.com/anton-abyzov/vskill/issues/46",
+        "createdAt": "2026-03-10T09:47:15.669Z"
+      },
+      {
+        "userStory": "US-007",
+        "number": 47,
+        "url": "https://github.com/anton-abyzov/vskill/issues/47",
+        "createdAt": "2026-03-10T09:47:24.881Z"
+      },
+      {
+        "userStory": "US-008",
+        "number": 48,
+        "url": "https://github.com/anton-abyzov/vskill/issues/48",
+        "createdAt": "2026-03-10T09:47:34.016Z"
+      }
+    ],
+    "lastSync": "2026-03-10T09:47:34.016Z"
+  }
 }

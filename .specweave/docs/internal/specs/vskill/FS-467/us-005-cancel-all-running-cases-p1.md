@@ -1,12 +1,16 @@
 ---
 id: US-005
 feature: FS-467
-title: "Cancel All Running Cases (P1)"
+title: Cancel All Running Cases (P1)
 status: not_started
 priority: P1
 created: 2026-03-10
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 57
+    url: https://github.com/anton-abyzov/vskill/issues/57
 ---
 
 # US-005: Cancel All Running Cases (P1)

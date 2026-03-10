@@ -1,12 +1,16 @@
 ---
 id: US-001
 feature: FS-466
-title: "Custom Markdown Renderer Utility"
+title: Custom Markdown Renderer Utility
 status: completed
 priority: P1
 created: 2026-03-09
 tldr: "**As a** skill author."
 project: vskill
+external:
+  github:
+    issue: 49
+    url: https://github.com/anton-abyzov/vskill/issues/49
 ---
 
 # US-001: Custom Markdown Renderer Utility

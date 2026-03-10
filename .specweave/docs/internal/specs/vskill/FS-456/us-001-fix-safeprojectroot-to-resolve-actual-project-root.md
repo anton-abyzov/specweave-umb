@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** CLI user running `vskill add` from a subdirectory or parent directory."
 project: vskill
+external:
+  github:
+    issue: 25
+    url: https://github.com/anton-abyzov/vskill/issues/25
 ---
 
 # US-001: Fix safeProjectRoot to resolve actual project root

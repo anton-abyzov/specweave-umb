@@ -11,18 +11,23 @@ tldr: >-
   regardless of whether they already exist on the platform.
 complexity: low
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 15
+    url: 'https://github.com/anton-abyzov/vskill-platform/milestone/15'
 externalLinks:
   jira:
-    epicKey: SWE2E-79
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-79'
-    syncedAt: '2026-03-10T08:18:34.710Z'
+    epicKey: SWE2E-117
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-117'
+    syncedAt: '2026-03-10T09:51:34.922Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 144
+    featureId: 182
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/144
-    syncedAt: '2026-03-10T08:18:35.161Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/182
+    syncedAt: '2026-03-10T09:51:35.400Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'

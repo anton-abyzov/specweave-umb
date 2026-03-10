@@ -1,12 +1,16 @@
 ---
 id: US-006
 feature: FS-465
-title: "History and Regression Detection Panel (P1)"
+title: History and Regression Detection Panel (P1)
 status: not_started
 priority: P1
 created: 2026-03-09
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 46
+    url: https://github.com/anton-abyzov/vskill/issues/46
 ---
 
 # US-006: History and Regression Detection Panel (P1)

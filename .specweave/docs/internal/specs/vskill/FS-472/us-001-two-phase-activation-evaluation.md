@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-10
 tldr: "**As a** skill author."
 project: vskill
+external:
+  github:
+    issue: 67
+    url: https://github.com/anton-abyzov/vskill/issues/67
 ---
 
 # US-001: Two-Phase Activation Evaluation

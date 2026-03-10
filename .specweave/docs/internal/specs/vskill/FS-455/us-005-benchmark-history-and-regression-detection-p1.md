@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-08T00:00:00.000Z
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 21
+    url: https://github.com/anton-abyzov/vskill/issues/21
 ---
 
 # US-005: Benchmark History and Regression Detection (P1)

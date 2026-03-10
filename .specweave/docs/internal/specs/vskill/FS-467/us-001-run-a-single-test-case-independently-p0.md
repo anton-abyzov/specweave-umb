@@ -1,12 +1,16 @@
 ---
 id: US-001
 feature: FS-467
-title: "Run a Single Test Case Independently (P0)"
+title: Run a Single Test Case Independently (P0)
 status: not_started
 priority: P1
 created: 2026-03-10
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 53
+    url: https://github.com/anton-abyzov/vskill/issues/53
 ---
 
 # US-001: Run a Single Test Case Independently (P0)

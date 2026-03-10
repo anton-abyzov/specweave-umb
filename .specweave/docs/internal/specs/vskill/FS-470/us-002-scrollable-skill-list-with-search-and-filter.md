@@ -1,12 +1,16 @@
 ---
 id: US-002
 feature: FS-470
-title: "Scrollable Skill List with Search and Filter"
+title: Scrollable Skill List with Search and Filter
 status: not_started
 priority: P1
 created: 2026-03-10
 tldr: "**As a** skill author looking for a specific skill."
 project: vskill
+external:
+  github:
+    issue: 60
+    url: https://github.com/anton-abyzov/vskill/issues/60
 ---
 
 # US-002: Scrollable Skill List with Search and Filter

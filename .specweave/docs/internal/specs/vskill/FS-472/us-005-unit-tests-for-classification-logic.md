@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-10
 tldr: "**As a** developer maintaining the activation tester."
 project: vskill
+external:
+  github:
+    issue: 71
+    url: https://github.com/anton-abyzov/vskill/issues/71
 ---
 
 # US-005: Unit Tests for Classification Logic

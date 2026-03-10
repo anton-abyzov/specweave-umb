@@ -1,12 +1,16 @@
 ---
 id: US-008
 feature: FS-465
-title: "Centralized State Management (P0)"
+title: Centralized State Management (P0)
 status: not_started
 priority: P1
 created: 2026-03-09
 tldr: "**As a** developer."
 project: vskill
+external:
+  github:
+    issue: 48
+    url: https://github.com/anton-abyzov/vskill/issues/48
 ---
 
 # US-008: Centralized State Management (P0)

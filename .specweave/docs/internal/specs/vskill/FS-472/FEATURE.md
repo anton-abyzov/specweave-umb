@@ -1,31 +1,32 @@
 ---
 id: FS-472
-title: Auto-classify activation test expectations
+title: "Auto-classify activation test expectations"
 type: feature
 status: planned
 priority: P1
-created: 2026-03-10T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
-tldr: >-
-  In the Skill Studio Activation Panel, test prompts without a `!` prefix
-  default to `expected: 'should_activate'`.
+created: 2026-03-10
+lastUpdated: 2026-03-10
+tldr: "In the Skill Studio Activation Panel, test prompts without a `!` prefix default to `expected: 'should_activate'`."
 complexity: high
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: 'milestone'
+    id: 20
+    url: 'https://github.com/anton-abyzov/vskill/milestone/20'
 externalLinks:
   jira:
-    epicKey: SWE2E-81
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-81'
-    syncedAt: '2026-03-10T08:23:01.742Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    epicKey: 'SWE2E-118'
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-118'
+    syncedAt: '2026-03-10T09:52:27.234Z'
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
-    featureId: 146
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/146
-    syncedAt: '2026-03-10T08:23:02.339Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-10'
+    featureId: 183
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/183'
+    syncedAt: '2026-03-10T09:52:27.778Z'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Auto-classify activation test expectations

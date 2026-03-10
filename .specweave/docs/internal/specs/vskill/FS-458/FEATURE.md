@@ -12,18 +12,23 @@ tldr: >-
   token split, no baseline-only assertion results).
 complexity: high
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 13
+    url: 'https://github.com/anton-abyzov/vskill/milestone/13'
 externalLinks:
   jira:
-    epicKey: SWE2E-69
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-69'
-    syncedAt: '2026-03-10T08:18:03.774Z'
+    epicKey: SWE2E-107
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-107'
+    syncedAt: '2026-03-10T09:45:19.263Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 134
+    featureId: 172
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/134
-    syncedAt: '2026-03-10T08:18:04.397Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/172
+    syncedAt: '2026-03-10T09:45:19.661Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'

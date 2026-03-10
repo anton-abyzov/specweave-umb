@@ -1,12 +1,16 @@
 ---
 id: US-002
 feature: FS-466
-title: "Real Markdown Preview in EditorPanel"
+title: Real Markdown Preview in EditorPanel
 status: completed
 priority: P1
 created: 2026-03-09
 tldr: "**As a** skill author."
 project: vskill
+external:
+  github:
+    issue: 50
+    url: https://github.com/anton-abyzov/vskill/issues/50
 ---
 
 # US-002: Real Markdown Preview in EditorPanel

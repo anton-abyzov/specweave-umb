@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** developer maintaining the vskill CLI."
 project: vskill
+external:
+  github:
+    issue: 27
+    url: https://github.com/anton-abyzov/vskill/issues/27
 ---
 
 # US-003: Update and expand test coverage

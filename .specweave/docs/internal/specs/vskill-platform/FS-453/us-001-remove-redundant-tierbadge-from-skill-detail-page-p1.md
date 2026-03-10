@@ -9,8 +9,8 @@ tldr: "**As a** skill consumer."
 project: vskill-platform
 external:
   github:
-    issue: 1513
-    url: https://github.com/anton-abyzov/specweave/issues/1513
+    issue: 45
+    url: https://github.com/anton-abyzov/vskill-platform/issues/45
 ---
 
 # US-001: Remove redundant TierBadge from skill detail page (P1)

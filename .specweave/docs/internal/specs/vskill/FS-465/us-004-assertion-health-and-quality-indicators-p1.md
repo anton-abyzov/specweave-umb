@@ -1,12 +1,16 @@
 ---
 id: US-004
 feature: FS-465
-title: "Assertion Health and Quality Indicators (P1)"
+title: Assertion Health and Quality Indicators (P1)
 status: not_started
 priority: P1
 created: 2026-03-09
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 44
+    url: https://github.com/anton-abyzov/vskill/issues/44
 ---
 
 # US-004: Assertion Health and Quality Indicators (P1)

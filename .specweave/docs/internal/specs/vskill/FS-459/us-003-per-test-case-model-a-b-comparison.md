@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 38
+    url: https://github.com/anton-abyzov/vskill/issues/38
 ---
 
 # US-003: Per-Test-Case Model A/B Comparison

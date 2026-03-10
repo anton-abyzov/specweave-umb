@@ -8,6 +8,10 @@ created: 2026-03-09
 tldr: "**As a** platform architect."
 project: vskill-platform
 related_projects: [vskill]
+external:
+  github:
+    issue: 48
+    url: https://github.com/anton-abyzov/vskill-platform/issues/48
 ---
 
 # US-004: Provider registry foundation (P2)

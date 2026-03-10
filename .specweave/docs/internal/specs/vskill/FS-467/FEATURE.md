@@ -11,18 +11,23 @@ tldr: >-
   sequentially through a single SSE stream.
 complexity: high
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 18
+    url: 'https://github.com/anton-abyzov/vskill/milestone/18'
 externalLinks:
   jira:
-    epicKey: SWE2E-77
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-77'
-    syncedAt: '2026-03-10T08:18:28.651Z'
+    epicKey: SWE2E-115
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-115'
+    syncedAt: '2026-03-10T09:49:40.948Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 142
+    featureId: 180
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/142
-    syncedAt: '2026-03-10T08:18:29.003Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/180
+    syncedAt: '2026-03-10T09:49:41.601Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'

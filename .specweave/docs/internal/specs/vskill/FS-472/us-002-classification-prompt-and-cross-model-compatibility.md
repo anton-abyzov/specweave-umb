@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-10
 tldr: "**As a** skill author using different LLM providers."
 project: vskill
+external:
+  github:
+    issue: 68
+    url: https://github.com/anton-abyzov/vskill/issues/68
 ---
 
 # US-002: Classification Prompt and Cross-Model Compatibility

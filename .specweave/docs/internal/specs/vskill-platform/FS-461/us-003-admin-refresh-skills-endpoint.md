@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** platform admin."
 project: vskill-platform
+external:
+  github:
+    issue: 51
+    url: https://github.com/anton-abyzov/vskill-platform/issues/51
 ---
 
 # US-003: Admin Refresh-Skills Endpoint

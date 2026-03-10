@@ -9,18 +9,23 @@ lastUpdated: 2026-03-10T00:00:00.000Z
 tldr: '`npx vskill find frontend-design` returns 15 community results but.'
 complexity: medium
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 17
+    url: 'https://github.com/anton-abyzov/vskill-platform/milestone/17'
 externalLinks:
   jira:
-    epicKey: SWE2E-71
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-71'
-    syncedAt: '2026-03-10T08:18:10.639Z'
+    epicKey: SWE2E-109
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-109'
+    syncedAt: '2026-03-10T09:45:44.813Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 136
+    featureId: 174
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/136
-    syncedAt: '2026-03-10T08:18:11.327Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/174
+    syncedAt: '2026-03-10T09:45:45.699Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'

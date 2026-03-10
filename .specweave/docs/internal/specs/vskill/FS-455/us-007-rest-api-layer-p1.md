@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-08T00:00:00.000Z
 tldr: "**As a** the frontend SPA."
 project: vskill
+external:
+  github:
+    issue: 23
+    url: https://github.com/anton-abyzov/vskill/issues/23
 ---
 
 # US-007: REST API Layer (P1)

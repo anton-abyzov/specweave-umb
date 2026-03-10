@@ -1,12 +1,16 @@
 ---
 id: US-007
 feature: FS-465
-title: "Edit-Test-Iterate Tight Loop (P0)"
+title: Edit-Test-Iterate Tight Loop (P0)
 status: not_started
 priority: P1
 created: 2026-03-09
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 47
+    url: https://github.com/anton-abyzov/vskill/issues/47
 ---
 
 # US-007: Edit-Test-Iterate Tight Loop (P0)

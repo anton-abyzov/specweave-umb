@@ -8,6 +8,10 @@ created: 2026-03-09
 tldr: "**As a** CLI user running `vskill find`."
 project: vskill
 related_projects: [vskill-platform]
+external:
+  github:
+    issue: 40
+    url: https://github.com/anton-abyzov/vskill/issues/40
 ---
 
 # US-003: CLI display of alternate sources (P1)

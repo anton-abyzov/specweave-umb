@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** developer."
 project: vskill-platform
+external:
+  github:
+    issue: 53
+    url: https://github.com/anton-abyzov/vskill-platform/issues/53
 ---
 
 # US-005: Fix SearchShardQueueMessage Type

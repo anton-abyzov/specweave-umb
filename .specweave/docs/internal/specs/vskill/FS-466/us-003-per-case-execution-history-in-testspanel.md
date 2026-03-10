@@ -1,12 +1,16 @@
 ---
 id: US-003
 feature: FS-466
-title: "Per-Case Execution History in TestsPanel"
+title: Per-Case Execution History in TestsPanel
 status: completed
 priority: P1
 created: 2026-03-09
 tldr: "**As a** skill author."
 project: vskill
+external:
+  github:
+    issue: 51
+    url: https://github.com/anton-abyzov/vskill/issues/51
 ---
 
 # US-003: Per-Case Execution History in TestsPanel

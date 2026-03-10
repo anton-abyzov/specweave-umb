@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 39
+    url: https://github.com/anton-abyzov/vskill/issues/39
 ---
 
 # US-004: Skill Dependency Visibility (MCP + Skill-to-Skill)

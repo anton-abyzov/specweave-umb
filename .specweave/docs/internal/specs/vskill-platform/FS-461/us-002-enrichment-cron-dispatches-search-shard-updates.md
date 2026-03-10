@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** skill searcher."
 project: vskill-platform
+external:
+  github:
+    issue: 50
+    url: https://github.com/anton-abyzov/vskill-platform/issues/50
 ---
 
 # US-002: Enrichment Cron Dispatches Search Shard Updates

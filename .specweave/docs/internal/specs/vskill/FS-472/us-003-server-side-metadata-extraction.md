@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-10
 tldr: "**As a** the activation test API route."
 project: vskill
+external:
+  github:
+    issue: 69
+    url: https://github.com/anton-abyzov/vskill/issues/69
 ---
 
 # US-003: Server-Side Metadata Extraction

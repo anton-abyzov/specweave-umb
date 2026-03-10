@@ -1,12 +1,16 @@
 ---
 id: US-006
 feature: FS-467
-title: "Independent UI State Per Case (P0)"
+title: Independent UI State Per Case (P0)
 status: not_started
 priority: P1
 created: 2026-03-10
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 58
+    url: https://github.com/anton-abyzov/vskill/issues/58
 ---
 
 # US-006: Independent UI State Per Case (P0)

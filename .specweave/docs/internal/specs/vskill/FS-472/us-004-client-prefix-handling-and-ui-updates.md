@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-10
 tldr: "**As a** skill author using the Activation Panel."
 project: vskill
+external:
+  github:
+    issue: 70
+    url: https://github.com/anton-abyzov/vskill/issues/70
 ---
 
 # US-004: Client Prefix Handling and UI Updates

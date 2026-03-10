@@ -1,12 +1,16 @@
 ---
 id: US-004
 feature: FS-467
-title: "Per-Case History Saving (P1)"
+title: Per-Case History Saving (P1)
 status: not_started
 priority: P1
 created: 2026-03-10
 tldr: "**As a** skill developer."
 project: vskill
+external:
+  github:
+    issue: 56
+    url: https://github.com/anton-abyzov/vskill/issues/56
 ---
 
 # US-004: Per-Case History Saving (P1)

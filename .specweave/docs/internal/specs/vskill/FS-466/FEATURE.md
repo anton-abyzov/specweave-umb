@@ -9,18 +9,23 @@ lastUpdated: 2026-03-10T00:00:00.000Z
 tldr: 'The Skill Builder workspace (localhost:3162) has two usability gaps.'
 complexity: high
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 17
+    url: 'https://github.com/anton-abyzov/vskill/milestone/17'
 externalLinks:
   jira:
-    epicKey: SWE2E-76
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-76'
-    syncedAt: '2026-03-10T08:18:25.567Z'
+    epicKey: SWE2E-114
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-114'
+    syncedAt: '2026-03-10T09:48:23.634Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 141
+    featureId: 179
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/141
-    syncedAt: '2026-03-10T08:18:25.942Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/179
+    syncedAt: '2026-03-10T09:48:24.500Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'

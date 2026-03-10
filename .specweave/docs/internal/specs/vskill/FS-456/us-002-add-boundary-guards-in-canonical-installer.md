@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** CLI maintainer."
 project: vskill
+external:
+  github:
+    issue: 26
+    url: https://github.com/anton-abyzov/vskill/issues/26
 ---
 
 # US-002: Add boundary guards in canonical installer

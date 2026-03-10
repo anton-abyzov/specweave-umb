@@ -7,6 +7,10 @@ priority: P1
 created: 2026-03-09
 tldr: "**As a** skill author."
 project: vskill
+external:
+  github:
+    issue: 30
+    url: https://github.com/anton-abyzov/vskill/issues/30
 ---
 
 # US-003: History Filtering (P1)
