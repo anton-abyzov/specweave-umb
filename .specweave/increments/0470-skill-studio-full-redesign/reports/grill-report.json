@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "incrementId": "0470-skill-studio-full-redesign",
+  "timestamp": "2026-03-10T12:00:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 1,
+    "suppressed": 3,
+    "critical": 0,
+    "high": 0,
+    "medium": 1
+  },
+  "findings": [
+    {
+      "title": "SSE resource leak on WorkspaceProvider unmount",
+      "severity": "high",
+      "confidence": 80,
+      "category": "correctness",
+      "file": "src/eval-ui/src/pages/workspace/WorkspaceContext.tsx",
+      "issue": "WorkspaceProvider did not stop SSE connections (useMultiSSE and activation SSE) on unmount, causing leaked EventSource connections when switching skills or navigating away.",
+      "suggestion": "Add cleanup useEffects calling sseStopAll() and activationSSE.stop() on unmount.",
+      "impact": "Leaked SSE connections accumulate, consuming browser resources and potentially causing stale event handling.",
+      "status": "FIXED"
+    }
+  ]
+}

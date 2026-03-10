@@ -1,8 +1,8 @@
 ---
 id: US-001
 feature: FS-462
-title: Rescan Published Skills Endpoint (P1)
-status: not_started
+title: "Rescan Published Skills Endpoint (P1)"
+status: completed
 priority: P1
 created: 2026-03-09
 tldr: "**As a** platform admin."
@@ -25,11 +25,11 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a POST to `/api/v1/admin/rescan-published` with valid auth, when called with `{ "dryRun": true }`, then it returns counts of eligible T1/T2 published skills without creating any records
-- [ ] **AC-US1-02**: Given a live (non-dry-run) call, when executed, then it creates new Submission records in RECEIVED state for up to 500 eligible published skills and enqueues them to SUBMISSION_QUEUE
-- [ ] **AC-US1-03**: Given published skills that already have a pending Submission (state not in a terminal state), when the endpoint runs, then those skills are skipped to avoid duplicate pipeline runs
-- [ ] **AC-US1-04**: Given published skills with trustTier T0 (blocked) or that are on the active blocklist, when the endpoint runs, then those skills are skipped
-- [ ] **AC-US1-05**: Given the optional body parameter `{ "skipExistingT2": true }`, when the endpoint runs, then skills that already have a Tier 2 ScanResult are excluded from re-scanning
+- [x] **AC-US1-01**: Given a POST to `/api/v1/admin/rescan-published` with valid auth, when called with `{ "dryRun": true }`, then it returns counts of eligible T1/T2 published skills without creating any records
+- [x] **AC-US1-02**: Given a live (non-dry-run) call, when executed, then it creates new Submission records in RECEIVED state for up to 500 eligible published skills and enqueues them to SUBMISSION_QUEUE
+- [x] **AC-US1-03**: Given published skills that already have a pending Submission (state not in a terminal state), when the endpoint runs, then those skills are skipped to avoid duplicate pipeline runs
+- [x] **AC-US1-04**: Given published skills with trustTier T0 (blocked) or that are on the active blocklist, when the endpoint runs, then those skills are skipped
+- [x] **AC-US1-05**: Given the optional body parameter `{ "skipExistingT2": true }`, when the endpoint runs, then skills that already have a Tier 2 ScanResult are excluded from re-scanning
 
 ---
 

@@ -5,32 +5,27 @@ type: feature
 status: completed
 priority: P1
 created: 2026-03-07T00:00:00.000Z
-lastUpdated: 2026-03-07T00:00:00.000Z
+lastUpdated: 2026-03-10T00:00:00.000Z
 tldr: >-
   SpecWeave's public docs and YouTube channel lack visual content that
   communicates the core value proposition of skills.
 complexity: high
 stakeholder_relevant: true
-external_tools:
-  github:
-    type: milestone
-    id: 231
-    url: 'https://github.com/anton-abyzov/specweave/milestone/231'
 externalLinks:
   jira:
-    epicKey: WTTC-93
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/WTTC-93'
-    syncedAt: '2026-03-07T08:19:06.379Z'
-    projectKey: WTTC
+    epicKey: SWE2E-51
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-51'
+    syncedAt: '2026-03-10T07:33:12.656Z'
+    projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 94
+    featureId: 116
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/94
-    syncedAt: '2026-03-07T08:19:06.891Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/116
+    syncedAt: '2026-03-10T07:33:13.272Z'
     organization: EasyChamp
     project: SpecWeaveSync
-updated: '2026-03-07'
+updated: '2026-03-10'
 ---
 
 # Skill Value Diagrams & Content Assets

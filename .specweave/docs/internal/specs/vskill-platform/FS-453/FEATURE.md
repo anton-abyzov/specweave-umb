@@ -1,14 +1,31 @@
 ---
 id: FS-453
-title: "Unify skill page badges: remove redundant TierBadge"
+title: 'Unify skill page badges: remove redundant TierBadge'
 type: feature
-status: ready_for_review
+status: completed
 priority: P1
 created: 2026-03-07T00:00:00.000Z
-lastUpdated: 2026-03-08
-tldr: "The skill detail page renders TierBadge ('VERIFIED') and TrustBadge ('T3 VERIFIED') side-by-side."
+lastUpdated: 2026-03-10T00:00:00.000Z
+tldr: >-
+  The skill detail page renders TierBadge ('VERIFIED') and TrustBadge ('T3
+  VERIFIED') side-by-side.
 complexity: low
 stakeholder_relevant: true
+externalLinks:
+  jira:
+    epicKey: SWE2E-52
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-52'
+    syncedAt: '2026-03-10T07:33:15.500Z'
+    projectKey: SWE2E
+    domain: antonabyzov.atlassian.net
+  ado:
+    featureId: 117
+    featureUrl: >-
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/117
+    syncedAt: '2026-03-10T07:33:16.281Z'
+    organization: EasyChamp
+    project: SpecWeaveSync
+updated: '2026-03-10'
 ---
 
 # Unify skill page badges: remove redundant TierBadge
@@ -16,8 +33,10 @@ stakeholder_relevant: true
 ## TL;DR
 
 **What**: The skill detail page renders TierBadge ("VERIFIED") and TrustBadge ("T3 VERIFIED") side-by-side.
-**Status**: ready_for_review | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 1
+
+![Unify skill page badges: remove redundant TierBadge illustration](assets/feature-fs-453.jpg)
 
 ## Overview
 
@@ -27,7 +46,7 @@ The skill detail page renders TierBadge ("VERIFIED") and TrustBadge ("T3 VERIFIE
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0453-unify-skill-page-badges](../../../../../increments/0453-unify-skill-page-badges/spec.md) | ⏳ ready_for_review | 2026-03-07T00:00:00.000Z |
+| [0453-unify-skill-page-badges](../../../../../increments/0453-unify-skill-page-badges/spec.md) | ✅ completed | 2026-03-07T00:00:00.000Z |
 
 ## User Stories
 

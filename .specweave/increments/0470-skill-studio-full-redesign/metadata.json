@@ -1,0 +1,14 @@
+{
+  "id": "0470-skill-studio-full-redesign",
+  "status": "ready_for_review",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-10T05:43:07.707Z",
+  "lastActivity": "2026-03-10T05:43:07.707Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-03-10T06:26:59.000Z"
+}

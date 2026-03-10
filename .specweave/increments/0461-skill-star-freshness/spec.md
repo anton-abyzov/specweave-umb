@@ -37,9 +37,9 @@ Skills published on verified-skill.com sometimes show 0 stars in search results 
 **So that** I can assess skill popularity from the first search result
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a skill being published, when `publishSkill()` runs, then it fetches GitHub stars via the GitHub REST API (5s timeout) before the DB upsert and stores the result in `githubStars`
-- [ ] **AC-US1-02**: Given the GitHub API is unavailable or times out, when `publishSkill()` runs, then it falls back to `githubStars: 0` without failing the publish
-- [ ] **AC-US1-03**: Given a skill is published with fetched stars, when the search shard is updated, then the shard entry reflects the fetched star count (not 0)
+- [x] **AC-US1-01**: Given a skill being published, when `publishSkill()` runs, then it fetches GitHub stars via the GitHub REST API (5s timeout) before the DB upsert and stores the result in `githubStars`
+- [x] **AC-US1-02**: Given the GitHub API is unavailable or times out, when `publishSkill()` runs, then it falls back to `githubStars: 0` without failing the publish
+- [x] **AC-US1-03**: Given a skill is published with fetched stars, when the search shard is updated, then the shard entry reflects the fetched star count (not 0)
 
 ---
 
@@ -50,10 +50,10 @@ Skills published on verified-skill.com sometimes show 0 stars in search results 
 **So that** the metrics I see are not stale between full index rebuilds
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given the enrichment batch updates a skill's `githubStars` to a value different from its previous DB value, when the batch loop completes that skill, then an `updateSearchShard()` call is dispatched for that skill
-- [ ] **AC-US2-02**: Given the enrichment batch updates a skill's `npmDownloadsWeekly` to a different value, when the batch loop completes that skill, then an `updateSearchShard()` call is dispatched for that skill
-- [ ] **AC-US2-03**: Given a skill's metrics did not change during enrichment, when the batch loop completes that skill, then no search shard update is dispatched
-- [ ] **AC-US2-04**: Given the search shard dispatch fails, when the enrichment processes the next skill, then enrichment continues (shard dispatch is best-effort, logged but non-blocking)
+- [x] **AC-US2-01**: Given the enrichment batch updates a skill's `githubStars` to a value different from its previous DB value, when the batch loop completes that skill, then an `updateSearchShard()` call is dispatched for that skill
+- [x] **AC-US2-02**: Given the enrichment batch updates a skill's `npmDownloadsWeekly` to a different value, when the batch loop completes that skill, then an `updateSearchShard()` call is dispatched for that skill
+- [x] **AC-US2-03**: Given a skill's metrics did not change during enrichment, when the batch loop completes that skill, then no search shard update is dispatched
+- [x] **AC-US2-04**: Given the search shard dispatch fails, when the enrichment processes the next skill, then enrichment continues (shard dispatch is best-effort, logged but non-blocking)
 
 ---
 
@@ -64,11 +64,11 @@ Skills published on verified-skill.com sometimes show 0 stars in search results 
 **So that** I can fix stale star counts for specific skills without waiting for the next cron cycle
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a POST to `/api/v1/admin/refresh-skills` with body `{ repoUrl }`, when the endpoint runs, then it re-fetches GitHub metrics and dispatches search shard updates for all non-deprecated skills matching that repoUrl
-- [ ] **AC-US3-02**: Given a POST with body `{ author }`, when the endpoint runs, then it re-enriches all non-deprecated skills by that author
-- [ ] **AC-US3-03**: Given a POST with body `{ skillNames: ["a", "b"] }`, when the endpoint runs, then it re-enriches exactly those named skills
-- [ ] **AC-US3-04**: Given a POST with body `{ dryRun: true }`, when the endpoint runs, then it returns the list of skills that would be refreshed without making any DB or shard updates
-- [ ] **AC-US3-05**: Given a POST with an empty body (no filters), when the endpoint runs, then it returns 400 with an error message requiring at least one filter
+- [x] **AC-US3-01**: Given a POST to `/api/v1/admin/refresh-skills` with body `{ repoUrl }`, when the endpoint runs, then it re-fetches GitHub metrics and dispatches search shard updates for all non-deprecated skills matching that repoUrl
+- [x] **AC-US3-02**: Given a POST with body `{ author }`, when the endpoint runs, then it re-enriches all non-deprecated skills by that author
+- [x] **AC-US3-03**: Given a POST with body `{ skillNames: ["a", "b"] }`, when the endpoint runs, then it re-enriches exactly those named skills
+- [x] **AC-US3-04**: Given a POST with body `{ dryRun: true }`, when the endpoint runs, then it returns the list of skills that would be refreshed without making any DB or shard updates
+- [x] **AC-US3-05**: Given a POST with an empty body (no filters), when the endpoint runs, then it returns 400 with an error message requiring at least one filter
 
 ---
 
@@ -79,11 +79,11 @@ Skills published on verified-skill.com sometimes show 0 stars in search results 
 **So that** search results do not show the same skill twice under different slugs
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given a POST to `/api/v1/admin/dedup-skills`, when duplicate skills exist (same `repoUrl` + same `skillPath`), then the endpoint identifies them as duplicates
-- [ ] **AC-US4-02**: Given duplicates are found, when the endpoint resolves them, then it keeps the entry with the highest `trustScore` (tiebreaker: most recent `certifiedAt`) and deprecates the others by setting `isDeprecated: true`
-- [ ] **AC-US4-03**: Given a duplicate is deprecated, when the shard is updated, then a `remove` action is dispatched for the deprecated entry's search shard
-- [ ] **AC-US4-04**: Given a POST with body `{ dryRun: true }`, when the endpoint runs, then it returns the list of duplicate groups and which entry would survive without modifying the DB
-- [ ] **AC-US4-05**: Given no duplicates exist, when the endpoint runs, then it returns a 200 with `{ duplicateGroups: 0, deprecated: 0 }`
+- [x] **AC-US4-01**: Given a POST to `/api/v1/admin/dedup-skills`, when duplicate skills exist (same `repoUrl` + same `skillPath`), then the endpoint identifies them as duplicates
+- [x] **AC-US4-02**: Given duplicates are found, when the endpoint resolves them, then it keeps the entry with the highest `trustScore` (tiebreaker: most recent `certifiedAt`) and deprecates the others by setting `isDeprecated: true`
+- [x] **AC-US4-03**: Given a duplicate is deprecated, when the shard is updated, then a `remove` action is dispatched for the deprecated entry's search shard
+- [x] **AC-US4-04**: Given a POST with body `{ dryRun: true }`, when the endpoint runs, then it returns the list of duplicate groups and which entry would survive without modifying the DB
+- [x] **AC-US4-05**: Given no duplicates exist, when the endpoint runs, then it returns a 200 with `{ duplicateGroups: 0, deprecated: 0 }`
 
 ---
 
@@ -94,8 +94,8 @@ Skills published on verified-skill.com sometimes show 0 stars in search results 
 **So that** incremental shard updates produce complete index entries
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given the `SearchShardQueueMessage` type in `queue/types.ts`, when reviewed, then `entry` includes optional fields `ownerSlug`, `repoSlug`, `skillSlug`, and `trustTier` matching `SearchIndexEntry`
-- [ ] **AC-US5-02**: Given all callers that construct `SearchShardQueueMessage`, when they build the `entry` object, then they populate `ownerSlug`, `repoSlug`, `skillSlug`, and `trustTier` from the skill's DB record
+- [x] **AC-US5-01**: Given the `SearchShardQueueMessage` type in `queue/types.ts`, when reviewed, then `entry` includes optional fields `ownerSlug`, `repoSlug`, `skillSlug`, and `trustTier` matching `SearchIndexEntry`
+- [x] **AC-US5-02**: Given all callers that construct `SearchShardQueueMessage`, when they build the `entry` object, then they populate `ownerSlug`, `repoSlug`, `skillSlug`, and `trustTier` from the skill's DB record
 
 ## Out of Scope
 

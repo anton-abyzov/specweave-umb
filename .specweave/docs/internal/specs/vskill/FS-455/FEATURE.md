@@ -1,14 +1,31 @@
 ---
 id: FS-455
-title: "Skill Eval UI"
+title: Skill Eval UI
 type: feature
 status: completed
 priority: P1
 created: 2026-03-08T00:00:00.000Z
-lastUpdated: 2026-03-09
-tldr: "Skill developers currently manage evals through JSON files and CLI commands only."
+lastUpdated: 2026-03-10T00:00:00.000Z
+tldr: >-
+  Skill developers currently manage evals through JSON files and CLI commands
+  only.
 complexity: high
 stakeholder_relevant: true
+externalLinks:
+  jira:
+    epicKey: SWE2E-53
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-53'
+    syncedAt: '2026-03-10T07:33:18.842Z'
+    projectKey: SWE2E
+    domain: antonabyzov.atlassian.net
+  ado:
+    featureId: 118
+    featureUrl: >-
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/118
+    syncedAt: '2026-03-10T07:33:19.345Z'
+    organization: EasyChamp
+    project: SpecWeaveSync
+updated: '2026-03-10'
 ---
 
 # Skill Eval UI
@@ -18,8 +35,6 @@ stakeholder_relevant: true
 **What**: Skill developers currently manage evals through JSON files and CLI commands only.
 **Status**: completed | **Priority**: P1
 **User Stories**: 8
-
-![Skill Eval UI illustration](assets/feature-fs-455.jpg)
 
 ## Overview
 

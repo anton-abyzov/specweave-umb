@@ -1,0 +1,13 @@
+{
+  "id": "0472-activation-auto-classify",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-10T06:07:34.643Z",
+  "lastActivity": "2026-03-10T06:07:34.644Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

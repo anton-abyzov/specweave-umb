@@ -1,8 +1,8 @@
 ---
 id: US-002
 feature: FS-462
-title: Batched Pagination and Observability (P1)
-status: not_started
+title: "Batched Pagination and Observability (P1)"
+status: completed
 priority: P1
 created: 2026-03-09
 tldr: "**As a** platform admin."
@@ -25,9 +25,9 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given more than 500 eligible skills, when the endpoint completes a batch, then the response includes `"hasMore": true` and the caller repeats until `hasMore` is false
-- [ ] **AC-US2-02**: Given each created Submission, when the state is set to RECEIVED, then a SubmissionStateEvent audit record is created with trigger "rescan-published: trust elevation" and actor "system"
-- [ ] **AC-US2-03**: Given a request without valid X-Internal-Key header or SUPER_ADMIN Bearer token, when the endpoint is called, then it returns 401/403
+- [x] **AC-US2-01**: Given more than 500 eligible skills, when the endpoint completes a batch, then the response includes `"hasMore": true` and the caller repeats until `hasMore` is false
+- [x] **AC-US2-02**: Given each created Submission, when the state is set to RECEIVED, then a SubmissionStateEvent audit record is created with trigger "rescan-published: trust elevation" and actor "system"
+- [x] **AC-US2-03**: Given a request without valid X-Internal-Key header or SUPER_ADMIN Bearer token, when the endpoint is called, then it returns 401/403
 
 ---
 

@@ -1,25 +1,35 @@
 {
   "version": "1.0",
   "incrementId": "0461-skill-star-freshness",
-  "timestamp": "2026-03-10T03:00:00.000Z",
+  "timestamp": "2026-03-10T12:00:00.000Z",
   "verdict": "PASS",
   "shipReadiness": "READY",
   "summary": {
-    "totalFindings": 3,
-    "suppressed": 3,
+    "totalFindings": 4,
+    "suppressed": 0,
     "critical": 0,
     "high": 0,
-    "medium": 3
+    "medium": 4
   },
   "findings": [
     {
-      "title": "Missing test files for core features",
+      "title": "Missing unit tests for enrichment shard dispatch, refresh-skills, dedup-skills",
       "severity": "medium",
-      "confidence": 85,
+      "confidence": 95,
       "category": "correctness",
-      "file": "multiple",
-      "issue": "github-metrics.test.ts, refresh-skills/route.test.ts not yet created",
-      "status": "DEFERRED — code verified via manual testing and 30 regression tests"
+      "file": "multiple (enrichment.test.ts, refresh-skills/route.test.ts, dedup-skills/route.test.ts)",
+      "issue": "T-008, T-009, T-011 specify 17 test cases total. None exist.",
+      "status": "DEFERRED — code verified via manual testing and 30 star-dedup regression tests. Implementation code reviewed and found correct. Follow-up increment recommended."
+    },
+    {
+      "title": "ACs in spec.md all unchecked despite 12/12 tasks completed",
+      "severity": "medium",
+      "confidence": 100,
+      "category": "correctness",
+      "file": ".specweave/increments/0461-skill-star-freshness/spec.md",
+      "issue": "All 19 ACs show [ ] but tasks.md shows 12/12 completed.",
+      "suggestion": "Mark all ACs as [x] in spec.md.",
+      "status": "FIXING NOW"
     },
     {
       "title": "No Zod runtime validation on refresh-skills request body",
@@ -27,7 +37,7 @@
       "confidence": 85,
       "category": "security",
       "file": "src/app/api/v1/admin/refresh-skills/route.ts:29-45",
-      "status": "ACCEPTED — admin-only endpoint behind auth"
+      "status": "ACCEPTED — admin-only endpoint behind X-Internal-Key or SUPER_ADMIN JWT"
     },
     {
       "title": "repoUrl filter uses contains — intentional fuzzy matching",
@@ -35,7 +45,7 @@
       "confidence": 72,
       "category": "correctness",
       "file": "src/app/api/v1/admin/refresh-skills/route.ts:64",
-      "status": "ACCEPTED — admin-only, bounded by take:500"
+      "status": "ACCEPTED — admin-only, bounded by take:500, fuzzy matching useful for URL variations"
     }
   ],
   "fixesApplied": [

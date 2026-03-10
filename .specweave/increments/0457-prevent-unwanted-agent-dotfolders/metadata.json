@@ -9,5 +9,94 @@
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-SW-001": {
+          "issueNumber": 1521,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1521",
+          "status": "active"
+        },
+        "US-SW-002": {
+          "issueNumber": 1522,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1522",
+          "status": "active"
+        },
+        "US-SW-003": {
+          "issueNumber": 1523,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1523",
+          "status": "active"
+        },
+        "US-SW-004": {
+          "issueNumber": 1524,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1524",
+          "status": "active"
+        },
+        "US-SW-006": {
+          "issueNumber": 1525,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1525",
+          "status": "active"
+        },
+        "US-SW-007": {
+          "issueNumber": 1526,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1526",
+          "status": "active"
+        },
+        "US-VK-005": {
+          "issueNumber": 17,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/17",
+          "status": "active"
+        }
+      },
+      "milestone": 11,
+      "syncedAt": "2026-03-10T07:49:13.949Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-SW-001",
+        "number": 1521,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1521",
+        "createdAt": "2026-03-10T07:48:17.831Z"
+      },
+      {
+        "userStory": "US-SW-002",
+        "number": 1522,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1522",
+        "createdAt": "2026-03-10T07:48:26.993Z"
+      },
+      {
+        "userStory": "US-SW-003",
+        "number": 1523,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1523",
+        "createdAt": "2026-03-10T07:48:35.705Z"
+      },
+      {
+        "userStory": "US-SW-004",
+        "number": 1524,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1524",
+        "createdAt": "2026-03-10T07:48:44.390Z"
+      },
+      {
+        "userStory": "US-SW-006",
+        "number": 1525,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1525",
+        "createdAt": "2026-03-10T07:48:53.157Z"
+      },
+      {
+        "userStory": "US-SW-007",
+        "number": 1526,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1526",
+        "createdAt": "2026-03-10T07:49:02.603Z"
+      },
+      {
+        "userStory": "US-VK-005",
+        "number": 17,
+        "url": "https://github.com/anton-abyzov/vskill/issues/17",
+        "createdAt": "2026-03-10T07:49:13.949Z"
+      }
+    ],
+    "lastSync": "2026-03-10T07:49:13.949Z"
+  }
 }
