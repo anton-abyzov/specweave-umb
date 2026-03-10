@@ -1,95 +1,48 @@
 {
   "version": "1.0",
   "incrementId": "0461-skill-star-freshness",
-  "timestamp": "2026-03-10T14:30:00.000Z",
+  "timestamp": "2026-03-10T14:45:00.000Z",
   "verdict": "PASS",
   "shipReadiness": "READY",
+  "grillPass": 2,
   "summary": {
-    "totalFindings": 8,
+    "totalFindings": 2,
     "critical": 0,
     "high": 0,
     "medium": 0,
-    "low": 3,
-    "suppressed": 0,
+    "low": 2,
+    "suppressed": 1,
     "filesExamined": 14,
     "acsValidated": 19,
     "acsTotal": 19,
-    "testsPass": 2539,
-    "testsFail": 4,
-    "preExistingFailures": 4
+    "testsPass": 86,
+    "testsFail": 0,
+    "incrementTestFiles": 6
+  },
+  "previousFindings": {
+    "note": "All 5 critical/high findings from grill pass 1 have been fixed",
+    "fixedCount": 5
   },
   "findings": [
     {
-      "title": "4 of 7 task-specified test files never created",
-      "severity": "critical",
-      "confidence": 100,
-      "category": "correctness",
-      "file": "src/lib/__tests__/github-metrics.test.ts (and 3 others)",
-      "issue": "Missing test files for github-metrics, queue/types, refresh-skills, dedup-skills.",
-      "status": "fixed"
-    },
-    {
-      "title": "Existing test files missing increment-specific test cases",
-      "severity": "critical",
-      "confidence": 95,
-      "category": "correctness",
-      "file": "src/lib/__tests__/submission-store.test.ts",
-      "issue": "Missing star fetch, slug field, shard dispatch, and buildSearchEntry tests.",
-      "status": "fixed"
-    },
-    {
-      "title": "Deprecated skills not removed from search index during enrichment",
-      "severity": "high",
+      "title": "Dead outer catch block in dedup-skills body parsing",
+      "severity": "low",
       "confidence": 90,
-      "category": "correctness",
-      "file": "src/lib/cron/enrichment.ts:313",
-      "issue": "Added 'remove' shard dispatch when updates.isDeprecated && opts.searchKv.",
-      "status": "fixed"
+      "category": "maintainability",
+      "file": "src/app/api/v1/admin/dedup-skills/route.ts:27-30",
+      "issue": "Body parsing had `.catch(() => ({}))` on the await, making the outer try-catch unreachable.",
+      "status": "fixed",
+      "fix": "Removed .catch() from await, let outer try-catch handle errors"
     },
     {
-      "title": "Search shard entry uses raw repoUrl instead of normalized",
-      "severity": "high",
-      "confidence": 85,
-      "category": "correctness",
-      "file": "src/lib/submission-store.ts:1232",
-      "issue": "Changed to use normalizeRepoUrl(sub.repoUrl) ?? sub.repoUrl.",
-      "status": "fixed"
-    },
-    {
-      "title": "forceForks not sanitized like forceStars",
-      "severity": "high",
-      "confidence": 82,
-      "category": "correctness",
-      "file": "src/app/api/v1/admin/refresh-skills/route.ts:121",
-      "issue": "Applied Math.max(0, Math.floor()) to forceForks. Added skillNames array validation.",
-      "status": "fixed"
-    },
-    {
-      "title": "Sequential GitHub fetches in refresh-skills could timeout",
+      "title": "Unsafe `as any` cast in enrichment deprecated shard removal",
       "severity": "low",
-      "confidence": 72,
-      "category": "performance",
-      "file": "src/app/api/v1/admin/refresh-skills/route.ts:93",
-      "issue": "Sequential fetches with 8s timeout each. Admin-only, mitigated by take:500 limit.",
-      "status": "accepted"
-    },
-    {
-      "title": "Dedup endpoint N+1 query pattern",
-      "severity": "low",
-      "confidence": 78,
-      "category": "performance",
-      "file": "src/app/api/v1/admin/dedup-skills/route.ts:60-120",
-      "issue": "One query per group + one update per loser. Admin-only, acceptable for current scale.",
-      "status": "accepted"
-    },
-    {
-      "title": "skillNames array type not validated at runtime",
-      "severity": "low",
-      "confidence": 75,
-      "category": "correctness",
-      "file": "src/app/api/v1/admin/refresh-skills/route.ts:50",
-      "issue": "Added Array.isArray() runtime check.",
-      "status": "fixed"
+      "confidence": 80,
+      "category": "maintainability",
+      "file": "src/lib/cron/enrichment.ts:319",
+      "issue": "`buildSearchEntry({ ...skill, isDeprecated: true } as any)` suppressed type checking.",
+      "status": "fixed",
+      "fix": "Pass `skill` directly — buildSearchEntry doesn't need isDeprecated, and skill already has all SkillForSearchEntry fields from the select"
     }
   ]
 }

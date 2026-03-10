@@ -2,9 +2,9 @@
 id: US-003
 feature: FS-479
 title: "vskill CLI Reference (P2)"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** developer using vskill."
 project: specweave
 ---
@@ -21,11 +21,11 @@ project: specweave
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: Page exists at `docs/skills/vskill-cli.md` with frontmatter
-- [ ] **AC-US3-02**: Documents all 12 vskill commands with syntax, flags, and examples
-- [ ] **AC-US3-03**: Each command entry includes: name, description, usage syntax, flags/options table, and at least one example
-- [ ] **AC-US3-04**: Commands are organized by category (install, discover, develop, manage)
-- [ ] **AC-US3-05**: Docusaurus build passes with the new page included
+- [x] **AC-US3-01**: Page exists at `docs/skills/vskill-cli.md` with frontmatter
+- [x] **AC-US3-02**: Documents all 12 vskill commands with syntax, flags, and examples
+- [x] **AC-US3-03**: Each command entry includes: name, description, usage syntax, flags/options table, and at least one example
+- [x] **AC-US3-04**: Commands are organized by category (install, discover, develop, manage)
+- [x] **AC-US3-05**: Docusaurus build passes with the new page included
 
 ---
 
@@ -38,4 +38,4 @@ project: specweave
 
 ## Tasks
 
-- [ ] **T-004**: [P] Read vskill index.ts and create vskill-cli.md
+- [x] **T-004**: [P] Read vskill index.ts and create vskill-cli.md

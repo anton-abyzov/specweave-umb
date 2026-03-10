@@ -1,10 +1,10 @@
 ---
 increment: 0479-docs-skills-studio-install
-title: "Documentation Update: Skills, Skill Studio, Installation"
+title: 'Documentation Update: Skills, Skill Studio, Installation'
 type: feature
 priority: P1
-status: active
-created: 2026-03-10
+status: completed
+created: 2026-03-10T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

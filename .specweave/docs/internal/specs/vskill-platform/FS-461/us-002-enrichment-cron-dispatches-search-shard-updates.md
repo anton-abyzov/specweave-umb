@@ -4,13 +4,9 @@ feature: FS-461
 title: "Enrichment Cron Dispatches Search Shard Updates"
 status: completed
 priority: P1
-created: 2026-03-09
+created: 2026-03-09T00:00:00.000Z
 tldr: "**As a** skill searcher."
 project: vskill-platform
-external:
-  github:
-    issue: 50
-    url: https://github.com/anton-abyzov/vskill-platform/issues/50
 ---
 
 # US-002: Enrichment Cron Dispatches Search Shard Updates

@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "incrementId": "0461-skill-star-freshness",
+  "timestamp": "2026-03-10T14:16:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels not configured in config.json — consent not granted for external LLM judge"
+}

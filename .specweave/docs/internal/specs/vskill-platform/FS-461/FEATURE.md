@@ -1,36 +1,27 @@
 ---
 id: FS-461
-title: Skill Star Count Freshness & Search Index Sync
+title: "Skill Star Count Freshness & Search Index Sync"
 type: feature
-status: active
+status: completed
 priority: P1
 created: 2026-03-09T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
-tldr: >-
-  Skills published on verified-skill.com sometimes show 0 stars in search
-  results even when their GitHub repos have thousands of stars.
+lastUpdated: 2026-03-10
+tldr: "Skills published on verified-skill.com sometimes show 0 stars in search results even when their GitHub repos have thousands of stars."
 complexity: high
 stakeholder_relevant: true
-external_tools:
-  github:
-    type: milestone
-    id: 18
-    url: 'https://github.com/anton-abyzov/vskill-platform/milestone/18'
 externalLinks:
   jira:
-    epicKey: SWE2E-111
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-111'
-    syncedAt: '2026-03-10T09:46:06.523Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    epicKey: 'SWE2E-123'
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-123'
+    syncedAt: '2026-03-10T18:18:25.029Z'
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
-    featureId: 176
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/176
-    syncedAt: '2026-03-10T09:46:06.972Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-10'
+    featureId: 189
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/189'
+    syncedAt: '2026-03-10T18:18:26.860Z'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Skill Star Count Freshness & Search Index Sync
@@ -38,7 +29,7 @@ updated: '2026-03-10'
 ## TL;DR
 
 **What**: Skills published on verified-skill.com sometimes show 0 stars in search results even when their GitHub repos have thousands of stars.
-**Status**: active | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 5
 
 ![Skill Star Count Freshness & Search Index Sync illustration](assets/feature-fs-461.jpg)
@@ -51,7 +42,7 @@ Skills published on verified-skill.com sometimes show 0 stars in search results 
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0461-skill-star-freshness](../../../../../increments/0461-skill-star-freshness/spec.md) | ⏳ active | 2026-03-09 |
+| [0461-skill-star-freshness](../../../../../increments/0461-skill-star-freshness/spec.md) | ✅ completed | 2026-03-09T00:00:00.000Z |
 
 ## User Stories
 

@@ -19,7 +19,7 @@ by_user_story:
 ## User Story: US-005 - Fix SearchShardQueueMessage Type
 
 **Linked ACs**: AC-US5-01, AC-US5-02
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ### T-001: Add missing fields to SearchShardQueueMessage entry type
 
@@ -66,7 +66,7 @@ by_user_story:
 ## User Story: US-001 - Fetch GitHub Stars at Publish Time
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ### T-003: Create shared github-metrics.ts module
 
@@ -145,7 +145,7 @@ by_user_story:
 ## User Story: US-002 - Enrichment Cron Dispatches Search Shard Updates
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ### T-006: Add buildSearchEntry() helper and SkillForSearchEntry type to search-index.ts
 
@@ -221,7 +221,7 @@ by_user_story:
 ## User Story: US-003 - Admin Refresh-Skills Endpoint
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ### T-009: Create refresh-skills POST handler
 
@@ -278,7 +278,7 @@ by_user_story:
 ## User Story: US-004 - Admin Dedup-Skills Endpoint
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ### T-011: Create dedup-skills POST handler
 
