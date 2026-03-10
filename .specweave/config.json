@@ -182,7 +182,7 @@
         "prefix": "SPE",
         "sync": {
           "github": { "owner": "anton-abyzov", "repo": "specweave" },
-          "jira": { "projectKey": "WTTC" },
+          "jira": { "projectKey": "SWE2E" },
           "ado": { "organization": "EasyChamp", "project": "SpecWeaveSync" }
         }
       },
