@@ -194,7 +194,7 @@
         "sync": {
           "github": { "owner": "anton-abyzov", "repo": "vskill" },
           "jira": { "projectKey": "SWE2E" },
-          "ado": { "organization": "EasyChamp", "project": "VSkillSync" }
+          "ado": { "organization": "EasyChamp", "project": "SpecWeaveSync" }
         }
       },
       {
@@ -205,7 +205,7 @@
         "sync": {
           "github": { "owner": "anton-abyzov", "repo": "vskill-platform" },
           "jira": { "projectKey": "SWE2E" },
-          "ado": { "organization": "EasyChamp", "project": "VSkillPlatformSync" }
+          "ado": { "organization": "EasyChamp", "project": "SpecWeaveSync" }
         }
       }
     ]
