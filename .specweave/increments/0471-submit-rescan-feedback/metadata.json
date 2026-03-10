@@ -1,0 +1,13 @@
+{
+  "id": "0471-submit-rescan-feedback",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-10T06:06:57.002Z",
+  "lastActivity": "2026-03-10T06:06:57.002Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
