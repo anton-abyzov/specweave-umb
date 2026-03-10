@@ -1,3 +1,7 @@
+---
+project: specweave
+---
+
 # FS-406: GitHub Sync Smoke Test 2
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+project: specweave
+---
+
 # FS-407: GitHub Sync Smoke Test 3 - AC Checkbox Sync
 
 ## Overview

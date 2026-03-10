@@ -11,18 +11,23 @@ tldr: >-
   communicates the core value proposition of skills.
 complexity: high
 stakeholder_relevant: true
+external_tools:
+  github:
+    type: milestone
+    id: 231
+    url: 'https://github.com/anton-abyzov/specweave/milestone/231'
 externalLinks:
   jira:
-    epicKey: SWE2E-63
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-63'
-    syncedAt: '2026-03-10T08:16:23.727Z'
+    epicKey: SWE2E-82
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-82'
+    syncedAt: '2026-03-10T08:44:47.675Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 128
+    featureId: 147
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/128
-    syncedAt: '2026-03-10T08:16:25.421Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/147
+    syncedAt: '2026-03-10T08:44:48.735Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'

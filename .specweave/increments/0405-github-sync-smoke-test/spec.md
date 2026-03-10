@@ -1,3 +1,7 @@
+---
+project: specweave
+---
+
 # FS-405: GitHub Sync Smoke Test
 
 ## Overview

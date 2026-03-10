@@ -19,6 +19,8 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P1
 **User Stories**: 4
 
+![npm Weekly Download Stats Integration illustration](assets/feature-fs-392.jpg)
+
 ## Overview
 
 Add `npmDownloadsWeekly` as a separate field alongside the existing monthly `npmDownloads`. Weekly downloads are used for display on skill detail pages and as a third tiebreaker in edge search sorting. The existing monthly field and trending formula remain unchanged.

@@ -1,3 +1,7 @@
+---
+project: specweave
+---
+
 # FS-409G: Research: Sub-agents for skill execution
 
 ## Overview

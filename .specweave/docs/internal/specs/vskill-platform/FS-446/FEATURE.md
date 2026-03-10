@@ -19,6 +19,8 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P1
 **User Stories**: 5
 
+![Rename Authors to Publishers + Show publisher/skill-name Format illustration](assets/feature-fs-446.jpg)
+
 ## Overview
 
 The vskill-platform UI uses "Authors" to refer to skill owners, but "Publishers" better reflects their role: they publish skills to the marketplace. Additionally, skills are currently shown by name alone, which can be ambiguous when multiple publishers have similarly named skills. Adopting a `publisher/skill-name` display format (analogous to GitHub's `owner/repo`) eliminates ambiguity.

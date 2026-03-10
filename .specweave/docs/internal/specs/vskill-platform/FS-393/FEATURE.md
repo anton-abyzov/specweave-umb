@@ -19,6 +19,8 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P1
 **User Stories**: 6
 
+![Crawl Pipeline Throughput Optimization illustration](assets/feature-fs-393.jpg)
+
 ## Overview
 
 The crawl pipeline currently processes submissions through two paths: Het

@@ -19,6 +19,8 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P0
 **User Stories**: 12
 
+![Critical Sync Integration Bug Fixes illustration](assets/feature-fs-398.jpg)
+
 ## Overview
 
 Comprehensive audit of the sync subsystem (`src/sync/`, providers, reconcilers, coordinator, auto-creator) has revealed 30+ bugs across critical, high, and medium severity tiers. These range from stub code in production paths and data-destroying reconciliation logic to hardcoded branch names, missing pagination, and profile resolution inconsistencies.
