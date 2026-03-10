@@ -1,14 +1,13 @@
 ---
 id: US-VK-005
 feature: FS-457
-title: Clean Up Phantom Marketplace Entries
+title: "Clean Up Phantom Marketplace Entries"
 status: not_started
 priority: P0
 created: 2026-03-09
 tldr: "**As a** vskill maintainer."
 project: vskill
-related_projects:
-  - specweave
+related_projects: [specweave]
 external:
   github:
     issue: 17

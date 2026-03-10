@@ -1,14 +1,13 @@
 ---
 id: US-SW-006
 feature: FS-457
-title: Update Hook Plugin Detection Logic
+title: "Update Hook Plugin Detection Logic"
 status: not_started
 priority: P0
 created: 2026-03-09
 tldr: "**As a** SpecWeave developer."
 project: specweave
-related_projects:
-  - vskill
+related_projects: [vskill]
 external:
   github:
     issue: 1525

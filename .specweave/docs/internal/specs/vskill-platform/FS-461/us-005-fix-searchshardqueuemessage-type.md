@@ -2,7 +2,7 @@
 id: US-005
 feature: FS-461
 title: "Fix SearchShardQueueMessage Type"
-status: not_started
+status: completed
 priority: P1
 created: 2026-03-09
 tldr: "**As a** developer."
@@ -21,8 +21,8 @@ project: vskill-platform
 
 ## Acceptance Criteria
 
-- [ ] **AC-US5-01**: Given the `SearchShardQueueMessage` type in `queue/types.ts`, when reviewed, then `entry` includes optional fields `ownerSlug`, `repoSlug`, `skillSlug`, and `trustTier` matching `SearchIndexEntry`
-- [ ] **AC-US5-02**: Given all callers that construct `SearchShardQueueMessage`, when they build the `entry` object, then they populate `ownerSlug`, `repoSlug`, `skillSlug`, and `trustTier` from the skill's DB record
+- [x] **AC-US5-01**: Given the `SearchShardQueueMessage` type in `queue/types.ts`, when reviewed, then `entry` includes optional fields `ownerSlug`, `repoSlug`, `skillSlug`, and `trustTier` matching `SearchIndexEntry`
+- [x] **AC-US5-02**: Given all callers that construct `SearchShardQueueMessage`, when they build the `entry` object, then they populate `ownerSlug`, `repoSlug`, `skillSlug`, and `trustTier` from the skill's DB record
 
 ---
 

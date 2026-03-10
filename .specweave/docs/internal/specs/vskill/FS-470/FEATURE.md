@@ -14,16 +14,16 @@ complexity: high
 stakeholder_relevant: true
 externalLinks:
   jira:
-    epicKey: SWE2E-35
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-35'
-    syncedAt: '2026-03-10T07:08:12.189Z'
+    epicKey: SWE2E-78
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-78'
+    syncedAt: '2026-03-10T08:18:31.511Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 100
+    featureId: 143
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/100
-    syncedAt: '2026-03-10T07:08:12.658Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/143
+    syncedAt: '2026-03-10T08:18:31.922Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'

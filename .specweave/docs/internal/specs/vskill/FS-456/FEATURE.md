@@ -14,16 +14,16 @@ complexity: medium
 stakeholder_relevant: true
 externalLinks:
   jira:
-    epicKey: SWE2E-54
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-54'
-    syncedAt: '2026-03-10T07:39:59.998Z'
+    epicKey: SWE2E-66
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-66'
+    syncedAt: '2026-03-10T08:17:55.686Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 119
+    featureId: 131
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/119
-    syncedAt: '2026-03-10T07:40:00.850Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/131
+    syncedAt: '2026-03-10T08:17:56.096Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'
@@ -36,6 +36,8 @@ updated: '2026-03-10'
 **What**: Running `vskill add` from a parent or umbrella directory creates agent dot-folders (`.aider/`, `.kiro/`, `.pi/`, `.codex/`, `.cursor/`, `.agent/`, `.windsurf/`, etc.) in the wrong location.
 **Status**: planned | **Priority**: P1
 **User Stories**: 3
+
+![Prevent unwanted agent dot-folder creation illustration](assets/feature-fs-456.jpg)
 
 ## Overview
 

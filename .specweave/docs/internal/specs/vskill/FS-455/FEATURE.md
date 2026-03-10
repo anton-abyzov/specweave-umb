@@ -13,16 +13,16 @@ complexity: high
 stakeholder_relevant: true
 externalLinks:
   jira:
-    epicKey: SWE2E-53
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-53'
-    syncedAt: '2026-03-10T07:33:18.842Z'
+    epicKey: SWE2E-65
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-65'
+    syncedAt: '2026-03-10T08:17:51.861Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 118
+    featureId: 130
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/118
-    syncedAt: '2026-03-10T07:33:19.345Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/130
+    syncedAt: '2026-03-10T08:17:52.951Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'
@@ -35,6 +35,8 @@ updated: '2026-03-10'
 **What**: Skill developers currently manage evals through JSON files and CLI commands only.
 **Status**: completed | **Priority**: P1
 **User Stories**: 8
+
+![Skill Eval UI illustration](assets/feature-fs-455.jpg)
 
 ## Overview
 

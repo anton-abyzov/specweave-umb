@@ -11,23 +11,18 @@ tldr: >-
   user consent.
 complexity: low
 stakeholder_relevant: true
-external_tools:
-  github:
-    type: milestone
-    id: 11
-    url: 'https://github.com/anton-abyzov/vskill/milestone/11'
 externalLinks:
   jira:
-    epicKey: SWE2E-56
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-56'
-    syncedAt: '2026-03-10T07:49:17.523Z'
+    epicKey: SWE2E-68
+    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-68'
+    syncedAt: '2026-03-10T08:18:00.461Z'
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
-    featureId: 121
+    featureId: 133
     featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/121
-    syncedAt: '2026-03-10T07:49:18.269Z'
+      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/133
+    syncedAt: '2026-03-10T08:18:00.897Z'
     organization: EasyChamp
     project: SpecWeaveSync
 updated: '2026-03-10'
@@ -40,6 +35,8 @@ updated: '2026-03-10'
 **What**: SpecWeave's plugin auto-loading mechanism silently installs plugins without user consent.
 **Status**: planned | **Priority**: P0
 **User Stories**: 1
+
+![Consent-First Plugin Auto-Loading illustration](assets/feature-fs-457.jpg)
 
 ## Overview
 

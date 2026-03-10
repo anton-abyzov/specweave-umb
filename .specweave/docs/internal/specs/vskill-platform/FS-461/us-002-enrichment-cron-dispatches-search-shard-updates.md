@@ -2,7 +2,7 @@
 id: US-002
 feature: FS-461
 title: "Enrichment Cron Dispatches Search Shard Updates"
-status: not_started
+status: completed
 priority: P1
 created: 2026-03-09
 tldr: "**As a** skill searcher."
@@ -21,10 +21,10 @@ project: vskill-platform
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given the enrichment batch updates a skill's `githubStars` to a value different from its previous DB value, when the batch loop completes that skill, then an `updateSearchShard()` call is dispatched for that skill
-- [ ] **AC-US2-02**: Given the enrichment batch updates a skill's `npmDownloadsWeekly` to a different value, when the batch loop completes that skill, then an `updateSearchShard()` call is dispatched for that skill
-- [ ] **AC-US2-03**: Given a skill's metrics did not change during enrichment, when the batch loop completes that skill, then no search shard update is dispatched
-- [ ] **AC-US2-04**: Given the search shard dispatch fails, when the enrichment processes the next skill, then enrichment continues (shard dispatch is best-effort, logged but non-blocking)
+- [x] **AC-US2-01**: Given the enrichment batch updates a skill's `githubStars` to a value different from its previous DB value, when the batch loop completes that skill, then an `updateSearchShard()` call is dispatched for that skill
+- [x] **AC-US2-02**: Given the enrichment batch updates a skill's `npmDownloadsWeekly` to a different value, when the batch loop completes that skill, then an `updateSearchShard()` call is dispatched for that skill
+- [x] **AC-US2-03**: Given a skill's metrics did not change during enrichment, when the batch loop completes that skill, then no search shard update is dispatched
+- [x] **AC-US2-04**: Given the search shard dispatch fails, when the enrichment processes the next skill, then enrichment continues (shard dispatch is best-effort, logged but non-blocking)
 
 ---
 

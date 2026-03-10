@@ -1,14 +1,13 @@
 ---
 id: US-SW-003
 feature: FS-457
-title: LSP Plugin Consent Guard
+title: "LSP Plugin Consent Guard"
 status: not_started
 priority: P0
 created: 2026-03-09
 tldr: "**As a** SpecWeave user."
 project: specweave
-related_projects:
-  - vskill
+related_projects: [vskill]
 external:
   github:
     issue: 1523

@@ -2,7 +2,7 @@
 id: US-001
 feature: FS-461
 title: "Fetch GitHub Stars at Publish Time"
-status: not_started
+status: completed
 priority: P1
 created: 2026-03-09
 tldr: "**As a** skill searcher."
@@ -21,9 +21,9 @@ project: vskill-platform
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a skill being published, when `publishSkill()` runs, then it fetches GitHub stars via the GitHub REST API (5s timeout) before the DB upsert and stores the result in `githubStars`
-- [ ] **AC-US1-02**: Given the GitHub API is unavailable or times out, when `publishSkill()` runs, then it falls back to `githubStars: 0` without failing the publish
-- [ ] **AC-US1-03**: Given a skill is published with fetched stars, when the search shard is updated, then the shard entry reflects the fetched star count (not 0)
+- [x] **AC-US1-01**: Given a skill being published, when `publishSkill()` runs, then it fetches GitHub stars via the GitHub REST API (5s timeout) before the DB upsert and stores the result in `githubStars`
+- [x] **AC-US1-02**: Given the GitHub API is unavailable or times out, when `publishSkill()` runs, then it falls back to `githubStars: 0` without failing the publish
+- [x] **AC-US1-03**: Given a skill is published with fetched stars, when the search shard is updated, then the shard entry reflects the fetched star count (not 0)
 
 ---
 

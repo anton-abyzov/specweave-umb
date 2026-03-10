@@ -1,14 +1,13 @@
 ---
 id: US-SW-007
 feature: FS-457
-title: Test Suite Updates
+title: "Test Suite Updates"
 status: not_started
 priority: P0
 created: 2026-03-09
 tldr: "**As a** SpecWeave contributor."
 project: specweave
-related_projects:
-  - vskill
+related_projects: [vskill]
 external:
   github:
     issue: 1526
