@@ -1,19 +1,22 @@
 {
   "version": "1.0",
   "incrementId": "0461-skill-star-freshness",
-  "timestamp": "2026-03-10T14:00:00.000Z",
-  "verdict": "FAIL",
-  "shipReadiness": "NOT READY",
+  "timestamp": "2026-03-10T14:30:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
   "summary": {
     "totalFindings": 8,
-    "critical": 2,
+    "critical": 0,
     "high": 0,
-    "medium": 3,
+    "medium": 0,
     "low": 3,
     "suppressed": 0,
     "filesExamined": 14,
     "acsValidated": 19,
-    "acsTotal": 19
+    "acsTotal": 19,
+    "testsPass": 2539,
+    "testsFail": 4,
+    "preExistingFailures": 4
   },
   "findings": [
     {
@@ -22,9 +25,8 @@
       "confidence": 100,
       "category": "correctness",
       "file": "src/lib/__tests__/github-metrics.test.ts (and 3 others)",
-      "issue": "Missing: github-metrics.test.ts (4 test cases), queue/types.test.ts (1 test case), refresh-skills/route.test.ts (6 test cases), dedup-skills/route.test.ts (7 test cases). 14 of 19 ACs have zero dedicated test coverage.",
-      "suggestion": "Create all 4 missing test files with the test cases specified in tasks.md",
-      "impact": "TDD mode violated. 14/19 ACs untested. Regressions undetectable."
+      "issue": "Missing test files for github-metrics, queue/types, refresh-skills, dedup-skills.",
+      "status": "fixed"
     },
     {
       "title": "Existing test files missing increment-specific test cases",
@@ -32,19 +34,17 @@
       "confidence": 95,
       "category": "correctness",
       "file": "src/lib/__tests__/submission-store.test.ts",
-      "issue": "submission-store.test.ts has no mock of github-metrics, no star fetch tests (T-004), no slug field assertions (T-002). enrichment.test.ts has no shard dispatch tests (T-008). search-index.test.ts has no buildSearchEntry tests (T-006).",
-      "suggestion": "Add the missing test cases from tasks T-002, T-004, T-006, T-008 to existing test files",
-      "impact": "Core increment functionality (star fetch at publish, shard dispatch in enrichment) has zero test coverage."
+      "issue": "Missing star fetch, slug field, shard dispatch, and buildSearchEntry tests.",
+      "status": "fixed"
     },
     {
       "title": "Deprecated skills not removed from search index during enrichment",
       "severity": "high",
       "confidence": 90,
       "category": "correctness",
-      "file": "src/lib/cron/enrichment.ts:299",
-      "issue": "When enrichment deprecates a skill (repo 404), updates.isDeprecated=true is set but no 'remove' shard dispatch is made. Deprecated skills remain in search results until full rebuild.",
-      "suggestion": "Add 'remove' shard dispatch when updates.isDeprecated && opts.searchKv",
-      "impact": "Deprecated skills visible in search for up to 10 minutes after deprecation."
+      "file": "src/lib/cron/enrichment.ts:313",
+      "issue": "Added 'remove' shard dispatch when updates.isDeprecated && opts.searchKv.",
+      "status": "fixed"
     },
     {
       "title": "Search shard entry uses raw repoUrl instead of normalized",
@@ -52,9 +52,8 @@
       "confidence": 85,
       "category": "correctness",
       "file": "src/lib/submission-store.ts:1232",
-      "issue": "publishSkill shard dispatch uses sub.repoUrl (raw) while DB upsert uses normalizeRepoUrl(sub.repoUrl). Creates URL mismatch between DB and search index.",
-      "suggestion": "Use normalizeRepoUrl(sub.repoUrl) ?? sub.repoUrl in the shard entry",
-      "impact": "Search index entries may not match DB records, breaking dedup and admin tools."
+      "issue": "Changed to use normalizeRepoUrl(sub.repoUrl) ?? sub.repoUrl.",
+      "status": "fixed"
     },
     {
       "title": "forceForks not sanitized like forceStars",
@@ -62,19 +61,8 @@
       "confidence": 82,
       "category": "correctness",
       "file": "src/app/api/v1/admin/refresh-skills/route.ts:121",
-      "issue": "forceStars gets Math.max(0, Math.floor()) sanitization but forceForks is written directly to DB unsanitized.",
-      "suggestion": "Apply same Math.max(0, Math.floor()) to forceForks",
-      "impact": "Admin could accidentally write negative or fractional fork counts to DB."
-    },
-    {
-      "title": "skillNames array type not validated at runtime",
-      "severity": "low",
-      "confidence": 75,
-      "category": "correctness",
-      "file": "src/app/api/v1/admin/refresh-skills/route.ts:50",
-      "issue": "skillNames from request.json() is not validated as array. String input would cause Prisma runtime error.",
-      "suggestion": "Add Array.isArray() runtime check",
-      "impact": "Malformed request causes 500 instead of 400."
+      "issue": "Applied Math.max(0, Math.floor()) to forceForks. Added skillNames array validation.",
+      "status": "fixed"
     },
     {
       "title": "Sequential GitHub fetches in refresh-skills could timeout",
@@ -82,9 +70,8 @@
       "confidence": 72,
       "category": "performance",
       "file": "src/app/api/v1/admin/refresh-skills/route.ts:93",
-      "issue": "Sequential fetches with 8s timeout each. Many unique repos could exceed Worker CPU time limit.",
-      "suggestion": "Use batched Promise.allSettled with concurrency limit",
-      "impact": "Admin endpoint may timeout on large skill sets."
+      "issue": "Sequential fetches with 8s timeout each. Admin-only, mitigated by take:500 limit.",
+      "status": "accepted"
     },
     {
       "title": "Dedup endpoint N+1 query pattern",
@@ -92,9 +79,17 @@
       "confidence": 78,
       "category": "performance",
       "file": "src/app/api/v1/admin/dedup-skills/route.ts:60-120",
-      "issue": "One query per group + one update per loser. Could timeout on large datasets.",
-      "suggestion": "Batch updates with updateMany or add take limit on dupGroups",
-      "impact": "Admin endpoint may timeout with many duplicate groups."
+      "issue": "One query per group + one update per loser. Admin-only, acceptable for current scale.",
+      "status": "accepted"
+    },
+    {
+      "title": "skillNames array type not validated at runtime",
+      "severity": "low",
+      "confidence": 75,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/refresh-skills/route.ts:50",
+      "issue": "Added Array.isArray() runtime check.",
+      "status": "fixed"
     }
   ]
 }
