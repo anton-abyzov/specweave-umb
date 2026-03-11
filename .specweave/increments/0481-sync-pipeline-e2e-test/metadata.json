@@ -1,10 +1,10 @@
 {
   "id": "0481-sync-pipeline-e2e-test",
-  "status": "active",
+  "status": "abandoned",
   "type": "experiment",
   "priority": "P1",
   "created": "2026-03-10T20:17:15.226Z",
-  "lastActivity": "2026-03-10T20:17:15.226Z",
+  "lastActivity": "2026-03-11T06:30:39.613Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -24,5 +24,7 @@
       "project": "SpecWeaveSync",
       "syncedAt": "2026-03-10T20:40:54.762Z"
     }
-  }
+  },
+  "abandonedReason": "No reason provided",
+  "abandonedAt": "2026-03-11T06:30:39.613Z"
 }

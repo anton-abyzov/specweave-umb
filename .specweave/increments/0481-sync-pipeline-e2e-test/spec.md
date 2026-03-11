@@ -3,7 +3,7 @@ increment: 0481-sync-pipeline-e2e-test
 title: Sync Pipeline E2E Test
 type: experiment
 priority: P2
-status: active
+status: abandoned
 created: 2026-03-10T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
