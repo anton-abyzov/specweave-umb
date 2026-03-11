@@ -1,0 +1,30 @@
+{
+  "id": "0496-skill-studio-ui-polish",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-11T22:48:35.821Z",
+  "lastActivity": "2026-03-11T23:13:25.501Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-156",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-156",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-11T23:14:27.769Z"
+    },
+    "ado": {
+      "featureId": "556",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/556",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-11T23:14:30.416Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-11T23:13:11.465Z",
+  "approvedAt": "2026-03-11T23:13:25.501Z"
+}
