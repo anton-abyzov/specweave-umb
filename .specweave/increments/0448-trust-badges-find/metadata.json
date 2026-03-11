@@ -9,5 +9,64 @@
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 83,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/83",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 85,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/85",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 58,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/58",
+          "status": "active"
+        }
+      },
+      "milestone": 21,
+      "syncedAt": "2026-03-11T21:15:51.528Z"
+    },
+    "jira": {
+      "epicKey": "SWE2E-152",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-152",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-11T21:15:57.196Z"
+    },
+    "ado": {
+      "featureId": "502",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/502",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-11T21:15:58.423Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 83,
+        "url": "https://github.com/anton-abyzov/vskill/issues/83",
+        "createdAt": "2026-03-11T21:15:21.836Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 85,
+        "url": "https://github.com/anton-abyzov/vskill/issues/85",
+        "createdAt": "2026-03-11T21:15:31.806Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 58,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/58",
+        "createdAt": "2026-03-11T21:15:51.528Z"
+      }
+    ],
+    "lastSync": "2026-03-11T21:15:51.528Z"
+  }
 }

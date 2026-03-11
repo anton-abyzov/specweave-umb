@@ -1,9 +1,9 @@
 ---
 increment: 0465-skill-builder-redesign
 title: "Skill Builder Redesign: Unified Workspace"
-status: planned
+status: completed
 total_tasks: 40
-completed_tasks: 0
+completed_tasks: 40
 by_user_story:
   US-001: [T-001, T-002, T-003, T-004, T-005]
   US-002: [T-006, T-007, T-008, T-009]
@@ -31,7 +31,7 @@ by_user_story:
 
 ### T-028: Define workspace types and interfaces
 
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-01 | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-01 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the workspace types file exists
@@ -53,7 +53,7 @@ by_user_story:
 
 ### T-029: Implement workspaceReducer
 
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02 | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** a workspace action is dispatched
@@ -82,7 +82,7 @@ by_user_story:
 
 ### T-030: Implement SkillWorkspaceProvider and useSkillWorkspace hook
 
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02, AC-US8-03, AC-US8-04 | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02, AC-US8-03, AC-US8-04 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** SkillWorkspaceProvider wraps a component tree
@@ -111,7 +111,7 @@ by_user_story:
 
 ### T-031: Implement useURLSync hook
 
-**User Story**: US-008 | **Satisfies ACs**: AC-US1-04 | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US1-04 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** activePanel changes in workspace state
@@ -141,7 +141,7 @@ by_user_story:
 
 ### T-001: Implement WorkspaceShell CSS Grid layout
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the WorkspaceShell renders
@@ -166,7 +166,7 @@ by_user_story:
 
 ### T-002: Implement LeftRail navigation component
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US2-05 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US2-05 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the LeftRail renders with activePanel="tests"
@@ -193,7 +193,7 @@ by_user_story:
 
 ### T-003: Implement WorkspaceHeader
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-03, AC-US2-05, AC-US6-06 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-03, AC-US2-05, AC-US6-06 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the WorkspaceHeader renders with a loaded workspace state
@@ -221,7 +221,7 @@ by_user_story:
 
 ### T-004: Implement SkillWorkspace route and wire into App.tsx
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-04 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-04 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the user navigates to /skills/myplugin/myskill
@@ -247,7 +247,7 @@ by_user_story:
 
 ### T-005: Implement useKeyboardShortcuts hook
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-05, AC-US2-04 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-05, AC-US2-04 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** WorkspaceShell is mounted and useKeyboardShortcuts is registered
@@ -281,7 +281,7 @@ by_user_story:
 
 ### T-006: Implement EditorPanel shell with view mode switching
 
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the EditorPanel renders
@@ -307,7 +307,7 @@ by_user_story:
 
 ### T-007: Implement MarkdownPreview and FrontmatterCards
 
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** SKILL.md content with frontmatter
@@ -333,7 +333,7 @@ by_user_story:
 
 ### T-008: Implement editor save flow and dirty indicator
 
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-04, AC-US2-05 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-04, AC-US2-05 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the editor textarea has unsaved changes
@@ -360,7 +360,7 @@ by_user_story:
 
 ### T-009: Integrate SkillImprovePanel into EditorPanel
 
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-06, AC-US7-01 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-06, AC-US7-01 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the EditorPanel is active
@@ -390,7 +390,7 @@ by_user_story:
 
 ### T-010: Implement TestsPanel list+detail layout with TestCaseList
 
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** TestsPanel renders with 3 test cases
@@ -417,7 +417,7 @@ by_user_story:
 
 ### T-011: Implement TestCaseDetail with editable fields and inline run results
 
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-02, AC-US3-04 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-02, AC-US3-04 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** a test case is selected
@@ -443,7 +443,7 @@ by_user_story:
 
 ### T-012: Implement AssertionBuilder with CRUD and drag reorder
 
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-03 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** a test case has 2 assertions
@@ -470,7 +470,7 @@ by_user_story:
 
 ### T-013: Implement single-case run and A/B Compare from TestsPanel
 
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-05, AC-US3-06 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-05, AC-US3-06 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** a test case is selected in TestsPanel
@@ -495,7 +495,7 @@ by_user_story:
 
 ### T-014: Implement add test case form
 
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-07 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-07 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the Tests panel is active
@@ -520,7 +520,7 @@ by_user_story:
 
 ### T-015: Implement "Suggest Assertions" AI feature
 
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-08 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-08 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** a test case has prompt and expected output
@@ -551,7 +551,7 @@ by_user_story:
 
 ### T-016: Implement useAssertionHealth hook
 
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** stats and history data are available
@@ -579,7 +579,7 @@ by_user_story:
 
 ### T-017: Implement AssertionHealthBadge component
 
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** an assertion has health data
@@ -609,7 +609,7 @@ by_user_story:
 
 ### T-018: Implement RunPanel shell with controls and scope selector
 
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-07 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-07 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the Run panel is active
@@ -637,7 +637,7 @@ by_user_story:
 
 ### T-019: Implement useSSEBridge hook for streaming results
 
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-03, AC-US5-04, AC-US5-06 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-03, AC-US5-04, AC-US5-06 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** a benchmark run is started
@@ -664,7 +664,7 @@ by_user_story:
 
 ### T-020: Implement RunPanel streaming result display
 
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-03, AC-US5-04, AC-US5-05 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-03, AC-US5-04, AC-US5-05 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** a benchmark run is in progress
@@ -691,7 +691,7 @@ by_user_story:
 
 ### T-021: Wire RunPanel results back to Tests panel via shared state
 
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-06 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-06 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** a run completes from the Run panel
@@ -718,7 +718,7 @@ by_user_story:
 
 ### T-022: Implement HistoryPanel with tab bar and TimelineView
 
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the History panel is active
@@ -745,7 +745,7 @@ by_user_story:
 
 ### T-023: Implement Per-Eval heatmap tab
 
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-04, AC-US6-05 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-04, AC-US6-05 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the Per-Eval tab is active
@@ -767,7 +767,7 @@ by_user_story:
 
 ### T-024: Implement Statistics tab and regression detection
 
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-06, AC-US6-07 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-06, AC-US6-07 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the Statistics tab is active
@@ -796,7 +796,7 @@ by_user_story:
 
 ### T-025: Implement "Fix with AI" cross-panel flow
 
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-01 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-01 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** a test case has a failed assertion
@@ -820,7 +820,7 @@ by_user_story:
 
 ### T-026: Implement "Apply & Rerun" flow with iteration counter
 
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-02, AC-US7-03 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-02, AC-US7-03 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** an AI improvement has been generated in SkillImprovePanel
@@ -845,7 +845,7 @@ by_user_story:
 
 ### T-027: Implement all-passing celebration state
 
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-04 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-04 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** a run completes with all assertions passing for all test cases
@@ -871,7 +871,7 @@ by_user_story:
 
 ### T-032: Add PUT /api/skills/:plugin/:skill/content backend endpoint
 
-**User Story**: INFRA | **Satisfies ACs**: AC-US2-04 (FR-001) | **Status**: [ ] pending
+**User Story**: INFRA | **Satisfies ACs**: AC-US2-04 (FR-001) | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** a PUT request to /api/skills/:plugin/:skill/content with `{ content: "..." }`
@@ -896,7 +896,7 @@ by_user_story:
 
 ### T-033: Implement DepsPanel (thin wrapper around McpDependencies)
 
-**User Story**: INFRA | **Satisfies ACs**: AC-US1-02 (5th panel) | **Status**: [ ] pending
+**User Story**: INFRA | **Satisfies ACs**: AC-US1-02 (5th panel) | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the Deps panel is active
@@ -918,7 +918,7 @@ by_user_story:
 
 ### T-034: Implement panel lazy loading on first activation
 
-**User Story**: INFRA | **Satisfies ACs**: AC-US8-01 (performance) | **Status**: [ ] pending
+**User Story**: INFRA | **Satisfies ACs**: AC-US8-01 (performance) | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the workspace mounts on the editor panel
@@ -941,7 +941,7 @@ by_user_story:
 
 ### T-035: Wire all panels into WorkspaceShell conditional render
 
-**User Story**: INFRA | **Satisfies ACs**: AC-US1-01 (all panels accessible) | **Status**: [ ] pending
+**User Story**: INFRA | **Satisfies ACs**: AC-US1-01 (all panels accessible) | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the workspace is rendered with activePanel set to each PanelId
@@ -967,7 +967,7 @@ by_user_story:
 
 ### T-036: End-to-end smoke test: full workspace flow
 
-**User Story**: INFRA | **Satisfies ACs**: All (smoke coverage) | **Status**: [ ] pending
+**User Story**: INFRA | **Satisfies ACs**: All (smoke coverage) | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the workspace loads for a skill with 2 test cases
@@ -993,7 +993,7 @@ by_user_story:
 
 ### T-037: Remove old routes and delete legacy page files
 
-**User Story**: INFRA | **Satisfies ACs**: AC-US1-01 (FR-002) | **Status**: [ ] pending
+**User Story**: INFRA | **Satisfies ACs**: AC-US1-01 (FR-002) | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** workspace is feature-complete (T-001 through T-035 done)
@@ -1017,7 +1017,7 @@ by_user_story:
 
 ### T-038: Add CSS globals for workspace layout
 
-**User Story**: INFRA | **Satisfies ACs**: AC-US1-01, AC-US1-02 (visual layout) | **Status**: [ ] pending
+**User Story**: INFRA | **Satisfies ACs**: AC-US1-01, AC-US1-02 (visual layout) | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the workspace renders in a 1024px+ viewport
@@ -1040,7 +1040,7 @@ by_user_story:
 
 ### T-039: Accessibility and aria attributes for workspace navigation
 
-**User Story**: INFRA | **Satisfies ACs**: AC-US1-02 (accessible navigation) | **Status**: [ ] pending
+**User Story**: INFRA | **Satisfies ACs**: AC-US1-02 (accessible navigation) | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** the workspace renders
@@ -1065,7 +1065,7 @@ by_user_story:
 
 ### T-040: Final validation -- run full test suite and build
 
-**User Story**: INFRA | **Satisfies ACs**: All (regression guard) | **Status**: [ ] pending
+**User Story**: INFRA | **Satisfies ACs**: All (regression guard) | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** all implementation tasks T-001 through T-039 are complete
