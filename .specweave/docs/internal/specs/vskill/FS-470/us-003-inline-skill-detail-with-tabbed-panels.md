@@ -1,10 +1,10 @@
 ---
 id: US-003
 feature: FS-470
-title: Inline Skill Detail with Tabbed Panels
-status: not_started
+title: "Inline Skill Detail with Tabbed Panels"
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** skill author evaluating and editing a skill."
 project: vskill
 external:
@@ -25,11 +25,11 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: Clicking a skill card in the left panel selects it and renders its detail in the right panel without a page navigation or hash change
-- [ ] **AC-US3-02**: The selected skill card is highlighted with a left accent border (`var(--accent)`) and slightly elevated background (`var(--surface-2)`)
-- [ ] **AC-US3-03**: The detail panel header shows a breadcrumb (plugin / skill), benchmark status pill, pass rate, and case/assertion counts (reusing current `WorkspaceHeader` data logic)
-- [ ] **AC-US3-04**: Six tabs are rendered below the header: Editor, Tests, Run, Activation, History, Deps -- matching the current LeftRail panel groups (Build, Evaluate, Insights)
-- [ ] **AC-US3-05**: Each tab renders the corresponding existing panel component (`EditorPanel`, `TestsPanel`, `RunPanel`, `ActivationPanel`, `HistoryPanel`, `DepsPanel`) wrapped in the existing `WorkspaceProvider` context
+- [x] **AC-US3-01**: Clicking a skill card in the left panel selects it and renders its detail in the right panel without a page navigation or hash change
+- [x] **AC-US3-02**: The selected skill card is highlighted with a left accent border (`var(--accent)`) and slightly elevated background (`var(--surface-2)`)
+- [x] **AC-US3-03**: The detail panel header shows a breadcrumb (plugin / skill), benchmark status pill, pass rate, and case/assertion counts (reusing current `WorkspaceHeader` data logic)
+- [x] **AC-US3-04**: Six tabs are rendered below the header: Editor, Tests, Run, Activation, History, Deps -- matching the current LeftRail panel groups (Build, Evaluate, Insights)
+- [x] **AC-US3-05**: Each tab renders the corresponding existing panel component (`EditorPanel`, `TestsPanel`, `RunPanel`, `ActivationPanel`, `HistoryPanel`, `DepsPanel`) wrapped in the existing `WorkspaceProvider` context
 
 ---
 

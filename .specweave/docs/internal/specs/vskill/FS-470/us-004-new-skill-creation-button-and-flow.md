@@ -1,10 +1,10 @@
 ---
 id: US-004
 feature: FS-470
-title: New Skill Creation Button and Flow
-status: not_started
+title: "New Skill Creation Button and Flow"
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** skill author."
 project: vskill
 external:
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US4-01**: A "New Skill" button is rendered at the top of the skill list panel (below the search input), styled with `var(--accent)` background and a plus icon
-- [ ] **AC-US4-02**: Clicking "New Skill" renders the existing `CreateSkillPage` content in the right detail panel instead of navigating to a separate route
-- [ ] **AC-US4-03**: After successful skill creation, the skill list refreshes and the newly created skill is automatically selected
-- [ ] **AC-US4-04**: While the creation form is active, the "New Skill" button in the list panel shows an active state
+- [x] **AC-US4-01**: A "New Skill" button is rendered at the top of the skill list panel (below the search input), styled with `var(--accent)` background and a plus icon
+- [x] **AC-US4-02**: Clicking "New Skill" renders the existing `CreateSkillPage` content in the right detail panel instead of navigating to a separate route
+- [x] **AC-US4-03**: After successful skill creation, the skill list refreshes and the newly created skill is automatically selected
+- [x] **AC-US4-04**: While the creation form is active, the "New Skill" button in the list panel shows an active state
 
 ---
 

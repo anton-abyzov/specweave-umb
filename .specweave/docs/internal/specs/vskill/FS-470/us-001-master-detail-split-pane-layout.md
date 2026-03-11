@@ -1,10 +1,10 @@
 ---
 id: US-001
 feature: FS-470
-title: Master-Detail Split-Pane Layout
-status: not_started
+title: "Master-Detail Split-Pane Layout"
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** skill author using the local Skill Studio."
 project: vskill
 external:
@@ -25,11 +25,11 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: The root route renders a split-pane layout with a left panel (280px fixed width) and a right panel (flex: 1), replacing the current sidebar nav + SkillListPage + separate SkillWorkspace page routes
-- [ ] **AC-US1-02**: Both panels scroll independently with `overflow-y: auto` and fill the full viewport height
-- [ ] **AC-US1-03**: A 1px vertical border separates the two panels using `var(--border-subtle)` color
-- [ ] **AC-US1-04**: The layout uses the existing design system (Tailwind v4 + CSS variables: `--surface-0..4`, `--text-*`, `--accent`, etc.)
-- [ ] **AC-US1-05**: The left panel header displays the "Skill Studio" brand with project name (from `/api/config`) and a model selector (existing `ModelSelector` component)
+- [x] **AC-US1-01**: The root route renders a split-pane layout with a left panel (280px fixed width) and a right panel (flex: 1), replacing the current sidebar nav + SkillListPage + separate SkillWorkspace page routes
+- [x] **AC-US1-02**: Both panels scroll independently with `overflow-y: auto` and fill the full viewport height
+- [x] **AC-US1-03**: A 1px vertical border separates the two panels using `var(--border-subtle)` color
+- [x] **AC-US1-04**: The layout uses the existing design system (Tailwind v4 + CSS variables: `--surface-0..4`, `--text-*`, `--accent`, etc.)
+- [x] **AC-US1-05**: The left panel header displays the "Skill Studio" brand with project name (from `/api/config`) and a model selector (existing `ModelSelector` component)
 
 ---
 

@@ -1,10 +1,10 @@
 ---
 id: US-006
 feature: FS-470
-title: Responsive Layout
-status: not_started
+title: "Responsive Layout"
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** skill author using the Studio on a smaller screen or narrow window."
 project: vskill
 external:
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US6-01**: Below 768px viewport width, the split-pane collapses to a single-column layout showing only the skill list
-- [ ] **AC-US6-02**: On narrow viewports, tapping a skill shows the detail panel as a full-width overlay with a back button to return to the list
-- [ ] **AC-US6-03**: The back button preserves the current search/filter state
-- [ ] **AC-US6-04**: The left panel width (280px) can be reduced to 240px at viewport widths between 768px and 1024px
+- [x] **AC-US6-01**: Below 768px viewport width, the split-pane collapses to a single-column layout showing only the skill list
+- [x] **AC-US6-02**: On narrow viewports, tapping a skill shows the detail panel as a full-width overlay with a back button to return to the list
+- [x] **AC-US6-03**: The back button preserves the current search/filter state
+- [x] **AC-US6-04**: The left panel width (280px) can be reduced to 240px at viewport widths between 768px and 1024px
 
 ---
 

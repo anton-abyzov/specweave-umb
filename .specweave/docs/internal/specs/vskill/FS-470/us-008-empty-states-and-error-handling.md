@@ -1,12 +1,11 @@
 ---
 id: US-008
 feature: FS-470
-title: Empty States and Error Handling
-status: not_started
+title: "Empty States and Error Handling"
+status: completed
 priority: P1
-created: 2026-03-10
-tldr: "**As a** skill author launching the Studio with no skills or encountering
-  errors."
+created: 2026-03-10T00:00:00.000Z
+tldr: "**As a** skill author launching the Studio with no skills or encountering errors."
 project: vskill
 external:
   github:
@@ -26,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US8-01**: When no skill is selected, the right panel shows a centered empty state with the generated illustration and "Select a skill to view details" text in muted color
-- [ ] **AC-US8-02**: When `scanSkills()` returns zero skills, the left panel shows the existing empty state design ("No skills found" with root path hint and "Create Your First Skill" button)
-- [ ] **AC-US8-03**: When skill data fails to load (API error), the detail panel shows the error message with a retry button, styled with `var(--red-muted)` background
-- [ ] **AC-US8-04**: When the search filter returns no matches, the skill list shows "No skills match your search" with a "Clear search" link
+- [x] **AC-US8-01**: When no skill is selected, the right panel shows a centered empty state with the generated illustration and "Select a skill to view details" text in muted color
+- [x] **AC-US8-02**: When `scanSkills()` returns zero skills, the left panel shows the existing empty state design ("No skills found" with root path hint and "Create Your First Skill" button)
+- [x] **AC-US8-03**: When skill data fails to load (API error), the detail panel shows the error message with a retry button, styled with `var(--red-muted)` background
+- [x] **AC-US8-04**: When the search filter returns no matches, the skill list shows "No skills match your search" with a "Clear search" link
 
 ---
 

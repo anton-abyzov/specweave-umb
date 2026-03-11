@@ -2,9 +2,9 @@
 id: US-005
 feature: FS-470
 title: "`vskill studio` CLI Command"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** skill author."
 project: vskill
 external:
@@ -25,11 +25,11 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US5-01**: A new top-level `studio` command is registered in `src/index.ts` via Commander, with the description "Launch the Skill Studio UI for local skill development"
-- [ ] **AC-US5-02**: `vskill studio` accepts the same `--root <path>` and `--port <number>` options as `vskill eval serve`
-- [ ] **AC-US5-03**: `vskill studio` delegates to the existing `runEvalServe()` function, reusing all port selection logic (hash-based deterministic port 3077-3177, conflict detection, auto-kill)
-- [ ] **AC-US5-04**: `vskill eval serve` continues to work as before (not removed, not changed)
-- [ ] **AC-US5-05**: The terminal output when launching via `vskill studio` says "Skill Studio" instead of "Eval UI" in the startup banner
+- [x] **AC-US5-01**: A new top-level `studio` command is registered in `src/index.ts` via Commander, with the description "Launch the Skill Studio UI for local skill development"
+- [x] **AC-US5-02**: `vskill studio` accepts the same `--root <path>` and `--port <number>` options as `vskill eval serve`
+- [x] **AC-US5-03**: `vskill studio` delegates to the existing `runEvalServe()` function, reusing all port selection logic (hash-based deterministic port 3077-3177, conflict detection, auto-kill)
+- [x] **AC-US5-04**: `vskill eval serve` continues to work as before (not removed, not changed)
+- [x] **AC-US5-05**: The terminal output when launching via `vskill studio` says "Skill Studio" instead of "Eval UI" in the startup banner
 
 ---
 

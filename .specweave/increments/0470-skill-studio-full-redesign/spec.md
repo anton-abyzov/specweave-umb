@@ -1,10 +1,10 @@
 ---
 increment: 0470-skill-studio-full-redesign
-title: "Skill Studio Full Redesign"
+title: Skill Studio Full Redesign
 type: feature
 priority: P1
-status: planned
-created: 2026-03-10
+status: completed
+created: 2026-03-10T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -35,11 +35,11 @@ The local Skill Studio UI (React eval UI served by `vskill eval serve`) uses a s
 **So that** I can browse and switch between skills without losing context or triggering full-page navigations
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: The root route renders a split-pane layout with a left panel (280px fixed width) and a right panel (flex: 1), replacing the current sidebar nav + SkillListPage + separate SkillWorkspace page routes
-- [ ] **AC-US1-02**: Both panels scroll independently with `overflow-y: auto` and fill the full viewport height
-- [ ] **AC-US1-03**: A 1px vertical border separates the two panels using `var(--border-subtle)` color
-- [ ] **AC-US1-04**: The layout uses the existing design system (Tailwind v4 + CSS variables: `--surface-0..4`, `--text-*`, `--accent`, etc.)
-- [ ] **AC-US1-05**: The left panel header displays the "Skill Studio" brand with project name (from `/api/config`) and a model selector (existing `ModelSelector` component)
+- [x] **AC-US1-01**: The root route renders a split-pane layout with a left panel (280px fixed width) and a right panel (flex: 1), replacing the current sidebar nav + SkillListPage + separate SkillWorkspace page routes
+- [x] **AC-US1-02**: Both panels scroll independently with `overflow-y: auto` and fill the full viewport height
+- [x] **AC-US1-03**: A 1px vertical border separates the two panels using `var(--border-subtle)` color
+- [x] **AC-US1-04**: The layout uses the existing design system (Tailwind v4 + CSS variables: `--surface-0..4`, `--text-*`, `--accent`, etc.)
+- [x] **AC-US1-05**: The left panel header displays the "Skill Studio" brand with project name (from `/api/config`) and a model selector (existing `ModelSelector` component)
 
 ---
 
@@ -50,11 +50,11 @@ The local Skill Studio UI (React eval UI served by `vskill eval serve`) uses a s
 **So that** I can quickly find skills without scrolling through the entire list
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: An inline search input at the top of the left panel filters skills by name with 200ms debounce, performed client-side against the already-loaded skill list (local skill counts are small, no server-side search needed)
-- [ ] **AC-US2-02**: Skills are grouped by plugin name with a group header showing the plugin name and skill count, matching the current `SkillListPage` grouping pattern
-- [ ] **AC-US2-03**: Each skill card shows: skill name, eval count, assertion count, benchmark status pill (Passing/Failing/Pending/No evals with color coding from existing `STATUS_CONFIG`), and last benchmark date
-- [ ] **AC-US2-04**: A total skill count is displayed below the search input (e.g., "12 skills across 3 plugins")
-- [ ] **AC-US2-05**: Empty search results show "No skills match your search" with a clear button
+- [x] **AC-US2-01**: An inline search input at the top of the left panel filters skills by name with 200ms debounce, performed client-side against the already-loaded skill list (local skill counts are small, no server-side search needed)
+- [x] **AC-US2-02**: Skills are grouped by plugin name with a group header showing the plugin name and skill count, matching the current `SkillListPage` grouping pattern
+- [x] **AC-US2-03**: Each skill card shows: skill name, eval count, assertion count, benchmark status pill (Passing/Failing/Pending/No evals with color coding from existing `STATUS_CONFIG`), and last benchmark date
+- [x] **AC-US2-04**: A total skill count is displayed below the search input (e.g., "12 skills across 3 plugins")
+- [x] **AC-US2-05**: Empty search results show "No skills match your search" with a clear button
 
 ---
 
@@ -65,11 +65,11 @@ The local Skill Studio UI (React eval UI served by `vskill eval serve`) uses a s
 **So that** I can edit, test, run evals, check activation, view history, and inspect dependencies without navigating away
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Clicking a skill card in the left panel selects it and renders its detail in the right panel without a page navigation or hash change
-- [ ] **AC-US3-02**: The selected skill card is highlighted with a left accent border (`var(--accent)`) and slightly elevated background (`var(--surface-2)`)
-- [ ] **AC-US3-03**: The detail panel header shows a breadcrumb (plugin / skill), benchmark status pill, pass rate, and case/assertion counts (reusing current `WorkspaceHeader` data logic)
-- [ ] **AC-US3-04**: Six tabs are rendered below the header: Editor, Tests, Run, Activation, History, Deps -- matching the current LeftRail panel groups (Build, Evaluate, Insights)
-- [ ] **AC-US3-05**: Each tab renders the corresponding existing panel component (`EditorPanel`, `TestsPanel`, `RunPanel`, `ActivationPanel`, `HistoryPanel`, `DepsPanel`) wrapped in the existing `WorkspaceProvider` context
+- [x] **AC-US3-01**: Clicking a skill card in the left panel selects it and renders its detail in the right panel without a page navigation or hash change
+- [x] **AC-US3-02**: The selected skill card is highlighted with a left accent border (`var(--accent)`) and slightly elevated background (`var(--surface-2)`)
+- [x] **AC-US3-03**: The detail panel header shows a breadcrumb (plugin / skill), benchmark status pill, pass rate, and case/assertion counts (reusing current `WorkspaceHeader` data logic)
+- [x] **AC-US3-04**: Six tabs are rendered below the header: Editor, Tests, Run, Activation, History, Deps -- matching the current LeftRail panel groups (Build, Evaluate, Insights)
+- [x] **AC-US3-05**: Each tab renders the corresponding existing panel component (`EditorPanel`, `TestsPanel`, `RunPanel`, `ActivationPanel`, `HistoryPanel`, `DepsPanel`) wrapped in the existing `WorkspaceProvider` context
 
 ---
 
@@ -80,10 +80,10 @@ The local Skill Studio UI (React eval UI served by `vskill eval serve`) uses a s
 **So that** I can create a new skill without navigating to a separate page
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: A "New Skill" button is rendered at the top of the skill list panel (below the search input), styled with `var(--accent)` background and a plus icon
-- [ ] **AC-US4-02**: Clicking "New Skill" renders the existing `CreateSkillPage` content in the right detail panel instead of navigating to a separate route
-- [ ] **AC-US4-03**: After successful skill creation, the skill list refreshes and the newly created skill is automatically selected
-- [ ] **AC-US4-04**: While the creation form is active, the "New Skill" button in the list panel shows an active state
+- [x] **AC-US4-01**: A "New Skill" button is rendered at the top of the skill list panel (below the search input), styled with `var(--accent)` background and a plus icon
+- [x] **AC-US4-02**: Clicking "New Skill" renders the existing `CreateSkillPage` content in the right detail panel instead of navigating to a separate route
+- [x] **AC-US4-03**: After successful skill creation, the skill list refreshes and the newly created skill is automatically selected
+- [x] **AC-US4-04**: While the creation form is active, the "New Skill" button in the list panel shows an active state
 
 ---
 
@@ -94,11 +94,11 @@ The local Skill Studio UI (React eval UI served by `vskill eval serve`) uses a s
 **So that** I have a discoverable, memorable entry point separate from the `eval serve` subcommand
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: A new top-level `studio` command is registered in `src/index.ts` via Commander, with the description "Launch the Skill Studio UI for local skill development"
-- [ ] **AC-US5-02**: `vskill studio` accepts the same `--root <path>` and `--port <number>` options as `vskill eval serve`
-- [ ] **AC-US5-03**: `vskill studio` delegates to the existing `runEvalServe()` function, reusing all port selection logic (hash-based deterministic port 3077-3177, conflict detection, auto-kill)
-- [ ] **AC-US5-04**: `vskill eval serve` continues to work as before (not removed, not changed)
-- [ ] **AC-US5-05**: The terminal output when launching via `vskill studio` says "Skill Studio" instead of "Eval UI" in the startup banner
+- [x] **AC-US5-01**: A new top-level `studio` command is registered in `src/index.ts` via Commander, with the description "Launch the Skill Studio UI for local skill development"
+- [x] **AC-US5-02**: `vskill studio` accepts the same `--root <path>` and `--port <number>` options as `vskill eval serve`
+- [x] **AC-US5-03**: `vskill studio` delegates to the existing `runEvalServe()` function, reusing all port selection logic (hash-based deterministic port 3077-3177, conflict detection, auto-kill)
+- [x] **AC-US5-04**: `vskill eval serve` continues to work as before (not removed, not changed)
+- [x] **AC-US5-05**: The terminal output when launching via `vskill studio` says "Skill Studio" instead of "Eval UI" in the startup banner
 
 ---
 
@@ -109,10 +109,10 @@ The local Skill Studio UI (React eval UI served by `vskill eval serve`) uses a s
 **So that** the UI remains usable at various viewport widths
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: Below 768px viewport width, the split-pane collapses to a single-column layout showing only the skill list
-- [ ] **AC-US6-02**: On narrow viewports, tapping a skill shows the detail panel as a full-width overlay with a back button to return to the list
-- [ ] **AC-US6-03**: The back button preserves the current search/filter state
-- [ ] **AC-US6-04**: The left panel width (280px) can be reduced to 240px at viewport widths between 768px and 1024px
+- [x] **AC-US6-01**: Below 768px viewport width, the split-pane collapses to a single-column layout showing only the skill list
+- [x] **AC-US6-02**: On narrow viewports, tapping a skill shows the detail panel as a full-width overlay with a back button to return to the list
+- [x] **AC-US6-03**: The back button preserves the current search/filter state
+- [x] **AC-US6-04**: The left panel width (280px) can be reduced to 240px at viewport widths between 768px and 1024px
 
 ---
 
@@ -123,11 +123,11 @@ The local Skill Studio UI (React eval UI served by `vskill eval serve`) uses a s
 **So that** I can visually distinguish plugin groups at a glance
 
 **Acceptance Criteria**:
-- [ ] **AC-US7-01**: A one-time generation script uses the Nano Banana Pro model (`gemini-3-pro-image-preview`) to create plugin group icons in a consistent minimalist line-art style on transparent background
-- [ ] **AC-US7-02**: Generated icons are stored as static assets (WebP, 32x32px) in `src/eval-ui/public/images/icons/` and served by the eval server's static file handler
-- [ ] **AC-US7-03**: Each plugin group header renders its icon at 16x16 display size to the left of the plugin name
-- [ ] **AC-US7-04**: A fallback SVG icon (the existing box/package icon from `IconSkills`) is shown when a plugin-specific icon is not available
-- [ ] **AC-US7-05**: One empty-state illustration is generated and stored at `src/eval-ui/public/images/empty-studio.webp` (128x128, theme-neutral) for use in empty states
+- [x] **AC-US7-01**: A one-time generation script uses the Nano Banana Pro model (`gemini-3-pro-image-preview`) to create plugin group icons in a consistent minimalist line-art style on transparent background
+- [x] **AC-US7-02**: Generated icons are stored as static assets (WebP, 32x32px) in `src/eval-ui/public/images/icons/` and served by the eval server's static file handler
+- [x] **AC-US7-03**: Each plugin group header renders its icon at 16x16 display size to the left of the plugin name
+- [x] **AC-US7-04**: A fallback SVG icon (the existing box/package icon from `IconSkills`) is shown when a plugin-specific icon is not available
+- [x] **AC-US7-05**: One empty-state illustration is generated and stored at `src/eval-ui/public/images/empty-studio.webp` (128x128, theme-neutral) for use in empty states
 
 ---
 
@@ -138,10 +138,10 @@ The local Skill Studio UI (React eval UI served by `vskill eval serve`) uses a s
 **So that** I understand how to use the interface and what went wrong
 
 **Acceptance Criteria**:
-- [ ] **AC-US8-01**: When no skill is selected, the right panel shows a centered empty state with the generated illustration and "Select a skill to view details" text in muted color
-- [ ] **AC-US8-02**: When `scanSkills()` returns zero skills, the left panel shows the existing empty state design ("No skills found" with root path hint and "Create Your First Skill" button)
-- [ ] **AC-US8-03**: When skill data fails to load (API error), the detail panel shows the error message with a retry button, styled with `var(--red-muted)` background
-- [ ] **AC-US8-04**: When the search filter returns no matches, the skill list shows "No skills match your search" with a "Clear search" link
+- [x] **AC-US8-01**: When no skill is selected, the right panel shows a centered empty state with the generated illustration and "Select a skill to view details" text in muted color
+- [x] **AC-US8-02**: When `scanSkills()` returns zero skills, the left panel shows the existing empty state design ("No skills found" with root path hint and "Create Your First Skill" button)
+- [x] **AC-US8-03**: When skill data fails to load (API error), the detail panel shows the error message with a retry button, styled with `var(--red-muted)` background
+- [x] **AC-US8-04**: When the search filter returns no matches, the skill list shows "No skills match your search" with a "Clear search" link
 
 ## Out of Scope
 
