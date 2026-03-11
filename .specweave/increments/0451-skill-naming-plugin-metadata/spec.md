@@ -33,11 +33,11 @@ Skills inside Claude Code plugins currently get ugly concatenated names like "sp
 **So that** plugin context is captured as structured metadata rather than mangled into the skill name
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given path `plugins/specweave-release/skills/release-expert/SKILL.md`, `derivePluginName()` returns `"specweave-release"`
-- [ ] **AC-US1-02**: Given path `skills/architect/SKILL.md` (no plugin folder), `derivePluginName()` returns `null`
-- [ ] **AC-US1-03**: Given path `SKILL.md` (root-level), `derivePluginName()` returns `null`
-- [ ] **AC-US1-04**: Given `null` or `undefined` input, `derivePluginName()` returns `null`
-- [ ] **AC-US1-05**: Function is exported from `slug.ts` alongside existing slug utilities
+- [x] **AC-US1-01**: Given path `plugins/specweave-release/skills/release-expert/SKILL.md`, `derivePluginName()` returns `"specweave-release"`
+- [x] **AC-US1-02**: Given path `skills/architect/SKILL.md` (no plugin folder), `derivePluginName()` returns `null`
+- [x] **AC-US1-03**: Given path `SKILL.md` (root-level), `derivePluginName()` returns `null`
+- [x] **AC-US1-04**: Given `null` or `undefined` input, `derivePluginName()` returns `null`
+- [x] **AC-US1-05**: Function is exported from `slug.ts` alongside existing slug utilities
 
 ---
 
@@ -49,9 +49,9 @@ Skills inside Claude Code plugins currently get ugly concatenated names like "sp
 **So that** every newly published skill has its plugin context captured at write time
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: When publishing a skill with path `plugins/foo/skills/bar/SKILL.md`, the DB Skill record has `pluginName = "foo"`
-- [ ] **AC-US2-02**: When publishing a skill with path `skills/bar/SKILL.md`, the DB Skill record has `pluginName = null`
-- [ ] **AC-US2-03**: On re-publish (upsert update), `pluginName` is updated to the current derived value
+- [x] **AC-US2-01**: When publishing a skill with path `plugins/foo/skills/bar/SKILL.md`, the DB Skill record has `pluginName = "foo"`
+- [x] **AC-US2-02**: When publishing a skill with path `skills/bar/SKILL.md`, the DB Skill record has `pluginName = null`
+- [x] **AC-US2-03**: On re-publish (upsert update), `pluginName` is updated to the current derived value
 
 ---
 
@@ -63,11 +63,11 @@ Skills inside Claude Code plugins currently get ugly concatenated names like "sp
 **So that** legacy records gain plugin metadata without manual intervention
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Skills with a `skillPath` containing a `plugins/` segment get `pluginName` set to the plugin folder name
-- [ ] **AC-US3-02**: Skills with `skillPath = null` are skipped silently (no error, no update)
-- [ ] **AC-US3-03**: Skills with a `skillPath` that has no `plugins/` segment get `pluginName = null`
-- [ ] **AC-US3-04**: All flat skill names (no `/` in name) are converted to hierarchical `owner/repo/skillSlug` format -- flat names must never remain
-- [ ] **AC-US3-05**: Dry-run mode reports planned `pluginName` changes without mutating the database
+- [x] **AC-US3-01**: Skills with a `skillPath` containing a `plugins/` segment get `pluginName` set to the plugin folder name
+- [x] **AC-US3-02**: Skills with `skillPath = null` are skipped silently (no error, no update)
+- [x] **AC-US3-03**: Skills with a `skillPath` that has no `plugins/` segment get `pluginName = null`
+- [x] **AC-US3-04**: All flat skill names (no `/` in name) are converted to hierarchical `owner/repo/skillSlug` format -- flat names must never remain
+- [x] **AC-US3-05**: Dry-run mode reports planned `pluginName` changes without mutating the database
 
 ---
 
@@ -79,10 +79,10 @@ Skills inside Claude Code plugins currently get ugly concatenated names like "sp
 **So that** I can understand the plugin context of a skill at a glance
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: In `SearchPalette`, skills with a non-null `pluginName` display a teal pill badge with the raw plugin folder name (e.g., "specweave-release")
-- [ ] **AC-US4-02**: In the skills list page (`/skills`), skills with a non-null `pluginName` display the same teal pill badge
-- [ ] **AC-US4-03**: Skills with `pluginName = null` show no plugin badge
-- [ ] **AC-US4-04**: The badge is purely informational -- not clickable, no link
+- [x] **AC-US4-01**: In `SearchPalette`, skills with a non-null `pluginName` display a teal pill badge with the raw plugin folder name (e.g., "specweave-release")
+- [x] **AC-US4-02**: In the skills list page (`/skills`), skills with a non-null `pluginName` display the same teal pill badge
+- [x] **AC-US4-03**: Skills with `pluginName = null` show no plugin badge
+- [x] **AC-US4-04**: The badge is purely informational -- not clickable, no link
 
 ---
 
@@ -94,9 +94,9 @@ Skills inside Claude Code plugins currently get ugly concatenated names like "sp
 **So that** I know which plugin a skill belongs to when viewing its details
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: On the skill detail page, the plugin badge appears in the byline metadata row after the repo link and before the skillPath
-- [ ] **AC-US5-02**: The badge uses the same teal pill styling as the search/list pages
-- [ ] **AC-US5-03**: The badge does not appear in the page title or header area
+- [x] **AC-US5-01**: On the skill detail page, the plugin badge appears in the byline metadata row after the repo link and before the skillPath
+- [x] **AC-US5-02**: The badge uses the same teal pill styling as the search/list pages
+- [x] **AC-US5-03**: The badge does not appear in the page title or header area
 
 ---
 
@@ -108,9 +108,9 @@ Skills inside Claude Code plugins currently get ugly concatenated names like "sp
 **So that** I can identify plugin-based skills in terminal output
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: In TTY mode, skills with a non-null `pluginName` display as `release-expert [specweave-release]` with the bracketed portion in dim styling
-- [ ] **AC-US6-02**: Skills with `pluginName = null` display without any bracketed suffix
-- [ ] **AC-US6-03**: In non-TTY (piped) mode, `pluginName` is included as an additional tab-separated field when present
+- [x] **AC-US6-01**: In TTY mode, skills with a non-null `pluginName` display as `release-expert [specweave-release]` with the bracketed portion in dim styling
+- [x] **AC-US6-02**: Skills with `pluginName = null` display without any bracketed suffix
+- [x] **AC-US6-03**: In non-TTY (piped) mode, `pluginName` is included as an additional tab-separated field when present
 
 ## Out of Scope
 

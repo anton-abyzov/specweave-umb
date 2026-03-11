@@ -1,6 +1,6 @@
 {
   "id": "0454-admin-github-sso",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-08T05:38:37.148Z",
@@ -9,5 +9,6 @@
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "updated": "2026-03-11T10:45:00.000Z"
 }

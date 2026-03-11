@@ -24,7 +24,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a `SkillMeta` with name and tags and an LLM client that returns `{"related": true}`
@@ -57,7 +57,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** prompts with mixed prefixes (`"auto"`, `"should_activate"`, `"should_not_activate"`) and a `SkillMeta`
@@ -91,7 +91,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** an LLM that returns malformed JSON or throws a network error
@@ -124,7 +124,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a SKILL.md with frontmatter containing `name: "Slack messaging"` and `metadata.tags: ["slack", "messaging"]`
@@ -159,7 +159,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a textarea with lines: `"send a message"`, `"+ send slack msg"`, `"! what is weather"`
@@ -188,7 +188,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-03, AC-US4-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** an activation result with `autoClassified: true`
@@ -225,7 +225,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the full classification and two-phase flow is implemented (T-001 through T-003)

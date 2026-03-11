@@ -22,7 +22,7 @@ by_user_story:
 
 **User Story**: US-PLAT-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill path `plugins/specweave-release/skills/release-expert/SKILL.md`
@@ -65,7 +65,7 @@ by_user_story:
 
 **User Story**: US-PLAT-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a submission with `skillPath = "plugins/foo/skills/bar/SKILL.md"`
@@ -105,7 +105,7 @@ by_user_story:
 
 **User Story**: US-PLAT-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill record with `skillPath = "plugins/specweave-release/skills/release-expert/SKILL.md"`
@@ -150,7 +150,7 @@ by_user_story:
 
 **User Story**: US-PLAT-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a search result with `pluginName = "specweave-release"`
@@ -197,7 +197,7 @@ by_user_story:
 
 **User Story**: US-PLAT-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a skill detail page where the skill has `pluginName = "specweave-release"`
@@ -249,7 +249,7 @@ by_user_story:
 
 **User Story**: US-CLI-006
 **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a TTY terminal and a skill result with `pluginName = "specweave-release"`

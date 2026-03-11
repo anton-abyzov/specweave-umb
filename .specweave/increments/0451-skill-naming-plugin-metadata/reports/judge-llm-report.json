@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0451-skill-naming-plugin-metadata",
+  "timestamp": "2026-03-11T10:20:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "External model consent not configured",
+  "findings": []
+}

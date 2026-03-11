@@ -1,6 +1,6 @@
 {
   "id": "0451-skill-naming-plugin-metadata",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-07T17:12:24.912Z",
@@ -9,5 +9,6 @@
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "updated": "2026-03-11T10:20:00.000Z"
 }

@@ -25,7 +25,7 @@ by_user_story:
 
 **User Story**: US-SW-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `readPluginAutoLoadConfig()` is called with no config file or a config with no `suggestOnly` field
@@ -55,7 +55,7 @@ by_user_story:
 
 **User Story**: US-SW-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `user-prompt-submit.sh` runs with no `suggestOnly` in config.json
@@ -92,7 +92,7 @@ by_user_story:
 
 **User Story**: US-SW-002
 **Satisfies ACs**: AC-US2-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a plugin is detected and `suggestOnly` is `true`
@@ -118,7 +118,7 @@ by_user_story:
 
 **User Story**: US-SW-002
 **Satisfies ACs**: AC-US2-02, AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a plugin suggestion was already emitted for `mobile` in this session
@@ -151,7 +151,7 @@ by_user_story:
 
 **User Story**: US-SW-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `PLUGIN_SUGGEST_ONLY=true`, `LSP_NEEDS_INSTALL=true`, `LSP_AUTO_INSTALL=true`
@@ -183,7 +183,7 @@ by_user_story:
 
 **User Story**: US-SW-003
 **Satisfies ACs**: AC-US3-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `suggestOnly: true` and an LSP plugin was NOT auto-installed
@@ -212,7 +212,7 @@ by_user_story:
 
 **User Story**: US-SW-004
 **Satisfies ACs**: AC-US4-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the `PluginAutoLoadConfig` interface in `types.ts`
@@ -236,7 +236,7 @@ by_user_story:
 
 **User Story**: US-SW-004
 **Satisfies ACs**: AC-US4-02, AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `specweave-config.schema.json` has `suggestOnly` under `pluginAutoLoad`
@@ -270,7 +270,7 @@ by_user_story:
 
 **User Story**: US-VK-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `vskill/.claude-plugin/marketplace.json` after cleanup
@@ -296,7 +296,7 @@ by_user_story:
 
 **User Story**: US-VK-005
 **Satisfies ACs**: AC-US5-02, AC-US5-03, AC-US5-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `VSKILL_PLUGINS` in `llm-plugin-detector.ts` and `VSKILL_REPO_PLUGINS` in `user-prompt-submit.sh` are updated
@@ -336,7 +336,7 @@ by_user_story:
 
 **User Story**: US-SW-006
 **Satisfies ACs**: AC-US6-01, AC-US6-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a project with no `suggestOnly` in config (default)
@@ -361,7 +361,7 @@ by_user_story:
 
 **User Story**: US-SW-006
 **Satisfies ACs**: AC-US6-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `VSKILL_REPO_PLUGINS` in `user-prompt-submit.sh` after T-010 update
@@ -388,7 +388,7 @@ by_user_story:
 
 **User Story**: US-SW-007
 **Satisfies ACs**: AC-US7-01, AC-US7-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the updated `llm-plugin-detector.ts` defaults to `suggestOnly: true`
@@ -415,7 +415,7 @@ by_user_story:
 
 **User Story**: US-SW-007
 **Satisfies ACs**: AC-US7-02, AC-US7-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the new consent-first behavior is implemented across T-001 through T-012

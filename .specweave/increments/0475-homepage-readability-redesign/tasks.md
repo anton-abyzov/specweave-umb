@@ -21,7 +21,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the homepage is rendered at any viewport width
@@ -58,7 +58,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `HomepageDemoHero` receives a `children` prop with heading and stats content
@@ -91,7 +91,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the homepage server component renders
@@ -129,7 +129,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the homepage renders the bottom "Works with" section
@@ -168,7 +168,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `globals.css` is loaded by the application
@@ -209,7 +209,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04, AC-US5-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Dependencies**: T-005 (globals.css rules must exist before className is applied)
 

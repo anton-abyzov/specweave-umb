@@ -28,11 +28,11 @@ Five targeted CSS/layout fixes to verified-skill.com homepage readability. Agent
 **So that** I can quickly see which AI agents are supported without squinting
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Hero badge font size is `0.75rem` (was `0.625rem`)
-- [ ] **AC-US1-02**: Hero badge height is `26px` (was `20px`)
-- [ ] **AC-US1-03**: Hero badge padding is `0.25rem 0.5rem` (was `0.125rem 0.3125rem`)
-- [ ] **AC-US1-04**: Hero badge icon size is `14x14` (was `11x11`)
-- [ ] **AC-US1-05**: Badge text color remains `rgba(230,237,243,0.7)` and border contrast is preserved
+- [x] **AC-US1-01**: Hero badge font size is `0.75rem` (was `0.625rem`)
+- [x] **AC-US1-02**: Hero badge height is `26px` (was `20px`)
+- [x] **AC-US1-03**: Hero badge padding is `0.25rem 0.5rem` (was `0.125rem 0.3125rem`)
+- [x] **AC-US1-04**: Hero badge icon size is `14x14` (was `11x11`)
+- [x] **AC-US1-05**: Badge text color remains `rgba(230,237,243,0.7)` and border contrast is preserved
 
 ---
 
@@ -44,9 +44,9 @@ Five targeted CSS/layout fixes to verified-skill.com homepage readability. Agent
 **So that** I understand what the product does before seeing the demo
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `children` slot renders above the video container in `HomepageDemoHero.tsx`
-- [ ] **AC-US2-02**: Visual order is: heading/stats, then video, then any below-video content
-- [ ] **AC-US2-03**: No change to the server/client component boundary -- children remain server-rendered React nodes passed into the client component
+- [x] **AC-US2-01**: `children` slot renders above the video container in `HomepageDemoHero.tsx`
+- [x] **AC-US2-02**: Visual order is: heading/stats, then video, then any below-video content
+- [x] **AC-US2-03**: No change to the server/client component boundary -- children remain server-rendered React nodes passed into the client component
 
 ---
 
@@ -58,10 +58,10 @@ Five targeted CSS/layout fixes to verified-skill.com homepage readability. Agent
 **So that** the security scanning value proposition is immediately visible
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Stat is extracted from the inline `<span>` into its own block element between the description paragraph and the "Works with" badges
-- [ ] **AC-US3-02**: Callout has `border-left: 2px solid rgba(245,158,11,0.4)` accent
-- [ ] **AC-US3-03**: Callout font size is `0.8125rem` with color `rgba(230,237,243,0.6)`
-- [ ] **AC-US3-04**: "Scan results" link remains accessible and navigates to `/audits`
+- [x] **AC-US3-01**: Stat is extracted from the inline `<span>` into its own block element between the description paragraph and the "Works with" badges
+- [x] **AC-US3-02**: Callout has `border-left: 2px solid rgba(245,158,11,0.4)` accent
+- [x] **AC-US3-03**: Callout font size is `0.8125rem` with color `rgba(230,237,243,0.6)`
+- [x] **AC-US3-04**: "Scan results" link remains accessible and navigates to `/audits`
 
 ---
 
@@ -73,11 +73,11 @@ Five targeted CSS/layout fixes to verified-skill.com homepage readability. Agent
 **So that** I can identify supported agents without effort in the lower section
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Featured badge font size is `0.8125rem` with height `28px` (was `0.6875rem`/`22px`)
-- [ ] **AC-US4-02**: Non-featured badge font size is `0.75rem` with height `24px` (was `0.625rem`/`20px`)
-- [ ] **AC-US4-03**: Featured icon size is `16x16` (was `13x13`), non-featured is `14x14` (was `11x11`)
-- [ ] **AC-US4-04**: Featured dot indicator is `6px` (was `5px`), non-featured is `5px` (was `4px`)
-- [ ] **AC-US4-05**: Badge padding scales proportionally with the size increase
+- [x] **AC-US4-01**: Featured badge font size is `0.8125rem` with height `28px` (was `0.6875rem`/`22px`)
+- [x] **AC-US4-02**: Non-featured badge font size is `0.75rem` with height `24px` (was `0.625rem`/`20px`)
+- [x] **AC-US4-03**: Featured icon size is `16x16` (was `13x13`), non-featured is `14x14` (was `11x11`)
+- [x] **AC-US4-04**: Featured dot indicator is `6px` (was `5px`), non-featured is `5px` (was `4px`)
+- [x] **AC-US4-05**: Badge padding scales proportionally with the size increase
 
 ---
 
@@ -89,12 +89,12 @@ Five targeted CSS/layout fixes to verified-skill.com homepage readability. Agent
 **So that** the hero section is less dense and the copy action is contextually tied to the demo
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Copy button is pill-shaped, positioned bottom-left of the video overlay (mirroring the play/pause button at bottom-right)
-- [ ] **AC-US5-02**: Button uses glass morphism: `rgba(0,0,0,0.6)` background, `backdrop-filter: blur(4px)`, `1px solid rgba(255,255,255,0.2)` border
-- [ ] **AC-US5-03**: Button shows full text `$ npx vskill find code-review` with copy/copied state
-- [ ] **AC-US5-04**: The standalone CLI row below the video and the "as shown in video" label are removed
-- [ ] **AC-US5-05**: At 480px viewport, copy button font shrinks to `0.5625rem` with reduced padding
-- [ ] **AC-US5-06**: `globals.css` includes `video-copy-btn` hover and responsive rules matching the play button style
+- [x] **AC-US5-01**: Copy button is pill-shaped, positioned bottom-left of the video overlay (mirroring the play/pause button at bottom-right)
+- [x] **AC-US5-02**: Button uses glass morphism: `rgba(0,0,0,0.6)` background, `backdrop-filter: blur(4px)`, `1px solid rgba(255,255,255,0.2)` border
+- [x] **AC-US5-03**: Button shows full text `$ npx vskill find code-review` with copy/copied state
+- [x] **AC-US5-04**: The standalone CLI row below the video and the "as shown in video" label are removed
+- [x] **AC-US5-05**: At 480px viewport, copy button font shrinks to `0.5625rem` with reduced padding
+- [x] **AC-US5-06**: `globals.css` includes `video-copy-btn` hover and responsive rules matching the play button style
 
 ## Functional Requirements
 

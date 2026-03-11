@@ -1,6 +1,6 @@
 {
   "id": "0472-activation-auto-classify",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-03-10T06:07:34.643Z",
@@ -76,5 +76,6 @@
       }
     ],
     "lastSync": "2026-03-10T09:52:23.538Z"
-  }
+  },
+  "updated": "2026-03-11T10:30:00.000Z"
 }

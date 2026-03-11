@@ -32,10 +32,10 @@ In the Skill Studio Activation Panel, test prompts without a `!` prefix default 
 **So that** irrelevant prompts are correctly expected to not activate, producing accurate metrics
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a prompt with no prefix and skill metadata (name + tags) available, when the activation test runs, then Phase 1 classifies expected behavior via LLM before Phase 2 evaluates activation
-- [ ] **AC-US1-02**: Given multiple unlabeled prompts, when the test runs, then all auto-classifications are batched in Phase 1 before any Phase 2 evaluations begin
-- [ ] **AC-US1-03**: Given a prompt with `+` prefix, when the test runs, then it is treated as explicit `should_activate` and skips Phase 1 classification
-- [ ] **AC-US1-04**: Given a prompt with `!` prefix, when the test runs, then it is treated as explicit `should_not_activate` and skips Phase 1 classification (existing behavior preserved)
+- [x] **AC-US1-01**: Given a prompt with no prefix and skill metadata (name + tags) available, when the activation test runs, then Phase 1 classifies expected behavior via LLM before Phase 2 evaluates activation
+- [x] **AC-US1-02**: Given multiple unlabeled prompts, when the test runs, then all auto-classifications are batched in Phase 1 before any Phase 2 evaluations begin
+- [x] **AC-US1-03**: Given a prompt with `+` prefix, when the test runs, then it is treated as explicit `should_activate` and skips Phase 1 classification
+- [x] **AC-US1-04**: Given a prompt with `!` prefix, when the test runs, then it is treated as explicit `should_not_activate` and skips Phase 1 classification (existing behavior preserved)
 
 ---
 
@@ -46,9 +46,9 @@ In the Skill Studio Activation Panel, test prompts without a `!` prefix default 
 **So that** auto-classification is reliable regardless of the selected provider
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a classification request, when the LLM is called, then the prompt uses only skill name and tags (NOT the full description) and requests minimal JSON output `{"related": true/false}`
-- [ ] **AC-US2-02**: Given the classification LLM returns invalid JSON or errors, when processing the result, then the system defaults to `should_activate` (backward compatibility)
-- [ ] **AC-US2-03**: Given a SKILL.md with no frontmatter name or tags, when the test runs, then classification is skipped entirely and unlabeled prompts default to `should_activate`
+- [x] **AC-US2-01**: Given a classification request, when the LLM is called, then the prompt uses only skill name and tags (NOT the full description) and requests minimal JSON output `{"related": true/false}`
+- [x] **AC-US2-02**: Given the classification LLM returns invalid JSON or errors, when processing the result, then the system defaults to `should_activate` (backward compatibility)
+- [x] **AC-US2-03**: Given a SKILL.md with no frontmatter name or tags, when the test runs, then classification is skipped entirely and unlabeled prompts default to `should_activate`
 
 ---
 
@@ -59,8 +59,8 @@ In the Skill Studio Activation Panel, test prompts without a `!` prefix default 
 **So that** the classification phase has the metadata it needs without accessing the full description
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a SKILL.md with frontmatter containing `name` and `metadata.tags`, when the activation-test endpoint is called, then name and tags are extracted and passed to `testActivation` as `SkillMeta`
-- [ ] **AC-US3-02**: Given a SKILL.md with missing or empty tags, when metadata is extracted, then `tags` is an empty array and classification falls back to `should_activate`
+- [x] **AC-US3-01**: Given a SKILL.md with frontmatter containing `name` and `metadata.tags`, when the activation-test endpoint is called, then name and tags are extracted and passed to `testActivation` as `SkillMeta`
+- [x] **AC-US3-02**: Given a SKILL.md with missing or empty tags, when metadata is extracted, then `tags` is an empty array and classification falls back to `should_activate`
 
 ---
 
@@ -71,10 +71,10 @@ In the Skill Studio Activation Panel, test prompts without a `!` prefix default 
 **So that** I can understand and trust the test results
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given a prompt with no prefix, when sent to the server, then the client sends `expected: "auto"` instead of `"should_activate"`
-- [ ] **AC-US4-02**: Given a prompt with `+` prefix, when sent to the server, then the client sends `expected: "should_activate"` with the prefix stripped
-- [ ] **AC-US4-03**: Given activation results containing auto-classified prompts, when displayed in the UI, then an "Auto" badge is shown next to the resolved expectation
-- [ ] **AC-US4-04**: Given the Activation Panel help text, when viewing the prompt input area, then it documents all three conventions: no prefix (auto), `+` (activate), `!` (not activate)
+- [x] **AC-US4-01**: Given a prompt with no prefix, when sent to the server, then the client sends `expected: "auto"` instead of `"should_activate"`
+- [x] **AC-US4-02**: Given a prompt with `+` prefix, when sent to the server, then the client sends `expected: "should_activate"` with the prefix stripped
+- [x] **AC-US4-03**: Given activation results containing auto-classified prompts, when displayed in the UI, then an "Auto" badge is shown next to the resolved expectation
+- [x] **AC-US4-04**: Given the Activation Panel help text, when viewing the prompt input area, then it documents all three conventions: no prefix (auto), `+` (activate), `!` (not activate)
 
 ---
 
@@ -85,10 +85,10 @@ In the Skill Studio Activation Panel, test prompts without a `!` prefix default 
 **So that** regressions are caught early
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given a mock LLM returning `{"related": true}`, when `classifyExpectation` is called, then it returns `"should_activate"`
-- [ ] **AC-US5-02**: Given a mock LLM returning `{"related": false}`, when `classifyExpectation` is called, then it returns `"should_not_activate"`
-- [ ] **AC-US5-03**: Given a mock LLM that throws an error, when `classifyExpectation` is called, then it returns `"should_activate"` (fallback)
-- [ ] **AC-US5-04**: Given prompts with mixed prefixes (none, `+`, `!`), when `testActivation` runs with `SkillMeta`, then only unprefixed prompts go through classification
+- [x] **AC-US5-01**: Given a mock LLM returning `{"related": true}`, when `classifyExpectation` is called, then it returns `"should_activate"`
+- [x] **AC-US5-02**: Given a mock LLM returning `{"related": false}`, when `classifyExpectation` is called, then it returns `"should_not_activate"`
+- [x] **AC-US5-03**: Given a mock LLM that throws an error, when `classifyExpectation` is called, then it returns `"should_activate"` (fallback)
+- [x] **AC-US5-04**: Given prompts with mixed prefixes (none, `+`, `!`), when `testActivation` runs with `SkillMeta`, then only unprefixed prompts go through classification
 
 ## Out of Scope
 

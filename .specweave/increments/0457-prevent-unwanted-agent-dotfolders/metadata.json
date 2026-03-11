@@ -1,6 +1,6 @@
 {
   "id": "0457-prevent-unwanted-agent-dotfolders",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-09T05:22:16.914Z",
@@ -98,5 +98,6 @@
       }
     ],
     "lastSync": "2026-03-10T07:49:13.949Z"
-  }
+  },
+  "updated": "2026-03-11T10:50:00.000Z"
 }

@@ -29,7 +29,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a request with a valid `vskill_access` cookie containing `isAdmin: true`
@@ -73,7 +73,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** mocked `requireAdminUser` returning a `UserTokenPayload`
@@ -108,7 +108,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a user authenticated via GitHub SSO with `isAdmin: true`
@@ -155,7 +155,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** an authenticated admin user
@@ -188,7 +188,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-02, AC-US3-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** an authenticated admin user clicks Logout
@@ -224,7 +224,7 @@ by_user_story:
 
 **User Story**: US-003 + US-006
 **Satisfies ACs**: AC-US3-04, AC-US6-01, AC-US6-02, AC-US6-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the `vskill_token_exp` cookie contains a Unix timestamp 120 seconds in the future
@@ -269,7 +269,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** every admin API route under `src/app/api/v1/admin/`
@@ -303,7 +303,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** T-007 has completed the migration
@@ -336,7 +336,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the 7 admin content pages (dashboard, submissions, submissions/[id], queue, blocklist, evals, reports)
@@ -371,7 +371,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** T-009 has completed the migration
@@ -400,7 +400,7 @@ by_user_story:
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-006
 
 **Test Plan**:
@@ -430,7 +430,7 @@ by_user_story:
 
 **User Story**: US-006
 **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-001, T-002, T-003, T-004, T-005, T-006, T-007, T-008, T-009, T-010, T-011
 
 **Test Plan**:

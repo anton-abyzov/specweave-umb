@@ -33,10 +33,10 @@ SpecWeave's plugin auto-loading mechanism silently installs plugins without user
 **So that** I maintain control over what gets installed in my project
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a fresh SpecWeave project with no explicit `suggestOnly` in config, when the hook detects a relevant plugin, then it displays a recommendation message instead of installing
-- [ ] **AC-US1-02**: Given an existing project with `autoLoad.enabled: true` but no `suggestOnly` field, when the hook runs, then `suggestOnly` defaults to `true` (consent-first)
-- [ ] **AC-US1-03**: Given a project with explicit `suggestOnly: false`, when the hook detects a plugin, then it auto-installs as before (opt-in to old behavior)
-- [ ] **AC-US1-04**: Given a project with `suggestOnly: true` (explicit or default), when the hook detects a plugin, then the recommendation includes: plugin name, why it was detected, and the exact install command
+- [x] **AC-US1-01**: Given a fresh SpecWeave project with no explicit `suggestOnly` in config, when the hook detects a relevant plugin, then it displays a recommendation message instead of installing
+- [x] **AC-US1-02**: Given an existing project with `autoLoad.enabled: true` but no `suggestOnly` field, when the hook runs, then `suggestOnly` defaults to `true` (consent-first)
+- [x] **AC-US1-03**: Given a project with explicit `suggestOnly: false`, when the hook detects a plugin, then it auto-installs as before (opt-in to old behavior)
+- [x] **AC-US1-04**: Given a project with `suggestOnly: true` (explicit or default), when the hook detects a plugin, then the recommendation includes: plugin name, why it was detected, and the exact install command
 
 ---
 
@@ -47,9 +47,9 @@ SpecWeave's plugin auto-loading mechanism silently installs plugins without user
 **So that** I can decide whether to install without being nagged repeatedly
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a plugin recommendation is triggered, when the suggestion is displayed, then it includes the plugin name, detection reason, and a copy-pasteable install command (e.g., `npx vskill install --repo anton-abyzov/vskill --plugin mobile --agent claude-code`)
-- [ ] **AC-US2-02**: Given a plugin was already suggested in the current session, when the same plugin is detected again, then no duplicate suggestion is shown
-- [ ] **AC-US2-03**: Given a plugin suggestion was shown, when the user ignores it and starts a new session, then the suggestion may appear again
+- [x] **AC-US2-01**: Given a plugin recommendation is triggered, when the suggestion is displayed, then it includes the plugin name, detection reason, and a copy-pasteable install command (e.g., `npx vskill install --repo anton-abyzov/vskill --plugin mobile --agent claude-code`)
+- [x] **AC-US2-02**: Given a plugin was already suggested in the current session, when the same plugin is detected again, then no duplicate suggestion is shown
+- [x] **AC-US2-03**: Given a plugin suggestion was shown, when the user ignores it and starts a new session, then the suggestion may appear again
 
 ---
 
@@ -60,9 +60,9 @@ SpecWeave's plugin auto-loading mechanism silently installs plugins without user
 **So that** LSP analyzers are not installed without my consent
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given `suggestOnly: true` (default), when an LSP plugin (TypeScript, Python, Rust analyzer) is detected, then it is suggested with an install command instead of auto-installed
-- [ ] **AC-US3-02**: Given `suggestOnly: false` (explicit opt-in), when an LSP plugin is detected, then it auto-installs as before
-- [ ] **AC-US3-03**: Given an LSP plugin suggestion is shown but not installed, when the user runs `specweave lsp` commands, then the existing CLI fallback works without the plugin
+- [x] **AC-US3-01**: Given `suggestOnly: true` (default), when an LSP plugin (TypeScript, Python, Rust analyzer) is detected, then it is suggested with an install command instead of auto-installed
+- [x] **AC-US3-02**: Given `suggestOnly: false` (explicit opt-in), when an LSP plugin is detected, then it auto-installs as before
+- [x] **AC-US3-03**: Given an LSP plugin suggestion is shown but not installed, when the user runs `specweave lsp` commands, then the existing CLI fallback works without the plugin
 
 ---
 
@@ -73,9 +73,9 @@ SpecWeave's plugin auto-loading mechanism silently installs plugins without user
 **So that** the type system and validation accurately reflect the available configuration
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given the `PluginAutoLoadConfig` TypeScript interface, when inspected, then it includes a `suggestOnly?: boolean` field with JSDoc describing its purpose and default value
-- [ ] **AC-US4-02**: Given the `specweave-config.schema.json`, when validated, then it includes `suggestOnly` as a boolean property under `autoLoad` with `default: true`
-- [ ] **AC-US4-03**: Given a config file with `suggestOnly` set to a non-boolean value, when validated against the schema, then validation fails with a clear error message
+- [x] **AC-US4-01**: Given the `PluginAutoLoadConfig` TypeScript interface, when inspected, then it includes a `suggestOnly?: boolean` field with JSDoc describing its purpose and default value
+- [x] **AC-US4-02**: Given the `specweave-config.schema.json`, when validated, then it includes `suggestOnly` as a boolean property under `autoLoad` with `default: true`
+- [x] **AC-US4-03**: Given a config file with `suggestOnly` set to a non-boolean value, when validated against the schema, then validation fails with a clear error message
 
 ---
 
@@ -86,10 +86,10 @@ SpecWeave's plugin auto-loading mechanism silently installs plugins without user
 **So that** users and tooling do not reference unavailable plugins
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given the vskill `marketplace.json`, when inspected, then it contains only plugins with corresponding directories on disk (mobile, skills, google-workspace, marketing)
-- [ ] **AC-US5-02**: Given the 8 phantom plugins (frontend, backend, testing, infra, payments, ml, kafka, confluent, security, blockchain), when removed from marketplace.json, then they are also removed from the `VSKILL_REPO_PLUGINS` list in the shell hook and the `VSKILL_PLUGINS` constant in the LLM detector
-- [ ] **AC-US5-03**: Given the LLM detection prompt catalog, when a phantom plugin name is encountered, then it is marked as "not yet available" rather than completely removed, so the LLM knows not to suggest it
-- [ ] **AC-US5-04**: Given existing tests that reference phantom plugins, when the test suite runs, then all tests pass with updated references
+- [x] **AC-US5-01**: Given the vskill `marketplace.json`, when inspected, then it contains only plugins with corresponding directories on disk (mobile, skills, google-workspace, marketing)
+- [x] **AC-US5-02**: Given the 8 phantom plugins (frontend, backend, testing, infra, payments, ml, kafka, confluent, security, blockchain), when removed from marketplace.json, then they are also removed from the `VSKILL_REPO_PLUGINS` list in the shell hook and the `VSKILL_PLUGINS` constant in the LLM detector
+- [x] **AC-US5-03**: Given the LLM detection prompt catalog, when a phantom plugin name is encountered, then it is marked as "not yet available" rather than completely removed, so the LLM knows not to suggest it
+- [x] **AC-US5-04**: Given existing tests that reference phantom plugins, when the test suite runs, then all tests pass with updated references
 
 ---
 
@@ -100,9 +100,9 @@ SpecWeave's plugin auto-loading mechanism silently installs plugins without user
 **So that** the detection-to-installation flow respects consent by default
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: Given the `user-prompt-submit.sh` hook, when `suggestOnly` is not set in config, then the hook follows the suggest-only code path (no `--force --yes` flags)
-- [ ] **AC-US6-02**: Given the `llm-plugin-detector.ts`, when it returns detected plugins, then the caller checks `suggestOnly` before deciding to install or suggest
-- [ ] **AC-US6-03**: Given the shell hook's `VSKILL_REPO_PLUGINS` list, when compared to actual available plugins, then only existing plugins are listed
+- [x] **AC-US6-01**: Given the `user-prompt-submit.sh` hook, when `suggestOnly` is not set in config, then the hook follows the suggest-only code path (no `--force --yes` flags)
+- [x] **AC-US6-02**: Given the `llm-plugin-detector.ts`, when it returns detected plugins, then the caller checks `suggestOnly` before deciding to install or suggest
+- [x] **AC-US6-03**: Given the shell hook's `VSKILL_REPO_PLUGINS` list, when compared to actual available plugins, then only existing plugins are listed
 
 ---
 
@@ -113,9 +113,9 @@ SpecWeave's plugin auto-loading mechanism silently installs plugins without user
 **So that** tests validate consent-first behavior and catch regressions
 
 **Acceptance Criteria**:
-- [ ] **AC-US7-01**: Given existing unit tests for `llm-plugin-detector.ts`, when the default behavior assertions are checked, then approximately 14 assertions are flipped from expecting auto-install to expecting suggest-only
-- [ ] **AC-US7-02**: Given the test suite, when new consent-flow tests are added, then they cover: suggestion display format, once-per-session dedup, explicit opt-out (`suggestOnly: false`) still auto-installs, and LSP guard behavior
-- [ ] **AC-US7-03**: Given all test updates, when `npx vitest run` is executed, then all tests pass with no regressions
+- [x] **AC-US7-01**: Given existing unit tests for `llm-plugin-detector.ts`, when the default behavior assertions are checked, then approximately 14 assertions are flipped from expecting auto-install to expecting suggest-only
+- [x] **AC-US7-02**: Given the test suite, when new consent-flow tests are added, then they cover: suggestion display format, once-per-session dedup, explicit opt-out (`suggestOnly: false`) still auto-installs, and LSP guard behavior
+- [x] **AC-US7-03**: Given all test updates, when `npx vitest run` is executed, then all tests pass with no regressions
 
 ## Out of Scope
 
