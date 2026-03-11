@@ -14,7 +14,7 @@
 
 #### T-001: Add Notion, Jira, Confluence, Figma, and Sentry to MCP_REGISTRY
 
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] Not Started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] completed
 
 **Description**: Add 5 new entries to the `MCP_REGISTRY` array in `src/eval/mcp-detector.ts`. Each entry needs server name, prefix patterns, MCP server URL, and transport type.
 
@@ -65,7 +65,7 @@
 
 #### T-002: Augment buildEvalInitPrompt with MCP simulation context
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [ ] Not Started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [x] completed
 
 **Description**: Modify `buildEvalInitPrompt` in `src/eval/prompt-builder.ts` to call `detectMcpDependencies` on the skill content. When MCP dependencies are found, append instructions telling the LLM to generate assertions that verify tool call demonstration quality rather than expecting real API responses.
 
@@ -113,7 +113,7 @@
 
 #### T-003: Create buildJudgeSystemPrompt function with MCP awareness
 
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03 | **Status**: [ ] Not Started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03 | **Status**: [x] completed
 
 **Description**: Add a `buildJudgeSystemPrompt` function to `src/eval/judge.ts` that returns either the standard judge system prompt or an MCP-augmented version. Modify `judgeAssertion` to accept an optional `mcpDeps` parameter and use the appropriate prompt.
 
@@ -167,7 +167,7 @@
 
 #### T-004: Augment comparator with MCP simulation awareness
 
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [ ] Not Started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [x] completed
 
 **Description**: Modify `scoreComparison` in `src/eval/comparator.ts` to accept optional MCP dependency info and augment the comparator system prompt when MCP tools are involved.
 
@@ -211,7 +211,7 @@
 
 #### T-005: Add mcpSimulation field to BenchmarkResult
 
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03 | **Status**: [ ] Not Started
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03 | **Status**: [x] completed
 
 **Description**: Extend the `BenchmarkResult` interface in `src/eval/benchmark.ts` with an optional `mcpSimulation` field. Ensure backward compatibility with existing benchmark.json files and history.
 
@@ -253,7 +253,7 @@
 
 #### T-006: End-to-end verification with MCP-dependent skill
 
-**User Story**: All | **Satisfies ACs**: All | **Status**: [ ] Not Started
+**User Story**: All | **Satisfies ACs**: All | **Status**: [x] completed
 
 **Description**: Run the full eval pipeline (`vskill eval init` + `vskill eval run` + `vskill eval compare`) against a known MCP-dependent skill to verify the end-to-end flow works correctly with simulation awareness.
 

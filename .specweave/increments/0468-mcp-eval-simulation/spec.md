@@ -34,9 +34,9 @@ This increment makes the eval pipeline fully MCP-simulation-aware end-to-end: fr
 **So that** my MCP-dependent skill's evals have assertions that are fair to simulated output
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `buildEvalInitPrompt` detects MCP dependencies in the skill content and appends MCP simulation context to the generation prompt
-- [ ] **AC-US1-02**: Generated eval assertions for MCP skills reference "simulated" tool calls (e.g. "demonstrates calling slack_send_message with channel and message parameters") rather than expecting real API responses
-- [ ] **AC-US1-03**: Generated eval cases for non-MCP skills are unchanged (no regression)
+- [x] **AC-US1-01**: `buildEvalInitPrompt` detects MCP dependencies in the skill content and appends MCP simulation context to the generation prompt
+- [x] **AC-US1-02**: Generated eval assertions for MCP skills reference "simulated" tool calls (e.g. "demonstrates calling slack_send_message with channel and message parameters") rather than expecting real API responses
+- [x] **AC-US1-03**: Generated eval cases for non-MCP skills are unchanged (no regression)
 
 ---
 
@@ -48,9 +48,9 @@ This increment makes the eval pipeline fully MCP-simulation-aware end-to-end: fr
 **So that** assertions are evaluated against the quality of the simulation rather than real API responses
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: The judge system prompt is augmented with simulation context when the skill has MCP dependencies
-- [ ] **AC-US2-02**: The judge evaluates whether the LLM demonstrated the correct tool call workflow (tool name, parameters, realistic mock response) rather than checking for real API artifacts
-- [ ] **AC-US2-03**: Non-MCP skill judging is unaffected (no regression)
+- [x] **AC-US2-01**: The judge system prompt is augmented with simulation context when the skill has MCP dependencies
+- [x] **AC-US2-02**: The judge evaluates whether the LLM demonstrated the correct tool call workflow (tool name, parameters, realistic mock response) rather than checking for real API artifacts
+- [x] **AC-US2-03**: Non-MCP skill judging is unaffected (no regression)
 
 ---
 
@@ -62,9 +62,9 @@ This increment makes the eval pipeline fully MCP-simulation-aware end-to-end: fr
 **So that** my skill gets proper simulation instructions during eval
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `MCP_REGISTRY` includes entries for Notion (`notion_`), Jira (`jira_`), Confluence (`confluence_`), Figma (`figma_`), and Sentry (`sentry_`)
-- [ ] **AC-US3-02**: Each new registry entry has a valid server name, prefix array, URL, and transport type
-- [ ] **AC-US3-03**: `detectMcpDependencies` correctly matches tool references for all new servers
+- [x] **AC-US3-01**: `MCP_REGISTRY` includes entries for Notion (`notion_`), Jira (`jira_`), Confluence (`confluence_`), Figma (`figma_`), and Sentry (`sentry_`)
+- [x] **AC-US3-02**: Each new registry entry has a valid server name, prefix array, URL, and transport type
+- [x] **AC-US3-03**: `detectMcpDependencies` correctly matches tool references for all new servers
 
 ---
 
@@ -76,9 +76,9 @@ This increment makes the eval pipeline fully MCP-simulation-aware end-to-end: fr
 **So that** my MCP-dependent skill is not unfairly penalized in comparison benchmarks
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: The comparator's blind judge prompt includes context that both responses may contain simulated tool interactions
-- [ ] **AC-US4-02**: The comparison judge evaluates simulation quality (realistic parameters, plausible responses, complete workflow) rather than penalizing simulated output
-- [ ] **AC-US4-03**: Comparison results for non-MCP skills are unchanged
+- [x] **AC-US4-01**: The comparator's blind judge prompt includes context that both responses may contain simulated tool interactions
+- [x] **AC-US4-02**: The comparison judge evaluates simulation quality (realistic parameters, plausible responses, complete workflow) rather than penalizing simulated output
+- [x] **AC-US4-03**: Comparison results for non-MCP skills are unchanged
 
 ---
 
@@ -90,9 +90,9 @@ This increment makes the eval pipeline fully MCP-simulation-aware end-to-end: fr
 **So that** I can distinguish eval results for MCP skills from non-MCP skills
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: `BenchmarkResult` includes an optional `mcpSimulation` field indicating whether simulation mode was active and which servers were simulated
-- [ ] **AC-US5-02**: The benchmark output (benchmark.json) records MCP simulation metadata when applicable
-- [ ] **AC-US5-03**: History and stats computations handle the new field without breaking existing data
+- [x] **AC-US5-01**: `BenchmarkResult` includes an optional `mcpSimulation` field indicating whether simulation mode was active and which servers were simulated
+- [x] **AC-US5-02**: The benchmark output (benchmark.json) records MCP simulation metadata when applicable
+- [x] **AC-US5-03**: History and stats computations handle the new field without breaking existing data
 
 ## Functional Requirements
 
