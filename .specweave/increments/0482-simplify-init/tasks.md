@@ -2,13 +2,13 @@
 increment: 0482-simplify-init
 title: "Radically Simplify specweave init"
 total_tasks: 16
-completed_tasks: 0
+completed_tasks: 16
 by_user_story:
-  US-001: [T-001, T-002, T-003, T-004, T-005]
-  US-002: [T-006, T-007]
-  US-003: [T-008, T-009, T-010]
-  US-004: [T-011, T-012]
-  US-005: [T-013, T-014, T-015, T-016]
+  US-001: ["T-001", "T-002", "T-003", "T-004", "T-005"]
+  US-002: ["T-006", "T-007"]
+  US-003: ["T-008", "T-009", "T-010"]
+  US-004: ["T-011", "T-012"]
+  US-005: ["T-013", "T-014", "T-015", "T-016"]
 ---
 
 # Tasks: Radically Simplify specweave init
@@ -18,7 +18,7 @@ by_user_story:
 ## User Story: US-001 - Simplified Init Command
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05, AC-US1-06
-**Tasks**: 5 total, 0 completed
+**Tasks**: 5 total, 5 completed
 
 ---
 
@@ -26,7 +26,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `createConfigFile()` is called with targetDir, projectName, adapter, and language
@@ -55,7 +55,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `showNextSteps()` is called after a successful init for any adapter (Claude, Cursor, Generic)
@@ -88,7 +88,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `displaySummaryBanner()` is called with only `projectName`, `provider`, `adapter`, `language`, and `defaults`
@@ -115,7 +115,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `specweave init . --quick` is run in a directory
@@ -147,7 +147,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a directory with a `.git/config` containing a GitHub remote URL
@@ -173,7 +173,7 @@ by_user_story:
 ## User Story: US-002 - Guided Next Steps
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -181,7 +181,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-03, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a successful init completes
@@ -207,7 +207,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a successful init with a detected GitHub provider and Claude adapter
@@ -232,7 +232,7 @@ by_user_story:
 ## User Story: US-003 - Simplified Config Schema
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -240,7 +240,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `specweave init . --quick` runs successfully
@@ -267,7 +267,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a directory with a `.git/config` containing a GitHub remote URL `git@github.com:acme/myrepo.git`
@@ -292,7 +292,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** an existing config.json that contains `sync.profiles`, `umbrella`, `issueTracker`, and `multiProject` sections
@@ -317,7 +317,7 @@ by_user_story:
 ## User Story: US-004 - Clean Summary Banner
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -325,7 +325,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the `SummaryBannerOptions` TypeScript interface in summary-banner.ts
@@ -351,7 +351,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `displaySummaryBanner({ projectName: "myapp", adapter: "Claude Code", provider: "github", language: "en", defaults: {...} })`
@@ -376,7 +376,7 @@ by_user_story:
 ## User Story: US-005 - Barrel and Type Cleanup
 
 **Linked ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04, AC-US5-05
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 ---
 
@@ -384,7 +384,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-02, AC-US5-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the `src/cli/helpers/init/index.ts` barrel file
@@ -410,7 +410,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the `src/templates/config.json.template` file
@@ -436,7 +436,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a user runs `specweave resolve-structure` on a project
@@ -461,7 +461,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-04, AC-US5-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the rewritten init.ts and all helper changes are complete

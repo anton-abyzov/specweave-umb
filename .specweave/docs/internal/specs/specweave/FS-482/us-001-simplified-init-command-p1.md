@@ -1,10 +1,10 @@
 ---
 id: US-001
 feature: FS-482
-title: Simplified Init Command (P1)
-status: not_started
+title: "Simplified Init Command (P1)"
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** developer."
 project: specweave
 external:
@@ -25,12 +25,12 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a directory without `.specweave/`, when running `specweave init`, then `.specweave/` directory, config.json, CLAUDE.md, AGENTS.md, and .gitignore are created in < 10 seconds
-- [ ] **AC-US1-02**: Given any init invocation, when the command runs, then no prompts appear about greenfield/brownfield, repository hosting, issue trackers, or repo cloning
-- [ ] **AC-US1-03**: Given a directory with a `.git/config` containing a remote URL, when running init, then the adapter (Claude/Cursor/Generic) and git provider (GitHub/ADO/Bitbucket) are auto-detected silently without prompting
-- [ ] **AC-US1-04**: Given the `--quick` flag, when running init, then zero interactive prompts are shown
-- [ ] **AC-US1-05**: Given interactive mode (no `--quick`), when running init, then at most 2 prompts appear: language selection (if non-English locale detected) and adapter confirmation
-- [ ] **AC-US1-06**: Given the generated config.json, when inspecting its contents, then it contains only core fields: project name, adapter, repository.provider, language, hooks, auto, lsp, and testing defaults -- no multiProject, issueTracker, projectMaturity, or structureDeferred fields
+- [x] **AC-US1-01**: Given a directory without `.specweave/`, when running `specweave init`, then `.specweave/` directory, config.json, CLAUDE.md, AGENTS.md, and .gitignore are created in < 10 seconds
+- [x] **AC-US1-02**: Given any init invocation, when the command runs, then no prompts appear about greenfield/brownfield, repository hosting, issue trackers, or repo cloning
+- [x] **AC-US1-03**: Given a directory with a `.git/config` containing a remote URL, when running init, then the adapter (Claude/Cursor/Generic) and git provider (GitHub/ADO/Bitbucket) are auto-detected silently without prompting
+- [x] **AC-US1-04**: Given the `--quick` flag, when running init, then zero interactive prompts are shown
+- [x] **AC-US1-05**: Given interactive mode (no `--quick`), when running init, then at most 2 prompts appear: language selection (if non-English locale detected) and adapter confirmation
+- [x] **AC-US1-06**: Given the generated config.json, when inspecting its contents, then it contains only core fields: project name, adapter, repository.provider, language, hooks, auto, lsp, and testing defaults -- no multiProject, issueTracker, projectMaturity, or structureDeferred fields
 
 ---
 
@@ -43,8 +43,8 @@ external:
 
 ## Tasks
 
-- [ ] **T-001**: Simplify `createConfigFile()` in directory-structure.ts
-- [ ] **T-002**: Rewrite next-steps.ts with guided follow-up commands
-- [ ] **T-003**: Simplify summary-banner.ts interface
-- [ ] **T-004**: Rewrite init.ts — main rewrite (remove 70% of code)
-- [ ] **T-005**: Export `detectProvider` from provider-detection.ts and barrel
+- [x] **T-001**: Simplify `createConfigFile()` in directory-structure.ts
+- [x] **T-002**: Rewrite next-steps.ts with guided follow-up commands
+- [x] **T-003**: Simplify summary-banner.ts interface
+- [x] **T-004**: Rewrite init.ts — main rewrite (remove 70% of code)
+- [x] **T-005**: Export `detectProvider` from provider-detection.ts and barrel

@@ -1,10 +1,10 @@
 ---
 increment: 0482-simplify-init
-title: "Radically Simplify specweave init"
+title: Radically Simplify specweave init
 type: feature
 priority: P1
-status: planned
-created: 2026-03-10
+status: completed
+created: 2026-03-10T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -34,12 +34,12 @@ The current `specweave init` command is 1,242 lines with 41 helper modules total
 **So that** I can start using SpecWeave immediately without a lengthy wizard
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a directory without `.specweave/`, when running `specweave init`, then `.specweave/` directory, config.json, CLAUDE.md, AGENTS.md, and .gitignore are created in < 10 seconds
-- [ ] **AC-US1-02**: Given any init invocation, when the command runs, then no prompts appear about greenfield/brownfield, repository hosting, issue trackers, or repo cloning
-- [ ] **AC-US1-03**: Given a directory with a `.git/config` containing a remote URL, when running init, then the adapter (Claude/Cursor/Generic) and git provider (GitHub/ADO/Bitbucket) are auto-detected silently without prompting
-- [ ] **AC-US1-04**: Given the `--quick` flag, when running init, then zero interactive prompts are shown
-- [ ] **AC-US1-05**: Given interactive mode (no `--quick`), when running init, then at most 2 prompts appear: language selection (if non-English locale detected) and adapter confirmation
-- [ ] **AC-US1-06**: Given the generated config.json, when inspecting its contents, then it contains only core fields: project name, adapter, repository.provider, language, hooks, auto, lsp, and testing defaults -- no multiProject, issueTracker, projectMaturity, or structureDeferred fields
+- [x] **AC-US1-01**: Given a directory without `.specweave/`, when running `specweave init`, then `.specweave/` directory, config.json, CLAUDE.md, AGENTS.md, and .gitignore are created in < 10 seconds
+- [x] **AC-US1-02**: Given any init invocation, when the command runs, then no prompts appear about greenfield/brownfield, repository hosting, issue trackers, or repo cloning
+- [x] **AC-US1-03**: Given a directory with a `.git/config` containing a remote URL, when running init, then the adapter (Claude/Cursor/Generic) and git provider (GitHub/ADO/Bitbucket) are auto-detected silently without prompting
+- [x] **AC-US1-04**: Given the `--quick` flag, when running init, then zero interactive prompts are shown
+- [x] **AC-US1-05**: Given interactive mode (no `--quick`), when running init, then at most 2 prompts appear: language selection (if non-English locale detected) and adapter confirmation
+- [x] **AC-US1-06**: Given the generated config.json, when inspecting its contents, then it contains only core fields: project name, adapter, repository.provider, language, hooks, auto, lsp, and testing defaults -- no multiProject, issueTracker, projectMaturity, or structureDeferred fields
 
 ---
 
@@ -51,10 +51,10 @@ The current `specweave init` command is 1,242 lines with 41 helper modules total
 **So that** I know how to configure external tools and start working
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a successful init, when the completion output is displayed, then it shows 3 follow-up commands: `specweave sync-setup`, `specweave increment "feature"`, and `specweave migrate-to-umbrella` with brief descriptions
-- [ ] **AC-US2-02**: Given a successful init, when the summary banner is displayed, then it shows the project name, detected adapter, detected provider, and language
-- [ ] **AC-US2-03**: Given any adapter (Claude, Cursor, Generic), when next steps are displayed, then verbose adapter-specific instruction blocks are removed in favor of the universal command list
-- [ ] **AC-US2-04**: Given a successful init, when the output is displayed, then documentation and GitHub links are still present
+- [x] **AC-US2-01**: Given a successful init, when the completion output is displayed, then it shows 3 follow-up commands: `specweave sync-setup`, `specweave increment "feature"`, and `specweave migrate-to-umbrella` with brief descriptions
+- [x] **AC-US2-02**: Given a successful init, when the summary banner is displayed, then it shows the project name, detected adapter, detected provider, and language
+- [x] **AC-US2-03**: Given any adapter (Claude, Cursor, Generic), when next steps are displayed, then verbose adapter-specific instruction blocks are removed in favor of the universal command list
+- [x] **AC-US2-04**: Given a successful init, when the output is displayed, then documentation and GitHub links are still present
 
 ---
 
@@ -66,10 +66,10 @@ The current `specweave init` command is 1,242 lines with 41 helper modules total
 **So that** it is not cluttered with unconfigured external tool settings
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a fresh init, when config.json is generated, then it contains no `multiProject`, `issueTracker`, `projectMaturity`, or `structureDeferred` fields
-- [ ] **AC-US3-02**: Given a fresh init, when config.json is generated, then it contains no sync profiles or provider-specific connection settings
-- [ ] **AC-US3-03**: Given a directory with a GitHub remote in `.git/config`, when init runs, then `repository.provider` is set to "github" and `repository.organization` is populated from the remote URL
-- [ ] **AC-US3-04**: Given an existing config.json that contains sync profiles, umbrella config, or issueTracker sections, when that config is loaded by any SpecWeave command, then it still works correctly (backward compatible via optional chaining)
+- [x] **AC-US3-01**: Given a fresh init, when config.json is generated, then it contains no `multiProject`, `issueTracker`, `projectMaturity`, or `structureDeferred` fields
+- [x] **AC-US3-02**: Given a fresh init, when config.json is generated, then it contains no sync profiles or provider-specific connection settings
+- [x] **AC-US3-03**: Given a directory with a GitHub remote in `.git/config`, when init runs, then `repository.provider` is set to "github" and `repository.organization` is populated from the remote URL
+- [x] **AC-US3-04**: Given an existing config.json that contains sync profiles, umbrella config, or issueTracker sections, when that config is loaded by any SpecWeave command, then it still works correctly (backward compatible via optional chaining)
 
 ---
 
@@ -81,9 +81,9 @@ The current `specweave init` command is 1,242 lines with 41 helper modules total
 **So that** I can quickly verify what was configured
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given a successful init, when the summary banner renders, then it does not display tracker, repoCount, isGreenfield, hasPendingClones, syncPermissions, projectMaturity, or structureDeferred fields
-- [ ] **AC-US4-02**: Given a successful init, when the summary banner renders, then it shows: project name, adapter, provider, language, and defaults (testing, quality gates, LSP, git hooks)
-- [ ] **AC-US4-03**: Given the `SummaryBannerOptions` interface, when inspected, then removed fields (tracker, repoCount, isGreenfield, hasPendingClones, externalPluginInstalled, syncPermissions, projectMaturity, structureDeferred) are no longer present
+- [x] **AC-US4-01**: Given a successful init, when the summary banner renders, then it does not display tracker, repoCount, isGreenfield, hasPendingClones, syncPermissions, projectMaturity, or structureDeferred fields
+- [x] **AC-US4-02**: Given a successful init, when the summary banner renders, then it shows: project name, adapter, provider, language, and defaults (testing, quality gates, LSP, git hooks)
+- [x] **AC-US4-03**: Given the `SummaryBannerOptions` interface, when inspected, then removed fields (tracker, repoCount, isGreenfield, hasPendingClones, externalPluginInstalled, syncPermissions, projectMaturity, structureDeferred) are no longer present
 
 ---
 
@@ -95,11 +95,11 @@ The current `specweave init` command is 1,242 lines with 41 helper modules total
 **So that** the codebase is not cluttered with dead code from removed init flows
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given `types.ts`, when inspected, then `ProjectMaturity` and `RepositoryHosting` types (and REPO_FETCH_LIMITS constant) are removed
-- [ ] **AC-US5-02**: Given `index.ts` barrel, when inspected, then exports for `setupRepositoryHosting`, `promptTestingConfig`, `promptTranslationConfig`, `promptBrownfieldAnalysis`, `promptDeepInterviewConfig`, `promptQualityGatesConfig`, `promptAndRunExternalImport`, and their associated types are removed
-- [ ] **AC-US5-03**: Given `index.ts` barrel, when inspected, then `detectProvider` is exported from `./provider-detection.js`
-- [ ] **AC-US5-04**: Given the full test suite (`npx vitest run`), when run after all removals, then no tests fail due to missing imports or broken references
-- [ ] **AC-US5-05**: Given `npm run build`, when run after all changes, then TypeScript compiles cleanly with zero errors
+- [x] **AC-US5-01**: Given `types.ts`, when inspected, then `ProjectMaturity` and `RepositoryHosting` types (and REPO_FETCH_LIMITS constant) are removed
+- [x] **AC-US5-02**: Given `index.ts` barrel, when inspected, then exports for `setupRepositoryHosting`, `promptTestingConfig`, `promptTranslationConfig`, `promptBrownfieldAnalysis`, `promptDeepInterviewConfig`, `promptQualityGatesConfig`, `promptAndRunExternalImport`, and their associated types are removed
+- [x] **AC-US5-03**: Given `index.ts` barrel, when inspected, then `detectProvider` is exported from `./provider-detection.js`
+- [x] **AC-US5-04**: Given the full test suite (`npx vitest run`), when run after all removals, then no tests fail due to missing imports or broken references
+- [x] **AC-US5-05**: Given `npm run build`, when run after all changes, then TypeScript compiles cleanly with zero errors
 
 ## Functional Requirements
 

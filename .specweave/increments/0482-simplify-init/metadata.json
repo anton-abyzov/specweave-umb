@@ -1,10 +1,10 @@
 {
   "id": "0482-simplify-init",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-10T23:30:49.239Z",
-  "lastActivity": "2026-03-10T23:30:49.239Z",
+  "lastActivity": "2026-03-11T06:46:53.182Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -46,14 +46,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-134",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-10T23:45:42.542Z"
+      "syncedAt": "2026-03-11T06:48:17.952Z"
     },
     "ado": {
       "featureId": "206",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/206",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-10T23:45:45.929Z"
+      "syncedAt": "2026-03-11T06:48:20.039Z"
     }
   },
   "github": {
@@ -90,5 +90,7 @@
       }
     ],
     "lastSync": "2026-03-10T23:45:29.380Z"
-  }
+  },
+  "updated": "2026-03-11T06:41:29.000Z",
+  "approvedAt": "2026-03-11T06:46:53.182Z"
 }
