@@ -1,10 +1,10 @@
 ---
 id: US-004
 feature: FS-486
-title: Workspace State for Eval Changes
-status: not_started
+title: "Workspace State for Eval Changes"
+status: completed
 priority: P1
-created: 2026-03-11
+created: 2026-03-11T00:00:00.000Z
 tldr: "**As a** developer."
 project: vskill
 external:
@@ -25,9 +25,9 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US4-01**: `WorkspaceState` is extended with `aiEditEvalChanges` (array of eval change objects) and `aiEditEvalSelections` (map of change index to boolean)
-- [ ] **AC-US4-02**: New reducer actions handle: setting eval changes from the API response, toggling individual change selections, select-all/deselect-all, and clearing on discard
-- [ ] **AC-US4-03**: The `submitAiEdit` function in WorkspaceContext sends current evals to the API and dispatches eval changes from the response
+- [x] **AC-US4-01**: `WorkspaceState` is extended with `aiEditEvalChanges` (array of eval change objects) and `aiEditEvalSelections` (map of change index to boolean)
+- [x] **AC-US4-02**: New reducer actions handle: setting eval changes from the API response, toggling individual change selections, select-all/deselect-all, and clearing on discard
+- [x] **AC-US4-03**: The `submitAiEdit` function in WorkspaceContext sends current evals to the API and dispatches eval changes from the response
 
 ---
 
@@ -40,6 +40,6 @@ external:
 
 ## Tasks
 
-- [ ] **T-008**: Extend workspaceTypes.ts -- New State Fields and Action Types
-- [ ] **T-009**: Extend workspaceReducer.ts -- Handle New Actions
-- [ ] **T-010**: Extend WorkspaceContext -- submitAiEdit Sends Evals and Dispatches Changes
+- [x] **T-008**: Extend workspaceTypes.ts -- New State Fields and Action Types
+- [x] **T-009**: Extend workspaceReducer.ts -- Handle New Actions
+- [x] **T-010**: Extend WorkspaceContext -- submitAiEdit Sends Evals and Dispatches Changes

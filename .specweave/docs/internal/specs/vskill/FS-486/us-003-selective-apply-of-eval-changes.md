@@ -1,10 +1,10 @@
 ---
 id: US-003
 feature: FS-486
-title: Selective Apply of Eval Changes
-status: not_started
+title: "Selective Apply of Eval Changes"
+status: completed
 priority: P1
-created: 2026-03-11
+created: 2026-03-11T00:00:00.000Z
 tldr: "**As a** skill author."
 project: vskill
 external:
@@ -25,11 +25,11 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: When the user clicks Apply, the system saves the improved SKILL.md content AND computes merged evals from the selected eval changes (adds inserted, modifies replaced, removes deleted)
-- [ ] **AC-US3-02**: Unchecked eval changes are ignored during apply; only checked changes are merged into the evals file
-- [ ] **AC-US3-03**: The merged evals are saved via the existing PUT /evals endpoint
-- [ ] **AC-US3-04**: If SKILL.md save succeeds but evals save fails, the SKILL.md change is kept and an error message is shown; the user can retry the evals save
-- [ ] **AC-US3-05**: If no eval change checkboxes are checked, only the SKILL.md content is saved (existing behavior preserved)
+- [x] **AC-US3-01**: When the user clicks Apply, the system saves the improved SKILL.md content AND computes merged evals from the selected eval changes (adds inserted, modifies replaced, removes deleted)
+- [x] **AC-US3-02**: Unchecked eval changes are ignored during apply; only checked changes are merged into the evals file
+- [x] **AC-US3-03**: The merged evals are saved via the existing PUT /evals endpoint
+- [x] **AC-US3-04**: If SKILL.md save succeeds but evals save fails, the SKILL.md change is kept and an error message is shown; the user can retry the evals save
+- [x] **AC-US3-05**: If no eval change checkboxes are checked, only the SKILL.md content is saved (existing behavior preserved)
 
 ---
 
@@ -42,5 +42,5 @@ external:
 
 ## Tasks
 
-- [ ] **T-006**: Implement mergeEvalChanges Utility
-- [ ] **T-007**: Extend applyAiEdit -- Merge and Save Evals with Error/Retry
+- [x] **T-006**: Implement mergeEvalChanges Utility
+- [x] **T-007**: Extend applyAiEdit -- Merge and Save Evals with Error/Retry

@@ -2,9 +2,9 @@
 id: US-001
 feature: FS-486
 title: LLM Returns Eval Change Suggestions
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-11
+created: 2026-03-11T00:00:00.000Z
 tldr: "**As a** skill author."
 project: vskill
 external:
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a skill with existing evals, when the user submits an AI Edit instruction, then the improve endpoint sends current evals to the LLM and returns an `evalChanges` array alongside `improved` and `reasoning`
-- [ ] **AC-US1-02**: Given a skill with no evals.json, when the user submits an AI Edit instruction, then the LLM receives an empty evals array and may suggest new test cases from scratch
-- [ ] **AC-US1-03**: Each eval change object contains `action` (add | modify | remove), `reason` string, and the full eval case data (for add/modify) or the target eval id (for remove)
-- [ ] **AC-US1-04**: Given the LLM response does not contain a valid `---EVAL_CHANGES---` section, then the endpoint returns the SKILL.md result normally with an empty `evalChanges` array (graceful degradation)
+- [x] **AC-US1-01**: Given a skill with existing evals, when the user submits an AI Edit instruction, then the improve endpoint sends current evals to the LLM and returns an `evalChanges` array alongside `improved` and `reasoning`
+- [x] **AC-US1-02**: Given a skill with no evals.json, when the user submits an AI Edit instruction, then the LLM receives an empty evals array and may suggest new test cases from scratch
+- [x] **AC-US1-03**: Each eval change object contains `action` (add | modify | remove), `reason` string, and the full eval case data (for add/modify) or the target eval id (for remove)
+- [x] **AC-US1-04**: Given the LLM response does not contain a valid `---EVAL_CHANGES---` section, then the endpoint returns the SKILL.md result normally with an empty `evalChanges` array (graceful degradation)
 
 ---
 
@@ -41,5 +41,5 @@ external:
 
 ## Tasks
 
-- [ ] **T-001**: Extend Backend Types and API Shape for Eval Changes
-- [ ] **T-002**: Extend improve-routes.ts -- Prompt Construction, Response Parsing, Graceful Degradation
+- [x] **T-001**: Extend Backend Types and API Shape for Eval Changes
+- [x] **T-002**: Extend improve-routes.ts -- Prompt Construction, Response Parsing, Graceful Degradation

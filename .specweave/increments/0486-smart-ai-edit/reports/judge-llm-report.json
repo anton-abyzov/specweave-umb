@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "incrementId": "0486-smart-ai-edit",
+  "timestamp": "2026-03-11T07:45:30.000Z",
+  "verdict": "WAIVED",
+  "reason": "External model consent not configured"
+}
