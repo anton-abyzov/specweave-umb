@@ -1,7 +1,5 @@
 ---
-increment: "0467-parallel-per-case-benchmark"
-generated_by: "sw:test-aware-planner"
-coverage_target: 90
+increment: 0467-parallel-per-case-benchmark
 total_tasks: 14
 completed_tasks: 14
 ---
