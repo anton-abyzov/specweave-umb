@@ -1,0 +1,28 @@
+{
+  "id": "0487-skill-studio-execution-observability",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-11T06:58:03.815Z",
+  "lastActivity": "2026-03-11T06:58:03.815Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-143",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-143",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-11T07:13:02.511Z"
+    },
+    "ado": {
+      "featureId": "291",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/291",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-11T07:13:04.615Z"
+    }
+  }
+}
