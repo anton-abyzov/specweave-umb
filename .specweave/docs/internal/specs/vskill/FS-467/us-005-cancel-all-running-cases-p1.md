@@ -1,8 +1,8 @@
 ---
 id: US-005
 feature: FS-467
-title: Cancel All Running Cases (P1)
-status: not_started
+title: "Cancel All Running Cases (P1)"
+status: completed
 priority: P1
 created: 2026-03-10
 tldr: "**As a** skill developer."
@@ -25,9 +25,9 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US5-01**: Given multiple cases in "running" or "queued" state, when I click "Cancel All", then all running cases' AbortControllers are aborted and all queued cases are removed from the queue
-- [ ] **AC-US5-02**: Given a "Cancel All" action, then every affected case transitions to "cancelled" state and no further SSE events are processed for those cases
-- [ ] **AC-US5-03**: Given a "Cancel All" during a bulk run, then server-side semaphore slots are properly released for all cancelled cases (no resource leaks)
+- [x] **AC-US5-01**: Given multiple cases in "running" or "queued" state, when I click "Cancel All", then all running cases' AbortControllers are aborted and all queued cases are removed from the queue
+- [x] **AC-US5-02**: Given a "Cancel All" action, then every affected case transitions to "cancelled" state and no further SSE events are processed for those cases
+- [x] **AC-US5-03**: Given a "Cancel All" during a bulk run, then server-side semaphore slots are properly released for all cancelled cases (no resource leaks)
 
 ---
 

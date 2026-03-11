@@ -1,10 +1,10 @@
 ---
 increment: 0469-skill-studio-ui-redesign
-title: "Skill Studio UI Redesign"
+title: Skill Studio UI Redesign
 type: feature
 priority: P1
-status: planned
-created: 2026-03-10
+status: completed
+created: 2026-03-10T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -14,67 +14,46 @@ coverage_target: 90
 
 ## Overview
 
-Complete workspace redesign: grouped panel rail, activation test as workspace panel, mode badges, navigation cleanup
-
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA PM/ARCHITECT SKILLS
-====================================================================
-
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the placeholders below.
-
-To complete this specification, run:
-  Tell Claude: "Complete the spec for increment 0469-skill-studio-ui-redesign"
-
-This will activate the PM skill which will:
-- Define proper user stories with acceptance criteria
-- Conduct market research and competitive analysis
-- Create user personas
-- Define success metrics
-
-====================================================================
--->
+Complete workspace redesign: grouped panel rail, activation test as workspace panel, mode badges, navigation cleanup.
 
 ## User Stories
 
-### US-001: [Story Title] (P1)
+### US-001: Workspace Activation Panel (P1)
 **Project**: vskill
 
-**As a** [user type]
-**I want** [goal]
-**So that** [benefit]
+**As a** skill developer
+**I want** the activation test integrated as a workspace panel
+**So that** I can test activation without leaving the workspace
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: [Specific, testable criterion]
-- [ ] **AC-US1-02**: [Another criterion]
-
----
-
-### US-002: [Story Title] (P2)
-**Project**: vskill
-
-**As a** [user type]
-**I want** [goal]
-**So that** [benefit]
-
-**Acceptance Criteria**:
-- [ ] **AC-US2-01**: [Specific, testable criterion]
-- [ ] **AC-US2-02**: [Another criterion]
+- [x] **AC-US1-01**: Activation test runs as a panel within the workspace with full SSE streaming, prompt editing, results display, and summary metrics
+- [x] **AC-US1-02**: Left rail uses grouped panel layout (Build, Evaluate, Insights) with separator lines and labels
+- [x] **AC-US1-03**: Standalone activation route removed from navigation
+- [x] **AC-US1-04**: Run panel shows mode badges (Skill/Baseline/Compare) with color coding
 
 ## Functional Requirements
 
-### FR-001: [Requirement]
-[Detailed description]
+### FR-001: Type System Extension
+Extended PanelId union, WorkspaceState, WorkspaceAction, and WorkspaceContextValue for activation panel support.
+
+### FR-002: Grouped Panel Rail
+LeftRail redesigned with 3 groups (Build, Evaluate, Insights), separator lines, and status dots for running activation.
+
+### FR-003: Navigation Cleanup
+Removed standalone /activation route and ActivationTestPage from App.tsx nav items.
 
 ## Success Criteria
 
-[Measurable outcomes - metrics, KPIs]
+- All 921 tests pass
+- Build completes without errors
+- Keyboard shortcuts updated to Ctrl+1-6
 
 ## Out of Scope
 
-[What this explicitly does NOT include]
+- E2E test changes (none needed for this UI-only refactor)
+- Backend API changes
 
 ## Dependencies
 
-[Other features or systems this depends on]
+- Existing workspace panel infrastructure
+- SSE streaming for activation test results

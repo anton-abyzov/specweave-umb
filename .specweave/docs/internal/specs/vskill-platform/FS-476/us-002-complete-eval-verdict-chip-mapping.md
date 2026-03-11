@@ -1,10 +1,10 @@
 ---
 id: US-002
 feature: FS-476
-title: Complete eval verdict chip mapping
-status: not_started
+title: "Complete eval verdict chip mapping"
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** user viewing eval results."
 project: vskill-platform
 external:
@@ -25,12 +25,12 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given a skill with `evalVerdict = "EFFECTIVE"`, when the scan chip renders, then the status is `PASS` (green)
-- [ ] **AC-US2-02**: Given a skill with `evalVerdict = "MARGINAL"`, when the scan chip renders, then the status is `WARN` (amber)
-- [ ] **AC-US2-03**: Given a skill with `evalVerdict = "INEFFECTIVE"`, when the scan chip renders, then the status is `NEUTRAL` (gray)
-- [ ] **AC-US2-04**: Given a skill with `evalVerdict = "DEGRADING"`, when the scan chip renders, then the status is `FAIL` (red)
-- [ ] **AC-US2-05**: Given a skill with `evalVerdict = "ERROR"`, when the scan chip renders, then the status is `ERROR` (red) with the `scanColor` function returning the correct color
-- [ ] **AC-US2-06**: Given the `scanColor` helper, when called with `WARN`, `NEUTRAL`, or `ERROR`, then it returns the correct hex color (`#F59E0B`, `#6B7280`, `#EF4444` respectively)
+- [x] **AC-US2-01**: Given a skill with `evalVerdict = "EFFECTIVE"`, when the scan chip renders, then the status is `PASS` (green)
+- [x] **AC-US2-02**: Given a skill with `evalVerdict = "MARGINAL"`, when the scan chip renders, then the status is `WARN` (amber)
+- [x] **AC-US2-03**: Given a skill with `evalVerdict = "INEFFECTIVE"`, when the scan chip renders, then the status is `NEUTRAL` (gray)
+- [x] **AC-US2-04**: Given a skill with `evalVerdict = "DEGRADING"`, when the scan chip renders, then the status is `FAIL` (red)
+- [x] **AC-US2-05**: Given a skill with `evalVerdict = "ERROR"`, when the scan chip renders, then the status is `ERROR` (red) with the `scanColor` function returning the correct color
+- [x] **AC-US2-06**: Given the `scanColor` helper, when called with `WARN`, `NEUTRAL`, or `ERROR`, then it returns the correct hex color (`#F59E0B`, `#6B7280`, `#EF4444` respectively)
 
 ---
 
@@ -43,4 +43,4 @@ external:
 
 ## Tasks
 
-- [ ] **T-003**: Fix verdict-to-status mapping and scanColor for all five EvalVerdict values
+- [x] **T-003**: Fix verdict-to-status mapping and scanColor for all five EvalVerdict values

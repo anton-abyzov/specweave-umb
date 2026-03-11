@@ -1,8 +1,8 @@
 ---
 id: US-003
 feature: FS-467
-title: Parallel Bulk Execution with Concurrency Control (P1)
-status: not_started
+title: "Parallel Bulk Execution with Concurrency Control (P1)"
+status: completed
 priority: P1
 created: 2026-03-10
 tldr: "**As a** skill developer."
@@ -25,11 +25,11 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: Given a "Run All" action, when executed, then all cases transition to "queued" state and begin executing in parallel up to the concurrency limit (default: 3 concurrent cases)
-- [ ] **AC-US3-02**: Given 5 cases and concurrency limit of 3, when bulk run starts, then 3 cases are in "running" state and 2 are in "queued" state; as running cases complete, queued cases start
-- [ ] **AC-US3-03**: Given a Semaphore class in `concurrency.ts`, when multiple cases attempt to acquire, then at most N cases execute simultaneously, and others wait until a slot is released
-- [ ] **AC-US3-04**: Given a bulk run in progress, when all cases have completed (via `Promise.allSettled`), then the bulk run is marked complete and a summary result is assembled from all individual case results
-- [ ] **AC-US3-05**: Given a case that errors during a bulk run, then other cases continue executing (no fail-fast behavior)
+- [x] **AC-US3-01**: Given a "Run All" action, when executed, then all cases transition to "queued" state and begin executing in parallel up to the concurrency limit (default: 3 concurrent cases)
+- [x] **AC-US3-02**: Given 5 cases and concurrency limit of 3, when bulk run starts, then 3 cases are in "running" state and 2 are in "queued" state; as running cases complete, queued cases start
+- [x] **AC-US3-03**: Given a Semaphore class in `concurrency.ts`, when multiple cases attempt to acquire, then at most N cases execute simultaneously, and others wait until a slot is released
+- [x] **AC-US3-04**: Given a bulk run in progress, when all cases have completed (via `Promise.allSettled`), then the bulk run is marked complete and a summary result is assembled from all individual case results
+- [x] **AC-US3-05**: Given a case that errors during a bulk run, then other cases continue executing (no fail-fast behavior)
 
 ---
 

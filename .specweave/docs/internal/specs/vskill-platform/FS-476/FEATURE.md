@@ -1,36 +1,32 @@
 ---
 id: FS-476
-title: Fix stale/inconsistent skill metadata display
+title: "Fix stale/inconsistent skill metadata display"
 type: feature
-status: planned
+status: completed
 priority: P1
 created: 2026-03-10T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
-tldr: >-
-  Users see contradictory or stale information on skill detail pages due to
-  three independent bugs:.
+lastUpdated: 2026-03-11
+tldr: "Users see contradictory or stale information on skill detail pages due to three independent bugs:."
 complexity: medium
 stakeholder_relevant: true
 external_tools:
   github:
-    type: milestone
+    type: 'milestone'
     id: 19
     url: 'https://github.com/anton-abyzov/vskill-platform/milestone/19'
 externalLinks:
   jira:
-    epicKey: SWE2E-119
+    epicKey: 'SWE2E-119'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-119'
     syncedAt: '2026-03-10T15:52:18.078Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 184
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/184
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/184'
     syncedAt: '2026-03-10T15:52:20.851Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-10'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Fix stale/inconsistent skill metadata display
@@ -38,8 +34,10 @@ updated: '2026-03-10'
 ## TL;DR
 
 **What**: Users see contradictory or stale information on skill detail pages due to three independent bugs:.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 3
+
+![Fix stale/inconsistent skill metadata display illustration](assets/feature-fs-476.jpg)
 
 ## Overview
 
@@ -49,7 +47,7 @@ Users see contradictory or stale information on skill detail pages due to three 
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0476-skill-metadata-alignment](../../../../../increments/0476-skill-metadata-alignment/spec.md) | ⏳ planned | 2026-03-10 |
+| [0476-skill-metadata-alignment](../../../../../increments/0476-skill-metadata-alignment/spec.md) | ✅ completed | 2026-03-10T00:00:00.000Z |
 
 ## User Stories
 

@@ -1,8 +1,8 @@
 ---
 id: US-001
 feature: FS-467
-title: Run a Single Test Case Independently (P0)
-status: not_started
+title: "Run a Single Test Case Independently (P0)"
+status: completed
 priority: P1
 created: 2026-03-10
 tldr: "**As a** skill developer."
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a test case in idle state, when I click its Run button, then only that case transitions to "running" state and other cases remain in their current state (idle, complete, etc.)
-- [ ] **AC-US1-02**: Given a running case, when its SSE stream emits progress events, then only that case's inline result updates while other cases' results are unchanged
-- [ ] **AC-US1-03**: Given a single-case run, when the server receives a POST to `/api/skills/:plugin/:skill/benchmark/case/:evalId`, then it executes only that case and streams SSE events scoped to that evalId
-- [ ] **AC-US1-04**: Given a case that errors during execution (LLM timeout, network failure), then that case transitions to "error" state with an error message, and no other cases are affected
+- [x] **AC-US1-01**: Given a test case in idle state, when I click its Run button, then only that case transitions to "running" state and other cases remain in their current state (idle, complete, etc.)
+- [x] **AC-US1-02**: Given a running case, when its SSE stream emits progress events, then only that case's inline result updates while other cases' results are unchanged
+- [x] **AC-US1-03**: Given a single-case run, when the server receives a POST to `/api/skills/:plugin/:skill/benchmark/case/:evalId`, then it executes only that case and streams SSE events scoped to that evalId
+- [x] **AC-US1-04**: Given a case that errors during execution (LLM timeout, network failure), then that case transitions to "error" state with an error message, and no other cases are affected
 
 ---
 

@@ -1,10 +1,10 @@
 ---
 id: US-001
 feature: FS-476
-title: Accurate repo health badge
-status: not_started
+title: "Accurate repo health badge"
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** user viewing a skill detail page."
 project: vskill-platform
 external:
@@ -25,11 +25,11 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a GitHub API response with status 404, when the repo health check runs, then the result status is `OFFLINE`
-- [ ] **AC-US1-02**: Given a GitHub API response with status 403 (rate limit), 429, or 5xx, when the repo health check runs, then the result status is `UNKNOWN` (not `OFFLINE`)
-- [ ] **AC-US1-03**: Given a network error or timeout during the GitHub API call, when the repo health check runs, then the result status is `UNKNOWN`
-- [ ] **AC-US1-04**: Given a cached `UNKNOWN` status, when the badge component renders, then no badge is displayed (component returns null)
-- [ ] **AC-US1-05**: Given a cached `UNKNOWN` result, when the KV TTL is checked, then it expires after 300 seconds (same as OFFLINE TTL) for quick retry
+- [x] **AC-US1-01**: Given a GitHub API response with status 404, when the repo health check runs, then the result status is `OFFLINE`
+- [x] **AC-US1-02**: Given a GitHub API response with status 403 (rate limit), 429, or 5xx, when the repo health check runs, then the result status is `UNKNOWN` (not `OFFLINE`)
+- [x] **AC-US1-03**: Given a network error or timeout during the GitHub API call, when the repo health check runs, then the result status is `UNKNOWN`
+- [x] **AC-US1-04**: Given a cached `UNKNOWN` status, when the badge component renders, then no badge is displayed (component returns null)
+- [x] **AC-US1-05**: Given a cached `UNKNOWN` result, when the KV TTL is checked, then it expires after 300 seconds (same as OFFLINE TTL) for quick retry
 
 ---
 
@@ -42,5 +42,5 @@ external:
 
 ## Tasks
 
-- [ ] **T-001**: Add UNKNOWN status to repo health type and checker
-- [ ] **T-002**: Hide badge for UNKNOWN status in RepoHealthBadge
+- [x] **T-001**: Add UNKNOWN status to repo health type and checker
+- [x] **T-002**: Hide badge for UNKNOWN status in RepoHealthBadge

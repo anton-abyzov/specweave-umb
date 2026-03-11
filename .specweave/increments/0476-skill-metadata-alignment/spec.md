@@ -1,10 +1,10 @@
 ---
 increment: 0476-skill-metadata-alignment
-title: "Fix stale/inconsistent skill metadata display"
+title: Fix stale/inconsistent skill metadata display
 type: bug
 priority: P1
-status: active
-created: 2026-03-10
+status: completed
+created: 2026-03-10T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -38,11 +38,11 @@ Users see contradictory or stale information on skill detail pages due to three 
 **So that** I am not misled about skill availability by transient GitHub failures
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a GitHub API response with status 404, when the repo health check runs, then the result status is `OFFLINE`
-- [ ] **AC-US1-02**: Given a GitHub API response with status 403 (rate limit), 429, or 5xx, when the repo health check runs, then the result status is `UNKNOWN` (not `OFFLINE`)
-- [ ] **AC-US1-03**: Given a network error or timeout during the GitHub API call, when the repo health check runs, then the result status is `UNKNOWN`
-- [ ] **AC-US1-04**: Given a cached `UNKNOWN` status, when the badge component renders, then no badge is displayed (component returns null)
-- [ ] **AC-US1-05**: Given a cached `UNKNOWN` result, when the KV TTL is checked, then it expires after 300 seconds (same as OFFLINE TTL) for quick retry
+- [x] **AC-US1-01**: Given a GitHub API response with status 404, when the repo health check runs, then the result status is `OFFLINE`
+- [x] **AC-US1-02**: Given a GitHub API response with status 403 (rate limit), 429, or 5xx, when the repo health check runs, then the result status is `UNKNOWN` (not `OFFLINE`)
+- [x] **AC-US1-03**: Given a network error or timeout during the GitHub API call, when the repo health check runs, then the result status is `UNKNOWN`
+- [x] **AC-US1-04**: Given a cached `UNKNOWN` status, when the badge component renders, then no badge is displayed (component returns null)
+- [x] **AC-US1-05**: Given a cached `UNKNOWN` result, when the KV TTL is checked, then it expires after 300 seconds (same as OFFLINE TTL) for quick retry
 
 ---
 
@@ -53,12 +53,12 @@ Users see contradictory or stale information on skill detail pages due to three 
 **So that** the display is consistent with the actual evaluation outcome
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a skill with `evalVerdict = "EFFECTIVE"`, when the scan chip renders, then the status is `PASS` (green)
-- [ ] **AC-US2-02**: Given a skill with `evalVerdict = "MARGINAL"`, when the scan chip renders, then the status is `WARN` (amber)
-- [ ] **AC-US2-03**: Given a skill with `evalVerdict = "INEFFECTIVE"`, when the scan chip renders, then the status is `NEUTRAL` (gray)
-- [ ] **AC-US2-04**: Given a skill with `evalVerdict = "DEGRADING"`, when the scan chip renders, then the status is `FAIL` (red)
-- [ ] **AC-US2-05**: Given a skill with `evalVerdict = "ERROR"`, when the scan chip renders, then the status is `ERROR` (red) with the `scanColor` function returning the correct color
-- [ ] **AC-US2-06**: Given the `scanColor` helper, when called with `WARN`, `NEUTRAL`, or `ERROR`, then it returns the correct hex color (`#F59E0B`, `#6B7280`, `#EF4444` respectively)
+- [x] **AC-US2-01**: Given a skill with `evalVerdict = "EFFECTIVE"`, when the scan chip renders, then the status is `PASS` (green)
+- [x] **AC-US2-02**: Given a skill with `evalVerdict = "MARGINAL"`, when the scan chip renders, then the status is `WARN` (amber)
+- [x] **AC-US2-03**: Given a skill with `evalVerdict = "INEFFECTIVE"`, when the scan chip renders, then the status is `NEUTRAL` (gray)
+- [x] **AC-US2-04**: Given a skill with `evalVerdict = "DEGRADING"`, when the scan chip renders, then the status is `FAIL` (red)
+- [x] **AC-US2-05**: Given a skill with `evalVerdict = "ERROR"`, when the scan chip renders, then the status is `ERROR` (red) with the `scanColor` function returning the correct color
+- [x] **AC-US2-06**: Given the `scanColor` helper, when called with `WARN`, `NEUTRAL`, or `ERROR`, then it returns the correct hex color (`#F59E0B`, `#6B7280`, `#EF4444` respectively)
 
 ---
 
@@ -69,10 +69,10 @@ Users see contradictory or stale information on skill detail pages due to three 
 **So that** I can assess whether the evaluation data is current
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a skill with `lastEvalAt` set, when the eval section renders, then a relative timestamp (e.g., "3d ago") appears inline after the run count
-- [ ] **AC-US3-02**: Given a skill with `lastEvalAt` is null (never evaluated), when the eval section renders, then no freshness timestamp is shown
-- [ ] **AC-US3-03**: Given the eval-store `storeEvalRun` function, when the Skill record DB update is performed, then the update is awaited (not fire-and-forget) so failures propagate
-- [ ] **AC-US3-04**: Given the eval-store `storeEvalRun` function, when the Skill record DB update fails, then the error is logged and re-thrown (caller can handle retry)
+- [x] **AC-US3-01**: Given a skill with `lastEvalAt` set, when the eval section renders, then a relative timestamp (e.g., "3d ago") appears inline after the run count
+- [x] **AC-US3-02**: Given a skill with `lastEvalAt` is null (never evaluated), when the eval section renders, then no freshness timestamp is shown
+- [x] **AC-US3-03**: Given the eval-store `storeEvalRun` function, when the Skill record DB update is performed, then the update is awaited (not fire-and-forget) so failures propagate
+- [x] **AC-US3-04**: Given the eval-store `storeEvalRun` function, when the Skill record DB update fails, then the error is logged and re-thrown (caller can handle retry)
 
 ## Out of Scope
 

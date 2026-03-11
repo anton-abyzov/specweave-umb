@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "incrementId": "0451-skill-naming-plugin-metadata",
-  "timestamp": "2026-03-09T03:12:00.000Z",
+  "timestamp": "2026-03-11T03:45:00Z",
   "verdict": "PASS",
   "shipReadiness": "NEEDS REVIEW",
   "summary": {
@@ -17,20 +17,20 @@
       "severity": "high",
       "confidence": 95,
       "category": "correctness",
-      "file": "src/lib/__tests__/slug.test.ts",
-      "issue": "derivePluginName() has no unit tests. tasks.md specifies 7 test cases. None exist.",
-      "suggestion": "Add 7 test cases from T-001 test plan.",
-      "impact": "Regressions to plugin name derivation would go undetected."
+      "file": "vskill-platform/src/lib/__tests__/slug.test.ts",
+      "issue": "derivePluginName() has no unit tests. tasks.md specifies 7 test cases (plugin path, short path, no-plugins segment, root SKILL.md, null, undefined, backslashes). None exist in slug.test.ts.",
+      "suggestion": "Add the 7 test cases from T-001 test plan to slug.test.ts.",
+      "impact": "Regressions to plugin name derivation would go undetected. Function is used in publish, backfill, and display paths."
     },
     {
       "title": "Zero test coverage for publishSkill pluginName wiring",
       "severity": "high",
       "confidence": 95,
       "category": "correctness",
-      "file": "src/lib/__tests__/submission-store.test.ts",
-      "issue": "publishSkill() pluginName behavior has no tests. tasks.md specifies 3 test cases.",
-      "suggestion": "Add tests verifying upsert is called with correct pluginName.",
-      "impact": "Silent regression if publishSkill is refactored."
+      "file": "vskill-platform/src/lib/__tests__/submission-store.test.ts",
+      "issue": "publishSkill() pluginName behavior has no dedicated tests. Tasks.md specifies 3 test cases (plugin path sets pluginName, non-plugin path sets null, re-publish updates pluginName).",
+      "suggestion": "Add tests verifying upsert create/update branches include correct pluginName values.",
+      "impact": "Silent regression if publishSkill upsert is refactored."
     },
     {
       "title": "Zero test coverage for CLI find pluginName display",
@@ -38,30 +38,30 @@
       "confidence": 95,
       "category": "correctness",
       "file": "vskill/src/commands/__tests__/find.test.ts",
-      "issue": "find.ts pluginName display has no tests. tasks.md specifies 4 test cases.",
-      "suggestion": "Add TTY and piped mode tests for pluginName suffix.",
-      "impact": "Display regressions in CLI output."
+      "issue": "find.ts pluginName display has no tests. Tasks.md specifies 4 test cases (TTY with/without pluginName, piped with/without pluginName).",
+      "suggestion": "Add TTY and piped mode tests asserting plugin badge [pluginName] appears/absent.",
+      "impact": "Display regressions in CLI output would go unnoticed."
     },
     {
       "title": "Backfill cannot clear incorrect pluginName values",
       "severity": "medium",
       "confidence": 90,
       "category": "correctness",
-      "file": "src/app/api/v1/admin/backfill-slugs/route.ts:178",
-      "issue": "Update logic skips null pluginName values. AC-US3-03 not fully satisfied.",
-      "suggestion": "Always set pluginName in update (drop conditional spread).",
-      "impact": "Low in practice — pluginName is only set by system."
+      "file": "vskill-platform/src/app/api/v1/admin/backfill-slugs/route.ts:178",
+      "issue": "Conditional spread `...(change.pluginName !== null ? { pluginName: change.pluginName } : {})` means null pluginName is never written. If a skill moves out of a plugins/ dir, backfill won't clear the stale pluginName. AC-US3-03 says non-plugin paths should get pluginName=null.",
+      "suggestion": "Always set pluginName in the update data: `pluginName: change.pluginName` (drop conditional spread).",
+      "impact": "Low in practice — skills rarely move out of plugin dirs, and pluginName is only set by system code."
     },
     {
       "title": "derivePluginName() lowercases output vs spec 'raw folder name'",
       "severity": "low",
       "confidence": 85,
       "category": "correctness",
-      "file": "src/lib/slug.ts:96",
-      "issue": ".toLowerCase() applied to plugin folder name despite spec saying 'raw folder name only'.",
-      "suggestion": "Remove .toLowerCase() or document intentional normalization.",
-      "impact": "Minimal — all plugin folders are already lowercase."
+      "file": "vskill-platform/src/lib/slug.ts:96",
+      "issue": ".toLowerCase() applied to plugin folder name. Spec says 'raw folder name only' and 'does NOT prettify the folder name'. All existing plugin folders are already lowercase so this is a no-op in practice.",
+      "suggestion": "Either remove .toLowerCase() to match spec literally, or document intentional normalization in the function's JSDoc.",
+      "impact": "Minimal — all plugin folders are lowercase by convention."
     }
   ],
-  "notes": "XSS issue found and fixed in-session (SearchPalette no-query path). Implementation logic is correct. Main gap is zero test coverage for new code."
+  "notes": "Implementation is complete across all 6 tasks (slug.ts, submission-store.ts, backfill-slugs/route.ts, SearchPalette.tsx, skills/page.tsx, skill detail page.tsx, CLI find.ts). Tasks/ACs in tasks.md and spec.md were not marked as completed. The main gap is zero test coverage for new code — all 3 high findings are test-related. No blockers or critical issues."
 }

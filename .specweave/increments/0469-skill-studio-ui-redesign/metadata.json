@@ -1,13 +1,52 @@
 {
   "id": "0469-skill-studio-ui-redesign",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-10T05:02:37.667Z",
-  "lastActivity": "2026-03-10T05:02:37.667Z",
+  "lastActivity": "2026-03-11T20:21:26.580Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 81,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/81",
+          "status": "active"
+        }
+      },
+      "milestone": 23,
+      "syncedAt": "2026-03-11T20:21:20.156Z"
+    },
+    "jira": {
+      "epicKey": "SWE2E-150",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-150",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-11T20:22:36.936Z"
+    },
+    "ado": {
+      "featureId": "476",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/476",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-11T20:22:37.871Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-11T20:20:17.048Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 81,
+        "url": "https://github.com/anton-abyzov/vskill/issues/81",
+        "createdAt": "2026-03-11T20:21:20.156Z"
+      }
+    ],
+    "lastSync": "2026-03-11T20:21:20.156Z"
+  },
+  "approvedAt": "2026-03-11T20:21:26.580Z"
 }

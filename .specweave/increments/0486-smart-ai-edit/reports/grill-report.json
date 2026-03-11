@@ -1,40 +1,111 @@
 {
   "version": "1.0",
   "incrementId": "0486-smart-ai-edit",
-  "timestamp": "2026-03-11T07:45:00.000Z",
+  "timestamp": "2026-03-11T11:42:00.000Z",
   "verdict": "PASS",
-  "shipReadiness": "READY",
+  "shipReadiness": "NEEDS REVIEW",
   "summary": {
-    "totalFindings": 11,
+    "totalFindings": 7,
+    "suppressed": 0,
     "critical": 0,
     "high": 0,
-    "medium": 5,
-    "suppressed": 3,
-    "note": "3 high/medium findings fixed: provider/model passthrough, server-side eval validation, null-safe assertions"
+    "medium": 2,
+    "minor": 5
   },
+  "scope": {
+    "filesExamined": 13,
+    "linesChanged": 850,
+    "acsValidated": 17
+  },
+  "fixesApplied": [
+    {
+      "title": "BLOCKER RESOLVED: 4 test files written (50 tests)",
+      "files": [
+        "src/eval-ui/src/utils/mergeEvalChanges.test.ts (16 tests)",
+        "src/eval-ui/src/pages/workspace/workspaceReducer.test.ts (12 tests)",
+        "src/eval-ui/src/components/__tests__/EvalChangeCard.test.tsx (13 tests)",
+        "src/eval-ui/src/components/__tests__/EvalChangesPanel.test.tsx (9 tests)"
+      ]
+    },
+    {
+      "title": "CRITICAL RESOLVED: ModifyDetail now diffs name field",
+      "file": "src/eval-ui/src/components/EvalChangeCard.tsx:127-129"
+    },
+    {
+      "title": "CRITICAL RESOLVED: nextId computed from pre-remove array",
+      "file": "src/eval-ui/src/utils/mergeEvalChanges.ts:39"
+    },
+    {
+      "title": "CRITICAL RESOLVED: retryEvalsSave clears error on success",
+      "file": "src/eval-ui/src/pages/workspace/WorkspaceContext.tsx:380"
+    },
+    {
+      "title": "MAJOR RESOLVED: null guards on assertions in AddDetail/RemoveDetail/ModifyDetail",
+      "file": "src/eval-ui/src/components/EvalChangeCard.tsx"
+    }
+  ],
   "findings": [
     {
-      "title": "LLM response may contain delimiter in SKILL.md content",
-      "severity": "medium",
-      "confidence": 75,
-      "category": "correctness",
-      "file": "src/eval-server/improve-routes.ts:253",
-      "status": "accepted-risk",
-      "note": "Inherited from existing delimiter pattern; rare edge case"
-    },
-    {
-      "title": "ModifyDetail assertion dedup uses text instead of id",
-      "severity": "low",
-      "confidence": 70,
-      "category": "edge-case",
-      "file": "src/eval-ui/src/components/EvalChangeCard.tsx:134"
-    },
-    {
-      "title": "Dual source of truth for evalChanges in state",
+      "title": "Path traversal via unsanitized URL params (pre-existing)",
       "severity": "medium",
       "confidence": 85,
+      "category": "security",
+      "file": "src/eval-server/improve-routes.ts:21",
+      "issue": "resolveSkillDir takes URL params without validating for .. segments. Pre-existing issue, not introduced by 0486.",
+      "suggestion": "Add path traversal validation in resolveSkillDir",
+      "impact": "Low risk for local dev tool."
+    },
+    {
+      "title": "LLM delimiter collision in response parsing",
+      "severity": "medium",
+      "confidence": 80,
+      "category": "correctness",
+      "file": "src/eval-server/improve-routes.ts:253,260",
+      "issue": "Parsing splits on first occurrence of ---REASONING--- and ---EVAL_CHANGES---. LLM could echo these in improved content.",
+      "suggestion": "Use lastIndexOf instead of split",
+      "impact": "Edge case, unlikely in practice."
+    },
+    {
+      "title": "submitAiEdit needlessly async",
+      "severity": "minor",
+      "confidence": 95,
       "category": "maintainability",
-      "file": "src/eval-ui/src/pages/workspace/workspaceReducer.ts:206"
+      "file": "src/eval-ui/src/pages/workspace/WorkspaceContext.tsx:307"
+    },
+    {
+      "title": "TOGGLE_EVAL_CHANGE no bounds guard",
+      "severity": "minor",
+      "confidence": 80,
+      "category": "correctness",
+      "file": "src/eval-ui/src/pages/workspace/workspaceReducer.ts:244-248"
+    },
+    {
+      "title": "Redundant evalChanges in both aiEditResult and aiEditEvalChanges",
+      "severity": "minor",
+      "confidence": 95,
+      "category": "maintainability",
+      "file": "src/eval-ui/src/pages/workspace/workspaceReducer.ts:214-224"
+    },
+    {
+      "title": "Expand/collapse button has no accessible label",
+      "severity": "minor",
+      "confidence": 95,
+      "category": "maintainability",
+      "file": "src/eval-ui/src/components/EvalChangeCard.tsx:66-79"
+    },
+    {
+      "title": "Linear scan O(n*m) for originalEval lookup",
+      "severity": "minor",
+      "confidence": 90,
+      "category": "performance",
+      "file": "src/eval-ui/src/components/EvalChangesPanel.tsx:71"
     }
-  ]
+  ],
+  "testSuite": {
+    "totalTests": 1040,
+    "totalFiles": 72,
+    "newTests": 50,
+    "newFiles": 4
+  },
+  "notes": "Re-grilled after fixing all blocker, critical, and major findings. 5 fixes applied: (1) 4 test files with 50 tests written, (2) ModifyDetail name diff, (3) nextId pre-remove computation, (4) retryEvalsSave error clearing, (5) null guards on assertions. Remaining findings are minor/medium and safe to ship."
 }

@@ -1,36 +1,32 @@
 ---
 id: FS-467
-title: Parallel Per-Case Benchmark Execution
+title: "Parallel Per-Case Benchmark Execution"
 type: feature
 status: ready_for_review
 priority: P1
-created: 2026-03-10T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
-tldr: >-
-  The eval-ui Skill Builder benchmark system executes all test cases
-  sequentially through a single SSE stream.
+created: 2026-03-10
+lastUpdated: 2026-03-11
+tldr: "The eval-ui Skill Builder benchmark system executes all test cases sequentially through a single SSE stream."
 complexity: high
 stakeholder_relevant: true
 external_tools:
   github:
-    type: milestone
+    type: 'milestone'
     id: 18
     url: 'https://github.com/anton-abyzov/vskill/milestone/18'
 externalLinks:
   jira:
-    epicKey: SWE2E-115
+    epicKey: 'SWE2E-115'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-115'
     syncedAt: '2026-03-10T09:49:40.948Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 180
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/180
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/180'
     syncedAt: '2026-03-10T09:49:41.601Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-10'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Parallel Per-Case Benchmark Execution

@@ -1,10 +1,10 @@
 ---
 increment: 0487-skill-studio-execution-observability
-title: "Skill Studio Execution Observability"
+title: Skill Studio Execution Observability
 type: feature
 priority: P1
-status: active
-created: 2026-03-11
+status: completed
+created: 2026-03-11T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

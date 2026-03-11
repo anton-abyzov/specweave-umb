@@ -36,10 +36,10 @@ This architecture forces users to wait for all cases to complete before interact
 **So that** I can iterate quickly on one failing case without waiting for the full suite
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a test case in idle state, when I click its Run button, then only that case transitions to "running" state and other cases remain in their current state (idle, complete, etc.)
-- [ ] **AC-US1-02**: Given a running case, when its SSE stream emits progress events, then only that case's inline result updates while other cases' results are unchanged
-- [ ] **AC-US1-03**: Given a single-case run, when the server receives a POST to `/api/skills/:plugin/:skill/benchmark/case/:evalId`, then it executes only that case and streams SSE events scoped to that evalId
-- [ ] **AC-US1-04**: Given a case that errors during execution (LLM timeout, network failure), then that case transitions to "error" state with an error message, and no other cases are affected
+- [x] **AC-US1-01**: Given a test case in idle state, when I click its Run button, then only that case transitions to "running" state and other cases remain in their current state (idle, complete, etc.)
+- [x] **AC-US1-02**: Given a running case, when its SSE stream emits progress events, then only that case's inline result updates while other cases' results are unchanged
+- [x] **AC-US1-03**: Given a single-case run, when the server receives a POST to `/api/skills/:plugin/:skill/benchmark/case/:evalId`, then it executes only that case and streams SSE events scoped to that evalId
+- [x] **AC-US1-04**: Given a case that errors during execution (LLM timeout, network failure), then that case transitions to "error" state with an error message, and no other cases are affected
 
 ---
 
@@ -51,10 +51,10 @@ This architecture forces users to wait for all cases to complete before interact
 **So that** I can abort a stuck or unwanted run while preserving results from other cases
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a case in "running" state, when I click its Cancel button, then that case's AbortController is aborted, the SSE stream for that case closes, and the case transitions to "cancelled" state
-- [ ] **AC-US2-02**: Given cases A (running) and B (running), when I cancel case A, then case B continues running uninterrupted and eventually completes normally
-- [ ] **AC-US2-03**: Given a case in "cancelled" state, when its Run button is clicked again, then it transitions back to "running" and starts a fresh SSE stream
-- [ ] **AC-US2-04**: Given a case in any non-running state (idle, complete, error, cancelled), then the Cancel button is either hidden or disabled for that case
+- [x] **AC-US2-01**: Given a case in "running" state, when I click its Cancel button, then that case's AbortController is aborted, the SSE stream for that case closes, and the case transitions to "cancelled" state
+- [x] **AC-US2-02**: Given cases A (running) and B (running), when I cancel case A, then case B continues running uninterrupted and eventually completes normally
+- [x] **AC-US2-03**: Given a case in "cancelled" state, when its Run button is clicked again, then it transitions back to "running" and starts a fresh SSE stream
+- [x] **AC-US2-04**: Given a case in any non-running state (idle, complete, error, cancelled), then the Cancel button is either hidden or disabled for that case
 
 ---
 
@@ -66,11 +66,11 @@ This architecture forces users to wait for all cases to complete before interact
 **So that** bulk benchmark runs complete faster while not overwhelming the LLM provider
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a "Run All" action, when executed, then all cases transition to "queued" state and begin executing in parallel up to the concurrency limit (default: 3 concurrent cases)
-- [ ] **AC-US3-02**: Given 5 cases and concurrency limit of 3, when bulk run starts, then 3 cases are in "running" state and 2 are in "queued" state; as running cases complete, queued cases start
-- [ ] **AC-US3-03**: Given a Semaphore class in `concurrency.ts`, when multiple cases attempt to acquire, then at most N cases execute simultaneously, and others wait until a slot is released
-- [ ] **AC-US3-04**: Given a bulk run in progress, when all cases have completed (via `Promise.allSettled`), then the bulk run is marked complete and a summary result is assembled from all individual case results
-- [ ] **AC-US3-05**: Given a case that errors during a bulk run, then other cases continue executing (no fail-fast behavior)
+- [x] **AC-US3-01**: Given a "Run All" action, when executed, then all cases transition to "queued" state and begin executing in parallel up to the concurrency limit (default: 3 concurrent cases)
+- [x] **AC-US3-02**: Given 5 cases and concurrency limit of 3, when bulk run starts, then 3 cases are in "running" state and 2 are in "queued" state; as running cases complete, queued cases start
+- [x] **AC-US3-03**: Given a Semaphore class in `concurrency.ts`, when multiple cases attempt to acquire, then at most N cases execute simultaneously, and others wait until a slot is released
+- [x] **AC-US3-04**: Given a bulk run in progress, when all cases have completed (via `Promise.allSettled`), then the bulk run is marked complete and a summary result is assembled from all individual case results
+- [x] **AC-US3-05**: Given a case that errors during a bulk run, then other cases continue executing (no fail-fast behavior)
 
 ---
 
@@ -82,10 +82,10 @@ This architecture forces users to wait for all cases to complete before interact
 **So that** I can track per-case progress over time and compare results across iterations
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given a single-case run that completes successfully, when the server writes the history entry, then the entry includes a `scope: "single"` field and contains only the one executed case
-- [ ] **AC-US4-02**: Given a bulk run that completes, when the server writes the history entry, then the entry includes `scope: "bulk"` and contains all cases that completed (including errored ones)
-- [ ] **AC-US4-03**: Given a single-case history entry, when viewed in the history panel, then it is visually distinguishable from bulk run entries (e.g., labeled "Single: case-name" vs "Full Run")
-- [ ] **AC-US4-04**: Given a per-case history query (`GET /api/skills/:plugin/:skill/history/case/:evalId`), then entries from both single-case and bulk runs appear in the timeline
+- [x] **AC-US4-01**: Given a single-case run that completes successfully, when the server writes the history entry, then the entry includes a `scope: "single"` field and contains only the one executed case
+- [x] **AC-US4-02**: Given a bulk run that completes, when the server writes the history entry, then the entry includes `scope: "bulk"` and contains all cases that completed (including errored ones)
+- [x] **AC-US4-03**: Given a single-case history entry, when viewed in the history panel, then it is visually distinguishable from bulk run entries (e.g., labeled "Single: case-name" vs "Full Run")
+- [x] **AC-US4-04**: Given a per-case history query (`GET /api/skills/:plugin/:skill/history/case/:evalId`), then entries from both single-case and bulk runs appear in the timeline
 
 ---
 
@@ -97,9 +97,9 @@ This architecture forces users to wait for all cases to complete before interact
 **So that** I can quickly stop a bulk run without clicking cancel on each case individually
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given multiple cases in "running" or "queued" state, when I click "Cancel All", then all running cases' AbortControllers are aborted and all queued cases are removed from the queue
-- [ ] **AC-US5-02**: Given a "Cancel All" action, then every affected case transitions to "cancelled" state and no further SSE events are processed for those cases
-- [ ] **AC-US5-03**: Given a "Cancel All" during a bulk run, then server-side semaphore slots are properly released for all cancelled cases (no resource leaks)
+- [x] **AC-US5-01**: Given multiple cases in "running" or "queued" state, when I click "Cancel All", then all running cases' AbortControllers are aborted and all queued cases are removed from the queue
+- [x] **AC-US5-02**: Given a "Cancel All" action, then every affected case transitions to "cancelled" state and no further SSE events are processed for those cases
+- [x] **AC-US5-03**: Given a "Cancel All" during a bulk run, then server-side semaphore slots are properly released for all cancelled cases (no resource leaks)
 
 ---
 
@@ -111,11 +111,11 @@ This architecture forces users to wait for all cases to complete before interact
 **So that** I can see real-time progress on multiple cases simultaneously without UI blocking
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: Given the workspace state, then `isRunning: boolean` is replaced by a `caseRunStates: Map<number, CaseRunState>` where CaseRunState is one of: idle, queued, running, complete, error, cancelled
-- [ ] **AC-US6-02**: Given a `useMultiSSE` hook, then it manages a `Map<number, { controller: AbortController, events: SSEEvent[] }>` supporting concurrent independent streams
-- [ ] **AC-US6-03**: Given case A is running and case B is complete, then case B's Run button is enabled, case B's results are fully visible, and the UI is not blocked in any way
-- [ ] **AC-US6-04**: Given new reducer actions CASE_RUN_START, CASE_RUN_COMPLETE, CASE_RUN_ERROR, and CASE_RUN_CANCEL, then each action updates only the targeted case's state in the caseRunStates map
-- [ ] **AC-US6-05**: Given the workspace context, then `runCase(evalId)`, `runAll()`, `cancelCase(evalId)`, and `cancelAll()` replace the current `runBenchmark(mode, scope)` and `cancelRun()` functions
+- [x] **AC-US6-01**: Given the workspace state, then `isRunning: boolean` is replaced by a `caseRunStates: Map<number, CaseRunState>` where CaseRunState is one of: idle, queued, running, complete, error, cancelled
+- [x] **AC-US6-02**: Given a `useMultiSSE` hook, then it manages a `Map<number, { controller: AbortController, events: SSEEvent[] }>` supporting concurrent independent streams
+- [x] **AC-US6-03**: Given case A is running and case B is complete, then case B's Run button is enabled, case B's results are fully visible, and the UI is not blocked in any way
+- [x] **AC-US6-04**: Given new reducer actions CASE_RUN_START, CASE_RUN_COMPLETE, CASE_RUN_ERROR, and CASE_RUN_CANCEL, then each action updates only the targeted case's state in the caseRunStates map
+- [x] **AC-US6-05**: Given the workspace context, then `runCase(evalId)`, `runAll()`, `cancelCase(evalId)`, and `cancelAll()` replace the current `runBenchmark(mode, scope)` and `cancelRun()` functions
 
 ## Out of Scope
 

@@ -1,10 +1,10 @@
 ---
 id: US-003
 feature: FS-476
-title: Eval freshness timestamp
-status: not_started
+title: "Eval freshness timestamp"
+status: completed
 priority: P1
-created: 2026-03-10
+created: 2026-03-10T00:00:00.000Z
 tldr: "**As a** user viewing a skill detail page."
 project: vskill-platform
 external:
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: Given a skill with `lastEvalAt` set, when the eval section renders, then a relative timestamp (e.g., "3d ago") appears inline after the run count
-- [ ] **AC-US3-02**: Given a skill with `lastEvalAt` is null (never evaluated), when the eval section renders, then no freshness timestamp is shown
-- [ ] **AC-US3-03**: Given the eval-store `storeEvalRun` function, when the Skill record DB update is performed, then the update is awaited (not fire-and-forget) so failures propagate
-- [ ] **AC-US3-04**: Given the eval-store `storeEvalRun` function, when the Skill record DB update fails, then the error is logged and re-thrown (caller can handle retry)
+- [x] **AC-US3-01**: Given a skill with `lastEvalAt` set, when the eval section renders, then a relative timestamp (e.g., "3d ago") appears inline after the run count
+- [x] **AC-US3-02**: Given a skill with `lastEvalAt` is null (never evaluated), when the eval section renders, then no freshness timestamp is shown
+- [x] **AC-US3-03**: Given the eval-store `storeEvalRun` function, when the Skill record DB update is performed, then the update is awaited (not fire-and-forget) so failures propagate
+- [x] **AC-US3-04**: Given the eval-store `storeEvalRun` function, when the Skill record DB update fails, then the error is logged and re-thrown (caller can handle retry)
 
 ---
 
@@ -41,5 +41,5 @@ external:
 
 ## Tasks
 
-- [ ] **T-004**: Await Skill DB update in eval-store and propagate failures
-- [ ] **T-005**: Display lastEvalAt freshness timestamp on skill detail page
+- [x] **T-004**: Await Skill DB update in eval-store and propagate failures
+- [x] **T-005**: Display lastEvalAt freshness timestamp on skill detail page

@@ -1,8 +1,8 @@
 ---
 id: US-002
 feature: FS-467
-title: Cancel a Running Case Independently (P0)
-status: not_started
+title: "Cancel a Running Case Independently (P0)"
+status: completed
 priority: P1
 created: 2026-03-10
 tldr: "**As a** skill developer."
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given a case in "running" state, when I click its Cancel button, then that case's AbortController is aborted, the SSE stream for that case closes, and the case transitions to "cancelled" state
-- [ ] **AC-US2-02**: Given cases A (running) and B (running), when I cancel case A, then case B continues running uninterrupted and eventually completes normally
-- [ ] **AC-US2-03**: Given a case in "cancelled" state, when its Run button is clicked again, then it transitions back to "running" and starts a fresh SSE stream
-- [ ] **AC-US2-04**: Given a case in any non-running state (idle, complete, error, cancelled), then the Cancel button is either hidden or disabled for that case
+- [x] **AC-US2-01**: Given a case in "running" state, when I click its Cancel button, then that case's AbortController is aborted, the SSE stream for that case closes, and the case transitions to "cancelled" state
+- [x] **AC-US2-02**: Given cases A (running) and B (running), when I cancel case A, then case B continues running uninterrupted and eventually completes normally
+- [x] **AC-US2-03**: Given a case in "cancelled" state, when its Run button is clicked again, then it transitions back to "running" and starts a fresh SSE stream
+- [x] **AC-US2-04**: Given a case in any non-running state (idle, complete, error, cancelled), then the Cancel button is either hidden or disabled for that case
 
 ---
 

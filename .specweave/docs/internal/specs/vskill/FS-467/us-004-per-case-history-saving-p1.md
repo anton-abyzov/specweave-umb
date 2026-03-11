@@ -1,8 +1,8 @@
 ---
 id: US-004
 feature: FS-467
-title: Per-Case History Saving (P1)
-status: not_started
+title: "Per-Case History Saving (P1)"
+status: completed
 priority: P1
 created: 2026-03-10
 tldr: "**As a** skill developer."
@@ -25,10 +25,10 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US4-01**: Given a single-case run that completes successfully, when the server writes the history entry, then the entry includes a `scope: "single"` field and contains only the one executed case
-- [ ] **AC-US4-02**: Given a bulk run that completes, when the server writes the history entry, then the entry includes `scope: "bulk"` and contains all cases that completed (including errored ones)
-- [ ] **AC-US4-03**: Given a single-case history entry, when viewed in the history panel, then it is visually distinguishable from bulk run entries (e.g., labeled "Single: case-name" vs "Full Run")
-- [ ] **AC-US4-04**: Given a per-case history query (`GET /api/skills/:plugin/:skill/history/case/:evalId`), then entries from both single-case and bulk runs appear in the timeline
+- [x] **AC-US4-01**: Given a single-case run that completes successfully, when the server writes the history entry, then the entry includes a `scope: "single"` field and contains only the one executed case
+- [x] **AC-US4-02**: Given a bulk run that completes, when the server writes the history entry, then the entry includes `scope: "bulk"` and contains all cases that completed (including errored ones)
+- [x] **AC-US4-03**: Given a single-case history entry, when viewed in the history panel, then it is visually distinguishable from bulk run entries (e.g., labeled "Single: case-name" vs "Full Run")
+- [x] **AC-US4-04**: Given a per-case history query (`GET /api/skills/:plugin/:skill/history/case/:evalId`), then entries from both single-case and bulk runs appear in the timeline
 
 ---
 

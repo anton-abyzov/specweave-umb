@@ -1,26 +1,21 @@
 ---
-increment: 0467-parallel-per-case-benchmark
-generated_by: sw:test-aware-planner
+increment: "0467-parallel-per-case-benchmark"
+generated_by: "sw:test-aware-planner"
 coverage_target: 90
-by_user_story:
-  US-001: [T-001, T-002, T-003]
-  US-002: [T-004, T-005]
-  US-003: [T-006, T-007, T-008]
-  US-004: [T-009, T-010]
-  US-005: [T-011]
-  US-006: [T-012, T-013, T-014]
+total_tasks: 14
+completed_tasks: 14
 ---
 
 # Tasks: Parallel Per-Case Benchmark Execution
 
----
+
 
 ## User Story: US-001 - Run a Single Test Case Independently
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
 **Tasks**: 3 total, 3 completed
 
----
+
 
 ### T-001: Create Semaphore concurrency primitive
 
@@ -48,7 +43,7 @@ by_user_story:
 4. All imports use `.js` extensions (ESM)
 5. Run `npx vitest run concurrency.test` to verify
 
----
+
 
 ### T-002: Extract `runSingleCaseSSE` from benchmark runner and add per-case API routes
 
@@ -83,7 +78,7 @@ by_user_story:
 6. Use `res.on('close')` safety net with double-release guard
 7. All `.js` extensions in imports
 
----
+
 
 ### T-003: Add `scope` field to `BenchmarkResult` type
 
@@ -106,14 +101,14 @@ by_user_story:
 2. Single-case endpoint sets `scope: "single"` before calling `writeHistoryEntry`
 3. Bulk-save endpoint sets `scope: "bulk"`
 
----
+
 
 ## User Story: US-002 - Cancel a Running Case Independently
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
 **Tasks**: 2 total, 2 completed
 
----
+
 
 ### T-004: Implement `useMultiSSE` hook with per-case AbortController management
 
@@ -143,7 +138,7 @@ by_user_story:
 5. `stopAll()`: iterate all controllers, abort each
 6. Preserve existing `useSSE` hook unchanged
 
----
+
 
 ### T-005: Wire cancel controls in reducer and context; hide Cancel button for non-running cases
 
@@ -169,14 +164,14 @@ by_user_story:
 3. In `TestsPanel.tsx` / `RunPanel.tsx`: render Cancel button only when `caseRunStates.get(evalId)?.status === "running"`
 4. Cancel button disabled/hidden for idle, complete, error, cancelled states (AC-US2-04)
 
----
+
 
 ## User Story: US-003 - Parallel Bulk Execution with Concurrency Control
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
 **Tasks**: 3 total, 3 completed
 
----
+
 
 ### T-006: Implement `BULK_RUN_START` and `BULK_RUN_COMPLETE` reducer actions
 
@@ -202,7 +197,7 @@ by_user_story:
 2. Add `BULK_RUN_COMPLETE` handler (store benchmark, `bulkRunActive=false`, increment iterationCount)
 3. Update initial state: `caseRunStates: new Map()`, `bulkRunActive: false`
 
----
+
 
 ### T-007: Implement `runAll()` with server-side semaphore-limited parallel execution
 
@@ -233,7 +228,7 @@ by_user_story:
 2. Monitor `multiSSE.streams` in useEffect; when all done/error, POST to `/benchmark/bulk-save`
 3. Dispatch `BULK_RUN_COMPLETE` with assembled result
 
----
+
 
 ### T-008: Implement per-case status transitions (queued → running → complete/error)
 
@@ -260,14 +255,14 @@ by_user_story:
 4. CASE_RUN_ERROR: set to "error", store error message
 5. In `WorkspaceContext.tsx`: SSE event processing useEffect dispatches these actions per stream
 
----
+
 
 ## User Story: US-004 - Per-Case History Saving
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04
 **Tasks**: 2 total, 2 completed
 
----
+
 
 ### T-009: Save single-case and bulk-run history entries with `scope` field
 
@@ -293,7 +288,7 @@ by_user_story:
 3. No changes needed to `writeHistoryEntry` signature — `scope` propagates via BenchmarkResult
 4. Existing `getCaseHistory` query naturally includes single-case entries (AC-US4-04)
 
----
+
 
 ### T-010: Display `scope` differentiation in history panel UI
 
@@ -317,14 +312,14 @@ by_user_story:
 2. Single-scope label: `"Single: ${entry.cases[0]?.name ?? entry.cases[0]?.id}"`
 3. Bulk/undefined label: `"Full Run"`
 
----
+
 
 ## User Story: US-005 - Cancel All Running Cases
 
 **Linked ACs**: AC-US5-01, AC-US5-02, AC-US5-03
 **Tasks**: 1 total, 1 completed
 
----
+
 
 ### T-011: Implement `cancelAll()` — abort all running/queued cases and release semaphore slots
 
@@ -355,14 +350,14 @@ by_user_story:
 3. Server: `res.on('close')` with double-release guard ensures semaphore slots freed for disconnected requests (AC-US5-03)
 4. "Cancel All" button in RunPanel visible when `bulkRunActive || isAnyRunning(state)`
 
----
+
 
 ## User Story: US-006 - Independent UI State Per Case
 
 **Linked ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04, AC-US6-05
 **Tasks**: 3 total, 3 completed
 
----
+
 
 ### T-012: Replace `isRunning` with `caseRunStates` map in workspace types and initial state
 
@@ -390,7 +385,7 @@ by_user_story:
 2. Add new action union types: `CASE_RUN_START`, `CASE_RUN_COMPLETE`, `CASE_RUN_ERROR`, `CASE_RUN_CANCEL`, `BULK_RUN_START`, `BULK_RUN_COMPLETE`, `CANCEL_ALL`
 3. Update initial state in reducer: `caseRunStates: new Map()`, `bulkRunActive: false`
 
----
+
 
 ### T-013: Update WorkspaceContext API — replace `runBenchmark`/`cancelRun` with per-case functions
 
@@ -420,7 +415,7 @@ by_user_story:
 6. Update `applyImproveAndRerun` to call `runCase(evalId)` instead of `runBenchmark(...)`
 7. Keep `useSSE` for comparison mode and activation testing
 
----
+
 
 ### T-014: Update RunPanel and TestsPanel to use per-case state; add per-case Run/Cancel controls
 
