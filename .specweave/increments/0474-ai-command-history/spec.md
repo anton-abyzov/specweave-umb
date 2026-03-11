@@ -40,9 +40,9 @@ Additionally, the UI has inconsistencies in how AI command types are handled in 
 **So that** I have an audit trail of when and how skills were AI-generated
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: When `POST /api/skills/generate` successfully returns a generated skill, a history entry with `type: "ai-generate"` is written to the target skill's `evals/history/` directory
-- [ ] **AC-US1-02**: The history entry includes the model used, provider, timestamp, and the generated skill's name in the `skill_name` field
-- [ ] **AC-US1-03**: The history entry stores the generation prompt and resulting skill content in a `generate` field (analogous to the `improve` field used by improve entries)
+- [x] **AC-US1-01**: When `POST /api/skills/generate` successfully returns a generated skill, a history entry with `type: "ai-generate"` is written to the target skill's `evals/history/` directory
+- [x] **AC-US1-02**: The history entry includes the model used, provider, timestamp, and the generated skill's name in the `skill_name` field
+- [x] **AC-US1-03**: The history entry stores the generation prompt and resulting skill content in a `generate` field (analogous to the `improve` field used by improve entries)
 
 ---
 
@@ -54,9 +54,9 @@ Additionally, the UI has inconsistencies in how AI command types are handled in 
 **So that** I can track when evals were auto-generated and which model was used
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: When `POST /api/skills/:plugin/:skill/generate-evals` successfully returns generated evals, a history entry with `type: "eval-generate"` is written to the skill's `evals/history/` directory
-- [ ] **AC-US2-02**: The history entry includes the model used, provider, timestamp, skill name, and the number of generated test cases
-- [ ] **AC-US2-03**: The history entry is visible in the History tab timeline alongside benchmark and improve entries
+- [x] **AC-US2-01**: When `POST /api/skills/:plugin/:skill/generate-evals` successfully returns generated evals, a history entry with `type: "eval-generate"` is written to the skill's `evals/history/` directory
+- [x] **AC-US2-02**: The history entry includes the model used, provider, timestamp, skill name, and the number of generated test cases
+- [x] **AC-US2-03**: The history entry is visible in the History tab timeline alongside benchmark and improve entries
 
 ---
 
@@ -68,11 +68,11 @@ Additionally, the UI has inconsistencies in how AI command types are handled in 
 **So that** I can distinguish and filter between different types of AI operations
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `HistoryPanel.tsx` filter type union includes `"instruct"` so instruct entries can be filtered in the workspace panel
-- [ ] **AC-US3-02**: `HistoryPage.tsx` `TYPE_PILL` map includes entries for `"instruct"`, `"ai-generate"`, and `"eval-generate"` with distinct colors and labels
-- [ ] **AC-US3-03**: `HistoryPage.tsx` `FilterBar` type dropdown includes options for "AI Edit", "AI Generate", and "Eval Generate"
-- [ ] **AC-US3-04**: Backend `HistorySummary` and `HistoryFilter` type unions include the new `"ai-generate"` and `"eval-generate"` types
-- [ ] **AC-US3-05**: Frontend `types.ts` type unions are updated to match backend types
+- [x] **AC-US3-01**: `HistoryPanel.tsx` filter type union includes `"instruct"` so instruct entries can be filtered in the workspace panel
+- [x] **AC-US3-02**: `HistoryPage.tsx` `TYPE_PILL` map includes entries for `"instruct"`, `"ai-generate"`, and `"eval-generate"` with distinct colors and labels
+- [x] **AC-US3-03**: `HistoryPage.tsx` `FilterBar` type dropdown includes options for "AI Edit", "AI Generate", and "Eval Generate"
+- [x] **AC-US3-04**: Backend `HistorySummary` and `HistoryFilter` type unions include the new `"ai-generate"` and `"eval-generate"` types
+- [x] **AC-US3-05**: Frontend `types.ts` type unions are updated to match backend types
 
 ## Functional Requirements
 

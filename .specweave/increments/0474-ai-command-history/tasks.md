@@ -11,7 +11,7 @@
 ## Phase 1: Backend Type Extensions
 
 ### T-001: Extend backend type unions for new history entry types
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Status**: [ ] Not Started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Status**: [x] Completed
 
 **Description**: Add `"ai-generate"` and `"eval-generate"` to the type unions in `benchmark-history.ts` and `benchmark.ts`.
 
@@ -36,7 +36,7 @@
 ## Phase 2: Backend History Recording
 
 ### T-002: Record history for AI eval generation
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03 | **Status**: [ ] Not Started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03 | **Status**: [x] Completed
 
 **Description**: Add `writeHistoryEntry` call in the `generate-evals` endpoint handler in `api-routes.ts`.
 
@@ -65,7 +65,7 @@
 ---
 
 ### T-003: Record history for AI skill creation
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [ ] Not Started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [x] Completed
 
 **Description**: Add `writeHistoryEntry` call in the `POST /api/skills/create` handler when the skill was AI-generated (indicated by presence of `evals` in the request body).
 
@@ -97,7 +97,7 @@
 ## Phase 3: Frontend Fixes
 
 ### T-004: Extend frontend type unions
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-05 | **Status**: [ ] Not Started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-05 | **Status**: [x] Completed
 
 **Description**: Update frontend TypeScript types to include all AI command history types.
 
@@ -123,7 +123,7 @@
 ---
 
 ### T-005: Fix HistoryPanel filter and HistoryPage type badges
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] Not Started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] Completed
 
 **Description**: Fix the workspace HistoryPanel filter type union and add missing TYPE_PILL entries and filter options in HistoryPage.
 
@@ -158,7 +158,7 @@
 ## Phase 4: Validation
 
 ### T-006: Verify all acceptance criteria
-**User Story**: All | **Satisfies ACs**: All | **Status**: [ ] Not Started
+**User Story**: All | **Satisfies ACs**: All | **Status**: [x] Completed
 
 **Description**: Run existing tests, verify TypeScript compilation, and manually test the full flow.
 
