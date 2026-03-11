@@ -14,7 +14,7 @@
 
 #### T-001: Add TRIGGER_STAGE_MAP constant and stage label helper
 
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [ ] Not Started
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [x] Completed
 
 **Description**: Create a `TRIGGER_STAGE_MAP` constant that maps `rejectionTrigger` string values to human-readable stage labels. Add a helper function `getTriggerLabel(trigger?: string): string | null` that returns the display label or null if the trigger is unknown/undefined.
 
@@ -53,7 +53,7 @@
 
 #### T-002: Expand RejectedSkillView with full rejection details
 
-**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US2-01, AC-US2-02 | **Status**: [ ] Not Started
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US2-01, AC-US2-02 | **Status**: [x] Completed
 
 **Description**: Rewrite the `RejectedSkillView` component to include: rejection reason in the amber banner, trigger stage as a labeled row, submission and rejection dates, skill name as heading, and repository URL as clickable link. Follow the `BlockedSkillView` layout patterns.
 
@@ -99,7 +99,7 @@
 
 #### T-003: Add RejectionStageIndicator sub-component
 
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [ ] Not Started
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03 | **Status**: [x] Completed
 
 **Description**: Create a `RejectionStageIndicator` component that shows a horizontal 4-stage pipeline (Submission > Structure > Security > Review) with the failure stage highlighted in amber. Maps `rejectionTrigger` to a stage index.
 
@@ -139,7 +139,7 @@
 
 #### T-004: Add resubmission guidance section
 
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] Not Started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] Completed
 
 **Description**: Add a "What to do next" section at the bottom of the `RejectedSkillView` component with guidance text, documentation link, and issue report link.
 

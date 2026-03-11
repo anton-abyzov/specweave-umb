@@ -26,10 +26,10 @@ When a user navigates to a skill that was submitted but rejected during verifica
 **So that** I understand exactly why my skill was rejected and at which point in the pipeline it failed
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: The rejected skill detail page displays the `rejectionReason` from the state event metadata, or a sensible default message if none exists
-- [ ] **AC-US1-02**: The `rejectionTrigger` (e.g. "tier1_scan", "framework_plugin", "manual_review") is displayed as a labeled row
-- [ ] **AC-US1-03**: The submission date (`createdAt`) and rejection date (`updatedAt`) are both displayed in human-readable format
-- [ ] **AC-US1-04**: The page renders correctly when `rejectionReason` and `rejectionTrigger` are both undefined (graceful fallback)
+- [x] **AC-US1-01**: The rejected skill detail page displays the `rejectionReason` from the state event metadata, or a sensible default message if none exists
+- [x] **AC-US1-02**: The `rejectionTrigger` (e.g. "tier1_scan", "framework_plugin", "manual_review") is displayed as a labeled row
+- [x] **AC-US1-03**: The submission date (`createdAt`) and rejection date (`updatedAt`) are both displayed in human-readable format
+- [x] **AC-US1-04**: The page renders correctly when `rejectionReason` and `rejectionTrigger` are both undefined (graceful fallback)
 
 ---
 
@@ -41,9 +41,9 @@ When a user navigates to a skill that was submitted but rejected during verifica
 **So that** I can quickly navigate to my source code and understand which submission this refers to
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: The skill name is displayed as a heading in `owner/repo/skill` format, matching the URL structure
-- [ ] **AC-US2-02**: The repository URL is rendered as a clickable link opening in a new tab
-- [ ] **AC-US2-03**: Metadata generates proper `<title>` and OpenGraph tags for rejected skills (already implemented in `generateMetadata`)
+- [x] **AC-US2-01**: The skill name is displayed as a heading in `owner/repo/skill` format, matching the URL structure
+- [x] **AC-US2-02**: The repository URL is rendered as a clickable link opening in a new tab
+- [x] **AC-US2-03**: Metadata generates proper `<title>` and OpenGraph tags for rejected skills (already implemented in `generateMetadata`)
 
 ---
 
@@ -55,9 +55,9 @@ When a user navigates to a skill that was submitted but rejected during verifica
 **So that** I have a clear path forward instead of a dead end
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: The rejected skill page includes a "What to do next" section with guidance text
-- [ ] **AC-US3-02**: The guidance section links to the vskill documentation for skill requirements
-- [ ] **AC-US3-03**: The page includes a link to report an issue if the author believes the rejection was in error
+- [x] **AC-US3-01**: The rejected skill page includes a "What to do next" section with guidance text
+- [x] **AC-US3-02**: The guidance section links to the vskill documentation for skill requirements
+- [x] **AC-US3-03**: The page includes a link to report an issue if the author believes the rejection was in error
 
 ---
 
@@ -69,9 +69,9 @@ When a user navigates to a skill that was submitted but rejected during verifica
 **So that** I can quickly assess the nature of the rejection (early structural failure vs. late security failure)
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: A stage indicator shows a simplified pipeline (Submission > Structure > Security > Review) with the failure point highlighted
-- [ ] **AC-US4-02**: The stage indicator maps `rejectionTrigger` values to the correct pipeline stage
-- [ ] **AC-US4-03**: When `rejectionTrigger` is undefined, the stage indicator is hidden rather than showing an incorrect stage
+- [x] **AC-US4-01**: A stage indicator shows a simplified pipeline (Submission > Structure > Security > Review) with the failure point highlighted
+- [x] **AC-US4-02**: The stage indicator maps `rejectionTrigger` values to the correct pipeline stage
+- [x] **AC-US4-03**: When `rejectionTrigger` is undefined, the stage indicator is hidden rather than showing an incorrect stage
 
 ## Functional Requirements
 
