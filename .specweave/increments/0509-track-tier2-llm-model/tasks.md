@@ -25,7 +25,7 @@ by_user_story:
 ## User Story: US-001 - Persist LLM Model in Scan Results
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -33,7 +33,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01
-**Status**: [ ] pending
+**Status**: [x] completed
 **Model hint**: sonnet
 
 **Test Plan**:
@@ -66,7 +66,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] pending
+**Status**: [x] completed
 **Model hint**: sonnet
 
 **Test Plan**:
@@ -105,7 +105,7 @@ by_user_story:
 ## User Story: US-002 - Heuristic Backfill of Historical Scan Data
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Tasks**: 1 total, 0 completed
+**Tasks**: 1 total, 1 completed
 
 ---
 
@@ -113,7 +113,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Model hint**: sonnet
 
 **Test Plan**:
@@ -165,7 +165,7 @@ by_user_story:
 ## User Story: US-003 - Admin Stats Endpoint for LLM Model Usage
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -173,7 +173,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Model hint**: sonnet
 
 **Test Plan**:
@@ -210,7 +210,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-03, AC-US3-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Model hint**: sonnet
 
 **Test Plan**:
@@ -243,7 +243,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 **Model hint**: haiku
 
 **Test Plan**:

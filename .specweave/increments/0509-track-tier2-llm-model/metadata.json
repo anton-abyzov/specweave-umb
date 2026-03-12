@@ -1,10 +1,10 @@
 {
   "id": "0509-track-tier2-llm-model",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-12T03:56:31.826Z",
-  "lastActivity": "2026-03-12T03:56:31.826Z",
+  "lastActivity": "2026-03-12T04:31:32.757Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,16 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-187",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-12T04:20:00.537Z"
+      "syncedAt": "2026-03-12T04:31:57.032Z"
     },
     "ado": {
       "featureId": "1063",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1063",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-12T04:20:02.790Z"
+      "syncedAt": "2026-03-12T04:31:58.553Z"
     }
-  }
+  },
+  "updated": "2026-03-12T04:29:06.000Z",
+  "approvedAt": "2026-03-12T04:31:32.757Z"
 }

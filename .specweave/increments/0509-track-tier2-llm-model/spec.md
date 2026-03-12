@@ -1,10 +1,10 @@
 ---
 increment: 0509-track-tier2-llm-model
-title: "Track Tier 2 LLM Model in Scan Results"
-status: active
+title: Track Tier 2 LLM Model in Scan Results
+status: completed
 priority: P1
 type: feature
-created: 2026-03-12
+created: 2026-03-12T00:00:00.000Z
 ---
 
 # Track Tier 2 LLM Model in Scan Results
@@ -28,11 +28,11 @@ The vskill-platform Tier 2 security scanner uses a 3-tier LLM fallback chain: Cl
 **So that** I can track which model processed each scan and identify OpenAI-incurring scans
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given the Prisma schema `ScanResult` model, when the migration runs, then a nullable `llmModel String?` column exists in the `ScanResult` table
-- [ ] **AC-US1-02**: Given the `Tier2Payload` interface in `finalize-scan/route.ts`, when a Tier 2 scan payload is received, then the `model` field is accepted as an optional string property
-- [ ] **AC-US1-03**: Given the `StoredScanResult` interface in `submission-store.ts`, when a Tier 2 result is constructed, then the `llmModel` optional string property is available for storage
-- [ ] **AC-US1-04**: Given `persistScanResultToDb` in `submission-store.ts`, when a scan result with a non-null `llmModel` is persisted, then the `llmModel` value is written to the database `ScanResult` row
-- [ ] **AC-US1-05**: Given `finalize-scan/route.ts` destructures the request body and calls `storeScanResult`, when a Tier 2 payload includes `model`, then the value is passed through to `storeScanResult` as `llmModel`
+- [x] **AC-US1-01**: Given the Prisma schema `ScanResult` model, when the migration runs, then a nullable `llmModel String?` column exists in the `ScanResult` table
+- [x] **AC-US1-02**: Given the `Tier2Payload` interface in `finalize-scan/route.ts`, when a Tier 2 scan payload is received, then the `model` field is accepted as an optional string property
+- [x] **AC-US1-03**: Given the `StoredScanResult` interface in `submission-store.ts`, when a Tier 2 result is constructed, then the `llmModel` optional string property is available for storage
+- [x] **AC-US1-04**: Given `persistScanResultToDb` in `submission-store.ts`, when a scan result with a non-null `llmModel` is persisted, then the `llmModel` value is written to the database `ScanResult` row
+- [x] **AC-US1-05**: Given `finalize-scan/route.ts` destructures the request body and calls `storeScanResult`, when a Tier 2 payload includes `model`, then the value is passed through to `storeScanResult` as `llmModel`
 
 ### US-002: Heuristic Backfill of Historical Scan Data
 **Project**: vskill-platform
@@ -41,10 +41,10 @@ The vskill-platform Tier 2 security scanner uses a 3-tier LLM fallback chain: Cl
 **So that** historical cost analysis is possible without rescanning all submissions
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given existing Tier 2 scan results with `durationMs > 30000`, when the backfill migration runs, then `llmModel` is set to `"gpt-4o-mini (inferred)"`
-- [ ] **AC-US2-02**: Given existing Tier 2 scan results with `durationMs` between 20000 and 30000 inclusive, when the backfill migration runs, then `llmModel` is set to `"unknown (ambiguous)"`
-- [ ] **AC-US2-03**: Given existing Tier 2 scan results with `durationMs < 20000`, when the backfill migration runs, then `llmModel` is set to `"cloudflare (inferred)"`
-- [ ] **AC-US2-04**: Given the backfill targets only `tier = 2` rows, when the migration runs, then Tier 1 and Tier 3 scan results are not modified
+- [x] **AC-US2-01**: Given existing Tier 2 scan results with `durationMs > 30000`, when the backfill migration runs, then `llmModel` is set to `"gpt-4o-mini (inferred)"`
+- [x] **AC-US2-02**: Given existing Tier 2 scan results with `durationMs` between 20000 and 30000 inclusive, when the backfill migration runs, then `llmModel` is set to `"unknown (ambiguous)"`
+- [x] **AC-US2-03**: Given existing Tier 2 scan results with `durationMs < 20000`, when the backfill migration runs, then `llmModel` is set to `"cloudflare (inferred)"`
+- [x] **AC-US2-04**: Given the backfill targets only `tier = 2` rows, when the migration runs, then Tier 1 and Tier 3 scan results are not modified
 
 ### US-003: Admin Stats Endpoint for LLM Model Usage
 **Project**: vskill-platform
@@ -53,11 +53,11 @@ The vskill-platform Tier 2 security scanner uses a 3-tier LLM fallback chain: Cl
 **So that** I can monitor OpenAI cost exposure and track fallback frequency
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given the endpoint `GET /api/v1/admin/scan-model-stats`, when an unauthenticated request is made, then a 401 response is returned
-- [ ] **AC-US3-02**: Given the endpoint `GET /api/v1/admin/scan-model-stats`, when an admin-authenticated request is made with `from` and `to` ISO date query params, then a JSON response is returned containing model distribution counts grouped by `llmModel` value
-- [ ] **AC-US3-03**: Given the `granularity` query param is set to `day`, when the stats endpoint is called with a date range, then results are grouped by calendar day
-- [ ] **AC-US3-04**: Given the `granularity` query param is set to `month`, when the stats endpoint is called with a date range, then results are grouped by calendar month
-- [ ] **AC-US3-05**: Given the response includes an `estimatedCost` field for each model group, when the model is `gpt-4o-mini` or `gpt-4o-mini (inferred)`, then cost is calculated using gpt-4o-mini per-token pricing
+- [x] **AC-US3-01**: Given the endpoint `GET /api/v1/admin/scan-model-stats`, when an unauthenticated request is made, then a 401 response is returned
+- [x] **AC-US3-02**: Given the endpoint `GET /api/v1/admin/scan-model-stats`, when an admin-authenticated request is made with `from` and `to` ISO date query params, then a JSON response is returned containing model distribution counts grouped by `llmModel` value
+- [x] **AC-US3-03**: Given the `granularity` query param is set to `day`, when the stats endpoint is called with a date range, then results are grouped by calendar day
+- [x] **AC-US3-04**: Given the `granularity` query param is set to `month`, when the stats endpoint is called with a date range, then results are grouped by calendar month
+- [x] **AC-US3-05**: Given the response includes an `estimatedCost` field for each model group, when the model is `gpt-4o-mini` or `gpt-4o-mini (inferred)`, then cost is calculated using gpt-4o-mini per-token pricing
 
 ## Out of Scope
 

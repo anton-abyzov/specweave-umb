@@ -2,9 +2,9 @@
 id: US-001
 feature: FS-509
 title: "Persist LLM Model in Scan Results"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-12
+created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** platform operator."
 project: vskill-platform
 ---
@@ -21,11 +21,11 @@ project: vskill-platform
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given the Prisma schema `ScanResult` model, when the migration runs, then a nullable `llmModel String?` column exists in the `ScanResult` table
-- [ ] **AC-US1-02**: Given the `Tier2Payload` interface in `finalize-scan/route.ts`, when a Tier 2 scan payload is received, then the `model` field is accepted as an optional string property
-- [ ] **AC-US1-03**: Given the `StoredScanResult` interface in `submission-store.ts`, when a Tier 2 result is constructed, then the `llmModel` optional string property is available for storage
-- [ ] **AC-US1-04**: Given `persistScanResultToDb` in `submission-store.ts`, when a scan result with a non-null `llmModel` is persisted, then the `llmModel` value is written to the database `ScanResult` row
-- [ ] **AC-US1-05**: Given `finalize-scan/route.ts` destructures the request body and calls `storeScanResult`, when a Tier 2 payload includes `model`, then the value is passed through to `storeScanResult` as `llmModel`
+- [x] **AC-US1-01**: Given the Prisma schema `ScanResult` model, when the migration runs, then a nullable `llmModel String?` column exists in the `ScanResult` table
+- [x] **AC-US1-02**: Given the `Tier2Payload` interface in `finalize-scan/route.ts`, when a Tier 2 scan payload is received, then the `model` field is accepted as an optional string property
+- [x] **AC-US1-03**: Given the `StoredScanResult` interface in `submission-store.ts`, when a Tier 2 result is constructed, then the `llmModel` optional string property is available for storage
+- [x] **AC-US1-04**: Given `persistScanResultToDb` in `submission-store.ts`, when a scan result with a non-null `llmModel` is persisted, then the `llmModel` value is written to the database `ScanResult` row
+- [x] **AC-US1-05**: Given `finalize-scan/route.ts` destructures the request body and calls `storeScanResult`, when a Tier 2 payload includes `model`, then the value is passed through to `storeScanResult` as `llmModel`
 
 ---
 
@@ -38,4 +38,5 @@ project: vskill-platform
 
 ## Tasks
 
-_No tasks defined for this user story_
+- [x] **T-001**: Prisma Schema Migration — Add llmModel Column and Composite Index
+- [x] **T-002**: Thread llmModel Through Pipeline — Interfaces and Persistence
