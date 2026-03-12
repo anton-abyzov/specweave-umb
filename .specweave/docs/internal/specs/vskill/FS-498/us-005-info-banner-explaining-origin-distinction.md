@@ -25,9 +25,9 @@ external:
 
 ## Acceptance Criteria
 
-- [x] **AC-US5-01**: Given the sidebar contains both source and installed skills, when the sidebar renders, then an info banner is displayed above or between the two sections explaining the distinction
+- [x] **AC-US5-01**: Given the sidebar contains both source and installed skills, when the "Installed" section is expanded, then an info banner is displayed at the top of the installed section explaining the distinction
 - [x] **AC-US5-02**: Given the user dismisses the info banner, when the sidebar re-renders in the same session, then the banner remains hidden
-- [x] **AC-US5-03**: Given the info banner is shown, when the user reads it, then it explains that "Your Skills" are editable source skills and "Installed" are copies consumed by AI agents
+- [x] **AC-US5-03**: Given the info banner is shown, when rendered, then the banner text contains "installed copies" and "Edit skills in your project root"
 
 ---
 

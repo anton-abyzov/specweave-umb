@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 1524
-    url: "https://github.com/anton-abyzov/specweave/issues/1524"
+    url: https://github.com/anton-abyzov/specweave/issues/1524
 ---
 
 # US-SW-004: TypeScript Types and Config Schema Update
@@ -39,5 +39,5 @@ No acceptance criteria defined.
 
 ## Tasks
 
-- [ ] **T-007**: Add suggestOnly to PluginAutoLoadConfig interface
-- [ ] **T-008**: Add suggestOnly to specweave-config.schema.json
+- [x] **T-007**: Add suggestOnly to PluginAutoLoadConfig interface
+- [x] **T-008**: Add suggestOnly to specweave-config.schema.json

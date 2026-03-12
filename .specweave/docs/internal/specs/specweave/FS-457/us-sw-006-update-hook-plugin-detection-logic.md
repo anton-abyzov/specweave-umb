@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 1525
-    url: "https://github.com/anton-abyzov/specweave/issues/1525"
+    url: https://github.com/anton-abyzov/specweave/issues/1525
 ---
 
 # US-SW-006: Update Hook Plugin Detection Logic
@@ -39,5 +39,5 @@ No acceptance criteria defined.
 
 ## Tasks
 
-- [ ] **T-011**: Verify hook uses suggest-only path as the default code branch
-- [ ] **T-012**: Verify VSKILL_REPO_PLUGINS in hook matches actual plugin directories
+- [x] **T-011**: Verify hook uses suggest-only path as the default code branch
+- [x] **T-012**: Verify VSKILL_REPO_PLUGINS in hook matches actual plugin directories

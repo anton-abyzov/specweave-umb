@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 1522
-    url: "https://github.com/anton-abyzov/specweave/issues/1522"
+    url: https://github.com/anton-abyzov/specweave/issues/1522
 ---
 
 # US-SW-002: Suggest-Only Recommendation Display
@@ -39,5 +39,5 @@ No acceptance criteria defined.
 
 ## Tasks
 
-- [ ] **T-003**: Verify suggestion message format includes name, reason, and install command
-- [ ] **T-004**: Enforce once-per-session dedup for plugin suggestions
+- [x] **T-003**: Verify suggestion message format includes name, reason, and install command
+- [x] **T-004**: Enforce once-per-session dedup for plugin suggestions

@@ -26,8 +26,8 @@ external:
 ## Acceptance Criteria
 
 - [x] **AC-US4-01**: Given an installed skill is selected, when the detail panel renders, then the SKILL.md content is shown in read-only mode
-- [x] **AC-US4-02**: Given an installed skill is selected, when the detail panel renders, then benchmark run buttons are disabled or hidden
-- [x] **AC-US4-03**: Given an installed skill is selected, when the detail panel renders, then eval editing controls are disabled or hidden
+- [x] **AC-US4-02**: Given an installed skill is selected, when the detail panel renders, then benchmark run buttons have the `disabled` attribute
+- [x] **AC-US4-03**: Given an installed skill is selected, when the detail panel renders, then eval editing controls (Add Test Case, edit, delete) are hidden from the DOM
 - [x] **AC-US4-04**: Given a source skill is selected, when the detail panel renders, then all editing and benchmarking controls remain fully functional
 
 ---

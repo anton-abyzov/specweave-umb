@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 1523
-    url: "https://github.com/anton-abyzov/specweave/issues/1523"
+    url: https://github.com/anton-abyzov/specweave/issues/1523
 ---
 
 # US-SW-003: LSP Plugin Consent Guard
@@ -39,5 +39,5 @@ No acceptance criteria defined.
 
 ## Tasks
 
-- [ ] **T-005**: Add PLUGIN_SUGGEST_ONLY guard to LSP auto-install conditions
-- [ ] **T-006**: Verify LSP CLI fallback works without installed LSP plugin
+- [x] **T-005**: Add PLUGIN_SUGGEST_ONLY guard to LSP auto-install conditions
+- [x] **T-006**: Verify LSP CLI fallback works without installed LSP plugin

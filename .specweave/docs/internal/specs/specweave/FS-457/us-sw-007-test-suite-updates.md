@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 1526
-    url: "https://github.com/anton-abyzov/specweave/issues/1526"
+    url: https://github.com/anton-abyzov/specweave/issues/1526
 ---
 
 # US-SW-007: Test Suite Updates
@@ -39,5 +39,5 @@ No acceptance criteria defined.
 
 ## Tasks
 
-- [ ] **T-013**: Flip ~14 existing assertions from suggestOnly: false to suggestOnly: true
-- [ ] **T-014**: Add new consent-flow tests (suggestion format, dedup, opt-out, LSP guard)
+- [x] **T-013**: Flip ~14 existing assertions from suggestOnly: false to suggestOnly: true
+- [x] **T-014**: Add new consent-flow tests (suggestion format, dedup, opt-out, LSP guard)

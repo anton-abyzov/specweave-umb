@@ -1,36 +1,32 @@
 ---
 id: FS-457
-title: Consent-First Plugin Auto-Loading
+title: "Consent-First Plugin Auto-Loading"
 type: feature
-status: planned
+status: completed
 priority: P0
-created: "2026-03-09T00:00:00.000Z"
-lastUpdated: "2026-03-10T00:00:00.000Z"
-tldr: >-
-  SpecWeave's plugin auto-loading mechanism silently installs plugins without
-  user consent.
+created: 2026-03-09
+lastUpdated: 2026-03-12
+tldr: "SpecWeave's plugin auto-loading mechanism silently installs plugins without user consent."
 complexity: high
 stakeholder_relevant: true
 external_tools:
   github:
-    type: milestone
+    type: 'milestone'
     id: 234
     url: 'https://github.com/anton-abyzov/specweave/milestone/234'
 externalLinks:
   jira:
-    epicKey: SWE2E-105
+    epicKey: 'SWE2E-105'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-105'
     syncedAt: '2026-03-10T09:44:51.248Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 170
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/170
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/170'
     syncedAt: '2026-03-10T09:44:51.771Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-10'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Consent-First Plugin Auto-Loading
@@ -38,8 +34,10 @@ updated: '2026-03-10'
 ## TL;DR
 
 **What**: SpecWeave's plugin auto-loading mechanism silently installs plugins without user consent.
-**Status**: planned | **Priority**: P0
+**Status**: completed | **Priority**: P0
 **User Stories**: 6
+
+![Consent-First Plugin Auto-Loading illustration](assets/feature-fs-457.jpg)
 
 ## Overview
 
@@ -49,7 +47,7 @@ SpecWeave's plugin auto-loading mechanism silently installs plugins without user
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0457-prevent-unwanted-agent-dotfolders](../../../../../increments/0457-prevent-unwanted-agent-dotfolders/spec.md) | ⏳ planned | 2026-03-09 |
+| [0457-prevent-unwanted-agent-dotfolders](../../../../../increments/0457-prevent-unwanted-agent-dotfolders/spec.md) | ✅ completed | 2026-03-09 |
 
 ## User Stories
 

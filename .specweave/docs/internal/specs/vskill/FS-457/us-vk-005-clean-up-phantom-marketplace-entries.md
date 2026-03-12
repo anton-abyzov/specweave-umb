@@ -11,7 +11,7 @@ related_projects: [specweave]
 external:
   github:
     issue: 17
-    url: "https://github.com/anton-abyzov/vskill/issues/17"
+    url: https://github.com/anton-abyzov/vskill/issues/17
 ---
 
 # US-VK-005: Clean Up Phantom Marketplace Entries
@@ -39,5 +39,5 @@ No acceptance criteria defined.
 
 ## Tasks
 
-- [ ] **T-009**: Remove phantom plugins from vskill marketplace.json
-- [ ] **T-010**: Remove phantom plugin references from specweave code and tests
+- [x] **T-009**: Remove phantom plugins from vskill marketplace.json
+- [x] **T-010**: Remove phantom plugin references from specweave code and tests

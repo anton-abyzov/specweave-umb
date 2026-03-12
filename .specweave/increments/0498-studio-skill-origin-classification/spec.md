@@ -61,9 +61,9 @@ When `npx vskill studio` scans for skills, it discovers ALL SKILL.md files inclu
 **So that** I can quickly scan past them and focus on my editable skills
 
 **Acceptance Criteria**:
-- [x] **AC-US3-01**: Given a skill card for an installed skill, when rendered in the sidebar, then the card text uses reduced opacity or tertiary text color
-- [x] **AC-US3-02**: Given a skill card for an installed skill, when rendered in the sidebar, then a lock or download icon is displayed alongside the skill name
-- [x] **AC-US3-03**: Given a skill card for a source skill, when rendered in the sidebar, then no lock/download icon is shown and full opacity text is used
+- [x] **AC-US3-01**: Given a skill card for an installed skill, when rendered in the sidebar, then the card text has opacity 0.7
+- [x] **AC-US3-02**: Given a skill card for an installed skill, when rendered in the sidebar, then a lock SVG icon is displayed before the skill name
+- [x] **AC-US3-03**: Given a skill card for a source skill, when rendered in the sidebar, then no lock icon is shown and text has opacity 1.0
 
 ---
 
@@ -75,8 +75,8 @@ When `npx vskill studio` scans for skills, it discovers ALL SKILL.md files inclu
 
 **Acceptance Criteria**:
 - [x] **AC-US4-01**: Given an installed skill is selected, when the detail panel renders, then the SKILL.md content is shown in read-only mode
-- [x] **AC-US4-02**: Given an installed skill is selected, when the detail panel renders, then benchmark run buttons are disabled or hidden
-- [x] **AC-US4-03**: Given an installed skill is selected, when the detail panel renders, then eval editing controls are disabled or hidden
+- [x] **AC-US4-02**: Given an installed skill is selected, when the detail panel renders, then benchmark run buttons have the `disabled` attribute
+- [x] **AC-US4-03**: Given an installed skill is selected, when the detail panel renders, then eval editing controls (Add Test Case, edit, delete) are hidden from the DOM
 - [x] **AC-US4-04**: Given a source skill is selected, when the detail panel renders, then all editing and benchmarking controls remain fully functional
 
 ---
@@ -88,9 +88,35 @@ When `npx vskill studio` scans for skills, it discovers ALL SKILL.md files inclu
 **So that** I understand why some skills are separated and what the grouping means
 
 **Acceptance Criteria**:
-- [x] **AC-US5-01**: Given the sidebar contains both source and installed skills, when the sidebar renders, then an info banner is displayed above or between the two sections explaining the distinction
+- [x] **AC-US5-01**: Given the sidebar contains both source and installed skills, when the "Installed" section is expanded, then an info banner is displayed at the top of the installed section explaining the distinction
 - [x] **AC-US5-02**: Given the user dismisses the info banner, when the sidebar re-renders in the same session, then the banner remains hidden
-- [x] **AC-US5-03**: Given the info banner is shown, when the user reads it, then it explains that "Your Skills" are editable source skills and "Installed" are copies consumed by AI agents
+- [x] **AC-US5-03**: Given the info banner is shown, when rendered, then the banner text contains "installed copies" and "Edit skills in your project root"
+
+## Non-Functional Requirements
+
+- **Performance**: Origin classification adds < 1ms per skill to scanner runtime (pure string prefix matching, no I/O)
+- **Compatibility**: Path normalization works on Windows (`\` separators), macOS, and Linux (`/` separators) via `path.relative()` + forward-slash normalization
+- **Accessibility**: All interactive elements (collapse toggle, dismiss button, disabled buttons) are keyboard-navigable and have appropriate ARIA attributes or tooltips
+- **Security**: No user-controlled input reaches `path.relative()` unsanitized — scanner root is always the resolved working directory
+
+## Edge Cases
+
+- **Empty relative path** (`root === skillDir`, Layout 4 self-layout): Returns `"source"` — the skill IS the project root
+- **Symlinked directories**: `path.relative()` resolves symlinks to their target path; classification uses the resolved path
+- **Case sensitivity**: Path prefix matching is case-sensitive (`.claude/` does not match `.Claude/`); this is correct on Linux, and macOS/Windows filesystems normalize case anyway
+- **Windows path separators**: Relative path is normalized to forward slashes before prefix matching
+- **No skills found**: Both sidebar sections hidden; "No skills match your search" empty state shown
+- **AGENTS_REGISTRY changes**: Prefix set is computed per `scanSkills()` call from the live registry; new agents are picked up automatically
+- **Very long paths**: No path length limit enforced; `path.relative()` handles arbitrarily deep nesting
+
+## Risks
+
+| Risk | Probability | Impact | Severity | Mitigation |
+|------|-------------|--------|----------|------------|
+| False positive: source skill classified as installed due to overly broad prefix matching | 0.2 | 6 | 1.2 (LOW) | Top-level segment extraction (`.claude/` not `.claude/skills/`) is intentionally broad; out-of-scope paths are rare |
+| False negative: installed skill in unknown agent dir not classified | 0.3 | 3 | 0.9 (LOW) | Hardcoded extras cover non-registry dirs; new agents added to AGENTS_REGISTRY automatically |
+| UI regression: existing skill interactions break for source skills | 0.1 | 8 | 0.8 (LOW) | Source skills have `isReadOnly=false`, all controls unchanged; full Vitest regression suite |
+| Read-only bypass: user finds way to trigger mutations on installed skills | 0.2 | 4 | 0.8 (LOW) | Defense in depth: UI disables + context-level `if (isReadOnly) return` guards on all 6 mutating functions |
 
 ## Out of Scope
 

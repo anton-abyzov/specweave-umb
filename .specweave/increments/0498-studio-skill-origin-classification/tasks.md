@@ -2,7 +2,7 @@
 increment: 0498-studio-skill-origin-classification
 title: "Studio Skill Origin Classification (Consumed vs Editable)"
 total_tasks: 12
-completed_tasks: 0
+completed_tasks: 12
 by_user_story:
   US-001: [T-001, T-002]
   US-002: [T-003, T-004]
@@ -17,7 +17,7 @@ by_user_story:
 ## User Story: US-001 - Origin Classification in Scanner
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -117,7 +117,7 @@ by_user_story:
 ## User Story: US-002 - Sidebar Split into Source and Installed Sections
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 
@@ -194,7 +194,7 @@ by_user_story:
 ## User Story: US-003 - Visual De-emphasis of Installed Skills
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03
-**Tasks**: 1 total, 0 completed
+**Tasks**: 1 total, 1 completed
 
 ---
 
@@ -232,7 +232,7 @@ by_user_story:
 ## User Story: US-004 - Read-Only Mode for Installed Skills
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 ---
 
@@ -372,7 +372,7 @@ by_user_story:
 ## User Story: US-005 - Info Banner Explaining Origin Distinction
 
 **Linked ACs**: AC-US5-01, AC-US5-02, AC-US5-03
-**Tasks**: 1 total, 0 completed
+**Tasks**: 1 total, 1 completed
 
 ---
 
@@ -420,7 +420,7 @@ by_user_story:
 
 ## Cross-Cutting
 
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, 2 completed
 
 ---
 

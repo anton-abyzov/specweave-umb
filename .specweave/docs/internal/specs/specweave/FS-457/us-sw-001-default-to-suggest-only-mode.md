@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 1521
-    url: "https://github.com/anton-abyzov/specweave/issues/1521"
+    url: https://github.com/anton-abyzov/specweave/issues/1521
 ---
 
 # US-SW-001: Default to Suggest-Only Mode
@@ -39,5 +39,5 @@ No acceptance criteria defined.
 
 ## Tasks
 
-- [ ] **T-001**: Flip suggestOnly default in llm-plugin-detector.ts
-- [ ] **T-002**: Flip suggestOnly default in user-prompt-submit.sh
+- [x] **T-001**: Flip suggestOnly default in llm-plugin-detector.ts
+- [x] **T-002**: Flip suggestOnly default in user-prompt-submit.sh

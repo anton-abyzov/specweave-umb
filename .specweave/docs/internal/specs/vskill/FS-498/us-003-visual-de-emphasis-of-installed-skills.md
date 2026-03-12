@@ -25,9 +25,9 @@ external:
 
 ## Acceptance Criteria
 
-- [x] **AC-US3-01**: Given a skill card for an installed skill, when rendered in the sidebar, then the card text uses reduced opacity or tertiary text color
-- [x] **AC-US3-02**: Given a skill card for an installed skill, when rendered in the sidebar, then a lock or download icon is displayed alongside the skill name
-- [x] **AC-US3-03**: Given a skill card for a source skill, when rendered in the sidebar, then no lock/download icon is shown and full opacity text is used
+- [x] **AC-US3-01**: Given a skill card for an installed skill, when rendered in the sidebar, then the card text has opacity 0.7
+- [x] **AC-US3-02**: Given a skill card for an installed skill, when rendered in the sidebar, then a lock SVG icon is displayed before the skill name
+- [x] **AC-US3-03**: Given a skill card for a source skill, when rendered in the sidebar, then no lock icon is shown and text has opacity 1.0
 
 ---
 
