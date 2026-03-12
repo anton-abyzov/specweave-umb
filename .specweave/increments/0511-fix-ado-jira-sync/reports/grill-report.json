@@ -1,0 +1,33 @@
+{
+  "version": "1.1",
+  "incrementId": "0511-fix-ado-jira-sync",
+  "timestamp": "2026-03-12T12:00:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 16,
+    "passed": 16,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "closeIssue() calls getClosedState() which calls getTemplate() for lazy-cached template detection via capabilities API at ado.ts:204-205,419-445" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "private cachedTemplate?: CachedTemplate at ado.ts:92, templateDetected boolean at line 93, getTemplate() returns cached on subsequent calls at line 420" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "getClosedState() at ado.ts:457-462 checks config.closedState first, then template map, then 'Closed' fallback" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "mapStatusToAdo() at ado.ts:479-498 calls getClosedState() for completed/done cases, which uses TEMPLATE_CLOSED_MAP" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "reopenIssue() at ado.ts:226-238 calls getActiveState() which checks config.activeState, then TEMPLATE_ACTIVE_MAP, then 'Active' fallback" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "createIssue() reads feature.externalRef?.id at ado.ts:133" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "System.LinkTypes.Hierarchy-Reverse relation added at ado.ts:134-142 with correct parent work item URL" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Conditional check at ado.ts:133, no else/error path — creation proceeds without parent link when no externalRef" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "createIssue() resolves WIT via TEMPLATE_WIT_MAP at ado.ts:145-148 (Basic=Issue, Agile=User Story, Scrum=PBI, CMMI=Requirement)" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Falls back to config.workItemType ?? 'User Story' when no template at ado.ts:148" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "detectHierarchy() uses workitemtypes API, getTemplate() uses project capabilities API — different endpoints, no duplicate detection calls" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "3-layer resolution at sync-coordinator.ts:316: external_tools.ado.id || external_id || metadataAdoId" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "metadata.json read once before loop at sync-coordinator.ts:302-311, metadataAdoId reused for all user stories" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "console.warn at jira.ts:368-369 logs issue key, target status, and available transition names when no match found" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "closedStatus config field at jira.ts:34, initialized in constructor at line 82 with 'Done' default, used in closeIssue() at line 163" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "transitionIssue() else branch at jira.ts:367-370 only warns, returns without throwing" }
+    ]
+  },
+  "findings": []
+}
