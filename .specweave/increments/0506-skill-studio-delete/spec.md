@@ -1,10 +1,10 @@
 ---
 increment: 0506-skill-studio-delete
-title: "Skill Studio: Add Delete Skill Functionality"
+title: 'Skill Studio: Add Delete Skill Functionality'
 type: bug
 priority: P3
-status: planned
-created: 2026-03-12
+status: ready_for_review
+created: 2026-03-12T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
