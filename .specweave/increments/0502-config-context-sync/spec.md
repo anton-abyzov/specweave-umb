@@ -32,9 +32,9 @@ The Skill Studio eval-ui has 12 independent `api.getConfig()` calls across 10 co
 **So that** I have confidence that the correct model will be used for all actions
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given the user is on the studio page with ModelSelector and CreateSkillInline both visible, when the user selects a different model in ModelSelector, then the "Generate with {model}" button text in CreateSkillInline reflects the new model name without page reload or component remount
-- [ ] **AC-US1-02**: Given the user changes the model in ModelSelector and the `api.setConfig()` call succeeds, then the context state updates only after server confirmation (not optimistically)
-- [ ] **AC-US1-03**: Given the user changes the model in ModelSelector and the `api.setConfig()` call fails, then the context retains the previous confirmed config and ModelSelector shows the `saving` state followed by reverting to the prior selection
+- [x] **AC-US1-01**: Given the user is on the studio page with ModelSelector and CreateSkillInline both visible, when the user selects a different model in ModelSelector, then the "Generate with {model}" button text in CreateSkillInline reflects the new model name without page reload or component remount
+- [x] **AC-US1-02**: Given the user changes the model in ModelSelector and the `api.setConfig()` call succeeds, then the context state updates only after server confirmation (not optimistically)
+- [x] **AC-US1-03**: Given the user changes the model in ModelSelector and the `api.setConfig()` call fails, then the context retains the previous confirmed config and ModelSelector shows the `saving` state followed by reverting to the prior selection
 
 ### US-002: Centralized Config Provider
 **Project**: vskill
@@ -43,9 +43,9 @@ The Skill Studio eval-ui has 12 independent `api.getConfig()` calls across 10 co
 **So that** we eliminate redundant API calls and have a single source of truth for config state
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given the app mounts, when ConfigProvider initializes, then exactly one `api.getConfig()` call is made (verified by checking network requests or API mock call count)
-- [ ] **AC-US2-02**: Given ConfigProvider has loaded config, when any component calls `useConfig()`, then it receives the current `ConfigResponse` object, a `loading` boolean, and an `updateConfig(provider, model)` function
-- [ ] **AC-US2-03**: Given a component calls `useConfig()` outside of a ConfigProvider, then it throws an error with message "useConfig must be used within ConfigProvider"
+- [x] **AC-US2-01**: Given the app mounts, when ConfigProvider initializes, then exactly one `api.getConfig()` call is made (verified by checking network requests or API mock call count)
+- [x] **AC-US2-02**: Given ConfigProvider has loaded config, when any component calls `useConfig()`, then it receives the current `ConfigResponse` object, a `loading` boolean, and an `updateConfig(provider, model)` function
+- [x] **AC-US2-03**: Given a component calls `useConfig()` outside of a ConfigProvider, then it throws an error with message "useConfig must be used within ConfigProvider"
 
 ### US-003: Component Migration to Shared Context
 **Project**: vskill
@@ -54,9 +54,9 @@ The Skill Studio eval-ui has 12 independent `api.getConfig()` calls across 10 co
 **So that** config state is consistent everywhere and we remove duplicated fetch logic
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given the codebase after migration, when searching for `api.getConfig()` in component files, then zero direct calls exist in: ModelSelector, LeftPanel, CreateSkillInline, SkillImprovePanel, AiEditBar, EditorPanel, ModelCompareModal, BenchmarkPage, ComparisonPage, CreateSkillPage
-- [ ] **AC-US3-02**: Given components that derive local model overrides from config (SkillImprovePanel, AiEditBar, CreateSkillPage), when they mount, then they initialize their local "selected model for this action" state from the context's config values while retaining independent local model selection
-- [ ] **AC-US3-03**: Given BenchmarkPage calls `handleStartBenchmark` or `handleStartBaseline`, when the run starts, then it reads the model from the context's cached value (no additional `api.getConfig()` call)
+- [x] **AC-US3-01**: Given the codebase after migration, when searching for `api.getConfig()` in component files, then zero direct calls exist in: ModelSelector, LeftPanel, CreateSkillInline, SkillImprovePanel, AiEditBar, EditorPanel, ModelCompareModal, BenchmarkPage, ComparisonPage, CreateSkillPage
+- [x] **AC-US3-02**: Given components that derive local model overrides from config (SkillImprovePanel, AiEditBar, CreateSkillPage), when they mount, then they initialize their local "selected model for this action" state from the context's config values while retaining independent local model selection
+- [x] **AC-US3-03**: Given BenchmarkPage calls `handleStartBenchmark` or `handleStartBaseline`, when the run starts, then it reads the model from the context's cached value (no additional `api.getConfig()` call)
 
 ### US-004: ConfigContext File Structure
 **Project**: vskill
@@ -65,8 +65,8 @@ The Skill Studio eval-ui has 12 independent `api.getConfig()` calls across 10 co
 **So that** the codebase remains consistent and maintainable
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given ConfigContext.tsx, then it exports a `ConfigProvider` component and a `useConfig()` hook, uses `createContext` + `useReducer`, and lives at `src/eval-ui/src/ConfigContext.tsx`
-- [ ] **AC-US4-02**: Given App.tsx, when the app renders, then `ConfigProvider` wraps `StudioLayout` (either inside or outside `StudioProvider`, both are valid since they are independent)
+- [x] **AC-US4-01**: Given ConfigContext.tsx, then it exports a `ConfigProvider` component and a `useConfig()` hook, uses `createContext` + `useReducer`, and lives at `src/eval-ui/src/ConfigContext.tsx`
+- [x] **AC-US4-02**: Given App.tsx, when the app renders, then `ConfigProvider` wraps `StudioLayout` (either inside or outside `StudioProvider`, both are valid since they are independent)
 
 ## Out of Scope
 
