@@ -1,10 +1,10 @@
 ---
 id: US-003
 feature: FS-501
-title: Clone Single Repo into Umbrella Structure (P1)
-status: not_started
+title: "Clone Single Repo into Umbrella Structure (P1)"
+status: completed
 priority: P1
-created: 2026-03-12
+created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** developer."
 project: specweave
 external:
@@ -25,11 +25,11 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: Given `--repo owner/repo` and the repo does not exist locally, when the clone command runs, then the repo is cloned to `repositories/{owner}/{repo}/` via the background job system
-- [ ] **AC-US3-02**: Given `--repo owner/repo` and `repositories/{owner}/{repo}/.git` already exists, when the clone command runs, then it skips cloning and reports the repo is already cloned
-- [ ] **AC-US3-03**: Given a successful clone, when the clone worker completes, then `config.json` umbrella.childRepos includes an entry with `id: repo`, `path: repositories/{owner}/{repo}`
-- [ ] **AC-US3-04**: Given input in SSH format `git@github.com:owner/repo.git`, when the clone runs, then it uses the SSH clone URL (no PAT embedded)
-- [ ] **AC-US3-05**: Given input in HTTPS or shorthand format, when the clone runs, then it uses the HTTPS clone URL with the resolved PAT
+- [x] **AC-US3-01**: Given `--repo owner/repo` and the repo does not exist locally, when the clone command runs, then the repo is cloned to `repositories/{owner}/{repo}/` via the background job system
+- [x] **AC-US3-02**: Given `--repo owner/repo` and `repositories/{owner}/{repo}/.git` already exists, when the clone command runs, then it skips cloning and reports the repo is already cloned
+- [x] **AC-US3-03**: Given a successful clone, when the clone worker completes, then `config.json` umbrella.childRepos includes an entry with `id: repo`, `path: repositories/{owner}/{repo}`
+- [x] **AC-US3-04**: Given input in SSH format `git@github.com:owner/repo.git`, when the clone runs, then it uses the SSH clone URL (no PAT embedded)
+- [x] **AC-US3-05**: Given input in HTTPS or shorthand format, when the clone runs, then it uses the HTTPS clone URL with the resolved PAT
 
 ---
 
@@ -42,5 +42,5 @@ external:
 
 ## Tasks
 
-- [ ] **T-004**: Write failing tests for clone path, skip, and URL format behavior
-- [ ] **T-005**: Implement clone dispatch in cloneSingleGitHubRepo()
+- [x] **T-004**: Write failing tests for clone path, skip, and URL format behavior
+- [x] **T-005**: Implement clone dispatch in cloneSingleGitHubRepo()

@@ -1,10 +1,10 @@
 ---
 id: US-002
 feature: FS-501
-title: Validate Repository Exists on GitHub (P1)
-status: not_started
+title: "Validate Repository Exists on GitHub (P1)"
+status: completed
 priority: P1
-created: 2026-03-12
+created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** developer."
 project: specweave
 external:
@@ -25,9 +25,9 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given a valid owner/repo that exists on GitHub, when validation runs via GitHub API (`GET /repos/{owner}/{repo}`), then it returns success
-- [ ] **AC-US2-02**: Given a repo that does not exist or the user lacks access, when the API returns 404, then the error message reads "Repository {owner}/{repo} not found or you don't have access. Check the repo name and ensure your token has 'repo' scope."
-- [ ] **AC-US2-03**: Given no GH_TOKEN or GITHUB_TOKEN is available and the input is not SSH format, when validation runs, then the command exits with a missing-token error before attempting the API call
+- [x] **AC-US2-01**: Given a valid owner/repo that exists on GitHub, when validation runs via GitHub API (`GET /repos/{owner}/{repo}`), then it returns success
+- [x] **AC-US2-02**: Given a repo that does not exist or the user lacks access, when the API returns 404, then the error message reads "Repository {owner}/{repo} not found or you don't have access. Check the repo name and ensure your token has 'repo' scope."
+- [x] **AC-US2-03**: Given no GH_TOKEN or GITHUB_TOKEN is available and the input is not SSH format, when validation runs, then the command exits with a missing-token error before attempting the API call
 
 ---
 
@@ -40,4 +40,4 @@ external:
 
 ## Tasks
 
-- [ ] **T-003**: Implement and test GitHub API repo validation inside cloneSingleGitHubRepo()
+- [x] **T-003**: Implement and test GitHub API repo validation inside cloneSingleGitHubRepo()

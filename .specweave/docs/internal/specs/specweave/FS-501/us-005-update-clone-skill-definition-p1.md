@@ -1,10 +1,10 @@
 ---
 id: US-005
 feature: FS-501
-title: Update Clone Skill Definition (P1)
-status: not_started
+title: "Update Clone Skill Definition (P1)"
+status: completed
 priority: P1
-created: 2026-03-12
+created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** developer."
 project: specweave
 external:
@@ -25,8 +25,8 @@ external:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US5-01**: Given the updated clone.md, when a user invokes `/sw-github:clone --repo owner/repo`, then the skill definition includes syntax examples and behavior description for the `--repo` flag
-- [ ] **AC-US5-02**: Given the updated clone.md, when it documents `--repo`, then it lists all supported input formats (owner/repo, github.com/owner/repo, https://..., git@...)
+- [x] **AC-US5-01**: Given the updated clone.md, when a user invokes `/sw-github:clone --repo owner/repo`, then the skill definition includes syntax examples and behavior description for the `--repo` flag
+- [x] **AC-US5-02**: Given the updated clone.md, when it documents `--repo`, then it lists all supported input formats (owner/repo, github.com/owner/repo, https://..., git@...)
 
 ---
 
@@ -39,4 +39,4 @@ external:
 
 ## Tasks
 
-- [ ] **T-007**: Document --repo flag in plugins/specweave-github/commands/clone.md
+- [x] **T-007**: Document --repo flag in plugins/specweave-github/commands/clone.md

@@ -162,7 +162,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** failing tests from T-004 covering clone path, skip, and URL format
@@ -189,7 +189,7 @@ by_user_story:
 ## User Story: US-004 - Flag Precedence and Dry-Run Support
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03
-**Tasks**: 1 total, 0 completed
+**Tasks**: 1 total, 1 completed
 
 ---
 
@@ -197,7 +197,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `cloneSingleGitHubRepo()` handles valid input (from T-005)
@@ -224,7 +224,7 @@ by_user_story:
 ## User Story: US-005 - Update Clone Skill Definition
 
 **Linked ACs**: AC-US5-01, AC-US5-02
-**Tasks**: 1 total, 0 completed
+**Tasks**: 1 total, 1 completed
 
 ---
 
@@ -232,7 +232,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `plugins/specweave-github/commands/clone.md` currently documents only org-level cloning

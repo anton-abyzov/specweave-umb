@@ -1,34 +1,32 @@
 ---
 id: FS-501
-title: Single Repo Clone via --repo Flag
+title: "Single Repo Clone via --repo Flag"
 type: feature
-status: planned
+status: completed
 priority: P1
 created: 2026-03-12T00:00:00.000Z
-lastUpdated: 2026-03-12T00:00:00.000Z
-tldr: 'The `/sw-github:clone` command only supports org-level bulk cloning.'
+lastUpdated: 2026-03-12
+tldr: "The `/sw-github:clone` command only supports org-level bulk cloning."
 complexity: high
 stakeholder_relevant: true
 external_tools:
   github:
-    type: milestone
+    type: 'milestone'
     id: 239
     url: 'https://github.com/anton-abyzov/specweave/milestone/239'
 externalLinks:
   jira:
-    epicKey: SWE2E-179
+    epicKey: 'SWE2E-179'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-179'
     syncedAt: '2026-03-12T01:52:27.441Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 926
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/926
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/926'
     syncedAt: '2026-03-12T01:52:37.350Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-12'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Single Repo Clone via --repo Flag
@@ -36,8 +34,10 @@ updated: '2026-03-12'
 ## TL;DR
 
 **What**: The `/sw-github:clone` command only supports org-level bulk cloning.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 5
+
+![Single Repo Clone via --repo Flag illustration](assets/feature-fs-501.jpg)
 
 ## Overview
 
@@ -47,7 +47,7 @@ The `/sw-github:clone` command only supports org-level bulk cloning. Users who w
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0501-single-repo-clone](../../../../../increments/0501-single-repo-clone/spec.md) | ⏳ planned | 2026-03-12 |
+| [0501-single-repo-clone](../../../../../increments/0501-single-repo-clone/spec.md) | ✅ completed | 2026-03-12T00:00:00.000Z |
 
 ## User Stories
 
