@@ -1,6 +1,6 @@
 {
   "id": "0492-init-project-resolution-redesign",
-  "status": "planned",
+  "status": "active",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-11T08:24:55.631Z",
@@ -9,5 +9,50 @@
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1544,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1544",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 1545,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1545",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 1546,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1546",
+          "status": "active"
+        }
+      },
+      "milestone": 238,
+      "syncedAt": "2026-03-11T23:48:31.772Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1544,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1544",
+        "createdAt": "2026-03-11T23:48:12.000Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1545,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1545",
+        "createdAt": "2026-03-11T23:48:21.742Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1546,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1546",
+        "createdAt": "2026-03-11T23:48:31.772Z"
+      }
+    ],
+    "lastSync": "2026-03-11T23:48:31.772Z"
+  }
 }

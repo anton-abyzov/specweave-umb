@@ -43,11 +43,11 @@ The `specweave init` command has several path-resolution issues that cause confu
 **So that** the behavior is predictable and I don't need to remember to pass `.`
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Running `specweave init` (no args) in a project directory creates `.specweave/` in CWD, identical to `specweave init .`
-- [ ] **AC-US1-02**: Running `specweave init` in the home directory is blocked with the existing safety error
-- [ ] **AC-US1-03**: If the CWD directory name does not match the project name pattern (`/^[a-z0-9-]+$/`), the user is prompted for a config name (existing behavior preserved)
-- [ ] **AC-US1-04**: Running `specweave init my-project` still creates a `my-project/` subdirectory with `.specweave/` inside it (no regression)
-- [ ] **AC-US1-05**: The `undefined` and `'.'` code paths in `initCommand` are unified into a single branch with a comment explaining the intent
+- [x] **AC-US1-01**: Running `specweave init` (no args) in a project directory creates `.specweave/` in CWD, identical to `specweave init .`
+- [x] **AC-US1-02**: Running `specweave init` in the home directory is blocked with the existing safety error
+- [x] **AC-US1-03**: If the CWD directory name does not match the project name pattern (`/^[a-z0-9-]+$/`), the user is prompted for a config name (existing behavior preserved)
+- [x] **AC-US1-04**: Running `specweave init my-project` still creates a `my-project/` subdirectory with `.specweave/` inside it (no regression)
+- [x] **AC-US1-05**: The `undefined` and `'.'` code paths in `initCommand` are unified into a single branch with a comment explaining the intent
 
 ---
 
@@ -59,25 +59,23 @@ The `specweave init` command has several path-resolution issues that cause confu
 **So that** prefix deduplication and childRepos mapping are consistent and changes don't require dual edits
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: A new exported function `buildUmbrellaConfig(discovery: UmbrellaDiscoveryResult, projectName: string)` exists in `cli/helpers/init/` and returns `{ umbrella: { enabled, projectName, childRepos }, repository: { umbrellaRepo: true } }`
-- [ ] **AC-US2-02**: Both call sites in `init.ts` (initial scan at ~line 360 and post-clone re-scan at ~line 420) use the new helper instead of inline logic
-- [ ] **AC-US2-03**: Prefix deduplication behavior is preserved: 3-char uppercase prefix from repo name, with numeric suffix disambiguation
-- [ ] **AC-US2-04**: The helper is exported from the `cli/helpers/init/index.ts` barrel file
+- [x] **AC-US2-01**: A new exported function `buildUmbrellaConfig(discovery: UmbrellaDiscoveryResult, projectName: string)` exists in `cli/helpers/init/` and returns `{ umbrella: { enabled, projectName, childRepos }, repository: { umbrellaRepo: true } }`
+- [x] **AC-US2-02**: Both call sites in `init.ts` (initial scan at ~line 360 and post-clone re-scan at ~line 420) use the new helper instead of inline logic
+- [x] **AC-US2-03**: Prefix deduplication behavior is preserved: 3-char uppercase prefix from repo name, with numeric suffix disambiguation
+- [x] **AC-US2-04**: The helper is exported from the `cli/helpers/init/index.ts` barrel file
 
 ---
 
-### US-003: Improved guard-clause error messages and relaxed post-scaffold guard (P2)
+### US-003: Improved guard-clause error messages and relaxed post-scaffold guard (P2) — DESCOPED
 **Project**: specweave
 
-**As a** user who runs init from the wrong directory or in an existing repo
-**I want** error messages to show me the resolved target path, and to be offered the project setup prompt even in an existing git repo
-**So that** I can quickly correct my command and set up my workspace flexibly
+**Status**: Descoped — added by PM agent beyond the approved plan. Guard clause messages already show umbrella root and suspicious segment. Post-scaffold guard `!hasGit && !hasRepos` matches the approved plan's "skip if .git or repositories/ exists". Can be addressed in a follow-up increment if needed.
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: When `detectUmbrellaParent()` blocks init, the error message includes the resolved `targetDir` (e.g., "Cannot initialize at /path/to/target: inside an umbrella project at /path/to/umbrella")
-- [ ] **AC-US3-02**: When `detectSuspiciousPath()` blocks init, the error message includes the full resolved path and the suspicious segment
-- [ ] **AC-US3-03**: Post-scaffold project setup prompt is shown when `.git` exists but `repositories/` does not (condition relaxed from `!hasGit && !hasRepos` to `!hasRepos`)
-- [ ] **AC-US3-04**: If the user selects "I have existing code here" or "Starting from scratch" in the project setup prompt, no repos are cloned (no regression)
+- [~] **AC-US3-01**: Descoped
+- [~] **AC-US3-02**: Descoped
+- [~] **AC-US3-03**: Descoped — current condition matches approved plan
+- [x] **AC-US3-04**: If the user selects "I have existing code here" or "Starting from scratch" in the project setup prompt, no repos are cloned (no regression) — implemented via `promptProjectSetup` defaulting to "existing"
 
 ## Functional Requirements
 
