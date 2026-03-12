@@ -1,13 +1,30 @@
 {
   "id": "0505-fix-stale-search-404",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-12T02:35:53.309Z",
-  "lastActivity": "2026-03-12T02:35:53.309Z",
+  "lastActivity": "2026-03-12T03:04:46.409Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-183",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-183",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-12T03:05:14.615Z"
+    },
+    "ado": {
+      "featureId": "983",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/983",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-12T03:05:16.378Z"
+    }
+  },
+  "updated": "2026-03-12T03:01:59.000Z",
+  "approvedAt": "2026-03-12T03:04:46.409Z"
 }

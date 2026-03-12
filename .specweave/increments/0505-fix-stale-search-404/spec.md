@@ -1,10 +1,10 @@
 ---
 increment: 0505-fix-stale-search-404
-title: "Fix Stale Search Results Returning 404"
+title: Fix Stale Search Results Returning 404
 type: bugfix
 priority: P1
-status: active
-created: 2026-03-12
+status: completed
+created: 2026-03-12T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -36,10 +36,10 @@ The block endpoint (`/api/v1/admin/skills/.../block`) already does this correctl
 **So that** deleted skills stop appearing in search results immediately
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a skill exists in both Postgres and KV search index, when an admin calls `DELETE /api/v1/admin/skills/{owner}/{repo}/{skill}/delete`, then `updateSearchShard(kv, skillEntry, "remove")` is called before the DB transaction deletes the skill record
-- [ ] **AC-US1-02**: Given the skill's data is needed for `updateSearchShard` (name, author, category, etc.), when the delete endpoint fetches the skill record, then it selects all fields required by `SearchIndexEntry` using `SEARCH_ENTRY_SELECT` before deleting
-- [ ] **AC-US1-03**: Given the KV shard removal succeeds, when the delete endpoint completes, then `invalidateSearchIndex(searchKv)` is called to force a meta refresh
-- [ ] **AC-US1-04**: Given the KV operation fails (network error, KV unavailable), when the delete endpoint runs, then the DB deletion still proceeds and the KV failure is logged but does not block the response
+- [x] **AC-US1-01**: Given a skill exists in both Postgres and KV search index, when an admin calls `DELETE /api/v1/admin/skills/{owner}/{repo}/{skill}/delete`, then `updateSearchShard(kv, skillEntry, "remove")` is called before the DB transaction deletes the skill record
+- [x] **AC-US1-02**: Given the skill's data is needed for `updateSearchShard` (name, author, category, etc.), when the delete endpoint fetches the skill record, then it selects all fields required by `SearchIndexEntry` using `SEARCH_ENTRY_SELECT` before deleting
+- [x] **AC-US1-03**: Given the KV shard removal succeeds, when the delete endpoint completes, then `invalidateSearchIndex(searchKv)` is called to force a meta refresh
+- [x] **AC-US1-04**: Given the KV operation fails (network error, KV unavailable), when the delete endpoint runs, then the DB deletion still proceeds and the KV failure is logged but does not block the response
 
 ---
 
@@ -51,9 +51,9 @@ The block endpoint (`/api/v1/admin/skills/.../block`) already does this correctl
 **So that** I never encounter a 404 when clicking a search result
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given the search source is "edge" (KV-only, Postgres returned zero results), when the search route returns results, then each result's `name` is batch-validated against Postgres and non-existent skills are filtered out before the response
-- [ ] **AC-US2-02**: Given the search source is "edge+postgres" or "postgres", when the search route returns results, then no additional existence validation is performed (Postgres results are inherently fresh)
-- [ ] **AC-US2-03**: Given the DB validation query fails, when the search route processes edge-only results, then all edge results are returned unfiltered (graceful degradation) and a warning is logged
+- [x] **AC-US2-01**: Given the search source is "edge" (KV-only, Postgres returned zero results), when the search route returns results, then each result's `name` is batch-validated against Postgres and non-existent skills are filtered out before the response
+- [x] **AC-US2-02**: Given the search source is "edge+postgres" or "postgres", when the search route returns results, then no additional existence validation is performed (Postgres results are inherently fresh)
+- [x] **AC-US2-03**: Given the DB validation query fails, when the search route processes edge-only results, then all edge results are returned unfiltered (graceful degradation) and a warning is logged
 
 ---
 
@@ -65,9 +65,9 @@ The block endpoint (`/api/v1/admin/skills/.../block`) already does this correctl
 **So that** any stale entries that slip through (missed cleanup, race conditions) self-expire rather than persisting indefinitely
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given `buildSearchIndex()` writes name shards and author shards to KV, when the shard data is written via `kv.put()`, then `expirationTtl: 604800` (7 days in seconds) is included in the put options
-- [ ] **AC-US3-02**: Given `updateSearchShard()` upserts a single entry into a shard, when the shard is written back to KV via `kv.put()`, then `expirationTtl: 604800` is included in the put options
-- [ ] **AC-US3-03**: Given the search index metadata key is written by `buildSearchIndex()`, when the meta is stored, then it also uses `expirationTtl: 604800`
+- [x] **AC-US3-01**: Given `buildSearchIndex()` writes name shards and author shards to KV, when the shard data is written via `kv.put()`, then `expirationTtl: 604800` (7 days in seconds) is included in the put options
+- [x] **AC-US3-02**: Given `updateSearchShard()` upserts a single entry into a shard, when the shard is written back to KV via `kv.put()`, then `expirationTtl: 604800` is included in the put options
+- [x] **AC-US3-03**: Given the search index metadata key is written by `buildSearchIndex()`, when the meta is stored, then it also uses `expirationTtl: 604800`
 
 ## Out of Scope
 

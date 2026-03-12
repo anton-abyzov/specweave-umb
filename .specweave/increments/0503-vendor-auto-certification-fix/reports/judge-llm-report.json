@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0503-vendor-auto-certification-fix",
+  "timestamp": "2026-03-11T10:01:00Z",
+  "verdict": "WAIVED",
+  "consentStatus": "denied",
+  "reason": "No ANTHROPIC_API_KEY available for external API call"
+}

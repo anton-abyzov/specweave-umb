@@ -2,9 +2,9 @@
 id: US-003
 feature: FS-503
 title: "Backfill existing vendor skills (P2)"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-12
+created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** platform operator."
 project: vskill-platform
 ---
@@ -21,8 +21,8 @@ project: vskill-platform
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: Given existing skills in the DB with `author` matching a vendor org and `certTier = "VERIFIED"`, when the admin backfill endpoint is invoked, then those skills are updated to `certTier = "CERTIFIED"`, `certMethod = "VENDOR_AUTO"`, `trustTier = "T4"`, `trustScore = 100`
-- [ ] **AC-US3-02**: Given the backfill runs, when a vendor skill already has `certTier = "CERTIFIED"`, then it is skipped (idempotent)
+- [x] **AC-US3-01**: Given existing skills in the DB with `author` matching a vendor org and `certTier = "VERIFIED"`, when the admin backfill endpoint is invoked, then those skills are updated to `certTier = "CERTIFIED"`, `certMethod = "VENDOR_AUTO"`, `trustTier = "T4"`, `trustScore = 100`
+- [x] **AC-US3-02**: Given the backfill runs, when a vendor skill already has `certTier = "CERTIFIED"`, then it is skipped (idempotent)
 
 ---
 
@@ -35,4 +35,4 @@ project: vskill-platform
 
 ## Tasks
 
-- [ ] **T-004**: Create admin backfill-vendor-cert endpoint
+- [x] **T-004**: Create admin backfill-vendor-cert endpoint

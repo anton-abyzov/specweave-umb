@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0505-fix-stale-search-404",
+  "timestamp": "2026-03-12T03:05:30Z",
+  "verdict": "WAIVED",
+  "consentStatus": "denied",
+  "reason": "No ANTHROPIC_API_KEY available for external API call"
+}

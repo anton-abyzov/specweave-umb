@@ -1,10 +1,10 @@
 ---
 increment: 0503-vendor-auto-certification-fix
-title: "Fix vendor auto-certification gap in publish pipeline"
+title: Fix vendor auto-certification gap in publish pipeline
 type: bug-fix
 priority: P1
-status: active
-created: 2026-03-12
+status: completed
+created: 2026-03-12T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -40,9 +40,9 @@ Three gaps in the trust pipeline:
 **So that** the publish pipeline correctly assigns CERTIFIED tier, vendor labels, and T4 trust score
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a submission from a vendor org repo (e.g., `github.com/anthropics/my-skill`), when `processSubmission` detects vendor status via `isVendorRepo()`, then the submission's `isVendor` field is set to `true` in both KV and DB before `publishSkill()` is called
-- [ ] **AC-US1-02**: Given a `markVendor(id, org)` function in `submission-store.ts`, when called with a valid submission ID and org name, then it updates the KV entry's `isVendor` to `true` and persists the same to the DB submission record
-- [ ] **AC-US1-03**: Given a submission from a non-vendor org (e.g., `github.com/random-user/skill`), when `processSubmission` runs, then `markVendor` is NOT called and `isVendor` remains `false`
+- [x] **AC-US1-01**: Given a submission from a vendor org repo (e.g., `github.com/anthropics/my-skill`), when `processSubmission` detects vendor status via `isVendorRepo()`, then the submission's `isVendor` field is set to `true` in both KV and DB before `publishSkill()` is called
+- [x] **AC-US1-02**: Given a `markVendor(id, org)` function in `submission-store.ts`, when called with a valid submission ID and org name, then it updates the KV entry's `isVendor` to `true` and persists the same to the DB submission record
+- [x] **AC-US1-03**: Given a submission from a non-vendor org (e.g., `github.com/random-user/skill`), when `processSubmission` runs, then `markVendor` is NOT called and `isVendor` remains `false`
 
 ---
 
@@ -54,9 +54,9 @@ Three gaps in the trust pipeline:
 **So that** vendor skills are correctly certified even if the submission flag was not propagated (defense-in-depth)
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a submission where `sub.isVendor` is `false` but the repo owner is a vendor org (e.g., `anthropics`), when `publishSkill()` runs, then the skill receives CERTIFIED cert tier, VENDOR_AUTO cert method, T4 trust tier, trust score 100, and labels `["vendor", "certified"]`
-- [ ] **AC-US2-02**: Given a submission where `sub.isVendor` is `false` and the repo owner is NOT a vendor org, when `publishSkill()` runs, then the skill receives VERIFIED cert tier and community labels (no change from current behavior)
-- [ ] **AC-US2-03**: Given a submission where `sub.isVendor` is `true`, when `publishSkill()` runs, then the existing vendor path is used (no double-checking needed, current behavior preserved)
+- [x] **AC-US2-01**: Given a submission where `sub.isVendor` is `false` but the repo owner is a vendor org (e.g., `anthropics`), when `publishSkill()` runs, then the skill receives CERTIFIED cert tier, VENDOR_AUTO cert method, T4 trust tier, trust score 100, and labels `["vendor", "certified"]`
+- [x] **AC-US2-02**: Given a submission where `sub.isVendor` is `false` and the repo owner is NOT a vendor org, when `publishSkill()` runs, then the skill receives VERIFIED cert tier and community labels (no change from current behavior)
+- [x] **AC-US2-03**: Given a submission where `sub.isVendor` is `true`, when `publishSkill()` runs, then the existing vendor path is used (no double-checking needed, current behavior preserved)
 
 ---
 
@@ -68,8 +68,8 @@ Three gaps in the trust pipeline:
 **So that** `vskill find` displays accurate certification status for all vendor skills
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given existing skills in the DB with `author` matching a vendor org and `certTier = "VERIFIED"`, when the admin backfill endpoint is invoked, then those skills are updated to `certTier = "CERTIFIED"`, `certMethod = "VENDOR_AUTO"`, `trustTier = "T4"`, `trustScore = 100`
-- [ ] **AC-US3-02**: Given the backfill runs, when a vendor skill already has `certTier = "CERTIFIED"`, then it is skipped (idempotent)
+- [x] **AC-US3-01**: Given existing skills in the DB with `author` matching a vendor org and `certTier = "VERIFIED"`, when the admin backfill endpoint is invoked, then those skills are updated to `certTier = "CERTIFIED"`, `certMethod = "VENDOR_AUTO"`, `trustTier = "T4"`, `trustScore = 100`
+- [x] **AC-US3-02**: Given the backfill runs, when a vendor skill already has `certTier = "CERTIFIED"`, then it is skipped (idempotent)
 
 ## Out of Scope
 

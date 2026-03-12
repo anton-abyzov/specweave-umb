@@ -1,7 +1,7 @@
 ---
 increment: 0503-vendor-auto-certification-fix
 total_tasks: 4
-completed_tasks: 0
+completed_tasks: 4
 by_user_story:
   US-001: [T-001, T-002]
   US-002: [T-003]
@@ -20,7 +20,7 @@ by_user_story:
 ## User Story: US-001 - Mark submission as vendor before publishing
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03
-**Tasks**: 2 total, 0 completed
+**Tasks**: 2 total, all completed
 
 ---
 
@@ -28,7 +28,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a valid submission ID and a vendor org name
@@ -68,7 +68,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `isVendorRepo()` returns `{ isVendor: true, org: "anthropics" }` for a repo URL
@@ -95,7 +95,7 @@ by_user_story:
 ## User Story: US-002 - Add vendor org fallback in publishSkill
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Tasks**: 1 total, 0 completed
+**Tasks**: 1 total, all completed
 
 ---
 
@@ -103,7 +103,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `sub.isVendor` is `false` but `extractOwner(sub.repoUrl)` returns `"anthropics"` (a vendor org)
@@ -136,7 +136,7 @@ by_user_story:
 ## User Story: US-003 - Backfill existing vendor skills
 
 **Linked ACs**: AC-US3-01, AC-US3-02
-**Tasks**: 1 total, 0 completed
+**Tasks**: 1 total, all completed
 
 ---
 
@@ -144,7 +144,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** skills in the DB with `author IN (vendorOrgs)` and `certTier = "VERIFIED"`

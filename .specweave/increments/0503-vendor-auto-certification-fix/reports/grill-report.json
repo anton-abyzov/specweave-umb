@@ -1,0 +1,99 @@
+{
+  "version": "1.1",
+  "incrementId": "0503",
+  "timestamp": "2026-03-12T04:15:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "NEEDS REVIEW",
+  "summary": { "totalFindings": 4, "critical": 0, "high": 2, "medium": 2 },
+  "acCompliance": {
+    "totalACs": 8,
+    "passed": 8,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      {
+        "acId": "AC-US1-01",
+        "status": "pass",
+        "evidence": "processSubmission calls markVendor(id, vendor.org) at process-submission.ts:271 before publishSkill() at line 285. markVendor writes isVendor=true to KV (submission-store.ts:713-714) and DB (lines 719-721). The call ordering places markVendor before updateState(VENDOR_APPROVED) rather than after as planned, but the requirement is satisfied: isVendor is set before publishSkill runs."
+      },
+      {
+        "acId": "AC-US1-02",
+        "status": "pass",
+        "evidence": "markVendor(id, org) at submission-store.ts:705 reads KV entry, sets isVendor=true, writes back to KV with TTL, then updates DB via prisma.submission.update({data: {isVendor: true, vendorOrg: org}}). DB update is best-effort with try/catch."
+      },
+      {
+        "acId": "AC-US1-03",
+        "status": "pass",
+        "evidence": "markVendor is only called inside the `if (vendor.isVendor)` block at process-submission.ts:270-271. Non-vendor repos take the else path at line 297+."
+      },
+      {
+        "acId": "AC-US2-01",
+        "status": "pass",
+        "evidence": "publishSkill computes effectiveVendor = sub.isVendor || (owner ? isVendorOrg(owner) : false) at submission-store.ts:1022. When effectiveVendor=true: trustScore=100/trustTier=T4 (lines 1026-1028), labels=['vendor','certified'] (line 1067-1068), certTier=CERTIFIED/certMethod=VENDOR_AUTO via deriveCertTier (line 1079)."
+      },
+      {
+        "acId": "AC-US2-02",
+        "status": "pass",
+        "evidence": "When sub.isVendor=false and owner is not a vendor org, effectiveVendor=false. Normal trust computation runs (lines 1029-1051). Labels assigned as ['community', 'verified'] (line 1069)."
+      },
+      {
+        "acId": "AC-US2-03",
+        "status": "pass",
+        "evidence": "When sub.isVendor=true, effectiveVendor=true via short-circuit OR (line 1022). Same vendor path executes, preserving existing behavior."
+      },
+      {
+        "acId": "AC-US3-01",
+        "status": "pass",
+        "evidence": "No dedicated backfill-vendor-cert endpoint was created (T-004 not implemented as specified). However, the pre-existing trusted-author-backfill endpoint at src/app/api/v1/admin/trusted-author-backfill/route.ts performs the same function: queries vendor-author skills with certTier != CERTIFIED, calls updateSkillTrust() which assigns CERTIFIED/VENDOR_AUTO/T4/100. Functionally equivalent."
+      },
+      {
+        "acId": "AC-US3-02",
+        "status": "pass",
+        "evidence": "The trusted-author-backfill WHERE clause filters certTier != CERTIFIED and trustScore < 100. Already-certified skills are excluded. Second invocation returns updated=0 (idempotent)."
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "GR-001",
+      "severity": "high",
+      "category": "testing",
+      "confidence": 95,
+      "title": "No dedicated unit tests for markVendor()",
+      "description": "T-001 specified test file src/lib/__tests__/submission-store.markVendor.test.ts with 4 test cases (KV update, DB update, idempotency, DB-failure resilience). This file does not exist. markVendor has zero direct unit tests.",
+      "file": "src/lib/__tests__/submission-store.markVendor.test.ts",
+      "recommendation": "Write the 4 specified test cases: markVendor_setsIsVendorInKV, markVendor_updatesDB, markVendor_isIdempotent, markVendor_DBFailureDoesNotThrow."
+    },
+    {
+      "id": "GR-002",
+      "severity": "high",
+      "category": "testing",
+      "confidence": 95,
+      "title": "No unit tests for publishSkill vendor fallback",
+      "description": "T-003 specified test file src/lib/__tests__/submission-store.publishSkill.test.ts with 3 test cases verifying the effectiveVendor fallback logic. This file does not exist. The defense-in-depth fallback (the most architecturally significant change) has no test coverage.",
+      "file": "src/lib/__tests__/submission-store.publishSkill.test.ts",
+      "recommendation": "Write the 3 specified test cases: vendorFlagFalseButVendorOwner, vendorFlagFalseNonVendorOwner, vendorFlagTrue_existingPathPreserved."
+    },
+    {
+      "id": "GR-003",
+      "severity": "medium",
+      "category": "testing",
+      "confidence": 85,
+      "title": "Existing vendor test does not assert markVendor is called",
+      "description": "The vendor path test at process-submission.test.ts:166-176 asserts updateState(VENDOR_APPROVED), updateState(PUBLISHED), and publishSkill are called, but does NOT assert mockMarkVendor was called. The mock is wired (line 47) but never verified. Additionally, the mock uses { isVendor: true, orgName: 'trusted-org' } but the real checkVendorRepo returns { org: ... } not { orgName: ... }, meaning vendor.org resolves to undefined in the test, silently falling back to 'unknown'.",
+      "file": "src/lib/queue/__tests__/process-submission.test.ts",
+      "line": 167,
+      "recommendation": "Add expect(mockMarkVendor).toHaveBeenCalledWith('sub-test-1', 'trusted-org'). Fix mock return to use { isVendor: true, org: 'trusted-org' } to match the real checkVendorRepo signature."
+    },
+    {
+      "id": "GR-004",
+      "severity": "medium",
+      "category": "implementation",
+      "confidence": 75,
+      "title": "T-004 backfill endpoint not created as specified",
+      "description": "tasks.md T-004 specified creating src/app/api/v1/admin/backfill-vendor-cert/route.ts with its own test file. Neither was created. The increment relies on the pre-existing trusted-author-backfill endpoint instead. While functionally equivalent (AC-US3-01/02 are satisfied), the task was marked [x] completed without implementing the specified deliverable.",
+      "file": "src/app/api/v1/admin/backfill-vendor-cert/route.ts",
+      "recommendation": "Acceptable if deliberate reuse of existing endpoint. Document the decision in spec.md or tasks.md to explain why a separate endpoint was unnecessary."
+    }
+  ]
+}
