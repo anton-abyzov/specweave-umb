@@ -1,27 +1,34 @@
 ---
 id: FS-511
-title: "Fix ADO/JIRA Sync Bugs"
+title: Fix ADO/JIRA Sync Bugs
 type: feature
 status: completed
 priority: P1
 created: 2026-03-12T00:00:00.000Z
 lastUpdated: 2026-03-12
-tldr: "Five bugs in the ADO and JIRA sync providers cause work items to remain stuck in wrong states, miss parent links, use wrong work item types, skip metadata fallbacks, and silently swallow transition failures."
+tldr: Five bugs in the ADO and JIRA sync providers cause work items to remain
+  stuck in wrong states, miss parent links, use wrong work item types, skip
+  metadata fallbacks, and silently swallow transition failures.
 complexity: high
 stakeholder_relevant: true
 externalLinks:
   jira:
-    epicKey: 'SWE2E-188'
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-188'
-    syncedAt: '2026-03-12T05:59:15.740Z'
-    projectKey: 'SWE2E'
-    domain: 'antonabyzov.atlassian.net'
+    epicKey: SWE2E-188
+    epicUrl: https://antonabyzov.atlassian.net/browse/SWE2E-188
+    syncedAt: 2026-03-12T05:59:15.740Z
+    projectKey: SWE2E
+    domain: antonabyzov.atlassian.net
   ado:
     featureId: 1082
-    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1082'
-    syncedAt: '2026-03-12T05:59:24.167Z'
-    organization: 'EasyChamp'
-    project: 'SpecWeaveSync'
+    featureUrl: https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1082
+    syncedAt: 2026-03-12T05:59:24.167Z
+    organization: EasyChamp
+    project: SpecWeaveSync
+external_tools:
+  github:
+    type: milestone
+    id: 240
+    url: https://github.com/anton-abyzov/specweave/milestone/240
 ---
 
 # Fix ADO/JIRA Sync Bugs

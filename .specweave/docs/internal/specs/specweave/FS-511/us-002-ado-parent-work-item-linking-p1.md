@@ -1,12 +1,16 @@
 ---
 id: US-002
 feature: FS-511
-title: "ADO Parent Work Item Linking (P1)"
+title: ADO Parent Work Item Linking (P1)
 status: completed
 priority: P1
 created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** SpecWeave user syncing to ADO."
 project: specweave
+external:
+  github:
+    issue: 1553
+    url: https://github.com/anton-abyzov/specweave/issues/1553
 ---
 
 # US-002: ADO Parent Work Item Linking (P1)

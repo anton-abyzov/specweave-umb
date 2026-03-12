@@ -1,12 +1,16 @@
 ---
 id: US-001
 feature: FS-511
-title: "ADO Process-Aware State Transitions (P1)"
+title: ADO Process-Aware State Transitions (P1)
 status: completed
 priority: P1
 created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** SpecWeave user with an ADO Basic process project."
 project: specweave
+external:
+  github:
+    issue: 1552
+    url: https://github.com/anton-abyzov/specweave/issues/1552
 ---
 
 # US-001: ADO Process-Aware State Transitions (P1)

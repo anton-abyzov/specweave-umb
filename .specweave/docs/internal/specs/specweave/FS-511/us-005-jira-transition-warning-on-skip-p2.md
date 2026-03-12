@@ -1,12 +1,16 @@
 ---
 id: US-005
 feature: FS-511
-title: "JIRA Transition Warning on Skip (P2)"
+title: JIRA Transition Warning on Skip (P2)
 status: completed
 priority: P1
 created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** SpecWeave user syncing to JIRA."
 project: specweave
+external:
+  github:
+    issue: 1556
+    url: https://github.com/anton-abyzov/specweave/issues/1556
 ---
 
 # US-005: JIRA Transition Warning on Skip (P2)

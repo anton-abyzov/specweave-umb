@@ -1,12 +1,16 @@
 ---
 id: US-004
 feature: FS-511
-title: "ADO Metadata Fallback for Closure (P2)"
+title: ADO Metadata Fallback for Closure (P2)
 status: completed
 priority: P1
 created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** SpecWeave user closing an increment with ADO sync."
 project: specweave
+external:
+  github:
+    issue: 1555
+    url: https://github.com/anton-abyzov/specweave/issues/1555
 ---
 
 # US-004: ADO Metadata Fallback for Closure (P2)
