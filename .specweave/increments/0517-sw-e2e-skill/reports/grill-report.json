@@ -1,0 +1,36 @@
+{
+  "version": "1.1",
+  "incrementId": "0517-sw-e2e-skill",
+  "timestamp": "2026-03-12T17:15:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 19,
+    "passed": 19,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "SKILL.md Section 3 (AC Extraction) + Section 4 (Generate Mode) — one .spec.ts per US, one test() per AC" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "SKILL.md Section 4b — journey grouping template with AC-ID checkpoint comments" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "SKILL.md Section 4b — test title template: test('AC-US1-01: <description>', ...)" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "SKILL.md Section 2 — decision matrix: config missing + package found → FAIL with npx playwright init message" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "SKILL.md Section 2 — decision matrix: both missing → FAIL with npm init playwright@latest message" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "SKILL.md Section 5a — npx playwright test --reporter=json" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "SKILL.md Section 5c + Section 7 — e2e-report.json schema with incrementId, timestamp, mode, playwrightConfig, summary, results" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "SKILL.md Section 5c — example shows acId: AC-US1-02, status: fail, error: message" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "SKILL.md Section 7 — Consumption by Gate 2a: summary.failed > 0 → BLOCK closure" },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "SKILL.md Section 7 — summary.failed === 0 → PASS gate" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "SKILL.md Section 6b — AxeBuilder with wcag2a, wcag2aa, wcag21aa tags after primary assertions" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "SKILL.md Section 6c — a11y violations attached to per-AC result entries under a11y field" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "SKILL.md Section 6d — standalone a11y groups violations by page URL in top-level a11y field" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "SKILL.md Section 7 — report schema shows violations: [], passes: 0 for zero violation case" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "testing.md line 10 — Skill({ skill: 'sw:e2e', args: '--generate [INCREMENT_ID]' })" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "testing.md line 11 — Skill({ skill: 'sw:e2e', args: '--run [INCREMENT_ID]' })" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "SKILL.md Section 7 — Gate 2a consumption protocol documented: read report, check summary.failed" },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "SKILL.md frontmatter: description, argument-hint, allowed-tools, context: fork, model: sonnet — cache at ~/.claude/plugins/cache/specweave/sw/1.0.0/skills/e2e/SKILL.md" },
+      { "acId": "AC-US4-05", "status": "pass", "evidence": "evals/evals.json: 4 scenarios (generate-from-spec, run-and-report, a11y-scan, no-playwright-detected) with boolean assertions" }
+    ]
+  },
+  "findings": []
+}
