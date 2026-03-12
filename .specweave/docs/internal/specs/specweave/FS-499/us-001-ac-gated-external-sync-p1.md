@@ -2,9 +2,9 @@
 id: US-001
 feature: FS-499
 title: "AC-Gated External Sync (P1)"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-12
+created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** SpecWeave user."
 project: specweave
 ---
@@ -21,10 +21,10 @@ project: specweave
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a task is completed but no new ACs transitioned from unchecked to checked, when `onTaskCompleted()` runs, then `syncToExternalTools()` is NOT called
-- [ ] **AC-US1-02**: Given a task completion causes one or more ACs to transition from `[ ]` to `[x]`, when `onTaskCompleted()` runs, then `syncToExternalTools()` IS called with the affected user story IDs
-- [ ] **AC-US1-03**: Given any task is completed, when `onTaskCompleted()` runs, then living docs sync (`LivingDocsSync.syncIncrement`) still fires regardless of AC state changes
-- [ ] **AC-US1-04**: Given a task has no AC tags (legacy or unlinked tasks), when that task is completed, then external sync fires on every completion for backward compatibility
+- [x] **AC-US1-01**: Given a task is completed but no new ACs transitioned from unchecked to checked, when `onTaskCompleted()` runs, then `syncToExternalTools()` is NOT called
+- [x] **AC-US1-02**: Given a task completion causes one or more ACs to transition from `[ ]` to `[x]`, when `onTaskCompleted()` runs, then `syncToExternalTools()` IS called with the affected user story IDs
+- [x] **AC-US1-03**: Given any task is completed, when `onTaskCompleted()` runs, then living docs sync (`LivingDocsSync.syncIncrement`) still fires regardless of AC state changes
+- [x] **AC-US1-04**: Given a task has no AC tags (legacy or unlinked tasks), when that task is completed, then external sync fires on every completion for backward compatibility
 
 ---
 
@@ -37,5 +37,5 @@ project: specweave
 
 ## Tasks
 
-- [ ] **T-001**: Implement ACGate module
-- [ ] **T-002**: Wire ACGate into LifecycleHookDispatcher.onTaskCompleted()
+- [x] **T-001**: Implement ACGate module
+- [x] **T-002**: Wire ACGate into LifecycleHookDispatcher.onTaskCompleted()

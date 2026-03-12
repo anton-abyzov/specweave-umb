@@ -1,29 +1,27 @@
 ---
 id: FS-499
-title: External Sync Resilience & Observability
+title: "External Sync Resilience & Observability"
 type: feature
-status: planned
+status: completed
 priority: P1
 created: 2026-03-12T00:00:00.000Z
-lastUpdated: 2026-03-12T00:00:00.000Z
-tldr: External sync to GitHub/JIRA/ADO fails silently.
+lastUpdated: 2026-03-12
+tldr: "External sync to GitHub/JIRA/ADO fails silently."
 complexity: high
 stakeholder_relevant: true
 externalLinks:
   jira:
-    epicKey: SWE2E-170
+    epicKey: 'SWE2E-170'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-170'
     syncedAt: '2026-03-12T00:43:01.192Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 882
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/882
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/882'
     syncedAt: '2026-03-12T00:43:08.725Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-12'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # External Sync Resilience & Observability
@@ -31,8 +29,10 @@ updated: '2026-03-12'
 ## TL;DR
 
 **What**: External sync to GitHub/JIRA/ADO fails silently.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 4
+
+![External Sync Resilience & Observability illustration](assets/feature-fs-499.jpg)
 
 ## Overview
 
@@ -42,7 +42,7 @@ External sync to GitHub/JIRA/ADO fails silently. When `syncToExternalTools()` en
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0499-external-sync-resilience](../../../../../increments/0499-external-sync-resilience/spec.md) | ⏳ planned | 2026-03-12 |
+| [0499-external-sync-resilience](../../../../../increments/0499-external-sync-resilience/spec.md) | ✅ completed | 2026-03-12T00:00:00.000Z |
 
 ## User Stories
 

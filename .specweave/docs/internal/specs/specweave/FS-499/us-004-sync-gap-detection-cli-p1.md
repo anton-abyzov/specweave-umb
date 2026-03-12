@@ -2,9 +2,9 @@
 id: US-004
 feature: FS-499
 title: "Sync Gap Detection CLI (P1)"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-12
+created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** SpecWeave user."
 project: specweave
 ---
@@ -21,11 +21,11 @@ project: specweave
 
 ## Acceptance Criteria
 
-- [ ] **AC-US4-01**: Given the user runs `specweave sync-gaps`, when increments have metadata with partial provider coverage (e.g., synced to GitHub but not JIRA), then each gap is listed with increment ID, synced providers, and missing providers
-- [ ] **AC-US4-02**: Given the user runs `specweave sync-gaps --fix`, when gaps are detected, then the command attempts the missing provider syncs for each listed increment
-- [ ] **AC-US4-03**: Given the user runs `specweave sync-gaps --json`, when gaps exist, then the output is a valid JSON array with objects containing incrementId, syncedProviders, missingProviders, and lastSyncTimestamp
-- [ ] **AC-US4-04**: Given the user runs `specweave sync-status`, when the sync infrastructure is active, then the output shows retry queue depth, per-provider circuit breaker state, and rate limit remaining counts
-- [ ] **AC-US4-05**: Given the user runs `specweave sync-gaps` or `specweave sync-status`, when issues are found, then the command exits with a non-zero exit code
+- [x] **AC-US4-01**: Given the user runs `specweave sync-gaps`, when increments have metadata with partial provider coverage (e.g., synced to GitHub but not JIRA), then each gap is listed with increment ID, synced providers, and missing providers
+- [x] **AC-US4-02**: Given the user runs `specweave sync-gaps --fix`, when gaps are detected, then the command attempts the missing provider syncs for each listed increment
+- [x] **AC-US4-03**: Given the user runs `specweave sync-gaps --json`, when gaps exist, then the output is a valid JSON array with objects containing incrementId, syncedProviders, missingProviders, and lastSyncTimestamp
+- [x] **AC-US4-04**: Given the user runs `specweave sync-status`, when the sync infrastructure is active, then the output shows retry queue depth, per-provider circuit breaker state, and rate limit remaining counts
+- [x] **AC-US4-05**: Given the user runs `specweave sync-gaps` or `specweave sync-status`, when issues are found, then the command exits with a non-zero exit code
 
 ---
 
@@ -38,6 +38,6 @@ project: specweave
 
 ## Tasks
 
-- [ ] **T-011**: Implement sync-gaps CLI command
-- [ ] **T-012**: Implement sync-status CLI command
-- [ ] **T-013**: Register all CLI commands and add graceful missing-file guards
+- [x] **T-011**: Implement sync-gaps CLI command
+- [x] **T-012**: Implement sync-status CLI command
+- [x] **T-013**: Register all CLI commands and add graceful missing-file guards

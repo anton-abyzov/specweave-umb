@@ -1,10 +1,10 @@
 ---
 increment: 0499-external-sync-resilience
-title: "External Sync Resilience & Observability"
+title: External Sync Resilience & Observability
 type: feature
 priority: P1
-status: planned
-created: 2026-03-12
+status: completed
+created: 2026-03-12T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -48,13 +48,13 @@ External sync to GitHub/JIRA/ADO fails silently. When `syncToExternalTools()` en
 
 **Acceptance Criteria**:
 - [x] **AC-US2-01**: Given an external sync fails, when the error is caught, then a retry entry is persisted to `.specweave/state/sync-retry-queue.json` with incrementId, provider, error message, attempt count, and next retry timestamp
-- [ ] **AC-US2-02**: Given a GitHub sync is about to execute, when `RateLimitChecker.shouldProceed()` returns `canProceed: false`, then the sync call is queued in the retry queue instead of attempted
-- [ ] **AC-US2-03**: Given a provider's `SyncCircuitBreaker` is in `open` state, when a sync is requested for that provider, then the sync is queued instead of attempted
-- [ ] **AC-US2-04**: Given the user runs `specweave sync-retry`, when there are entries in the retry queue, then each entry is retried with exponential backoff intervals (1 minute, 5 minutes, 30 minutes)
-- [ ] **AC-US2-05**: Given an increment transitions to `completed`, when `onIncrementDone()` executes, then the retry queue is processed for that increment before closure completes
-- [ ] **AC-US2-06**: Given any sync attempt occurs (success or failure), when the attempt completes, then a JSONL audit entry is appended to `.specweave/state/sync-audit.jsonl` with timestamp, incrementId, provider, outcome, and error details
-- [ ] **AC-US2-07**: Given a retry entry has reached 3 failed attempts, when `sync-retry` processes it, then the entry is marked `failed` and remains in the queue for manual review (not retried automatically)
-- [ ] **AC-US2-08**: Given the rate limiter has checked a provider's status, when a subsequent check occurs within 60 seconds, then the cached status is used instead of re-checking headers
+- [x] **AC-US2-02**: Given a GitHub sync is about to execute, when `RateLimitChecker.shouldProceed()` returns `canProceed: false`, then the sync call is queued in the retry queue instead of attempted
+- [x] **AC-US2-03**: Given a provider's `SyncCircuitBreaker` is in `open` state, when a sync is requested for that provider, then the sync is queued instead of attempted
+- [x] **AC-US2-04**: Given the user runs `specweave sync-retry`, when there are entries in the retry queue, then each entry is retried with exponential backoff intervals (1 minute, 5 minutes, 30 minutes)
+- [x] **AC-US2-05**: Given an increment transitions to `completed`, when `onIncrementDone()` executes, then the retry queue is processed for that increment before closure completes
+- [x] **AC-US2-06**: Given any sync attempt occurs (success or failure), when the attempt completes, then a JSONL audit entry is appended to `.specweave/state/sync-audit.jsonl` with timestamp, incrementId, provider, outcome, and error details
+- [x] **AC-US2-07**: Given a retry entry has reached 3 failed attempts, when `sync-retry` processes it, then the entry is marked `failed` and remains in the queue for manual review (not retried automatically)
+- [x] **AC-US2-08**: Given the rate limiter has checked a provider's status, when a subsequent check occurs within 60 seconds, then the cached status is used instead of re-checking headers
 
 ---
 
@@ -65,11 +65,11 @@ External sync to GitHub/JIRA/ADO fails silently. When `syncToExternalTools()` en
 **So that** I am immediately aware of sync failures and can take corrective action
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given sync errors occurred in the last 24 hours, when the user views the OverviewPage, then a "Recent Sync Errors" panel is visible showing up to 5 recent errors with provider name, increment ID, error message, and timestamp
-- [ ] **AC-US3-02**: Given an external sync fails, when the failure is recorded, then an SSE event of type `sync-error` is broadcast to all connected dashboard clients
-- [ ] **AC-US3-03**: Given an external sync fails, when the failure is recorded, then a notification entry is written to `.specweave/state/notifications.json` with severity `error`
-- [ ] **AC-US3-04**: Given the user navigates to the SyncPage, when sync errors exist, then each error row is expandable to show the full error message and stack trace
-- [ ] **AC-US3-05**: Given increments with incomplete provider coverage exist, when the user views the OverviewPage, then a sync gap count badge is displayed showing the number of increments with missing provider syncs
+- [x] **AC-US3-01**: Given sync errors occurred in the last 24 hours, when the user views the OverviewPage, then a "Recent Sync Errors" panel is visible showing up to 5 recent errors with provider name, increment ID, error message, and timestamp
+- [x] **AC-US3-02**: Given an external sync fails, when the failure is recorded, then an SSE event of type `sync-error` is broadcast to all connected dashboard clients
+- [x] **AC-US3-03**: Given an external sync fails, when the failure is recorded, then a notification entry is written to `.specweave/state/notifications.json` with severity `error`
+- [x] **AC-US3-04**: Given the user navigates to the SyncPage, when sync errors exist, then each error row is expandable to show the full error message and stack trace
+- [x] **AC-US3-05**: Given increments with incomplete provider coverage exist, when the user views the OverviewPage, then a sync gap count badge is displayed showing the number of increments with missing provider syncs
 
 ---
 
@@ -80,11 +80,11 @@ External sync to GitHub/JIRA/ADO fails silently. When `syncToExternalTools()` en
 **So that** I can verify all increments are properly synced to configured providers and fix any that are not
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given the user runs `specweave sync-gaps`, when increments have metadata with partial provider coverage (e.g., synced to GitHub but not JIRA), then each gap is listed with increment ID, synced providers, and missing providers
-- [ ] **AC-US4-02**: Given the user runs `specweave sync-gaps --fix`, when gaps are detected, then the command attempts the missing provider syncs for each listed increment
-- [ ] **AC-US4-03**: Given the user runs `specweave sync-gaps --json`, when gaps exist, then the output is a valid JSON array with objects containing incrementId, syncedProviders, missingProviders, and lastSyncTimestamp
-- [ ] **AC-US4-04**: Given the user runs `specweave sync-status`, when the sync infrastructure is active, then the output shows retry queue depth, per-provider circuit breaker state, and rate limit remaining counts
-- [ ] **AC-US4-05**: Given the user runs `specweave sync-gaps` or `specweave sync-status`, when issues are found, then the command exits with a non-zero exit code
+- [x] **AC-US4-01**: Given the user runs `specweave sync-gaps`, when increments have metadata with partial provider coverage (e.g., synced to GitHub but not JIRA), then each gap is listed with increment ID, synced providers, and missing providers
+- [x] **AC-US4-02**: Given the user runs `specweave sync-gaps --fix`, when gaps are detected, then the command attempts the missing provider syncs for each listed increment
+- [x] **AC-US4-03**: Given the user runs `specweave sync-gaps --json`, when gaps exist, then the output is a valid JSON array with objects containing incrementId, syncedProviders, missingProviders, and lastSyncTimestamp
+- [x] **AC-US4-04**: Given the user runs `specweave sync-status`, when the sync infrastructure is active, then the output shows retry queue depth, per-provider circuit breaker state, and rate limit remaining counts
+- [x] **AC-US4-05**: Given the user runs `specweave sync-gaps` or `specweave sync-status`, when issues are found, then the command exits with a non-zero exit code
 
 ## Out of Scope
 
