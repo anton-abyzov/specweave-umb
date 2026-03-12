@@ -1,0 +1,15 @@
+{
+  "id": "0514-init-sync-setup-brownfield",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-12T12:55:56.896Z",
+  "lastActivity": "2026-03-12T13:15:11.481Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "readyForReviewAt": "2026-03-12T13:11:43.871Z",
+  "approvedAt": "2026-03-12T13:15:11.481Z"
+}
