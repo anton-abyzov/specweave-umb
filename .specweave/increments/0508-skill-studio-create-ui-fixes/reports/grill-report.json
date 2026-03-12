@@ -1,0 +1,79 @@
+{
+  "incrementId": "0508-skill-studio-create-ui-fixes",
+  "timestamp": "2026-03-12T03:30:00.000Z",
+  "reviewer": "grill",
+  "verdict": "PASS",
+  "summary": "Three targeted UI bug fixes applied consistently across both CreateSkillInline.tsx and CreateSkillPage.tsx. All fixes are correct, minimal, and solve the reported problems without introducing regressions.",
+  "phases": {
+    "phase0_ac_compliance": {
+      "status": "PASS",
+      "notes": "spec.md was not completed by PM (still a template), but the three bugs described by the user are all verifiably fixed in the code. Evaluating against the stated bug descriptions.",
+      "checks": [
+        {
+          "id": "BUG-1",
+          "description": "Preview button crash (React error #60) — div with both dangerouslySetInnerHTML and children",
+          "status": "PASS",
+          "evidence": "Old code had a single <div> with dangerouslySetInnerHTML={body.trim() ? {...} : undefined} and a child <span> for the empty state. React forbids mixing dangerouslySetInnerHTML and children on the same element. Fixed by splitting into a three-way ternary: write mode (textarea) | body has content (div with dangerouslySetInnerHTML only) | empty (div with child span only). Applied in both files."
+        },
+        {
+          "id": "BUG-2",
+          "description": "AI reasoning banner rendered raw markdown instead of formatted HTML",
+          "status": "PASS",
+          "evidence": "Old code: <span>{aiReasoning}</span> — rendered markdown as plain text. New code: dangerouslySetInnerHTML={{ __html: renderMarkdown(aiReasoning) }} inside the expanded section. renderMarkdown handles headers, bold, italic, code blocks, lists, links, and tables."
+        },
+        {
+          "id": "BUG-3",
+          "description": "Reasoning banner duplication — made collapsible with collapsed-by-default behavior",
+          "status": "PASS",
+          "evidence": "Added reasoningExpanded state (default false). Banner shows 'AI Generated — click to expand reasoning' when collapsed, with a chevron that rotates on toggle. Expanded state shows rendered markdown with 300px max-height and scroll. Dismiss button resets reasoningExpanded along with aiReasoning and pendingEvals. Applied in both files."
+        }
+      ]
+    },
+    "phase2_code_interrogation": {
+      "status": "PASS",
+      "findings": [
+        {
+          "severity": "info",
+          "category": "xss",
+          "title": "renderMarkdown does not sanitize HTML",
+          "description": "renderMarkdown() is a regex-based markdown-to-HTML converter with no HTML sanitization (no DOMPurify or equivalent). Both aiReasoning and body content are passed through it into dangerouslySetInnerHTML. The aiReasoning comes from the AI generation SSE endpoint (user's own AI provider), and body is user-authored content. Since Skill Studio is a local development tool, the risk is limited to self-XSS — the user would be injecting scripts into their own browser session. Not blocking, but worth noting for future hardening.",
+          "files": [
+            "repositories/anton-abyzov/vskill/src/eval-ui/src/utils/renderMarkdown.ts",
+            "repositories/anton-abyzov/vskill/src/eval-ui/src/components/CreateSkillInline.tsx",
+            "repositories/anton-abyzov/vskill/src/eval-ui/src/pages/CreateSkillPage.tsx"
+          ]
+        },
+        {
+          "severity": "info",
+          "category": "duplication",
+          "title": "Reasoning banner code duplicated across both components",
+          "description": "The collapsible AI reasoning banner (~50 lines of JSX) is nearly identical in CreateSkillInline.tsx and CreateSkillPage.tsx. This is pre-existing duplication (the original banner was also duplicated), not introduced by this fix. Could be extracted into a shared component in a future cleanup pass.",
+          "files": [
+            "repositories/anton-abyzov/vskill/src/eval-ui/src/components/CreateSkillInline.tsx",
+            "repositories/anton-abyzov/vskill/src/eval-ui/src/pages/CreateSkillPage.tsx"
+          ]
+        },
+        {
+          "severity": "info",
+          "category": "process",
+          "title": "spec.md not completed by PM",
+          "description": "The spec.md contains only template placeholders (US-001: [Story Title], AC-US1-01: [Specific, testable criterion]). For a small bug fix batch this is acceptable, but formally the increment has no defined ACs to close against.",
+          "files": [
+            ".specweave/increments/0508-skill-studio-create-ui-fixes/spec.md"
+          ]
+        }
+      ],
+      "codeQuality": {
+        "correctness": "All three fixes address the root cause correctly. The React error #60 fix (ternary split) is the canonical solution. The markdown rendering fix uses the existing renderMarkdown utility consistently. The collapsible banner uses idiomatic React state management.",
+        "edgeCases": "Empty body string handled correctly (separate branch with placeholder text). Null/undefined aiReasoning handled by conditional rendering ({aiReasoning && ...}). renderMarkdown returns empty string for falsy input. reasoningExpanded state reset on dismiss.",
+        "consistency": "Both files received identical fixes. The implementation pattern (collapsible section with chevron, dangerouslySetInnerHTML for markdown) matches existing patterns in EditorPanel.tsx and SkillContentViewer.tsx.",
+        "regressions": "No remaining instances of the dangerouslySetInnerHTML + children anti-pattern found in the codebase (verified via grep). No functional regressions identified."
+      }
+    }
+  },
+  "blockers": [],
+  "recommendations": [
+    "Consider extracting the AI reasoning banner into a shared component (e.g., AiReasoningBanner) to reduce duplication between CreateSkillInline and CreateSkillPage.",
+    "Consider adding basic HTML sanitization to renderMarkdown (e.g., escaping angle brackets before regex transforms) as a defense-in-depth measure."
+  ]
+}
