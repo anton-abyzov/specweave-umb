@@ -2,9 +2,9 @@
 id: US-002
 feature: FS-513
 title: "Split-lane timeline for per-case eval history (P1)"
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-12
+created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** skill developer."
 project: vskill
 ---
@@ -21,11 +21,11 @@ project: vskill
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given the CaseHistorySection renders, then it displays a two-column layout with "Skill" label on the left column and "Baseline" label on the right column
-- [ ] **AC-US2-02**: Given history entries exist, when an entry has type `benchmark`, then it renders in the left (Skill) column only
-- [ ] **AC-US2-03**: Given history entries exist, when an entry has type `baseline`, then it renders in the right (Baseline) column only
-- [ ] **AC-US2-04**: Given history entries exist, when an entry has type `comparison`, then it renders as a single merged card spanning both columns with the delta and verdict badge centered between the two sides
-- [ ] **AC-US2-05**: Given only benchmark entries exist and no baseline entries, then the left column is populated with entries and the right column displays "No baseline runs" in `var(--text-tertiary)` color at font-size 12px
+- [x] **AC-US2-01**: Given the CaseHistorySection renders, then it displays a two-column layout with "Skill" label on the left column and "Baseline" label on the right column
+- [x] **AC-US2-02**: Given history entries exist, when an entry has type `benchmark`, then it renders in the left (Skill) column only
+- [x] **AC-US2-03**: Given history entries exist, when an entry has type `baseline`, then it renders in the right (Baseline) column only
+- [x] **AC-US2-04**: Given history entries exist, when an entry has type `comparison`, then it renders as a single merged card spanning both columns with the delta and verdict badge centered between the two sides
+- [x] **AC-US2-05**: Given only benchmark entries exist and no baseline entries, then the left column is populated with entries and the right column displays "No baseline runs" in `var(--text-tertiary)` color at font-size 12px
 
 ---
 
@@ -38,6 +38,6 @@ project: vskill
 
 ## Tasks
 
-- [ ] **T-004**: Extract lane-partitioning logic for CaseHistorySection
-- [ ] **T-005**: Render two-column CSS grid with column headers and empty-column placeholders
-- [ ] **T-006**: Render comparison entries as full-width merged cards with delta and verdict badge
+- [x] **T-004**: Extract lane-partitioning logic for CaseHistorySection
+- [x] **T-005**: Render two-column CSS grid with column headers and empty-column placeholders
+- [x] **T-006**: Render comparison entries as full-width merged cards with delta and verdict badge

@@ -1,12 +1,8 @@
 ---
-increment: 0513-skill-studio-eval-history-redesign
+increment: "0513-skill-studio-eval-history-redesign"
 title: "Skill Studio: eval history redesign + comparison fix"
 total_tasks: 10
 completed_tasks: 10
-by_user_story:
-  US-001: [T-001, T-002, T-003]
-  US-002: [T-004, T-005, T-006]
-  US-003: [T-007, T-008, T-009, T-010]
 ---
 
 # Tasks: Skill Studio Eval History Redesign + Comparison Fix
@@ -14,7 +10,7 @@ by_user_story:
 ## User Story: US-001 - Fix comparison mode per-case SSE rendering
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -98,7 +94,7 @@ by_user_story:
 ## User Story: US-002 - Split-lane timeline for per-case eval history
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Tasks**: 3 total, 0 completed
+**Tasks**: 3 total, 3 completed
 
 ---
 
@@ -189,7 +185,7 @@ by_user_story:
 ## User Story: US-003 - Dual-line MiniTrend sparkline
 
 **Linked ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05, AC-US3-06, AC-US3-07
-**Tasks**: 4 total, 0 completed
+**Tasks**: 4 total, 4 completed
 
 ---
 

@@ -1,31 +1,27 @@
 ---
 id: FS-513
-title: 'Skill Studio: eval history redesign + comparison fix'
+title: "Skill Studio: eval history redesign + comparison fix"
 type: feature
-status: active
+status: completed
 priority: P1
 created: 2026-03-12T00:00:00.000Z
-lastUpdated: 2026-03-12T00:00:00.000Z
-tldr: >-
-  The comparison mode ('Compare All') in Skill Studio's eval system is broken at
-  the per-case level.
+lastUpdated: 2026-03-12
+tldr: "The comparison mode ('Compare All') in Skill Studio's eval system is broken at the per-case level."
 complexity: medium
 stakeholder_relevant: true
 externalLinks:
   jira:
-    epicKey: SWE2E-190
+    epicKey: 'SWE2E-190'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-190'
     syncedAt: '2026-03-12T07:02:24.583Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 1124
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1124
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1124'
     syncedAt: '2026-03-12T07:02:30.822Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-12'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Skill Studio: eval history redesign + comparison fix
@@ -33,8 +29,10 @@ updated: '2026-03-12'
 ## TL;DR
 
 **What**: The comparison mode ("Compare All") in Skill Studio's eval system is broken at the per-case level.
-**Status**: active | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 3
+
+![Skill Studio: eval history redesign + comparison fix illustration](assets/feature-fs-513.jpg)
 
 ## Overview
 
@@ -44,7 +42,7 @@ The comparison mode ("Compare All") in Skill Studio's eval system is broken at t
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0513-skill-studio-eval-history-redesign](../../../../../increments/0513-skill-studio-eval-history-redesign/spec.md) | ⏳ active | 2026-03-12 |
+| [0513-skill-studio-eval-history-redesign](../../../../../increments/0513-skill-studio-eval-history-redesign/spec.md) | ✅ completed | 2026-03-12T00:00:00.000Z |
 
 ## User Stories
 

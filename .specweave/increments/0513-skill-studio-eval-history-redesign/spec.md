@@ -1,10 +1,10 @@
 ---
 increment: 0513-skill-studio-eval-history-redesign
-title: "Skill Studio: eval history redesign + comparison fix"
+title: 'Skill Studio: eval history redesign + comparison fix'
 type: feature
 priority: P1
-status: planned
-created: 2026-03-12
+status: completed
+created: 2026-03-12T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
