@@ -1,0 +1,28 @@
+{
+  "id": "0503-vendor-auto-certification-fix",
+  "status": "planned",
+  "type": "bug-fix",
+  "priority": "P1",
+  "created": "2026-03-12T02:23:42.025Z",
+  "lastActivity": "2026-03-12T02:23:42.025Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-181",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-181",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-12T02:31:45.386Z"
+    },
+    "ado": {
+      "featureId": "973",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/973",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-12T02:31:47.914Z"
+    }
+  }
+}
