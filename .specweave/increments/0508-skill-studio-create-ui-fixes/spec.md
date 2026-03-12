@@ -1,80 +1,48 @@
 ---
 increment: 0508-skill-studio-create-ui-fixes
-title: "Fix Skill Studio Create Skill UI: formatting, duplication, preview crash"
-type: feature
+title: 'Fix Skill Studio Create Skill UI: formatting, duplication, preview crash'
+type: bug
 priority: P1
-status: planned
-created: 2026-03-12
+status: completed
+created: 2026-03-12T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
 ---
 
-# Feature: Fix Skill Studio Create Skill UI: formatting, duplication, preview crash
+# Feature: Fix Skill Studio Create Skill UI
 
 ## Overview
 
-Fix three UI issues in Create a New Skill: AI reasoning not formatted as markdown, reasoning banner duplicating form content, Preview button crash (React error #60)
-
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA PM/ARCHITECT SKILLS
-====================================================================
-
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the placeholders below.
-
-To complete this specification, run:
-  Tell Claude: "Complete the spec for increment 0508-skill-studio-create-ui-fixes"
-
-This will activate the PM skill which will:
-- Define proper user stories with acceptance criteria
-- Conduct market research and competitive analysis
-- Create user personas
-- Define success metrics
-
-====================================================================
--->
+Fix three UI bugs in the "Create a New Skill" page affecting both CreateSkillInline and CreateSkillPage components.
 
 ## User Stories
 
-### US-001: [Story Title] (P1)
+### US-001: Preview button crash fix (P1)
 **Project**: vskill
 
-**As a** [user type]
-**I want** [goal]
-**So that** [benefit]
+**As a** skill author
+**I want** the SKILL.md Preview toggle to work without errors
+**So that** I can preview my skill's rendered markdown before saving
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: [Specific, testable criterion]
-- [ ] **AC-US1-02**: [Another criterion]
+- [x] **AC-US1-01**: Clicking Preview toggle renders the SKILL.md body as formatted HTML without React errors
+- [x] **AC-US1-02**: Empty body shows "Start writing to see preview" placeholder in preview mode
 
 ---
 
-### US-002: [Story Title] (P2)
+### US-002: AI reasoning banner formatting (P1)
 **Project**: vskill
 
-**As a** [user type]
-**I want** [goal]
-**So that** [benefit]
+**As a** skill author using AI generation
+**I want** the AI reasoning banner to show properly formatted text
+**So that** I can read the AI's design decisions clearly
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: [Specific, testable criterion]
-- [ ] **AC-US2-02**: [Another criterion]
-
-## Functional Requirements
-
-### FR-001: [Requirement]
-[Detailed description]
-
-## Success Criteria
-
-[Measurable outcomes - metrics, KPIs]
+- [x] **AC-US2-01**: AI reasoning text renders markdown formatting (bold, headers, lists) instead of raw markdown syntax
+- [x] **AC-US2-02**: Reasoning banner is collapsible, collapsed by default, with a chevron toggle and "click to expand" hint
 
 ## Out of Scope
 
-[What this explicitly does NOT include]
-
-## Dependencies
-
-[Other features or systems this depends on]
+- Extracting shared component for the banner (pre-existing duplication between Inline and Page)
+- HTML sanitization for renderMarkdown (local dev tool, self-XSS only)

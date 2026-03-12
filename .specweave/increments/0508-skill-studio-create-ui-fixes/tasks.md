@@ -1,64 +1,31 @@
-# Tasks: Fix Skill Studio Create Skill UI: formatting, duplication, preview crash
+# Tasks: Fix Skill Studio Create Skill UI
 
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA TASK BUILDER SKILL
-====================================================================
+## Phase 1: Fix Preview crash (React error #60)
 
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the tasks below.
+### T-001: Split dangerouslySetInnerHTML from children in CreateSkillInline.tsx
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02 | **Status**: [x] completed
+**AC**: AC-US1-01, AC-US1-02
+**Test**: Given body has content → When Preview toggled → Then markdown renders without error; Given body is empty → When Preview toggled → Then placeholder text shows
 
-To complete this task list, run:
-  Tell Claude: "Create tasks for increment [ID]"
+### T-002: Split dangerouslySetInnerHTML from children in CreateSkillPage.tsx
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02 | **Status**: [x] completed
+**AC**: AC-US1-01, AC-US1-02
+**Test**: Same as T-001 for the standalone page variant
 
-This will activate the test-aware planner which will:
-- Generate detailed implementation tasks
-- Add embedded test plans (BDD format)
-- Set task dependencies
-- Assign model hints
+## Phase 2: Collapsible + formatted AI reasoning banner
 
-====================================================================
--->
+### T-003: Add collapsible markdown-rendered reasoning banner in CreateSkillInline.tsx
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02 | **Status**: [x] completed
+**AC**: AC-US2-01, AC-US2-02
+**Test**: Given AI generates a skill → When banner shows → Then it is collapsed with chevron; When chevron clicked → Then reasoning expands with rendered markdown
 
-## Task Notation
+### T-004: Add collapsible markdown-rendered reasoning banner in CreateSkillPage.tsx
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02 | **Status**: [x] completed
+**AC**: AC-US2-01, AC-US2-02
+**Test**: Same as T-003 for the standalone page variant
 
-- `[T###]`: Task ID
-- `[P]`: Parallelizable
-- `[ ]`: Not started
-- `[x]`: Completed
-- Model hints: haiku (simple), opus (default)
+## Phase 3: Verification
 
-## Phase 1: Setup
-
-- [ ] [T001] [P] haiku - Initialize project structure
-- [ ] [T002] haiku - Setup testing framework
-
-## Phase 2: Core Implementation
-
-### US-001: [User Story Title] (P1)
-
-#### T-003: Implement [component]
-
-**Description**: [What needs to be done]
-
-**References**: AC-US1-01, AC-US1-02
-
-**Implementation Details**:
-- [Step 1]
-- [Step 2]
-
-**Test Plan**:
-- **File**: `tests/unit/component.test.ts`
-- **Tests**:
-  - **TC-001**: [Test name]
-    - Given [precondition]
-    - When [action]
-    - Then [expected result]
-
-**Dependencies**: None
-**Status**: [ ] Not Started
-
-## Phase 3: Testing
-
-- [ ] [T050] Run integration tests
-- [ ] [T051] Verify all acceptance criteria
+### T-005: Build and run Playwright tests
+**Status**: [x] completed
+**Test**: Build passes clean, 17/18 Playwright tests pass (1 pre-existing failure unrelated)
