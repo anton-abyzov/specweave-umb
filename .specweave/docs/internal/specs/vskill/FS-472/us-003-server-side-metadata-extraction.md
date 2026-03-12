@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 69
-    url: https://github.com/anton-abyzov/vskill/issues/69
+    url: "https://github.com/anton-abyzov/vskill/issues/69"
 ---
 
 # US-003: Server-Side Metadata Extraction

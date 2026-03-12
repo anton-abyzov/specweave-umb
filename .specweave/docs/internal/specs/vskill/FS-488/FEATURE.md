@@ -4,7 +4,7 @@ title: "Fix sidebar status badge contradiction and improve Tests panel UX"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 lastUpdated: 2026-03-11
 tldr: "The Skill Studio eval-ui has two bugs causing contradictory status display and several UX issues reducing readability in the Tests panel."
 complexity: high
@@ -31,8 +31,6 @@ externalLinks:
 **What**: The Skill Studio eval-ui has two bugs causing contradictory status display and several UX issues reducing readability in the Tests panel.
 **Status**: completed | **Priority**: P1
 **User Stories**: 4
-
-![Fix sidebar status badge contradiction and improve Tests panel UX illustration](assets/feature-fs-488.jpg)
 
 ## Overview
 

@@ -4,8 +4,8 @@ title: Rescan Published Skills for Trust Elevation
 type: feature
 status: completed
 priority: P1
-created: 2026-03-09T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
+lastUpdated: "2026-03-10T00:00:00.000Z"
 tldr: >-
   41% of published skills (34,342 out of 84,779) remain at trustTier T2
   ('maybe') because they were fast-approved via Tier 1 regex scan only, without

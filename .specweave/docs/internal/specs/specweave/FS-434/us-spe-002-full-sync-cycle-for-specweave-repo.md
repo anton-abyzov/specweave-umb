@@ -11,7 +11,7 @@ related_projects: [vskill, vskill-platform]
 external:
   github:
     issue: 1496
-    url: https://github.com/anton-abyzov/specweave/issues/1496
+    url: "https://github.com/anton-abyzov/specweave/issues/1496"
 ---
 
 # US-SPE-002: Full Sync Cycle for Specweave Repo

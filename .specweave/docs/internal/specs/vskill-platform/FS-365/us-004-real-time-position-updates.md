@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1337
-    url: https://github.com/anton-abyzov/specweave/issues/1337
+    url: "https://github.com/anton-abyzov/specweave/issues/1337"
 ---
 # US-004: Real-Time Position Updates
 

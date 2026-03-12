@@ -4,13 +4,13 @@ feature: FS-470
 title: "Inline Skill Detail with Tabbed Panels"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** skill author evaluating and editing a skill."
 project: vskill
 external:
   github:
     issue: 61
-    url: https://github.com/anton-abyzov/vskill/issues/61
+    url: "https://github.com/anton-abyzov/vskill/issues/61"
 ---
 
 # US-003: Inline Skill Detail with Tabbed Panels

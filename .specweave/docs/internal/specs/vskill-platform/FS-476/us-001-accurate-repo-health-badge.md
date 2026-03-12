@@ -4,13 +4,13 @@ feature: FS-476
 title: "Accurate repo health badge"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** user viewing a skill detail page."
 project: vskill-platform
 external:
   github:
     issue: 54
-    url: https://github.com/anton-abyzov/vskill-platform/issues/54
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/54"
 ---
 
 # US-001: Accurate repo health badge

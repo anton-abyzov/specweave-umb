@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1270
-    url: https://github.com/anton-abyzov/specweave/issues/1270
+    url: "https://github.com/anton-abyzov/specweave/issues/1270"
 ---
 # US-006: GitHub Events API Monitor
 

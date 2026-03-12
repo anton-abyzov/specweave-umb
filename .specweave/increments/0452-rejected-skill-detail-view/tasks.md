@@ -170,7 +170,7 @@
 
 #### T-005: Manual visual verification
 
-**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: All | **Status**: [ ] Not Started
+**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: All | **Status**: [x] Completed
 
 **Description**: Manually verify the rejected skill detail page renders correctly on the deployed platform. Check with a real rejected skill submission, verify all sections appear, links work, and the visual style matches BlockedSkillView.
 

@@ -4,7 +4,7 @@ feature: FS-449
 title: "Platform Display Fix (P1)"
 status: completed
 priority: P1
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** skill marketplace user."
 project: vskill-platform
 related_projects: [vskill]

@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1328
-    url: https://github.com/anton-abyzov/specweave/issues/1328
+    url: "https://github.com/anton-abyzov/specweave/issues/1328"
 ---
 # US-002: Admin bulk reprocesses rejected skills
 

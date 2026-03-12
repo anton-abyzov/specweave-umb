@@ -4,13 +4,13 @@ feature: FS-414
 title: "Animated Number Transitions"
 status: not_started
 priority: P1
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 tldr: "**As a** queue operator."
 project: vskill-platform
 external:
   github:
     issue: 37
-    url: https://github.com/anton-abyzov/vskill-platform/issues/37
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/37"
 ---
 
 # US-001: Animated Number Transitions

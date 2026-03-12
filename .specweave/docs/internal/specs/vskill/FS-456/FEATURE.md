@@ -4,7 +4,7 @@ title: "Prevent unwanted agent dot-folder creation"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "Running `vskill add` from a parent or umbrella directory creates agent dot-folders (`.aider/`, `.kiro/`, `.pi/`, `.codex/`, `.cursor/`, `.agent/`, `.windsurf/`, etc.) in the wrong location."
 complexity: medium
@@ -36,8 +36,6 @@ externalLinks:
 **What**: Running `vskill add` from a parent or umbrella directory creates agent dot-folders (`.aider/`, `.kiro/`, `.pi/`, `.codex/`, `.cursor/`, `.agent/`, `.windsurf/`, etc.) in the wrong location.
 **Status**: completed | **Priority**: P1
 **User Stories**: 3
-
-![Prevent unwanted agent dot-folder creation illustration](assets/feature-fs-456.jpg)
 
 ## Overview
 

@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 140
-    url: https://github.com/anton-abyzov/specweave/milestone/140
+    url: "https://github.com/anton-abyzov/specweave/milestone/140"
 ---
 # Fix intermittent search failures and preferences 500 on cold starts
 

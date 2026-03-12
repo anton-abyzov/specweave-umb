@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 1523
-    url: https://github.com/anton-abyzov/specweave/issues/1523
+    url: "https://github.com/anton-abyzov/specweave/issues/1523"
 ---
 
 # US-SW-003: LSP Plugin Consent Guard

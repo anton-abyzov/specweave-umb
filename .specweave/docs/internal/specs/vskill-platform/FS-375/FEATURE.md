@@ -4,7 +4,7 @@ title: Remove fake seed data from vskill-platform
 type: feature
 status: complete
 priority: P1
-created: 2026-02-25T00:00:00.000Z
+created: "2026-02-25T00:00:00.000Z"
 lastUpdated: 2026-02-28
 tldr: Remove fake seed data from vskill-platform
 complexity: medium
@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 185
-    url: https://github.com/anton-abyzov/specweave/milestone/185
+    url: "https://github.com/anton-abyzov/specweave/milestone/185"
 ---
 # Remove fake seed data from vskill-platform
 

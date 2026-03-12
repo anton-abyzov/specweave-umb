@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 141
-    url: https://github.com/anton-abyzov/specweave/milestone/141
+    url: "https://github.com/anton-abyzov/specweave/milestone/141"
 ---
 # Fix Homepage Zero Stats
 

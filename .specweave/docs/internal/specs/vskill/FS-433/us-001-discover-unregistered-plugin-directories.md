@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 15
-    url: https://github.com/anton-abyzov/vskill/issues/15
+    url: "https://github.com/anton-abyzov/vskill/issues/15"
 ---
 
 # US-001: Discover Unregistered Plugin Directories

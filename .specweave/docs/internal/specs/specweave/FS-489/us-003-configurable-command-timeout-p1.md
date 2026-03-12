@@ -4,13 +4,13 @@ feature: FS-489
 title: "Configurable command timeout (P1)"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** developer starting a docs preview from the dashboard."
 project: specweave
 external:
   github:
     issue: 1536
-    url: https://github.com/anton-abyzov/specweave/issues/1536
+    url: "https://github.com/anton-abyzov/specweave/issues/1536"
 ---
 
 # US-003: Configurable command timeout (P1)

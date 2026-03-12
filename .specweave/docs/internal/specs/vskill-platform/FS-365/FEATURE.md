@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 7
-    url: https://github.com/anton-abyzov/specweave-umb/milestone/7
+    url: "https://github.com/anton-abyzov/specweave-umb/milestone/7"
 ---
 
 # Queue Position UX

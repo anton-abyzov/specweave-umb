@@ -11,7 +11,7 @@ related_projects: [specweave, vskill-platform]
 external:
   github:
     issue: 4
-    url: https://github.com/anton-abyzov/vskill/issues/4
+    url: "https://github.com/anton-abyzov/vskill/issues/4"
 ---
 
 # US-VSK-001: VSkill Repo Sync Verification

@@ -14,7 +14,7 @@ external_tools:
   github:
     type: milestone
     id: 199
-    url: https://github.com/anton-abyzov/specweave/milestone/199
+    url: "https://github.com/anton-abyzov/specweave/milestone/199"
 ---
 
 # Spec: JIRA Sync Plugin Critical Fixes (0403)

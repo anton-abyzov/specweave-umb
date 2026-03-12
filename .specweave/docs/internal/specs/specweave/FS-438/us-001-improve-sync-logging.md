@@ -4,13 +4,13 @@ feature: FS-438
 title: "Improve Sync Logging"
 status: completed
 priority: P2
-created: 2026-03-05T00:00:00.000Z
+created: "2026-03-05T00:00:00.000Z"
 tldr: "**As a** developer."
 project: specweave
 external:
   github:
     issue: 1500
-    url: https://github.com/anton-abyzov/specweave/issues/1500
+    url: "https://github.com/anton-abyzov/specweave/issues/1500"
 ---
 
 # US-001: Improve Sync Logging

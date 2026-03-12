@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 71
-    url: https://github.com/anton-abyzov/vskill/issues/71
+    url: "https://github.com/anton-abyzov/vskill/issues/71"
 ---
 
 # US-005: Unit Tests for Classification Logic

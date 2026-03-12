@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 46
-    url: https://github.com/anton-abyzov/vskill/issues/46
+    url: "https://github.com/anton-abyzov/vskill/issues/46"
 ---
 
 # US-006: History and Regression Detection Panel (P1)

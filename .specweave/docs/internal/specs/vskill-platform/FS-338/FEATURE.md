@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 135
-    url: https://github.com/anton-abyzov/specweave/milestone/135
+    url: "https://github.com/anton-abyzov/specweave/milestone/135"
 ---
 # API performance optimization
 

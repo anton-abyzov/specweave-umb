@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 56
-    url: https://github.com/anton-abyzov/vskill/issues/56
+    url: "https://github.com/anton-abyzov/vskill/issues/56"
 ---
 
 # US-004: Per-Case History Saving (P1)

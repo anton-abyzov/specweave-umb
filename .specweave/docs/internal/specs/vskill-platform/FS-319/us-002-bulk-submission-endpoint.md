@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1265
-    url: https://github.com/anton-abyzov/specweave/issues/1265
+    url: "https://github.com/anton-abyzov/specweave/issues/1265"
 ---
 # US-002: Bulk Submission Endpoint
 

@@ -4,13 +4,13 @@ feature: FS-450
 title: "'Skill Eval/Testing' Diagram"
 status: not_started
 priority: P1
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** developer visiting the docs."
 project: specweave
 external:
   github:
     issue: 1510
-    url: https://github.com/anton-abyzov/specweave/issues/1510
+    url: "https://github.com/anton-abyzov/specweave/issues/1510"
 ---
 
 # US-SW-004: "Skill Eval/Testing" Diagram

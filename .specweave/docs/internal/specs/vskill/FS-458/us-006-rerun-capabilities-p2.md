@@ -4,13 +4,13 @@ feature: FS-458
 title: "Rerun Capabilities (P2)"
 status: completed
 priority: P1
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 tldr: "**As a** skill author."
 project: vskill
 external:
   github:
     issue: 33
-    url: https://github.com/anton-abyzov/vskill/issues/33
+    url: "https://github.com/anton-abyzov/vskill/issues/33"
 ---
 
 # US-006: Rerun Capabilities (P2)

@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1417
-    url: https://github.com/anton-abyzov/specweave/issues/1417
+    url: "https://github.com/anton-abyzov/specweave/issues/1417"
 ---
 # US-002: Backfill Existing Skills
 

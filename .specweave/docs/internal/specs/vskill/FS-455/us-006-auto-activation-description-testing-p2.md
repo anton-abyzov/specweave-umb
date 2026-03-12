@@ -4,13 +4,13 @@ feature: FS-455
 title: "Auto-Activation Description Testing (P2)"
 status: completed
 priority: P1
-created: 2026-03-08T00:00:00.000Z
+created: "2026-03-08T00:00:00.000Z"
 tldr: "**As a** skill developer."
 project: vskill
 external:
   github:
     issue: 22
-    url: https://github.com/anton-abyzov/vskill/issues/22
+    url: "https://github.com/anton-abyzov/vskill/issues/22"
 ---
 
 # US-006: Auto-Activation Description Testing (P2)

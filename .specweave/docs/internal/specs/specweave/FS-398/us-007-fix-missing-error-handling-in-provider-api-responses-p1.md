@@ -4,7 +4,7 @@ feature: FS-398
 title: "Fix Missing Error Handling in Provider API Responses (P1)"
 status: completed
 priority: P0
-created: 2026-03-02T00:00:00.000Z
+created: "2026-03-02T00:00:00.000Z"
 tldr: "**As a** developer debugging sync failures."
 project: specweave
 ---

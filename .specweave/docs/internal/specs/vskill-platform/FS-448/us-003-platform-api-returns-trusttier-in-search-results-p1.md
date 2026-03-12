@@ -12,7 +12,7 @@ related_projects:
 external:
   github:
     issue: 58
-    url: https://github.com/anton-abyzov/vskill-platform/issues/58
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/58"
 ---
 
 # US-003: Platform API returns trustTier in search results (P1)

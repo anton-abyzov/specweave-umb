@@ -4,13 +4,13 @@ feature: FS-455
 title: "Eval Server Command (P1)"
 status: completed
 priority: P1
-created: 2026-03-08T00:00:00.000Z
+created: "2026-03-08T00:00:00.000Z"
 tldr: "**As a** skill developer."
 project: vskill
 external:
   github:
     issue: 16
-    url: https://github.com/anton-abyzov/vskill/issues/16
+    url: "https://github.com/anton-abyzov/vskill/issues/16"
 ---
 
 # US-001: Eval Server Command (P1)

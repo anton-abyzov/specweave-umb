@@ -4,7 +4,7 @@ feature: FS-416
 title: "Consolidate Nested Increments (P1)"
 status: completed
 priority: P1
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 tldr: "**As a** SpecWeave user migrating to umbrella mode."
 project: specweave
 ---

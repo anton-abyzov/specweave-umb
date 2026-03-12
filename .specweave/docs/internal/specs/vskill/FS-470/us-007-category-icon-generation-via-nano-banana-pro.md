@@ -4,13 +4,13 @@ feature: FS-470
 title: "Category Icon Generation via Nano Banana Pro"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** skill author browsing the skill list."
 project: vskill
 external:
   github:
     issue: 65
-    url: https://github.com/anton-abyzov/vskill/issues/65
+    url: "https://github.com/anton-abyzov/vskill/issues/65"
 ---
 
 # US-007: Category Icon Generation via Nano Banana Pro

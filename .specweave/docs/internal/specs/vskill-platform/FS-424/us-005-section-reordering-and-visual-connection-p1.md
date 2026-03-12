@@ -4,13 +4,13 @@ feature: FS-424
 title: "Section Reordering and Visual Connection (P1)"
 status: completed
 priority: P1
-created: 2026-03-04T00:00:00.000Z
+created: "2026-03-04T00:00:00.000Z"
 tldr: "**As a** visitor."
 project: vskill-platform
 external:
   github:
     issue: 10
-    url: https://github.com/anton-abyzov/vskill-platform/issues/10
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/10"
 ---
 
 # US-005: Section Reordering and Visual Connection (P1)

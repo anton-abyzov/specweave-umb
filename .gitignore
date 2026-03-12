@@ -34,6 +34,9 @@ build/
 .specweave/docs-site-internal/
 .specweave/docs/**/_category_.json
 
+# Generated feature illustration images (ephemeral, from sync-living-docs)
+.specweave/docs/**/assets/feature-*.jpg
+
 # SpecWeave developer-local config
 .specweave/config.local.json
 

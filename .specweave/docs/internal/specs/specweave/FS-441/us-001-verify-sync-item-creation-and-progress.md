@@ -4,13 +4,13 @@ feature: FS-441
 title: "Verify Sync Item Creation and Progress"
 status: completed
 priority: P2
-created: 2026-03-06T00:00:00.000Z
+created: "2026-03-06T00:00:00.000Z"
 tldr: "**As a** developer."
 project: specweave
 external:
   github:
     issue: 1503
-    url: https://github.com/anton-abyzov/specweave/issues/1503
+    url: "https://github.com/anton-abyzov/specweave/issues/1503"
 ---
 
 # US-001: Verify Sync Item Creation and Progress

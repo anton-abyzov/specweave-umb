@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1316
-    url: https://github.com/anton-abyzov/specweave/issues/1316
+    url: "https://github.com/anton-abyzov/specweave/issues/1316"
 ---
 # US-005: Timeout/Error Classification
 

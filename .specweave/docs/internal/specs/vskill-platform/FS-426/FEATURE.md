@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 230
-    url: https://github.com/anton-abyzov/specweave/milestone/230
+    url: "https://github.com/anton-abyzov/specweave/milestone/230"
 ---
 # Skill Detail Page Redesign
 

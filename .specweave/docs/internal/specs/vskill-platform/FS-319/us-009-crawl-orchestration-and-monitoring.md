@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1273
-    url: https://github.com/anton-abyzov/specweave/issues/1273
+    url: "https://github.com/anton-abyzov/specweave/issues/1273"
 ---
 # US-009: Crawl Orchestration and Monitoring
 

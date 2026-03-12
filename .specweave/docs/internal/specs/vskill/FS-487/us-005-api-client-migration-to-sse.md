@@ -4,13 +4,13 @@ feature: FS-487
 title: API Client Migration to SSE
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** skill developer."
 project: vskill
 external:
   github:
     issue: 78
-    url: https://github.com/anton-abyzov/vskill/issues/78
+    url: "https://github.com/anton-abyzov/vskill/issues/78"
 ---
 
 # US-005: API Client Migration to SSE

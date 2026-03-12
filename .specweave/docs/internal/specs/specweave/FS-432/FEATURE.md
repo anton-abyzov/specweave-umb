@@ -4,7 +4,7 @@ title: Bold Website Redesign
 type: feature
 status: complete
 priority: P1
-created: 2026-03-05T00:00:00.000Z
+created: "2026-03-05T00:00:00.000Z"
 lastUpdated: 2026-03-05
 tldr: Bold Website Redesign
 complexity: medium
@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 220
-    url: https://github.com/anton-abyzov/specweave/milestone/220
+    url: "https://github.com/anton-abyzov/specweave/milestone/220"
 ---
 # Bold Website Redesign
 

@@ -15,7 +15,7 @@ external_tools:
   github:
     type: milestone
     id: 13
-    url: https://github.com/anton-abyzov/vskill-platform/milestone/13
+    url: "https://github.com/anton-abyzov/vskill-platform/milestone/13"
 ---
 
 # Trending Skills Diversity: Cap Per-Repo + Show 10

@@ -4,7 +4,7 @@ title: "Crawl Pipeline Throughput Optimization"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-01T00:00:00.000Z
+created: "2026-03-01T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "The crawl pipeline currently processes submissions through two paths: Het."
 complexity: high
@@ -18,8 +18,6 @@ stakeholder_relevant: true
 **What**: The crawl pipeline currently processes submissions through two paths: Het.
 **Status**: completed | **Priority**: P1
 **User Stories**: 6
-
-![Crawl Pipeline Throughput Optimization illustration](assets/feature-fs-393.jpg)
 
 ## Overview
 

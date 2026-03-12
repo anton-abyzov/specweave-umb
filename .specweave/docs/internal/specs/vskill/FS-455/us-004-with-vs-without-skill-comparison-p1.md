@@ -4,13 +4,13 @@ feature: FS-455
 title: "WITH vs WITHOUT Skill Comparison (P1)"
 status: completed
 priority: P1
-created: 2026-03-08T00:00:00.000Z
+created: "2026-03-08T00:00:00.000Z"
 tldr: "**As a** skill developer."
 project: vskill
 external:
   github:
     issue: 20
-    url: https://github.com/anton-abyzov/vskill/issues/20
+    url: "https://github.com/anton-abyzov/vskill/issues/20"
 ---
 
 # US-004: WITH vs WITHOUT Skill Comparison (P1)

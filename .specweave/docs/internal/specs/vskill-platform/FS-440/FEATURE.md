@@ -4,7 +4,7 @@ title: "Fix Anthropic Skills Missing from Search"
 type: feature
 status: completed
 priority: P0
-created: 2026-03-06T00:00:00.000Z
+created: "2026-03-06T00:00:00.000Z"
 lastUpdated: 2026-03-07
 tldr: "Anthropic's official skills (skill-creator, etc.) are completely absent from verified-skill.com search results."
 complexity: medium
@@ -18,8 +18,6 @@ stakeholder_relevant: true
 **What**: Anthropic's official skills (skill-creator, etc.) are completely absent from verified-skill.com search results.
 **Status**: completed | **Priority**: P0
 **User Stories**: 3
-
-![Fix Anthropic Skills Missing from Search illustration](assets/feature-fs-440.jpg)
 
 ## Overview
 

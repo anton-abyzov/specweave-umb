@@ -4,7 +4,7 @@ title: "Vendor & Provider Skill Discovery Enhancement"
 type: feature
 status: completed
 priority: P0
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "`npx vskill find frontend-design` returns 15 community results but."
 complexity: low
@@ -36,8 +36,6 @@ externalLinks:
 **What**: `npx vskill find frontend-design` returns 15 community results but.
 **Status**: completed | **Priority**: P0
 **User Stories**: 1
-
-![Vendor & Provider Skill Discovery Enhancement illustration](assets/feature-fs-460.jpg)
 
 ## Overview
 

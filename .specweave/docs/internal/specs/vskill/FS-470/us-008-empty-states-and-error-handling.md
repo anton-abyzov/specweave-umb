@@ -4,13 +4,13 @@ feature: FS-470
 title: "Empty States and Error Handling"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** skill author launching the Studio with no skills or encountering errors."
 project: vskill
 external:
   github:
     issue: 66
-    url: https://github.com/anton-abyzov/vskill/issues/66
+    url: "https://github.com/anton-abyzov/vskill/issues/66"
 ---
 
 # US-008: Empty States and Error Handling

@@ -4,7 +4,7 @@ title: "Radically Simplify specweave init"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 lastUpdated: 2026-03-11
 tldr: "The current `specweave init` command is 1,242 lines with 41 helper modules totaling ~13,000 lines."
 complexity: high
@@ -36,8 +36,6 @@ externalLinks:
 **What**: The current `specweave init` command is 1,242 lines with 41 helper modules totaling ~13,000 lines.
 **Status**: completed | **Priority**: P1
 **User Stories**: 5
-
-![Radically Simplify specweave init illustration](assets/feature-fs-482.jpg)
 
 ## Overview
 

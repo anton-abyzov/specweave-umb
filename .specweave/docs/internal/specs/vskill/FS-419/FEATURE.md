@@ -4,7 +4,7 @@ title: "Add --version flag to vskill CLI"
 type: feature
 status: completed
 priority: P2
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 lastUpdated: 2026-03-07
 tldr: "Imported from GitHub: anton-aby."
 complexity: low
@@ -18,8 +18,6 @@ stakeholder_relevant: true
 **What**: Imported from GitHub: anton-aby.
 **Status**: completed | **Priority**: P2
 **User Stories**: 1
-
-![Add --version flag to vskill CLI illustration](assets/feature-fs-419.jpg)
 
 ## Overview
 

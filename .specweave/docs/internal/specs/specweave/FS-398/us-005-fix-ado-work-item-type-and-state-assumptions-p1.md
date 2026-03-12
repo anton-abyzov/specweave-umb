@@ -4,7 +4,7 @@ feature: FS-398
 title: "Fix ADO Work Item Type and State Assumptions (P1)"
 status: completed
 priority: P0
-created: 2026-03-02T00:00:00.000Z
+created: "2026-03-02T00:00:00.000Z"
 tldr: "**As a** user with Agile/Scrum ADO process templates."
 project: specweave
 ---

@@ -4,13 +4,13 @@ feature: FS-487
 title: "SSE Streaming for AI Operations"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** skill developer."
 project: vskill
 external:
   github:
     issue: 79
-    url: https://github.com/anton-abyzov/vskill/issues/79
+    url: "https://github.com/anton-abyzov/vskill/issues/79"
 ---
 
 # US-001: SSE Streaming for AI Operations

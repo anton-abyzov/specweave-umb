@@ -4,8 +4,8 @@ title: HTTP Hook Server for SpecWeave
 type: feature
 status: completed
 priority: P0
-created: 2026-03-05T00:00:00.000Z
-lastUpdated: 2026-03-07T00:00:00.000Z
+created: "2026-03-05T00:00:00.000Z"
+lastUpdated: "2026-03-07T00:00:00.000Z"
 tldr: >-
   SpecWeave's current hook system relies on bash scripts, a file-based JSONL
   event queue, and a background processor daemon with a 60-second idle timeout.
@@ -40,8 +40,6 @@ updated: '2026-03-07'
 **What**: SpecWeave's current hook system relies on bash scripts, a file-based JSONL event queue, and a background processor daemon with a 60-second idle timeout.
 **Status**: completed | **Priority**: P0
 **User Stories**: 8
-
-![HTTP Hook Server for SpecWeave illustration](assets/feature-fs-431.jpg)
 
 ## Overview
 

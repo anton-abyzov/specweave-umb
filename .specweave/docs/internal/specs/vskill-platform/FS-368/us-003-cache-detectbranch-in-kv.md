@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1320
-    url: https://github.com/anton-abyzov/specweave/issues/1320
+    url: "https://github.com/anton-abyzov/specweave/issues/1320"
 ---
 # US-003: Cache detectBranch in KV
 

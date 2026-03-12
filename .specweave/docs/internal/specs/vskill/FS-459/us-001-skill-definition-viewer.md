@@ -4,13 +4,13 @@ feature: FS-459
 title: "Skill Definition Viewer"
 status: completed
 priority: P1
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 tldr: "**As a** skill developer."
 project: vskill
 external:
   github:
     issue: 36
-    url: https://github.com/anton-abyzov/vskill/issues/36
+    url: "https://github.com/anton-abyzov/vskill/issues/36"
 ---
 
 # US-001: Skill Definition Viewer

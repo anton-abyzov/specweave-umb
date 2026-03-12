@@ -11,7 +11,7 @@ related_projects: [vskill, specweave]
 external:
   github:
     issue: 16
-    url: https://github.com/anton-abyzov/vskill-platform/issues/16
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/16"
 ---
 
 # US-WEB-002: GitHub Commit from Web Editor (P1)

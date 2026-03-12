@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 47
-    url: https://github.com/anton-abyzov/vskill/issues/47
+    url: "https://github.com/anton-abyzov/vskill/issues/47"
 ---
 
 # US-007: Edit-Test-Iterate Tight Loop (P0)

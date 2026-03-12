@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 142
-    url: https://github.com/anton-abyzov/specweave/milestone/142
+    url: "https://github.com/anton-abyzov/specweave/milestone/142"
 ---
 
 # Orphan cleanup on re-submission + install tracking phone-home

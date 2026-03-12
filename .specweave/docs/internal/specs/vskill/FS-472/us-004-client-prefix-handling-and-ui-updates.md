@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 70
-    url: https://github.com/anton-abyzov/vskill/issues/70
+    url: "https://github.com/anton-abyzov/vskill/issues/70"
 ---
 
 # US-004: Client Prefix Handling and UI Updates

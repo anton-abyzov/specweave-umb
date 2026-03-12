@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1331
-    url: https://github.com/anton-abyzov/specweave/issues/1331
+    url: "https://github.com/anton-abyzov/specweave/issues/1331"
 ---
 # US-002: Install Tracking Phone-Home from CLI
 

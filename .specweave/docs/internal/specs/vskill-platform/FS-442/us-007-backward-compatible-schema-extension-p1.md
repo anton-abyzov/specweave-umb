@@ -4,7 +4,7 @@ feature: FS-442
 title: "Backward-Compatible Schema Extension (P1)"
 status: completed
 priority: P1
-created: 2026-03-06T00:00:00.000Z
+created: "2026-03-06T00:00:00.000Z"
 tldr: "**As a** developer."
 project: vskill-platform
 ---

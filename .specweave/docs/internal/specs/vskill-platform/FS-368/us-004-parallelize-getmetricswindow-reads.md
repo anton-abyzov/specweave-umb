@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1321
-    url: https://github.com/anton-abyzov/specweave/issues/1321
+    url: "https://github.com/anton-abyzov/specweave/issues/1321"
 ---
 # US-004: Parallelize getMetricsWindow Reads
 

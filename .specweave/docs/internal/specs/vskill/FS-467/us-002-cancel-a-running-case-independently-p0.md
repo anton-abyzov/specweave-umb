@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 54
-    url: https://github.com/anton-abyzov/vskill/issues/54
+    url: "https://github.com/anton-abyzov/vskill/issues/54"
 ---
 
 # US-002: Cancel a Running Case Independently (P0)

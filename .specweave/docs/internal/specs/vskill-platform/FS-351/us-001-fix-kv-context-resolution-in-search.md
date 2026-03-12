@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1324
-    url: https://github.com/anton-abyzov/specweave/issues/1324
+    url: "https://github.com/anton-abyzov/specweave/issues/1324"
 ---
 # US-001: Fix KV context resolution in search
 

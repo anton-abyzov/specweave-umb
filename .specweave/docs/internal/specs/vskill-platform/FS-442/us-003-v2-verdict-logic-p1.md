@@ -4,13 +4,13 @@ feature: FS-442
 title: "V2 Verdict Logic (P1)"
 status: completed
 priority: P1
-created: 2026-03-06T00:00:00.000Z
+created: "2026-03-06T00:00:00.000Z"
 tldr: "**As a** platform operator."
 project: vskill-platform
 external:
   github:
     issue: 24
-    url: https://github.com/anton-abyzov/vskill-platform/issues/24
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/24"
 ---
 
 # US-003: V2 Verdict Logic (P1)

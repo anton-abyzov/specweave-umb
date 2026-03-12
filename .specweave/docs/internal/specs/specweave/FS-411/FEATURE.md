@@ -19,8 +19,6 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P1
 **User Stories**: 1
 
-![Increment 0411J: Add CLI health check command for deployment verification illustration](assets/feature-fs-411.jpg)
-
 ## Overview
 
 As a DevOps engineer, I want a CLI health check command that verifies all SpecWeave services are running correctly after deployment.

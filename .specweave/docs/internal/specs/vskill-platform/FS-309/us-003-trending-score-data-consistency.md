@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1260
-    url: https://github.com/anton-abyzov/specweave/issues/1260
+    url: "https://github.com/anton-abyzov/specweave/issues/1260"
 ---
 # US-003: Trending Score Data Consistency
 

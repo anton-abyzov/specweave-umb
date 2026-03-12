@@ -4,7 +4,7 @@ title: "Filter Framework Plugin Skills from Marketplace"
 type: feature
 status: completed
 priority: P0
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 lastUpdated: 2026-03-07
 tldr: "The vskill-platform scanner discovers SKILL.md files from `anton-aby."
 complexity: high

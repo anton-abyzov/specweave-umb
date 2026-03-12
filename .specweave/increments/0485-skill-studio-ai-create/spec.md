@@ -1,10 +1,10 @@
 ---
 increment: 0485-skill-studio-ai-create
-title: "Skill Studio AI-Assisted Skill Creation"
+title: Skill Studio AI-Assisted Skill Creation
 type: feature
 priority: P1
 status: completed
-created: 2026-03-11
+created: 2026-03-11T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

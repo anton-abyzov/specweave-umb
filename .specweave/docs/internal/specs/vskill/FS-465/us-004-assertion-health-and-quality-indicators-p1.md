@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 44
-    url: https://github.com/anton-abyzov/vskill/issues/44
+    url: "https://github.com/anton-abyzov/vskill/issues/44"
 ---
 
 # US-004: Assertion Health and Quality Indicators (P1)

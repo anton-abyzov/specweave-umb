@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 229
-    url: https://github.com/anton-abyzov/specweave/milestone/229
+    url: "https://github.com/anton-abyzov/specweave/milestone/229"
 ---
 # Restructure skill URLs to /{owner}/{repo}/{skill-slug}
 

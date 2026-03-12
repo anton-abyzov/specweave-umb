@@ -4,13 +4,13 @@ feature: FS-476
 title: "Eval freshness timestamp"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** user viewing a skill detail page."
 project: vskill-platform
 external:
   github:
     issue: 56
-    url: https://github.com/anton-abyzov/vskill-platform/issues/56
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/56"
 ---
 
 # US-003: Eval freshness timestamp

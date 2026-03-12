@@ -4,7 +4,7 @@ title: "Add API rate limiting configuration"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "Add configurable rate limiting to the SpecWeave API endpoints to prevent abuse and ensure fair usage."
 complexity: low
@@ -31,8 +31,6 @@ externalLinks:
 **What**: Add configurable rate limiting to the SpecWeave API endpoints to prevent abuse and ensure fair usage.
 **Status**: completed | **Priority**: P1
 **User Stories**: 1
-
-![Add API rate limiting configuration illustration](assets/feature-fs-413.jpg)
 
 ## Overview
 

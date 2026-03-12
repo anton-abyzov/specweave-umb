@@ -4,7 +4,7 @@ feature: FS-478
 title: "Replace invented terminology with Anthropic-aligned language (P1)"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** developer reading SpecWeave's skills documentation."
 project: specweave
 ---

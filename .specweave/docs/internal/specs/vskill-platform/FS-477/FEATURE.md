@@ -4,7 +4,7 @@ title: "Homepage Simplification, Studio Landing Page, and Navigation Restructure
 type: feature
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "The verified-skill.com homepage crams 7+ sections together -- video hero, role cards, search input, trending skills, Skill Studio promo, category nav, market dashboard, verification explainer, and agent badges."
 complexity: high
@@ -31,8 +31,6 @@ externalLinks:
 **What**: The verified-skill.com homepage crams 7+ sections together -- video hero, role cards, search input, trending skills, Skill Studio promo, category nav, market dashboard, verification explainer, and agent badges.
 **Status**: completed | **Priority**: P1
 **User Stories**: 7
-
-![Homepage Simplification, Studio Landing Page, and Navigation Restructure illustration](assets/feature-fs-477.jpg)
 
 ## Overview
 

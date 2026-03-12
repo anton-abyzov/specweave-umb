@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1329
-    url: https://github.com/anton-abyzov/specweave/issues/1329
+    url: "https://github.com/anton-abyzov/specweave/issues/1329"
 ---
 # US-003: Admin bulk blocks rejected skills
 

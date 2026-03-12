@@ -37,8 +37,6 @@ externalLinks:
 **Status**: ready_for_review | **Priority**: P1
 **User Stories**: 6
 
-![Parallel Per-Case Benchmark Execution illustration](assets/feature-fs-467.jpg)
-
 ## Overview
 
 The eval-ui Skill Builder benchmark system executes all test cases sequentially through a single SSE stream. A global `isRunning: boolean` flag blocks the entire UI whenever any case is running, preventing users from running, viewing, or cancelling individual cases independently. Single-case runs cannot be cancelled on their own and are not saved to history. There is no concurrency control or parallel execution capability on the server.

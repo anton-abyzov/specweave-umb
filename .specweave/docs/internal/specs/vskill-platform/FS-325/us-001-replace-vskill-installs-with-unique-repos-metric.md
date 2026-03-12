@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1286
-    url: https://github.com/anton-abyzov/specweave/issues/1286
+    url: "https://github.com/anton-abyzov/specweave/issues/1286"
 ---
 # US-001: Replace vskill Installs with Unique Repos Metric
 

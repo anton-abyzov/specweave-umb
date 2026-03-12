@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1334
-    url: https://github.com/anton-abyzov/specweave/issues/1334
+    url: "https://github.com/anton-abyzov/specweave/issues/1334"
 ---
 # US-002: Default Processing Order Sort
 

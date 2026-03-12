@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 143
-    url: https://github.com/anton-abyzov/specweave/milestone/143
+    url: "https://github.com/anton-abyzov/specweave/milestone/143"
 ---
 # Stuck Submission Detection
 

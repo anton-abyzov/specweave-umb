@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 1521
-    url: https://github.com/anton-abyzov/specweave/issues/1521
+    url: "https://github.com/anton-abyzov/specweave/issues/1521"
 ---
 
 # US-SW-001: Default to Suggest-Only Mode

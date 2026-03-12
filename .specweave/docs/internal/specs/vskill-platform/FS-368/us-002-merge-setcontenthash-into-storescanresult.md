@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1319
-    url: https://github.com/anton-abyzov/specweave/issues/1319
+    url: "https://github.com/anton-abyzov/specweave/issues/1319"
 ---
 # US-002: Merge setContentHash into storeScanResult
 

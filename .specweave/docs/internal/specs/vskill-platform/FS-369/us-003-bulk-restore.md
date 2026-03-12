@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1340
-    url: https://github.com/anton-abyzov/specweave/issues/1340
+    url: "https://github.com/anton-abyzov/specweave/issues/1340"
 ---
 # US-003: Bulk Restore
 

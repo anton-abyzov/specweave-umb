@@ -4,13 +4,13 @@ feature: FS-440
 title: "Sync VENDOR_ORGS Lists Across Codebase"
 status: not_started
 priority: P0
-created: 2026-03-06T00:00:00.000Z
+created: "2026-03-06T00:00:00.000Z"
 tldr: "**As a** platform maintainer."
 project: vskill-platform
 external:
   github:
     issue: 21
-    url: https://github.com/anton-abyzov/vskill-platform/issues/21
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/21"
 ---
 
 # US-003: Sync VENDOR_ORGS Lists Across Codebase

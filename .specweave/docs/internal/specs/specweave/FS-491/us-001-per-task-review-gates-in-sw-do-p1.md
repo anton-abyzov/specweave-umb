@@ -4,13 +4,13 @@ feature: FS-491
 title: "Per-Task Review Gates in sw:do (P1)"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** SpecWeave user executing tasks with sw:do."
 project: specweave
 external:
   github:
     issue: 1538
-    url: https://github.com/anton-abyzov/specweave/issues/1538
+    url: "https://github.com/anton-abyzov/specweave/issues/1538"
 ---
 
 # US-001: Per-Task Review Gates in sw:do (P1)

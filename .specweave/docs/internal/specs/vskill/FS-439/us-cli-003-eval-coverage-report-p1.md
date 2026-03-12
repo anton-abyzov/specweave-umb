@@ -11,7 +11,7 @@ related_projects: [vskill-platform, specweave]
 external:
   github:
     issue: 10
-    url: https://github.com/anton-abyzov/vskill/issues/10
+    url: "https://github.com/anton-abyzov/vskill/issues/10"
 ---
 
 # US-CLI-003: Eval Coverage Report (P1)

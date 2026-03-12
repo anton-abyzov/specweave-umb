@@ -4,7 +4,7 @@ feature: FS-479
 title: "Existing Page Cross-Reference Updates (P2)"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** docs site visitor reading existing skills pages."
 project: specweave
 ---

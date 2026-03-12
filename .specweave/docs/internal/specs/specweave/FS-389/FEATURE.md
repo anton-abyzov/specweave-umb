@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 182
-    url: https://github.com/anton-abyzov/specweave/milestone/182
+    url: "https://github.com/anton-abyzov/specweave/milestone/182"
 ---
 
 # Vendor org skill auto-discovery and import

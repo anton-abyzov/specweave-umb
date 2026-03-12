@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 136
-    url: https://github.com/anton-abyzov/specweave/milestone/136
+    url: "https://github.com/anton-abyzov/specweave/milestone/136"
 ---
 # Database-first skill architecture
 

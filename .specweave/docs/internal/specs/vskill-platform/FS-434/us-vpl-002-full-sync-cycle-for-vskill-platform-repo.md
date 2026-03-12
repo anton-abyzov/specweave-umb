@@ -11,7 +11,7 @@ related_projects: [specweave, vskill]
 external:
   github:
     issue: 14
-    url: https://github.com/anton-abyzov/vskill-platform/issues/14
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/14"
 ---
 
 # US-VPL-002: Full Sync Cycle for VSkill-Platform Repo

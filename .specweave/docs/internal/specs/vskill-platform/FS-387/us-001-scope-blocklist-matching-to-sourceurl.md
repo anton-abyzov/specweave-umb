@@ -4,7 +4,7 @@ feature: FS-387
 title: "Scope blocklist matching to sourceUrl"
 status: completed
 priority: P1
-created: 2026-02-27T00:00:00.000Z
+created: "2026-02-27T00:00:00.000Z"
 tldr: "**As a** platform admin."
 project: vskill-platform
 ---

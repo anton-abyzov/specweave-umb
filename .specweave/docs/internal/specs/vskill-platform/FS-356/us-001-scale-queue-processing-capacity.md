@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1358
-    url: https://github.com/anton-abyzov/specweave/issues/1358
+    url: "https://github.com/anton-abyzov/specweave/issues/1358"
 ---
 # US-001: Scale Queue Processing Capacity
 

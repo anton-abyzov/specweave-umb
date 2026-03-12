@@ -4,13 +4,13 @@ feature: FS-469
 title: "Workspace Activation Panel (P1)"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** skill developer."
 project: vskill
 external:
   github:
     issue: 81
-    url: https://github.com/anton-abyzov/vskill/issues/81
+    url: "https://github.com/anton-abyzov/vskill/issues/81"
 ---
 
 # US-001: Workspace Activation Panel (P1)

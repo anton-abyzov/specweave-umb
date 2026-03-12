@@ -5,7 +5,7 @@ title: "Pattern-Guided LLM Verdict: Fix massive false positive rate from
 type: feature
 status: active
 priority: P1
-created: 2026-02-27T00:00:00.000Z
+created: "2026-02-27T00:00:00.000Z"
 lastUpdated: 2026-02-27
 tldr: "Pattern-Guided LLM Verdict: Fix massive false positive rate from
   documentation mentioning dangerous patterns"
@@ -15,7 +15,7 @@ external_tools:
   github:
     type: milestone
     id: 181
-    url: https://github.com/anton-abyzov/specweave/milestone/181
+    url: "https://github.com/anton-abyzov/specweave/milestone/181"
 ---
 # Pattern-Guided LLM Verdict: Fix massive false positive rate from documentation mentioning dangerous patterns
 

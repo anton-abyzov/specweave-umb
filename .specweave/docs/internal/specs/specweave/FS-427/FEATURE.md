@@ -19,8 +19,6 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P1
 **User Stories**: 1
 
-![Umbrella Sync Lifecycle Test illustration](assets/feature-fs-427.jpg)
-
 ## Overview
 
 End-to-end lifecycle test for umbrella cross-project sync. Tests that creating an increment with cross-project user stories automatically syncs to GitHub, JIRA, and ADO per child repo.

@@ -4,13 +4,13 @@ feature: FS-470
 title: "Master-Detail Split-Pane Layout"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** skill author using the local Skill Studio."
 project: vskill
 external:
   github:
     issue: 59
-    url: https://github.com/anton-abyzov/vskill/issues/59
+    url: "https://github.com/anton-abyzov/vskill/issues/59"
 ---
 
 # US-001: Master-Detail Split-Pane Layout

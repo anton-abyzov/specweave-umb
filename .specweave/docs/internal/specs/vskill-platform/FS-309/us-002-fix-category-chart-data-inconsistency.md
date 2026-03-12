@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1259
-    url: https://github.com/anton-abyzov/specweave/issues/1259
+    url: "https://github.com/anton-abyzov/specweave/issues/1259"
 ---
 # US-002: Fix Category Chart Data Inconsistency
 

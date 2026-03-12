@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1272
-    url: https://github.com/anton-abyzov/specweave/issues/1272
+    url: "https://github.com/anton-abyzov/specweave/issues/1272"
 ---
 # US-008: npm Pagination Fix
 

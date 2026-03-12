@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1325
-    url: https://github.com/anton-abyzov/specweave/issues/1325
+    url: "https://github.com/anton-abyzov/specweave/issues/1325"
 ---
 # US-001: Search by repository name
 

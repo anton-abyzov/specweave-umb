@@ -4,7 +4,7 @@ title: Update vskill README with latest features
 type: feature
 status: completed
 priority: P2
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 lastUpdated: 2026-03-07
 tldr: The vskill README needs updating to document recent CLI features and
   configuration options.
@@ -14,7 +14,7 @@ external_tools:
   github:
     type: milestone
     id: 1
-    url: https://github.com/anton-abyzov/vskill/milestone/1
+    url: "https://github.com/anton-abyzov/vskill/milestone/1"
 ---
 
 # Update vskill README with latest features
@@ -24,8 +24,6 @@ external_tools:
 **What**: The vskill README needs updating to document recent CLI features and configuration options.
 **Status**: completed | **Priority**: P2
 **User Stories**: 1
-
-![Update vskill README with latest features illustration](assets/feature-fs-418.jpg)
 
 ## Overview
 

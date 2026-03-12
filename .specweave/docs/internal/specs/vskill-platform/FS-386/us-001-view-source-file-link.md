@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1416
-    url: https://github.com/anton-abyzov/specweave/issues/1416
+    url: "https://github.com/anton-abyzov/specweave/issues/1416"
 ---
 # US-001: View Source File Link
 

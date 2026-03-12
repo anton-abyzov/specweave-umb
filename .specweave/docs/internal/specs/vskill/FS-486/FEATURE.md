@@ -4,7 +4,7 @@ title: "AI Edit with Eval Change Suggestions"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 lastUpdated: 2026-03-11
 tldr: "The Skill Studio's AI Edit feature currently only modifies SKILL.md content."
 complexity: high
@@ -36,8 +36,6 @@ externalLinks:
 **What**: The Skill Studio's AI Edit feature currently only modifies SKILL.md content.
 **Status**: completed | **Priority**: P1
 **User Stories**: 4
-
-![AI Edit with Eval Change Suggestions illustration](assets/feature-fs-486.jpg)
 
 ## Overview
 

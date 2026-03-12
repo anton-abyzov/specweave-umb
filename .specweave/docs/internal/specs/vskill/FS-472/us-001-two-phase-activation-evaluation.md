@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 67
-    url: https://github.com/anton-abyzov/vskill/issues/67
+    url: "https://github.com/anton-abyzov/vskill/issues/67"
 ---
 
 # US-001: Two-Phase Activation Evaluation

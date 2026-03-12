@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1271
-    url: https://github.com/anton-abyzov/specweave/issues/1271
+    url: "https://github.com/anton-abyzov/specweave/issues/1271"
 ---
 # US-007: GitLab Code Search
 

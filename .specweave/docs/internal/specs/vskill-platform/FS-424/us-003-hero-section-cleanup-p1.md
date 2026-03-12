@@ -4,13 +4,13 @@ feature: FS-424
 title: "Hero Section Cleanup (P1)"
 status: completed
 priority: P1
-created: 2026-03-04T00:00:00.000Z
+created: "2026-03-04T00:00:00.000Z"
 tldr: "**As a** visitor."
 project: vskill-platform
 external:
   github:
     issue: 6
-    url: https://github.com/anton-abyzov/vskill-platform/issues/6
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/6"
 ---
 
 # US-003: Hero Section Cleanup (P1)

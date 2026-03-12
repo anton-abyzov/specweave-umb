@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 5
-    url: https://github.com/anton-abyzov/vskill-platform/milestone/5
+    url: "https://github.com/anton-abyzov/vskill-platform/milestone/5"
 ---
 
 # Full Sync Cycle E2E Test
@@ -23,8 +23,6 @@ external_tools:
 **What**: Verify the complete synchroni.
 **Status**: active | **Priority**: P2
 **User Stories**: 1
-
-![Full Sync Cycle E2E Test illustration](assets/feature-fs-434.jpg)
 
 ## Overview
 

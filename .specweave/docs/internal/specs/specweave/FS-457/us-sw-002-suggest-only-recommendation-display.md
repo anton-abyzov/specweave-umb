@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 1522
-    url: https://github.com/anton-abyzov/specweave/issues/1522
+    url: "https://github.com/anton-abyzov/specweave/issues/1522"
 ---
 
 # US-SW-002: Suggest-Only Recommendation Display

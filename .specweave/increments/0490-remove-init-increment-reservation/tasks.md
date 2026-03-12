@@ -10,7 +10,7 @@
 ## Phase 1: Documentation Updates
 
 ### T-001: Update quick-start.md
-**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-03, AC-US2-01, AC-US2-02, AC-US2-04 | **Status**: [ ] Not Started
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-03, AC-US2-01, AC-US2-02, AC-US2-04 | **Status**: [x] Completed
 
 **Description**: Remove the `0001-project-setup/` entry from the init output directory tree in quick-start.md. Change all references of `0002-click-counter` to `0001-click-counter`.
 
@@ -35,7 +35,7 @@
 ---
 
 ### T-002: Update greenfield glossary
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [ ] Not Started
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [x] Completed
 
 **Description**: Change the `0001-project-setup-and-auth` example in the greenfield glossary to a user-created increment name that does not imply system reservation.
 
@@ -56,7 +56,7 @@
 ## Phase 2: Code Audit
 
 ### T-003: Confirm init does not create increment folders
-**User Story**: US-001, US-003 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] Not Started
+**User Story**: US-001, US-003 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] Completed
 
 **Description**: Audit the init code path to confirm no increment folder is created during initialization. This is a read-only verification task.
 
@@ -84,7 +84,7 @@
 ## Phase 3: Verification
 
 ### T-004: Run existing tests
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-03 | **Status**: [ ] Not Started
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-03 | **Status**: [x] Completed
 
 **Description**: Run the existing test suite to confirm no tests break from the documentation changes.
 

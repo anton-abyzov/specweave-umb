@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 122
-    url: https://github.com/anton-abyzov/specweave/milestone/122
+    url: "https://github.com/anton-abyzov/specweave/milestone/122"
 ---
 # Massive Skill Discovery Scale-Up
 

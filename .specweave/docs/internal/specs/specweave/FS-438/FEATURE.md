@@ -4,8 +4,8 @@ title: '[EXTERNAL] Improve sync logging and diagnostics'
 type: feature
 status: completed
 priority: P2
-created: 2026-03-05T00:00:00.000Z
-lastUpdated: 2026-03-05T00:00:00.000Z
+created: "2026-03-05T00:00:00.000Z"
+lastUpdated: "2026-03-05T00:00:00.000Z"
 tldr: >-
   Add structured logging to sync operations so that failures can be diagnosed
   from logs alone.
@@ -35,8 +35,6 @@ updated: '2026-03-05'
 **What**: Add structured logging to sync operations so that failures can be diagnosed from logs alone.
 **Status**: completed | **Priority**: P2
 **User Stories**: 1
-
-![[EXTERNAL] Improve sync logging and diagnostics illustration](assets/feature-fs-438.jpg)
 
 ## Overview
 

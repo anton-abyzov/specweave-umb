@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 41
-    url: https://github.com/anton-abyzov/vskill/issues/41
+    url: "https://github.com/anton-abyzov/vskill/issues/41"
 ---
 
 # US-001: Unified Workspace Shell (P0)

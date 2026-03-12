@@ -4,7 +4,7 @@ title: Display GitHub Stars in SearchPalette
 type: feature
 status: complete
 priority: P2
-created: 2026-02-22T00:00:00.000Z
+created: "2026-02-22T00:00:00.000Z"
 lastUpdated: 2026-02-22
 tldr: Display GitHub Stars in SearchPalette
 complexity: medium
@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 129
-    url: https://github.com/anton-abyzov/specweave/milestone/129
+    url: "https://github.com/anton-abyzov/specweave/milestone/129"
 ---
 # Display GitHub Stars in SearchPalette
 

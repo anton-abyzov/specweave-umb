@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1327
-    url: https://github.com/anton-abyzov/specweave/issues/1327
+    url: "https://github.com/anton-abyzov/specweave/issues/1327"
 ---
 # US-001: Admin views rejected skills
 

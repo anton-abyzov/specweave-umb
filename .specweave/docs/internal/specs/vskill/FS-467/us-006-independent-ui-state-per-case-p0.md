@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 58
-    url: https://github.com/anton-abyzov/vskill/issues/58
+    url: "https://github.com/anton-abyzov/vskill/issues/58"
 ---
 
 # US-006: Independent UI State Per Case (P0)

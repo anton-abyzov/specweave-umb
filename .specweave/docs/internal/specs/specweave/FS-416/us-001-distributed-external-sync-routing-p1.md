@@ -4,7 +4,7 @@ feature: FS-416
 title: "Distributed External Sync Routing (P1)"
 status: completed
 priority: P1
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 tldr: "**As a** SpecWeave user with an umbrella project containing multiple repos."
 project: specweave
 ---

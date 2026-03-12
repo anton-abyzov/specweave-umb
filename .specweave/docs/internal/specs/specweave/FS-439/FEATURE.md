@@ -4,8 +4,8 @@ title: Skill Eval Infrastructure
 type: feature
 status: ready_for_review
 priority: P1
-created: 2026-03-05T00:00:00.000Z
-lastUpdated: 2026-03-07T00:00:00.000Z
+created: "2026-03-05T00:00:00.000Z"
+lastUpdated: "2026-03-07T00:00:00.000Z"
 tldr: >-
   Skills across vskill (42 plugin skills) and specweave (48 skills) lack a
   systematic evaluation framework.
@@ -15,7 +15,7 @@ externalLinks:
   jira:
     epicKey: SWE2E-29
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-29'
-    syncedAt: 2026-03-07T03:10:16.234Z
+    syncedAt: "2026-03-07T03:10:16.234Z"
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
@@ -40,8 +40,6 @@ external_tools:
 **What**: Skills across vskill (42 plugin skills) and specweave (48 skills) lack a systematic evaluation framework.
 **Status**: ready_for_review | **Priority**: P1
 **User Stories**: 1
-
-![Skill Eval Infrastructure illustration](assets/feature-fs-439.jpg)
 
 ## Overview
 

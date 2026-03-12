@@ -41,9 +41,9 @@ This increment cleans up all stale references to the `0001-project-setup` reserv
 **So that** there are no confusing phantom increments in my project
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Running `specweave init` does not create any folder under `.specweave/increments/`
-- [ ] **AC-US1-02**: After init, `IncrementNumberManager.getNextIncrementNumber()` returns `"0001"`
-- [ ] **AC-US1-03**: The quick-start guide shows the first user increment as `0001-click-counter` (not `0002`)
+- [x] **AC-US1-01**: Running `specweave init` does not create any folder under `.specweave/increments/`
+- [x] **AC-US1-02**: After init, `IncrementNumberManager.getNextIncrementNumber()` returns `"0001"`
+- [x] **AC-US1-03**: The quick-start guide shows the first user increment as `0001-click-counter` (not `0002`)
 
 ---
 
@@ -55,10 +55,10 @@ This increment cleans up all stale references to the `0001-project-setup` reserv
 **So that** I am not confused by conflicting information
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `docs-site/docs/quick-start.md` no longer references `0001-project-setup` in the init output tree
-- [ ] **AC-US2-02**: `docs-site/docs/quick-start.md` shows the first user-created increment as `0001-*` (not `0002-*`)
-- [ ] **AC-US2-03**: `docs-site/docs/glossary/terms/greenfield.md` no longer uses `0001-project-setup-and-auth` as a system-reserved example
-- [ ] **AC-US2-04**: No doc file under `docs-site/` implies that init creates an increment
+- [x] **AC-US2-01**: `docs-site/docs/quick-start.md` no longer references `0001-project-setup` in the init output tree
+- [x] **AC-US2-02**: `docs-site/docs/quick-start.md` shows the first user-created increment as `0001-*` (not `0002-*`)
+- [x] **AC-US2-03**: `docs-site/docs/glossary/terms/greenfield.md` no longer uses `0001-project-setup-and-auth` as a system-reserved example
+- [x] **AC-US2-04**: No doc file under `docs-site/` implies that init creates an increment
 
 ---
 
@@ -70,9 +70,9 @@ This increment cleans up all stale references to the `0001-project-setup` reserv
 **So that** the behavior matches the documentation
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: No source file under `src/` contains logic to create an increment folder during the init command
-- [ ] **AC-US3-02**: The `createDirectoryStructure` function only creates core directories (increments/, cache/, state/, etc.) without any seed increment
-- [ ] **AC-US3-03**: Existing unit tests for init do not assert the existence of `0001-project-setup`
+- [x] **AC-US3-01**: No source file under `src/` contains logic to create an increment folder during the init command
+- [x] **AC-US3-02**: The `createDirectoryStructure` function only creates core directories (increments/, cache/, state/, etc.) without any seed increment
+- [x] **AC-US3-03**: Existing unit tests for init do not assert the existence of `0001-project-setup`
 
 ## Functional Requirements
 

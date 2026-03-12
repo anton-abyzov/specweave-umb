@@ -4,7 +4,7 @@ title: "Test import from GitHub"
 type: feature
 status: completed
 priority: P2
-created: 2026-03-05T00:00:00.000Z
+created: "2026-03-05T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "Test import from GitHub"
 complexity: low

@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 68
-    url: https://github.com/anton-abyzov/vskill/issues/68
+    url: "https://github.com/anton-abyzov/vskill/issues/68"
 ---
 
 # US-002: Classification Prompt and Cross-Model Compatibility

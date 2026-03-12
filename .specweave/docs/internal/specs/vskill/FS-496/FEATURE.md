@@ -4,7 +4,7 @@ title: "Skill Studio UI Polish & Editor AI Builder"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 lastUpdated: 2026-03-11
 tldr: "The Skill Studio Create Skill forms label the skill definition body as 'System Prompt,' which is confusing because the file is actually SKILL.md."
 complexity: high
@@ -31,8 +31,6 @@ externalLinks:
 **What**: The Skill Studio Create Skill forms label the skill definition body as "System Prompt," which is confusing because the file is actually SKILL.md.
 **Status**: completed | **Priority**: P1
 **User Stories**: 6
-
-![Skill Studio UI Polish & Editor AI Builder illustration](assets/feature-fs-496.jpg)
 
 ## Overview
 

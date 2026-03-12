@@ -4,7 +4,7 @@ title: "AI-Assisted Skill Authoring in Skill Studio"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 lastUpdated: 2026-03-11
 tldr: "The `CreateSkillInline` component (used in the Skill Studio right panel) displays a passive banner telling users to 'Run /skill-creator in Claude Code' for AI-assisted authoring."
 complexity: high
@@ -31,8 +31,6 @@ externalLinks:
 **What**: The `CreateSkillInline` component (used in the Skill Studio right panel) displays a passive banner telling users to "Run /skill-creator in Claude Code" for AI-assisted authoring.
 **Status**: completed | **Priority**: P1
 **User Stories**: 6
-
-![AI-Assisted Skill Authoring in Skill Studio illustration](assets/feature-fs-493.jpg)
 
 ## Overview
 

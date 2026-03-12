@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 144
-    url: https://github.com/anton-abyzov/specweave/milestone/144
+    url: "https://github.com/anton-abyzov/specweave/milestone/144"
 ---
 # Queue Per-Item Latency Optimization
 

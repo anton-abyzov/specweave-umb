@@ -4,7 +4,7 @@ feature: FS-496
 title: "Write/Preview Toggle for SKILL.md Body"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** skill author."
 project: vskill
 ---

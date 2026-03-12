@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 45
-    url: https://github.com/anton-abyzov/vskill/issues/45
+    url: "https://github.com/anton-abyzov/vskill/issues/45"
 ---
 
 # US-005: Benchmark Execution Panel (P1)

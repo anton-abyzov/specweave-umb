@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1323
-    url: https://github.com/anton-abyzov/specweave/issues/1323
+    url: "https://github.com/anton-abyzov/specweave/issues/1323"
 ---
 # US-006: Parallelize Enrichment Batch
 

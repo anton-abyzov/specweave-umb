@@ -4,7 +4,7 @@ title: "Remove Admin Evals Editor"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "Remove the redundant web-based evals.json editor from the admin panel."
 complexity: low
@@ -34,8 +34,6 @@ externalLinks:
 **What**: Remove the redundant web-based evals.json editor from the admin panel.
 **Status**: completed | **Priority**: P1
 **User Stories**: 1
-
-![Remove Admin Evals Editor illustration](assets/feature-fs-480.jpg)
 
 ## Overview
 

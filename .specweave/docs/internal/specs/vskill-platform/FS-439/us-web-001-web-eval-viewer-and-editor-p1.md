@@ -11,7 +11,7 @@ related_projects: [vskill, specweave]
 external:
   github:
     issue: 15
-    url: https://github.com/anton-abyzov/vskill-platform/issues/15
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/15"
 ---
 
 # US-WEB-001: Web Eval Viewer and Editor (P1)

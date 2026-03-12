@@ -4,8 +4,8 @@ title: 'Skill Builder Redesign: Unified Workspace'
 type: feature
 status: planned
 priority: P1
-created: 2026-03-09T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
+lastUpdated: "2026-03-10T00:00:00.000Z"
 tldr: >-
   The eval-ui currently has 4 disconnected pages (SkillDetailPage 1068 lines,
   BenchmarkPage 647, ComparisonPage 381, HistoryPage 789) that force skill
@@ -42,8 +42,6 @@ updated: '2026-03-10'
 **What**: The eval-ui currently has 4 disconnected pages (SkillDetailPage 1068 lines, BenchmarkPage 647, ComparisonPage 381, HistoryPage 789) that force skill developers to navigate between separate routes to edit, test, run benchmarks, and review history.
 **Status**: planned | **Priority**: P1
 **User Stories**: 8
-
-![Skill Builder Redesign: Unified Workspace illustration](assets/feature-fs-465.jpg)
 
 ## Overview
 

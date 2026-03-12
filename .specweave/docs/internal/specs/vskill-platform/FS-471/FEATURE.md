@@ -4,7 +4,7 @@ title: "Submit page: distinguish new vs rescan submissions"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "The submit page at `/submit` treats all discovered skills identically regardless of whether they already exist on the platform."
 complexity: low
@@ -36,8 +36,6 @@ externalLinks:
 **What**: The submit page at `/submit` treats all discovered skills identically regardless of whether they already exist on the platform.
 **Status**: completed | **Priority**: P1
 **User Stories**: 1
-
-![Submit page: distinguish new vs rescan submissions illustration](assets/feature-fs-471.jpg)
 
 ## Overview
 

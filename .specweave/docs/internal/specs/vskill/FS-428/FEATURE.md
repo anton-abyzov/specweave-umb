@@ -4,7 +4,7 @@ title: "Plugin install reliability: temp dirs, interactive selection, error mess
 type: feature
 status: completed
 priority: P2
-created: 2026-03-05T00:00:00.000Z
+created: "2026-03-05T00:00:00.000Z"
 lastUpdated: 2026-03-07
 tldr: "`vskill install` fails with confusing errors when installing marketplace plugins."
 complexity: medium

@@ -4,13 +4,13 @@ feature: FS-414
 title: "Direction Indicators on Value Change"
 status: not_started
 priority: P1
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 tldr: "**As a** queue operator."
 project: vskill-platform
 external:
   github:
     issue: 38
-    url: https://github.com/anton-abyzov/vskill-platform/issues/38
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/38"
 ---
 
 # US-002: Direction Indicators on Value Change

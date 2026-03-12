@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1424
-    url: https://github.com/anton-abyzov/specweave/issues/1424
+    url: "https://github.com/anton-abyzov/specweave/issues/1424"
 ---
 # US-003: Route Tier 1 critical findings to Tier 2 LLM for contextual validation
 

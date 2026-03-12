@@ -4,7 +4,7 @@ feature: FS-396
 title: "Platform API for Pending SAST Scans (P1)"
 status: completed
 priority: P1
-created: 2026-03-02T00:00:00.000Z
+created: "2026-03-02T00:00:00.000Z"
 tldr: "**As a** crawl-worker sast-scanner source."
 project: vskill-platform
 ---

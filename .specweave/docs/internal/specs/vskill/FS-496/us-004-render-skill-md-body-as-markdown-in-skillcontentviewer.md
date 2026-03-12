@@ -4,7 +4,7 @@ feature: FS-496
 title: "Render SKILL.md Body as Markdown in SkillContentViewer"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** skill consumer."
 project: vskill
 ---

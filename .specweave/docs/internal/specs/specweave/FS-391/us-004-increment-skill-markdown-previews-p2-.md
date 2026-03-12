@@ -4,7 +4,7 @@ feature: FS-391
 title: "Increment Skill Markdown Previews (P2)"
 status: completed
 priority: P1
-created: 2026-03-01T00:00:00.000Z
+created: "2026-03-01T00:00:00.000Z"
 tldr: "**As a** developer using `/sw:increment`
 **I want** to see folder structure trees and AC coverage tables when choosing between increment approaches
 **So that** I can quickly assess the scope and structure of proposed work."

@@ -19,8 +19,6 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P1
 **User Stories**: 1
 
-![FS-405: GitHub Sync Smoke Test illustration](assets/feature-fs-405.jpg)
-
 ## Overview
 
 End-to-end smoke test to verify the SpecWeave → GitHub sync pipeline works correctly: issue creation on increment planning, progress sync on task completion, and issue closure on increment done.

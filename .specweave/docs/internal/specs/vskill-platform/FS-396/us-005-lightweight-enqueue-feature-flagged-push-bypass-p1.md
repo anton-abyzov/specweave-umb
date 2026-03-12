@@ -4,7 +4,7 @@ feature: FS-396
 title: "Lightweight Enqueue (Feature-Flagged Push Bypass) (P1)"
 status: completed
 priority: P1
-created: 2026-03-02T00:00:00.000Z
+created: "2026-03-02T00:00:00.000Z"
 tldr: "**As a** platform developer."
 project: vskill-platform
 ---

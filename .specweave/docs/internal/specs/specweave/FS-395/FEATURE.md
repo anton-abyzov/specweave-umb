@@ -4,7 +4,7 @@ title: "Init Location Guard Rails"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-01T00:00:00.000Z
+created: "2026-03-01T00:00:00.000Z"
 lastUpdated: 2026-03-02
 tldr: "Add guard rails to `specweave init` to prevent creating `.specweave/` folders in wrong locations."
 complexity: medium
@@ -18,8 +18,6 @@ stakeholder_relevant: true
 **What**: Add guard rails to `specweave init` to prevent creating `.specweave/` folders in wrong locations.
 **Status**: completed | **Priority**: P1
 **User Stories**: 2
-
-![Init Location Guard Rails illustration](assets/feature-fs-395.jpg)
 
 ## Overview
 

@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1457
-    url: https://github.com/anton-abyzov/specweave/issues/1457
+    url: "https://github.com/anton-abyzov/specweave/issues/1457"
 ---
 # US-003: Startup Health Check Cleanup
 

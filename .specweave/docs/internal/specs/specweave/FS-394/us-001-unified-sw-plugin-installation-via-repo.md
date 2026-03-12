@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1455
-    url: https://github.com/anton-abyzov/specweave/issues/1455
+    url: "https://github.com/anton-abyzov/specweave/issues/1455"
 ---
 # US-001: Unified sw-* Plugin Installation via --repo
 

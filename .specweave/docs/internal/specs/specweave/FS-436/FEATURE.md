@@ -4,8 +4,8 @@ title: '[EXTERNAL] Improve error messages'
 type: feature
 status: completed
 priority: P2
-created: 2026-03-05T00:00:00.000Z
-lastUpdated: 2026-03-05T00:00:00.000Z
+created: "2026-03-05T00:00:00.000Z"
+lastUpdated: "2026-03-05T00:00:00.000Z"
 tldr: 'When sync fails, error messages are not helpful.'
 complexity: low
 stakeholder_relevant: true
@@ -38,8 +38,6 @@ updated: '2026-03-05'
 **What**: When sync fails, error messages are not helpful.
 **Status**: completed | **Priority**: P2
 **User Stories**: 1
-
-![[EXTERNAL] Improve error messages illustration](assets/feature-fs-436.jpg)
 
 ## Overview
 

@@ -4,7 +4,7 @@ feature: FS-393
 title: "Per-State Staleness Configuration (P2)"
 status: completed
 priority: P1
-created: 2026-03-01T00:00:00.000Z
+created: "2026-03-01T00:00:00.000Z"
 tldr: "**As a** platform operator."
 project: vskill-platform
 ---

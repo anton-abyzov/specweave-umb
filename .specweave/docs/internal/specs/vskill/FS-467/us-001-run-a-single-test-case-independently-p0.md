@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 53
-    url: https://github.com/anton-abyzov/vskill/issues/53
+    url: "https://github.com/anton-abyzov/vskill/issues/53"
 ---
 
 # US-001: Run a Single Test Case Independently (P0)

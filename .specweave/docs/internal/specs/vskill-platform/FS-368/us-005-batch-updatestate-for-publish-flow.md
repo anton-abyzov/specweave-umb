@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1322
-    url: https://github.com/anton-abyzov/specweave/issues/1322
+    url: "https://github.com/anton-abyzov/specweave/issues/1322"
 ---
 # US-005: Batch updateState for Publish Flow
 

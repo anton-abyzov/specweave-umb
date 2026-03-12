@@ -4,13 +4,13 @@ feature: FS-450
 title: "'Creating Skills' Diagram"
 status: not_started
 priority: P1
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** developer visiting the docs."
 project: specweave
 external:
   github:
     issue: 1509
-    url: https://github.com/anton-abyzov/specweave/issues/1509
+    url: "https://github.com/anton-abyzov/specweave/issues/1509"
 ---
 
 # US-SW-003: "Creating Skills" Diagram

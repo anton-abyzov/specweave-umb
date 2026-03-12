@@ -4,7 +4,7 @@ title: "Align skills documentation rhetoric with Anthropic official terminology"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "SpecWeave's skills documentation currently frames several built-in Claude Code features as SpecWeave inventions."
 complexity: medium
@@ -31,8 +31,6 @@ externalLinks:
 **What**: SpecWeave's skills documentation currently frames several built-in Claude Code features as SpecWeave inventions.
 **Status**: completed | **Priority**: P1
 **User Stories**: 3
-
-![Align skills documentation rhetoric with Anthropic official terminology illustration](assets/feature-fs-478.jpg)
 
 ## Overview
 

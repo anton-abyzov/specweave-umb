@@ -4,7 +4,7 @@ feature: FS-391
 title: "Plan Skill Markdown Previews (P1)"
 status: completed
 priority: P1
-created: 2026-03-01T00:00:00.000Z
+created: "2026-03-01T00:00:00.000Z"
 tldr: "**As a** developer using `/sw:plan`
 **I want** to see task dependency DAGs in side-by-side previews when choosing between execution strategies
 **So that** I can visualize the critical path and parallelism before approving the plan."

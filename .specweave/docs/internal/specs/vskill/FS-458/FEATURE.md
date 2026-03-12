@@ -4,7 +4,7 @@ title: "Eval Run History & A/B Benchmarking"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "The vskill eval system has basic benchmark history and A/B comparison, but the stored data lacks granularity (no per-case token breakdowns, no input/output token split, no baseline-only assertion results)."
 complexity: high
@@ -36,8 +36,6 @@ externalLinks:
 **What**: The vskill eval system has basic benchmark history and A/B comparison, but the stored data lacks granularity (no per-case token breakdowns, no input/output token split, no baseline-only assertion results).
 **Status**: completed | **Priority**: P1
 **User Stories**: 8
-
-![Eval Run History & A/B Benchmarking illustration](assets/feature-fs-458.jpg)
 
 ## Overview
 

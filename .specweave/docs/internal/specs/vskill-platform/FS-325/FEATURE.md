@@ -5,7 +5,7 @@ title: "Fix homepage metrics accuracy: unique repos, real npm, stars dedup,
 type: feature
 status: complete
 priority: P1
-created: 2026-02-22T00:00:00.000Z
+created: "2026-02-22T00:00:00.000Z"
 lastUpdated: 2026-02-22
 tldr: "Fix homepage metrics accuracy: unique repos, real npm, stars dedup, trust
   score, categories"
@@ -15,7 +15,7 @@ external_tools:
   github:
     type: milestone
     id: 132
-    url: https://github.com/anton-abyzov/specweave/milestone/132
+    url: "https://github.com/anton-abyzov/specweave/milestone/132"
 ---
 # Fix homepage metrics accuracy: unique repos, real npm, stars dedup, trust score, categories
 

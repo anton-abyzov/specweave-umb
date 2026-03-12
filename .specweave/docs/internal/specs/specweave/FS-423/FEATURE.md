@@ -19,8 +19,6 @@ stakeholder_relevant: true
 **Status**: active | **Priority**: P1
 **User Stories**: 1
 
-![E2E test: distributed sync routing to child project illustration](assets/feature-fs-423.jpg)
-
 ## Implementation History
 
 | Increment | Status | Completion Date |

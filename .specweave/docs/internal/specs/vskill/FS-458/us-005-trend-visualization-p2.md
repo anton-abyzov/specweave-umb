@@ -4,13 +4,13 @@ feature: FS-458
 title: "Trend Visualization (P2)"
 status: completed
 priority: P1
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 tldr: "**As a** skill author."
 project: vskill
 external:
   github:
     issue: 32
-    url: https://github.com/anton-abyzov/vskill/issues/32
+    url: "https://github.com/anton-abyzov/vskill/issues/32"
 ---
 
 # US-005: Trend Visualization (P2)

@@ -4,7 +4,7 @@ feature: FS-493
 title: "Error Handling with Retry (P1)"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** skill author whose AI generation failed."
 project: vskill
 ---

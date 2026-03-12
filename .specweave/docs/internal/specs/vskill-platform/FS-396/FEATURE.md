@@ -4,7 +4,7 @@ title: "Pull-based SAST scanning"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-02T00:00:00.000Z
+created: "2026-03-02T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "External SAST scans (semgrep, njsscan, trufflehog) are currently dispatched via push: the platform's `dispatchExternalScans()` does an HTTP POST to Het."
 complexity: high

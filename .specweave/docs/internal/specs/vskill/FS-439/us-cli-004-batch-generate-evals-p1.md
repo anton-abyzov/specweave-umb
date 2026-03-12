@@ -11,7 +11,7 @@ related_projects: [vskill-platform, specweave]
 external:
   github:
     issue: 11
-    url: https://github.com/anton-abyzov/vskill/issues/11
+    url: "https://github.com/anton-abyzov/vskill/issues/11"
 ---
 
 # US-CLI-004: Batch Generate Evals (P1)

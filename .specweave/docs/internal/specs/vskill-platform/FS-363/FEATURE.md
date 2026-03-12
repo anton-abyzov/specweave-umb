@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 5
-    url: https://github.com/anton-abyzov/specweave-umb/milestone/5
+    url: "https://github.com/anton-abyzov/specweave-umb/milestone/5"
 ---
 
 # Search: match by repository name, supplement partial edge results

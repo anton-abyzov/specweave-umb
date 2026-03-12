@@ -19,8 +19,6 @@ stakeholder_relevant: true
 **Status**: active | **Priority**: P1
 **User Stories**: 1
 
-![Increment 0403J: Implement webhook retry mechanism with exponential backoff illustration](assets/feature-fs-403.jpg)
-
 ## Overview
 
 As a platform integrator, I want webhook deliveries to retry with exponential backoff so that transient failures do not cause permanent data loss.

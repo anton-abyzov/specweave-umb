@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1505
-    url: https://github.com/anton-abyzov/specweave/issues/1505
+    url: "https://github.com/anton-abyzov/specweave/issues/1505"
 ---
 # US-001: Hierarchical Skill URLs
 

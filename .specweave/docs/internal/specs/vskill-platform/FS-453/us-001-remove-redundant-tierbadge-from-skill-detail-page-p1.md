@@ -4,13 +4,13 @@ feature: FS-453
 title: "Remove redundant TierBadge from skill detail page (P1)"
 status: completed
 priority: P1
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** skill consumer."
 project: vskill-platform
 external:
   github:
     issue: 45
-    url: https://github.com/anton-abyzov/vskill-platform/issues/45
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/45"
 ---
 
 # US-001: Remove redundant TierBadge from skill detail page (P1)

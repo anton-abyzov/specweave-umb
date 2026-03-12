@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 139
-    url: https://github.com/anton-abyzov/specweave/milestone/139
+    url: "https://github.com/anton-abyzov/specweave/milestone/139"
 ---
 # Edge-First Search Performance
 

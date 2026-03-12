@@ -4,13 +4,13 @@ feature: FS-455
 title: "Playwright E2E Tests (P1)"
 status: completed
 priority: P1
-created: 2026-03-08T00:00:00.000Z
+created: "2026-03-08T00:00:00.000Z"
 tldr: "**As a** contributor to vskill."
 project: vskill
 external:
   github:
     issue: 24
-    url: https://github.com/anton-abyzov/vskill/issues/24
+    url: "https://github.com/anton-abyzov/vskill/issues/24"
 ---
 
 # US-008: Playwright E2E Tests (P1)

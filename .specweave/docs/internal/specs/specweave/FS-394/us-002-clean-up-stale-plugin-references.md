@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1456
-    url: https://github.com/anton-abyzov/specweave/issues/1456
+    url: "https://github.com/anton-abyzov/specweave/issues/1456"
 ---
 # US-002: Clean Up Stale Plugin References
 

@@ -11,7 +11,7 @@ related_projects: [vskill-platform, specweave]
 external:
   github:
     issue: 9
-    url: https://github.com/anton-abyzov/vskill/issues/9
+    url: "https://github.com/anton-abyzov/vskill/issues/9"
 ---
 
 # US-CLI-002: Run Evals Locally (P0)

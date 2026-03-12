@@ -4,14 +4,14 @@ feature: FS-460
 title: "Deploy vendor-org-discovery (P0)"
 status: completed
 priority: P0
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 tldr: "**As a** platform operator."
 project: vskill-platform
 related_projects: [vskill]
 external:
   github:
     issue: 46
-    url: https://github.com/anton-abyzov/vskill-platform/issues/46
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/46"
 ---
 
 # US-001: Deploy vendor-org-discovery (P0)

@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1335
-    url: https://github.com/anton-abyzov/specweave/issues/1335
+    url: "https://github.com/anton-abyzov/specweave/issues/1335"
 ---
 # US-003: Estimated Processing Time
 

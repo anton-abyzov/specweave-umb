@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 43
-    url: https://github.com/anton-abyzov/vskill/issues/43
+    url: "https://github.com/anton-abyzov/vskill/issues/43"
 ---
 
 # US-003: Test Case Management Panel (P0)

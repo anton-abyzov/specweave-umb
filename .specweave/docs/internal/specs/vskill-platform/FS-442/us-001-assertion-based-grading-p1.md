@@ -4,7 +4,7 @@ feature: FS-442
 title: "Assertion-Based Grading (P1)"
 status: completed
 priority: P1
-created: 2026-03-06T00:00:00.000Z
+created: "2026-03-06T00:00:00.000Z"
 tldr: "**As a** platform operator."
 project: vskill-platform
 ---

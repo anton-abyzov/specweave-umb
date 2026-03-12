@@ -11,7 +11,7 @@ related_projects: [vskill-platform, specweave]
 external:
   github:
     issue: 12
-    url: https://github.com/anton-abyzov/vskill/issues/12
+    url: "https://github.com/anton-abyzov/vskill/issues/12"
 ---
 
 # US-CLI-005: Validate Evals Schema on Load (P1)

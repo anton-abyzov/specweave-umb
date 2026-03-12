@@ -6,8 +6,8 @@ title: >-
 type: feature
 status: completed
 priority: P1
-created: 2026-02-27T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
+created: "2026-02-27T00:00:00.000Z"
+lastUpdated: "2026-03-10T00:00:00.000Z"
 tldr: >-
   Three related bugs in the vskill-platform submission pipeline compromise
   security and data integrity:.
@@ -37,8 +37,6 @@ updated: '2026-03-10'
 **What**: Three related bugs in the vskill-platform submission pipeline compromise security and data integrity:.
 **Status**: completed | **Priority**: P1
 **User Stories**: 4
-
-![Fix blocklist global poisoning, duplicate blocked submissions, and crawler dedup bypass illustration](assets/feature-fs-387.jpg)
 
 ## Overview
 

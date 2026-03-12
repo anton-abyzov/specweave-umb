@@ -1,10 +1,10 @@
 ---
 increment: 0492-init-project-resolution-redesign
-title: "Redesign specweave init project resolution"
+title: Redesign specweave init project resolution
 type: feature
 priority: P1
-status: planned
-created: 2026-03-11
+status: completed
+created: 2026-03-11T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

@@ -11,7 +11,7 @@ related_projects: [vskill-platform]
 external:
   github:
     issue: 14
-    url: https://github.com/anton-abyzov/vskill/issues/14
+    url: "https://github.com/anton-abyzov/vskill/issues/14"
 ---
 
 # US-VSK-001: Flat install-sorted search results (P1)

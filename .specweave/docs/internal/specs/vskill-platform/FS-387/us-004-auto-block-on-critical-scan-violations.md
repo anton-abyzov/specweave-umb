@@ -4,7 +4,7 @@ feature: FS-387
 title: "Auto-block on critical scan violations"
 status: completed
 priority: P1
-created: 2026-02-27T00:00:00.000Z
+created: "2026-02-27T00:00:00.000Z"
 tldr: "**As a** platform operator."
 project: vskill-platform
 ---

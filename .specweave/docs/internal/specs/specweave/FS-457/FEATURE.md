@@ -4,8 +4,8 @@ title: Consent-First Plugin Auto-Loading
 type: feature
 status: planned
 priority: P0
-created: 2026-03-09T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
+lastUpdated: "2026-03-10T00:00:00.000Z"
 tldr: >-
   SpecWeave's plugin auto-loading mechanism silently installs plugins without
   user consent.
@@ -40,8 +40,6 @@ updated: '2026-03-10'
 **What**: SpecWeave's plugin auto-loading mechanism silently installs plugins without user consent.
 **Status**: planned | **Priority**: P0
 **User Stories**: 6
-
-![Consent-First Plugin Auto-Loading illustration](assets/feature-fs-457.jpg)
 
 ## Overview
 

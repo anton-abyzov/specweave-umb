@@ -4,13 +4,13 @@ feature: FS-482
 title: "Simplified Init Command (P1)"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** developer."
 project: specweave
 external:
   github:
     issue: 1528
-    url: https://github.com/anton-abyzov/specweave/issues/1528
+    url: "https://github.com/anton-abyzov/specweave/issues/1528"
 ---
 
 # US-001: Simplified Init Command (P1)

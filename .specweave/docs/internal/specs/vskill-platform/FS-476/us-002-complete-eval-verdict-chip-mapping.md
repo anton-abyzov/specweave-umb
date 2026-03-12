@@ -4,13 +4,13 @@ feature: FS-476
 title: "Complete eval verdict chip mapping"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** user viewing eval results."
 project: vskill-platform
 external:
   github:
     issue: 55
-    url: https://github.com/anton-abyzov/vskill-platform/issues/55
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/55"
 ---
 
 # US-002: Complete eval verdict chip mapping

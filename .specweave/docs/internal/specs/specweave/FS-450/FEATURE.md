@@ -4,8 +4,8 @@ title: Skill Value Diagrams & Content Assets
 type: feature
 status: completed
 priority: P1
-created: 2026-03-07T00:00:00.000Z
-lastUpdated: 2026-03-10T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
+lastUpdated: "2026-03-10T00:00:00.000Z"
 tldr: >-
   SpecWeave's public docs and YouTube channel lack visual content that
   communicates the core value proposition of skills.
@@ -40,8 +40,6 @@ updated: '2026-03-10'
 **What**: SpecWeave's public docs and YouTube channel lack visual content that communicates the core value proposition of skills.
 **Status**: completed | **Priority**: P1
 **User Stories**: 6
-
-![Skill Value Diagrams & Content Assets illustration](assets/feature-fs-450.jpg)
 
 ## Overview
 

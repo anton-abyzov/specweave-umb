@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1356
-    url: https://github.com/anton-abyzov/specweave/issues/1356
+    url: "https://github.com/anton-abyzov/specweave/issues/1356"
 ---
 # US-001: Categories Section Resilience
 

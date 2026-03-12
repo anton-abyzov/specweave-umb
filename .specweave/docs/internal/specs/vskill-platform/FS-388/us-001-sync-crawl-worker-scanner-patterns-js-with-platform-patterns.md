@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1422
-    url: https://github.com/anton-abyzov/specweave/issues/1422
+    url: "https://github.com/anton-abyzov/specweave/issues/1422"
 ---
 # US-001: Sync crawl-worker scanner-patterns.js with platform patterns.ts
 

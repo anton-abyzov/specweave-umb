@@ -4,7 +4,7 @@ feature: FS-481
 title: "Verify tri-provider sync pipeline (P2)"
 status: not_started
 priority: P2
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** platform maintainer."
 project: vskill-platform
 ---

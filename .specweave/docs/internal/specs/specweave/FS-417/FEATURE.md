@@ -4,8 +4,8 @@ title: 'E2E Test: Update CLI help text for umbrella commands'
 type: feature
 status: completed
 priority: P2
-created: 2026-03-03T00:00:00.000Z
-lastUpdated: 2026-03-07T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
+lastUpdated: "2026-03-07T00:00:00.000Z"
 tldr: >-
   The `migrate-to-umbrella` CLI command's help text does not document the
   `--consolidate` flag or the distributed/centrali.
@@ -35,8 +35,6 @@ updated: '2026-03-07'
 **What**: The `migrate-to-umbrella` CLI command's help text does not document the `--consolidate` flag or the distributed/centrali.
 **Status**: completed | **Priority**: P2
 **User Stories**: 1
-
-![E2E Test: Update CLI help text for umbrella commands illustration](assets/feature-fs-417.jpg)
 
 ## Overview
 

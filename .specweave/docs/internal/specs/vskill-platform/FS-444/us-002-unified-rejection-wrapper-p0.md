@@ -4,13 +4,13 @@ feature: FS-444
 title: "Unified Rejection Wrapper (P0)"
 status: completed
 priority: P0
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** platform developer."
 project: vskill-platform
 external:
   github:
     issue: 32
-    url: https://github.com/anton-abyzov/vskill-platform/issues/32
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/32"
 ---
 
 # US-002: Unified Rejection Wrapper (P0)

@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1333
-    url: https://github.com/anton-abyzov/specweave/issues/1333
+    url: "https://github.com/anton-abyzov/specweave/issues/1333"
 ---
 # US-001: Queue Position Visibility
 

@@ -4,13 +4,13 @@ feature: FS-491
 title: "Anti-Rationalization Tables (P2)"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** SpecWeave user following TDD or running grill reviews."
 project: specweave
 external:
   github:
     issue: 1542
-    url: https://github.com/anton-abyzov/specweave/issues/1542
+    url: "https://github.com/anton-abyzov/specweave/issues/1542"
 ---
 
 # US-005: Anti-Rationalization Tables (P2)

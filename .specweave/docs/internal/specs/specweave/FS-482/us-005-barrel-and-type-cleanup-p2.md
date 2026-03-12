@@ -4,13 +4,13 @@ feature: FS-482
 title: "Barrel and Type Cleanup (P2)"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** maintainer."
 project: specweave
 external:
   github:
     issue: 1532
-    url: https://github.com/anton-abyzov/specweave/issues/1532
+    url: "https://github.com/anton-abyzov/specweave/issues/1532"
 ---
 
 # US-005: Barrel and Type Cleanup (P2)

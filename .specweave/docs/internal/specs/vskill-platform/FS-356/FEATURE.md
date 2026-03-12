@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 157
-    url: https://github.com/anton-abyzov/specweave/milestone/157
+    url: "https://github.com/anton-abyzov/specweave/milestone/157"
 ---
 # Scale Queue Throughput for Thousands of Repositories
 

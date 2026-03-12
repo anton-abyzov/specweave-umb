@@ -4,7 +4,7 @@ title: "Rename Authors to Publishers + Show publisher/skill-name Format"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "The vskill-platform UI uses 'Authors' to refer to skill owners, but 'Publishers' better reflects their role: they publish skills to the marketplace."
 complexity: high
@@ -18,8 +18,6 @@ stakeholder_relevant: true
 **What**: The vskill-platform UI uses "Authors" to refer to skill owners, but "Publishers" better reflects their role: they publish skills to the marketplace.
 **Status**: completed | **Priority**: P1
 **User Stories**: 5
-
-![Rename Authors to Publishers + Show publisher/skill-name Format illustration](assets/feature-fs-446.jpg)
 
 ## Overview
 

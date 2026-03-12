@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 6
-    url: https://github.com/anton-abyzov/specweave-umb/milestone/6
+    url: "https://github.com/anton-abyzov/specweave-umb/milestone/6"
 ---
 
 # Admin-Only Rejected Skills with Bulk Actions

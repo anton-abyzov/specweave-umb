@@ -4,7 +4,7 @@ feature: FS-461
 title: "Fix SearchShardQueueMessage Type"
 status: completed
 priority: P1
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 tldr: "**As a** developer."
 project: vskill-platform
 ---

@@ -4,13 +4,13 @@ feature: FS-470
 title: "Responsive Layout"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** skill author using the Studio on a smaller screen or narrow window."
 project: vskill
 external:
   github:
     issue: 64
-    url: https://github.com/anton-abyzov/vskill/issues/64
+    url: "https://github.com/anton-abyzov/vskill/issues/64"
 ---
 
 # US-006: Responsive Layout

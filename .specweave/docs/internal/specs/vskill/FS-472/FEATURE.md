@@ -37,8 +37,6 @@ externalLinks:
 **Status**: planned | **Priority**: P1
 **User Stories**: 5
 
-![Auto-classify activation test expectations illustration](assets/feature-fs-472.jpg)
-
 ## Overview
 
 In the Skill Studio Activation Panel, test prompts without a `!` prefix default to `expected: "should_activate"`. When users type irrelevant prompts (e.g., "I built my test" for a Slack messaging skill), the system incorrectly expects activation, producing false FN results and corrupting precision/recall metrics. This makes the activation panel unreliable for iterating on skill descriptions.

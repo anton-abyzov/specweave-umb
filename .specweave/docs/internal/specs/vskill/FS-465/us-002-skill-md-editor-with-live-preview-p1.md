@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 42
-    url: https://github.com/anton-abyzov/vskill/issues/42
+    url: "https://github.com/anton-abyzov/vskill/issues/42"
 ---
 
 # US-002: SKILL.md Editor with Live Preview (P1)

@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 133
-    url: https://github.com/anton-abyzov/specweave/milestone/133
+    url: "https://github.com/anton-abyzov/specweave/milestone/133"
 ---
 # Fix submit page skill discovery bug + remove selection step
 

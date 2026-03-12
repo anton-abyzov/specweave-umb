@@ -19,8 +19,6 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P1
 **User Stories**: 6
 
-![Fix failing develop branch tests and unblock Dependabot auto-merge pipeline illustration](assets/feature-fs-383.jpg)
-
 ## Overview
 
 The develop branch has 69 test failures across 18 test files caused by source code refactoring that left tests pointing at old module paths and asserting stale expectations. Additionally, the Dependabot auto-merge workflow fails because GITHUB_TOKEN cannot approve PRs. This increment fixes all 69 failures and unblocks auto-merge.

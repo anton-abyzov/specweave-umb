@@ -4,7 +4,7 @@ title: "Critical Sync Integration Bug Fixes"
 type: feature
 status: completed
 priority: P0
-created: 2026-03-02T00:00:00.000Z
+created: "2026-03-02T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "Comprehensive audit of the sync subsystem (`src/sync/`, providers, reconcilers, coordinator, auto-creator) has revealed 30+ bugs across critical, high, and medium severity tiers."
 complexity: high
@@ -18,8 +18,6 @@ stakeholder_relevant: true
 **What**: Comprehensive audit of the sync subsystem (`src/sync/`, providers, reconcilers, coordinator, auto-creator) has revealed 30+ bugs across critical, high, and medium severity tiers.
 **Status**: completed | **Priority**: P0
 **User Stories**: 12
-
-![Critical Sync Integration Bug Fixes illustration](assets/feature-fs-398.jpg)
 
 ## Overview
 

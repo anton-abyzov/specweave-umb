@@ -4,13 +4,13 @@ feature: FS-420
 title: "Vendor discovery runs on cron schedule (P1)"
 status: completed
 priority: P1
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 tldr: "**As a** platform operator."
 project: vskill-platform
 external:
   github:
     issue: 3
-    url: https://github.com/anton-abyzov/vskill-platform/issues/3
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/3"
 ---
 
 # US-002: Vendor discovery runs on cron schedule (P1)

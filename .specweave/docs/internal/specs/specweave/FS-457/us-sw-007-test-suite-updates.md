@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 1526
-    url: https://github.com/anton-abyzov/specweave/issues/1526
+    url: "https://github.com/anton-abyzov/specweave/issues/1526"
 ---
 
 # US-SW-007: Test Suite Updates

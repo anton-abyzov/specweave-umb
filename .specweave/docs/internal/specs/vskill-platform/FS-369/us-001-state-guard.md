@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1336
-    url: https://github.com/anton-abyzov/specweave/issues/1336
+    url: "https://github.com/anton-abyzov/specweave/issues/1336"
 ---
 # US-001: State Guard
 

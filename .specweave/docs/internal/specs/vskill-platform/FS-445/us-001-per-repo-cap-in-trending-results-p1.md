@@ -10,7 +10,7 @@ project: vskill-platform
 external:
   github:
     issue: 41
-    url: https://github.com/anton-abyzov/vskill-platform/issues/41
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/41"
 ---
 
 # US-001: Per-repo cap in trending results (P1)

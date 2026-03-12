@@ -4,13 +4,13 @@ feature: FS-458
 title: "Frontend API Client Extensions (P2)"
 status: completed
 priority: P1
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 tldr: "**As a** developer."
 project: vskill
 external:
   github:
     issue: 34
-    url: https://github.com/anton-abyzov/vskill/issues/34
+    url: "https://github.com/anton-abyzov/vskill/issues/34"
 ---
 
 # US-007: Frontend API Client Extensions (P2)

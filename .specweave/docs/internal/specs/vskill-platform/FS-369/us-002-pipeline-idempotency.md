@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1338
-    url: https://github.com/anton-abyzov/specweave/issues/1338
+    url: "https://github.com/anton-abyzov/specweave/issues/1338"
 ---
 # US-002: Pipeline Idempotency
 

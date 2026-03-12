@@ -4,13 +4,13 @@ feature: FS-443
 title: "CERTIFIED-first ordering preserved (P1)"
 status: completed
 priority: P1
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** developer searching for skills."
 project: vskill-platform
 external:
   github:
     issue: 30
-    url: https://github.com/anton-abyzov/vskill-platform/issues/30
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/30"
 ---
 
 # US-002: CERTIFIED-first ordering preserved (P1)

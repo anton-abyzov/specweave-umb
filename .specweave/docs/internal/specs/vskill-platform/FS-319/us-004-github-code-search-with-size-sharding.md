@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1268
-    url: https://github.com/anton-abyzov/specweave/issues/1268
+    url: "https://github.com/anton-abyzov/specweave/issues/1268"
 ---
 # US-004: GitHub Code Search with Size Sharding
 

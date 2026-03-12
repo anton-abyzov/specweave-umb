@@ -1,0 +1,59 @@
+{
+  "version": "1.1",
+  "incrementId": "0494-search-performance-optimization",
+  "timestamp": "2026-03-11T23:10:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 23,
+    "passed": 23,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "route.ts:113 — when edgeResults.length >= fetchLimit (200), pgSkipped=true, searchSkills never called. Verified in production: X-Search-Source: edge for popular queries (react, python, rust). Test: edgeOnly_skipsPostgres_whenEdgeReturnsFetchLimit" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "route.ts:116-141 — else branch calls searchSkills with retry. Production verified: node, kubernetes return edge+postgres. Test: edgePlusPg_callsPostgres_whenEdgeBelowFetchLimit" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "route.ts:100-105 — catch block silently falls through to postgres path. Test: pgFallback_whenEdgeFails" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "route.ts:161-165 — searchSource tracks edge/postgres/edge+postgres. Set as X-Search-Source header at line 202. Production verified via curl -I. Tests: xSearchSourceHeader_exactValue_edgeOnly, xSearchSourceHeader_edgePlusPostgres" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "route.ts:26-28 — edgeOnly=true resolves empty Map instead of calling getBlockedSkillNames. Test: edgeOnly_skipsGetBlockedSkillNames" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "route.ts:26-28 — edgeOnly=false (when pg involved) calls getBlockedSkillNames normally. Test: pgPath_callsAllThreeBlocklistQueries" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "route.ts:30-34 — searchBlocklistEntries and searchRejectedSubmissions always called in Promise.all regardless of edgeOnly. Tests: edgeOnly_stillCallsBlocklistEntries, edgeOnly_stillCallsRejectedSubmissions" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "route.ts:201 — Cache-Control: public, max-age=10, s-maxage=60, stale-while-revalidate=300. Production verified via curl headers. Test: cacheControlHeader_hasStaleWhileRevalidate300" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "SearchPalette.tsx:279 — SWR_TTL_MS = 60_000. Test: swrTtlConstant_is60000" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "route.ts:201 — stale-while-revalidate=300 present in Cache-Control header. CDN will serve stale for up to 300s while revalidating. Verified in production response headers." },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "route.ts:195 — Server-Timing includes edge;dur=${edgeDur.toFixed(1)}. Production shows edge;dur=20.0 for warm requests. Test: serverTiming_includesEdgeDuration" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "route.ts:193-194 — when pgSkipped=false, includes postgres;dur=${pgDur.toFixed(1)}. Production shows postgres;dur=577.0 for kubernetes query. Test: serverTiming_includesPostgresDuration_whenPgCalled" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "route.ts:193 — when pgSkipped=true, includes postgres;desc=\"skipped\";dur=0. Production verified for react query. Test: serverTiming_marksPostgresSkipped_whenEdgeOnly" },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "route.ts:195 — enrichment;dur=${enrichDur.toFixed(1)} always present. Production shows enrichment;dur=251.0. Test: serverTiming_includesEnrichmentDuration" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "SearchPalette.tsx:401-403 — when trimmed.length === 0 && trendingRef.current, returns top 10 trending skills mapped to SearchResult. Test: trendingSkills_shownOnPaletteOpen_queryEmpty" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "SearchPalette.tsx:186 — fetch('/api/v1/stats') on mount, reads data.trendingSkills. Test: trendingSkills_shownOnPaletteOpen_queryEmpty (mocks /api/v1/stats)" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "SearchPalette.tsx:370-382 — mapTrendingToResult maps to same SearchResult interface used by API results. Same allItems rendering path at line 407-433. Test: trendingSkills_sameRowLayout_asSearchResults" },
+      { "acId": "AC-US5-04", "status": "pass", "evidence": "SearchPalette.tsx:388 — when trimmed.length >= 2, returns API results directly, replacing trending. Test: trendingSkills_replacedByApiResults_atTwoChars" },
+      { "acId": "AC-US5-05", "status": "pass", "evidence": "SearchPalette.tsx:179,185 — trendingRef.current is a useRef that persists across renders. Line 185: if (trendingRef.current) return; prevents re-fetch. Test: trendingSkills_notRefetched_onSecondOpen" },
+      { "acId": "AC-US6-01", "status": "pass", "evidence": "SearchPalette.tsx:390-398 — 1-char query filters trendingRef.current by name/displayName prefix match using startsWith. Test: oneCharQuery_filtersClientSide_byNamePrefix" },
+      { "acId": "AC-US6-02", "status": "pass", "evidence": "SearchPalette.tsx:388 — 2+ chars returns API results. Debounce at 271-277 clears results and fetches from API. Test: twoCharQuery_apiResultsReplaceTrending" },
+      { "acId": "AC-US6-03", "status": "pass", "evidence": "SearchPalette.tsx:451 — showSkeletons requires query.trim().length >= 2, so 1-char queries never show skeletons. Test: oneCharQuery_noLoadingSkeleton" },
+      { "acId": "AC-US6-04", "status": "pass", "evidence": "SearchPalette.tsx:390 — condition checks trendingRef.current is truthy; if null, falls through to return [] at line 404. Test: oneCharQuery_emptyState_whenTrendingNotLoaded" }
+    ]
+  },
+  "findings": [],
+  "productionVerification": {
+    "deployed": true,
+    "deployUrl": "https://verified-skill.com",
+    "headers": {
+      "X-Search-Source": "edge (for popular queries like react, python, rust, docker)",
+      "Server-Timing": "edge;dur=20.0, postgres;desc=\"skipped\";dur=0, enrichment;dur=251.0",
+      "Cache-Control": "public, max-age=10, s-maxage=60, stale-while-revalidate=300"
+    },
+    "loadTest": {
+      "concurrentRequests": 20,
+      "allReturned200": true,
+      "warmLatencyRange": "370ms-500ms",
+      "edgeSearchLatency": "7-25ms",
+      "enrichmentLatency": "230-340ms",
+      "edgeOnlyHitRate": "Popular queries (react, python, rust, docker, typescript) fully skip Postgres"
+    },
+    "unitTests": { "passed": 67, "failed": 0, "files": 2 },
+    "playwrightTests": { "passed": 47, "failed": 5, "skipped": 1, "note": "5 failures are pre-existing and unrelated to search (trust tier, submission discover, state history)" }
+  }
+}

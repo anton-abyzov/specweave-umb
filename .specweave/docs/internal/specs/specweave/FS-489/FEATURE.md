@@ -4,7 +4,7 @@ title: "Fix dashboard docs preview services"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 lastUpdated: 2026-03-11
 tldr: "The dashboard Services page has several bugs and missing functionality around documentation preview services:."
 complexity: high
@@ -36,8 +36,6 @@ externalLinks:
 **What**: The dashboard Services page has several bugs and missing functionality around documentation preview services:.
 **Status**: completed | **Priority**: P1
 **User Stories**: 4
-
-![Fix dashboard docs preview services illustration](assets/feature-fs-489.jpg)
 
 ## Overview
 

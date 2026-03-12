@@ -4,13 +4,13 @@ feature: FS-486
 title: "Selective Apply of Eval Changes"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** skill author."
 project: vskill
 external:
   github:
     issue: 74
-    url: https://github.com/anton-abyzov/vskill/issues/74
+    url: "https://github.com/anton-abyzov/vskill/issues/74"
 ---
 
 # US-003: Selective Apply of Eval Changes

@@ -4,13 +4,13 @@ feature: FS-486
 title: "Workspace State for Eval Changes"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** developer."
 project: vskill
 external:
   github:
     issue: 75
-    url: https://github.com/anton-abyzov/vskill/issues/75
+    url: "https://github.com/anton-abyzov/vskill/issues/75"
 ---
 
 # US-004: Workspace State for Eval Changes

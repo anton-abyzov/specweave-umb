@@ -15,7 +15,7 @@ external_tools:
   github:
     type: milestone
     id: 3
-    url: https://github.com/anton-abyzov/vskill-platform/milestone/3
+    url: "https://github.com/anton-abyzov/vskill-platform/milestone/3"
 ---
 
 # Umbrella Sync E2E Verification
@@ -25,8 +25,6 @@ external_tools:
 **What**: Verify that umbrella sync routing correctly routes GitHub issues, JIRA tickets, and ADO work items to per-child-repo targets based on the **Project** field in each user story.
 **Status**: active | **Priority**: P2
 **User Stories**: 1
-
-![Umbrella Sync E2E Verification illustration](assets/feature-fs-425.jpg)
 
 ## Overview
 

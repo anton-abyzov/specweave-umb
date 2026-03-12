@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1318
-    url: https://github.com/anton-abyzov/specweave/issues/1318
+    url: "https://github.com/anton-abyzov/specweave/issues/1318"
 ---
 # US-001: Fire-and-Forget Metrics and Scan Log
 

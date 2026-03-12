@@ -1,10 +1,10 @@
 ---
 id: US-003
 feature: FS-485
-title: Generated Test Cases (P1)
+title: "Generated Test Cases (P1)"
 status: completed
 priority: P1
-created: 2026-03-11
+created: 2026-03-11T00:00:00.000Z
 tldr: "**As a** skill author."
 project: vskill
 external:

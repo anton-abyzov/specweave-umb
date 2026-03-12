@@ -4,13 +4,13 @@ feature: FS-444
 title: "Clean Up Existing Misclassified DB Entries (P1)"
 status: completed
 priority: P0
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** marketplace maintainer."
 project: vskill-platform
 external:
   github:
     issue: 35
-    url: https://github.com/anton-abyzov/vskill-platform/issues/35
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/35"
 ---
 
 # US-005: Clean Up Existing Misclassified DB Entries (P1)

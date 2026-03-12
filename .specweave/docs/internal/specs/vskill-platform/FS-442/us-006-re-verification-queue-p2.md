@@ -4,13 +4,13 @@ feature: FS-442
 title: "Re-Verification Queue (P2)"
 status: completed
 priority: P1
-created: 2026-03-06T00:00:00.000Z
+created: "2026-03-06T00:00:00.000Z"
 tldr: "**As a** platform admin."
 project: vskill-platform
 external:
   github:
     issue: 27
-    url: https://github.com/anton-abyzov/vskill-platform/issues/27
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/27"
 ---
 
 # US-006: Re-Verification Queue (P2)

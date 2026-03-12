@@ -10,7 +10,7 @@ project: vskill-platform
 external:
   github:
     issue: 43
-    url: https://github.com/anton-abyzov/vskill-platform/issues/43
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/43"
 ---
 
 # US-002: Batched Pagination and Observability (P1)

@@ -4,7 +4,7 @@ feature: FS-391
 title: "Architect Skill Markdown Previews (P1)"
 status: completed
 priority: P1
-created: 2026-03-01T00:00:00.000Z
+created: "2026-03-01T00:00:00.000Z"
 tldr: "**As a** developer using `/sw:architect`
 **I want** to see ASCII architecture diagrams and schema tables in side-by-side previews when choosing between approaches
 **So that** I can visually compare structural trade-offs before committing to a decision."

@@ -4,7 +4,7 @@ title: "Redesign vskill Platform Homepage"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-04T00:00:00.000Z
+created: "2026-03-04T00:00:00.000Z"
 lastUpdated: 2026-03-07
 tldr: "The vskill platform homepage has several UX issues: metric cards render at unequal heights and lack navigation, there is no visual explanation of the skill verification pipeline, the hero section is cluttered with an oversi."
 complexity: high
@@ -18,8 +18,6 @@ stakeholder_relevant: true
 **What**: The vskill platform homepage has several UX issues: metric cards render at unequal heights and lack navigation, there is no visual explanation of the skill verification pipeline, the hero section is cluttered with an oversi.
 **Status**: completed | **Priority**: P1
 **User Stories**: 5
-
-![Redesign vskill Platform Homepage illustration](assets/feature-fs-424.jpg)
 
 ## Overview
 

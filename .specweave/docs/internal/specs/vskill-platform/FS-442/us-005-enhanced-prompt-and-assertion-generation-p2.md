@@ -4,13 +4,13 @@ feature: FS-442
 title: "Enhanced Prompt and Assertion Generation (P2)"
 status: completed
 priority: P1
-created: 2026-03-06T00:00:00.000Z
+created: "2026-03-06T00:00:00.000Z"
 tldr: "**As a** platform operator."
 project: vskill-platform
 external:
   github:
     issue: 26
-    url: https://github.com/anton-abyzov/vskill-platform/issues/26
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/26"
 ---
 
 # US-005: Enhanced Prompt and Assertion Generation (P2)

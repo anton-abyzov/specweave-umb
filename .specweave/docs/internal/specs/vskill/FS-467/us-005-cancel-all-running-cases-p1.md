@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 57
-    url: https://github.com/anton-abyzov/vskill/issues/57
+    url: "https://github.com/anton-abyzov/vskill/issues/57"
 ---
 
 # US-005: Cancel All Running Cases (P1)

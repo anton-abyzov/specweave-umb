@@ -4,13 +4,13 @@ feature: FS-414
 title: "Cached Data Visual Distinction"
 status: not_started
 priority: P1
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 tldr: "**As a** queue operator."
 project: vskill-platform
 external:
   github:
     issue: 39
-    url: https://github.com/anton-abyzov/vskill-platform/issues/39
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/39"
 ---
 
 # US-003: Cached Data Visual Distinction

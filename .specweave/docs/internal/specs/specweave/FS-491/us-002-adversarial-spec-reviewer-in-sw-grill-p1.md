@@ -4,13 +4,13 @@ feature: FS-491
 title: "Adversarial Spec Reviewer in sw:grill (P1)"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** SpecWeave user running sw:grill before increment closure."
 project: specweave
 external:
   github:
     issue: 1539
-    url: https://github.com/anton-abyzov/specweave/issues/1539
+    url: "https://github.com/anton-abyzov/specweave/issues/1539"
 ---
 
 # US-002: Adversarial Spec Reviewer in sw:grill (P1)

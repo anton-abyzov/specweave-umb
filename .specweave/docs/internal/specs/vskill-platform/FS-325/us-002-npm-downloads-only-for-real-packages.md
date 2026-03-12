@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1287
-    url: https://github.com/anton-abyzov/specweave/issues/1287
+    url: "https://github.com/anton-abyzov/specweave/issues/1287"
 ---
 # US-002: NPM Downloads Only for Real Packages
 

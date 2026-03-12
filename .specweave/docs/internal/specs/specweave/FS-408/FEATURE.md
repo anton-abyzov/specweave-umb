@@ -19,8 +19,6 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P1
 **User Stories**: 1
 
-![FS-408: GitHub Sync Smoke Test 4 - AC Markers Section illustration](assets/feature-fs-408.jpg)
-
 ## Overview
 
 Fourth smoke test: validates that the `<!-- specweave:ac-start --><!-- specweave:ac-end -->` markers section in the GitHub issue body is populated with AC checkboxes during auto-create, and that AC sync correctly updates checkboxes.

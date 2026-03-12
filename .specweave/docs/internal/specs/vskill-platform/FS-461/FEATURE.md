@@ -4,7 +4,7 @@ title: "Skill Star Count Freshness & Search Index Sync"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "Skills published on verified-skill.com sometimes show 0 stars in search results even when their GitHub repos have thousands of stars."
 complexity: high
@@ -31,8 +31,6 @@ externalLinks:
 **What**: Skills published on verified-skill.com sometimes show 0 stars in search results even when their GitHub repos have thousands of stars.
 **Status**: completed | **Priority**: P1
 **User Stories**: 5
-
-![Skill Star Count Freshness & Search Index Sync illustration](assets/feature-fs-461.jpg)
 
 ## Overview
 

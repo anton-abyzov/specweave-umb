@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1302
-    url: https://github.com/anton-abyzov/specweave/issues/1302
+    url: "https://github.com/anton-abyzov/specweave/issues/1302"
 ---
 # US-001: Smart Placement
 

@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1506
-    url: https://github.com/anton-abyzov/specweave/issues/1506
+    url: "https://github.com/anton-abyzov/specweave/issues/1506"
 ---
 # US-001: Above-the-fold hero zone
 

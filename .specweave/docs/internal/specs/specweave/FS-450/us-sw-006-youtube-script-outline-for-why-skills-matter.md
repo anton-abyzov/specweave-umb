@@ -4,13 +4,13 @@ feature: FS-450
 title: "YouTube Script Outline for 'Why Skills Matter'"
 status: not_started
 priority: P1
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** content creator preparing a YouTube video."
 project: specweave
 external:
   github:
     issue: 1512
-    url: https://github.com/anton-abyzov/specweave/issues/1512
+    url: "https://github.com/anton-abyzov/specweave/issues/1512"
 ---
 
 # US-SW-006: YouTube Script Outline for "Why Skills Matter"

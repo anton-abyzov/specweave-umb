@@ -1,10 +1,10 @@
 ---
 id: US-002
 feature: FS-485
-title: Provider and Model Selection for Generation (P1)
+title: "Provider and Model Selection for Generation (P1)"
 status: completed
 priority: P1
-created: 2026-03-11
+created: 2026-03-11T00:00:00.000Z
 tldr: "**As a** skill author."
 project: vskill
 external:

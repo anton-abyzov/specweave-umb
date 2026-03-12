@@ -4,7 +4,7 @@ title: "Rework Skill Evaluation System"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-06T00:00:00.000Z
+created: "2026-03-06T00:00:00.000Z"
 lastUpdated: 2026-03-06
 tldr: "The current vskill-platform eval system uses blind A/B comparison (with-skill vs without-skill) judged by a single LLM call that returns a holistic 0-100 score and a verdict."
 complexity: high
@@ -18,8 +18,6 @@ stakeholder_relevant: true
 **What**: The current vskill-platform eval system uses blind A/B comparison (with-skill vs without-skill) judged by a single LLM call that returns a holistic 0-100 score and a verdict.
 **Status**: completed | **Priority**: P1
 **User Stories**: 7
-
-![Rework Skill Evaluation System illustration](assets/feature-fs-442.jpg)
 
 ## Overview
 

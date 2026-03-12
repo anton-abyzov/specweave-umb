@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1423
-    url: https://github.com/anton-abyzov/specweave/issues/1423
+    url: "https://github.com/anton-abyzov/specweave/issues/1423"
 ---
 # US-002: Add negation context detection to both scanner variants
 

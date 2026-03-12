@@ -4,13 +4,13 @@ feature: FS-491
 title: "Systematic Debugging Skill (P1)"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** SpecWeave user encountering a difficult bug."
 project: specweave
 external:
   github:
     issue: 1540
-    url: https://github.com/anton-abyzov/specweave/issues/1540
+    url: "https://github.com/anton-abyzov/specweave/issues/1540"
 ---
 
 # US-003: Systematic Debugging Skill (P1)

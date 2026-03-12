@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1269
-    url: https://github.com/anton-abyzov/specweave/issues/1269
+    url: "https://github.com/anton-abyzov/specweave/issues/1269"
 ---
 # US-005: GitHub Repo Search + GraphQL Batch Check
 

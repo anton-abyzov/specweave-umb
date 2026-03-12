@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 177
-    url: https://github.com/anton-abyzov/specweave/milestone/177
+    url: "https://github.com/anton-abyzov/specweave/milestone/177"
 ---
 # Add skillPath to Skill model and View Source link
 

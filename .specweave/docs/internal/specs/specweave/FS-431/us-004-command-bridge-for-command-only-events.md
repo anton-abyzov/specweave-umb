@@ -4,7 +4,7 @@ feature: FS-431
 title: "Command-Bridge for Command-Only Events"
 status: completed
 priority: P0
-created: 2026-03-05T00:00:00.000Z
+created: "2026-03-05T00:00:00.000Z"
 tldr: "**As a** developer."
 project: specweave
 ---

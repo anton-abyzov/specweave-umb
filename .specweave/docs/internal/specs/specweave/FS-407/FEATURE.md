@@ -19,8 +19,6 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P1
 **User Stories**: 1
 
-![FS-407: GitHub Sync Smoke Test 3 - AC Checkbox Sync illustration](assets/feature-fs-407.jpg)
-
 ## Overview
 
 Third smoke test: validates that AC checkboxes sync to GitHub issue body and progress comments show correct percentages after regex fix.

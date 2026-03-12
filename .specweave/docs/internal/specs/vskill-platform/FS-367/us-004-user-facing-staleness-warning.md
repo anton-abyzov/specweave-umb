@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1315
-    url: https://github.com/anton-abyzov/specweave/issues/1315
+    url: "https://github.com/anton-abyzov/specweave/issues/1315"
 ---
 # US-004: User-Facing Staleness Warning
 

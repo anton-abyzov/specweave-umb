@@ -4,7 +4,7 @@ title: "Comparison Progress Observability"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 lastUpdated: 2026-03-11
 tldr: "The compare endpoint wraps 3 sequential LLM calls (skill generation, baseline generation, rubric scoring) in a single `withHeartbeat()` that emits the same generic 'comparing...' message for 3-4 minutes."
 complexity: high
@@ -31,8 +31,6 @@ externalLinks:
 **What**: The compare endpoint wraps 3 sequential LLM calls (skill generation, baseline generation, rubric scoring) in a single `withHeartbeat()` that emits the same generic "comparing..." message for 3-4 minutes.
 **Status**: completed | **Priority**: P1
 **User Stories**: 5
-
-![Comparison Progress Observability illustration](assets/feature-fs-495.jpg)
 
 ## Overview
 

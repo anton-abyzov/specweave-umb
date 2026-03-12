@@ -11,7 +11,7 @@ related_projects: [vskill-platform, specweave]
 external:
   github:
     issue: 8
-    url: https://github.com/anton-abyzov/vskill/issues/8
+    url: "https://github.com/anton-abyzov/vskill/issues/8"
 ---
 
 # US-CLI-001: Scaffold Evals for a Skill (P0)

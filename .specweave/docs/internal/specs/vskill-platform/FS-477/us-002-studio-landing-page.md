@@ -4,7 +4,7 @@ feature: FS-477
 title: "Studio Landing Page"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** skill author."
 project: vskill-platform
 ---

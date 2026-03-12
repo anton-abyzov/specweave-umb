@@ -4,7 +4,7 @@ title: "Skill Eval UI Enhancements"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "The vskill Skill Eval UI provides benchmarking and A/B comparison capabilities, but skill developers lack visibility into the skill definition itself, have no AI-assisted iteration workflow, cannot compare different models on the same test case, and have no awareness of MCP server dependencies required by their skills."
 complexity: high
@@ -36,8 +36,6 @@ externalLinks:
 **What**: The vskill Skill Eval UI provides benchmarking and A/B comparison capabilities, but skill developers lack visibility into the skill definition itself, have no AI-assisted iteration workflow, cannot compare different models on the same test case, and have no awareness of MCP server dependencies required by their skills.
 **Status**: completed | **Priority**: P1
 **User Stories**: 4
-
-![Skill Eval UI Enhancements illustration](assets/feature-fs-459.jpg)
 
 ## Overview
 

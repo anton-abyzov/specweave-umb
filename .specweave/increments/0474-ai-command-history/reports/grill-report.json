@@ -1,0 +1,55 @@
+{
+  "version": "1.1",
+  "incrementId": "0474-ai-command-history",
+  "timestamp": "2026-03-11T23:50:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 2,
+    "critical": 0,
+    "high": 0,
+    "medium": 2,
+    "suppressed": 2
+  },
+  "acCompliance": {
+    "totalACs": 11,
+    "passed": 11,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "History entry written in skill-create-routes.ts:417-428 at create time per FR-001 (skill dir doesn't exist at generate time)" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "Entry includes model, provider, timestamp, skill_name fields at lines 419-426" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "generate: { prompt: body.description, result: content } at line 427" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "api-routes.ts:335-348 writes history with type: 'eval-generate' in generate-evals handler" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "Entry includes model, provider, timestamp, skill_name. Case count inferrable from generate.result JSON" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "listHistory reads type from data.type without filtering; api-routes.ts:734 includes eval-generate in type filter" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "HistoryPanel.tsx:149 includes <option value='instruct'>AI Edit</option>" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "HistoryPage.tsx:47-56 TYPE_PILL map has instruct, ai-generate, eval-generate entries" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "HistoryPage.tsx:118-120 FilterBar has AI Edit, AI Generate, Eval Generate options" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "benchmark.ts:62, benchmark-history.ts:16,26,34 include both new types in unions" },
+      { "acId": "AC-US3-05", "status": "pass", "evidence": "eval-ui types.ts:90,121,131,162 match backend type unions" }
+    ]
+  },
+  "findings": [
+    {
+      "title": "History written at create-time rather than generate-time",
+      "severity": "medium",
+      "confidence": 60,
+      "category": "correctness",
+      "file": "src/eval-server/skill-create-routes.ts:417",
+      "issue": "AC-US1-01 wording says /api/skills/generate writes history, but implementation writes at /api/skills/create time",
+      "suggestion": "FR-001 explicitly prescribes this approach since skill dir doesn't exist at generate time. Current implementation is correct per spec.",
+      "impact": "None - implementation matches FR-001 functional requirement"
+    },
+    {
+      "title": "Eval-generate history uses empty cases array instead of count",
+      "severity": "medium",
+      "confidence": 65,
+      "category": "correctness",
+      "file": "src/eval-server/api-routes.ts:341",
+      "issue": "cases: [] instead of populated array or explicit count field",
+      "suggestion": "Case count is available from generate.result JSON string. Minor data enrichment opportunity.",
+      "impact": "Low - eval count data exists in generate.result field"
+    }
+  ]
+}

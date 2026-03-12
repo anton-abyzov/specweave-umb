@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 192
-    url: https://github.com/anton-abyzov/specweave/milestone/192
+    url: "https://github.com/anton-abyzov/specweave/milestone/192"
 ---
 # Unified Plugin Installation via --repo
 

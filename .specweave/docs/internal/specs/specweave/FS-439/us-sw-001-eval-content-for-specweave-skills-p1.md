@@ -11,7 +11,7 @@ related_projects: [vskill, vskill-platform]
 external:
   github:
     issue: 1502
-    url: https://github.com/anton-abyzov/specweave/issues/1502
+    url: "https://github.com/anton-abyzov/specweave/issues/1502"
 ---
 
 # US-SW-001: Eval Content for SpecWeave Skills (P1)

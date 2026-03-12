@@ -4,7 +4,7 @@ title: "Deploy latest living docs to specweave website"
 type: feature
 status: completed
 priority: P2
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "Build and deploy the latest living documentation to the specweave.com website so users have access to up-to-date feature specs and API docs."
 complexity: low
@@ -37,8 +37,6 @@ externalLinks:
 **What**: Build and deploy the latest living documentation to the specweave.com website so users have access to up-to-date feature specs and API docs.
 **Status**: completed | **Priority**: P2
 **User Stories**: 1
-
-![Deploy latest living docs to specweave website illustration](assets/feature-fs-412.jpg)
 
 ## Overview
 

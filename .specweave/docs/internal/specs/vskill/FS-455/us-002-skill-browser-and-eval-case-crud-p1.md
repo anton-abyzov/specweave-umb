@@ -4,13 +4,13 @@ feature: FS-455
 title: "Skill Browser and Eval Case CRUD (P1)"
 status: completed
 priority: P1
-created: 2026-03-08T00:00:00.000Z
+created: "2026-03-08T00:00:00.000Z"
 tldr: "**As a** skill developer."
 project: vskill
 external:
   github:
     issue: 18
-    url: https://github.com/anton-abyzov/vskill/issues/18
+    url: "https://github.com/anton-abyzov/vskill/issues/18"
 ---
 
 # US-002: Skill Browser and Eval Case CRUD (P1)

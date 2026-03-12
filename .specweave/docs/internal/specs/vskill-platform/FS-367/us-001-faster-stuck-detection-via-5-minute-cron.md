@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1312
-    url: https://github.com/anton-abyzov/specweave/issues/1312
+    url: "https://github.com/anton-abyzov/specweave/issues/1312"
 ---
 # US-001: Faster Stuck Detection via 5-Minute Cron
 

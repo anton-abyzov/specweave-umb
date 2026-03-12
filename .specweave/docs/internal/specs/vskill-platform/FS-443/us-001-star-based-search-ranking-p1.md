@@ -4,13 +4,13 @@ feature: FS-443
 title: Star-based search ranking (P1)
 status: completed
 priority: P1
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** developer searching for skills on verified-skill.com."
 project: vskill-platform
 external:
   github:
     issue: 29
-    url: https://github.com/anton-abyzov/vskill-platform/issues/29
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/29"
 ---
 
 # US-001: Star-based search ranking (P1)

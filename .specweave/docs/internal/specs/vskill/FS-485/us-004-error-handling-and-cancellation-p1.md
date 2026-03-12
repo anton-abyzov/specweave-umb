@@ -1,10 +1,10 @@
 ---
 id: US-004
 feature: FS-485
-title: Error Handling and Cancellation (P1)
+title: "Error Handling and Cancellation (P1)"
 status: completed
 priority: P1
-created: 2026-03-11
+created: 2026-03-11T00:00:00.000Z
 tldr: "**As a** skill author."
 project: vskill
 external:

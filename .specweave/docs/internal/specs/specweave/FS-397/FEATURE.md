@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 194
-    url: https://github.com/anton-abyzov/specweave/milestone/194
+    url: "https://github.com/anton-abyzov/specweave/milestone/194"
 ---
 # Development Loom Documentation Site Rework — Phase 1
 

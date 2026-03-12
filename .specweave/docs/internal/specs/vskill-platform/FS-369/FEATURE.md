@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 8
-    url: https://github.com/anton-abyzov/specweave-umb/milestone/8
+    url: "https://github.com/anton-abyzov/specweave-umb/milestone/8"
 ---
 
 # Fix Duplicate Processing False Rejections

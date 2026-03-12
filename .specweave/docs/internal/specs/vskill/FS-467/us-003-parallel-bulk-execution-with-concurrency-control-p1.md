@@ -10,7 +10,7 @@ project: vskill
 external:
   github:
     issue: 55
-    url: https://github.com/anton-abyzov/vskill/issues/55
+    url: "https://github.com/anton-abyzov/vskill/issues/55"
 ---
 
 # US-003: Parallel Bulk Execution with Concurrency Control (P1)

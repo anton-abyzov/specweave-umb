@@ -19,8 +19,6 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P1
 **User Stories**: 2
 
-![FS-399: Skill-Embedded Agents & Token Isolation illustration](assets/feature-fs-399.jpg)
-
 ## Implementation History
 
 | Increment | Status | Completion Date |

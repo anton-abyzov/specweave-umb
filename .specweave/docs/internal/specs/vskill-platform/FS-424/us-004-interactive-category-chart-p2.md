@@ -4,13 +4,13 @@ feature: FS-424
 title: "Interactive Category Chart (P2)"
 status: completed
 priority: P1
-created: 2026-03-04T00:00:00.000Z
+created: "2026-03-04T00:00:00.000Z"
 tldr: "**As a** visitor."
 project: vskill-platform
 external:
   github:
     issue: 8
-    url: https://github.com/anton-abyzov/vskill-platform/issues/8
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/8"
 ---
 
 # US-004: Interactive Category Chart (P2)

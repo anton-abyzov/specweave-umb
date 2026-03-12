@@ -4,7 +4,7 @@ feature: FS-398
 title: "Fix Hardcoded Branch Names in Issue Bodies (P1)"
 status: completed
 priority: P0
-created: 2026-03-02T00:00:00.000Z
+created: "2026-03-02T00:00:00.000Z"
 tldr: "**As a** user with a non-standard default branch."
 project: specweave
 ---

@@ -4,7 +4,7 @@ title: "Skill Studio AI Edit Feature"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 lastUpdated: 2026-03-11
 tldr: "Skill authors currently rely on the 'Improve Skill' feature which applies opinionated best-practice improvements automatically."
 complexity: medium
@@ -31,8 +31,6 @@ externalLinks:
 **What**: Skill authors currently rely on the "Improve Skill" feature which applies opinionated best-practice improvements automatically.
 **Status**: completed | **Priority**: P1
 **User Stories**: 2
-
-![Skill Studio AI Edit Feature illustration](assets/feature-fs-484.jpg)
 
 ## Overview
 

@@ -1,10 +1,10 @@
 ---
 increment: 0474-ai-command-history
-title: "AI commands not recording to history"
+title: AI commands not recording to history
 type: bug
 priority: P1
-status: planned
-created: 2026-03-10
+status: completed
+created: 2026-03-10T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

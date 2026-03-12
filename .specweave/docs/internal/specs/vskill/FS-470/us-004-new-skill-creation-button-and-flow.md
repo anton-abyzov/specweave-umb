@@ -4,13 +4,13 @@ feature: FS-470
 title: "New Skill Creation Button and Flow"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** skill author."
 project: vskill
 external:
   github:
     issue: 62
-    url: https://github.com/anton-abyzov/vskill/issues/62
+    url: "https://github.com/anton-abyzov/vskill/issues/62"
 ---
 
 # US-004: New Skill Creation Button and Flow

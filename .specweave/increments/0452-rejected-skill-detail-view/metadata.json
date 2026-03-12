@@ -1,13 +1,30 @@
 {
   "id": "0452-rejected-skill-detail-view",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-07T18:15:10.437Z",
-  "lastActivity": "2026-03-07T18:15:10.437Z",
+  "lastActivity": "2026-03-12T00:15:03.512Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-169",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-169",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-12T00:15:42.576Z"
+    },
+    "ado": {
+      "featureId": "797",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/797",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-12T00:15:44.160Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-12T00:14:54.544Z",
+  "approvedAt": "2026-03-12T00:15:03.512Z"
 }

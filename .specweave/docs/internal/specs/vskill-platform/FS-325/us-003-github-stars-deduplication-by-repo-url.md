@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1289
-    url: https://github.com/anton-abyzov/specweave/issues/1289
+    url: "https://github.com/anton-abyzov/specweave/issues/1289"
 ---
 # US-003: GitHub Stars Deduplication by Repo URL
 

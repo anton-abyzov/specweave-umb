@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1339
-    url: https://github.com/anton-abyzov/specweave/issues/1339
+    url: "https://github.com/anton-abyzov/specweave/issues/1339"
 ---
 # US-005: State Filter Sorting
 

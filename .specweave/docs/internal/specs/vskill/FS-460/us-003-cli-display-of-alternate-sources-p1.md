@@ -4,14 +4,14 @@ feature: FS-460
 title: "CLI display of alternate sources (P1)"
 status: completed
 priority: P0
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 tldr: "**As a** CLI user running `vskill find`."
 project: vskill
 related_projects: [vskill-platform]
 external:
   github:
     issue: 40
-    url: https://github.com/anton-abyzov/vskill/issues/40
+    url: "https://github.com/anton-abyzov/vskill/issues/40"
 ---
 
 # US-003: CLI display of alternate sources (P1)

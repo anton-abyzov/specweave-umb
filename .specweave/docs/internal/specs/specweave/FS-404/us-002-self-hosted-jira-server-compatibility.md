@@ -9,7 +9,7 @@ tldr: "**As a** user running JIRA Server or Data Center (self-hosted),."
 external:
   github:
     issue: 1470
-    url: https://github.com/anton-abyzov/specweave/issues/1470
+    url: "https://github.com/anton-abyzov/specweave/issues/1470"
 ---
 
 # US-002: Self-Hosted JIRA Server Compatibility

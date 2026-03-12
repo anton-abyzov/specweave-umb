@@ -4,13 +4,13 @@ feature: FS-444
 title: "Migrate TypeScript Call Sites (P0)"
 status: completed
 priority: P0
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** platform developer."
 project: vskill-platform
 external:
   github:
     issue: 33
-    url: https://github.com/anton-abyzov/vskill-platform/issues/33
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/33"
 ---
 
 # US-003: Migrate TypeScript Call Sites (P0)

@@ -12,7 +12,7 @@ related_projects:
 external:
   github:
     issue: 85
-    url: https://github.com/anton-abyzov/vskill/issues/85
+    url: "https://github.com/anton-abyzov/vskill/issues/85"
 ---
 
 # US-002: Trust tier in non-TTY and JSON output (P1)

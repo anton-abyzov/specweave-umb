@@ -9,7 +9,7 @@ project: specweave
 external:
   github:
     issue: 1463
-    url: https://github.com/anton-abyzov/specweave/issues/1463
+    url: "https://github.com/anton-abyzov/specweave/issues/1463"
 ---
 # US-001: Design Token System
 

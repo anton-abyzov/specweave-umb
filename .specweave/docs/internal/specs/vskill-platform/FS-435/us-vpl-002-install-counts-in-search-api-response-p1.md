@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 40
-    url: https://github.com/anton-abyzov/vskill-platform/issues/40
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/40"
 ---
 
 # US-VPL-002: Install counts in search API response (P1)

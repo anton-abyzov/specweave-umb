@@ -4,7 +4,7 @@ title: "Umbrella sync consolidation: distributed routing and increment cleanup"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 lastUpdated: 2026-03-03
 tldr: "SpecWeave's umbrella mode (`umbrella.enabled: true`) supports multiple repos under `repositories/org/repo-name/` with per-repo sync config (`childRepos[].sync`)."
 complexity: medium
@@ -18,8 +18,6 @@ stakeholder_relevant: true
 **What**: SpecWeave's umbrella mode (`umbrella.enabled: true`) supports multiple repos under `repositories/org/repo-name/` with per-repo sync config (`childRepos[].sync`).
 **Status**: completed | **Priority**: P1
 **User Stories**: 3
-
-![Umbrella sync consolidation: distributed routing and increment cleanup illustration](assets/feature-fs-416.jpg)
 
 ## Overview
 

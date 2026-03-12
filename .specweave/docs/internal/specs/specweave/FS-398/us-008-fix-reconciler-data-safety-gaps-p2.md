@@ -4,7 +4,7 @@ feature: FS-398
 title: "Fix Reconciler Data Safety Gaps (P2)"
 status: completed
 priority: P0
-created: 2026-03-02T00:00:00.000Z
+created: "2026-03-02T00:00:00.000Z"
 tldr: "**As a** user managing increment lifecycle."
 project: specweave
 ---

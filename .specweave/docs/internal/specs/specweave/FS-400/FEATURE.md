@@ -19,8 +19,6 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P1
 **User Stories**: 6
 
-![FS-400: Sync Pipeline Reliability illustration](assets/feature-fs-400.jpg)
-
 ## Overview
 
 The GitHub sync pipeline has multiple structural bugs causing increments to go unsynced, milestones to remain open after completion, and task-level progress to never reach external tools. Five specific failures were identified through audit of increments 0390-0399.

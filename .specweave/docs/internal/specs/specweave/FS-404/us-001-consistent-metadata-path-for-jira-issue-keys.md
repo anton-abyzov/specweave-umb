@@ -9,7 +9,7 @@ tldr: "**As a** SpecWeave user syncing tasks to JIRA,."
 external:
   github:
     issue: 1469
-    url: https://github.com/anton-abyzov/specweave/issues/1469
+    url: "https://github.com/anton-abyzov/specweave/issues/1469"
 ---
 
 # US-001: Consistent Metadata Path for JIRA Issue Keys

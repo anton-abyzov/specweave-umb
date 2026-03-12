@@ -4,7 +4,7 @@ feature: FS-391
 title: "ASCII Diagram Utility Functions (P1)"
 status: completed
 priority: P1
-created: 2026-03-01T00:00:00.000Z
+created: "2026-03-01T00:00:00.000Z"
 tldr: "**As a** SpecWeave skill author
 **I want** reusable ASCII diagram generator functions
 **So that** skills produce consistent, well-formatted diagrams for AskUserQuestion previews."

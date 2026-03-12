@@ -4,13 +4,13 @@ feature: FS-489
 title: "Scope-specific docs commands (P1)"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** developer using the SpecWeave dashboard."
 project: specweave
 external:
   github:
     issue: 1534
-    url: https://github.com/anton-abyzov/specweave/issues/1534
+    url: "https://github.com/anton-abyzov/specweave/issues/1534"
 ---
 
 # US-001: Scope-specific docs commands (P1)

@@ -4,13 +4,13 @@ feature: FS-419
 title: "Version Flag Support (P2)"
 status: completed
 priority: P2
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 tldr: "**As a** vskill CLI user."
 project: vskill
 external:
   github:
     issue: 3
-    url: https://github.com/anton-abyzov/vskill/issues/3
+    url: "https://github.com/anton-abyzov/vskill/issues/3"
 ---
 
 # US-001: Version Flag Support (P2)

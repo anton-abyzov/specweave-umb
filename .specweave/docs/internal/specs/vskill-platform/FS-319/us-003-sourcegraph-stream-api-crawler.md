@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1267
-    url: https://github.com/anton-abyzov/specweave/issues/1267
+    url: "https://github.com/anton-abyzov/specweave/issues/1267"
 ---
 # US-003: Sourcegraph Stream API Crawler
 

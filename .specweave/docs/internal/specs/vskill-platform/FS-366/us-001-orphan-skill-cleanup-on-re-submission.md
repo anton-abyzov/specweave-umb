@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1330
-    url: https://github.com/anton-abyzov/specweave/issues/1330
+    url: "https://github.com/anton-abyzov/specweave/issues/1330"
 ---
 # US-001: Orphan Skill Cleanup on Re-submission
 

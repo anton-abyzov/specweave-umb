@@ -4,7 +4,7 @@ feature: FS-446
 title: "TypeScript Type and Function Renames"
 status: not_started
 priority: P1
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** developer maintaining the codebase."
 project: vskill-platform
 ---

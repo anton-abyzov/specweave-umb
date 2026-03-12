@@ -15,3 +15,4 @@
 - **2026-03-11**: Use /sw:grill before completing features to validate quality and identify issues before shipping - grill output determines if increment is ready for /sw:done
 - **2026-03-11**: User prompt can be duplicated in additionalContext when skill invocation is triggered, causing context bloat - always truncate user prompts in hook additionalContext to max 2000 chars and in detect-intent calls to max 3000 chars
 - **2026-03-11**: When overriding npm registry, use `HOME=/tmp` to bypass all `.npmrc` configuration including unscoped auth tokens that could cause 401 errors on public registries—simple env var overrides like `npm_config_registry` may not eliminate all config interference
+- **2026-03-11**: specweave complete requires full increment ID (e.g., '0494-search-performance-optimization'), not short form like '0494', or command silently fails with no output and status remains unchanged

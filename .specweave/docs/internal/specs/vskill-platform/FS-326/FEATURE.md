@@ -15,7 +15,7 @@ external_tools:
   github:
     type: milestone
     id: 130
-    url: https://github.com/anton-abyzov/specweave/milestone/130
+    url: "https://github.com/anton-abyzov/specweave/milestone/130"
 ---
 # Trust Center fixes: real tier stats, blocklist retry, reports modal, auto-refresh
 

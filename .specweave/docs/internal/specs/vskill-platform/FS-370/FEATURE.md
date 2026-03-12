@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 155
-    url: https://github.com/anton-abyzov/specweave/milestone/155
+    url: "https://github.com/anton-abyzov/specweave/milestone/155"
 ---
 # Fix Homepage Categories & Trending Momentum
 

@@ -12,7 +12,7 @@ related_projects:
 external:
   github:
     issue: 83
-    url: https://github.com/anton-abyzov/vskill/issues/83
+    url: "https://github.com/anton-abyzov/vskill/issues/83"
 ---
 
 # US-001: See trust badges in find results (P1)

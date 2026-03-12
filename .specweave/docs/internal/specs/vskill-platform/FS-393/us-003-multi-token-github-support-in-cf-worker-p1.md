@@ -4,7 +4,7 @@ feature: FS-393
 title: "Multi-Token GitHub Support in CF Worker (P1)"
 status: completed
 priority: P1
-created: 2026-03-01T00:00:00.000Z
+created: "2026-03-01T00:00:00.000Z"
 tldr: "**As a** platform operator."
 project: vskill-platform
 ---

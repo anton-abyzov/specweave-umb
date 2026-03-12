@@ -11,7 +11,7 @@ related_projects: [vskill, vskill-platform]
 external:
   github:
     issue: 1489
-    url: https://github.com/anton-abyzov/specweave/issues/1489
+    url: "https://github.com/anton-abyzov/specweave/issues/1489"
 ---
 
 # US-SPE-001: Specweave Repo Sync Verification

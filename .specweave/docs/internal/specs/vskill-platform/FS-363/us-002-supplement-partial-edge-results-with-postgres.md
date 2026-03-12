@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1326
-    url: https://github.com/anton-abyzov/specweave/issues/1326
+    url: "https://github.com/anton-abyzov/specweave/issues/1326"
 ---
 # US-002: Supplement partial edge results with Postgres
 

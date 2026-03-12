@@ -4,13 +4,13 @@ feature: FS-420
 title: "Vendor skills bypass discovery dedup (P0)"
 status: completed
 priority: P1
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 tldr: "**As a** vskill user searching for official skills."
 project: vskill-platform
 external:
   github:
     issue: 2
-    url: https://github.com/anton-abyzov/vskill-platform/issues/2
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/2"
 ---
 
 # US-001: Vendor skills bypass discovery dedup (P0)

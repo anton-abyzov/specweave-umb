@@ -1,10 +1,10 @@
 {
   "id": "0492-init-project-resolution-redesign",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-11T08:24:55.631Z",
-  "lastActivity": "2026-03-11T08:24:55.631Z",
+  "lastActivity": "2026-03-12T00:12:48.908Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -25,11 +25,25 @@
         "US-003": {
           "issueNumber": 1546,
           "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1546",
-          "status": "active"
+          "status": "closed"
         }
       },
       "milestone": 238,
-      "syncedAt": "2026-03-11T23:48:31.772Z"
+      "syncedAt": "2026-03-12T00:12:57.663Z"
+    },
+    "jira": {
+      "epicKey": "SWE2E-163",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-163",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-12T00:15:21.483Z"
+    },
+    "ado": {
+      "featureId": "710",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/710",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-12T00:15:23.041Z"
     }
   },
   "github": {
@@ -54,5 +68,7 @@
       }
     ],
     "lastSync": "2026-03-11T23:48:31.772Z"
-  }
+  },
+  "readyForReviewAt": "2026-03-12T00:12:34.218Z",
+  "approvedAt": "2026-03-12T00:12:48.908Z"
 }

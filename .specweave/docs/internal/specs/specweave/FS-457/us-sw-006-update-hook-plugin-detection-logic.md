@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 1525
-    url: https://github.com/anton-abyzov/specweave/issues/1525
+    url: "https://github.com/anton-abyzov/specweave/issues/1525"
 ---
 
 # US-SW-006: Update Hook Plugin Detection Logic

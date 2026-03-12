@@ -10,7 +10,7 @@ project: specweave
 external:
   github:
     issue: 1487
-    url: https://github.com/anton-abyzov/specweave/issues/1487
+    url: "https://github.com/anton-abyzov/specweave/issues/1487"
 ---
 
 # US-001: Centralized sync routes to global targets

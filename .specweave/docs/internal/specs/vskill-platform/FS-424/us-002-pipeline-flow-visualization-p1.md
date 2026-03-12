@@ -4,13 +4,13 @@ feature: FS-424
 title: "Pipeline Flow Visualization (P1)"
 status: completed
 priority: P1
-created: 2026-03-04T00:00:00.000Z
+created: "2026-03-04T00:00:00.000Z"
 tldr: "**As a** visitor."
 project: vskill-platform
 external:
   github:
     issue: 5
-    url: https://github.com/anton-abyzov/vskill-platform/issues/5
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/5"
 ---
 
 # US-002: Pipeline Flow Visualization (P1)

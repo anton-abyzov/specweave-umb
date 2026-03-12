@@ -11,7 +11,7 @@ related_projects: [vskill]
 external:
   github:
     issue: 1524
-    url: https://github.com/anton-abyzov/specweave/issues/1524
+    url: "https://github.com/anton-abyzov/specweave/issues/1524"
 ---
 
 # US-SW-004: TypeScript Types and Config Schema Update

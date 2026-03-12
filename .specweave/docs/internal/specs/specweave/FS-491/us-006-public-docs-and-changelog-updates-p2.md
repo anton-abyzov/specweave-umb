@@ -4,13 +4,13 @@ feature: FS-491
 title: "Public Docs and Changelog Updates (P2)"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** SpecWeave user or evaluator reading public documentation."
 project: specweave
 external:
   github:
     issue: 1543
-    url: https://github.com/anton-abyzov/specweave/issues/1543
+    url: "https://github.com/anton-abyzov/specweave/issues/1543"
 ---
 
 # US-006: Public Docs and Changelog Updates (P2)

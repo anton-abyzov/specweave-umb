@@ -4,13 +4,13 @@ feature: FS-458
 title: "Per-Test-Case History (P1)"
 status: completed
 priority: P1
-created: 2026-03-09T00:00:00.000Z
+created: "2026-03-09T00:00:00.000Z"
 tldr: "**As a** skill author."
 project: vskill
 external:
   github:
     issue: 35
-    url: https://github.com/anton-abyzov/vskill/issues/35
+    url: "https://github.com/anton-abyzov/vskill/issues/35"
 ---
 
 # US-008: Per-Test-Case History (P1)

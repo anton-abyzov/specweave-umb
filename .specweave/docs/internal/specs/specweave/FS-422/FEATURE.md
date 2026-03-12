@@ -13,7 +13,7 @@ external_tools:
   github:
     type: milestone
     id: 212
-    url: https://github.com/anton-abyzov/specweave/milestone/212
+    url: "https://github.com/anton-abyzov/specweave/milestone/212"
 ---
 
 # E2E test: centralized sync routing

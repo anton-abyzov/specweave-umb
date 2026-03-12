@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1314
-    url: https://github.com/anton-abyzov/specweave/issues/1314
+    url: "https://github.com/anton-abyzov/specweave/issues/1314"
 ---
 # US-003: Inflight Processing Stage Tracking
 

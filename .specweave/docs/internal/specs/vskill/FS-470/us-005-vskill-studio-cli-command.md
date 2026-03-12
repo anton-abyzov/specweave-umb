@@ -4,13 +4,13 @@ feature: FS-470
 title: "`vskill studio` CLI Command"
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 tldr: "**As a** skill author."
 project: vskill
 external:
   github:
     issue: 63
-    url: https://github.com/anton-abyzov/vskill/issues/63
+    url: "https://github.com/anton-abyzov/vskill/issues/63"
 ---
 
 # US-005: `vskill studio` CLI Command

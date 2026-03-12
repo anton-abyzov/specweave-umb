@@ -4,13 +4,13 @@ feature: FS-489
 title: "Correct service listing with proper ports (P1)"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** developer viewing the Services page."
 project: specweave
 external:
   github:
     issue: 1535
-    url: https://github.com/anton-abyzov/specweave/issues/1535
+    url: "https://github.com/anton-abyzov/specweave/issues/1535"
 ---
 
 # US-002: Correct service listing with proper ports (P1)

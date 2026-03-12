@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1291
-    url: https://github.com/anton-abyzov/specweave/issues/1291
+    url: "https://github.com/anton-abyzov/specweave/issues/1291"
 ---
 # US-005: Expand Categories with Auto-Categorization
 

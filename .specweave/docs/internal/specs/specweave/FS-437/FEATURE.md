@@ -4,8 +4,8 @@ title: '[EXTERNAL] Add retry logic to sync operations'
 type: feature
 status: completed
 priority: P2
-created: 2026-03-05T00:00:00.000Z
-lastUpdated: 2026-03-05T00:00:00.000Z
+created: "2026-03-05T00:00:00.000Z"
+lastUpdated: "2026-03-05T00:00:00.000Z"
 tldr: >-
   When sync fails due to transient errors (network timeouts, rate limits), the
   operation should retry automatically with exponential backoff before reporting
@@ -36,8 +36,6 @@ updated: '2026-03-05'
 **What**: When sync fails due to transient errors (network timeouts, rate limits), the operation should retry automatically with exponential backoff before reporting failure.
 **Status**: completed | **Priority**: P2
 **User Stories**: 1
-
-![[EXTERNAL] Add retry logic to sync operations illustration](assets/feature-fs-437.jpg)
 
 ## Overview
 

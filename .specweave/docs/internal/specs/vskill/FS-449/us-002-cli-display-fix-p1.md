@@ -4,7 +4,7 @@ feature: FS-449
 title: "CLI Display Fix (P1)"
 status: completed
 priority: P1
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** CLI user running `vskill find`."
 project: vskill
 related_projects: [vskill-platform]

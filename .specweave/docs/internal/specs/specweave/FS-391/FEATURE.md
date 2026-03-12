@@ -4,7 +4,7 @@ title: "AskUserQuestion Markdown Previews for SpecWeave Skills"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-01T00:00:00.000Z
+created: "2026-03-01T00:00:00.000Z"
 lastUpdated: 2026-03-01
 tldr: "Add ASCII diagram utility functions and integrate markdown preview support into SpecWeave skills (`/sw:architect`, `/sw:plan`, `/sw:increment`) so that architectural decisions, task dependencies, and schema choices are presented visually via Claude Code's `AskUserQuestion` markdown preview feature."
 complexity: high
@@ -18,8 +18,6 @@ stakeholder_relevant: true
 **What**: Add ASCII diagram utility functions and integrate markdown preview support into SpecWeave skills (`/sw:architect`, `/sw:plan`, `/sw:increment`) so that architectural decisions, task dependencies, and schema choices are presented visually via Claude Code's `AskUserQuestion` markdown preview feature.
 **Status**: completed | **Priority**: P1
 **User Stories**: 4
-
-![AskUserQuestion Markdown Previews for SpecWeave Skills illustration](assets/feature-fs-391.jpg)
 
 ## Overview
 

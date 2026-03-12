@@ -4,7 +4,7 @@ title: "Skill Studio UI Redesign"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 lastUpdated: 2026-03-11
 tldr: "Complete workspace redesign: grouped panel rail, activation test as workspace panel, mode badges, navigation cleanup."
 complexity: low
@@ -36,8 +36,6 @@ externalLinks:
 **What**: Complete workspace redesign: grouped panel rail, activation test as workspace panel, mode badges, navigation cleanup.
 **Status**: completed | **Priority**: P1
 **User Stories**: 1
-
-![Skill Studio UI Redesign illustration](assets/feature-fs-469.jpg)
 
 ## Overview
 

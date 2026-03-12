@@ -15,7 +15,7 @@ external_tools:
   github:
     type: milestone
     id: 120
-    url: https://github.com/anton-abyzov/specweave/milestone/120
+    url: "https://github.com/anton-abyzov/specweave/milestone/120"
 ---
 # Homepage improvements: CLI examples, category chart fix, trending data consistency
 

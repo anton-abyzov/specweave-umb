@@ -19,8 +19,6 @@ stakeholder_relevant: true
 **Status**: completed | **Priority**: P1
 **User Stories**: 2
 
-![Fix broken DORA metrics pipeline and dashboard illustration](assets/feature-fs-376.jpg)
-
 ## Overview
 
 Fix CFR/lead-time threshold mismatches between code and documentation, update stale goals that no longer reflect current performance, and correct dashboard text inconsistencies.

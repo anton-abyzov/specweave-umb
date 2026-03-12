@@ -14,7 +14,7 @@ external_tools:
   github:
     type: milestone
     id: 6
-    url: https://github.com/anton-abyzov/vskill-platform/milestone/6
+    url: "https://github.com/anton-abyzov/vskill-platform/milestone/6"
 ---
 
 # Skill Eval Infrastructure
@@ -24,8 +24,6 @@ external_tools:
 **What**: Skills across vskill (42 plugin skills) and specweave (48 skills) lack a systematic evaluation framework.
 **Status**: ready_for_review | **Priority**: P1
 **User Stories**: 2
-
-![Skill Eval Infrastructure illustration](assets/feature-fs-439.jpg)
 
 ## Overview
 

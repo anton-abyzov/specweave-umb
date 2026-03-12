@@ -4,7 +4,7 @@ title: "Fix stale/inconsistent skill metadata display"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 lastUpdated: 2026-03-11
 tldr: "Users see contradictory or stale information on skill detail pages due to three independent bugs:."
 complexity: medium
@@ -36,8 +36,6 @@ externalLinks:
 **What**: Users see contradictory or stale information on skill detail pages due to three independent bugs:.
 **Status**: completed | **Priority**: P1
 **User Stories**: 3
-
-![Fix stale/inconsistent skill metadata display illustration](assets/feature-fs-476.jpg)
 
 ## Overview
 

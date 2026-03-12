@@ -4,8 +4,8 @@ title: Trust badges in vskill find output
 type: feature
 status: planned
 priority: P1
-created: 2026-03-07T00:00:00.000Z
-lastUpdated: 2026-03-11T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
+lastUpdated: "2026-03-11T00:00:00.000Z"
 tldr: >-
   Display colored trust tier badges (T4 certified, T3 verified, T2/T1 maybe)
   alongside star counts in `vskill find` CLI output.

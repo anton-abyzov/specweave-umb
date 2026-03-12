@@ -16,7 +16,7 @@ external_tools:
   github:
     type: milestone
     id: 9
-    url: https://github.com/anton-abyzov/vskill/milestone/9
+    url: "https://github.com/anton-abyzov/vskill/milestone/9"
 ---
 
 # Marketplace Unregistered Plugin Discovery

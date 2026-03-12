@@ -1,34 +1,32 @@
 ---
 id: FS-485
-title: Skill Studio AI-Assisted Skill Creation
+title: "Skill Studio AI-Assisted Skill Creation"
 type: feature
-status: planned
+status: completed
 priority: P1
 created: 2026-03-11T00:00:00.000Z
-lastUpdated: 2026-03-11T00:00:00.000Z
-tldr: Add an AI-assisted mode to the Create Skill page in Skill Studio (eval-ui).
+lastUpdated: 2026-03-12
+tldr: "Add an AI-assisted mode to the Create Skill page in Skill Studio (eval-ui)."
 complexity: high
 stakeholder_relevant: true
 external_tools:
   github:
-    type: milestone
+    type: 'milestone'
     id: 24
     url: 'https://github.com/anton-abyzov/vskill/milestone/24'
 externalLinks:
   jira:
-    epicKey: SWE2E-153
+    epicKey: 'SWE2E-153'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-153'
     syncedAt: '2026-03-11T21:16:26.030Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 504
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/504
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/504'
     syncedAt: '2026-03-11T21:16:37.424Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-11'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Skill Studio AI-Assisted Skill Creation
@@ -36,8 +34,10 @@ updated: '2026-03-11'
 ## TL;DR
 
 **What**: Add an AI-assisted mode to the Create Skill page in Skill Studio (eval-ui).
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 7
+
+![Skill Studio AI-Assisted Skill Creation illustration](assets/feature-fs-485.jpg)
 
 ## Overview
 
@@ -47,7 +47,7 @@ Add an AI-assisted mode to the Create Skill page in Skill Studio (eval-ui). User
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0485-skill-studio-ai-create](../../../../../increments/0485-skill-studio-ai-create/spec.md) | ⏳ planned | 2026-03-11 |
+| [0485-skill-studio-ai-create](../../../../../increments/0485-skill-studio-ai-create/spec.md) | ✅ completed | 2026-03-11T00:00:00.000Z |
 
 ## User Stories
 

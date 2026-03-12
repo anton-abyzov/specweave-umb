@@ -4,7 +4,7 @@ title: "Merge social-posts into social-media-posting"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 lastUpdated: 2026-03-11
 tldr: "Two overlapping social media skills exist in the marketing plugin: `social-media-posting` (11 platforms, automated posting, dedup, engagement, scheduling) and `social-posts` (6+1 platforms, strategic thinking, product context, video generation, per-platform copy files)."
 complexity: high
@@ -31,8 +31,6 @@ externalLinks:
 **What**: Two overlapping social media skills exist in the marketing plugin: `social-media-posting` (11 platforms, automated posting, dedup, engagement, scheduling) and `social-posts` (6+1 platforms, strategic thinking, product context, video generation, per-platform copy files).
 **Status**: completed | **Priority**: P1
 **User Stories**: 4
-
-![Merge social-posts into social-media-posting illustration](assets/feature-fs-483.jpg)
 
 ## Overview
 

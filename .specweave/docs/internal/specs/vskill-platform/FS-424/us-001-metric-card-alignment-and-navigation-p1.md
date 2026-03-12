@@ -4,13 +4,13 @@ feature: FS-424
 title: "Metric Card Alignment and Navigation (P1)"
 status: completed
 priority: P1
-created: 2026-03-04T00:00:00.000Z
+created: "2026-03-04T00:00:00.000Z"
 tldr: "**As a** visitor."
 project: vskill-platform
 external:
   github:
     issue: 4
-    url: https://github.com/anton-abyzov/vskill-platform/issues/4
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/4"
 ---
 
 # US-001: Metric Card Alignment and Navigation (P1)

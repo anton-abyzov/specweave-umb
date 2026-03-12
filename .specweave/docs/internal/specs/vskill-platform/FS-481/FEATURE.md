@@ -4,7 +4,7 @@ title: "Sync Pipeline E2E Test"
 type: feature
 status: active
 priority: P2
-created: 2026-03-10T00:00:00.000Z
+created: "2026-03-10T00:00:00.000Z"
 lastUpdated: 2026-03-10
 tldr: "End-to-end test increment to verify that the SpecWeave sync pipeline correctly creates living docs folders and syncs to all three external providers (GitHub Issues, JIRA Epics+Stories, A."
 complexity: low
@@ -31,8 +31,6 @@ externalLinks:
 **What**: End-to-end test increment to verify that the SpecWeave sync pipeline correctly creates living docs folders and syncs to all three external providers (GitHub Issues, JIRA Epics+Stories, A.
 **Status**: active | **Priority**: P2
 **User Stories**: 1
-
-![Sync Pipeline E2E Test illustration](assets/feature-fs-481.jpg)
 
 ## Overview
 

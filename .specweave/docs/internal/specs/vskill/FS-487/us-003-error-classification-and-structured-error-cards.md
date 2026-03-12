@@ -4,13 +4,13 @@ feature: FS-487
 title: "Error Classification and Structured Error Cards"
 status: completed
 priority: P1
-created: 2026-03-11T00:00:00.000Z
+created: "2026-03-11T00:00:00.000Z"
 tldr: "**As a** skill developer."
 project: vskill
 external:
   github:
     issue: 76
-    url: https://github.com/anton-abyzov/vskill/issues/76
+    url: "https://github.com/anton-abyzov/vskill/issues/76"
 ---
 
 # US-003: Error Classification and Structured Error Cards

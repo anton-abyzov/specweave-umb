@@ -4,7 +4,7 @@ feature: FS-446
 title: "Skill Display with publisher/skill-name Format"
 status: not_started
 priority: P1
-created: 2026-03-07T00:00:00.000Z
+created: "2026-03-07T00:00:00.000Z"
 tldr: "**As a** user browsing skills."
 project: vskill-platform
 ---

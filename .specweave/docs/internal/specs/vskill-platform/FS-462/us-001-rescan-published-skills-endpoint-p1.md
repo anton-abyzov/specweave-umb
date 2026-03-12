@@ -10,7 +10,7 @@ project: vskill-platform
 external:
   github:
     issue: 42
-    url: https://github.com/anton-abyzov/vskill-platform/issues/42
+    url: "https://github.com/anton-abyzov/vskill-platform/issues/42"
 ---
 
 # US-001: Rescan Published Skills Endpoint (P1)

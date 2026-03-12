@@ -4,13 +4,13 @@ feature: FS-418
 title: "Update vskill Documentation"
 status: completed
 priority: P2
-created: 2026-03-03T00:00:00.000Z
+created: "2026-03-03T00:00:00.000Z"
 tldr: "**As a** vskill user."
 project: vskill
 external:
   github:
     issue: 1
-    url: https://github.com/anton-abyzov/vskill/issues/1
+    url: "https://github.com/anton-abyzov/vskill/issues/1"
 ---
 
 # US-001: Update vskill Documentation

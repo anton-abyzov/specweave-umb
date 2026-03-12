@@ -15,7 +15,7 @@ external_tools:
   github:
     type: milestone
     id: 12
-    url: https://github.com/anton-abyzov/vskill-platform/milestone/12
+    url: "https://github.com/anton-abyzov/vskill-platform/milestone/12"
 ---
 
 # Redesign vskill find command with install counts

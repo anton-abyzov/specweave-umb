@@ -9,7 +9,7 @@ project: vskill-platform
 external:
   github:
     issue: 1425
-    url: https://github.com/anton-abyzov/specweave/issues/1425
+    url: "https://github.com/anton-abyzov/specweave/issues/1425"
 ---
 # US-004: Enhance Tier 2 prompt for critical finding validation
 
