@@ -1,10 +1,10 @@
 {
   "id": "0502-config-context-sync",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-12T01:41:52.184Z",
-  "lastActivity": "2026-03-12T01:41:52.184Z",
+  "lastActivity": "2026-03-12T02:02:27.965Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,7 +15,7 @@
         "US-001": {
           "issueNumber": 96,
           "issueUrl": "https://github.com/anton-abyzov/vskill/issues/96",
-          "status": "active"
+          "status": "closed"
         },
         "US-002": {
           "issueNumber": 97,
@@ -30,25 +30,25 @@
         "US-004": {
           "issueNumber": 99,
           "issueUrl": "https://github.com/anton-abyzov/vskill/issues/99",
-          "status": "active"
+          "status": "closed"
         }
       },
       "milestone": 27,
-      "syncedAt": "2026-03-12T01:53:42.875Z"
+      "syncedAt": "2026-03-12T02:02:42.807Z"
     },
     "jira": {
       "epicKey": "SWE2E-180",
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-180",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-12T01:53:54.954Z"
+      "syncedAt": "2026-03-12T02:05:53.885Z"
     },
     "ado": {
       "featureId": "932",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/932",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-12T01:53:57.207Z"
+      "syncedAt": "2026-03-12T02:02:52.710Z"
     }
   },
   "github": {
@@ -79,5 +79,7 @@
       }
     ],
     "lastSync": "2026-03-12T01:53:42.875Z"
-  }
+  },
+  "readyForReviewAt": "2026-03-12T02:02:18.874Z",
+  "approvedAt": "2026-03-12T02:02:27.965Z"
 }
