@@ -15,7 +15,7 @@
       "version": "1.0.323",
       "sha": "08b7b90ff705",
       "tier": "BUNDLED",
-      "installedAt": "2026-03-13T07:04:20.629Z",
+      "installedAt": "2026-03-13T07:14:23.457Z",
       "source": "local:specweave"
     },
     "sw-github": {
@@ -89,5 +89,5 @@
     }
   },
   "createdAt": "2026-02-25T22:10:22.975Z",
-  "updatedAt": "2026-03-13T07:04:20.629Z"
+  "updatedAt": "2026-03-13T07:14:23.457Z"
 }
