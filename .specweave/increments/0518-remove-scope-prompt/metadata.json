@@ -1,0 +1,13 @@
+{
+  "id": "0518",
+  "slug": "remove-scope-prompt",
+  "title": "Remove scope selection prompt — always install to local project",
+  "type": "refactor",
+  "status": "completed",
+  "repo": "vskill",
+  "testing": {
+    "defaultTestMode": "TDD",
+    "tddEnforcement": "strict"
+  },
+  "createdAt": "2026-03-12T00:00:00.000Z"
+}
