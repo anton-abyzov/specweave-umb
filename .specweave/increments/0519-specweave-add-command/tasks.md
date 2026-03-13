@@ -5,8 +5,8 @@
 | Category | Count |
 |----------|-------|
 | Total tasks | 13 |
-| Completed | 12 |
-| Remaining | 1 |
+| Completed | 13 |
+| Remaining | 0 |
 
 ---
 
@@ -109,6 +109,6 @@ Fixes applied:
 ---
 
 ### T-013: Refactor pass (/simplify)
-**User Story**: US-001–US-005 | **Satisfies ACs**: all | **Status**: [ ] pending
+**User Story**: US-001–US-005 | **Satisfies ACs**: all | **Status**: [x] completed
 **Test**: `/simplify` review — no duplication, no dead code, all edge cases handled
-**Notes**: Run after all tests pass; clean up any temporary scaffolding
+**Notes**: Grill findings fixed: SSH regex tightened ([^/]+), cloneUrl runtime guard added, tilde test added. 47/47 tests pass.
