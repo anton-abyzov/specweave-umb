@@ -1,23 +1,23 @@
-# Architecture Plan: specweave add CLI command
+# Architecture Plan: specweave get CLI command
 
 ## Overview
 
-A new top-level CLI command `specweave add <source>` that clones an existing git repository into a SpecWeave umbrella workspace and registers it in the umbrella config. Decomposed into four modules following the existing `src/cli/helpers/` + `src/cli/commands/` pattern.
+A new top-level CLI command `specweave get <source>` that clones an existing git repository into a SpecWeave umbrella workspace and registers it in the umbrella config. Decomposed into four modules following the existing `src/cli/helpers/` + `src/cli/commands/` pattern.
 
 ## Architecture Decisions
 
 ### AD-1: Modular Helper Pattern (not monolithic command)
 
-Split logic into three focused helpers under `src/cli/helpers/add/`:
+Split logic into three focused helpers under `src/cli/helpers/get/`:
 
 ```
-src/cli/helpers/add/
+src/cli/helpers/get/
   source-parser.ts   -- Pure function: string -> ParsedSource
   clone-repo.ts      -- Side-effect: git clone orchestration
   register-repo.ts   -- Side-effect: config.json mutation
 
 src/cli/commands/
-  add.ts             -- Orchestrator: parse -> clone -> register -> init
+  get.ts             -- Orchestrator: parse -> clone -> register -> init
 ```
 
 **Rationale**: Matches the established `src/cli/helpers/init/` pattern (github-repo-cloning, bitbucket-repo-cloning, ado-repo-cloning). Each helper is independently testable. The command file is a thin orchestrator.
@@ -51,7 +51,7 @@ Register as a top-level command (not a subcommand of `migrate-to-umbrella`), pla
 
 ```javascript
 program
-  .command('add <source>')
+  .command('get <source>')
   .description('Clone and register an existing repository into the workspace')
   .option('--branch <branch>', 'Clone a specific branch')
   .option('--prefix <prefix>', 'User story prefix (default: first 3 chars uppercase)')
@@ -59,14 +59,14 @@ program
   .option('--no-init', 'Skip specweave init on cloned repo')
   .option('--yes', 'Skip confirmation prompts')
   .action(async (source, opts) => {
-    const { addCommand } = await import('../dist/src/cli/commands/add.js');
-    await addCommand(source, opts);
+    const { getCommand } = await import('../dist/src/cli/commands/get.js');
+    await getCommand(source, opts);
   });
 ```
 
 ### AD-5: No background worker
 
-Unlike the multi-repo clone in init (clone-worker.ts), `specweave add` clones a single repository. No background job, no progress file, no job manager. Just inline `execFileNoThrow('git', ['clone', ...])` with stdout/stderr forwarding.
+Unlike the multi-repo clone in init (clone-worker.ts), `specweave get` clones a single repository. No background job, no progress file, no job manager. Just inline `execFileNoThrow('git', ['clone', ...])` with stdout/stderr forwarding.
 
 ## Component Design
 
@@ -253,15 +253,15 @@ Logic flow:
 8. Print summary
 ```
 
-### 5. SKILL.md (sw:add skill)
+### 5. SKILL.md (sw:get skill)
 
-Located at `plugins/specweave/skills/add/SKILL.md`.
+Located at `plugins/specweave/skills/get/SKILL.md`.
 
 Key fields:
-- `name`: "add"
+- `name`: "get"
 - `description`: Triggers on "add repo", "clone repo", "add github repo to umbrella", "register this repo"
 - `activation`: Manual/keyword. Must NOT activate on "add a feature" or "add a task"
-- Body: Instructions to extract source from user message and run `specweave add <source>` with appropriate flags
+- Body: Instructions to extract source from user message and run `specweave get <source>` with appropriate flags
 
 Negative activation patterns explicitly listed to prevent false positives:
 - "add a feature" -> sw:increment
@@ -272,7 +272,7 @@ Negative activation patterns explicitly listed to prevent false positives:
 ## Data Flow
 
 ```
-User: specweave add org/repo --prefix BE --role backend
+User: specweave get org/repo --prefix BE --role backend
                     |
                     v
             +---------------+
@@ -315,22 +315,22 @@ User: specweave add org/repo --prefix BE --role backend
 
 | File | Purpose | Lines (est.) |
 |---|---|---|
-| `src/cli/helpers/add/source-parser.ts` | Parse source argument | ~80 |
-| `src/cli/helpers/add/clone-repo.ts` | Git clone orchestration | ~90 |
-| `src/cli/helpers/add/register-repo.ts` | Umbrella config registration | ~70 |
-| `src/cli/commands/add.ts` | Command orchestrator | ~120 |
-| `plugins/specweave/skills/add/SKILL.md` | Skill definition | ~50 |
+| `src/cli/helpers/get/source-parser.ts` | Parse source argument | ~80 |
+| `src/cli/helpers/get/clone-repo.ts` | Git clone orchestration | ~90 |
+| `src/cli/helpers/get/register-repo.ts` | Umbrella config registration | ~70 |
+| `src/cli/commands/get.ts` | Command orchestrator | ~120 |
+| `plugins/specweave/skills/get/SKILL.md` | Skill definition | ~50 |
 
 ### Modified Files
 
 | File | Change |
 |---|---|
-| `bin/specweave.js` | Add `program.command('add <source>')` block (~15 lines) |
+| `bin/specweave.js` | Add `program.command('get <source>')` block (~15 lines) |
 
 ## Dependencies
 
 ```
-add.ts
+get.ts
   |- source-parser.ts (parseSource)
   |- clone-repo.ts (cloneRepo)
   |   \- execFileNoThrow (from utils/)

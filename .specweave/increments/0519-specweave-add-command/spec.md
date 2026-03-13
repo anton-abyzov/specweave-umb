@@ -1,13 +1,13 @@
 ---
 increment: 0519-specweave-add-command
-title: "specweave add CLI command"
+title: "specweave get CLI command"
 status: active
 priority: P1
 type: feature
 created: 2026-03-13
 ---
 
-# specweave add CLI command
+# specweave get CLI command
 
 ## Problem Statement
 
@@ -25,7 +25,7 @@ Adding repositories to a SpecWeave umbrella workspace requires manual steps: clo
 ### US-001: Source Argument Parsing
 **Project**: specweave
 **As a** developer
-**I want** to pass a GitHub shorthand, full URL, or local path to `specweave add`
+**I want** to pass a GitHub shorthand, full URL, or local path to `specweave get`
 **So that** I do not need to remember different commands for different source formats
 
 **Acceptance Criteria**:
@@ -38,7 +38,7 @@ Adding repositories to a SpecWeave umbrella workspace requires manual steps: clo
 ### US-002: Clone Repository
 **Project**: specweave
 **As a** developer
-**I want** `specweave add` to clone a remote repository into the correct directory
+**I want** `specweave get` to clone a remote repository into the correct directory
 **So that** I do not need to manually clone and place repos
 
 **Acceptance Criteria**:
@@ -64,25 +64,25 @@ Adding repositories to a SpecWeave umbrella workspace requires manual steps: clo
 ### US-004: Add Command Orchestration
 **Project**: specweave
 **As a** developer
-**I want** a single `specweave add <source>` command that orchestrates parsing, cloning, registration, and initialization
+**I want** a single `specweave get <source>` command that orchestrates parsing, cloning, registration, and initialization
 **So that** adding a repo is a one-step operation
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given the command `specweave add org/repo`, when executed in an umbrella workspace, then the repo is cloned to `repositories/org/repo/`, registered in config, and `specweave init` is run on it
+- [ ] **AC-US4-01**: Given the command `specweave get org/repo`, when executed in an umbrella workspace, then the repo is cloned to `repositories/org/repo/`, registered in config, and `specweave init` is run on it
 - [ ] **AC-US4-02**: Given `--no-init` is passed, when the command runs, then `specweave init` is not executed on the cloned repo
-- [ ] **AC-US4-03**: Given a local path `./my-service` that exists and has a `.git` directory, when `specweave add ./my-service` runs in an umbrella workspace, then the repo is registered in config without cloning (using `detectRepository()` to extract owner/repo)
+- [ ] **AC-US4-03**: Given a local path `./my-service` that exists and has a `.git` directory, when `specweave get ./my-service` runs in an umbrella workspace, then the repo is registered in config without cloning (using `detectRepository()` to extract owner/repo)
 - [ ] **AC-US4-04**: Given `--yes` is passed, when the command runs, then no confirmation prompts are shown
-- [ ] **AC-US4-05**: Given the directory exists but is NOT registered in config, when `specweave add org/repo` runs, then the command skips clone but completes registration and init
+- [ ] **AC-US4-05**: Given the directory exists but is NOT registered in config, when `specweave get org/repo` runs, then the command skips clone but completes registration and init
 
 ### US-005: sw:add Skill Definition
 **Project**: specweave
 **As a** developer using Claude Code
-**I want** an `sw:add` skill that activates on natural language triggers for adding repos
+**I want** an `sw:get` skill that activates on natural language triggers for adding repos
 **So that** I can say "add repo" or "clone repo" instead of remembering the CLI syntax
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given the skill SKILL.md exists at `plugins/specweave/skills/add/SKILL.md`, when a user says "add repo owner/name", then the skill activates and delegates to `specweave add`
-- [ ] **AC-US5-02**: Given a user says "add a feature" or "add a task", when intent detection runs, then the `sw:add` skill does NOT activate (those route to `sw:increment`)
+- [ ] **AC-US5-01**: Given the skill SKILL.md exists at `plugins/specweave/skills/get/SKILL.md`, when a user says "add repo owner/name", then the skill activates and delegates to `specweave get`
+- [ ] **AC-US5-02**: Given a user says "add a feature" or "add a task", when intent detection runs, then the `sw:get` skill does NOT activate (those route to `sw:increment`)
 - [ ] **AC-US5-03**: Given the SKILL.md `description` field, when parsed, then it contains trigger phrases: "add repo", "clone repo", "add github repo to umbrella", "register this repo"
 
 ## Out of Scope
@@ -113,14 +113,14 @@ Adding repositories to a SpecWeave umbrella workspace requires manual steps: clo
 - **Coexists with migrate-to-umbrella --add-repo**: Different semantics -- `add` clones existing repos, `migrate --add-repo` creates new ones. No deprecation.
 
 ### New Files
-- `src/cli/helpers/add/source-parser.ts` -- parse source argument into structured type
-- `src/cli/helpers/add/clone-repo.ts` -- git clone orchestration
-- `src/cli/helpers/add/register-repo.ts` -- umbrella config registration
-- `src/cli/commands/add.ts` -- Commander.js command handler
-- `plugins/specweave/skills/add/SKILL.md` -- skill definition
+- `src/cli/helpers/get/source-parser.ts` -- parse source argument into structured type
+- `src/cli/helpers/get/clone-repo.ts` -- git clone orchestration
+- `src/cli/helpers/get/register-repo.ts` -- umbrella config registration
+- `src/cli/commands/get.ts` -- Commander.js command handler
+- `plugins/specweave/skills/get/SKILL.md` -- skill definition
 
 ### Modified Files
-- `bin/specweave.js` -- register `add` command
+- `bin/specweave.js` -- register `get` command
 
 ## Non-Functional Requirements
 
@@ -149,6 +149,6 @@ Adding repositories to a SpecWeave umbrella workspace requires manual steps: clo
 
 ## Success Metrics
 
-- `specweave add owner/repo` completes clone + registration in a single invocation
-- Running `specweave add` twice on the same repo produces no errors and no duplicate config entries
-- `sw:add` skill activates correctly on 4+ trigger phrases and does NOT activate on "add a feature/task"
+- `specweave get owner/repo` completes clone + registration in a single invocation
+- Running `specweave get` twice on the same repo produces no errors and no duplicate config entries
+- `sw:get` skill activates correctly on 4+ trigger phrases and does NOT activate on "add a feature/task"
