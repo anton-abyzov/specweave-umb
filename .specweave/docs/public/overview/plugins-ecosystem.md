@@ -32,7 +32,7 @@ npx specweave init .
 The foundation of SpecWeave, always loaded in every project.
 
 **Key Capabilities:**
-- 🎯 **24 Skills**: increment, pm, architect, spec-generator, tdd-cycle, grill, validate, judge-llm, team-lead, and more
+- 🎯 **23 Skills**: increment, pm, architect, tdd-cycle, grill, validate, judge-llm, team-lead, and more
 - 🤖 **Role-Based Agents**: PM, Architect, Tech Lead, QA Lead spawn as subagents from skills
 - ⚡ **28 Commands**: Full increment lifecycle management (do, done, progress, sync-docs, etc.)
 
@@ -588,7 +588,7 @@ SpecWeave addresses this through its plugin marketplace architecture: skills are
 
 | Plugin | Install Name | Purpose |
 |--------|-------------|---------|
-| **specweave** | `sw@specweave` | Core framework: 24 skills, 28 commands, increment lifecycle |
+| **specweave** | `sw@specweave` | Core framework: 23 skills, 28 commands, increment lifecycle |
 | **specweave-github** | `sw-github@specweave` | GitHub sync: bidirectional issues, auto-creation |
 | **specweave-jira** | `sw-jira@specweave` | JIRA sync: Epic/Story mapping, status sync |
 | **specweave-ado** | `sw-ado@specweave` | Azure DevOps: work items, multi-project |

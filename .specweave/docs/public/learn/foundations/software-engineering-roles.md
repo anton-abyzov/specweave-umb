@@ -61,7 +61,7 @@ SpecWeave includes **11 specialized AI agents** that perform different roles in 
 - **Commands**: `/sw:tdd-cycle`, `/sw:tdd-red`, `/sw:tdd-green`, `/sw:tdd-refactor`
 - **Output**: TDD workflow guidance, test implementation
 
-**6. Test-Aware Planner Agent** (`test-aware-planner`)
+**6. Planner Agent** (`sw-planner`)
 - **Role**: Test-Focused Task Planner
 - **Expertise**: Creating tasks with embedded test plans (BDD format)
 - **Activates**: When generating `tasks.md` with test coverage
@@ -296,7 +296,7 @@ Tech Lead Agent ensures every task has clear implementation steps and acceptance
 - Report bugs with reproduction steps
 - Validate features against acceptance criteria
 
-**SpecWeave Agents: QA Engineer + Test-Aware Planner** (`testing:qa`, `test-aware-planner`)
+**SpecWeave Agents: QA Engineer + Planner Agent** (`testing:qa`, `sw-planner`)
 
 **How QA Agents Help**:
 
@@ -306,7 +306,7 @@ Tech Lead Agent ensures every task has clear implementation steps and acceptance
 - Runs quality gates via `/sw:qa`
 - Ensures AC-ID traceability (spec.md AC → tasks.md tests)
 
-**Test-Aware Planner Agent**:
+**Planner Agent**:
 - Embeds test plans in tasks.md (BDD format: Given/When/Then)
 - Maps tests to acceptance criteria (AC-US1-01)
 - Defines coverage targets per task (80-90%)
@@ -559,9 +559,9 @@ Tech Lead Agent ensures every task has clear implementation steps and acceptance
 
 ---
 
-### Step 4: Test Planning (Test-Aware Planner Agent)
+### Step 4: Test Planning (Planner Agent)
 
-**Test-Aware Planner Agent activates**:
+**Planner Agent activates**:
 1. Reads spec.md and tasks.md
 2. Embeds test plans in tasks.md (BDD format):
    - **Given** user sends message → **When** WebSocket emit → **Then** other users receive message
@@ -658,7 +658,7 @@ graph TD
     User[User Request] --> PM[PM Agent: Create spec.md]
     PM --> Arch[Architect Agent: Create plan.md + ADRs]
     Arch --> TL[Tech Lead Agent: Create tasks.md]
-    TL --> TAP[Test-Aware Planner: Embed test plans]
+    TL --> TAP[Planner Agent: Embed test plans]
     TAP --> Sec[Security Agent: Security review]
     Sec --> Perf[Performance Agent: Performance review]
     Perf --> Dev[Developer: Implementation]
@@ -746,7 +746,7 @@ Acceptance Criteria IDs (AC-US1-01) enable traceability:
 
 **Intermediate**:
 1. **Planning Workflow** (coming soon) - PM + Architect + Tech Lead collaboration
-2. **Test-Aware Planning** (coming soon) - TDD Orchestrator + Test-Aware Planner workflow
+2. **Test-Aware Planning** (coming soon) - TDD Orchestrator + Planner Agent workflow
 3. **Quality Gates** (coming soon) - QA Lead + Security + Performance validation
 
 **Advanced**:
@@ -768,7 +768,7 @@ SpecWeave provides **11 specialized AI agents** that perform the roles tradition
 **Quality Agents**:
 - **QA Lead Agent**: Test strategy, quality validation
 - **TDD Orchestrator**: Test-driven development workflow
-- **Test-Aware Planner**: Tasks with embedded test plans
+- **Planner Agent**: Tasks with embedded test plans
 
 **Specialized Agents**:
 - **Security Agent**: Security analysis, threat modeling

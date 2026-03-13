@@ -107,7 +107,7 @@ After running `specweave init`, you get:
 your-project/
 ├── .claude/                  # Claude Code integration (if detected)
 │   ├── settings.json         # Plugin marketplace reference (GitHub remote)
-│   ├── agents/               # 11 specialized agents (installed from plugins)
+│   ├── agents/               # 10 specialized agents (installed from plugins)
 │   │   ├── pm/               # Product Manager AI
 │   │   ├── architect/        # System Architect
 │   │   ├── tech-lead/        # Tech Lead
@@ -116,12 +116,10 @@ your-project/
 │   │   ├── performance/      # Performance Engineer
 │   │   ├── docs-writer/      # Technical Documentation
 │   │   ├── tdd-cycle/        # TDD Workflow
-│   │   ├── test-aware-planner/ # Test Planning
 │   │   ├── translator/       # Multilingual Support
 │   │   └── code-reviewer.md  # Code Review (standalone file)
-│   ├── skills/               # 17 development skills (installed from plugins)
+│   ├── skills/               # 14 development skills (installed from plugins)
 │   │   ├── increment/
-│   │   ├── spec-generator/
 │   │   ├── context-loader/
 │   │   ├── tdd-workflow/
 │   │   ├── brownfield-analyzer/
@@ -134,8 +132,7 @@ your-project/
 │   │   ├── specweave-detector/
 │   │   ├── specweave-framework/
 │   │   ├── task-builder/
-│   │   ├── translator/
-│   │   └── docs-updater/
+│   │   └── translator/
 │   ├── commands/             # 22 slash commands (installed from plugins)
 │   │   ├── increment.md
 │   │   ├── do.md
@@ -188,8 +185,8 @@ your-project/
 ### For Claude Code (Native)
 
 Gets **full native integration**:
-- ✅ 11 agents in `.claude/agents/`
-- ✅ 17 skills in `.claude/skills/`
+- ✅ 10 agents in `.claude/agents/`
+- ✅ 14 skills in `.claude/skills/`
 - ✅ 22 slash commands in `.claude/commands/`
 - ✅ 8 automation hooks in `.claude/hooks/`
 
@@ -279,8 +276,8 @@ cat CLAUDE.md               # Should exist
 cat .gitignore              # Should exist
 
 # For Claude Code users
-ls -la .claude/agents/      # Should have 11 agents
-ls -la .claude/skills/      # Should have 17 skills
+ls -la .claude/agents/      # Should have 10 agents
+ls -la .claude/skills/      # Should have 14 skills
 ls -la .claude/commands/    # Should have 28 commands
 ls -la .claude/hooks/       # Should have 8 hooks
 
@@ -298,8 +295,8 @@ cat AGENTS.md               # Should exist
 - [ ] `CLAUDE.md` exists
 - [ ] `.gitignore` includes SpecWeave ignores
 - [ ] Git repository initialized (if git available)
-- [ ] For Claude Code: `.claude/agents/` has 11 agent folders
-- [ ] For Claude Code: `.claude/skills/` has 17 skill folders
+- [ ] For Claude Code: `.claude/agents/` has 10 agent folders
+- [ ] For Claude Code: `.claude/skills/` has 14 skill folders
 - [ ] For Claude Code: `.claude/commands/` has 22 command files
 - [ ] For other tools: `AGENTS.md` exists
 

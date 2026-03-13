@@ -128,7 +128,6 @@ Comprehensive overview of what SpecWeave supports.
 | `sw:grill` | "review my code", "critique implementation" |
 | `sw:validate` | "check quality", "verify increment" |
 | `sw:tdd-cycle` | "TDD", "test-driven", "red-green-refactor" |
-| `sw:spec-generator` | "generate spec", "create specification" |
 | `sw:team-lead` | "team setup", "parallel agents", "agent teams" |
 
 ### Integration Skills
@@ -277,7 +276,7 @@ Comprehensive overview of what SpecWeave supports.
 
 | Plugin | Install Name | Focus |
 |--------|-------------|-------|
-| **specweave** | `sw@specweave` | Core (24 skills, 28 commands, increment lifecycle) |
+| **specweave** | `sw@specweave` | Core (23 skills, 28 commands, increment lifecycle) |
 | **specweave-github** | `sw-github@specweave` | GitHub Issues integration |
 | **specweave-jira** | `sw-jira@specweave` | JIRA integration |
 | **specweave-ado** | `sw-ado@specweave` | Azure DevOps integration |
