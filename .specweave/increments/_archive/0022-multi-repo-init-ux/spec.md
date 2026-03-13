@@ -301,4 +301,4 @@ The following are deferred to future increments:
 
 **External Links**:
 - GitHub Project: TBD
-- Documentation: https://spec-weave.com/docs/guides/multi-repo-setup
+- Documentation: https://verified-skill.com/docs/guides/multi-repo-setup

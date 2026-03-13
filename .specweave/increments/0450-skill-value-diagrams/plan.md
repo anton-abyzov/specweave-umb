@@ -249,7 +249,7 @@ This cross-reference helps the video editor/recorder know which visual to show a
 The video script's "Related Links" section includes the published docs URL:
 
 ```markdown
-- **Docs**: https://spec-weave.com/docs/skills/why-skills-matter
+- **Docs**: https://verified-skill.com/docs/skills/why-skills-matter
 ```
 
 And the doc page includes a tip admonition linking to the video when it is published:

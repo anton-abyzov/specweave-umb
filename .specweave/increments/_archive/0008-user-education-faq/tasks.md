@@ -215,7 +215,7 @@ coverage_target: 85%
 1. Update README.md:
    - Add FAQ link in "Documentation" section
    - Add FAQ link in "Getting Started" section
-   - Format: `[FAQ](https://spec-weave.com/docs/faq)`
+   - Format: `[FAQ](https://verified-skill.com/docs/faq)`
 2. Update `docs-site/docusaurus.config.js`:
    ```javascript
    sidebar: {
@@ -262,7 +262,7 @@ coverage_target: 85%
      - Why does SpecWeave have specs in two locations?
      - When do I need a living docs spec?
      - Can I delete increment specs after completion?
-     - [View Complete FAQ](https://spec-weave.com/docs/faq)
+     - [View Complete FAQ](https://verified-skill.com/docs/faq)
      ```
 2. Test template generation with `specweave init`
 
@@ -349,7 +349,7 @@ coverage_target: 85%
    - ✅ YES if: Feature spans 3+ increments, needs brownfield links, or external PM tool tracking
    - ❌ NO if: Small feature (1-2 increments), no brownfield, no external PM tools
 
-   **Learn more**: [FAQ - Living Docs Specs](https://spec-weave.com/docs/faq#q2)
+   **Learn more**: [FAQ - Living Docs Specs](https://verified-skill.com/docs/faq#q2)
 
    Would you like me to create a living docs spec? (You can also do this later)
    - YES → I'll create `.specweave/docs/internal/specs/spec-NNNN-{feature}/spec.md`
@@ -598,7 +598,7 @@ coverage_target: 85%
      console.log('   💡 Most features only need increment specs.');
      console.log('      Living docs specs are optional for major features (3+ increments).');
      console.log('');
-     console.log('   Learn more: https://spec-weave.com/docs/faq#specs-architecture');
+     console.log('   Learn more: https://verified-skill.com/docs/faq#specs-architecture');
      console.log('');
      console.log('✔ Core plugin installed');
      ```
@@ -663,7 +663,7 @@ coverage_target: 85%
      - ✅ **Brownfield integration needed**: Create living docs spec
      - ✅ **External PM tool (Jira, ADO)**: Create living docs spec
 
-     **Learn more**: [FAQ - Specs Architecture](https://spec-weave.com/docs/faq#specs-architecture)
+     **Learn more**: [FAQ - Specs Architecture](https://verified-skill.com/docs/faq#specs-architecture)
      ```
 2. Ensure section is prominent (near top of file)
 3. Test template generation with `specweave init`

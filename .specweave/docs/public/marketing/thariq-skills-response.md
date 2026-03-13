@@ -24,7 +24,7 @@ One mental model, infinite extensibility.
 
 The `disable-model-invocation` flag is the key differentiator.
 
-spec-weave.com
+verified-skill.com
 
 ---
 
@@ -41,7 +41,7 @@ Quick mental model for the merge:
 
 This is how @SpecWeave organizes 100+ skills/commands.
 
-Full guide: spec-weave.com/learn/claude-code-basics
+Full guide: verified-skill.com/learn/claude-code-basics
 
 ---
 
@@ -96,7 +96,7 @@ Our increment planner:
 - `model: opus` (smarter)
 - Spawns from `/sw:increment`
 
-Full architecture: spec-weave.com
+Full architecture: verified-skill.com
 
 ---
 
@@ -121,7 +121,7 @@ commands/  → workflows with side effects
 skills/    → domain expertise that auto-activates
 ```
 
-We've documented all our learnings at spec-weave.com - hope it helps others building on Claude Code!
+We've documented all our learnings at verified-skill.com - hope it helps others building on Claude Code!
 
 ---
 
@@ -141,7 +141,7 @@ default → Skill (user + Claude auto-invoke)
 Add `context: fork` and your skill becomes a **subagent**.
 
 We've built 100+ skills on this pattern.
-Full guide: spec-weave.com/learn/claude-code-basics
+Full guide: verified-skill.com/learn/claude-code-basics
 
 cc @bcherny @alexalbert__ @AnthropicAI #ClaudeCode
 

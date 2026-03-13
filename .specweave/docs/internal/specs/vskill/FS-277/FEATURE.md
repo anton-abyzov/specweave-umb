@@ -36,5 +36,5 @@ Multi-Package-Manager Documentation Update
 ## User Stories
 
 - [US-001: Multi-Runner Install Snippets on vskill-platform Homepage](./us-001.md)
-- [US-002: Multi-Runner Examples on spec-weave.com Docs Site](./us-002.md)
+- [US-002: Multi-Runner Examples on verified-skill.com Docs Site](./us-002.md)
 - [US-003: Multi-Runner Examples in vskill CLI README](./us-003.md)

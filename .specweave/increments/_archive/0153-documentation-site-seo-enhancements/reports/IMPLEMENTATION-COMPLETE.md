@@ -9,7 +9,7 @@
 
 ## 📊 Summary
 
-Successfully implemented comprehensive SEO improvements for spec-weave.com documentation site. All major SEO enhancements are complete and ready for deployment.
+Successfully implemented comprehensive SEO improvements for verified-skill.com documentation site. All major SEO enhancements are complete and ready for deployment.
 
 ### Completion Stats
 
@@ -58,7 +58,7 @@ Allow: /
 Disallow: /docs/DOCUMENTATION-AUDIT*
 Disallow: /docs/_*
 
-Sitemap: https://spec-weave.com/sitemap.xml
+Sitemap: https://verified-skill.com/sitemap.xml
 
 User-agent: GPTBot
 Crawl-delay: 10

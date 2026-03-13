@@ -78,13 +78,13 @@ Most platforms today offer no defense at all.
 
 **Option 2: Use scanning tools** — [mcp-scan](https://github.com/invariantlabs-ai/mcp-scan) (open source, by Snyk/Invariant Labs) can detect prompt injection, malicious code patterns, and credential exposure in skills. Run it before installing anything from a public marketplace.
 
-**Option 3: Use a verified ecosystem** — [SpecWeave](https://spec-weave.com) runs every skill through a 3-tier verification pipeline:
+**Option 3: Use a verified ecosystem** — [SpecWeave](https://verified-skill.com) runs every skill through a 3-tier verification pipeline:
 
 1. **Scanned** — 26 automated patterns check for prompt injection, credential hardcoding, unsafe downloads, and obfuscated payloads
 2. **Verified** — LLM-as-judge reviews skill behavior, permission scope, and data flow
 3. **Certified** — Human expert review confirms the skill does what it claims and nothing else
 
-Every skill gets a transparent trust label. You can see exactly which checks passed and which tier the skill reached. No opaque review process, no "trust us" — the methodology is published in the [Secure Skill Factory Standard](https://spec-weave.com/docs/guides/secure-skill-factory-standard).
+Every skill gets a transparent trust label. You can see exactly which checks passed and which tier the skill reached. No opaque review process, no "trust us" — the methodology is published in the [Secure Skill Factory Standard](https://verified-skill.com/docs/guides/secure-skill-factory-standard).
 
 SpecWeave also includes `/sw:security-patterns` — a real-time detector that catches dangerous patterns (command injection, XSS, unsafe deserialization, dynamic code execution) as you write code, before they're committed.
 
@@ -95,10 +95,10 @@ Snyk's full technical report is available as a [PDF on GitHub](https://github.co
 The AI agent skills ecosystem is growing fast. The security infrastructure hasn't kept pace. Every developer using AI coding tools — Claude Code, Cursor, OpenClaw — should understand the risks before installing a skill from a public marketplace.
 
 **Resources:**
-- [SpecWeave Security Landscape](https://spec-weave.com/docs/guides/skills-ecosystem-security) — full platform comparison and risk taxonomy
-- [Secure Skill Factory Standard](https://spec-weave.com/docs/guides/secure-skill-factory-standard) — the verification RFC
+- [SpecWeave Security Landscape](https://verified-skill.com/docs/guides/skills-ecosystem-security) — full platform comparison and risk taxonomy
+- [Secure Skill Factory Standard](https://verified-skill.com/docs/guides/secure-skill-factory-standard) — the verification RFC
 - [mcp-scan](https://github.com/invariantlabs-ai/mcp-scan) — open-source skill scanner
-- [SpecWeave](https://spec-weave.com) — verified skill ecosystem
+- [SpecWeave](https://verified-skill.com) — verified skill ecosystem
 
 ---
 
@@ -147,7 +147,7 @@ github.com/invariantlabs-ai/mcp-scan
 2. Use a verified skill ecosystem like @specweave with 3-tier verification (scanned + LLM judge + human review)
 
 3. Read the full security landscape analysis:
-spec-weave.com/docs/guides/skills-ecosystem-security
+verified-skill.com/docs/guides/skills-ecosystem-security
 
 ---
 
@@ -171,7 +171,7 @@ At SpecWeave, we built a 3-tier verification pipeline for skills: automated scan
 The AI agent ecosystem is powerful. But power without verification is a liability.
 
 Full Snyk report: https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/
-SpecWeave security analysis: https://spec-weave.com/docs/guides/skills-ecosystem-security
+SpecWeave security analysis: https://verified-skill.com/docs/guides/skills-ecosystem-security
 
 #AIAgents #CyberSecurity #SupplyChainSecurity #ClaudeCode #DeveloperTools #PromptInjection
 
@@ -196,7 +196,7 @@ Most platforms have zero scanning. ClawHub had 335 trojan packages (ClawHavoc ca
 Tools that help:
 - mcp-scan (open source, Snyk/Invariant Labs): https://github.com/invariantlabs-ai/mcp-scan
 - Full report PDF: https://github.com/snyk/agent-scan/blob/main/.github/reports/skills-report.pdf
-- SpecWeave (verified skill ecosystem with 3-tier scanning): https://spec-weave.com
+- SpecWeave (verified skill ecosystem with 3-tier scanning): https://verified-skill.com
 
 The NCSC has warned prompt injection "may never be fully mitigated" at the model layer. The defense has to come from the distribution platforms. Right now, most offer none.
 

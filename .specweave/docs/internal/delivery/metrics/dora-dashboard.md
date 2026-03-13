@@ -1,7 +1,7 @@
 # DORA Metrics Dashboard
 
 > **Auto-generated** by SpecWeave Release Management Plugin.
-> For live data, see [spec-weave.com/docs/metrics](https://spec-weave.com/docs/metrics).
+> For live data, see [verified-skill.com/docs/metrics](https://verified-skill.com/docs/metrics).
 
 ## Data Sources
 

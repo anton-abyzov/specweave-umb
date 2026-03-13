@@ -14,14 +14,14 @@ project: specweave
 **Feature**: [FS-401](./FEATURE.md)
 
 **As a** SpecWeave user
-**I want** the latest documentation deployed to spec-weave.com
+**I want** the latest documentation deployed to verified-skill.com
 **So that** I can reference up-to-date guides and API docs
 
 ---
 
 ## Acceptance Criteria
 
-- [x] **AC-US1-01**: Latest docs are built and deployed to spec-weave.com
+- [x] **AC-US1-01**: Latest docs are built and deployed to verified-skill.com
 - [x] **AC-US1-02**: Site is accessible and documentation renders correctly
 
 ---

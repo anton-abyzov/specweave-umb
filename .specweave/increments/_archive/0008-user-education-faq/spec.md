@@ -186,7 +186,7 @@ Implement comprehensive user education materials to address confusion about Spec
 3. CLI shows: "SpecWeave uses two types of specs for different purposes..."
 4. CLI shows: "  - Living Docs Specs (permanent, for major features)"
 5. CLI shows: "  - Increment Specs (temporary, for focused work)"
-6. CLI shows: "Learn more: https://spec-weave.com/docs/faq#specs-architecture"
+6. CLI shows: "Learn more: https://verified-skill.com/docs/faq#specs-architecture"
 7. User's CLAUDE.md includes FAQ reference
 8. User starts with correct understanding
 ```

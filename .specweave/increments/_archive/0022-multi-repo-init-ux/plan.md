@@ -912,8 +912,8 @@ fi
 **Living Docs**: [SPEC-022](../../docs/internal/projects/default/specs/spec-022-multi-repo-init-ux.md)
 
 **Documentation**:
-- https://spec-weave.com/docs/guides/multi-repo-setup
-- https://spec-weave.com/docs/architecture/repository-patterns
+- https://verified-skill.com/docs/guides/multi-repo-setup
+- https://verified-skill.com/docs/architecture/repository-patterns
 
 ---
 

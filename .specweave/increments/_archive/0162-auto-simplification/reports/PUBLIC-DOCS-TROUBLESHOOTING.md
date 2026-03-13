@@ -1,6 +1,6 @@
 # SpecWeave Troubleshooting Guide - Public Documentation
 
-**For**: spec-weave.com/docs/troubleshooting
+**For**: verified-skill.com/docs/troubleshooting
 **Date**: 2026-01-08
 **Versions**: v1.0.106+ (info commands fix), v1.0.107+ (auto command fix)
 

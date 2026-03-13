@@ -2,14 +2,14 @@
 
 ## Overview
 
-Create a world-class promotional video (~45s looping) and redesign the spec-weave.com (verified-skill.com) homepage with feature sections, nanobanana-generated images, and Apple keynote-level production quality.
+Create a world-class promotional video (~45s looping) and redesign the verified-skill.com (verified-skill.com) homepage with feature sections, nanobanana-generated images, and Apple keynote-level production quality.
 
 ---
 
 ### US-001: Promotional Video Production with Remotion
 **Project**: vskill-platform
 
-**As a** visitor landing on spec-weave.com
+**As a** visitor landing on verified-skill.com
 **I want** to see a polished, looping promotional video at the top of the homepage
 **So that** I immediately understand SpecWeave's value proposition and workflow
 

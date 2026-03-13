@@ -180,7 +180,7 @@ Comprehensive documentation updates following the resolution of a 3-4 week bug a
 - CHANGELOG.md → all 6 documents
 
 ### External References
-- CLAUDE.md → spec-weave.com
+- CLAUDE.md → verified-skill.com
 - ADR-0223 → GitHub issues
 - Troubleshooting guide → GitHub repo
 

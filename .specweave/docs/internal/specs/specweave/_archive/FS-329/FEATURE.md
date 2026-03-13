@@ -26,7 +26,7 @@ external_tools:
 
 ## Overview
 
-Redesign spec-weave.com homepage from 8 verbose sections to 5 sleek, world-class sections with `ship-while-you-sleep.mp4` video as the hero centerpiece. Inspired by Linear, Vercel, and Cursor landing pages.
+Redesign verified-skill.com homepage from 8 verbose sections to 5 sleek, world-class sections with `ship-while-you-sleep.mp4` video as the hero centerpiece. Inspired by Linear, Vercel, and Cursor landing pages.
 
 ## Implementation History
 

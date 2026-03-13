@@ -307,7 +307,7 @@ coverage_target: 88%
 **AC**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04, AC-US5-05
 
 **Test Plan** (Manual validation):
-- **Given** user visits spec-weave.com/guides/external-sync → **When** reads overview → **Then** understands 3 strategies
+- **Given** user visits verified-skill.com/guides/external-sync → **When** reads overview → **Then** understands 3 strategies
 - **Given** user needs Jira setup → **When** follows jira/hierarchical.md → **Then** successfully configures multi-project sync
 - **Given** user has questions → **When** checks troubleshooting → **Then** finds answers
 

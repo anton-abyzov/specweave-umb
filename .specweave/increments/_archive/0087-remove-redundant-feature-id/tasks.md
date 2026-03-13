@@ -96,7 +96,7 @@
 **Status**: [x] completed
 
 **Description**:
-1. Update spec-weave.com docs if they mention metadata schema
+1. Update verified-skill.com docs if they mention metadata schema
 2. Update README.md if it mentions feature_id
 3. Update any living docs templates
 

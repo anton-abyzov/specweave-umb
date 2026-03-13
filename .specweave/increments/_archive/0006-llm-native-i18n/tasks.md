@@ -1184,7 +1184,7 @@ Create plugin manifests (SpecWeave custom + Claude native).
 `manifest.json` (SpecWeave custom):
 ```json
 {
-  "$schema": "https://spec-weave.com/schemas/plugin-manifest.json",
+  "$schema": "https://verified-skill.com/schemas/plugin-manifest.json",
   "name": "specweave-translator",
   "version": "1.0.0",
   "description": "In-session translation for multilingual SpecWeave support",

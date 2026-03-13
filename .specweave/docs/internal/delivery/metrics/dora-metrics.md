@@ -37,7 +37,7 @@ DORA metrics are four key metrics that indicate the performance of software deli
 ## Current SpecWeave Performance
 
 Current values are auto-generated and stored in `.specweave/metrics/dora-latest.json`.
-See the live dashboard at [spec-weave.com/docs/metrics](https://spec-weave.com/docs/metrics) and the detailed report at `.specweave/metrics/dora-report.md`.
+See the live dashboard at [verified-skill.com/docs/metrics](https://verified-skill.com/docs/metrics) and the detailed report at `.specweave/metrics/dora-report.md`.
 
 **Data Source**: Calculated from GitHub commits, releases, and issues via automated workflow (twice daily).
 
@@ -107,7 +107,7 @@ See the live dashboard at [spec-weave.com/docs/metrics](https://spec-weave.com/d
 
 ## Dashboard
 
-**Live Dashboard**: [spec-weave.com/docs/metrics](https://spec-weave.com/docs/metrics) (Shields.io dynamic badges pulling from `dora-latest.json`)
+**Live Dashboard**: [verified-skill.com/docs/metrics](https://verified-skill.com/docs/metrics) (Shields.io dynamic badges pulling from `dora-latest.json`)
 
 **Historical Data**: `.specweave/metrics/dora-history.jsonl` (append-only JSONL for trending)
 

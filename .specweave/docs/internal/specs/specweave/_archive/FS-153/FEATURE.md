@@ -17,7 +17,7 @@ external_tools:
 
 ## Overview
 
-Implement comprehensive SEO improvements for spec-weave.com to enhance search engine visibility, organic traffic, and social media sharing. The documentation site is currently lacking critical SEO elements including structured data, proper robots.txt configuration, image optimi
+Implement comprehensive SEO improvements for verified-skill.com to enhance search engine visibility, organic traffic, and social media sharing. The documentation site is currently lacking critical SEO elements including structured data, proper robots.txt configuration, image optimi
 
 ## Implementation History
 

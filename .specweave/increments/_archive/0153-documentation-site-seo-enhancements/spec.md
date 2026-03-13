@@ -25,7 +25,7 @@ estimated_effort: "1-2 weeks"
 
 ## Overview
 
-Implement comprehensive SEO improvements for spec-weave.com to enhance search engine visibility, organic traffic, and social media sharing. The documentation site is currently lacking critical SEO elements including structured data, proper robots.txt configuration, image optimization, and content organization for search crawlers.
+Implement comprehensive SEO improvements for verified-skill.com to enhance search engine visibility, organic traffic, and social media sharing. The documentation site is currently lacking critical SEO elements including structured data, proper robots.txt configuration, image optimization, and content organization for search crawlers.
 
 **Current State**: The site has basic SEO (sitemap generation via Docusaurus, Open Graph tags) but is missing advanced SEO features that would significantly improve discoverability and ranking.
 
@@ -36,7 +36,7 @@ Implement comprehensive SEO improvements for spec-weave.com to enhance search en
 - **Increased Organic Traffic**: Structured data and SEO optimizations can improve search rankings by 20-40%
 - **Better Social Sharing**: Optimized social cards increase click-through rates by 2-3x
 - **Improved Indexing**: Proper robots.txt and sitemap configuration ensures all valuable content is crawled
-- **Competitive Advantage**: Advanced SEO puts spec-weave.com ahead of similar developer tool documentation sites
+- **Competitive Advantage**: Advanced SEO puts verified-skill.com ahead of similar developer tool documentation sites
 
 ## User Stories
 
@@ -69,10 +69,10 @@ Implement comprehensive SEO improvements for spec-weave.com to enhance search en
 
 **Acceptance Criteria**:
 - [x] **AC-US2-01**: robots.txt file created in docs-site/static/ directory
-- [x] **AC-US2-02**: Sitemap URL (https://spec-weave.com/sitemap.xml) referenced in robots.txt
+- [x] **AC-US2-02**: Sitemap URL (https://verified-skill.com/sitemap.xml) referenced in robots.txt
 - [x] **AC-US2-03**: Disallow rules added for non-public content (DOCUMENTATION-AUDIT files, _archive folders, internal-only paths)
 - [x] **AC-US2-04**: Crawl-delay directives added for aggressive AI bots (GPTBot, CCBot) to prevent server overload
-- [x] **AC-US2-05**: robots.txt accessible at https://spec-weave.com/robots.txt with HTTP 200 status (will be after deployment)
+- [x] **AC-US2-05**: robots.txt accessible at https://verified-skill.com/robots.txt with HTTP 200 status (will be after deployment)
 - [x] **AC-US2-06**: robots.txt syntax validates using Google Search Console robots.txt tester
 
 **Priority**: P1 - Essential for proper crawler guidance
@@ -84,7 +84,7 @@ Implement comprehensive SEO improvements for spec-weave.com to enhance search en
 ### US-003: Optimize Social Card Images to WebP
 **Project**: specweave-dev
 
-**As a** user sharing spec-weave.com links on social media, I want fast-loading, high-quality preview images, so that shared links are visually appealing and load quickly without consuming excessive bandwidth.
+**As a** user sharing verified-skill.com links on social media, I want fast-loading, high-quality preview images, so that shared links are visually appealing and load quickly without consuming excessive bandwidth.
 
 **Background**: Current social card is in JPG format (img/specweave-social-card.jpg) which is 30-50% larger than WebP equivalent. This affects page load times and bandwidth costs.
 
@@ -328,7 +328,7 @@ The system SHALL document the Algolia DocSearch setup process for future impleme
 2. Verify preview deployment shows all changes correctly
 3. Run SEO validation tools on preview URL
 4. Merge to main branch
-5. Automatic deployment to production (spec-weave.com)
+5. Automatic deployment to production (verified-skill.com)
 6. Verify production deployment
 7. Submit updated sitemap to Google Search Console
 

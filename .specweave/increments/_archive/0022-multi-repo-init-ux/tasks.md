@@ -590,7 +590,7 @@ coverage_target: 85%
    - Onboarding new developers
    - Compliance & auditing
 4. Add visual comparison (with parent vs without)
-5. Add link to: https://spec-weave.com/docs/guides/multi-repo-setup
+5. Add link to: https://verified-skill.com/docs/guides/multi-repo-setup
 6. Run unit tests: `npm test -- parent-benefits` (should pass: 6/6)
 7. Run integration tests: `npm run test:integration -- parent-benefits-display` (should pass: 4/4)
 8. Manually verify readability and clarity

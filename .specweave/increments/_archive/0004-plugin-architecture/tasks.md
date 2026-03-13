@@ -2119,7 +2119,7 @@ Write marketplace.json for Anthropic's plugin system.
   "version": "1.0.0",
   "description": "SpecWeave plugin marketplace - spec-driven development tools",
   "author": "SpecWeave Team",
-  "url": "https://spec-weave.com",
+  "url": "https://verified-skill.com",
   "plugins": [
     {
       "name": "kubernetes",

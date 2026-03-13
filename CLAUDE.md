@@ -321,7 +321,7 @@ Pattern: IMPLEMENT → TEST → FAIL? → FIX → PASS → NEXT. STOP & ASK if s
 <!-- SW:SECTION:docs version="1.0.438" -->
 ## Docs
 
-[spec-weave.com](https://spec-weave.com)
+[verified-skill.com](https://verified-skill.com)
 <!-- SW:END:docs -->
 
 ---

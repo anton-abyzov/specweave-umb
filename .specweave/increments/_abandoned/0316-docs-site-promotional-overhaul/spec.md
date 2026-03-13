@@ -14,7 +14,7 @@ coverage_target: 80
 
 ## Overview
 
-Rework spec-weave.com Docusaurus homepage and public docs to be promotional, accurate, and aligned with current SpecWeave features. Port VideoHero component, add metrics, review all docs.
+Rework verified-skill.com Docusaurus homepage and public docs to be promotional, accurate, and aligned with current SpecWeave features. Port VideoHero component, add metrics, review all docs.
 
 <!--
 ====================================================================

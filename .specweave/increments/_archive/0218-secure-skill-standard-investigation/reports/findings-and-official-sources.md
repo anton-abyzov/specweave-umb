@@ -193,7 +193,7 @@ The following are the ONLY legitimate sources for SpecWeave software, skills, an
 
 | Resource | URL | Verified |
 |----------|-----|----------|
-| Official docs | https://spec-weave.com | Yes |
+| Official docs | https://verified-skill.com | Yes |
 | GitHub README | https://github.com/anton-abyzov/specweave#readme | Yes |
 
 ### 4.3 Skills Verification (Coming Soon)
@@ -240,7 +240,7 @@ Prioritized by urgency and impact.
 
 6. **Sign all official SpecWeave skills** — Generate project key pair, add VSKILL:VERIFY manifests to all 30+ skills. Publish public key.
 
-7. **Publish SSP specification** — Host the RFC document on spec-weave.com. Make the scoring algorithm, E/S level definitions, and manifest format publicly available.
+7. **Publish SSP specification** — Host the RFC document on verified-skill.com. Make the scoring algorithm, E/S level definitions, and manifest format publicly available.
 
 ### Priority 2 (Ecosystem)
 
@@ -275,4 +275,4 @@ Prioritized by urgency and impact.
 - SkillShield: https://skillshield.io/
 - Skills Directory: https://www.skillsdirectory.com/
 - SpecWeave GitHub: https://github.com/anton-abyzov/specweave
-- SpecWeave Docs: https://spec-weave.com
+- SpecWeave Docs: https://verified-skill.com

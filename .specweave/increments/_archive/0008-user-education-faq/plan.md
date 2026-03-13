@@ -351,7 +351,7 @@ console.log('   SpecWeave uses TWO types of specs for different purposes:');
 console.log('   - Living Docs Specs (permanent, for major features)');
 console.log('   - Increment Specs (temporary, for focused work)');
 console.log('');
-console.log('   Learn more: https://spec-weave.com/docs/faq#specs-architecture');
+console.log('   Learn more: https://verified-skill.com/docs/faq#specs-architecture');
 console.log('');
 console.log('✔ Core plugin installed');
 ```
@@ -381,7 +381,7 @@ console.log('✔ Core plugin installed');
 - ✅ External PM tool tracking
 - ❌ Small feature (1-2 increments) - increment spec is sufficient
 
-**Learn more**: https://spec-weave.com/docs/faq#specs-architecture
+**Learn more**: https://verified-skill.com/docs/faq#specs-architecture
 ```
 
 ---
@@ -653,7 +653,7 @@ test('specweave init shows two-spec architecture message', async () => {
   expect(stdout).toContain('About SpecWeave\'s Spec Architecture');
   expect(stdout).toContain('Living Docs Specs (permanent, optional)');
   expect(stdout).toContain('Increment Specs (temporary, required)');
-  expect(stdout).toContain('https://spec-weave.com/docs/faq');
+  expect(stdout).toContain('https://verified-skill.com/docs/faq');
 });
 
 test('CLAUDE.md template includes FAQ reference', async () => {
@@ -663,7 +663,7 @@ test('CLAUDE.md template includes FAQ reference', async () => {
   expect(claudeMd).toContain('Two-Spec Architecture');
   expect(claudeMd).toContain('Living Docs Specs');
   expect(claudeMd).toContain('Increment Specs');
-  expect(claudeMd).toContain('https://spec-weave.com/docs/faq');
+  expect(claudeMd).toContain('https://verified-skill.com/docs/faq');
 });
 ```
 
@@ -695,7 +695,7 @@ npm run build
 # Deploy to GitHub Pages (or hosting)
 npm run deploy
 
-# Verify: https://spec-weave.com/docs/faq
+# Verify: https://verified-skill.com/docs/faq
 ```
 
 **Step 2: Code Deployment**

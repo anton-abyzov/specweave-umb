@@ -1431,7 +1431,7 @@ Then navigate to correct pages
 **Implementation**:
 - Build Docusaurus site: `npm run build`
 - Test build locally
-- Deploy to production (spec-weave.com)
+- Deploy to production (verified-skill.com)
 - Verify deployment
 - Test on multiple devices
 
@@ -1476,7 +1476,7 @@ From plan.md:
 - [ ] Code review approved
 - [ ] Performance benchmarks met (<100ms merge, <3s homepage load)
 - [ ] Security review passed (no sensitive data in MEMORY.md)
-- [ ] Homepage deployed to spec-weave.com
+- [ ] Homepage deployed to verified-skill.com
 
 ---
 

@@ -3,14 +3,14 @@ title: "Claude Code Hook Limitations: No Skill Invocation & Lazy Plugin Loading 
 published: true
 description: "Hooks can't invoke skills. Here's the solution that enables lazy plugin loading and deterministic AI workflows."
 tags: [claudecode, ai, webdev, productivity]
-cover_image: "https://spec-weave.com/img/specweave-social-card.jpg"
+cover_image: "https://verified-skill.com/img/specweave-social-card.jpg"
 ---
 
 # Claude Code Hook Limitations: No Skill Invocation & Lazy Plugin Loading
 
 ## The Discovery
 
-I've spent months building [SpecWeave](https://spec-weave.com), an AI coding framework on top of Claude Code. Along the way, I hit a limitation that affects advanced workflows.
+I've spent months building [SpecWeave](https://verified-skill.com), an AI coding framework on top of Claude Code. Along the way, I hit a limitation that affects advanced workflows.
 
 **Claude Code hooks cannot invoke skills directly.**
 
@@ -144,7 +144,7 @@ I built what I call a "Router" - it intercepts every prompt and makes smart deci
 
 ## The SpecWeave Implementation
 
-I've built this architecture into [SpecWeave](https://spec-weave.com):
+I've built this architecture into [SpecWeave](https://verified-skill.com):
 
 - **Hook spawns processes** - terminal-first approach
 - **Haiku detection** - fast, cheap domain detection
@@ -176,7 +176,7 @@ claude
 
 Then just describe what you want to build.
 
-Full documentation: [spec-weave.com](https://spec-weave.com)
+Full documentation: [verified-skill.com](https://verified-skill.com)
 
 ## The Future
 
@@ -201,7 +201,7 @@ Until then, the terminal-first approach works beautifully.
 ---
 
 **Resources:**
-- [SpecWeave](https://spec-weave.com)
+- [SpecWeave](https://verified-skill.com)
 - [Claude Code Hooks Docs](https://code.claude.com/docs/en/hooks) - Official documentation explaining the hooks system
 - [Claude Code Skills Docs](https://docs.anthropic.com/en/docs/claude-code/skills)
 

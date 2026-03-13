@@ -241,7 +241,7 @@ if (providerInfo) {
 
 ```json
 {
-  "$schema": "https://spec-weave.com/schemas/config.json",
+  "$schema": "https://verified-skill.com/schemas/config.json",
   "version": "2.0",
   "hooks": {
     "post_task_completion": { "sync_tasks_md": true, "external_tracker_sync": true },

@@ -47,7 +47,7 @@ Watch and follow along with real project demos.
 Step-by-step guides you can follow at your own pace.
 
 **Location**: [docs-site/docs/guides/lessons/](../../../../docs-site/docs/guides/lessons/index.md)
-**Live site**: https://spec-weave.com/docs/guides/lessons
+**Live site**: https://verified-skill.com/docs/guides/lessons
 
 ### Learning Paths
 

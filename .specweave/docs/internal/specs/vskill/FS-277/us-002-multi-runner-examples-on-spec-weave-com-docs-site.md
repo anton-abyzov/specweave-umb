@@ -1,13 +1,13 @@
 ---
 id: US-002
 feature: FS-277
-title: Multi-Runner Examples on spec-weave.com Docs Site
+title: Multi-Runner Examples on verified-skill.com Docs Site
 status: complete
 priority: P1
 created: 2026-02-21
 project: specweave
 ---
-# US-002: Multi-Runner Examples on spec-weave.com Docs Site
+# US-002: Multi-Runner Examples on verified-skill.com Docs Site
 
 **Feature**: [FS-277](./FEATURE.md)
 

@@ -17,10 +17,10 @@ project: specweave-dev
 ## Acceptance Criteria
 
 - [x] **AC-US2-01**: robots.txt file created in docs-site/static/ directory
-- [x] **AC-US2-02**: Sitemap URL (https://spec-weave.com/sitemap.xml) referenced in robots.txt
+- [x] **AC-US2-02**: Sitemap URL (https://verified-skill.com/sitemap.xml) referenced in robots.txt
 - [x] **AC-US2-03**: Disallow rules added for non-public content (DOCUMENTATION-AUDIT files, _archive folders, internal-only paths)
 - [x] **AC-US2-04**: Crawl-delay directives added for aggressive AI bots (GPTBot, CCBot) to prevent server overload
-- [x] **AC-US2-05**: robots.txt accessible at https://spec-weave.com/robots.txt with HTTP 200 status (will be after deployment)
+- [x] **AC-US2-05**: robots.txt accessible at https://verified-skill.com/robots.txt with HTTP 200 status (will be after deployment)
 - [x] **AC-US2-06**: robots.txt syntax validates using Google Search Console robots.txt tester
 
 ---

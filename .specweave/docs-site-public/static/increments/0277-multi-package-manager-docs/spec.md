@@ -32,7 +32,7 @@ Update homepage and docs across vskill-platform, vskill CLI, and specweave docs-
 
 ---
 
-### US-002: Multi-Runner Examples on spec-weave.com Docs Site (P1)
+### US-002: Multi-Runner Examples on verified-skill.com Docs Site (P1)
 **Project**: specweave
 
 **As a** developer reading the SpecWeave docs

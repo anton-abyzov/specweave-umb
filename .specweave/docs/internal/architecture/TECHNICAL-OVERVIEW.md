@@ -988,7 +988,7 @@ npm run test:coverage
 
 ### External Resources
 
-- **Public Docs**: https://spec-weave.com
+- **Public Docs**: https://verified-skill.com
 - **GitHub Repo**: https://github.com/specweave/specweave
 - **NPM Package**: https://www.npmjs.com/package/specweave
 - **Claude Plugin Marketplace**: (coming soon)

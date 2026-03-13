@@ -14,7 +14,7 @@ coverage_target: 90
 
 ## Overview
 
-Rework spec-weave.com (Docusaurus 3.9.2) with a professional design system, "Development Loom" positioning (light touch — homepage/README only), Cmd+K search, styled MDX components, and refined indigo-purple palette. Phase 1 of 3.
+Rework verified-skill.com (Docusaurus 3.9.2) with a professional design system, "Development Loom" positioning (light touch — homepage/README only), Cmd+K search, styled MDX components, and refined indigo-purple palette. Phase 1 of 3.
 
 **Site**: `repositories/anton-abyzov/specweave/docs-site/`
 

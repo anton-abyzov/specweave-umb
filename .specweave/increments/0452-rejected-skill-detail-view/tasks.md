@@ -148,7 +148,7 @@
 **Implementation Details**:
 - Add section after the detail rows, before the existing footer
 - Include guidance text explaining common rejection reasons and how to fix them
-- Link to vskill documentation (https://spec-weave.com/docs/skills/)
+- Link to vskill documentation (https://verified-skill.com/docs/skills/)
 - Link to GitHub issues (https://github.com/anton-abyzov/vskill/issues) for error reports
 - Style consistently with the existing footer section (mono font, faint text, border-top)
 
@@ -158,7 +158,7 @@
   - **TC-012**: Guidance section is rendered with documentation link
     - Given any RejectedSkillData
     - When RejectedSkillView renders
-    - Then a section with text "What to do next" and a link to spec-weave.com docs is present
+    - Then a section with text "What to do next" and a link to verified-skill.com docs is present
   - **TC-013**: Guidance section includes issue report link
     - Given any RejectedSkillData
     - When RejectedSkillView renders

@@ -49,7 +49,7 @@ grep "application/ld+json" docs-site/build/index.html
 
 **Implemented**:
 - ✅ robots.txt in docs-site/static/robots.txt
-- ✅ Sitemap reference: https://spec-weave.com/sitemap.xml
+- ✅ Sitemap reference: https://verified-skill.com/sitemap.xml
 - ✅ Disallow rules for internal content
 - ✅ Crawl delays for AI bots (GPTBot, CCBot: 10s)
 
@@ -206,10 +206,10 @@ npm run build
 
 ### Post-Deployment Tests (Manual)
 
-After deploying to spec-weave.com:
+After deploying to verified-skill.com:
 
 1. **Google Rich Results Test**: https://search.google.com/test/rich-results
-   - Enter URL: https://spec-weave.com
+   - Enter URL: https://verified-skill.com
    - Expected: ✅ Zero errors, valid Organization + SoftwareApplication schemas
 
 2. **robots.txt Validation**: https://search.google.com/search-console
@@ -223,7 +223,7 @@ After deploying to spec-weave.com:
    - Expected: ✅ WebP image loads (29KB vs 54KB)
 
 4. **Lighthouse SEO Audit**:
-   - Run: `npx lighthouse https://spec-weave.com --only-categories=seo`
+   - Run: `npx lighthouse https://verified-skill.com --only-categories=seo`
    - Expected: ✅ Score 95+
 
 ---

@@ -402,7 +402,7 @@ gh auth status
 
 1. [README.md](../../README.md) - Project introduction
 2. [CLAUDE.md](../../CLAUDE.md) - SpecWeave instructions for Claude Code
-3. Public docs: https://spec-weave.com
+3. Public docs: https://verified-skill.com
 
 ### For Contributors
 
@@ -483,7 +483,7 @@ gh auth status
 
 ### External
 
-- **Public Docs**: https://spec-weave.com
+- **Public Docs**: https://verified-skill.com
 - **GitHub**: https://github.com/specweave/specweave
 - **NPM**: https://www.npmjs.com/package/specweave
 

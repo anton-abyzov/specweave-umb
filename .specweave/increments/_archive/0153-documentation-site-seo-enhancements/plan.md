@@ -38,8 +38,8 @@ export default {
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'SpecWeave',
-        url: 'https://spec-weave.com',
-        logo: 'https://spec-weave.com/img/logo.svg',
+        url: 'https://verified-skill.com',
+        logo: 'https://verified-skill.com/img/logo.svg',
         sameAs: [
           'https://github.com/anton-abyzov/specweave',
           'https://www.npmjs.com/package/specweave'
@@ -98,7 +98,7 @@ Allow: /
 Disallow: /docs/DOCUMENTATION-AUDIT*
 Disallow: /docs/_*
 
-Sitemap: https://spec-weave.com/sitemap.xml
+Sitemap: https://verified-skill.com/sitemap.xml
 
 # Crawl delay for aggressive bots
 User-agent: GPTBot
@@ -116,7 +116,7 @@ Crawl-delay: 10
 
 **Testing**:
 - Local: `npm run build && npm run serve`, then access http://localhost:3000/robots.txt
-- Production: Verify https://spec-weave.com/robots.txt after deployment
+- Production: Verify https://verified-skill.com/robots.txt after deployment
 
 ---
 
@@ -406,7 +406,7 @@ Algolia DocSearch provides free search for open-source documentation sites.
 ## Application Process
 1. Visit https://docsearch.algolia.com/apply/
 2. Fill form with:
-   - URL: https://spec-weave.com
+   - URL: https://verified-skill.com
    - Email: maintainer email
    - Repository: https://github.com/anton-abyzov/specweave
 3. Wait for approval (typically 1-2 weeks)
@@ -460,7 +460,7 @@ algolia: {
 
 ### User Request Flow
 ```
-1. User visits https://spec-weave.com
+1. User visits https://verified-skill.com
 2. Cloudflare edge server (nearest location) serves cached HTML
 3. Browser parses HTML:
    a. Finds structured data in <head>
@@ -557,7 +557,7 @@ Not applicable - configuration and content changes only
 3. **Link Integrity**: Verify all internal links resolve correctly
 
 ### E2E Testing
-1. **robots.txt Accessibility**: `curl https://spec-weave.com/robots.txt` returns 200
+1. **robots.txt Accessibility**: `curl https://verified-skill.com/robots.txt` returns 200
 2. **Social Card Preview**: Test with Twitter Card Validator, LinkedIn inspector
 3. **Structured Data Validation**: Google Rich Results Test
 4. **Search Crawler Simulation**: Use Screaming Frog or similar tool
@@ -613,8 +613,8 @@ headTags: [
 ## Monitoring & Validation
 
 ### Post-Deployment Checks
-1. ✅ Site loads correctly: https://spec-weave.com
-2. ✅ robots.txt accessible: https://spec-weave.com/robots.txt
+1. ✅ Site loads correctly: https://verified-skill.com
+2. ✅ robots.txt accessible: https://verified-skill.com/robots.txt
 3. ✅ Structured data present in HTML source (view-source:)
 4. ✅ Social card preview works on Twitter/LinkedIn
 5. ✅ No broken links reported in build

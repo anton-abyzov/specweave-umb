@@ -14,7 +14,7 @@ coverage_target: 90
 
 ## Problem Statement
 
-The SpecWeave website (spec-weave.com) currently presents a functional but visually modest Docusaurus site with ~200 CSS tokens, 4 custom components, static rem-based typography, and a basic 5-section landing page. This falls short of the professional quality bar set by best-in-class developer tool sites like Anthropic.com and Claude Code docs. For developers evaluating SpecWeave, engineering managers comparing tools, and enterprise buyers assessing maturity, the current site does not convey the sophistication of the product itself.
+The SpecWeave website (verified-skill.com) currently presents a functional but visually modest Docusaurus site with ~200 CSS tokens, 4 custom components, static rem-based typography, and a basic 5-section landing page. This falls short of the professional quality bar set by best-in-class developer tool sites like Anthropic.com and Claude Code docs. For developers evaluating SpecWeave, engineering managers comparing tools, and enterprise buyers assessing maturity, the current site does not convey the sophistication of the product itself.
 
 ## Goals
 
@@ -124,7 +124,7 @@ The SpecWeave website (spec-weave.com) currently presents a functional but visua
 
 ### US-007: Landing Page Sections 1-5 (Hero through Capabilities)
 **Project**: specweave
-**As a** first-time visitor arriving at spec-weave.com
+**As a** first-time visitor arriving at verified-skill.com
 **I want** a visually striking hero, trusted-by marquee, demo video, how-it-works timeline, and capabilities showcase
 **So that** I immediately understand what SpecWeave does and why it matters
 

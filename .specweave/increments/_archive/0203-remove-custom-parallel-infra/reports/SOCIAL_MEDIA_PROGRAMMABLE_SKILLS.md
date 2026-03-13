@@ -253,7 +253,7 @@ specweave init .
 
 Customize ANY Claude Code skill. Make corrections. Watch them become permanent.
 
-Full guide: https://spec-weave.com/docs/guides/programmable-skills
+Full guide: https://verified-skill.com/docs/guides/programmable-skills
 
 ### Tweet 16 (Final - The Vision)
 The vision:
@@ -883,7 +883,7 @@ Skills aren't black boxes. They're programs. **And you can program them.**
 
 ## Get Involved
 
-- **Docs**: https://spec-weave.com
+- **Docs**: https://verified-skill.com
 - **GitHub**: https://github.com/anton-abyzov/specweave
 - **Discord**: https://discord.gg/UYg4BGJ65V
 - **Twitter**: [@aabyzov](https://x.com/aabyzov)
@@ -1051,5 +1051,5 @@ Vision: 2027 = All AI tools adopt this standard
 
 Credits: @AnthropicAI for pioneering
 
-https://spec-weave.com
+https://verified-skill.com
 

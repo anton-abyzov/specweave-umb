@@ -265,10 +265,10 @@ This increment creates a comprehensive Kafka event streaming plugin ecosystem fo
   "version": "1.0.0",
   "author": {
     "name": "SpecWeave Team",
-    "url": "https://spec-weave.com"
+    "url": "https://verified-skill.com"
   },
   "repository": "https://github.com/anton-abyzov/specweave",
-  "homepage": "https://spec-weave.com/plugins/kafka",
+  "homepage": "https://verified-skill.com/plugins/kafka",
   "license": "MIT",
   "keywords": ["kafka", "mcp", "event-streaming", "monitoring", "terraform"]
 }
@@ -645,8 +645,8 @@ npm install -g specweave-kafka
   "categories": ["event-streaming", "infrastructure", "monitoring"],
   "tags": ["kafka", "mcp", "terraform", "prometheus"],
   "screenshots": [
-    "https://spec-weave.com/assets/kafka-dashboard.png",
-    "https://spec-weave.com/assets/kafka-mcp-demo.gif"
+    "https://verified-skill.com/assets/kafka-dashboard.png",
+    "https://verified-skill.com/assets/kafka-mcp-demo.gif"
   ]
 }
 ```

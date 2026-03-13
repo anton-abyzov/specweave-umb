@@ -11,7 +11,7 @@ project: specweave
 
 **Feature**: [FS-432](./FEATURE.md)
 
-first-time visitor arriving at spec-weave.com
+first-time visitor arriving at verified-skill.com
 **I want** a visually striking hero, trusted-by marquee, demo video, how-it-works timeline, and capabilities showcase
 **So that** I immediately understand what SpecWeave does and why it matters
 

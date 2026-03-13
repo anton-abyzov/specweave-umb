@@ -299,7 +299,7 @@ $ /specweave:done
 - [Tasks](../.specweave/increments/0005-user-authentication/tasks.md)
 
 ---
-🤖 Managed by [SpecWeave](https://spec-weave.com)
+🤖 Managed by [SpecWeave](https://verified-skill.com)
 ```
 
 ---

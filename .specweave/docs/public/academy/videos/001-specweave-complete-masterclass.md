@@ -2775,7 +2775,7 @@ EOF
 
 > "GitHub: All public repos — github.com/anton-abyzov/specweave
 >
-> Docs: spec-weave.com
+> Docs: verified-skill.com
 >
 > Academy: In the repo under .specweave/docs/public/academy/
 >

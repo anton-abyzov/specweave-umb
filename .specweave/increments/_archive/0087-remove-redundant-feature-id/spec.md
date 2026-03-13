@@ -93,7 +93,7 @@ The feature ID IS the increment number with `FS-` prefix. No need to store it.
 **Acceptance Criteria:**
 - [x] **AC-US4-01**: Create ADR explaining the decision
 - [x] **AC-US4-02**: Update CLAUDE.md if it references feature_id
-- [x] **AC-US4-03**: Update public docs (spec-weave.com content)
+- [x] **AC-US4-03**: Update public docs (verified-skill.com content)
 - [x] **AC-US4-04**: Update README if it mentions metadata schema
 
 ## Technical Design

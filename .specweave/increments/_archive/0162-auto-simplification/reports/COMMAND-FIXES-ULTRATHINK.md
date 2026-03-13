@@ -494,7 +494,7 @@ Claude will:
 3. Start auto mode on that increment
 ```
 
-### 2. Public Docs (spec-weave.com)
+### 2. Public Docs (verified-skill.com)
 
 **Add to Troubleshooting page**:
 
@@ -634,7 +634,7 @@ Files: plugins/specweave/commands/auto.md
 
 **Next steps**:
 - [x] Update CLAUDE.md with troubleshooting
-- [ ] Update spec-weave.com public docs
+- [ ] Update verified-skill.com public docs
 - [ ] Add multi-turn conversation tests to CI
 - [ ] Document hook API semantics in contributor guide
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-A comprehensive redesign of the SpecWeave website (spec-weave.com), a Docusaurus 3.9.2 static site at `repositories/anton-abyzov/specweave/docs-site/`. The redesign expands the existing ~200-token design system to 350+ tokens, replaces the monolithic 5-section landing page with 11 modular sections built from 15 reusable components, introduces a zero-bundle-cost animation system using CSS @keyframes + IntersectionObserver, and redesigns navigation with a mega-menu navbar and custom footer via Docusaurus swizzle.
+A comprehensive redesign of the SpecWeave website (verified-skill.com), a Docusaurus 3.9.2 static site at `repositories/anton-abyzov/specweave/docs-site/`. The redesign expands the existing ~200-token design system to 350+ tokens, replaces the monolithic 5-section landing page with 11 modular sections built from 15 reusable components, introduces a zero-bundle-cost animation system using CSS @keyframes + IntersectionObserver, and redesigns navigation with a mega-menu navbar and custom footer via Docusaurus swizzle.
 
 All work targets `repositories/anton-abyzov/specweave/docs-site/` within the umbrella repo.
 

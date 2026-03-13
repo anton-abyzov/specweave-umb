@@ -47,7 +47,7 @@
 
 ---
 
-## Phase 2: specweave docs-site (spec-weave.com)
+## Phase 2: specweave docs-site (verified-skill.com)
 
 ### T-004: Update Docs-Site Homepage CTA Install Snippet [P]
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01 | **Status**: [x] Completed

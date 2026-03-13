@@ -1,27 +1,27 @@
 ---
 id: FS-401
-title: "Deploy Latest Documentation to spec-weave.com"
+title: "Deploy Latest Documentation to verified-skill.com"
 type: feature
 status: completed
 priority: P1
 created: 2026-03-03
 lastUpdated: 2026-03-03
-tldr: "Deploy the latest SpecWeave documentation updates to the spec-weave.com website."
+tldr: "Deploy the latest SpecWeave documentation updates to the verified-skill.com website."
 complexity: low
 stakeholder_relevant: true
 ---
 
-# Deploy Latest Documentation to spec-weave.com
+# Deploy Latest Documentation to verified-skill.com
 
 ## TL;DR
 
-**What**: Deploy the latest SpecWeave documentation updates to the spec-weave.com website.
+**What**: Deploy the latest SpecWeave documentation updates to the verified-skill.com website.
 **Status**: completed | **Priority**: P1
 **User Stories**: 1
 
 ## Overview
 
-Deploy the latest SpecWeave documentation updates to the spec-weave.com website.
+Deploy the latest SpecWeave documentation updates to the verified-skill.com website.
 
 ## Implementation History
 

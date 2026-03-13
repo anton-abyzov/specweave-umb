@@ -29,7 +29,7 @@ This demonstrates variety without adding new scenarios or complicating the anima
 ### AD-004: Skill Detail Page
 Replace the single `installCmd` string with a multi-line code block showing all four runners. Use the existing `TerminalBlock` component for consistent styling.
 
-### AD-005: Docusaurus Docs (spec-weave.com)
+### AD-005: Docusaurus Docs (verified-skill.com)
 Use standard fenced code blocks with comment annotations. Simple annotated code blocks are clearer and more portable than Docusaurus `<Tabs>`.
 
 ## Repos and Files to Change

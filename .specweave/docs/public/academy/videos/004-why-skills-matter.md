@@ -136,8 +136,8 @@ Key points:
 "Links to everything shown in this video are in the description. Start with the 'Why Skills Matter' docs page for the full writeup with all four diagrams. Then check out the Skills Fundamentals page to understand skills, plugins, and marketplaces."
 
 Links to show:
-- Why Skills Matter docs page: https://spec-weave.com/docs/skills/why-skills-matter
-- Skills Fundamentals: https://spec-weave.com/docs/skills/fundamentals
+- Why Skills Matter docs page: https://verified-skill.com/docs/skills/why-skills-matter
+- Skills Fundamentals: https://verified-skill.com/docs/skills/fundamentals
 - SpecWeave GitHub: https://github.com/anton-abyzov/specweave
 
 ---
@@ -169,6 +169,6 @@ Links to show:
 
 ## Questions?
 
-- Check the [SpecWeave docs](https://spec-weave.com)
+- Check the [SpecWeave docs](https://verified-skill.com)
 - Open an issue on GitHub: https://github.com/anton-abyzov/specweave/issues
 - Join the community discussions

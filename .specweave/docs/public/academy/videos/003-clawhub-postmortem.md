@@ -432,5 +432,5 @@ ClawHub's closure didn't eliminate the threat. The same threat actors operate ac
 ## Questions?
 
 - Visit [verified-skill.com](https://verified-skill.com)
-- Read the [security landscape analysis](https://spec-weave.com/docs/guides/skills-ecosystem-security)
+- Read the [security landscape analysis](https://verified-skill.com/docs/guides/skills-ecosystem-security)
 - Open an issue on [GitHub](https://github.com/anton-abyzov/specweave)

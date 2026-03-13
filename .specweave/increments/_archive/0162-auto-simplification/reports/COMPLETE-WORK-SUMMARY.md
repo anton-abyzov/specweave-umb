@@ -82,7 +82,7 @@
 12. [WHY-BASH-SCRIPTS-ULTRATHINK.md](./WHY-BASH-SCRIPTS-ULTRATHINK.md) - Why bash scripts exist
 
 **Public Documentation**:
-13. [PUBLIC-DOCS-TROUBLESHOOTING.md](./PUBLIC-DOCS-TROUBLESHOOTING.md) - For spec-weave.com
+13. [PUBLIC-DOCS-TROUBLESHOOTING.md](./PUBLIC-DOCS-TROUBLESHOOTING.md) - For verified-skill.com
 
 **Summaries**:
 14. [FINAL-IMPLEMENTATION-SUMMARY.md](./FINAL-IMPLEMENTATION-SUMMARY.md) - Complete implementation summary
@@ -360,7 +360,7 @@ When user requests X:
 - [x] Minimal cache implemented (v1.0.110)
 - [x] Documentation comprehensive (15 docs)
 - [x] CLAUDE.md updated
-- [x] Public docs ready for spec-weave.com
+- [x] Public docs ready for verified-skill.com
 - [x] Testing validated
 - [x] Production deployment complete
 

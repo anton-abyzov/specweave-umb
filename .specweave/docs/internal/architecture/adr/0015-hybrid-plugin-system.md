@@ -225,7 +225,7 @@ specweave plugin import-from-claude wshobson/agents observability
 **SpecWeave Custom** (`manifest.json`):
 ```json
 {
-  "$schema": "https://spec-weave.com/schemas/plugin-manifest.json",
+  "$schema": "https://verified-skill.com/schemas/plugin-manifest.json",
   "name": "specweave-github",
   "version": "1.0.0",
   "description": "GitHub Issues integration for SpecWeave...",

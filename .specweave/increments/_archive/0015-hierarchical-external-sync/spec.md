@@ -60,7 +60,7 @@ User has:
    - Optional filters (labels, assignees, etc.)
 
 4. **Comprehensive Public Documentation**
-   - Document all 3 strategies on spec-weave.com
+   - Document all 3 strategies on verified-skill.com
    - Provider-specific guides (Jira, GitHub, ADO)
    - Real-world examples (generic terms, no customer data)
    - Troubleshooting guides
@@ -71,7 +71,7 @@ User has:
 - ✅ User can sync multiple GitHub repos with project boards in one profile
 - ✅ User can sync multiple ADO projects with area paths in one profile
 - ✅ Init wizard guides user through hierarchical setup (3 questions)
-- ✅ Documentation on spec-weave.com explains all strategies
+- ✅ Documentation on verified-skill.com explains all strategies
 - ✅ Backward compatible (existing simple profiles still work)
 
 ---
@@ -316,7 +316,7 @@ interface SyncProfile {
 
 ## Documentation Structure
 
-### Public Docs (spec-weave.com)
+### Public Docs (verified-skill.com)
 
 ```
 docs-site/docs/guides/
@@ -451,7 +451,7 @@ docs-site/docs/guides/
 
 ### Documentation
 
-- ✅ New docs on spec-weave.com: [/guides/external-sync](/guides/external-sync)
+- ✅ New docs on verified-skill.com: [/guides/external-sync](/guides/external-sync)
 - ✅ Provider-specific guides (Jira, GitHub, ADO)
 - ✅ Real-world examples with troubleshooting
 
