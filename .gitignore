@@ -28,6 +28,7 @@ build/
 .specweave/state/
 .specweave/cache/
 .specweave/logs/
+.specweave/jobs/
 .specweave/feedback/
 .specweave/plugins/installed/
 .specweave/plugins/cache/
