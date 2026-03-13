@@ -1,10 +1,10 @@
 ---
 id: FS-519
-title: "specweave add CLI command"
+title: "specweave get CLI command"
 type: feature
-status: planned
+status: completed
 priority: P1
-created: 2026-03-13
+created: 2026-03-13T00:00:00.000Z
 lastUpdated: 2026-03-13
 tldr: "Adding repositories to a SpecWeave umbrella workspace requires manual steps: cloning with git, placing into the correct `repositories/{org}/{repo}/` directory, editing config.json to register in `childRepos`, and optionally running `specweave init`."
 complexity: high
@@ -24,15 +24,15 @@ externalLinks:
     project: 'SpecWeaveSync'
 ---
 
-# specweave add CLI command
+# specweave get CLI command
 
 ## TL;DR
 
 **What**: Adding repositories to a SpecWeave umbrella workspace requires manual steps: cloning with git, placing into the correct `repositories/{org}/{repo}/` directory, editing config.json to register in `childRepos`, and optionally running `specweave init`.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 5
 
-![specweave add CLI command illustration](assets/feature-fs-519.jpg)
+![specweave get CLI command illustration](assets/feature-fs-519.jpg)
 
 ## Overview
 
@@ -42,7 +42,7 @@ Adding repositories to a SpecWeave umbrella workspace requires manual steps: clo
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0519-specweave-add-command](../../../../../increments/0519-specweave-add-command/spec.md) | ⏳ planned | 2026-03-13 |
+| [0519-specweave-add-command](../../../../../increments/0519-specweave-add-command/spec.md) | ✅ completed | 2026-03-13T00:00:00.000Z |
 
 ## User Stories
 
