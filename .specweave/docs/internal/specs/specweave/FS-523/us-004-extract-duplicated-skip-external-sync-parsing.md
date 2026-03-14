@@ -1,12 +1,16 @@
 ---
 id: US-004
 feature: FS-523
-title: "Extract Duplicated SKIP_EXTERNAL_SYNC Parsing"
-status: not_started
+title: Extract Duplicated SKIP_EXTERNAL_SYNC Parsing
+status: completed
 priority: P1
 created: 2026-03-14
 tldr: "**As a** SpecWeave maintainer."
 project: specweave
+external:
+  github:
+    issue: 1568
+    url: https://github.com/anton-abyzov/specweave/issues/1568
 ---
 
 # US-004: Extract Duplicated SKIP_EXTERNAL_SYNC Parsing
@@ -21,8 +25,8 @@ project: specweave
 
 ## Acceptance Criteria
 
-- [ ] **AC-US4-01**: Given `living-docs-sync.ts`, when searching for the SKIP_EXTERNAL_SYNC parsing pattern (`['true', '1', 'yes'].includes`), then it appears exactly once (extracted to a single check near the top of `syncIncrement`)
-- [ ] **AC-US4-02**: Given both the cross-project and single-project sync paths, when SKIP_EXTERNAL_SYNC is set to "true", then both paths skip external sync (behavior preserved)
+- [x] **AC-US4-01**: Given `living-docs-sync.ts`, when searching for the SKIP_EXTERNAL_SYNC parsing pattern (`['true', '1', 'yes'].includes`), then it appears exactly once (extracted to a single check near the top of `syncIncrement`)
+- [x] **AC-US4-02**: Given both the cross-project and single-project sync paths, when SKIP_EXTERNAL_SYNC is set to "true", then both paths skip external sync (behavior preserved)
 
 ---
 
@@ -35,4 +39,4 @@ project: specweave
 
 ## Tasks
 
-- [ ] **T-007**: Run full test suite and confirm all grep invariants
+- [x] **T-007**: Run full test suite and confirm all grep invariants

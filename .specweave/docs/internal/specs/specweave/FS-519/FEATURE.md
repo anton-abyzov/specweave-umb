@@ -5,7 +5,7 @@ type: feature
 status: completed
 priority: P1
 created: 2026-03-13T00:00:00.000Z
-lastUpdated: 2026-03-13
+lastUpdated: 2026-03-14
 tldr: "Adding repositories to a SpecWeave umbrella workspace requires manual steps: cloning with git, placing into the correct `repositories/{org}/{repo}/` directory, editing config.json to register in `childRepos`, and optionally running `specweave init`."
 complexity: high
 stakeholder_relevant: true

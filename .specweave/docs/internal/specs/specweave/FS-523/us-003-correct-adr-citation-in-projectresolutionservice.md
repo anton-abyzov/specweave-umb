@@ -1,12 +1,16 @@
 ---
 id: US-003
 feature: FS-523
-title: "Correct ADR Citation in ProjectResolutionService"
-status: not_started
+title: Correct ADR Citation in ProjectResolutionService
+status: completed
 priority: P1
 created: 2026-03-14
 tldr: "**As a** developer reading `project-resolution.ts`."
 project: specweave
+external:
+  github:
+    issue: 1567
+    url: https://github.com/anton-abyzov/specweave/issues/1567
 ---
 
 # US-003: Correct ADR Citation in ProjectResolutionService
@@ -21,7 +25,7 @@ project: specweave
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: Given `src/core/project/project-resolution.ts`, when reading the module header comment, then it references "ADR-0195" instead of "ADR-0140"
+- [x] **AC-US3-01**: Given `src/core/project/project-resolution.ts`, when reading the module header comment, then it references "ADR-0195" instead of "ADR-0140"
 
 ---
 

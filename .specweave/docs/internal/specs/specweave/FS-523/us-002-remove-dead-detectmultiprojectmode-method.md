@@ -1,12 +1,16 @@
 ---
 id: US-002
 feature: FS-523
-title: "Remove Dead detectMultiProjectMode Method"
-status: not_started
+title: Remove Dead detectMultiProjectMode Method
+status: completed
 priority: P1
 created: 2026-03-14
 tldr: "**As a** SpecWeave maintainer."
 project: specweave
+external:
+  github:
+    issue: 1566
+    url: https://github.com/anton-abyzov/specweave/issues/1566
 ---
 
 # US-002: Remove Dead detectMultiProjectMode Method
@@ -21,8 +25,8 @@ project: specweave
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given the current codebase, when searching for `detectMultiProjectMode` in `living-docs-sync.ts`, then zero definitions or calls exist in that file
-- [ ] **AC-US2-02**: Given the removal, when existing tests are run, then all tests pass with no regressions
+- [x] **AC-US2-01**: Given the current codebase, when searching for `detectMultiProjectMode` in `living-docs-sync.ts`, then zero definitions or calls exist in that file
+- [x] **AC-US2-02**: Given the removal, when existing tests are run, then all tests pass with no regressions
 
 ---
 
@@ -35,4 +39,4 @@ project: specweave
 
 ## Tasks
 
-- [ ] **T-007**: Run full test suite and confirm all grep invariants
+- [x] **T-007**: Run full test suite and confirm all grep invariants

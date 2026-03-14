@@ -11,6 +11,7 @@ The infrastructure already exists in `specweave init` (clone-worker, job-launche
 ## User Stories
 
 ### US-001: Glob pattern cloning
+**Project**: specweave
 
 **As a** developer onboarding a new team workspace,
 **I want to** run `specweave get "acme-corp/service-*"` to clone all repos matching a glob,
@@ -24,6 +25,7 @@ The infrastructure already exists in `specweave init` (clone-worker, job-launche
 - [x] AC-US1-05: `specweave get "org/*"` clones all repos in org (null pattern = no filter)
 
 ### US-002: --all flag cloning
+**Project**: specweave
 
 **As a** developer,
 **I want to** run `specweave get --all acme-corp` to clone every repo in an org,
@@ -34,6 +36,7 @@ The infrastructure already exists in `specweave init` (clone-worker, job-launche
 - [x] AC-US2-02: Combined with `--pattern "service-*"` acts as glob filter on the org
 
 ### US-003: Filtering options
+**Project**: specweave
 
 **As a** developer,
 **I want to** skip archived repos and forks when bulk cloning,
@@ -45,6 +48,7 @@ The infrastructure already exists in `specweave init` (clone-worker, job-launche
 - [x] AC-US3-03: `--limit <n>` caps the number of repos fetched (default: 1000)
 
 ### US-004: Auth resolution
+**Project**: specweave
 
 **As a** developer,
 **I want** the command to automatically use my existing GitHub credentials,
@@ -56,6 +60,7 @@ The infrastructure already exists in `specweave init` (clone-worker, job-launche
 - [x] AC-US4-03: Helpful error if neither is available
 
 ### US-005: Single-repo backward compatibility
+**Project**: specweave
 
 **As a** developer,
 **I want** existing `specweave get owner/repo` behavior unchanged,

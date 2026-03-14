@@ -31,8 +31,8 @@ created: 2026-03-14
 **So that** I do not see broken or misleading links to filtered-out placeholder projects
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a multi-project sync where `validGroups` contains 2 of 4 original groups, when `generateCrossReferences()` is called, then only the 2 validated project keys are passed (not all 4)
-- [ ] **AC-US1-02**: Given a project that was filtered out by the validation logic (lines 262-282), when FEATURE.md is generated for another project, then no cross-reference link to the filtered project appears
+- [x] **AC-US1-01**: Given a multi-project sync where `validGroups` contains 2 of 4 original groups, when `generateCrossReferences()` is called, then only the 2 validated project keys are passed (not all 4)
+- [x] **AC-US1-02**: Given a project that was filtered out by the validation logic (lines 262-282), when FEATURE.md is generated for another project, then no cross-reference link to the filtered project appears
 
 ---
 
@@ -44,8 +44,8 @@ created: 2026-03-14
 **So that** the file is shorter and there is no confusion about which implementation is authoritative
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given the current codebase, when searching for `detectMultiProjectMode` in `living-docs-sync.ts`, then zero definitions or calls exist in that file
-- [ ] **AC-US2-02**: Given the removal, when existing tests are run, then all tests pass with no regressions
+- [x] **AC-US2-01**: Given the current codebase, when searching for `detectMultiProjectMode` in `living-docs-sync.ts`, then zero definitions or calls exist in that file
+- [x] **AC-US2-02**: Given the removal, when existing tests are run, then all tests pass with no regressions
 
 ---
 
@@ -57,7 +57,7 @@ created: 2026-03-14
 **So that** I can find the correct architectural decision document
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given `src/core/project/project-resolution.ts`, when reading the module header comment, then it references "ADR-0195" instead of "ADR-0140"
+- [x] **AC-US3-01**: Given `src/core/project/project-resolution.ts`, when reading the module header comment, then it references "ADR-0195" instead of "ADR-0140"
 
 ---
 
@@ -69,8 +69,8 @@ created: 2026-03-14
 **So that** future changes to the parsing logic only need one update
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given `living-docs-sync.ts`, when searching for the SKIP_EXTERNAL_SYNC parsing pattern (`['true', '1', 'yes'].includes`), then it appears exactly once (extracted to a single check near the top of `syncIncrement`)
-- [ ] **AC-US4-02**: Given both the cross-project and single-project sync paths, when SKIP_EXTERNAL_SYNC is set to "true", then both paths skip external sync (behavior preserved)
+- [x] **AC-US4-01**: Given `living-docs-sync.ts`, when searching for the SKIP_EXTERNAL_SYNC parsing pattern (`['true', '1', 'yes'].includes`), then it appears exactly once (extracted to a single check near the top of `syncIncrement`)
+- [x] **AC-US4-02**: Given both the cross-project and single-project sync paths, when SKIP_EXTERNAL_SYNC is set to "true", then both paths skip external sync (behavior preserved)
 
 ---
 
@@ -82,9 +82,9 @@ created: 2026-03-14
 **So that** the cross-project and single-project paths share one implementation
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given `living-docs-sync.ts`, when searching for `generateLivingDocsImagesEnhanced`, then it is called from exactly one private helper method (not inline in two places)
-- [ ] **AC-US5-02**: Given SPECWEAVE_SKIP_IMAGE_GEN=true, when sync runs in either cross-project or single-project mode, then image generation is skipped (behavior preserved)
-- [ ] **AC-US5-03**: Given a successful image generation, when the helper runs, then the image markdown is injected after the TL;DR section in FEATURE.md content
+- [x] **AC-US5-01**: Given `living-docs-sync.ts`, when searching for `generateLivingDocsImagesEnhanced`, then it is called from exactly one private helper method (not inline in two places)
+- [x] **AC-US5-02**: Given SPECWEAVE_SKIP_IMAGE_GEN=true, when sync runs in either cross-project or single-project mode, then image generation is skipped (behavior preserved)
+- [x] **AC-US5-03**: Given a successful image generation, when the helper runs, then the image markdown is injected after the TL;DR section in FEATURE.md content
 
 ---
 
@@ -96,8 +96,8 @@ created: 2026-03-14
 **So that** the import style is consistent and there is no duplicated dynamic import
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: Given `living-docs-sync.ts`, when checking imports, then `gray-matter` is imported via a static `import` statement at the top of the file
-- [ ] **AC-US6-02**: Given the file contents, when searching for `await import('gray-matter')`, then zero occurrences exist
+- [x] **AC-US6-01**: Given `living-docs-sync.ts`, when checking imports, then `gray-matter` is imported via a static `import` statement at the top of the file
+- [x] **AC-US6-02**: Given the file contents, when searching for `await import('gray-matter')`, then zero occurrences exist
 
 ## Out of Scope
 

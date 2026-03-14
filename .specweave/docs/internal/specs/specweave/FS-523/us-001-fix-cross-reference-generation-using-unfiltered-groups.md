@@ -1,12 +1,16 @@
 ---
 id: US-001
 feature: FS-523
-title: "Fix Cross-Reference Generation Using Unfiltered Groups"
-status: not_started
+title: Fix Cross-Reference Generation Using Unfiltered Groups
+status: completed
 priority: P1
 created: 2026-03-14
 tldr: "**As a** SpecWeave user with a multi-project workspace."
 project: specweave
+external:
+  github:
+    issue: 1565
+    url: https://github.com/anton-abyzov/specweave/issues/1565
 ---
 
 # US-001: Fix Cross-Reference Generation Using Unfiltered Groups
@@ -21,8 +25,8 @@ project: specweave
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a multi-project sync where `validGroups` contains 2 of 4 original groups, when `generateCrossReferences()` is called, then only the 2 validated project keys are passed (not all 4)
-- [ ] **AC-US1-02**: Given a project that was filtered out by the validation logic (lines 262-282), when FEATURE.md is generated for another project, then no cross-reference link to the filtered project appears
+- [x] **AC-US1-01**: Given a multi-project sync where `validGroups` contains 2 of 4 original groups, when `generateCrossReferences()` is called, then only the 2 validated project keys are passed (not all 4)
+- [x] **AC-US1-02**: Given a project that was filtered out by the validation logic (lines 262-282), when FEATURE.md is generated for another project, then no cross-reference link to the filtered project appears
 
 ---
 
@@ -35,4 +39,4 @@ project: specweave
 
 ## Tasks
 
-- [ ] **T-007**: Run full test suite and confirm all grep invariants
+- [x] **T-007**: Run full test suite and confirm all grep invariants

@@ -1,31 +1,33 @@
 ---
 id: FS-523
-title: 'Living Docs Sync Cleanup: Bug Fixes and DRY Extraction'
+title: "Living Docs Sync Cleanup: Bug Fixes and DRY Extraction"
 type: feature
-status: planned
+status: completed
 priority: P1
-created: 2026-03-14T00:00:00.000Z
-lastUpdated: 2026-03-14T00:00:00.000Z
-tldr: >-
-  `living-docs-sync.ts` contains three bugs and three DRY violations identified
-  during code review.
+created: 2026-03-14
+lastUpdated: 2026-03-14
+tldr: "`living-docs-sync.ts` contains three bugs and three DRY violations
+  identified during code review."
 complexity: high
 stakeholder_relevant: true
 externalLinks:
   jira:
     epicKey: SWE2E-198
-    epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-198'
-    syncedAt: '2026-03-14T21:40:36.918Z'
+    epicUrl: https://antonabyzov.atlassian.net/browse/SWE2E-198
+    syncedAt: 2026-03-14T21:40:36.918Z
     projectKey: SWE2E
     domain: antonabyzov.atlassian.net
   ado:
     featureId: 1277
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1277
-    syncedAt: '2026-03-14T21:40:49.199Z'
+    featureUrl: https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1277
+    syncedAt: 2026-03-14T21:40:49.199Z
     organization: EasyChamp
     project: SpecWeaveSync
-updated: '2026-03-14'
+external_tools:
+  github:
+    type: milestone
+    id: 242
+    url: https://github.com/anton-abyzov/specweave/milestone/242
 ---
 
 # Living Docs Sync Cleanup: Bug Fixes and DRY Extraction
@@ -33,8 +35,10 @@ updated: '2026-03-14'
 ## TL;DR
 
 **What**: `living-docs-sync.ts` contains three bugs and three DRY violations identified during code review.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 6
+
+![Living Docs Sync Cleanup: Bug Fixes and DRY Extraction illustration](assets/feature-fs-523.jpg)
 
 ## Overview
 
@@ -44,7 +48,7 @@ updated: '2026-03-14'
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0523-living-docs-sync-cleanup](../../../../../increments/0523-living-docs-sync-cleanup/spec.md) | ⏳ planned | 2026-03-14 |
+| [0523-living-docs-sync-cleanup](../../../../../increments/0523-living-docs-sync-cleanup/spec.md) | ✅ completed | 2026-03-14 |
 
 ## User Stories
 

@@ -10,7 +10,22 @@
     "tddEnforcement": "strict"
   },
   "created": "2026-03-12T00:00:00.000Z",
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-200",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-200",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-14T23:17:30.368Z"
+    },
+    "ado": {
+      "featureId": "1314",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1314",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-14T23:17:30.854Z"
+    }
+  },
   "priority": "medium",
   "lastActivity": "2026-03-12T00:00:00.000Z",
   "testMode": "test-after",

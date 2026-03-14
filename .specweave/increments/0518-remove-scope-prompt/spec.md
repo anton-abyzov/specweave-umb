@@ -15,6 +15,7 @@ unless the `--global` flag is explicitly passed by the user.
 ---
 
 ## US-001: Skills always install to local project by default
+**Project**: vskill
 
 **As a** developer running `vskill i owner/repo`,
 **I want** skills to install into my current project's skill directories automatically,
@@ -27,6 +28,7 @@ unless the `--global` flag is explicitly passed by the user.
 - [x] AC-US1-03: The "Installation scope:" prompt is completely removed from the interactive flow
 
 ## US-002: Publish updated package so npx picks up all fixes
+**Project**: vskill
 
 **As a** developer using `npx vskill i`,
 **I want** the published npm package to reflect all recent changes (0516 + 0518),

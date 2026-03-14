@@ -12,7 +12,7 @@
 
 ### T-001: Replace `groups` with `validGroups` in generateCrossReferences calls
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given a multi-project sync where `validGroups` contains 2 of 4 original groups → When `syncIncrement` runs the cross-project path → Then `generateCrossReferences()` receives only the 2 validated keys (not all 4), and FEATURE.md contains no links to filtered-out projects
 
 **Implementation Details**:
@@ -32,7 +32,7 @@
 
 ### T-002: Delete the unused private `detectMultiProjectMode` method (~100 LOC)
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `living-docs-sync.ts` with the dead method present → When lines 1189-1288 are deleted → Then `grep -c 'detectMultiProjectMode' src/core/living-docs/living-docs-sync.ts` returns 0 and all existing tests still pass
 
 **Implementation Details**:
@@ -52,7 +52,7 @@
 
 ### T-003: Fix ADR-0140 -> ADR-0195 in project-resolution.ts header comment
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `src/core/project/project-resolution.ts` → When reading line 10 → Then the comment references "ADR-0195" not "ADR-0140"
 
 **Implementation Details**:
@@ -71,7 +71,7 @@
 
 ### T-004: Hoist SKIP_EXTERNAL_SYNC parsing to top of syncIncrement
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `SKIP_EXTERNAL_SYNC=true` in the environment → When `syncIncrement` is called in either cross-project or single-project mode → Then both paths observe `skipExternalSync === true` from the single hoisted const, and no duplicate parsing pattern exists in the file
 
 **Implementation Details**:
@@ -93,7 +93,7 @@
 
 ### T-005: Extract image generation + TL;DR injection to private helper `generateAndInjectImage`
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given the extracted `generateAndInjectImage` private method → When called from the cross-project path with `crossProjectPath` or from the single-project path with `projectPath` → Then image markdown is injected after the TL;DR section in FEATURE.md content, image generation is skipped when `SPECWEAVE_SKIP_IMAGE_GEN=true`, and `generateLivingDocsImagesEnhanced` is called from exactly one place in the codebase
 
 **Implementation Details**:
@@ -127,7 +127,7 @@
 
 ### T-006: Replace two `await import('gray-matter')` calls with a static top-level import
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `living-docs-sync.ts` with two dynamic `await import('gray-matter')` calls → When a static `import matter from 'gray-matter'` is added at the top and both dynamic patterns are replaced → Then `grep -c "await import('gray-matter')" src/core/living-docs/living-docs-sync.ts` returns 0 and the file has a static matter import
 
 **Implementation Details**:
@@ -149,7 +149,7 @@
 
 ### T-007: Run full test suite and confirm all grep invariants
 **User Story**: US-001, US-002, US-004, US-005, US-006 | **Satisfies ACs**: AC-US2-02, AC-US4-01, AC-US5-01, AC-US6-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given all prior tasks complete → When the full Vitest suite runs and grep checks execute → Then 0 test failures, 0 occurrences of `detectMultiProjectMode` in living-docs-sync.ts, 0 occurrences of `await import('gray-matter')`, 1 occurrence of the SKIP_EXTERNAL_SYNC parsing pattern, and 1 call site for `generateLivingDocsImagesEnhanced`
 
 **Implementation Details**:
