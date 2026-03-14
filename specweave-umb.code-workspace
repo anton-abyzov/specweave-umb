@@ -1,0 +1,25 @@
+{
+  "folders": [
+    {
+      "name": "specweave-umb (root)",
+      "path": "."
+    },
+    {
+      "name": "specweave",
+      "path": "repositories/anton-abyzov/specweave"
+    },
+    {
+      "name": "vskill",
+      "path": "repositories/anton-abyzov/vskill"
+    },
+    {
+      "name": "vskill-platform",
+      "path": "repositories/anton-abyzov/vskill-platform"
+    }
+  ],
+  "settings": {
+    "git.repositoryScanMaxDepth": 4,
+    "git.autoRepositoryDetection": "subFolders",
+    "git.openRepositoryInParentFolders": "always"
+  }
+}
