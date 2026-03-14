@@ -78,7 +78,9 @@ vskill.lock
 
 # IDE
 .idea
-.vscode
+!.vscode
+.vscode/*
+!.vscode/settings.json
 *.swp
 *.swo
 
