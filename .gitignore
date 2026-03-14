@@ -45,6 +45,10 @@ build/
 .specweave/increments/*/logs/
 .specweave/increments/*/scripts/*.tmp
 .specweave/increments/*/reports/*.tmp
+.specweave/increments/*/reports/judge-llm-report.json
+
+# Generated assets (ephemeral, from social media / content generation)
+generated-assets/
 
 # Child repositories (tracked independently via their own git)
 repositories/
