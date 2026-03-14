@@ -1,6 +1,0 @@
-[submodule "repositories/anton-abyzov/specweave"]
-	path = repositories/anton-abyzov/specweave
-	url = https://github.com/anton-abyzov/specweave.git
-[submodule "repositories/anton-abyzov/vskill"]
-	path = repositories/anton-abyzov/vskill
-	url = https://github.com/anton-abyzov/vskill.git

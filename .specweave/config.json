@@ -180,6 +180,7 @@
         "path": "repositories/anton-abyzov/specweave",
         "name": "specweave",
         "prefix": "SPE",
+        "githubUrl": "https://github.com/anton-abyzov/specweave.git",
         "sync": {
           "github": { "owner": "anton-abyzov", "repo": "specweave" },
           "jira": { "projectKey": "SWE2E" },
@@ -191,6 +192,7 @@
         "path": "repositories/anton-abyzov/vskill",
         "name": "vskill",
         "prefix": "VSK",
+        "githubUrl": "https://github.com/anton-abyzov/vskill.git",
         "sync": {
           "github": { "owner": "anton-abyzov", "repo": "vskill" },
           "jira": { "projectKey": "SWE2E" },
@@ -202,6 +204,7 @@
         "path": "repositories/anton-abyzov/vskill-platform",
         "name": "vskill-platform",
         "prefix": "VPL",
+        "githubUrl": "https://github.com/anton-abyzov/vskill-platform.git",
         "disabled": true,
         "disabledReason": "Repo not found on GitHub as of 2026-03-13",
         "sync": {
