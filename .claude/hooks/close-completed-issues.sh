@@ -59,7 +59,13 @@ if [[ ! -f "$SYNC_MARKER" && ! -f "$LOCK_FILE" ]]; then
     (
       cd "$PROJECT_ROOT" && \
       specweave sync-living-docs "$INC_ID" >> "$LOG" 2>&1
-      touch "$SYNC_MARKER"
+      EXIT_CODE=$?
+      # Only mark synced if command succeeded (exit 0)
+      if [[ $EXIT_CODE -eq 0 ]]; then
+        touch "$SYNC_MARKER"
+      else
+        echo "[hook] sync-living-docs exited $EXIT_CODE — marker NOT created, will retry on next completion trigger" >> "$LOG"
+      fi
       rm -f "$LOCK_FILE"
     ) &
     disown
