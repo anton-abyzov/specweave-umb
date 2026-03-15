@@ -1,10 +1,10 @@
 ---
 increment: 0521-external-integration-smart-linking
-title: "External Integration Health Check & Smart Linking"
+title: External Integration Health Check & Smart Linking
 type: feature
 priority: P1
-status: active
-created: 2026-03-13
+status: completed
+created: 2026-03-13T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
