@@ -1,7 +1,7 @@
 {
   "id": "FS-530",
   "title": "Verify Full Sync Pipeline — All 3 Platforms + AC Comments",
-  "status": "ready_for_review",
+  "status": "completed",
   "priority": "P1",
   "created": "2026-03-15T00:00:00.000Z",
   "project": "specweave-umb",
@@ -11,17 +11,17 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-227",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-15T17:09:51.078Z"
+      "syncedAt": "2026-03-15T17:36:51.974Z"
     },
     "ado": {
       "featureId": "1367",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1367",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-15T17:09:52.732Z"
+      "syncedAt": "2026-03-15T17:36:53.740Z"
     }
   },
-  "lastActivity": "2026-03-15T17:09:46.212Z",
+  "lastActivity": "2026-03-15T17:36:41.644Z",
   "testMode": "test-after",
   "coverageTarget": 80,
   "type": "feature",
@@ -64,5 +64,6 @@
       "changesCount": 1
     }
   ],
-  "updated": "2026-03-15T17:09:46.000Z"
+  "updated": "2026-03-15T17:09:46.000Z",
+  "approvedAt": "2026-03-15T17:36:41.644Z"
 }

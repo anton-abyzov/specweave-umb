@@ -1,7 +1,7 @@
 ---
 id: FS-530
-title: "Verify Full Sync Pipeline — All 3 Platforms + AC Comments"
-status: active
+title: Verify Full Sync Pipeline — All 3 Platforms + AC Comments
+status: completed
 priority: P1
 project: specweave-umb
 ---

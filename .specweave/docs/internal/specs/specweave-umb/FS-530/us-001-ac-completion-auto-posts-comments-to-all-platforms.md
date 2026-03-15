@@ -8,10 +8,10 @@ created: 2026-03-15
 tldr: "**As a** SpecWeave user."
 project: specweave-umb
 external_tools:
-  ado:
-    id: 194
   jira:
     key: SWE2E-228
+  ado:
+    id: 194
 ---
 
 # US-001: AC completion auto-posts comments to all platforms
