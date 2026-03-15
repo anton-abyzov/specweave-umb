@@ -1,0 +1,13 @@
+{
+  "id": "0532-fix-hook-timeout-errors",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-15T08:52:13.086Z",
+  "lastActivity": "2026-03-15T08:52:13.086Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
