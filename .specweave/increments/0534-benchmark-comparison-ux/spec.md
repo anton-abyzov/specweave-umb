@@ -1,5 +1,5 @@
 ---
-increment: 0531-benchmark-comparison-ux
+increment: 0534-benchmark-comparison-ux
 title: Benchmark Comparison UX Improvements
 type: feature
 priority: P1
