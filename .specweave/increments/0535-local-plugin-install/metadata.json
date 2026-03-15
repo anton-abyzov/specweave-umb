@@ -1,0 +1,29 @@
+{
+  "id": "0535-local-plugin-install",
+  "name": "local-plugin-install",
+  "status": "active",
+  "created": "2026-03-15T00:00:00.000Z",
+  "description": "Replace on-demand marketplace plugin lookups with direct file copy to project .claude/skills/",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-03-15T19:49:23.380Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/6 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US2-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US2-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US2-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    }
+  ],
+  "lastActivity": "2026-03-15T19:49:23.381Z",
+  "externalLinks": {},
+  "priority": "medium",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "type": "feature"
+}
