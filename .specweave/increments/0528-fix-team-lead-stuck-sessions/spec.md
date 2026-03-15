@@ -1,7 +1,7 @@
 ---
 title: Fix team-lead stuck sessions in tmux/iTerm2
-increment: "0528"
-status: active
+increment: 0528
+status: completed
 completed_acs: 8
 total_acs: 8
 ---

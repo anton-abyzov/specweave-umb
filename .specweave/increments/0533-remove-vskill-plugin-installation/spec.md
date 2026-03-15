@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # FS-533: Remove vskill plugin installation from auto-loading
 
 ## Problem

@@ -1,12 +1,17 @@
 ---
 id: US-001
 feature: FS-504
-title: "Search Registry on Flat Name Install (P1)"
-status: not_started
+title: Search Registry on Flat Name Install (P1)
+status: completed
 priority: P1
-created: 2026-03-12
+created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** CLI user."
 project: vskill
+external_tools:
+  jira:
+    key: SWE2E-257
+  ado:
+    id: 194
 ---
 
 # US-001: Search Registry on Flat Name Install (P1)
@@ -21,10 +26,10 @@ project: vskill
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a flat name input (no slashes), when `installFromRegistry` is invoked, then `searchSkills(flatName)` is called instead of `getSkill(flatName)`
-- [ ] **AC-US1-02**: Given `searchSkills()` returns exactly one non-blocked result, then installation proceeds automatically by re-invoking `addCommand("owner/repo/skill", opts)` using the result's slug fields
-- [ ] **AC-US1-03**: Given `searchSkills()` returns zero results, then the CLI prints an error message and suggests `vskill find <query>` for broader search
-- [ ] **AC-US1-04**: Given `searchSkills()` throws an error (network failure, API down), then the CLI falls back to the existing `getSkill()` + `installFromRegistry` behavior
+- [x] **AC-US1-01**: Given a flat name input (no slashes), when `installFromRegistry` is invoked, then `searchSkills(flatName)` is called instead of `getSkill(flatName)`
+- [x] **AC-US1-02**: Given `searchSkills()` returns exactly one non-blocked result, then installation proceeds automatically by re-invoking `addCommand("owner/repo/skill", opts)` using the result's slug fields
+- [x] **AC-US1-03**: Given `searchSkills()` returns zero results, then the CLI prints an error message and suggests `vskill find <query>` for broader search
+- [x] **AC-US1-04**: Given `searchSkills()` throws an error (network failure, API down), then the CLI falls back to the existing `getSkill()` + `installFromRegistry` behavior
 
 ---
 
@@ -37,5 +42,5 @@ project: vskill
 
 ## Tasks
 
-- [ ] **T-001**: Create `src/utils/skill-display.ts` with extracted helpers and `rankSearchResults`
-- [ ] **T-002**: Implement `resolveViaSearch()` in `add.ts` and wire flat-name branch
+- [x] **T-001**: Create `src/utils/skill-display.ts` with extracted helpers and `rankSearchResults`
+- [x] **T-002**: Implement `resolveViaSearch()` in `add.ts` and wire flat-name branch

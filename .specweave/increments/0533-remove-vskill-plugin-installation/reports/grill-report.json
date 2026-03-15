@@ -1,0 +1,22 @@
+{
+  "version": "1.1",
+  "incrementId": "0533",
+  "timestamp": "2026-03-15T17:00:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 5,
+    "passed": 5,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-01", "status": "pass", "evidence": "All install_plugin_via_vskill/install_vskill_repo_plugin functions and VSKILL_PLUGINS array removed from llm-plugin-detector.ts and user-prompt-submit.sh" },
+      { "acId": "AC-02", "status": "pass", "evidence": "SW plugin install replaced with claude plugin install ${plugin}@specweave --scope project in user-prompt-submit.sh" },
+      { "acId": "AC-03", "status": "pass", "evidence": "buildDetectionPrompt() rewritten to only list sw-* plugins, explicit DO NOT suggest list for domain plugins" },
+      { "acId": "AC-04", "status": "pass", "evidence": "All vskill marketplace code paths removed; no npx vskill install calls remain" },
+      { "acId": "AC-05", "status": "pass", "evidence": "3 test files updated: llm-plugin-detection.test.ts, llm-plugin-detector.test.ts, media-plugin-registry.test.ts" }
+    ]
+  },
+  "findings": []
+}

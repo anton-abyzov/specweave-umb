@@ -1,10 +1,10 @@
 ---
 increment: 0510-skill-studio-ai-create-improvements
-title: "Skill Studio AI-Assisted Create Improvements"
+title: Skill Studio AI-Assisted Create Improvements
 type: feature
 priority: P1
-status: active
-created: 2026-03-12
+status: completed
+created: 2026-03-12T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

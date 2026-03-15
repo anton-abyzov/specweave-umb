@@ -7,18 +7,15 @@ priority: P2
 created: 2026-03-15
 tldr: "**As a** SpecWeave user."
 project: specweave-umb
-external_tools:
-  github:
-    issue: 78
-    url: https://github.com/anton-abyzov/specweave-umb/issues/78
-  jira:
-    key: SWE2E-209
-  ado:
-    id: 194
 external:
   github:
     issue: 78
     url: https://github.com/anton-abyzov/specweave-umb/issues/78
+external_tools:
+  jira:
+    key: SWE2E-209
+  ado:
+    id: 194
 ---
 
 # US-001: Verify JIRA native AC checkboxes

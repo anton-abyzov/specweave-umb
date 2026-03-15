@@ -1,7 +1,7 @@
 ---
 increment: 0504-install-skill-discovery
 title: "Install Command Skill Discovery & Disambiguation"
-status: planned
+status: ready_for_review
 by_user_story:
   US-001: [T-001, T-002]
   US-002: [T-003, T-004]
@@ -22,7 +22,7 @@ by_user_story:
 ## User Story: US-001 - Search Registry on Flat Name Install
 
 **Linked ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Tasks**: T-001, T-002 | 0 completed
+**Tasks**: T-001, T-002 | 2 completed
 
 ---
 
@@ -30,7 +30,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US4-01, AC-US4-02, AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** four private helpers (`extractBaseRepo`, `formatSkillId`, `getSkillUrl`, `getTrustBadge`) currently in `find.ts`
@@ -80,7 +80,7 @@ by_user_story:
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** a user calls `vskill install skill-creator` (flat name, no slashes)
@@ -135,7 +135,7 @@ by_user_story:
 ## User Story: US-002 - Interactive Disambiguation for Multiple Matches
 
 **Linked ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Tasks**: T-003, T-004 | 0 completed
+**Tasks**: T-003, T-004 | 2 completed
 
 ---
 
@@ -143,7 +143,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** multiple non-blocked search results and `isTTY()` returns true
@@ -190,7 +190,7 @@ by_user_story:
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `resolveViaSearch` renders search results before prompting
@@ -218,7 +218,7 @@ by_user_story:
 ## User Story: US-003 - Non-TTY Disambiguation
 
 **Linked ACs**: AC-US3-01, AC-US3-02
-**Tasks**: T-005 | 0 completed
+**Tasks**: T-005 | 1 completed
 
 ---
 
@@ -226,7 +226,7 @@ by_user_story:
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** multiple search results and `isTTY()` returns false (CI/piped environment)
@@ -264,7 +264,7 @@ by_user_story:
 ## User Story: US-004 - Result Ranking with Exact Match Priority
 
 **Linked ACs**: AC-US4-01, AC-US4-02, AC-US4-03
-**Tasks**: T-006, T-007 | 0 completed
+**Tasks**: T-006, T-007 | 2 completed
 
 ---
 
@@ -272,7 +272,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** `rankSearchResults()` implemented in T-001
@@ -314,7 +314,7 @@ by_user_story:
 
 **User Story**: US-004
 **Satisfies ACs**: AC-US4-01
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the flat-name branch in `add.ts` is replaced with `resolveViaSearch`
@@ -348,7 +348,7 @@ by_user_story:
 ## User Story: US-005 - `--yes` Flag Auto-Pick
 
 **Linked ACs**: AC-US5-01, AC-US5-02
-**Tasks**: T-008 | 0 completed
+**Tasks**: T-008 | 1 completed
 
 ---
 
@@ -356,7 +356,7 @@ by_user_story:
 
 **User Story**: US-005
 **Satisfies ACs**: AC-US5-01, AC-US5-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** the `--yes` flag is set and multiple search results exist

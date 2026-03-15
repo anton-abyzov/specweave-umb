@@ -1,7 +1,7 @@
 ---
 id: FS-529
-title: "Fix GitHub API Rate Limit Exhaustion"
-status: active
+title: Fix GitHub API Rate Limit Exhaustion
+status: completed
 priority: P1
 project: specweave-umb
 ---

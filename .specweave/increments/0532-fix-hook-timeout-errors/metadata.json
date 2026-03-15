@@ -1,13 +1,63 @@
 {
   "id": "0532-fix-hook-timeout-errors",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-03-15T08:52:13.086Z",
-  "lastActivity": "2026-03-15T08:52:13.086Z",
+  "lastActivity": "2026-03-15T17:04:20.194Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1573,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1573",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 1574,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1574",
+          "status": "active"
+        }
+      },
+      "milestone": 243,
+      "syncedAt": "2026-03-15T16:49:06.925Z"
+    },
+    "jira": {
+      "epicKey": "SWE2E-220",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-220",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-15T17:04:28.435Z"
+    },
+    "ado": {
+      "featureId": "1366",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1366",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-15T17:04:30.186Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1573,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1573",
+        "createdAt": "2026-03-15T16:49:00.651Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1574,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1574",
+        "createdAt": "2026-03-15T16:49:06.925Z"
+      }
+    ],
+    "lastSync": "2026-03-15T16:49:06.925Z"
+  },
+  "readyForReviewAt": "2026-03-15T17:04:20.147Z",
+  "approvedAt": "2026-03-15T17:04:20.194Z"
 }

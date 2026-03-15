@@ -1,12 +1,17 @@
 ---
 id: US-003
 feature: FS-504
-title: "Non-TTY Disambiguation (P1)"
-status: not_started
+title: Non-TTY Disambiguation (P1)
+status: completed
 priority: P1
-created: 2026-03-12
+created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** CI pipeline or script author."
 project: vskill
+external_tools:
+  jira:
+    key: SWE2E-260
+  ado:
+    id: 209
 ---
 
 # US-003: Non-TTY Disambiguation (P1)
@@ -21,8 +26,8 @@ project: vskill
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: Given multiple results and a non-TTY environment, then the CLI prints the ranked result list (same display format as `vskill find`) and exits with code 1
-- [ ] **AC-US3-02**: Given a non-TTY environment, then the error message instructs the user to specify the exact `owner/repo/skill` path
+- [x] **AC-US3-01**: Given multiple results and a non-TTY environment, then the CLI prints the ranked result list (same display format as `vskill find`) and exits with code 1
+- [x] **AC-US3-02**: Given a non-TTY environment, then the error message instructs the user to specify the exact `owner/repo/skill` path
 
 ---
 
@@ -35,4 +40,4 @@ project: vskill
 
 ## Tasks
 
-- [ ] **T-005**: Non-TTY exit with ranked list and actionable error
+- [x] **T-005**: Non-TTY exit with ranked list and actionable error

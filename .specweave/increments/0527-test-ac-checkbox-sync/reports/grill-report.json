@@ -1,0 +1,23 @@
+{
+  "version": "1.1",
+  "incrementId": "0527",
+  "timestamp": "2026-03-15T17:15:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 6,
+    "passed": 6,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "sync-living-docs ran twice successfully" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "JIRA shows native ADF checkboxes" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Priority/Status on separate lines in JIRA" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "Epic→Story hierarchy correct in JIRA" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "Feature→Issue hierarchy correct in ADO" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Milestone→Issue hierarchy correct in GitHub" }
+    ]
+  },
+  "findings": []
+}

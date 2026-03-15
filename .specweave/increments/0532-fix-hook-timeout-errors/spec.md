@@ -1,10 +1,10 @@
 ---
 increment: 0532-fix-hook-timeout-errors
-title: "Fix PostToolUse/PreToolUse Edit Hook Errors"
+title: Fix PostToolUse/PreToolUse Edit Hook Errors
 type: bug
 priority: P2
-status: planned
-created: 2026-03-15
+status: completed
+created: 2026-03-15T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

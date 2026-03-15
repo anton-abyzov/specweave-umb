@@ -7,18 +7,15 @@ priority: P2
 created: 2026-03-15
 tldr: "**As a** SpecWeave user."
 project: specweave-umb
-external_tools:
-  github:
-    issue: 79
-    url: https://github.com/anton-abyzov/specweave-umb/issues/79
-  jira:
-    key: SWE2E-210
-  ado:
-    id: 208
 external:
   github:
     issue: 79
     url: https://github.com/anton-abyzov/specweave-umb/issues/79
+external_tools:
+  jira:
+    key: SWE2E-210
+  ado:
+    id: 208
 ---
 
 # US-002: Verify full hierarchy across platforms

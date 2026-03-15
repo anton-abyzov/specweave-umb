@@ -1,9 +1,8 @@
 {
-  "id": "0533",
+  "id": "0533-remove-vskill-plugin-installation",
   "name": "remove-vskill-plugin-installation",
-  "type": "fix",
-  "status": "active",
-  "createdAt": "2026-03-15T00:00:00.000Z",
+  "type": "bug",
+  "status": "completed",
   "acSyncEvents": [
     {
       "timestamp": "2026-03-15T09:19:03.496Z",
@@ -19,5 +18,12 @@
       "changesCount": 0
     }
   ],
-  "lastActivity": "2026-03-15T09:19:03.497Z"
+  "lastActivity": "2026-03-15T17:01:07.034Z",
+  "created": "2026-03-15T00:00:00.000Z",
+  "externalLinks": {},
+  "priority": "medium",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-03-15T17:01:06.987Z",
+  "approvedAt": "2026-03-15T17:01:07.034Z"
 }

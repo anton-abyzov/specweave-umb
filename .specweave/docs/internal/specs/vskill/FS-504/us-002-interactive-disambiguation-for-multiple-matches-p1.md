@@ -1,12 +1,17 @@
 ---
 id: US-002
 feature: FS-504
-title: "Interactive Disambiguation for Multiple Matches (P1)"
-status: not_started
+title: Interactive Disambiguation for Multiple Matches (P1)
+status: completed
 priority: P1
-created: 2026-03-12
+created: 2026-03-12T00:00:00.000Z
 tldr: "**As a** CLI user in an interactive terminal."
 project: vskill
+external_tools:
+  jira:
+    key: SWE2E-258
+  ado:
+    id: 208
 ---
 
 # US-002: Interactive Disambiguation for Multiple Matches (P1)
@@ -21,9 +26,9 @@ project: vskill
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given multiple non-blocked results and a TTY environment, then the CLI displays results using the same format as `vskill find` (skill ID, stars, trust badge, URL) and presents an interactive `promptChoice` selection
-- [ ] **AC-US2-02**: Given the user selects a result from the interactive prompt, then the CLI re-invokes `addCommand("owner/repo/skill", opts)` with the selected result's slug fields
-- [ ] **AC-US2-03**: Given results contain both blocked and non-blocked skills, then blocked skills are displayed with BLOCKED label but are not selectable in the interactive prompt
+- [x] **AC-US2-01**: Given multiple non-blocked results and a TTY environment, then the CLI displays results using the same format as `vskill find` (skill ID, stars, trust badge, URL) and presents an interactive `promptChoice` selection
+- [x] **AC-US2-02**: Given the user selects a result from the interactive prompt, then the CLI re-invokes `addCommand("owner/repo/skill", opts)` with the selected result's slug fields
+- [x] **AC-US2-03**: Given results contain both blocked and non-blocked skills, then blocked skills are displayed with BLOCKED label but are not selectable in the interactive prompt
 
 ---
 
@@ -36,5 +41,5 @@ project: vskill
 
 ## Tasks
 
-- [ ] **T-003**: TTY interactive disambiguation with `promptChoice`
-- [ ] **T-004**: Display format parity with `vskill find`
+- [x] **T-003**: TTY interactive disambiguation with `promptChoice`
+- [x] **T-004**: Display format parity with `vskill find`

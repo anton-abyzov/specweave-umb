@@ -1,10 +1,10 @@
 ---
 increment: 0504-install-skill-discovery
-title: "Install Command Skill Discovery & Disambiguation"
+title: Install Command Skill Discovery & Disambiguation
 type: feature
 priority: P1
-status: planned
-created: 2026-03-12
+status: completed
+created: 2026-03-12T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -32,10 +32,10 @@ When a user types `vskill install skill-creator` (flat name, no slashes), the CL
 **So that** I do not need to run `vskill find` as a separate step
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a flat name input (no slashes), when `installFromRegistry` is invoked, then `searchSkills(flatName)` is called instead of `getSkill(flatName)`
-- [ ] **AC-US1-02**: Given `searchSkills()` returns exactly one non-blocked result, then installation proceeds automatically by re-invoking `addCommand("owner/repo/skill", opts)` using the result's slug fields
-- [ ] **AC-US1-03**: Given `searchSkills()` returns zero results, then the CLI prints an error message and suggests `vskill find <query>` for broader search
-- [ ] **AC-US1-04**: Given `searchSkills()` throws an error (network failure, API down), then the CLI falls back to the existing `getSkill()` + `installFromRegistry` behavior
+- [x] **AC-US1-01**: Given a flat name input (no slashes), when `installFromRegistry` is invoked, then `searchSkills(flatName)` is called instead of `getSkill(flatName)`
+- [x] **AC-US1-02**: Given `searchSkills()` returns exactly one non-blocked result, then installation proceeds automatically by re-invoking `addCommand("owner/repo/skill", opts)` using the result's slug fields
+- [x] **AC-US1-03**: Given `searchSkills()` returns zero results, then the CLI prints an error message and suggests `vskill find <query>` for broader search
+- [x] **AC-US1-04**: Given `searchSkills()` throws an error (network failure, API down), then the CLI falls back to the existing `getSkill()` + `installFromRegistry` behavior
 
 ---
 
@@ -46,9 +46,9 @@ When a user types `vskill install skill-creator` (flat name, no slashes), the CL
 **So that** I can install the correct skill without retyping the command
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given multiple non-blocked results and a TTY environment, then the CLI displays results using the same format as `vskill find` (skill ID, stars, trust badge, URL) and presents an interactive `promptChoice` selection
-- [ ] **AC-US2-02**: Given the user selects a result from the interactive prompt, then the CLI re-invokes `addCommand("owner/repo/skill", opts)` with the selected result's slug fields
-- [ ] **AC-US2-03**: Given results contain both blocked and non-blocked skills, then blocked skills are displayed with BLOCKED label but are not selectable in the interactive prompt
+- [x] **AC-US2-01**: Given multiple non-blocked results and a TTY environment, then the CLI displays results using the same format as `vskill find` (skill ID, stars, trust badge, URL) and presents an interactive `promptChoice` selection
+- [x] **AC-US2-02**: Given the user selects a result from the interactive prompt, then the CLI re-invokes `addCommand("owner/repo/skill", opts)` with the selected result's slug fields
+- [x] **AC-US2-03**: Given results contain both blocked and non-blocked skills, then blocked skills are displayed with BLOCKED label but are not selectable in the interactive prompt
 
 ---
 
@@ -59,8 +59,8 @@ When a user types `vskill install skill-creator` (flat name, no slashes), the CL
 **So that** my automation fails explicitly instead of installing the wrong skill
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given multiple results and a non-TTY environment, then the CLI prints the ranked result list (same display format as `vskill find`) and exits with code 1
-- [ ] **AC-US3-02**: Given a non-TTY environment, then the error message instructs the user to specify the exact `owner/repo/skill` path
+- [x] **AC-US3-01**: Given multiple results and a non-TTY environment, then the CLI prints the ranked result list (same display format as `vskill find`) and exits with code 1
+- [x] **AC-US3-02**: Given a non-TTY environment, then the error message instructs the user to specify the exact `owner/repo/skill` path
 
 ---
 
@@ -71,9 +71,9 @@ When a user types `vskill install skill-creator` (flat name, no slashes), the CL
 **So that** the most likely correct skill appears first
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given search results, then results are sorted: blocked at end, then by cert tier (CERTIFIED > VERIFIED > other), then by GitHub stars descending, then by score descending -- matching the `find` command ranking
-- [ ] **AC-US4-02**: Given a result whose `skillSlug` exactly matches the input query (case-insensitive), then that result is promoted to first position among non-blocked results regardless of cert tier or stars
-- [ ] **AC-US4-03**: Given all search results are blocked, then the CLI displays the blocked results and prints an error that no installable skills were found
+- [x] **AC-US4-01**: Given search results, then results are sorted: blocked at end, then by cert tier (CERTIFIED > VERIFIED > other), then by GitHub stars descending, then by score descending -- matching the `find` command ranking
+- [x] **AC-US4-02**: Given a result whose `skillSlug` exactly matches the input query (case-insensitive), then that result is promoted to first position among non-blocked results regardless of cert tier or stars
+- [x] **AC-US4-03**: Given all search results are blocked, then the CLI displays the blocked results and prints an error that no installable skills were found
 
 ---
 
@@ -84,8 +84,8 @@ When a user types `vskill install skill-creator` (flat name, no slashes), the CL
 **So that** I can script installs without interactive prompts
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given the `--yes` flag and multiple search results, then the CLI automatically selects the first non-blocked result after ranking (including exact-match priority) and proceeds with installation
-- [ ] **AC-US5-02**: Given the `--yes` flag and all results are blocked, then the CLI exits with code 1 and an error message
+- [x] **AC-US5-01**: Given the `--yes` flag and multiple search results, then the CLI automatically selects the first non-blocked result after ranking (including exact-match priority) and proceeds with installation
+- [x] **AC-US5-02**: Given the `--yes` flag and all results are blocked, then the CLI exits with code 1 and an error message
 
 ## Out of Scope
 

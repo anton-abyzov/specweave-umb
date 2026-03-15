@@ -1,31 +1,27 @@
 ---
 id: FS-504
-title: Install Command Skill Discovery & Disambiguation
+title: "Install Command Skill Discovery & Disambiguation"
 type: feature
-status: planned
+status: completed
 priority: P1
 created: 2026-03-12T00:00:00.000Z
-lastUpdated: 2026-03-12T00:00:00.000Z
-tldr: >-
-  When a user types `vskill install skill-creator` (flat name, no slashes), the
-  CLI attempts a direct `getSkill()` API lookup.
+lastUpdated: 2026-03-15
+tldr: "When a user types `vskill install skill-creator` (flat name, no slashes), the CLI attempts a direct `getSkill()` API lookup."
 complexity: high
 stakeholder_relevant: true
 externalLinks:
   jira:
-    epicKey: SWE2E-182
+    epicKey: 'SWE2E-182'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-182'
     syncedAt: '2026-03-12T02:36:36.097Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 977
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/977
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/977'
     syncedAt: '2026-03-12T02:36:45.598Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-12'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Install Command Skill Discovery & Disambiguation
@@ -33,8 +29,10 @@ updated: '2026-03-12'
 ## TL;DR
 
 **What**: When a user types `vskill install skill-creator` (flat name, no slashes), the CLI attempts a direct `getSkill()` API lookup.
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 5
+
+![Install Command Skill Discovery & Disambiguation illustration](assets/feature-fs-504.jpg)
 
 ## Overview
 
@@ -44,7 +42,7 @@ When a user types `vskill install skill-creator` (flat name, no slashes), the CL
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0504-install-skill-discovery](../../../../../increments/0504-install-skill-discovery/spec.md) | ⏳ planned | 2026-03-12 |
+| [0504-install-skill-discovery](../../../../../increments/0504-install-skill-discovery/spec.md) | ✅ completed | 2026-03-12T00:00:00.000Z |
 
 ## User Stories
 

@@ -1,7 +1,7 @@
 ---
 id: FS-527
-title: "Test AC Checkbox Sync"
-status: active
+title: Test AC Checkbox Sync
+status: completed
 priority: P2
 project: specweave-umb
 ---
