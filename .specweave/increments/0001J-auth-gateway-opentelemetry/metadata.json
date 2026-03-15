@@ -1,0 +1,25 @@
+{
+  "id": "0001J-auth-gateway-opentelemetry",
+  "name": "auth-gateway-opentelemetry",
+  "type": "feature",
+  "status": "completed",
+  "completed": "2026-03-12",
+  "project": "Colibri.Identity.Keycloak",
+  "priority": "P2",
+  "origin": "external",
+  "source_platform": "jira",
+  "external_ref": "jira#ID#ID-300",
+  "external_key": "ID-300",
+  "external_url": "https://farside.atlassian.net/browse/ID-300",
+  "parent_key": "ID-213",
+  "labels": [
+    "3_27_ProofPoint"
+  ],
+  "assignee": "Anton Abyzov",
+  "created": "2026-03-12",
+  "imported": "2026-03-12",
+  "externalLinks": {},
+  "lastActivity": "2026-03-12",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

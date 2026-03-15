@@ -1,0 +1,34 @@
+{
+  "version": "1.1",
+  "incrementId": "0001J",
+  "timestamp": "2026-03-12T15:30:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 1, "critical": 0, "high": 0, "medium": 0, "suppressed": 0 },
+  "acCompliance": {
+    "totalACs": 5,
+    "passed": 5,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "SDK packages in package.json (lines 12-18), NodeSDK init in tracing.js, loaded via Dockerfile CMD --require ./tracing.js" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "10 spans in auth-gateway.js: auth.login(L404), auth.refresh(L589), auth.logout(L680), auth.register(L793), auth.forgot-password(L935), auth.introspect(L1065), auth.verify(L1164), auth.reset-password(L1252), auth.check-email(L1468), auth.get-student-id(L306). All set attributes and record exceptions." },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "metrics.js: auth.requests counter + auth.latency histogram. Middleware at auth-gateway.js:99-108 records both per /api request with endpoint, method, status attributes. MetricReader configured in tracing.js:16-19." },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "getNodeAutoInstrumentations() in tracing.js:20-23 includes @opentelemetry/instrumentation-http which auto-injects/extracts W3C traceparent on all Node http calls (Express incoming + axios outgoing)." },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "OTLPTraceExporter in tracing.js:15, OTLPMetricExporter in tracing.js:17. OTEL_EXPORTER_OTLP_ENDPOINT documented in .env.example:45. Standard OTEL env vars supported by SDK." }
+    ]
+  },
+  "findings": [
+    {
+      "title": "Dockerfile missing COPY for metrics.js",
+      "severity": "critical",
+      "confidence": 100,
+      "category": "correctness",
+      "file": "Dockerfile:14",
+      "issue": "metrics.js was not copied into Docker image. Container would crash on startup with MODULE_NOT_FOUND.",
+      "suggestion": "Add COPY metrics.js ./ to Dockerfile",
+      "impact": "Production deployment would fail immediately.",
+      "status": "FIXED"
+    }
+  ]
+}

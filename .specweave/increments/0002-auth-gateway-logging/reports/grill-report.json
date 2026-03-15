@@ -1,0 +1,34 @@
+{
+  "version": "1.1",
+  "incrementId": "0002-auth-gateway-logging",
+  "timestamp": "2026-03-13T12:00:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0, "suppressed": 0 },
+  "acCompliance": {
+    "totalACs": 17,
+    "passed": 17,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "auth-gateway.js:941 — logs [requestId] FORGOT_PASSWORD | Email | Brand" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "auth-gateway.js:946 — logs [requestId] ERROR: Missing email" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "auth-gateway.js:1005 — logs [requestId] FORGOT_PASSWORD SUCCESS | UserId" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "auth-gateway.js:1014 — error log includes [requestId] prefix" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "auth-gateway.js:937 — requestId = Date.now() is first statement in handler" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "auth-gateway.js:1175-1176 — tokenSource derived, logged as VERIFY REQUEST | Source: body/header/none" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "auth-gateway.js:1183 — logs [requestId] ERROR: Missing token" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "auth-gateway.js:1191 — logs [requestId] ERROR: Invalid token format" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "auth-gateway.js:306 — logs [requestId] GET_STUDENT_ID | Sub" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "auth-gateway.js:325 — logs GET_STUDENT_ID SUCCESS | Sub | StudentId" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "auth-gateway.js:320 — logs GET_STUDENT_ID NOT_FOUND | Sub" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "auth-gateway.js:331 — logs GET_STUDENT_ID ERROR | Sub | Message" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "brand-resolver.js:28 — logs BRAND_RESOLVER FALLBACK | Host | BrandId | Default" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "brand-resolver.js — no log in successful resolution branches (lines 20-25)" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "auth-gateway.js:1616 — logs GLOBAL_ERROR | Method | Path | Status | Error" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "auth-gateway.js:1617 — console.error(err) on separate line preserves stack trace" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "auth-gateway.js:1616-1617 — both lines use console.error" }
+    ]
+  },
+  "findings": []
+}

@@ -1,101 +1,128 @@
-# OS
-.DS_Store
-Thumbs.db
+# SpecWeave - Runtime & generated (never commit)
+.specweave/cache/
+.specweave/logs/
+.specweave/state/
+.specweave/jobs/
+.specweave/memory/
+.specweave/config.json
+.specweave/sync-metadata.json
+.specweave/docs/
+.specweave/increments/*/logs/
+.specweave/increments/*/test-results/
+.specweave/docs-site-internal/
+.claude-plugin/
+plugins/
+vskill.lock
 
-# Environment variables and secrets
+# Cloned repositories (external git repos - not submodules)
+repositories/
+
+# Dependencies (framework-agnostic)
+node_modules/          # JavaScript/TypeScript
+.pnpm-store/
+.yarn/
+.npm/
+__pycache__/           # Python
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+ENV/
+target/                # Rust
+Cargo.lock
+vendor/                # Go
+go.sum
+
+# Build outputs (framework-agnostic)
+.next/                 # NextJS
+dist/                  # Generic
+build/                 # Generic
+out/                   # Generic
+.output/               # Nuxt
+*.egg-info/            # Python
+__pypackages__/        # Python
+*.class                # Java
+*.jar                  # Java
+bin/                   # Go, Java
+
+# Environment
 .env
 .env.local
 .env.*.local
-.env.production
-.env.test
-.dev.vars
-*.key
-*.pem
-*.p12
-secrets.json
-credentials.json
+*.env
 
+# Database (framework-agnostic)
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+prisma/migrations/*/migration.sql   # Prisma (TypeScript)
+*/migrations/__pycache__/           # Django (Python)
+
+# Testing (framework-agnostic)
+coverage/              # Generic
+.nyc_output/           # JavaScript
+.coverage              # Python
+htmlcov/               # Python
+*.cover                # Python
+.pytest_cache/         # Python
+test-results/          # Playwright
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+.temp/
+tmp/
+
+# Local dev artifacts
+.claude/
+.playwright-mcp/
+*.bak
+*.docx
+e2e-tests/
+widget-test-app/
+test-oidc-server.js
+colibri-git-workflow.*
+*.backup
+.npmrc
+package.json
+package-lock.json
+test-*.mjs
+pr-review-*.md
+
+# Auto-detected by SpecWeave
 # Dependencies
 node_modules/
 
-# Build outputs
-dist/
-build/
-.next/
-.open-next/
+# Environment
 
-# SpecWeave runtime state
-.specweave/state/
-.specweave/cache/
-.specweave/logs/
-.specweave/jobs/
-.specweave/feedback/
-.specweave/plugins/installed/
-.specweave/plugins/cache/
-.specweave/docs-site-internal/
-.specweave/docs/**/_category_.json
+# IDEs
 
-# Generated feature illustration images (ephemeral, from sync-living-docs)
-.specweave/docs/**/assets/feature-*.jpg
+# OS
 
-# SpecWeave developer-local config
-.specweave/config.local.json
+# Logs
 
-# Increment logs and temp files
-.specweave/increments/*/logs/
-.specweave/increments/*/scripts/*.tmp
-.specweave/increments/*/reports/*.tmp
-.specweave/increments/*/reports/judge-llm-report.json
+# Temporary
 
-# Generated assets (ephemeral, from social media / content generation)
-generated-assets/
-
-# Child repositories (tracked independently via their own git)
-repositories/
-
-# Temporary files
-tmp/
-temp/
-*.tmp
-*.log
-*.bak
-*.backup
-
-# Test artifacts
+# SpecWeave
 test-results/
-coverage/
-playwright-report/
-.playwright/
-.playwright-cli/
-.playwright-mcp/
-
-# vskill generated files
-vskill.lock
-
-# Claude Code local
-.claude/
-!.claude/settings.json
-
-# IDE
-.idea
-!.vscode
-.vscode/*
-!.vscode/settings.json
-*.swp
-*.swo
-
-# AI coding tools
-.agent/
-.agents/
-.aider/
-.codex/
-.continue/
-.cursor/
-.gemini/
-.github/copilot/
-.junie/
-.kiro/
-.opencode/
-.pi/
-.trae/
-.windsurf/

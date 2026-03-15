@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0002-auth-gateway-logging",
+  "timestamp": "2026-03-13T12:00:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels consent not configured in config.json",
+  "findings": []
+}
