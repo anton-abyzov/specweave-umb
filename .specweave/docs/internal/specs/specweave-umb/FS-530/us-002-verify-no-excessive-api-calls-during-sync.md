@@ -1,11 +1,17 @@
 ---
 id: US-002
 feature: FS-530
-title: "Verify no excessive API calls during sync"
-status: not_started
+title: Verify no excessive API calls during sync
+status: completed
 priority: P1
 created: 2026-03-15
 tldr: "**As a** SpecWeave user."
+project: specweave-umb
+external_tools:
+  jira:
+    key: SWE2E-229
+  ado:
+    id: 208
 ---
 
 # US-002: Verify no excessive API calls during sync
@@ -20,8 +26,8 @@ tldr: "**As a** SpecWeave user."
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given sync-living-docs runs for this increment, when checking rate limit before and after, then fewer than 100 GitHub API calls are used for an update (not creation) cycle
-- [ ] **AC-US2-02**: Given the AC status hook fires, when checking JIRA API calls, then no more than 4 calls per user story are made (1 fetch + 1 update + 0-1 comment)
+- [x] **AC-US2-01**: Given sync-living-docs runs for this increment, when checking rate limit before and after, then fewer than 100 GitHub API calls are used for an update (not creation) cycle
+- [x] **AC-US2-02**: Given the AC status hook fires, when checking JIRA API calls, then no more than 4 calls per user story are made (1 fetch + 1 update + 0-1 comment)
 
 ---
 

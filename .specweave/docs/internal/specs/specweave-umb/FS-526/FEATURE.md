@@ -2,7 +2,7 @@
 id: FS-526
 title: "Test JIRA ADO Sync Hierarchy"
 type: feature
-status: active
+status: ready_for_review
 priority: P2
 created: 2026-03-15
 lastUpdated: 2026-03-15
@@ -29,7 +29,7 @@ externalLinks:
 ## TL;DR
 
 **What**: Minimal test increment to verify that user stories appear as child work items under their parent feature/epic in JIRA and ADO after the v1.0.453 sync fixes.
-**Status**: active | **Priority**: P2
+**Status**: ready_for_review | **Priority**: P2
 **User Stories**: 1
 
 ![Test JIRA ADO Sync Hierarchy illustration](assets/feature-fs-526.jpg)
@@ -42,7 +42,7 @@ Minimal test increment to verify that user stories appear as child work items un
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0526-test-jira-ado-sync](../../../../../increments/0526-test-jira-ado-sync/spec.md) | ⏳ active | 2026-03-15 |
+| [0526-test-jira-ado-sync](../../../../../increments/0526-test-jira-ado-sync/spec.md) | ⏳ ready_for_review | 2026-03-15 |
 
 ## User Stories
 

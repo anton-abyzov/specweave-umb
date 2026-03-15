@@ -1,12 +1,17 @@
 ---
 id: US-001
 feature: FS-526
-title: "Verify sync hierarchy"
-status: not_started
+title: Verify sync hierarchy
+status: completed
 priority: P2
 created: 2026-03-15
 tldr: "**As a** SpecWeave user."
 project: specweave-umb
+external_tools:
+  jira:
+    key: SWE2E-207
+  ado:
+    id: 194
 ---
 
 # US-001: Verify sync hierarchy
@@ -21,8 +26,8 @@ project: specweave-umb
 
 ## Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a feature synced to JIRA, when sync runs, then a Story appears as a child of the Epic in JIRA
-- [ ] **AC-US1-02**: Given a feature synced to ADO, when sync runs, then a User Story appears as a child of the Feature in ADO
+- [x] **AC-US1-01**: Given a feature synced to JIRA, when sync runs, then a Story appears as a child of the Epic in JIRA
+- [x] **AC-US1-02**: Given a feature synced to ADO, when sync runs, then a User Story appears as a child of the Feature in ADO
 
 ---
 

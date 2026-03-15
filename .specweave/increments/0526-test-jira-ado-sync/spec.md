@@ -24,5 +24,5 @@ Minimal test increment to verify that user stories appear as child work items un
 
 #### Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a feature synced to JIRA, when sync runs, then a Story appears as a child of the Epic in JIRA
-- [ ] **AC-US1-02**: Given a feature synced to ADO, when sync runs, then a User Story appears as a child of the Feature in ADO
+- [x] **AC-US1-01**: Given a feature synced to JIRA, when sync runs, then a Story appears as a child of the Epic in JIRA
+- [x] **AC-US1-02**: Given a feature synced to ADO, when sync runs, then a User Story appears as a child of the Feature in ADO
