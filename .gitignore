@@ -9,7 +9,9 @@
 .specweave/docs/
 .specweave/increments/*/logs/
 .specweave/increments/*/test-results/
+.specweave/increments/*/reports/
 .specweave/docs-site-internal/
+.specweave/docs-site-public/build/
 .claude-plugin/
 plugins/
 vskill.lock
@@ -93,6 +95,10 @@ yarn-error.log*
 *.tmp
 .temp/
 tmp/
+
+# Generated content
+generated-assets/
+.github/
 
 # Local dev artifacts
 .claude/
