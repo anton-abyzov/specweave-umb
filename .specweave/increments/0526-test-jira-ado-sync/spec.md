@@ -1,7 +1,7 @@
 ---
 id: FS-526
-title: "Test JIRA ADO Sync Hierarchy"
-status: active
+title: Test JIRA ADO Sync Hierarchy
+status: completed
 priority: P2
 project: specweave-umb
 ---
