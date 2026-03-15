@@ -1,0 +1,35 @@
+{
+  "version": "1.1",
+  "incrementId": "0531-benchmark-comparison-ux",
+  "timestamp": "2026-03-15T09:12:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 18,
+    "passed": 18,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "RunningVerdictBar.tsx:13-32 renders 'Comparing...' placeholder with '0/{totalCount} cases' progress bar when completedCount=0" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "useProgressiveSummary.ts accumulates outputs_ready and case_complete events, derives skillAvg/baselineAvg/delta. ComparisonPage.tsx:115 wires it" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "useProgressiveSummary.ts:102 calls computeVerdict() for previewVerdict. RunningVerdictBar.tsx:56-64 renders verdict pill with VERDICT_STYLES" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "RunningVerdictBar.tsx:37 detects isFinal when completedCount===totalCount. Same data shape as final verdict card ensures seamless transition" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "ComparisonPage.tsx:204 showFixButton = caseIsComplete && caseAssertions.length > 0 && failingAssertions.length > 0. Button renders at line 247-262" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "ComparisonPage.tsx:204 failingAssertions.length > 0 required, so zero failures = no button" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "ComparisonPage.tsx:204 caseAssertions.length > 0 required, so zero assertions = no button" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "ComparisonPage.tsx:252 navigates to /workspace/${plugin}/${skill}?improve=true&eval_id=${c.eval_id}" },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "ComparisonPage.tsx:251 builds notes from failingAssertions.map(a => a.text).join('; ') and passes as URL-encoded notes param" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "verdict.ts:21 returns EMERGING when passRate < 0.4 AND skillAvg > baselineAvg. Test verdict.test.ts:26 confirms computeVerdict(0.33, 5.0, 0.0) = EMERGING" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "verdict.ts:24 returns DEGRADING when passRate < 0.4 AND skillAvg <= baselineAvg. Test verdict.test.ts:35 confirms" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "verdict.ts:12-19 unchanged for EFFECTIVE/MARGINAL/INEFFECTIVE. Boundary tests at verdict.test.ts:42-61 confirm" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "ComparisonPage.tsx:340 uses 'Rubric Delta' label. RunningVerdictBar.tsx:84 uses 'Rubric Delta' label. No 'Delta' without prefix found" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "BenchmarkPage.tsx:209 title='Run all eval cases with your skill and grade assertions'" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "BenchmarkPage.tsx:222 title='Run all eval cases without your skill to measure raw LLM capability'" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "BenchmarkPage.tsx:233 title='Run each case both with and without your skill, then blind-score and compare'" },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "BenchmarkPage.tsx:208 btn-primary (filled), :220 btn-ghost with orange outline, :232 btn-purple (accent). All distinct styles" },
+      { "acId": "AC-US4-05", "status": "pass", "evidence": "BenchmarkPage.tsx:239-241 info text: 'Tip: Use A/B to see if your skill actually improves output quality'" }
+    ]
+  },
+  "findings": []
+}

@@ -1,0 +1,15 @@
+{
+  "id": "0531-benchmark-comparison-ux",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-15T08:48:09.933Z",
+  "lastActivity": "2026-03-15T09:11:33.394Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-03-15T09:09:22.000Z",
+  "approvedAt": "2026-03-15T09:11:33.394Z"
+}
