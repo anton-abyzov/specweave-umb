@@ -1,12 +1,24 @@
 ---
 id: US-002
 feature: FS-527
-title: "Verify full hierarchy across platforms"
-status: not_started
+title: Verify full hierarchy across platforms
+status: completed
 priority: P2
 created: 2026-03-15
 tldr: "**As a** SpecWeave user."
 project: specweave-umb
+external_tools:
+  github:
+    issue: 79
+    url: https://github.com/anton-abyzov/specweave-umb/issues/79
+  jira:
+    key: SWE2E-210
+  ado:
+    id: 208
+external:
+  github:
+    issue: 79
+    url: https://github.com/anton-abyzov/specweave-umb/issues/79
 ---
 
 # US-002: Verify full hierarchy across platforms
@@ -21,9 +33,9 @@ project: specweave-umb
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given a feature synced to JIRA, when the Epic is viewed, then the linked Story appears as a child work item under it
-- [ ] **AC-US2-02**: Given a feature synced to ADO, when the Epic is viewed, then the linked Issue appears as a child work item under it
-- [ ] **AC-US2-03**: Given a feature synced to GitHub, when the Milestone is viewed, then the linked Issue is associated with the correct milestone
+- [x] **AC-US2-01**: Given a feature synced to JIRA, when the Epic is viewed, then the linked Story appears as a child work item under it
+- [x] **AC-US2-02**: Given a feature synced to ADO, when the Epic is viewed, then the linked Issue appears as a child work item under it
+- [x] **AC-US2-03**: Given a feature synced to GitHub, when the Milestone is viewed, then the linked Issue is associated with the correct milestone
 
 ---
 

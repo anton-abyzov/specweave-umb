@@ -28,9 +28,9 @@ Test increment to verify that:
 
 #### Acceptance Criteria
 
-- [ ] **AC-US1-01**: Given a feature synced to JIRA, when the story description is viewed, then each AC appears as a native JIRA checkbox (ADF taskItem) not plain bullet text
-- [ ] **AC-US1-02**: Given an AC is marked [x] in spec.md, when the AC status hook fires, then the corresponding JIRA story description checkbox is flipped to DONE automatically
-- [ ] **AC-US1-03**: Given the JIRA story description, when Priority and Status fields are rendered, then they appear on separate lines (not fused as "Priority: P1Status: done")
+- [x] **AC-US1-01**: Given a feature synced to JIRA, when the story description is viewed, then each AC appears as a native JIRA checkbox (ADF taskItem) not plain bullet text
+- [x] **AC-US1-02**: Given an AC is marked [x] in spec.md, when the AC status hook fires, then the corresponding JIRA story description checkbox is flipped to DONE automatically
+- [x] **AC-US1-03**: Given the JIRA story description, when Priority and Status fields are rendered, then they appear on separate lines (not fused as "Priority: P1Status: done")
 
 ### US-002: Verify full hierarchy across platforms
 
@@ -42,6 +42,6 @@ Test increment to verify that:
 
 #### Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given a feature synced to JIRA, when the Epic is viewed, then the linked Story appears as a child work item under it
-- [ ] **AC-US2-02**: Given a feature synced to ADO, when the Epic is viewed, then the linked Issue appears as a child work item under it
-- [ ] **AC-US2-03**: Given a feature synced to GitHub, when the Milestone is viewed, then the linked Issue is associated with the correct milestone
+- [x] **AC-US2-01**: Given a feature synced to JIRA, when the Epic is viewed, then the linked Story appears as a child work item under it
+- [x] **AC-US2-02**: Given a feature synced to ADO, when the Epic is viewed, then the linked Issue appears as a child work item under it
+- [x] **AC-US2-03**: Given a feature synced to GitHub, when the Milestone is viewed, then the linked Issue is associated with the correct milestone

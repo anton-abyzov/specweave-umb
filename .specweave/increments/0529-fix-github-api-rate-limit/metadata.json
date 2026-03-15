@@ -1,0 +1,26 @@
+{
+  "id": "FS-529",
+  "title": "Fix GitHub API Rate Limit Exhaustion",
+  "status": "active",
+  "priority": "P1",
+  "created": "2026-03-15T00:00:00.000Z",
+  "project": "specweave-umb",
+  "lastActivity": "2026-03-15T04:42:49.588Z",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-03-15T04:42:49.587Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03",
+        "AC-US2-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 7
+    }
+  ]
+}

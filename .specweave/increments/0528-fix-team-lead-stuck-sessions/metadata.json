@@ -1,0 +1,9 @@
+{
+  "id": "0528-fix-team-lead-stuck-sessions",
+  "name": "Fix team-lead stuck sessions in tmux/iTerm2",
+  "status": "active",
+  "priority": "P1",
+  "createdAt": "2026-03-15T12:00:00.000Z",
+  "lastActivity": "2026-03-15T12:00:00.000Z",
+  "tags": ["team-lead", "bug-fix", "orchestration"]
+}
