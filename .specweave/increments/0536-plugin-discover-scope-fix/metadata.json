@@ -1,0 +1,30 @@
+{
+  "id": "0536-plugin-discover-scope-fix",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-15T21:47:56.615Z",
+  "lastActivity": "2026-03-15T22:02:20.779Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-265",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-265",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-15T22:02:33.683Z"
+    },
+    "ado": {
+      "featureId": "1372",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1372",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-15T22:02:35.883Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-15T22:02:20.737Z",
+  "approvedAt": "2026-03-15T22:02:20.779Z"
+}

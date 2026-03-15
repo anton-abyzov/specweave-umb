@@ -1,0 +1,25 @@
+{
+  "version": "1.1",
+  "incrementId": "0536-plugin-discover-scope-fix",
+  "timestamp": "2026-03-15T22:02:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 8,
+    "passed": 8,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "plugin-scope.ts:76 — specweaveScope: 'user'" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "plugin-scope.ts:77 — scopeOverrides: {} (sw override removed)" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Test verifies getPluginScope returns 'user' for sw, sw-github, sw-jira, sw-ado, docs, sw-release, sw-diagrams, sw-media" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "plugin-installer.ts:119 — enablePluginsInSettings(successfulPluginNames) called after install loop" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "plugin-installer.ts:118 — filters out failedPlugins before calling enablePluginsInSettings" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "plugin-installer.ts:120-122 — logs warning on false return, does not throw" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "refresh-plugins.ts:184 — useNativeCli guard removed, enablePluginsInSettings runs unconditionally" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Same code path — no conditional, runs for both native and fallback modes" }
+    ]
+  },
+  "findings": []
+}

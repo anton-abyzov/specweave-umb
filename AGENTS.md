@@ -1,6 +1,6 @@
-<!-- SW:META template="agents" version="1.0.443" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
+<!-- SW:META template="agents" version="1.0.476" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
 
-<!-- SW:SECTION:rules version="1.0.443" -->
+<!-- SW:SECTION:rules version="1.0.476" -->
 ## Essential Rules
 
 ```
@@ -29,7 +29,7 @@
 ```
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:orchestration version="1.0.443" -->
+<!-- SW:SECTION:orchestration version="1.0.476" -->
 ## Workflow Orchestration
 
 ### 1. Plan Before Code (MANDATORY)
@@ -76,7 +76,7 @@ Good: npm run build → node script.js → Success
 ```
 <!-- SW:END:orchestration -->
 
-<!-- SW:SECTION:principles version="1.0.443" -->
+<!-- SW:SECTION:principles version="1.0.476" -->
 ## Core Principles (Quality)
 
 ### Simplicity First
@@ -118,12 +118,12 @@ Good: npm run build → node script.js → Success
 
 ### Test Before Ship
 - Tests pass at every step — unit after each task, E2E before close, no exceptions
-- `/sw:test-aware-planner` generates BDD test plans during design — verify they exist before `/sw:do`
+- `/sw:increment` generates BDD test plans during design via the sw-planner agent — verify they exist before `/sw:do`
 - TDD cycle: `/sw:tdd-red` → `/sw:tdd-green` → `/sw:tdd-refactor`
 - E2E with Playwright CLI (`npx playwright test`) is a blocking closure gate
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:commands version="1.0.443" -->
+<!-- SW:SECTION:commands version="1.0.476" -->
 ## Commands Reference
 
 | Command | Purpose |
@@ -142,7 +142,7 @@ Good: npm run build → node script.js → Success
 | `/sw:import` | Import issues from external tools |
 <!-- SW:END:commands -->
 
-<!-- SW:SECTION:nonclaudetools version="1.0.443" -->
+<!-- SW:SECTION:nonclaudetools version="1.0.476" -->
 ## Non-Claude Tools (Cursor, Copilot, etc.)
 
 Claude Code has automatic hooks and orchestration. Other tools must do these manually.
@@ -185,7 +185,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 **Background jobs**: Monitor with `specweave jobs` (clone-repos, import-issues, living-docs-builder, sync-external).
 <!-- SW:END:nonclaudetools -->
 
-<!-- SW:SECTION:syncworkflow version="1.0.443" -->
+<!-- SW:SECTION:syncworkflow version="1.0.476" -->
 ## Sync Workflow
 
 ### Source of Truth
@@ -210,7 +210,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 | `/sw-ado:sync <id>` | After each task |
 <!-- SW:END:syncworkflow -->
 
-<!-- SW:SECTION:contextloading version="1.0.443" -->
+<!-- SW:SECTION:contextloading version="1.0.476" -->
 ## Context Loading
 
 ### Efficient Context Management
@@ -230,7 +230,7 @@ Read only what's needed for the current task:
 4. Avoid loading entire documentation trees
 <!-- SW:END:contextloading -->
 
-<!-- SW:SECTION:structure version="1.0.443" -->
+<!-- SW:SECTION:structure version="1.0.476" -->
 ## Project Structure
 
 ```
@@ -269,7 +269,7 @@ umbrella-project/
 **Rules**: Each repo manages its own increments. Never create agent increments in the umbrella root.
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:agents version="1.0.443" -->
+<!-- SW:SECTION:agents version="1.0.476" -->
 ## Agents (Roles)
 
 {AGENTS_SECTION}
@@ -277,21 +277,35 @@ umbrella-project/
 **Usage**: Adopt role perspective when working on related tasks.
 <!-- SW:END:agents -->
 
-<!-- SW:SECTION:skills version="1.0.443" -->
+<!-- SW:SECTION:skills version="1.0.476" -->
 ## Skills (Capabilities)
 
 {SKILLS_SECTION}
 
 **Claude Code**: Skills auto-activate based on keywords in your prompt.
 
-**Non-Claude Tools**: Skills don't auto-activate. Manually load them:
-1. Find: `ls plugins/specweave*/skills/`
-2. Read: `cat plugins/specweave/skills/<name>/SKILL.md`
-3. Follow the workflow instructions inside
-4. Run `specweave context projects` BEFORE creating any increment
+**Non-Claude Tools**: Skills are installed in your tool's native rules folder:
+
+| Tool | Skills Location | Auto-loaded? |
+|------|----------------|-------------|
+| Cursor | `.cursor/rules/` | Yes |
+| GitHub Copilot | `.github/instructions/` | Yes (as workspace instructions) |
+| Gemini CLI | `.gemini/` | Reference in prompt |
+| OpenAI Codex | `.codex/rules/` | Reference in prompt |
+| Windsurf | `.windsurf/rules/` | Yes |
+| Continue.dev | `.continue/rules/` | Yes |
+| Cline | `.cline/rules/` | Yes |
+| Zed | `.rules/` | Yes |
+| Amazon Q Developer | `.amazonq/rules/` | Yes |
+| JetBrains AI | `.aiassistant/rules/` | Yes |
+| Aider | `.aider/` | Reference in prompt |
+| Tabnine | `.tabnine/guidelines/` | Yes |
+| Generic (any tool) | `AGENTS.md` (inlined) | Manual |
+
+Install/refresh skills: `specweave refresh-plugins`
 <!-- SW:END:skills -->
 
-<!-- SW:SECTION:taskformat version="1.0.443" -->
+<!-- SW:SECTION:taskformat version="1.0.476" -->
 ## Task Format
 
 ```markdown
@@ -305,7 +319,7 @@ umbrella-project/
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:usformat version="1.0.443" -->
+<!-- SW:SECTION:usformat version="1.0.476" -->
 ## User Story Format (CRITICAL for spec.md)
 
 **MANDATORY: Every User Story MUST have `**Project**:` field!**
@@ -339,7 +353,7 @@ specweave context projects
 ```
 <!-- SW:END:usformat -->
 
-<!-- SW:SECTION:workflows version="1.0.443" -->
+<!-- SW:SECTION:workflows version="1.0.476" -->
 ## Workflows
 
 ### Creating Increment
@@ -350,7 +364,7 @@ specweave context projects
 5. Create `tasks.md` (task checklist with BDD tests)
 6. Optional: `plan.md` for complex features
 7. **Verify** tasks.md has `**Test Plan**:` for every task with testable ACs
-8. **Verify** E2E scenarios exist for user-facing user stories — re-run `/sw:test-aware-planner` if missing
+8. **Verify** E2E scenarios exist for user-facing user stories — re-run `/sw:plan --force` if missing
 
 ### Completing Tasks
 1. Implement the task
@@ -372,7 +386,7 @@ specweave context projects
 **CRITICAL**: When all tasks are done, IMMEDIATELY chain to closure. Quality gates (grill, judge-llm, PM validation) ARE the review. Never stop to ask "should I close?" — just close it. If a gate fails, the increment stays open. User can re-open if they disagree.
 <!-- SW:END:workflows -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.443" -->
+<!-- SW:SECTION:troubleshooting version="1.0.476" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -386,7 +400,7 @@ specweave context projects
 | Skills not activating (non-Claude) | Expected — read SKILL.md from `plugins/specweave*/skills/` |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:docs version="1.0.443" -->
+<!-- SW:SECTION:docs version="1.0.476" -->
 ## Documentation
 
 | Resource | Purpose |
@@ -398,649 +412,19 @@ specweave context projects
 <!-- SW:END:docs -->
 
 ---
-<!-- ↓ ORIGINAL ↓ -->
+<!-- ↓ PROJECT-SPECIFIC ↓ -->
 
-# ./sw-col
+## Project Overview
 
-**Framework**: SpecWeave - Specification-First Development
-**Standard**: [agents.md](https://agents.md/) for universal AI compatibility
+Umbrella repo containing SpecWeave and related repositories under `repositories/anton-abyzov/`.
 
----
+## Project-Specific Gates
 
-## Section Index (Use Ctrl+F to Navigate)
+### Closing Increment (additional steps)
+Before `/sw:done`, also run:
+- Coverage check: `npx vitest run --coverage` (must meet targets in config.json)
+- Ask user for manual acceptance: new UI, auth, payments, data migrations
 
-| Section | Search For | Purpose |
-|---------|------------|---------|
-| Rules | `#essential-rules` | Critical rules, file organization |
-| Commands | `#commands` | All SpecWeave commands |
-| **Hooks** | `#non-claude-tools` | **CRITICAL: Hook behavior to mimic** |
-| Sync | `#sync-workflow` | When/how to sync |
-| Context | `#context-loading` | Token savings (70%+) |
-| Troubleshoot | `#troubleshooting` | Common issues |
-
----
-
-## Quick Start
-
-**Initial Increment**: `0001-project-setup` (`.specweave/increments/0001-project-setup/`)
-
-1. **Start Fresh**: Delete it, run `/sw:increment "your-feature"`
-2. **Customize**: Edit spec.md in the increment folder
-
----
-
-## Essential Rules {#essential-rules}
-
-```
-1. NEVER pollute project root with .md files
-2. Increment IDs unique (0001-9999)
-3. ONLY 4 files in increment root: metadata.json, spec.md, plan.md, tasks.md
-4. All reports/scripts/logs → increment subfolders
-5. metadata.json MUST exist BEFORE spec.md can be created
-6. tasks.md + spec.md = SOURCE OF TRUTH (update after every task!)
-```
-
-**File Organization**:
-```
-.specweave/increments/0001-feature/
-├── metadata.json                  # REQUIRED - create FIRST
-├── spec.md, plan.md, tasks.md    # Core increment docs
-├── reports/                       # SESSION-*.md, analysis, etc.
-├── scripts/                       # Helper scripts
-└── logs/                          # Execution logs
-```
-
----
-
-## Commands Reference {#commands}
-
-### Core Commands
-
-| Command | Purpose |
-|---------|---------|
-| `/sw:increment "name"` | Plan new feature (PM-led) |
-| `/sw:do` | Execute tasks from active increment |
-| `/sw:done 0001` | Close increment (validates gates) |
-| `/sw:progress` | Show task completion status |
-| `/sw:validate 0001` | Quality check before closing |
-| `/sw:sync-tasks` | Sync tasks.md with reality |
-| `/sw:sync-docs update` | Sync to living docs |
-
-### Plugin Commands (when installed)
-
-| Command | Purpose |
-|---------|---------|
-| `/sw-github:sync 0001` | Sync increment to GitHub issue |
-| `/sw-jira:sync 0001` | Sync to Jira |
-| `/sw-ado:sync 0001` | Sync to Azure DevOps |
-
----
-
-## Non-Claude Tools (Cursor, Copilot, etc.) {#non-claude-tools}
-
-**CRITICAL**: Claude Code has automatic hooks. Other tools DO NOT.
-
-### Latest Features (v0.28+)
-
-SpecWeave v0.28+ introduces powerful automation that **works differently** in non-Claude tools:
-
-| Feature | Claude Code | Non-Claude Tools |
-|---------|-------------|------------------|
-| **Living Docs Builder** | Auto-runs after init | Use `specweave jobs --follow` to monitor |
-| **Bidirectional Sync** | Pull sync on session start | Run `/sw:sync-pull` manually |
-| **Background Jobs** | Automatic with hooks | Monitor with `specweave jobs` CLI |
-| **EDA Hooks** | Auto-detect task completion | Manually update tasks.md + spec.md |
-
-### Background Jobs Workflow (NEW in v0.28)
-
-SpecWeave now runs heavy operations as **background jobs**:
-
-```bash
-# Monitor all jobs
-specweave jobs
-
-# Follow a specific job
-specweave jobs --follow <job-id>
-
-# View job logs
-specweave jobs --logs <job-id>
-
-# Pause/resume long-running jobs
-specweave jobs --kill <job-id>    # Pauses gracefully
-specweave jobs --resume <job-id>  # Resumes from checkpoint
-```
-
-**Job Types**:
-- `clone-repos` - Clone multiple repositories (ADO/GitHub)
-- `import-issues` - Import work items from external tools
-- `living-docs-builder` - Generate documentation from codebase (NEW!)
-- `sync-external` - Bidirectional sync with external tools
-
-**Job Dependencies**: The `living-docs-builder` waits for `clone-repos` and `import-issues` to complete before starting. This is automatic - just monitor with `specweave jobs`.
-
-### Code-First Approach (MANDATORY for Non-Claude Tools)
-
-> **Engineering insight**: [Anthropic research](https://www.anthropic.com/engineering/code-execution-with-mcp) shows code execution achieves **98% token reduction** vs MCP tool calls.
->
-> **For non-Claude tools, this is even MORE important** - MCP support varies, but `npx` works everywhere!
-
-**Rule**: Always prefer direct code execution over MCP:
-
-```bash
-# ❌ DON'T: Use Playwright MCP for testing
-# ✅ DO: Write Playwright tests and run with npx
-npx playwright test
-
-# ❌ DON'T: Use Kafka MCP for messaging
-# ✅ DO: Write kafkajs code
-import { Kafka } from 'kafkajs';
-const kafka = new Kafka({ brokers: ['localhost:9092'] });
-
-# ❌ DON'T: Chain multiple MCP tool calls
-# ✅ DO: Write a script that does all the work
-npx ts-node scripts/process-data.ts
-```
-
-**Why code is better**:
-| Aspect | MCP | Code (`npx`) |
-|--------|-----|--------------|
-| Token cost | High (tool defs + data duplication) | Low (only results) |
-| Reusability | Ephemeral | Committed to git |
-| CI/CD | Usually can't run | Native execution |
-| Debugging | Limited | Full stack traces |
-| Works with | Tools with MCP support | ANY tool |
-
-**Pattern for non-Claude tools**:
-```
-1. AI writes code (test, script, automation)
-2. You run: npx <command>
-3. AI analyzes output
-4. Repeat
-```
-
-This gives you the SAME experience as Claude Code with MCP, but deterministic and reusable!
-
-### What's Different
-
-| Feature | Claude Code | Cursor/Copilot |
-|---------|-------------|----------------|
-| Commands | Slash syntax works | Manual workflow |
-| Hooks | Auto-run on events | **YOU must mimic** |
-| Task sync | Automatic | Manual |
-| GitHub/Jira sync | Automatic | Manual |
-| Living docs | Auto-updated | Manual |
-
-### Hook Behavior You Must Mimic
-
-**Claude Code hooks do these automatically. YOU must do them manually:**
-
-#### 1. After EVERY Task Completion
-```bash
-# Claude hook: PostTaskCompletion
-# You must run these commands:
-
-# Step 1: Update tasks.md (source of truth)
-# Change: **Status**: [ ] pending → **Status**: [x] completed
-
-# Step 2: Update spec.md ACs (if task satisfies any)
-# Change: - [ ] AC-US1-01 → - [x] AC-US1-01
-
-# Step 3: Sync to external tools (if configured)
-/sw:sync-tasks
-/sw-github:sync <increment-id>   # If GitHub enabled
-/sw-jira:sync <increment-id>     # If Jira enabled
-```
-
-#### 2. After User Story Completion (all ACs satisfied)
-```bash
-# Claude hook: PostUserStoryCompletion
-# When ALL acceptance criteria for a user story are [x] checked:
-
-# Step 1: Sync to living docs
-/sw:sync-docs update
-
-# Step 2: Update GitHub/Jira issue status
-/sw-github:sync <increment-id>
-```
-
-#### 3. After Increment Completion
-```bash
-# Claude hook: PostIncrementDone
-# When running /sw:done:
-
-# Step 1: Validate all tasks complete
-/sw:validate <increment-id>
-
-# Step 2: Sync living docs
-/sw:sync-docs update
-
-# Step 3: Close external issues
-/sw-github:close-issue <increment-id>
-```
-
-#### 4. After Writing to spec.md or tasks.md
-```bash
-# Claude hook: PostToolUse (Write/Edit to spec/tasks files)
-# After any edit to spec.md or tasks.md:
-
-# Sync status line cache
-/sw:sync-tasks
-
-# If external tools configured, sync progress
-/sw-github:sync <increment-id>
-```
-
-#### 5. Bidirectional Sync - PULL from External Tools (NEW in v0.28)
-```bash
-# Claude hook: SessionStart (runs automatically)
-# For non-Claude tools, run manually to catch external changes:
-
-# Pull changes from external tools (status, priority, assignee)
-/sw:sync-pull
-
-# This does:
-# 1. Query ADO/JIRA/GitHub for items changed since last sync
-# 2. Pull status/priority/assignee updates to living docs
-# 3. Use timestamp-based conflict resolution (latest wins)
-# 4. Log all changes with full audit trail
-
-# When to run:
-# - Start of each work session (catch overnight changes)
-# - Before starting work on a linked increment
-# - After PM updates status in external tool
-```
-
-#### 6. After Init on Brownfield Project (NEW in v0.28)
-```bash
-# SpecWeave automatically launches living-docs-builder job after init
-# For non-Claude tools, monitor it manually:
-
-# Check job status
-specweave jobs
-
-# Follow the living-docs-builder progress
-specweave jobs --follow <job-id>
-
-# The job runs in 6 phases:
-# 1. waiting - Waits for clone/import jobs to complete
-# 2. discovery - Scans codebase structure (no LLM, fast)
-# 3. foundation - Generates overview.md, tech-stack.md (1-2 hours)
-# 4. integration - Matches work items to discovered modules
-# 5. deep-dive - Analyzes modules one at a time with checkpoints
-# 6. suggestions - Generates SUGGESTIONS.md with next steps
-
-# Output locations:
-# - .specweave/docs/internal/architecture/overview.md
-# - .specweave/docs/internal/architecture/tech-stack.md
-# - .specweave/docs/internal/strategy/modules-skeleton.md
-# - .specweave/docs/internal/SUGGESTIONS.md
-```
-
-### How to Check if External Tools Configured
-
-```bash
-# Check increment metadata for external tool config
-cat .specweave/increments/<id>/metadata.json
-
-# Look for these fields:
-# "github": { "issue": 123 }     → GitHub enabled
-# "jira": { "issue": "PROJ-123" } → Jira enabled
-# "ado": { "item": 456 }          → Azure DevOps enabled
-```
-
-### Manual Command Execution
-
-In non-Claude tools, commands are markdown workflows:
-
-```bash
-# Find and read command file
-cat plugins/specweave/commands/increment.md
-# Follow the workflow steps manually
-```
-
-### Quick Reference: After EVERY Task
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│ AFTER COMPLETING ANY TASK (MANDATORY FOR NON-CLAUDE TOOLS)  │
-├─────────────────────────────────────────────────────────────┤
-│ 1. Update tasks.md: [ ] → [x]                               │
-│ 2. Update spec.md ACs if satisfied: [ ] → [x]               │
-│ 3. Run: /sw:sync-tasks                               │
-│ 4. Run: /sw-github:sync <id>  (if GitHub configured) │
-│ 5. If all ACs for US done: /sw:sync-docs update      │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### Quick Reference: Session Start Routine (NEW in v0.28)
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│ START OF EVERY SESSION (FOR NON-CLAUDE TOOLS)               │
-├─────────────────────────────────────────────────────────────┤
-│ 1. Pull external changes: /sw:sync-pull              │
-│ 2. Check job status:      specweave jobs                    │
-│ 3. Check progress:        /sw:progress               │
-│ 4. Continue work:         /sw:do                     │
-└─────────────────────────────────────────────────────────────┘
-```
-
-**Without these manual steps, your work won't be tracked!**
-
----
-
-## Sync Workflow {#sync-workflow}
-
-### Source of Truth Hierarchy
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│ SOURCE OF TRUTH (edit here first!)                          │
-│ ├── tasks.md: Task completion status                        │
-│ └── spec.md: Acceptance criteria checkboxes                 │
-├─────────────────────────────────────────────────────────────┤
-│ DERIVED (auto-updated via sync commands)                    │
-│ └── .specweave/docs/internal/specs/: Living documentation   │
-├─────────────────────────────────────────────────────────────┤
-│ MIRROR (synced to external tools)                           │
-│ ├── GitHub Issues: Task checklist, AC progress              │
-│ ├── Jira Stories: Status, story points, completion          │
-│ └── Azure DevOps: Work item state, task list                │
-└─────────────────────────────────────────────────────────────┘
-```
-
-**Update Order**: ALWAYS tasks.md/spec.md FIRST → sync-tasks → sync-docs → external tools
-
-### Sync Commands Reference
-
-| Command | What It Does | When to Run |
-|---------|--------------|-------------|
-| `/sw:sync-tasks` | Recalculates progress from tasks.md | After editing tasks.md |
-| `/sw:sync-docs update` | Updates living docs from increment | After US complete |
-| `/sw-github:sync <id>` | Syncs progress to GitHub issue | After each task |
-| `/sw-github:close-issue <id>` | Closes GitHub issue | On increment done |
-| `/sw-jira:sync <id>` | Syncs progress to Jira story | After each task |
-| `/sw-ado:sync <id>` | Syncs to Azure DevOps work item | After each task |
-
-### Complete Sync Flow (Non-Claude Tools)
-
-```
-TASK COMPLETED
-     │
-     ▼
-┌─────────────────────────────┐
-│ 1. Edit tasks.md            │
-│    [ ] pending → [x] done   │
-└─────────────────────────────┘
-     │
-     ▼
-┌─────────────────────────────┐
-│ 2. Edit spec.md ACs         │
-│    [ ] AC → [x] AC          │
-└─────────────────────────────┘
-     │
-     ▼
-┌─────────────────────────────┐
-│ 3. /sw:sync-tasks    │
-│    Updates progress cache   │
-└─────────────────────────────┘
-     │
-     ▼
-┌─────────────────────────────┐
-│ 4. /sw-github:sync   │
-│    Updates GitHub issue     │
-└─────────────────────────────┘
-     │
-     ▼ (if all ACs for US done)
-┌─────────────────────────────┐
-│ 5. /sw:sync-docs     │
-│    Updates living docs      │
-└─────────────────────────────┘
-```
-
-### Claude Code Hooks (Automatic)
-
-| Hook | Trigger | What It Does |
-|------|---------|--------------|
-| `UserPromptSubmit` | Every prompt | WIP limits, discipline checks |
-| `PostToolUse` | File write/edit | Detects task completion, syncs |
-| `PostTaskCompletion` | Task done | Updates GitHub/Jira progress |
-| `PostIncrementDone` | Increment closed | Closes issues, syncs all docs |
-
-**Non-Claude tools**: NO HOOKS EXIST. See "Hook Behavior You Must Mimic" section above.
-
----
-
-## Context Loading {#context-loading}
-
-### Efficient Context Management
-
-```
-Read only what's needed for the current task:
-- Active increment: spec.md, tasks.md (always)
-- Supporting docs: only when referenced in tasks
-- Living docs: load per-US when implementing
-```
-
-### Token-Efficient Approach
-
-1. Start with increment's `tasks.md` - contains current task list
-2. Reference `spec.md` for acceptance criteria
-3. Load living docs only when needed for context
-4. Avoid loading entire documentation trees
-
----
-
-## Project Structure
-
-```
-.specweave/
-├── increments/           # Feature increments (0001-9999)
-│   └── 0001-feature/
-│       ├── metadata.json # Increment metadata - REQUIRED
-│       ├── spec.md       # WHAT & WHY (user stories, ACs)
-│       ├── plan.md       # HOW (architecture, APIs) - optional
-│       └── tasks.md      # Task checklist with test plans
-├── docs/internal/
-│   ├── strategy/         # PRD, business requirements
-│   ├── specs/            # Living docs (extracted user stories)
-│   │   └── {project}/    # Per-project specs
-│   ├── architecture/     # HLD, ADRs, technical design
-│   └── delivery/         # CI/CD, deployment guides
-└── state/                # Runtime state (active increment, caches)
-```
-
----
-
-## Agents (Roles)
-
-
-
-**Usage**: Adopt role perspective when working on related tasks.
-
----
-
-## Skills (Capabilities)
-
-
-
-**Usage for Claude Code**: Skills auto-activate based on keywords in your prompt.
-
-**Usage for Non-Claude Tools (Cursor, Copilot, etc.)**:
-Skills don't auto-activate. You must manually load them:
-
-```bash
-# Step 1: Find relevant skill
-ls plugins/specweave*/skills/
-
-# Step 2: Read the skill file
-cat plugins/specweave/skills/increment-planner/SKILL.md
-
-# Step 3: Tell AI to follow the skill's workflow
-"Follow the increment-planner skill workflow to create my feature"
-
-# Step 4: AI reads skill content and follows instructions
-```
-
-**Skill Simulation Pattern**:
-```
-Non-Claude AI Tools simulate skills by:
-1. Reading SKILL.md files from plugins/ folder
-2. Following the workflow instructions inside
-3. Using the patterns and templates provided
-4. Running `npx` commands instead of MCP tools (code-first!)
-```
-
-**Example** - Creating increment with Cursor:
-```
-User: "Create an increment for user authentication"
-AI: [Reads plugins/specweave/skills/increment-planner/SKILL.md]
-AI: [Follows PM workflow: research → spec → plan → tasks]
-AI: [Creates .specweave/increments/0001-auth/spec.md, plan.md, tasks.md]
-```
-
----
-
-## Task Format
-
-```markdown
-### T-001: Task Title
-**User Story**: US-001
-**Satisfies ACs**: AC-US1-01, AC-US1-02
-**Status**: [ ] pending / [x] completed
-
-**Test Plan** (BDD):
-- Given [context] → When [action] → Then [result]
-```
-
----
-
-## Workflows
-
-### Creating Increment
-1. `mkdir -p .specweave/increments/0001-feature`
-2. Create `metadata.json` (increment metadata) - **MUST be FIRST**
-3. Create `spec.md` (WHAT/WHY, user stories, ACs)
-4. Create `tasks.md` (task checklist with tests)
-5. Optional: Create `plan.md` (HOW, architecture) for complex features
-
-### Completing Tasks
-1. Implement the task
-2. Update `tasks.md`: `[ ] pending` → `[x] completed`
-3. Update `spec.md`: Check off satisfied ACs
-4. Sync to external trackers if enabled
-
-### Closing Increment
-1. Run `/sw:done 0001`
-2. PM validates 3 gates (tasks, tests, docs)
-3. Living docs synced automatically
-4. GitHub issue closed (if enabled)
-
----
-
-## Plugin Commands
-
-| Command | Plugin |
-|---------|--------|
-| `/sw-github:sync` | GitHub sync |
-| `/sw-jira:sync` | Jira sync |
-| `/sw-ado:sync` | Azure DevOps |
-
----
-
-## Troubleshooting {#troubleshooting}
-
-### Commands Not Working
-
-**Non-Claude tools**: Commands are markdown workflows, not slash syntax.
-
-```bash
-# Find and read the command file
-ls plugins/specweave/commands/
-cat plugins/specweave/commands/increment.md
-# Follow the workflow steps manually
-```
-
-### Sync Issues
-
-**Symptoms**: GitHub/Jira not updating, living docs stale
-
-**Solution** (run after EVERY task in non-Claude tools):
-```bash
-/sw:sync-tasks                  # Update tasks.md
-/sw:sync-docs update            # Sync living docs
-/sw-github:sync <increment-id>  # Sync to GitHub
-```
-
-### Root Folder Polluted
-
-**Symptoms**: `git status` shows .md files in project root
-
-**Fix**:
-```bash
-CURRENT=$(ls -t .specweave/increments/ | head -1)
-mv *.md .specweave/increments/$CURRENT/reports/
-```
-
-### Tasks Out of Sync
-
-**Symptoms**: Progress shows wrong completion %
-
-**Fix**: Update tasks.md manually:
-```markdown
-**Status**: [ ] pending  →  **Status**: [x] completed
-```
-
-Or run: `/sw:sync-tasks`
-
-### Context Explosion / Crashes
-
-**Symptoms**: Tool crashes 10-50s after start
-
-**Causes**: Loading too many files at once
-
-**Fix**:
-1. Load only the active increment's spec.md and tasks.md
-2. Reference living docs only when needed for specific tasks
-3. Never load entire `.specweave/docs/` folder at once
-
-### Skills/Agents Not Activating
-
-**Non-Claude tools**: Skills don't auto-activate. This is EXPECTED.
-
-**Manual activation (Cursor, Copilot, Windsurf, etc.)**:
-```bash
-# 1. Find skills in plugins folder (NOT .claude/)
-ls plugins/specweave*/skills/
-
-# 2. Read the skill file
-cat plugins/specweave/skills/e2e-playwright/SKILL.md
-
-# 3. Tell AI to follow it
-"Read the e2e-playwright skill and write tests for my login page"
-
-# 4. AI writes code, YOU run it (code-first!)
-npx playwright test
-```
-
-**Remember**: Non-Claude tools get SAME functionality by:
-- Reading skill files manually
-- Following the workflows inside
-- Running `npx` instead of MCP tools (better anyway!)
-
----
-
-## Documentation
-
-| Resource | Purpose |
-|----------|---------|
-| CLAUDE.md | Quick reference (Claude Code) |
-| AGENTS.md | This file (non-Claude tools) |
-| spec-weave.com | Official documentation |
-| .specweave/docs/ | Project-specific docs |
-
----
-
-**Generated by SpecWeave** - Specification-first AI development
-**Compatible with**: Claude Code, Cursor, Copilot, Gemini CLI, ChatGPT, and more
-**Last Updated**: 2025-12-15
+### File Limits
+- Max 1500 lines per file — extract before adding
+- Check ADRs at `.specweave/docs/internal/architecture/adr/` before implementing changes

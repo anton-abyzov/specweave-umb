@@ -1,0 +1,31 @@
+{
+  "version": "1.1",
+  "incrementId": "0538-mobile-detect-test-fix",
+  "timestamp": "2026-03-15T23:12:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 14,
+    "passed": 14,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "project-detector.ts:263-265 — react-native rule has plugins: [], test in project-detector-mobile.test.ts:39-53" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "project-detector.ts:268-270 — expo rule has plugins: [], test in project-detector-mobile.test.ts:74-88" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "project-detector.ts:273-275 — ios rule has plugins: [], test in project-detector-mobile.test.ts:104-122" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "project-detector.ts:278-283 — android rule uses fileContains with com.android check, plugins: [], test in project-detector-mobile.test.ts:128-158" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "project-detector.ts:280-283 — bare fileExists replaced with fileContains(p, 'build.gradle', 'com.android'), test in project-detector-mobile.test.ts:160-174 and 176-189" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "auto-install.ts:67 — 'react native' maps to { skills: ['frontend'], agents: [] }, test in auto-install.test.ts:378-381" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "auto-install.ts:69 — 'expo' maps to { skills: ['frontend'], agents: [] }, test in auto-install.test.ts:388-391" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "auto-install.ts:70-74 — ios/android/mobile/app store/play store all map to { skills: [], agents: [] }, tests in auto-install.test.ts:393-421" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "analyzeUserIntent uses Set-based dedup (new Set<string>() line 93), test in auto-install.test.ts:423-427 confirms frontend appears exactly once" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "project-detector-mobile.test.ts has 14 test cases covering all 4 mobile rules with positive and negative cases" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "project-detector-mobile.test.ts:160-189 — two tests for build.gradle false positive (java-only and empty file)" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "auto-install.test.ts:377-438 — 10 new tests covering all 8 mobile keywords plus dedup and phantom checks" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "mobile-detection-pipeline.test.ts — 4 integration tests using real temp dirs, all asserting plugins never contains 'mobile'" },
+      { "acId": "AC-US3-05", "status": "pass", "evidence": "All 56 tests pass (14 unit + 10 auto-install + 4 integration + 28 existing). Mobile paths fully covered." }
+    ]
+  },
+  "findings": []
+}
