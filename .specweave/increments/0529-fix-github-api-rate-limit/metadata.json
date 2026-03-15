@@ -22,5 +22,9 @@
       "warnings": [],
       "changesCount": 7
     }
-  ]
+  ],
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "type": "feature"
 }

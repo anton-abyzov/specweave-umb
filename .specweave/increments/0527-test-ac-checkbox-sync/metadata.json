@@ -175,5 +175,8 @@
       }
     ],
     "lastSync": "2026-03-15T04:47:58.256Z"
-  }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "type": "feature"
 }

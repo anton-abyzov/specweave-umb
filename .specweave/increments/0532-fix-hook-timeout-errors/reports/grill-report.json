@@ -1,0 +1,42 @@
+{
+  "version": "1.1",
+  "incrementId": "0532-fix-hook-timeout-errors",
+  "timestamp": "2026-03-15T12:00:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 2, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 6,
+    "passed": 6,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "pre-tool-use.sh line 14: set +e" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "Root cause (set -e crash) eliminated" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "fail-fast-wrapper.sh lines 52-56: 15s override for post-tool-use.sh" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "post-tool-use.sh line 333: safe_run_background with FILE_PATH argument" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Timeout raised to 15s + sync backgrounded eliminates timeout errors" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "task-ac-sync-guard.sh accepts $1 as file path in background mode, stdin fallback for sync mode" }
+    ]
+  },
+  "findings": [
+    {
+      "title": "task-ac-sync-guard.sh stdin not piped in background mode (FIXED)",
+      "severity": "critical",
+      "confidence": 98,
+      "category": "correctness",
+      "file": "plugins/specweave/hooks/v2/dispatchers/post-tool-use.sh:333",
+      "status": "resolved",
+      "resolution": "Pass FILE_PATH as $1 argument; task-ac-sync-guard.sh accepts $1 with stdin fallback"
+    },
+    {
+      "title": "Stale synchronous comment in post-tool-use.sh (FIXED)",
+      "severity": "low",
+      "confidence": 95,
+      "category": "maintainability",
+      "file": "plugins/specweave/hooks/v2/dispatchers/post-tool-use.sh:326",
+      "status": "resolved",
+      "resolution": "Comment updated to reflect background execution"
+    }
+  ]
+}

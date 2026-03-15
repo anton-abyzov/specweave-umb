@@ -4,5 +4,10 @@
   "status": "active",
   "priority": "P1",
   "created": "2026-03-15T00:00:00.000Z",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "lastActivity": "2026-03-15T00:00:00.000Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "type": "feature"
 }
