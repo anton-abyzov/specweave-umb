@@ -1,0 +1,30 @@
+{
+  "id": "0525-fix-living-docs-sync-architecture",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-15T00:25:19.154Z",
+  "lastActivity": "2026-03-15T01:15:23.865Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-205",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-205",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-15T01:15:37.499Z"
+    },
+    "ado": {
+      "featureId": "1341",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1341",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-15T01:15:38.199Z"
+    }
+  },
+  "updated": "2026-03-15T01:04:35.000Z",
+  "approvedAt": "2026-03-15T01:15:23.865Z"
+}

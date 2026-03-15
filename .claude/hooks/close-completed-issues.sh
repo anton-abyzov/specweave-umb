@@ -1,8 +1,8 @@
 #!/bin/bash
 # close-completed-issues.sh — PostToolUse hook
 # Fires on any Edit/Write to metadata.json.
-# 1. Closes GitHub issues when increment status → completed
-# 2. Triggers living docs sync (once per increment, guarded by marker file)
+# Closes GitHub issues when increment status → completed.
+# Living docs sync is handled by specweave complete → onIncrementDone().
 set +e
 
 command -v jq >/dev/null 2>&1 || exit 0
@@ -21,7 +21,17 @@ INC_DIR=$(dirname "$FILE_PATH")
 INC_NAME=$(basename "$INC_DIR")
 INC_ID="${INC_NAME%%-*}"   # e.g. "0523" from "0523-living-docs-sync-cleanup"
 
-# === Section 1: Close GitHub issues ===
+# Cleanup: remove stale sync lock files from previous architecture (>60 min old)
+find "$PROJECT_ROOT/.specweave/state/" -name ".sync-*.lock" -mmin +60 -delete 2>/dev/null
+
+# Source GITHUB_TOKEN from .env (gh auth keyring may be invalid)
+ENV_FILE="$PROJECT_ROOT/.env"
+if [[ -f "$ENV_FILE" ]]; then
+  GH_TOKEN_VAL=$(grep -E '^(GH_TOKEN|GITHUB_TOKEN)=' "$ENV_FILE" | head -1 | cut -d= -f2- | tr -d '"' | tr -d "'")
+  [[ -n "$GH_TOKEN_VAL" ]] && export GH_TOKEN="$GH_TOKEN_VAL"
+fi
+
+# Close GitHub issues for completed increment
 command -v gh >/dev/null 2>&1 && {
   read -r OWNER REPO GH_ENABLED < <(jq -r '[.sync.github.owner, .sync.github.repo, (.sync.github.enabled | tostring)] | @tsv' "$CONFIG" 2>/dev/null)
   if [[ "$GH_ENABLED" == "true" && -n "$OWNER" && -n "$REPO" ]]; then
@@ -44,32 +54,5 @@ command -v gh >/dev/null 2>&1 && {
     fi
   fi
 }
-
-# === Section 2: Living docs sync (once per increment) ===
-mkdir -p "$INC_DIR/reports"
-SYNC_MARKER="$INC_DIR/reports/.living-docs-synced"
-LOCK_FILE="$PROJECT_ROOT/.specweave/state/.sync-${INC_ID}.lock"
-
-if [[ ! -f "$SYNC_MARKER" && ! -f "$LOCK_FILE" ]]; then
-  command -v specweave >/dev/null 2>&1 && {
-    mkdir -p "$PROJECT_ROOT/.specweave/state"
-    touch "$LOCK_FILE"
-    LOG="$INC_DIR/reports/living-docs-sync.log"
-    # Run in background — sync calls GitHub/JIRA/ADO and can take 30-120s
-    (
-      cd "$PROJECT_ROOT" && \
-      specweave sync-living-docs "$INC_ID" >> "$LOG" 2>&1
-      EXIT_CODE=$?
-      # Only mark synced if command succeeded (exit 0)
-      if [[ $EXIT_CODE -eq 0 ]]; then
-        touch "$SYNC_MARKER"
-      else
-        echo "[hook] sync-living-docs exited $EXIT_CODE — marker NOT created, will retry on next completion trigger" >> "$LOG"
-      fi
-      rm -f "$LOCK_FILE"
-    ) &
-    disown
-  }
-fi
 
 exit 0

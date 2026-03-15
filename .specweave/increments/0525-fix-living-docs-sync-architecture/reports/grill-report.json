@@ -1,0 +1,26 @@
+{
+  "version": "1.1",
+  "incrementId": "0525-fix-living-docs-sync-architecture",
+  "timestamp": "2026-03-14T20:30:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 9,
+    "passed": 9,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "completion-validator.ts:153-162 — drift >168h pushes to warnings[] not errors[], isValid stays true" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "status-commands.ts:264,279,298 — process.stderr.write() on all 3 failure paths (transition, intermediate, validation), unconditional regardless of silent flag" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "status-commands.ts:312-313 — pre-sync removed, replaced with comment. syncIncrement called only in LifecycleHookDispatcher.onIncrementDone():236" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "close-completed-issues.sh — 58 lines, no '&' backgrounding operators, no 'disown' calls, no Section 2 block" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "close-completed-issues.sh:27-32 — sources GH_TOKEN/GITHUB_TOKEN from $PROJECT_ROOT/.env, exports as GH_TOKEN before gh CLI calls" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "close-completed-issues.sh:25 — find with -name '.sync-*.lock' -mmin +60 -delete runs before gh commands" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "LifecycleHookDispatcher.ts:191-199 — reads config.sync.settings.autoSyncOnCompletion, defaults to true, gates shouldSyncLivingDocs at line 217" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "LifecycleHookDispatcher.ts:201-215 — reads metadata.skipLivingDocsSync via double-cast, sets perIncrementSkip=true, gates shouldSyncLivingDocs at line 217" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "increment-metadata.ts:641-642 — skipLivingDocsSync?: boolean field in IncrementMetadataV2 interface" }
+    ]
+  },
+  "findings": []
+}
