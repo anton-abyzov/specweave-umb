@@ -26,6 +26,8 @@ Two broken first-run experiences for brownfield projects:
 
 ### US-001: Working sync-setup CLI command
 
+**Project**: specweave
+
 **As a** developer who just ran `specweave init` on a brownfield project,
 **I want** to run `specweave sync-setup` in my terminal to connect GitHub Issues, JIRA, or ADO,
 **So that** the "next steps" guidance actually works and I can connect external tools without needing Claude Code open.
@@ -41,6 +43,8 @@ Two broken first-run experiences for brownfield projects:
 - [x] AC-US1-08: `--provider <github|jira|ado>` flag pre-selects provider, skipping selection prompt
 
 ### US-002: Brownfield repo layout detection
+
+**Project**: specweave
 
 **As a** developer with repositories in a non-standard layout (missing org subfolder),
 **I want** `specweave init` to detect this and show me exactly how to fix it,
