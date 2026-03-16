@@ -1,10 +1,10 @@
 {
   "id": "0545-vskill-studio-ux-overhaul",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-16T08:14:36.896Z",
-  "lastActivity": "2026-03-16T08:14:36.896Z",
+  "lastActivity": "2026-03-16T08:55:03.515Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,7 +15,55 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-316",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-16T08:32:30.122Z"
+      "syncedAt": "2026-03-16T13:29:24.154Z"
+    },
+    "ado": {
+      "featureId": "1381",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1381",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-16T13:29:30.919Z"
     }
-  }
+  },
+  "updated": "2026-03-16T08:51:43.000Z",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-03-16T08:51:43.381Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03",
+        "AC-US2-04",
+        "AC-US3-01",
+        "AC-US3-02",
+        "AC-US3-03",
+        "AC-US3-04",
+        "AC-US4-02",
+        "AC-US4-04",
+        "AC-US4-03",
+        "AC-US4-01",
+        "AC-US5-01",
+        "AC-US5-02",
+        "AC-US5-04",
+        "AC-US5-05",
+        "AC-US5-03",
+        "AC-US6-01",
+        "AC-US6-02",
+        "AC-US6-05",
+        "AC-US6-03",
+        "AC-US6-04",
+        "AC-US7-02",
+        "AC-US7-03",
+        "AC-US7-01",
+        "AC-US7-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 29
+    }
+  ],
+  "approvedAt": "2026-03-16T08:55:03.515Z"
 }
