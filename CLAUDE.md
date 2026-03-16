@@ -1,6 +1,6 @@
-<!-- SW:META template="claude" version="1.0.480" sections="hook-priority,header,claude-code-concepts,lsp,start,autodetect,metarule,rules,workflow,save-nested-repos,reflect,context,structure,taskformat,secrets,syncing,testing,tdd,api,limits,troubleshooting,lazyloading,principles,linking,mcp,auto,docs,non-claude" -->
+<!-- SW:META template="claude" version="1.0.481" sections="hook-priority,header,claude-code-concepts,lsp,start,autodetect,metarule,rules,workflow,save-nested-repos,reflect,context,structure,taskformat,secrets,syncing,testing,tdd,api,limits,troubleshooting,lazyloading,principles,linking,mcp,auto,docs,non-claude" -->
 
-<!-- SW:SECTION:hook-priority version="1.0.480" -->
+<!-- SW:SECTION:hook-priority version="1.0.481" -->
 ## Hook Instructions Override Everything
 
 `<system-reminder>` hook output = **BLOCKING PRECONDITIONS**.
@@ -15,11 +15,11 @@
 **Setup actions are NOT implementation** — "connect github", "setup sync", "import issues" → route to the matching setup skill (`sw:sync-setup`, `sw:import`, `sw:progress-sync`), NOT `/sw:increment`.
 <!-- SW:END:hook-priority -->
 
-<!-- SW:SECTION:header version="1.0.480" -->
+<!-- SW:SECTION:header version="1.0.481" -->
 **Framework**: SpecWeave | **Truth**: `spec.md` + `tasks.md`
 <!-- SW:END:header -->
 
-<!-- SW:SECTION:claude-code-concepts version="1.0.480" -->
+<!-- SW:SECTION:claude-code-concepts version="1.0.481" -->
 ## Skills & Plugins
 
 **Invoke**: `/skill-name` | auto-trigger by keywords | `Skill({ skill: "name" })`
@@ -41,13 +41,13 @@
 If auto-activation fails, invoke explicitly: `Skill({ skill: "name" })`
 <!-- SW:END:claude-code-concepts -->
 
-<!-- SW:SECTION:lsp version="1.0.480" -->
+<!-- SW:SECTION:lsp version="1.0.481" -->
 ## LSP (Code Intelligence)
 
 **Native LSP broken in v2.1.0+.** Use: `specweave lsp refs|def|hover src/file.ts SymbolName`
 <!-- SW:END:lsp -->
 
-<!-- SW:SECTION:start version="1.0.480" -->
+<!-- SW:SECTION:start version="1.0.481" -->
 ## Getting Started
 
 Your first increment starts at `0001`. Just describe what you want to build:
@@ -55,7 +55,7 @@ Your first increment starts at `0001`. Just describe what you want to build:
 `/sw:increment "your-feature"`
 <!-- SW:END:start -->
 
-<!-- SW:SECTION:autodetect version="1.0.480" -->
+<!-- SW:SECTION:autodetect version="1.0.481" -->
 ## Auto-Detection
 
 SpecWeave auto-detects product descriptions and routes to `/sw:increment`:
@@ -71,7 +71,7 @@ SpecWeave auto-detects product descriptions and routes to `/sw:increment`:
 **Setup/config requests bypass auto-detection** → route directly to the matching skill (e.g., `sw:sync-setup`, `sw:import`)
 <!-- SW:END:autodetect -->
 
-<!-- SW:SECTION:metarule version="1.0.480" -->
+<!-- SW:SECTION:metarule version="1.0.481" -->
 ## Workflow Orchestration
 
 ### 1. Plan Mode Default (MANDATORY)
@@ -116,7 +116,7 @@ Good: npm run build → node script.js → Success
 ```
 <!-- SW:END:metarule -->
 
-<!-- SW:SECTION:rules version="1.0.480" -->
+<!-- SW:SECTION:rules version="1.0.481" -->
 ## Rules
 
 1. **Files** → `.specweave/increments/####-name/` (see Structure section for details)
@@ -132,7 +132,7 @@ Good: npm run build → node script.js → Success
 8. **Multi-repo**: ALL repos MUST be at `repositories/{org}/{repo-name}/` — NEVER directly under `repositories/`
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:workflow version="1.0.480" -->
+<!-- SW:SECTION:workflow version="1.0.481" -->
 ## Workflow
 
 `/sw:increment "X"` → `/sw:do` → `/sw:progress` → `/sw:done 0001`
@@ -156,13 +156,13 @@ Good: npm run build → node script.js → Success
 **Large-scale changes**: For codebase-wide migrations or bulk refactors, use `/batch` — decomposes work into parallel agents with worktree isolation, each producing its own PR. Example: `/batch migrate from Solid to React`
 <!-- SW:END:workflow -->
 
-<!-- SW:SECTION:save-nested-repos version="1.0.480" -->
+<!-- SW:SECTION:save-nested-repos version="1.0.481" -->
 ## Nested Repos
 
 Before git operations, scan: `for d in repositories packages services apps libs workspace; do [ -d "$d" ] && find "$d" -maxdepth 2 -name ".git" -type d; done`
 <!-- SW:END:save-nested-repos -->
 
-<!-- SW:SECTION:reflect version="1.0.480" -->
+<!-- SW:SECTION:reflect version="1.0.481" -->
 ## Skill Memories
 
 SpecWeave learns from corrections. Learnings saved here automatically. Edit or delete as needed.
@@ -178,7 +178,7 @@ SpecWeave learns from corrections. Learnings saved here automatically. Edit or d
 - **2026-03-03**: Agents in team contexts should NOT run /sw:done or /sw:grill themselves — team-lead handles centralized closure to prevent context overflow and enable parallel work
 - **2026-03-03**: Team-lead MUST activate master increment (set metadata.json status to "active") BEFORE spawning agents. `specweave complete` silently exits on "planned" status — agents don't manage lifecycle transitions. Closure must retry on failure (max 2) rather than skip.
 
-<!-- SW:SECTION:context version="1.0.480" -->
+<!-- SW:SECTION:context version="1.0.481" -->
 ## Context
 
 **Before implementing**: Check ADRs at `.specweave/docs/internal/architecture/adr/`
@@ -186,7 +186,7 @@ SpecWeave learns from corrections. Learnings saved here automatically. Edit or d
 **Load context**: `/sw:docs <topic>` loads relevant living docs into conversation
 <!-- SW:END:context -->
 
-<!-- SW:SECTION:structure version="1.0.480" -->
+<!-- SW:SECTION:structure version="1.0.481" -->
 ## Structure
 
 ```
@@ -201,7 +201,7 @@ SpecWeave learns from corrections. Learnings saved here automatically. Edit or d
 **Everything else → subfolders**: `reports/` | `logs/` | `scripts/` | `backups/`
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:taskformat version="1.0.480" -->
+<!-- SW:SECTION:taskformat version="1.0.481" -->
 ## Task Format
 
 ```markdown
@@ -211,19 +211,19 @@ SpecWeave learns from corrections. Learnings saved here automatically. Edit or d
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:secrets version="1.0.480" -->
+<!-- SW:SECTION:secrets version="1.0.481" -->
 ## Secrets
 
 Before CLI tools, check existing config (`grep -q` only — never display values).
 <!-- SW:END:secrets -->
 
-<!-- SW:SECTION:syncing version="1.0.480" -->
+<!-- SW:SECTION:syncing version="1.0.481" -->
 ## External Sync
 
 Primary: `/sw:progress-sync`. Individual: `/sw-github:push`, `/sw-github:close`. Mapping: Feature→Milestone | Story→Issue | Task→Checkbox.
 <!-- SW:END:syncing -->
 
-<!-- SW:SECTION:testing version="1.0.480" -->
+<!-- SW:SECTION:testing version="1.0.481" -->
 ## Testing Pipeline (MANDATORY)
 
 **Testing is a pipeline step, not an afterthought.**
@@ -250,23 +250,23 @@ Primary: `/sw:progress-sync`. Individual: `/sw-github:push`, `/sw-github:close`.
 - Coverage targets: unit 95%, integration 90%, e2e 100% of AC scenarios
 <!-- SW:END:testing -->
 
-<!-- SW:SECTION:tdd version="1.0.480" -->
+<!-- SW:SECTION:tdd version="1.0.481" -->
 ## TDD
 
 When `testing.defaultTestMode: "TDD"` in config.json: RED→GREEN→REFACTOR. Use `/sw:tdd-cycle`. Enforcement via `testing.tddEnforcement` (strict|warn|off).
 <!-- SW:END:tdd -->
 
-<!-- SW:SECTION:api version="1.0.480" -->
+<!-- SW:SECTION:api version="1.0.481" -->
 <!-- API: Enable `apiDocs` in config.json. Commands: /sw:api-docs -->
 <!-- SW:END:api -->
 
-<!-- SW:SECTION:limits version="1.0.480" -->
+<!-- SW:SECTION:limits version="1.0.481" -->
 ## Limits
 
 **Max 1500 lines/file** — extract before adding
 <!-- SW:END:limits -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.480" -->
+<!-- SW:SECTION:troubleshooting version="1.0.481" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -278,13 +278,13 @@ When `testing.defaultTestMode: "TDD"` in config.json: RED→GREEN→REFACTOR. Us
 | npm E401 on update | `npm i -g specweave --registry https://registry.npmjs.org --userconfig /dev/null` |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:lazyloading version="1.0.480" -->
+<!-- SW:SECTION:lazyloading version="1.0.481" -->
 ## Plugin Auto-Loading
 
 Plugins load automatically. Manual: `vskill install --repo anton-abyzov/vskill --plugin frontend`. Disable: `export SPECWEAVE_DISABLE_AUTO_LOAD=1`
 <!-- SW:END:lazyloading -->
 
-<!-- SW:SECTION:principles version="1.0.480" -->
+<!-- SW:SECTION:principles version="1.0.481" -->
 ## Principles
 
 1. **Spec-first**: `/sw:increment` before coding — mandatory for ALL implementation requests, no exceptions unless user explicitly opts out
@@ -296,7 +296,7 @@ Plugins load automatically. Manual: `vskill install --repo anton-abyzov/vskill -
 7. **Test before ship**: Tests pass at every step — unit after each task, E2E before close, no exceptions
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:linking version="1.0.480" -->
+<!-- SW:SECTION:linking version="1.0.481" -->
 ## Bidirectional Linking
 
 Tasks ↔ User Stories auto-linked via AC-IDs: `AC-US1-01` → `US-001`
@@ -304,13 +304,13 @@ Tasks ↔ User Stories auto-linked via AC-IDs: `AC-US1-01` → `US-001`
 Task format: `**AC**: AC-US1-01, AC-US1-02` (CRITICAL for linking)
 <!-- SW:END:linking -->
 
-<!-- SW:SECTION:mcp version="1.0.480" -->
+<!-- SW:SECTION:mcp version="1.0.481" -->
 ## External Services
 
 CLI tools first (`gh`, `wrangler`, `supabase`) → MCP for complex integrations.
 <!-- SW:END:mcp -->
 
-<!-- SW:SECTION:auto version="1.0.480" -->
+<!-- SW:SECTION:auto version="1.0.481" -->
 ## Auto Mode
 
 `/sw:auto` (start) | `/sw:auto-status` (check) | `/sw:cancel-auto` (emergency)
@@ -318,7 +318,7 @@ CLI tools first (`gh`, `wrangler`, `supabase`) → MCP for complex integrations.
 Pattern: IMPLEMENT → TEST → FAIL? → FIX → PASS → NEXT. STOP & ASK if spec conflicts or ambiguity.
 <!-- SW:END:auto -->
 
-<!-- SW:SECTION:docs version="1.0.480" -->
+<!-- SW:SECTION:docs version="1.0.481" -->
 ## Docs
 
 [verified-skill.com](https://verified-skill.com)
@@ -335,7 +335,7 @@ Pattern: IMPLEMENT → TEST → FAIL? → FIX → PASS → NEXT. STOP & ASK if s
 
 Ask user to manually verify: new UI flows, auth changes, payment flows, data migrations.
 
-<!-- SW:SECTION:non-claude version="1.0.480" -->
+<!-- SW:SECTION:non-claude version="1.0.481" -->
 ## Using SpecWeave with Other AI Tools
 
 See **AGENTS.md** for Cursor, Copilot, Windsurf, Aider instructions.

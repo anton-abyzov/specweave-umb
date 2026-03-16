@@ -1,0 +1,30 @@
+{
+  "id": "0541-vskill-stale-file-cleanup",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-16T03:18:40.424Z",
+  "lastActivity": "2026-03-16T04:06:40.779Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-291",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-291",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-16T03:28:09.595Z"
+    },
+    "ado": {
+      "featureId": "1377",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1377",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-16T03:28:12.885Z"
+    }
+  },
+  "updated": "2026-03-16T04:04:09.000Z",
+  "approvedAt": "2026-03-16T04:06:40.779Z"
+}
