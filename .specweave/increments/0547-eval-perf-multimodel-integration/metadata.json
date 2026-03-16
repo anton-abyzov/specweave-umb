@@ -1,0 +1,95 @@
+{
+  "id": "0547-eval-perf-multimodel-integration",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-16T19:51:24.396Z",
+  "lastActivity": "2026-03-16T20:54:08.800Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-345",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-345",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-16T20:54:51.689Z"
+    },
+    "ado": {
+      "featureId": "1388",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1388",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-16T20:54:57.785Z"
+    }
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-03-16T20:52:49.522Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-03",
+        "AC-US1-02",
+        "AC-US1-04",
+        "AC-US1-05",
+        "AC-US2-01",
+        "AC-US2-03",
+        "AC-US2-02",
+        "AC-US2-04",
+        "AC-US3-01",
+        "AC-US3-02",
+        "AC-US3-04",
+        "AC-US3-03",
+        "AC-US4-01",
+        "AC-US4-02",
+        "AC-US4-04",
+        "AC-US4-03",
+        "AC-US4-05",
+        "AC-US5-01",
+        "AC-US5-02",
+        "AC-US5-04",
+        "AC-US5-05",
+        "AC-US5-03",
+        "AC-US6-01",
+        "AC-US8-03",
+        "AC-US8-01",
+        "AC-US8-04",
+        "AC-US8-02",
+        "AC-US9-01",
+        "AC-US9-02",
+        "AC-US10-01",
+        "AC-US9-05",
+        "AC-US9-04",
+        "AC-US10-04",
+        "AC-US10-02",
+        "AC-US10-03",
+        "AC-US7-01",
+        "AC-US7-02",
+        "AC-US7-03",
+        "AC-US7-04",
+        "AC-US7-05",
+        "AC-US6-02",
+        "AC-US6-03",
+        "AC-US6-04"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US9-03: has no tasks mapped"
+      ],
+      "changesCount": 44
+    },
+    {
+      "timestamp": "2026-03-16T20:08:21.369Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US9-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "updated": "2026-03-16T20:52:49.000Z",
+  "approvedAt": "2026-03-16T20:54:08.800Z"
+}

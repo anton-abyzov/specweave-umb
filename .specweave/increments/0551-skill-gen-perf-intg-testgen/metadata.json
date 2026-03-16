@@ -1,0 +1,61 @@
+{
+  "id": "0550-skill-gen-perf-intg-testgen",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-16T21:28:47.093Z",
+  "lastActivity": "2026-03-16T21:57:15.307Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-357",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-357",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-16T21:57:38.201Z"
+    },
+    "ado": {
+      "featureId": "1390",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1390",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-16T21:57:41.560Z"
+    }
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-03-16T21:56:14.002Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US1-03",
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-04",
+        "AC-US2-02",
+        "AC-US2-04",
+        "AC-US2-03",
+        "AC-US3-02",
+        "AC-US3-03",
+        "AC-US3-01",
+        "AC-US4-02",
+        "AC-US4-01",
+        "AC-US3-04",
+        "AC-US3-05",
+        "AC-US4-03",
+        "AC-US5-01",
+        "AC-US5-02",
+        "AC-US5-03",
+        "AC-US5-04",
+        "AC-US5-05"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 21
+    }
+  ],
+  "updated": "2026-03-16T21:56:14.000Z",
+  "approvedAt": "2026-03-16T21:57:15.307Z"
+}
