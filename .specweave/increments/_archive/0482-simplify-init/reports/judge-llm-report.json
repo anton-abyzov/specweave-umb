@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0482-simplify-init",
+  "timestamp": "2026-03-11T13:01:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels not configured — consent not granted",
+  "findings": []
+}

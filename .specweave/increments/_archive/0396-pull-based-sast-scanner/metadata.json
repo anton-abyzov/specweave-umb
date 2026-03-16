@@ -1,0 +1,15 @@
+{
+  "id": "0396-pull-based-sast-scanner",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-02T09:14:18.258Z",
+  "lastActivity": "2026-03-02T14:57:48.846Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-03-13T09:57:00.000Z",
+  "approvedAt": "2026-03-02T14:57:48.846Z"
+}

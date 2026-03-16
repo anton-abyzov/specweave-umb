@@ -1,0 +1,30 @@
+{
+  "id": "0507-vskill-update-all-sources",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-12T03:09:23.452Z",
+  "lastActivity": "2026-03-12T03:34:54.688Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-185",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-185",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-12T03:35:26.472Z"
+    },
+    "ado": {
+      "featureId": "1016",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1016",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-12T03:35:28.400Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-12T03:34:45.802Z",
+  "approvedAt": "2026-03-12T03:34:54.688Z"
+}

@@ -1,0 +1,45 @@
+{
+  "version": "1.1",
+  "incrementId": "0531-fix-test-mock-drift-prevention",
+  "timestamp": "2026-03-15T04:52:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 1, "critical": 0, "high": 0, "medium": 1 },
+  "acCompliance": {
+    "totalACs": 14,
+    "passed": 14,
+    "failed": 0,
+    "scopeCreep": [
+      "E401 retry test rewritten to match current production behavior",
+      "Robustness tests updated from npmExecWithAuthFallback to npmPublicExec"
+    ],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "TC-UH-02 mock at installation-health-checker.test.ts:541 uses npmRegistryFlag()" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "31/31 tests pass in installation-health-checker.test.ts" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "src/utils/npm-constants.ts:9 exports NPM_REGISTRY_URL" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "src/utils/npm-constants.ts:11 exports npmRegistryFlag()" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Module follows pricing-constants.ts pattern in src/utils/" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "installation-health-checker.ts:528 uses npmRegistryFlag()" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "update.ts:844 uses npmRegistryFlag()" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "package-installer.ts:67 uses NPM_REGISTRY_URL" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "npm-provider.ts:12 uses NPM_REGISTRY_URL" },
+      { "acId": "AC-US3-05", "status": "pass", "evidence": "129/129 tests pass across 4 files" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "installation-health-checker.test.ts uses npmRegistryFlag in 9 mock conditions" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "update.test.ts uses npmRegistryFlag in 6 mock/expect locations" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "update-robustness.test.ts uses npmRegistryFlag in assertion" },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "Full suite: 129/129 tests pass" }
+    ]
+  },
+  "findings": [
+    {
+      "title": "Spec references src/constants/ but implementation uses src/utils/",
+      "severity": "low",
+      "confidence": 55,
+      "category": "maintainability",
+      "file": "spec.md:48",
+      "issue": "Minor documentation inconsistency",
+      "suggestion": "Update spec.md AC-US2-01 text",
+      "impact": "No code impact"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "version": "1.1",
+  "incrementId": "0502-config-context-sync",
+  "timestamp": "2026-03-12T02:15:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 11,
+    "passed": 11,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "CreateSkillInline uses useConfig() for button label; ModelSelector uses updateConfig() which dispatches to shared context — both read from same ConfigResponse" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "ConfigContext.tsx:73-76 — updateConfig() awaits api.setConfig() then dispatches; no optimistic update" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "ModelSelector.tsx:27-28 — catch block calls refreshConfig(), context retains prior config; saving state managed locally" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "ConfigContext.tsx:71 — single useEffect calls refreshConfig() on mount; only call site for api.getConfig() in entire eval-ui" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "ConfigContextValue interface exports config, loading, updateConfig, refreshConfig; 10 components consume via useConfig()" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "ConfigContext.tsx:53 — throws 'useConfig must be used within ConfigProvider'" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "grep confirms zero api.getConfig() in components/ and pages/ — only in ConfigContext.tsx" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "SkillImprovePanel, AiEditBar, CreateSkillPage each have useEffect([config]) that initializes local selectedProvider/selectedModel from context while keeping local state independent" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "BenchmarkPage.tsx — all 3 api.getConfig() calls removed; model derived from globalConfig?.model via useConfig()" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "ConfigContext.tsx at src/eval-ui/src/ConfigContext.tsx — exports ConfigProvider + useConfig, uses createContext + useReducer" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "App.tsx — ConfigProvider wraps StudioProvider which wraps StudioLayout" }
+    ]
+  },
+  "findings": []
+}

@@ -1,0 +1,40 @@
+{
+  "version": "1.1",
+  "incrementId": "0451-skill-naming-plugin-metadata",
+  "timestamp": "2026-03-11T18:35:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 23,
+    "passed": 23,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "derivePluginName() in slug.ts:91-99; tested in slug.test.ts (7 cases)" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "Returns null for non-plugin paths; tested" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Root SKILL.md returns null; tested" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "Null/undefined returns null; tested" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "Exported from slug.ts alongside makeSlug" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "publishSkill sets pluginName for plugin paths; tested in submission-store.test.ts" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "publishSkill sets null for non-plugin paths; tested" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Update branch includes pluginName; tested" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "Backfill computes and applies pluginName for plugin paths" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Null skillPath skills skipped" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "FIXED: needsPluginName now compares without null guard; pluginName always included in DB update; query fetches skills with stale non-null pluginName" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "Flat names converted to hierarchical" },
+      { "acId": "AC-US3-05", "status": "pass", "evidence": "Dry-run includes pluginName in changes" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "FIXED: SearchPalette now shows raw {item.pluginName} without prefix" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "Skills list page shows raw name" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "Conditional rendering for null" },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "Badge is span, not clickable" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "Badge in byline row" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "FIXED: Detail page now shows raw name with matching opacity 0.1 and border 0.25" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "Badge in byline only, not in title" },
+      { "acId": "AC-US6-01", "status": "pass", "evidence": "TTY dim [pluginName] suffix; tested in find.test.ts (4 cases)" },
+      { "acId": "AC-US6-02", "status": "pass", "evidence": "No suffix for null; tested" },
+      { "acId": "AC-US6-03", "status": "pass", "evidence": "Tab-separated field in piped mode; tested" }
+    ]
+  },
+  "findings": []
+}

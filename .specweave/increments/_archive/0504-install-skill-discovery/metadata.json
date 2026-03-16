@@ -1,0 +1,30 @@
+{
+  "id": "0504-install-skill-discovery",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-12T02:26:45.805Z",
+  "lastActivity": "2026-03-15T17:39:24.450Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-182",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-182",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-15T17:41:47.979Z"
+    },
+    "ado": {
+      "featureId": "977",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/977",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-15T17:41:51.397Z"
+    }
+  },
+  "updated": "2026-03-15T17:11:28.000Z",
+  "approvedAt": "2026-03-15T17:39:24.450Z"
+}

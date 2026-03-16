@@ -1,0 +1,6 @@
+{
+  "incrementId": "0394-unified-plugin-install-via-repo",
+  "verdict": "WAIVED",
+  "reason": "External model consent not configured in config.json",
+  "timestamp": "2026-03-01T23:00:00.000Z"
+}

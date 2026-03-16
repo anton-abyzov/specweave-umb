@@ -1,0 +1,32 @@
+{
+  "id": "0410-dedup-comment-test",
+  "title": "Dedup Comment Test - Verify Single Close Comment",
+  "type": "test",
+  "status": "completed",
+  "created": "2026-03-03T00:00:00Z",
+  "updated": "2026-03-03T00:00:00Z",
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1474,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1474",
+          "status": "closed"
+        }
+      },
+      "milestone": 202,
+      "syncedAt": "2026-03-03T00:14:50Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1474,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1474",
+        "createdAt": "2026-03-03T00:14:50Z"
+      }
+    ],
+    "lastSync": "2026-03-03T00:14:50Z"
+  }
+}

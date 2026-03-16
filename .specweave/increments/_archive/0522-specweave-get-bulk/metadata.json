@@ -1,0 +1,28 @@
+{
+  "id": "0522-specweave-get-bulk",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-13T00:00:00.000Z",
+  "lastActivity": "2026-03-13T00:00:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-199",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-199",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-14T23:14:38.487Z"
+    },
+    "ado": {
+      "featureId": "1315",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1315",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-14T23:14:40.459Z"
+    }
+  }
+}

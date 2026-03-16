@@ -1,0 +1,165 @@
+{
+  "version": "1.1",
+  "incrementId": "0501-single-repo-clone",
+  "timestamp": "2026-03-12T02:10:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 3,
+    "critical": 0,
+    "high": 0,
+    "medium": 2,
+    "low": 1
+  },
+  "acCompliance": {
+    "totalACs": 17,
+    "passed": 17,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      {
+        "ac": "AC-US1-01",
+        "verdict": "PASS",
+        "confidence": 99,
+        "evidence": "parseRepoIdentifier shorthand regex at url-generator.ts:159-163. Test at url-generator.test.ts:201-203 asserts { owner: 'owner', repo: 'repo', inputType: 'shorthand' }."
+      },
+      {
+        "ac": "AC-US1-02",
+        "verdict": "PASS",
+        "confidence": 99,
+        "evidence": "Bare host regex at url-generator.ts:151-156. Test at url-generator.test.ts:205-208 asserts inputType: 'https'."
+      },
+      {
+        "ac": "AC-US1-03",
+        "verdict": "PASS",
+        "confidence": 99,
+        "evidence": "HTTPS URL handled by extra-path pre-processing at url-generator.ts:128-138 then delegated to parseGitRemoteUrl at line 141. Test at url-generator.test.ts:210-213."
+      },
+      {
+        "ac": "AC-US1-04",
+        "verdict": "PASS",
+        "confidence": 99,
+        "evidence": "SSH URL delegated to parseGitRemoteUrl at url-generator.ts:141-148. Test at url-generator.test.ts:220-223 asserts inputType: 'ssh'."
+      },
+      {
+        "ac": "AC-US1-05",
+        "verdict": "PASS",
+        "confidence": 99,
+        "evidence": "Falls through all matchers, returns null at url-generator.ts:166. Test at url-generator.test.ts:225-228."
+      },
+      {
+        "ac": "AC-US2-01",
+        "verdict": "PASS",
+        "confidence": 95,
+        "evidence": "GET /repos/{owner}/{repo} call at github-repo-cloning.ts:567. Test at github-repo-cloning.test.ts:437-459 verifies API call with Bearer token and no error on 200."
+      },
+      {
+        "ac": "AC-US2-02",
+        "verdict": "PASS",
+        "confidence": 95,
+        "evidence": "Error message at github-repo-cloning.ts:580 matches AC verbatim. Test at github-repo-cloning.test.ts:462-475 asserts exact string match. Note: code triggers on any non-ok status, not just 404 (see finding M-001)."
+      },
+      {
+        "ac": "AC-US2-03",
+        "verdict": "PASS",
+        "confidence": 99,
+        "evidence": "Token guard at github-repo-cloning.ts:554-561 checks !pat && inputType !== 'ssh'. Test at github-repo-cloning.test.ts:477-486 confirms fetch is never called when no PAT for shorthand."
+      },
+      {
+        "ac": "AC-US3-01",
+        "verdict": "PASS",
+        "confidence": 95,
+        "evidence": "launchCloneJob called at github-repo-cloning.ts:606-613 with path: 'repositories/{owner}/{repo}'. Test at github-repo-cloning.test.ts:506-524 verifies path in launchCloneJob arguments."
+      },
+      {
+        "ac": "AC-US3-02",
+        "verdict": "PASS",
+        "confidence": 99,
+        "evidence": "fs.existsSync check at github-repo-cloning.ts:589-592. Test at github-repo-cloning.test.ts:526-539 verifies alreadyCloned=true and launchCloneJob not called."
+      },
+      {
+        "ac": "AC-US3-03",
+        "verdict": "PASS",
+        "confidence": 80,
+        "evidence": "childRepos update is handled by existing clone-worker infrastructure, not cloneSingleGitHubRepo itself. The function passes repos to launchCloneJob (ts:606-613) which spawns the clone worker that updates config.json. No direct test in this increment, but this is existing behavior validated by clone-worker tests."
+      },
+      {
+        "ac": "AC-US3-04",
+        "verdict": "PASS",
+        "confidence": 99,
+        "evidence": "SSH format detection at github-repo-cloning.ts:552 sets urlFormat='ssh'. buildGitHubCloneUrl dispatches to buildGitHubSshCloneUrl. Test at github-repo-cloning.test.ts:542-557 verifies git@ URL and no PAT."
+      },
+      {
+        "ac": "AC-US3-05",
+        "verdict": "PASS",
+        "confidence": 99,
+        "evidence": "Non-SSH input sets urlFormat='https' at github-repo-cloning.ts:552. buildGitHubCloneUrl dispatches to buildGitHubHttpsCloneUrl. Test at github-repo-cloning.test.ts:559-576 verifies PAT in URL."
+      },
+      {
+        "ac": "AC-US4-01",
+        "verdict": "PASS",
+        "confidence": 90,
+        "evidence": "Handled at skill-definition level: clone.md Step 0 (line 70-108) processes --repo and returns before Steps 1-7 (org-level flow). Line 64 documents precedence explicitly. No unit test exists because this is caller behavior, not function behavior."
+      },
+      {
+        "ac": "AC-US4-02",
+        "verdict": "PASS",
+        "confidence": 99,
+        "evidence": "dryRun check at github-repo-cloning.ts:596-599. Test at github-repo-cloning.test.ts:579-594 verifies fetch called (validation) but launchCloneJob not called."
+      },
+      {
+        "ac": "AC-US4-03",
+        "verdict": "PASS",
+        "confidence": 99,
+        "evidence": "Parse failure at github-repo-cloning.ts:544-548 returns error listing supported formats. Test at github-repo-cloning.test.ts:610-621."
+      },
+      {
+        "ac": "AC-US5-01",
+        "verdict": "PASS",
+        "confidence": 95,
+        "evidence": "clone.md lines 30-44 show --repo syntax examples. Step 0 (lines 70-108) provides full implementation guidance with code samples. Examples section includes single-repo examples at lines 534-560."
+      },
+      {
+        "ac": "AC-US5-02",
+        "verdict": "PASS",
+        "confidence": 99,
+        "evidence": "clone.md lines 111-116 explicitly list all 4 formats: owner/repo, github.com/owner/repo, https://github.com/owner/repo, git@github.com:owner/repo.git."
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "M-001",
+      "severity": "medium",
+      "confidence": 85,
+      "category": "correctness",
+      "title": "API validation treats all non-2xx statuses as 'not found'",
+      "description": "cloneSingleGitHubRepo() at github-repo-cloning.ts:575 checks `!response.ok` and returns the 'not found or you don't have access' message for any non-2xx status. This means a 500 Internal Server Error or 503 Service Unavailable from GitHub would produce a misleading 'not found' message. AC-US2-02 specifies the error for 404 specifically, but the implementation is broader.",
+      "location": "src/cli/helpers/init/github-repo-cloning.ts:575-581",
+      "suggestion": "Consider checking response.status === 404 specifically for the 'not found' message, and falling through to a generic 'GitHub API error: {status}' message for other non-ok statuses. Alternatively, handle 401 separately for invalid token scenarios.",
+      "blocking": false
+    },
+    {
+      "id": "M-002",
+      "severity": "medium",
+      "confidence": 75,
+      "category": "correctness",
+      "title": "parseGitRemoteUrl SSH regex does not match dots in owner names",
+      "description": "The SSH regex in parseGitRemoteUrl uses [\\w-]+ for the owner capture group, which matches word chars and hyphens but NOT dots. GitHub usernames can contain dots (e.g., 'my.org'). While parseRepoIdentifier has its own shorthand regex that handles dots ([\\w.-]+), the SSH path through parseGitRemoteUrl would fail for 'git@github.com:my.org/repo.git'. This is a pre-existing issue in parseGitRemoteUrl, not introduced by this increment.",
+      "location": "src/core/repo-structure/url-generator.ts:82",
+      "suggestion": "Update the SSH regex owner group from [\\w-]+ to [\\w.-]+ in parseGitRemoteUrl. This is a pre-existing bug but worth fixing since parseRepoIdentifier delegates to it.",
+      "blocking": false
+    },
+    {
+      "id": "L-001",
+      "severity": "low",
+      "confidence": 70,
+      "category": "test-coverage",
+      "title": "Missing test for bare-host with .git suffix",
+      "description": "The edge case 'github.com/owner/repo.git' (bare host format with trailing .git) is handled by the bareHostMatch regex but has no explicit test case. All other edge cases from the spec's 'Edge Cases' section are tested.",
+      "location": "tests/unit/core/repo-structure/url-generator.test.ts",
+      "suggestion": "Add a test case: parseRepoIdentifier('github.com/owner/repo.git') -> { owner: 'owner', repo: 'repo', inputType: 'https' }",
+      "blocking": false
+    }
+  ]
+}

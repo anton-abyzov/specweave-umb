@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0400-sync-pipeline-reliability",
+  "timestamp": "2026-03-02T23:00:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels consent not configured",
+  "findings": []
+}

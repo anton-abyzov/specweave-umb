@@ -1,0 +1,81 @@
+{
+  "id": "0472-activation-auto-classify",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-10T06:07:34.643Z",
+  "lastActivity": "2026-03-10T06:07:34.644Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 67,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/67",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 68,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/68",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 69,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/69",
+          "status": "active"
+        },
+        "US-004": {
+          "issueNumber": 70,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/70",
+          "status": "active"
+        },
+        "US-005": {
+          "issueNumber": 71,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/71",
+          "status": "active"
+        }
+      },
+      "milestone": 20,
+      "syncedAt": "2026-03-10T09:52:23.538Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 67,
+        "url": "https://github.com/anton-abyzov/vskill/issues/67",
+        "createdAt": "2026-03-10T09:51:46.473Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 68,
+        "url": "https://github.com/anton-abyzov/vskill/issues/68",
+        "createdAt": "2026-03-10T09:51:55.394Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 69,
+        "url": "https://github.com/anton-abyzov/vskill/issues/69",
+        "createdAt": "2026-03-10T09:52:05.120Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 70,
+        "url": "https://github.com/anton-abyzov/vskill/issues/70",
+        "createdAt": "2026-03-10T09:52:14.795Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 71,
+        "url": "https://github.com/anton-abyzov/vskill/issues/71",
+        "createdAt": "2026-03-10T09:52:23.538Z"
+      }
+    ],
+    "lastSync": "2026-03-10T09:52:23.538Z"
+  },
+  "updated": "2026-03-11T10:30:00.000Z"
+}

@@ -1,0 +1,184 @@
+{
+  "id": "FS-527",
+  "title": "Test AC Checkbox Sync",
+  "status": "completed",
+  "priority": "P2",
+  "created": "2026-03-15T00:00:00.000Z",
+  "project": "specweave-umb",
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-208",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-208",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-15T17:14:01.000Z"
+    },
+    "ado": {
+      "featureId": "1356",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1356",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-15T17:14:02.710Z"
+    },
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 78,
+          "issueUrl": "https://github.com/anton-abyzov/specweave-umb/issues/78",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 79,
+          "issueUrl": "https://github.com/anton-abyzov/specweave-umb/issues/79",
+          "status": "active"
+        }
+      },
+      "milestone": 10,
+      "syncedAt": "2026-03-15T04:47:58.256Z"
+    }
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-03-15T05:31:52.877Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-03-15T04:24:38.085Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-03-15T04:06:07.763Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-03-15T04:05:36.509Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-03-15T04:01:16.112Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-03-15T03:59:48.056Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-03-15T03:51:25.042Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-03-15T03:49:33.426Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-03-15T03:45:44.811Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-03-15T03:37:27.701Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-03-15T03:35:56.070Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    }
+  ],
+  "lastActivity": "2026-03-15T17:13:54.805Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 78,
+        "url": "https://github.com/anton-abyzov/specweave-umb/issues/78",
+        "createdAt": "2026-03-15T04:47:51.892Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 79,
+        "url": "https://github.com/anton-abyzov/specweave-umb/issues/79",
+        "createdAt": "2026-03-15T04:47:58.256Z"
+      }
+    ],
+    "lastSync": "2026-03-15T04:47:58.256Z"
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "type": "feature",
+  "readyForReviewAt": "2026-03-15T17:13:54.762Z",
+  "approvedAt": "2026-03-15T17:13:54.805Z"
+}

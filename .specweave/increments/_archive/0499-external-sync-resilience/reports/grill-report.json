@@ -1,0 +1,73 @@
+{
+  "version": "1.1",
+  "incrementId": "0499-external-sync-resilience",
+  "timestamp": "2026-03-12T21:35:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 3, "critical": 0, "high": 0, "medium": 3 },
+  "acCompliance": {
+    "totalACs": 21,
+    "passed": 21,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "ACGate.shouldSyncExternal() returns shouldSync:false when no ACs transition. LifecycleHookDispatcher.ts:129 sets skipExternalSync accordingly." },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "ac-gate.ts:57-59 detects AC transitions, returns shouldSync:true with affected story IDs. LifecycleHookDispatcher.ts:129 allows external sync." },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "LifecycleHookDispatcher.ts:139-145 calls LivingDocsSync.syncIncrement() regardless of skipExternalSync flag. Living docs always fires." },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "ac-gate.ts:36-38 returns shouldSync:true when task has no AC tags (backward compat). Tests confirm in ac-gate.test.ts." },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "sync-resilience.ts:142-149 enqueues retry on failure. sync-retry-queue.ts:71-98 persists with all required fields." },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "sync-resilience.ts:91-116 checks CachedRateLimiter.canProceed() for GitHub; queues if not allowed." },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "sync-resilience.ts:66-88 checks CircuitBreakerRegistry.get(provider).canSync(); queues if open." },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "sync-retry.ts:74-122 processes pending entries with backoff. bin/specweave.js registers sync-retry command." },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "LifecycleHookDispatcher.ts onIncrementDone() now calls drainRetryQueueForIncrement() in STEP 3 (fixed during grill)." },
+      { "acId": "AC-US2-06", "status": "pass", "evidence": "sync-resilience.ts writes audit entries on all paths: success (L125-130), failure (L152-158), circuit open (L75-79), rate limit (L102-106)." },
+      { "acId": "AC-US2-07", "status": "pass", "evidence": "sync-retry.ts:92-97 marks failed at maxAttempts. sync-retry-queue.ts:115-122 sets status='failed' without removing." },
+      { "acId": "AC-US2-08", "status": "pass", "evidence": "cached-rate-limiter.ts:27,66 uses 60s TTL cache. getOrRefresh() checks cache age before calling underlying checker." },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "OverviewPage.tsx fetches /api/sync/errors?hours=24&limit=5, renders 'Recent Sync Errors' panel conditionally." },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "types.ts:21 adds 'sync-error' to SSEEventType. SyncResilience writes notifications that trigger SSE via file watcher." },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "sync-resilience.ts:161-167 calls notificationAdd on failure. Notification is written to notifications.json." },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "SyncPage.tsx AuditTable has expandedIdx state, click-to-toggle rows, expanded <pre> block showing full error." },
+      { "acId": "AC-US3-05", "status": "pass", "evidence": "OverviewPage.tsx fetches /api/sync/gaps, renders amber badge with count linking to /sync." },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "sync-gaps.ts:59-67 lists gaps with incrementId, synced/missing providers, last activity." },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "sync-gaps.ts:69-86 iterates gaps and calls fixFn(incrementId, provider) when --fix passed." },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "sync-gaps.ts:53-56 outputs JSON.stringify(gaps) with SyncGapItem having all required fields." },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "sync-status.ts now imports CachedRateLimiter, displays remaining/limit/percentUsed in Rate Limits section (fixed during grill)." },
+      { "acId": "AC-US4-05", "status": "pass", "evidence": "sync-gaps.ts:42 exits 1 on gaps. sync-status.ts:77 exits 1 on issues." }
+    ]
+  },
+  "findings": [
+    {
+      "title": "drainRetryQueueForIncrement not wired into onIncrementDone",
+      "severity": "critical",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "src/core/hooks/LifecycleHookDispatcher.ts",
+      "issue": "AC-US2-05 required retry queue drain on increment closure but the call was missing from onIncrementDone().",
+      "suggestion": "Added drainRetryQueueForIncrement() call as STEP 3 in onIncrementDone().",
+      "impact": "Failed syncs would never be retried on increment closure.",
+      "status": "FIXED"
+    },
+    {
+      "title": "sync-retry attemptCount never incremented on failure",
+      "severity": "high",
+      "confidence": 92,
+      "category": "correctness",
+      "file": "src/cli/commands/sync-retry.ts:111-121",
+      "issue": "When sync-retry failed, the entry stayed in queue with same attemptCount, causing infinite retries for entries at attemptCount=1.",
+      "suggestion": "Added remove-and-re-enqueue with incremented attemptCount and fresh backoff on failure.",
+      "impact": "Entries would be retried indefinitely instead of respecting maxAttempts.",
+      "status": "FIXED"
+    },
+    {
+      "title": "Rate limit info missing from sync-status output",
+      "severity": "high",
+      "confidence": 90,
+      "category": "correctness",
+      "file": "src/cli/commands/sync-status.ts",
+      "issue": "AC-US4-04 requires rate limit remaining counts but sync-status only showed retry queue and circuit breakers.",
+      "suggestion": "Added CachedRateLimiter dep injection and Rate Limits output section.",
+      "impact": "Users couldn't see rate limit status from CLI, reducing observability.",
+      "status": "FIXED"
+    }
+  ]
+}

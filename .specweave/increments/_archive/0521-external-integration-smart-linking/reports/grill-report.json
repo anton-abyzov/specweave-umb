@@ -1,0 +1,82 @@
+{
+  "version": "1.1",
+  "incrementId": "0521-external-integration-smart-linking",
+  "timestamp": "2026-03-15T18:00:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0
+  },
+  "acCompliance": {
+    "totalACs": 12,
+    "passed": 12,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      {
+        "acId": "AC-US1-01",
+        "status": "pass",
+        "evidence": "sync-setup.ts lines 99-109 call runHealthChecksForConfig() after setupIssueTracker() succeeds and display results via formatHealthCheckResults()"
+      },
+      {
+        "acId": "AC-US1-02",
+        "status": "pass",
+        "evidence": "sync-health.ts lines 80-89 and 104-115 produce fail results with fix suggestions when credentials are missing. formatHealthCheckResults from integration-health-check.ts renders fix text."
+      },
+      {
+        "acId": "AC-US1-03",
+        "status": "pass",
+        "evidence": "sync-health.ts syncHealthCommand() returns 0 for healthy, 1 for failures, 2 for no providers. Registered in bin/specweave.js line 1007 as 'sync-health' command."
+      },
+      {
+        "acId": "AC-US2-01",
+        "status": "pass",
+        "evidence": "branch-utils.ts buildBranchName() checks options.includeExternalKey and calls resolveExternalBranchPrefix() to prepend ticket key. Test TC-012 in branch-utils.test.ts:23 confirms PROJ-123/sw/0521-smart-linking format."
+      },
+      {
+        "acId": "AC-US2-02",
+        "status": "pass",
+        "evidence": "branch-utils.ts lines 40-42 return baseName when includeExternalKey is false or metadata is null. Tests TC-014 (line 41) and TC-015 (line 6) confirm fallback."
+      },
+      {
+        "acId": "AC-US2-03",
+        "status": "pass",
+        "evidence": "pr-linker.ts resolveExternalBranchPrefix() returns raw JIRA key (PROJ-123 format) and AB#ID format for ADO. Tests in branch-utils.test.ts:32 and pr-linker.test.ts:21 confirm both formats."
+      },
+      {
+        "acId": "AC-US3-01",
+        "status": "pass",
+        "evidence": "pr-linker.ts linkToJira() calls jiraClient.addRemoteLink() for each collected JIRA key. link-pr CLI command (link-pr.ts) invokes linkPrToExternalTickets(). Registered in bin/specweave.js line 724."
+      },
+      {
+        "acId": "AC-US3-02",
+        "status": "pass",
+        "evidence": "pr-linker.ts linkToAdo() calls adoClient.addHyperlink() for each collected ADO work item ID. Same CLI integration path as JIRA."
+      },
+      {
+        "acId": "AC-US3-03",
+        "status": "pass",
+        "evidence": "pr-linker.ts linkToJira/linkToAdo catch errors per-item and push to result.errors array with log.warn(). Outer try-catch handles client init failures. Errors never thrown upward."
+      },
+      {
+        "acId": "AC-US4-01",
+        "status": "pass",
+        "evidence": "sync-health.ts getEnabledProviders() detects github/jira/ado from config. syncHealthCommand() runs checks for all enabled providers and displays via formatResults(). Registered in CLI router."
+      },
+      {
+        "acId": "AC-US4-02",
+        "status": "pass",
+        "evidence": "sync-health.ts lines 194-198 output JSON.stringify with results array and healthy boolean when options.json is true. Test TC-006 (line 180) validates JSON output."
+      },
+      {
+        "acId": "AC-US4-03",
+        "status": "pass",
+        "evidence": "sync-health.ts line 203 returns 0 when allHealthy, line 189 returns 2 when no providers, line 203 returns 1 when unhealthy. Tests TC-007/TC-008/TC-009 cover all exit codes."
+      }
+    ]
+  },
+  "findings": []
+}

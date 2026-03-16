@@ -1,0 +1,129 @@
+{
+  "version": "1.1",
+  "incrementId": "0492",
+  "timestamp": "2026-03-11T20:05:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 2,
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 1
+  },
+  "acCompliance": {
+    "totalACs": 14,
+    "passed": 10,
+    "failed": 0,
+    "descoped": 3,
+    "notApplicable": 1,
+    "scopeCreep": [],
+    "results": [
+      {
+        "id": "AC-US1-01",
+        "status": "PASS",
+        "evidence": "init.ts line 104: `if (!projectName) projectName = '.'` normalizes undefined to CWD. TC-006 verifies initCommand(undefined) resolves to process.cwd()."
+      },
+      {
+        "id": "AC-US1-02",
+        "status": "PASS",
+        "evidence": "init.ts line 116: home directory guard fires after normalization. TC-009 confirms process.exit(1) when CWD = os.homedir()."
+      },
+      {
+        "id": "AC-US1-03",
+        "status": "PASS",
+        "evidence": "init.ts line 125: PROJECT_NAME_PATTERN test triggers input prompt for non-matching CWD names. TC-010 confirms prompt with suggested slug for 'My Project'."
+      },
+      {
+        "id": "AC-US1-04",
+        "status": "PASS",
+        "evidence": "init.ts lines 154-180: explicit project name creates subdirectory via mkdirSync. TC-008 and TC-011 confirm."
+      },
+      {
+        "id": "AC-US1-05",
+        "status": "PASS",
+        "evidence": "init.ts lines 103-104: single normalization `if (!projectName) projectName = '.'` with comment `// No args = init in CWD, same as explicit '.'`. The subsequent `if (projectName === '.')` is one unified branch."
+      },
+      {
+        "id": "AC-US2-01",
+        "status": "PASS",
+        "evidence": "path-utils.ts lines 301-324: `buildUmbrellaConfig(discovery, projectName)` exists with correct signature and return type. TC-001 through TC-003 plus three-way collision test verify behavior."
+      },
+      {
+        "id": "AC-US2-02",
+        "status": "PASS",
+        "evidence": "init.ts line 363 (initial scan) and line 409 (post-clone re-scan) both call buildUmbrellaConfig. Zero inline prefix deduplication logic remains (grep for usedPrefixes/substring returns no matches in init.ts)."
+      },
+      {
+        "id": "AC-US2-03",
+        "status": "PASS",
+        "evidence": "path-utils.ts line 310: 3-char uppercase prefix via `r.name.substring(0, 3).toUpperCase()`. Lines 311-314: collision dedup with 2-char + incrementing numeric suffix. TC-002 and three-way collision test verify."
+      },
+      {
+        "id": "AC-US2-04",
+        "status": "PASS",
+        "evidence": "index.ts line 31: `buildUmbrellaConfig` exported from barrel file alongside other path-utils exports."
+      },
+      {
+        "id": "AC-US3-01",
+        "status": "DESCOPED",
+        "evidence": "Descoped in spec.md - guard clause error messages already show umbrella root and suspicious segment."
+      },
+      {
+        "id": "AC-US3-02",
+        "status": "DESCOPED",
+        "evidence": "Descoped in spec.md."
+      },
+      {
+        "id": "AC-US3-03",
+        "status": "DESCOPED",
+        "evidence": "Descoped in spec.md - current !hasGit && !hasRepos condition matches approved plan."
+      },
+      {
+        "id": "AC-US3-04",
+        "status": "PASS",
+        "evidence": "repo-connect.ts line 133: `default: 'existing'` in promptProjectSetup select choices. Test mock in init-path-resolution.test.ts line 249 confirms default 'existing' behavior."
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "MINOR",
+      "confidence": 75,
+      "category": "edge-case",
+      "file": "repositories/anton-abyzov/specweave/src/cli/helpers/init/path-utils.ts",
+      "line": 310,
+      "title": "Prefix deduplication produces short prefixes for 1-2 character repo names",
+      "description": "When a repo name is 1 character (e.g., 'a'), `substring(0, 3)` returns 'A' and dedup uses `substring(0, 2)` which returns just 'A'. For 2-char names like 'ab', the prefix is 'AB' and dedup uses 'AB'. These are valid but may produce confusing prefixes. This is pre-existing behavior that was moved into the helper, not introduced by this increment.",
+      "suggestedFix": "No fix needed for this increment since it preserves existing behavior. Could add a guard to pad short names in a follow-up.",
+      "impact": "Cosmetic only. Extremely unlikely in practice since repo names are virtually never 1-2 characters."
+    },
+    {
+      "id": "F-002",
+      "severity": "SUGGESTION",
+      "confidence": 80,
+      "category": "maintainability",
+      "file": ".specweave/increments/0492-init-project-resolution-redesign/spec.md",
+      "line": 88,
+      "title": "FR-003 not marked as descoped despite AC-US3-03 being descoped",
+      "description": "FR-003 in spec.md still says 'Change the post-scaffold condition from !hasGit && !hasRepos to !hasRepos' but AC-US3-03 was descoped. The code correctly keeps the original !hasGit && !hasRepos condition. The discrepancy is between FR-003 (which was not descoped in the FR section) and AC-US3-03 (which was descoped). This is a spec document inconsistency, not a code issue.",
+      "suggestedFix": "Add a descoped note to FR-003 in spec.md to match AC-US3-03.",
+      "impact": "No runtime impact. Spec document inconsistency only."
+    }
+  ],
+  "testResults": {
+    "newTests": {
+      "file": "build-umbrella-config.test.ts + init-path-resolution.test.ts",
+      "total": 10,
+      "passed": 10,
+      "failed": 0
+    },
+    "regressionTests": {
+      "file": "init.test.ts + repo-connect.test.ts",
+      "total": 98,
+      "passed": 98,
+      "failed": 0
+    }
+  }
+}

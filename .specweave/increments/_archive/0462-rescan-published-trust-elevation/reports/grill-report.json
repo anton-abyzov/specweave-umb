@@ -1,0 +1,109 @@
+{
+  "version": "1.0",
+  "incrementId": "0462-rescan-published-trust-elevation",
+  "timestamp": "2026-03-10T14:16:00.000Z",
+  "grillPasses": 3,
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 7,
+    "suppressed": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 7,
+    "note": "All findings from both grill passes fixed in-place"
+  },
+  "findings": [
+    {
+      "title": "hasMore overfetch bug",
+      "severity": "medium",
+      "confidence": 90,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/rescan-published/route.ts",
+      "status": "FIXED"
+    },
+    {
+      "title": "Incomplete in-progress states list (pass 1)",
+      "severity": "medium",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/rescan-published/route.ts",
+      "status": "FIXED"
+    },
+    {
+      "title": "Blocklist filter in memory instead of DB",
+      "severity": "medium",
+      "confidence": 80,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/rescan-published/route.ts",
+      "status": "FIXED"
+    },
+    {
+      "title": "No unit tests",
+      "severity": "critical",
+      "confidence": 100,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/rescan-published/__tests__/route.test.ts",
+      "status": "FIXED",
+      "issue": "10 test cases required by spec, 0 existed. Created 13 tests covering all ACs."
+    },
+    {
+      "title": "displayName used instead of name for skillName",
+      "severity": "high",
+      "confidence": 80,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/rescan-published/route.ts:158",
+      "status": "FIXED",
+      "issue": "Used displayName instead of unique name identifier. Changed to skill.name."
+    },
+    {
+      "title": "DEQUEUED missing from IN_PROGRESS_STATES",
+      "severity": "high",
+      "confidence": 75,
+      "category": "edge-case",
+      "file": "src/app/api/v1/admin/rescan-published/route.ts:38-46",
+      "status": "FIXED",
+      "issue": "DEQUEUED state omitted, risking duplicate submissions. Added."
+    },
+    {
+      "title": "Audit trigger string mismatch",
+      "severity": "high",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "src/app/api/v1/admin/rescan-published/route.ts:187",
+      "status": "FIXED",
+      "issue": "Code had 'rescan-published: re-queued for T2 LLM scanning' vs spec 'rescan-published: trust elevation'. Fixed."
+    }
+  ],
+  "filesReviewed": [
+    "src/app/api/v1/admin/rescan-published/route.ts",
+    "src/app/api/v1/admin/rescan-published/__tests__/route.test.ts"
+  ],
+  "acsValidated": {
+    "total": 8,
+    "passed": 8,
+    "list": [
+      "AC-US1-01", "AC-US1-02", "AC-US1-03", "AC-US1-04", "AC-US1-05",
+      "AC-US2-01", "AC-US2-02", "AC-US2-03"
+    ]
+  },
+  "tests": {
+    "total": 13,
+    "passed": 13,
+    "failed": 0,
+    "file": "src/app/api/v1/admin/rescan-published/__tests__/route.test.ts"
+  },
+  "productionState": {
+    "measuredAt": "2026-03-10T14:15:00.000Z",
+    "trustTierDistribution": {
+      "T0": 0,
+      "T1": 654,
+      "T2": 33128,
+      "T3": 55545,
+      "T4": 295
+    },
+    "t3Elevated": 6073,
+    "remainingWithoutT2Scan": 15172,
+    "note": "Workers still processing queue. Numbers will continue improving."
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "version": "1.1",
+  "incrementId": "0498-studio-skill-origin-classification",
+  "timestamp": "2026-03-11T20:15:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 4, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 19,
+    "passed": 19,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "classifyOrigin() in skill-scanner.ts:58-70 builds prefix set from AGENTS_REGISTRY, checks first segment of relative path" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "EXTRA_CONFIG_DIRS at skill-scanner.ts:31-34 includes .specweave, .vscode, .idea, .zed, .devcontainer, .github, .agents, .agent" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "skill-scanner.ts:66 checks rel.includes('plugins/cache/')" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "skill-scanner.ts:69 returns 'source' as default" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "Scanner doesn't deduplicate; both copies appear with correct origin based on path" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "SkillGroupList.tsx:59-79 renders 'Your Skills' section for source, :82-149 renders 'Installed' section for installed" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "SkillGroupList.tsx:59 conditional: sourceGroups.length > 0 gates source section" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "SkillGroupList.tsx:82 conditional: installedGroups.length > 0 gates installed section" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "SkillGroupList.tsx:22-33 filters before splitting by origin, preserving grouping" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "SkillCard.tsx:33 opacity: isInstalled ? 0.7 : 1" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "SkillCard.tsx:44-49 renders lock SVG when isInstalled" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "SkillCard.tsx conditional only renders icon/opacity for installed; source uses defaults" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "EditorPanel.tsx:397 readOnly={isReadOnly} on textarea, :408 opacity dimmed. Fixed: context guards on saveContent" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "RunPanel.tsx:100-108 bulk buttons disabled. Fixed: per-case RunCaseCard buttons now also disabled={isReadOnly}. Context guard on runCase/runAll" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "TestsPanel.tsx:138-139 Create/Generate disabled. Fixed: CaseDetail run/compare/delete/edit controls now gated by isReadOnly. AssertionRow edit/delete hidden" },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "Source skills have isReadOnly=false, all controls remain functional" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "SkillGroupList.tsx:125-145 info banner inside installed section explains distinction" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "Fixed: SkillGroupList.tsx now has bannerDismissed state + sessionStorage('vskill-origin-banner-dismissed'), X button to dismiss" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "Banner text: 'Skills inside agent folders (.claude/, .cursor/, etc.) are installed copies for consuming. Edit skills in your project root instead.'" }
+    ]
+  },
+  "findings": [
+    {
+      "title": "Per-case run buttons were not disabled for installed skills (FIXED)",
+      "severity": "critical",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "RunPanel.tsx:305-307, TestsPanel.tsx:376-391",
+      "issue": "RunCaseCard per-case Compare/Skill/Base buttons and CaseDetail Run/Compare/Delete/Fix buttons had no isReadOnly check",
+      "suggestion": "Added isReadOnly prop to RunCaseCard, disabled per-case buttons. Added isReadOnly guards to CaseDetail buttons",
+      "impact": "Users could trigger per-case benchmarks on installed skills",
+      "status": "FIXED"
+    },
+    {
+      "title": "No context-level guards on mutating functions (FIXED)",
+      "severity": "critical",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "WorkspaceContext.tsx:165-230,314,444",
+      "issue": "saveContent, saveEvals, runCase, runAll, submitAiEdit, generateEvals had no isReadOnly early-return guard",
+      "suggestion": "Added if (isReadOnly) return guards to all mutating context functions",
+      "impact": "Even with UI disabled, programmatic access or missed UI gates could trigger mutations",
+      "status": "FIXED"
+    },
+    {
+      "title": "TestsPanel CaseDetail editing controls not gated (FIXED)",
+      "severity": "critical",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "TestsPanel.tsx:407-502,648-683",
+      "issue": "Prompt/expected click-to-edit, assertion add/edit/delete all accessible for installed skills",
+      "suggestion": "Added isReadOnly checks to onClick handlers, cursor styles, conditionally hidden delete buttons",
+      "impact": "Users could edit eval data for installed skills",
+      "status": "FIXED"
+    },
+    {
+      "title": "Info banner had no dismiss mechanism (FIXED)",
+      "severity": "high",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "SkillGroupList.tsx:125-129",
+      "issue": "AC-US5-02 requires dismissable banner with session persistence. Implementation had no X button or sessionStorage",
+      "suggestion": "Added bannerDismissed state initialized from sessionStorage, X button that sets sessionStorage('vskill-origin-banner-dismissed')",
+      "impact": "Banner re-appeared on every section expand, no way to permanently dismiss in session",
+      "status": "FIXED"
+    }
+  ]
+}

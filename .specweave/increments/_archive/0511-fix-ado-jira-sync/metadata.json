@@ -1,0 +1,96 @@
+{
+  "id": "0511-fix-ado-jira-sync",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-12T05:46:22.016Z",
+  "lastActivity": "2026-03-12T06:25:27.765Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-188",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-188",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-12T06:47:08.004Z"
+    },
+    "ado": {
+      "featureId": "1082",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1082",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-12T06:47:10.623Z"
+    },
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1552,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1552",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 1553,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1553",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 1554,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1554",
+          "status": "active"
+        },
+        "US-004": {
+          "issueNumber": 1555,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1555",
+          "status": "active"
+        },
+        "US-005": {
+          "issueNumber": 1556,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1556",
+          "status": "active"
+        }
+      },
+      "milestone": 240,
+      "syncedAt": "2026-03-12T06:46:54.376Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-12T06:25:12.860Z",
+  "approvedAt": "2026-03-12T06:25:27.765Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1552,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1552",
+        "createdAt": "2026-03-12T06:46:15.445Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1553,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1553",
+        "createdAt": "2026-03-12T06:46:25.599Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1554,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1554",
+        "createdAt": "2026-03-12T06:46:35.042Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 1555,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1555",
+        "createdAt": "2026-03-12T06:46:44.519Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 1556,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1556",
+        "createdAt": "2026-03-12T06:46:54.376Z"
+      }
+    ],
+    "lastSync": "2026-03-12T06:46:54.376Z"
+  }
+}

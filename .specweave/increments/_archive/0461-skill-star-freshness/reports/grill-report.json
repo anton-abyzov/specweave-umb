@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "incrementId": "0461-skill-star-freshness",
+  "timestamp": "2026-03-10T14:45:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "grillPass": 2,
+  "summary": {
+    "totalFindings": 2,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 2,
+    "suppressed": 1,
+    "filesExamined": 14,
+    "acsValidated": 19,
+    "acsTotal": 19,
+    "testsPass": 86,
+    "testsFail": 0,
+    "incrementTestFiles": 6
+  },
+  "previousFindings": {
+    "note": "All 5 critical/high findings from grill pass 1 have been fixed",
+    "fixedCount": 5
+  },
+  "findings": [
+    {
+      "title": "Dead outer catch block in dedup-skills body parsing",
+      "severity": "low",
+      "confidence": 90,
+      "category": "maintainability",
+      "file": "src/app/api/v1/admin/dedup-skills/route.ts:27-30",
+      "issue": "Body parsing had `.catch(() => ({}))` on the await, making the outer try-catch unreachable.",
+      "status": "fixed",
+      "fix": "Removed .catch() from await, let outer try-catch handle errors"
+    },
+    {
+      "title": "Unsafe `as any` cast in enrichment deprecated shard removal",
+      "severity": "low",
+      "confidence": 80,
+      "category": "maintainability",
+      "file": "src/lib/cron/enrichment.ts:319",
+      "issue": "`buildSearchEntry({ ...skill, isDeprecated: true } as any)` suppressed type checking.",
+      "status": "fixed",
+      "fix": "Pass `skill` directly — buildSearchEntry doesn't need isDeprecated, and skill already has all SkillForSearchEntry fields from the select"
+    }
+  ]
+}

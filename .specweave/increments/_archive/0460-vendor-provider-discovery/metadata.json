@@ -1,0 +1,71 @@
+{
+  "id": "0460-vendor-provider-discovery",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P0",
+  "created": "2026-03-09T12:34:02.232Z",
+  "lastActivity": "2026-03-10T19:43:06.299Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 46,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/46",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 47,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/47",
+          "status": "active"
+        },
+        "US-004": {
+          "issueNumber": 48,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/48",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 40,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/40",
+          "status": "active"
+        }
+      },
+      "milestone": 15,
+      "syncedAt": "2026-03-10T08:50:22.311Z"
+    }
+  },
+  "updated": "2026-03-09T13:05:35.000Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 46,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/46",
+        "createdAt": "2026-03-10T08:49:48.988Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 47,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/47",
+        "createdAt": "2026-03-10T08:49:59.168Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 48,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/48",
+        "createdAt": "2026-03-10T08:50:10.323Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 40,
+        "url": "https://github.com/anton-abyzov/vskill/issues/40",
+        "createdAt": "2026-03-10T08:50:22.311Z"
+      }
+    ],
+    "lastSync": "2026-03-10T08:50:22.311Z"
+  },
+  "approvedAt": "2026-03-10T19:43:06.299Z"
+}

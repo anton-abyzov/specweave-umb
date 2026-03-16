@@ -1,0 +1,129 @@
+{
+  "id": "0470-skill-studio-full-redesign",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-10T05:43:07.707Z",
+  "lastActivity": "2026-03-11T07:54:14.913Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 59,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/59",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 60,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/60",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 61,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/61",
+          "status": "active"
+        },
+        "US-004": {
+          "issueNumber": 62,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/62",
+          "status": "active"
+        },
+        "US-005": {
+          "issueNumber": 63,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/63",
+          "status": "active"
+        },
+        "US-006": {
+          "issueNumber": 64,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/64",
+          "status": "active"
+        },
+        "US-007": {
+          "issueNumber": 65,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/65",
+          "status": "active"
+        },
+        "US-008": {
+          "issueNumber": 66,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/66",
+          "status": "active"
+        }
+      },
+      "milestone": 19,
+      "syncedAt": "2026-03-10T09:51:17.703Z"
+    },
+    "jira": {
+      "epicKey": "SWE2E-116",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-116",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-11T07:54:58.440Z"
+    },
+    "ado": {
+      "featureId": "181",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/181",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-11T07:55:01.208Z"
+    }
+  },
+  "updated": "2026-03-10T06:26:59.000Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 59,
+        "url": "https://github.com/anton-abyzov/vskill/issues/59",
+        "createdAt": "2026-03-10T09:49:53.283Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 60,
+        "url": "https://github.com/anton-abyzov/vskill/issues/60",
+        "createdAt": "2026-03-10T09:50:05.329Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 61,
+        "url": "https://github.com/anton-abyzov/vskill/issues/61",
+        "createdAt": "2026-03-10T09:50:16.879Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 62,
+        "url": "https://github.com/anton-abyzov/vskill/issues/62",
+        "createdAt": "2026-03-10T09:50:29.378Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 63,
+        "url": "https://github.com/anton-abyzov/vskill/issues/63",
+        "createdAt": "2026-03-10T09:50:42.079Z"
+      },
+      {
+        "userStory": "US-006",
+        "number": 64,
+        "url": "https://github.com/anton-abyzov/vskill/issues/64",
+        "createdAt": "2026-03-10T09:50:54.396Z"
+      },
+      {
+        "userStory": "US-007",
+        "number": 65,
+        "url": "https://github.com/anton-abyzov/vskill/issues/65",
+        "createdAt": "2026-03-10T09:51:05.641Z"
+      },
+      {
+        "userStory": "US-008",
+        "number": 66,
+        "url": "https://github.com/anton-abyzov/vskill/issues/66",
+        "createdAt": "2026-03-10T09:51:17.703Z"
+      }
+    ],
+    "lastSync": "2026-03-10T09:51:17.703Z"
+  },
+  "approvedAt": "2026-03-11T07:54:14.913Z"
+}

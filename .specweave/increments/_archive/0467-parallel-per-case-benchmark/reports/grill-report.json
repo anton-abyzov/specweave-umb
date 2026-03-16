@@ -1,0 +1,66 @@
+{
+  "version": "1.0",
+  "incrementId": "0467-parallel-per-case-benchmark",
+  "timestamp": "2026-03-11T10:00:00.000Z",
+  "verdict": "NEEDS REVIEW",
+  "shipReadiness": "NEEDS REVIEW",
+  "summary": {
+    "totalFindings": 5,
+    "suppressed": 7,
+    "critical": 1,
+    "high": 1,
+    "medium": 3
+  },
+  "findings": [
+    {
+      "title": "Client-Server Body Mismatch for Baseline Mode",
+      "severity": "critical",
+      "confidence": 98,
+      "category": "correctness",
+      "file": "repositories/anton-abyzov/vskill/src/eval-ui/src/pages/workspace/WorkspaceContext.tsx:197",
+      "issue": "Client sends { baseline_only: true } but server checks body?.mode === 'baseline'. Baseline mode silently runs as regular benchmark for per-case runs.",
+      "suggestion": "Change client body to { mode: 'baseline' } for both runCase and runAll. Note: comparison/baseline per-case is out of scope per spec - may be a non-issue if baseline per-case is never invoked.",
+      "impact": "Baseline per-case runs produce skill-augmented results instead of baseline results."
+    },
+    {
+      "title": "Bulk Run History Not Saved During Parallel Execution",
+      "severity": "high",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "repositories/anton-abyzov/vskill/src/eval-ui/src/pages/workspace/WorkspaceContext.tsx:88",
+      "issue": "runAll fires per-case endpoints without bulk: true in body, so each case writes individual history. The bulk-save endpoint is never called. AC-US4-02 requires a combined bulk history entry.",
+      "suggestion": "Pass { bulk: true } in body when runAll fires, then call /bulk-save when all cases complete to write the aggregate entry.",
+      "impact": "History fragmented into single-case entries during parallel runs. Overall pass rate reflects only last case."
+    },
+    {
+      "title": "Spurious Semaphore Release on Missing Eval Case",
+      "severity": "medium",
+      "confidence": 75,
+      "category": "correctness",
+      "file": "repositories/anton-abyzov/vskill/src/eval-server/api-routes.ts:425",
+      "issue": "res.on('close') handler fires release() even when acquire() was never called (early return for missing case). Semaphore guards against underflow but could wake a queued waiter, temporarily exceeding concurrency limit.",
+      "suggestion": "Set released = true before early returns that happen before sem.acquire().",
+      "impact": "Could momentarily allow one extra concurrent LLM call."
+    },
+    {
+      "title": "useState Misused for Side Effects in CaseDetail",
+      "severity": "medium",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "repositories/anton-abyzov/vskill/src/eval-ui/src/pages/workspace/TestsPanel.tsx:215",
+      "issue": "useState initializer used for side effects (setting prompt/expected text). Only runs on first mount, not when evalCase changes. Stale data when switching cases.",
+      "suggestion": "Replace with useEffect synced on evalCase.id.",
+      "impact": "Prompt/expected text areas show stale data from previously selected case."
+    },
+    {
+      "title": "deleteHistoryEntry Path Traversal via Timestamp",
+      "severity": "medium",
+      "confidence": 88,
+      "category": "security",
+      "file": "repositories/anton-abyzov/vskill/src/eval/benchmark-history.ts:83",
+      "issue": "Timestamp parameter passed to file operations without strict validation. A crafted timestamp could resolve to paths outside history directory.",
+      "suggestion": "Validate timestamp matches strict ISO pattern before use in file operations.",
+      "impact": "Could allow reading/deletion of files outside history directory from malicious localhost pages."
+    }
+  ]
+}

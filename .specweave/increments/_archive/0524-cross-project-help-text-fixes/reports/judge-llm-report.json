@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0524-cross-project-help-text-fixes",
+  "timestamp": "2026-03-14T23:30:00Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels consent not configured in config.json",
+  "findings": []
+}

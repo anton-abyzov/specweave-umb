@@ -1,0 +1,13 @@
+{
+  "id": "0473-skill-studio-bulk-delete-cases",
+  "status": "abandoned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-10T06:49:00.716Z",
+  "lastActivity": "2026-03-10T06:49:00.716Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

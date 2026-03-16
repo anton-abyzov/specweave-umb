@@ -1,0 +1,30 @@
+{
+  "id": "0510-skill-studio-ai-create-improvements",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-12T04:57:41.266Z",
+  "lastActivity": "2026-03-15T17:35:52.186Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-232",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-232",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-15T17:36:11.354Z"
+    },
+    "ado": {
+      "featureId": "1369",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1369",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-15T17:36:14.198Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-15T17:35:52.101Z",
+  "approvedAt": "2026-03-15T17:35:52.186Z"
+}

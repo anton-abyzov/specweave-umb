@@ -1,0 +1,69 @@
+{
+  "id": "FS-530",
+  "title": "Verify Full Sync Pipeline — All 3 Platforms + AC Comments",
+  "status": "completed",
+  "priority": "P1",
+  "created": "2026-03-15T00:00:00.000Z",
+  "project": "specweave-umb",
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-227",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-227",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-15T17:36:51.974Z"
+    },
+    "ado": {
+      "featureId": "1367",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1367",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-15T17:36:53.740Z"
+    }
+  },
+  "lastActivity": "2026-03-15T17:36:41.644Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "type": "feature",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-03-15T17:09:46.211Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-03-15T17:09:42.087Z",
+      "updated": [
+        "AC-US1-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-03-15T17:09:38.532Z",
+      "updated": [
+        "AC-US1-01"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-03-15T17:09:35.025Z",
+      "updated": [
+        "AC-US1-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    }
+  ],
+  "updated": "2026-03-15T17:09:46.000Z",
+  "approvedAt": "2026-03-15T17:36:41.644Z"
+}

@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "incrementId": "0396-pull-based-sast-scanner",
+  "timestamp": "2026-03-13T09:56:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 1,
+    "suppressed": 2,
+    "critical": 0,
+    "high": 1,
+    "medium": 0,
+    "filesExamined": 14,
+    "linesChanged": 1017,
+    "acsValidated": 22,
+    "testsTotal": 33,
+    "testsPassing": 33
+  },
+  "findings": [
+    {
+      "title": "claim-sast-scan missing error handling for DB operations",
+      "severity": "high",
+      "confidence": 73,
+      "category": "correctness",
+      "file": "src/app/api/v1/internal/claim-sast-scan/route.ts:35-58",
+      "issue": "No try-catch around DB operations or JSON parsing. DB outage or malformed body would produce generic 500 instead of structured error response.",
+      "suggestion": "Add try-catch matching pending-sast-scans pattern.",
+      "impact": "On DB outage, crawl-worker receives 500s with less informative error messages. Low real-world impact since caller handles HTTP errors gracefully.",
+      "status": "FIXED",
+      "fixCommit": "9881389"
+    }
+  ]
+}

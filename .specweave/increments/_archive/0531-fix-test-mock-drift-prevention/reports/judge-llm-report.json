@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0531-fix-test-mock-drift-prevention",
+  "timestamp": "2026-03-15T04:58:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "External models consent not configured in config.json",
+  "findings": []
+}

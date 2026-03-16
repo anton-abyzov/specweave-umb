@@ -1,0 +1,11 @@
+{
+  "id": "0402",
+  "title": "GitHub Sync Plugin Critical Fixes",
+  "status": "completed",
+  "type": "bugfix",
+  "created": "2026-03-02",
+  "priority": "critical",
+  "scope": "repositories/anton-abyzov/specweave/plugins/specweave-github/",
+  "externalLinks": {},
+  "completedAt": "2026-03-02T12:00:00Z"
+}

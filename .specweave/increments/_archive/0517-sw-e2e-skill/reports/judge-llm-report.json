@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0517-sw-e2e-skill",
+  "timestamp": "2026-03-12T17:16:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "External model consent not configured in .specweave/config.json",
+  "findings": []
+}

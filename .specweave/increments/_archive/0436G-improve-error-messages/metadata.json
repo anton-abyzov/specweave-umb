@@ -1,0 +1,56 @@
+{
+  "id": "0436G-improve-error-messages",
+  "title": "Improve error messages",
+  "type": "bug",
+  "status": "completed",
+  "priority": "P2",
+  "created": "2026-03-05",
+  "project": "specweave",
+  "origin": "external",
+  "source_platform": "github",
+  "external_ref": "github#anton-abyzov/specweave#1497",
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1497,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1497",
+          "status": "active"
+        }
+      }
+    },
+    "jira": {
+      "userStories": {
+        "US-001": {
+          "issueKey": "WTTC-47",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/WTTC-47",
+          "syncedAt": "2026-03-05T21:57:19.864Z"
+        }
+      }
+    },
+    "ado": {
+      "userStories": {
+        "US-001": {
+          "workItemId": 39,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/39",
+          "syncedAt": "2026-03-05T21:57:20.456Z"
+        }
+      }
+    }
+  },
+  "lastActivity": "2026-03-05T23:11:54.023Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "jira": {
+    "issue": "WTTC-47",
+    "url": "https://antonabyzov.atlassian.net/browse/WTTC-47",
+    "synced": "2026-03-05T21:57:19.864Z"
+  },
+  "ado": {
+    "workItem": 39,
+    "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/39",
+    "synced": "2026-03-05T21:57:20.456Z"
+  },
+  "readyForReviewAt": "2026-03-05T23:11:51.814Z",
+  "approvedAt": "2026-03-05T23:11:54.023Z"
+}

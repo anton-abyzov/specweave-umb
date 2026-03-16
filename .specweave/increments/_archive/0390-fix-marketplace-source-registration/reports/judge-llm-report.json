@@ -1,0 +1,8 @@
+{
+  "incrementId": "0390-fix-marketplace-source-registration",
+  "verdict": "WAIVED",
+  "reason": "externalModels consent not configured",
+  "timestamp": "2026-03-01T19:10:00Z",
+  "model": "none",
+  "details": "Judge-LLM validation waived: externalModels not set in config.json"
+}

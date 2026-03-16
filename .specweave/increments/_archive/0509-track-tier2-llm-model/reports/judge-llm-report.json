@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0509-track-tier2-llm-model",
+  "timestamp": "2026-03-12T04:32:30.000Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels consent not configured in config.json",
+  "findings": []
+}

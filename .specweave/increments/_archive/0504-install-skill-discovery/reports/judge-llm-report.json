@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "incrementId": "0504-install-skill-discovery",
+  "timestamp": "2026-03-15T13:38:30.000Z",
+  "verdict": "WAIVED",
+  "reason": "No externalModels configured in config.json — consent not granted for external LLM validation"
+}

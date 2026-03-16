@@ -1,0 +1,39 @@
+{
+  "id": "0430G-test-import-from-github",
+  "incrementId": "0430G",
+  "name": "test-import-from-github",
+  "status": "completed",
+  "type": "feature",
+  "created": "2026-03-05",
+  "priority": "medium",
+  "origin": "external",
+  "source_platform": "github",
+  "external_ref": "github#anton-abyzov/specweave#1492",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1492,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1492",
+        "createdAt": "2026-03-05T06:56:05Z"
+      }
+    ]
+  },
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1492,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1492",
+          "status": "closed"
+        }
+      },
+      "syncedAt": "2026-03-05T06:57:53.687Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "lastActivity": "2026-03-05T06:57:51.394Z",
+  "readyForReviewAt": "2026-03-05T06:57:51.363Z",
+  "approvedAt": "2026-03-05T06:57:51.394Z"
+}

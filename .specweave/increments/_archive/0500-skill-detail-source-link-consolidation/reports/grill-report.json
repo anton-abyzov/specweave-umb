@@ -1,0 +1,50 @@
+{
+  "version": "1.1",
+  "incrementId": "0500-skill-detail-source-link-consolidation",
+  "timestamp": "2026-03-11T21:30:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 3, "critical": 0, "high": 0, "medium": 2, "low": 1 },
+  "acCompliance": {
+    "totalACs": 2,
+    "passed": 2,
+    "failed": 0,
+    "scopeCreep": ["Also fixed admin submission page skillPath (similar case, requested in grill args)"],
+    "results": [
+      { "acId": "AC-1", "status": "pass", "evidence": "Byline skillPath is now an <a> tag linking to GitHub blob URL — page.tsx:238-245" },
+      { "acId": "AC-2", "status": "pass", "evidence": "Bottom Source section removed, Extension Points preserved standalone — page.tsx:422-444" }
+    ]
+  },
+  "findings": [
+    {
+      "title": "Orphaned SourceLink.tsx",
+      "severity": "medium",
+      "confidence": 95,
+      "category": "maintainability",
+      "file": "src/app/skills/[owner]/[repo]/[skill]/SourceLink.tsx",
+      "issue": "SourceLink component was no longer imported anywhere after removing the Source section",
+      "suggestion": "Delete the file",
+      "resolution": "FIXED — file deleted"
+    },
+    {
+      "title": "Admin submission page has non-clickable skillPath",
+      "severity": "medium",
+      "confidence": 90,
+      "category": "correctness",
+      "file": "src/app/admin/submissions/[id]/page.tsx:523",
+      "issue": "skillPath rendered as plain <code> text, same UX gap we fixed on the detail page",
+      "suggestion": "Make it a clickable link using same pattern",
+      "resolution": "FIXED — now links to GitHub blob URL when repoUrl available"
+    },
+    {
+      "title": "No tests for skill detail page",
+      "severity": "low",
+      "confidence": 85,
+      "category": "maintainability",
+      "file": "src/app/skills/[owner]/[repo]/[skill]/",
+      "issue": "Pre-existing gap — no unit/component tests exist for the main skill detail page",
+      "suggestion": "Add tests in a separate increment",
+      "resolution": "NOT FIXED — pre-existing, out of scope"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "version": "1.1",
+  "incrementId": "0495-comparison-progress-observability",
+  "timestamp": "2026-03-11T23:10:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 18,
+    "passed": 18,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "startDynamicHeartbeat returns { update, stop } — sse-helpers.ts:71-90, test sse-helpers.test.ts:21-27" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "update() mutates currentPhase/currentMessage and emits immediately — sse-helpers.ts:72-82, test sse-helpers.test.ts:44-55,57-71" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "stop() nulls timer via clearInterval guard — sse-helpers.ts:84-88, test sse-helpers.test.ts:73-80" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "withHeartbeat unchanged at sse-helpers.ts:98-123, regression tests sse-helpers.test.ts:130-163" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "onProgress fires 'generating_skill' before first client.generate — comparator.ts:70, test comparator.test.ts:168-175" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "onProgress fires 'generating_baseline' before second client.generate — comparator.ts:72, test comparator.test.ts:177-183" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "onProgress fires 'scoring' before scoreComparison — comparator.ts:141, test comparator.test.ts:205-227" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "Optional chaining onProgress?.() — no error without callback. Test comparator.test.ts:195-202,229-242. All 9 pre-existing tests pass." },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "heartbeat initialized with 'generating_skill' — api-routes.ts:522-525. comparator callback fires update on phase change." },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "comparator fires onProgress('generating_baseline') which triggers heartbeat.update — comparator.ts:72, api-routes.ts:530" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "comparator fires onProgress('scoring') which triggers heartbeat.update — comparator.ts:141, api-routes.ts:530" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "heartbeat.stop() called in success path (api-routes.ts:532) and error path (api-routes.ts:589). Idempotent stop via null guard." },
+      { "acId": "AC-US3-05", "status": "pass", "evidence": "Mutable currentPhase/currentMessage in closure — interval tick reads current values. Test sse-helpers.test.ts:57-71" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "spinnerPhases Set includes generating_skill, generating_baseline, scoring — ProgressLog.tsx:18" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "accentPhases Set includes generating_skill, generating_baseline, scoring — ProgressLog.tsx:23" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "ComparisonPage accumulates progress events into progressEntries array (lines 77-87) and renders ProgressLog (line 314-318)" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "ProgressLog receives isRunning={running} prop — spinner stops when running=false (ComparisonPage.tsx:317)" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "Progress entries include eval_id from SSE data (ComparisonPage.tsx:80). Per-case heartbeat created/stopped in the loop (api-routes.ts:522-532,589)." }
+    ]
+  },
+  "findings": []
+}

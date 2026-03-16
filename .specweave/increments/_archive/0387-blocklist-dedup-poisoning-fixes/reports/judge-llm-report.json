@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "incrementId": "0387-blocklist-dedup-poisoning-fixes",
+  "timestamp": "2026-02-27T10:36:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "requireJudgeLLM is false in config.json"
+}

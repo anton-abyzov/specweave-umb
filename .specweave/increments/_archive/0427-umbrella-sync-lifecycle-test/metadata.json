@@ -1,0 +1,71 @@
+{
+  "id": "0427-umbrella-sync-lifecycle-test",
+  "incrementId": "0427",
+  "name": "umbrella-sync-lifecycle-test",
+  "status": "completed",
+  "type": "feature",
+  "created": "2026-03-05",
+  "lastUpdated": "2026-03-05",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-SPE-001",
+        "number": 1490,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1490",
+        "createdAt": "2026-03-05T01:28:59.903Z"
+      },
+      {
+        "userStory": "US-VSK-001",
+        "number": 5,
+        "url": "https://github.com/anton-abyzov/vskill/issues/5",
+        "createdAt": "2026-03-05T01:29:08.329Z"
+      },
+      {
+        "userStory": "US-VPL-001",
+        "number": 13,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/13",
+        "createdAt": "2026-03-05T01:29:16.812Z"
+      }
+    ],
+    "lastSync": "2026-03-05T01:29:16.812Z"
+  },
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-SPE-001": {
+          "issueNumber": 1490,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1490",
+          "status": "closed"
+        },
+        "US-VSK-001": {
+          "issueNumber": 5,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/5",
+          "status": "closed"
+        },
+        "US-VPL-001": {
+          "issueNumber": 13,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/13",
+          "status": "closed"
+        }
+      },
+      "milestone": 4,
+      "syncedAt": "2026-03-05T01:53:37.494Z"
+    }
+  },
+  "jira": {
+    "issue": "WTTC-26",
+    "url": "https://antonabyzov.atlassian.net/browse/WTTC-26",
+    "synced": "2026-03-05T01:29:20.549Z"
+  },
+  "ado": {
+    "workItem": 18,
+    "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_apis/wit/workItems/18",
+    "synced": "2026-03-05T01:42:53.831Z"
+  },
+  "priority": "medium",
+  "lastActivity": "2026-03-05T01:53:32.570Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-03-05T01:53:19.881Z",
+  "approvedAt": "2026-03-05T01:53:32.570Z"
+}

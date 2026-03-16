@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0525-fix-living-docs-sync-architecture",
+  "timestamp": "2026-03-14T20:31:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels not configured in config.json",
+  "findings": []
+}

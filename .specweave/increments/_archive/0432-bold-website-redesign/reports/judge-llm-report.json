@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0432-bold-website-redesign",
+  "timestamp": "2026-03-05T15:17:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "External model consent not configured (externalModels not set in config.json)",
+  "findings": []
+}

@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0411J-cli-health-check",
+  "timestamp": "2026-03-03T07:08:30.000Z",
+  "verdict": "WAIVED",
+  "reason": "No externalModels consent configured in config.json",
+  "findings": []
+}

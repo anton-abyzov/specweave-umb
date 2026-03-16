@@ -1,0 +1,30 @@
+{
+  "id": "0499-external-sync-resilience",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-12T00:29:45.761Z",
+  "lastActivity": "2026-03-12T01:37:59.520Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-170",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-170",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-12T01:38:48.985Z"
+    },
+    "ado": {
+      "featureId": "882",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/882",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-12T01:38:52.291Z"
+    }
+  },
+  "updated": "2026-03-12T01:26:20.000Z",
+  "approvedAt": "2026-03-12T01:37:59.520Z"
+}

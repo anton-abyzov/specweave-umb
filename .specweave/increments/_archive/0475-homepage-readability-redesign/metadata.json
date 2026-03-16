@@ -1,0 +1,14 @@
+{
+  "id": "0475-homepage-readability-redesign",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-10T07:48:01.417Z",
+  "lastActivity": "2026-03-10T07:48:01.417Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "updated": "2026-03-11T11:00:00.000Z"
+}

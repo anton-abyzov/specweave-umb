@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0491-shift-quality-left-per-task-gates",
+  "timestamp": "2026-03-11T12:01:00Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels not configured in config.json — consent not granted",
+  "findings": []
+}

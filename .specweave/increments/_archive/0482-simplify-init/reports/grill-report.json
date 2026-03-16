@@ -1,0 +1,93 @@
+{
+  "version": "1.0",
+  "incrementId": "0482-simplify-init",
+  "timestamp": "2026-03-10T21:20:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 2,
+    "suppressed": 3,
+    "critical": 0,
+    "high": 0,
+    "medium": 2
+  },
+  "scope": {
+    "filesExamined": 15,
+    "linesChanged": 2348,
+    "acsValidated": 22
+  },
+  "findings": [
+    {
+      "title": "Dead function isSpecWeaveFrameworkRepo left in init.ts",
+      "severity": "low",
+      "confidence": 95,
+      "category": "maintainability",
+      "file": "src/cli/commands/init.ts:69",
+      "issue": "Function defined but never called after simplification",
+      "suggestion": "Remove the dead function",
+      "impact": "Dead code clutters the file",
+      "status": "FIXED"
+    },
+    {
+      "title": "Hooks config template used non-existent sync_external_tools key",
+      "severity": "medium",
+      "confidence": 90,
+      "category": "correctness",
+      "file": "src/templates/config.json.template",
+      "issue": "Template had sync_external_tools which doesn't exist in HookConfiguration type",
+      "suggestion": "Align template with actual type definition",
+      "impact": "Template serves as reference - wrong keys would confuse developers",
+      "status": "FIXED"
+    },
+    {
+      "title": "sync_living_docs in post_increment_planning was redundant",
+      "severity": "medium",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "src/cli/helpers/init/directory-structure.ts:384",
+      "issue": "At planning time, spec.md is still being written by agents - living docs sync would skip or produce incomplete output. The actual sync is triggered by Step 5 of /sw:increment.",
+      "suggestion": "Remove sync_living_docs from post_increment_planning defaults",
+      "impact": "Redundant sync call at wrong lifecycle point",
+      "status": "FIXED"
+    }
+  ],
+  "fixedDuringGrill": [
+    "Removed dead isSpecWeaveFrameworkRepo function",
+    "Fixed config.json.template to use actual HookConfiguration keys",
+    "Removed sync_living_docs from post_increment_planning defaults"
+  ],
+  "acCoverage": {
+    "US-001": {
+      "AC-US1-01": "PASS - .specweave/, config.json, CLAUDE.md, AGENTS.md created by init",
+      "AC-US1-02": "PASS - No prompts for greenfield/brownfield, hosting, issue trackers, cloning",
+      "AC-US1-03": "PASS - detectProvider() called silently, config updated inline",
+      "AC-US1-04": "PASS - --quick mode has zero interactive prompts",
+      "AC-US1-05": "PASS - Interactive mode shows at most language + adapter confirmation",
+      "AC-US1-06": "PASS - config.json has no multiProject, issueTracker, projectMaturity, structureDeferred"
+    },
+    "US-002": {
+      "AC-US2-01": "PASS - sync-setup, increment, migrate-to-umbrella shown in next steps",
+      "AC-US2-02": "PASS - Banner shows project name, adapter, provider, language",
+      "AC-US2-03": "PASS - No adapter-specific instruction blocks",
+      "AC-US2-04": "PASS - Documentation and GitHub links present"
+    },
+    "US-003": {
+      "AC-US3-01": "PASS - No multiProject, issueTracker, projectMaturity, structureDeferred in config",
+      "AC-US3-02": "PASS - No sync profiles or provider-specific connection settings",
+      "AC-US3-03": "PASS - GitHub remote detected, repository.provider set to github",
+      "AC-US3-04": "PASS - Existing configs with old fields work via optional chaining"
+    },
+    "US-004": {
+      "AC-US4-01": "PASS - Removed fields not in banner output",
+      "AC-US4-02": "PASS - Project name, adapter, provider, defaults shown",
+      "AC-US4-03": "PASS - SummaryBannerOptions interface only has kept fields"
+    },
+    "US-005": {
+      "AC-US5-01": "NOTE - types.ts not modified (types still used by repository-setup.ts)",
+      "AC-US5-02": "PASS - Barrel exports cleaned",
+      "AC-US5-03": "PASS - detectProvider exported from barrel",
+      "AC-US5-04": "PASS - All init-related tests pass (151 tests across 5 files)",
+      "AC-US5-05": "PASS - TypeScript compiles cleanly"
+    }
+  }
+}

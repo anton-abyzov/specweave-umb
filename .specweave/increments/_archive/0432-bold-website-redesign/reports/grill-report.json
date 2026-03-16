@@ -1,0 +1,95 @@
+{
+  "version": "1.0",
+  "incrementId": "0432-bold-website-redesign",
+  "timestamp": "2026-03-05T15:16:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 6,
+    "critical": 0,
+    "high": 5,
+    "medium": 1,
+    "suppressed": 4,
+    "filesExamined": 60,
+    "linesChanged": 5563,
+    "testsPass": 175,
+    "testFiles": 34,
+    "buildSuccess": true,
+    "acsValidated": "56/56",
+    "cssTokens": 413
+  },
+  "findings": [
+    {
+      "id": "F-001",
+      "title": "DemoVideoSection poster path did not match actual file",
+      "severity": "high",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "docs-site/src/pages/sections/DemoVideoSection.tsx:43",
+      "issue": "poster=\"/video/poster.jpg\" but actual file is ship-while-you-sleep-poster.jpg",
+      "status": "FIXED",
+      "fix": "Changed to poster=\"/video/ship-while-you-sleep-poster.jpg\""
+    },
+    {
+      "id": "F-002",
+      "title": "React hooks called after conditional return in NavbarItem",
+      "severity": "high",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "docs-site/src/theme/NavbarItem/index.tsx:19-24",
+      "issue": "Hooks violated React Rules of Hooks by being called after conditional early return",
+      "status": "FIXED",
+      "fix": "Extracted mega-menu logic into separate MegaMenuNavbarItem component"
+    },
+    {
+      "id": "F-003",
+      "title": "Rendered hero videos (hero.mp4, hero.webm) unused",
+      "severity": "high",
+      "confidence": 90,
+      "category": "correctness",
+      "file": "docs-site/static/video/hero.mp4, hero.webm",
+      "issue": "6.4MB of Remotion-rendered videos not referenced by any component",
+      "status": "FIXED",
+      "fix": "Removed dead assets from static/video/"
+    },
+    {
+      "id": "F-004",
+      "title": "Footer social links used placeholder URLs",
+      "severity": "high",
+      "confidence": 90,
+      "category": "correctness",
+      "file": "docs-site/src/theme/Footer/index.tsx:78-82",
+      "issue": "Discord icon linked to GitHub Discussions, YouTube linked to GitHub repo",
+      "status": "FIXED",
+      "fix": "Removed misleading YouTube link, renamed Discord to Discussions with appropriate icon"
+    },
+    {
+      "id": "F-005",
+      "title": "CodeBlock clipboard API call unprotected",
+      "severity": "high",
+      "confidence": 85,
+      "category": "edge-case",
+      "file": "docs-site/src/components/ui/CodeBlock/index.tsx:15",
+      "issue": "navigator.clipboard.writeText called without try/catch",
+      "status": "FIXED",
+      "fix": "Wrapped in try/catch block"
+    },
+    {
+      "id": "F-006",
+      "title": "NavbarItem close timeout not cleared on unmount",
+      "severity": "medium",
+      "confidence": 75,
+      "category": "edge-case",
+      "file": "docs-site/src/theme/NavbarItem/index.tsx:36",
+      "issue": "closeTimeoutRef timeout not cleared on component unmount",
+      "status": "FIXED",
+      "fix": "Added cleanup useEffect in MegaMenuNavbarItem component"
+    }
+  ],
+  "notes": [
+    "All 175 tests pass across 34 test files",
+    "Docusaurus production build succeeds (pre-existing broken anchor warnings unrelated to this increment)",
+    "413 CSS custom properties exceed 350+ requirement",
+    "Pre-existing broken doc links (/docs/reference/configuration, etc.) are NOT from this increment"
+  ]
+}

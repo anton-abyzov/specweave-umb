@@ -1,0 +1,30 @@
+{
+  "id": "0513-skill-studio-eval-history-redesign",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-12T06:40:54.164Z",
+  "lastActivity": "2026-03-12T07:19:41.270Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-190",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-190",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-12T07:21:24.652Z"
+    },
+    "ado": {
+      "featureId": "1124",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1124",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-12T07:21:26.240Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-12T07:19:33.496Z",
+  "approvedAt": "2026-03-12T07:19:41.270Z"
+}

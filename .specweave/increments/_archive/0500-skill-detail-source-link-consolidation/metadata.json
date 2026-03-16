@@ -1,0 +1,13 @@
+{
+  "id": "0500-skill-detail-source-link-consolidation",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-12T01:28:56.562Z",
+  "lastActivity": "2026-03-12T01:28:56.562Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

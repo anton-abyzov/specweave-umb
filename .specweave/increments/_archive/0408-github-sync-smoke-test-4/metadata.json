@@ -1,0 +1,32 @@
+{
+  "id": "0408-github-sync-smoke-test-4",
+  "title": "GitHub Sync Smoke Test 4 - AC Markers Section",
+  "type": "test",
+  "status": "completed",
+  "created": "2026-03-02T23:30:00Z",
+  "updated": "2026-03-02T23:30:00Z",
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1472,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1472",
+          "status": "closed"
+        }
+      },
+      "milestone": 201,
+      "syncedAt": "2026-03-02T23:44:20Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1472,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1472",
+        "createdAt": "2026-03-02T23:44:20Z"
+      }
+    ],
+    "lastSync": "2026-03-02T23:44:20Z"
+  }
+}

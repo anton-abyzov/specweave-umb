@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0513-skill-studio-eval-history-redesign",
+  "timestamp": "2026-03-12T03:20:00.000Z",
+  "verdict": "WAIVED",
+  "consentStatus": "denied",
+  "reason": "No ANTHROPIC_API_KEY set — external API call not possible"
+}

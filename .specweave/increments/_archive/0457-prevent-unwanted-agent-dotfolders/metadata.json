@@ -1,0 +1,201 @@
+{
+  "id": "0457-prevent-unwanted-agent-dotfolders",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-09T05:22:16.914Z",
+  "lastActivity": "2026-03-09T05:22:16.914Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-SW-001": {
+          "issueNumber": 1521,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1521",
+          "status": "active"
+        },
+        "US-SW-002": {
+          "issueNumber": 1522,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1522",
+          "status": "active"
+        },
+        "US-SW-003": {
+          "issueNumber": 1523,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1523",
+          "status": "active"
+        },
+        "US-SW-004": {
+          "issueNumber": 1524,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1524",
+          "status": "active"
+        },
+        "US-SW-006": {
+          "issueNumber": 1525,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1525",
+          "status": "active"
+        },
+        "US-SW-007": {
+          "issueNumber": 1526,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1526",
+          "status": "active"
+        },
+        "US-VK-005": {
+          "issueNumber": 17,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/17",
+          "status": "active"
+        }
+      },
+      "milestone": 11,
+      "syncedAt": "2026-03-10T07:49:13.949Z"
+    },
+    "jira": {
+      "epicKey": "SWE2E-106",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-106",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-12T01:11:29.288Z",
+      "userStories": {
+        "US-SW-001": {
+          "issueKey": "SWE2E-178",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-178",
+          "syncedAt": "2026-03-12T01:11:35.100Z"
+        },
+        "US-SW-002": {
+          "issueKey": "SWE2E-178",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-178",
+          "syncedAt": "2026-03-12T01:11:35.100Z"
+        },
+        "US-SW-003": {
+          "issueKey": "SWE2E-178",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-178",
+          "syncedAt": "2026-03-12T01:11:35.100Z"
+        },
+        "US-SW-004": {
+          "issueKey": "SWE2E-178",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-178",
+          "syncedAt": "2026-03-12T01:11:35.100Z"
+        },
+        "US-VK-005": {
+          "issueKey": "SWE2E-178",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-178",
+          "syncedAt": "2026-03-12T01:11:35.100Z"
+        },
+        "US-SW-006": {
+          "issueKey": "SWE2E-178",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-178",
+          "syncedAt": "2026-03-12T01:11:35.100Z"
+        },
+        "US-SW-007": {
+          "issueKey": "SWE2E-178",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-178",
+          "syncedAt": "2026-03-12T01:11:35.100Z"
+        }
+      }
+    },
+    "ado": {
+      "featureId": "171",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/171",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-12T01:11:31.656Z",
+      "userStories": {
+        "US-SW-001": {
+          "workItemId": 895,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/895",
+          "syncedAt": "2026-03-12T01:11:41.200Z"
+        },
+        "US-SW-002": {
+          "workItemId": 896,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/896",
+          "syncedAt": "2026-03-12T01:11:41.200Z"
+        },
+        "US-SW-003": {
+          "workItemId": 897,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/897",
+          "syncedAt": "2026-03-12T01:11:41.200Z"
+        },
+        "US-SW-004": {
+          "workItemId": 898,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/898",
+          "syncedAt": "2026-03-12T01:11:41.200Z"
+        },
+        "US-VK-005": {
+          "workItemId": 899,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/899",
+          "syncedAt": "2026-03-12T01:11:41.200Z"
+        },
+        "US-SW-006": {
+          "workItemId": 900,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/900",
+          "syncedAt": "2026-03-12T01:11:41.200Z"
+        },
+        "US-SW-007": {
+          "workItemId": 901,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/901",
+          "syncedAt": "2026-03-12T01:11:41.200Z"
+        }
+      }
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-SW-001",
+        "number": 1521,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1521",
+        "createdAt": "2026-03-10T07:48:17.831Z"
+      },
+      {
+        "userStory": "US-SW-002",
+        "number": 1522,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1522",
+        "createdAt": "2026-03-10T07:48:26.993Z"
+      },
+      {
+        "userStory": "US-SW-003",
+        "number": 1523,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1523",
+        "createdAt": "2026-03-10T07:48:35.705Z"
+      },
+      {
+        "userStory": "US-SW-004",
+        "number": 1524,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1524",
+        "createdAt": "2026-03-10T07:48:44.390Z"
+      },
+      {
+        "userStory": "US-SW-006",
+        "number": 1525,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1525",
+        "createdAt": "2026-03-10T07:48:53.157Z"
+      },
+      {
+        "userStory": "US-SW-007",
+        "number": 1526,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1526",
+        "createdAt": "2026-03-10T07:49:02.603Z"
+      },
+      {
+        "userStory": "US-VK-005",
+        "number": 17,
+        "url": "https://github.com/anton-abyzov/vskill/issues/17",
+        "createdAt": "2026-03-10T07:49:13.949Z"
+      }
+    ],
+    "lastSync": "2026-03-10T07:49:13.949Z"
+  },
+  "updated": "2026-03-11T10:50:00.000Z",
+  "jira": {
+    "issue": "SWE2E-178",
+    "url": "https://antonabyzov.atlassian.net/browse/SWE2E-178",
+    "synced": "2026-03-12T01:11:35.100Z"
+  },
+  "ado": {
+    "workItem": 894,
+    "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/894",
+    "synced": "2026-03-12T01:11:41.200Z"
+  }
+}

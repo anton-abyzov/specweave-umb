@@ -1,0 +1,30 @@
+{
+  "id": "0484-skill-studio-ai-edit",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-11T05:55:27.597Z",
+  "lastActivity": "2026-03-11T06:20:14.458Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-139",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-139",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-11T06:20:22.449Z"
+    },
+    "ado": {
+      "featureId": "212",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/212",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-11T06:20:23.434Z"
+    }
+  },
+  "updated": "2026-03-11T06:17:57.000Z",
+  "approvedAt": "2026-03-11T06:20:14.458Z"
+}

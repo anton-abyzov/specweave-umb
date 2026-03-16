@@ -1,0 +1,49 @@
+{
+  "id": "0443-search-rank-by-stars",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-07T00:35:02.104Z",
+  "lastActivity": "2026-03-07T01:48:29.541Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 29,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/29",
+          "status": "closed"
+        },
+        "US-002": {
+          "issueNumber": 30,
+          "issueUrl": "https://github.com/anton-abyzov/vskill-platform/issues/30",
+          "status": "closed"
+        }
+      },
+      "milestone": 9,
+      "syncedAt": "2026-03-07T01:48:34.310Z"
+    }
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 29,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/29",
+        "createdAt": "2026-03-07T00:40:23.771Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 30,
+        "url": "https://github.com/anton-abyzov/vskill-platform/issues/30",
+        "createdAt": "2026-03-07T00:40:34.810Z"
+      }
+    ],
+    "lastSync": "2026-03-07T00:40:34.810Z"
+  },
+  "readyForReviewAt": "2026-03-07T01:48:29.360Z",
+  "approvedAt": "2026-03-07T01:48:29.541Z"
+}

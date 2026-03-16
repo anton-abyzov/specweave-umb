@@ -1,0 +1,30 @@
+{
+  "id": "0497-comparison-action-items",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-11T23:23:49.574Z",
+  "lastActivity": "2026-03-11T23:41:10.135Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-159",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-159",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-11T23:41:20.943Z"
+    },
+    "ado": {
+      "featureId": "665",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/665",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-11T23:41:22.858Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-11T23:40:59.530Z",
+  "approvedAt": "2026-03-11T23:41:10.135Z"
+}

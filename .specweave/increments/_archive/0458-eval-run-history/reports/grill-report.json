@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "incrementId": "0458-eval-run-history",
+  "timestamp": "2026-03-10T14:35:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 2,
+    "suppressed": 3,
+    "critical": 0,
+    "high": 0,
+    "medium": 2
+  },
+  "findings": [
+    {
+      "title": "getCaseHistory reads all history files sequentially",
+      "severity": "medium",
+      "confidence": 62,
+      "category": "performance",
+      "file": "src/eval/benchmark-history.ts:194",
+      "issue": "getCaseHistory reads and JSON-parses every history file to find one eval case. With hundreds of history files, this becomes O(n) disk reads per request.",
+      "suggestion": "Acceptable for current scale (10s-100s of files). If history grows large, consider an index file or caching. Not blocking.",
+      "impact": "Slow response on skills with very large history (500+ runs). Unlikely in practice."
+    },
+    {
+      "title": "History compare regression direction naming",
+      "severity": "medium",
+      "confidence": 55,
+      "category": "maintainability",
+      "file": "src/eval-server/api-routes.ts:672",
+      "issue": "computeRegressions(runB, runA) passes B as 'current' and A as 'previous'. The naming convention (A=older, B=newer) is consistent but the parameter order reversal could confuse future maintainers.",
+      "suggestion": "Add a comment clarifying the parameter order. Not blocking.",
+      "impact": "Minor confusion for future developers reading the code."
+    }
+  ],
+  "scope": {
+    "filesExamined": 12,
+    "linesChanged": 5146,
+    "acsValidated": "30/30"
+  },
+  "notes": "All 8 user stories implemented: enriched data model, baseline runs, history filtering, cross-session comparison, trend visualization, rerun capabilities, API client extensions, per-case history. 959 tests pass. TypeScript compiles cleanly. All endpoints validate input and handle errors. No security issues (local-only eval server). Backward compatibility maintained via optional fields."
+}

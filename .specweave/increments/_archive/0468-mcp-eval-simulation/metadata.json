@@ -1,0 +1,30 @@
+{
+  "id": "0468-mcp-eval-simulation",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-10T04:04:12.337Z",
+  "lastActivity": "2026-03-12T00:13:18.412Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-165",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-165",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-12T00:18:03.210Z"
+    },
+    "ado": {
+      "featureId": "744",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/744",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-12T00:18:05.568Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-12T00:13:07.266Z",
+  "approvedAt": "2026-03-12T00:13:18.412Z"
+}

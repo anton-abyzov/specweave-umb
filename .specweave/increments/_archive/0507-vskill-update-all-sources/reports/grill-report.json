@@ -1,0 +1,52 @@
+{
+  "version": "1.1",
+  "incrementId": "0507-vskill-update-all-sources",
+  "timestamp": "2026-03-12T05:35:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "NEEDS REVIEW",
+  "summary": { "totalFindings": 1, "critical": 0, "high": 1, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 24,
+    "passed": 24,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "parseSource() in source-resolver.ts:25-72 returns typed discriminated union for all source prefixes. 14 tests pass." },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "fetchRegistry() in source-fetcher.ts:44-58 delegates to getSkill(); test at source-fetcher.test.ts:67-82" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "fetchGitHubFlat() in source-fetcher.ts:63-86 fetches from raw.githubusercontent.com; test at source-fetcher.test.ts:94-126" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "fetchPlugin() in source-fetcher.ts:91-159 re-fetches via Trees API for plugin-dir sources; test at source-fetcher.test.ts:130-173" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "marketplace type routes to same fetchPlugin(); test at source-fetcher.test.ts:190-223" },
+      { "acId": "AC-US1-06", "status": "pass", "evidence": "update.ts:97-101 checks parsed.type=local and continues with skip message; test at update.test.ts:209-233" },
+      { "acId": "AC-US1-07", "status": "pass", "evidence": "update.ts:104-122 falls back to getSkill() when fetchFromSource returns null for non-local; test at update.test.ts:184-207" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "computeSha() in source-fetcher.ts:38 produces 12-char SHA-256; compared in update.ts:135" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "update.ts:136-138 logs dim 'already up to date' on SHA match; test at update.test.ts:235-249" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "update.ts:140-142 prints bold(name) with dim(old) -> green(new) SHA format" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "update.ts:181-188 spreads entry and updates sha/version/tier/installedAt; test at update.test.ts:261-269" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "update.ts:145 calls runTier1Scan(result.content); test at update.test.ts:251-259" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "update.ts:156-159 continues without writing on FAIL verdict; test at update.test.ts:251-259" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "update.ts:152-154 prints verdictColor(verdict) + score for every scanned skill" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "local sources continue at update.ts:100 before reaching scan at line 145" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "update.ts:190-196 catch block prints yellow(name) + dim(err.message)" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "try/catch wraps loop body; catch continues to next iteration" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "update.ts:199 writeLockfile(lock) called once after for loop; test at update.test.ts:271-293" },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "buildAuthHeader() in source-fetcher.ts:21-25 reads GITHUB_TOKEN and adds Authorization header" },
+      { "acId": "AC-US4-05", "status": "pass", "evidence": "update.ts:201-203 reports updated count; individual failures printed inline during loop" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "fetchPlugin() in source-fetcher.ts:113-128 uses Trees API with recursive=1 to discover skill paths" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "source-fetcher.ts:139-147 fetches all skill files in parallel; combined content returned for scan+write" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "source-fetcher.ts:150-153 sorts by path and computes SHA from combined content" },
+      { "acId": "AC-US5-04", "status": "pass", "evidence": "Implementation only adds/updates; no deletion logic for removed upstream skills" }
+    ]
+  },
+  "findings": [
+    {
+      "title": "Plugin-dir update writes combined content to single file instead of per-skill subdirectories",
+      "severity": "high",
+      "confidence": 75,
+      "category": "correctness",
+      "file": "src/updater/source-fetcher.ts:150-151",
+      "issue": "For pluginDir sources, the fetcher concatenates all sub-skill contents into a single string. update.ts writes this to {agent}/{pluginName}/SKILL.md. But install creates separate files at {agent}/{pluginName}/{skillName}/SKILL.md per sub-skill. Update doesn't overwrite the correct files.",
+      "suggestion": "Extend FetchResult with optional skills array: { name: string; content: string }[]. When present, update.ts writes each to its own subdirectory matching install layout.",
+      "impact": "After update on a plugin-dir source, combined SKILL.md appears at plugin root while old individual files remain. SHA change detection still works. Not data loss but file layout mismatch. Tracked as follow-up improvement."
+    }
+  ]
+}

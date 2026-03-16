@@ -1,0 +1,15 @@
+{
+  "id": "0479-docs-skills-studio-install",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-10T17:07:53.788Z",
+  "lastActivity": "2026-03-10T18:22:35.788Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "readyForReviewAt": "2026-03-10T18:22:33.502Z",
+  "approvedAt": "2026-03-10T18:22:35.788Z"
+}
