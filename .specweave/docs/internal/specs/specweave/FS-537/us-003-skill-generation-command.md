@@ -2,9 +2,9 @@
 id: US-003
 feature: FS-537
 title: Skill Generation Command
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-15
+created: 2026-03-15T00:00:00.000Z
 tldr: "**As a** SpecWeave user."
 project: specweave
 external_tools:
@@ -26,11 +26,11 @@ external_tools:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US3-01**: Given the user invokes `/sw:skill-gen`, when signals exist in `skill-signals.json`, then all signals with `incrementIds.length >= minSignalCount` are displayed regardless of `declined` status
-- [ ] **AC-US3-02**: Given the user selects a pattern via natural language response, when generation starts, then the skill invokes the Anthropic skill-creator plugin at `~/.claude/plugins/cache/claude-plugins-official/skill-creator/` to build the SKILL.md with evals, benchmarks, and description optimization
-- [ ] **AC-US3-03**: Given skill generation completes, when the SKILL.md is written, then it is placed in `.claude/skills/` (project-local directory)
-- [ ] **AC-US3-04**: Given a skill is successfully generated, when the signal is updated, then `generated` is set to `true` on that signal entry
-- [ ] **AC-US3-05**: Given no signals meet the minimum count threshold, when `/sw:skill-gen` is invoked, then a message indicates no qualifying patterns were found
+- [x] **AC-US3-01**: Given the user invokes `/sw:skill-gen`, when signals exist in `skill-signals.json`, then all signals with `incrementIds.length >= minSignalCount` are displayed regardless of `declined` status
+- [x] **AC-US3-02**: Given the user selects a pattern via natural language response, when generation starts, then the skill invokes the Anthropic skill-creator plugin at `~/.claude/plugins/cache/claude-plugins-official/skill-creator/` to build the SKILL.md with evals, benchmarks, and description optimization
+- [x] **AC-US3-03**: Given skill generation completes, when the SKILL.md is written, then it is placed in `.claude/skills/` (project-local directory)
+- [x] **AC-US3-04**: Given a skill is successfully generated, when the signal is updated, then `generated` is set to `true` on that signal entry
+- [x] **AC-US3-05**: Given no signals meet the minimum count threshold, when `/sw:skill-gen` is invoked, then a message indicates no qualifying patterns were found
 
 ---
 

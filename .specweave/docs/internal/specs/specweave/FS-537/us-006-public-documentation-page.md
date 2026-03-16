@@ -2,9 +2,9 @@
 id: US-006
 feature: FS-537
 title: Public Documentation Page
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-15
+created: 2026-03-15T00:00:00.000Z
 tldr: "**As a** potential SpecWeave user."
 project: specweave
 external_tools:
@@ -26,10 +26,10 @@ external_tools:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US6-01**: Given the file `docs-site/docs/skills/extensible/skill-generation.md` is created, when the Docusaurus site builds, then the page renders without errors at the expected URL path
-- [ ] **AC-US6-02**: Given the docs page exists, when `docs-site/sidebars.ts` is checked, then the page is registered in the Skills section sidebar
-- [ ] **AC-US6-03**: Given the docs page content, when reviewed, then it covers: signal detection lifecycle, configuration options, `/sw:skill-gen` usage, drift detection, and the signal schema
-- [ ] **AC-US6-04**: Given the project README, when the Skills section is checked, then skill-gen is mentioned with a link to the docs page
+- [x] **AC-US6-01**: Given the file `docs-site/docs/skills/extensible/skill-generation.md` is created, when the Docusaurus site builds, then the page renders without errors at the expected URL path
+- [x] **AC-US6-02**: Given the docs page exists, when `docs-site/sidebars.ts` is checked, then the page is registered in the Skills section sidebar
+- [x] **AC-US6-03**: Given the docs page content, when reviewed, then it covers: signal detection lifecycle, configuration options, `/sw:skill-gen` usage, drift detection, and the signal schema
+- [x] **AC-US6-04**: Given the project README, when the Skills section is checked, then skill-gen is mentioned with a link to the docs page
 
 ---
 

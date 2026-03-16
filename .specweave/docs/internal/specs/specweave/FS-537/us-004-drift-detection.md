@@ -2,9 +2,9 @@
 id: US-004
 feature: FS-537
 title: Drift Detection
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-15
+created: 2026-03-15T00:00:00.000Z
 tldr: "**As a** SpecWeave user."
 project: specweave
 external_tools:
@@ -26,10 +26,10 @@ external_tools:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US4-01**: Given `.claude/skills/*.md` files exist and living docs sync runs via `living-docs-sync.ts`, when the drift detector compares skill content against current analysis output, then it identifies references to modules, files, or API surfaces that no longer appear in the analysis
-- [ ] **AC-US4-02**: Given drift is detected in one or more skills, when the check completes, then a console warning is printed listing each stale skill and what references are outdated
-- [ ] **AC-US4-03**: Given drift detection encounters an error, when the error occurs, then it logs the error and does not block living docs sync completion
-- [ ] **AC-US4-04**: Given no `.claude/skills/*.md` files exist, when living docs sync runs, then drift detection is skipped silently
+- [x] **AC-US4-01**: Given `.claude/skills/*.md` files exist and living docs sync runs via `living-docs-sync.ts`, when the drift detector compares skill content against current analysis output, then it identifies references to modules, files, or API surfaces that no longer appear in the analysis
+- [x] **AC-US4-02**: Given drift is detected in one or more skills, when the check completes, then a console warning is printed listing each stale skill and what references are outdated
+- [x] **AC-US4-03**: Given drift detection encounters an error, when the error occurs, then it logs the error and does not block living docs sync completion
+- [x] **AC-US4-04**: Given no `.claude/skills/*.md` files exist, when living docs sync runs, then drift detection is skipped silently
 
 ---
 

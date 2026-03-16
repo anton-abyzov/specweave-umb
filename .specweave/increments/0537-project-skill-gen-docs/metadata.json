@@ -1,10 +1,10 @@
 {
   "id": "0537-project-skill-gen-docs",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-15T21:56:37.830Z",
-  "lastActivity": "2026-03-15T21:56:37.830Z",
+  "lastActivity": "2026-03-15T23:36:23.246Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,16 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-269",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-15T22:08:28.559Z"
+      "syncedAt": "2026-03-15T23:36:50.503Z"
     },
     "ado": {
       "featureId": "1373",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1373",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-15T22:08:33.539Z"
+      "syncedAt": "2026-03-15T23:36:54.908Z"
     }
-  }
+  },
+  "readyForReviewAt": "2026-03-15T23:36:23.197Z",
+  "approvedAt": "2026-03-15T23:36:23.246Z"
 }

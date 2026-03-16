@@ -2,9 +2,9 @@
 id: US-005
 feature: FS-537
 title: SkillGen Configuration Model
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-15
+created: 2026-03-15T00:00:00.000Z
 tldr: "**As a** SpecWeave user."
 project: specweave
 external_tools:
@@ -26,10 +26,10 @@ external_tools:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US5-01**: Given a fresh project, when `skillGen` is absent from `config.json`, then defaults are applied: `detection: "on-close"`, `suggest: true`, `minSignalCount: 3`, `declinedSuggestions: []`
-- [ ] **AC-US5-02**: Given `skillGen.minSignalCount` is set to 5, when signal collection runs, then only patterns observed in 5+ increments qualify for suggestion and display in `/sw:skill-gen`
-- [ ] **AC-US5-03**: Given a pattern ID is in `skillGen.declinedSuggestions`, when the suggestion engine evaluates that pattern, then it is permanently excluded from console suggestions but still visible in `/sw:skill-gen`
-- [ ] **AC-US5-04**: Given the `SkillGenConfig` type is added to `src/core/config/types.ts`, when TypeScript compilation runs, then there are zero type errors
+- [x] **AC-US5-01**: Given a fresh project, when `skillGen` is absent from `config.json`, then defaults are applied: `detection: "on-close"`, `suggest: true`, `minSignalCount: 3`, `declinedSuggestions: []`
+- [x] **AC-US5-02**: Given `skillGen.minSignalCount` is set to 5, when signal collection runs, then only patterns observed in 5+ increments qualify for suggestion and display in `/sw:skill-gen`
+- [x] **AC-US5-03**: Given a pattern ID is in `skillGen.declinedSuggestions`, when the suggestion engine evaluates that pattern, then it is permanently excluded from console suggestions but still visible in `/sw:skill-gen`
+- [x] **AC-US5-04**: Given the `SkillGenConfig` type is added to `src/core/config/types.ts`, when TypeScript compilation runs, then there are zero type errors
 
 ---
 

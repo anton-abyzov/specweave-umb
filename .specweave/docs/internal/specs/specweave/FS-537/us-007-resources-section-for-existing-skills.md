@@ -2,9 +2,9 @@
 id: US-007
 feature: FS-537
 title: Resources Section for Existing Skills
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-15
+created: 2026-03-15T00:00:00.000Z
 tldr: "**As a** SpecWeave skill user."
 project: specweave
 external_tools:
@@ -26,9 +26,9 @@ external_tools:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US7-01**: Given all 26 SKILL.md files in `plugins/specweave/skills/`, when a `## Resources` section is appended to each, then each section contains a link to the corresponding page on verified-skill.com
-- [ ] **AC-US7-02**: Given a SKILL.md already has a `## Resources` section, when the update runs, then existing content is preserved and not duplicated
-- [ ] **AC-US7-03**: Given the new skill-gen SKILL.md (from US-003), when it is generated, then its `## Resources` section links to the new docs page created in US-006
+- [x] **AC-US7-01**: Given all 26 SKILL.md files in `plugins/specweave/skills/`, when a `## Resources` section is appended to each, then each section contains a link to the corresponding page on verified-skill.com
+- [x] **AC-US7-02**: Given a SKILL.md already has a `## Resources` section, when the update runs, then existing content is preserved and not duplicated
+- [x] **AC-US7-03**: Given the new skill-gen SKILL.md (from US-003), when it is generated, then its `## Resources` section links to the new docs page created in US-006
 
 ---
 

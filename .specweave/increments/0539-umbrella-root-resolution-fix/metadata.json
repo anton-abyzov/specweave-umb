@@ -1,0 +1,30 @@
+{
+  "id": "0539-umbrella-root-resolution-fix",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-15T23:30:20.445Z",
+  "lastActivity": "2026-03-16T00:00:20.600Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-281",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-281",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-16T00:00:34.992Z"
+    },
+    "ado": {
+      "featureId": "1375",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1375",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-16T00:00:38.136Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-16T00:00:20.555Z",
+  "approvedAt": "2026-03-16T00:00:20.600Z"
+}

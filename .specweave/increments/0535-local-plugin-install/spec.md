@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # Spec: Local Plugin Installation
 
 ## Problem

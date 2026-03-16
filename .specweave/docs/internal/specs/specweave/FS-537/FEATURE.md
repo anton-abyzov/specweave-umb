@@ -1,31 +1,27 @@
 ---
 id: FS-537
-title: Project-Specific Skill Generation + Public Docs Cross-References
+title: "Project-Specific Skill Generation + Public Docs Cross-References"
 type: feature
-status: planned
+status: completed
 priority: P1
 created: 2026-03-15T00:00:00.000Z
-lastUpdated: 2026-03-15T00:00:00.000Z
-tldr: >-
-  SpecWeave already extracts rich project knowledge through living docs analysis
-  (module graphs, API surfaces, ADRs, skill-memories).
+lastUpdated: 2026-03-15
+tldr: "SpecWeave already extracts rich project knowledge through living docs analysis (module graphs, API surfaces, ADRs, skill-memories)."
 complexity: high
 stakeholder_relevant: true
 externalLinks:
   jira:
-    epicKey: SWE2E-269
+    epicKey: 'SWE2E-269'
     epicUrl: 'https://antonabyzov.atlassian.net/browse/SWE2E-269'
     syncedAt: '2026-03-15T22:08:18.163Z'
-    projectKey: SWE2E
-    domain: antonabyzov.atlassian.net
+    projectKey: 'SWE2E'
+    domain: 'antonabyzov.atlassian.net'
   ado:
     featureId: 1373
-    featureUrl: >-
-      https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1373
+    featureUrl: 'https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1373'
     syncedAt: '2026-03-15T22:08:29.621Z'
-    organization: EasyChamp
-    project: SpecWeaveSync
-updated: '2026-03-15'
+    organization: 'EasyChamp'
+    project: 'SpecWeaveSync'
 ---
 
 # Project-Specific Skill Generation + Public Docs Cross-References
@@ -33,8 +29,10 @@ updated: '2026-03-15'
 ## TL;DR
 
 **What**: SpecWeave already extracts rich project knowledge through living docs analysis (module graphs, API surfaces, ADRs, skill-memories).
-**Status**: planned | **Priority**: P1
+**Status**: completed | **Priority**: P1
 **User Stories**: 7
+
+![Project-Specific Skill Generation + Public Docs Cross-References illustration](assets/feature-fs-537.jpg)
 
 ## Overview
 
@@ -44,7 +42,7 @@ SpecWeave already extracts rich project knowledge through living docs analysis (
 
 | Increment | Status | Completion Date |
 |-----------|--------|----------------|
-| [0537-project-skill-gen-docs](../../../../../increments/0537-project-skill-gen-docs/spec.md) | ⏳ planned | 2026-03-15 |
+| [0537-project-skill-gen-docs](../../../../../increments/0537-project-skill-gen-docs/spec.md) | ✅ completed | 2026-03-15T00:00:00.000Z |
 
 ## User Stories
 

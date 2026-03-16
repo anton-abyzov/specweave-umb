@@ -2,9 +2,9 @@
 id: US-002
 feature: FS-537
 title: Suggestion Engine
-status: not_started
+status: completed
 priority: P1
-created: 2026-03-15
+created: 2026-03-15T00:00:00.000Z
 tldr: "**As a** SpecWeave user."
 project: specweave
 external_tools:
@@ -26,11 +26,11 @@ external_tools:
 
 ## Acceptance Criteria
 
-- [ ] **AC-US2-01**: Given `skillGen.suggest` is `true` in config and a signal has `incrementIds.length >= skillGen.minSignalCount` and `declined` is false and `generated` is false, when increment closure completes signal collection, then exactly one suggestion is printed to console
-- [ ] **AC-US2-02**: Given a qualifying suggestion exists, when it is printed, then the format is a single console log line containing the pattern name, increment count, and the command `/sw:skill-gen`
-- [ ] **AC-US2-03**: Given `skillGen.suggest` is `false` in config, when increment closure completes, then no suggestion is printed
-- [ ] **AC-US2-04**: Given multiple patterns qualify, when the suggestion engine runs, then only the pattern with the highest confidence score is suggested (max 1 per closure)
-- [ ] **AC-US2-05**: Given a suggestion is printed, when the signal is updated, then `suggested` is set to `true` on that signal entry
+- [x] **AC-US2-01**: Given `skillGen.suggest` is `true` in config and a signal has `incrementIds.length >= skillGen.minSignalCount` and `declined` is false and `generated` is false, when increment closure completes signal collection, then exactly one suggestion is printed to console
+- [x] **AC-US2-02**: Given a qualifying suggestion exists, when it is printed, then the format is a single console log line containing the pattern name, increment count, and the command `/sw:skill-gen`
+- [x] **AC-US2-03**: Given `skillGen.suggest` is `false` in config, when increment closure completes, then no suggestion is printed
+- [x] **AC-US2-04**: Given multiple patterns qualify, when the suggestion engine runs, then only the pattern with the highest confidence score is suggested (max 1 per closure)
+- [x] **AC-US2-05**: Given a suggestion is printed, when the signal is updated, then `suggested` is set to `true` on that signal entry
 
 ---
 

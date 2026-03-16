@@ -1,0 +1,30 @@
+{
+  "id": "0540-plugin-lifecycle-core-only-install",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-16T02:24:32.200Z",
+  "lastActivity": "2026-03-16T02:57:03.035Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-286",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-286",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-16T02:33:56.193Z"
+    },
+    "ado": {
+      "featureId": "1376",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1376",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-16T02:34:00.949Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-16T02:57:02.986Z",
+  "approvedAt": "2026-03-16T02:57:03.035Z"
+}
