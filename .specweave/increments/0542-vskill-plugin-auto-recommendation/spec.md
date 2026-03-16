@@ -1,10 +1,10 @@
 ---
 increment: 0542-vskill-plugin-auto-recommendation
-title: "vskill Plugin Auto-Recommendation"
-status: active
+title: vskill Plugin Auto-Recommendation
+status: completed
 priority: P1
 type: feature
-created: 2026-03-15
+created: 2026-03-15T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -32,11 +32,11 @@ When users write prompts that reference domains covered by vskill marketplace pl
 **So that** I am informed about relevant plugins I have not yet installed
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a prompt containing "deploy ios app to testflight", when the hook processes the prompt and vskill `mobile` plugin is not in `vskill.lock`, then additionalContext includes a suggestion to install the `mobile` plugin with the exact command `vskill install anton-abyzov/vskill --plugin mobile`
-- [ ] **AC-US1-02**: Given a prompt containing "update google sheets report", when the hook processes the prompt and vskill `google-workspace` plugin is already in `vskill.lock`, then no suggestion for `google-workspace` appears in additionalContext
-- [ ] **AC-US1-03**: Given a prompt containing "post on linkedin and instagram", when the hook processes the prompt and vskill `marketing` plugin is not in `vskill.lock`, then the suggestion appears as a bullet with plugin name, skills provided (slack-messaging, social-media-posting), and install command
-- [ ] **AC-US1-04**: Given the keyword "ios" appearing inside a longer word (e.g., "curious"), when the hook processes the prompt, then no false-positive match occurs because short keywords (<5 chars) use word-boundary regex (`\bios\b`)
-- [ ] **AC-US1-05**: Given multi-word keywords like "google drive" or "social media", when the hook processes the prompt, then substring matching correctly detects them without requiring word boundaries
+- [x] **AC-US1-01**: Given a prompt containing "deploy ios app to testflight", when the hook processes the prompt and vskill `mobile` plugin is not in `vskill.lock`, then additionalContext includes a suggestion to install the `mobile` plugin with the exact command `vskill install anton-abyzov/vskill --plugin mobile`
+- [x] **AC-US1-02**: Given a prompt containing "update google sheets report", when the hook processes the prompt and vskill `google-workspace` plugin is already in `vskill.lock`, then no suggestion for `google-workspace` appears in additionalContext
+- [x] **AC-US1-03**: Given a prompt containing "post on linkedin and instagram", when the hook processes the prompt and vskill `marketing` plugin is not in `vskill.lock`, then the suggestion appears as a bullet with plugin name, skills provided (slack-messaging, social-media-posting), and install command
+- [x] **AC-US1-04**: Given the keyword "ios" appearing inside a longer word (e.g., "curious"), when the hook processes the prompt, then no false-positive match occurs because short keywords (<5 chars) use word-boundary regex (`\bios\b`)
+- [x] **AC-US1-05**: Given multi-word keywords like "google drive" or "social media", when the hook processes the prompt, then substring matching correctly detects them without requiring word boundaries
 
 ---
 
@@ -47,9 +47,9 @@ When users write prompts that reference domains covered by vskill marketplace pl
 **So that** I am not repeatedly nagged about the same plugin across multiple prompts
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given the `mobile` plugin was already suggested in the current session, when a subsequent prompt mentions "app-store-connect", then no duplicate suggestion for `mobile` appears in additionalContext
-- [ ] **AC-US2-02**: Given session dedup uses TMPDIR marker files (pattern `${TMPDIR:-/tmp}/specweave-vskill-suggested-{plugin}`), when the shell session ends, then marker files are naturally cleaned up and suggestions reset for the next session
-- [ ] **AC-US2-03**: Given a new shell session starts, when a prompt mentions "ios", then the `mobile` plugin suggestion appears again (markers from previous session are gone)
+- [x] **AC-US2-01**: Given the `mobile` plugin was already suggested in the current session, when a subsequent prompt mentions "app-store-connect", then no duplicate suggestion for `mobile` appears in additionalContext
+- [x] **AC-US2-02**: Given session dedup uses TMPDIR marker files (pattern `${TMPDIR:-/tmp}/specweave-vskill-suggested-{plugin}`), when the shell session ends, then marker files are naturally cleaned up and suggestions reset for the next session
+- [x] **AC-US2-03**: Given a new shell session starts, when a prompt mentions "ios", then the `mobile` plugin suggestion appears again (markers from previous session are gone)
 
 ---
 
@@ -60,9 +60,9 @@ When users write prompts that reference domains covered by vskill marketplace pl
 **So that** the additionalContext stays within the 3000-char budget and remains readable
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a prompt that triggers 4+ vskill plugins, when the hook processes it, then only the top 3 plugins by keyword match specificity are suggested
-- [ ] **AC-US3-02**: Given 2 plugins are matched, when the hook formats the suggestion block, then both are shown (cap only applies at 4+)
-- [ ] **AC-US3-03**: Given the suggestion block for 3 plugins, when measured, then total suggestion text is under 300 chars per plugin (900 chars total, well within 3000-char limit)
+- [x] **AC-US3-01**: Given a prompt that triggers 4+ vskill plugins, when the hook processes it, then only the top 3 plugins by keyword match specificity are suggested
+- [x] **AC-US3-02**: Given 2 plugins are matched, when the hook formats the suggestion block, then both are shown (cap only applies at 4+)
+- [x] **AC-US3-03**: Given the suggestion block for 3 plugins, when measured, then total suggestion text is under 300 chars per plugin (900 chars total, well within 3000-char limit)
 
 ---
 
@@ -73,9 +73,9 @@ When users write prompts that reference domains covered by vskill marketplace pl
 **So that** the LLM does not incorrectly tell users these plugins are unavailable
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given the current deny-list says "DO NOT suggest: mobile, skills...", when updated, then the wording changes to indicate these are vskill marketplace plugins detected via keyword matching, not available as `sw-*` plugins
-- [ ] **AC-US4-02**: Given a VSKILL_PLUGIN_REGISTRY constant is added to `llm-plugin-detector.ts`, then it contains entries for all 5 plugins (mobile, google-workspace, marketing, productivity, skills) with their trigger keywords
-- [ ] **AC-US4-03**: Given a `detectVskillPlugins(prompt)` helper is exported, when called with "deploy ios app", then it returns `[{plugin: "mobile", matchedKeyword: "ios"}]`
+- [x] **AC-US4-01**: Given the current deny-list says "DO NOT suggest: mobile, skills...", when updated, then the wording changes to indicate these are vskill marketplace plugins detected via keyword matching, not available as `sw-*` plugins
+- [x] **AC-US4-02**: Given a VSKILL_PLUGIN_REGISTRY constant is added to `llm-plugin-detector.ts`, then it contains entries for all 5 plugins (mobile, google-workspace, marketing, productivity, skills) with their trigger keywords
+- [x] **AC-US4-03**: Given a `detectVskillPlugins(prompt)` helper is exported, when called with "deploy ios app", then it returns `[{plugin: "mobile", matchedKeyword: "ios"}]`
 
 ---
 
@@ -86,10 +86,10 @@ When users write prompts that reference domains covered by vskill marketplace pl
 **So that** I get plugin suggestions proactively, not just when I mention keywords
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given a project with `Podfile` or `ios/` directory, when `detectProjectType()` runs, then the result includes `vskillPlugins: ["mobile"]`
-- [ ] **AC-US5-02**: Given a project with `react-native` in package.json, when `detectProjectType()` runs, then `vskillPlugins: ["mobile"]` is included
-- [ ] **AC-US5-03**: Given the `ProjectTypeResult` interface, when the `vskillPlugins` field is added, then it is typed as `string[]` and defaults to `[]`
-- [ ] **AC-US5-04**: Given vskill plugin `mobile` is already in `vskill.lock`, when the session-start hook checks project-detector results, then the `mobile` suggestion is suppressed
+- [x] **AC-US5-01**: Given a project with `Podfile` or `ios/` directory, when `detectProjectType()` runs, then the result includes `vskillPlugins: ["mobile"]`
+- [x] **AC-US5-02**: Given a project with `react-native` in package.json, when `detectProjectType()` runs, then `vskillPlugins: ["mobile"]` is included
+- [x] **AC-US5-03**: Given the `ProjectTypeResult` interface, when the `vskillPlugins` field is added, then it is typed as `string[]` and defaults to `[]`
+- [x] **AC-US5-04**: Given vskill plugin `mobile` is already in `vskill.lock`, when the session-start hook checks project-detector results, then the `mobile` suggestion is suppressed
 
 ---
 
@@ -100,9 +100,9 @@ When users write prompts that reference domains covered by vskill marketplace pl
 **So that** intent analysis can distinguish between specweave skill installs and vskill plugin recommendations
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: Given COMPONENT_MAPPING entries for "ios", "android", "mobile", "app store", "react native", when updated, then each includes a `vskillPlugin: "mobile"` field
-- [ ] **AC-US6-02**: Given the `analyzeUserIntent()` return type, when updated, then it includes `vskillPlugins: string[]`
-- [ ] **AC-US6-03**: Given a prompt "deploy my ios app", when `analyzeUserIntent()` is called, then result includes `vskillPlugins: ["mobile"]`
+- [~] **AC-US6-01** [DROPPED - auto-install.ts is dead code]: Given COMPONENT_MAPPING entries for "ios", "android", "mobile", "app store", "react native", when updated, then each includes a `vskillPlugin: "mobile"` field
+- [~] **AC-US6-02** [DROPPED - auto-install.ts is dead code]: Given the `analyzeUserIntent()` return type, when updated, then it includes `vskillPlugins: string[]`
+- [~] **AC-US6-03** [DROPPED - auto-install.ts is dead code]: Given a prompt "deploy my ios app", when `analyzeUserIntent()` is called, then result includes `vskillPlugins: ["mobile"]`
 
 ---
 
@@ -113,9 +113,9 @@ When users write prompts that reference domains covered by vskill marketplace pl
 **So that** tooling and scripts can programmatically access vskill suggestions
 
 **Acceptance Criteria**:
-- [ ] **AC-US7-01**: Given the `DetectIntentResult` interface, when updated, then it includes `vskillRecommendations?: {plugin: string, matchedKeyword: string, installCommand: string}[]`
-- [ ] **AC-US7-02**: Given `specweave detect-intent "deploy ios app to testflight"` is run and mobile plugin is not in vskill.lock, then JSON output includes `vskillRecommendations` with the mobile plugin entry
-- [ ] **AC-US7-03**: Given `specweave detect-intent "update react component"` is run and no vskill keywords match, then `vskillRecommendations` is absent or empty array
+- [x] **AC-US7-01**: Given the `DetectIntentResult` interface, when updated, then it includes `vskillRecommendations?: {plugin: string, matchedKeyword: string, installCommand: string}[]`
+- [x] **AC-US7-02**: Given `specweave detect-intent "deploy ios app to testflight"` is run and mobile plugin is not in vskill.lock, then JSON output includes `vskillRecommendations` with the mobile plugin entry
+- [x] **AC-US7-03**: Given `specweave detect-intent "update react component"` is run and no vskill keywords match, then `vskillRecommendations` is absent or empty array
 
 ## Out of Scope
 

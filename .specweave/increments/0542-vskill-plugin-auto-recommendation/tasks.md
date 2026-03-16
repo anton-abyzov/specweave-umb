@@ -16,7 +16,7 @@
 
 ### T-001: Add VSKILL_PLUGIN_REGISTRY and detectVskillPlugins() to llm-plugin-detector.ts
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Test**: Given `llm-plugin-detector.ts` exports `VSKILL_PLUGIN_REGISTRY` and `detectVskillPlugins()`, when the module is imported in a Vitest test, then the registry contains exactly 5 entries (mobile, google-workspace, marketing, productivity, skills) and `detectVskillPlugins("deploy ios app")` returns `[{plugin: "mobile", matchedKeyword: "ios", installCommand: "vskill install anton-abyzov/vskill --plugin mobile"}]`
 
 **File**: `src/core/lazy-loading/llm-plugin-detector.ts`
@@ -47,7 +47,7 @@
 
 ### T-002: Add detect_vskill_recommendations() to user-prompt-submit.sh
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Test**: Given the hook script includes `detect_vskill_recommendations()`, when it is called with `"deploy ios app to testflight"` and the mobile plugin is absent from `vskill.lock`, then stdout contains the suggestion block with plugin name `mobile`, description `App Store, TestFlight, mobile CI/CD`, and the exact install command `vskill install anton-abyzov/vskill --plugin mobile`
 
 **File**: `plugins/specweave/hooks/user-prompt-submit.sh`
@@ -77,7 +77,7 @@
 
 ### T-003: Implement TMPDIR session marker deduplication in detect_vskill_recommendations()
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Test**: Given `detect_vskill_recommendations()` is called twice with a prompt matching `mobile` and no lock entry, when the second call runs in the same shell session (TMPDIR marker still present), then the second call returns empty output for `mobile`
 
 **File**: `plugins/specweave/hooks/user-prompt-submit.sh`
@@ -101,7 +101,7 @@
 
 ### T-004: Enforce cap of 3 suggestions per prompt in detect_vskill_recommendations()
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Test**: Given a prompt that contains keywords triggering mobile, google-workspace, marketing, and productivity plugins simultaneously, when `detect_vskill_recommendations()` processes it, then the output contains exactly 3 suggestion bullets and no 4th plugin entry appears
 
 **File**: `plugins/specweave/hooks/user-prompt-submit.sh`
@@ -125,7 +125,7 @@
 
 ### T-005: Add vskillPlugins field to ProjectTypeResult and mobile DetectionRules in project-detector.ts
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Test**: Given a project directory containing a `Podfile`, when `detectProjectType()` is called, then the returned `ProjectTypeResult` has `vskillPlugins: ["mobile"]`; given a `package.json` with `"react-native"` in dependencies, then `vskillPlugins: ["mobile"]` is also present
 
 **File**: `src/core/lazy-loading/project-detector.ts`
@@ -156,7 +156,7 @@
 
 ### T-006: Add vskillPlugin field to COMPONENT_MAPPING and extend analyzeUserIntent() return type
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03
-**Status**: [ ] Not Started
+**Status**: [x] completed (DROPPED — auto-install.ts is dead code, never called in production; vskill detection handled by VSKILL_PLUGIN_REGISTRY in llm-plugin-detector.ts and hook)
 **Test**: Given `analyzeUserIntent("deploy my ios app")` is called, when the function processes the prompt against COMPONENT_MAPPING, then the return value includes `vskillPlugins: ["mobile"]`
 
 **File**: `src/utils/auto-install.ts`
@@ -185,7 +185,7 @@
 
 ### T-007: Add vskillRecommendations to DetectIntentResult and wire detectVskillPlugins() in detect-intent.ts
 **User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Test**: Given `specweave detect-intent "deploy ios app to testflight"` is run and the mobile plugin is absent from `vskill.lock`, when the command outputs JSON, then the output contains `"vskillRecommendations"` with at least one entry where `plugin === "mobile"` and `installCommand === "vskill install anton-abyzov/vskill --plugin mobile"`
 
 **File**: `src/cli/commands/detect-intent.ts`
