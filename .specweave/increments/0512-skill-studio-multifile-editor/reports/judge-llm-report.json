@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0512-skill-studio-multifile-editor",
-  "timestamp": "2026-03-12T06:16:00.000Z",
-  "verdict": "WAIVED",
-  "reason": "No externalModels consent configured in config.json",
-  "findings": []
-}

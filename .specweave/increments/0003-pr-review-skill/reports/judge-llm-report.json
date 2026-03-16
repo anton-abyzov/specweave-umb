@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0003-pr-review-skill",
-  "timestamp": "2026-03-13T12:00:00Z",
-  "verdict": "WAIVED",
-  "reason": "No externalModels consent configured in config.json",
-  "findings": []
-}

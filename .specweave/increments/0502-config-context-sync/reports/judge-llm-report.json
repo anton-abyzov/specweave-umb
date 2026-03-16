@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0502-config-context-sync",
-  "timestamp": "2026-03-12T02:16:00.000Z",
-  "verdict": "WAIVED",
-  "reason": "No external model consent configured — judge-llm waived per policy",
-  "findings": []
-}

@@ -108,7 +108,6 @@ generated-assets/
 e2e-tests/
 widget-test-app/
 test-oidc-server.js
-colibri-git-workflow.*
 *.backup
 .npmrc
 package.json

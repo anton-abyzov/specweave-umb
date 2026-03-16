@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0412-deploy-living-docs",
-  "timestamp": "2026-03-10T19:42:01.000Z",
-  "verdict": "WAIVED",
-  "reason": "Batch closure — no external model consent configured",
-  "shipReadiness": "READY"
-}

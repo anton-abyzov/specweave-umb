@@ -16,9 +16,9 @@ The living-docs-builder job (42ad70fa) encountered **3 LLM timeouts** during int
 
 | Module | Files Sampled | Timeout Time | Result |
 |--------|---------------|--------------|--------|
-| Colibri.DataStewardship | 14 files | 22:32:19 (6min 3s) | ⚠️ Basic fallback |
-| Colibri.Learner.Api | 2 files | 22:41:32 (6min 3s) | ⚠️ Basic fallback |
-| Colibri.Core.Regulatory.Api | 2 files | 22:51:40 (6min 3s) | ⚠️ Basic fallback |
+| DataStewardship | 14 files | 22:32:19 (6min 3s) | ⚠️ Basic fallback |
+| Learner.Api | 2 files | 22:41:32 (6min 3s) | ⚠️ Basic fallback |
+| Core.Regulatory.Api | 2 files | 22:51:40 (6min 3s) | ⚠️ Basic fallback |
 
 **Pattern**: All timeouts occurred at **exactly 120,000ms (2 minutes)** - the hardcoded timeout in `claude-code-provider.ts:108`
 
@@ -84,7 +84,7 @@ Timeout limit: 120 seconds
 Failed calls: ALL hit exactly 120s
 
 Hypothesis: These specific repos triggered slower LLM processing
-- Colibri.DataStewardship: 14 files (largest sample) → complex analysis
+- DataStewardship: 14 files (largest sample) → complex analysis
 - Learner.Api: 2 files but potentially dense/complex code
 - Regulatory.Api: 2 files but regulatory = complex domain
 ```

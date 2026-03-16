@@ -15,9 +15,9 @@ During living-docs-builder intelligent analysis, **16.7% of repositories** (3 ou
 
 | Repository | Files | Timeout | Root Cause |
 |------------|-------|---------|------------|
-| Colibri.DataStewardship | 14 | 120s | Complex domain + large sample |
-| Colibri.Learner.Api | 2 | 120s | Regulatory domain |
-| Colibri.Core.Regulatory.Api | 2 | 120s | Compliance domain |
+| DataStewardship | 14 | 120s | Complex domain + large sample |
+| Learner.Api | 2 | 120s | Regulatory domain |
+| Core.Regulatory.Api | 2 | 120s | Compliance domain |
 
 **Pattern**: All timeouts occurred at **exactly 120,000ms** - the hardcoded timeout in `claude-code-provider.ts:108`.
 
@@ -101,7 +101,7 @@ const complexityKeywords = [
 ```
 
 **Detection sources**:
-- Repository name (e.g., "Colibri.Core.Regulatory.Api")
+- Repository name (e.g., "Core.Regulatory.Api")
 - Prompt content (file names, code patterns)
 
 ---
@@ -173,7 +173,7 @@ for (let attempt = 0; attempt <= maxRetries; attempt++) {
 
 **Example 1: Small Simple Repo**
 ```typescript
-// Repo: "Colibri.Pipeline" (2 files, simple domain)
+// Repo: "Pipeline" (2 files, simple domain)
 baseTimeout = 240000 // 4 min
 fileTimeout = 2 × 5000 = 10000 // 10s
 promptTimeout = 5000 / 1000 × 50 = 250 // 250ms
@@ -183,7 +183,7 @@ adaptiveTimeout = min(240000 + 10000 + 250 + 0, 600000) = 250250 // ~4min 10s
 
 **Example 2: Large Simple Repo**
 ```typescript
-// Repo: "Colibri.Dashboard" (20 files, simple domain)
+// Repo: "Dashboard" (20 files, simple domain)
 baseTimeout = 240000 // 4 min
 fileTimeout = 20 × 5000 = 100000 // 100s = 1min 40s
 promptTimeout = 12000 / 1000 × 50 = 600 // 600ms
@@ -193,7 +193,7 @@ adaptiveTimeout = min(240000 + 100000 + 600 + 0, 600000) = 340600 // ~5min 40s
 
 **Example 3: Complex Regulatory Repo** ⭐ (was timing out!)
 ```typescript
-// Repo: "Colibri.Core.Regulatory.Api" (2 files, regulatory domain)
+// Repo: "Core.Regulatory.Api" (2 files, regulatory domain)
 baseTimeout = 240000 // 4 min
 fileTimeout = 2 × 5000 = 10000 // 10s
 promptTimeout = 5000 / 1000 × 50 = 250 // 250ms
@@ -203,7 +203,7 @@ adaptiveTimeout = min(240000 + 10000 + 250 + 120000, 600000) = 370250 // ~6min 1
 
 **Example 4: Large Complex Repo** (was timing out!)
 ```typescript
-// Repo: "Colibri.DataStewardship" (14 files, compliance domain)
+// Repo: "DataStewardship" (14 files, compliance domain)
 baseTimeout = 240000 // 4 min
 fileTimeout = 14 × 5000 = 70000 // 70s = 1min 10s
 promptTimeout = 10000 / 1000 × 50 = 500 // 500ms

@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0442-eval-system-rework",
-  "timestamp": "2026-03-06T18:12:00Z",
-  "verdict": "WAIVED",
-  "reason": "External model consent not configured in .specweave/config.json",
-  "findings": []
-}

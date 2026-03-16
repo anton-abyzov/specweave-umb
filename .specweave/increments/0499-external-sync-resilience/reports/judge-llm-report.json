@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0499-external-sync-resilience",
-  "timestamp": "2026-03-12T21:36:00.000Z",
-  "verdict": "WAIVED",
-  "reason": "No ANTHROPIC_API_KEY configured — judge-llm validation waived",
-  "findings": []
-}

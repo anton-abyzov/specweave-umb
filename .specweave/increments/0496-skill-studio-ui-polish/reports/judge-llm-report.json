@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0496-skill-studio-ui-polish",
-  "timestamp": "2026-03-11T22:46:00.000Z",
-  "verdict": "WAIVED",
-  "reason": "External model consent not configured in .specweave/config.json",
-  "findings": []
-}

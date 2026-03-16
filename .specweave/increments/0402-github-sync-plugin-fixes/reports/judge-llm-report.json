@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0402",
-  "timestamp": "2026-03-02T12:00:00Z",
-  "verdict": "WAIVED",
-  "reason": "externalModels not configured in config.json — consent not given for external LLM validation",
-  "findings": []
-}

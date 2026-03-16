@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0449-fix-skill-display-names",
-  "timestamp": "2026-03-08T00:40:00.000Z",
-  "verdict": "WAIVED",
-  "reason": "No externalModels consent configured",
-  "findings": []
-}

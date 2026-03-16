@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0458-eval-run-history",
-  "timestamp": "2026-03-10T14:36:00.000Z",
-  "verdict": "WAIVED",
-  "reason": "No external model consent configured. Local-only eval server with no external API dependency for judge-llm validation.",
-  "shipReadiness": "READY"
-}

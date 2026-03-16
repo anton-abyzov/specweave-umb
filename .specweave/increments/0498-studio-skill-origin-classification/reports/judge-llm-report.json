@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0498-studio-skill-origin-classification",
-  "timestamp": "2026-03-11T20:16:00.000Z",
-  "verdict": "WAIVED",
-  "reason": "External models consent not configured in .specweave/config.json",
-  "findings": []
-}

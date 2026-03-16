@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0455-skill-eval-ui",
-  "timestamp": "2026-03-09T10:30:00.000Z",
-  "verdict": "WAIVED",
-  "reason": "No external model consent configured. Grill review completed with PASS verdict.",
-  "shipReadiness": "READY"
-}

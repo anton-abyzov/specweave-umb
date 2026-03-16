@@ -1,6 +1,0 @@
-{
-  "verdict": "WAIVED",
-  "reason": "External model consent not configured (externalModels not set in config.json)",
-  "incrementId": "0439-skill-eval-infrastructure",
-  "timestamp": "2026-03-07T22:14:00Z"
-}

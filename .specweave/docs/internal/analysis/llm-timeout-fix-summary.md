@@ -56,10 +56,10 @@ adaptiveTimeout = min(
 
 | Repo | Files | Domain | Old Timeout | New Timeout | Outcome |
 |------|-------|--------|-------------|-------------|---------|
-| Colibri.Pipeline | 2 | Simple | 120s ⚠️ | 250s ✅ | Success |
-| Colibri.Dashboard | 20 | Simple | 120s ⚠️ | 340s ✅ | Success |
-| Colibri.Core.Regulatory.Api | 2 | Regulatory | 120s ❌ | 370s ✅ | **FIX!** |
-| Colibri.DataStewardship | 14 | Compliance | 120s ❌ | 430s ✅ | **FIX!** |
+| Pipeline | 2 | Simple | 120s ⚠️ | 250s ✅ | Success |
+| Dashboard | 20 | Simple | 120s ⚠️ | 340s ✅ | Success |
+| Core.Regulatory.Api | 2 | Regulatory | 120s ❌ | 370s ✅ | **FIX!** |
+| DataStewardship | 14 | Compliance | 120s ❌ | 430s ✅ | **FIX!** |
 | Enterprise.Healthcare.Platform | 20 | Healthcare | 120s ❌ | 460s ✅ | **NEW!** |
 
 **Legend**: ❌ = Timeout, ⚠️ = Works but inefficient, ✅ = Optimal

@@ -1,8 +1,0 @@
-{
-  "version": "1.0",
-  "incrementId": "0404",
-  "timestamp": "2026-03-02T18:36:00.000Z",
-  "verdict": "WAIVED",
-  "reason": "No ANTHROPIC_API_KEY configured and no externalModels consent in config.json",
-  "findings": []
-}
