@@ -1,0 +1,13 @@
+{
+  "id": "0544-skill-gen-llm-pivot",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-16T07:32:20.754Z",
+  "lastActivity": "2026-03-16T07:32:20.754Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
