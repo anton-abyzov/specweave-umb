@@ -1,0 +1,21 @@
+{
+  "id": "0545-vskill-studio-ux-overhaul",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-16T08:14:36.896Z",
+  "lastActivity": "2026-03-16T08:14:36.896Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-316",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-316",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-16T08:32:30.122Z"
+    }
+  }
+}
