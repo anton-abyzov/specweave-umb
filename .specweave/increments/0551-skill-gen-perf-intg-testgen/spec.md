@@ -12,6 +12,9 @@ coverage_target: 90
 
 # Feature: Skill Generation Performance & Integration Test Auto-Generation
 
+## Brainstorm
+**Source**: [reports/brainstorm.md](reports/brainstorm.md) — Research with 3 parallel agents covering skill generation performance, competitive landscape, documentation strategy, and design system concept.
+
 ## Problem Statement
 
 Skill generation in vskill suffers from three bottlenecks. First, the single monolithic LLM call in `skill-create-routes.ts` generates both SKILL.md body and evals sequentially (12-30s CLI, 4-12s API) when they could run in parallel. Second, `generate-all.ts` loops skills sequentially with hardcoded 2-second delays, making batch generation painfully slow for repos with 10+ skills. Third, eval runs spend 60-70% of their LLM budget on judge calls that are independent and non-interactive -- perfect candidates for Anthropic's Message Batches API (50% cost savings) -- yet zero batch API usage exists in the codebase. Additionally, integration test cases must be hand-written despite the integration test runner (from increment 0547) already existing; `buildEvalInitPrompt()` only generates unit tests.

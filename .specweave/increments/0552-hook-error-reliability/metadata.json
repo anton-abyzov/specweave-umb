@@ -1,0 +1,30 @@
+{
+  "id": "0552-hook-error-reliability",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-16T22:30:09.679Z",
+  "lastActivity": "2026-03-16T22:39:48.950Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-364",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-364",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-16T22:40:13.370Z"
+    },
+    "ado": {
+      "featureId": "1392",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1392",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-16T22:40:17.498Z"
+    }
+  },
+  "updated": "2026-03-16T22:37:41.000Z",
+  "approvedAt": "2026-03-16T22:39:48.950Z"
+}

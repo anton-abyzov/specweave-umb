@@ -1,10 +1,10 @@
 {
   "id": "0549-external-sync-reliability",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P0",
   "created": "2026-03-16T21:09:42.037Z",
-  "lastActivity": "2026-03-16T21:09:42.037Z",
+  "lastActivity": "2026-03-16T22:15:16.303Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,16 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-346",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-16T21:29:05.957Z"
+      "syncedAt": "2026-03-16T22:15:53.622Z"
     },
     "ado": {
       "featureId": "1389",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1389",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-16T21:29:14.037Z"
+      "syncedAt": "2026-03-16T22:15:59.771Z"
     }
-  }
+  },
+  "updated": "2026-03-16T22:10:00.000Z",
+  "approvedAt": "2026-03-16T22:15:16.303Z"
 }

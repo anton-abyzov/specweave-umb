@@ -9,6 +9,9 @@ created: 2026-03-16T00:00:00.000Z
 
 # vSkill Studio: Eval Performance, Multi-Model & Integration Tests
 
+## Brainstorm
+**Source**: [reports/brainstorm.md](reports/brainstorm.md) — Deep brainstorm with 4 parallel agents covering performance, multi-model, integration tests, and per-model leaderboard design.
+
 ## Problem Statement
 
 vSkill Studio runs all 25-35 LLM calls per eval sequentially, resulting in 5-12 minute runs. There is no way to compare skill quality across models (only 2-model compare exists), and while the schema supports `testType: "integration"` and `requiredCredentials`, no integration test runner exists. Skill authors cannot prove their skills work against real APIs/browsers, cannot benchmark across the model ecosystem, and waste significant time waiting for sequential eval runs.

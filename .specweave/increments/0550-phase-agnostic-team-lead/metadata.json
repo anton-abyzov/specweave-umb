@@ -3,7 +3,7 @@
   "title": "Phase-Agnostic Team-Lead + Standalone Code Reviewer Skill",
   "description": "Redesign team-lead to support brainstorm, planning, review, research, and testing modes alongside implementation. Create standalone /sw:code-reviewer skill with cross-repo awareness.",
   "type": "feature",
-  "status": "active",
+  "status": "ready_for_review",
   "priority": "P1",
   "project": "specweave",
   "lastActivity": "2026-03-16T12:00:00Z",
@@ -11,8 +11,24 @@
     "mode": "TDD",
     "enforcement": "warn"
   },
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-363",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-363",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-16T22:08:34.565Z"
+    },
+    "ado": {
+      "featureId": "1391",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1391",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-16T22:08:39.534Z"
+    }
+  },
   "created": "2026-03-16T12:00:00Z",
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "updated": "2026-03-16T22:04:30.000Z"
 }

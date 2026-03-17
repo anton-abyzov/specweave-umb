@@ -1,10 +1,10 @@
 ---
 increment: 0549-external-sync-reliability
-title: "External Sync Reliability"
+title: External Sync Reliability
 type: feature
 priority: P0
-status: active
-created: 2026-03-16
+status: completed
+created: 2026-03-16T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
