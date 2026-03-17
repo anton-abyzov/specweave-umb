@@ -1,10 +1,10 @@
 ---
 increment: 0558-adapter-skill-subdirectory-namespace
-title: "Subdirectory-Based Skill Namespace for Non-Claude Adapters"
+title: Subdirectory-Based Skill Namespace for Non-Claude Adapters
 type: feature
 priority: P1
-status: active
-created: 2026-03-17
+status: completed
+created: 2026-03-17T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
