@@ -1,10 +1,10 @@
 ---
 increment: 0554-hook-reliability-phase2
-title: "Fix Remaining Hook Reliability Issues"
+title: Fix Remaining Hook Reliability Issues
 type: bug
 priority: P1
-status: planned
-created: 2026-03-17
+status: completed
+created: 2026-03-17T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -34,8 +34,8 @@ SpecWeave hook scripts have five classes of reliability defects discovered durin
 
 **Acceptance Criteria**:
 - [x] **AC-US1-01**: Given the PreToolUse entry in hooks.json, when the hook configuration is inspected, then a matcher_content field exists with a file_path-scoped regex targeting `.specweave/increments/`
-- [ ] **AC-US1-02**: Given pre-tool-use.sh receives a tool_input for a file outside `.specweave/increments/`, when the script starts, then it exits with code 0 before invoking jq
-- [ ] **AC-US1-03**: Given pre-tool-use.sh previously used `[[ ! -d ".specweave" ]]`, when the script runs from a subdirectory, then it locates the project root via a walk-up loop or lib/common-setup.sh sourcing instead of relying on a bare relative path
+- [x] **AC-US1-02**: Given pre-tool-use.sh receives a tool_input for a file outside `.specweave/increments/`, when the script starts, then it exits with code 0 before invoking jq
+- [x] **AC-US1-03**: Given pre-tool-use.sh previously used `[[ ! -d ".specweave" ]]`, when the script runs from a subdirectory, then it locates the project root via a walk-up loop or lib/common-setup.sh sourcing instead of relying on a bare relative path
 
 ---
 
@@ -46,9 +46,9 @@ SpecWeave hook scripts have five classes of reliability defects discovered durin
 **So that** increments with raw values like "medium" do not create phantom counter keys
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given update-dashboard-cache.sh processes an increment with `priority: "medium"`, when normalization runs, then the value is mapped to `P1` matching the rebuild script behavior
-- [ ] **AC-US2-02**: Given update-dashboard-cache.sh processes an increment with raw type values, when normalization runs, then the type is normalized using the same function as rebuild-dashboard-cache.sh
-- [ ] **AC-US2-03**: Given rebuild-dashboard-cache.sh fallback path references `$PROJECT_ROOT/plugins/...`, when the script runs at hook time where PROJECT_ROOT is unset, then the path resolves via `BASH_SOURCE` instead
+- [x] **AC-US2-01**: Given update-dashboard-cache.sh processes an increment with `priority: "medium"`, when normalization runs, then the value is mapped to `P1` matching the rebuild script behavior
+- [x] **AC-US2-02**: Given update-dashboard-cache.sh processes an increment with raw type values, when normalization runs, then the type is normalized using the same function as rebuild-dashboard-cache.sh
+- [x] **AC-US2-03**: Given rebuild-dashboard-cache.sh fallback path references `$PROJECT_ROOT/plugins/...`, when the script runs at hook time where PROJECT_ROOT is unset, then the path resolves via `BASH_SOURCE` instead
 
 ---
 
@@ -73,9 +73,9 @@ SpecWeave hook scripts have five classes of reliability defects discovered durin
 **So that** scripts do not crash on null or missing array values
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given auto-status.sh lines 132-134 contain 3 jq `| length` operations, when patched, then each operation uses `// [] | length` instead of bare `| length`
-- [ ] **AC-US4-02**: Given cancel-auto.sh line 54 contains a jq `| length` operation, when patched, then it uses `// [] | length`
-- [ ] **AC-US4-03**: Given user-prompt-submit.sh line 2191 contains a jq `| length` operation, when patched, then it uses `// [] | length`
+- [x] **AC-US4-01**: Given auto-status.sh lines 132-134 contain 3 jq `| length` operations, when patched, then each operation uses `// [] | length` instead of bare `| length`
+- [x] **AC-US4-02**: Given cancel-auto.sh line 54 contains a jq `| length` operation, when patched, then it uses `// [] | length`
+- [x] **AC-US4-03**: Given user-prompt-submit.sh line 2191 contains a jq `| length` operation, when patched, then it uses `// [] | length`
 
 ---
 
@@ -86,10 +86,10 @@ SpecWeave hook scripts have five classes of reliability defects discovered durin
 **So that** hooks work correctly regardless of the current working directory
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given startup-health-check.sh uses bare `.specweave/` paths, when patched, then it resolves the project root via walk-up detection or lib/common-setup.sh before referencing `.specweave/`
-- [ ] **AC-US5-02**: Given status-completion-guard.sh uses bare `.specweave/` paths, when patched, then it resolves the project root before referencing `.specweave/`
-- [ ] **AC-US5-03**: Given increment-existence-guard.sh uses bare `.specweave/` paths, when patched, then it resolves the project root before referencing `.specweave/`
-- [ ] **AC-US5-04**: Given pre-tool-use.sh uses bare `.specweave/` paths (beyond the fix in US-001), when patched, then all remaining bare references resolve via the detected root
+- [x] **AC-US5-01**: Given startup-health-check.sh uses bare `.specweave/` paths, when patched, then it resolves the project root via walk-up detection or lib/common-setup.sh before referencing `.specweave/`
+- [x] **AC-US5-02**: Given status-completion-guard.sh uses bare `.specweave/` paths, when patched, then it resolves the project root before referencing `.specweave/`
+- [x] **AC-US5-03**: Given increment-existence-guard.sh uses bare `.specweave/` paths, when patched, then it resolves the project root before referencing `.specweave/`
+- [x] **AC-US5-04**: Given pre-tool-use.sh uses bare `.specweave/` paths (beyond the fix in US-001), when patched, then all remaining bare references resolve via the detected root
 
 ## Out of Scope
 

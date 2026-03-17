@@ -98,9 +98,11 @@ tmp/
 
 # Generated content
 generated-assets/
+post-history/
 .github/
 
 # Local dev artifacts
+*.code-workspace
 .claude/
 .playwright-mcp/
 *.bak
@@ -114,6 +116,11 @@ package.json
 package-lock.json
 test-*.mjs
 pr-review-*.md
+tests/
+
+# Media files (social media / demo artifacts)
+*.mp4
+*.webm
 
 # Auto-detected by SpecWeave
 # Dependencies

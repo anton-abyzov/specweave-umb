@@ -1,10 +1,10 @@
 ---
 increment: 0553-vskill-install-verification-scope
-title: "Fix vskill install: verification name collision + restore scope prompt"
+title: 'Fix vskill install: verification name collision + restore scope prompt'
 type: bug
 priority: P1
-status: planned
-created: 2026-03-17
+status: completed
+created: 2026-03-17T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -35,10 +35,10 @@ Two bugs degrade the `npx vskill i` experience:
 **So that** my skill is not falsely flagged as rejected because a different author's skill with the same name was rejected
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a submission with `skillName: "skill-creator"` and `repoUrl: "https://github.com/alice/skill-creator"` in REJECTED state, when the API receives `GET /api/v1/blocklist/check?name=skill-creator&repoUrl=https://github.com/bob/skill-creator`, then the response has `rejected: false`
-- [ ] **AC-US1-02**: Given the same rejected submission, when the API receives `GET /api/v1/blocklist/check?name=skill-creator&repoUrl=https://github.com/alice/skill-creator`, then the response has `rejected: true` with the rejection details
-- [ ] **AC-US1-03**: Given the same rejected submission, when the API receives `GET /api/v1/blocklist/check?name=skill-creator` without a `repoUrl` parameter, then the response falls back to name-only matching and returns `rejected: true` (backward compatibility)
-- [ ] **AC-US1-04**: Given the rejection query adds a `repoUrl` WHERE clause, then the query uses the existing compound index `[repoUrl, skillName]` on the Submission table (no new index needed)
+- [x] **AC-US1-01**: Given a submission with `skillName: "skill-creator"` and `repoUrl: "https://github.com/alice/skill-creator"` in REJECTED state, when the API receives `GET /api/v1/blocklist/check?name=skill-creator&repoUrl=https://github.com/bob/skill-creator`, then the response has `rejected: false`
+- [x] **AC-US1-02**: Given the same rejected submission, when the API receives `GET /api/v1/blocklist/check?name=skill-creator&repoUrl=https://github.com/alice/skill-creator`, then the response has `rejected: true` with the rejection details
+- [x] **AC-US1-03**: Given the same rejected submission, when the API receives `GET /api/v1/blocklist/check?name=skill-creator` without a `repoUrl` parameter, then the response falls back to name-only matching and returns `rejected: true` (backward compatibility)
+- [x] **AC-US1-04**: Given the rejection query adds a `repoUrl` WHERE clause, then the query uses the existing compound index `[repoUrl, skillName]` on the Submission table (no new index needed)
 
 ---
 
@@ -49,9 +49,9 @@ Two bugs degrade the `npx vskill i` experience:
 **So that** the server can accurately scope rejection lookups to my specific skill
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a skill being installed has a known `repoUrl`, when `checkInstallSafety` is called, then the HTTP request includes `repoUrl` as a query parameter
-- [ ] **AC-US2-02**: Given a skill being installed has no `repoUrl` (e.g., name-only registry install), when `checkInstallSafety` is called, then the HTTP request omits the `repoUrl` parameter (no empty string sent)
-- [ ] **AC-US2-03**: Given an older vskill-platform deployment that ignores the `repoUrl` parameter, when the client sends `repoUrl`, then the install proceeds normally with no errors (parameter is additive, not breaking)
+- [x] **AC-US2-01**: Given a skill being installed has a known `repoUrl`, when `checkInstallSafety` is called, then the HTTP request includes `repoUrl` as a query parameter
+- [x] **AC-US2-02**: Given a skill being installed has no `repoUrl` (e.g., name-only registry install), when `checkInstallSafety` is called, then the HTTP request omits the `repoUrl` parameter (no empty string sent)
+- [x] **AC-US2-03**: Given an older vskill-platform deployment that ignores the `repoUrl` parameter, when the client sends `repoUrl`, then the install proceeds normally with no errors (parameter is additive, not breaking)
 
 ---
 
@@ -62,10 +62,10 @@ Two bugs degrade the `npx vskill i` experience:
 **So that** I can install skills globally through the interactive flow without memorizing CLI flags
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given the user runs `npx vskill i <skill>` in an interactive TTY without `--global` or `--cwd` flags, when the install options are prompted, then a "Installation scope" prompt appears with options "Project" (install in current project root) and "Global" (install in user home directory)
-- [ ] **AC-US3-02**: Given the user runs `npx vskill i <skill> --global`, when the install options are prompted, then the scope prompt is skipped and installation proceeds with global scope
-- [ ] **AC-US3-03**: Given the user runs `npx vskill i <skill> --cwd`, when the install options are prompted, then the scope prompt is skipped and installation proceeds with project scope
-- [ ] **AC-US3-04**: Given the user runs `npx vskill i <skill> --yes` (non-interactive mode), when the install executes, then the scope prompt is skipped and defaults to project scope
+- [x] **AC-US3-01**: Given the user runs `npx vskill i <skill>` in an interactive TTY without `--global` or `--cwd` flags, when the install options are prompted, then a "Installation scope" prompt appears with options "Project" (install in current project root) and "Global" (install in user home directory)
+- [x] **AC-US3-02**: Given the user runs `npx vskill i <skill> --global`, when the install options are prompted, then the scope prompt is skipped and installation proceeds with global scope
+- [x] **AC-US3-03**: Given the user runs `npx vskill i <skill> --cwd`, when the install options are prompted, then the scope prompt is skipped and installation proceeds with project scope
+- [x] **AC-US3-04**: Given the user runs `npx vskill i <skill> --yes` (non-interactive mode), when the install executes, then the scope prompt is skipped and defaults to project scope
 
 ## Out of Scope
 

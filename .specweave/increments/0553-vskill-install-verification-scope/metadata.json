@@ -1,10 +1,10 @@
 {
   "id": "0553-vskill-install-verification-scope",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-03-17T02:14:46.240Z",
-  "lastActivity": "2026-03-17T02:14:46.240Z",
+  "lastActivity": "2026-03-17T02:33:51.958Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,16 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-373",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-17T02:27:06.267Z"
+      "syncedAt": "2026-03-17T02:34:05.795Z"
     },
     "ado": {
       "featureId": "1395",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1395",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-17T02:27:08.131Z"
+      "syncedAt": "2026-03-17T02:34:07.272Z"
     }
-  }
+  },
+  "updated": "2026-03-17T02:31:29.000Z",
+  "approvedAt": "2026-03-17T02:33:51.958Z"
 }

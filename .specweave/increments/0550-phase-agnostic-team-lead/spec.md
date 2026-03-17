@@ -1,10 +1,10 @@
 ---
 increment: 0550-phase-agnostic-team-lead
-title: "Phase-Agnostic Team Lead and Standalone Code Reviewer"
-status: active
+title: Phase-Agnostic Team Lead and Standalone Code Reviewer
+status: completed
 priority: P1
 type: feature
-created: 2026-03-16
+created: 2026-03-16T00:00:00.000Z
 ---
 
 # Phase-Agnostic Team Lead and Standalone Code Reviewer
@@ -30,11 +30,11 @@ The team-lead skill currently operates primarily as an implementation orchestrat
 **So that** I get the right agent composition without manually specifying modes
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a user invokes team-lead with "plan the checkout feature", when SKILL.md processes the request, then it detects plan mode and spawns PM + Architect agents instead of domain implementation agents
-- [ ] **AC-US1-02**: Given a user invokes team-lead with "research how auth works in this codebase", when SKILL.md processes the request, then it detects research mode and spawns researcher agents without requiring an increment
-- [ ] **AC-US1-03**: Given a user invokes team-lead with "test the payment flow", when SKILL.md processes the request, then it detects test mode and spawns testing-focused agents
-- [ ] **AC-US1-04**: Given a user invokes team-lead without clear intent signals, when SKILL.md processes the request, then it defaults to implement mode (preserving backward compatibility)
-- [ ] **AC-US1-05**: Given SKILL.md contains a mode detection section, when a developer reads it, then each mode lists its trigger keywords, required agent templates, and whether an increment is required
+- [x] **AC-US1-01**: Given a user invokes team-lead with "plan the checkout feature", when SKILL.md processes the request, then it detects plan mode and spawns PM + Architect agents instead of domain implementation agents
+- [x] **AC-US1-02**: Given a user invokes team-lead with "research how auth works in this codebase", when SKILL.md processes the request, then it detects research mode and spawns researcher agents without requiring an increment
+- [x] **AC-US1-03**: Given a user invokes team-lead with "test the payment flow", when SKILL.md processes the request, then it detects test mode and spawns testing-focused agents
+- [x] **AC-US1-04**: Given a user invokes team-lead without clear intent signals, when SKILL.md processes the request, then it defaults to implement mode (preserving backward compatibility)
+- [x] **AC-US1-05**: Given SKILL.md contains a mode detection section, when a developer reads it, then each mode lists its trigger keywords, required agent templates, and whether an increment is required
 
 ### US-002: Standalone Code Reviewer Skill
 **Project**: specweave
@@ -43,10 +43,10 @@ The team-lead skill currently operates primarily as an implementation orchestrat
 **So that** I can invoke code review independently of team-lead with purpose-built reviewer agents
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given the code-reviewer skill directory exists at plugins/specweave/skills/code-reviewer/, when SKILL.md is created, then it contains frontmatter with description, hooks, and usage instructions
-- [ ] **AC-US2-02**: Given the code-reviewer agents/ directory, when reviewer templates are created, then it contains reviewer-silent-failures.md, reviewer-types.md, and reviewer-spec-compliance.md
-- [ ] **AC-US2-03**: Given a developer invokes /sw:code-reviewer, when the skill activates, then it spawns all three reviewer agents in parallel using TeamCreate + Task
-- [ ] **AC-US2-04**: Given PLUGIN.md already has a code-reviewer entry at line 82, when SKILL.md is created, then the skill is fully functional without additional PLUGIN.md changes
+- [x] **AC-US2-01**: Given the code-reviewer skill directory exists at plugins/specweave/skills/code-reviewer/, when SKILL.md is created, then it contains frontmatter with description, hooks, and usage instructions
+- [x] **AC-US2-02**: Given the code-reviewer agents/ directory, when reviewer templates are created, then it contains reviewer-silent-failures.md, reviewer-types.md, and reviewer-spec-compliance.md
+- [x] **AC-US2-03**: Given a developer invokes /sw:code-reviewer, when the skill activates, then it spawns all three reviewer agents in parallel using TeamCreate + Task
+- [x] **AC-US2-04**: Given PLUGIN.md already has a code-reviewer entry at line 82, when SKILL.md is created, then the skill is fully functional without additional PLUGIN.md changes
 
 ### US-003: Planning Mode Agent Composition
 **Project**: specweave
@@ -55,9 +55,9 @@ The team-lead skill currently operates primarily as an implementation orchestrat
 **So that** spec creation and technical design happen concurrently for faster planning cycles
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given team-lead detects plan mode, when it spawns agents, then it creates a PM agent using the existing agents/pm.md template and an Architect agent using the existing agents/architect.md template
-- [ ] **AC-US3-02**: Given plan mode is active, when agents are spawned, then PM and Architect agents run in parallel (not sequentially)
-- [ ] **AC-US3-03**: Given plan mode is active, when team-lead creates the team, then the team name uses the plan-* prefix (e.g., plan-checkout-feature)
+- [x] **AC-US3-01**: Given team-lead detects plan mode, when it spawns agents, then it creates a PM agent using the existing agents/pm.md template and an Architect agent using the existing agents/architect.md template
+- [x] **AC-US3-02**: Given plan mode is active, when agents are spawned, then PM and Architect agents run in parallel (not sequentially)
+- [x] **AC-US3-03**: Given plan mode is active, when team-lead creates the team, then the team name uses the plan-* prefix (e.g., plan-checkout-feature)
 
 ### US-004: Cross-Repo Code Review
 **Project**: specweave
@@ -66,9 +66,9 @@ The team-lead skill currently operates primarily as an implementation orchestrat
 **So that** reviewers can detect issues spanning repo boundaries (e.g., API contract mismatches)
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given an umbrella project with repositories/*/* structure, when /sw:code-reviewer is invoked, then reviewer agents receive the list of child repo paths in their prompts
-- [ ] **AC-US4-02**: Given a reviewer agent in an umbrella project, when it detects a cross-repo concern (e.g., frontend calling a backend API that changed), then it flags it in its review output
-- [ ] **AC-US4-03**: Given the code-reviewer SKILL.md, when it contains umbrella detection logic, then it scans for repositories/*/* directories and passes them to agent prompts
+- [x] **AC-US4-01**: Given an umbrella project with repositories/*/* structure, when /sw:code-reviewer is invoked, then reviewer agents receive the list of child repo paths in their prompts
+- [x] **AC-US4-02**: Given a reviewer agent in an umbrella project, when it detects a cross-repo concern (e.g., frontend calling a backend API that changed), then it flags it in its review output
+- [x] **AC-US4-03**: Given the code-reviewer SKILL.md, when it contains umbrella detection logic, then it scans for repositories/*/* directories and passes them to agent prompts
 
 ## Out of Scope
 
