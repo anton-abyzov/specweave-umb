@@ -29,10 +29,10 @@ created: 2026-03-17
 **So that** `vskill.lock` files stop appearing in unrelated project directories
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given `installPlugin()` is called for a bundled plugin, when it writes the hash cache, then the entry is written to `~/.specweave/plugins-lock.json` (not to `getProjectRoot()/vskill.lock`)
-- [ ] **AC-US1-02**: Given `~/.specweave/` does not exist, when `installPlugin()` runs, then it creates the directory before writing `plugins-lock.json`
-- [ ] **AC-US1-03**: Given `plugins-lock.json` already exists with entries, when a new plugin is installed, then existing entries are preserved and the new entry is merged
-- [ ] **AC-US1-04**: Given `installPlugin()` is called with `force: false` and the hash in `plugins-lock.json` matches, then installation is skipped (existing skip logic works with new path)
+- [x] **AC-US1-01**: Given `installPlugin()` is called for a bundled plugin, when it writes the hash cache, then the entry is written to `~/.specweave/plugins-lock.json` (not to `getProjectRoot()/vskill.lock`)
+- [x] **AC-US1-02**: Given `~/.specweave/` does not exist, when `installPlugin()` runs, then it creates the directory before writing `plugins-lock.json`
+- [x] **AC-US1-03**: Given `plugins-lock.json` already exists with entries, when a new plugin is installed, then existing entries are preserved and the new entry is merged
+- [x] **AC-US1-04**: Given `installPlugin()` is called with `force: false` and the hash in `plugins-lock.json` matches, then installation is skipped (existing skip logic works with new path)
 
 ### US-002: Refresh-Plugins Uses Global Lock
 **Project**: specweave
@@ -41,9 +41,9 @@ created: 2026-03-17
 **So that** it no longer depends on `getProjectRoot()` for lockfile purposes
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given `refresh-plugins` runs with native CLI mode, when `installPlugin()` is called, then it uses `~/.specweave/plugins-lock.json` for hash comparison
-- [ ] **AC-US2-02**: Given `refresh-plugins` runs with direct-copy fallback mode, when `copyPluginSkillsToProject()` is called, then it still uses the project-local `vskill.lock` for project-scoped skill tracking (unchanged behavior)
-- [ ] **AC-US2-03**: Given `refresh-plugins` runs the stale lockfile cleanup (Step 0.5), when `getProjectRoot()` is called, then it is only used for orphaned child lock cleanup -- not for bundled plugin lock reads
+- [x] **AC-US2-01**: Given `refresh-plugins` runs with native CLI mode, when `installPlugin()` is called, then it uses `~/.specweave/plugins-lock.json` for hash comparison
+- [x] **AC-US2-02**: Given `refresh-plugins` runs with direct-copy fallback mode, when `copyPluginSkillsToProject()` is called, then it still uses the project-local `vskill.lock` for project-scoped skill tracking (unchanged behavior)
+- [x] **AC-US2-03**: Given `refresh-plugins` runs the stale lockfile cleanup (Step 0.5), when `getProjectRoot()` is called, then it is only used for orphaned child lock cleanup -- not for bundled plugin lock reads
 
 ### US-003: Migration from Project Lock to Global Lock
 **Project**: specweave

@@ -9,7 +9,7 @@ generated: 2026-03-17
 
 ### T-001: Add `GLOBAL_LOCKFILE_NAME` constant and `getGlobalLockDir()` to plugin-copier.ts
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `~/.specweave/` does not exist → When `getGlobalLockDir()` is called → Then it creates the directory via `mkdirSync({ recursive: true })` and returns the absolute path; a second call succeeds without error (idempotent)
 
 **TDD cycle**:
@@ -21,7 +21,7 @@ generated: 2026-03-17
 
 ### T-002: Add `readGlobalLockfile()`, `writeGlobalLockfile()`, and `ensureGlobalLockfile()` to plugin-copier.ts
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `~/.specweave/plugins-lock.json` does not exist → When `ensureGlobalLockfile()` is called → Then it returns a new `VskillLock` with `version: 1` and `skills: {}` and writes `plugins-lock.json`; calling again returns the existing file unchanged
 
 **TDD cycle**:
@@ -33,7 +33,7 @@ generated: 2026-03-17
 
 ### T-003: Update `installPlugin()` to use global lock instead of `getProjectRoot()`
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `installPlugin()` is called with `execFileNoThrowSync` mocked to return success → When called from a temp directory with no `.specweave/config.json` → Then no `vskill.lock` appears in `process.cwd()` and `~/.specweave/plugins-lock.json` contains the plugin entry with `source: 'local:specweave'`
 
 **TDD cycle**:
@@ -45,7 +45,7 @@ generated: 2026-03-17
 
 ### T-004: Verify skip logic works with global lock (force: false + hash match)
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `~/.specweave/plugins-lock.json` already has an entry for plugin `sw` with a matching `sha` and the plugin appears in `installed_plugins.json` → When `installPlugin('sw', specweaveRoot, { force: false })` is called → Then `execFileNoThrowSync` is NOT called and the result has `skipped: true`
 
 **TDD cycle**:
@@ -59,7 +59,7 @@ generated: 2026-03-17
 
 ### T-005: Confirm native-CLI path in `refreshPluginsCommand()` uses global lock end-to-end
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `detectClaudeCli()` returns `{ available: true, pluginCommandsWork: true }` → When `refreshPluginsCommand()` runs → Then `installPlugin()` is called and no `vskill.lock` file appears at `projectRoot`
 
 **TDD cycle**:
@@ -71,7 +71,7 @@ generated: 2026-03-17
 
 ### T-006: Confirm direct-copy fallback in `refreshPluginsCommand()` still uses project-local `vskill.lock`
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-02, AC-US2-03
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `detectClaudeCli()` returns `{ available: false }` → When `refreshPluginsCommand()` runs and `copyPluginSkillsToProject()` is called → Then it writes to `<projectRoot>/vskill.lock` (project-scoped) and does NOT touch `~/.specweave/plugins-lock.json`
 
 **TDD cycle**:
