@@ -1,0 +1,30 @@
+{
+  "id": "0556-docs-overhaul",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-17T05:13:09.270Z",
+  "lastActivity": "2026-03-17T06:21:51.500Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-390",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-390",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-17T06:22:26.225Z"
+    },
+    "ado": {
+      "featureId": "1405",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1405",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-17T06:22:31.917Z"
+    }
+  },
+  "updated": "2026-03-17T06:19:55.000Z",
+  "approvedAt": "2026-03-17T06:21:51.500Z"
+}
