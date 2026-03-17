@@ -5,10 +5,6 @@
 
 This guide organizes all SpecWeave commands by priority, from essential daily workflow to specialized features.
 
-:::tip You don't need to memorize commands
-Every command below can also be triggered with natural language. For example, instead of typing `/sw:increment "User auth"`, you can just say **"Let's build user authentication"** — SpecWeave detects the intent and activates the same skill under the hood. Slash commands give you explicit control; natural language gives you convenience.
-:::
-
 ---
 
 ## P0: Critical/Core Workflow (Use Daily)
@@ -29,20 +25,20 @@ These are the essential commands you'll use every day. Master these first!
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `/sw:reopen` | **NEW!** Reopen completed work | `/sw:reopen 0031 --reason "GitHub sync failing"` |
+| `/sw:resume` | **NEW!** Reopen completed work | `/sw:resume 0031 --reason "GitHub sync failing"` |
 
 **Smart Detection**: Just say "GitHub sync not working" and the skill auto-suggests what to reopen!
 
 **Usage**:
 ```bash
 # Reopen entire increment
-/sw:reopen 0031 --reason "Production bug found"
+/sw:resume 0031 --reason "Production bug found"
 
 # Reopen specific task
-/sw:reopen 0031 --task T-003 --reason "API broken"
+/sw:resume 0031 --task T-003 --reason "API broken"
 
 # Reopen user story
-/sw:reopen 0031 --user-story US-001 --reason "AC not met"
+/sw:resume 0031 --user-story US-001 --reason "AC not met"
 ```
 
 ---
@@ -58,7 +54,7 @@ Commands you'll use regularly but not every day.
 | `/sw:pause` | Pause active increment | `/sw:pause 0031 --reason "Blocked by API"` |
 | `/sw:resume` | Resume paused increment | `/sw:resume 0031` |
 | `/sw:next` | Smart transition to next work | `/sw:next` |
-| `/sw:backlog` | Move increment to backlog | `/sw:backlog 0032 --reason "Deprioritized"` |
+| `/sw:status` | Move increment to backlog | `/sw:status 0032 --reason "Deprioritized"` |
 
 ### Quality & Validation
 
@@ -66,7 +62,7 @@ Commands you'll use regularly but not every day.
 |---------|-------------|---------|
 | `/sw:validate` | Validate increment structure | `/sw:validate 0031` |
 | `/sw:qa` | Quality assessment with risk scoring | `/sw:qa 0031` |
-| `/sw:check-tests` | Validate test coverage | `/sw:check-tests 0031` |
+| `npx vitest run` | Validate test coverage | `npx vitest run 0031` |
 
 ### Documentation Sync
 
@@ -74,7 +70,7 @@ Commands you'll use regularly but not every day.
 |---------|-------------|---------|
 | `/sw:sync-docs` | Sync to living docs | `/sw:sync-docs update` |
 | `/sw:sync-specs` | Sync specs only | `/sw:sync-specs 0031` |
-| `/sw:sync-tasks` | Sync task completion | `/sw:sync-tasks 0031` |
+| `/sw:progress-sync` | Sync task completion | `/sw:progress-sync 0031` |
 
 ---
 
@@ -93,10 +89,7 @@ Specialized commands for advanced workflows.
 
 ### Multi-Project Management
 
-| Command | Description | Example |
-|---------|-------------|---------|
-| `/sw:init-multiproject` | Initialize multi-project mode | `/sw:init-multiproject` |
-| `/sw:switch-project` | Switch active project | `/sw:switch-project backend` |
+Multi-project mode is enabled during `specweave init` (when connecting JIRA/ADO with multiple projects), via `specweave migrate-to-umbrella --reorganize-specs`, or by manually editing config.json. Project routing is per-increment via the `**Project**:` field in spec.md user stories.
 
 ### Archiving & Cleanup
 
@@ -111,7 +104,7 @@ Specialized commands for advanced workflows.
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `/sw:import-docs` | Import brownfield docs | `/sw:import-docs ./notion-export` |
+| `/sw:import` | Import issues from GitHub/JIRA/ADO | `/sw:import` |
 | `/sw:translate` | Translate content | `/sw:translate ru` |
 
 ### Cost Tracking
@@ -119,7 +112,7 @@ Specialized commands for advanced workflows.
 | Command | Description | Example |
 |---------|-------------|---------|
 | `/sw:costs` | Show AI cost dashboard | `/sw:costs 0031` |
-| `/sw:update-scope` | Log scope changes | `/sw:update-scope 0031` |
+| `/sw:increment (to update spec)` | Log scope changes | `/sw:increment (to update spec) 0031` |
 
 ---
 
@@ -162,12 +155,12 @@ Edge cases and specialized integrations.
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `/sw-docs:view` | Launch docs server (internal or public) | `/sw-docs:view` or `/sw-docs:view --public` |
-| `/sw-docs:build` | Build static docs site | `/sw-docs:build` |
-| `/sw-docs:generate` | Generate documentation | `/sw-docs:generate` |
-| `/sw-docs:organize` | Organize large doc folders | `/sw-docs:organize` |
-| `/sw-docs:health` | Documentation health report | `/sw-docs:health` |
-| `/sw-docs:validate` | Validate documentation | `/sw-docs:validate` |
+| `/docs:view` | Launch docs server (internal or public) | `/docs:view` or `/docs:view --public` |
+| `/docs:build` | Build static docs site | `/docs:build` |
+| `/docs:generate` | Generate documentation | `/docs:generate` |
+| `/docs:organize` | Organize large doc folders | `/docs:organize` |
+| `/docs:health` | Documentation health report | `/docs:health` |
+| `/docs:validate` | Validate documentation | `/docs:validate` |
 
 ### Infrastructure & SRE
 
@@ -205,28 +198,23 @@ Edge cases and specialized integrations.
 
 ## Quick Start Guide - Essential 5 Commands
 
-If you're new to SpecWeave, start with these 5 commands. You can type the slash command **or** just describe what you want — both work identically:
+If you're new to SpecWeave, start with these 5 commands:
 
 ```bash
 # 1. Plan new work
 /sw:increment "Add user authentication"
-# Or just say: "Let's build user authentication"
 
 # 2. Execute tasks
 /sw:do
-# Or: "Start working" / "Continue tasks"
 
 # 3. Check progress
 /sw:progress
-# Or: "How far along are we?" / "What's the status?"
 
 # 4. Close when done
 /sw:done 0031
-# Or: "We're done" / "Close the increment"
 
 # 5. (NEW!) Reopen if issues found
-/sw:reopen 0031 --reason "Auth broken in prod"
-# Or just describe the issue: "The auth is broken in production"
+/sw:resume 0031 --reason "Auth broken in prod"
 ```
 
 ---
@@ -236,25 +224,22 @@ If you're new to SpecWeave, start with these 5 commands. You can type the slash 
 **Monday - Start New Feature**:
 ```bash
 /sw:increment "Implement payment processing"
-# Or just say: "I need to build payment processing with Stripe"
 # → Creates increment 0032, generates spec/plan/tasks
 ```
 
 **Tuesday-Thursday - Execute Work**:
 ```bash
 /sw:do
-# Or: "Continue working" / "Start the tasks"
 # → Smart resume, continues last active increment
+# Work on tasks, mark [x] as you complete them
 
 /sw:progress
-# Or: "How's it going?" / "Show progress"
 # → Check: 15/20 tasks (75%)
 ```
 
 **Friday - Complete or Pause**:
 ```bash
 /sw:done 0032
-# Or: "We're done with this increment"
 # → PM validates, syncs to living docs, closes increment
 
 # OR if blocked:
@@ -267,7 +252,7 @@ If you're new to SpecWeave, start with these 5 commands. You can type the slash 
 /sw:resume 0032
 
 # OR reopen if issues found
-/sw:reopen 0032 --reason "Payment gateway timeout"
+/sw:resume 0032 --reason "Payment gateway timeout"
 ```
 
 ---
@@ -303,17 +288,17 @@ The `smart-reopen-detector` skill will:
 
 **Task-Level** (Surgical Fix):
 ```bash
-/sw:reopen 0031 --task T-003 --reason "GitHub API rate limit"
+/sw:resume 0031 --task T-003 --reason "GitHub API rate limit"
 ```
 
 **User Story-Level** (Feature Fix):
 ```bash
-/sw:reopen 0031 --user-story US-001 --reason "AC not met"
+/sw:resume 0031 --user-story US-001 --reason "AC not met"
 ```
 
 **Increment-Level** (Systemic Fix):
 ```bash
-/sw:reopen 0031 --reason "Multiple issues in production"
+/sw:resume 0031 --reason "Multiple issues in production"
 ```
 
 ### WIP Limits Respected
@@ -326,7 +311,7 @@ Reopening respects WIP limits:
 
 Options:
 1. Pause: /sw:pause 0030
-2. Force: /sw:reopen 0031 --force --reason "Production critical"
+2. Force: /sw:resume 0031 --force --reason "Production critical"
 ```
 
 ---
@@ -386,7 +371,7 @@ Options:
 # → Closes GitHub issue #123
 
 # 6. (If needed) Reopen
-/sw:reopen 0031 --reason "Bug found"
+/sw:resume 0031 --reason "Bug found"
 # → Reopens GitHub issue #123
 ```
 

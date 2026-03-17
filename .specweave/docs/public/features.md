@@ -184,8 +184,7 @@ Comprehensive overview of what SpecWeave supports.
 
 | Command | Purpose |
 |---------|---------|
-| `/sw:import-docs` | Import from Notion, Confluence, Wiki |
-| `/sw:import-external` | Import from issue trackers |
+| `/sw:import` | Import from GitHub, JIRA, ADO |
 | `/sw:translate` | Translate project content |
 
 ---

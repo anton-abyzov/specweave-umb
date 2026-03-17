@@ -142,7 +142,7 @@ This guide explains **when**, **why**, and **how** living documentation stays sy
 **Trigger**: Importing existing docs from external sources
 
 ```bash
-/sw:import-docs --source ~/notion-export/
+/sw:import
 
 # Behind the scenes:
 # 1. Scans folder for markdown files
