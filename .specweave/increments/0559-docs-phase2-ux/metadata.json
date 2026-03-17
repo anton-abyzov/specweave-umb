@@ -1,0 +1,13 @@
+{
+  "id": "0559-docs-phase2-ux",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-17T14:01:11.715Z",
+  "lastActivity": "2026-03-17T08:15:00Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

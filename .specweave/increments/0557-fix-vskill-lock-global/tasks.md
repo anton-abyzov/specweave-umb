@@ -1,6 +1,8 @@
 ---
 increment: 0557-fix-vskill-lock-global
 generated: 2026-03-17
+totalTasks: 14
+completedTasks: 14
 ---
 
 # Tasks: Separate Global Plugin Lock from Project-Scoped Skill Lock
@@ -85,7 +87,7 @@ generated: 2026-03-17
 
 ### T-007: Implement `migrateBundledToGlobalLock()` in plugin-copier.ts
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given a project `vskill.lock` with one bundled entry (`source: 'local:specweave'`) and one user entry (`source: 'marketplace'`) → When `migrateBundledToGlobalLock(projectRoot)` is called → Then `plugins-lock.json` gains the bundled entry, `vskill.lock` retains only the user entry, and the return value is `{ migratedCount: 1, deletedProjectLock: false }`
 
 **TDD cycle**:
@@ -97,7 +99,7 @@ generated: 2026-03-17
 
 ### T-008: Wire `migrateBundledToGlobalLock()` into `refreshPluginsCommand()` before plugin installation
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given a project `vskill.lock` containing only bundled entries → When `refreshPluginsCommand()` runs → Then after completion the project `vskill.lock` is deleted and `~/.specweave/plugins-lock.json` has those entries; running a second time does not attempt migration again
 
 **TDD cycle**:
@@ -109,7 +111,7 @@ generated: 2026-03-17
 
 ### T-009: Update `checkLockfileIntegrity()` in `installation-health-checker.ts` to include global lock entries
 **User Story**: US-003 | **Satisfies ACs**: AC-US1-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `~/.specweave/plugins-lock.json` contains a bundled `sw` entry and no `vskill.lock` exists at `projectRoot` → When `checkLockfileIntegrity(projectRoot, false)` is called → Then the result is `pass` or `warn` (not `skip`) and the `sw` entry's hash is verified against the plugin cache
 
 **TDD cycle**:
@@ -121,7 +123,7 @@ generated: 2026-03-17
 
 ### T-010: Update `detect-intent.ts` to include global `plugins-lock.json` in installed-plugins filter
 **User Story**: US-003 | **Satisfies ACs**: AC-US1-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `~/.specweave/plugins-lock.json` has `sw` as a skill and no project `vskill.lock` exists → When `detectIntentCommand()` runs and `detectVskillPlugins()` returns `sw` as a recommendation → Then `sw` is absent from `result.vskillRecommendations`
 
 **TDD cycle**:
@@ -133,7 +135,7 @@ generated: 2026-03-17
 
 ### T-011: Update `uninstall.ts` to remove `~/.specweave/plugins-lock.json` during full uninstall
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `~/.specweave/plugins-lock.json` exists → When the full uninstall runs → Then `plugins-lock.json` is deleted; if the file does not exist the uninstall still succeeds without error
 
 **TDD cycle**:
@@ -145,7 +147,7 @@ generated: 2026-03-17
 
 ### T-012: Update `shouldOfferMigration()` in `migrate-to-vskill.ts` to check global lock
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `~/.specweave/plugins-lock.json` contains at least one skill entry and no project `vskill.lock` exists → When `shouldOfferMigration()` is called → Then it returns `false` (plugins already tracked globally)
 
 **TDD cycle**:
@@ -159,7 +161,7 @@ generated: 2026-03-17
 
 ### T-013: Graceful fallback when `~/.specweave/` cannot be created (permission denied)
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `mkdirSync` throws `{ code: 'EACCES' }` for the global dir path → When `installPlugin()` is called → Then it still returns `{ success: true }` after installation and does not throw; no `vskill.lock` is created in `process.cwd()`
 
 **TDD cycle**:
@@ -171,7 +173,7 @@ generated: 2026-03-17
 
 ### T-014: Graceful handling when `os.homedir()` returns empty string
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given `os.homedir()` returns `''` → When `writeGlobalLockfile()` is called → Then it does not write to the filesystem root and does not throw an unhandled exception
 
 **TDD cycle**:

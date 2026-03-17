@@ -1,10 +1,10 @@
 ---
 increment: 0557-fix-vskill-lock-global
-title: "Separate global plugin lock from project-scoped skill lock"
-status: active
+title: Separate global plugin lock from project-scoped skill lock
+status: completed
 priority: P1
 type: bugfix
-created: 2026-03-17
+created: 2026-03-17T00:00:00.000Z
 ---
 
 # Separate Global Plugin Lock from Project-Scoped Skill Lock
@@ -52,10 +52,10 @@ created: 2026-03-17
 **So that** the transition is seamless with no re-downloads
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a project `vskill.lock` contains bundled plugin entries (source: `local:specweave`), when migration runs, then those entries are copied to `~/.specweave/plugins-lock.json`
-- [ ] **AC-US3-02**: Given migration moves all entries out of a project `vskill.lock`, when the lock has no remaining skill entries, then the empty `vskill.lock` file is deleted
-- [ ] **AC-US3-03**: Given `~/.specweave/plugins-lock.json` already has an entry for a plugin being migrated, when the project lock has a newer `installedAt` timestamp, then the global entry is updated; otherwise the existing global entry is kept
-- [ ] **AC-US3-04**: Given migration has already run (no bundled entries in project lock), when `installPlugin()` is called again, then migration is not re-attempted (idempotent)
+- [x] **AC-US3-01**: Given a project `vskill.lock` contains bundled plugin entries (source: `local:specweave`), when migration runs, then those entries are copied to `~/.specweave/plugins-lock.json`
+- [x] **AC-US3-02**: Given migration moves all entries out of a project `vskill.lock`, when the lock has no remaining skill entries, then the empty `vskill.lock` file is deleted
+- [x] **AC-US3-03**: Given `~/.specweave/plugins-lock.json` already has an entry for a plugin being migrated, when the project lock has a newer `installedAt` timestamp, then the global entry is updated; otherwise the existing global entry is kept
+- [x] **AC-US3-04**: Given migration has already run (no bundled entries in project lock), when `installPlugin()` is called again, then migration is not re-attempted (idempotent)
 
 ## Out of Scope
 

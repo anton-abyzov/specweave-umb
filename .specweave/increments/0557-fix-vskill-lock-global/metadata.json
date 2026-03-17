@@ -1,10 +1,10 @@
 {
   "id": "0557-fix-vskill-lock-global",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-17T07:56:09.573Z",
-  "lastActivity": "2026-03-17T07:56:09.573Z",
+  "lastActivity": "2026-03-17T08:19:51.089Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,16 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-400",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-17T08:05:40.872Z"
+      "syncedAt": "2026-03-17T08:21:02.234Z"
     },
     "ado": {
       "featureId": "1406",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1406",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-17T08:05:43.462Z"
+      "syncedAt": "2026-03-17T08:21:04.833Z"
     }
-  }
+  },
+  "updated": "2026-03-17T08:18:06.000Z",
+  "approvedAt": "2026-03-17T08:19:51.089Z"
 }
