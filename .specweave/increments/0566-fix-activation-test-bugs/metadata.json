@@ -1,0 +1,28 @@
+{
+  "id": "0566-fix-activation-test-bugs",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-18T06:31:54.979Z",
+  "lastActivity": "2026-03-18T06:31:54.979Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-455",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-455",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-18T06:42:26.319Z"
+    },
+    "ado": {
+      "featureId": "1416",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1416",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-18T06:42:31.091Z"
+    }
+  }
+}

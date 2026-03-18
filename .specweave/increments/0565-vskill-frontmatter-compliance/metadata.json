@@ -1,0 +1,28 @@
+{
+  "id": "0565-vskill-frontmatter-compliance",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-18T05:54:48.833Z",
+  "lastActivity": "2026-03-18T05:54:48.833Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-451",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-451",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-18T06:02:38.650Z"
+    },
+    "ado": {
+      "featureId": "1415",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1415",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-18T06:02:41.872Z"
+    }
+  }
+}
