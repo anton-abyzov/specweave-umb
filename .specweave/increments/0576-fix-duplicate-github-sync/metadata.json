@@ -1,0 +1,30 @@
+{
+  "id": "0576-fix-duplicate-github-sync",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-18T17:22:02.441Z",
+  "lastActivity": "2026-03-18T17:31:03.671Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-527",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-527",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-18T17:30:11.815Z"
+    },
+    "ado": {
+      "featureId": "1434",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1434",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-18T17:30:13.289Z"
+    }
+  },
+  "updated": "2026-03-18T17:30:07.000Z",
+  "approvedAt": "2026-03-18T17:31:03.671Z"
+}

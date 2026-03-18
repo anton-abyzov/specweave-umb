@@ -1,0 +1,59 @@
+{
+  "id": "0575-docs-no-docs-needed-rewrite",
+  "status": "planned",
+  "type": "change-request",
+  "priority": "P1",
+  "created": "2026-03-18T17:14:26.008Z",
+  "lastActivity": "2026-03-18T17:14:26.008Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-511",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-511",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-18T17:23:12.764Z"
+    },
+    "ado": {
+      "featureId": "1433",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1433",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-18T17:23:16.545Z"
+    }
+  },
+  "interview": {
+    "status": "completed",
+    "startedAt": "2026-03-18T17:16:00.000Z",
+    "completedAt": "2026-03-18T17:17:00.000Z",
+    "categories": {
+      "architecture": {
+        "covered": true,
+        "summary": "Single markdown file rewrite. No architecture changes. File stays at docs/overview/no-docs-needed.md. Sidebar position preserved at 3."
+      },
+      "integrations": {
+        "covered": true,
+        "summary": "N/A — docs-only change. No APIs, databases, or external services involved."
+      },
+      "ui-ux": {
+        "covered": true,
+        "summary": "Page restructured: new title 'Start Building in Minutes', capabilities table replaces CC concepts table, before/after reframed as vibe coding vs spec-driven. Internal links preserved."
+      },
+      "performance": {
+        "covered": true,
+        "summary": "N/A — static markdown page. No runtime performance considerations."
+      },
+      "security": {
+        "covered": true,
+        "summary": "N/A — no auth, data, or code changes. Documentation only."
+      },
+      "edge-cases": {
+        "covered": true,
+        "summary": "File path unchanged so existing links from why-specweave.md remain valid. Slug may change via frontmatter if needed. Cross-page references to 'no-docs-needed' link from why-specweave.md section 'You Don't Need Claude Code Expertise' — link target still works since file path is preserved."
+      }
+    }
+  }
+}
