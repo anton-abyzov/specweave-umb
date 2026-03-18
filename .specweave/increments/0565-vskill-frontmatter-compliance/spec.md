@@ -1,10 +1,10 @@
 ---
 increment: 0565-vskill-frontmatter-compliance
-title: "Fix vskill SKILL.md frontmatter for Agent Skills standard compliance"
+title: Fix vskill SKILL.md frontmatter for Agent Skills standard compliance
 type: feature
 priority: P1
-status: active
-created: 2026-03-18
+status: completed
+created: 2026-03-18T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -32,11 +32,11 @@ coverage_target: 90
 **So that** my skills work in all AI tools that follow the Agent Skills standard
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a SKILL.md with no frontmatter block, when `ensureFrontmatter(content, "my-skill")` is called, then the returned content starts with a YAML frontmatter block containing `name: my-skill`
-- [ ] **AC-US1-02**: Given a SKILL.md with frontmatter missing `name`, when `ensureFrontmatter(content, "my-skill")` is called, then `name: my-skill` is injected into the existing frontmatter
-- [ ] **AC-US1-03**: Given a SKILL.md with frontmatter missing `description`, when `ensureFrontmatter(content, "my-skill")` is called, then `description` is injected using text extracted from the first non-empty paragraph of the body
-- [ ] **AC-US1-04**: Given a SKILL.md where both `name` and `description` already exist, when `ensureFrontmatter` is called, then the content is returned unchanged
-- [ ] **AC-US1-05**: Given a SKILL.md with an existing `name` that differs from the skillName parameter, when `ensureFrontmatter` is called, then the existing `name` is preserved (author intent)
+- [x] **AC-US1-01**: Given a SKILL.md with no frontmatter block, when `ensureFrontmatter(content, "my-skill")` is called, then the returned content starts with a YAML frontmatter block containing `name: my-skill`
+- [x] **AC-US1-02**: Given a SKILL.md with frontmatter missing `name`, when `ensureFrontmatter(content, "my-skill")` is called, then `name: my-skill` is injected into the existing frontmatter
+- [x] **AC-US1-03**: Given a SKILL.md with frontmatter missing `description`, when `ensureFrontmatter(content, "my-skill")` is called, then `description` is injected using text extracted from the first non-empty paragraph of the body
+- [x] **AC-US1-04**: Given a SKILL.md where both `name` and `description` already exist, when `ensureFrontmatter` is called, then the content is returned unchanged
+- [x] **AC-US1-05**: Given a SKILL.md with an existing `name` that differs from the skillName parameter, when `ensureFrontmatter` is called, then the existing `name` is preserved (author intent)
 
 ---
 
@@ -48,11 +48,11 @@ coverage_target: 90
 **So that** no code path can produce a non-compliant file
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given any call to `installSymlink()`, when SKILL.md is written to the canonical directory, then `ensureFrontmatter` is applied to the content before writing
-- [ ] **AC-US2-02**: Given any call to `installSymlink()`, when SKILL.md is written to a copy-fallback agent directory, then `ensureFrontmatter` is applied to the content before writing
-- [ ] **AC-US2-03**: Given any call to `installSymlink()`, when SKILL.md is written to a symlink-failure fallback directory, then `ensureFrontmatter` is applied to the content before writing
-- [ ] **AC-US2-04**: Given any call to `installCopy()`, when SKILL.md is written, then `ensureFrontmatter` is applied to the content before writing
-- [ ] **AC-US2-05**: Given the `updateCommand` writing SKILL.md directly (bypassing canonical.ts), when SKILL.md is written, then `ensureFrontmatter` is applied to the content before writing
+- [x] **AC-US2-01**: Given any call to `installSymlink()`, when SKILL.md is written to the canonical directory, then `ensureFrontmatter` is applied to the content before writing
+- [x] **AC-US2-02**: Given any call to `installSymlink()`, when SKILL.md is written to a copy-fallback agent directory, then `ensureFrontmatter` is applied to the content before writing
+- [x] **AC-US2-03**: Given any call to `installSymlink()`, when SKILL.md is written to a symlink-failure fallback directory, then `ensureFrontmatter` is applied to the content before writing
+- [x] **AC-US2-04**: Given any call to `installCopy()`, when SKILL.md is written, then `ensureFrontmatter` is applied to the content before writing
+- [x] **AC-US2-05**: Given the `updateCommand` writing SKILL.md directly (bypassing canonical.ts), when SKILL.md is written, then `ensureFrontmatter` is applied to the content before writing
 
 ---
 
@@ -64,11 +64,11 @@ coverage_target: 90
 **So that** invalid names are caught early instead of causing silent failures in consuming tools
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a valid skill name (lowercase alphanumeric and hyphens, 1-64 chars), when `validateSkillNameStrict(name)` is called, then it returns true
-- [ ] **AC-US3-02**: Given a name with uppercase letters, when `validateSkillNameStrict(name)` is called, then it returns false
-- [ ] **AC-US3-03**: Given a name with underscores or spaces, when `validateSkillNameStrict(name)` is called, then it returns false
-- [ ] **AC-US3-04**: Given an empty string or a name exceeding 64 characters, when `validateSkillNameStrict(name)` is called, then it returns false
-- [ ] **AC-US3-05**: Given a name starting or ending with a hyphen, when `validateSkillNameStrict(name)` is called, then it returns false
+- [x] **AC-US3-01**: Given a valid skill name (lowercase alphanumeric and hyphens, 1-64 chars), when `validateSkillNameStrict(name)` is called, then it returns true
+- [x] **AC-US3-02**: Given a name with uppercase letters, when `validateSkillNameStrict(name)` is called, then it returns false
+- [x] **AC-US3-03**: Given a name with underscores or spaces, when `validateSkillNameStrict(name)` is called, then it returns false
+- [x] **AC-US3-04**: Given an empty string or a name exceeding 64 characters, when `validateSkillNameStrict(name)` is called, then it returns false
+- [x] **AC-US3-05**: Given a name starting or ending with a hyphen, when `validateSkillNameStrict(name)` is called, then it returns false
 
 ## Out of Scope
 

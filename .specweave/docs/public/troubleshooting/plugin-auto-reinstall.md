@@ -80,8 +80,8 @@ In `.specweave/config.json`:
 
 This will show suggestions like:
 ```
-Plugins that may help: frontend, payments
-To install: claude plugin install frontend@vskill
+Plugins that may help: mobile, payments
+To install: claude plugin install mobile@vskill
 ```
 
 ### Option B: Disable Auto-Load Completely
@@ -172,7 +172,7 @@ tail -100 ~/.specweave/logs/lazy-loading.log
 
 # Example entries:
 # [2026-01-25T00:10:35] detect-intent | duration=1500ms
-# [2026-01-25T00:10:36] plugins | installed=frontend | already=none
+# [2026-01-25T00:10:36] plugins | installed=mobile | already=none
 # [2026-01-25T00:10:36] keyword-fallback | plugins=testing | reason=llm_failed
 ```
 

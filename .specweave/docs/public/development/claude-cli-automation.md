@@ -46,7 +46,7 @@ claude --model haiku "Fix the typo in this error message"
 ```bash
 # Install from marketplace
 claude plugin install sw@specweave
-claude plugin install frontend@vskill
+claude plugin install mobile@vskill
 claude plugin install testing@vskill
 
 # Install all plugins from a marketplace
@@ -61,8 +61,8 @@ claude plugin list
 
 ```bash
 # Enable/disable plugins
-claude plugin enable frontend@vskill
-claude plugin disable frontend@vskill
+claude plugin enable mobile@vskill
+claude plugin disable mobile@vskill
 
 # Update marketplace cache
 claude plugin marketplace update specweave

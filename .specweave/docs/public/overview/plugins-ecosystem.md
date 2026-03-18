@@ -180,7 +180,7 @@ Connect designs to implementation.
 
 ### 💻 Tech Stack Plugins
 
-#### **frontend** (`frontend@vskill`) - Frontend Development
+#### **mobile** (`mobile@vskill`) - Frontend Development
 React, Vue, Angular, Next.js expertise.
 
 **Agents:**
@@ -572,7 +572,7 @@ SpecWeave addresses this through its plugin marketplace architecture: skills are
 | Execute tasks | **specweave** | `/sw:do` |
 | Quality review | **specweave** | `/sw:grill` |
 | Sync to GitHub | **specweave-github** | `/sw-github:push` |
-| Build React app | **frontend** | Auto-activates on keywords |
+| Build React app | **mobile** | Auto-activates on keywords |
 | Build API | **backend** | Auto-activates on keywords |
 | Deploy infra / K8s | **infra** | Auto-activates on keywords |
 | Create ML pipeline | **ml** | Auto-activates on keywords |
@@ -601,7 +601,7 @@ SpecWeave addresses this through its plugin marketplace architecture: skills are
 
 | Plugin | Install Name | Purpose |
 |--------|-------------|---------|
-| **frontend** | `frontend@vskill` | React, Vue, Angular, Next.js |
+| **mobile** | `mobile@vskill` | React, Vue, Angular, Next.js |
 | **backend** | `backend@vskill` | Node.js, Python, .NET, APIs |
 | **mobile** | `mobile@vskill` | React Native, Expo, offline-first |
 | **infra** | `infra@vskill` | DevOps, SRE, K8s, monitoring, CI/CD |

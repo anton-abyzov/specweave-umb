@@ -283,7 +283,7 @@ Comprehensive overview of what SpecWeave supports.
 | **specweave-diagrams** | `sw-diagrams@specweave` | Mermaid diagram generation |
 | **specweave-release** | `sw-release@specweave` | Release management |
 | **specweave-media** | `sw-media@specweave` | AI image generation, assets |
-| **frontend** | `frontend@vskill` | React, Vue, Angular, Next.js |
+| **mobile** | `mobile@vskill` | React, Vue, Angular, Next.js |
 | **backend** | `backend@vskill` | Node.js, Python, .NET, APIs |
 | **mobile** | `mobile@vskill` | React Native, Expo |
 | **infra** | `infra@vskill` | DevOps, SRE, K8s, CI/CD |

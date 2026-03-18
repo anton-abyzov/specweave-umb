@@ -143,7 +143,7 @@ Since Claude is terminal-first, a hook can spawn a process:
 ```bash
 # UserPromptSubmit hook spawns:
 claude -p "What plugins for: $PROMPT" --model haiku
-claude plugin install frontend@vskill
+claude plugin install mobile@vskill
 ```
 
 Key: `plugin install` is SYNC - ready for current response!
@@ -253,7 +253,7 @@ Since Claude is terminal-first, a hook can spawn a process:
 
 → UserPromptSubmit hook spawns:
    claude -p "What plugins for: $PROMPT" --model haiku
-   claude plugin install frontend@vskill
+   claude plugin install mobile@vskill
 
 Key insight: plugin install is SYNC - ready for current response!
 
@@ -397,7 +397,7 @@ Since Claude is terminal-first, a hook can spawn a process. This is the key insi
 claude -p "What plugins for: $PROMPT" --model haiku
 
 # Install plugins SYNCHRONOUSLY
-claude plugin install frontend@vskill
+claude plugin install mobile@vskill
 ```
 
 **Key insight:** `claude plugin install` blocks until done. Plugin is ready for the CURRENT response!

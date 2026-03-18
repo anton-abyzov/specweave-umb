@@ -15,7 +15,7 @@ When `claude plugin uninstall <plugin>` executes, it:
 2. **Modifies `~/.claude/settings.json`** to remove the plugin from `enabledPlugins`
 3. **MAY corrupt or reset other entries** in the `enabledPlugins` object as a side effect
 
-This means uninstalling `frontend@vskill` can accidentally disable `sw@specweave`.
+This means uninstalling `mobile@vskill` can accidentally disable `sw@specweave`.
 
 ## Evidence
 
@@ -36,10 +36,10 @@ done
 ```
 
 **Symptom**: `sw@specweave` shows as disabled less than a minute after init
-**Timeline**: Hook runs on first user prompt → `claude plugin uninstall frontend@vskill` → `sw@specweave` disabled
+**Timeline**: Hook runs on first user prompt → `claude plugin uninstall mobile@vskill` → `sw@specweave` disabled
 **Log Evidence**:
 ```
-[2026-02-11T20:35:04] scope-guard | migrated user→project: frontend@vskill
+[2026-02-11T20:35:04] scope-guard | migrated user→project: mobile@vskill
 [2026-02-11T20:35:06] scope-guard | migrated user→project: testing@vskill
 ```
 Immediately after these migrations, `sw@specweave` was disabled.
@@ -180,7 +180,7 @@ try {
 const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf-8'));
 
 // Remove specific plugins
-delete settings.enabledPlugins['frontend@vskill'];
+delete settings.enabledPlugins['mobile@vskill'];
 delete settings.enabledPlugins['sw-github@specweave'];
 
 // Ensure core plugin stays enabled
@@ -203,7 +203,7 @@ jq '.enabledPlugins."sw@specweave"' ~/.claude/settings.json
 # Expected: true
 
 # 3. Uninstall a different plugin
-claude plugin uninstall frontend@vskill
+claude plugin uninstall mobile@vskill
 
 # 4. Check if core plugin is still enabled
 jq '.enabledPlugins."sw@specweave"' ~/.claude/settings.json

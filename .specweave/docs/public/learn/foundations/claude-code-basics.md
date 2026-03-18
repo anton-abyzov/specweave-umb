@@ -61,7 +61,7 @@ Plugins bundle related skills, agents, and hooks into installable packages.
 
 ```bash
 claude plugin install sw@specweave          # Core SpecWeave
-claude plugin install frontend@vskill       # Frontend expertise
+claude plugin install mobile@vskill       # Frontend expertise
 claude plugin list                          # Show installed
 ```
 
