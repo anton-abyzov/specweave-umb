@@ -1,13 +1,30 @@
 {
   "id": "0559-docs-phase2-ux",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-17T14:01:11.715Z",
-  "lastActivity": "2026-03-17T15:00:00Z",
+  "lastActivity": "2026-03-17T23:56:51.096Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-432",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-432",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-17T23:57:17.386Z"
+    },
+    "ado": {
+      "featureId": "1414",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1414",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-17T23:57:21.201Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-17T23:56:51.054Z",
+  "approvedAt": "2026-03-17T23:56:51.096Z"
 }

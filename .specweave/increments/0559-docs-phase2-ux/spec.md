@@ -1,10 +1,10 @@
 ---
 increment: 0559-docs-phase2-ux
-title: "Docs Phase 2: UX, Dual Activation, Plugin Accuracy, Team-Lead Section"
+title: 'Docs Phase 2: UX, Dual Activation, Plugin Accuracy, Team-Lead Section'
 type: feature
 priority: P1
-status: active
-created: 2026-03-17
+status: completed
+created: 2026-03-17T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
