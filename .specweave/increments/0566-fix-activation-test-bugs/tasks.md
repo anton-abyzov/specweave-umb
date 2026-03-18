@@ -10,7 +10,7 @@ test_mode: TDD
 
 ### T-001: Add ACTIVATION_ERROR reducer tests for error-in-done scenarios
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given `workspaceReducer.test.ts` with existing activation tests
 - When `ACTIVATION_ERROR` action is dispatched with an error message
@@ -28,7 +28,7 @@ Run: `npx vitest run src/eval-ui/src/pages/workspace/workspaceReducer.test.ts`
 
 ### T-002: Fix WorkspaceContext SSE `done` handler to check error field (activation test)
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-03
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given `WorkspaceContext.tsx` SSE done handler for activation test (line 530 area)
 - When the `done` event's `evt.data` contains `{ error: "LLM call failed" }`
@@ -56,7 +56,7 @@ Verification: Tests from T-001 pass. Run `npx vitest run`.
 
 ### T-003: Add reducer test for GENERATE_PROMPTS_ERROR from SSE done error field
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given `workspaceReducer.test.ts` AI Prompt Generation section
 - When `GENERATE_PROMPTS_START` → `GENERATE_PROMPTS_ERROR` is dispatched in sequence
@@ -72,7 +72,7 @@ Run: `npx vitest run src/eval-ui/src/pages/workspace/workspaceReducer.test.ts`
 
 ### T-004: Fix WorkspaceContext to throw on error field in prompt generation SSE `done` event
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given `WorkspaceContext.tsx` `generateActivationPrompts` SSE reader (line 653 area)
 - When the `done` event's parsed data is `{ error: "generation failed" }` (no `prompts` field)
@@ -96,7 +96,7 @@ Verification: Tests from T-003 pass. Run `npx vitest run`.
 
 ### T-005: Add onProgress callback tests to activation-tester.test.ts
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-03
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given `activation-tester.test.ts` auto-classification section
 - When `testActivation` is called with 2 auto-prompts, a valid `meta`, and a `vi.fn()` `onProgress` callback
@@ -114,7 +114,7 @@ Run: `npx vitest run src/eval/__tests__/activation-tester.test.ts`
 
 ### T-006: Add onProgress parameter to testActivation and resolvePrompts
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-03
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given `activation-tester.ts` `resolvePrompts` and `testActivation` functions
 - When `testActivation` is called with an `onProgress` callback and prompts containing `expected: "auto"`
@@ -147,7 +147,7 @@ Run: `npx vitest run src/eval/__tests__/activation-tester.test.ts`
 
 ### T-007: Wire onProgress to SSE classifying events in activation-test route
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given `api-routes.ts` activation-test route, `testActivation` call at line 1246
 - When `testActivation` invokes `onProgress("classifying", 2, 5)`
@@ -173,7 +173,7 @@ Verification: Run existing api-routes tests and activation-tester tests. `npx vi
 
 ### T-008: Create ActivationPanel component tests for disabled-reason hint
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given a new test file `src/eval-ui/src/pages/workspace/ActivationPanel.test.tsx`
 - When `ActivationPanel` is rendered with `WorkspaceContext` providing `cleanDescription = ""`
@@ -190,7 +190,7 @@ Run: `npx vitest run src/eval-ui/src/pages/workspace/ActivationPanel.test.tsx`
 
 ### T-009: Render inline disabled-reason hint in ActivationPanel when no description
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given `ActivationPanel.tsx` button area for "Generate Test Prompts"
 - When `!cleanDescription` is `true` and `activationRunning` is `false`
@@ -219,7 +219,7 @@ Verification: Tests from T-008 pass. Visual check: open a skill without frontmat
 
 ### T-010: Create extractDescription helper tests
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given a new test file `src/eval-server/__tests__/activation-description.test.ts`
 - When `extractDescription` is called with various SKILL.md content strings
@@ -241,7 +241,7 @@ Run: `npx vitest run src/eval-server/__tests__/activation-description.test.ts`
 
 ### T-011: Add extractDescription helper and apply to both activation endpoints
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given `api-routes.ts` with `/activation-test` (line 1232) and `/activation-prompts` (line 1301) each using different description extraction logic
 - When `extractDescription` is added as a local function and applied to both endpoints
@@ -271,7 +271,7 @@ Run: `npx vitest run src/eval-server/__tests__/activation-description.test.ts`
 
 ### T-012: Add heartbeat integration test for activation-prompts route
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given a test in `src/eval-server/__tests__/activation-prompts-heartbeat.test.ts`
 - When the `/activation-prompts` route processes a request and `vi.useFakeTimers()` advances by 3100ms during the awaited generate call
@@ -290,7 +290,7 @@ Run: `npx vitest run src/eval-server/__tests__/activation-prompts-heartbeat.test
 
 ### T-013: Wrap client.generate with withHeartbeat in activation-prompts endpoint
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**:
 - Given `api-routes.ts` activation-prompts route at line 1326
 - When `client.generate` completes normally in under 3 seconds

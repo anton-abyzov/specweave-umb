@@ -1,10 +1,10 @@
 ---
 increment: 0566-fix-activation-test-bugs
-title: "Fix Skill Studio Activation Test Bugs"
+title: Fix Skill Studio Activation Test Bugs
 type: bug
 priority: P1
-status: active
-created: 2026-03-18
+status: completed
+created: 2026-03-18T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -34,10 +34,10 @@ The Skill Studio activation test workflow has five bugs that degrade reliability
 **So that** I understand why my activation test failed instead of seeing a silent spinner stop
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given the backend sends `{error: "..."}` inside an SSE `done` event during `runActivationTest`, when the frontend processes this event, then it dispatches `ACTIVATION_ERROR` with the error message instead of `ACTIVATION_DONE`
-- [ ] **AC-US1-02**: Given an `ACTIVATION_ERROR` is dispatched, when the results panel renders, then it displays the error message inline in the results area with error styling
-- [ ] **AC-US1-03**: Given an activation test fails with an error in the `done` event, when the run completes, then no entry is added to the activation history
-- [ ] **AC-US1-04**: Given the backend sends `{error: "..."}` inside an SSE `done` event during `generateActivationPrompts`, when the frontend processes this event, then it throws an error with the message from the `error` field instead of defaulting `data.prompts` to `[]`
+- [x] **AC-US1-01**: Given the backend sends `{error: "..."}` inside an SSE `done` event during `runActivationTest`, when the frontend processes this event, then it dispatches `ACTIVATION_ERROR` with the error message instead of `ACTIVATION_DONE`
+- [x] **AC-US1-02**: Given an `ACTIVATION_ERROR` is dispatched, when the results panel renders, then it displays the error message inline in the results area with error styling
+- [x] **AC-US1-03**: Given an activation test fails with an error in the `done` event, when the run completes, then no entry is added to the activation history
+- [x] **AC-US1-04**: Given the backend sends `{error: "..."}` inside an SSE `done` event during `generateActivationPrompts`, when the frontend processes this event, then it throws an error with the message from the `error` field instead of defaulting `data.prompts` to `[]`
 
 ---
 
@@ -49,9 +49,9 @@ The Skill Studio activation test workflow has five bugs that degrade reliability
 **So that** I know the system is working during the 40-80 second auto-classification phase
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given `resolvePrompts` is classifying N prompts with `expected: "auto"`, when each prompt classification completes, then a `classifying` SSE event is emitted with `{index, total}` payload
-- [ ] **AC-US2-02**: Given `classifying` SSE events are received by the frontend, when the status area renders, then it displays text in the format "Classifying prompt {index}/{total}..." below the progress bar
-- [ ] **AC-US2-03**: Given all prompts have `expected` values other than `"auto"`, when `resolvePrompts` runs, then no `classifying` events are emitted
+- [x] **AC-US2-01**: Given `resolvePrompts` is classifying N prompts with `expected: "auto"`, when each prompt classification completes, then a `classifying` SSE event is emitted with `{index, total}` payload
+- [x] **AC-US2-02**: Given `classifying` SSE events are received by the frontend, when the status area renders, then it displays text in the format "Classifying prompt {index}/{total}..." below the progress bar
+- [x] **AC-US2-03**: Given all prompts have `expected` values other than `"auto"`, when `resolvePrompts` runs, then no `classifying` events are emitted
 
 ---
 
@@ -63,8 +63,8 @@ The Skill Studio activation test workflow has five bugs that degrade reliability
 **So that** I know how to fix the issue instead of guessing why the button is unresponsive
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given the skill has no `description` in its frontmatter, when the ActivationPanel renders, then an inline hint is displayed below the Generate button with the text "Add a description to your skill's frontmatter to enable prompt generation."
-- [ ] **AC-US3-02**: Given the skill has a valid `description` in its frontmatter, when the ActivationPanel renders, then no inline hint is displayed below the Generate button
+- [x] **AC-US3-01**: Given the skill has no `description` in its frontmatter, when the ActivationPanel renders, then an inline hint is displayed below the Generate button with the text "Add a description to your skill's frontmatter to enable prompt generation."
+- [x] **AC-US3-02**: Given the skill has a valid `description` in its frontmatter, when the ActivationPanel renders, then no inline hint is displayed below the Generate button
 
 ---
 
@@ -76,8 +76,8 @@ The Skill Studio activation test workflow has five bugs that degrade reliability
 **So that** I get consistent behavior regardless of which endpoint I call
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given the skill's SKILL.md has no frontmatter `description` field, when the `/activation-prompts` endpoint is called, then it falls back to `skillContent.slice(0, 500)` instead of returning a 400 error
-- [ ] **AC-US4-02**: Given the skill's SKILL.md has a valid frontmatter `description` field, when either endpoint is called, then the frontmatter description is used (existing behavior preserved)
+- [x] **AC-US4-01**: Given the skill's SKILL.md has no frontmatter `description` field, when the `/activation-prompts` endpoint is called, then it falls back to `skillContent.slice(0, 500)` instead of returning a 400 error
+- [x] **AC-US4-02**: Given the skill's SKILL.md has a valid frontmatter `description` field, when either endpoint is called, then the frontmatter description is used (existing behavior preserved)
 
 ---
 
@@ -89,8 +89,8 @@ The Skill Studio activation test workflow has five bugs that degrade reliability
 **So that** I know the connection is alive during the 5-20 second generation window
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given the `/activation-prompts` endpoint starts an LLM generation call, when the call is in progress, then heartbeat SSE events are emitted every approximately 3 seconds using the `withHeartbeat()` pattern
-- [ ] **AC-US5-02**: Given the LLM generation call completes, when the `done` event is sent, then heartbeat emission stops
+- [x] **AC-US5-01**: Given the `/activation-prompts` endpoint starts an LLM generation call, when the call is in progress, then heartbeat SSE events are emitted every approximately 3 seconds using the `withHeartbeat()` pattern
+- [x] **AC-US5-02**: Given the LLM generation call completes, when the `done` event is sent, then heartbeat emission stops
 
 ## Out of Scope
 
