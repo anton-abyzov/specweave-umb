@@ -1,0 +1,61 @@
+{
+  "id": "0579-docs-introduction-page-update",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-18T18:18:18.361Z",
+  "lastActivity": "2026-03-18T18:37:23.337Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-535",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-535",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-18T18:37:45.992Z"
+    },
+    "ado": {
+      "featureId": "1436",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1436",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-18T18:37:49.703Z"
+    }
+  },
+  "interview": {
+    "status": "completed",
+    "startedAt": "2026-03-18T18:19:00.000Z",
+    "completedAt": "2026-03-18T18:20:00.000Z",
+    "categories": {
+      "architecture": {
+        "covered": true,
+        "summary": "Single markdown file update. No architecture changes. File stays at docs-site/docs/overview/introduction.md. Existing CommandTabs component reused — no new components."
+      },
+      "integrations": {
+        "covered": true,
+        "summary": "N/A — docs-only change. The page documents integrations (GitHub/JIRA/ADO) but does not modify any integration code."
+      },
+      "ui-ux": {
+        "covered": true,
+        "summary": "Page enhanced with 5 new sections from README: natural language routing table, workflow narratives (solo/team/brownfield), complexity diagram, agent swarms ASCII art, integrations table. Existing sections preserved. Page grows from ~196 to ~280-320 lines. Scannable layout with clear headings, tables, and code blocks."
+      },
+      "performance": {
+        "covered": true,
+        "summary": "N/A — static markdown page rendered by Docusaurus SSG. No runtime performance considerations."
+      },
+      "security": {
+        "covered": true,
+        "summary": "N/A — no auth, data, or code changes. Documentation only. All links use existing URL patterns."
+      },
+      "edge-cases": {
+        "covered": true,
+        "summary": "File path unchanged so all existing internal links remain valid. No frontmatter changes. CommandTabs import already present. Cross-page references from features.md, why-specweave.md, and getting-started continue to work since the file path is preserved."
+      }
+    }
+  },
+  "readyForReviewAt": "2026-03-18T18:37:23.295Z",
+  "approvedAt": "2026-03-18T18:37:23.337Z"
+}
