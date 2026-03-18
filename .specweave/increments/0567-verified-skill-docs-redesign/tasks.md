@@ -331,7 +331,7 @@ coverage_target: 90
 
 ### T-025: E2E integration suite verifying all 42 ACs across both repos
 **User Story**: US-001 through US-010 | **Satisfies ACs**: AC-US1-01 through AC-US10-04
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Test**: Given the full application running locally, when the Playwright E2E suite runs, then every AC scenario in spec.md has a passing test assertion, zero WCAG AA color-contrast violations are reported on doc pages, the `/learn` page Lighthouse score is >= 90, and the link checker reports zero 404s for all existing doc URLs.
 
 **Test Plan**:

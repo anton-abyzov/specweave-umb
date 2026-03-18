@@ -1,0 +1,28 @@
+{
+  "id": "0571-fix-init-multirepo-wiring",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-18T12:59:56.170Z",
+  "lastActivity": "2026-03-18T12:59:56.170Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-494",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-494",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-18T13:16:24.819Z"
+    },
+    "ado": {
+      "featureId": "1427",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1427",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-18T13:16:30.023Z"
+    }
+  }
+}

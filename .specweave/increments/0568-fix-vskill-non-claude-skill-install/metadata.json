@@ -1,0 +1,30 @@
+{
+  "id": "0568-fix-vskill-non-claude-skill-install",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-18T07:58:09.123Z",
+  "lastActivity": "2026-03-18T08:25:24.863Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-471",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-471",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-18T08:25:52.770Z"
+    },
+    "ado": {
+      "featureId": "1421",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1421",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-18T08:25:53.880Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-18T08:25:24.818Z",
+  "approvedAt": "2026-03-18T08:25:24.863Z"
+}

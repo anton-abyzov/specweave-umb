@@ -1,6 +1,6 @@
 {
   "id": "0563-vskill-studio-tests-params-integration",
-  "status": "active",
+  "status": "ready_for_review",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-18T04:30:49.631Z",
@@ -9,5 +9,76 @@
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 100,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/100",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 101,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/101",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 102,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/102",
+          "status": "active"
+        },
+        "US-004": {
+          "issueNumber": 103,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/103",
+          "status": "active"
+        }
+      },
+      "milestone": 28,
+      "syncedAt": "2026-03-18T07:50:20.918Z"
+    },
+    "jira": {
+      "epicKey": "SWE2E-461",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-461",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-18T07:50:31.802Z"
+    },
+    "ado": {
+      "featureId": "1417",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1417",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-18T07:50:35.267Z"
+    }
+  },
+  "updated": "2026-03-18T07:49:52.000Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 100,
+        "url": "https://github.com/anton-abyzov/vskill/issues/100",
+        "createdAt": "2026-03-18T07:49:59.364Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 101,
+        "url": "https://github.com/anton-abyzov/vskill/issues/101",
+        "createdAt": "2026-03-18T07:50:06.627Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 102,
+        "url": "https://github.com/anton-abyzov/vskill/issues/102",
+        "createdAt": "2026-03-18T07:50:13.970Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 103,
+        "url": "https://github.com/anton-abyzov/vskill/issues/103",
+        "createdAt": "2026-03-18T07:50:20.918Z"
+      }
+    ],
+    "lastSync": "2026-03-18T07:50:20.918Z"
+  }
 }

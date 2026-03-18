@@ -1,0 +1,30 @@
+{
+  "id": "0567-verified-skill-docs-redesign",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-18T07:57:27.074Z",
+  "lastActivity": "2026-03-18T08:53:31.744Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-488",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-488",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-18T08:54:14.397Z"
+    },
+    "ado": {
+      "featureId": "1425",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1425",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-18T08:54:16.272Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-18T08:53:31.703Z",
+  "approvedAt": "2026-03-18T08:53:31.744Z"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "0569-studio-error-handling",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-18T08:00:04.397Z",
+  "lastActivity": "2026-03-18T08:34:10.642Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-473",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-473",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-18T08:35:07.824Z"
+    },
+    "ado": {
+      "featureId": "1423",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1423",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-18T08:35:11.225Z"
+    }
+  },
+  "updated": "2026-03-18T08:29:09.000Z",
+  "approvedAt": "2026-03-18T08:34:10.642Z"
+}
