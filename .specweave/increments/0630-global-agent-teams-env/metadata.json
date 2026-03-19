@@ -1,0 +1,31 @@
+{
+  "id": "0630-global-agent-teams-env",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-19T23:10:09.078Z",
+  "lastActivity": "2026-03-19T23:16:10.454Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-746",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-746",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T23:16:29.036Z"
+    },
+    "ado": {
+      "featureId": "1585",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1585",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T23:16:31.128Z"
+    }
+  },
+  "project": "specweave-umb",
+  "readyForReviewAt": "2026-03-19T23:16:10.441Z",
+  "approvedAt": "2026-03-19T23:16:10.454Z"
+}
