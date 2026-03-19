@@ -1,0 +1,30 @@
+{
+  "id": "0604-fix-ado-per-us-sync-scoping",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-19T05:02:55.186Z",
+  "lastActivity": "2026-03-19T05:04:39.460Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-650",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-650",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T05:06:21.431Z"
+    },
+    "ado": {
+      "featureId": "1476",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1476",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T05:06:22.821Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-19T05:04:39.415Z",
+  "approvedAt": "2026-03-19T05:04:39.460Z"
+}

@@ -1,10 +1,10 @@
 ---
 increment: 0600-docs-deployment-alignment
-title: "Fix docs deployment alignment and domain references"
+title: Fix docs deployment alignment and domain references
 type: bug
 priority: P1
-status: active
-created: 2026-03-19
+status: completed
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -56,7 +56,7 @@ The documentation site is deployed at `spec-weave.com` but the umbrella CLAUDE.m
 **Acceptance Criteria**:
 - [x] **AC-US3-01**: `npm run build` in docs-site completes without errors
 - [x] **AC-US3-02**: All sidebar entries in sidebars.ts resolve to actual files
-- [ ] **AC-US3-03**: Changes are pushed and deployment triggered
+- [x] **AC-US3-03**: Changes are pushed and deployment triggered
 
 ## Out of Scope
 

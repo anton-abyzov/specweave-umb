@@ -14,6 +14,7 @@
 .specweave/docs-site-public/build/
 .specweave/docs-site-public/.docusaurus/
 .specweave/docs-site-public/node_modules/
+.specweave/docs-site-public/src/components/VideoEmbed/
 .claude-plugin/
 plugins/
 vskill.lock

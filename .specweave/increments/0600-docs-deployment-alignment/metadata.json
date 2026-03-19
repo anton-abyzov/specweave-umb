@@ -1,13 +1,30 @@
 {
   "id": "0600-docs-deployment-alignment",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-03-19T04:31:26.537Z",
-  "lastActivity": "2026-03-19T04:31:26.537Z",
+  "lastActivity": "2026-03-19T04:42:35.866Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-642",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-642",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T04:42:43.960Z"
+    },
+    "ado": {
+      "featureId": "1470",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1470",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T04:42:46.842Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-19T04:42:35.824Z",
+  "approvedAt": "2026-03-19T04:42:35.866Z"
 }

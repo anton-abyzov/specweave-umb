@@ -58,7 +58,7 @@ increment: 0600-docs-deployment-alignment
 ---
 
 ### T-006: Push to deploy
-**User Story**: US-003 | **AC**: AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-003 | **AC**: AC-US3-03 | **Status**: [x] completed
 
 **Test Plan**:
 - Given all fixes are committed
