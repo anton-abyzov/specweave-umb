@@ -15,7 +15,7 @@
 ### T-001: Extract resolveIncrementId() to shared utility [P]
 
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Description**: Extract the private `resolveIncrementId()` function from `src/cli/commands/evaluate-completion.ts:59-76` into a new shared utility at `src/utils/resolve-increment-id.ts`. Enhance it to handle ambiguous (multiple-prefix) matches. Update `evaluate-completion.ts` to import from the new shared module and remove its local copy.
 
@@ -58,7 +58,7 @@
 ### T-003: Fix parseTasksWithUSLinks() call site [P]
 
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Description**: Fix the bug at `completion-validator.ts:400` where `parseTasksWithUSLinks(tasksContent)` is called with the file content string instead of the file path. Change it to pass `tasksPath`. Remove the now-redundant `tasksContent` read (line 394). Verify the existing try/catch already handles parse errors with a warning (degrades gracefully).
 
@@ -98,7 +98,7 @@
 ### T-002: Add short-ID resolution and batch mode to complete command
 
 **User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Description**: Wire `resolveIncrementId()` into `complete.ts` and change the command to accept variadic arguments. Update the Commander.js registration in `bin/specweave.js` from `<increment-id>` to `<increment-id> [more-ids...]`. Add batch loop with per-ID error isolation, summary output, and non-zero exit code if any ID fails.
 
@@ -157,7 +157,7 @@
 
 ### T-004: Run full test suite and verify all ACs
 
-**User Story**: US-001, US-002, US-003 | **Status**: [ ] Not Started
+**User Story**: US-001, US-002, US-003 | **Status**: [x] completed
 
 **Description**: Run `npx vitest run` in the specweave repo. Confirm all new tests pass. Manually verify the three end-to-end scenarios work against a real `.specweave/` directory.
 

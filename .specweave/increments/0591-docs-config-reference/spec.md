@@ -1,10 +1,10 @@
 ---
 increment: 0591-docs-config-reference
-title: "Configuration Reference Documentation Page"
+title: Configuration Reference Documentation Page
 type: feature
 priority: P1
-status: planned
-created: 2026-03-19
+status: completed
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -29,9 +29,9 @@ Create a comprehensive Configuration Reference page in the SpecWeave docs-site t
 **So that** I can quickly look up any setting's purpose, type, default value, and usage without reading source code
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Page exists at `docs/reference/configuration.md` and renders correctly in the docs-site
-- [ ] **AC-US1-02**: Page is linked in the Reference section of `sidebars.ts`
-- [ ] **AC-US1-03**: All `config.json` top-level sections are documented with property name, type, default value, and description:
+- [x] **AC-US1-01**: Page exists at `docs/reference/configuration.md` and renders correctly in the docs-site
+- [x] **AC-US1-02**: Page is linked in the Reference section of `sidebars.ts`
+- [x] **AC-US1-03**: All `config.json` top-level sections are documented with property name, type, default value, and description:
   - Core: `version`, `language`, `project`, `adapters`
   - Plugins: `plugins` (enabled list, settings)
   - Living Documentation: `livingDocs` (copyBasedSync, threeLayerSync)
@@ -43,18 +43,18 @@ Create a comprehensive Configuration Reference page in the SpecWeave docs-site t
   - Documentation: `documentation` (directories, preview), `apiDocs` (OpenAPI, Postman)
   - AI & Automation: `auto` (maxIterations, maxTurns, requireTests, etc.), `reflect` (enabled, model, maxLearningsPerSession), `contextBudget`, `skillGen`
   - Advanced: `umbrella` (enabled, childRepos, storyRouting, sync), `archiving`, `deduplication`, `statusLine`, `pluginAutoLoad`, `translation`, `multiProject`, `projectMappings`
-- [ ] **AC-US1-04**: All `metadata.json` properties are documented:
+- [x] **AC-US1-04**: All `metadata.json` properties are documented:
   - Core: `id`, `type`, `status`, `priority`, `created`, `lastActivity`, `testMode`, `coverageTarget`
   - Lifecycle: `backlogReason`, `backlogAt`, `pausedReason`, `pausedAt`, `abandonedReason`, `abandonedAt`, `readyForReviewAt`, `approvedAt`
   - External: `externalLinks`, `externalRefs`, `syncTarget`, `feature_id`, `epic_id`
   - Multi-project: `projectId`, `multiProject`, `externalContainer`
   - CI/CD: `prRefs`, `skipLivingDocsSync`
-- [ ] **AC-US1-05**: All environment variables are documented with name, purpose, and example values:
+- [x] **AC-US1-05**: All environment variables are documented with name, purpose, and example values:
   - SpecWeave internals: `SPECWEAVE_DISABLE_HOOKS`, `SPECWEAVE_DEBUG`, `SPECWEAVE_DISABLE_AUTO_LOAD`, `SPECWEAVE_SHELL`, `SPECWEAVE_DISABLE_LOCKS`, `SPECWEAVE_FORCE_LOCKS`, `SPECWEAVE_AUTO_INSTALL`, `SPECWEAVE_SKIP_IMAGE_GEN`, `SPECWEAVE_UPDATE_NO_SELF`, `SPECWEAVE_NO_INCREMENT`, `SPECWEAVE_BACKGROUND_PROCESS`, `SPECWEAVE_BACKGROUND_JOB`
   - Import config: `SPECWEAVE_IMPORT_ENABLED`, `SPECWEAVE_IMPORT_TIME_RANGE_MONTHS`, `SPECWEAVE_IMPORT_PAGE_SIZE`
   - External tool credentials: `GITHUB_TOKEN`, `JIRA_API_TOKEN`, `JIRA_DOMAIN`, `AZURE_DEVOPS_PAT`, `AZURE_DEVOPS_ORG`
-- [ ] **AC-US1-06**: Each config section includes a JSON code example showing realistic usage
-- [ ] **AC-US1-07**: Valid enum values are listed for enum-type properties (e.g., `status`, `type`, `testMode`, `pushStrategy`, `language`)
+- [x] **AC-US1-06**: Each config section includes a JSON code example showing realistic usage
+- [x] **AC-US1-07**: Valid enum values are listed for enum-type properties (e.g., `status`, `type`, `testMode`, `pushStrategy`, `language`)
 
 ---
 
@@ -66,9 +66,9 @@ Create a comprehensive Configuration Reference page in the SpecWeave docs-site t
 **So that** I can turn off features like living docs, TDD enforcement, or deep interview without hunting through documentation
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: A "Quick Reference: Disableable Features" section is prominently placed near the top of the page (after the introduction, before detailed sections)
-- [ ] **AC-US2-02**: The table includes all disableable features with columns: Feature, Config Path, Value to Disable, Default
-- [ ] **AC-US2-03**: The following features are documented as disableable:
+- [x] **AC-US2-01**: A "Quick Reference: Disableable Features" section is prominently placed near the top of the page (after the introduction, before detailed sections)
+- [x] **AC-US2-02**: The table includes all disableable features with columns: Feature, Config Path, Value to Disable, Default
+- [x] **AC-US2-03**: The following features are documented as disableable:
   - Living docs (copy-based sync) -- `livingDocs.copyBasedSync.enabled: false`
   - Living docs (three-layer sync) -- `livingDocs.threeLayerSync.enabled: false`
   - TDD enforcement -- `testing.tddEnforcement: "off"`
@@ -89,7 +89,7 @@ Create a comprehensive Configuration Reference page in the SpecWeave docs-site t
   - Translation -- `translation.enabled: false`
   - Command deduplication -- `deduplication.enabled: false`
   - Auto-install -- `SPECWEAVE_AUTO_INSTALL=false` (env var)
-- [ ] **AC-US2-04**: An introductory note explains that disabling living docs reduces LLM context richness but increases speed
+- [x] **AC-US2-04**: An introductory note explains that disabling living docs reduces LLM context richness but increases speed
 
 ## Functional Requirements
 

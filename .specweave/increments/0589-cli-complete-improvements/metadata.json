@@ -1,10 +1,10 @@
 {
   "id": "0589-cli-complete-improvements",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-03-19T02:05:08.120Z",
-  "lastActivity": "2026-03-19T02:05:08.120Z",
+  "lastActivity": "2026-03-19T03:44:04.970Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-588",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-19T02:12:39.196Z"
+      "syncedAt": "2026-03-19T03:44:18.762Z"
     },
     "ado": {
       "featureId": "1446",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1446",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-19T02:12:41.405Z"
+      "syncedAt": "2026-03-19T03:44:21.237Z"
     }
   },
   "interview": {
@@ -55,5 +55,7 @@
         "summary": "Ambiguous short-IDs (multiple matches) fail with listed matches. Zero matches fail with clear error. Batch mode: one failure does not stop others. AC validator fix: parseTasksWithUSLinks called with path instead of content — existing try/catch handles remaining errors. Already-completed increments return true (not error) per existing behavior."
       }
     }
-  }
+  },
+  "updated": "2026-03-19T03:40:45.000Z",
+  "approvedAt": "2026-03-19T03:44:04.970Z"
 }

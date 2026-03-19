@@ -1,10 +1,10 @@
 ---
 increment: 0589-cli-complete-improvements
-title: "CLI Complete Command Improvements"
+title: CLI Complete Command Improvements
 type: bug
 priority: P1
-status: planned
-created: 2026-03-19
+status: completed
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -26,11 +26,11 @@ Three improvements to the `specweave complete` CLI command: short-ID resolution 
 **So that** I can complete increments faster without looking up exact folder names
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `specweave complete 0573` resolves to `0573-fix-sw-specweave-corruption` when that is the only matching prefix
-- [ ] **AC-US1-02**: Full slugs (`specweave complete 0573-fix-sw-specweave-corruption`) continue to work unchanged
-- [ ] **AC-US1-03**: If the short ID matches zero increments, a clear error is shown with the searched prefix
-- [ ] **AC-US1-04**: If the short ID matches multiple increments (ambiguous), all matches are listed and the command fails
-- [ ] **AC-US1-05**: The resolver is a shared utility function reusable by other commands (extracted from `evaluate-completion.ts`)
+- [x] **AC-US1-01**: `specweave complete 0573` resolves to `0573-fix-sw-specweave-corruption` when that is the only matching prefix
+- [x] **AC-US1-02**: Full slugs (`specweave complete 0573-fix-sw-specweave-corruption`) continue to work unchanged
+- [x] **AC-US1-03**: If the short ID matches zero increments, a clear error is shown with the searched prefix
+- [x] **AC-US1-04**: If the short ID matches multiple increments (ambiguous), all matches are listed and the command fails
+- [x] **AC-US1-05**: The resolver is a shared utility function reusable by other commands (extracted from `evaluate-completion.ts`)
 
 ---
 
@@ -42,11 +42,11 @@ Three improvements to the `specweave complete` CLI command: short-ID resolution 
 **So that** I can batch-close related work without repeating the command
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `specweave complete 0573 0562 0571` processes all three IDs sequentially
-- [ ] **AC-US2-02**: One failure does NOT stop processing of remaining IDs; all IDs are attempted
-- [ ] **AC-US2-03**: Exit code is non-zero if ANY ID fails; zero only when all succeed
-- [ ] **AC-US2-04**: Each ID goes through short-ID resolution before processing
-- [ ] **AC-US2-05**: A summary is printed at the end showing which IDs succeeded and which failed
+- [x] **AC-US2-01**: `specweave complete 0573 0562 0571` processes all three IDs sequentially
+- [x] **AC-US2-02**: One failure does NOT stop processing of remaining IDs; all IDs are attempted
+- [x] **AC-US2-03**: Exit code is non-zero if ANY ID fails; zero only when all succeed
+- [x] **AC-US2-04**: Each ID goes through short-ID resolution before processing
+- [x] **AC-US2-05**: A summary is printed at the end showing which IDs succeeded and which failed
 
 ---
 
@@ -58,10 +58,10 @@ Three improvements to the `specweave complete` CLI command: short-ID resolution 
 **So that** malformed task files do not block closure of otherwise-valid increments
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: When `parseTasksWithUSLinks()` throws a parse error inside `validateACCoverage()`, it degrades to a warning ("AC coverage validation skipped due to parse error") instead of blocking
-- [ ] **AC-US3-02**: The bug at `completion-validator.ts:400` is fixed — `parseTasksWithUSLinks()` is called with `tasksPath` (file path) instead of `tasksContent` (file content string)
-- [ ] **AC-US3-03**: When tasks.md parses successfully and violations are found, those violations still block completion as before (no behavioral regression)
-- [ ] **AC-US3-04**: The warning includes the parse error message for debuggability
+- [x] **AC-US3-01**: When `parseTasksWithUSLinks()` throws a parse error inside `validateACCoverage()`, it degrades to a warning ("AC coverage validation skipped due to parse error") instead of blocking
+- [x] **AC-US3-02**: The bug at `completion-validator.ts:400` is fixed — `parseTasksWithUSLinks()` is called with `tasksPath` (file path) instead of `tasksContent` (file content string)
+- [x] **AC-US3-03**: When tasks.md parses successfully and violations are found, those violations still block completion as before (no behavioral regression)
+- [x] **AC-US3-04**: The warning includes the parse error message for debuggability
 
 ## Functional Requirements
 

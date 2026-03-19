@@ -12,6 +12,8 @@
 .specweave/increments/*/reports/
 .specweave/docs-site-internal/
 .specweave/docs-site-public/build/
+.specweave/docs-site-public/.docusaurus/
+.specweave/docs-site-public/node_modules/
 .claude-plugin/
 plugins/
 vskill.lock

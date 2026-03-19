@@ -1,10 +1,30 @@
 {
-  "id": "0580",
+  "id": "0580-docs-installation-multi-project",
   "name": "docs-installation-multi-project",
-  "type": "docs",
-  "status": "active",
+  "type": "feature",
+  "status": "completed",
   "priority": "medium",
-  "createdAt": "2026-03-18T12:00:00Z",
-  "lastActivity": "2026-03-18T12:00:00Z",
-  "project": "specweave"
+  "lastActivity": "2026-03-19T03:23:30.542Z",
+  "project": "specweave",
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-609",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-609",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T03:23:38.768Z"
+    },
+    "ado": {
+      "featureId": "1455",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1455",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T03:23:40.114Z"
+    }
+  },
+  "created": "2026-03-18T12:00:00Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-03-19T03:23:30.500Z",
+  "approvedAt": "2026-03-19T03:23:30.542Z"
 }
