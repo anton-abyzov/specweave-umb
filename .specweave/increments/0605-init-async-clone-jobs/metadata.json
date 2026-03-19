@@ -1,10 +1,10 @@
 {
   "id": "0605-init-async-clone-jobs",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-19T05:03:02.959Z",
-  "lastActivity": "2026-03-19T05:03:02.959Z",
+  "lastActivity": "2026-03-19T05:31:07.566Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,16 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-652",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-19T05:15:19.762Z"
+      "syncedAt": "2026-03-19T05:31:15.126Z"
     },
     "ado": {
       "featureId": "1481",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1481",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-19T05:15:22.872Z"
+      "syncedAt": "2026-03-19T05:31:18.103Z"
     }
-  }
+  },
+  "updated": "2026-03-19T05:29:00.000Z",
+  "approvedAt": "2026-03-19T05:31:07.566Z"
 }

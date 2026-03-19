@@ -1,10 +1,10 @@
 ---
 increment: 0605-init-async-clone-jobs
-title: "Refactor init repo cloning to use background jobs"
+title: Refactor init repo cloning to use background jobs
 type: feature
 priority: P1
-status: planned
-created: 2026-03-19
+status: completed
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -26,12 +26,12 @@ Replace the synchronous `cloneReposIntoWorkspace()` in `init.ts` with `launchClo
 **So that** I get consistent job tracking and progress display without the init command returning before my repos are ready
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: When user selects "clone-repos" during `specweave init` and provides 1-3 repo URLs, `launchCloneJob()` is called with `foreground: true`
-- [ ] **AC-US1-02**: The clone job runs inline (blocking) — init does not proceed to git-init/config until cloning completes
-- [ ] **AC-US1-03**: Progress is displayed inline (repo name + success/failure per repo) during foreground clone
-- [ ] **AC-US1-04**: `ParsedRepo { org, name, cloneUrl }` is mapped to `CloneLaunchOptions.repositories[]` format `{ owner, name, path, cloneUrl }` where `path = repositories/{org}/{name}`
-- [ ] **AC-US1-05**: The synchronous `cloneReposIntoWorkspace()` call in init.ts is fully replaced — no `execFileNoThrowSync` for cloning remains
-- [ ] **AC-US1-06**: The redundant `scanUmbrellaRepos()` re-scan after cloning is removed since the clone worker handles umbrella config registration
+- [x] **AC-US1-01**: When user selects "clone-repos" during `specweave init` and provides 1-3 repo URLs, `launchCloneJob()` is called with `foreground: true`
+- [x] **AC-US1-02**: The clone job runs inline (blocking) — init does not proceed to git-init/config until cloning completes
+- [x] **AC-US1-03**: Progress is displayed inline (repo name + success/failure per repo) during foreground clone
+- [x] **AC-US1-04**: `ParsedRepo { org, name, cloneUrl }` is mapped to `CloneLaunchOptions.repositories[]` format `{ owner, name, path, cloneUrl }` where `path = repositories/{org}/{name}`
+- [x] **AC-US1-05**: The synchronous `cloneReposIntoWorkspace()` call in init.ts is fully replaced — no `execFileNoThrowSync` for cloning remains
+- [x] **AC-US1-06**: The redundant `scanUmbrellaRepos()` re-scan after cloning is removed since the clone worker handles umbrella config registration
 
 ---
 
@@ -43,11 +43,11 @@ Replace the synchronous `cloneReposIntoWorkspace()` in `init.ts` with `launchClo
 **So that** the init command completes quickly and I can monitor clone progress via `specweave jobs`
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: When 4+ repos are provided, `launchCloneJob()` is called with `foreground: false` (background mode)
-- [ ] **AC-US2-02**: Init command completes immediately after launching the background job — does not block on cloning
-- [ ] **AC-US2-03**: User sees a message with the job ID and instructions to monitor via `specweave jobs`
-- [ ] **AC-US2-04**: `umbrella.enabled: true` is set in config.json preemptively (before background clone completes) so the workspace is umbrella-ready immediately
-- [ ] **AC-US2-05**: Background clone job uses the existing `clone-worker.ts` which handles per-repo failure resilience, progress tracking, and umbrella config persistence on completion
+- [x] **AC-US2-01**: When 4+ repos are provided, `launchCloneJob()` is called with `foreground: false` (background mode)
+- [x] **AC-US2-02**: Init command completes immediately after launching the background job — does not block on cloning
+- [x] **AC-US2-03**: User sees a message with the job ID and instructions to monitor via `specweave jobs`
+- [x] **AC-US2-04**: `umbrella.enabled: true` is set in config.json preemptively (before background clone completes) so the workspace is umbrella-ready immediately
+- [x] **AC-US2-05**: Background clone job uses the existing `clone-worker.ts` which handles per-repo failure resilience, progress tracking, and umbrella config persistence on completion
 
 ---
 
@@ -59,9 +59,9 @@ Replace the synchronous `cloneReposIntoWorkspace()` in `init.ts` with `launchClo
 **So that** single-repo and multi-repo workspaces have identical layout and can seamlessly grow
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: A single repo provided during init is cloned to `repositories/{org}/{name}/` — not to the workspace root or any other layout
-- [ ] **AC-US3-02**: Single-repo clone uses foreground mode (1 repo < 4 threshold)
-- [ ] **AC-US3-03**: The resulting config.json has `umbrella.enabled: true` with the single repo in `childRepos[]`
+- [x] **AC-US3-01**: A single repo provided during init is cloned to `repositories/{org}/{name}/` — not to the workspace root or any other layout
+- [x] **AC-US3-02**: Single-repo clone uses foreground mode (1 repo < 4 threshold)
+- [x] **AC-US3-03**: The resulting config.json has `umbrella.enabled: true` with the single repo in `childRepos[]`
 
 ---
 
@@ -73,11 +73,11 @@ Replace the synchronous `cloneReposIntoWorkspace()` in `init.ts` with `launchClo
 **So that** I can safely retry without duplicating work or losing progress
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: If all provided repos already exist locally (have `.git` dir at target path), the clone job completes immediately with `skippedPreFlight: true` and no worker is spawned
-- [ ] **AC-US4-02**: Already-cloned repos are reported to the user as "skipped" with a count
-- [ ] **AC-US4-03**: In foreground mode, partial failures (some repos fail, some succeed) are reported with per-repo success/failure status — init continues to completion
-- [ ] **AC-US4-04**: In background mode, partial failures result in `completed_with_warnings` job status (never `failed`) — user can re-run to retry failed repos
-- [ ] **AC-US4-05**: The mapping from `ParsedRepo[]` to `CloneLaunchOptions.repositories[]` correctly handles repos with different orgs in the same batch
+- [x] **AC-US4-01**: If all provided repos already exist locally (have `.git` dir at target path), the clone job completes immediately with `skippedPreFlight: true` and no worker is spawned
+- [x] **AC-US4-02**: Already-cloned repos are reported to the user as "skipped" with a count
+- [x] **AC-US4-03**: In foreground mode, partial failures (some repos fail, some succeed) are reported with per-repo success/failure status — init continues to completion
+- [x] **AC-US4-04**: In background mode, partial failures result in `completed_with_warnings` job status (never `failed`) — user can re-run to retry failed repos
+- [x] **AC-US4-05**: The mapping from `ParsedRepo[]` to `CloneLaunchOptions.repositories[]` correctly handles repos with different orgs in the same batch
 
 ## Functional Requirements
 

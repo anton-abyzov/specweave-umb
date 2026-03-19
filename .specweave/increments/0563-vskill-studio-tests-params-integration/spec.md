@@ -1,10 +1,12 @@
 ---
 increment: 0563-vskill-studio-tests-params-integration
-title: "vSkill Studio Tests Panel: Tab Filter, Parameter Store, Integration UX, and AI Generation Fixes"
-status: active
+title: >-
+  vSkill Studio Tests Panel: Tab Filter, Parameter Store, Integration UX, and AI
+  Generation Fixes
+status: completed
 priority: P1
 type: feature
-created: 2026-03-18
+created: 2026-03-18T00:00:00.000Z
 ---
 
 # vSkill Studio Tests Panel: Tab Filter, Parameter Store, Integration UX, and AI Generation Fixes
