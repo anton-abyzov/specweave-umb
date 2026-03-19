@@ -1,10 +1,10 @@
 {
   "id": "0622-dashboard-cost-realtime-redesign",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-19T15:56:27.412Z",
-  "lastActivity": "2026-03-19T16:30:00.000Z",
+  "lastActivity": "2026-03-19T16:41:51.856Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -25,5 +25,7 @@
       "syncedAt": "2026-03-19T16:06:32.912Z"
     }
   },
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "readyForReviewAt": "2026-03-19T16:41:51.845Z",
+  "approvedAt": "2026-03-19T16:41:51.856Z"
 }

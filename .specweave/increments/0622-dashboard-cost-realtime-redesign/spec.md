@@ -1,10 +1,10 @@
 ---
 increment: 0622-dashboard-cost-realtime-redesign
-title: "Dashboard Cost Display & Real-Time Updates Redesign"
+title: Dashboard Cost Display & Real-Time Updates Redesign
 type: feature
 priority: P1
-status: planned
-created: 2026-03-19
+status: completed
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
