@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-19T23:20:27Z",
+  "updatedAt": "2026-03-19T23:39:22Z",
   "increments": {
     "0532-fix-hook-timeout-errors": {
       "status": "completed",
@@ -370,16 +370,15 @@
       "title": "",
       "project": "specweave-umb",
       "tasks": {
-        "total": 1,
-        "completed": 0
+        "total": 8,
+        "completed": 4
       },
       "acs": {
         "total": 16,
         "completed": 0
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T23:19:44Z",
-      "lastActivityEpoch": 1773962384,
+      "lastActivity": "2026-03-19T19:26:35Z",
       "userStories": []
     }
   },
@@ -517,8 +516,8 @@
       "spec": 1773962170
     },
     "0631-fix-umbrella-root-resolution": {
-      "metadata": 1773962384,
-      "tasks": 1773962112,
+      "metadata": 1773962795,
+      "tasks": 1773963562,
       "spec": 1773962352
     }
   }

@@ -1,5 +1,5 @@
 {
-  "checked": "2026-03-19T23:23:14Z",
+  "checked": "2026-03-19T23:38:50Z",
   "status": "missing",
   "missing": [{"language":"TypeScript (84 files)","type":"missing_plugin","binaryInstall":"npm install -g typescript-language-server typescript","pluginInstall":"claude plugin install vtsls@claude-code-lsps","plugin":"vtsls","message":"Binary installed but Claude plugin missing. Run: claude plugin install vtsls@claude-code-lsps"}],
   "warned": false,

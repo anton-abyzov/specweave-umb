@@ -1,18 +1,18 @@
 [isClaudeCliAvailable] Running fresh detection (no cache)...
 [isClaudeCliAvailable] Claude CLI available: version=2.1.80 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
 [executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
-Extracted result from JSON wrapper, duration_ms: 4797
+Extracted result from JSON wrapper, duration_ms: 6844
 Increment recommendation: none (confidence: 0.95, mandatory: false)
 {
   "detected": false,
   "plugins": [],
   "confidence": 0.95,
-  "reasoning": "No integration work mentioned",
-  "latencyMs": 6140.073917,
+  "reasoning": "Meta-question about success criteria extraction framework, no integrations mentioned",
+  "latencyMs": 8194.563415999999,
   "increment": {
     "action": "none",
     "confidence": 0.95,
     "mandatory": false,
-    "reasoning": "Question about criteria extraction rules and examples, not implementation work"
+    "reasoning": "Guidance/framework question, not implementation work"
   }
 }
