@@ -1,13 +1,30 @@
 {
   "id": "0602-tool-agnostic-refs-phases-2-4",
-  "status": "active",
+  "status": "completed",
   "type": "change-request",
   "priority": "P1",
   "created": "2026-03-19T04:48:10.966Z",
-  "lastActivity": "2026-03-19T04:48:10.966Z",
+  "lastActivity": "2026-03-19T05:38:33.086Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-661",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-661",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T05:38:38.578Z"
+    },
+    "ado": {
+      "featureId": "1490",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1490",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T05:38:40.887Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-19T05:38:33.031Z",
+  "approvedAt": "2026-03-19T05:38:33.086Z"
 }

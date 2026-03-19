@@ -1,10 +1,10 @@
 ---
 increment: 0602-tool-agnostic-refs-phases-2-4
-title: "Tool-agnostic command refs: SKILL.md, docs-site, TS source"
+title: 'Tool-agnostic command refs: SKILL.md, docs-site, TS source'
 type: change-request
 priority: P1
-status: active
-created: 2026-03-19
+status: completed
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

@@ -14,7 +14,7 @@
 
 **User Story**: US-001
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** updated SKILL.md files
@@ -32,7 +32,7 @@
 
 **User Story**: US-002
 **Satisfies ACs**: AC-US2-01, AC-US2-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** updated docs-site files
@@ -50,7 +50,7 @@
 
 **User Story**: US-003
 **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Test Plan**:
 - **Given** updated TS source files
@@ -61,4 +61,4 @@
 
 ## Progress
 
-**Overall**: 0/3 tasks completed (0%)
+**Overall**: 3/3 tasks completed (100%)
