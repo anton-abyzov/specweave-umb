@@ -3005,3 +3005,5 @@
 {"timestamp":"2026-03-19T16:35:51.000Z","type":"skill","name":"sw:done","success":true,"plugin":"specweave"}
 {"timestamp":"2026-03-19T16:35:59.000Z","type":"skill","name":"sw:grill","success":true,"plugin":"specweave"}
 {"timestamp":"2026-03-19T16:42:17.000Z","type":"skill","name":"sw:sync-docs","success":true,"plugin":"specweave"}
+{"timestamp":"2026-03-19T17:22:51.000Z","type":"command","name":"/sw:npm","success":true,"plugin":"specweave","increment":"0594-docs-specweave-get-features"}
+{"timestamp":"2026-03-19T17:24:54.000Z","type":"skill","name":"sw:done","success":true,"plugin":"specweave"}
