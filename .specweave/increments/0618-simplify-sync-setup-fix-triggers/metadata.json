@@ -1,0 +1,30 @@
+{
+  "id": "0618-simplify-sync-setup-fix-triggers",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-19T12:41:31.599Z",
+  "lastActivity": "2026-03-19T13:07:55.689Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-696",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-696",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T13:08:02.440Z"
+    },
+    "ado": {
+      "featureId": "1535",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1535",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T13:08:05.160Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-19T13:07:55.607Z",
+  "approvedAt": "2026-03-19T13:07:55.689Z"
+}
