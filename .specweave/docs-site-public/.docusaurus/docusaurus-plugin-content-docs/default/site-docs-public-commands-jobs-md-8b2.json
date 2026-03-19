@@ -1,6 +1,6 @@
 {
   "id": "commands/jobs",
-  "title": "/specweave:jobs - Background Jobs Monitor",
+  "title": "/sw:jobs - Background Jobs Monitor",
   "description": "Monitor and manage long-running background operations.",
   "source": "@site/../docs/public/commands/jobs.md",
   "sourceDirName": "commands",

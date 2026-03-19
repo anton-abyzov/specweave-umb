@@ -32,13 +32,19 @@ Watch and follow along with real project demos.
 - Translation feature, multi-AI support
 - Installation on Mac & Windows
 
+### Tool-Specific Tutorials
+
+| # | Title | Duration | Topics |
+|---|-------|----------|--------|
+| 005 | [SpecWeave + OpenCode: Web Calculator](./videos/005-opencode-web-calculator.mdx) | 4 min | Non-cloud AI, init, PM questionnaire, /sw:do, live demo |
+
 ### Upcoming Videos
 
 | # | Title | Status |
 |---|-------|--------|
-| 002 | Your First Increment | Planned |
-| 003 | Daily Workflow Deep Dive | Planned |
-| 004 | External Tool Sync Masterclass | Planned |
+| 006 | SpecWeave + Cursor | Planned |
+| 007 | SpecWeave + GitHub Copilot | Planned |
+| 008 | Daily Workflow Deep Dive | Planned |
 
 ---
 
@@ -102,7 +108,8 @@ Step-by-step guides you can follow at your own pace.
 ## Quick Start Recommendations
 
 **Brand new to SpecWeave?**
-- Watch: [Masterclass Video](./videos/001-specweave-complete-masterclass.md) (first 30 min)
+- Quick start: [4-min OpenCode Demo](./videos/005-opencode-web-calculator.mdx) (see the full workflow fast)
+- Deep dive: [Masterclass Video](./videos/001-specweave-complete-masterclass.md) (61 min, comprehensive)
 - Then read: [Lesson 1: Getting Started](../../../../docs-site/docs/guides/lessons/01-getting-started.md)
 
 **Setting up a new project?**

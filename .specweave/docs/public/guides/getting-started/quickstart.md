@@ -16,6 +16,14 @@ specweave init .
 
 ---
 
+## Watch It In Action (4 minutes)
+
+See the complete SpecWeave workflow -- from `specweave init` to a working web calculator -- in under 4 minutes using OpenCode (non-cloud AI):
+
+**[SpecWeave + OpenCode: Web Calculator Demo](../../academy/videos/005-opencode-web-calculator.mdx)** | [Watch on YouTube](https://youtu.be/WVwyqsHS8dc)
+
+---
+
 ## Your First Feature (2 minutes)
 
 Open Claude Code and run:

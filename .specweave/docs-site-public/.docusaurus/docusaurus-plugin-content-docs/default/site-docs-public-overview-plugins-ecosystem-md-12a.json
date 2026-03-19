@@ -1,7 +1,7 @@
 {
   "id": "overview/plugins-ecosystem",
   "title": "Plugin Ecosystem",
-  "description": "Complete guide to SpecWeave's 21 plugins covering integrations, tech stacks, ML, infrastructure, and more",
+  "description": "Complete guide to SpecWeave's 20 plugins covering integrations, tech stacks, ML, infrastructure, and more",
   "source": "@site/../docs/public/overview/plugins-ecosystem.md",
   "sourceDirName": "overview",
   "slug": "/overview/plugins-ecosystem",
@@ -14,7 +14,7 @@
   "frontMatter": {
     "sidebar_position": 2,
     "title": "Plugin Ecosystem",
-    "description": "Complete guide to SpecWeave's 21 plugins covering integrations, tech stacks, ML, infrastructure, and more",
+    "description": "Complete guide to SpecWeave's 20 plugins covering integrations, tech stacks, ML, infrastructure, and more",
     "keywords": [
       "plugins",
       "skills",

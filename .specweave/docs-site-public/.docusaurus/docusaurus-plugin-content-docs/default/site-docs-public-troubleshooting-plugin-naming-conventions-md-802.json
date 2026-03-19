@@ -1,7 +1,7 @@
 {
   "id": "troubleshooting/plugin-naming-conventions",
   "title": "Plugin Naming Conventions",
-  "description": "SpecWeave plugins use two naming systems that must be used correctly in different contexts.",
+  "description": "SpecWeave plugins are split across two marketplaces and use two naming systems that must be used correctly in different contexts.",
   "source": "@site/../docs/public/troubleshooting/plugin-naming-conventions.md",
   "sourceDirName": "troubleshooting",
   "slug": "/troubleshooting/plugin-naming-conventions",

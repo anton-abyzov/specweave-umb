@@ -102,7 +102,7 @@ const config = {
   // Mermaid diagrams support
   markdown: {
     mermaid: true,
-    format: 'md',
+    format: 'detect',
     hooks: {
       onBrokenMarkdownLinks: 'warn',
     },

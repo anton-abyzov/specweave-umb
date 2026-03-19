@@ -323,7 +323,7 @@ export default {
   },
   "markdown": {
     "mermaid": true,
-    "format": "md",
+    "format": "detect",
     "hooks": {
       "onBrokenMarkdownLinks": "warn",
       "onBrokenMarkdownImages": "throw"

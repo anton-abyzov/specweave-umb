@@ -1,7 +1,7 @@
 {
   "id": "glossary/terms/skills-vs-agents",
   "title": "Skills vs Agents",
-  "description": "SpecWeave uses two types of AI components: Skills (auto-activating knowledge) and Agents (explicitly invoked workers). Understanding the difference is crucial for effective use.",
+  "description": "SpecWeave extends AI coding assistants (Claude Code, Cursor, Copilot, Windsurf, and others) with two core AI components: Skills (portable instructions) and Custom Subagents (isolated workers with memory). Understanding the difference — and how they compose — is key to building effective AI-assisted workflows.",
   "source": "@site/../docs/public/glossary/terms/skills-vs-agents.md",
   "sourceDirName": "glossary/terms",
   "slug": "/glossary/terms/skills-vs-agents",

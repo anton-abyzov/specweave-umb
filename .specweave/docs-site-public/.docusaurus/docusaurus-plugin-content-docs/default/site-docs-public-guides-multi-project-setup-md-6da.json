@@ -1,7 +1,7 @@
 {
   "id": "guides/multi-project-setup",
   "title": "Multi-Project Setup Guide",
-  "description": "Version: 0.16.11 (Flattened Structure)",
+  "description": "Complete guide to setting up and using SpecWeave's multi-project mode for enterprise teams managing multiple repos, microservices, or projects.",
   "source": "@site/../docs/public/guides/multi-project-setup.md",
   "sourceDirName": "guides",
   "slug": "/guides/multi-project-setup",

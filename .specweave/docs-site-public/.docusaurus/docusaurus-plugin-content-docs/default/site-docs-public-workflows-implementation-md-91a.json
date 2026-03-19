@@ -1,6 +1,6 @@
 {
   "id": "workflows/implementation",
-  "title": "Implementation Workflow: The /specweave:do Command",
+  "title": "Implementation Workflow: The /sw:do Command",
   "description": "The implementation phase is where specs and plans become working code—with SpecWeave handling the tedious parts automatically.",
   "source": "@site/../docs/public/workflows/implementation.md",
   "sourceDirName": "workflows",

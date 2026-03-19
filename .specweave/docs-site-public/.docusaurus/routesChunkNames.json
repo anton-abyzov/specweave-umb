@@ -6,13 +6,13 @@
     },
     "config": "5e9f5e1a"
   },
-  "/-36f": {
+  "/-3d3": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/-5ab": {
+  "/-719": {
     "__comp": "a7bd4aaa",
     "__props": "22dd74f7"
   },
@@ -72,7 +72,7 @@
     "__comp": "df203c0f",
     "__props": "157fab9f"
   },
-  "/-2de": {
+  "/-15d": {
     "__comp": "a94703ab"
   },
   "/academy/-dfe": {
@@ -87,6 +87,10 @@
     "__comp": "17896441",
     "content": "895cf78b"
   },
+  "/academy/videos/opencode-web-calculator-6b7": {
+    "__comp": "17896441",
+    "content": "82a1f5e7"
+  },
   "/academy/videos/specweave-complete-masterclass-570": {
     "__comp": "17896441",
     "content": "55859e1d"
@@ -98,6 +102,10 @@
   "/academy/videos/toxicskills-security-147": {
     "__comp": "17896441",
     "content": "63a15d53"
+  },
+  "/academy/videos/why-skills-matter-cbe": {
+    "__comp": "17896441",
+    "content": "cc75c4d3"
   },
   "/api/-d93": {
     "__comp": "17896441",
@@ -490,6 +498,10 @@
   "/guides/core-concepts/living-documentation-3df": {
     "__comp": "17896441",
     "content": "b103064b"
+  },
+  "/guides/core-concepts/plan-integrity-c21": {
+    "__comp": "17896441",
+    "content": "4b534d64"
   },
   "/guides/core-concepts/what-is-an-increment-4d8": {
     "__comp": "17896441",

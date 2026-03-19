@@ -23,6 +23,10 @@
               "path": "/academy/videos/clawhub-postmortem"
             },
             {
+              "id": "academy/videos/opencode-web-calculator",
+              "path": "/academy/videos/opencode-web-calculator"
+            },
+            {
               "id": "academy/videos/specweave-complete-masterclass",
               "path": "/academy/videos/specweave-complete-masterclass"
             },
@@ -33,6 +37,10 @@
             {
               "id": "academy/videos/toxicskills-security",
               "path": "/academy/videos/toxicskills-security"
+            },
+            {
+              "id": "academy/videos/why-skills-matter",
+              "path": "/academy/videos/why-skills-matter"
             },
             {
               "id": "api/README",
@@ -421,6 +429,10 @@
             {
               "id": "guides/core-concepts/living-documentation",
               "path": "/guides/core-concepts/living-documentation"
+            },
+            {
+              "id": "guides/core-concepts/plan-integrity",
+              "path": "/guides/core-concepts/plan-integrity"
             },
             {
               "id": "guides/core-concepts/what-is-an-increment",

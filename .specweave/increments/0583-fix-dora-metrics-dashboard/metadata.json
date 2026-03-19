@@ -1,0 +1,13 @@
+{
+  "id": "0583-fix-dora-metrics-dashboard",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-19T00:16:54.325Z",
+  "lastActivity": "2026-03-19T00:16:54.325Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

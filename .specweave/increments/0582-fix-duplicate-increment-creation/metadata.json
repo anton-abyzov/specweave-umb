@@ -1,0 +1,30 @@
+{
+  "id": "0582-fix-duplicate-increment-creation",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-18T21:55:03.092Z",
+  "lastActivity": "2026-03-18T22:28:00.126Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-548",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-548",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-18T22:28:24.526Z"
+    },
+    "ado": {
+      "featureId": "1438",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1438",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-18T22:28:28.376Z"
+    }
+  },
+  "updated": "2026-03-18T22:21:37.000Z",
+  "approvedAt": "2026-03-18T22:28:00.126Z"
+}

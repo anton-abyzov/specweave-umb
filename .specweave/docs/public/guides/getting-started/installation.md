@@ -40,7 +40,7 @@ cd my-project
 
 **Cons:**
 - ❌ Requires admin/root on some systems
-- ❌ Manual updates needed: `npm update -g specweave`
+- ❌ Manual updates needed: `specweave update`
 
 **Best for:** Regular SpecWeave users, developers working on multiple projects
 
@@ -259,10 +259,10 @@ specweave get my-org/order-service
 specweave get my-org/notification-service
 
 # Bulk clone an entire GitHub org
-specweave get --org my-org
+specweave get "my-org/*"
 
 # Filter by pattern
-specweave get --org my-org --filter "service-*"
+specweave get "my-org/service-*"
 ```
 
 > **Using npx?** Replace `specweave get` with `npx specweave get` if you haven't installed globally.
@@ -406,29 +406,55 @@ integrations:
 
 ## Upgrading
 
-### Global Installation
+### Recommended: `specweave update`
+
+The best way to upgrade is to run `specweave update` inside your project:
 
 ```bash
-# Check current version
-specweave --version
-
-# Upgrade to latest
-npm update -g specweave
-
-# Or reinstall
-npm install -g specweave@latest
-
-# Verify new version
-specweave --version
+cd your-project
+specweave update
 ```
+
+This single command handles the **full upgrade lifecycle**:
+
+1. **Updates the CLI binary** — checks npm for the latest version and self-updates
+2. **Migrates project configuration** — updates `CLAUDE.md`, `AGENTS.md`, and `config.json` to match the new version
+3. **Cleans up stale state** — removes old lock files, orphaned folders, and expired auto-session state
+4. **Prunes skill memories** — removes learnings older than 90 days to keep AI context fresh
+5. **Refreshes marketplace plugins** — installs latest agents, skills, commands, and hooks
+6. **Validates project health** — detects and fixes installation issues automatically
+
+```bash
+# Common flags
+specweave update              # Full update (recommended)
+specweave update --check      # Dry run — shows what would change without modifying anything
+specweave update --no-plugins # Update CLI and config only, skip plugin refresh
+specweave update --all        # Refresh ALL marketplace plugins (not just core)
+specweave update --no-self    # Skip CLI binary update, only update project files
+specweave update --verbose    # Show detailed output for each step
+```
+
+### Why not just `npm update -g specweave`?
+
+Running `npm update -g specweave` (or `pnpm update -g specweave`) **only updates the CLI binary**. It does NOT touch your projects. This means:
+
+- Your `CLAUDE.md` and `AGENTS.md` still contain old framework instructions
+- Your `config.json` may be missing fields required by the new version
+- Stale state files and orphaned folders accumulate over time
+- Marketplace plugins (agents, skills, commands, hooks) remain outdated
+- Legacy formats are never migrated to current conventions
+
+In short: you're running a new CLI against old project scaffolding, which can cause subtle issues — missing skills, broken hooks, or stale guidance in AI prompts.
+
+**Use `npm update -g specweave` only when** you need to update the binary on a machine where no SpecWeave project is open (e.g., a fresh CI runner). For all other cases, prefer `specweave update`.
 
 ### npx (Always Latest)
 
-npx automatically uses the latest version, no upgrade needed.
+npx automatically uses the latest version of the CLI binary, but the same caveat applies — it does not update your project files. Run `npx specweave update` inside your project to get the full upgrade.
 
 ### Reinstall Project
 
-If you need to reinstall SpecWeave in a project:
+If you need a clean reinstall (e.g., corrupted state or major version jump):
 
 ```bash
 cd your-project
@@ -700,10 +726,11 @@ EOF
 
 After successful installation:
 
-1. ✅ Read the [Quick Start Guide](quickstart)
-2. ✅ Review `CLAUDE.md` in your project
-3. ✅ Explore [Core Concepts](../../overview/introduction)
-4. ✅ Start your first increment
+1. ✅ Watch the [4-min OpenCode Demo](../../academy/videos/005-opencode-web-calculator.mdx) — see the full workflow in action
+2. ✅ Read the [Quick Start Guide](quickstart)
+3. ✅ Review `CLAUDE.md` in your project
+4. ✅ Explore [Core Concepts](../../overview/introduction)
+5. ✅ Start your first increment
 
 ## Support
 

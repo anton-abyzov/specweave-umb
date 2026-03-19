@@ -9,11 +9,11 @@ export default [
   },
   {
     path: '/',
-    component: ComponentCreator('/', '36f'),
+    component: ComponentCreator('/', '3d3'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', '5ab'),
+        component: ComponentCreator('/', '719'),
         routes: [
           {
             path: '/tags',
@@ -87,7 +87,7 @@ export default [
           },
           {
             path: '/',
-            component: ComponentCreator('/', '2de'),
+            component: ComponentCreator('/', '15d'),
             routes: [
               {
                 path: '/academy/',
@@ -105,6 +105,11 @@ export default [
                 exact: true
               },
               {
+                path: '/academy/videos/opencode-web-calculator',
+                component: ComponentCreator('/academy/videos/opencode-web-calculator', '6b7'),
+                exact: true
+              },
+              {
                 path: '/academy/videos/specweave-complete-masterclass',
                 component: ComponentCreator('/academy/videos/specweave-complete-masterclass', '570'),
                 exact: true
@@ -117,6 +122,11 @@ export default [
               {
                 path: '/academy/videos/toxicskills-security',
                 component: ComponentCreator('/academy/videos/toxicskills-security', '147'),
+                exact: true
+              },
+              {
+                path: '/academy/videos/why-skills-matter',
+                component: ComponentCreator('/academy/videos/why-skills-matter', 'cbe'),
                 exact: true
               },
               {
@@ -607,6 +617,11 @@ export default [
               {
                 path: '/guides/core-concepts/living-documentation',
                 component: ComponentCreator('/guides/core-concepts/living-documentation', '3df'),
+                exact: true
+              },
+              {
+                path: '/guides/core-concepts/plan-integrity',
+                component: ComponentCreator('/guides/core-concepts/plan-integrity', 'c21'),
                 exact: true
               },
               {
