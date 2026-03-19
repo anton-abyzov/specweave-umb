@@ -1,0 +1,30 @@
+{
+  "incrementId": "0509-track-tier2-llm-model",
+  "startedAt": "2026-03-12T00:11:35-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-12T00:13:00-04:00",
+      "summary": "Add llmModel String? to ScanResult Prisma model, pass model field through Tier2Payload and StoredScanResult interfaces, add composite index on (tier, llmModel, createdAt)"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-12T00:13:00-04:00",
+      "summary": "N/A - no new external services. Existing CF AI and OpenAI integrations unchanged; only tracking which model was used"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-12T00:13:00-04:00",
+      "summary": "N/A - admin API endpoint only, no frontend UI changes in scope"
+    },
+    "performance": {
+      "coveredAt": "2026-03-12T00:13:00-04:00",
+      "summary": "Composite DB index on (tier, llmModel, createdAt) for efficient stats queries over 769K+ rows"
+    },
+    "security": {
+      "coveredAt": "2026-03-12T00:13:00-04:00",
+      "summary": "Stats endpoint uses existing admin JWT auth pattern (requireAdmin + isAuthError guard)"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-12T00:13:00-04:00",
+      "summary": "Nullable llmModel for backwards compat. Heuristic backfill: >30s=OpenAI inferred, 20-30s=ambiguous, <20s=CF inferred. Existing rows without model stay queryable"
+    }
+  }
+}

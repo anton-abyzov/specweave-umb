@@ -1,0 +1,18 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11649
+Increment recommendation: none (confidence: 0.95, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "External service request - no Slack integration plugin available",
+  "latencyMs": 13319.348333,
+  "increment": {
+    "action": "none",
+    "confidence": 0.95,
+    "mandatory": false,
+    "reasoning": "Not an implementation task - requesting external service access I cannot fulfill"
+  }
+}

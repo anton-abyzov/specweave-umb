@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.62 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11850
+Increment recommendation: none (confidence: 0.6, mandatory: false)
+{
+  "detected": true,
+  "plugins": [
+    "infra"
+  ],
+  "confidence": 0.5,
+  "reasoning": "Mentions 'git push and deploy', but context unclear—appears to be approval/confirmation of previous plan rather than new work",
+  "latencyMs": 13526.456917
+}

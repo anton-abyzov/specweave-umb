@@ -1,0 +1,30 @@
+{
+  "incrementId": "0601-fix-ado-sync-remaining-gaps",
+  "startedAt": "2026-03-19T04:38:55.952Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T04:39:04.900Z",
+      "summary": "4 files modified: sync-progress.ts (remove auto-mapping), ado-client.ts (add title filter + searchWorkItemByTitle), external-issue-auto-creator.ts (Layer 3 dedup), providers/ado.ts (response.ok check)"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T04:39:04.986Z",
+      "summary": "ADO REST API WIQL title search for Layer 3 dedup. Same pattern as GitHub searchIssueByTitle."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T04:39:05.082Z",
+      "summary": "No UI changes. Backend-only sync fixes."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T04:39:05.153Z",
+      "summary": "One extra WIQL query before Feature creation. Adds ~500ms but prevents duplicate work items."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T04:39:05.204Z",
+      "summary": "No security changes. WIQL query uses existing PAT auth."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T04:39:05.253Z",
+      "summary": "WIQL title search matches by exact title + specweave tag. Empty results handled. Metadata loss triggers search instead of creating duplicates."
+    }
+  }
+}

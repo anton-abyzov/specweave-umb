@@ -1,0 +1,30 @@
+{
+  "incrementId": "0541-vskill-stale-file-cleanup",
+  "startedAt": "2026-03-15T23:19:52-04:00",
+  "coveredCategories": {
+    "ui-ux": {
+      "coveredAt": "2026-03-15T23:19:59-04:00",
+      "summary": "N/A - CLI-internal cleanup, no UI involved"
+    },
+    "performance": {
+      "coveredAt": "2026-03-15T23:20:03-04:00",
+      "summary": "N/A - file cleanup runs synchronously during doctor/refresh, no perf constraints"
+    },
+    "security": {
+      "coveredAt": "2026-03-15T23:20:07-04:00",
+      "summary": "N/A - operates on local lockfiles only, no secrets or auth involved"
+    },
+    "architecture": {
+      "coveredAt": "2026-03-15T23:21:05-04:00",
+      "summary": "vskill.lock stays at umbrella root (correct). Fix orphaned locks in child repos from prior bugs. skills-lock.json is dead format, delete on sight. New cleanup methods in existing InstallationHealthChecker class."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-15T23:21:10-04:00",
+      "summary": "No external integrations. Wires into existing doctor checker class and refresh-plugins command. Delegates hash validation to existing checkLockfileIntegrity()."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-15T23:21:15-04:00",
+      "summary": "Skip files with mtime < 5s to avoid corrupting concurrent writes. Aggressive delete for skills-lock.json anywhere. Conservative for vskill.lock (only orphaned child-repo copies)."
+    }
+  }
+}

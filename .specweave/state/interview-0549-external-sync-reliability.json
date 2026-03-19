@@ -1,0 +1,30 @@
+{
+  "incrementId": "0549-external-sync-reliability",
+  "startedAt": "2026-03-16T17:11:49-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-16T17:12:19-04:00",
+      "summary": "Plugin-based sync: 3 providers (JIRA/GitHub/ADO) with core engine, circuit breaker, retry queue, hook lifecycle. GitHub most mature, JIRA/ADO missing locking and circuit breaker integration."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-16T17:12:19-04:00",
+      "summary": "JIRA REST API, GitHub REST API, ADO REST API. Real test instances: SWE2E JIRA project, anton-abyzov/specweave GitHub, EasyChamp/SpecWeaveSync ADO."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-16T17:12:19-04:00",
+      "summary": "N/A - CLI/backend sync feature, no UI. Error surfacing to CLI stdout/stderr is the only user-facing concern."
+    },
+    "performance": {
+      "coveredAt": "2026-03-16T17:12:19-04:00",
+      "summary": "ADO 200 req/min PAT limit needs token bucket. JIRA uses 429 backoff. GitHub has pre-check rate limiting."
+    },
+    "security": {
+      "coveredAt": "2026-03-16T17:12:19-04:00",
+      "summary": "PAT/API tokens already in config. No new credential handling needed. Audit logging for sync failures."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-16T17:12:19-04:00",
+      "summary": "10 gaps identified: silent errors, race conditions (JIRA no locking), regex fragility (ADO), one-way sync (ADO), missing closure hooks, import creates docs not increments, inconsistent suffixes."
+    }
+  }
+}

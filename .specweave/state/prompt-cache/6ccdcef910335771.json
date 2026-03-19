@@ -1,0 +1,18 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 5120
+Increment recommendation: none (confidence: 0.99, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.99,
+  "reasoning": "General knowledge question, no software engineering or tech work",
+  "latencyMs": 8244.2895,
+  "increment": {
+    "action": "none",
+    "confidence": 0.99,
+    "mandatory": false,
+    "reasoning": "Question only, no implementation work"
+  }
+}

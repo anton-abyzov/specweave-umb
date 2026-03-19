@@ -1,0 +1,25 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.77 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11811
+Increment recommendation: none (confidence: 0.95, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "No explicit integrations requested; social links are context only, not sync/integration instructions",
+  "latencyMs": 13339.793208,
+  "increment": {
+    "action": "none",
+    "confidence": 0.95,
+    "mandatory": false,
+    "reasoning": "Brainstorming and strategy discussion about self-promotion, not implementation work"
+  },
+  "vskillRecommendations": [
+    {
+      "plugin": "marketing",
+      "matchedKeyword": "linkedin",
+      "installCommand": "vskill install anton-abyzov/vskill --plugin marketing"
+    }
+  ]
+}

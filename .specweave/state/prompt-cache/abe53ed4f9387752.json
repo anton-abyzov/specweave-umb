@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 8059
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "No integration tools mentioned; general implementation work",
+  "latencyMs": 9346.336125,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "edge-case-testing-brainstorm",
+    "reasoning": "Implementation work on testing edge cases and identifying issues"
+  }
+}

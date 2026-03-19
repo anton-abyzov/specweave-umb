@@ -1,0 +1,11 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 7455
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.5,
+  "reasoning": "Step 3 explicitly shows a POST call to the /media_publish endpoint to publish the media container and capture the post ID",
+  "latencyMs": 10603.412667
+}

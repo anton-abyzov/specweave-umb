@@ -1,0 +1,30 @@
+{
+  "incrementId": "0510-skill-studio-ai-create-improvements",
+  "startedAt": "2026-03-15T17:05:04.483Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-15T17:05:11.891Z",
+      "summary": "React components: CreateSkillPage (standalone route) and CreateSkillInline (sidebar panel) share 90%+ logic. Both use form state, SSE generation, draft saving. Refactor to shared useCreateSkill hook. No new components needed, only modifications to existing ones. Data flows: UI -> fetch /api/skills/generate (SSE) -> populate form -> /api/skills/create."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-15T17:05:18.169Z",
+      "summary": "No new integrations. Existing APIs: GET /api/project-layout, POST /api/skills/generate (SSE), POST /api/skills/create, POST /api/skills/save-draft. Only change: stop passing evals field to create and save-draft requests. Backend routes in skill-create-routes.ts remain unchanged - evals param is already optional."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-15T17:05:26.515Z",
+      "summary": "Changes: 1) Remove help text paragraph below AI prompt textarea in both create components. 2) Button label always 'Create Skill' instead of conditional Save/Create. 3) Remove pendingEvals state and SkillFileTree evals display. 4) Preview mode already works - verify Write/Preview toggle renders markdown via renderMarkdown util. Empty state shows placeholder. No accessibility changes needed."
+    },
+    "performance": {
+      "coveredAt": "2026-03-15T17:05:31.382Z",
+      "summary": "No performance impact. Changes are purely UI removals and label changes. The shared hook refactor consolidates duplicate code but does not change runtime behavior. SSE generation stream handling remains unchanged. No new network requests or data fetching."
+    },
+    "security": {
+      "coveredAt": "2026-03-15T17:05:36.834Z",
+      "summary": "No security implications. No new API endpoints. No auth changes. No user data handling changes. The only data flow change is removing optional evals from create/draft request bodies, which reduces data sent. Existing XSS protection via renderMarkdown remains unchanged."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-15T17:05:43.300Z",
+      "summary": "Edge cases: 1) AI generation returns evals in response - frontend simply ignores them now instead of storing. 2) Draft save without evals - backend evals param is already optional, no change needed. 3) Shared hook must handle both standalone and inline contexts (navigation vs callback). 4) Empty body preview - already handled with placeholder text. 5) Generation abort/cancel - unchanged, AbortController logic stays."
+    }
+  }
+}

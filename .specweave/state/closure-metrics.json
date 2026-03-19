@@ -1,0 +1,581 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "tool": "github",
+      "itemId": 1224,
+      "incrementId": "0282-repo-links-all-skill-surfaces",
+      "success": true,
+      "timestamp": "2026-02-21T16:59:25.133Z",
+      "durationMs": 1979
+    },
+    {
+      "tool": "github",
+      "itemId": 1225,
+      "incrementId": "0282-repo-links-all-skill-surfaces",
+      "success": true,
+      "timestamp": "2026-02-21T16:59:27.865Z",
+      "durationMs": 2237
+    },
+    {
+      "tool": "github",
+      "itemId": 1226,
+      "incrementId": "0286-vskill-install-ux",
+      "success": true,
+      "timestamp": "2026-02-21T17:02:14.493Z",
+      "durationMs": 2068
+    },
+    {
+      "tool": "github",
+      "itemId": 1227,
+      "incrementId": "0286-vskill-install-ux",
+      "success": true,
+      "timestamp": "2026-02-21T17:02:16.916Z",
+      "durationMs": 1778
+    },
+    {
+      "tool": "github",
+      "itemId": 1228,
+      "incrementId": "0286-vskill-install-ux",
+      "success": true,
+      "timestamp": "2026-02-21T17:02:19.198Z",
+      "durationMs": 1817
+    },
+    {
+      "tool": "github",
+      "itemId": 1229,
+      "incrementId": "0286-vskill-install-ux",
+      "success": true,
+      "timestamp": "2026-02-21T17:02:21.798Z",
+      "durationMs": 1981
+    },
+    {
+      "tool": "github",
+      "itemId": 1230,
+      "incrementId": "0286-vskill-install-ux",
+      "success": true,
+      "timestamp": "2026-02-21T17:02:24.410Z",
+      "durationMs": 2049
+    },
+    {
+      "tool": "github",
+      "itemId": 1266,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:41.914Z",
+      "durationMs": 1805
+    },
+    {
+      "tool": "github",
+      "itemId": 1266,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:42.671Z",
+      "durationMs": 1200
+    },
+    {
+      "tool": "github",
+      "itemId": 1265,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:44.179Z",
+      "durationMs": 1850
+    },
+    {
+      "tool": "github",
+      "itemId": 1265,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:44.363Z",
+      "durationMs": 1242
+    },
+    {
+      "tool": "github",
+      "itemId": 1267,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:45.892Z",
+      "durationMs": 1036
+    },
+    {
+      "tool": "github",
+      "itemId": 1267,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:46.104Z",
+      "durationMs": 1496
+    },
+    {
+      "tool": "github",
+      "itemId": 1268,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:47.743Z",
+      "durationMs": 1123
+    },
+    {
+      "tool": "github",
+      "itemId": 1268,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:47.810Z",
+      "durationMs": 1447
+    },
+    {
+      "tool": "github",
+      "itemId": 1269,
+      "incrementId": "0319-discovery-scale-up",
+      "success": false,
+      "error": "Error: Failed to close issue #1269: GraphQL: Could not close the issue. (closeIssue)\n",
+      "timestamp": "2026-02-22T09:21:49.498Z",
+      "durationMs": 1298
+    },
+    {
+      "tool": "github",
+      "itemId": 1269,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:49.767Z",
+      "durationMs": 1571
+    },
+    {
+      "tool": "github",
+      "itemId": 1270,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:51.872Z",
+      "durationMs": 1552
+    },
+    {
+      "tool": "github",
+      "itemId": 1270,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:51.881Z",
+      "durationMs": 1739
+    },
+    {
+      "tool": "github",
+      "itemId": 1271,
+      "incrementId": "0319-discovery-scale-up",
+      "success": false,
+      "error": "Error: Failed to close issue #1271: GraphQL: Could not close the issue. (closeIssue)\n",
+      "timestamp": "2026-02-22T09:21:53.738Z",
+      "durationMs": 1346
+    },
+    {
+      "tool": "github",
+      "itemId": 1271,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:53.991Z",
+      "durationMs": 1564
+    },
+    {
+      "tool": "github",
+      "itemId": 1272,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:55.714Z",
+      "durationMs": 1501
+    },
+    {
+      "tool": "github",
+      "itemId": 1272,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:55.843Z",
+      "durationMs": 1468
+    },
+    {
+      "tool": "github",
+      "itemId": 1273,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:57.637Z",
+      "durationMs": 1367
+    },
+    {
+      "tool": "github",
+      "itemId": 1273,
+      "incrementId": "0319-discovery-scale-up",
+      "success": true,
+      "timestamp": "2026-02-22T09:21:57.642Z",
+      "durationMs": 1573
+    },
+    {
+      "tool": "github",
+      "itemId": 1274,
+      "incrementId": "0323-error-dashboard-fixes",
+      "success": true,
+      "timestamp": "2026-02-22T09:23:02.518Z",
+      "durationMs": 2148
+    },
+    {
+      "tool": "github",
+      "itemId": 1277,
+      "incrementId": "0323-error-dashboard-fixes",
+      "success": true,
+      "timestamp": "2026-02-22T09:23:04.746Z",
+      "durationMs": 1800
+    },
+    {
+      "tool": "github",
+      "itemId": 1276,
+      "incrementId": "0323-error-dashboard-fixes",
+      "success": true,
+      "timestamp": "2026-02-22T09:23:07.034Z",
+      "durationMs": 1764
+    },
+    {
+      "tool": "github",
+      "itemId": 1278,
+      "incrementId": "0321-fix-skill-slugs",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:13.095Z",
+      "durationMs": 1902
+    },
+    {
+      "tool": "github",
+      "itemId": 1282,
+      "incrementId": "0324-search-performance-scalability",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:32.346Z",
+      "durationMs": 1380
+    },
+    {
+      "tool": "github",
+      "itemId": 1282,
+      "incrementId": "0324-search-performance-scalability",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:32.451Z",
+      "durationMs": 1872
+    },
+    {
+      "tool": "github",
+      "itemId": 1281,
+      "incrementId": "0324-search-performance-scalability",
+      "success": false,
+      "error": "Error: Failed to close issue #1281: GraphQL: Could not close the issue. (closeIssue)\n",
+      "timestamp": "2026-02-22T09:34:34.103Z",
+      "durationMs": 1255
+    },
+    {
+      "tool": "github",
+      "itemId": 1281,
+      "incrementId": "0324-search-performance-scalability",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:34.296Z",
+      "durationMs": 1570
+    },
+    {
+      "tool": "github",
+      "itemId": 1283,
+      "incrementId": "0324-search-performance-scalability",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:36.012Z",
+      "durationMs": 1269
+    },
+    {
+      "tool": "github",
+      "itemId": 1283,
+      "incrementId": "0324-search-performance-scalability",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:36.185Z",
+      "durationMs": 1673
+    },
+    {
+      "tool": "github",
+      "itemId": 1284,
+      "incrementId": "0324-search-performance-scalability",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:38.173Z",
+      "durationMs": 1749
+    },
+    {
+      "tool": "github",
+      "itemId": 1284,
+      "incrementId": "0324-search-performance-scalability",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:38.443Z",
+      "durationMs": 1876
+    },
+    {
+      "tool": "github",
+      "itemId": 1285,
+      "incrementId": "0324-search-performance-scalability",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:40.216Z",
+      "durationMs": 1343
+    },
+    {
+      "tool": "github",
+      "itemId": 1285,
+      "incrementId": "0324-search-performance-scalability",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:40.240Z",
+      "durationMs": 1675
+    },
+    {
+      "tool": "github",
+      "itemId": 1288,
+      "incrementId": "0325-homepage-metrics-accuracy",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:54.108Z",
+      "durationMs": 1285
+    },
+    {
+      "tool": "github",
+      "itemId": 1288,
+      "incrementId": "0325-homepage-metrics-accuracy",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:54.168Z",
+      "durationMs": 1645
+    },
+    {
+      "tool": "github",
+      "itemId": 1287,
+      "incrementId": "0325-homepage-metrics-accuracy",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:55.946Z",
+      "durationMs": 1387
+    },
+    {
+      "tool": "github",
+      "itemId": 1287,
+      "incrementId": "0325-homepage-metrics-accuracy",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:56.102Z",
+      "durationMs": 1576
+    },
+    {
+      "tool": "github",
+      "itemId": 1289,
+      "incrementId": "0325-homepage-metrics-accuracy",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:57.742Z",
+      "durationMs": 1226
+    },
+    {
+      "tool": "github",
+      "itemId": 1289,
+      "incrementId": "0325-homepage-metrics-accuracy",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:57.788Z",
+      "durationMs": 1454
+    },
+    {
+      "tool": "github",
+      "itemId": 1290,
+      "incrementId": "0325-homepage-metrics-accuracy",
+      "success": false,
+      "error": "Error: Failed to close issue #1290: GraphQL: Could not close the issue. (closeIssue)\n",
+      "timestamp": "2026-02-22T09:34:59.765Z",
+      "durationMs": 1576
+    },
+    {
+      "tool": "github",
+      "itemId": 1290,
+      "incrementId": "0325-homepage-metrics-accuracy",
+      "success": true,
+      "timestamp": "2026-02-22T09:34:59.888Z",
+      "durationMs": 1678
+    },
+    {
+      "tool": "github",
+      "itemId": 1291,
+      "incrementId": "0325-homepage-metrics-accuracy",
+      "success": true,
+      "timestamp": "2026-02-22T09:35:01.778Z",
+      "durationMs": 1548
+    },
+    {
+      "tool": "github",
+      "itemId": 1291,
+      "incrementId": "0325-homepage-metrics-accuracy",
+      "success": true,
+      "timestamp": "2026-02-22T09:35:01.879Z",
+      "durationMs": 1618
+    },
+    {
+      "tool": "github",
+      "itemId": 1292,
+      "incrementId": "0320-search-palette-github-stars",
+      "success": true,
+      "timestamp": "2026-02-22T09:35:09.866Z",
+      "durationMs": 1282
+    },
+    {
+      "tool": "github",
+      "itemId": 1292,
+      "incrementId": "0320-search-palette-github-stars",
+      "success": true,
+      "timestamp": "2026-02-22T09:35:09.969Z",
+      "durationMs": 1915
+    },
+    {
+      "tool": "github",
+      "itemId": 1296,
+      "incrementId": "0326-trust-center-fixes",
+      "success": true,
+      "timestamp": "2026-02-22T17:41:48.174Z",
+      "durationMs": 1240
+    },
+    {
+      "tool": "github",
+      "itemId": 1296,
+      "incrementId": "0326-trust-center-fixes",
+      "success": true,
+      "timestamp": "2026-02-22T17:41:48.183Z",
+      "durationMs": 1741
+    },
+    {
+      "tool": "github",
+      "itemId": 1295,
+      "incrementId": "0326-trust-center-fixes",
+      "success": false,
+      "error": "Error: Failed to close issue #1295: GraphQL: Could not close the issue. (closeIssue)\n",
+      "timestamp": "2026-02-22T17:41:49.850Z",
+      "durationMs": 1253
+    },
+    {
+      "tool": "github",
+      "itemId": 1295,
+      "incrementId": "0326-trust-center-fixes",
+      "success": true,
+      "timestamp": "2026-02-22T17:41:49.992Z",
+      "durationMs": 1407
+    },
+    {
+      "tool": "github",
+      "itemId": 1297,
+      "incrementId": "0326-trust-center-fixes",
+      "success": true,
+      "timestamp": "2026-02-22T17:41:51.910Z",
+      "durationMs": 1455
+    },
+    {
+      "tool": "github",
+      "itemId": 1297,
+      "incrementId": "0326-trust-center-fixes",
+      "success": true,
+      "timestamp": "2026-02-22T17:41:51.917Z",
+      "durationMs": 1545
+    },
+    {
+      "tool": "github",
+      "itemId": 1298,
+      "incrementId": "0326-trust-center-fixes",
+      "success": false,
+      "error": "Error: Failed to close issue #1298: GraphQL: Could not close the issue. (closeIssue)\n",
+      "timestamp": "2026-02-22T17:41:53.856Z",
+      "durationMs": 1498
+    },
+    {
+      "tool": "github",
+      "itemId": 1298,
+      "incrementId": "0326-trust-center-fixes",
+      "success": true,
+      "timestamp": "2026-02-22T17:41:54.040Z",
+      "durationMs": 1705
+    },
+    {
+      "tool": "github",
+      "itemId": 1306,
+      "incrementId": "0333-fix-crawl-dispatch-env",
+      "success": true,
+      "timestamp": "2026-02-24T04:45:48.637Z",
+      "durationMs": 2171
+    },
+    {
+      "tool": "github",
+      "itemId": 1305,
+      "incrementId": "0333-fix-crawl-dispatch-env",
+      "success": true,
+      "timestamp": "2026-02-24T04:45:50.915Z",
+      "durationMs": 1758
+    },
+    {
+      "tool": "github",
+      "itemId": 1307,
+      "incrementId": "0333-fix-crawl-dispatch-env",
+      "success": true,
+      "timestamp": "2026-02-24T04:45:53.022Z",
+      "durationMs": 1655
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-13",
+      "incrementId": "0429-centralized-sync-test",
+      "success": true,
+      "timestamp": "2026-03-05T06:58:13.063Z",
+      "durationMs": 1609
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-13",
+      "incrementId": "0429-centralized-sync-test",
+      "success": true,
+      "timestamp": "2026-03-05T06:58:13.246Z",
+      "durationMs": 1795
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-7",
+      "incrementId": "0417J-update-cli-help-umbrella",
+      "success": true,
+      "timestamp": "2026-03-07T01:55:31.858Z",
+      "durationMs": 1504
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-7",
+      "incrementId": "0417J-update-cli-help-umbrella",
+      "success": true,
+      "timestamp": "2026-03-07T01:55:32.653Z",
+      "durationMs": 1263
+    }
+  ],
+  "summary": {
+    "github": {
+      "totalAttempts": 62,
+      "successful": 56,
+      "failed": 6,
+      "successRate": 0.9032258064516129,
+      "lastSuccess": "2026-02-24T04:45:53.022Z",
+      "lastFailure": "2026-02-22T17:41:53.856Z",
+      "avgDurationMs": 1596.467741935484,
+      "recentErrors": [
+        "Error: Failed to close issue #1298: GraphQL: Could not close the issue. (closeIssue)\n",
+        "Error: Failed to close issue #1295: GraphQL: Could not close the issue. (closeIssue)\n",
+        "Error: Failed to close issue #1290: GraphQL: Could not close the issue. (closeIssue)\n",
+        "Error: Failed to close issue #1281: GraphQL: Could not close the issue. (closeIssue)\n",
+        "Error: Failed to close issue #1271: GraphQL: Could not close the issue. (closeIssue)\n",
+        "Error: Failed to close issue #1269: GraphQL: Could not close the issue. (closeIssue)\n"
+      ]
+    },
+    "jira": {
+      "totalAttempts": 4,
+      "successful": 4,
+      "failed": 0,
+      "successRate": 1,
+      "lastSuccess": "2026-03-07T01:55:32.653Z",
+      "avgDurationMs": 1542.75,
+      "recentErrors": []
+    },
+    "ado": {
+      "totalAttempts": 0,
+      "successful": 0,
+      "failed": 0,
+      "successRate": 1,
+      "recentErrors": []
+    },
+    "overall": {
+      "totalAttempts": 66,
+      "successful": 60,
+      "failed": 6,
+      "successRate": 0.9090909090909091
+    },
+    "lastUpdated": "2026-03-07T01:55:32.654Z"
+  }
+}

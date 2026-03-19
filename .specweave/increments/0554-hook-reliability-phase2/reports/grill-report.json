@@ -1,0 +1,34 @@
+{
+  "version": "1.1",
+  "incrementId": "0554-hook-reliability-phase2",
+  "timestamp": "2026-03-17T02:35:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 17,
+    "passed": 17,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "hooks.json line 6: PreToolUse has matcher_content with file_path-scoped regex" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "pre-tool-use.sh lines 31-35: early grep exit before jq for non-increment files" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "pre-tool-use.sh lines 22-29: walk-up root detection replaces bare [[ ! -d .specweave ]]" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "update-dashboard-cache.sh lines 107-115: normalize_priority_key() maps medium->P1" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "update-dashboard-cache.sh lines 98-103: normalize_type_key() maps unknown->feature" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "update-dashboard-cache.sh line 72: uses BASH_SOURCE for rebuild fallback path" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "hooks.json line 57: PostToolUse matcher_content scoped to file_path field" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "hooks.json line 6: PreToolUse matcher_content uses same file_path-scoped pattern" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": ".claude/settings.json line 10: PostToolUse matcher_content scoped to file_path" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "Regex only matches file_path field context, not content/old_string/new_string fields" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "auto-status.sh lines 132-134: all 3 use .field // [] | length" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "cancel-auto.sh line 54: .completedIncrements // [] | length" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "user-prompt-submit.sh lines 1349, 1520, 2191: all use // [] | length" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "startup-health-check.sh lines 9-19: sh-compatible walk-up, $PROJECT_ROOT prefix" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "status-completion-guard.sh lines 40-50: bash walk-up, $_ROOT prefix on state files" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "increment-existence-guard.sh lines 175-182: walk-up, find uses $_ROOT" },
+      { "acId": "AC-US5-04", "status": "pass", "evidence": "pre-tool-use.sh: all bare .specweave/ replaced with $_DIR/.specweave/" }
+    ]
+  },
+  "findings": []
+}

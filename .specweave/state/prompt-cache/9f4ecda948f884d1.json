@@ -1,0 +1,18 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.62 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11874
+Increment recommendation: none (confidence: 0.95, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.9,
+  "reasoning": "Discussion about credential handling and security scanning practices, no implementation requested",
+  "latencyMs": 14451.494459000001,
+  "increment": {
+    "action": "none",
+    "confidence": 0.95,
+    "mandatory": false,
+    "reasoning": "Question/discussion prompt about security philosophy, no code changes"
+  }
+}

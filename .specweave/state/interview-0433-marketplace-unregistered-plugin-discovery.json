@@ -1,0 +1,12 @@
+{
+  "incrementId": "0433-marketplace-unregistered-plugin-discovery",
+  "startedAt": "2026-03-05T16:22:15-05:00",
+  "coveredCategories": {
+    "architecture": {"coveredAt": "2026-03-05T16:22:15-05:00", "summary": "Single GitHub API call to plugins/ dir, no retry. discoverUnregisteredPlugins() in marketplace.ts diffs Contents API response against marketplace.json entries."},
+    "integrations": {"coveredAt": "2026-03-05T16:22:15-05:00", "summary": "Reuses existing GitHub Contents API and submitSkill() from api/client.ts. No new external integrations."},
+    "ui-ux": {"coveredAt": "2026-03-05T16:22:15-05:00", "summary": "Yellow label in picker for unregistered plugins, header with registered/unregistered counts, --force gate with warning and re-submission offer."},
+    "performance": {"coveredAt": "2026-03-05T16:22:15-05:00", "summary": "N/A - single additional API call, best-effort, no perf impact."},
+    "security": {"coveredAt": "2026-03-05T16:22:15-05:00", "summary": "Tier-1 local scan still runs for --force installs. UNSCANNED lockfile tier refers to platform-level Tier-2 only. --force overrides Tier-1 failures as existing behavior."},
+    "edge-cases": {"coveredAt": "2026-03-05T16:22:15-05:00", "summary": "Filter to directories only. Name matching by dir name against plugin name fields. Only applies when marketplace.json exists with entries. --plugin <name> still requires --force for unregistered. --force suppresses re-submission prompt."}
+  }
+}

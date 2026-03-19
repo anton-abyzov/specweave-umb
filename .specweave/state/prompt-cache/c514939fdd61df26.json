@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.70 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 4834
+Invalid LLM response format: I need clarification. "Complete" could mean several things:
+
+- Complete a task or project?
+- Mark something as done?
+- Finish implementing a feature?
+- Something else?
+
+Could you provide more context 
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 7680.774583,
+  "installMessage": "Invalid response format (no JSON found)"
+}

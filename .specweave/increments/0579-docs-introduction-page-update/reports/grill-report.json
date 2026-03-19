@@ -1,0 +1,31 @@
+{
+  "version": "1.1",
+  "incrementId": "0579-docs-introduction-page-update",
+  "timestamp": "2026-03-18T18:40:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 14,
+    "passed": 14,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "Agent Swarms section at line 160 lists /sw:team-lead with all 6 modes (brainstorm, plan, implement, review, research, test)" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "iTerm2/tmux ASCII art diagram at lines 164-171 showing 3 parallel agents" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Line 173 states 'using Claude Code's native TeamCreate for true parallelism'" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "Routing table includes 'Brainstorm approaches for X' → /sw:brainstorm at line 77 and brainstorm mode at line 81" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "Brainstorm paragraph at line 135 in workflow section + complexity diagram at line 145 shows /sw:brainstorm for medium features" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "Brownfield workflow narrative at lines 128-133 with strangler fig migration and TDD-first execution" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Line 187 mentions specweave get with single repo, bulk clone, org-wide. Line 192 in Use Cases also references specweave get" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "Integrations table at lines 222-229 with GitHub, JIRA, Azure DevOps, Verified Skills rows" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "Line 231 mentions circuit breaker pattern with per-provider, 3-failure threshold, 5-minute auto-reset" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "No Commands to Memorize section at lines 68-86 with 9-row natural language routing table" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "Three workflow narratives: Solo (lines 111-119), Agent team (lines 121-126), Brownfield (lines 128-133)" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "Complexity diagram at lines 137-158 showing progression from simple fixes to multi-agent teams" },
+      { "acId": "AC-US5-04", "status": "pass", "evidence": "All 8 keep sections preserved: Title, Problem, Solution, Who Should Use, Core Features, What You Get, Built With, Next Steps" },
+      { "acId": "AC-US5-05", "status": "pass", "evidence": "4 markdown tables, clear ## headings, short paragraphs, no wall-of-text. 267 lines total." }
+    ]
+  },
+  "findings": []
+}

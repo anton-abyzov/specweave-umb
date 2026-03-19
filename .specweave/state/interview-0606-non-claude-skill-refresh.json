@@ -1,0 +1,12 @@
+{
+  "incrementId": "0606-non-claude-skill-refresh",
+  "startedAt": "2026-03-19T05:26:07.486Z",
+  "coveredCategories": {
+    "architecture": "Two repos (specweave + vskill). normalizeFrontmatter() in plugin-copier.ts for non-Claude copies. fetchLocal() in source-fetcher.ts for local:specweave skill updates.",
+    "integrations": "No new integrations. Uses existing adapter system and vskill lockfile contract. specweave writes lockfile, vskill reads it.",
+    "ui-ux": "No UI. CLI-only changes: vskill update defaults to --all, specweave refresh-plugins normalizes frontmatter silently.",
+    "performance": "SHA comparison prevents unnecessary re-installs. No performance-sensitive paths affected.",
+    "security": "No security implications. Skills are local files copied between directories. vskill update already runs tier-1 security scan.",
+    "edge-cases": "Plugin cache missing: fetchLocal() returns null, skill skipped gracefully. Multi-line hooks YAML: regex handles indented continuation lines. Empty frontmatter: creates new block with name+description."
+  }
+}

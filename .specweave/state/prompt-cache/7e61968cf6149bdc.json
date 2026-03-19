@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 8363
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Local skill installation mechanism, no external integrations mentioned",
+  "latencyMs": 9790.252333,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "auto-local-skill-installation",
+    "reasoning": "Implementation of automatic local skill installation with root folder detection logic and team-based development"
+  }
+}

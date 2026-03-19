@@ -1,0 +1,11 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 5908
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.5,
+  "reasoning": "The LLM output does not use slack_read_channel to fetch messages. Instead, it explains that Slack MCP tools are unavailable and provides setup guidance. No channel_id resolution or message fetching occurs.",
+  "latencyMs": 7371.420792
+}

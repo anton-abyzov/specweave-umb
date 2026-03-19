@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10029
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "No integration plugins - pure investigation/debugging work",
+  "latencyMs": 11342.136584,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "investigate-team-deletion-agent-shutdown",
+    "reasoning": "Investigation into team deletion and agent shutdown lifecycle failure - explicit request to analyze and debug a system failure"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0577-docs-triple-invocation",
+  "startedAt": "2026-03-18T17:44:56.054Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T17:45:01.095Z",
+      "summary": "React CommandTabs component using CSS modules at src/components/CommandTabs/. Three tabs: Just say it, Claude Code, Other AI Tools. Uses Docusaurus built-in tab pattern with custom styling. No new data flow - pure presentational component."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T17:45:02.867Z",
+      "summary": "No external integrations. Component is imported in MDX docs via @site/src/components/CommandTabs. Docusaurus handles MDX compilation. No APIs, databases, or auth."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T17:45:05.105Z",
+      "summary": "Tab component with 3 tabs. Default tab is Just say it (natural language). Uses indigo-purple design tokens from tokens.css. Dark mode via data-theme=dark. Accessible with proper ARIA roles. Copy button for code examples. Responsive - stacks on mobile."
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T17:45:06.951Z",
+      "summary": "Pure static React component, zero runtime cost. No state management, API calls, or data fetching. Renders at build time via Docusaurus SSG. Component is lightweight - just tabs with text content."
+    },
+    "security": {
+      "coveredAt": "2026-03-18T17:45:08.791Z",
+      "summary": "Documentation-only change. No user input processing, no data storage, no auth changes. Content is static markdown/MDX. No XSS risk as Docusaurus sanitizes MDX output."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T17:45:10.891Z",
+      "summary": "Edge cases: empty props handled with fallback text. Long command strings wrap gracefully. Component works without JavaScript (SSR fallback shows first tab content). Missing import in MDX caught at build time by Docusaurus."
+    }
+  }
+}

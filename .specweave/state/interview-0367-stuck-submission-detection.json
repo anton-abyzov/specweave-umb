@@ -1,0 +1,13 @@
+{
+  "incrementId": "0367-stuck-submission-detection",
+  "startedAt": "2026-02-24T16:16:21-05:00",
+  "coveredCategories": {
+    "cron_frequency": {"coveredAt": "2026-02-24T16:17:00-05:00", "summary": "Run every 5min, single cron body for all tasks"},
+    "retry_budget_kv": {"coveredAt": "2026-02-24T16:17:00-05:00", "summary": "JSON object with count+timestamps in KV"},
+    "backoff_windows": {"coveredAt": "2026-02-24T16:17:00-05:00", "summary": "3min/10min/30min, max 3 retries, STUCK_EXHAUSTED rejection"},
+    "inflight_kv_tracking": {"coveredAt": "2026-02-24T16:17:00-05:00", "summary": "Stage+timestamp+submissionId in KV, delete on completion"},
+    "staleness_warning": {"coveredAt": "2026-02-24T16:17:00-05:00", "summary": "3min UX warning, 5min recovery trigger, two thresholds"},
+    "timeout_classification": {"coveredAt": "2026-02-24T16:17:00-05:00", "summary": "SCAN_TIMEOUT/NETWORK_ERROR/DB_ERROR/LLM_ERROR/UNKNOWN taxonomy"},
+    "admin_timeout_metrics": {"coveredAt": "2026-02-24T16:17:00-05:00", "summary": "Pre-aggregated hourly KV buckets by classification, follows QUEUE_METRICS_KV pattern"}
+  }
+}

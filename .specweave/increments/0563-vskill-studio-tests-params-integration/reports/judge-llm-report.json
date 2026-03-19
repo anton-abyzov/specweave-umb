@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0563-vskill-studio-tests-params-integration",
+  "timestamp": "2026-03-19T01:43:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "No externalModels consent configured in .specweave/config.json",
+  "details": "Judge LLM validation waived — external model access not configured"
+}

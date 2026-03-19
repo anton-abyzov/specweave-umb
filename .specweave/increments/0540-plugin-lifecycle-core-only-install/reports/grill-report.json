@@ -1,0 +1,32 @@
+{
+  "version": "1.1",
+  "incrementId": "0540-plugin-lifecycle-core-only-install",
+  "timestamp": "2026-03-15T22:55:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 15,
+    "passed": 15,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "CORE_PLUGIN='sw' constant at refresh-plugins.ts:37; default filter at line 166-168 selects only sw" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "options.all=true path at refresh-plugins.ts:164 passes all plugins through" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "No uninstall/removal logic in refresh-plugins.ts; only installs selected plugins" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "update.ts:393 passes options.all (undefined by default) to refreshPluginsCommand, triggering core-only" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "refresh-plugins.ts:153-163 filters to exact plugin name match when options.plugin set" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "refresh-plugins.ts:157-163 sets process.exitCode=1 and prints available names on unknown plugin" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "refresh-plugins.ts:149-150 checks options.plugin before options.all (priority order comment)" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "cleanup-stale-plugins.ts:99-134 scans ~/.claude/plugins/cache/ with readdirSync for dynamic discovery" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "cleanup-stale-plugins.ts:136-154 removes stale entries from all discovered marketplaces" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "cleanup-stale-plugins.ts:107-114 skips marketplace with missing manifest via continue" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "cleanup-stale-plugins.ts:179-211 removes stale cache dirs with atomic rename+rmSync" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "user-prompt-submit.sh:1177-1211 restored on-demand install calling specweave refresh-plugins --plugin" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "Uses existing detect-intent at user-prompt-submit.sh:1130; no new detection system" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "user-prompt-submit.sh:1197 uses 2>/dev/null for graceful degradation" },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "user-prompt-submit.sh:1181 session marker dir with $$; line 1189-1194 idempotency check" }
+    ]
+  },
+  "findings": []
+}

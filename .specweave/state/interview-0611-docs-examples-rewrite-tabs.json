@@ -1,0 +1,12 @@
+{
+  "incrementId": "0611-docs-examples-rewrite-tabs",
+  "startedAt": "2026-03-19T07:32:33.705Z",
+  "coveredCategories": {
+    "architecture": { "covered": true, "summary": "Pure MDX file edits. Uses existing CommandTabs component unchanged." },
+    "integrations": { "covered": true, "summary": "No integrations. Editing existing Docusaurus docs files only." },
+    "ui-ux": { "covered": true, "summary": "CommandTabs component handles UI with three tabs, responsive, dark mode. No changes to component." },
+    "performance": { "covered": true, "summary": "Documentation only, no performance implications." },
+    "security": { "covered": true, "summary": "No security implications. Static MDX documentation files." },
+    "edge-cases": { "covered": true, "summary": "Ensure valid MDX syntax, proper prop escaping. Pattern verified in 120 existing files." }
+  }
+}

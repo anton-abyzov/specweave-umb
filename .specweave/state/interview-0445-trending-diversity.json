@@ -1,0 +1,30 @@
+{
+  "incrementId": "0445-trending-diversity",
+  "startedAt": "2026-03-07T03:27:48.882Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-07T03:28:01.362Z",
+      "summary": "Pure function diversifyTrending() in stats-compute.ts. Single-pass filtering with Map counter. Called in both computeFullStats and computeMinimalStats paths. DB fetches top 50 by trendingScore7d, momentum-sorts, then filters."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-07T03:28:01.522Z",
+      "summary": "No external integrations. Uses existing Prisma DB queries and KV stats cache. TrendingSkills.tsx reads from getHomeStats() which resolves from KV/memory/DB."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-07T03:28:01.694Z",
+      "summary": "TrendingSkills.tsx renders all entries from stats.trendingSkills via map. No hardcoded limit in UI. Rank colors: gold for top 3, silver for 4-7, faint for 8+. Shows momentum arrows and spark bars."
+    },
+    "performance": {
+      "coveredAt": "2026-03-07T03:28:01.863Z",
+      "summary": "Pure function is O(n) single pass. DB query limited to top 50 with index on trendingScore7d. Stats cached in KV (cron writes every 5 min) so no computation on request path."
+    },
+    "security": {
+      "coveredAt": "2026-03-07T03:28:02.026Z",
+      "summary": "No user input involved. All data comes from DB/KV. No auth changes. Read-only rendering."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-07T03:28:02.188Z",
+      "summary": "Handles empty repoUrl by falling back to author field. Empty input returns empty array. Skills with identical repos are capped correctly. Both stats paths use same parameters (3, 10) for consistency."
+    }
+  }
+}

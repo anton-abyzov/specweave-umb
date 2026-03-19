@@ -1,0 +1,30 @@
+{
+  "incrementId": "0460-vendor-provider-discovery",
+  "startedAt": "2026-03-09T08:35:26-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-09T08:35:39-04:00",
+      "summary": "Existing crawl-worker with vendor-org-discovery source, KV edge search + Postgres fallback, trusted-orgs.ts as vendor/trust registry, deploy.sh for VM deployment"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-09T08:35:39-04:00",
+      "summary": "GitHub Trees API for vendor repo scanning, KV sharded search index, Postgres tsvector fulltext, InlineSubmitter for bulk submissions, VM deploy via deploy.sh"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-09T08:35:39-04:00",
+      "summary": "CLI TTY output in find.ts shows formatted skill entries, JSON mode for piped output, tab-separated non-TTY format"
+    },
+    "performance": {
+      "coveredAt": "2026-03-09T08:35:39-04:00",
+      "summary": "N/A - no new performance surfaces; dedup is in-memory post-fetch, edge search already sub-50ms"
+    },
+    "security": {
+      "coveredAt": "2026-03-09T08:35:39-04:00",
+      "summary": "N/A - uses existing INTERNAL_BROADCAST_KEY for admin endpoints, no new auth surfaces"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-09T08:35:39-04:00",
+      "summary": "Dedup canonical selection by highest star count within same ownerSlug+skillSlug group, alternateRepos for collapsed entries, backward-compatible trusted-orgs exports"
+    }
+  }
+}

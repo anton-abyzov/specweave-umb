@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 8750
+Increment recommendation: reopen (confidence: 0.85, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.2,
+  "reasoning": "No tech specified; file open + 'yes' suggests user confirming work on increment 0395",
+  "latencyMs": 10423.303541000001,
+  "increment": {
+    "action": "reopen",
+    "confidence": 0.85,
+    "mandatory": false,
+    "relatedKeyword": "0395-init-location-guard-rails",
+    "reasoning": "User opened increment 0395 metadata file and confirmed - appears ready to resume location guard rails feature work"
+  }
+}

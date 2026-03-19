@@ -1,0 +1,21 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9807
+Increment recommendation: new (confidence: 0.75, mandatory: false)
+{
+  "detected": true,
+  "plugins": [
+    "sw-github"
+  ],
+  "confidence": 0.85,
+  "reasoning": "GitHub issues mentioned — reconciler optimization relates to GitHub sync",
+  "latencyMs": 11300.699625,
+  "increment": {
+    "action": "new",
+    "confidence": 0.75,
+    "mandatory": false,
+    "suggestedName": "optimize-github-reconciler-smart-scope",
+    "reasoning": "Optimization work on reconciler to intelligently scope processing (smarter batching/filtering) instead of blindly processing all issues"
+  }
+}

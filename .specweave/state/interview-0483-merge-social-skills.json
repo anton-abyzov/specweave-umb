@@ -1,0 +1,30 @@
+{
+  "incrementId": "0483-merge-social-skills",
+  "startedAt": "2026-03-11T01:55:55-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T01:55:59-04:00",
+      "summary": "N/A - documentation/content merge of SKILL.md and evals.json files, no code architecture involved"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T01:56:02-04:00",
+      "summary": "N/A - no user interface, this is a SKILL.md content merge"
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T01:56:06-04:00",
+      "summary": "N/A - no runtime code, this is a SKILL.md and evals.json documentation change"
+    },
+    "security": {
+      "coveredAt": "2026-03-11T01:56:18-04:00",
+      "summary": "N/A - no security implications for merging skill documentation files"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T01:56:55-04:00",
+      "summary": "nano-banana-pro as primary image gen with direct Gemini API as fallback; Chrome-open as last-resort for all browser-based platforms; product-marketing-context.md in .claude/ primary, project root secondary"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T01:56:59-04:00",
+      "summary": "Proof screenshots: ask user first, fall back to data viz/infographic if unavailable, NEVER fake terminal output, never block workflow; Eval IDs renumbered 5-8 for social-posts to avoid collision"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 7865
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.5,
+  "reasoning": "The output does not explicitly include a step about logging in or checking login status. While 'checking last 10 TikTok posts' would require authentication, the step is not framed as a login/status check.",
+  "latencyMs": 9513.758041
+}

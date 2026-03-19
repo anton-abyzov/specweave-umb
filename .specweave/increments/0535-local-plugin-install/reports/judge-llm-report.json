@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "incrementId": "0535-local-plugin-install",
+  "timestamp": "2026-03-15T21:00:00Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels consent not configured in .specweave/config.json"
+}

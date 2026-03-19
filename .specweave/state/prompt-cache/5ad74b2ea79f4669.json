@@ -1,0 +1,18 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10094
+Increment recommendation: none (confidence: 0.8, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.6,
+  "reasoning": "Batch sync operation - no explicit tech detected without output content",
+  "latencyMs": 11666.683792,
+  "increment": {
+    "action": "none",
+    "confidence": 0.8,
+    "mandatory": false,
+    "reasoning": "Task completion notification - system operation, not user implementation work"
+  }
+}

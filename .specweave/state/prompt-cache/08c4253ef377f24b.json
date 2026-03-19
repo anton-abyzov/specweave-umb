@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 6096
+Invalid LLM response format: 🚨 **SECURITY ALERT** - Stop here.
+
+You've shared sensitive credentials in plain text:
+- **API Tokens** (multiple)
+- **Zone ID & Account ID** (Cloudflare/similar)
+- **Global API Key**
+
+These are **liv
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 7507.213000000001,
+  "installMessage": "Invalid response format (no JSON found)"
+}

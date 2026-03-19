@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0587-fix-github-sync-dedup",
+  "timestamp": "2026-03-19T03:15:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "External models consent not configured",
+  "findings": []
+}

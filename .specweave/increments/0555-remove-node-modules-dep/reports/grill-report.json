@@ -1,0 +1,25 @@
+{
+  "version": "1.1",
+  "incrementId": "0555-remove-node-modules-dep",
+  "timestamp": "2026-03-17T03:26:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 8,
+    "passed": 8,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "scheduler-startup.sh sources resolve-package.sh, uses find_specweave_script with correct dist/src/ path" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "post-task-completion.sh SYNC_CLI and DETECT_CLI now use find_specweave_script" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "ac-sync-dispatcher.sh uses find_specweave_script instead of node_modules candidate" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "dispatcher.mjs node_modules candidate removed from findHooksDir()" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "universal-auto-create-dispatcher.sh both candidates replaced with find_specweave_script" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "specweave removed from umbrella package.json dependencies" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "npm install will not create node_modules/specweave" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Global specweave CLI unaffected, resolves via PATH" }
+    ]
+  },
+  "findings": []
+}

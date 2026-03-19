@@ -1,0 +1,30 @@
+{
+  "incrementId": "0591-docs-config-reference",
+  "startedAt": "2026-03-19T02:18:31.385Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T02:18:44.532Z",
+      "summary": "Single Docusaurus Markdown page at docs/reference/configuration.md. Structure: intro, disableable features table, config.json by category, metadata.json, env vars. Sidebar entry in Reference section."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T02:18:44.891Z",
+      "summary": "No external integrations. Page documents integration configs (GitHub/JIRA/ADO) but is static Markdown. No API calls."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T02:18:45.245Z",
+      "summary": "Standard Docusaurus Markdown with tables, code blocks, admonitions. Disableable features table near top for discoverability. Sections by category matching config.json structure."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T02:18:45.592Z",
+      "summary": "Static Markdown page, no runtime concerns. Docusaurus handles long pages with auto-TOC."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T02:18:45.948Z",
+      "summary": "Credential env vars documented with note to use env vars/secret managers, never hardcode. No secrets in docs."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T02:18:46.317Z",
+      "summary": "Page stays under 1500 lines. Config properties sourced from TypeScript interfaces. If source changes, manual doc update needed."
+    }
+  }
+}

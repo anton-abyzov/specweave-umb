@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10751
+Increment recommendation: reopen (confidence: 0.75, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.6,
+  "reasoning": "File opened from increment report with minimal context",
+  "latencyMs": 12050.430917,
+  "increment": {
+    "action": "reopen",
+    "confidence": 0.75,
+    "mandatory": false,
+    "relatedKeyword": "0482-simplify-init",
+    "reasoning": "User opened analysis report from 0482-simplify-init increment (currently planned)"
+  }
+}

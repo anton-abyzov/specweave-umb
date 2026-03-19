@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12238
+Increment recommendation: new (confidence: 0.75, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Documentation updates only, no integration plugins mentioned",
+  "latencyMs": 13669.676540999999,
+  "increment": {
+    "action": "new",
+    "confidence": 0.75,
+    "mandatory": false,
+    "suggestedName": "update-specweave-docs",
+    "reasoning": "Documentation updates across multiple locations (spec quickstart, README, verified skill docs) — vague scope benefits from increment tracking to clarify exactly what needs updating"
+  }
+}

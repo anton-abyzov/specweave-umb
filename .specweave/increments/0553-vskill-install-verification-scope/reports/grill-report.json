@@ -1,0 +1,28 @@
+{
+  "version": "1.1",
+  "incrementId": "0553-vskill-install-verification-scope",
+  "timestamp": "2026-03-17T02:35:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 11,
+    "passed": 11,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "route.ts:54 conditional spread omits non-matching repoUrl submissions; test route.test.ts:238-259 verifies cross-repo rejection returns rejected:false" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "route.ts:54 includes repoUrl in WHERE when present; test route.test.ts:261-282 verifies same-repo yields rejected:true" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "When repoUrl absent, spread is empty — name-only fallback; test route.test.ts:284-300 verifies WHERE has no repoUrl property" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "Query adds repoUrl directly to WHERE clause, hitting existing compound index [repoUrl, skillName] (schema.prisma:202)" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "blocklist.ts:162-163 appends &repoUrl= when provided; call sites at add.ts:1202,1430,2155,2270 pass constructed repoUrl" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "blocklist.ts:162 only appends if repoUrl is truthy; add.ts:993 and add.ts:2061 call without 3rd arg" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "repoUrl param is additive — old servers ignore unknown query params; catch block at blocklist.ts:178 handles errors gracefully" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "add.ts:799-805 shows promptChoice with 'Installation scope:' and Project/Global options when !opts.global && !opts.cwd; test add-wizard.test.ts scope prompt test" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "add.ts:799 condition !opts.global skips prompt when --global set; test add-wizard.test.ts --global test" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "add.ts:799 condition !opts.cwd skips prompt when --cwd set; test add-wizard.test.ts --cwd test" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "add.ts:756-761 shouldPrompt guard returns early with defaults when --yes or non-TTY" }
+    ]
+  },
+  "findings": []
+}

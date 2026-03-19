@@ -1,0 +1,18 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.77 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13449
+Increment recommendation: none (confidence: 0.9, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Task notification for CI troubleshooting—no explicit integration (GitHub sync, JIRA, ADO) mentioned",
+  "latencyMs": 14794.512083000001,
+  "increment": {
+    "action": "none",
+    "confidence": 0.9,
+    "mandatory": false,
+    "reasoning": "This is a task status notification/exploration prompt asking to read output file. Increment would be created only if investigation reveals actionable work to fix the CI issue."
+  }
+}

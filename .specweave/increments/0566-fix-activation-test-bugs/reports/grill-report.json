@@ -1,0 +1,30 @@
+{
+  "version": "1.1",
+  "incrementId": "0566-fix-activation-test-bugs",
+  "timestamp": "2026-03-18T07:02:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 13,
+    "passed": 13,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "WorkspaceContext.tsx:536 checks raw.error before dispatching ACTIVATION_DONE; dispatches ACTIVATION_ERROR instead. Test: workspaceReducer.test.ts ACTIVATION_ERROR block" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "ActivationPanel.tsx:235-242 renders activationError inline with error styling. Reducer sets activationError on ACTIVATION_ERROR dispatch" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "WorkspaceContext.tsx:537 dispatches ACTIVATION_ERROR on error, skips history append (line 558 only reached in else branch). Test: reducer test verifies no history entry on error" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "WorkspaceContext.tsx:658 throws new Error(data.error) in done event parser for generateActivationPrompts, caught by outer catch at line 682 which dispatches GENERATE_PROMPTS_ERROR" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "activation-tester.ts resolvePrompts calls onProgress('classifying', ++autoIndex, autoTotal) after each classifyExpectation. api-routes.ts wires onProgress to sendSSE(res, phase, {index, total})" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "api-routes.ts emits SSE event with phase name 'classifying' and {index, total} payload. Frontend can display via existing SSE cursor pattern" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "activation-tester.ts only calls onProgress inside the if(meta) branch when p.expected==='auto'. Test: 'does not call onProgress when all prompts have explicit expected'" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "ActivationPanel.tsx:127-134 renders hint div with aria-live='polite' when !cleanDescription && !activationRunning. Test: ActivationPanel.test.tsx" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Condition !cleanDescription is false when description exists, so hint div is not rendered. Test: ActivationPanel.test.tsx 'does not render hint when activationRunning is true'" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "api-routes.ts activation-prompts endpoint now uses extractDescription() which falls back to skillContent body instead of returning 400. The 400 guard for empty description removed" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "extractDescription() checks frontmatter description first, returns it if found. Both endpoints use same function. Test: activation-description.test.ts" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "api-routes.ts wraps client.generate with withHeartbeat(res, undefined, 'generating', ...) which emits progress SSE events every 3s. Test: activation-prompts-heartbeat.test.ts" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "withHeartbeat clears interval in finally block (sse-helpers.ts:121). When generate completes, heartbeat stops. Test: 'does not emit heartbeat when call completes quickly'" }
+    ]
+  },
+  "findings": []
+}

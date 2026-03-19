@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0591-docs-config-reference",
+  "timestamp": "2026-03-19T02:36:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "Documentation-only increment, no code changes to evaluate. External model consent not checked.",
+  "findings": []
+}

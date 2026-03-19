@@ -1,0 +1,30 @@
+{
+  "incrementId": "0446-rename-authors-to-publishers",
+  "startedAt": "2026-03-06T19:53:52-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-06T19:54:04-05:00",
+      "summary": "Pure rename refactor within existing Next.js 15 app. No architectural changes. URL paths rename with 301 redirects in next.config.ts. DB schema and API endpoints unchanged."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-06T19:54:04-05:00",
+      "summary": "N/A - No new integrations. API v1 endpoints kept at /api/v1/authors/* for CLI backwards compatibility. KV cache key values unchanged."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-06T19:54:04-05:00",
+      "summary": "Authors renamed to Publishers in nav, page titles, components. Skill display changed to publisher/skill-name clickable format. AuthorLink becomes PublisherLink."
+    },
+    "performance": {
+      "coveredAt": "2026-03-06T19:54:04-05:00",
+      "summary": "N/A - Pure rename, no performance impact. No new queries or data fetching changes."
+    },
+    "security": {
+      "coveredAt": "2026-03-06T19:54:04-05:00",
+      "summary": "N/A - No auth, permission, or data handling changes. Pure UI/code rename."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-06T19:54:04-05:00",
+      "summary": "301 redirects ensure old /authors/* URLs continue working. API v1 paths unchanged for CLI compatibility. Existing KV cache keys preserved to avoid cache invalidation."
+    }
+  }
+}

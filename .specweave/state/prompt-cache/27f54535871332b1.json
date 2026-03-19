@@ -1,0 +1,12 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 8087
+Invalid LLM response format: I need your permission to read the task output file. The system is asking to access `/private/tmp/claude-501/-User***************************************-umb/tasks/bqxsvs08k.output` to show you the re
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 14349.311625,
+  "installMessage": "Invalid response format (no JSON found)"
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0609-fix-github-api-rate-limit",
+  "startedAt": "2026-03-19T07:01:48.261Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T07:02:34.875Z",
+      "summary": "Targeted refactor of 3 files in plugins/specweave/lib/integrations/github/. No new modules. Changes: pass cached issue data through updateUserStoryIssue->updateStatusLabels call chain, add rate limit pre-check using existing checkRateLimit(), skip-unchanged guards in label/comment updates."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T07:02:42.280Z",
+      "summary": "Uses existing APIs only: github-client-v2.ts checkRateLimit(), getIssue() cache, getLastComment(). Uses existing retry queue from sync-retry.ts for deferred syncs. No new external service integrations."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T07:02:46.036Z",
+      "summary": "No UI changes. Rate limit warning logged to stderr when sync is skipped. User sees 'GitHub sync deferred — rate limit low' in closure output instead of 403 error."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T07:02:46.708Z",
+      "summary": "Primary goal: reduce API calls from ~13 to ~6-7 per user story (~50% reduction). Cached issue data eliminates 3-4 redundant fetches per story. Skip-unchanged guards eliminate 1-3 unnecessary writes. Rate limit pre-check prevents wasted calls on doomed syncs."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T07:02:48.291Z",
+      "summary": "No security implications. Cached data is in-memory within single sync operation scope — no persistence. Rate limit check reads public API endpoint. No new auth, no new secrets, no new network calls."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T07:02:51.411Z",
+      "summary": "Rate limit check failure: sync proceeds normally (fail-open). Cached issue data stale after write: cache invalidated after any mutation (edit/close/comment). DuplicateDetector Phase 3 skip: only when reusing existing issue, new issues still get verification. Retry queue full: bounded by existing MAX_RETRY_QUEUE_SIZE."
+    }
+  }
+}

@@ -1,0 +1,21 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 8560
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": true,
+  "plugins": [
+    "sw-ado"
+  ],
+  "confidence": 0.95,
+  "reasoning": "Azure DevOps work item structure analysis",
+  "latencyMs": 9997.50375,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "audit-ado-epic-story-structure",
+    "reasoning": "Investigation of ADO work item structure gaps between epics and user stories; multi-component analysis requiring team collaboration"
+  }
+}

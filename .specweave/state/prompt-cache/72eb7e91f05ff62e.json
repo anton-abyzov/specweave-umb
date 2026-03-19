@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13378
+Increment recommendation: new (confidence: 0.9, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.85,
+  "reasoning": "Sync investigation across GitHub/JIRA/ADO; related plugins not yet available",
+  "latencyMs": 14592.804917000001,
+  "increment": {
+    "action": "new",
+    "confidence": 0.9,
+    "mandatory": true,
+    "suggestedName": "investigate-sync-spec-increment-discrepancy",
+    "reasoning": "Deep investigation of sync-spec living specs sync failures with 20+ missing increments across GitHub, JIRA, and ADO platforms"
+  }
+}

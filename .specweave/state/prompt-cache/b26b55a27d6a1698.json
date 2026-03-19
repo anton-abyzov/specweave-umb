@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12944
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "npm/CodeArtifact authentication debugging—no domain plugins apply",
+  "latencyMs": 14240.162458,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "fix-npm-codeartifact-auth",
+    "reasoning": "Troubleshooting npm authentication issues with CodeArtifact—investigation and debugging work"
+  }
+}

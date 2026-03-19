@@ -1,0 +1,27 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11534
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+Skill invocation: infra:devops (mandatory: false)
+{
+  "detected": true,
+  "plugins": [
+    "infra"
+  ],
+  "confidence": 0.75,
+  "reasoning": "Deploy/release operations → infra (DevOps, CI/CD)",
+  "latencyMs": 14499.052083999999,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "deploy-all-repos-release-npm-patches",
+    "reasoning": "Multi-repository deployment and NPM release is significant operational work requiring structured tracking"
+  },
+  "skillInvocation": {
+    "skill": "infra:devops",
+    "reason": "Deployment orchestration and release management across multiple repositories",
+    "mandatory": false
+  }
+}

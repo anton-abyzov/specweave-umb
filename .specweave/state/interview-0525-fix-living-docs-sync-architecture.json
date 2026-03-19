@@ -1,0 +1,30 @@
+{
+  "incrementId": "0525-fix-living-docs-sync-architecture",
+  "startedAt": "2026-03-14T20:26:14-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-14T20:26:52-04:00",
+      "summary": "Sync only in onIncrementDone, remove pre-sync from completeIncrement, no lightweight check needed"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-14T20:26:52-04:00",
+      "summary": "GitHub API via gh CLI, GITHUB_TOKEN from PROJECT_ROOT/.env exported as GH_TOKEN"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-14T20:26:52-04:00",
+      "summary": "N/A - CLI/internal tooling only"
+    },
+    "performance": {
+      "coveredAt": "2026-03-14T20:26:52-04:00",
+      "summary": "Eliminates 5000 API calls/hr zombie issue by removing fire-and-forget background sync"
+    },
+    "security": {
+      "coveredAt": "2026-03-14T20:26:52-04:00",
+      "summary": "Source GITHUB_TOKEN from .env instead of broken gh keyring"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-14T20:26:52-04:00",
+      "summary": "Stale sync-*.lock cleanup >60min, concurrent completions out of scope, drift >168h is warning not error"
+    }
+  }
+}

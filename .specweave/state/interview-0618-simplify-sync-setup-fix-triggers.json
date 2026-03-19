@@ -1,0 +1,12 @@
+{
+  "incrementId": "0618-simplify-sync-setup-fix-triggers",
+  "startedAt": "2026-03-19T12:41:31.600Z",
+  "coveredCategories": {
+    "architecture": { "coveredAt": "2026-03-19T12:45:00.000Z", "summary": "Event queue model for sync — all triggers write to pending.jsonl, stop-sync.sh processes at session end. Simplified sync-setup detects single vs multi from childRepos count." },
+    "integrations": { "coveredAt": "2026-03-19T12:45:00.000Z", "summary": "Affects GitHub/JIRA/ADO sync triggers. No auth changes. Keeps gh CLI compatibility. sync.mode config for queued vs immediate." },
+    "ui-ux": { "coveredAt": "2026-03-19T12:45:00.000Z", "summary": "Sync-setup wizard simplified from 10+ questions to 3-5. Single-project: tracker + project name + validate. Multi: per-childRepo targets." },
+    "performance": { "coveredAt": "2026-03-19T12:45:00.000Z", "summary": "Core goal: eliminate 4x API call multiplication from quadruple triggers. Queue model ensures 1 sync per increment per session." },
+    "security": { "coveredAt": "2026-03-19T12:45:00.000Z", "summary": "No credential changes. Event queue is local file (pending.jsonl). No secrets in queue data." },
+    "edge-cases": { "coveredAt": "2026-03-19T12:45:00.000Z", "summary": "sync.mode: immediate for users needing real-time sync. specweave complete keeps direct sync (explicit user action). Queue corruption: stop-sync.sh already handles malformed JSONL lines." }
+  }
+}

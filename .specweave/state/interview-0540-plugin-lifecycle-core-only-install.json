@@ -1,0 +1,30 @@
+{
+  "incrementId": "0540-plugin-lifecycle-core-only-install",
+  "startedAt": "2026-03-15T22:25:42-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-15T22:26:19-04:00",
+      "summary": "Dynamic marketplace discovery via cache dir scan; compare against each marketplace.json; leave existing plugins in place; reactivate llm-plugin-detector for on-demand loading"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-15T22:26:19-04:00",
+      "summary": "N/A - internal CLI tooling, no external service integrations"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-15T22:26:19-04:00",
+      "summary": "N/A - CLI-only, no UI involved"
+    },
+    "performance": {
+      "coveredAt": "2026-03-15T22:26:19-04:00",
+      "summary": "N/A - CLI commands, no performance SLAs"
+    },
+    "security": {
+      "coveredAt": "2026-03-15T22:26:19-04:00",
+      "summary": "N/A - local filesystem operations only, no auth or sensitive data"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-15T22:26:19-04:00",
+      "summary": "Error on unknown --plugin name; skip marketplace if marketplace.json unresolvable; leave existing non-core plugins in place"
+    }
+  }
+}

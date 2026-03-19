@@ -1,0 +1,26 @@
+{
+  "incrementId": "0327-submit-page-discovery-fix",
+  "startedAt": "2026-02-22T13:35:36-05:00",
+  "coveredCategories": {
+    "error_handling": {
+      "coveredAt": "2026-02-22T13:37:35-05:00",
+      "summary": "Structured error field on DiscoveryResult, HTTP 502 for upstream errors, differentiated rate-limit vs auth-fail messages"
+    },
+    "dedup_strategy": {
+      "coveredAt": "2026-02-22T13:37:35-05:00",
+      "summary": "Submit all skills, let bulk endpoint dedup handle already-verified/pending"
+    },
+    "ui_simplification": {
+      "coveredAt": "2026-02-22T13:37:35-05:00",
+      "summary": "Remove select phase entirely, auto-submit all discovered skills, clean up dead code"
+    },
+    "done_phase": {
+      "coveredAt": "2026-02-22T13:37:35-05:00",
+      "summary": "Flat result list with badges, no plugin-grouped selection UI"
+    },
+    "fallback_behavior": {
+      "coveredAt": "2026-02-22T13:37:35-05:00",
+      "summary": "Return empty result with error field, never throw from discovery"
+    }
+  }
+}

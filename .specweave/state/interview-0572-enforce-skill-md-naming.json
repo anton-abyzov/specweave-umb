@@ -1,0 +1,30 @@
+{
+  "incrementId": "0572-enforce-skill-md-naming",
+  "startedAt": "2026-03-18T09:38:24-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T09:40:53-04:00",
+      "summary": "Single module fix in vskill installer — copyPluginFiltered rename logic + new ensureSkillMdNaming guard function"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T09:40:53-04:00",
+      "summary": "Wire ensureSkillMdNaming into add.ts, update.ts, init.ts install paths — defense in depth"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T09:40:53-04:00",
+      "summary": "N/A — backend CLI tool, no UI"
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T09:40:53-04:00",
+      "summary": "N/A — file rename at install time, negligible impact"
+    },
+    "security": {
+      "coveredAt": "2026-03-18T09:40:53-04:00",
+      "summary": "ensureFrontmatter() is sufficient sanitization, no additional validation needed"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T09:40:53-04:00",
+      "summary": "Multiple .md: rename first alphabetically, skip README/CHANGELOG/LICENSE. Idempotent — no-op if SKILL.md exists."
+    }
+  }
+}

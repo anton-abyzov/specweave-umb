@@ -1,0 +1,30 @@
+{
+  "incrementId": "0587-fix-github-sync-dedup",
+  "startedAt": "2026-03-18T21:59:29-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T21:59:41-04:00",
+      "summary": "Internal sync subsystem fix. Four independent trigger paths, in-memory lock (Map), cross-process race conditions. Fix: file-based LockManager, shared throttle utility. No architectural changes to overall system."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T21:59:41-04:00",
+      "summary": "GitHub API only (gh CLI). Existing integration, no new services. Fix reduces API calls via body diff checks and throttling."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T21:59:41-04:00",
+      "summary": "N/A - backend sync subsystem only, no UI involved."
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T21:59:41-04:00",
+      "summary": "Reduces GitHub API spam (19 identical comments, 34 duplicate issues). Throttle deduplicates trigger paths. Body diff prevents no-op edits."
+    },
+    "security": {
+      "coveredAt": "2026-03-18T21:59:41-04:00",
+      "summary": "N/A - no auth changes, no new credentials. Uses existing gh CLI auth. File lock permissions follow existing LockManager patterns."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T21:59:41-04:00",
+      "summary": "TOCTOU race in duplicate-detector Phase 3 (disabled by default). Cross-process sync via in-memory Map. Four concurrent trigger paths with no coordination. All addressed by planned fixes."
+    }
+  }
+}

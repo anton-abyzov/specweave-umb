@@ -1,0 +1,312 @@
+{
+  "incrementId": "0608-per-session-state-isolation",
+  "timestamp": "2026-03-19T00:00:00.000Z",
+  "verdict": "PASS",
+  "summary": "All 13 acceptance criteria verified against source code with high confidence. Implementation is thorough with proper test coverage.",
+  "results": [
+    {
+      "id": "AC-US1-01",
+      "title": "SessionStart hook parses stdin JSON and extracts session_id",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "src/hooks/session-start.ts",
+          "lines": "60-63",
+          "detail": "consumeStdin() reads raw stdin, then JSON.parse(rawStdin) parses it into hookInput typed as HookInput which has session_id?: string"
+        },
+        {
+          "file": "src/hooks/platform.ts",
+          "lines": "315-320",
+          "detail": "HookInput interface declares session_id?: string; env_file?: string"
+        },
+        {
+          "file": "src/hooks/session-start.ts",
+          "lines": "76",
+          "detail": "Conditional check: if (hookInput.session_id) gates all session setup"
+        },
+        {
+          "file": "tests/unit/hooks/session-start-session-state.test.ts",
+          "lines": "101-163",
+          "detail": "5 test cases cover: valid session_id+env_file, session_id without env_file, empty stdin, invalid JSON, missing session_id"
+        }
+      ]
+    },
+    {
+      "id": "AC-US1-02",
+      "title": "SessionStart bridges CLAUDE_SESSION_ID to env via CLAUDE_ENV_FILE",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "src/hooks/session-start.ts",
+          "lines": "79-81",
+          "detail": "if (hookInput.env_file) { bridgeSessionId(hookInput.session_id, hookInput.env_file); }"
+        },
+        {
+          "file": "src/core/session/session-state-manager.ts",
+          "lines": "80-87",
+          "detail": "bridgeSessionId() appends 'export CLAUDE_SESSION_ID=<id>' to the env_file, with guards for empty params and try/catch for non-blocking failure"
+        },
+        {
+          "file": "tests/unit/core/session/session-state-manager.test.ts",
+          "lines": "121-143",
+          "detail": "4 test cases: writes to env file, empty envFile, empty sessionId, invalid path -- all pass without throwing"
+        }
+      ]
+    },
+    {
+      "id": "AC-US1-03",
+      "title": "Per-session directory created at .specweave/state/sessions/{session_id}/",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "src/core/session/session-state-manager.ts",
+          "lines": "58-75",
+          "detail": "createSessionDir() creates .specweave/state/sessions/{sessionId}/ with recursive mkdir, writes lock.json with pid, started_at, last_heartbeat, increments[]"
+        },
+        {
+          "file": "src/core/session/session-state-manager.ts",
+          "lines": "24-33",
+          "detail": "getSessionsDir and getSessionDir confirm correct path construction"
+        },
+        {
+          "file": "tests/unit/core/session/session-state-manager.test.ts",
+          "lines": "62-82",
+          "detail": "Tests verify directory creation, lock.json content (pid, increments, timestamps), and idempotent re-creation"
+        }
+      ]
+    },
+    {
+      "id": "AC-US1-04",
+      "title": "Dead sessions are garbage collected (dead PID + age > 5min)",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "src/core/session/session-state-manager.ts",
+          "lines": "95-155",
+          "detail": "gcDeadSessions(projectRoot, maxAgeSeconds=300) iterates session dirs, reads lock.json, checks PID liveness via process.kill(pid,0), removes when !pidAlive && ageSeconds > maxAgeSeconds. Also removes orphaned dirs without lock.json and corrupted lock.json dirs older than threshold"
+        },
+        {
+          "file": "src/hooks/session-start.ts",
+          "lines": "82-85",
+          "detail": "gcDeadSessions(projectRoot) called during session start; logs count if > 0"
+        },
+        {
+          "file": "tests/unit/core/session/session-state-manager.test.ts",
+          "lines": "151-234",
+          "detail": "5 test cases: dead PID removal, live PID preservation, orphaned dir removal, empty sessions dir, young dead PID preservation (age < threshold)"
+        }
+      ]
+    },
+    {
+      "id": "AC-US1-05",
+      "title": "Auto-mode.json written to per-session dir when CLAUDE_SESSION_ID available",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "src/cli/commands/auto.ts",
+          "lines": "379-389",
+          "detail": "printStartMessage reads process.env.CLAUDE_SESSION_ID; when set, computes autoModeFile = stateDir/sessions/{sessionId}/auto-mode.json and creates session dir if needed; when unset, falls back to stateDir/auto-mode.json"
+        },
+        {
+          "file": "src/cli/commands/auto.ts",
+          "lines": "396-408",
+          "detail": "Session marker JSON includes sessionId: sessionId || undefined, written to the per-session autoModeFile path"
+        }
+      ]
+    },
+    {
+      "id": "AC-US1-06",
+      "title": "Cancel-auto cleans per-session state",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "src/cli/commands/cancel-auto.ts",
+          "lines": "53-65",
+          "detail": "handleCancelAuto reads CLAUDE_SESSION_ID from env; when set, checks per-session auto-mode.json path first, falls back to global"
+        },
+        {
+          "file": "src/cli/commands/cancel-auto.ts",
+          "lines": "109-143",
+          "detail": "After removing flag file (line 110), cleans legacy state files (lines 113-131), then removes entire per-session directory via fs.rmSync(sessionDir, {recursive:true, force:true}) (lines 133-143)"
+        }
+      ]
+    },
+    {
+      "id": "AC-US1-07",
+      "title": "Auto-status reads per-session state",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "src/cli/commands/auto-status.ts",
+          "lines": "53-65",
+          "detail": "handleAutoStatus reads CLAUDE_SESSION_ID from env; when set, checks per-session path .specweave/state/sessions/{sessionId}/auto-mode.json first, falls back to global .specweave/state/auto-mode.json"
+        },
+        {
+          "file": "src/cli/commands/auto-status.ts",
+          "lines": "69-79",
+          "detail": "Reads and parses the resolved autoFlagPath (per-session or global) as AutoModeFlag"
+        }
+      ]
+    },
+    {
+      "id": "AC-US1-08",
+      "title": "Stop hook reads session_id from stdin and uses per-session auto-mode.json",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "plugins/specweave/hooks/stop-auto-v5.sh",
+          "lines": "18-24",
+          "detail": "Reads stdin into STDIN_DATA via cat, extracts CLAUDE_SESSION_ID=$(echo $STDIN_DATA | jq -r '.session_id // \"\"')"
+        },
+        {
+          "file": "plugins/specweave/hooks/stop-auto-v5.sh",
+          "lines": "105-111",
+          "detail": "SESSION defaults to global auto-mode.json; if CLAUDE_SESSION_ID is set and per-session auto-mode.json exists, SESSION is overridden to sessions/{id}/auto-mode.json path"
+        }
+      ]
+    },
+    {
+      "id": "AC-US2-01",
+      "title": "LockManager no longer auto-skips in VSCode environments",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "src/utils/lock-manager.ts",
+          "lines": "21-40",
+          "detail": "shouldSkipLocks() only checks SPECWEAVE_DISABLE_LOCKS, SPECWEAVE_FORCE_LOCKS, and CI env vars (CI, GITHUB_ACTIONS, GITLAB_CI). No VSCODE_PID, TERM_PROGRAM, or VSCODE_IPC_HOOK detection. Comment on line 17-19 explicitly documents the intentional removal"
+        },
+        {
+          "file": "tests/unit/utils/lock-manager.test.ts",
+          "lines": "235-271",
+          "detail": "Three explicit tests verify locks are NOT skipped when VSCODE_PID, TERM_PROGRAM=vscode, or VSCODE_IPC_HOOK are set"
+        }
+      ]
+    },
+    {
+      "id": "AC-US2-02",
+      "title": "active-increment.json writes protected with FileLock",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "src/core/increment/active-increment-manager.ts",
+          "lines": "21",
+          "detail": "import { FileLock } from '../../utils/file-lock.js'"
+        },
+        {
+          "file": "src/core/increment/active-increment-manager.ts",
+          "lines": "306-327",
+          "detail": "writeState() creates FileLock(this.stateFile), calls lock.acquire(5) with 5s stale threshold, writes via atomic temp+rename pattern in try/finally with lock.release()"
+        },
+        {
+          "file": "tests/unit/core/increment/active-increment-manager.test.ts",
+          "lines": "346-350",
+          "detail": "Test 'should protect writeState with FileLock' verifies addActive works through the FileLock wrapper"
+        }
+      ]
+    },
+    {
+      "id": "AC-US2-03",
+      "title": "FileLock extracted to reusable src/utils/file-lock.ts",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "src/utils/file-lock.ts",
+          "lines": "1-78",
+          "detail": "Standalone module exporting FileLock class with acquire(staleLockSeconds) and release() methods. Uses atomic mkdir for cross-platform locking, PID-based stale detection, and recursive cleanup"
+        },
+        {
+          "file": "src/hooks/platform.ts",
+          "lines": "273-274",
+          "detail": "Re-exported from canonical location for backward compatibility: export { FileLock } from '../utils/file-lock.js'"
+        },
+        {
+          "file": "src/core/increment/active-increment-manager.ts",
+          "lines": "21",
+          "detail": "Imported from the reusable location: import { FileLock } from '../../utils/file-lock.js'"
+        }
+      ]
+    },
+    {
+      "id": "AC-US3-01",
+      "title": "All per-session lookups fall back to global path when session_id unavailable",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "src/core/session/session-state-manager.ts",
+          "lines": "38-53",
+          "detail": "getAutoModePath(sessionId, projectRoot): when sessionId is falsy or session dir doesn't exist, returns global .specweave/state/auto-mode.json"
+        },
+        {
+          "file": "src/cli/commands/auto.ts",
+          "lines": "379-389",
+          "detail": "When CLAUDE_SESSION_ID is undefined, autoModeFile = stateDir/auto-mode.json (global)"
+        },
+        {
+          "file": "src/cli/commands/cancel-auto.ts",
+          "lines": "53-65",
+          "detail": "When sessionId is falsy, autoFlagPath = global path"
+        },
+        {
+          "file": "src/cli/commands/auto-status.ts",
+          "lines": "53-65",
+          "detail": "When sessionId is falsy, autoFlagPath = global path"
+        },
+        {
+          "file": "plugins/specweave/hooks/stop-auto-v5.sh",
+          "lines": "105-111",
+          "detail": "SESSION defaults to global; only overridden when CLAUDE_SESSION_ID is non-empty AND per-session file exists"
+        },
+        {
+          "file": "tests/unit/core/session/session-state-manager.test.ts",
+          "lines": "105-113",
+          "detail": "Two tests verify fallback: 'nonexistent' sessionId and undefined sessionId both return global path"
+        }
+      ]
+    },
+    {
+      "id": "AC-US3-02",
+      "title": "AutoModeFlag type has optional sessionId field",
+      "status": "pass",
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "file": "src/core/auto/types.ts",
+          "lines": "84-95",
+          "detail": "AutoModeFlag interface includes 'sessionId?: string' on line 94 with comment 'Claude Code session that owns this auto session'"
+        },
+        {
+          "file": "src/cli/commands/auto.ts",
+          "lines": "405",
+          "detail": "Session marker written with sessionId: sessionId || undefined, confirming runtime usage of the optional field"
+        }
+      ]
+    }
+  ],
+  "testCoverage": {
+    "unitTests": [
+      "tests/unit/hooks/session-start-session-state.test.ts (8 tests: session setup, GC logging, error handling)",
+      "tests/unit/core/session/session-state-manager.test.ts (15 tests: path helpers, createSessionDir, getAutoModePath, bridgeSessionId, gcDeadSessions, touchSession, claimIncrement)",
+      "tests/unit/utils/lock-manager.test.ts (VSCode env tests: 3 tests confirming locks NOT skipped)",
+      "tests/unit/core/increment/active-increment-manager.test.ts (FileLock protection test)"
+    ],
+    "integrationTests": [
+      "tests/integration/hooks/stop-auto-v5.test.ts (stop hook behavior including session marker handling)",
+      "tests/unit/hooks/stop-auto-v5-helpers.test.ts (bash helper function tests)"
+    ],
+    "gaps": []
+  },
+  "issues": [],
+  "recommendations": []
+}

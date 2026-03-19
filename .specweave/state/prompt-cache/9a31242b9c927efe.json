@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12166
+Increment recommendation: new (confidence: 0.7, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.65,
+  "reasoning": "No explicit tech mentioned; appears to be documentation/debugging work on a broken link issue",
+  "latencyMs": 13495.018375,
+  "increment": {
+    "action": "new",
+    "confidence": 0.7,
+    "mandatory": false,
+    "suggestedName": "fix-docs-link-after-increment-close",
+    "reasoning": "Investigating why docs link update failed after increment closure; needs root cause analysis and fix"
+  }
+}

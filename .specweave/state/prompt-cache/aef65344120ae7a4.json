@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13173
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.8,
+  "reasoning": "Skill studio debugging - no available plugin",
+  "latencyMs": 14730.648207999999,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "fix-create-test-case-button",
+    "reasoning": "Debugging UI button functionality in skill studio"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0542-vskill-plugin-auto-recommendation",
+  "startedAt": "2026-03-15T23:40:25-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-15T23:41:08-04:00",
+      "summary": "TMPDIR markers for session dedup, regex detection before LLM async, standalone section in hook"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-15T23:41:08-04:00",
+      "summary": "project-detector gets vskillPlugins field for mobile rules, both paths check vskill.lock"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-15T23:41:08-04:00",
+      "summary": "Separate bullets per plugin with description, consistent with LSP suggestion format"
+    },
+    "performance": {
+      "coveredAt": "2026-03-15T23:41:08-04:00",
+      "summary": "N/A - keyword regex is inherently fast, no LLM calls involved"
+    },
+    "security": {
+      "coveredAt": "2026-03-15T23:41:08-04:00",
+      "summary": "N/A - suggest-only mode, no command execution, word-boundary regex prevents partial matches"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-15T23:41:08-04:00",
+      "summary": "Cap at 3 suggestions max, word-boundary for short keywords, substring for multi-word"
+    }
+  }
+}

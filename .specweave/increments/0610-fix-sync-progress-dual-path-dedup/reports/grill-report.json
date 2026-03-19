@@ -1,0 +1,37 @@
+{
+  "version": "1.1",
+  "incrementId": "0610-fix-sync-progress-dual-path-dedup",
+  "timestamp": "2026-03-19T07:15:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 4,
+    "passed": 4,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      {
+        "acId": "AC-US1-01",
+        "status": "pass",
+        "evidence": "checkExistingIssue now checks externalLinks.jira.epicKey at external-issue-auto-creator.ts:585. Test 'should skip when metadata has externalLinks.jira.epicKey' passes."
+      },
+      {
+        "acId": "AC-US1-02",
+        "status": "pass",
+        "evidence": "externalLinks.jira.issueKey check preserved at external-issue-auto-creator.ts:588. Test 'should skip when metadata has externalLinks.jira.issueKey' passes."
+      },
+      {
+        "acId": "AC-US2-01",
+        "status": "pass",
+        "evidence": "checkExistingIssue now checks externalLinks.ado.featureId at external-issue-auto-creator.ts:593. Test 'should skip when metadata has externalLinks.ado.featureId' passes."
+      },
+      {
+        "acId": "AC-US2-02",
+        "status": "pass",
+        "evidence": "externalLinks.ado.workItemId check preserved at external-issue-auto-creator.ts:596. Test 'should skip when metadata has externalLinks.ado.workItemId' passes."
+      }
+    ]
+  },
+  "findings": []
+}

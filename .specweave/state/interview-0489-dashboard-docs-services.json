@@ -1,0 +1,30 @@
+{
+  "incrementId": "0489-dashboard-docs-services",
+  "startedAt": "2026-03-11T03:39:58-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T03:41:15-04:00",
+      "summary": "Existing dashboard server + React client architecture. No architectural changes. command-runner.ts manages whitelisted CLI commands, dashboard-server.ts exposes /api/services, useCommand.ts hooks into SSE for real-time output, ServicesPage.tsx renders service cards. Adding second service entry (Public Docs) and scope-specific commands."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T03:41:21-04:00",
+      "summary": "N/A - No external integrations. All changes are internal to the dashboard server and client. Uses existing SCOPE_PORTS from docs-preview/types.ts (internal:3015, public:3016) and existing specweave docs CLI commands."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T03:41:26-04:00",
+      "summary": "ServicesPage.tsx currently hardcodes Docs Preview name check. Will be made generic so both Internal Docs and Public Docs show start/stop/open buttons. Same visual pattern, just data-driven instead of hardcoded name matching."
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T03:41:31-04:00",
+      "summary": "The 60s timeout in useCommand.ts is a performance/reliability bug. Docs commands (specweave docs preview) take longer due to npm install and Docusaurus startup. Increasing to 300s for docs-specific commands. Other commands keep 60s default."
+    },
+    "security": {
+      "coveredAt": "2026-03-11T03:41:35-04:00",
+      "summary": "N/A - No security changes. command-runner.ts already uses a whitelist of allowed commands. New commands (docs-internal-start, docs-public-start, etc.) will follow the same whitelisting pattern."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T03:41:41-04:00",
+      "summary": "Port conflict detection already exists in ServicesPage.tsx. Need to handle: both docs services running simultaneously (different ports so fine), stopping one docs service should not affect the other, timeout should not fire for docs commands that are legitimately running."
+    }
+  }
+}

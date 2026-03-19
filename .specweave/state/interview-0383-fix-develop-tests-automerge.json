@@ -1,0 +1,26 @@
+{
+  "incrementId": "0383-fix-develop-tests-automerge",
+  "startedAt": "2026-02-27T03:10:35-05:00",
+  "coveredCategories": {
+    "moduleResolution": {
+      "coveredAt": "2026-02-27T03:10:36-05:00",
+      "summary": "Fix imports to point to new module locations after refactoring. Delete test files if source genuinely deleted with no replacement."
+    },
+    "autoMergeStrategy": {
+      "coveredAt": "2026-02-27T03:10:36-05:00",
+      "summary": "Option A: enable GitHub repo setting 'Allow GitHub Actions to create and approve pull requests'. Document in workflow comments."
+    },
+    "testPolicy": {
+      "coveredAt": "2026-02-27T03:10:36-05:00",
+      "summary": "Update tests to match current source behavior. Source is correct, tests drifted. Understand new behavior and update expectations."
+    },
+    "ciWorkflow": {
+      "coveredAt": "2026-02-27T03:10:36-05:00",
+      "summary": "Leave CI autofix workflow running. Once tests pass on develop, it stops triggering."
+    },
+    "scopeBoundary": {
+      "coveredAt": "2026-02-27T03:10:36-05:00",
+      "summary": "Strictly fix 69 failures + unblock auto-merge. No test infrastructure improvements."
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0617-sync-routing-evolutionary-cleanup",
+  "timestamp": "2026-03-19T13:51:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "External models consent not configured (externalModels: null in config.json)",
+  "findings": []
+}

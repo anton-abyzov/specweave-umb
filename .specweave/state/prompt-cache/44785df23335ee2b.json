@@ -1,0 +1,28 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 8366
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": true,
+  "plugins": [
+    "sw-github"
+  ],
+  "confidence": 0.95,
+  "reasoning": "GitHub API rate limiting and sync optimization for SpecWeave",
+  "latencyMs": 9645.871583,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "optimize-github-sync-graphql-engine",
+    "reasoning": "Implementation of proposed GraphQL-first sync engine to reduce API call volume from 5-7 to 1 per story"
+  },
+  "vskillRecommendations": [
+    {
+      "plugin": "productivity",
+      "matchedKeyword": "project management",
+      "installCommand": "vskill install anton-abyzov/vskill --plugin productivity"
+    }
+  ]
+}

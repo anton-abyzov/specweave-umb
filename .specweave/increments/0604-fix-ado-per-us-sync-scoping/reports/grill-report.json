@@ -1,0 +1,19 @@
+{
+  "version": "1.1",
+  "incrementId": "0604-fix-ado-per-us-sync-scoping",
+  "timestamp": "2026-03-19T05:05:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 2,
+    "passed": 2,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "findExistingWorkItem now searches [featureId][usId] at per-us-sync.ts:314" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "Removed wrong ado.id values from FS-597 us-001/002/003 living docs" }
+    ]
+  },
+  "findings": []
+}

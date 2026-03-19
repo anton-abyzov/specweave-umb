@@ -1,0 +1,30 @@
+{
+  "incrementId": "0459-skill-eval-enhancements",
+  "startedAt": "2026-03-09T02:27:30-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-09T02:30:00-04:00",
+      "summary": "Existing eval-server + eval-ui codebase. New endpoints in separate route files (api-routes.ts at 719 lines). New UI components in separate files (SkillDetailPage at 818 lines). Sequential model execution for Feature 3. Hardcoded + frontmatter MCP pattern detection for Feature 4. Frontend-computed unified diff for Feature 2."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-09T02:30:00-04:00",
+      "summary": "N/A - no new external integrations. Uses existing LLM providers (claude-cli, anthropic, ollama) via createLlmClient. MCP detection is read-only pattern matching, not actual MCP integration."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-09T02:30:00-04:00",
+      "summary": "Feature 1: collapsible SKILL.md viewer, default expanded, YAML frontmatter as structured cards, allowed-tools as pill tags, graceful fallback for missing frontmatter. Feature 2: unified diff view (green/red lines), model picker, apply/discard buttons. Feature 3: modal with two model selectors, sequential progress indicators, side-by-side results. Feature 4: MCP dependency cards with Copy Config button."
+    },
+    "performance": {
+      "coveredAt": "2026-03-09T02:30:00-04:00",
+      "summary": "Sequential model execution (claude-cli constraint). 120s timeout per model call. Limit improvement prompt to 10 most recently failed cases. SSE for streaming progress."
+    },
+    "security": {
+      "coveredAt": "2026-03-09T02:30:00-04:00",
+      "summary": "N/A - local development tool running on localhost:3162. No auth, no PII, no external exposure."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-09T02:30:00-04:00",
+      "summary": "Missing SKILL.md frontmatter - graceful fallback. No failed test cases for improvement - handle empty failures. LLM returning malformed improvement - validate response. Both models failing in A/B compare - show error per model. No MCP patterns detected - show empty state. SKILL.md write failure on apply-improvement - report error."
+    }
+  }
+}

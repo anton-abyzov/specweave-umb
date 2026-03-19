@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12535
+Increment recommendation: new (confidence: 0.8, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.85,
+  "reasoning": "Configuration troubleshooting work - no specific tech stack",
+  "latencyMs": 13800.903833,
+  "increment": {
+    "action": "new",
+    "confidence": 0.8,
+    "mandatory": false,
+    "suggestedName": "debug-npmrc-specweave-config",
+    "reasoning": "Troubleshooting SpecWeave remote sync issue with .npmrc configuration"
+  }
+}

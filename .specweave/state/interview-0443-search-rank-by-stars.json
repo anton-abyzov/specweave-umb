@@ -1,0 +1,12 @@
+{
+  "incrementId": "0443-search-rank-by-stars",
+  "startedAt": "2026-03-06T19:35:15-05:00",
+  "coveredCategories": {
+    "architecture": {"coveredAt": "2026-03-06T19:36:00-05:00", "summary": "Single file change in search.ts — 3 sort paths: edge KV, Postgres tsvector, Postgres ILIKE fallback. All must sort by githubStars DESC as primary factor."},
+    "integrations": {"coveredAt": "2026-03-06T19:36:00-05:00", "summary": "N/A — no new integrations, existing search infrastructure unchanged"},
+    "ui-ux": {"coveredAt": "2026-03-06T19:36:00-05:00", "summary": "N/A — backend ranking fix only, no UI changes needed"},
+    "performance": {"coveredAt": "2026-03-06T19:36:00-05:00", "summary": "N/A — sort order change only, no performance impact. Stars sort is simpler than blended formula."},
+    "security": {"coveredAt": "2026-03-06T19:36:00-05:00", "summary": "N/A — no security implications, read-only search ranking"},
+    "edge-cases": {"coveredAt": "2026-03-06T19:36:00-05:00", "summary": "CERTIFIED-first ordering must be preserved across all 3 paths. Skills with 0 stars should sort last within their cert tier."}
+  }
+}

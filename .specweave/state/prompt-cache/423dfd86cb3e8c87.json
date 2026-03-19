@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.78 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9286
+Increment recommendation: new (confidence: 0.75, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Documentation adjustment, no integration work",
+  "latencyMs": 10610.802709,
+  "increment": {
+    "action": "new",
+    "confidence": 0.75,
+    "mandatory": false,
+    "suggestedName": "clarify-skill-md-documentation",
+    "reasoning": "Documentation adjustment to clarify SKILL.md as primary example vs skill memories extension"
+  }
+}

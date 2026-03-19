@@ -1,0 +1,11 @@
+{
+  "topic": "Evals/test case management: local CLI vs web platform architecture split",
+  "depth": "standard",
+  "lenses": [],
+  "startedAt": "2026-03-10T00:00:00Z",
+  "phase": "complete",
+  "completedAt": "2026-03-10T00:00:00Z",
+  "approaches": ["strip-web-readonly", "kill-web-evals", "local-plus-sync", "cli-only"],
+  "selectedApproach": "author-owned-platform-scanned",
+  "handedOffTo": null
+}

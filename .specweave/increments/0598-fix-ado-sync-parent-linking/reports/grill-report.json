@@ -1,0 +1,26 @@
+{
+  "version": "1.1",
+  "incrementId": "0598-fix-ado-sync-parent-linking",
+  "timestamp": "2026-03-19T04:35:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 9,
+    "passed": 9,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "findStoryByTitle() now accepts featureId param, WIQL scoped to [featureId][usId] in ado-spec-sync.ts:685" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "syncUserStories() passes spec.metadata.id.toUpperCase() as featureId at line 458" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "WIQL CONTAINS '[FS-591][US-001]' prevents matching '[FS-480][US-001]' from other features" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "findStoryByTitle returns null when WIQL finds 0 results (line 694), triggering create path" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "updateStory() fetches GET /wit/workitems/{id}?$expand=relations before parent linking at line 819" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "When existingParentId === updates.parentId, no PATCH issued (no-op branch at line 838)" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "When existingParentId !== updates.parentId, atomic PATCH with op:remove + op:add at lines 840-855" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "When existingParentId is null, direct add link PATCH at lines 857-870" },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "Silent catch block removed, replaced with explicit fetch-compare-swap logic" }
+    ]
+  },
+  "findings": []
+}

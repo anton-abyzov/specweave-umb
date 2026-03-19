@@ -1,0 +1,25 @@
+{
+  "version": "1.1",
+  "incrementId": "0602-tool-agnostic-refs-phases-2-4",
+  "timestamp": "2026-03-19T05:40:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 8,
+    "passed": 8,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "0 /sw: in plugins/specweave/skills/ (39 files, 448 replacements)" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "0 /sw- remaining in skills directory" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Skill() calls verified unchanged — 0 occurrences of Skill({ skill: \"/sw:\" })" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "0 /sw: in docs-site/docs/ (141 files, 2146 replacements)" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "0 /sw- remaining in docs-site" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "TS source already migrated by commit 0dc8d34a. 0 /sw: outside functional code" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "phase-detector.ts: 17 functional /sw: preserved. project-scope-guard.ts: 2 preserved" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "266 targeted tests pass. 20 failures all pre-existing" }
+    ]
+  },
+  "findings": []
+}

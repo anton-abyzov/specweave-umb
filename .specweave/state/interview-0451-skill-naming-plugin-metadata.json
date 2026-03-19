@@ -1,0 +1,30 @@
+{
+  "incrementId": "0451-skill-naming-plugin-metadata",
+  "startedAt": "2026-03-07T12:13:10-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-07T12:14:19-05:00",
+      "summary": "derivePluginName() in slug.ts extracts plugin folder from path. publishSkill() sets pluginName. backfill-slugs populates legacy. CLI find.ts displays badge. No new services."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-07T12:14:19-05:00",
+      "summary": "N/A - no external services, purely internal slug derivation and metadata"
+    },
+    "performance": {
+      "coveredAt": "2026-03-07T12:14:19-05:00",
+      "summary": "N/A - adding one string metadata field, no performance impact"
+    },
+    "security": {
+      "coveredAt": "2026-03-07T12:14:19-05:00",
+      "summary": "N/A - backfill uses existing admin auth (X-Internal-Key or SUPER_ADMIN JWT), no new auth surface"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-07T12:14:49-05:00",
+      "summary": "Raw plugin folder name as teal pill badge. Detail page: byline row after repo link. CLI: dim bracketed suffix on same line. No links, purely informational."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-07T12:14:49-05:00",
+      "summary": "Non-plugin skills return null pluginName. Backfill skips null skillPath silently. Flat names must always be converted to hierarchical format."
+    }
+  }
+}

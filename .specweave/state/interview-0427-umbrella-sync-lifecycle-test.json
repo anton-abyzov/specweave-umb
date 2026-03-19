@@ -1,0 +1,15 @@
+{
+  "incrementId": "0427-umbrella-sync-lifecycle-test",
+  "started": true,
+  "startedAt": "2026-03-05T00:00:00Z",
+  "coveredCategories": {
+    "architecture": { "covered": true, "summary": "Cross-project sync routing via resolveSyncTarget, 3 child repos" },
+    "integrations": { "covered": true, "summary": "GitHub API, JIRA REST API, ADO REST API via existing sync pipeline" },
+    "ui-ux": { "covered": true, "summary": "CLI output only, no UI changes" },
+    "performance": { "covered": true, "summary": "Sequential per-project sync, 30s throttle per repo" },
+    "security": { "covered": true, "summary": "PAT tokens from .env, no new secrets" },
+    "edge-cases": { "covered": true, "summary": "Unknown project falls back to global, partial config returns available targets" }
+  },
+  "completed": true,
+  "completedAt": "2026-03-05T00:00:01Z"
+}

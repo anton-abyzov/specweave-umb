@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0618-simplify-sync-setup-fix-triggers",
+  "timestamp": "2026-03-19T09:07:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "No ANTHROPIC_API_KEY configured and externalModels not enabled in config.json",
+  "findings": []
+}

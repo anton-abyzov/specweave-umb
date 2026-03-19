@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13543
+Increment recommendation: new (confidence: 0.75, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "UI/layout bug description, no external integrations mentioned",
+  "latencyMs": 14822.821875,
+  "increment": {
+    "action": "new",
+    "confidence": 0.75,
+    "mandatory": false,
+    "suggestedName": "fix-rectangle-overlap-layout",
+    "reasoning": "Visual layout bug with overlapping elements—needs investigation and fix"
+  }
+}

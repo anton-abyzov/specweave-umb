@@ -1,0 +1,30 @@
+{
+  "version": "1.1",
+  "incrementId": "0546-file-browser-fixes",
+  "timestamp": "2026-03-16T09:20:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0, "suppressed": 0 },
+  "acCompliance": {
+    "totalACs": 12,
+    "passed": 12,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "Removed setExpanded(false) from onSelect in SkillFileBrowser.tsx:238" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "TreeItem uses local useState(true) for folder expand — unaffected by file clicks" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "Toolbar guard removed: renders for all non-binary files. View toggles conditional on md/json" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "MD files still show Raw/Split/Preview toggles — conditional preserved" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "JSON files still show Raw/Split/Preview toggles — conditional preserved" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "Edit button visible for all file types, opens plain textarea" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "Sticky save bar with position:sticky;bottom:0 inside scroll wrapper" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "useEffect keydown handler checks ctrlKey||metaKey + key==='s'" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "useEffect only registers when editing===true, cleanup on false" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "guardedSelectFile in EditorPanel calls window.confirm when secondaryDirty" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "confirm() returns true → selectFile called with new path" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "confirm() returns false → early return, selectFile not called" }
+    ]
+  },
+  "findings": [],
+  "testsRun": { "total": 1285, "passed": 1285, "failed": 0, "files": 87 }
+}

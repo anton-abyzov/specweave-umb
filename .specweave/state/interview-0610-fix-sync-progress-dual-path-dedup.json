@@ -1,0 +1,30 @@
+{
+  "incrementId": "0610-fix-sync-progress-dual-path-dedup",
+  "startedAt": "2026-03-19T07:10:08.758Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T07:12:00.000Z",
+      "summary": "6-line fix in checkExistingIssue() to add epicKey/featureId field checks. No architectural changes."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T07:12:00.000Z",
+      "summary": "Fixes JIRA/ADO integration dedup. GitHub not affected. Field name mismatch between backfill and check."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T07:12:00.000Z",
+      "summary": "N/A — no UI changes. CLI output unchanged."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T07:12:00.000Z",
+      "summary": "N/A — adds 2 additional property checks per provider. Negligible overhead."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T07:12:00.000Z",
+      "summary": "N/A — no auth, secrets, or input validation changes."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T07:12:00.000Z",
+      "summary": "Both old (issueKey/workItemId) and new (epicKey/featureId) field names supported. Null/missing fields handled by optional chaining."
+    }
+  }
+}

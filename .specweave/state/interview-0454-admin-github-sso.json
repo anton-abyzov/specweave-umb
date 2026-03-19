@@ -1,0 +1,30 @@
+{
+  "incrementId": "0454-admin-github-sso",
+  "startedAt": "2026-03-08T00:39:11-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-08T00:40:10-05:00",
+      "summary": "New requireAdmin() middleware in auth.ts accepting cookie SSO primary + header JWT fallback. Reuse existing UserTokenPayload with isAdmin claim. No new services or data flow changes."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-08T00:40:10-05:00",
+      "summary": "Reuses existing GitHub OAuth flow, vskill_access/vskill_refresh cookies, ADMIN_GITHUB_USERNAMES env var. No new external integrations."
+    },
+    "performance": {
+      "coveredAt": "2026-03-08T00:40:10-05:00",
+      "summary": "N/A - No performance impact. Same JWT verification, same cookie reads. Proactive token refresh already exists via vskill_token_exp cookie."
+    },
+    "security": {
+      "coveredAt": "2026-03-08T00:40:40-05:00",
+      "summary": "Keep Admin table and legacy login as fallback. requireAdmin() accepts cookie SSO primary + header JWT fallback. ADMIN_GITHUB_USERNAMES allowlist unchanged. Clean removal in separate increment."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-08T00:40:40-05:00",
+      "summary": "Non-admin GitHub users see access denied with username and link to main site. Login page auto-redirects if already authenticated with isAdmin. Sidebar shows GitHub avatar and username."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-08T00:40:40-05:00",
+      "summary": "Proactively clear admin_token and admin_refresh_token from localStorage on new layout mount. Legacy header auth kept as fallback. 15min token expiry handled by proactive refresh in admin layout."
+    }
+  }
+}

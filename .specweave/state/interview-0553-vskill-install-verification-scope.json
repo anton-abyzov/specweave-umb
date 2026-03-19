@@ -1,0 +1,30 @@
+{
+  "incrementId": "0553-vskill-install-verification-scope",
+  "startedAt": "2026-03-16T22:15:34-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-16T22:16:03-04:00",
+      "summary": "Two isolated fixes: server-side Prisma query scoping in vskill-platform Next.js API route, client-side param addition in vskill ESM CLI. No architectural changes."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-16T22:16:07-04:00",
+      "summary": "vskill CLI calls vskill-platform blocklist check API. Fix adds repoUrl query param to existing HTTP call. No new integrations."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-16T22:16:11-04:00",
+      "summary": "CLI interactive prompt restoration: promptChoice for Project vs Global scope. Warning message accuracy fix for rejection display."
+    },
+    "performance": {
+      "coveredAt": "2026-03-16T22:16:17-04:00",
+      "summary": "N/A - Bug fixes only. Scoped query uses existing compound index, no perf regression."
+    },
+    "security": {
+      "coveredAt": "2026-03-16T22:16:21-04:00",
+      "summary": "Fix improves security posture: scoping rejection queries by repoUrl prevents cross-author information leakage where one authors rejection status falsely taints another."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-16T22:16:26-04:00",
+      "summary": "Edge cases: repoUrl not provided (backward compat, fall back to name-only), --global flag skips scope prompt, non-TTY skips prompt, API unreachable graceful degradation already handled."
+    }
+  }
+}

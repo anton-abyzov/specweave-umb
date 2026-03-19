@@ -1,0 +1,30 @@
+{
+  "incrementId": "0444-filter-framework-plugin-skills",
+  "startedAt": "2026-03-06T19:46:53-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-06T19:48:06-05:00",
+      "summary": "Add isFrameworkPluginPath() with regex ^plugins/specweave[^/]*/skills/, unified shouldRejectSkillPath() wrapper, both exported. Strictly skills/ subdir only."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-06T19:48:06-05:00",
+      "summary": "N/A - no external integrations, internal filter function only"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-06T19:48:06-05:00",
+      "summary": "N/A - backend filter, no UI"
+    },
+    "performance": {
+      "coveredAt": "2026-03-06T19:48:06-05:00",
+      "summary": "N/A - regex check on short strings, negligible impact"
+    },
+    "security": {
+      "coveredAt": "2026-03-06T19:48:06-05:00",
+      "summary": "Defense-in-depth: filter at all call sites. SpecWeave-specific regex only, no broad patterns to avoid false positives."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-06T19:48:06-05:00",
+      "summary": "DB cleanup: soft-reject submissions, hard-delete Skill rows. No KV cleanup needed. Crawl-worker: add to all 4 JS files."
+    }
+  }
+}

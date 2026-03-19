@@ -1,0 +1,97 @@
+{
+  "incrementId": "0619-reconciler-recency-window",
+  "timestamp": "2026-03-19T14:30:00.000Z",
+  "shipReadiness": "READY",
+  "overallScore": 88,
+  "summary": "Clean, focused implementation that adds bulk fetch optimization, milestone capping, and --full flag to the GitHub reconciler. 8/8 tests pass. Code is well-structured with proper fallbacks.",
+  "categories": {
+    "correctness": {
+      "score": 90,
+      "findings": [
+        {
+          "severity": "INFO",
+          "title": "Proper fallback to getIssue when bulk map misses",
+          "description": "reconcileIssue correctly checks bulk map first, falls back to individual API call if not found (AC-US1-03)."
+        },
+        {
+          "severity": "INFO",
+          "title": "bulkFetchIssueStates handles parse failures gracefully",
+          "description": "Empty map returned on JSON parse failure, causing graceful degradation to per-issue calls."
+        }
+      ]
+    },
+    "testing": {
+      "score": 90,
+      "findings": [
+        {
+          "severity": "INFO",
+          "title": "8 test cases cover all ACs comprehensively",
+          "description": "TC-001 through TC-008 cover bulk fetch, map lookup, fallback, default/full limits, milestone capping, and propagation."
+        },
+        {
+          "severity": "MINOR",
+          "title": "No error-path test for bulkFetchIssueStates failure",
+          "description": "The implementation handles parse errors gracefully (returns empty map), but there is no explicit test for the gh CLI returning non-zero exit code. Low risk since the fallback path is covered by TC-003."
+        }
+      ]
+    },
+    "security": {
+      "score": 92,
+      "findings": [
+        {
+          "severity": "INFO",
+          "title": "Uses execFileNoThrow (no shell injection)",
+          "description": "All gh CLI calls use execFileNoThrow with argument arrays, not string concatenation."
+        }
+      ]
+    },
+    "performance": {
+      "score": 95,
+      "findings": [
+        {
+          "severity": "INFO",
+          "title": "API calls reduced from ~70 to ~3 per typical run",
+          "description": "Bulk search replaces per-issue getIssue calls. Milestone cap at 20 avoids pagination. This is the core value of the increment."
+        }
+      ]
+    },
+    "maintainability": {
+      "score": 85,
+      "findings": [
+        {
+          "severity": "MINOR",
+          "title": "Magic numbers for limits",
+          "description": "100 and 1000 are inline constants in reconcile(). Could be extracted to named constants for clarity, but acceptable given they are only used in two places."
+        }
+      ]
+    },
+    "edge-cases": {
+      "score": 88,
+      "findings": [
+        {
+          "severity": "INFO",
+          "title": "Empty bulk map handled correctly",
+          "description": "When no issues match the search, all issues fall back to individual getIssue calls."
+        },
+        {
+          "severity": "MINOR",
+          "title": "Milestone NDJSON parsing is defensive",
+          "description": "reconcileMilestones parses line-by-line with try/catch per line, skipping unparseable output."
+        }
+      ]
+    }
+  },
+  "blockers": [],
+  "criticals": [],
+  "acCoverage": {
+    "AC-US1-01": "COVERED - bulkFetchIssueStates method added, returns Map<number, 'open'|'closed'>",
+    "AC-US1-02": "COVERED - reconcileIssue reads from pre-fetched map first",
+    "AC-US1-03": "COVERED - falls back to getIssue when not in map",
+    "AC-US1-04": "COVERED - default limit=100, configurable via full flag",
+    "AC-US2-01": "COVERED - per_page=20&sort=updated&direction=desc",
+    "AC-US2-02": "COVERED - full mode restores --paginate",
+    "AC-US3-01": "COVERED - full option on ReconcileOptions interface",
+    "AC-US3-02": "COVERED - constructor reads full from options",
+    "AC-US3-03": "COVERED - full=true: limit=1000 and --paginate"
+  }
+}

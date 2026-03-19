@@ -1,0 +1,30 @@
+{
+  "incrementId": "0002-unified-advisor-command",
+  "startedAt": "2026-03-19T02:29:06.061Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T02:34:03.010Z",
+      "summary": "Core logic in src/core/guide/guide-runner.ts exporting runGuide(). Composition pattern: calls runDoctor(), BrownfieldDiscrepancyManager, calculateProgressFromTasksFile() in parallel via Promise.all. Phase detector is sync-only filesystem heuristics. CLI command is specweave guide (not help, due to Commander.js conflict). Skill is /sw:help. Both call runGuide()."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T02:34:11.274Z",
+      "summary": "Integrates with existing core modules only — no new external APIs. Consumes: runDoctor() for env health, BrownfieldDiscrepancyManager.getIndex() for discrepancies, calculateProgressFromTasksFile() for progress, runQA() only in --deep mode. runHealthCheck() optional for sync connectivity signal. No new external service dependencies."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T02:34:17.859Z",
+      "summary": "CLI output: header (project name, phase, description), ranked action list (severity icon + description + Run: command), footer (health %, active count, discrepancy count). Three severity tiers: critical (red), warning (yellow), info (green). --json for machine-readable. --verbose for expanded context. Skill output is markdown, no ANSI codes. Max 5 actions by default to avoid overwhelming users."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T02:34:25.404Z",
+      "summary": "Default mode must complete in under 3 seconds. Phase detection under 500ms (sync filesystem only, no LLM, no network). Signal collectors run in parallel via Promise.all. Doctor called with quick:true to skip slow checks. QA excluded from default mode entirely — only in --deep. No caching needed for v1 since all reads are fast local filesystem ops."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T02:34:33.819Z",
+      "summary": "No new security concerns. Command is read-only — no writes, no config modifications, no network calls in default mode. Does not expose secret values. Doctor report already sanitizes sensitive fields. No user input is passed to shell commands. --deep mode uses existing QA runner which has its own security boundaries."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T02:34:42.867Z",
+      "summary": "Graceful degradation: if any signal collector throws, it is caught and reported as unavailable without crashing the command. Not-a-project: if no .specweave/ dir exists, print clear error and exit 1. Empty project: fresh-init with zero data still produces onboarding actions. Corrupt config.json: doctor collector fails gracefully. No active increments: progress collector returns empty, phase heuristics still work. Ambiguous phase: deterministic priority order (fresh-init > brownfield-early > active-dev > mature) so exactly one phase is always selected."
+    }
+  }
+}

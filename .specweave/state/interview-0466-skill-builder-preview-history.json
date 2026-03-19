@@ -1,0 +1,30 @@
+{
+  "incrementId": "0466-skill-builder-preview-history",
+  "startedAt": "2026-03-09T17:45:30-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-09T17:50:00-04:00",
+      "summary": "Port renderMarkdown from vskill-platform as HTML-string with dangerouslySetInnerHTML. Reuse existing getCaseHistory API and CaseHistoryEntry type. No new backend work."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-09T17:50:00-04:00",
+      "summary": "N/A - no external services. All APIs already exist in eval-server."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-09T17:50:00-04:00",
+      "summary": "Links open in new tab. History as collapsible section below LLM Output matching existing pattern. Last 10 runs with View All link to History panel. Add markdown table rendering."
+    },
+    "performance": {
+      "coveredAt": "2026-03-09T17:50:00-04:00",
+      "summary": "N/A - local dev tool, no performance concerns. Limit history to 10 runs inline."
+    },
+    "security": {
+      "coveredAt": "2026-03-09T17:50:00-04:00",
+      "summary": "N/A - local dev tool, XSS risk negligible. dangerouslySetInnerHTML acceptable."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-09T17:50:00-04:00",
+      "summary": "Empty history state handled. No relative link handling needed. Run limit of 10 with full history link."
+    }
+  }
+}

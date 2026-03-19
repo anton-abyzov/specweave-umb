@@ -1,0 +1,27 @@
+
+⚠️  Duplicate increment(s) detected:
+
+  0531:
+    ✗ 0531-fix-test-mock-drift-prevention [completed]
+    → 0531-benchmark-comparison-ux [completed]
+
+  Run /sw:fix-duplicates to resolve
+
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10158
+Increment recommendation: none (confidence: 0.99, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Background task completion notification, not implementation work",
+  "latencyMs": 11629.299458,
+  "increment": {
+    "action": "none",
+    "confidence": 0.99,
+    "mandatory": false,
+    "reasoning": "Task notification only—no code changes or new work requested"
+  }
+}

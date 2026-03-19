@@ -1,0 +1,32 @@
+{
+  "version": "1.1",
+  "incrementId": "0565-vskill-frontmatter-compliance",
+  "timestamp": "2026-03-18T07:15:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 15,
+    "passed": 15,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "frontmatter.ts:54-57 prepends new block; TC-001 in frontmatter.test.ts:10-16" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "frontmatter.ts:69-70 injects name into existing block; TC-002 in frontmatter.test.ts:19-24" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "frontmatter.ts:73-76 derives description from body via extractDescription(); TC-003 in frontmatter.test.ts:27-31" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "frontmatter.ts:63-64 returns unchanged when both present; TC-004 in frontmatter.test.ts:34-39" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "frontmatter.ts:60 checks existing name, preserves it; TC-005 in frontmatter.test.ts:42-47" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "canonical.ts:113 applies ensureFrontmatter as first statement in installSymlink; TC-101 in canonical.test.ts:377-391" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "canonical.ts:113 processes content once, used at line 130 copy-fallback; TC-102 in canonical.test.ts:393-407" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "canonical.ts:113 processes content once, used at line 143 symlink-failure fallback; TC-103 in canonical.test.ts:409-429 with controlled symlinkSync mock" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "canonical.ts:164 applies ensureFrontmatter in installCopy; TC-104 in canonical.test.ts:431-451" },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "update.ts:9 imports ensureFrontmatter, line 163 applies before writeFileSync; TC-201 in update.test.ts" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "frontmatter.ts:23-27 validates via SKILL_NAME_RE; TC-010 in frontmatter.test.ts:88-92" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "SKILL_NAME_RE only allows lowercase; TC-011 in frontmatter.test.ts:95-99" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "SKILL_NAME_RE rejects underscores/spaces; TC-012 in frontmatter.test.ts:102-106" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "frontmatter.ts:24 explicit length check; TC-013 in frontmatter.test.ts:109-112" },
+      { "acId": "AC-US3-05", "status": "pass", "evidence": "SKILL_NAME_RE requires alphanumeric start/end; TC-014 in frontmatter.test.ts:115-119" }
+    ]
+  },
+  "findings": []
+}

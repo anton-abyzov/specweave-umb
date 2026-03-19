@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 8330
+Increment recommendation: reopen (confidence: 0.75, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.6,
+  "reasoning": "Testing/sync infrastructure work with no explicit tech mentioned",
+  "latencyMs": 10711.732,
+  "increment": {
+    "action": "reopen",
+    "confidence": 0.75,
+    "mandatory": false,
+    "relatedKeyword": "sync",
+    "reasoning": "Related to sync infrastructure testing; likely tied to active sync-related increments (0416-umbrella-sync-consolidation, 0427-umbrella-sync-lifecycle-test, or 0441-sync-lifecycle-verification)"
+  }
+}

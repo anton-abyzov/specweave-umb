@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9780
+Invalid LLM response format: I need permission to read that file. Could you share the contents of the spec.md file, or would you like me to explain what I can infer from the filename? 
+
+Based on the filename alone, **0431-http-ho
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 12954.170167,
+  "installMessage": "Invalid response format (no JSON found)"
+}

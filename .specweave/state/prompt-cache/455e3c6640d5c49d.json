@@ -1,0 +1,17 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 8816
+Invalid LLM response format: 🚨 **SECURITY ALERT: Stop immediately**
+
+You've **exposed what appears to be a real API token in plaintext**:
+```
+50uo****************************************************************************4L7E
+`
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 10016.557,
+  "installMessage": "Invalid response format (no JSON found)"
+}

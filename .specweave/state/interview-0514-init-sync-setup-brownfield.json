@@ -1,0 +1,30 @@
+{
+  "incrementId": "0514-init-sync-setup-brownfield",
+  "startedAt": "2026-03-12T08:56:34-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-12T13:03:10.303Z",
+      "summary": "CLI command in src/cli/commands/sync-setup.ts, reuses existing writeSyncConfig() and setupIssueTracker(); scanMisplacedRepos() added to path-utils.ts; barrel-exported from init/index.ts; misplacedRepos threaded through NextStepsContext"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-12T13:03:10.466Z",
+      "summary": "Integrates with GitHub Issues, JIRA, ADO via existing issue-tracker helpers; writeSyncConfig writes .env + config.json; works with umbrella per-repo sync targets"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-12T13:03:10.629Z",
+      "summary": "Interactive terminal wizard using @inquirer/prompts (checkbox for providers, select for permission preset); warning block rendered in next-steps.ts after init footer with exact mkdir/mv fix command"
+    },
+    "performance": {
+      "coveredAt": "2026-03-12T13:03:10.792Z",
+      "summary": "No perf concerns — init-time only; scanMisplacedRepos scans single fs level, same cost as scanUmbrellaRepos"
+    },
+    "security": {
+      "coveredAt": "2026-03-12T13:03:10.955Z",
+      "summary": "Credentials collected via @inquirer/prompts password fields (masked); written to .env only, not config.json; --quick flag prevents interactive prompts in CI"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-12T13:03:11.117Z",
+      "summary": "Non-TTY environment handled by --quick flag; missing config.json guarded with clear error; repos at depth 0 or depth 3+ ignored; empty repositories/ dir returns no warning"
+    }
+  }
+}

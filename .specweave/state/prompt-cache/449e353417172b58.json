@@ -1,0 +1,25 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.68 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9922
+Filtered out invalid plugins: scout
+Increment recommendation: none (confidence: 0.99, mandatory: false)
+Skill invocation: skills:scout (mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "User exploring installed skills - discovery/information request",
+  "latencyMs": 12921.85125,
+  "increment": {
+    "action": "none",
+    "confidence": 0.99,
+    "mandatory": false,
+    "reasoning": "Information request, no implementation work"
+  },
+  "skillInvocation": {
+    "skill": "skills:scout",
+    "reason": "Skills discovery and registry exploration",
+    "mandatory": true
+  }
+}

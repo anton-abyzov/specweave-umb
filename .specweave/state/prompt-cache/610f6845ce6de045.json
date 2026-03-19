@@ -1,0 +1,28 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12711
+Increment recommendation: new (confidence: 0.75, mandatory: false)
+Skill invocation: infra:devops (mandatory: false)
+{
+  "detected": true,
+  "plugins": [
+    "sw-github",
+    "infra"
+  ],
+  "confidence": 0.85,
+  "reasoning": "GH CLI + GitHub Container Registry operations → sw-github, Docker image cleanup → infra",
+  "latencyMs": 14081.283833,
+  "increment": {
+    "action": "new",
+    "confidence": 0.75,
+    "mandatory": false,
+    "suggestedName": "cleanup-old-docker-images",
+    "reasoning": "Container registry maintenance and optimization work targeting cost savings"
+  },
+  "skillInvocation": {
+    "skill": "infra:devops",
+    "reason": "Container registry cleanup, Docker image management, and infrastructure maintenance operations",
+    "mandatory": false
+  }
+}

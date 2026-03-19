@@ -1,0 +1,30 @@
+{
+  "incrementId": "0497-comparison-action-items",
+  "startedAt": "2026-03-11T19:24:44-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T19:27:01-04:00",
+      "summary": "New action-items-engine module in eval/ layer, LLM call after verdict, structured output parsed into ActionItem interface. ActionItemsPanel React component below verdict card. Reuses existing /improve endpoint via notes param for Apply AI Fix. All within vskill repo."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T19:27:01-04:00",
+      "summary": "Reuses existing LLM client (createLlmClient), existing /improve endpoint, existing SSE streaming infrastructure. No new external integrations."
+    },
+    "security": {
+      "coveredAt": "2026-03-11T19:27:01-04:00",
+      "summary": "N/A - no new auth, no new API surface beyond extending existing compare endpoint, no PII. Internal developer tool."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T23:34:27.157Z",
+      "summary": "ActionItemsPanel always expanded below verdict card. Color vocabulary matches VERDICT_STYLES (green/yellow/orange/red). Apply AI Fix navigates to workspace editor with existing SkillImprovePanel UX — shows diff before applying."
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T23:34:35.580Z",
+      "summary": "Action items LLM call runs automatically as part of compare SSE stream after verdict. One call total (~10-15s) is negligible vs the multi-case comparison. Runs for all verdicts including EFFECTIVE (provides positive reinforcement and strengths list)."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T23:34:43.501Z",
+      "summary": "Action items generation is wrapped in try/catch — non-fatal, comparison still valid without it. Partial comparison failures: action items analyze only successful cases (same as verdict computation). SKILL.md truncated to 2000 chars to avoid token bloat. JSON parsing has fallback defaults if LLM returns invalid JSON."
+    }
+  }
+}

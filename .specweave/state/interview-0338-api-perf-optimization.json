@@ -1,0 +1,39 @@
+{
+  "incrementId": "0338-api-perf-optimization",
+  "startedAt": "2026-02-23T15:57:39-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-02-23T16:00:00-05:00",
+      "summary": "Smart Placement global, no worker splitting"
+    },
+    "implementation": {
+      "coveredAt": "2026-02-23T16:00:00-05:00",
+      "summary": "getCloudflareContext async for waitUntil in login and OAuth"
+    },
+    "caching": {
+      "coveredAt": "2026-02-23T16:00:00-05:00",
+      "summary": "Isolate-lifetime JWT cache, no TTL"
+    },
+    "metrics": {
+      "coveredAt": "2026-02-23T16:00:00-05:00",
+      "summary": "Cloudflare analytics before/after, no hard target"
+    },
+    "prewarm": {
+      "coveredAt": "2026-02-23T16:00:00-05:00",
+      "summary": "Hourly prewarm on existing cron"
+    },
+    "parallelization": {
+      "coveredAt": "2026-02-23T16:00:00-05:00",
+      "summary": "getDb concurrent with rate limit, waitUntil for deferred ops"
+    },
+    "dynamic_imports": {
+      "coveredAt": "2026-02-23T16:00:00-05:00",
+      "summary": "bcryptjs only ~300KB in login route"
+    },
+    "testing": {
+      "coveredAt": "2026-02-23T16:00:00-05:00",
+      "summary": "Unit tests per optimization, TDD mode enabled"
+    }
+  },
+  "completedAt": "2026-02-23T16:00:00-05:00"
+}

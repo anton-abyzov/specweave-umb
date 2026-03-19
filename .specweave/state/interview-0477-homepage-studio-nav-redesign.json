@@ -1,0 +1,30 @@
+{
+  "incrementId": "0477-homepage-studio-nav-redesign",
+  "startedAt": "2026-03-10T12:04:17-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-10T12:05:51-04:00",
+      "summary": "Next.js 15 SSR, reuse existing server components (CategoryNav, TrendingSkills), extract shared VideoPlayer with lazy-load default, new /studio route, homepage rewrite from 300 to ~100 lines"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-10T12:05:51-04:00",
+      "summary": "N/A - no new external services, all data from existing KV/hardcoded arrays"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-10T12:05:51-04:00",
+      "summary": "Search-first homepage with auto-focus on non-touch, compact agent strip from hardcoded arrays, /studio page with video+features+getting-started, nav restructure adding Studio removing Queue/Submit from primary"
+    },
+    "performance": {
+      "coveredAt": "2026-03-10T12:05:51-04:00",
+      "summary": "VideoPlayer lazy-loads by default via IntersectionObserver, eager prop opt-in, existing force-dynamic SSR preserved"
+    },
+    "security": {
+      "coveredAt": "2026-03-10T12:05:51-04:00",
+      "summary": "N/A - purely frontend changes, no auth or data handling changes"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-10T12:05:51-04:00",
+      "summary": "Auto-focus only on hover:hover devices, dead code deletion with git as rollback, JSON-LD SearchAction for SEO compensation"
+    }
+  }
+}

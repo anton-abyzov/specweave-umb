@@ -1,0 +1,30 @@
+{
+  "incrementId": "0557-fix-vskill-lock-global",
+  "startedAt": "2026-03-17T03:57:03-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-17T03:57:19-04:00",
+      "summary": "Split lockfile: global ~/.specweave/plugins-lock.json for bundled plugins, project vskill.lock unchanged for user skills. Modify installPlugin() path routing, no new components."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-17T03:57:19-04:00",
+      "summary": "N/A - internal file I/O only, no external integrations"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-17T03:57:19-04:00",
+      "summary": "N/A - CLI internals only, no user-facing UI changes"
+    },
+    "performance": {
+      "coveredAt": "2026-03-17T03:57:19-04:00",
+      "summary": "N/A - identical file I/O volume, just different paths"
+    },
+    "security": {
+      "coveredAt": "2026-03-17T03:57:19-04:00",
+      "summary": "Minimal - ~/.specweave/ is same trust level as ~/.claude/, no escalation"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-17T03:57:19-04:00",
+      "summary": "Migration: move bundled entries from project vskill.lock to global plugins-lock.json on first run. Handle: missing ~/.specweave/ dir, empty vskill.lock after migration, concurrent runs, pre-existing plugins-lock.json merging"
+    }
+  }
+}

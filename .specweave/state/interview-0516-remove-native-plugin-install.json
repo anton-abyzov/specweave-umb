@@ -1,0 +1,30 @@
+{
+  "incrementId": "0516-remove-native-plugin-install",
+  "startedAt": "2026-03-12T16:29:34-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-12T16:30:34-04:00",
+      "summary": "Scope: delete claude-cli.ts, remove native install from add.ts. gitUrl kept if used beyond native install. cleanPluginCache unconditional."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-12T16:30:34-04:00",
+      "summary": "Silent removal of native install prompts. No migration messaging."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-12T16:30:34-04:00",
+      "summary": "No stale plugin migration. Remove misleading --plugin-dir hint."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-12T16:30:34-04:00",
+      "summary": "No cross-repo impact. specweave plugin-copier.ts unchanged."
+    },
+    "security": {
+      "coveredAt": "2026-03-12T16:30:34-04:00",
+      "summary": "No security implications - removing code only."
+    },
+    "performance": {
+      "coveredAt": "2026-03-12T20:47:40.879Z",
+      "summary": "This is a code removal refactor — removing ~630 lines of native plugin install code. Performance improves: no subprocess calls to claude CLI during install, no marketplace registration overhead. File-copy is faster and more reliable."
+    }
+  }
+}

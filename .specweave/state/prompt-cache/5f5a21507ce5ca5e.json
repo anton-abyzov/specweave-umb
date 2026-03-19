@@ -1,0 +1,45 @@
+
+⚠️  Duplicate increment(s) detected:
+
+  0401:
+    → 0401-deploy-latest-docs [completed]
+    ✗ 0401-crawler-pipeline-reliability [completed]
+  0297:
+    ✗ 0297-dashboard-bugfixes-analytics [completed]
+    → 0297-dashboard-fixes-analytics [completed]
+  0266:
+    → 0266-deep-interview-chain-fixes [completed]
+    ✗ 0266-wip-blocking-enforcement [completed]
+  0229:
+    ✗ 0229-tier2-llm-security-judge [abandoned]
+    → 0229-tier2-llm-security-judge [completed]
+  0228:
+    ✗ 0228-dashboard-realtime-sse-fix [abandoned]
+    → 0228-dashboard-realtime-sse-fix [completed]
+  0227:
+    ✗ 0227-prompt-too-long-prevention [abandoned]
+    → 0227-prompt-too-long-prevention [completed]
+
+  Run /sw:fix-duplicates to resolve
+
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13973
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": true,
+  "plugins": [
+    "testing"
+  ],
+  "confidence": 0.75,
+  "reasoning": "Test artifact cleanup investigation",
+  "latencyMs": 15457.375833,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "fix-test-artifact-cleanup",
+    "reasoning": "Investigation and fix of unwanted test artifact files being created by tests"
+  }
+}

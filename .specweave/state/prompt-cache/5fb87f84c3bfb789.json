@@ -1,0 +1,20 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 7342
+Increment recommendation: none (confidence: 0.9, mandatory: false)
+{
+  "detected": true,
+  "plugins": [
+    "backend"
+  ],
+  "confidence": 0.7,
+  "reasoning": "Task involves checking an API endpoint response, suggesting backend work",
+  "latencyMs": 8897.277333,
+  "increment": {
+    "action": "none",
+    "confidence": 0.9,
+    "mandatory": false,
+    "reasoning": "Task notification/diagnostic output, not a user implementation request"
+  }
+}

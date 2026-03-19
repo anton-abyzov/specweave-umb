@@ -1,0 +1,12 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9638
+Invalid LLM response format: I need permission to search your docs directory. Once you grant access, I can find where that video is embedded and check if there's a separate section for it.
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 11602.153958,
+  "installMessage": "Invalid response format (no JSON found)"
+}

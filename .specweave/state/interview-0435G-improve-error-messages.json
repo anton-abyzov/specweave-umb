@@ -1,0 +1,30 @@
+{
+  "incrementId": "0435G-improve-error-messages",
+  "startedAt": "2026-03-05T21:56:34.741Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-05T21:56:35.033Z",
+      "summary": "Imported bug fix - improve sync error messages"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-05T21:56:35.335Z",
+      "summary": "GitHub/JIRA/ADO sync error paths"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-05T21:56:35.631Z",
+      "summary": "CLI error output only"
+    },
+    "performance": {
+      "coveredAt": "2026-03-05T21:56:35.926Z",
+      "summary": "No perf impact"
+    },
+    "security": {
+      "coveredAt": "2026-03-05T21:56:36.223Z",
+      "summary": "No security impact"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-05T21:56:36.520Z",
+      "summary": "Various sync failure scenarios"
+    }
+  }
+}

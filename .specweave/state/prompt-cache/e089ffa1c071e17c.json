@@ -1,0 +1,12 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 6093
+Invalid LLM response format: I need your permission to read the task output file. This will retrieve the results of the completed "Sync remaining 5 sequentially" background command.
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 7418.371125,
+  "installMessage": "Invalid response format (no JSON found)"
+}

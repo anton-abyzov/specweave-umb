@@ -1,0 +1,8 @@
+{
+  "incrementId": "0581-init-always-multi-repo",
+  "timestamp": "2026-03-19T01:30:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "No externalModels consent configured in .specweave/config.json",
+  "model": null,
+  "findings": []
+}

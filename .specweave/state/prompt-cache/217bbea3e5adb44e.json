@@ -1,0 +1,12 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9510
+Invalid LLM response format: The background task for syncing living docs completed successfully. To show you the results, I need permission to read the output file. Would you like me to read it?
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 12080.836292,
+  "installMessage": "Invalid response format (no JSON found)"
+}

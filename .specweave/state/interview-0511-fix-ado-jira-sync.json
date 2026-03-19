@@ -1,0 +1,30 @@
+{
+  "incrementId": "0511-fix-ado-jira-sync",
+  "startedAt": "2026-03-12T01:48:31-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-12T01:49:17-04:00",
+      "summary": "Lazy cache detectProcessTemplate on first use; pass parent ID via feature.externalRef.id"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-12T01:49:17-04:00",
+      "summary": "ADO metadata fallback mirrors JIRA 3-layer resolution; no new integrations"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-12T01:49:17-04:00",
+      "summary": "N/A - backend sync bug fix, no UI changes"
+    },
+    "performance": {
+      "coveredAt": "2026-03-12T01:49:17-04:00",
+      "summary": "N/A - no performance impact, lazy caching avoids extra API calls"
+    },
+    "security": {
+      "coveredAt": "2026-03-12T01:49:17-04:00",
+      "summary": "N/A - no auth/security changes, existing PAT/token handling unchanged"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-12T01:49:17-04:00",
+      "summary": "JIRA: warn-and-continue on missing transition; ADO: fallback to Closed if detection fails; no fuzzy matching"
+    }
+  }
+}

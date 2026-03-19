@@ -1,0 +1,34 @@
+{
+  "version": "1.1",
+  "incrementId": "0568-fix-vskill-non-claude-skill-install",
+  "timestamp": "2026-03-18T08:20:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 17,
+    "passed": 17,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "migrate.ts:113-120 moves flat file to {name}/SKILL.md; migrate.test.ts:35-57 verifies" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "No flat files = no action; migrate.test.ts:73-89 verifies idempotency" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "migrate.ts:58-69 recurses into sw/ subdirs; migrate.test.ts:92-124 verifies" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "migrate.ts:109-112 removes flat file, preserves SKILL.md; migrate.test.ts:127-169" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "migrate.ts:116 calls ensureFrontmatter(content, skillName); migrate.test.ts:177-191" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "ensureFrontmatter() in frontmatter.ts:34-43 extracts description; migrate.test.ts:226-240" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "migrate.ts:116 calls ensureFrontmatter on all migrated files; migrate.test.ts:194-208" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "vskill-init-invoker.ts:44-53 tier 1 global binary; specweave init.ts:508 wires call" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "vskill-init-invoker.ts:82-86 tier 3 graceful skip with dim hint" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "vskill-init-invoker.ts:87-90 catch-all never throws; init.ts:508 .catch(() => {})" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "canonical.ts installSymlink writes {dir}/SKILL.md; sync.test.ts new integration tests verify sw/{name}/SKILL.md" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "canonical.ts:87-95 writeAgentFiles alongside SKILL.md; sync.test.ts verifies" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "init.ts:110 runs migrateStaleSkillFiles BEFORE syncCoreSkills; sync.test.ts stale cleanup test" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "migrate.test.ts:34-71 and 352-361 — flat file migration with coverage" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "canonical.test.ts existing tests + migrate.test.ts:177-241 frontmatter injection" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "sync.test.ts new integration tests verify sw/{name}/SKILL.md structure" },
+      { "acId": "AC-US5-04", "status": "pass", "evidence": "migrate.test.ts:367-403 integration test simulates init flow with stale files across agents" }
+    ]
+  },
+  "findings": []
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0566-fix-activation-test-bugs",
+  "startedAt": "2026-03-18T02:32:48-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T02:36:51-04:00",
+      "summary": "SSE event protocol for activation tests. Backend emits prompt_result and done events. Frontend processes via useEffect cursor pattern in WorkspaceContext. resolvePrompts does sequential LLM calls. No architectural changes needed, just error propagation and progress events."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T02:36:51-04:00",
+      "summary": "N/A - all internal vskill components, no external service changes"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T02:36:51-04:00",
+      "summary": "Errors display inline in results panel. Progress text below bar for classification. Inline hint below generate button when disabled. No toast notifications."
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T02:36:51-04:00",
+      "summary": "N/A - bug fixes only. Heartbeat every 3s during generation matches existing withHeartbeat pattern. No performance SLA changes."
+    },
+    "security": {
+      "coveredAt": "2026-03-18T02:36:51-04:00",
+      "summary": "N/A - no auth, data, or permission changes. Bug fixes in existing activation test flow only."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T02:36:51-04:00",
+      "summary": "Error payloads in done events, missing frontmatter description fallback, silent spinner on backend errors. All edge cases are the bugs themselves."
+    }
+  }
+}

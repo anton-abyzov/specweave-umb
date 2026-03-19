@@ -1,0 +1,18 @@
+{
+  "incrementId": "0401-crawler-pipeline-reliability",
+  "startedAt": "2026-03-02T15:51:46-05:00",
+  "coveredCategories": {
+    "ui_ux": {
+      "coveredAt": "2026-03-02T15:54:20-05:00",
+      "summary": "N/A - backend infrastructure only, no UI"
+    },
+    "security": {
+      "coveredAt": "2026-03-02T15:54:22-05:00",
+      "summary": "N/A - no auth changes, existing secrets/keys unchanged, internal-only endpoints"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-02T15:54:26-05:00",
+      "summary": "Platform bulk API, GitHub Code Search API, skills.sh API, scanner-worker localhost:9500 - all existing integrations, no new ones"
+    }
+  }
+}

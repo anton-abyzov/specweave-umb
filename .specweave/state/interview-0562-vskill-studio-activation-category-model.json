@@ -1,0 +1,30 @@
+{
+  "incrementId": "0562-vskill-studio-activation-category-model",
+  "startedAt": "2026-03-17T19:05:48-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-17T19:13:45-04:00",
+      "summary": "React SPA + Express SSE backend, useSSE hook, WorkspaceContext state management, useCreateSkill hook for generation flow"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-17T19:13:45-04:00",
+      "summary": "LLM providers via createLlmClient, ConfigContext for provider/model selection, activation-tester.ts for classification"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-17T19:13:45-04:00",
+      "summary": "ActivationPanel with test prompts, Generate button replaces hardcoded templates, test history below results, plugin recommendation flow"
+    },
+    "performance": {
+      "coveredAt": "2026-03-17T19:13:45-04:00",
+      "summary": "N/A - UI bug fixes and wiring, no new performance concerns. History capped at 50 runs."
+    },
+    "security": {
+      "coveredAt": "2026-03-17T19:13:45-04:00",
+      "summary": "N/A - no new auth or data handling, existing provider credential flow unchanged"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-17T19:13:45-04:00",
+      "summary": "Duplicate SSE dispatch, draft orphaning on plugin change, model override not reaching endpoint"
+    }
+  }
+}

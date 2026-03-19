@@ -1,0 +1,49 @@
+{
+  "version": "1.1",
+  "incrementId": "0589-cli-complete-improvements",
+  "timestamp": "2026-03-19T03:43:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 1,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "suppressed": 0,
+    "fixed": 1
+  },
+  "acCompliance": {
+    "totalACs": 14,
+    "passed": 14,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "resolve-increment-id.ts:51-58 prefix filter + single return. Test TC-002." },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "resolve-increment-id.ts:37-41 exact match via existsSync. Test TC-001." },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "complete.ts:43-47 prints error. Test complete-command TC-003." },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "complete.ts:49-55 lists matches. Test complete-command TC-004." },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "src/utils/resolve-increment-id.ts shared module imported by complete.ts and evaluate-completion.ts." },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "complete.ts:35,39 array + for loop. bin/specweave.js variadic args. Test TC-005." },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "complete.ts:45,55 continue on resolve error + try/catch around completeIncrement. Test TC-006." },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "complete.ts:85-87 process.exit(1) if any failed. Test TC-006." },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "complete.ts:41 resolveIncrementId in loop. Test TC-007." },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "complete.ts:69-77 batch summary output. Test TC-005/TC-006." },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "completion-validator.ts:137-139 catch + warn. Test TC-002." },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "completion-validator.ts:399 parseTasksWithUSLinks(tasksPath). Test TC-001." },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "completion-validator.ts:112-119 P0 orphans block. Test TC-003." },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "completion-validator.ts:138 error message in warn. Test TC-004." }
+    ]
+  },
+  "findings": [
+    {
+      "title": "Missing try/catch around completeIncrement in batch loop",
+      "severity": "high",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "src/cli/commands/complete.ts:59",
+      "issue": "completeIncrement() was not wrapped in try/catch. If it threw (vs returning false), remaining batch IDs would not be processed.",
+      "status": "FIXED",
+      "fix": "Added try/catch around completeIncrement() call with error logging"
+    }
+  ]
+}

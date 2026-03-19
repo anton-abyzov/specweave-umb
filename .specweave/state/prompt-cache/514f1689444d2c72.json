@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9453
+Increment recommendation: reopen (confidence: 0.95, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.3,
+  "reasoning": "Documentation editing, no specific tech framework",
+  "latencyMs": 12264.906833,
+  "increment": {
+    "action": "reopen",
+    "confidence": 0.95,
+    "mandatory": false,
+    "relatedKeyword": "0450-skill-value-diagrams",
+    "reasoning": "Editing spec for active increment 0450-skill-value-diagrams"
+  }
+}

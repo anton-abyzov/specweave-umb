@@ -1,0 +1,11 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11214
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.5,
+  "reasoning": "The LLM output uses subagents to handle isolation (spawns separate subagent for Bob's message) and explicitly acknowledges that mixing contexts would be wrong. Alice's message is handled inline in the current session, but Bob's is isolated in a separate subagent, preventing both from being handled together with mixed context.",
+  "latencyMs": 12836.249208000001
+}

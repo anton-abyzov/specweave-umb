@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.78 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12017
+Increment recommendation: new (confidence: 0.8, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Technical question about sound recording, no integrations mentioned",
+  "latencyMs": 13576.089541,
+  "increment": {
+    "action": "new",
+    "confidence": 0.8,
+    "mandatory": false,
+    "suggestedName": "debug-sound-not-recorded",
+    "reasoning": "Investigating sound recording issue in ado-mapper skill"
+  }
+}

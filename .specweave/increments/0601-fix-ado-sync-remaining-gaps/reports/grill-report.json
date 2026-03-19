@@ -1,0 +1,25 @@
+{
+  "version": "1.1",
+  "incrementId": "0601-fix-ado-sync-remaining-gaps",
+  "timestamp": "2026-03-19T04:42:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 8,
+    "passed": 8,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "ADO auto-mapping block removed from sync-progress.ts:397-416, replaced with warning log" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "logger.warn called at sync-progress.ts:409 for unmapped stories" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "title field added to AdoWorkItemFilter at ado-client.ts:68, WIQL condition at line 316" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "searchWorkItemByTitle() method at ado-client.ts:307-317, tested in ado-client.test.ts" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Layer 3 dedup search before Feature creation at external-issue-auto-creator.ts:857-875" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "When existing found, reuses it with updateMetadataWithAdoWorkItem and returns skipped:true" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "response.ok check added to providers/ado.ts updateIssue() at line 198-201" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Test 'throws on non-ok response (FS-601)' at ado-provider.test.ts" }
+    ]
+  },
+  "findings": []
+}

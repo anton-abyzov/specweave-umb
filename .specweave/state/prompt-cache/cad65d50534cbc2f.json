@@ -1,0 +1,15 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 3852
+Invalid LLM response format: I don't have context for what "all of them" refers to. Could you clarify what you're saying yes to? For example:
+
+- Are you confirming multiple plugins should load?
+- Are you approving a plan or set o
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 5236.174708,
+  "installMessage": "Invalid response format (no JSON found)"
+}

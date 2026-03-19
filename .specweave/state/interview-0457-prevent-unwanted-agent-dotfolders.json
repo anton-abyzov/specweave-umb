@@ -1,0 +1,30 @@
+{
+  "incrementId": "0457-prevent-unwanted-agent-dotfolders",
+  "startedAt": "2026-03-09T01:23:01-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-09T01:23:50-04:00",
+      "summary": "Shell hook + LLM detector + TypeScript types + config schema. suggestOnly flag flip, LSP guard addition. Two repos: specweave and vskill."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-09T01:23:50-04:00",
+      "summary": "N/A - internal tooling change, no external integrations. LLM detector uses Haiku but no integration changes needed."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-09T01:23:50-04:00",
+      "summary": "CLI-only. Suggestions shown once per session with plugin name, reason, and install command. No degraded mode for LSP."
+    },
+    "performance": {
+      "coveredAt": "2026-03-09T01:23:50-04:00",
+      "summary": "N/A - config flag changes only, no performance impact."
+    },
+    "security": {
+      "coveredAt": "2026-03-09T01:23:50-04:00",
+      "summary": "This IS a security/consent feature. Prevents unwanted code installation. --force --yes flags retained for explicit opt-in scenarios only."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-09T01:23:50-04:00",
+      "summary": "Backward compat: all existing projects get new default. Force flags kept for CI. Phantom plugins marked not-yet-available in LLM prompt (not removed from catalog)."
+    }
+  }
+}

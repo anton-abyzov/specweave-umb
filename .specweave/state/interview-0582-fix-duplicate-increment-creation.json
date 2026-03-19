@@ -1,0 +1,30 @@
+{
+  "incrementId": "0582-fix-duplicate-increment-creation",
+  "startedAt": "2026-03-18T17:56:20-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T17:57:05-04:00",
+      "summary": "Internal CLI fix within existing modules (increment-utils.ts, init.ts, specweave.js). TOCTOU race requires atomic next-id+create. No architectural changes."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T17:57:05-04:00",
+      "summary": "N/A - pure internal CLI tool, no external service integrations"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T17:57:05-04:00",
+      "summary": "N/A - CLI tool, no UI involved"
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T17:57:05-04:00",
+      "summary": "N/A - correctness fixes, not performance changes"
+    },
+    "security": {
+      "coveredAt": "2026-03-18T17:57:05-04:00",
+      "summary": "N/A - internal dev tool. Fixes prevent data corruption (duplicate IDs) but no external security implications"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T17:57:05-04:00",
+      "summary": "The 6 bugs ARE the edge cases: sibling project interference, init timing window, backlog scanning gap, TOCTOU race, cross-tool SKILL.md, disabled guard"
+    }
+  }
+}

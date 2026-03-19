@@ -1,0 +1,30 @@
+{
+  "incrementId": "0555-remove-node-modules-dep",
+  "startedAt": "2026-03-16T23:14:38-04:00",
+  "coveredCategories": {
+    "ui-ux": {
+      "coveredAt": "2026-03-16T23:15:11-04:00",
+      "summary": "N/A - shell script and config refactor, no UI involved"
+    },
+    "performance": {
+      "coveredAt": "2026-03-16T23:15:11-04:00",
+      "summary": "N/A - path resolution refactor, no performance impact"
+    },
+    "security": {
+      "coveredAt": "2026-03-16T23:15:11-04:00",
+      "summary": "N/A - removing stale dependency, no security surface change"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-16T23:15:11-04:00",
+      "summary": "N/A - internal path resolution only, no external integrations"
+    },
+    "architecture": {
+      "coveredAt": "2026-03-16T23:15:50-04:00",
+      "summary": "Bash hooks use resolve-package.sh before node calls. dispatcher.mjs uses JS-native fs.existsSync candidates, removing node_modules entry. No new resolution mechanisms."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-16T23:15:50-04:00",
+      "summary": "Archive files excluded. Verify dist layout for correct path pattern dist/src/core/... Package.json removal only, no manual node_modules cleanup."
+    }
+  }
+}

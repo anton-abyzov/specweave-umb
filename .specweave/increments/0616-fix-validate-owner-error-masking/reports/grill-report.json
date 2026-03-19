@@ -1,0 +1,21 @@
+{
+  "version": "1.1",
+  "incrementId": "0616-fix-validate-owner-error-masking",
+  "timestamp": "2026-03-19T09:38:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 4,
+    "passed": 4,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "github-provider.ts:98-110 uses actual response status; test github-provider.test.ts:213 confirms 401 yields 'Authentication Failed', not '404 Not Found'" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "Same status-priority logic; tests at github-provider.test.ts:224 (both 403) and :235 (403+404 mixed) confirm 'Permission Denied'" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Priority logic: both 404 → useUserStatus=false → orgResponse(404); test at github-provider.test.ts:246 confirms preserved 404 behavior" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "github-validator.ts:117-123 delegates to GitHubProvider; tests at github-validator.test.ts:245 (401) and :260 (403) confirm consistent output" }
+    ]
+  },
+  "findings": []
+}

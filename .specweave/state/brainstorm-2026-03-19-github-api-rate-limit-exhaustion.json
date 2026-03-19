@@ -1,0 +1,11 @@
+{
+  "topic": "GitHub API rate limit exhaustion during increment closure",
+  "depth": "deep",
+  "lenses": ["default"],
+  "startedAt": "2026-03-19T06:50:00Z",
+  "phase": "complete",
+  "completedAt": "2026-03-19T07:15:00Z",
+  "approaches": ["cache-issue-state", "rate-limit-budget", "graphql-batch", "skip-unchanged"],
+  "selectedApproach": "A+B+D: cache + budget + skip-unchanged",
+  "handedOffTo": null
+}

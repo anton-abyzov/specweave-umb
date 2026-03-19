@@ -1,0 +1,12 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10669
+Increment recommendation: reopen (confidence: 0.4, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.15,
+  "reasoning": "Prompt too vague — no specific tech mentioned",
+  "latencyMs": 13400.535792
+}

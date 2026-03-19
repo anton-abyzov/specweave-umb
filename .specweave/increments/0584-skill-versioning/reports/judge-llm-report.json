@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0584-skill-versioning",
+  "timestamp": "2026-03-19T22:45:00Z",
+  "verdict": "WAIVED",
+  "reason": "External model consent not configured",
+  "findings": []
+}

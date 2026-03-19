@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0605-init-async-clone-jobs",
+  "timestamp": "2026-03-19T05:32:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "External model consent not configured",
+  "details": "Judge LLM requires ANTHROPIC_API_KEY or externalModels consent. Waived per config."
+}

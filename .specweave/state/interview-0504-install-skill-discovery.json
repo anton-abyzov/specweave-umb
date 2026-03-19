@@ -1,0 +1,30 @@
+{
+  "incrementId": "0504-install-skill-discovery",
+  "startedAt": "2026-03-11T22:28:32-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T22:29:14-04:00",
+      "summary": "Single-command modification in vskill CLI. Reuse searchSkills() API, re-invoke addCommand with owner/repo/skill 3-part format for install flow. No new services or components."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T22:29:14-04:00",
+      "summary": "Uses existing searchSkills() API from verified-skill.com. No new external integrations. Re-routes through existing addCommand 3-part handler."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T22:29:15-04:00",
+      "summary": "TTY: interactive promptChoice selection from ranked results. Non-TTY: print list + exit code 1. Display format matches find command. --yes auto-picks first non-blocked."
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T22:29:15-04:00",
+      "summary": "N/A - CLI command, single API call to search endpoint. No performance concerns beyond existing API latency."
+    },
+    "security": {
+      "coveredAt": "2026-03-11T22:29:15-04:00",
+      "summary": "Blocked skills shown but not installable. Existing blocklist/trust-tier checks in addCommand 3-part handler remain intact. No new security surface."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T22:29:15-04:00",
+      "summary": "Search API failure falls back to existing installFromRegistry. All blocked results = zero installable error. Exact skillSlug match gets priority in ranking. owner/repo and owner/repo/skill formats unchanged."
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0295-multi-repo-docs-restructuring",
+  "startedAt": "2026-02-21T17:35:49.436Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-02-21T17:35:56.389Z",
+      "summary": "Add --reorganize-specs flag to migrate-to-umbrella CLI command. Extend MigrationOptions type. New reorganizeSpecs() function moves .specweave/docs/internal/specs/{project}/FS-XXX folders to per-repo .specweave/docs/internal/specs/ directories. Enable multiProject.enabled=true in umbrella config.json. Existing living-docs-sync.ts already handles project-specific paths."
+    },
+    "integrations": {
+      "coveredAt": "2026-02-21T17:35:58.796Z",
+      "summary": "Integrates with: migrate-to-umbrella CLI (new flag), config.json multiProject toggle, living-docs-sync (verify sync works post-migration), specweave archive command (per-repo spec paths). No external API integrations needed."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-02-21T17:36:00.323Z",
+      "summary": "CLI-only UX. Dry-run by default shows what specs move where. --execute to apply. Clear output showing source/dest for each FS-XXX folder. Summary count at end."
+    },
+    "performance": {
+      "coveredAt": "2026-02-21T17:36:02.082Z",
+      "summary": "Spec folders are small metadata files. ~30 FS-XXX folders to move. No performance concerns -- simple filesystem copy/move operations."
+    },
+    "security": {
+      "coveredAt": "2026-02-21T17:36:02.992Z",
+      "summary": "No security implications -- local filesystem operations only. Backup before move. No credentials or secrets involved."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-02-21T17:36:04.968Z",
+      "summary": "Edge cases: specs with unknown project mapping (fallback to umbrella root), partially moved specs (idempotent re-run), child repo missing .specweave/docs dir (auto-create), running from non-umbrella project (error message), FS-XXX folders with assets subdir (preserve hierarchy)."
+    }
+  }
+}

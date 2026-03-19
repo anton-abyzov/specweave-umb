@@ -1,0 +1,26 @@
+{
+  "incrementId": "0351-fix-search-preferences-cold-start",
+  "startedAt": "2026-02-24T00:52:01-05:00",
+  "coveredCategories": {
+    "scope": {
+      "coveredAt": "2026-02-24T00:53:28-05:00",
+      "summary": "Retry in search+preferences routes only, not scanner"
+    },
+    "backoff": {
+      "coveredAt": "2026-02-24T00:53:28-05:00",
+      "summary": "2 attempts, 500ms delay, ~16.5s worst case"
+    },
+    "kv_behavior": {
+      "coveredAt": "2026-02-24T00:53:28-05:00",
+      "summary": "Empty KV falls through to Postgres, correct behavior"
+    },
+    "preferences_patch": {
+      "coveredAt": "2026-02-24T00:53:28-05:00",
+      "summary": "Wrap entire read-merge-write in retry, idempotent"
+    },
+    "logging": {
+      "coveredAt": "2026-02-24T00:53:28-05:00",
+      "summary": "Generic only: attempt count, error message, route path"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0552-hook-error-reliability",
+  "startedAt": "2026-03-16T18:30:47-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-16T18:31:26-04:00",
+      "summary": "Bug fixes in existing hook shell scripts and project config. No architectural changes."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-16T18:31:26-04:00",
+      "summary": "N/A - internal hook fixes only, no external integrations"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-16T18:31:26-04:00",
+      "summary": "N/A - CLI hooks, no UI involved"
+    },
+    "performance": {
+      "coveredAt": "2026-03-16T18:31:26-04:00",
+      "summary": "Removing dead hooks and adding matcher_content reduces per-tool-call overhead by 200-500ms+"
+    },
+    "security": {
+      "coveredAt": "2026-03-16T18:31:26-04:00",
+      "summary": "N/A - no security surface changes"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-16T18:31:26-04:00",
+      "summary": "Null key handling in jq, stuck circuit breaker file cleanup"
+    }
+  }
+}

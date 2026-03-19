@@ -1,0 +1,12 @@
+{
+  "incrementId": "0424-umbrella-sync-e2e-test",
+  "startedAt": "2026-03-04T18:55:00+00:00",
+  "coveredCategories": {
+    "architecture": {"coveredAt": "2026-03-04T18:55:01+00:00", "summary": "Sync routing via resolveSyncTarget, three-phase resolution, no new architecture needed"},
+    "integrations": {"coveredAt": "2026-03-04T18:55:02+00:00", "summary": "GitHub API, JIRA API, ADO API — all existing integrations, testing routing only"},
+    "ui-ux": {"coveredAt": "2026-03-04T18:55:03+00:00", "summary": "No UI — this is a backend sync verification experiment"},
+    "performance": {"coveredAt": "2026-03-04T18:55:04+00:00", "summary": "No performance concerns — single resolver call per sync operation"},
+    "security": {"coveredAt": "2026-03-04T18:55:05+00:00", "summary": "Uses existing auth tokens, no new credentials needed"},
+    "edge-cases": {"coveredAt": "2026-03-04T18:55:06+00:00", "summary": "Unknown project fallback to global, partial sync config, undefined project name"}
+  }
+}

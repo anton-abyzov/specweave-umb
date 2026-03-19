@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0602-tool-agnostic-refs-phases-2-4",
+  "timestamp": "2026-03-19T05:40:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "No externalModels configuration",
+  "findings": []
+}

@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0585-docs-site-redesign",
+  "timestamp": "2026-03-19T02:31:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "External model consent not configured in .specweave/config.json",
+  "findings": []
+}

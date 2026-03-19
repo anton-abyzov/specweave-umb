@@ -1,0 +1,30 @@
+{
+  "incrementId": "0471-submit-rescan-feedback",
+  "startedAt": "2026-03-10T02:07:51-04:00",
+  "coveredCategories": {
+    "ui-ux": {
+      "coveredAt": "2026-03-10T02:08:26-04:00",
+      "summary": "Summary line shows N new/M rescanning; Rescan >> replaces Track >> for verified skills"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-10T02:08:26-04:00",
+      "summary": "All rescans = just M rescanning; rejected lumped with new"
+    },
+    "architecture": {
+      "coveredAt": "2026-03-10T02:08:26-04:00",
+      "summary": "Discovery status carried via DiscoveredSkill interface; label from discovery, success from submission"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-10T02:08:26-04:00",
+      "summary": "Pending skills handled by existing dedup; no backend changes needed"
+    },
+    "security": {
+      "coveredAt": "2026-03-10T02:08:26-04:00",
+      "summary": "Frontend-only change, no new data exposure"
+    },
+    "performance": {
+      "coveredAt": "2026-03-10T02:09:06-04:00",
+      "summary": "No performance impact - frontend-only label change, no additional API calls or data fetching"
+    }
+  }
+}

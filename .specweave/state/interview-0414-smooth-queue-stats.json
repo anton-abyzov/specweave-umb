@@ -1,0 +1,30 @@
+{
+  "incrementId": "0414-smooth-queue-stats",
+  "startedAt": "2026-03-03T13:44:27-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-03T13:44:36-05:00",
+      "summary": "Pure client-side: custom React hook with requestAnimationFrame, no external deps, hook at src/app/hooks/useAnimatedNumber.ts, StatCard component inline in QueuePageClient.tsx"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-03T13:44:36-05:00",
+      "summary": "N/A - pure frontend animation, no external services or APIs"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-03T13:44:36-05:00",
+      "summary": "400ms easeOutCubic interpolation, direction arrows (green up, red down) that briefly appear, left border accent for cached data fading to none when live data arrives"
+    },
+    "performance": {
+      "coveredAt": "2026-03-03T13:44:36-05:00",
+      "summary": "rAF-based (no polling), 400ms animation duration, prefers-reduced-motion respected by skipping animation and showing values immediately"
+    },
+    "security": {
+      "coveredAt": "2026-03-03T13:44:36-05:00",
+      "summary": "N/A - UI animation only, no auth/data/permissions concerns"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-03T13:44:36-05:00",
+      "summary": "prefers-reduced-motion skip, cached vs live visual distinction via border accent, direction arrows appear briefly then fade"
+    }
+  }
+}

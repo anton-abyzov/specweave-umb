@@ -1,0 +1,12 @@
+{
+  "incrementId": "0612-reduce-github-api-calls",
+  "startedAt": "2026-03-19T07:45:12.002Z",
+  "coveredCategories": {
+    "architecture": { "coveredAt": "2026-03-19T07:50:00.000Z", "summary": "6 surgical fixes to existing GitHub sync pipeline. No new architecture — session caches, guard inversions, and one GraphQL combined fetch." },
+    "integrations": { "coveredAt": "2026-03-19T07:50:00.000Z", "summary": "All changes in GitHub integration layer. JIRA/ADO unaffected. No auth changes — keeps gh CLI compatibility." },
+    "ui-ux": { "coveredAt": "2026-03-19T07:50:00.000Z", "summary": "N/A — CLI tool, no UI. Sync output unchanged." },
+    "performance": { "coveredAt": "2026-03-19T07:50:00.000Z", "summary": "Core goal: reduce ~150 API calls per 7-US increment to ~75. Eliminates redundant label creation, milestone lookups, duplicate searches, sequential fetches." },
+    "security": { "coveredAt": "2026-03-19T07:50:00.000Z", "summary": "No auth changes. Never caches DuplicateDetector search results. Never removes sync lock." },
+    "edge-cases": { "coveredAt": "2026-03-19T07:50:00.000Z", "summary": "Phase 3 dedup verification opt-in via SPECWEAVE_VERIFY_DUPLICATES=1 for concurrent environments. Label cache scoped per repo. Milestone cache scoped per session." }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "incrementId": "0395-init-location-guard-rails",
+  "startedAt": "2026-03-01T18:27:20-05:00",
+  "coveredCategories": {
+    "scope": {
+      "coveredAt": "2026-03-01T18:27:35-05:00",
+      "summary": "Asked about full suspicious path list, walk-down scope, force flag behavior, CI mode, error severity"
+    }
+  }
+}

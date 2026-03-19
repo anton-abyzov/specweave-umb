@@ -1,0 +1,28 @@
+{
+  "version": "1.1",
+  "incrementId": "0591-docs-config-reference",
+  "timestamp": "2026-03-19T02:35:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 11,
+    "passed": 11,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "Page exists at docs/reference/configuration.md (867 lines), builds successfully with npm run build" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "Sidebar entry added in sidebars.ts: {type: 'doc', id: 'reference/configuration', label: 'Configuration'}" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "All 25 config.json sections documented: core, project, adapters, testing, grill, limits, planning, incrementAssist, livingDocs, documentation, apiDocs, sync, hooks, issueTracker, repository, cicd, auto, reflect, contextBudget, skillGen, translation, umbrella, archiving, deduplication, statusLine, pluginAutoLoad, lsp, projectMappings, multiProject, billing" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "metadata.json documented across 4 categories: Core Fields (id, type, status, priority, created, lastActivity, testMode, coverageTarget), Lifecycle Fields (backlogReason/At, pausedReason/At, abandonedReason/At, readyForReviewAt, approvedAt), External Integration (externalLinks, externalRefs, syncTarget), Multi-Project/CI-CD (projectId, multiProject, epicId, skipLivingDocsSync, prRefs)" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "All env vars documented across 4 tables: SpecWeave Control (14 vars including SPECWEAVE_DISABLE_HOOKS, DEBUG, SHELL, etc.), Import Config (3 vars), External Credentials (14 vars), CI/CD (3 vars)" },
+      { "acId": "AC-US1-06", "status": "pass", "evidence": "29 JSON code examples found across all config sections" },
+      { "acId": "AC-US1-07", "status": "pass", "evidence": "Enum values listed for: language (9 values), defaultTestMode (4 values), tddEnforcement (3 values), pushStrategy (2 values), status (7 values), type (6 values), provider types, direction, contextBudget level, etc." },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "Quick Reference: Disableable Features section placed at line 22, after introduction and before config.json reference sections" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "Table has 4 columns: Feature, Config Path, Value to Disable, Default" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "23 disableable features documented including all items from spec: living docs (copy+three-layer), TDD, deep interview, plugin auto-loading, reflect, grill, sync, hooks, increment assist, status line, auto-archive, API docs, translation, context budget, deduplication, CI/CD auto-fix, plus env var SPECWEAVE_DISABLE_HOOKS" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "Tip admonition at line 52 explains living docs tradeoff: 'Living docs generate Architecture Decision Records (ADRs)... Disabling them speeds up increment closure but removes this accumulated context'" }
+    ]
+  },
+  "findings": []
+}

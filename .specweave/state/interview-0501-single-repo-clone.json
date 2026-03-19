@@ -1,0 +1,30 @@
+{
+  "incrementId": "0501-single-repo-clone",
+  "startedAt": "2026-03-11T21:43:22-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T21:44:02-04:00",
+      "summary": "New parseRepoIdentifier() in url-generator.ts, new cloneSingleGitHubRepo() in github-repo-cloning.ts, reuses existing clone worker and job launcher for background cloning"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T21:44:02-04:00",
+      "summary": "GitHub REST API for repo validation (GET /repos/{owner}/{repo}), same PAT resolution as bulk clone, SSH for git@ format inputs"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T21:44:02-04:00",
+      "summary": "N/A - CLI feature, no UI. Error messages: 404 shows not found or no access hint. --repo takes precedence over --org/--pattern silently."
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T21:44:02-04:00",
+      "summary": "N/A - single repo clone, negligible performance concerns. Background job completes near-instantly for 1 repo."
+    },
+    "security": {
+      "coveredAt": "2026-03-11T21:44:02-04:00",
+      "summary": "Same PAT handling as existing bulk clone. SSH format bypasses PAT. No new auth surface."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T21:44:02-04:00",
+      "summary": "Already-cloned repos skipped via existing pre-flight. --repo + --org conflict: --repo wins. Dry-run validates existence only. Invalid URL formats return parse error."
+    }
+  }
+}

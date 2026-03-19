@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0538-mobile-detect-test-fix",
+  "timestamp": "2026-03-15T23:12:30.000Z",
+  "verdict": "WAIVED",
+  "reason": "External models disabled in config (externalModels.enabled: false) and no ANTHROPIC_API_KEY available",
+  "findings": []
+}

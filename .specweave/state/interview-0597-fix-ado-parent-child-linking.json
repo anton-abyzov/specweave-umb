@@ -1,0 +1,30 @@
+{
+  "incrementId": "0597-fix-ado-parent-child-linking",
+  "startedAt": "2026-03-19T04:07:04.664Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T04:08:21.961Z",
+      "summary": "Two files modified: ado-client.ts error handling, external-issue-auto-creator.ts metadata fallback. No new components."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T04:08:23.441Z",
+      "summary": "ADO REST API v7.0/7.1 unchanged. Fix error handling for existing linkWorkItems PATCH calls. 409 treated as idempotent success."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T04:08:24.498Z",
+      "summary": "No UI changes. Backend-only bug fix in ADO sync code."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T04:08:25.376Z",
+      "summary": "No performance impact. Error handling change adds one status check per link call."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T04:08:26.332Z",
+      "summary": "No security changes. ADO PAT handling unchanged. No new API surfaces."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T04:08:28.245Z",
+      "summary": "409 duplicate link handled as success. Missing storyItemMap entries skip metadata instead of corrupting. Existing callers try-catch covers thrown errors."
+    }
+  }
+}

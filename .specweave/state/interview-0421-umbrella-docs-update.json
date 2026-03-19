@@ -1,0 +1,12 @@
+{
+  "incrementId": "0421-umbrella-docs-update",
+  "startedAt": "2026-03-03T23:00:00Z",
+  "coveredCategories": {
+    "architecture": {"coveredAt": "2026-03-03T23:00:01Z", "summary": "Simple docs update, no architecture changes"},
+    "integrations": {"coveredAt": "2026-03-03T23:00:02Z", "summary": "No new integrations - tests existing sync pipeline"},
+    "ui-ux": {"coveredAt": "2026-03-03T23:00:03Z", "summary": "N/A - documentation only"},
+    "performance": {"coveredAt": "2026-03-03T23:00:04Z", "summary": "N/A - no runtime changes"},
+    "security": {"coveredAt": "2026-03-03T23:00:05Z", "summary": "N/A - no auth or data changes"},
+    "edge-cases": {"coveredAt": "2026-03-03T23:00:06Z", "summary": "Umbrella project name collision handled by new resolveUmbrellaProject()"}
+  }
+}

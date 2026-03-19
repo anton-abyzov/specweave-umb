@@ -1,0 +1,2790 @@
+{
+  "keywords": {
+    "architect": [
+      "specweave:architect",
+      "specweave:increment",
+      "specweave-diagrams:diagrams-generator",
+      "specweave-infrastructure:observability",
+      "specweave-mobile:react-native-expert"
+    ],
+    "architecture": [
+      "specweave:architect",
+      "specweave:security",
+      "specweave-diagrams:diagrams-architect",
+      "specweave-diagrams:diagrams-generator",
+      "specweave-docs:technical-writing",
+      "specweave-kafka:kafka-architect",
+      "specweave-mobile:capacitor-ionic",
+      "specweave-mobile:expo",
+      "specweave-mobile:flutter",
+      "specweave-mobile:jetpack-compose",
+      "specweave-mobile:react-native-expert",
+      "specweave-mobile:swiftui"
+    ],
+    "design": [
+      "specweave:architect",
+      "specweave-infrastructure:devsecops",
+      "specweave-infrastructure:github-actions",
+      "specweave-kafka:kafka-architect",
+      "specweave-kafka-streams:kafka-streams-topology",
+      "specweave-kubernetes:helm-chart-scaffolding",
+      "specweave-ml:data-scientist",
+      "specweave-mobile:jetpack-compose"
+    ],
+    "microservices": [
+      "specweave:architect",
+      "specweave-backend:go-backend",
+      "specweave-backend:java-spring"
+    ],
+    "database": [
+      "specweave:architect",
+      "specweave:team-lead",
+      "specweave-backend:database-optimizer",
+      "specweave-cost-optimizer:cloud-pricing",
+      "specweave-ml:rag-vectordb",
+      "specweave-mobile:jetpack-compose",
+      "specweave-testing:performance-testing"
+    ],
+    "auto status": [
+      "specweave:auto-status"
+    ],
+    "session status": [
+      "specweave:auto-status"
+    ],
+    "check auto": [
+      "specweave:auto-status"
+    ],
+    "spec": [
+      "specweave:do",
+      "specweave:framework",
+      "specweave:increment",
+      "specweave:pm",
+      "specweave-docs:docusaurus",
+      "specweave-docs:spec-driven-brainstorming",
+      "specweave-github:github-sync"
+    ],
+    "product": [
+      "specweave:pm",
+      "specweave-docs:spec-driven-brainstorming",
+      "specweave-media:remotion"
+    ],
+    "feature": [
+      "specweave:grill",
+      "specweave-ado:ado-mapper",
+      "specweave-docs:spec-driven-brainstorming",
+      "specweave-docs:stakeholder-docs",
+      "specweave-ml:ml-engineer"
+    ],
+    "specification": [
+      "specweave:increment"
+    ],
+    "go": [
+      "specweave:lsp",
+      "specweave-backend:go-backend",
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "lsp": [
+      "specweave:lsp"
+    ],
+    "go to definition": [
+      "specweave:lsp"
+    ],
+    "find references": [
+      "specweave:lsp"
+    ],
+    "code navigation": [
+      "specweave:lsp"
+    ],
+    "next": [
+      "specweave:next"
+    ],
+    "mvp": [
+      "specweave:pm",
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "requirements": [
+      "specweave:pm",
+      "specweave:security",
+      "specweave-payments:pci-compliance"
+    ],
+    "specs": [
+      "specweave:pm",
+      "specweave-ado:ado-multi-project",
+      "specweave-github:github-multi-project",
+      "specweave-github:github-sync"
+    ],
+    "owasp": [
+      "specweave:security"
+    ],
+    "security": [
+      "specweave:security",
+      "specweave:security-patterns",
+      "specweave:team-lead",
+      "specweave-backend:java-spring",
+      "specweave-blockchain:blockchain",
+      "specweave-desktop:electron",
+      "specweave-infrastructure:devsecops",
+      "specweave-infrastructure:github-actions",
+      "specweave-kubernetes:k8s-manifest-generator",
+      "specweave-kubernetes:k8s-security-policies"
+    ],
+    "xss": [
+      "specweave:security-patterns"
+    ],
+    "tdd": [
+      "specweave:tdd-cycle",
+      "specweave:tdd-green",
+      "specweave:tdd-red",
+      "specweave:tdd-refactor",
+      "specweave:team-build",
+      "specweave-testing:unit-testing"
+    ],
+    "testdriven": [
+      "specweave:tdd-cycle"
+    ],
+    "test-driven": [
+      "specweave:tdd-cycle"
+    ],
+    "fullstack": [
+      "specweave:team-build",
+      "specweave-infrastructure:observability",
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "full-stack": [
+      "specweave:team-build",
+      "specweave-infrastructure:observability",
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "migration": [
+      "specweave:team-build",
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "backend": [
+      "specweave:team-lead",
+      "specweave-backend:dotnet-backend",
+      "specweave-backend:go-backend",
+      "specweave-backend:java-spring",
+      "specweave-backend:nodejs-backend",
+      "specweave-backend:python-backend",
+      "specweave-backend:rust-backend",
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "frontend": [
+      "specweave:team-lead"
+    ],
+    "team merge": [
+      "specweave:team-merge"
+    ],
+    "merge agents": [
+      "specweave:team-merge"
+    ],
+    "combine work": [
+      "specweave:team-merge"
+    ],
+    "team finish": [
+      "specweave:team-merge"
+    ],
+    "team status": [
+      "specweave:team-status"
+    ],
+    "agent status": [
+      "specweave:team-status"
+    ],
+    "parallel status": [
+      "specweave:team-status"
+    ],
+    "check agents": [
+      "specweave:team-status"
+    ],
+    "user story": [
+      "specweave-ado:ado-mapper"
+    ],
+    "ai": [
+      "specweave:validate",
+      "specweave-media:image",
+      "specweave-media:video",
+      "specweave-ml:langchain-agents"
+    ],
+    "azure": [
+      "specweave-ado:ado-mapper",
+      "specweave-ado:ado-multi-project",
+      "specweave-ado:ado-resource-validator",
+      "specweave-ado:ado-sync",
+      "specweave-cost-optimizer:cloud-pricing",
+      "specweave-cost-optimizer:cost-optimization",
+      "specweave-infrastructure:azure-bicep-aks",
+      "specweave-infrastructure:secret-management"
+    ],
+    "postgresql": [
+      "specweave-backend:database-optimizer",
+      "specweave-backend:dotnet-backend"
+    ],
+    "mysql": [
+      "specweave-backend:database-optimizer",
+      "specweave-confluent:confluent-kafka-connect"
+    ],
+    "mongodb": [
+      "specweave-backend:database-optimizer"
+    ],
+    "grpc": [
+      "specweave-backend:dotnet-backend",
+      "specweave-backend:go-backend",
+      "specweave-backend:java-spring"
+    ],
+    ".net": [
+      "specweave-backend:dotnet-backend"
+    ],
+    "asp.net": [
+      "specweave-backend:dotnet-backend"
+    ],
+    "jwt": [
+      "specweave-backend:dotnet-backend"
+    ],
+    "apis": [
+      "specweave-backend:dotnet-backend",
+      "specweave-backend:go-backend",
+      "specweave-backend:java-spring",
+      "specweave-backend:nodejs-backend",
+      "specweave-backend:python-backend",
+      "specweave-backend:rust-backend",
+      "specweave-desktop:electron"
+    ],
+    "server": [
+      "specweave-backend:dotnet-backend",
+      "specweave-docs:preview"
+    ],
+    "golang": [
+      "specweave-backend:go-backend"
+    ],
+    "performance": [
+      "specweave-backend:go-backend",
+      "specweave-backend:rust-backend",
+      "specweave-desktop:electron",
+      "specweave-infrastructure:github-actions",
+      "specweave-ml:edge-ml",
+      "specweave-mobile:flutter",
+      "specweave-mobile:jetpack-compose",
+      "specweave-mobile:mobile-testing",
+      "specweave-mobile:react-native-expert",
+      "specweave-testing:performance-testing"
+    ],
+    "node.js": [
+      "specweave-backend:graphql",
+      "specweave-backend:nodejs-backend",
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "rust": [
+      "specweave-backend:graphql",
+      "specweave-backend:rust-backend"
+    ],
+    "graphql": [
+      "specweave-backend:graphql",
+      "specweave-backend:nodejs-backend"
+    ],
+    "python": [
+      "specweave-backend:graphql",
+      "specweave-backend:python-backend",
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "java": [
+      "specweave-backend:graphql",
+      "specweave-backend:java-spring",
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "api": [
+      "specweave-backend:graphql",
+      "specweave-docs:technical-writing",
+      "specweave-ml:huggingface",
+      "specweave-mobile:capacitor-ionic",
+      "specweave-mobile:expo"
+    ],
+    "spring boot": [
+      "specweave-backend:java-spring"
+    ],
+    "microservice": [
+      "specweave-backend:java-spring"
+    ],
+    "node": [
+      "specweave-backend:nodejs-backend",
+      "specweave-n8n:n8n-kafka-workflows"
+    ],
+    "express": [
+      "specweave-backend:nodejs-backend"
+    ],
+    "nestjs": [
+      "specweave-backend:nodejs-backend"
+    ],
+    "fastify": [
+      "specweave-backend:nodejs-backend"
+    ],
+    "typescript": [
+      "specweave-backend:nodejs-backend",
+      "specweave-testing:mutation-testing"
+    ],
+    "django": [
+      "specweave-backend:python-backend"
+    ],
+    "flask": [
+      "specweave-backend:python-backend"
+    ],
+    "fastapi": [
+      "specweave-backend:python-backend"
+    ],
+    "blockchain": [
+      "specweave-blockchain:blockchain"
+    ],
+    "web3": [
+      "specweave-blockchain:blockchain"
+    ],
+    "solidity": [
+      "specweave-blockchain:blockchain"
+    ],
+    "smart contract": [
+      "specweave-blockchain:blockchain"
+    ],
+    "ethereum": [
+      "specweave-blockchain:blockchain"
+    ],
+    "hardhat": [
+      "specweave-blockchain:blockchain"
+    ],
+    "foundry": [
+      "specweave-blockchain:blockchain"
+    ],
+    "erc-20": [
+      "specweave-blockchain:blockchain"
+    ],
+    "erc-721": [
+      "specweave-blockchain:blockchain"
+    ],
+    "nft": [
+      "specweave-blockchain:blockchain"
+    ],
+    "defi": [
+      "specweave-blockchain:blockchain"
+    ],
+    "dapp": [
+      "specweave-blockchain:blockchain"
+    ],
+    "walletconnect": [
+      "specweave-blockchain:blockchain"
+    ],
+    "ipfs": [
+      "specweave-blockchain:blockchain"
+    ],
+    "layer 2": [
+      "specweave-blockchain:blockchain"
+    ],
+    "gas optimization": [
+      "specweave-blockchain:blockchain"
+    ],
+    "reentrancy": [
+      "specweave-blockchain:blockchain"
+    ],
+    "openzeppelin": [
+      "specweave-blockchain:blockchain"
+    ],
+    "optimization": [
+      "specweave-blockchain:blockchain",
+      "specweave-cost-optimizer:aws-cost-expert",
+      "specweave-cost-optimizer:cost-optimization",
+      "specweave-desktop:electron",
+      "specweave-infrastructure:github-actions",
+      "specweave-infrastructure:opentelemetry",
+      "specweave-ml:edge-ml",
+      "specweave-mobile:jetpack-compose"
+    ],
+    "kafka connect": [
+      "specweave-confluent:confluent-kafka-connect"
+    ],
+    "connectors": [
+      "specweave-confluent:confluent-kafka-connect"
+    ],
+    "source connector": [
+      "specweave-confluent:confluent-kafka-connect"
+    ],
+    "sink connector": [
+      "specweave-confluent:confluent-kafka-connect"
+    ],
+    "jdbc connector": [
+      "specweave-confluent:confluent-kafka-connect"
+    ],
+    "debezium": [
+      "specweave-confluent:confluent-kafka-connect"
+    ],
+    "smt": [
+      "specweave-confluent:confluent-kafka-connect"
+    ],
+    "data pipeline": [
+      "specweave-confluent:confluent-kafka-connect"
+    ],
+    "cdc": [
+      "specweave-confluent:confluent-kafka-connect"
+    ],
+    "kafka": [
+      "specweave-confluent:confluent-kafka-connect",
+      "specweave-confluent:confluent-ksqldb",
+      "specweave-kafka:kafka-architect",
+      "specweave-kafka:kafka-ops",
+      "specweave-kafka-streams:kafka-streams-topology",
+      "specweave-n8n:n8n-kafka-workflows"
+    ],
+    "data": [
+      "specweave-confluent:confluent-kafka-connect",
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "pipeline": [
+      "specweave-confluent:confluent-kafka-connect",
+      "specweave-infrastructure:devsecops",
+      "specweave-infrastructure:github-actions",
+      "specweave-ml:huggingface",
+      "specweave-ml:ml-engineer"
+    ],
+    "elasticsearch": [
+      "specweave-confluent:confluent-kafka-connect"
+    ],
+    "ksqldb": [
+      "specweave-confluent:confluent-ksqldb"
+    ],
+    "ksql": [
+      "specweave-confluent:confluent-ksqldb"
+    ],
+    "stream processing": [
+      "specweave-confluent:confluent-ksqldb"
+    ],
+    "kafka sql": [
+      "specweave-confluent:confluent-ksqldb"
+    ],
+    "real-time analytics": [
+      "specweave-confluent:confluent-ksqldb"
+    ],
+    "windowing": [
+      "specweave-confluent:confluent-ksqldb",
+      "specweave-kafka-streams:kafka-streams-topology"
+    ],
+    "stream joins": [
+      "specweave-confluent:confluent-ksqldb",
+      "specweave-kafka-streams:kafka-streams-topology"
+    ],
+    "table joins": [
+      "specweave-confluent:confluent-ksqldb"
+    ],
+    "materialized views": [
+      "specweave-confluent:confluent-ksqldb"
+    ],
+    "sql": [
+      "specweave-confluent:confluent-ksqldb"
+    ],
+    "analytics": [
+      "specweave-confluent:confluent-ksqldb"
+    ],
+    "schema registry": [
+      "specweave-confluent:confluent-schema-registry"
+    ],
+    "avro": [
+      "specweave-confluent:confluent-schema-registry"
+    ],
+    "protobuf": [
+      "specweave-confluent:confluent-schema-registry"
+    ],
+    "json schema": [
+      "specweave-confluent:confluent-schema-registry"
+    ],
+    "schema evolution": [
+      "specweave-confluent:confluent-schema-registry"
+    ],
+    "compatibility modes": [
+      "specweave-confluent:confluent-schema-registry"
+    ],
+    "schema validation": [
+      "specweave-confluent:confluent-schema-registry"
+    ],
+    "schema": [
+      "specweave-confluent:confluent-schema-registry"
+    ],
+    "validation": [
+      "specweave-confluent:confluent-schema-registry"
+    ],
+    "aws": [
+      "specweave-cost-optimizer:aws-cost-expert",
+      "specweave-cost-optimizer:cloud-pricing",
+      "specweave-cost-optimizer:cost-optimization",
+      "specweave-infrastructure:aws-deep-dive",
+      "specweave-infrastructure:secret-management",
+      "specweave-mobile:mobile-testing"
+    ],
+    "cloud pricing": [
+      "specweave-cost-optimizer:cloud-pricing"
+    ],
+    "how much does it cost": [
+      "specweave-cost-optimizer:cloud-pricing"
+    ],
+    "price comparison": [
+      "specweave-cost-optimizer:cloud-pricing"
+    ],
+    "aws vs azure vs gcp pricing": [
+      "specweave-cost-optimizer:cloud-pricing"
+    ],
+    "pricing calculator": [
+      "specweave-cost-optimizer:cloud-pricing"
+    ],
+    "estimate costs": [
+      "specweave-cost-optimizer:cloud-pricing"
+    ],
+    "regional pricing": [
+      "specweave-cost-optimizer:cloud-pricing"
+    ],
+    "free tier": [
+      "specweave-cost-optimizer:cloud-pricing"
+    ],
+    "what's cheaper": [
+      "specweave-cost-optimizer:cloud-pricing"
+    ],
+    "cloud": [
+      "specweave-cost-optimizer:cloud-pricing"
+    ],
+    "gcp": [
+      "specweave-cost-optimizer:cloud-pricing",
+      "specweave-cost-optimizer:cost-optimization",
+      "specweave-infrastructure:gcp-deep-dive",
+      "specweave-infrastructure:secret-management"
+    ],
+    "serverless": [
+      "specweave-cost-optimizer:cloud-pricing",
+      "specweave-infrastructure:aws-deep-dive",
+      "specweave-ml:mlops-engineer"
+    ],
+    "calculator": [
+      "specweave-cost-optimizer:cloud-pricing"
+    ],
+    "electron": [
+      "specweave-desktop:electron"
+    ],
+    "tauri": [
+      "specweave-desktop:electron"
+    ],
+    "desktop app": [
+      "specweave-desktop:electron"
+    ],
+    "native app": [
+      "specweave-desktop:electron"
+    ],
+    "cross-platform desktop": [
+      "specweave-desktop:electron"
+    ],
+    "browserwindow": [
+      "specweave-desktop:electron"
+    ],
+    "ipc": [
+      "specweave-desktop:electron"
+    ],
+    "system tray": [
+      "specweave-desktop:electron"
+    ],
+    "menubar app": [
+      "specweave-desktop:electron"
+    ],
+    "auto-updater": [
+      "specweave-desktop:electron"
+    ],
+    "code signing": [
+      "specweave-desktop:electron"
+    ],
+    "notarization": [
+      "specweave-desktop:electron"
+    ],
+    "system": [
+      "specweave-desktop:electron",
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "deployment": [
+      "specweave-diagrams:diagrams-architect",
+      "specweave-diagrams:diagrams-generator",
+      "specweave-infrastructure:devops",
+      "specweave-infrastructure:github-actions",
+      "specweave-kafka:kafka-ops",
+      "specweave-ml:huggingface",
+      "specweave-ml:langchain-agents",
+      "specweave-ml:llm-fine-tuning",
+      "specweave-ml:mlops-engineer",
+      "specweave-ml:rag-vectordb",
+      "specweave-mobile:flutter"
+    ],
+    "create diagram": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "draw diagram": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "visualize": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "system diagram": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "architecture diagram": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "c4 diagram": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "context diagram": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "container diagram": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "component diagram": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "sequence diagram": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "er diagram": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "entity relationship": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "data model": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "deployment diagram": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "diagram": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "container": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "component": [
+      "specweave-diagrams:diagrams-generator"
+    ],
+    "model": [
+      "specweave-diagrams:diagrams-generator",
+      "specweave-docs:spec-driven-brainstorming",
+      "specweave-ml:huggingface",
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "preview docs": [
+      "specweave-docs:preview"
+    ],
+    "view documentation": [
+      "specweave-docs:preview"
+    ],
+    "docusaurus server": [
+      "specweave-docs:preview"
+    ],
+    "docs ui": [
+      "specweave-docs:preview"
+    ],
+    "documentation website": [
+      "specweave-docs:preview"
+    ],
+    "local docs server": [
+      "specweave-docs:preview"
+    ],
+    "hot reload docs": [
+      "specweave-docs:preview"
+    ],
+    "static site build": [
+      "specweave-docs:preview"
+    ],
+    "docs": [
+      "specweave-docs:preview",
+      "specweave-docs:technical-writing"
+    ],
+    "documentation": [
+      "specweave-docs:preview",
+      "specweave-docs:technical-writing"
+    ],
+    "build": [
+      "specweave-docs:preview"
+    ],
+    "brainstorming": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "product discovery": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "story mapping": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "feature ideation": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "prioritization": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "moscow": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "rice": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "kano model": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "lean startup": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "mvp definition": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "product backlog": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "feature breakdown": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "definition": [
+      "specweave-docs:spec-driven-brainstorming"
+    ],
+    "technical writing": [
+      "specweave-docs:technical-writing"
+    ],
+    "api docs": [
+      "specweave-docs:technical-writing"
+    ],
+    "readme": [
+      "specweave-docs:technical-writing"
+    ],
+    "changelog": [
+      "specweave-docs:technical-writing"
+    ],
+    "tutorial writing": [
+      "specweave-docs:technical-writing"
+    ],
+    "technical communication": [
+      "specweave-docs:technical-writing"
+    ],
+    "style guide": [
+      "specweave-docs:technical-writing"
+    ],
+    "openapi": [
+      "specweave-docs:technical-writing"
+    ],
+    "swagger": [
+      "specweave-docs:technical-writing"
+    ],
+    "developer docs": [
+      "specweave-docs:technical-writing"
+    ],
+    "style": [
+      "specweave-docs:technical-writing"
+    ],
+    "react": [
+      "specweave-media:remotion",
+      "specweave-ml:langchain-agents",
+      "specweave-mobile:capacitor-ionic",
+      "specweave-mobile:expo",
+      "specweave-mobile:mobile-testing",
+      "specweave-mobile:react-native-expert"
+    ],
+    "vue": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "angular": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "query": [
+      "specweave-ml:rag-vectordb"
+    ],
+    "user stories": [
+      "specweave-github:github-issue-standard"
+    ],
+    "eks": [
+      "specweave-infrastructure:aws-deep-dive"
+    ],
+    "infrastructure": [
+      "specweave-infrastructure:aws-deep-dive",
+      "specweave-infrastructure:azure-bicep-aks",
+      "specweave-infrastructure:devops",
+      "specweave-infrastructure:gcp-deep-dive",
+      "specweave-infrastructure:terraform-opentofu",
+      "specweave-kubernetes:gitops-workflow",
+      "specweave-ml:mlops-engineer"
+    ],
+    "terraform": [
+      "specweave-infrastructure:aws-deep-dive",
+      "specweave-infrastructure:devops",
+      "specweave-infrastructure:gcp-deep-dive",
+      "specweave-infrastructure:terraform-opentofu",
+      "specweave-kafka:kafka-ops"
+    ],
+    "kubernetes": [
+      "specweave-infrastructure:azure-bicep-aks",
+      "specweave-infrastructure:devops",
+      "specweave-infrastructure:devsecops",
+      "specweave-infrastructure:opentelemetry",
+      "specweave-infrastructure:secret-management",
+      "specweave-kafka:kafka-ops",
+      "specweave-kubernetes:gitops-workflow",
+      "specweave-kubernetes:helm-chart-scaffolding",
+      "specweave-kubernetes:k8s-manifest-generator",
+      "specweave-kubernetes:k8s-security-policies"
+    ],
+    "aks": [
+      "specweave-infrastructure:azure-bicep-aks"
+    ],
+    "monitoring": [
+      "specweave-infrastructure:azure-bicep-aks",
+      "specweave-kafka:kafka-ops",
+      "specweave-ml:mlops-engineer",
+      "specweave-testing:performance-testing"
+    ],
+    "docker": [
+      "specweave-infrastructure:devops",
+      "specweave-infrastructure:github-actions",
+      "specweave-ml:mlops-engineer"
+    ],
+    "ci/cd": [
+      "specweave-infrastructure:devops",
+      "specweave-infrastructure:devsecops",
+      "specweave-infrastructure:github-actions",
+      "specweave-infrastructure:terraform-opentofu",
+      "specweave-ml:mlops-engineer",
+      "specweave-testing:accessibility-testing"
+    ],
+    "google cloud": [
+      "specweave-infrastructure:gcp-deep-dive"
+    ],
+    "gke": [
+      "specweave-infrastructure:gcp-deep-dive"
+    ],
+    "github actions": [
+      "specweave-infrastructure:github-actions"
+    ],
+    "prometheus": [
+      "specweave-infrastructure:observability",
+      "specweave-kafka:kafka-ops"
+    ],
+    "grafana": [
+      "specweave-infrastructure:observability",
+      "specweave-infrastructure:opentelemetry",
+      "specweave-kafka:kafka-ops"
+    ],
+    "observability": [
+      "specweave-infrastructure:observability",
+      "specweave-infrastructure:opentelemetry",
+      "specweave-kafka:kafka-ops"
+    ],
+    "opentelemetry": [
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "otel": [
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "distributed tracing": [
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "tracing": [
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "spans": [
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "metrics": [
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "jaeger": [
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "grafana tempo": [
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "otlp": [
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "datadog": [
+      "specweave-infrastructure:opentelemetry"
+    ],
+    "vault": [
+      "specweave-infrastructure:secret-management"
+    ],
+    "hashicorp vault": [
+      "specweave-infrastructure:secret-management"
+    ],
+    "external secrets operator": [
+      "specweave-infrastructure:secret-management"
+    ],
+    "sops": [
+      "specweave-infrastructure:secret-management"
+    ],
+    "secrets": [
+      "specweave-infrastructure:secret-management"
+    ],
+    "secret management": [
+      "specweave-infrastructure:secret-management"
+    ],
+    "kms": [
+      "specweave-infrastructure:secret-management"
+    ],
+    "credential rotation": [
+      "specweave-infrastructure:secret-management"
+    ],
+    "aws secrets manager": [
+      "specweave-infrastructure:secret-management"
+    ],
+    "azure key vault": [
+      "specweave-infrastructure:secret-management"
+    ],
+    "gcp secret manager": [
+      "specweave-infrastructure:secret-management"
+    ],
+    "kafka streams topology": [
+      "specweave-kafka-streams:kafka-streams-topology"
+    ],
+    "kstream": [
+      "specweave-kafka-streams:kafka-streams-topology"
+    ],
+    "ktable": [
+      "specweave-kafka-streams:kafka-streams-topology"
+    ],
+    "globalktable": [
+      "specweave-kafka-streams:kafka-streams-topology"
+    ],
+    "stream operations": [
+      "specweave-kafka-streams:kafka-streams-topology"
+    ],
+    "exactly-once": [
+      "specweave-kafka-streams:kafka-streams-topology"
+    ],
+    "topology design": [
+      "specweave-kafka-streams:kafka-streams-topology"
+    ],
+    "gitops": [
+      "specweave-kubernetes:gitops-workflow"
+    ],
+    "argocd": [
+      "specweave-kubernetes:gitops-workflow"
+    ],
+    "flux": [
+      "specweave-kubernetes:gitops-workflow"
+    ],
+    "helm": [
+      "specweave-kubernetes:helm-chart-scaffolding"
+    ],
+    "k8s": [
+      "specweave-kubernetes:k8s-manifest-generator",
+      "specweave-ml:mlops-engineer"
+    ],
+    "mlflow": [
+      "specweave-ml:data-scientist"
+    ],
+    "ios": [
+      "specweave-ml:edge-ml",
+      "specweave-mobile:capacitor-ionic",
+      "specweave-mobile:deep-linking-push",
+      "specweave-mobile:mobile-testing",
+      "specweave-mobile:swiftui"
+    ],
+    "android": [
+      "specweave-ml:edge-ml",
+      "specweave-mobile:capacitor-ionic",
+      "specweave-mobile:deep-linking-push",
+      "specweave-mobile:jetpack-compose",
+      "specweave-mobile:mobile-testing"
+    ],
+    "tensorflow": [
+      "specweave-ml:edge-ml"
+    ],
+    "ml": [
+      "specweave-ml:edge-ml",
+      "specweave-ml:ml-engineer",
+      "specweave-ml:ml-specialist",
+      "specweave-ml:mlops-engineer"
+    ],
+    "hugging face": [
+      "specweave-ml:huggingface"
+    ],
+    "huggingface": [
+      "specweave-ml:huggingface"
+    ],
+    "transformers": [
+      "specweave-ml:huggingface"
+    ],
+    "model hub": [
+      "specweave-ml:huggingface"
+    ],
+    "tgi": [
+      "specweave-ml:huggingface"
+    ],
+    "text generation inference": [
+      "specweave-ml:huggingface"
+    ],
+    "safetensors": [
+      "specweave-ml:huggingface"
+    ],
+    "peft": [
+      "specweave-ml:huggingface",
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "accelerate": [
+      "specweave-ml:huggingface"
+    ],
+    "spaces": [
+      "specweave-ml:huggingface"
+    ],
+    "datasets": [
+      "specweave-ml:huggingface"
+    ],
+    "tokenizers": [
+      "specweave-ml:huggingface"
+    ],
+    "optimum": [
+      "specweave-ml:huggingface"
+    ],
+    "fine-tune": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "fine-tuning": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "lora": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "qlora": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "rlhf": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "dpo": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "gptq": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "awq": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "gguf": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "llm training": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "model training": [
+      "specweave-ml:llm-fine-tuning",
+      "specweave-ml:ml-engineer"
+    ],
+    "quantization": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "deepspeed": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "training": [
+      "specweave-ml:llm-fine-tuning"
+    ],
+    "machine learning": [
+      "specweave-ml:ml-engineer"
+    ],
+    "production ml": [
+      "specweave-ml:ml-engineer"
+    ],
+    "ml pipelines": [
+      "specweave-ml:ml-engineer",
+      "specweave-ml:mlops-engineer"
+    ],
+    "mlops": [
+      "specweave-ml:mlops-engineer"
+    ],
+    "capacitor": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "ionic": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "cordova": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "web-to-mobile": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "hybrid app": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "appflow": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "ionic framework": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "capacitor plugin": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "native bridge": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "web-to-native": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "web": [
+      "specweave-mobile:capacitor-ionic"
+    ],
+    "mobile": [
+      "specweave-mobile:capacitor-ionic",
+      "specweave-mobile:mobile-testing"
+    ],
+    "react native": [
+      "specweave-mobile:capacitor-ionic",
+      "specweave-mobile:expo",
+      "specweave-mobile:mobile-testing",
+      "specweave-mobile:react-native-expert"
+    ],
+    "flutter": [
+      "specweave-mobile:capacitor-ionic",
+      "specweave-mobile:flutter",
+      "specweave-mobile:mobile-testing"
+    ],
+    "deep link": [
+      "specweave-mobile:deep-linking-push"
+    ],
+    "deep linking": [
+      "specweave-mobile:deep-linking-push"
+    ],
+    "universal links": [
+      "specweave-mobile:deep-linking-push"
+    ],
+    "app links": [
+      "specweave-mobile:deep-linking-push"
+    ],
+    "push notification": [
+      "specweave-mobile:deep-linking-push"
+    ],
+    "push notifications": [
+      "specweave-mobile:deep-linking-push"
+    ],
+    "apns": [
+      "specweave-mobile:deep-linking-push"
+    ],
+    "fcm": [
+      "specweave-mobile:deep-linking-push"
+    ],
+    "firebase messaging": [
+      "specweave-mobile:deep-linking-push"
+    ],
+    "notification": [
+      "specweave-mobile:deep-linking-push"
+    ],
+    "deferred deep link": [
+      "specweave-mobile:deep-linking-push"
+    ],
+    "push": [
+      "specweave-mobile:deep-linking-push"
+    ],
+    "expo": [
+      "specweave-mobile:expo",
+      "specweave-mobile:react-native-expert"
+    ],
+    "kotlin": [
+      "specweave-mobile:jetpack-compose"
+    ],
+    "mobile testing": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "xctest": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "xcuitest": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "espresso": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "robolectric": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "detox": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "maestro": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "mobile e2e": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "device farm": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "firebase test lab": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "aws device farm": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "mobile ci": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "testing": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "test": [
+      "specweave-mobile:mobile-testing"
+    ],
+    "jest": [
+      "specweave-mobile:mobile-testing",
+      "specweave-testing:unit-testing"
+    ],
+    "e2e": [
+      "specweave-mobile:mobile-testing",
+      "specweave-testing:e2e-testing"
+    ],
+    "mobile app": [
+      "specweave-mobile:react-native-expert"
+    ],
+    "swift": [
+      "specweave-mobile:swiftui"
+    ],
+    "n8n kafka": [
+      "specweave-n8n:n8n-kafka-workflows"
+    ],
+    "kafka trigger": [
+      "specweave-n8n:n8n-kafka-workflows"
+    ],
+    "kafka producer": [
+      "specweave-n8n:n8n-kafka-workflows"
+    ],
+    "n8n workflows": [
+      "specweave-n8n:n8n-kafka-workflows"
+    ],
+    "event-driven automation": [
+      "specweave-n8n:n8n-kafka-workflows"
+    ],
+    "no-code kafka": [
+      "specweave-n8n:n8n-kafka-workflows"
+    ],
+    "workflow patterns": [
+      "specweave-n8n:n8n-kafka-workflows"
+    ],
+    "saas": [
+      "specweave-payments:billing-automation"
+    ],
+    "stripe": [
+      "specweave-payments:payments"
+    ],
+    "paypal": [
+      "specweave-payments:payments"
+    ],
+    "marketplace": [
+      "specweave-payments:payments"
+    ],
+    "pci": [
+      "specweave-payments:pci-compliance"
+    ],
+    "playwright": [
+      "specweave-testing:e2e-testing"
+    ],
+    "cypress": [
+      "specweave-testing:e2e-testing"
+    ],
+    "javascript": [
+      "specweave-testing:mutation-testing"
+    ],
+    "qa": [
+      "specweave-testing:qa-engineer"
+    ],
+    "vitest": [
+      "specweave-testing:unit-testing"
+    ]
+  },
+  "skills": {
+    "specweave:architect": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "architect",
+        "architecture",
+        "design",
+        "microservices",
+        "database"
+      ],
+      "description": "System architect for scalable technical designs and ADRs. Use for system architecture, microservices, database design, trade-off analysis, component d",
+      "fqn": "specweave:architect"
+    },
+    "specweave:auto": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "Start autonomous execution with stop hook feedback loop. Works until all tasks complete or max iterations reached. Use when you want continuous unatte",
+      "fqn": "specweave:auto"
+    },
+    "specweave:auto-status": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "auto status",
+        "session status",
+        "check auto"
+      ],
+      "description": "Show current auto session status, progress, and any pending gates. Activates for: auto status, auto status, session status, check auto.",
+      "fqn": "specweave:auto-status"
+    },
+    "specweave:cancel-auto": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "EMERGENCY ONLY - Cancel running auto session and generate summary report.",
+      "fqn": "specweave:cancel-auto"
+    },
+    "specweave:code-simplifier": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "Simplify and improve code clarity without changing behavior. Use when saying \"simplify code\", \"clean up code\", \"improve readability\", or \"reduce compl",
+      "fqn": "specweave:code-simplifier"
+    },
+    "specweave:do": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "spec"
+      ],
+      "description": "Execute increment tasks following spec and plan with sync hooks. Use when saying \"implement\", \"start working\", \"execute tasks\", or \"continue increment",
+      "fqn": "specweave:do"
+    },
+    "specweave:docs": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "Documentation hub - browse, search, serve living docs. Use for \"show docs\", \"browse docs\", \"find docs\", \"load docs\", \"read ADR\", \"serve docs\", \"previe",
+      "fqn": "specweave:docs"
+    },
+    "specweave:done": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "Close increment with PM 3-gate validation (tasks, tests, docs). Use when all tasks complete and saying \"close increment\", \"we're done\", or \"finish up\"",
+      "fqn": "specweave:done"
+    },
+    "specweave:framework": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "spec"
+      ],
+      "description": "SpecWeave framework expert for structure, rules, spec-driven conventions. Use for SpecWeave best practices, increment lifecycle, hooks, tasks.md/spec.",
+      "fqn": "specweave:framework"
+    },
+    "specweave:grill": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "feature"
+      ],
+      "description": "Critical code review and quality interrogation before increment completion. Use when finishing a feature, before /sw:done, or when saying \"grill the c",
+      "fqn": "specweave:grill"
+    },
+    "specweave:increment": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "architect",
+        "specification",
+        "spec"
+      ],
+      "description": "Plan and create SpecWeave increments with PM and Architect agent collaboration. Use when starting new features, hotfixes, bugs, or any development wor",
+      "fqn": "specweave:increment"
+    },
+    "specweave:jobs": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "View and manage background jobs (cloning, imports, living-docs). Shows job status, progress, and logs. Use when saying \"check jobs\", \"job status\", or ",
+      "fqn": "specweave:jobs"
+    },
+    "specweave:judge-llm": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "Ultrathink LLM-as-Judge validation of completed work. Uses extended thinking and Opus model for thorough, independent evaluation. Use when saying \"jud",
+      "fqn": "specweave:judge-llm"
+    },
+    "specweave:lsp": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "go",
+        "lsp",
+        "go to definition",
+        "find references",
+        "code navigation"
+      ],
+      "description": "Code navigation with LSP. When user says \"find references\", \"go to definition\", \"where defined\", \"show type\", \"list symbols\", \"what uses\", or \"who cal",
+      "fqn": "specweave:lsp"
+    },
+    "specweave:next": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "next"
+      ],
+      "description": "Close current increment if ready and suggest next work. Use when saying \"what's next\", \"next increment\", or \"move on\".",
+      "fqn": "specweave:next"
+    },
+    "specweave:npm": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "Full patch release with npm publish and GitHub Release. Flags: --quick (no GH release), --ci (Actions), --only (local).",
+      "fqn": "specweave:npm"
+    },
+    "specweave:plan": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "Generate plan.md and tasks.md for increment. Use when saying \"create plan\", \"generate tasks\", or \"plan the increment\".",
+      "fqn": "specweave:plan"
+    },
+    "specweave:pm": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "product",
+        "mvp",
+        "requirements",
+        "spec",
+        "specs"
+      ],
+      "description": "Product Manager for spec-driven development. Use when saying \"write specs\", \"define requirements\", \"plan MVP\", or \"prioritize features\".",
+      "fqn": "specweave:pm"
+    },
+    "specweave:progress": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "Show progress for active increments with task/AC completion. Use when saying \"show progress\", \"status\", or \"how far along\".",
+      "fqn": "specweave:progress"
+    },
+    "specweave:progress-sync": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "Sync progress from tasks.md to living docs and external tools (GitHub/JIRA/ADO). Use when saying \"sync progress\" or \"push progress\".",
+      "fqn": "specweave:progress-sync"
+    },
+    "specweave:save": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "Smart auto-commit with remote sync (handles pull/rebase/stash, auto-generates messages, supports multi-repo).",
+      "fqn": "specweave:save"
+    },
+    "specweave:security": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "owasp",
+        "architecture",
+        "security",
+        "requirements"
+      ],
+      "description": "Security engineer for vulnerability assessment, penetration testing guidance, and secure code review. Use for OWASP Top 10 checks, threat modeling, or",
+      "fqn": "specweave:security"
+    },
+    "specweave:security-patterns": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "xss",
+        "security"
+      ],
+      "description": "Real-time security pattern detector based on Anthropic's official security-guidance plugin. Use proactively when writing code to detect command inject",
+      "fqn": "specweave:security-patterns"
+    },
+    "specweave:sync-setup": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "Interactive sync setup wizard that configures GitHub, JIRA, and/or ADO integration in one guided flow. Use when saying \"setup sync\", \"configure sync\",",
+      "fqn": "specweave:sync-setup"
+    },
+    "specweave:tdd-cycle": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "tdd",
+        "testdriven",
+        "test-driven"
+      ],
+      "description": "Execute full TDD red-green-refactor cycle with validation gates. Use when saying \"TDD cycle\", \"test-driven development\", or \"full TDD workflow\".",
+      "fqn": "specweave:tdd-cycle"
+    },
+    "specweave:tdd-green": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "tdd"
+      ],
+      "description": "Write minimal code to make failing tests pass. Use when saying \"TDD green\", \"make tests pass\", or \"implement for tests\".",
+      "fqn": "specweave:tdd-green"
+    },
+    "specweave:tdd-red": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "tdd"
+      ],
+      "description": "Write failing tests that define expected behavior. Use when saying \"TDD red\", \"write failing tests\", or \"test first\".",
+      "fqn": "specweave:tdd-red"
+    },
+    "specweave:tdd-refactor": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "tdd"
+      ],
+      "description": "Refactor code with test safety net to improve quality. Use when saying \"TDD refactor\", \"refactor with tests\", or \"improve code quality\".",
+      "fqn": "specweave:tdd-refactor"
+    },
+    "specweave:team-build": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "tdd",
+        "fullstack",
+        "full-stack",
+        "migration"
+      ],
+      "description": "\"Preset-driven team building \u2014 spawn coordinated multi-agent teams from battle-tested presets for full-stack, review, testing, TDD, and migration work",
+      "fqn": "specweave:team-build"
+    },
+    "specweave:team-lead": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "backend",
+        "frontend",
+        "database",
+        "security"
+      ],
+      "description": "Orchestrate multi-agent parallel development with domain-specialized agents. PROACTIVELY invoke this skill (without user asking) when you detect an im",
+      "fqn": "specweave:team-lead"
+    },
+    "specweave:team-merge": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "team merge",
+        "merge agents",
+        "combine work",
+        "team finish"
+      ],
+      "description": "Merge completed parallel agent work and trigger GitHub sync per increment. Activates for: team merge, merge agents, combine work, team finish.",
+      "fqn": "specweave:team-merge"
+    },
+    "specweave:team-status": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "team status",
+        "agent status",
+        "parallel status",
+        "check agents"
+      ],
+      "description": "Show status of parallel development agents launched by team-lead. Activates for: team status, agent status, parallel status, check agents.",
+      "fqn": "specweave:team-status"
+    },
+    "specweave:update-instructions": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [],
+      "description": "Smart merge for CLAUDE.md and AGENTS.md instruction files that preserves user customizations while updating SpecWeave sections. Use after plugin refre",
+      "fqn": "specweave:update-instructions"
+    },
+    "specweave:validate": {
+      "plugin": "specweave",
+      "type": "skill",
+      "triggers": [
+        "ai"
+      ],
+      "description": "Validate increment with rule-based checks and AI quality assessment. Use when saying \"validate\", \"check quality\", or \"verify increment\".",
+      "fqn": "specweave:validate"
+    },
+    "specweave-ado:ado-mapper": {
+      "plugin": "specweave-ado",
+      "type": "skill",
+      "triggers": [
+        "azure",
+        "feature",
+        "user story"
+      ],
+      "description": "Bidirectional conversion between SpecWeave increments and Azure DevOps work items. Use when exporting increments to ADO epics, importing ADO epics as ",
+      "fqn": "specweave-ado:ado-mapper"
+    },
+    "specweave-ado:ado-multi-project": {
+      "plugin": "specweave-ado",
+      "type": "skill",
+      "triggers": [
+        "azure",
+        "specs"
+      ],
+      "description": "Organize specs and tasks across multiple Azure DevOps projects with intelligent content-based mapping. Use when working with project-per-team, area-pa",
+      "fqn": "specweave-ado:ado-multi-project"
+    },
+    "specweave-ado:ado-resource-validator": {
+      "plugin": "specweave-ado",
+      "type": "skill",
+      "triggers": [
+        "azure"
+      ],
+      "description": "Validates Azure DevOps projects, area paths, and teams exist with auto-creation of missing resources. Use when setting up ADO integration, configuring",
+      "fqn": "specweave-ado:ado-resource-validator"
+    },
+    "specweave-ado:ado-sync": {
+      "plugin": "specweave-ado",
+      "type": "skill",
+      "triggers": [
+        "azure"
+      ],
+      "description": "Help and guidance for Azure DevOps synchronization with SpecWeave increments. Use when asking how to set up ADO sync, configure credentials, or troubl",
+      "fqn": "specweave-ado:ado-sync"
+    },
+    "specweave-backend:database-optimizer": {
+      "plugin": "specweave-backend",
+      "type": "skill",
+      "triggers": [
+        "postgresql",
+        "mysql",
+        "mongodb",
+        "database"
+      ],
+      "description": "Database optimizer for PostgreSQL, MySQL, MongoDB. Use for slow queries, N+1 problems, EXPLAIN plans, indexing, connection pooling, caching, partition",
+      "fqn": "specweave-backend:database-optimizer"
+    },
+    "specweave-backend:dotnet-backend": {
+      "plugin": "specweave-backend",
+      "type": "skill",
+      "triggers": [
+        "postgresql",
+        "grpc",
+        ".net",
+        "asp.net",
+        "jwt",
+        "apis",
+        "backend",
+        "server"
+      ],
+      "description": ".NET/C# backend developer for ASP.NET Core 8+ APIs with Entity Framework Core and enterprise patterns. Use when building C# backends, implementing RES",
+      "fqn": "specweave-backend:dotnet-backend"
+    },
+    "specweave-backend:go-backend": {
+      "plugin": "specweave-backend",
+      "type": "skill",
+      "triggers": [
+        "go",
+        "grpc",
+        "golang",
+        "apis",
+        "backend",
+        "microservices",
+        "performance"
+      ],
+      "description": "Go/Golang backend developer for building high-performance APIs and microservices. Use when building Go backends, REST/gRPC APIs, CLI tools, or concurr",
+      "fqn": "specweave-backend:go-backend"
+    },
+    "specweave-backend:graphql": {
+      "plugin": "specweave-backend",
+      "type": "skill",
+      "triggers": [
+        "node.js",
+        "rust",
+        "graphql",
+        "python",
+        "java",
+        "api"
+      ],
+      "description": "GraphQL API expert for Node.js, Python, Java, .NET, Rust. Use for schemas, resolvers, DataLoader, federation, subscriptions, Apollo, Pothos, Strawberr",
+      "fqn": "specweave-backend:graphql"
+    },
+    "specweave-backend:java-spring": {
+      "plugin": "specweave-backend",
+      "type": "skill",
+      "triggers": [
+        "spring boot",
+        "java",
+        "grpc",
+        "apis",
+        "backend",
+        "microservices",
+        "microservice",
+        "security"
+      ],
+      "description": "Java/Spring Boot backend developer for building enterprise APIs and microservices. Use when building Java backends with Spring Boot 3.x, REST/gRPC API",
+      "fqn": "specweave-backend:java-spring"
+    },
+    "specweave-backend:nodejs-backend": {
+      "plugin": "specweave-backend",
+      "type": "skill",
+      "triggers": [
+        "node",
+        "node.js",
+        "express",
+        "nestjs",
+        "fastify",
+        "graphql",
+        "typescript",
+        "apis",
+        "backend"
+      ],
+      "description": "Node.js/TypeScript backend developer for Express, Fastify, NestJS, and GraphQL. Use when building Node.js APIs, REST endpoints, GraphQL APIs, or backe",
+      "fqn": "specweave-backend:nodejs-backend"
+    },
+    "specweave-backend:python-backend": {
+      "plugin": "specweave-backend",
+      "type": "skill",
+      "triggers": [
+        "python",
+        "django",
+        "flask",
+        "fastapi",
+        "apis",
+        "backend"
+      ],
+      "description": "Python backend developer for FastAPI, Django, and Flask. Use when building Python APIs, REST endpoints, or data processing services.",
+      "fqn": "specweave-backend:python-backend"
+    },
+    "specweave-backend:rust-backend": {
+      "plugin": "specweave-backend",
+      "type": "skill",
+      "triggers": [
+        "rust",
+        "apis",
+        "backend",
+        "performance"
+      ],
+      "description": "Rust backend developer for building high-performance, memory-safe APIs and services. Use when building Rust backends with Axum, Actix-web, Rocket, or ",
+      "fqn": "specweave-backend:rust-backend"
+    },
+    "specweave-blockchain:blockchain": {
+      "plugin": "specweave-blockchain",
+      "type": "skill",
+      "triggers": [
+        "blockchain",
+        "web3",
+        "solidity",
+        "smart contract",
+        "ethereum",
+        "hardhat",
+        "foundry",
+        "erc-20",
+        "erc-721",
+        "nft",
+        "defi",
+        "dapp",
+        "walletconnect",
+        "ipfs",
+        "layer 2",
+        "gas optimization",
+        "reentrancy",
+        "openzeppelin",
+        "optimization",
+        "security"
+      ],
+      "description": "\"Blockchain and Web3 development with Solidity, Hardhat, Foundry, ethers.js, and smart contract security. Covers Ethereum, Layer 2 solutions, DeFi, NF",
+      "fqn": "specweave-blockchain:blockchain"
+    },
+    "specweave-confluent:confluent-kafka-connect": {
+      "plugin": "specweave-confluent",
+      "type": "skill",
+      "triggers": [
+        "kafka connect",
+        "connectors",
+        "source connector",
+        "sink connector",
+        "jdbc connector",
+        "debezium",
+        "smt",
+        "data pipeline",
+        "cdc",
+        "kafka",
+        "data",
+        "pipeline",
+        "elasticsearch",
+        "mysql"
+      ],
+      "description": "Kafka Connect integration expert. Covers source and sink connectors, JDBC, Elasticsearch, S3, Debezium CDC, SMT (Single Message Transforms), connector",
+      "fqn": "specweave-confluent:confluent-kafka-connect"
+    },
+    "specweave-confluent:confluent-ksqldb": {
+      "plugin": "specweave-confluent",
+      "type": "skill",
+      "triggers": [
+        "ksqldb",
+        "ksql",
+        "stream processing",
+        "kafka sql",
+        "real-time analytics",
+        "windowing",
+        "stream joins",
+        "table joins",
+        "materialized views",
+        "kafka",
+        "sql",
+        "analytics"
+      ],
+      "description": "ksqlDB stream processing expert. Covers SQL-like queries on Kafka topics, stream and table concepts, joins, aggregations, windowing, materialized view",
+      "fqn": "specweave-confluent:confluent-ksqldb"
+    },
+    "specweave-confluent:confluent-schema-registry": {
+      "plugin": "specweave-confluent",
+      "type": "skill",
+      "triggers": [
+        "schema registry",
+        "avro",
+        "protobuf",
+        "json schema",
+        "schema evolution",
+        "compatibility modes",
+        "schema validation",
+        "schema",
+        "validation"
+      ],
+      "description": "Schema Registry expert for Avro, Protobuf, and JSON Schema management. Covers schema evolution strategies, compatibility modes, validation, and best p",
+      "fqn": "specweave-confluent:confluent-schema-registry"
+    },
+    "specweave-cost-optimizer:aws-cost-expert": {
+      "plugin": "specweave-cost-optimizer",
+      "type": "skill",
+      "triggers": [
+        "aws",
+        "optimization"
+      ],
+      "description": "AWS cost optimization - EC2 Reserved Instances, Savings Plans, Spot, Lambda optimization, Cost Explorer, Trusted Advisor.",
+      "fqn": "specweave-cost-optimizer:aws-cost-expert"
+    },
+    "specweave-cost-optimizer:cloud-pricing": {
+      "plugin": "specweave-cost-optimizer",
+      "type": "skill",
+      "triggers": [
+        "cloud pricing",
+        "how much does it cost",
+        "price comparison",
+        "aws vs azure vs gcp pricing",
+        "pricing calculator",
+        "estimate costs",
+        "regional pricing",
+        "free tier",
+        "what's cheaper",
+        "cloud",
+        "aws",
+        "azure",
+        "gcp",
+        "serverless",
+        "database",
+        "calculator"
+      ],
+      "description": "Expert knowledge of cloud provider pricing models for AWS, Azure, GCP covering compute, storage, database, networking, and serverless services. Includ",
+      "fqn": "specweave-cost-optimizer:cloud-pricing"
+    },
+    "specweave-cost-optimizer:cost-optimization": {
+      "plugin": "specweave-cost-optimizer",
+      "type": "skill",
+      "triggers": [
+        "aws",
+        "azure",
+        "gcp",
+        "optimization"
+      ],
+      "description": "FinOps expert for AWS/Azure/GCP cost optimization - right-sizing, reserved instances, savings plans, spot instances. Use for reducing cloud costs.",
+      "fqn": "specweave-cost-optimizer:cost-optimization"
+    },
+    "specweave-desktop:electron": {
+      "plugin": "specweave-desktop",
+      "type": "skill",
+      "triggers": [
+        "electron",
+        "tauri",
+        "desktop app",
+        "native app",
+        "cross-platform desktop",
+        "browserwindow",
+        "ipc",
+        "system tray",
+        "menubar app",
+        "auto-updater",
+        "code signing",
+        "notarization",
+        "system",
+        "apis",
+        "performance",
+        "optimization",
+        "security"
+      ],
+      "description": "\"Desktop application development with Electron and Tauri. Covers cross-platform native apps, IPC communication, security hardening, packaging, auto-up",
+      "fqn": "specweave-desktop:electron"
+    },
+    "specweave-diagrams:diagrams-architect": {
+      "plugin": "specweave-diagrams",
+      "type": "skill",
+      "triggers": [
+        "architecture",
+        "deployment"
+      ],
+      "description": "Mermaid diagrams following C4 Model and SpecWeave conventions - system architecture, sequence, ER, deployment diagrams. Use for architecture visualiza",
+      "fqn": "specweave-diagrams:diagrams-architect"
+    },
+    "specweave-diagrams:diagrams-generator": {
+      "plugin": "specweave-diagrams",
+      "type": "skill",
+      "triggers": [
+        "create diagram",
+        "draw diagram",
+        "visualize",
+        "system diagram",
+        "architecture diagram",
+        "c4 diagram",
+        "context diagram",
+        "container diagram",
+        "component diagram",
+        "sequence diagram",
+        "er diagram",
+        "entity relationship",
+        "data model",
+        "deployment diagram",
+        "diagram",
+        "system",
+        "architecture",
+        "container",
+        "component",
+        "data",
+        "model",
+        "deployment",
+        "architect"
+      ],
+      "description": "Generate Mermaid diagrams following C4 conventions. Activates for create diagram, draw diagram, visualize, system diagram, architecture diagram, C4 di",
+      "fqn": "specweave-diagrams:diagrams-generator"
+    },
+    "specweave-docs:docusaurus": {
+      "plugin": "specweave-docs",
+      "type": "skill",
+      "triggers": [
+        "spec"
+      ],
+      "description": "Docusaurus 3.x documentation framework - MDX authoring, theming, versioning, i18n. Use for documentation sites or verified-skill.com.",
+      "fqn": "specweave-docs:docusaurus"
+    },
+    "specweave-docs:preview": {
+      "plugin": "specweave-docs",
+      "type": "skill",
+      "triggers": [
+        "preview docs",
+        "view documentation",
+        "docusaurus server",
+        "docs ui",
+        "documentation website",
+        "local docs server",
+        "hot reload docs",
+        "static site build",
+        "docs",
+        "documentation",
+        "server",
+        "build"
+      ],
+      "description": "Documentation view expert for Docusaurus integration. Launches interactive server for SpecWeave living documentation with hot reload, auto-generated s",
+      "fqn": "specweave-docs:preview"
+    },
+    "specweave-docs:spec-driven-brainstorming": {
+      "plugin": "specweave-docs",
+      "type": "skill",
+      "triggers": [
+        "brainstorming",
+        "product discovery",
+        "story mapping",
+        "feature ideation",
+        "prioritization",
+        "moscow",
+        "rice",
+        "kano model",
+        "lean startup",
+        "mvp definition",
+        "product backlog",
+        "feature breakdown",
+        "model",
+        "definition",
+        "product",
+        "feature",
+        "mvp",
+        "spec"
+      ],
+      "description": "Spec-driven brainstorming and product discovery expert. Helps teams ideate features, break down epics, conduct story mapping sessions, prioritize usin",
+      "fqn": "specweave-docs:spec-driven-brainstorming"
+    },
+    "specweave-docs:stakeholder-docs": {
+      "plugin": "specweave-docs",
+      "type": "skill",
+      "triggers": [
+        "feature"
+      ],
+      "description": "Executive documentation from technical living docs - business summaries, progress dashboards, feature status reports. Use for stakeholder communicatio",
+      "fqn": "specweave-docs:stakeholder-docs"
+    },
+    "specweave-docs:technical-writing": {
+      "plugin": "specweave-docs",
+      "type": "skill",
+      "triggers": [
+        "technical writing",
+        "api docs",
+        "readme",
+        "changelog",
+        "tutorial writing",
+        "documentation",
+        "technical communication",
+        "style guide",
+        "openapi",
+        "swagger",
+        "developer docs",
+        "api",
+        "docs",
+        "style",
+        "architecture"
+      ],
+      "description": "Technical writing expert for API documentation, README files, tutorials, changelog management, and developer documentation. Covers style guides, infor",
+      "fqn": "specweave-docs:technical-writing"
+    },
+    "specweave-github:github-issue-standard": {
+      "plugin": "specweave-github",
+      "type": "skill",
+      "triggers": [
+        "user stories"
+      ],
+      "description": "Mandatory format standard for ALL GitHub issues created by SpecWeave with checkable acceptance criteria and proper metadata. Use when creating GitHub ",
+      "fqn": "specweave-github:github-issue-standard"
+    },
+    "specweave-github:github-multi-project": {
+      "plugin": "specweave-github",
+      "type": "skill",
+      "triggers": [
+        "specs"
+      ],
+      "description": "Expert at organizing specs and splitting tasks across multiple GitHub repositories for monorepo, polyrepo, and parent repo architectures. Use when man",
+      "fqn": "specweave-github:github-multi-project"
+    },
+    "specweave-github:github-sync": {
+      "plugin": "specweave-github",
+      "type": "skill",
+      "triggers": [
+        "specs",
+        "spec"
+      ],
+      "description": "Two-way synchronization between SpecWeave specs and GitHub Projects (push & pull by default). Use when asking about GitHub integration setup, troubles",
+      "fqn": "specweave-github:github-sync"
+    },
+    "specweave-infrastructure:aws-deep-dive": {
+      "plugin": "specweave-infrastructure",
+      "type": "skill",
+      "triggers": [
+        "aws",
+        "eks",
+        "serverless",
+        "infrastructure",
+        "terraform"
+      ],
+      "description": "AWS deep dive expert for CDK, EKS, Lambda, networking, and IAM. Designs production-grade architectures using CDK constructs, serverless patterns, and ",
+      "fqn": "specweave-infrastructure:aws-deep-dive"
+    },
+    "specweave-infrastructure:azure-bicep-aks": {
+      "plugin": "specweave-infrastructure",
+      "type": "skill",
+      "triggers": [
+        "azure",
+        "kubernetes",
+        "aks",
+        "infrastructure",
+        "monitoring"
+      ],
+      "description": "Azure Bicep and AKS expert for infrastructure-as-code deployments, Kubernetes cluster management, networking, identity, monitoring, and Container Apps",
+      "fqn": "specweave-infrastructure:azure-bicep-aks"
+    },
+    "specweave-infrastructure:devops": {
+      "plugin": "specweave-infrastructure",
+      "type": "skill",
+      "triggers": [
+        "kubernetes",
+        "terraform",
+        "docker",
+        "ci/cd",
+        "deployment",
+        "infrastructure"
+      ],
+      "description": "DevOps and IaC expert for Terraform, Kubernetes, Docker, CI/CD pipelines, and deployment platform decisions (Vercel vs Cloudflare vs Hetzner). Generat",
+      "fqn": "specweave-infrastructure:devops"
+    },
+    "specweave-infrastructure:devsecops": {
+      "plugin": "specweave-infrastructure",
+      "type": "skill",
+      "triggers": [
+        "kubernetes",
+        "ci/cd",
+        "design",
+        "pipeline",
+        "security"
+      ],
+      "description": "DevSecOps expert for shift-left security including container scanning, SAST/DAST, dependency scanning, secret detection, SBOM generation, supply chain",
+      "fqn": "specweave-infrastructure:devsecops"
+    },
+    "specweave-infrastructure:gcp-deep-dive": {
+      "plugin": "specweave-infrastructure",
+      "type": "skill",
+      "triggers": [
+        "gcp",
+        "google cloud",
+        "gke",
+        "terraform",
+        "infrastructure"
+      ],
+      "description": "GCP deep dive expert for GKE, Cloud Run, Cloud Functions, networking, IAM, and data services. Designs production-grade architectures using Terraform, ",
+      "fqn": "specweave-infrastructure:gcp-deep-dive"
+    },
+    "specweave-infrastructure:github-actions": {
+      "plugin": "specweave-infrastructure",
+      "type": "skill",
+      "triggers": [
+        "ci/cd",
+        "github actions",
+        "design",
+        "deployment",
+        "pipeline",
+        "performance",
+        "optimization",
+        "security",
+        "docker"
+      ],
+      "description": "GitHub Actions advanced expert for CI/CD workflows, reusable workflows, composite actions, OIDC authentication, security hardening, monorepo patterns,",
+      "fqn": "specweave-infrastructure:github-actions"
+    },
+    "specweave-infrastructure:observability": {
+      "plugin": "specweave-infrastructure",
+      "type": "skill",
+      "triggers": [
+        "prometheus",
+        "grafana",
+        "fullstack",
+        "full-stack",
+        "architect",
+        "observability"
+      ],
+      "description": "Full-stack observability architect for Prometheus, Grafana, OpenTelemetry, distributed tracing (Jaeger/Tempo), SLIs/SLOs, error budgets, and alerting.",
+      "fqn": "specweave-infrastructure:observability"
+    },
+    "specweave-infrastructure:opentelemetry": {
+      "plugin": "specweave-infrastructure",
+      "type": "skill",
+      "triggers": [
+        "opentelemetry",
+        "otel",
+        "distributed tracing",
+        "tracing",
+        "spans",
+        "metrics",
+        "observability",
+        "jaeger",
+        "grafana tempo",
+        "otlp",
+        "node.js",
+        "go",
+        "grafana",
+        "datadog",
+        "python",
+        "java",
+        "backend",
+        "fullstack",
+        "full-stack",
+        "optimization",
+        "kubernetes"
+      ],
+      "description": "OpenTelemetry expert for full-stack observability including distributed tracing, metrics, and log correlation. Covers OTel Collector configuration, au",
+      "fqn": "specweave-infrastructure:opentelemetry"
+    },
+    "specweave-infrastructure:secret-management": {
+      "plugin": "specweave-infrastructure",
+      "type": "skill",
+      "triggers": [
+        "vault",
+        "hashicorp vault",
+        "external secrets operator",
+        "sops",
+        "secrets",
+        "secret management",
+        "kms",
+        "credential rotation",
+        "aws secrets manager",
+        "azure key vault",
+        "gcp secret manager",
+        "aws",
+        "azure",
+        "gcp",
+        "kubernetes"
+      ],
+      "description": "Secret management expert for HashiCorp Vault, External Secrets Operator, SOPS, and cloud-native secret stores. Designs zero-trust credential architect",
+      "fqn": "specweave-infrastructure:secret-management"
+    },
+    "specweave-infrastructure:terraform-opentofu": {
+      "plugin": "specweave-infrastructure",
+      "type": "skill",
+      "triggers": [
+        "terraform",
+        "ci/cd",
+        "infrastructure"
+      ],
+      "description": "Terraform 1.6+ and OpenTofu IaC expert for infrastructure provisioning, module composition, state management, testing, and policy-as-code. Covers HCL ",
+      "fqn": "specweave-infrastructure:terraform-opentofu"
+    },
+    "specweave-jira:jira-mapper": {
+      "plugin": "specweave-jira",
+      "type": "skill",
+      "triggers": [],
+      "description": "Expert in mapping SpecWeave increments to JIRA structure (Increment \u2192 Epic + Stories + Subtasks) with bidirectional sync. Use when exporting increment",
+      "fqn": "specweave-jira:jira-mapper"
+    },
+    "specweave-jira:jira-resource-validator": {
+      "plugin": "specweave-jira",
+      "type": "skill",
+      "triggers": [],
+      "description": "Validates JIRA projects and boards exist, auto-creates missing resources. Use when setting up JIRA integration, validating .env configuration, or trou",
+      "fqn": "specweave-jira:jira-resource-validator"
+    },
+    "specweave-jira:jira-sync": {
+      "plugin": "specweave-jira",
+      "type": "skill",
+      "triggers": [],
+      "description": "Sync guidance for SpecWeave increments with JIRA epics/stories (content SpecWeave\u2192JIRA, status JIRA\u2192SpecWeave). Use when asking about JIRA integration",
+      "fqn": "specweave-jira:jira-sync"
+    },
+    "specweave-kafka:kafka-architect": {
+      "plugin": "specweave-kafka",
+      "type": "skill",
+      "triggers": [
+        "kafka",
+        "architecture",
+        "design"
+      ],
+      "description": "Apache Kafka architecture expert for event-driven systems, cluster design, partition strategies, consumer groups, and event sourcing/CQRS patterns. Us",
+      "fqn": "specweave-kafka:kafka-architect"
+    },
+    "specweave-kafka:kafka-ops": {
+      "plugin": "specweave-kafka",
+      "type": "skill",
+      "triggers": [
+        "kubernetes",
+        "kafka",
+        "terraform",
+        "prometheus",
+        "grafana",
+        "deployment",
+        "monitoring",
+        "observability"
+      ],
+      "description": "Kafka operations expert for deployment, monitoring, and tooling. Kubernetes (Strimzi, Confluent), Terraform IaC, Prometheus/Grafana observability, and",
+      "fqn": "specweave-kafka:kafka-ops"
+    },
+    "specweave-kafka-streams:kafka-streams-topology": {
+      "plugin": "specweave-kafka-streams",
+      "type": "skill",
+      "triggers": [
+        "kafka streams topology",
+        "kstream",
+        "ktable",
+        "globalktable",
+        "stream operations",
+        "stream joins",
+        "windowing",
+        "exactly-once",
+        "topology design",
+        "kafka",
+        "design"
+      ],
+      "description": "Kafka Streams topology design expert. Covers KStream vs KTable vs GlobalKTable, topology patterns, stream operations (filter, map, flatMap, branch), j",
+      "fqn": "specweave-kafka-streams:kafka-streams-topology"
+    },
+    "specweave-kubernetes:gitops-workflow": {
+      "plugin": "specweave-kubernetes",
+      "type": "skill",
+      "triggers": [
+        "kubernetes",
+        "gitops",
+        "argocd",
+        "flux",
+        "infrastructure"
+      ],
+      "description": "Implement GitOps workflows with ArgoCD and Flux for automated, declarative Kubernetes deployments with continuous reconciliation. Use when implementin",
+      "fqn": "specweave-kubernetes:gitops-workflow"
+    },
+    "specweave-kubernetes:helm-chart-scaffolding": {
+      "plugin": "specweave-kubernetes",
+      "type": "skill",
+      "triggers": [
+        "kubernetes",
+        "helm",
+        "design"
+      ],
+      "description": "Design, organize, and manage Helm charts for templating and packaging Kubernetes applications with reusable configurations. Use when creating Helm cha",
+      "fqn": "specweave-kubernetes:helm-chart-scaffolding"
+    },
+    "specweave-kubernetes:k8s-manifest-generator": {
+      "plugin": "specweave-kubernetes",
+      "type": "skill",
+      "triggers": [
+        "kubernetes",
+        "k8s",
+        "security"
+      ],
+      "description": "Create production-ready Kubernetes manifests for Deployments, Services, ConfigMaps, and Secrets following best practices and security standards. Use w",
+      "fqn": "specweave-kubernetes:k8s-manifest-generator"
+    },
+    "specweave-kubernetes:k8s-security-policies": {
+      "plugin": "specweave-kubernetes",
+      "type": "skill",
+      "triggers": [
+        "kubernetes",
+        "security"
+      ],
+      "description": "Implement Kubernetes security policies including NetworkPolicy, PodSecurityPolicy, and RBAC for production-grade security. Use when securing Kubernete",
+      "fqn": "specweave-kubernetes:k8s-security-policies"
+    },
+    "specweave-media:image": {
+      "plugin": "specweave-media",
+      "type": "skill",
+      "triggers": [
+        "ai"
+      ],
+      "description": "Generate AI images from text prompts. Supports Google Gemini (free) and Pollinations.ai (free). Use when generating images, creating visuals, AI art, ",
+      "fqn": "specweave-media:image"
+    },
+    "specweave-media:remotion": {
+      "plugin": "specweave-media",
+      "type": "skill",
+      "triggers": [
+        "react",
+        "product"
+      ],
+      "description": "Create programmatic videos with Remotion (React components rendered to MP4). Use when creating animated presentations, product demos, marketing videos",
+      "fqn": "specweave-media:remotion"
+    },
+    "specweave-media:video": {
+      "plugin": "specweave-media",
+      "type": "skill",
+      "triggers": [
+        "ai"
+      ],
+      "description": "Generate AI videos from text prompts or images. Supports Google Veo 3.1 and Pollinations.ai (free). Use when generating video, creating animations, te",
+      "fqn": "specweave-media:video"
+    },
+    "specweave-ml:data-scientist": {
+      "plugin": "specweave-ml",
+      "type": "skill",
+      "triggers": [
+        "mlflow",
+        "design"
+      ],
+      "description": "Statistical modeling and data analysis expert. A/B testing, causal inference, customer analytics (CLV, churn), anomaly detection, experiment tracking ",
+      "fqn": "specweave-ml:data-scientist"
+    },
+    "specweave-ml:edge-ml": {
+      "plugin": "specweave-ml",
+      "type": "skill",
+      "triggers": [
+        "ios",
+        "android",
+        "tensorflow",
+        "performance",
+        "optimization",
+        "ml"
+      ],
+      "description": "\"Edge ML / Mobile ML / Core ML expert. Covers Core ML (iOS) model conversion and inference, TensorFlow Lite (Android/iOS) with delegates, ONNX Runtime",
+      "fqn": "specweave-ml:edge-ml"
+    },
+    "specweave-ml:huggingface": {
+      "plugin": "specweave-ml",
+      "type": "skill",
+      "triggers": [
+        "hugging face",
+        "huggingface",
+        "transformers",
+        "model hub",
+        "tgi",
+        "text generation inference",
+        "safetensors",
+        "peft",
+        "accelerate",
+        "spaces",
+        "datasets",
+        "tokenizers",
+        "optimum",
+        "model",
+        "api",
+        "deployment",
+        "pipeline"
+      ],
+      "description": "\"Hugging Face Ecosystem expert. Covers Transformers (AutoModel, pipeline API), Model Hub, Datasets library, Tokenizers, Accelerate for multi-GPU, PEFT",
+      "fqn": "specweave-ml:huggingface"
+    },
+    "specweave-ml:langchain-agents": {
+      "plugin": "specweave-ml",
+      "type": "skill",
+      "triggers": [
+        "react",
+        "deployment",
+        "ai"
+      ],
+      "description": "\"LangChain & AI Agent Frameworks expert. Covers LCEL chains, ReAct/Plan-and-Execute/Multi-Agent architectures, tool calling, memory systems, LangGraph",
+      "fqn": "specweave-ml:langchain-agents"
+    },
+    "specweave-ml:llm-fine-tuning": {
+      "plugin": "specweave-ml",
+      "type": "skill",
+      "triggers": [
+        "fine-tune",
+        "fine-tuning",
+        "lora",
+        "qlora",
+        "peft",
+        "rlhf",
+        "dpo",
+        "gptq",
+        "awq",
+        "gguf",
+        "llm training",
+        "model training",
+        "quantization",
+        "deepspeed",
+        "training",
+        "model",
+        "deployment"
+      ],
+      "description": "\"LLM Fine-Tuning expert. Covers LoRA, QLoRA, PEFT, dataset preparation, Hugging Face Trainer/TRL, RLHF, DPO, quantization (GPTQ/AWQ/GGUF), model mergi",
+      "fqn": "specweave-ml:llm-fine-tuning"
+    },
+    "specweave-ml:ml-engineer": {
+      "plugin": "specweave-ml",
+      "type": "skill",
+      "triggers": [
+        "pipeline",
+        "feature",
+        "machine learning",
+        "ml",
+        "model training",
+        "production ml",
+        "ml pipelines"
+      ],
+      "description": "Machine learning pipeline builder for end-to-end ML systems. Covers feature engineering, model training, evaluation, hyperparameter tuning, AutoML, an",
+      "fqn": "specweave-ml:ml-engineer"
+    },
+    "specweave-ml:ml-specialist": {
+      "plugin": "specweave-ml",
+      "type": "skill",
+      "triggers": [
+        "ml"
+      ],
+      "description": "Domain-specific ML expert for NLP, Computer Vision, and Time Series. Text classification, NER, sentiment (BERT, transformers), image classification, o",
+      "fqn": "specweave-ml:ml-specialist"
+    },
+    "specweave-ml:mlops-engineer": {
+      "plugin": "specweave-ml",
+      "type": "skill",
+      "triggers": [
+        "k8s",
+        "docker",
+        "ci/cd",
+        "serverless",
+        "deployment",
+        "infrastructure",
+        "monitoring",
+        "ml",
+        "ml pipelines",
+        "mlops"
+      ],
+      "description": "MLOps expert for ML infrastructure and production systems. ML pipelines (Kubeflow, Airflow, Prefect), model registry, deployment (Docker, K8s, serverl",
+      "fqn": "specweave-ml:mlops-engineer"
+    },
+    "specweave-ml:rag-vectordb": {
+      "plugin": "specweave-ml",
+      "type": "skill",
+      "triggers": [
+        "database",
+        "deployment",
+        "query"
+      ],
+      "description": "\"RAG (Retrieval Augmented Generation) & Vector Database expert. Covers document loading, chunking strategies, embedding models, vector databases (Pine",
+      "fqn": "specweave-ml:rag-vectordb"
+    },
+    "specweave-mobile:capacitor-ionic": {
+      "plugin": "specweave-mobile",
+      "type": "skill",
+      "triggers": [
+        "capacitor",
+        "ionic",
+        "cordova",
+        "web-to-mobile",
+        "hybrid app",
+        "appflow",
+        "ionic framework",
+        "capacitor plugin",
+        "native bridge",
+        "web-to-native",
+        "web",
+        "mobile",
+        "react",
+        "vue",
+        "angular",
+        "api",
+        "architecture",
+        "migration",
+        "react native",
+        "ios",
+        "android",
+        "flutter"
+      ],
+      "description": "Capacitor and Ionic expert for web-to-mobile development. Capacitor 6+ architecture, Ionic Framework with Angular/React/Vue, native API access, custom",
+      "fqn": "specweave-mobile:capacitor-ionic"
+    },
+    "specweave-mobile:deep-linking-push": {
+      "plugin": "specweave-mobile",
+      "type": "skill",
+      "triggers": [
+        "deep link",
+        "deep linking",
+        "universal links",
+        "app links",
+        "push notification",
+        "push notifications",
+        "apns",
+        "fcm",
+        "firebase messaging",
+        "notification",
+        "deferred deep link",
+        "push",
+        "ios",
+        "android"
+      ],
+      "description": "Deep linking and push notification expert for mobile. iOS Universal Links, Android App Links, APNs, FCM, rich notifications, deferred deep linking, si",
+      "fqn": "specweave-mobile:deep-linking-push"
+    },
+    "specweave-mobile:expo": {
+      "plugin": "specweave-mobile",
+      "type": "skill",
+      "triggers": [
+        "react native",
+        "expo",
+        "react",
+        "api",
+        "architecture"
+      ],
+      "description": "Expo and React Native New Architecture expert. Expo SDK 52+, Fabric, TurboModules, JSI, EAS Build/Submit, Expo Router, Expo Modules API, OTA updates, ",
+      "fqn": "specweave-mobile:expo"
+    },
+    "specweave-mobile:flutter": {
+      "plugin": "specweave-mobile",
+      "type": "skill",
+      "triggers": [
+        "flutter",
+        "architecture",
+        "deployment",
+        "performance"
+      ],
+      "description": "Flutter and Dart 3+ expert for cross-platform mobile development. Covers widget composition, Riverpod state management, GoRouter navigation, platform ",
+      "fqn": "specweave-mobile:flutter"
+    },
+    "specweave-mobile:jetpack-compose": {
+      "plugin": "specweave-mobile",
+      "type": "skill",
+      "triggers": [
+        "android",
+        "kotlin",
+        "architecture",
+        "design",
+        "database",
+        "performance",
+        "optimization"
+      ],
+      "description": "Jetpack Compose and Kotlin expert for Android native development. Covers composable UI, Material Design 3, state management, Navigation, Hilt DI, Room",
+      "fqn": "specweave-mobile:jetpack-compose"
+    },
+    "specweave-mobile:mobile-testing": {
+      "plugin": "specweave-mobile",
+      "type": "skill",
+      "triggers": [
+        "mobile testing",
+        "xctest",
+        "xcuitest",
+        "espresso",
+        "robolectric",
+        "detox",
+        "maestro",
+        "mobile e2e",
+        "device farm",
+        "firebase test lab",
+        "aws device farm",
+        "mobile ci",
+        "mobile",
+        "testing",
+        "test",
+        "aws",
+        "react native",
+        "ios",
+        "android",
+        "flutter",
+        "react",
+        "jest",
+        "e2e",
+        "performance"
+      ],
+      "description": "Mobile testing expert across all platforms. iOS XCTest/XCUITest, Android JUnit/Espresso/Compose, React Native Jest/Detox, Flutter widget/integration t",
+      "fqn": "specweave-mobile:mobile-testing"
+    },
+    "specweave-mobile:react-native-expert": {
+      "plugin": "specweave-mobile",
+      "type": "skill",
+      "triggers": [
+        "react native",
+        "expo",
+        "react",
+        "architect",
+        "architecture",
+        "mobile app",
+        "performance"
+      ],
+      "description": "React Native and Expo architect and expert. Architecture, setup, Metro bundler, native modules, New Architecture (Fabric, Turbo Modules, JSI), Expo Ro",
+      "fqn": "specweave-mobile:react-native-expert"
+    },
+    "specweave-mobile:swiftui": {
+      "plugin": "specweave-mobile",
+      "type": "skill",
+      "triggers": [
+        "ios",
+        "swift",
+        "architecture"
+      ],
+      "description": "SwiftUI and Swift 6 expert for iOS native development. Covers view composition, NavigationStack, @Observable, SwiftData, structured concurrency, MVVM/",
+      "fqn": "specweave-mobile:swiftui"
+    },
+    "specweave-n8n:n8n-kafka-workflows": {
+      "plugin": "specweave-n8n",
+      "type": "skill",
+      "triggers": [
+        "n8n kafka",
+        "kafka trigger",
+        "kafka producer",
+        "n8n workflows",
+        "event-driven automation",
+        "no-code kafka",
+        "workflow patterns",
+        "kafka",
+        "node"
+      ],
+      "description": "n8n workflow automation with Kafka integration expert. Covers Kafka trigger node, producer node, event-driven workflows, error handling, retries, and ",
+      "fqn": "specweave-n8n:n8n-kafka-workflows"
+    },
+    "specweave-payments:billing-automation": {
+      "plugin": "specweave-payments",
+      "type": "skill",
+      "triggers": [
+        "saas"
+      ],
+      "description": "SaaS billing automation for subscriptions, invoicing, payment recovery. Use for recurring billing, dunning, proration, usage-based billing, tax compli",
+      "fqn": "specweave-payments:billing-automation"
+    },
+    "specweave-payments:payments": {
+      "plugin": "specweave-payments",
+      "type": "skill",
+      "triggers": [
+        "stripe",
+        "paypal",
+        "marketplace"
+      ],
+      "description": "Payment integration expert for Stripe, PayPal, and marketplace payments (Stripe Connect). Checkout flows, webhooks, subscriptions, Direct/Destination ",
+      "fqn": "specweave-payments:payments"
+    },
+    "specweave-payments:pci-compliance": {
+      "plugin": "specweave-payments",
+      "type": "skill",
+      "triggers": [
+        "pci",
+        "requirements"
+      ],
+      "description": "PCI DSS compliance expert for secure payment card handling and audit preparation. Use when implementing card tokenization, encrypting payment data, or",
+      "fqn": "specweave-payments:pci-compliance"
+    },
+    "specweave-release:release-coordinator": {
+      "plugin": "specweave-release",
+      "type": "skill",
+      "triggers": [],
+      "description": "Multi-repo release coordination - dependency management, release waves, RC lifecycle (alpha/beta/rc), brownfield detection, rollback planning. Use for",
+      "fqn": "specweave-release:release-coordinator"
+    },
+    "specweave-release:version-aligner": {
+      "plugin": "specweave-release",
+      "type": "skill",
+      "triggers": [],
+      "description": "Multi-repo version alignment - lockstep/independent/umbrella strategies, semver constraints, version conflict detection.",
+      "fqn": "specweave-release:version-aligner"
+    },
+    "specweave-testing:accessibility-testing": {
+      "plugin": "specweave-testing",
+      "type": "skill",
+      "triggers": [
+        "ci/cd"
+      ],
+      "description": "Accessibility testing for WCAG compliance, axe-core, pa11y, Lighthouse, screen readers, keyboard nav, CI/CD a11y gates. Use for a11y audits, ARIA, col",
+      "fqn": "specweave-testing:accessibility-testing"
+    },
+    "specweave-testing:e2e-testing": {
+      "plugin": "specweave-testing",
+      "type": "skill",
+      "triggers": [
+        "playwright",
+        "cypress",
+        "e2e"
+      ],
+      "description": "End-to-end testing expert for Playwright, Cypress, visual regression (Percy, Chromatic), and UI testing. Use for E2E tests, browser automation, visual",
+      "fqn": "specweave-testing:e2e-testing"
+    },
+    "specweave-testing:mutation-testing": {
+      "plugin": "specweave-testing",
+      "type": "skill",
+      "triggers": [
+        "typescript",
+        "javascript"
+      ],
+      "description": "Mutation testing expert using Stryker Mutator for TypeScript/JavaScript. Analyzes test suite effectiveness by injecting code mutations and measuring k",
+      "fqn": "specweave-testing:mutation-testing"
+    },
+    "specweave-testing:performance-testing": {
+      "plugin": "specweave-testing",
+      "type": "skill",
+      "triggers": [
+        "database",
+        "performance",
+        "monitoring"
+      ],
+      "description": "Performance testing expert for load testing (k6, Artillery), web performance (Lighthouse CI, Core Web Vitals), database performance, and memory/resour",
+      "fqn": "specweave-testing:performance-testing"
+    },
+    "specweave-testing:qa-engineer": {
+      "plugin": "specweave-testing",
+      "type": "skill",
+      "triggers": [
+        "qa"
+      ],
+      "description": "Expert QA engineer for test strategy and automation. Use when writing tests, fixing failing tests, or improving test coverage.",
+      "fqn": "specweave-testing:qa-engineer"
+    },
+    "specweave-testing:unit-testing": {
+      "plugin": "specweave-testing",
+      "type": "skill",
+      "triggers": [
+        "jest",
+        "vitest",
+        "tdd"
+      ],
+      "description": "Unit testing and TDD expert for Vitest/Jest. Red-green-refactor workflow, mocking strategies, coverage analysis, and ESM mocking patterns. Use for wri",
+      "fqn": "specweave-testing:unit-testing"
+    }
+  },
+  "generatedAt": "2026-02-17T02:35:17.528Z",
+  "skillCount": 116,
+  "keywordCount": 354
+}

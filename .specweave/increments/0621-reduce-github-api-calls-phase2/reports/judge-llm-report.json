@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "incrementId": "0621-reduce-github-api-calls-phase2",
+  "timestamp": "2026-03-19T15:31:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "requireJudgeLLM is false in config and no externalModels consent configured",
+  "details": {
+    "configKey": "auto.requireJudgeLLM",
+    "configValue": false
+  }
+}

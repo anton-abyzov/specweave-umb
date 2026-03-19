@@ -1,0 +1,12 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13477
+Increment recommendation: new (confidence: 0.5, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.3,
+  "reasoning": "Vague prompt with temp file context; no specific tech stack identified. Mentions 'increments' (workflow/tooling) but details unclear.",
+  "latencyMs": 14965.541542
+}

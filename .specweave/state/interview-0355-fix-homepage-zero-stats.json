@@ -1,0 +1,27 @@
+{
+  "incrementId": "0355-fix-homepage-zero-stats",
+  "startedAt": "2026-02-24T01:59:22-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-02-24T02:00:56.293407",
+      "summary": "Hardcoded fallback with real production values; stale-while-revalidate via updatedAt timestamp; cron in separate ctx.waitUntil"
+    },
+    "ux": {
+      "coveredAt": "2026-02-24T02:00:56.293407",
+      "summary": "No stale indicator, just show numbers normally"
+    },
+    "deployment": {
+      "coveredAt": "2026-02-24T02:00:56.293407",
+      "summary": "Hardcoded fallback sufficient, no deployment script changes"
+    },
+    "caching": {
+      "coveredAt": "2026-02-24T02:00:56.293407",
+      "summary": "Remove KV TTL, manage freshness via updatedAt; serve any real data over zeros"
+    },
+    "reliability": {
+      "coveredAt": "2026-02-24T02:00:56.293407",
+      "summary": "Separate ctx.waitUntil for refreshPlatformStats; background refresh on stale"
+    }
+  },
+  "completedAt": "2026-02-24T02:00:56.293407"
+}

@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "incrementId": "0540-plugin-lifecycle-core-only-install",
+  "timestamp": "2026-03-15T22:55:00Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels consent not configured in .specweave/config.json"
+}

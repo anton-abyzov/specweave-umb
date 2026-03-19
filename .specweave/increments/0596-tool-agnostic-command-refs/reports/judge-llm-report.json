@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0596-tool-agnostic-command-refs",
+  "timestamp": "2026-03-19T04:31:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "No externalModels configuration — consent not established",
+  "findings": []
+}

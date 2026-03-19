@@ -1,0 +1,20 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.62 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 7409
+Increment recommendation: none (confidence: 0.9, mandatory: false)
+{
+  "detected": true,
+  "plugins": [
+    "sw-github"
+  ],
+  "confidence": 0.85,
+  "reasoning": "GitHub sync with gh issue comment - sw-github plugin needed",
+  "latencyMs": 10797.430084,
+  "increment": {
+    "action": "none",
+    "confidence": 0.9,
+    "mandatory": false,
+    "reasoning": "User explicitly stated 'NOT task but AC' — this is acceptance criteria clarification, not implementation work"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0462-rescan-published-trust-elevation",
+  "startedAt": "2026-03-09T08:34:52-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-09T08:35:00-04:00",
+      "summary": "Single Next.js API route following existing bulk-reprocess pattern. Prisma DB queries for PUBLISHED skills with T1/T2 trustTier, creates Submission records, enqueues to CF Queue. publishSkill() already handles upsert on re-scan."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-09T08:35:00-04:00",
+      "summary": "All existing: Prisma DB, CF Queue (SUBMISSION_QUEUE), KV (SUBMISSIONS_KV). No new integrations needed."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-09T08:35:00-04:00",
+      "summary": "N/A - Admin API endpoint only, no UI component."
+    },
+    "performance": {
+      "coveredAt": "2026-03-09T08:35:00-04:00",
+      "summary": "Batched 500/call with hasMore pagination. Queue chunks of 100. Targets 34,342 T2 skills over ~69 calls."
+    },
+    "security": {
+      "coveredAt": "2026-03-09T08:35:00-04:00",
+      "summary": "X-Internal-Key (cron/CLI) OR SUPER_ADMIN Bearer token. Same auth pattern as bulk-reprocess."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-09T08:35:00-04:00",
+      "summary": "Skip skills with pending submissions, blocked/tainted skills. Optional flag to skip skills that already have T2 scan results. Dry-run mode for previewing counts."
+    }
+  }
+}

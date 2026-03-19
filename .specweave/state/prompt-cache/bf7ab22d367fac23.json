@@ -1,0 +1,30 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9819
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+Skill invocation: testing:qa (mandatory: true)
+{
+  "detected": true,
+  "plugins": [
+    "testing",
+    "sw-github",
+    "sw-jira",
+    "sw-ado"
+  ],
+  "confidence": 0.9,
+  "reasoning": "Testing request for Jira, GitHub, ADO sync implementations with edge cases",
+  "latencyMs": 11022.198124999999,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "sync-platforms-edge-case-testing",
+    "reasoning": "QA testing work for existing sync integrations across multiple platforms"
+  },
+  "skillInvocation": {
+    "skill": "testing:qa",
+    "reason": "Edge case testing and scenario validation for sync implementations",
+    "mandatory": true
+  }
+}

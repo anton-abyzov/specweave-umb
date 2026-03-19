@@ -1,0 +1,13 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10081
+{
+  "detected": true,
+  "plugins": [
+    "sw-github"
+  ],
+  "confidence": 0.7,
+  "reasoning": "GitHub sync operational; sw-jira and sw-ado plugins not yet available in marketplace",
+  "latencyMs": 11490.543708000001
+}

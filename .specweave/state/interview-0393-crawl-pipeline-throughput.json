@@ -1,0 +1,12 @@
+{
+  "incrementId": "0393-crawl-pipeline-throughput",
+  "startedAt": "2026-03-01T13:13:14-05:00",
+  "answersProvided": true,
+  "coveredCategories": {
+    "architecture": {"coveredAt": "2026-03-01T13:13:14-05:00", "summary": "Keep queue-processor, submission-scanner is main path. CF Queue behind feature flag SKIP_QUEUE_ENQUEUE."},
+    "concurrency": {"coveredAt": "2026-03-01T13:13:14-05:00", "summary": "max_concurrency=10, BATCH_CONCURRENCY=3, max_batch_size=5. Age filter reduced to 30s."},
+    "tokenManagement": {"coveredAt": "2026-03-01T13:13:14-05:00", "summary": "TokenRotator already works in crawlers. Add GITHUB_TOKENS support to CF Worker consumer.ts."},
+    "staleness": {"coveredAt": "2026-03-01T13:13:14-05:00", "summary": "Per-state dedup: PUBLISHED=24h, REJECTED=48h, DEFAULT=72h. Rejected should be re-scannable. BLOCKED stays permanent."},
+    "featureFlags": {"coveredAt": "2026-03-01T13:13:14-05:00", "summary": "SKIP_QUEUE_ENQUEUE default true. Fallback to CF Queue if VMs down."}
+  }
+}

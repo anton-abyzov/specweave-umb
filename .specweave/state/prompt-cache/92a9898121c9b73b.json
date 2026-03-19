@@ -1,0 +1,12 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9890
+Invalid LLM response format: I need permission to read the task output file. Could you grant permission, or would you like to share what the output contains? Once I see what specweave plugin/cache files were found, I can determin
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 11221.667208,
+  "installMessage": "Invalid response format (no JSON found)"
+}

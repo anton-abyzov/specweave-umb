@@ -1,0 +1,22 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11845
+Increment recommendation: new (confidence: 0.9, mandatory: true)
+{
+  "detected": true,
+  "plugins": [
+    "sw-jira",
+    "sw-github"
+  ],
+  "confidence": 0.9,
+  "reasoning": "JIRA board investigation + Git repo management + SpecWave integration debugging",
+  "latencyMs": 13087.014708,
+  "increment": {
+    "action": "new",
+    "confidence": 0.9,
+    "mandatory": true,
+    "suggestedName": "investigate-specweave-jira-sync-bug",
+    "reasoning": "Multi-system investigation (JIRA sync, GitHub, SpecWave) with potential bug fix, deployment, and release cycle"
+  }
+}

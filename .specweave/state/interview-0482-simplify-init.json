@@ -1,0 +1,30 @@
+{
+  "incrementId": "0482-simplify-init",
+  "startedAt": "2026-03-10T19:31:49-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-10T19:32:27-04:00",
+      "summary": "Simplification refactoring: strip init.ts from 1242 to ~300 lines. Remove brownfield/greenfield, repo hosting, umbrella cloning, issue tracker setup. Keep core scaffolding: adapter detection, provider detection, directory creation, config generation, template copy, plugin install. No new architecture, only removal."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-10T19:32:27-04:00",
+      "summary": "N/A - this feature REMOVES integration prompts (GitHub/ADO/Bitbucket/JIRA). External tool setup moves to sync-setup command. detectProvider() silently reads .git/config."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-10T19:32:27-04:00",
+      "summary": "CLI UX: simplified banner showing project/adapter/provider/language/defaults. Guided next-steps with 3 follow-up commands. --quick flag for zero prompts. Interactive mode max 2 prompts."
+    },
+    "performance": {
+      "coveredAt": "2026-03-10T19:32:27-04:00",
+      "summary": "Target: init completes in < 10 seconds. Achieved by removing all external API calls, wizard flows, and repo cloning from the command."
+    },
+    "security": {
+      "coveredAt": "2026-03-10T19:32:27-04:00",
+      "summary": "N/A - no auth, secrets, or sensitive data handling. Removing env file reading from init. Credentials handled by sync-setup instead."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-10T19:32:27-04:00",
+      "summary": "Backward compatibility: existing config.json with sync/umbrella/issueTracker sections still work (optional chaining). Re-init detection preserved. Path guards preserved. No breaking changes."
+    }
+  }
+}

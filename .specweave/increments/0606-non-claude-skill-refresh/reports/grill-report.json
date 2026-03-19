@@ -1,0 +1,39 @@
+{
+  "version": "1.1",
+  "incrementId": "0606-non-claude-skill-refresh",
+  "timestamp": "2026-03-19T05:50:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 1, "critical": 0, "high": 0, "medium": 0, "low": 1 },
+  "acCompliance": {
+    "totalACs": 11,
+    "passed": 11,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "plugin-copier.ts:644-647 normalizeSkillFrontmatter() injects name: from directory name" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "plugin-copier.ts:649-673 extractFirstContentLine() derives description from body" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "plugin-copier.ts:606-642 CLAUDE_FIELDS + HOOKS_BLOCK_RE stripped in normalizeSkillFrontmatter()" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "plugin-copier.ts:767-772 only SKILL.md triggers normalization, other files use raw copyFileSync" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "update.ts:88-91 no args defaults to all lockfile skills" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "source-fetcher.ts:193-236 fetchLocal() reads from findCoreSkillsDir() plugin cache" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "update.ts:149-153 SHA match triggers skip with continue" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "update.ts:210 ensureFrontmatter(fileContent, name) applied to SKILL.md on write" },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "update.ts:234-253 lockfile entry updated with new SHA, timestamp, files, then writeLockfile()" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "commands.md:598-604 documents frontmatter normalization for non-Claude adapters" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "vskill-cli.md:230-258 documents default update-all and local:specweave support" }
+    ]
+  },
+  "findings": [
+    {
+      "title": "installation.md still shows vskill update --all as required",
+      "severity": "low",
+      "confidence": 80,
+      "category": "maintainability",
+      "file": "docs-site/docs/skills/installation.md:274",
+      "issue": "Shows 'vskill update --all' as the way to update all skills, while code now defaults to all without the flag",
+      "suggestion": "Update to show bare 'vskill update' as the default",
+      "impact": "Minor documentation inconsistency; --all still works so users are not blocked"
+    }
+  ]
+}

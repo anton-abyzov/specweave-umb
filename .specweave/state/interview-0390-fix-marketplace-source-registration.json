@@ -1,0 +1,24 @@
+{
+  "incrementId": "0390-fix-marketplace-source-registration",
+  "startedAt": "2026-02-28T04:04:50-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-02-28T04:05:59-05:00",
+      "summary": "Single function fix in installMarketplaceRepo"
+    },
+    "scope": {
+      "coveredAt": "2026-02-28T04:05:59-05:00",
+      "summary": "registerMarketplace(tmpDir) -> registerMarketplace(owner/repo)"
+    },
+    "testing": {
+      "coveredAt": "2026-02-28T04:05:59-05:00",
+      "summary": "Update claude-cli.test.ts and add.test.ts for new source format"
+    },
+    "migration": {
+      "coveredAt": "2026-02-28T04:05:59-05:00",
+      "summary": "No migration needed, forward-fix only"
+    }
+  },
+  "completed": true,
+  "completedAt": "2026-02-28T04:05:59-05:00"
+}

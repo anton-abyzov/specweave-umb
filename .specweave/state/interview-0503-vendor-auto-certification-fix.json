@@ -1,0 +1,30 @@
+{
+  "incrementId": "0503-vendor-auto-certification-fix",
+  "startedAt": "2026-03-11T22:24:30-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T22:25:00-04:00",
+      "summary": "Bug fix in existing publish pipeline: processSubmission -> publishSkill flow. No new components. Fix vendor flag propagation in 3 existing files."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T22:25:01-04:00",
+      "summary": "N/A - No new integrations. Fix is internal to existing KV + DB dual-write pattern in submission-store.ts and process-submission.ts."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T22:25:02-04:00",
+      "summary": "N/A - Backend-only fix. CLI display logic (vskill find) already correctly shows cert tier from DB. No UI changes needed."
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T22:25:03-04:00",
+      "summary": "N/A - No performance impact. markVendor adds one KV put + one DB update, same as existing patterns."
+    },
+    "security": {
+      "coveredAt": "2026-03-11T22:25:04-04:00",
+      "summary": "Trust pipeline fix: vendor orgs get CERTIFIED/T4 trust instead of community VERIFIED. Vendor org list is hardcoded in provider-registry.ts. No new auth or access control changes."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T22:25:05-04:00",
+      "summary": "Edge case: publishSkill fallback check via isVendorOrg(owner) when sub.isVendor is false (race condition or legacy data). Backfill needed for existing vendor skills published before fix."
+    }
+  }
+}

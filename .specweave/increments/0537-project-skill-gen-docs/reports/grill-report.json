@@ -1,0 +1,72 @@
+{
+  "version": "1.1",
+  "incrementId": "0537-project-skill-gen-docs",
+  "timestamp": "2026-03-15T20:28:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 3, "critical": 0, "high": 0, "medium": 0, "fixed": 3 },
+  "acCompliance": {
+    "totalACs": 30,
+    "passed": 30,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "SignalCollector reads .specweave/docs/internal/ recursively, wired in LifecycleHookDispatcher STEP 4" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "upsertSignal() creates new entries with all required fields" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "upsertSignal() updates existing by category, appends incrementId, refreshes lastSeen" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "loadStore() returns empty on ENOENT, saveStore() creates file" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "Outer try/catch in collect() logs warning, never throws" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "evaluate() filters qualifying signals by count, declined, generated" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "console.log includes pattern name, count, /sw:skill-gen" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Early return when config.suggest is false" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "Sort by confidence DESC, take first" },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "top.suggested = true before saveStore" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "SKILL.md Step 2 displays qualifying patterns" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "SKILL.md Step 4-5 delegates to skill-creator plugin" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "SKILL.md Step 5 writes to .claude/skills/" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "SKILL.md Step 6 sets generated: true" },
+      { "acId": "AC-US3-05", "status": "pass", "evidence": "SKILL.md Step 2 no qualifying patterns message" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "DriftDetector reads .claude/skills/*.md, compares against living docs. Wired in living-docs-sync.ts" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "console.warn with skill filename and stale references" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "Outer try/catch, logs warning, never blocks sync" },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "Returns silently when no skills dir or empty" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "SKILL_GEN_DEFAULTS + loadConfig fallback. detection: off now checked in LifecycleHookDispatcher" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "SuggestionEngine uses config.minSignalCount. Confidence now uses configurable minSignalCount" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "declinedSuggestions Set excludes patterns from suggestions" },
+      { "acId": "AC-US5-04", "status": "pass", "evidence": "npx tsc --noEmit zero errors" },
+      { "acId": "AC-US6-01", "status": "pass", "evidence": "skill-generation.md created with Docusaurus frontmatter" },
+      { "acId": "AC-US6-02", "status": "pass", "evidence": "Added to skillsSidebar in sidebars.ts" },
+      { "acId": "AC-US6-03", "status": "pass", "evidence": "Doc covers signal lifecycle, config, /sw:skill-gen, drift, schema" },
+      { "acId": "AC-US6-04", "status": "pass", "evidence": "README updated with skill-gen mention and link" },
+      { "acId": "AC-US7-01", "status": "pass", "evidence": "All 26 SKILL.md files have ## Resources with verified-skill.com/docs/reference/skills#name link" },
+      { "acId": "AC-US7-02", "status": "pass", "evidence": "Checked before appending, no duplication" },
+      { "acId": "AC-US7-03", "status": "pass", "evidence": "skill-gen SKILL.md links to extensible/skill-generation" }
+    ]
+  },
+  "findings": [
+    {
+      "title": "detection: off config was dead code — signals always collected",
+      "severity": "critical",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "src/core/hooks/LifecycleHookDispatcher.ts:329-342",
+      "status": "FIXED — STEP 4 now reads skillGen.detection from config, skips when off"
+    },
+    {
+      "title": "Confidence hardcoded against default minSignalCount=3, ignoring user config",
+      "severity": "high",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "src/core/skill-gen/signal-collector.ts:213-226",
+      "status": "FIXED — SignalCollector now accepts minSignalCount option, uses this.minSignalCount"
+    },
+    {
+      "title": "26 Resources URLs pointed to non-existent /docs/commands/ pages (404s)",
+      "severity": "high",
+      "confidence": 90,
+      "category": "correctness",
+      "file": "plugins/specweave/skills/*/SKILL.md",
+      "status": "FIXED — URLs now point to /docs/reference/skills#skill-name (existing page with anchors)"
+    }
+  ]
+}

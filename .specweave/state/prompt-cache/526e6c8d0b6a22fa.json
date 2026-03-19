@@ -1,0 +1,18 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.78 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 7951
+Increment recommendation: none (confidence: 0.9, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.3,
+  "reasoning": "Unclear prompt - appears to be audio/media editing rather than software development",
+  "latencyMs": 9506.727667000001,
+  "increment": {
+    "action": "none",
+    "confidence": 0.9,
+    "mandatory": false,
+    "reasoning": "Not software implementation work; audio engineering context outside Claude Code scope"
+  }
+}

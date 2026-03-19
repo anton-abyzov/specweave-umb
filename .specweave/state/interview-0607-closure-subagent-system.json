@@ -1,0 +1,13 @@
+{
+  "incrementId": "0607-closure-subagent-system",
+  "status": "completed",
+  "coveredCategories": {
+    "architecture": { "summary": "sw-closer subagent wraps sw:done in fresh context. Follows sw-pm pattern. Only SKILL.md templates and agent definition." },
+    "integrations": { "summary": "Integrates with sw:done, sw:grill, sw:judge-llm. Updates team-lead, team-merge, do, auto SKILL.md. Non-cloud fallback." },
+    "ui-ux": { "summary": "No UI. CLI-only SKILL.md changes. close-all prints summary table." },
+    "performance": { "summary": "Fresh context prevents overflow. Sequential closure for dependency order." },
+    "security": { "summary": "sw-closer only fixes closure metadata. specweave complete CLI is only completion path." },
+    "edge-cases": { "summary": "Gate 0 desync: sync-acs + retry once. Missing reports: report failure. Non-cloud: direct sw:done fallback." }
+  },
+  "completedAt": "2026-03-19T00:00:00+00:00"
+}

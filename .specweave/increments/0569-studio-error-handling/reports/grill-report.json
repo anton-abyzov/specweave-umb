@@ -1,0 +1,47 @@
+{
+  "version": "1.1",
+  "incrementId": "0569-studio-error-handling",
+  "timestamp": "2026-03-18T08:45:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 1, "critical": 0, "high": 0, "medium": 1 },
+  "acCompliance": {
+    "totalACs": 19,
+    "passed": 19,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "ErrorCard.tsx CATEGORY_CONFIG has model_not_found with magnifying glass icon and red color" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "classifyErrorClient.ts:16 returns exact hint text specified in AC" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "shared/classifiedError.ts exists with model_not_found in category union, matches backend error-classifier.ts" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "ErrorCard.tsx re-exports ClassifiedError via export type from shared — existing imports unchanged" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "TestsPanel.tsx:233 changed from onRetry={handleGenerateEvals} to onRetry={() => handleGenerateEvals()}" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "WorkspaceContext.tsx sanitizeTestType() returns undefined for non-string values, 8 tests verify" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "sanitizeTestType returns 'unit'/'integration' unchanged, verified by tests" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "safeStringify in sse.ts catches circular refs, falls back to WeakSet replacer; client never crashes" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "safeStringify:19 logs to console.error on catch; no internal details in UI" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "Both useSSE.start() and useMultiSSE.startCase() now use safeStringify(body) instead of JSON.stringify" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "safeStringify tries JSON.stringify first — happy path identical to before" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "SkillWorkspace.tsx raw div replaced with ErrorCard + classifyErrorClient" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "ErrorCard receives onDismiss that dispatches SET_ERROR null" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "classifyErrorClient.ts maps rate_limit, auth, timeout, model_not_found patterns; unknown fallback" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "ErrorBoundary wraps panel content; DetailHeader and TabBar remain outside" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "ErrorBoundary.tsx:28-39 renders 'Something went wrong' + Reload button" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "ErrorBoundary.tsx:20 console.error with error and componentStack" },
+      { "acId": "AC-US5-04", "status": "pass", "evidence": "ErrorBoundary key={plugin/skill} causes remount on skill switch" },
+      { "acId": "AC-US5-05", "status": "pass", "evidence": "ErrorBoundary.tsx:34 onClick={() => window.location.reload()" }
+    ]
+  },
+  "findings": [
+    {
+      "title": "ErrorCard export before import (style)",
+      "severity": "low",
+      "confidence": 55,
+      "category": "maintainability",
+      "file": "src/eval-ui/src/components/ErrorCard.tsx:2-3",
+      "issue": "export type precedes import type for the same symbol — unconventional ordering",
+      "suggestion": "Move import above export for conventional ordering",
+      "impact": "No functional impact; minor code readability"
+    }
+  ]
+}

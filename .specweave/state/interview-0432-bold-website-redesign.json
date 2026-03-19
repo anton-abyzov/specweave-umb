@@ -1,0 +1,30 @@
+{
+  "incrementId": "0432-bold-website-redesign",
+  "startedAt": "2026-03-05T02:40:41-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-05T02:40:58-05:00",
+      "summary": "CSS Custom Properties, CSS Grid 12-col, @keyframes+IntersectionObserver, Docusaurus 3 swizzle (wrap+eject), Lucide React, Inter font, no Tailwind/Framer Motion"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-05T02:40:58-05:00",
+      "summary": "Docusaurus 3.9.2, Remotion 4, Lucide React icons, existing Cloudflare analytics, existing search plugin"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-05T02:40:58-05:00",
+      "summary": "11 landing sections, 15 new components, mega-menu navbar, fluid typography clamp(), glass morphism, word-by-word animation, 4 user personas"
+    },
+    "security": {
+      "coveredAt": "2026-03-05T02:40:58-05:00",
+      "summary": "N/A - static marketing site, no auth/data handling"
+    },
+    "performance": {
+      "coveredAt": "2026-03-05T02:41:30-05:00",
+      "summary": "SVGs for all icons/logos, no CDN image opt, no critical CSS inlining, lazy-load video with poster+IntersectionObserver, MP4 H.264 + WebM VP9 dual format, Lighthouse 90+"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-05T02:41:30-05:00",
+      "summary": "Progressive enhancement for IntersectionObserver (show by default, animate on client via useEffect), pin Docusaurus 3.9.x, accept manual 4.0 migration, graceful degradation no BrowserOnly"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9829
+Invalid LLM response format: I need more context to help you! The message "Yes, implement it" refers to something from a previous conversation that I don't have access to.
+
+Could you provide details about what you'd like to imple
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 11368.143208000001,
+  "installMessage": "Invalid response format (no JSON found)"
+}

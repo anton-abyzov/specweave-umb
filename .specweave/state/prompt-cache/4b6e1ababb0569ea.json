@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.78 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10451
+Increment recommendation: new (confidence: 0.9, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "No explicit integration mentions - debugging/deployment work",
+  "latencyMs": 11753.135292,
+  "increment": {
+    "action": "new",
+    "confidence": 0.9,
+    "mandatory": true,
+    "suggestedName": "fix-space-404-error",
+    "reasoning": "Bug fix for broken deployment requiring testing and verification"
+  }
+}

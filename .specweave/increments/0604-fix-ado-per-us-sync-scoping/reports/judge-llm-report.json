@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0604-fix-ado-per-us-sync-scoping",
+  "timestamp": "2026-03-19T05:05:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "External models consent not configured",
+  "findings": []
+}

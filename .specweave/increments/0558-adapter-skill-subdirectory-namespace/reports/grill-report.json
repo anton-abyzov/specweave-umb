@@ -1,0 +1,33 @@
+{
+  "version": "1.1",
+  "incrementId": "0558-adapter-skill-subdirectory-namespace",
+  "timestamp": "2026-03-17T19:45:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 16,
+    "passed": 16,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "cursor/adapter.ts — rulesDir changed from .cursor/rules to .cursor/skills in compilePlugin, unloadPlugin, getInstalledPlugins" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "windsurf/adapter.ts — rulesDir changed from .windsurf/rules to .windsurf/skills" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "codex/adapter.ts — rulesDir changed from .codex/rules to .codex/skills" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "copilot/adapter.ts — rulesDir changed from .github/instructions to .github/copilot/skills" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "cline/adapter.ts — rulesDir changed from .cline/rules to .cline/skills" },
+      { "acId": "AC-US1-06", "status": "pass", "evidence": "continue/adapter.ts — rulesDir changed from .continue/rules to .continue/skills" },
+      { "acId": "AC-US1-07", "status": "pass", "evidence": "jetbrains/adapter.ts — rulesDir changed from .aiassistant/rules to .junie/skills" },
+      { "acId": "AC-US1-08", "status": "pass", "evidence": "amazonq/adapter.ts — rulesDir changed from .amazonq/rules to .amazonq/skills" },
+      { "acId": "AC-US1-09", "status": "pass", "evidence": "trae/adapter.ts — rulesDir changed from .trae/rules to .trae/skills" },
+      { "acId": "AC-US1-10", "status": "pass", "evidence": "tabnine/adapter.ts — rulesDir changed from .tabnine/guidelines to .tabnine/skills" },
+      { "acId": "AC-US1-11", "status": "pass", "evidence": "aider/adapter.ts — rulesDir changed from .aider to .aider/skills" },
+      { "acId": "AC-US1-12", "status": "pass", "evidence": "zed/adapter.ts — rulesDir changed from .rules to .zed/skills" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "registry.yaml instruction_file mapping updated for all 12 adapters" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "registry.yaml adapter descriptions updated to reference new skills directories" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "19,270 tests passing across 828 test files, 0 failures — adapter-base tests unaffected" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "cursor-adapter.test.ts path assertions updated from .cursor/rules to .cursor/skills, all passing" }
+    ]
+  },
+  "findings": []
+}

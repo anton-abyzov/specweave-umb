@@ -1,0 +1,16 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.74 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 5117
+Invalid LLM response format: I need more context to help you! "Complete the job" is too vague. Could you clarify:
+
+- **What job/task** are you working on?
+- **What technology** is involved (React, Python, Go, etc.)?
+- **Is this r
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 6391.64975,
+  "installMessage": "Invalid response format (no JSON found)"
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0602-tool-agnostic-refs-phases-2-4",
+  "startedAt": "2026-03-19T04:48:10.967Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T04:48:17.422Z",
+      "summary": "Covered in brainstorm session for 0596. Same decision: drop leading / from /sw: in prose. Preserve functional code in phase-detector.ts and project-scope-guard.ts."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T04:48:17.629Z",
+      "summary": "Covered in brainstorm session for 0596. Same decision: drop leading / from /sw: in prose. Preserve functional code in phase-detector.ts and project-scope-guard.ts."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T04:48:17.836Z",
+      "summary": "Covered in brainstorm session for 0596. Same decision: drop leading / from /sw: in prose. Preserve functional code in phase-detector.ts and project-scope-guard.ts."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T04:48:18.041Z",
+      "summary": "Covered in brainstorm session for 0596. Same decision: drop leading / from /sw: in prose. Preserve functional code in phase-detector.ts and project-scope-guard.ts."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T04:48:18.249Z",
+      "summary": "Covered in brainstorm session for 0596. Same decision: drop leading / from /sw: in prose. Preserve functional code in phase-detector.ts and project-scope-guard.ts."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T04:48:18.457Z",
+      "summary": "Covered in brainstorm session for 0596. Same decision: drop leading / from /sw: in prose. Preserve functional code in phase-detector.ts and project-scope-guard.ts."
+    }
+  }
+}

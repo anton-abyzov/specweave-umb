@@ -1,0 +1,21 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11742
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": true,
+  "plugins": [
+    "sw-media"
+  ],
+  "confidence": 0.9,
+  "reasoning": "Explicit video generation, recreation, and UI/UX design work requested",
+  "latencyMs": 13098.172208,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "video-redesign-and-generation",
+    "reasoning": "Creative video improvement and media generation work requiring structured tracking"
+  }
+}

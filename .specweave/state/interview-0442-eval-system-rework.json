@@ -1,0 +1,30 @@
+{
+  "incrementId": "0442-eval-system-rework",
+  "startedAt": "2026-03-06T17:32:08-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-06T17:33:23-05:00",
+      "summary": "Existing CF Workers + Next.js 15 + Prisma stack. Rework of eval pipeline modules (judge, comparator, prompt-generator, eval-engine, eval-store). Keep CF AI as LLM provider."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-06T17:33:27-05:00",
+      "summary": "CF AI (Llama 4 Scout), Anthropic Claude API adapter, GitHub Contents API for evals.json, Cloudflare Queues for eval jobs, Prisma/D1 for storage"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-06T17:34:20-05:00",
+      "summary": "N/A - backend eval pipeline, no UI changes in this increment. Admin evals page already exists."
+    },
+    "performance": {
+      "coveredAt": "2026-03-06T17:34:20-05:00",
+      "summary": "Multi-run N configurable per trigger (1/3/5). Reuse existing EVAL_QUEUE. No new queues."
+    },
+    "security": {
+      "coveredAt": "2026-03-06T17:34:20-05:00",
+      "summary": "N/A - reuses existing admin auth (SUPER_ADMIN + internal auth). No new auth surfaces."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-06T17:34:20-05:00",
+      "summary": "Flaky assertion detection via stddev>0.3. Non-discriminating assertion detection. Backward compat with V1 runs via nullable columns. No auto-deprecation on DEGRADING."
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "version": "1.1",
+  "incrementId": "0582-fix-duplicate-increment-creation",
+  "timestamp": "2026-03-18T22:30:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 18,
+    "passed": 18,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "bin/specweave.js:384-407 --project-root option, test at increment-utils.test.ts:763" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "bin/specweave.js:399-401 fallback to resolveEffectiveRoot, test at increment-utils.test.ts:176" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "bin/specweave.js:392-397 validates config.json exists, test at increment-utils.test.ts:783" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "init.ts:323-325 calls createMinimalConfig before createDirectoryStructure, test at init-config-ordering.test.ts:128" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "createMinimalConfig ensures findProjectRoot resolves correctly, test at init-config-ordering.test.ts:68" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "directory-structure.ts:363 no-op on existing config, test at init-config-ordering.test.ts:80" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "getDirsToScan includes _backlog via RECOGNIZED_LIFECYCLE_FOLDERS, test at increment-utils.test.ts:637" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "increment-utils.ts:62-69 getDirsToScan derives from RECOGNIZED_LIFECYCLE_FOLDERS, test at increment-utils.test.ts:671" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "All 4 scan methods use getDirsToScan, test at increment-utils.test.ts:637-648" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "template-creator.ts:171-204 mkdirSync atomic + EEXIST retry, test at create-increment-auto-id.test.ts:152" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "create-increment.ts:51-72 --auto-id generates ID internally, test at create-increment-auto-id.test.ts:37" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "template-creator.ts:179-185 EEXIST triggers re-scan, test at create-increment-auto-id.test.ts:129" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "SKILL.md:207-211 default path uses specweave create-increment --auto-id CLI" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "SKILL.md:283-295 Adapter Compatibility section has zero Claude-specific tool references" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "SKILL.md:297-333 Claude delegation in conditional section (when TeamCreate available)" },
+      { "acId": "AC-US6-01", "status": "pass", "evidence": "template-creator.ts:334-346 calls findNameDuplicates + console.warn, test at increment-utils.test.ts:692" },
+      { "acId": "AC-US6-02", "status": "pass", "evidence": "Warning emitted after creation completes (non-blocking), test at increment-utils.test.ts:692" },
+      { "acId": "AC-US6-03", "status": "pass", "evidence": "increment-utils.ts:762-766 scans only active + _backlog, test at increment-utils.test.ts:708-724" }
+    ]
+  },
+  "findings": []
+}

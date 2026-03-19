@@ -1,0 +1,30 @@
+{
+  "incrementId": "0561-fix-scout-discoverability",
+  "startedAt": "2026-03-17T16:29:30-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-17T16:31:00-04:00",
+      "summary": "Fix localized to github-tree.ts in vskill repo. Add third regex for plugins/*/skills/*/SKILL.md with negative lookahead for specweave. No platform code changes needed."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-17T16:31:01-04:00",
+      "summary": "Platform discovery already handles non-specweave paths. Re-crawl/reindex needed, not code changes."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-17T16:31:02-04:00",
+      "summary": "N/A - no UI changes, search results are pass-through"
+    },
+    "performance": {
+      "coveredAt": "2026-03-17T16:31:03-04:00",
+      "summary": "N/A - adding one more regex check has negligible impact on discovery"
+    },
+    "security": {
+      "coveredAt": "2026-03-17T16:31:04-04:00",
+      "summary": "N/A - negative lookahead preserves specweave framework plugin exclusion"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-17T16:31:05-04:00",
+      "summary": "All 7 skills across 5 non-specweave plugins should be discoverable. Regression test for non-specweave paths required."
+    }
+  }
+}

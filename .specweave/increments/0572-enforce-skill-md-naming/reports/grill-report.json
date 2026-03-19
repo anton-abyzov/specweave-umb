@@ -1,0 +1,33 @@
+{
+  "version": "1.1",
+  "incrementId": "0572-enforce-skill-md-naming",
+  "timestamp": "2026-03-18T09:55:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 16,
+    "passed": 16,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "isSkillMdCandidate helper + patched copyPluginFiltered writes SKILL.md for non-SKILL.md .md files" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "entry === 'SKILL.md' branch unchanged — passes through with frontmatter" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "COPY_SKIP_MD set in isSkillMdCandidate excludes README/CHANGELOG/LICENSE/FRESHNESS/PLUGIN" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "Only first isSkillMdCandidate match writes SKILL.md; ensureSkillMdNaming sorts alphabetically" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "ensureSkillMdNaming skips dirs with existing SKILL.md; migrate.test.ts idempotency test" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "ensureSkillMdNaming renames candidate to SKILL.md with ensureFrontmatter; migrate.test.ts:425-437" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Sorts candidates alphabetically, takes first; migrate.test.ts:469-482" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "SKIP_FILES filters README.md etc; no candidates = no rename; migrate.test.ts:485-494" },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "Exported from migrate.ts, imported in add.ts, update.ts, init.ts without circular deps" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "add.ts calls ensureSkillMdNaming after copyPluginFiltered and after plugin install loop" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "update.ts calls ensureSkillMdNaming after writing updated skills to each agent dir" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "init.ts calls ensureSkillMdNaming right after migrateStaleSkillFiles for each agent" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "migrate.test.ts:425-437 — design.md renamed to SKILL.md with frontmatter" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "migrate.test.ts:440-452 — existing SKILL.md untouched, renamedCount=0" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "migrate.test.ts:455-466 — guide.md renamed, README.md preserved" },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "migrate.test.ts:469-482 — alpha.md picked first, beta.md removed" }
+    ]
+  },
+  "findings": []
+}

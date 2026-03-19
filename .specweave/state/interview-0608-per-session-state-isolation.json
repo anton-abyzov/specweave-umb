@@ -1,0 +1,30 @@
+{
+  "incrementId": "0608-per-session-state-isolation",
+  "startedAt": "2026-03-19T06:37:17.936Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T06:37:22.946Z",
+      "summary": "Per-session state dirs at .specweave/state/sessions/{id}/. Shared active-increment.json with FileLock. SessionStateManager class for CRUD+GC. Synchronous FileLock extracted to utils/file-lock.ts."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T06:37:25.476Z",
+      "summary": "Hook stdin JSON provides session_id and env_file. CLAUDE_ENV_FILE bridges session_id to Bash env. Stop hook uses jq for JSON parsing. No external services."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T06:37:26.854Z",
+      "summary": "No UI changes. CLI output updated for auto-status to show per-session info. All changes are internal state management."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T06:37:33.259Z",
+      "summary": "FileLock uses atomic mkdir (fast). GC runs on SessionStart only (not every hook). Short stale thresholds (5s for shared state). No polling or retries in hot paths."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T06:37:34.707Z",
+      "summary": "No secrets in session state. PID validation prevents GC of live sessions. Lock files contain only PID and timestamps. No user data in session dirs."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T06:37:37.129Z",
+      "summary": "Backward compat: fallback to global when no session_id. Resume creates new session (re-discovers active increments). Crash: GC cleans dead PIDs after 5min. Race on mkdir: EEXIST handled. Missing .specweave/state: created if .specweave exists."
+    }
+  }
+}

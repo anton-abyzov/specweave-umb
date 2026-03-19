@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12801
+Increment recommendation: new (confidence: 0.9, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.2,
+  "reasoning": "Infrastructure/CLI debugging work, no explicit tech domain",
+  "latencyMs": 14019.752208,
+  "increment": {
+    "action": "new",
+    "confidence": 0.9,
+    "mandatory": true,
+    "suggestedName": "debug-specweave-npm-auth-error",
+    "reasoning": "Reproducible NPM authentication error in specweave update across multiple machines requires investigation and fix"
+  }
+}

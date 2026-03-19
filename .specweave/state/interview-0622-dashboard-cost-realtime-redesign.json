@@ -1,0 +1,30 @@
+{
+  "incrementId": "0622-dashboard-cost-realtime-redesign",
+  "startedAt": "2026-03-19T15:56:27.413Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T16:10:00.000Z",
+      "summary": "7-domain architecture: pricing engine (src/eval/pricing.ts), cost in GenerateResult (llm.ts), cost propagation (benchmark-runner, sweep-runner), cost in stats API, UI cost display (StatsPanel, HistoryPanel, RunPanel, BenchmarkPage), SSE real-time updates (data-events.ts -> /api/events endpoint), SWR client caching (useSWR hook). 7 new files, 10 modified files."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T16:10:00.000Z",
+      "summary": "Integrates with all 6 LLM providers: Anthropic API (token-based cost calc), OpenRouter (existing total_cost + fallback), Ollama (free), Claude CLI (subscription/Max plan), Codex CLI (subscription), Gemini CLI (free tier). SSE extends existing benchmark SSE infrastructure. No new external API calls. Backwards-compatible with existing LeaderboardPanel cost display."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T16:10:00.000Z",
+      "summary": "Cost formatting utility: $0.0042 for small costs, N/A for unavailable, Free badge for free providers, Subscription badge for CLI subscription providers. StatsPanel gets 2 new summary cards (Total Cost, Avg Cost/Run) + cost column in model table + cost trend line. HistoryPanel shows cost per run in timeline. RunPanel shows pre-run estimate + post-run actual. Panels auto-refresh via SSE data events."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T16:10:00.000Z",
+      "summary": "Zero new external API calls — all pricing data is a local hardcoded table. SWR cache with 30s TTL prevents redundant fetches on panel switches. Request deduplication for in-flight requests. Single persistent SSE connection for data events (not polling). Existing concurrency controls (Semaphore, 429 retry) preserved. Respects GitHub API bleeding fix principle."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T16:10:00.000Z",
+      "summary": "No secrets exposed — pricing table is public knowledge. No new API keys required. SSE endpoint is local-only (same server). No user data sent externally. Existing auth patterns preserved. CLI log paths (~/.codex/, ~/.gemini/) are read-only for future token extraction (not in v1 scope)."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T16:10:00.000Z",
+      "summary": "Null tokens from CLI providers -> show N/A gracefully. Unknown model names -> fuzzy matching with fallback to null cost. Ollama always $0. Subscription providers show badge instead of per-call cost. OpenRouter total_cost missing -> fallback to token calculation. Stale pricing (>90 days) -> flaggable via updatedAt field. Empty benchmark history -> cost metrics show 0 or N/A. SSE connection drop -> panels still work via manual refresh."
+    }
+  }
+}

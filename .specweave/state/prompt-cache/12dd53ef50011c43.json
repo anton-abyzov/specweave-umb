@@ -1,0 +1,18 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 5362
+Increment recommendation: none (confidence: 1, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 1,
+  "reasoning": "System notification - teammate idle status, no action required",
+  "latencyMs": 7119.75925,
+  "increment": {
+    "action": "none",
+    "confidence": 1,
+    "mandatory": false,
+    "reasoning": "System notification - teammate availability update, not implementation work"
+  }
+}

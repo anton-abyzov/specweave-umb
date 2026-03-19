@@ -1,0 +1,42 @@
+{
+  "incrementId": "0584-skill-versioning",
+  "startedAt": "2026-03-18T21:37:59-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T21:37:59-04:00",
+      "summary": "Full-file SHA-256, deterministic sort, lockfile manifest, CRLF normalization"
+    },
+    "scope": {
+      "coveredAt": "2026-03-18T21:37:59-04:00",
+      "summary": "Client-side vskill only (Phase 1), 8 requirements from 3-agent brainstorm"
+    },
+    "edge_cases": {
+      "coveredAt": "2026-03-18T21:37:59-04:00",
+      "summary": "Ghost files, BOM handling, CRLF normalization, lockfile migration, no-change skip"
+    },
+    "users": {
+      "coveredAt": "2026-03-18T21:37:59-04:00",
+      "summary": "Skill authors publishing updates, developers consuming skills via vskill CLI"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T21:38:46-04:00",
+      "summary": "No new external integrations. Existing source types (registry, github, marketplace) unchanged. Lockfile format extended with optional files field for backward compat."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T21:38:46-04:00",
+      "summary": "CLI-only, no UI. Update command outputs skip/update/delete messages. No interactive prompts added."
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T21:38:46-04:00",
+      "summary": "Hash computation is O(n) on file count. No-change detection skips file writes entirely. No performance-sensitive paths."
+    },
+    "security": {
+      "coveredAt": "2026-03-18T21:38:46-04:00",
+      "summary": "SHA-256 for integrity verification. No secrets or auth changes. Content normalization (BOM/CRLF) prevents hash manipulation via encoding tricks."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T21:38:46-04:00",
+      "summary": "Ghost file deletion, BOM trimming, CRLF normalization, empty version/0.0.0 migration, skill with only SKILL.md (no agents), first-time install defaults to 1.0.0."
+    }
+  }
+}

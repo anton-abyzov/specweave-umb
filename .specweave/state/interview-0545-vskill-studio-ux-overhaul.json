@@ -1,0 +1,30 @@
+{
+  "incrementId": "0545-vskill-studio-ux-overhaul",
+  "startedAt": "2026-03-16T04:15:55-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-16T04:23:30-04:00",
+      "summary": "File browser PUT endpoint on same API server. verdictExplanation is pure client-side helper. testType is additive optional field in evals.json schema. Comparison truncation is UI-only."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-16T04:23:30-04:00",
+      "summary": "No external integrations. File editing via existing API server. Credential gating blocks integration test execution when env vars missing. evals.json backward compatible."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-16T04:23:30-04:00",
+      "summary": "All files writable in browser. Compare outputs truncated to 500 chars with Show full output toggle. Cancel shows partial results. Timeline left-to-right chronological. Verdict tooltips on hover."
+    },
+    "performance": {
+      "coveredAt": "2026-03-16T04:23:30-04:00",
+      "summary": "Timeline renders <200ms for 100 points. Comparison <500ms for 3 models x 20 prompts. 120s activation timeout. File save <2s for 100KB files."
+    },
+    "security": {
+      "coveredAt": "2026-03-16T04:23:30-04:00",
+      "summary": "PUT endpoint validates resolved path within skill directory root to prevent path traversal. All files in skill dir are writable - user trusts the boundary."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-16T04:23:30-04:00",
+      "summary": "Cancel with 0 completed prompts shows empty message. Mixed testType entries default individually. Pass rate 0.0/1.0 boundary. Compare with 1 model disabled. Empty skill dir shows empty state."
+    }
+  }
+}

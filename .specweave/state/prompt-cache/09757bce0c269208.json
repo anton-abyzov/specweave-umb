@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10261
+Increment recommendation: new (confidence: 0.8, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.5,
+  "reasoning": "No explicit tech mentioned; this is implementation work to update hardcoded model references",
+  "latencyMs": 11814.482124999999,
+  "increment": {
+    "action": "new",
+    "confidence": 0.8,
+    "mandatory": false,
+    "suggestedName": "update-model-references",
+    "reasoning": "Implementation work to update hardcoded AI model references across multiple locations to latest versions"
+  }
+}

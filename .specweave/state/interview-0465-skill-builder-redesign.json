@@ -1,0 +1,30 @@
+{
+  "incrementId": "0465-skill-builder-redesign",
+  "startedAt": "2026-03-09T12:14:59-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-09T12:16:48-04:00",
+      "summary": "Single-page workspace with left rail, 5 panels, useSkillWorkspace shared hook, ephemeral state with URL panel param, last-write-wins save"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-09T12:16:48-04:00",
+      "summary": "Existing eval-server REST API + SSE streaming, new PUT /api/skills/:plugin/:skill/content endpoint, reuses existing improve/benchmark/history/stats APIs"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-09T12:16:48-04:00",
+      "summary": "48px icon-only left rail, instant panel swap with fade-in, 1024px min viewport, Ctrl+1-5 panel shortcuts, Ctrl+S save, Ctrl+Enter run, dirty indicator in header, no warning dialogs on panel switch"
+    },
+    "performance": {
+      "coveredAt": "2026-03-09T12:16:48-04:00",
+      "summary": "Simple scrollable list for test cases (2-15 max), no virtualization needed, single-user local dev tool"
+    },
+    "security": {
+      "coveredAt": "2026-03-09T12:16:48-04:00",
+      "summary": "N/A - local dev tool, single user, no auth, no PII, no rate limiting needed"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-09T12:16:48-04:00",
+      "summary": "One benchmark at a time with reject message, dirty editor state preserved silently across panel switches, last-write-wins for file saves"
+    }
+  }
+}

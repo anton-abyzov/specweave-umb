@@ -1,0 +1,11 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 6262
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.1,
+  "reasoning": "Message is ambiguous - appears to be a response/confirmation rather than a task request with no clear tech mentioned",
+  "latencyMs": 9181.648708
+}

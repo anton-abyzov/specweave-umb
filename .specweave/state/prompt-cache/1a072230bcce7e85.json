@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9445
+Increment recommendation: new (confidence: 0.72, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Environment/dependency troubleshooting question, no integrations mentioned",
+  "latencyMs": 10777.188583,
+  "increment": {
+    "action": "new",
+    "confidence": 0.72,
+    "mandatory": false,
+    "suggestedName": "fix-specweave-node-modules-installation",
+    "reasoning": "Investigating and resolving specweave dependency installation issue in node_modules"
+  }
+}

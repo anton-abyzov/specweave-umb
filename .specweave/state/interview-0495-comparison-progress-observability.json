@@ -1,0 +1,30 @@
+{
+  "incrementId": "0495-comparison-progress-observability",
+  "startedAt": "2026-03-11T18:50:23-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T18:51:51-04:00",
+      "summary": "startDynamicHeartbeat SSE helper coexists with withHeartbeat. Only compare endpoint migrated. Imperative update/stop API. onProgress callback in comparator.ts."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T18:51:51-04:00",
+      "summary": "N/A - no new external integrations. Internal SSE stream only."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T18:51:51-04:00",
+      "summary": "3 new phases: generating_skill, generating_baseline, scoring. Added to ProgressLog spinner/accent sets. ProgressLog added to ComparisonPage. Per-case phase reset."
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T18:51:51-04:00",
+      "summary": "3 discrete callback points only. No sub-phase granularity. No over-engineering."
+    },
+    "security": {
+      "coveredAt": "2026-03-11T18:51:51-04:00",
+      "summary": "N/A - no auth/permission changes. SSE stream is already localhost-only CORS."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T18:51:51-04:00",
+      "summary": "stop() called in try/catch success+error paths. Response writes become no-ops on dead stream. Per-case heartbeat reset with eval_id context."
+    }
+  }
+}

@@ -1,0 +1,193 @@
+Syncing living docs for increment: 0524
+🔍 Building feature registry...
+✅ Registry built with 171 features
+   ℹ️  Using legacy **Project**: field - consider migrating to YAML frontmatter
+   📎 Using project from spec.md: specweave
+   🔍 Found existing project path: specweave
+   ♻️  Reusing existing feature folder: FS-524
+🔄 Derived feature ID: FS-524
+📚 Syncing 0524-cross-project-help-text-fixes → FS-524...
+Resolved project for 0524-cross-project-help-text-fixes: specweave (medium, source: per-us)
+Using cached project resolution for 0524-cross-project-help-text-fixes
+   Resolved project: specweave (per-us, medium)
+Loaded 1 projects from registry
+📦 Cross-project increment detected
+   3 target projects: specweave, vskill, vskill-platform
+⚠️  Multi-project mode enabled but no projects defined
+   📁 Syncing 1 USs to specweave/FS-524/
+Generating internal feature image: Cross-Project Help Text Fixes
+Image already exists, skipping: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/docs/internal/specs/specweave/FS-524/assets/feature-fs-524.jpg
+   🖼️  Generated internal feature illustration: feature-fs-524.jpg
+   ✅ Synced 0 tasks to US-001
+   📁 Syncing 1 USs to vskill/FS-524/
+Generating internal feature image: Cross-Project Help Text Fixes
+Image already exists, skipping: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/docs/internal/specs/vskill/FS-524/assets/feature-fs-524.jpg
+   🖼️  Generated internal feature illustration: feature-fs-524.jpg
+   ✅ Synced 0 tasks to US-002
+   📁 Syncing 1 USs to vskill-platform/FS-524/
+Generating internal feature image: Cross-Project Help Text Fixes
+Image already exists, skipping: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/docs/internal/specs/vskill-platform/FS-524/assets/feature-fs-524.jpg
+   🖼️  Generated internal feature illustration: feature-fs-524.jpg
+   ✅ Synced 0 tasks to US-003
+   ✅ GitHub sync enabled (config.sync.github, owner: anton-abyzov)
+   ✅ Jira sync enabled (config.sync.jira)
+   ✅ ADO sync enabled (config.sync.ado)
+   📡 External tools detected: github, jira, ado
+
+📡 Syncing to external tools: github, jira, ado
+   📋 Permissions: upsert=true, update=true, status=true
+   🔄 Syncing to GitHub...
+   📝 Using GitHub config: anton-abyzov/specweave
+   📝 Using distributed sync target (child-repo-name): anton-abyzov/specweave
+
+🔄 Syncing Feature FS-524 to GitHub...
+   📦 Feature: Cross-Project Help Text Fixes
+   📊 Status: completed
+   🚀 Creating GitHub Milestone...
+   🔍 Milestone detection: exitCode=1, stdout length=537
+   ⚠️  Detection failed: gh: API rate limit exceeded for user ID 979819. If you reach out to GitHub Support for help, please include the request ID ED53:18B23D:19D6DF2:6C1DD27:69B5F1FE and timestamp 2026-03-14 23:40:46 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)
+
+   ℹ️  No existing milestone found, creating new one...
+   ⚠️  Failed to sync to github: Failed to create Milestone: gh: API rate limit exceeded for user ID 979819. If you reach out to GitHub Support for help, please include the request ID ED54:19CFCA:18E349D:6846C5C:69B5F1FE and timestamp 2026-03-14 23:40:46 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)
+
+      
+          at GitHubFeatureSync.createMilestone (file:///Users/antonabyzov/.nvm/versions/node/v22.20.0/lib/node_modules/specweave/dist/plugins/specweave-github/lib/github-feature-sync.js:699:19)
+      Living docs sync will continue...
+   🔄 Syncing to JIRA...
+   📝 Using distributed JIRA target (child-repo-name): SWE2E
+   📝 Using JIRA config: antonabyzov.atlassian.net
+
+🔄 Syncing spec FS-524 to Jira Epic...
+   Found existing Jira Epic SWE2E-201
+   ✅ Updated Jira Epic SWE2E-201
+   Syncing 1 user stories...
+   ✅ Updated US-001
+✅ Sync complete!
+   ✅ Synced to JIRA: SWE2E-201
+      📝 Backfilled metadata.json with jira links
+   🔄 Syncing to Azure DevOps...
+   📝 Using distributed ADO target (child-repo-name): EasyChamp/SpecWeaveSync
+   📝 Using ADO config: EasyChamp/SpecWeaveSync
+
+🔄 Syncing spec FS-524 to ADO Feature...
+   Found existing ADO Feature #1326
+   ℹ️  Title unchanged, skipping
+   ✅ Updated ADO Feature #1326 (1 field(s) changed)
+   Syncing 1 user stories...
+      ℹ️  Work item type "User Story" not available, using "Issue"
+   ✅ Created US-001 → User Story #1335
+✅ Sync complete!
+   ✅ Synced to ADO: 1326
+      📝 Backfilled metadata.json with ado links
+   ✅ GitHub sync enabled (config.sync.github, owner: anton-abyzov)
+   ✅ Jira sync enabled (config.sync.jira)
+   ✅ ADO sync enabled (config.sync.ado)
+   📡 External tools detected: github, jira, ado
+
+📡 Syncing to external tools: github, jira, ado
+   📋 Permissions: upsert=true, update=true, status=true
+   🔄 Syncing to GitHub...
+   📝 Using GitHub config: anton-abyzov/specweave
+   📝 Using distributed sync target (child-repo-name): anton-abyzov/vskill
+
+🔄 Syncing Feature FS-524 to GitHub...
+   📦 Feature: Cross-Project Help Text Fixes
+   📊 Status: completed
+   🚀 Creating GitHub Milestone...
+   🔍 Milestone detection: exitCode=1, stdout length=537
+   ⚠️  Detection failed: gh: API rate limit exceeded for user ID 979819. If you reach out to GitHub Support for help, please include the request ID ED58:18B23D:19D7C35:6C21833:69B5F202 and timestamp 2026-03-14 23:40:50 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)
+
+   ℹ️  No existing milestone found, creating new one...
+   ⚠️  Failed to sync to github: Failed to create Milestone: gh: API rate limit exceeded for user ID 979819. If you reach out to GitHub Support for help, please include the request ID ED59:1FABE7:183B9F1:656AC3E:69B5F202 and timestamp 2026-03-14 23:40:50 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)
+
+      
+          at GitHubFeatureSync.createMilestone (file:///Users/antonabyzov/.nvm/versions/node/v22.20.0/lib/node_modules/specweave/dist/plugins/specweave-github/lib/github-feature-sync.js:699:19)
+      Living docs sync will continue...
+   🔄 Syncing to JIRA...
+   📝 Using distributed JIRA target (child-repo-name): SWE2E
+   📝 Using JIRA config: antonabyzov.atlassian.net
+
+🔄 Syncing spec FS-524 to Jira Epic...
+   Found existing Jira Epic SWE2E-202
+   ✅ Updated Jira Epic SWE2E-202
+   Syncing 1 user stories...
+   ✅ Updated US-002
+✅ Sync complete!
+   ✅ Synced to JIRA: SWE2E-202
+      📝 Backfilled metadata.json with jira links
+   🔄 Syncing to Azure DevOps...
+   📝 Using distributed ADO target (child-repo-name): EasyChamp/SpecWeaveSync
+   📝 Using ADO config: EasyChamp/SpecWeaveSync
+
+🔄 Syncing spec FS-524 to ADO Feature...
+   Found existing ADO Feature #1328
+   ℹ️  Title unchanged, skipping
+   ✅ Updated ADO Feature #1328 (1 field(s) changed)
+   Syncing 1 user stories...
+      ℹ️  Work item type "User Story" not available, using "Issue"
+   ✅ Created US-002 → User Story #1336
+✅ Sync complete!
+   ✅ Synced to ADO: 1328
+      📝 Backfilled metadata.json with ado links
+   ✅ GitHub sync enabled (config.sync.github, owner: anton-abyzov)
+   ✅ Jira sync enabled (config.sync.jira)
+   ✅ ADO sync enabled (config.sync.ado)
+   📡 External tools detected: github, jira, ado
+
+📡 Syncing to external tools: github, jira, ado
+   📋 Permissions: upsert=true, update=true, status=true
+   🔄 Syncing to GitHub...
+   📝 Using GitHub config: anton-abyzov/specweave
+   📝 Using distributed sync target (child-repo-name): anton-abyzov/vskill-platform
+
+🔄 Syncing Feature FS-524 to GitHub...
+   📦 Feature: Cross-Project Help Text Fixes
+   📊 Status: completed
+   🚀 Creating GitHub Milestone...
+   🔍 Milestone detection: exitCode=1, stdout length=537
+   ⚠️  Detection failed: gh: API rate limit exceeded for user ID 979819. If you reach out to GitHub Support for help, please include the request ID ED5C:1CF009:19361F9:699E7F0:69B5F205 and timestamp 2026-03-14 23:40:53 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)
+
+   ℹ️  No existing milestone found, creating new one...
+   ⚠️  Failed to sync to github: Failed to create Milestone: gh: API rate limit exceeded for user ID 979819. If you reach out to GitHub Support for help, please include the request ID ED5D:2C25E7:19AFE72:6BD340B:69B5F205 and timestamp 2026-03-14 23:40:53 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)
+
+      
+          at GitHubFeatureSync.createMilestone (file:///Users/antonabyzov/.nvm/versions/node/v22.20.0/lib/node_modules/specweave/dist/plugins/specweave-github/lib/github-feature-sync.js:699:19)
+      Living docs sync will continue...
+   🔄 Syncing to JIRA...
+   📝 Using distributed JIRA target (child-repo-name): SWE2E
+   📝 Using JIRA config: antonabyzov.atlassian.net
+
+🔄 Syncing spec FS-524 to Jira Epic...
+   Found existing Jira Epic SWE2E-203
+   ✅ Updated Jira Epic SWE2E-203
+   Syncing 1 user stories...
+   ✅ Updated US-003
+✅ Sync complete!
+   ✅ Synced to JIRA: SWE2E-203
+      📝 Backfilled metadata.json with jira links
+   🔄 Syncing to Azure DevOps...
+   📝 Using distributed ADO target (child-repo-name): EasyChamp/SpecWeaveSync
+   📝 Using ADO config: EasyChamp/SpecWeaveSync
+
+🔄 Syncing spec FS-524 to ADO Feature...
+   Found existing ADO Feature #1331
+   ℹ️  Title unchanged, skipping
+   ✅ Updated ADO Feature #1331 (1 field(s) changed)
+   Syncing 1 user stories...
+      ℹ️  Work item type "User Story" not available, using "Issue"
+   ✅ Created US-003 → User Story #1337
+✅ Sync complete!
+   ✅ Synced to ADO: 1331
+      📝 Backfilled metadata.json with ado links
+
+📦 Cross-Project Sync Summary:
+   Projects: 3
+   User Stories: 3
+   ✅ specweave: 1 USs
+   ✅ vskill: 1 USs
+   ✅ vskill-platform: 1 USs
+
+Living Docs Sync Results:
+  Feature ID: FS-524
+  Files created: 9
+  Files updated: 0

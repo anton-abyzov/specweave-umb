@@ -1,0 +1,30 @@
+{
+  "incrementId": "0416-umbrella-sync-consolidation",
+  "startedAt": "2026-03-03T14:16:00-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-03T14:16:11-05:00",
+      "summary": "Routing layer added to existing sync pipeline (LivingDocsSync, sync-progress, ExternalIssueAutoCreator). Strategy pattern: centralized (default, current behavior) vs distributed (per-repo routing via childRepos config). No new services."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-03T14:16:11-05:00",
+      "summary": "GitHub REST API (per-repo owner/repo), Jira (per-projectKey), ADO (per-project). Config reads umbrella.childRepos[].sync.github|jira|ado. No new external services."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-03T14:16:11-05:00",
+      "summary": "N/A - backend-only feature, no UI. CLI flag --consolidate added to migrate-to-umbrella command."
+    },
+    "performance": {
+      "coveredAt": "2026-03-03T14:16:11-05:00",
+      "summary": "N/A - config-driven routing, no performance-sensitive paths. Migration is a one-time CLI operation."
+    },
+    "security": {
+      "coveredAt": "2026-03-03T14:16:11-05:00",
+      "summary": "N/A - uses existing credentials per repo. No new auth surfaces."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-03T14:16:11-05:00",
+      "summary": "Dry-run mode for consolidation (default). Duplicate handling: keep umbrella root, remove nested. Missing per-repo sync config falls back to global. Orphaned living docs handled alongside increments."
+    }
+  }
+}

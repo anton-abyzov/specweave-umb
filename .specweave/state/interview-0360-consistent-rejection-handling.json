@@ -1,0 +1,24 @@
+{
+  "incrementId": "0360-consistent-rejection-handling",
+  "startedAt": "2026-02-24T02:46:00-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-02-24T02:47:16-05:00",
+      "summary": "Reviewed all 6 affected files and the state machine, submission-categories, email, recovery, dlq-consumer, and process-submission modules"
+    },
+    "email": {
+      "coveredAt": "2026-02-24T02:49:51-05:00",
+      "summary": "Reviewed email.ts templates and dispatcher, confirmed TIER1_FAILED and DEQUEUED missing"
+    },
+    "state_categories": {
+      "coveredAt": "2026-02-24T02:49:51-05:00",
+      "summary": "Reviewed submission-categories.ts, identified RESCAN_REQUIRED gap and scattered TERMINAL_STATES"
+    },
+    "tracking_page": {
+      "coveredAt": "2026-02-24T02:49:51-05:00",
+      "summary": "Reviewed submit/[id]/page.tsx terminal state handling, missing DEQUEUED and RESCAN_REQUIRED"
+    }
+  },
+  "specCompleted": true,
+  "specCompletedAt": "2026-02-24T02:49:51-05:00"
+}

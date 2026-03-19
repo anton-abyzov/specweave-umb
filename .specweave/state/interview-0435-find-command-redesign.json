@@ -1,0 +1,30 @@
+{
+  "incrementId": "0435-find-command-redesign",
+  "startedAt": "2026-03-05T18:33:22-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-05T18:34:28-05:00",
+      "summary": "CLI find command redesign + search API extension across 2 repos (vskill CLI, vskill-platform). No new services or architectural changes. CLI consumes existing API with new field."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-05T18:34:28-05:00",
+      "summary": "Existing API contract between vskill CLI and vskill-platform search endpoint. Add vskillInstalls field to response. No new external integrations."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-05T18:34:28-05:00",
+      "summary": "CLI output redesign: flat list, repo@skill-name format, clickable links, install counts, limit hint. Non-TTY tab-separated. JSON mode includes installs."
+    },
+    "performance": {
+      "coveredAt": "2026-03-05T18:34:28-05:00",
+      "summary": "N/A - reducing default limit from 50 to 15 actually improves performance. Search index version bump triggers rebuild which is existing background process."
+    },
+    "security": {
+      "coveredAt": "2026-03-05T18:34:28-05:00",
+      "summary": "N/A - no auth changes, no new endpoints, blocked skills already handled. Install counts are public data."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-05T18:34:28-05:00",
+      "summary": "Blocked skills show threat info instead of installs. Zero installs edge case. Missing vskillInstalls field backward compat (default 0). Non-TTY output format."
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0547-eval-perf-multimodel-integration",
+  "startedAt": "2026-03-16T15:53:00-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-16T15:53:52-04:00",
+      "summary": "Existing eval engine (src/eval/) with sequential LLM calls, eval-server (HTTP+SSE), React eval-ui (Vite). Concurrency.ts semaphore exists but unused. 5 providers in llm.ts. Adding OpenRouter as 6th. Parallel execution via Promise.allSettled for cases, Promise.all for judges. Separate judgeModel config. Sweep results stored in evals/leaderboard/. Integration runner uses Playwright with Chrome profiles."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-16T15:53:58-04:00",
+      "summary": "OpenRouter API (openai-compatible, OPENROUTER_API_KEY env var, /api/v1/chat/completions). Chrome profiles for browser-based integration tests (social media posting via MCP). Playwright for browser automation. Credential storage: .env.local -> env vars -> OS keychain. API keys for non-browser skills (Slack, GitHub)."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-16T15:54:04-04:00",
+      "summary": "Leaderboard table with pass rate, rubric, duration, sparkline trends, Best Model badge. Unit [U] blue badges vs integration [I] amber badges. Lock icon for missing credentials. Filter tabs for unit/integration. Model search/autocomplete dropdown. Platform shows unit-only with Studio CTA for integration."
+    },
+    "performance": {
+      "coveredAt": "2026-03-16T15:54:10-04:00",
+      "summary": "Core focus of Pillar 1. Current: 25-35 sequential calls = 12min. Target: 4-6x speedup via semaphore-gated concurrency (default 5). Tiered judge model (Haiku for judging). Judge cache by hash(assertion, output). --concurrency N CLI flag. Rate limit safety cap."
+    },
+    "security": {
+      "coveredAt": "2026-03-16T15:54:16-04:00",
+      "summary": "Credential storage LOCAL ONLY (.env.local gitignored -> env vars -> OS keychain). Secret-scanning pre-flight rejects evals.json with token patterns. Test account isolation. [VSKILL-TEST-] content prefix. Dry-run mode. Confirmation prompts. No API keys in evals.json. Browser sessions via Chrome profiles (no tokens stored)."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-16T15:54:22-04:00",
+      "summary": "API 429 rate limits need retry-with-backoff. SSE progress interleaving with parallel calls. Partial failure tolerance via Promise.allSettled. Cleanup on Ctrl+C for integration tests. Orphaned post cleanup. Per-platform rate limiting (X: 3/min, LinkedIn: 2/min). OpenRouter down = clear error, no auto-fallback. Judge model weaker than gen model = warning. Chrome profile not found = clear error."
+    }
+  }
+}

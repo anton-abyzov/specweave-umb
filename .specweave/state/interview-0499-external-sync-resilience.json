@@ -1,0 +1,30 @@
+{
+  "incrementId": "0499-external-sync-resilience",
+  "startedAt": "2026-03-11T20:31:41-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T20:31:51-04:00",
+      "summary": "AC-gating in LifecycleHookDispatcher, SyncRetryQueue persisted to JSON, SyncCircuitBreaker per-provider singletons, RateLimitChecker integration into syncToGitHub"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T20:31:55-04:00",
+      "summary": "GitHub/JIRA/ADO providers via existing LivingDocsSync, SyncCoordinator, ac-progress-sync infrastructure"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T20:31:58-04:00",
+      "summary": "Dashboard OverviewPage sync error panel, SyncPage expandable errors, SSE real-time events, notifications.json integration"
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T20:32:01-04:00",
+      "summary": "Rate limiting with 60s cache, exponential backoff 1m/5m/30m, circuit breaker 3 failures/5min reset, no high-traffic concerns since CLI tool"
+    },
+    "security": {
+      "coveredAt": "2026-03-11T20:32:04-04:00",
+      "summary": "N/A - internal CLI tooling, no auth or data exposure changes, existing credential handling unchanged"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T20:32:07-04:00",
+      "summary": "Backward compat for tasks without AC tags still sync on every task, max 3 retries then manual review, circuit breaker prevents sync storms, fallback for missing providers"
+    }
+  }
+}

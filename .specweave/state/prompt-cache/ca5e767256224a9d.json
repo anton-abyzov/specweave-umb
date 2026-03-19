@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 7403
+Invalid LLM response format: I don't see a user prompt to analyze. You've provided the system instructions and skill definition for `/youtube-poster`, but not an actual user request.
+
+Please provide the **user's prompt** (e.g., "
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 10439.143125,
+  "installMessage": "Invalid response format (no JSON found)"
+}

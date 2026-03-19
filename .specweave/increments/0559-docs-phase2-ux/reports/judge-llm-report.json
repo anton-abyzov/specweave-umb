@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0559-docs-phase2-ux",
+  "timestamp": "2026-03-17T19:55:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "externalModels not configured in .specweave/config.json",
+  "findings": []
+}

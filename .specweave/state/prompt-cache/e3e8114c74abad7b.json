@@ -1,0 +1,21 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12464
+Increment recommendation: reopen (confidence: 0.8, mandatory: false)
+{
+  "detected": true,
+  "plugins": [
+    "sw-github"
+  ],
+  "confidence": 0.85,
+  "reasoning": "GitHub issue investigation for specweave CLI help increment",
+  "latencyMs": 14321.690375,
+  "increment": {
+    "action": "reopen",
+    "confidence": 0.8,
+    "mandatory": false,
+    "relatedKeyword": "0417J-update-cli-help-umbrella",
+    "reasoning": "Investigating existing CLI help increment for incomplete work before implementation"
+  }
+}

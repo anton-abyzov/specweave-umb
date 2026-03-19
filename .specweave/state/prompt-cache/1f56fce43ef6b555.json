@@ -1,0 +1,26 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.77 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12264
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+LSP recommendation: operation=references, language=typescript, warmupRequired=true
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Plugin discovery debugging - no external integrations mentioned",
+  "latencyMs": 13472.2135,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "investigate-frontend-plugin-discovery-error",
+    "reasoning": "Multi-component investigation into plugin discovery failures, lazy loading scope, and test/prompt triggers - requires structured tracking"
+  },
+  "lsp": {
+    "needed": true,
+    "operation": "references",
+    "language": "typescript",
+    "warmupRequired": true
+  }
+}

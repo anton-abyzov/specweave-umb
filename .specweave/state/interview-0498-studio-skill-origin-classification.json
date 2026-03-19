@@ -1,0 +1,30 @@
+{
+  "incrementId": "0498-studio-skill-origin-classification",
+  "startedAt": "2026-03-11T19:33:07-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T19:42:10-04:00",
+      "summary": "Add origin field to SkillInfo, detect via path prefix matching against AGENTS_REGISTRY localSkillsDir + hardcoded extras"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T19:42:10-04:00",
+      "summary": "N/A - internal feature, no external integrations"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T19:42:10-04:00",
+      "summary": "Sidebar split into Your Skills/Installed sections, installed skills read-only with dimmed styling, info banner"
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T19:42:10-04:00",
+      "summary": "N/A - trivial path string check per skill, no performance concern"
+    },
+    "security": {
+      "coveredAt": "2026-03-11T19:42:10-04:00",
+      "summary": "N/A - local dev tool, no auth or data sensitivity"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T19:42:10-04:00",
+      "summary": "Duplicate skills shown in both sections, plugins/cache/ marked installed not excluded"
+    }
+  }
+}

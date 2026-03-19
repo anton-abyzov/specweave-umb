@@ -1,0 +1,30 @@
+{
+  "incrementId": "0513-skill-studio-eval-history-redesign",
+  "startedAt": "2026-03-12T02:42:19-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-12T02:45:55-04:00",
+      "summary": "Additive SSE events: comparison endpoint emits assertion_result + case_complete alongside outputs_ready + comparison_scored. No new services."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-12T02:45:55-04:00",
+      "summary": "N/A - all changes within vskill repo, no external integrations"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-12T02:45:55-04:00",
+      "summary": "Split-lane two-column timeline (Skill|Baseline), merged spanning card for comparisons, dual-line MiniTrend sparkline (blue skill / gray baseline), empty column shows No baseline runs text"
+    },
+    "performance": {
+      "coveredAt": "2026-03-12T02:45:55-04:00",
+      "summary": "N/A - derive baselinePassRate from existing rubric scores, no additional LLM calls"
+    },
+    "security": {
+      "coveredAt": "2026-03-12T02:45:55-04:00",
+      "summary": "N/A - no auth/data changes, internal eval tool only"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-12T02:45:55-04:00",
+      "summary": "Always show two-column layout even with one side empty. Exclude non-core types (improve, instruct, etc.) from sparkline."
+    }
+  }
+}

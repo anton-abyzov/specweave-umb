@@ -1,0 +1,27 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 8508
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+Skill invocation: testing:e2e (mandatory: true)
+{
+  "detected": true,
+  "plugins": [
+    "testing"
+  ],
+  "confidence": 0.95,
+  "reasoning": "Playwright end-to-end testing explicitly mentioned",
+  "latencyMs": 9914.538042,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "e2e-testing-validation",
+    "reasoning": "Testing and validating implementation with Playwright"
+  },
+  "skillInvocation": {
+    "skill": "testing:e2e",
+    "reason": "Playwright end-to-end testing patterns and best practices",
+    "mandatory": true
+  }
+}

@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11047
+Increment recommendation: small_fix (confidence: 0.85, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.9,
+  "reasoning": "Administrative metadata update for increment tracking",
+  "latencyMs": 12414.229125,
+  "increment": {
+    "action": "small_fix",
+    "confidence": 0.85,
+    "mandatory": false,
+    "suggestedName": "update-0410-increment-status",
+    "reasoning": "Update metadata status field for completed test increment"
+  }
+}

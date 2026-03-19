@@ -1,0 +1,11 @@
+{
+  "incrementId": "0396-pull-based-sast-scanner",
+  "startedAt": "2026-03-02T04:17:00-05:00",
+  "coveredCategories": {
+    "architecture": {"coveredAt": "2026-03-02T04:17:10-05:00", "summary": "Pull-based source replacing push dispatch, new platform API endpoints, claim-one-at-a-time granularity"},
+    "data_model": {"coveredAt": "2026-03-02T04:17:11-05:00", "summary": "Add claimedAt/claimedBy to ExternalScanResult, reaper for stuck RUNNING scans >15min"},
+    "integration": {"coveredAt": "2026-03-02T04:17:12-05:00", "summary": "Crawl-worker source pattern, ASSIGNED_SOURCES on VM-2, WORKER_SECRET auth"},
+    "rollout": {"coveredAt": "2026-03-02T04:17:13-05:00", "summary": "Feature flag SAST_PULL_MODE, phased: add pull first, remove push in follow-up"},
+    "migration": {"coveredAt": "2026-03-02T04:17:14-05:00", "summary": "Enqueue sites write PENDING to DB+KV but skip dispatch when pull active, admin endpoint stays as enqueue"}
+  }
+}

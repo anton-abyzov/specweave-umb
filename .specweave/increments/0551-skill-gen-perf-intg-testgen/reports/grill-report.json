@@ -1,0 +1,39 @@
+{
+  "version": "1.1",
+  "incrementId": "0550-skill-gen-perf-intg-testgen",
+  "timestamp": "2026-03-16T21:55:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0, "suppressed": 0 },
+  "acCompliance": {
+    "totalACs": 21,
+    "passed": 21,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "skill-create-routes.ts uses Promise.allSettled for parallel body+eval generation" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "BODY_SYSTEM_PROMPT + EVAL_SYSTEM_PROMPT split from monolithic prompt" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "mergeGenerateResults handles partial failure with warning field" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "SSE events generating-body/generating-evals during parallel generation" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "generate-all.ts uses Semaphore-gated Promise.allSettled" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "--concurrency flag wired through index.ts → eval.ts → generate-all.ts" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Auto-selects anthropic when ANTHROPIC_API_KEY set for batch ops" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "Sequential 2s delay removed, replaced with semaphore" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "buildIntegrationEvalPrompt() generates cases with requiredCredentials from CREDENTIAL_HINTS" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "detectBrowserRequirements() + detectPlatformTargets() detect chromeProfile needs" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "Generated cleanup blocks with platform-specific templates" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "Outcome-based assertions generated (API status, resource existence)" },
+      { "acId": "AC-US3-05", "status": "pass", "evidence": "--type all dispatches parallel Haiku (unit) + Sonnet (integration) calls" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "schema.ts validates cleanup actions against VALID_CLEANUP_ACTIONS" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "schema.ts warns for missing credentials (not error)" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "schema.ts warns for prose assertions in integration tests" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "batch-judge.ts batchJudgeAssertions() with Anthropic batch API" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "Polling: 5s/15s/30s escalation, 10-min timeout with cancellation" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "Sequential fallback on any batch failure" },
+      { "acId": "AC-US5-04", "status": "pass", "evidence": "--batch flag with non-anthropic warning" },
+      { "acId": "AC-US5-05", "status": "pass", "evidence": "Cost calculation: 50% batch discount with summary line" }
+    ]
+  },
+  "findings": [],
+  "testsRun": { "total": 123, "passed": 123, "failed": 0 }
+}

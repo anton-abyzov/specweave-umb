@@ -1,0 +1,30 @@
+{
+  "incrementId": "0494-search-performance-optimization",
+  "startedAt": "2026-03-11T18:29:24-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T18:29:51-04:00",
+      "summary": "Existing hybrid search: KV edge + Postgres. Optimization is edge-first with conditional Postgres fallback. No new services or architectural changes -- just reordering existing calls and adding conditional logic."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T18:29:51-04:00",
+      "summary": "No new integrations. Existing: Cloudflare KV (edge search index), Neon Postgres (authoritative search), Cloudflare CDN (cache headers). All stay the same."
+    },
+    "security": {
+      "coveredAt": "2026-03-11T18:29:51-04:00",
+      "summary": "No security changes. Search is public read-only API. Existing input sanitization (XSS via sanitizeHighlight, query length validation) unchanged. CDN cache is public content only."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T18:30:30-04:00",
+      "summary": "Preload 10 trending skills from existing KV stats on palette open. Client-side filter treats preloaded results identically to search results (no special indicator). 2min stale window acceptable, no cache bust needed."
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T18:30:30-04:00",
+      "summary": "Target p95 < 200ms. Add Server-Timing header for edge vs postgres latency measurement. Edge-first skips Postgres when sufficient results. CDN s-maxage=60 with stale-while-revalidate=300. SWR cache 60s."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T18:30:30-04:00",
+      "summary": "Client-side highlighting acceptable for edge-only results. Edge fallback to Postgres on insufficient results. Blocklist enrichment conditional on source. Graceful degradation if KV or Postgres fails."
+    }
+  }
+}

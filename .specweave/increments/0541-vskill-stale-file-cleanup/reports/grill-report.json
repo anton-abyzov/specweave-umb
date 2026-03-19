@@ -1,0 +1,30 @@
+{
+  "version": "1.1",
+  "incrementId": "0541-vskill-stale-file-cleanup",
+  "timestamp": "2026-03-16T00:03:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 15,
+    "passed": 15,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "cleanupLegacyLockfiles walks project tree recursively, deletes all skills-lock.json; test: stale-lockfile-cleanup.test.ts T-002" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "mtime guard: threshold > 0 check + Date.now() - mtimeMs comparison; test: T-003" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Returns success with removedCount:0 when no files found; test: T-004" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "cleanupOrphanedChildLocks scans repositories/**/vskill.lock, deletes orphans, preserves root; test: T-008" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "mtime guard skips recently written child locks; test: T-009" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Non-umbrella check returns early; test: T-007" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "checkStaleLockfiles in installation-health-checker.ts:508-583 reports warn with file paths" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Same method checks both legacy and orphaned child lockfiles" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "Fix mode calls cleanup with mtimeThresholdMs:0, reports removed count" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "Returns 'pass' with message 'no stale lockfiles' when no files found" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "refresh-plugins.ts:124-142 calls cleanupLegacyLockfiles before plugin install" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "refresh-plugins.ts:130 calls cleanupOrphanedChildLocks before plugin install" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "refresh-plugins.ts:132-139 logs removed paths in verbose mode" }
+    ]
+  },
+  "findings": []
+}

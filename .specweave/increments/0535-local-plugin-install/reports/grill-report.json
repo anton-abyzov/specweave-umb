@@ -1,0 +1,23 @@
+{
+  "version": "1.1",
+  "incrementId": "0535-local-plugin-install",
+  "timestamp": "2026-03-15T21:00:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 6,
+    "passed": 6,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "copyPluginSkillsToProject() in plugin-copier.ts:411 copies to .claude/skills/ at init time; called from installAllPlugins() in plugin-installer.ts:101; invoked from init.ts:437" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "installAllPlugins() uses only copyPluginSkillsToProject() (file copy), no execFile/spawn/claude CLI calls; verified in plugin-installer.test.ts:162" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Target path is join(projectRoot, '.claude', 'skills') in plugin-copier.ts:453, not ~/.claude/; verified in plugin-installer.test.ts:172" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "user-prompt-submit.sh has no claude plugin install calls; on-demand section marked REMOVED (v1.0.535) at line 1170" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "installPluginViaCli() is NO-OP in llm-plugin-detector.ts:1157; detectPluginsAndInstall() returns empty installations at line 1217" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Increment detection fully active in user-prompt-submit.sh:336,1162,1187-1297; only installation removed" }
+    ]
+  },
+  "findings": []
+}

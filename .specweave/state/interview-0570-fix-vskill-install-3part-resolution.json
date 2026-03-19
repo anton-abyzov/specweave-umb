@@ -1,0 +1,30 @@
+{
+  "incrementId": "0570-fix-vskill-install-3part-resolution",
+  "startedAt": "2026-03-18T04:19:15-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T04:23:27-04:00",
+      "summary": "discoverSkills() called first as primary resolution; hardcoded skills/{name}/SKILL.md only as fallback. checkRepoExists() standalone in github-tree.ts."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T04:23:27-04:00",
+      "summary": "Fail open silently on rate limit like getDefaultBranch. No warnRateLimitOnce needed."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T04:23:27-04:00",
+      "summary": "N/A - CLI tool, no UI changes. Error messages are the UX."
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T04:23:27-04:00",
+      "summary": "N/A - bug fix, no perf impact. discoverSkills already used in 2-part path."
+    },
+    "security": {
+      "coveredAt": "2026-03-18T04:23:27-04:00",
+      "summary": "Same GITHUB_TOKEN auth pattern as getDefaultBranch."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T04:23:27-04:00",
+      "summary": "Discovery empty + hardcoded 404 = standard SKILL.md not found. Non-existent repo = clear error with hint."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12658
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.35,
+  "reasoning": "Mentions 'external tool work items integration' but no specific system (JIRA/GitHub/ADO) explicitly named; primary focus is init configuration infrastructure",
+  "latencyMs": 13945.720207999999,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "improve-specweave-init-configuration",
+    "reasoning": "Long-term solution for init configuration and external tool integration is implementation work requiring structured tracking"
+  }
+}

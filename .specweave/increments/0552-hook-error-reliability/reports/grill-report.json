@@ -1,0 +1,31 @@
+{
+  "version": "1.1",
+  "incrementId": "0552-hook-error-reliability",
+  "timestamp": "2026-03-16T22:45:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 14,
+    "passed": 14,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "update-dashboard-cache.sh:113-116 uses ((.summary[$key] // 0) - 1) pattern for null-safe decrement" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "14 occurrences of // 0 pattern across all 3 jq blocks (delete, new, update) in update-dashboard-cache.sh" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "jq ((5 // 0) - 1) = 4, same as 5 - 1 = 4. Non-null values behave identically" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": ".claude/settings.json has matcher_content: \\.specweave/increments/ on PostToolUse entry" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "Claude Code matcher_content filters tool input — non-increment file paths won't match the pattern" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Paths like .specweave/increments/0552/tasks.md match the /.specweave/increments/ pattern" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "grep -c ac-status-sync .claude/settings.json returns 0 — entry fully removed" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": ".claude/hooks/ac-status-sync.sh file exists on disk (only config entry removed)" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "rm -f deleted .specweave/state/.hook-circuit-breaker-github-auto-create" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "Without circuit breaker file, github-auto-create-handler.sh no longer short-circuits" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "~/.claude/settings.json has hookify@claude-plugins-official: false — plugin disabled" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "Disabled hookify removes 2 Python process spawns (pre+post) per tool call" },
+      { "acId": "AC-US6-01", "status": "pass", "evidence": "package.json version field reads 1.0.492" },
+      { "acId": "AC-US6-02", "status": "pass", "evidence": "npm show specweave version returns 1.0.492 — published with all fixes" }
+    ]
+  },
+  "findings": []
+}

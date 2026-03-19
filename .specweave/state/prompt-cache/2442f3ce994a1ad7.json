@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13485
+Increment recommendation: new (confidence: 0.95, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.05,
+  "reasoning": "Security incident (credential exposure) - no security plugin available yet",
+  "latencyMs": 14928.104792,
+  "increment": {
+    "action": "new",
+    "confidence": 0.95,
+    "mandatory": true,
+    "suggestedName": "remediate-exposed-jira-credentials",
+    "reasoning": "Security incident: Jira Basic Auth exposed in git history. Requires investigation, credential rotation, and git history cleanup"
+  }
+}

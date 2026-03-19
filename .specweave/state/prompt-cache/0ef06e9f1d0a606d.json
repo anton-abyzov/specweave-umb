@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 6827
+Increment recommendation: reopen (confidence: 0.9, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Specification analysis and brainstorming, no integrations",
+  "latencyMs": 8227.010625,
+  "increment": {
+    "action": "reopen",
+    "confidence": 0.9,
+    "mandatory": false,
+    "relatedKeyword": "0577-docs-triple-invocation",
+    "reasoning": "User analyzing existing active increment to determine if extension is viable"
+  }
+}

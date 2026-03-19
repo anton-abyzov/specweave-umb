@@ -1,0 +1,30 @@
+{
+  "incrementId": "0472-activation-auto-classify",
+  "startedAt": "2026-03-10T02:08:48-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-10T02:09:30-04:00",
+      "summary": "Two-phase LLM flow: batch classify all auto prompts then evaluate all. Same LlmClient for both phases."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-10T02:09:30-04:00",
+      "summary": "N/A - uses existing LlmClient, no new external integrations"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-10T02:09:30-04:00",
+      "summary": "Informational auto badge on results, updated help text for prefix conventions"
+    },
+    "performance": {
+      "coveredAt": "2026-03-10T02:09:30-04:00",
+      "summary": "N/A - batch classification minimizes overhead, same model instance"
+    },
+    "security": {
+      "coveredAt": "2026-03-10T02:09:30-04:00",
+      "summary": "N/A - local eval tool, no auth or PII changes"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-10T02:09:30-04:00",
+      "summary": "Classification error defaults to should_activate. Missing frontmatter skips classification. Explicit prefixes bypass classification."
+    }
+  }
+}

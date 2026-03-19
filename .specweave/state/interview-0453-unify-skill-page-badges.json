@@ -1,0 +1,30 @@
+{
+  "incrementId": "0453-unify-skill-page-badges",
+  "startedAt": "2026-03-07T12:00:00-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-07T12:01:00-05:00",
+      "summary": "Single-file change: remove TierBadge rendering from skill detail page, keep TrustBadge. No architectural impact."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-07T12:01:00-05:00",
+      "summary": "N/A - no integrations affected. TierBadge component stays for other pages. No API changes."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-07T12:01:00-05:00",
+      "summary": "Badge row simplifies from two badges to one. TrustBadge (T0-T4) is the richer signal. TaintWarning component separately handles tainted state."
+    },
+    "performance": {
+      "coveredAt": "2026-03-07T12:01:00-05:00",
+      "summary": "N/A - removing one React component render, marginal improvement."
+    },
+    "security": {
+      "coveredAt": "2026-03-07T12:01:00-05:00",
+      "summary": "N/A - trust tier display is informational only, not a security control."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-07T12:01:00-05:00",
+      "summary": "Tainted skills: covered by separate TaintWarning component (line 248). Missing trustTier: defaults to T1 in data.ts. Blocked skills: T0 BLOCKED shown by TrustBadge."
+    }
+  }
+}

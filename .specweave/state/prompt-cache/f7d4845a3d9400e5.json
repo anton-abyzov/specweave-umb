@@ -1,0 +1,22 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13122
+Increment recommendation: reopen (confidence: 0.8, mandatory: false)
+{
+  "detected": true,
+  "plugins": [
+    "sw-github"
+  ],
+  "confidence": 0.9,
+  "reasoning": "GitHub issue automation investigation",
+  "latencyMs": 14838.907917,
+  "increment": {
+    "action": "reopen",
+    "confidence": 0.8,
+    "mandatory": false,
+    "suggestedName": "investigate-github-issue-closure-automation",
+    "relatedKeyword": "0385-fix-github-issue-auto-closure",
+    "reasoning": "Investigating why GitHub issue auto-closure may not be working; directly related to previous 0385 closure fix"
+  }
+}

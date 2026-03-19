@@ -1,0 +1,30 @@
+{
+  "incrementId": "0565-vskill-frontmatter-compliance",
+  "startedAt": "2026-03-18T01:55:36-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T01:56:27-04:00",
+      "summary": "New ensureFrontmatter utility in installer module, called at all SKILL.md write sites in canonical.ts and update.ts. No new architecture patterns."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T01:56:27-04:00",
+      "summary": "N/A - purely internal code change, no external services or APIs involved."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T01:56:27-04:00",
+      "summary": "N/A - CLI tool internal change. No user-facing UI. Only SKILL.md file content is modified."
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T01:56:27-04:00",
+      "summary": "N/A - frontmatter parsing is trivial string manipulation during install, no performance concerns."
+    },
+    "security": {
+      "coveredAt": "2026-03-18T01:56:27-04:00",
+      "summary": "validateSkillNameStrict regex enforces agentskills.io format: lowercase alphanumeric + hyphens, 1-64 chars. Prevents injection via skill names."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T01:56:27-04:00",
+      "summary": "Handles: no frontmatter, existing frontmatter without name/description, existing name preserved even if different from skillName, empty body (no paragraph to extract description from), CRLF line endings, frontmatter with extra fields preserved."
+    }
+  }
+}

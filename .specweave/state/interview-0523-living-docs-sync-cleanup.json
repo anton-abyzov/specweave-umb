@@ -1,0 +1,30 @@
+{
+  "incrementId": "0523-living-docs-sync-cleanup",
+  "startedAt": "2026-03-14T17:33:30-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-14T17:34:00-04:00",
+      "summary": "N/A - pure internal refactor of existing living-docs-sync.ts. No architectural changes. Removes dead code, fixes variable reference bug, extracts duplicated logic into helpers."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-14T17:34:00-04:00",
+      "summary": "N/A - no new integrations. Existing external sync behavior unchanged. gray-matter import consolidation is internal only."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-14T17:34:00-04:00",
+      "summary": "N/A - no UI components. All changes are in backend CLI tooling."
+    },
+    "performance": {
+      "coveredAt": "2026-03-14T17:34:00-04:00",
+      "summary": "N/A - no performance impact. Static import of gray-matter is equivalent to cached dynamic import. Dead code removal reduces file size."
+    },
+    "security": {
+      "coveredAt": "2026-03-14T17:34:00-04:00",
+      "summary": "N/A - no security implications. Bug 1 fix (cross-references using validGroups) actually improves correctness by preventing references to filtered-out projects."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-14T17:34:00-04:00",
+      "summary": "Covered by user context. Bug 1: cross-refs to invalid projects. Bug 3: wrong ADR citation. DRY fixes are behavior-preserving extractions. No new edge cases introduced."
+    }
+  }
+}

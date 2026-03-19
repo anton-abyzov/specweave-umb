@@ -1,0 +1,30 @@
+{
+  "incrementId": "0593-fix-refresh-plugins-tool-detection",
+  "startedAt": "2026-03-19T03:22:39.158Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T03:25:00.000Z",
+      "summary": "No new architecture. refresh-plugins.ts reads config.adapters.default via existing readConfig(). Static adapter-to-directory map derived from existing compilePlugin() implementations. copyPluginSkillsToProject() gets optional targetSkillsDir parameter. No new modules or abstractions."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T03:25:10.000Z",
+      "summary": "No new external integrations. Uses existing readConfig() from config-manager.ts. Claude CLI integration unchanged for claude adapter. Static mapping replaces adapter loader instantiation."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T03:25:20.000Z",
+      "summary": "CLI-only change. Mode display message shows actual adapter name and target directory instead of always 'Claude CLI' or '.claude/skills/'. Summary section location display updated similarly. No new flags or options."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T03:25:30.000Z",
+      "summary": "Minimal impact. One additional async readConfig() call at startup. Static map lookup instead of adapter instantiation. Non-Claude path skips Claude CLI detection entirely (faster)."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T03:25:40.000Z",
+      "summary": "No security changes. File copy targets are project-local directories only. Adapter name from trusted config.json. No new CLI commands. Claude settings modifications gated to Claude-only path."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T03:25:50.000Z",
+      "summary": "Four edge cases: (1) config.adapters.default unset — falls back to Claude. (2) Unknown adapter name — falls back to Claude with warning. (3) No config.json — readConfig returns defaults with adapters.default='claude'. (4) readConfig() throws — catch and default to Claude."
+    }
+  }
+}

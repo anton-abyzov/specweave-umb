@@ -1,0 +1,30 @@
+{
+  "incrementId": "0449-fix-skill-display-names",
+  "startedAt": "2026-03-07T01:04:41-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-07T01:05:54-05:00",
+      "summary": "N/A - no new architecture, fixing display fields on existing types and components"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-07T01:05:54-05:00",
+      "summary": "N/A - no new external services, fixing display rendering"
+    },
+    "performance": {
+      "coveredAt": "2026-03-07T01:05:54-05:00",
+      "summary": "N/A - display-only change, no performance impact"
+    },
+    "security": {
+      "coveredAt": "2026-03-07T01:05:54-05:00",
+      "summary": "N/A - display-only change, no security implications"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-07T01:05:54-05:00",
+      "summary": "Covered by user description: skillSlug as display name, ownerSlug/repoSlug as separate publisher context label"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-07T01:05:54-05:00",
+      "summary": "Backfill for NULL slug fields, skills with same name differentiated by owner/repo"
+    }
+  }
+}

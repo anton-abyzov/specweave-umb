@@ -1,0 +1,60 @@
+{
+  "version": "1.1",
+  "incrementId": "0543-fix-reconciler-rate-limit",
+  "timestamp": "2026-03-16T05:00:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 2,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 2
+  },
+  "acCompliance": {
+    "totalACs": 16,
+    "passed": 16,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "id": "AC-US1-01", "status": "PASS", "evidence": "SEARCHABLE_STATUSES excludes 'completed'; test asserts no search call" },
+      { "id": "AC-US1-02", "status": "PASS", "evidence": "SEARCHABLE_STATUSES excludes 'abandoned'; test asserts no search call" },
+      { "id": "AC-US1-03", "status": "PASS", "evidence": "SEARCHABLE_STATUSES includes 'active'; test asserts search called" },
+      { "id": "AC-US1-04", "status": "PASS", "evidence": "All 6 statuses in SEARCHABLE_STATUSES with dedicated tests for each (active, planning, in-progress, backlog, ready_for_review, paused)" },
+      { "id": "AC-US1-05", "status": "PASS", "evidence": "SEARCHABLE_STATUSES excludes 'created'; test asserts no search call" },
+      { "id": "AC-US2-01", "status": "PASS", "evidence": "Negative cache write in scanIncrements after empty search; test verifies writeFile with correct JSON" },
+      { "id": "AC-US2-02", "status": "PASS", "evidence": "Guard metadata.github?.noIssuesFound; test verifies search skipped" },
+      { "id": "AC-US2-03", "status": "PASS", "evidence": "Guard state.userStoryIssues.length === 0; test verifies no negative cache on results" },
+      { "id": "AC-US2-04", "status": "PASS", "evidence": "Guard !state.mainIssue; test verifies no negative cache when main issue exists" },
+      { "id": "AC-US3-01", "status": "PASS", "evidence": "Static searchCache Map on GitHubClientV2; set after CLI call; test verifies cache miss" },
+      { "id": "AC-US3-02", "status": "PASS", "evidence": "TTL check with CACHE_TTL_MS; test verifies second call within 30s uses cache" },
+      { "id": "AC-US3-03", "status": "PASS", "evidence": "Same TTL logic; test advances Date.now by 31s and verifies fresh API call" },
+      { "id": "AC-US4-01", "status": "PASS", "evidence": "MAX_SEARCHES_PER_SCAN=20; guard skips at limit; test asserts exactly 20 calls for 21 increments" },
+      { "id": "AC-US4-02", "status": "PASS", "evidence": "Metadata-backed increments still pushed to results; test verifies scanned >= 1 when budget exhausted" },
+      { "id": "AC-US4-03", "status": "PASS", "evidence": "Logger.log called with skip count after loop; format: 'Skipped N search(es) due to budget exhaustion (limit: 20)'" },
+      { "id": "AC-US4-04", "status": "PASS", "evidence": "Local variable resets per scanIncrements call; test verifies across two reconcile() calls" }
+    ]
+  },
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "low",
+      "confidence": 95,
+      "category": "test-fragility",
+      "location": "tests/unit/sync/github-reconciler.test.ts:40-46",
+      "issue": "Pre-existing: fromRepo mock omits checkRateLimit. Production code calls it, throws, and empty catch swallows it.",
+      "suggestion": "Add checkRateLimit to fromRepo mock in a follow-up increment.",
+      "impact": "If catch block is ever tightened, all reconciler tests break."
+    },
+    {
+      "id": "F-002",
+      "severity": "low",
+      "confidence": 80,
+      "category": "design",
+      "location": "src/sync/github-reconciler.ts:376",
+      "issue": "Negative cache persists forever with no TTL. If issues created outside SpecWeave after cache written, never discovered.",
+      "suggestion": "Consider 24h TTL check on searchedAt in a follow-up. Manual override: delete metadata.github.noIssuesFound.",
+      "impact": "Silent data staleness for manual issue creation. Mitigated by reconcile --force."
+    }
+  ]
+}

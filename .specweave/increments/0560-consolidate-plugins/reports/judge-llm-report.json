@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "incrementId": "0560-consolidate-plugins",
+  "timestamp": "2026-03-17T18:31:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "No externalModels configured in .specweave/config.json. Judge LLM validation waived.",
+  "model": null,
+  "findings": []
+}

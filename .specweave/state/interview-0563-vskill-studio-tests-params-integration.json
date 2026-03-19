@@ -1,0 +1,30 @@
+{
+  "incrementId": "0563-vskill-studio-tests-params-integration",
+  "startedAt": "2026-03-18T00:32:18-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T00:33:32-04:00",
+      "summary": "Single-project (vskill), React SPA frontend (eval-ui) + Node HTTP backend (eval-server). No architectural changes needed -- fixes stay within existing component boundaries."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T00:33:32-04:00",
+      "summary": "Existing: credential-resolver reads process.env then .env.local. GET /api/credentials endpoint exists. writeCredential() helper exists. New: POST endpoint for saving creds, GET endpoint for reading all .env.local params."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T00:33:32-04:00",
+      "summary": "Issue 1: tab filter empty state fix. Issue 2: key-value editor with status badges and masked secrets in Params tab. Issue 3: type toggle in NewCaseForm, conditional integration fields, editable type in detail view. Issue 4: model selector forwarding for generate-evals."
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T00:33:32-04:00",
+      "summary": "N/A - bug fixes and UI additions, no performance impact. Credential reads are lightweight file I/O."
+    },
+    "security": {
+      "coveredAt": "2026-03-18T00:33:32-04:00",
+      "summary": "Credential values in .env.local must be masked in UI. writeCredential already ensures .gitignore coverage. POST credential endpoint writes to local disk only (Studio is local dev tool)."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T00:33:32-04:00",
+      "summary": "Issue 1: filtered-empty vs truly-empty distinction. Issue 2: .env.local may not exist yet, key may already exist (upsert). Issue 3: switching type on existing case preserves other fields. Issue 4: generate-evals must handle missing provider/model gracefully (fall back to current global)."
+    }
+  }
+}

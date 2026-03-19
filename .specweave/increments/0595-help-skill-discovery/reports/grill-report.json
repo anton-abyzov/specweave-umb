@@ -1,0 +1,31 @@
+{
+  "version": "1.1",
+  "incrementId": "0595-help-skill-discovery",
+  "timestamp": "2026-03-19T04:08:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 14,
+    "passed": 14,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "SKILL.md exists at plugins/specweave/skills/help/SKILL.md with proper YAML frontmatter (description, trigger phrases)" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "Skills are auto-discovered from filesystem — SKILL.md in skills/help/ IS the registration. 'help' keyword added to plugin.json" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "SKILL.md Section C organizes skills into 8 stages: Plan, Implement, Verify, Close, Sync, Explore, Create, Extend" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "Every skill in Section C has a one-liner description (e.g., '/sw:increment Plan a new feature, bug fix, or change')" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "Step 1 gathers stats via 'specweave analytics --since 30d --json' and 'specweave status --json'. Section A displays stats banner" },
+      { "acId": "AC-US1-06", "status": "pass", "evidence": "Section B shows active increment context with progress and next actions when STATUS_JSON contains active increments" },
+      { "acId": "AC-US1-07", "status": "pass", "evidence": "Step 2 checks INITIALIZED flag. If no .specweave/ dir, shows getting started with npm install, init, and docs link" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "introduction.md:5 changed from 'spec-first AI development framework' to 'spec-first AI development tool'" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "philosophy.md:3 changed from 'get the most out of the framework' to 'get the most out of SpecWeave'" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "plugins-ecosystem.md:12 changed from 'The core framework ships with' to 'SpecWeave ships with'" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "generic-ai-tools.md: 3 occurrences replaced — line 3 'core framework' → 'core system', line 59 'framework documentation' → 'SpecWeave documentation', line 225 'SpecWeave framework' → 'SpecWeave'" },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "philosophy.md:235 'Adapts commands to your framework' preserved — refers to user's tech stack, not SpecWeave" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "docs-site/docs/commands/help.md created with sidebar_position, CommandTabs import, and structured content" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "help.md documents: stats banner, active increment context, skills by stage table, getting started, related commands" }
+    ]
+  },
+  "findings": []
+}

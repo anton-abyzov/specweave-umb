@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0543-fix-reconciler-rate-limit",
+  "timestamp": "2026-03-16T05:00:00Z",
+  "verdict": "WAIVED",
+  "reason": "No external model consent configured. Judge LLM validation waived.",
+  "findings": []
+}

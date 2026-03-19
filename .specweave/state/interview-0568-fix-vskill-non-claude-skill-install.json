@@ -1,0 +1,30 @@
+{
+  "incrementId": "0568-fix-vskill-non-claude-skill-install",
+  "startedAt": "2026-03-18T03:58:55-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T03:59:50-04:00",
+      "summary": "Bug fix in existing installer architecture: canonical.ts already writes SKILL.md correctly, sync.ts uses installSymlink. Changes: add migration fn to canonical.ts, integrate vskill init call into specweave plugin-installer.ts. No new architectural patterns."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T03:59:50-04:00",
+      "summary": "Cross-repo integration: specweave init must call vskill init. vskill already has agent detection + core skills sync. Integration point: plugin-installer.ts needs to spawn vskill init after copying Claude skills. No external APIs involved."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T03:59:50-04:00",
+      "summary": "N/A - CLI-only changes, no UI. Only console output improvements for migration feedback."
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T03:59:50-04:00",
+      "summary": "N/A - file rename operations and one-time init sync. No performance concerns."
+    },
+    "security": {
+      "coveredAt": "2026-03-18T03:59:50-04:00",
+      "summary": "Existing path traversal guard in canonical.ts is sufficient. Migration must not follow symlinks outside project root. ensureFrontmatter already handles content sanitization."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T03:59:50-04:00",
+      "summary": "Stale files: migration must handle both flat .md files and incorrectly named files in subdirs. Must be idempotent -- running twice should not break. Caching: specweave init may use stale vskill binary, need version check or npx-style invocation. Missing vskill: specweave init should gracefully skip non-Claude sync if vskill not installed."
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0230-marketplace-scanner-dashboard",
+  "startedAt": "2026-02-16T04:03:49-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-02-16T04:11:04-05:00",
+      "summary": "File-based queue + detached worker process + SSE push. Follows existing clone-worker pattern. State in .specweave/state/skill-submissions.json."
+    },
+    "integrations": {
+      "coveredAt": "2026-02-16T04:11:04-05:00",
+      "summary": "GitHub Search API (native fetch), existing SecurityScanner (Tier 1), SecurityJudge (Tier 2), SSE infrastructure, BackgroundJobManager."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-02-16T04:11:04-05:00",
+      "summary": "Onboarding CTA for empty states with Start Scanner button. 4 sections: Scanner Status, Queue table, Verified gallery, Insights. Follows existing dashboard dark theme patterns."
+    },
+    "performance": {
+      "coveredAt": "2026-02-16T04:11:04-05:00",
+      "summary": "Medium scale 500-5000 skills. Pagination 20/page with server-side filtering. Monthly pruning of rejected entries. GitHub rate limiting with backoff. 60min default scan interval."
+    },
+    "security": {
+      "coveredAt": "2026-02-16T04:11:04-05:00",
+      "summary": "Tier 1 auto-scan on discover. Tier 2 requires consent gate. GITHUB_TOKEN optional for higher rate limits. No PII stored. Audit trail via submission status history."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-02-16T04:11:04-05:00",
+      "summary": "Auto-recovery: backup queue before writes, validate JSON on load, rebuild from backup if corrupted. Scanner auto-restarts via job manager. Checkpoint-based resume after crash."
+    }
+  }
+}

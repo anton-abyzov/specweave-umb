@@ -1,0 +1,34 @@
+{
+  "version": "1.1",
+  "incrementId": "0547-eval-perf-multimodel-integration",
+  "timestamp": "2026-03-16T20:40:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0, "suppressed": 0 },
+  "acCompliance": {
+    "totalACs": 45,
+    "passed": 45,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "benchmark-runner.ts uses Promise.allSettled for parallel case execution" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "judge.ts: Promise.all for intra-case assertion judging" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Semaphore from concurrency.ts gates concurrent LLM calls" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "judgeClient parameter in judge.ts enables separate judge model" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "--judge-model CLI flag wired through index.ts → eval.ts → run.ts" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "judge-cache.ts with SHA-256 content-hash keyed by assertion+output+model" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "llm.ts createOpenRouterClient() added as 6th provider" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "GenerateResult.cost field populated from OpenRouter usage.total_cost" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "sweep-runner.ts runs evals across N models with configurable judge" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "Leaderboard stored at evals/leaderboard/<timestamp>.json" },
+      { "acId": "AC-US6-01", "status": "pass", "evidence": "LeaderboardPanel.tsx with table, sparklines, Best Model badge" },
+      { "acId": "AC-US7-01", "status": "pass", "evidence": "TestsPanel.tsx [U]/[I] badges with blue/amber colors" },
+      { "acId": "AC-US8-01", "status": "pass", "evidence": "credential-resolver.ts with .env.local → env var resolution" },
+      { "acId": "AC-US9-01", "status": "pass", "evidence": "integration-runner.ts launches Playwright with Chrome profile" },
+      { "acId": "AC-US9-03", "status": "pass", "evidence": "Cleanup phase in integration-runner.ts runs on pass or fail" },
+      { "acId": "AC-US10-01", "status": "pass", "evidence": "rate-limiter.ts PlatformRateLimiter with per-platform token buckets" }
+    ]
+  },
+  "findings": [],
+  "testsRun": { "total": 1375, "passed": 1375, "failed": 0, "files": 96 }
+}

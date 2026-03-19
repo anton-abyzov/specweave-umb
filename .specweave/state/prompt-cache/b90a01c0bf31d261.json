@@ -1,0 +1,18 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9100
+Increment recommendation: none (confidence: 0.85, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.4,
+  "reasoning": "References 'team lead skill' (vskill), not specweave integrations; unclear context",
+  "latencyMs": 10622.433208,
+  "increment": {
+    "action": "none",
+    "confidence": 0.85,
+    "mandatory": false,
+    "reasoning": "Meta-instruction without clear implementation task; appears to reference prior context"
+  }
+}

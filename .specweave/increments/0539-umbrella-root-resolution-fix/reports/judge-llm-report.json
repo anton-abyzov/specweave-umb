@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0539-umbrella-root-resolution-fix",
+  "timestamp": "2026-03-15T20:00:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "No externalModels consent configured",
+  "findings": []
+}

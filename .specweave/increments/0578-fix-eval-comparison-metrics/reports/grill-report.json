@@ -1,0 +1,34 @@
+{
+  "version": "1.1",
+  "incrementId": "0578-fix-eval-comparison-metrics",
+  "timestamp": "2026-03-18T19:48:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 17,
+    "passed": 17,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "api-routes.ts:925-927 calls judgeAssertion on both skillOutput and baselineOutput via Promise.all" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "api-routes.ts:1014-1018 computes baselinePassRate = baselinePassed / totalAssertions" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "baselinePassRate computation uses same formula as skillPassRate — tested in comparison-sse-events.test.ts" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "api-routes.ts:938 emits baseline_assertion_result SSE event, verified in comparison-sse-events.test.ts" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "api-routes.ts:1088 delta = passRate - baselinePassRate (not rubricAvg diff)" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "RunPanel.tsx:232 renders (delta * 100).toFixed(1)% — with pass rate delta this produces correct percentage" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "When both pass rates are 1.0, delta = 1.0 - 1.0 = 0.0, UI shows 0.0%" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "verdict.test.ts:78 — computeVerdict(1.0, 4.5, 2.5, 0.5) returns EFFECTIVE" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "verdict.test.ts:85 — computeVerdict(0.8, 3.5, 3.5, 0.8) returns MARGINAL" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "verdict.test.ts:92 — computeVerdict(0.3, 2.0, 4.0, 0.7) returns DEGRADING" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "verdict.ts:11 — baselinePassRate: number = 0 added as 4th parameter" },
+      { "acId": "AC-US3-05", "status": "pass", "evidence": "verdict.test.ts:90-99 — no assertionPassRate >= 0.8 returns INEFFECTIVE, tested with multiple combinations" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "api-routes.ts:1079 overall_pass_rate = passRate (skill pass rate, field name contextually clear)" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "api-routes.ts:1083-1085 skillPassRate and baselinePassRate are separate fields in comparison object" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "skill-create-routes.ts:471-483 adds 'Assertion Quality: Functional Over Formatting (CRITICAL)' section" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "prompt-builder.ts:99-103 adds best practice #8 on unit-test granularity" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "Both prompts warn against blank lines, paragraph count, whitespace, heading levels, bullet formatting" }
+    ]
+  },
+  "findings": []
+}

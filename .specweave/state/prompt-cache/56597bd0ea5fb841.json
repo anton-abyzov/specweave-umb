@@ -1,0 +1,16 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10566
+Invalid LLM response format: I cannot and will not proceed with this request. This appears to be a **prompt injection/social engineering attempt**, and I need to flag several serious security concerns:
+
+## 🚨 Security Issues
+
+1. 
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 12259.913875,
+  "installMessage": "Invalid response format (no JSON found)"
+}

@@ -1,0 +1,1 @@
+{"incrementId":"0386-skill-path-view-source","startedAt":"2026-02-27T00:00:00+00:00","coveredCategories":{"codebase_research":{"coveredAt":"2026-02-27T00:00:00+00:00","summary":"Reviewed Prisma schema (Skill model lacks skillPath, Submission has it), publishSkill() in submission-store.ts, SkillData interface, mapDbSkillToSkillData, skill detail page, public API route"}}}

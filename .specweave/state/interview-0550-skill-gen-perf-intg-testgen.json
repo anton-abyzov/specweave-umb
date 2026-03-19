@@ -1,0 +1,30 @@
+{
+  "incrementId": "0550-skill-gen-perf-intg-testgen",
+  "startedAt": "2026-03-16T17:30:22-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-16T17:32:15-04:00",
+      "summary": "Split monolithic LLM call into 2 parallel calls (body + evals). Parallelize generate-all with existing Semaphore from concurrency.ts. New batch-eval-runner.ts for Anthropic Batch API. All changes in existing vskill eval architecture."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-16T17:32:15-04:00",
+      "summary": "Anthropic Messages Batch API (new integration). Existing providers (claude-cli, codex-cli, gemini-cli, ollama, openrouter) unchanged. MCP detector already exists for integration test generation. Auto-prefer API when ANTHROPIC_API_KEY is set for batch ops."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-16T17:32:15-04:00",
+      "summary": "N/A - CLI-only changes. No UI components affected. SSE progress events for skill-create-routes already exist and will be preserved."
+    },
+    "performance": {
+      "coveredAt": "2026-03-16T17:32:15-04:00",
+      "summary": "Core goal: 30-40% wall-time reduction for single skill gen, 3-5x batch speedup, 50% cost savings via batch API. Concurrency defaults: 3 for API, 1 for CLI. Polling: 5s initial, 15s after 60s, 30s after 5min."
+    },
+    "security": {
+      "coveredAt": "2026-03-16T17:32:15-04:00",
+      "summary": "ANTHROPIC_API_KEY already handled by existing llm.ts. No new secrets. Credentials for integration tests use existing credential-resolver.ts. No new auth surfaces."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-16T17:32:15-04:00",
+      "summary": "Batch API fallback to sequential on submission failure. Skills without MCP skip integration section. Parallel LLM call failure: if one fails, degrade gracefully (use whatever succeeded). --batch flag is opt-in for CI/non-interactive."
+    }
+  }
+}

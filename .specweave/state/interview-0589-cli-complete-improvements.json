@@ -1,0 +1,30 @@
+{
+  "incrementId": "0589-cli-complete-improvements",
+  "startedAt": "2026-03-19T02:05:08.120Z",
+  "coveredCategories": {
+    "architecture": {
+      "covered": true,
+      "summary": "Extract resolveIncrementId() from evaluate-completion.ts to shared utility at src/utils/resolve-increment-id.ts. Change complete command from single-arg to variadic. Follows existing archive command patterns."
+    },
+    "integrations": {
+      "covered": true,
+      "summary": "No new integrations. Complete command already triggers GitHub/JIRA/ADO sync. Batch mode calls same completeIncrement() per ID."
+    },
+    "ui-ux": {
+      "covered": true,
+      "summary": "CLI-only. Short-ID saves typing. Batch mode: single command for multiple IDs. Error messages follow existing chalk pattern. Summary line at end of batch."
+    },
+    "performance": {
+      "covered": true,
+      "summary": "N/A. CLI command, not hot path. Sequential batch. resolveIncrementId() does single readdirSync."
+    },
+    "security": {
+      "covered": true,
+      "summary": "Short-ID resolution uses validateIncrementId() on resolved slug. Path traversal protection preserved. Resolver only searches .specweave/increments/."
+    },
+    "edge-cases": {
+      "covered": true,
+      "summary": "Ambiguous short-IDs fail with listed matches. Zero matches fail with clear error. Batch: one failure does not stop others. AC validator: fix parseTasksWithUSLinks arg from content to path. Already-completed increments return true."
+    }
+  }
+}

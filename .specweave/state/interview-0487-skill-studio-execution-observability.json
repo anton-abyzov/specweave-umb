@@ -1,0 +1,30 @@
+{
+  "incrementId": "0487-skill-studio-execution-observability",
+  "startedAt": "2026-03-11T02:58:39-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T03:00:37-04:00",
+      "summary": "Reuse existing SSE infrastructure (sse-helpers.ts, useSSE, ProgressLog). Simple phase+message+elapsed_ms event shape. Three phases: preparing, generating, parsing. One-at-a-time per session, no operationId needed."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T03:00:37-04:00",
+      "summary": "N/A - no new external integrations. Uses existing LlmClient providers (claude-cli, anthropic, ollama, codex-cli, gemini-cli)."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T03:00:37-04:00",
+      "summary": "ProgressLog-style feedback during AI ops. Escape aborts and returns to instruction input keeping text. Inline Retry button on error cards. Rate limit countdown timer (30s default). Connection lost error state, no auto-retry."
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T03:00:37-04:00",
+      "summary": "N/A - heartbeat approach every 3s, no performance concerns. Same as existing benchmark SSE."
+    },
+    "security": {
+      "coveredAt": "2026-03-11T03:00:37-04:00",
+      "summary": "N/A - local dev server only (localhost:3152), no auth changes."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T03:00:37-04:00",
+      "summary": "Connection drop shows error state, no auto-retry. CLI error classification uses regex on stderr for rate_limit, ENOENT, timeout etc. No catch-all for CLI providers."
+    }
+  }
+}

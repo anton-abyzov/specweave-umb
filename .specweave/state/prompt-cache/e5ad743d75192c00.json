@@ -1,0 +1,21 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.78 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9918
+Increment recommendation: new (confidence: 0.9, mandatory: true)
+{
+  "detected": true,
+  "plugins": [
+    "sw-media"
+  ],
+  "confidence": 0.95,
+  "reasoning": "Video transcription, translation, subtitle generation, and publishing require sw-media",
+  "latencyMs": 14054.162290999999,
+  "increment": {
+    "action": "new",
+    "confidence": 0.9,
+    "mandatory": true,
+    "suggestedName": "publish-specweave-opencode-video",
+    "reasoning": "Multi-component work: video processing (transcription, translation, subtitles) + frontend UI design + documentation integration"
+  }
+}

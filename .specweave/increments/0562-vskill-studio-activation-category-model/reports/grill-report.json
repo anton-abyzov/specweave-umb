@@ -1,0 +1,43 @@
+{
+  "version": "1.1",
+  "incrementId": "0562-vskill-studio-activation-category-model",
+  "timestamp": "2026-03-18T09:20:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 26,
+    "passed": 26,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "matchExistingPlugin() returns suggestedPlugin in SSE done event" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "FIXED: Plugin names from detectProjectLayout() injected into bodyPrompt at skill-create-routes.ts:927-931" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "useCreateSkill.ts:314-334 calls setPlugin() with suggestedPlugin" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "useCreateSkill.ts:330-334 enters New Plugin mode when not in list" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "Classification embedded in same LLM call via bodyPrompt — zero extra latency" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "api-routes.ts:1276-1339 generates prompts via LLM" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "ActivationPanel.tsx:84-123 has Generate button" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "ActivationPanel.tsx:120 shows Regenerate label" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "api-routes.ts:1282-1303 accepts provider/model in POST body" },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "ActivationPanel.tsx:86 disables button when !cleanDescription" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "Cursor refs at WorkspaceContext.tsx:327,467,524" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Cursor pattern guarantees N dispatches for N events" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "Error effect uses error string, not array" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "api-routes.ts:1215-1219 optional provider/model" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "api-routes.ts:1233 createLlmClient when present" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "api-routes.ts:1235 falls back to getClient()" },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "WorkspaceContext.tsx:615-617 includes config provider/model" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "api-routes.ts:1246-1266 writes history entry" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "activation-history.ts MAX_RUNS=50 enforced" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "ActivationPanel.tsx:352-413 renders history section" },
+      { "acId": "AC-US5-04", "status": "pass", "evidence": "WorkspaceContext.tsx:554-571 prepends new run" },
+      { "acId": "AC-US6-01", "status": "pass", "evidence": "useCreateSkill.ts:395 includes draftDir" },
+      { "acId": "AC-US6-02", "status": "pass", "evidence": "FIXED: isDraftWithinRoot() with trailing sep guard" },
+      { "acId": "AC-US6-03", "status": "pass", "evidence": "catch block does not delete draftDir" },
+      { "acId": "AC-US6-04", "status": "pass", "evidence": "Guarded with if(body.draftDir)" },
+      { "acId": "AC-US6-05", "status": "pass", "evidence": "useCreateSkill.ts:157,351-356 stores draft path in ref" }
+    ]
+  },
+  "findings": []
+}

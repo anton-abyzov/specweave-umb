@@ -1,0 +1,18 @@
+{
+  "incrementId": "0314-auto-blocklist-rejected-submissions",
+  "startedAt": "2026-02-21T17:45:53-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-02-21T17:46:31-05:00",
+      "summary": "Integration pattern: extend RejectSchema vs separate call; unique constraint handling; which TIER1_FAILED paths get auto-blocklist"
+    },
+    "data": {
+      "coveredAt": "2026-02-21T17:46:31-05:00",
+      "summary": "threatType/severity defaults for auto entries; discoveredBy values for new paths"
+    },
+    "scope": {
+      "coveredAt": "2026-02-21T17:46:31-05:00",
+      "summary": "Trust score recomputation trigger question"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0531-fix-test-mock-drift-prevention",
+  "startedAt": "2026-03-15T00:00:00+00:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-15T00:00:01+00:00",
+      "summary": "Create src/constants/npm-constants.ts with shared registry URL constant and helper function. Follows existing pattern from pricing-constants.ts. Update 4 production files and 3 test files to import from shared module."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-15T00:00:02+00:00",
+      "summary": "N/A - Internal refactor only, no external service integrations. npm registry URL is already used in production code, just being centralized."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-15T00:00:03+00:00",
+      "summary": "N/A - CLI internals only, no UI changes."
+    },
+    "performance": {
+      "coveredAt": "2026-03-15T00:00:04+00:00",
+      "summary": "N/A - String constant extraction has zero performance impact."
+    },
+    "security": {
+      "coveredAt": "2026-03-15T00:00:05+00:00",
+      "summary": "N/A - No secrets or auth changes. Registry URL is a public constant."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-15T00:00:06+00:00",
+      "summary": "Primary edge case is the bug itself: TC-UH-02 mock missing --registry flag. Prevention via shared constants ensures test mocks cannot drift from production command strings. grep-based CI lint rule can catch future violations."
+    }
+  }
+}

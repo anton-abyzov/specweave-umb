@@ -1,0 +1,30 @@
+{
+  "incrementId": "0515-vskill-marketplace-sync",
+  "startedAt": "2026-03-12T09:05:06-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-12T09:06:24-04:00",
+      "summary": "Single CLI command in existing Commander.js program. Reads plugins/*/. claude-plugin/plugin.json, diffs against .claude-plugin/marketplace.json, writes updated JSON. No new services or architectural changes."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-12T09:06:24-04:00",
+      "summary": "N/A - purely local filesystem operation. Reads plugin.json files and writes marketplace.json. No external APIs, no network calls."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-12T09:06:24-04:00",
+      "summary": "N/A - CLI-only command. Output is a summary table to stdout. User specified format: status column (+ added / ~ updated / unchanged), plugin name, and skipped dirs warning."
+    },
+    "performance": {
+      "coveredAt": "2026-03-12T09:06:24-04:00",
+      "summary": "N/A - single-shot file scan of a small number of directories. No performance concerns."
+    },
+    "security": {
+      "coveredAt": "2026-03-12T09:06:24-04:00",
+      "summary": "N/A - reads and writes local files only. No auth, no PII, no network. Input validation limited to checking plugin.json structure."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-12T09:06:24-04:00",
+      "summary": "Key edge cases: marketplace.json missing (exit 1), plugin.json missing in a dir (skip with warning), malformed plugin.json (skip with warning), concurrent marketplace.json edits not a concern for single CLI invocation."
+    }
+  }
+}

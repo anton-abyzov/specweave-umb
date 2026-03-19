@@ -1,0 +1,12 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.70 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11612
+Invalid LLM response format: Done. I've saved your workflow preference. From now on, when I create a plan, I'll automatically proceed to implementation without asking for approval.
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 14931.999833,
+  "installMessage": "Invalid response format (no JSON found)"
+}

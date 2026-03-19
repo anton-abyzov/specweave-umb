@@ -1,0 +1,30 @@
+{
+  "incrementId": "0616-fix-validate-owner-error-masking",
+  "startedAt": "2026-03-19T12:40:45.461Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T12:45:00.000Z",
+      "summary": "DRY fix: github-validator.ts delegates to GitHubProvider.validateOwner(). Both implementations capture actual HTTP status from failed fetch responses instead of hardcoding 404. No new types or modules needed — uses existing GitApiError and getActionableError()."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T12:45:00.000Z",
+      "summary": "No new integrations. Fix is internal to GitHub API error handling path. git-error-handler.ts already has handle401/handle403/handle404 — just needs the real status passed through. Other providers (GitLab, Bitbucket) out of scope."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T12:45:00.000Z",
+      "summary": "No UI changes. Error messages improve: users will see '401 Unauthorized' or '403 Rate Limited' with actionable suggestions instead of misleading '404 Not Found'. This is the existing behavior of git-error-handler.ts that was being bypassed."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T12:45:00.000Z",
+      "summary": "No performance impact. The fix changes which status code is passed to an error constructor — same number of API calls, same control flow. No additional network requests."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T12:45:00.000Z",
+      "summary": "Fix improves security posture: 401 errors now surface auth guidance so users can fix expired/invalid tokens instead of being misled into thinking the owner doesn't exist. No secrets exposed — error messages come from existing handle401/handle403 which are already designed for user-facing output."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T12:45:00.000Z",
+      "summary": "Key edge case: user endpoint returns 403 (rate limit) but org endpoint returns 404 (not found). Should prefer the 403 since it's more informative — the 404 may be a side effect of rate limiting. When both return different non-200 statuses, prefer the more severe/informative one (401 > 403 > 404)."
+    }
+  }
+}

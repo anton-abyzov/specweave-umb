@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12553
+Increment recommendation: new (confidence: 0.72, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.85,
+  "reasoning": "Git repository investigation and conditional merge operations, no specific tech domain",
+  "latencyMs": 13865.429834,
+  "increment": {
+    "action": "new",
+    "confidence": 0.72,
+    "mandatory": false,
+    "suggestedName": "investigate-and-merge-untracked-repos",
+    "reasoning": "Investigation of untracked repositories with conditional merge operations if changes exist"
+  }
+}

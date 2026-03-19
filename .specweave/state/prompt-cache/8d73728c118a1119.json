@@ -1,0 +1,13 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.69 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11222
+{
+  "detected": true,
+  "plugins": [
+    "sw-media"
+  ],
+  "confidence": 0.95,
+  "reasoning": "nanobanana is an AI image generation tool using Google Gemini 3 Pro for text-to-image and image editing",
+  "latencyMs": 13775.602125000001
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0614-update-non-claude-skill-routing",
+  "startedAt": "2026-03-19T00:00:00+00:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T00:01:00+00:00",
+      "summary": "Replace inline file-writing loop in update.ts (lines 191-226) with calls to installSymlink() from canonical.ts. Same pattern used by init and install commands. No new components."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T00:02:00+00:00",
+      "summary": "No external integrations. Internal only: canonical.ts installSymlink/installCopy, frontmatter.ts stripClaudeFields, agents-registry.ts detectInstalledAgents."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T00:03:00+00:00",
+      "summary": "CLI command only. No UI changes. Update command correctly routes skills per agent type. No new flags or prompts."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T00:04:00+00:00",
+      "summary": "No performance impact. Symlink creation is negligible. One extra canonical write per skill is minimal."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T00:05:00+00:00",
+      "summary": "No auth changes. stripClaudeFields already handles removing sensitive Claude-specific frontmatter from non-Claude agent copies."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T00:06:00+00:00",
+      "summary": "Symlink failure fallback to copy exists in installSymlink(). Ghost file cleanup works with canonical dir. Multiple agents detected simultaneously handled by per-agent loop."
+    }
+  }
+}

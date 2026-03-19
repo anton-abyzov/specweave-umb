@@ -1,0 +1,30 @@
+{
+  "incrementId": "0596-tool-agnostic-command-refs",
+  "startedAt": "2026-03-19T03:59:45.515Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T04:01:38.686Z",
+      "summary": "No architecture changes - this is a text substitution across 5 template files. Canonical format: sw:do (namespace:command without leading slash)"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T04:01:43.961Z",
+      "summary": "Affects 49 AI tool integrations. AGENTS.md template updated for all tools. CLAUDE.md keeps /sw: format. agents-md-compiler.ts eliminates orphaned /specweave. format. No API changes."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T04:01:45.640Z",
+      "summary": "No UI changes. Documentation-only change. Users see sw:do instead of /sw:do in AGENTS.md and README. How to Invoke table guides per-tool invocation."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T04:01:46.616Z",
+      "summary": "No performance impact. Pure text substitutions in template files. No runtime code changes."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T04:01:47.885Z",
+      "summary": "No security implications. Text formatting changes only. No secrets, auth, or data handling affected."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T04:01:50.646Z",
+      "summary": "Edge cases covered by brainstorm: Claude-specific columns in AGENTS.md keep /sw: format. Existing user projects with old format unaffected (specweave update-instructions handles smart merge). SKILL.md files already clean - not in scope."
+    }
+  }
+}

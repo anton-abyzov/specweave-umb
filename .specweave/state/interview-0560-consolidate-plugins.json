@@ -1,0 +1,30 @@
+{
+  "incrementId": "0560-consolidate-plugins",
+  "startedAt": "2026-03-17T12:04:30-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-17T12:05:00-04:00",
+      "summary": "Merge 7 satellite plugin directories into core specweave plugin. Skills move to plugins/specweave/skills/ (flat, existing names). Commands get domain-prefixed filenames in plugins/specweave/commands/. Lib code moves to plugins/specweave/lib/integrations/{github,jira,ado}/ and lib/features/{release}/. marketplace.json reduced from 8 entries to 1. Single installPlugin call replaces 8."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-17T12:05:00-04:00",
+      "summary": "No external integration changes. GitHub/JIRA/ADO sync functionality is unchanged — only the directory structure and packaging changes. Claude Code plugin install CLI is the only external dependency and requires no changes (single plugin install instead of 8)."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-17T12:05:00-04:00",
+      "summary": "Zero user-facing changes. All skill names preserved (Option B): sw-github:push, sw-jira:sync, sw-ado:status etc. remain identical. PLUGINS-INDEX.md progressive loading triggers preserved. Users experience faster init (1 install vs 8) but same commands/skills."
+    },
+    "performance": {
+      "coveredAt": "2026-03-17T12:05:00-04:00",
+      "summary": "Positive impact: 1 plugin install call instead of 8 (7 fewer claude CLI spawns at ~15s each). Single hash computation instead of 8. No runtime performance change — skill resolution is the same. Package size unchanged (same files, different layout)."
+    },
+    "security": {
+      "coveredAt": "2026-03-17T12:05:00-04:00",
+      "summary": "N/A — internal packaging refactor. No auth changes, no new permissions, no data flow changes. Hook permissions (chmod 755 on .sh files) continue to work the same way. Plugin cache path changes from per-plugin to single-plugin but same trust level."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-17T12:05:00-04:00",
+      "summary": "Lockfile migration: global plugins-lock.json has 8 entries that become 1 — old satellite entries must be cleaned up. Per-project vskill.lock may reference satellite plugins. Legacy ~/.claude/commands/ cleanup already handled. Stale plugin cache dirs in ~/.claude/plugins/cache/specweave/{sw-github,sw-jira,...} need cleanup. Migration must be idempotent. If migration fails, fresh install should work as fallback."
+    }
+  }
+}

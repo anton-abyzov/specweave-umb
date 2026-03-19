@@ -1,0 +1,29 @@
+{
+  "version": "1.1",
+  "incrementId": "0613-reduce-github-api-calls-phase1",
+  "timestamp": "2026-03-19T08:15:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 12,
+    "passed": 12,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "ac-progress-sync.ts:128 — skipGitHubComments guard skips postACProgressComments, autoClose at :144 always runs" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "ac-progress-sync.ts:65-68 — SyncProgressOptions interface with skipGitHubComments, passed through at :342,:373" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "ac-progress-sync.ts:168,236 — JIRA/ADO accept _options but ignore skipGitHubComments. Tests verify in ac-progress-sync.test.ts" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "sync-progress.ts:277,338,469 — githubStep5Succeeded=false by default, set true only on success. On error, skipGitHubComments=false" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "With skipGitHubComments=true, postACProgressComments (4 calls/US) is skipped entirely. 7 US × 4 = 28 calls saved" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "github-us-auto-closer.ts:128 — ensureLabelExists called once before closeCandidates loop at :133" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "github-us-auto-closer.ts:51 — verifiedLabels Set with cacheKey check at :291, resetLabelCache exported at :54" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "github-us-auto-closer.ts:175-184 — single gh api PATCH with state=closed + labels[] args replaces separate close+edit" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "github-us-auto-closer.ts:115-118 — storedStatus check skips before any API call. parseIssueLinks reads status at :266" },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "github-us-auto-closer.ts:161-166 — completion comment still posted. :170-173 — labels preserved. Tests verify in auto-closer.test.ts" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "github-ac-checkbox-sync.ts:189-191 — if (body === originalBody) continue; skips both updateIssueBody and addComment" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "github-ac-checkbox-sync.ts:195-217 — updateIssueBody + addComment only execute when body !== originalBody (changes exist)" }
+    ]
+  },
+  "findings": []
+}

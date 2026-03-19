@@ -1,0 +1,30 @@
+{
+  "incrementId": "0415-brainstorm-skill",
+  "startedAt": "2026-03-03T13:45:45-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-03T13:45:59-05:00",
+      "summary": "SKILL.md in core plugin, 5-phase flow (Frame/Diverge/Evaluate/Deepen/Output), 3 depth modes, 5 cognitive lenses, subagent parallel dispatch in deep mode, state file for resumability"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-03T13:45:59-05:00",
+      "summary": "Native handoff to sw:increment, persistent brainstorm docs in .specweave/docs/brainstorms/, state files in .specweave/state/, core PLUGIN.md update, docs PLUGIN.md deprecation, 3 .ts source files + CLAUDE.md template updates"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-03T13:45:59-05:00",
+      "summary": "N/A - CLI skill with text-based output, no UI. DOT-notation process flow graph for visualization."
+    },
+    "performance": {
+      "coveredAt": "2026-03-03T13:45:59-05:00",
+      "summary": "Token budgets per phase to control context usage. Quick mode (2 phases) vs standard (4 phases) vs deep (all 5 phases) for cost control."
+    },
+    "security": {
+      "coveredAt": "2026-03-03T13:45:59-05:00",
+      "summary": "N/A - Internal skill, no auth, no PII, no external data. Runs within existing SpecWeave security context."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-03T13:45:59-05:00",
+      "summary": "Resumability via state file handles interrupted sessions. Depth mode selection handles varying time budgets. Auto-activation keywords for discoverability."
+    }
+  }
+}

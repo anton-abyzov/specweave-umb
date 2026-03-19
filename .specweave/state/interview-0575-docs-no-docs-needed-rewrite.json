@@ -1,0 +1,32 @@
+{
+  "incrementId": "0575-docs-no-docs-needed-rewrite",
+  "status": "completed",
+  "startedAt": "2026-03-18T17:16:00.000Z",
+  "completedAt": "2026-03-18T17:17:00.000Z",
+  "coveredCategories": {
+    "architecture": {
+      "covered": true,
+      "summary": "Single markdown file rewrite at docs/overview/no-docs-needed.md. No architecture changes. File path preserved. Sidebar position 3 preserved. No new files."
+    },
+    "integrations": {
+      "covered": true,
+      "summary": "N/A — docs-only change. No APIs, databases, auth providers, or external services."
+    },
+    "ui-ux": {
+      "covered": true,
+      "summary": "New title 'Start Building in Minutes'. Capabilities table replaces CC concepts table. Before/after reframed as vibe coding vs spec-driven. Internal links preserved."
+    },
+    "performance": {
+      "covered": true,
+      "summary": "N/A — static markdown page rendered by Docusaurus. No runtime performance considerations."
+    },
+    "security": {
+      "covered": true,
+      "summary": "N/A — no auth, data handling, or code changes. Documentation content only."
+    },
+    "edge-cases": {
+      "covered": true,
+      "summary": "File path unchanged so inbound links from why-specweave.md remain valid. Cross-page references checked — skill-development-guidelines, extensible-skills, troubleshooting all exist."
+    }
+  }
+}

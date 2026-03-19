@@ -1,0 +1,30 @@
+{
+  "incrementId": "0458-eval-run-history",
+  "startedAt": "2026-03-09T01:29:54-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-09T01:30:06-04:00",
+      "summary": "Extends existing eval system: JSON file storage in evals/history/, Node HTTP server backend, React 19 + Vite frontend. No new services. Backward-compatible optional fields on existing types. New baseline run mode reuses existing LLM client pipeline."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-09T01:30:11-04:00",
+      "summary": "N/A - No external integrations. All changes are internal to the eval system. LLM providers (claude-cli, anthropic, ollama) already integrated. Storage is local JSON files."
+    },
+    "performance": {
+      "coveredAt": "2026-03-09T01:30:15-04:00",
+      "summary": "N/A - Single-user local tool. History listing reads directory of JSON files, which is fine for expected volume (tens to hundreds of runs). No caching or lazy loading needed beyond existing patterns."
+    },
+    "security": {
+      "coveredAt": "2026-03-09T01:30:19-04:00",
+      "summary": "N/A - Local-only tool running on localhost. No auth, no PII, no external exposure. Existing CORS localhost check is sufficient."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-09T01:30:50-04:00",
+      "summary": "Trend chart on HistoryPage only, fixed-width. Compare via checkbox selection (2 checked = Compare button). Rerun buttons in both history detail and BenchmarkPage."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-09T01:30:55-04:00",
+      "summary": "Old history entries show N/A for missing enriched fields (no backfill). Baseline-only full runs save to history. Single-case reruns remain transient."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "incrementId": "0420-vendor-skill-freshness",
+  "startedAt": "2026-03-03T00:00:00+00:00",
+  "complexity": "trivial",
+  "questionCount": 0,
+  "rationale": "Bug fix with full context from prior investigation. User investigated the issue, confirmed root cause, and approved the exact fix plan.",
+  "coveredCategories": {
+    "problem": {
+      "coveredAt": "2026-03-03T00:00:01+00:00",
+      "summary": "14/16 Anthropic skills missing from vskill search. Dedup blocks re-discovery after initial crawl. Cron only runs npm source."
+    },
+    "solution": {
+      "coveredAt": "2026-03-03T00:00:02+00:00",
+      "summary": "Bypass dedup for vendor-orgs source in processRepo. Add vendor-orgs to hourly cron sources."
+    },
+    "architecture": {
+      "coveredAt": "2026-03-03T00:00:03+00:00",
+      "summary": "2 files: github-discovery.ts (conditional in processRepo), build-worker-entry.ts (add vendor-orgs to cron). Existing KV shard update handles indexing."
+    },
+    "testing": {
+      "coveredAt": "2026-03-03T00:00:04+00:00",
+      "summary": "Unit tests for dedup bypass in existing test file. Post-deploy verification via npx vskill find pptx."
+    },
+    "scope": {
+      "coveredAt": "2026-03-03T00:00:05+00:00",
+      "summary": "2 production files + 1 test file. No schema changes, no new endpoints, no UI."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-03T00:00:06+00:00",
+      "summary": "No new integrations. Uses existing GitHub API discovery, existing WORKER_SELF_REFERENCE submission path, existing KV search index auto-update on publish."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-03T00:00:07+00:00",
+      "summary": "N/A — no UI changes. This is a backend discovery pipeline fix. Search results will naturally include vendor skills once discovery processes them."
+    },
+    "performance": {
+      "coveredAt": "2026-03-03T00:00:08+00:00",
+      "summary": "Negligible impact. Vendor repos total ~7 orgs, ~50 skills. Skipping dedup for these adds at most 50 re-submissions per hourly cron run. GitHub API calls already happen via the vendor-orgs source function."
+    },
+    "security": {
+      "coveredAt": "2026-03-03T00:00:09+00:00",
+      "summary": "No security implications. Vendor skills bypass security scanning by design (VENDOR_ORGS are trusted, auto-CERTIFIED). The dedup bypass only affects the discovery step, not the trust/certification pipeline."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-03T00:00:10+00:00",
+      "summary": "If a vendor skill is deleted from the repo, re-submission will fail at fetchRepoFiles (404) and the existing skill record remains — acceptable behavior. If GitHub API rate limits hit, the vendor-orgs source already has backoff/retry logic."
+    }
+  }
+}

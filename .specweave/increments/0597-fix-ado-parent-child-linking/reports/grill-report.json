@@ -1,0 +1,26 @@
+{
+  "version": "1.1",
+  "incrementId": "0597-fix-ado-parent-child-linking",
+  "timestamp": "2026-03-19T04:12:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 9,
+    "passed": 9,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "linkWorkItems() throws Error on non-409 failure at ado-client.ts:634" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "409 status returns early without throwing at ado-client.ts:630-632" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "createWorkItem() calls linkWorkItems() which now throws, propagating to callers at ado-client.ts:502" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "4 new tests in ado-client.test.ts: parentId linking, no-parentId, 500 throw, 409 success" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "Missing storyItemMap entries are skipped with continue at external-issue-auto-creator.ts:1246-1248" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "Warning logged via this.logger.warn() at external-issue-auto-creator.ts:1247" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "Test 'includes Hierarchy-Reverse relation when feature has externalRef' at ado-provider.test.ts:318" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Test 'omits relation when feature has no externalRef' at ado-provider.test.ts:334" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "Test 'uses correct ADO URL format for parent link' at ado-provider.test.ts:345, verifies exact URL pattern" }
+    ]
+  },
+  "findings": []
+}

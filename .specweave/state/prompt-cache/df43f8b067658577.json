@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11804
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "No explicit integration mentions (GitHub, JIRA, ADO, media) — technical analysis only",
+  "latencyMs": 13254.032207999999,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "optimize-init-clone-async-deferred",
+    "reasoning": "Architectural analysis of init-time cloning: evaluate deferring synchronous git clone operations, provide incremental insights during clone, ensure proper single-repo and multi-repo folder structures"
+  }
+}

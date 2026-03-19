@@ -1,0 +1,30 @@
+{
+  "incrementId": "0496-skill-studio-ui-polish",
+  "startedAt": "2026-03-11T18:49:00-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T18:52:00-04:00",
+      "summary": "Frontend-only changes across 6 React components. No state persistence between forms. Regenerate button sits next to AI Edit in EditorPanel toolbar, reuses config provider/model."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T18:52:01-04:00",
+      "summary": "N/A - all frontend-only. Reuses existing /api/skills/generate?sse and /api/skill-creator-status endpoints. No new backend work."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T18:52:02-04:00",
+      "summary": "Write/Preview toggle defaults to Write independently per form. Install command shown as copyable code block. Page reload sufficient for refresh. maxHeight 400px with overflow scroll for markdown view."
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T18:52:03-04:00",
+      "summary": "Keep maxHeight 400px with overflow scroll for markdown rendering. renderMarkdown is lightweight string transform, no perf concern."
+    },
+    "security": {
+      "coveredAt": "2026-03-11T18:52:04-04:00",
+      "summary": "N/A - frontend-only UI polish. renderMarkdown uses dangerouslySetInnerHTML but content is user-authored SKILL.md, same trust model as existing EditorPanel."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T18:52:05-04:00",
+      "summary": "Regeneration in progress: abort first stream then restart (same as handleCancelGenerate pattern). No concurrent modification concerns."
+    }
+  }
+}

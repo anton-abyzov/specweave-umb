@@ -1,0 +1,11 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9848
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.5,
+  "reasoning": "The LLM output does not use slack_send_message at all. Instead, it acknowledges that Slack tools aren't available and provides setup instructions and a manual draft reply. The assertion requires the use of slack_send_message with thread_ts parameter, which is completely absent from the output.",
+  "latencyMs": 11227.074290999999
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0539-umbrella-root-resolution-fix",
+  "startedAt": "2026-03-15T19:31:00-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-15T19:31:35-04:00",
+      "summary": "Bug fix: replace process.cwd() with resolveEffectiveRoot() in 3 call sites. No new architecture. Existing utility handles umbrella vs single-repo resolution."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-15T19:31:35-04:00",
+      "summary": "N/A - internal path resolution fix, no external integrations"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-15T19:31:35-04:00",
+      "summary": "N/A - CLI internal bug fix, no UI"
+    },
+    "performance": {
+      "coveredAt": "2026-03-15T19:31:35-04:00",
+      "summary": "N/A - resolveEffectiveRoot() already used in 15+ call sites; negligible overhead from fs.existsSync walk-up"
+    },
+    "security": {
+      "coveredAt": "2026-03-15T19:31:35-04:00",
+      "summary": "N/A - path resolution only, no auth/data/input changes"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-15T19:31:35-04:00",
+      "summary": "Edge cases: (1) CWD is child repo in umbrella - primary fix scenario. (2) CWD is umbrella root - resolveEffectiveRoot returns same as process.cwd, no regression. (3) No .specweave found - fallback to process.cwd preserved. (4) platform.ts dedup must preserve same behavior for hook callers."
+    }
+  }
+}

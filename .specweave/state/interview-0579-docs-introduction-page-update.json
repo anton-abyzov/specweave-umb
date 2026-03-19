@@ -1,0 +1,30 @@
+{
+  "incrementId": "0579-docs-introduction-page-update",
+  "startedAt": "2026-03-18T18:19:00.000Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T18:20:00.000Z",
+      "summary": "Single markdown file update. No architecture changes. File stays at docs-site/docs/overview/introduction.md. Existing CommandTabs component reused."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T18:20:00.000Z",
+      "summary": "N/A — docs-only change. The page documents integrations (GitHub/JIRA/ADO) but does not modify any integration code."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T18:20:00.000Z",
+      "summary": "Page enhanced with 5 new sections from README: natural language routing table, workflow narratives, complexity diagram, agent swarms ASCII art, integrations table. Existing sections preserved. ~280-320 lines target."
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T18:20:00.000Z",
+      "summary": "N/A — static markdown page rendered by Docusaurus SSG. No runtime performance considerations."
+    },
+    "security": {
+      "coveredAt": "2026-03-18T18:20:00.000Z",
+      "summary": "N/A — no auth, data, or code changes. Documentation only. All links use existing URL patterns."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T18:20:00.000Z",
+      "summary": "File path unchanged so all existing internal links remain valid. No frontmatter changes. CommandTabs import already present."
+    }
+  }
+}

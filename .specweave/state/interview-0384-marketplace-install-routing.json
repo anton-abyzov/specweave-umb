@@ -1,0 +1,19 @@
+{
+  "incrementId": "0384-marketplace-install-routing",
+  "startedAt": "2026-02-27T03:33:44-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-02-27T03:35:38-05:00",
+      "summary": "Reviewed marketplace detection, 3-part routing, discovery scope, find grouping"
+    },
+    "ux": {
+      "coveredAt": "2026-02-27T03:38:05-05:00",
+      "summary": "Covered retry+fallback, routing, grouping, tips, warnings"
+    },
+    "scope": {
+      "coveredAt": "2026-02-27T03:38:05-05:00",
+      "summary": "Confirmed discoverSkills must not scan plugins/ dir"
+    }
+  },
+  "completedAt": "2026-02-27T03:38:05-05:00"
+}

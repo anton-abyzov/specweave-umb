@@ -1,0 +1,30 @@
+{
+  "incrementId": "0519-specweave-add-command",
+  "startedAt": "2026-03-12T23:37:50-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-12T23:39:37-04:00",
+      "summary": "Rely on user git credentials (SSH/credential manager). Auto-detect URL format from source arg. HTTPS default for shorthand. No PAT from config."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-12T23:39:37-04:00",
+      "summary": "Coexists with migrate-to-umbrella --add-repo (different semantics: add clones existing, migrate creates new). Reuses addRepoToUmbrella(), persistUmbrellaConfig(), execFileNoThrow(), detectRepository()."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-12T23:39:37-04:00",
+      "summary": "N/A - CLI command, no UI. Helpful error messages for auth failures."
+    },
+    "performance": {
+      "coveredAt": "2026-03-12T23:39:37-04:00",
+      "summary": "N/A - one-shot CLI command, no performance concerns beyond git clone network time."
+    },
+    "security": {
+      "coveredAt": "2026-03-12T23:39:37-04:00",
+      "summary": "No PAT storage. Relies on user existing git credentials. No secrets handled by the command itself."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-12T23:39:37-04:00",
+      "summary": "Idempotent: skip clone if dir exists, register if not in config. Re-clone if registered but dir missing. Any valid git URL works for cloning; shorthand expansion GitHub-only v1."
+    }
+  }
+}

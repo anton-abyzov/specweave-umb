@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11271
+Increment recommendation: small_fix (confidence: 0.85, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Configuration file editing, no specific technology domain",
+  "latencyMs": 12582.383041,
+  "increment": {
+    "action": "small_fix",
+    "confidence": 0.85,
+    "mandatory": false,
+    "suggestedName": "remove-unused-repositories",
+    "reasoning": "Simple configuration cleanup - removing unused repository entries from VS Code settings"
+  }
+}

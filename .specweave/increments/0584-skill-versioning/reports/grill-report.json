@@ -1,0 +1,183 @@
+{
+  "version": "1.1",
+  "incrementId": "0584-skill-versioning",
+  "timestamp": "2026-03-18T22:36:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 4, "critical": 0, "high": 1, "medium": 3 },
+  "acCompliance": {
+    "totalACs": 25,
+    "passed": 25,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      {
+        "acId": "AC-US1-01",
+        "status": "pass",
+        "evidence": "computeSha(files: Record<string,string>) in source-fetcher.ts:44-56 hashes all files. fetchRegistry, fetchGitHubFlat, fetchPlugin all build files maps and pass them to computeSha. Tests in source-fetcher.test.ts:434-438 verify multi-file hashing."
+      },
+      {
+        "acId": "AC-US1-02",
+        "status": "pass",
+        "evidence": "source-fetcher.ts:50 sorts keys with Object.keys(input).sort(), then line 52 concatenates as path\\0content\\n. Tests source-fetcher.test.ts:441-444 confirm sort order independence."
+      },
+      {
+        "acId": "AC-US1-03",
+        "status": "pass",
+        "evidence": "source-fetcher.ts:55 returns h.digest('hex') which is 64-char for SHA-256. Tests source-fetcher.test.ts:415-416,436-438 verify 64-char length and hex pattern. add.test.ts:3525 also verifies."
+      },
+      {
+        "acId": "AC-US1-04",
+        "status": "pass",
+        "evidence": "normalizeContent in source-fetcher.ts:40 replaces \\r\\n with \\n. computeSha calls normalizeContent for both single and multi-file. Tests source-fetcher.test.ts:390-391,420-423,459-463."
+      },
+      {
+        "acId": "AC-US1-05",
+        "status": "pass",
+        "evidence": "normalizeContent in source-fetcher.ts:40 strips BOM with replace(/^\\uFEFF/, ''). Tests source-fetcher.test.ts:386-387,426-429,465-469."
+      },
+      {
+        "acId": "AC-US2-01",
+        "status": "pass",
+        "evidence": "extractFrontmatterVersion in version.ts:11-25 parses YAML frontmatter for version field, validates semver via SEMVER_RE. Test version.test.ts:12-22."
+      },
+      {
+        "acId": "AC-US2-02",
+        "status": "pass",
+        "evidence": "extractFrontmatterVersion returns undefined when no version field in frontmatter. Test version.test.ts:24-32."
+      },
+      {
+        "acId": "AC-US2-03",
+        "status": "pass",
+        "evidence": "SEMVER_RE at version.ts:5 rejects non-semver strings; extractFrontmatterVersion returns undefined. Test version.test.ts:34-44."
+      },
+      {
+        "acId": "AC-US3-01",
+        "status": "pass",
+        "evidence": "resolveVersion in version.ts:52 returns frontmatterVersion when set (after server). Test version.test.ts:91-99 confirms frontmatter takes precedence. update.ts:185-191 passes frontmatterVersion to resolveVersion."
+      },
+      {
+        "acId": "AC-US3-02",
+        "status": "pass",
+        "evidence": "resolveVersion at version.ts:55-58: when hashChanged is true and no explicit version, calls bumpPatch. Test version.test.ts:102-109."
+      },
+      {
+        "acId": "AC-US3-03",
+        "status": "pass",
+        "evidence": "update.ts:158-160: when result.sha === entry.sha, skips with 'already up to date' message. No files written, no version bump. Tests update.test.ts:267-281,350-381,383-418."
+      },
+      {
+        "acId": "AC-US3-04",
+        "status": "pass",
+        "evidence": "resolveVersion at version.ts:61 returns '1.0.0' when no currentVersion. add.ts uses extractFrontmatterVersion || '1.0.0' at lines 1369,1954,2361,2567. Test version.test.ts:122-129 and add.test.ts:3548-3564."
+      },
+      {
+        "acId": "AC-US4-01",
+        "status": "pass",
+        "evidence": "bumpPatch('1.0.0') returns '1.0.1' in version.ts:31-38. Test version.test.ts:62-64."
+      },
+      {
+        "acId": "AC-US4-02",
+        "status": "pass",
+        "evidence": "bumpPatch('1.2.5') returns '1.2.6'. Test version.test.ts:66-68."
+      },
+      {
+        "acId": "AC-US4-03",
+        "status": "pass",
+        "evidence": "resolveVersion prioritizes frontmatterVersion over auto-patch at version.ts:53. Test version.test.ts:91-99 confirms frontmatter 3.0.0 overrides."
+      },
+      {
+        "acId": "AC-US5-01",
+        "status": "pass",
+        "evidence": "update.ts:158 checks result.sha === entry.sha and continues (skips writes). Tests update.test.ts:267-281,350-381 verify no writeFileSync calls."
+      },
+      {
+        "acId": "AC-US5-02",
+        "status": "pass",
+        "evidence": "When SHA matches, the loop continues without modifying lock.skills[name]. Test update.test.ts:383-418 verifies version, sha, and installedAt remain unchanged."
+      },
+      {
+        "acId": "AC-US5-03",
+        "status": "pass",
+        "evidence": "update.ts:159 prints dim(name + ': already up to date') when SHA matches, not an 'updated' message."
+      },
+      {
+        "acId": "AC-US6-01",
+        "status": "pass",
+        "evidence": "cleanupGhostFiles at update.ts:31-48 computes set difference of old vs new files and calls unlinkSync for removals. Test update.test.ts:455-487 verifies agents/b.md deleted."
+      },
+      {
+        "acId": "AC-US6-02",
+        "status": "pass",
+        "evidence": "update.ts:249 stores newFileKeys in lockfile entry's files field. Test update.test.ts:489-521 verifies files array updated."
+      },
+      {
+        "acId": "AC-US6-03",
+        "status": "pass",
+        "evidence": "cleanupGhostFiles at update.ts:36 returns early if oldFiles is undefined. Test update.test.ts:523-558 verifies no unlinkSync calls and new manifest stored."
+      },
+      {
+        "acId": "AC-US7-01",
+        "status": "pass",
+        "evidence": "migrateLockEntry at migration.ts:13-14 checks !entry.version (empty string is falsy) and replaces with '1.0.0'. Test migration.test.ts:35-39."
+      },
+      {
+        "acId": "AC-US7-02",
+        "status": "pass",
+        "evidence": "migrateLockEntry at migration.ts:14 checks entry.version === '0.0.0' and replaces with '1.0.0'. Test migration.test.ts:41-44."
+      },
+      {
+        "acId": "AC-US7-03",
+        "status": "pass",
+        "evidence": "migrateLockEntry spreads entry but does not add files field if absent -- spread preserves undefined. Test migration.test.ts:53-57. cleanupGhostFiles in update.ts guards on !oldFiles."
+      },
+      {
+        "acId": "AC-US7-04",
+        "status": "pass",
+        "evidence": "migrateLockEntry at migration.ts:14 only modifies '' and '0.0.0'; all other values pass through. Test migration.test.ts:47-50 confirms '2.3.1' preserved."
+      }
+    ]
+  },
+  "findings": [
+    {
+      "title": "Path traversal in cleanupGhostFiles and multi-file write (FIXED)",
+      "severity": "high",
+      "confidence": 95,
+      "category": "security",
+      "file": "src/commands/update.ts:31-48",
+      "issue": "cleanupGhostFiles used join(skillDir, file) where 'file' comes from the lockfile's files array (originally from server response). A malicious server could supply '../../etc/passwd' to delete or write files outside the skill directory. The multi-file write path at line 216 had the same issue with relPath from result.files.",
+      "suggestion": "FIXED: Added resolve() + startsWith() guard in both cleanupGhostFiles and the multi-file write loop to reject paths that escape the skill directory.",
+      "impact": "Arbitrary file deletion or write outside skill directory via crafted server response. Fixed in this review."
+    },
+    {
+      "title": "add.ts computeSha still uses string overload for single-skill installs",
+      "severity": "medium",
+      "confidence": 85,
+      "category": "correctness",
+      "file": "src/commands/add.ts:1175,1355,2339,2556",
+      "issue": "Several install paths in add.ts call computeSha(content) with a plain string rather than a files map. This means the SHA stored during 'add' uses a different algorithm than the SHA computed during 'update' (which uses the multi-file overload). The first 'vskill update' after install will always detect a hash change and trigger an unnecessary update, even when nothing changed.",
+      "suggestion": "Change computeSha(content) calls to computeSha({'SKILL.md': content}) in all add.ts install paths for hash consistency between add and update. This is a known one-time cost per the spec's risk table (row 1), so it is acceptable for v1 but should be aligned in a follow-up.",
+      "impact": "First update after install always triggers a re-download. Low user impact but technically incorrect hash comparison."
+    },
+    {
+      "title": "add.ts hardcodes files: ['SKILL.md'] even when agent files are installed",
+      "severity": "medium",
+      "confidence": 80,
+      "category": "correctness",
+      "file": "src/commands/add.ts:1960",
+      "issue": "installOneGitHubSkill fetches agent files (agentRawUrls) and installs them, but the lockfile entry always records files: ['SKILL.md']. This means ghost file cleanup on subsequent updates will not know about agent files installed during 'add', so they will never be cleaned up if removed upstream.",
+      "suggestion": "Build the files array from the union of 'SKILL.md' and the keys of agentFiles (if present) and store it in the lockfile entry.",
+      "impact": "Agent files from previous versions persist after update removes them. Low severity since the update path correctly discovers all files from the fetch result."
+    },
+    {
+      "title": "extractFrontmatterVersion regex may match version in non-frontmatter context",
+      "severity": "medium",
+      "confidence": 70,
+      "category": "edge-case",
+      "file": "src/utils/version.ts:18-19",
+      "issue": "The regex /^version:\\s*\"?(\\S+?)\"?\\s*$/m uses multiline mode within the frontmatter block. If the frontmatter contains a field like 'some_version: 1.0.0', the regex would not match because it requires 'version:' at line start. However, YAML frontmatter with a field named exactly 'version' in a nested context (e.g., inside an object) could produce an incorrect match. This is unlikely in practice since SKILL.md frontmatter is flat.",
+      "suggestion": "No change needed for current use case. If nested YAML support is added later, switch to a proper YAML parser.",
+      "impact": "Minimal. Would only be triggered by unusual frontmatter structures not currently used."
+    }
+  ]
+}

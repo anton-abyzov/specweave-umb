@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0590-init-launch-living-docs-job",
+  "timestamp": "2026-03-19T02:21:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "No externalModels configured in config.json — consent not available",
+  "findings": []
+}

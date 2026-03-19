@@ -1,0 +1,10 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 15722.327416999999,
+  "installMessage": "Detection timed out after 15000ms"
+}

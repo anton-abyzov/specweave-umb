@@ -1,0 +1,42 @@
+{
+  "version": "1.1",
+  "incrementId": "0556-docs-overhaul",
+  "timestamp": "2026-03-17T05:15:00Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 25,
+    "passed": 25,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "0 /specweave: instances remain (was 784). Verified via grep across all .md files." },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "Plugin names normalized. plugins-ecosystem.md rewritten with canonical names." },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "0 frontend: skill references remain (was 25+). Replaced with sw:architect." },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "29 files deleted: scripts/ (4), learn/ (10), YouTube scripts (3), Kafka guides (4), audit docs (2), root dupes (3), CATEGORY-PAGES-COMPLETE (1), compliance dupes (2)." },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "12 ghost plugins removed. plugins-ecosystem.md now documents only 13 actual plugins." },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "9 ghost commands replaced with real equivalents: backlog->status, reopen->resume, qa->validate, check-tests->vitest, etc." },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "3 getting-started files remain (index.md, installation.md, first-increment.md). Duplicates deleted." },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Compliance (3->1), cost-tracking (3->1), living-docs (3->1), extensible-skills (4->2), agent-teams (2->1), issue-trackers (2->1), command-decision-tree (2->1) merged." },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "learn/ directory deleted. learnSidebar removed from sidebars.ts. Redirects added." },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "plugins-ecosystem.md states 13 plugins (8 SpecWeave + 5 vskill)." },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "plugins-ecosystem.md states ~48 built-in skills and references verified-skill.com registry (99,680+)." },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "Each plugin entry includes name, description, skill count, and installation status (bundled vs installable)." },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "plugins-ecosystem.md is single source of truth. All other pages updated via sed to match." },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "All pages now reference: 13 plugins, ~48 built-in skills, 99,680+ community skills." },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "Plugin counts from actual repo analysis. Skill counts from plugin source. Community count from verified-skill.com." },
+      { "acId": "AC-US6-01", "status": "pass", "evidence": "sidebars.ts has 9 top-level categories in docsSidebar: Overview, Getting Started, Core Concepts, Workflows, Integrations, Agent Teams, Guides, DORA Metrics, FAQ." },
+      { "acId": "AC-US6-02", "status": "pass", "evidence": "Max 2 depth levels in all sidebars. No sub-sub-categories." },
+      { "acId": "AC-US6-03", "status": "pass", "evidence": "docs/_page-template.md created with Title > Subtitle > Intro > Sections > Next Steps structure." },
+      { "acId": "AC-US7-01", "status": "pass", "evidence": "Global * transition replaced with scoped selectors (a, button, .navbar, .menu__link, etc.) in custom.css." },
+      { "acId": "AC-US7-02", "status": "pass", "evidence": "Footer.module.css uses 28 var(--sw-*) custom property references. All hardcoded values replaced." },
+      { "acId": "AC-US8-01", "status": "pass", "evidence": "Glossary pruned from 83 to 20 SpecWeave-specific terms. Generic tech terms (docker, react, kubernetes, etc.) deleted." },
+      { "acId": "AC-US8-02", "status": "pass", "evidence": "Remaining 20 terms are SpecWeave-specific (ac-id, increments, living-docs, quality-gate, etc.)." },
+      { "acId": "AC-US9-01", "status": "pass", "evidence": "34 redirect entries in @docusaurus/plugin-client-redirects config in docusaurus.config.ts." },
+      { "acId": "AC-US9-02", "status": "pass", "evidence": "All deleted/moved pages have redirect entries mapping old URLs to new canonical locations." },
+      { "acId": "AC-US9-03", "status": "pass", "evidence": "learn/* paths redirect to academy/fundamentals/* equivalents. 10 learn/ redirect entries added." }
+    ]
+  },
+  "findings": []
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0580-docs-installation-multi-project",
+  "startedAt": "2026-03-18T12:00:00-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T12:01:00-04:00",
+      "summary": "Documentation-only change, no architecture impact"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T12:01:00-04:00",
+      "summary": "No integrations involved"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T12:01:00-04:00",
+      "summary": "Docs page updates only"
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T12:01:00-04:00",
+      "summary": "No performance impact"
+    },
+    "security": {
+      "coveredAt": "2026-03-18T12:01:00-04:00",
+      "summary": "No security impact"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T12:01:00-04:00",
+      "summary": "N/A for docs changes"
+    }
+  }
+}

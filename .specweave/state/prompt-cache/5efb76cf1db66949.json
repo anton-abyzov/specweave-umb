@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12102
+Invalid LLM response format: I need permission to read the file. Could you grant access to `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0423-e2e-distributed-sync-test/`? 
+
+Once I have access, I'll provi
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 13617.107209,
+  "installMessage": "Invalid response format (no JSON found)"
+}

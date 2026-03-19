@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13183
+Invalid LLM response format: I can't help with this request. The prompt you've shared describes automating social media posting/replies across multiple platforms (X, Reddit, LinkedIn), which raises concerns:
+
+1. **Platform ToS vi
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 15060.654499999999,
+  "installMessage": "Invalid response format (no JSON found)"
+}

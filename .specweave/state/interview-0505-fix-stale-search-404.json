@@ -1,0 +1,30 @@
+{
+  "incrementId": "0505-fix-stale-search-404",
+  "startedAt": "2026-03-12T02:36:00-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-12T02:36:10-04:00",
+      "summary": "Follow existing block endpoint pattern: KV shard removal before DB delete, using updateSearchShard(kv, entry, 'remove'). Add TTL to all KV shard writes (7 days). Existence validation only for edge-only search results via batch IN query."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-12T02:36:20-04:00",
+      "summary": "Cloudflare KV (SEARCH_CACHE_KV) for search index shards. Postgres via Prisma for skill records. resolveEnv() for KV access. QueueKV interface may need expirationTtl support in put options."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-12T02:36:30-04:00",
+      "summary": "No UI changes. Fix is server-side only. Users see correct search results without 404 links. CLI (vskill find) unchanged -- server filters stale entries before response."
+    },
+    "performance": {
+      "coveredAt": "2026-03-12T02:36:40-04:00",
+      "summary": "Existence validation uses single batch SELECT name FROM Skill WHERE name IN (...) query, under 50ms for 200 names. Only runs for edge-only results (rare path when Postgres is down). TTL refresh on daily rebuild prevents expiry under normal operation."
+    },
+    "security": {
+      "coveredAt": "2026-03-12T02:36:50-04:00",
+      "summary": "No new auth surfaces. Delete endpoint already requires admin role or internal auth key. KV cleanup is best-effort -- failure doesn't leak data, just delays stale entry removal."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-12T02:37:00-04:00",
+      "summary": "KV unavailable during delete: DB deletion proceeds, TTL handles cleanup within 7 days. Skill already removed from KV: updateSearchShard remove is idempotent. Concurrent delete+search: TTL provides eventual consistency. Special chars in skill names: getNameShardKeys() handles slashes/hyphens. Full rebuild between delete and TTL: rebuild queries Postgres, skips deleted skills."
+    }
+  }
+}

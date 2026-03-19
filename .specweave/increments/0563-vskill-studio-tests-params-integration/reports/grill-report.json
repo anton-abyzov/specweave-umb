@@ -1,0 +1,57 @@
+{
+  "version": "1.1",
+  "incrementId": "0563-vskill-studio-tests-params-integration",
+  "timestamp": "2026-03-19T01:43:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 2, "critical": 0, "high": 0, "medium": 0, "low": 2 },
+  "acCompliance": {
+    "totalACs": 17,
+    "passed": 17,
+    "failed": 0,
+    "scopeCreep": [
+      "CredentialManager.tsx duplicates ParameterStorePanel functionality (unused standalone component)"
+    ],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "TestsPanel.tsx:303-306 renders inline 'No {type} tests yet' when filtered empty, tabs remain visible" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "TestsPanel.tsx:122-127 filter='all' returns allCases unfiltered, auto-select effect dispatches SELECT_CASE" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "TestsPanel.tsx:157-247 allCases.length===0 renders full empty state with Create/Generate buttons" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "TestsPanel.tsx:157,161-177 null evals + evalsError renders error icon and message" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "ParameterStorePanel.tsx renders credential list with ready/missing status badges" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "ParameterStorePanel.tsx toggleReveal() now calls api.getParamsRevealed() to fetch real value, displays revealedValues[name] on toggle" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "integration-routes.ts PUT /api/credentials/:plugin/:skill calls writeCredential(), returns status=ready" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "credential-resolver.ts:83-89 writeCredential does line-level upsert via regex match" },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "credential-resolver.ts:90-93 appendFileSync for new entries, ParameterStorePanel handleAddParam with uppercased key" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "TestsPanel.tsx:1319-1481 toggle to integration shows requiredCredentials, platform, chromeProfile fields" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "TestsPanel.tsx:1345-1364 handleSave spreads testType, requiredCredentials, requirements for integration" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "TestsPanel.tsx:635-637 renders IntegrationFieldsEditor for integration cases with inline editing" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "TestsPanel.tsx:519-527 switching to unit destructures away requiredCredentials, requirements, cleanup" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "WorkspaceContext.tsx:508-518 includes config.provider and config.model in generate request body" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "api-routes.ts:562-571 createLlmClient(overrides) with per-request provider/model" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "api-routes.ts:573-589 testType=integration triggers buildIntegrationEvalPrompt with MCP deps" },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "api-routes.ts:569-571 overrides spread from currentOverrides, absent body fields use defaults" }
+    ]
+  },
+  "findings": [
+    {
+      "title": "CredentialManager.tsx duplicates ParameterStorePanel functionality",
+      "severity": "low",
+      "confidence": 90,
+      "category": "maintainability",
+      "file": "src/eval-ui/src/pages/workspace/CredentialManager.tsx",
+      "issue": "Standalone 289-line component duplicates most of ParameterStorePanel. Not wired into any route.",
+      "suggestion": "Remove CredentialManager.tsx or consolidate in follow-up increment",
+      "impact": "Maintenance burden from duplicate code"
+    },
+    {
+      "title": "Unit generation replaces all evals; integration merges — asymmetric behavior",
+      "severity": "low",
+      "confidence": 75,
+      "category": "correctness",
+      "file": "src/eval-server/api-routes.ts:582-630",
+      "issue": "Unit path returns full EvalsFile (replaces). Integration path loads existing + merges.",
+      "suggestion": "Document the asymmetric behavior or align both paths to merge",
+      "impact": "Users could lose integration tests by regenerating unit tests"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.74 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12749
+Increment recommendation: none (confidence: 0.85, mandatory: false)
+{
+  "detected": true,
+  "plugins": [
+    "sw-jira"
+  ],
+  "confidence": 0.7,
+  "reasoning": "Explicit Jira integration question, but primarily asking for guidance",
+  "latencyMs": 14057.662917,
+  "increment": {
+    "action": "none",
+    "confidence": 0.85,
+    "mandatory": false,
+    "reasoning": "How-to question about Specweave features, not implementation work yet"
+  }
+}

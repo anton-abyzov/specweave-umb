@@ -1,0 +1,37 @@
+{
+  "version": "1.1",
+  "incrementId": "0559-docs-phase2-ux",
+  "timestamp": "2026-03-17T19:55:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 1, "critical": 0, "high": 0, "medium": 1 },
+  "acCompliance": {
+    "totalACs": 13,
+    "passed": 13,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "reference/skills.md — dual activation examples added for 7 core skills (increment, do, auto, done, brainstorm, team-lead, grill, code-reviewer)" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "workflows/overview.md — natural language column added to quick reference table" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "commands/overview.md — natural language alternatives added to essential workflow table" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "skills/fundamentals.md — corrected from '22 plugins with 126 skills' to '1 unified plugin with 44 skills + 5 vskill marketplace plugins'" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "reference/skills.md — removed 10 non-existent plugin references (backend, frontend, testing, infra, k8s, kafka, confluent, payments, cost, docs)" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "reference/skills.md — Installing Domain Plugins section lists only actual marketplace plugins (mobile, skills, marketing, productivity, google-workspace)" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "All vskill add specweave --plugin X instances replaced with npx vskill install --repo anton-abyzov/specweave --plugin sw" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Non-existent plugin install commands (sw-github, sw-jira, sw-ado, sw-diagrams, sw-release) removed" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "Marketplace plugins match actual marketplace.json" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "sidebars.ts — Team-Lead Orchestration entry added to Agent Teams category" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "agent-teams-and-swarms.md — dual activation examples added for team-lead operations" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "sidebars.ts — team-lead visible as entry under Agent Teams" },
+      { "acId": "AC-US6-01", "status": "pass", "evidence": "workflows/overview.md — 2 Mermaid diagrams fixed: emoji removed from Big Picture and Hotfix Pattern node labels" }
+    ]
+  },
+  "findings": [
+    {
+      "severity": "medium",
+      "category": "documentation",
+      "description": "Some secondary pages (lazy-plugin-loading.md, troubleshooting/common-errors.md) still contain old vskill add references — noted for future cleanup",
+      "recommendation": "Address in a follow-up increment"
+    }
+  ]
+}

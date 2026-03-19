@@ -1,0 +1,12 @@
+{
+  "incrementId": "0556-docs-overhaul",
+  "startedAt": "2026-03-17T02:00:56-04:00",
+  "coveredCategories": {
+    "architecture": {"coveredAt": "2026-03-17T02:00:56-04:00", "summary": "Pre-answered: Max 2 depth levels, ~50 pages, 9 sidebar categories, enforced page template"},
+    "integrations": {"coveredAt": "2026-03-17T02:00:56-04:00", "summary": "Pre-answered: Redirect map via @docusaurus/plugin-client-redirects, no versioned docs"},
+    "ui-ux": {"coveredAt": "2026-03-17T02:00:56-04:00", "summary": "Pre-answered: CSS fixes for global transition and footer tokens, sidebar cleanup"},
+    "performance": {"coveredAt": "2026-03-17T02:00:56-04:00", "summary": "298 pages down to ~50, removing duplicates and ghost content"},
+    "security": {"coveredAt": "2026-03-17T02:00:56-04:00", "summary": "N/A for docs overhaul"},
+    "edge-cases": {"coveredAt": "2026-03-17T02:00:56-04:00", "summary": "Pre-answered: redirect map for broken URLs, learn/ directory is clone of academy/fundamentals/"}
+  }
+}

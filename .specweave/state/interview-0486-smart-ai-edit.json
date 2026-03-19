@@ -1,0 +1,30 @@
+{
+  "incrementId": "0486-smart-ai-edit",
+  "startedAt": "2026-03-11T02:55:11-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T02:56:48-04:00",
+      "summary": "Extends existing improve endpoint instruct mode. LLM prompt enhanced to analyze evals. Response extended with ---EVAL_CHANGES--- section. Frontend adds eval change panel in AiEditBar. State management extends WorkspaceState."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T02:56:48-04:00",
+      "summary": "No new integrations. Reuses createLlmClient, existing PUT /evals endpoint, existing improve endpoint."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T02:56:48-04:00",
+      "summary": "Compact summary cards with expand. Grouped: removes, modifies, adds. Hide empty section. Mini-diff for modify changes."
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T02:56:48-04:00",
+      "summary": "N/A - single LLM call already exists, adding evals context increases prompt size marginally. No new performance concerns."
+    },
+    "security": {
+      "coveredAt": "2026-03-11T02:56:48-04:00",
+      "summary": "N/A - local dev tool, no auth changes, no new attack surfaces."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T02:56:48-04:00",
+      "summary": "Partial apply failure: keep partial state, show error, no rollback. No existing evals: send empty array, LLM generates from scratch. LLM malformed response: fallback to SKILL.md-only result with no eval changes."
+    }
+  }
+}

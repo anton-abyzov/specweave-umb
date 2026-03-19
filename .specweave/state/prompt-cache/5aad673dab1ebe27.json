@@ -1,0 +1,18 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10961
+Increment recommendation: none (confidence: 0.85, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.2,
+  "reasoning": "Unclear/vague statement - cannot determine intent",
+  "latencyMs": 12229.778917000001,
+  "increment": {
+    "action": "none",
+    "confidence": 0.85,
+    "mandatory": false,
+    "reasoning": "Cannot determine if implementation work is needed - prompt appears to need clarification"
+  }
+}

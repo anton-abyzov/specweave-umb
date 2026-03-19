@@ -1,0 +1,30 @@
+{
+  "incrementId": "0431-http-hook-server",
+  "startedAt": "2026-03-05T02:18:18-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-05T02:20:33-05:00",
+      "summary": "Same DashboardServer process, in-memory Maps + JSONL flush, no SQLite, no new deps. POST /api/hooks/:event routes. Config flag hooks.httpMode for cutover."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-05T02:20:33-05:00",
+      "summary": "CC HTTP hooks protocol with 200 empty body (allow) or hookSpecificOutput JSON (deny). Command-bridge for 9 command-only events via http.request."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-05T02:20:33-05:00",
+      "summary": "HooksPage scrollable timeline with filtering by type/session/time, collapse consecutive same-type events, highlight errors. AgentsPage with agent lifecycle. Enhanced OverviewPage."
+    },
+    "performance": {
+      "coveredAt": "2026-03-05T02:20:33-05:00",
+      "summary": "50-500 events per session. JSONL handles fine. Rotate at 10MB. No unbounded growth concern."
+    },
+    "security": {
+      "coveredAt": "2026-03-05T02:20:33-05:00",
+      "summary": "Localhost-only binding inherited from dashboard server. No auth needed on hook endpoint."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-05T02:20:33-05:00",
+      "summary": "CC treats HTTP failures as non-blocking. SessionStart auto-boots server. Config flag for clean switch, no dual-write. Manual start via specweave dashboard --hooks for dev."
+    }
+  }
+}

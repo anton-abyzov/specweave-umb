@@ -1,0 +1,21 @@
+{
+  "version": "1.1",
+  "incrementId": "0614-update-non-claude-skill-routing",
+  "timestamp": "2026-03-19T04:30:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0, "suppressed": 0 },
+  "acCompliance": {
+    "totalACs": 4,
+    "passed": 4,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "update.ts:9 imports installSymlink from canonical.js, calls it at lines 222-229 replacing the old inline writeFileSync loop" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "installSymlink() at canonical.ts:113-114 calls stripClaudeFields(), lines 140-143 create relative symlinks for non-COPY_FALLBACK_AGENTS" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "canonical.ts:131-138 — COPY_FALLBACK_AGENTS.has('claude-code') triggers direct copy with unstripped content (full frontmatter preserved)" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "installSymlink() lines 117-119 writes to canonical .agents/skills/ dir. Ghost cleanup at update.ts:200-206 also covers canonical dir" }
+    ]
+  },
+  "findings": []
+}

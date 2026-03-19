@@ -1,0 +1,30 @@
+{
+  "incrementId": "0484-skill-studio-ai-edit",
+  "startedAt": "2026-03-11T01:56:29-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T01:57:02-04:00",
+      "summary": "Extends existing improve endpoint with instruct mode, reuses SkillImprovePanel diff pattern"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T01:57:02-04:00",
+      "summary": "N/A - no external integrations, uses existing LLM client"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T01:57:02-04:00",
+      "summary": "Trigger-only prompt bar via button/Cmd+K, auto-focus, Escape dismiss, bottom-panel unified diff with Apply/Discard"
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T01:57:02-04:00",
+      "summary": "N/A - single LLM call per request, same as existing improve"
+    },
+    "security": {
+      "coveredAt": "2026-03-11T01:57:02-04:00",
+      "summary": "N/A - local dev tool, no auth changes"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T01:57:02-04:00",
+      "summary": "Uses in-editor content including unsaved changes, disable submit while loading, no concurrent requests"
+    }
+  }
+}

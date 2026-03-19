@@ -1,0 +1,30 @@
+{
+  "incrementId": "0520-pr-based-increment-closure",
+  "startedAt": "2026-03-13T00:10:50-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-13T00:12:19-04:00",
+      "summary": "gh CLI for PR creation, feature branch stays local until sw:pr, existing branch reused as-is"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-13T00:12:19-04:00",
+      "summary": "gh pr create CLI, existing gh auth, multi-repo parallel PR creation with continue-on-error"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-13T00:12:19-04:00",
+      "summary": "N/A - CLI/config feature, no UI"
+    },
+    "performance": {
+      "coveredAt": "2026-03-13T00:12:19-04:00",
+      "summary": "N/A - git operations are inherently fast, no performance concerns"
+    },
+    "security": {
+      "coveredAt": "2026-03-13T00:12:19-04:00",
+      "summary": "N/A - uses existing gh auth, no new credentials"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-13T00:12:19-04:00",
+      "summary": "Uncommitted changes carry to branch, existing non-matching branch reused, PR conflicts left to human, PR failure warns but does not block closure"
+    }
+  }
+}

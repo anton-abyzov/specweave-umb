@@ -1,0 +1,15 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.78 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9005
+{
+  "detected": true,
+  "plugins": [
+    "sw-github",
+    "sw-jira",
+    "sw-ado"
+  ],
+  "confidence": 0.88,
+  "reasoning": "Task updates guides with explicit references to GitHub, JIRA, and ADO integration commands",
+  "latencyMs": 10453.958042
+}

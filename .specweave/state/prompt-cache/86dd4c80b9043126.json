@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9234
+Invalid LLM response format: I need more context to help effectively. This appears to be a follow-up to a previous conversation, but I don't have visibility into what specific project or problem you're discussing.
+
+To give you th
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 10798.201875,
+  "installMessage": "Invalid response format (no JSON found)"
+}

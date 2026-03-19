@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0597-fix-ado-parent-child-linking",
+  "timestamp": "2026-03-19T04:12:30.000Z",
+  "verdict": "WAIVED",
+  "reason": "External models consent not configured",
+  "findings": []
+}

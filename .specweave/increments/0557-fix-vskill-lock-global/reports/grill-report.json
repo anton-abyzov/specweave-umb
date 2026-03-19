@@ -1,0 +1,28 @@
+{
+  "version": "1.1",
+  "incrementId": "0557-fix-vskill-lock-global",
+  "timestamp": "2026-03-17T08:18:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 11,
+    "passed": 11,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "installPlugin() uses ensureGlobalLockfile()/writeGlobalLockfile() at plugin-copier.ts:430,501. No getProjectRoot() call." },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "getGlobalLockDir() at plugin-copier.ts:241 calls mkdirSync({ recursive: true })" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "ensureGlobalLockfile() reads existing file; only lock.skills[pluginName] updated at line 490" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "Skip check at line 436 reads from ensureGlobalLockfile(); test confirms hash match skip works" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "installPlugin() internally uses ensureGlobalLockfile() — no caller change needed in refresh-plugins.ts" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "copyPluginSkillsToProject() unchanged: ensureLockfile(projectRoot) at line 557, writeLockfile at line 655" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "refresh-plugins.ts getProjectRoot() at line 128 (cleanup) and 196 (copy fallback) — neither for bundled lock" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "migrateBundledToGlobalLock() filters source==='local:specweave', writes to global lock. Wired in refresh-plugins.ts" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Lines 329-332: rmSync when remainingSkills === 0" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "Line 317: entry.installedAt > existing.installedAt — only overwrites if newer" },
+      { "acId": "AC-US3-04", "status": "pass", "evidence": "Line 309: returns {migratedCount:0} if no bundled entries found — idempotent" }
+    ]
+  },
+  "findings": []
+}

@@ -1,0 +1,17 @@
+{
+  "incrementId": "0346-edge-first-search-performance",
+  "startedAt": "2026-02-24T05:00:00+00:00",
+  "coveredCategories": {
+    "data_size": {"coveredAt": "2026-02-24T05:00:00+00:00", "summary": "~70k skills, sharded by first char/category prefix, compact format"},
+    "matching_strategy": {"coveredAt": "2026-02-24T05:00:01+00:00", "summary": "Prefix matching, ILIKE fallback to Postgres on zero results"},
+    "highlighting": {"coveredAt": "2026-02-24T05:00:02+00:00", "summary": "Client-side regex highlighting in SearchPalette"},
+    "event_hook": {"coveredAt": "2026-02-24T05:00:03+00:00", "summary": "Queue message after publishSkill, decoupled"},
+    "rebuild_strategy": {"coveredAt": "2026-02-24T05:00:04+00:00", "summary": "Incremental updates per skill change, full rebuild admin-only"},
+    "admin_endpoint": {"coveredAt": "2026-02-24T05:00:05+00:00", "summary": "Extend existing POST /api/v1/admin/rebuild-index"},
+    "fallback_trigger": {"coveredAt": "2026-02-24T05:00:06+00:00", "summary": "Fall back to Postgres when KV returns zero results"},
+    "category_filtering": {"coveredAt": "2026-02-24T05:00:07+00:00", "summary": "Filter in-memory after KV read from main index"},
+    "swr_scope": {"coveredAt": "2026-02-24T05:00:08+00:00", "summary": "Client-side SWR cache in SearchPalette for instant re-search"},
+    "debounce": {"coveredAt": "2026-02-24T05:00:09+00:00", "summary": "Reduce from 300ms to 100ms given sub-50ms edge responses"},
+    "pagination": {"coveredAt": "2026-02-24T05:00:10+00:00", "summary": "Keep API pagination contract, serve from single KV read internally"}
+  }
+}

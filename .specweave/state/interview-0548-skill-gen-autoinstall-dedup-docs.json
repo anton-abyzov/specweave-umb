@@ -1,0 +1,30 @@
+{
+  "incrementId": "0548-skill-gen-autoinstall-dedup-docs",
+  "startedAt": "2026-03-16T20:06:00-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-16T20:06:10-04:00",
+      "summary": "Local-first skill-creator resolution (.claude/skills/ before global cache). Non-blocking install via claude install-skill. Dedup via prompt injection in signal-collector with 10K token cap."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-16T20:06:20-04:00",
+      "summary": "Claude Code CLI (claude install-skill subcommand). Anthropic skill-creator GitHub repo. Signal-collector LLM prompt augmentation. Rule file scanning across .claude/skills/, CLAUDE.md, .cursorrules, .cursor/rules/, .github/copilot-instructions.md."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-16T20:06:30-04:00",
+      "summary": "No UI changes. CLI-only: silent skip when skill-creator exists, warning log on install failure, warning on duplicate slug detection. Docs rewrite covers user-facing walkthrough."
+    },
+    "performance": {
+      "coveredAt": "2026-03-16T20:06:40-04:00",
+      "summary": "File-existence check is O(1). Install adds max 5s only on first run. Dedup context capped at 10K tokens to avoid prompt bloat. No runtime perf impact on existing flows."
+    },
+    "security": {
+      "coveredAt": "2026-03-16T20:06:50-04:00",
+      "summary": "Rule files read-only in dedup context. No .env or credentials included. Truncation prevents accidental secret leakage in large rule sets. Install uses official GitHub URL only."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-16T20:07:00-04:00",
+      "summary": "Claude CLI missing: warn+skip. Permissions denied on .claude/skills/: warn+skip. 50+ rule files: truncate to 10K tokens. Symlinked skill-creator: treat as existing. Empty CLAUDE.md: no-rules path. Concurrent init: idempotent check."
+    }
+  }
+}

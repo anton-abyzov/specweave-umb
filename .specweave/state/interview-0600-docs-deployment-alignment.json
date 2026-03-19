@@ -1,0 +1,30 @@
+{
+  "incrementId": "0600-docs-deployment-alignment",
+  "startedAt": "2026-03-19T04:31:26.538Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T04:31:58.250Z",
+      "summary": "No architecture changes. Fix domain references in existing files and add Docusaurus redirect config entries."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T04:31:58.698Z",
+      "summary": "No new integrations. Existing Docusaurus plus GitHub Pages deployment pipeline unchanged."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T04:31:59.685Z",
+      "summary": "Fix homepage Docusaurus config error so it renders. No UI design changes."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T04:32:00.009Z",
+      "summary": "No performance impact. Text replacements and config changes only."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T04:32:00.970Z",
+      "summary": "No security implications. Replacing incorrect domain references with correct ones."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T04:32:01.408Z",
+      "summary": "Preserve verified-skill.com platform references without /docs/ path. Only replace docs-path URLs."
+    }
+  }
+}

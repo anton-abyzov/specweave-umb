@@ -1,0 +1,1 @@
+{"version":"1.1","incrementId":"0603-test-sync-dedup-verify","timestamp":"2026-03-19T04:55:00Z","verdict":"PASS","shipReadiness":"READY","summary":{"totalFindings":0,"critical":0,"high":0,"medium":0},"acCompliance":{"totalACs":1,"passed":1,"failed":0,"scopeCreep":[],"results":[{"acId":"AC-US1-01","status":"pass","evidence":"Test increment"}]},"findings":[]}

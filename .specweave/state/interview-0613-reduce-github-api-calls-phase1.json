@@ -1,0 +1,30 @@
+{
+  "incrementId": "0613-reduce-github-api-calls-phase1",
+  "startedAt": "2026-03-19T07:52:46.710Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T07:54:55.130Z",
+      "summary": "Pure optimization of existing sync-progress pipeline. No new architecture — 6 surgical fixes to reduce redundant GitHub API calls. Touches 4 files in the existing integration layer."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T07:55:00.320Z",
+      "summary": "GitHub API only. JIRA/ADO providers unaffected. Uses existing gh CLI commands. No new external dependencies. skipGitHubComments flag isolates GitHub optimization from other providers."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T07:55:01.564Z",
+      "summary": "No UI changes. Sync-progress CLI output unchanged. Same comments posted to GitHub issues, same issue states. Pure backend optimization invisible to users."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T07:55:03.343Z",
+      "summary": "Core goal: reduce GitHub API calls from ~65 to ~30-35 per 7-US increment (~50% reduction). Eliminates duplicate postACProgressComments, hoists ensureLabelExists, caches label checks, combines close+label calls, skips comments when no changes."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T07:55:05.121Z",
+      "summary": "No security changes. No new auth flows. Existing GH_TOKEN handling preserved. No new external data exposure. Module-level label cache is process-scoped only."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T07:55:07.171Z",
+      "summary": "Graceful degradation: if Step 5 fails, Step 6 falls back to full GitHub sync. Label cache miss is safe (re-checks via API). Combined close+label API failure falls back to separate calls. Metadata missing status field falls back to gh issue view check."
+    }
+  }
+}

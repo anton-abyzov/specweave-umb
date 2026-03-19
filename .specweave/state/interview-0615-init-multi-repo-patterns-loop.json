@@ -1,0 +1,36 @@
+{
+  "incrementId": "0615-init-multi-repo-patterns-loop",
+  "startedAt": "2026-03-19T08:17:46.370Z",
+  "coveredCategories": {
+    "architecture": {
+      "covered": true,
+      "summary": "Reuse existing bulk-get.ts (parseBulkSource, buildBulkRepoList, getAuthToken) and job-launcher.ts (launchCloneJob) in repo-connect.ts. Add promptRepoUrlsLoop wrapper with do-while loop. Wire into init.ts replacing inline clone block. No new dependencies.",
+      "coveredAt": "2026-03-19T08:20:00.000Z"
+    },
+    "integrations": {
+      "covered": true,
+      "summary": "Integrates with GitHub REST API via existing fetchGitHubRepos. Auth via GH_TOKEN env or gh auth token CLI. Background clone jobs via existing job-launcher. No new external integrations.",
+      "coveredAt": "2026-03-19T08:20:00.000Z"
+    },
+    "ui-ux": {
+      "covered": true,
+      "summary": "Updated repo prompt shows pattern examples (org/repo, org/*, org/prefix-*). Add-more loop uses inquirer confirm prompt (default: no). Bulk status messages show matched repo count and job ID. I18n for en/ru/es.",
+      "coveredAt": "2026-03-19T08:20:00.000Z"
+    },
+    "performance": {
+      "covered": true,
+      "summary": "All bulk clone operations run as background jobs (detached worker processes). User is never blocked while clones run. Multiple background jobs can run in parallel (one per org batch). Existing 500ms delay between sequential git clones in worker.",
+      "coveredAt": "2026-03-19T08:20:00.000Z"
+    },
+    "security": {
+      "covered": true,
+      "summary": "GitHub PAT handled via existing getAuthToken (GH_TOKEN env or gh auth token). Clone URLs sanitize PAT from error messages (existing behavior in runForegroundClone and clone-worker). No new secrets handling.",
+      "coveredAt": "2026-03-19T08:20:00.000Z"
+    },
+    "edge-cases": {
+      "covered": true,
+      "summary": "Empty input returns empty results. Invalid patterns fall through to individual repo parsing. Auth failure for bulk shows helpful error message. Already-cloned repos skipped (idempotent). Ctrl+C during prompt caught by existing ExitPromptError handler. Rate limit on GitHub API handled by existing exponential backoff in fetchGitHubRepos.",
+      "coveredAt": "2026-03-19T08:20:00.000Z"
+    }
+  }
+}

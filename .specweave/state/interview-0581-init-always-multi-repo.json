@@ -1,0 +1,30 @@
+{
+  "incrementId": "0581-init-always-multi-repo",
+  "startedAt": "2026-03-18T17:44:13-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T17:44:25-04:00",
+      "summary": "CLI init refactoring - remove single/multi branching, always create repositories/ structure. No architectural changes to runtime. Stage 1 of 2-stage change."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T17:44:25-04:00",
+      "summary": "N/A - no external service integrations. Internal CLI commands and config only."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T17:44:25-04:00",
+      "summary": "N/A - CLI-only changes. Init prompts simplified (fewer questions). Banner text updated."
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T17:44:25-04:00",
+      "summary": "N/A - init-time changes only, no runtime performance impact."
+    },
+    "security": {
+      "coveredAt": "2026-03-18T17:44:25-04:00",
+      "summary": "N/A - no auth, credentials, or permission changes."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T17:44:25-04:00",
+      "summary": "Existing single-repo users NOT migrated in Stage 1. Only new inits affected. Out-of-scope items explicitly listed."
+    }
+  }
+}

@@ -1,0 +1,21 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13531
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": true,
+  "plugins": [
+    "sw-ado"
+  ],
+  "confidence": 0.95,
+  "reasoning": "Explicit ADO work item references with dev.azure.com links",
+  "latencyMs": 14714.363,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "verify-ado-work-items-structure",
+    "reasoning": "Investigation/verification work across ADO items 0597 and 0601 to audit implementation completeness and child work item structure"
+  }
+}

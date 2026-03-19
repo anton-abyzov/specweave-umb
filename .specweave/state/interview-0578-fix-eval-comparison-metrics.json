@@ -1,0 +1,30 @@
+{
+  "incrementId": "0578-fix-eval-comparison-metrics",
+  "startedAt": "2026-03-18T13:55:32-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-18T13:55:43-04:00",
+      "summary": "Bug fixes in eval-server api-routes.ts, verdict.ts, RunPanel.tsx, and prompt-builder.ts - no architectural changes"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-18T13:55:43-04:00",
+      "summary": "N/A - internal eval system bug fixes, no new integrations"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-18T13:55:43-04:00",
+      "summary": "RunPanel.tsx delta display fix - corrects misleading percentage display"
+    },
+    "performance": {
+      "coveredAt": "2026-03-18T13:55:43-04:00",
+      "summary": "N/A - bug fixes only, adds one extra assertion judging loop per comparison"
+    },
+    "security": {
+      "coveredAt": "2026-03-18T13:55:43-04:00",
+      "summary": "N/A - internal eval tool, no security-sensitive changes"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-18T13:55:43-04:00",
+      "summary": "Edge cases: 0 assertions, all-pass baseline, equal skill/baseline pass rates, zero-assertion evals"
+    }
+  }
+}

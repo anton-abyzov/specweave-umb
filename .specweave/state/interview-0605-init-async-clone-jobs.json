@@ -1,0 +1,30 @@
+{
+  "incrementId": "0605-init-async-clone-jobs",
+  "startedAt": "2026-03-19T05:03:02.960Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T05:10:00.000Z",
+      "summary": "Replace synchronous cloneReposIntoWorkspace() in init.ts with launchCloneJob() from job-launcher.ts. Threshold: 1-3 repos = foreground (blocking), 4+ repos = background (detached worker). Map ParsedRepo { org, name, cloneUrl } to Job repo { owner, name, path, cloneUrl }. Remove redundant scanUmbrellaRepos() re-scan since clone-worker.ts handles umbrella config registration. No new architecture — reuses existing background job system."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T05:10:00.000Z",
+      "summary": "Reuses existing clone-worker.ts and job-manager.ts. No new external integrations. specweave jobs command already supports monitoring clone jobs. Living docs job dependency chain (dependsOn) already supported for clone jobs."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T05:10:00.000Z",
+      "summary": "Foreground mode (1-3 repos): inline progress display per repo, blocking until complete — UX identical to current. Background mode (4+ repos): print job ID + monitor via specweave jobs message, init completes immediately. Already-cloned repos show skipped count."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T05:10:00.000Z",
+      "summary": "Primary goal: eliminate init blocking on slow network for large workspaces. Background mode for 4+ repos means init completes in seconds. Foreground mode for 1-3 repos has negligible overhead vs current sync approach. Clone worker already handles sequential cloning with 500ms delay between repos."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T05:10:00.000Z",
+      "summary": "Clone URLs with auth tokens are written to job config.json (same as existing clone jobs). Clone worker already sanitizes PATs from error messages. No new auth handling — init only passes through URLs from user input or GH_TOKEN env."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T05:10:00.000Z",
+      "summary": "Already-cloned repos: pre-flight check in launchCloneJob skips repos with existing .git dir, reports skipped count. All repos exist: skippedPreFlight=true, no worker spawned. Partial failures: completed_with_warnings status (never failed), user re-runs to retry. Background + umbrella: set umbrella.enabled=true preemptively before launch so workspace is ready. Mixed orgs in same batch: path mapping handles correctly via repositories/{org}/{name}."
+    }
+  }
+}

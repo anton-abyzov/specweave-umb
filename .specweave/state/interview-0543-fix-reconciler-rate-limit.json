@@ -1,0 +1,30 @@
+{
+  "incrementId": "0543-fix-reconciler-rate-limit",
+  "startedAt": "2026-03-16T00:22:03-04:00",
+  "coveredCategories": {
+    "ui-ux": {
+      "coveredAt": "2026-03-16T00:22:09-04:00",
+      "summary": "N/A - backend-only fix, no UI involved"
+    },
+    "security": {
+      "coveredAt": "2026-03-16T00:22:09-04:00",
+      "summary": "N/A - no auth or security surface changes"
+    },
+    "architecture": {
+      "coveredAt": "2026-03-16T00:23:15-04:00",
+      "summary": "Use existing github namespace in metadata.json for negative cache. Static class-level Map for search cache matching issueCache pattern."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-16T00:23:15-04:00",
+      "summary": "gh CLI has no rate-limit headers. Internal count-based budget. checkRateLimit() available as secondary signal every 10 searches."
+    },
+    "performance": {
+      "coveredAt": "2026-03-16T00:23:15-04:00",
+      "summary": "Hard-coded 20 search budget per scanIncrements() call. YAGNI for config. Status filter reduces searches from ~161 to ~3."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-16T00:23:15-04:00",
+      "summary": "Negative cache only when zero results AND no existing main issue. If mainIssue exists but no US issues, still search."
+    }
+  }
+}

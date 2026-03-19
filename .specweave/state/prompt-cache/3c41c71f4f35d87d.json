@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12992
+Increment recommendation: new (confidence: 0.7, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.9,
+  "reasoning": "No explicit integrations mentioned",
+  "latencyMs": 14222.474583000001,
+  "increment": {
+    "action": "new",
+    "confidence": 0.7,
+    "mandatory": false,
+    "suggestedName": "verify-academy-video-mdx",
+    "reasoning": "Vague request to verify/audit documentation file content and format"
+  }
+}

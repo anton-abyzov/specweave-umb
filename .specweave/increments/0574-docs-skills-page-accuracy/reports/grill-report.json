@@ -1,0 +1,22 @@
+{
+  "version": "1.1",
+  "incrementId": "0574-docs-skills-page-accuracy",
+  "timestamp": "2026-03-18T17:10:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 5,
+    "passed": 5,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "Heading changed to '44 Core Skills Cover the Full Lifecycle' at line 71, marketplace distinction at line 84" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "All 7 stale refs removed (/backend:nodejs, backend:python, backend:go, /testing:qa, /sw:security, /backend:database-optimizer, /sw:code-review), replaced with 8 real core skills" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Old 'Frontend (/sw:architect)' entry removed, architect correctly listed as 'designs systems, writes ADRs' at line 76" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "Links updated to ../skills/extensible/extensible-skills and ../skills/extensible/skill-development-guidelines — both target files verified to exist" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "Line 73 says 'ships with 44 core skills', line 84 directs to vskill marketplace for domain-specific plugins" }
+    ]
+  },
+  "findings": []
+}

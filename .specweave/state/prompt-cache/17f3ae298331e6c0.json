@@ -1,0 +1,18 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13148
+Increment recommendation: none (confidence: 0.8, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.9,
+  "reasoning": "Discussion/evaluation of increment scope, no integration work mentioned",
+  "latencyMs": 14593.138125000001,
+  "increment": {
+    "action": "none",
+    "confidence": 0.8,
+    "mandatory": false,
+    "reasoning": "User is evaluating scope or discussing relevance within 0397 increment, not requesting implementation. Pure discussion/planning conversation."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "version": "1.1",
+  "incrementId": "0539-umbrella-root-resolution-fix",
+  "timestamp": "2026-03-15T20:00:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "suppressed": 0
+  },
+  "acCompliance": {
+    "totalACs": 10,
+    "passed": 10,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "resolveEffectiveRoot() replaces process.cwd() in spec-detector.ts:95, test in spec-detector-root.test.ts" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "resolveEffectiveRoot() falls back to CWD when no umbrella, test verifies single-repo path" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "Constructor default changed to resolveEffectiveRoot() in active-increment-manager.ts:48, test verifies umbrella root" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "Explicit rootDir parameter still honored, test verifies explicit value wins" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "resolveEffectiveRoot() returns project root in single-repo mode, test verifies" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "resolveEffectiveRoot() replaces process.cwd() in activation-tracker.ts getStatePath(), test verifies" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Explicit projectRoot short-circuits resolveEffectiveRoot(), test verifies mock not called" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "Single-repo fallback works via resolveEffectiveRoot(), test verifies" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "platform.ts line 101: export { findProjectRoot } from '../utils/find-project-root.js' — no inline body" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "Re-export preserves same function reference, test verifies identity check passes" }
+    ]
+  },
+  "findings": []
+}

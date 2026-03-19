@@ -1,0 +1,167 @@
+{
+  "version": "1.1",
+  "incrementId": "0587-fix-github-sync-dedup",
+  "timestamp": "2026-03-19T14:22:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "NEEDS REVIEW",
+  "summary": {
+    "totalFindings": 6,
+    "critical": 0,
+    "high": 2,
+    "medium": 4
+  },
+  "acCompliance": {
+    "totalACs": 13,
+    "passed": 13,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      {
+        "id": "AC-US1-01",
+        "description": "Skip comment when fingerprint matches (3/5 unchanged)",
+        "status": "PASS",
+        "evidence": "github-ac-comment-poster.ts lines 95-115: fetches last comment via gh api .[-1].body, extracts fingerprint, compares with current completed/total, sets shouldPost=false on match. Test in github-ac-comment-dedup.test.ts lines 140-176 verifies zero comment calls when fingerprint matches."
+      },
+      {
+        "id": "AC-US1-02",
+        "description": "Post comment when fingerprint differs (progress changed to 4/5)",
+        "status": "PASS",
+        "evidence": "github-ac-comment-poster.ts lines 109-119: when lastFingerprint !== completed/total, shouldPost remains true and comment is posted with updated fingerprint appended. Test in github-ac-comment-dedup.test.ts lines 178-214 verifies one comment call with new fingerprint."
+      },
+      {
+        "id": "AC-US1-03",
+        "description": "Post first comment with correct fingerprint when no prior comments exist",
+        "status": "PASS",
+        "evidence": "github-ac-comment-poster.ts lines 107-111: when commentsResult.stdout is empty, shouldPost stays true. buildProgressCommentForUS builds body, currentFingerprint appended at line 119. Test in github-ac-comment-dedup.test.ts lines 216-253 verifies."
+      },
+      {
+        "id": "AC-US1-04",
+        "description": "Fingerprint format consistent with JIRA provider (sw-progress:N/M)",
+        "status": "PASS",
+        "evidence": "github-body-utils.ts line 21: buildFingerprint returns '<!-- sw-progress:N/M -->'. Same HTML comment format as JIRA. Test in github-body-utils.test.ts lines 26-37 verifies exact format."
+      },
+      {
+        "id": "AC-US2-01",
+        "description": "Phase 3 post-creation verification runs by default",
+        "status": "PASS",
+        "evidence": "duplicate-detector.ts line 489: condition is now 'process.env.SPECWEAVE_SKIP_VERIFY_DUPLICATES !== '1'' which defaults to running. Test in duplicate-detector-phase3.test.ts lines 59-84 verifies 3 execFileSync calls (Phase 1+2+3) with no env vars set."
+      },
+      {
+        "id": "AC-US2-02",
+        "description": "SPECWEAVE_SKIP_VERIFY_DUPLICATES=1 skips Phase 3",
+        "status": "PASS",
+        "evidence": "duplicate-detector.ts line 489 gates Phase 3 on the opt-out var. Test in duplicate-detector-phase3.test.ts lines 86-103 verifies only 2 execFileSync calls when env var is set."
+      },
+      {
+        "id": "AC-US2-03",
+        "description": "File-based lock serializes concurrent sync processes",
+        "status": "PASS",
+        "evidence": "github-feature-sync.ts lines 134-155: LockManager(lockDir, 120) wraps syncFeatureToGitHub. acquire() returns false for second caller, which gets placeholder result. try/finally at lines 157/342-344 ensures release. Test in github-feature-sync-lock.test.ts verifies."
+      },
+      {
+        "id": "AC-US2-04",
+        "description": "Uses same LockManager API as JIRA sync with GitHub-specific key",
+        "status": "PASS",
+        "evidence": "github-feature-sync.ts line 23: imports LockManager from src/utils/lock-manager.js. Line 139: lock key is 'github-sync-{owner}-{repo}'. Same LockManager class used by JIRA. Test verifies import and key pattern."
+      },
+      {
+        "id": "AC-US2-05",
+        "description": "Old in-memory Map lock removed",
+        "status": "PASS",
+        "evidence": "github-feature-sync-lock.test.ts lines 30-36: asserts sourceCode does NOT contain 'syncLocks: Map<string, number>', 'syncLocks.get(', 'syncLocks.set(', or 'LOCK_DURATION_MS'. Verified by reading source."
+      },
+      {
+        "id": "AC-US3-01",
+        "description": "Skip gh issue edit when body is identical after normalization",
+        "status": "PASS",
+        "evidence": "github-feature-sync.ts lines 1017-1051: updateUserStoryIssue fetches current body via gh issue view, normalizes both bodies with normalizeIssueBody, skips edit when match. 404/error falls through to edit. Test in github-body-diff.test.ts verifies."
+      },
+      {
+        "id": "AC-US3-02",
+        "description": "Multiple triggers within window deduplicated to first trigger only",
+        "status": "PASS",
+        "evidence": "SyncThrottle wired into status-change-sync-trigger.ts (lines 96-100), sync-progress.ts (lines 112-117), auto-create-external-issue.ts (lines 60-64). Tests in sync-throttle-wiring.test.ts verify imports, shouldSkip before sync, record after sync. Integration test simulates 3 triggers, only 1 executes."
+      },
+      {
+        "id": "AC-US3-03",
+        "description": "SyncThrottle uses increment ID as dedup key",
+        "status": "PASS",
+        "evidence": "All three trigger paths pass incrementId to throttle.shouldSkip(incrementId). SyncThrottle.shouldSkip(key) uses the key to look up in ThrottleState. Test in sync-throttle.test.ts lines 72-80 verifies independent key tracking."
+      },
+      {
+        "id": "AC-US3-04",
+        "description": "Throttle window is configurable and allows next trigger after expiry",
+        "status": "PASS",
+        "evidence": "SyncThrottle constructor accepts windowMs parameter (default 5000ms). shouldSkip returns false when elapsed >= windowMs. Test in sync-throttle.test.ts lines 48-59 verifies with Date.now mock. Custom window test at lines 104-119 verifies 2000ms window."
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "high",
+      "confidence": 85,
+      "category": "edge-case",
+      "file": "plugins/specweave/lib/integrations/github/github-ac-comment-poster.ts",
+      "line": 103,
+      "issue": "Comment dedup checks only the LAST comment (.[-1].body), not the last SpecWeave-authored comment. If a human or bot posts a comment after the last sw-progress comment, the dedup will fail to find the fingerprint and post a duplicate progress comment.",
+      "suggestion": "Use a jq filter that finds the last comment containing 'sw-progress' rather than just the last comment overall. For example: '[.[] | select(.body | test(\"sw-progress\"))] | last | .body'. Alternatively, iterate in reverse.",
+      "impact": "In repos with active human discussion on issues, progress comments may duplicate when a human comment appears between syncs. Low-probability but real scenario in active repos."
+    },
+    {
+      "id": "F-002",
+      "severity": "high",
+      "confidence": 80,
+      "category": "correctness",
+      "file": "src/core/sync-throttle.ts",
+      "line": "74-78 and 82-98",
+      "issue": "Read-then-write race condition in SyncThrottle. Two processes can both call shouldSkip(), both read the same state file (seeing no entry), both proceed, then both write. The file I/O is not atomic -- readFileSync + writeFileSync has a TOCTOU window. This partially undermines the throttle's purpose for cross-process dedup.",
+      "suggestion": "Use the existing LockManager to protect the throttle state file read-write cycle, or use atomic file write (write to temp file + rename). Since this is a best-effort throttle backed by the file-based LockManager in github-feature-sync.ts, the practical impact is limited -- the lock is the true serialization point -- but the throttle should be internally consistent.",
+      "impact": "Under concurrent processes, two syncs could both pass the throttle check simultaneously. Mitigated by the LockManager in syncFeatureToGitHub, but other trigger paths (auto-create, sync-progress) only rely on the throttle, making them vulnerable."
+    },
+    {
+      "id": "F-003",
+      "severity": "medium",
+      "confidence": 82,
+      "category": "edge-case",
+      "file": "plugins/specweave/lib/integrations/github/github-ac-comment-poster.ts",
+      "line": 100,
+      "issue": "The gh api call to fetch comments uses no pagination limit. For issues with hundreds of comments, this fetches ALL comments just to get the last one. The jq filter .[-1].body runs on the full array. For high-traffic issues, this could be slow and consume significant memory.",
+      "suggestion": "Use GitHub's API pagination to fetch only the last page of comments, or use the per_page and page parameters: `repos/{repoSlug}/issues/{issueNumber}/comments?per_page=1&sort=created&direction=desc`.",
+      "impact": "Performance degradation on high-traffic issues. No correctness issue, but unnecessarily expensive API call."
+    },
+    {
+      "id": "F-004",
+      "severity": "medium",
+      "confidence": 75,
+      "category": "maintainability",
+      "file": "plugins/specweave/hooks/v2/handlers/living-docs-handler.sh",
+      "line": "26-42",
+      "issue": "The fourth trigger path (living-docs-handler.sh) has its own independent bash-based throttle mechanism (60s window using file mtime) that is completely separate from the SyncThrottle utility. AC-US3-02 mentions 'four independent trigger paths' but only three are wired through SyncThrottle. This creates two parallel throttle systems that don't share state.",
+      "suggestion": "Either wire living-docs-handler.sh through SyncThrottle (call a Node helper that checks SyncThrottle.shouldSkip) or document that its independent 60s bash throttle is intentionally separate. The current state is inconsistent with the spec's claim of coordinating all four paths.",
+      "impact": "living-docs-handler can fire within the SyncThrottle window and vice versa, potentially allowing redundant syncs when both a shell hook and a TypeScript trigger fire for the same increment. Spec compliance is arguable since the handler has its own throttle, but it is not coordinated."
+    },
+    {
+      "id": "F-005",
+      "severity": "medium",
+      "confidence": 78,
+      "category": "maintainability",
+      "file": "tests/unit/sync/github-feature-sync-lock.test.ts and tests/unit/sync/github-body-diff.test.ts",
+      "line": "all",
+      "issue": "Both test files use source-code string inspection (readFileSync + string matching) rather than actual behavioral tests. They verify that certain strings exist in the source code (e.g., 'LockManager', '.acquire()', 'normalizeIssueBody') but do not test that the behavior actually works correctly. A refactor that changes variable names or restructures the code could break these tests while the behavior is still correct.",
+      "suggestion": "Add behavioral tests that mock the LockManager and verify concurrent calls are serialized, and tests that mock execFileNoThrow to verify body-diff comparison actually skips the edit call. The source-inspection tests can remain as a safety net but should not be the only verification.",
+      "impact": "Tests are brittle and may produce false failures on refactoring or false passes if behavior regresses while source strings remain. However, the integration test partially covers the behavioral gap."
+    },
+    {
+      "id": "F-006",
+      "severity": "medium",
+      "confidence": 72,
+      "category": "edge-case",
+      "file": "src/core/sync-throttle.ts",
+      "line": 101,
+      "issue": "The throttle state file grows unboundedly. Every unique increment ID is added but never removed. Over hundreds of increments, the JSON file accumulates stale entries. No cleanup or eviction is performed.",
+      "suggestion": "Add a simple eviction step in saveState() that removes entries older than 24 hours (or some reasonable TTL). This keeps the state file small and prevents indefinite growth.",
+      "impact": "Minor performance degradation over time as JSON parse/stringify operates on a growing object. Not a functional issue but a maintenance concern for long-running projects."
+    }
+  ]
+}

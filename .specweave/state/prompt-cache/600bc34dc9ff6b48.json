@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9889
+Increment recommendation: new (confidence: 0.9, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.8,
+  "reasoning": "Code audit and deduplication refactoring—no specific tech mentioned",
+  "latencyMs": 11256.448290999999,
+  "increment": {
+    "action": "new",
+    "confidence": 0.9,
+    "mandatory": true,
+    "suggestedName": "audit-and-fix-deduplication",
+    "reasoning": "Multi-file code investigation and refactoring to eliminate duplication across codebase"
+  }
+}

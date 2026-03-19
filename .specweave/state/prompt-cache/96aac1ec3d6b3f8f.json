@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12831
+Invalid LLM response format: I need permission to read that file. Could you clarify what specifically needs to be completed for the 0395 increment? This will help me:
+- Understand what remains to be done
+- Load the right plugins/
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 14510.3555,
+  "installMessage": "Invalid response format (no JSON found)"
+}

@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0580-docs-installation-multi-project",
+  "timestamp": "2026-03-19T02:45:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "External model consent not configured",
+  "findings": []
+}

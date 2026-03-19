@@ -1,0 +1,14 @@
+{
+  "incrementId": "0564-docs-redesign",
+  "startedAt": "2026-03-18T01:50:23-04:00",
+  "coveredCategories": {
+    "integrations": {
+      "coveredAt": "2026-03-18T01:50:43-04:00",
+      "summary": "N/A - pure frontend docs pages, no external API integrations"
+    },
+    "security": {
+      "coveredAt": "2026-03-18T01:50:43-04:00",
+      "summary": "N/A - public documentation pages, no authentication or sensitive data"
+    }
+  }
+}

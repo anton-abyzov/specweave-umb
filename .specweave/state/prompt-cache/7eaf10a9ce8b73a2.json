@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 6798
+Invalid LLM response format: I need permission to read that file. Could you grant access, or would you like me to analyze the plugin needs based on the task summary?
+
+From the notification, I can see this was a background sync ta
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 8199.593667,
+  "installMessage": "Invalid response format (no JSON found)"
+}

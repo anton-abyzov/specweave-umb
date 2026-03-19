@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0565-vskill-frontmatter-compliance",
+  "timestamp": "2026-03-18T07:15:30.000Z",
+  "verdict": "WAIVED",
+  "reason": "External models consent not configured",
+  "findings": []
+}

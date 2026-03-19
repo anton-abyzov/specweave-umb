@@ -1,0 +1,30 @@
+{
+  "incrementId": "0590-init-launch-living-docs-job",
+  "startedAt": "2026-03-19T02:06:22.248Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T02:10:00.000Z",
+      "summary": "Single insertion in init.ts after git hooks, before summary banner. Dynamic imports for launchLivingDocsJob and displayJobScheduled to avoid cold-start penalty. Static type-only import for LivingDocsUserInputs. No new files, no new modules."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T02:10:00.000Z",
+      "summary": "Uses existing APIs only: launchLivingDocsJob() from job-launcher.ts, displayJobScheduled() from living-docs-preflight.ts. Config saved to .specweave/state/living-docs-config.json for reuse by standalone specweave living-docs command via loadSavedLivingDocsConfig()."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T02:10:00.000Z",
+      "summary": "No new interactive prompts. displayJobScheduled() shows job ID and monitoring instructions (/sw:jobs). Silent on failure — no error messages shown to user since init must feel clean."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T02:10:00.000Z",
+      "summary": "Dynamic imports keep init cold-start fast when living docs launch is skipped (re-init, CI). analysisDepth: quick means background job completes in ~5-10 min. Fire-and-forget — does not block init completion."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T02:10:00.000Z",
+      "summary": "No new user input handling. No secrets involved. Background job runs with same permissions as init process. No network calls added to init itself — the background worker handles its own I/O."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T02:10:00.000Z",
+      "summary": "Re-init (continueExisting): skipped. CI (isCI): skipped. Worker not found: handled by launchLivingDocsJob returning isBackground: false. Missing state dir: fs.ensureDirSync before writing config. Spawn failure and config write failure: caught by outer try/catch, init continues."
+    }
+  }
+}

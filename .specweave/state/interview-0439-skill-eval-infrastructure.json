@@ -1,0 +1,30 @@
+{
+  "incrementId": "0439-skill-eval-infrastructure",
+  "startedAt": "2026-03-05T17:24:47-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-05T17:26:07-05:00",
+      "summary": "4 components: vskill CLI eval commands, eval content for 86+ skills, vskill-platform web editor, plugin standard. evals.json in git = source of truth, DB stores execution results only. Repos: vskill, vskill-platform, specweave."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-05T17:26:07-05:00",
+      "summary": "Anthropic API (ANTHROPIC_API_KEY, VSKILL_EVAL_MODEL), GitHub Contents API for web editor commit-back, local HTTP server for eval view edit mode"
+    },
+    "security": {
+      "coveredAt": "2026-03-05T17:26:07-05:00",
+      "summary": "Web editor admin-only restricted to anton.abyzov@gmail.com, CLI uses local env vars for API keys"
+    },
+    "performance": {
+      "coveredAt": "2026-03-05T17:26:07-05:00",
+      "summary": "Batch generation uses concurrency=3 for rate limit safety, CLI commands are developer-facing tools with no SLA requirements"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-05T17:30:44-05:00",
+      "summary": "Eval viewer shows one skill at a time. Edit mode with explicit Save button, no auto-save. Coverage table columns: Plugin, Skill, Cases, Assertions, Last Run, Status. MISSING indicator for skills without evals.json. GitHub commit shows diff preview before confirming."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-05T17:30:49-05:00",
+      "summary": "generate-all skips failures and continues, logs failures at end. Only generates for skills WITHOUT evals.json (skip existing). Schema validation on load: error and skip invalid files, no auto-fix. eval run continues on per-case LLM failures. --force flag to overwrite existing evals.json."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10987
+Filtered out invalid plugins: testing
+Increment recommendation: reopen (confidence: 0.65, mandatory: false)
+Skill invocation: testing:e2e (mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.8,
+  "reasoning": "End-to-end testing mentioned explicitly",
+  "latencyMs": 12158.077458,
+  "skillInvocation": {
+    "skill": "testing:e2e",
+    "reason": "E2E testing execution and verification",
+    "mandatory": false
+  }
+}

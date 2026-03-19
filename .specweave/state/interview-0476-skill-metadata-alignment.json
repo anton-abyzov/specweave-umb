@@ -1,0 +1,30 @@
+{
+  "incrementId": "0476-skill-metadata-alignment",
+  "startedAt": "2026-03-10T11:46:09-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-10T11:46:57-04:00",
+      "summary": "Add UNKNOWN status to RepoHealthResult union. Badge hides (returns null) for UNKNOWN. No new components -- changes contained to existing checker, store, badge, page.tsx, and eval-store."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-10T11:46:57-04:00",
+      "summary": "GitHub REST API only. Only 404 = OFFLINE; all other non-ok responses (403, 429, 5xx) and network errors = UNKNOWN. No new external integrations."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-10T11:46:57-04:00",
+      "summary": "UNKNOWN badge hidden entirely. Eval verdict chip maps all 5 EvalVerdict values to distinct colors. lastEvalAt shown as relative time inline after run count."
+    },
+    "performance": {
+      "coveredAt": "2026-03-10T11:46:57-04:00",
+      "summary": "UNKNOWN uses same 5-min TTL as OFFLINE for quick retry. No additional rate-limit mitigation needed."
+    },
+    "security": {
+      "coveredAt": "2026-03-10T11:46:57-04:00",
+      "summary": "N/A - bug fix only. No auth or permission changes. Token fallback to unauthenticated acceptable (UNKNOWN instead of false OFFLINE)."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-10T11:46:57-04:00",
+      "summary": "eval-store DB update awaited instead of fire-and-forget to prevent stale data. KV write remains fire-and-forget (non-critical hot cache)."
+    }
+  }
+}

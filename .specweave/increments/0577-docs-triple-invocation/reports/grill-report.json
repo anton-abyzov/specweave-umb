@@ -1,0 +1,39 @@
+{
+  "version": "1.1",
+  "incrementId": "0577-docs-triple-invocation",
+  "timestamp": "2026-03-19T05:42:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 22,
+    "passed": 22,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "CommandTabs component at docs-site/src/components/CommandTabs/index.tsx" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "Uses --sw-* design tokens in CommandTabs.module.css" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Three tabs: Natural Language, Claude Code, Other AI Tools" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "useState<TabId>('natural') sets Natural Language as default" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "6 :global([data-theme='dark']) rules in CSS module" },
+      { "acId": "AC-US1-06", "status": "pass", "evidence": "CommandTabs.module.css following Docusaurus conventions" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "overview/introduction.md uses CommandTabs" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "getting-started/index.md uses CommandTabs" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "getting-started/first-increment.md uses CommandTabs" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "getting-started/installation.md uses CommandTabs" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "commands/overview.md has 9 CommandTabs instances" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "All 10 command pages (do, auto, auto-status, cancel-auto, status, pause, resume, abandon, save, jobs) updated" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "reference/commands.md has Natural Language | Claude Code | Other AI tables" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "guides/brainstorming.md has 4 CommandTabs instances" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "50+ guides use CommandTabs pattern" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "Activation words verified in implementations" },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "15 academy essentials files with CommandTabs" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "8 workflow files use CommandTabs" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "reference/commands.md and reference/skills.md updated" },
+      { "acId": "AC-US5-04", "status": "pass", "evidence": "Skills section index updated with CommandTabs" },
+      { "acId": "AC-US6-01", "status": "pass", "evidence": "enterprise/release-management.md updated with CommandTabs" },
+      { "acId": "AC-US6-02", "status": "pass", "evidence": "Skills fundamentals and installation docs updated" }
+    ]
+  },
+  "findings": []
+}

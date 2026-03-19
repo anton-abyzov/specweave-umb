@@ -1,0 +1,35 @@
+{
+  "version": "1.1",
+  "incrementId": "0621-reduce-github-api-calls-phase2",
+  "timestamp": "2026-03-19T15:30:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 0,
+    "suppressed": 2,
+    "critical": 0,
+    "high": 0,
+    "medium": 0
+  },
+  "acCompliance": {
+    "totalACs": 12,
+    "passed": 12,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "Module at src/sync/github-rate-limit-budget.ts with BudgetState interface, reads/writes .specweave/state/github-rate-limit.json" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "GitHubClientV2.execWithBudget() wraps all gh CLI calls via checkAndDecrement(), returns early with warning when budget < 200" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "decrementBudget() does atomic read-modify-write, Math.max(0, ...) prevents underflow. Tests: TC-003, TC-005" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "needsValidation() checks callsSinceValidation >= 50 OR elapsed >= 5min. validateBudget() calls gh api rate_limit. Tests: TC-004" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "reconciler-lock.ts writes {pid, startedAt} JSON to .specweave/state/reconciler.lock. Test: TC-006" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "acquireLock() returns false when isStale() is false (fresh lock, PID running). Test: TC-007" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "isStale() checks age >= 5min OR !isPidRunning(pid). acquireLock() overwrites stale locks. Tests: TC-008, dead-PID test" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "label-cache.ts saveToDisk() writes to .specweave/state/github-label-cache.json via setLabelCacheDir()" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "loadFromDisk() runs on first ensureLabels() call, loads from disk file, skips entries > 24h. Test: TC-009" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "saveToDisk() called after created=true flag when new labels are added. Test: TC-010" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "github-feature-sync.ts:313-324 calls getIssueNumberFromMetadata(), skips DuplicateDetector.createWithProtection() if found. Test: TC-011" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "editIssueBody() at github-client-v2.ts:572 does direct gh issue edit without getIssue() pre-fetch. Used at github-feature-sync.ts:320. Test: TC-012" }
+    ]
+  },
+  "findings": []
+}

@@ -1,0 +1,26 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 8275
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "No explicit integration platform mentioned (no GitHub, JIRA, ADO, or media generation)",
+  "latencyMs": 9678.473791,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "social-media-posting-implementation",
+    "reasoning": "Feature work requiring design/planning for browser automation, credential handling, and Chrome profile management"
+  },
+  "vskillRecommendations": [
+    {
+      "plugin": "marketing",
+      "matchedKeyword": "social media",
+      "installCommand": "vskill install anton-abyzov/vskill --plugin marketing"
+    }
+  ]
+}

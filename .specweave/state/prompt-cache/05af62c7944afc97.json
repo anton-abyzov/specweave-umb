@@ -1,0 +1,11 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 6295
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.98,
+  "reasoning": "Task notification about living docs sync — no explicit integration mentioned, internal automation task",
+  "latencyMs": 7846.933417
+}

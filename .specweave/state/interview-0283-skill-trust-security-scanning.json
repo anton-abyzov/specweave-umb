@@ -1,0 +1,15 @@
+{
+  "incrementId": "0283-skill-trust-security-scanning",
+  "startedAt": "2026-02-21T03:37:16-05:00",
+  "completedAt": "2026-02-21T03:45:00-05:00",
+  "coveredCategories": {
+    "architecture": { "questionsAsked": 5, "answered": true },
+    "integrations": { "questionsAsked": 3, "answered": true },
+    "security": { "questionsAsked": 4, "answered": true },
+    "edge-cases": { "questionsAsked": 3, "answered": true },
+    "performance": { "questionsAsked": 2, "answered": true },
+    "ui-ux": { "questionsAsked": 2, "answered": true }
+  },
+  "totalQuestions": 19,
+  "complexity": "large"
+}

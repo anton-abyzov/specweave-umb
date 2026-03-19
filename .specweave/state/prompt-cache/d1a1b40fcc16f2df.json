@@ -1,0 +1,15 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 7437
+Invalid LLM response format: I need more context to help you effectively. Your question "why do I still see four of them?" refers to something from a previous conversation or context I don't have.
+
+Could you clarify:
+1. What are 
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 9202.458958,
+  "installMessage": "Invalid response format (no JSON found)"
+}

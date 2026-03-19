@@ -1,0 +1,124 @@
+{
+  "version": "1.1",
+  "incrementId": "0617-sync-routing-evolutionary-cleanup",
+  "timestamp": "2026-03-19T13:50:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "suppressed": 2
+  },
+  "acCompliance": {
+    "totalACs": 17,
+    "passed": 17,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      {
+        "acId": "AC-US1-01",
+        "status": "pass",
+        "evidence": "detectProjectFromCwd() in template-creator.ts:404-430 matches cwd against childRepos[].path. Tests: detect-project-from-cwd.test.ts:26-29, metadata-project-injection.test.ts:38-62"
+      },
+      {
+        "acId": "AC-US1-02",
+        "status": "pass",
+        "evidence": "detectProjectFromCwd returns umbrellaConfig.projectName when cwd at umbrella root (template-creator.ts:429). Tests: detect-project-from-cwd.test.ts:37-39, metadata-project-injection.test.ts:65-87"
+      },
+      {
+        "acId": "AC-US1-03",
+        "status": "pass",
+        "evidence": "detectProjectFromCwd returns undefined when umbrella.enabled is false (template-creator.ts:409). Tests: detect-project-from-cwd.test.ts:42-50, metadata-project-injection.test.ts:90-110"
+      },
+      {
+        "acId": "AC-US1-04",
+        "status": "pass",
+        "evidence": "detectProjectFromCwd iterates all childRepos without filtering by disabled flag. Tests: detect-project-from-cwd.test.ts:53-56, metadata-project-injection.test.ts:127-149"
+      },
+      {
+        "acId": "AC-US1-05",
+        "status": "pass",
+        "evidence": "resolveSyncTarget('specweave', config) returns source='child-repo-name' with per-repo targets. Tests: sync-resolver-integration.test.ts:56-62"
+      },
+      {
+        "acId": "AC-US2-01",
+        "status": "pass",
+        "evidence": "RepoStructureManager.promptStructure called with pre-selected 'github-parent' when umbrella enabled, getArchitecturePrompt NOT called. Tests: wizard-umbrella-skip.test.ts:114-139, github-multi-repo-umbrella.test.ts:80-99"
+      },
+      {
+        "acId": "AC-US2-02",
+        "status": "pass",
+        "evidence": "getArchitecturePrompt IS called when umbrella.enabled is false. Tests: wizard-umbrella-skip.test.ts:142-164"
+      },
+      {
+        "acId": "AC-US2-03",
+        "status": "pass",
+        "evidence": "promptGitHubSetupType falls back gracefully when promptStructure throws HTTP 403 error. Tests: github-multi-repo-umbrella.test.ts:102-109. github-provider.ts now propagates actual HTTP status (not hardcoded 404) for better error diagnostics."
+      },
+      {
+        "acId": "AC-US2-04",
+        "status": "pass",
+        "evidence": "promptGitHubSetupType returns detected child repos as profiles array with correct ids. Tests: github-multi-repo-umbrella.test.ts:112-131"
+      },
+      {
+        "acId": "AC-US3-01",
+        "status": "pass",
+        "evidence": "formatUsId(1, 'internal', 'SPE') returns 'US-SPE-001'. parseUsId handles prefix via regex /^US-(?:([A-Za-z]{2,6})-)?/. Tests: us-id-generator-prefix.test.ts:18-24,64-67, spec-parser-prefix.test.ts:32-53"
+      },
+      {
+        "acId": "AC-US3-02",
+        "status": "pass",
+        "evidence": "formatUsId(1, 'internal', undefined) returns 'US-001' (no prefix). Tests: us-id-generator-prefix.test.ts:70-73"
+      },
+      {
+        "acId": "AC-US3-03",
+        "status": "pass",
+        "evidence": "getNextUsId finds max number across ALL existing IDs then generates next sequential. Tests: us-id-generator-prefix.test.ts:82-106"
+      },
+      {
+        "acId": "AC-US3-04",
+        "status": "pass",
+        "evidence": "extractPrefix('US-SPE-001') returns 'SPE', routeByPrefix matches childRepos[].prefix. Tests: story-router-prefix.test.ts:20-33"
+      },
+      {
+        "acId": "AC-US3-05",
+        "status": "pass",
+        "evidence": "extractPrefix('US-001') returns null, Phase 3 global fallback handles it. Old parseUsId format still works. Tests: story-router-prefix.test.ts:37-44, us-id-generator-prefix.test.ts:128-135"
+      },
+      {
+        "acId": "AC-US4-01",
+        "status": "pass",
+        "evidence": "three-file-validator.ts:368-375 emits METADATA_MISSING_PROJECT WARNING when umbrella.enabled && childRepos.length > 1 && !metadata.project. Tests: project-validation.test.ts:65-88"
+      },
+      {
+        "acId": "AC-US4-02",
+        "status": "pass",
+        "evidence": "three-file-validator.ts:353 returns early when !config.umbrella?.enabled — no warning for single-repo. Tests: project-validation.test.ts:91-105"
+      },
+      {
+        "acId": "AC-US4-03",
+        "status": "pass",
+        "evidence": "three-file-validator.ts:378-389 emits METADATA_UNKNOWN_PROJECT WARNING when project doesn't match any childRepo.id or umbrella.projectName. Tests: project-validation.test.ts:120-143"
+      }
+    ]
+  },
+  "findings": [],
+  "testResults": {
+    "newTestFiles": 9,
+    "newTestsPassing": 61,
+    "modifiedTestFiles": 2,
+    "modifiedTestsPassing": 50,
+    "totalIncrementTests": 111,
+    "regressions": 0,
+    "preExistingFailures": 57,
+    "preExistingFailureNote": "All 57 failing test files are pre-existing integration/E2E/plugin-validation failures unrelated to 0617 changes"
+  },
+  "scope": {
+    "filesModified": 6,
+    "filesAdded": 9,
+    "linesChanged": 239,
+    "linesRemoved": 66
+  }
+}

@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.77 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 6703
+Invalid LLM response format: I notice the skill description is incomplete—it cuts off after `"This skill should be used when the user asks to \"`. 
+
+Could you provide the complete skill description? Once I have that, I can genera
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 8043.43775,
+  "installMessage": "Invalid response format (no JSON found)"
+}

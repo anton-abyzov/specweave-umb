@@ -1,0 +1,18 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13098
+Increment recommendation: none (confidence: 0.85, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.4,
+  "reasoning": "Prioritization directive without specific tech; needs clarification on video scope",
+  "latencyMs": 14677.513209,
+  "increment": {
+    "action": "none",
+    "confidence": 0.85,
+    "mandatory": false,
+    "reasoning": "Meta-statement about work priorities, not a specific task. Awaiting concrete requirements."
+  }
+}

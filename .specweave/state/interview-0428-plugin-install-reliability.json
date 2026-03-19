@@ -1,0 +1,34 @@
+{
+  "incrementId": "0428-plugin-install-reliability",
+  "startedAt": "2026-03-05T02:07:23-05:00",
+  "coveredCategories": {
+    "scope": {
+      "coveredAt": "2026-03-05T02:07:23-05:00",
+      "summary": "Bug fix with 3 clear US provided by user, no ambiguity"
+    },
+    "architecture": {
+      "coveredAt": "2026-03-05T02:07:23-05:00",
+      "summary": "Changes scoped to claude-cli.ts, add.ts, marketplace/ in vskill CLI"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-05T02:08:16-05:00",
+      "summary": "Interacts with claude CLI via execSync; registerMarketplace return type changes from boolean to {success,stderr}; backward-compat required for all callers"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-05T02:08:16-05:00",
+      "summary": "TTY confirmation prompt for single-plugin marketplace; --yes flag bypasses; pre-install overview line before scan; dim stderr in error output"
+    },
+    "performance": {
+      "coveredAt": "2026-03-05T02:08:16-05:00",
+      "summary": "One retry on failed registration adds at most one extra execSync call; no perf concerns for CLI tool"
+    },
+    "security": {
+      "coveredAt": "2026-03-05T02:08:16-05:00",
+      "summary": "No security changes; existing blocklist and tier1 scan remain; temp dir detection is a reliability fix not security"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-05T02:08:16-05:00",
+      "summary": "Temp dir prefix detection via os.tmpdir(); non-TTY with no --yes already handled; empty marketplace.json; invalid JSON in manifest; unreachable source URL"
+    }
+  }
+}

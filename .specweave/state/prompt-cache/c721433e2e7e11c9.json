@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.78 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11392
+Increment recommendation: new (confidence: 0.8, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Documentation review and update work—no integrations mentioned",
+  "latencyMs": 12762.60275,
+  "increment": {
+    "action": "new",
+    "confidence": 0.8,
+    "mandatory": false,
+    "suggestedName": "update-specweave-docs-team-lead-brownfield",
+    "reasoning": "Documentation update to reflect team lead skill, brownfield project support, and production tool integrations in spec-weave docs"
+  }
+}

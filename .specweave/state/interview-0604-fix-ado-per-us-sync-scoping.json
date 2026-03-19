@@ -1,0 +1,30 @@
+{
+  "incrementId": "0604-fix-ado-per-us-sync-scoping",
+  "startedAt": "2026-03-19T05:02:55.187Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T05:03:00.227Z",
+      "summary": "Bug fix - per-us-sync.ts needs featureId in WIQL search"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T05:03:00.279Z",
+      "summary": "Bug fix - per-us-sync.ts needs featureId in WIQL search"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T05:03:00.330Z",
+      "summary": "Bug fix - per-us-sync.ts needs featureId in WIQL search"
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T05:03:00.383Z",
+      "summary": "Bug fix - per-us-sync.ts needs featureId in WIQL search"
+    },
+    "security": {
+      "coveredAt": "2026-03-19T05:03:00.435Z",
+      "summary": "Bug fix - per-us-sync.ts needs featureId in WIQL search"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T05:03:00.484Z",
+      "summary": "Bug fix - per-us-sync.ts needs featureId in WIQL search"
+    }
+  }
+}

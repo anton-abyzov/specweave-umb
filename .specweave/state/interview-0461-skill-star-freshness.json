@@ -1,0 +1,30 @@
+{
+  "incrementId": "0461-skill-star-freshness",
+  "startedAt": "2026-03-09T08:34:55-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-09T08:36:09-04:00",
+      "summary": "Existing CF Workers + Prisma DB + KV search shards architecture. publishSkill upserts to DB, enrichment cron batch-updates metrics, search-index-consumer handles incremental KV shard updates via queue messages."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-09T08:36:09-04:00",
+      "summary": "GitHub REST API for star/fork counts (5s timeout, bearer token auth). npm registry for downloads. All fetches are best-effort with fallback to 0."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-09T08:36:09-04:00",
+      "summary": "N/A - backend-only changes. Search results on verified-skill.com will display correct star counts as a result of backend fixes."
+    },
+    "performance": {
+      "coveredAt": "2026-03-09T08:36:09-04:00",
+      "summary": "Enrichment cron already has rate-limit backoff. Star fetch at publish adds max 5s latency (best-effort, non-blocking). Incremental shard updates avoid full index rebuild. Admin endpoints are for manual/infrequent use."
+    },
+    "security": {
+      "coveredAt": "2026-03-09T08:36:09-04:00",
+      "summary": "Admin endpoints use existing requireAdmin + hasInternalAuth pattern (X-Internal-Key or SUPER_ADMIN JWT). No new auth requirements."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-09T08:36:46-04:00",
+      "summary": "Dedup keeps highest trustScore (tiebreaker: newest certifiedAt). Install counts on deprecated dupes discarded. refresh-skills requires at least one filter (no refresh-all footgun). Shard dispatch only when metrics actually changed. legacySlug already handled by publishSkill."
+    }
+  }
+}

@@ -1,0 +1,18 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.78 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11599
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Code cleanup/refactoring work with no explicit GitHub sync, JIRA, media, or ADO integration",
+  "latencyMs": 13110.607875000002,
+  "vskillRecommendations": [
+    {
+      "plugin": "mobile",
+      "matchedKeyword": "expo",
+      "installCommand": "vskill install anton-abyzov/vskill --plugin mobile"
+    }
+  ]
+}

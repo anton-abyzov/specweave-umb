@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11277
+Invalid LLM response format: I need read permission to access that output file. Could you grant permission so I can read the task results?
+
+Once I can see the output, I'll analyze what plugins and tools are relevant to the comple
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 12555.34225,
+  "installMessage": "Invalid response format (no JSON found)"
+}

@@ -1,0 +1,30 @@
+{
+  "incrementId": "0598-fix-ado-sync-parent-linking",
+  "startedAt": "2026-03-19T04:17:50.045Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T04:20:17.630Z",
+      "summary": "Two targeted fixes in ado-spec-sync.ts. Bug 1: add featureId param to findStoryByTitle and scope WIQL with System.Parent. Bug 2: fetch relations before re-parenting in updateStory, remove old parent if different."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T04:20:19.652Z",
+      "summary": "ADO REST API only. Uses existing GET workitems expand=relations endpoint for parent detection, existing PATCH for relation removal. No new integrations."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T04:20:20.475Z",
+      "summary": "No UI changes. Backend sync logic only — CLI output unchanged."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T04:20:22.249Z",
+      "summary": "Adding System.Parent clause to WIQL narrows results — net positive. Extra GET for relations in updateStory adds one API call per story update, acceptable."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T04:20:24.191Z",
+      "summary": "No new auth, no new credentials, no user input changes. featureId is an integer from ADO API, safe for WIQL interpolation."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T04:20:25.652Z",
+      "summary": "Edge cases: story with no parent (add directly), story with correct parent (no-op), story with wrong parent (remove+add), feature with zero stories (skip), multiple WIQL matches scoped to same feature (take first)."
+    }
+  }
+}

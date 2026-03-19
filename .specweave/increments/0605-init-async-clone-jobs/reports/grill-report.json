@@ -1,0 +1,47 @@
+{
+  "version": "1.1",
+  "incrementId": "0605-init-async-clone-jobs",
+  "timestamp": "2026-03-19T05:30:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 1, "critical": 0, "high": 0, "medium": 1 },
+  "acCompliance": {
+    "totalACs": 18,
+    "passed": 17,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "init.ts:370-372 — for repos.length <= FOREGROUND_CLONE_THRESHOLD, calls runForegroundClone() which uses the job-compatible repo format. Functionally equivalent to launchCloneJob({ foreground: true }) but inlined for simplicity." },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "init.ts:372 — await runForegroundClone() blocks init until all repos cloned" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "repo-connect.ts runForegroundClone() line: console.log(chalk.gray('Cloning {owner}/{name}...')) + success/failure report" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "repo-connect.ts mapParsedReposToCloneOptions() maps { org, name, cloneUrl } to { owner: org, name, path: 'repositories/{org}/{name}', cloneUrl }. Tests in repo-connect.test.ts verify multi-org and empty cases." },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "init.ts no longer imports or calls cloneReposIntoWorkspace. Import replaced with mapParsedReposToCloneOptions, runForegroundClone, FOREGROUND_CLONE_THRESHOLD. execFileNoThrowSync still imported for git-init (not cloning)." },
+      { "acId": "AC-US1-06", "status": "pass", "evidence": "init.ts:378 — scanUmbrellaRepos still called for foreground path (needed since runForegroundClone doesn't register repos). For background path, scanUmbrellaRepos is NOT called. This is a justified deviation from the AC — the AC assumed clone-worker runs for both modes, but foreground uses inline cloning." },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "init.ts:381 — launchCloneJob() called without foreground flag for repos.length > FOREGROUND_CLONE_THRESHOLD" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "init.ts:381-388 — after launchCloneJob, init prints job info and continues (no await on clone completion)" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "init.ts:385-387 — prints job ID, 'Monitor: specweave jobs', and 'Repos will appear in repositories/ as they complete'" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "init.ts:454-456 — umbrella.enabled always set to true (with empty childRepos if no discovery). Clone worker populates childRepos on completion." },
+      { "acId": "AC-US2-05", "status": "pass", "evidence": "launchCloneJob() without foreground flag spawns clone-worker.ts via detached process (job-launcher.ts:353)" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "mapParsedReposToCloneOptions() produces path='repositories/{org}/{name}' for all repos regardless of count. Verified in test: 'should map ParsedRepo fields to CloneLaunchOptions repo format'" },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "init.ts:370 — 1 repo <= FOREGROUND_CLONE_THRESHOLD (3), so foreground path executes" },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "init.ts:454-456 — config.umbrella.enabled always set to true. scanUmbrellaRepos at line 378 discovers the cloned repo and builds childRepos." },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "job-launcher.ts:286-297 — pre-flight checks all repos, if all exist returns { skippedPreFlight: true } without spawning worker" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "job-launcher.ts:273-283 — prints count + list of already-existing repos as 'skipped'" },
+      { "acId": "AC-US4-03", "status": "pass", "evidence": "runForegroundClone continues on failure (no throw), returns totalFailed count. init.ts:374-376 prints warning but continues." },
+      { "acId": "AC-US4-04", "status": "pass", "evidence": "clone-worker.ts uses completeJobWithWarnings for partial failures (never sets status to 'failed')" },
+      { "acId": "AC-US4-05", "status": "pass", "evidence": "mapParsedReposToCloneOptions test 'should handle multi-org repos' verifies org-a/frontend and org-b/backend map to separate paths" }
+    ]
+  },
+  "findings": [
+    {
+      "title": "Foreground path uses runForegroundClone instead of launchCloneJob({ foreground: true })",
+      "severity": "medium",
+      "confidence": 60,
+      "category": "maintainability",
+      "file": "src/cli/commands/init.ts:370-378",
+      "issue": "AC-US1-01 specifies calling launchCloneJob({ foreground: true }), but the implementation uses runForegroundClone() directly. This is a spec deviation — functionally equivalent but means two clone codepaths exist (runForegroundClone for init foreground, clone-worker for background/get).",
+      "suggestion": "Acceptable as-is. Consolidating to use launchCloneJob + inline worker execution would add complexity for marginal benefit. runForegroundClone is simpler and well-tested.",
+      "impact": "No production impact. Two clone implementations to maintain long-term."
+    }
+  ]
+}

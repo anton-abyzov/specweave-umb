@@ -1,0 +1,30 @@
+{
+  "incrementId": "0517-sw-e2e-skill",
+  "startedAt": "2026-03-12T16:53:48-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-12T16:56:14-04:00",
+      "summary": "SKILL.md + evals.json, report schema defined with playwrightConfig field, one-test-per-AC default with journey grouping option"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-12T16:56:14-04:00",
+      "summary": "sw:done Gate 2a invokes sw:e2e --run instead of direct playwright; skill writes e2e-report.json consumed by Gate 2a"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-12T16:56:14-04:00",
+      "summary": "N/A - CLI skill with no UI"
+    },
+    "performance": {
+      "coveredAt": "2026-03-12T16:56:14-04:00",
+      "summary": "N/A - skill orchestrates Playwright, no perf concerns beyond test execution time"
+    },
+    "security": {
+      "coveredAt": "2026-03-12T16:56:14-04:00",
+      "summary": "N/A - no auth/data/secrets handling, skill reads spec.md and writes test files"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-12T16:56:14-04:00",
+      "summary": "Missing Playwright: fail with guidance (detect package.json vs absent); a11y violations map to triggering AC or page URL for standalone"
+    }
+  }
+}

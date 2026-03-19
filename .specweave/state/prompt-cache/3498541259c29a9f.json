@@ -1,0 +1,34 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11837
+Increment recommendation: reopen (confidence: 0.9, mandatory: false)
+Skill invocation: testing:unit (mandatory: false)
+LSP recommendation: operation=definition, language=typescript, warmupRequired=true
+{
+  "detected": true,
+  "plugins": [
+    "testing"
+  ],
+  "confidence": 0.85,
+  "reasoning": "Test debugging work in existing increment",
+  "latencyMs": 13307.458125000001,
+  "increment": {
+    "action": "reopen",
+    "confidence": 0.9,
+    "mandatory": false,
+    "relatedKeyword": "0410-dedup-comment-test",
+    "reasoning": "User debugging test failures in existing completed increment"
+  },
+  "skillInvocation": {
+    "skill": "testing:unit",
+    "reason": "Test debugging and failure diagnosis",
+    "mandatory": false
+  },
+  "lsp": {
+    "needed": true,
+    "operation": "definition",
+    "language": "typescript",
+    "warmupRequired": true
+  }
+}

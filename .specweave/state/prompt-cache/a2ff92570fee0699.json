@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10545
+Increment recommendation: reopen (confidence: 0.85, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.7,
+  "reasoning": "living docs sync task — infrastructure/integration work, no explicit tech stack mentioned",
+  "latencyMs": 13673.211292,
+  "increment": {
+    "action": "reopen",
+    "confidence": 0.85,
+    "mandatory": false,
+    "relatedKeyword": "0523-living-docs-sync-cleanup",
+    "reasoning": "Related to existing living docs sync work (increment 0523)"
+  }
+}

@@ -1,0 +1,19 @@
+
+⚠️  Duplicate increment(s) detected:
+
+  0383:
+    → 0383-fix-github-issue-auto-closure [planning]
+    ✗ 0383-fix-develop-tests-automerge [in-progress]
+
+  Run /sw:fix-duplicates to resolve
+
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.62 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 15742.93075,
+  "installMessage": "Detection timed out after 15000ms"
+}

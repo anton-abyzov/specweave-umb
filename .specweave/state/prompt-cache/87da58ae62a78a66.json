@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9506
+Increment recommendation: new (confidence: 0.9, mandatory: true)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.85,
+  "reasoning": "Repository/submodule investigation — no specific tech plugin applies",
+  "latencyMs": 11682.874749999999,
+  "increment": {
+    "action": "new",
+    "confidence": 0.9,
+    "mandatory": true,
+    "suggestedName": "investigate-submodule-folder-visibility",
+    "reasoning": "Deep investigation work to understand folder visibility regression and submodule changes across multiple areas"
+  }
+}

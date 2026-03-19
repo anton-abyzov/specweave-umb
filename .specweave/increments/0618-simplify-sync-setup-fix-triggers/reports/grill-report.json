@@ -1,0 +1,68 @@
+{
+  "version": "1.1",
+  "incrementId": "0618-simplify-sync-setup-fix-triggers",
+  "timestamp": "2026-03-19T09:06:30.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 0,
+    "suppressed": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0
+  },
+  "acCompliance": {
+    "totalACs": 9,
+    "passed": 9,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      {
+        "acId": "AC-US1-01",
+        "status": "pass",
+        "evidence": "queueSyncEvent() utility in src/core/sync/event-queue.ts writes events to .specweave/state/event-queue/pending.jsonl. Tests: tests/unit/sync/event-queue.test.ts (7 tests, all pass)"
+      },
+      {
+        "acId": "AC-US1-02",
+        "status": "pass",
+        "evidence": "LifecycleHookDispatcher.onTaskCompleted() at line 117 checks syncMode and queues via queueSyncEvent when 'queued'. Tests: lifecycle-hook-dispatcher-queue.test.ts verifies queue called and LivingDocsSync NOT called"
+      },
+      {
+        "acId": "AC-US1-03",
+        "status": "pass",
+        "evidence": "LifecycleHookDispatcher.onIncrementDone() at line 215 queues when syncMode='queued' AND !options.directSync. When directSync=true (from specweave complete), direct sync runs. Tests: lifecycle-hook-dispatcher-queue.test.ts covers both paths"
+      },
+      {
+        "acId": "AC-US1-04",
+        "status": "pass",
+        "evidence": "StatusChangeSyncTrigger.spawnAsyncSync() at line 223 checks getSyncMode() and queues via queueSyncEvent when 'queued'. Tests: status-change-sync-trigger-queue.test.ts (3 tests)"
+      },
+      {
+        "acId": "AC-US1-05",
+        "status": "pass",
+        "evidence": "post-tool-use.sh at lines 286-297 reads sync.mode from config.json via jq, defaults to 'queued'. When queued, writes JSON event to pending.jsonl instead of calling project-bridge-handler"
+      },
+      {
+        "acId": "AC-US1-06",
+        "status": "pass",
+        "evidence": "sync.mode typed as 'queued' | 'immediate' in src/core/config/types.ts:211. getSyncMode() in LifecycleHookDispatcher (line 428) and StatusChangeSyncTrigger (line 283) both default to 'queued' when unset"
+      },
+      {
+        "acId": "AC-US2-01",
+        "status": "pass",
+        "evidence": "sync-setup.ts delegates to setupIssueTracker() which asks: tracker type (select), credentials/validation, then per-tracker config. Single-project flows through the standard prompt path with 3-5 questions"
+      },
+      {
+        "acId": "AC-US2-02",
+        "status": "pass",
+        "evidence": "setupIssueTracker() handles multi-project via ADO credentials reuse (setupAdoWithExistingCredentials) with per-project area path configuration. GitHub handles multi-repo via configureGitHubRepositories()"
+      },
+      {
+        "acId": "AC-US2-03",
+        "status": "pass",
+        "evidence": "sync-setup.ts line 66: options.quick || isNonTTY triggers non-interactive mode. Validates existing config, runs health checks, exits without prompts. SyncSetupOptions.quick typed at line 25"
+      }
+    ]
+  },
+  "findings": []
+}

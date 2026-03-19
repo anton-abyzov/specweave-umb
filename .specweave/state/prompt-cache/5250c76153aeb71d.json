@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.74 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 11995
+Invalid LLM response format: You're in the middle of a SpecWeave plugin installation flow. You've selected **nanobanana** (AI image generation via Google Gemini 3 Pro).
+
+For agent selection, you have **Claude Code** and **OpenCla
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 14825.432625000001,
+  "installMessage": "Invalid response format (no JSON found)"
+}

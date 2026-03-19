@@ -1,0 +1,64 @@
+{
+  "version": "1.1",
+  "incrementId": "0620-docs-sw-closer-agent",
+  "timestamp": "2026-03-19T15:10:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": {
+    "totalFindings": 0,
+    "suppressed": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0
+  },
+  "acCompliance": {
+    "totalACs": 7,
+    "passed": 7,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      {
+        "acId": "AC-US1-01",
+        "status": "pass",
+        "evidence": "AGENTS.md (umbrella) contains 'Available Subagent Types' section with table listing sw:sw-closer, sw:sw-pm, sw:sw-architect, sw:sw-planner"
+      },
+      {
+        "acId": "AC-US1-02",
+        "status": "pass",
+        "evidence": "repositories/anton-abyzov/specweave/AGENTS.md contains identical 'Available Subagent Types' section with matching table"
+      },
+      {
+        "acId": "AC-US1-03",
+        "status": "pass",
+        "evidence": "plugins/specweave/skills/done/SKILL.md has context overflow paragraph explaining sw-closer as alternative with reference to agent definition"
+      },
+      {
+        "acId": "AC-US1-04",
+        "status": "pass",
+        "evidence": "plugins/specweave/skills/team-lead/SKILL.md documents full team-lead -> sw-closer closure workflow with spawning code and critical rules"
+      },
+      {
+        "acId": "AC-US1-05",
+        "status": "pass",
+        "evidence": "plugins/specweave/PLUGIN.md has 'Subagents' section with table listing all 4 subagent types"
+      },
+      {
+        "acId": "AC-US2-01",
+        "status": "pass",
+        "evidence": "docs-site/docs/guides/agent-teams-and-swarms.md has 'Closure (Context Overflow Prevention)' section with ASCII diagram and explanation"
+      },
+      {
+        "acId": "AC-US2-02",
+        "status": "pass",
+        "evidence": "docs-site/docs/academy/specweave-essentials/13-increment-lifecycle.md has 'Closure in Multi-Agent Sessions' subsection with cross-reference"
+      }
+    ]
+  },
+  "findings": [],
+  "scope": {
+    "filesExamined": 7,
+    "linesChanged": 85,
+    "acsValidated": 7
+  },
+  "notes": "Docs-only increment. All 7 ACs verified against actual file content. No code changes, no security/performance concerns. Content is accurate and consistent across all documentation touchpoints."
+}

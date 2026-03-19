@@ -1,0 +1,26 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.76 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9963
+Increment recommendation: new (confidence: 0.85, mandatory: true)
+LSP recommendation: operation=references, language=typescript, warmupRequired=true
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "No explicit integration mentions; skill refactoring work",
+  "latencyMs": 11280.229125,
+  "increment": {
+    "action": "new",
+    "confidence": 0.85,
+    "mandatory": true,
+    "suggestedName": "simplify-skill-command-logic",
+    "reasoning": "Refactoring skill logic for readability and consolidation"
+  },
+  "lsp": {
+    "needed": true,
+    "operation": "references",
+    "language": "typescript",
+    "warmupRequired": true
+  }
+}

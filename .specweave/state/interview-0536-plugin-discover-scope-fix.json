@@ -1,0 +1,30 @@
+{
+  "incrementId": "0536-plugin-discover-scope-fix",
+  "startedAt": "2026-03-15T00:00:00+00:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-15T00:00:01+00:00",
+      "summary": "N/A - No architectural changes. Three targeted fixes to existing modules: default scope constant, missing function call in init flow, guard removal in refresh flow."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-15T00:00:02+00:00",
+      "summary": "N/A - No external integrations. Internal CLI code changes affecting how plugins register in Claude Code settings."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-15T00:00:03+00:00",
+      "summary": "N/A - No direct UI. The fix ensures Claude Code Discover tab correctly shows all specweave plugins as installed (checkmark) by using user scope consistently."
+    },
+    "performance": {
+      "coveredAt": "2026-03-15T00:00:04+00:00",
+      "summary": "N/A - No performance impact. Scope change is a config constant; enablePluginsInSettings is a simple JSON file write already performed in refresh-plugins."
+    },
+    "security": {
+      "coveredAt": "2026-03-15T00:00:05+00:00",
+      "summary": "N/A - Scope change from project to user means plugins install to ~/.claude/settings.json instead of .claude/settings.json. Both are on the user's machine. No privilege escalation."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-15T00:00:06+00:00",
+      "summary": "Covered inline: (1) Existing projects with project-scoped plugins will get user-scoped on next refresh-plugins run. (2) The sw override in scopeOverrides becomes redundant since specweaveScope will now match it -- should be cleaned up. (3) enablePluginsInSettings is idempotent (sets key=true, harmless if already set)."
+    }
+  }
+}

@@ -1,0 +1,27 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.63 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 9118
+Increment recommendation: new (confidence: 0.8, mandatory: false)
+Skill invocation: infra:devops (mandatory: false)
+{
+  "detected": true,
+  "plugins": [
+    "infra"
+  ],
+  "confidence": 0.75,
+  "reasoning": "Deployment/infrastructure task, but lacks specific tech details",
+  "latencyMs": 10506.039458,
+  "increment": {
+    "action": "new",
+    "confidence": 0.8,
+    "mandatory": false,
+    "suggestedName": "deploy-all-apps",
+    "reasoning": "Deployment operation requiring structured tracking"
+  },
+  "skillInvocation": {
+    "skill": "infra:devops",
+    "reason": "Deployment and infrastructure automation",
+    "mandatory": false
+  }
+}

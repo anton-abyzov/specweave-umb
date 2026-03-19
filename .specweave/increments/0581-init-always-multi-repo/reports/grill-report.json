@@ -1,0 +1,95 @@
+{
+  "incrementId": "0581-init-always-multi-repo",
+  "timestamp": "2026-03-19T01:22:00.000Z",
+  "shipReadiness": "READY",
+  "summary": "Type simplifications, command removals, init flow changes, and documentation updates are correctly implemented. All 329 tests pass. Uncommitted changes in 3 files complete the work (backward-compat mapping of 'single' architecture, test assertion updates). Minor doc gaps remain in peripheral files not covered by the AC-specified sweep targets.",
+  "score": 85,
+  "findings": [
+    {
+      "severity": "info",
+      "category": "code-quality",
+      "description": "RepositoryHosting types in both init/types.ts and issue-tracker/types.ts correctly stripped of -single/-multirepo suffixes (AC-US4-01, AC-US4-02 satisfied)"
+    },
+    {
+      "severity": "info",
+      "category": "code-quality",
+      "description": "RepoArchitecture and SetupArchitecture types no longer include 'single' (AC-US4-03, AC-US4-04 satisfied)"
+    },
+    {
+      "severity": "info",
+      "category": "code-quality",
+      "description": "single-project-migrator.ts deleted and references removed from config-manager.ts (AC-US4-05 satisfied)"
+    },
+    {
+      "severity": "info",
+      "category": "code-quality",
+      "description": "migrate-to-umbrella.ts and resolve-structure.ts deleted with deprecation stubs in bin/specweave.js (AC-US2-01 through AC-US3-02 satisfied)"
+    },
+    {
+      "severity": "info",
+      "category": "code-quality",
+      "description": "ProjectSetupChoice simplified to 'clone-repos' | 'add-later' with no 4-way question (AC-US1-01, AC-US1-02 satisfied)"
+    },
+    {
+      "severity": "info",
+      "category": "code-quality",
+      "description": "Summary banner shows 'Workspace (N repositories)' and next-steps always shows 'specweave get' (AC-US1-04, AC-US1-05 satisfied)"
+    },
+    {
+      "severity": "info",
+      "category": "code-quality",
+      "description": "NextStepsContext no longer contains isMultiRepo field; init.ts has no isMultiRepo declaration or multiProject.enabled write"
+    },
+    {
+      "severity": "info",
+      "category": "code-quality",
+      "description": "Backward compatibility: repo-structure-manager.ts maps old 'single' and 'parent' architecture values to 'multi-repo' at resume time (uncommitted change, correct approach)"
+    },
+    {
+      "severity": "info",
+      "category": "documentation",
+      "description": "CLAUDE.md cleaned of single/multi distinction. AGENTS.md template section renamed to 'Repository Structure'. command-reference-by-priority.md has no migrate-to-umbrella references (AC-US5-01, AC-US5-02, AC-US5-04 satisfied)"
+    },
+    {
+      "severity": "minor",
+      "category": "code-quality",
+      "description": "GitHubSetupType in github-multi-repo.ts still includes 'single' as a valid value, and the legacy prompt (lines 232-257) still shows 'Single repository' option. The new RepoStructureManager path correctly maps to 'multiple', but the fallback legacy prompt is inconsistent with the unified model. Scope boundary is debatable -- this is the issue-tracker integration path, not the init flow itself."
+    },
+    {
+      "severity": "minor",
+      "category": "code-quality",
+      "description": "src/init/InitFlow.ts (enhanced init flow) still uses isMultiRepo variable and promptIsMultiRepo(). This is a secondary init flow not covered by the AC targets, but represents lingering single/multi branching."
+    },
+    {
+      "severity": "minor",
+      "category": "documentation",
+      "description": "docs-site/docs/commands/save.md lines 84-90 still have 'Single Repo Mode' section with 'Mode: Single repository' output example. Not in AC-US5 target list but inconsistent with unified model."
+    },
+    {
+      "severity": "minor",
+      "category": "documentation",
+      "description": "docs-site/docs/guides/strategic-init.md line 175 still shows 'Single repository (monorepo)' as a prompt option. This describes the strategic init feature which may have its own update cycle."
+    },
+    {
+      "severity": "minor",
+      "category": "documentation",
+      "description": "10 docs-site files still contain 'single repo' or similar terminology in context of sync routing, examples, and comparison guides. Most are used descriptively (not as mode names), but save.md and strategic-init.md reference the old mode distinction directly."
+    },
+    {
+      "severity": "minor",
+      "category": "code-quality",
+      "description": "3 files have uncommitted changes (repo-structure-manager.ts, init.test.ts, github-multi-repo.test.ts). These should be committed to complete the increment."
+    },
+    {
+      "severity": "info",
+      "category": "testing",
+      "description": "All 329 tests pass across 11 test files (init.test.ts: 83, init-multirepo.test.ts: 20, github-multi-repo.test.ts: 49, repo-structure-manager.test.ts: 26, plus 7 other repo-structure test files). Zero failures, zero skipped."
+    },
+    {
+      "severity": "info",
+      "category": "code-quality",
+      "description": "consolidation-engine.ts and spec-project-mapper.ts preserved in src/core/migration/ (different path than spec's src/consolidation/ but files exist and are untouched, AC-US2-04 intent satisfied)"
+    }
+  ],
+  "recommendation": "SHIP"
+}

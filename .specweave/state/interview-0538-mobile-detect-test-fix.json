@@ -1,0 +1,30 @@
+{
+  "incrementId": "0538-mobile-detect-test-fix",
+  "startedAt": "2026-03-15T18:57:30-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-15T18:58:00-04:00",
+      "summary": "Removing phantom plugin refs from project-detector. plugins field only for installable plugins. type field already captures mobile project types."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-15T18:58:01-04:00",
+      "summary": "N/A - internal CLI bug fix, no external integrations"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-15T18:58:02-04:00",
+      "summary": "N/A - CLI internals only, no UI"
+    },
+    "performance": {
+      "coveredAt": "2026-03-15T18:58:03-04:00",
+      "summary": "N/A - single root file check only, no recursive scanning"
+    },
+    "security": {
+      "coveredAt": "2026-03-15T18:58:04-04:00",
+      "summary": "N/A - detection logic only, no auth or data handling"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-15T18:58:05-04:00",
+      "summary": "build.gradle false positive for Java/Spring projects fixed via fileContains check for com.android. Pure platform keywords map to empty skills/agents."
+    }
+  }
+}

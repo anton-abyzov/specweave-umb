@@ -1,0 +1,26 @@
+{
+  "version": "1.1",
+  "incrementId": "0593-fix-refresh-plugins-tool-detection",
+  "timestamp": "2026-03-19T00:05:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 9,
+    "passed": 9,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "resolveActiveAdapter() reads config.adapters.default, returns adapter's skillsDir via getSkillsDirectory(). Verified in refresh-plugins.ts:81-106, tested in refresh-plugins-adapter.test.ts" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "When adapter is 'claude' or unset, detectClaudeCli() runs. Native CLI returns method:'native-cli'. Fallback returns '.claude/skills'. refresh-plugins.ts:108-118, tests cover both paths" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Unknown adapter name falls through to Claude detection with logger.debug warning. refresh-plugins.ts:104-105, tested in refresh-plugins-adapter.test.ts:113-124" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "Mode display shows resolved.name and resolved.skillsDir for non-Claude adapters. refresh-plugins.ts:224-228" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "enablePluginsInSettings, cleanupStalePlugins, migrateUserLevelPlugins gated behind isClaude check. refresh-plugins.ts:312-340" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "CopyPluginOptions.targetSkillsDir added as optional parameter. plugin-copier.ts:38-39" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "When targetSkillsDir provided, skills copied to {projectRoot}/{targetSkillsDir}/{skillName}/. plugin-copier.ts:660-661, tested in plugin-copier-target-dir.test.ts" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Default is join('.claude', 'skills') when targetSkillsDir unset. plugin-copier.ts:660. Regression test confirms .claude/skills path" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "isClaudeTarget check gates hooks copying. Only copies when targetSkillsDir is unset or '.claude/skills'. plugin-copier.ts:704-706, tested" }
+    ]
+  },
+  "findings": []
+}

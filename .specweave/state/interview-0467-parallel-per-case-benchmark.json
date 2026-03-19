@@ -1,0 +1,30 @@
+{
+  "incrementId": "0467-parallel-per-case-benchmark",
+  "startedAt": "2026-03-09T22:22:38-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-09T22:23:39-04:00",
+      "summary": "Redesign from sequential single-stream to parallel per-case SSE with Semaphore concurrency control (default 3). Server: extract runSingleCaseSSE, new per-case endpoints, Promise.allSettled for bulk. Client: useMultiSSE hook with per-case AbortControllers, CaseRunState map replacing global isRunning."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-09T22:23:44-04:00",
+      "summary": "N/A - internal refactor of existing eval-server and eval-ui. No new external integrations. LLM calls via existing LlmClient abstraction."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-09T22:23:51-04:00",
+      "summary": "Per-case Run/AB/Cancel buttons replacing global controls. Independent case states (idle/queued/running/complete/error/cancelled). Cases can run, complete, and show results independently while others are still running."
+    },
+    "performance": {
+      "coveredAt": "2026-03-09T22:23:57-04:00",
+      "summary": "Semaphore with default concurrency of 3 to limit parallel LLM calls. Promise.allSettled for bulk runs. This is a local dev tool so traffic/CDN/SLA not applicable."
+    },
+    "security": {
+      "coveredAt": "2026-03-09T22:24:02-04:00",
+      "summary": "N/A - local dev tool (eval-server). No auth, no PII, no public endpoints. Same security posture as existing benchmark system."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-09T22:24:08-04:00",
+      "summary": "Per-case cancellation mid-stream. Semaphore release on error/cancel. Bulk cancel must abort all in-flight cases. Race condition: cancel during queued-to-running transition. History writes for partial bulk runs (only completed cases). SSE stream cleanup on client disconnect."
+    }
+  }
+}

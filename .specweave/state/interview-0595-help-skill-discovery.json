@@ -1,0 +1,39 @@
+{
+  "incrementId": "0595-help-skill-discovery",
+  "startedAt": "2026-03-19T03:58:03.199Z",
+  "coveredCategories": {
+    "architecture": true,
+    "integrations": true,
+    "ui-ux": true,
+    "performance": true,
+    "security": true,
+    "edge-cases": true
+  },
+  "categories": {
+    "architecture": {
+      "covered": true,
+      "summary": "Single SKILL.md file in plugins/specweave/skills/help/. No phases needed - output-only skill. Gathers context via specweave CLI commands (status, analytics). Registered in plugin.json."
+    },
+    "integrations": {
+      "covered": true,
+      "summary": "Integrates with specweave analytics (JSONL events), specweave status (increment metadata), and plugin system (plugin.json registration). No external service integration needed."
+    },
+    "ui-ux": {
+      "covered": true,
+      "summary": "Text-based output organized by workflow stage (Plan/Implement/Verify/Close/Sync/Explore/Media). Inline stats banner. Contextual next actions for active increments. Getting started for new users."
+    },
+    "performance": {
+      "covered": true,
+      "summary": "Lightweight - runs 2 CLI commands (status, analytics) with --json flag. No caching needed. Output is static text formatting."
+    },
+    "security": {
+      "covered": true,
+      "summary": "Read-only skill. No file writes, no secrets, no external API calls. Only reads increment metadata and analytics events."
+    },
+    "edge-cases": {
+      "covered": true,
+      "summary": "No .specweave/ dir = show getting started. No analytics data = skip stats section. No active increment = skip contextual actions. Empty project = minimal output with install guidance."
+    }
+  },
+  "allCategoriesCovered": true
+}

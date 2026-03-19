@@ -1,0 +1,20 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.71 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 12336
+Increment recommendation: none (confidence: 0.9, mandatory: false)
+{
+  "detected": true,
+  "plugins": [
+    "sw-media"
+  ],
+  "confidence": 0.6,
+  "reasoning": "Image generation mentioned, but scenario is marketing/content creation rather than development",
+  "latencyMs": 13632.178375000001,
+  "increment": {
+    "action": "none",
+    "confidence": 0.9,
+    "mandatory": false,
+    "reasoning": "Marketing content approval and image generation—not code implementation work"
+  }
+}

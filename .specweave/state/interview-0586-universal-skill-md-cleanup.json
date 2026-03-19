@@ -1,0 +1,12 @@
+{
+  "incrementId": "0586-universal-skill-md-cleanup",
+  "startedAt": "2026-03-19T01:57:57.004Z",
+  "coveredCategories": {
+    "architecture": "No architectural changes - documentation restructure and dead code removal only",
+    "integrations": "No integration changes - SKILL.md restructure is internal to the plugin",
+    "ui-ux": "No UI/UX - CLI help text update only",
+    "performance": "No performance impact - removing dead code (one fewer function call)",
+    "security": "No security impact - documentation and dead code cleanup",
+    "edge-cases": "Existing tests cover auto-id and explicit-id paths; no new edge cases introduced"
+  }
+}

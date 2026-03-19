@@ -1,0 +1,30 @@
+{
+  "incrementId": "0447-hierarchical-skill-urls",
+  "startedAt": "2026-03-07T01:39:00Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-07T01:39:10Z",
+      "summary": "3-segment URL /skills/{owner}/{repo}/{skillSlug}. New Prisma columns ownerSlug, repoSlug, skillSlug, legacySlug. Composite unique constraint replaces flat name. KV keys re-keyed to hierarchical format. Next.js catch-all route for skill pages."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-07T01:39:20Z",
+      "summary": "Prisma DB migration for new columns + data backfill. KV re-keying with alias redirects. vskill CLI API client updated for hierarchical names. Lockfile format updated. Email templates use new format. Badge URLs updated."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-07T01:39:30Z",
+      "summary": "Skill detail page route changes from [name] to [owner]/[repo]/[skillSlug]. Publisher page links, trending skills, search palette all updated to hierarchical URLs. Badge markdown snippet uses new URL format."
+    },
+    "performance": {
+      "coveredAt": "2026-03-07T01:39:40Z",
+      "summary": "KV alias lookup for legacy redirects avoids DB hit. Composite index on (ownerSlug, repoSlug, skillSlug) for fast lookups. Migration is one-time batch operation."
+    },
+    "security": {
+      "coveredAt": "2026-03-07T01:39:50Z",
+      "summary": "Admin routes use catch-all segments to handle slashes in names. No new auth surfaces. Existing INTERNAL_KEY auth unchanged. Path traversal prevented by slug validation (alphanumeric + hyphens only)."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-07T01:40:00Z",
+      "summary": "Root-level SKILL.md uses repo name as skillSlug. Legacy flat URLs 301 redirect via legacySlug. Old lockfile keys gracefully degraded. Skills without repoUrl or skillPath handled in migration with fallback parsing. No collision resolution needed (inherently unique)."
+    }
+  }
+}

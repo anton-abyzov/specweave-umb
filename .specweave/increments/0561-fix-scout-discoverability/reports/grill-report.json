@@ -1,0 +1,26 @@
+{
+  "version": "1.1",
+  "incrementId": "0561-fix-scout-discoverability",
+  "timestamp": "2026-03-17T20:43:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 9,
+    "passed": 9,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "Plugin regex in github-tree.ts:177-186 matches plugins/{non-specweave}/skills/{name}/SKILL.md. Test 'discovers skills under plugins/{non-specweave}/skills/' verifies scout discovery." },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "Negative lookahead (?!specweave) in regex excludes framework plugins. Test 'excludes plugins/specweave*/skills/ but includes non-specweave' verifies." },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Test 'discovers multiple non-specweave plugin skills' verifies slack-messaging discovered with correct name." },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "Plugin agent match in github-tree.ts:199-210. Test 'attaches agent files from plugin skill directories' verifies agentRawUrls populated." },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "Test 'mixed: non-specweave plugin + specweave excluded + skills/ pattern' verifies mixed filtering." },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "Test 'discovers multiple non-specweave plugin skills' verifies both slack-messaging and appstore returned." },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "Platform-verifier confirmed Scout submitted and present in Postgres DB (submissionId: sub_1e7f3c58)." },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "Platform-verifier confirmed vskill search scout returns anton-abyzov/vskill/scout." },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "Platform-verifier confirmed Scout visible on publisher page (skill count 48->49)." }
+    ]
+  },
+  "findings": []
+}

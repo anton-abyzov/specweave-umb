@@ -1,0 +1,10 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.69 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 3132.021541,
+  "installMessage": "Claude CLI exited with code 1: {\"type\":\"result\",\"subtype\":\"success\",\"is_error\":true,\"duration_ms\":263,\"duration_api_ms\":0,\"num_turns\":1,\"result\":\"You're out of extra usage · resets 12am (America/New_York)\",\"stop_reason\":\"stop_sequence\",\"session_id\":\"3155f7ed-fd04-4da9-933d-7e04441eaf75\",\"total_cost_usd\":0,\"usage\":{\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\"},\"modelUsage\":{},\"permission_denials\":[],\"fast_mode_state\":\"off\",\"uuid\":\"5b84cf25-71e6-43d6-be76-01b2acbe2e15\"}\n"
+}

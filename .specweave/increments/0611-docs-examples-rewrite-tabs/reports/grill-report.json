@@ -1,0 +1,24 @@
+{
+  "version": "1.1",
+  "incrementId": "0611-docs-examples-rewrite-tabs",
+  "timestamp": "2026-03-19T07:45:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 7,
+    "passed": 7,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "examples/index.md contains sw-url-shortener (beginner), sw-meeting-cost (intermediate), sw-wc26-travel (advanced), specweave-umb (showcase) sections with real data" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "Zero matches for BizZone, 0089, fabricated community examples — all removed" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "8 CommandTabs instances in examples/index.md, all code examples use the component" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "Comparison matrix at line ~225 with real project data (repos, increments, tech stack, best-for columns)" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "All 6 files confirmed with 'import CommandTabs' statement: use-case-guide.md, command-decision-tree.md, fundamentals.md, self-improving-skills.md, cost-tracking.md, skills-vs-agents.md" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "Reference tables left as-is in use-case-guide.md and command-decision-tree.md. Only user-facing invocations converted to CommandTabs." },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "npm run build succeeded with [SUCCESS] Generated static files in build" }
+    ]
+  },
+  "findings": []
+}

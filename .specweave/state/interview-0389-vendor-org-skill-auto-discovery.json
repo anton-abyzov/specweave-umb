@@ -1,0 +1,37 @@
+{
+  "incrementId": "0389-vendor-org-skill-auto-discovery",
+  "startedAt": "2026-02-27T21:31:21.490508-05:00",
+  "coveredCategories": {
+    "scope": {
+      "coveredAt": "2026-02-27T21:31:21.490508-05:00",
+      "summary": "Enumerate ALL public repos from VENDOR_ORGS via GET /orgs/{org}/repos, then per-repo tree scan for SKILL.md"
+    },
+    "dedup": {
+      "coveredAt": "2026-02-27T21:31:21.490508-05:00",
+      "summary": "Use existing DiscoveryRecord-based dedup from github-discovery.ts, with force option"
+    },
+    "cadence": {
+      "coveredAt": "2026-02-27T21:31:21.490508-05:00",
+      "summary": "Every 6 hours scheduled, admin endpoint for on-demand"
+    },
+    "infrastructure": {
+      "coveredAt": "2026-02-27T21:31:21.490508-05:00",
+      "summary": "Add to VM-2 (github-graphql-check+sourcegraph)"
+    },
+    "api": {
+      "coveredAt": "2026-02-27T21:31:21.490508-05:00",
+      "summary": "Both scheduled crawl source vendor-org-discovery + dedicated POST /api/v1/admin/discovery/vendor-orgs"
+    },
+    "rate_limits": {
+      "coveredAt": "2026-02-27T21:31:21.490508-05:00",
+      "summary": "Two-phase: list repos paginated, Trees API per-repo. Token rotation. Skip forks and 0-star repos."
+    },
+    "pipeline": {
+      "coveredAt": "2026-02-27T21:31:21.490508-05:00",
+      "summary": "Submit through /api/v1/submissions/bulk, let submission-scanner handle vendor fast-path"
+    }
+  },
+  "completedAt": "2026-02-27T21:31:21.490508-05:00",
+  "questionsAsked": 7,
+  "designDecisionsProvided": true
+}

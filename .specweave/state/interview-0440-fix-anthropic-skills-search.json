@@ -1,0 +1,30 @@
+{
+  "incrementId": "0440-fix-anthropic-skills-search",
+  "startedAt": "2026-03-05T23:00:21-05:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-05T23:00:42-05:00",
+      "summary": "Localized changes to search ranking formula and crawler filter. No new components or architectural changes."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-05T23:00:47-05:00",
+      "summary": "N/A - no new external integrations, fixing existing crawler and search logic"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-05T23:00:47-05:00",
+      "summary": "N/A - backend-only changes, no UI impact beyond improved search result ordering"
+    },
+    "performance": {
+      "coveredAt": "2026-03-05T23:00:47-05:00",
+      "summary": "Negligible - certBonus computation is O(1) per entry, added to existing O(n) sort"
+    },
+    "security": {
+      "coveredAt": "2026-03-05T23:00:47-05:00",
+      "summary": "N/A - no auth, data, or permission changes"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-05T23:01:18-05:00",
+      "summary": "Postgres fallback needs certTier ORDER BY. vendor-detect.js also out of sync. Both JS and TS discovery files need fix. vskillInstalls stays out of ranking. Manual re-crawl as post-deploy step."
+    }
+  }
+}

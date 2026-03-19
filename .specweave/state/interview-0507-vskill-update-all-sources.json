@@ -1,0 +1,30 @@
+{
+  "incrementId": "0507-vskill-update-all-sources",
+  "startedAt": "2026-03-11T23:11:14-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T23:11:57-04:00",
+      "summary": "Re-fetch marketplace.json from GitHub raw URL for marketplace sources. Full plugin dir update when pluginDir=true. No lockfile schema changes."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T23:11:57-04:00",
+      "summary": "GitHub raw URLs for github: sources, registry API for registry: sources, local filesystem for local: sources. GITHUB_TOKEN propagated from env."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T23:11:57-04:00",
+      "summary": "N/A - CLI command, no UI. Console output with colored status messages."
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T23:11:57-04:00",
+      "summary": "N/A - CLI tool, one-shot command. Marketplace.json roundtrip is cheap."
+    },
+    "security": {
+      "coveredAt": "2026-03-11T23:11:57-04:00",
+      "summary": "Tier 1 scan on ALL new content regardless of source. Same security scanning as install flow."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T23:11:57-04:00",
+      "summary": "Partial failures continue with successes. Missing/malformed source falls back to registry with dim warning. Local sources print skip message."
+    }
+  }
+}

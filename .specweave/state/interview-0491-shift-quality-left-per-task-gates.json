@@ -1,0 +1,30 @@
+{
+  "incrementId": "0491-shift-quality-left-per-task-gates",
+  "startedAt": "2026-03-11T04:05:21-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-11T04:06:03-04:00",
+      "summary": "All changes are SKILL.md markdown files and docs. No new runtime code, services, or components. Modifications to existing skill definitions (do, grill, tdd-cycle) plus one new debug SKILL.md. Architecture: SpecWeave plugin skill system (markdown-based instructions parsed by AI agents)."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-11T04:06:03-04:00",
+      "summary": "N/A - No external service integrations. All changes are internal SpecWeave skill definitions (markdown). Config opt-in via quality.perTaskReview in config.json (already-existing config pattern)."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-11T04:06:03-04:00",
+      "summary": "N/A - No UI changes. Skills are AI agent instructions (markdown). User interaction is via existing CLI commands (/sw:do, /sw:grill, /sw:debug)."
+    },
+    "performance": {
+      "coveredAt": "2026-03-11T04:06:03-04:00",
+      "summary": "N/A - No runtime code. Per-task review gates add 2 subagent calls per task (context cost, not compute). Opt-in via config flag."
+    },
+    "security": {
+      "coveredAt": "2026-03-11T04:06:03-04:00",
+      "summary": "N/A - No auth, data handling, or secrets. Markdown skill definitions only."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-11T04:06:03-04:00",
+      "summary": "Key edge cases: (1) team-lead active = skip per-task gates to avoid conflict, (2) no test block on task = fallback to project test command, (3) grill new Phase 0 must not break existing Phase 1-3 flow, (4) debug skill escalation after 3 failed fixes, (5) config flag missing = default off for per-task review."
+    }
+  }
+}

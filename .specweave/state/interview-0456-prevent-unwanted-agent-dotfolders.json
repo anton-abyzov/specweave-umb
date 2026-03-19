@@ -1,0 +1,30 @@
+{
+  "incrementId": "0456-prevent-unwanted-agent-dotfolders",
+  "startedAt": "2026-03-09T00:39:17-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-09T00:39:43-04:00",
+      "summary": "Bug fix in safeProjectRoot() stub + boundary guards in canonical.ts. findProjectRoot() already exists in project-root.ts with marker-based walk-up. Fix wires it into safeProjectRoot() with HOME guard and --cwd escape hatch."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-09T00:39:49-04:00",
+      "summary": "N/A - internal CLI bug fix, no external integrations"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-09T00:39:49-04:00",
+      "summary": "N/A - CLI-only change, no UI involved"
+    },
+    "performance": {
+      "coveredAt": "2026-03-09T00:39:49-04:00",
+      "summary": "N/A - findProjectRoot walks up at most ~10 directories, negligible perf impact"
+    },
+    "security": {
+      "coveredAt": "2026-03-09T00:40:25-04:00",
+      "summary": "Path traversal guard in resolveAgentSkillsDir prevents localSkillsDir with ../ escaping project root. HOME guard in ensureCanonicalDir throws on exact homedir match for non-global installs."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-09T00:40:25-04:00",
+      "summary": "findProjectRoot null returns cwd (no HOME guard on null). --cwd bypasses HOME guard entirely. safeProjectRoot silently falls back; canonical.ts throws hard errors. HOME check is exact match only."
+    }
+  }
+}

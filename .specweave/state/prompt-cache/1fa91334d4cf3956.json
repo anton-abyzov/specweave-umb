@@ -1,0 +1,15 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13031
+Invalid LLM response format: I need clarification on this request. Your message is quite terse, and I'm missing critical context:
+
+1. **"just the date"** - Which date field or date-related code are you referring to?
+2. **"fix it 
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 15270.171457999999,
+  "installMessage": "Invalid response format (no JSON found)"
+}

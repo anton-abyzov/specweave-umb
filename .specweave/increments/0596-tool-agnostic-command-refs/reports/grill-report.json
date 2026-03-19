@@ -1,0 +1,26 @@
+{
+  "version": "1.1",
+  "incrementId": "0596-tool-agnostic-command-refs",
+  "timestamp": "2026-03-19T04:30:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "summary": { "totalFindings": 0, "critical": 0, "high": 0, "medium": 0 },
+  "acCompliance": {
+    "totalACs": 9,
+    "passed": 9,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "AGENTS.md.template: only 2 /sw: remain, both in Claude-specific columns (lines 143, 176)" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "How to Invoke section added at line 139 with per-tool mapping table" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Claude Code column retains /sw:do (line 143) and /sw:increment (line 176)" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "README.md.template: zero /sw: except in invocation note (line 29)" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "Zero 'slash command' matches in README.md.template" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "Invocation note added at line 29: 'Invocation varies by tool'" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "Zero /specweave. matches in agents-md-compiler.ts" },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "Zero /sw: matches in tasks.md.template" },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "CLAUDE.md.template line 324: Command format note added" }
+    ]
+  },
+  "findings": []
+}

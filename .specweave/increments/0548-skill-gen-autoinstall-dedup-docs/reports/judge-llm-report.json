@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "incrementId": "0548-skill-gen-autoinstall-dedup-docs",
+  "timestamp": "2026-03-16T20:38:10.000Z",
+  "verdict": "WAIVED",
+  "reason": "External models consent not configured",
+  "score": null,
+  "findings": []
+}

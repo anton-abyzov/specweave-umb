@@ -1,0 +1,11 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.72 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10278
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.5,
+  "reasoning": "Response A provides a practical, actionable solution (direct link, manual navigation) while Response B asks for permissions but oversells technical complexity. Both require Bash, but A acknowledges the user can self-serve. B's promise of 'one shot' profile discovery adds complexity that may not solve the actual need—users typically know their profile or can select it in Chrome's UI.",
+  "latencyMs": 13020.159084
+}

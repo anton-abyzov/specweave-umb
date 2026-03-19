@@ -1,0 +1,30 @@
+{
+  "incrementId": "0617-sync-routing-evolutionary-cleanup",
+  "startedAt": "2026-03-19T08:42:00-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T08:42:30-04:00",
+      "summary": "3-phase resolver in sync-target-resolver.ts (Phase 0: umbrella match, Phase 1: name/ID match, Phase 2: prefix routing, Phase 3: global fallback). template-creator.ts creates metadata.json without project field. story-router.ts extracts prefix from US-{PREFIX}-NNN IDs."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T08:42:35-04:00",
+      "summary": "GitHub per-repo sync, JIRA (SWE2E for all), ADO (SpecWeaveSync for all). sync-setup wizard in issue-tracker/index.ts. sync-config-writer propagates to childRepos."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T08:42:40-04:00",
+      "summary": "N/A - CLI internals only, no UI changes"
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T08:42:45-04:00",
+      "summary": "N/A - config/routing logic changes only, no performance impact"
+    },
+    "security": {
+      "coveredAt": "2026-03-19T08:42:50-04:00",
+      "summary": "N/A - internal routing logic, no auth/permissions changes"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T08:42:55-04:00",
+      "summary": "Backward compat for old US-NNN stories via Phase 3 fallback. Rate-limited GitHub API handling in wizard. Missing project field graceful degradation. Disabled child repos skipped."
+    }
+  }
+}

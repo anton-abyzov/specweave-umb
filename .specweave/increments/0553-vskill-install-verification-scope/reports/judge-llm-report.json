@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0553-vskill-install-verification-scope",
+  "timestamp": "2026-03-17T02:36:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "External models consent not configured in .specweave/config.json",
+  "findings": []
+}

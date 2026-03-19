@@ -1,0 +1,19 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.78 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 13083
+Increment recommendation: reopen (confidence: 0.95, mandatory: false)
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0.95,
+  "reasoning": "Spec completion notification for CLI feature, no explicit integrations mentioned",
+  "latencyMs": 14386.256084,
+  "increment": {
+    "action": "reopen",
+    "confidence": 0.95,
+    "mandatory": false,
+    "relatedKeyword": "0590-init-launch-living-docs-job",
+    "reasoning": "Spec complete and implementation-ready for 0590-init-launch-living-docs-job; ready to implement single-file change in init.ts"
+  }
+}

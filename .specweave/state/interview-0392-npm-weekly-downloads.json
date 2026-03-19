@@ -1,0 +1,28 @@
+{
+  "incrementId": "0392-npm-weekly-downloads",
+  "startedAt": "2026-03-01T12:40:40-05:00",
+  "coveredCategories": {
+    "dataModel": {
+      "coveredAt": "2026-03-01T12:41:38-05:00",
+      "summary": "Replace vs add field for weekly downloads"
+    },
+    "trendingFormula": {
+      "coveredAt": "2026-03-01T12:41:38-05:00",
+      "summary": "Weight adjustments for weekly vs monthly scale"
+    },
+    "searchRanking": {
+      "coveredAt": "2026-03-01T12:41:38-05:00",
+      "summary": "Edge search sort signal approach"
+    },
+    "apiEndpoint": {
+      "coveredAt": "2026-03-01T12:41:38-05:00",
+      "summary": "Single vs dual npm API calls"
+    },
+    "migration": {
+      "coveredAt": "2026-03-01T12:41:38-05:00",
+      "summary": "Prisma migration strategy"
+    }
+  },
+  "completedAt": "2026-03-01T12:44:03-05:00",
+  "specWritten": true
+}
