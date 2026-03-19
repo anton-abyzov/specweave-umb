@@ -1,0 +1,30 @@
+{
+  "incrementId": "0627-team-lead-agent-teams-api",
+  "startedAt": "2026-03-19T21:59:56.641Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T22:01:11.210Z",
+      "summary": "All changes are SKILL.md/template edits — no code architecture. ADR decisions: keep compensating controls as fallbacks, QUERY_READY opt-in via templates, TeammateIdle hook documented not auto-configured, broadcast scoped to shutdown+global only"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T22:01:12.147Z",
+      "summary": "Integrates with Claude Code Agent Teams API v2.1.32+: TeamCreate, SendMessage, broadcast, TeammateIdle hook, teammateMode setting. No external service integrations. tmux/iTerm2 for split-pane display."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T22:01:14.483Z",
+      "summary": "New UX: split-pane visibility via teammateMode auto/tmux, Shift+Down cycling in in-process mode, direct click-into-pane interaction in tmux mode. Documented as Section 0.7 and 6b with hazard warnings."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T22:01:15.855Z",
+      "summary": "Broadcast costs scale linearly with team size — scoped to shutdown+global only. Idle agents consume session resources but no tokens while waiting. Task-count guard (<12) prevents querying context-saturated agents. TeammateIdle hook circuit breaker prevents infinite re-engagement loops."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T22:01:18.122Z",
+      "summary": "bypassPermissions retained — no trust-prompt deadlock risk. Formal plan approval explicitly rejected (red line). Direct user-to-teammate interaction documented as coordination hazard with echo-to-lead mitigation. No secrets or auth changes."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T22:01:20.739Z",
+      "summary": "TeammateIdle hook infinite loop mitigated by max-3 circuit breaker. Context-saturated agents (15-task cap) excluded from queries via <12 guard. Phase 3 bash cleanup kept as fallback for non-tmux environments. broadcast thundering-herd scoped by usage discipline. Task status lag unaffected (self-claiming skipped)."
+    }
+  }
+}

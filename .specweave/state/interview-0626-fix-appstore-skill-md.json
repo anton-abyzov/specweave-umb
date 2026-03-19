@@ -1,0 +1,30 @@
+{
+  "incrementId": "0626-fix-appstore-skill-md",
+  "startedAt": "2026-03-19T21:25:29.600Z",
+  "coveredCategories": {
+    "architecture": {
+      "covered": true,
+      "summary": "Single-file documentation fix — no architecture changes. Target: repositories/anton-abyzov/vskill/.claude/skills/mobile/appstore/SKILL.md"
+    },
+    "integrations": {
+      "covered": true,
+      "summary": "Fixes asc CLI integration commands (--app-id→--app, --build-id→--build, --file→--ipa). No new integrations added."
+    },
+    "ui-ux": {
+      "covered": true,
+      "summary": "Default interactive menu expanded from 4 to 10 options. No UI code — skill is a markdown file."
+    },
+    "performance": {
+      "covered": true,
+      "summary": "N/A — documentation fix only, no runtime code."
+    },
+    "security": {
+      "covered": true,
+      "summary": "Adding .p8 key handling warnings (chmod 600, .gitignore), ASC_DEBUG CI warning, --confirm for destructive ops, certificate revocation blast radius warning, env var split (secrets vs config)."
+    },
+    "edge-cases": {
+      "covered": true,
+      "summary": "Adding rejection handling workflow, rollback workflow, emergency app removal, export compliance notes, App Privacy declaration requirement, draft version check before create."
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "incrementId": "0625-external-tool-integration-rework",
+  "startedAt": "2026-03-19T21:36:00-04:00",
+  "coveredCategories": {
+    "architecture": {"coveredAt": "2026-03-19T21:36:00-04:00", "summary": "Config consolidation: umbrella+multiProject→workspace. Remove boolean flags. repos array IS the config."},
+    "integrations": {"coveredAt": "2026-03-19T21:36:00-04:00", "summary": "Per-repo sync targets (github/jira/ado). Import maps to workspace repos. Sync-setup walkthrough per repo."},
+    "ui-ux": {"coveredAt": "2026-03-19T21:36:00-04:00", "summary": "Dashboard workspace page with mapping table. Init flow explains umbrella concept. Sync-setup wizard."},
+    "performance": {"coveredAt": "2026-03-19T21:36:00-04:00", "summary": "No perf concerns — config migration is one-time, no runtime impact."},
+    "security": {"coveredAt": "2026-03-19T21:36:00-04:00", "summary": "Credentials stay in .env, not config. No new security surfaces."},
+    "edge-cases": {"coveredAt": "2026-03-19T21:36:00-04:00", "summary": "Backward compat for old configs. Single-project = workspace with 0-1 repos. Empty repos array valid."}
+  }
+}

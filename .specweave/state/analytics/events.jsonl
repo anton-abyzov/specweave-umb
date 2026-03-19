@@ -3067,3 +3067,4 @@
 {"timestamp":"2026-03-19T23:20:31.000Z","type":"skill","name":"sw:do","success":true,"plugin":"specweave"}
 {"timestamp":"2026-03-19T23:21:12.000Z","type":"skill","name":"sw:done","success":true,"plugin":"specweave"}
 {"timestamp":"2026-03-19T23:21:46.000Z","type":"skill","name":"sw:sync-docs","success":true,"plugin":"specweave"}
+{"timestamp":"2026-03-19T23:22:51.000Z","type":"skill","name":"sw:npm","success":true,"plugin":"specweave"}

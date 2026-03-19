@@ -1,0 +1,30 @@
+{
+  "incrementId": "0631-fix-umbrella-root-resolution",
+  "startedAt": "2026-03-19T23:15:30+00:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T23:15:31+00:00",
+      "summary": "14+ code paths bypass resolveEffectiveRoot() using process.cwd(). Need getSpecweavePath() utility in find-project-root.ts. Config flag mismatch between findUmbrellaRoot (umbrella.enabled) and detectUmbrellaParent (repository.umbrellaRepo)."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T23:15:32+00:00",
+      "summary": "N/A - internal CLI bug fix, no external service integrations affected"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T23:15:33+00:00",
+      "summary": "N/A - dashboard is internal dev tool. Fix ensures correct data display when run from child repo in umbrella workspace."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T23:15:34+00:00",
+      "summary": "N/A - bug fix only. resolveEffectiveRoot() already exists, just needs to be called instead of process.cwd()."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T23:15:35+00:00",
+      "summary": "N/A - path resolution is internal, no user input reaches paths unsanitized. No security implications."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T23:15:36+00:00",
+      "summary": "Umbrella vs standalone mode, nested child repos, stale .specweave dirs in child repos, config flag mismatch (umbrella.enabled vs repository.umbrellaRepo), zero test coverage for resolution functions."
+    }
+  }
+}

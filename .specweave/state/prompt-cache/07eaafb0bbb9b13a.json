@@ -1,0 +1,14 @@
+[isClaudeCliAvailable] Running fresh detection (no cache)...
+[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
+Extracted result from JSON wrapper, duration_ms: 10077
+Invalid LLM response format: 🚨 **SECURITY ALERT** — I cannot process this as a normal request.
+
+You've exposed a GitHub Personal Access Token with extensive permissions (admin:enterprise, repo, workflow, etc.). This is a **criti
+{
+  "detected": false,
+  "plugins": [],
+  "confidence": 0,
+  "latencyMs": 11122.824375,
+  "installMessage": "Invalid response format (no JSON found)"
+}

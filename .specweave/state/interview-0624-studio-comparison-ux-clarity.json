@@ -1,0 +1,30 @@
+{
+  "incrementId": "0624-studio-comparison-ux-clarity",
+  "startedAt": "2026-03-19T15:56:36-04:00",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T15:56:36-04:00",
+      "summary": "All changes in RunPanel.tsx (labels, buttons, comparisonDetail rendering) + new verdictLabel() in verdict.ts. No new components, no data flow changes."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T15:56:36-04:00",
+      "summary": "No integrations — purely frontend display changes on existing data structures."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T15:56:36-04:00",
+      "summary": "Dynamic pass rate label based on benchmark type, provenance line with model+timestamp, user-friendly verdict labels, relabeled buttons with tooltips, comparisonDetail rendering in case cards."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T15:56:36-04:00",
+      "summary": "No performance concerns — rendering already-loaded data, no new API calls."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T15:56:36-04:00",
+      "summary": "Display-only changes, no security implications."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T15:56:36-04:00",
+      "summary": "Handle null/undefined comparisonDetail, missing model/timestamp, zero delta, negative delta, equal pass rates."
+    }
+  }
+}

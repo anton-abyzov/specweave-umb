@@ -15,14 +15,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-736",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-19T23:22:02.550Z"
+      "syncedAt": "2026-03-19T23:22:27.480Z"
     },
     "ado": {
       "featureId": "1575",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1575",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-19T22:35:25.243Z"
+      "syncedAt": "2026-03-19T23:22:30.899Z"
     }
   },
   "project": "specweave-umb",

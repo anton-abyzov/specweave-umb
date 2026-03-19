@@ -1,0 +1,30 @@
+{
+  "incrementId": "0630-global-agent-teams-env",
+  "startedAt": "2026-03-19T23:10:09.079Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T23:11:15.253Z",
+      "summary": "No architectural changes. Reuses existing enableAgentTeamsEnvVar with os.homedir() as additional call site."
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T23:11:20.483Z",
+      "summary": "Writes to ~/.claude/settings.json env section — canonical Claude Code mechanism. No new integrations."
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T23:11:21.378Z",
+      "summary": "No UI changes. CLI output unchanged."
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T23:11:22.786Z",
+      "summary": "Negligible — one additional JSON read/write. Idempotent, skips write if already set."
+    },
+    "security": {
+      "coveredAt": "2026-03-19T23:11:23.817Z",
+      "summary": "No security implications. Writing to user-owned ~/.claude/settings.json. No secrets."
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T23:11:24.482Z",
+      "summary": "Function handles: missing dir, missing file, malformed JSON, already set. os.homedir() works on all platforms."
+    }
+  }
+}

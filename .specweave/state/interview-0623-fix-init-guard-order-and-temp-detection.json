@@ -1,0 +1,30 @@
+{
+  "incrementId": "0623-fix-init-guard-order-and-temp-detection",
+  "startedAt": "2026-03-19T19:42:17.724Z",
+  "coveredCategories": {
+    "architecture": {
+      "coveredAt": "2026-03-19T19:42:59.308Z",
+      "summary": "Bug fix - reorder existing guard functions in init.ts before promptSmartReinit, no new architecture"
+    },
+    "integrations": {
+      "coveredAt": "2026-03-19T19:43:07.365Z",
+      "summary": "No external integrations affected - changes are internal to init command flow"
+    },
+    "ui-ux": {
+      "coveredAt": "2026-03-19T19:43:07.587Z",
+      "summary": "Error messages unchanged, guard order change is transparent to user, suggestedRoot fallback improves UX"
+    },
+    "performance": {
+      "coveredAt": "2026-03-19T19:43:07.799Z",
+      "summary": "No performance impact - same guards, different execution order"
+    },
+    "security": {
+      "coveredAt": "2026-03-19T19:43:08.039Z",
+      "summary": "Prevents data loss by validating before destructive action - security improvement"
+    },
+    "edge-cases": {
+      "coveredAt": "2026-03-19T19:43:08.262Z",
+      "summary": "Handles: macOS symlinked /tmp vs /private/tmp via os.tmpdir(), Windows temp paths, suggestedRoot at filesystem root, suggestedRoot equals homedir"
+    }
+  }
+}

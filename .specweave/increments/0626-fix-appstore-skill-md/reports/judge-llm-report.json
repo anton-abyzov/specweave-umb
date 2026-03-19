@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0626-fix-appstore-skill-md",
+  "timestamp": "2026-03-19T23:15:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "External model consent not configured (externalModels is null in config.json)",
+  "details": "Judge LLM validation requires external model consent. No consent configuration found — waiving gate per policy."
+}
