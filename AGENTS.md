@@ -51,13 +51,13 @@ Never mark a task complete without proving it works:
 - Code compiles/builds successfully
 - Run tests after every task: `npx vitest run` + `npx playwright test`
 - Review code quality before committing — check for duplication, readability issues, and inefficiencies (Claude Code: `/simplify`; other tools: manual review or linter)
-- `/sw:grill` writes `grill-report.json` — CLI blocks closure without it
-- `/sw:judge-llm` writes `judge-llm-report.json` — WAIVED if consent denied
+- `sw:grill` writes `grill-report.json` — CLI blocks closure without it
+- `sw:judge-llm` writes `judge-llm-report.json` — WAIVED if consent denied
 - Acceptance criteria actually satisfied
 
 ### 2b. Auto-Closure (MANDATORY)
 
-When ALL tasks are complete, IMMEDIATELY run `/sw:done` — do NOT stop to ask for user confirmation. Quality gates (grill, judge-llm, PM validation) ARE the review. If gates fail, the increment stays open. User can re-open if they disagree with closure.
+When ALL tasks are complete, IMMEDIATELY run `sw:done` — do NOT stop to ask for user confirmation. Quality gates (grill, judge-llm, PM validation) ARE the review. If gates fail, the increment stays open. User can re-open if they disagree with closure.
 
 ### 4. Large-Scale Changes
 
@@ -118,8 +118,8 @@ Good: npm run build → node script.js → Success
 
 ### Test Before Ship
 - Tests pass at every step — unit after each task, E2E before close, no exceptions
-- `/sw:increment` generates BDD test plans during design via the sw-planner agent — verify they exist before `/sw:do`
-- TDD cycle: `/sw:tdd-red` → `/sw:tdd-green` → `/sw:tdd-refactor`
+- `sw:increment` generates BDD test plans during design via the sw-planner agent — verify they exist before `sw:do`
+- TDD cycle: `sw:tdd-red` → `sw:tdd-green` → `sw:tdd-refactor`
 - E2E with Playwright CLI (`npx playwright test`) is a blocking closure gate
 <!-- SW:END:principles -->
 
@@ -128,18 +128,18 @@ Good: npm run build → node script.js → Success
 
 | Command | Purpose |
 |---------|---------|
-| `/sw:increment "name"` | Plan new feature (PM-led) |
-| `/sw:do` | Execute tasks from active increment |
-| `/sw:done 0001` | Close increment (validates gates) |
-| `/sw:progress` | Show task completion status |
-| `/sw:validate 0001` | Quality check before closing |
-| `/sw:progress-sync` | Sync tasks.md with reality |
-| `/sw:sync-docs update` | Sync to living docs |
-| `/sw-github:sync 0001` | Sync increment to GitHub issue |
-| `/sw-jira:sync 0001` | Sync to Jira |
-| `/sw-ado:sync 0001` | Sync to Azure DevOps |
-| `/sw:sync-setup` | Connect GitHub/Jira/ADO integration |
-| `/sw:import` | Import issues from external tools |
+| `sw:increment "name"` | Plan new feature (PM-led) |
+| `sw:do` | Execute tasks from active increment |
+| `sw:done 0001` | Close increment (validates gates) |
+| `sw:progress` | Show task completion status |
+| `sw:validate 0001` | Quality check before closing |
+| `sw:progress-sync` | Sync tasks.md with reality |
+| `sw:sync-docs update` | Sync to living docs |
+| `sw-github:sync 0001` | Sync increment to GitHub issue |
+| `sw-jira:sync 0001` | Sync to Jira |
+| `sw-ado:sync 0001` | Sync to Azure DevOps |
+| `sw:sync-setup` | Connect GitHub/Jira/ADO integration |
+| `sw:import` | Import issues from external tools |
 <!-- SW:END:commands -->
 
 <!-- SW:SECTION:nonclaudetools version="1.0.522" -->
@@ -151,7 +151,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 
 | Capability | Claude Code | Non-Claude Tools |
 |------------|-------------|------------------|
-| **Plan Mode** | `EnterPlanMode` → `/sw:increment` | Manual: Create spec.md + plan.md + tasks.md |
+| **Plan Mode** | `EnterPlanMode` → `sw:increment` | Manual: Create spec.md + plan.md + tasks.md |
 | **Subagents** | `Task` tool for parallel work | Split into multiple chat sessions |
 | **Verification** | PostToolUse hooks auto-validate | Manual: Run tests, check ACs |
 | **Code quality** | `/simplify` (3 parallel review agents) | Manual: lint, review for duplication/readability/perf |
@@ -166,21 +166,21 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 1. Update tasks.md: `[ ] pending` → `[x] completed`
 2. Update spec.md ACs if satisfied: `[ ] AC` → `[x] AC`
 3. Review code quality: check for duplication, readability, performance issues (Claude Code: `/simplify`)
-4. Run `/sw:progress-sync`
-5. Run `/sw-github:sync <id>` (if GitHub configured)
+4. Run `sw:progress-sync`
+5. Run `sw-github:sync <id>` (if GitHub configured)
 
 **After all ACs for a User Story are done:**
-- Run `/sw:sync-docs update`
+- Run `sw:sync-docs update`
 
 **After increment completion:**
-1. `/sw:validate <id>`
-2. `/sw:sync-docs update`
-3. `/sw-github:close-issue <id>`
+1. `sw:validate <id>`
+2. `sw:sync-docs update`
+3. `sw-github:close-issue <id>`
 
 **Session start:**
 1. `specweave jobs` (check background jobs)
-2. `/sw:progress` (check current state)
-3. `/sw:do` (continue work)
+2. `sw:progress` (check current state)
+3. `sw:do` (continue work)
 
 **Background jobs**: Monitor with `specweave jobs` (clone-repos, import-issues, living-docs-builder, sync-external).
 <!-- SW:END:nonclaudetools -->
@@ -193,8 +193,8 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 | Level | Location | Update Method |
 |-------|----------|---------------|
 | **Source** | tasks.md + spec.md | Edit directly |
-| **Derived** | .specweave/docs/internal/specs/ | `/sw:sync-docs update` |
-| **Mirror** | GitHub/Jira/ADO | `/sw-github:sync`, `/sw-jira:sync`, `/sw-ado:sync` |
+| **Derived** | .specweave/docs/internal/specs/ | `sw:sync-docs update` |
+| **Mirror** | GitHub/Jira/ADO | `sw-github:sync`, `sw-jira:sync`, `sw-ado:sync` |
 
 **Update order**: ALWAYS tasks.md/spec.md FIRST → progress-sync → sync-docs → external tools
 
@@ -202,12 +202,12 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 
 | Command | When to Run |
 |---------|-------------|
-| `/sw:progress-sync` | After editing tasks.md |
-| `/sw:sync-docs update` | After US complete |
-| `/sw-github:sync <id>` | After each task |
-| `/sw-github:close-issue <id>` | On increment done |
-| `/sw-jira:sync <id>` | After each task |
-| `/sw-ado:sync <id>` | After each task |
+| `sw:progress-sync` | After editing tasks.md |
+| `sw:sync-docs update` | After US complete |
+| `sw-github:sync <id>` | After each task |
+| `sw-github:close-issue <id>` | On increment done |
+| `sw-jira:sync <id>` | After each task |
+| `sw-ado:sync <id>` | After each task |
 <!-- SW:END:syncworkflow -->
 
 <!-- SW:SECTION:contextloading version="1.0.522" -->
@@ -364,7 +364,7 @@ specweave context projects
 5. Create `tasks.md` (task checklist with BDD tests)
 6. Optional: `plan.md` for complex features
 7. **Verify** tasks.md has `**Test Plan**:` for every task with testable ACs
-8. **Verify** E2E scenarios exist for user-facing user stories — re-run `/sw:plan --force` if missing
+8. **Verify** E2E scenarios exist for user-facing user stories — re-run `sw:plan --force` if missing
 
 ### Completing Tasks
 1. Implement the task
@@ -380,8 +380,8 @@ specweave context projects
 ### Closing Increment (AUTO — do NOT stop to ask)
 1. Full test suite: `npx vitest run`
 2. Full E2E: `npx playwright test`
-3. `/sw:grill <id>` — writes `grill-report.json` (CLI requires it)
-4. `/sw:done <id>` — validates report files + PM 3 gates (tasks, tests, docs) + syncs to GitHub/Jira/ADO
+3. `sw:grill <id>` — writes `grill-report.json` (CLI requires it)
+4. `sw:done <id>` — validates report files + PM 3 gates (tasks, tests, docs) + syncs to GitHub/Jira/ADO
 
 **CRITICAL**: When all tasks are done, IMMEDIATELY chain to closure. Quality gates (grill, judge-llm, PM validation) ARE the review. Never stop to ask "should I close?" — just close it. If a gate fails, the increment stays open. User can re-open if they disagree.
 <!-- SW:END:workflows -->
@@ -392,9 +392,9 @@ specweave context projects
 | Issue | Fix |
 |-------|-----|
 | Commands not working (non-Claude) | Read `plugins/specweave/commands/<name>.md`, follow manually |
-| GitHub/Jira not updating | `/sw:progress-sync` → `/sw:sync-docs update` → `/sw-github:sync <id>` |
+| GitHub/Jira not updating | `sw:progress-sync` → `sw:sync-docs update` → `sw-github:sync <id>` |
 | .md files in project root | `mv *.md .specweave/increments/<current>/reports/` |
-| Progress % wrong | Update tasks.md manually or `/sw:progress-sync` |
+| Progress % wrong | Update tasks.md manually or `sw:progress-sync` |
 | Tool crashes on start | Load only active increment's spec.md + tasks.md, not entire docs/ |
 | Missing **Project**: field | `specweave context projects`, add `**Project**:` to every US |
 | Skills not activating (non-Claude) | Expected — read SKILL.md from `plugins/specweave*/skills/` |
@@ -421,7 +421,7 @@ Umbrella repo containing SpecWeave and related repositories under `repositories/
 ## Project-Specific Gates
 
 ### Closing Increment (additional steps)
-Before `/sw:done`, also run:
+Before `sw:done`, also run:
 - Coverage check: `npx vitest run --coverage` (must meet targets in config.json)
 - Ask user for manual acceptance: new UI, auth, payments, data migrations
 
