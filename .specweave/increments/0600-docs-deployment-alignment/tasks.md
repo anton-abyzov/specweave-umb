@@ -15,7 +15,7 @@ increment: 0600-docs-deployment-alignment
 ---
 
 ### T-002: Replace verified-skill.com/docs/ URLs in living docs
-**User Story**: US-001 | **AC**: AC-US1-02, AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **AC**: AC-US1-02, AC-US1-03 | **Status**: [x] completed
 
 **Test Plan**:
 - Given all files in `.specweave/docs/public/`
@@ -26,7 +26,7 @@ increment: 0600-docs-deployment-alignment
 ---
 
 ### T-003: Investigate and fix homepage config error
-**User Story**: US-002 | **AC**: AC-US2-01 | **Status**: [ ] pending
+**User Story**: US-002 | **AC**: AC-US2-01 | **Status**: [x] completed
 
 **Test Plan**:
 - Given the docs-site Docusaurus config
@@ -36,7 +36,7 @@ increment: 0600-docs-deployment-alignment
 ---
 
 ### T-004: Add URL redirects
-**User Story**: US-002 | **AC**: AC-US2-02, AC-US2-03 | **Status**: [ ] pending
+**User Story**: US-002 | **AC**: AC-US2-02, AC-US2-03 | **Status**: [x] completed
 
 **Test Plan**:
 - Given the redirect configuration in docusaurus.config.ts
@@ -47,7 +47,7 @@ increment: 0600-docs-deployment-alignment
 ---
 
 ### T-005: Audit sidebar and build
-**User Story**: US-003 | **AC**: AC-US3-01, AC-US3-02 | **Status**: [ ] pending
+**User Story**: US-003 | **AC**: AC-US3-01, AC-US3-02 | **Status**: [x] completed
 
 **Test Plan**:
 - Given all sidebar entries in sidebars.ts

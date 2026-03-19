@@ -26,9 +26,9 @@ The documentation site is deployed at `spec-weave.com` but the umbrella CLAUDE.m
 **So that** clicking docs links actually reaches the documentation site
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Umbrella CLAUDE.md references `spec-weave.com` instead of `verified-skill.com` for docs
-- [ ] **AC-US1-02**: All `verified-skill.com/docs/` URLs in `.specweave/docs/public/` are replaced with `spec-weave.com/docs/`
-- [ ] **AC-US1-03**: Platform references to `verified-skill.com` (without `/docs/` path) are preserved unchanged
+- [x] **AC-US1-01**: Umbrella CLAUDE.md references `spec-weave.com` instead of `verified-skill.com` for docs
+- [x] **AC-US1-02**: All `verified-skill.com/docs/` URLs in `.specweave/docs/public/` are replaced with `spec-weave.com/docs/`
+- [x] **AC-US1-03**: Platform references to `verified-skill.com` (without `/docs/` path) are preserved unchanged
 
 ---
 
@@ -40,9 +40,9 @@ The documentation site is deployed at `spec-weave.com` but the umbrella CLAUDE.m
 **So that** all entry points to the docs work correctly
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `spec-weave.com/` homepage loads without Docusaurus config errors
-- [ ] **AC-US2-02**: `/docs/academy/videos/005-opencode-web-calculator` redirects to `/docs/academy/videos/opencode-web-calculator`
-- [ ] **AC-US2-03**: `/docs/guides/getting-started/quickstart` redirects to `/docs/getting-started`
+- [x] **AC-US2-01**: `spec-weave.com/` homepage loads without Docusaurus config errors
+- [x] **AC-US2-02**: `/docs/academy/videos/005-opencode-web-calculator` redirects to `/docs/academy/videos/opencode-web-calculator`
+- [x] **AC-US2-03**: `/docs/guides/getting-started/quickstart` redirects to `/docs/getting-started`
 
 ---
 
@@ -54,8 +54,8 @@ The documentation site is deployed at `spec-weave.com` but the umbrella CLAUDE.m
 **So that** no navigation links are broken on the live site
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `npm run build` in docs-site completes without errors
-- [ ] **AC-US3-02**: All sidebar entries in sidebars.ts resolve to actual files
+- [x] **AC-US3-01**: `npm run build` in docs-site completes without errors
+- [x] **AC-US3-02**: All sidebar entries in sidebars.ts resolve to actual files
 - [ ] **AC-US3-03**: Changes are pushed and deployment triggered
 
 ## Out of Scope
