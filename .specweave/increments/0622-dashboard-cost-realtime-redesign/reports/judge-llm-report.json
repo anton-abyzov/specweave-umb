@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "incrementId": "0622-dashboard-cost-realtime-redesign",
+  "timestamp": "2026-03-19T16:51:00.000Z",
+  "verdict": "WAIVED",
+  "reason": "No ANTHROPIC_API_KEY configured and externalModels consent not set",
+  "findings": []
+}
