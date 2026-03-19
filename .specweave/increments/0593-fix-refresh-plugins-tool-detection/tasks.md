@@ -17,7 +17,7 @@ Add `getSkillsDirectory(): string` to `IAdapter` in `src/adapters/adapter-interf
 ---
 
 ## T-002: Implement getSkillsDirectory() on all 17 adapter implementations
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 **AC**: AC-US1-01
 
 Add `getSkillsDirectory()` to every concrete adapter class returning its tool-specific directory. Adapters and their paths (from plan.md D-1 table):
@@ -47,7 +47,7 @@ Add `getSkillsDirectory()` to every concrete adapter class returning its tool-sp
 ---
 
 ## T-003: Add targetSkillsDir option to copyPluginSkillsToProject()
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [x] completed
 **AC**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
 
 In `src/utils/plugin-copier.ts`, add optional `targetSkillsDir?: string` field to `CopyPluginOptions`. When provided, use `join(projectRoot, targetSkillsDir, skillName, 'SKILL.md')` as the destination instead of the hardcoded `.claude/skills` path. Hook file copying to `.claude/hooks/` must only happen when `targetSkillsDir` is unset or equals `.claude/skills`.
@@ -57,7 +57,7 @@ In `src/utils/plugin-copier.ts`, add optional `targetSkillsDir?: string` field t
 ---
 
 ## T-004: Implement resolveActiveAdapter() helper in refresh-plugins.ts
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [x] completed
 **AC**: AC-US1-01, AC-US1-02, AC-US1-03
 
 Add `resolveActiveAdapter(projectRoot: string): ResolvedAdapter` function to `src/cli/commands/refresh-plugins.ts` with the interface:
@@ -83,7 +83,7 @@ Resolution order (from plan.md D-3 and D-5):
 ---
 
 ## T-005: Update refreshPluginsCommand() to use resolveActiveAdapter()
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-04, AC-US1-05 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-04, AC-US1-05 | **Status**: [x] completed
 **AC**: AC-US1-01, AC-US1-02, AC-US1-04, AC-US1-05
 
 Replace the `detectClaudeCli()` call at the top of `refreshPluginsCommand()` in `src/cli/commands/refresh-plugins.ts` with `resolveActiveAdapter(projectRoot)`. Update downstream logic:
@@ -98,7 +98,7 @@ Replace the `detectClaudeCli()` call at the top of `refreshPluginsCommand()` in 
 ---
 
 ## T-006: Write unit tests for resolveActiveAdapter()
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [x] completed
 **AC**: AC-US1-01, AC-US1-02, AC-US1-03
 
 Create `tests/unit/refresh-plugins-adapter.test.ts`. Cover:
@@ -117,7 +117,7 @@ Use `vi.mock()` and `vi.hoisted()` to stub `detectClaudeCli` and filesystem read
 ---
 
 ## T-007: Write unit tests for copyPluginSkillsToProject() with custom targetSkillsDir
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [x] completed
 **AC**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
 
 Create `tests/unit/plugin-copier-target-dir.test.ts`. Cover:
@@ -135,7 +135,7 @@ Use `vi.mock()` and `vi.hoisted()` to stub the filesystem.
 ---
 
 ## T-008: Run tests and verify no regression on Claude path
-**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US1-02 | **Status**: [ ] pending
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US1-02 | **Status**: [x] completed
 **AC**: AC-US1-01, AC-US1-02
 
 Run the full test suite (`npx vitest run`) from within `repositories/anton-abyzov/specweave/` and confirm all pre-existing tests pass alongside the new tests added in T-006 and T-007. Fix any regressions before marking this task complete.

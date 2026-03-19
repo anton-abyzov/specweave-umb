@@ -1,0 +1,30 @@
+{
+  "id": "0599-fix-triple-sync-complete",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-19T04:23:17.169Z",
+  "lastActivity": "2026-03-19T04:29:25.079Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-632",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-632",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T04:29:34.031Z"
+    },
+    "ado": {
+      "featureId": "1465",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1465",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T04:29:35.327Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-19T04:29:25.019Z",
+  "approvedAt": "2026-03-19T04:29:25.079Z"
+}

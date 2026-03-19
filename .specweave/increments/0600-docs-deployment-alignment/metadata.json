@@ -1,0 +1,13 @@
+{
+  "id": "0600-docs-deployment-alignment",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-19T04:31:26.537Z",
+  "lastActivity": "2026-03-19T04:31:26.537Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

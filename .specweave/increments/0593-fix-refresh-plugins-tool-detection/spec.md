@@ -1,10 +1,10 @@
 ---
 increment: 0593-fix-refresh-plugins-tool-detection
-title: "Fix refresh-plugins to detect project AI tool"
+title: Fix refresh-plugins to detect project AI tool
 type: bug
 priority: P1
-status: planned
-created: 2026-03-19
+status: completed
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -34,11 +34,11 @@ The adapter infrastructure already exists — `init` stores the adapter in `conf
 **So that** my AI tool can discover and use SpecWeave skills without manual file copying
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: When `config.adapters.default` is set to a non-Claude adapter (e.g., `opencode`), `refresh-plugins` copies skills to that adapter's skills directory (e.g., `.opencode/skills/`) instead of `.claude/skills/`
-- [ ] **AC-US1-02**: When `config.adapters.default` is `claude` or unset, `refresh-plugins` uses native `claude plugin install` if CLI is available, falling back to `.claude/skills/` copy (existing behavior preserved)
-- [ ] **AC-US1-03**: When `config.adapters.default` is set to an adapter name not in the known mapping, `refresh-plugins` falls back to Claude behavior and logs a warning
-- [ ] **AC-US1-04**: The mode display message reflects the actual target tool and directory, not always "Claude CLI" or ".claude/skills/"
-- [ ] **AC-US1-05**: Claude-specific operations (`enablePluginsInSettings`, `cleanupStalePlugins`, `migrateUserLevelPlugins`) only execute when the adapter is `claude`
+- [x] **AC-US1-01**: When `config.adapters.default` is set to a non-Claude adapter (e.g., `opencode`), `refresh-plugins` copies skills to that adapter's skills directory (e.g., `.opencode/skills/`) instead of `.claude/skills/`
+- [x] **AC-US1-02**: When `config.adapters.default` is `claude` or unset, `refresh-plugins` uses native `claude plugin install` if CLI is available, falling back to `.claude/skills/` copy (existing behavior preserved)
+- [x] **AC-US1-03**: When `config.adapters.default` is set to an adapter name not in the known mapping, `refresh-plugins` falls back to Claude behavior and logs a warning
+- [x] **AC-US1-04**: The mode display message reflects the actual target tool and directory, not always "Claude CLI" or ".claude/skills/"
+- [x] **AC-US1-05**: Claude-specific operations (`enablePluginsInSettings`, `cleanupStalePlugins`, `migrateUserLevelPlugins`) only execute when the adapter is `claude`
 
 ---
 
@@ -50,10 +50,10 @@ The adapter infrastructure already exists — `init` stores the adapter in `conf
 **So that** it can write skills to any adapter's directory, not just `.claude/skills/`
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `copyPluginSkillsToProject()` accepts an optional `targetSkillsDir` parameter that overrides the default `.claude/skills/` path
-- [ ] **AC-US2-02**: When `targetSkillsDir` is provided, skills are copied to `{projectRoot}/{targetSkillsDir}/{skillName}/SKILL.md` with all subdirectories preserved
-- [ ] **AC-US2-03**: When `targetSkillsDir` is not provided, behavior is identical to current (`.claude/skills/`)
-- [ ] **AC-US2-04**: Hooks directory copying (`.claude/hooks/`) is only performed when the target is `.claude/skills/` (hooks are Claude-specific)
+- [x] **AC-US2-01**: `copyPluginSkillsToProject()` accepts an optional `targetSkillsDir` parameter that overrides the default `.claude/skills/` path
+- [x] **AC-US2-02**: When `targetSkillsDir` is provided, skills are copied to `{projectRoot}/{targetSkillsDir}/{skillName}/SKILL.md` with all subdirectories preserved
+- [x] **AC-US2-03**: When `targetSkillsDir` is not provided, behavior is identical to current (`.claude/skills/`)
+- [x] **AC-US2-04**: Hooks directory copying (`.claude/hooks/`) is only performed when the target is `.claude/skills/` (hooks are Claude-specific)
 
 ## Functional Requirements
 

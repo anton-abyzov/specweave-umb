@@ -1,28 +1,29 @@
 {
   "id": "0593-fix-refresh-plugins-tool-detection",
-  "status": "in-progress",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-03-19T03:22:39.157Z",
-  "lastActivity": "2026-03-19T03:22:39.157Z",
+  "lastActivity": "2026-03-19T04:04:18.858Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
   "externalLinks": {
     "jira": {
-      "epicKey": "SWE2E-611",
-      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-611",
+      "epicKey": "SWE2E-624",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-624",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-19T03:30:01.982Z"
+      "syncedAt": "2026-03-19T04:04:30.345Z"
     },
     "ado": {
-      "featureId": "1456",
-      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1456",
+      "featureId": "1460",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1460",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-19T03:30:03.901Z"
+      "syncedAt": "2026-03-19T04:04:32.221Z"
     }
-  }
+  },
+  "approvedAt": "2026-03-19T04:04:18.858Z"
 }
