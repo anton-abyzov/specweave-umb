@@ -3,8 +3,8 @@ increment: 0612-reduce-github-api-calls
 title: Reduce GitHub API call volume in sync-progress (Phase 1)
 type: feature
 priority: P1
-status: active
-created: 2026-03-19
+status: completed
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
