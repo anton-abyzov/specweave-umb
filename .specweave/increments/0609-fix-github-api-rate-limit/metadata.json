@@ -1,0 +1,21 @@
+{
+  "id": "0609-fix-github-api-rate-limit",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-19T07:01:48.260Z",
+  "lastActivity": "2026-03-19T07:01:48.260Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-674",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-674",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T07:04:23.477Z"
+    }
+  }
+}
