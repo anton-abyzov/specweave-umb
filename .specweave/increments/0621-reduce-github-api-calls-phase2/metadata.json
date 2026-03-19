@@ -1,0 +1,16 @@
+{
+  "id": "0621-reduce-github-api-calls-phase2",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-19T14:54:17.316Z",
+  "lastActivity": "2026-03-19T15:26:31.015Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "project": "specweave-umb",
+  "updated": "2026-03-19T15:22:34.000Z",
+  "approvedAt": "2026-03-19T15:26:31.015Z"
+}
