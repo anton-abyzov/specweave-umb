@@ -5,7 +5,7 @@ increment: 0600-docs-deployment-alignment
 # Tasks
 
 ### T-001: Fix umbrella CLAUDE.md domain reference
-**User Story**: US-001 | **AC**: AC-US1-01 | **Status**: [ ] pending
+**User Story**: US-001 | **AC**: AC-US1-01 | **Status**: [x] completed
 
 **Test Plan**:
 - Given the umbrella CLAUDE.md
