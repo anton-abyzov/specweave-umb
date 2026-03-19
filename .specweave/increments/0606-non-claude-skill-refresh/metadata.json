@@ -1,0 +1,30 @@
+{
+  "id": "0606-non-claude-skill-refresh",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-19T05:26:07.485Z",
+  "lastActivity": "2026-03-19T05:55:43.902Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-672",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-672",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T06:38:56.745Z"
+    },
+    "ado": {
+      "featureId": "1505",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1505",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T06:38:58.842Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-19T05:55:43.858Z",
+  "approvedAt": "2026-03-19T05:55:43.902Z"
+}
