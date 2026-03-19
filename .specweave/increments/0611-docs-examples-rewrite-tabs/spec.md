@@ -1,10 +1,10 @@
 ---
 increment: 0611-docs-examples-rewrite-tabs
-title: "Docs examples rewrite and three-tab pattern consistency"
+title: Docs examples rewrite and three-tab pattern consistency
 type: feature
 priority: P1
-status: active
-created: 2026-03-19
+status: completed
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

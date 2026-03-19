@@ -1,0 +1,30 @@
+{
+  "id": "0613-reduce-github-api-calls-phase1",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-19T07:52:46.710Z",
+  "lastActivity": "2026-03-19T08:06:22.219Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-688",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-688",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T08:06:29.472Z"
+    },
+    "ado": {
+      "featureId": "1527",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1527",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T08:06:32.194Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-19T08:06:22.171Z",
+  "approvedAt": "2026-03-19T08:06:22.219Z"
+}

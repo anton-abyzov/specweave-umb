@@ -1,0 +1,30 @@
+{
+  "id": "0617-sync-routing-evolutionary-cleanup",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-19T12:40:47.231Z",
+  "lastActivity": "2026-03-19T14:08:03.484Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-701",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-701",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T14:08:31.665Z"
+    },
+    "ado": {
+      "featureId": "1540",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1540",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T14:08:35.170Z"
+    }
+  },
+  "updated": "2026-03-19T13:42:20.000Z",
+  "approvedAt": "2026-03-19T14:08:03.484Z"
+}

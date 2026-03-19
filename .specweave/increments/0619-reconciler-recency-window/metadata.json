@@ -1,0 +1,28 @@
+{
+  "id": "0619-reconciler-recency-window",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-19T13:51:46.505Z",
+  "lastActivity": "2026-03-19T13:51:46.505Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-706",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-706",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T13:54:54.320Z"
+    },
+    "ado": {
+      "featureId": "1545",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1545",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T13:54:56.591Z"
+    }
+  }
+}

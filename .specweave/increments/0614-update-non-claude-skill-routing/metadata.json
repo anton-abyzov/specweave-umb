@@ -1,0 +1,50 @@
+{
+  "id": "0614-update-non-claude-skill-routing",
+  "type": "feature",
+  "status": "completed",
+  "priority": "high",
+  "project": "vskill",
+  "created": "2026-03-19T00:00:00.000Z",
+  "lastActivity": "2026-03-19T08:14:19.392Z",
+  "tags": [
+    "update",
+    "non-claude-tools",
+    "opencode",
+    "skill-routing"
+  ],
+  "interview": {
+    "started": true,
+    "categories": {
+      "architecture": {
+        "covered": true,
+        "summary": "Replace inline file-writing loop in update.ts (lines 191-226) with calls to installSymlink() from canonical.ts. Same pattern used by init (syncCoreSkills) and install (add.ts). No new components — reuse existing canonical installer."
+      },
+      "integrations": {
+        "covered": true,
+        "summary": "No external integrations. Internal only: canonical.ts installSymlink/installCopy, frontmatter.ts stripClaudeFields, agents-registry.ts detectInstalledAgents. All existing functions, no new APIs."
+      },
+      "ui-ux": {
+        "covered": true,
+        "summary": "CLI command only. No UI changes. User-facing behavior: update command now correctly routes skills per agent type. No new flags or prompts needed."
+      },
+      "performance": {
+        "covered": true,
+        "summary": "No performance impact. Symlink creation is negligible. One extra canonical write per skill is minimal. No caching or load concerns for CLI tool."
+      },
+      "security": {
+        "covered": true,
+        "summary": "No auth or data protection changes. stripClaudeFields already handles removing sensitive Claude-specific frontmatter from non-Claude agent copies."
+      },
+      "edge-cases": {
+        "covered": true,
+        "summary": "Symlink failure fallback to copy already exists in installSymlink(). Ghost file cleanup needs to work with canonical dir. Multiple agents detected simultaneously handled by per-agent loop in installSymlink()."
+      }
+    },
+    "completed": true
+  },
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-03-19T08:14:19.349Z",
+  "approvedAt": "2026-03-19T08:14:19.392Z"
+}

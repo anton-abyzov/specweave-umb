@@ -1,0 +1,30 @@
+{
+  "id": "0616-fix-validate-owner-error-masking",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-19T12:40:45.461Z",
+  "lastActivity": "2026-03-19T13:39:19.146Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-699",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-699",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T13:39:40.748Z"
+    },
+    "ado": {
+      "featureId": "1538",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1538",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T13:39:42.460Z"
+    }
+  },
+  "updated": "2026-03-19T13:33:16.000Z",
+  "approvedAt": "2026-03-19T13:39:19.146Z"
+}
