@@ -1,10 +1,10 @@
 {
   "id": "0626-fix-appstore-skill-md",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-19T21:25:29.599Z",
-  "lastActivity": "2026-03-19T21:25:29.599Z",
+  "lastActivity": "2026-03-19T23:21:33.048Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,7 +15,7 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-736",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-19T22:35:22.354Z"
+      "syncedAt": "2026-03-19T23:22:02.550Z"
     },
     "ado": {
       "featureId": "1575",
@@ -25,5 +25,7 @@
       "syncedAt": "2026-03-19T22:35:25.243Z"
     }
   },
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "readyForReviewAt": "2026-03-19T23:21:33.039Z",
+  "approvedAt": "2026-03-19T23:21:33.048Z"
 }

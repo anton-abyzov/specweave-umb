@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-19T22:52:41Z",
+  "updatedAt": "2026-03-19T23:20:27Z",
   "increments": {
     "0532-fix-hook-timeout-errors": {
       "status": "completed",
@@ -19,215 +19,6 @@
       "createdAt": "",
       "lastActivity": "2026-03-15T17:04:30Z",
       "lastActivityEpoch": 1773594270,
-      "userStories": []
-    },
-    "0533-remove-vskill-plugin-installation": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "medium",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 5,
-        "completed": 5
-      },
-      "acs": {
-        "total": 0,
-        "completed": 0
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-15T17:01:07Z",
-      "lastActivityEpoch": 1773594067,
-      "userStories": []
-    },
-    "0534-benchmark-comparison-ux": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 12,
-        "completed": 12
-      },
-      "acs": {
-        "total": 18,
-        "completed": 18
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-15T17:19:47Z",
-      "lastActivityEpoch": 1773595187,
-      "userStories": []
-    },
-    "0535-local-plugin-install": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "medium",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 5,
-        "completed": 5
-      },
-      "acs": {
-        "total": 0,
-        "completed": 0
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T02:43:00Z",
-      "lastActivityEpoch": 1773628980,
-      "userStories": []
-    },
-    "0536-plugin-discover-scope-fix": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 3,
-        "completed": 3
-      },
-      "acs": {
-        "total": 8,
-        "completed": 8
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-15T23:16:23Z",
-      "lastActivityEpoch": 1773616583,
-      "userStories": []
-    },
-    "0537-project-skill-gen-docs": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 31,
-        "completed": 31
-      },
-      "acs": {
-        "total": 30,
-        "completed": 30
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-15T23:36:54Z",
-      "lastActivityEpoch": 1773617814,
-      "userStories": []
-    },
-    "0538-mobile-detect-test-fix": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 9,
-        "completed": 9
-      },
-      "acs": {
-        "total": 14,
-        "completed": 14
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-15T23:16:23Z",
-      "lastActivityEpoch": 1773616583,
-      "userStories": []
-    },
-    "0539-umbrella-root-resolution-fix": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 9,
-        "completed": 9
-      },
-      "acs": {
-        "total": 10,
-        "completed": 10
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T00:00:38Z",
-      "lastActivityEpoch": 1773619238,
-      "userStories": []
-    },
-    "0540-plugin-lifecycle-core-only-install": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 12,
-        "completed": 12
-      },
-      "acs": {
-        "total": 15,
-        "completed": 15
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T02:57:03Z",
-      "lastActivityEpoch": 1773629823,
-      "userStories": []
-    },
-    "0541-vskill-stale-file-cleanup": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 19,
-        "completed": 19
-      },
-      "acs": {
-        "total": 13,
-        "completed": 13
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T04:06:40Z",
-      "lastActivityEpoch": 1773634000,
-      "userStories": []
-    },
-    "0542-vskill-plugin-auto-recommendation": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 7,
-        "completed": 7
-      },
-      "acs": {
-        "total": 24,
-        "completed": 21
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T05:19:56Z",
-      "lastActivityEpoch": 1773638396,
-      "userStories": []
-    },
-    "0543-fix-reconciler-rate-limit": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 16,
-        "completed": 16
-      },
-      "acs": {
-        "total": 16,
-        "completed": 16
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T05:00:13Z",
-      "lastActivityEpoch": 1773637213,
       "userStories": []
     },
     "0544-skill-gen-llm-pivot": {
@@ -249,348 +40,6 @@
       "lastActivityEpoch": 1773648737,
       "userStories": []
     },
-    "0545-vskill-studio-ux-overhaul": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 27,
-        "completed": 27
-      },
-      "acs": {
-        "total": 29,
-        "completed": 29
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T13:29:30Z",
-      "lastActivityEpoch": 1773667770,
-      "userStories": []
-    },
-    "0546-file-browser-fixes": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 4,
-        "completed": 4
-      },
-      "acs": {
-        "total": 12,
-        "completed": 12
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T19:19:19Z",
-      "lastActivityEpoch": 1773688759,
-      "userStories": []
-    },
-    "0547-eval-perf-multimodel-integration": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 57,
-        "completed": 57
-      },
-      "acs": {
-        "total": 45,
-        "completed": 45
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T22:44:19Z",
-      "lastActivityEpoch": 1773701059,
-      "userStories": []
-    },
-    "0548-skill-gen-autoinstall-dedup-docs": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 11,
-        "completed": 11
-      },
-      "acs": {
-        "total": 15,
-        "completed": 15
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T20:39:00Z",
-      "lastActivityEpoch": 1773693540,
-      "userStories": []
-    },
-    "0549-external-sync-reliability": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P0",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 35,
-        "completed": 35
-      },
-      "acs": {
-        "total": 45,
-        "completed": 0
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T22:15:59Z",
-      "lastActivityEpoch": 1773699359,
-      "userStories": []
-    },
-    "0550-phase-agnostic-team-lead": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "Phase-Agnostic Team-Lead + Standalone Code Reviewer Skill",
-      "project": "specweave",
-      "tasks": {
-        "total": 16,
-        "completed": 16
-      },
-      "acs": {
-        "total": 15,
-        "completed": 15
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-17T03:16:36Z",
-      "lastActivityEpoch": 1773717396,
-      "userStories": []
-    },
-    "0551-skill-gen-perf-intg-testgen": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 28,
-        "completed": 28
-      },
-      "acs": {
-        "total": 21,
-        "completed": 21
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T22:44:27Z",
-      "lastActivityEpoch": 1773701067,
-      "userStories": []
-    },
-    "0552-hook-error-reliability": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 6,
-        "completed": 6
-      },
-      "acs": {
-        "total": 14,
-        "completed": 14
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-16T22:40:17Z",
-      "lastActivityEpoch": 1773700817,
-      "userStories": []
-    },
-    "0553-vskill-install-verification-scope": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 7,
-        "completed": 7
-      },
-      "acs": {
-        "total": 11,
-        "completed": 11
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-17T02:34:07Z",
-      "lastActivityEpoch": 1773714847,
-      "userStories": []
-    },
-    "0554-hook-reliability-phase2": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 10,
-        "completed": 10
-      },
-      "acs": {
-        "total": 17,
-        "completed": 17
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-17T02:38:00Z",
-      "lastActivityEpoch": 1773715080,
-      "userStories": []
-    },
-    "0555-remove-node-modules-dep": {
-      "status": "completed",
-      "type": "refactor",
-      "priority": "P2",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 7,
-        "completed": 7
-      },
-      "acs": {
-        "total": 8,
-        "completed": 8
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-17T03:26:08Z",
-      "lastActivityEpoch": 1773717968,
-      "userStories": []
-    },
-    "0556-docs-overhaul": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 14,
-        "completed": 14
-      },
-      "acs": {
-        "total": 25,
-        "completed": 25
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-17T06:22:31Z",
-      "lastActivityEpoch": 1773728551,
-      "userStories": []
-    },
-    "0557-fix-vskill-lock-global": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 14,
-        "completed": 14
-      },
-      "acs": {
-        "total": 11,
-        "completed": 11
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-17T08:21:04Z",
-      "lastActivityEpoch": 1773735664,
-      "userStories": []
-    },
-    "0558-adapter-skill-subdirectory-namespace": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 12,
-        "completed": 12
-      },
-      "acs": {
-        "total": 16,
-        "completed": 16
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-17T23:52:07Z",
-      "lastActivityEpoch": 1773791527,
-      "userStories": []
-    },
-    "0559-docs-phase2-ux": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 10,
-        "completed": 10
-      },
-      "acs": {
-        "total": 13,
-        "completed": 13
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-17T23:57:21Z",
-      "lastActivityEpoch": 1773791841,
-      "userStories": []
-    },
-    "0560-consolidate-plugins": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 23,
-        "completed": 23
-      },
-      "acs": {
-        "total": 51,
-        "completed": 51
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-17T18:27:43Z",
-      "lastActivityEpoch": 1773772063,
-      "userStories": []
-    },
-    "0561-fix-scout-discoverability": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 13,
-        "completed": 13
-      },
-      "acs": {
-        "total": 9,
-        "completed": 9
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-17T21:43:48Z",
-      "lastActivityEpoch": 1773783828,
-      "userStories": []
-    },
-    "0562-vskill-studio-activation-category-model": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 40,
-        "completed": 40
-      },
-      "acs": {
-        "total": 26,
-        "completed": 0
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T01:36:13Z",
-      "lastActivityEpoch": 1773884173,
-      "userStories": []
-    },
     "0563-vskill-studio-tests-params-integration": {
       "status": "completed",
       "type": "feature",
@@ -608,272 +57,6 @@
       "createdAt": "",
       "lastActivity": "2026-03-19T05:43:44Z",
       "lastActivityEpoch": 1773899024,
-      "userStories": []
-    },
-    "0564-docs-redesign": {
-      "status": "planned",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 16,
-        "completed": 0
-      },
-      "acs": {
-        "total": 4,
-        "completed": 0
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T06:00:00Z",
-      "lastActivityEpoch": 1773813600,
-      "userStories": []
-    },
-    "0565-vskill-frontmatter-compliance": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 9,
-        "completed": 9
-      },
-      "acs": {
-        "total": 15,
-        "completed": 15
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T07:13:37Z",
-      "lastActivityEpoch": 1773818017,
-      "userStories": []
-    },
-    "0566-fix-activation-test-bugs": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 13,
-        "completed": 13
-      },
-      "acs": {
-        "total": 13,
-        "completed": 13
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T07:03:05Z",
-      "lastActivityEpoch": 1773817385,
-      "userStories": []
-    },
-    "0567-verified-skill-docs-redesign": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 25,
-        "completed": 25
-      },
-      "acs": {
-        "total": 42,
-        "completed": 42
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T08:54:16Z",
-      "lastActivityEpoch": 1773824056,
-      "userStories": []
-    },
-    "0568-fix-vskill-non-claude-skill-install": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 15,
-        "completed": 15
-      },
-      "acs": {
-        "total": 17,
-        "completed": 17
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T08:25:53Z",
-      "lastActivityEpoch": 1773822353,
-      "userStories": []
-    },
-    "0569-studio-error-handling": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 10,
-        "completed": 10
-      },
-      "acs": {
-        "total": 19,
-        "completed": 19
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T08:35:11Z",
-      "lastActivityEpoch": 1773822911,
-      "userStories": []
-    },
-    "0570-fix-vskill-install-3part-resolution": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 10,
-        "completed": 10
-      },
-      "acs": {
-        "total": 10,
-        "completed": 10
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T08:36:31Z",
-      "lastActivityEpoch": 1773822991,
-      "userStories": []
-    },
-    "0571-fix-init-multirepo-wiring": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 13,
-        "completed": 13
-      },
-      "acs": {
-        "total": 22,
-        "completed": 22
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T01:36:13Z",
-      "lastActivityEpoch": 1773884173,
-      "userStories": []
-    },
-    "0572-enforce-skill-md-naming": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 7,
-        "completed": 7
-      },
-      "acs": {
-        "total": 17,
-        "completed": 17
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T13:53:30Z",
-      "lastActivityEpoch": 1773842010,
-      "userStories": []
-    },
-    "0573-fix-sw-specweave-corruption": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "medium",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 4,
-        "completed": 4
-      },
-      "acs": {
-        "total": 0,
-        "completed": 0
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T01:36:13Z",
-      "lastActivityEpoch": 1773884173,
-      "userStories": []
-    },
-    "0574-docs-skills-page-accuracy": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 1,
-        "completed": 1
-      },
-      "acs": {
-        "total": 5,
-        "completed": 5
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T17:14:44Z",
-      "lastActivityEpoch": 1773854084,
-      "userStories": []
-    },
-    "0575-docs-no-docs-needed-rewrite": {
-      "status": "planned",
-      "type": "change-request",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 3,
-        "completed": 5
-      },
-      "acs": {
-        "total": 16,
-        "completed": 16
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T17:23:16Z",
-      "lastActivityEpoch": 1773854596,
-      "userStories": []
-    },
-    "0576-fix-duplicate-github-sync": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 3,
-        "completed": 3
-      },
-      "acs": {
-        "total": 6,
-        "completed": 6
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T17:31:03Z",
-      "lastActivityEpoch": 1773855063,
-      "userStories": []
-    },
-    "0577-docs-triple-invocation": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "medium",
-      "title": "Documentation triple invocation pattern (natural language, Claude Code, other AI tools)",
-      "project": "specweave",
-      "tasks": {
-        "total": 6,
-        "completed": 6
-      },
-      "acs": {
-        "total": 0,
-        "completed": 0
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T06:42:06Z",
-      "lastActivityEpoch": 1773902526,
       "userStories": []
     },
     "0578-fix-eval-comparison-metrics": {
@@ -895,44 +78,6 @@
       "lastActivityEpoch": 1773863466,
       "userStories": []
     },
-    "0579-docs-introduction-page-update": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 6,
-        "completed": 6
-      },
-      "acs": {
-        "total": 14,
-        "completed": 14
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T18:37:49Z",
-      "lastActivityEpoch": 1773859069,
-      "userStories": []
-    },
-    "0580-docs-installation-multi-project": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "medium",
-      "title": "",
-      "project": "specweave",
-      "tasks": {
-        "total": 1,
-        "completed": 1
-      },
-      "acs": {
-        "total": 1,
-        "completed": 1
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T03:23:40Z",
-      "lastActivityEpoch": 1773890620,
-      "userStories": []
-    },
     "0581-init-always-multi-repo": {
       "status": "completed",
       "type": "change-request",
@@ -952,44 +97,6 @@
       "lastActivityEpoch": 1773883535,
       "userStories": []
     },
-    "0582-fix-duplicate-increment-creation": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 14,
-        "completed": 14
-      },
-      "acs": {
-        "total": 18,
-        "completed": 18
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-18T22:28:28Z",
-      "lastActivityEpoch": 1773872908,
-      "userStories": []
-    },
-    "0583-fix-dora-metrics-dashboard": {
-      "status": "planned",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 1,
-        "completed": 0
-      },
-      "acs": {
-        "total": 4,
-        "completed": 0
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T00:16:54Z",
-      "lastActivityEpoch": 1773879414,
-      "userStories": []
-    },
     "0584-skill-versioning": {
       "status": "completed",
       "type": "feature",
@@ -1007,632 +114,6 @@
       "createdAt": "",
       "lastActivity": "2026-03-19T06:51:58Z",
       "lastActivityEpoch": 1773903118,
-      "userStories": []
-    },
-    "0585-docs-site-redesign": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 20,
-        "completed": 20
-      },
-      "acs": {
-        "total": 36,
-        "completed": 36
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T02:14:10Z",
-      "lastActivityEpoch": 1773886450,
-      "userStories": []
-    },
-    "0586-universal-skill-md-cleanup": {
-      "status": "completed",
-      "type": "refactor",
-      "priority": "P2",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 3,
-        "completed": 3
-      },
-      "acs": {
-        "total": 8,
-        "completed": 8
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T02:03:42Z",
-      "lastActivityEpoch": 1773885822,
-      "userStories": []
-    },
-    "0587-fix-github-sync-dedup": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 15,
-        "completed": 15
-      },
-      "acs": {
-        "total": 13,
-        "completed": 13
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T02:28:27Z",
-      "lastActivityEpoch": 1773887307,
-      "userStories": []
-    },
-    "0588-cleanup-single-repo-remnants": {
-      "status": "completed",
-      "type": "refactor",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 11,
-        "completed": 11
-      },
-      "acs": {
-        "total": 17,
-        "completed": 17
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T02:49:03Z",
-      "lastActivityEpoch": 1773888543,
-      "userStories": []
-    },
-    "0589-cli-complete-improvements": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 4,
-        "completed": 4
-      },
-      "acs": {
-        "total": 14,
-        "completed": 14
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T03:44:21Z",
-      "lastActivityEpoch": 1773891861,
-      "userStories": []
-    },
-    "0590-init-launch-living-docs-job": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 3,
-        "completed": 3
-      },
-      "acs": {
-        "total": 7,
-        "completed": 7
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T02:26:11Z",
-      "lastActivityEpoch": 1773887171,
-      "userStories": []
-    },
-    "0591-docs-config-reference": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 16,
-        "completed": 16
-      },
-      "acs": {
-        "total": 11,
-        "completed": 11
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T03:45:41Z",
-      "lastActivityEpoch": 1773891941,
-      "userStories": []
-    },
-    "0592-unified-advisor-command": {
-      "status": "planned",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 15,
-        "completed": 0
-      },
-      "acs": {
-        "total": 31,
-        "completed": 0
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T02:58:02Z",
-      "lastActivityEpoch": 1773889082,
-      "userStories": []
-    },
-    "0593-fix-refresh-plugins-tool-detection": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 8,
-        "completed": 8
-      },
-      "acs": {
-        "total": 9,
-        "completed": 9
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T04:04:32Z",
-      "lastActivityEpoch": 1773893072,
-      "userStories": []
-    },
-    "0594-docs-specweave-get-features": {
-      "status": "active",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "specweave",
-      "tasks": {
-        "total": 0,
-        "completed": 0
-      },
-      "acs": {
-        "total": 0,
-        "completed": 0
-      },
-      "createdAt": "2026-03-18T22:00:00Z",
-      "lastActivity": "2026-03-19T13:25:50Z",
-      "userStories": []
-    },
-    "0595-help-skill-discovery": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 4,
-        "completed": 4
-      },
-      "acs": {
-        "total": 14,
-        "completed": 14
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T04:08:13Z",
-      "lastActivityEpoch": 1773893293,
-      "userStories": []
-    },
-    "0596-tool-agnostic-command-refs": {
-      "status": "completed",
-      "type": "change-request",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 5,
-        "completed": 5
-      },
-      "acs": {
-        "total": 9,
-        "completed": 9
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T04:08:55Z",
-      "lastActivityEpoch": 1773893335,
-      "userStories": []
-    },
-    "0597-fix-ado-parent-child-linking": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 4,
-        "completed": 4
-      },
-      "acs": {
-        "total": 9,
-        "completed": 9
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T05:05:55Z",
-      "lastActivityEpoch": 1773896755,
-      "userStories": []
-    },
-    "0598-fix-ado-sync-parent-linking": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 6,
-        "completed": 6
-      },
-      "acs": {
-        "total": 9,
-        "completed": 9
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T04:30:39Z",
-      "lastActivityEpoch": 1773894639,
-      "userStories": []
-    },
-    "0599-fix-triple-sync-complete": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 3,
-        "completed": 3
-      },
-      "acs": {
-        "total": 6,
-        "completed": 6
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T04:29:35Z",
-      "lastActivityEpoch": 1773894575,
-      "userStories": []
-    },
-    "0600-docs-deployment-alignment": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 6,
-        "completed": 6
-      },
-      "acs": {
-        "total": 9,
-        "completed": 9
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T04:42:46Z",
-      "lastActivityEpoch": 1773895366,
-      "userStories": []
-    },
-    "0601-fix-ado-sync-remaining-gaps": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 5,
-        "completed": 5
-      },
-      "acs": {
-        "total": 8,
-        "completed": 8
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T04:42:25Z",
-      "lastActivityEpoch": 1773895345,
-      "userStories": []
-    },
-    "0602-tool-agnostic-refs-phases-2-4": {
-      "status": "completed",
-      "type": "change-request",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 3,
-        "completed": 3
-      },
-      "acs": {
-        "total": 8,
-        "completed": 8
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T05:38:40Z",
-      "lastActivityEpoch": 1773898720,
-      "userStories": []
-    },
-    "0603-test-sync-dedup-verify": {
-      "status": "completed",
-      "type": "experiment",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 1,
-        "completed": 1
-      },
-      "acs": {
-        "total": 1,
-        "completed": 1
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T04:55:38Z",
-      "lastActivityEpoch": 1773896138,
-      "userStories": []
-    },
-    "0604-fix-ado-per-us-sync-scoping": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 2,
-        "completed": 2
-      },
-      "acs": {
-        "total": 2,
-        "completed": 2
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T05:06:22Z",
-      "lastActivityEpoch": 1773896782,
-      "userStories": []
-    },
-    "0605-init-async-clone-jobs": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 10,
-        "completed": 10
-      },
-      "acs": {
-        "total": 19,
-        "completed": 19
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T05:31:36Z",
-      "lastActivityEpoch": 1773898296,
-      "userStories": []
-    },
-    "0606-non-claude-skill-refresh": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 6,
-        "completed": 6
-      },
-      "acs": {
-        "total": 11,
-        "completed": 11
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T06:38:58Z",
-      "lastActivityEpoch": 1773902338,
-      "userStories": []
-    },
-    "0607-closure-subagent-system": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 7,
-        "completed": 7
-      },
-      "acs": {
-        "total": 14,
-        "completed": 14
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T06:39:54Z",
-      "lastActivityEpoch": 1773902394,
-      "userStories": []
-    },
-    "0608-per-session-state-isolation": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "specweave",
-      "tasks": {
-        "total": 17,
-        "completed": 17
-      },
-      "acs": {
-        "total": 0,
-        "completed": 0
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T06:57:28Z",
-      "lastActivityEpoch": 1773903448,
-      "userStories": []
-    },
-    "0609-fix-github-api-rate-limit": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 7,
-        "completed": 7
-      },
-      "acs": {
-        "total": 12,
-        "completed": 12
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T07:12:19Z",
-      "lastActivityEpoch": 1773904339,
-      "userStories": []
-    },
-    "0610-fix-sync-progress-dual-path-dedup": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P0",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 3,
-        "completed": 3
-      },
-      "acs": {
-        "total": 4,
-        "completed": 4
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T07:14:18Z",
-      "lastActivityEpoch": 1773904458,
-      "userStories": []
-    },
-    "0611-docs-examples-rewrite-tabs": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 3,
-        "completed": 3
-      },
-      "acs": {
-        "total": 7,
-        "completed": 7
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T07:39:49Z",
-      "lastActivityEpoch": 1773905989,
-      "userStories": []
-    },
-    "0612-reduce-github-api-calls": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 6,
-        "completed": 6
-      },
-      "acs": {
-        "total": 7,
-        "completed": 7
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T08:18:05Z",
-      "lastActivityEpoch": 1773908285,
-      "userStories": []
-    },
-    "0613-reduce-github-api-calls-phase1": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 8,
-        "completed": 8
-      },
-      "acs": {
-        "total": 12,
-        "completed": 12
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T08:06:32Z",
-      "lastActivityEpoch": 1773907592,
-      "userStories": []
-    },
-    "0614-update-non-claude-skill-routing": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "high",
-      "title": "",
-      "project": "vskill",
-      "tasks": {
-        "total": 3,
-        "completed": 3
-      },
-      "acs": {
-        "total": 0,
-        "completed": 0
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T08:14:19Z",
-      "lastActivityEpoch": 1773908059,
-      "userStories": []
-    },
-    "0615-init-multi-repo-patterns-loop": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 6,
-        "completed": 6
-      },
-      "acs": {
-        "total": 7,
-        "completed": 7
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T14:49:36Z",
-      "lastActivityEpoch": 1773931776,
-      "userStories": []
-    },
-    "0616-fix-validate-owner-error-masking": {
-      "status": "completed",
-      "type": "bug",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 6,
-        "completed": 6
-      },
-      "acs": {
-        "total": 4,
-        "completed": 4
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T13:39:42Z",
-      "lastActivityEpoch": 1773927582,
-      "userStories": []
-    },
-    "0617-sync-routing-evolutionary-cleanup": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "",
-      "tasks": {
-        "total": 17,
-        "completed": 17
-      },
-      "acs": {
-        "total": 17,
-        "completed": 17
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T14:08:35Z",
-      "lastActivityEpoch": 1773929315,
       "userStories": []
     },
     "0618-simplify-sync-setup-fix-triggers": {
@@ -1731,7 +212,7 @@
       "userStories": []
     },
     "0623-fix-init-guard-order-and-temp-detection": {
-      "status": "active",
+      "status": "completed",
       "type": "bug",
       "priority": "P1",
       "title": "",
@@ -1745,11 +226,12 @@
         "completed": 7
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T15:51:49Z",
+      "lastActivity": "2026-03-19T19:52:33Z",
+      "lastActivityEpoch": 1773949953,
       "userStories": []
     },
     "0624-studio-comparison-ux-clarity": {
-      "status": "active",
+      "status": "completed",
       "type": "feature",
       "priority": "P1",
       "title": "",
@@ -1763,11 +245,12 @@
         "completed": 22
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T16:24:12Z",
+      "lastActivity": "2026-03-19T20:24:52Z",
+      "lastActivityEpoch": 1773951892,
       "userStories": []
     },
     "0625-external-tool-integration-rework": {
-      "status": "ready_for_review",
+      "status": "completed",
       "type": "feature",
       "priority": "P1",
       "title": "",
@@ -1781,11 +264,31 @@
         "completed": 56
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T18:20:29Z",
+      "lastActivity": "2026-03-19T22:26:56Z",
+      "lastActivityEpoch": 1773959216,
+      "userStories": []
+    },
+    "0626-fix-appstore-skill-md": {
+      "status": "active",
+      "type": "feature",
+      "priority": "P1",
+      "title": "",
+      "project": "specweave-umb",
+      "tasks": {
+        "total": 14,
+        "completed": 14
+      },
+      "acs": {
+        "total": 29,
+        "completed": 29
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-19T23:17:53Z",
+      "lastActivityEpoch": 1773962273,
       "userStories": []
     },
     "0627-team-lead-agent-teams-api": {
-      "status": "active",
+      "status": "completed",
       "type": "feature",
       "priority": "P1",
       "title": "",
@@ -1799,29 +302,12 @@
         "completed": 15
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T18:04:07Z",
-      "userStories": []
-    },
-    "0626-fix-appstore-skill-md": {
-      "status": "active",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "specweave-umb",
-      "tasks": {
-        "total": 14,
-        "completed": 0
-      },
-      "acs": {
-        "total": 29,
-        "completed": 0
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T18:33:34Z",
+      "lastActivity": "2026-03-19T22:12:15Z",
+      "lastActivityEpoch": 1773958335,
       "userStories": []
     },
     "0628-code-review-fixes-type-safety": {
-      "status": "active",
+      "status": "completed",
       "type": "bug",
       "priority": "P1",
       "title": "",
@@ -1835,35 +321,91 @@
         "completed": 13
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T18:49:22Z",
+      "lastActivity": "2026-03-19T22:55:33Z",
+      "lastActivityEpoch": 1773960933,
+      "userStories": []
+    },
+    "0629-delegate-plugin-registry-to-claude-cli": {
+      "status": "planned",
+      "type": "refactor",
+      "priority": "P1",
+      "title": "",
+      "project": "vskill",
+      "tasks": {
+        "total": 1,
+        "completed": 0
+      },
+      "acs": {
+        "total": 4,
+        "completed": 0
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-19T22:52:10Z",
+      "lastActivityEpoch": 1773960730,
+      "userStories": []
+    },
+    "0630-global-agent-teams-env": {
+      "status": "completed",
+      "type": "bug",
+      "priority": "P1",
+      "title": "",
+      "project": "specweave-umb",
+      "tasks": {
+        "total": 6,
+        "completed": 6
+      },
+      "acs": {
+        "total": 4,
+        "completed": 4
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-19T23:16:31Z",
+      "lastActivityEpoch": 1773962191,
+      "userStories": []
+    },
+    "0631-fix-umbrella-root-resolution": {
+      "status": "planned",
+      "type": "bug",
+      "priority": "P1",
+      "title": "",
+      "project": "specweave-umb",
+      "tasks": {
+        "total": 1,
+        "completed": 0
+      },
+      "acs": {
+        "total": 16,
+        "completed": 0
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-19T23:19:44Z",
+      "lastActivityEpoch": 1773962384,
       "userStories": []
     }
   },
   "summary": {
-    "total": 97,
-    "active": 6,
+    "total": 20,
+    "active": 1,
     "paused": 0,
     "backlog": 0,
-    "planning": 4,
-    "ready_for_review": 1,
-    "completed": 86,
+    "planning": 2,
+    "ready_for_review": 0,
+    "completed": 17,
     "abandoned": 0,
-    "archived": 506,
+    "archived": 586,
     "byType": {
-      "feature": 64,
+      "feature": 11,
       "hotfix": 0,
-      "bug": 25,
-      "refactor": 3,
-      "experiment": 1,
-      "change-request": 5,
-      "docs": -1
+      "bug": 6,
+      "refactor": 1,
+      "experiment": 0,
+      "change-request": 2
     },
     "byPriority": {
-      "P0": 2,
-      "P1": 94,
-      "P2": 2,
-      "P3": 0,
-      "medium": -1
+      "P0": 0,
+      "P1": 20,
+      "P2": 0,
+      "P3": 0
     }
   },
   "jobs": {
@@ -1884,430 +426,30 @@
       "tasks": 1773564929,
       "spec": 1773594260
     },
-    "0533-remove-vskill-plugin-installation": {
-      "metadata": 1773594067,
-      "tasks": 1773593709,
-      "spec": 1773594067
-    },
-    "0534-benchmark-comparison-ux": {
-      "metadata": 1773595176,
-      "tasks": 1773595187,
-      "spec": 1773595187
-    },
-    "0535-local-plugin-install": {
-      "metadata": 1773628980,
-      "tasks": 1773605284,
-      "spec": 1773628980
-    },
-    "0536-plugin-discover-scope-fix": {
-      "metadata": 1773616583,
-      "tasks": 1773616583,
-      "spec": 1773616583
-    },
-    "0537-project-skill-gen-docs": {
-      "metadata": 1773617814,
-      "tasks": 1773617636,
-      "spec": 1773617783
-    },
-    "0538-mobile-detect-test-fix": {
-      "metadata": 1773616583,
-      "tasks": 1773616583,
-      "spec": 1773616583
-    },
-    "0539-umbrella-root-resolution-fix": {
-      "metadata": 1773619238,
-      "tasks": 1773619117,
-      "spec": 1773619220
-    },
-    "0540-plugin-lifecycle-core-only-install": {
-      "metadata": 1773629823,
-      "tasks": 1773629660,
-      "spec": 1773629823
-    },
-    "0541-vskill-stale-file-cleanup": {
-      "metadata": 1773634000,
-      "tasks": 1773633849,
-      "spec": 1773634000
-    },
-    "0542-vskill-plugin-auto-recommendation": {
-      "metadata": 1773638396,
-      "tasks": 1773635925,
-      "spec": 1773638366
-    },
-    "0543-fix-reconciler-rate-limit": {
-      "metadata": 1773637213,
-      "tasks": 1773636871,
-      "spec": 1773637190
-    },
     "0544-skill-gen-llm-pivot": {
       "metadata": 1773648737,
       "tasks": 1773648688,
       "spec": 1773648695
-    },
-    "0545-vskill-studio-ux-overhaul": {
-      "metadata": 1773667770,
-      "tasks": 1773651345,
-      "spec": 1773651303
-    },
-    "0546-file-browser-fixes": {
-      "metadata": 1773688759,
-      "tasks": 1773688637,
-      "spec": 1773688737
-    },
-    "0547-eval-perf-multimodel-integration": {
-      "metadata": 1773701059,
-      "tasks": 1773694369,
-      "spec": 1773701029
-    },
-    "0548-skill-gen-autoinstall-dedup-docs": {
-      "metadata": 1773693540,
-      "tasks": 1773693425,
-      "spec": 1773693523
-    },
-    "0549-external-sync-reliability": {
-      "metadata": 1773699359,
-      "tasks": 1773699253,
-      "spec": 1773699316
-    },
-    "0550-phase-agnostic-team-lead": {
-      "metadata": 1773717396,
-      "tasks": 1773698670,
-      "spec": 1773717374
-    },
-    "0551-skill-gen-perf-intg-testgen": {
-      "metadata": 1773701067,
-      "tasks": 1773698173,
-      "spec": 1773701037
-    },
-    "0552-hook-error-reliability": {
-      "metadata": 1773700817,
-      "tasks": 1773700661,
-      "spec": 1773700788
-    },
-    "0553-vskill-install-verification-scope": {
-      "metadata": 1773714847,
-      "tasks": 1773714689,
-      "spec": 1773714831
-    },
-    "0554-hook-reliability-phase2": {
-      "metadata": 1773715080,
-      "tasks": 1773715052,
-      "spec": 1773715016
-    },
-    "0555-remove-node-modules-dep": {
-      "metadata": 1773717968,
-      "tasks": 1773717918,
-      "spec": 1773717954
-    },
-    "0556-docs-overhaul": {
-      "metadata": 1773728551,
-      "tasks": 1773728395,
-      "spec": 1773728511
-    },
-    "0557-fix-vskill-lock-global": {
-      "metadata": 1773735664,
-      "tasks": 1773735640,
-      "spec": 1773735591
-    },
-    "0558-adapter-skill-subdirectory-namespace": {
-      "metadata": 1773791527,
-      "tasks": 1773791301,
-      "spec": 1773791508
-    },
-    "0559-docs-phase2-ux": {
-      "metadata": 1773791841,
-      "tasks": 1773790136,
-      "spec": 1773791811
-    },
-    "0560-consolidate-plugins": {
-      "metadata": 1773772063,
-      "tasks": 1773771690,
-      "spec": 1773772030
-    },
-    "0561-fix-scout-discoverability": {
-      "metadata": 1773783828,
-      "tasks": 1773783567,
-      "spec": 1773783811
-    },
-    "0562-vskill-studio-activation-category-model": {
-      "metadata": 1773884173,
-      "tasks": 1773790149,
-      "spec": 1773789322
     },
     "0563-vskill-studio-tests-params-integration": {
       "metadata": 1773899024,
       "tasks": 1773820192,
       "spec": 1773899011
     },
-    "0564-docs-redesign": {
-      "metadata": 1773812979,
-      "tasks": 1773813600,
-      "spec": 1773812979
-    },
-    "0565-vskill-frontmatter-compliance": {
-      "metadata": 1773818017,
-      "tasks": 1773817842,
-      "spec": 1773818002
-    },
-    "0566-fix-activation-test-bugs": {
-      "metadata": 1773817385,
-      "tasks": 1773817246,
-      "spec": 1773817330
-    },
-    "0567-verified-skill-docs-redesign": {
-      "metadata": 1773824056,
-      "tasks": 1773824005,
-      "spec": 1773824011
-    },
-    "0568-fix-vskill-non-claude-skill-install": {
-      "metadata": 1773822353,
-      "tasks": 1773821707,
-      "spec": 1773822324
-    },
-    "0569-studio-error-handling": {
-      "metadata": 1773822911,
-      "tasks": 1773822898,
-      "spec": 1773822850
-    },
-    "0570-fix-vskill-install-3part-resolution": {
-      "metadata": 1773822991,
-      "tasks": 1773822905,
-      "spec": 1773822976
-    },
-    "0571-fix-init-multirepo-wiring": {
-      "metadata": 1773884173,
-      "tasks": 1773841266,
-      "spec": 1773841357
-    },
-    "0572-enforce-skill-md-naming": {
-      "metadata": 1773842010,
-      "tasks": 1773841916,
-      "spec": 1773841984
-    },
-    "0573-fix-sw-specweave-corruption": {
-      "metadata": 1773884173,
-      "tasks": 1773843686,
-      "spec": 1773884160
-    },
-    "0574-docs-skills-page-accuracy": {
-      "metadata": 1773854084,
-      "tasks": 1773853978,
-      "spec": 1773854076
-    },
-    "0575-docs-no-docs-needed-rewrite": {
-      "metadata": 1773854596,
-      "tasks": 1773854508,
-      "spec": 1773854529
-    },
-    "0576-fix-duplicate-github-sync": {
-      "metadata": 1773855063,
-      "tasks": 1773855007,
-      "spec": 1773855063
-    },
-    "0577-docs-triple-invocation": {
-      "metadata": 1773902526,
-      "tasks": 1773902488,
-      "spec": 1773902526
-    },
     "0578-fix-eval-comparison-metrics": {
       "metadata": 1773863466,
       "tasks": 1773863250,
       "spec": 1773863413
-    },
-    "0579-docs-introduction-page-update": {
-      "metadata": 1773859069,
-      "tasks": 1773858896,
-      "spec": 1773859043
-    },
-    "0580-docs-installation-multi-project": {
-      "metadata": 1773890620,
-      "tasks": 1773890582,
-      "spec": 1773890610
     },
     "0581-init-always-multi-repo": {
       "metadata": 1773883535,
       "tasks": 1773883032,
       "spec": 1773883486
     },
-    "0582-fix-duplicate-increment-creation": {
-      "metadata": 1773872908,
-      "tasks": 1773872497,
-      "spec": 1773872880
-    },
-    "0583-fix-dora-metrics-dashboard": {
-      "metadata": 1773879414,
-      "tasks": 1773879414,
-      "spec": 1773879414
-    },
     "0584-skill-versioning": {
       "metadata": 1773903118,
       "tasks": 1773887392,
       "spec": 1773887848
-    },
-    "0585-docs-site-redesign": {
-      "metadata": 1773886450,
-      "tasks": 1773886294,
-      "spec": 1773886424
-    },
-    "0586-universal-skill-md-cleanup": {
-      "metadata": 1773885822,
-      "tasks": 1773885696,
-      "spec": 1773885795
-    },
-    "0587-fix-github-sync-dedup": {
-      "metadata": 1773887307,
-      "tasks": 1773886982,
-      "spec": 1773887291
-    },
-    "0588-cleanup-single-repo-remnants": {
-      "metadata": 1773888543,
-      "tasks": 1773888438,
-      "spec": 1773888520
-    },
-    "0589-cli-complete-improvements": {
-      "metadata": 1773891861,
-      "tasks": 1773891667,
-      "spec": 1773891844
-    },
-    "0590-init-launch-living-docs-job": {
-      "metadata": 1773887171,
-      "tasks": 1773886644,
-      "spec": 1773887162
-    },
-    "0591-docs-config-reference": {
-      "metadata": 1773891941,
-      "tasks": 1773891794,
-      "spec": 1773891929
-    },
-    "0592-unified-advisor-command": {
-      "metadata": 1773889082,
-      "tasks": 1773889082,
-      "spec": 1773889082
-    },
-    "0593-fix-refresh-plugins-tool-detection": {
-      "metadata": 1773893072,
-      "tasks": 1773892920,
-      "spec": 1773893058
-    },
-    "0594-docs-specweave-get-features": {
-      "metadata": 1773941150,
-      "tasks": 0,
-      "spec": 0
-    },
-    "0595-help-skill-discovery": {
-      "metadata": 1773893293,
-      "tasks": 1773893085,
-      "spec": 1773893277
-    },
-    "0596-tool-agnostic-command-refs": {
-      "metadata": 1773893335,
-      "tasks": 1773893222,
-      "spec": 1773893315
-    },
-    "0597-fix-ado-parent-child-linking": {
-      "metadata": 1773896755,
-      "tasks": 1773893431,
-      "spec": 1773893519
-    },
-    "0598-fix-ado-sync-parent-linking": {
-      "metadata": 1773894639,
-      "tasks": 1773894589,
-      "spec": 1773894626
-    },
-    "0599-fix-triple-sync-complete": {
-      "metadata": 1773894575,
-      "tasks": 1773894239,
-      "spec": 1773894565
-    },
-    "0600-docs-deployment-alignment": {
-      "metadata": 1773895366,
-      "tasks": 1773895217,
-      "spec": 1773895355
-    },
-    "0601-fix-ado-sync-remaining-gaps": {
-      "metadata": 1773895345,
-      "tasks": 1773895299,
-      "spec": 1773895336
-    },
-    "0602-tool-agnostic-refs-phases-2-4": {
-      "metadata": 1773898720,
-      "tasks": 1773898613,
-      "spec": 1773898713
-    },
-    "0603-test-sync-dedup-verify": {
-      "metadata": 1773896138,
-      "tasks": 1773896075,
-      "spec": 1773896095
-    },
-    "0604-fix-ado-per-us-sync-scoping": {
-      "metadata": 1773896782,
-      "tasks": 1773896651,
-      "spec": 1773896679
-    },
-    "0605-init-async-clone-jobs": {
-      "metadata": 1773898296,
-      "tasks": 1773898140,
-      "spec": 1773898267
-    },
-    "0606-non-claude-skill-refresh": {
-      "metadata": 1773902338,
-      "tasks": 1773898510,
-      "spec": 1773899743
-    },
-    "0607-closure-subagent-system": {
-      "metadata": 1773902394,
-      "tasks": 1773899312,
-      "spec": 1773899807
-    },
-    "0608-per-session-state-isolation": {
-      "metadata": 1773903448,
-      "tasks": 1773902810,
-      "spec": 1773903448
-    },
-    "0609-fix-github-api-rate-limit": {
-      "metadata": 1773904339,
-      "tasks": 1773904106,
-      "spec": 1773904295
-    },
-    "0610-fix-sync-progress-dual-path-dedup": {
-      "metadata": 1773904458,
-      "tasks": 1773904370,
-      "spec": 1773904453
-    },
-    "0611-docs-examples-rewrite-tabs": {
-      "metadata": 1773905989,
-      "tasks": 1773905908,
-      "spec": 1773905982
-    },
-    "0612-reduce-github-api-calls": {
-      "metadata": 1773908285,
-      "tasks": 1773908040,
-      "spec": 1773908277
-    },
-    "0613-reduce-github-api-calls-phase1": {
-      "metadata": 1773907592,
-      "tasks": 1773907441,
-      "spec": 1773907582
-    },
-    "0614-update-non-claude-skill-routing": {
-      "metadata": 1773908059,
-      "tasks": 1773907907,
-      "spec": 1773908059
-    },
-    "0615-init-multi-repo-patterns-loop": {
-      "metadata": 1773931776,
-      "tasks": 1773909158,
-      "spec": 1773909384
-    },
-    "0616-fix-validate-owner-error-masking": {
-      "metadata": 1773927582,
-      "tasks": 1773927196,
-      "spec": 1773927559
-    },
-    "0617-sync-routing-evolutionary-cleanup": {
-      "metadata": 1773929315,
-      "tasks": 1773927740,
-      "spec": 1773929283
     },
     "0618-simplify-sync-setup-fix-triggers": {
       "metadata": 1773925685,
@@ -2335,34 +477,49 @@
       "spec": 1773938511
     },
     "0623-fix-init-guard-order-and-temp-detection": {
-      "metadata": 1773949909,
+      "metadata": 1773949953,
       "tasks": 1773949821,
-      "spec": 1773949817
+      "spec": 1773949914
     },
     "0624-studio-comparison-ux-clarity": {
-      "metadata": 1773951852,
+      "metadata": 1773951892,
       "tasks": 1773951626,
-      "spec": 1773951834
+      "spec": 1773951856
     },
     "0625-external-tool-integration-rework": {
-      "metadata": 1773958829,
+      "metadata": 1773959216,
       "tasks": 1773958829,
-      "spec": 1773958838
-    },
-    "0627-team-lead-agent-teams-api": {
-      "metadata": 1773957847,
-      "tasks": 1773958029,
-      "spec": 1773958038
+      "spec": 1773959216
     },
     "0626-fix-appstore-skill-md": {
-      "metadata": 1773959614,
-      "tasks": 1773959554,
-      "spec": 1773959607
+      "metadata": 1773962273,
+      "tasks": 1773962237,
+      "spec": 1773962241
+    },
+    "0627-team-lead-agent-teams-api": {
+      "metadata": 1773958335,
+      "tasks": 1773958029,
+      "spec": 1773958299
     },
     "0628-code-review-fixes-type-safety": {
-      "metadata": 1773960562,
+      "metadata": 1773960933,
       "tasks": 1773960760,
-      "spec": 1773960761
+      "spec": 1773960913
+    },
+    "0629-delegate-plugin-registry-to-claude-cli": {
+      "metadata": 1773960730,
+      "tasks": 1773960730,
+      "spec": 1773960730
+    },
+    "0630-global-agent-teams-env": {
+      "metadata": 1773962191,
+      "tasks": 1773962063,
+      "spec": 1773962170
+    },
+    "0631-fix-umbrella-root-resolution": {
+      "metadata": 1773962384,
+      "tasks": 1773962112,
+      "spec": 1773962352
     }
   }
 }
