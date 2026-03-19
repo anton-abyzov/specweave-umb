@@ -56,6 +56,6 @@
 ### T-004: Run full test suite
 
 **User Story**: US-001, US-002, US-003 | **Satisfies ACs**: All
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 **Dependencies**: T-002, T-003
