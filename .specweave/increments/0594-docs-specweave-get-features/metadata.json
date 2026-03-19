@@ -1,1 +1,15 @@
-{"id":"0594","name":"docs-specweave-get-features","type":"docs","status":"active","priority":"medium","createdAt":"2026-03-18T22:00:00Z","lastActivity":"2026-03-18T22:00:00Z","project":"specweave"}
+{
+  "id": "0594-docs-specweave-get-features",
+  "name": "docs-specweave-get-features",
+  "type": "feature",
+  "status": "completed",
+  "priority": "medium",
+  "lastActivity": "2026-03-19T17:25:56.346Z",
+  "project": "specweave",
+  "created": "2026-03-18T22:00:00Z",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-03-19T17:25:56.344Z",
+  "approvedAt": "2026-03-19T17:25:56.346Z"
+}
