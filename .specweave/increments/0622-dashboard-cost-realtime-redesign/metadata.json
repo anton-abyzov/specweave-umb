@@ -1,0 +1,29 @@
+{
+  "id": "0622-dashboard-cost-realtime-redesign",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-19T15:56:27.412Z",
+  "lastActivity": "2026-03-19T16:30:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-713",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-713",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T16:06:28.209Z"
+    },
+    "ado": {
+      "featureId": "1552",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1552",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T16:06:32.912Z"
+    }
+  },
+  "project": "specweave-umb"
+}
