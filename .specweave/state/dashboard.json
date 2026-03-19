@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-19T19:43:54Z",
+  "updatedAt": "2026-03-19T20:03:16Z",
   "increments": {
     "0532-fix-hook-timeout-errors": {
       "status": "completed",
@@ -1731,8 +1731,26 @@
       "userStories": []
     },
     "0623-fix-init-guard-order-and-temp-detection": {
-      "status": "planned",
+      "status": "active",
       "type": "bug",
+      "priority": "P1",
+      "title": "",
+      "project": "specweave-umb",
+      "tasks": {
+        "total": 7,
+        "completed": 7
+      },
+      "acs": {
+        "total": 7,
+        "completed": 7
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-19T15:51:49Z",
+      "userStories": []
+    },
+    "0624-studio-comparison-ux-clarity": {
+      "status": "planned",
+      "type": "feature",
       "priority": "P1",
       "title": "",
       "project": "specweave-umb",
@@ -1741,17 +1759,17 @@
         "completed": 0
       },
       "acs": {
-        "total": 7,
+        "total": 22,
         "completed": 0
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T15:42:17Z",
+      "lastActivity": "2026-03-19T15:58:10Z",
       "userStories": []
     }
   },
   "summary": {
-    "total": 92,
-    "active": 1,
+    "total": 93,
+    "active": 2,
     "paused": 0,
     "backlog": 0,
     "planning": 5,
@@ -1760,7 +1778,7 @@
     "abandoned": 0,
     "archived": 506,
     "byType": {
-      "feature": 60,
+      "feature": 61,
       "hotfix": 0,
       "bug": 24,
       "refactor": 3,
@@ -1770,7 +1788,7 @@
     },
     "byPriority": {
       "P0": 2,
-      "P1": 89,
+      "P1": 90,
       "P2": 2,
       "P3": 0,
       "medium": -1
@@ -2245,9 +2263,14 @@
       "spec": 1773938511
     },
     "0623-fix-init-guard-order-and-temp-detection": {
-      "metadata": 1773949337,
-      "tasks": 1773949434,
-      "spec": 1773949408
+      "metadata": 1773949909,
+      "tasks": 1773949821,
+      "spec": 1773949817
+    },
+    "0624-studio-comparison-ux-clarity": {
+      "metadata": 1773950290,
+      "tasks": 1773950595,
+      "spec": 1773950258
     }
   }
 }

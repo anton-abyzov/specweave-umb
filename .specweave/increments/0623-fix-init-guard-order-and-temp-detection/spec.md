@@ -1,10 +1,10 @@
 ---
 increment: 0623-fix-init-guard-order-and-temp-detection
-title: "Fix init guard order and temp path detection"
+title: Fix init guard order and temp path detection
 type: bug
 priority: P1
-status: planned
-created: 2026-03-19
+status: completed
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -26,8 +26,8 @@ Three bugs in `specweave init` cause data loss and false positives when running 
 **So that** I don't lose data only to be told the path is invalid
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `detectUmbrellaParent`, `detectSuspiciousPath`, and `detectNestedSpecweave` run before `promptSmartReinit` in both dot-path and named-path flows
-- [ ] **AC-US1-02**: If a guard blocks init, no `.specweave/` data is deleted
+- [x] **AC-US1-01**: `detectUmbrellaParent`, `detectSuspiciousPath`, and `detectNestedSpecweave` run before `promptSmartReinit` in both dot-path and named-path flows
+- [x] **AC-US1-02**: If a guard blocks init, no `.specweave/` data is deleted
 
 ---
 
@@ -39,9 +39,9 @@ Three bugs in `specweave init` cause data loss and false positives when running 
 **So that** I can use any user-created folder name without false positives
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: User-created folders named "temp" or "tmp" in the path do NOT trigger the suspicious path guard
-- [ ] **AC-US2-02**: Paths under the actual system temp directory (`os.tmpdir()`) ARE flagged as suspicious
-- [ ] **AC-US2-03**: `SUSPICIOUS_PATH_SEGMENTS` no longer contains "tmp" or "temp"
+- [x] **AC-US2-01**: User-created folders named "temp" or "tmp" in the path do NOT trigger the suspicious path guard
+- [x] **AC-US2-02**: Paths under the actual system temp directory (`os.tmpdir()`) ARE flagged as suspicious
+- [x] **AC-US2-03**: `SUSPICIOUS_PATH_SEGMENTS` no longer contains "tmp" or "temp"
 
 ---
 
@@ -53,8 +53,8 @@ Three bugs in `specweave init` cause data loss and false positives when running 
 **So that** I get actionable guidance instead of being pointed to my home directory
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `suggestedRoot` never returns `os.homedir()` or an ancestor of it
-- [ ] **AC-US3-02**: When the naive computation would return home dir, falls back to `path.dirname(targetDir)`
+- [x] **AC-US3-01**: `suggestedRoot` never returns `os.homedir()` or an ancestor of it
+- [x] **AC-US3-02**: When the naive computation would return home dir, falls back to `path.dirname(targetDir)`
 
 ## Out of Scope
 
