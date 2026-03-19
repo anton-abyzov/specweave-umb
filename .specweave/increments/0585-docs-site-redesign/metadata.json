@@ -1,0 +1,30 @@
+{
+  "id": "0585-docs-site-redesign",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-19T01:50:07.435Z",
+  "lastActivity": "2026-03-19T02:13:44.813Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-563",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-563",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T02:14:01.006Z"
+    },
+    "ado": {
+      "featureId": "1440",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1440",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T02:14:04.423Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-19T02:13:28.613Z",
+  "approvedAt": "2026-03-19T02:13:44.813Z"
+}

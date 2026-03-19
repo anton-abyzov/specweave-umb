@@ -288,12 +288,12 @@ test_mode: TDD
 
 ### T-036: Run `npx tsc --noEmit` after all Phase 1-3 code changes -- assert zero TypeScript errors
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**: Given the codebase after all Phase 1-3 changes → When `npx tsc --noEmit` is run in the specweave repo → Then the compiler reports zero errors, confirming all type references to removed values have been updated
 
 ---
 
 ### T-037: Run full `npx vitest run` after Phase 2+3 -- assert zero failures and 90% coverage target
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test Plan**: Given the codebase after T-010 through T-028 → When `npx vitest run` is executed → Then all tests pass, no test file imports a deleted module, zero tests are skipped, and coverage for changed files meets the 90% target

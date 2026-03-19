@@ -7,8 +7,8 @@ Comprehensive installation guide for all scenarios.
 Before installing SpecWeave, ensure you have:
 
 **Required:**
-- [Node.js](/docs/glossary/terms/nodejs) 18+ - Check with `node --version`
-- npm 9+ - Check with `npm --version`
+- [Node.js](/docs/glossary/terms/nodejs) 20.12.0+ - Check with `node --version`
+- npm 10+ - Check with `npm --version`
 
 **Recommended:**
 - Claude Code (best experience)
@@ -174,7 +174,7 @@ your-project/
 │   │   │   └── governance/   # Security, compliance
 │   │   └── public/           # Published docs
 │   ├── tests/                # Centralized test repository
-│   ├── config.yaml           # Configuration
+│   ├── config.json            # Configuration
 │   └── logs/                 # Execution logs
 │
 ├── CLAUDE.md                 # Complete development guide
@@ -185,8 +185,8 @@ your-project/
 ### For Claude Code (Native)
 
 Gets **full native integration**:
-- ✅ 10 agents in `.claude/agents/`
-- ✅ 14 skills in `.claude/skills/`
+- ✅ 11 agents in `.claude/agents/`
+- ✅ 17 skills in `.claude/skills/`
 - ✅ 22 slash commands in `.claude/commands/`
 - ✅ 8 automation hooks in `.claude/hooks/`
 
@@ -303,15 +303,15 @@ After installation, verify everything is set up correctly:
 cd your-project
 
 # Verify SpecWeave structure
-ls -la .specweave/          # Should have increments/, docs/, config.yaml
-cat .specweave/config.yaml  # Should show configuration
+ls -la .specweave/          # Should have increments/, docs/, config.json
+cat .specweave/config.json  # Should show configuration
 cat CLAUDE.md               # Should exist
 cat .gitignore              # Should exist
 
 # For Claude Code users
-ls -la .claude/agents/      # Should have 10 agents
-ls -la .claude/skills/      # Should have 14 skills
-ls -la .claude/commands/    # Should have 28 commands
+ls -la .claude/agents/      # Should have 11 agents
+ls -la .claude/skills/      # Should have 17 skills
+ls -la .claude/commands/    # Should have 22 commands
 ls -la .claude/hooks/       # Should have 8 hooks
 
 # For other AI tool users
@@ -324,12 +324,12 @@ cat AGENTS.md               # Should exist
 ### Verification Checklist
 
 - [ ] `.specweave/` directory exists
-- [ ] `.specweave/config.yaml` is present
+- [ ] `.specweave/config.json` is present
 - [ ] `CLAUDE.md` exists
 - [ ] `.gitignore` includes SpecWeave ignores
 - [ ] Git repository initialized (if git available)
-- [ ] For Claude Code: `.claude/agents/` has 10 agent folders
-- [ ] For Claude Code: `.claude/skills/` has 14 skill folders
+- [ ] For Claude Code: `.claude/agents/` has 11 agent folders
+- [ ] For Claude Code: `.claude/skills/` has 17 skill folders
 - [ ] For Claude Code: `.claude/commands/` has 22 command files
 - [ ] For other tools: `AGENTS.md` exists
 
@@ -365,35 +365,31 @@ cat AGENTS.md               # Should exist
 
 ## Configuration
 
-After installation, optionally customize `.specweave/config.yaml`:
+After installation, optionally customize `.specweave/config.json`:
 
-```yaml
-project:
-  name: "your-project"
-  type: "greenfield"  # or "brownfield"
-
-hooks:
-  enabled: true
-  post_task_completion:
-    enabled: true
-    notification_sound: true  # macOS notification
-
-testing:
-  e2e_playwright_mandatory_for_ui: true
-  min_coverage: 80
-
-integrations:
-  jira:
-    enabled: false
-    url: ""
-    project_key: ""
-  github:
-    enabled: false
-    repository: ""
-  azure_devops:
-    enabled: false
-    organization: ""
-    project: ""
+```json
+{
+  "project": {
+    "name": "your-project",
+    "type": "greenfield"
+  },
+  "hooks": {
+    "enabled": true,
+    "post_task_completion": {
+      "enabled": true,
+      "notification_sound": true
+    }
+  },
+  "testing": {
+    "e2e_playwright_mandatory_for_ui": true,
+    "min_coverage": 80
+  },
+  "integrations": {
+    "jira": { "enabled": false, "url": "", "project_key": "" },
+    "github": { "enabled": false, "repository": "" },
+    "azure_devops": { "enabled": false, "organization": "", "project": "" }
+  }
+}
 ```
 
 **Configuration options:**

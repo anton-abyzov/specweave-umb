@@ -1,0 +1,61 @@
+{
+  "id": "0590-init-launch-living-docs-job",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-19T02:06:22.247Z",
+  "lastActivity": "2026-03-19T02:26:02.313Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-599",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-599",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T02:26:10.254Z"
+    },
+    "ado": {
+      "featureId": "1451",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1451",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T02:26:11.520Z"
+    }
+  },
+  "interview": {
+    "status": "done",
+    "startedAt": "2026-03-19T02:06:22.247Z",
+    "completedAt": "2026-03-19T02:10:00.000Z",
+    "categories": {
+      "architecture": {
+        "covered": true,
+        "summary": "Single insertion in init.ts after git hooks, before summary banner. Dynamic imports for launchLivingDocsJob and displayJobScheduled to avoid cold-start penalty. Static type-only import for LivingDocsUserInputs. No new files, no new modules."
+      },
+      "integrations": {
+        "covered": true,
+        "summary": "Uses existing APIs only: launchLivingDocsJob() from job-launcher.ts, displayJobScheduled() from living-docs-preflight.ts. Config saved to .specweave/state/living-docs-config.json for reuse by standalone specweave living-docs command via loadSavedLivingDocsConfig()."
+      },
+      "ui-ux": {
+        "covered": true,
+        "summary": "No new interactive prompts. displayJobScheduled() shows job ID and monitoring instructions (/sw:jobs). Silent on failure — no error messages shown to user since init must feel clean."
+      },
+      "performance": {
+        "covered": true,
+        "summary": "Dynamic imports keep init cold-start fast when living docs launch is skipped (re-init, CI). analysisDepth: quick means background job completes in ~5-10 min. Fire-and-forget — does not block init completion."
+      },
+      "security": {
+        "covered": true,
+        "summary": "No new user input handling. No secrets involved. Background job runs with same permissions as init process. No network calls added to init itself — the background worker handles its own I/O."
+      },
+      "edge-cases": {
+        "covered": true,
+        "summary": "Re-init (continueExisting): skipped. CI (isCI): skipped. Worker not found: handled by launchLivingDocsJob returning isBackground: false. Missing state dir: fs.ensureDirSync before writing config. Spawn failure and config write failure: caught by outer try/catch, init continues."
+      }
+    }
+  },
+  "readyForReviewAt": "2026-03-19T02:26:02.212Z",
+  "approvedAt": "2026-03-19T02:26:02.313Z"
+}

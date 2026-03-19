@@ -1,10 +1,10 @@
 ---
 increment: 0581-init-always-multi-repo
-title: "Simplify init to always use repositories/owner/repo structure"
+title: Simplify init to always use repositories/owner/repo structure
 type: change-request
 priority: P1
-status: active
-created: 2026-03-18
+status: completed
+created: 2026-03-18T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -41,11 +41,11 @@ SpecWeave init currently presents a 4-way question ("How would you like to set u
 **So that** I can start working immediately without predicting my future repository topology
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a user runs `specweave init`, when the init wizard starts, then no "How would you like to set up your code?" 4-way question is presented
-- [ ] **AC-US1-02**: Given a user runs `specweave init`, when prompted for repositories, then the prompt asks "Which repositories to connect?" accepting clone URLs, patterns, or "add later via specweave get"
-- [ ] **AC-US1-03**: Given init completes, when the workspace is created, then a `repositories/` directory exists at the workspace root
-- [ ] **AC-US1-04**: Given init completes, when the summary banner is displayed, then it shows "Workspace (N repositories)" instead of "Single repository"
-- [ ] **AC-US1-05**: Given init completes, when next-steps are displayed, then `specweave get` is shown and `migrate-to-umbrella` is never shown
+- [x] **AC-US1-01**: Given a user runs `specweave init`, when the init wizard starts, then no "How would you like to set up your code?" 4-way question is presented
+- [x] **AC-US1-02**: Given a user runs `specweave init`, when prompted for repositories, then the prompt asks "Which repositories to connect?" accepting clone URLs, patterns, or "add later via specweave get"
+- [x] **AC-US1-03**: Given init completes, when the workspace is created, then a `repositories/` directory exists at the workspace root
+- [x] **AC-US1-04**: Given init completes, when the summary banner is displayed, then it shows "Workspace (N repositories)" instead of "Single repository"
+- [x] **AC-US1-05**: Given init completes, when next-steps are displayed, then `specweave get` is shown and `migrate-to-umbrella` is never shown
 
 ---
 
@@ -56,10 +56,10 @@ SpecWeave init currently presents a 4-way question ("How would you like to set u
 **So that** there is no dead code supporting a migration path that no longer applies
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given the codebase after this change, when examining `src/cli/commands/`, then `migrate-to-umbrella.ts` does not exist
-- [ ] **AC-US2-02**: Given the codebase after this change, when examining `bin/specweave.js`, then no registration block for `migrate-to-umbrella` exists
-- [ ] **AC-US2-03**: Given a user runs `specweave migrate-to-umbrella`, when the CLI processes the command, then it prints "This command has been removed. Use `specweave get` to add repositories." and exits with code 0
-- [ ] **AC-US2-04**: Given the codebase after this change, when examining `src/consolidation/`, then `consolidation-engine.ts` and `spec-project-mapper.ts` still exist
+- [x] **AC-US2-01**: Given the codebase after this change, when examining `src/cli/commands/`, then `migrate-to-umbrella.ts` does not exist
+- [x] **AC-US2-02**: Given the codebase after this change, when examining `bin/specweave.js`, then no registration block for `migrate-to-umbrella` exists
+- [x] **AC-US2-03**: Given a user runs `specweave migrate-to-umbrella`, when the CLI processes the command, then it prints "This command has been removed. Use `specweave get` to add repositories." and exits with code 0
+- [x] **AC-US2-04**: Given the codebase after this change, when examining `src/consolidation/`, then `consolidation-engine.ts` and `spec-project-mapper.ts` still exist
 
 ---
 
@@ -70,8 +70,8 @@ SpecWeave init currently presents a 4-way question ("How would you like to set u
 **So that** unused deprecated code does not remain in the codebase
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given the codebase after this change, when examining `src/cli/commands/`, then `resolve-structure.ts` does not exist
-- [ ] **AC-US3-02**: Given the codebase after this change, when examining `bin/specweave.js`, then no registration block for `resolve-structure` exists
+- [x] **AC-US3-01**: Given the codebase after this change, when examining `src/cli/commands/`, then `resolve-structure.ts` does not exist
+- [x] **AC-US3-02**: Given the codebase after this change, when examining `bin/specweave.js`, then no registration block for `resolve-structure` exists
 
 ---
 
@@ -82,11 +82,11 @@ SpecWeave init currently presents a 4-way question ("How would you like to set u
 **So that** the type system reflects the unified architecture without dead branches
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given the `RepositoryHosting` type in `src/cli/helpers/init/types.ts`, when inspected after this change, then no values contain `-single` or `-multirepo` suffixes
-- [ ] **AC-US4-02**: Given the `RepositoryHosting` type in `src/cli/helpers/issue-tracker/types.ts`, when inspected after this change, then no values contain `-single` or `-multirepo` suffixes
-- [ ] **AC-US4-03**: Given the `RepoArchitecture` type in `src/core/repo-structure/repo-structure-manager.ts`, when inspected after this change, then `'single'` is not a valid value
-- [ ] **AC-US4-04**: Given the `SetupArchitecture` type in `src/core/repo-structure/setup-state-manager.ts`, when inspected after this change, then `'single'` is not a valid value
-- [ ] **AC-US4-05**: Given the codebase after this change, when examining `src/core/config/`, then `single-project-migrator.ts` does not exist
+- [x] **AC-US4-01**: Given the `RepositoryHosting` type in `src/cli/helpers/init/types.ts`, when inspected after this change, then no values contain `-single` or `-multirepo` suffixes
+- [x] **AC-US4-02**: Given the `RepositoryHosting` type in `src/cli/helpers/issue-tracker/types.ts`, when inspected after this change, then no values contain `-single` or `-multirepo` suffixes
+- [x] **AC-US4-03**: Given the `RepoArchitecture` type in `src/core/repo-structure/repo-structure-manager.ts`, when inspected after this change, then `'single'` is not a valid value
+- [x] **AC-US4-04**: Given the `SetupArchitecture` type in `src/core/repo-structure/setup-state-manager.ts`, when inspected after this change, then `'single'` is not a valid value
+- [x] **AC-US4-05**: Given the codebase after this change, when examining `src/core/config/`, then `single-project-migrator.ts` does not exist
 
 ---
 
@@ -97,11 +97,11 @@ SpecWeave init currently presents a 4-way question ("How would you like to set u
 **So that** documentation matches the actual init behavior
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given `CLAUDE.md` in the specweave repo, when inspected after this change, then the "Multi-repo" section describes a single unified model without single/multi distinction
-- [ ] **AC-US5-02**: Given the `AGENTS.md` template, when inspected after this change, then the section formerly titled "Multi-Repo Structure" is titled "Repository Structure"
-- [ ] **AC-US5-03**: Given `docs-site/docs/guides/multi-project-setup.md`, when inspected after this change, then it describes the unified repositories/ structure without migration instructions
-- [ ] **AC-US5-04**: Given `docs-site/docs/guides/command-reference-by-priority.md`, when inspected after this change, then `migrate-to-umbrella` does not appear
-- [ ] **AC-US5-05**: Given `docs-site/docs/getting-started/installation.md`, when inspected after this change, then the init flow description matches the new simplified prompt sequence
+- [x] **AC-US5-01**: Given `CLAUDE.md` in the specweave repo, when inspected after this change, then the "Multi-repo" section describes a single unified model without single/multi distinction
+- [x] **AC-US5-02**: Given the `AGENTS.md` template, when inspected after this change, then the section formerly titled "Multi-Repo Structure" is titled "Repository Structure"
+- [x] **AC-US5-03**: Given `docs-site/docs/guides/multi-project-setup.md`, when inspected after this change, then it describes the unified repositories/ structure without migration instructions
+- [x] **AC-US5-04**: Given `docs-site/docs/guides/command-reference-by-priority.md`, when inspected after this change, then `migrate-to-umbrella` does not appear
+- [x] **AC-US5-05**: Given `docs-site/docs/getting-started/installation.md`, when inspected after this change, then the init flow description matches the new simplified prompt sequence
 
 ---
 
@@ -112,10 +112,10 @@ SpecWeave init currently presents a 4-way question ("How would you like to set u
 **So that** the test suite covers the new behavior and does not test removed code paths
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: Given `tests/unit/cli/commands/init-multirepo.test.ts`, when inspected after this change, then it tests the new simplified flow where init always creates `repositories/`
-- [ ] **AC-US6-02**: Given the codebase after this change, when examining `tests/unit/cli/commands/`, then `migrate-to-umbrella.test.ts` does not exist
-- [ ] **AC-US6-03**: Given a test for init, when init completes, then the resulting config does not contain `multiProject.enabled`
-- [ ] **AC-US6-04**: Given a test for init, when init completes and `specweave get <url>` is run, then the repository is cloned into `repositories/owner/repo`
+- [x] **AC-US6-01**: Given `tests/unit/cli/commands/init-multirepo.test.ts`, when inspected after this change, then it tests the new simplified flow where init always creates `repositories/`
+- [x] **AC-US6-02**: Given the codebase after this change, when examining `tests/unit/cli/commands/`, then `migrate-to-umbrella.test.ts` does not exist
+- [x] **AC-US6-03**: Given a test for init, when init completes, then the resulting config does not contain `multiProject.enabled`
+- [x] **AC-US6-04**: Given a test for init, when init completes and `specweave get <url>` is run, then the repository is cloned into `repositories/owner/repo`
 
 ## Out of Scope
 

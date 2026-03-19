@@ -1,13 +1,14 @@
 {
   "id": "0573-fix-sw-specweave-corruption",
   "name": "fix-sw-specweave-corruption",
-  "status": "active",
+  "status": "completed",
   "created": "2026-03-18T15:00:00Z",
   "updated": "2026-03-18T15:00:00Z",
   "externalLinks": {},
   "priority": "medium",
-  "lastActivity": "2026-03-18T15:00:00Z",
+  "lastActivity": "2026-03-19T01:36:13Z",
   "testMode": "test-after",
   "coverageTarget": 80,
-  "type": "feature"
+  "type": "feature",
+  "readyForReviewAt": "2026-03-19T01:36:00.247Z"
 }

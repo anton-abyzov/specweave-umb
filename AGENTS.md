@@ -1,6 +1,6 @@
-<!-- SW:META template="agents" version="1.0.514" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
+<!-- SW:META template="agents" version="1.0.520" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
 
-<!-- SW:SECTION:rules version="1.0.514" -->
+<!-- SW:SECTION:rules version="1.0.520" -->
 ## Essential Rules
 
 ```
@@ -29,7 +29,7 @@
 ```
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:orchestration version="1.0.514" -->
+<!-- SW:SECTION:orchestration version="1.0.520" -->
 ## Workflow Orchestration
 
 ### 1. Plan Before Code (MANDATORY)
@@ -76,7 +76,7 @@ Good: npm run build → node script.js → Success
 ```
 <!-- SW:END:orchestration -->
 
-<!-- SW:SECTION:principles version="1.0.514" -->
+<!-- SW:SECTION:principles version="1.0.520" -->
 ## Core Principles (Quality)
 
 ### Simplicity First
@@ -123,7 +123,7 @@ Good: npm run build → node script.js → Success
 - E2E with Playwright CLI (`npx playwright test`) is a blocking closure gate
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:commands version="1.0.514" -->
+<!-- SW:SECTION:commands version="1.0.520" -->
 ## Commands Reference
 
 | Command | Purpose |
@@ -142,7 +142,7 @@ Good: npm run build → node script.js → Success
 | `/sw:import` | Import issues from external tools |
 <!-- SW:END:commands -->
 
-<!-- SW:SECTION:nonclaudetools version="1.0.514" -->
+<!-- SW:SECTION:nonclaudetools version="1.0.520" -->
 ## Non-Claude Tools (Cursor, Copilot, etc.)
 
 Claude Code has automatic hooks and orchestration. Other tools must do these manually.
@@ -185,7 +185,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 **Background jobs**: Monitor with `specweave jobs` (clone-repos, import-issues, living-docs-builder, sync-external).
 <!-- SW:END:nonclaudetools -->
 
-<!-- SW:SECTION:syncworkflow version="1.0.514" -->
+<!-- SW:SECTION:syncworkflow version="1.0.520" -->
 ## Sync Workflow
 
 ### Source of Truth
@@ -210,7 +210,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 | `/sw-ado:sync <id>` | After each task |
 <!-- SW:END:syncworkflow -->
 
-<!-- SW:SECTION:contextloading version="1.0.514" -->
+<!-- SW:SECTION:contextloading version="1.0.520" -->
 ## Context Loading
 
 ### Efficient Context Management
@@ -230,7 +230,7 @@ Read only what's needed for the current task:
 4. Avoid loading entire documentation trees
 <!-- SW:END:contextloading -->
 
-<!-- SW:SECTION:structure version="1.0.514" -->
+<!-- SW:SECTION:structure version="1.0.520" -->
 ## Project Structure
 
 ```
@@ -250,13 +250,13 @@ Read only what's needed for the current task:
 └── state/                # Runtime state (active increment, caches)
 ```
 
-### Multi-Repo Structure
+### Repository Structure
 
-**In umbrella projects with `repositories/` folder, each repo has its own `.specweave/`:**
+**Every workspace uses `repositories/` to organize code. Each repo has its own `.specweave/`:**
 
 ```
-umbrella-project/
-├── .specweave/config.json          # Umbrella config ONLY
+workspace/
+├── .specweave/config.json          # Workspace config ONLY
 ├── repositories/
 │   ├── org/frontend/
 │   │   └── .specweave/increments/  # Frontend increments HERE
@@ -266,10 +266,10 @@ umbrella-project/
 │       └── .specweave/increments/  # Shared increments HERE
 ```
 
-**Rules**: Each repo manages its own increments. Never create agent increments in the umbrella root.
+**Rules**: Each repo manages its own increments. Never create increments in the workspace root.
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:agents version="1.0.514" -->
+<!-- SW:SECTION:agents version="1.0.520" -->
 ## Agents (Roles)
 
 {AGENTS_SECTION}
@@ -277,7 +277,7 @@ umbrella-project/
 **Usage**: Adopt role perspective when working on related tasks.
 <!-- SW:END:agents -->
 
-<!-- SW:SECTION:skills version="1.0.514" -->
+<!-- SW:SECTION:skills version="1.0.520" -->
 ## Skills (Capabilities)
 
 {SKILLS_SECTION}
@@ -289,7 +289,7 @@ umbrella-project/
 | Tool | Skills Location | Auto-loaded? |
 |------|----------------|-------------|
 | Cursor | `.cursor/skills/` | Yes |
-| GitHub Copilot | `.github/copilot/skills/` | Yes (as workspace instructions) |
+| GitHub Copilot | `.github/skills/` | Yes (as workspace instructions) |
 | Gemini CLI | `.gemini/` | Reference in prompt |
 | OpenAI Codex | `.codex/skills/` | Reference in prompt |
 | Windsurf | `.windsurf/skills/` | Yes |
@@ -305,7 +305,7 @@ umbrella-project/
 Install/refresh skills: `specweave refresh-plugins`
 <!-- SW:END:skills -->
 
-<!-- SW:SECTION:taskformat version="1.0.514" -->
+<!-- SW:SECTION:taskformat version="1.0.520" -->
 ## Task Format
 
 ```markdown
@@ -319,7 +319,7 @@ Install/refresh skills: `specweave refresh-plugins`
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:usformat version="1.0.514" -->
+<!-- SW:SECTION:usformat version="1.0.520" -->
 ## User Story Format (CRITICAL for spec.md)
 
 **MANDATORY: Every User Story MUST have `**Project**:` field!**
@@ -353,7 +353,7 @@ specweave context projects
 ```
 <!-- SW:END:usformat -->
 
-<!-- SW:SECTION:workflows version="1.0.514" -->
+<!-- SW:SECTION:workflows version="1.0.520" -->
 ## Workflows
 
 ### Creating Increment
@@ -386,7 +386,7 @@ specweave context projects
 **CRITICAL**: When all tasks are done, IMMEDIATELY chain to closure. Quality gates (grill, judge-llm, PM validation) ARE the review. Never stop to ask "should I close?" — just close it. If a gate fails, the increment stays open. User can re-open if they disagree.
 <!-- SW:END:workflows -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.514" -->
+<!-- SW:SECTION:troubleshooting version="1.0.520" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -400,7 +400,7 @@ specweave context projects
 | Skills not activating (non-Claude) | Expected — read SKILL.md from `plugins/specweave*/skills/` |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:docs version="1.0.514" -->
+<!-- SW:SECTION:docs version="1.0.520" -->
 ## Documentation
 
 | Resource | Purpose |

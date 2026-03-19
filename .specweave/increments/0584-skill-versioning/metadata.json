@@ -1,0 +1,30 @@
+{
+  "id": "0584-skill-versioning",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-19T01:36:43.287Z",
+  "lastActivity": "2026-03-19T02:37:28.478Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-601",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-601",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T02:37:58.473Z"
+    },
+    "ado": {
+      "featureId": "1453",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1453",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T02:38:03.060Z"
+    }
+  },
+  "updated": "2026-03-19T02:29:52.000Z",
+  "approvedAt": "2026-03-19T02:37:28.478Z"
+}

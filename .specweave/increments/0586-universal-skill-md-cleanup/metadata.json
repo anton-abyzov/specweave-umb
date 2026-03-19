@@ -1,0 +1,30 @@
+{
+  "id": "0586-universal-skill-md-cleanup",
+  "status": "completed",
+  "type": "refactor",
+  "priority": "P2",
+  "created": "2026-03-19T01:57:57.004Z",
+  "lastActivity": "2026-03-19T02:03:15.391Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-577",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-577",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T02:03:39.777Z"
+    },
+    "ado": {
+      "featureId": "1443",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1443",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T02:03:42.102Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-19T02:03:15.295Z",
+  "approvedAt": "2026-03-19T02:03:15.391Z"
+}

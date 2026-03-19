@@ -1,10 +1,10 @@
 {
   "id": "0562-vskill-studio-activation-category-model",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-17T23:03:37.317Z",
-  "lastActivity": "2026-03-17T23:03:37.317Z",
+  "lastActivity": "2026-03-19T01:36:13Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,

@@ -1,0 +1,59 @@
+{
+  "id": "0589-cli-complete-improvements",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-19T02:05:08.120Z",
+  "lastActivity": "2026-03-19T02:05:08.120Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-588",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-588",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T02:12:39.196Z"
+    },
+    "ado": {
+      "featureId": "1446",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1446",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T02:12:41.405Z"
+    }
+  },
+  "interview": {
+    "status": "done",
+    "startedAt": "2026-03-19T02:05:08.120Z",
+    "completedAt": "2026-03-19T02:08:00.000Z",
+    "categories": {
+      "architecture": {
+        "covered": true,
+        "summary": "Extract resolveIncrementId() from evaluate-completion.ts to a shared utility at src/utils/resolve-increment-id.ts. Change complete command from single-arg to variadic. No new modules or architectural patterns — follows existing patterns from archive command."
+      },
+      "integrations": {
+        "covered": true,
+        "summary": "No new integrations. The complete command already triggers GitHub/JIRA/ADO sync via StatusChangeSyncTrigger and LifecycleHookDispatcher. Batch mode calls the same completeIncrement() per ID — sync behavior unchanged."
+      },
+      "ui-ux": {
+        "covered": true,
+        "summary": "CLI-only changes. Short-ID: users type fewer characters. Batch mode: single command for multiple IDs. Error messages follow existing chalk-colored pattern. Summary line added at end of batch runs showing pass/fail counts."
+      },
+      "performance": {
+        "covered": true,
+        "summary": "N/A — CLI command, not hot path. Batch mode processes sequentially (not parallel). resolveIncrementId() does a single readdirSync which is already done in evaluate-completion. No performance concerns."
+      },
+      "security": {
+        "covered": true,
+        "summary": "Short-ID resolution uses the same validateIncrementId() for the resolved full slug — path traversal protection preserved. The resolver only searches within .specweave/increments/ directory. No new user input vectors beyond existing increment ID validation."
+      },
+      "edge-cases": {
+        "covered": true,
+        "summary": "Ambiguous short-IDs (multiple matches) fail with listed matches. Zero matches fail with clear error. Batch mode: one failure does not stop others. AC validator fix: parseTasksWithUSLinks called with path instead of content — existing try/catch handles remaining errors. Already-completed increments return true (not error) per existing behavior."
+      }
+    }
+  }
+}

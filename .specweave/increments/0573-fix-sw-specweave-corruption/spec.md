@@ -1,3 +1,6 @@
+---
+status: ready_for_review
+---
 # 0573: Fix sw@specweave Silent Corruption
 
 ## Problem
