@@ -1,9 +1,9 @@
 ---
 increment: 0628-code-review-fixes-type-safety
-title: "Fix code review findings: type safety, NaN guards, logic gaps"
+title: 'Fix code review findings: type safety, NaN guards, logic gaps'
 type: bug
 priority: P1
-status: active
+status: completed
 created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD

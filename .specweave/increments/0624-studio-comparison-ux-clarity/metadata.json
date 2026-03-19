@@ -1,10 +1,10 @@
 {
   "id": "0624-studio-comparison-ux-clarity",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-19T19:54:48.973Z",
-  "lastActivity": "2026-03-19T19:54:48.973Z",
+  "lastActivity": "2026-03-19T20:24:16.034Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,15 +15,17 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-726",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-19T20:04:06.406Z"
+      "syncedAt": "2026-03-19T20:24:49.503Z"
     },
     "ado": {
       "featureId": "1565",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1565",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-19T20:04:09.433Z"
+      "syncedAt": "2026-03-19T20:24:52.684Z"
     }
   },
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "readyForReviewAt": "2026-03-19T20:24:16.025Z",
+  "approvedAt": "2026-03-19T20:24:16.034Z"
 }

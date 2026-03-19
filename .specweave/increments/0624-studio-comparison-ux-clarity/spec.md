@@ -1,10 +1,10 @@
 ---
 increment: 0624-studio-comparison-ux-clarity
-title: "vSkill Studio Comparison UX Clarity"
+title: vSkill Studio Comparison UX Clarity
 type: feature
 priority: P1
-status: active
-created: 2026-03-19
+status: completed
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -34,11 +34,11 @@ The vSkill Studio Run page (`RunPanel.tsx`) displays comparison benchmark result
 **So that** I can trust the displayed data and understand its context without guessing
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a completed benchmark with `type === "comparison"`, when the summary card renders, then the pass rate label reads "Skill Pass Rate" instead of "Overall Pass Rate"
-- [ ] **AC-US1-02**: Given a completed benchmark with `type === "baseline"`, when the summary card renders, then the pass rate label reads "Baseline Pass Rate"
-- [ ] **AC-US1-03**: Given a completed benchmark with `type === "benchmark"` or `type` is undefined, when the summary card renders, then the pass rate label reads "Skill Pass Rate"
-- [ ] **AC-US1-04**: Given a completed comparison with `latestBenchmark.comparison` present, when the "Skill vs Baseline" section renders, then a provenance line below the section header displays the model name and formatted timestamp (e.g., "claude-sonnet-4-5 · Mar 19, 2026 7:30 PM")
-- [ ] **AC-US1-05**: Given a completed comparison with `delta > 0`, when the delta line renders, then a human-readable statement appears below it (e.g., "Your skill passes 3 more assertions across 5 test cases")
+- [x] **AC-US1-01**: Given a completed benchmark with `type === "comparison"`, when the summary card renders, then the pass rate label reads "Skill Pass Rate" instead of "Overall Pass Rate"
+- [x] **AC-US1-02**: Given a completed benchmark with `type === "baseline"`, when the summary card renders, then the pass rate label reads "Baseline Pass Rate"
+- [x] **AC-US1-03**: Given a completed benchmark with `type === "benchmark"` or `type` is undefined, when the summary card renders, then the pass rate label reads "Skill Pass Rate"
+- [x] **AC-US1-04**: Given a completed comparison with `latestBenchmark.comparison` present, when the "Skill vs Baseline" section renders, then a provenance line below the section header displays the model name and formatted timestamp (e.g., "claude-sonnet-4-5 · Mar 19, 2026 7:30 PM")
+- [x] **AC-US1-05**: Given a completed comparison with `delta > 0`, when the delta line renders, then a human-readable statement appears below it (e.g., "Your skill passes 3 more assertions across 5 test cases")
 
 ---
 
@@ -50,16 +50,16 @@ The vSkill Studio Run page (`RunPanel.tsx`) displays comparison benchmark result
 **So that** I can choose the right benchmark mode confidently and interpret results without learning internal terminology
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given the benchmark controls section, when buttons render, then the three bulk buttons read "Run A/B Test", "Test Skill", and "Test Baseline" (replacing "Compare All", "Skill Only", "Baseline Only")
-- [ ] **AC-US2-02**: Given the "Run A/B Test" button, when the user hovers, then a tooltip displays "Runs both your skill and the baseline, then compares results side by side"
-- [ ] **AC-US2-03**: Given the "Test Skill" button, when the user hovers, then a tooltip displays "Runs benchmark using your skill only"
-- [ ] **AC-US2-04**: Given the "Test Baseline" button, when the user hovers, then a tooltip displays "Runs benchmark using the baseline (no skill) for reference"
-- [ ] **AC-US2-05**: Given a verdict value of "EFFECTIVE", when rendered in the comparison section, then the display text reads "Strong Improvement"
-- [ ] **AC-US2-06**: Given a verdict value of "MARGINAL", when rendered in the comparison section, then the display text reads "Moderate Improvement"
-- [ ] **AC-US2-07**: Given a verdict value of "EMERGING", when rendered in the comparison section, then the display text reads "Early Promise"
-- [ ] **AC-US2-08**: Given a verdict value of "INEFFECTIVE", when rendered in the comparison section, then the display text reads "Needs Work"
-- [ ] **AC-US2-09**: Given a verdict value of "DEGRADING", when rendered in the comparison section, then the display text reads "Regression"
-- [ ] **AC-US2-10**: Given the verdict label mapping, when `verdictLabel()` is called from `src/eval/verdict.ts`, then it is a pure function that maps `EvalVerdict` to the user-friendly string with no side effects
+- [x] **AC-US2-01**: Given the benchmark controls section, when buttons render, then the three bulk buttons read "Run A/B Test", "Test Skill", and "Test Baseline" (replacing "Compare All", "Skill Only", "Baseline Only")
+- [x] **AC-US2-02**: Given the "Run A/B Test" button, when the user hovers, then a tooltip displays "Runs both your skill and the baseline, then compares results side by side"
+- [x] **AC-US2-03**: Given the "Test Skill" button, when the user hovers, then a tooltip displays "Runs benchmark using your skill only"
+- [x] **AC-US2-04**: Given the "Test Baseline" button, when the user hovers, then a tooltip displays "Runs benchmark using the baseline (no skill) for reference"
+- [x] **AC-US2-05**: Given a verdict value of "EFFECTIVE", when rendered in the comparison section, then the display text reads "Strong Improvement"
+- [x] **AC-US2-06**: Given a verdict value of "MARGINAL", when rendered in the comparison section, then the display text reads "Moderate Improvement"
+- [x] **AC-US2-07**: Given a verdict value of "EMERGING", when rendered in the comparison section, then the display text reads "Early Promise"
+- [x] **AC-US2-08**: Given a verdict value of "INEFFECTIVE", when rendered in the comparison section, then the display text reads "Needs Work"
+- [x] **AC-US2-09**: Given a verdict value of "DEGRADING", when rendered in the comparison section, then the display text reads "Regression"
+- [x] **AC-US2-10**: Given the verdict label mapping, when `verdictLabel()` is called from `src/eval/verdict.ts`, then it is a pure function that maps `EvalVerdict` to the user-friendly string with no side effects
 
 ---
 
@@ -71,13 +71,13 @@ The vSkill Studio Run page (`RunPanel.tsx`) displays comparison benchmark result
 **So that** I can identify which specific cases my skill excels at or struggles with
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a `BenchmarkCase` with a non-null `comparisonDetail`, when the case card renders in the results list, then a comparison row is visible below the assertions section
-- [ ] **AC-US3-02**: Given a visible comparison row, when rendered, then it displays `skillContentScore` and `baselineContentScore` as labeled percentage pairs (e.g., "Content: Skill 85% / Baseline 60%")
-- [ ] **AC-US3-03**: Given a visible comparison row, when rendered, then it displays `skillStructureScore` and `baselineStructureScore` as labeled percentage pairs (e.g., "Structure: Skill 90% / Baseline 70%")
-- [ ] **AC-US3-04**: Given a visible comparison row with `winner === "skill"`, when rendered, then a "Skill wins" label is shown in the accent color
-- [ ] **AC-US3-05**: Given a visible comparison row with `winner === "baseline"`, when rendered, then a "Baseline wins" label is shown in the tertiary text color
-- [ ] **AC-US3-06**: Given a visible comparison row with `winner === "tie"`, when rendered, then a "Tie" label is shown in the tertiary text color
-- [ ] **AC-US3-07**: Given a `BenchmarkCase` with `comparisonDetail` undefined or null, when the case card renders, then no comparison row appears
+- [x] **AC-US3-01**: Given a `BenchmarkCase` with a non-null `comparisonDetail`, when the case card renders in the results list, then a comparison row is visible below the assertions section
+- [x] **AC-US3-02**: Given a visible comparison row, when rendered, then it displays `skillContentScore` and `baselineContentScore` as labeled percentage pairs (e.g., "Content: Skill 85% / Baseline 60%")
+- [x] **AC-US3-03**: Given a visible comparison row, when rendered, then it displays `skillStructureScore` and `baselineStructureScore` as labeled percentage pairs (e.g., "Structure: Skill 90% / Baseline 70%")
+- [x] **AC-US3-04**: Given a visible comparison row with `winner === "skill"`, when rendered, then a "Skill wins" label is shown in the accent color
+- [x] **AC-US3-05**: Given a visible comparison row with `winner === "baseline"`, when rendered, then a "Baseline wins" label is shown in the tertiary text color
+- [x] **AC-US3-06**: Given a visible comparison row with `winner === "tie"`, when rendered, then a "Tie" label is shown in the tertiary text color
+- [x] **AC-US3-07**: Given a `BenchmarkCase` with `comparisonDetail` undefined or null, when the case card renders, then no comparison row appears
 
 ## Out of Scope
 

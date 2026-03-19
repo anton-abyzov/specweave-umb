@@ -1,10 +1,10 @@
 {
   "id": "0628-code-review-fixes-type-safety",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-03-19T22:46:03.818Z",
-  "lastActivity": "2026-03-19T22:46:03.818Z",
+  "lastActivity": "2026-03-19T22:55:13.070Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,15 +15,17 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-742",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-19T22:49:20.092Z"
+      "syncedAt": "2026-03-19T22:55:29.391Z"
     },
     "ado": {
       "featureId": "1581",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1581",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-19T22:49:22.372Z"
+      "syncedAt": "2026-03-19T22:55:33.149Z"
     }
   },
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "readyForReviewAt": "2026-03-19T22:55:13.058Z",
+  "approvedAt": "2026-03-19T22:55:13.070Z"
 }

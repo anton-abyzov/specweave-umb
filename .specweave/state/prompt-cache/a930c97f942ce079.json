@@ -1,18 +1,18 @@
 [isClaudeCliAvailable] Running fresh detection (no cache)...
-[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[isClaudeCliAvailable] Claude CLI available: version=2.1.80 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
 [executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
-Extracted result from JSON wrapper, duration_ms: 5210
+Extracted result from JSON wrapper, duration_ms: 8154
 Increment recommendation: none (confidence: 0.99, mandatory: false)
 {
   "detected": false,
   "plugins": [],
   "confidence": 0.99,
-  "reasoning": "Test confirmation, no implementation or integration work",
-  "latencyMs": 6598.908959,
+  "reasoning": "Test/verification prompt only, no integrations mentioned",
+  "latencyMs": 9279.333208,
   "increment": {
     "action": "none",
     "confidence": 0.99,
     "mandatory": false,
-    "reasoning": "Test prompt - confirmation only, no implementation work"
+    "reasoning": "Verification prompt, no implementation work"
   }
 }

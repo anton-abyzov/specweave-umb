@@ -1,0 +1,31 @@
+{
+  "id": "0627-team-lead-agent-teams-api",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-19T21:59:56.641Z",
+  "lastActivity": "2026-03-19T22:11:39.961Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-730",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-730",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T22:12:09.731Z"
+    },
+    "ado": {
+      "featureId": "1569",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1569",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-19T22:12:15.822Z"
+    }
+  },
+  "project": "vskill",
+  "readyForReviewAt": "2026-03-19T22:11:39.949Z",
+  "approvedAt": "2026-03-19T22:11:39.961Z"
+}

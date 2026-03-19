@@ -1,0 +1,14 @@
+{
+  "id": "0629-delegate-plugin-registry-to-claude-cli",
+  "status": "planned",
+  "type": "refactor",
+  "priority": "P1",
+  "created": "2026-03-19T22:52:10.055Z",
+  "lastActivity": "2026-03-19T22:52:10.055Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "project": "vskill"
+}

@@ -11,7 +11,7 @@ tdd_mode: strict
 
 ### T-001: verdictLabel() Pure Function + Tests
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-05, AC-US2-06, AC-US2-07, AC-US2-08, AC-US2-09, AC-US2-10
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 **Files**:
 - `repositories/anton-abyzov/vskill/src/eval/verdict.ts` — add `verdictLabel()` export
@@ -38,7 +38,7 @@ tdd_mode: strict
 
 ### T-002: Dynamic Pass Rate Label Based on Benchmark Type
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 **Files**:
 - `repositories/anton-abyzov/vskill/src/eval-ui/src/pages/workspace/RunPanel.tsx` — replace hardcoded "Overall Pass Rate"
@@ -66,7 +66,7 @@ tdd_mode: strict
 
 ### T-003: Comparison Provenance Line (Model + Timestamp)
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 **Files**:
 - `repositories/anton-abyzov/vskill/src/eval-ui/src/pages/workspace/RunPanel.tsx` — insert provenance line in comparison section
@@ -89,7 +89,7 @@ tdd_mode: strict
 
 ### T-004: Human-Readable Delta Statement
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-05
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 **Files**:
 - `repositories/anton-abyzov/vskill/src/eval-ui/src/pages/workspace/RunPanel.tsx` — insert delta statement below delta line
@@ -115,7 +115,7 @@ tdd_mode: strict
 
 ### T-005: Button Relabeling + Title Tooltips
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 **Files**:
 - `repositories/anton-abyzov/vskill/src/eval-ui/src/pages/workspace/RunPanel.tsx` — update bulk button labels and add `title` attributes
@@ -140,7 +140,7 @@ tdd_mode: strict
 
 ### T-006: Verdict Label Rendering Using verdictLabel()
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-05, AC-US2-06, AC-US2-07, AC-US2-08, AC-US2-09
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 **Files**:
 - `repositories/anton-abyzov/vskill/src/eval-ui/src/pages/workspace/RunPanel.tsx` — replace raw verdict string with `verdictLabel()` call
@@ -168,7 +168,7 @@ tdd_mode: strict
 
 ### T-007: Per-Case ComparisonDetail Row in RunCaseCard
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05, AC-US3-06, AC-US3-07
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 **Files**:
 - `repositories/anton-abyzov/vskill/src/eval-ui/src/pages/workspace/RunPanel.tsx` — pass `comparisonDetail` prop to `RunCaseCard`, render comparison row in `RunCaseCard`
@@ -201,25 +201,25 @@ tdd_mode: strict
 
 | AC ID | Task | Status |
 |-------|------|--------|
-| AC-US1-01 | T-002 | [ ] |
-| AC-US1-02 | T-002 | [ ] |
-| AC-US1-03 | T-002 | [ ] |
-| AC-US1-04 | T-003 | [ ] |
-| AC-US1-05 | T-004 | [ ] |
-| AC-US2-01 | T-005 | [ ] |
-| AC-US2-02 | T-005 | [ ] |
-| AC-US2-03 | T-005 | [ ] |
-| AC-US2-04 | T-005 | [ ] |
-| AC-US2-05 | T-001, T-006 | [ ] |
-| AC-US2-06 | T-001, T-006 | [ ] |
-| AC-US2-07 | T-001, T-006 | [ ] |
-| AC-US2-08 | T-001, T-006 | [ ] |
-| AC-US2-09 | T-001, T-006 | [ ] |
-| AC-US2-10 | T-001 | [ ] |
-| AC-US3-01 | T-007 | [ ] |
-| AC-US3-02 | T-007 | [ ] |
-| AC-US3-03 | T-007 | [ ] |
-| AC-US3-04 | T-007 | [ ] |
-| AC-US3-05 | T-007 | [ ] |
-| AC-US3-06 | T-007 | [ ] |
-| AC-US3-07 | T-007 | [ ] |
+| AC-US1-01 | T-002 | [x] |
+| AC-US1-02 | T-002 | [x] |
+| AC-US1-03 | T-002 | [x] |
+| AC-US1-04 | T-003 | [x] |
+| AC-US1-05 | T-004 | [x] |
+| AC-US2-01 | T-005 | [x] |
+| AC-US2-02 | T-005 | [x] |
+| AC-US2-03 | T-005 | [x] |
+| AC-US2-04 | T-005 | [x] |
+| AC-US2-05 | T-001, T-006 | [x] |
+| AC-US2-06 | T-001, T-006 | [x] |
+| AC-US2-07 | T-001, T-006 | [x] |
+| AC-US2-08 | T-001, T-006 | [x] |
+| AC-US2-09 | T-001, T-006 | [x] |
+| AC-US2-10 | T-001 | [x] |
+| AC-US3-01 | T-007 | [x] |
+| AC-US3-02 | T-007 | [x] |
+| AC-US3-03 | T-007 | [x] |
+| AC-US3-04 | T-007 | [x] |
+| AC-US3-05 | T-007 | [x] |
+| AC-US3-06 | T-007 | [x] |
+| AC-US3-07 | T-007 | [x] |

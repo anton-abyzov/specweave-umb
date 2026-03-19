@@ -1,19 +1,18 @@
 [isClaudeCliAvailable] Running fresh detection (no cache)...
-[isClaudeCliAvailable] Claude CLI available: version=2.1.79 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
+[isClaudeCliAvailable] Claude CLI available: version=2.1.80 (Claude Code), path=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude, method=binary
 [executeClaudeCli] Using direct binary: /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/claude
-Extracted result from JSON wrapper, duration_ms: 11409
-Increment recommendation: new (confidence: 0.9, mandatory: true)
+Extracted result from JSON wrapper, duration_ms: 4797
+Increment recommendation: none (confidence: 0.95, mandatory: false)
 {
   "detected": false,
   "plugins": [],
   "confidence": 0.95,
-  "reasoning": "No explicit integrations mentioned",
-  "latencyMs": 13384.028375,
+  "reasoning": "No integration work mentioned",
+  "latencyMs": 6140.073917,
   "increment": {
-    "action": "new",
-    "confidence": 0.9,
-    "mandatory": true,
-    "suggestedName": "build-feature-with-tests",
-    "reasoning": "Feature implementation with unit testing requirement"
+    "action": "none",
+    "confidence": 0.95,
+    "mandatory": false,
+    "reasoning": "Question about criteria extraction rules and examples, not implementation work"
   }
 }
