@@ -1,10 +1,10 @@
 {
   "id": "0620-docs-sw-closer-agent",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "change-request",
   "priority": "P1",
   "created": "2026-03-19T14:26:55.955Z",
-  "lastActivity": "2026-03-19T14:26:55.955Z",
+  "lastActivity": "2026-03-19T14:35:01.603Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,16 +15,17 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-710",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-19T14:29:35.413Z"
+      "syncedAt": "2026-03-19T14:35:34.478Z"
     },
     "ado": {
       "featureId": "1549",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1549",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-19T14:29:37.666Z"
+      "syncedAt": "2026-03-19T14:35:37.369Z"
     }
   },
   "project": "specweave",
-  "updated": "2026-03-19T14:30:58.000Z"
+  "updated": "2026-03-19T14:30:58.000Z",
+  "approvedAt": "2026-03-19T14:35:01.603Z"
 }

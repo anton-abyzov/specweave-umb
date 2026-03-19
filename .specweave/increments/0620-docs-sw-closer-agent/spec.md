@@ -1,10 +1,10 @@
 ---
 increment: 0620-docs-sw-closer-agent
-title: "Document sw-closer agent in skills/agents docs"
+title: Document sw-closer agent in skills/agents docs
 type: change-request
 priority: P1
-status: planned
-created: 2026-03-19
+status: completed
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
