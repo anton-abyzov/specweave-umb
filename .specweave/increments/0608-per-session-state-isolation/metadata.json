@@ -1,14 +1,16 @@
 {
   "id": "0608-per-session-state-isolation",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-19T10:00:00.000Z",
-  "lastActivity": "2026-03-19T10:00:00.000Z",
+  "lastActivity": "2026-03-19T06:57:28.968Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
   "project": "specweave",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-03-19T06:57:28.918Z",
+  "approvedAt": "2026-03-19T06:57:28.968Z"
 }

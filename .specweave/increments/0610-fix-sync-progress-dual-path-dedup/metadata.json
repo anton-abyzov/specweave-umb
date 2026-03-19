@@ -1,0 +1,23 @@
+{
+  "id": "0610-fix-sync-progress-dual-path-dedup",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P0",
+  "created": "2026-03-19T07:10:08.757Z",
+  "lastActivity": "2026-03-19T07:14:13.632Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-679",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-679",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-19T07:14:18.066Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-19T07:14:13.591Z",
+  "approvedAt": "2026-03-19T07:14:13.632Z"
+}

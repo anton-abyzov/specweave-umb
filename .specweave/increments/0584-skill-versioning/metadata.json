@@ -15,16 +15,188 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-601",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-19T02:37:58.473Z"
+      "syncedAt": "2026-03-19T06:50:55.884Z",
+      "userStories": {
+        "US-001": {
+          "issueKey": "SWE2E-601",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-601",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        },
+        "US-002": {
+          "issueKey": "SWE2E-601",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-601",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        },
+        "US-003": {
+          "issueKey": "SWE2E-601",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-601",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        },
+        "US-004": {
+          "issueKey": "SWE2E-601",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-601",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        },
+        "US-005": {
+          "issueKey": "SWE2E-601",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-601",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        },
+        "US-006": {
+          "issueKey": "SWE2E-601",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-601",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        },
+        "US-007": {
+          "issueKey": "SWE2E-601",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-601",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        }
+      }
     },
     "ado": {
       "featureId": "1453",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1453",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-19T02:38:03.060Z"
+      "syncedAt": "2026-03-19T02:38:03.060Z",
+      "userStories": {
+        "US-001": {
+          "workItemId": 1453,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1453",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        },
+        "US-002": {
+          "workItemId": 1453,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1453",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        },
+        "US-003": {
+          "workItemId": 1453,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1453",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        },
+        "US-004": {
+          "workItemId": 1453,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1453",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        },
+        "US-005": {
+          "workItemId": 1453,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1453",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        },
+        "US-006": {
+          "workItemId": 1453,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1453",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        },
+        "US-007": {
+          "workItemId": 1453,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1453",
+          "syncedAt": "2026-03-19T06:51:58.222Z"
+        }
+      }
+    },
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 111,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/111",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 112,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/112",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 113,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/113",
+          "status": "active"
+        },
+        "US-004": {
+          "issueNumber": 114,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/114",
+          "status": "active"
+        },
+        "US-005": {
+          "issueNumber": 115,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/115",
+          "status": "active"
+        },
+        "US-006": {
+          "issueNumber": 116,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/116",
+          "status": "active"
+        },
+        "US-007": {
+          "issueNumber": 117,
+          "issueUrl": "https://github.com/anton-abyzov/vskill/issues/117",
+          "status": "active"
+        }
+      },
+      "milestone": 30,
+      "syncedAt": "2026-03-19T06:51:54.907Z"
     }
   },
   "updated": "2026-03-19T02:29:52.000Z",
-  "approvedAt": "2026-03-19T02:37:28.478Z"
+  "approvedAt": "2026-03-19T02:37:28.478Z",
+  "jira": {
+    "issue": "SWE2E-601",
+    "url": "https://antonabyzov.atlassian.net/browse/SWE2E-601",
+    "synced": "2026-03-19T02:37:58.473Z"
+  },
+  "ado": {
+    "workItem": 1453,
+    "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1453",
+    "synced": "2026-03-19T02:38:03.060Z"
+  },
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 111,
+        "url": "https://github.com/anton-abyzov/vskill/issues/111",
+        "createdAt": "2026-03-19T06:51:02.997Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 112,
+        "url": "https://github.com/anton-abyzov/vskill/issues/112",
+        "createdAt": "2026-03-19T06:51:11.802Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 113,
+        "url": "https://github.com/anton-abyzov/vskill/issues/113",
+        "createdAt": "2026-03-19T06:51:20.488Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 114,
+        "url": "https://github.com/anton-abyzov/vskill/issues/114",
+        "createdAt": "2026-03-19T06:51:28.998Z"
+      },
+      {
+        "userStory": "US-005",
+        "number": 115,
+        "url": "https://github.com/anton-abyzov/vskill/issues/115",
+        "createdAt": "2026-03-19T06:51:38.010Z"
+      },
+      {
+        "userStory": "US-006",
+        "number": 116,
+        "url": "https://github.com/anton-abyzov/vskill/issues/116",
+        "createdAt": "2026-03-19T06:51:46.698Z"
+      },
+      {
+        "userStory": "US-007",
+        "number": 117,
+        "url": "https://github.com/anton-abyzov/vskill/issues/117",
+        "createdAt": "2026-03-19T06:51:54.907Z"
+      }
+    ],
+    "lastSync": "2026-03-19T06:51:54.907Z"
+  }
 }

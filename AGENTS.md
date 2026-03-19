@@ -1,6 +1,6 @@
-<!-- SW:META template="agents" version="1.0.522" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
+<!-- SW:META template="agents" version="1.0.526" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
 
-<!-- SW:SECTION:rules version="1.0.522" -->
+<!-- SW:SECTION:rules version="1.0.526" -->
 ## Essential Rules
 
 ```
@@ -29,7 +29,7 @@
 ```
 <!-- SW:END:rules -->
 
-<!-- SW:SECTION:orchestration version="1.0.522" -->
+<!-- SW:SECTION:orchestration version="1.0.526" -->
 ## Workflow Orchestration
 
 ### 1. Plan Before Code (MANDATORY)
@@ -76,7 +76,7 @@ Good: npm run build → node script.js → Success
 ```
 <!-- SW:END:orchestration -->
 
-<!-- SW:SECTION:principles version="1.0.522" -->
+<!-- SW:SECTION:principles version="1.0.526" -->
 ## Core Principles (Quality)
 
 ### Simplicity First
@@ -123,8 +123,18 @@ Good: npm run build → node script.js → Success
 - E2E with Playwright CLI (`npx playwright test`) is a blocking closure gate
 <!-- SW:END:principles -->
 
-<!-- SW:SECTION:commands version="1.0.522" -->
+<!-- SW:SECTION:commands version="1.0.526" -->
 ## Commands Reference
+
+Commands are shown as `sw:<name>`. How you invoke them depends on your AI tool:
+
+| Tool | Invocation | Example |
+|------|-----------|---------|
+| **Claude Code** | Slash command | `/sw:do` |
+| **Cursor / Windsurf** | Type in chat | `sw:do` or describe the action |
+| **Copilot / ChatGPT** | Describe in chat | "Execute increment tasks" |
+| **Gemini CLI / Codex** | Reference in prompt | "Run sw:do on my increment" |
+| **Any tool** | SpecWeave CLI (where available) | `specweave validate 0001` |
 
 | Command | Purpose |
 |---------|---------|
@@ -142,7 +152,7 @@ Good: npm run build → node script.js → Success
 | `sw:import` | Import issues from external tools |
 <!-- SW:END:commands -->
 
-<!-- SW:SECTION:nonclaudetools version="1.0.522" -->
+<!-- SW:SECTION:nonclaudetools version="1.0.526" -->
 ## Non-Claude Tools (Cursor, Copilot, etc.)
 
 Claude Code has automatic hooks and orchestration. Other tools must do these manually.
@@ -151,7 +161,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 
 | Capability | Claude Code | Non-Claude Tools |
 |------------|-------------|------------------|
-| **Plan Mode** | `EnterPlanMode` → `sw:increment` | Manual: Create spec.md + plan.md + tasks.md |
+| **Plan Mode** | `EnterPlanMode` → `/sw:increment` | Manual: Create spec.md + plan.md + tasks.md |
 | **Subagents** | `Task` tool for parallel work | Split into multiple chat sessions |
 | **Verification** | PostToolUse hooks auto-validate | Manual: Run tests, check ACs |
 | **Code quality** | `/simplify` (3 parallel review agents) | Manual: lint, review for duplication/readability/perf |
@@ -185,7 +195,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 **Background jobs**: Monitor with `specweave jobs` (clone-repos, import-issues, living-docs-builder, sync-external).
 <!-- SW:END:nonclaudetools -->
 
-<!-- SW:SECTION:syncworkflow version="1.0.522" -->
+<!-- SW:SECTION:syncworkflow version="1.0.526" -->
 ## Sync Workflow
 
 ### Source of Truth
@@ -210,7 +220,7 @@ Claude Code has automatic hooks and orchestration. Other tools must do these man
 | `sw-ado:sync <id>` | After each task |
 <!-- SW:END:syncworkflow -->
 
-<!-- SW:SECTION:contextloading version="1.0.522" -->
+<!-- SW:SECTION:contextloading version="1.0.526" -->
 ## Context Loading
 
 ### Efficient Context Management
@@ -230,7 +240,7 @@ Read only what's needed for the current task:
 4. Avoid loading entire documentation trees
 <!-- SW:END:contextloading -->
 
-<!-- SW:SECTION:structure version="1.0.522" -->
+<!-- SW:SECTION:structure version="1.0.526" -->
 ## Project Structure
 
 ```
@@ -269,7 +279,7 @@ workspace/
 **Rules**: Each repo manages its own increments. Never create increments in the workspace root.
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:agents version="1.0.522" -->
+<!-- SW:SECTION:agents version="1.0.526" -->
 ## Agents (Roles)
 
 {AGENTS_SECTION}
@@ -277,7 +287,7 @@ workspace/
 **Usage**: Adopt role perspective when working on related tasks.
 <!-- SW:END:agents -->
 
-<!-- SW:SECTION:skills version="1.0.522" -->
+<!-- SW:SECTION:skills version="1.0.526" -->
 ## Skills (Capabilities)
 
 {SKILLS_SECTION}
@@ -305,7 +315,7 @@ workspace/
 Install/refresh skills: `specweave refresh-plugins`
 <!-- SW:END:skills -->
 
-<!-- SW:SECTION:taskformat version="1.0.522" -->
+<!-- SW:SECTION:taskformat version="1.0.526" -->
 ## Task Format
 
 ```markdown
@@ -319,7 +329,7 @@ Install/refresh skills: `specweave refresh-plugins`
 ```
 <!-- SW:END:taskformat -->
 
-<!-- SW:SECTION:usformat version="1.0.522" -->
+<!-- SW:SECTION:usformat version="1.0.526" -->
 ## User Story Format (CRITICAL for spec.md)
 
 **MANDATORY: Every User Story MUST have `**Project**:` field!**
@@ -353,7 +363,7 @@ specweave context projects
 ```
 <!-- SW:END:usformat -->
 
-<!-- SW:SECTION:workflows version="1.0.522" -->
+<!-- SW:SECTION:workflows version="1.0.526" -->
 ## Workflows
 
 ### Creating Increment
@@ -386,7 +396,7 @@ specweave context projects
 **CRITICAL**: When all tasks are done, IMMEDIATELY chain to closure. Quality gates (grill, judge-llm, PM validation) ARE the review. Never stop to ask "should I close?" — just close it. If a gate fails, the increment stays open. User can re-open if they disagree.
 <!-- SW:END:workflows -->
 
-<!-- SW:SECTION:troubleshooting version="1.0.522" -->
+<!-- SW:SECTION:troubleshooting version="1.0.526" -->
 ## Troubleshooting
 
 | Issue | Fix |
@@ -400,7 +410,7 @@ specweave context projects
 | Skills not activating (non-Claude) | Expected — read SKILL.md from `plugins/specweave*/skills/` |
 <!-- SW:END:troubleshooting -->
 
-<!-- SW:SECTION:docs version="1.0.522" -->
+<!-- SW:SECTION:docs version="1.0.526" -->
 ## Documentation
 
 | Resource | Purpose |
