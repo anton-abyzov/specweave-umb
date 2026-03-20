@@ -1,0 +1,132 @@
+{
+  "version": "1.0",
+  "date": "2026-03-19",
+  "type": "post-implementation-review",
+  "scope": "Increment 0633-validation-hardening",
+  "commit": "d77e4be",
+  "reviewers": ["logic", "security", "types", "silent-failures"],
+  "shipReadiness": "NEEDS REVIEW",
+  "summary": {
+    "totalFindings": 14,
+    "high": 2,
+    "medium": 6,
+    "low": 6,
+    "suppressed": 5
+  },
+  "findings": [
+    {
+      "id": 1,
+      "severity": "HIGH",
+      "confidence": 95,
+      "title": "verdictExplanation NaN score produces 'score NaN' in output + missing recommendations for INEFFECTIVE",
+      "file": "src/eval/verdict.ts:48-135",
+      "reviewers": ["logic", "silent-failures"],
+      "fix": "Add NaN guard: const safeScore = isNaN(score) ? 0 : score"
+    },
+    {
+      "id": 2,
+      "severity": "HIGH",
+      "confidence": 95,
+      "title": "as T cast applied before has() guard in validateEnum",
+      "file": "src/security/platform-security.ts:30",
+      "reviewers": ["logic", "security", "types"],
+      "fix": "Move cast after check: if (allowed.has(upper as T)) return upper as T"
+    },
+    {
+      "id": 3,
+      "severity": "MEDIUM",
+      "confidence": 92,
+      "title": "INEFFECTIVE split across non-adjacent branches — DEGRADING+score>=0.7 gets no recommendations",
+      "file": "src/eval/verdict.ts:83,123",
+      "reviewers": ["types", "silent-failures"]
+    },
+    {
+      "id": 4,
+      "severity": "MEDIUM",
+      "confidence": 92,
+      "title": "computeVerdict NaN baselinePassRate gives wrong verdict",
+      "file": "src/eval/verdict.ts:13",
+      "reviewers": ["logic", "silent-failures"]
+    },
+    {
+      "id": 5,
+      "severity": "MEDIUM",
+      "confidence": 90,
+      "title": "Partial<Record> meaningless without noUncheckedIndexedAccess tsconfig flag",
+      "file": "src/eval-ui/src/pages/workspace/RunPanel.tsx:72",
+      "reviewers": ["logic", "types"]
+    },
+    {
+      "id": 6,
+      "severity": "MEDIUM",
+      "confidence": 88,
+      "title": "Test fixtures still use invalid verdicts 'critical'/'clean' in first test",
+      "file": "src/security/platform-security.test.ts:50-51",
+      "reviewers": ["logic", "types"]
+    },
+    {
+      "id": 7,
+      "severity": "MEDIUM",
+      "confidence": 85,
+      "title": "Missing 'BOGUS' assertion in validateEnum warn test",
+      "file": "src/security/platform-security.test.ts:215",
+      "reviewers": ["logic", "silent-failures"]
+    },
+    {
+      "id": 8,
+      "severity": "MEDIUM",
+      "confidence": 85,
+      "title": "safeNumber logs raw untrusted value object — log injection risk",
+      "file": "src/security/platform-security.ts:39",
+      "reviewers": ["security"]
+    },
+    {
+      "id": 9,
+      "severity": "LOW",
+      "confidence": 90,
+      "title": "validateEnum log injection via control characters in value",
+      "file": "src/security/platform-security.ts:32",
+      "reviewers": ["security"]
+    },
+    {
+      "id": 10,
+      "severity": "LOW",
+      "confidence": 85,
+      "title": "safeNumber doesn't warn on empty string '' → 0 coercion",
+      "file": "src/security/platform-security.ts:37",
+      "reviewers": ["silent-failures"]
+    },
+    {
+      "id": 11,
+      "severity": "LOW",
+      "confidence": 82,
+      "title": "NaN guard uses isNaN but doesn't catch Infinity",
+      "file": "src/eval-ui/src/pages/workspace/RunPanel.tsx:50",
+      "reviewers": ["types"]
+    },
+    {
+      "id": 12,
+      "severity": "LOW",
+      "confidence": 80,
+      "title": "verdictExplanation lacks exhaustiveness enforcement (no satisfies never)",
+      "file": "src/eval/verdict.ts:48",
+      "reviewers": ["types"]
+    },
+    {
+      "id": 13,
+      "severity": "LOW",
+      "confidence": 80,
+      "title": "Fallback recommendations generic when all rubric criteria pass",
+      "file": "src/eval/verdict.ts:95-135",
+      "reviewers": ["silent-failures"]
+    },
+    {
+      "id": 14,
+      "severity": "LOW",
+      "confidence": 75,
+      "title": "skillName logged without sanitization — minor log injection",
+      "file": "src/security/platform-security.ts:51,89",
+      "reviewers": ["security"]
+    }
+  ]
+}

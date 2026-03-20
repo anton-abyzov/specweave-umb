@@ -1,10 +1,10 @@
 ---
 increment: 0631-fix-umbrella-root-resolution
-title: "Fix Umbrella Root Resolution and Prevent Stale .specweave in Child Repos"
-status: active
+title: Fix Umbrella Root Resolution and Prevent Stale .specweave in Child Repos
+status: completed
 priority: P1
 type: bug
-created: 2026-03-19
+created: 2026-03-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -34,9 +34,9 @@ coverage_target: 90
 **So that** I can monitor project progress without navigating to the umbrella root
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given an umbrella workspace with `umbrella.enabled: true`, when `specweave dashboard` is run from a child repo, then the dashboard reads increments from the umbrella root `.specweave/` directory
-- [ ] **AC-US1-02**: Given an umbrella workspace, when `dashboard-server.ts addProject()` registers a project, then it uses the resolved umbrella root path for the project's `.specweave/` directory
-- [ ] **AC-US1-03**: Given a standalone (non-umbrella) project, when `specweave dashboard` is run, then behavior is unchanged and uses `process.cwd()` as the project root
+- [x] **AC-US1-01**: Given an umbrella workspace with `umbrella.enabled: true`, when `specweave dashboard` is run from a child repo, then the dashboard reads increments from the umbrella root `.specweave/` directory
+- [x] **AC-US1-02**: Given an umbrella workspace, when `dashboard-server.ts addProject()` registers a project, then it uses the resolved umbrella root path for the project's `.specweave/` directory
+- [x] **AC-US1-03**: Given a standalone (non-umbrella) project, when `specweave dashboard` is run, then behavior is unchanged and uses `process.cwd()` as the project root
 
 ---
 
@@ -48,9 +48,9 @@ coverage_target: 90
 **So that** child repos stay clean and all data is centralized
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given an umbrella workspace, when any of the 14 identified modules (qa-runner, autonomous-executor, revert-wip-limit, logs, cross-linker, content-distributor, command-integration, notification-manager, schedule-persistence, log-aggregator, sync-audit-logger, permission-enforcer, sync-scheduled) resolve `.specweave/` paths, then they use the umbrella root, not `process.cwd()`
-- [ ] **AC-US2-02**: Given an umbrella workspace, when a CLI command writes state files, then no new files are created under any child repo's `.specweave/` directory
-- [ ] **AC-US2-03**: Given a `getSpecweavePath()` utility in `find-project-root.ts`, when called with no arguments, then it returns the resolved umbrella root's `.specweave/` directory path
+- [x] **AC-US2-01**: Given an umbrella workspace, when any of the 14 identified modules (qa-runner, autonomous-executor, revert-wip-limit, logs, cross-linker, content-distributor, command-integration, notification-manager, schedule-persistence, log-aggregator, sync-audit-logger, permission-enforcer, sync-scheduled) resolve `.specweave/` paths, then they use the umbrella root, not `process.cwd()`
+- [x] **AC-US2-02**: Given an umbrella workspace, when a CLI command writes state files, then no new files are created under any child repo's `.specweave/` directory
+- [x] **AC-US2-03**: Given a `getSpecweavePath()` utility in `find-project-root.ts`, when called with no arguments, then it returns the resolved umbrella root's `.specweave/` directory path
 
 ---
 
@@ -62,9 +62,9 @@ coverage_target: 90
 **So that** umbrella detection works reliably without requiring `repository.umbrellaRepo` to be set
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given a config with `umbrella.enabled: true` but no `repository.umbrellaRepo`, when `detectUmbrellaParent()` is called, then it detects the umbrella parent using the `umbrella.enabled` flag
-- [ ] **AC-US3-02**: Given a config with both `umbrella.enabled: true` and `repository.umbrellaRepo` set, when `detectUmbrellaParent()` is called, then it detects the umbrella parent (backward compatible)
-- [ ] **AC-US3-03**: Given a standalone project config (no umbrella flags), when `detectUmbrellaParent()` is called, then it returns null
+- [x] **AC-US3-01**: Given a config with `umbrella.enabled: true` but no `repository.umbrellaRepo`, when `detectUmbrellaParent()` is called, then it detects the umbrella parent using the `umbrella.enabled` flag
+- [x] **AC-US3-02**: Given a config with both `umbrella.enabled: true` and `repository.umbrellaRepo` set, when `detectUmbrellaParent()` is called, then it detects the umbrella parent (backward compatible)
+- [x] **AC-US3-03**: Given a standalone project config (no umbrella flags), when `detectUmbrellaParent()` is called, then it returns null
 
 ---
 
@@ -76,10 +76,10 @@ coverage_target: 90
 **So that** regressions in root resolution are caught before release
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given a test suite for `find-project-root.ts`, when tests run, then `findUmbrellaRoot()` is tested with umbrella-enabled config, standalone config, and missing config scenarios
-- [ ] **AC-US4-02**: Given a test suite, when tests run, then `resolveEffectiveRoot()` is tested returning umbrella root when umbrella is enabled and cwd when it is not
-- [ ] **AC-US4-03**: Given a test suite, when tests run, then `detectUmbrellaParent()` is tested with `umbrella.enabled`, `repository.umbrellaRepo`, both flags, and neither flag
-- [ ] **AC-US4-04**: Given a test suite, when tests run, then `getSpecweavePath()` is tested returning the correct `.specweave/` path for both umbrella and standalone modes
+- [x] **AC-US4-01**: Given a test suite for `find-project-root.ts`, when tests run, then `findUmbrellaRoot()` is tested with umbrella-enabled config, standalone config, and missing config scenarios
+- [x] **AC-US4-02**: Given a test suite, when tests run, then `resolveEffectiveRoot()` is tested returning umbrella root when umbrella is enabled and cwd when it is not
+- [x] **AC-US4-03**: Given a test suite, when tests run, then `detectUmbrellaParent()` is tested with `umbrella.enabled`, `repository.umbrellaRepo`, both flags, and neither flag
+- [x] **AC-US4-04**: Given a test suite, when tests run, then `getSpecweavePath()` is tested returning the correct `.specweave/` path for both umbrella and standalone modes
 
 ---
 
@@ -91,9 +91,9 @@ coverage_target: 90
 **So that** there is no confusion about which `.specweave/` directory is authoritative
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given stale `.specweave/increments/` directories exist in `repositories/anton-abyzov/vskill/` (increments 0569, 0570, 0572), when cleanup is performed, then those directories are deleted
-- [ ] **AC-US5-02**: Given stale `.specweave/increments/` directories exist in `repositories/anton-abyzov/specweave/` (increments 0576, 0590, 0593, 0595, 0599, 0605), when cleanup is performed, then those directories are deleted
-- [ ] **AC-US5-03**: Given cleanup is performed, when verified against the umbrella archive, then all deleted increments have matching entries in the umbrella's `.specweave/increments/` (active or archived)
+- [x] **AC-US5-01**: Given stale `.specweave/increments/` directories exist in `repositories/anton-abyzov/vskill/` (increments 0569, 0570, 0572), when cleanup is performed, then those directories are deleted
+- [x] **AC-US5-02**: Given stale `.specweave/increments/` directories exist in `repositories/anton-abyzov/specweave/` (increments 0576, 0590, 0593, 0595, 0599, 0605), when cleanup is performed, then those directories are deleted
+- [x] **AC-US5-03**: Given cleanup is performed, when verified against the umbrella archive, then all deleted increments have matching entries in the umbrella's `.specweave/increments/` (active or archived)
 
 ## Out of Scope
 

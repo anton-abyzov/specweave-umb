@@ -1,0 +1,363 @@
+{
+  "scope": "Changes from increment 0626: vskill (appstore SKILL.md 27 fixes, src/commands/add.ts, src/eval/verdict.ts, src/installer/migrate.ts, migrate.test.ts, platform-security.ts) and vskill-platform (provider-registry.ts, crawl-worker/sources/vendor-org-discovery.js)",
+  "date": "2026-03-19",
+  "increment": "0626-fix-appstore-skill-md",
+  "reviewers": {
+    "reviewer-types": "COMPLETE — 11 issues",
+    "reviewer-spec-compliance": "COMPLETE — 0 issues (all ACs pass)",
+    "reviewer-security": "COMPLETE — 6 issues",
+    "reviewer-silent-failures": "COMPLETE — 18 issues",
+    "reviewer-logic": "COMPLETE — 6 issues"
+  },
+  "summary": {
+    "CRITICAL": 0,
+    "HIGH": 7,
+    "MEDIUM": 14,
+    "LOW": 10,
+    "INFO": 7,
+    "total_before_dedup": 41,
+    "deduplicated": 2,
+    "total": 39
+  },
+  "spec_compliance": {
+    "acs_checked": 26,
+    "acs_passed": 26,
+    "acs_failed": 0,
+    "scope_creep": false,
+    "skill_copies_identical": true
+  },
+  "findings": [
+    {
+      "id": "H-001",
+      "severity": "HIGH",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts:120,135,150",
+      "title": "Marketplace detection — triple empty catches with zero logging",
+      "description": "detectMarketplaceRepo() has 3 sequential attempts (Contents API, retry after 1s, raw fallback). All have empty catch {} blocks. On DNS issues, corporate proxy, or GitHub outage, all three silently fail and the function returns { isMarketplace: false }. Skills install via the wrong path with no user indication.",
+      "recommendation": "Add console.warn on the final (3rd) catch with the error message.",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "H-002",
+      "severity": "HIGH",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts:2042-2047",
+      "title": "Search API failure silently redirects to legacy registry path",
+      "description": "When searchSkills() fails in resolveViaSearch(), the error is caught and user redirected to installFromRegistry() with only a yellow tip. Original error (network, API 500, auth) is never logged. User may get 'skill not found' from registry when the real problem was a transient API outage.",
+      "recommendation": "Log console.warn with original error before fallback: `console.warn('[search] API failed, falling back to registry:', err.message)`",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "H-003",
+      "severity": "HIGH",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts:2201-2203",
+      "title": "Search recommendation failure swallowed — user sees bare 'not found'",
+      "description": "When installFromRegistry() tries 'Did you mean...' suggestions via searchSkills(), failure is caught with empty block. User sees bare 'not found' with no suggestions and no indication the suggestion system failed.",
+      "recommendation": "Add console.warn or note in output that suggestions are unavailable.",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "H-004",
+      "severity": "HIGH",
+      "reviewer": "reviewer-logic",
+      "file": "repositories/anton-abyzov/vskill-platform/crawl-worker/sources/vendor-org-discovery.js:130-145",
+      "title": "404 fallback repeats on every pagination page for personal accounts",
+      "description": "listOrgRepos() tries /orgs/{org}/repos on EVERY loop page. For personal accounts (like anton-abyzov), gets 404 on every page, logs 'not an org, trying users endpoint' repeatedly, then falls back to /users/{org}/repos. The fallback state is not remembered across pages. With anton-abyzov in VENDOR_ORGS, this fires on every crawl run — 300 repos = 3 extra API calls + 3 duplicate log lines wasted.",
+      "recommendation": "Track fallback with `let useUsersEndpoint = false;` flag. After first 404, set flag and skip org endpoint on subsequent pages.",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "H-005",
+      "severity": "HIGH",
+      "reviewer": "reviewer-types",
+      "file": "repositories/anton-abyzov/vskill/src/security/platform-security.ts",
+      "title": "InstallSafetyResult missing discriminated union",
+      "description": "Plain intersection type allows safe:false with no reason or safe:true with a reason. A discriminated union `{ safe: true } | { safe: false; reason: string }` makes callers handle both branches exhaustively and prevents misleading null-reason failure states.",
+      "recommendation": "Refactor InstallSafetyResult to a discriminated union.",
+      "fix_priority": "defer"
+    },
+    {
+      "id": "H-006",
+      "severity": "HIGH",
+      "reviewer": "reviewer-types",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts",
+      "title": "Unvalidated res.json() type casts",
+      "description": "Multiple `const data = await res.json() as SomeType` casts with no runtime validation. API error bodies or HTML 5xx pages produce runtime errors or silently wrong data.",
+      "recommendation": "Add runtime shape validation (zod or type guard) before casting res.json() results.",
+      "fix_priority": "defer"
+    },
+    {
+      "id": "H-007",
+      "severity": "HIGH",
+      "reviewer": "reviewer-types",
+      "file": "repositories/anton-abyzov/vskill/src/installer/migrate.ts",
+      "title": "validateEnum uses unsafe `as T` cast",
+      "description": "validateEnum(value, enumObj) returns `value as T` without verifying value is actually in the enum. Non-matching values silently cast to T. NOTE: reviewer-logic found this is actually gated by allowed.has() check — may be a false positive. Needs manual verification.",
+      "recommendation": "Verify if allowed.has() check is present. If not, add Object.values(enumObj).includes(value) check.",
+      "fix_priority": "verify"
+    },
+    {
+      "id": "M-001",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-security + reviewer-logic (DEDUP)",
+      "file": "repositories/anton-abyzov/vskill-platform/src/lib/trust/provider-registry.ts:42",
+      "title": "anton-abyzov placed under 'Trusted orgs' comment — but is vendor tier",
+      "description": "anton-abyzov has trustLevel: 'vendor' (auto-CERTIFIED, bypasses scanning) but sits under the '// Trusted orgs — exempt from taint, still scanned' comment. Future maintainers will assume scanning still runs when it does not. Directly contradicts the actual trust level.",
+      "recommendation": "Move anton-abyzov entry under the 'Vendor orgs' comment section.",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "M-002",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-security",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts",
+      "title": "Skill name path traversal — validateSkillName() not called",
+      "description": "add command accepts skill paths like owner/repo/skillname and uses the skill name in filesystem path construction. validateSkillName() exists but is not called before the path join. Crafted name like ../../.bashrc could traverse outside the target directory.",
+      "recommendation": "Call validateSkillName() on the parsed skill name component before any path operations.",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "M-003",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-security",
+      "file": "repositories/anton-abyzov/vskill-platform/crawl-worker/sources/vendor-org-discovery.js",
+      "title": "SSRF via unvalidated download_url from GitHub API",
+      "description": "GitHub API response download_url is fetched directly without URL validation. A malicious/compromised response could point to an internal service (metadata endpoint, Redis). Should validate URL is on github.com / raw.githubusercontent.com.",
+      "recommendation": "Add URL allowlist: only fetch URLs matching ^https://raw\\.githubusercontent\\.com/ or ^https://api\\.github\\.com/",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "M-004",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-logic",
+      "file": "repositories/anton-abyzov/vskill-platform/crawl-worker/sources/vendor-org-discovery.js:143",
+      "title": "Users endpoint fallback missing sort=updated",
+      "description": "Org endpoint URL includes sort=updated but users endpoint fallback omits it. Users repos default to sort by full_name (alphabetical). If scanning is interrupted at rate limit, most recently maintained repos may not have been scanned.",
+      "recommendation": "Add &sort=updated to users endpoint URL for consistency.",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "M-005",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts:378",
+      "title": "Skill uninstall cleanup silently ignores removal failures",
+      "description": "During plugin uninstall, rmSync failures are caught silently. Skill appears as 'uninstalled' in summary but files may still exist on disk (EACCES, EBUSY). Stale skills continue to load.",
+      "recommendation": "Log warning and decrement removedCount on catch.",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "M-006",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts:443-448",
+      "title": "Skill submission errors partially swallowed",
+      "description": "submitSkill() failures during unregistered plugin verification silently catch and show generic 'Could not submit automatically' without the original error. Auth failures or API changes go undiagnosed.",
+      "recommendation": "Log: console.warn(`Submission failed for ${skill.name}: ${err.message}`)",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "M-007",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts:450",
+      "title": "Discovery loop outer catch completely swallowed",
+      "description": "Outer try/catch around entire unregistered plugin verification loop silently swallows all errors including TypeErrors that indicate bugs. Verification silently skips remaining plugins.",
+      "recommendation": "Log: console.warn(`Discovery error for ${unreg.name}: ${err.message}`)",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "M-008",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill-platform/crawl-worker/sources/vendor-org-discovery.js:200-206",
+      "title": "scanRepoTree conflates 'no skills' with 'API error'",
+      "description": "scanRepoTree returns [] both when a repo has no SKILL.md files AND when API call fails. Caller can't distinguish 'scanned successfully' from 'couldn't scan at all'. Stats show repos as 'scanned with 0 skills' when not scanned.",
+      "recommendation": "Return discriminated result { skills: [], error?: string } or throw on API errors so caller can track skippedCount separately.",
+      "fix_priority": "defer"
+    },
+    {
+      "id": "M-009",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/installer/migrate.ts:60,72,109,122,137,147,159,234,254",
+      "title": "migrate.ts filesystem traversal — 9 empty catch blocks",
+      "description": "All readdirSync and lstatSync calls have empty catch blocks. Permission errors (EACCES), filesystem corruption, or I/O errors are completely silent. Migration reports success (0 errors) but may have silently skipped entire subdirectories.",
+      "recommendation": "Push readdirSync failures to result.errors. For lstatSync, add debug-level log.",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "M-010",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/installer/migrate.ts:185",
+      "title": "Duplicate .md file cleanup silently fails",
+      "description": "After winner .md file renamed to SKILL.md, remaining candidate .md files deletion failures are silently caught. Stale duplicate files persist alongside SKILL.md.",
+      "recommendation": "Push to result.errors: `result.errors.push(...)`",
+      "fix_priority": "fix"
+    },
+    {
+      "id": "M-011",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-types",
+      "file": "repositories/anton-abyzov/vskill/src/security/platform-security.ts",
+      "title": "String() cast on status loses type safety",
+      "description": "String(p.status || 'PENDING') as ProviderResult['status'] silently succeeds for any input. An unexpected status value is silently cast to an invalid union member.",
+      "recommendation": "Validate against known union members before casting.",
+      "fix_priority": "defer"
+    },
+    {
+      "id": "M-012",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-types",
+      "file": "repositories/anton-abyzov/vskill/src/eval/verdict.ts",
+      "title": "Verdict accumulation may lose partial results on error",
+      "description": "If an evaluator throws mid-accumulation, all accumulated verdicts are lost and caller gets unhandled rejection. For evaluation pipelines, partial results with error metadata is more useful.",
+      "recommendation": "Wrap individual evaluator calls in try/catch and accumulate error results.",
+      "fix_priority": "defer"
+    },
+    {
+      "id": "M-013",
+      "severity": "MEDIUM",
+      "reviewer": "reviewer-types",
+      "file": "repositories/anton-abyzov/vskill-platform/crawl-worker/sources/vendor-org-discovery.js",
+      "title": "Users endpoint fallback doesn't validate response shape",
+      "description": "GitHub's user repos endpoint may return different fields than org endpoint, causing silent null references downstream.",
+      "recommendation": "Add shape validation or normalize both response shapes to a common interface.",
+      "fix_priority": "defer"
+    },
+    {
+      "id": "L-001",
+      "severity": "LOW",
+      "reviewer": "reviewer-security",
+      "file": "repositories/anton-abyzov/vskill-platform/crawl-worker/sources/vendor-org-discovery.js",
+      "title": "GitHub token may be logged in debug error conditions",
+      "recommendation": "Sanitize Authorization header from error objects before logging."
+    },
+    {
+      "id": "L-002",
+      "severity": "LOW",
+      "reviewer": "reviewer-security",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts",
+      "title": "No timeout on skill download fetch",
+      "recommendation": "Add AbortController with 30s timeout."
+    },
+    {
+      "id": "L-003",
+      "severity": "LOW",
+      "reviewer": "reviewer-logic",
+      "file": "repositories/anton-abyzov/vskill-platform/crawl-worker/sources/vendor-org-discovery.js:18-19",
+      "title": "'must be kept in sync' comment contradicts intentional divergence",
+      "recommendation": "Update comment: 'Based on provider-registry.ts VENDOR_ORG_IDS, minus large orgs excluded below.'"
+    },
+    {
+      "id": "L-004",
+      "severity": "LOW",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts:595,1218,1708,1960,2560",
+      "title": "5 telemetry .catch(() => {}) calls with zero diagnostic logging",
+      "recommendation": "Add debug-mode logging: .catch((err) => { if (process.env.VSKILL_DEBUG) console.warn('[telemetry]', err.message); })"
+    },
+    {
+      "id": "L-005",
+      "severity": "LOW",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts:1149",
+      "title": "Git remote URL detection silently falls through",
+      "recommendation": "Acceptable as-is. INFO-level."
+    },
+    {
+      "id": "L-006",
+      "severity": "LOW",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts:1325,2425",
+      "title": "Agent companion file fetch failures silently skipped",
+      "recommendation": "Add debug-level warn for failed fetches."
+    },
+    {
+      "id": "L-007",
+      "severity": "LOW",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts:1480,1524,1536,1548,1582,1595",
+      "title": "6 GitHub API probe failures silently swallowed in plugin discovery",
+      "recommendation": "For lines 1524/1536, add combined warning when both fail."
+    },
+    {
+      "id": "L-008",
+      "severity": "LOW",
+      "reviewer": "reviewer-types",
+      "file": "repositories/anton-abyzov/vskill/src/installer/migrate.test.ts",
+      "title": "Test fixtures use `as any` casts",
+      "recommendation": "Use typed fixture builders or Partial<T> with required fields."
+    },
+    {
+      "id": "L-009",
+      "severity": "LOW",
+      "reviewer": "reviewer-types",
+      "file": "repositories/anton-abyzov/vskill/src/security/platform-security.ts",
+      "title": "overallVerdict cast allows invalid enum values (same pattern as M-011)",
+      "recommendation": "Validate before cast."
+    },
+    {
+      "id": "L-010",
+      "severity": "LOW",
+      "reviewer": "reviewer-types",
+      "file": "repositories/anton-abyzov/vskill/src/commands/add.ts",
+      "title": "Error type narrowing uses `as Error` instead of instanceof guard",
+      "recommendation": "Use `if (e instanceof Error)` guard before accessing error properties."
+    },
+    {
+      "id": "I-001",
+      "severity": "INFO",
+      "reviewer": "reviewer-spec-compliance",
+      "title": "All 26 ACs pass — increment 0626 fully compliant",
+      "description": "26/26 acceptance criteria verified. Both SKILL.md copies byte-identical. No scope creep."
+    },
+    {
+      "id": "I-002",
+      "severity": "INFO",
+      "reviewer": "reviewer-security",
+      "file": "repositories/anton-abyzov/vskill-platform/src/lib/trust/provider-registry.ts",
+      "title": "Vendor tier bypass is intentional — needs documentation comment",
+      "recommendation": "Add comment: '// Owner org — vendor tier intentionally bypasses scanning for self-published skills'"
+    },
+    {
+      "id": "I-003",
+      "severity": "INFO",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/security/platform-security.ts",
+      "title": "platform-security.ts returns null correctly with logging (by design)"
+    },
+    {
+      "id": "I-004",
+      "severity": "INFO",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/eval/verdict.ts",
+      "title": "verdict.ts — pure computation, no silent failures possible"
+    },
+    {
+      "id": "I-005",
+      "severity": "INFO",
+      "reviewer": "reviewer-silent-failures",
+      "file": "repositories/anton-abyzov/vskill/src/installer/migrate.test.ts",
+      "title": "migrate.test.ts — comprehensive 28-test coverage. Missing: permission-denied scenario tests."
+    },
+    {
+      "id": "I-006",
+      "severity": "INFO",
+      "reviewer": "reviewer-logic",
+      "file": "repositories/anton-abyzov/vskill/.claude/skills/mobile/appstore/SKILL.md:439",
+      "title": "asc screenshots delete lacks --confirm for consistency",
+      "recommendation": "Add --confirm flag to match other destructive operations."
+    },
+    {
+      "id": "I-007",
+      "severity": "INFO",
+      "reviewer": "reviewer-logic",
+      "file": "repositories/anton-abyzov/vskill/.claude/skills/mobile/appstore/SKILL.md:828",
+      "title": "GitHub Actions YAML uses unquoted --app ${{ vars.APP_ID }}",
+      "recommendation": "Quote: --app \"${{ vars.APP_ID }}\""
+    }
+  ]
+}

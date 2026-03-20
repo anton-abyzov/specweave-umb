@@ -47,17 +47,17 @@ created: 2026-03-19
 
 ### T-005: Fix Pattern B Bypass Modules (Direct `path.join` Replacements)
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given 6 modules that use `path.join(process.cwd(), '.specweave', ...)` directly → When `getSpecweavePath` is imported and the direct patterns are replaced in `qa-runner.ts:49`, `autonomous-executor.ts:244`, `revert-wip-limit.ts:18`, `logs.ts:26`, `cross-linker.ts:56`, `content-distributor.ts:85` → Then no new files are written to any child repo's `.specweave/` directory when CLI commands run from within an umbrella workspace
 
 ### T-006: Fix Pattern A Bypass Modules (`?? process.cwd()` Default Fallbacks)
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given 7 modules using `?? path.join(process.cwd(), '.specweave')` as a default fallback → When `getSpecweavePath` is imported and the fallback patterns are replaced in `command-integration.ts:84`, `notification-manager.ts:81`, `schedule-persistence.ts:71`, `log-aggregator.ts:109`, `sync-audit-logger.ts:169`, `permission-enforcer.ts:132` (+ default param at line 364), `sync-scheduled.ts:48` → Then all state, log, and report writes resolve to the umbrella root when run from a child repo
 
 ### T-007: Verify Zero Bypass Patterns Remain
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given all 13 bypass fixes applied in T-005 and T-006 → When `grep -rn "process\.cwd().*\.specweave\|join(process\.cwd(), '\.specweave'" src/` is run in the specweave repo → Then zero matches are returned (dashboard.ts match also resolved via T-004), confirming complete elimination of bypass patterns
 
 ---
@@ -66,5 +66,5 @@ created: 2026-03-19
 
 ### T-008: Clean Up Stale `.specweave/` Directories in Child Repos
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 **Test**: Given stale `.specweave/increments/` dirs in `repositories/anton-abyzov/vskill/` (0569, 0570, 0572) and `repositories/anton-abyzov/specweave/` (0576, 0590, 0593, 0595, 0599, 0605) → When each orphan increment ID is verified as present in the umbrella's `.specweave/increments/` (active or archive) before deletion → Then all 9 stale directories are removed, no child repo retains any `.specweave/increments/` subdirectory, and the umbrella archive retains every removed increment
