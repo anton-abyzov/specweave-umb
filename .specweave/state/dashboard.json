@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-20T01:52:16Z",
+  "updatedAt": "2026-03-20T02:25:28Z",
   "increments": {
     "0532-fix-hook-timeout-errors": {
       "status": "completed",
@@ -473,11 +473,29 @@
       "createdAt": "",
       "lastActivity": "2026-03-19T21:37:52Z",
       "userStories": []
+    },
+    "0637-website-readme-promotion-refactor": {
+      "status": "active",
+      "type": "feature",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 11,
+        "completed": 0
+      },
+      "acs": {
+        "total": 31,
+        "completed": 0
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-19T22:25:28Z",
+      "userStories": []
     }
   },
   "summary": {
-    "total": 25,
-    "active": 2,
+    "total": 26,
+    "active": 3,
     "paused": 0,
     "backlog": 0,
     "planning": 1,
@@ -486,7 +504,7 @@
     "abandoned": 0,
     "archived": 586,
     "byType": {
-      "feature": 12,
+      "feature": 13,
       "hotfix": 0,
       "bug": 9,
       "refactor": 2,
@@ -495,7 +513,7 @@
     },
     "byPriority": {
       "P0": 0,
-      "P1": 24,
+      "P1": 25,
       "P2": 1,
       "P3": 0
     }
@@ -637,6 +655,11 @@
       "metadata": 1773970672,
       "tasks": 1773971370,
       "spec": 1773971536
+    },
+    "0637-website-readme-promotion-refactor": {
+      "metadata": 1773973528,
+      "tasks": 1773973461,
+      "spec": 1773973521
     }
   }
 }

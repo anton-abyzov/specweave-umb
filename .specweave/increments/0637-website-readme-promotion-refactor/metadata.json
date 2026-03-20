@@ -1,0 +1,13 @@
+{
+  "id": "0637-website-readme-promotion-refactor",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-20T02:22:06.354Z",
+  "lastActivity": "2026-03-20T02:22:06.354Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
