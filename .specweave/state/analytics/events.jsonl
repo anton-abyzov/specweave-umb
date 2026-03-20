@@ -3096,3 +3096,4 @@
 {"timestamp":"2026-03-20T01:28:29.000Z","type":"skill","name":"sw:code-reviewer","success":true,"plugin":"specweave"}
 {"timestamp":"2026-03-20T01:33:45.000Z","type":"skill","name":"sw:increment","success":true,"plugin":"specweave"}
 {"timestamp":"2026-03-20T01:40:42.000Z","type":"command","name":"/sw:npm","success":true,"plugin":"specweave","increment":"0636-plugin-caching-review-followup"}
+{"timestamp":"2026-03-20T01:52:20.000Z","type":"skill","name":"sw:done","success":true,"plugin":"specweave"}

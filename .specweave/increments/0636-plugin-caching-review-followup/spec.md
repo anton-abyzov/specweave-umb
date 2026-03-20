@@ -1,10 +1,10 @@
 ---
 increment: 0636-plugin-caching-review-followup
-title: "Plugin Caching Review Follow-up"
+title: Plugin Caching Review Follow-up
 type: refactor
 priority: P2
-status: planned
-created: 2026-03-20
+status: completed
+created: 2026-03-20T00:00:00.000Z
 structure: user-stories
 test_mode: none
 coverage_target: 0
@@ -20,9 +20,9 @@ coverage_target: 0
 **So that** NaN-unsafe duplicated sort logic is eliminated
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `compareSemverDesc(a, b)` extracted to `utils/semver-sort.ts` with NaN handling for non-numeric segments
-- [ ] **AC-US1-02**: `plugin-copier.ts` `validatePluginCache` uses the shared sort
-- [ ] **AC-US1-03**: `plugin-scanner.ts` uses the shared sort
+- [x] **AC-US1-01**: `compareSemverDesc(a, b)` extracted to `utils/semver-sort.ts` with NaN handling for non-numeric segments
+- [x] **AC-US1-02**: `plugin-copier.ts` `validatePluginCache` uses the shared sort
+- [x] **AC-US1-03**: `plugin-scanner.ts` uses the shared sort
 
 ## US-002: Complete Silent Catch Logging
 **Project**: specweave
@@ -32,11 +32,11 @@ coverage_target: 0
 **So that** no plugin errors are silently swallowed
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: All 8 remaining empty catches in `plugin-copier.ts` log via `consoleLogger.debug` or `consoleLogger.warn`
-- [ ] **AC-US2-02**: Both catches in `plugin-scanner.ts` (lines ~52, ~110) log at debug level
-- [ ] **AC-US2-03**: 3 new Phase 2.5 catches in `cleanup-stale-plugins.ts` log at debug level
-- [ ] **AC-US2-04**: 6 catches in `refresh-plugins.ts` (getAvailablePlugins + steps 0.5-0.7, 4c, 4d) log at debug level
-- [ ] **AC-US2-05**: Inner backup catch in `claude-plugin-enabler.ts` logs at warn level
+- [x] **AC-US2-01**: All 8 remaining empty catches in `plugin-copier.ts` log via `consoleLogger.debug` or `consoleLogger.warn`
+- [x] **AC-US2-02**: Both catches in `plugin-scanner.ts` (lines ~52, ~110) log at debug level
+- [x] **AC-US2-03**: 3 new Phase 2.5 catches in `cleanup-stale-plugins.ts` log at debug level
+- [x] **AC-US2-04**: 6 catches in `refresh-plugins.ts` (getAvailablePlugins + steps 0.5-0.7, 4c, 4d) log at debug level
+- [x] **AC-US2-05**: Inner backup catch in `claude-plugin-enabler.ts` logs at warn level
 
 ## US-003: Phase 2.5 Safety Hardening
 **Project**: specweave
@@ -46,8 +46,8 @@ coverage_target: 0
 **So that** TOCTOU races and symlink attacks cannot cause data loss
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Phase 2.5 uses atomic rename-then-delete pattern (consistent with Phase 2)
-- [ ] **AC-US3-02**: Phase 2.5 checks for symlinks and verifies resolved path stays under cache base before deletion
+- [x] **AC-US3-01**: Phase 2.5 uses atomic rename-then-delete pattern (consistent with Phase 2)
+- [x] **AC-US3-02**: Phase 2.5 checks for symlinks and verifies resolved path stays under cache base before deletion
 
 ## US-004: Settings Backup Improvements
 **Project**: specweave
@@ -57,8 +57,8 @@ coverage_target: 0
 **So that** repeated corruption events don't overwrite earlier backups
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Backup reuses already-read `content` variable instead of re-reading file
-- [ ] **AC-US4-02**: Backup uses timestamped filename (`.bak.{timestamp}`) instead of fixed `.bak`
+- [x] **AC-US4-01**: Backup reuses already-read `content` variable instead of re-reading file
+- [x] **AC-US4-02**: Backup uses timestamped filename (`.bak.{timestamp}`) instead of fixed `.bak`
 
 ## US-005: Clean Error Return Values
 **Project**: specweave
@@ -68,8 +68,8 @@ coverage_target: 0
 **So that** callers can programmatically inspect errors without ANSI codes
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: `errors` array contains plain text strings (no chalk/ANSI formatting)
-- [ ] **AC-US5-02**: Console output still uses chalk formatting for visual display
+- [x] **AC-US5-01**: `errors` array contains plain text strings (no chalk/ANSI formatting)
+- [x] **AC-US5-02**: Console output still uses chalk formatting for visual display
 
 ## US-006: Type Design Improvements
 **Project**: specweave
@@ -79,9 +79,9 @@ coverage_target: 0
 **So that** impossible states are prevented at compile time
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: `validatePluginCache` uses a discriminated union return type (`{ valid: true } | { valid: false; error: string }`)
-- [ ] **AC-US6-02**: `refreshPluginsCommand` return type extracted to named `RefreshResult` interface
-- [ ] **AC-US6-03**: `installed_plugins.json` entries have runtime shape validation before property access
+- [x] **AC-US6-01**: `validatePluginCache` uses a discriminated union return type (`{ valid: true } | { valid: false; error: string }`)
+- [x] **AC-US6-02**: `refreshPluginsCommand` return type extracted to named `RefreshResult` interface
+- [x] **AC-US6-03**: `installed_plugins.json` entries have runtime shape validation before property access
 
 ## US-007: Multi-Marketplace Doctor Check
 **Project**: specweave
@@ -91,4 +91,4 @@ coverage_target: 0
 **So that** non-specweave marketplace stale dirs are also detected
 
 **Acceptance Criteria**:
-- [ ] **AC-US7-01**: `checkStaleVersionDirs` iterates all marketplace subdirs under `~/.claude/plugins/cache/`, not just `specweave`
+- [x] **AC-US7-01**: `checkStaleVersionDirs` iterates all marketplace subdirs under `~/.claude/plugins/cache/`, not just `specweave`
