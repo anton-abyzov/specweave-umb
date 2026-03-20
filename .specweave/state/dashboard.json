@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-20T00:42:01Z",
+  "updatedAt": "2026-03-20T00:56:04Z",
   "increments": {
     "0532-fix-hook-timeout-errors": {
       "status": "completed",
@@ -419,14 +419,50 @@
       "lastActivity": "2026-03-20T00:17:15Z",
       "lastActivityEpoch": 1773965835,
       "userStories": []
+    },
+    "0634-review-hardening-phase2": {
+      "status": "active",
+      "type": "bug",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 6,
+        "completed": 6
+      },
+      "acs": {
+        "total": 8,
+        "completed": 8
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-19T20:45:19Z",
+      "userStories": []
+    },
+    "0635-plugin-caching-hardening": {
+      "status": "planned",
+      "type": "bug",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 9,
+        "completed": 0
+      },
+      "acs": {
+        "total": 4,
+        "completed": 0
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-19T20:54:07Z",
+      "userStories": []
     }
   },
   "summary": {
-    "total": 22,
-    "active": 0,
+    "total": 24,
+    "active": 1,
     "paused": 0,
     "backlog": 0,
-    "planning": 1,
+    "planning": 2,
     "ready_for_review": 0,
     "completed": 21,
     "abandoned": 0,
@@ -434,14 +470,14 @@
     "byType": {
       "feature": 12,
       "hotfix": 0,
-      "bug": 7,
+      "bug": 9,
       "refactor": 1,
       "experiment": 0,
       "change-request": 2
     },
     "byPriority": {
       "P0": 0,
-      "P1": 22,
+      "P1": 24,
       "P2": 0,
       "P3": 0
     }
@@ -568,6 +604,16 @@
       "metadata": 1773965835,
       "tasks": 1773965681,
       "spec": 1773965835
+    },
+    "0634-review-hardening-phase2": {
+      "metadata": 1773967519,
+      "tasks": 1773967717,
+      "spec": 1773967708
+    },
+    "0635-plugin-caching-hardening": {
+      "metadata": 1773968047,
+      "tasks": 1773968164,
+      "spec": 1773968047
     }
   }
 }
