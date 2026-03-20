@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-20T02:25:28Z",
+  "updatedAt": "2026-03-20T04:03:47Z",
   "increments": {
     "0532-fix-hook-timeout-errors": {
       "status": "completed",
@@ -475,45 +475,99 @@
       "userStories": []
     },
     "0637-website-readme-promotion-refactor": {
-      "status": "active",
+      "status": "ready_for_review",
       "type": "feature",
       "priority": "P1",
       "title": "",
       "project": "",
       "tasks": {
         "total": 11,
-        "completed": 0
+        "completed": 11
       },
       "acs": {
         "total": 31,
+        "completed": 31
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-19T22:34:23Z",
+      "userStories": []
+    },
+    "0638-fix-appstore-skill-md": {
+      "status": "active",
+      "type": "bug",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 6,
+        "completed": 6
+      },
+      "acs": {
+        "total": 6,
+        "completed": 6
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-19T23:03:49Z",
+      "userStories": []
+    },
+    "0640-init-ux-nonempty-workspace": {
+      "status": "completed",
+      "type": "feature",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 18,
+        "completed": 18
+      },
+      "acs": {
+        "total": 17,
+        "completed": 17
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-20T00:03:47Z",
+      "userStories": []
+    },
+    "0641-sudo-aware-update-eisdir-fix": {
+      "status": "planned",
+      "type": "bug",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 9,
+        "completed": 0
+      },
+      "acs": {
+        "total": 11,
         "completed": 0
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T22:25:28Z",
+      "lastActivity": "2026-03-19T23:56:23Z",
       "userStories": []
     }
   },
   "summary": {
-    "total": 26,
+    "total": 29,
     "active": 3,
     "paused": 0,
     "backlog": 0,
-    "planning": 1,
-    "ready_for_review": 1,
-    "completed": 21,
+    "planning": 2,
+    "ready_for_review": 2,
+    "completed": 22,
     "abandoned": 0,
     "archived": 586,
     "byType": {
-      "feature": 13,
+      "feature": 14,
       "hotfix": 0,
-      "bug": 9,
+      "bug": 11,
       "refactor": 2,
       "experiment": 0,
       "change-request": 2
     },
     "byPriority": {
       "P0": 0,
-      "P1": 25,
+      "P1": 28,
       "P2": 1,
       "P3": 0
     }
@@ -657,9 +711,24 @@
       "spec": 1773971536
     },
     "0637-website-readme-promotion-refactor": {
-      "metadata": 1773973528,
-      "tasks": 1773973461,
-      "spec": 1773973521
+      "metadata": 1773974063,
+      "tasks": 1773973869,
+      "spec": 1773974039
+    },
+    "0638-fix-appstore-skill-md": {
+      "metadata": 1773975829,
+      "tasks": 1773976093,
+      "spec": 1773976152
+    },
+    "0640-init-ux-nonempty-workspace": {
+      "metadata": 1773979427,
+      "tasks": 1773979164,
+      "spec": 1773979414
+    },
+    "0641-sudo-aware-update-eisdir-fix": {
+      "metadata": 1773978983,
+      "tasks": 1773979053,
+      "spec": 1773978951
     }
   }
 }

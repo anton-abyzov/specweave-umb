@@ -1,13 +1,15 @@
 {
   "id": "0637-website-readme-promotion-refactor",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-20T02:22:06.354Z",
-  "lastActivity": "2026-03-20T02:22:06.354Z",
-  "testMode": "TDD",
-  "coverageTarget": 90,
+  "lastActivity": "2026-03-20T02:34:28.393Z",
+  "testMode": "none",
+  "coverageTarget": 0,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-03-20T02:33:59.622Z",
+  "approvedAt": "2026-03-20T02:34:28.393Z"
 }

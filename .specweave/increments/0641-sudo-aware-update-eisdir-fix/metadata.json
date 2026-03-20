@@ -1,0 +1,58 @@
+{
+  "id": "0641-sudo-aware-update-eisdir-fix",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-20T03:50:58.985Z",
+  "lastActivity": "2026-03-20T03:50:58.985Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-766",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-766",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-20T03:58:18.383Z"
+    },
+    "ado": {
+      "featureId": "1605",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1605",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-20T03:58:20.345Z"
+    }
+  },
+  "interview": {
+    "status": "complete",
+    "categories": {
+      "architecture": {
+        "covered": true,
+        "summary": "Two targeted fixes in existing files: statSync guard in plugin-copier.ts, sudo-aware retry in update.ts. No new modules or architectural changes. Add isNpmGlobalWritable() helper in update.ts."
+      },
+      "integrations": {
+        "covered": true,
+        "summary": "No new integrations. Existing npm CLI integration via execSync. Sudo retry uses same buildPublicRegistryEnv() and npmRegistryFlag(). stdio changes from pipe to inherit only for sudo path."
+      },
+      "ui-ux": {
+        "covered": true,
+        "summary": "Spinner shows 'Retrying with sudo...' before elevated retry. Error messages change from 'sudo npm install -g specweave@latest' to 'sudo specweave update'. EISDIR debug noise eliminated."
+      },
+      "performance": {
+        "covered": true,
+        "summary": "No performance impact. statSync with throwIfNoEntry:false is same perf as try/catch. Writable check via fs.accessSync is a single syscall. Sudo retry only triggers on EACCES failure path."
+      },
+      "security": {
+        "covered": true,
+        "summary": "sudo is only invoked for npm install -g specweave@version with clean env via buildPublicRegistryEnv(). No arbitrary command injection possible — command string is constructed from validated version. stdio:inherit lets user see and control the sudo prompt."
+      },
+      "edge-cases": {
+        "covered": true,
+        "summary": "Windows: skip sudo detection entirely, suggest Run as Administrator. nvm/volta users: prefix is user-writable, no sudo attempted. sudo not installed: EACCES error with clear message. Password prompt timeout/cancel: inherits default sudo behavior, EACCES error shown. ETARGET fallback: sudo retry applies to fallback install too."
+      }
+    }
+  },
+  "startDate": "2026-03-20"
+}
