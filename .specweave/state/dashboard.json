@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-20T00:15:08Z",
+  "updatedAt": "2026-03-20T00:42:01Z",
   "increments": {
     "0532-fix-hook-timeout-errors": {
       "status": "completed",
@@ -269,7 +269,7 @@
       "userStories": []
     },
     "0626-fix-appstore-skill-md": {
-      "status": "active",
+      "status": "completed",
       "type": "feature",
       "priority": "P1",
       "title": "",
@@ -283,8 +283,8 @@
         "completed": 29
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T23:17:53Z",
-      "lastActivityEpoch": 1773962273,
+      "lastActivity": "2026-03-19T23:22:30Z",
+      "lastActivityEpoch": 1773962550,
       "userStories": []
     },
     "0627-team-lead-agent-teams-api": {
@@ -364,7 +364,7 @@
       "userStories": []
     },
     "0631-fix-umbrella-root-resolution": {
-      "status": "active",
+      "status": "completed",
       "type": "bug",
       "priority": "P1",
       "title": "",
@@ -375,32 +375,34 @@
       },
       "acs": {
         "total": 16,
-        "completed": 3
+        "completed": 16
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T20:05:42Z",
+      "lastActivity": "2026-03-20T00:08:07Z",
+      "lastActivityEpoch": 1773965287,
       "userStories": []
     },
     "0632-wire-coverage-enforcement": {
-      "status": "planned",
+      "status": "completed",
       "type": "feature",
       "priority": "P1",
       "title": "",
       "project": "",
       "tasks": {
         "total": 7,
-        "completed": 0
+        "completed": 7
       },
       "acs": {
         "total": 10,
-        "completed": 0
+        "completed": 10
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T19:58:14Z",
+      "lastActivity": "2026-03-20T00:18:42Z",
+      "lastActivityEpoch": 1773965922,
       "userStories": []
     },
     "0633-validation-hardening": {
-      "status": "active",
+      "status": "completed",
       "type": "bug",
       "priority": "P1",
       "title": "",
@@ -414,18 +416,19 @@
         "completed": 8
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T20:11:13Z",
+      "lastActivity": "2026-03-20T00:17:15Z",
+      "lastActivityEpoch": 1773965835,
       "userStories": []
     }
   },
   "summary": {
     "total": 22,
-    "active": 3,
+    "active": 0,
     "paused": 0,
     "backlog": 0,
-    "planning": 2,
+    "planning": 1,
     "ready_for_review": 0,
-    "completed": 17,
+    "completed": 21,
     "abandoned": 0,
     "archived": 586,
     "byType": {
@@ -527,9 +530,9 @@
       "spec": 1773959216
     },
     "0626-fix-appstore-skill-md": {
-      "metadata": 1773962273,
+      "metadata": 1773962550,
       "tasks": 1773962237,
-      "spec": 1773962241
+      "spec": 1773962493
     },
     "0627-team-lead-agent-teams-api": {
       "metadata": 1773958335,
@@ -552,19 +555,19 @@
       "spec": 1773962170
     },
     "0631-fix-umbrella-root-resolution": {
-      "metadata": 1773965142,
+      "metadata": 1773965287,
       "tasks": 1773963734,
-      "spec": 1773965220
+      "spec": 1773965263
     },
     "0632-wire-coverage-enforcement": {
-      "metadata": 1773964694,
-      "tasks": 1773964754,
-      "spec": 1773964784
+      "metadata": 1773965922,
+      "tasks": 1773965456,
+      "spec": 1773965730
     },
     "0633-validation-hardening": {
-      "metadata": 1773965473,
+      "metadata": 1773965835,
       "tasks": 1773965681,
-      "spec": 1773965708
+      "spec": 1773965835
     }
   }
 }
