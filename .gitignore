@@ -141,3 +141,4 @@ node_modules/
 
 # SpecWeave
 test-results/
+coverage/

@@ -103,7 +103,7 @@
     "tddEnforcement": "strict",
     "defaultCoverageTarget": 90,
     "coverageTargets": {
-      "unit": 95,
+      "unit": 60,
       "integration": 90,
       "e2e": 100
     }

@@ -1,10 +1,10 @@
 ---
 increment: 0641-sudo-aware-update-eisdir-fix
-title: "Sudo-aware self-update and EISDIR fix"
+title: Sudo-aware self-update and EISDIR fix
 type: bug
 priority: P1
-status: planned
-created: 2026-03-20
+status: completed
+created: 2026-03-20T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -30,9 +30,9 @@ Two bugs in the specweave CLI update flow:
 **So that** my terminal output is not cluttered with EISDIR debug noise during normal operations
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `computePluginHash` does not throw or log when encountering directory entries from `readdirSync({ recursive: true })`
-- [ ] **AC-US1-02**: `computePluginHash` still correctly hashes all file contents and produces a deterministic hash
-- [ ] **AC-US1-03**: `computePluginHash` still returns empty string for non-existent directories
+- [x] **AC-US1-01**: `computePluginHash` does not throw or log when encountering directory entries from `readdirSync({ recursive: true })`
+- [x] **AC-US1-02**: `computePluginHash` still correctly hashes all file contents and produces a deterministic hash
+- [x] **AC-US1-03**: `computePluginHash` still returns empty string for non-existent directories
 
 ---
 
@@ -44,11 +44,11 @@ Two bugs in the specweave CLI update flow:
 **So that** updates succeed without me needing to know npm internals or manually prepend sudo
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Before running `npm install -g`, the update logic checks if the npm global prefix directory is writable by the current user
-- [ ] **AC-US2-02**: If the prefix is not writable, the install command is retried with `sudo` prepended and `stdio: 'inherit'` so the user can enter their password
-- [ ] **AC-US2-03**: If the prefix IS writable (nvm, volta, user-owned), the install runs without sudo — zero behavioral change
-- [ ] **AC-US2-04**: The sudo retry uses the same `buildPublicRegistryEnv()` clean environment as the non-sudo path
-- [ ] **AC-US2-05**: On Windows, sudo detection is skipped entirely — no `sudo` attempts
+- [x] **AC-US2-01**: Before running `npm install -g`, the update logic checks if the npm global prefix directory is writable by the current user
+- [x] **AC-US2-02**: If the prefix is not writable, the install command is retried with `sudo` prepended and `stdio: 'inherit'` so the user can enter their password
+- [x] **AC-US2-03**: If the prefix IS writable (nvm, volta, user-owned), the install runs without sudo — zero behavioral change
+- [x] **AC-US2-04**: The sudo retry uses the same `buildPublicRegistryEnv()` clean environment as the non-sudo path
+- [x] **AC-US2-05**: On Windows, sudo detection is skipped entirely — no `sudo` attempts
 
 ---
 
@@ -60,9 +60,9 @@ Two bugs in the specweave CLI update flow:
 **So that** I know exactly what command to run to fix the issue
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: If EACCES persists after sudo retry (or sudo is unavailable), the error message suggests `sudo specweave update` (not `sudo npm install -g specweave@latest`)
-- [ ] **AC-US3-02**: On Windows, the error message suggests running the terminal as Administrator
-- [ ] **AC-US3-03**: The spinner/progress text shows "Retrying with sudo..." before the elevated retry so the user understands what is happening
+- [x] **AC-US3-01**: If EACCES persists after sudo retry (or sudo is unavailable), the error message suggests `sudo specweave update` (not `sudo npm install -g specweave@latest`)
+- [x] **AC-US3-02**: On Windows, the error message suggests running the terminal as Administrator
+- [x] **AC-US3-03**: The spinner/progress text shows "Retrying with sudo..." before the elevated retry so the user understands what is happening
 
 ## Functional Requirements
 

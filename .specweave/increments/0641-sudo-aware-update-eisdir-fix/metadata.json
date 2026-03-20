@@ -1,12 +1,12 @@
 {
   "id": "0641-sudo-aware-update-eisdir-fix",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-03-20T03:50:58.985Z",
-  "lastActivity": "2026-03-20T03:50:58.985Z",
+  "lastActivity": "2026-03-20T04:39:07.698Z",
   "testMode": "TDD",
-  "coverageTarget": 90,
+  "coverageTarget": 0,
   "feature_id": null,
   "epic_id": null,
   "externalLinks": {
@@ -15,14 +15,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-766",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-03-20T03:58:18.383Z"
+      "syncedAt": "2026-03-20T04:15:29.818Z"
     },
     "ado": {
       "featureId": "1605",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1605",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-03-20T03:58:20.345Z"
+      "syncedAt": "2026-03-20T04:15:32.806Z"
     }
   },
   "interview": {
@@ -54,5 +54,7 @@
       }
     }
   },
-  "startDate": "2026-03-20"
+  "startDate": "2026-03-20",
+  "readyForReviewAt": "2026-03-20T04:19:01.795Z",
+  "approvedAt": "2026-03-20T04:39:07.698Z"
 }

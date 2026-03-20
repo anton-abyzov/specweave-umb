@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-20T04:03:47Z",
+  "updatedAt": "2026-03-20T04:21:14Z",
   "increments": {
     "0532-fix-hook-timeout-errors": {
       "status": "completed",
@@ -529,21 +529,21 @@
       "userStories": []
     },
     "0641-sudo-aware-update-eisdir-fix": {
-      "status": "planned",
+      "status": "ready_for_review",
       "type": "bug",
       "priority": "P1",
       "title": "",
       "project": "",
       "tasks": {
         "total": 9,
-        "completed": 0
+        "completed": 9
       },
       "acs": {
         "total": 11,
-        "completed": 0
+        "completed": 11
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T23:56:23Z",
+      "lastActivity": "2026-03-20T00:21:14Z",
       "userStories": []
     }
   },
@@ -552,8 +552,8 @@
     "active": 3,
     "paused": 0,
     "backlog": 0,
-    "planning": 2,
-    "ready_for_review": 2,
+    "planning": 1,
+    "ready_for_review": 3,
     "completed": 22,
     "abandoned": 0,
     "archived": 586,
@@ -726,9 +726,9 @@
       "spec": 1773979414
     },
     "0641-sudo-aware-update-eisdir-fix": {
-      "metadata": 1773978983,
-      "tasks": 1773979053,
-      "spec": 1773978951
+      "metadata": 1773980474,
+      "tasks": 1773980093,
+      "spec": 1773980341
     }
   }
 }

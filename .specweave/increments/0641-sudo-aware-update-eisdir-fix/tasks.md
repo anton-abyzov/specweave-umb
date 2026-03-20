@@ -9,7 +9,7 @@ status: planned
 ## US-001: Silent plugin hash computation
 
 ### T-001: Write failing test for EISDIR/ENOENT resilience in computePluginHash
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [x] completed
 
 **Test Plan**:
 - Given a plugin directory containing both files and subdirectories
@@ -29,7 +29,7 @@ status: planned
 ---
 
 ### T-002: Fix computePluginHash to use non-throwing statSync
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [x] completed
 
 **Test Plan**:
 - Given T-001 red tests exist
@@ -43,7 +43,7 @@ status: planned
 ## US-002: Sudo-aware self-update with auto-elevation
 
 ### T-003: Write failing tests for isGlobalNpmWritable helper
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-05 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-05 | **Status**: [x] completed
 
 **Test Plan**:
 - Given `npm prefix -g` returns a path and `fs.accessSync(W_OK)` succeeds
@@ -67,7 +67,7 @@ status: planned
 ---
 
 ### T-004: Write failing tests for isSudoAvailable helper
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-02, AC-US2-05 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-02, AC-US2-05 | **Status**: [x] completed
 
 **Test Plan**:
 - Given `which sudo` exits 0 on a Unix platform
@@ -87,7 +87,7 @@ status: planned
 ---
 
 ### T-005: Write failing tests for npmPublicInstall sudo retry behavior
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [x] completed
 
 **Test Plan**:
 - Given the npm global prefix is writable
@@ -111,7 +111,7 @@ status: planned
 ---
 
 ### T-006: Implement isGlobalNpmWritable, isSudoAvailable, and npmPublicInstall in update.ts
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [x] completed
 
 **Test Plan**:
 - Given T-003, T-004, T-005 red tests exist
@@ -132,7 +132,7 @@ status: planned
 ## US-003: Clear error messaging when permissions fail
 
 ### T-007: Write failing test for updated EACCES error message
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] completed
 
 **Test Plan**:
 - Given EACCES persists after sudo retry (or sudo unavailable) on Unix
@@ -152,7 +152,7 @@ status: planned
 ---
 
 ### T-008: Update EACCES error message and add spinner text in update.ts
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] completed
 
 **Test Plan**:
 - Given T-007 red tests exist
@@ -172,7 +172,7 @@ status: planned
 ## Verification
 
 ### T-009: Run full test suite and confirm zero regressions
-**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05, AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05, AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] completed
 
 **Test Plan**:
 - Given all implementation tasks T-002, T-006, T-008 are complete
