@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-20T00:57:08Z",
+  "updatedAt": "2026-03-20T01:37:52Z",
   "increments": {
     "0532-fix-hook-timeout-errors": {
       "status": "completed",
@@ -439,31 +439,49 @@
       "userStories": []
     },
     "0635-plugin-caching-hardening": {
-      "status": "planned",
+      "status": "ready_for_review",
       "type": "bug",
       "priority": "P1",
       "title": "",
       "project": "",
       "tasks": {
         "total": 9,
-        "completed": 0
+        "completed": 9
       },
       "acs": {
         "total": 15,
+        "completed": 15
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-19T21:21:49Z",
+      "userStories": []
+    },
+    "0636-plugin-caching-review-followup": {
+      "status": "active",
+      "type": "refactor",
+      "priority": "P2",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 8,
+        "completed": 0
+      },
+      "acs": {
+        "total": 18,
         "completed": 0
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T20:54:07Z",
+      "lastActivity": "2026-03-19T21:37:52Z",
       "userStories": []
     }
   },
   "summary": {
-    "total": 24,
-    "active": 1,
+    "total": 25,
+    "active": 2,
     "paused": 0,
     "backlog": 0,
-    "planning": 2,
-    "ready_for_review": 0,
+    "planning": 1,
+    "ready_for_review": 1,
     "completed": 21,
     "abandoned": 0,
     "archived": 586,
@@ -471,14 +489,14 @@
       "feature": 12,
       "hotfix": 0,
       "bug": 9,
-      "refactor": 1,
+      "refactor": 2,
       "experiment": 0,
       "change-request": 2
     },
     "byPriority": {
       "P0": 0,
       "P1": 24,
-      "P2": 0,
+      "P2": 1,
       "P3": 0
     }
   },
@@ -611,9 +629,14 @@
       "spec": 1773967708
     },
     "0635-plugin-caching-hardening": {
-      "metadata": 1773968047,
-      "tasks": 1773968164,
-      "spec": 1773968228
+      "metadata": 1773969709,
+      "tasks": 1773969061,
+      "spec": 1773969541
+    },
+    "0636-plugin-caching-review-followup": {
+      "metadata": 1773970672,
+      "tasks": 1773970664,
+      "spec": 1773970639
     }
   }
 }
