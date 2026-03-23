@@ -1,0 +1,15 @@
+{
+  "id": "0642-update-refresh-all-plugins",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-23T01:21:25.983Z",
+  "lastActivity": "2026-03-23T01:26:41.846Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "readyForReviewAt": "2026-03-23T01:26:41.834Z",
+  "approvedAt": "2026-03-23T01:26:41.846Z"
+}

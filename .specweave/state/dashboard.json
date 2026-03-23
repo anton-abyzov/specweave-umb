@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-20T04:21:14Z",
+  "updatedAt": "2026-03-23T01:26:36Z",
   "increments": {
     "0532-fix-hook-timeout-errors": {
       "status": "completed",
@@ -545,11 +545,29 @@
       "createdAt": "",
       "lastActivity": "2026-03-20T00:21:14Z",
       "userStories": []
+    },
+    "0642-update-refresh-all-plugins": {
+      "status": "active",
+      "type": "bug",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 3,
+        "completed": 3
+      },
+      "acs": {
+        "total": 3,
+        "completed": 3
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-23T10:26:36Z",
+      "userStories": []
     }
   },
   "summary": {
-    "total": 29,
-    "active": 3,
+    "total": 30,
+    "active": 4,
     "paused": 0,
     "backlog": 0,
     "planning": 1,
@@ -560,14 +578,14 @@
     "byType": {
       "feature": 14,
       "hotfix": 0,
-      "bug": 11,
+      "bug": 12,
       "refactor": 2,
       "experiment": 0,
       "change-request": 2
     },
     "byPriority": {
       "P0": 0,
-      "P1": 28,
+      "P1": 29,
       "P2": 1,
       "P3": 0
     }
@@ -729,6 +747,11 @@
       "metadata": 1773980474,
       "tasks": 1773980093,
       "spec": 1773980341
+    },
+    "0642-update-refresh-all-plugins": {
+      "metadata": 1774229196,
+      "tasks": 1774229078,
+      "spec": 1774229086
     }
   }
 }
