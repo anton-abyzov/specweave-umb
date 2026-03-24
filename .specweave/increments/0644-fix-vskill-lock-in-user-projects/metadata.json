@@ -1,0 +1,15 @@
+{
+  "id": "0644-fix-vskill-lock-in-user-projects",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-24T01:17:16.642Z",
+  "lastActivity": "2026-03-24T01:21:21.605Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "readyForReviewAt": "2026-03-24T01:21:21.594Z",
+  "approvedAt": "2026-03-24T01:21:21.605Z"
+}
