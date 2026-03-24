@@ -3133,3 +3133,5 @@
 {"timestamp":"2026-03-23T19:19:22.000Z","type":"skill","name":"sw:done","success":true,"plugin":"specweave"}
 {"timestamp":"2026-03-23T19:19:31.000Z","type":"skill","name":"sw:grill","success":true,"plugin":"specweave"}
 {"timestamp":"2026-03-24T00:33:51.000Z","type":"command","name":"/sw:npm","success":true,"plugin":"specweave","increment":"0639-homepage-full-redesign"}
+{"timestamp":"2026-03-24T00:58:08.000Z","type":"command","name":"/sw:team-lead","success":true,"plugin":"specweave","increment":"0639-homepage-full-redesign"}
+{"timestamp":"2026-03-24T01:07:12.000Z","type":"command","name":"/sw:npm","success":true,"plugin":"specweave","increment":"0639-homepage-full-redesign"}
