@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-24T01:20:55Z",
+  "updatedAt": "2026-03-25T09:10:14Z",
   "increments": {
     "0532-fix-hook-timeout-errors": {
       "status": "completed",
@@ -599,11 +599,29 @@
       "createdAt": "",
       "lastActivity": "2026-03-24T10:18:53Z",
       "userStories": []
+    },
+    "0645-sync-setup-auto-detect-github": {
+      "status": "active",
+      "type": "bug",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 4,
+        "completed": 4
+      },
+      "acs": {
+        "total": 4,
+        "completed": 4
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-25T18:06:56Z",
+      "userStories": []
     }
   },
   "summary": {
-    "total": 32,
-    "active": 6,
+    "total": 33,
+    "active": 7,
     "paused": 0,
     "backlog": 0,
     "planning": 1,
@@ -614,14 +632,14 @@
     "byType": {
       "feature": 14,
       "hotfix": 0,
-      "bug": 14,
+      "bug": 15,
       "refactor": 2,
       "experiment": 0,
       "change-request": 2
     },
     "byPriority": {
       "P0": 0,
-      "P1": 31,
+      "P1": 32,
       "P2": 1,
       "P3": 0
     }
@@ -798,6 +816,11 @@
       "metadata": 1774315133,
       "tasks": 1774315245,
       "spec": 1774315255
+    },
+    "0645-sync-setup-auto-detect-github": {
+      "metadata": 1774429616,
+      "tasks": 1774429814,
+      "spec": 1774429792
     }
   }
 }
