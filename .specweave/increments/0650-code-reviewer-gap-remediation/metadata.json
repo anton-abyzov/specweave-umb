@@ -1,0 +1,30 @@
+{
+  "id": "0650-code-reviewer-gap-remediation",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-26T18:30:02.896Z",
+  "lastActivity": "2026-03-26T18:40:20.454Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-776",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-776",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-26T18:40:42.214Z"
+    },
+    "ado": {
+      "featureId": "1615",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1615",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-26T18:40:50.770Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-26T18:40:20.444Z",
+  "approvedAt": "2026-03-26T18:40:20.454Z"
+}

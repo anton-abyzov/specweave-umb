@@ -1,0 +1,30 @@
+{
+  "id": "0647-fix-vskill-lock-leaking-to-non-projects",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-26T17:48:04.884Z",
+  "lastActivity": "2026-03-26T17:59:56.116Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-770",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-770",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-26T17:49:53.097Z"
+    },
+    "ado": {
+      "featureId": "1609",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1609",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-26T17:49:57.998Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-26T17:59:56.103Z",
+  "approvedAt": "2026-03-26T17:59:56.116Z"
+}

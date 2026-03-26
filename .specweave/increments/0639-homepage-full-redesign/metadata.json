@@ -1,13 +1,15 @@
 {
   "id": "0639-homepage-full-redesign",
-  "status": "active",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-20T03:18:03.700Z",
-  "lastActivity": "2026-03-20T03:18:03.700Z",
+  "lastActivity": "2026-03-26T18:33:42.738Z",
   "testMode": "none",
   "coverageTarget": 0,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "abandonedReason": "No reason provided",
+  "abandonedAt": "2026-03-26T18:33:42.738Z"
 }

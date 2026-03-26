@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-25T09:10:14Z",
+  "updatedAt": "2026-03-26T18:42:03Z",
   "increments": {
     "0532-fix-hook-timeout-errors": {
       "status": "completed",
@@ -268,25 +268,6 @@
       "lastActivityEpoch": 1773959216,
       "userStories": []
     },
-    "0626-fix-appstore-skill-md": {
-      "status": "completed",
-      "type": "feature",
-      "priority": "P1",
-      "title": "",
-      "project": "specweave-umb",
-      "tasks": {
-        "total": 14,
-        "completed": 14
-      },
-      "acs": {
-        "total": 29,
-        "completed": 29
-      },
-      "createdAt": "",
-      "lastActivity": "2026-03-19T23:22:30Z",
-      "lastActivityEpoch": 1773962550,
-      "userStories": []
-    },
     "0627-team-lead-agent-teams-api": {
       "status": "completed",
       "type": "feature",
@@ -326,7 +307,7 @@
       "userStories": []
     },
     "0629-delegate-plugin-registry-to-claude-cli": {
-      "status": "planned",
+      "status": "abandoned",
       "type": "refactor",
       "priority": "P1",
       "title": "",
@@ -340,8 +321,8 @@
         "completed": 0
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T22:52:10Z",
-      "lastActivityEpoch": 1773960730,
+      "lastActivity": "2026-03-20T00:44:58Z",
+      "lastActivityEpoch": 1773967498,
       "userStories": []
     },
     "0630-global-agent-teams-env": {
@@ -421,7 +402,7 @@
       "userStories": []
     },
     "0634-review-hardening-phase2": {
-      "status": "active",
+      "status": "completed",
       "type": "bug",
       "priority": "P1",
       "title": "",
@@ -435,11 +416,12 @@
         "completed": 8
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T20:45:19Z",
+      "lastActivity": "2026-03-20T00:51:04Z",
+      "lastActivityEpoch": 1773967864,
       "userStories": []
     },
     "0635-plugin-caching-hardening": {
-      "status": "ready_for_review",
+      "status": "completed",
       "type": "bug",
       "priority": "P1",
       "title": "",
@@ -453,11 +435,12 @@
         "completed": 15
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T21:21:49Z",
+      "lastActivity": "2026-03-20T01:22:06Z",
+      "lastActivityEpoch": 1773969726,
       "userStories": []
     },
     "0636-plugin-caching-review-followup": {
-      "status": "active",
+      "status": "completed",
       "type": "refactor",
       "priority": "P2",
       "title": "",
@@ -471,11 +454,12 @@
         "completed": 18
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T21:37:52Z",
+      "lastActivity": "2026-03-20T01:55:56Z",
+      "lastActivityEpoch": 1773971756,
       "userStories": []
     },
     "0637-website-readme-promotion-refactor": {
-      "status": "ready_for_review",
+      "status": "completed",
       "type": "feature",
       "priority": "P1",
       "title": "",
@@ -489,11 +473,12 @@
         "completed": 31
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T22:34:23Z",
+      "lastActivity": "2026-03-20T02:34:28Z",
+      "lastActivityEpoch": 1773974068,
       "userStories": []
     },
     "0638-fix-appstore-skill-md": {
-      "status": "active",
+      "status": "completed",
       "type": "bug",
       "priority": "P1",
       "title": "",
@@ -507,7 +492,27 @@
         "completed": 6
       },
       "createdAt": "",
-      "lastActivity": "2026-03-19T23:03:49Z",
+      "lastActivity": "2026-03-20T03:11:41Z",
+      "lastActivityEpoch": 1773976301,
+      "userStories": []
+    },
+    "0639-homepage-full-redesign": {
+      "status": "active",
+      "type": "feature",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 1,
+        "completed": 0
+      },
+      "acs": {
+        "total": 4,
+        "completed": 0
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-20T03:18:45Z",
+      "lastActivityEpoch": 1773976725,
       "userStories": []
     },
     "0640-init-ux-nonempty-workspace": {
@@ -525,11 +530,12 @@
         "completed": 17
       },
       "createdAt": "",
-      "lastActivity": "2026-03-20T00:03:47Z",
+      "lastActivity": "2026-03-20T04:03:47Z",
+      "lastActivityEpoch": 1773979427,
       "userStories": []
     },
     "0641-sudo-aware-update-eisdir-fix": {
-      "status": "ready_for_review",
+      "status": "completed",
       "type": "bug",
       "priority": "P1",
       "title": "",
@@ -543,11 +549,12 @@
         "completed": 11
       },
       "createdAt": "",
-      "lastActivity": "2026-03-20T00:21:14Z",
+      "lastActivity": "2026-03-20T04:39:07Z",
+      "lastActivityEpoch": 1773981547,
       "userStories": []
     },
     "0642-update-refresh-all-plugins": {
-      "status": "active",
+      "status": "completed",
       "type": "bug",
       "priority": "P1",
       "title": "",
@@ -561,11 +568,12 @@
         "completed": 3
       },
       "createdAt": "",
-      "lastActivity": "2026-03-23T10:26:36Z",
+      "lastActivity": "2026-03-23T01:26:41Z",
+      "lastActivityEpoch": 1774229201,
       "userStories": []
     },
     "0643-init-repo-clone-flow": {
-      "status": "active",
+      "status": "completed",
       "type": "bug",
       "priority": "P1",
       "title": "",
@@ -579,11 +587,12 @@
         "completed": 7
       },
       "createdAt": "",
-      "lastActivity": "2026-03-24T04:15:24Z",
+      "lastActivity": "2026-03-23T19:20:32Z",
+      "lastActivityEpoch": 1774293632,
       "userStories": []
     },
     "0644-fix-vskill-lock-in-user-projects": {
-      "status": "active",
+      "status": "completed",
       "type": "bug",
       "priority": "P1",
       "title": "",
@@ -597,11 +606,12 @@
         "completed": 3
       },
       "createdAt": "",
-      "lastActivity": "2026-03-24T10:18:53Z",
+      "lastActivity": "2026-03-24T01:21:27Z",
+      "lastActivityEpoch": 1774315287,
       "userStories": []
     },
     "0645-sync-setup-auto-detect-github": {
-      "status": "active",
+      "status": "completed",
       "type": "bug",
       "priority": "P1",
       "title": "",
@@ -615,31 +625,125 @@
         "completed": 4
       },
       "createdAt": "",
-      "lastActivity": "2026-03-25T18:06:56Z",
+      "lastActivity": "2026-03-25T09:10:52Z",
+      "lastActivityEpoch": 1774429852,
+      "userStories": []
+    },
+    "0646-closure-pipeline-code-review": {
+      "status": "planned",
+      "type": "feature",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 1,
+        "completed": 0
+      },
+      "acs": {
+        "total": 4,
+        "completed": 0
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-26T17:47:27Z",
+      "lastActivityEpoch": 1774547247,
+      "userStories": []
+    },
+    "0647-fix-vskill-lock-leaking-to-non-projects": {
+      "status": "completed",
+      "type": "bug",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 5,
+        "completed": 5
+      },
+      "acs": {
+        "total": 5,
+        "completed": 5
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-26T17:59:57Z",
+      "lastActivityEpoch": 1774547997,
+      "userStories": []
+    },
+    "0648-skip-native-plugin-install": {
+      "status": "completed",
+      "type": "bug",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 6,
+        "completed": 6
+      },
+      "acs": {
+        "total": 7,
+        "completed": 7
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-26T18:11:48Z",
+      "lastActivityEpoch": 1774548708,
+      "userStories": []
+    },
+    "0649-hooks-cli-delegation": {
+      "status": "planned",
+      "type": "refactor",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 17,
+        "completed": 0
+      },
+      "acs": {
+        "total": 44,
+        "completed": 0
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-27T03:36:05Z",
+      "userStories": []
+    },
+    "0650-code-reviewer-gap-remediation": {
+      "status": "active",
+      "type": "feature",
+      "priority": "P1",
+      "title": "",
+      "project": "",
+      "tasks": {
+        "total": 6,
+        "completed": 6
+      },
+      "acs": {
+        "total": 19,
+        "completed": 19
+      },
+      "createdAt": "",
+      "lastActivity": "2026-03-27T03:34:48Z",
       "userStories": []
     }
   },
   "summary": {
-    "total": 33,
-    "active": 7,
+    "total": 38,
+    "active": 2,
     "paused": 0,
     "backlog": 0,
-    "planning": 1,
-    "ready_for_review": 3,
-    "completed": 22,
-    "abandoned": 0,
-    "archived": 586,
+    "planning": 2,
+    "ready_for_review": 0,
+    "completed": 33,
+    "abandoned": 1,
+    "archived": 587,
     "byType": {
-      "feature": 14,
+      "feature": 16,
       "hotfix": 0,
-      "bug": 15,
-      "refactor": 2,
+      "bug": 17,
+      "refactor": 3,
       "experiment": 0,
       "change-request": 2
     },
     "byPriority": {
       "P0": 0,
-      "P1": 32,
+      "P1": 37,
       "P2": 1,
       "P3": 0
     }
@@ -727,11 +831,6 @@
       "tasks": 1773958829,
       "spec": 1773959216
     },
-    "0626-fix-appstore-skill-md": {
-      "metadata": 1773962550,
-      "tasks": 1773962237,
-      "spec": 1773962493
-    },
     "0627-team-lead-agent-teams-api": {
       "metadata": 1773958335,
       "tasks": 1773958029,
@@ -743,7 +842,7 @@
       "spec": 1773960913
     },
     "0629-delegate-plugin-registry-to-claude-cli": {
-      "metadata": 1773960730,
+      "metadata": 1773967498,
       "tasks": 1773960730,
       "spec": 1773960730
     },
@@ -768,29 +867,34 @@
       "spec": 1773965835
     },
     "0634-review-hardening-phase2": {
-      "metadata": 1773967519,
+      "metadata": 1773967864,
       "tasks": 1773967717,
-      "spec": 1773967708
+      "spec": 1773967864
     },
     "0635-plugin-caching-hardening": {
-      "metadata": 1773969709,
+      "metadata": 1773969726,
       "tasks": 1773969061,
-      "spec": 1773969541
+      "spec": 1773969713
     },
     "0636-plugin-caching-review-followup": {
-      "metadata": 1773970672,
+      "metadata": 1773971756,
       "tasks": 1773971370,
-      "spec": 1773971536
+      "spec": 1773971746
     },
     "0637-website-readme-promotion-refactor": {
-      "metadata": 1773974063,
+      "metadata": 1773974068,
       "tasks": 1773973869,
-      "spec": 1773974039
+      "spec": 1773974068
     },
     "0638-fix-appstore-skill-md": {
-      "metadata": 1773975829,
+      "metadata": 1773976301,
       "tasks": 1773976093,
-      "spec": 1773976152
+      "spec": 1773976301
+    },
+    "0639-homepage-full-redesign": {
+      "metadata": 1773976725,
+      "tasks": 1773976683,
+      "spec": 1773976683
     },
     "0640-init-ux-nonempty-workspace": {
       "metadata": 1773979427,
@@ -798,29 +902,54 @@
       "spec": 1773979414
     },
     "0641-sudo-aware-update-eisdir-fix": {
-      "metadata": 1773980474,
+      "metadata": 1773981547,
       "tasks": 1773980093,
-      "spec": 1773980341
+      "spec": 1773981547
     },
     "0642-update-refresh-all-plugins": {
-      "metadata": 1774229196,
+      "metadata": 1774229201,
       "tasks": 1774229078,
-      "spec": 1774229086
+      "spec": 1774229201
     },
     "0643-init-repo-clone-flow": {
-      "metadata": 1774293324,
+      "metadata": 1774293632,
       "tasks": 1774293523,
-      "spec": 1774293558
+      "spec": 1774293632
     },
     "0644-fix-vskill-lock-in-user-projects": {
-      "metadata": 1774315133,
+      "metadata": 1774315287,
       "tasks": 1774315245,
-      "spec": 1774315255
+      "spec": 1774315281
     },
     "0645-sync-setup-auto-detect-github": {
-      "metadata": 1774429616,
+      "metadata": 1774429852,
       "tasks": 1774429814,
-      "spec": 1774429792
+      "spec": 1774429852
+    },
+    "0646-closure-pipeline-code-review": {
+      "metadata": 1774547247,
+      "tasks": 1774547247,
+      "spec": 1774547247
+    },
+    "0647-fix-vskill-lock-leaking-to-non-projects": {
+      "metadata": 1774547997,
+      "tasks": 1774547969,
+      "spec": 1774547996
+    },
+    "0648-skip-native-plugin-install": {
+      "metadata": 1774548708,
+      "tasks": 1774548586,
+      "spec": 1774548708
+    },
+    "0649-hooks-cli-delegation": {
+      "metadata": 1774550165,
+      "tasks": 1774550523,
+      "spec": 1774550126
+    },
+    "0650-code-reviewer-gap-remediation": {
+      "metadata": 1774550088,
+      "tasks": 1774550209,
+      "spec": 1774550221
     }
   }
 }

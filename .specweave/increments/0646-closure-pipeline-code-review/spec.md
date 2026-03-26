@@ -1,20 +1,20 @@
 ---
-increment: 0639-homepage-full-redesign
-title: Homepage Full Redesign v2
+increment: 0646-closure-pipeline-code-review
+title: "Integrate code-reviewer and simplify into closure pipeline"
 type: feature
 priority: P1
-status: abandoned
-created: 2026-03-20T00:00:00.000Z
+status: planned
+created: 2026-03-26
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
 ---
 
-# Feature: Homepage Full Redesign v2
+# Feature: Integrate code-reviewer and simplify into closure pipeline
 
 ## Overview
 
-Redesign showcase, comparison, how-it-works, skills sections with real links and tool-agnostic content
+Add sw:code-reviewer with fix loop and /simplify as quality gates in sw:done, before grill and judge-llm
 
 <!--
 ====================================================================
@@ -25,7 +25,7 @@ This is a TEMPLATE created by increment skill.
 DO NOT manually fill in the placeholders below.
 
 To complete this specification, run:
-  Tell Claude: "Complete the spec for increment 0639-homepage-full-redesign"
+  Tell Claude: "Complete the spec for increment 0646-closure-pipeline-code-review"
 
 This will activate the PM skill which will:
 - Define proper user stories with acceptance criteria

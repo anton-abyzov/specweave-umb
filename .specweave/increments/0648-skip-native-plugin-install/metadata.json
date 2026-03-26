@@ -1,0 +1,30 @@
+{
+  "id": "0648-skip-native-plugin-install",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-03-26T18:01:42.310Z",
+  "lastActivity": "2026-03-26T18:11:48.091Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-773",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-773",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-26T18:03:31.773Z"
+    },
+    "ado": {
+      "featureId": "1612",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1612",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-26T18:03:34.925Z"
+    }
+  },
+  "readyForReviewAt": "2026-03-26T18:11:48.082Z",
+  "approvedAt": "2026-03-26T18:11:48.091Z"
+}
