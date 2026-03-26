@@ -3,7 +3,7 @@
 ## Phase 1: Infrastructure
 
 ### T-001: Create handler types module
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03 | **Status**: [x] completed
 **AC**: AC-US1-02, AC-US1-03
 
 Create `src/core/hooks/handlers/types.ts` with `HookInput`, `HookResult`, `HookContext`, and `HandlerFn` interfaces as specified in plan.md §2.3. These types are the shared contract for all handlers.
@@ -15,7 +15,7 @@ Create `src/core/hooks/handlers/types.ts` with `HookInput`, `HookResult`, `HookC
 ---
 
 ### T-002: Create shared handler utilities
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03 | **Status**: [x] completed
 **AC**: AC-US1-02, AC-US1-03
 
 Create `src/core/hooks/handlers/utils.ts` with: `findProjectRoot()` (walk up from cwd to find `.specweave/config.json`), `readStdin(timeoutMs)` (read stdin as JSON with 5s timeout), `writeResult(result)` (JSON.stringify to stdout), `createContext(projectRoot)` (build `HookContext`), `logHook(context, handler, message)` (append to `.specweave/logs/hooks.log`).
@@ -31,7 +31,7 @@ Create `src/core/hooks/handlers/utils.ts` with: `findProjectRoot()` (walk up fro
 ---
 
 ### T-003: Create hook router
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04 | **Status**: [x] completed
 **AC**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
 
 Create `src/core/hooks/handlers/hook-router.ts`. The router reads stdin JSON, resolves project root, checks `SPECWEAVE_DISABLE_HOOKS=1`, dynamically imports the matching handler, executes it, and writes the JSON result. Wraps everything in a top-level try/catch — always outputs valid JSON. Unknown event-type returns `{"continue":true}`. Implements the dynamic import map from plan.md §2.2.
@@ -47,7 +47,7 @@ Create `src/core/hooks/handlers/hook-router.ts`. The router reads stdin JSON, re
 ---
 
 ### T-004: Register `specweave hook` CLI command
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-05 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-05 | **Status**: [x] completed
 **AC**: AC-US1-01, AC-US1-05
 
 Create `src/cli/commands/hook.ts` with exported `handleHook(eventType: string)`. Register `program.command('hook <event-type>')` in `bin/specweave.js` following the `detect-intent` pattern (async dynamic import of `dist/src/cli/commands/hook.js`). Hide from `--help`. Install `process.on('unhandledRejection')` and always exit 0.
@@ -61,7 +61,7 @@ Create `src/cli/commands/hook.ts` with exported `handleHook(eventType: string)`.
 ---
 
 ### T-005: Create handlers barrel export
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 **AC**: AC-US1-01
 
 Create `src/core/hooks/handlers/index.ts` barrel exporting `HandlerFn`, `HookContext`, `HookInput`, `HookResult` from `types.ts` and `hookRouter` from `hook-router.ts`.
@@ -75,7 +75,7 @@ Create `src/core/hooks/handlers/index.ts` barrel exporting `HandlerFn`, `HookCon
 ## Phase 2a: Simple Handlers
 
 ### T-006: Implement pre-compact handler
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [x] completed
 **AC**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
 
 Create `src/core/hooks/handlers/pre-compact.ts`. Port logic from `pre-compact.sh`: read/increment compaction counter in `context-pressure.json`, determine escalation level (elevated/critical/emergency), write `context-pressure.json` and `prompt-health-alert.json`. ~60 lines TS.
@@ -92,7 +92,7 @@ Create `src/core/hooks/handlers/pre-compact.ts`. Port logic from `pre-compact.sh
 ---
 
 ### T-007: Implement session-start handler
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04 | **Status**: [x] completed
 **AC**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04
 
 Create `src/core/hooks/handlers/session-start.ts`. Port logic from `v2/dispatchers/session-start.sh` and `startup-health-check.sh`: clear stale auto-session files (>24h old), reset `context-pressure.json`, perform baseline health check (CLAUDE.md exists, MEMORY.md size warning). Returns `{"continue":true}` always.
@@ -111,7 +111,7 @@ Create `src/core/hooks/handlers/session-start.ts`. Port logic from `v2/dispatche
 ## Phase 2b: Complex Handlers
 
 ### T-008: Implement pre-tool-use handler
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05 | **Status**: [x] completed
 **AC**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
 
 Create `src/core/hooks/handlers/pre-tool-use.ts`. Guard logic inlined (no external guard scripts): (1) fast path — if `file_path` not in `.specweave/increments/` and tool is not `TeamCreate`, return `{"decision":"allow"}`; (2) status-completion-guard: block Edit/Write on `metadata.json` that sets status to `"completed"`; (3) interview-enforcement-guard: block Write to `spec.md` when interview incomplete; (4) TeamCreate guard: block if no active/in-progress increment exists.
@@ -129,7 +129,7 @@ Create `src/core/hooks/handlers/pre-tool-use.ts`. Guard logic inlined (no extern
 ---
 
 ### T-009: Implement post-tool-use handler
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-06 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-06 | **Status**: [x] completed
 **AC**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-06
 
 Create `src/core/hooks/handlers/post-tool-use.ts`. Port lifecycle detection from `v2/dispatchers/post-tool-use.sh`: parse tool result from stdin, detect `metadata.json` status changes → queue lifecycle events, detect `spec.md` AC checkbox changes, queue to `pending.jsonl` via `queueSyncEvent`, trigger immediate `LivingDocsSync` for `increment.done` and `increment.reopened`. Load GitHub/JIRA/ADO integrations lazily from config.
@@ -145,7 +145,7 @@ Create `src/core/hooks/handlers/post-tool-use.ts`. Port lifecycle detection from
 ---
 
 ### T-010: Implement post-tool-use-analytics handler
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-05 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-05 | **Status**: [x] completed
 **AC**: AC-US4-05
 
 Create `src/core/hooks/handlers/post-tool-use-analytics.ts`. Port from `v2/dispatchers/post-tool-use-analytics.sh`: extract skill/agent name from stdin, append analytics event to `.specweave/state/analytics/events.jsonl`. Fire-and-forget — no stdout output.
@@ -160,7 +160,7 @@ Create `src/core/hooks/handlers/post-tool-use-analytics.ts`. Port from `v2/dispa
 ---
 
 ### T-011: Implement user-prompt-submit handler
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04, AC-US6-05, AC-US6-06, AC-US6-07 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04, AC-US6-05, AC-US6-06, AC-US6-07 | **Status**: [x] completed
 **AC**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04, AC-US6-05, AC-US6-06, AC-US6-07
 
 Create `src/core/hooks/handlers/user-prompt-submit.ts`. Port 2,550-line bash into ~800 lines TS section by section: (1) built-in command fast exit (`/help`, `/clear`, `/config`, `/status`); (2) `/sw:` fast-path routing; (3) project scope guard (reuse `evaluateProjectScopeGuard` from `project-scope-guard.ts`); (4) intent detection (call `detectIntentCommand()` directly — no subprocess); (5) context injection via `hookSpecificOutput.additionalContext`; (6) turn deduplication via content hash.
@@ -178,7 +178,7 @@ Create `src/core/hooks/handlers/user-prompt-submit.ts`. Port 2,550-line bash int
 ---
 
 ### T-012: Implement stop hooks (reflect, auto, sync)
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05 | **Status**: [x] completed
 **AC**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05
 
 Create three stop handler files:
@@ -204,7 +204,7 @@ Create three stop handler files:
 ## Phase 3: Wire Up
 
 ### T-013: Rewrite hooks.json to CLI delegation
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-01 | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-01 | **Status**: [x] completed
 **AC**: AC-US8-01
 
 Replace contents of `plugins/specweave/hooks/hooks.json` with the new CLI delegation format from plan.md §3. All events route to `specweave hook <event-type>` commands.
@@ -216,7 +216,7 @@ Replace contents of `plugins/specweave/hooks/hooks.json` with the new CLI delega
 ---
 
 ### T-014: Register `hook` command in bin/specweave.js
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-05 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-05 | **Status**: [x] completed
 **AC**: AC-US1-01, AC-US1-05
 
 Add `hook <event-type>` command registration to `bin/specweave.js` following the `detect-intent` pattern. Use `.helpOption(false)` to hide from `--help`. Add to the internal hidden-commands list alongside `detect-intent`, `evaluate-completion`, `reflect-stop`, `detect-project`.
@@ -230,7 +230,7 @@ Add `hook <event-type>` command registration to `bin/specweave.js` following the
 ## Phase 4: Cleanup
 
 ### T-015: Remove bash script copy from plugin-copier
-**User Story**: US-009 | **Satisfies ACs**: AC-US9-01, AC-US9-02, AC-US9-03 | **Status**: [ ] pending
+**User Story**: US-009 | **Satisfies ACs**: AC-US9-01, AC-US9-02, AC-US9-03 | **Status**: [x] completed
 **AC**: AC-US9-01, AC-US9-02, AC-US9-03
 
 In `src/utils/plugin-copier.ts`, remove lines 907-933 that copy bash scripts from `plugins/*/hooks/` to `.claude/hooks/`. Skills must still copy to `.claude/skills/` correctly. Lockfile entries in `vskill.lock` must still compute hash, version, and timestamp.
@@ -244,7 +244,7 @@ In `src/utils/plugin-copier.ts`, remove lines 907-933 that copy bash scripts fro
 ---
 
 ### T-016: Delete all bash scripts from hooks directory
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-02, AC-US8-03, AC-US8-04, AC-US8-05 | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-02, AC-US8-03, AC-US8-04, AC-US8-05 | **Status**: [x] completed
 **AC**: AC-US8-02, AC-US8-03, AC-US8-04, AC-US8-05
 
 Delete all non-JSON files from `plugins/specweave/hooks/`: root `.sh`/`.md` scripts, `universal/` (all files), `v2/` (all subdirs and files), `lib/`, `tests/`, `_archive/`. Only `hooks.json` must remain.
@@ -258,7 +258,7 @@ Delete all non-JSON files from `plugins/specweave/hooks/`: root `.sh`/`.md` scri
 ## Phase 5: Verification
 
 ### T-017: Build, test, and end-to-end verify
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [x] completed
 **AC**: AC-US1-01, AC-US1-02, AC-US1-03
 
 Run full verification pipeline: `npm run build` must pass with no TypeScript errors. `npx vitest run` must pass with 90%+ coverage per handler. Measure cold-start latency: `echo '{}' | specweave hook pre-compact` must complete in <200ms. Pipe sample stdin through each event type and verify stdout is valid JSON.
