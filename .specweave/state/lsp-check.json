@@ -1,17 +1,8 @@
 {
-  "checked": "2026-03-25T17:07:41Z",
+  "checked": "2026-03-26T03:26:46Z",
   "status": "missing",
-  "missing": [
-    {
-      "language": "TypeScript (81 files)",
-      "type": "missing_plugin",
-      "binaryInstall": "npm install -g typescript-language-server typescript",
-      "pluginInstall": "claude plugin install vtsls@claude-code-lsps",
-      "plugin": "vtsls",
-      "message": "Binary installed but Claude plugin missing. Run: claude plugin install vtsls@claude-code-lsps"
-    }
-  ],
-  "warned": true,
+  "missing": [{"language":"TypeScript (81 files)","type":"missing_plugin","binaryInstall":"npm install -g typescript-language-server typescript","pluginInstall":"claude plugin install vtsls@claude-code-lsps","plugin":"vtsls","message":"Binary installed but Claude plugin missing. Run: claude plugin install vtsls@claude-code-lsps"}],
+  "warned": false,
   "lspEnvReady": true,
   "lspMarketplace": "claude-code-lsps",
   "stats": {
