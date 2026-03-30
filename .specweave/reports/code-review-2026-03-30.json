@@ -1,0 +1,402 @@
+{
+  "version": "1.1",
+  "scope": "Analytics event storage module (7 files across core/analytics, hooks, CLI, shell scripts)",
+  "date": "2026-03-30",
+  "reviewers": ["logic", "security", "types", "silent-failures", "tests", "comments"],
+  "gateCheck": { "passed": true, "reason": null },
+  "summary": {
+    "total": 28,
+    "critical": 1,
+    "high": 9,
+    "medium": 10,
+    "low": 8
+  },
+  "validation": {
+    "performed": false,
+    "note": "Standalone review - findings verified against source code by orchestrator"
+  },
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "CRITICAL",
+      "title": "Singleton ignores projectRoot after first instantiation",
+      "file": "src/core/analytics/analytics-collector.ts",
+      "line": 36,
+      "category": "State management / data integrity",
+      "description": "getInstance(projectRoot) only uses projectRoot on first call. Subsequent calls with a different root silently return the collector bound to the original root. The CLI command at analytics.ts:122 calls getInstance(projectRoot) but this is a no-op if the singleton exists from an earlier call.",
+      "impact": "Cross-project data corruption. Events written to wrong project directory.",
+      "recommendation": "Validate requested root matches existing instance and throw/reset if not, or use per-root factory cache.",
+      "reviewers": ["logic", "tests"]
+    },
+    {
+      "id": "F-002",
+      "severity": "HIGH",
+      "title": "TOCTOU race condition in log rotation causes data loss",
+      "file": "src/core/analytics/analytics-collector.ts",
+      "line": 177,
+      "category": "Race condition / data integrity",
+      "description": "checkRotation reads file size, then rotateLog reads entire file, filters, and rewrites. Events appended between readFileSync and writeFileSync by concurrent writers (shell script, hook handler) are silently dropped.",
+      "impact": "Permanent data loss of analytics events during rotation.",
+      "recommendation": "Use atomic rename (write to temp, rename over original) or file locking.",
+      "reviewers": ["logic", "security"]
+    },
+    {
+      "id": "F-003",
+      "severity": "HIGH",
+      "title": "Shell script JSON injection via unescaped variables",
+      "file": "plugins/specweave/scripts/track-analytics.sh",
+      "line": 88,
+      "category": "Injection / data integrity",
+      "description": "EVENT_NAME, EVENT_TYPE, PLUGIN, and INCREMENT are interpolated into JSON without escaping. Only ERROR has partial escaping. A name containing double quotes breaks JSON structure.",
+      "impact": "Malformed JSON lines in events.jsonl. Downstream readers silently skip them, causing undercounting. Could inject arbitrary JSON fields.",
+      "recommendation": "Use jq for JSON construction when available, or escape all string values like ERROR is escaped.",
+      "reviewers": ["logic", "security", "silent-failures"]
+    },
+    {
+      "id": "F-004",
+      "severity": "HIGH",
+      "title": "readEventsFiltered until-filter excludes all events on end date",
+      "file": "src/core/analytics/analytics-collector.ts",
+      "line": 277,
+      "category": "Logic correctness",
+      "description": "String comparison event.timestamp > options.until fails when until is date-only (e.g., '2026-03-30'). All events on that date have timestamps like '2026-03-30T14:00:00Z' which are lexicographically greater, so they get excluded.",
+      "impact": "Users querying --until 2026-03-30 see no events from March 30th.",
+      "recommendation": "Normalize date-only strings by appending T23:59:59.999Z before comparison.",
+      "reviewers": ["logic", "tests"]
+    },
+    {
+      "id": "F-005",
+      "severity": "HIGH",
+      "title": "Hook handler appendEvent uses Record<string, unknown> bypassing type safety",
+      "file": "src/core/hooks/handlers/post-tool-use-analytics.ts",
+      "line": 75,
+      "category": "Type safety / overly broad type",
+      "description": "appendEvent accepts Record<string, unknown> instead of AnalyticsEvent. The compiler cannot enforce that events have required fields. Additionally, the hook bypasses AnalyticsCollector entirely, meaning no rotation check occurs.",
+      "impact": "Required fields can be omitted without compile-time error. Events file can grow beyond maxLogSizeBytes without rotation.",
+      "recommendation": "Type parameter as AnalyticsEvent. Consider using AnalyticsCollector.getInstance() instead of direct file append.",
+      "reviewers": ["types", "logic", "silent-failures"]
+    },
+    {
+      "id": "F-006",
+      "severity": "HIGH",
+      "title": "Unsafe as AnalyticsEvent cast on JSON.parse without validation",
+      "file": "src/core/analytics/analytics-collector.ts",
+      "line": 249,
+      "category": "Unsafe type assertion",
+      "description": "JSON.parse(line) as AnalyticsEvent at lines 207 and 249 asserts shape without runtime validation. Malformed events (from hook handler or corrupted file) silently produce structurally invalid objects.",
+      "impact": "Downstream code accessing .success, .type, .name gets undefined while TS believes they are defined. Incorrect aggregation results.",
+      "recommendation": "Use a type guard isAnalyticsEvent(parsed): parsed is AnalyticsEvent that checks required fields.",
+      "reviewers": ["types"]
+    },
+    {
+      "id": "F-007",
+      "severity": "HIGH",
+      "title": "ensureInitialized permanently disables analytics on transient error",
+      "file": "src/core/analytics/analytics-collector.ts",
+      "line": 62,
+      "category": "Silent failure / no recovery",
+      "description": "If mkdirSync throws (e.g., transient permission error, disk full then freed), the catch sets this.config.enabled = false permanently. No retry mechanism exists. All subsequent track() calls are silently no-ops for the rest of the process.",
+      "impact": "A single transient filesystem error permanently disables analytics collection for the entire CLI session.",
+      "recommendation": "Reset initialized flag to allow retry on next track() call, or add a retry counter.",
+      "reviewers": ["silent-failures", "tests"]
+    },
+    {
+      "id": "F-008",
+      "severity": "HIGH",
+      "title": "getSummaryWithCache ignores limit in filter detection",
+      "file": "src/core/analytics/analytics-aggregator.ts",
+      "line": 227,
+      "category": "Logic correctness / cache bug",
+      "description": "hasFilters checks since, until, type, plugin but not limit. A call with { limit: 5 } returns a cached summary built with limit 10, silently returning wrong top-N lists.",
+      "impact": "Users get wrong number of items in top lists when using non-default limits after cache is populated.",
+      "recommendation": "Include limit in hasFilters check, or make limit part of the cache key.",
+      "reviewers": ["comments"]
+    },
+    {
+      "id": "F-009",
+      "severity": "HIGH",
+      "title": "AnalyticsCommandResult silently drops UsageCount fields",
+      "file": "src/cli/commands/analytics.ts",
+      "line": 26,
+      "category": "Return type too narrow",
+      "description": "topCommands/topSkills/topAgents are typed as Array<{ name, count }> but the actual data is UsageCount[] with successCount, failureCount, avgDuration, plugin, lastUsed. Consumers cannot access richer data without unsafe widening.",
+      "impact": "API consumers lose access to success/failure counts, duration, plugin info.",
+      "recommendation": "Change type to UsageCount[].",
+      "reviewers": ["types"]
+    },
+    {
+      "id": "F-010",
+      "severity": "HIGH",
+      "title": "Log rotation completely untested",
+      "file": "src/core/analytics/analytics-collector.ts",
+      "line": 177,
+      "category": "Test coverage gap",
+      "description": "No test triggers checkRotation or validates rotateLog. Archive directory creation, file naming, line filtering, and the TOCTOU race are all unexercised.",
+      "impact": "Silent data loss or corruption during rotation goes undetected.",
+      "recommendation": "Test with maxLogSizeBytes=100, verify rotation archives old events and preserves recent ones.",
+      "reviewers": ["tests"]
+    },
+    {
+      "id": "F-011",
+      "severity": "MEDIUM",
+      "title": "Shell $EVENTS variable grows unbounded in memory",
+      "file": "plugins/specweave/scripts/read-analytics.sh",
+      "line": 91,
+      "category": "Resource management",
+      "description": "Entire filtered event set accumulated in a shell variable via string concatenation. For large files (up to 10MB), multiple grep passes re-parse the full string each time.",
+      "impact": "High memory usage and O(n^2) performance for large datasets.",
+      "recommendation": "Use awk or jq for single-pass streaming processing.",
+      "reviewers": ["logic"]
+    },
+    {
+      "id": "F-012",
+      "severity": "MEDIUM",
+      "title": "No input validation on event names in TypeScript collector",
+      "file": "src/core/analytics/analytics-collector.ts",
+      "line": 71,
+      "category": "Input validation",
+      "description": "name parameter in trackCommand/trackSkill/trackAgent has no length limit or control character filtering. Extremely long names could bloat the events file.",
+      "impact": "File bloat from excessively long event names. Control characters cause display issues.",
+      "recommendation": "Reject names over 256 chars and strip control characters.",
+      "reviewers": ["security"]
+    },
+    {
+      "id": "F-013",
+      "severity": "MEDIUM",
+      "title": "Unsafe as AnalyticsSummary cast on cache file",
+      "file": "src/core/analytics/analytics-aggregator.ts",
+      "line": 201,
+      "category": "Unsafe type assertion",
+      "description": "JSON.parse(content) as AnalyticsSummary casts unvalidated cache content. Older cache versions with different schema produce invalid objects.",
+      "impact": "Runtime errors in displaySummary when cache has missing fields.",
+      "recommendation": "Validate key fields before returning, or version the cache format.",
+      "reviewers": ["types"]
+    },
+    {
+      "id": "F-014",
+      "severity": "MEDIUM",
+      "title": "Archive file naming collision on same-day rotation",
+      "file": "src/core/analytics/analytics-collector.ts",
+      "line": 220,
+      "category": "Data integrity",
+      "description": "Archive filename uses date-only (events-2026-03-30.jsonl). Multiple rotations on same day append to same archive file, producing overlapping date ranges.",
+      "impact": "Confusing archive semantics. Data preserved via append but analysis is unreliable.",
+      "recommendation": "Include timestamp or sequence number in filename.",
+      "reviewers": ["logic"]
+    },
+    {
+      "id": "F-015",
+      "severity": "MEDIUM",
+      "title": "Unbounded file growth from hook handler path",
+      "file": "src/core/hooks/handlers/post-tool-use-analytics.ts",
+      "line": 78,
+      "category": "Resource exhaustion",
+      "description": "Hook handler writes events directly to disk, bypassing AnalyticsCollector. Since checkRotation only runs in the collector's track() method, events from hooks never trigger rotation. If most writes come from hooks (~55% of events), the file can grow well beyond maxLogSizeBytes.",
+      "impact": "Events file grows unchecked until a collector write happens to trigger rotation.",
+      "recommendation": "Have hook handler call checkRotation or use the collector singleton.",
+      "reviewers": ["logic", "security", "silent-failures"]
+    },
+    {
+      "id": "F-016",
+      "severity": "MEDIUM",
+      "title": "Unsafe as string casts in hook handler",
+      "file": "src/core/hooks/handlers/post-tool-use-analytics.ts",
+      "line": 21,
+      "category": "Unsafe type assertion",
+      "description": "Casts unknown values directly to string without typeof check. If runtime value is a number or object, skillName.includes(':') would throw.",
+      "impact": "Runtime TypeError if hook input contains non-string tool_name.",
+      "recommendation": "Use typeof guard: const explicit = typeof input.tool_name === 'string' ? input.tool_name : ''",
+      "reviewers": ["types"]
+    },
+    {
+      "id": "F-017",
+      "severity": "MEDIUM",
+      "title": "Cache TTL expiry path untested",
+      "file": "src/core/analytics/analytics-aggregator.ts",
+      "line": 196,
+      "category": "Test coverage gap",
+      "description": "The age > cacheTTLMs branch (stale cache) is never exercised. TTL is hardcoded with no time injection.",
+      "impact": "Stale cache bugs go undetected.",
+      "recommendation": "Test with fs.utimesSync to simulate old mtime.",
+      "reviewers": ["tests"]
+    },
+    {
+      "id": "F-018",
+      "severity": "MEDIUM",
+      "title": "track-analytics.sh usage header omits --failure flag",
+      "file": "plugins/specweave/scripts/track-analytics.sh",
+      "line": 5,
+      "category": "Comment accuracy",
+      "description": "Usage header documents --success, --error, --duration but not --failure. The --failure flag was recently added but not documented.",
+      "impact": "Users don't know --failure exists.",
+      "recommendation": "Add [--failure] to usage lines.",
+      "reviewers": ["comments"]
+    },
+    {
+      "id": "F-019",
+      "severity": "MEDIUM",
+      "title": "Legacy event normalization (success=undefined) untested",
+      "file": "src/core/analytics/analytics-collector.ts",
+      "line": 251,
+      "category": "Test coverage gap",
+      "description": "The code defaults parsed.success = true when undefined, but no test writes a raw JSONL line without success and verifies normalization.",
+      "impact": "If normalization is removed, old events cause NaN in success-rate calculations.",
+      "recommendation": "Test with raw JSONL line missing success field.",
+      "reviewers": ["tests"]
+    },
+    {
+      "id": "F-020",
+      "severity": "MEDIUM",
+      "title": "post-tool-use-analytics.ts module JSDoc hardcodes wrong path",
+      "file": "src/core/hooks/handlers/post-tool-use-analytics.ts",
+      "line": 4,
+      "category": "Stale comment",
+      "description": "Comment says 'Appends events to .specweave/state/analytics/events.jsonl' but actual path comes from context.stateDir parameter.",
+      "impact": "Misleading documentation for maintainers.",
+      "recommendation": "Change to 'Appends events to <stateDir>/analytics/events.jsonl'.",
+      "reviewers": ["comments"]
+    },
+    {
+      "id": "F-021",
+      "severity": "LOW",
+      "title": "parseSinceFilter accepts 0 and extremely large values",
+      "file": "src/cli/commands/analytics.ts",
+      "line": 42,
+      "category": "Input validation",
+      "description": "Regex accepts 0h, 0d, 99999d. 0d means 'now', showing no historical data. Large values produce pre-epoch dates.",
+      "impact": "Confusing but not crashing.",
+      "recommendation": "Reject 0 and cap at a reasonable maximum.",
+      "reviewers": ["logic"]
+    },
+    {
+      "id": "F-022",
+      "severity": "LOW",
+      "title": "Shell integer division for success rate",
+      "file": "plugins/specweave/scripts/read-analytics.sh",
+      "line": 124,
+      "category": "Display inconsistency",
+      "description": "Bash integer division truncates (99.7% shows as 99%). TS aggregator uses floating point with one decimal.",
+      "impact": "Minor display difference between shell and TS dashboards.",
+      "recommendation": "Acceptable for shell. Document the difference or use bc.",
+      "reviewers": ["logic"]
+    },
+    {
+      "id": "F-023",
+      "severity": "LOW",
+      "title": "Shell per-command success rate counts wrong events",
+      "file": "plugins/specweave/scripts/read-analytics.sh",
+      "line": 199,
+      "category": "Logic correctness",
+      "description": "Grep for name matches across all event types. If a skill and command share a name, success rate includes wrong type's events.",
+      "impact": "Incorrect per-item success rate when names collide across types.",
+      "recommendation": "Add type filter to grep.",
+      "reviewers": ["logic"]
+    },
+    {
+      "id": "F-024",
+      "severity": "LOW",
+      "title": "CSV export without jq produces empty file",
+      "file": "plugins/specweave/scripts/read-analytics.sh",
+      "line": 159,
+      "category": "Silent failure",
+      "description": "CSV export only writes data rows when jq is available. Without jq, file has header only with no warning.",
+      "impact": "User gets empty CSV with no indication jq is required.",
+      "recommendation": "Add else branch with warning or grep fallback.",
+      "reviewers": ["logic"]
+    },
+    {
+      "id": "F-025",
+      "severity": "LOW",
+      "title": "AnalyticsConfig not readonly",
+      "file": "src/core/analytics/types.ts",
+      "line": 127,
+      "category": "Missing readonly modifiers",
+      "description": "Config fields are mutable. DEFAULT_ANALYTICS_CONFIG properties can be mutated. The collector spreads at construction so mutation of the default won't propagate, but the interface allows accidental mutation.",
+      "impact": "Potential accidental mutation of unrelated config fields.",
+      "recommendation": "Use Readonly<AnalyticsConfig> for the config property.",
+      "reviewers": ["types"]
+    },
+    {
+      "id": "F-026",
+      "severity": "LOW",
+      "title": "parseSinceFilter switch has no default/exhaustiveness check",
+      "file": "src/cli/commands/analytics.ts",
+      "line": 51,
+      "category": "Missing exhaustiveness",
+      "description": "unit is typed as string (from regex). Adding a new unit letter compiles without error but silently returns wrong date.",
+      "impact": "Future maintenance risk.",
+      "recommendation": "Type unit as 'h'|'d'|'w'|'m' and add default: unit satisfies never.",
+      "reviewers": ["types"]
+    },
+    {
+      "id": "F-027",
+      "severity": "LOW",
+      "title": "Error messages may contain sensitive context",
+      "file": "src/core/analytics/types.ts",
+      "line": 32,
+      "category": "Sensitive data exposure",
+      "description": "The error field stores error messages that could contain file paths, env var names, or partial config details. Persisted in plaintext.",
+      "impact": "Low for local CLI. Could leak details in shared repos via analytics exports.",
+      "recommendation": "Truncate error messages and strip sensitive patterns.",
+      "reviewers": ["security"]
+    },
+    {
+      "id": "F-028",
+      "severity": "LOW",
+      "title": "File permissions are process-inherited (world-readable)",
+      "file": "src/core/analytics/analytics-collector.ts",
+      "line": 59,
+      "category": "Insecure defaults",
+      "description": "Neither TS nor shell explicitly set file permissions. Files inherit process umask (typically 0644, world-readable).",
+      "impact": "On shared systems, other users could read analytics data.",
+      "recommendation": "Set directory permissions to 0700 and file permissions to 0600.",
+      "reviewers": ["security"]
+    }
+  ],
+  "testGaps": [
+    {
+      "id": "TG-001",
+      "severity": "CRITICAL",
+      "title": "Log rotation never triggered or validated",
+      "file": "src/core/analytics/analytics-collector.ts:177-231",
+      "suggestedTest": "Given collector with maxLogSizeBytes=100 / When enough events written to exceed limit / Then events.jsonl has only recent events and archive/ contains old events"
+    },
+    {
+      "id": "TG-002",
+      "severity": "CRITICAL",
+      "title": "readEventsFiltered date-range (since/until) never tested",
+      "file": "src/core/analytics/analytics-collector.ts:269-284",
+      "suggestedTest": "Given events spanning 3 days / When readEventsFiltered({ since: middleDay, until: endDay }) / Then only events within range returned"
+    },
+    {
+      "id": "TG-003",
+      "severity": "HIGH",
+      "title": "Cache TTL expiry path untested",
+      "file": "src/core/analytics/analytics-aggregator.ts:191-205",
+      "suggestedTest": "Given cache file with mtime > 5min / When getSummaryWithCache() / Then recomputes and returns fresh summary"
+    },
+    {
+      "id": "TG-004",
+      "severity": "HIGH",
+      "title": "Legacy event normalization untested",
+      "file": "src/core/analytics/analytics-collector.ts:251-253",
+      "suggestedTest": "Given JSONL line without success field / When readEvents() / Then returned event has success=true"
+    },
+    {
+      "id": "TG-005",
+      "severity": "HIGH",
+      "title": "Malformed JSONL line skipping during rotation untested",
+      "file": "src/core/analytics/analytics-collector.ts:205-211",
+      "suggestedTest": "Given mix of valid and malformed JSONL lines / When rotation triggers / Then malformed lines dropped, valid lines preserved"
+    }
+  ],
+  "perFileSummary": [
+    { "file": "src/core/analytics/analytics-collector.ts", "issues": 11, "topSeverity": "CRITICAL" },
+    { "file": "plugins/specweave/scripts/track-analytics.sh", "issues": 3, "topSeverity": "HIGH" },
+    { "file": "src/core/hooks/handlers/post-tool-use-analytics.ts", "issues": 5, "topSeverity": "HIGH" },
+    { "file": "src/core/analytics/analytics-aggregator.ts", "issues": 3, "topSeverity": "HIGH" },
+    { "file": "src/cli/commands/analytics.ts", "issues": 4, "topSeverity": "HIGH" },
+    { "file": "plugins/specweave/scripts/read-analytics.sh", "issues": 4, "topSeverity": "MEDIUM" },
+    { "file": "src/core/analytics/types.ts", "issues": 3, "topSeverity": "LOW" }
+  ]
+}
