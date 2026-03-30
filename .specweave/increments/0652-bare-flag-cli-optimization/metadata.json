@@ -1,0 +1,43 @@
+{
+  "id": "0652-bare-flag-cli-optimization",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-03-30T20:46:05.901Z",
+  "lastActivity": "2026-03-30T21:04:19.996Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-783",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-783",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-03-30T20:49:57.525Z"
+    },
+    "ado": {
+      "featureId": "1622",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1622",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-03-30T20:50:03.031Z"
+    }
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-03-30T20:47:08.413Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-03 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "readyForReviewAt": "2026-03-30T21:04:19.985Z",
+  "approvedAt": "2026-03-30T21:04:19.996Z"
+}
