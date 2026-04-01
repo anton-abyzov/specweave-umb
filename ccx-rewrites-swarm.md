@@ -24,7 +24,7 @@ Key constraints:
 - All API types need proper struct tags for JSON
 - Start with the Claude API streaming client (P1-02) -- everything depends on it
 
-Reference architecture: /Users/antonabyzov/Projects/claude-code-src/ contains the original TypeScript source for understanding exact API formats, tool schemas, and protocol details.
+Reference: Use publicly documented API specifications and the architecture analysis at https://verified-skill.com/insights/claude-code for understanding API formats, tool schemas, and protocol details.
 
 After Phase 1, proceed to Phase 2 (core tools), then Phase 3 (TUI).
 ```
@@ -54,8 +54,8 @@ Key strategy:
 - TDD: cargo test for every module
 - Start with claude-api crate (P1-02) -- the streaming client is the foundation
 
-Reference: /Users/antonabyzov/Projects/claude-code-src/ has the TypeScript source.
 Codex reference: https://github.com/openai/codex (Apache-2.0)
+Architecture analysis: https://verified-skill.com/insights/claude-code
 ```
 
 ## Agent 3: .NET (PRIORITY 3)
@@ -80,7 +80,7 @@ Key constraints:
 - TDD: xUnit + FluentAssertions
 - Start with solution scaffold (P1-01) then API client (P1-02)
 
-Reference: /Users/antonabyzov/Projects/claude-code-src/ has the TypeScript source.
+Architecture analysis: https://verified-skill.com/insights/claude-code
 ```
 
 ## Swarm Execution
@@ -126,9 +126,6 @@ Reference source at /Users/antonabyzov/Projects/claude-code-src/"
 
 ## Cross-Reference
 
-- Original TypeScript source: /Users/antonabyzov/Projects/claude-code-src/
-- npm package (v2.1.88): /Users/antonabyzov/Projects/claude-code-src/npm-package-2.1.88/
 - OpenAI Codex (Apache-2.0): https://github.com/openai/codex
 - oh-my-codex (MIT, orchestration patterns): https://github.com/Yeachan-Heo/oh-my-codex
-- Architecture analysis: https://verified-skill.com/insights/claude-code#architecture
-- Source audit: https://verified-skill.com/insights/claude-code#security
+- Architecture analysis: https://verified-skill.com/insights/claude-code
