@@ -142,3 +142,11 @@ node_modules/
 # SpecWeave
 test-results/
 coverage/
+# Content/marketing files (not code)
+blog-series-*.md
+social-posts-*.md
+lulla-*.png
+lulla-*.jpg
+edufeed-*.png
+sketchmate-*.png
+wedding-*.png
