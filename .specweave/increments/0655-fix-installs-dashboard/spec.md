@@ -1,10 +1,10 @@
 ---
 increment: 0655-fix-installs-dashboard
-title: "Fix admin installs dashboard unique machines + sort"
+title: Fix admin installs dashboard unique machines + sort
 type: bug
 priority: P1
-status: active
-created: 2026-04-01
+status: completed
+created: 2026-04-01T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
