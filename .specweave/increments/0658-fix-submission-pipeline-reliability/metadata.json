@@ -1,0 +1,71 @@
+{
+  "id": "0658-fix-submission-pipeline-reliability",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-05T01:59:42.526Z",
+  "lastActivity": "2026-04-05T02:38:19.204Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-05T02:33:18.312Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-04-05T02:33:10.689Z",
+      "updated": [
+        "AC-US2-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-05T02:32:34.341Z",
+      "updated": [
+        "AC-US3-01",
+        "AC-US3-02",
+        "AC-US3-03",
+        "AC-US3-04",
+        "AC-US3-05"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 5
+    },
+    {
+      "timestamp": "2026-04-05T02:23:37.284Z",
+      "updated": [
+        "AC-US1-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-05T02:23:33.611Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US1-05"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 4
+    }
+  ],
+  "readyForReviewAt": "2026-04-05T02:37:25.879Z",
+  "approvedAt": "2026-04-05T02:38:19.204Z"
+}
