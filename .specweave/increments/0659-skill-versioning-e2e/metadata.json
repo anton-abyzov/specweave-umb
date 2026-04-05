@@ -1,0 +1,13 @@
+{
+  "id": "0659-skill-versioning-e2e",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-05T03:00:34.245Z",
+  "lastActivity": "2026-04-05T03:00:00Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
