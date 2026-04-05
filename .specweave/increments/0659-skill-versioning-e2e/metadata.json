@@ -1,13 +1,77 @@
 {
   "id": "0659-skill-versioning-e2e",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-05T03:00:34.245Z",
-  "lastActivity": "2026-04-05T03:00:00Z",
+  "lastActivity": "2026-04-05T03:30:48.092Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-05T03:25:15.024Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03",
+        "AC-US2-04",
+        "AC-US2-05",
+        "AC-US2-06"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 6
+    },
+    {
+      "timestamp": "2026-04-05T03:25:05.838Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US1-04",
+        "AC-US1-05",
+        "AC-US1-06"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 6
+    },
+    {
+      "timestamp": "2026-04-05T03:24:55.890Z",
+      "updated": [
+        "AC-US3-02",
+        "AC-US3-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-04-05T03:24:45.655Z",
+      "updated": [
+        "AC-US3-01",
+        "AC-US3-04",
+        "AC-US3-05"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-04-05T03:14:35.393Z",
+      "updated": [
+        "AC-US4-01",
+        "AC-US4-02",
+        "AC-US4-03",
+        "AC-US4-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 4
+    }
+  ],
+  "approvedAt": "2026-04-05T03:30:48.092Z"
 }

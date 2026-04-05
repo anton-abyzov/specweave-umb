@@ -1,14 +1,15 @@
 ---
 increment: 0659-skill-versioning-e2e
-title: "End-to-End Skill Versioning"
+title: End-to-End Skill Versioning
 type: feature
 priority: P1
-status: in-progress
-created: 2026-04-05
+status: completed
+created: 2026-04-05T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
-skill_chain: ["sw:pm"]
+skill_chain:
+  - 'sw:pm'
 ---
 
 # Feature: End-to-End Skill Versioning
@@ -29,12 +30,12 @@ All 111K+ published skills are stuck at version 1.0.0. The SkillVersion Prisma m
 **So that** my skill has an auditable version history tied to actual content changes
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: When publishSkill() runs and no SkillVersion exists for the skill, a v1.0.0 SkillVersion record is created with the current contentHash, gitSha, certTier, certMethod, certScore, and labels
-- [ ] **AC-US1-02**: When publishSkill() runs and the latest SkillVersion.contentHash differs from the current submission's contentHash, a new SkillVersion is created with the patch version bumped (e.g., 1.0.0 → 1.0.1)
-- [ ] **AC-US1-03**: When publishSkill() runs and the latest SkillVersion.contentHash matches the current submission's contentHash (re-certification only), no new SkillVersion is created; existing version's certTier/certScore/certifiedAt are updated in place
-- [ ] **AC-US1-04**: The Skill.currentVersion field is updated to match the newly created SkillVersion's version string
-- [ ] **AC-US1-05**: A diffSummary is computed and stored on the new SkillVersion describing what changed from the previous version (null for v1.0.0)
-- [ ] **AC-US1-06**: The SKILL.md content from the scan pipeline is stored on the SkillVersion record's `content` field
+- [x] **AC-US1-01**: When publishSkill() runs and no SkillVersion exists for the skill, a v1.0.0 SkillVersion record is created with the current contentHash, gitSha, certTier, certMethod, certScore, and labels
+- [x] **AC-US1-02**: When publishSkill() runs and the latest SkillVersion.contentHash differs from the current submission's contentHash, a new SkillVersion is created with the patch version bumped (e.g., 1.0.0 → 1.0.1)
+- [x] **AC-US1-03**: When publishSkill() runs and the latest SkillVersion.contentHash matches the current submission's contentHash (re-certification only), no new SkillVersion is created; existing version's certTier/certScore/certifiedAt are updated in place
+- [x] **AC-US1-04**: The Skill.currentVersion field is updated to match the newly created SkillVersion's version string
+- [x] **AC-US1-05**: A diffSummary is computed and stored on the new SkillVersion describing what changed from the previous version (null for v1.0.0)
+- [x] **AC-US1-06**: The SKILL.md content from the scan pipeline is stored on the SkillVersion record's `content` field
 
 ---
 
@@ -46,12 +47,12 @@ All 111K+ published skills are stuck at version 1.0.0. The SkillVersion Prisma m
 **So that** I can inspect a skill's change history and understand what changed between releases
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: GET `/api/v1/skills/:owner/:repo/:skill/versions` returns a paginated list of SkillVersion records sorted by createdAt descending, with fields: version, contentHash, certTier, certScore, diffSummary, createdAt
-- [ ] **AC-US2-02**: Pagination uses cursor-based pagination with `?cursor=<id>&limit=<n>` (default limit 20, max 100)
-- [ ] **AC-US2-03**: GET `/api/v1/skills/:owner/:repo/:skill/versions/:version` returns a single SkillVersion record including the full SKILL.md `content` field
-- [ ] **AC-US2-04**: GET `/api/v1/skills/:owner/:repo/:skill/versions/diff?from=X&to=Y` returns a diff object with `from`, `to`, `diffSummary`, and `contentDiff` (unified diff of SKILL.md content between the two versions)
-- [ ] **AC-US2-05**: All version endpoints return 404 with `{ error: "Skill not found" }` when the skill slug doesn't match any published skill
-- [ ] **AC-US2-06**: The diff endpoint returns 400 with `{ error: "..." }` when `from` or `to` version is missing or doesn't exist for the skill
+- [x] **AC-US2-01**: GET `/api/v1/skills/:owner/:repo/:skill/versions` returns a paginated list of SkillVersion records sorted by createdAt descending, with fields: version, contentHash, certTier, certScore, diffSummary, createdAt
+- [x] **AC-US2-02**: Pagination uses cursor-based pagination with `?cursor=<id>&limit=<n>` (default limit 20, max 100)
+- [x] **AC-US2-03**: GET `/api/v1/skills/:owner/:repo/:skill/versions/:version` returns a single SkillVersion record including the full SKILL.md `content` field
+- [x] **AC-US2-04**: GET `/api/v1/skills/:owner/:repo/:skill/versions/diff?from=X&to=Y` returns a diff object with `from`, `to`, `diffSummary`, and `contentDiff` (unified diff of SKILL.md content between the two versions)
+- [x] **AC-US2-05**: All version endpoints return 404 with `{ error: "Skill not found" }` when the skill slug doesn't match any published skill
+- [x] **AC-US2-06**: The diff endpoint returns 400 with `{ error: "..." }` when `from` or `to` version is missing or doesn't exist for the skill
 
 ---
 
@@ -63,11 +64,11 @@ All 111K+ published skills are stuck at version 1.0.0. The SkillVersion Prisma m
 **So that** SkillVersion records can store content without re-fetching from GitHub
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: A `content` Text field is added to the SkillVersion Prisma model via migration
-- [ ] **AC-US3-02**: The process-submission pipeline passes the fetched SKILL.md content string through to publishSkill() so it can be stored on the SkillVersion
-- [ ] **AC-US3-03**: publishSkill() accepts and stores SKILL.md content on the SkillVersion record
-- [ ] **AC-US3-04**: The Prisma migration runs cleanly against the existing Neon database with 111K+ skills and zero SkillVersion rows (additive column, no data migration needed)
-- [ ] **AC-US3-05**: Existing submissions in the pipeline that lack content still publish successfully (content field is nullable, defaults to null)
+- [x] **AC-US3-01**: A `content` Text field is added to the SkillVersion Prisma model via migration
+- [x] **AC-US3-02**: The process-submission pipeline passes the fetched SKILL.md content string through to publishSkill() so it can be stored on the SkillVersion
+- [x] **AC-US3-03**: publishSkill() accepts and stores SKILL.md content on the SkillVersion record
+- [x] **AC-US3-04**: The Prisma migration runs cleanly against the existing Neon database with 111K+ skills and zero SkillVersion rows (additive column, no data migration needed)
+- [x] **AC-US3-05**: Existing submissions in the pipeline that lack content still publish successfully (content field is nullable, defaults to null)
 
 ---
 
@@ -79,10 +80,10 @@ All 111K+ published skills are stuck at version 1.0.0. The SkillVersion Prisma m
 **So that** I can tell which version I have and what versions exist
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: fetchGitHubFlat() parses the `version` field from SKILL.md frontmatter instead of returning the stale entry.version from the lock file
-- [ ] **AC-US4-02**: If SKILL.md frontmatter has no `version` field, fetchGitHubFlat() falls back to entry.version (backward compatibility)
-- [ ] **AC-US4-03**: `vskill versions <owner>/<repo>/<skill>` command lists all published versions by calling GET `/api/v1/skills/:owner/:repo/:skill/versions`, displaying version, certTier, and createdAt in a formatted table
-- [ ] **AC-US4-04**: `vskill versions <owner>/<repo>/<skill>` returns a clear error message when the skill is not found or has no versions
+- [x] **AC-US4-01**: fetchGitHubFlat() parses the `version` field from SKILL.md frontmatter instead of returning the stale entry.version from the lock file
+- [x] **AC-US4-02**: If SKILL.md frontmatter has no `version` field, fetchGitHubFlat() falls back to entry.version (backward compatibility)
+- [x] **AC-US4-03**: `vskill versions <owner>/<repo>/<skill>` command lists all published versions by calling GET `/api/v1/skills/:owner/:repo/:skill/versions`, displaying version, certTier, and createdAt in a formatted table
+- [x] **AC-US4-04**: `vskill versions <owner>/<repo>/<skill>` returns a clear error message when the skill is not found or has no versions
 
 ## Functional Requirements
 
