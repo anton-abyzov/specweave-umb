@@ -156,3 +156,5 @@ nvidia-smi-m4max*
 social-post-m4max/
 hello_world.py
 .specweave/increments/0654-*/
+.env.*
+scripts/.cf-monitor.env

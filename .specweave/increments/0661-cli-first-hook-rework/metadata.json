@@ -1,0 +1,13 @@
+{
+  "id": "0661-cli-first-hook-rework",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-06T06:11:12.328Z",
+  "lastActivity": "2026-04-06T06:11:12.328Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
