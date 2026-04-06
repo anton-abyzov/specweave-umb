@@ -1,10 +1,10 @@
 ---
 increment: 0661-cli-first-hook-rework
-title: "CLI-First Hook Architecture Rework"
+title: CLI-First Hook Architecture Rework
 type: feature
 priority: P1
-status: planned
-created: 2026-04-06
+status: completed
+created: 2026-04-06T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -35,9 +35,9 @@ SpecWeave currently registers 15 hook event types with Claude Code, but only 2 r
 **So that** per-turn hook overhead drops and the hook surface is minimal
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given httpMode is true in config, when generateHooksSettings() runs, then the returned hooks object contains exactly 2 HTTP event entries: PreToolUse and UserPromptSubmit
-- [ ] **AC-US1-02**: Given httpMode is true, when generateHooksSettings() runs, then no command-type event entries are emitted (COMMAND_EVENTS array is empty or removed)
-- [ ] **AC-US1-03**: Given an existing settings.json with old hook entries (PostToolUse, Stop, SessionStart, etc.), when writeSettings() runs, then stale hook keys for migrated events are removed from the merged output
+- [x] **AC-US1-01**: Given httpMode is true in config, when generateHooksSettings() runs, then the returned hooks object contains exactly 2 HTTP event entries: PreToolUse and UserPromptSubmit
+- [x] **AC-US1-02**: Given httpMode is true, when generateHooksSettings() runs, then no command-type event entries are emitted (COMMAND_EVENTS array is empty or removed)
+- [x] **AC-US1-03**: Given an existing settings.json with old hook entries (PostToolUse, Stop, SessionStart, etc.), when writeSettings() runs, then stale hook keys for migrated events are removed from the merged output
 
 ---
 
@@ -49,9 +49,9 @@ SpecWeave currently registers 15 hook event types with Claude Code, but only 2 r
 **So that** the router does not load dead handler modules
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given the HANDLERS map in hook-router.ts, when inspected, then it contains exactly 2 entries: 'pre-tool-use' and 'user-prompt-submit'
-- [ ] **AC-US2-02**: Given the HookEventType union in types.ts, when inspected, then it contains exactly 'pre-tool-use' and 'user-prompt-submit'
-- [ ] **AC-US2-03**: Given the SAFE_DEFAULTS map in types.ts, when inspected, then it contains exactly 2 entries matching the remaining hook types
+- [x] **AC-US2-01**: Given the HANDLERS map in hook-router.ts, when inspected, then it contains exactly 2 entries: 'pre-tool-use' and 'user-prompt-submit'
+- [x] **AC-US2-02**: Given the HookEventType union in types.ts, when inspected, then it contains exactly 'pre-tool-use' and 'user-prompt-submit'
+- [x] **AC-US2-03**: Given the SAFE_DEFAULTS map in types.ts, when inspected, then it contains exactly 2 entries matching the remaining hook types
 
 ---
 
@@ -63,11 +63,11 @@ SpecWeave currently registers 15 hook event types with Claude Code, but only 2 r
 **So that** session setup logic is decoupled from the Claude Code hook protocol
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given `specweave session start` is invoked, when it runs, then it clears stale auto-mode files older than 24 hours
-- [ ] **AC-US3-02**: Given `specweave session start` is invoked, when it runs, then it resets context-pressure.json and prompt-health-alert.json
-- [ ] **AC-US3-03**: Given `specweave session start` is invoked, when it runs, then it performs baseline prompt health check and writes prompt-health.json
-- [ ] **AC-US3-04**: Given `specweave session start` is invoked with --session-id flag, when it runs, then it creates a per-session state directory and bridges the session ID
-- [ ] **AC-US3-05**: Given `specweave session start` is invoked, when it runs, then it cleans orphaned state files and stale plugin references
+- [x] **AC-US3-01**: Given `specweave session start` is invoked, when it runs, then it clears stale auto-mode files older than 24 hours
+- [x] **AC-US3-02**: Given `specweave session start` is invoked, when it runs, then it resets context-pressure.json and prompt-health-alert.json
+- [x] **AC-US3-03**: Given `specweave session start` is invoked, when it runs, then it performs baseline prompt health check and writes prompt-health.json
+- [x] **AC-US3-04**: Given `specweave session start` is invoked with --session-id flag, when it runs, then it creates a per-session state directory and bridges the session ID
+- [x] **AC-US3-05**: Given `specweave session start` is invoked, when it runs, then it cleans orphaned state files and stale plugin references
 
 ---
 
@@ -79,10 +79,10 @@ SpecWeave currently registers 15 hook event types with Claude Code, but only 2 r
 **So that** session teardown runs reliably outside the hook protocol
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given `specweave session end` is invoked, when it runs, then it checks reflect config and logs reflection intent if enabled (stop-reflect logic)
-- [ ] **AC-US4-02**: Given `specweave session end` is invoked with an active auto-mode session, when it runs, then it scans pending tasks and logs progress (stop-auto logic)
-- [ ] **AC-US4-03**: Given `specweave session end` is invoked with pending events in event-queue/pending.jsonl, when it runs, then it deduplicates by increment ID, logs sync intent, and clears the queue (stop-sync logic)
-- [ ] **AC-US4-04**: Given `specweave session end` is invoked and all three sub-operations complete, when it finishes, then it exits with code 0
+- [x] **AC-US4-01**: Given `specweave session end` is invoked, when it runs, then it checks reflect config and logs reflection intent if enabled (stop-reflect logic)
+- [x] **AC-US4-02**: Given `specweave session end` is invoked with an active auto-mode session, when it runs, then it scans pending tasks and logs progress (stop-auto logic)
+- [x] **AC-US4-03**: Given `specweave session end` is invoked with pending events in event-queue/pending.jsonl, when it runs, then it deduplicates by increment ID, logs sync intent, and clears the queue (stop-sync logic)
+- [x] **AC-US4-04**: Given `specweave session end` is invoked and all three sub-operations complete, when it finishes, then it exits with code 0
 
 ---
 
@@ -94,9 +94,9 @@ SpecWeave currently registers 15 hook event types with Claude Code, but only 2 r
 **So that** sync events are not lost when hooks fail or are disabled
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given `specweave sync flush` is invoked, when pending.jsonl has queued events, then it reads, deduplicates by increment ID, and writes events to the sync log
-- [ ] **AC-US5-02**: Given `specweave sync flush` is invoked, when processing completes, then pending.jsonl is truncated to empty
-- [ ] **AC-US5-03**: Given `specweave sync flush --dry-run` is invoked, when it runs, then it reports what would be flushed without clearing the queue
+- [x] **AC-US5-01**: Given `specweave sync flush` is invoked, when pending.jsonl has queued events, then it reads, deduplicates by increment ID, and writes events to the sync log
+- [x] **AC-US5-02**: Given `specweave sync flush` is invoked, when processing completes, then pending.jsonl is truncated to empty
+- [x] **AC-US5-03**: Given `specweave sync flush --dry-run` is invoked, when it runs, then it reports what would be flushed without clearing the queue
 
 ---
 
@@ -108,9 +108,9 @@ SpecWeave currently registers 15 hook event types with Claude Code, but only 2 r
 **So that** analytics collection does not depend on PostToolUse hooks firing
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: Given `specweave analytics push --type skill --name sw:pm` is invoked, when it runs, then it appends a skill analytics event to events.jsonl with correct timestamp and plugin extraction
-- [ ] **AC-US6-02**: Given `specweave analytics push --type agent --name general` is invoked, when it runs, then it appends an agent analytics event to events.jsonl
-- [ ] **AC-US6-03**: Given `specweave analytics push` is invoked without required flags, when it runs, then it exits with code 1 and prints usage help
+- [x] **AC-US6-01**: Given `specweave analytics push --type skill --name sw:pm` is invoked, when it runs, then it appends a skill analytics event to events.jsonl with correct timestamp and plugin extraction
+- [x] **AC-US6-02**: Given `specweave analytics push --type agent --name general` is invoked, when it runs, then it appends an agent analytics event to events.jsonl
+- [x] **AC-US6-03**: Given `specweave analytics push` is invoked without required flags, when it runs, then it exits with code 1 and prints usage help
 
 ---
 
@@ -122,9 +122,9 @@ SpecWeave currently registers 15 hook event types with Claude Code, but only 2 r
 **So that** hook failures are diagnosable from logs instead of silently vanishing
 
 **Acceptance Criteria**:
-- [ ] **AC-US7-01**: Given the pre-tool-use handler's readJsonSafe function catches an error, when the error occurs, then it logs the error message to the handler's log file via logHook or appendLog
-- [ ] **AC-US7-02**: Given any handler catch block in hook-router.ts, post-tool-use.ts, post-tool-use-analytics.ts, stop-sync.ts, stop-auto.ts, stop-reflect.ts, session-start.ts, or pre-compact.ts, when an error is caught, then it calls logHook/appendLog with the error message before returning the safe default
-- [ ] **AC-US7-03**: Given error logging is added to catch blocks, when the handler runs normally (no errors), then no additional log output is produced
+- [x] **AC-US7-01**: Given the pre-tool-use handler's readJsonSafe function catches an error, when the error occurs, then it logs the error message to the handler's log file via logHook or appendLog
+- [x] **AC-US7-02**: Given any handler catch block in hook-router.ts, post-tool-use.ts, post-tool-use-analytics.ts, stop-sync.ts, stop-auto.ts, stop-reflect.ts, session-start.ts, or pre-compact.ts, when an error is caught, then it calls logHook/appendLog with the error message before returning the safe default
+- [x] **AC-US7-03**: Given error logging is added to catch blocks, when the handler runs normally (no errors), then no additional log output is produced
 
 ---
 
@@ -136,8 +136,8 @@ SpecWeave currently registers 15 hook event types with Claude Code, but only 2 r
 **So that** parallel test runs do not leak log files across test suites
 
 **Acceptance Criteria**:
-- [ ] **AC-US8-01**: Given any hook handler test file, when it creates a HookContext, then the logsDir points to a unique temp directory created per test
-- [ ] **AC-US8-02**: Given a hook handler test completes (pass or fail), when cleanup runs, then the temp directory is removed
+- [x] **AC-US8-01**: Given any hook handler test file, when it creates a HookContext, then the logsDir points to a unique temp directory created per test
+- [x] **AC-US8-02**: Given a hook handler test completes (pass or fail), when cleanup runs, then the temp directory is removed
 
 ---
 
@@ -149,8 +149,8 @@ SpecWeave currently registers 15 hook event types with Claude Code, but only 2 r
 **So that** the test suite does not contain dead tests for already-migrated shell hooks
 
 **Acceptance Criteria**:
-- [ ] **AC-US9-01**: Given the files interview-enforcement-guard.test.sh, shell-injection.test.sh, tdd-enforcement-guard.test.sh, and interview-gate-injection.test.sh, when the increment is complete, then all 4 files are deleted from tests/unit/hooks/
-- [ ] **AC-US9-02**: Given the 4 shell test files are deleted, when `npx vitest run` executes, then no test failures are introduced by their removal
+- [x] **AC-US9-01**: Given the files interview-enforcement-guard.test.sh, shell-injection.test.sh, tdd-enforcement-guard.test.sh, and interview-gate-injection.test.sh, when the increment is complete, then all 4 files are deleted from tests/unit/hooks/
+- [x] **AC-US9-02**: Given the 4 shell test files are deleted, when `npx vitest run` executes, then no test failures are introduced by their removal
 
 ---
 
@@ -162,8 +162,8 @@ SpecWeave currently registers 15 hook event types with Claude Code, but only 2 r
 **So that** other AI tools know which commands replace the old hook events
 
 **Acceptance Criteria**:
-- [ ] **AC-US10-01**: Given AGENTS.md exists, when the increment is complete, then it contains a "Hook Architecture" section listing PreToolUse and UserPromptSubmit as the only active hooks
-- [ ] **AC-US10-02**: Given AGENTS.md exists, when the increment is complete, then it contains a "Session Lifecycle" section documenting `specweave session start` and `specweave session end` as replacements for SessionStart/Stop hooks
+- [x] **AC-US10-01**: Given AGENTS.md exists, when the increment is complete, then it contains a "Hook Architecture" section listing PreToolUse and UserPromptSubmit as the only active hooks
+- [x] **AC-US10-02**: Given AGENTS.md exists, when the increment is complete, then it contains a "Session Lifecycle" section documenting `specweave session start` and `specweave session end` as replacements for SessionStart/Stop hooks
 
 ## Out of Scope
 

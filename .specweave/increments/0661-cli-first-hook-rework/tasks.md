@@ -21,7 +21,7 @@
 
 ### T-001: Extract core modules for session lifecycle, event queue, and analytics writer
 **User Story**: US-001, US-003, US-004, US-005, US-006 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05, AC-US4-01, AC-US4-02, AC-US4-03, AC-US5-01, AC-US5-02, AC-US6-01, AC-US6-02
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Extract business logic from existing hook handlers into reusable core modules:
 
@@ -59,7 +59,7 @@ All modules must be idempotent and never throw — catch and log errors, return 
 
 ### T-002: Trim generate-settings.ts — emit only PreToolUse and UserPromptSubmit hooks
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Modify `src/hooks/generate-settings.ts`:
 
@@ -79,7 +79,7 @@ Modify `src/hooks/generate-settings.ts`:
 
 ### T-003: Trim hook-router.ts and types.ts — retain only pre-tool-use and user-prompt-submit
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Depends on**: T-004, T-006, T-008, T-010 (CLI commands must exist before handlers are removed)
 
@@ -116,7 +116,7 @@ Update `src/core/hooks/handlers/index.ts` to remove barrel exports for deleted f
 
 ### T-004: Create `specweave session start` CLI command
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Depends on**: T-001 (core session-lifecycle module must exist)
 
@@ -149,7 +149,7 @@ Register `session` command in `bin/specweave.js` (or whichever main entrypoint r
 
 ### T-005: Unit tests for session start — integration with real filesystem
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Depends on**: T-004
 
@@ -166,7 +166,7 @@ Write integration-level tests for `session start` using real temp directories (n
 
 ### T-006: Create `specweave session end` CLI command
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Depends on**: T-001 (reflect-checker and auto-scanner modules must exist)
 
@@ -192,7 +192,7 @@ Add `end` subcommand to `src/cli/commands/session.ts`:
 
 ### T-007: Integration tests for session end
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Depends on**: T-006
 
@@ -209,7 +209,7 @@ Write integration-level tests for `session end` using real temp filesystem. Veri
 
 ### T-008: Create `specweave sync flush` CLI command
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Depends on**: T-001 (event-queue-ops module must exist)
 
@@ -238,7 +238,7 @@ Register under the existing `sync` command group in the CLI entrypoint, or creat
 
 ### T-009: Integration tests for sync flush
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Depends on**: T-008
 
@@ -255,7 +255,7 @@ Integration tests using real temp filesystem for `sync flush`.
 
 ### T-010: Create `specweave analytics push` CLI command
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Depends on**: T-001 (event-writer module must exist)
 
@@ -285,7 +285,7 @@ Register as `specweave analytics push` — extend the existing `analytics` comma
 
 ### T-011: Integration tests for analytics push
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Depends on**: T-010
 
@@ -303,7 +303,7 @@ Integration tests for `specweave analytics push` using real temp filesystem.
 
 ### T-012: Fix empty catch blocks in hook handlers — add error logging
 **User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Audit and fix all empty or silent catch blocks across hook handler files. Files to update:
 
@@ -330,7 +330,7 @@ For each catch block: change `catch { }` or `catch (e) { /* ignore */ }` to `cat
 
 ### T-013: Isolate test log writes — use temp directories in hook handler tests
 **User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Update hook handler test files to create a unique temp directory per test for `logsDir` in `HookContext`. Applies to all test files in `tests/unit/hooks/` that construct a `HookContext` directly.
 
@@ -360,7 +360,7 @@ Files likely needing this change (verify by grepping for `HookContext`):
 
 ### T-014: Delete 4 stale v2 shell test files
 **User Story**: US-009 | **Satisfies ACs**: AC-US9-01, AC-US9-02
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Delete the following 4 files from `tests/unit/hooks/`:
 - `interview-enforcement-guard.test.sh`
@@ -382,7 +382,7 @@ After deletion, run `npx vitest run` to confirm no test failures are introduced.
 
 ### T-015: Update AGENTS.md — document CLI-first hook architecture
 **User Story**: US-010 | **Satisfies ACs**: AC-US10-01, AC-US10-02
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Update `AGENTS.md` at the project root of `repositories/anton-abyzov/specweave/`. Add or update two sections:
 
@@ -410,7 +410,7 @@ Update `AGENTS.md` at the project root of `repositories/anton-abyzov/specweave/`
 
 ### T-016: Full test suite verification and smoke test
 **User Story**: All | **Satisfies ACs**: All
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 **Depends on**: T-001 through T-015
 

@@ -1,0 +1,4 @@
+{"event":"task.updated","incrementId":"0661-cli-first-hook-rework","timestamp":"2026-04-06T08:01:18.796Z"}
+{"incrementId":"0661-cli-first-hook-rework","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-04-06T08:07:02.797Z"}
+{"incrementId":"0661-cli-first-hook-rework","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-04-06T08:07:02.808Z"}
+{"incrementId":"0661-cli-first-hook-rework","eventType":"increment.done","timestamp":"2026-04-06T08:07:02.808Z"}

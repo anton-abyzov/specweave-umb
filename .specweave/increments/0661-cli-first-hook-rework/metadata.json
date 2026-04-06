@@ -1,13 +1,55 @@
 {
   "id": "0661-cli-first-hook-rework",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-06T06:11:12.328Z",
-  "lastActivity": "2026-04-06T06:30:00.000Z",
+  "lastActivity": "2026-04-06T08:07:02.802Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-06T08:01:35.093Z",
+      "updated": [
+        "AC-US3-01",
+        "AC-US3-02",
+        "AC-US3-03",
+        "AC-US3-04",
+        "AC-US3-05",
+        "AC-US4-01",
+        "AC-US4-02",
+        "AC-US4-03",
+        "AC-US5-01",
+        "AC-US5-02",
+        "AC-US6-01",
+        "AC-US6-02",
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03",
+        "AC-US4-04",
+        "AC-US5-03",
+        "AC-US6-03",
+        "AC-US7-01",
+        "AC-US7-02",
+        "AC-US7-03",
+        "AC-US8-01",
+        "AC-US8-02",
+        "AC-US9-01",
+        "AC-US9-02",
+        "AC-US10-01",
+        "AC-US10-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 30
+    }
+  ],
+  "readyForReviewAt": "2026-04-06T08:07:02.785Z",
+  "approvedAt": "2026-04-06T08:07:02.802Z"
 }
