@@ -1,10 +1,10 @@
 {
   "id": "0662-hook-transparency-observability",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-06T08:28:34.944Z",
-  "lastActivity": "2026-04-06T08:28:34.944Z",
+  "lastActivity": "2026-04-07T20:20:51.940Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,16 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-799",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-06T08:41:42.562Z"
+      "syncedAt": "2026-04-07T20:15:20.355Z"
     },
     "ado": {
       "featureId": "1638",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1638",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-06T08:41:46.412Z"
+      "syncedAt": "2026-04-07T20:15:27.609Z"
     }
-  }
+  },
+  "readyForReviewAt": "2026-04-07T20:20:20.446Z",
+  "approvedAt": "2026-04-07T20:20:51.940Z"
 }

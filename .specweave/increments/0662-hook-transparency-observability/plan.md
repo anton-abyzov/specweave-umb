@@ -1,70 +1,65 @@
 # Implementation Plan: Hook Transparency & Observability
 
-<!--
-====================================================================
-  TEMPLATE FILE - MUST BE COMPLETED VIA ARCHITECT SKILL
-====================================================================
-
-This is a TEMPLATE created by increment skill.
-DO NOT manually fill in the placeholders below.
-
-To complete this plan, run:
-  Tell Claude: "Design architecture for increment [ID]"
-
-This will activate the Architect skill which will:
-- Create system architecture diagrams
-- Define data models and API contracts
-- Document architecture decisions (ADRs)
-- Identify technical challenges
-
-====================================================================
--->
-
 ## Overview
 
-[Technical summary of implementation approach]
+Wire existing observability infrastructure (HookLogger, HookHealthTracker, HealthReporter) into the actual hook execution path, add semantic [GUARD]/[ERROR] prefixes to block messages, and expose hook activity via CLI commands. This is plumbing work — no new architecture needed.
 
 ## Architecture
 
-### Components
-- [Component 1]: [Purpose]
-- [Component 2]: [Purpose]
+### Component 1: Semantic Prefix Injection (hook-router.ts)
+Inject `[GUARD]` or `[ERROR]` prefix at the router level, not in individual guards. The router wraps handler results: if `decision === 'block'` and the handler returned normally, prefix with `[GUARD]`. If the handler threw (caught by router's try/catch), prefix with `[ERROR]`.
 
-### Data Model
-- [Entity 1]: [Fields, relationships]
-- [Entity 2]: [Fields, relationships]
+### Component 2: Dual-Write Logging (utils.ts + hook-router.ts)
+Two logging points:
+- **Router-level**: After each handler completes, call `HookLogger.log()` with structured entry (hookName, decision, durationMs, toolName)
+- **Enhanced logHook()**: Accept optional `StructuredLogFields` for dual-write when callers provide structured context
 
-### API Contracts
-- `POST /api/resource`: [Purpose, request/response]
-- `GET /api/resource/:id`: [Purpose, request/response]
+Preserves backwards-compatible plaintext `hooks.log` while enabling HookHealthTracker.
 
-## Technology Stack
+### Component 3: CLI Commands (hooks-cmd.ts)
+Single new file with three exported commands registered under `specweave hooks`:
+- `hooksLogCommand` — reads HookLogger JSONL, formats as table
+- `hooksHealthCommand` — runs HookHealthTracker.analyzeAll() through HealthReporter
+- `hooksLsCommand` — runs HookScanner.scanHooks() to list discovered hooks
 
-- **Language/Framework**: [Choice]
-- **Libraries**: [List]
-- **Tools**: [List]
+### Component 4: Stale Reference Cleanup
+Replace 4 `check-hooks` references with `specweave hooks health`. Fix CLAUDE.md docs URL.
 
-**Architecture Decisions**:
-- [Decision 1]: [Why this choice? Alternatives considered?]
-- [Decision 2]: [Rationale]
+## Dependency Graph
 
-## Implementation Phases
+```
+Component 1 (prefixes) ──┐
+                          ├──> Component 3 (CLI commands)
+Component 2 (logging)  ──┘
+Component 4 (cleanup) ──── independent, parallel
+```
 
-### Phase 1: Foundation
-- [Setup, infrastructure, base components]
+## Key Decisions
 
-### Phase 2: Core Functionality
-- [Primary features from P1 user stories]
+1. **No static hook manifest** — use HookScanner (dynamic) for `hooks ls`
+2. **Prefix at router, not guards** — future guards get prefixes automatically
+3. **[ERROR] only on pre-tool-use** — blocking prompts due to hook bugs is worse than allowing
+4. **No tool_input in structured logs** — security: avoid logging file contents/secrets
+5. **No new npm dependencies**
 
-### Phase 3: Enhancement
-- [P2 features and optimizations]
+## Files to Modify
+
+| File | Change |
+|------|--------|
+| `src/core/hooks/handlers/hook-router.ts` | Prefix injection + structured logging |
+| `src/core/hooks/handlers/pre-tool-use.ts` | Verify guard returns carry resolution hints |
+| `src/core/hooks/handlers/utils.ts` | Dual-write via HookLogger |
+| `src/cli/commands/hooks-cmd.ts` | New — CLI commands |
+| `bin/specweave.js` | Register hooks command group |
+| `src/core/hooks/hook-health-tracker.ts` | Fix ghost refs |
+| `src/core/hooks/hook-logger.ts` | Fix ghost refs |
+| `src/core/hooks/hooks-checker.ts` | Fix ghost refs |
+| CLAUDE.md (umbrella) | Fix docs URL |
 
 ## Testing Strategy
 
-[High-level testing approach - details in tasks.md]
-
-## Technical Challenges
-
-### Challenge 1: [Description]
-**Solution**: [Approach]
-**Risk**: [Mitigation]
+TDD enforced. Each task has RED (failing test) then GREEN (implementation).
+- Unit tests for prefix injection via mocked handlers
+- Unit tests for dual-write logging
+- Unit tests for CLI commands with fixture log data
+- Integration test: grep for zero `check-hooks` references

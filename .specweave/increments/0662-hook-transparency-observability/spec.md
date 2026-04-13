@@ -1,10 +1,10 @@
 ---
 increment: 0662-hook-transparency-observability
-title: "Hook Transparency & Observability"
-status: active
+title: Hook Transparency & Observability
+status: completed
 priority: P1
 type: feature
-created: 2026-04-06
+created: 2026-04-06T00:00:00.000Z
 ---
 
 # Hook Transparency & Observability
@@ -29,10 +29,10 @@ The hook system blocks tool calls silently with generic "reason" strings. Users 
 **So that** I can instantly tell whether a block is an intentional policy enforcement or a hook failure
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given a hook guard blocks a tool call intentionally, when the block reason is displayed to the user, then the message is prefixed with `[GUARD]`
-- [ ] **AC-US1-02**: Given a hook throws an unhandled exception during execution, when the error is displayed, then the message is prefixed with `[ERROR]`
-- [ ] **AC-US1-03**: Given the hook router catches an exception in a handler, when it builds the block response JSON, then the `reason` field contains the `[ERROR]` prefix and the original error message
-- [ ] **AC-US1-04**: Given existing guard logic in `pre-tool-use.ts` (status-completion, interview-enforcement, increment-existence), when any guard blocks, then all three use the `[GUARD]` prefix consistently
+- [x] **AC-US1-01**: Given a hook guard blocks a tool call intentionally, when the block reason is displayed to the user, then the message is prefixed with `[GUARD]`
+- [x] **AC-US1-02**: Given a hook throws an unhandled exception during execution, when the error is displayed, then the message is prefixed with `[ERROR]`
+- [x] **AC-US1-03**: Given the hook router catches an exception in a handler, when it builds the block response JSON, then the `reason` field contains the `[ERROR]` prefix and the original error message
+- [x] **AC-US1-04**: Given existing guard logic in `pre-tool-use.ts` (status-completion, interview-enforcement, increment-existence), when any guard blocks, then all three use the `[GUARD]` prefix consistently
 
 ### US-002: Structured Hook Logging
 **Project**: specweave
@@ -41,10 +41,10 @@ The hook system blocks tool calls silently with generic "reason" strings. Users 
 **So that** I can filter, search, and analyze hook activity programmatically
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given a hook executes (block or allow), when logging occurs, then `HookLogger.log()` is called with hook name, decision, duration, and context
-- [ ] **AC-US2-02**: Given the existing `logHook()` in `utils.ts` is called, when it writes the log entry, then it dual-writes: plaintext line to `hooks.log` (backwards compat) AND structured JSON via `HookLogger`
-- [ ] **AC-US2-03**: Given a hook execution completes, when the structured log entry is written, then it contains fields: `timestamp`, `hookName`, `handler`, `decision` (allow|block), `durationMs`, `reason` (if blocked), and `toolName`
-- [ ] **AC-US2-04**: Given the HookLogger import is added to `hook-router.ts`, when the module loads, then no new dependencies are introduced beyond existing project modules
+- [x] **AC-US2-01**: Given a hook executes (block or allow), when logging occurs, then `HookLogger.log()` is called with hook name, decision, duration, and context
+- [x] **AC-US2-02**: Given the existing `logHook()` in `utils.ts` is called, when it writes the log entry, then it dual-writes: plaintext line to `hooks.log` (backwards compat) AND structured JSON via `HookLogger`
+- [x] **AC-US2-03**: Given a hook execution completes, when the structured log entry is written, then it contains fields: `timestamp`, `hookName`, `handler`, `decision` (allow|block), `durationMs`, `reason` (if blocked), and `toolName`
+- [x] **AC-US2-04**: Given the HookLogger import is added to `hook-router.ts`, when the module loads, then no new dependencies are introduced beyond existing project modules
 
 ### US-003: Hook Log Viewer CLI
 **Project**: specweave
@@ -53,11 +53,11 @@ The hook system blocks tool calls silently with generic "reason" strings. Users 
 **So that** I can quickly find relevant hook events without manually parsing log files
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given the user runs `specweave hooks log`, when logs exist, then the last 20 entries are displayed in a human-readable table format
-- [ ] **AC-US3-02**: Given the user runs `specweave hooks log --blocks-only`, when filtering is applied, then only entries with `decision: "block"` are shown
-- [ ] **AC-US3-03**: Given the user runs `specweave hooks log --errors-only`, when filtering is applied, then only entries with `[ERROR]` prefix in reason are shown
-- [ ] **AC-US3-04**: Given the user runs `specweave hooks log --last 5`, when the count flag is provided, then exactly the 5 most recent entries are displayed
-- [ ] **AC-US3-05**: Given the user runs `specweave hooks log --hook pre-tool-use`, when the hook name filter is provided, then only entries for that hook name are shown
+- [x] **AC-US3-01**: Given the user runs `specweave hooks log`, when logs exist, then the last 20 entries are displayed in a human-readable table format
+- [x] **AC-US3-02**: Given the user runs `specweave hooks log --blocks-only`, when filtering is applied, then only entries with `decision: "block"` are shown
+- [x] **AC-US3-03**: Given the user runs `specweave hooks log --errors-only`, when filtering is applied, then only entries with `[ERROR]` prefix in reason are shown
+- [x] **AC-US3-04**: Given the user runs `specweave hooks log --last 5`, when the count flag is provided, then exactly the 5 most recent entries are displayed
+- [x] **AC-US3-05**: Given the user runs `specweave hooks log --hook pre-tool-use`, when the hook name filter is provided, then only entries for that hook name are shown
 
 ### US-004: Hook Health Dashboard CLI
 **Project**: specweave
@@ -66,10 +66,10 @@ The hook system blocks tool calls silently with generic "reason" strings. Users 
 **So that** I can proactively detect degraded or failing hooks
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given the user runs `specweave hooks health`, when structured logs exist, then a health report is displayed using `HookHealthTracker` analysis and `HealthReporter` formatting
-- [ ] **AC-US4-02**: Given a hook has >90% success rate in the last 24 hours, when health is computed, then its status shows as OK
-- [ ] **AC-US4-03**: Given a hook has 50-90% success rate in the last 24 hours, when health is computed, then its status shows as DEGRADED with recommendations
-- [ ] **AC-US4-04**: Given no structured logs exist yet, when `specweave hooks health` is run, then it displays a message indicating no data is available and suggests running hooks first
+- [x] **AC-US4-01**: Given the user runs `specweave hooks health`, when structured logs exist, then a health report is displayed using `HookHealthTracker` analysis and `HealthReporter` formatting
+- [x] **AC-US4-02**: Given a hook has >90% success rate in the last 24 hours, when health is computed, then its status shows as OK
+- [x] **AC-US4-03**: Given a hook has 50-90% success rate in the last 24 hours, when health is computed, then its status shows as DEGRADED with recommendations
+- [x] **AC-US4-04**: Given no structured logs exist yet, when `specweave hooks health` is run, then it displays a message indicating no data is available and suggests running hooks first
 
 ### US-005: Hook Registry and Listing CLI
 **Project**: specweave
@@ -78,10 +78,10 @@ The hook system blocks tool calls silently with generic "reason" strings. Users 
 **So that** I can see all registered hooks, their types, and trigger points without reading source code
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given plugin hooks exist in `plugins/*/hooks/` directories, when the user runs `specweave hooks ls`, then a table lists each hook with columns: name, plugin, trigger type, and critical flag
-- [ ] **AC-US5-02**: Given the HookScanner already discovers hooks at runtime, when `hooks ls` executes, then it uses `HookScanner` to enumerate hooks (no duplicate discovery logic)
-- [ ] **AC-US5-03**: Given a static manifest file `hooks-manifest.json` does not yet exist in a plugin, when `hooks ls` runs, then it falls back to live scanning via HookScanner without error
-- [ ] **AC-US5-04**: Given hooks are discovered, when output is rendered, then hooks are grouped by trigger type (pre-tool-use, post-tool-use, session-start, user-prompt-submit)
+- [x] **AC-US5-01**: Given plugin hooks exist in `plugins/*/hooks/` directories, when the user runs `specweave hooks ls`, then a table lists each hook with columns: name, plugin, trigger type, and critical flag
+- [x] **AC-US5-02**: Given the HookScanner already discovers hooks at runtime, when `hooks ls` executes, then it uses `HookScanner` to enumerate hooks (no duplicate discovery logic)
+- [x] **AC-US5-03**: Given a static manifest file `hooks-manifest.json` does not yet exist in a plugin, when `hooks ls` runs, then it falls back to live scanning via HookScanner without error
+- [x] **AC-US5-04**: Given hooks are discovered, when output is rendered, then hooks are grouped by trigger type (pre-tool-use, post-tool-use, session-start, user-prompt-submit)
 
 ### US-006: Cleanup Stale References and Docs URL
 **Project**: specweave
@@ -90,10 +90,10 @@ The hook system blocks tool calls silently with generic "reason" strings. Users 
 **So that** documentation and CLI suggestions point to commands that actually exist
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: Given stale references to `check-hooks` exist in `hook-health-tracker.ts` and `hooks-checker.ts`, when they are updated, then they point to `specweave hooks health` instead
-- [ ] **AC-US6-02**: Given the CLAUDE.md docs section references `verified-skill.com`, when corrected, then it references `spec-weave.com`
-- [ ] **AC-US6-03**: Given all 4 stale `check-hooks` references are identified, when cleanup is complete, then zero references to the non-existent `check-hooks` command remain in the codebase
-- [ ] **AC-US6-04**: Given the `specweave doctor` hooks checker suggests a command, when it renders suggestions, then it suggests `specweave hooks health` (not `check-hooks`)
+- [x] **AC-US6-01**: Given stale references to `check-hooks` exist in `hook-health-tracker.ts` and `hooks-checker.ts`, when they are updated, then they point to `specweave hooks health` instead
+- [x] **AC-US6-02**: Given the CLAUDE.md docs section references `verified-skill.com`, when corrected, then it references `spec-weave.com`
+- [x] **AC-US6-03**: Given all 4 stale `check-hooks` references are identified, when cleanup is complete, then zero references to the non-existent `check-hooks` command remain in the codebase
+- [x] **AC-US6-04**: Given the `specweave doctor` hooks checker suggests a command, when it renders suggestions, then it suggests `specweave hooks health` (not `check-hooks`)
 
 ## Out of Scope
 
