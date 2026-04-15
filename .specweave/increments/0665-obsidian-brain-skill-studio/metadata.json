@@ -1,0 +1,15 @@
+{
+  "id": "0665-obsidian-brain-skill-studio",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-14T23:15:00.815Z",
+  "lastActivity": "2026-04-14T23:53:17.708Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "readyForReviewAt": "2026-04-14T23:53:17.686Z",
+  "approvedAt": "2026-04-14T23:53:17.708Z"
+}
