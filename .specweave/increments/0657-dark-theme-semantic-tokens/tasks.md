@@ -53,7 +53,7 @@ Export `StatusIntent` type, `scoreIntent(score, thresholds?)` pure function (>=8
 
 ### T-003: Migrate VerdictBadge.tsx — VERDICT_COLORS and SEVERITY_COLORS
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded hex in `VERDICT_COLORS` and `SEVERITY_COLORS` maps with `var(--status-*)` tokens. `CountCell` severity-based coloring uses same tokens.
 
@@ -71,7 +71,7 @@ Replace hardcoded hex in `VERDICT_COLORS` and `SEVERITY_COLORS` maps with `var(-
 
 ### T-004: Migrate EvalScoreDisplay.tsx — score-based coloring via scoreIntent()
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-03
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded hex score thresholds with `scoreIntent()` + `STATUS_VARS`. Replace `VERDICT_RING_COLORS` hardcoded hex with `var(--status-*)` tokens.
 
@@ -89,7 +89,7 @@ Replace hardcoded hex score thresholds with `scoreIntent()` + `STATUS_VARS`. Rep
 
 ### T-005: Migrate EvalCaseCard.tsx — pass/fail case indicators
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-04
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded hex for pass/fail case indicators with `var(--status-success-*)` and `var(--status-danger-*)` tokens.
 
@@ -105,7 +105,7 @@ Replace hardcoded hex for pass/fail case indicators with `var(--status-success-*
 
 ### T-006: Migrate EvalVerdictBadge.tsx — verdict display tokens
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded hex in verdict color map with `var(--status-*)` tokens.
 
@@ -121,7 +121,7 @@ Replace hardcoded hex in verdict color map with `var(--status-*)` tokens.
 
 ### T-007: Migrate UsefulnessIndicator.tsx — usefulness level coloring
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-06
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded hex for usefulness levels with `var(--status-*)` tokens.
 
@@ -137,7 +137,7 @@ Replace hardcoded hex for usefulness levels with `var(--status-*)` tokens.
 
 ### T-008: Migrate SearchPalette.tsx — status colors in search results
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Audit and replace any hardcoded status hex in SearchPalette.tsx with `var(--status-*)` tokens.
 
@@ -152,7 +152,7 @@ Audit and replace any hardcoded status hex in SearchPalette.tsx with `var(--stat
 
 ### T-009: Migrate RepoHealthBadge.tsx — health indicator tokens
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-08, AC-US2-09
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded hex health indicator colors with `var(--status-*)` tokens.
 
@@ -170,7 +170,7 @@ Replace hardcoded hex health indicator colors with `var(--status-*)` tokens.
 
 ### T-010: Migrate skill detail page.tsx — remaining hardcoded hex
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace remaining hardcoded status hex in `src/app/skills/[owner]/[repo]/[skill]/page.tsx` with `var(--status-*)` tokens. Use `scoreIntent()` for score-based coloring.
 
@@ -186,7 +186,7 @@ Replace remaining hardcoded status hex in `src/app/skills/[owner]/[repo]/[skill]
 
 ### T-011: Migrate security/page.tsx — pass/fail and severity badge tokens
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-02, AC-US3-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded hex in `src/app/skills/[owner]/[repo]/[skill]/security/page.tsx` with `var(--status-*)` tokens for pass/fail indicators and severity badges.
 
@@ -202,7 +202,7 @@ Replace hardcoded hex in `src/app/skills/[owner]/[repo]/[skill]/security/page.ts
 
 ### T-012: Migrate submit/page.tsx and submit/[id]/page.tsx — submission status tokens
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-03, AC-US3-04, AC-US3-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in both submit pages with `var(--status-*)` tokens.
 
@@ -218,7 +218,7 @@ Replace hardcoded status hex in both submit pages with `var(--status-*)` tokens.
 
 ### T-013: Migrate RejectedSkillView.tsx and PublisherSkillsList.tsx
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-05, AC-US3-06, AC-US3-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in RejectedSkillView.tsx and PublisherSkillsList.tsx with `var(--status-*)` tokens.
 
@@ -236,7 +236,7 @@ Replace hardcoded status hex in RejectedSkillView.tsx and PublisherSkillsList.ts
 
 ### T-014: Migrate VerifiedSkillsTab.tsx — verification status tokens
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in `src/app/trust/VerifiedSkillsTab.tsx` with `var(--status-*)` tokens. Use `scoreIntent()` where score-based coloring applies.
 
@@ -252,7 +252,7 @@ Replace hardcoded status hex in `src/app/trust/VerifiedSkillsTab.tsx` with `var(
 
 ### T-015: Migrate ReportsTab.tsx — report severity/status tokens
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-02, AC-US4-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in `src/app/trust/ReportsTab.tsx` with `var(--status-*)` tokens.
 
@@ -268,7 +268,7 @@ Replace hardcoded status hex in `src/app/trust/ReportsTab.tsx` with `var(--statu
 
 ### T-016: Migrate FindingsList.tsx — finding severity tokens
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-03, AC-US4-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in `src/app/trust/FindingsList.tsx` with `var(--status-*)` tokens.
 
@@ -284,7 +284,7 @@ Replace hardcoded status hex in `src/app/trust/FindingsList.tsx` with `var(--sta
 
 ### T-017: Migrate BlockedSkillsTab.tsx — blocked/warning state tokens
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-04, AC-US4-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in `src/app/trust/BlockedSkillsTab.tsx` with `var(--status-*)` tokens.
 
@@ -299,7 +299,7 @@ Replace hardcoded status hex in `src/app/trust/BlockedSkillsTab.tsx` with `var(-
 
 ### T-018: Migrate RejectedSkillsTab.tsx — rejection state tokens
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-05, AC-US4-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in `src/app/trust/RejectedSkillsTab.tsx` with `var(--status-*)` tokens.
 
@@ -314,7 +314,7 @@ Replace hardcoded status hex in `src/app/trust/RejectedSkillsTab.tsx` with `var(
 
 ### T-019: Migrate TrustTierDistribution.tsx — hardcoded status hex
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-06, AC-US4-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Audit `src/app/trust/TrustTierDistribution.tsx` for any hardcoded status hex (not `--trust-t*` which is already done) and replace with `var(--status-*)` tokens.
 
@@ -331,7 +331,7 @@ Audit `src/app/trust/TrustTierDistribution.tsx` for any hardcoded status hex (no
 
 ### T-020: Migrate QueuePageClient.tsx — queue item status tokens
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in `src/app/queue/QueuePageClient.tsx` with `var(--status-*)` tokens.
 
@@ -347,7 +347,7 @@ Replace hardcoded status hex in `src/app/queue/QueuePageClient.tsx` with `var(--
 
 ### T-021: Migrate QueueStatusBar.tsx — healthy/degraded/down state tokens
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-02, AC-US5-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in `src/app/queue/QueueStatusBar.tsx` with `var(--status-*)` tokens.
 
@@ -363,7 +363,7 @@ Replace hardcoded status hex in `src/app/queue/QueueStatusBar.tsx` with `var(--s
 
 ### T-022: Migrate SubmissionTable.tsx — submission state tokens
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-03, AC-US5-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in `src/app/queue/SubmissionTable.tsx` with `var(--status-*)` tokens.
 
@@ -379,7 +379,7 @@ Replace hardcoded status hex in `src/app/queue/SubmissionTable.tsx` with `var(--
 
 ### T-023: Migrate AdminQueueActions.tsx — action state tokens
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-04, AC-US5-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in `src/app/queue/AdminQueueActions.tsx` with `var(--status-*)` tokens.
 
@@ -396,7 +396,7 @@ Replace hardcoded status hex in `src/app/queue/AdminQueueActions.tsx` with `var(
 
 ### T-024: Migrate admin/page.tsx — dashboard summary status tokens
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-09
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in `src/app/admin/page.tsx` with `var(--status-*)` tokens.
 
@@ -411,7 +411,7 @@ Replace hardcoded status hex in `src/app/admin/page.tsx` with `var(--status-*)` 
 
 ### T-025: Migrate admin/dashboard/page.tsx — metric/status display tokens
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-02, AC-US6-09
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in `src/app/admin/dashboard/page.tsx` with `var(--status-*)` tokens.
 
@@ -426,7 +426,7 @@ Replace hardcoded status hex in `src/app/admin/dashboard/page.tsx` with `var(--s
 
 ### T-026: Migrate admin/submissions/page.tsx and admin/submissions/[id]/page.tsx
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-03, AC-US6-04, AC-US6-09
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in both admin submission pages with `var(--status-*)` tokens.
 
@@ -441,7 +441,7 @@ Replace hardcoded status hex in both admin submission pages with `var(--status-*
 
 ### T-027: Migrate admin/queue/page.tsx and admin/blocklist/page.tsx
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-05, AC-US6-06, AC-US6-09
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in admin queue and blocklist pages with `var(--status-*)` tokens.
 
@@ -457,7 +457,7 @@ Replace hardcoded status hex in admin queue and blocklist pages with `var(--stat
 
 ### T-028: Migrate admin/reports/page.tsx and admin/skills/page.tsx
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-07, AC-US6-08, AC-US6-09
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Replace hardcoded status hex in admin reports and skills pages with `var(--status-*)` tokens.
 
@@ -474,7 +474,7 @@ Replace hardcoded status hex in admin reports and skills pages with `var(--statu
 
 ### T-029: Create src/lib/submission-state-styles.ts with STATE_CONFIG
 **User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Export `STATE_CONFIG` mapping all 8 submission states (pending, evaluating, approved, rejected, blocked, tainted, withdrawn, resubmitted) to `{ intent: StatusIntent; label: string }`.
 
@@ -496,7 +496,7 @@ Export `STATE_CONFIG` mapping all 8 submission states (pending, evaluating, appr
 
 ### T-030: Refactor duplicated state-to-color maps to use STATE_CONFIG
 **User Story**: US-007 | **Satisfies ACs**: AC-US7-03, AC-US7-04, AC-US7-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 
 Identify all files with duplicated submission state-to-color maps (at minimum: SubmissionTable.tsx, admin submissions pages, submit pages). Replace with `STATE_CONFIG` + `INTENT_VAR_MAP` / `STATUS_VARS` pattern. Verify no hardcoded hex remains for submission state colors.
 
