@@ -1,0 +1,30 @@
+{
+  "id": "0667-skill-update-notifications",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-16T01:56:50.898Z",
+  "lastActivity": "2026-04-16T02:12:02.795Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-817",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-817",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-16T02:12:26.649Z"
+    },
+    "ado": {
+      "featureId": "1656",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1656",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-16T02:12:30.137Z"
+    }
+  },
+  "readyForReviewAt": "2026-04-16T02:12:02.781Z",
+  "approvedAt": "2026-04-16T02:12:02.795Z"
+}
