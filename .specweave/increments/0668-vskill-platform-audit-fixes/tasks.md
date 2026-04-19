@@ -193,7 +193,7 @@ Then: Unit test: first GET returns 200 + ETag; second GET with If-None-Match: <e
 ## Phase 4: Simplicity + Duplication (US-004)
 
 ### T-020: Extract shared queue types and constants (AC-US4-01)
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01 | **Status**: [x] completed
 **Test Plan**: Given QueueStatus, DLQEntry, state badge maps are duplicated across admin and public queue pages → When extracted to src/app/queue/shared/types.ts and constants.ts → Then both pages import from shared and combined line count is reduced by ≥40%
 ```
 Given: admin/queue/page.tsx (1496 lines) and queue/QueuePageClient.tsx (1309 lines) duplicate type definitions and constants
@@ -202,7 +202,7 @@ Then: Both files import from shared; combined line count is ≤1530 lines (≥40
 ```
 
 ### T-021: Extract shared queue data-fetching hooks (AC-US4-01)
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01 | **Status**: [x] completed
 **Test Plan**: Given fetch+pagination and auto-refresh logic are duplicated in both queue pages → When extracted to useQueueData and useQueuePolling hooks → Then both pages use shared hooks without duplicating fetch/poll logic
 ```
 Given: Fetch + pagination logic (~100 lines) and auto-refresh interval logic (~50 lines) are duplicated in admin/queue and queue/QueuePageClient

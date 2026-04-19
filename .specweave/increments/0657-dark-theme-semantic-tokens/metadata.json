@@ -1,6 +1,6 @@
 {
   "id": "0657-dark-theme-semantic-tokens",
-  "status": "planned",
+  "status": "active",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-03T02:37:34.764Z",
@@ -9,5 +9,100 @@
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-832",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-832",
+      "syncedAt": "2026-04-19T05:18:07.535Z",
+      "userStories": {
+        "US-001": {
+          "issueKey": "SWE2E-832",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-832",
+          "syncedAt": "2026-04-19T05:18:07.535Z"
+        },
+        "US-002": {
+          "issueKey": "SWE2E-832",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-832",
+          "syncedAt": "2026-04-19T05:18:07.535Z"
+        },
+        "US-003": {
+          "issueKey": "SWE2E-832",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-832",
+          "syncedAt": "2026-04-19T05:18:07.535Z"
+        },
+        "US-004": {
+          "issueKey": "SWE2E-832",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-832",
+          "syncedAt": "2026-04-19T05:18:07.535Z"
+        },
+        "US-005": {
+          "issueKey": "SWE2E-832",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-832",
+          "syncedAt": "2026-04-19T05:18:07.535Z"
+        },
+        "US-006": {
+          "issueKey": "SWE2E-832",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-832",
+          "syncedAt": "2026-04-19T05:18:07.535Z"
+        },
+        "US-007": {
+          "issueKey": "SWE2E-832",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-832",
+          "syncedAt": "2026-04-19T05:18:07.535Z"
+        }
+      }
+    },
+    "ado": {
+      "featureId": "1671",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1671",
+      "syncedAt": "2026-04-19T05:18:13.677Z",
+      "userStories": {
+        "US-001": {
+          "workItemId": 1672,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1672",
+          "syncedAt": "2026-04-19T05:18:13.677Z"
+        },
+        "US-002": {
+          "workItemId": 1673,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1673",
+          "syncedAt": "2026-04-19T05:18:13.677Z"
+        },
+        "US-003": {
+          "workItemId": 1674,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1674",
+          "syncedAt": "2026-04-19T05:18:13.677Z"
+        },
+        "US-004": {
+          "workItemId": 1675,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1675",
+          "syncedAt": "2026-04-19T05:18:13.677Z"
+        },
+        "US-005": {
+          "workItemId": 1676,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1676",
+          "syncedAt": "2026-04-19T05:18:13.677Z"
+        },
+        "US-006": {
+          "workItemId": 1677,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1677",
+          "syncedAt": "2026-04-19T05:18:13.677Z"
+        },
+        "US-007": {
+          "workItemId": 1678,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1678",
+          "syncedAt": "2026-04-19T05:18:13.677Z"
+        }
+      }
+    }
+  },
+  "jira": {
+    "issue": "SWE2E-832",
+    "url": "https://antonabyzov.atlassian.net/browse/SWE2E-832",
+    "synced": "2026-04-19T05:18:07.535Z"
+  },
+  "ado": {
+    "workItem": 1671,
+    "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1671",
+    "synced": "2026-04-19T05:18:13.677Z"
+  }
 }

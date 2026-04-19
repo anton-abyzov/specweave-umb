@@ -1,10 +1,11 @@
 {
   "id": "0646-closure-pipeline-code-review",
-  "status": "planned",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-26T17:47:27.276Z",
-  "lastActivity": "2026-03-26T17:47:27.276Z",
+  "lastActivity": "2026-04-19T00:00:00.000Z",
+  "abandonedReason": "Closure pipeline integration (code-reviewer + /simplify as gates in sw:done, before grill + judge-llm) was delivered incrementally via 0628-code-review-fixes-type-safety, 0634-review-hardening-phase2, and 0650-code-reviewer-gap-remediation. Pipeline is live and in active use by the sw-closer agent. Spec template here was never filled; no unique work remains.",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,

@@ -3,7 +3,7 @@ increment: 0657-dark-theme-semantic-tokens
 title: "Dark Theme Semantic Tokens"
 type: feature
 priority: P1
-status: planned
+status: active
 created: 2026-04-03
 structure: user-stories
 test_mode: TDD
@@ -57,15 +57,15 @@ verified-skill.com dark theme fails WCAG AA contrast across ~32 files. Hardcoded
 **So that** they remain readable regardless of theme
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: VerdictBadge.tsx VERDICT_COLORS and SeverityBadge SEVERITY_COLORS use --status-* tokens instead of hardcoded hex
-- [ ] **AC-US2-02**: CountCell in VerdictBadge.tsx uses status tokens for severity-based coloring
-- [ ] **AC-US2-03**: EvalScoreDisplay.tsx uses scoreIntent() + INTENT_VAR_MAP for score-based coloring
-- [ ] **AC-US2-04**: EvalCaseCard.tsx uses status tokens for pass/fail case indicators
-- [ ] **AC-US2-05**: EvalVerdictBadge.tsx uses status tokens for verdict display
-- [ ] **AC-US2-06**: UsefulnessIndicator.tsx uses status tokens for usefulness level coloring
-- [ ] **AC-US2-07**: SearchPalette.tsx uses status tokens for any hardcoded status colors
-- [ ] **AC-US2-08**: RepoHealthBadge.tsx uses status tokens for health indicators
-- [ ] **AC-US2-09**: All migrated components render correctly in both light and dark themes (no visual regression)
+- [x] **AC-US2-01**: VerdictBadge.tsx VERDICT_COLORS and SeverityBadge SEVERITY_COLORS use --status-* tokens instead of hardcoded hex
+- [x] **AC-US2-02**: CountCell in VerdictBadge.tsx uses status tokens for severity-based coloring
+- [x] **AC-US2-03**: EvalScoreDisplay.tsx uses scoreIntent() + INTENT_VAR_MAP for score-based coloring
+- [x] **AC-US2-04**: EvalCaseCard.tsx uses status tokens for pass/fail case indicators
+- [x] **AC-US2-05**: EvalVerdictBadge.tsx uses status tokens for verdict display
+- [x] **AC-US2-06**: UsefulnessIndicator.tsx uses status tokens for usefulness level coloring
+- [x] **AC-US2-07**: SearchPalette.tsx uses status tokens for any hardcoded status colors
+- [x] **AC-US2-08**: RepoHealthBadge.tsx uses status tokens for health indicators
+- [x] **AC-US2-09**: All migrated components render correctly in both light and dark themes (no visual regression)
 
 ---
 
@@ -77,13 +77,13 @@ verified-skill.com dark theme fails WCAG AA contrast across ~32 files. Hardcoded
 **So that** I can assess skill safety without switching to light mode
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Skill detail page.tsx remaining hardcoded hex replaced with status tokens
-- [ ] **AC-US3-02**: Security page.tsx uses status tokens for pass/fail indicators and severity badges
-- [ ] **AC-US3-03**: submit/page.tsx uses status tokens for submission status indicators
-- [ ] **AC-US3-04**: submit/[id]/page.tsx uses status tokens for submission detail status colors
-- [ ] **AC-US3-05**: RejectedSkillView.tsx uses status tokens for rejection status display
-- [ ] **AC-US3-06**: publishers/[name]/PublisherSkillsList.tsx uses status tokens for skill status indicators
-- [ ] **AC-US3-07**: All public pages pass WCAG AA contrast in dark mode for status text
+- [x] **AC-US3-01**: Skill detail page.tsx remaining hardcoded hex replaced with status tokens
+- [x] **AC-US3-02**: Security page.tsx uses status tokens for pass/fail indicators and severity badges
+- [x] **AC-US3-03**: submit/page.tsx uses status tokens for submission status indicators
+- [x] **AC-US3-04**: submit/[id]/page.tsx uses status tokens for submission detail status colors
+- [x] **AC-US3-05**: RejectedSkillView.tsx uses status tokens for rejection status display
+- [x] **AC-US3-06**: publishers/[name]/PublisherSkillsList.tsx uses status tokens for skill status indicators
+- [x] **AC-US3-07**: All public pages pass WCAG AA contrast in dark mode for status text
 
 ---
 
@@ -95,13 +95,13 @@ verified-skill.com dark theme fails WCAG AA contrast across ~32 files. Hardcoded
 **So that** I can evaluate platform trust signals without eye strain
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: VerifiedSkillsTab.tsx uses status tokens for verification status colors
-- [ ] **AC-US4-02**: ReportsTab.tsx uses status tokens for report severity/status colors
-- [ ] **AC-US4-03**: FindingsList.tsx uses status tokens for finding severity indicators
-- [ ] **AC-US4-04**: BlockedSkillsTab.tsx uses status tokens for blocked/warning states
-- [ ] **AC-US4-05**: RejectedSkillsTab.tsx uses status tokens for rejection states
-- [ ] **AC-US4-06**: TrustTierDistribution.tsx uses status tokens for any hardcoded status hex
-- [ ] **AC-US4-07**: All trust page status indicators pass WCAG AA in dark mode
+- [x] **AC-US4-01**: VerifiedSkillsTab.tsx uses status tokens for verification status colors
+- [x] **AC-US4-02**: ReportsTab.tsx uses status tokens for report severity/status colors
+- [x] **AC-US4-03**: FindingsList.tsx uses status tokens for finding severity indicators
+- [x] **AC-US4-04**: BlockedSkillsTab.tsx uses status tokens for blocked/warning states
+- [x] **AC-US4-05**: RejectedSkillsTab.tsx uses status tokens for rejection states
+- [x] **AC-US4-06**: TrustTierDistribution.tsx uses status tokens for any hardcoded status hex
+- [x] **AC-US4-07**: All trust page status indicators pass WCAG AA in dark mode
 
 ---
 
@@ -113,11 +113,11 @@ verified-skill.com dark theme fails WCAG AA contrast across ~32 files. Hardcoded
 **So that** I can triage submissions without misreading status
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: QueuePageClient.tsx uses status tokens for queue item status colors
-- [ ] **AC-US5-02**: QueueStatusBar.tsx uses status tokens for healthy/degraded/down states
-- [ ] **AC-US5-03**: SubmissionTable.tsx uses status tokens for submission state indicators
-- [ ] **AC-US5-04**: AdminQueueActions.tsx uses status tokens for action state colors
-- [ ] **AC-US5-05**: All queue page status indicators pass WCAG AA in dark mode
+- [x] **AC-US5-01**: QueuePageClient.tsx uses status tokens for queue item status colors
+- [x] **AC-US5-02**: QueueStatusBar.tsx uses status tokens for healthy/degraded/down states
+- [x] **AC-US5-03**: SubmissionTable.tsx uses status tokens for submission state indicators
+- [x] **AC-US5-04**: AdminQueueActions.tsx uses status tokens for action state colors
+- [x] **AC-US5-05**: All queue page status indicators pass WCAG AA in dark mode
 
 ---
 
@@ -129,15 +129,15 @@ verified-skill.com dark theme fails WCAG AA contrast across ~32 files. Hardcoded
 **So that** I can manage the platform efficiently in my preferred theme
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: admin/page.tsx uses status tokens for dashboard summary status colors
-- [ ] **AC-US6-02**: admin/dashboard/page.tsx uses status tokens for metric/status displays
-- [ ] **AC-US6-03**: admin/submissions/page.tsx uses status tokens for submission list status colors
-- [ ] **AC-US6-04**: admin/submissions/[id]/page.tsx uses status tokens for submission detail status
-- [ ] **AC-US6-05**: admin/queue/page.tsx uses status tokens for queue status indicators
-- [ ] **AC-US6-06**: admin/blocklist/page.tsx uses status tokens for block/allow states
-- [ ] **AC-US6-07**: admin/reports/page.tsx uses status tokens for report severity colors
-- [ ] **AC-US6-08**: admin/skills/page.tsx uses status tokens for skill status indicators
-- [ ] **AC-US6-09**: All admin pages pass WCAG AA in dark mode
+- [x] **AC-US6-01**: admin/page.tsx uses status tokens for dashboard summary status colors
+- [x] **AC-US6-02**: admin/dashboard/page.tsx uses status tokens for metric/status displays
+- [x] **AC-US6-03**: admin/submissions/page.tsx uses status tokens for submission list status colors
+- [x] **AC-US6-04**: admin/submissions/[id]/page.tsx uses status tokens for submission detail status
+- [x] **AC-US6-05**: admin/queue/page.tsx uses status tokens for queue status indicators
+- [x] **AC-US6-06**: admin/blocklist/page.tsx uses status tokens for block/allow states
+- [x] **AC-US6-07**: admin/reports/page.tsx uses status tokens for report severity colors
+- [x] **AC-US6-08**: admin/skills/page.tsx uses status tokens for skill status indicators
+- [x] **AC-US6-09**: All admin pages pass WCAG AA in dark mode
 
 ---
 
@@ -149,11 +149,11 @@ verified-skill.com dark theme fails WCAG AA contrast across ~32 files. Hardcoded
 **So that** style changes propagate consistently and duplicated mappings don't drift
 
 **Acceptance Criteria**:
-- [ ] **AC-US7-01**: lib/submission-state-styles.ts exports STATE_CONFIG mapping submission states to StatusIntent values
-- [ ] **AC-US7-02**: STATE_CONFIG covers all states: pending, evaluating, approved, rejected, blocked, tainted, withdrawn, resubmitted
-- [ ] **AC-US7-03**: All files with duplicated state-to-color mappings import from submission-state-styles.ts
-- [ ] **AC-US7-04**: No hardcoded hex remains for submission state colors in any migrated file
-- [ ] **AC-US7-05**: Existing behavior is preserved -- no visual regressions in light mode
+- [x] **AC-US7-01**: lib/submission-state-styles.ts exports STATE_CONFIG mapping submission states to StatusIntent values
+- [x] **AC-US7-02**: STATE_CONFIG covers all states: pending, evaluating, approved, rejected, blocked, tainted, withdrawn, resubmitted
+- [x] **AC-US7-03**: All files with duplicated state-to-color mappings import from submission-state-styles.ts
+- [x] **AC-US7-04**: No hardcoded hex remains for submission state colors in any migrated file
+- [x] **AC-US7-05**: Existing behavior is preserved -- no visual regressions in light mode
 
 ## Functional Requirements
 
