@@ -4,7 +4,7 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-18T21:15:08.754Z",
-  "lastActivity": "2026-04-18T21:20:00.000Z",
+  "lastActivity": "2026-04-19T00:00:00.000Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -23,6 +23,12 @@
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
       "syncedAt": "2026-04-18T21:22:46.383Z"
+    },
+    "github": {
+      "issueNumber": 84,
+      "issueUrl": "https://github.com/anton-abyzov/specweave-umb/issues/84",
+      "repo": "anton-abyzov/specweave-umb",
+      "syncedAt": "2026-04-19T00:00:00.000Z"
     }
   }
 }

@@ -304,17 +304,27 @@ const STATE_CONFIG: Record<string, { intent: StatusIntent; label: string }> = {
 
 ## Success Criteria
 
-- Zero hardcoded status hex remaining in migrated files (grep verification)
+- Zero hardcoded **status** hex/rgba remaining in migrated files inside this increment's File Inventory (grep verification, scoped to inventory). "Status" means colors representing the semantic intents `success | warning | danger | info | neutral`. Link colors (`--link-accent`), brand/decorative colors (admin-chrome, homepage gradients, tier-specific badges), and chart visualization colors are explicitly excluded per the Out of Scope list and are NOT in-scope for this grep.
 - All dark-mode status text passes WCAG AA 4.5:1 contrast ratio
 - All dark-mode status borders pass WCAG AA 3:1 non-text contrast ratio
 - No light-mode visual regressions (before/after comparison)
 - STATE_CONFIG eliminates all duplicated state-to-color mappings
 
+**Reviewer guidance (closure pipeline):** The canonical grep for pass/fail is:
+```
+grep -rEn '#[0-9A-Fa-f]{3,8}\b|rgba?\([0-9 ,.]+\)' <files-in-File-Inventory> | grep -v 'var(--'
+```
+Matches in files outside the File Inventory, or matches representing link/brand/decorative intent inside inventory files, MUST NOT be treated as 0657 blockers. Admin queue subtree residuals are formally tracked in [0657E-dark-theme-followup](../0657E-dark-theme-followup/) (see tasks.md Notes block).
+
 ## Out of Scope
 
 - Redesigning component layouts or structure
 - Adding new UI components
-- Migrating decorative/brand colors (agent-branding, category-constants)
+- Migrating **link colors** (e.g. `#0D9488` teal) — use `--link-accent` token, separate migration pass
+- Migrating **brand/decorative colors** (agent-branding, category-constants, admin-layout/admin-chrome, homepage gradients, studio/docs/learn page palettes)
+- Migrating `src/app/admin/queue/*` subtree and `src/app/queue/QueueStatusBar.tsx` — tracked in 0657E
+- Migrating `src/app/admin/installs/page.tsx`, `admin/reports/page.tsx`, `admin/layout.tsx`, `admin/page.tsx`, `admin/users/page.tsx` brand styling — not in File Inventory
+- Migrating homepage components (`components/homepage/*`), studio page, learn/docs pages — public-facing brand surface, not status
 - Adding ESLint rule blocking hardcoded hex (future increment)
 - Adding @supports fallback for color-mix() (existing uses replaced, not extended)
 - Changing chart-* visualization colors

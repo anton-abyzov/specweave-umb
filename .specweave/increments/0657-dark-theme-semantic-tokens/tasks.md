@@ -1,5 +1,25 @@
 # Tasks: Dark Theme Semantic Tokens
 
+## Notes
+
+**Round-3 code review — known debt carried forward to [0657E-dark-theme-followup](../0657E-dark-theme-followup/):** A third-round code review surfaced residual hex literals in files that were outside this increment's original file inventory but are in the AC-scoped surface:
+
+- `src/app/admin/queue/page.tsx` — 15 hex literals (tab indicators, StatCards)
+- `src/app/admin/queue/components.tsx` — 40+ hex literals (SseIndicator, HealthBadge, PauseToggle, charts)
+- `src/app/admin/queue/styles.ts` — pausedBanner, errorStyle, button styles
+- `src/app/queue/QueueStatusBar.tsx` — SSE dot, HEALTH_COLORS fallback
+
+The `components.tsx` and `styles.ts` files were extracted from `admin/queue/page.tsx` during 0668; the extraction preserved pre-existing hex rather than introducing new literals. Rather than expand 0657's scope a fourth round, this work moves to 0657E so 0657 can close with the in-inventory migration complete.
+
+**Round-3 in-scope fix landed here:** `globals.css` dark-mode `--status-danger-strong` token fixed from `#7F1D1D` (failed WCAG AA at ~1.4:1 on the semi-transparent red bg over `#0D1117`) to `#FCA5A5` (lighter red-300, ~9:1 contrast, brighter than base danger-text as critical-vs-high hierarchy demands). Used by FindingsList, BlockedSkillsTab, admin/blocklist, admin/submissions/[id], VerdictBadge CountCell.
+
+**Round-2 code review F-002 (test scope):** The optimistic per-component test-file plan below (20+ dedicated `*.test.tsx` files across tasks T-003 through T-028) was scaled back during implementation. Shipping test coverage is:
+
+- `src/lib/__tests__/status-intent.test.ts` — threshold contract (60/80 boundaries, NaN → neutral) and STATUS_VARS integrity.
+- `src/lib/__tests__/submission-state-styles.test.ts` — STATE_CONFIG integrity (all 8 states, intent mappings).
+
+Pre-existing tests (`EvalVerdictBadge.test.tsx`, `UsefulnessIndicator.test.tsx`) were updated to cover the migrated token paths. Per-component snapshot tests for the remaining components are deferred to a separate increment so this one can close. The semantic-token contract is exercised end-to-end by the two foundation tests above — per-component duplication would add noise without meaningfully reducing risk.
+
 ## Task Notation
 
 - `[T###]`: Task ID

@@ -1,0 +1,29 @@
+{
+  "id": "0671-skill-refinement-loop",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-04-20T16:25:00.000Z",
+  "lastActivity": "2026-04-20T18:10:37.047Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "origin": {
+    "mode": "brainstorm",
+    "team": "brainstorm-hermes-skill-builder",
+    "references": [
+      "https://github.com/NousResearch/hermes-agent/tree/main/skills"
+    ],
+    "dependsOn": [
+      "0670-skill-builder-universal"
+    ],
+    "relatedTo": [
+      "0663-rubric-quality-contracts",
+      "0665-agent-aware-skill-gen"
+    ]
+  },
+  "externalLinks": {},
+  "readyForReviewAt": "2026-04-20T18:10:37.034Z",
+  "approvedAt": "2026-04-20T18:10:37.047Z"
+}
