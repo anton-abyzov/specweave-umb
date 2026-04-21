@@ -1,10 +1,10 @@
 ---
 increment: 0657-dark-theme-semantic-tokens
-title: "Dark Theme Semantic Tokens"
+title: Dark Theme Semantic Tokens
 type: feature
 priority: P1
-status: active
-created: 2026-04-03
+status: completed
+created: 2026-04-03T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

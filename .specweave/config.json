@@ -205,8 +205,6 @@
         "name": "vskill-platform",
         "prefix": "VPL",
         "githubUrl": "https://github.com/anton-abyzov/vskill-platform.git",
-        "disabled": true,
-        "disabledReason": "Repo not found on GitHub as of 2026-03-13",
         "sync": {
           "github": { "owner": "anton-abyzov", "repo": "vskill-platform" },
           "jira": { "projectKey": "SWE2E" },
