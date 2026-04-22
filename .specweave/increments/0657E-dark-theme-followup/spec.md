@@ -1,11 +1,11 @@
 ---
 increment: 0657E-dark-theme-followup
-title: "Dark-theme token migration followup — admin/queue subtree + QueueStatusBar"
+title: Dark-theme token migration followup — admin/queue subtree + QueueStatusBar
 type: refactor
 priority: P1
-status: planned
+status: completed
 parent: 0657-dark-theme-semantic-tokens
-created: 2026-04-19
+created: 2026-04-19T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -34,12 +34,12 @@ The `components.tsx` and `styles.ts` files were extracted from the original `adm
 **So that** no chart legend, health badge, SSE indicator, or StatCard renders as a light-mode-only color in dark mode.
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `src/app/admin/queue/page.tsx` contains zero hardcoded status hex literals — all status colors use `var(--status-*)` tokens or values sourced from `STATUS_VARS` / `STATE_CONFIG`.
-- [ ] **AC-US1-02**: `src/app/admin/queue/components.tsx` contains zero hardcoded status hex literals. SseIndicator, HealthBadge, PauseToggle, StuckRow, StatCard, ThroughputChart, ProcessingTimeChart, DLQRow all use tokens.
-- [ ] **AC-US1-03**: `src/app/admin/queue/styles.ts` migrates `pausedBanner`, `errorStyle`, and all destructive/action button styles to tokens.
-- [ ] **AC-US1-04**: `src/app/queue/QueueStatusBar.tsx` SSE dot and `HEALTH_COLORS` fallback use tokens.
-- [ ] **AC-US1-05**: `grep -rEn '#[0-9A-Fa-f]{6}' src/app/admin/queue/ src/app/queue/QueueStatusBar.tsx | grep -v 'var(--' | grep -v '__tests__'` returns zero hits (except `#FFFFFF` foreground paired with `--status-*-solid` backgrounds, which is intentional).
-- [ ] **AC-US1-06**: Admin queue page renders with WCAG AA contrast (≥ 4.5:1) on destructive action buttons in both light and dark themes.
+- [x] **AC-US1-01**: `src/app/admin/queue/page.tsx` contains zero hardcoded status hex literals — all status colors use `var(--status-*)` tokens or values sourced from `STATUS_VARS` / `STATE_CONFIG`.
+- [x] **AC-US1-02**: `src/app/admin/queue/components.tsx` contains zero hardcoded status hex literals. SseIndicator, HealthBadge, PauseToggle, StuckRow, StatCard, ThroughputChart, ProcessingTimeChart, DLQRow all use tokens.
+- [x] **AC-US1-03**: `src/app/admin/queue/styles.ts` migrates `pausedBanner`, `errorStyle`, and all destructive/action button styles to tokens.
+- [x] **AC-US1-04**: `src/app/queue/QueueStatusBar.tsx` SSE dot and `HEALTH_COLORS` fallback use tokens.
+- [x] **AC-US1-05**: `grep -rEn '#[0-9A-Fa-f]{6}' src/app/admin/queue/ src/app/queue/QueueStatusBar.tsx | grep -v 'var(--' | grep -v '__tests__'` returns zero hits (except `#FFFFFF` foreground paired with `--status-*-solid` backgrounds, which is intentional).
+- [x] **AC-US1-06**: Admin queue page renders with WCAG AA contrast (≥ 4.5:1) on destructive action buttons in both light and dark themes.
 
 ## Functional Requirements
 

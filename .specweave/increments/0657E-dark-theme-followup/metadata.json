@@ -1,15 +1,32 @@
 {
   "id": "0657E-dark-theme-followup",
-  "status": "planned",
+  "status": "completed",
   "type": "refactor",
   "priority": "P1",
   "created": "2026-04-19T00:00:00.000Z",
-  "lastActivity": "2026-04-19T00:00:00.000Z",
+  "lastActivity": "2026-04-22T21:36:16.827Z",
   "parentIncrement": "0657-dark-theme-semantic-tokens",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
-  "extensionReason": "0657 closure surfaced residual hex in admin/queue subtree + QueueStatusBar.tsx that were not in the original file inventory. Carrying forward as a bounded cleanup increment to keep 0657 closeable with documented known debt."
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-852",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-852",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-22T21:36:39.140Z"
+    },
+    "ado": {
+      "featureId": "1691",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1691",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-22T21:36:40.997Z"
+    }
+  },
+  "extensionReason": "0657 closure surfaced residual hex in admin/queue subtree + QueueStatusBar.tsx that were not in the original file inventory. Carrying forward as a bounded cleanup increment to keep 0657 closeable with documented known debt.",
+  "readyForReviewAt": "2026-04-22T21:35:58.842Z",
+  "approvedAt": "2026-04-22T21:36:16.827Z"
 }
