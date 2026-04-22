@@ -1,0 +1,57 @@
+{
+  "id": "0672-queue-reliability",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-21T13:41:23.041Z",
+  "lastActivity": "2026-04-21T17:13:31.351Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-833",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-833",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-21T17:14:05.077Z"
+    },
+    "ado": {
+      "featureId": "1679",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1679",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-21T17:14:11.551Z"
+    }
+  },
+  "readyForReviewAt": "2026-04-21T17:12:18.157Z",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-21T17:12:52.027Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US2-02: [x] but only 0/3 tasks complete (0%)",
+        "AC-US2-03: [x] but only 0/3 tasks complete (0%)",
+        "AC-US2-05: [x] but only 0/3 tasks complete (0%)",
+        "AC-US2-01: [x] but only 0/3 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/5 tasks complete (0%)",
+        "AC-US3-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US3-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US3-03: [x] but only 0/3 tasks complete (0%)",
+        "AC-US3-05: [x] but only 0/3 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/3 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-01: [x] but only 0/4 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/3 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-04: [x] but only 0/3 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    }
+  ],
+  "approvedAt": "2026-04-21T17:13:31.351Z"
+}
