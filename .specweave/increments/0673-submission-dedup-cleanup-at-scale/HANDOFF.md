@@ -63,36 +63,41 @@
 
 ---
 
-## Next step — Step 2
+## Next step — Step 3
 
-**Goal**: implement the revised batched cleanup script + tests following tasks.md Track A (T-001..T-009) in strict TDD.
+**Goal**: implement the `rescan-published` in-flight dedup fix following tasks.md Track B (T-010..T-013) in strict TDD.
 
 **Expected deliverables**:
-- `repositories/anton-abyzov/vskill-platform/scripts/migrations/0673-cleanup.ts` (core script)
-- `repositories/anton-abyzov/vskill-platform/scripts/migrations/lib/survivor.ts`
-- `repositories/anton-abyzov/vskill-platform/scripts/migrations/lib/checkpoint.ts`
-- Test files: `scripts/migrations/__tests__/0673-{cleanup,survivor,checkpoint}.test.ts`
-- Integration test: `scripts/migrations/__tests__/0673-cleanup.int.test.ts` (skipped without `DATABASE_URL_TEST`)
+- Modify `repositories/anton-abyzov/vskill-platform/src/app/api/v1/admin/rescan-published/route.ts` — insert the pre-`createMany` in-flight check at lines 156–178 per plan.md §Phase 3.
+- New tests:
+  - `src/app/api/v1/admin/rescan-published/__tests__/in-flight-dedup.test.ts` (T-010/T-011 unit, mocked Prisma, 4 scenarios)
+  - `src/app/api/v1/admin/rescan-published/__tests__/route.integration.test.ts` (T-012 integration, auto-skip without `DATABASE_URL_TEST`)
+  - `src/app/api/v1/admin/rescan-published/__tests__/route.contract.test.ts` (T-012 contract, HTTP fixtures)
+  - `src/app/api/v1/admin/rescan-published/__tests__/route.parallel.test.ts` (T-013 20-parallel race, auto-skip)
 
 **Do NOT touch**:
-- Production Neon (only the integration test — and only when `DATABASE_URL_TEST` is set to a Neon *branch* URL, never prod)
-- `src/app/api/v1/admin/rescan-published/route.ts` — that's Step 3, separate track
-- 0672's files (schema, upsertSubmission, cache warm-up) — already correct
+- Production Neon (integration tests only run against Neon *branch* URLs via `DATABASE_URL_TEST`)
+- Track A files (`scripts/migrations/0673-cleanup-submission-dupes.ts` + libs + tests) — already shipped in Step 2
+- 0672's files — already correct
+- Any Neon branch, any `prisma migrate deploy`, any `push-deploy.sh` run
 
-**Runtime estimate**: ~30–60 min of implementation work.
+**Runtime estimate**: ~20–40 min of implementation work (smaller than Step 2).
 
-**Verification before closing Step 2**:
-- `npx vitest run scripts/migrations/__tests__/0673-*.test.ts` → all unit tests pass
-- `npx tsx scripts/migrations/0673-cleanup.ts --help` → prints usage
-- `npx tsx scripts/migrations/0673-cleanup.ts --dry-run` with `DATABASE_URL_TEST` unset → exits cleanly without DB access
+**Verification before closing Step 3**:
+- `npx vitest run src/app/api/v1/admin/rescan-published/__tests__/*.test.ts` → unit tests pass, integration tests skip cleanly
+- Existing rescan-published tests still green (no regression)
+- `npx tsc --noEmit` clean for modified files
 
 **Commit** as:
 ```
-0673: batched cleanup script + tests (TDD Track A)
+0673: rescan-published in-flight dedup fix + tests (TDD Track B)
 ```
-Then push to `main` on the vskill-platform child repo.
+Then push to `main` on the vskill-platform child repo AND umbrella.
 
-**Update THIS HANDOFF.md** when done — move Step 2 to "Current state" and set Step 3 as "Next step".
+**Update THIS HANDOFF.md** when done — move Step 3 to "Current state" and set Step 4 as "Next step".
+
+### Optional polish (non-blocking) for this session
+Consider adding a one-line code comment in `0673-cleanup-submission-dupes.ts::deleteVictimsTx` documenting why READ COMMITTED is safe here (pre-flight quiescence + temp-table stability). Code-reviewer flagged this as a MEDIUM in Step 2 but it is not a blocker.
 
 ---
 
@@ -100,13 +105,13 @@ Then push to `main` on the vskill-platform child repo.
 
 Say exactly:
 
-> Continue 0673 from Step 2. Read `.specweave/increments/0673-submission-dedup-cleanup-at-scale/HANDOFF.md` + `tasks.md` (Track A, T-001..T-009) + `plan.md` (§§ cleanup algorithm, checkpoint) + `spec.md` (US-002, US-003). Implement the cleanup script with strict TDD. Do NOT touch prod; do NOT run migrations; do NOT deploy.
+> Continue 0673 from Step 3. Read `.specweave/increments/0673-submission-dedup-cleanup-at-scale/HANDOFF.md` + `tasks.md` (Track B, T-010..T-013) + `plan.md` (§Phase 3) + `spec.md` (US-004). Implement the rescan-published in-flight dedup fix with strict TDD. Do NOT touch prod; do NOT run migrations; do NOT deploy.
 
 The session should:
-1. Read this file + tasks.md Track A + plan.md cleanup sections
-2. Execute T-001..T-009 in RED→GREEN→REFACTOR order
-3. Commit as `0673: batched cleanup script + tests (TDD Track A)` and push
-4. Update HANDOFF.md with new "Current state" + "Next step = Step 3" and commit+push
+1. Read this file + tasks.md Track B + plan.md Phase 3
+2. Execute T-010..T-013 in RED→GREEN order
+3. Commit as `0673: rescan-published in-flight dedup fix + tests (TDD Track B)` and push
+4. Update HANDOFF.md with new "Current state" + "Next step = Step 4" and commit+push
 
 ---
 
@@ -121,7 +126,7 @@ Nothing to roll back as of this HANDOFF. No production data touched since the dr
 | Date (UTC) | Session | Step | Outcome |
 |---|---|---|---|
 | 2026-04-22 | anton.abyzov@gmail.com | 1 (planning) | Spec/plan/tasks committed; sync done; HANDOFF.md written |
-| — | — | 2 (cleanup script + tests) | pending |
+| 2026-04-22 | anton.abyzov@gmail.com | 2 (cleanup script + tests) | Track A shipped via team-lead orchestration (3 impl agents + 2 verify agents, strict TDD). 9 files, 18/18 unit pass, 6/7 int skip, 0672 regression clean, tsc clean, all CLI smokes pass. Code review APPROVE WITH NITS. |
 | — | — | 3 (rescan-published in-flight dedup fix) | pending |
 | — | — | 4 (Neon branch dry-run) | pending |
 | — | — | 5 (prod cleanup + unique index) | pending |
