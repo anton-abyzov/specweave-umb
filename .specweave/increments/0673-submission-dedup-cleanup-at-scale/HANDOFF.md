@@ -6,22 +6,37 @@
 
 ---
 
-## Current state (2026-04-22 UTC) — after Step 1
+## Current state (2026-04-22 UTC) — after Step 2
 
-### What landed in this session
-- **0673 increment created** at `.specweave/increments/0673-submission-dedup-cleanup-at-scale/`
-- **spec.md**: 5 user stories (US-001..US-005), 24 ACs, 12 risks, 13 test-strategy rows, 12 edge cases, 9 non-goals, 4 FRs. All stories tagged `**Project**: vskill-platform`.
-- **plan.md**: batched cleanup algorithm, Option B concurrency (48 h quiescence pre-flight), filesystem-JSON checkpoints, `neonctl` branch strategy, file manifest (8 create, 2 modify, 3 reuse, 0 delete), 10 risks (R-01..R-10), phased rollout.
-- **ADR-0257** at `.specweave/docs/internal/architecture/adr/0257-large-table-backfill-pattern.md` — new ADR for the reusable large-table backfill pattern (separate from ADR-0256 which is Tier-2 LLM runtime).
-- **tasks.md**: 20 tasks, 3 tracks (A cleanup 9, B rescan fix 4, C runbook+deploy 7). All 24 ACs cited. RED → GREEN → REFACTOR ordering per track.
-- **External sync**: JIRA Epic [SWE2E-846](https://antonabyzov.atlassian.net/browse/SWE2E-846), ADO Feature [#1685](https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1685), 5 ADO User Stories #1686–#1690.
+### What landed in this session (Step 2 — Track A implementation)
+- **Track A cleanup script + libs implemented via team-lead orchestration** with strict TDD (RED→GREEN for every task).
+- **9 new/modified files in `repositories/anton-abyzov/vskill-platform/`**:
+  - `scripts/migrations/0673-cleanup-submission-dupes.ts` — CLI migration script. Pure `computeSurvivorIds`, `runCleanup(opts)`, `assertNotProdWithoutFlag`. Pre-flight 48 h quiescence check, survivor temp table (DISTINCT ON with PUBLISHED-first tiebreak), ID-range batched loop (10 k default), FK-ordered deletes per batch transaction (SubmissionStateEvent first, then Submission), JSONL archive, filesystem checkpoint, final verification, --help / --dry-run / --i-understand-this-is-prod flags.
+  - `scripts/migrations/lib/checkpoint.ts` — atomic filesystem JSON checkpoint (`.tmp` + rename). Handles absence, malformed JSON (throws with path), truncated partial write (returns null → fresh start).
+  - `scripts/migrations/lib/archive.ts` — ADDITIVE: new `GroupSummary` type + `writeGroupArchive` using `appendFile` JSONL. Existing `VictimSnapshot`/`writeArchive`/`readArchive` bodies byte-identical vs commit 5b92a50.
+  - 6 test files: `0673-checkpoint.test.ts`, `0673-archive.test.ts`, `0673-survivor-selection.test.ts`, `0673-cleanup.int.test.ts` (auto-skip without `DATABASE_URL_TEST`), `0673-cleanup.resume.test.ts` (same skip pattern), `0673-prod-guard.test.ts`, plus `__tests__/__helpers__/0673-cleanup-seed.ts`.
+- **Verification (separate team `verify-0673-track-a`)**:
+  - Unit tests: 18/18 pass (checkpoint 4, archive 4, survivor 5, prod-guard 5).
+  - Integration tests: 6/7 correctly skipped without DATABASE_URL_TEST (1 pure-logic test runs without DB — legitimate). 0 failures.
+  - 0672 regression check: clean (0672-collapse/restore tests skip without DB, no import/type errors).
+  - `tsc --noEmit`: 0 errors in 0673 files or modified `lib/archive.ts` (207 pre-existing errors in unrelated files filtered as noise).
+  - CLI smokes: `--help` exit 0 + usage, `--dry-run` (no DATABASE_URL) exit 0 with no-op message, prod-guard exit 1 without flag, prod-guard bypassed with flag (fails fast on fake creds, no prod touch).
+  - Code review: APPROVE WITH NITS — 0 critical, 0 high, 3 medium (all with mitigations), 6 low (polish only).
+- **Activated `.specweave/increments/0673-.../metadata.json`**: `"status": "planned"` → `"active"`.
 
-### What did NOT land
-- Any code changes in `repositories/anton-abyzov/vskill-platform/` — this session was planning only
-- `scripts/migrations/0673-cleanup.ts` — does not exist yet (Step 2)
-- Any rescan-published edits — untouched (Step 3)
-- Any Neon branch — not created yet (Step 4)
-- No production DB touches — Submission table unchanged (verified before and after session)
+### Deferred follow-ups (non-blocking, flagged for future session)
+- MED: `deleteVictimsTx` doesn't set `ISOLATION LEVEL REPEATABLE READ` — per-batch transaction uses default READ COMMITTED. AC-US3-04 wording isn't met in code, but ADR-0257 §3.6 Option B (pre-flight quiescence + temp-table stability) covers correctness. Consider adding a code comment documenting the rationale in Step 3+.
+- MED: `fetchSurvivorsForGroups` uses cross-product `ANY` filter (over-fetches then narrows via Map). OK at 10 k batch size; confirm wall-time on Neon branch dry-run (Step 4).
+- MED: `fetchVictimBatch` uses `id NOT IN (SELECT id FROM _0673_survivors)` — works, but `EXISTS`/anti-join is the more conventional pattern.
+- LOW: 6 polish items (Checkpoint truncation heuristic, optional type narrowing, a noise test case, comment clarifications) — none block.
+
+### What did NOT land (still pending in later steps)
+- Any rescan-published edits (Track B T-010..T-013) — that's Step 3 of the handoff ladder.
+- DEPLOY_RUNBOOK.md (T-016), Neon branch scripts (T-014) — Step 4.
+- Any Neon branch creation or dry-run — Step 4.
+- Any production DB touches — Submission table unchanged (guard prevents it anyway).
+- `prisma migrate deploy` — Step 5.
+- Code deploy via `push-deploy.sh` — Step 6.
 
 ### Key spec/plan divergence to remember
 **Checkpoint storage: filesystem JSON, not a DB table.** spec.md (AC-US3-01) mentioned a `_migration_0673_checkpoint` DB table; plan.md + ADR-0257 §3.5 override this to a filesystem JSON at `checkpoints/progress.json` because filesystem checkpoints survive Neon branch switches, PITR rollbacks, and connection drops. The external API (`readCheckpoint`/`writeCheckpoint`) is the same either way — implementation can be flipped in one file (`lib/checkpoint.ts`) if you change your mind. Tasks.md follows the plan/ADR (filesystem).

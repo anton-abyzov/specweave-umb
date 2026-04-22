@@ -14,11 +14,18 @@
       "techStack": ["node", "typescript", "vitest", "playwright"],
       "keywords": ["skills", "agent-skills", "universal", "marketplace", "cli"],
       "created": "2026-04-18T21:30:00.000Z"
+    },
+    "vskill-platform": {
+      "id": "vskill-platform",
+      "name": "vskill-platform",
+      "techStack": ["node", "typescript", "next.js", "prisma", "cloudflare-workers", "neon", "vitest", "playwright"],
+      "keywords": ["queue", "skills-registry", "verified-skill", "submission-processing", "tier2-scan"],
+      "created": "2026-04-21T00:00:00.000Z"
     }
   },
   "defaultProject": "specweave",
   "metadata": {
     "created": "2026-02-16T07:51:56.665Z",
-    "lastModified": "2026-04-18T21:30:00.000Z"
+    "lastModified": "2026-04-21T00:00:00.000Z"
   }
 }
