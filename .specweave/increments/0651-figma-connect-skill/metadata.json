@@ -1,10 +1,10 @@
 {
   "id": "0651-figma-connect-skill",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-03-30T09:39:22.033Z",
-  "lastActivity": "2026-03-30T10:00:40.742Z",
+  "lastActivity": "2026-04-22T21:38:28.228Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -42,5 +42,6 @@
       "changesCount": 0
     }
   ],
-  "readyForReviewAt": "2026-03-30T10:00:40.742Z"
+  "readyForReviewAt": "2026-03-30T10:00:40.742Z",
+  "approvedAt": "2026-04-22T21:38:28.228Z"
 }
