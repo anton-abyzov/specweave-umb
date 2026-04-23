@@ -157,6 +157,19 @@ No new ADRs created. Decisions above are traceable to completed increments 0665 
 | Registry submit (T-013b) fails | Low | Separated from npm publish (T-013a) — npm is already live; submit retry is independent. `vskill unsubmit` rollback available. |
 | 5-day estimate aggressive | Medium | Day 5 split into 4 tasks with independent gates so partial completion is useful (npm + registry before sandbox verify). |
 
+## Open Design Decisions (cross-increment)
+
+### Model Selection (seeded from 0676)
+
+When path A (`vskill skill new|import|...`) drives generation through any LLM hot path, follow the model-selection pattern established in increment `0676-skill-gen-model-selection` and ADR `.specweave/docs/internal/architecture/adr/0676-01-skill-gen-model-selection.md`:
+
+- **Default**: resolve the newest current Opus from `vskill-platform/src/lib/eval/model-registry.ts` — do NOT hardcode a model string. If 0670 needs its own resolver (i.e., operating independently of vskill-platform), mirror the registry pattern rather than duplicating the list: one source of truth per repo, priority-ordered, one-line forward-compat updates.
+- **Env override**: honor `SKILL_EVAL_MODEL` (alias or full ID) and `ANTHROPIC_BASE_URL` (AnyModel proxy) so users can route BYO models (GPT-5, Gemini 3, OpenRouter, LM Studio, Ollama) without new SDK deps.
+- **Path B (React Studio UI)**: already inherits via `claude-adapter.ts` after 0676 — no work here.
+- **Path C (Anthropic skill-creator)**: inherits parent Claude Code session model; skill-creator SKILL.md already documents the `/model opus` recommendation after 0676.
+
+Capture this in whichever module wraps the LLM call in path A (likely `src/core/skill-generator.ts` per the architecture above). Do NOT introduce a second, divergent resolver.
+
 ## Definition of Done
 
 - All AC items across US-001..US-009 are `[x]` in spec.md.

@@ -1,0 +1,40 @@
+{
+  "id": "0683-studio-update-notifications",
+  "title": "vSkill Studio — Update Notifications UI (Row Indicator, Section Badge, TopRail Bell, Detail CTA)",
+  "type": "feature",
+  "status": "planned",
+  "priority": "high",
+  "project": "vskill",
+  "created": "2026-04-23",
+  "description": "UI-only integration of existing update-detection backend (GET /api/skills/updates + POST /api/skills/:plugin/:skill/update SSE + POST /api/skills/batch-update SSE) into the main vskill studio chrome. Adds four visible affordances: (1) subtle `↑` glyph on sidebar rows when `updateAvailable`, colored --color-own (warm amber); (2) section-header count badge 'Installed · Claude · N updates ▾' with click-through to the existing UpdatesPanel route; (3) TopRail bell icon with count badge and dropdown summary of outdated skills plus 'View all' link to UpdatesPanel; (4) RightPanel 'Update to X.Y.Z' button wired through useOptimisticAction with inline SSE progress and existing ChangelogViewer preview. Introduces a visibility-aware polling hook `useSkillUpdates()` (5 min cadence, pause when `document.visibilityState === 'hidden'`, debounce + dedup per session, manual refresh). No backend changes — purely consumes existing endpoints and existing components (useOptimisticAction from 0674 T-053, ChangelogViewer, UpdatesPanel). Icons consumed from src/eval-ui/src/assets/icons/*.svg (update-bell.svg, update-available.svg, up-to-date.svg, changelog.svg), generated in parallel.",
+  "scope": {
+    "app": "repositories/anton-abyzov/vskill/src/eval-ui",
+    "owningRepo": "vskill",
+    "stack": "Vite 6 + React 19 + Tailwind 4 + TypeScript 5.7",
+    "backendReused": [
+      "GET /api/skills/updates (src/eval-server/api-routes.ts:635)",
+      "POST /api/skills/:plugin/:skill/update SSE (src/eval-server/api-routes.ts:736)",
+      "POST /api/skills/batch-update SSE (src/eval-server/api-routes.ts:759)"
+    ],
+    "frontendReused": [
+      "api.getSkillUpdates() / SkillUpdateInfo (src/eval-ui/src/api.ts:387)",
+      "mergeUpdatesIntoSkills() (src/eval-ui/src/api.ts:409)",
+      "useOptimisticAction (src/eval-ui/src/hooks/useOptimisticAction.ts)",
+      "ChangelogViewer (src/eval-ui/src/components/ChangelogViewer.tsx)",
+      "UpdatesPanel route (src/eval-ui/src/pages/UpdatesPanel.tsx)"
+    ],
+    "outOfScope": [
+      "src/eval-server/** (no new routes, no route changes)",
+      "vskill-platform/** (marketing surfaces)",
+      "vskill CLI (`outdated`, `update` commands untouched)"
+    ],
+    "primaryAudience": "developers"
+  },
+  "relatedIncrements": [
+    "0674-vskill-studio-redesign (warm-neutral shell, useOptimisticAction T-053)",
+    "0680-registry-versioning-v2-phase1 (version surface area)"
+  ],
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "externalLinks": {}
+}

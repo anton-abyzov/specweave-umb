@@ -1,0 +1,31 @@
+{
+  "id": "0678-skill-gen-source-model-picker",
+  "title": "Skill-Gen Source Model Picker — Explicit Provider+Model for vSkill CLI Skill Creation",
+  "type": "feature",
+  "status": "planned",
+  "priority": "medium",
+  "project": "vskill",
+  "created": "2026-04-22",
+  "description": "Expose an explicit source-model picker on the vSkill CLI skill-creation flow (both Studio UI and CLI). Today `src/eval-server/skill-create-routes.ts:940` hardcodes `provider = body.provider || 'claude-cli'` and ignores model selection. This increment: (1) adds a UI dropdown on `CreateSkillPage.tsx` matching the ComparisonPage pattern, (2) accepts `body.model` in the server route with a claude-cli/sonnet default, (3) persists the last choice via the existing `useStudioPreferences` hook (key `skillGenModel`), (4) adds CLI flag parity (`vskill skill new --provider ollama --model qwen2.5-coder`). This unblocks 0670 T-005 (`--engine=anthropic-skill-creator` accepting any provider/model). NOTE: explicitly disjoint from 0676-skill-gen-model-selection, which targets the separate vskill-platform (verified-skill.com) codebase.",
+  "scope": {
+    "app": "repositories/anton-abyzov/vskill",
+    "owningRepo": "vskill",
+    "stack": "Node 20 + TypeScript 5.7 + Vite 6 + React 19 + Tailwind 4 + Vitest 3 + Playwright",
+    "touchPoints": [
+      "src/eval-server/skill-create-routes.ts",
+      "src/eval-ui/src/pages/CreateSkillPage.tsx",
+      "src/eval-ui/src/hooks/useStudioPreferences.ts",
+      "src/cli/skill.ts"
+    ]
+  },
+  "relatedIncrements": [
+    "0677-lm-studio-provider",
+    "0670-skill-builder-universal"
+  ],
+  "notRelatedTo": [
+    "0676-skill-gen-model-selection (that increment targets vskill-platform / verified-skill.com — different codebase, do not conflate)"
+  ],
+  "estimatedDays": 1,
+  "testMode": "TDD",
+  "coverageTarget": 90
+}

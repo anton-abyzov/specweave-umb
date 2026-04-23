@@ -1,0 +1,52 @@
+{
+  "id": "0682-studio-agent-model-picker",
+  "title": "vSkill Studio — Unified Agent + Model Picker (Claude-Default, Two-Pane, Searchable)",
+  "type": "feature",
+  "status": "planned",
+  "priority": "high",
+  "project": "vskill",
+  "created": "2026-04-23",
+  "description": "Replace the current flat Model Selector with a unified two-pane Agent + Model Picker. Agents (Claude Code, Cursor, Codex CLI, Gemini CLI, Copilot, Zed, Anthropic API, OpenRouter, Ollama, LM Studio) are the top-level choice; models filter by agent. Claude Code is the DEFAULT whenever `.claude/` is present and the `claude` binary is installable. OpenRouter's 300+ model catalog becomes searchable by name, context window, and price. API key management moves into a single settings surface reachable from the picker footer. Locked providers show inline 'Add API key' CTAs (never greyed-out rows). The picker is keyboard-driven (↑↓ Enter Esc Cmd+K) and delivers Linear/Raycast-level feel. Reframes 'Claude (Max/Pro subscription)' as 'Use current Claude Code session' to comply with Anthropic's April 4 2026 ToS ban on third-party OAuth. Normalises `OLLAMA_HOST` as primary env var with `OLLAMA_BASE_URL` backcompat. Documents all env vars in docs/ARCHITECTURE.md §5.",
+  "scope": {
+    "app": "repositories/anton-abyzov/vskill/src/eval-ui",
+    "owningRepo": "vskill",
+    "stack": "Vite 6 + React 19 + Tailwind 4 + TypeScript 5.7",
+    "pickerSource": "repositories/anton-abyzov/vskill/src/eval-ui/src/components/AgentModelPicker.tsx (NEW, replaces ModelSelector.tsx)",
+    "catalogSource": "repositories/anton-abyzov/vskill/src/eval-ui/src/hooks/useAgentCatalog.ts (NEW)",
+    "agentRegistry": "repositories/anton-abyzov/vskill/src/agents/agents-registry.ts (REUSE)",
+    "llmAdapterSource": "repositories/anton-abyzov/vskill/src/eval/llm.ts::createClaudeCliClient()",
+    "openrouterProxy": "repositories/anton-abyzov/vskill/src/eval-server/api-routes.ts::/api/openrouter/models (EXTEND with 10-min cache)",
+    "statusBarSource": "repositories/anton-abyzov/vskill/src/eval-ui/src/components/StatusBar.tsx",
+    "settingsStore": "repositories/anton-abyzov/vskill/src/eval-server/settings-store.ts (NEW)",
+    "envHelper": "repositories/anton-abyzov/vskill/src/eval/env.ts (NEW)",
+    "persistedConfig": ".vskill/studio.json",
+    "outOfScope": "vskill-platform marketing site, new provider SDKs beyond those listed, cloud secret sync, OAuth flows of any kind",
+    "primaryAudience": "developers using the local vskill studio SPA"
+  },
+  "coreRequirements": [
+    "Two-pane picker: agents left, filtered models right",
+    "Claude Code is the default agent when .claude/ exists AND claude binary is on PATH",
+    "OpenRouter catalog is searchable (name / price / context window) with 10-min server cache",
+    "API key settings modal is a single surface reachable from picker footer",
+    "Locked providers show inline 'Add API key' / 'Install <tool>' CTAs — never greyed-out disabled rows",
+    "StatusBar carries a lock/unlock glyph per provider",
+    "'Claude (Max/Pro subscription)' renamed to 'Use current Claude Code session'; adapter never reads ~/.claude/credentials*",
+    "OLLAMA_HOST primary, OLLAMA_BASE_URL fallback; documented in docs/ARCHITECTURE.md §5",
+    "Keyboard-driven: ↑↓ navigate, Enter select, Esc close, Cmd+K toggle open",
+    "Frontend-design ground rules: Inter Tight, tabular-nums pricing, 36px agent rows, 44px model rows, 120ms fade + 2px translate-up motion, 1px left accent border on active row"
+  ],
+  "relatedIncrements": [
+    "0674-vskill-studio-redesign",
+    "0677-lm-studio-provider",
+    "0624-studio-comparison-ux-clarity"
+  ],
+  "complianceRisk": {
+    "source": "Anthropic ToS update, April 4 2026",
+    "ruling": "Only official Claude Code / claude.ai / Claude Desktop clients may consume Max/Pro subscription quota via OAuth. Third-party apps scraping ~/.claude/credentials.json or embedding OAuth are banned.",
+    "vskillImpact": "Current UI label 'Claude (Max/Pro subscription)' implies direct subscription consumption. Must reframe and verify adapter never reads ~/.claude/credentials* family.",
+    "mitigationPath": "Delegate via `claude` CLI spawn — same consumer Claude Code uses — which is sanctioned. Bundle grep + unit test enforce absence of credential-file reads."
+  },
+  "externalLinks": {},
+  "testMode": "TDD",
+  "coverageTarget": 90
+}

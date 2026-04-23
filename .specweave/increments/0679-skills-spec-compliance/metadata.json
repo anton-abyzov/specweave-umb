@@ -1,0 +1,30 @@
+{
+  "id": "0679-skills-spec-compliance",
+  "title": "SKILL.md Spec Compliance — Align vSkill Emitters with agentskills.io/specification",
+  "type": "feature",
+  "status": "planned",
+  "priority": "medium",
+  "project": "vskill",
+  "created": "2026-04-22",
+  "lastActivity": "2026-04-23T06:58:10.655Z",
+  "externalLinks": {},
+  "description": "Align vSkill's SKILL.md emitters with the canonical spec at https://agentskills.io/specification. Today, `tags` and `target-agents` are written at the top-level of the frontmatter; the spec requires them nested under `metadata:`. Fix the primary emitter in `src/eval-server/skill-create-routes.ts`, update 0670-skill-builder-universal's template files, update test fixtures, integrate `skills-ref validate` into the `vskill skill new` post-creation pipeline (warn-only unless `--strict`), and add a CI npm script `lint:skills-spec`. Golden-file tests lock the new frontmatter shape.",
+  "scope": {
+    "app": "repositories/anton-abyzov/vskill",
+    "owningRepo": "vskill",
+    "stack": "Node 20 + TypeScript 5.7 + Vitest 3",
+    "touchPoints": [
+      "src/eval-server/skill-create-routes.ts",
+      ".specweave/increments/0670-skill-builder-universal/ (template files)",
+      "package.json (new lint:skills-spec script)",
+      "test fixtures under src/**/__tests__/fixtures/"
+    ]
+  },
+  "canonicalSpec": "https://agentskills.io/specification",
+  "relatedIncrements": [
+    "0670-skill-builder-universal"
+  ],
+  "estimatedDays": 1,
+  "testMode": "TDD",
+  "coverageTarget": 90
+}

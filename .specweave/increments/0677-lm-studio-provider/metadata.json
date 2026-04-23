@@ -1,0 +1,28 @@
+{
+  "id": "0677-lm-studio-provider",
+  "title": "LM Studio Provider — Local LLM Adapter for vSkill Eval",
+  "type": "feature",
+  "status": "planned",
+  "priority": "medium",
+  "project": "vskill",
+  "created": "2026-04-22",
+  "description": "Add LM Studio (OpenAI-compatible local LLM server at http://localhost:1234/v1) as a first-class provider in the vskill eval engine, alongside the already-supported Ollama. Includes provider adapter (clone of OpenRouter path), health/model probe, UI selector entry, unit + integration tests, and a Playwright smoke test gated on endpoint availability.",
+  "scope": {
+    "app": "repositories/anton-abyzov/vskill",
+    "owningRepo": "vskill",
+    "stack": "Node 20 + TypeScript 5.7 + Vite 6 + React 19 + Tailwind 4 + Vitest 3 + Playwright",
+    "touchPoints": [
+      "src/eval/llm.ts",
+      "src/eval-server/api-routes.ts",
+      "src/eval-ui/src/pages/ComparisonPage.tsx",
+      "src/eval-ui/src/pages/workspace/RunPanel.tsx"
+    ]
+  },
+  "relatedIncrements": [
+    "0678-skill-gen-source-model-picker",
+    "0670-skill-builder-universal"
+  ],
+  "estimatedDays": 2,
+  "testMode": "TDD",
+  "coverageTarget": 90
+}

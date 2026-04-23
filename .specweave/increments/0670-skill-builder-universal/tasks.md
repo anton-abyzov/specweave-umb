@@ -306,3 +306,17 @@
 - [ ] Follow-up increment stub created (T-013d)
 - [ ] rubric.md pass-criteria met at `standard` tier
 - [ ] `sw:done` closure gates pass (code-review, simplify, grill, judge-llm, PM gates)
+
+---
+
+## Cross-reference: 0679-skills-spec-compliance
+
+> **Note (added by 0679)**: The canonical SKILL.md frontmatter shape at
+> https://agentskills.io/specification nests `tags` and `target-agents` under
+> a `metadata:` block, NOT at the top level. When writing the skill-builder's
+> own SKILL.md (AC-US1-01) and its references (`references/target-agents.md`,
+> T-008b), use the compliant shape. The primary emitter in
+> `src/eval-server/skill-create-routes.ts` and its golden-file tests
+> (`src/eval-server/__tests__/skill-emitter-spec-compliance.test.ts`) lock
+> this shape as of 0679. No 0670 task status changes — this note is
+> informational only.
