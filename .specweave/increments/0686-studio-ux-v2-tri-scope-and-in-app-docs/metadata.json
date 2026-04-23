@@ -1,0 +1,153 @@
+{
+  "id": "0686",
+  "name": "studio-ux-v2-tri-scope-and-in-app-docs",
+  "title": "Studio UX v2 — tri-scope sidebar, agent-scope picker, in-app setup docs",
+  "status": "planned",
+  "project": "vskill",
+  "priority": "high",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "createdAt": "2026-04-22",
+  "updatedAt": "2026-04-22",
+  "owner": "anton.abyzov@gmail.com",
+  "dependencies": [
+    {
+      "id": "0682",
+      "name": "studio-agent-model-picker",
+      "reason": "Reuses SettingsModal + credential-storage hook for provider key entry; AgentModelPicker popover pattern is extended by the new AgentScopePicker."
+    },
+    {
+      "id": "0683",
+      "name": "studio-update-notifications",
+      "reason": "updateCount chip renders per tri-scope section; OWN is almost always 0, INSTALLED + GLOBAL carry the real counts — requires 0683 outdated-per-origin plumbing to be generalized from {source, installed} to {own, installed, global}."
+    }
+  ],
+  "targets": {
+    "platforms": [
+      "darwin",
+      "linux",
+      "win32"
+    ],
+    "nodeVersion": ">=20",
+    "browsers": [
+      "chromium-only (eval-ui is Vite + webview)"
+    ]
+  },
+  "scope": {
+    "in": [
+      "Skill Studio logo click → navigates to studio home (hash route #/)",
+      "AgentScopePicker mounted above left sidebar, full-width 40px row, sticky header",
+      "Tri-scope sidebar (OWN / INSTALLED / GLOBAL) replacing current dual (OWN / INSTALLED) section model",
+      "Bolder, typographically-distinct section dividers (visual redesign)",
+      "SetupDrawer — 480px right-slide drawer with provider-specific inline setup content",
+      "Server-side scanner extension: global-scope skill scanning + symlink + install-method detection",
+      "Cross-platform path resolution (os.homedir() + path.join()), Windows compatibility",
+      "Symlink transparency — SkillInfo.isSymlink, symlinkTarget, installMethod surfaced in UI",
+      "Max/Pro compliant label wording on the Claude Code provider row (verified copy per research)",
+      "Shared-folder agent deduplication (e.g. .agents/) — aggregate row with consumer chip list"
+    ],
+    "out": [
+      "Migration of existing localStorage keys (defer to follow-up — keep 0683 keys as-is)",
+      "New i18n translations (English strings only; translation infra is a separate increment)",
+      "Remote-agent scopes — only filesystem-discoverable agents are in scope",
+      "Editing of GLOBAL skills in-place (read-only in this increment; copy-to-own is the escape hatch)",
+      "New skill-install actions (outside of what 0682 already ships)"
+    ]
+  },
+  "acceptanceSummary": {
+    "userStories": 9,
+    "acceptanceCriteria": 31,
+    "tasks": 17,
+    "e2eScenarios": 6
+  },
+  "risks": [
+    {
+      "id": "R-01",
+      "description": "Global scanner performance — scanning ~/.claude/skills/ + agent dirs on every /api/skills hit could be slow on large home dirs.",
+      "mitigation": "Cache global-scan results for 10s (in-memory); invalidate on SSE event from fs-watcher (already exists for project scope)."
+    },
+    {
+      "id": "R-02",
+      "description": "Windows path resolution for agents whose registry entry is POSIX-only (e.g. '~/.config/agents/skills').",
+      "mitigation": "Adapter in path-resolver.ts maps '.config/' → '%APPDATA%/agents/' on win32 and exposes the decision via AgentDefinition.resolvedGlobalSkillsDir. Unit-test all 3 platform branches."
+    },
+    {
+      "id": "R-03",
+      "description": "User confusion from tri-scope (thinking three sections = three copies of the same skill).",
+      "mitigation": "ADR-01 design: each scope answers a distinct question ('mine', 'this agent in this project', 'this agent globally'); detail panel shows scope pill; plan.md §3 visual direction enforces the distinction via typography + color."
+    },
+    {
+      "id": "R-04",
+      "description": "Compliance drift on Claude Code CLI label (Anthropic ToS changes).",
+      "mitigation": "Label copy lives in strings.ts keyed by provider; research-verified wording is the initial value; update requires only a string-file change, not component refactor."
+    },
+    {
+      "id": "R-05",
+      "description": "Symlink resolution cycles (A → B → A) hanging the scanner.",
+      "mitigation": "Bounded realpath() with a visited-set in the scanner; log + skip on cycle detection."
+    }
+  ],
+  "links": {
+    "relatedAdrs": [
+      ".specweave/docs/internal/architecture/adr/studio-agent-model-picker.md",
+      ".specweave/docs/internal/architecture/adr/studio-update-notifications.md"
+    ],
+    "livingDocs": [
+      "docs/ARCHITECTURE.md#6-in-app-docs-system",
+      "docs/ARCHITECTURE.md#7-global-vs-local-scopes"
+    ]
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-23T13:20:15.280Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US1-03 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US8-01 referenced in tasks.md but not found in spec.md",
+        "AC-US8-04 referenced in tasks.md but not found in spec.md",
+        "AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US2-06 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md",
+        "AC-US3-04 referenced in tasks.md but not found in spec.md",
+        "AC-US3-05 referenced in tasks.md but not found in spec.md",
+        "AC-US3-06 referenced in tasks.md but not found in spec.md",
+        "AC-US3-07 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US4-02 referenced in tasks.md but not found in spec.md",
+        "AC-US4-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5-07 referenced in tasks.md but not found in spec.md",
+        "AC-US5-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5-06 referenced in tasks.md but not found in spec.md",
+        "AC-US6-01 referenced in tasks.md but not found in spec.md",
+        "AC-US6-02 referenced in tasks.md but not found in spec.md",
+        "AC-US6-03 referenced in tasks.md but not found in spec.md",
+        "AC-US6-04 referenced in tasks.md but not found in spec.md",
+        "AC-US7-01 referenced in tasks.md but not found in spec.md",
+        "AC-US7-02 referenced in tasks.md but not found in spec.md",
+        "AC-US7-03 referenced in tasks.md but not found in spec.md",
+        "AC-US7-04 referenced in tasks.md but not found in spec.md",
+        "AC-US7-05 referenced in tasks.md but not found in spec.md",
+        "AC-US8-02 referenced in tasks.md but not found in spec.md",
+        "AC-US8-03 referenced in tasks.md but not found in spec.md",
+        "AC-US9-01 referenced in tasks.md but not found in spec.md",
+        "AC-US9-02 referenced in tasks.md but not found in spec.md",
+        "AC-US9-03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "lastActivity": "2026-04-23T13:20:15.280Z"
+}
