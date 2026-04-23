@@ -1,0 +1,203 @@
+{
+  "id": "0674-vskill-studio-redesign",
+  "title": "vSkill Studio Redesign — Developer-First UI with Theme Support",
+  "type": "feature",
+  "status": "completed",
+  "priority": "high",
+  "project": "vskill",
+  "created": "2026-04-22",
+  "lastActivity": "2026-04-23T06:41:23.129Z",
+  "description": "Redesign the whole vSkill Studio concept to deliver the best coding experience. Make it sleek, functional, beautiful, and efficient for developers. Support light and dark themes. Left sidebar must visually separate installed skills (in .claude/.cursor/.specweave/etc. wrapper folders) from the user's own skills (outside those wrappers). Visual language grounded in Anthropic/Claude Labs warm-neutral aesthetic.",
+  "scope": {
+    "app": "repositories/anton-abyzov/vskill/src/eval-ui",
+    "owningRepo": "vskill",
+    "stack": "Vite 6 + React 19 + Tailwind 4 + TypeScript 5.7 + react-router-dom 7",
+    "classificationSource": "repositories/anton-abyzov/vskill/src/eval/skill-scanner.ts::classifyOrigin()",
+    "outOfScope": "repositories/anton-abyzov/vskill-platform/src/app/studio (Next.js marketing page)",
+    "primaryAudience": "developers"
+  },
+  "coreRequirements": [
+    "Developer-first coding experience (fast, keyboard-friendly, unobtrusive)",
+    "Sleek, beautiful, highly functional UI",
+    "Full light + dark theme support with per-user persistence",
+    "Left sidebar splits skills into two sections: Installed (.claude/skills) vs Own (outside .claude)",
+    "Capture every skill detail (metadata, deps, versions, status) without clutter",
+    "Theme-agnostic design tokens (no hardcoded colors)"
+  ],
+  "relatedIncrements": [
+    "0665-obsidian-brain-skill-studio",
+    "0668-vskill-platform-audit-fixes",
+    "0624-studio-comparison-ux-clarity",
+    "0463-skill-builder-ui-redesign (abandoned — avoid same pitfalls)"
+  ],
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-23T04:54:08.184Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-01: has no tasks mapped",
+        "AC-US5-02: has no tasks mapped",
+        "AC-US5-03: has no tasks mapped",
+        "AC-US5-04: has no tasks mapped",
+        "AC-US5-05: has no tasks mapped",
+        "AC-US5-06: has no tasks mapped",
+        "AC-US5-07: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US5-09: has no tasks mapped",
+        "AC-US5-10: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-23T04:51:36.592Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-01: has no tasks mapped",
+        "AC-US5-02: has no tasks mapped",
+        "AC-US5-03: has no tasks mapped",
+        "AC-US5-04: has no tasks mapped",
+        "AC-US5-05: has no tasks mapped",
+        "AC-US5-06: has no tasks mapped",
+        "AC-US5-07: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US5-09: has no tasks mapped",
+        "AC-US5-10: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-23T04:46:59.771Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-01: has no tasks mapped",
+        "AC-US5-02: has no tasks mapped",
+        "AC-US5-03: has no tasks mapped",
+        "AC-US5-04: has no tasks mapped",
+        "AC-US5-05: has no tasks mapped",
+        "AC-US5-06: has no tasks mapped",
+        "AC-US5-07: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US5-09: has no tasks mapped",
+        "AC-US5-10: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-23T04:46:32.341Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US4-08: has no tasks mapped",
+        "AC-US4-10: has no tasks mapped",
+        "AC-US5-01: has no tasks mapped",
+        "AC-US5-02: has no tasks mapped",
+        "AC-US5-03: has no tasks mapped",
+        "AC-US5-04: has no tasks mapped",
+        "AC-US5-05: has no tasks mapped",
+        "AC-US5-06: has no tasks mapped",
+        "AC-US5-07: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US5-09: has no tasks mapped",
+        "AC-US5-10: has no tasks mapped",
+        "AC-US8-08: has no tasks mapped",
+        "AC-US9-01: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-23T04:46:27.951Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US4-08: has no tasks mapped",
+        "AC-US4-10: has no tasks mapped",
+        "AC-US5-01: has no tasks mapped",
+        "AC-US5-02: has no tasks mapped",
+        "AC-US5-03: has no tasks mapped",
+        "AC-US5-04: has no tasks mapped",
+        "AC-US5-05: has no tasks mapped",
+        "AC-US5-06: has no tasks mapped",
+        "AC-US5-07: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US5-09: has no tasks mapped",
+        "AC-US5-10: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped",
+        "AC-US8-08: has no tasks mapped",
+        "AC-US9-01: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-23T04:46:23.789Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US4-03: has no tasks mapped",
+        "AC-US4-08: has no tasks mapped",
+        "AC-US4-10: has no tasks mapped",
+        "AC-US5-01: has no tasks mapped",
+        "AC-US5-02: has no tasks mapped",
+        "AC-US5-03: has no tasks mapped",
+        "AC-US5-04: has no tasks mapped",
+        "AC-US5-05: has no tasks mapped",
+        "AC-US5-06: has no tasks mapped",
+        "AC-US5-07: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US5-09: has no tasks mapped",
+        "AC-US5-10: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped",
+        "AC-US8-08: has no tasks mapped",
+        "AC-US9-01: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-23T04:42:38.825Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-14: has no tasks mapped",
+        "AC-US4-03: has no tasks mapped",
+        "AC-US4-08: has no tasks mapped",
+        "AC-US4-10: has no tasks mapped",
+        "AC-US5-01: has no tasks mapped",
+        "AC-US5-02: has no tasks mapped",
+        "AC-US5-03: has no tasks mapped",
+        "AC-US5-04: has no tasks mapped",
+        "AC-US5-05: has no tasks mapped",
+        "AC-US5-06: has no tasks mapped",
+        "AC-US5-07: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US5-09: has no tasks mapped",
+        "AC-US5-10: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped",
+        "AC-US8-08: has no tasks mapped",
+        "AC-US9-01: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-866",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-866",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-23T06:42:22.970Z"
+    },
+    "ado": {
+      "featureId": "1705",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1705",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-23T06:42:29.956Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-04-23T06:41:23.106Z",
+  "approvedAt": "2026-04-23T06:41:23.129Z"
+}
