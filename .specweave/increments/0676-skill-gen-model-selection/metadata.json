@@ -1,0 +1,17 @@
+{
+  "id": "0676-skill-gen-model-selection",
+  "name": "skill-gen-model-selection",
+  "status": "completed",
+  "project": "vskill-platform",
+  "lastActivity": "2026-04-23T12:05:45.257Z",
+  "team": "impl-0676-skill-gen-model",
+  "type": "feature",
+  "summary": "Config-driven model selection for vskill-platform skill eval — priority-ordered Anthropic registry + ANTHROPIC_BASE_URL threading for AnyModel BYO.",
+  "created": "2026-04-23T00:00:00Z",
+  "externalLinks": {},
+  "priority": "medium",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-04-23T12:05:45.243Z",
+  "approvedAt": "2026-04-23T12:05:45.257Z"
+}
