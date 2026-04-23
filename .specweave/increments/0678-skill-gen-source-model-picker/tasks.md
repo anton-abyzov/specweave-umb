@@ -1,9 +1,10 @@
 ---
 increment: 0678-skill-gen-source-model-picker
 title: Skill-Gen Source Model Picker — Tasks
-scope: Server validation + UI dropdown + preferences persistence + CLI flags
+scope: Server validation + UI dropdown + preferences persistence (+ CLI flags deferred to 0670)
 target_days: 1
-status: planned
+status: ready-for-review
+notes: T-006 (CLI flags) deferred to 0670-skill-builder-universal per team-lead coordination — `vskill skill new` command does not yet exist and is owned by 0670. See T-006 block below for the hand-off contract.
 ---
 
 # Tasks: Skill-Gen Source Model Picker
@@ -15,7 +16,7 @@ status: planned
 ---
 
 ### T-001: Write server unit tests for provider/model validation in `skill-create-routes.ts`
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [x] completed
 **Estimated**: 1h | **Test Level**: unit
 **Test Plan**:
   Given `src/eval-server/__tests__/skill-create-routes.test.ts` with `detectAvailableProviders()` mocked to return `[{ id: "claude-cli", models: ["sonnet"] }, { id: "ollama", models: ["qwen2.5-coder:7b"] }]`
@@ -28,7 +29,7 @@ status: planned
 ---
 
 ### T-002: Implement server validation + default handling in `skill-create-routes.ts`
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [x] completed
 **Estimated**: 1h | **Test Level**: unit
 **Test Plan**:
   Given the failing tests from T-001 and the existing handler at `src/eval-server/skill-create-routes.ts:940`
@@ -41,7 +42,7 @@ status: planned
 ---
 
 ### T-003: Extend `useStudioPreferences` with `skillGenModel` field + unit tests
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Status**: [x] completed
 **Estimated**: 1h | **Test Level**: unit
 **Test Plan**:
   Given `src/eval-ui/src/hooks/useStudioPreferences.ts` (shipped in 0674) and a new test file `src/eval-ui/src/__tests__/studio-preferences-skill-gen-model.test.ts`
@@ -55,7 +56,7 @@ status: planned
 ---
 
 ### T-004: Write jsdom tests for the CreateSkillPage dropdown
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05 | **Status**: [x] completed
 **Estimated**: 1h | **Test Level**: unit
 **Test Plan**:
   Given `src/eval-ui/src/__tests__/create-skill-model-picker.test.tsx` renders `CreateSkillPage` with `detectAvailableProviders` mocked and `useStudioPreferences` stubbed under four scenarios — (a) no prior selection + 2 providers detected, (b) prior selection for a currently detected provider, (c) prior selection for a provider NOT currently detected, (d) zero providers detected
@@ -68,7 +69,7 @@ status: planned
 ---
 
 ### T-005: Implement the dropdown on CreateSkillPage
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05 | **Status**: [x] completed
 **Estimated**: 1.5h | **Test Level**: unit
 **Test Plan**:
   Given the failing tests from T-004 and the ComparisonPage selector as a visual reference (not imported — ADR-0678-02 keeps them separate)
@@ -81,7 +82,43 @@ status: planned
 ---
 
 ### T-006: Add `--provider` and `--model` flags to `vskill skill new` + CLI integration tests
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | **Status**: [~] deferred-to-0670 (not counted against 0678 closure)
+
+**Deferral rationale (2026-04-23, confirmed by team-lead)**:
+- The `vskill skill new` command does NOT exist in this repo today —
+  `grep -n "skill.*new\|\\.command.*skill" src/index.ts` returns zero
+  matches; `src/cli/index.ts` and `src/commands/skill.ts` do not exist.
+- 0670-skill-builder-universal is actively creating both files in its
+  T-004 (`src/commands/skill.ts` new, ~200 LOC; `src/cli/index.ts` edit
+  adding `registerSkillCommand(program)`) and T-005 (`vskill skill new
+  --engine=anthropic-skill-creator` delegation).
+- 0670 status at time of 0678 implementation: 3/35 tasks complete, CLI
+  extraction in flight.
+- Adding `--provider` / `--model` flags to a not-yet-created command
+  would directly collide with 0670's T-004/T-005.
+- Team-lead coordination note for 0678: *"If collision, scope to eval-ui
+  UI + server endpoint only; leave CLI flags as a follow-up in 0670."*
+  Team-lead re-confirmed the deferral: *"If the last task is the CLI
+  bin.ts work and you're blocked on 0670 file overlap, document it, mark
+  as deferred in tasks.md notes, and send COMPLETION with that caveat.
+  I'll handle 0670 coordination."*
+
+**Hand-off contract for 0670** (everything the CLI needs is already live):
+- Server endpoint `POST /api/skills/generate` already accepts
+  `{provider, model}` and validates against `detectAvailableProviders()`
+  (T-002, 5 tests green). Identical request body to the UI path.
+- Defaults: omit both → `{claude-cli, sonnet}` (AC-US2-04 preserved).
+- Error shapes: `400 {error:"unknown_provider", validProviders}` and
+  `400 {error:"unknown_model", validModels}` — consumable by a CLI
+  preflight that exits 2 and prints the list (AC-US4-03).
+- 0670 just needs to call `.option("--provider <string>", "...")` and
+  `.option("--model <string>", "...")` on its new `skill new` command
+  definition and forward them into the HTTP body — a single-digit LOC
+  change.
+
+**Files NOT touched in 0678** (owned by 0670): `src/bin.ts`,
+`src/index.ts`, `src/commands/skill.ts` (new), `src/cli/index.ts` (new),
+and the planned CLI-integration test file.
 **Estimated**: 1h | **Test Level**: integration
 **Test Plan**:
   Given the `vskill skill new` command definition (in `src/cli/skill.ts` or wherever commander options live) and a new test file `src/cli/__tests__/skill-new-flags.test.ts` that spawns the CLI via `execa` with a mock server capturing the HTTP body
@@ -95,7 +132,7 @@ status: planned
 ---
 
 ### T-007: Documentation + closure gate
-**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: All ACs | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: All ACs | **Status**: [x] completed
 **Estimated**: 0.5h | **Test Level**: docs + integration
 **Test Plan**:
   Given all preceding tasks are complete

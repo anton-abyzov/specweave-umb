@@ -5,7 +5,7 @@ All tasks target `repositories/anton-abyzov/vskill/`. For each defect the **fail
 ---
 
 ### T-001: Fix OWN/INSTALLED sidebar section collapse persistence (B1)
-**User Story**: US-001 | **AC**: AC-US1-01 | **Status**: [ ] pending
+**User Story**: US-001 | **AC**: AC-US1-01 | **Status**: [x] completed
 **File(s)**: `src/eval-ui/src/components/SidebarSection.tsx` (+ companion test if missing)
 **Test Plan**:
 - **Given** the Studio is open at `/` with the OWN section expanded (`aria-expanded="true"`)
@@ -16,7 +16,7 @@ All tasks target `repositories/anton-abyzov/vskill/`. For each defect the **fail
 ---
 
 ### T-002: Fix theme toggle from `data-theme="light"` branch (B2)
-**User Story**: US-002 | **AC**: AC-US2-01, AC-US2-02 | **Status**: [ ] pending
+**User Story**: US-002 | **AC**: AC-US2-01, AC-US2-02 | **Status**: [x] completed
 **File(s)**: `src/eval-ui/src/App.tsx` (lines 123, 149, 153), `src/eval-ui/src/theme/ThemeProvider.tsx` (line 147), `src/eval-ui/src/components/StatusBar.tsx` (line 96)
 **Test Plan**:
 - **Given** the Studio is loaded with `document.documentElement.dataset.theme === "light"`
@@ -28,7 +28,7 @@ All tasks target `repositories/anton-abyzov/vskill/`. For each defect the **fail
 ---
 
 ### T-003: j/k keyboard navigation sets `aria-selected` on a skill row (B3)
-**User Story**: US-001 | **AC**: AC-US1-02 | **Status**: [ ] pending
+**User Story**: US-001 | **AC**: AC-US1-02 | **Status**: [x] completed
 **File(s)**: `src/eval-ui/src/hooks/useKeyboardShortcut.ts`, `src/eval-ui/src/components/Sidebar.tsx`, `src/eval-ui/src/components/SkillRow.tsx`
 **Test Plan**:
 - **Given** the Studio is open at `/` with one or more skill rows in the sidebar and body focus (no input focused)
@@ -41,7 +41,7 @@ All tasks target `repositories/anton-abyzov/vskill/`. For each defect the **fail
 ---
 
 ### T-004: Cmd+B toggles skills-sidebar visibility (B4)
-**User Story**: US-001 | **AC**: AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **AC**: AC-US1-03 | **Status**: [x] completed
 **File(s)**: `src/eval-ui/src/components/StudioLayout.tsx` (state + conditional render), `src/eval-ui/src/App.tsx` or the shortcut registration site (keybinding)
 **Test Plan**:
 - **Given** the Studio is open at `/` with `aside[aria-label='Skills sidebar']` visible
@@ -55,7 +55,7 @@ All tasks target `repositories/anton-abyzov/vskill/`. For each defect the **fail
 ---
 
 ### T-005: Add Leaderboard panel to workspace LeftRail (B5)
-**User Story**: US-003 | **AC**: AC-US3-01, AC-US3-02 | **Status**: [ ] pending
+**User Story**: US-003 | **AC**: AC-US3-01, AC-US3-02 | **Status**: [x] completed
 **File(s)**: `src/eval-ui/src/pages/workspace/LeftRail.tsx` (add entry + icon)
 **Test Plan**:
 - **Given** the Studio is open at a skill detail page and the workspace panel is active
@@ -67,7 +67,7 @@ All tasks target `repositories/anton-abyzov/vskill/`. For each defect the **fail
 ---
 
 ### T-006: TestsPanel filter tabs render unconditionally (B6)
-**User Story**: US-003 | **AC**: AC-US3-03, AC-US3-04 | **Status**: [ ] pending
+**User Story**: US-003 | **AC**: AC-US3-03, AC-US3-04 | **Status**: [x] completed
 **File(s)**: `src/eval-ui/src/pages/workspace/TestsPanel.tsx` (remove `hasIntegrationTests && (...)` guard at ~line 383)
 **Test Plan**:
 - **Given** the Studio is open at a skill detail page, the Tests panel is active, and the skill has zero integration tests
@@ -80,7 +80,7 @@ All tasks target `repositories/anton-abyzov/vskill/`. For each defect the **fail
 ---
 
 ### T-007: Escape early-dismisses the `'e'`-placeholder toast (B8)
-**User Story**: US-004 | **AC**: AC-US4-01 | **Status**: [ ] pending
+**User Story**: US-004 | **AC**: AC-US4-01 | **Status**: [x] completed
 **File(s)**: `src/eval-ui/src/components/ToastProvider.tsx` (add global Escape listener), possibly `src/eval-ui/src/hooks/useKeyboardShortcut.ts` (priority ordering)
 **Test Plan**:
 - **Given** the Studio is open at `/` with no toasts active, and the user presses `'e'` (triggering the placeholder toast)
@@ -92,7 +92,7 @@ All tasks target `repositories/anton-abyzov/vskill/`. For each defect the **fail
 ---
 
 ### T-008: Triage eval-ui page-load perf (1914 ms vs 1000 ms budget) (Perf-1)
-**User Story**: US-005 | **AC**: AC-US5-01 | **Status**: [ ] pending
+**User Story**: US-005 | **AC**: AC-US5-01 | **Status**: [x] completed
 **File(s)**: investigation first; then either `e2e/eval-ui.spec.ts:168` (raise budget with comment) OR `src/eval-ui/src/main.tsx` + route code (lazy-load heavy imports — Monaco, Recharts, Mermaid candidates)
 **Test Plan**:
 - **Given** a warm dev server (pre-booted at least 30 s before the run)
@@ -103,7 +103,7 @@ All tasks target `repositories/anton-abyzov/vskill/`. For each defect the **fail
 ---
 
 ### T-009: Triage sidebar-search filter perf (313 ms vs 160 ms hard) (Perf-2)
-**User Story**: US-005 | **AC**: AC-US5-02 | **Status**: [ ] pending
+**User Story**: US-005 | **AC**: AC-US5-02 | **Status**: [x] completed
 **File(s)**: `src/eval-ui/src/components/PluginGroup.tsx`, `src/eval-ui/src/components/SkillRow.tsx`, `src/eval-ui/src/components/SidebarSearch.tsx`
 **Test Plan**:
 - **Given** the Studio is open at `/` with at least one skill row rendered
@@ -115,7 +115,7 @@ All tasks target `repositories/anton-abyzov/vskill/`. For each defect the **fail
 ---
 
 ### T-010: Triage FCP under headless Chromium (null entry) (Perf-3)
-**User Story**: US-005 | **AC**: AC-US5-03 | **Status**: [ ] pending
+**User Story**: US-005 | **AC**: AC-US5-03 | **Status**: [x] completed
 **File(s)**: `e2e/lighthouse-budget.spec.ts` (guard against null) — and optionally `src/eval-ui/src/main.tsx` (emit a paint marker via `PerformanceObserver`)
 **Test Plan**:
 - **Given** Playwright runs against headless Chromium where `performance.getEntriesByName('first-contentful-paint')` returns `[]`
@@ -136,4 +136,4 @@ All tasks target `repositories/anton-abyzov/vskill/`. For each defect the **fail
 
 Update `qa-findings.md` to reflect that the regression canary was closed in this increment.
 
-**Status**: [ ] pending
+**Status**: [x] completed
