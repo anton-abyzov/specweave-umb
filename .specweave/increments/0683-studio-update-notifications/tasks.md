@@ -21,7 +21,7 @@ _Goal: a single polling hook with visibility-pause, debounce, and dedup; wired t
 ---
 
 ### T-001: Implement useSkillUpdates() polling hook
-**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US1-04, AC-US3-05 | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US1-04, AC-US3-05 | **Status**: [x] completed
 **Phase**: 1 | **Estimated**: 3h | **Test Level**: unit
 **AC**: AC-US1-04, AC-US3-05
 **Test Plan**:
@@ -37,7 +37,7 @@ _Goal: a single polling hook with visibility-pause, debounce, and dedup; wired t
 ---
 
 ### T-002: Wire useSkillUpdates() into StudioContext and merge into skills
-**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-03, AC-US1-04, AC-US2-01 | **Status**: [ ] pending
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-03, AC-US1-04, AC-US2-01 | **Status**: [x] completed
 **Phase**: 1 | **Estimated**: 2h | **Test Level**: integration
 **AC**: AC-US1-03, AC-US1-04, AC-US2-01
 **Test Plan**:
@@ -53,7 +53,7 @@ _Goal: a single polling hook with visibility-pause, debounce, and dedup; wired t
 ---
 
 ### T-003: Extract semver bump classifier to shared util
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-03 | **Status**: [x] completed
 **Phase**: 1 | **Estimated**: 0.5h | **Test Level**: unit
 **AC**: AC-US3-03
 **Test Plan**:
@@ -75,7 +75,7 @@ _Goal: every SkillRow reflects outdated status with a subtle glyph; every Sideba
 ---
 
 ### T-004: Replace SkillRow update pill with ↑ glyph
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04 | **Status**: [x] completed
 **Phase**: 2 | **Estimated**: 1h | **Test Level**: component
 **AC**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04
 **Test Plan**:
@@ -91,7 +91,7 @@ _Goal: every SkillRow reflects outdated status with a subtle glyph; every Sideba
 ---
 
 ### T-005: Add updateCount chip to SidebarSection header
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [x] completed
 **Phase**: 2 | **Estimated**: 1.5h | **Test Level**: component
 **AC**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
 **Test Plan**:
@@ -113,7 +113,7 @@ _Goal: persistent update presence in the top rail via a bell icon + count badge 
 ---
 
 ### T-006: Build UpdateBell component
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-06 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-06 | **Status**: [x] completed
 **Phase**: 3 | **Estimated**: 1.5h | **Test Level**: component
 **AC**: AC-US3-01, AC-US3-02, AC-US3-06
 **Test Plan**:
@@ -129,7 +129,7 @@ _Goal: persistent update presence in the top rail via a bell icon + count badge 
 ---
 
 ### T-007: Build UpdateBellDropdown (lazy-loaded popover)
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-03, AC-US3-04, AC-US3-05, AC-US3-06 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-03, AC-US3-04, AC-US3-05, AC-US3-06 | **Status**: [x] completed
 **Phase**: 3 | **Estimated**: 3h | **Test Level**: component
 **AC**: AC-US3-03, AC-US3-04, AC-US3-05, AC-US3-06
 **Test Plan**:
@@ -145,7 +145,7 @@ _Goal: persistent update presence in the top rail via a bell icon + count badge 
 ---
 
 ### T-008: Mount UpdateBell in TopRail right action cluster
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01 | **Status**: [x] completed
 **Phase**: 3 | **Estimated**: 0.5h | **Test Level**: component
 **AC**: AC-US3-01
 **Test Plan**:
@@ -167,7 +167,7 @@ _Goal: prominent `Update to X.Y.Z` block on the selected skill's detail panel wi
 ---
 
 ### T-009: Build UpdateAction with useOptimisticAction + SSE
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05, AC-US4-06, AC-US4-07 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05, AC-US4-06, AC-US4-07 | **Status**: [x] completed
 **Phase**: 4 | **Estimated**: 3h | **Test Level**: component
 **AC**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05, AC-US4-06, AC-US4-07
 **Test Plan**:
@@ -183,7 +183,7 @@ _Goal: prominent `Update to X.Y.Z` block on the selected skill's detail panel wi
 ---
 
 ### T-010: Mount UpdateAction in RightPanel Overview tab
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02 | **Status**: [x] completed
 **Phase**: 4 | **Estimated**: 0.5h | **Test Level**: component
 **AC**: AC-US4-01, AC-US4-02
 **Test Plan**:
@@ -205,7 +205,7 @@ _Goal: end-to-end verification across all four surfaces; polling / SSE / refresh
 ---
 
 ### T-011: Playwright E2E — update notifications full flow
-**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US1-01, AC-US2-01, AC-US3-01, AC-US3-02, AC-US3-03, AC-US4-01, AC-US4-03, AC-US4-04, AC-US4-07 | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US1-01, AC-US2-01, AC-US3-01, AC-US3-02, AC-US3-03, AC-US4-01, AC-US4-03, AC-US4-04, AC-US4-07 | **Status**: [x] completed
 **Phase**: 5 | **Estimated**: 2.5h | **Test Level**: e2e
 **AC**: AC-US1-01, AC-US2-01, AC-US3-01, AC-US3-02, AC-US3-03, AC-US4-01, AC-US4-03, AC-US4-04, AC-US4-07
 **Test Plan**:

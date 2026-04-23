@@ -24,7 +24,7 @@ status: planned
 ---
 
 ### T-001: Rename claude-cli label, extend `detectAvailableProviders()` with detection block, enforce voice-lint
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-03, AC-US5-04 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-03, AC-US5-04 | **Status**: [x] completed
 **Phase**: A | **Estimated**: 2h | **Test Level**: unit
 **Test Plan**:
   Given `src/eval-server/api-routes.ts::detectAvailableProviders()` and `src/eval-ui/src/strings.ts`
@@ -42,7 +42,7 @@ status: planned
 ---
 
 ### T-002: `resolveOllamaBaseUrl()` helper with `warnOnce`; swap both call sites
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-01 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-01 | **Status**: [x] completed
 **Phase**: A | **Estimated**: 2h | **Test Level**: unit
 **Test Plan**:
   Given `src/eval/env.ts` exports `resolveOllamaBaseUrl(env: NodeJS.ProcessEnv)` and a module-scoped `warnOnce(msg, logger?)`
@@ -60,7 +60,7 @@ status: planned
 ---
 
 ### T-003: Claude-CLI compliance test + dist-bundle-grep closure gate
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-02, NFR-006 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-02, NFR-006 | **Status**: [x] completed
 **Phase**: A | **Estimated**: 3h | **Test Level**: unit + CI script
 **Test Plan**:
   Given `src/eval/__tests__/claude-cli-compliance.test.ts`, a fake `claude` binary shim at `src/eval/__fixtures__/fake-claude.sh` (executable, reads stdin, echoes canned JSON), and a new CI script `scripts/check-bundle-compliance.sh`
@@ -80,7 +80,7 @@ status: planned
 ---
 
 ### T-004: Tiered `settings-store` (browser-proxy + optional macOS Keychain) with redacted logging
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-03, AC-US4-04, NFR-001 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-03, AC-US4-04, NFR-001 | **Status**: [x] completed
 **Phase**: B | **Estimated**: 4h | **Test Level**: unit + integration
 **Test Plan**:
   Given `src/eval-server/settings-store.ts` exports `{ saveKey, readKey, removeKey, listKeys, setTier, getTier }` taking `(provider, projectHash)` and a tier state machine with values `"browser" | "keychain"`
@@ -95,7 +95,7 @@ status: planned
 ---
 
 ### T-005: `/api/settings/keys` endpoints (GET / POST / DELETE) + OpenRouter 10-min cache
-**User Story**: US-003, US-004 | **Satisfies ACs**: AC-US3-03, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05 | **Status**: [ ] pending
+**User Story**: US-003, US-004 | **Satisfies ACs**: AC-US3-03, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05 | **Status**: [x] completed
 **Phase**: B | **Estimated**: 3h | **Test Level**: integration
 **Test Plan**:
   Given the eval-server booted against a temp project root, with `settings-store` injected
@@ -111,7 +111,7 @@ status: planned
 ---
 
 ### T-006: `SettingsModal` component + `SettingsContext` + `keyStore` client
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05, NFR-003 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05, NFR-003 | **Status**: [x] completed
 **Phase**: B | **Estimated**: 5h | **Test Level**: unit (Vitest + @testing-library/react)
 **Test Plan**:
   Given `<SettingsModal open onClose />` mounted inside `<SettingsContext>` against a mocked `/api/settings/keys` fetch
@@ -133,7 +133,7 @@ status: planned
 ---
 
 ### T-007: `useAgentCatalog()` hook — merge config, OpenRouter fetch, Ollama poll, agent dedup
-**User Story**: US-002, US-003 | **Satisfies ACs**: AC-US2-01, AC-US2-05, AC-US3-01, AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-002, US-003 | **Satisfies ACs**: AC-US2-01, AC-US2-05, AC-US3-01, AC-US3-03 | **Status**: [x] completed
 **Phase**: C | **Estimated**: 4h | **Test Level**: unit
 **Test Plan**:
   Given a test harness rendering a fake component that consumes `useAgentCatalog()`, with mocked `fetch` for `/api/config` / `/api/openrouter/models` / `/api/ollama/tags` (if/when the Ollama endpoint exists; else mock the underlying probe), and `vi.useFakeTimers()`
@@ -148,7 +148,7 @@ status: planned
 ---
 
 ### T-008: `AgentPane` + `ModelPane` + `LockedCta` components with frontend-design tokens
-**User Story**: US-002, US-003 | **Satisfies ACs**: AC-US2-02, AC-US2-03, AC-US3-04, AC-US5-01 | **Status**: [ ] pending
+**User Story**: US-002, US-003 | **Satisfies ACs**: AC-US2-02, AC-US2-03, AC-US3-04, AC-US5-01 | **Status**: [x] completed — implemented as `AgentList.tsx` + `ModelList.tsx` + `LockedProviderRow.tsx` per team-lead file-ownership mapping
 **Phase**: C | **Estimated**: 5h | **Test Level**: unit (RTL) + visual snapshot
 **Test Plan**:
   Given `<AgentPane agents={...} activeAgent="claude-code" focusedAgent="openrouter" onFocus onSelect />` and `<ModelPane agent={agentEntry} activeModel="sonnet" onSelect />`, rendered against a theme-provider wrapper
@@ -168,7 +168,7 @@ status: planned
 ---
 
 ### T-009: Search-as-you-type + virtualised list in `ModelPane`
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02 | **Status**: [x] completed — search + debounce + useVirtualList implemented inside `ModelList.tsx`
 **Phase**: C | **Estimated**: 3h | **Test Level**: unit
 **Test Plan**:
   Given `<ModelPane>` rendered with an agent whose `models` array has 300 fixture entries (realistic OpenRouter shape), and a `useVirtualList(rows, rowHeight: 44, viewportHeight: 352)` hook
@@ -185,7 +185,7 @@ status: planned
 ---
 
 ### T-010: `AgentModelPicker` shell — popover, keyboard model, footer, motion, replace `ModelSelector` call sites
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-04, AC-US2-06, AC-US2-07 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-04, AC-US2-06, AC-US2-07 | **Status**: [x] completed — TopRail now imports AgentModelPicker; ModelSelector.tsx retained for one still-coupled test (lm-studio-ui.test.tsx) and should be removed in a follow-up once that test is migrated.
 **Phase**: C | **Estimated**: 5h | **Test Level**: unit + integration
 **Test Plan**:
   Given `<AgentModelPicker />` mounted with `useAgentCatalog()` providing a ready catalog, at a simulated viewport of 1280×800
@@ -207,7 +207,7 @@ status: planned
 ---
 
 ### T-011: `ProvidersSegment` in StatusBar with responsive collapse + tooltip + click-routing
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03 | **Status**: [x] completed
 **Phase**: D | **Estimated**: 3h | **Test Level**: unit
 **Test Plan**:
   Given `<StatusBar>` inside a `<SettingsContext>` providing `providers: [{ id: "claude-cli", available: true }, { id: "anthropic", available: false }, { id: "openrouter", available: false }, { id: "ollama", available: true }, { id: "lmstudio", available: false }]`, with `matchMedia("(max-width: 640px)")` mockable
@@ -223,7 +223,7 @@ status: planned
 ---
 
 ### T-012: Claude-default detection + `.vskill/studio.json` persistence + LM Studio agent entry
-**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, FR-001, FR-005 | **Status**: [ ] pending
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, FR-001, FR-005 | **Status**: [x] completed — studio-json.ts atomic writer + /api/config loads on boot; detection block drives auto-default selection in `useAgentCatalog`.
 **Phase**: D | **Estimated**: 3h | **Test Level**: unit + integration
 **Test Plan**:
   Given a temp project root + a mocked filesystem (via `memfs` or `mock-fs`), and the eval-server + `AgentModelPicker` rendered against various fixtures
@@ -245,7 +245,7 @@ status: planned
 ---
 
 ### T-013: Playwright E2E — picker + settings + StatusBar full keyboard flow
-**User Story**: US-001, US-002, US-003, US-004, US-006 | **Satisfies ACs**: AC-US1-01, AC-US2-04, AC-US3-02, AC-US4-03, AC-US6-01 (end-to-end coverage) | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003, US-004, US-006 | **Satisfies ACs**: AC-US1-01, AC-US2-04, AC-US3-02, AC-US4-03, AC-US6-01 (end-to-end coverage) | **Status**: [x] completed — e2e/agent-model-picker.spec.ts covers the three scenarios (Claude default, Cmd+K open, keyboard-only, StatusBar glyphs).
 **Phase**: E | **Estimated**: 4h | **Test Level**: e2e (Playwright)
 **Test Plan**:
   Given `e2e/agent-model-picker.spec.ts` boots the real eval-server + Studio SPA against a temp project fixture (with `.claude/skills/` pre-seeded and a fake `claude` binary shim), with fetch mocks or a real-enough test OpenRouter response (checked in as a fixture)
@@ -262,7 +262,7 @@ status: planned
 ---
 
 ### T-014: Docs (README compliance + ARCHITECTURE.md §5 env vars) + voice-lint sweep + coverage gate
-**User Story**: US-005, US-007 | **Satisfies ACs**: AC-US5-03, AC-US7-02, AC-US7-03 | **Status**: [ ] pending
+**User Story**: US-005, US-007 | **Satisfies ACs**: AC-US5-03, AC-US7-02, AC-US7-03 | **Status**: [x] completed — README "## Claude Max/Pro subscription compliance" section added; ARCHITECTURE.md §5.1 env vars table + §5.2 compliance section added; docs.claude.com link present; OLLAMA_HOST example added.
 **Phase**: E | **Estimated**: 2.5h | **Test Level**: docs-grep + CI
 **Test Plan**:
   Given `README.md` and `docs/ARCHITECTURE.md` at the vskill repo root, plus the voice-lint and coverage scripts integrated into the existing quality pipeline
