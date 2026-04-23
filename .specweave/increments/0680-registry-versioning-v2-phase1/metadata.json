@@ -1,0 +1,30 @@
+{
+  "id": "0680-registry-versioning-v2-phase1",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-23T06:58:57.423Z",
+  "lastActivity": "2026-04-23T13:44:39.210Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-877",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-877",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-23T13:38:46.034Z"
+    },
+    "ado": {
+      "featureId": "1716",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1716",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-23T13:38:51.347Z"
+    }
+  },
+  "readyForReviewAt": "2026-04-23T13:44:39.190Z",
+  "approvedAt": "2026-04-23T13:44:39.210Z"
+}

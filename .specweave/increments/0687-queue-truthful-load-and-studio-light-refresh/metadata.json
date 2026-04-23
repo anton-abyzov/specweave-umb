@@ -1,0 +1,26 @@
+{
+  "id": "0687",
+  "name": "queue-truthful-load-and-studio-light-refresh",
+  "title": "Queue dashboard truthful load, backend stabilization, and Studio light refresh",
+  "status": "planned",
+  "type": "bug",
+  "priority": "high",
+  "project": "vskill-platform",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "createdAt": "2026-04-23",
+  "updatedAt": "2026-04-23",
+  "owner": "codex",
+  "related": [
+    "0672-queue-reliability",
+    "0685-rescan-published-dedup-fix"
+  ],
+  "tags": [
+    "queue",
+    "performance",
+    "database",
+    "cache",
+    "ui-ux",
+    "studio-theme"
+  ]
+}
