@@ -33,6 +33,8 @@
   "0672-queue-reliability": 1776791651839,
   "0674-vskill-studio-redesign": 1776926148252,
   "0680-registry-versioning-v2-phase1": 1776951531368,
-  "0687-queue-truthful-load-and-studio-light-refresh": 1777045577253,
-  "0688-studio-skill-scope-transfer": 1777050162505
+  "0687-queue-truthful-load-and-studio-light-refresh": 1777057814030,
+  "0688-studio-skill-scope-transfer": 1777050162505,
+  "0706-vskill-cli-windows-compat": 1777060542423,
+  "0702-skill-studio-cross-platform-api-key-storage": 1777063084533
 }
