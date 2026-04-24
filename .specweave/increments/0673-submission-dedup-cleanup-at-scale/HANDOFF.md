@@ -6,7 +6,42 @@
 
 ---
 
-## Current state (2026-04-22 UTC) — after Step 2
+## Current state (2026-04-24 UTC) — after Steps 3–8 landed; Step 9 (Playwright smokes) pending cron re-warm
+
+### What landed today (2026-04-24, steps 3–8)
+- **Step 3 — Track B (rescan-published in-flight dedup fix)**: already present in `route.ts:166–196` via 0685 commit `f189146` (the reuse-existing-submissions architecture subsumes the Track B T-010..T-013 design). 53/55 tests pass (2 skipped — integration tests without `DATABASE_URL_TEST`).
+- **Step 4 — Neon dry-run branch**: created `br-floral-salad-aefagvy7` / endpoint `ep-crimson-fire-aexx0qiu` via direct Neon REST API (neonctl absent on host — fallback path used). Full zero-copy snapshot of prod. Bumped branch compute min/max CU from 0.25/0.25 → 0.5/4 so timing is representative.
+- **Step 4 (cleanup) — Branch cleanup run**: 39s survivor build + 213 batches × ~60s early / ~4s late, **final count = 108,324 survivors ✅ exact spec target**, 0 duplicates, 0 orphan state events, archive 615 MB (1 entry per group-per-batch, ~1.86M lines — benign but exceeds original 10 MB cap).
+- **Step 5 — Unique index on branch**: `npx prisma migrate deploy` against `$BRANCH_DIRECT` applied `20260421100000_submission_unique_repo_skill` cleanly; `Submission_repoUrl_skillName_key` verified `indisunique=t`.
+- **Step 6 — Prod cleanup**: bumped prod endpoint autoscale max 2→4 CU. **Discovered parallel rogue `0672-collapse-chunked.mjs` processes** (PIDs 78663, 87707, 33477) respawning from another Claude session, racing against my cleanup. Killed them + kept Monitor auto-killing further respawns. Ran 0673 cleanup with `--i-understand-this-is-prod`. Hit 4 deadlocks from app traffic; retry-on-deadlock logic (added mid-run: commit `92b96b5`) recovered. **Final prod state = 107,754 survivors ✅** (within ±5% band 102,907–113,740), 0 duplicates, 0 orphan state events, 113,178 Skills untouched.
+- **Step 7 — Unique index on prod**: `prisma migrate deploy` applied `20260421100000_submission_unique_repo_skill` cleanly. Verified in `pg_indexes`.
+- **Step 8 — Code deploy**: `./scripts/push-deploy.sh` pushed 5 new 0673 commits and deployed to Cloudflare Workers. Deploy ID `6e9d2d84-427c-4c31-958c-5ea71572d9f9` live at https://verified-skill.com.
+
+### Code fixes shipped today (all committed, 5 commits)
+1. `0fe2010` — fix temp-table session-scope bug (TEMP → UNLOGGED) + progress logs
+2. `528fbf3` — switch cleanup to **WebSocket Client** for long queries + TEMP session persistence (neon()'s HTTP driver cannot hold session state across calls; also timed out on the 10+ min DISTINCT ON)
+3. `76f1ff8` — bump `work_mem` to 256MB for survivor sort (avoids disk spill; 11-min build → 39s build)
+4. `0de2e00` — bump archive size limit 10 MB → 1 GiB (per-batch JSONL entries inflate vs spec assumption)
+5. `92b96b5` — retry batches on SQLSTATE 40P01 / 40001 / 57014 with exponential backoff (handles prod deadlocks from live app traffic)
+
+### Pre-cleanup belt-and-suspenders checks (all passed)
+- Skill table: 113,178 rows — untouched throughout (Submission → Skill is FK child; ON DELETE SET NULL nulls the FK but never touches Skill)
+- FK audit: `SubmissionStateEvent`/`EmailNotification`/`SubmissionJob` RESTRICT children (0 rows in the last two, first handled explicitly); `ScanResult`/`EvalRun` SET NULL (safe)
+- Neon PITR retention (7 days) + dry-run branch retained for rollback window
+- Prod quiescent (last write 2026-04-17; 0 rows in last 48 h)
+
+### Deferred / pending
+- **Step 9 Playwright smokes** (`queue-duplicates.spec.ts`, `queue-cold-load.spec.ts`): run against `E2E_BASE_URL=https://verified-skill.com`. Currently all 3 fail because `/queue` renders empty rows post-deploy — the hourly KV warmup cron (`queue-list-warmup.ts`, 0672 code) hasn't fired yet post-cleanup. Next cron fires at `:00` UTC. Re-run at 15:00 UTC. If still empty, investigate.
+- **Step 10 24 h monitoring**: watch `SELECT COUNT(*) FROM "Submission" s JOIN "Submission" s2 ON s."repoUrl"=s2."repoUrl" AND s."skillName"=s2."skillName" AND s.id != s2.id;` stays at 0 for 24 h; confirm no P2002 noise in `wrangler tail`. Close 0672 + 0673 after.
+- **Neon branch deletion**: keep `0673-dryrun-20260424-084621` until Step 10 monitoring is clean (it's the disaster-rollback path). After 24 h, delete via `scripts/delete-neon-branch.sh`.
+- **Prod CU restoration**: consider restoring prod endpoint autoscale max 4→2 after 24 h monitoring (operational cost tradeoff).
+
+### Parallel-cleanup artifact to decide about
+`scripts/migrations/0672-collapse-chunked.mjs` and `0672-collapse-sql.mjs` exist as untracked files. They belong to a different session's emergency hack (MAX(createdAt) survivor rule, not the 0673 spec's PUBLISHED-first rule). Up to the operator whether to commit, delete, or leave them untracked.
+
+---
+
+## Previous state (2026-04-22 UTC) — after Step 2
 
 ### What landed in this session (Step 2 — Track A implementation)
 - **Track A cleanup script + libs implemented via team-lead orchestration** with strict TDD (RED→GREEN for every task).
