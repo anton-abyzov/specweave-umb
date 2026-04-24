@@ -131,7 +131,7 @@ Phase 2 unit tests mocked the router around the handler and asserted the handler
 - All 31 ACs pass against HEAD `9ea4462`.
 - Three e2e specs committed (`9ea4462`) and green.
 - Two regression tests for the defects landed in `d7fb800`.
-- T-071 complete. T-072 (ADR) + T-073 (docs) + T-074 (this report) delivered by this verification cluster.
+- T-071 complete. T-072 (ADR at `.specweave/docs/internal/architecture/adr/0702-01-vskill-credential-storage.md`) + T-073 (README updates in vskill repo) + T-074 (this report) delivered by this verification cluster.
 - T-075 remains for `sw-closer` — formal `/sw:done 0702` gate (code-review loop, simplify, grill, judge-llm, validate, PM gates).
 
 This report is the single source of truth for 0702 closure. A staff engineer can walk the 31-row table, open any cited test, and confirm the AC.
