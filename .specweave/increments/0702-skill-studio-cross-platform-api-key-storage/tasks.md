@@ -451,12 +451,14 @@
 **Description**: Let the CLI run code-review, simplify, grill, judge-llm, validate, PM gates.
 **References**: All
 **Implementation**:
-- `specweave complete 0702-skill-studio-cross-platform-api-key-storage` (or `/sw:done` from Claude Code)
-- Address any findings from code-reviewer (critical/high/medium loop, max 3 iterations)
-- Ensure grill-report.json and judge-llm-report.json present
+- `reports/code-review-report.json` — 0 blocking findings (2 low: CI matrix observation + AC-US2-02 scope note). Two P0 defects from Phase 3 verification were fixed pre-closure under strict TDD in commit d7fb800 + regression tests in bb3a64b.
+- `reports/grill-report.json` — SHIP READY, 0 blockers/criticals/highs/mediums, 2 low-severity follow-up items documented.
+- `reports/judge-llm-report.json` — WAIVED (no externalModels consent configured; per sw:done skill contract).
+- 31/31 ACs flipped `[x]` in spec.md to match `reports/ac-verification.md` evidence.
+- `specweave complete 0702-skill-studio-cross-platform-api-key-storage --yes` invoked post-closure-artifact generation.
 **Test Plan**: All closure gates pass
 **Dependencies**: T-074
-**Status**: [ ] Not Started
+**Status**: [x] Completed
 
 ## Dependency Summary
 
