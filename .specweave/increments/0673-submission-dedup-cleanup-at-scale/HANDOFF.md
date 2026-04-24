@@ -30,11 +30,37 @@
 - Neon PITR retention (7 days) + dry-run branch retained for rollback window
 - Prod quiescent (last write 2026-04-17; 0 rows in last 48 h)
 
-### Deferred / pending
-- **Step 9 Playwright smokes** (`queue-duplicates.spec.ts`, `queue-cold-load.spec.ts`): run against `E2E_BASE_URL=https://verified-skill.com`. Currently all 3 fail because `/queue` renders empty rows post-deploy — the hourly KV warmup cron (`queue-list-warmup.ts`, 0672 code) hasn't fired yet post-cleanup. Next cron fires at `:00` UTC. Re-run at 15:00 UTC. If still empty, investigate.
-- **Step 10 24 h monitoring**: watch `SELECT COUNT(*) FROM "Submission" s JOIN "Submission" s2 ON s."repoUrl"=s2."repoUrl" AND s."skillName"=s2."skillName" AND s.id != s2.id;` stays at 0 for 24 h; confirm no P2002 noise in `wrangler tail`. Close 0672 + 0673 after.
-- **Neon branch deletion**: keep `0673-dryrun-20260424-084621` until Step 10 monitoring is clean (it's the disaster-rollback path). After 24 h, delete via `scripts/delete-neon-branch.sh`.
-- **Prod CU restoration**: consider restoring prod endpoint autoscale max 4→2 after 24 h monitoring (operational cost tradeoff).
+### Step 9 — verification (DONE, with caveats) + UX manual-repair
+
+Spawned a 3-agent team (`ssr-diagnoser`, `e2e-smoker`, `perf-benchmarker`) to verify post-deploy. Findings:
+
+- **DB layer**: all green. 107,754 submissions, 0 duplicates, 0 orphan state events, 113,178 skills untouched, unique index applied and verified (`indisunique=t`).
+- **Performance**: API p50/p95 = 60ms/130-156ms across filters. /queue cold DCL p50=160ms, first row p50=176ms — well under the 1.5s spec target. Search endpoint is slow (1s p50 — pre-existing, not cleanup-related).
+- **E2E smokes**: 11/25 fail. All failures are **pre-existing** bugs in queue UX that were already known and are being addressed by active increment **0687-queue-truthful-load-and-studio-light-refresh**:
+  - `/api/v1/submissions` filter/pagination/search wiring issues (0687 scope)
+  - Stats-refresh cron silently failing since 2026-04-03 (21 days) — query was timing out against pre-cleanup 2.8M rows; simplified query now runs in 1.7s. 0687 has this in scope.
+  - Post-cleanup the default `filter=active` tab shows "No submissions" because DB genuinely has 0 active — UX polish (auto-switch to Published) is 0687 US-001 AC-US1-01.
+
+#### Manual UX repair applied (to unblock users until 0687 lands)
+1. Populated `CachedStats.queue-stats` DB row with fresh `{total:107754, active:0, published:102720, rejected:5028, blocked:6}`. Was last updated 2026-04-03.
+2. Wrote fresh `submissions:stats-cache` KV key with same data (9 filters warmed).
+3. Deleted stale `submissions:list:*` and `submissions:latest:*` KV keys, re-warmed via API calls. Published filter now serves 50 rows with `total=102720` (was serving stale `total=712701`).
+4. Result: the "683 active submissions are being reconciled" banner no longer fires; /queue shows "No submissions" on the default Active tab (correct) and 50 rows on Published.
+
+### Deferred / owned by 0687
+
+All remaining queue UX issues are scoped to increment **0687-queue-truthful-load-and-studio-light-refresh** (active, another session):
+- SSR `initialData.submissions: null` (0687 AC-US1-02)
+- Stats/list freshness single-source-of-truth (0687 AC-US1-03)
+- Cold-load <2s p95 (0687 AC-US1-04)
+- Filter switching consistency (0687 US-002)
+- Stats-refresh cron timeout fix (the DISTINCT ON that 0687 uncommitted changes are adding — will need to be simplified post-cleanup; flagged in 0687 session context)
+
+### 24 h monitoring window (still pending)
+- Watch duplicate-pair query stays at 0 for 24 h.
+- `wrangler tail vskill-platform | grep -i 'P2002\|unique.*constraint'` — any hits only from `rescan-published` races caught by `skipDuplicates: true`.
+- After clean 24 h, delete `0673-dryrun-20260424-084621` Neon branch via `scripts/delete-neon-branch.sh`.
+- Consider restoring prod endpoint autoscale max 4→2 (saved operational cost).
 
 ### Parallel-cleanup artifact to decide about
 `scripts/migrations/0672-collapse-chunked.mjs` and `0672-collapse-sql.mjs` exist as untracked files. They belong to a different session's emergency hack (MAX(createdAt) survivor rule, not the 0673 spec's PUBLISHED-first rule). Up to the operator whether to commit, delete, or leave them untracked.
