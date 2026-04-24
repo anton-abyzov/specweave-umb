@@ -9,7 +9,7 @@ type: tasks
 ## Foundations
 
 ### T-001: Prisma schema migration — add 4 Skill columns + index
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-05 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-05 | **Status**: [x] completed
 **Test Plan**:
   - Given: existing Skill model in prisma/schema.prisma
   - When: migration is applied against a test DB
@@ -19,7 +19,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/prisma/migrations/<ts>_skill_source_tracking/migration.sql` (new)
 
 ### T-002: Shared types — SkillUpdateEvent, ScanReport
-**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-02, AC-US3-04 | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-02, AC-US3-04 | **Status**: [x] completed
 **Test Plan**:
   - Given: types module imported in scanner, DO, SSE endpoint, and Studio hook
   - When: TypeScript compiler checks the project
@@ -28,7 +28,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/types.ts` (new)
 
 ### T-003: Seed script for tracked skills
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-05 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-05 | **Status**: [x] completed
 **Test Plan**:
   - Given: `scripts/tracked-skills-seed.json` contains entries for anthropic-skills/* and verified-skill/* repos
   - When: `pnpm tsx scripts/seed-tracked-skills.ts` runs twice against a test DB
@@ -38,7 +38,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/scripts/tracked-skills-seed.json` (new)
 
 ### T-004: wrangler.jsonc — DO binding, cron bump, AE binding, dev.vars.example
-**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US2-01 | **Status**: [ ] pending
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US2-01 | **Status**: [x] completed
 **Test Plan**:
   - Given: wrangler.jsonc is the deployment descriptor
   - When: `wrangler deploy --dry-run` validates the config
@@ -52,7 +52,7 @@ type: tasks
 ## US-001: Central Upstream Scanner
 
 ### T-005: [TDD-RED] GitHub API wrapper — ETag caching and error variants
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-06 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-06 | **Status**: [x] completed
 **Test Plan**:
   - Given: a mock GitHub API returning a commit SHA with an ETag header
   - When: `fetchLatestCommit(repoUrl, branch, etag?, env)` is called with a cached ETag
@@ -61,13 +61,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/github-api.test.ts` (new)
 
 ### T-006: [TDD-GREEN] GitHub API wrapper implementation
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-06 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-06 | **Status**: [x] completed
 **Test Plan**: T-005 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/github-api.ts` (new)
 
 ### T-007: [TDD-RED] scanOneSkill — SHA compare, SkillVersion upsert, lastCheckedAt advance
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03 | **Status**: [x] completed
 **Test Plan**:
   - Given: a Skill row with `lastSeenSha = "abc"` and a mock GitHub response returning `sha = "def"`
   - When: `scanOneSkill(skill, env)` runs
@@ -79,13 +79,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/scanner.test.ts` (new)
 
 ### T-008: [TDD-GREEN] scanOneSkill implementation
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03 | **Status**: [x] completed
 **Test Plan**: T-007 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/scanner.ts` (new)
 
 ### T-009: [TDD-RED] scanOneSkill — provenance suppression for locally-promoted skills
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-04 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-04 | **Status**: [x] completed
 **Test Plan**:
   - Given: a Skill row with a 0688 provenance sidecar where `origin !== "upstream"` or `locallyPromoted === true`
   - When: `scanOneSkill(skill, env)` detects a new SHA
@@ -94,13 +94,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/scanner.test.ts` (update)
 
 ### T-010: [TDD-GREEN] scanOneSkill — provenance suppression implementation
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-04 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-04 | **Status**: [x] completed
 **Test Plan**: T-009 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/scanner.ts` (update)
 
 ### T-011: [TDD-RED] runSkillUpdateScan — error isolation and structured metrics
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-06, AC-US1-07 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-06, AC-US1-07 | **Status**: [x] completed
 **Test Plan**:
   - Given: a batch of 3 skills where skill #2 causes a GitHub 500 error
   - When: `runSkillUpdateScan(env)` runs
@@ -109,20 +109,20 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/scanner.test.ts` (update)
 
 ### T-012: [TDD-GREEN] runSkillUpdateScan batch runner with error isolation and metrics
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-06, AC-US1-07 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-06, AC-US1-07 | **Status**: [x] completed
 **Test Plan**: T-011 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/scanner.ts` (update)
 
 ### T-013: [TDD-REFACTOR] Extract publishToUpdateHub helper
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [x] completed
 **Test Plan**: all T-007/T-009/T-011 tests still pass after extraction
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/publish.ts` (new)
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/scanner.ts` (update)
 
 ### T-014: Cron wiring — worker entry exports UpdateHub + minute-based scanner dispatch
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 **Test Plan**:
   - Given: cron fires at minute 10
   - When: the cron handler runs
@@ -135,7 +135,7 @@ type: tasks
 ## US-002: UpdateHub Durable Object
 
 ### T-015: [TDD-RED] UpdateHub — connection map and filtered broadcast
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-06 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-06 | **Status**: [x] completed
 **Test Plan**:
   - Given: two WebSocket clients connected to the DO — client A with filter `["skillA"]`, client B with filter `["skillB"]`
   - When: an event for `skillId = "skillA"` is published to `/publish`
@@ -144,13 +144,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/update-hub.test.ts` (new)
 
 ### T-016: [TDD-GREEN] UpdateHub — DO class (connection accept, publish, filter)
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03 | **Status**: [x] completed
 **Test Plan**: T-015 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/update-hub.ts` (new)
 
 ### T-017: [TDD-RED] UpdateHub — hibernation round-trip preserves filter
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-04, AC-US2-06 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-04, AC-US2-06 | **Status**: [x] completed
 **Test Plan**:
   - Given: a client connects with filter `["skillX"]` and the DO undergoes simulated eviction (Miniflare reset, constructor re-invoked)
   - When: an event for `skillId = "skillX"` is published after wake
@@ -159,7 +159,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/update-hub.test.ts` (update)
 
 ### T-018: [TDD-GREEN] UpdateHub — hibernation rehydration in constructor
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-04 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-04 | **Status**: [x] completed
 **Test Plan**: T-017 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/update-hub.ts` (update)
@@ -169,7 +169,7 @@ type: tasks
 ## US-003: Public SSE Endpoint + Internal Publish
 
 ### T-019: [TDD-RED] Internal publish endpoint — HMAC auth and DO forwarding
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-03, AC-US3-04 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-03, AC-US3-04 | **Status**: [x] completed
 **Test Plan**:
   - Given: POST to `/api/v1/internal/skills/publish` with valid `X-Internal-Key` and body `{type: "skill.updated", skillId, version, publishedAt}`
   - When: the endpoint handles the request
@@ -180,13 +180,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/internal/skills/publish/__tests__/route.test.ts` (new)
 
 ### T-020: [TDD-GREEN] Internal publish endpoint implementation
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-03, AC-US3-04 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-03, AC-US3-04 | **Status**: [x] completed
 **Test Plan**: T-019 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/internal/skills/publish/route.ts` (new)
 
 ### T-021: [TDD-RED] SSE stream endpoint — event framing, keepalive, missing skills param
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-05 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-05 | **Status**: [x] completed
 **Test Plan**:
   - Given: `GET /api/v1/skills/stream?skills=skill-uuid-1,skill-uuid-2`
   - When: the DO publishes a `skill.updated` event for `skill-uuid-1`
@@ -197,13 +197,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/stream/__tests__/route.test.ts` (new)
 
 ### T-022: [TDD-GREEN] SSE stream endpoint implementation (WS bridge to DO)
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-05 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-05 | **Status**: [x] completed
 **Test Plan**: T-021 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/stream/route.ts` (new)
 
 ### T-023: [TDD-RED] SSE integration — filtered delivery end-to-end
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-06 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-06 | **Status**: [x] completed
 **Test Plan**:
   - Given: two SSE test clients — client X subscribed with `skills=skill-A`, client Y with `skills=skill-B`
   - When: a `skill.updated` event for `skillId = "skill-A"` is published via `/api/v1/internal/skills/publish`
@@ -212,7 +212,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/sse-integration.test.ts` (new)
 
 ### T-024: [TDD-GREEN] Wire DO stub into SSE stream endpoint for integration path
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-06 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-06 | **Status**: [x] completed
 **Test Plan**: T-023 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/stream/route.ts` (update)
@@ -222,7 +222,7 @@ type: tasks
 ## US-004: GitHub Webhook Fast-Path
 
 ### T-025: [TDD-RED] Webhook — HMAC verification and anti-replay KV gate
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-05 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-05 | **Status**: [x] completed
 **Test Plan**:
   - Given: POST to `/api/v1/webhooks/github` with valid `X-Hub-Signature-256` and `X-GitHub-Delivery` UUID
   - When: first delivery is processed
@@ -235,13 +235,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/webhooks/github/__tests__/route.test.ts` (new)
 
 ### T-026: [TDD-GREEN] Webhook endpoint — HMAC verify and anti-replay implementation
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-05 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-05 | **Status**: [x] completed
 **Test Plan**: T-025 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/webhooks/github/route.ts` (new)
 
 ### T-027: [TDD-RED] Webhook — push event routing to single-skill scanner
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-02, AC-US4-03 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-02, AC-US4-03 | **Status**: [x] completed
 **Test Plan**:
   - Given: valid push payload for a `repository.html_url` matching a tracked Skill's `sourceRepoUrl` and `ref` matching its `sourceBranch`
   - When: the webhook endpoint processes the event
@@ -254,7 +254,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/webhooks/github/__tests__/route.test.ts` (update)
 
 ### T-028: [TDD-GREEN] Webhook — push routing to scanOneSkill via ctx.waitUntil
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-02, AC-US4-03, AC-US4-04 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-02, AC-US4-03, AC-US4-04 | **Status**: [x] completed
 **Test Plan**: T-027 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/webhooks/github/route.ts` (update)
@@ -264,7 +264,7 @@ type: tasks
 ## US-005: Skill Studio Live Update UI
 
 ### T-029: [TDD-RED] useSkillUpdates — EventSource lifecycle and update store
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-07, AC-US5-08 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-07, AC-US5-08 | **Status**: [x] completed
 **Test Plan**:
   - Given: `useSkillUpdates(["skill-A", "skill-B"])` is mounted
   - When: a `skill.updated` event arrives with `skillId = "skill-A"`
@@ -275,13 +275,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill/src/studio/lib/__tests__/use-skill-updates.test.ts` (new)
 
 ### T-030: [TDD-GREEN] useSkillUpdates — EventSource, update store, reconnect
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-08 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-08 | **Status**: [x] completed
 **Test Plan**: T-029 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill/src/studio/lib/use-skill-updates.ts` (new)
 
 ### T-031: [TDD-RED] useSkillUpdates — visibility-gated toast vs silent badge
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-02, AC-US5-07 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-02, AC-US5-07 | **Status**: [x] completed
 **Test Plan**:
   - Given: `document.visibilityState === "visible"` when a `skill.updated` event arrives
   - When: hook processes the event
@@ -292,13 +292,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill/src/studio/lib/__tests__/use-skill-updates.test.ts` (update)
 
 ### T-032: [TDD-GREEN] useSkillUpdates — visibility gating for toast
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-02 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-02 | **Status**: [x] completed
 **Test Plan**: T-031 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill/src/studio/lib/use-skill-updates.ts` (update)
 
 ### T-033: [TDD-RED] useSkillUpdates — 60s disconnect fallback to poll mode
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-05, AC-US5-07 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-05, AC-US5-07 | **Status**: [x] completed
 **Test Plan**:
   - Given: `useSkillUpdates` with an EventSource that fails to open for >60 seconds
   - When: the 60-second timeout elapses
@@ -307,13 +307,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill/src/studio/lib/__tests__/use-skill-updates.test.ts` (update)
 
 ### T-034: [TDD-GREEN] useSkillUpdates — poll fallback after 60s failure
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-05 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-05 | **Status**: [x] completed
 **Test Plan**: T-033 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill/src/studio/lib/use-skill-updates.ts` (update)
 
 ### T-035: [TDD-RED] UpdateBell — unread count badge and dropdown
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-03 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-03 | **Status**: [x] completed
 **Test Plan**:
   - Given: `updates` map contains 2 entries
   - When: `UpdateBell` renders
@@ -324,13 +324,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill/src/studio/components/__tests__/UpdateBell.test.tsx` (new)
 
 ### T-036: [TDD-GREEN] UpdateBell component implementation
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-03 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-03 | **Status**: [x] completed
 **Test Plan**: T-035 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill/src/studio/components/UpdateBell.tsx` (new)
 
 ### T-037: [TDD-RED] UpdateChip and SkillRow — update dot and not-tracked dot indicators
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-04, AC-US5-09 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-04, AC-US5-09 | **Status**: [x] completed
 **Test Plan**:
   - Given: a skill present in the `updates` map
   - When: `SkillRow` renders
@@ -342,14 +342,14 @@ type: tasks
   - `repositories/anton-abyzov/vskill/src/studio/components/__tests__/UpdateChip.test.tsx` (new)
 
 ### T-038: [TDD-GREEN] UpdateChip, SkillRow indicator, and not-tracked dot implementation
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-04, AC-US5-09 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-04, AC-US5-09 | **Status**: [x] completed
 **Test Plan**: T-037 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill/src/studio/components/UpdateChip.tsx` (new)
   - `repositories/anton-abyzov/vskill/src/studio/components/SkillRow.tsx` (update)
 
 ### T-039: UpdateAction — RightPanel "Install update" button
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-04 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-04 | **Status**: [x] completed
 **Test Plan**:
   - Given: a skill with an available update displayed in RightPanel
   - When: user clicks "View changes"
@@ -359,7 +359,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill/src/studio/components/RightPanel.tsx` (update)
 
 ### T-040: Wire useSkillUpdates into StudioRoot + TopRail + SidebarSection
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-03, AC-US5-04 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-03, AC-US5-04 | **Status**: [x] completed
 **Test Plan**:
   - Given: StudioRoot mounts with the user's installed skill IDs
   - When: the Studio renders
@@ -370,7 +370,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill/src/studio/components/SidebarSection.tsx` (update)
 
 ### T-041: 0683 supersession — flip metadata.json and remove stub files
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-06 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-06 | **Status**: [x] completed
 **Test Plan**:
   - Given: `.specweave/increments/0683-studio-update-notifications/metadata.json`
   - When: the file is updated
@@ -383,7 +383,7 @@ type: tasks
 ## End-to-End Playwright Tests
 
 ### T-042: E2E — webhook → DO fan-out → Studio badge within 2s
-**User Story**: US-001, US-002, US-003, US-004, US-005 | **Satisfies ACs**: AC-US4-04, NFR-002 | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003, US-004, US-005 | **Satisfies ACs**: AC-US4-04, NFR-002 | **Status**: [x] completed
 **Test Plan**:
   - Given: a Studio tab open subscribed to `skill-A`
   - When: a mock GitHub push webhook is posted for `skill-A`'s repo
@@ -414,7 +414,7 @@ type: tasks
 ## Delivery Guarantee (US-001 ACs 08-10, US-003 ACs 07-09, US-005 ACs 10-11, NFR-007)
 
 ### T-045: Prisma migration — UpdateEvent outbox table + resolution columns on Skill
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-08 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-08 | **Status**: [x] completed
 **Test Plan**:
   - Given: existing schema with 4 sourceRepo* columns already added (T-001)
   - When: migration `<ts+1>_update_event_outbox` is applied
@@ -424,7 +424,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/prisma/migrations/<ts+1>_update_event_outbox/migration.sql` (new)
 
 ### T-046: [TDD-RED] outbox-writer — transactional SkillVersion + UpdateEvent write
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-08, AC-US1-10 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-08, AC-US1-10 | **Status**: [x] completed
 **Test Plan**:
   - Given: a `scanOneSkill` call that detects a new SHA
   - When: `writeSkillVersionWithOutbox(tx, skill, commit, source, env)` is called
@@ -433,14 +433,14 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/outbox-writer.test.ts` (new)
 
 ### T-047: [TDD-GREEN] outbox-writer implementation
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-08, AC-US1-10 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-08, AC-US1-10 | **Status**: [x] completed
 **Test Plan**: T-046 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/outbox-writer.ts` (new)
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/scanner.ts` (update — replace direct SkillVersion insert with `writeSkillVersionWithOutbox`)
 
 ### T-048: [TDD-RED] Submission-processing retrofit — UpdateEvent in same txn (AC-US1-09)
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-09 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-09 | **Status**: [x] completed
 **Test Plan**:
   - Given: the existing submission-processing consumer creates a `SkillVersion` row
   - When: `process-submission.ts` is modified to call `writeSkillVersionWithOutbox`
@@ -449,13 +449,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/queue/__tests__/process-submission.test.ts` (update)
 
 ### T-049: [TDD-GREEN] Submission-processing retrofit implementation
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-09 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-09 | **Status**: [x] completed
 **Test Plan**: T-048 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/queue/process-submission.ts` (update)
 
 ### T-050: [TDD-RED] outbox-reconciler — 30s retry of stuck UpdateEvent rows
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-08, AC-US1-10 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-08, AC-US1-10 | **Status**: [x] completed
 **Test Plan**:
   - Given: an `UpdateEvent` row with `publishedAt = null` and `createdAt > 10s ago` and `publishAttempts < 10`
   - When: `reconcileOutbox(env)` runs
@@ -464,14 +464,14 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/outbox-reconciler.test.ts` (new)
 
 ### T-051: [TDD-GREEN] outbox-reconciler implementation + 30s cron wiring
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-08, AC-US1-10 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-08, AC-US1-10 | **Status**: [x] completed
 **Test Plan**: T-050 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/outbox-reconciler.ts` (new)
   - `repositories/anton-abyzov/vskill-platform/scripts/build-worker-entry.ts` (update — add 30s branch in `scheduled()` to call `reconcileOutbox`)
 
 ### T-052: [TDD-RED] UpdateHub — replay log and Last-Event-ID resume
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-07, AC-US3-08 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-07, AC-US3-08 | **Status**: [x] completed
 **Test Plan**:
   - Given: the DO has published events for `skillId="A"` (eventId `evt_01`) and `skillId="B"` (eventId `evt_02`)
   - When: a client reconnects with `Last-Event-ID: evt_01` and filter `["A","B"]`
@@ -484,14 +484,14 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/update-hub.replay.test.ts` (new)
 
 ### T-053: [TDD-GREEN] UpdateHub — replay log implementation (in-memory, 5-min TTL, 10k LRU cap)
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-07, AC-US3-08 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-07, AC-US3-08 | **Status**: [x] completed
 **Test Plan**: T-052 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/update-hub.ts` (update — add `replayLog: Map<eventId, {at, payload}>`, sweep on wake, `resumeSince(lastEventId, filter)` method, `gone` frame emit)
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/stream/route.ts` (update — forward `Last-Event-ID` header in DO upgrade URL as `lastEventId` param)
 
 ### T-054: [TDD-RED] UpdateHub — idempotent publish on duplicate eventId
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-09 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-09 | **Status**: [x] completed
 **Test Plan**:
   - Given: an event with `eventId = "evt_01"` has already been published and is in the replay log
   - When: `POST /api/v1/internal/skills/publish` is called again with the same `eventId`
@@ -500,13 +500,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/update-hub.idempotency.test.ts` (new)
 
 ### T-055: [TDD-GREEN] UpdateHub — idempotency check in handlePublish
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-09 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-09 | **Status**: [x] completed
 **Test Plan**: T-054 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/update-hub.ts` (update — guard in `handlePublish` against `replayLog.has(event.eventId)`)
 
 ### T-056: [TDD-RED] useSkillUpdates hook — client-side seenEventIds dedup (AC-US5-10)
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-10 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-10 | **Status**: [x] completed
 **Test Plan**:
   - Given: the hook receives a `skill.updated` SSE event with `lastEventId = "evt_01"`
   - When: the same event arrives a second time (replay race with live stream)
@@ -515,13 +515,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill/src/studio/lib/__tests__/use-skill-updates.test.ts` (update)
 
 ### T-057: [TDD-GREEN] useSkillUpdates hook — seenEventIds FIFO dedup implementation
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-10 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-10 | **Status**: [x] completed
 **Test Plan**: T-056 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill/src/studio/lib/use-skill-updates.ts` (update)
 
 ### T-058: [TDD-RED] useSkillUpdates hook — gone-frame and 409 fallback to check-updates (AC-US5-11)
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-11 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-11 | **Status**: [x] completed
 **Test Plan**:
   - Given: the SSE stream delivers `event: gone\ndata: {"reason":"too-old"}\n\n`
   - When: the hook receives the `gone` event
@@ -532,7 +532,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill/src/studio/lib/__tests__/use-skill-updates.test.ts` (update)
 
 ### T-059: [TDD-GREEN] useSkillUpdates hook — gone-frame and 409 fallback implementation
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-11 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-11 | **Status**: [x] completed
 **Test Plan**: T-058 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill/src/studio/lib/use-skill-updates.ts` (update)
@@ -542,7 +542,7 @@ type: tasks
 ## US-006: Reactive Skill Discovery
 
 ### T-060: [TDD-RED] Discovery enqueue helper — check-updates triggers resolver for unresolved skills
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-05 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-05 | **Status**: [x] completed
 **Test Plan**:
   - Given: a `/check-updates` request includes a skill with `sourceRepoUrl = null` and `resolutionState = null`
   - When: the `check-updates` handler processes the response
@@ -555,14 +555,14 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/discovery/__tests__/enqueue.test.ts` (new)
 
 ### T-061: [TDD-GREEN] Discovery enqueue helper + check-updates extension
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-03, AC-US6-05 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-03, AC-US6-05 | **Status**: [x] completed
 **Test Plan**: T-060 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/discovery/enqueue.ts` (new)
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/check-updates/route.ts` (update — call enqueue helper; add `trackedForUpdates` + `resolutionState` fields to response)
 
 ### T-062: [TDD-RED] Resolver consumer — infer sourceRepoUrl from SKILL.md frontmatter
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-02, AC-US6-03 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-02, AC-US6-03 | **Status**: [x] completed
 **Test Plan**:
   - Given: a `discovery-resolve` queue message for a skill whose `SKILL.md` frontmatter contains a `repository:` field pointing to a valid GitHub repo with a reachable `SKILL.md`
   - When: `resolveSkillSource(job, env)` processes the message
@@ -575,7 +575,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/discovery/__tests__/resolver.test.ts` (new)
 
 ### T-063: [TDD-GREEN] Resolver consumer implementation
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-02, AC-US6-03 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-02, AC-US6-03 | **Status**: [x] completed
 **Test Plan**: T-062 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/discovery/resolver.ts` (new)
@@ -583,7 +583,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/wrangler.jsonc` (update — add `DISCOVERY_RESOLVE_QUEUE` binding: `max_batch_size: 10`, `max_batch_timeout: 3`, `max_concurrency: 5`, `max_retries: 2`, DLQ: `submission-dlq`)
 
 ### T-064: [TDD-RED] register-tracking endpoint — explicit opt-in with content-hash verification
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-04 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-04 | **Status**: [x] completed
 **Test Plan**:
   - Given: `POST /api/v1/skills/:id/register-tracking` with `{repoUrl, branch}` where the repo contains a `SKILL.md` whose content hash matches `Skill.contentHash`
   - When: the endpoint processes the request
@@ -596,7 +596,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/[id]/register-tracking/__tests__/route.test.ts` (new)
 
 ### T-065: [TDD-GREEN] register-tracking endpoint implementation
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-04 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-04 | **Status**: [x] completed
 **Test Plan**: T-064 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/[id]/register-tracking/route.ts` (new)
@@ -606,7 +606,7 @@ type: tasks
 ## US-007: Unified Scanner Queue
 
 ### T-066: wrangler.jsonc — SCAN_HIGH_QUEUE + SCAN_NORMAL_QUEUE bindings
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-01 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-01 | **Status**: [x] completed
 **Test Plan**:
   - Given: wrangler.jsonc is updated with queue bindings
   - When: `wrangler deploy --dry-run` validates
@@ -615,7 +615,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/wrangler.jsonc` (update)
 
 ### T-067: [TDD-RED] scan-lock — KV-backed dedup with 30s TTL
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-02 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-02 | **Status**: [x] completed
 **Test Plan**:
   - Given: `acquireScanLock(skillId, env)` is called for `skillId = "abc"`
   - When: the KV key `scan-lock:abc` does not exist
@@ -628,13 +628,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/scan-lock.test.ts` (new)
 
 ### T-068: [TDD-GREEN] scan-lock implementation
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-02 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-02 | **Status**: [x] completed
 **Test Plan**: T-067 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/scan-lock.ts` (new)
 
 ### T-069: [TDD-RED] queue-consumer — rate-limit guard + scan dispatch
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-03, AC-US7-04, AC-US7-05 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-03, AC-US7-04, AC-US7-05 | **Status**: [x] completed
 **Test Plan**:
   - Given: a `scan-high` message arrives for `skillId = "X"` and GitHub remaining rate is 600
   - When: the consumer dispatches the job
@@ -650,7 +650,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/__tests__/queue-consumer.test.ts` (new)
 
 ### T-070: [TDD-GREEN] queue-consumer implementation (unified scan-high + scan-normal)
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05 | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04, AC-US7-05 | **Status**: [x] completed
 **Test Plan**: T-069 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/skill-update/queue-consumer.ts` (new)
@@ -663,7 +663,7 @@ type: tasks
 ## US-008: User-Triggered Check-Now
 
 ### T-071: [TDD-RED] rescan endpoint — enqueue scan-high, per-session rate limit
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02, AC-US8-03 | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02, AC-US8-03 | **Status**: [x] completed
 **Test Plan**:
   - Given: `POST /api/v1/skills/:id/rescan` from a session that has made 9 rescan calls this minute
   - When: the endpoint processes the request
@@ -674,13 +674,13 @@ type: tasks
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/[id]/rescan/__tests__/route.test.ts` (new)
 
 ### T-072: [TDD-GREEN] rescan endpoint implementation
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02, AC-US8-03 | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02, AC-US8-03 | **Status**: [x] completed
 **Test Plan**: T-071 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/[id]/rescan/route.ts` (new)
 
 ### T-073: [TDD-RED] Studio "Check now" button — per-skill spinner + SSE result delivery
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-04, AC-US8-05 | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-04, AC-US8-05 | **Status**: [x] completed
 **Test Plan**:
   - Given: a skill in `RightPanel` below the `DetailHeader`
   - When: user clicks "Check now"
@@ -689,7 +689,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill/src/studio/components/__tests__/UpdateAction.test.tsx` (update)
 
 ### T-074: [TDD-GREEN] "Check now" button + spinner state in UpdateAction
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-04, AC-US8-05 | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-04, AC-US8-05 | **Status**: [x] completed
 **Test Plan**: T-073 tests pass
 **Files**:
   - `repositories/anton-abyzov/vskill/src/studio/components/UpdateAction.tsx` (update — add "Check now" button below DetailHeader, spinner state, 30s timeout)

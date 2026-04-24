@@ -1,10 +1,12 @@
 ---
 increment: 0694-cli-coverage-warp-amazonq-copilot-split
-title: "CLI coverage: add Warp + Amazon Q + split GitHub Copilot CLI/extension + isRemoteOnly flag"
+title: >-
+  CLI coverage: add Warp + Amazon Q + split GitHub Copilot CLI/extension +
+  isRemoteOnly flag
 type: feature
 priority: P1
-status: active
-created: 2026-04-24
+status: completed
+created: 2026-04-24T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

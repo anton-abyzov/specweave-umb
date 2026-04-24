@@ -1,0 +1,212 @@
+{
+  "id": "0696-hotfix-lifecycle-hook-multi-provider-closure",
+  "status": "completed",
+  "type": "hotfix",
+  "priority": "P1",
+  "created": "2026-04-24T06:30:36.692Z",
+  "lastActivity": "2026-04-24T07:37:59.569Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-904",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-904",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-24T07:38:10.671Z"
+    },
+    "ado": {
+      "featureId": "1743",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1743",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-24T07:38:15.480Z"
+    }
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-24T07:35:33.448Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:35:31.460Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:35:29.170Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:35:27.213Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:35:22.926Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:34:15.308Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:33:46.482Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:33:45.356Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:33:41.490Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:33:39.470Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:33:37.251Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:33:35.095Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:33:33.014Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:33:31.633Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:30:15.457Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:30:13.550Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:30:11.609Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:30:09.702Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:30:07.782Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T07:30:05.683Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "readyForReviewAt": "2026-04-24T07:37:59.541Z",
+  "approvedAt": "2026-04-24T07:37:59.569Z"
+}

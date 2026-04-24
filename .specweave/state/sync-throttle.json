@@ -33,8 +33,11 @@
   "0672-queue-reliability": 1776791651839,
   "0674-vskill-studio-redesign": 1776926148252,
   "0680-registry-versioning-v2-phase1": 1776951531368,
-  "0687-queue-truthful-load-and-studio-light-refresh": 1777057814030,
+  "0687-queue-truthful-load-and-studio-light-refresh": 1777065090228,
   "0688-studio-skill-scope-transfer": 1777050162505,
   "0706-vskill-cli-windows-compat": 1777060542423,
-  "0702-skill-studio-cross-platform-api-key-storage": 1777063084533
+  "0702-skill-studio-cross-platform-api-key-storage": 1777063084533,
+  "0709-eval-ui-test-drift-cleanup": 1777066219246,
+  "0704-studio-new-skill-reveal-and-api-empty-state": 1777067893719,
+  "0708-skill-update-push-pipeline": 1777068370309
 }

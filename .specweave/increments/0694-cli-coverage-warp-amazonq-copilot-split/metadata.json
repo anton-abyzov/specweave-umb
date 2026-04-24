@@ -1,15 +1,30 @@
 {
   "id": "0694-cli-coverage-warp-amazonq-copilot-split",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-24T05:08:57.041Z",
-  "lastActivity": "2026-04-24T05:26:07.400Z",
+  "lastActivity": "2026-04-24T05:59:43.652Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-893",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-893",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-24T06:00:24.793Z"
+    },
+    "ado": {
+      "featureId": "1732",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1732",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-24T06:00:28.338Z"
+    }
+  },
   "acSyncEvents": [
     {
       "timestamp": "2026-04-24T05:26:07.399Z",
@@ -111,5 +126,7 @@
       "warnings": [],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-24T05:59:43.640Z",
+  "approvedAt": "2026-04-24T05:59:43.652Z"
 }

@@ -1,10 +1,10 @@
 ---
 increment: 0673-submission-dedup-cleanup-at-scale
-title: "Submission dedup cleanup at scale"
+title: Submission dedup cleanup at scale
 type: bug
 priority: P1
-status: planned
-created: 2026-04-22
+status: completed
+created: 2026-04-22T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

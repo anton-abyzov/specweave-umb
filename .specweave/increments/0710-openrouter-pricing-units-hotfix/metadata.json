@@ -1,0 +1,33 @@
+{
+  "id": "0710-openrouter-pricing-units-hotfix",
+  "status": "completed",
+  "type": "hotfix",
+  "priority": "P1",
+  "created": "2026-04-24T21:31:22.187Z",
+  "lastActivity": "2026-04-24T22:00:40.457Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-983",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-983",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-24T22:01:05.229Z"
+    },
+    "ado": {
+      "featureId": "1822",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1822",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-24T22:01:07.686Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "readyForReviewAt": "2026-04-24T22:00:40.444Z",
+  "approvedAt": "2026-04-24T22:00:40.457Z"
+}

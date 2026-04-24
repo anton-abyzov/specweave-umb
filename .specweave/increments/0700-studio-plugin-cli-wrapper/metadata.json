@@ -1,10 +1,11 @@
 {
   "id": "0700-studio-plugin-cli-wrapper",
-  "status": "planned",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-24T14:51:06.597Z",
-  "lastActivity": "2026-04-24T14:51:06.598Z",
+  "lastActivity": "2026-04-25T00:00:00.000Z",
+  "abandonedReason": "Template stub — spec/tasks were never filled by PM/planner. The intended scope (wrap Claude Code /plugin commands list/enable/disable/install/uninstall in Skill Studio UI) was either delivered piecemeal in adjacent increments (0670 skill-builder-universal, 0701 provider model picker, 0703 create-flow hotfix, 0707 detail-view redesign) or remains outside current SpecWeave scope. The 0700-tagged commits ('0700 polish: indent NamedScopeSection', 'vibrant --color-action', 'honest project-switch UX') were polish/UX commits attributed under this increment number but are not the original CLI-wrapper feature. Closing as abandoned to keep the increment ledger honest; if the CLI wrapper is still wanted it should be a fresh increment with proper scope.",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
