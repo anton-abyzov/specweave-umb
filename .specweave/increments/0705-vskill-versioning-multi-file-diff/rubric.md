@@ -67,7 +67,11 @@ Per-increment quality bar for closure gates. All items below are required to pas
 
 ## Review Gates
 
-- [!] `sw:code-reviewer` must pass with 0 critical/high/medium findings on modified files. — RECOVERY-2 2026-04-24: all 6 findings patched + regression tests added (F-CR-001 through F-CR-007, excl. F-CR-004 reclassified from flagged→clean). Awaiting re-review to confirm clean state before marking [x].
+- [!] `sw:code-reviewer` must pass with 0 critical/high/medium findings on modified files. — RECOVERY-2 2026-04-24: all 6 findings patched + regression tests added (F-CR-001 through F-CR-007, excl. F-CR-004 reclassified from flagged→clean). Re-review 2026-04-24 FAILED: 1 HIGH + 3 MEDIUM + 1 LOW remaining (F-CR-2A backfill treeHash algorithm divergence, F-CR-2B manifest size unit mismatch, F-CR-2C publishSkill empty-contentHash fallback, F-CR-2D compare KV cache schema validation, F-CR-2E asymmetric baseSha/headSha sourcing). See reports/code-review-report.json. RECOVERY-3 2026-04-24: F-CR-2A/B/C/D fixed with TDD regression tests (commits 2ef19ec, 533abce, efedad5, b59d27d). F-CR-2E accepted as known debt — see Known Debt section below.
 - `sw:grill` report must have zero blocking issues.
 - `sw:judge-llm` WAIVED only if consent denied (per workflow default).
 - User manually verifies (manual gate): (a) compare page for `anton-abyzov/vskill/scout` shows 4 files after a seeded republish, (b) `vskill diff` prints expected output on a Mac terminal.
+
+## Known Debt
+
+- **F-CR-2E — asymmetric baseSha/headSha sourcing** (LOW, cosmetic). In `src/app/api/v1/skills/[owner]/[repo]/[skill]/versions/compare/route.ts:193-200`, `baseSha` is read from GitHub's compare echo (`compare.base_commit?.sha ?? fromRow.gitSha`) while `headSha` is read from our own DB row (`toRow.gitSha`). The two sources can be equal in the happy path but would diverge in edge cases (force-push, detached SHA). No functional impact on dedup/diff logic — both values still feed into the response as display fields only, and downstream consumers (UI, `vskill diff`) treat them as opaque identifiers. Tracked for a future polish pass; recovery-3 accepted as debt rather than expand scope.
