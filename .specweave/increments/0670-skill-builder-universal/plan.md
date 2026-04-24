@@ -7,7 +7,7 @@ This plan is derived from the approved user-facing plan at `/Users/antonabyzov/.
 ## Architecture Summary
 
 ```
- Host AI agent (49 platforms)
+ Host AI agent (53 platforms)
         │
         │ natural-language trigger
         ▼
@@ -28,7 +28,7 @@ This plan is derived from the approved user-facing plan at `/Users/antonabyzov/.
         │
         │ uses (existing infra from 0665)
         ▼
-  • agents-registry.ts (49 agents)
+  • agents-registry.ts (53 agents)
   • buildAgentAwareSystemPrompt (skill-create-routes.ts:523-573)
   • installer/canonical.ts (target-agents routing)
   • installer/frontmatter.ts (target-agents field parser)
@@ -109,7 +109,7 @@ No new ADRs created. Decisions above are traceable to completed increments 0665 
 
 ### Day 4 — Test Suite (Vitest for CLI, Playwright for Studio)
 
-16. **T-012**: Write `tests/integration/skill-cli.test.ts` (Vitest + `execa`): sandbox install, generate across targets, divergence assertions, schema-version assertions, `--engine=anthropic-skill-creator` with mocked `isSkillCreatorInstalled()`, `--targets=all` (49 agents), unknown-target error, missing-prompt error, sentinel file assertion for AC-US1-07.
+16. **T-012**: Write `tests/integration/skill-cli.test.ts` (Vitest + `execa`): sandbox install, generate across targets, divergence assertions, schema-version assertions, `--engine=anthropic-skill-creator` with mocked `isSkillCreatorInstalled()`, `--targets=all` (53 agents), unknown-target error, missing-prompt error, sentinel file assertion for AC-US1-07.
 17. **T-012b**: Write `tests/e2e/skill-studio-regression.spec.ts` (Playwright): drive the existing Skill Studio browser flow end-to-end post-T-002 rewire. Asserts the React UI still renders, generates, and emits correctly — regression gate for path B.
 18. **T-012c**: **Manual verification gate** — run `vskill eval serve` in a sandbox, walk the "Create a new skill" flow in Chrome, confirm the sentinel file is written and emission lands correctly. Documented pass/fail in the manual-verification checklist in `reports/manual-verification.md`.
 
@@ -149,7 +149,7 @@ No new ADRs created. Decisions above are traceable to completed increments 0665 
 |---|---|---|
 | Generator extraction introduces subtle behavior change | Low | T-000 captures baseline snapshots BEFORE T-001. T-003 asserts byte-for-byte parity post-extraction. |
 | T-002 breaks the React Studio UI silently | Medium | T-012b Playwright regression test drives the UI end-to-end post-rewire. T-012c is manual UI re-verification. |
-| `--targets=all` silently skips a malformed agent | Medium | AC-US7-08 asserts all 49 directories receive files; any skipped agent is a test failure. |
+| `--targets=all` silently skips a malformed agent | Medium | AC-US7-08 asserts all 53 directories receive files; any skipped agent is a test failure. |
 | Security-critical field silently dropped | Medium | Negative-case test in T-009 — emitting `allowed-tools` to OpenCode without a divergence entry fails the test. |
 | CLI installed but not in PATH → path A falsely detected | Medium | Detection script uses `which vskill` AND `node -e "require.resolve('vskill')"` — covered in AC-US2-06. |
 | Anthropic skill-creator absent on test CI | Medium | All path-C tests mock `isSkillCreatorInstalled()`. AC-US2-07 covers the "absent" case with a remediation message. |

@@ -60,11 +60,11 @@ status: active
 - **Threshold**: All 8 directories contain valid SKILL.md
 - **Result**: [ ] PENDING
 
-## R-006: Target resolution — unknown ID errors, all resolves to 49 [blocking]
+## R-006: Target resolution — unknown ID errors, all resolves to 53 [blocking]
 - **Source**: AC-US3-03, AC-US3-11, AC-US7-08
 - **Evaluator**: Vitest integration
-- **Verify**: `--targets=unknown-id` exits non-zero with `Unknown agent id: unknown-id`; `--targets=all` emits to all 49 registered agents (count matches `agents-registry.ts`)
-- **Threshold**: Unknown-id error + 49 directories created
+- **Verify**: `--targets=unknown-id` exits non-zero with `Unknown agent id: unknown-id`; `--targets=all` emits to all 53 registered agents (count matches `agents-registry.ts`)
+- **Threshold**: Unknown-id error + 53 directories created
 - **Result**: [ ] PENDING
 
 ## R-007: Missing/empty prompt errors cleanly [blocking]

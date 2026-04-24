@@ -11,7 +11,7 @@
 ## Day 1 — Generator Extraction (with baseline capture)
 
 ### T-000: Capture pre-extraction baseline (HTTP JSON + UI trace + SSE contract)
-**User Story**: US-004, US-007 | **Satisfies ACs**: AC-US4-02 (prereq), AC-US7-09 (prereq) | **Status**: [ ] pending
+**User Story**: US-004, US-007 | **Satisfies ACs**: AC-US4-02 (prereq), AC-US7-09 (prereq) | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** `src/eval-server/skill-create-routes.ts:919-1025` contains the in-line generator (pre-extraction state)
@@ -25,7 +25,7 @@
 ---
 
 ### T-001: Extract generator into src/core/skill-generator.ts
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-04 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-04 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** T-000 fixtures exist and `skill-create-routes.ts:919-1025` contains the in-line generator
@@ -37,7 +37,7 @@
 ---
 
 ### T-002: Rewire HTTP handler as thin wrapper
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-03, AC-US4-05 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-03, AC-US4-05 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** `src/core/skill-generator.ts` exists (T-001)
@@ -49,7 +49,7 @@
 ---
 
 ### T-003: Post-extraction parity snapshot tests
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-02 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-02 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** `generateSkill()` is extracted (T-001, T-002) and T-000 fixtures exist
@@ -63,19 +63,19 @@
 ## Day 2 — vskill skill CLI
 
 ### T-004: Implement src/commands/skill.ts subcommand router + wire into CLI
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-09, AC-US3-10 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-09, AC-US3-10 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** `generateSkill()` is extracted and stable (T-001..T-003)
 - **When** I create `src/commands/skill.ts` exporting `registerSkillCommand(program)` wiring `new|import|list|info|publish`, and register it in `src/cli/index.ts` alongside `add`, `init`, `submit`
-- **Then** `vskill skill --help` lists all 5 subcommands with descriptions AND `vskill skill new --prompt "X"` emits to the 8 universal-agent directories by default AND `--targets=claude-code,codex` emits to only those two AND `--targets=all` resolves to all 49 registered agents
+- **Then** `vskill skill --help` lists all 5 subcommands with descriptions AND `vskill skill new --prompt "X"` emits to the 8 universal-agent directories by default AND `--targets=claude-code,codex` emits to only those two AND `--targets=all` resolves to all 53 registered agents
 
 **Files**: `src/commands/skill.ts` (new, ~200 LOC), `src/cli/index.ts` (edit — add `registerSkillCommand(program)` registration).
 
 ---
 
 ### T-005: Implement vskill skill import + vskill skill new --engine=anthropic-skill-creator
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-05, AC-US3-06 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-05, AC-US3-06 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** T-004 subcommand skeleton exists and `isSkillCreatorInstalled()` helper is importable (from 0665)
@@ -88,7 +88,7 @@
 ---
 
 ### T-006: Implement vskill skill list / info / publish aliases
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-07, AC-US3-08 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-07, AC-US3-08 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** `skill-builder` is installed in a sandbox (for fixture purposes) and `vskill submit` exists (mature)
@@ -101,14 +101,14 @@
 ---
 
 ### T-007: Unit tests for vskill skill commands (error paths + happy paths)
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01..12 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01..12 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** all subcommand handlers are implemented (T-004..T-006)
 - **When** I run `npx vitest run src/commands/__tests__/skill.test.ts`
 - **Then** coverage on `src/commands/skill.ts` is ≥90% AND tests cover:
   - default target set (8 universal agents)
-  - `--targets=all` resolves to 49 agents
+  - `--targets=all` resolves to 53 agents
   - `--targets=claude-code,codex` resolves to exactly those two
   - `--targets=<unknown-id>` exits non-zero with error `Unknown agent id: ...` (AC-US3-11)
   - Missing `--prompt` exits non-zero with usage hint (AC-US3-12)
@@ -124,7 +124,7 @@
 ## Day 3 — SKILL.md Package + Divergence Report + Schema Versioning
 
 ### T-008: Write skill-builder SKILL.md with detection script
-**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-04, AC-US2-01..07 | **Status**: [ ] pending
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-04, AC-US2-01..07 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** fallback chain A/B/C is decided (AD-002)
@@ -136,7 +136,7 @@
 ---
 
 ### T-008b: Write 3 reference files (target-agents, divergence schema, fallback modes)
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** T-008 SKILL.md references these files by path
@@ -148,7 +148,7 @@
 ---
 
 ### T-009: Add divergence-report generator with security-critical enforcement
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01..05 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01..05 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** `generateSkill()` emits to N targets (T-001)
@@ -160,7 +160,7 @@
 ---
 
 ### T-010: Add x-sw-schema-version frontmatter tag
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-01..04 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-01..04 | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** `generateSkill()` emits SKILL.md (T-001, T-009)
@@ -172,7 +172,7 @@
 ---
 
 ### T-011: Register skill-builder in plugin manifest + bump badge
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-03 (badge only) | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-03 (badge only) | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** `skill-builder/SKILL.md` exists (T-008, T-008b)
@@ -184,7 +184,7 @@
 ---
 
 ### T-011b: Document vskill skill CLI in README + CHANGELOG
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-03 (CHANGELOG), AC-US8-04 (README) | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-03 (CHANGELOG), AC-US8-04 (README) | **Status**: [x] completed
 
 **Test Plan**:
 - **Given** T-011 badge is bumped and CLI subcommand exists (T-004..T-006)
@@ -209,7 +209,7 @@
   - (c) Each emitted SKILL.md parses as valid YAML frontmatter and contains `x-sw-schema-version: 1` (AC-US7-04)
   - (d) `lint-markdown-files-divergence.md` exists in sandbox cwd; positive case for OpenCode `allowed-tools → permission` translation; negative case asserts silent loss is a test failure (AC-US7-05)
   - (e) `--engine=anthropic-skill-creator` with mocked `isSkillCreatorInstalled() → true` emits Claude-only + stderr warning; with `false` exits non-zero with remediation (AC-US7-06, AC-US2-07)
-  - (f) `--targets=all` emits to all 49 registered agents without error; any skipped agent is a test failure (AC-US7-08)
+  - (f) `--targets=all` emits to all 53 registered agents without error; any skipped agent is a test failure (AC-US7-08)
   - (g) Sentinel file `.skill-builder-invoked.json` is written to cwd on every `vskill skill new` invocation, containing `{ trigger, agent, timestamp, targets, prompt }` — asserts AC-US1-07
 
 **Files**: `tests/integration/skill-cli.test.ts` (new). Pattern: `execa` + `mkdtemp` + `afterEach` cleanup.

@@ -14,7 +14,7 @@ coverage_target: 90
 
 ## Overview
 
-Ship a distributable `skill-builder` SKILL.md in vskill that lets any supported AI agent (49 platforms) author new skills with cross-tool emission. The skill is installed via `vskill install` (verified-skill.com registry) — it is **not** a SpecWeave plugin. Anthropic's `skill-creator` plugin is a fallback-only engine, never the primary path.
+Ship a distributable `skill-builder` SKILL.md in vskill that lets any supported AI agent (53 platforms) author new skills with cross-tool emission. The skill is installed via `vskill install` (verified-skill.com registry) — it is **not** a SpecWeave plugin. Anthropic's `skill-creator` plugin is a fallback-only engine, never the primary path.
 
 Wraps the existing agent-aware skill generator (delivered in 0665-obsidian-brain-skill-studio) and unified Skill Studio browser workspace (delivered in 0465-skill-builder-redesign) by exposing them as a single installable SKILL.md plus a new `vskill skill` CLI subcommand.
 
@@ -22,7 +22,7 @@ Wraps the existing agent-aware skill generator (delivered in 0665-obsidian-brain
 
 Today skill authoring in vskill is **browser-only** — you must run `vskill eval serve` and use the Skill Studio UI in a browser. There is no distributable SKILL.md that a user can install into any AI agent to get a guided skill-authoring flow. Users who prefer their native agent UI (Claude Code slash-command, Codex `$skill-name`, OpenCode `@agent-name`) have no canonical entry point for creating universal skills.
 
-The infrastructure to do cross-tool skill authoring already exists (agent-aware prompts via `buildAgentAwareSystemPrompt`, 49-agent catalog in `agents-registry.ts`, install routing by `target-agents` frontmatter in `installer/canonical.ts`, fallback detection via `isSkillCreatorInstalled()`). It just is not exposed as an installable, agent-triggerable artifact or a CLI subcommand.
+The infrastructure to do cross-tool skill authoring already exists (agent-aware prompts via `buildAgentAwareSystemPrompt`, 53-agent catalog in `agents-registry.ts`, install routing by `target-agents` frontmatter in `installer/canonical.ts`, fallback detection via `isSkillCreatorInstalled()`). It just is not exposed as an installable, agent-triggerable artifact or a CLI subcommand.
 
 ## Background — Why This Increment and Not Another 0463/0464 Restart
 
@@ -33,7 +33,7 @@ Two prior increments (0463-skill-builder-ui-redesign, 0464-skill-builder-create-
 
 What 0465 did NOT ship — and what this increment delivers:
 1. A **CLI entry point** for skill generation (`vskill skill new|import|list|info|publish`). Today skill generation is HTTP-only.
-2. A **distributable SKILL.md** installable via `vskill install` so any of the 49 supported agents can trigger skill authoring without a browser.
+2. A **distributable SKILL.md** installable via `vskill install` so any of the 53 supported agents can trigger skill authoring without a browser.
 3. A **shared pure generator module** (`src/core/skill-generator.ts`) so the CLI and HTTP handler call the same code path instead of drifting.
 
 **What this increment does differently from 0463/0464**: it does not redesign the UI. The 0465 React workspace stays as-is (path B fallback). This increment only adds the CLI (path A) and the installable SKILL.md. Scope is deliberately narrow to avoid the "redesign everything" trap that led 0463/0464 to be rolled up.
@@ -51,14 +51,14 @@ What 0465 did NOT ship — and what this increment delivers:
 ### US-001: Distributable skill-builder SKILL.md (P1)
 **Project**: vskill
 
-**As a** developer using any AI coding tool (Claude Code, Codex, Cursor, Windsurf, Copilot, Gemini CLI, Cline, or any of the 49 registered agents)
+**As a** developer using any AI coding tool (Claude Code, Codex, Cursor, Windsurf, Copilot, Gemini CLI, Cline, or any of the 53 registered agents)
 **I want** to `vskill install anton-abyzov/vskill/plugins/skills/skills/skill-builder` and then create skills by saying "new skill" / "create a skill" / "build a skill" in my agent
 **So that** I have one canonical workflow for authoring portable skills across every agent I use, without opening a browser
 
 **Acceptance Criteria**:
 - [ ] **AC-US1-01**: `plugins/skills/skills/skill-builder/SKILL.md` exists at < 500 lines with frontmatter (`name: skill-builder`, `description` containing the trigger phrases listed in AC-US1-02, `tags: [skill-authoring, meta, universal]`, `metadata.version: 0.1.0`).
 - [ ] **AC-US1-02**: The skill's `description` field includes natural-language triggers: "new skill", "create a skill", "build a skill", "make a skill", "generate a skill", "author a skill", "skill builder".
-- [ ] **AC-US1-03**: `plugins/skills/skills/skill-builder/references/` contains three reference files under 100 lines each: `target-agents.md` (condensed 49-agent table), `divergence-report-schema.md` (what per-skill divergence.md must contain), `fallback-modes.md` (A/B/C fallback chain with exact commands).
+- [ ] **AC-US1-03**: `plugins/skills/skills/skill-builder/references/` contains three reference files under 100 lines each: `target-agents.md` (condensed 53-agent table), `divergence-report-schema.md` (what per-skill divergence.md must contain), `fallback-modes.md` (A/B/C fallback chain with exact commands).
 - [ ] **AC-US1-04**: The SKILL.md body contains a "What this is NOT" section that points users to `scout` (for skill discovery) and `sw:skill-gen` (for SpecWeave signal-based generation), so users pick the right meta-skill.
 - [ ] **AC-US1-05**: The skill successfully installs via `vskill install anton-abyzov/vskill/plugins/skills/skills/skill-builder` in a fresh sandbox directory (verified by E2E test).
 - [ ] **AC-US1-06**: Installation routes the SKILL.md to the host agent's conventional path (`.claude/skills/skill-builder/` for Claude Code, `.agents/skills/skill-builder/` for Codex, `.cursor/skills/skill-builder/` for Cursor, etc.).
@@ -94,7 +94,7 @@ What 0465 did NOT ship — and what this increment delivers:
 **Acceptance Criteria**:
 - [ ] **AC-US3-01**: `src/commands/skill.ts` exists (~200 LOC) exporting `registerSkillCommand(program)` that wires `new|import|list|info|publish` subcommands into the vskill CLI.
 - [ ] **AC-US3-02**: `vskill skill new --prompt "<text>"` emits a skill to every requested target, identical to what the HTTP handler at `POST /api/skills/generate` produces for the same input.
-- [ ] **AC-US3-03**: `--targets=<comma-list>` restricts emission to the named agent IDs (must match `agents-registry.ts` IDs). `--targets=all` emits for all 49 registered agents.
+- [ ] **AC-US3-03**: `--targets=<comma-list>` restricts emission to the named agent IDs (must match `agents-registry.ts` IDs). `--targets=all` emits for all 53 registered agents.
 - [ ] **AC-US3-04**: When `--targets` is omitted, defaults to the **8 universal agents** flagged `isUniversal: true` in `src/agents/agents-registry.ts` — `amp, cline, codex, cursor, gemini-cli, github-copilot, kimi-cli, opencode`. This list is resolved at runtime by filtering `AGENTS_REGISTRY` on `isUniversal === true`, not hard-coded — so adding a new universal agent to the registry auto-expands the default set.
 - [ ] **AC-US3-05**: `--engine=anthropic-skill-creator` bypasses the vskill generator and delegates to the Anthropic plugin, emits Claude-only, and logs a fallback-mode warning.
 - [ ] **AC-US3-06**: `vskill skill import <path>` reads an existing SKILL.md, passes its body + frontmatter to the generator with `re-emit: true`, and emits per target with a divergence report.
@@ -104,7 +104,7 @@ What 0465 did NOT ship — and what this increment delivers:
 - [ ] **AC-US3-10**: Running `vskill skill --help` lists all five subcommands (`new`, `import`, `list`, `info`, `publish`) with descriptions.
 - [ ] **AC-US3-11**: `--targets=<unknown-id>` exits with non-zero code and prints `Unknown agent id: <id>. Run 'vskill skill new --list-targets' for valid ids.` No partial emission occurs (either all targets resolve or nothing is written).
 - [ ] **AC-US3-12**: Missing `--prompt` on `vskill skill new` exits with non-zero code and prints usage hint. Empty prompt (`--prompt ""`) exits with the same error.
-- [ ] **AC-US3-13**: `vskill skill new` accepts `--engine=mock` which bypasses the real LLM and emits deterministic test fixtures (read from `src/core/__tests__/fixtures/mock-generator-output/<target>.skill.md`). Integration tests (T-012) MUST default to `--engine=mock` except for ONE designated smoke test that uses the real engine. Rationale: `--targets=all` × 49 agents × real LLM = 49 paid API calls per test run; mock mode makes CI cheap and deterministic.
+- [ ] **AC-US3-13**: `vskill skill new` accepts `--engine=mock` which bypasses the real LLM and emits deterministic test fixtures (read from `src/core/__tests__/fixtures/mock-generator-output/<target>.skill.md`). Integration tests (T-012) MUST default to `--engine=mock` except for ONE designated smoke test that uses the real engine. Rationale: `--targets=all` × 53 agents × real LLM = 53 paid API calls per test run; mock mode makes CI cheap and deterministic.
 
 ---
 
@@ -173,7 +173,7 @@ What 0465 did NOT ship — and what this increment delivers:
 - [ ] **AC-US7-06**: A second Vitest case runs `vskill skill new --prompt "..." --engine=anthropic-skill-creator`, mocks `isSkillCreatorInstalled() → true`, asserts Claude-only emission, and asserts stderr contains `[skill-builder] fallback mode`. A third case mocks `isSkillCreatorInstalled() → false` and asserts non-zero exit with the remediation message from AC-US2-07.
 - [ ] **AC-US7-07**: `tests/e2e/skill-studio-regression.spec.ts` (Playwright) exists and verifies that after T-002's HTTP-handler rewire, the existing Skill Studio browser flow (path B) still renders, generates, and emits correctly. **Flow (verified by live probe 2026-04-19, http://localhost:3077):** boot via existing `playwright.config.ts` webServer (`node dist/index.js eval serve --root e2e/fixtures --port 3077`), navigate to `/` (NOT `/workspace` — the workspace IS the root app shell), resize to 1600×1000 (modal clips below ~1100px), click the button with exact text `New Skill` in the left rail, assert the heading text `Create a New Skill` appears, assert both `AI-Assisted` and `Manual` tab buttons exist, fill the textarea (placeholder starts with `e.g., A skill that helps format SQL`) with `lint markdown files`, click the `Generate` button, wait for SSE `data:` frames on `POST /api/skills/generate`, assert the final SKILL.md preview contains `name:` and `description:` frontmatter keys. Covers path B regression only — no CLI assertions.
 - [ ] **AC-US7-09**: A pre-rewire UI snapshot exists in `src/core/__tests__/fixtures/pre-extraction-snapshots/ui/` containing: (a) a Playwright trace of the happy path captured BEFORE T-002 rewires the handler, (b) a recording of the SSE event sequence (`event:` names + `data:` JSON field names) sent by `POST /api/skills/generate` for a 3-target generation. T-012b compares post-rewire output to this snapshot — any SSE contract drift (renamed event, removed field) fails the test. Protects against silent UI-contract breakage that pure HTTP-JSON fixtures (T-000) miss.
-- [ ] **AC-US7-08**: A `--targets=all` (all 49 agents) test case asserts all 49 target directories receive files without error, listing any silently skipped agent as a failure.
+- [ ] **AC-US7-08**: A `--targets=all` (all 53 agents) test case asserts all 53 target directories receive files without error, listing any silently skipped agent as a failure.
 
 ---
 
@@ -233,7 +233,7 @@ Skill uses flat directory layout (`skill-builder/SKILL.md`, not nested). Frontma
 
 - `vskill install skill-builder` succeeds from the registry in a sandbox with zero SpecWeave dependency
 - `vskill skill new --prompt "X"` emits to 8 universal targets + divergence report in under 30 seconds
-- `vskill skill new --targets=all` emits to all 49 targets without error
+- `vskill skill new --targets=all` emits to all 53 targets without error
 - `vskill skill new --engine=anthropic-skill-creator` falls back successfully with clear warning
 - CLI integration tests pass (Vitest) and Skill Studio regression test passes (Playwright)
 - No regressions in existing `POST /api/skills/generate` HTTP handler (eval-ui tests + Playwright studio regression stay green)
@@ -254,7 +254,7 @@ Skill uses flat directory layout (`skill-builder/SKILL.md`, not nested). Frontma
 
 - **Existing (from completed increments)**:
   - `vskill/src/eval-server/skill-create-routes.ts:523-573` (agent-aware prompt injection), `:919-1100` (generator body), `isSkillCreatorInstalled()` — from 0665
-  - `vskill/src/agents/agents-registry.ts` (49 agents, `filterAgentsByFeatures`, `getAgentCreationProfile`) — from 0665
+  - `vskill/src/agents/agents-registry.ts` (53 agents, `filterAgentsByFeatures`, `getAgentCreationProfile`) — from 0665
   - `vskill/src/installer/canonical.ts` (`target-agents`-aware routing), `vskill/src/installer/frontmatter.ts:123-127` (`target-agents` frontmatter field parser) — from 0665
   - `vskill/src/eval-ui/src/pages/workspace/SkillWorkspace.tsx` + EditorPanel/RunPanel/HistoryPanel/DepsPanel/LeftRail (browser-only Skill Studio UI, path B) — from 0465
   - `vskill/src/commands/submit.ts` (`vskill submit` publish flow) — mature
