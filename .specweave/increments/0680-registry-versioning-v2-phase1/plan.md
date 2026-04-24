@@ -584,6 +584,12 @@ Injection site is the `else` branch at `publish.ts:231` where the new SkillVersi
 **Project**: vskill-platform
 **Responsibility**: Additive schema changes per §3. Generated migration SQL reviewed before `migrate deploy`.
 
+**Migration applied to prod on 2026-04-24** (discovered via 0695 investigation — the increment had been marked `completed` on 2026-04-23 but the `prisma migrate deploy` step was never run, so the deployed Prisma client SELECTed columns that didn't exist, throwing `column "(not available)" does not exist` on every `Skill.findMany` / `findUnique` — this broke `/skills`, `/api/v1/skills`, stats cron, and `getSkillByName` on verified-skill.com).
+
+Applied the 18 `ADD COLUMN` + 1 `CREATE TABLE` + 3 `CREATE INDEX` statements from [prisma/migrations/20260423132315_versioning_v2_phase1/migration.sql](../../../repositories/anton-abyzov/vskill-platform/prisma/migrations/20260423132315_versioning_v2_phase1/migration.sql) directly against prod Neon via `@neondatabase/serverless`, then ran `prisma migrate resolve --applied 20260423132315_versioning_v2_phase1` to record the state in `_prisma_migrations`. Full 11/11 prod smoke green immediately after.
+
+Note: migration `20260421100000_submission_unique_repo_skill` (from 0672) remains unapplied — it has a precondition (`scripts/migrations/0672-collapse-submission-dupes.ts`) that cannot run against prod via the Neon HTTP driver because there are 91 159 duplicate `(repoUrl, skillName)` groups on Submission and the victim archive query exceeds the 64 MB response cap. That is a separate data-integrity issue outside 0680's scope; a future increment needs to either stream the collapse in chunks or run it via `psql` over the direct (non-HTTP) endpoint.
+
 ### 5.8 `tests/e2e/skill-versioning.spec.ts` (NEW)
 **Project**: vskill-platform
 **Responsibility**: Playwright E2E — submit v1.0.0, edit, resubmit, verify auto-bump to 1.0.1. Assert versions page renders both rows. Assert `GET /api/v1/skills/{owner}/{repo}/{skill}/versions` returns the right shape.
