@@ -279,12 +279,19 @@
 **Description**: Global handler that surfaces a toast on provider 401.
 **References**: AC-US2-05
 **Implementation**:
-- **Frontend toast** → out of scope for cli-0702 (belongs to ui-0702's T-050/T-051 SettingsModal work; also needs server-0702 to surface 401 from provider client)
-- **CLI-side complement (this agent's scope)**: when `vskill keys list` shows no stored keys and no env vars, output prints a helpful `Run \`vskill keys set <provider>\`` next-step hint — covered by test `TC-030 CLI-side 401 friendly hint` in `src/commands/__tests__/keys.test.ts`
+- **Frontend toast (ui-0702)**: `useApiKeyErrorToast` hook subscribes to `studio:api-key-error` CustomEvents and renders an error toast "<Provider> API key invalid or missing. Open Settings →" with an action. Clicking the action dispatches `studio:open-settings` with `{provider}`; App Shell listens and opens SettingsModal pre-focused on that provider's row. Dedupe window is 3s per provider.
+- **SSE dispatch**: `sse.ts` parses 401 response bodies and dispatches `studio:api-key-error` when the body matches `{ error: "invalid_api_key", provider }` (both `useSSE` and `useMultiSSE` paths).
+- **CLI-side complement**: when `vskill keys list` shows no stored keys and no env vars, output prints a helpful `Run \`vskill keys set <provider>\`` next-step hint — covered by test `TC-030 CLI-side 401 friendly hint` in `src/commands/__tests__/keys.test.ts`
 **Test Plan**:
-- **TC-030**: Given no stored keys + no env vars, When `vskill keys list`, Then output contains setup hint mentioning `vskill keys set`
+- **TC-030**: Given no stored keys + no env vars, When `vskill keys list`, Then output contains setup hint mentioning `vskill keys set` (CLI)
+- **TC-042a**: Given `useApiKeyErrorToast` mounted, When `studio:api-key-error` dispatched, Then an error toast with "Open Settings" action is visible (UI)
+- **TC-042b**: Given toast shown, When "Open Settings" clicked, Then `studio:open-settings` CustomEvent fires with the provider (UI)
+- **TC-042c**: Given 3 rapid 401s for the same provider, When reported, Then only ONE toast renders (dedupe within 3s); different providers still get their own toasts (UI)
+- **TC-042d**: Given SSE `fetch` returns 401 `{ error: "invalid_api_key", provider }`, When the stream starts, Then `studio:api-key-error` fires with that provider (SSE)
+- **TC-042e**: Given SSE `fetch` returns 401 WITHOUT the structured body, Then NO dispatch occurs (regression guard)
+- **TC-042f (integration)**: End-to-end wire — dispatch → toast → click → SettingsModal opens with `initialProvider` set (`provider-row-openai` present when provider=openai)
 **Dependencies**: T-022, T-023
-**Status**: [x] Completed (CLI-side only; frontend toast remains with ui-0702)
+**Status**: [x] Completed
 
 ## Phase 5: UI Rewrite
 
