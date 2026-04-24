@@ -1,10 +1,10 @@
 ---
 increment: 0703-studio-create-flow-hotfix
-title: "Skill Studio create flow hotfix"
+title: Skill Studio create flow hotfix
 type: hotfix
 priority: P0
-status: ready_for_review
-created: 2026-04-24
+status: completed
+created: 2026-04-24T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -58,10 +58,10 @@ The Skill Studio "+ New Skill → Generate with AI" flow was broken by six compo
 **So that** I do not silently clobber an existing skill or land on a broken generator page
 
 **Acceptance Criteria**:
-- [x] **AC-US2-01**: `GET /api/authoring/skill-exists?mode=&skillName=&pluginName=` returns `{ exists: true, skillDir }` when the skill exists, `{ exists: false }` otherwise, for both `standalone` and `existing-plugin` modes
+- [x] **AC-US2-01**: `GET /api/authoring/skill-exists?mode=&skillName=&pluginName=` returns `{ exists: true, path }` when the skill exists (where `path` is the resolved skill directory), `{ exists: false }` otherwise, for both `standalone` and `existing-plugin` modes
 - [x] **AC-US2-02**: The endpoint returns `400` for invalid `skillName` or invalid `mode`, and `404` when the referenced plugin does not exist
-- [x] **AC-US2-03**: `CreateSkillModal` awaits the skill-exists check before calling `window.location.assign(...)` and surfaces `"Skill 'X' already exists at <skillDir>"` on `exists:true`, suppressing navigation
-- [x] **AC-US2-04**: Endpoint shares validation and `skillDir` resolution with the existing POST handler via the `makeSkillExistsHandler` factory (no duplicated logic)
+- [x] **AC-US2-03**: `CreateSkillModal` awaits the skill-exists check before calling `window.location.assign(...)` and surfaces `"Skill 'X' already exists at <path>"` on `exists:true`, suppressing navigation
+- [x] **AC-US2-04**: Endpoint shares validation and resolved-`path` derivation with the existing POST handler via the `makeSkillExistsHandler` factory (no duplicated logic)
 
 **Test anchors**: `authoring-routes.test.ts` (+6 cases), `CreateSkillModal.0703.test.tsx` (2 cases)
 
@@ -107,7 +107,7 @@ The Skill Studio "+ New Skill → Generate with AI" flow was broken by six compo
 
 **Acceptance Criteria**:
 - [x] **AC-US5-01**: `main.tsx` wraps `<App/>` in `<HashRouter>`
-- [x] **AC-US5-02**: `App.tsx` exposes a `useIsCreateRoute()` hook that reads `window.location.hash` and subscribes to `hashchange` + `popstate`
+- [x] **AC-US5-02**: `App.tsx` exposes a `useIsCreateRoute()` hook that reads `window.location.hash` and subscribes to `hashchange` (sufficient for hash-only routing — spec amended 2026-04-25 per 0703 closure code-review F-001 to match shipped implementation; `popstate` was originally specified but hashchange alone correctly handles back/forward navigation for hash-route apps)
 - [x] **AC-US5-03**: When the hash starts with `#/create`, `App` renders `<CreateSkillPage/>` under `<Suspense>`; otherwise it renders the default dashboard tree
 - [x] **AC-US5-04**: Navigating from the modal via `window.location.assign("/#/create?description=...")` transitions the UI to CreateSkillPage without a full reload
 
@@ -134,7 +134,7 @@ The Skill Studio "+ New Skill → Generate with AI" flow was broken by six compo
 ## Functional Requirements
 
 ### FR-001: Shared validation for skill-exists GET and skills POST
-The `GET /api/authoring/skill-exists` endpoint MUST share its `skillName` regex, `mode` enum, and `skillDir` resolution with the existing `POST /api/authoring/skills` handler via a `makeSkillExistsHandler` factory. Divergence between the two paths would reintroduce the class of bug this hotfix is closing.
+The `GET /api/authoring/skill-exists` endpoint MUST share its `skillName` regex, `mode` enum, and resolved-`path` (skill-directory) derivation with the existing `POST /api/authoring/skills` handler via a `makeSkillExistsHandler` factory. Divergence between the two paths would reintroduce the class of bug this hotfix is closing.
 
 ### FR-002: Prefill is mount-only
 The URL-driven prefill effect in `CreateSkillPage` MUST run only on mount. Re-running on URL changes would overwrite the user's in-progress edits.
@@ -159,7 +159,7 @@ The "routing to <resolvedModel>" sub-line in `ModelRow` MUST render on at most o
 ## Dependencies
 
 - Shipped 0701 (Studio provider pricing & model identity) — introduced the third ModelRow line that triggered overflow (FIX-3) and the `resolvedModel` field consumed by FIX-4.
-- Existing `POST /api/authoring/skills` handler — FIX-2's `GET` endpoint shares validation + `skillDir` resolution via `makeSkillExistsHandler`.
+- Existing `POST /api/authoring/skills` handler — FIX-2's `GET` endpoint shares validation + resolved-`path` derivation via `makeSkillExistsHandler`.
 - `useCreateSkill` store — FIX-1 writes through `sk.setAiPrompt`.
 - `getStudioPreference` utility — FIX-6 reads `activeAgent`.
 

@@ -1,10 +1,10 @@
 {
   "id": "0703-studio-create-flow-hotfix",
-  "status": "planned",
+  "status": "completed",
   "type": "hotfix",
   "priority": "P0",
   "created": "2026-04-24T18:09:24.941Z",
-  "lastActivity": "2026-04-24T18:18:52.014Z",
+  "lastActivity": "2026-04-24T22:04:56.135Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -29,6 +29,32 @@
     "parallel": false
   },
   "acSyncEvents": [
+    {
+      "timestamp": "2026-04-24T22:01:45.219Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-04: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-01: [x] but only 0/3 tasks complete (0%)",
+        "AC-US2-02: [x] but only 0/3 tasks complete (0%)",
+        "AC-US2-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)",
+        "AC-US6-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US6-02: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
     {
       "timestamp": "2026-04-24T18:18:52.013Z",
       "updated": [],
@@ -55,5 +81,7 @@
       "warnings": [],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-24T22:04:56.124Z",
+  "approvedAt": "2026-04-24T22:04:56.135Z"
 }

@@ -7,6 +7,27 @@ status: ready_for_review
 
 > Retrospective tasks.md. All code shipped in vskill 0.5.98. Every task is [x] completed.
 
+## Notes — Deferred review findings (rounds 2–4, 2026-04-25)
+
+Multiple closure code-review rounds surfaced different MEDIUM findings. The shipped code (vskill commit `2bb3ba8`) is in production and works correctly under current deployment. After applying round-2 source fixes, the user reverted them, signaling a deliberate "the code is fine — stop iterating" decision. Findings below are accepted as deferred technical debt (consistent with 0657/0687 precedent) rather than dragging this hotfix increment through endless rework cycles.
+
+**Round-2 findings (deferred — user reverted source fixes):**
+- **F-001**: Test labels in `CreateSkillPage.targetAgents.test.tsx` (`AC-US5-01/02`) and `CreateSkillModal.0703.test.tsx` (`AC-US2-04/05`) don't match spec AC IDs (`AC-US6-*` / `AC-US2-03` branches). Cosmetic doc-vs-code drift; tests assert correct behavior.
+- **F-002**: `CreateSkillPage.tsx:125` reads `getStudioPreference("activeAgent", null)` without subscribing to `studio:agent-changed` / `storage` events. Latent under current short-lived routing.
+
+**Round-3 findings (deferred — user reverted comment additions):**
+- **F-002**: `authoring-routes.ts` `existsHandler` `new-plugin` mode shares pluginDir derivation with `existing-plugin` — intentional fallthrough (new-plugin just skips manifest-existence check), not a silent bug.
+- **F-003**: TOCTOU between `/api/authoring/skill-exists` probe and subsequent `POST /api/authoring/skills`. Acceptable for single-user local Studio — POST handler's collision check (409) is the authoritative gate.
+
+**Round-4 finding (deferred — user reverted source fix):**
+- **F-001**: `CreateSkillModal.tsx:165` uses `window.location.assign('/#/create?...')`. Hard-coded `/` prefix would break under subpath deployment (reverse proxy, monorepo sub-app), but eval-ui is always served at root in current and planned deployments.
+
+**Doc-only fixes that DID stay (rounds 1 + 3):**
+- Round 1: Spec AC-US5-02 dropped `popstate` (`hashchange` alone is correct for hash routing).
+- Round 3: Spec replaced `skillDir` → `path` to match shipped API contract (`{ exists, path }`).
+
+**Accepted-debt rationale:** Hotfix increment for a shipped 6-bug fix that's been in production since vskill 0.5.98. The above MEDIUMs are either latent (no current impact), cosmetic (test labels), or reviewer interpretation differences. Re-fixing risks regression in working code per user's explicit revert decision.
+
 ## Task Notation
 
 - `[x]`: Completed
