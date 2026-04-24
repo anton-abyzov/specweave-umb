@@ -1,0 +1,31 @@
+{
+  "id": "0704-studio-new-skill-reveal-and-api-empty-state",
+  "status": "active",
+  "type": "hotfix",
+  "priority": "P1",
+  "created": "2026-04-24T18:19:51.906Z",
+  "lastActivity": "2026-04-24T18:19:51.906Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-949",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-949",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-24T18:24:49.655Z"
+    },
+    "ado": {
+      "featureId": "1788",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1788",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-24T18:24:51.792Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  }
+}
