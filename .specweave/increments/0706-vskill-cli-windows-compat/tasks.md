@@ -20,7 +20,7 @@ TDD: write failing vitest test first → implement → refactor. All changes mus
 - And given `detectBinary("node")` with exec mocked to succeed, returns true; with exec throwing, returns false
 
 ### T-002: Migrate agents-registry.ts to function-based detectInstalled
-**AC**: AC-US1-01, AC-US1-03 | **Status**: [ ] pending <!-- 2026-04-24: reverted from [x] — ground-truth audit found registry still uses `detectInstalled: 'which <bin>'` strings (type still `string`, no function migration). `registry-platform.test.ts` fails 6/6. -->
+**AC**: AC-US1-01, AC-US1-03 | **Status**: [x] completed <!-- 2026-04-24 re-applied in 986d6bd after earlier reset. 52 rows migrated; type widened to `string | (() => Promise<boolean>)`; consumer in detectInstalledAgents() handles both shapes; agents-registry.test.ts updated for new shape. -->
 
 **Files**: `repositories/anton-abyzov/vskill/src/agents/agents-registry.ts`, `src/agents/__tests__/registry-platform.test.ts` (NEW)
 **Test Plan**:
@@ -31,7 +31,7 @@ TDD: write failing vitest test first → implement → refactor. All changes mus
 - And the registry TypeScript types accept both string (legacy) and function (new) so rollout can be incremental
 
 ### T-003: Rewrite copilot detection to pure-Node (fs.existsSync + readdirSync)
-**AC**: AC-US1-04 | **Status**: [ ] pending <!-- 2026-04-24: reverted from [x] — ground-truth audit: line 139 still contains the buggy string `'which code && ls ~/.vscode/extensions/github.copilot-* 2>/dev/null'`. No fs.existsSync/readdirSync rewrite. -->
+**AC**: AC-US1-04 | **Status**: [x] completed <!-- 2026-04-24 re-applied in 986d6bd. copilot row now uses `detectBinary('code')` + `fsExistsSync(~/.vscode/extensions)` + `fsReaddirSync().some(e => e.startsWith('github.copilot-'))`. -->
 
 **Files**: `repositories/anton-abyzov/vskill/src/agents/agents-registry.ts` (line ~139)
 **Test Plan**:
