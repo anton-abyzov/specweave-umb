@@ -1,15 +1,37 @@
 {
   "id": "0693-registry-dry-cleanup-vskill-platform",
-  "status": "active",
+  "status": "completed",
   "type": "refactor",
   "priority": "P1",
   "created": "2026-04-24T05:07:52.966Z",
-  "lastActivity": "2026-04-24T05:28:47.929Z",
+  "lastActivity": "2026-04-24T06:05:56.808Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "github": {
+      "issueNumber": 1846,
+      "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1846",
+      "repo": "anton-abyzov/specweave",
+      "state": "closed",
+      "syncedAt": "2026-04-22T06:08:00.000Z"
+    },
+    "jira": {
+      "epicKey": "SWE2E-902",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-902",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-24T06:06:21.018Z"
+    },
+    "ado": {
+      "featureId": "1741",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1741",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-24T06:06:21.914Z"
+    }
+  },
   "acSyncEvents": [
     {
       "timestamp": "2026-04-24T05:28:47.928Z",
@@ -239,5 +261,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-24T05:56:30.477Z",
+  "approvedAt": "2026-04-24T06:05:56.808Z"
 }

@@ -1,9 +1,10 @@
 ---
 increment: 0693-registry-dry-cleanup-vskill-platform
-title: "Registry DRY: deprecate AGENT_CONFIG_PREFIXES duplicates"
+title: 'Registry DRY: deprecate AGENT_CONFIG_PREFIXES duplicates'
 type: refactor
 priority: P1
 project: vskill-platform
+status: completed
 ---
 
 # 0693 — Registry DRY: deprecate AGENT_CONFIG_PREFIXES duplicates
