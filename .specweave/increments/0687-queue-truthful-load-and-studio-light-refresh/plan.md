@@ -1,8 +1,8 @@
-# Plan — 0687 Queue Dashboard Truthful Load, Backend Stabilization, and Studio Light Refresh
+# Plan — 0687 Queue Dashboard Truthful Load, Fast Filters, and Design Rollback
 
 ## 1. Goals
 
-Ship a queue page that is truthful on first load, fast during filter/search changes, visually aligned with the Studio light theme, and operationally easier to debug.
+Ship a queue page that is truthful on first load, fast during filter/search changes, restored to the previous simpler queue-first design, and operationally easier to debug.
 
 ## 2. Working Assumptions
 
@@ -10,6 +10,8 @@ Ship a queue page that is truthful on first load, fast during filter/search chan
 2. The queue should prefer a truthful, labeled fallback dataset over a blank default state.
 3. The current performance issues are not only UI problems; they stem from query shape, cache drift, and production schema/runtime mismatch.
 4. Secret values should be audited for usage, but never echoed into specs, logs, or code comments.
+5. The queue request path must not compute expensive stats synchronously during SSR or during filter switching; stale-but-truthful cached stats are preferable to a 15 s blocking recompute that returns zeros.
+6. The latest Studio-style queue hero/card redesign should be rolled back to the previous compact queue page structure while preserving the useful loading/error behavior.
 
 ## 3. Implementation Tracks
 
@@ -31,12 +33,14 @@ Ship a queue page that is truthful on first load, fast during filter/search chan
 
 - Review the list API, search API, stats API, queue list warm-up, and cache TTL/invalidation strategy.
 - Profile first-page queries for `active`, `published`, `rejected`, `blocked`, and `onHold`.
+- Remove or bound synchronous on-demand stats computation from `/queue` and `/api/v1/submissions/stats` read paths; read paths should return KV, memory, DB fallback, or a clearly degraded response quickly.
 - Reduce payload cost and remove avoidable query work on first-page interactions.
 - Make list cache and stats cache coherent:
   - shared freshness window
   - shared invalidation/update rules
   - clear fallback order
 - Add lightweight instrumentation for cache hit/miss, query duration, and degraded fallback use.
+- Add a warm/read-through path so switching among `active`, `published`, `rejected`, and `blocked` uses exact or per-filter latest cache immediately, then refreshes in the background where needed.
 
 ### Track C — Database truthfulness and duplicate control
 
@@ -57,19 +61,23 @@ Ship a queue page that is truthful on first load, fast during filter/search chan
   - email/admin secrets if they participate in queue flows
 - Verify queue-serving code does not log secret material and does not unnecessarily fan out across conflicting credential sources.
 
-### Track E — UI refresh using the frontend design skill
+### Track E — UI rollback to prior queue-first design
 
-- Reuse the Studio light-theme direction from the current vSkill Studio:
-  - warm paper background
-  - ink-forward typography
-  - restrained accent color
-  - clearer card/table hierarchy
-- Refresh:
-  - hero/status section
-  - filter controls
-  - list container/table rows
-  - empty/loading/error/degraded states
-- Keep the design consistent with the broader site while moving the queue away from a flat utilitarian look.
+- Remove the Studio-style hero/asides/card shell added to the queue page.
+- Restore the previous compact structure:
+  - `SectionDivider title="Submission Queue"`
+  - stat cards directly under the title
+  - rejection reason filters where applicable
+  - status bar
+  - search input
+  - batch submit panel
+  - banner/empty/loading/table/pagination
+  - execution log
+- Keep functional improvements that do not contribute to the heavy redesign:
+  - truthful boot messaging where useful
+  - stale/degraded retry banner
+  - deterministic empty/loading states
+- Remove queue-specific warm beige token usage if it is no longer needed after rollback.
 
 ## 4. Verification Strategy
 
@@ -83,7 +91,8 @@ Ship a queue page that is truthful on first load, fast during filter/search chan
   - initial load renders meaningful content
   - filters work across major states
   - empty/degraded states are intentional and readable
-  - Studio-aligned visual regressions for light theme
+  - Playwright category-switch performance checks stay within target thresholds
+  - visual regression confirms the compact pre-redesign queue structure is restored
 - Required project gates after implementation:
   - `npx vitest run`
   - `npx playwright test`
@@ -97,3 +106,16 @@ Ship a queue page that is truthful on first load, fast during filter/search chan
    - app-side truthful rendering + dedup-safe serving
    - database enforcement/deploy/runbook
 4. When all tasks are complete, run the closure flow immediately per repo instructions.
+
+## 6. Baseline From 2026-04-24 Local Testing
+
+- `CI=1 E2E_BASE_URL=http://localhost:3310 npx playwright test tests/e2e/queue-truthful-load.spec.ts tests/e2e/queue-cold-load.spec.ts --project=chromium --reporter=line`
+  - Result: 4 passed, 1 failed.
+  - Failure: `queue-cold-load.spec.ts` expects 50 rows within 1.5 s, but the first load renders an empty active view.
+- Local server log shows repeated `GET /queue` durations around 15.3-19.7 s when the stats read path falls through to `computeQueueStats()` and its raw SQL times out after 15 s.
+- Direct local timings:
+  - cold `published` list: about 4.1 s
+  - warm `published` list: about 20 ms
+  - warm `blocked` list: about 20 ms
+  - `active` list: about 225-440 ms
+  - stats endpoint: about 15.2-15.3 s and returns all-zero stats

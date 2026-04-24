@@ -1,15 +1,13 @@
 {
-  "id": "0687",
-  "name": "queue-truthful-load-and-studio-light-refresh",
-  "title": "Queue dashboard truthful load, backend stabilization, and Studio light refresh",
-  "status": "planned",
+  "id": "0687-queue-truthful-load-and-studio-light-refresh",
+  "name": "queue-truthful-load-performance-and-design-rollback",
+  "title": "Queue dashboard truthful load, fast filters, and design rollback",
+  "status": "completed",
   "type": "bug",
   "priority": "high",
   "project": "vskill-platform",
   "testMode": "TDD",
   "coverageTarget": 90,
-  "createdAt": "2026-04-23",
-  "updatedAt": "2026-04-23",
   "owner": "codex",
   "related": [
     "0672-queue-reliability",
@@ -21,6 +19,41 @@
     "database",
     "cache",
     "ui-ux",
-    "studio-theme"
-  ]
+    "design-rollback"
+  ],
+  "created": "2026-04-23",
+  "updated": "2026-04-24",
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-925",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-925",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-24T15:46:11.491Z"
+    },
+    "ado": {
+      "featureId": "1764",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1764",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-24T15:46:17.037Z"
+    }
+  },
+  "lastActivity": "2026-04-24T19:08:43.944Z",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-24T18:26:21.729Z",
+      "updated": [
+        "AC-US1-03",
+        "AC-US1-04",
+        "AC-US2-01",
+        "AC-US2-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 4
+    }
+  ],
+  "readyForReviewAt": "2026-04-24T19:07:44.073Z",
+  "approvedAt": "2026-04-24T19:08:43.944Z"
 }
