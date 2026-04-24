@@ -1,10 +1,12 @@
 ---
 increment: 0698-studio-multiproject-anthropic-scopes
-title: "Skill Studio: multi-project + Anthropic-aligned scopes + plugin visibility (Available/Authoring)"
+title: >-
+  Skill Studio: multi-project + Anthropic-aligned scopes + plugin visibility
+  (Available/Authoring)
 type: feature
 priority: P1
-status: planned
-created: 2026-04-24
+status: completed
+created: 2026-04-24T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -36,13 +38,13 @@ Full design reference: `/Users/antonabyzov/.claude/plans/eventual-dazzling-dahl.
 **So that** I can work across my project portfolio in one session and preserve the active selection between runs
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: A `ProjectPicker` pill renders in the top-left of `StudioLayout`; clicking it opens a popover listing all registered projects with name, absolute path (monospace), and a deterministic OKLCH color dot hashed from the path.
-- [ ] **AC-US1-02**: The popover has an "Add project" affordance that accepts a directory path (via `showDirectoryPicker()` where supported, with a text-input fallback for Safari/Firefox) and appends a new `ProjectConfig` to `~/.vskill/workspace.json`.
-- [ ] **AC-US1-03**: Selecting a project in the popover sets it as active, persists `activeProjectId` + `lastActiveAt` to `~/.vskill/workspace.json`, and invalidates the React Query `["skills"]` cache so the sidebar repopulates from the new project without a reload.
-- [ ] **AC-US1-04**: A "Remove" affordance on each project row deletes it from `~/.vskill/workspace.json`; removing the active project clears `activeProjectId` and the UI renders an empty-state prompt.
-- [ ] **AC-US1-05**: Keyboard shortcut ⌘P (Cmd+P on macOS, Ctrl+P elsewhere) opens `ProjectCommandPalette` with fuzzy filter over name + path, arrow-key navigation, and Enter to switch. Browser print dialog is suppressed via `preventDefault` only when focus is inside the Skill Studio DOM subtree.
-- [ ] **AC-US1-06**: On load, `loadWorkspace` validates each `ProjectConfig.path` with `existsSync`; stale projects render in a muted style in the picker with a visible "Remove" affordance and are not selectable as active.
-- [ ] **AC-US1-07**: Passing `--root <path>` on the CLI when `~/.vskill/workspace.json` does not exist auto-seeds the workspace with that project as the active entry, preserving CLI parity with the single-project behavior.
+- [x] **AC-US1-01**: A `ProjectPicker` pill renders in the top-left of `StudioLayout`; clicking it opens a popover listing all registered projects with name, absolute path (monospace), and a deterministic OKLCH color dot hashed from the path.
+- [x] **AC-US1-02**: The popover has an "Add project" affordance that accepts a directory path (via `showDirectoryPicker()` where supported, with a text-input fallback for Safari/Firefox) and appends a new `ProjectConfig` to `~/.vskill/workspace.json`.
+- [x] **AC-US1-03**: Selecting a project in the popover sets it as active, persists `activeProjectId` + `lastActiveAt` to `~/.vskill/workspace.json`, and invalidates the React Query `["skills"]` cache so the sidebar repopulates from the new project without a reload.
+- [x] **AC-US1-04**: A "Remove" affordance on each project row deletes it from `~/.vskill/workspace.json`; removing the active project clears `activeProjectId` and the UI renders an empty-state prompt.
+- [x] **AC-US1-05**: Keyboard shortcut ⌘P (Cmd+P on macOS, Ctrl+P elsewhere) opens `ProjectCommandPalette` with fuzzy filter over name + path, arrow-key navigation, and Enter to switch. Browser print dialog is suppressed via `preventDefault` only when focus is inside the Skill Studio DOM subtree.
+- [x] **AC-US1-06**: On load, `loadWorkspace` validates each `ProjectConfig.path` with `existsSync`; stale projects render in a muted style in the picker with a visible "Remove" affordance and are not selectable as active.
+- [x] **AC-US1-07**: Passing `--root <path>` on the CLI when `~/.vskill/workspace.json` does not exist auto-seeds the workspace with that project as the active entry, preserving CLI parity with the single-project behavior.
 
 ---
 
@@ -54,13 +56,13 @@ Full design reference: `/Users/antonabyzov/.claude/plans/eventual-dazzling-dahl.
 **So that** I can tell at a glance whether a skill is live versus in-development, and know exactly where on disk it lives
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: The sidebar renders two non-collapsible small-caps `GroupHeader` rows — `AVAILABLE (N)` and `AUTHORING (M)` — where N and M are the totals of their nested sub-sections and are always displayed even when zero.
-- [ ] **AC-US2-02**: Under AVAILABLE, three collapsible sub-sections render in order: `Project (p)`, `Personal (q)`, `Plugins (r)`. The Plugins sub-section is only rendered when the active agent is Claude Code.
-- [ ] **AC-US2-03**: Under AUTHORING, two collapsible sub-sections render in order: `Skills (s)`, `Plugins (t)`. The Plugins sub-section is only rendered when the active agent is Claude Code.
-- [ ] **AC-US2-04**: Each sub-section count reflects the number of skills assigned to that `SkillScope` for the active project; empty sub-sections still render with `(0)` rather than being hidden.
-- [ ] **AC-US2-05**: Within AVAILABLE > Plugins and AUTHORING > Plugins, skills nest under their parent plugin: a collapsible `pluginName (x)` row parents its member skills. The `PluginGroup` component is reused for both locations.
-- [ ] **AC-US2-06**: Per-sub-section collapse state persists in `localStorage` keyed by `vskill-sidebar-<agentId>-<scope>-collapsed`.
-- [ ] **AC-US2-07**: Snapshot tests cover two agent scenarios (Claude Code vs Cursor) and assert that the Plugins sub-sections are present for Claude Code and absent otherwise.
+- [x] **AC-US2-01**: The sidebar renders two non-collapsible small-caps `GroupHeader` rows — `AVAILABLE (N)` and `AUTHORING (M)` — where N and M are the totals of their nested sub-sections and are always displayed even when zero.
+- [x] **AC-US2-02**: Under AVAILABLE, three collapsible sub-sections render in order: `Project (p)`, `Personal (q)`, `Plugins (r)`. The Plugins sub-section is only rendered when the active agent is Claude Code.
+- [x] **AC-US2-03**: Under AUTHORING, two collapsible sub-sections render in order: `Skills (s)`, `Plugins (t)`. The Plugins sub-section is only rendered when the active agent is Claude Code.
+- [x] **AC-US2-04**: Each sub-section count reflects the number of skills assigned to that `SkillScope` for the active project; empty sub-sections still render with `(0)` rather than being hidden.
+- [x] **AC-US2-05**: Within AVAILABLE > Plugins and AUTHORING > Plugins, skills nest under their parent plugin: a collapsible `pluginName (x)` row parents its member skills. The `PluginGroup` component is reused for both locations.
+- [x] **AC-US2-06**: Per-sub-section collapse state persists in `localStorage` keyed by `vskill-sidebar-<agentId>-<scope>-collapsed`.
+- [x] **AC-US2-07**: Snapshot tests cover two agent scenarios (Claude Code vs Cursor) and assert that the Plugins sub-sections are present for Claude Code and absent otherwise.
 
 ---
 
@@ -74,8 +76,8 @@ Full design reference: `/Users/antonabyzov/.claude/plans/eventual-dazzling-dahl.
 **Acceptance Criteria**:
 - [x] **AC-US3-01**: `SkillScope` in `src/eval-ui/src/types.ts` is defined as the union `"available-project" | "available-personal" | "available-plugin" | "authoring-project" | "authoring-plugin"`; no other scope literals exist in production code paths.
 - [x] **AC-US3-02**: `SkillInfo` exposes derived `group: "available" | "authoring"` and `source: "project" | "personal" | "plugin"` computed as `scope.split("-")[0]` and `scope.split("-")[1]`; invalid combinations (e.g. `authoring-personal`) are never emitted by any scanner.
-- [ ] **AC-US3-03**: User-visible labels in `src/eval-ui/src/strings.ts` are exactly: `available="Available"`, `authoring="Authoring"`, `project="Project"`, `personal="Personal"`, `plugin="Plugins"`, `skills="Skills"`. No occurrences of `Own`, `Installed`, `Global`, `Enterprise`, or `Drafts` remain in user-facing strings.
-- [ ] **AC-US3-04**: A one-shot `scope-migration.ts` shim invoked synchronously from `main.tsx` before `createRoot()` rewrites legacy `localStorage` keys:
+- [x] **AC-US3-03**: User-visible labels in `src/eval-ui/src/strings.ts` are exactly: `available="Available"`, `authoring="Authoring"`, `project="Project"`, `personal="Personal"`, `plugin="Plugins"`, `skills="Skills"`. No occurrences of `Own`, `Installed`, `Global`, `Enterprise`, or `Drafts` remain in user-facing strings.
+- [x] **AC-US3-04**: A one-shot `scope-migration.ts` shim invoked synchronously from `main.tsx` before `createRoot()` rewrites legacy `localStorage` keys:
   - `vskill-sidebar-<agentId>-own-collapsed` → `vskill-sidebar-<agentId>-authoring-project-collapsed`
   - `vskill-sidebar-<agentId>-installed-collapsed` → `vskill-sidebar-<agentId>-available-project-collapsed`
   - `vskill-sidebar-<agentId>-global-collapsed` → `vskill-sidebar-<agentId>-available-personal-collapsed`
@@ -93,11 +95,11 @@ Full design reference: `/Users/antonabyzov/.claude/plans/eventual-dazzling-dahl.
 **So that** I can see everything Claude can invoke right now, including `plugin:skill` namespaced skills
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: A new `scanInstalledPluginSkills(home)` function in `src/eval/plugin-scanner.ts` walks `<home>/.claude/plugins/cache/<marketplace>/<plugin>/skills/<skill>/SKILL.md` and emits one `SkillInfo` per SKILL.md with `scope="available-plugin"`, `pluginName=<plugin>`, `pluginMarketplace=<marketplace>`, and `pluginNamespace="<plugin>:<skill>"`.
-- [ ] **AC-US4-02**: The scanner is a no-op (returns `[]`) when the active agent is not Claude Code.
-- [ ] **AC-US4-03**: AVAILABLE > Plugins renders the returned skills as a tree — collapsible parent rows per `pluginName`, with member skills nested under each — using the shared `PluginGroup` component.
-- [ ] **AC-US4-04**: Each nested skill row displays the `pluginNamespace` label (e.g. `anthropic-skills:pdf`) in `font-mono`.
-- [ ] **AC-US4-05**: Fixture-based tests under `src/eval/__tests__/` exercise a sample `plugin-cache/` tree containing at least two marketplaces, three plugins, and five skills; assertions cover plugin-name grouping, namespace formatting, and non-CC no-op.
+- [x] **AC-US4-01**: A new `scanInstalledPluginSkills(home)` function in `src/eval/plugin-scanner.ts` walks `<home>/.claude/plugins/cache/<marketplace>/<plugin>/skills/<skill>/SKILL.md` and emits one `SkillInfo` per SKILL.md with `scope="available-plugin"`, `pluginName=<plugin>`, `pluginMarketplace=<marketplace>`, and `pluginNamespace="<plugin>:<skill>"`.
+- [x] **AC-US4-02**: The scanner is a no-op (returns `[]`) when the active agent is not Claude Code.
+- [x] **AC-US4-03**: AVAILABLE > Plugins renders the returned skills as a tree — collapsible parent rows per `pluginName`, with member skills nested under each — using the shared `PluginGroup` component.
+- [x] **AC-US4-04**: Each nested skill row displays the `pluginNamespace` label (e.g. `anthropic-skills:pdf`) in `font-mono`.
+- [x] **AC-US4-05**: Fixture-based tests under `src/eval/__tests__/` exercise a sample `plugin-cache/` tree containing at least two marketplaces, three plugins, and five skills; assertions cover plugin-name grouping, namespace formatting, and non-CC no-op.
 
 ---
 
@@ -109,11 +111,11 @@ Full design reference: `/Users/antonabyzov/.claude/plans/eventual-dazzling-dahl.
 **So that** I can edit and iterate on plugin-bundled skills from the same sidebar that shows installed skills
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: A new `scanAuthoredPluginSkills(projectRoot)` function in `src/eval/plugin-scanner.ts` globs `<projectRoot>/**/.claude-plugin/plugin.json` (excluding `node_modules`, `.git`, `dist`, `build`, `.specweave/cache`) with a default depth of 4, and for each manifest scans the sibling `skills/` directory.
-- [ ] **AC-US5-02**: Each discovered skill is emitted with `scope="authoring-plugin"`, `pluginName=<directory name containing .claude-plugin>`, and `pluginManifestPath=<absolute path to plugin.json>`.
-- [ ] **AC-US5-03**: The scanner is a no-op (returns `[]`) when the active agent is not Claude Code.
-- [ ] **AC-US5-04**: AUTHORING > Plugins renders the returned skills grouped by plugin name using the shared `PluginGroup` component (same visual treatment as AVAILABLE > Plugins).
-- [ ] **AC-US5-05**: Plugin-source detection excludes plugins that happen to be vendored under excluded paths; fixture tests verify that a `plugin.json` under `node_modules/` is never returned.
+- [x] **AC-US5-01**: A new `scanAuthoredPluginSkills(projectRoot)` function in `src/eval/plugin-scanner.ts` globs `<projectRoot>/**/.claude-plugin/plugin.json` (excluding `node_modules`, `.git`, `dist`, `build`, `.specweave/cache`) with a default depth of 4, and for each manifest scans the sibling `skills/` directory.
+- [x] **AC-US5-02**: Each discovered skill is emitted with `scope="authoring-plugin"`, `pluginName=<directory name containing .claude-plugin>`, and `pluginManifestPath=<absolute path to plugin.json>`.
+- [x] **AC-US5-03**: The scanner is a no-op (returns `[]`) when the active agent is not Claude Code.
+- [x] **AC-US5-04**: AUTHORING > Plugins renders the returned skills grouped by plugin name using the shared `PluginGroup` component (same visual treatment as AVAILABLE > Plugins).
+- [x] **AC-US5-05**: Plugin-source detection excludes plugins that happen to be vendored under excluded paths; fixture tests verify that a `plugin.json` under `node_modules/` is never returned.
 
 ---
 
@@ -125,11 +127,11 @@ Full design reference: `/Users/antonabyzov/.claude/plans/eventual-dazzling-dahl.
 **So that** I can see in-development skills that live in version control but aren't yet installed to `.claude/skills/` or `~/.claude/skills/`
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: A new `scanStandaloneSkills(projectRoot)` function in `src/eval/standalone-skill-scanner.ts` walks `<projectRoot>/skills/<skill>/SKILL.md` and emits one `SkillInfo` per SKILL.md with `scope="authoring-project"`.
-- [ ] **AC-US6-02**: The scanner **skips** any SKILL.md whose ancestors contain a `.claude-plugin/plugin.json`; those skills are the responsibility of `scanAuthoredPluginSkills` and must not be double-counted.
-- [ ] **AC-US6-03**: AUTHORING > Skills renders the returned skills as a flat list (no plugin nesting), counts always shown including `(0)`.
-- [ ] **AC-US6-04**: The scanner runs regardless of active agent (standalone skills are cross-agent-friendly).
-- [ ] **AC-US6-05**: Fixture tests cover: (a) a standalone skill outside any plugin source is included; (b) a SKILL.md nested inside a plugin source is excluded; (c) an empty `<root>/skills/` returns `[]` without error.
+- [x] **AC-US6-01**: A new `scanStandaloneSkills(projectRoot)` function in `src/eval/standalone-skill-scanner.ts` walks `<projectRoot>/skills/<skill>/SKILL.md` and emits one `SkillInfo` per SKILL.md with `scope="authoring-project"`.
+- [x] **AC-US6-02**: The scanner **skips** any SKILL.md whose ancestors contain a `.claude-plugin/plugin.json`; those skills are the responsibility of `scanAuthoredPluginSkills` and must not be double-counted.
+- [x] **AC-US6-03**: AUTHORING > Skills renders the returned skills as a flat list (no plugin nesting), counts always shown including `(0)`.
+- [x] **AC-US6-04**: The scanner runs regardless of active agent (standalone skills are cross-agent-friendly).
+- [x] **AC-US6-05**: Fixture tests cover: (a) a standalone skill outside any plugin source is included; (b) a SKILL.md nested inside a plugin source is excluded; (c) an empty `<root>/skills/` returns `[]` without error.
 
 ---
 
@@ -141,11 +143,11 @@ Full design reference: `/Users/antonabyzov/.claude/plans/eventual-dazzling-dahl.
 **So that** I can reason about override behavior without diffing the filesystem
 
 **Acceptance Criteria**:
-- [ ] **AC-US7-01**: `scanSkills*` results within AVAILABLE are post-processed to compute `precedenceRank` — `personal=1`, `project=2` (lower wins); `available-plugin` rows set `precedenceRank=-1` (orthogonal, namespaced, never shadows non-plugin skills).
-- [ ] **AC-US7-02**: When two AVAILABLE rows share the same skill name across `available-project` and `available-personal`, the higher-rank row sets `shadowedBy=<losing-scope>` on the shadowed row; the winning row has `shadowedBy=null`.
-- [ ] **AC-US7-03**: Shadowed rows in the sidebar render an inline pill with the text `shadowed → <winning-source>` (provisional copy, finalized during T2); winning rows render no pill.
-- [ ] **AC-US7-04**: Plugin skills are never marked as shadowed or shadowing against non-plugin skills — they live in their own namespace via `pluginNamespace` and don't collide by bare name.
-- [ ] **AC-US7-05**: Shadowing logic is scoped to AVAILABLE only; AUTHORING rows never emit `shadowedBy`.
+- [x] **AC-US7-01**: `scanSkills*` results within AVAILABLE are post-processed to compute `precedenceRank` — `personal=1`, `project=2` (lower wins); `available-plugin` rows set `precedenceRank=-1` (orthogonal, namespaced, never shadows non-plugin skills).
+- [x] **AC-US7-02**: When two AVAILABLE rows share the same skill name across `available-project` and `available-personal`, the higher-rank row sets `shadowedBy=<losing-scope>` on the shadowed row; the winning row has `shadowedBy=null`.
+- [x] **AC-US7-03**: Shadowed rows in the sidebar render an inline pill with the text `shadowed → <winning-source>` (provisional copy, finalized during T2); winning rows render no pill.
+- [x] **AC-US7-04**: Plugin skills are never marked as shadowed or shadowing against non-plugin skills — they live in their own namespace via `pluginNamespace` and don't collide by bare name.
+- [x] **AC-US7-05**: Shadowing logic is scoped to AVAILABLE only; AUTHORING rows never emit `shadowedBy`.
 
 ---
 
@@ -157,9 +159,9 @@ Full design reference: `/Users/antonabyzov/.claude/plans/eventual-dazzling-dahl.
 **So that** the project identity is displayed in exactly one place and the statusbar can carry useful real-time state instead
 
 **Acceptance Criteria**:
-- [ ] **AC-US8-01**: `src/eval-ui/src/components/StatusBar.tsx` no longer renders the project-path display in its footer.
-- [ ] **AC-US8-02**: `ProjectPicker` is mounted once, in the top-left of `StudioLayout`, as the single source of project identity in the UI.
-- [ ] **AC-US8-03**: Snapshot tests for `StatusBar.tsx` and `StudioLayout.tsx` reflect the new layout; the absence of the footer path is asserted, not incidental.
+- [x] **AC-US8-01**: `src/eval-ui/src/components/StatusBar.tsx` no longer renders the project-path display in its footer.
+- [x] **AC-US8-02**: `ProjectPicker` is mounted once, in the top-left of `StudioLayout`, as the single source of project identity in the UI.
+- [x] **AC-US8-03**: Snapshot tests for `StatusBar.tsx` and `StudioLayout.tsx` reflect the new layout; the absence of the footer path is asserted, not incidental.
 
 ## Functional Requirements
 

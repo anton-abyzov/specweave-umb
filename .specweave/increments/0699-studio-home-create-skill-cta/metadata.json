@@ -1,0 +1,18 @@
+{
+  "id": "0699-studio-home-create-skill-cta",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-24T13:04:21.460Z",
+  "lastActivity": "2026-04-24T13:07:20.401Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "readyForReviewAt": "2026-04-24T13:07:20.392Z",
+  "approvedAt": "2026-04-24T13:07:20.401Z"
+}
