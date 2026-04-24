@@ -1,10 +1,12 @@
 ---
 increment: 0675-skill-creator-detection-hotfix
-title: "Hotfix: isSkillCreatorInstalled() misses localSkillsDir and marketplace installs"
+title: >-
+  Hotfix: isSkillCreatorInstalled() misses localSkillsDir and marketplace
+  installs
 type: hotfix
 priority: P1
-status: active
-created: 2026-04-23
+status: completed
+created: 2026-04-23T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
