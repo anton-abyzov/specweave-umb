@@ -1,0 +1,27 @@
+{
+  "id": "0692-remove-dead-mockgetskillbyname-wiring",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P3",
+  "created": "2026-04-24T04:04:29.872Z",
+  "lastActivity": "2026-04-24T04:05:43.720Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-24T04:05:43.720Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-04 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
