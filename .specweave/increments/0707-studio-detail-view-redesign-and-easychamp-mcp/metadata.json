@@ -1,0 +1,367 @@
+{
+  "id": "0707-studio-detail-view-redesign-and-easychamp-mcp",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-24T19:46:41.985Z",
+  "lastActivity": "2026-04-24T20:57:23.352Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-965",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-965",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-24T20:58:17.781Z"
+    },
+    "ado": {
+      "featureId": "1804",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1804",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-24T20:58:24.607Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-24T20:18:38.742Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:18:34.509Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:18:29.868Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:18:25.477Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:18:20.798Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:18:16.247Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:18:10.888Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:18:05.858Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:18:01.461Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:17:57.190Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:17:52.986Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:17:48.818Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US4-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:07:18.056Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:07:13.219Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:07:09.158Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:07:02.441Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:06:57.674Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:06:53.247Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:03:13.339Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T20:03:10.799Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    }
+  ],
+  "readyForReviewAt": "2026-04-24T20:23:29.241Z",
+  "approvedAt": "2026-04-24T20:57:23.352Z"
+}
