@@ -1,10 +1,10 @@
 ---
 increment: 0709-eval-ui-test-drift-cleanup
-title: "eval-ui test-drift cleanup"
-type: chore
+title: eval-ui test-drift cleanup
+type: refactor
 priority: P2
-status: active
-created: 2026-04-24
+status: completed
+created: 2026-04-24T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -80,6 +80,7 @@ state of the world that shipped fine.
 - [x] **AC-US1-03**: `TopRail.modelselector.test.tsx > T-059 TopRail — breadcrumb navigation > OWN segment is a button-like element with an onClick handler` passes, asserting against the `Skills` segment label.
 - [x] **AC-US1-04**: `qa-interactions.test.tsx > QA: TopRail breadcrumb shape` passes, asserting `"Skills"` instead of `"Own"`.
 - [x] **AC-US1-05**: The three test files' `it()` / `describe()` descriptors and inline comments referring to `OWN` / `INSTALLED` are refreshed to `Skills` / `Project` where they describe the current behavior (stale descriptors were misleading enough to cause the drift in the first place).
+- [x] **AC-US1-06**: `e2e/agent-scope-picker.spec.ts > 0686 E2E-03 — Tri-scope sidebar` passes against the current post-0698 five-bucket sidebar layout (AVAILABLE + AUTHORING group buttons with nested `Project` / `Personal` / `Skills` sub-scope buttons). Surfaced during PM Gate 2a — the spec was still asserting against the retired 2-section (`sidebar-section-header` with `Own` / `Installed`) layout. Same drift family as AC-US1-01..05.
 
 ### US-002: PluginTreeGroup snapshot reflects current DOM
 **Project**: vskill

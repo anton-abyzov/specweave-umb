@@ -1,10 +1,10 @@
 {
   "id": "0709-eval-ui-test-drift-cleanup",
-  "status": "active",
-  "type": "chore",
+  "status": "completed",
+  "type": "refactor",
   "priority": "P2",
   "created": "2026-04-24T20:57:01.517Z",
-  "lastActivity": "2026-04-24T21:02:49.119Z",
+  "lastActivity": "2026-04-24T21:29:42.204Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,20 +15,36 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-971",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-24T20:59:34.548Z"
+      "syncedAt": "2026-04-24T21:30:16.488Z"
     },
     "ado": {
       "featureId": "1810",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1810",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-24T20:59:35.884Z"
+      "syncedAt": "2026-04-24T21:30:19.043Z"
     }
   },
   "planning": {
     "parallel": false
   },
   "acSyncEvents": [
+    {
+      "timestamp": "2026-04-24T21:25:44.437Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-05: [x] but only 0/3 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-06: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
     {
       "timestamp": "2026-04-24T21:02:49.119Z",
       "updated": [],
@@ -44,5 +60,6 @@
       "warnings": [],
       "changesCount": 0
     }
-  ]
+  ],
+  "approvedAt": "2026-04-24T21:29:42.204Z"
 }

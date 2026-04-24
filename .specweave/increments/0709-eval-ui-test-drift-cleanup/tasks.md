@@ -42,6 +42,15 @@
 - Then `npx vitest run src/eval-ui/src/__tests__/PluginTreeGroup.test.tsx` passes without `-u`
 - AND the recorded snapshot text contains the literal strings `display:flex;align-items:center;padding-right:6px`, `width:16px`, `font-size:14px`, `font-weight:700`, `color:var(--color-ink, var(--text-primary))`.
 
+### T-006: Update tri-scope E2E spec to match post-0698 five-bucket sidebar
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-06 | **Status**: [x] completed
+**File**: `e2e/agent-scope-picker.spec.ts` (lines 79-98)
+**Context**: Surfaced during PM Gate 2a verification. The spec was asserting against the retired 2-section sidebar layout (`button[data-testid='sidebar-section-header']` with `Own` / `Installed`). The 0698 T-008 refactor replaced this with GroupHeader buttons (`AVAILABLE` / `AUTHORING`) wrapping NamedScopeSection sub-buttons (`Project` / `Personal` / `Skills` / `Plugins`). The E2E never caught up — pre-existing drift confirmed via `git stash` + re-run at iteration time.
+**Test Plan**:
+- Given the post-0698 sidebar renders two `role="button"` GroupHeaders named `AVAILABLE` / `AUTHORING` wrapping sub-scope buttons `Project` / `Personal` / `Skills`
+- When the E2E locator is updated to `sidebar.getByRole("button", { name: /AVAILABLE/ })` / `/AUTHORING/` plus a sub-label presence check
+- Then `npx playwright test agent-scope-picker.spec.ts` passes E2E-03 (8/8 non-skipped specs green at iteration time, 2 skipped by design for harness-pending paths).
+
 ## Phase 3: Verification
 
 ### T-005: Full eval-ui regression sweep
@@ -52,4 +61,4 @@
 - Given T-001..T-004 are complete
 - When the full `src/eval-ui` vitest sweep runs
 - Then every previously-failing test passes AND no adjacent test regresses
-- AND the net diff of this increment only touches files under `src/eval-ui/**/__tests__/**` (zero production-code churn).
+- AND the 0709-scoped files in the change set touch ONLY `src/eval-ui/**/__tests__/**` and the paired `__snapshots__/*.snap` (zero production-code churn FROM 0709). Unrelated production changes bundled into the same git commit are permitted if they carry their own increment traceability (e.g. 0704 T-013a/b) and are documented in `reports/CLOSURE-NOTES.md`.
