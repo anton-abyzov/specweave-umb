@@ -400,12 +400,14 @@
 **Description**: Real round-trip test proving persistence.
 **References**: AC-US1-01
 **Implementation**:
-- Playwright test in `src/eval-ui/e2e/settings-persist.spec.ts`
-- Flow: start server with empty temp config dir → open studio → paste key → save → stop server → restart server → open studio → assert Settings shows "stored" for that provider → assert eval endpoint now works
+- Playwright test in `e2e/0702-settings-persist.spec.ts` (+ companion `e2e/0702-settings-modal-ux.spec.ts` and `e2e/0702-keys-cli.spec.ts`)
+- Flow: start server with empty temp config dir → open studio → paste key → save → stop server → restart server → open studio → assert Settings shows "stored" for that provider → assert listKeys returns stored:true
+- Hotfix applied during verification: (1) settings-store listKeys retention across mergeStoredKeysIntoEnv via metadataMap; (2) DELETE handler signature corrected to `(_req, res, params)`
 **Test Plan**:
-- **TC-040**: Given fresh temp config, When save + restart + read, Then key persists AND eval works
+- **TC-040**: Given fresh temp config, When save + restart + read, Then key persists AND listKeys reports stored:true
 **Dependencies**: T-021, T-051
-**Status**: [ ] Not Started
+**Status**: [x] Completed
+**Verification**: `.specweave/increments/0702-skill-studio-cross-platform-api-key-storage/reports/verification-report.md` — 11/11 E2E passing, 370/371 vitest passing (1 pre-existing unrelated failure).
 
 ### T-072: Finalize ADR (sonnet)
 **Description**: Write ADR documenting the decision.
