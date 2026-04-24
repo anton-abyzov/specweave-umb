@@ -1,0 +1,42 @@
+{
+  "id": "0697-queue-design-consistency",
+  "status": "planned",
+  "type": "refactor",
+  "priority": "P2",
+  "created": "2026-04-24T07:44:52.822Z",
+  "lastActivity": "2026-04-24T07:55:21.141Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-910",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-910",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-24T07:57:01.658Z"
+    },
+    "ado": {
+      "featureId": "1749",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1749",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-24T07:57:05.170Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-24T07:55:21.141Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
