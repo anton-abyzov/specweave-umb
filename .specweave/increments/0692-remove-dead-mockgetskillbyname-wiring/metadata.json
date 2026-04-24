@@ -1,15 +1,30 @@
 {
   "id": "0692-remove-dead-mockgetskillbyname-wiring",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P3",
   "created": "2026-04-24T04:04:29.872Z",
-  "lastActivity": "2026-04-24T04:05:43.720Z",
+  "lastActivity": "2026-04-24T04:13:26.644Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-890",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-890",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-24T04:13:44.151Z"
+    },
+    "ado": {
+      "featureId": "1729",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1729",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-24T04:13:46.172Z"
+    }
+  },
   "acSyncEvents": [
     {
       "timestamp": "2026-04-24T04:05:43.720Z",
@@ -23,5 +38,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-24T04:13:26.629Z",
+  "approvedAt": "2026-04-24T04:13:26.644Z"
 }

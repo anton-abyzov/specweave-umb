@@ -1,10 +1,10 @@
 ---
 increment: 0681-versions-route-test-mocks-stale
-title: "Fix stale mocks in versions API route tests (11 failing)"
+title: Fix stale mocks in versions API route tests (11 failing)
 type: bug
 priority: P2
-status: planned
-created: 2026-04-23
+status: completed
+created: 2026-04-23T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -45,8 +45,8 @@ This is a ~20-line test-mock hotfix; the strict-interview categories are acknowl
 **So that** CI is green, regressions are caught, and the route is safe to refactor
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given the test file has a `skill.findUnique` mock added to the hoisted `mockDb` block, when all 11 tests in `route.test.ts` run under `npx vitest run`, then all 11 pass with no `TypeError: Cannot read properties of undefined (reading 'findUnique')` anywhere in the output.
-- [ ] **AC-US1-02**: Given the fix is intentionally minimal, when the diff is inspected, then only the `vi.hoisted()` `mockDb` block in `route.test.ts` is modified — no changes to individual test cases, no changes to `route.ts`, no changes to any other production or test file.
+- [x] **AC-US1-01**: Given the test file has a `skill.findUnique` mock added to the hoisted `mockDb` block, when all 11 tests in `route.test.ts` run under `npx vitest run`, then all 11 pass with no `TypeError: Cannot read properties of undefined (reading 'findUnique')` anywhere in the output.
+- [x] **AC-US1-02**: Given the fix is intentionally minimal, when the diff is inspected, then only the `vi.hoisted()` `mockDb` block in `route.test.ts` is modified — no changes to individual test cases, no changes to `route.ts`, no changes to any other production or test file.
 
 ## Functional Requirements
 

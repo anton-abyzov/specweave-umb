@@ -1,10 +1,10 @@
 {
   "id": "0681-versions-route-test-mocks-stale",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P2",
   "created": "2026-04-23T06:59:03.977Z",
-  "lastActivity": "2026-04-23T07:01:18.972Z",
+  "lastActivity": "2026-04-23T15:40:47.170Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,17 +15,27 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-883",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-23T07:20:23.522Z"
+      "syncedAt": "2026-04-23T15:41:00.868Z"
     },
     "ado": {
       "featureId": "1722",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1722",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-23T07:20:24.999Z"
+      "syncedAt": "2026-04-23T15:41:03.595Z"
     }
   },
   "acSyncEvents": [
+    {
+      "timestamp": "2026-04-23T14:18:09.445Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
     {
       "timestamp": "2026-04-23T07:01:18.971Z",
       "updated": [],
@@ -36,5 +46,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-23T15:40:47.156Z",
+  "approvedAt": "2026-04-23T15:40:47.170Z"
 }

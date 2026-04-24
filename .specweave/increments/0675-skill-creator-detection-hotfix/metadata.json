@@ -1,10 +1,10 @@
 {
   "id": "0675-skill-creator-detection-hotfix",
-  "status": "planned",
+  "status": "completed",
   "type": "hotfix",
   "priority": "P1",
   "created": "2026-04-23T03:53:06.612Z",
-  "lastActivity": "2026-04-23T03:53:06.612Z",
+  "lastActivity": "2026-04-24T05:41:30.905Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,16 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-861",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-23T04:03:05.595Z"
+      "syncedAt": "2026-04-24T05:41:51.059Z"
     },
     "ado": {
       "featureId": "1700",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1700",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-23T04:03:10.969Z"
+      "syncedAt": "2026-04-24T05:41:54.689Z"
     }
-  }
+  },
+  "readyForReviewAt": "2026-04-24T05:41:30.891Z",
+  "approvedAt": "2026-04-24T05:41:30.906Z"
 }

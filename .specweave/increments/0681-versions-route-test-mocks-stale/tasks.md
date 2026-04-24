@@ -9,7 +9,7 @@
 
 ### T-001: Add `skill.findUnique` to hoisted `mockDb` in versions route test file
 
-**User Story**: US-001 | **AC**: AC-US1-01, AC-US1-02 | **Status**: [ ] Not Started
+**User Story**: US-001 | **AC**: AC-US1-01, AC-US1-02 | **Status**: [x] Completed
 
 **Description**: Extend the `vi.hoisted(() => ({ mockDb }))` block (around line 16) in `repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/[owner]/[repo]/[skill]/versions/__tests__/route.test.ts` to include a `skill.findUnique` mock that returns a default skill record. This aligns the test double with the route implementation at `versions/route.ts:15`, which calls `db.skill.findUnique({ where: { name: ... } })`.
 
@@ -38,4 +38,4 @@
 
 ## Phase: Verification
 
-- [ ] [T-002] Run `npx vitest run "src/app/api/v1/skills/[owner]/[repo]/[skill]/versions/__tests__/route.test.ts"` from `repositories/anton-abyzov/vskill-platform` — confirm 11/11 passing, no `TypeError`.
+- [x] [T-002] Run `npx vitest run "src/app/api/v1/skills/[owner]/[repo]/[skill]/versions/__tests__/route.test.ts"` from `repositories/anton-abyzov/vskill-platform` — confirmed 11/11 passing (2026-04-23), no `TypeError`.

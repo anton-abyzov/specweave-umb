@@ -3,8 +3,8 @@ increment: 0692-remove-dead-mockgetskillbyname-wiring
 title: Remove dead getSkillByName mock wiring from versions route test
 type: bug
 priority: P3
-status: planned
-created: 2026-04-24
+status: completed
+created: 2026-04-24T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 100
