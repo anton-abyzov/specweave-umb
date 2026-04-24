@@ -15,7 +15,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ## Phase 1 — RED: Discovery tests + baseline evidence
 
 ### T-001: RED — Write queue-design-consolidation E2E spec (fails on current code)
-**User Story**: US-005 | **AC**: AC-US5-01, AC-US5-02, AC-US5-03 | **Status**: [ ] pending
+**User Story**: US-005 | **AC**: AC-US5-01, AC-US5-02, AC-US5-03 | **Status**: [x] completed
 **Test Plan**: Given the current `/queue` page still has `--queue-paper` defined and a Georgia serif hero title → When the new Playwright spec runs against the running app → Then all three assertions FAIL (confirming test sensitivity before any code changes land).
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/tests/e2e/queue-design-consolidation.spec.ts`
@@ -24,7 +24,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ---
 
 ### T-002: RED — Capture "before" screenshot evidence
-**User Story**: US-005 | **AC**: AC-US5-06 | **Status**: [ ] pending
+**User Story**: US-005 | **AC**: AC-US5-06 | **Status**: [x] completed
 **Test Plan**: Given the queue page still renders with its current warm-paper palette → When a Playwright script captures screenshots at the full matrix → Then `tests/e2e/evidence/queue-before/` contains 18-24 PNG files named `{theme}-{viewport}-{url-slug}.png`.
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/tests/e2e/evidence/queue-before/` (directory + files)
@@ -35,7 +35,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ## Phase 3 — GREEN: Per-component token swap
 
 ### T-003: GREEN — Delete --queue-* blocks from globals.css
-**User Story**: US-002 | **AC**: AC-US2-01, AC-US2-03 | **Status**: [ ] pending
+**User Story**: US-002 | **AC**: AC-US2-01, AC-US2-03 | **Status**: [x] completed
 **Test Plan**: Given `globals.css` currently defines `--queue-paper` through `--queue-shadow` in both light (lines 94-102) and dark (lines 191-199) theme blocks → When the two blocks are deleted with no replacement rules → Then `rg -n "--queue-" src/app/globals.css` returns 0 hits.
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/src/app/globals.css`
@@ -44,7 +44,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ---
 
 ### T-004: GREEN — Migrate QueueStatusBar.tsx to standard tokens
-**User Story**: US-002, US-003 | **AC**: AC-US2-02, AC-US3-01, AC-US4-06 | **Status**: [ ] pending
+**User Story**: US-002, US-003 | **AC**: AC-US2-02, AC-US3-01, AC-US4-06 | **Status**: [x] completed
 **Test Plan**: Given `QueueStatusBar.tsx` uses `--queue-muted`, `--queue-rule`, `color-mix(...queue-paper...)`, `fontFamily: mono` wrapper, and `padding: 0.32rem 0.62rem` → When all queue-specific tokens and the mono wrapper are replaced → Then (a) `rg -n "--queue-" src/app/queue/QueueStatusBar.tsx` returns 0 hits; (b) the outer wrapper div does NOT have an inline `fontFamily` containing `mono`; (c) padding is `0.25rem 0.625rem`.
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/src/app/queue/QueueStatusBar.tsx`
@@ -53,7 +53,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ---
 
 ### T-005: GREEN — Migrate SubmissionTable.tsx to standard tokens
-**User Story**: US-002, US-003, US-004 | **AC**: AC-US2-02, AC-US3-03, AC-US4-02, AC-US4-04 | **Status**: [ ] pending
+**User Story**: US-002, US-003, US-004 | **AC**: AC-US2-02, AC-US3-03, AC-US4-02, AC-US4-04 | **Status**: [x] completed
 **Test Plan**: Given `SubmissionTable.tsx` uses `--queue-ink`, `--queue-rule`, `color-mix(white, queue-paper)` on the sticky cell, and `color-mix(queue-accent, white)` for the row flash → When all queue tokens are replaced → Then (a) `rg -n "--queue-" src/app/queue/SubmissionTable.tsx` returns 0 hits; (b) `rg -n "color-mix" src/app/queue/SubmissionTable.tsx` returns 0 hits; (c) all `data-testid` attributes are unchanged.
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/src/app/queue/SubmissionTable.tsx`
@@ -62,7 +62,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ---
 
 ### T-006: GREEN — Migrate QueuePageComponents.tsx to standard tokens
-**User Story**: US-002, US-004 | **AC**: AC-US2-02, AC-US2-04, AC-US4-05 | **Status**: [ ] pending
+**User Story**: US-002, US-004 | **AC**: AC-US2-02, AC-US2-04, AC-US4-05 | **Status**: [x] completed
 **Test Plan**: Given `QueuePageComponents.tsx` defines `QueueSkeleton`, `QueueTableSkeleton`, `StatCard`, `ReasonPill`, and `ExecutionLogPanel` using `--queue-*` tokens, gradients, and wrapper-level `fontFamily: mono` → When all queue tokens and wrapper mono are replaced → Then (a) `rg -n "--queue-" src/app/queue/QueuePageComponents.tsx` returns 0 hits; (b) `StatCard` renders with a flat background matching `.role-card` (no `linear-gradient`); (c) `data-testid="stat-card-*"` attributes are unchanged.
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/src/app/queue/QueuePageComponents.tsx`
@@ -71,7 +71,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ---
 
 ### T-007: GREEN — Rewrite QueuePageClient.tsx inline style block
-**User Story**: US-001, US-002, US-004 | **AC**: AC-US1-01, AC-US1-02, AC-US2-05, AC-US4-01, AC-US4-03 | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-004 | **AC**: AC-US1-01, AC-US1-02, AC-US2-05, AC-US4-01, AC-US4-03 | **Status**: [x] completed
 **Test Plan**: Given `QueuePageClient.tsx` has an inline `<style>` block containing `Georgia`, `--queue-*` references, `color-mix()` gradient on `<main>`, and queue-specific shadow/accent class rules → When the block is rewritten → Then (a) `rg -n "Georgia" src/app/queue/QueuePageClient.tsx` returns 0 hits; (b) `rg -n "--queue-" src/app/queue/QueuePageClient.tsx` returns 0 hits; (c) the `<main>` element uses `background: var(--bg)` (flat, no gradient); (d) `.queue-title` renders in Geist Sans matching `.hero-h1` pattern.
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/src/app/queue/QueuePageClient.tsx`
@@ -82,7 +82,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ## Phase 4 — Typography audit
 
 ### T-008: REFACTOR — Mono typography audit across all four queue component files
-**User Story**: US-004 | **AC**: AC-US2-05, AC-US4-04 | **Status**: [ ] pending
+**User Story**: US-004 | **AC**: AC-US2-05, AC-US4-04 | **Status**: [x] completed
 **Test Plan**: Given tasks T-004 through T-007 have landed → When `rg -n "fontFamily.*mono|font-family.*mono|geist-mono|Geist Mono" src/app/queue/` runs across all four component files → Then every remaining hit is ONLY on: `getElapsed` timestamp output spans, submission ID spans, URL/repo slug spans, numeric badge spans (score, `#N` queue position), `.queue-kicker` eyebrow label.
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/src/app/queue/QueuePageClient.tsx`
@@ -96,7 +96,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ## Phase 5 — Regression + visual verification
 
 ### T-009: VERIFY — Run all existing Vitest queue specs (must pass unchanged)
-**User Story**: US-005 | **AC**: AC-US5-04 | **Status**: [ ] pending
+**User Story**: US-005 | **AC**: AC-US5-04 | **Status**: [x] completed
 **Test Plan**: Given the five queue component files have been modified in T-003..T-008 → When `npx vitest run src/app/queue/__tests__/` runs → Then all 6 spec files pass with 0 failures and 0 skips; then `npx vitest run` globally returns 0 failures.
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/src/app/queue/__tests__/` (run existing files, do not modify)
@@ -105,7 +105,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ---
 
 ### T-010: VERIFY — Run new E2E consolidation spec (must now pass GREEN)
-**User Story**: US-005 | **AC**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-05 | **Status**: [ ] pending
+**User Story**: US-005 | **AC**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-05 | **Status**: [x] completed
 **Test Plan**: Given T-003..T-008 have all completed → When `npx playwright test tests/e2e/queue-design-consolidation.spec.ts` runs → Then all three assertions pass (GREEN); then `npx playwright test tests/e2e/queue*.spec.ts` runs and all 9 pre-existing specs pass unchanged.
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/tests/e2e/queue-design-consolidation.spec.ts`
@@ -114,7 +114,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ---
 
 ### T-011: VERIFY — Capture "after" screenshots and manual side-by-side compare
-**User Story**: US-001, US-003 | **AC**: AC-US1-03, AC-US3-02, AC-US5-06 | **Status**: [ ] pending
+**User Story**: US-001, US-003 | **AC**: AC-US1-03, AC-US3-02, AC-US5-06 | **Status**: [x] completed
 **Test Plan**: Given T-003..T-010 are complete and the page renders correctly → When after-screenshots are captured at the same matrix as T-002 → Then `tests/e2e/evidence/queue-after/` contains 18-24 PNGs; side-by-side with `/skills` at 1280 light shows matching chrome rhythm, typography, and card radius; browser devtools Accessibility panel confirms WCAG AA on all 5 state-badge intents x 2 themes.
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/tests/e2e/evidence/queue-after/` (directory + files)
@@ -125,7 +125,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ## Phase 6 — Cleanup + CI verification
 
 ### T-012: CLEANUP — Final rg sweep: zero --queue-* and Georgia hits
-**User Story**: US-002, US-004 | **AC**: AC-US2-03, AC-US4-01, AC-US4-02 | **Status**: [ ] pending
+**User Story**: US-002, US-004 | **AC**: AC-US2-03, AC-US4-01, AC-US4-02 | **Status**: [x] completed
 **Test Plan**: Given all GREEN and REFACTOR tasks are complete → When `rg -n "--queue-" src/` runs from the vskill-platform root → Then exit code 1 (no matches); When `rg -n "Georgia" src/app/queue/` runs → Then exit code 1 (no matches); When `rg -n "color-mix" src/app/queue/` runs → Then exit code 1 (no matches).
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/src/app/globals.css`
@@ -138,7 +138,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ---
 
 ### T-013: VERIFY — Confirm /admin/queue renders unchanged
-**User Story**: US-002 | **AC**: AC-US2-04 | **Status**: [ ] pending
+**User Story**: US-002 | **AC**: AC-US2-04 | **Status**: [x] completed
 **Test Plan**: Given T-003 deleted `--queue-*` from globals.css and all queue component files have been updated → When `/admin/queue` is loaded in a browser → Then it renders identically to before the increment (uses its own `--admin-*` tokens; `STATE_BADGES` from the unchanged `src/app/queue/shared/constants.ts` renders correctly).
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/src/app/admin/queue/page.tsx` (read-only — must be unchanged)
@@ -148,7 +148,7 @@ Target repo: `repositories/anton-abyzov/vskill-platform/`
 ---
 
 ### T-014: REFACTOR — Accessibility audit on state badges (optional / time-permitting)
-**User Story**: US-001, US-003 | **AC**: AC-US1-04, AC-US3-02 | **Status**: [ ] pending
+**User Story**: US-001, US-003 | **AC**: AC-US1-04, AC-US3-02 | **Status**: [x] completed
 **Test Plan**: Given T-011 has completed the manual screenshot matrix → When browser devtools Accessibility panel is used on `/queue` for each of the 5 badge intents x 2 themes → Then contrast ratios are documented and all meet WCAG AA (>=4.5:1 body text, >=3:1 large text/UI components).
 **Files**:
 - No file changes required — documentation only in PR description

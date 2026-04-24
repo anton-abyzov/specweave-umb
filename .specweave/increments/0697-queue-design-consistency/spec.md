@@ -1,10 +1,10 @@
 ---
 increment: 0697-queue-design-consistency
-title: "Queue page design rollback to app design system"
+title: Queue page design rollback to app design system
 type: refactor
 priority: P2
-status: planned
-created: 2026-04-24
+status: completed
+created: 2026-04-24T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -34,10 +34,10 @@ This increment rolls the queue page back onto the same design system as the rest
 **So that** the product feels coherent and professional, and nothing jumps out as "half-finished" or left over from a prior redesign.
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: When I navigate from `/skills` to `/queue` in the same session, the page chrome (background color, border style, card radius, spacing rhythm) is visually continuous — no warm-paper tint, no serif title, no all-Mono body copy.
-- [ ] **AC-US1-02**: The `/queue` hero title renders in the same typeface and weight family as the `/skills` and `/docs` hero titles (Geist Sans, matching the existing `.hero-h1` pattern), not in Georgia serif.
-- [ ] **AC-US1-03**: The `/queue` filter bar matches the `/skills` filter bar in border-radius, padding, and font-family within a visual-diff tolerance suitable for a side-by-side screenshot comparison captured at 1280×720 light mode.
-- [ ] **AC-US1-04**: State badges on `/queue` (Pending, Running, Succeeded, Failed, Paused, Rejected, etc.) still render in their semantically correct color families (success/warning/danger/info/neutral) in both light and dark mode.
+- [x] **AC-US1-01**: When I navigate from `/skills` to `/queue` in the same session, the page chrome (background color, border style, card radius, spacing rhythm) is visually continuous — no warm-paper tint, no serif title, no all-Mono body copy.
+- [x] **AC-US1-02**: The `/queue` hero title renders in the same typeface and weight family as the `/skills` and `/docs` hero titles (Geist Sans, matching the existing `.hero-h1` pattern), not in Georgia serif.
+- [x] **AC-US1-03**: The `/queue` filter bar matches the `/skills` filter bar in border-radius, padding, and font-family within a visual-diff tolerance suitable for a side-by-side screenshot comparison captured at 1280×720 light mode.
+- [x] **AC-US1-04**: State badges on `/queue` (Pending, Running, Succeeded, Failed, Paused, Rejected, etc.) still render in their semantically correct color families (success/warning/danger/info/neutral) in both light and dark mode.
 
 ---
 
@@ -49,10 +49,10 @@ This increment rolls the queue page back onto the same design system as the rest
 **So that** future theme tweaks propagate automatically to the queue page and we do not carry two parallel token systems.
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `src/app/globals.css` contains zero `--queue-*` CSS variable definitions after the change. Specifically, the light-theme block (currently lines 94-102) and the dark-theme block (currently lines 191-199) are fully removed with no replacement rules.
-- [ ] **AC-US2-02**: Every file under `src/app/queue/**` references only the app's standard tokens: `--bg`, `--bg-subtle`, `--bg-hover`, `--text`, `--text-muted`, `--border`, `--status-info-*`, `--status-success-*`, `--status-warning-*`, `--status-danger-*`, `--status-neutral-*`, plus the existing `STATUS_VARS` helper.
-- [ ] **AC-US2-03**: Running `rg -n "--queue-" src/` from the `vskill-platform` repo root returns 0 hits after the change.
-- [ ] **AC-US2-04**: The `STATE_BADGES` export at `src/app/queue/shared/constants.ts` is kept as-is (it already composes `STATUS_VARS[intent]` semantically) and continues to be consumed by both `/queue` and `/admin/queue` without modification.
+- [x] **AC-US2-01**: `src/app/globals.css` contains zero `--queue-*` CSS variable definitions after the change. Specifically, the light-theme block (currently lines 94-102) and the dark-theme block (currently lines 191-199) are fully removed with no replacement rules.
+- [x] **AC-US2-02**: Every file under `src/app/queue/**` references only the app's standard tokens: `--bg`, `--bg-subtle`, `--bg-hover`, `--text`, `--text-muted`, `--border`, `--status-info-*`, `--status-success-*`, `--status-warning-*`, `--status-danger-*`, `--status-neutral-*`, plus the existing `STATUS_VARS` helper.
+- [x] **AC-US2-03**: Running `rg -n "--queue-" src/` from the `vskill-platform` repo root returns 0 hits after the change.
+- [x] **AC-US2-04**: The `STATE_BADGES` export at `src/app/queue/shared/constants.ts` is kept as-is (it already composes `STATUS_VARS[intent]` semantically) and continues to be consumed by both `/queue` and `/admin/queue` without modification.
 
 ---
 
@@ -64,9 +64,9 @@ This increment rolls the queue page back onto the same design system as the rest
 **So that** the switch feels coherent across the entire site and no page appears to have a "stuck" palette from a prior era.
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: When the app theme switches from light to dark (and vice versa), the `/queue` background, text, borders, and card surfaces transition to the corresponding app-standard dark/light values — not to isolated `--queue-*` values.
-- [ ] **AC-US3-02**: State badges on `/queue` (Pending, Running, Succeeded, Failed, Paused, Rejected) meet WCAG AA contrast (≥4.5:1 for body text, ≥3:1 for large text or UI components) against their background tint in both light and dark mode, verified in browser devtools Accessibility panel.
-- [ ] **AC-US3-03**: Sticky first-column separation on horizontal scroll in `SubmissionTable` remains visually distinct in both themes using `var(--bg-subtle)` instead of the prior `color-mix(white 84%, --queue-paper 16%)` expression.
+- [x] **AC-US3-01**: When the app theme switches from light to dark (and vice versa), the `/queue` background, text, borders, and card surfaces transition to the corresponding app-standard dark/light values — not to isolated `--queue-*` values.
+- [x] **AC-US3-02**: State badges on `/queue` (Pending, Running, Succeeded, Failed, Paused, Rejected) meet WCAG AA contrast (≥4.5:1 for body text, ≥3:1 for large text or UI components) against their background tint in both light and dark mode, verified in browser devtools Accessibility panel.
+- [x] **AC-US3-03**: Sticky first-column separation on horizontal scroll in `SubmissionTable` remains visually distinct in both themes using `var(--bg-subtle)` instead of the prior `color-mix(white 84%, --queue-paper 16%)` expression.
 
 ---
 
@@ -78,12 +78,12 @@ This increment rolls the queue page back onto the same design system as the rest
 **So that** the queue page is easier to maintain, aligns with future design updates, and stops accumulating one-off styles that only apply to a single route.
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Running `rg -n "Georgia" src/app/queue/` returns 0 hits after the change.
-- [ ] **AC-US4-02**: Running `rg -n "color-mix" src/app/queue/` returns 0 hits after the change (no inline `color-mix()` calls remain in queue components).
-- [ ] **AC-US4-03**: The main `<main>` element of the queue page uses a flat `var(--bg)` background, not a gradient or multi-stop expression.
-- [ ] **AC-US4-04**: Geist Mono is retained ONLY on: timestamp cells (`getElapsed` output), submission IDs, repo slugs / URLs, numeric badges (score, queue position `#N`), and `.queue-kicker` eyebrow text. It is removed from: headings, body text, labels, table-cell prose, and CTAs.
-- [ ] **AC-US4-05**: `StatCard` (`QueuePageComponents.tsx`) renders with a flat surface matching the existing `.role-card` pattern — no gradient, no warm accent, standard `--border` and `--bg`.
-- [ ] **AC-US4-06**: `QueueStatusBar` micro-padding is normalized from `0.32rem 0.62rem` to the app baseline `0.25rem 0.625rem` (4px / 10px), matching the rhythm used by other status chips.
+- [x] **AC-US4-01**: Running `rg -n "Georgia" src/app/queue/` returns 0 hits after the change.
+- [x] **AC-US4-02**: Running `rg -n "color-mix" src/app/queue/` returns 0 hits after the change (no inline `color-mix()` calls remain in queue components).
+- [x] **AC-US4-03**: The main `<main>` element of the queue page uses a flat `var(--bg)` background, not a gradient or multi-stop expression.
+- [x] **AC-US4-04**: Geist Mono is retained ONLY on: timestamp cells (`getElapsed` output), submission IDs, repo slugs / URLs, numeric badges (score, queue position `#N`), and `.queue-kicker` eyebrow text. It is removed from: headings, body text, labels, table-cell prose, and CTAs.
+- [x] **AC-US4-05**: `StatCard` (`QueuePageComponents.tsx`) renders with a flat surface matching the existing `.role-card` pattern — no gradient, no warm accent, standard `--border` and `--bg`.
+- [x] **AC-US4-06**: `QueueStatusBar` micro-padding is normalized from `0.32rem 0.62rem` to the app baseline `0.25rem 0.625rem` (4px / 10px), matching the rhythm used by other status chips.
 
 ---
 
@@ -95,12 +95,12 @@ This increment rolls the queue page back onto the same design system as the rest
 **So that** accidental reintroduction of the drift during future design work is caught by CI instead of discovered after deploy.
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: A new Playwright spec at `tests/e2e/queue-design-consolidation.spec.ts` exists and asserts: `getComputedStyle(document.documentElement).getPropertyValue('--queue-paper')` resolves to the empty string on `/queue`.
-- [ ] **AC-US5-02**: The same spec asserts that the queue hero `h1` computed `font-family` contains `geist-sans` (case-insensitive) and does NOT contain `Georgia`.
-- [ ] **AC-US5-03**: The same spec asserts that the queue filter-bar bounding box (border-radius, padding) is within an agreed visual-diff tolerance of the `/skills` filter-bar when both are captured at 1280×720 in light mode.
-- [ ] **AC-US5-04**: All 6 existing Vitest specs under `src/app/queue/__tests__/` (including `QueueStatusBar.test.tsx`, `SubmissionTable.test.tsx`, `page.test.tsx`, and 3 others) pass without modification after the rollback — behavior is unchanged.
-- [ ] **AC-US5-05**: All 9 existing Playwright specs matching `tests/e2e/queue*.spec.ts` (`queue.spec.ts`, `queue-pagination.spec.ts`, `queue-stat-card-stability.spec.ts`, `queue-submit-visibility.spec.ts`, `queue-duplicates.spec.ts`, `queue-cold-load.spec.ts`, and 3 others) pass unchanged — no `data-testid` renames, no DOM structure changes.
-- [ ] **AC-US5-06**: Before/after screenshot evidence is captured under `tests/e2e/evidence/queue-before/` and `tests/e2e/evidence/queue-after/` covering light + dark × 1280 / 768 / 375 × 3-4 URL states (`/queue`, `/queue?filter=rejected`, `/queue?q=d`, `/queue?filter=rejected&reason=security`).
+- [x] **AC-US5-01**: A new Playwright spec at `tests/e2e/queue-design-consolidation.spec.ts` exists and asserts: `getComputedStyle(document.documentElement).getPropertyValue('--queue-paper')` resolves to the empty string on `/queue`.
+- [x] **AC-US5-02**: The same spec asserts that the queue hero `h1` computed `font-family` contains `geist-sans` (case-insensitive) and does NOT contain `Georgia`.
+- [x] **AC-US5-03**: The same spec asserts that the queue filter-bar bounding box (border-radius, padding) is within an agreed visual-diff tolerance of the `/skills` filter-bar when both are captured at 1280×720 in light mode.
+- [x] **AC-US5-04**: All 6 existing Vitest specs under `src/app/queue/__tests__/` (including `QueueStatusBar.test.tsx`, `SubmissionTable.test.tsx`, `page.test.tsx`, and 3 others) pass without modification after the rollback — behavior is unchanged.
+- [x] **AC-US5-05**: All 9 existing Playwright specs matching `tests/e2e/queue*.spec.ts` (`queue.spec.ts`, `queue-pagination.spec.ts`, `queue-stat-card-stability.spec.ts`, `queue-submit-visibility.spec.ts`, `queue-duplicates.spec.ts`, `queue-cold-load.spec.ts`, and 3 others) pass unchanged — no `data-testid` renames, no DOM structure changes.
+- [x] **AC-US5-06**: Before/after screenshot evidence is captured under `tests/e2e/evidence/queue-before/` and `tests/e2e/evidence/queue-after/` covering light + dark × 1280 / 768 / 375 × 3-4 URL states (`/queue`, `/queue?filter=rejected`, `/queue?q=d`, `/queue?filter=rejected&reason=security`).
 
 ---
 
