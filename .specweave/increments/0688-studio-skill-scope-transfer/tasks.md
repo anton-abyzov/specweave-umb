@@ -205,7 +205,7 @@ test_mode: TDD
 ## Client — SkillRow, ContextMenu, PromotedFromChip, StatusBar wiring
 
 ### T-021: Extend SkillRow with data-skill-id attribute and PromotedFromChip
-**User Story**: US-001, US-003 | **Satisfies ACs**: AC-US1-01, AC-US3-02, AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-001, US-003 | **Satisfies ACs**: AC-US1-01, AC-US3-02, AC-US3-03 | **Status**: [x] completed
 **Test Plan**:
   - Given: `SkillRow` renders without `data-skill-id` and no provenance chip
   - When: `data-skill-id="${plugin}/${skill}"` is added to the root element of `SkillRow`; `<PromotedFromChip>` component is created rendering source scope label + Revert `<button aria-label="Revert <skill> to <fromScope>">` when `skill.provenance` is present; chip is not rendered when `provenance == null`; Revert button dispatches the `revert` action from `useScopeTransfer`
@@ -213,7 +213,7 @@ test_mode: TDD
 **Files**: `src/eval-ui/src/components/SkillRow.tsx` (update), `src/eval-ui/src/components/PromotedFromChip.tsx` (new)
 
 ### T-022: Extend ContextMenu with promote / test-install / revert items
-**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-01, AC-US1-05, AC-US2-01, AC-US3-01 | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-01, AC-US1-05, AC-US2-01, AC-US3-01 | **Status**: [x] completed
 **Test Plan**:
   - Given: `ContextMenu.tsx` `ContextMenuAction` union and `itemsForSkill` lack scope-transfer actions
   - When: `"promote" | "test-install" | "revert"` added to `ContextMenuAction`; `itemsForSkill` conditionally adds "Promote to OWN" for installed/global skills; "Test-install to .claude/" for own skills; "Revert to INSTALLED" for own skills with provenance only (not shown when `provenance == null`)
@@ -221,7 +221,7 @@ test_mode: TDD
 **Files**: `src/eval-ui/src/components/ContextMenu.tsx` (update)
 
 ### T-023: Wire OpsCountChip into StatusBar and OpsDrawer into StudioLayout
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-02, AC-US4-06 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-02, AC-US4-06 | **Status**: [x] completed
 **Test Plan**:
   - Given: `StatusBar` has no ops chip; `StudioLayout` RightPanel variant enum does not include `"ops"`
   - When: `<OpsCountChip>` component is created with `role="button"`, `aria-expanded`, `aria-controls="ops-drawer"`, showing session op count from `useStudioOps().ops.length`; mounted in `StatusBar`; `StudioLayout` adds `"ops"` to its RightPanel variant enum and renders `<OpsDrawer>` when variant is `"ops"`; Esc on open drawer closes and returns focus to chip
@@ -233,7 +233,7 @@ test_mode: TDD
 ## Scanner enrichment
 
 ### T-024: Enrich skill-scanner with provenance sidecar read
-**User Story**: US-001, US-003 | **Satisfies ACs**: AC-US1-04, AC-US3-02, AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-001, US-003 | **Satisfies ACs**: AC-US1-04, AC-US3-02, AC-US3-03 | **Status**: [x] completed
 **Test Plan**:
   - Given: skill-scanner returns `SkillInfo` objects without a `provenance` field
   - When: scanner is updated to call `readProvenance(skillDir)` for each skill where `scope === "own"` and attach the result (or `null`) as `SkillInfo.provenance`; a missing or malformed `.vskill-meta.json` must not throw or abort the scan

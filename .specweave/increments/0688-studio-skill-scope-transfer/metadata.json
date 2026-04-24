@@ -1,10 +1,10 @@
 {
   "id": "0688-studio-skill-scope-transfer",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-23T15:17:46.704Z",
-  "lastActivity": "2026-04-24T00:00:00.000Z",
+  "lastActivity": "2026-04-24T18:47:32.201Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,16 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-885",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-23T15:31:59.196Z"
+      "syncedAt": "2026-04-24T17:02:37.708Z"
     },
     "ado": {
       "featureId": "1724",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1724",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-23T15:32:03.763Z"
+      "syncedAt": "2026-04-24T17:02:42.477Z"
     }
-  }
+  },
+  "readyForReviewAt": "2026-04-24T18:47:32.170Z",
+  "approvedAt": "2026-04-24T18:47:32.201Z"
 }

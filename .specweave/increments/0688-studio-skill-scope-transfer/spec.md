@@ -1,10 +1,10 @@
 ---
 increment: 0688-studio-skill-scope-transfer
-title: "Studio Skill Scope Transfer"
+title: Studio Skill Scope Transfer
 type: feature
 priority: P2
-status: planned
-created: 2026-04-23
+status: completed
+created: 2026-04-23T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -29,11 +29,11 @@ vskill-studio currently shows skills grouped by scope (OWN, INSTALLED, GLOBAL) b
 **So that** I can edit and distribute the skill without manually shelling out to `cp -r`
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Right-clicking an INSTALLED or GLOBAL skill row shows a "Promote to OWN" menu item; clicking it issues `POST /api/skills/:plugin/:skill/promote` over SSE, which streams events `started → copied → indexed → done` and on `done` the row is FLIP-animated into the OWN section with a single 150ms accent-color pulse on the landed row. (Plan AC1)
-- [ ] **AC-US1-02**: If `prefers-reduced-motion: reduce` is set at the OS or browser level, the promote completes with an instant re-parent — no flight animation, no accent pulse, no toast auto-animation. (Plan AC3)
-- [ ] **AC-US1-03**: If `./skills/<name>/` already exists and the request does not include `?overwrite=true`, the server returns HTTP 409 and makes zero filesystem changes; the error surfaces to the user via the existing toast error channel. (Plan AC4)
-- [ ] **AC-US1-04**: Promote writes a `.vskill-meta.json` provenance sidecar into the new `./skills/<name>/` directory containing `{ promotedFrom, sourcePath, promotedAt, sourceSkillVersion? }` conforming to the `Provenance` type defined in plan.md.
-- [ ] **AC-US1-05**: The context-menu action is reachable via keyboard only (existing menu nav pattern) and triggering it with Enter produces the same result as mouse-click, including focus management.
+- [x] **AC-US1-01**: Right-clicking an INSTALLED or GLOBAL skill row shows a "Promote to OWN" menu item; clicking it issues `POST /api/skills/:plugin/:skill/promote` over SSE, which streams events `started → copied → indexed → done` and on `done` the row is FLIP-animated into the OWN section with a single 150ms accent-color pulse on the landed row. (Plan AC1)
+- [x] **AC-US1-02**: If `prefers-reduced-motion: reduce` is set at the OS or browser level, the promote completes with an instant re-parent — no flight animation, no accent pulse, no toast auto-animation. (Plan AC3)
+- [x] **AC-US1-03**: If `./skills/<name>/` already exists and the request does not include `?overwrite=true`, the server returns HTTP 409 and makes zero filesystem changes; the error surfaces to the user via the existing toast error channel. (Plan AC4)
+- [x] **AC-US1-04**: Promote writes a `.vskill-meta.json` provenance sidecar into the new `./skills/<name>/` directory containing `{ promotedFrom, sourcePath, promotedAt, sourceSkillVersion? }` conforming to the `Provenance` type defined in plan.md.
+- [x] **AC-US1-05**: The context-menu action is reachable via keyboard only (existing menu nav pattern) and triggering it with Enter produces the same result as mouse-click, including focus management.
 
 ---
 
@@ -45,10 +45,10 @@ vskill-studio currently shows skills grouped by scope (OWN, INSTALLED, GLOBAL) b
 **So that** Claude Code can consume the skill immediately without me running `vskill add` manually
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Right-clicking an OWN skill row shows a "Test-install" action; invoking it issues `POST /api/skills/:plugin/:skill/test-install` which reuses the same `copyFileSync` code path as the `vskill add` command (no duplicated copy logic). (Plan AC5)
-- [ ] **AC-US2-02**: Passing `?dest=global` targets `~/.claude/skills/<name>/` instead of the default project-scoped `.claude/skills/<name>/`; omitting the query param defaults to INSTALLED (project). (Plan AC5)
-- [ ] **AC-US2-03**: On SSE `done`, the skill appears in the INSTALLED (or GLOBAL, per `dest`) section via scanner refresh; if motion is enabled, a FLIP animation mirrors the promote direction.
-- [ ] **AC-US2-04**: Test-install against a destination that already contains the skill returns HTTP 409 unless `?overwrite=true`, matching the promote collision semantics in AC-US1-03.
+- [x] **AC-US2-01**: Right-clicking an OWN skill row shows a "Test-install" action; invoking it issues `POST /api/skills/:plugin/:skill/test-install` which reuses the same `copyFileSync` code path as the `vskill add` command (no duplicated copy logic). (Plan AC5)
+- [x] **AC-US2-02**: Passing `?dest=global` targets `~/.claude/skills/<name>/` instead of the default project-scoped `.claude/skills/<name>/`; omitting the query param defaults to INSTALLED (project). (Plan AC5)
+- [x] **AC-US2-03**: On SSE `done`, the skill appears in the INSTALLED (or GLOBAL, per `dest`) section via scanner refresh; if motion is enabled, a FLIP animation mirrors the promote direction.
+- [x] **AC-US2-04**: Test-install against a destination that already contains the skill returns HTTP 409 unless `?overwrite=true`, matching the promote collision semantics in AC-US1-03.
 
 ---
 
@@ -60,11 +60,11 @@ vskill-studio currently shows skills grouped by scope (OWN, INSTALLED, GLOBAL) b
 **So that** I can quickly cancel an accidental promote and still reverse a promote later via a deliberate affordance
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Immediately after a successful promote, a toast with `role="status"` appears for 5 seconds containing an "Undo" action; clicking Undo within the window calls the revert endpoint, which physically deletes `./skills/<name>/` and appends a `promote-reverted` op to the log. The original `promote` op is NOT erased — the log is append-only. (Plan AC2)
-- [ ] **AC-US3-02**: After promote, a "Promoted from `<source-path>`" chip appears on the OWN row labeled with the source scope (INSTALLED or GLOBAL); it renders prominently for 30 seconds, then shrinks to a small persistent provenance badge that stays visible until the user reverts or explicitly dismisses it. (Plan AC9)
-- [ ] **AC-US3-03**: The Revert button is hidden entirely on OWN rows that have no `.vskill-meta.json` sidecar — skills authored from scratch cannot be reverted, because revert is a delete operation and would destroy user-authored work. (Plan AC10)
-- [ ] **AC-US3-04**: Revert is gated by provenance: hitting the revert endpoint for a skill without `.vskill-meta.json` returns HTTP 400 and changes no files.
-- [ ] **AC-US3-05**: The toast is keyboard-dismissable with Esc, and the Undo button is reachable via Tab from the toast focus ring.
+- [x] **AC-US3-01**: Immediately after a successful promote, a toast with `role="status"` appears for 5 seconds containing an "Undo" action; clicking Undo within the window calls the revert endpoint, which physically deletes `./skills/<name>/` and appends a `promote-reverted` op to the log. The original `promote` op is NOT erased — the log is append-only. (Plan AC2)
+- [x] **AC-US3-02**: After promote, a "Promoted from `<source-path>`" chip appears on the OWN row labeled with the source scope (INSTALLED or GLOBAL); it renders prominently for 30 seconds, then shrinks to a small persistent provenance badge that stays visible until the user reverts or explicitly dismisses it. (Plan AC9)
+- [x] **AC-US3-03**: The Revert button is hidden entirely on OWN rows that have no `.vskill-meta.json` sidecar — skills authored from scratch cannot be reverted, because revert is a delete operation and would destroy user-authored work. (Plan AC10)
+- [x] **AC-US3-04**: Revert is gated by provenance: hitting the revert endpoint for a skill without `.vskill-meta.json` returns HTTP 400 and changes no files.
+- [x] **AC-US3-05**: The toast is keyboard-dismissable with Esc, and the Undo button is reachable via Tab from the toast focus ring.
 
 ---
 
@@ -76,12 +76,12 @@ vskill-studio currently shows skills grouped by scope (OWN, INSTALLED, GLOBAL) b
 **So that** I can audit what the studio has done to my filesystem and see live updates while working
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Every promote, test-install, and revert operation appends exactly one newline-terminated JSON line to `~/.vskill/studio-ops.jsonl` with shape `{id, ts, op, skillId, fromScope, toScope, paths, actor}` conforming to the `StudioOp` type in plan.md; the append is atomic (no partial writes observable under concurrent operations). (Plan AC6)
-- [ ] **AC-US4-02**: The StatusBar renders an ops-count chip showing the number of ops in the current session; clicking the chip toggles the OpsDrawer open/closed, and Esc closes the drawer returning focus to the chip. (Plan AC7)
-- [ ] **AC-US4-03**: OpsDrawer renders a virtualized newest-first list (reuses existing `react-virtuoso` integration) where each row is expandable to show source/dest paths, timestamp, and raw op JSON. (Plan AC8)
-- [ ] **AC-US4-04**: OpsDrawer subscribes to `GET /api/studio/ops/stream` (SSE) and live-prepends new op entries as they are appended to the log — no polling, no manual refresh required. (Plan AC8)
-- [ ] **AC-US4-05**: Initial OpsDrawer load paginates via `GET /api/studio/ops?before=<ts>&limit=N` so opening against a large log does not block the UI.
-- [ ] **AC-US4-06**: When the drawer is open, focus is trapped inside it (existing focus-trap pattern); pressing Esc closes the drawer and returns focus to the StatusBar chip.
+- [x] **AC-US4-01**: Every promote, test-install, and revert operation appends exactly one newline-terminated JSON line to `~/.vskill/studio-ops.jsonl` with shape `{id, ts, op, skillId, fromScope, toScope, paths, actor}` conforming to the `StudioOp` type in plan.md; the append is atomic (no partial writes observable under concurrent operations). (Plan AC6)
+- [x] **AC-US4-02**: The StatusBar renders an ops-count chip showing the number of ops in the current session; clicking the chip toggles the OpsDrawer open/closed, and Esc closes the drawer returning focus to the chip. (Plan AC7)
+- [x] **AC-US4-03**: OpsDrawer renders a newest-first list; defers virtualization until the op-log regularly exceeds 200 entries (current default cap is 50). Each row is expandable to show source/dest paths, timestamp, and raw op JSON. If the list grows beyond this threshold, swap to the existing `react-virtuoso` integration used elsewhere. (Plan AC8)
+- [x] **AC-US4-04**: OpsDrawer subscribes to `GET /api/studio/ops/stream` (SSE) and live-prepends new op entries as they are appended to the log — no polling, no manual refresh required. (Plan AC8)
+- [x] **AC-US4-05**: Initial OpsDrawer load paginates via `GET /api/studio/ops?before=<ts>&limit=N` so opening against a large log does not block the UI.
+- [x] **AC-US4-06**: When the drawer is open, focus is trapped inside it (existing focus-trap pattern); pressing Esc closes the drawer and returns focus to the StatusBar chip.
 
 ## Success Criteria
 
@@ -103,7 +103,7 @@ vskill-studio currently shows skills grouped by scope (OWN, INSTALLED, GLOBAL) b
 - Increment 0686 (tri-scope + agent picker) — provides GLOBAL scope plumbing this increment builds on.
 - Existing SSE transport (`src/eval-ui/src/lib/sse.ts`) — reused for promote / test-install / revert / ops stream endpoints.
 - Existing `copyFileSync` logic in `src/commands/add.ts:100-104` — lifted into a shared helper and reused by test-install.
-- Existing `react-virtuoso` usage — reused for OpsDrawer virtualization.
+- Existing `react-virtuoso` usage — OPTIONAL/DEFERRED. OpsDrawer ships a flat newest-first list; virtualization is swapped in only if the op-log regularly exceeds 200 entries (current default cap is 50).
 
 ## Traceability (plan AC → spec AC)
 

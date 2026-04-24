@@ -534,6 +534,14 @@
       "success": true,
       "timestamp": "2026-03-07T01:55:32.653Z",
       "durationMs": 1263
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-904",
+      "incrementId": "0696-hotfix-lifecycle-hook-multi-provider-closure",
+      "success": true,
+      "timestamp": "2026-04-24T07:38:17.350Z",
+      "durationMs": 1469
     }
   ],
   "summary": {
@@ -555,12 +563,12 @@
       ]
     },
     "jira": {
-      "totalAttempts": 4,
-      "successful": 4,
+      "totalAttempts": 5,
+      "successful": 5,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-03-07T01:55:32.653Z",
-      "avgDurationMs": 1542.75,
+      "lastSuccess": "2026-04-24T07:38:17.350Z",
+      "avgDurationMs": 1528,
       "recentErrors": []
     },
     "ado": {
@@ -571,11 +579,11 @@
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 66,
-      "successful": 60,
+      "totalAttempts": 67,
+      "successful": 61,
       "failed": 6,
-      "successRate": 0.9090909090909091
+      "successRate": 0.9104477611940298
     },
-    "lastUpdated": "2026-03-07T01:55:32.654Z"
+    "lastUpdated": "2026-04-24T07:38:17.351Z"
   }
 }
