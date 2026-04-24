@@ -1,10 +1,10 @@
 {
   "id": "0704-studio-new-skill-reveal-and-api-empty-state",
-  "status": "active",
+  "status": "completed",
   "type": "hotfix",
   "priority": "P1",
   "created": "2026-04-24T18:19:51.906Z",
-  "lastActivity": "2026-04-24T18:19:51.906Z",
+  "lastActivity": "2026-04-24T21:57:32.118Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,17 +15,39 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-949",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-24T18:24:49.655Z"
+      "syncedAt": "2026-04-24T21:58:10.865Z"
     },
     "ado": {
       "featureId": "1788",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1788",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-24T18:24:51.792Z"
+      "syncedAt": "2026-04-24T21:58:13.480Z"
     }
   },
   "planning": {
     "parallel": false
-  }
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-24T21:57:25.729Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US2-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US2-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US2-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-03: [x] but only 0/2 tasks complete (0%)",
+        "AC-US2-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US2-05: [x] but only 0/2 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/3 tasks complete (0%)",
+        "AC-US1-01: [x] but only 0/4 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/4 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/4 tasks complete (0%)",
+        "AC-US1-05: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    }
+  ],
+  "approvedAt": "2026-04-24T21:57:32.118Z"
 }

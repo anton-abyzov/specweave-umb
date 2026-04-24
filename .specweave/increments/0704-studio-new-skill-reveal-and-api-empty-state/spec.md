@@ -1,10 +1,10 @@
 ---
 increment: 0704-studio-new-skill-reveal-and-api-empty-state
-title: "Studio new-skill reveal + API empty-state"
+title: Studio new-skill reveal + API empty-state
 type: hotfix
 priority: P1
-status: planned
-created: 2026-04-24
+status: completed
+created: 2026-04-24T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -31,11 +31,11 @@ Scope: `repositories/anton-abyzov/vskill/` only.
 **So that** I can see where it landed in the nested tree without hunting for it.
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: When a new skill is created under AUTHORING > Project (standalone), the AUTHORING group and the Project NamedScopeSection both render expanded, and the new skill's row is scrolled into view.
-- [ ] **AC-US1-02**: When a new skill is created under AUTHORING > Plugins > {plugin} (plugin-owned), the AUTHORING group, Plugins NamedScopeSection, and the matching PluginTreeGroup all render expanded, and the new skill's row is scrolled into view.
-- [ ] **AC-US1-03**: The reveal-time expansion does NOT write to localStorage — after the reveal clears, the user's prior manual collapse preferences are preserved for the next page load.
-- [ ] **AC-US1-04**: The newly-revealed skill is also selected (detail panel opens with its metadata), and the URL hash matches `#/skills/{plugin}/{skill}`.
-- [ ] **AC-US1-05**: Regular row clicks (user navigating within the sidebar) do NOT force-expand ancestors — only explicit reveal triggers (creation, notification-bell) expand collapsed ancestors.
+- [x] **AC-US1-01**: When a new skill is created under AUTHORING > Project (standalone), the AUTHORING group and the Project NamedScopeSection both render expanded, and the new skill's row is scrolled into view.
+- [x] **AC-US1-02**: When a new skill is created under AUTHORING > Plugins > {plugin} (plugin-owned), the AUTHORING group, Plugins NamedScopeSection, and the matching PluginTreeGroup all render expanded, and the new skill's row is scrolled into view.
+- [x] **AC-US1-03**: The reveal-time expansion does NOT write to localStorage — after the reveal clears, the user's prior manual collapse preferences are preserved for the next page load.
+- [x] **AC-US1-04**: The newly-revealed skill is also selected (detail panel opens with its metadata), and the URL hash matches `#/skills/{plugin}/{skill}`.
+- [x] **AC-US1-05**: Regular row clicks (user navigating within the sidebar) do NOT force-expand ancestors — only explicit reveal triggers (creation, notification-bell) expand collapsed ancestors.
 
 ---
 
@@ -47,12 +47,12 @@ Scope: `repositories/anton-abyzov/vskill/` only.
 **So that** the Network tab + console stay clean and the Studio doesn't look broken for freshly-created skills.
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `GET /api/skills/:plugin/:skill/evals` returns `200 { exists: false, evals: [] }` when `evals/evals.json` is missing (previously `404 { error: "No evals.json found" }`).
-- [ ] **AC-US2-02**: `GET /api/skills/:plugin/:skill/evals` continues to return `200 { evals: [...] }` (the existing EvalsFile shape) when `evals/evals.json` exists and is valid.
-- [ ] **AC-US2-03**: `GET /api/skills/:plugin/:skill/benchmark/latest` returns `200 null` when no benchmark exists (previously `404 { error: "No benchmark found" }`).
-- [ ] **AC-US2-04**: `getLatestBenchmark` client function continues to return `null` on missing data — via the new 200 null body, not the dropped 404 branch.
-- [ ] **AC-US2-05**: All existing SkillDetailPage / BenchmarkPage / HistoryPerEval / WorkspaceContext consumers continue to render correctly with the new response shapes — no regressions.
-- [ ] **AC-US2-06**: The dev-tools Network tab shows no 4xx errors for these two endpoints on a freshly-created skill.
+- [x] **AC-US2-01**: `GET /api/skills/:plugin/:skill/evals` returns `200 { exists: false, evals: [] }` when `evals/evals.json` is missing (previously `404 { error: "No evals.json found" }`).
+- [x] **AC-US2-02**: `GET /api/skills/:plugin/:skill/evals` continues to return `200` with an `EvalsFile`-shaped body when `evals/evals.json` exists and is valid. (Note: 0707 T-023 later wrapped the success-path body as `{ exists: true, ...evals }` for symmetry with the missing-file sentinel. The `EvalsFile` fields are preserved at the top level, and `api.getEvals` tolerates both shapes.)
+- [x] **AC-US2-03**: `GET /api/skills/:plugin/:skill/benchmark/latest` returns `200 null` when no benchmark exists (previously `404 { error: "No benchmark found" }`).
+- [x] **AC-US2-04**: `getLatestBenchmark` client function continues to return `null` on missing data — via the new 200 null body, not the dropped 404 branch.
+- [x] **AC-US2-05**: All existing SkillDetailPage / BenchmarkPage / HistoryPerEval / WorkspaceContext consumers continue to render correctly with the new response shapes — no regressions.
+- [x] **AC-US2-06**: The dev-tools Network tab shows no 4xx errors for these two endpoints on a freshly-created skill.
 
 ## Functional Requirements
 
