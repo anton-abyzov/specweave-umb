@@ -1,10 +1,10 @@
 ---
 increment: 0701-studio-provider-pricing-and-model-identity
-title: "Studio provider pricing and model identity"
+title: Studio provider pricing and model identity
 type: feature
 priority: P1
-status: planned
-created: 2026-04-24
+status: completed
+created: 2026-04-24T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -36,10 +36,10 @@ Make the picker tell the truth about what will run, what it costs, and what the 
 **So that** I can reason about capability, context window, and quota impact before running
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `/api/config` response includes a `resolvedModel` field on the `claude-cli` provider populated from `~/.claude/settings.json` `model` key (supports full IDs like `claude-opus-4-7[1m]` and aliases like `sonnet`).
-- [ ] **AC-US1-02**: When `~/.claude/settings.json` is missing, malformed, or unreadable, `resolvedModel` is `null`; the UI renders the generic label only (no crash, no misleading text).
+- [x] **AC-US1-01**: `/api/config` response includes a `resolvedModel` field on the `claude-cli` provider populated from `~/.claude/settings.json` `model` key (supports full IDs like `claude-opus-4-7[1m]` and aliases like `sonnet`).
+- [x] **AC-US1-02**: When `~/.claude/settings.json` is missing, malformed, or unreadable, `resolvedModel` is `null`; the UI renders the generic label only (no crash, no misleading text).
 - [x] **AC-US1-03**: The Studio picker's Claude Code model rows render the resolved ID as secondary metadata when present (e.g. "Claude Opus" heading + "routing to claude-opus-4-7[1m]" sub-line).
-- [ ] **AC-US1-04**: Resolution is re-read on each `/api/config` request (no extra caching beyond filesystem read) so a user who toggles `/model` in Claude Code sees the change on the next picker open.
+- [x] **AC-US1-04**: Resolution is re-read on each `/api/config` request (no extra caching beyond filesystem read) so a user who toggles `/model` in Claude Code sees the change on the next picker open.
 
 ### US-002: Real Anthropic API pricing
 **Project**: vskill
@@ -49,10 +49,10 @@ Make the picker tell the truth about what will run, what it costs, and what the 
 **So that** I can estimate cost without leaving the picker
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `PROVIDER_MODELS["anthropic"]` entries in `api-routes.ts` carry `pricing: { prompt, completion }` matching the public rate card — Opus 4.7 & 4.6: 15/75, Sonnet 4.6: 3/15, Haiku 4.5: 1/5 USD per 1M tokens.
-- [ ] **AC-US2-02**: `/api/config` response propagates `pricing` on each Anthropic model entry (shape identical to OpenRouter's).
+- [x] **AC-US2-01**: `PROVIDER_MODELS["anthropic"]` entries in `api-routes.ts` carry `pricing: { prompt, completion }` matching the public rate card — Opus 4.7 & 4.6: 15/75, Sonnet 4.6: 3/15, Haiku 4.5: 1/5 USD per 1M tokens.
+- [x] **AC-US2-02**: `/api/config` response propagates `pricing` on each Anthropic model entry (shape identical to OpenRouter's).
 - [x] **AC-US2-03**: `useAgentCatalog.toAgentEntry` copies `pricing` from the server response so `ModelList.formatMetadata` renders e.g. `$3.00 / $15.00 per 1M tokens` for Claude Sonnet 4.6.
-- [ ] **AC-US2-04**: A dated source comment in `api-routes.ts` points to `https://www.anthropic.com/pricing` and records the last-checked date (2026-04-24) so maintainers know when to re-verify.
+- [x] **AC-US2-04**: A dated source comment in `api-routes.ts` points to `https://www.anthropic.com/pricing` and records the last-checked date (2026-04-24) so maintainers know when to re-verify.
 
 ### US-003: Accurate LM Studio CTA copy
 **Project**: vskill
@@ -63,7 +63,7 @@ Make the picker tell the truth about what will run, what it costs, and what the 
 
 **Acceptance Criteria**:
 - [x] **AC-US3-01**: `strings.providers.lmStudio.startServiceCta` changes from `"Start service →"` to `"Start LM Studio server →"`.
-- [ ] **AC-US3-02**: A new `strings.providers.lmStudio.startServiceTooltip` with value `"Open LM Studio → Developer tab → Start Server (default port 1234)."` is exported from `strings.ts`. **String is exported, but NOT wired into `LockedProviderRow` as `title=` attribute per T-009 acceptance test — only partially delivered.**
+- [x] **AC-US3-02**: A new `strings.providers.lmStudio.startServiceTooltip` with value `"Open LM Studio → Developer tab → Start Server (default port 1234)."` is exported from `strings.ts`. **String is exported, but NOT wired into `LockedProviderRow` as `title=` attribute per T-009 acceptance test — only partially delivered.**
 - [x] **AC-US3-03**: Ollama's CTA stays `"Start service →"` (single command `ollama serve`, no app/server split to explain).
 
 ## Out of Scope
