@@ -1,0 +1,13 @@
+{
+  "id": "0689-e2e-github-seed-mock-fixture",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P3",
+  "created": "2026-04-23T15:36:33.611Z",
+  "lastActivity": "2026-04-23T15:36:33.611Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

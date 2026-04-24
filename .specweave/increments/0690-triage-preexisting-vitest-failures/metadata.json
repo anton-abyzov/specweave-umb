@@ -1,0 +1,13 @@
+{
+  "id": "0690-triage-preexisting-vitest-failures",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P2",
+  "created": "2026-04-23T15:36:38.894Z",
+  "lastActivity": "2026-04-23T15:36:38.894Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

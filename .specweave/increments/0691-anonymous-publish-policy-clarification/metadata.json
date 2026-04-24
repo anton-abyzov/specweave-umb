@@ -1,0 +1,13 @@
+{
+  "id": "0691-anonymous-publish-policy-clarification",
+  "status": "planned",
+  "type": "change-request",
+  "priority": "P3",
+  "created": "2026-04-23T15:36:46.279Z",
+  "lastActivity": "2026-04-23T15:36:46.279Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}

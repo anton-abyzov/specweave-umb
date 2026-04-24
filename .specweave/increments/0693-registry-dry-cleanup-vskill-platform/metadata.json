@@ -1,0 +1,243 @@
+{
+  "id": "0693-registry-dry-cleanup-vskill-platform",
+  "status": "active",
+  "type": "refactor",
+  "priority": "P1",
+  "created": "2026-04-24T05:07:52.966Z",
+  "lastActivity": "2026-04-24T05:28:47.929Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-24T05:28:47.928Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: [x] but no tasks found (manual verification?)",
+        "AC-US1-02: [x] but no tasks found (manual verification?)",
+        "AC-US1-03: [x] but no tasks found (manual verification?)",
+        "AC-US1-04: [x] but no tasks found (manual verification?)",
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)",
+        "AC-US2-03: [x] but no tasks found (manual verification?)",
+        "AC-US3-01: [x] but no tasks found (manual verification?)",
+        "AC-US3-02: [x] but no tasks found (manual verification?)",
+        "AC-US3-03: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T05:28:20.997Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: [x] but no tasks found (manual verification?)",
+        "AC-US1-02: [x] but no tasks found (manual verification?)",
+        "AC-US1-03: [x] but no tasks found (manual verification?)",
+        "AC-US1-04: [x] but no tasks found (manual verification?)",
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)",
+        "AC-US2-03: [x] but no tasks found (manual verification?)",
+        "AC-US3-01: [x] but no tasks found (manual verification?)",
+        "AC-US3-02: [x] but no tasks found (manual verification?)",
+        "AC-US3-03: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T05:27:51.918Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: [x] but no tasks found (manual verification?)",
+        "AC-US1-02: [x] but no tasks found (manual verification?)",
+        "AC-US1-03: [x] but no tasks found (manual verification?)",
+        "AC-US1-04: [x] but no tasks found (manual verification?)",
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)",
+        "AC-US2-03: [x] but no tasks found (manual verification?)",
+        "AC-US3-01: [x] but no tasks found (manual verification?)",
+        "AC-US3-02: [x] but no tasks found (manual verification?)",
+        "AC-US3-03: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T05:26:00.389Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: [x] but no tasks found (manual verification?)",
+        "AC-US1-02: [x] but no tasks found (manual verification?)",
+        "AC-US1-03: [x] but no tasks found (manual verification?)",
+        "AC-US1-04: [x] but no tasks found (manual verification?)",
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)",
+        "AC-US2-03: [x] but no tasks found (manual verification?)",
+        "AC-US3-01: [x] but no tasks found (manual verification?)",
+        "AC-US3-02: [x] but no tasks found (manual verification?)",
+        "AC-US3-03: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T05:25:06.249Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: [x] but no tasks found (manual verification?)",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)",
+        "AC-US2-03: [x] but no tasks found (manual verification?)",
+        "AC-US3-01: [x] but no tasks found (manual verification?)",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-03: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T05:25:01.286Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: [x] but no tasks found (manual verification?)",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)",
+        "AC-US2-03: [x] but no tasks found (manual verification?)",
+        "AC-US3-01: [x] but no tasks found (manual verification?)",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-03: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T05:19:58.609Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)",
+        "AC-US2-03: [x] but no tasks found (manual verification?)",
+        "AC-US3-01: [x] but no tasks found (manual verification?)",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-03: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T05:17:53.228Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)",
+        "AC-US2-03: [x] but no tasks found (manual verification?)",
+        "AC-US3-01: [x] but no tasks found (manual verification?)",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T05:15:47.921Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)",
+        "AC-US2-03: [x] but no tasks found (manual verification?)",
+        "AC-US3-01: has no tasks mapped",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T05:15:46.017Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)",
+        "AC-US2-03: [x] but no tasks found (manual verification?)",
+        "AC-US3-01: has no tasks mapped",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T05:13:40.152Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US3-01: has no tasks mapped",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T05:12:46.239Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US3-01: has no tasks mapped",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T05:10:09.966Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
