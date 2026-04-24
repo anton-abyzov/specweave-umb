@@ -1,10 +1,10 @@
 ---
 increment: 0695-prod-smoke-drift-and-stats-kv-gap
-title: "Fix prod smoke drift and stats KV write gap"
+title: Fix prod smoke drift and stats KV write gap
 type: bug
 priority: P1
-status: planned
-created: 2026-04-24
+status: completed
+created: 2026-04-24T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

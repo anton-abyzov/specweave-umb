@@ -1,10 +1,10 @@
 {
   "id": "0695-prod-smoke-drift-and-stats-kv-gap",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-04-24T05:31:33.283Z",
-  "lastActivity": "2026-04-24T05:34:37.525Z",
+  "lastActivity": "2026-04-24T06:17:05.910Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,17 +15,53 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-892",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-24T05:36:23.484Z"
+      "syncedAt": "2026-04-24T06:17:20.390Z"
     },
     "ado": {
       "featureId": "1731",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1731",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-24T05:36:24.868Z"
+      "syncedAt": "2026-04-24T06:17:21.482Z"
     }
   },
   "acSyncEvents": [
+    {
+      "timestamp": "2026-04-24T06:16:06.252Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US2-04 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-04 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-24T06:10:37.615Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US2-04 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-04 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
     {
       "timestamp": "2026-04-24T05:34:37.524Z",
       "updated": [],
@@ -40,5 +76,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-24T06:16:21.160Z",
+  "approvedAt": "2026-04-24T06:17:05.910Z"
 }

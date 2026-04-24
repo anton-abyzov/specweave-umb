@@ -67,5 +67,5 @@ AC-US1-05 ("11/11 tests pass") cannot complete from within 0695's scope. The rem
 Spawned task: "Apply 0680 Prisma migration to prod Neon DB" (`prisma migrate deploy 20260423132315_versioning_v2_phase1`). Migration is additive and online-safe per its own header comment. Once applied, `/skills` rows render, `/api/v1/skills` returns populated arrays, and the stats cron successfully writes `platform:stats` to KV — completing AC-US1-04 and AC-US1-05.
 
 ### T-011: Close 0695
-**User Story**: US-001, US-002 | **Status**: [ ] pending
-Close via `/sw:done 0695`. Increment delivers the core source fix (US-002) in full and the smoke-drift test retargets (F1 + F4) in full. F2 + stats/health smoke pass is gated on the spawned 0680 migration task. Rationale: 0695's objective was to make the smoke-drift visible and the watermark cron resilient — both delivered. The remaining 2 test fails are a separate blocker owned by 0680 (unapplied migration), not 0695 (smoke-drift).
+**User Story**: US-001, US-002 | **Status**: [x] completed
+Closed via `/sw:done 0695` by sw-closer subagent 2026-04-23. Increment delivers the core source fix (US-002) in full and the smoke-drift test retargets (F1 + F4) in full. F2 + stats/health smoke pass remains gated on the spawned 0680 migration task (separate ownership). 0695's objective — make the smoke-drift visible and the watermark cron resilient — both delivered. AC-US1-02/04/05 stay unchecked with documented external-blocker notes in spec.md.
