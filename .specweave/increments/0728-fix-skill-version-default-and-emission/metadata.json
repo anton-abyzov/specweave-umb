@@ -1,0 +1,33 @@
+{
+  "id": "0728-fix-skill-version-default-and-emission",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-25T16:22:24.350Z",
+  "lastActivity": "2026-04-25T16:38:59.810Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1063",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1063",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-25T16:34:21.549Z"
+    },
+    "ado": {
+      "featureId": "1902",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1902",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-25T16:34:25.044Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "readyForReviewAt": "2026-04-25T16:38:59.780Z",
+  "approvedAt": "2026-04-25T16:38:59.810Z"
+}
