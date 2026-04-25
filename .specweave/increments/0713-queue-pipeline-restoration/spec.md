@@ -35,11 +35,11 @@ Anton submitted `https://github.com/heygen-com/hyperframes` at 2026-04-24T23:11:
 **So that** dashboards, the queue page, and downstream filter logic don't lock onto a stale snapshot when the underlying query transiently fails
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `computeQueueStats` no longer wraps the count query in a `WITH deduped DISTINCT ON (repoUrl, skillName)` CTE. The flat `COUNT(*) FILTER (WHERE state IN (...))` is correct because the `(repoUrl, skillName)` unique index added in 0672 prevents duplicates.
-- [ ] **AC-US1-02**: On Phase 1 query failure (timeout, WASM OOM, DB unavailable), the cron writes a `{total: -1, active: -1, published: -1, rejected: -1, blocked: -1, onHold: -1, degraded: true}` failure sentinel to KV `submissions:stats-cache` and to the in-memory `_memQueueStats`.
-- [ ] **AC-US1-03**: The regression guard accepts a failure sentinel as the new "previous" state — it does NOT block subsequent successful writes that contain real positive counts.
-- [ ] **AC-US1-04**: The regression guard still rejects `{total: 0}` writes when the prior recorded `total > 0`. (The original 43a2790 / 0708 invariant is preserved.)
-- [ ] **AC-US1-05**: A successful cron run after a sentinel state is recorded MUST overwrite the sentinel and clear `degraded:true`.
+- [x] **AC-US1-01**: `computeQueueStats` no longer wraps the count query in a `WITH deduped DISTINCT ON (repoUrl, skillName)` CTE. The flat `COUNT(*) FILTER (WHERE state IN (...))` is correct because the `(repoUrl, skillName)` unique index added in 0672 prevents duplicates.
+- [x] **AC-US1-02**: On Phase 1 query failure (timeout, WASM OOM, DB unavailable), the cron writes a `{total: -1, active: -1, published: -1, rejected: -1, blocked: -1, onHold: -1, degraded: true}` failure sentinel to KV `submissions:stats-cache` and to the in-memory `_memQueueStats`.
+- [x] **AC-US1-03**: The regression guard accepts a failure sentinel as the new "previous" state — it does NOT block subsequent successful writes that contain real positive counts.
+- [x] **AC-US1-04**: The regression guard still rejects `{total: 0}` writes when the prior recorded `total > 0`. (The original 43a2790 / 0708 invariant is preserved.)
+- [x] **AC-US1-05**: A successful cron run after a sentinel state is recorded MUST overwrite the sentinel and clear `degraded:true`.
 - [ ] **AC-US1-06**: After deploy, `GET /api/v1/submissions/stats` returns `generatedAt` < 11 minutes old AND `degraded:false`.
 
 ### US-002: List endpoint surfaces failures honestly (P0)
@@ -50,10 +50,10 @@ Anton submitted `https://github.com/heygen-com/hyperframes` at 2026-04-24T23:11:
 **So that** I never silently see an empty list while the database is full of rows
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `parseUsableListCache` distinguishes "cache empty / parse failed" (returns null → fall through to DB) from "cache contains a valid response with `total: 0`" (returns the cached payload as-is). Today both paths return null.
-- [ ] **AC-US2-02**: When KV cache miss AND the DB query throws, the endpoint returns 503 with `Retry-After: 30` and a `hint: "database_unavailable"` body.
-- [ ] **AC-US2-03**: When KV cache miss AND DB returns 0 rows BUT current stats show TOTAL > 0, the endpoint logs a `list_empty_total_mismatch` warning and returns `{items: [], total: 0, warning: "list_empty_total_mismatch"}` so monitoring can alert.
-- [ ] **AC-US2-04**: The non-category branch of the GET handler wraps `fetchSubmissionList` in a try/catch that surfaces errors to the existing 503 fallback rather than swallowing them into an empty array.
+- [x] **AC-US2-01**: `parseUsableListCache` distinguishes "cache empty / parse failed" (returns null → fall through to DB) from "cache contains a valid response with `total: 0`" (returns the cached payload as-is). Today both paths return null.
+- [x] **AC-US2-02**: When KV cache miss AND the DB query throws, the endpoint returns 503 with `Retry-After: 30` and a `hint: "database_unavailable"` body.
+- [x] **AC-US2-03**: When KV cache miss AND DB returns 0 rows BUT current stats show TOTAL > 0, the endpoint logs a `list_empty_total_mismatch` warning and returns `{items: [], total: 0, warning: "list_empty_total_mismatch"}` so monitoring can alert.
+- [x] **AC-US2-04**: The non-category branch of the GET handler wraps `fetchSubmissionList` in a try/catch that surfaces errors to the existing 503 fallback rather than swallowing them into an empty array.
 - [ ] **AC-US2-05**: After deploy, `GET /api/v1/submissions?state=all&sort=createdAt&sortDir=desc&limit=10` returns ≥ 10 items.
 
 ### US-003: State-history writes are well-formed (P1)
@@ -77,10 +77,10 @@ Anton submitted `https://github.com/heygen-com/hyperframes` at 2026-04-24T23:11:
 **So that** transient queue stalls self-heal instead of leaving submissions stuck indefinitely
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: New script `scripts/drain-stuck-received.ts` accepts `--repo-url <url>`, `--age-min <number>` (default 5), `--limit <number>` (default 50), and `--dry-run`. It lists `state=RECEIVED` rows older than `age-min` matching the optional repo filter and re-enqueues each into `SUBMISSION_QUEUE`.
+- [x] **AC-US4-01**: New script `scripts/drain-stuck-received.ts` accepts `--repo-url <url>`, `--age-min <number>` (default 5), `--limit <number>` (default 50), and `--dry-run`. It lists `state=RECEIVED` rows older than `age-min` matching the optional repo filter and re-enqueues each into `SUBMISSION_QUEUE`.
 - [ ] **AC-US4-02**: Running the script with `--repo-url https://github.com/heygen-com/hyperframes --age-min 5` flushes the 6 stuck rows; within 60 seconds they transition out of RECEIVED.
-- [ ] **AC-US4-03**: The recovery cron `recoverStaleReceived` exists, runs every 30 minutes, finds rows where `state=RECEIVED AND createdAt < NOW() - 30 min`, and re-enqueues up to 50 per tick. If absent or broken, it is wired/repaired in this increment.
-- [ ] **AC-US4-04**: The drain script is idempotent — running it twice in quick succession does not enqueue the same row twice (verified via `inflight` tracking or message dedup).
+- [x] **AC-US4-03**: The recovery cron `recoverStaleReceived` exists, runs every 30 minutes, finds rows where `state=RECEIVED AND createdAt < NOW() - 30 min`, and re-enqueues up to 50 per tick. If absent or broken, it is wired/repaired in this increment.
+- [x] **AC-US4-04**: The drain script is idempotent — running it twice in quick succession does not enqueue the same row twice (verified via `inflight` tracking or message dedup).
 
 ### US-005: Queue page renders honestly during stats degradation (P1)
 **Project**: vskill-platform

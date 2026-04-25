@@ -43,7 +43,7 @@ STRICT TDD: every task pair is RED → GREEN. Refactor folded inline where appli
 - Tests still pass.
 
 ### T-004: GREEN — clamp -1 in /api/v1/submissions/stats response
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-06 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-06 | **Status**: [x] completed
 **Test Plan**:
 - Given KV `submissions:stats-cache` contains a sentinel `{total: -1, ...}`
 - When `GET /api/v1/submissions/stats` is called
@@ -57,7 +57,7 @@ STRICT TDD: every task pair is RED → GREEN. Refactor folded inline where appli
 - Document outcome in PR description.
 
 ### T-006: RED — list endpoint failure-surface tests
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [x] completed
 **Test Plan**:
 - Given KV cache contains `{submissions: [], total: 0}` (legitimate empty cached payload)
 - When `parseUsableListCache` is called
@@ -72,7 +72,7 @@ STRICT TDD: every task pair is RED → GREEN. Refactor folded inline where appli
 - Tests MUST fail before implementation.
 
 ### T-007: GREEN — implement list endpoint changes
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [x] completed
 **Test Plan**:
 - Update `parseUsableListCache` (`src/app/api/v1/submissions/route.ts:78-94`): only return null when JSON parse fails or required fields missing. A well-formed `{submissions: [], total: 0}` is a valid cached payload.
 - Wrap non-category branch (lines 401-412) in try/catch routing to existing 503 path at lines 472-491.
@@ -85,7 +85,7 @@ STRICT TDD: every task pair is RED → GREEN. Refactor folded inline where appli
 - `curl -s 'https://verified-skill.com/api/v1/submissions?state=active&limit=5' | jq` returns submission objects (or warning if truly empty).
 
 ### T-009: RED — drain script tests
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-04 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-04 | **Status**: [x] completed
 **Test Plan**:
 - Given a Submission with `state=RECEIVED` and `createdAt < NOW() - 5 min`
 - When `drainStuckReceived({ageMin: 5})` is called
@@ -99,7 +99,7 @@ STRICT TDD: every task pair is RED → GREEN. Refactor folded inline where appli
 - Test file: `tests/unit/scripts/drain-stuck-received.test.ts`
 
 ### T-010: GREEN — implement drain script + recovery helper
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-04 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-04 | **Status**: [x] completed
 **Test Plan**:
 - Create `src/lib/queue/recovery.ts` exporting `drainStuckReceived({repoUrl?, ageMin, limit, dryRun, prisma, queue, kv})`.
 - Create `scripts/drain-stuck-received.ts` CLI that parses argv and calls the helper.
@@ -107,7 +107,7 @@ STRICT TDD: every task pair is RED → GREEN. Refactor folded inline where appli
 - T-009 tests pass.
 
 ### T-011: GREEN — wire `recoverStaleReceived` cron
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-03 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-03 | **Status**: [x] completed
 **Test Plan**:
 - Given the cron handler runs at its 30-min schedule
 - When there is at least one Submission with `state=RECEIVED AND createdAt < NOW() - 30 min`

@@ -4,7 +4,7 @@
   "type": "hotfix",
   "priority": "P0",
   "created": "2026-04-24T23:39:31.858Z",
-  "lastActivity": "2026-04-25T00:05:00.000Z",
+  "lastActivity": "2026-04-25T20:51:16.635Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -12,5 +12,51 @@
   "externalLinks": {},
   "planning": {
     "parallel": false
-  }
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-25T20:51:16.634Z",
+      "updated": [
+        "AC-US4-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-25T20:51:15.650Z",
+      "updated": [
+        "AC-US4-01",
+        "AC-US4-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-04-25T20:51:10.738Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03",
+        "AC-US2-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 4
+    },
+    {
+      "timestamp": "2026-04-25T20:43:13.269Z",
+      "updated": [
+        "AC-US1-03",
+        "AC-US1-04",
+        "AC-US1-05",
+        "AC-US1-01",
+        "AC-US1-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 5
+    }
+  ]
 }
