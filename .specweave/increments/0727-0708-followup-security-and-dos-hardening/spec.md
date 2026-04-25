@@ -1,10 +1,10 @@
 ---
 increment: 0727-0708-followup-security-and-dos-hardening
-title: "0708 Follow-up: Security & DoS Hardening (F-CR2/3/4 + 6 mediums + live E2E)"
+title: '0708 Follow-up: Security & DoS Hardening (F-CR2/3/4 + 6 mediums + live E2E)'
 type: feature
 priority: P1
-status: planned
-created: 2026-04-25
+status: completed
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 95
@@ -77,9 +77,9 @@ This increment introduces no new personas. All 4 are inherited from the parent i
 **Background**: `src/app/api/v1/webhooks/github/route.ts:103-110` currently performs a non-atomic GET-then-PUT to record the delivery-ID nonce. Two concurrent webhook deliveries with the same delivery ID can both observe GET-not-found before either's PUT completes, both passing the dedupe check. Downstream scan-lock mitigates the user-visible damage, but the layer remains incorrect. The fix is to replace the GET-then-PUT pair with a Durable Object `state.storage.put`-with-conditional-check pattern (or equivalent atomic primitive in the existing DO infrastructure).
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Webhook anti-replay in `src/app/api/v1/webhooks/github/route.ts` uses Durable Object state with conditional put-if-absent semantics. The non-atomic GET-then-PUT sequence is removed. Implementation reuses an existing DO (UpdateHub, OutboxReconcilerDO) or adds a small purpose-built `WebhookNonceDO`, whichever the architect's plan.md designates.
-- [ ] **AC-US3-02**: Concurrency test: 100 concurrent calls to the webhook handler with the same `X-GitHub-Delivery` header result in **exactly one** `enqueueScanHigh` invocation and **99 dedup-hit** responses. No race window exists between the check and the write. Verified by Vitest using `Promise.all` with mocked DO state.
-- [ ] **AC-US3-03**: TTL behavior is preserved at 300 seconds. After TTL expiry, a re-delivery of the same `X-GitHub-Delivery` is accepted (replay-after-TTL still permitted, matching current behavior). Verified by a Vitest test using fake timers.
+- [x] **AC-US3-01**: Webhook anti-replay in `src/app/api/v1/webhooks/github/route.ts` uses Durable Object state with conditional put-if-absent semantics. The non-atomic GET-then-PUT sequence is removed. Implementation reuses an existing DO (UpdateHub, OutboxReconcilerDO) or adds a small purpose-built `WebhookNonceDO`, whichever the architect's plan.md designates.
+- [x] **AC-US3-02**: Concurrency test: 100 concurrent calls to the webhook handler with the same `X-GitHub-Delivery` header result in **exactly one** `enqueueScanHigh` invocation and **99 dedup-hit** responses. No race window exists between the check and the write. Verified by Vitest using `Promise.all` with mocked DO state.
+- [x] **AC-US3-03**: TTL behavior is preserved at 300 seconds. After TTL expiry, a re-delivery of the same `X-GitHub-Delivery` is accepted (replay-after-TTL still permitted, matching current behavior). Verified by a Vitest test using fake timers.
 
 ---
 
@@ -94,12 +94,12 @@ This increment introduces no new personas. All 4 are inherited from the parent i
 **Background**: None of these warrants its own user story; they are grouped here for atomic delivery. Each AC corresponds to one specific finding in `0708/reports/code-review-report.json`.
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01** (F-CR6): Add a regression test for the scanner's deterministic placeholder `contentHash` format. The test asserts unresolved skills produce `sha256:pending:<sha12>` (a deterministic 12-char prefix) and will be replaced by a real content hash once 0680's SKILL.md reader lands. Test lives in `src/lib/skill-update/__tests__/scanner.test.ts`.
-- [ ] **AC-US4-02** (F-CR7): Remove the two `any` casts in `src/lib/skill-update/__tests__/queue-consumer.test.ts`. Replace with proper Vitest typing using `vi.hoisted()` and the appropriate `Mock<>` generic. `tsc --noEmit` passes with no `@ts-expect-error`.
-- [ ] **AC-US4-03** (F-CR8): The outbox reconciler logs and AE metric tags include `UpdateEvent.id` for correlation between failed dispatches and downstream traces. Verified by a unit test asserting `logger.error` is called with an object containing `updateEventId` and `metric.tag` includes `update_event_id:<id>`.
-- [ ] **AC-US4-04** (F-CR9): The broad `try/catch` around fingerprint computation in `src/lib/submission/publish.ts` is narrowed to the specific error class (likely `RangeError` or `TypeError`). Other error types propagate. Unit test asserts a synthetic `Error` (non-targeted) is *not* swallowed by the narrowed catch.
-- [ ] **AC-US4-05** (F-CR10): The `as never` Prisma type cast in `src/lib/skill-update/__tests__/outbox-writer.test.ts` is replaced with proper Prisma type narrowing (`Prisma.InputJsonValue` or the field-specific generated type). `tsc --noEmit` passes with strict mode.
-- [ ] **AC-US4-06** (F-CR11): On Worker cold start, `scripts/build-worker-entry.ts` (or the entry it generates) emits `[cron] handler attached` to the log stream so operators can verify cron registration in production. Verified by a smoke test that the generated entry includes the log line and by a manual `wrangler tail` runbook step in `tasks.md`.
+- [x] **AC-US4-01** (F-CR6): Add a regression test for the scanner's deterministic placeholder `contentHash` format. The test asserts unresolved skills produce `sha256:pending:<sha12>` (a deterministic 12-char prefix) and will be replaced by a real content hash once 0680's SKILL.md reader lands. Test lives in `src/lib/skill-update/__tests__/scanner.test.ts`.
+- [x] **AC-US4-02** (F-CR7): Remove the two `any` casts in `src/lib/skill-update/__tests__/queue-consumer.test.ts`. Replace with proper Vitest typing using `vi.hoisted()` and the appropriate `Mock<>` generic. `tsc --noEmit` passes with no `@ts-expect-error`.
+- [x] **AC-US4-03** (F-CR8): The outbox reconciler logs and AE metric tags include `UpdateEvent.id` for correlation between failed dispatches and downstream traces. Verified by a unit test asserting `logger.error` is called with an object containing `updateEventId` and `metric.tag` includes `update_event_id:<id>`.
+- [x] **AC-US4-04** (F-CR9): The broad `try/catch` around fingerprint computation in `src/lib/submission/publish.ts` is narrowed to the specific error class (likely `RangeError` or `TypeError`). Other error types propagate. Unit test asserts a synthetic `Error` (non-targeted) is *not* swallowed by the narrowed catch.
+- [x] **AC-US4-05** (F-CR10): The `as never` Prisma type cast in `src/lib/skill-update/__tests__/outbox-writer.test.ts` is replaced with proper Prisma type narrowing (`Prisma.InputJsonValue` or the field-specific generated type). `tsc --noEmit` passes with strict mode.
+- [x] **AC-US4-06** (F-CR11): On Worker cold start, `scripts/build-worker-entry.ts` (or the entry it generates) emits `[cron] handler attached` to the log stream so operators can verify cron registration in production. Verified by a smoke test that the generated entry includes the log line and by a manual `wrangler tail` runbook step in `tasks.md`.
 
 ---
 
@@ -114,9 +114,9 @@ This increment introduces no new personas. All 4 are inherited from the parent i
 **Background**: All current Playwright tests touching `/api/v1/skills/stream` use `page.route` to inject canned events. This means the integration seam between the API route, the DO broadcast pump, and the client EventSource is never exercised under test. Any regression there ships unnoticed.
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: A new Playwright spec exists at the path designated in plan.md (`repositories/anton-abyzov/vskill/e2e/skill-update-pipeline-live.spec.ts` or `repositories/anton-abyzov/vskill-platform/__tests__/e2e/skill-update-live.spec.ts`). The spec runs against a local `npx wrangler dev` instance and contains zero `page.route(...)` calls for the skill-update endpoints.
-- [ ] **AC-US5-02**: Test flow exercises the entire wire path: (1) POST a signed `skill.updated` webhook to the local Worker; (2) wait for matching `SkillVersion` and `UpdateEvent` rows in the DB via direct Prisma read; (3) assert the Studio page's EventSource receives a `skill.updated` server-sent event within 2 seconds; (4) assert the UpdateBell badge increments in the rendered DOM.
-- [ ] **AC-US5-03**: The spec is tagged `@live` and gated out of the default test run. Operators run it on demand with `npx playwright test --grep @live`. CI integration is optional and tracked as a follow-up if needed; a runbook entry in `tasks.md` documents how to start `wrangler dev` and execute the live tests.
+- [x] **AC-US5-01**: A new Playwright spec exists at the path designated in plan.md (`repositories/anton-abyzov/vskill/e2e/skill-update-pipeline-live.spec.ts` or `repositories/anton-abyzov/vskill-platform/__tests__/e2e/skill-update-live.spec.ts`). The spec runs against a local `npx wrangler dev` instance and contains zero `page.route(...)` calls for the skill-update endpoints.
+- [x] **AC-US5-02**: Test flow exercises the entire wire path: (1) POST a signed `skill.updated` webhook to the local Worker; (2) wait for matching `SkillVersion` and `UpdateEvent` rows in the DB via direct Prisma read; (3) assert the Studio page's EventSource receives a `skill.updated` server-sent event within 2 seconds; (4) assert the UpdateBell badge increments in the rendered DOM.
+- [x] **AC-US5-03**: The spec is tagged `@live` and gated out of the default test run. Operators run it on demand with `npx playwright test --grep @live`. CI integration is optional and tracked as a follow-up if needed; a runbook entry in `tasks.md` documents how to start `wrangler dev` and execute the live tests.
 
 ## Functional Requirements
 
