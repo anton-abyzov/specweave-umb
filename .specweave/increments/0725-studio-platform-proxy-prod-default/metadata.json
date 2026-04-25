@@ -1,0 +1,16 @@
+{
+  "id": "0725-studio-platform-proxy-prod-default",
+  "status": "active",
+  "type": "hotfix",
+  "priority": "P1",
+  "created": "2026-04-25T06:04:44.892Z",
+  "lastActivity": "2026-04-25T06:04:44.892Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  }
+}
