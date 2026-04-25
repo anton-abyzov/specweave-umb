@@ -35,12 +35,12 @@ Why OS trash over a custom recycle bin: the user explicitly preferred it. It's t
 **So that** I can clean up authoring scratch and personal skills without dropping to the shell.
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Right-clicking a skill where `scopeV2 ∈ { available-project, available-personal, authoring-project, authoring-plugin }` shows an enabled `Delete` menu item.
-- [ ] **AC-US1-02**: Selecting Delete opens a `ConfirmDialog` titled `Delete "<skill-name>"?` with body text naming the OS trash as the destination, focus on the Cancel button by default, Escape cancels.
-- [ ] **AC-US1-03**: Confirming the dialog optimistically removes the skill row from the sidebar list immediately and shows a toast `Deleted <skill-name>` with an `Undo` action and a 10-second auto-dismiss.
+- [x] **AC-US1-01**: Right-clicking a skill where `scopeV2 ∈ { available-project, available-personal, authoring-project, authoring-plugin }` shows an enabled `Delete` menu item.
+- [x] **AC-US1-02**: Selecting Delete opens a `ConfirmDialog` titled `Delete "<skill-name>"?` with body text naming the OS trash as the destination, focus on the Cancel button by default, Escape cancels.
+- [x] **AC-US1-03**: Confirming the dialog optimistically removes the skill row from the sidebar list immediately and shows a toast `Deleted <skill-name>` with an `Undo` action and a 10-second auto-dismiss.
 - [x] **AC-US1-04**: After the 10-second window elapses, the backend `DELETE /api/skills/:plugin/:skill` is invoked exactly once and the skill folder is moved to the OS trash (verified by absence on disk + presence in `~/.Trash` on macOS).
-- [ ] **AC-US1-05**: If the backend call fails, the row is restored to the list and the toast switches to an error variant `Couldn't delete: <reason>` with a `Retry` action.
-- [ ] **AC-US1-06**: Clicking the trash icon in `DetailHeader` triggers the same flow (no `window.confirm()`).
+- [x] **AC-US1-05**: If the backend call fails, the row is restored to the list and the toast switches to an error variant `Couldn't delete: <reason>` with a `Retry` action.
+- [x] **AC-US1-06**: Clicking the trash icon in `DetailHeader` triggers the same flow (no `window.confirm()`).
 
 ---
 
@@ -52,10 +52,10 @@ Why OS trash over a custom recycle bin: the user explicitly preferred it. It's t
 **So that** an accidental click never destroys a skill I needed.
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: The toast shown after delete confirmation has a clearly labeled `Undo` action button.
-- [ ] **AC-US2-02**: Clicking `Undo` before the 10s timer fires cancels the pending backend call (no DELETE request issued) and restores the skill row to the sidebar list.
-- [ ] **AC-US2-03**: The skill folder remains untouched on disk after Undo.
-- [ ] **AC-US2-04**: Closing the browser tab while a delete is pending flushes pending deletes via `beforeunload` so the OS trash receives the skill (no silent data loss in the limbo state).
+- [x] **AC-US2-01**: The toast shown after delete confirmation has a clearly labeled `Undo` action button.
+- [x] **AC-US2-02**: Clicking `Undo` before the 10s timer fires cancels the pending backend call (no DELETE request issued) and restores the skill row to the sidebar list.
+- [x] **AC-US2-03**: The skill folder remains untouched on disk after Undo.
+- [x] **AC-US2-04**: Closing the browser tab while a delete is pending flushes pending deletes via `beforeunload` so the OS trash receives the skill (no silent data loss in the limbo state).
 
 ---
 
@@ -67,8 +67,8 @@ Why OS trash over a custom recycle bin: the user explicitly preferred it. It's t
 **So that** I never accidentally delete plugin-managed content and I understand why I can't.
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: For skills with `scopeV2 === "available-plugin"`, the context menu shows `Delete` rendered as **disabled** (grayed out, not clickable, `aria-disabled="true"`).
-- [ ] **AC-US3-02**: Hovering / focusing the disabled `Delete` item shows a tooltip with text `Plugin skills are managed by their owning plugin — uninstall the plugin to remove.`
+- [x] **AC-US3-01**: For skills with `scopeV2 === "available-plugin"`, the context menu shows `Delete` rendered as **disabled** (grayed out, not clickable, `aria-disabled="true"`).
+- [x] **AC-US3-02**: Hovering / focusing the disabled `Delete` item shows a tooltip with text `Plugin skills are managed by their owning plugin — uninstall the plugin to remove.`
 - [x] **AC-US3-03**: The backend continues to reject DELETE for plugin/installed-origin skills with HTTP 403 (defense-in-depth — request never originates from the UI for these).
 
 ---
@@ -81,8 +81,8 @@ Why OS trash over a custom recycle bin: the user explicitly preferred it. It's t
 **So that** I know how to recover a skill if needed.
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: The `ConfirmDialog` body explicitly names the platform's trash: `system Trash` (macOS), `Recycle Bin` (Windows), or `Trash` (Linux), adapted via `navigator.platform`.
-- [ ] **AC-US4-02**: The first delete in a session shows an additional toast subline `Sent to your system Trash. Open Trash to restore.` Subsequent deletes in the same session omit the subline.
+- [x] **AC-US4-01**: The `ConfirmDialog` body explicitly names the platform's trash: `system Trash` (macOS), `Recycle Bin` (Windows), or `Trash` (Linux), adapted via `navigator.platform`.
+- [x] **AC-US4-02**: The first delete in a session shows an additional toast subline `Sent to your system Trash. Open Trash to restore.` Subsequent deletes in the same session omit the subline.
 
 ---
 

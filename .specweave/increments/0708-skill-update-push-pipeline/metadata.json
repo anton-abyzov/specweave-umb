@@ -1,10 +1,11 @@
 {
   "id": "0708-skill-update-push-pipeline",
-  "status": "completed",
+  "status": "active",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-24T20:38:56.718Z",
-  "lastActivity": "2026-04-24T23:12:27.298Z",
+  "lastActivity": "2026-04-25T03:00:00.000Z",
+  "reopenedReason": "0713 disabled cron, schema unmigrated to production — re-opening for verify+fix pass via team-lead",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
