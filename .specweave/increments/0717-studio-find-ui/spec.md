@@ -67,7 +67,7 @@ The page is parallel-buildable: during 0716 development we mock `/api/v1/studio/
 - [x] **AC-US2-03**: PublisherChip renders publisher.name + green checkmark when `publisher.verified === true`; "Unknown publisher" gray chip when `publisher === null`. Click deep-links to `verified-skill.com/publishers/<slug>` (new tab).
 - [x] **AC-US2-04**: When `isBlocked === true`, a red ThreatBanner appears above card content showing `threatType` + `severity`. The InstallButton is replaced by a red `Do not install` pill (NOT hidden — explicit signal).
 - [x] **AC-US2-05**: StatsRow shows GitHub stars, vskill installs, current version using compact formatting (e.g. `1.2k`).
-- [x] **AC-US2-06**: Cards are keyboard accessible — Tab order is name → publisher chip → install button → next card. Enter activates the focused control.
+- [x] **AC-US2-06**: Cards are keyboard accessible — Tab order within a card is trust badge → publisher chip → install button → next card. The skill name is rendered as a non-interactive `<h3>` and is reached by screen readers via heading navigation (rotor / `H` key), not Tab — per WCAG 2.1 AA, headings should not be in the tab order. Enter activates the focused control.
 - [x] **AC-US2-07**: All security-sensitive text (name, description) is rendered as React text nodes only; no `dangerouslySetInnerHTML` paths.
 - [x] **AC-US2-08**: Description longer than 300 chars or 2 lines is clamped via CSS `line-clamp: 2`; no overflow.
 
