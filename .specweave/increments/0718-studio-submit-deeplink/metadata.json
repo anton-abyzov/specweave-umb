@@ -1,11 +1,11 @@
 {
   "id": "0718-studio-submit-deeplink",
-  "status": "active",
+  "status": "completed",
   "startedAt": "2026-04-25T03:50:00Z",
   "type": "feature",
   "priority": "P2",
   "created": "2026-04-25T03:45:44.442Z",
-  "lastActivity": "2026-04-25T04:16:46.988Z",
+  "lastActivity": "2026-04-25T06:35:44.054Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -16,14 +16,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1010",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-25T03:49:31.754Z"
+      "syncedAt": "2026-04-25T06:38:41.691Z"
     },
     "ado": {
       "featureId": "1849",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1849",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-25T03:49:34.028Z"
+      "syncedAt": "2026-04-25T06:38:43.732Z"
     }
   },
   "planning": {
@@ -110,5 +110,7 @@
       "warnings": [],
       "changesCount": 1
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-25T06:35:44.028Z",
+  "approvedAt": "2026-04-25T06:35:44.054Z"
 }

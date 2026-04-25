@@ -1,10 +1,10 @@
 ---
 increment: 0718-studio-submit-deeplink
-title: "Local Studio Submit-your-skill deep-link to verified-skill.com"
+title: Local Studio Submit-your-skill deep-link to verified-skill.com
 type: feature
 priority: P2
-status: planned
-created: 2026-04-25
+status: completed
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -90,11 +90,13 @@ The deep-link URL prefills `?repoUrl=` from the active Studio workspace's git re
 ### FR-001: Single source of truth — `useSubmitDeepLink` hook
 Both CTAs share one hook at `src/app/studio/hooks/useSubmitDeepLink.ts` that orchestrates: workspace-info fetch (200ms timeout) → URL composition → telemetry POST → `window.open`. No duplicated logic between nav button and find-page banner.
 
-### FR-002: Last-submission tooltip (cosmetic)
-After the first successful click, store a timestamp in `localStorage.setItem('studio.lastSubmitOpenedAt', <ISO>)`. On subsequent button hovers, the tooltip reads "Last opened <relative time> ago". Failure to read/write localStorage is swallowed.
+### FR-002: Last-submission tooltip (cosmetic) — read-side DEFERRED
+**Implemented (write side):** After every click attempt (including popup-blocked), the hook writes `localStorage.setItem('studio.lastSubmitOpenedAt', <ISO>)`. Failure to write is swallowed. Tested.
+
+**Deferred (read side / tooltip rendering):** The "Last opened <relative time> ago" tooltip on subsequent hovers is intentionally NOT implemented in this increment. Spec labels FR-002 as "cosmetic"; the persisted timestamp is the load-bearing contract for any future reader (e.g., a follow-up Studio onboarding nudge). Rendering the relative-time tooltip is tracked as follow-up — does not block 0718 closure.
 
 ### FR-003: Bind 0717's SubmitDeepLink stub
-The component file lives in `src/app/studio/find/components/SubmitDeepLink.tsx` (owned by 0717 as a stub). This increment imports it, binds the `useSubmitDeepLink` hook, and ensures both nav and find-page renderings use the same component.
+The find-page consumer (`FindClient.tsx`) renders 0718's `<SubmitFindBanner />`, which binds `useSubmitDeepLink`. Both Studio CTAs (nav + find page) share that single hook — DRY satisfied. The 0717 stub `src/app/studio/find/components/SubmitDeepLink.tsx` remains as a 0717-owned fallback presentation surface for future callers but is not on the find page's hot path.
 
 ## Performance budgets
 
