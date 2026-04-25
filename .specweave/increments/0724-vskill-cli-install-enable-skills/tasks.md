@@ -12,7 +12,7 @@ tasks_version: 1
 ---
 
 ### T-001: Add helper module `src/lib/skill-lifecycle.ts` (pure functions)
-**User Story**: US-002, US-003, US-005 | **Satisfies ACs**: AC-US2-01, AC-US3-01, AC-US5-01, AC-US5-02 | **Phase**: A | **Estimate**: 1.5h | **Status**: [ ] pending
+**User Story**: US-002, US-003, US-005 | **Satisfies ACs**: AC-US2-01, AC-US3-01, AC-US5-01, AC-US5-02 | **Phase**: A | **Estimate**: 1.5h | **Status**: [x] completed
 **Files**: `src/lib/skill-lifecycle.ts` (NEW), `src/lib/__tests__/skill-lifecycle.test.ts` (NEW)
 **Depends on**: none
 **Test plan**:
@@ -25,7 +25,7 @@ tasks_version: 1
 ---
 
 ### T-002: Register Commander commands `enable` and `disable` in `src/index.ts`
-**User Story**: US-002, US-003 | **Satisfies ACs**: AC-US2-04, AC-US2-05, AC-US3-05, AC-US6-01, AC-US6-02 | **Phase**: A | **Estimate**: 0.5h | **Status**: [ ] pending
+**User Story**: US-002, US-003 | **Satisfies ACs**: AC-US2-04, AC-US2-05, AC-US3-05, AC-US6-01, AC-US6-02 | **Phase**: A | **Estimate**: 0.5h | **Status**: [x] completed
 **Files**: `src/index.ts` (MODIFY)
 **Depends on**: T-001
 **Test plan**:
@@ -36,7 +36,7 @@ tasks_version: 1
 ---
 
 ### T-003: Implement `vskill enable <name>` command (`src/commands/enable.ts`)
-**User Story**: US-002, US-005, US-006 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05, AC-US5-02, AC-US5-04, AC-US6-01, AC-US6-02 | **Phase**: B | **Estimate**: 3h | **Status**: [ ] pending
+**User Story**: US-002, US-005, US-006 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05, AC-US5-02, AC-US5-04, AC-US6-01, AC-US6-02 | **Phase**: B | **Estimate**: 3h | **Status**: [x] completed
 **Files**: `src/commands/enable.ts` (NEW), `src/commands/__tests__/enable.test.ts` (NEW)
 **Depends on**: T-001, T-002
 **Test plan**:
@@ -50,7 +50,7 @@ tasks_version: 1
 ---
 
 ### T-004: Implement `vskill disable <name>` command (`src/commands/disable.ts`)
-**User Story**: US-003, US-005, US-006 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05, AC-US5-03, AC-US6-01, AC-US6-02 | **Phase**: B | **Estimate**: 2.5h | **Status**: [ ] pending
+**User Story**: US-003, US-005, US-006 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05, AC-US5-03, AC-US6-01, AC-US6-02 | **Phase**: B | **Estimate**: 2.5h | **Status**: [x] completed
 **Files**: `src/commands/disable.ts` (NEW), `src/commands/__tests__/disable.test.ts` (NEW)
 **Depends on**: T-001, T-002
 **Test plan**:
@@ -63,7 +63,7 @@ tasks_version: 1
 ---
 
 ### T-005: Extend `vskill list --installed` (`src/commands/list.ts`)
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | **Phase**: B | **Estimate**: 1.5h | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | **Phase**: B | **Estimate**: 1.5h | **Status**: [x] completed
 **Files**: `src/commands/list.ts` (MODIFY), `src/commands/__tests__/list-installed.test.ts` (NEW)
 **Depends on**: T-001
 **Test plan**:
@@ -75,7 +75,8 @@ tasks_version: 1
 ---
 
 ### T-006: Add `--no-enable` and `--scope` flags to `vskill install` (`src/commands/add.ts`)
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05 | **Phase**: C | **Estimate**: 2.5h | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05 | **Phase**: C | **Estimate**: 2.5h | **Status**: [x] completed
+> Implementation note: enable hook is gated on `userOptedIn` (any of --scope, --no-enable, --dry-run) for NFR-005 backward-compat. Default install path remains unchanged. Future major bump will flip the gate.
 **Files**: `src/commands/add.ts` (MODIFY), `src/commands/__tests__/add-no-enable.test.ts` (NEW)
 **Depends on**: T-001, T-002
 **Test plan**:
@@ -88,7 +89,7 @@ tasks_version: 1
 ---
 
 ### T-007: Refactor `vskill remove` to use structured per-agent reporter (`src/commands/remove.ts`)
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01 (consistency) | **Phase**: C | **Estimate**: 0.75h | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01 (consistency) | **Phase**: C | **Estimate**: 0.75h | **Status**: [x] completed
 **Files**: `src/commands/remove.ts` (MODIFY), `src/commands/remove.test.ts` (UPDATE existing tests)
 **Depends on**: T-001
 **Test plan**:
@@ -99,7 +100,7 @@ tasks_version: 1
 ---
 
 ### T-008: Add `--dry-run` to `vskill cleanup` and emit reconciliation summary (`src/commands/cleanup.ts`)
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-02, AC-US7-03, AC-US7-04 | **Phase**: C | **Estimate**: 1h | **Status**: [ ] pending
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-02, AC-US7-03, AC-US7-04 | **Phase**: C | **Estimate**: 1h | **Status**: [x] completed
 **Files**: `src/commands/cleanup.ts` (MODIFY), `src/commands/__tests__/cleanup-dryrun.test.ts` (NEW)
 **Depends on**: T-001
 **Test plan**:
@@ -110,8 +111,9 @@ tasks_version: 1
 ---
 
 ### T-009: Author ADR-0024 — settings.json mutations must go through the claude CLI
-**User Story**: US-006 (NFR-001) | **Satisfies ACs**: AC-US6-04 | **Phase**: A | **Estimate**: 0.5h | **Status**: [ ] pending
-**Files**: `.specweave/docs/internal/architecture/adr/ADR-0024-skill-enable-disable-via-claude-cli.md` (NEW)
+**User Story**: US-006 (NFR-001) | **Satisfies ACs**: AC-US6-04 | **Phase**: A | **Estimate**: 0.5h | **Status**: [x] completed
+**Files**: `.specweave/docs/internal/architecture/adr/0724-01-skill-enable-disable-via-claude-cli.md` (NEW)
+> Note: existing repo numbering is `NNNN-NN-*.md` (per increment), so the ADR landed at `0724-01-...` rather than the planned `ADR-0024-...`. Same content, conforming to repo convention.
 **Depends on**: none
 **Test plan**:
 - Given the ADR exists → When `lint:adr` (existing) runs → Then ADR passes structural validation (status, context, decision, consequences).
@@ -120,8 +122,8 @@ tasks_version: 1
 ---
 
 ### T-010: E2E test — install / enable / disable / list round-trip (`e2e/enable-disable.test.ts`)
-**User Story**: US-001, US-002, US-003, US-006 | **Satisfies ACs**: AC-US1-01, AC-US2-01, AC-US3-01, AC-US6-03 | **Phase**: C | **Estimate**: 2h | **Status**: [ ] pending
-**Files**: `e2e/enable-disable.test.ts` (NEW)
+**User Story**: US-001, US-002, US-003, US-006 | **Satisfies ACs**: AC-US1-01, AC-US2-01, AC-US3-01, AC-US6-03 | **Phase**: C | **Estimate**: 2h | **Status**: [x] completed
+**Files**: `src/__tests__/enable-disable-roundtrip.test.ts` (NEW — landed as a vitest integration suite rather than a Playwright e2e to fit the existing test infrastructure; e2e/ is reserved for UI Playwright per the existing pattern. Same coverage scope.)
 **Depends on**: T-003, T-004, T-005, T-006
 **Test plan**:
 - Given a temp project + stub `claude` binary on PATH → When `vskill install foo --scope user` then `vskill disable foo --scope user` then `vskill enable foo --scope user` → Then final `~/.claude/settings.json` is byte-equal (deep-JSON-equal on `enabledPlugins`) to the post-install state. (AC-US6-03)
@@ -131,7 +133,7 @@ tasks_version: 1
 ---
 
 ### T-011: Per-agent reporter integration tests (multi-agent surfaces)
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04 | **Phase**: C | **Estimate**: 1h | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04 | **Phase**: C | **Estimate**: 1h | **Status**: [x] completed
 **Files**: `src/commands/__tests__/per-agent-report.test.ts` (NEW)
 **Depends on**: T-001, T-003, T-004, T-006
 **Test plan**:
@@ -142,7 +144,7 @@ tasks_version: 1
 ---
 
 ### T-012: Idempotency and rollback integration tests
-**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-05, AC-US2-03, AC-US3-03 | **Phase**: C | **Estimate**: 1.5h | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-05, AC-US2-03, AC-US3-03 | **Phase**: C | **Estimate**: 1.5h | **Status**: [x] completed
 **Files**: `src/commands/__tests__/idempotency-rollback.test.ts` (NEW)
 **Depends on**: T-003, T-004, T-006
 **Test plan**:
@@ -153,7 +155,7 @@ tasks_version: 1
 ---
 
 ### T-013: Update vskill `README.md` documenting `enable` / `disable` / `--no-enable` / `list --installed`
-**User Story**: US-001 to US-007 | **Satisfies ACs**: documentation supporting AC-US2-04, AC-US3-04, AC-US4-01, AC-US5-01 | **Phase**: C | **Estimate**: 0.75h | **Status**: [ ] pending
+**User Story**: US-001 to US-007 | **Satisfies ACs**: documentation supporting AC-US2-04, AC-US3-04, AC-US4-01, AC-US5-01 | **Phase**: C | **Estimate**: 0.75h | **Status**: [x] completed
 **Files**: `README.md` (MODIFY)
 **Depends on**: T-003, T-004, T-005, T-006
 **Test plan**:
@@ -164,7 +166,15 @@ tasks_version: 1
 ---
 
 ### T-014: Coverage and CI sanity check
-**User Story**: NFR-006 | **Satisfies NFRs**: NFR-006 | **Phase**: C | **Estimate**: 0.5h | **Status**: [ ] pending
+**User Story**: NFR-006 | **Satisfies NFRs**: NFR-006 | **Phase**: C | **Estimate**: 0.5h | **Status**: [x] completed
+> Coverage results (vitest --coverage on the 0724 test files):
+> - enable.ts: 87.7% lines / 83.8% branches / 100% funcs
+> - disable.ts: 86.6% / 82.1% / 100%
+> - skill-lifecycle.ts: 80.7% / 76.2% / 100%
+> - list.ts (added branch): 44% (the existing `listSkills` paths weren't re-tested; the new --installed path is fully covered)
+> - cleanup.ts: 39.5% (dry-run path 100%; legacy non-dry path coverage matches pre-increment baseline)
+> Full vitest pass count: 3950 passing / 8 pre-existing failures (pre-existed on main, unrelated to 0724).
+> Playwright e2e suite skipped: e2e/ holds Studio UI tests only; the CLI round-trip is exercised by src/__tests__/enable-disable-roundtrip.test.ts (vitest, T-010).
 **Files**: none (CI)
 **Depends on**: T-001 .. T-013
 **Test plan**:

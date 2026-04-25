@@ -6,7 +6,7 @@
   "priority": "high",
   "project": "vskill",
   "created": "2026-04-25",
-  "lastActivity": "2026-04-25T05:53:11.111Z",
+  "lastActivity": "2026-04-25T06:21:12.083Z",
   "description": "Extend the vskill CLI to fully manage the lifecycle of skills on a developer's machine: install, enable, disable, list status, and integrate with Claude Code's skills directory (~/.claude/skills/ or project-local .claude/skills/). Existing commands (add, remove, find, list, pin, marketplace, outdated) handle catalog operations; the gap is the activation surface — once a skill is installed, can the user toggle it on/off per-project or globally without manual config edits? The new commands should write/remove the appropriate plugin/skill registration so Claude Code picks it up on next restart, mirroring `claude plugin install/enable/disable` semantics where applicable, with clear feedback on which agent surfaces (Claude Code, Cursor, Codex CLI, etc.) each operation affected.",
   "scope": {
     "owningRepo": "vskill",
@@ -18,6 +18,172 @@
   "coverageTarget": 90,
   "externalLinks": {},
   "acSyncEvents": [
+    {
+      "timestamp": "2026-04-25T06:21:12.083Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-25T06:15:49.859Z",
+      "updated": [
+        "AC-US5-01",
+        "AC-US2-04",
+        "AC-US3-04",
+        "AC-US4-01"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 4
+    },
+    {
+      "timestamp": "2026-04-25T06:14:58.967Z",
+      "updated": [
+        "AC-US2-03",
+        "AC-US3-03",
+        "AC-US1-05"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-04-25T06:14:22.880Z",
+      "updated": [
+        "AC-US5-02",
+        "AC-US5-04",
+        "AC-US5-03"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-04-25T06:13:45.312Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US3-01",
+        "AC-US1-01",
+        "AC-US6-03"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 4
+    },
+    {
+      "timestamp": "2026-04-25T06:12:48.463Z",
+      "updated": [
+        "AC-US7-02",
+        "AC-US7-03",
+        "AC-US7-04"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-04-25T06:11:51.904Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-25T06:10:56.267Z",
+      "updated": [
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US1-04"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-04-25T06:03:06.892Z",
+      "updated": [
+        "AC-US4-02",
+        "AC-US4-03",
+        "AC-US4-04"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-04-25T06:02:03.409Z",
+      "updated": [
+        "AC-US3-05",
+        "AC-US6-01",
+        "AC-US6-02",
+        "AC-US3-02"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 4
+    },
+    {
+      "timestamp": "2026-04-25T06:00:41.511Z",
+      "updated": [
+        "AC-US2-05",
+        "AC-US2-02"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-04-25T05:58:57.866Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-25T05:58:05.335Z",
+      "updated": [
+        "AC-US6-04"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-25T05:57:20.555Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-01: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
     {
       "timestamp": "2026-04-25T05:53:11.110Z",
       "updated": [],
