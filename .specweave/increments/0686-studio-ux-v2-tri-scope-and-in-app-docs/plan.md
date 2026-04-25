@@ -2,6 +2,8 @@
 
 **Status:** planned • **Companion to:** [spec.md](./spec.md) • [tasks.md](./tasks.md)
 
+> **2026-04-25 — Code-review F-001 resolution (option b)**: 0698-studio-multiproject-anthropic-scopes (completed 2026-04-24) supersedes 0686 §3 typography by replacing the OWN/INSTALLED/GLOBAL tri-scope with AVAILABLE/AUTHORING groups using the existing `GroupHeader` small-caps utility. The dedicated `ScopeSection.tsx` primitive (T-007 / T-009) was orphaned by that redesign — Sidebar.tsx imported it but never instantiated it, rendering through `NamedScopeSection` instead. ScopeSection.tsx + its test were deleted; the dead import was removed; AC-US4-01..04 marked `[ ] superseded` in spec.md.
+
 ## 1. Component Architecture
 
 ```

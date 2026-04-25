@@ -71,14 +71,30 @@ Cross-cutting: full Mac + Windows + Linux path correctness, and first-class syml
 - **AC-US3-07**: `j`/`k` keyboard navigation walks flat across all three sections in order (existing flat-sort logic extends to three-section input).
 
 ### US-004 — Bolder section separation
-**As a** user scanning the sidebar  
-**I want** the divider between sections to read as a strong scope change, not a visual hairline  
+
+> **SUPERSEDED by 0698-studio-multiproject-anthropic-scopes** (completed 2026-04-24).
+>
+> 0698 redesigns the sidebar away from the OWN/INSTALLED/GLOBAL tri-scope into a two-tier
+> AVAILABLE/AUTHORING grouping (each split by source channel) using the existing `GroupHeader`
+> small-caps utility — see 0698 §US-002. The 14px Source Serif 4 kicker / 3px divider block
+> direction in this story (US-004) is no longer the target visual language; 0698 §3
+> explicitly states "no new typography scale, no new fonts" and reuses the muted small-caps
+> `GroupHeader` instead. Per-agent collapse storage keys also migrated to
+> `vskill-sidebar-<agentId>-{available,authoring}-{project,personal,plugins}-collapsed`
+> (see 0698 AC-US2-06 + the migration map). The dedicated `ScopeSection.tsx` primitive that
+> shipped under T-009 was orphaned by that redesign and has been deleted (see plan.md note,
+> 2026-04-25).
+>
+> AC-US4-01..04 below are kept for audit-trail traceability but mark `[ ] superseded`.
+
+**As a** user scanning the sidebar
+**I want** the divider between sections to read as a strong scope change, not a visual hairline
 **So that** I don't mistake GLOBAL skills for more of the same INSTALLED list.
 
-- **AC-US4-01**: Section header uses 14px Source Serif 4 (display serif), all-caps letter-spacing `0.12em`, weight 600. Not the current 11px Inter.
-- **AC-US4-02**: Between each section is a 3px solid `var(--color-rule)` divider block with a 1px top inset shadow (`inset 0 1px 0 color-mix(in srgb, var(--color-rule) 50%, transparent)`). Full-width; extends beyond sidebar text padding.
-- **AC-US4-03**: Section header has 12px top padding + 4px bottom padding; font-feature-settings `"smcp"` off (explicit caps, not small-caps). Colorized kicker — OWN uses `var(--color-own)` (warm amber), INSTALLED uses `var(--color-accent)` (blue), GLOBAL uses `var(--color-global)` (new token, slate violet `#8B8FB1`).
-- **AC-US4-04**: Playwright visual-regression snapshot shows the three-section layout above the fold at the standard viewport (360px wide sidebar × 900px tall pane).
+- **AC-US4-01**: [ ] superseded (by 0698 GroupHeader small-caps direction) — original target: section header uses 14px Source Serif 4 (display serif), all-caps letter-spacing `0.12em`, weight 600.
+- **AC-US4-02**: [ ] superseded (by 0698 — no bold dividers; sub-sections separated by GroupHeader hierarchy) — original target: 3px solid `var(--color-rule)` divider block between sections.
+- **AC-US4-03**: [ ] superseded (by 0698 — kicker color/typography tokens unused) — original target: 12px top / 4px bottom padding; colorized kicker per scope.
+- **AC-US4-04**: [ ] superseded (by 0698 — visual baseline rebased on AVAILABLE/AUTHORING layout) — original target: Playwright visual-regression snapshot of three-section layout.
 
 ### US-005 — In-app setup docs (SetupDrawer)
 **As a** user trying to connect a new provider  
@@ -102,7 +118,7 @@ Cross-cutting: full Mac + Windows + Linux path correctness, and first-class syml
 **I want** the picker to accurately describe how my usage is billed  
 **So that** I don't guess whether API keys are needed.
 
-- **AC-US6-01**: The Claude Code row in `AgentModelPicker` shows the compact label: **"Covered by Max/Pro · overflow billed at API rates"** — exact string, tokenized in `strings.ts`.
+- **AC-US6-01**: The Claude Code row in `AgentModelPicker` shows a compact billing label tokenized in `strings.ts`. Original target literal was `"Covered by Max/Pro · overflow billed at API rates"`; **superseded by 0682 AC-US5-01** (voice policy bans the literal "Max/Pro" / "subscription" tokens in user copy). Shipped literal: `"Uses your Claude Code session · overflow billed at API rates"` — voice-lint enforces this wording.
 - **AC-US6-02**: Hovering the row shows a tooltip with the exact research-verified copy: *"Your Claude Code CLI usage runs under your Pro/Max subscription quota. If you've enabled extra usage in your account settings, excess usage continues at standard API rates. Run `/usage` in Claude Code or visit claude.com Settings → Usage to see remaining quota — vskill can't display it directly."*
 - **AC-US6-03**: On first-time selection of Claude Code as the active agent, an inline banner (dismissable, sessionStorage-scoped `vskill-ccode-banner-dismissed`) shows: *"Claude Code uses your Pro/Max subscription. No API key needed — vskill just runs the official `claude` binary on your behalf. Learn more."* The "Learn more" link opens the SetupDrawer for `claude-code`.
 - **AC-US6-04**: The UI MUST NOT display numeric quota caps or 5-hour window values. The SetupDrawer explicitly links out rather than quoting numbers.
