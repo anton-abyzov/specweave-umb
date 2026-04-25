@@ -1,0 +1,122 @@
+{
+  "id": "0716-studio-search-api-and-telemetry",
+  "status": "active",
+  "startedAt": "2026-04-25T03:50:00Z",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-25T03:33:23.125Z",
+  "lastActivity": "2026-04-25T04:15:38.892Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1001",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1001",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-25T03:40:23.323Z"
+    },
+    "ado": {
+      "featureId": "1840",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1840",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-25T03:40:26.644Z"
+    }
+  },
+  "planning": {
+    "parallel": true,
+    "siblings": [
+      "0717-studio-find-ui",
+      "0718-studio-submit-deeplink"
+    ]
+  },
+  "brainstorm": ".specweave/docs/brainstorms/2026-04-24-local-studio-discovery-submission.md",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-25T04:15:38.891Z",
+      "updated": [
+        "AC-US1-05",
+        "AC-US2-07"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-04-25T04:13:31.759Z",
+      "updated": [
+        "AC-US3-01",
+        "AC-US3-02",
+        "AC-US3-03",
+        "AC-US3-05",
+        "AC-US3-06",
+        "AC-US3-07",
+        "AC-US3-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 7
+    },
+    {
+      "timestamp": "2026-04-25T04:10:41.169Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03",
+        "AC-US2-04",
+        "AC-US2-05",
+        "AC-US2-06",
+        "AC-US2-08"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 7
+    },
+    {
+      "timestamp": "2026-04-25T04:07:53.701Z",
+      "updated": [
+        "AC-US1-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-25T04:06:08.380Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US1-06",
+        "AC-US1-07"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 5
+    },
+    {
+      "timestamp": "2026-04-25T03:40:06.520Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US3-01..07 referenced in tasks.md but not found in spec.md",
+        "AC-US3-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-25T03:39:40.812Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..08 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01..07 referenced in tasks.md but not found in spec.md",
+        "AC-US3-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ]
+}

@@ -401,7 +401,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill/e2e/skill-update-pipeline.spec.ts` (update)
 
 ### T-044: E2E — not-tracked indicator visible for skills without sourceRepoUrl
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-09 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-09 | **Status**: [x] completed
 **Test Plan**:
   - Given: an installed skill with null `sourceRepoUrl` on the server
   - When: the Studio renders the skill in `SkillRow`

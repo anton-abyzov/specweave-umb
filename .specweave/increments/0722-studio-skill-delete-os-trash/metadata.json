@@ -1,0 +1,54 @@
+{
+  "id": "0722-studio-skill-delete-os-trash",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-25T04:44:33.628Z",
+  "lastActivity": "2026-04-25T04:48:31.306Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1023",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1023",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-25T04:50:28.636Z"
+    },
+    "ado": {
+      "featureId": "1862",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1862",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-25T04:50:31.303Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-25T04:48:31.306Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-04 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US2-04 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06 referenced in tasks.md but not found in spec.md",
+        "AC-US1-03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-05 referenced in tasks.md but not found in spec.md",
+        "AC-US4-02 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ]
+}

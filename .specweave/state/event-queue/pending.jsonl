@@ -1,10 +1,6 @@
-{"incrementId":"0709-eval-ui-test-drift-cleanup","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-04-24T21:29:42.215Z"}
-{"incrementId":"0709-eval-ui-test-drift-cleanup","eventType":"increment.done","timestamp":"2026-04-24T21:29:42.216Z"}
-{"incrementId":"0704-studio-new-skill-reveal-and-api-empty-state","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-04-24T21:57:32.134Z"}
-{"incrementId":"0704-studio-new-skill-reveal-and-api-empty-state","eventType":"increment.done","timestamp":"2026-04-24T21:57:32.134Z"}
-{"incrementId":"0710-openrouter-pricing-units-hotfix","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-04-24T22:00:40.452Z"}
-{"incrementId":"0710-openrouter-pricing-units-hotfix","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-04-24T22:00:40.467Z"}
-{"incrementId":"0710-openrouter-pricing-units-hotfix","eventType":"increment.done","timestamp":"2026-04-24T22:00:40.467Z"}
-{"incrementId":"0703-studio-create-flow-hotfix","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-04-24T22:04:56.131Z"}
-{"incrementId":"0703-studio-create-flow-hotfix","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-04-24T22:04:56.144Z"}
-{"incrementId":"0703-studio-create-flow-hotfix","eventType":"increment.done","timestamp":"2026-04-24T22:04:56.144Z"}
+{"incrementId":"0720-submission-rejection-detail-visibility","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-04-25T04:50:34.895Z"}
+{"incrementId":"0720-submission-rejection-detail-visibility","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-04-25T04:50:34.909Z"}
+{"incrementId":"0720-submission-rejection-detail-visibility","eventType":"increment.done","timestamp":"2026-04-25T04:50:34.910Z"}
+{"incrementId":"0712-0708-followups-scanner-outbox-do-alarm-and-e2e","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-04-25T04:53:57.104Z"}
+{"incrementId":"0712-0708-followups-scanner-outbox-do-alarm-and-e2e","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-04-25T04:53:57.138Z"}
+{"incrementId":"0712-0708-followups-scanner-outbox-do-alarm-and-e2e","eventType":"increment.done","timestamp":"2026-04-25T04:53:57.138Z"}
