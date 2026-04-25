@@ -1,10 +1,10 @@
 ---
 increment: 0722-studio-skill-delete-os-trash
-title: "Skill Studio: Delete authored skills (OS trash + Undo)"
+title: 'Skill Studio: Delete authored skills (OS trash + Undo)'
 type: feature
 priority: P1
-status: planned
-created: 2026-04-25
+status: completed
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

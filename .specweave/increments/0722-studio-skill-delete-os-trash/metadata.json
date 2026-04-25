@@ -1,10 +1,10 @@
 {
   "id": "0722-studio-skill-delete-os-trash",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-25T04:44:33.628Z",
-  "lastActivity": "2026-04-25T05:05:48.812Z",
+  "lastActivity": "2026-04-25T15:30:28.284Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -73,5 +73,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-25T15:30:28.258Z",
+  "approvedAt": "2026-04-25T15:30:28.284Z"
 }
