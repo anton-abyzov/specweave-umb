@@ -40,5 +40,7 @@
   "0709-eval-ui-test-drift-cleanup": 1777066219246,
   "0704-studio-new-skill-reveal-and-api-empty-state": 1777067893719,
   "0708-skill-update-push-pipeline": 1777072114139,
-  "0682-studio-agent-model-picker": 1777095236303
+  "0682-studio-agent-model-picker": 1777095236303,
+  "0678-skill-gen-source-model-picker": 1777096836241,
+  "0718-studio-submit-deeplink": 1777098968889
 }

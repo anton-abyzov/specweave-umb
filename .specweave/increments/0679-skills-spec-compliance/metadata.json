@@ -2,7 +2,7 @@
   "id": "0679-skills-spec-compliance",
   "title": "SKILL.md Spec Compliance — Align vSkill Emitters with agentskills.io/specification",
   "type": "feature",
-  "status": "planned",
+  "status": "active",
   "priority": "medium",
   "project": "vskill",
   "created": "2026-04-22",

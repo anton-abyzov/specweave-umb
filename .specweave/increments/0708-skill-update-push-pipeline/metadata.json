@@ -4,7 +4,7 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-24T20:38:56.718Z",
-  "lastActivity": "2026-04-25T03:00:00.000Z",
+  "lastActivity": "2026-04-25T06:04:00.676Z",
   "reopenedReason": "0713 disabled cron, schema unmigrated to production — re-opening for verify+fix pass via team-lead",
   "testMode": "TDD",
   "coverageTarget": 90,
@@ -30,6 +30,27 @@
     "parallel": false
   },
   "acSyncEvents": [
+    {
+      "timestamp": "2026-04-25T06:04:00.675Z",
+      "updated": [
+        "AC-US5-07",
+        "AC-US5-05"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-05: has no tasks mapped",
+        "AC-US6-06: has no tasks mapped",
+        "AC-US7-06: has no tasks mapped",
+        "AC-US9-01: has no tasks mapped",
+        "AC-US9-02: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US9-04: has no tasks mapped",
+        "AC-US9-05: has no tasks mapped",
+        "AC-US9-06: has no tasks mapped",
+        "AC-US9-07: has no tasks mapped"
+      ],
+      "changesCount": 2
+    },
     {
       "timestamp": "2026-04-24T23:11:21.749Z",
       "updated": [
@@ -634,38 +655,6 @@
     },
     {
       "timestamp": "2026-04-24T21:57:38.556Z",
-      "updated": [],
-      "conflicts": [],
-      "warnings": [
-        "AC-US1-08 referenced in tasks.md but not found in spec.md",
-        "AC-US1-10 referenced in tasks.md but not found in spec.md",
-        "AC-US1-09 referenced in tasks.md but not found in spec.md",
-        "AC-US3-07 referenced in tasks.md but not found in spec.md",
-        "AC-US3-08 referenced in tasks.md but not found in spec.md",
-        "AC-US3-09 referenced in tasks.md but not found in spec.md",
-        "AC-US5-10 referenced in tasks.md but not found in spec.md",
-        "AC-US5-11 referenced in tasks.md but not found in spec.md",
-        "AC-US6-01 referenced in tasks.md but not found in spec.md",
-        "AC-US6-05 referenced in tasks.md but not found in spec.md",
-        "AC-US6-03 referenced in tasks.md but not found in spec.md",
-        "AC-US6-02 referenced in tasks.md but not found in spec.md",
-        "AC-US6-04 referenced in tasks.md but not found in spec.md",
-        "AC-US7-01 referenced in tasks.md but not found in spec.md",
-        "AC-US7-02 referenced in tasks.md but not found in spec.md",
-        "AC-US7-03 referenced in tasks.md but not found in spec.md",
-        "AC-US7-04 referenced in tasks.md but not found in spec.md",
-        "AC-US7-05 referenced in tasks.md but not found in spec.md",
-        "AC-US8-01 referenced in tasks.md but not found in spec.md",
-        "AC-US8-02 referenced in tasks.md but not found in spec.md",
-        "AC-US8-03 referenced in tasks.md but not found in spec.md",
-        "AC-US8-04 referenced in tasks.md but not found in spec.md",
-        "AC-US8-05 referenced in tasks.md but not found in spec.md",
-        "AC-US2-05: has no tasks mapped"
-      ],
-      "changesCount": 0
-    },
-    {
-      "timestamp": "2026-04-24T21:57:34.116Z",
       "updated": [],
       "conflicts": [],
       "warnings": [

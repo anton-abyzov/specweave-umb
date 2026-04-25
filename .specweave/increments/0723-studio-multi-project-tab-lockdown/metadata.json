@@ -1,10 +1,10 @@
 {
   "id": "0723-studio-multi-project-tab-lockdown",
-  "status": "planned",
+  "status": "active",
   "type": "feature",
   "priority": "P2",
   "created": "2026-04-25T04:47:06.050Z",
-  "lastActivity": "2026-04-25T05:07:23.935Z",
+  "lastActivity": "2026-04-25T14:01:45.520Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -29,6 +29,24 @@
     "parallel": false
   },
   "acSyncEvents": [
+    {
+      "timestamp": "2026-04-25T14:01:45.520Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-08: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-25T13:59:56.924Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-08: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
     {
       "timestamp": "2026-04-25T05:07:23.935Z",
       "updated": [],

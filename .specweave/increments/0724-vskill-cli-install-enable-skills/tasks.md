@@ -100,7 +100,8 @@ tasks_version: 1
 ---
 
 ### T-008: Add `--dry-run` to `vskill cleanup` and emit reconciliation summary (`src/commands/cleanup.ts`)
-**User Story**: US-007 | **Satisfies ACs**: AC-US7-02, AC-US7-03, AC-US7-04 | **Phase**: C | **Estimate**: 1h | **Status**: [x] completed
+**User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-03, AC-US7-04 | **Phase**: C | **Estimate**: 1h | **Status**: [x] completed
+> AC-US7-01 (re-statement of pre-existing `uninstallStalePlugins` invariant) is also covered here — the new dry-run path calls `purgeStalePlugins` for both scopes (same as the existing non-dry path) so the stale-detection invariant holds in both modes.
 **Files**: `src/commands/cleanup.ts` (MODIFY), `src/commands/__tests__/cleanup-dryrun.test.ts` (NEW)
 **Depends on**: T-001
 **Test plan**:

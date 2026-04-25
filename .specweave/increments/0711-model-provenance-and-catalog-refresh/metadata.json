@@ -1,10 +1,10 @@
 {
   "id": "0711-model-provenance-and-catalog-refresh",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-24T22:03:55.130Z",
-  "lastActivity": "2026-04-24T22:31:05.893Z",
+  "lastActivity": "2026-04-25T06:32:44.376Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-986",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-24T22:32:03.192Z"
+      "syncedAt": "2026-04-25T06:33:01.529Z"
     },
     "ado": {
       "featureId": "1825",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1825",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-24T22:32:08.406Z"
+      "syncedAt": "2026-04-25T06:33:05.414Z"
     }
   },
   "planning": {
@@ -45,5 +45,6 @@
       ],
       "changesCount": 2
     }
-  ]
+  ],
+  "approvedAt": "2026-04-25T06:32:44.376Z"
 }

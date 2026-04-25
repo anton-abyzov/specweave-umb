@@ -1,3 +1,6 @@
+---
+status: ready_for_review
+---
 # 0686 — Studio UX v2: Tri-Scope Sidebar, Agent-Scope Picker, In-App Setup Docs
 
 **Status:** planned • **Project:** vskill • **Priority:** high • **Test mode:** TDD • **Coverage target:** 90%

@@ -3,8 +3,8 @@ increment: 0678-skill-gen-source-model-picker
 title: Skill-Gen Source Model Picker — Explicit Provider+Model for vSkill CLI
 type: feature
 priority: P2
-status: planned
-created: 2026-04-22
+status: completed
+created: 2026-04-22T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -71,11 +71,11 @@ This increment unlocks 0670 T-005 (`--engine=anthropic-skill-creator`) to accept
 **So that** I can choose exactly which LLM drafts my skill before the server call is made
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given `src/eval-ui/src/pages/CreateSkillPage.tsx` renders the Create form, when the page mounts, then it calls `detectAvailableProviders()` (same hook/API as ComparisonPage) and renders a "Source model" dropdown whose options are grouped by provider with model ids as children.
-- [ ] **AC-US1-02**: Given the dropdown is rendered and no prior selection exists, when `useStudioPreferences().skillGenModel` is `undefined`, then the dropdown preselects `{ provider: "claude-cli", model: "sonnet" }` and a caption reads "Default".
-- [ ] **AC-US1-03**: Given a user selects a provider+model, when selection changes, then `useStudioPreferences().setSkillGenModel({ provider, model })` is called synchronously and `localStorage["vskill-studio-preferences"].skillGenModel` reflects the new value on the very next tick.
-- [ ] **AC-US1-04**: Given no providers are detected (all probes failed), when the dropdown renders, then it is disabled with a tooltip: "Install a provider (Ollama / LM Studio / OpenRouter) or run `claude login` to enable model selection."
-- [ ] **AC-US1-05**: Given a previously persisted provider is no longer detected in this session, when `CreateSkillPage` mounts, then the component falls back to `{ provider: "claude-cli", model: "sonnet" }` and surfaces a one-time non-modal toast: "Previous selection `<provider>/<model>` unavailable — reverted to default."
+- [x] **AC-US1-01**: Given `src/eval-ui/src/pages/CreateSkillPage.tsx` renders the Create form, when the page mounts, then it calls `detectAvailableProviders()` (same hook/API as ComparisonPage) and renders a "Source model" dropdown whose options are grouped by provider with model ids as children.
+- [x] **AC-US1-02**: Given the dropdown is rendered and no prior selection exists, when `useStudioPreferences().skillGenModel` is `undefined`, then the dropdown preselects `{ provider: "claude-cli", model: "sonnet" }` and a caption reads "Default".
+- [x] **AC-US1-03**: Given a user selects a provider+model, when selection changes, then `useStudioPreferences().setSkillGenModel({ provider, model })` is called synchronously and `localStorage["vskill-studio-preferences"].skillGenModel` reflects the new value on the very next tick.
+- [x] **AC-US1-04**: Given no providers are detected (all probes failed), when the dropdown renders, then it is disabled with a tooltip: "Install a provider (Ollama / LM Studio / OpenRouter) or run `claude login` to enable model selection."
+- [x] **AC-US1-05**: Given a previously persisted provider is no longer detected in this session, when `CreateSkillPage` mounts, then the component falls back to `{ provider: "claude-cli", model: "sonnet" }` and surfaces a one-time non-modal toast: "Previous selection `<provider>/<model>` unavailable — reverted to default."
 
 ---
 
@@ -87,11 +87,11 @@ This increment unlocks 0670 T-005 (`--engine=anthropic-skill-creator`) to accept
 **So that** UI and CLI selections actually reach the generation pipeline
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given `src/eval-server/skill-create-routes.ts:940`, when the endpoint handler runs, then it reads both `body.provider` and `body.model`; the defaults are applied as `provider = body.provider ?? "claude-cli"` and `model = body.model ?? (provider === "claude-cli" ? "sonnet" : <provider's first model>)`.
-- [ ] **AC-US2-02**: Given a request arrives with `body.provider` set to a value not present in `detectAvailableProviders()` output, when validation runs, then the handler returns HTTP 400 with body `{ error: "unknown_provider", validProviders: [...] }` and does not start generation.
-- [ ] **AC-US2-03**: Given a request arrives with `body.provider` valid but `body.model` not present in that provider's model list, when validation runs, then the handler returns HTTP 400 with body `{ error: "unknown_model", validModels: [...] }`.
-- [ ] **AC-US2-04**: Given a request omits both `body.provider` and `body.model`, when the endpoint handler runs, then it uses `{ provider: "claude-cli", model: "sonnet" }` — the legacy default is preserved so existing callers are not broken.
-- [ ] **AC-US2-05**: Given the generation pipeline receives the validated `{ provider, model }`, when it dispatches to `src/eval/llm.ts`, then the dispatch selects the adapter matching `provider` and passes `model` through unchanged.
+- [x] **AC-US2-01**: Given `src/eval-server/skill-create-routes.ts:940`, when the endpoint handler runs, then it reads both `body.provider` and `body.model`; the defaults are applied as `provider = body.provider ?? "claude-cli"` and `model = body.model ?? (provider === "claude-cli" ? "sonnet" : <provider's first model>)`.
+- [x] **AC-US2-02**: Given a request arrives with `body.provider` set to a value not present in `detectAvailableProviders()` output, when validation runs, then the handler returns HTTP 400 with body `{ error: "unknown_provider", validProviders: [...] }` and does not start generation.
+- [x] **AC-US2-03**: Given a request arrives with `body.provider` valid but `body.model` not present in that provider's model list, when validation runs, then the handler returns HTTP 400 with body `{ error: "unknown_model", validModels: [...] }`.
+- [x] **AC-US2-04**: Given a request omits both `body.provider` and `body.model`, when the endpoint handler runs, then it uses `{ provider: "claude-cli", model: "sonnet" }` — the legacy default is preserved so existing callers are not broken.
+- [x] **AC-US2-05**: Given the generation pipeline receives the validated `{ provider, model }`, when it dispatches to `src/eval/llm.ts`, then the dispatch selects the adapter matching `provider` and passes `model` through unchanged.
 
 ---
 
@@ -103,9 +103,9 @@ This increment unlocks 0670 T-005 (`--engine=anthropic-skill-creator`) to accept
 **So that** I don't re-pick the same model every time I open Create
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given `src/eval-ui/src/hooks/useStudioPreferences.ts` (shipped in 0674), when a new `skillGenModel?: { provider: string; model: string }` field is added to the preferences type, then reading/writing is symmetric with the other fields (same `setX`/`getX` pattern, same localStorage key `vskill-studio-preferences`).
-- [ ] **AC-US3-02**: Given a selection is made in one tab, when a second tab is open on the same origin, then the `storage` event handler already registered in 0674 propagates the new `skillGenModel` into the second tab's state without requiring a reload.
-- [ ] **AC-US3-03**: Given the persisted `skillGenModel` is malformed (wrong shape, non-string members, parse error), when the hook loads, then it silently resets to `undefined` rather than throwing, and a single `console.warn` is emitted in dev mode only.
+- [x] **AC-US3-01**: Given `src/eval-ui/src/hooks/useStudioPreferences.ts` (shipped in 0674), when a new `skillGenModel?: { provider: string; model: string }` field is added to the preferences type, then reading/writing is symmetric with the other fields (same `setX`/`getX` pattern, same localStorage key `vskill-studio-preferences`).
+- [x] **AC-US3-02**: Given a selection is made in one tab, when a second tab is open on the same origin, then the `storage` event handler already registered in 0674 propagates the new `skillGenModel` into the second tab's state without requiring a reload.
+- [x] **AC-US3-03**: Given the persisted `skillGenModel` is malformed (wrong shape, non-string members, parse error), when the hook loads, then it silently resets to `undefined` rather than throwing, and a single `console.warn` is emitted in dev mode only.
 
 ---
 
@@ -117,10 +117,10 @@ This increment unlocks 0670 T-005 (`--engine=anthropic-skill-creator`) to accept
 **So that** automation matches interactive behavior
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given the `vskill skill new` command definition (in `src/cli/skill.ts` or equivalent), when `--provider <string>` and `--model <string>` options are added, then their help text reads "Provider id (e.g., claude-cli, ollama, lm-studio, openrouter)" and "Model id (provider-scoped, e.g., sonnet, qwen2.5-coder:7b)" respectively.
-- [ ] **AC-US4-02**: Given the CLI is invoked with `--provider ollama --model qwen2.5-coder:7b`, when the command runs, then the HTTP body sent to the skill-create endpoint includes `{ provider: "ollama", model: "qwen2.5-coder:7b" }`.
-- [ ] **AC-US4-03**: Given the CLI is invoked with `--provider <unknown>`, when validation runs locally (before the HTTP call, via the same `detectAvailableProviders` result), then the command exits with code 2 and prints "Unknown provider '<x>'. Valid: [list]" to stderr.
-- [ ] **AC-US4-04**: Given the CLI is invoked without either flag, when the command runs, then it uses the same defaults as the UI path (`claude-cli`/`sonnet`) — no prompts, no interactive questions.
+- [x] **AC-US4-01**: Given the `vskill skill new` command definition (in `src/cli/skill.ts` or equivalent), when `--provider <string>` and `--model <string>` options are added, then their help text reads "Provider id (e.g., claude-cli, ollama, lm-studio, openrouter)" and "Model id (provider-scoped, e.g., sonnet, qwen2.5-coder:7b)" respectively.
+- [x] **AC-US4-02**: Given the CLI is invoked with `--provider ollama --model qwen2.5-coder:7b`, when the command runs, then the HTTP body sent to the skill-create endpoint includes `{ provider: "ollama", model: "qwen2.5-coder:7b" }`.
+- [x] **AC-US4-03**: Given the CLI is invoked with `--provider <unknown>`, when validation runs locally (before the HTTP call, via the same `detectAvailableProviders` result), then the command exits with code 2 and prints "Unknown provider '<x>'. Valid: [list]" to stderr.
+- [x] **AC-US4-04**: Given the CLI is invoked without either flag, when the command runs, then it uses the same defaults as the UI path (`claude-cli`/`sonnet`) — no prompts, no interactive questions.
 
 ## Functional Requirements
 

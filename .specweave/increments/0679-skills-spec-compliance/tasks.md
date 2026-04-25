@@ -3,7 +3,7 @@ increment: 0679-skills-spec-compliance
 title: SKILL.md Spec Compliance — Tasks
 scope: Nest tags + target-agents under metadata; integrate skills-ref validate; CI script; goldens
 target_days: 1
-status: planned
+status: active
 ---
 
 # Tasks: SKILL.md Spec Compliance

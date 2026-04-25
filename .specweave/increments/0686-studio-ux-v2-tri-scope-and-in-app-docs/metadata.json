@@ -1,14 +1,12 @@
 {
-  "id": "0686",
+  "id": "0686-studio-ux-v2-tri-scope-and-in-app-docs",
   "name": "studio-ux-v2-tri-scope-and-in-app-docs",
   "title": "Studio UX v2 — tri-scope sidebar, agent-scope picker, in-app setup docs",
-  "status": "planned",
+  "status": "ready_for_review",
   "project": "vskill",
   "priority": "high",
   "testMode": "TDD",
   "coverageTarget": 90,
-  "createdAt": "2026-04-22",
-  "updatedAt": "2026-04-22",
   "owner": "anton.abyzov@gmail.com",
   "dependencies": [
     {
@@ -149,5 +147,10 @@
       "changesCount": 0
     }
   ],
-  "lastActivity": "2026-04-23T13:20:15.280Z"
+  "lastActivity": "2026-04-25T06:19:18.000Z",
+  "created": "2026-04-22",
+  "updated": "2026-04-22",
+  "externalLinks": {},
+  "type": "feature",
+  "readyForReviewAt": "2026-04-25T06:19:18.000Z"
 }

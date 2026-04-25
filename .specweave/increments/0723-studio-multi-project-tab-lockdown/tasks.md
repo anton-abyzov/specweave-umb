@@ -9,8 +9,8 @@
 
 ## Phase 1: Server Foundation
 
-### T-001: Write failing test for getWorkspaceFingerprint()
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [ ] pending
+### T-001: [RED] Write failing test for getWorkspaceFingerprint()
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [x] completed
 **Test Plan**:
 - Given: a fixed `BOOT_ID` and a resolved root path (module-level constant set at load time)
 - When: `getWorkspaceFingerprint(root)` is called twice with the same input
@@ -22,8 +22,8 @@
 
 ---
 
-### T-002: Implement workspace-fingerprint.ts
-**User Story**: US-001, US-004 | **Satisfies ACs**: AC-US1-02, AC-US4-02 | **Status**: [ ] pending
+### T-002: [GREEN] Implement workspace-fingerprint.ts
+**User Story**: US-001, US-004 | **Satisfies ACs**: AC-US1-02, AC-US4-02 | **Status**: [x] completed
 **Test Plan**:
 - Given: T-001 tests are written and failing (red)
 - When: `src/lib/workspace-fingerprint.ts` is created with `BOOT_ID`, `getWorkspaceFingerprint`, `WorkspaceMismatchError`
@@ -33,7 +33,7 @@
 
 ---
 
-### T-003: Write failing test for assertWorkspaceFingerprint()
+### T-003: [RED] Write failing test for assertWorkspaceFingerprint()
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-02, AC-US4-03 | **Status**: [ ] pending
 **Test Plan**:
 - Given: a mock `NextRequest` with various `x-workspace-fingerprint` header states
@@ -45,7 +45,7 @@
 
 ---
 
-### T-004: Implement assertWorkspaceFingerprint()
+### T-004: [GREEN] Implement assertWorkspaceFingerprint()
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-02, AC-US4-03, AC-US4-05 | **Status**: [ ] pending
 **Test Plan**:
 - Given: T-003 tests are written and failing (red)
@@ -56,7 +56,7 @@
 
 ---
 
-### T-005: Write failing test for /workspace-info returning extended shape
+### T-005: [RED] Write failing test for /workspace-info returning extended shape
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02 | **Status**: [ ] pending
 **Test Plan**:
 - Given: a GET request to `/api/v1/studio/workspace-info`
@@ -69,7 +69,7 @@
 
 ---
 
-### T-006: Extend /workspace-info route handler
+### T-006: [GREEN] Extend /workspace-info route handler
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-04 | **Status**: [ ] pending
 **Test Plan**:
 - Given: T-005 tests are written and failing (red)
@@ -81,7 +81,7 @@
 
 ---
 
-### T-007: Write failing test + implement 409 wrapper helper for mutating routes
+### T-007: [RED] Write failing test + implement 409 wrapper helper for mutating routes
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-03 | **Status**: [ ] pending
 **Test Plan**:
 - Given: a `WorkspaceMismatchError` is thrown with `current = "abc123def456"` and `was = "000111222333"`
@@ -96,7 +96,7 @@
 
 ## Phase 2: Telemetry
 
-### T-008: Write failing test for telemetry/[kind] accepting "lockdown" kind
+### T-008: [RED] Write failing test for telemetry/[kind] accepting "lockdown" kind
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-04 | **Status**: [ ] pending
 **Test Plan**:
 - Given: a POST to `/api/v1/studio/telemetry/lockdown` with valid body `{ reason: "broadcast", originalFingerprint: "aabbccddee11", newFingerprint: "112233445566", ts: Date.now() }`
@@ -111,7 +111,7 @@
 
 ---
 
-### T-009: Implement lockdown kind in telemetry route + wire fingerprint assert
+### T-009: [GREEN] Implement lockdown kind in telemetry route + wire fingerprint assert
 **User Story**: US-004, US-006 | **Satisfies ACs**: AC-US4-04, AC-US6-02, AC-US6-03 | **Status**: [ ] pending
 **Test Plan**:
 - Given: T-008 tests are written and failing (red)
@@ -123,7 +123,7 @@
 
 ---
 
-### T-010: Add STUDIO_LOCKDOWN_AE binding to wrangler.jsonc
+### T-010: [GREEN] Add STUDIO_LOCKDOWN_AE binding to wrangler.jsonc
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-03 | **Status**: [ ] pending
 **Test Plan**:
 - Given: `wrangler.jsonc` currently has `UPDATE_METRICS_AE` in `analytics_engine_datasets`
@@ -137,7 +137,7 @@
 
 ## Phase 3: Client Core
 
-### T-011: Write failing test for lockdown-state singleton
+### T-011: [RED] Write failing test for lockdown-state singleton
 **User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-03, AC-US2-02, AC-US3-01, AC-US3-03 | **Status**: [ ] pending
 **Test Plan**:
 - Given: fresh module import (use `vi.isolateModules` to reset singleton between tests)
@@ -153,7 +153,7 @@
 
 ---
 
-### T-012: Implement lockdown-state.ts
+### T-012: [GREEN] Implement lockdown-state.ts
 **User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-03, AC-US2-02, AC-US3-01, AC-US3-03 | **Status**: [ ] pending
 **Test Plan**:
 - Given: T-011 tests are written and failing (red)
@@ -165,7 +165,7 @@
 
 ---
 
-### T-013: Write failing test for LockdownError class
+### T-013: [RED] Write failing test for LockdownError class
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Status**: [ ] pending
 **Test Plan**:
 - Given: `new LockdownError("pre-flight")` is constructed
@@ -180,7 +180,7 @@
 
 ---
 
-### T-014: Implement lockdown-error.ts
+### T-014: [GREEN] Implement lockdown-error.ts
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Status**: [ ] pending
 **Test Plan**:
 - Given: T-013 tests are written and failing (red)
@@ -191,7 +191,7 @@
 
 ---
 
-### T-015: Write failing test for authFetch lockdown integration
+### T-015: [RED] Write failing test for authFetch lockdown integration
 **User Story**: US-003, US-004 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US4-01, AC-US2-04 | **Status**: [ ] pending
 **Test Plan**:
 - Given: mocked `lockdown-state` and `fetch` (via `vi.mock`)
@@ -206,7 +206,7 @@
 
 ---
 
-### T-016: Modify auth-fetch.ts to integrate fingerprint header + lockdown checks
+### T-016: [GREEN] Modify auth-fetch.ts to integrate fingerprint header + lockdown checks
 **User Story**: US-003, US-004 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US4-01, AC-US2-04 | **Status**: [ ] pending
 **Test Plan**:
 - Given: T-015 tests are written and failing (red)
@@ -220,7 +220,7 @@
 
 ## Phase 4: Provider + UI
 
-### T-017: Write failing test for LockdownProvider
+### T-017: [RED] Write failing test for LockdownProvider
 **User Story**: US-001, US-002, US-006 | **Satisfies ACs**: AC-US1-03, AC-US1-04, AC-US2-01, AC-US2-02, AC-US2-03, AC-US6-01 | **Status**: [ ] pending
 **Test Plan**:
 - Given: a rendered `LockdownProvider` with mocked `fetch` returning `{ fingerprint: "aabbccddee11", repoUrl: "u/alpha", root: "/a" }`
@@ -240,7 +240,7 @@
 
 ---
 
-### T-018: Implement LockdownProvider.tsx
+### T-018: [GREEN] Implement LockdownProvider.tsx
 **User Story**: US-001, US-002, US-006 | **Satisfies ACs**: AC-US1-03, AC-US1-04, AC-US2-01, AC-US2-02, AC-US2-03, AC-US5-01, AC-US6-01 | **Status**: [ ] pending
 **Test Plan**:
 - Given: T-017 tests are written and failing (red)
@@ -252,7 +252,7 @@
 
 ---
 
-### T-019: Write failing E2E test for ProjectChangedModal
+### T-019: [RED] Write failing E2E test for ProjectChangedModal
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-03, AC-US5-05, AC-US5-06, AC-US5-07 | **Status**: [ ] pending
 **Test Plan**:
 - Given: Playwright, Studio page loaded with mocked `/workspace-info` returning different fingerprint on second call to trigger lockdown
@@ -269,7 +269,7 @@
 
 ---
 
-### T-020: Implement ProjectChangedModal.tsx
+### T-020: [GREEN] Implement ProjectChangedModal.tsx
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-02, AC-US5-03, AC-US5-04, AC-US5-05, AC-US5-06, AC-US5-07 | **Status**: [ ] pending
 **Test Plan**:
 - Given: T-019 E2E tests are written and failing (red)
@@ -287,7 +287,7 @@
 
 ---
 
-### T-021: Wire LockdownProvider into layout.tsx
+### T-021: [GREEN] Wire LockdownProvider into layout.tsx
 **User Story**: US-001, US-005 | **Satisfies ACs**: AC-US1-03, AC-US5-01 | **Status**: [ ] pending
 **Test Plan**:
 - Given: `layout.tsx` currently wraps `LayoutShell` and children directly
@@ -301,7 +301,7 @@
 
 ## Phase 5: Integration + E2E
 
-### T-022: Vitest integration test — full lockdown flow
+### T-022: [RED] Vitest integration test — full lockdown flow
 **User Story**: US-002, US-003 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-04, AC-US3-01 | **Status**: [ ] pending
 **Test Plan**:
 - Given: Vitest with real singleton state (not mocked), mocked `fetch` and `BroadcastChannel`
@@ -316,7 +316,7 @@
 
 ---
 
-### T-023: Playwright E2E — two-tab lockdown scenario
+### T-023: [RED] Playwright E2E — two-tab lockdown scenario
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-05, AC-US3-03 | **Status**: [ ] pending
 **Test Plan**:
 - Given: two Playwright browser contexts (simulating two tabs)
@@ -330,7 +330,7 @@
 
 ---
 
-### T-024: Playwright E2E — modal accessibility
+### T-024: [RED] Playwright E2E — modal accessibility
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-03, AC-US5-07 | **Status**: [ ] pending
 **Test Plan**:
 - Given: Studio page with lockdown modal triggered (mocked `/workspace-info` mismatch)
@@ -348,7 +348,7 @@
 
 ---
 
-### T-025: Playwright E2E — telemetry POST fires on lockdown trigger
+### T-025: [RED] Playwright E2E — telemetry POST fires on lockdown trigger
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02 | **Status**: [ ] pending
 **Test Plan**:
 - Given: Playwright with route interception on `/api/v1/studio/telemetry/lockdown`
@@ -363,7 +363,7 @@
 
 ## Phase 6: Docs
 
-### T-026: Add usage note for lockdown feature
+### T-026: [GREEN] Add usage note for lockdown feature
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01 | **Status**: [ ] pending
 **Test Plan**:
 - Given: `repositories/anton-abyzov/vskill-platform/` directory

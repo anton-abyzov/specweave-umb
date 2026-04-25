@@ -3,7 +3,7 @@ increment: 0679-skills-spec-compliance
 title: SKILL.md Spec Compliance — Align vSkill Emitters with agentskills.io/specification
 type: feature
 priority: P2
-status: planned
+status: active
 created: 2026-04-22
 structure: user-stories
 test_mode: TDD
@@ -60,10 +60,10 @@ Additionally, integrate the external validator:
 **So that** the file validates against the canonical agentskills.io specification
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Given `src/eval-server/skill-create-routes.ts` generates SKILL.md frontmatter, when it writes the frontmatter block, then `tags` and `target-agents` are emitted under a `metadata:` key (e.g., `metadata:\n  tags:\n    - foo\n  target-agents:\n    - claude-code`), and no `tags:` or `target-agents:` keys appear at the top level.
-- [ ] **AC-US1-02**: Given the emitted YAML, when parsed with `yaml.load()`, then `doc.metadata.tags` is an array of strings and `doc.metadata["target-agents"]` is an array of strings; `doc.tags` and `doc["target-agents"]` are `undefined` at the root.
-- [ ] **AC-US1-03**: Given all other fields the emitter writes today (`name`, `description`, `version`, etc.), when migration lands, then those fields remain at the top level exactly where they are today — this increment touches only `tags` and `target-agents`, nothing else changes position.
-- [ ] **AC-US1-04**: Given a golden-file fixture captures the before and after, when the new shape is asserted, then the diff is limited to moving the two keys plus their values into a new `metadata:` block; no other lines change.
+- [x] **AC-US1-01**: Given `src/eval-server/skill-create-routes.ts` generates SKILL.md frontmatter, when it writes the frontmatter block, then `tags` and `target-agents` are emitted under a `metadata:` key (e.g., `metadata:\n  tags:\n    - foo\n  target-agents:\n    - claude-code`), and no `tags:` or `target-agents:` keys appear at the top level.
+- [x] **AC-US1-02**: Given the emitted YAML, when parsed with `yaml.load()`, then `doc.metadata.tags` is an array of strings and `doc.metadata["target-agents"]` is an array of strings; `doc.tags` and `doc["target-agents"]` are `undefined` at the root.
+- [x] **AC-US1-03**: Given all other fields the emitter writes today (`name`, `description`, `version`, etc.), when migration lands, then those fields remain at the top level exactly where they are today — this increment touches only `tags` and `target-agents`, nothing else changes position.
+- [x] **AC-US1-04**: Given a golden-file fixture captures the before and after, when the new shape is asserted, then the diff is limited to moving the two keys plus their values into a new `metadata:` block; no other lines change.
 
 ---
 
@@ -75,9 +75,9 @@ Additionally, integrate the external validator:
 **So that** 0670 does not ship a regression when it completes
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Given 0670's template file(s) under `.specweave/increments/0670-skill-builder-universal/` that drive SKILL.md emission, when this increment lands, then those templates also nest `tags` and `target-agents` under `metadata:`.
-- [ ] **AC-US2-02**: Given 0670 task documents reference the old shape (if any), when this increment lands, then any such references are updated via a follow-up note in 0670's tasks file — without marking 0670 tasks complete or interfering with 0670's execution state.
-- [ ] **AC-US2-03**: Given 0670 is currently at 3/35 tasks done, when this increment lands, then 0670's remaining tasks inherit the new shape automatically and 0670's own validator (if any) also uses `skills-ref validate`.
+- [x] **AC-US2-01**: Given 0670's template file(s) under `.specweave/increments/0670-skill-builder-universal/` that drive SKILL.md emission, when this increment lands, then those templates also nest `tags` and `target-agents` under `metadata:`.
+- [x] **AC-US2-02**: Given 0670 task documents reference the old shape (if any), when this increment lands, then any such references are updated via a follow-up note in 0670's tasks file — without marking 0670 tasks complete or interfering with 0670's execution state.
+- [x] **AC-US2-03**: Given 0670 is currently at 3/35 tasks done, when this increment lands, then 0670's remaining tasks inherit the new shape automatically and 0670's own validator (if any) also uses `skills-ref validate`.
 
 ---
 
@@ -89,10 +89,10 @@ Additionally, integrate the external validator:
 **So that** I catch shape drift before committing
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Given `vskill skill new` completes emission of a new SKILL.md, when the post-creation step runs, then it invokes `skills-ref validate <path-to-new-skill>` as a child process and captures the exit code + stderr.
-- [ ] **AC-US3-02**: Given `skills-ref validate` exits non-zero, when the default (non-strict) mode is in effect, then the CLI prints a yellow warning summarizing the failures and completes with exit code 0 (the skill file remains on disk).
-- [ ] **AC-US3-03**: Given the user passes `--strict` on `vskill skill new`, when `skills-ref validate` exits non-zero, then the CLI prints the failures as red errors and exits with code 1; the emitted file remains on disk for inspection.
-- [ ] **AC-US3-04**: Given `skills-ref` is not installed on the user's machine, when post-creation runs, then the CLI prints a one-line hint ("Install `skills-ref` to enable spec validation: `npm i -g skills-ref`") and completes with exit code 0 — validation is optional by design.
+- [x] **AC-US3-01**: Given `vskill skill new` completes emission of a new SKILL.md, when the post-creation step runs, then it invokes `skills-ref validate <path-to-new-skill>` as a child process and captures the exit code + stderr.
+- [x] **AC-US3-02**: Given `skills-ref validate` exits non-zero, when the default (non-strict) mode is in effect, then the CLI prints a yellow warning summarizing the failures and completes with exit code 0 (the skill file remains on disk).
+- [x] **AC-US3-03**: Given the user passes `--strict` on `vskill skill new`, when `skills-ref validate` exits non-zero, then the CLI prints the failures as red errors and exits with code 1; the emitted file remains on disk for inspection.
+- [x] **AC-US3-04**: Given `skills-ref` is not installed on the user's machine, when post-creation runs, then the CLI prints a one-line hint ("Install `skills-ref` to enable spec validation: `npm i -g skills-ref`") and completes with exit code 0 — validation is optional by design.
 
 ---
 
@@ -104,9 +104,9 @@ Additionally, integrate the external validator:
 **So that** drift cannot re-accumulate in the repo
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Given `package.json`, when the `lint:skills-spec` script is added, then it runs `skills-ref validate` against every file under the repo matching `**/SKILL.md` (or a configured glob), and exits non-zero if any fail.
-- [ ] **AC-US4-02**: Given CI runs the `lint:skills-spec` script on every PR, when the job executes, then it surfaces per-file validation output and the PR is blocked on non-zero exit.
-- [ ] **AC-US4-03**: Given `skills-ref` is not available in CI, when the script runs, then it fails loudly (exit 1) with "skills-ref not found — install via `npm i -D skills-ref`" — CI must have deterministic tooling; silent skip is not acceptable.
+- [x] **AC-US4-01**: Given `package.json`, when the `lint:skills-spec` script is added, then it runs `skills-ref validate` against every file under the repo matching `**/SKILL.md` (or a configured glob), and exits non-zero if any fail.
+- [x] **AC-US4-02**: Given CI runs the `lint:skills-spec` script on every PR, when the job executes, then it surfaces per-file validation output and the PR is blocked on non-zero exit.
+- [x] **AC-US4-03**: Given `skills-ref` is not available in CI, when the script runs, then it fails loudly (exit 1) with "skills-ref not found — install via `npm i -D skills-ref`" — CI must have deterministic tooling; silent skip is not acceptable.
 
 ---
 
@@ -118,9 +118,9 @@ Additionally, integrate the external validator:
 **So that** the spec alignment is guaranteed for all future changes
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Given a new test file `src/eval-server/__tests__/skill-create-frontmatter.test.ts`, when it runs the emitter with a known fixture input, then it asserts the emitted frontmatter equals a golden string that places `tags` and `target-agents` under `metadata:`.
-- [ ] **AC-US5-02**: Given the golden file is checked in at `src/eval-server/__tests__/fixtures/skill-create-frontmatter.golden.md`, when someone changes the emitter without updating the golden file, then the test fails with a clear diff showing the drift.
-- [ ] **AC-US5-03**: Given the golden-file test is part of the standard `npx vitest run` target, when CI runs, then it passes on the compliant shape and fails on any regression.
+- [x] **AC-US5-01**: Given a new test file `src/eval-server/__tests__/skill-create-frontmatter.test.ts`, when it runs the emitter with a known fixture input, then it asserts the emitted frontmatter equals a golden string that places `tags` and `target-agents` under `metadata:`.
+- [x] **AC-US5-02**: Given the golden file is checked in at `src/eval-server/__tests__/fixtures/skill-create-frontmatter.golden.md`, when someone changes the emitter without updating the golden file, then the test fails with a clear diff showing the drift.
+- [x] **AC-US5-03**: Given the golden-file test is part of the standard `npx vitest run` target, when CI runs, then it passes on the compliant shape and fails on any regression.
 
 ## Functional Requirements
 

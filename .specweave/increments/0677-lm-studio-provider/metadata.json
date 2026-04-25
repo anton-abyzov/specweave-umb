@@ -24,5 +24,7 @@
   ],
   "estimatedDays": 2,
   "testMode": "TDD",
-  "coverageTarget": 90
+  "coverageTarget": 90,
+  "externalLinks": {},
+  "lastActivity": "2026-04-22"
 }

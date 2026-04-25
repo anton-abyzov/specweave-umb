@@ -1,14 +1,13 @@
 {
-  "id": "0684",
+  "id": "0684-studio-qa-regressions",
   "name": "studio-qa-regressions",
   "title": "Studio QA regressions — post-0674 shipped defects",
-  "status": "planned",
+  "status": "completed",
   "project": "vskill",
   "type": "hotfix",
   "priority": "critical",
   "testMode": "TDD",
   "coverageTarget": 90,
-  "createdAt": "2026-04-23",
   "targetRepo": "repositories/anton-abyzov/vskill",
   "parentIncrement": "0674",
   "source": {
@@ -16,20 +15,115 @@
     "artifact": "repositories/anton-abyzov/vskill/e2e/playwright-verification-report.md",
     "rawLog": "repositories/anton-abyzov/vskill/e2e/playwright-run-log-1776928243.txt",
     "runDate": "2026-04-23",
-    "totals": { "tests": 56, "passed": 38, "failed": 15, "fixme": 3 }
+    "totals": {
+      "tests": 56,
+      "passed": 38,
+      "failed": 15,
+      "fixme": 3
+    }
   },
   "defects": [
-    { "id": "B1", "acs": ["AC-US1-01"], "task": "T-001", "severity": "high" },
-    { "id": "B2", "acs": ["AC-US2-01", "AC-US2-02"], "task": "T-002", "severity": "high" },
-    { "id": "B3", "acs": ["AC-US1-02"], "task": "T-003", "severity": "medium" },
-    { "id": "B4", "acs": ["AC-US1-03"], "task": "T-004", "severity": "medium" },
-    { "id": "B5", "acs": ["AC-US3-01", "AC-US3-02"], "task": "T-005", "severity": "high" },
-    { "id": "B6", "acs": ["AC-US3-03", "AC-US3-04"], "task": "T-006", "severity": "high" },
-    { "id": "B7", "acs": [], "task": "spec-update-breadcrumb", "severity": "test-drift" },
-    { "id": "B8", "acs": ["AC-US4-01"], "task": "T-007", "severity": "medium" },
-    { "id": "Perf-1", "acs": ["AC-US5-01"], "task": "T-008", "severity": "triage" },
-    { "id": "Perf-2", "acs": ["AC-US5-02"], "task": "T-009", "severity": "triage" },
-    { "id": "Perf-3", "acs": ["AC-US5-03"], "task": "T-010", "severity": "triage" }
+    {
+      "id": "B1",
+      "acs": [
+        "AC-US1-01"
+      ],
+      "task": "T-001",
+      "severity": "high"
+    },
+    {
+      "id": "B2",
+      "acs": [
+        "AC-US2-01",
+        "AC-US2-02"
+      ],
+      "task": "T-002",
+      "severity": "high"
+    },
+    {
+      "id": "B3",
+      "acs": [
+        "AC-US1-02"
+      ],
+      "task": "T-003",
+      "severity": "medium"
+    },
+    {
+      "id": "B4",
+      "acs": [
+        "AC-US1-03"
+      ],
+      "task": "T-004",
+      "severity": "medium"
+    },
+    {
+      "id": "B5",
+      "acs": [
+        "AC-US3-01",
+        "AC-US3-02"
+      ],
+      "task": "T-005",
+      "severity": "high"
+    },
+    {
+      "id": "B6",
+      "acs": [
+        "AC-US3-03",
+        "AC-US3-04"
+      ],
+      "task": "T-006",
+      "severity": "high"
+    },
+    {
+      "id": "B7",
+      "acs": [],
+      "task": "spec-update-breadcrumb",
+      "severity": "test-drift"
+    },
+    {
+      "id": "B8",
+      "acs": [
+        "AC-US4-01"
+      ],
+      "task": "T-007",
+      "severity": "medium"
+    },
+    {
+      "id": "Perf-1",
+      "acs": [
+        "AC-US5-01"
+      ],
+      "task": "T-008",
+      "severity": "triage"
+    },
+    {
+      "id": "Perf-2",
+      "acs": [
+        "AC-US5-02"
+      ],
+      "task": "T-009",
+      "severity": "triage"
+    },
+    {
+      "id": "Perf-3",
+      "acs": [
+        "AC-US5-03"
+      ],
+      "task": "T-010",
+      "severity": "triage"
+    }
   ],
-  "tags": ["hotfix", "e2e", "regression", "studio", "ui", "post-0674"]
+  "tags": [
+    "hotfix",
+    "e2e",
+    "regression",
+    "studio",
+    "ui",
+    "post-0674"
+  ],
+  "created": "2026-04-23",
+  "externalLinks": {},
+  "lastActivity": "2026-04-25T06:17:37.932Z",
+  "readyForReviewAt": "2026-04-25T06:17:37.923Z",
+  "approvedAt": "2026-04-25T06:17:37.932Z"
 }

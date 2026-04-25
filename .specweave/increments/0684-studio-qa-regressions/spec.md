@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # Increment 0682 — Studio QA regressions (post-0674)
 
 ## Context
@@ -23,15 +26,15 @@ This increment is a **hotfix** — it patches the shipped-regression list verifi
 **So that** I can trust my UI preferences survive and keyboard-driven navigation behaves like every other editor I use
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01** OWN/INSTALLED sidebar section collapse state persists across browser reload.
+- [x] **AC-US1-01** OWN/INSTALLED sidebar section collapse state persists across browser reload.
   - **Failing spec**: `e2e/qa-click-audit.spec.ts:174` "section collapse persistence [AC-US1-05]" AND `e2e/sidebar-split.spec.ts:47` "collapse state for OWN section persists across reload".
   - **Expected**: After user clicks OWN header (collapsing the section) and reloads the page, `aria-expanded="false"` on the OWN section button.
   - **Observed**: `aria-expanded="true"` after reload (state reset).
-- [ ] **AC-US1-02** Pressing `j` on the body (no input focused) sets `aria-selected="true"` on a skill row in the sidebar.
+- [x] **AC-US1-02** Pressing `j` on the body (no input focused) sets `aria-selected="true"` on a skill row in the sidebar.
   - **Failing spec**: `e2e/keyboard-shortcuts.spec.ts:47` "T-050 — `j`/`k` move selection in the sidebar".
   - **Expected**: `[data-testid='skill-row'][aria-selected='true']` becomes visible within 500 ms of the first `j` press (select-first-row semantics when no row is currently selected).
   - **Observed**: no row is ever marked selected.
-- [ ] **AC-US1-03** `Cmd+B` (macOS) / `Ctrl+B` (other) hides the skills sidebar; pressing the shortcut again reveals it.
+- [x] **AC-US1-03** `Cmd+B` (macOS) / `Ctrl+B` (other) hides the skills sidebar; pressing the shortcut again reveals it.
   - **Failing spec**: `e2e/keyboard-shortcuts.spec.ts:85` "T-050 — Cmd/Ctrl+B toggles sidebar visibility".
   - **Expected**: `aside[aria-label='Skills sidebar']` transitions from visible → hidden → visible across successive Cmd+B presses.
   - **Observed**: the aside stays visible after every press.
@@ -44,10 +47,10 @@ This increment is a **hotfix** — it patches the shipped-regression list verifi
 **So that** the theme toggle works identically regardless of my current theme
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01** `Cmd+Shift+D` pressed while `data-theme="light"` flips `data-theme` to `dark` and persists the new mode to `localStorage`.
+- [x] **AC-US2-01** `Cmd+Shift+D` pressed while `data-theme="light"` flips `data-theme` to `dark` and persists the new mode to `localStorage`.
   - **Failing spec**: `e2e/keyboard-shortcuts.spec.ts:100` "T-050 — Cmd/Ctrl+Shift+D toggles the theme".
   - **Note**: The reverse path (dark → auto) already **passes** via `theme-persistence.spec.ts:79`. The regression is specific to the light → dark branch, which implicates the cycle logic in `App.tsx` handlers (lines 123, 149, 153) or in `ThemeProvider.setTheme`.
-- [ ] **AC-US2-02** Clicking the status-bar theme button while `data-theme="light"` flips `data-theme` to `dark` and writes the new mode to `localStorage`.
+- [x] **AC-US2-02** Clicking the status-bar theme button while `data-theme="light"` flips `data-theme` to `dark` and writes the new mode to `localStorage`.
   - **Failing spec**: `e2e/qa-click-audit.spec.ts:230` "theme toggle [AC-US2-03, AC-US2-04]" — same cycle branch as AC-US2-01.
 
 ---
@@ -58,16 +61,16 @@ This increment is a **hotfix** — it patches the shipped-regression list verifi
 **So that** I can access the backend data that already exists and filter tests without hunting for missing UI
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01** The workspace left rail shows a "Leaderboard" panel entry when a skill is selected.
+- [x] **AC-US3-01** The workspace left rail shows a "Leaderboard" panel entry when a skill is selected.
   - **Failing spec**: `e2e/leaderboard.spec.ts:5` "leaderboard tab is visible in workspace".
   - **Expected**: `text=Leaderboard` is visible in the DOM. Backend `/api/skills/:p/:s/leaderboard` already works (test #27 passes), and `SkillWorkspace.tsx` already routes `state.activePanel === "leaderboard"` to `LeaderboardPanel` — but `LeftRail.PANEL_GROUPS` omits the entry.
-- [ ] **AC-US3-02** Clicking the Leaderboard tab renders `LeaderboardPanel` with its empty state when there is no sweep data.
+- [x] **AC-US3-02** Clicking the Leaderboard tab renders `LeaderboardPanel` with its empty state when there is no sweep data.
   - **Failing spec**: `e2e/leaderboard.spec.ts:13` "leaderboard panel shows empty state when no sweep data".
-- [ ] **AC-US3-03** The TestsPanel renders the `All / Unit / Integration` filter-tab group unconditionally when a skill is selected and the Tests panel is active (even with zero integration tests).
+- [x] **AC-US3-03** The TestsPanel renders the `All / Unit / Integration` filter-tab group unconditionally when a skill is selected and the Tests panel is active (even with zero integration tests).
   - **Failing spec**: `e2e/tests-panel.spec.ts:5` "TestsPanel filter tabs render (All / Unit / Integration)".
   - **Observed**: the tab group is hidden when `hasIntegrationTests === false` (see `TestsPanel.tsx:383` — the wrapping guard).
   - **Expected**: all three tab buttons exist in the DOM with their counts (including zero).
-- [ ] **AC-US3-04** Switching between the All / Unit / Integration filter tabs changes the rendered case list.
+- [x] **AC-US3-04** Switching between the All / Unit / Integration filter tabs changes the rendered case list.
   - **Failing spec**: `e2e/tests-panel.spec.ts:30` "filter tabs filter the test case list".
 
 ---
@@ -78,7 +81,7 @@ This increment is a **hotfix** — it patches the shipped-regression list verifi
 **So that** I can recover my keyboard focus without waiting for auto-dismiss
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01** Pressing `Escape` while the `'e'`-placeholder toast is active removes the toast from the DOM within 150 ms.
+- [x] **AC-US4-01** Pressing `Escape` while the `'e'`-placeholder toast is active removes the toast from the DOM within 150 ms.
   - **Failing spec**: `e2e/qa-click-audit.spec.ts:385` "toast lifecycle [AC-US4-08]".
   - **Expected**: toast count = 0 after Escape.
   - **Observed**: toast count = 1 (Escape is swallowed by an earlier-registered handler, or the Toast `onDismiss` path is never reached from the Escape handler).
@@ -92,12 +95,12 @@ This increment is a **hotfix** — it patches the shipped-regression list verifi
 **So that** the `/lighthouse-budget`, `/performance-marks`, and page-load gates don't block CI with meaningless fails
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01** The eval-ui `/` page load either passes the 1000 ms budget **or** the budget is raised to a justified new value with a comment in the spec citing the measurement context (cold dev-server boot included).
+- [x] **AC-US5-01** The eval-ui `/` page load either passes the 1000 ms budget **or** the budget is raised to a justified new value with a comment in the spec citing the measurement context (cold dev-server boot included).
   - **Failing spec**: `e2e/eval-ui.spec.ts:168` "page loads in under 1 second" — observed 1914 ms.
-- [ ] **AC-US5-02** Typing a character into the sidebar search updates the filtered result list within the **hard** 160 ms budget.
+- [x] **AC-US5-02** Typing a character into the sidebar search updates the filtered result list within the **hard** 160 ms budget.
   - **Failing spec**: `e2e/performance-marks.spec.ts:74` "typing in search updates results within 80 ms" — observed 313 ms (2× the hard ceiling).
   - **Target**: hard ≤ 160 ms (blocker); soft ≤ 80 ms (aspirational).
-- [ ] **AC-US5-03** The FCP smoke-budget spec emits a deterministic pass/skip rather than fatal-failing on a missing entry under headless Chromium.
+- [x] **AC-US5-03** The FCP smoke-budget spec emits a deterministic pass/skip rather than fatal-failing on a missing entry under headless Chromium.
   - **Failing spec**: `e2e/lighthouse-budget.spec.ts:31` "FCP reported within the smoke budget" — browser returns `null`.
   - **Acceptable outcomes**: (a) spec skips with a logged reason when `performance.getEntriesByName('first-contentful-paint').length === 0`, **or** (b) the app emits a paint marker via `PerformanceObserver` before the assertion runs.
 

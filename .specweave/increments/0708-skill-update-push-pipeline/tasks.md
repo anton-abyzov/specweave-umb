@@ -392,7 +392,7 @@ type: tasks
   - `repositories/anton-abyzov/vskill/e2e/skill-update-pipeline.spec.ts` (new)
 
 ### T-043: E2E — SSE reconnect after drop, fallback poll activation
-**User Story**: US-003, US-005 | **Satisfies ACs**: AC-US5-05, AC-US5-07 | **Status**: [ ] pending
+**User Story**: US-003, US-005 | **Satisfies ACs**: AC-US5-05, AC-US5-07 | **Status**: [x] completed
 **Test Plan**:
   - Given: a Studio tab with an open SSE connection
   - When: the connection is forcibly dropped and 60 seconds elapse without reconnect

@@ -2,7 +2,7 @@
   "id": "0678-skill-gen-source-model-picker",
   "title": "Skill-Gen Source Model Picker — Explicit Provider+Model for vSkill CLI Skill Creation",
   "type": "feature",
-  "status": "planned",
+  "status": "completed",
   "priority": "medium",
   "project": "vskill",
   "created": "2026-04-22",
@@ -27,5 +27,24 @@
   ],
   "estimatedDays": 1,
   "testMode": "TDD",
-  "coverageTarget": 90
+  "coverageTarget": 90,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1038",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1038",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-25T06:00:32.817Z"
+    },
+    "ado": {
+      "featureId": "1877",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1877",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-25T06:00:36.070Z"
+    }
+  },
+  "lastActivity": "2026-04-25T06:03:03.932Z",
+  "readyForReviewAt": "2026-04-25T06:03:03.917Z",
+  "approvedAt": "2026-04-25T06:03:03.932Z"
 }
