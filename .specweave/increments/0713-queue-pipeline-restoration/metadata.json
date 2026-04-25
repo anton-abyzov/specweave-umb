@@ -1,0 +1,16 @@
+{
+  "id": "0713-queue-pipeline-restoration",
+  "status": "active",
+  "type": "hotfix",
+  "priority": "P0",
+  "created": "2026-04-24T23:39:31.858Z",
+  "lastActivity": "2026-04-25T00:05:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  }
+}
