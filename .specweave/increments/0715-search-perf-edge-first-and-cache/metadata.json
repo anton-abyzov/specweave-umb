@@ -1,0 +1,32 @@
+{
+  "id": "0715-search-perf-edge-first-and-cache",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-25T00:05:25.276Z",
+  "lastActivity": "2026-04-25T00:05:25.276Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-996",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-996",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-25T00:15:14.328Z"
+    },
+    "ado": {
+      "featureId": "1835",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1835",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-25T00:15:17.742Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "startedAt": "2026-04-25T00:15:00Z"
+}
