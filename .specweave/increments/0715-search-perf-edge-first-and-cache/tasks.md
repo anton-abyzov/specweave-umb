@@ -61,6 +61,18 @@
 
 ---
 
+## US-003 closure note (Step 3 shipped)
+
+**Status:** Workers Cache API response cache shipped 2026-04-25 in `vskill-platform@134ff73` (worker version `0a046eb3-fc5d-4265-bdab-b7e6e9d98f85`).
+
+- 4 RED tests added in `route.test.ts` (cache HIT short-circuit, miss-then-put, version-keyed key, no-cache-on-error). All green after GREEN.
+- Cache wrapper in `route.ts`: reads `caches.default.match(cacheKey)` first; on miss, writes the response after building. Cache key = canonical params + `v=<RESP_VERSION_KEY>` so shard updates invalidate via version bump.
+- `bumpRespVersion(kv)` exported from `search-index.ts`; `handleSearchIndexUpdate` calls it on every shard write so cached entries miss after data changes.
+- Live verification: 5 identical `q=pdf` requests → #1 `X-Search-Source: edge`, #2-5 `X-Search-Source: cache`. Cache HIT total time ~100ms (incl residential network round-trip). Worker compute on HIT is sub-10ms.
+- Playwright API tests `tests/e2e/search.spec.ts`: 10/10 pass. The 2 failures in `tests/e2e/search-display.spec.ts` are pre-existing UI test drift (test asserts `"Search verified skills..."` but the actual placeholder is `"Search 100,000+ verified skills..."`, last-touched 2026-03-07) — unrelated to this increment.
+
+---
+
 ## US-002: Precomputed blocklist + rejected enrichment via KV
 
 ### T-005: [RED] Failing tests for KV-backed blocklist and rejected enrichment (no DB on edge path)
