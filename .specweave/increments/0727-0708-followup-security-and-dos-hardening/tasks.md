@@ -11,7 +11,7 @@ created: 2026-04-25
 ## US-001: SSE Filter Cap (F-CR2 HIGH)
 
 ### T-001: [TDD-RED] SSE route filter-cap test — 501 IDs → 400 with body shape
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Status**: [x] completed
 **Test Plan**:
   - Given: SSE route handler with no filter-id cap
   - When: GET request arrives with `?skills=<csv of 501 unique IDs>`
@@ -22,7 +22,7 @@ created: 2026-04-25
 ---
 
 ### T-002: [TDD-RED] SSE route boundary test — exactly 500 IDs → 200
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02 | **Status**: [x] completed
 **Test Plan**:
   - Given: SSE route handler (pre-cap implementation)
   - When: GET request arrives with `?skills=<csv of exactly 500 unique IDs>`
@@ -33,7 +33,7 @@ created: 2026-04-25
 ---
 
 ### T-003: [TDD-GREEN] Inline filter-id cap in SSE route handler
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Status**: [x] completed
 **Test Plan**:
   - Given: T-001 and T-002 tests are red
   - When: inline validation added between the existing empty-filter guard and the `getCloudflareContext` call — split CSV, filter empty strings, if `count > 500` return `Response.json({ code: "subscription_filter_too_large", maxIds: 500, providedIds: count }, { status: 400 })`; inline JSDoc cites `POST /api/v1/skills/stream/subscribe` as the path for filters >500
@@ -48,7 +48,7 @@ created: 2026-04-25
 ## US-002: Timing-Safe HMAC Comparison (F-CR3 HIGH)
 
 ### T-004: [TDD-RED] Unit tests for `timing-safe-equal.ts` shared helper
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-03 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-03 | **Status**: [x] completed
 **Test Plan**:
   - Given: `src/lib/crypto/timing-safe-equal.ts` does not exist yet
   - When: tests are written asserting: (a) equal same-length strings → true; (b) unequal same-length strings → false; (c) strings of different length → false (early return, no throw); (d) XOR-fold computes correctly across all bit positions
@@ -59,7 +59,7 @@ created: 2026-04-25
 ---
 
 ### T-005: [TDD-GREEN] Implement `timingSafeEqualString` shared helper
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-03 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-03 | **Status**: [x] completed
 **Test Plan**:
   - Given: T-004 tests are red
   - When: `src/lib/crypto/timing-safe-equal.ts` created exporting `timingSafeEqualString(a: string, b: string): boolean` using the XOR-fold algorithm lifted verbatim from `webhook-auth.ts:54-61`; unequal-length → `false` early return documented in JSDoc
@@ -70,25 +70,25 @@ created: 2026-04-25
 ---
 
 ### T-006: Audit — grep for `===` digest comparisons across auth paths
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-02 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-02 | **Status**: [x] completed
 **Test Plan**:
   - Given: codebase before refactor
   - When: run `grep -rn "key === \|signature === \|digest === \|hmac === " repositories/anton-abyzov/vskill-platform/src/` and inspect all hits
   - Then: each hit is marked in the checklist below; any unprotected timing-unsafe path beyond the known sites is fixed in T-007
 **Audit checklist** (mark each line verified):
-  - [ ] `src/lib/internal-auth.ts:14` — `key === env.INTERNAL_BROADCAST_KEY`
-  - [ ] `src/lib/internal-auth.ts:22` — second `key ===` site
-  - [ ] `src/lib/webhook-auth.ts:54-61` — local `timingSafeEqual` (correct algorithm, duplicate)
-  - [ ] `src/app/api/v1/webhooks/github/route.ts:65-70` — local `timingSafeEqual` (correct algorithm, duplicate)
-  - [ ] `src/lib/submission/**` — confirm no string `===` on signed values
-  - [ ] `src/app/api/v1/internal/**` — confirm no string `===` on signed values
+  - [x] `src/lib/internal-auth.ts:14` — `key === env.INTERNAL_BROADCAST_KEY` → fixed (timingSafeEqualString)
+  - [x] `src/lib/internal-auth.ts:22` — second `key ===` site → fixed (timingSafeEqualString)
+  - [x] `src/lib/webhook-auth.ts:54-61` — local `timingSafeEqual` → DELETED, imports shared helper
+  - [x] `src/app/api/v1/webhooks/github/route.ts:65-70` — local `timingSafeEqual` → DELETED, imports shared helper
+  - [x] `src/lib/submission/**` — audited, no string `===` on signed values found
+  - [x] `src/app/api/v1/internal/**` — audited, no string `===` on signed values found
 **Files**:
   - (read-only audit — no file changes in this task)
 
 ---
 
 ### T-007: [TDD-RED/GREEN] Refactor `internal-auth.ts` + deduplicate local timing-safe helpers
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03 | **Status**: [x] completed
 **Test Plan**:
   - Given: T-005 shared helper exists; T-006 audit complete
   - When: (red) spy-based test added asserting `timingSafeEqualString` is invoked on the compare hot path in `internal-auth.ts`; (green) replace `===` at lines 14 and 22 with `timingSafeEqualString(key, env.INTERNAL_BROADCAST_KEY)`; delete local `timingSafeEqual` definitions from `webhook-auth.ts:54-61` and `webhooks/github/route.ts:65-70`; both files import shared helper

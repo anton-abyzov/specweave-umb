@@ -1,10 +1,10 @@
 {
   "id": "0727-0708-followup-security-and-dos-hardening",
-  "status": "planned",
+  "status": "active",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-25T15:08:18.756Z",
-  "lastActivity": "2026-04-25T15:08:18.756Z",
+  "lastActivity": "2026-04-25T19:01:43.103Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -27,5 +27,29 @@
   },
   "planning": {
     "parallel": false
-  }
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-25T19:01:43.103Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-03",
+        "AC-US2-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-04-25T18:58:43.049Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    }
+  ]
 }

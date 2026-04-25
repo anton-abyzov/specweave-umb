@@ -42,9 +42,9 @@ This increment introduces no new personas. All 4 are inherited from the parent i
 **Background**: `src/app/api/v1/skills/stream/route.ts` currently accepts arbitrarily long `?skills=<csv>` filters. A connection with 100k IDs degrades the entire fan-out path. The architect's documented scaling threshold for query-string filtering is 500 IDs; anything larger is supposed to route through the existing `POST /api/v1/skills/stream/subscribe` endpoint. This story enforces that boundary.
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: SSE endpoint rejects `GET /api/v1/skills/stream?skills=<csv>` requests with more than 500 IDs by returning HTTP 400 with body `{ "code": "subscription_filter_too_large", "maxIds": 500 }`. Verified by Vitest in `__tests__/route.test.ts` for the SSE route.
-- [ ] **AC-US1-02**: SSE endpoint accepts a request with exactly 500 IDs and returns a normal SSE stream (HTTP 200, `Content-Type: text/event-stream`). Verified by Vitest in the same suite.
-- [ ] **AC-US1-03**: Inline documentation in the route handler (and the OpenAPI/spec entry if one exists) cites `POST /api/v1/skills/stream/subscribe` as the path for filters > 500 IDs. Behavior of the POST endpoint is unchanged.
+- [x] **AC-US1-01**: SSE endpoint rejects `GET /api/v1/skills/stream?skills=<csv>` requests with more than 500 IDs by returning HTTP 400 with body `{ "code": "subscription_filter_too_large", "maxIds": 500 }`. Verified by Vitest in `__tests__/route.test.ts` for the SSE route.
+- [x] **AC-US1-02**: SSE endpoint accepts a request with exactly 500 IDs and returns a normal SSE stream (HTTP 200, `Content-Type: text/event-stream`). Verified by Vitest in the same suite.
+- [x] **AC-US1-03**: Inline documentation in the route handler (and the OpenAPI/spec entry if one exists) cites `POST /api/v1/skills/stream/subscribe` as the path for filters > 500 IDs. Behavior of the POST endpoint is unchanged.
 
 ---
 
@@ -59,9 +59,9 @@ This increment introduces no new personas. All 4 are inherited from the parent i
 **Background**: `src/lib/internal-auth.ts` currently uses `===` to compare HMAC digests. Spec AC-US3-03 of 0708 explicitly mandates timing-safe comparison via `crypto.timingSafeEqual`. The fix must also audit `webhook-auth.ts` and any other file that compares HMACs.
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: `src/lib/internal-auth.ts` compares HMAC digests using `crypto.timingSafeEqual` over equal-length `Uint8Array` (or `Buffer`) operands. The `===` operator is no longer used for digest comparison anywhere in this file. Verified by structural test that asserts `crypto.timingSafeEqual` is invoked and behavioral test that valid signatures pass and invalid signatures (including length-mismatched) reject.
-- [ ] **AC-US2-02**: `src/lib/webhook-auth.ts` and every other file in `src/lib/**` and `src/app/api/**` performing HMAC comparison is audited and either already timing-safe or hardened identically in this increment. The audit is recorded as a checklist in `tasks.md`.
-- [ ] **AC-US2-03**: A unit test for each hardened path asserts (a) `crypto.timingSafeEqual` is invoked on the digest compare hot path, and (b) an unequal-length input returns `false` early without throwing.
+- [x] **AC-US2-01**: `src/lib/internal-auth.ts` compares HMAC digests using `crypto.timingSafeEqual` over equal-length `Uint8Array` (or `Buffer`) operands. The `===` operator is no longer used for digest comparison anywhere in this file. Verified by structural test that asserts `crypto.timingSafeEqual` is invoked and behavioral test that valid signatures pass and invalid signatures (including length-mismatched) reject.
+- [x] **AC-US2-02**: `src/lib/webhook-auth.ts` and every other file in `src/lib/**` and `src/app/api/**` performing HMAC comparison is audited and either already timing-safe or hardened identically in this increment. The audit is recorded as a checklist in `tasks.md`.
+- [x] **AC-US2-03**: A unit test for each hardened path asserts (a) `crypto.timingSafeEqual` is invoked on the digest compare hot path, and (b) an unequal-length input returns `false` early without throwing.
 
 ---
 

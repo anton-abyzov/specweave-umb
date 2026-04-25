@@ -1,5 +1,5 @@
 ---
-status: ready_for_review
+status: completed
 ---
 # 0686 — Studio UX v2: Tri-Scope Sidebar, Agent-Scope Picker, In-App Setup Docs
 
