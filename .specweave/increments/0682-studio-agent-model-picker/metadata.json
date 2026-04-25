@@ -53,14 +53,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1030",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-25T05:33:52.863Z"
+      "syncedAt": "2026-04-25T05:40:29.218Z"
     },
     "ado": {
       "featureId": "1869",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1869",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-25T05:33:56.063Z"
+      "syncedAt": "2026-04-25T05:40:33.867Z"
     }
   },
   "testMode": "TDD",
