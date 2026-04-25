@@ -1,10 +1,12 @@
 ---
 increment: 0679-skills-spec-compliance
-title: SKILL.md Spec Compliance — Align vSkill Emitters with agentskills.io/specification
+title: >-
+  SKILL.md Spec Compliance — Align vSkill Emitters with
+  agentskills.io/specification
 type: feature
 priority: P2
-status: active
-created: 2026-04-22
+status: ready_for_review
+created: 2026-04-22T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

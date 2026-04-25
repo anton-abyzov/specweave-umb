@@ -1,16 +1,33 @@
 {
   "id": "0725-studio-platform-proxy-prod-default",
-  "status": "active",
+  "status": "completed",
   "type": "hotfix",
   "priority": "P1",
   "created": "2026-04-25T06:04:44.892Z",
-  "lastActivity": "2026-04-25T06:04:44.892Z",
+  "lastActivity": "2026-04-25T15:25:35.238Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1056",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1056",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-25T15:25:49.893Z"
+    },
+    "ado": {
+      "featureId": "1895",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1895",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-25T15:25:51.943Z"
+    }
+  },
   "planning": {
     "parallel": false
-  }
+  },
+  "readyForReviewAt": "2026-04-25T15:25:35.228Z",
+  "approvedAt": "2026-04-25T15:25:35.238Z"
 }

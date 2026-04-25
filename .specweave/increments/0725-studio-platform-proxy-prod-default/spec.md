@@ -1,10 +1,10 @@
 ---
 increment: 0725-studio-platform-proxy-prod-default
-title: "Studio platform-proxy default to verified-skill.com (502 hotfix)"
+title: Studio platform-proxy default to verified-skill.com (502 hotfix)
 type: hotfix
 priority: P1
-status: planned
-created: 2026-04-25
+status: completed
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

@@ -16,7 +16,22 @@
   "outOfScope": "vskill-platform marketing site, cloud-side skill provisioning, OAuth, billing changes",
   "testMode": "TDD",
   "coverageTarget": 90,
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1048",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1048",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-25T14:49:18.591Z"
+    },
+    "ado": {
+      "featureId": "1887",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1887",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-25T14:49:21.751Z"
+    }
+  },
   "acSyncEvents": [
     {
       "timestamp": "2026-04-25T06:31:47.182Z",

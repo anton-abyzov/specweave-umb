@@ -3,7 +3,7 @@ increment: 0716-studio-search-api-and-telemetry
 title: Studio search API extension + same-origin proxy + telemetry endpoints
 type: feature
 priority: P1
-status: ready_for_review
+status: completed
 created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
