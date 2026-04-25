@@ -1,10 +1,10 @@
 ---
 increment: 0729-versions-empty-state-guidance
-title: "Versions tab empty-state guidance"
+title: Versions tab empty-state guidance
 type: feature
 priority: P1
-status: active
-created: 2026-04-25
+status: completed
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -32,7 +32,7 @@ Local skills authored in the studio (`origin: "source"`) never appear on verifie
 **Acceptance Criteria**:
 - [x] **AC-US1-01**: When versions array is empty AND `skill.origin === "source"`, the Versions tab renders explanatory text ("This skill is local-only — no published versions yet") plus a primary CTA button labelled "Submit on verified-skill.com"
 - [x] **AC-US1-02**: When versions array is empty AND `skill.origin !== "source"` (installed plugin/global), keep the legacy "No version history available" message — no submit CTA (user doesn't own the skill)
-- [x] **AC-US1-03**: The CTA button opens `https://verified-skill.com/submit?repo=<encoded-repoUrl>` (or `https://verified-skill.com/submit` if no repoUrl is known) in a new tab with `target="_blank"` + `rel="noopener noreferrer"`
+- [x] **AC-US1-03**: The CTA button opens `https://verified-skill.com/submit?repo=<encoded-homepage>` (or `https://verified-skill.com/submit` if no homepage is known) in a new tab with `target="_blank"` + `rel="noopener noreferrer"`
 - [x] **AC-US1-04**: The empty-state component is reachable via a stable `data-testid="versions-empty-state-local"` (source skills) or `data-testid="versions-empty-state-installed"` (installed) so end-to-end tests can assert which branch rendered
 
 ## Out of Scope (Follow-ups)
@@ -42,6 +42,6 @@ Local skills authored in the studio (`origin: "source"`) never appear on verifie
 
 ## Dependencies
 
-- Existing `WorkspaceContext.state.skill` already exposes `origin` (typed as `"source" | "plugin" | "global"`) and the route params (`plugin`, `skill`)
-- Existing `SkillInfo` type at `src/eval-ui/src/types.ts` already has `origin` + optional `homepage`/`repoUrl` fields
+- Existing `WorkspaceContext.state.skill` already exposes `origin` (typed as `"source" | "installed"`) and the route params (`plugin`, `skill`)
+- Existing `SkillInfo` type at `src/eval-ui/src/types.ts` already has `origin` + optional `homepage` field (used as the repo URL source for the submit CTA)
 - No new API endpoint, no new server route, no new platform call
