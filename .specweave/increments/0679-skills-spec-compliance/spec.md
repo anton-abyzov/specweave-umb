@@ -75,9 +75,9 @@ Additionally, integrate the external validator:
 **So that** 0670 does not ship a regression when it completes
 
 **Acceptance Criteria**:
-- [x] **AC-US2-01**: Given 0670's template file(s) under `.specweave/increments/0670-skill-builder-universal/` that drive SKILL.md emission, when this increment lands, then those templates also nest `tags` and `target-agents` under `metadata:`.
+- [ ] **AC-US2-01**: ~~Given 0670's template file(s) under `.specweave/increments/0670-skill-builder-universal/` that drive SKILL.md emission, when this increment lands, then those templates also nest `tags` and `target-agents` under `metadata:`.~~ **DEFERRED** — 0670 has no SKILL.md template files on disk yet (0670 is at 3/35 tasks done; the templates will be authored in 0670's T-007/T-008). The runtime guardrail `lint:skills-spec` (US-004) walks the entire repo and will catch 0670's templates the moment they land. A cross-reference note is recorded in 0670's tasks.md.
 - [x] **AC-US2-02**: Given 0670 task documents reference the old shape (if any), when this increment lands, then any such references are updated via a follow-up note in 0670's tasks file — without marking 0670 tasks complete or interfering with 0670's execution state.
-- [x] **AC-US2-03**: Given 0670 is currently at 3/35 tasks done, when this increment lands, then 0670's remaining tasks inherit the new shape automatically and 0670's own validator (if any) also uses `skills-ref validate`.
+- [ ] **AC-US2-03**: ~~Given 0670 is currently at 3/35 tasks done, when this increment lands, then 0670's remaining tasks inherit the new shape automatically and 0670's own validator (if any) also uses `skills-ref validate`.~~ **DEFERRED** — automatic inheritance is enforced by the `lint:skills-spec` CI gate from US-004 (which globs the entire repo, including 0670's increment dir). The cross-reference prose note in 0670's tasks.md alerts implementers to the spec-compliant shape; the lint gate is the actual enforcement mechanism.
 
 ---
 

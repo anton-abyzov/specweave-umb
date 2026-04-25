@@ -43,8 +43,12 @@ status: active
 ---
 
 ### T-003: Update 0670-skill-builder-universal template files to match the new shape
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03 | **Status**: [x] completed
-**Implementation note**: 0670 has no actual SKILL.md template files on disk yet (the skill-builder skill is still to be authored in T-007/T-008 of 0670). A cross-reference prose note was added at the bottom of 0670's tasks.md pointing future implementers at the spec-compliant shape and the golden-file tests in 0679. No 0670 task statuses were changed.
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-02 (AC-US2-01 + AC-US2-03 DEFERRED) | **Status**: [~] partial — see note
+**Implementation note**: 0670 has no actual SKILL.md template files on disk yet (the skill-builder skill is still to be authored in T-007/T-008 of 0670). Outcome:
+  - **AC-US2-02** (cross-reference note): DONE — prose note added at the bottom of 0670's tasks.md pointing future implementers at the spec-compliant shape and the golden-file tests in 0679. No 0670 task statuses were changed.
+  - **AC-US2-01** (templates nest under `metadata:`): DEFERRED — no template files exist to edit. There is nothing to make compliant today. When 0670 authors its templates in T-007/T-008, the existing `lint:skills-spec` CI gate (US-004) globs the entire repo and will catch any non-compliant shape automatically.
+  - **AC-US2-03** (0670 inherits new shape): DEFERRED — same reasoning. The lint gate is the actual enforcement mechanism; AC was over-specified.
+  - 0679 F-002 (code review): originally these ACs were marked `[x]`, which poisoned the audit trail. Reverted to `[ ]` with strikethrough + DEFERRED rationale per the report's recommendation (option `b`).
 **Estimated**: 0.5h | **Test Level**: unit
 **Test Plan**:
   Given 0670's SKILL.md template files under `.specweave/increments/0670-skill-builder-universal/` and 0670's tasks.md

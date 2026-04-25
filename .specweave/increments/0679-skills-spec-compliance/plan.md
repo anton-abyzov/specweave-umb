@@ -142,3 +142,16 @@ The CI script (`lint:skills-spec`) runs `skills-ref validate` over every `**/SKI
 
 - **`skills-ref` availability**: If the validator is not yet published, the validator-integration steps (US-003, US-004) must defer. The shape-migration steps (US-001, US-002, US-005) are independent and can ship even if the validator is unavailable.
 - **Downstream consumers of the old shape**: Anything that reads `frontmatter.tags` at the top level breaks. The README migration note calls this out. Internal consumers in vSkill itself must be audited; the search for `\.tags` access is part of T-002.
+
+## 9. Code-Review Follow-Up (2026-04-25)
+
+The first closure pass surfaced six defects (F-001..F-006). Resolution:
+
+- **F-001** (HIGH, silent reader breakage): production reader `parseSkillFrontmatter` extended to recognize the `metadata:` block and surface its children at the top level (back-compat). Three reader call sites updated: (1) `matchExistingPlugin()` in `skill-create-routes.ts` now uses the parser; (2) `buildSkillMetadata()` in `api-routes.ts` automatically benefits via the parser fix; (3) the activation-test handler at `api-routes.ts:2687` now uses the parser instead of the regex. Round-trip test added: `src/eval-server/__tests__/skill-emitter-roundtrip.test.ts` (7 tests, all GREEN).
+- **F-002** (HIGH, AC drift): decision **(b) defer**. 0670 has no SKILL.md template files on disk to update. AC-US2-01 and AC-US2-03 downgraded from `[x]` to `[ ]` with DEFERRED + strikethrough explanation in spec.md. Runtime guardrail: the `lint:skills-spec` CI gate from US-004 globs the entire repo, so 0670's templates are caught the moment they land. AC-US2-02 (the cross-reference prose note that was actually delivered) remains `[x]`.
+- **F-003** (MEDIUM, validator UX): built-in fallback in `scripts/validate-skills-spec.ts` now prints two `console.warn` lines that prominently mark coverage as partial when `skills-ref` is missing.
+- **F-004** (MEDIUM, narrow test surface): test helpers (`buildSkillMdForTest`, `parseFrontmatterForTest`) now re-exported from `src/eval-server/__tests__/helpers/skill-md-test-helpers.ts`. Underlying exports tagged `@internal`. All test imports moved to the helpers module.
+- **F-005** (MEDIUM, missing `name:`): `buildSkillMd` now emits `name: <data.name>` as the first frontmatter key when `data.name` is set. Golden fixtures (`skill-emitter-before.md`, `skill-emitter-after.md`) updated; key-order test in `skill-emitter-spec-compliance.test.ts` extended to lock `name: → description:` ordering. Also: description-emission now collapses CR/LF to spaces before quote-escaping (defensive against AI-generated multi-line descriptions; F-007-adjacent hardening in the same code site).
+- **F-006** (MEDIUM, no round-trip test): covered by the new `skill-emitter-roundtrip.test.ts` from F-001.
+
+Pre-existing repo violation surfaced by lint gate: `plugins/skills/skills/skill-builder/SKILL.md` had `tags:` at the root alongside an unrelated `metadata:` block (homepage/version). Moved tags into the metadata block. This is unrelated to 0679's emitter fix; it was a hand-edited file that pre-dated this work.
