@@ -453,14 +453,14 @@ Terminal lockdown — the modal reads as "the system has stopped" rather than "a
 | Card shell | `var(--surface)` bg, `1px solid var(--border)`, 6px radius |
 | Card outer shadow | `0 24px 60px rgba(0,0,0,0.45)` |
 | Header rail bg | `var(--bg-subtle)` |
-| Warning glyph `[!]` | `var(--code-amber)` foreground, `1px solid var(--code-amber)` box |
+| Warning glyph `[!]` | `var(--accent-amber)` foreground, `1px solid var(--accent-amber)` box |
 | Headline `PROJECT CHANGED` | `var(--text)`, mono, 0.875rem, letter-spacing 0.08em, uppercase |
 | Terminal block bg | `var(--bg-code)` |
 | `$ vskill --status` line | `var(--code-green)` |
 | `ERR!` line | `var(--code-red)` |
 | `was:` / `now:` labels | `var(--text-faint-terminal)` |
 | `was:` value (stale) | `var(--code-red)` |
-| `now:` value (live) | `var(--code-amber)` |
+| `now:` value (live) | `var(--accent-amber)` |
 | Body explainer (`>` prefix + cursor) | `#E6EDF3` (matches error.tsx body line literally) |
 | Action rail bg | `var(--bg-subtle)` |
 | Primary button | bg `var(--btn-bg)`, color `var(--btn-text)` |
@@ -472,7 +472,7 @@ No hard-coded colors anywhere except `rgba(0,0,0,0.75)` for the backdrop (intent
 
 ### Warning glyph
 
-`[!]` rendered as bracketed exclamation in monospace, 0.875rem, `var(--code-amber)` text with a 1px amber border on the inline-block span. Rejected `⚠` (cross-platform emoji rendering inconsistency) and `❗` (consumer-y). Bracketed ASCII reads as "log severity tag" — the right register for terminal aesthetic.
+`[!]` rendered as bracketed exclamation in monospace, 0.875rem, `var(--accent-amber)` text with a 1px amber border on the inline-block span. Rejected `⚠` (cross-platform emoji rendering inconsistency) and `❗` (consumer-y). Bracketed ASCII reads as "log severity tag" — the right register for terminal aesthetic.
 
 ### Micro-copy
 

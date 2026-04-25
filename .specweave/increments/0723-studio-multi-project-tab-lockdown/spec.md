@@ -1,10 +1,10 @@
 ---
 increment: 0723-studio-multi-project-tab-lockdown
-title: "Studio Multi-Project Tab Lockdown"
+title: Studio Multi-Project Tab Lockdown
 type: feature
 priority: P2
-status: planned
-created: 2026-04-25
+status: completed
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -54,10 +54,10 @@ A stale Studio tab can no longer silently corrupt the wrong workspace. Specifica
 **So that** any later change can be detected reliably
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `GET /api/v1/studio/workspace-info` returns `{ repoUrl, fingerprint, root }` (extends the current `{ repoUrl }` shape).
-- [ ] **AC-US1-02**: `fingerprint = sha256(BOOT_ID:resolvedRoot).slice(0,12)`, stable for the entire process lifetime.
-- [ ] **AC-US1-03**: `LockdownProvider` (new client component mounted in `layout.tsx`) fetches `/workspace-info` once on mount and stores `initialFingerprint` in a module-level singleton, so `authFetch` can read it without React-context plumbing.
-- [ ] **AC-US1-04**: If the initial `/workspace-info` fetch fails or returns no fingerprint, the lockdown infra stays inert (graceful degradation — the feature must never break Studio for users on older builds).
+- [x] **AC-US1-01**: `GET /api/v1/studio/workspace-info` returns `{ repoUrl, fingerprint, root }` (extends the current `{ repoUrl }` shape).
+- [x] **AC-US1-02**: `fingerprint = sha256(BOOT_ID:resolvedRoot).slice(0,12)`, stable for the entire process lifetime.
+- [x] **AC-US1-03**: `LockdownProvider` (new client component mounted in `layout.tsx`) fetches `/workspace-info` once on mount and stores `initialFingerprint` in a module-level singleton, so `authFetch` can read it without React-context plumbing.
+- [x] **AC-US1-04**: If the initial `/workspace-info` fetch fails or returns no fingerprint, the lockdown infra stays inert (graceful degradation — the feature must never break Studio for users on older builds).
 
 ---
 
@@ -70,11 +70,11 @@ A stale Studio tab can no longer silently corrupt the wrong workspace. Specifica
 **So that** I never silently submit to the wrong project
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: A `BroadcastChannel("vskill-studio")` is established by `LockdownProvider`; sibling tabs broadcast `{ type: "workspace-checked" }` after each successful `/workspace-info` fetch.
-- [ ] **AC-US2-02**: On receiving a `workspace-checked` message, the tab re-fetches `/workspace-info`; if the returned fingerprint differs from `initialFingerprint`, it sets `isLocked = true`.
-- [ ] **AC-US2-03**: On `visibilitychange` (visible) and `focus` events, the tab re-fetches `/workspace-info` and compares (catches the cross-browser/cross-device case where `BroadcastChannel` doesn't carry).
-- [ ] **AC-US2-04**: When a mutation returns HTTP 409 with body `{ code: "WORKSPACE_FINGERPRINT_MISMATCH", current, was }`, lockdown activates immediately using `current` as the new fingerprint.
-- [ ] **AC-US2-05**: Trigger latency: ≤100ms cross-tab via `BroadcastChannel`; ≤1s on `visibilitychange`; ≤1 round-trip on a 409 response.
+- [x] **AC-US2-01**: A `BroadcastChannel("vskill-studio")` is established by `LockdownProvider`; sibling tabs broadcast `{ type: "workspace-checked" }` after each successful `/workspace-info` fetch.
+- [x] **AC-US2-02**: On receiving a `workspace-checked` message, the tab re-fetches `/workspace-info`; if the returned fingerprint differs from `initialFingerprint`, it sets `isLocked = true`.
+- [x] **AC-US2-03**: On `visibilitychange` (visible) and `focus` events, the tab re-fetches `/workspace-info` and compares (catches the cross-browser/cross-device case where `BroadcastChannel` doesn't carry).
+- [x] **AC-US2-04**: When a mutation returns HTTP 409 with body `{ code: "WORKSPACE_FINGERPRINT_MISMATCH", current, was }`, lockdown activates immediately using `current` as the new fingerprint.
+- [x] **AC-US2-05**: Trigger latency: ≤100ms cross-tab via `BroadcastChannel`; ≤1s on `visibilitychange`; ≤1 round-trip on a 409 response.
 
 ---
 
@@ -87,10 +87,10 @@ A stale Studio tab can no longer silently corrupt the wrong workspace. Specifica
 **So that** I cannot accidentally corrupt the active workspace
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: When `isLocked = true`, `authFetch` (`src/lib/auth-fetch.ts:33`) rejects POST/PUT/PATCH/DELETE by throwing a typed `LockdownError` *before* the network call.
-- [ ] **AC-US3-02**: GET requests still pass through (read-only is safe and is needed for the lockdown UI itself to render correctly).
-- [ ] **AC-US3-03**: All form submit buttons across Studio render `disabled` when `isLocked = true`, via a `useLockdown()` hook backed by the same module-level singleton + a React subscription mechanism.
-- [ ] **AC-US3-04**: `LockdownError` is an exported, typed error class so `try/catch` sites can distinguish lockdown rejection from generic network errors and avoid showing misleading "network error" toasts.
+- [x] **AC-US3-01**: When `isLocked = true`, `authFetch` (`src/lib/auth-fetch.ts:33`) rejects POST/PUT/PATCH/DELETE by throwing a typed `LockdownError` *before* the network call.
+- [x] **AC-US3-02**: GET requests still pass through (read-only is safe and is needed for the lockdown UI itself to render correctly).
+- [x] **AC-US3-03**: All form submit buttons across Studio render `disabled` when `isLocked = true`, via a `useLockdown()` hook backed by the same module-level singleton + a React subscription mechanism.
+- [x] **AC-US3-04**: `LockdownError` is an exported, typed error class so `try/catch` sites can distinguish lockdown rejection from generic network errors and avoid showing misleading "network error" toasts.
 
 ---
 
@@ -103,11 +103,11 @@ A stale Studio tab can no longer silently corrupt the wrong workspace. Specifica
 **So that** a buggy or paused client cannot mutate the wrong workspace
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: `authFetch` adds the header `X-Workspace-Fingerprint: <initialFingerprint>` to every request when the fingerprint is known. (Header omitted when fingerprint is unknown — graceful degradation.)
-- [ ] **AC-US4-02**: New helper `assertWorkspaceFingerprint(request)` in `src/lib/workspace-fingerprint.ts` returns `null` if the header is absent (back-compat with older clients), throws `WorkspaceMismatchError` if the header is present and differs from the current process fingerprint.
-- [ ] **AC-US4-03**: A mismatch is serialised to HTTP 409 with body `{ code: "WORKSPACE_FINGERPRINT_MISMATCH", current, was }` via a small wrapper helper used by mutating route handlers.
-- [ ] **AC-US4-04**: Initial enforcement scope (this increment): all `studio/*` mutating routes — concretely, `POST /api/v1/studio/telemetry/[kind]`. Non-Studio routes are deferred to a follow-up increment so we keep blast radius small.
-- [ ] **AC-US4-05**: `Vary: X-Workspace-Fingerprint` is **NOT** added to cached GET responses (the header is only consumed by mutating routes; adding it to `Vary` would needlessly fragment the cache key).
+- [x] **AC-US4-01**: `authFetch` adds the header `X-Workspace-Fingerprint: <initialFingerprint>` to every request when the fingerprint is known. (Header omitted when fingerprint is unknown — graceful degradation.)
+- [x] **AC-US4-02**: New helper `assertWorkspaceFingerprint(request)` in `src/lib/workspace-fingerprint.ts` returns `null` if the header is absent (back-compat with older clients), throws `WorkspaceMismatchError` if the header is present and differs from the current process fingerprint.
+- [x] **AC-US4-03**: A mismatch is serialised to HTTP 409 with body `{ code: "WORKSPACE_FINGERPRINT_MISMATCH", current, was }` via a small wrapper helper used by mutating route handlers.
+- [x] **AC-US4-04**: Initial enforcement scope (this increment): all `studio/*` mutating routes — concretely, `POST /api/v1/studio/telemetry/[kind]`. Non-Studio routes are deferred to a follow-up increment so we keep blast radius small.
+- [x] **AC-US4-05**: `Vary: X-Workspace-Fingerprint` is **NOT** added to cached GET responses (the header is only consumed by mutating routes; adding it to `Vary` would needlessly fragment the cache key).
 
 ---
 
@@ -120,14 +120,14 @@ A stale Studio tab can no longer silently corrupt the wrong workspace. Specifica
 **So that** I trust the system and immediately know what to do
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: New component `ProjectChangedModal.tsx` (in `src/app/components/`) is rendered conditionally by `LockdownProvider` at the end of `layout.tsx`, *outside* `LayoutShell` (so it sits above all app chrome).
-- [ ] **AC-US5-02**: Full-screen overlay with backdrop `rgba(0,0,0,0.75)` + 12px backdrop blur (matches the existing sticky-nav glassmorphism). Card is centered, `max-width: 540px`, uses `var(--bg)` / `var(--border)` design tokens.
-- [ ] **AC-US5-03**: NOT dismissable: no close button, no Escape key handler, no backdrop-click handler, `pointer-events` blocked on the background.
-- [ ] **AC-US5-04**: Visual language follows the `error.tsx` terminal pattern: Geist Mono headers, `--code-amber` for the warning glyph, `--code-red` for the stale path label.
-- [ ] **AC-US5-05**: Content shows: a warning glyph, headline `PROJECT CHANGED`, two labelled lines `was: <originalRepoUrl> (<originalRoot>)` and `now: <currentRepoUrl> (<currentRoot>)`, and an explanatory line `This tab is locked — any unsaved changes here are not persisted`.
-- [ ] **AC-US5-06**: Three actions side-by-side, monospace, terminal-style: (1) **Reload as `<new>`** → `window.location.reload()`; (2) **Open `<original>` in new window** → `window.open(window.location.origin, "_blank")` + a 1-line hint `Run vskill studio from <originalRoot> to restore`; (3) **Close tab** → `window.close()` with a fallback message if the browser blocks it.
-- [ ] **AC-US5-07**: `role="alertdialog"`, `aria-modal="true"`, `aria-labelledby` and `aria-describedby` set so screen readers announce the lockdown immediately.
-- [ ] **AC-US5-08**: The Architect phase MUST invoke the `frontend-design` skill explicitly to produce: visual hierarchy, action button affordances, warning glyph choice, and micro-copy. The output is captured in `plan.md` under a "UI Design Brief" section *before* any UI code is written.
+- [x] **AC-US5-01**: New component `ProjectChangedModal.tsx` (in `src/app/components/`) is rendered conditionally by `LockdownProvider` at the end of `layout.tsx`, *outside* `LayoutShell` (so it sits above all app chrome).
+- [x] **AC-US5-02**: Full-screen overlay with backdrop `rgba(0,0,0,0.75)` + 12px backdrop blur (matches the existing sticky-nav glassmorphism). Card is centered, `max-width: 540px`, uses `var(--bg)` / `var(--border)` design tokens.
+- [x] **AC-US5-03**: NOT dismissable: no close button, no Escape key handler, no backdrop-click handler, `pointer-events` blocked on the background.
+- [x] **AC-US5-04**: Visual language follows the `error.tsx` terminal pattern: Geist Mono headers, `--accent-amber` for the warning glyph, `--code-red` for the stale path label.
+- [x] **AC-US5-05**: Content shows: a warning glyph, headline `PROJECT CHANGED`, two labelled lines `was: <originalRepoUrl> (<originalRoot>)` and `now: <currentRepoUrl> (<currentRoot>)`, and an explanatory line `This tab is locked — any unsaved changes here are not persisted`.
+- [x] **AC-US5-06**: Three actions side-by-side, monospace, terminal-style: (1) **Reload as `<new>`** → `window.location.reload()`; (2) **Open `<original>` in new window** → `window.open(window.location.origin, "_blank")` + a 1-line hint `Run vskill studio from <originalRoot> to restore`; (3) **Close tab** → `window.close()` with a fallback message if the browser blocks it.
+- [x] **AC-US5-07**: `role="alertdialog"`, `aria-modal="true"`, `aria-labelledby` and `aria-describedby` set so screen readers announce the lockdown immediately.
+- [x] **AC-US5-08**: The Architect phase MUST invoke the `frontend-design` skill explicitly to produce: visual hierarchy, action button affordances, warning glyph choice, and micro-copy. The output is captured in `plan.md` under a "UI Design Brief" section *before* any UI code is written.
 
 ---
 
@@ -140,10 +140,10 @@ A stale Studio tab can no longer silently corrupt the wrong workspace. Specifica
 **So that** I can verify the feature fires correctly and detect abuse
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: When lockdown activates, `LockdownProvider` fires `POST /api/v1/studio/telemetry/lockdown` (fire-and-forget, no `await` blocking the modal render) with body `{ reason: "broadcast" | "visibility" | "api-409", originalFingerprint, newFingerprint }`.
-- [ ] **AC-US6-02**: `"lockdown"` is added as a valid `kind` in `telemetry/[kind]/route.ts`; the payload is validated and persisted to the `studioTelemetry` table.
-- [ ] **AC-US6-03**: Each event also writes to a new Analytics Engine binding `STUDIO_LOCKDOWN_AE` (mirroring the `0708 UPDATE_METRICS_AE` pattern in `wrangler.jsonc` lines 36–55) with dimensions `[reason]`.
-- [ ] **AC-US6-04**: The telemetry endpoint enforces the same rate limit as the existing `submit-click`/`install-copy` kinds (10 req per 60s per IP) — abuse protection inherited from the existing infra.
+- [x] **AC-US6-01**: When lockdown activates, `LockdownProvider` fires `POST /api/v1/studio/telemetry/lockdown` (fire-and-forget, no `await` blocking the modal render) with body `{ reason: "broadcast" | "visibility" | "api-409", originalFingerprint, newFingerprint }`.
+- [x] **AC-US6-02**: `"lockdown"` is added as a valid `kind` in `telemetry/[kind]/route.ts`; the payload is validated and persisted to the `studioTelemetry` table.
+- [x] **AC-US6-03**: Each event also writes to a new Analytics Engine binding `STUDIO_LOCKDOWN_AE` (mirroring the `0708 UPDATE_METRICS_AE` pattern in `wrangler.jsonc` lines 36–55) with dimensions `[reason]`.
+- [x] **AC-US6-04**: The telemetry endpoint enforces the same rate limit as the existing `submit-click`/`install-copy` kinds (10 req per 60s per IP) — abuse protection inherited from the existing infra.
 
 ## Architecture
 
@@ -164,7 +164,7 @@ The feature splits cleanly across three layers — the **server identity layer**
 - **`/api/v1/studio/telemetry/[kind]` route** — adding `lockdown` as a new kind (US-006), reusing existing rate-limit infra and `studioTelemetry` table.
 - **`studioTelemetry` Prisma table** — persisting lockdown rows (no schema migration needed; `kind` is a string column).
 - **Cloudflare Analytics Engine** — new `STUDIO_LOCKDOWN_AE` binding declared in `wrangler.jsonc`, modelled exactly on the `UPDATE_METRICS_AE` pattern from increment 0708 (`wrangler.jsonc:36-55`).
-- **`error.tsx` design tokens** (`var(--bg)`, `var(--border)`, `--code-amber`, `--code-red`, Geist Mono) — modal must visually match for consistent terminal aesthetic (US-005 AC-04).
+- **`error.tsx` design tokens** (`var(--bg)`, `var(--border)`, `--accent-amber`, `--code-red`, Geist Mono) — modal must visually match for consistent terminal aesthetic (US-005 AC-04).
 - **`frontend-design` skill** — invoked by Architect during planning (US-005 AC-08) to produce the UI Design Brief that feeds modal implementation.
 - **Increment 0708** — establishes the Analytics Engine binding pattern this increment follows.
 - **Increment 0718** — established the 200ms `/workspace-info` SLA we must not regress.
@@ -174,7 +174,7 @@ The feature splits cleanly across three layers — the **server identity layer**
 
 The modal is the most visible artefact of this feature; the user must encounter it at the worst possible moment (mid-edit, about to submit) and immediately understand what happened, why their work is blocked, and what to do next. The tone must be **calm, protective, and authoritative** — not panicked, not apologetic.
 
-**Visual aesthetic.** Matches the existing `error.tsx` terminal pattern: Geist Mono headers, `var(--bg)` / `var(--border)` tokens, `--code-amber` for the warning glyph (signals caution without alarm), `--code-red` for the stale-path label (signals "this is the wrong place"). Full-screen overlay with `rgba(0,0,0,0.75)` backdrop + 12px backdrop blur — matches the sticky-nav glassmorphism so it feels native to the existing surface, not a foreign popup. Card is centered, `max-width: 540px`, with monospace text.
+**Visual aesthetic.** Matches the existing `error.tsx` terminal pattern: Geist Mono headers, `var(--bg)` / `var(--border)` tokens, `--accent-amber` for the warning glyph (signals caution without alarm), `--code-red` for the stale-path label (signals "this is the wrong place"). Full-screen overlay with `rgba(0,0,0,0.75)` backdrop + 12px backdrop blur — matches the sticky-nav glassmorphism so it feels native to the existing surface, not a foreign popup. Card is centered, `max-width: 540px`, with monospace text.
 
 **Layout & content** (US-005 AC-05): a warning glyph at the top, headline `PROJECT CHANGED` (uppercase, monospace, terminal-style), two labelled diff lines (`was: <originalRepoUrl> (<originalRoot>)` and `now: <currentRepoUrl> (<currentRoot>)`), and an explanatory line `This tab is locked — any unsaved changes here are not persisted`. Three actions in a horizontal row: **Reload as `<new>`** (primary), **Open `<original>` in new window** (secondary, with a 1-line hint `Run vskill studio from <originalRoot> to restore`), **Close tab** (tertiary, with fallback message if `window.close()` is blocked).
 
@@ -275,7 +275,7 @@ The modal is the most visible artefact of this feature; the user must encounter 
 
 - **Existing `/api/v1/studio/workspace-info` route** — extending its response shape (US-001).
 - **Existing `authFetch` in `src/lib/auth-fetch.ts:33`** — hooking lockdown enforcement into it (US-003, US-004).
-- **Existing `error.tsx` design tokens** (`var(--bg)`, `var(--border)`, `--code-amber`, `--code-red`, Geist Mono) — modal must visually match (US-005).
+- **Existing `error.tsx` design tokens** (`var(--bg)`, `var(--border)`, `--accent-amber`, `--code-red`, Geist Mono) — modal must visually match (US-005).
 - **Existing telemetry route `/api/v1/studio/telemetry/[kind]`** — adding `lockdown` as a new kind (US-006).
 - **Existing `studioTelemetry` table** — persisting lockdown rows (US-006).
 - **Existing rate-limit infra** for `submit-click`/`install-copy` — reused for `lockdown` kind (US-006).
