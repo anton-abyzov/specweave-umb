@@ -3,8 +3,8 @@ increment: 0677-lm-studio-provider
 title: LM Studio Provider — Local LLM Adapter for vSkill Eval
 type: feature
 priority: P2
-status: planned
-created: 2026-04-22
+status: completed
+created: 2026-04-22T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -71,7 +71,7 @@ LM Studio is an OpenAI-compatible local LLM server (default endpoint `http://loc
 **Acceptance Criteria**:
 - [x] **AC-US2-01**: Given `detectAvailableProviders()` in `src/eval-server/api-routes.ts`, when LM Studio is added, then the function probes `GET ${LM_STUDIO_BASE_URL ?? "http://localhost:1234/v1"}/models` using `fetch` with `signal: AbortSignal.timeout(500)` and a catch-all that treats any error as "unavailable" — identical timeout/error semantics to the Ollama probe at lines 381-405.
 - [x] **AC-US2-02**: Given the probe returns HTTP 200 with a JSON `{ data: Array<{ id: string }> }` body, when the response is parsed, then the provider entry `{ id: "lm-studio", name: "LM Studio", models: <id-list> }` is pushed into the returned providers array in the same shape as the Ollama entry.
-- [x] **AC-US2-03**: Given the probe times out, returns non-2xx, or throws a network error, when the detection runs, then LM Studio is silently omitted from the providers list and no log is emitted above `debug` level.
+- [x] **AC-US2-03**: Given the probe times out, returns non-2xx, or throws a network error, when the detection runs, then the LM Studio entry is emitted with `available: false` so the UI can render an install-CTA row rather than hiding it, and no log is emitted above `debug` level. *(Revised 2026-04-25 from "silently omitted" — discoverability via grayed-out install CTA is preferable to hiding; see code-review F-002.)*
 - [x] **AC-US2-04**: Given the detection result for a given host, when `detectAvailableProviders()` is called again within 30 seconds, then the cached result is returned without a new probe (cache key: provider id + base URL); the 30-second TTL matches the Ollama cache policy.
 - [x] **AC-US2-05**: Given detection runs in parallel, when LM Studio and Ollama probes both fire, then they run concurrently via `Promise.all` and the total detection time is ≤ 550 ms even if both time out.
 
@@ -87,8 +87,8 @@ LM Studio is an OpenAI-compatible local LLM server (default endpoint `http://loc
 **Acceptance Criteria**:
 - [x] **AC-US3-01**: Given `ComparisonPage.tsx` renders the provider dropdown, when `detectAvailableProviders()` returns LM Studio in its result, then the dropdown shows an "LM Studio" option group whose children are the model ids returned by the probe, ordered alphabetically.
 - [x] **AC-US3-02**: Given `workspace/RunPanel.tsx` renders the provider dropdown, when LM Studio is detected, then the same option group appears there with identical labeling and identical model ordering as in `ComparisonPage`.
-- [x] **AC-US3-03**: Given LM Studio is detected but its `/models` response contained zero models, when the dropdown renders, then the group label "LM Studio" is shown with a single disabled child "No models loaded — open LM Studio and load a model".
-- [x] **AC-US3-04**: Given LM Studio is not detected (endpoint down), when either page renders, then no "LM Studio" group appears in the dropdown.
+- [x] **AC-US3-03**: Given LM Studio is detected but its `/models` response contained zero models, when the dropdown renders, then the LM Studio entry is shown as an install-CTA row in the dropdown (consistent with the unavailable state) so the user can discover it and open the app to load a model. *(Revised 2026-04-25 — the dedicated "No models loaded" disabled child was folded into the shared install-CTA pattern for UX consistency; see code-review F-003.)*
+- [x] **AC-US3-04**: Given LM Studio is not detected (endpoint down), when either page renders, then the LM Studio entry renders as a grayed-out install-CTA row (rather than being hidden) so users can discover the integration. *(Revised 2026-04-25 from "no LM Studio group appears" — see code-review F-002.)*
 
 ---
 
