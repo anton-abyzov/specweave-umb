@@ -50,7 +50,7 @@ The page is parallel-buildable: during 0716 development we mock `/api/v1/studio/
 - [x] **AC-US1-06**: Failed/timed-out request shows ErrorState with a Retry button. Prior results are NOT cleared (resilience under intermittent network).
 - [x] **AC-US1-07**: The page is deep-linkable — `/studio/find?q=react` reads `q` from URL on mount and shows the corresponding results. Updating the search bar updates the URL via `replaceState` (not pushState — avoids history pollution per keystroke).
 - [x] **AC-US1-08**: Client sends `If-None-Match` header with the last response's ETag; 304 from sibling 0716's proxy results in reuse of cached body without re-parse.
-- [ ] **AC-US1-09**: Composite as-you-type budget — on cache hit, time from last keystroke to rendered results is under 250ms (debounce 200 + server cache hit <5ms + render <10ms). Measured via a Playwright trace.
+- [x] **AC-US1-09**: Composite as-you-type budget — on cache hit, time from last keystroke to rendered results is under 250ms (debounce 200 + server cache hit <5ms + render <10ms). Measured via a Playwright trace.
 
 ---
 
@@ -65,7 +65,7 @@ The page is parallel-buildable: during 0716 development we mock `/api/v1/studio/
 - [x] **AC-US2-01**: ResultCard renders skill name, author, description (2-line clamp), TrustBadge, PublisherChip, StatsRow, InstallButton.
 - [x] **AC-US2-02**: TrustBadge displays one of: `VERIFIED` (green), `CERTIFIED` (gold), `unknown` (gray). Aria-label describes the tier. Click deep-links to `verified-skill.com/trust` (new tab, `rel="noopener noreferrer"`).
 - [x] **AC-US2-03**: PublisherChip renders publisher.name + green checkmark when `publisher.verified === true`; "Unknown publisher" gray chip when `publisher === null`. Click deep-links to `verified-skill.com/publishers/<slug>` (new tab).
-- [ ] **AC-US2-04**: When `isBlocked === true`, a red ThreatBanner appears above card content showing `threatType` + `severity`. The InstallButton is replaced by a red `Do not install` pill (NOT hidden — explicit signal).
+- [x] **AC-US2-04**: When `isBlocked === true`, a red ThreatBanner appears above card content showing `threatType` + `severity`. The InstallButton is replaced by a red `Do not install` pill (NOT hidden — explicit signal).
 - [x] **AC-US2-05**: StatsRow shows GitHub stars, vskill installs, current version using compact formatting (e.g. `1.2k`).
 - [x] **AC-US2-06**: Cards are keyboard accessible — Tab order is name → publisher chip → install button → next card. Enter activates the focused control.
 - [x] **AC-US2-07**: All security-sensitive text (name, description) is rendered as React text nodes only; no `dangerouslySetInnerHTML` paths.
@@ -83,7 +83,7 @@ The page is parallel-buildable: during 0716 development we mock `/api/v1/studio/
 We chose clipboard over server-side shell-out (security: server can't reach `~/.claude/`) and over direct fs writes (drift: would duplicate 0670's install logic).
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Clicking InstallButton writes `vskill install <name>` to the clipboard via `navigator.clipboard.writeText()`. The skill name is sanitized to `/^[a-zA-Z0-9._-]+$/` before composition (defense-in-depth).
+- [x] **AC-US3-01**: Clicking InstallButton writes `vskill install <name>` to the clipboard via `navigator.clipboard.writeText()`. The skill name is sanitized to `/^[a-zA-Z0-9._-]+$/` before composition (defense-in-depth).
 - [x] **AC-US3-02**: A toast confirms the copy and includes the hint "Run `vskill install <name>` in your terminal." Toast auto-dismisses after 3.5s.
 - [x] **AC-US3-03**: Telemetry POST to `/api/v1/studio/telemetry/install-copy` (from sibling 0716) with `{ skillName, q, ts: Date.now() }`. Fire-and-forget — UI never blocks on the response.
 - [x] **AC-US3-04**: Hidden / replaced when `isBlocked === true` (per AC-US2-04).

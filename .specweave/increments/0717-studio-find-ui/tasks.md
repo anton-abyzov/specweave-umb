@@ -190,7 +190,7 @@ Tests in `vskill-platform/src/app/studio/find/components/LoadMore.test.tsx` + in
 ---
 
 ### T-013: [INTEGRATION] Playwright golden path + blocked-skill flow + clipboard assertion
-**User Story**: US-001 + US-002 + US-003 + US-004 | **Satisfies ACs**: AC-US1-09, AC-US3-01, AC-US2-04 | **Status**: [ ] not started
+**User Story**: US-001 + US-002 + US-003 + US-004 | **Satisfies ACs**: AC-US1-09, AC-US3-01, AC-US2-04 | **Status**: [x] completed
 
 **Test Plan**:
 - Given the dev Worker is running with MSW handlers (or live 0716 endpoints once available)
@@ -202,7 +202,7 @@ Tests in `vskill-platform/src/app/studio/find/components/LoadMore.test.tsx` + in
 ---
 
 ### T-014: [REFACTOR + LIVE] Switch from MSW to live 0716 endpoints (gated by 0716 deploy)
-**User Story**: US-001..004 | **Satisfies ACs**: All | **Status**: [ ] not started
+**User Story**: US-001..004 | **Satisfies ACs**: All | **Status**: [x] completed
 
 **Test Plan**:
 - Given sibling 0716 has deployed `/api/v1/studio/search` and the telemetry endpoints to the dev Worker
