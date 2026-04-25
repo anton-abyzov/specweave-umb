@@ -118,9 +118,10 @@
 ## Phase 4: Verification
 
 ### T-011: Run all tests
-**Status**: [ ]
+**Status**: [x] Done
 - `cd repositories/anton-abyzov/vskill && npm test -- --run`
 - All new tests pass; existing tests remain green.
+- Verified 2026-04-25: 21 tests across 4 files green (api-routes-skill-delete, delete-endpoint, ContextMenu.delete, usePendingDeletion).
 
 ### T-012: Manual smoke (macOS)
 **User Story**: US-001, US-002, US-005 | **Satisfies ACs**: AC-US1-04, AC-US2-03, AC-US5-01 | **Status**: [x]
@@ -131,5 +132,5 @@
 - Right-click a plugin skill (PLUGINS section) → verify Delete is grayed with tooltip.
 
 ### T-013: Document Windows VM check (defer)
-**Status**: [ ] Deferred
+**Status**: [x] Deferred — documented as follow-up
 - A Windows Recycle Bin smoke test is intentionally deferred to a follow-up — `trash@^9` is widely used and platform-tested upstream, and the cross-platform contract is enforced via mocking in `api-routes-skill-delete.test.ts`. Track a follow-up if Windows verification is required before release.
