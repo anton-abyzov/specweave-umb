@@ -2,11 +2,11 @@
   "id": "0724-vskill-cli-install-enable-skills",
   "title": "vskill CLI — Install / Enable / Disable Skills (Claude Code wiring)",
   "type": "feature",
-  "status": "active",
+  "status": "completed",
   "priority": "high",
   "project": "vskill",
   "created": "2026-04-25",
-  "lastActivity": "2026-04-25T06:31:47.183Z",
+  "lastActivity": "2026-04-25T14:47:36.734Z",
   "description": "Extend the vskill CLI to fully manage the lifecycle of skills on a developer's machine: install, enable, disable, list status, and integrate with Claude Code's skills directory (~/.claude/skills/ or project-local .claude/skills/). Existing commands (add, remove, find, list, pin, marketplace, outdated) handle catalog operations; the gap is the activation surface — once a skill is installed, can the user toggle it on/off per-project or globally without manual config edits? The new commands should write/remove the appropriate plugin/skill registration so Claude Code picks it up on next restart, mirroring `claude plugin install/enable/disable` semantics where applicable, with clear feedback on which agent surfaces (Claude Code, Cursor, Codex CLI, etc.) each operation affected.",
   "scope": {
     "owningRepo": "vskill",
@@ -232,5 +232,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-25T14:47:36.704Z",
+  "approvedAt": "2026-04-25T14:47:36.734Z"
 }
