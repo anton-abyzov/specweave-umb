@@ -1,10 +1,10 @@
 ---
 increment: 0716-studio-search-api-and-telemetry
-title: "Studio search API extension + same-origin proxy + telemetry endpoints"
+title: Studio search API extension + same-origin proxy + telemetry endpoints
 type: feature
 priority: P1
-status: planned
-created: 2026-04-25
+status: ready_for_review
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -44,10 +44,10 @@ This is the critical-path contract increment. 0717 and 0718 develop against mock
 **I want** the search response to include the publisher and a result-set total
 **So that** I can render a publisher chip with verified status and a pagination control that knows when to stop.
 
-The current `/api/v1/skills/search` response already returns `name, author, repoUrl, trustTier, certTier, githubStars, vskillInstalls, isBlocked, threatType, severity, alternateRepos, currentVersion`. Two additive fields close the gap for Studio: `publisher` (joined from `Submission.publisherId → Publisher`) and `total` (so LoadMore can disable correctly).
+The current `/api/v1/skills/search` response already returns `name, author, repoUrl, trustTier, certTier, githubStars, vskillInstalls, isBlocked, threatType, severity, alternateRepos, currentVersion`. Two additive fields close the gap for Studio: `publisher` (derived from existing `Submission.isVendor` + `Submission.vendorOrg` — see AC-US1-01) and `total` (so LoadMore can disable correctly).
 
 **Acceptance Criteria**:
-- [x] **AC-US1-01**: Response payload includes a `publisher` field shaped `{ slug: string, name: string, verified: boolean } | null` per result. Null when no publisher row joined (e.g. legacy submissions).
+- [x] **AC-US1-01**: Response payload includes a `publisher` field shaped `{ slug: string, name: string, verified: boolean } | null` per result. **Derivation rule** (no dedicated `Publisher` table — pragmatic until follow-up): `verified=true` when ANY linked `Submission` row has `isVendor=true` (slug derived from `vendorOrg`, latest by `createdAt` wins); `verified=false` when the skill has an `author` but no vendor submission (slug derived from `author`); `null` when no data, the join exceeds the soft timeout, or the underlying query throws. A future increment may introduce a dedicated `Publisher` Prisma model + `Submission.publisherId` FK; the response shape is stable across that migration.
 - [x] **AC-US1-02**: Endpoint accepts `offset` query param (0-based, integer, default 0). When omitted, current behavior is preserved (offset=0).
 - [x] **AC-US1-03**: Response envelope includes `total: number` — the total count of results matching the query before pagination. LoadMore in Studio uses this to disable when `offset + limit >= total`.
 - [x] **AC-US1-04**: Backward compatibility — clients that ignore `publisher` and `total` continue to work; `vskill find` (CLI) still parses results correctly with no code change. Verified by running existing `vskill find` integration tests against the new response.
@@ -126,6 +126,8 @@ Run existing `vskill find` integration tests (in `vskill/`) against the new sear
 | Telemetry table grows unbounded | Follow-up increment will add 90-day retention sweep |
 | Backward break for `vskill find` | AC-US1-04 explicit regression test against existing CLI integration tests |
 | Cross-isolate cache divergence | Acceptable — per-isolate hit rate is what matters for as-you-type |
+| Per-isolate rate-limit budget multiplied by active isolate count | Documented: AC-US2-03 + AC-US3-05 buckets are per-isolate (module-level singletons in CF Worker isolates). Effective per-IP throughput under burst is N × budget where N is active isolate count. Accepted trade-off for v1 (matches LRU semantics and aligns with current threat model — no auth, public proxy with bounded payloads). A follow-up increment can re-key on a Durable Object or KV-backed counter for a global guarantee. Module comments in `src/app/api/v1/studio/search/route.ts` document this. |
+| Studio LRU poisoned by malformed upstream 200 | Shape check (`results: array`, `total: number`) before `cache.set`. Bad envelopes return 502 and bypass cache. |
 
 ## Success Criteria
 

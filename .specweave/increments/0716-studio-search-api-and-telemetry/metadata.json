@@ -1,11 +1,11 @@
 {
   "id": "0716-studio-search-api-and-telemetry",
-  "status": "active",
+  "status": "ready_for_review",
   "startedAt": "2026-04-25T03:50:00Z",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-25T03:33:23.125Z",
-  "lastActivity": "2026-04-25T04:15:38.892Z",
+  "lastActivity": "2026-04-25T14:03:03.597Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -118,5 +118,6 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-25T14:03:03.597Z"
 }
