@@ -1,0 +1,34 @@
+{
+  "id": "0719-cron-offload-stats-to-vm",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-25T03:46:32.991Z",
+  "lastActivity": "2026-04-25T03:53:50.954Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-25T03:53:50.953Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-08: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US2-04: has no tasks mapped",
+        "AC-US3-03: has no tasks mapped",
+        "AC-US4-01: has no tasks mapped",
+        "AC-US4-03: has no tasks mapped",
+        "AC-US5-01: has no tasks mapped",
+        "AC-US5-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
