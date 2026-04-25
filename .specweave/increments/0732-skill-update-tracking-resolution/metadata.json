@@ -1,0 +1,42 @@
+{
+  "id": "0732-skill-update-tracking-resolution",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-25T22:59:01.494Z",
+  "lastActivity": "2026-04-25T23:07:31.356Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1078",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1078",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-25T23:07:45.089Z"
+    },
+    "ado": {
+      "featureId": "1917",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1917",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-25T23:07:47.872Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-25T23:07:31.355Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ]
+}

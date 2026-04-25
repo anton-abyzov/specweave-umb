@@ -1,10 +1,12 @@
 ---
 increment: 0717-studio-find-ui
-title: "Local Studio /studio/find page — discovery UI with as-you-type search and pagination"
+title: >-
+  Local Studio /studio/find page — discovery UI with as-you-type search and
+  pagination
 type: feature
 priority: P1
-status: planned
-created: 2026-04-25
+status: completed
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

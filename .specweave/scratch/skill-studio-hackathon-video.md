@@ -12,6 +12,9 @@
 
 | Feature | Real today? | Demo strategy |
 |---|---|---|
+| 4-skill "what you can build" teaser (00:04–00:14) | Producer Pal (Ableton), Remotion, social-media-posting, frontend-design — all real and installed | Pre-stage outputs so each `Enter`→bloom is <400ms. Record each skill into its own clip first; assemble in Hyperframes. **Confirm Ableton Live + Producer Pal runs cleanly; if Ableton license is unavailable on recording machine, swap clip 1 for `/anthropic-skills:pptx` (deck materializing) and update VO.** |
+| `npx vskill install frontend-design` | vskill CLI ships skill-installer that fans out to Claude/Cursor/Codex (0665, 0670) | Record live. Confirm install logs show all three agent dirs being written. |
+| Apple-Watch scroll-fold demo | frontend-design skill is real; the **specific page** isn't a baked example | Generate it 2–3 times **before** recording, pick the cleanest take, replay. Acceptable to use a pre-rendered page that the prompt-line "rebuilds" on cue — judges expect this for live demos. |
 | "+ New Skill → Generate with AI" modal | Shipped (0703) | Record live |
 | ⌘K model picker with Opus 4.7 + "routing to…" sub-line | Shipped (0703) | Record live |
 | OpenAI / open-source in the dropdown | Registry has only `claude-opus-4-7`, `claude-sonnet-4-6`, `claude-haiku-4-5`. OpenAI/local via AnyModel BYO pass-through. | Either stage a mock dropdown, or show a real BYO entry via AnyModel. **Confirm before recording.** |
@@ -28,43 +31,96 @@
 
 ---
 
-### 00:00 — 00:08 · COLD-OPEN (Hollywood style, no face)
+### 00:00 — 00:04 · ANTHROPIC LOGO OPEN
 
-`[B-ROLL — broll-01-cold-open.mp4]`
+`[ANIM — Anthropic wordmark, Hyperframes spring-in on solid near-black, 600ms hold, soft chime]`
 
-Dim dev office at night. Monitor glow. Pull-in on a blinking cursor. Seven translucent tool logos (Claude, Cursor, Codex, ChatGPT, VS Code, Copilot, Gemini) appear around the monitor, each tethered by a fragile blue-light thread to a single glowing SKILL.md badge. The threads pulse. Badge flares white. All seven logos ignite in unison. Teal/amber grade. Rising sub-bass + synth pulse.
+`[VOICEOVER — Anton, calm]`
+> *"Last October, Anthropic shipped one small idea that's about to change how you build everything."*
 
-`[VOICEOVER — Anton, over clip]`
-> *"Every AI tool you use — is about to know the same skill. Not because they talked to each other. Because you wrote it **once**."*
+(Logo dissolves. Cut to terminal-dark.)
 
 ---
 
-### 00:08 — 00:18 · HOOK PAYOFF
+### 00:04 — 00:14 · WHAT YOU CAN BUILD (4 examples, 2.5s each)
+
+`[SCREEN — fullscreen terminal, dark theme, 18pt mono. Four invocations land in sequence; the right side of the frame **fills with the result** as each completes. Hard cuts on the beat.]`
+
+| # | Skill | Result that fills the frame |
+|---|---|---|
+| 1 | `/ppal-create-clip` *(Producer Pal → Ableton Live)* | An Ableton Live session — clip slots fire, drum rack, mixer pulsing |
+| 2 | `/remotion` | An animated title card flies in over a video frame |
+| 3 | `/social-media-posting` | Three platform mockups fan out — Instagram reel, X post, LinkedIn carousel |
+| 4 | `/frontend-design` | A polished hero section scrolls into view, glassy and Apple-grade |
+
+`[VOICEOVER — over cuts, one phrase per skill]`
+> *"Compose in Ableton. Cut a video. Run a marketing campaign. Design a website. **One skill each.**"*
+
+---
+
+### 00:14 — 00:18 · ONE-LINE DEFINITION
+
+`[SCREEN — quick zoom on a SKILL.md frontmatter block, three lines highlighted: name / description / instructions]`
+
+`[VOICEOVER]`
+> *"A skill is one markdown file. Name. Description. Instructions. That's it."*
+
+---
+
+### 00:18 — 00:30 · INSTALL & USE — LIVE (the split-screen reveal)
+
+`[SCREEN — fullscreen terminal, cursor blinking. Type live, no cut:]`
+
+```
+$ npx vskill install frontend-design
+```
+
+`[ANIM — caption "vskill — universal skill installer · works in Claude, Cursor, Codex" 800ms fade-in, hold 1.5s]`
+
+`[SCREEN — install streams: progress bar, ✓ "Installed for Claude · Cursor · Codex"]`
+
+`[CAMERA MOVE — 700ms ease. Terminal pane slides left, lands at **1/3 width**. The right **2/3** reveals a Chromium window, dark chrome.]`
+
+`[SCREEN — terminal (left third): type one line:]`
+
+```
+> Build an Apple-style product page for Apple Watch.
+  Pin the hero. As I scroll, fold the watch open
+  into its components — case, crown, sensor stack,
+  band — each labeled, each in its own section.
+```
+
+`[SCREEN — right two-thirds: the page renders live. Hero pinned. As the (auto-driven) scroll advances, the watch breaks apart into sub-components, each unfolding into its own pinned section in the apple.com style. 60fps. No jank.]`
+
+`[VOICEOVER — over the scroll]`
+> *"One install. One prompt. Apple-grade scroll choreography — written by a skill anyone in this community can fork."*
+
+(Beat. Hold the final unfolded-watch frame 400ms. Cut to face.)
+
+---
+
+### 00:30 — 00:38 · WHO I AM
 
 `[FACE — tight, solid background]`
-> *"I built this in a week for Anthropic's hackathon. Three minutes — I'll show you what it does, why it matters, and why Claude Code alone can't ship this without **you** in the loop."*
+> *"I'm Anton. I built something for Anthropic's hackathon. Two more minutes — why this matters, and the one problem nobody's solved yet."*
 
-*(Beat. Smile. Cut.)*
+*(Beat. Cut.)*
 
 ---
 
-### 00:18 — 00:28 · WHAT IS A SKILL? (the hands montage)
+### 00:38 — 01:08 · WHAT IS A SKILL, REALLY (the deeper bit)
 
-`[B-ROLL — broll-02-hands-montage.mp4]`
+`[B-ROLL — broll-02-hands-montage.mp4 (4s)]`
 
-Four 2-second vignettes: child's hands at a laptop, chef's hands folding dough, scientist's gloved hands at a microscope, elderly musician's hands on piano keys. The glowing SKILL.md badge materializes with a soft chime in each scene.
+Four sub-second vignettes: child's hands at a laptop, chef's hands folding dough, scientist's gloved hands at a microscope, elderly musician's hands on piano keys. The glowing SKILL.md badge materializes with a soft chime in each.
 
 `[VOICEOVER — over clip]`
 > *"A skill is the smallest unit of know-how. A checklist. A playbook. What a senior teaches a junior on day one. Your grandma's recipe for pierogi is a skill."*
 
----
-
-### 00:28 — 00:55 · THE TECHNICAL BIT (keep accessible)
-
-`[SCREEN — code.claude.com/docs/en/skills, zoom to 'Create a SKILL.md file' box]`
+`[SCREEN — anthropic.com/news/skills (October 2025 announcement) → quick cut to code.claude.com/docs/en/skills, zoom on the 'Create a SKILL.md file' box]`
 
 `[FACE — 30% corner]`
-> *"Anthropic turned that idea into one file. A `SKILL.md`. Name. Description. Markdown instructions. That's it. Claude reads it when it's relevant — or you call it with a slash. No code required."*
+> *"Anthropic shipped Skills in October 2025. One file: a `SKILL.md`. Claude reads it when it's relevant — or you call it with a slash. No code required."*
 
 `[ANIM — Hyperframes bracket-callout on three frontmatter lines: name, description, allowed-tools]`
 
@@ -74,7 +130,7 @@ Four 2-second vignettes: child's hands at a laptop, chef's hands folding dough, 
 
 ---
 
-### 00:55 — 01:05 · THE PROBLEM (the lock-in break)
+### 01:08 — 01:20 · THE PROBLEM (the lock-in break)
 
 `[B-ROLL — broll-03-lockin-break.mp4]`
 
@@ -85,7 +141,7 @@ Seven tool logos floating, each padlocked to a dim SKILL.md with a thick red cha
 
 ---
 
-### 01:05 — 01:55 · LIVE DEMO — GENERATE
+### 01:20 — 02:10 · LIVE DEMO — GENERATE (this is Skill Studio)
 
 `[SCREEN — open Skill Studio locally. Land on dashboard.]`
 
@@ -112,7 +168,9 @@ Seven tool logos floating, each padlocked to a dim SKILL.md with a thick red cha
 
 ---
 
-### 01:55 — 02:30 · USE IT IN A PROJECT
+### 02:10 — 02:35 · USE IT IN A PROJECT (now in Claude Code)
+
+> **Note**: opening already showed install + use via vskill. This section pivots: **same skill, different agent (Claude Code)** — proves portability. Trim 5s vs. previous cut.
 
 `[SCREEN — terminal: `cd ~/projects/my-api && ls .claude/skills/` — the new `pr-reviewer/` directory is there]`
 
@@ -126,7 +184,7 @@ Seven tool logos floating, each padlocked to a dim SKILL.md with a thick red cha
 
 ---
 
-### 02:30 — 02:38 · PREVIEW THE MAGIC (cinematic, no face)
+### 02:35 — 02:43 · PREVIEW THE MAGIC (cinematic, no face)
 
 `[B-ROLL — broll-04-sse-magic.mp4]`
 
@@ -137,7 +195,7 @@ Split screen. A keystroke in the terminal launches a comet of light across the g
 
 ---
 
-### 02:38 — 03:10 · THE MAGIC — LIVE
+### 02:43 — 03:13 · THE MAGIC — LIVE
 
 `[SCREEN — Skill Studio on left, terminal on right. Skill icon in Studio is neutral gray.]`
 
@@ -155,7 +213,7 @@ Split screen. A keystroke in the terminal launches a comet of light across the g
 
 ---
 
-### 03:10 — 03:30 · CLOSE
+### 03:13 — 03:30 · CLOSE
 
 `[FACE — full frame]`
 > *"A skill is a recipe. Skill Studio writes it, ships it to every tool you use, and tells you the instant someone improves it. Anthropic gave us the standard. I'm making it **universal** and **live**."*
@@ -166,14 +224,26 @@ Split screen. A keystroke in the terminal launches a comet of light across the g
 
 ---
 
-## B-roll inventory (all 8s, Veo 3.1 Fast, 16:9)
+## B-roll inventory
 
-| File | Used at | Mood |
-|---|---|---|
-| `broll-01-cold-open.mp4` | 0:00 | Hollywood cold-open, tense-to-promising |
-| `broll-02-hands-montage.mp4` | 0:18 | Warm, human, cinematic |
-| `broll-03-lockin-break.mp4` | 0:55 | Tension → release |
-| `broll-04-sse-magic.mp4` | 2:30 | Magical, instant, satisfying |
+### Veo 3.1 Fast (16:9)
+
+| File | Used at | Length | Mood |
+|---|---|---|---|
+| `broll-02-hands-montage.mp4` | 0:38 | 4s | Warm, human, cinematic |
+| `broll-03-lockin-break.mp4` | 1:08 | 8s | Tension → release |
+| `broll-04-sse-magic.mp4` | 2:35 | 8s | Magical, instant, satisfying |
+
+> `broll-01-cold-open.mp4` is **retired** — the new opening uses an Anthropic logo card + screen-recorded skill teasers instead.
+
+### Screen-recorded (you, on your machine)
+
+| File | Used at | Length | Notes |
+|---|---|---|---|
+| `screen-00-anthropic-logo.mp4` | 0:00–0:04 | 4s | Anthropic wordmark on near-black, Hyperframes spring-in. Verify usage rights / fair-use for hackathon submission; if unsure, render a stylized typographic substitute that reads "Anthropic · October 2025". |
+| `screen-01-skills-teaser.mp4` | 0:04–0:14 | 10s | 4 skill invocations × 2.5s. Terminal **left half**, result fills **right half** as it lands. Hard cuts on the beat. Pre-stage every result so `Enter`→bloom is under 400ms. |
+| `screen-02-vskill-install.mp4` | 0:18–0:22 | 4s | Live `npx vskill install frontend-design`, full-screen terminal, install streams cleanly to ✓ |
+| `screen-03-apple-watch-scroll.mp4` | 0:22–0:30 | 8s | Split-screen post camera-move: terminal 1/3 left, Chromium 2/3 right. Auto-driven scroll plays the watch-fold animation. Pre-render and replay — do not depend on a live LLM call hitting timing. |
 
 All saved to: `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/scratch/`
 
@@ -183,17 +253,22 @@ All saved to: `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/scrat
 
 | Time | Beat | Direction |
 |---|---|---|
-| 00:08 | Face-cam appears | 150ms wipe from center |
-| 00:34 | Frontmatter bracket | 3 lines of the SKILL.md YAML get a yellow bracket that slides in from the left, 200ms each, staggered |
-| 00:55 | Tool-row X-drop | 7 tool logos in a row, red X overlays appear on 6, staggered 80ms. 7th (Skill Studio) pulses green |
-| 01:15 | ⌘K zoom-ring | Circle overlay, 3px stroke, 40% darken outside ring. Hyperframes `<ZoomIn>` |
-| 01:20 | Opus row highlight | Yellow underline band, 180ms wipe right |
-| 01:45 | "Real streaming. No cut." caption | Bottom third, 900ms fade in, hold 2s, fade out |
-| 02:10 | `/pr-reviewer` autocomplete ring | Pulse ring, 2 beats |
-| 02:45 | SSE dotted line | `stroke-dashoffset` animation from terminal save point to Studio icon, 700ms, tagged "SSE" in the middle |
-| 02:48 | Icon impact | 1.15× scale pulse + color shift (gray → brand blue-violet), 300ms spring |
-| 02:50 | Toast slide-in | From top-right, spring motion, 400ms |
-| 03:20 | End card | Full-bleed brand color. Logo spring-in 200ms, URL fade 200ms later, credit fade 300ms later. Hold 3s |
+| 00:00 | Anthropic logo spring-in | 600ms ease-out, soft chime, hold 1.4s, dissolve to black |
+| 00:04 | Skill-teaser counter | Bottom-right "1 / 4 · Ableton" → "4 / 4 · Web", changes on each cut, mono font, 50% opacity |
+| 00:14 | Frontmatter callout | 3 lines (name / description / instructions) bracketed yellow, 180ms each, staggered |
+| 00:18 | "vskill — universal skill installer" caption | Bottom third, 800ms fade in, hold 1.5s, fade out |
+| 00:21 | Camera move | 700ms ease — full-frame terminal slides to 1/3 left; right 2/3 reveals Chromium pane (no jank, motion-blurred edge) |
+| 00:30 | Face-cam appears | 150ms wipe from center |
+| 00:55 | Frontmatter bracket (deeper section) | Same callout style, longer hold |
+| 01:08 | Tool-row X-drop | 7 tool logos in a row, red X overlays on 6, staggered 80ms. 7th (Skill Studio) pulses green |
+| 01:30 | ⌘K zoom-ring | Circle overlay, 3px stroke, 40% darken outside ring |
+| 01:35 | Opus row highlight | Yellow underline band, 180ms wipe right |
+| 02:00 | "Real streaming. No cut." caption | Bottom third, 900ms fade in, hold 2s, fade out |
+| 02:15 | `/pr-reviewer` autocomplete ring | Pulse ring, 2 beats |
+| 02:48 | SSE dotted line | `stroke-dashoffset` from terminal save → Studio icon, 700ms, tagged "SSE" in the middle |
+| 02:51 | Icon impact | 1.15× scale pulse + color shift (gray → brand blue-violet), 300ms spring |
+| 02:53 | Toast slide-in | From top-right, spring motion, 400ms |
+| 03:23 | End card | Full-bleed brand color. Logo spring-in 200ms, URL fade 200ms later, credit fade 300ms later. Hold 3s |
 
 ---
 
@@ -214,12 +289,16 @@ A single 3:30 track beats chopped-and-stitched free library cues. Suno gets you 
 Genre: Cinematic tech trailer, Apple-keynote-meets-inception.
 Mood: Tense curiosity rising into triumphant clarity.
 Structure (3:30 total):
-- 0:00-0:18 — Deep sub-bass hum, sparse synth plucks, single rising pulse every 4 seconds. Minimal, anticipatory.
-- 0:18-0:55 — Warm piano layer joins, gentle strings, human and approachable. Heartbeat-tempo drum underneath.
-- 0:55-1:05 — Brief tension spike, low strings, suspended chord. Unresolved.
-- 1:05-2:30 — Resolved, confident mid-tempo synth-bass groove. Think "product montage". Bright but not cheesy.
-- 2:30-3:10 — Build. Add arpeggiated synth. Crescendo toward a single bright chord at 3:00.
-- 3:10-3:30 — Outro. Warm resolve. One final soft chime. Silence-adjacent by end.
+- 0:00-0:04 — Anthropic logo card: a single soft chime over silence, then a low sub-bass swell on the dissolve. Reverent.
+- 0:04-0:14 — Skill teasers: 4 percussive "stamps" at 2.5s intervals (one per skill), each stamp a tonal hit that resolves up the scale. Building anticipation.
+- 0:14-0:18 — Pull back to a single sustained pad — space for the one-line skill definition.
+- 0:18-0:30 — Install + Apple-watch reveal: kinetic mid-tempo groove kicks in on the camera move; arpeggio mirrors the scroll-driven unfold. Bright, confident.
+- 0:30-0:38 — Pull back. Warm pad, breath of space for face-cam intro.
+- 0:38-1:08 — Warm piano layer, gentle strings, human and approachable. Heartbeat-tempo drum underneath.
+- 1:08-1:20 — Brief tension spike, low strings, suspended chord. Unresolved.
+- 1:20-2:35 — Resolved, confident mid-tempo synth-bass groove. Think "product montage". Bright but not cheesy.
+- 2:35-3:13 — Build. Add arpeggiated synth. Crescendo toward a single bright chord around 3:00.
+- 3:13-3:30 — Outro. Warm resolve. One final soft chime. Silence-adjacent by end.
 Instruments: analog synth pad, piano, light strings, sub-bass, minimal percussion (no snares).
 No vocals. No lyrics. Instrumental only.
 BPM: 92, feels like 100.
@@ -232,19 +311,24 @@ Generate 2-3 takes, pick the one with the clearest 2:30 build-up — that's wher
 
 ## Pre-recording checklist
 
+- [ ] **Anthropic logo card**: confirm fair-use / hackathon-permitted use of the wordmark; otherwise render typographic substitute "Anthropic · October 2025"
+- [ ] **Pre-stage the 4 skill teasers (00:04–00:14)**: Producer Pal / Ableton Live, Remotion, social-media-posting, frontend-design. Each result rendered ahead of time so `Enter`→bloom is under 400ms. Record each as its own ~3s clip and assemble in Hyperframes.
+  - [ ] Backup plan if Ableton is unavailable on recording machine: swap clip 1 for `/anthropic-skills:pptx` and revise VO to "Build a deck. Cut a video. ..."
+- [ ] **Pre-render the Apple-Watch scroll page** with frontend-design 2–3 times; pick the cleanest take. Stage replay so the live prompt-line cues a pre-rendered file (not a live LLM call) — no timing risk on judging day.
+- [ ] **Verify `npx vskill install frontend-design`** writes to all three agent dirs (Claude / Cursor / Codex) and the install log is camera-friendly.
 - [ ] Confirm 0708 icon-color-change + toast works in your WIP branch (72/74 tasks). If not — simulate, and note it in the description.
 - [ ] Decide model-picker OpenAI/open-source strategy: live via AnyModel BYO, or staged overlay.
-- [ ] Paste @trq212 tweet text to weave into 00:28–00:55 block.
+- [ ] Paste @trq212 tweet text to weave into 00:38–01:08 block.
 - [ ] Dark mode everywhere. Close personal tabs. Disable notifications.
 - [ ] Prepare a sample project folder (`~/projects/my-api`) with a clean `.claude/` dir.
 - [ ] Record face-cam and screen-share separately. Mic close (6 inches). Look at the lens during face-cam.
-- [ ] Upload the 4 `broll-*.mp4` files to Hyperframes timeline first; build the skeleton around them.
+- [ ] Upload the 3 `broll-*.mp4` files + 4 `screen-*.mp4` files to Hyperframes timeline first; build the skeleton around them.
 
 ---
 
 ## Budget
 
-- 4 × Veo 3.1 Fast ≈ **$4.80**
+- 3 × Veo 3.1 Fast ≈ **$3.60** (cold-open clip retired)
 - Suno free tier: $0
 - Hyperframes: your existing license
-- Total AI spend: **under $5**
+- Total AI spend: **under $4**

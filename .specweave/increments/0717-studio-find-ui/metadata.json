@@ -1,11 +1,11 @@
 {
   "id": "0717-studio-find-ui",
-  "status": "ready_for_review",
+  "status": "completed",
   "startedAt": "2026-04-25T03:50:00Z",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-25T03:40:42.015Z",
-  "lastActivity": "2026-04-25T15:30:13.652Z",
+  "lastActivity": "2026-04-25T19:37:09.714Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -16,14 +16,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1005",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-25T03:45:28.544Z"
+      "syncedAt": "2026-04-25T19:37:29.125Z"
     },
     "ado": {
       "featureId": "1844",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1844",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-25T03:45:30.909Z"
+      "syncedAt": "2026-04-25T19:37:32.710Z"
     }
   },
   "planning": {
@@ -161,5 +161,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-25T19:37:09.689Z",
+  "approvedAt": "2026-04-25T19:37:09.714Z"
 }
