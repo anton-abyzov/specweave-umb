@@ -12,6 +12,8 @@ design_authority: frontend-design (primary) + sw:architect (structural)
 
 > **Scope anchor.** Target = the Vite + React SPA at `repositories/anton-abyzov/vskill/src/eval-ui/`, served by the eval-server at `src/eval-server/`. Out of scope: `vskill eval run` headless CLI, `vskill-platform` marketing site, any OAuth flow.
 
+> **Architecture evolution note (2026-04-25):** Originally planned `SettingsContext.tsx + keyStore.ts` were superseded during T-006 implementation by a single `hooks/useCredentialStorage.ts` (no context, file-backed at `~/.vskill/keys.env` resolved via `GET /api/settings/storage-path`). Same surface area; simpler design. Tier model collapsed from `"browser" | "keychain"` to one file-based store. All AC-US4 behavioural acceptance criteria still met.
+
 ---
 
 ## 0. Problem shape & forces

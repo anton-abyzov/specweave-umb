@@ -3,7 +3,7 @@ increment: 0682-studio-agent-model-picker
 title: vSkill Studio — Unified Agent + Model Picker — Tasks
 scope: Two-pane Agent+Model picker replacing ModelSelector, Settings modal, Claude-default detection, StatusBar provider locks, OLLAMA_HOST normalisation, ToS compliance gate
 target_days: 4
-status: planned
+status: completed
 ---
 
 # Tasks: vSkill Studio — Unified Agent + Model Picker

@@ -2,10 +2,11 @@
   "id": "0682-studio-agent-model-picker",
   "title": "vSkill Studio — Unified Agent + Model Picker (Claude-Default, Two-Pane, Searchable)",
   "type": "feature",
-  "status": "planned",
+  "status": "completed",
   "priority": "high",
   "project": "vskill",
   "created": "2026-04-23",
+  "lastActivity": "2026-04-25T05:37:37.113Z",
   "description": "Replace the current flat Model Selector with a unified two-pane Agent + Model Picker. Agents (Claude Code, Cursor, Codex CLI, Gemini CLI, Copilot, Zed, Anthropic API, OpenRouter, Ollama, LM Studio) are the top-level choice; models filter by agent. Claude Code is the DEFAULT whenever `.claude/` is present and the `claude` binary is installable. OpenRouter's 300+ model catalog becomes searchable by name, context window, and price. API key management moves into a single settings surface reachable from the picker footer. Locked providers show inline 'Add API key' CTAs (never greyed-out rows). The picker is keyboard-driven (↑↓ Enter Esc Cmd+K) and delivers Linear/Raycast-level feel. Reframes 'Claude (Max/Pro subscription)' as 'Use current Claude Code session' to comply with Anthropic's April 4 2026 ToS ban on third-party OAuth. Normalises `OLLAMA_HOST` as primary env var with `OLLAMA_BASE_URL` backcompat. Documents all env vars in docs/ARCHITECTURE.md §5.",
   "scope": {
     "app": "repositories/anton-abyzov/vskill/src/eval-ui",
@@ -46,7 +47,24 @@
     "vskillImpact": "Current UI label 'Claude (Max/Pro subscription)' implies direct subscription consumption. Must reframe and verify adapter never reads ~/.claude/credentials* family.",
     "mitigationPath": "Delegate via `claude` CLI spawn — same consumer Claude Code uses — which is sanctioned. Bundle grep + unit test enforce absence of credential-file reads."
   },
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1030",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1030",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-25T05:33:52.863Z"
+    },
+    "ado": {
+      "featureId": "1869",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1869",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-25T05:33:56.063Z"
+    }
+  },
   "testMode": "TDD",
-  "coverageTarget": 90
+  "coverageTarget": 90,
+  "readyForReviewAt": "2026-04-25T05:37:37.083Z",
+  "approvedAt": "2026-04-25T05:37:37.113Z"
 }
