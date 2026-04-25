@@ -185,7 +185,7 @@ status: completed
 ---
 
 ### T-010: `AgentModelPicker` shell — popover, keyboard model, footer, motion, replace `ModelSelector` call sites
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-04, AC-US2-06, AC-US2-07 | **Status**: [x] completed — TopRail now imports AgentModelPicker; ModelSelector.tsx retained for one still-coupled test (lm-studio-ui.test.tsx) and should be removed in a follow-up once that test is migrated.
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-04, AC-US2-06, AC-US2-07 | **Status**: [x] completed — TopRail imports AgentModelPicker; ModelSelector.tsx DELETED (F-004 follow-up); lm-studio-ui.test.tsx migrated off it; AgentModelPicker.test.tsx covers render + keyboard nav (incl. F-002 model-pane navigation).
 **Phase**: C | **Estimated**: 5h | **Test Level**: unit + integration
 **Test Plan**:
   Given `<AgentModelPicker />` mounted with `useAgentCatalog()` providing a ready catalog, at a simulated viewport of 1280×800
