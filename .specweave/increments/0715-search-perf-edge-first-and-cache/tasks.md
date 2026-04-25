@@ -64,7 +64,9 @@
 ## US-002: Precomputed blocklist + rejected enrichment via KV
 
 ### T-005: [RED] Failing tests for KV-backed blocklist and rejected enrichment (no DB on edge path)
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-06 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-06 | **Status**: [x] completed
+
+**Result**: Added 8 tests in `src/lib/search.test.ts` covering `searchBlocklistEntries` (3), `searchRejectedSubmissions` (2), and `getBlockedSkillNames` (3) with KV-first / DB-fallback behavior. Ran RED — 4/8 fail as expected (the KV-first tests). After GREEN: 149/149 pass across all search-related suites.
 
 **Test Plan**:
 - Given a search request where edge serves the response and a mocked KV that returns a `blocklist-set` and `rejected-set`
@@ -97,7 +99,9 @@
 ---
 
 ### T-008: [GREEN] KV types, constants, and rebuild helpers in search-index.ts
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-05 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-05 | **Status**: [x] completed
+
+**Result**: Added `BLOCKLIST_KV_KEY`, `REJECTED_KV_KEY`, `ENRICHMENT_KV_TTL_SECONDS` (7d), `BlocklistKvEntry`, `RejectedKvEntry`, `EnrichmentKv`, `rebuildBlocklistKv()`, `rebuildRejectedKv()` to `src/lib/search-index.ts`. 5000-entry cap enforced via Prisma `take`. RESP_VERSION_KEY deferred to Step 3 — doesn't gate Step 2's enrichment win.
 
 **Test Plan**:
 - Given RED tests from T-007
@@ -107,7 +111,9 @@
 ---
 
 ### T-009: [GREEN] Rewrite searchBlocklistEntries and searchRejectedSubmissions to read KV first
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-06 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-06 | **Status**: [x] completed
+
+**Result**: Both functions in `src/lib/search.ts` now `getKv()` → read `BLOCKLIST_KV_KEY` / `REJECTED_KV_KEY` → in-memory filter by `query` substring → return mapped `SearchResult[]`. KV-miss / parse-error paths log a warning and fall through to the existing Postgres `findMany` query, so first-deploy traffic is uninterrupted. `getBlockedSkillNames` follows the same pattern using a `Set` lookup against `BLOCKLIST_KV_KEY`.
 
 **Test Plan**:
 - Given RED tests from T-005

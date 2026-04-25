@@ -4,7 +4,7 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-25T00:05:25.276Z",
-  "lastActivity": "2026-04-25T00:05:25.276Z",
+  "lastActivity": "2026-04-25T03:40:58.379Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -28,5 +28,43 @@
   "planning": {
     "parallel": false
   },
-  "startedAt": "2026-04-25T00:15:00Z"
+  "startedAt": "2026-04-25T00:15:00Z",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-25T03:40:58.379Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-04: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-03: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-06: [x] but only 2/3 tasks complete (66.67%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-25T03:40:49.981Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-04: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-03: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-06: [x] but only 2/3 tasks complete (66.67%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-25T03:40:42.637Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-04: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-03: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-06: [x] but only 2/3 tasks complete (66.67%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    }
+  ]
 }
