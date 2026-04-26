@@ -1,0 +1,66 @@
+{
+  "id": "0763-queue-avg-score-fix-and-counter-consistency",
+  "title": "Queue avg score fix + counter consistency audit",
+  "status": "completed",
+  "type": "hotfix",
+  "owner": "anton-abyzov@vskill",
+  "links": {
+    "live_api": "https://verified-skill.com/api/v1/submissions/stats",
+    "queue_page": "https://verified-skill.com/queue"
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T14:53:05.054Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T14:50:13.024Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T14:49:47.585Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "lastActivity": "2026-04-26T15:32:43.987Z",
+  "created": "2026-04-26",
+  "externalLinks": {},
+  "priority": "medium",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-04-26T15:32:43.973Z",
+  "approvedAt": "2026-04-26T15:32:43.987Z"
+}
