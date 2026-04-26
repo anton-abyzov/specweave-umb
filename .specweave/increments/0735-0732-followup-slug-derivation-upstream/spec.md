@@ -1,10 +1,10 @@
 ---
 increment: 0735-0732-followup-slug-derivation-upstream
-title: "0732 follow-up: outbox-time slug derivation + name shape validation"
+title: '0732 follow-up: outbox-time slug derivation + name shape validation'
 type: feature
 priority: P2
-status: planned
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
