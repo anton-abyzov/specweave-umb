@@ -14,14 +14,25 @@ coverage_target: 90
 
 ## Overview
 
-Follow-up to the 0754 P0 hotfix that restored `/api/v1/studio/search` from 502→200. With the proxy fixed, four discoverability bugs are still preventing the originally-reported user from finding their published skill `anton-abyzov/vskill/skill-builder`:
+Follow-up to the 0754 P0 hotfix that restored `/api/v1/studio/search` from 502→200. With the proxy fixed, four discoverability bugs are still preventing the originally-reported user from finding their published skill `anton-abyzov/vskill/skill-builder`.
 
-1. **Search ranking buries new T4 vendor skills.** `q=skill-builder` returns 31 total results; the user's CERTIFIED T4 skill is ranked **#31 of 31** (LIMIT_MAX clamp at 30 means it never surfaces). Code path: `src/lib/search.ts:269-275` primary-sorts by `certTier === "CERTIFIED"` first, then by `githubStars desc`. Both anton-abyzov (24 stars) and most competitors are CERTIFIED, but the user's repo has fewer stars than other CERTIFIED siblings (or the sort short-circuits in the edge KV path).
-2. **`/api/v1/skills` LIST endpoint silently drops `q=`, `author=`, `source=` filter params.** `src/app/api/v1/skills/route.ts:44-122` only wires `category`, `tier`, `extensible`, `search`. Default sort is `trendingScore7d desc` over a corpus of 113,174 skills, paginated 20 at a time — non-default filters never run.
-3. **Submission `isVendor:false` drifts from published Skill row `labels:[vendor,certified]`.** When publishing classifies a repo as vendor (e.g., anton-abyzov/vskill), the published Skill gets vendor labels but the submission row never gets `isVendor: true` written back. Internal admin views that filter on `submission.isVendor` miss vendor publishes.
-4. **No automatic KV search-index rebuild on publish.** `POST /api/v1/admin/rebuild-search` is admin-triggered only. New publishes update Postgres synchronously but the edge KV index lags until manual rebuild — explains slow skill discoverability after publish.
+**Diagnosis was refined during planning** — the original ordering put ranking first, but a deeper probe of production data revealed the actual root cause is the KV index staleness:
 
-This increment ships fixes for all four with TDD discipline and live production verification.
+- Production probe (2026-04-26 03:55Z) of `/api/v1/skills/search?q=skill-builder&limit=30`: returns 30 results, total=31. ALL 30 results are `certTier: VERIFIED`. The user's `CERTIFIED T4` skill is the missing 31st.
+- Direct lookup `/api/v1/skills/anton-abyzov/vskill/skill-builder` returns the row from Postgres with `certTier: CERTIFIED, trustTier: T4` — so the data IS in Postgres.
+- The `/api/v1/skills/search` route runs `searchSkillsEdge` first (KV) and skips Postgres if edge already returned `>= limit + 1` rows (`route.ts: edgeResults.length >= limit + 1 → pgSkipped = true`). With edge returning 30 and limit=30, Postgres is **never consulted** — and edge is missing the user's skill.
+- The `searchSkillsEdge` sort at `src/lib/search.ts:269-275` already puts `certTier === "CERTIFIED"` first. If the user's skill were in the KV "s" shard, it would rank #1 immediately.
+
+**Conclusion**: the ranking algorithm is fine. The KV index is stale — it was indexed before the user published, and re-indexing is admin-triggered (`POST /api/v1/admin/rebuild-search` requires bearer auth). **Auto-reindex on publish is the actual fix for the user's specific complaint.**
+
+The four discrete fixes in this increment, **re-prioritized**:
+
+1. **(was #4) Auto-rebuild KV search index on publish** — root cause of the user's "can't find my skill" symptom. Promoted to Phase 1.
+2. **(was #1) Search ranking up-weight cert tier** — defensive improvement for cases where multiple CERTIFIED skills compete; not the user's specific issue but still a valid quality bug. Demoted to Phase 2 / "if-time-permits".
+3. **(unchanged #2) `/api/v1/skills` LIST endpoint silently drops `q=`, `author=`, `source=` filter params.** Independent bug.
+4. **(unchanged #3) Submission `isVendor:false` drifts from published Skill row `labels:[vendor,certified]`.** Independent bug.
+
+This increment ships fixes for all four with TDD discipline and live production verification, with phases ordered by user-impact (auto-reindex first).
 
 ## User Stories
 
