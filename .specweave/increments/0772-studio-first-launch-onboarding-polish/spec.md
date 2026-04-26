@@ -1,10 +1,10 @@
 ---
 increment: 0772-studio-first-launch-onboarding-polish
-title: "Studio First-Launch Onboarding Polish"
+title: Studio First-Launch Onboarding Polish
 type: bug
 priority: P2
-status: active
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
