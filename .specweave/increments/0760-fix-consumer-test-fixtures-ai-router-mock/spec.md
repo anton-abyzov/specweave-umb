@@ -1,10 +1,10 @@
 ---
 increment: 0760-fix-consumer-test-fixtures-ai-router-mock
-title: "Fix stale consumer.test.ts message routing fixtures"
+title: Fix stale consumer.test.ts message routing fixtures
 type: bug
 priority: P1
-status: planned
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

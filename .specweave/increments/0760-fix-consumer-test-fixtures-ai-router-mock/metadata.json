@@ -1,10 +1,10 @@
 {
   "id": "0760-fix-consumer-test-fixtures-ai-router-mock",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-04-26T09:57:29.907Z",
-  "lastActivity": "2026-04-26T09:57:29.907Z",
+  "lastActivity": "2026-04-26T14:16:13.494Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,17 +15,19 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1186",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-26T09:59:46.628Z"
+      "syncedAt": "2026-04-26T14:16:25.290Z"
     },
     "ado": {
       "featureId": "2025",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2025",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-26T09:59:48.155Z"
+      "syncedAt": "2026-04-26T14:16:27.748Z"
     }
   },
   "planning": {
     "parallel": false
-  }
+  },
+  "readyForReviewAt": "2026-04-26T14:16:13.481Z",
+  "approvedAt": "2026-04-26T14:16:13.494Z"
 }
