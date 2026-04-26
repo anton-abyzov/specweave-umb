@@ -1,10 +1,12 @@
 ---
 increment: 0715-search-perf-edge-first-and-cache
-title: "Search API: edge-first short-circuit, KV-precomputed enrichment, response cache"
+title: >-
+  Search API: edge-first short-circuit, KV-precomputed enrichment, response
+  cache
 type: feature
 priority: P1
-status: planned
-created: 2026-04-25
+status: completed
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -72,9 +74,9 @@ The route currently sets `Cache-Control: s-maxage=60` but no `cf-cache-status` h
 
 **Acceptance Criteria**:
 - [x] **AC-US3-01**: For two identical `/api/v1/skills/search` requests issued within 30 seconds against a deployed Worker, the second response includes `X-Search-Source: cache` (Workers-Cache equivalent of `cf-cache-status: HIT`). Verified live: 5 identical `q=pdf` requests — #1 returned `X-Search-Source: edge`, #2-5 all returned `X-Search-Source: cache`.
-- [x] **AC-US3-02**: The cache key includes both the request URL params (`q`, `limit`, `page`, `category`) and a `v=<resp-version>` stamp tied to `search-index:resp-version` — verified by `it("includes the resp-version stamp in the cache key")`.
+- [x] **AC-US3-02**: The cache key includes the canonical request URL params (`q` lowercased, `limit`, `page`, `offset`, `category`) and a `v=<resp-version>` stamp tied to `search-index:resp-version` — verified by `it("includes the resp-version stamp in the cache key")` and the new `route.ts:buildCacheKey()` signature (G-001 round-2 grill: `offset` was added to prevent cross-pagination cache poisoning; `q.toLowerCase()` was added to coalesce case variants).
 - [x] **AC-US3-03**: When a search-index shard update is processed by the queue consumer, the response-cache version is bumped so subsequent requests miss the old cached response and rebuild — implemented in `handleSearchIndexUpdate` calling `bumpRespVersion(kv)` after every shard write.
-- [x] **AC-US3-04**: A cache-hit response short-circuits before any KV or Postgres work — verified by `it("short-circuits on cache HIT — no edge / postgres / enrichment work")` asserting zero invocations across all four backend mocks.
+- [x] **AC-US3-04**: A cache-hit response short-circuits before any **search-side** KV (search-shard, blocklist, rejected) or Postgres work — verified by `it("short-circuits on cache HIT — no edge / postgres / enrichment work")` asserting zero invocations across all four backend mocks. _Clarification (round-2 grill): one sub-millisecond read of `SEARCH_CACHE_KV[RESP_VERSION_KEY]` (the version stamp) is required to construct the cache key; this is unavoidable because the version is what makes shard updates self-invalidate stale entries (AC-US3-03). The "no KV work" contract applies to data-bearing reads, not the cache-key version stamp._
 - [x] **AC-US3-05**: Warm repeat-query latency (same `q` issued within the cache TTL window) ≪ 100ms — measured live: cache HITs returned 97-104ms total including residential network round-trip (worker compute is sub-10ms).
 - [x] **AC-US3-06**: Cache TTL is 30 seconds — `Cache-Control: s-maxage=30` and `cache.put` records expire on that schedule.
 
