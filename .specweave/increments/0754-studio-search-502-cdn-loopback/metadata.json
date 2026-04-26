@@ -1,0 +1,65 @@
+{
+  "id": "0754-studio-search-502-cdn-loopback",
+  "status": "completed",
+  "type": "hotfix",
+  "priority": "P0",
+  "created": "2026-04-26T07:09:26.418Z",
+  "lastActivity": "2026-04-26T07:37:30.987Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1170",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1170",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T07:14:32.276Z"
+    },
+    "ado": {
+      "featureId": "2009",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2009",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T07:14:33.991Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T07:32:17.002Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-03",
+        "AC-US2-02",
+        "AC-US1-02",
+        "AC-US1-01",
+        "AC-US1-03",
+        "AC-US3-01",
+        "AC-US3-02",
+        "AC-US1-04"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01..02 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 9
+    },
+    {
+      "timestamp": "2026-04-26T07:13:59.935Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01..02 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "readyForReviewAt": "2026-04-26T07:37:30.949Z",
+  "approvedAt": "2026-04-26T07:37:30.987Z"
+}
