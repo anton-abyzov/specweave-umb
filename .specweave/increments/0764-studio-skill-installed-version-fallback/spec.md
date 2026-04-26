@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0764 — Studio: detect installed skill version when lockfile is empty
 
 ## Problem

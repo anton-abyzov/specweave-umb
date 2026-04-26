@@ -2,7 +2,7 @@
   "id": "0764-studio-skill-installed-version-fallback",
   "name": "studio-skill-installed-version-fallback",
   "title": "Studio: detect installed skill version when lockfile is empty",
-  "status": "active",
+  "status": "completed",
   "priority": "P1",
   "type": "bug",
   "owner": "anton",
@@ -15,7 +15,7 @@
   },
   "created": "2026-04-26",
   "externalLinks": {},
-  "lastActivity": "2026-04-26T15:39:48.637Z",
+  "lastActivity": "2026-04-26T19:22:20.713Z",
   "testMode": "test-after",
   "coverageTarget": 80,
   "acSyncEvents": [
@@ -36,5 +36,7 @@
       ],
       "changesCount": 7
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-26T19:22:20.687Z",
+  "approvedAt": "2026-04-26T19:22:20.713Z"
 }
