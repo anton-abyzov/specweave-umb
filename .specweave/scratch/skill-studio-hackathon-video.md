@@ -13,13 +13,14 @@
 | Feature | Real today? | Demo strategy |
 |---|---|---|
 | 4-skill "what you can build" teaser (00:04–00:14) | Producer Pal (Ableton), Remotion, social-media-posting, frontend-design — all real and installed | Pre-stage outputs so each `Enter`→bloom is <400ms. Record each skill into its own clip first; assemble in Hyperframes. **Confirm Ableton Live + Producer Pal runs cleanly; if Ableton license is unavailable on recording machine, swap clip 1 for `/anthropic-skills:pptx` (deck materializing) and update VO.** |
-| `npx vskill install frontend-design` | vskill CLI ships skill-installer that fans out to Claude/Cursor/Codex (0665, 0670) | Record live. Confirm install logs show all three agent dirs being written. |
-| Apple-Watch scroll-fold demo | frontend-design skill is real; the **specific page** isn't a baked example | Generate it 2–3 times **before** recording, pick the cleanest take, replay. Acceptable to use a pre-rendered page that the prompt-line "rebuilds" on cue — judges expect this for live demos. |
-| "+ New Skill → Generate with AI" modal | Shipped (0703) | Record live |
-| ⌘K model picker with Opus 4.7 + "routing to…" sub-line | Shipped (0703) | Record live |
-| OpenAI / open-source in the dropdown | Registry has only `claude-opus-4-7`, `claude-sonnet-4-6`, `claude-haiku-4-5`. OpenAI/local via AnyModel BYO pass-through. | Either stage a mock dropdown, or show a real BYO entry via AnyModel. **Confirm before recording.** |
-| Skill lands in a project folder, usable | Canonical installer writes per-agent dirs (0665) | Record live |
-| Edit a skill → SSE push → UI badge/icon change | SSE endpoint exists; 72/74 tasks done on 0708 | **Confirm icon-color-change is working in WIP branch. If not: simulate cleanly.** |
+| Multi-model dropdown (01:42) | `claude-opus-4-7`, `claude-sonnet-4-6`, `claude-haiku-4-5` real in registry. GPT-5/Gemini/local via AnyModel BYO pass-through. | Confirm BYO entries render correctly in the dropdown before recording. If not, stage a polished mock dropdown shot for that 6-second beat. |
+| Marketplace tab with 100K+ verified skills (01:55) | Marketplace hub is **in flight** (0771 — 7/57 tasks done as of 2026-04-26). Backend list + count badge may not be fully wired. | Confirm the count badge + grid render with at least seed data. If incomplete, stage a clean recording from the WIP branch with a static "129,847" overlay added in Hyperframes. **Decide before recording day.** |
+| "+ New Skill → Generate with AI" modal (02:08) | Shipped (0703) | Record live |
+| Generate Test for a skill (02:30) | **Verify before recording** — test-case generation is on the roadmap; confirm it runs end-to-end in the WIP branch and produces green ticks. If not shipped: stage a clean simulated take (faked test panel + tick animation) and call it out as "soon" in the description. |
+| Publish → auto-create GitHub repo via gh CLI (02:42) | **Recently shipped.** Confirm `gh repo create …` runs from Studio and the inline panel renders. | Record live with `gh` authed in your shell. Hyperframes annotation already in script. |
+| verified-skill.com queue → processed (02:48) | Queue + processing pipeline real (0773 — 13/14 tasks done) | Record the queue tab live. If the scan step takes >3s on the day, edit time-cut between "Scanning…" and "Processed ✓". |
+| Toast notification + one-click install on new version (02:58) | SSE channel + UI toast on file change exists (0708 — 72/74 tasks). Confirm the **publish→remote-version→toast** path works end-to-end (not just local-file→toast). | If only local-file→toast works, restage the demo as: edit local file → toast → install. Adjust the VO to match (skip the verified-skill.com round-trip in the update beat). **Decide before recording.** |
+| One-click install writes to Claude · Cursor · Codex dirs simultaneously | vskill skill-installer fans out to all three agent dirs (0665, 0670) | Record the terminal-flash overlay live; the install panel needs to show all three paths. |
 
 **Recording settings**: 1920×1080 @ 60fps. Skill Studio in dark mode, no personal tabs. Browser zoom 110%. Terminal font ≥ 16pt.
 
@@ -67,156 +68,178 @@
 
 ---
 
-### 00:18 — 00:30 · INSTALL & USE — LIVE (the split-screen reveal)
-
-`[SCREEN — fullscreen terminal, cursor blinking. Type live, no cut:]`
-
-```
-$ npx vskill install frontend-design
-```
-
-`[ANIM — caption "vskill — universal skill installer · works in Claude, Cursor, Codex" 800ms fade-in, hold 1.5s]`
-
-`[SCREEN — install streams: progress bar, ✓ "Installed for Claude · Cursor · Codex"]`
-
-`[CAMERA MOVE — 700ms ease. Terminal pane slides left, lands at **1/3 width**. The right **2/3** reveals a Chromium window, dark chrome.]`
-
-`[SCREEN — terminal (left third): type one line:]`
-
-```
-> Build an Apple-style product page for Apple Watch.
-  Pin the hero. As I scroll, fold the watch open
-  into its components — case, crown, sensor stack,
-  band — each labeled, each in its own section.
-```
-
-`[SCREEN — right two-thirds: the page renders live. Hero pinned. As the (auto-driven) scroll advances, the watch breaks apart into sub-components, each unfolding into its own pinned section in the apple.com style. 60fps. No jank.]`
-
-`[VOICEOVER — over the scroll]`
-> *"One install. One prompt. Apple-grade scroll choreography — written by a skill anyone in this community can fork."*
-
-(Beat. Hold the final unfolded-watch frame 400ms. Cut to face.)
-
----
-
-### 00:30 — 00:38 · WHO I AM
-
-`[FACE — tight, solid background]`
-> *"I'm Anton. I built something for Anthropic's hackathon. Two more minutes — why this matters, and the one problem nobody's solved yet."*
-
-*(Beat. Cut.)*
-
----
-
-### 00:38 — 01:08 · WHAT IS A SKILL, REALLY (the deeper bit)
+### 00:18 — 00:48 · WHY SKILLS MATTER
 
 `[B-ROLL — broll-02-hands-montage.mp4 (4s)]`
 
-Four sub-second vignettes: child's hands at a laptop, chef's hands folding dough, scientist's gloved hands at a microscope, elderly musician's hands on piano keys. The glowing SKILL.md badge materializes with a soft chime in each.
+Four sub-second vignettes: a child's hands at a laptop, a chef's hands folding dough, a scientist's gloved hands at a microscope, an elderly musician's hands on piano keys. The glowing SKILL.md badge materializes with a soft chime in each.
 
 `[VOICEOVER — over clip]`
-> *"A skill is the smallest unit of know-how. A checklist. A playbook. What a senior teaches a junior on day one. Your grandma's recipe for pierogi is a skill."*
+> *"A skill is the smallest unit of know-how. A checklist. A playbook. What a senior teaches a junior on day one. Your grandma's recipe for pierogi — written down, repeatable, hers — is a skill."*
 
-`[SCREEN — anthropic.com/news/skills (October 2025 announcement) → quick cut to code.claude.com/docs/en/skills, zoom on the 'Create a SKILL.md file' box]`
-
-`[FACE — 30% corner]`
-> *"Anthropic shipped Skills in October 2025. One file: a `SKILL.md`. Claude reads it when it's relevant — or you call it with a slash. No code required."*
+`[SCREEN — anthropic.com/news/skills (October 2025) → quick cut to code.claude.com/docs/en/skills, zoom on the 'Create a SKILL.md file' box]`
 
 `[ANIM — Hyperframes bracket-callout on three frontmatter lines: name, description, allowed-tools]`
 
-> *"A kid can write one. An AI **cannot** write a great one without you — because the taste, the judgment, the 'we always do it this way' — that part is yours."*
+`[VOICEOVER]`
+> *"Anthropic shipped this in October 2025. One markdown file. No code. Claude reads it when it's relevant, or you call it with a slash. A kid can write one. But the great ones carry your taste, your judgment, your 'we always do it this way' — that part is still yours."*
 
 **[OPTIONAL — if @trq212 tweet text is pasted in: weave a 1-line quote here as counterpoint or reinforcement]**
 
 ---
 
-### 01:08 — 01:20 · THE PROBLEM (the lock-in break)
+### 00:48 — 01:18 · THE PAIN POINTS (the problem nobody's solved)
 
-`[B-ROLL — broll-03-lockin-break.mp4]`
-
-Seven tool logos floating, each padlocked to a dim SKILL.md with a thick red chain. A bright SKILL.md badge flies in, strikes the center, all chains shatter in slow-mo. Logos pulse in unison. Mood: liberating.
+`[B-ROLL — broll-03-lockin-break.mp4 — opening 4s only, locks still intact]`
 
 `[VOICEOVER — over clip]`
-> *"Here's the catch. You wrote the skill for Claude. Cool. Switch to Cursor. Codex. Windsurf. Copilot. Fifty-three tools. Each one wants a different format — so you write it five times, or you stay locked in. **That's what Skill Studio fixes.** Watch."*
+> *"And yet. Shipping a skill today is rough."*
+
+`[ANIM — four red callouts stack on the right as VO names them, mono caption, 200ms spring each, on the beat]`
+
+> *"**Lock-in.** You write it for Claude — Cursor wants a different format. Codex, Windsurf, Copilot. Fifty-three tools, five formats, copy-paste, drift."*
+
+> *"**No versioning.** Every fork is a new file. No history. No diff. No idea which one is current."*
+
+> *"**No live updates.** Your teammate fixes the skill at 2pm — you're still running yesterday's playbook at 3."*
+
+> *"**No tests.** You ship a skill and pray it still works tomorrow."*
+
+`[B-ROLL — broll-03-lockin-break.mp4 — final 4s, the chains shatter on the beat as the fourth callout lands]`
+
+`[VOICEOVER]`
+> *"Skills are the new primitive — and they're being shipped like loose Word docs."*
 
 ---
 
-### 01:20 — 02:10 · LIVE DEMO — GENERATE (this is Skill Studio)
+### 01:18 — 01:30 · WHO I AM
 
-`[SCREEN — open Skill Studio locally. Land on dashboard.]`
+`[FACE — full frame, warm key light, solid background]`
 
-`[FACE — 30% corner, 2 sec]`
-> *"This is Skill Studio. Runs on my laptop. No cloud, no login."*
+> *"I'm Anton Abyzov. I've been a software engineer for twenty years. I poured a lot of heart into Skill Studio — because I believe the whole community can do better at managing skills."*
 
-`[SCREEN — click `+ New Skill`, modal opens. Type: "Review a PR against our team's TypeScript style guide and flag violations with fix suggestions"]`
+*(Beat. Cut.)*
 
-`[SCREEN — hit ⌘K. Model picker opens.]`
+---
 
-`[ANIM — Hyperframes zoom-ring on the picker, highlight the "routing to claude-opus-4-7[1m]" sub-line]`
+### 01:30 — 01:42 · MEET SKILL STUDIO
 
-> *"Model picker. Opus 4.7 — Anthropic's newest — is what I'll use to generate. But watch this—"*
+`[SCREEN — terminal flash: type `vskill studio` in a project folder, browser opens to Studio dashboard, dark mode, clean. No personal tabs.]`
 
-`[SCREEN — scroll picker, pause briefly on GPT-5, Gemini 3, a local LM Studio entry via AnyModel BYO]`
+`[ANIM — "Skill Studio" wordmark fades in over the dashboard, 600ms]`
 
-> *"—I can route to GPT-5, Gemini, or a local open-source model on my machine. Because the skill I'm generating is universal, the **generator** is too."*
+`[VOICEOVER]`
+> *"You don't have to manage skills in the terminal anymore — Skill Studio handles all of that. It runs on your laptop. You start it in any folder where you keep skills — your project, your home `.claude`, wherever. Two columns from there: skills already **available**, and ones you're **authoring**. Nothing leaves the machine until you publish — that's when your GitHub steps in."*
 
-`[SCREEN — click Opus 4.7. Hit Generate. CreateSkillPage streams the SKILL.md live — frontmatter first, instructions second.]`
+(Beat. Cut to live screen — screen-share begins.)
+
+---
+
+### 01:42 — 01:55 · MULTI-MODEL FREEDOM (open the dropdown first)
+
+`[SCREEN — Skill Studio. Cursor moves to the model dropdown in the top bar. Click — dropdown opens.]`
+
+`[ANIM — Hyperframes zoom-ring on the dropdown. Highlight rows: `claude-opus-4-7` · `claude-sonnet-4-6` · `gpt-5` · `gemini-3` · `local · LM Studio (BYO)`.]`
+
+`[VOICEOVER]`
+> *"First thing to know — Studio is model-agnostic. Opus 4.7, GPT-5, Gemini, a local open-source model on your machine. Whatever you pick is what runs the work."*
+
+`[SCREEN — cursor lands on `claude-opus-4-7`, click, dropdown closes. The choice persists in the top bar.]`
+
+---
+
+### 01:55 — 02:08 · BROWSE OR CREATE (the marketplace)
+
+`[SCREEN — click the **Marketplace** tab. Grid of skill cards loads. Top-right counter: "129,847 skills · all verified". Each card carries a small "Security-scanned" pill.]`
+
+`[ANIM — caption "100K+ skills · every one security-scanned" 800ms fade in, hold 1.4s]`
+
+`[VOICEOVER]`
+> *"Start by looking. More than a hundred thousand skills here — every single one security-scanned and verified before it gets listed."*
+
+`[SCREEN — scroll briefly through 2–3 rows of cards, then move the cursor to the top-right `+ New Skill` button.]`
+
+`[VOICEOVER]`
+> *"Or build your own. Let's do that."*
+
+`[SCREEN — click `+ New Skill`.]`
+
+---
+
+### 02:08 — 02:30 · CREATE & GENERATE — LIVE
+
+`[SCREEN — modal opens. Two tabs visible: **Write manually** · **Generate with AI**. AI is selected by default, sub-label reads "using claude-opus-4-7".]`
+
+`[VOICEOVER]`
+> *"Write it by hand, or describe what you want and let your model draft it."*
+
+`[SCREEN — type the prompt into the AI input:]`
+
+> "Review a PR against our team's TypeScript style guide and flag violations with fix suggestions."
+
+`[SCREEN — click `Generate`. CreateSkillPage streams the SKILL.md live — frontmatter first, instructions second, real time.]`
 
 `[ANIM — caption "Real streaming. No cut." 900ms fade]`
 
-> *"Thirty seconds. Done. That's a real SKILL.md — runnable in Claude Code right now."*
+`[VOICEOVER]`
+> *"Thirty seconds. A real SKILL.md — already on disk."*
 
 ---
 
-### 02:10 — 02:35 · USE IT IN A PROJECT (now in Claude Code)
+### 02:30 — 02:42 · TEST IT — LIVE (skills you can trust)
 
-> **Note**: opening already showed install + use via vskill. This section pivots: **same skill, different agent (Claude Code)** — proves portability. Trim 5s vs. previous cut.
+`[SCREEN — on the new skill's page, click `Generate Test`. Studio writes a test fixture (sample PR with intentional violations) and runs it.]`
 
-`[SCREEN — terminal: `cd ~/projects/my-api && ls .claude/skills/` — the new `pr-reviewer/` directory is there]`
+`[SCREEN — test panel slides in: 4 / 4 checks pass, green ticks animate one after the other.]`
 
-> *"Skill Studio dropped the file into my project. No npm install, no registry dance. It's on disk."*
+`[ANIM — Hyperframes overlay: a small green "verified" chip pulses on the skill's icon, 1.15× spring, 300ms]`
 
-`[SCREEN — open Claude Code in the same folder, type `/pr-reviewer`]`
-
-`[ANIM — zoom on the slash-command autocomplete]`
-
-> *"Claude Code picks it up. Live. Same skill — I could point Codex or Cursor at the same folder and it'd work there too. That's the 'universal' part."*
+`[VOICEOVER]`
+> *"If a skill is a recipe, this is the taste-test. Studio generates a test case, runs it, and tells you whether the skill actually behaves. Skills you can trust."*
 
 ---
 
-### 02:35 — 02:43 · PREVIEW THE MAGIC (cinematic, no face)
+### 02:42 — 02:58 · PUBLISH — LOCAL → GITHUB → VERIFIED-SKILL.COM
 
-`[B-ROLL — broll-04-sse-magic.mp4]`
+`[SCREEN — sidebar shows the skill is a local folder, "no remote" badge. Cursor moves to `Publish`. Click.]`
 
-Split screen. A keystroke in the terminal launches a comet of light across the gap; it strikes a dashboard icon, which pulses and shifts color. Toast slides in from the top-right. Mood: instant, magical.
+`[SCREEN — inline panel: "No GitHub repository yet — create one with GitHub CLI?" · `Yes, create`. Click. A small `gh repo create …` flash appears at the bottom.]`
 
-`[VOICEOVER — over clip]`
-> *"Okay — this is the part I'm most proud of."*
+`[HYPERFRAMES NOTE — recently-shipped feature: the gh-CLI auto-repo step. Capture this take cleanly and add a 300ms zoom-ring + a "new" badge overlay on the inline panel during edit. It's a small beat that judges will care about.]`
+
+`[VOICEOVER]`
+> *"Right now this skill is just a folder on my laptop. Publish creates the GitHub repo for me — through the GitHub CLI if it's installed — pushes it, then submits to verified-skill.com."*
+
+`[SCREEN — cut to verified-skill.com in another tab: queue page → status pulses through "Queued" → "Scanning…" → "Processed ✓ · v1.0.0".]`
+
+`[SCREEN — cut back to Skill Studio. The skill card now carries a "v1.0.0 · published" badge.]`
+
+`[VOICEOVER]`
+> *"Queued. Scanned. Published. The version's live, and now I can pin to it."*
 
 ---
 
-### 02:43 — 03:13 · THE MAGIC — LIVE
+### 02:58 — 03:13 · LIVE UPDATE — NOTIFICATION + ONE-CLICK INSTALL
 
-`[SCREEN — Skill Studio on left, terminal on right. Skill icon in Studio is neutral gray.]`
+`[B-ROLL — broll-04-sse-magic.mp4 — first 1.5s as cinematic transition: comet of light arcs from verified-skill.com toward the Studio]`
 
-`[SCREEN — in terminal, edit `pr-reviewer/SKILL.md`, change a line, save.]`
+`[SCREEN — quick edit: change one line in the local SKILL.md, save, click `Publish` again. verified-skill.com tab in the background processes v1.0.1.]`
 
-`[SCREEN — within a second, the Studio icon pulses and shifts color. Toast: "Skill updated — v1.0.1 → v1.0.2".]`
+`[SCREEN — back in Studio: a toast slides in from the top-right — "pr-reviewer · v1.0.1 available · Install".]`
 
-`[ANIM — Hyperframes overlay: dotted line from file-save to icon, labeled "SSE"]`
+`[ANIM — Hyperframes overlay: dotted SSE line from verified-skill.com → toast, labeled "SSE · push, not poll"]`
 
-> *"Server-Sent Events. Push, not poll. My file system told the Cloudflare hub, the hub told Studio, Studio told me. One second, end to end."*
+`[SCREEN — click `Install` on the toast. A quick terminal flash shows vskill writing to `.claude/skills/`, `.cursor/skills/`, `.codex/skills/` simultaneously. Toast updates: "Installed for Claude · Cursor · Codex".]`
 
-`[SCREEN — click the toast. Diff view opens, line-by-line.]`
-
-> *"And I get the **diff** — not 'something changed', exactly what changed. Because when skills are live infrastructure, knowing what changed matters as much as knowing that it changed."*
+`[VOICEOVER]`
+> *"Someone improves the skill — I get a push, not a poll. One click installs it everywhere I work: Claude, Cursor, Codex, in one motion. **Versioned. Tested. Pushed. Live.** Everything we said was missing — fixed."*
 
 ---
 
 ### 03:13 — 03:30 · CLOSE
 
 `[FACE — full frame]`
-> *"A skill is a recipe. Skill Studio writes it, ships it to every tool you use, and tells you the instant someone improves it. Anthropic gave us the standard. I'm making it **universal** and **live**."*
+> *"A skill is a recipe. Skill Studio writes it, ships it everywhere, tests it, versions it, and tells you the moment someone improves it. Anthropic gave us the standard. I'm making it **universal** and **live**."*
 
 `[ANIM — end card: verified-skill.com, Anton's GitHub, "Built for the Anthropic hackathon, April 2026"]`
 
@@ -230,9 +253,9 @@ Split screen. A keystroke in the terminal launches a comet of light across the g
 
 | File | Used at | Length | Mood |
 |---|---|---|---|
-| `broll-02-hands-montage.mp4` | 0:38 | 4s | Warm, human, cinematic |
-| `broll-03-lockin-break.mp4` | 1:08 | 8s | Tension → release |
-| `broll-04-sse-magic.mp4` | 2:35 | 8s | Magical, instant, satisfying |
+| `broll-02-hands-montage.mp4` | 0:18 | 4s | Warm, human, cinematic |
+| `broll-03-lockin-break.mp4` | 0:48 | 8s (split: 4s open + 4s shatter close) | Tension → release |
+| `broll-04-sse-magic.mp4` | 2:42 | 8s | Magical, instant, satisfying |
 
 > `broll-01-cold-open.mp4` is **retired** — the new opening uses an Anthropic logo card + screen-recorded skill teasers instead.
 
@@ -242,8 +265,13 @@ Split screen. A keystroke in the terminal launches a comet of light across the g
 |---|---|---|---|
 | `screen-00-anthropic-logo.mp4` | 0:00–0:04 | 4s | Anthropic wordmark on near-black, Hyperframes spring-in. Verify usage rights / fair-use for hackathon submission; if unsure, render a stylized typographic substitute that reads "Anthropic · October 2025". |
 | `screen-01-skills-teaser.mp4` | 0:04–0:14 | 10s | 4 skill invocations × 2.5s. Terminal **left half**, result fills **right half** as it lands. Hard cuts on the beat. Pre-stage every result so `Enter`→bloom is under 400ms. |
-| `screen-02-vskill-install.mp4` | 0:18–0:22 | 4s | Live `npx vskill install frontend-design`, full-screen terminal, install streams cleanly to ✓ |
-| `screen-03-apple-watch-scroll.mp4` | 0:22–0:30 | 8s | Split-screen post camera-move: terminal 1/3 left, Chromium 2/3 right. Auto-driven scroll plays the watch-fold animation. Pre-render and replay — do not depend on a live LLM call hitting timing. |
+| `screen-02-studio-dashboard.mp4` | 1:30–1:42 | 12s | Skill Studio dashboard intro shot — clean dark mode, "Skill Studio" wordmark fades in, no live interaction yet. |
+| `screen-03-model-dropdown.mp4` | 1:42–1:55 | 13s | Open the model dropdown, hover through Opus 4.7 / Sonnet 4.6 / GPT-5 / Gemini 3 / local LM Studio (BYO). Click Opus 4.7. Persists in top bar. |
+| `screen-04-marketplace-browse.mp4` | 1:55–2:08 | 13s | Click Marketplace tab, grid loads with count badge "129,847 skills · all verified". Brief scroll, then click `+ New Skill`. |
+| `screen-05-create-and-generate.mp4` | 2:08–2:30 | 22s | Modal: "Write manually / Generate with AI" tabs (AI selected, sub-label "using claude-opus-4-7"). Type the PR-reviewer prompt. Hit Generate. SKILL.md streams live. |
+| `screen-06-test-it.mp4` | 2:30–2:42 | 12s | Click `Generate Test`. Test panel slides in, 4/4 green ticks animate. "Verified" chip pulses on skill icon. |
+| `screen-07-publish-flow.mp4` | 2:42–2:58 | 16s | Click `Publish` → "No GitHub repo — create with gh CLI?" inline → `Yes, create` → `gh repo create` flash → cut to verified-skill.com queue (Queued → Scanning → Processed ✓ v1.0.0) → cut back to Studio with "v1.0.0 · published" badge. **Hyperframes-annotated** for the gh-CLI step. |
+| `screen-08-update-and-install.mp4` | 2:58–3:13 | 15s | Edit local SKILL.md → Publish v1.0.1 → Studio toast "v1.0.1 available · Install" → click Install → terminal flash writes to `.claude/skills/`, `.cursor/skills/`, `.codex/skills/` → toast "Installed for Claude · Cursor · Codex". |
 
 All saved to: `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/scratch/`
 
@@ -256,18 +284,23 @@ All saved to: `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/scrat
 | 00:00 | Anthropic logo spring-in | 600ms ease-out, soft chime, hold 1.4s, dissolve to black |
 | 00:04 | Skill-teaser counter | Bottom-right "1 / 4 · Ableton" → "4 / 4 · Web", changes on each cut, mono font, 50% opacity |
 | 00:14 | Frontmatter callout | 3 lines (name / description / instructions) bracketed yellow, 180ms each, staggered |
-| 00:18 | "vskill — universal skill installer" caption | Bottom third, 800ms fade in, hold 1.5s, fade out |
-| 00:21 | Camera move | 700ms ease — full-frame terminal slides to 1/3 left; right 2/3 reveals Chromium pane (no jank, motion-blurred edge) |
-| 00:30 | Face-cam appears | 150ms wipe from center |
-| 00:55 | Frontmatter bracket (deeper section) | Same callout style, longer hold |
-| 01:08 | Tool-row X-drop | 7 tool logos in a row, red X overlays on 6, staggered 80ms. 7th (Skill Studio) pulses green |
-| 01:30 | ⌘K zoom-ring | Circle overlay, 3px stroke, 40% darken outside ring |
-| 01:35 | Opus row highlight | Yellow underline band, 180ms wipe right |
-| 02:00 | "Real streaming. No cut." caption | Bottom third, 900ms fade in, hold 2s, fade out |
-| 02:15 | `/pr-reviewer` autocomplete ring | Pulse ring, 2 beats |
-| 02:48 | SSE dotted line | `stroke-dashoffset` from terminal save → Studio icon, 700ms, tagged "SSE" in the middle |
-| 02:51 | Icon impact | 1.15× scale pulse + color shift (gray → brand blue-violet), 300ms spring |
-| 02:53 | Toast slide-in | From top-right, spring motion, 400ms |
+| 00:30 | Frontmatter bracket (Why Skills section) | Same callout style on `name / description / allowed-tools`, longer hold |
+| 00:48 | Pain-point callouts (4-stack) | Stacked right-side mono cards: "Lock-in" → "No versioning" → "No live updates" → "No tests". 200ms spring each, on the beat. Card stays after appearing. |
+| 01:14 | Chains shatter sync | Time the broll-03 chain-shatter peak to land on the 4th callout's spring. |
+| 01:18 | Face-cam appears (full self-intro) | 150ms wipe from center, hold 12s |
+| 01:30 | "Skill Studio" wordmark fade-in | Center-top, 600ms fade, hold 2s |
+| 01:42 | Model-dropdown zoom-ring | Circle overlay around the dropdown, 3px stroke, 40% darken outside ring, hold while VO names models |
+| 01:45 | Opus row highlight | Yellow underline band on `claude-opus-4-7`, 180ms wipe right |
+| 01:55 | Marketplace count caption | Bottom third "100K+ skills · every one security-scanned" — 800ms fade in, hold 1.4s, fade out |
+| 02:08 | "+ New Skill" pulse | 1.1× spring on the button as cursor lands, then modal sweep-in from top, 350ms |
+| 02:24 | "Real streaming. No cut." caption | Bottom third, 900ms fade in, hold 2s, fade out |
+| 02:33 | "Verified" chip pulse on skill icon | 1.15× scale + green tint, 300ms spring, after 4/4 ticks land |
+| 02:43 | gh-CLI auto-repo zoom-ring | 300ms zoom-ring on the inline "Create with gh CLI?" panel + small "new" badge. **This is the recently-shipped feature — give it a moment.** |
+| 02:48 | verified-skill.com state cycle | Status pill cycles "Queued" → "Scanning…" (with a 600ms shimmer) → "Processed ✓ · v1.0.0" — total 3.5s |
+| 02:54 | SSE dotted line | `stroke-dashoffset` from verified-skill.com tab → Studio toast, 700ms, tagged "SSE · push, not poll" |
+| 02:59 | Toast slide-in | From top-right, spring motion, 400ms — "pr-reviewer · v1.0.1 available · Install" |
+| 03:04 | Triple-target install flash | Three-line terminal overlay (`.claude/skills/` / `.cursor/skills/` / `.codex/skills/`) — each line writes in 80ms staggered, 240ms total |
+| 03:08 | "Versioned · Pushed · Tested · Live" callback chip | 4-pill row appears under the toast for 1.2s, mono, 60% opacity, fades with the cut. Mirrors the pain-point cards from 00:48. |
 | 03:23 | End card | Full-bleed brand color. Logo spring-in 200ms, URL fade 200ms later, credit fade 300ms later. Hold 3s |
 
 ---
@@ -292,12 +325,15 @@ Structure (3:30 total):
 - 0:00-0:04 — Anthropic logo card: a single soft chime over silence, then a low sub-bass swell on the dissolve. Reverent.
 - 0:04-0:14 — Skill teasers: 4 percussive "stamps" at 2.5s intervals (one per skill), each stamp a tonal hit that resolves up the scale. Building anticipation.
 - 0:14-0:18 — Pull back to a single sustained pad — space for the one-line skill definition.
-- 0:18-0:30 — Install + Apple-watch reveal: kinetic mid-tempo groove kicks in on the camera move; arpeggio mirrors the scroll-driven unfold. Bright, confident.
-- 0:30-0:38 — Pull back. Warm pad, breath of space for face-cam intro.
-- 0:38-1:08 — Warm piano layer, gentle strings, human and approachable. Heartbeat-tempo drum underneath.
-- 1:08-1:20 — Brief tension spike, low strings, suspended chord. Unresolved.
-- 1:20-2:35 — Resolved, confident mid-tempo synth-bass groove. Think "product montage". Bright but not cheesy.
-- 2:35-3:13 — Build. Add arpeggiated synth. Crescendo toward a single bright chord around 3:00.
+- 0:18-0:48 — Why skills matter: warm piano layer, gentle strings, human and approachable. Heartbeat-tempo drum underneath.
+- 0:48-1:18 — Pain points: tension builds. Low strings, suspended chord. Each of the 4 pain-point callouts (0:48 / 0:56 / 1:04 / 1:12) gets a soft minor-key piano hit. Unresolved until the chain-shatter peak at 1:14.
+- 1:18-1:30 — Self-intro: pull back. Warm pad. Breath of space for face-cam.
+- 1:30-1:42 — Meet Skill Studio: hopeful synth bass enters, mid-tempo, optimistic.
+- 1:42-2:08 — Multi-model dropdown + marketplace browse: confident mid-tempo synth-bass groove. Bright, curious. Product-montage energy.
+- 2:08-2:30 — Create + generate: same groove, add a soft arpeggio that mirrors the streaming SKILL.md.
+- 2:30-2:42 — Test it: brief uptick — playful 4-note motif resolves on each green tick (4 ticks total).
+- 2:42-2:58 — Publish flow: a short tension hold during "Queued / Scanning…", resolved on "Processed ✓" with a clean major-chord lift.
+- 2:58-3:13 — Update + install: build. Add arpeggiated synth, crescendo toward a single bright chord around 3:08 when "Versioned · Pushed · Tested · Live" lands.
 - 3:13-3:30 — Outro. Warm resolve. One final soft chime. Silence-adjacent by end.
 Instruments: analog synth pad, piano, light strings, sub-bass, minimal percussion (no snares).
 No vocals. No lyrics. Instrumental only.
@@ -314,15 +350,20 @@ Generate 2-3 takes, pick the one with the clearest 2:30 build-up — that's wher
 - [ ] **Anthropic logo card**: confirm fair-use / hackathon-permitted use of the wordmark; otherwise render typographic substitute "Anthropic · October 2025"
 - [ ] **Pre-stage the 4 skill teasers (00:04–00:14)**: Producer Pal / Ableton Live, Remotion, social-media-posting, frontend-design. Each result rendered ahead of time so `Enter`→bloom is under 400ms. Record each as its own ~3s clip and assemble in Hyperframes.
   - [ ] Backup plan if Ableton is unavailable on recording machine: swap clip 1 for `/anthropic-skills:pptx` and revise VO to "Build a deck. Cut a video. ..."
-- [ ] **Pre-render the Apple-Watch scroll page** with frontend-design 2–3 times; pick the cleanest take. Stage replay so the live prompt-line cues a pre-rendered file (not a live LLM call) — no timing risk on judging day.
-- [ ] **Verify `npx vskill install frontend-design`** writes to all three agent dirs (Claude / Cursor / Codex) and the install log is camera-friendly.
-- [ ] Confirm 0708 icon-color-change + toast works in your WIP branch (72/74 tasks). If not — simulate, and note it in the description.
-- [ ] Decide model-picker OpenAI/open-source strategy: live via AnyModel BYO, or staged overlay.
-- [ ] Paste @trq212 tweet text to weave into 00:38–01:08 block.
+- [ ] **Self-intro take (01:18–01:30)**: record 3 takes, pick the warmest. Eyes on lens. The line is *"I'm Anton Abyzov. I've been a software engineer for twenty years. I poured a lot of heart into the next two minutes — because I think we can do better."*
+- [ ] Pre-build the four pain-point callout cards in Hyperframes — "Lock-in" / "No versioning" / "No live updates" / "No tests" — and the 4-pill callback chip at 03:08.
+- [ ] **Multi-model dropdown (01:42)**: confirm `claude-opus-4-7`, `claude-sonnet-4-6`, `gpt-5`, `gemini-3`, `local · LM Studio (BYO)` all render in the dropdown via AnyModel pass-through. Otherwise stage a polished mock list overlay.
+- [ ] **Marketplace tab (01:55)**: confirm grid + "129,847 skills · all verified" count badge render in the WIP branch (0771). If not, record from the WIP branch with a static count overlay added in Hyperframes.
+- [ ] **Generate Test (02:30)**: confirm the test-generation feature is wired end-to-end and produces 4/4 green ticks. If not shipped: stage a clean simulated take and call it "shipping soon" in the description.
+- [ ] **Publish + auto-repo via gh CLI (02:42)**: ensure `gh` is authed in your shell. Confirm the inline "No GitHub repo — create with gh CLI?" panel renders. **This is the Hyperframes-flagged beat — capture cleanly and add the zoom-ring + "new" badge in edit.**
+- [ ] **verified-skill.com queue (02:48)**: open in a second tab before recording so it's loaded; rehearse the cut so "Queued → Scanning → Processed ✓" runs in under 3.5s. If scan time is variable on recording day, edit-cut between states.
+- [ ] **Toast on new published version (02:58)**: confirm the publish→remote-version→toast path works end-to-end in the WIP branch (not just local-file→toast). If only local-file→toast: simplify the demo to local-only edit and trim the verified-skill.com round-trip in this beat. Adjust VO accordingly.
+- [ ] **One-click install fan-out (03:04)**: verify the install panel renders all three agent dirs (`.claude/skills/`, `.cursor/skills/`, `.codex/skills/`). Pre-stage a clean target project folder so the writes are camera-friendly.
 - [ ] Dark mode everywhere. Close personal tabs. Disable notifications.
 - [ ] Prepare a sample project folder (`~/projects/my-api`) with a clean `.claude/` dir.
 - [ ] Record face-cam and screen-share separately. Mic close (6 inches). Look at the lens during face-cam.
-- [ ] Upload the 3 `broll-*.mp4` files + 4 `screen-*.mp4` files to Hyperframes timeline first; build the skeleton around them.
+- [ ] Paste @trq212 tweet text to weave into 00:18–00:48 (Why Skills) block.
+- [ ] Upload the 3 `broll-*.mp4` files + 9 `screen-*.mp4` files to Hyperframes timeline first; build the skeleton around them.
 
 ---
 
