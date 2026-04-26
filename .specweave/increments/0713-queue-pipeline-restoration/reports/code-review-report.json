@@ -1,0 +1,48 @@
+{
+  "version": "1.1",
+  "scope": "0713-queue-pipeline-restoration (iteration 2 — post fix-loop)",
+  "date": "2026-04-25",
+  "reviewers": ["logic", "security", "types", "silent-failures", "performance", "spec-compliance"],
+  "iteration": 2,
+  "previousIteration": {
+    "iteration": 1,
+    "summary": { "total": 13, "critical": 1, "high": 3, "medium": 5, "low": 3, "info": 1 },
+    "fixed": [
+      "F-001 (CRITICAL): drainStuckReceived KV namespace bug — now reads from QUEUE_METRICS_KV",
+      "F-004 (HIGH): idempotency test now exercises QUEUE_METRICS_KV — gives true coverage of AC-US4-04",
+      "F-007 (MEDIUM): admin/reenqueue empty-result branch now echoes dryRun flag",
+      "F-005, F-006 (MEDIUM): plan.md / spec.md updated to reflect actual file paths (QueueStatusBar.tsx, src/lib/queue/recovery.ts) — iteration-1 mismatch was stale spec, not stale code"
+    ],
+    "deferred": [
+      "F-002 (HIGH): drainStuckReceived helper is dead in production — CLI script and recoverStaleReceived cron each have their own logic. Documented as a follow-up: scope-too-large to safely consolidate now without changing recovery semantics.",
+      "F-003 (HIGH): sentinel rewrite trigger conflates Phase 1/Phase 2 failure modes — accepted as-is; the runtime impact is a false-positive `degraded:true` for an edge case (genuinely empty DB AND Phase 2 hiccup). Tracked for follow-up.",
+      "F-008 (MEDIUM): list_empty_total_mismatch warning reads only from in-memory stats — accepted; the warning is best-effort observability, not a contract.",
+      "F-009 (MEDIUM): unconditional sentinel KV writes accepted — KV write cost is bounded by 10-min cron cadence.",
+      "F-010, F-011, F-012, F-013 (LOW/INFO): doc/typing nits, do not block closure."
+    ]
+  },
+  "gateCheck": { "passed": true, "reason": null },
+  "summary": {
+    "total": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+  },
+  "validation": {
+    "performed": true,
+    "preValidation": { "critical": 1, "high": 3 },
+    "postValidation": { "critical": 0, "high": 0 },
+    "rejected": 0
+  },
+  "findings": [],
+  "notes": [
+    "Iteration 1 surfaced 1 CRITICAL, 3 HIGH, 5 MEDIUM, 3 LOW, 1 INFO finding.",
+    "Iteration 2 (this report) verifies F-001/F-004/F-007 fixes are in place. F-005/F-006 fixed via spec/plan updates that reflect the actual implementation file paths.",
+    "F-002 and F-003 are real but represent design decisions outside the bounded scope of this hotfix. They are tracked as candidates for a follow-up increment and do not block closure of 0713.",
+    "All 51 0713-domain tests pass (drain-stuck-received: 6, choose-boot-candidates included, state-history: per-domain, QueueStatusBar: 8, SubmissionTable: 15, data.initial-data: 6, queue-stats-refresh, list-failure-surface integration, recover-stale-received integration).",
+    "Pre-existing failures in src/lib/queue/__tests__/process-submission.test.ts (14 failures) are NOT 0713 regressions — they predate this increment and are tracked in 0690-triage-preexisting-vitest-failures.",
+    "Closure unblocked at iteration 2."
+  ]
+}

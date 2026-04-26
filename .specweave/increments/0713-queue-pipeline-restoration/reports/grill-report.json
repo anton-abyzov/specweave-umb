@@ -1,0 +1,85 @@
+{
+  "version": "1.1",
+  "incrementId": "0713-queue-pipeline-restoration",
+  "timestamp": "2026-04-25T20:45:00.000Z",
+  "verdict": "PASS",
+  "shipReadiness": "NEEDS REVIEW",
+  "summary": {
+    "totalFindings": 3,
+    "critical": 0,
+    "high": 2,
+    "medium": 1
+  },
+  "acCompliance": {
+    "totalACs": 20,
+    "passed": 16,
+    "failed": 0,
+    "partial": 4,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "src/lib/cron/queue-stats-refresh.ts:67-93 — flat COUNT(*) FILTER on Submission; deduped CTE removed" },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "src/lib/cron/queue-stats-refresh.ts:217-244 + queue-stats-freshness.ts:8-18 — FAILURE_SENTINEL with all -1 fields; written to KV+_memQueueStats on Phase 1 fail" },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "queue-stats-freshness.ts:55-56 shouldOverwriteStats — sentinel as next/prev always passes; verified in queue-stats-refresh.test.ts:74-76,82-85" },
+      { "acId": "AC-US1-04", "status": "pass", "evidence": "queue-stats-freshness.ts:57 prev.total>0 && next.total===0 → false; queue-stats-refresh.test.ts:78-80" },
+      { "acId": "AC-US1-05", "status": "pass", "evidence": "queue-stats-freshness.ts:56 sentinel→real recovery; queue-stats-refresh.ts:241 unconditional _memQueueStats = candidate" },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "src/app/api/v1/submissions/route.ts:106-108 — well-formed {submissions:[],total:0} returned as-is; line 91-95 returns null only on JSON.parse fail" },
+      { "acId": "AC-US2-02", "status": "pass", "evidence": "route.ts:197-211 returns 503 + Retry-After:30 + hint:database_unavailable when KV miss + DB unavailable" },
+      { "acId": "AC-US2-03", "status": "pass", "evidence": "route.ts:497-512 logs list_empty_total_mismatch and includes warning in body when DB=0 but stats indicate rows expected" },
+      { "acId": "AC-US2-04", "status": "pass", "evidence": "route.ts:515-562 outer catch routes DB errors to 503 path with KV fallback rescue" },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "src/lib/submission/state-history.ts:41-46 throws on null to, allows null from only for initial RECEIVED; called from db-persist.ts:185" },
+      { "acId": "AC-US3-02", "status": "partial", "evidence": "hist:<id> writes go through buildStateHistoryEntry (kv-store.ts:188,237). On-disk JSON keeps legacy field names state (=to) and message (=reason) for back-compat — documented at state-history.ts:17-21. Functionally satisfied; literal AC field names {timestamp,from,to,reason} differ from on-disk {state,from,timestamp,message}." },
+      { "acId": "AC-US3-03", "status": "pass", "evidence": "scripts/backfill-state-history.ts:80-110 planHistoryBackfill is a pure decision; idempotent via metadata.backfilled marker; --dry-run honored at line 175" },
+      { "acId": "AC-US4-01", "status": "partial", "evidence": "Helper drainStuckReceived (recovery.ts:484-551) accepts the documented opts and tests pass (drain-stuck-received.test.ts: 6/6). HOWEVER the CLI script scripts/drain-stuck-received.ts:71 POSTs to /api/v1/admin/reenqueue which uses a parallel implementation in reenqueue/route.ts:111-194 that does NOT invoke the helper. Two divergent prod paths." },
+      { "acId": "AC-US4-03", "status": "partial", "evidence": "recoverStaleReceived wired in worker-with-queues.js:169. Cron cadence is */10 (wrangler.jsonc:189) not 30 min as AC states. Threshold is updatedAt < NOW()-15 min (submission/recovery.ts:18,75-95) not createdAt < NOW()-30 min. Behavior is more aggressive than required; spirit satisfied; literal text deviates." },
+      { "acId": "AC-US4-04", "status": "partial", "evidence": "Helper test verifies inflight:<id> in QUEUE_METRICS_KV blocks duplicate enqueue (drain-stuck-received.test.ts:101-117). Prod CLI path uses a different mechanism: recovery:retried:<id> markers in SUBMISSIONS_KV, capped at 3 (reenqueue/route.ts:160-165). Both paths idempotent independently; tested path ≠ prod path. Tracked as F-002 in code-review iteration 1 (deferred)." },
+      { "acId": "AC-US5-01", "status": "pass", "evidence": "src/app/queue/data.ts:80 — first branch returns [requestedFilter] unconditionally; tests at choose-boot-candidates.test.ts:34-45" },
+      { "acId": "AC-US5-02", "status": "pass", "evidence": "data.ts:81 — degraded → [\"all\"] before ranked-count fallback; choose-boot-candidates.test.ts:47-59" },
+      { "acId": "AC-US5-03", "status": "pass", "evidence": "QueueStatusBar.tsx:128-144 renders \"Counters refreshing…\" ribbon with aria-live=polite when statsDegraded===true" },
+      { "acId": "AC-US5-04", "status": "pass", "evidence": "QueuePageClient.tsx:75-80 TAB_CONFIG matches spec exactly: active→processingOrder asc, published/rejected/blocked→updatedAt desc, all→createdAt desc" },
+      { "acId": "AC-US5-05", "status": "pass", "evidence": "QueuePageClient.tsx:75-80 timeColumn labels match spec exactly (Submitted/Updated/Last activity); applied at line 849" }
+    ]
+  },
+  "findings": [
+    {
+      "id": "G-001",
+      "title": "drainStuckReceived helper is dead code in production drain path",
+      "severity": "high",
+      "confidence": 95,
+      "category": "correctness",
+      "file": "scripts/drain-stuck-received.ts:71 + src/app/api/v1/admin/reenqueue/route.ts:111-194",
+      "issue": "AC-US4-01 / AC-US4-04 are tested against the helper drainStuckReceived in src/lib/queue/recovery.ts (6 unit tests pass). But the operator-facing CLI script POSTs to /api/v1/admin/reenqueue, whose repoUrl branch implements its own SQL query and its own idempotency tracking (recovery:retried:<id> markers in SUBMISSIONS_KV, capped at 3). The helper's idempotency mechanism (inflight:<id> markers in QUEUE_METRICS_KV) is never exercised by the production drain path. Two parallel implementations of drain semantics with different correctness guarantees.",
+      "suggestion": "Either (a) refactor the /admin/reenqueue repoUrl branch to delegate to drainStuckReceived(opts, env) so a single code path is tested + shipped, or (b) add an integration test against /api/v1/admin/reenqueue that mocks the inflight marker to prove its idempotency contract end-to-end. Without one of these, the AC test green ≠ prod-path green.",
+      "impact": "If a production drain run double-enqueues (e.g. operator calls the script twice in quick succession against the same repo), unit tests will not catch it. The `recovery:retried` cap of 3 is more permissive than `inflight` would have been and lives in a different KV namespace, so the existing per-repo dedup is by retry-cap, not by inflight check. Tracked as F-002 in code-review iteration 1 with explicit defer rationale.",
+      "tracked": "code-review iteration-1 F-002 (deferred)"
+    },
+    {
+      "id": "G-002",
+      "title": "AC-US4-03 cron interval and threshold deviate from spec text",
+      "severity": "high",
+      "confidence": 90,
+      "category": "correctness",
+      "file": ".open-next/worker-with-queues.js:169 + wrangler.jsonc:189 + src/lib/submission/recovery.ts:18,75-95",
+      "issue": "AC-US4-03 specifies the recovery cron 'runs every 30 minutes' and finds rows 'where state=RECEIVED AND createdAt < NOW() - 30 min'. Actual: (1) cron is */10 (every 10 min, not 30); (2) threshold is updatedAt < NOW() - 15 min (not createdAt < NOW() - 30 min). The behavior is more aggressive than the AC required (more frequent recovery, shorter grace window). The updatedAt-touch trick in recovery.ts:614-617 keeps it from re-enqueuing the same row every tick, so it's not a thrash. Still, the spec text and the implementation don't agree.",
+      "suggestion": "Either update the AC text in spec.md to match shipped behavior (every 10 min cadence + updatedAt+15 min threshold + updatedAt-touch self-throttle), or restrict the cron and switch the SQL to createdAt+30 min. The former is the lower-risk fix because the current behavior is what production has been running and self-healing actually depends on the touch.",
+      "impact": "Closing 0713 with the AC text unchanged means future readers of spec.md get a misleading description of the behavior. The runtime semantics are arguably better than the AC specified, but nobody reading the AC alone could predict the touch-based self-throttling."
+    },
+    {
+      "id": "G-003",
+      "title": "AC-US3-02 on-disk shape uses legacy field names {state, message} not spec's {to, reason}",
+      "severity": "medium",
+      "confidence": 85,
+      "category": "maintainability",
+      "file": "src/lib/submission/types.ts:111-116 + src/lib/submission/state-history.ts:17-21",
+      "issue": "AC-US3-02 specifies KV hist:<id> entries always have shape {timestamp: ISO8601, from: SubmissionState | null, to: SubmissionState, reason: string}. The actual on-disk JSON shape via StateHistoryEntry uses {state: SubmissionState, from?: SubmissionState | null, timestamp: string, message?: string}. state-history.ts header documents this as a deliberate translation: `state` (= to) and `message` (= reason) are kept for back-compat with /submit/[id] page renderer + existing API consumers. The validation contract (non-null to, conditional null from) is enforced; only the field names differ.",
+      "suggestion": "Either (a) update AC-US3-02 in spec.md to mention the field-name translation explicitly so the contract on disk matches the contract in spec, or (b) introduce a one-time migration that renames state→to and message→reason in KV+DB and updates all consumers. Option (a) is far cheaper and is what the code already does.",
+      "impact": "Anyone grepping the codebase for `to: ` or `reason: ` in state-history JSON will not find them on disk. The doc-comment in state-history.ts catches a careful reader, but a casual reader expecting AC-text-faithful JSON shapes will be confused. Low runtime impact."
+    }
+  ],
+  "notes": [
+    "Phase 0 spec compliance: 16 ACs PASS, 4 PARTIAL (no FAIL). All partials are documented design choices already accepted in iteration-1 code-review or are spec-text drift rather than functional defects.",
+    "Phase 2 code interrogation: 0713-domain unit tests (45/45) pass via `npx vitest run` against the 6 increment-relevant test files. Test execution verified during this grill at 20:33 local.",
+    "No new critical findings beyond what code-review iteration 2 already cleared. The three items above are HIGH-confidence findings that nonetheless do not block closure: G-001 and G-002 represent shipped behavior that diverges from spec text but does not regress functionality; G-003 is a documentation/naming issue.",
+    "Anton's call: ship 0713 as-is and either amend the spec text post-hoc (G-002, G-003) or schedule a follow-up to consolidate drain paths (G-001). All three are listed for visibility, not to block closure.",
+    "Ship readiness: NEEDS REVIEW because of 2 high-confidence findings, but the verdict is PASS — the findings are about spec/implementation drift that has been knowingly accepted, not undiscovered defects."
+  ]
+}

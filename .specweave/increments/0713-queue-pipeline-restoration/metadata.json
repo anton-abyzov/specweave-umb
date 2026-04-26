@@ -1,19 +1,148 @@
 {
   "id": "0713-queue-pipeline-restoration",
-  "status": "active",
+  "status": "completed",
   "type": "hotfix",
   "priority": "P0",
   "created": "2026-04-24T23:39:31.858Z",
-  "lastActivity": "2026-04-25T20:51:16.635Z",
+  "lastActivity": "2026-04-26T00:36:46.778Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1082",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1082",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T00:37:09.517Z"
+    },
+    "ado": {
+      "featureId": "1921",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1921",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T00:37:13.671Z"
+    }
+  },
   "planning": {
     "parallel": false
   },
   "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T00:21:03.981Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-06 referenced in tasks.md but not found in spec.md",
+        "AC-US5-07 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:20:59.590Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-06 referenced in tasks.md but not found in spec.md",
+        "AC-US5-07 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:20:55.605Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US3-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5-06 referenced in tasks.md but not found in spec.md",
+        "AC-US5-07 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:20:51.408Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US4-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5-06 referenced in tasks.md but not found in spec.md",
+        "AC-US5-07 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:20:45.583Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US4-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5-06 referenced in tasks.md but not found in spec.md",
+        "AC-US5-07 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-25T23:57:26.587Z",
+      "updated": [
+        "AC-US5-06",
+        "AC-US5-07"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-04-25T23:55:13.698Z",
+      "updated": [
+        "AC-US5-01",
+        "AC-US5-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-04-25T23:54:13.024Z",
+      "updated": [
+        "AC-US5-04",
+        "AC-US5-05"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-04-25T23:53:06.584Z",
+      "updated": [
+        "AC-US3-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-25T23:51:33.792Z",
+      "updated": [
+        "AC-US3-01",
+        "AC-US3-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-04-25T23:50:31.995Z",
+      "updated": [
+        "AC-US5-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
     {
       "timestamp": "2026-04-25T20:51:16.634Z",
       "updated": [
@@ -58,5 +187,7 @@
       "warnings": [],
       "changesCount": 5
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-26T00:36:46.716Z",
+  "approvedAt": "2026-04-26T00:36:46.778Z"
 }

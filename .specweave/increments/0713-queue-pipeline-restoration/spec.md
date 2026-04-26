@@ -1,10 +1,10 @@
 ---
 increment: 0713-queue-pipeline-restoration
-title: "Queue Pipeline Restoration (P0)"
+title: Queue Pipeline Restoration (P0)
 type: hotfix
 priority: P0
-status: planned
-created: 2026-04-24
+status: completed
+created: 2026-04-24T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -40,7 +40,8 @@ Anton submitted `https://github.com/heygen-com/hyperframes` at 2026-04-24T23:11:
 - [x] **AC-US1-03**: The regression guard accepts a failure sentinel as the new "previous" state — it does NOT block subsequent successful writes that contain real positive counts.
 - [x] **AC-US1-04**: The regression guard still rejects `{total: 0}` writes when the prior recorded `total > 0`. (The original 43a2790 / 0708 invariant is preserved.)
 - [x] **AC-US1-05**: A successful cron run after a sentinel state is recorded MUST overwrite the sentinel and clear `degraded:true`.
-- [ ] **AC-US1-06**: After deploy, `GET /api/v1/submissions/stats` returns `generatedAt` < 11 minutes old AND `degraded:false`.
+
+> AC-US1-06 (post-deploy stats freshness) → moved to **0713B** as AC-US101-02. Requires production deploy.
 
 ### US-002: List endpoint surfaces failures honestly (P0)
 **Project**: vskill-platform
@@ -54,7 +55,8 @@ Anton submitted `https://github.com/heygen-com/hyperframes` at 2026-04-24T23:11:
 - [x] **AC-US2-02**: When KV cache miss AND the DB query throws, the endpoint returns 503 with `Retry-After: 30` and a `hint: "database_unavailable"` body.
 - [x] **AC-US2-03**: When KV cache miss AND DB returns 0 rows BUT current stats show TOTAL > 0, the endpoint logs a `list_empty_total_mismatch` warning and returns `{items: [], total: 0, warning: "list_empty_total_mismatch"}` so monitoring can alert.
 - [x] **AC-US2-04**: The non-category branch of the GET handler wraps `fetchSubmissionList` in a try/catch that surfaces errors to the existing 503 fallback rather than swallowing them into an empty array.
-- [ ] **AC-US2-05**: After deploy, `GET /api/v1/submissions?state=all&sort=createdAt&sortDir=desc&limit=10` returns ≥ 10 items.
+
+> AC-US2-05 (post-deploy ≥10 items) → moved to **0713B** as AC-US101-03. Requires production deploy.
 
 ### US-003: State-history writes are well-formed (P1)
 **Project**: vskill-platform
@@ -64,10 +66,11 @@ Anton submitted `https://github.com/heygen-com/hyperframes` at 2026-04-24T23:11:
 **So that** I can reconstruct the lifecycle from history alone, instead of guessing from `state` + `updatedAt`
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: The state-history writer in `src/lib/submission/db-persist.ts` requires non-null `to` always. `from` may be null only on the initial RECEIVED row.
-- [ ] **AC-US3-02**: KV `hist:<id>` entries always have shape `{timestamp: ISO8601, from: SubmissionState | null, to: SubmissionState, reason: string}`. The contract is documented in a doc comment on the writer.
-- [ ] **AC-US3-03**: A backfill script `scripts/backfill-state-history.ts` walks all `Submission` rows, finds entries with malformed history (missing `to`, or `from === to === null`), and reconstructs the latest entry from `state` + `updatedAt`. Idempotent. Guarded by `--dry-run`.
-- [ ] **AC-US3-04**: Existing API responses for `/api/v1/submissions/{id}` and the queue page show real `from -> to` transitions for the 6 hyperframes rows after backfill, not `? -> ?`.
+- [x] **AC-US3-01**: The state-history writer in `src/lib/submission/db-persist.ts` requires non-null `to` always. `from` may be null only on the initial RECEIVED row.
+- [x] **AC-US3-02**: KV `hist:<id>` entries always have shape `{timestamp: ISO8601, from: SubmissionState | null, to: SubmissionState, reason: string}`. The contract is documented in a doc comment on the writer.
+- [x] **AC-US3-03**: A backfill script `scripts/backfill-state-history.ts` walks all `Submission` rows, finds entries with malformed history (missing `to`, or `from === to === null`), and reconstructs the latest entry from `state` + `updatedAt`. Idempotent. Guarded by `--dry-run`.
+
+> AC-US3-04 (post-backfill prod verification) → moved to **0713B** as AC-US103-02. Requires production execution.
 
 ### US-004: Drain stuck queue and prevent recurrence (P0)
 **Project**: vskill-platform
@@ -78,8 +81,9 @@ Anton submitted `https://github.com/heygen-com/hyperframes` at 2026-04-24T23:11:
 
 **Acceptance Criteria**:
 - [x] **AC-US4-01**: New script `scripts/drain-stuck-received.ts` accepts `--repo-url <url>`, `--age-min <number>` (default 5), `--limit <number>` (default 50), and `--dry-run`. It lists `state=RECEIVED` rows older than `age-min` matching the optional repo filter and re-enqueues each into `SUBMISSION_QUEUE`.
-- [ ] **AC-US4-02**: Running the script with `--repo-url https://github.com/heygen-com/hyperframes --age-min 5` flushes the 6 stuck rows; within 60 seconds they transition out of RECEIVED.
 - [x] **AC-US4-03**: The recovery cron `recoverStaleReceived` exists, runs every 30 minutes, finds rows where `state=RECEIVED AND createdAt < NOW() - 30 min`, and re-enqueues up to 50 per tick. If absent or broken, it is wired/repaired in this increment.
+
+> AC-US4-02 (drain hyperframes rows in prod) → moved to **0713B** as AC-US102-02. Requires production execution.
 - [x] **AC-US4-04**: The drain script is idempotent — running it twice in quick succession does not enqueue the same row twice (verified via `inflight` tracking or message dedup).
 
 ### US-005: Queue page renders honestly during stats degradation (P1)
@@ -90,23 +94,23 @@ Anton submitted `https://github.com/heygen-com/hyperframes` at 2026-04-24T23:11:
 **So that** I don't get silently redirected to "published" and miss new submissions that are actually in the active queue
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: `chooseBootCandidates` honors the URL `?filter=` parameter unconditionally — it does NOT auto-flip when stats are stale or degraded.
-- [ ] **AC-US5-02**: When no URL filter is provided AND `stats.degraded === true`, the function returns `["all"]` (newest-first) — never `["published"]` based on a poisoned zero.
-- [ ] **AC-US5-03**: The queue page's stats bar shows an inline "Counters refreshing…" message (or equivalent) when `stats.degraded === true`, instead of presenting the displayed zeros as truth.
-- [ ] **AC-US5-04**: Per-tab default sort is applied:
+- [x] **AC-US5-01**: `chooseBootCandidates` honors the URL `?filter=` parameter unconditionally — it does NOT auto-flip when stats are stale or degraded.
+- [x] **AC-US5-02**: When no URL filter is provided AND `stats.degraded === true`, the function returns `["all"]` (newest-first) — never `["published"]` based on a poisoned zero.
+- [x] **AC-US5-03**: The queue page's stats bar shows an inline "Counters refreshing…" message (or equivalent) when `stats.degraded === true`, instead of presenting the displayed zeros as truth.
+- [x] **AC-US5-04**: Per-tab default sort is applied:
   - active → `processingOrder asc` (queue position) — keep current
   - published → `updatedAt desc` (proxy for publishedAt; documented gap)
   - rejected → `updatedAt desc`
   - all → `createdAt desc` (newest first)
   - blocked → `updatedAt desc`
-- [ ] **AC-US5-05**: Each tab shows ONE contextual time column instead of dual "Submitted | Updated":
+- [x] **AC-US5-05**: Each tab shows ONE contextual time column instead of dual "Submitted | Updated":
   - active → "Submitted" (createdAt)
   - published → "Updated" (proxy for publishedAt)
   - rejected → "Updated" (proxy for rejectedAt)
   - all → "Last activity" (max of createdAt/updatedAt)
   - blocked → "Updated"
-- [ ] **AC-US5-06**: After Phase 2 deploy, visiting `https://verified-skill.com/queue` (no filter) does NOT redirect to `?filter=published`. The URL remains `/queue` and the table renders the "all" view.
-- [ ] **AC-US5-07**: After Phase 2 deploy, visiting `https://verified-skill.com/queue?filter=all` renders rows sorted by `createdAt` desc (most recent first).
+> AC-US5-06 (post-Phase-2-deploy no-flip verification) → moved to **0713B** as AC-US104-02. Requires production deploy.
+> AC-US5-07 (post-Phase-2-deploy default sort verification) → moved to **0713B** as AC-US104-03. Requires production deploy.
 
 ## Functional Requirements
 

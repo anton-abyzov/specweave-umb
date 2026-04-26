@@ -5,6 +5,8 @@ title: "Queue Pipeline Restoration (P0) — Architecture & Plan"
 
 # Architecture & Implementation Plan
 
+> **Scope split (2026-04-25):** The original plan included production deploy + drain + backfill + post-deploy verification (former T-005, T-008, T-012, T-013, T-017, T-024 and ACs AC-US1-06 / AC-US2-05 / AC-US3-04 / AC-US4-02 / AC-US5-06 / AC-US5-07). These are operator-only and were split into a follow-up increment **0713B-production-rollout**. 0713 covers the implementation contract (code + unit/integration/e2e tests, all green on `main`); 0713B carries the rollout to production.
+
 ## Design
 
 ### Layer 1 — Stats cron (US-001)

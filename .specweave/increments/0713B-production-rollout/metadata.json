@@ -1,0 +1,18 @@
+{
+  "id": "0713B-production-rollout",
+  "status": "backlog",
+  "type": "ops",
+  "priority": "P0",
+  "created": "2026-04-25T23:59:00.000Z",
+  "lastActivity": "2026-04-25T23:59:00.000Z",
+  "testMode": "manual",
+  "coverageTarget": 0,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "parent": "0713-queue-pipeline-restoration",
+  "notes": "Operator-only execution split out from 0713. Code shipped in 0713; this increment tracks deploy + production verification + drain/backfill against prod DB. Anton-only — agents must not auto-execute."
+}

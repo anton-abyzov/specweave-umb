@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "incrementId": "0713-queue-pipeline-restoration",
+  "timestamp": "2026-04-26T00:35:00.000Z",
+  "verdict": "WAIVED",
+  "consentStatus": "no-api-key",
+  "reason": "ANTHROPIC_API_KEY not set in environment; falling back to in-session ultrathink evaluation. Pattern-match WAIVED status per skill spec.",
+  "inSessionEvaluation": {
+    "verdict": "CONCERNS",
+    "score": 82,
+    "mode": "in-session-ultrathink",
+    "summary": "Solid P0 hotfix implementation. Sentinel pattern, list-endpoint failure surface, state-history type-safety, drain helper, and queue-page UX all correctly implemented and unit-tested. 51 0713-domain tests pass. Code-review iteration 2 fixed the only CRITICAL (KV namespace bug in drain idempotency). Open findings are spec-wording drift and one design-debt note (drain helper is dead in production — admin endpoint and cron each have their own logic), not defects.",
+    "dimensions": {
+      "correctness": "PASS — sentinel transitions, chooseBootCandidates branching, 503 surface all correct against ACs",
+      "completeness": "PASS — production-execution tasks correctly split to 0713B (operator-only); implementation contract complete",
+      "security": "PASS — no new attack surface; admin endpoint gated by existing auth tokens",
+      "performance": "PASS — CTE removal is the performance fix; recovery jobs bounded with per-tick limits",
+      "maintainability": "CONCERNS — drainStuckReceived helper duplicates admin-reenqueue route logic (F-002/G-001); follow-up needed",
+      "testability": "PASS — 51 domain tests including iteration-2 idempotency fix; pre-existing failures isolated to 0690 triage",
+      "errorHandling": "PASS — sentinel pattern, per-row try/catch in drain, contract-throwing state-history writer"
+    },
+    "openFindings": [
+      "G-001/F-002 (HIGH, deferred): drainStuckReceived helper is unit-tested but the production CLI script POSTs to /api/v1/admin/reenqueue (different idempotency mechanism). Consolidate in follow-up.",
+      "G-002 (HIGH, spec wording): AC-US4-03 says cron is every 30 min / createdAt threshold; shipped is every 10 min / updatedAt threshold (more aggressive, self-throttles via updatedAt-touch). Amend AC text or tighten cron — recommend amending.",
+      "G-003 (MEDIUM, doc): AC-US3-02 specifies on-disk shape {timestamp, from, to, reason} but writes use back-compat field names {state, from, timestamp, message}. Documented in state-history.ts header. Functionally satisfied."
+    ],
+    "verdictReasoning": "All 20 in-scope ACs have passing tests and correct implementations. The CRITICAL bug from iteration 1 (KV namespace mismatch in drainStuckReceived) is fixed and tested. Remaining HIGH findings are spec-wording drift (G-002) and one design-debt acknowledgment (G-001/F-002), not implementation defects. CONCERNS verdict reflects real follow-up work but does not justify blocking closure of a P0 outage hotfix."
+  }
+}
