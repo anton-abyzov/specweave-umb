@@ -1,0 +1,614 @@
+{
+  "ok": true,
+  "updated": 0,
+  "errors": 151,
+  "total": 151,
+  "taintCleared": 0,
+  "results": [],
+  "failures": [
+    {
+      "name": "anton-abyzov/vskill/anton-abyzov-backend-java-spring",
+      "error": "Error: DB query timed out after 15000ms [Submission.findFirst]"
+    },
+    {
+      "name": "anton-abyzov/vskill/patterns-2",
+      "error": "Error: DB query timed out after 15000ms [Submission.findFirst]"
+    },
+    {
+      "name": "anton-abyzov/vskill/testing-qa",
+      "error": "Error: DB query timed out after 15000ms [Submission.findFirst]"
+    },
+    {
+      "name": "anton-abyzov/specweave/frontend-core",
+      "error": "Error: DB query timed out after 15000ms [Submission.findFirst]"
+    },
+    {
+      "name": "anton-abyzov/vskill/vskill",
+      "error": "Error: DB query timed out after 15000ms [Submission.findFirst]"
+    },
+    {
+      "name": "anton-abyzov/vskill/ml-specialist",
+      "error": "Error: DB query timed out after 15000ms [Submission.findFirst]"
+    },
+    {
+      "name": "anton-abyzov/specweave/github-multi-project",
+      "error": "Error: DB query timed out after 15000ms [Submission.findFirst]"
+    },
+    {
+      "name": "anton-abyzov/vskill/anton-abyzov-payments-pci",
+      "error": "Error: DB query timed out after 15000ms [Submission.findFirst]"
+    },
+    {
+      "name": "anton-abyzov/vskill/backend-nodejs",
+      "error": "Error: DB query timed out after 15000ms [Submission.findFirst]"
+    },
+    {
+      "name": "anton-abyzov/specweave/validate",
+      "error": "Error: DB query timed out after 15000ms [Submission.findFirst]"
+    },
+    {
+      "name": "anton-abyzov/vskill/anton-abyzov-mobile-expo",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/nextjs",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/import",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/anton-abyzov-mobile-deep-linking",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/blockchain",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/diagrams",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/github-sync",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/release-expert",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anthropics/financial-services-plugins/clean-data-xls",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "vercel/turborepo/turborepo",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anthropics/knowledge-work-plugins/build-zoom-meeting-app",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/jira-sync",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/tdd-cycle",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/test-aware-planner",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/video",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/aws-deep-dive",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/ado-mapper",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "openai/plugins/sharepoint-spreadsheet-formula-builder",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/kafka-architect",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/update-instructions",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "microsoft/work-iq/workiq",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/done",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/go-backend",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/progress",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/tiktokpost",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/db-optimizer",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/ops",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/dotnet-backend",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "microsoft/vscode-cosmosdb/accessibility-aria-expert",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/architect",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/ado-multi-project",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/backend-dotnet",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/anton-abyzov-frontend-code-explorer",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/tdd-green",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/social-posts",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/grill",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/increment",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/anton-abyzov-infra-devops",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/security-core",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/manifests",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "openai/plugins/figma-implement-design",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/team-build",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/streams-topology",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/team-merge",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/python-backend",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/helm",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/terraform-opentofu",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/do",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/anton-abyzov-specweave-cost-optimization",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/accessibility",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/instagram-poster",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/accessibility-testing",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/anton-abyzov-specweave-k8s-manifest-generator",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/jira-resource-validator",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/cancel-auto",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/code-simplifier",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/frontend",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/gcp-deep-dive",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/i18n-expert",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/kafka-streams-topology",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/ml-engineer",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/mutation-testing",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/auto",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/frontend-architect",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/team-lead",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/progress-sync",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/n8n-kafka-workflows",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/nodejs-backend",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/mlops-engineer",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/engineer",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/stakeholder-docs",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/aws-cost-expert",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/secret-management",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/performance-testing",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/next",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/confluent-ksqldb",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/llm-fine-tuning",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/azure-bicep-aks",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/database-optimizer",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/payments",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/deep-linking-push",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/e2e-testing",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/doctor",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/searchengine",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/sync-docs",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "microsoft/skills-for-copilot-studio/manage",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/ado-sync",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/ado-resource-validator",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/spec-generator",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/image",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/tdd-refactor",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/tdd-red",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/easychamp-skills/easychamp-promoter",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/unit",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/easychamp-skills/tournament-import",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/simplifier",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/design",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/anton-abyzov-infra-secrets",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/anton-abyzov-mobile-flutter",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/anton-abyzov-infra-devsecops",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/i18n",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/performance",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/figma",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/anton-abyzov-infra-gcp",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/mutation",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "microsoft/fabric-task-flows/fabric-deploy",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "openai/plugins/bootstrap",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/youtube-poster",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/github-issue-standard",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/brainstorm",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/specweave",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/jetpack-compose",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/framework",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/jobs",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/auto-status",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anthropics/claude-code/claude-opus-4-5-migration",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/docs-updater",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/kafka-ops",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/lsp",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/capacitor-ionic",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/design-system-architect",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/judge-llm",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/specialist",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/spec-driven-brainstorming",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/plan",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/sync-setup",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/unit-testing",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/mlops",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/qa-engineer",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/rag-vectordb",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/optimization",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/payment-core",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "microsoft/skills-for-copilot-studio/int-reference",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "openai/plugins/google-slides",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/npm",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/jira-mapper",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "microsoft/apm/cli-logging-ux",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/pm",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/ksqldb",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/specweave/remotion",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    },
+    {
+      "name": "anton-abyzov/vskill/mutation-2",
+      "error": "Error: DB circuit open \u2014 skipping Skill.findUniqueOrThrow"
+    }
+  ]
+}
