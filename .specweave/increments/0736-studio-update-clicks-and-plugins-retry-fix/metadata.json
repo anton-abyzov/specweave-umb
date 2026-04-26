@@ -1,15 +1,30 @@
 {
   "id": "0736-studio-update-clicks-and-plugins-retry-fix",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-04-26T01:39:23.999Z",
-  "lastActivity": "2026-04-26T02:12:15.247Z",
+  "lastActivity": "2026-04-26T19:55:08.015Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1231",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1231",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T19:55:22.966Z"
+    },
+    "ado": {
+      "featureId": "2070",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2070",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T19:55:25.024Z"
+    }
+  },
   "planning": {
     "parallel": false
   },
@@ -80,5 +95,6 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "approvedAt": "2026-04-26T19:55:08.015Z"
 }

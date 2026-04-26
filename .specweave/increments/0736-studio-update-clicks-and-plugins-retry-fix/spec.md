@@ -1,10 +1,10 @@
 ---
 increment: 0736-studio-update-clicks-and-plugins-retry-fix
-title: "Studio update clicks broken + runaway plugins retry + SSE format mismatch"
+title: Studio update clicks broken + runaway plugins retry + SSE format mismatch
 type: bug
 priority: P1
-status: active
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
