@@ -1,0 +1,47 @@
+{
+  "id": "0768-cron-cpu-budget-split",
+  "title": "Cron CPU budget split: light + heavy cohorts on separate schedules",
+  "status": "active",
+  "type": "hotfix",
+  "owner": "anton-abyzov@vskill",
+  "links": {
+    "parent_increment": "0763",
+    "live_api": "https://verified-skill.com/api/v1/submissions/stats"
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T18:37:26.332Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US1-05: has no tasks mapped",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T17:10:52.252Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US1-05: has no tasks mapped",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "lastActivity": "2026-04-26T18:37:26.333Z",
+  "created": "2026-04-26",
+  "externalLinks": {},
+  "priority": "medium",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
