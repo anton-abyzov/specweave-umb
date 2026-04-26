@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0781 — Hotfix: Studio updater popup and sidebar installed-version
 
 ## Problem

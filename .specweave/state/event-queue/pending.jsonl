@@ -64,3 +64,6 @@
 {"incrementId":"0779-fix-studio-save-default-patch-bump","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-04-26T22:22:18.615Z"}
 {"incrementId":"0779-fix-studio-save-default-patch-bump","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-04-26T22:22:18.666Z"}
 {"incrementId":"0779-fix-studio-save-default-patch-bump","eventType":"increment.done","timestamp":"2026-04-26T22:22:18.666Z"}
+{"incrementId":"0781-hotfix-studio-updater-popup-and-sidebar-version","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-04-26T22:40:06.479Z"}
+{"incrementId":"0781-hotfix-studio-updater-popup-and-sidebar-version","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-04-26T22:40:06.499Z"}
+{"incrementId":"0781-hotfix-studio-updater-popup-and-sidebar-version","eventType":"increment.done","timestamp":"2026-04-26T22:40:06.500Z"}

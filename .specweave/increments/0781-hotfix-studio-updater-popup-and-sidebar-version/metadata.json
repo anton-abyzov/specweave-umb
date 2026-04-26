@@ -1,10 +1,10 @@
 {
   "id": "0781-hotfix-studio-updater-popup-and-sidebar-version",
-  "status": "active",
+  "status": "completed",
   "type": "hotfix",
   "priority": "P1",
   "created": "2026-04-26T00:00:00.000Z",
-  "lastActivity": "2026-04-26T22:26:19.799Z",
+  "lastActivity": "2026-04-26T22:40:06.484Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -50,5 +50,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-26T22:40:06.470Z",
+  "approvedAt": "2026-04-26T22:40:06.484Z"
 }
