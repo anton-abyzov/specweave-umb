@@ -1,10 +1,10 @@
 {
   "id": "0743-vskill-source-link-provenance",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "bug",
   "priority": "P2",
   "created": "2026-04-26T04:59:30.761Z",
-  "lastActivity": "2026-04-26T05:19:53.575Z",
+  "lastActivity": "2026-04-26T05:27:45.040Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -39,5 +39,6 @@
       "warnings": [],
       "changesCount": 0
     }
-  ]
+  ],
+  "approvedAt": "2026-04-26T05:27:45.040Z"
 }

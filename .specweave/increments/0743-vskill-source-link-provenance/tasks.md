@@ -120,5 +120,5 @@ Verify via Bash `curl -sI` against the resolved href.
 - Then `source-file-copy` chip is visible (no `source-file-link` anchor)
 
 ### T-013: Patch-bump + npm publish vskill
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-02 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-02 | **Status**: [x] completed (v0.5.124, vskill commit 7897f27)
 **Test Plan**: `npm version patch && npm publish` succeeds; install via `npx vskill@latest` resolves the new version.
