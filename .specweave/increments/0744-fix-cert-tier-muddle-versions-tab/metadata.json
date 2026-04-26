@@ -1,0 +1,16 @@
+{
+  "id": "0744-fix-cert-tier-muddle-versions-tab",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P2",
+  "created": "2026-04-26T05:03:21.046Z",
+  "lastActivity": "2026-04-26T05:03:21.046Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  }
+}
