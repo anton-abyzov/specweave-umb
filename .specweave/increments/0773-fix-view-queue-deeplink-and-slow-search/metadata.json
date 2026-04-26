@@ -1,0 +1,42 @@
+{
+  "id": "0773-fix-view-queue-deeplink-and-slow-search",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-26T19:00:00.000Z",
+  "lastActivity": "2026-04-26T19:09:18.416Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T19:09:18.415Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US2-01: [x] but only 1/2 tasks complete (50%)",
+        "AC-US1-02: [x] but only 2/3 tasks complete (66.67%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T18:59:12.132Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US4-01..05 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01: has no tasks mapped",
+        "AC-US4-02: has no tasks mapped",
+        "AC-US4-03: has no tasks mapped",
+        "AC-US4-04: has no tasks mapped",
+        "AC-US4-05: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ]
+}

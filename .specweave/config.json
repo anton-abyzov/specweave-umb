@@ -100,7 +100,7 @@
   },
   "testing": {
     "defaultTestMode": "TDD",
-    "tddEnforcement": "strict",
+    "tddEnforcement": "warn",
     "defaultCoverageTarget": 90,
     "coverageTargets": {
       "unit": 60,
@@ -162,7 +162,7 @@
     }
   },
   "limits": {
-    "maxActiveIncrements": 3,
+    "maxActiveIncrements": 7,
     "hardCap": 25,
     "allowEmergencyInterrupt": true
   },

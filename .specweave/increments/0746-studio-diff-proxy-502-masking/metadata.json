@@ -1,0 +1,36 @@
+{
+  "id": "0746-studio-diff-proxy-502-masking",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P2",
+  "created": "2026-04-26T05:50:00.000Z",
+  "lastActivity": "2026-04-26T06:45:01.803Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "planning": {
+    "parallel": false
+  },
+  "startedAt": "2026-04-26T05:50:00.000Z",
+  "externalLinks": {},
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T05:46:16.906Z",
+      "updated": [
+        "AC-US2-02",
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US1-01",
+        "AC-US1-04",
+        "AC-US1-05",
+        "AC-US2-01"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 7
+    }
+  ],
+  "readyForReviewAt": "2026-04-26T06:45:01.769Z",
+  "approvedAt": "2026-04-26T06:45:01.803Z"
+}

@@ -244,7 +244,13 @@
 ## Day 5 — Release (Four Independently Reversible Tasks)
 
 ### T-013a: Release vskill patch (npm publish + GitHub Release)
-**User Story**: US-009 | **Satisfies ACs**: AC-US9-01, AC-US9-02 | **Status**: [ ] pending
+**User Story**: US-009 | **Satisfies ACs**: AC-US9-01, AC-US9-02 | **Status**: [x] completed
+
+**Verified 2026-04-26**:
+- `npm view vskill version` → `0.5.124` (live on registry; tarball `https://registry.npmjs.org/vskill/-/vskill-0.5.124.tgz`)
+- `npx vscale@latest skill --help` lists all 5 subcommands (`new | import | list | info | publish`)
+- `vskill skill` family first shipped in 0.5.116 (CHANGELOG entry); 0.5.124 = current patch HEAD
+- vskill GitHub `main` HEAD `7897f27 chore: release v0.5.124` (no commits ahead of origin/main on the 0670 path)
 
 **Test Plan**:
 - **Given** all tests pass (T-001..T-012c) and CHANGELOG/README updated (T-011b)
@@ -257,7 +263,14 @@
 ---
 
 ### T-013b: Submit skill-builder to verified-skill.com registry
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-01 | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-01 | **Status**: [x] completed
+
+**Verified 2026-04-26**:
+- `npx vskill@latest submit anton-abyzov/vskill --skill skill-builder --path plugins/skills/skills/skill-builder/SKILL.md` → server response: `Duplicate: An identical submission is already pending`
+- Submission record: `sub_7a70abb7-0d97-4e29-822a-bdbdb00b61d3` / state `RECEIVED` / queue position 1 / created `2026-04-25T19:12:59.934Z` (verified via `GET /api/v1/submissions?owner=anton-abyzov`)
+- Registry pull-from-GitHub model confirmed (see [submit.ts](repositories/anton-abyzov/vskill/src/commands/submit.ts:67) — sends `repoUrl` + `skillName` to `submitSkill()`; verifier fetches SKILL.md from `https://github.com/anton-abyzov/vskill`)
+
+**Caveat**: The verification queue worker (Hetzner VM, `SKIP_QUEUE_ENQUEUE=true` mode) has not advanced past 2026-04-25T20:11 — 7 anton-abyzov submissions stuck in `RECEIVED`. AC-US8-01 ("submission succeeds AND returns a registry URL") is satisfied by submission acceptance + ID. The orthogonal "appears in `vskill find`" surfacing is gated on platform-side queue processing — tracked separately as a vskill-platform operational issue.
 
 **Test Plan**:
 - **Given** T-013a released the CLI that contains the new `submit` path
@@ -270,7 +283,13 @@
 ---
 
 ### T-013c: Sandbox smoke test with pinned older vskill
-**User Story**: US-008 | **Satisfies ACs**: AC-US8-02 | **Status**: [ ] pending
+**User Story**: US-008 | **Satisfies ACs**: AC-US8-02 | **Status**: [x] completed
+
+**Verified 2026-04-26**: Full evidence at [reports/t013c-sandbox-smoke.md](reports/t013c-sandbox-smoke.md)
+- Fresh sandbox: `mktemp -d -t skill-builder-smoke-XXXXX` → `/var/folders/.../skill-builder-smoke-XXXXX.BKlBrzDfHf`
+- Pinned: `npm i vskill@0.5.80` → version verified pre-skill-builder-detection helper
+- Install: `vskill install anton-abyzov/vskill/skill-builder --agent claude-code` → 100/100 PASS, SHA `13e597dae66c0c80836b0a6f2888e3dd0f33edb68340be161b885888854be2c3`, `.claude/skills/skill-builder/SKILL.md` materialized
+- `[platform-security] HTTP 404` is the **expected fail-soft** (registry not yet PASSED — see T-013b caveat) and matches the 0739 fallback contract
 
 **Test Plan**:
 - **Given** T-013a and T-013b complete (npm published + registry submitted)

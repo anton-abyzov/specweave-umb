@@ -1,10 +1,10 @@
 ---
 increment: 0743-vskill-source-link-provenance
-title: "vskill source-link provenance: persist sourceSkillPath, drop wrong fallbacks"
+title: 'vskill source-link provenance: persist sourceSkillPath, drop wrong fallbacks'
 type: bug
 priority: P2
-status: planned
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

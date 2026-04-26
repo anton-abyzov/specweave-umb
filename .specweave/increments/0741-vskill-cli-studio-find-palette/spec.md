@@ -1,10 +1,10 @@
 ---
 increment: 0741-vskill-cli-studio-find-palette
-title: "vskill CLI Studio Find Palette"
+title: vskill CLI Studio Find Palette
 type: feature
 priority: P1
-status: planned
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -38,11 +38,11 @@ This gap was missed because 0731's spec targeted `vskill-platform/src/app/studio
 **So that** I can search the verified-skill registry without leaving the local Studio
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: A new `FindSkillsPalette.tsx` component is mounted at App root via `React.lazy`, mirroring the existing `CommandPalette` and `ProjectCommandPalette` lazy-load pattern in `vskill/src/eval-ui/src/App.tsx:49`.
-- [ ] **AC-US1-02**: A global `keydown` listener in `App.tsx` registers `⌘⇧K` (Mac, `metaKey + shiftKey + KeyK`) and `Ctrl+Shift+K` (Win/Linux, `ctrlKey + shiftKey + KeyK`) — pressing the combo toggles the palette open. Existing ⌘K (CommandPalette) and ⌘P (ProjectCommandPalette) bindings continue to work unchanged.
-- [ ] **AC-US1-03**: The palette also opens in response to a `window.openFindSkills` `CustomEvent` (mirror of platform's `openSearch` contract; renamed to avoid collision with the existing CommandPalette listener which already binds `openSearch`).
-- [ ] **AC-US1-04**: `Esc` closes the palette and returns focus to the invoking element (button or last-focused element before the keyboard shortcut).
-- [ ] **AC-US1-05**: When `prefers-reduced-motion: reduce` is set, palette open/close animations collapse to a static fade only.
+- [x] **AC-US1-01**: A new `FindSkillsPalette.tsx` component is mounted at App root via `React.lazy`, mirroring the existing `CommandPalette` and `ProjectCommandPalette` lazy-load pattern in `vskill/src/eval-ui/src/App.tsx:49`.
+- [x] **AC-US1-02**: A global `keydown` listener in `App.tsx` registers `⌘⇧K` (Mac, `metaKey + shiftKey + KeyK`) and `Ctrl+Shift+K` (Win/Linux, `ctrlKey + shiftKey + KeyK`) — pressing the combo toggles the palette open. Existing ⌘K (CommandPalette) and ⌘P (ProjectCommandPalette) bindings continue to work unchanged.
+- [x] **AC-US1-03**: The palette also opens in response to a `window.openFindSkills` `CustomEvent` (mirror of platform's `openSearch` contract; renamed to avoid collision with the existing CommandPalette listener which already binds `openSearch`).
+- [x] **AC-US1-04**: `Esc` closes the palette and returns focus to the invoking element (button or last-focused element before the keyboard shortcut).
+- [x] **AC-US1-05**: When `prefers-reduced-motion: reduce` is set, palette open/close animations collapse to a static fade only.
 
 ---
 
@@ -54,11 +54,11 @@ This gap was missed because 0731's spec targeted `vskill-platform/src/app/studio
 **So that** I can find the search feature visually without memorising shortcuts
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: A new `FindSkillsNavButton` component mounts in TopRail (the header area rendered around `App.tsx:503`), positioned to the left of the existing `+ New Skill` button. It matches the existing button style: same height, padding, font, and CSS-variable tokens.
-- [ ] **AC-US2-02**: Clicking the button dispatches `window.dispatchEvent(new CustomEvent("openFindSkills"))` — the palette opens via the listener from AC-US1-03.
-- [ ] **AC-US2-03**: A shortcut-hint badge renders inside the button on the right edge: `⌘⇧K` on Mac, `Ctrl+Shift+K` on Win/Linux. Platform detection mirrors `vskill-platform/src/app/studio/components/FindNavButton.tsx:48-53` (SSR-safe `navigator.platform` probe).
-- [ ] **AC-US2-04**: The button has `data-testid="find-skills-nav-button"` for E2E hooks and ARIA label `"Find verified skills — opens search (⌘⇧K)"` (or the Win/Linux equivalent).
-- [ ] **AC-US2-05**: Under `prefers-reduced-motion: reduce`, the shortcut-hint badge does not pulse or animate.
+- [x] **AC-US2-01**: A new `FindSkillsNavButton` component mounts in TopRail (the header area rendered around `App.tsx:503`), positioned to the left of the existing `+ New Skill` button. It matches the existing button style: same height, padding, font, and CSS-variable tokens.
+- [x] **AC-US2-02**: Clicking the button dispatches `window.dispatchEvent(new CustomEvent("openFindSkills"))` — the palette opens via the listener from AC-US1-03.
+- [x] **AC-US2-03**: A shortcut-hint badge renders inside the button on the right edge: `⌘⇧K` on Mac, `Ctrl+Shift+K` on Win/Linux. Platform detection mirrors `vskill-platform/src/app/studio/components/FindNavButton.tsx:48-53` (SSR-safe `navigator.platform` probe).
+- [x] **AC-US2-04**: The button has `data-testid="find-skills-nav-button"` for E2E hooks and ARIA label `"Find verified skills — opens search (⌘⇧K)"` (or the Win/Linux equivalent).
+- [x] **AC-US2-05**: Under `prefers-reduced-motion: reduce`, the shortcut-hint badge does not pulse or animate.
 
 ---
 
@@ -70,13 +70,13 @@ This gap was missed because 0731's spec targeted `vskill-platform/src/app/studio
 **So that** finding the right skill is fast and high-confidence
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: A new `SearchPaletteCore.tsx` is created at `vskill/src/eval-ui/src/components/FindSkillsPalette/SearchPaletteCore.tsx` as a near-verbatim port of `vskill-platform/src/app/components/SearchPalette.tsx` (680 LOC). Replace `useRouter` from `next/navigation` with an `onNavigate(href: string)` callback prop. Replace `@/lib/sanitize-html` and `@/lib/skill-url` imports with copies in `vskill/src/eval-ui/src/lib/`.
-- [ ] **AC-US3-02**: When the query is empty or 1 character, the palette fetches `/api/v1/stats` (proxied through eval-server) and renders the `trendingSkills` list. Response envelope: `{ trendingSkills: [...] }`.
-- [ ] **AC-US3-03**: For queries of 2+ characters, the palette debounces 150ms after the last keystroke, then fetches `/api/v1/studio/search?q=<query>&limit=20&offset=0` (proxied). Response envelope: `{ results, total, pagination: { hasMore } }`.
-- [ ] **AC-US3-04**: Results are cached SWR-style for 60 seconds in an in-memory `Map` + ref (preserve the source pattern from `SearchPalette.tsx:219-220`). An `AbortController` cancels in-flight fetches when the query changes.
-- [ ] **AC-US3-05**: An `IntersectionObserver` sentinel at the bottom of the result list triggers the next-page fetch when `hasMore` is true. New pages append to the existing list (no reset). Hard cap at 10 pages (200 results); after the cap, render a "See all on verified-skill.com" link instead.
-- [ ] **AC-US3-06**: Keyboard navigation: ↑ / ↓ moves selection, Enter activates, Esc closes. The "type-to-search-from-anywhere" behavior (printable character pressed outside an input opens the palette pre-filled with that character) from the source SearchPalette is preserved.
-- [ ] **AC-US3-07**: Each result row renders a `MiniTierBadge` and inline `BLOCKED` / `TAINTED` warnings — port the `MiniTierBadge.tsx` component from `vskill-platform/src/app/components/`.
+- [x] **AC-US3-01**: A new `SearchPaletteCore.tsx` is created at `vskill/src/eval-ui/src/components/FindSkillsPalette/SearchPaletteCore.tsx` as a near-verbatim port of `vskill-platform/src/app/components/SearchPalette.tsx` (680 LOC). Replace `useRouter` from `next/navigation` with an `onNavigate(href: string)` callback prop. Replace `@/lib/sanitize-html` and `@/lib/skill-url` imports with copies in `vskill/src/eval-ui/src/lib/`.
+- [x] **AC-US3-02**: When the query is empty or 1 character, the palette fetches `/api/v1/stats` (proxied through eval-server) and renders the `trendingSkills` list. Response envelope: `{ trendingSkills: [...] }`.
+- [x] **AC-US3-03**: For queries of 2+ characters, the palette debounces 150ms after the last keystroke, then fetches `/api/v1/studio/search?q=<query>&limit=20&offset=0` (proxied). Response envelope: `{ results, total, pagination: { hasMore } }`.
+- [x] **AC-US3-04**: Results are cached SWR-style for 60 seconds in an in-memory `Map` + ref (preserve the source pattern from `SearchPalette.tsx:219-220`). An `AbortController` cancels in-flight fetches when the query changes.
+- [x] **AC-US3-05**: An `IntersectionObserver` sentinel at the bottom of the result list triggers the next-page fetch when `hasMore` is true. New pages append to the existing list (no reset). Hard cap at 10 pages (200 results); after the cap, render a "See all on verified-skill.com" link instead.
+- [x] **AC-US3-06**: Keyboard navigation: ↑ / ↓ moves selection, Enter activates, Esc closes. The "type-to-search-from-anywhere" behavior (printable character pressed outside an input opens the palette pre-filled with that character) from the source SearchPalette is preserved.
+- [x] **AC-US3-07**: Each result row renders a `MiniTierBadge` and inline `BLOCKED` / `TAINTED` warnings — port the `MiniTierBadge.tsx` component from `vskill-platform/src/app/components/`.
 
 ---
 
@@ -88,15 +88,15 @@ This gap was missed because 0731's spec targeted `vskill-platform/src/app/studio
 **So that** I can vet and install a specific version without context-switching to the browser
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Selecting a result (Enter or click) opens a new in-eval-ui detail panel — `SkillDetailPanel.tsx` mounted at App root via `React.lazy`. No router change required (eval-ui is single-page, hash-routed).
-- [ ] **AC-US4-02**: The detail panel fetches `/api/v1/skills/[owner]/[repo]/[skill]` (proxied) for skill metadata and `/api/v1/skills/[owner]/[repo]/[skill]/versions` (proxied) for the version list. Both endpoints already exist on platform — covered by the existing `/api/v1/skills/*` proxy glob.
-- [ ] **AC-US4-03**: The panel renders these ported components: `TrustBadge`, `TierBadge`, `RepoLink`, `RepoHealthBadge`, `TaintWarning`, `SectionDivider`, `TerminalBlock`. All copied from `vskill-platform/src/app/components/`. Per Explore subagent verification, these are pure React with no Next.js dependencies (replace only `next/link` with `<a>` in `RepoLink`).
-- [ ] **AC-US4-04**: The Versions section shows the last 5 versions, newest first. Each row is a `<button>` displaying `vX.Y.Z · YYYY-MM-DD · author@email` with a "Selected" indicator on the active row. The default selection is the latest published version. A "see all versions →" link points to `https://verified-skill.com/skills/[owner]/[repo]/[skill]/versions` (opens in a new browser tab).
-- [ ] **AC-US4-05**: The Install panel uses `TerminalBlock` (black background, mono font) and shows `vskill install <publisher>/<skill>` for the latest version, or `vskill install <publisher>/<skill>@<version>` when a non-latest version is selected. A Copy button writes the command to the clipboard via `navigator.clipboard.writeText` (with `document.execCommand('copy')` fallback for browsers without the Clipboard API). On copy, a toast is dispatched via the existing `ToastProvider`: `Run vskill install ... in your terminal` (3.5s auto-dismiss).
-- [ ] **AC-US4-06**: The skill identifier is sanitized with the regex `^[a-zA-Z0-9._@/-]+$` before being injected into the install command. Mismatching identifiers render an error state instead of the install panel. Matches the 0717 contract.
-- [ ] **AC-US4-07**: When `isBlocked === true` on the skill metadata, the install panel is replaced by a "This skill is blocked" panel (mirrors AC-US3-04 of 0717). The Versions section is still rendered for transparency.
-- [ ] **AC-US4-08**: A "← Back to results" link at the top closes the panel and re-opens the palette pre-filled with the previous query, restored from `sessionStorage` (key `find-skills:last-query`).
-- [ ] **AC-US4-09**: Keyboard tab order: back link → version list → copy button. Version rows are real `<button>` elements; Enter activates them. Esc closes the panel and returns to the palette.
+- [x] **AC-US4-01**: Selecting a result (Enter or click) opens a new in-eval-ui detail panel — `SkillDetailPanel.tsx` mounted at App root via `React.lazy`. No router change required (eval-ui is single-page, hash-routed).
+- [x] **AC-US4-02**: The detail panel fetches `/api/v1/skills/[owner]/[repo]/[skill]` (proxied) for skill metadata and `/api/v1/skills/[owner]/[repo]/[skill]/versions` (proxied) for the version list. Both endpoints already exist on platform — covered by the existing `/api/v1/skills/*` proxy glob.
+- [x] **AC-US4-03**: The panel renders these ported components: `TrustBadge`, `TierBadge`, `RepoLink`, `RepoHealthBadge`, `TaintWarning`, `SectionDivider`, `TerminalBlock`. All copied from `vskill-platform/src/app/components/`. Per Explore subagent verification, these are pure React with no Next.js dependencies (replace only `next/link` with `<a>` in `RepoLink`).
+- [x] **AC-US4-04**: The Versions section shows the last 5 versions, newest first. Each row is a `<button>` displaying `vX.Y.Z · YYYY-MM-DD · author@email` with a "Selected" indicator on the active row. The default selection is the latest published version. A "see all versions →" link points to `https://verified-skill.com/skills/[owner]/[repo]/[skill]/versions` (opens in a new browser tab).
+- [x] **AC-US4-05**: The Install panel uses `TerminalBlock` (black background, mono font) and shows `vskill install <publisher>/<skill>` for the latest version, or `vskill install <publisher>/<skill>@<version>` when a non-latest version is selected. A Copy button writes the command to the clipboard via `navigator.clipboard.writeText` (with `document.execCommand('copy')` fallback for browsers without the Clipboard API). On copy, a toast is dispatched via the existing `ToastProvider`: `Run vskill install ... in your terminal` (3.5s auto-dismiss).
+- [x] **AC-US4-06**: The skill identifier is sanitized with the regex `^[a-zA-Z0-9._@/-]+$` before being injected into the install command. Mismatching identifiers render an error state instead of the install panel. Matches the 0717 contract.
+- [x] **AC-US4-07**: When `isBlocked === true` on the skill metadata, the install panel is replaced by a "This skill is blocked" panel (mirrors AC-US3-04 of 0717). The Versions section is still rendered for transparency.
+- [x] **AC-US4-08**: A "← Back to results" link at the top closes the panel and re-opens the palette pre-filled with the previous query, restored from `sessionStorage` (key `find-skills:last-query`).
+- [x] **AC-US4-09**: Keyboard tab order: back link → version list → copy button. Version rows are real `<button>` elements; Enter activates them. Esc closes the panel and returns to the palette.
 
 ---
 
@@ -108,11 +108,11 @@ This gap was missed because 0731's spec targeted `vskill-platform/src/app/studio
 **So that** the palette and detail view never make cross-origin calls and the CORS-free architecture rule is preserved
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: `vskill/src/eval-server/platform-proxy.ts` `shouldProxyToPlatform()` (currently at line 84, matching only `/api/v1/skills/*`) is extended to also match `/api/v1/studio/search`, `/api/v1/studio/telemetry/`, and `/api/v1/stats`. The existing `/api/v1/skills/*` match is preserved unchanged.
-- [ ] **AC-US5-02**: `getPlatformBaseUrl()` already defaults to `https://verified-skill.com` and is overridable via the `VSKILL_PLATFORM_URL` env var. No code change required — this AC documents the confirmed default and adds a regression test asserting that an unset env still resolves to the production URL.
-- [ ] **AC-US5-03**: Telemetry POSTs (`/api/v1/studio/telemetry/search-select`, `/api/v1/studio/telemetry/install-copy`) are forwarded with body intact (the existing `proxyToPlatform()` already streams `req.pipe(upstreamReq)`). The eval-ui caller MUST invoke them fire-and-forget with `keepalive: true`; failures (4xx, 5xx, network) MUST NOT block UI navigation, copy, or palette behavior.
-- [ ] **AC-US5-04**: New Vitest cases in `vskill/src/eval-server/platform-proxy.test.ts` cover the new prefixes (positive: each is matched; negative: `/api/skills` without `/v1/` is NOT matched because eval-server owns it; negative: `/api/v1/foo` is NOT matched).
-- [ ] **AC-US5-05**: `/api/v1/skills/[owner]/[repo]/[skill]` and `.../versions` are already covered by the existing `/api/v1/skills/*` glob. Add a single confirming test case rather than new code.
+- [x] **AC-US5-01**: `vskill/src/eval-server/platform-proxy.ts` `shouldProxyToPlatform()` (currently at line 84, matching only `/api/v1/skills/*`) is extended to also match `/api/v1/studio/search`, `/api/v1/studio/telemetry/`, and `/api/v1/stats`. The existing `/api/v1/skills/*` match is preserved unchanged.
+- [x] **AC-US5-02**: `getPlatformBaseUrl()` already defaults to `https://verified-skill.com` and is overridable via the `VSKILL_PLATFORM_URL` env var. No code change required — this AC documents the confirmed default and adds a regression test asserting that an unset env still resolves to the production URL.
+- [x] **AC-US5-03**: Telemetry POSTs (`/api/v1/studio/telemetry/search-select`, `/api/v1/studio/telemetry/install-copy`) are forwarded with body intact (the existing `proxyToPlatform()` already streams `req.pipe(upstreamReq)`). The eval-ui caller MUST invoke them fire-and-forget with `keepalive: true`; failures (4xx, 5xx, network) MUST NOT block UI navigation, copy, or palette behavior.
+- [x] **AC-US5-04**: New Vitest cases in `vskill/src/eval-server/platform-proxy.test.ts` cover the new prefixes (positive: each is matched; negative: `/api/skills` without `/v1/` is NOT matched because eval-server owns it; negative: `/api/v1/foo` is NOT matched).
+- [x] **AC-US5-05**: `/api/v1/skills/[owner]/[repo]/[skill]` and `.../versions` are already covered by the existing `/api/v1/skills/*` glob. Add a single confirming test case rather than new code.
 
 ---
 

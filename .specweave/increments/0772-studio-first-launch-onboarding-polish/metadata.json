@@ -1,0 +1,31 @@
+{
+  "id": "0772-studio-first-launch-onboarding-polish",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P2",
+  "created": "2026-04-26T18:36:54.559Z",
+  "lastActivity": "2026-04-26T18:36:54.559Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1207",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1207",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T19:07:53.351Z"
+    },
+    "ado": {
+      "featureId": "2046",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2046",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T19:07:57.237Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  }
+}

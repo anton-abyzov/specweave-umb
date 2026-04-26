@@ -1,0 +1,32 @@
+{
+  "id": "0766-studio-ui-cache-invalidation-and-loading-bugs",
+  "name": "studio-ui-cache-invalidation-and-loading-bugs",
+  "title": "Studio: UI cache-invalidation + loading-state bugs",
+  "status": "active",
+  "priority": "P1",
+  "type": "bug",
+  "owner": "anton",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T17:15:26.548Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03",
+        "AC-US2-04",
+        "AC-US2-05"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 8
+    }
+  ],
+  "lastActivity": "2026-04-26T17:15:26.548Z",
+  "created": "2026-04-26",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

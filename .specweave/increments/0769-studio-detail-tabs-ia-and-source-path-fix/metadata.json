@@ -1,0 +1,176 @@
+{
+  "id": "0769-studio-detail-tabs-ia-and-source-path-fix",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-26T17:21:01.801Z",
+  "lastActivity": "2026-04-26T19:01:40.014Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1194",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1194",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T19:02:14.154Z"
+    },
+    "ado": {
+      "featureId": "2033",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2033",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T19:02:19.775Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T18:00:57.050Z",
+      "updated": [
+        "AC-US5-01",
+        "AC-US3-01",
+        "AC-US4-02",
+        "AC-US6-01",
+        "AC-US1-01",
+        "AC-US2-01"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 6
+    },
+    {
+      "timestamp": "2026-04-26T18:00:23.095Z",
+      "updated": [
+        "AC-US8-03",
+        "AC-US8-01",
+        "AC-US8-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-04-26T18:00:15.663Z",
+      "updated": [
+        "AC-US8-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T18:00:08.293Z",
+      "updated": [
+        "AC-US2-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T18:00:00.623Z",
+      "updated": [
+        "AC-US2-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T17:59:54.143Z",
+      "updated": [
+        "AC-US1-03",
+        "AC-US2-03",
+        "AC-US7-01",
+        "AC-US7-02",
+        "AC-US7-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 5
+    },
+    {
+      "timestamp": "2026-04-26T17:59:44.885Z",
+      "updated": [
+        "AC-US1-02",
+        "AC-US1-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-04-26T17:59:23.837Z",
+      "updated": [
+        "AC-US1-05"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T17:51:03.863Z",
+      "updated": [
+        "AC-US6-02",
+        "AC-US6-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-04-26T17:50:04.663Z",
+      "updated": [
+        "AC-US3-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T17:49:50.900Z",
+      "updated": [
+        "AC-US5-03",
+        "AC-US5-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-04-26T17:45:43.272Z",
+      "updated": [
+        "AC-US3-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T17:45:36.715Z",
+      "updated": [
+        "AC-US5-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T17:39:35.131Z",
+      "updated": [
+        "AC-US4-01",
+        "AC-US4-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    }
+  ],
+  "readyForReviewAt": "2026-04-26T19:01:39.981Z",
+  "approvedAt": "2026-04-26T19:01:40.014Z"
+}

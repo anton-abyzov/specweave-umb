@@ -1,14 +1,17 @@
 ---
 increment: 0737-studio-skill-source-github-link
-title: "Studio skill detail — clickable GitHub source link"
+title: Studio skill detail — clickable GitHub source link
 type: feature
 priority: P2
-status: ready_for_review
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
-discovered_during: User QA on 2026-04-26 — the Studio detail header for an installed skill has no clickable path back to the source SKILL.md on GitHub. verified-skill.com (the public site) does have this affordance, so the parity gap is jarring.
+discovered_during: >-
+  User QA on 2026-04-26 — the Studio detail header for an installed skill has no
+  clickable path back to the source SKILL.md on GitHub. verified-skill.com (the
+  public site) does have this affordance, so the parity gap is jarring.
 ---
 
 # Feature: Studio skill detail — clickable GitHub source link

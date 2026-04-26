@@ -1,0 +1,50 @@
+{
+  "id": "0767-studio-plugin-uninstall-confirm-and-orphan-cleanup",
+  "name": "studio-plugin-uninstall-confirm-and-orphan-cleanup",
+  "type": "bug",
+  "status": "active",
+  "tags": [
+    "vskill",
+    "studio",
+    "plugin-uninstall"
+  ],
+  "summary": "Studio plugin Uninstall: replace window.confirm with beautiful ConfirmDialog, add toast feedback, and fall back to orphan-cache cleanup when claude CLI reports 'not found in installed plugins'.",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T17:31:38.912Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01..04 referenced in tasks.md but not found in spec.md",
+        "AC-US4-02: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T17:17:03.400Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01..04 referenced in tasks.md but not found in spec.md",
+        "AC-US4-02: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T17:06:48.713Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01..04 referenced in tasks.md but not found in spec.md",
+        "AC-US4-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "lastActivity": "2026-04-26T17:31:38.913Z",
+  "created": "2026-04-26",
+  "externalLinks": {},
+  "priority": "medium",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

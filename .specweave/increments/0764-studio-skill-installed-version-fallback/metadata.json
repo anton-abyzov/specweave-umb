@@ -1,0 +1,40 @@
+{
+  "id": "0764-studio-skill-installed-version-fallback",
+  "name": "studio-skill-installed-version-fallback",
+  "title": "Studio: detect installed skill version when lockfile is empty",
+  "status": "active",
+  "priority": "P1",
+  "type": "bug",
+  "owner": "anton",
+  "links": {
+    "relatedSkill": ".claude/skills/scout",
+    "relatedFiles": [
+      "repositories/anton-abyzov/vskill/src/eval-server/api-routes.ts",
+      "repositories/anton-abyzov/vskill/.claude/skills/scout/SKILL.md"
+    ]
+  },
+  "created": "2026-04-26",
+  "externalLinks": {},
+  "lastActivity": "2026-04-26T15:39:48.637Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T15:39:48.637Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US1-04",
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US3-01"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01..04 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 7
+    }
+  ]
+}
