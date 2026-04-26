@@ -1,0 +1,31 @@
+{
+  "id": "0758-fix-process-submission-test-fixtures-ai-router-mock",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-26T09:43:56.424Z",
+  "lastActivity": "2026-04-26T09:43:56.424Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1184",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1184",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T09:48:35.853Z"
+    },
+    "ado": {
+      "featureId": "2023",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2023",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T09:48:36.758Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  }
+}
