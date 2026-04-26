@@ -1,0 +1,33 @@
+{
+  "id": "0774-studio-detail-tabs-subtab-and-right-rail-followup",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-04-26T19:29:12.859Z",
+  "lastActivity": "2026-04-26T19:43:21.694Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1221",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1221",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T19:43:36.424Z"
+    },
+    "ado": {
+      "featureId": "2060",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2060",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T19:43:39.179Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "readyForReviewAt": "2026-04-26T19:43:04.341Z",
+  "approvedAt": "2026-04-26T19:43:21.694Z"
+}
