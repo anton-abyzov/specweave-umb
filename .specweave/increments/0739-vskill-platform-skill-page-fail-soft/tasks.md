@@ -96,6 +96,7 @@
 **Test Plan**: N/A — bookkeeping.
 
 ### T-013: Commit and push (umbrella + child repo)
-**User Story**: US-001 | **AC**: all | **Status**: [ ] not started
+**User Story**: US-001 | **AC**: all | **Status**: [x] completed
+**Notes**: Child repo commit `b16732f`, umbrella commit `d44472c9`. Both pushed to GitHub. Cloudflare Workers will auto-deploy from main.
 **Description**: Two commits — one in `repositories/anton-abyzov/vskill-platform/` (the data.ts + tests change) and one in the umbrella for the increment artifacts. Then `git push` both.
 **Test Plan**: `git status` clean afterward in both repos.

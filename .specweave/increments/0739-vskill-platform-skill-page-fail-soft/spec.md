@@ -1,10 +1,12 @@
 ---
 increment: 0739-vskill-platform-skill-page-fail-soft
-title: "vskill-platform: skill page must always render — defensive fail-soft on blocklist/rejected fallback queries"
+title: >-
+  vskill-platform: skill page must always render — defensive fail-soft on
+  blocklist/rejected fallback queries
 type: bug
 priority: P1
-status: active
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
