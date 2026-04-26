@@ -1,10 +1,10 @@
 {
   "id": "0778-platform-pipeline-degraded-banner",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P2",
   "created": "2026-04-26T21:10:39.567Z",
-  "lastActivity": "2026-04-26T21:13:57.297Z",
+  "lastActivity": "2026-04-26T21:27:01.004Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1248",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-26T21:14:28.353Z"
+      "syncedAt": "2026-04-26T21:26:52.040Z"
     },
     "ado": {
       "featureId": "2087",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2087",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-26T21:14:30.344Z"
+      "syncedAt": "2026-04-26T21:26:55.740Z"
     }
   },
   "planning": {
@@ -39,5 +39,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-26T21:27:00.971Z",
+  "approvedAt": "2026-04-26T21:27:01.004Z"
 }
