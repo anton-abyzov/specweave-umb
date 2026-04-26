@@ -28,6 +28,24 @@ Still deferred to full 0742: dirty-state pill on the header, repo creation via `
 
 ## User Stories
 
+### US-006: Sidebar dirty indicator for skills with uncommitted changes (P1, Phase 6)
+**Project**: vskill
+
+**As a** skill author working in the studio
+**I want** an at-a-glance amber dot next to any skill in the sidebar whose directory has uncommitted git changes
+**So that** I can see which authored skills need to be published before I context-switch and forget
+
+**Acceptance Criteria**:
+- [x] **AC-US6-01**: Given the workspace has uncommitted changes inside a skill's directory, when the sidebar renders, then a small amber dot is visible immediately to the left of that skill's version badge with `aria-label="Uncommitted changes"` and a tooltip explaining the publish flow.
+- [x] **AC-US6-02**: Given a skill's directory has no uncommitted changes, when the sidebar renders, then no dirty dot is shown for that skill.
+- [x] **AC-US6-03**: A new lightweight `GET /api/git/status` endpoint runs `git status --porcelain` (argv-only, no shell:true) and returns `{ paths: string[] }` with the porcelain prefix already stripped. Non-git workspaces and git errors → `{ paths: [] }` with HTTP 200 (fail-soft).
+- [x] **AC-US6-04**: A pure helper `getDirtySkillIds(skills, dirtyPaths, workspaceRoot)` resolves dirty paths to skill IDs. Handles: skill dir == workspace root (any dirty path → dirty), sibling-prefix collisions (`foo` vs `foobar`), porcelain status prefixes, and skill dirs outside the workspace root (defensively ignored).
+- [x] **AC-US6-05**: `useDirtySkills(skills, workspaceRoot)` hook polls `/api/git/status` every 5 s by default (configurable), re-fires immediately on `studio:content-saved` events, and returns a `Set<string>` of dirty `<plugin>/<skill>` IDs. Network/API errors are coerced to an empty set (fail-silent).
+- [x] **AC-US6-06**: The dirty set is plumbed end-to-end: `App.tsx` calls the hook, passes `dirtySkillIds` to `<Sidebar>`, which threads it through `<SectionList>` and `<PluginGroup>` to each `<SkillRow>`. The `<SkillRow>` `dirty` prop is optional and backward-compatible (legacy callers omit it; the dot stays hidden).
+- [x] **AC-US6-07**: When the user reverts the dirty edits, the dot disappears within one poll cycle (≤ 5 s). Verified live against the greet-anton repo: dot appeared on dirty tree, disappeared after `git checkout`.
+
+---
+
 ### US-005: AI-assisted commit message + commit/push for dirty trees (P1, Phase 5)
 **Project**: vskill
 

@@ -462,3 +462,45 @@ Added in follow-up after initial 0759 close. All tasks below are completed and s
 **Phase**: E2E
 **Test Plan**: Built vskill@0.5.132 locally, spawned `eval serve --root <umbrella>`, hit `POST /api/git/diff` against this very repo with 22 unstaged file changes; received `{ hasChanges: true, fileCount: 22, diff: "diff --git a/.specweave/config.json…" }` — confirms real git diff subprocess invocation, not mocked.
 **Files**: N/A (smoke verification)
+
+---
+
+## Phase 6 — Sidebar dirty indicator
+
+Added in follow-up. All tasks below are completed and shipped in vskill@0.5.138.
+
+### T-034: RED — Tests for getDirtySkillIds pure resolver
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-04 | **Status**: [x] completed
+**Files**: `src/eval-ui/src/utils/__tests__/getDirtySkillIds.test.ts` (NEW). 8 cases: dirty intersection, empty input, skill dir == workspace root, sibling-prefix safety, outside-root defense, porcelain prefix tolerance, skill ID format.
+
+### T-035: GREEN — Implement getDirtySkillIds
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-04 | **Status**: [x] completed
+**Files**: `src/eval-ui/src/utils/getDirtySkillIds.ts` (NEW). Pure function, no Node `path` dep (POSIX string prefix check).
+
+### T-036: RED — Tests for GET /api/git/status
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-03 | **Status**: [x] completed
+**Files**: `src/eval-server/__tests__/git-status.test.ts` (NEW). 4 cases: parsed porcelain paths, clean tree, non-git repo (exit 128 → empty array), argv-only spawn safety.
+
+### T-037: GREEN — Implement makeGetGitStatusHandler + register route
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-03 | **Status**: [x] completed
+**Files**: `src/eval-server/git-routes.ts` (MODIFY). Reuses existing `runGitCommand` helper, strips status prefix with regex `/^[ MADRCU?!]{1,2} +/`, fail-soft on non-zero exit.
+
+### T-038: api.gitStatus client + useDirtySkills hook
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-05 | **Status**: [x] completed
+**Files**: `src/eval-ui/src/api.ts` (MODIFY), `src/eval-ui/src/hooks/useDirtySkills.ts` (NEW). 5 s default poll, listens to `studio:content-saved`, returns Set on every render derived from latest skill list via skillsRef.
+
+### T-039: SkillRow dirty prop + amber dot indicator
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02 | **Status**: [x] completed
+**Files**: `src/eval-ui/src/components/SkillRow.tsx` (MODIFY). New optional `dirty?: boolean` prop, renders 7×7px amber dot with `data-testid="skill-row-dirty-dot"`, `aria-label="Uncommitted changes"`, descriptive tooltip.
+
+### T-040: Plumb dirtySkillIds through Sidebar / SectionList / PluginGroup
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-06 | **Status**: [x] completed
+**Files**: `src/eval-ui/src/components/Sidebar.tsx` (MODIFY) — added `dirtySkillIds?: Set<string>` prop, threaded through 5 SectionList callsites + the inline `renderSkill` callbacks. `src/eval-ui/src/components/PluginGroup.tsx` (MODIFY) — added prop, passed to its SkillRow.
+
+### T-041: Wire useDirtySkills in App.tsx
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-05, AC-US6-06 | **Status**: [x] completed
+**Files**: `src/eval-ui/src/App.tsx` (MODIFY). Hook called with `(visibleSkills, activeProject?.path ?? null)`; result passed to `<Sidebar dirtySkillIds={...}>`.
+
+### T-042: Live smoke test: dirty dot round-trip
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-07 | **Status**: [x] completed
+**Test Plan**: Built vskill@0.5.138, started `eval serve --root <greet-anton repo>` in browser, verified greet-anton row in AUTHORING > SKILLS section showed amber dot when SKILL.md was modified + NOTES.md added. Reverted edits, waited one poll cycle (≤5s), confirmed dot disappeared. Performed via Playwright preview tools against the real running studio — not mocked.
