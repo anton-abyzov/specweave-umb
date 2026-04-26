@@ -1,10 +1,10 @@
 ---
 increment: 0757-queue-counters-zero-on-cold-worker
-title: "Queue counters render 0/0/0/0/0 on cold Cloudflare workers"
+title: Queue counters render 0/0/0/0/0 on cold Cloudflare workers
 type: hotfix
 priority: P0
-status: ready-for-review
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
