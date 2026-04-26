@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0768 — Cron CPU budget split: light + heavy cohorts
 
 ## Problem

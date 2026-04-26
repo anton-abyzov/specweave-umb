@@ -1,7 +1,7 @@
 {
   "id": "0768-cron-cpu-budget-split",
   "title": "Cron CPU budget split: light + heavy cohorts on separate schedules",
-  "status": "active",
+  "status": "completed",
   "type": "hotfix",
   "owner": "anton-abyzov@vskill",
   "links": {
@@ -38,10 +38,12 @@
       "changesCount": 0
     }
   ],
-  "lastActivity": "2026-04-26T18:37:26.333Z",
+  "lastActivity": "2026-04-26T19:28:39.375Z",
   "created": "2026-04-26",
   "externalLinks": {},
   "priority": "medium",
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-04-26T19:28:39.365Z",
+  "approvedAt": "2026-04-26T19:28:39.375Z"
 }
