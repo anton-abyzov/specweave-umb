@@ -1,0 +1,271 @@
+{
+  "id": "0739-vskill-platform-skill-page-fail-soft",
+  "status": "ready_for_review",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-26T02:27:16.922Z",
+  "lastActivity": "2026-04-26T02:38:36.961Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T02:38:36.960Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:37:58.932Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:37:26.665Z",
+      "updated": [
+        "AC-US1-05"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T02:37:21.991Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:34:58.496Z",
+      "updated": [
+        "AC-US1-03"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T02:34:54.288Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-04"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-04-26T02:34:52.354Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:34:50.798Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:34:49.319Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:34:46.909Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:34:45.422Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:32:36.810Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:31:21.540Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/4 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-05: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:31:20.318Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/4 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-05: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:31:18.764Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/4 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-05: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:31:17.164Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/4 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-05: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:31:15.541Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/4 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-05: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:31:13.292Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/4 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/5 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:31:12.188Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/5 tasks complete (0%)",
+        "AC-US1-03: [x] but only 1/4 tasks complete (25%)",
+        "AC-US1-04: [x] but only 0/5 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T02:31:10.607Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 1/5 tasks complete (20%)",
+        "AC-US1-02: [x] but only 1/5 tasks complete (20%)",
+        "AC-US1-03: [x] but only 2/4 tasks complete (50%)",
+        "AC-US1-04: [x] but only 1/5 tasks complete (20%)"
+      ],
+      "warnings": [
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
