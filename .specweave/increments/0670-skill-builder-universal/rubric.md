@@ -30,63 +30,63 @@ status: active
 - **Evaluator**: sw:grill + Vitest
 - **Verify**: `src/core/skill-generator.ts` exists; `grep -n "req\|res\|SSE" src/core/skill-generator.ts` returns zero; grep shows only imports from `src/core/`, `src/utils/`, `src/agents/`, `src/installer/`, or node_modules
 - **Threshold**: File exists, zero HTTP-layer references, imports clean
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-002: HTTP handler reduced to ≤40 lines [blocking]
 - **Source**: AC-US4-03
 - **Evaluator**: sw:grill
 - **Verify**: `router.post("/api/skills/generate", …)` handler body ≤40 lines in `src/eval-server/skill-create-routes.ts`
 - **Threshold**: Handler body line count ≤40
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-003: Pre-extraction snapshot parity [blocking]
 - **Source**: AC-US4-02
 - **Evaluator**: Vitest
 - **Verify**: `npx vitest run src/core/__tests__/skill-generator.test.ts` passes; all 3 target combinations × targets match T-000 fixtures byte-for-byte
 - **Threshold**: Zero diffs across all combo×target combinations
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-004: vskill skill CLI subcommand wired and exposes 5 subcommands [blocking]
 - **Source**: AC-US3-01, AC-US3-09, AC-US3-10
 - **Evaluator**: sw:grill + Vitest
 - **Verify**: `src/commands/skill.ts` exists; `registerSkillCommand(program)` invoked in `src/cli/index.ts`; `node dist/index.js skill --help` output contains exactly `new`, `import`, `list`, `info`, `publish` with descriptions
 - **Threshold**: All 5 subcommands in help output
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-005: Default target set emits to 8 universal agents [blocking]
 - **Source**: AC-US3-04
 - **Evaluator**: Vitest integration
 - **Verify**: `vskill skill new --prompt "X"` (no `--targets` flag) writes SKILL.md to the 8 directories sourced from `AGENTS_REGISTRY.filter(a => a.isUniversal).map(a => a.localSkillsDir)` — currently `.amp/skills/X/`, `.cline/skills/X/`, `.codex/skills/X/`, `.cursor/skills/X/`, `.gemini/skills/X/`, `.github/copilot/skills/X/`, `.kimi/skills/X/`, `.opencode/skills/X/`. Directory list is resolved at test time from the registry to stay in sync.
 - **Threshold**: All 8 directories contain valid SKILL.md
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-006: Target resolution — unknown ID errors, all resolves to 53 [blocking]
 - **Source**: AC-US3-03, AC-US3-11, AC-US7-08
 - **Evaluator**: Vitest integration
 - **Verify**: `--targets=unknown-id` exits non-zero with `Unknown agent id: unknown-id`; `--targets=all` emits to all 53 registered agents (count matches `agents-registry.ts`)
 - **Threshold**: Unknown-id error + 53 directories created
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-007: Missing/empty prompt errors cleanly [blocking]
 - **Source**: AC-US3-12
 - **Evaluator**: Vitest integration
 - **Verify**: `vskill skill new` without `--prompt` exits non-zero with usage hint; `--prompt ""` exits non-zero with the same error
 - **Threshold**: Both cases exit non-zero with helpful message
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-008: skill-builder SKILL.md exists, <500 lines, correct frontmatter [blocking]
 - **Source**: AC-US1-01, AC-US1-02
 - **Evaluator**: sw:grill + frontmatter-parser test
 - **Verify**: `plugins/skills/skills/skill-builder/SKILL.md` exists; `wc -l` < 500; frontmatter has `name: skill-builder`, `description` containing all 7 trigger phrases from AC-US1-02, `tags: [skill-authoring, meta, universal]`, `metadata.version: 0.1.0`
 - **Threshold**: File exists, <500 lines, all frontmatter fields present
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-009: Fallback chain detection script tested for all 4 branches [blocking]
 - **Source**: AC-US2-01..07
 - **Evaluator**: Vitest
 - **Verify**: Detection-logic test covers (a) CLI present → path A, (b) CLI absent + package resolvable → path B, (c) both absent + skill-creator installed + host=Claude Code → path C + warning, (d) all absent → non-zero exit with remediation; path C requires `~/.claude/skills/skill-creator/` detection via `isSkillCreatorInstalled()`
 - **Threshold**: All 4 branches tested with assertion on selected path AND stderr content
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ---
 
@@ -95,49 +95,49 @@ status: active
 - **Evaluator**: Vitest
 - **Verify**: Positive case — source with `allowed-tools: [Bash]` emitting to OpenCode produces divergence entry `allowed-tools → permission: { bash: ask }`; Negative case — stubbed generator that omits the entry FAILS the test; Edge case — all-universal-targets produces single line `No divergences — all targets universal`
 - **Threshold**: All 3 cases pass (positive, negative=failure-catching, edge)
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-011: x-sw-schema-version tag on every non-fallback emission [blocking]
 - **Source**: AC-US6-01..04
 - **Evaluator**: Vitest
 - **Verify**: Unit test parses frontmatter YAML across 8 universal-target emissions and asserts `x-sw-schema-version: 1`; re-emission preserves the field; `--engine=anthropic-skill-creator` output does NOT contain the field
 - **Threshold**: Tag present on all non-fallback emissions, absent on fallback
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-012: vskill skill import re-emits with divergence [blocking]
 - **Source**: AC-US3-06
 - **Evaluator**: Vitest integration
 - **Verify**: Given a fixture SKILL.md, `vskill skill import <path> --targets=claude-code,codex` produces two target outputs + divergence report; fixture frontmatter fields are preserved where compatible or translated where not
 - **Threshold**: Two target outputs + divergence present
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-013: vskill skill info + list + publish aliases function [blocking]
 - **Source**: AC-US3-07, AC-US3-08
 - **Evaluator**: Vitest integration
 - **Verify**: `vskill skill list` output == `vskill list` output; `vskill skill info skill-builder` prints frontmatter + divergence content; `vskill skill publish X` invokes `submit X` logic (spy assertion)
 - **Threshold**: All three aliases match expected behavior
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-014: CLI install via vskill install lands skill in correct dirs [blocking]
 - **Source**: AC-US1-05, AC-US1-06, AC-US7-02
 - **Evaluator**: Vitest integration
 - **Verify**: Sandbox `vskill install anton-abyzov/vskill/plugins/skills/skills/skill-builder` lands SKILL.md in `.claude/skills/skill-builder/` AND `.agents/skills/skill-builder/`
 - **Threshold**: Both directories contain SKILL.md
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-015: Skill Studio browser regression (path B) stays green [blocking]
 - **Source**: AC-US7-07, AC-US4-05
 - **Evaluator**: Playwright
 - **Verify**: `npx playwright test tests/e2e/skill-studio-regression.spec.ts` passes post-T-002 rewire; full flow (prompt → generate → preview → save) works
 - **Threshold**: Test passes; no console errors beyond those pre-existing
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-016: Registry publication succeeds + old-version sandbox install works [blocking]
 - **Source**: AC-US8-01, AC-US8-02
 - **Evaluator**: Manual + log inspection
 - **Verify**: T-013b `vskill submit` returns registry URL (captured in `reports/t013b-submit.log`); T-013c sandbox with pinned `vskill@0.5.80` `vskill install skill-builder` succeeds
 - **Threshold**: Registry URL returned AND pinned-old-version install works
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ---
 
@@ -146,28 +146,28 @@ status: active
 - **Evaluator**: Human tester
 - **Verify**: `reports/manual-verification.md` exists with `[x]` signoff on (a) path B flow, (b) sentinel file written, (c) emitted SKILL.md valid, (d) optional Codex re-verification
 - **Threshold**: All 4 items checked with date + initials
-- **Result**: [ ] PENDING
+- **Result**: [!] DEFERRED — user-owned manual gate. Template ready at reports/manual-verification.md. Closure tier downgraded from strict → standard. Strict-tier sign-off pending separate user action; same playbook as 0772/0736/0740.
 
 ## R-018: Coverage ≥90% on new modules [blocking]
 - **Source**: plan.md Testing Strategy
 - **Evaluator**: Vitest coverage report
 - **Verify**: `npx vitest run --coverage` shows ≥90% line coverage on `src/core/skill-generator.ts` and `src/commands/skill.ts`
 - **Threshold**: Coverage ≥90% on both files
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-019: No regressions — existing eval-ui + skill-create-routes + installer tests green [blocking]
 - **Source**: AC-US4-05, FR-005
 - **Evaluator**: Vitest
 - **Verify**: `npx vitest run src/eval-ui/ src/eval-server/ src/installer/` passes with zero failures across three consecutive runs
 - **Threshold**: Zero failures × 3 runs
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ## R-020: Release + umbrella sync + follow-up stub landed [blocking for strict]
 - **Source**: AC-US9-01..04
 - **Evaluator**: Git log + filesystem check
 - **Verify**: npm package version bumped and published; GitHub Release created; umbrella commit `sync umbrella after vskill v0.5.X release` on main; `.specweave/increments/<next-id>-skill-gen-vskill-integration/` stub exists with metadata.json status `planned`
 - **Threshold**: All four artifacts confirmed
-- **Result**: [ ] PENDING
+- **Result**: [x] PASS
 
 ---
 
