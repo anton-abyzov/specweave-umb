@@ -49,7 +49,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-004: [GREEN] SearchPalette — export SearchResult type and add searchUrl prop
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given the new test file `SearchPalette.props.test.tsx` asserts `searchUrl` is forwarded to `fetch`
 - When `SearchPalette` is rendered with `searchUrl="/api/v1/studio/search"` and a query is typed
@@ -61,7 +61,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-005: [GREEN] SearchPalette — add selectHref prop and store sourceResult on allItems
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `SearchPalette.props.test.tsx` (extend) asserts `selectHref` is called and its return value is used in `router.push`
 - When `selectHref={(r) => "/studio/find/" + r.name}` is passed and user selects a result
@@ -73,7 +73,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-006: [GREEN] SearchPalette — add onSelect prop, fire before router.push
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-05, AC-US2-06 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-05, AC-US2-06 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `SearchPalette.props.test.tsx` (extend) asserts `onSelect` fires exactly once per skill selection with `(result, query)`
 - When a skill result row is selected via keyboard Enter
@@ -85,7 +85,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-007: [GREEN] FindNavButton component — renders, ARIA, testid
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-04 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-04 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `FindNavButton.test.tsx` imports from `@/app/studio/components/FindNavButton` (file does not exist yet)
 - When rendered
@@ -97,7 +97,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-008: [GREEN] FindNavButton — click dispatches openSearch, ⌘K hint, reduced-motion
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03, AC-US1-05 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03, AC-US1-05 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `FindNavButton.test.tsx` (extend T-007) with `window.dispatchEvent` spy
 - When button is clicked
@@ -109,7 +109,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-009: [GREEN] StudioSearchPalette wrapper — correct props, telemetry POST on select
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `StudioSearchPalette.test.tsx` mocks `SearchPalette` and `fetch`
 - When a skill result is selected
@@ -121,7 +121,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-010: [GREEN] Wire FindNavButton + StudioSearchPalette into studio/layout.tsx
-**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US2-04 | **Status**: [ ] pending
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US2-04 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given the studio layout test (`src/app/studio/__tests__/layout.test.tsx`) asserts both components are present
 - When the test renders `studio/layout.tsx`
@@ -133,7 +133,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-011: [GREEN] Telemetry route — add search-select kind + extend install-copy with version field
-**User Story**: US-002, US-003 | **Satisfies ACs**: AC-US2-05, AC-US3-06 | **Status**: [ ] pending
+**User Story**: US-002, US-003 | **Satisfies ACs**: AC-US2-05, AC-US3-06 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given the existing `route.test.ts` for `[kind]/route.ts`
 - When new test cases POST to `search-select` kind with valid/invalid/missing-fingerprint/rate-limited payloads
@@ -145,7 +145,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-012: [GREEN] Studio detail page — server component, data fetch, hero, metadata
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `page.test.tsx` mocks `getSkillByName` and `getSkillVersions`
 - When the page renders with a valid skill slug
@@ -157,7 +157,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-013: [GREEN] VersionPicker — radiogroup ARIA, keyboard nav, controlled selection
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-03, AC-US3-09 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-03, AC-US3-09 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `VersionPicker.test.tsx` renders with 5 mock versions
 - When rendered
@@ -169,7 +169,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-014: [GREEN] InstallPanel — latest vs versioned install command derivation, sanitize
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `InstallPanel.test.tsx` renders with `skillName="anton/vskill/demo"`, `defaultVersion="1.2.0"`, 3 mock versions
 - When latest version (1.2.0) is selected
@@ -181,7 +181,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-015: [GREEN] InstallPanel — clipboard copy + toast (success + fallback paths)
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-05 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-05 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `InstallPanel.test.tsx` (extend T-014)
 - When Copy button is clicked and `navigator.clipboard.writeText` resolves
@@ -193,7 +193,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-016: [GREEN] InstallPanel — telemetry POST on copy, version field omitted for latest
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-06 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-06 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `InstallPanel.test.tsx` (extend) mocks `fetch`
 - When Copy is clicked with latest version selected
@@ -205,7 +205,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-017: [GREEN] InstallPanel — blocked path replaces install panel
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-07 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-07 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `InstallPanel.test.tsx` (extend) rendered with `isBlocked={true}`
 - When component renders
@@ -217,7 +217,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-018: [GREEN] Detail page — back link and submit-find footer link
-**User Story**: US-003, US-005 | **Satisfies ACs**: AC-US3-08, AC-US5-02 | **Status**: [ ] pending
+**User Story**: US-003, US-005 | **Satisfies ACs**: AC-US3-08, AC-US5-02 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `page.test.tsx` (extend T-012)
 - When detail page renders with `?from=vskill` query param
@@ -229,7 +229,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-019: [GREEN] Detail page — versions section (last 5, graceful missing fields, "see all" link)
-**User Story**: US-003 | **Satisfies ACs**: AC-US3-03 | **Status**: [ ] pending
+**User Story**: US-003 | **Satisfies ACs**: AC-US3-03 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `page.test.tsx` (extend) with 7 mock versions from `getSkillVersions`
 - When page renders
@@ -241,7 +241,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-020: [GREEN] FindClient — wire result card body click to navigate to detail route
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [ ] pending
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-03 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `FindClient.test.tsx` (extend existing) renders a result card
 - When the card body is clicked (not the Install button)
@@ -253,7 +253,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-021: [GREEN] Studio home CTA card — renders above feature grid, dispatches openSearch
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `src/app/studio/__tests__/page.test.tsx` (extend existing)
 - When studio home page renders
@@ -265,7 +265,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-022: [GREEN] Studio home CTA card — mobile stacking, no CLS
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-03 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-03 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `page.test.tsx` (extend) checks DOM order and that the card has no client-only layout side-effects
 - When rendered
@@ -277,7 +277,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-023: [GREEN] SubmitFindBanner regression — still renders on /studio/find empty state
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given the existing `FindClient.test.tsx` (extend)
 - When `/studio/find` renders with empty results
@@ -289,7 +289,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-024: [GREEN] CSS var audit — no hard-coded colors in new components
-**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US1-01, AC-US2-01, AC-US3-02, AC-US4-02 | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US1-01, AC-US2-01, AC-US3-02, AC-US4-02 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given a grep scan of all new `.tsx` files introduced in this increment
 - When scanning for hard-coded color values (`#[0-9a-fA-F]{3,6}`, `rgb(`, `hsl(`) outside of `TerminalBlock`
@@ -301,7 +301,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-025: [GREEN] E2E — golden path (mouse): Studio home → palette → detail → copy
-**User Story**: US-001, US-002, US-003, US-004, US-005 | **Satisfies ACs**: AC-US1-02, AC-US2-01, AC-US2-03, AC-US3-04, AC-US3-05, AC-US4-01 | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003, US-004, US-005 | **Satisfies ACs**: AC-US1-02, AC-US2-01, AC-US2-03, AC-US3-04, AC-US3-05, AC-US4-01 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `tests/e2e/studio-find-slick.spec.ts` (new) is written first against TODO selectors — test fails because components don't exist yet (RED)
 - When all prior tasks complete and test runs
@@ -313,7 +313,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-026: [GREEN] E2E — keyboard-only path: ⌘K → navigate → version → copy
-**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-03, AC-US2-01, AC-US3-09 | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003 | **Satisfies ACs**: AC-US1-03, AC-US2-01, AC-US3-09 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `tests/e2e/studio-find-slick.spec.ts` (extend T-025)
 - When keyboard scenario runs
@@ -325,7 +325,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-027: [GREEN] E2E — back navigation and blocked skill path
-**User Story**: US-003, US-005 | **Satisfies ACs**: AC-US3-07, AC-US3-08, AC-US5-01 | **Status**: [ ] pending
+**User Story**: US-003, US-005 | **Satisfies ACs**: AC-US3-07, AC-US3-08, AC-US5-01 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `tests/e2e/studio-find-slick.spec.ts` (extend)
 - When back navigation scenario: select skill from palette with query "vskill" → land on detail → click "← Back to results" → assert URL is `/studio/find?q=vskill`
@@ -337,7 +337,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-028: [GREEN] E2E — telemetry assertions (search-select + install-copy payload shapes)
-**User Story**: US-002, US-003 | **Satisfies ACs**: AC-US2-05, AC-US3-06 | **Status**: [ ] pending
+**User Story**: US-002, US-003 | **Satisfies ACs**: AC-US2-05, AC-US3-06 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `tests/e2e/studio-find-slick.spec.ts` (extend) with Playwright `page.route()` interception
 - When skill selected from palette → intercept POST to `/api/v1/studio/telemetry/search-select` → assert body has `{ skillName, q, ts }` and `X-Workspace-Fingerprint` header is non-empty
@@ -349,7 +349,7 @@ This increment makes the Studio Find experience discoverable and complete. It wi
 ---
 
 ### T-029: [GREEN] E2E — dark/light mode + mobile viewport smoke
-**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US1-05, AC-US4-03 | **Status**: [ ] pending
+**User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US1-05, AC-US4-03 | **Status**: [x] completed
 **Test Plan (RED)**:
 - Given `tests/e2e/studio-find-slick.spec.ts` (extend) with multi-project Playwright config
 - When running in dark mode at 1280×720, light mode at 1280×720, and mobile (375×812)
