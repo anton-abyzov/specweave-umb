@@ -1,16 +1,43 @@
 {
   "id": "0744-fix-cert-tier-muddle-versions-tab",
-  "status": "planned",
+  "status": "completed",
   "type": "bug",
   "priority": "P2",
   "created": "2026-04-26T05:03:21.046Z",
-  "lastActivity": "2026-04-26T05:03:21.046Z",
+  "lastActivity": "2026-04-26T05:42:31.537Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1123",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1123",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T05:43:26.278Z"
+    },
+    "ado": {
+      "featureId": "1962",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1962",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T05:43:29.352Z"
+    }
+  },
   "planning": {
     "parallel": false
-  }
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T05:07:43.439Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US4-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "approvedAt": "2026-04-26T05:42:31.537Z"
 }
