@@ -516,7 +516,7 @@ These ADRs are follow-up work, not blockers for this increment.
 - **`tests/e2e/docs-nav.spec.ts`** (NEW, Track C) — visit a docs page; verify sidebar active link has the 2px green left bar; scroll page and assert TOC active item updates.
 - **`tests/e2e/code-highlight.spec.ts`** (NEW, Track D) — visit a code-heavy docs page; verify `pre code` contains color-styled spans (Shiki output); verify both light and dark themes apply correct token colors.
 - **`tests/e2e/pagefind-search.spec.ts`** (NEW, Track A) — open `⌘K`, query `scan`, `tier`, `install`; expect ≥1 hit each.
-- **`tests/e2e/tier-visual.spec.ts`** (NEW, Track E) — visual regression on `/docs/getting-started`, `/trust`, TrustBadge embed; verify tier ladder visual weight ascends.
+- **`tests/e2e/tier-visual-ladder.spec.ts`** (NEW, Track E) — visual regression on `/docs/getting-started`, `/trust`, TrustBadge embed; verify tier ladder visual weight ascends.
 
 ### Visual diff baselines
 

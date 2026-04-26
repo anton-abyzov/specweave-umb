@@ -1,10 +1,10 @@
 {
   "id": "0771-vskill-docs-overhaul-and-marketplace-hub",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-26T18:29:04.118Z",
-  "lastActivity": "2026-04-26T20:30:00.000Z",
+  "lastActivity": "2026-04-26T21:24:51.050Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -27,5 +27,88 @@
   },
   "planning": {
     "parallel": false
-  }
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T21:13:57.415Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US6-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US6-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US6-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US6-04: [x] but only 1/2 tasks complete (50%)",
+        "AC-US3-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US3-03: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US3-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US4-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US4-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US4-03: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-03: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-04: [x] but only 4/5 tasks complete (80%)",
+        "AC-US1-01: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US2-04: [x] but only 3/4 tasks complete (75%)",
+        "AC-US5-01: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US5-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US5-03: [x] but only 3/4 tasks complete (75%)",
+        "AC-US5-04: [x] but only 3/4 tasks complete (75%)",
+        "AC-US2-01: [x] but only 4/5 tasks complete (80%)",
+        "AC-US2-02: [x] but only 5/6 tasks complete (83.33%)",
+        "AC-US2-03: [x] but only 2/3 tasks complete (66.67%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T20:45:39.035Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US6-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US6-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US6-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US6-04: [x] but only 1/2 tasks complete (50%)",
+        "AC-US3-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US3-03: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US3-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US4-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US4-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US4-03: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-03: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-04: [x] but only 4/5 tasks complete (80%)",
+        "AC-US1-01: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US2-04: [x] but only 3/4 tasks complete (75%)",
+        "AC-US5-01: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US5-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US5-03: [x] but only 3/4 tasks complete (75%)",
+        "AC-US5-04: [x] but only 3/4 tasks complete (75%)",
+        "AC-US2-01: [x] but only 4/5 tasks complete (80%)",
+        "AC-US2-02: [x] but only 5/6 tasks complete (83.33%)",
+        "AC-US2-03: [x] but only 2/3 tasks complete (66.67%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T20:29:03.862Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US6-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US6-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US6-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US6-04: [x] but only 1/2 tasks complete (50%)",
+        "AC-US4-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US4-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US4-03: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-03: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-04: [x] but only 4/5 tasks complete (80%)",
+        "AC-US1-01: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-02: [x] but only 2/3 tasks complete (66.67%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    }
+  ],
+  "readyForReviewAt": "2026-04-26T20:42:53.438Z",
+  "approvedAt": "2026-04-26T21:24:51.051Z"
 }

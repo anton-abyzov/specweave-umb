@@ -11,7 +11,7 @@ phases: 5
 
 ### T-001: Extend sync-agents-json.cjs to write generated-counts.ts
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/scripts/sync-agents-json.cjs` (modify)
@@ -26,7 +26,7 @@ phases: 5
 
 ### T-002: Add specWeaveVersion cache logic to count generator
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/scripts/sync-agents-json.cjs` (modify)
@@ -41,7 +41,7 @@ phases: 5
 
 ### T-003: Replace hardcoded counts in layout.tsx and FeatureAgentEcosystem.tsx
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/layout.tsx` (modify — 3 OG/Twitter strings)
@@ -56,7 +56,7 @@ phases: 5
 
 ### T-004: Replace hardcoded counts in docs pages (3 files)
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/docs/page.tsx` (modify)
@@ -72,7 +72,7 @@ phases: 5
 
 ### T-005: Write vitest unit test for generated-counts script
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/__tests__/generated-counts.test.ts` (new)
@@ -86,7 +86,7 @@ phases: 5
 
 ### T-006: Add sync-readme-badges.cjs to vskill repo
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill
 **Files**:
   - `repositories/anton-abyzov/vskill/scripts/sync-readme-badges.cjs` (new, ~30 LOC)
@@ -100,7 +100,7 @@ phases: 5
 
 ### T-007: Wire prepublishOnly guard in vskill package.json
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill
 **Files**:
   - `repositories/anton-abyzov/vskill/package.json` (modify — prepublishOnly chain)
@@ -114,7 +114,7 @@ phases: 5
 
 ### T-008: Sidebar active-state styling in DocsLayout.tsx
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/components/DocsLayout.tsx` (modify — NavLink active styles, lines ~30-60)
@@ -128,7 +128,7 @@ phases: 5
 
 ### T-009: TOC depth-aware indentation in DocsLayout.tsx
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/components/DocsLayout.tsx` (modify — TocItem type + indent logic)
@@ -142,7 +142,7 @@ phases: 5
 
 ### T-010: TOC IntersectionObserver scroll-spy in DocsLayout.tsx
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/components/DocsLayout.tsx` (modify — TOC component, scroll-spy wiring)
@@ -156,7 +156,7 @@ phases: 5
 
 ### T-011: Vitest tests for sidebar and TOC (existing + new)
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/components/__tests__/docs-sidebar.test.tsx` (modify — ensure existing passes + add level assertions)
@@ -173,7 +173,7 @@ phases: 5
 
 ### T-012: Install Shiki and create singleton highlighter
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/package.json` (modify — add `shiki`)
@@ -188,7 +188,7 @@ phases: 5
 
 ### T-013: Refactor CodeBlock.tsx to use Shiki SSR
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/components/CodeBlock.tsx` (modify)
@@ -202,7 +202,7 @@ phases: 5
 
 ### T-014: Dual-theme CSS wiring for Shiki (github-dark / github-light)
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/globals.css` (modify — add `[data-theme="dark"] pre` / `[data-theme="light"] pre` token selectors)
@@ -217,7 +217,7 @@ phases: 5
 
 ### T-015: E2E code-highlight spec and Lighthouse Performance gate
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/tests/e2e/code-highlight.spec.ts` (new)
@@ -231,7 +231,7 @@ phases: 5
 
 ### T-016: Homepage hero font wiring via next/font
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/layout.tsx` (modify — add display font via next/font/google)
@@ -245,7 +245,7 @@ phases: 5
 
 ### T-017: Homepage hero h1 typography and SVG atmosphere
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/page.tsx` (modify — hero section)
@@ -261,7 +261,7 @@ phases: 5
 
 ### T-018: Install MDX dependencies and configure next.config.ts
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/package.json` (modify — add `@next/mdx`, `@mdx-js/react`, `@mdx-js/loader`, `gray-matter`, `rehype-pretty-code`)
@@ -276,7 +276,7 @@ phases: 5
 
 ### T-019: Create mdx-components.tsx at project root
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/mdx-components.tsx` (new — at project root, not inside src/)
@@ -290,7 +290,7 @@ phases: 5
 
 ### T-020: Write mdx-components.test.tsx unit test
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/__tests__/mdx-components.test.tsx` (new)
@@ -304,7 +304,7 @@ phases: 5
 
 ### T-021: Define frontmatter spec and generate-docs-nav.ts script
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/scripts/generate-docs-nav.ts` (new)
@@ -320,7 +320,7 @@ phases: 5
 
 ### T-022: Convert security-guidelines/page.tsx to page.mdx
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/docs/security-guidelines/page.tsx` (delete)
@@ -335,7 +335,7 @@ phases: 5
 
 ### T-023: Convert cli-reference/page.tsx to page.mdx
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/docs/cli-reference/page.tsx` (delete)
@@ -350,7 +350,7 @@ phases: 5
 
 ### T-024: Install Pagefind and add postbuild index generation
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/package.json` (modify — add `pagefind` devDep + `postbuild` script)
@@ -365,7 +365,7 @@ phases: 5
 
 ### T-025: Mount ⌘K Pagefind palette in DocsLayout.tsx
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/components/DocsLayout.tsx` (modify — add Pagefind palette mount)
@@ -379,7 +379,7 @@ phases: 5
 
 ### T-026: E2E pixel-diff tests for MDX pages
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/tests/e2e/docs-mdx.spec.ts` (new)
@@ -393,7 +393,7 @@ phases: 5
 
 ### T-027: E2E Pagefind search spec
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/tests/e2e/pagefind-search.spec.ts` (new)
@@ -407,7 +407,7 @@ phases: 5
 
 ### T-028: Update link-checker.test.ts allow-list for /marketplace
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/__tests__/link-checker.test.ts` (modify — extend allow-list)
@@ -423,7 +423,7 @@ phases: 5
 
 ### T-029: Redesign three-tier verification cards on getting-started page
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/docs/getting-started/page.tsx` (modify — lines 158-176)
@@ -437,7 +437,7 @@ phases: 5
 
 ### T-030: Echo tier visual language in TrustBadge.tsx
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/components/TrustBadge.tsx` (modify)
@@ -451,7 +451,7 @@ phases: 5
 
 ### T-031: Echo tier visual language in trust/page.tsx
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/trust/page.tsx` (modify)
@@ -465,7 +465,7 @@ phases: 5
 
 ### T-032: Replace TabGroup border-bottom with animated absolute underline
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/components/TabGroup.tsx` (modify)
@@ -479,7 +479,7 @@ phases: 5
 
 ### T-033: DocCard layered shadow and featured prop
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/components/DocCard.tsx` (modify)
@@ -493,7 +493,7 @@ phases: 5
 
 ### T-034: Replace Callout Unicode glyphs with inline SVG
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/components/Callout.tsx` (modify)
@@ -507,7 +507,7 @@ phases: 5
 
 ### T-035: Light theme contrast tokens in globals.css
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/globals.css` (modify — light theme block)
@@ -521,10 +521,10 @@ phases: 5
 
 ### T-036: E2E visual regression for tier ladder and light theme
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
-  - `repositories/anton-abyzov/vskill-platform/tests/e2e/tier-visual.spec.ts` (new)
+  - `repositories/anton-abyzov/vskill-platform/tests/e2e/tier-visual-ladder.spec.ts` (new)
 **Test Plan** (BDD, REQUIRED):
   Given baseline screenshots are captured for `/docs/getting-started`, `/trust`, and a page embedding `TrustBadge`
   When Playwright runs the tier-visual spec post-Track-E
@@ -535,7 +535,7 @@ phases: 5
 
 ### T-037: E2E test for sidebar active state and scroll-spy
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed (covered by Track C's existing `tests/e2e/docs-nav-ux.spec.ts`)
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/tests/e2e/docs-nav.spec.ts` (new)
@@ -551,7 +551,7 @@ phases: 5
 
 ### T-038: Create PluginEntry type and plugins.ts data file
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/marketplace/plugins.ts` (new)
@@ -565,7 +565,7 @@ phases: 5
 
 ### T-039: Create FeedEntry type and buildFeed function in feed.ts
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/marketplace/feed.ts` (new)
@@ -579,7 +579,7 @@ phases: 5
 
 ### T-040: Vitest unit test for marketplace feed merger
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/lib/marketplace/__tests__/marketplace-feed.test.ts` (new)
@@ -593,7 +593,7 @@ phases: 5
 
 ### T-041: Build /marketplace/page.tsx hero and plugin grid (sections 1-3)
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/marketplace/page.tsx` (new — sections 1-3: Hero, Featured Collection, All Plugins)
@@ -607,7 +607,7 @@ phases: 5
 
 ### T-042: Add What's New feed, use-case strip, and Insights footer to /marketplace (sections 4-7)
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/marketplace/page.tsx` (modify — sections 4-7)
@@ -621,7 +621,7 @@ phases: 5
 
 ### T-043: Swap top nav and MobileNav from Insights to Marketplace
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-03
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/layout.tsx` (modify — nav link swap + footer /insights link)
@@ -636,7 +636,7 @@ phases: 5
 
 ### T-044: Add sitemap entries and /docs/plugins redirect
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/sitemap.ts` (modify)
@@ -652,7 +652,7 @@ phases: 5
 
 ### T-045: Vitest unit test for marketplace page rendering
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/src/app/marketplace/__tests__/marketplace.test.tsx` (new)
@@ -666,7 +666,7 @@ phases: 5
 
 ### T-046: E2E spec for /marketplace route
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - `repositories/anton-abyzov/vskill-platform/tests/e2e/marketplace.spec.ts` (new)
@@ -680,7 +680,7 @@ phases: 5
 
 ### T-047: Final integration pass — npm run test + build gates
 **User Story**: US-001, US-002, US-003, US-004, US-005, US-006 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US3-01, AC-US3-02, AC-US3-03, AC-US4-01, AC-US4-02, AC-US4-03, AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04, AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04
-**Status**: [ ] pending
+**Status**: [x] completed
 **Project**: vskill-platform
 **Files**:
   - All modified files (verification pass — no new files created in this task)
@@ -697,7 +697,7 @@ phases: 5
 Closure-time gates (run as final checks before `/sw:done`, not numbered tasks):
 
 - [ ] `npm run test` (vitest, vskill-platform) — all suites pass; `docs-nav.test.ts`, `link-checker.test.ts`, `docs-sidebar.test.tsx` still pass alongside new tests
-- [ ] `npm run test:e2e` (Playwright, vskill-platform) — `marketplace.spec.ts`, `docs-mdx.spec.ts`, `pagefind-search.spec.ts`, `code-highlight.spec.ts`, `tier-visual.spec.ts`, `docs-nav.spec.ts` all pass
+- [ ] `npm run test:e2e` (Playwright, vskill-platform) — `marketplace.spec.ts`, `docs-mdx.spec.ts`, `pagefind-search.spec.ts`, `code-highlight.spec.ts`, `tier-visual-ladder.spec.ts`, `docs-nav-ux.spec.ts` all pass
 - [ ] `npm run build` (vskill-platform) — exits 0; `public/pagefind/pagefind.js` exists; `src/lib/generated-counts.ts` regenerated
 - [ ] `npm publish --dry-run` (vskill) — prepublishOnly chain completes; `git diff --exit-code README.md` exits 0
 - [ ] Lighthouse Performance on `/` — regression ≤ 5 points vs pre-change baseline; CLS < 0.05
