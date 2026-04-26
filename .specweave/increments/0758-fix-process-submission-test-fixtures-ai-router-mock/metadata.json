@@ -1,10 +1,10 @@
 {
   "id": "0758-fix-process-submission-test-fixtures-ai-router-mock",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-04-26T09:43:56.424Z",
-  "lastActivity": "2026-04-26T09:43:56.424Z",
+  "lastActivity": "2026-04-26T14:16:05.394Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -27,5 +27,7 @@
   },
   "planning": {
     "parallel": false
-  }
+  },
+  "readyForReviewAt": "2026-04-26T14:16:05.380Z",
+  "approvedAt": "2026-04-26T14:16:05.394Z"
 }
