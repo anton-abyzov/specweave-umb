@@ -1,0 +1,67 @@
+{
+  "id": "0761-fix-resolver-tier-label-503-retry-toast",
+  "name": "fix-resolver-tier-label-503-retry-toast",
+  "title": "Fix studio resolver priority, tier-label nomenclature, transient 503 retry, and update-bell toast wording",
+  "status": "completed",
+  "priority": "high",
+  "type": "bug",
+  "created": "2026-04-26",
+  "owner": "anton-abyzov",
+  "branch": "main",
+  "repo": "anton-abyzov/vskill",
+  "summary": "Four user-visible bugs found while inspecting greet-anton in vskill studio. The skill-name resolver mistakenly maps a vskill-source skill to a sibling standalone repo (offers a destructive update from the wrong upstream); the version-timeline shows raw CERTIFIED instead of the trust-tier label; check-updates surfaces transient platform 503s; the update-bell toast tells the user to switch agents even when the skill is also installed locally.",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T14:26:53.037Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US1-03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-04 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-04 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-04 referenced in tasks.md but not found in spec.md",
+        "AC-US3-05 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US4-02 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T14:17:42.537Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US1-03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-04 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-04 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-04 referenced in tasks.md but not found in spec.md",
+        "AC-US3-05 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US4-02 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "lastActivity": "2026-04-26T15:04:45.944Z",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-04-26T15:04:45.913Z",
+  "approvedAt": "2026-04-26T15:04:45.944Z"
+}
