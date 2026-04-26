@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0767 — Studio plugin uninstall: ConfirmDialog + orphan-cache cleanup
 
 ## Problem
