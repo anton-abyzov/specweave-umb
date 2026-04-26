@@ -1,0 +1,79 @@
+{
+  "id": "0735-0732-followup-slug-derivation-upstream",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-04-26T01:24:01.675Z",
+  "lastActivity": "2026-04-26T01:36:44.057Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1099",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1099",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T01:29:26.514Z"
+    },
+    "ado": {
+      "featureId": "1938",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1938",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T01:29:27.300Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T01:36:44.056Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-04: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-05: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T01:36:23.552Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-04: [x] but only 2/3 tasks complete (66.67%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T01:32:38.068Z",
+      "updated": [
+        "AC-US1-01"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T01:32:36.185Z",
+      "updated": [
+        "AC-US1-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T01:31:19.263Z",
+      "updated": [
+        "AC-US1-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    }
+  ]
+}
