@@ -1,0 +1,35 @@
+{
+  "version": "1.0",
+  "incrementId": "0756-fix-zero-zero-zero-version-sentinel",
+  "date": "2026-04-26",
+  "shipReadiness": "READY",
+  "summary": {
+    "blockers": 0,
+    "criticals": 0,
+    "highs": 0,
+    "mediums": 0,
+    "lows": 0,
+    "info": 1
+  },
+  "findings": [
+    {
+      "severity": "INFO",
+      "title": "Sentinel string-equality is single-source",
+      "evidence": "version-resolver.ts:40 hard-codes the literal '0.0.0' filter",
+      "recommendation": "Acceptable: the sentinel value is the documented contract (incr 0728), and there is no second producer of the value. If the platform ever changes its placeholder, the failing tests in version-resolver.test.ts (TC-008..TC-011) will catch the regression. No action required."
+    }
+  ],
+  "scopeAlignment": {
+    "specCovered": true,
+    "tasksCovered": true,
+    "outOfScopeWork": false,
+    "notes": "All 6 tasks complete, all 5 ACs satisfied, no scope creep. Surface limited to version-resolver.ts (+ test), StudioContext.tsx fallback, defensive fallback in 6 display components, and the diagnostic script in vskill-platform. Out-of-scope items in spec.md (platform contract change, scanner re-architecture, DB backfill) explicitly avoided."
+  },
+  "evidence": {
+    "unitTests": "13/13 pass in src/eval-ui/src/version-resolver.test.ts",
+    "signatureTests": "3/3 pass in src/eval-ui/src/__tests__/StudioContext.signature.test.ts",
+    "dbCheck": "scripts/check-zero-versions.ts confirms 0 zero-version rows in production DB; codex skills at 1.0.0",
+    "e2e": "Multiple Playwright specs in vskill/e2e/0756-*.spec.ts; screenshot evidence in reports/ (npx-0.5.128-final.png, studio-after-fix-codex.png, studio-after-fix-personal.png)",
+    "shipped": "vskill@0.5.128 published to npm; vskill commit bc299ab on main"
+  }
+}

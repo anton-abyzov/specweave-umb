@@ -4,7 +4,7 @@
   "title": "Studio: stop showing 0.0.0 — treat it as a sentinel placeholder",
   "type": "bug",
   "priority": "P0",
-  "status": "active",
+  "status": "completed",
   "tags": [
     "studio",
     "version",
@@ -16,7 +16,9 @@
   ],
   "created": "2026-04-26",
   "externalLinks": {},
-  "lastActivity": "2026-04-26",
+  "lastActivity": "2026-04-26T15:02:20.727Z",
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-04-26T15:02:20.715Z",
+  "approvedAt": "2026-04-26T15:02:20.727Z"
 }

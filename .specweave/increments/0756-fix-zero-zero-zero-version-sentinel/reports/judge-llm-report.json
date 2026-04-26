@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "incrementId": "0756-fix-zero-zero-zero-version-sentinel",
+  "date": "2026-04-26",
+  "verdict": "WAIVED",
+  "reason": "No externalModels consent flag in .specweave/config.json. Judge-llm is non-blocking when consent is absent.",
+  "scope": "vskill commit bc299ab; small surface (sentinel filter + defense-in-depth fallback + diagnostic script).",
+  "notes": [
+    "Code-reviewer pass: no findings.",
+    "Grill verdict: READY.",
+    "Unit tests 13/13, signature tests 3/3, e2e screenshots captured.",
+    "Increment can close on the local-judge gates alone."
+  ]
+}

@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0756 — Studio: stop showing `0.0.0` — treat it as a sentinel placeholder
 
 ## Problem
@@ -19,14 +22,14 @@ The DB has the right answers; the client is overriding them with its own placeho
 
 ### US-001: Studio never displays `0.0.0` for any skill
 
-- **AC-US1-01**: Given a plugin skill with no frontmatter `version:` and registry `currentVersion = "1.0.0"`, when the studio renders its sidebar row, the badge shows `1.0.0`, not `0.0.0`.
-- **AC-US1-02**: Given a plugin skill where the platform's `/check-updates` response echoes `installed: "0.0.0"` (because the studio sent it as a placeholder), when the resolver runs, it ignores the `0.0.0` and falls through to `pluginVersion` or the `"1.0.0"` default.
-- **AC-US1-03**: Given the codex plugin skills (`codex-cli-runtime`, `codex-result-handling`, `gpt-5-4-prompting`) loaded into the studio, when the user opens the AVAILABLE list, none of those rows show `v0.0.0`; the Playwright screenshot confirms this.
+- [x] **AC-US1-01**: Given a plugin skill with no frontmatter `version:` and registry `currentVersion = "1.0.0"`, when the studio renders its sidebar row, the badge shows `1.0.0`, not `0.0.0`.
+- [x] **AC-US1-02**: Given a plugin skill where the platform's `/check-updates` response echoes `installed: "0.0.0"` (because the studio sent it as a placeholder), when the resolver runs, it ignores the `0.0.0` and falls through to `pluginVersion` or the `"1.0.0"` default.
+- [x] **AC-US1-03**: Given the codex plugin skills (`codex-cli-runtime`, `codex-result-handling`, `gpt-5-4-prompting`) loaded into the studio, when the user opens the AVAILABLE list, none of those rows show `v0.0.0`; the Playwright screenshot confirms this.
 
 ### US-002: Database state is verifiably free of `0.0.0` rows
 
-- **AC-US2-01**: A diagnostic script (`scripts/check-zero-versions.ts`) queries both `Skill.currentVersion` and `SkillVersion.version` and prints counts of any row equal to `''` or `'0.0.0'`. Both counts MUST be 0.
-- **AC-US2-02**: The codex plugin's Skill rows are present in the DB and all sit at `currentVersion = '1.0.0'`.
+- [x] **AC-US2-01**: A diagnostic script (`scripts/check-zero-versions.ts`) queries both `Skill.currentVersion` and `SkillVersion.version` and prints counts of any row equal to `''` or `'0.0.0'`. Both counts MUST be 0.
+- [x] **AC-US2-02**: The codex plugin's Skill rows are present in the DB and all sit at `currentVersion = '1.0.0'`.
 
 ## Out of scope
 
