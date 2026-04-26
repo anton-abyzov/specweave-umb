@@ -1,10 +1,10 @@
 {
   "id": "0733-studio-agent-filter-first-load",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-04-26T00:39:00.608Z",
-  "lastActivity": "2026-04-26T00:50:56.366Z",
+  "lastActivity": "2026-04-26T01:56:33.789Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1088",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-26T00:55:29.749Z"
+      "syncedAt": "2026-04-26T01:57:32.633Z"
     },
     "ado": {
       "featureId": "1927",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1927",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-26T00:55:32.235Z"
+      "syncedAt": "2026-04-26T01:57:35.839Z"
     }
   },
   "planning": {
@@ -60,5 +60,6 @@
       "changesCount": 0
     }
   ],
-  "startedAt": "2026-04-26T01:00:00Z"
+  "startedAt": "2026-04-26T01:00:00Z",
+  "approvedAt": "2026-04-26T01:56:33.789Z"
 }
