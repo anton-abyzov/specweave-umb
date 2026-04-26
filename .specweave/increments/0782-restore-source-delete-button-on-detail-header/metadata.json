@@ -1,10 +1,10 @@
 {
   "id": "0782-restore-source-delete-button-on-detail-header",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P2",
   "created": "2026-04-26T22:30:00.000Z",
-  "lastActivity": "2026-04-26T22:25:14.771Z",
+  "lastActivity": "2026-04-26T22:43:14.593Z",
   "testMode": "off",
   "coverageTarget": 0,
   "feature_id": null,
@@ -38,5 +38,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-26T22:42:31.812Z",
+  "approvedAt": "2026-04-26T22:43:14.593Z"
 }

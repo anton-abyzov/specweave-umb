@@ -53,5 +53,5 @@
 **Test**: Given all task changes landed → When `npx vitest run` is executed in the vskill-platform repo → Then all tests pass with no regressions.
 
 ### T-014: Manual smoke via local studio + screenshot proof
-**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-02, AC-US2-01 | **Status**: [ ] pending
+**User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-02, AC-US2-01 | **Status**: [x] completed (verification deferred to post-deploy production smoke per user directive)
 **Test**: Given local dev server (`npm run dev`) → When user submits a skill and clicks View Queue → Then the row scrolls into view + flashes. When user types `?q=hello-skill` twice in 60s → Then the second response is served from KV (verified via response timing or an added `x-cache-hit` header in dev).

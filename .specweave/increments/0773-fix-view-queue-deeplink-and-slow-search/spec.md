@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0773 — Fix View Queue deep-link + slow `/queue?q=` search
 
 ## Context

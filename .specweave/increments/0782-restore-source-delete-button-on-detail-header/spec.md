@@ -1,12 +1,12 @@
 ---
 increment: 0782-restore-source-delete-button-on-detail-header
-title: "Restore Source-Skill Delete Button on Detail Header"
+title: Restore Source-Skill Delete Button on Detail Header
 type: bug
 priority: P2
-status: active
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
-test_mode: off
+test_mode: 'off'
 coverage_target: 0
 ---
 
