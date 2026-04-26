@@ -1,0 +1,33 @@
+{
+  "id": "0779-fix-studio-save-default-patch-bump",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-26T21:56:49.355Z",
+  "lastActivity": "2026-04-26T22:22:18.653Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1252",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1252",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T22:22:39.327Z"
+    },
+    "ado": {
+      "featureId": "2091",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2091",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T22:22:42.490Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "readyForReviewAt": "2026-04-26T22:22:18.605Z",
+  "approvedAt": "2026-04-26T22:22:18.653Z"
+}
