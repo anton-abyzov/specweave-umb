@@ -188,18 +188,18 @@
 ## Phase 4: Production verification (after deploy)
 
 ### T-026: Run backfill --dry-run against prod Neon
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-02 | **Status**: [ ] pending | **Model**: opus
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-02 | **Status**: [x] completed | **Model**: opus
 **Test Plan**: Manual verification step. Run `node scripts/backfill-source-repo-url.ts --dry-run` from `vskill-platform/` with prod `DATABASE_URL`. Eyeball: ~90 proposed updates for `anton-abyzov/vskill/*`, exit 0, no rows touched. Capture stdout in increment notes.
 
 ### T-027: Run backfill (live) against prod Neon
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-05 | **Status**: [ ] pending | **Model**: opus
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-05 | **Status**: [x] completed | **Model**: opus
 **Test Plan**:
 - Given T-026 dry-run output is sane
 - When `node scripts/backfill-source-repo-url.ts` runs without `--dry-run`
 - Then `SELECT count(*) FROM "Skill" WHERE name LIKE 'anton-abyzov/vskill/%' AND "sourceRepoUrl" IS NULL` returns 0 (verified via psql or Prisma script)
 
 ### T-028: Real-release end-to-end smoke test
-**User Story**: US-001, US-003 | **Satisfies SCs**: SC-001, SC-002 | **Status**: [ ] pending | **Model**: opus
+**User Story**: US-001, US-003 | **Satisfies SCs**: SC-001, SC-002 | **Status**: [x] completed | **Model**: opus
 **Test Plan**:
 - Given the worker is deployed and backfill has run
 - When a trivial commit is pushed to `anton-abyzov/vskill@main`
