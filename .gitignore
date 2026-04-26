@@ -4,12 +4,16 @@
 .specweave/state/
 .specweave/jobs/
 .specweave/memory/
+.specweave/scratch/
 .specweave/config.json
 .specweave/sync-metadata.json
 .specweave/docs/
 .specweave/increments/*/logs/
 .specweave/increments/*/test-results/
 .specweave/increments/*/reports/
+
+# Local experiments / generated video assets — keep out of git
+hyperframes-demo/
 .specweave/docs-site-internal/
 .specweave/docs-site-public/build/
 .specweave/docs-site-public/.docusaurus/
