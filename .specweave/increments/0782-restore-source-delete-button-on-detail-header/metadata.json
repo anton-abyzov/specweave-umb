@@ -1,0 +1,42 @@
+{
+  "id": "0782-restore-source-delete-button-on-detail-header",
+  "status": "active",
+  "type": "bug",
+  "priority": "P2",
+  "created": "2026-04-26T22:30:00.000Z",
+  "lastActivity": "2026-04-26T22:25:14.771Z",
+  "testMode": "off",
+  "coverageTarget": 0,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T22:25:14.771Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T22:11:48.030Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
