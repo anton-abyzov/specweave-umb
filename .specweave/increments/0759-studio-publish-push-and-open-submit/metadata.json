@@ -1,0 +1,33 @@
+{
+  "id": "0759-studio-publish-push-and-open-submit",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-26T09:56:03.139Z",
+  "lastActivity": "2026-04-26T11:06:28.287Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1192",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1192",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T10:06:35.310Z"
+    },
+    "ado": {
+      "featureId": "2031",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2031",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T10:06:36.443Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "readyForReviewAt": "2026-04-26T11:02:01.216Z",
+  "approvedAt": "2026-04-26T11:06:28.287Z"
+}
