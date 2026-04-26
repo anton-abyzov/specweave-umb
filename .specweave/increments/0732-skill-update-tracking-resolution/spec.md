@@ -1,10 +1,10 @@
 ---
 increment: 0732-skill-update-tracking-resolution
-title: "0708 follow-up — tracking source resolution + ID format"
+title: 0708 follow-up — tracking source resolution + ID format
 type: feature
 priority: P1
-status: planned
-created: 2026-04-25
+status: completed
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -43,7 +43,7 @@ This increment delivers (a) a precedence chain in the resolver that inherits fro
 - [x] **AC-US1-02**: When neither SKILL.md nor `plugin.json` declares `repository`, the resolver consults `.claude-plugin/marketplace.json` and infers the owner from the plugin entry; this is the third (last-resort) fallback.
 - [x] **AC-US1-03**: When SKILL.md frontmatter has `branch:` AND `plugin.json.tracking.branch` exists, the SKILL.md value wins (per-skill specificity).
 - [x] **AC-US1-04**: The resolver does NOT overwrite `Skill.sourceRepoUrl` for rows where `Skill.resolutionState = "user-locked"` (preserves manual `register-tracking` opt-ins).
-- [x] **AC-US1-05**: When the scanner mints a new Skill row through `discoverPluginSkills(owner, repo, branch, …)` in `scanner.ts`, it persists `sourceRepoUrl` and `sourceBranch` directly at insert time — the resolver becomes the fallback, not the only path.
+- [x] **AC-US1-05**: When a new Skill row is minted at the Skill-row minting sites (`src/app/api/v1/admin/rebuild-index/route.ts` and `src/lib/submission/publish.ts`), it persists `sourceRepoUrl` and `sourceBranch` directly at insert time on the `create` branch — the resolver becomes the fallback, not the only path. (Spec originally named `scanner.ts`, but the actual minting sites are the rebuild-index route and submission publish path; resolver wiring at `resolveSkillSource` consumes the precedence chain for any rows minted before this change.)
 
 ### US-002: One-shot backfill for orphaned skills
 **Project**: vskill-platform
@@ -55,9 +55,9 @@ This increment delivers (a) a precedence chain in the resolver that inherits fro
 **Acceptance Criteria**:
 - [x] **AC-US2-01**: New script `scripts/backfill-source-repo-url.ts` is idempotent — running it twice produces identical state and zero second-run writes.
 - [x] **AC-US2-02**: Script supports `--dry-run` printing the proposed updates without writing any rows.
-- [x] **AC-US2-03**: For names matching `{owner}/{repo}/{slug}` it sets `sourceRepoUrl="https://github.com/{owner}/{repo}"` and `sourceBranch="main"` when the slug exists in the resolved plugin's `marketplace.json` (or in any plugin entry under that repo's `marketplace.json`).
+- [x] **AC-US2-03**: For names matching `{owner}/{repo}/{slug}` it sets `sourceRepoUrl="https://github.com/{owner}/{repo}"` and `sourceBranch="main"` when the slug exists in the resolved plugin's `marketplace.json` (or in any plugin entry under that repo's `marketplace.json`). Generic script handles both array-form (`plugins[].skills`) and source-field marketplace plugin layouts (`plugins[].source: "./plugins/<name>"` walked via the GitHub Contents API); targeted `backfill-vskill-source-repo.ts` was the production one-shot for vskill.
 - [x] **AC-US2-04**: Script logs a per-skill summary (`resolved` / `skipped` / `failed`), writes counts to stdout, and exits non-zero if any failures.
-- [x] **AC-US2-05**: After running once, all 91 `anton-abyzov/vskill/*` skills (verified by direct `SELECT count(*) FROM "Skill" WHERE name LIKE 'anton-abyzov/vskill/%' AND "sourceRepoUrl" IS NULL`) have non-null `sourceRepoUrl`. Equivalent rows for any other plugin author whose skills follow the `{owner}/{repo}/{slug}` pattern are also resolved.
+- [x] **AC-US2-05**: After running once, all 91 `anton-abyzov/vskill/*` skills (verified by direct `SELECT count(*) FROM "Skill" WHERE name LIKE 'anton-abyzov/vskill/%' AND "sourceRepoUrl" IS NULL`) have non-null `sourceRepoUrl`. Equivalent rows for any other plugin author whose skills follow the `{owner}/{repo}/{slug}` pattern are also resolved. Generic script handles both array-form and source-field marketplace plugin layouts; targeted `backfill-vskill-source-repo.ts` was the production one-shot for vskill.
 
 ### US-003: Documented + tested skill-ID-format contract
 **Project**: vskill-platform

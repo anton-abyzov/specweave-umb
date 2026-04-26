@@ -5,7 +5,7 @@
 Three coupled changes in `vskill-platform`, all behind feature-flag-free additive code paths:
 
 1. **Resolver precedence chain** — extend `discovery/resolver.ts` to fall back through `SKILL.md → plugin.json → marketplace.json`.
-2. **Scanner write-at-discovery** — persist `sourceRepoUrl`/`sourceBranch` directly when minting Skill rows in `scanner.ts:362–389`.
+2. **Skill-row write-at-discovery** — persist `sourceRepoUrl`/`sourceBranch` directly at the Skill-row minting sites (`src/app/api/v1/admin/rebuild-index/route.ts` and `src/lib/submission/publish.ts`). The earlier plan named `scanner.ts:362–389`; the actual minting happens in the admin rebuild-index batched upsert and the submission publish upsert. Both write on the `create` branch only — preserves the AC-US1-04 user-locked spirit on `update`.
 3. **DO filter dual-format support** — at publish time, the event payload carries both UUID (`skillId`) and slug (`skillSlug`); UpdateHub matches against either.
 
 Plus **one ops tool**: idempotent backfill script (`scripts/backfill-source-repo-url.ts`) to retroactively unblock the 91 orphan rows in production Neon.
@@ -93,9 +93,14 @@ async function resolveTrackingSource(skill: Skill, ctx: ResolveCtx): Promise<{ u
 
 The user-locked guard (AC-US1-04) is checked at the **caller** (resolver wrapper or scanner write path), not inside `resolveTrackingSource` — keeps the function pure for testing.
 
-### Scanner write-at-discovery (FR-002) — call site
+### Skill-row write-at-discovery (FR-002) — actual minting sites
 
-`scanner.ts:362–389` already invokes `discoverPluginSkills(owner, repo, branch, sourcePath, pluginName, ...)` for each plugin entry in `marketplace.json`. The owner/repo/branch is in scope; today it's discarded. Change: when `discoverPluginSkills` returns a skill that needs `db.skill.create`, pass `sourceRepoUrl: \`https://github.com/\${owner}/\${repo}\``, `sourceBranch: branch` into the create call. No new query, no extra round-trip.
+The legacy plan named `scanner.ts:362–389`, but `discoverPluginSkills` does not call `db.skill.create` directly — Skill rows are minted in two places:
+
+- **`src/app/api/v1/admin/rebuild-index/route.ts:120`** — batched `db.skill.upsert` from the enumerated marketplace index. Already updated as Phase 1 work: writes `sourceRepoUrl: skill.repoUrl`, `sourceBranch: "main"` on the `create` branch only (the `update` branch is intentionally untouched).
+- **`src/lib/submission/publish.ts:248`** — single `db.skill.upsert` when promoting a submitted skill. Updated in this fix: writes `sourceRepoUrl: normalizedRepoUrl`, `sourceBranch: "main"` on the `create` branch only.
+
+Both sites preserve the AC-US1-04 spirit (never overwrite an already-discovered tracking source from a write path). The discovery resolver remains the fallback for rows minted before this change — `resolveSkillSource` now consumes `resolveTrackingSource` so the precedence chain (SKILL.md → plugin.json → marketplace.json) is the production read path.
 
 ### DO filter dual-format (FR-005)
 
