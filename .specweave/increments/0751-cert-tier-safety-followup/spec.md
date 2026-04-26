@@ -1,10 +1,10 @@
 ---
 increment: 0751-cert-tier-safety-followup
-title: "Cert-tier safety follow-up: bulk Skill backfill + bug fixes + invariant test"
+title: 'Cert-tier safety follow-up: bulk Skill backfill + bug fixes + invariant test'
 type: bug
 priority: P2
-status: active
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

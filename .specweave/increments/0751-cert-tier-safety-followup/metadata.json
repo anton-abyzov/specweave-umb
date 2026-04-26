@@ -1,10 +1,10 @@
 {
   "id": "0751-cert-tier-safety-followup",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P2",
   "created": "2026-04-26T06:43:49.232Z",
-  "lastActivity": "2026-04-26T07:06:29.806Z",
+  "lastActivity": "2026-04-26T19:18:22.366Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1152",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-26T06:48:34.790Z"
+      "syncedAt": "2026-04-26T19:18:40.426Z"
     },
     "ado": {
       "featureId": "1991",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1991",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-26T06:48:37.384Z"
+      "syncedAt": "2026-04-26T19:18:44.438Z"
     }
   },
   "planning": {
@@ -59,5 +59,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-26T19:18:22.317Z",
+  "approvedAt": "2026-04-26T19:18:22.366Z"
 }
