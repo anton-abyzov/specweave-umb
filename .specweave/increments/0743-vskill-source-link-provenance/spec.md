@@ -51,9 +51,9 @@ A wrong link is worse than no link. The fix lands at all three layers; the safe 
 **So that** I can read source / contribute / file issues against the real upstream
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: When I run `vskill add anton-abyzov/vskill/greet-anton`, the resulting `vskill.lock` entry contains both `sourceRepoUrl: https://github.com/anton-abyzov/vskill` AND `sourceSkillPath` set to the actual repo-relative path (e.g. `plugins/sw/skills/greet-anton/SKILL.md` or whatever `DiscoveredSkill.path` resolves to).
-- [ ] **AC-US1-02**: When the studio renders this skill, the SKILL.md anchor href is `https://github.com/anton-abyzov/vskill/blob/HEAD/<sourceSkillPath>` — a working URL, not a 404.
-- [ ] **AC-US1-03**: When I install via the single-skill legacy path (`vskill add owner/repo --skill foo`), the lockfile carries `sourceSkillPath` derived from the in-scope `skillSubpath` variable (defaults to `skills/foo/SKILL.md` or `SKILL.md`).
+- [x] **AC-US1-01**: When I run `vskill add anton-abyzov/vskill/greet-anton`, the resulting `vskill.lock` entry contains both `sourceRepoUrl: https://github.com/anton-abyzov/vskill` AND `sourceSkillPath` set to the actual repo-relative path (e.g. `plugins/sw/skills/greet-anton/SKILL.md` or whatever `DiscoveredSkill.path` resolves to).
+- [x] **AC-US1-02**: When the studio renders this skill, the SKILL.md anchor href is `https://github.com/anton-abyzov/vskill/blob/HEAD/<sourceSkillPath>` — a working URL, not a 404.
+- [x] **AC-US1-03**: When I install via the single-skill legacy path (`vskill add owner/repo --skill foo`), the lockfile carries `sourceSkillPath` derived from the in-scope `skillSubpath` variable (defaults to `skills/foo/SKILL.md` or `SKILL.md`).
 
 ### US-002: Resolver returns null instead of fabricating wrong paths
 
@@ -64,9 +64,9 @@ A wrong link is worse than no link. The fix lands at all three layers; the safe 
 **So that** the UI can fall back to the safe copy-chip instead of rendering a confidently-wrong GitHub URL
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: For a legacy entry with `source: github:owner/repo` and no `sourceSkillPath`, `buildSkillMetadata()` returns `repoUrl: <github-url>` AND `skillPath: null` (was previously `"SKILL.md"`).
-- [ ] **AC-US2-02**: For a forward-compat entry with explicit `sourceSkillPath`, `buildSkillMetadata()` continues to return that path verbatim (no regression).
-- [ ] **AC-US2-03**: For an authored skill (no lockfile entry at all), `buildSkillMetadata()` continues to return `{repoUrl: null, skillPath: null}` (no regression).
+- [x] **AC-US2-01**: For a legacy entry with `source: github:owner/repo` and no `sourceSkillPath`, `buildSkillMetadata()` returns `repoUrl: <github-url>` AND `skillPath: null` (was previously `"SKILL.md"`).
+- [x] **AC-US2-02**: For a forward-compat entry with explicit `sourceSkillPath`, `buildSkillMetadata()` continues to return that path verbatim (no regression).
+- [x] **AC-US2-03**: For an authored skill (no lockfile entry at all), `buildSkillMetadata()` continues to return `{repoUrl: null, skillPath: null}` (no regression).
 
 ### US-003: Frontend stops misusing `homepage` as a source-repo URL
 
@@ -77,9 +77,9 @@ A wrong link is worse than no link. The fix lands at all three layers; the safe 
 **So that** I can trust the link to do what it says
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: When `skill.repoUrl` is null, `DetailHeader` renders the `source-file-copy` chip (existing fallback) instead of a `source-file-link` anchor — even if `skill.homepage` is a github.com URL.
-- [ ] **AC-US3-02**: When `skill.repoUrl` is present, the byline still renders the SKILL.md anchor (no regression on the happy path).
-- [ ] **AC-US3-03**: `AuthorLink` continues to use the existing `repoUrl ?? homepage` chain — author profile link is unchanged. Both anchors still coexist in the byline (no truncation collapse).
+- [x] **AC-US3-01**: When `skill.repoUrl` is null, `DetailHeader` renders the `source-file-copy` chip (existing fallback) instead of a `source-file-link` anchor — even if `skill.homepage` is a github.com URL.
+- [x] **AC-US3-02**: When `skill.repoUrl` is present, the byline still renders the SKILL.md anchor (no regression on the happy path).
+- [x] **AC-US3-03**: `AuthorLink` continues to use the existing `repoUrl ?? homepage` chain — author profile link is unchanged. Both anchors still coexist in the byline (no truncation collapse).
 
 ### US-004: End-to-end verification on a real skill
 
@@ -90,6 +90,6 @@ A wrong link is worse than no link. The fix lands at all three layers; the safe 
 **So that** I can sign off with confidence
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: After rebuilding the local vskill, removing `TestLab/greet-anton`, and reinstalling via the local CLI, `TestLab/greet-anton/vskill.lock` contains both `sourceRepoUrl` and `sourceSkillPath`.
-- [ ] **AC-US4-02**: After restarting `vskill studio`, opening `http://localhost:3136/#/skills/TestLab/greet-anton`, and clicking the `SKILL.md ↗` anchor, the browser opens the actual file on GitHub (HTTP 200, file content visible).
-- [ ] **AC-US4-03**: For a legacy lockfile entry without `sourceSkillPath`, the studio renders the copy-chip with the local path instead of a broken anchor (regression check for AC-US3-01).
+- [x] **AC-US4-01**: After rebuilding the local vskill, removing `TestLab/greet-anton`, and reinstalling via the local CLI, `TestLab/greet-anton/vskill.lock` contains both `sourceRepoUrl` and `sourceSkillPath`.
+- [x] **AC-US4-02**: After restarting `vskill studio`, opening `http://localhost:3136/#/skills/TestLab/greet-anton`, and clicking the `SKILL.md ↗` anchor, the browser opens the actual file on GitHub (HTTP 200, file content visible).
+- [x] **AC-US4-03**: For a legacy lockfile entry without `sourceSkillPath`, the studio renders a working anchor (repo root, when `sourceRepoUrl` is derivable from the legacy `source: github:owner/repo` string) instead of a 404'd `/blob/HEAD/SKILL.md` anchor; the copy-chip is rendered when there is no `repoUrl` at all (authored skills, or homepage-only entries post-Layer-3). Either way: no broken anchor (regression check for AC-US3-01).
