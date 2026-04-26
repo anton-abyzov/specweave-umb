@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0765 — Studio: plugin-aware skill resolver + update no-op fix
 
 ## Problem

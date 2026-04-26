@@ -1,10 +1,10 @@
 {
   "id": "0762-queue-drain-recovery-and-telemetry",
-  "status": "active",
+  "status": "completed",
   "type": "hotfix",
   "priority": "P0",
   "created": "2026-04-26T14:40:00.000Z",
-  "lastActivity": "2026-04-26T15:34:46.256Z",
+  "lastActivity": "2026-04-26T19:20:27.449Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -50,5 +50,7 @@
       "warnings": [],
       "changesCount": 13
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-26T19:20:27.437Z",
+  "approvedAt": "2026-04-26T19:20:27.449Z"
 }

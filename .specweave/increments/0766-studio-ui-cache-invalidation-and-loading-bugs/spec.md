@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0766 — Studio: UI cache-invalidation + loading-state bugs
 
 ## Problem

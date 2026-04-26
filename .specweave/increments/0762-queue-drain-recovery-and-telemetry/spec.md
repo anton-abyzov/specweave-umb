@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0762 — Queue drain recovery and per-stage telemetry
 
 ## Problem

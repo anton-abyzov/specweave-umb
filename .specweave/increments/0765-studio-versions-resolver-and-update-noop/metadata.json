@@ -2,7 +2,7 @@
   "id": "0765-studio-versions-resolver-and-update-noop",
   "name": "studio-versions-resolver-and-update-noop",
   "title": "Studio: plugin-aware skill resolver + update no-op fix",
-  "status": "active",
+  "status": "completed",
   "priority": "P1",
   "type": "bug",
   "owner": "anton",
@@ -23,9 +23,11 @@
       "changesCount": 7
     }
   ],
-  "lastActivity": "2026-04-26T16:53:26.494Z",
+  "lastActivity": "2026-04-26T19:21:32.398Z",
   "created": "2026-04-26",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-04-26T19:21:32.371Z",
+  "approvedAt": "2026-04-26T19:21:32.398Z"
 }
