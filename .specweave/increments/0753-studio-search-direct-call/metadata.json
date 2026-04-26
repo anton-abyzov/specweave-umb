@@ -1,0 +1,33 @@
+{
+  "id": "0753-studio-search-direct-call",
+  "status": "abandoned",
+  "type": "hotfix",
+  "priority": "P1",
+  "created": "2026-04-26T07:07:15.534Z",
+  "lastActivity": "2026-04-26T07:47:54.878Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1167",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1167",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T07:12:58.221Z"
+    },
+    "ado": {
+      "featureId": "2006",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2006",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T07:12:59.797Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "abandonedReason": "Superseded by 0754-studio-search-502-cdn-loopback (deployed 158fae83, production restored). Both increments diagnosed the same root cause and converged on the same fix (in-process direct call to upstream route). 0753's cleaner approach (extracting a shared run-skills-search.ts lib) is a desirable future refactor but not blocking — 0754's inline import works, all tests pass, 502 is gone.",
+  "abandonedAt": "2026-04-26T07:47:54.879Z"
+}

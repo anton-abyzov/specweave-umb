@@ -1,0 +1,52 @@
+{
+  "id": "0755-studio-search-discoverability-fixes",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-26T07:39:01.150Z",
+  "lastActivity": "2026-04-26T07:55:40.038Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1174",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1174",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-26T07:56:33.246Z"
+    },
+    "ado": {
+      "featureId": "2013",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2013",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-26T07:56:35.680Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-26T07:55:40.038Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..06 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01..02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US2-04: has no tasks mapped",
+        "AC-US2-05: has no tasks mapped",
+        "AC-US3-04: has no tasks mapped",
+        "AC-US4-02: has no tasks mapped",
+        "AC-US4-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
