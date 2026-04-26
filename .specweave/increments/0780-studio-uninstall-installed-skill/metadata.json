@@ -1,10 +1,10 @@
 {
   "id": "0780-studio-uninstall-installed-skill",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P2",
   "created": "2026-04-26T21:57:38.598Z",
-  "lastActivity": "2026-04-26T22:00:24.927Z",
+  "lastActivity": "2026-04-26T22:09:18.477Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1256",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-26T22:01:12.128Z"
+      "syncedAt": "2026-04-26T22:09:11.875Z"
     },
     "ado": {
       "featureId": "2095",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2095",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-26T22:01:13.879Z"
+      "syncedAt": "2026-04-26T22:09:14.998Z"
     }
   },
   "planning": {
@@ -38,5 +38,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-26T22:09:18.441Z",
+  "approvedAt": "2026-04-26T22:09:18.477Z"
 }

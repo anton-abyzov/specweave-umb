@@ -1,10 +1,10 @@
 ---
 increment: 0780-studio-uninstall-installed-skill
-title: "Studio Uninstall Button for Installed Skills"
+title: Studio Uninstall Button for Installed Skills
 type: bug
 priority: P2
-status: active
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
