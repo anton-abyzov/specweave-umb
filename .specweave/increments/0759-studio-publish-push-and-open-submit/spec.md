@@ -246,3 +246,35 @@ The following are deferred to increment 0742:
 - [x] **AC-US9-01**: When `authState === "unauthenticated"` on `/submit`, the "Login with GitHub" link constructs its `?redirect=` from the current `window.location.search`, so the destination after auth is `/submit?repo=<encoded>` not just `/submit`. The OAuth init route's open-redirect guard still passes (encoded URL has no literal `://`).
 - [x] **AC-US9-02**: After the GitHub callback restores the user session and follows the cookie-stored redirect, the submit page mounts with `?repo=…` intact and `getPrefillRepo` populates the URL input automatically.
 
+
+---
+
+### US-010: Sleek PublishDrawer redesign (P1, Phase 9)
+**Project**: vskill
+
+**As a** skill author opening the publish drawer
+**I want** a centered modal with explicit "Write yourself / Generate with AI" mode toggle and inline error blocks
+**So that** the surface looks like a real product and the AI doesn't auto-fire when I just want to type a message
+
+**Acceptance Criteria** (shipped in vskill@0.5.142):
+- [x] **AC-US10-01**: Modal renders centered via `position: fixed; inset: 0; flex` (not bottom-right corner). 520 px wide, max-height 80 vh, hairline 1 px borders + dramatic shadow.
+- [x] **AC-US10-02**: Backdrop dim `rgba(0,0,0,0.55)` + `backdrop-filter: blur(6px)`. Backdrop click dismisses (unless a publish is in flight). Modal entry animation: 180 ms opacity + 4 px translateY; respects `prefers-reduced-motion`.
+- [x] **AC-US10-03**: Segmented mode control with two segments: `Write yourself` (default) and `Generate with AI`. Active segment fills with `--bg-subtle`. Manual mode never auto-fires AI — fixes the previous surprise-side-effect on mount.
+- [x] **AC-US10-04**: AI mode click → fires `api.gitCommitMessage`. AI generation failure renders an inline alert block (NOT a transient toast) with role="alert" + a "Retry" link. Block stays visible until the user retries or switches mode.
+- [x] **AC-US10-05**: Publish/push failure renders a separate inline alert block (`data-testid="publish-error-push"`) below the textarea — drawer stays open so the user can fix the message and retry. Toast still fires for accessibility.
+- [x] **AC-US10-06**: Footer left-aligns Regenerate (AI mode only); right-aligns Cancel + Commit & Push. Backward-compatible: existing tests pass via `defaultMode="ai"` opt-in.
+
+---
+
+### US-011: Pending-state metadata (state + age) in submission responses (P1, Phase 9)
+**Project**: vskill-platform
+
+**As a** user re-submitting a skill that's still being processed
+**I want** the "Already pending" badge to show *which* scan stage and how long ago I submitted
+**So that** I understand whether to wait or take action — no opaque badges
+
+**Acceptance Criteria** (deployed to verified-skill.com Worker version `11b25234`):
+- [x] **AC-US11-01**: `upsertSubmission` returns `{ kind: "pending", id, state, submittedAt?, ageSeconds? }` when an existing Submission exists and is in PENDING_STATES. The `submittedAt` and `ageSeconds` fields are populated from `Submission.createdAt` (Date) — additive contract, older callers and test mocks that omit createdAt see the original `{kind, id, state}` shape.
+- [x] **AC-US11-02**: `POST /api/v1/submissions` forwards the metadata into the response's `skipped[]` array as `{ skillName, reason, state?, submittedAt?, ageSeconds? }`.
+- [x] **AC-US11-03**: Submit page renders the rich badge: `Pending: tier 1 scan · 3m ago` (instead of opaque `Already pending`). Falls back to `Already pending` when the platform omits the new fields. Tooltip explains the in-flight semantics + that the next submit after publish picks up latest commits automatically.
+- [x] **AC-US11-04**: All 128 platform unit tests pass (publish-rescan + publish-degraded-data fixtures pre-stamped with `version:` to acknowledge the Phase 8 stamping behavior).
