@@ -18,11 +18,38 @@ Minimum viable "publish to GitHub, then open verified-skill.com pre-filled" flow
 
 Today a skill author editing in `vskill studio` must drop to a terminal to run `git push`, then navigate manually to verified-skill.com. This increment closes that loop with a single Publish button in EditorPanel: it spawns a real `git push` subprocess, normalizes the remote URL, and opens `https://verified-skill.com/submit?repo=<encodedUrl>` in a new tab. The platform side pre-fills the URL input on arrival.
 
-Full 0742 scope (dirty-state pill, AI commit messages, repo creation, no-remote attach, SSE streaming) is explicitly deferred. This increment pushes only already-committed changes.
+**Phase 1 (initial scope, shipped in vskill@0.5.129):** push only already-committed changes; no commit composition.
+
+**Phase 5 follow-up (shipped in vskill@0.5.132):** when the working tree is dirty, the Publish button now opens a small drawer that auto-generates a commit message via the user's already-configured studio LLM provider (claude-cli / openai / openrouter / etc. — same one used by AI Edit and Improve). The user can edit the suggestion, then click "Commit & Push" — server runs `git add -A && git commit -m "<msg>" && git push`. On clean trees the original push-only flow is unchanged.
+
+Still deferred to full 0742: dirty-state pill on the header, repo creation via `gh` CLI, no-remote attach flow, SSE streaming.
 
 ---
 
 ## User Stories
+
+### US-005: AI-assisted commit message + commit/push for dirty trees (P1, Phase 5)
+**Project**: vskill
+
+**As a** skill author with uncommitted changes
+**I want** the Publish button to open a drawer that suggests a commit message and lets me edit + commit + push in one click
+**So that** I don't have to switch to a terminal to compose a commit message and run git commit before publishing
+
+**Acceptance Criteria**:
+- [x] **AC-US5-01**: Given the working tree is dirty, when the user clicks Publish, then a drawer opens with a textarea pre-populated by an AI-generated commit message; `api.gitDiff()` is the dirty-detection probe.
+- [x] **AC-US5-02**: Given the drawer mounts, when it auto-fires `api.gitCommitMessage()`, then the request body includes the studio-configured `provider` and `model` (read from `useConfig()`); server reuses the existing `createLlmClient({provider, model})` infrastructure (same path as AI Edit / Improve / Generate).
+- [x] **AC-US5-03**: Given the textarea is populated, when the user edits the message, then the textarea reflects the new value (controlled component, not read-only).
+- [x] **AC-US5-04**: Given the user clicks "Commit & Push" with a non-empty message, then `api.gitPublish({ commitMessage })` is invoked; server runs `git add -A` then `git commit -m "<msg>"` then `git push` with argv-array safety (no shell interpolation, no `shell:true`).
+- [x] **AC-US5-05**: Given the commit/push succeeds, then `window.open` opens `https://verified-skill.com/submit?repo=<canonical>` with `noopener,noreferrer`, a success toast fires (short SHA + branch), and the drawer closes via `onClose`.
+- [x] **AC-US5-06**: Given the commit/push fails (rejected push, hook failure, network error), then an error toast fires with stderr summary; `window.open` is NOT called and the drawer stays open so the user can adjust and retry.
+- [x] **AC-US5-07**: Given the textarea is empty (or whitespace only), when the user views the drawer, then the "Commit & Push" button is disabled.
+- [x] **AC-US5-08**: Given the user clicks Cancel, then `onClose` fires immediately; `api.gitPublish` is never called.
+- [x] **AC-US5-09**: Given the user clicks Regenerate, then `api.gitCommitMessage` re-fires and the textarea content is replaced with the new suggestion.
+- [x] **AC-US5-10**: Given the diff sent to the LLM exceeds 10K characters, when the prompt is constructed, then it is truncated with a "(truncated…)" note prepended; the full diff is never sent.
+- [x] **AC-US5-11**: Given the working tree is clean, when the user clicks Publish, then today's push-only flow runs unchanged (no drawer, no `git add`, no `git commit`).
+- [x] **AC-US5-12**: Given `commitMessage` is provided to `/api/git/publish` but the working tree is clean, then the server skips `git add`/`git commit` (a stray message is a no-op) and just runs `git push`.
+
+---
 
 ### US-001: Publish button in studio EditorPanel (P1)
 **Project**: vskill

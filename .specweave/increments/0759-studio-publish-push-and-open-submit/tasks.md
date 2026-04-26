@@ -386,3 +386,79 @@ Then coverage for `git-routes.ts`, `normalizeRemoteUrl.ts`, `useGitRemote.ts`, a
 **Files**:
 - `.specweave/increments/0759-studio-publish-push-and-open-submit/reports/` (NEW dir — output only)
 **Estimated effort**: S
+
+---
+
+## Phase 5 — AI commit message + commit/push for dirty trees
+
+Added in follow-up after initial 0759 close. All tasks below are completed and shipped in vskill@0.5.132.
+
+### T-022: RED — Tests for /api/git/diff handler
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01 | **Status**: [x] completed
+**Phase**: RED
+**Test Plan**: Given mocked spawn returning staged + unstaged diff + porcelain status; When `makePostGitDiffHandler(root)` is called; Then the response body is `{ hasChanges, diff, fileCount }` with combined diff text and the count derived from porcelain output.
+**Files**: `src/eval-server/__tests__/git-commit-message.test.ts` (NEW)
+
+### T-023: GREEN — Implement /api/git/diff
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01 | **Status**: [x] completed
+**Phase**: GREEN
+**Test Plan**: Given T-022 failing; When `collectDiffSummary(root, timeoutMs)` runs `git diff --staged` + `git diff` + `git status --porcelain` in parallel via `Promise.all`; Then T-022 passes.
+**Files**: `src/eval-server/git-routes.ts` (MODIFY — add `collectDiffSummary` + `makePostGitDiffHandler`)
+
+### T-024: RED — Tests for /api/git/commit-message handler
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-02, AC-US5-10 | **Status**: [x] completed
+**Phase**: RED
+**Test Plan**: Given mocked spawn (dirty diff) + mocked `createLlmClient` returning a fake message; When the handler receives a body `{ provider, model }`; Then the response body is `{ message }`, `createLlmClient` was called with the body's provider+model, and the user prompt sent to the LLM contains the diff text. Cover: clean tree → 400; LLM error → 500; >10K diff → truncated.
+**Files**: `src/eval-server/__tests__/git-commit-message.test.ts` (MODIFY)
+
+### T-025: GREEN — Implement /api/git/commit-message
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-02, AC-US5-10 | **Status**: [x] completed
+**Phase**: GREEN
+**Test Plan**: Given T-024 failing; When `makePostGitCommitMessageHandler` reads body, runs `collectDiffSummary`, returns 400 on clean, truncates payload at 10K, calls `createLlmClient({provider, model}).generate(systemPrompt, userPrompt)`; Then T-024 passes.
+**Files**: `src/eval-server/git-routes.ts` (MODIFY)
+
+### T-026: RED — Tests for extended /api/git/publish (with commitMessage)
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-04, AC-US5-11, AC-US5-12 | **Status**: [x] completed
+**Phase**: RED
+**Test Plan**: Given mocked spawn for status/add/commit/push/metadata sequence; When body is `{ commitMessage }` AND tree is dirty; Then spawn is called with `["status","--porcelain"]`, `["add","-A"]`, `["commit","-m",msg]`, `["push"]` in that order. Cover: clean tree skips add+commit; commit failure → 500 + no push; argv-only (shell-injection safety).
+**Files**: `src/eval-server/__tests__/git-commit-message.test.ts` (MODIFY)
+
+### T-027: GREEN — Extend POST /api/git/publish to handle commitMessage
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-04, AC-US5-11, AC-US5-12 | **Status**: [x] completed
+**Phase**: GREEN
+**Test Plan**: Given T-026 failing; When the handler reads `body.commitMessage`, on dirty runs `git status --porcelain` then `git add -A` then `git commit -m "<msg>"` (argv array, no shell), bails on commit failure with 500 before push; Then T-026 passes.
+**Files**: `src/eval-server/git-routes.ts` (MODIFY)
+
+### T-028: RED — Tests for api.gitDiff, api.gitCommitMessage, api.gitPublish(commitMessage)
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-04 | **Status**: [x] completed
+**Phase**: RED
+**Test Plan**: Given mocked global fetch; Verify api.gitDiff calls POST /api/git/diff; api.gitCommitMessage calls POST /api/git/commit-message with provider+model in JSON body; api.gitPublish forwards commitMessage in the body when provided.
+**Files**: `src/eval-ui/src/__tests__/api.git-phase5.test.ts` (NEW)
+
+### T-029: GREEN — Add api.gitDiff, api.gitCommitMessage; modify api.gitPublish signature
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-04 | **Status**: [x] completed
+**Phase**: GREEN
+**Files**: `src/eval-ui/src/api.ts` (MODIFY)
+
+### T-030: RED — PublishDrawer component tests
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-02, AC-US5-03, AC-US5-04, AC-US5-05, AC-US5-06, AC-US5-07, AC-US5-08, AC-US5-09 | **Status**: [x] completed
+**Phase**: RED
+**Test Plan**: jsdom + react-dom/client; mock api; cover auto-generate on mount, controlled textarea, Commit & Push success path (window.open + toast + onClose), failure path (toast, no open, no close), Cancel, Regenerate, empty-message disable.
+**Files**: `src/eval-ui/src/components/__tests__/PublishDrawer.test.tsx` (NEW)
+
+### T-031: GREEN — Implement PublishDrawer component
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-02–09 | **Status**: [x] completed
+**Phase**: GREEN
+**Files**: `src/eval-ui/src/components/PublishDrawer.tsx` (NEW)
+
+### T-032: GREEN — Wire PublishButton to open drawer on dirty + pass provider/model from EditorPanel
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-11 | **Status**: [x] completed
+**Phase**: GREEN
+**Test Plan**: Existing PublishButton tests still pass (api.gitDiff falls through to push when not mocked → preserves clean-tree behaviour). EditorPanel passes `config?.provider`, `config?.model` from `useConfig()` to PublishButton.
+**Files**: `src/eval-ui/src/components/PublishButton.tsx` (MODIFY), `src/eval-ui/src/pages/workspace/EditorPanel.tsx` (MODIFY)
+
+### T-033: Live smoke test against umbrella repo
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01 | **Status**: [x] completed
+**Phase**: E2E
+**Test Plan**: Built vskill@0.5.132 locally, spawned `eval serve --root <umbrella>`, hit `POST /api/git/diff` against this very repo with 22 unstaged file changes; received `{ hasChanges: true, fileCount: 22, diff: "diff --git a/.specweave/config.json…" }` — confirms real git diff subprocess invocation, not mocked.
+**Files**: N/A (smoke verification)
