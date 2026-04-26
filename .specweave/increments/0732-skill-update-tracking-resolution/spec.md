@@ -39,11 +39,11 @@ This increment delivers (a) a precedence chain in the resolver that inherits fro
 **So that** I don't have to add `repository:` to every individual SKILL.md frontmatter
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: When SKILL.md frontmatter has no `repository:` field, the resolver consults the parent `plugin.json.repository` and uses it for `sourceRepoUrl`.
-- [ ] **AC-US1-02**: When neither SKILL.md nor `plugin.json` declares `repository`, the resolver consults `.claude-plugin/marketplace.json` and infers the owner from the plugin entry; this is the third (last-resort) fallback.
-- [ ] **AC-US1-03**: When SKILL.md frontmatter has `branch:` AND `plugin.json.tracking.branch` exists, the SKILL.md value wins (per-skill specificity).
-- [ ] **AC-US1-04**: The resolver does NOT overwrite `Skill.sourceRepoUrl` for rows where `Skill.resolutionState = "user-locked"` (preserves manual `register-tracking` opt-ins).
-- [ ] **AC-US1-05**: When the scanner mints a new Skill row through `discoverPluginSkills(owner, repo, branch, …)` in `scanner.ts`, it persists `sourceRepoUrl` and `sourceBranch` directly at insert time — the resolver becomes the fallback, not the only path.
+- [x] **AC-US1-01**: When SKILL.md frontmatter has no `repository:` field, the resolver consults the parent `plugin.json.repository` and uses it for `sourceRepoUrl`.
+- [x] **AC-US1-02**: When neither SKILL.md nor `plugin.json` declares `repository`, the resolver consults `.claude-plugin/marketplace.json` and infers the owner from the plugin entry; this is the third (last-resort) fallback.
+- [x] **AC-US1-03**: When SKILL.md frontmatter has `branch:` AND `plugin.json.tracking.branch` exists, the SKILL.md value wins (per-skill specificity).
+- [x] **AC-US1-04**: The resolver does NOT overwrite `Skill.sourceRepoUrl` for rows where `Skill.resolutionState = "user-locked"` (preserves manual `register-tracking` opt-ins).
+- [x] **AC-US1-05**: When the scanner mints a new Skill row through `discoverPluginSkills(owner, repo, branch, …)` in `scanner.ts`, it persists `sourceRepoUrl` and `sourceBranch` directly at insert time — the resolver becomes the fallback, not the only path.
 
 ### US-002: One-shot backfill for orphaned skills
 **Project**: vskill-platform
@@ -53,11 +53,11 @@ This increment delivers (a) a precedence chain in the resolver that inherits fro
 **So that** the 91 broken first-party rows (and any equivalent 3rd-party orphans) are retroactively unblocked without manual SKILL.md edits and without a schema migration
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: New script `scripts/backfill-source-repo-url.ts` is idempotent — running it twice produces identical state and zero second-run writes.
-- [ ] **AC-US2-02**: Script supports `--dry-run` printing the proposed updates without writing any rows.
-- [ ] **AC-US2-03**: For names matching `{owner}/{repo}/{slug}` it sets `sourceRepoUrl="https://github.com/{owner}/{repo}"` and `sourceBranch="main"` when the slug exists in the resolved plugin's `marketplace.json` (or in any plugin entry under that repo's `marketplace.json`).
-- [ ] **AC-US2-04**: Script logs a per-skill summary (`resolved` / `skipped` / `failed`), writes counts to stdout, and exits non-zero if any failures.
-- [ ] **AC-US2-05**: After running once, all 91 `anton-abyzov/vskill/*` skills (verified by direct `SELECT count(*) FROM "Skill" WHERE name LIKE 'anton-abyzov/vskill/%' AND "sourceRepoUrl" IS NULL`) have non-null `sourceRepoUrl`. Equivalent rows for any other plugin author whose skills follow the `{owner}/{repo}/{slug}` pattern are also resolved.
+- [x] **AC-US2-01**: New script `scripts/backfill-source-repo-url.ts` is idempotent — running it twice produces identical state and zero second-run writes.
+- [x] **AC-US2-02**: Script supports `--dry-run` printing the proposed updates without writing any rows.
+- [x] **AC-US2-03**: For names matching `{owner}/{repo}/{slug}` it sets `sourceRepoUrl="https://github.com/{owner}/{repo}"` and `sourceBranch="main"` when the slug exists in the resolved plugin's `marketplace.json` (or in any plugin entry under that repo's `marketplace.json`).
+- [x] **AC-US2-04**: Script logs a per-skill summary (`resolved` / `skipped` / `failed`), writes counts to stdout, and exits non-zero if any failures.
+- [x] **AC-US2-05**: After running once, all 91 `anton-abyzov/vskill/*` skills (verified by direct `SELECT count(*) FROM "Skill" WHERE name LIKE 'anton-abyzov/vskill/%' AND "sourceRepoUrl" IS NULL`) have non-null `sourceRepoUrl`. Equivalent rows for any other plugin author whose skills follow the `{owner}/{repo}/{slug}` pattern are also resolved.
 
 ### US-003: Documented + tested skill-ID-format contract
 **Project**: vskill-platform
@@ -67,9 +67,9 @@ This increment delivers (a) a precedence chain in the resolver that inherits fro
 **So that** I don't waste hours debugging silent event drops caused by passing the wrong ID format
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: A test exists in `update-hub.test.ts` that fails today and passes after the implementation, exercising the real DO filter (not stubbed) with both UUID and slug-ID inputs.
-- [ ] **AC-US3-02**: A doc-comment block at the top of `update-hub.ts` (and a one-paragraph entry in the SSE stream route's docstring at `src/app/api/v1/skills/stream/route.ts`) states the chosen contract explicitly: which ID format clients send in `?skills=`, why, and what happens with the other format.
-- [ ] **AC-US3-03**: An end-to-end integration test (extend the pattern from `vskill/src/eval-ui/src/hooks/__tests__/useSkillUpdates.real-sse.test.ts` shipped on 2026-04-25) proves the chosen path works against a real SSE stream — boots a real http SSE server and asserts the badge appears given the contract-correct ID format.
+- [x] **AC-US3-01**: A test exists in `update-hub.test.ts` that fails today and passes after the implementation, exercising the real DO filter (not stubbed) with both UUID and slug-ID inputs.
+- [x] **AC-US3-02**: A doc-comment block at the top of `update-hub.ts` (and a one-paragraph entry in the SSE stream route's docstring at `src/app/api/v1/skills/stream/route.ts`) states the chosen contract explicitly: which ID format clients send in `?skills=`, why, and what happens with the other format.
+- [x] **AC-US3-03**: An end-to-end integration test (extend the pattern from `vskill/src/eval-ui/src/hooks/__tests__/useSkillUpdates.real-sse.test.ts` shipped on 2026-04-25) proves the chosen path works against a real SSE stream — boots a real http SSE server and asserts the badge appears given the contract-correct ID format.
 
 ## Functional Requirements
 

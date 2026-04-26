@@ -1,10 +1,10 @@
 {
   "id": "0732-skill-update-tracking-resolution",
-  "status": "planned",
+  "status": "active",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-25T22:59:01.494Z",
-  "lastActivity": "2026-04-25T23:07:31.356Z",
+  "lastActivity": "2026-04-26T00:10:25.639Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -30,7 +30,224 @@
   },
   "acSyncEvents": [
     {
-      "timestamp": "2026-04-25T23:07:31.355Z",
+      "timestamp": "2026-04-26T00:10:25.639Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-05: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:10:17.484Z",
+      "updated": [
+        "AC-US3-03"
+      ],
+      "conflicts": [
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-05: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T00:10:13.475Z",
+      "updated": [
+        "AC-US3-02"
+      ],
+      "conflicts": [
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-05: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T00:10:09.608Z",
+      "updated": [
+        "AC-US3-01"
+      ],
+      "conflicts": [
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-05: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T00:10:05.938Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-05: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:10:01.522Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-05: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:09:57.766Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-05: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:09:53.950Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-05: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:09:50.187Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-05: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:09:46.639Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-05: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:01:39.739Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:01:38.448Z",
+      "updated": [
+        "AC-US2-03"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T00:01:36.130Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-26T00:01:33.710Z",
+      "updated": [
+        "AC-US2-04"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T00:01:31.414Z",
+      "updated": [
+        "AC-US2-01"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-26T00:01:29.517Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-25T23:57:08.718Z",
+      "updated": [
+        "AC-US1-05"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-25T23:57:06.826Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-25T23:57:04.495Z",
+      "updated": [
+        "AC-US1-04"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-04-25T23:57:02.616Z",
       "updated": [],
       "conflicts": [],
       "warnings": [
