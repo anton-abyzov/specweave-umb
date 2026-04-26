@@ -201,3 +201,48 @@ The following are deferred to increment 0742:
 - Unit test coverage ≥ 90% for URL normalizer, subprocess wrapper, and query-param pre-fill logic.
 - Playwright E2E: fixture repo with a remote → Publish click → `window.open` called with correct `?repo=` param.
 - No regression to the existing Save flow or submit page behavior.
+
+---
+
+### US-007: Manual version-bump controls + save refresh + no-jump enforcement (P1, Phase 7)
+**Project**: vskill
+
+**As a** skill author
+**I want** to bump major / minor / patch by exactly +1 from the editor toolbar AND have the version refresh everywhere immediately after Save AND be blocked from accidentally jumping versions
+**So that** I can maintain meaningful semver across releases without typing YAML and without surprises at publish time
+
+**Acceptance Criteria** (all completed in vskill@0.5.139):
+- [x] **AC-US7-01**: Three buttons "+patch / +minor / +major" appear next to Save in EditorPanel toolbar (read-only skills hide them). Each button's tooltip previews the resulting version (e.g. "Bump patch: 1.0.5 → 1.0.6").
+- [x] **AC-US7-02**: Clicking +patch increments patch by 1 and writes the new SKILL.md content via `setFrontmatterVersion`. Clicking +minor increments minor by 1 and resets patch to 0. Clicking +major increments major by 1 and resets minor + patch to 0.
+- [x] **AC-US7-03**: Save validates the version transition via `validateVersionTransition(from, to)`. Allowed transitions: identical, patch+1, minor+1 with patch=0, major+1 with minor=patch=0. Decreases are rejected. Anything else surfaces an error toast and Save is blocked.
+- [x] **AC-US7-04**: After a successful save, EditorPanel dispatches a `studio:content-saved` CustomEvent. App.tsx listens and calls `refreshSkills()` so the sidebar version badge, header breadcrumb, and dirty indicator all reflect the freshly-saved frontmatter.
+- [x] **AC-US7-05**: Helpers `bumpVersion(current, kind)` and `validateVersionTransition(from, to)` are pure functions with full test coverage (19 tests). `setFrontmatterVersion(content, v)` is idempotent — same version returns identical bytes.
+- [x] **AC-US7-06**: Default 1.0.0 (source="default") no longer renders italic in `<VersionBadge>`. Italics remain only for genuinely-inherited versions ("registry" / "plugin"). Tooltip "No version declared" preserved on hover for discoverability.
+
+---
+
+### US-008: Stamp version into local + platform skill content (P1, Phase 8)
+**Project**: vskill / vskill-platform
+
+**As a** skill consumer
+**I want** every skill — local install or platform-served — to carry an explicit `version:` line in its SKILL.md frontmatter
+**So that** the studio never falls back to the default placeholder and the version provenance is unambiguous
+
+**Acceptance Criteria** (all completed):
+- [x] **AC-US8-01** (B1, vskill@0.5.140): New `vskill stamp-versions` CLI walks default scopes (`~/.claude/skills/`, `~/.claude/plugins/cache/`) and injects `version: "1.0.0"` into any SKILL.md frontmatter that lacks a version. Defaults to dry-run; `--write` applies. Idempotent. Refuses to walk paths outside `$HOME` as a safety check. Verified: 61/63 of Anton's local skills were stamped on first run; 0/63 changes on re-run.
+- [x] **AC-US8-02** (A, platform): `publish.ts` calls `injectVersionIfMissing(skillMdContent, newVersion)` after newVersion is finalized so every new `SkillVersion.content` row carries a `version:` line. Idempotent — author-declared frontmatter is byte-preserved (does not disturb contentHash dedup).
+- [x] **AC-US8-03** (A, platform): `scripts/backfill-version-stamps.ts` walks all SkillVersion rows, injects `version: <row.version>` into stored content where missing, and recomputes contentHash. Tested with 5 cases (idempotent re-run, null content, error per row, dry-run vs write). Production run is opt-in via `npx tsx scripts/backfill-version-stamps.ts --write`.
+
+---
+
+### US-009: OAuth redirect preserves ?repo= query string (P1, Phase 8)
+**Project**: vskill-platform
+
+**As a** skill author who arrives at /submit?repo=… from the studio Publish flow without being signed in
+**I want** the GitHub OAuth round-trip to land me back at /submit?repo=…
+**So that** the URL input is still pre-filled after I authenticate (instead of empty)
+
+**Acceptance Criteria** (completed in platform deploy `d7ddde7a`):
+- [x] **AC-US9-01**: When `authState === "unauthenticated"` on `/submit`, the "Login with GitHub" link constructs its `?redirect=` from the current `window.location.search`, so the destination after auth is `/submit?repo=<encoded>` not just `/submit`. The OAuth init route's open-redirect guard still passes (encoded URL has no literal `://`).
+- [x] **AC-US9-02**: After the GitHub callback restores the user session and follows the cookie-stored redirect, the submit page mounts with `?repo=…` intact and `getPrefillRepo` populates the URL input automatically.
+
