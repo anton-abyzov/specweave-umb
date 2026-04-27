@@ -1,10 +1,10 @@
 ---
 increment: 0794-plugin-update-visibility-foundation
-title: "Plugin Update Visibility & Version Alignment Foundation"
+title: Plugin Update Visibility & Version Alignment Foundation
 type: bug
 priority: P1
-status: planned
-created: 2026-04-27
+status: completed
+created: 2026-04-27T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -58,11 +58,11 @@ A separate Phase 2 increment (out of scope here) will add a session-start banner
 - `repositories/anton-abyzov/specweave/.github/workflows/*.yml` (wire validate-versions into CI)
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: Running `scripts/build/bump-version.sh patch` updates `package.json`, `marketplace.json`, AND `plugin.json` to the same SemVer string in a single atomic operation. Existing behavior for `package.json` + `marketplace.json` is preserved.
-- [ ] **AC-US1-02**: A one-shot commit hot-fixes `plugins/specweave/.claude-plugin/plugin.json` from `1.0.0` to the current `package.json` version (≥ `1.0.581`). Commit message references this increment.
-- [ ] **AC-US1-03**: `node scripts/validation/validate-versions.cjs` exits `0` when all three versions match, exits non-zero with a unified diff-style error message naming the offending file(s) when they drift.
-- [ ] **AC-US1-04**: GitHub Actions runs `validate-versions.cjs` on every push and PR. The job is required for merge to `main`. Drift PRs fail CI within 60 seconds.
-- [ ] **AC-US1-05**: After release, `~/.claude/plugins/installed_plugins.json` (after a `claude /plugin/update` or `specweave refresh-plugins`) reflects the new version, and `claude /plugin/list` shows "update available" before refresh.
+- [x] **AC-US1-01**: Running `scripts/build/bump-version.sh patch` updates `package.json`, `marketplace.json`, AND `plugin.json` to the same SemVer string in a single atomic operation. Existing behavior for `package.json` + `marketplace.json` is preserved.
+- [x] **AC-US1-02**: A one-shot commit hot-fixes `plugins/specweave/.claude-plugin/plugin.json` from `1.0.0` to the current `package.json` version (≥ `1.0.581`). Commit message references this increment.
+- [x] **AC-US1-03**: `node scripts/validation/validate-versions.cjs` exits `0` when all three versions match, exits non-zero with a unified diff-style error message naming the offending file(s) when they drift.
+- [x] **AC-US1-04**: GitHub Actions runs `validate-versions.cjs` on every push and PR. The job is required for merge to `main`. Drift PRs fail CI within 60 seconds.
+- [x] **AC-US1-05**: After release, `~/.claude/plugins/installed_plugins.json` (after a `claude /plugin/update` or `specweave refresh-plugins`) reflects the new version, and `claude /plugin/list` shows "update available" before refresh.
 
 **Test Plan**:
 - Unit: `validate-versions.cjs` against fixtures (aligned, drifted-2-of-3, drifted-3-of-3, missing-file)
@@ -86,11 +86,11 @@ A separate Phase 2 increment (out of scope here) will add a session-start banner
 - `repositories/anton-abyzov/vskill-platform/prisma/schema.prisma` (no schema change; reuse `SkillVersion.contentHash`)
 
 **Acceptance Criteria**:
-- [ ] **AC-US2a-01**: `POST /api/v1/skills/publish` computes `contentHash` from the request payload using the SAME normalization rules as `check-updates/route.ts` (frontmatter-stripped, whitespace-normalized, sorted keys).
-- [ ] **AC-US2a-02**: When the computed `contentHash` matches the latest `SkillVersion.contentHash` for the same `skillId + namespace`, the API returns HTTP `200` with body `{ status: "skipped", reason: "no changes detected", version: "<existing>" }` and does NOT insert a new `SkillVersion` row, does NOT increment KV cache version, does NOT bump certTier counters.
-- [ ] **AC-US2a-03**: When `contentHash` differs, the existing publish path runs unchanged (new `SkillVersion` inserted, KV cache invalidated, version bump applied).
-- [ ] **AC-US2a-04**: Rate-limit headers (`X-RateLimit-*`) and the existing 600 req/hr quota are unaffected. A skipped publish counts the same as a successful publish for rate-limiting (prevents abuse loops).
-- [ ] **AC-US2a-05**: Database invariant (verified via integration test): for any (skillId, namespace), no two `SkillVersion` rows share the same `contentHash`.
+- [x] **AC-US2a-01**: `POST /api/v1/skills/publish` computes `contentHash` from the request payload using the SAME normalization rules as `check-updates/route.ts` (frontmatter-stripped, whitespace-normalized, sorted keys).
+- [x] **AC-US2a-02**: When the computed `contentHash` matches the latest `SkillVersion.contentHash` for the same `skillId + namespace`, the API returns HTTP `200` with body `{ status: "skipped", reason: "no changes detected", version: "<existing>" }` and does NOT insert a new `SkillVersion` row, does NOT increment KV cache version, does NOT bump certTier counters.
+- [x] **AC-US2a-03**: When `contentHash` differs, the existing publish path runs unchanged (new `SkillVersion` inserted, KV cache invalidated, version bump applied).
+- [x] **AC-US2a-04**: Rate-limit headers (`X-RateLimit-*`) and the existing 600 req/hr quota are unaffected. A skipped publish counts the same as a successful publish for rate-limiting (prevents abuse loops).
+- [x] **AC-US2a-05**: Database invariant (verified via integration test): for any (skillId, namespace), no two `SkillVersion` rows share the same `contentHash`.
 
 **Test Plan**:
 - Unit: contentHash normalization parity with check-updates helper (same input → same hash)
@@ -113,11 +113,11 @@ A separate Phase 2 increment (out of scope here) will add a session-start banner
 - `repositories/anton-abyzov/vskill/src/lib/frontmatter.ts` (or equivalent — reuse existing parser/writer; do NOT introduce a second YAML library)
 
 **Acceptance Criteria**:
-- [ ] **AC-US2b-01**: After a successful publish (HTTP 2xx with `status: "published"` and a new version number), `submit.ts` rewrites the source `SKILL.md` frontmatter `version:` field to the registry version. All other frontmatter fields and ordering are preserved byte-for-byte where possible.
-- [ ] **AC-US2b-02**: When the registry returns `status: "skipped"` (US-002a path), `submit.ts` does NOT modify the file and prints `"No changes — version unchanged at <X>"` to stdout.
-- [ ] **AC-US2b-03**: If `SKILL.md` had no `version:` field, `submit.ts` adds one positioned after `description:` (or at end of frontmatter if `description:` absent).
-- [ ] **AC-US2b-04**: `submit.ts` exits non-zero and leaves `SKILL.md` untouched if the writeback would produce invalid YAML (defensive parse-then-serialize round-trip check).
-- [ ] **AC-US2b-05**: After `vskill skill publish` succeeds, immediately running `vskill outdated` in the same directory reports the skill as up to date.
+- [x] **AC-US2b-01**: After a successful publish (HTTP 2xx with `status: "published"` and a new version number), `submit.ts` rewrites the source `SKILL.md` frontmatter `version:` field to the registry version. All other frontmatter fields and ordering are preserved byte-for-byte where possible.
+- [x] **AC-US2b-02**: When the registry returns `status: "skipped"` (US-002a path), `submit.ts` does NOT modify the file and prints `"No changes — version unchanged at <X>"` to stdout.
+- [x] **AC-US2b-03**: If `SKILL.md` had no `version:` field, `submit.ts` adds one positioned after `description:` (or at end of frontmatter if `description:` absent).
+- [x] **AC-US2b-04**: `submit.ts` exits non-zero and leaves `SKILL.md` untouched if the writeback would produce invalid YAML (defensive parse-then-serialize round-trip check).
+- [x] **AC-US2b-05**: After `vskill skill publish` succeeds, immediately running `vskill outdated` in the same directory reports the skill as up to date.
 
 **Test Plan**:
 - Unit: frontmatter writeback preserves field order and quoting style across fixtures
@@ -141,11 +141,11 @@ A separate Phase 2 increment (out of scope here) will add a session-start banner
 - `repositories/anton-abyzov/specweave/.github/workflows/*.yml` (wire lint into CI)
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Every `plugins/specweave/skills/*/SKILL.md` (currently 50 files) has a `version:` field in YAML frontmatter. Initial value is `1.0.0` for the 47 currently missing it; the 3 with existing values are left untouched.
-- [ ] **AC-US3-02**: `version:` value is a valid SemVer string (`MAJOR.MINOR.PATCH`, optionally with prerelease/build per SemVer 2.0.0). Validator rejects bare integers, dates, or empty strings.
-- [ ] **AC-US3-03**: `validate-skill-versions.cjs` walks `plugins/specweave/skills/*/SKILL.md`, exits non-zero listing any file missing or with malformed `version:`. Output names the offending file paths, one per line.
-- [ ] **AC-US3-04**: GitHub Actions runs `validate-skill-versions.cjs` on every push and PR. Job is required for merge to `main`.
-- [ ] **AC-US3-05**: Stamping is idempotent — re-running the bulk stamp script does NOT modify any file that already has a valid `version:`.
+- [x] **AC-US3-01**: Every `plugins/specweave/skills/*/SKILL.md` (currently 50 files) has a `version:` field in YAML frontmatter. Initial value is `1.0.0` for the 47 currently missing it; the 3 with existing values are left untouched.
+- [x] **AC-US3-02**: `version:` value is a valid SemVer string (`MAJOR.MINOR.PATCH`, optionally with prerelease/build per SemVer 2.0.0). Validator rejects bare integers, dates, or empty strings.
+- [x] **AC-US3-03**: `validate-skill-versions.cjs` walks `plugins/specweave/skills/*/SKILL.md`, exits non-zero listing any file missing or with malformed `version:`. Output names the offending file paths, one per line.
+- [x] **AC-US3-04**: GitHub Actions runs `validate-skill-versions.cjs` on every push and PR. Job is required for merge to `main`.
+- [x] **AC-US3-05**: Stamping is idempotent — re-running the bulk stamp script does NOT modify any file that already has a valid `version:`.
 
 **Test Plan**:
 - Unit: validator against fixtures (missing field, malformed value, valid SemVer, prerelease, build metadata)
@@ -168,12 +168,12 @@ A separate Phase 2 increment (out of scope here) will add a session-start banner
 - `repositories/anton-abyzov/specweave/src/core/doctor/types.ts` (extend `CheckResult` only if needed; reuse existing shape)
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: `specweave doctor` (text mode) prints a row labeled `"Plugin Currency"` showing one of: `pass` (all plugins current), `warn` (one or more outdated), or `skip` (no `installed_plugins.json` found, e.g., user is not on Claude Code).
-- [ ] **AC-US4-02**: When `warn`, the output lists each outdated plugin as `<name>@<source>: installed=<X>, available=<Y>` and includes a `fixSuggestion` line: `"Run: specweave refresh-plugins"`.
-- [ ] **AC-US4-03**: `specweave doctor --json` includes a `pluginCurrency` key with shape `{ status: "pass"|"warn"|"skip", outdated: [{ name, source, installed, available }], fixSuggestion?: string }`.
-- [ ] **AC-US4-04**: When `~/.claude/plugins/installed_plugins.json` is missing or unreadable, the check returns `skip` (not `fail`), with a `reason` explaining why. `specweave doctor` exit code is unchanged by a `skip`.
-- [ ] **AC-US4-05**: When the marketplace fetch fails (network error, 5xx), the check returns `warn` with `reason: "unable to verify"`, NOT `fail`. Doctor continues to other checks.
-- [ ] **AC-US4-06**: Total wall-clock added to `specweave doctor` by this check is ≤500 ms in the warm-cache case and ≤2000 ms cold (KV miss). Measured via existing doctor timing harness.
+- [x] **AC-US4-01**: `specweave doctor` (text mode) prints a row labeled `"Plugin Currency"` showing one of: `pass` (all plugins current), `warn` (one or more outdated), or `skip` (no `installed_plugins.json` found, e.g., user is not on Claude Code).
+- [x] **AC-US4-02**: When `warn`, the output lists each outdated plugin as `<name>@<source>: installed=<X>, available=<Y>` and includes a `fixSuggestion` line: `"Run: specweave refresh-plugins"`.
+- [x] **AC-US4-03**: `specweave doctor --json` includes a `pluginCurrency` key with shape `{ status: "pass"|"warn"|"skip", outdated: [{ name, source, installed, available }], fixSuggestion?: string }`.
+- [x] **AC-US4-04**: When `~/.claude/plugins/installed_plugins.json` is missing or unreadable, the check returns `skip` (not `fail`), with a `reason` explaining why. `specweave doctor` exit code is unchanged by a `skip`.
+- [x] **AC-US4-05**: When the marketplace fetch fails (network error, 5xx), the check returns `warn` with `reason: "unable to verify"`, NOT `fail`. Doctor continues to other checks.
+- [x] **AC-US4-06**: Total wall-clock added to `specweave doctor` by this check is ≤500 ms in the warm-cache case and ≤2000 ms cold (KV miss). Measured via existing doctor timing harness.
 
 **Test Plan**:
 - Unit: checker against fixture pairs (all-current, one-outdated, missing-installed-file, malformed-marketplace, network-fail)
@@ -196,12 +196,12 @@ A separate Phase 2 increment (out of scope here) will add a session-start banner
 - `repositories/anton-abyzov/specweave/src/core/doctor/checkers/index.ts` (register)
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: `specweave doctor` prints a row labeled `"Skill Currency"` showing one of: `pass` (all skills current), `warn` (outdated skills present), or `skip` (no `vskill.lock` in CWD or `vskill` binary not on PATH).
-- [ ] **AC-US5-02**: When `warn`, output lists each outdated skill as `<namespace>/<name>: installed=<X>, available=<Y>` (max 10 lines, truncated with `"… +N more"`). `fixSuggestion`: `"Run: vskill update"`.
-- [ ] **AC-US5-03**: `specweave doctor --json` includes a `skillCurrency` key mirroring the structure of `pluginCurrency` from US-004.
-- [ ] **AC-US5-04**: When `vskill` is not on PATH, the check returns `skip` with `reason: "vskill CLI not installed"`. No fail.
-- [ ] **AC-US5-05**: When `vskill outdated --json` exits non-zero or returns malformed JSON, the check returns `warn` with `reason: "unable to verify"`. Stderr from vskill is captured to `reason` (truncated to 200 chars).
-- [ ] **AC-US5-06**: Total wall-clock added to `specweave doctor` by this check is ≤500 ms warm, ≤2000 ms cold.
+- [x] **AC-US5-01**: `specweave doctor` prints a row labeled `"Skill Currency"` showing one of: `pass` (all skills current), `warn` (outdated skills present), or `skip` (no `vskill.lock` in CWD or `vskill` binary not on PATH).
+- [x] **AC-US5-02**: When `warn`, output lists each outdated skill as `<namespace>/<name>: installed=<X>, available=<Y>` (max 10 lines, truncated with `"… +N more"`). `fixSuggestion`: `"Run: vskill update"`.
+- [x] **AC-US5-03**: `specweave doctor --json` includes a `skillCurrency` key mirroring the structure of `pluginCurrency` from US-004.
+- [x] **AC-US5-04**: When `vskill` is not on PATH, the check returns `skip` with `reason: "vskill CLI not installed"`. No fail.
+- [x] **AC-US5-05**: When `vskill outdated --json` exits non-zero or returns malformed JSON, the check returns `warn` with `reason: "unable to verify"`. Stderr from vskill is captured to `reason` (truncated to 200 chars).
+- [x] **AC-US5-06**: Total wall-clock added to `specweave doctor` by this check is ≤500 ms warm, ≤2000 ms cold.
 
 **Test Plan**:
 - Unit: parse-vskill-output helper against captured `vskill outdated --json` fixtures (current, outdated, error)
@@ -224,12 +224,12 @@ A separate Phase 2 increment (out of scope here) will add a session-start banner
 - `repositories/anton-abyzov/vskill/src/lockfile.ts` OR new `vskill/src/authored.ts` (track locally authored skill paths; one approach to be chosen during plan phase)
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: After `vskill skill publish` succeeds, the source path is recorded as a "locally authored" skill (mechanism: a sibling `vskill.authored.json` or extending `vskill.lock` with a separate section — chosen during planning, MUST NOT mix with installed-skill entries).
-- [ ] **AC-US6-02**: `vskill outdated` polls both lockfile-installed and locally-authored skills. Locally-authored skills are flagged distinctly in output (e.g., prefix `[authored]`).
-- [ ] **AC-US6-03**: A locally-authored skill where source `SKILL.md` version equals registry version is reported as up to date (no false positives).
-- [ ] **AC-US6-04**: A locally-authored skill where the source file no longer exists (deleted, moved) is removed from the authored list automatically on next `outdated` run, with a one-line stderr notice.
-- [ ] **AC-US6-05**: A locally-authored skill that has never been published to the registry is silently skipped (no error, no warn). The case is rare — author published once, then deleted from registry — and is not worth surfacing.
-- [ ] **AC-US6-06**: `vskill.authored.json` (or equivalent) is `.gitignore`-friendly (added to default `.gitignore` snippets that `vskill init` writes); contains no secrets; safe to delete (regenerated on next publish).
+- [x] **AC-US6-01**: After `vskill skill publish` succeeds, the source path is recorded as a "locally authored" skill (mechanism: a sibling `vskill.authored.json` or extending `vskill.lock` with a separate section — chosen during planning, MUST NOT mix with installed-skill entries).
+- [x] **AC-US6-02**: `vskill outdated` polls both lockfile-installed and locally-authored skills. Locally-authored skills are flagged distinctly in output (e.g., prefix `[authored]`).
+- [x] **AC-US6-03**: A locally-authored skill where source `SKILL.md` version equals registry version is reported as up to date (no false positives).
+- [x] **AC-US6-04**: A locally-authored skill where the source file no longer exists (deleted, moved) is removed from the authored list automatically on next `outdated` run, with a one-line stderr notice.
+- [x] **AC-US6-05**: A locally-authored skill that has never been published to the registry is silently skipped (no error, no warn). The case is rare — author published once, then deleted from registry — and is not worth surfacing.
+- [x] **AC-US6-06**: `vskill.authored.json` (or equivalent) is `.gitignore`-friendly (added to default `.gitignore` snippets that `vskill init` writes); contains no secrets; safe to delete (regenerated on next publish).
 
 **Test Plan**:
 - Unit: authored-list add/remove on publish/delete cycles
