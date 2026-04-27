@@ -39,18 +39,25 @@ All four are presentation-layer fixes. No new APIs, no new data, no auth changes
 
 ---
 
-### US-002: Marketplace clarifies what plugins are and renders cleanly (P1)
+### US-002: Marketplace clarifies what plugins are and renders cleanly (P1) — WAIVED
+
+**Status: WAIVED — superseded by `0f1787e` ("0771: revert /marketplace hub — restore /docs/plugins + Insights nav").**
+
+The product owner decided after 0783 shipped (and this increment had verified all four ACs on production at deploy `c4d44d14`) to retire the `/marketplace` route entirely in favour of `/docs/plugins`. Commit `0f1787e` deletes `src/app/marketplace/`, `src/lib/marketplace/`, the e2e suite, and unit tests for the route. Production now serves `/marketplace` as 404 by design; `/docs/plugins` is the live destination for the same content.
+
+The four acceptance criteria below were satisfied at the time the original spec was written and the build was deployed, but the surface they targeted no longer exists. Re-verifying them post-revert is not meaningful. No follow-up increment is required for the waive itself; if the analogous fixes (header copy, removed featured tier, no-overflow cards) need to land on `/docs/plugins`, that becomes its own increment.
+
 **Project**: vskill-platform
 
 **As a** developer browsing the marketplace
 **I want** to understand that "plugins" are curated bundles distinct from the 115k-skill index, and to see plugin cards that don't overflow
 **So that** I can find the right install command without confusion or visual breakage
 
-**Acceptance Criteria**:
-- [x] **AC-US2-01**: The "All Plugins" header on `/marketplace` must read **"Plugin bundles"** with the count line **"{N} published · {M} skills inside"** and a one-line subhead **"Curated multi-skill installs published by vskill."**.
-- [x] **AC-US2-02**: The "Featured Collection" section must be removed entirely. No DOM element on `/marketplace` may contain the literal string "Featured Collection". The `FeaturedSpotlight` component is deleted (or no longer rendered) and `const featured = PLUGINS[0]` is removed from `MarketplacePage`.
-- [x] **AC-US2-03**: Plugin card heading must render `name` and `tagline` as separate elements (eyebrow + heading), not a single concatenated `name — tagline` h1/h2. The grid card already does this (h3 + p) but if a card-detail/spotlight view is retained for any plugin, it must use the same pattern.
-- [x] **AC-US2-04**: At viewport widths 375, 768, 1280, 1920 px, no horizontal overflow exists on `/marketplace` (`document.documentElement.scrollWidth <= clientWidth`).
+**Acceptance Criteria** (all four reached green pre-revert, now waived):
+- [~] **AC-US2-01**: The "All Plugins" header on `/marketplace` must read **"Plugin bundles"** with the count line **"{N} published · {M} skills inside"** and a one-line subhead **"Curated multi-skill installs published by vskill."**. — *Waived: route deleted in `0f1787e`.*
+- [~] **AC-US2-02**: The "Featured Collection" section must be removed entirely. No DOM element on `/marketplace` may contain the literal string "Featured Collection". The `FeaturedSpotlight` component is deleted (or no longer rendered) and `const featured = PLUGINS[0]` is removed from `MarketplacePage`. — *Waived: route deleted in `0f1787e`.*
+- [~] **AC-US2-03**: Plugin card heading must render `name` and `tagline` as separate elements (eyebrow + heading), not a single concatenated `name — tagline` h1/h2. The grid card already does this (h3 + p) but if a card-detail/spotlight view is retained for any plugin, it must use the same pattern. — *Waived: route deleted in `0f1787e`.*
+- [~] **AC-US2-04**: At viewport widths 375, 768, 1280, 1920 px, no horizontal overflow exists on `/marketplace` (`document.documentElement.scrollWidth <= clientWidth`). — *Waived: route deleted in `0f1787e`.*
 
 ---
 

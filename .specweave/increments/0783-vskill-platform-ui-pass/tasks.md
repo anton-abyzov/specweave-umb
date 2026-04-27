@@ -38,8 +38,9 @@ Edit `src/app/components/home/HeroStats.tsx`:
 
 ---
 
-### T-003: GREEN — Marketplace header rename + remove Featured Collection
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04 | **Status**: [x] completed
+### T-003: GREEN — Marketplace header rename + remove Featured Collection (WAIVED)
+**User Story**: US-002 (WAIVED) | **Satisfies ACs**: AC-US2-01..04 (all waived) | **Status**: [~] waived
+**Waiver note**: implementation was completed and verified on production at deploy `c4d44d14` before commit `0f1787e` ("0771: revert /marketplace hub") deleted the entire `/marketplace` route in favour of `/docs/plugins`. Original task body retained for history.
 **Test Plan**:
 - Given `/marketplace` rendered
 - When the page is inspected
