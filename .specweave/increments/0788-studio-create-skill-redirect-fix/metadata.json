@@ -1,0 +1,33 @@
+{
+  "id": "0788-studio-create-skill-redirect-fix",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-27T12:34:30.283Z",
+  "lastActivity": "2026-04-27T14:20:58.281Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1287",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1287",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-27T14:21:32.100Z"
+    },
+    "ado": {
+      "featureId": "2126",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2126",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-27T14:21:36.295Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "readyForReviewAt": "2026-04-27T14:20:29.622Z",
+  "approvedAt": "2026-04-27T14:20:58.281Z"
+}
