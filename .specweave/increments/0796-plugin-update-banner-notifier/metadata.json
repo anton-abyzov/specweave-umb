@@ -1,0 +1,31 @@
+{
+  "id": "0796-plugin-update-banner-notifier",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-04-27T20:13:20.358Z",
+  "lastActivity": "2026-04-27T20:13:20.358Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1313",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1313",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-27T20:24:15.972Z"
+    },
+    "ado": {
+      "featureId": "2152",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2152",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-27T20:24:20.544Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  }
+}
