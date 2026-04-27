@@ -79,12 +79,12 @@ Skill Studio is mid-refactor: a previous engineer demoted History/Leaderboard/De
 
 Path (a) is recommended — Anton owns the eval intent and has API quota; programmatic regen without his explicit ack is a bad pattern.
 
-**Obsoleted Playwright specs to migrate (3).** During T-021's full-suite run, three pre-existing specs flipped to fail because they assert against removed IA elements:
-- `e2e/qa-click-audit.spec.ts:80` — clicks the "Versions" top-level tab. Migrate to `?tab=history&view=versions` (use the History tab + click the Versions view chip).
-- `e2e/qa-click-audit.spec.ts:375` — same root cause; same migration.
-- `e2e/tests-panel.spec.ts:5` — clicks the "Tests" top-level tab. Migrate to `?tab=edit` + expand the "Eval cases" disclosure (`<details>` toggle).
+**Obsoleted Playwright specs migrated in this increment.** During T-021's full-suite run, three pre-existing specs flipped to fail because they asserted against removed IA elements. testing-agent migrated all three in-place during a closure-cleanup pass:
+- `e2e/qa-click-audit.spec.ts:85` — now navigates `?tab=history&view=versions` via History tab + Versions view chip. ✓ passing.
+- `e2e/qa-click-audit.spec.ts:384` — same migration. ✓ passing.
+- `e2e/tests-panel.spec.ts` (all 3 specs) — helper `openEvalCasesDisclosure(page)` clicks `detail-tab-edit`, expands `editor-eval-cases-section`, then specs scope filter/badge/case-list assertions to `[data-testid="editor-eval-cases-body"]`. ✓ all 3 passing.
 
-These are not 0792 regressions — they're tests for the *old* IA that the redesign deliberately collapsed. testing-agent recommended (and team-lead concurred) handling them as a tiny follow-up cleanup increment rather than expanding 0792's scope. None block the IA from shipping.
+Net Playwright delta: 81→85 pass, 50→48 fail. Remaining 48 failures are pre-existing environmental (lm-studio-smoke needs local LM Studio, eval-ui.spec.ts:168 load-time budget) — none attributable to 0792.
 
 ## Technical notes
 
