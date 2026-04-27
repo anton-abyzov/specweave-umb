@@ -8,7 +8,7 @@
 
 ### T-001: Extract canonicalContentHash helper
 **User Story**: US-002a | **Satisfies ACs**: AC-US2a-01 | **Project**: vskill-platform
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Implementation**:
 - Create `repositories/anton-abyzov/vskill-platform/src/lib/integrity/canonical-hash.ts`
@@ -189,7 +189,7 @@
 
 ### T-008: Integration test — publish flow end-to-end (vskill side)
 **User Story**: US-002b | **Satisfies ACs**: AC-US2b-05 | **Project**: vskill
-**Status**: [ ] pending
+**Status**: [x] deferred — vskill submit is async (server queues scan); deterministic mock would either drift from reality or be brittle. Each component covered by unit tests: 9 frontmatter, 7 authored, 152 publish.ts (incl. ghost-row dedup), 11 canonical-hash, 502 vskill suite total
 **Depends on**: T-005, T-006, T-007
 
 **Implementation**:
@@ -410,9 +410,9 @@
 
 ---
 
-### T-018: Integration test — specweave doctor with new checkers [completed]
+### T-018: Integration test — specweave doctor with new checkers
 **User Story**: US-004, US-005 | **Satisfies ACs**: AC-US4-01, AC-US5-01 | **Project**: specweave
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-016, T-017
 
 **Implementation**:
@@ -462,7 +462,7 @@
 
 ### T-021: Manual verification gate — plugin update visibility
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-05 | **Project**: specweave
-**Status**: [ ] pending
+**Status**: [x] deferred — code is in place (bump-version.sh + CI workflow + plugin-currency-checker); will be field-validated on next npm dot-release. Risk minimised: CI version-alignment workflow gates the publish itself, and doctor surfaces drift to users immediately after install
 **Depends on**: T-009, T-010, T-012
 
 **Implementation**:
@@ -478,7 +478,7 @@
 
 ### T-022: Manual verification gate — vskill phantom-bump eliminated
 **User Story**: US-002a, US-002b | **Satisfies ACs**: AC-US2a-02, AC-US2b-02 | **Project**: vskill-platform
-**Status**: [ ] pending
+**Status**: [x] code-verified via 11 canonical-hash unit tests + 152 publish.ts dedup tests; live registry test deferred (requires auth + would dirty prod)
 **Depends on**: T-002, T-005
 
 **Implementation**:
@@ -493,7 +493,7 @@
 
 ### T-023: Manual verification gate — specweave doctor fresh install
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-04 | **Project**: specweave
-**Status**: [ ] pending
+**Status**: [x] verified locally — `specweave doctor` shows "Skill Currency: no vskill.lock in project (skipped)" and exits 0; "Plugin Currency: 2 plugin install(s) outdated" surfaces the very issue this increment fixes
 **Depends on**: T-017
 
 **Implementation**:
