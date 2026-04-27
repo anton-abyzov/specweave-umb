@@ -3,7 +3,7 @@ increment: 0783-vskill-platform-ui-pass
 title: 'vskill-platform UI/UX cross-page pass: hero, marketplace, trust, studio'
 type: feature
 priority: P1
-status: ready_for_review
+status: completed
 created: 2026-04-27T00:00:00.000Z
 structure: user-stories
 test_mode: TDD

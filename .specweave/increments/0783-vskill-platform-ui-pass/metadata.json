@@ -1,15 +1,30 @@
 {
   "id": "0783-vskill-platform-ui-pass",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-27T00:53:10.259Z",
-  "lastActivity": "2026-04-27T02:02:52.048Z",
+  "lastActivity": "2026-04-27T02:50:07.046Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1263",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1263",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-27T02:51:13.760Z"
+    },
+    "ado": {
+      "featureId": "2102",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2102",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-27T02:51:16.940Z"
+    }
+  },
   "planning": {
     "parallel": false
   },
@@ -124,5 +139,6 @@
       "changesCount": 0
     }
   ],
-  "readyForReviewAt": "2026-04-27T02:02:52.048Z"
+  "readyForReviewAt": "2026-04-27T02:02:52.048Z",
+  "approvedAt": "2026-04-27T02:50:07.046Z"
 }
