@@ -1,0 +1,33 @@
+{
+  "id": "0790-queue-health-orphaned-active",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-27T12:38:45.846Z",
+  "lastActivity": "2026-04-27T14:27:11.456Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1290",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1290",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-27T14:27:34.471Z"
+    },
+    "ado": {
+      "featureId": "2129",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2129",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-27T14:27:39.183Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "readyForReviewAt": "2026-04-27T14:27:11.430Z",
+  "approvedAt": "2026-04-27T14:27:11.456Z"
+}
