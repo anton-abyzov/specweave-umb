@@ -76,7 +76,7 @@ Disjoint files → no merge conflicts. Main agent runs Stage 5 (verification wit
 
 ## Verification
 
-1. `cd repositories/anton-abyzov/vskill-platform && npm run prebuild` → `generated-counts.ts` shows `scanPatterns: 53`
+1. `cd repositories/anton-abyzov/vskill-platform && npm run prebuild` → `generated-counts.ts` shows `scanPatterns: 52` (matches the strict-regex count in vskill source)
 2. `npm run dev`; `preview_start`; visit `/trust`, `/docs/getting-started` light + dark; `preview_screenshot` + `preview_inspect` for contrast
 3. `npm run typecheck`
 4. `npm run build`; grep built HTML for orphan literal counts
