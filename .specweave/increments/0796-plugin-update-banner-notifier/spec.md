@@ -1,10 +1,10 @@
 ---
 increment: 0796-plugin-update-banner-notifier
-title: "Session-Start Banner Notifier for Plugin/Skill Updates"
+title: Session-Start Banner Notifier for Plugin/Skill Updates
 type: feature
 priority: P2
-status: planned
-created: 2026-04-27
+status: completed
+created: 2026-04-27T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -37,13 +37,13 @@ This is the Phase 2 follow-up to **0794-plugin-update-visibility-foundation** (w
 **So that** I never silently miss a security fix or feature update
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: After running `specweave init` (or `specweave init --upgrade` on an existing project), `~/.claude/settings.json` contains a `UserPromptSubmit` hook entry pointing to `plugins/specweave/hooks/user-prompt-submit/check-updates.js`
-- [ ] **AC-US1-02**: On first prompt of a session (no throttle file yet), the hook invokes `specweave doctor --quick --quiet --json` and parses the result
-- [ ] **AC-US1-03**: When doctor reports `warn` or `fail` in either "Plugin Currency" or "Skill Currency" categories, the hook prints a one-line banner to **stderr** in the format: `[specweave] N plugin update(s) and M skill update(s) available — run \`specweave refresh-plugins\` and \`vskill update\``
-- [ ] **AC-US1-04**: When N=0, banner reads `M skill update(s) available — run \`vskill update\``. When M=0, banner reads `N plugin update(s) available — run \`specweave refresh-plugins\``. When both 0, no banner is printed
-- [ ] **AC-US1-05**: Banner is printed to stderr, never stdout, so tool output is unaffected
-- [ ] **AC-US1-06**: Hook completes in <800ms in the cold path (doctor invoked) and <10ms in the throttled path
-- [ ] **AC-US1-07**: Hook is registered for the `specweave` plugin only — does NOT pollute Claude Code settings for projects without `.specweave/` initialized
+- [x] **AC-US1-01**: After running `specweave init` (or `specweave init --upgrade` on an existing project), `~/.claude/settings.json` contains a `UserPromptSubmit` hook entry pointing to `plugins/specweave/hooks/user-prompt-submit/check-updates.js`
+- [x] **AC-US1-02**: On first prompt of a session (no throttle file yet), the hook invokes `specweave doctor --quick --quiet --json` and parses the result
+- [x] **AC-US1-03**: When doctor reports `warn` or `fail` in either "Plugin Currency" or "Skill Currency" categories, the hook prints a one-line banner to **stderr** in the format: `[specweave] N plugin update(s) and M skill update(s) available — run \`specweave refresh-plugins\` and \`vskill update\``
+- [x] **AC-US1-04**: When N=0, banner reads `M skill update(s) available — run \`vskill update\``. When M=0, banner reads `N plugin update(s) available — run \`specweave refresh-plugins\``. When both 0, no banner is printed
+- [x] **AC-US1-05**: Banner is printed to stderr, never stdout, so tool output is unaffected
+- [x] **AC-US1-06**: Hook completes in <800ms in the cold path (doctor invoked) and <10ms in the throttled path
+- [x] **AC-US1-07**: Hook is registered for the `specweave` plugin only — does NOT pollute Claude Code settings for projects without `.specweave/` initialized
 
 **Test Plan**:
 - Given a fresh project with `.specweave/` initialized AND `~/.claude/plugins/installed_plugins.json` containing one outdated plugin (e.g., `specweave@2.0.0` while marketplace has `2.1.0`)
@@ -62,13 +62,13 @@ This is the Phase 2 follow-up to **0794-plugin-update-visibility-foundation** (w
 **So that** it doesn't spam me on every prompt within the same workday
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: After a successful doctor run with `hadUpdates: false`, the hook writes `.specweave/state/banner-last-check.json` containing `{ "lastCheck": "<ISO>", "hadUpdates": false, "expiresAt": "<ISO + 24h>" }`
-- [ ] **AC-US2-02**: On subsequent prompts within 24h of a `hadUpdates: false` check, the hook reads the throttle file, sees `expiresAt > now`, and exits immediately without invoking doctor
-- [ ] **AC-US2-03**: When `hadUpdates: true`, the throttle is still set but `expiresAt` is shorter (default: 4 hours) so the user gets re-prompted later in the same workday if they haven't acted on it yet
-- [ ] **AC-US2-04**: After `expiresAt < now`, the next prompt re-runs doctor and refreshes the throttle file
-- [ ] **AC-US2-05**: The throttle file uses **atomic write semantics** (write to `.tmp`, then rename) so concurrent agents don't corrupt it
-- [ ] **AC-US2-06**: A corrupted or unparseable throttle file is treated as "never checked" — hook re-runs doctor and overwrites the file, no error surfaced to user
-- [ ] **AC-US2-07**: Throttle path round-trip (read file, parse JSON, compare timestamps, exit) completes in <10ms on a typical local SSD
+- [x] **AC-US2-01**: After a successful doctor run with `hadUpdates: false`, the hook writes `.specweave/state/banner-last-check.json` containing `{ "lastCheck": "<ISO>", "hadUpdates": false, "expiresAt": "<ISO + 24h>" }`
+- [x] **AC-US2-02**: On subsequent prompts within 24h of a `hadUpdates: false` check, the hook reads the throttle file, sees `expiresAt > now`, and exits immediately without invoking doctor
+- [x] **AC-US2-03**: When `hadUpdates: true`, the throttle is still set but `expiresAt` is shorter (default: 4 hours) so the user gets re-prompted later in the same workday if they haven't acted on it yet
+- [x] **AC-US2-04**: After `expiresAt < now`, the next prompt re-runs doctor and refreshes the throttle file
+- [x] **AC-US2-05**: The throttle file uses **atomic write semantics** (write to `.tmp`, then rename) so concurrent agents don't corrupt it
+- [x] **AC-US2-06**: A corrupted or unparseable throttle file is treated as "never checked" — hook re-runs doctor and overwrites the file, no error surfaced to user
+- [x] **AC-US2-07**: Throttle path round-trip (read file, parse JSON, compare timestamps, exit) completes in <10ms on a typical local SSD
 
 **Test Plan**:
 - Given a throttle file written 1 hour ago with `hadUpdates: false` and `expiresAt: now + 23h`
@@ -87,12 +87,12 @@ This is the Phase 2 follow-up to **0794-plugin-update-visibility-foundation** (w
 **So that** I retain control without uninstalling the plugin
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `.specweave/config.json` schema includes a new optional path `hooks.banner.disabled` (boolean, default `false`)
-- [ ] **AC-US3-02**: Running `specweave config set hooks.banner.disabled true` writes the value to `.specweave/config.json` and prints a confirmation
-- [ ] **AC-US3-03**: When `hooks.banner.disabled === true`, the hook exits immediately without reading the throttle file or invoking doctor (path returns in <5ms)
-- [ ] **AC-US3-04**: Re-enabling via `specweave config set hooks.banner.disabled false` (or removing the key) restores normal behavior on the next prompt
-- [ ] **AC-US3-05**: The opt-out is per-project (lives in `.specweave/config.json`), not global — different projects can have different settings
-- [ ] **AC-US3-06**: Config schema validation rejects non-boolean values for `hooks.banner.disabled` with a clear error message
+- [x] **AC-US3-01**: `.specweave/config.json` schema includes a new optional path `hooks.banner.disabled` (boolean, default `false`)
+- [x] **AC-US3-02**: Running `specweave config set hooks.banner.disabled true` writes the value to `.specweave/config.json` and prints a confirmation
+- [x] **AC-US3-03**: When `hooks.banner.disabled === true`, the hook exits immediately without reading the throttle file or invoking doctor (path returns in <5ms)
+- [x] **AC-US3-04**: Re-enabling via `specweave config set hooks.banner.disabled false` (or removing the key) restores normal behavior on the next prompt
+- [x] **AC-US3-05**: The opt-out is per-project (lives in `.specweave/config.json`), not global — different projects can have different settings
+- [x] **AC-US3-06**: Config schema validation rejects non-boolean values for `hooks.banner.disabled` with a clear error message
 
 **Test Plan**:
 - Given `.specweave/config.json` with `hooks.banner.disabled: true`
@@ -112,14 +112,14 @@ This is the Phase 2 follow-up to **0794-plugin-update-visibility-foundation** (w
 **So that** a broken doctor command, network failure, or corrupted state never blocks a user's prompt
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: All hook I/O (config read, throttle file read/write, doctor spawn, JSON parse) is wrapped in `try/catch` blocks that swallow errors and `process.exit(0)`
-- [ ] **AC-US4-02**: When doctor exits non-zero, the hook treats it as "no banner" (not "error to user") and continues silently
-- [ ] **AC-US4-03**: When doctor stdout is not valid JSON, the hook silently skips banner printing (does not throw)
-- [ ] **AC-US4-04**: When doctor takes longer than a 5-second timeout, the hook kills the child process and exits silently
-- [ ] **AC-US4-05**: Errors are logged best-effort to `.specweave/state/banner-error.log` (append-only, capped at 100KB via rotation) for postmortem debugging — but log write failures are themselves swallowed
-- [ ] **AC-US4-06**: When the user has no network connectivity AND doctor needs network for marketplace check, doctor must report "skipped" not "fail" — hook treats "skipped" as "no updates" (silent)
-- [ ] **AC-US4-07**: When `~/.claude/plugins/installed_plugins.json` is missing (user hasn't installed any plugins yet), hook exits silently — no banner, no error
-- [ ] **AC-US4-08**: When `.specweave/state/` directory doesn't exist, the hook creates it (with `mkdir -p` semantics) before writing the throttle file
+- [x] **AC-US4-01**: All hook I/O (config read, throttle file read/write, doctor spawn, JSON parse) is wrapped in `try/catch` blocks that swallow errors and `process.exit(0)`
+- [x] **AC-US4-02**: When doctor exits non-zero, the hook treats it as "no banner" (not "error to user") and continues silently
+- [x] **AC-US4-03**: When doctor stdout is not valid JSON, the hook silently skips banner printing (does not throw)
+- [x] **AC-US4-04**: When doctor takes longer than a 5-second timeout, the hook kills the child process and exits silently
+- [x] **AC-US4-05**: Errors are logged best-effort to `.specweave/state/banner-error.log` (append-only, capped at 100KB via rotation) for postmortem debugging — but log write failures are themselves swallowed
+- [x] **AC-US4-06**: When the user has no network connectivity AND doctor needs network for marketplace check, doctor must report "skipped" not "fail" — hook treats "skipped" as "no updates" (silent)
+- [x] **AC-US4-07**: When `~/.claude/plugins/installed_plugins.json` is missing (user hasn't installed any plugins yet), hook exits silently — no banner, no error
+- [x] **AC-US4-08**: When `.specweave/state/` directory doesn't exist, the hook creates it (with `mkdir -p` semantics) before writing the throttle file
 
 **Test Plan**:
 - Given `specweave doctor --quick --quiet --json` is replaced with a script that exits with code 1 and prints garbage to stdout
@@ -139,12 +139,12 @@ This is the Phase 2 follow-up to **0794-plugin-update-visibility-foundation** (w
 **So that** the banner hook can invoke it efficiently and parse output reliably
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: `specweave doctor --quick` skips slow checkers (deep marketplace network probes, full skill registry validation) and runs only the fast currency checks (PluginCurrencyChecker, SkillCurrencyChecker, plus existing fast checks)
-- [ ] **AC-US5-02**: `specweave doctor --quiet` suppresses informational and `pass` lines on stdout, leaving only `warn` and `fail` results in the human-readable output (when not combined with `--json`)
-- [ ] **AC-US5-03**: `specweave doctor --json` emits a structured JSON document on stdout containing an array of check results, each with `{ category, name, status, message, details? }` — no human-formatted lines mixed in
-- [ ] **AC-US5-04**: Flags compose correctly: `--quick --quiet --json` produces JSON output of fast-check-only results with no extra logging on stdout
-- [ ] **AC-US5-05**: When the JSON schema is updated, a sample fixture is added to test data so the hook's parser is regression-tested against the contract
-- [ ] **AC-US5-06**: Existing `specweave doctor` (no flags) behavior is unchanged for backward compatibility — flags are purely additive
+- [x] **AC-US5-01**: `specweave doctor --quick` skips slow checkers (deep marketplace network probes, full skill registry validation) and runs only the fast currency checks (PluginCurrencyChecker, SkillCurrencyChecker, plus existing fast checks)
+- [x] **AC-US5-02**: `specweave doctor --quiet` suppresses informational and `pass` lines on stdout, leaving only `warn` and `fail` results in the human-readable output (when not combined with `--json`)
+- [x] **AC-US5-03**: `specweave doctor --json` emits a structured JSON document on stdout containing an array of check results, each with `{ category, name, status, message, details? }` — no human-formatted lines mixed in
+- [x] **AC-US5-04**: Flags compose correctly: `--quick --quiet --json` produces JSON output of fast-check-only results with no extra logging on stdout
+- [x] **AC-US5-05**: When the JSON schema is updated, a sample fixture is added to test data so the hook's parser is regression-tested against the contract
+- [x] **AC-US5-06**: Existing `specweave doctor` (no flags) behavior is unchanged for backward compatibility — flags are purely additive
 
 **Test Plan**:
 - Given the SpecWeave CLI is built with the doctor command
