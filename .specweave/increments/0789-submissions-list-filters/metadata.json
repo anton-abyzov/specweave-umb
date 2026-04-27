@@ -1,0 +1,33 @@
+{
+  "id": "0789-submissions-list-filters",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-27T12:38:45.574Z",
+  "lastActivity": "2026-04-27T13:42:17.850Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1283",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1283",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-27T13:42:40.271Z"
+    },
+    "ado": {
+      "featureId": "2122",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2122",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-27T13:42:43.922Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "readyForReviewAt": "2026-04-27T13:36:41.022Z",
+  "approvedAt": "2026-04-27T13:42:17.850Z"
+}
