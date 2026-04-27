@@ -1,0 +1,43 @@
+{
+  "id": "0792-studio-ia-redesign-and-baseline-fix",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-04-27T14:00:00.000Z",
+  "lastActivity": "2026-04-27T15:04:53.196Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "project": "vskill",
+  "externalLinks": {},
+  "planning": {
+    "parallel": true
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-27T15:02:34.858Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: [x] but no tasks found (manual verification?)",
+        "AC-US1-02: [x] but no tasks found (manual verification?)",
+        "AC-US1-03: [x] but no tasks found (manual verification?)",
+        "AC-US1-04: [x] but no tasks found (manual verification?)",
+        "AC-US1-05: [x] but no tasks found (manual verification?)",
+        "AC-US1-06: [x] but no tasks found (manual verification?)",
+        "AC-US1-07: [x] but no tasks found (manual verification?)",
+        "AC-US2-01: [x] but no tasks found (manual verification?)",
+        "AC-US2-02: [x] but no tasks found (manual verification?)",
+        "AC-US2-03: [x] but no tasks found (manual verification?)",
+        "AC-US3-01: [x] but no tasks found (manual verification?)",
+        "AC-US3-02: [x] but no tasks found (manual verification?)",
+        "AC-US3-03: [x] but no tasks found (manual verification?)",
+        "AC-US3-04: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "readyForReviewAt": "2026-04-27T15:04:53.176Z",
+  "approvedAt": "2026-04-27T15:04:53.196Z"
+}
