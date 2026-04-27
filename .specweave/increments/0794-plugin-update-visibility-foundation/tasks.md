@@ -356,7 +356,7 @@
 
 ### T-016: Implement PluginCurrencyChecker
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05, AC-US4-06 | **Project**: specweave
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Implementation**:
 - Create `repositories/anton-abyzov/specweave/src/core/doctor/checkers/plugin-currency-checker.ts`
@@ -384,7 +384,7 @@
 
 ### T-017: Implement SkillCurrencyChecker
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-03, AC-US5-04, AC-US5-05, AC-US5-06 | **Project**: specweave
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Implementation**:
 - Create `repositories/anton-abyzov/specweave/src/core/doctor/checkers/skill-currency-checker.ts`
