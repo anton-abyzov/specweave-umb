@@ -1,0 +1,77 @@
+{
+  "id": "0783-vskill-platform-ui-pass",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-27T00:53:10.259Z",
+  "lastActivity": "2026-04-27T01:19:58.820Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-27T01:19:58.819Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US1-01..AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US4-03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-27T01:19:54.620Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-03: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US1-01..AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US4-03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-27T01:19:50.189Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US1-01..AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US4-03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-27T00:58:33.492Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01..AC-US4-01 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-04-27T00:57:56.193Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01..AC-US4-01 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
