@@ -1,0 +1,31 @@
+{
+  "id": "0785-vskill-platform-docs-pass",
+  "status": "active",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-04-27T04:34:21.503Z",
+  "lastActivity": "2026-04-27T04:35:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1269",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1269",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-27T04:38:30.542Z"
+    },
+    "ado": {
+      "featureId": "2108",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2108",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-27T04:38:34.032Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  }
+}
