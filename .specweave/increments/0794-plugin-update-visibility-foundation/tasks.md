@@ -31,7 +31,7 @@
 
 ### T-002: Add contentHash gate to publish path
 **User Story**: US-002a | **Satisfies ACs**: AC-US2a-02, AC-US2a-03, AC-US2a-04, AC-US2a-05 | **Project**: vskill-platform
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-001
 
 **Implementation**:
@@ -62,7 +62,7 @@
 
 ### T-003: Unit tests for canonical-hash parity (platform side)
 **User Story**: US-002a | **Satisfies ACs**: AC-US2a-01 | **Project**: vskill-platform
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-001
 
 **Implementation**:
@@ -78,7 +78,7 @@
 
 ### T-004: Implement upsertFrontmatterVersion helper
 **User Story**: US-002b | **Satisfies ACs**: AC-US2b-01, AC-US2b-03, AC-US2b-04 | **Project**: vskill
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Implementation**:
 - Create or extend `repositories/anton-abyzov/vskill/src/lib/frontmatter.ts`
@@ -103,7 +103,7 @@
 
 ### T-005: Wire version writeback into submit.ts
 **User Story**: US-002b | **Satisfies ACs**: AC-US2b-01, AC-US2b-02, AC-US2b-04, AC-US2b-05 | **Project**: vskill
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-004
 
 **Implementation**:
@@ -135,7 +135,7 @@
 
 ### T-006: Create authored.ts module and vskill.authored.json tracking
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-06 | **Project**: vskill
-**Status**: [ ] pending
+**Status**: [x] completed
 
 **Implementation**:
 - Create `repositories/anton-abyzov/vskill/src/lockfile/authored.ts`:
@@ -157,7 +157,7 @@
 
 ### T-007: Extend vskill outdated to poll authored skills
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-02, AC-US6-03, AC-US6-04, AC-US6-05 | **Project**: vskill
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-006
 
 **Implementation**:
@@ -222,7 +222,7 @@
 
 ### T-010: Extend bump-version.sh to update all three files atomically
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01 | **Project**: specweave
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-009
 
 **Implementation**:
@@ -272,7 +272,7 @@
 
 ### T-012: Wire validate-versions.cjs into GitHub Actions CI
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-04 | **Project**: specweave
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-011
 
 **Implementation**:
@@ -336,7 +336,7 @@
 
 ### T-015: Wire validate-skill-versions.cjs into GitHub Actions CI
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-04 | **Project**: specweave
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-013
 
 **Implementation**:
@@ -410,7 +410,7 @@
 
 ---
 
-### T-018: Integration test — specweave doctor with new checkers
+### T-018: Integration test — specweave doctor with new checkers [completed]
 **User Story**: US-004, US-005 | **Satisfies ACs**: AC-US4-01, AC-US5-01 | **Project**: specweave
 **Status**: [ ] pending
 **Depends on**: T-016, T-017
@@ -432,7 +432,7 @@
 
 ### T-019: Version alignment diff gate (Bash verification)
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03 | **Project**: specweave
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-009, T-010, T-011
 
 **Implementation**:
@@ -447,7 +447,7 @@
 
 ### T-020: Skill version coverage gate (Bash verification)
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03 | **Project**: specweave
-**Status**: [ ] pending
+**Status**: [x] completed
 **Depends on**: T-013, T-014
 
 **Implementation**:
