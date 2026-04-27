@@ -1,10 +1,10 @@
 ---
 increment: 0783-vskill-platform-ui-pass
-title: "vskill-platform UI/UX cross-page pass: hero, marketplace, trust, studio"
+title: 'vskill-platform UI/UX cross-page pass: hero, marketplace, trust, studio'
 type: feature
 priority: P1
-status: planned
-created: 2026-04-27
+status: ready_for_review
+created: 2026-04-27T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -77,6 +77,7 @@ All four are presentation-layer fixes. No new APIs, no new data, no auth changes
 **Acceptance Criteria**:
 - [x] **AC-US4-01**: The "Find verified skills" callout/banner at the top of `/studio` is removed. No DOM element on `/studio` may contain the literal string "Find verified skills" (the existing top-nav search is unaffected).
 - [x] **AC-US4-02**: After removal, `/studio` lands directly on the "Skill Studio" heading + tagline + npm install command.
+- [x] **AC-US4-03**: Only one ⌘K search affordance is visible on `/studio` and `/studio/*` — the studio-scoped `FindNavButton`. The root-nav `SearchTriggerButton` is path-guarded and hidden on those routes (mirroring `RootSearchPalette`'s existing path-guard). On non-studio routes (`/`, `/marketplace`, `/trust`), the root `SearchTriggerButton` continues to render.
 
 ---
 

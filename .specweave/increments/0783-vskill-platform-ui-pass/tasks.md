@@ -102,7 +102,7 @@ Invoke `Skill({ skill: "simplify" })` scoped to the four files. Apply suggested 
 ---
 
 ### T-008: Build + deploy to Cloudflare
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02 | **Status**: [x] completed
 **Test Plan**:
 - Given GREEN + REFACTOR done
 - When `npm run build` then `npm run deploy` runs in `repositories/anton-abyzov/vskill-platform/`
@@ -113,7 +113,7 @@ Run from inside the vskill-platform repo: `npm run build && npm run deploy`. If 
 ---
 
 ### T-009: Production verification with Playwright + screenshots
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-03 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-03 | **Status**: [x] completed
 **Test Plan**:
 - Given deploy succeeded
 - When Playwright runs against `https://verified-skill.com` at viewports 375/768/1280/1920 for `/`, `/marketplace`, `/trust`, `/studio`
@@ -124,7 +124,7 @@ Run `BASE_URL=https://verified-skill.com npm run test:e2e -- tests/e2e/0783-ui-p
 ---
 
 ### T-010: Close increment via /sw:done
-**User Story**: meta | **Satisfies ACs**: meta | **Status**: [ ] pending
+**User Story**: meta | **Satisfies ACs**: meta | **Status**: [x] completed
 **Test Plan**:
 - Given T-001..T-009 complete and committed
 - When `/sw:done 0783-vskill-platform-ui-pass` runs
