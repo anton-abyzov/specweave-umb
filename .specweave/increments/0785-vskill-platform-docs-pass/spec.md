@@ -41,11 +41,11 @@ While auditing, three adjacent quality issues surfaced and are bundled into this
 **So that** I can understand the highest-trust tier without straining or zooming in
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `.tier-card[data-tier="certified"] .tier-card-desc` body text contrast ratio against `--tier-certified-bg` is ≥ 4.5:1 in light theme (WCAG AA body).
-- [ ] **AC-US1-02**: `.tier-card[data-tier="certified"] .tier-card-rank` ("HIGHEST") contrast ratio is ≥ 3:1 in light theme (WCAG AA large text).
-- [ ] **AC-US1-03**: Dark theme rendering of the same selector is unchanged or equally accessible — `preview_screenshot` of dark-mode `/trust` matches the pre-change baseline visually.
-- [ ] **AC-US1-04**: The same readability fix propagates to every gold-bg consumer: `.tier-pill[data-tier="certified"]`, `TierBadge.tsx` (CERTIFIED variant), and `SearchPalette.tsx` (any gold tier indicator).
-- [ ] **AC-US1-05**: Verified-tier card receives parallel token discipline (`--tier-verified-text`) so future palette shifts don't regress contrast there either.
+- [x] **AC-US1-01**: `.tier-card[data-tier="certified"] .tier-card-desc` body text contrast ratio against `--tier-certified-bg` is ≥ 4.5:1 in light theme (WCAG AA body).
+- [x] **AC-US1-02**: `.tier-card[data-tier="certified"] .tier-card-rank` ("HIGHEST") contrast ratio is ≥ 3:1 in light theme (WCAG AA large text).
+- [x] **AC-US1-03**: Dark theme rendering of the same selector is unchanged or equally accessible — `preview_screenshot` of dark-mode `/trust` matches the pre-change baseline visually.
+- [x] **AC-US1-04**: The same readability fix propagates to every gold-bg consumer: `.tier-pill[data-tier="certified"]`, `TierBadge.tsx` (CERTIFIED variant), and `SearchPalette.tsx` (any gold tier indicator).
+- [x] **AC-US1-05**: Verified-tier card receives parallel token discipline (`--tier-verified-text`) so future palette shifts don't regress contrast there either.
 
 ### US-002: All numeric claims driven by `generated-counts.ts`
 **Project**: vskill-platform
@@ -55,10 +55,10 @@ While auditing, three adjacent quality issues surfaced and are bundled into this
 **So that** running `npm run prebuild` is the single point of truth and copy can never drift from reality
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: After `npm run prebuild`, `src/lib/generated-counts.ts` reports `scanPatterns: 53` (current truth in vskill source).
-- [ ] **AC-US2-02**: All numeric literals in copy across these files are replaced with `${COUNTS.X}` interpolations: `src/app/layout.tsx`, `src/app/docs/page.tsx`, `src/app/docs/faq/page.tsx`, `src/app/docs/getting-started/page.tsx`, `src/app/docs/submitting/page.tsx`, `src/app/docs/plugins/page.tsx`, `src/app/docs/security-guidelines/layout.tsx`.
-- [ ] **AC-US2-03**: After `npm run build`, `grep -E '\b(52|53|14|8)\s+(static|patterns|platforms|plugins|skills|agents)\b' .next/server/app/**/*.html` returns zero hits — every count rendered to HTML traces back to `COUNTS`.
-- [ ] **AC-US2-04**: `npm run typecheck` passes — all new `import { COUNTS } from "@/lib/generated-counts"` statements resolve.
+- [x] **AC-US2-01**: After `npm run prebuild`, `src/lib/generated-counts.ts` reports `scanPatterns: 52` (current truth in vskill source — verified by generator's strict `^\s*id:\s*"` regex on `vskill/src/scanner/patterns.ts`).
+- [x] **AC-US2-02**: All numeric literals in copy across these files are replaced with `${COUNTS.X}` interpolations: `src/app/layout.tsx`, `src/app/docs/page.tsx`, `src/app/docs/faq/page.tsx`, `src/app/docs/getting-started/page.tsx`, `src/app/docs/submitting/page.tsx`, `src/app/docs/plugins/page.tsx`, `src/app/docs/security-guidelines/layout.tsx`, `src/app/docs/security-guidelines/page.mdx` (body content, not YAML frontmatter), `src/app/components/AnimatedTerminal.tsx`, `src/app/components/home/PipelineFlow.tsx`, `src/app/components/homepage/FeatureSecurityVerified.tsx`, `src/app/insights/claude-code/page.tsx`, `src/app/skills/[owner]/[repo]/[skill]/security/page.tsx`. Documented exception: MDX YAML frontmatter (cannot interpolate JS) — overridden by `layout.tsx` `generateMetadata`.
+- [x] **AC-US2-03**: After `npm run build`, `grep -E '\b(52|53|14|8)\s+(static|patterns|platforms|plugins|skills|agents)\b' .next/server/app/**/*.html` returns zero hits — every count rendered to HTML traces back to `COUNTS`.
+- [x] **AC-US2-04**: `npm run typecheck` passes — all new `import { COUNTS } from "@/lib/generated-counts"` statements resolve.
 
 ### US-003: Time-bound copy refreshed
 **Project**: vskill-platform
@@ -68,8 +68,8 @@ While auditing, three adjacent quality issues surfaced and are bundled into this
 **So that** the page doesn't feel abandoned or out-of-date
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `/insights/claude-code/page.tsx:392` "April 1-7 2026" and "May 2026" launch teaser is rewritten in past tense (or removed if past-tense reads awkwardly). Historical March-2026 leak-date reference is preserved as-is.
-- [ ] **AC-US3-02**: `/docs/faq/page.tsx:102` "24-hour review" SLA softened to "We triage reports within a few business days. Critical or active-exploitation reports are escalated immediately."
+- [x] **AC-US3-01**: `/insights/claude-code/page.tsx:392` "April 1-7 2026" and "May 2026" launch teaser is rewritten in past tense (or removed if past-tense reads awkwardly). Historical March-2026 leak-date reference is preserved as-is.
+- [x] **AC-US3-02**: `/docs/faq/page.tsx:102` "24-hour review" SLA softened to "We triage reports within a few business days. Critical or active-exploitation reports are escalated immediately."
 
 ### US-004: Single user-facing tier vocabulary
 **Project**: vskill-platform
@@ -79,10 +79,10 @@ While auditing, three adjacent quality issues surfaced and are bundled into this
 **So that** I'm not confused by parallel taxonomies for the same concept
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: Public 3-tier ladder uses **"Scanned / Verified / Certified"** labels in every user-facing surface: `/trust`, `/docs/getting-started`, `/docs/faq`, `/docs/submitting`, `/docs/plugins`, marketplace cards, skill detail pages.
-- [ ] **AC-US4-02**: `TierBadge.tsx` semantic labels ("Security-Scanned", "Trusted Publisher") are renamed to match the public ladder. "Tainted" stays — it's a verdict, not a tier.
-- [ ] **AC-US4-03**: `/docs/faq/page.tsx` adds one Q&A explaining the relationship between internal `T0–T4` scoring and public `Scanned/Verified/Certified` ladder.
-- [ ] **AC-US4-04**: `TrustBadge.tsx` (T0-T4 visualization) keeps its enum but its tooltip / aria-label uses the public ladder labels.
+- [x] **AC-US4-01**: Public 3-tier ladder uses **"Scanned / Verified / Certified"** labels in every user-facing surface: `/trust`, `/docs/getting-started`, `/docs/faq`, `/docs/submitting`, `/docs/plugins`, marketplace cards, skill detail pages.
+- [x] **AC-US4-02**: `TierBadge.tsx` semantic labels ("Security-Scanned", "Trusted Publisher") are renamed to match the public ladder. "Tainted" stays — it's a verdict, not a tier.
+- [x] **AC-US4-03**: `/docs/faq/page.tsx` adds one Q&A explaining the relationship between internal `T0–T4` scoring and public `Scanned/Verified/Certified` ladder.
+- [x] **AC-US4-04**: `TrustBadge.tsx` (T0-T4 visualization) keeps its enum but its tooltip / aria-label uses the public ladder labels.
 
 ## Functional Requirements
 
