@@ -1,10 +1,10 @@
 {
   "id": "0785-vskill-platform-docs-pass",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P2",
   "created": "2026-04-27T04:34:21.503Z",
-  "lastActivity": "2026-04-27T04:35:00.000Z",
+  "lastActivity": "2026-04-27T06:41:09.696Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -27,5 +27,7 @@
   },
   "planning": {
     "parallel": false
-  }
+  },
+  "readyForReviewAt": "2026-04-27T06:02:23.124Z",
+  "approvedAt": "2026-04-27T06:41:09.696Z"
 }

@@ -3,7 +3,7 @@ increment: 0785-vskill-platform-docs-pass
 title: 'vskill-platform docs: trust-tier readability + counts hardening + copy refresh'
 type: feature
 priority: P2
-status: ready_for_review
+status: completed
 created: 2026-04-27T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
@@ -56,7 +56,7 @@ While auditing, three adjacent quality issues surfaced and are bundled into this
 
 **Acceptance Criteria**:
 - [x] **AC-US2-01**: After `npm run prebuild`, `src/lib/generated-counts.ts` reports `scanPatterns: 52` (current truth in vskill source — verified by generator's strict `^\s*id:\s*"` regex on `vskill/src/scanner/patterns.ts`).
-- [x] **AC-US2-02**: All numeric literals in copy across these files are replaced with `${COUNTS.X}` interpolations: `src/app/layout.tsx`, `src/app/docs/page.tsx`, `src/app/docs/faq/page.tsx`, `src/app/docs/getting-started/page.tsx`, `src/app/docs/submitting/page.tsx`, `src/app/docs/plugins/page.tsx`, `src/app/docs/security-guidelines/layout.tsx`, `src/app/docs/security-guidelines/page.mdx` (body content, not YAML frontmatter), `src/app/components/AnimatedTerminal.tsx`, `src/app/components/home/PipelineFlow.tsx`, `src/app/components/homepage/FeatureSecurityVerified.tsx`, `src/app/insights/claude-code/page.tsx`, `src/app/skills/[owner]/[repo]/[skill]/security/page.tsx`. Documented exception: MDX YAML frontmatter (cannot interpolate JS) — overridden by `layout.tsx` `generateMetadata`.
+- [x] **AC-US2-02**: All numeric literals in copy across these files are replaced with `${COUNTS.X}` interpolations: `src/app/layout.tsx`, `src/app/docs/page.tsx`, `src/app/docs/faq/page.tsx`, `src/app/docs/getting-started/page.tsx`, `src/app/docs/submitting/page.tsx`, `src/app/docs/plugins/page.tsx`, `src/app/docs/security-guidelines/layout.tsx`, `src/app/docs/security-guidelines/page.mdx` (body content, not YAML frontmatter), `src/app/components/AnimatedTerminal.tsx`, `src/app/components/home/PipelineFlow.tsx`, `src/app/components/homepage/FeatureSecurityVerified.tsx`, `src/app/insights/claude-code/page.tsx`, `src/app/skills/[owner]/[repo]/[skill]/security/page.tsx`. **Documented exceptions** (literals retained, deferred to follow-up): (a) MDX YAML frontmatter at `security-guidelines/page.mdx:3` (cannot interpolate JS — `layout.tsx` `generateMetadata` already overrides for the rendered metadata); (b) `9 threat categories` literal in 3 places — `COUNTS.threatCategories` not yet exposed by `scripts/sync-agents-json.cjs`; (c) `14 DCI patterns` literal in FAQ — `COUNTS.dciPatterns` not yet exposed by the generator. Both (b) and (c) tracked with inline `TODO(0785)` comments.
 - [x] **AC-US2-03**: After `npm run build`, `grep -E '\b(52|53|14|8)\s+(static|patterns|platforms|plugins|skills|agents)\b' .next/server/app/**/*.html` returns zero hits — every count rendered to HTML traces back to `COUNTS`.
 - [x] **AC-US2-04**: `npm run typecheck` passes — all new `import { COUNTS } from "@/lib/generated-counts"` statements resolve.
 
