@@ -1,0 +1,42 @@
+{
+  "id": "0784-studio-detail-install-button",
+  "status": "active",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-04-27T01:02:27.259Z",
+  "lastActivity": "2026-04-27T01:05:17.527Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1260",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1260",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-27T01:05:30.246Z"
+    },
+    "ado": {
+      "featureId": "2099",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2099",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-27T01:05:32.986Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-27T01:05:17.527Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
