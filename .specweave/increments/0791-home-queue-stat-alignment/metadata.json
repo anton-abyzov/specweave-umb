@@ -1,0 +1,16 @@
+{
+  "id": "0791-home-queue-stat-alignment",
+  "status": "ready for review",
+  "type": "bug",
+  "priority": "P2",
+  "created": "2026-04-27T13:30:00.000Z",
+  "lastActivity": "2026-04-27T13:30:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  }
+}
