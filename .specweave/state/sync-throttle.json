@@ -48,5 +48,8 @@
   "0731-studio-find-slick-ui": 1777165105852,
   "0735-0732-followup-slug-derivation-upstream": 1777167565801,
   "0772-studio-first-launch-onboarding-polish": 1777231945278,
-  "0670-skill-builder-universal": 1777234416095
+  "0670-skill-builder-universal": 1777234416095,
+  "0795-studio-plugin-list-cli-removed": 1777304113298,
+  "0796-plugin-update-banner-notifier": 1777322026394,
+  "0797-admin-stats-unified-cache": 1777340097667
 }

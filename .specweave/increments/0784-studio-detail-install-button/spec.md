@@ -32,7 +32,7 @@ The same surface has a readability problem: several supporting labels in the det
 - [x] **AC-US1-02**: Clicking the Install button writes the version-aware install command (e.g. `vskill install anton-abyzov/hi-anton/hi-anton` for the default version, `…@<version>` when a non-default version is selected) to `navigator.clipboard`.
 - [x] **AC-US1-03**: After a successful copy, a `role="status"` toast appears containing the text "Run `vskill install …`" matching the copied command.
 - [x] **AC-US1-04**: A successful click fires exactly one `POST /api/v1/studio/telemetry/install-copy` request via `authFetch` with body `{ skillName, q: "", ts, version? }` (version omitted when default selection).
-- [x] **AC-US1-05**: The Install button is `disabled` when the skill name fails the existing `SAFE_NAME` regex (`/^[a-zA-Z0-9._@/-]+$/`).
+- [x] **AC-US1-05**: The Install button is **not rendered** when the skill name fails the existing `SAFE_NAME` regex (`/^[a-zA-Z0-9._@/-]+$/`). (Defense-in-depth — matches the existing Copy overlay's hidden-when-unsafe pattern; SR users never encounter a misleading disabled control.)
 - [x] **AC-US1-06**: When the skill is on the blocklist (`isBlocked && blockedEntry`), the Install button is NOT rendered (the panel short-circuits to `BlockedSkillView`, matching existing behavior).
 - [x] **AC-US1-07**: The existing terminal block + Copy overlay button remain visible and functional. Both buttons share a single `runInstallAction()` callback so they have identical copy + toast + telemetry behavior.
 - [x] **AC-US1-08**: Clicking the Copy overlay then the Install button (or vice-versa) fires telemetry twice and triggers two clipboard writes — neither button gates the other.
@@ -59,8 +59,8 @@ The same surface has a readability problem: several supporting labels in the det
 ### FR-001: Shared install action handler
 Both the new primary Install button and the existing Copy overlay invoke a single `runInstallAction()` callback that performs: clipboard write (with `execCommand` fallback), toast set with timer-managed dismiss, and fire-and-forget `authFetch` telemetry. Side effects are identical regardless of which button was clicked.
 
-### FR-002: Visual parity with results-card InstallButton
-The new button uses the same primary-blue Tailwind utility classes used in `src/app/studio/find/components/InstallButton.tsx` (`bg-blue-600 hover:bg-blue-700 text-white rounded-md` family). This keeps "blue = install" consistent across the app.
+### FR-002: Visual parity with the platform's primary CTA idiom
+The new button uses the platform's primary-CTA tokens — `--btn-bg` (#111111 light / #E6EDF3 dark) and `--btn-text` (#FFFFFF light / #0D1117 dark) — rendered via inline styles. The existing marketplace `InstallButton.tsx` declares Tailwind classes (`bg-blue-600 …`), but Tailwind is **not** wired into vskill-platform (no `@tailwind` directives, no `tailwindcss` dep), so those classes resolve to nothing in production CSS. Rather than re-introduce Tailwind for one component, the new Install CTA matches the actual primary-button surface used elsewhere on the platform (dark-on-light in light theme, light-on-dark in dark theme), giving a coherent, theme-aware identity in both themes. A follow-up is welcome to either reintroduce Tailwind across the app or migrate the marketplace `InstallButton.tsx` to the same token-based idiom for visual unity.
 
 ### FR-003: Telemetry payload stability
 The existing `install-copy` telemetry payload schema (`{ skillName, q, ts, version? }`) is unchanged. No new fields, no migration. Adding a `source: "primary" | "copy"` field is explicitly deferred.

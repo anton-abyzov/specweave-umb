@@ -1,0 +1,31 @@
+{
+  "id": "0786-studio-disk-truth-fixes",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-27T06:08:09.993Z",
+  "lastActivity": "2026-04-27T06:08:09.993Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1274",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1274",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-27T06:18:32.995Z"
+    },
+    "ado": {
+      "featureId": "2113",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2113",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-27T06:18:35.963Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  }
+}

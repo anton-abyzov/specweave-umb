@@ -112,6 +112,22 @@ post-history/
 *.code-workspace
 .claude/
 .playwright-mcp/
+
+# AI tool config dirs (personal cross-tool skill replication, not project code)
+# .agents/ holds canonical SKILL.md files; siblings are symlink mirrors per AI tool.
+# Keep on disk for local use; don't ship in the umbrella repo.
+.agent/
+.agents/
+.aider/
+.codex/
+.cursor/
+.gemini/
+.kiro/
+.openclaw/
+.opencode/
+.pi/
+.windsurf/
+
 *.bak
 *.docx
 e2e-tests/
