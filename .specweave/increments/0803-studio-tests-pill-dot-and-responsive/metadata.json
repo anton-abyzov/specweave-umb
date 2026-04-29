@@ -1,0 +1,53 @@
+{
+  "id": "0803-studio-tests-pill-dot-and-responsive",
+  "name": "studio-tests-pill-dot-and-responsive",
+  "title": "Studio Tests — kill stray pill dot + responsive eval-cases grid",
+  "type": "bug",
+  "priority": "P2",
+  "status": "completed",
+  "created": "2026-04-28T00:00:00.000Z",
+  "structure": "user-stories",
+  "test_mode": "TDD",
+  "coverage_target": 90,
+  "scope": {
+    "repos": [
+      "repositories/anton-abyzov/vskill"
+    ]
+  },
+  "tags": [
+    "studio",
+    "css",
+    "responsive",
+    "ui-polish"
+  ],
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-29T03:58:25.761Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US1-03",
+        "AC-US2-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 4
+    },
+    {
+      "timestamp": "2026-04-29T03:58:10.408Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    }
+  ],
+  "lastActivity": "2026-04-29T04:14:46.130Z",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-04-29T04:14:46.100Z",
+  "approvedAt": "2026-04-29T04:14:46.130Z"
+}
