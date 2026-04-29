@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-04-29T04:49:15.478Z",
+  "model": "opus",
+  "skill_name": "hi-anton",
+  "cases": [
+    {
+      "eval_id": 1,
+      "eval_name": "Simple factual question",
+      "status": "fail",
+      "error_message": null,
+      "pass_rate": 0.75,
+      "durationMs": 5221,
+      "tokens": null,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "billingMode": "subscription",
+      "output": "Hi Anton.\n\nParis.",
+      "assertions": [
+        {
+          "id": "assert-1",
+          "text": "The response begins with the exact phrase 'Hi Anton.' (with capital H, capital A, and a period)",
+          "pass": true,
+          "reasoning": "The response begins with 'Hi Anton.' exactly as required - capital H, capital A, and ending with a period."
+        },
+        {
+          "id": "assert-2",
+          "text": "The greeting 'Hi Anton.' appears before any other content in the response",
+          "pass": true,
+          "reasoning": "The output begins with 'Hi Anton.' before any other content, followed by 'Paris.'"
+        },
+        {
+          "id": "assert-3",
+          "text": "The response correctly identifies Paris as the capital of France",
+          "pass": true,
+          "reasoning": "The output explicitly states 'Paris', correctly identifying the capital of France."
+        },
+        {
+          "id": "assert-4",
+          "text": "The response does not use a greeting variation such as 'Hello', 'Hey Anton', or 'Hi!'",
+          "pass": false,
+          "reasoning": "The response begins with 'Hi Anton.', which is a greeting variation similar to those listed (e.g., 'Hi!'). The assertion forbids greeting variations like 'Hello', 'Hey Anton', or 'Hi!', and 'Hi Anton' falls into that same category."
+        }
+      ]
+    }
+  ],
+  "overall_pass_rate": 0.75,
+  "type": "benchmark",
+  "provider": "claude-cli",
+  "totalDurationMs": 5221,
+  "totalInputTokens": null,
+  "totalOutputTokens": null,
+  "scope": "single"
+}

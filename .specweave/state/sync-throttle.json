@@ -51,5 +51,6 @@
   "0670-skill-builder-universal": 1777234416095,
   "0795-studio-plugin-list-cli-removed": 1777304113298,
   "0796-plugin-update-banner-notifier": 1777322026394,
-  "0797-admin-stats-unified-cache": 1777340097667
+  "0797-admin-stats-unified-cache": 1777340097667,
+  "0800-studio-tests-discoverability-and-readonly-run": 1777435404496
 }

@@ -119,3 +119,9 @@
 {"incrementId":"0805-studio-restore-toplevel-tests-tab","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-04-29T04:11:09.717Z"}
 {"incrementId":"0805-studio-restore-toplevel-tests-tab","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-04-29T04:11:53.000Z"}
 {"incrementId":"0805-studio-restore-toplevel-tests-tab","eventType":"increment.done","timestamp":"2026-04-29T04:11:53.001Z"}
+{"incrementId":"0803-studio-tests-pill-dot-and-responsive","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-04-29T04:14:46.108Z"}
+{"incrementId":"0803-studio-tests-pill-dot-and-responsive","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-04-29T04:14:46.142Z"}
+{"incrementId":"0803-studio-tests-pill-dot-and-responsive","eventType":"increment.done","timestamp":"2026-04-29T04:14:46.142Z"}
+{"incrementId":"0806-studio-version-badge-stable-source","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-04-29T05:12:44.589Z"}
+{"incrementId":"0806-studio-version-badge-stable-source","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-04-29T05:12:44.607Z"}
+{"incrementId":"0806-studio-version-badge-stable-source","eventType":"increment.done","timestamp":"2026-04-29T05:12:44.607Z"}

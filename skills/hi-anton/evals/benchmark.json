@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-04-29T04:51:06.212Z",
+  "model": "sonnet",
+  "skill_name": "hi-anton",
+  "cases": [
+    {
+      "eval_id": 1,
+      "eval_name": "Simple factual question",
+      "status": "fail",
+      "error_message": null,
+      "pass_rate": 0.75,
+      "durationMs": 5707,
+      "tokens": null,
+      "assertions": [
+        {
+          "id": "assert-1",
+          "text": "The response begins with the exact phrase 'Hi Anton.' (with capital H, capital A, and a period)",
+          "pass": true,
+          "reasoning": "The response begins with 'Hi Anton.' which has capital H, capital A, and ends with a period, exactly matching the assertion."
+        },
+        {
+          "id": "assert-2",
+          "text": "The greeting 'Hi Anton.' appears before any other content in the response",
+          "pass": true,
+          "reasoning": "The response begins with 'Hi Anton.' as the very first line, before any other content."
+        },
+        {
+          "id": "assert-3",
+          "text": "The response correctly identifies Paris as the capital of France",
+          "pass": true,
+          "reasoning": "The output states 'Paris', which correctly identifies Paris as the capital of France."
+        },
+        {
+          "id": "assert-4",
+          "text": "The response does not use a greeting variation such as 'Hello', 'Hey Anton', or 'Hi!'",
+          "pass": false,
+          "reasoning": "The response starts with 'Hi Anton.' which is a greeting variation — 'Hi' followed by the name."
+        }
+      ],
+      "comparisonDetail": {
+        "skillDurationMs": 5707,
+        "skillTokens": null,
+        "baselineDurationMs": 4883,
+        "baselineTokens": null,
+        "skillContentScore": 5,
+        "skillStructureScore": 3,
+        "baselineContentScore": 5,
+        "baselineStructureScore": 5,
+        "winner": "baseline"
+      }
+    }
+  ],
+  "overall_pass_rate": 0.75,
+  "type": "comparison",
+  "provider": "claude-cli",
+  "verdict": "MARGINAL",
+  "comparison": {
+    "skillPassRate": 0.75,
+    "baselinePassRate": 0.5,
+    "skillRubricAvg": 4,
+    "baselineRubricAvg": 5,
+    "delta": 0.25
+  },
+  "actionItems": {
+    "recommendation": "improve",
+    "summary": "The skill correctly applies 'Hi Anton.' but the mandatory greeting prefix consistently degrades structure scores (3/5 vs baseline 5/5), and the one failing assertion is internally contradictory — it claims the greeting is absent while simultaneously confirming it is present.",
+    "weaknesses": [
+      "Mandatory greeting prefix causes structure score to drop from 5/5 to 3/5 in eval #1 — the fixed opener disrupts natural response flow and reads as formulaic to evaluators",
+      "The failing assertion in eval #1 is self-contradictory: it reports failure for 'no greeting' while the evidence text says 'Hi Anton.' is present — indicates assertion logic is broken and masking true pass rate",
+      "Skill scores below baseline on rubric average (4.0 vs 5.0), meaning the greeting adds noise without adding value in the eyes of blind evaluators",
+      "No guidance on how to integrate the greeting naturally when responses start with code blocks, lists, or tool-output summaries — mechanical placement hurts readability"
+    ],
+    "strengths": [
+      "Core mechanism works: the greeting 'Hi Anton.' is being applied as specified (confirmed by the assertion evidence text in eval #1)",
+      "Content quality is unaffected (5/5 content score matches baseline), so the skill is not degrading substantive accuracy"
+    ],
+    "suggestedFocus": "Remove the rigid 'own line before any markdown' requirement and instead allow the greeting to be woven into the opening sentence naturally (e.g., 'Hi Anton — here is what that function does:'), which preserves identity-awareness without penalizing structure scores."
+  }
+}

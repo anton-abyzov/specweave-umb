@@ -1,0 +1,32 @@
+{
+  "runs": [
+    {
+      "id": "run-1777438372808",
+      "timestamp": "2026-04-29T04:52:52.808Z",
+      "model": "opus",
+      "provider": "claude-cli",
+      "promptCount": 1,
+      "summary": {
+        "precision": 0,
+        "recall": 0,
+        "reliability": 0,
+        "tp": 0,
+        "tn": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      "results": [
+        {
+          "prompt": "HOw do I write test?",
+          "expected": "should_not_activate",
+          "activate": true,
+          "confidence": "high",
+          "reasoning": "The skill description states it must activate at the start of every response, before any content is generated, regardless of the prompt content.",
+          "classification": "FP",
+          "autoClassified": true,
+          "verdict": "scope_warning"
+        }
+      ]
+    }
+  ]
+}

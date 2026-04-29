@@ -22,6 +22,7 @@ hyperframes-demo/
 .claude-plugin/
 plugins/
 vskill.lock
+skills-lock.json
 
 # Cloned repositories (external git repos - not submodules)
 repositories/
@@ -116,16 +117,21 @@ post-history/
 # AI tool config dirs (personal cross-tool skill replication, not project code)
 # .agents/ holds canonical SKILL.md files; siblings are symlink mirrors per AI tool.
 # Keep on disk for local use; don't ship in the umbrella repo.
+# When `npx skills add` is run here it scatters skills/ subdirs into many of these
+# per its supported-agents matrix — pre-ignoring keeps test runs from dirtying git.
 .agent/
 .agents/
 .aider/
 .codex/
+.continue/
 .cursor/
 .gemini/
+.junie/
 .kiro/
 .openclaw/
 .opencode/
 .pi/
+.trae/
 .windsurf/
 
 *.bak

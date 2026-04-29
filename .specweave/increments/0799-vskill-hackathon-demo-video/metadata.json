@@ -1,0 +1,30 @@
+{
+  "id": "0799-vskill-hackathon-demo-video",
+  "title": "vskill / Skill Studio — Anthropic hackathon demo video (Remotion)",
+  "status": "completed",
+  "type": "feature",
+  "project": "vskill-platform",
+  "owner": "anton-abyzov",
+  "created": "2026-04-28T00:00:00Z",
+  "lastActivity": "2026-04-28T18:25:59.458Z",
+  "description": "Sleek 2:30 demo video for Skill Studio, replacing the 4:46 raw screen-recording. No Anton on camera — professional ElevenLabs voiceover, Remotion-built scenes mirroring the real product UI, focused on the two killer flows: AUTHORING (create skill, AI-generate SKILL.md, evals, publish) and CONSUMING (install, surface bug, fix in author side, sync update across machines). Extends the existing vskill-platform Remotion design system.",
+  "tags": [
+    "remotion",
+    "video",
+    "hackathon",
+    "anthropic",
+    "marketing",
+    "vskill"
+  ],
+  "external": {
+    "github": null,
+    "jira": null,
+    "ado": null
+  },
+  "externalLinks": {},
+  "priority": "medium",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-04-28T18:25:59.412Z",
+  "approvedAt": "2026-04-28T18:25:59.458Z"
+}

@@ -1,0 +1,87 @@
+{
+  "skill_name": "hi-anton",
+  "evals": [
+    {
+      "id": 1,
+      "name": "Simple factual question",
+      "prompt": "What is the capital of France?",
+      "expected_output": "Response begins with 'Hi Anton.' followed by the answer about Paris being the capital of France.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "assert-1",
+          "text": "The response begins with the exact phrase 'Hi Anton.' (with capital H, capital A, and a period)",
+          "type": "boolean"
+        },
+        {
+          "id": "assert-2",
+          "text": "The greeting 'Hi Anton.' appears before any other content in the response",
+          "type": "boolean"
+        },
+        {
+          "id": "assert-3",
+          "text": "The response correctly identifies Paris as the capital of France",
+          "type": "boolean"
+        },
+        {
+          "id": "assert-4",
+          "text": "The response does not use a greeting variation such as 'Hello', 'Hey Anton', or 'Hi!'",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "One-word confirmation request",
+      "prompt": "Got it?",
+      "expected_output": "Response begins with 'Hi Anton.' followed by a brief confirmation, even though the question only requires a one-word answer.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "assert-1",
+          "text": "The response begins with the exact phrase 'Hi Anton.'",
+          "type": "boolean"
+        },
+        {
+          "id": "assert-2",
+          "text": "The response includes a confirmation answer (such as 'Yes') after the greeting",
+          "type": "boolean"
+        },
+        {
+          "id": "assert-3",
+          "text": "The greeting is not omitted despite the brevity of the user's question",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Code-only reply request",
+      "prompt": "Write a Python function that returns the sum of two numbers. Just the code, no explanation.",
+      "expected_output": "Response begins with 'Hi Anton.' even though the user requested code-only output, followed by the Python function.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "assert-1",
+          "text": "The response begins with the exact phrase 'Hi Anton.'",
+          "type": "boolean"
+        },
+        {
+          "id": "assert-2",
+          "text": "The greeting 'Hi Anton.' precedes any code block or code content in the response",
+          "type": "boolean"
+        },
+        {
+          "id": "assert-3",
+          "text": "The response includes a Python function that returns the sum of two numbers",
+          "type": "boolean"
+        },
+        {
+          "id": "assert-4",
+          "text": "The greeting is included even though the user requested code-only output with no explanation",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}

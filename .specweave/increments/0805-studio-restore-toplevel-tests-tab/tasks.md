@@ -1,6 +1,6 @@
 ---
 increment: 0805-studio-restore-toplevel-tests-tab
-status: planned
+status: ready_for_review
 ---
 
 # Tasks — Restore top-level Tests tab

@@ -1,0 +1,49 @@
+{
+  "id": "0802-studio-personal-folder-first-headers",
+  "status": "active",
+  "type": "bug",
+  "priority": "P2",
+  "created": "2026-04-29T00:00:00.000Z",
+  "lastActivity": "2026-04-29T03:38:42.718Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-29T03:38:42.718Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US2-01",
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US2-02",
+        "AC-US2-03",
+        "AC-US2-04",
+        "AC-US3-04"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US3-01: has no tasks mapped",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-03: has no tasks mapped"
+      ],
+      "changesCount": 8
+    },
+    {
+      "timestamp": "2026-04-29T03:30:31.075Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US3-01: has no tasks mapped",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "externalLinks": {}
+}
