@@ -1,0 +1,29 @@
+{
+  "id": "0805-studio-restore-toplevel-tests-tab",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-29T04:04:51.400Z",
+  "lastActivity": "2026-04-29T04:11:52.945Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-29T04:06:51.915Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01..03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "readyForReviewAt": "2026-04-29T04:11:09.690Z",
+  "approvedAt": "2026-04-29T04:11:52.945Z"
+}
