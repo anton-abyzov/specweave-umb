@@ -1,0 +1,56 @@
+{
+  "id": "0801-studio-scope-breadcrumb-fix",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-29T03:22:02.621Z",
+  "lastActivity": "2026-04-29T03:51:25.871Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1327",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1327",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-29T03:51:46.380Z"
+    },
+    "ado": {
+      "featureId": "2166",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2166",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-29T03:51:50.493Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-29T03:26:09.645Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US1-04: has no tasks mapped",
+        "AC-US1-05: has no tasks mapped",
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US2-04: has no tasks mapped",
+        "AC-US3-01: has no tasks mapped",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-03: has no tasks mapped",
+        "AC-US3-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "readyForReviewAt": "2026-04-29T03:51:25.828Z",
+  "approvedAt": "2026-04-29T03:51:25.871Z"
+}
