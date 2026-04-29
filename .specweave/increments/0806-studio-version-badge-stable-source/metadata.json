@@ -1,0 +1,49 @@
+{
+  "id": "0806-studio-version-badge-stable-source",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-04-29T05:00:22.652Z",
+  "lastActivity": "2026-04-29T05:12:44.594Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1331",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1331",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-29T05:04:20.918Z"
+    },
+    "ado": {
+      "featureId": "2170",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2170",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-29T05:04:23.399Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-04-29T05:10:30.786Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US1-03",
+        "AC-US1-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 6
+    }
+  ],
+  "readyForReviewAt": "2026-04-29T05:12:44.579Z",
+  "approvedAt": "2026-04-29T05:12:44.594Z"
+}
