@@ -68,7 +68,7 @@ The queue can stall silently. The user just witnessed a submission (`sub_40bce2c
 - [x] **AC-US3-02**: `critical` alerts fire immediately while the condition holds, with a 1h dedup window per `(kind, key)`.
 - [x] **AC-US3-03**: `warning` alerts have a 6h dedup window per `(kind, key)`.
 - [x] **AC-US3-04**: `info` alerts never fire as standalone emails — recorded for digest only.
-- [x] **AC-US3-05**: Digest email summarizes counts per kind + last 5 samples per kind, sent at the next heavy-cohort tick after 09:00 / 13:00 / 17:00 / 21:00 UTC. If no events in window, no email is sent.
+- [x] **AC-US3-05**: Digest email summarizes counts per kind + last 5 samples per kind, sent at the next heavy-cohort tick after the start of each 6h UTC window — 00:00 / 06:00 / 12:00 / 18:00 UTC (see 0808 for code/spec alignment). If no events in window, no email is sent.
 - [x] **AC-US3-06**: Dedup keys live in `ALERTS_KV` with shape `alerts:dedup:{kind}:{key}` (TTL = window length). `POST /api/v1/admin/alerts/{id}/ack` clears the dedup key.
 
 ---
