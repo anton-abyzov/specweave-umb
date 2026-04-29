@@ -1,19 +1,43 @@
 {
   "id": "0807-queue-observability-alerts",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-29T07:48:50.511Z",
-  "lastActivity": "2026-04-29T08:36:02.710Z",
+  "lastActivity": "2026-04-29T09:02:37.591Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1334",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1334",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-29T09:03:05.590Z"
+    },
+    "ado": {
+      "featureId": "2173",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2173",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-29T09:03:09.456Z"
+    }
+  },
   "planning": {
     "parallel": false
   },
   "acSyncEvents": [
+    {
+      "timestamp": "2026-04-29T08:49:29.575Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
     {
       "timestamp": "2026-04-29T08:36:02.709Z",
       "updated": [],
@@ -52,5 +76,7 @@
       ],
       "changesCount": 19
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-04-29T09:02:37.530Z",
+  "approvedAt": "2026-04-29T09:02:37.591Z"
 }

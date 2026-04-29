@@ -1,10 +1,10 @@
 ---
 increment: 0807-queue-observability-alerts
-title: "Smart email alerts for verified-skill queue health"
+title: Smart email alerts for verified-skill queue health
 type: feature
 priority: P1
-status: active
-created: 2026-04-29
+status: completed
+created: 2026-04-29T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

@@ -178,11 +178,14 @@
 
 ### T-022: Build + deploy
 **Cmd**: `npm run build && npm run build:worker && npm run deploy`
-**Status**: [ ] not started
+**Status**: [x] completed
+**Result**: Worker version `a0d3cae1-5af4-451c-bc01-169f4186cd43` deployed. Both crons confirmed: `*/10 * * * *` (alerts-evaluator) + `5,15,...,55 * * * *` (alerts-digest).
 
 ### T-023: Production smoke (synthetic fire)
 **Action**: write `alerts:debug:fire-once` KV key, then `curl POST /api/v1/internal/alerts-evaluator` and confirm email at admin@easychamp.com.
-**Status**: [ ] not started
+**Status**: [x] completed
+**Result**: Cron at 08:40:40 UTC consumed `alerts:debug:fire-once` and fired synthetic `heartbeat-stale` alert. Ring buffer entry id=`1246f5e4-b9ea-4be7-b91f-d65ac8c4bd2b`, dedup key `alerts:dedup:heartbeat-stale:debug-synthetic` set with 6h warning TTL, digest counter incremented.
 
 ### T-024: Commit + push
-**Status**: [ ] not started
+**Status**: [x] completed
+**Result**: Prisma SubmissionJob fix in commit `db88827` on top of `87f0980`.
