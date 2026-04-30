@@ -283,7 +283,7 @@ If `vitest.config.ts` `include` doesn't cover `scripts/**/__tests__/**`, add a o
 
 ### T-015: ADR index update + run all verification gates
 **User Story**: US-001, US-002, US-003, US-004 | **Satisfies ACs**: AC-US1-05, AC-US2-06, AC-US2-07, AC-US4-01, AC-US4-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Verification-only task — no new source files authored.
 
