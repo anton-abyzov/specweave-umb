@@ -1,15 +1,31 @@
 {
   "id": "0810-remotion-scene-kit-and-token-sync",
-  "status": "planned",
+  "status": "active",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-30T06:22:08.107Z",
-  "lastActivity": "2026-04-30T06:22:08.107Z",
+  "lastActivity": "2026-04-30T06:43:30.000Z",
+  "project": "vskill-platform",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1351",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1351",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-30T06:44:23.269Z"
+    },
+    "ado": {
+      "featureId": "2190",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2190",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-30T06:44:26.205Z"
+    }
+  },
   "planning": {
     "parallel": false
   }

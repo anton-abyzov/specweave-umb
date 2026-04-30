@@ -221,7 +221,7 @@ Create `src/remotion/scene-kit/__tests__/tokens.test.ts`. The test:
 
 ### T-012: Generalize scripts/generate-voiceover.mjs (rename + parameterize + error handling)
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Rename `scripts/generate-hackathon-voiceover.mjs` → `scripts/generate-voiceover.mjs` via `git mv`. Delete the old file after rename. Apply parameterization per plan §5:
 
@@ -242,7 +242,7 @@ Backwards-compat handled by `package.json` alias in T-013 (not a shim file). Doc
 
 ### T-013: Update package.json — add 8 video scripts
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Add 8 new entries to `package.json` `scripts` block per plan §6:
 - `"video:voiceover"`: `"node scripts/generate-voiceover.mjs"`
@@ -263,7 +263,7 @@ Add 8 new entries to `package.json` `scripts` block per plan §6:
 
 ### T-014: Write voiceover unit test — fetch stub validates voice_settings shape
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-07
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Create `scripts/__tests__/generate-voiceover.test.mjs` (or `.test.ts`). The test:
 - Stubs global `fetch`
