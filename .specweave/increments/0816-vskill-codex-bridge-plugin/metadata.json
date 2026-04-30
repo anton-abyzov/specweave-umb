@@ -1,0 +1,13 @@
+{
+  "id": "0816",
+  "name": "vskill-codex-bridge-plugin",
+  "title": "vskill codex-bridge plugin (dual-manifest, cross-runtime)",
+  "description": "Demonstrator plugin in the vskill repo proving that a single SKILL.md + dual plugin.json (.claude-plugin/ + .codex-plugin/) is installable in both Anthropic Claude Code and OpenAI Codex CLI. Establishes the dual-target authoring pattern for future vskill plugins.",
+  "status": "active",
+  "type": "feature",
+  "priority": "P2",
+  "createdAt": "2026-04-30T00:00:00Z",
+  "project": "vskill",
+  "umbrella": true,
+  "tags": ["codex", "plugins", "skills", "cross-runtime", "marketplace", "dual-manifest"]
+}
