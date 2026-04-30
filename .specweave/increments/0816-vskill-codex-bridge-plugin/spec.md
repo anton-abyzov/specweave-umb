@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # Spec: vskill `codex-bridge` plugin (dual-manifest)
 
 ## Background

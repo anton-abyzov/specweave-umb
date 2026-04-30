@@ -1,13 +1,41 @@
 {
-  "id": "0816",
+  "id": "0816-vskill-codex-bridge-plugin",
   "name": "vskill-codex-bridge-plugin",
   "title": "vskill codex-bridge plugin (dual-manifest, cross-runtime)",
   "description": "Demonstrator plugin in the vskill repo proving that a single SKILL.md + dual plugin.json (.claude-plugin/ + .codex-plugin/) is installable in both Anthropic Claude Code and OpenAI Codex CLI. Establishes the dual-target authoring pattern for future vskill plugins.",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P2",
-  "createdAt": "2026-04-30T00:00:00Z",
   "project": "vskill",
   "umbrella": true,
-  "tags": ["codex", "plugins", "skills", "cross-runtime", "marketplace", "dual-manifest"]
+  "tags": [
+    "codex",
+    "plugins",
+    "skills",
+    "cross-runtime",
+    "marketplace",
+    "dual-manifest"
+  ],
+  "created": "2026-04-30T00:00:00Z",
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1375",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1375",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-04-30T17:07:48.081Z"
+    },
+    "ado": {
+      "featureId": "2214",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2214",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-04-30T17:07:51.291Z"
+    }
+  },
+  "lastActivity": "2026-04-30T17:07:12.047Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-04-30T17:07:12.009Z",
+  "approvedAt": "2026-04-30T17:07:12.047Z"
 }
