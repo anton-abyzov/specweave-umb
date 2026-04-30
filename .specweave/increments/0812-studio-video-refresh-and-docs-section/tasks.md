@@ -101,7 +101,7 @@ Create `src/remotion/scenes/studio/CommandPalette.tsx`. Visual: Studio chrome di
 
 ### T-008: Generate Sarah voiceover — run generate-voiceover.mjs studio
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-02, AC-US2-03, AC-US5-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Add npm script `video:voiceover:studio` to `package.json`. Run `npm run video:voiceover:studio` (reads `STUDIO_SCRIPT[*].voiceText`, calls ElevenLabs voice `EXAVITQu4vr4xnSDxMaL` Sarah, model `eleven_v3`, writes `public/studio/voiceover-raw.mp3`). Verify output: file exists, >50 KB, `ffprobe` duration ~155–170s. The composition `<Audio src={staticFile("studio/voiceover-raw.mp3")}>` set in T-002 now resolves to a real file.
 
@@ -114,7 +114,7 @@ Add npm script `video:voiceover:studio` to `package.json`. Run `npm run video:vo
 
 ### T-009: Author scripts/generate-vtt.mjs + unit tests
 **User Story**: US-003, US-005 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US5-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Create `scripts/generate-vtt.mjs <video-name>` that imports `STUDIO_SCRIPT` from `src/remotion/scenes/studio/script.ts`, computes cumulative cue offsets (start = cumulative effective frames before scene / 30fps, end = start + durationFrames/30), takes cue text from `scene.caption ?? scene.voiceText.split('.')[0]` (truncated to ≤80 chars), writes a WebVTT-1.0-conformant file to `public/video/skill-studio.vtt`. Add npm script `video:vtt:studio` to `package.json`. Unit test at `scripts/__tests__/generate-vtt.test.ts`: fixture = 3-scene mock script (durations 300/240/180, transitions fade/slide-right/null), asserts: WEBVTT header on line 1, exactly 3 cue blocks, monotonically increasing times, `end > start` for every cue, cue text ≤ 80 chars.
 
@@ -127,7 +127,7 @@ Create `scripts/generate-vtt.mjs <video-name>` that imports `STUDIO_SCRIPT` from
 
 ### T-010: Render skill-studio.mp4 + .webm + .vtt (full render pipeline)
 **User Story**: US-002, US-003 | **Satisfies ACs**: AC-US2-05, AC-US2-06, AC-US3-01, AC-US3-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Add npm script `video:render:studio:all` to `package.json` chaining: `npm run video:render:studio && npm run video:render:studio:webm && npm run video:vtt:studio`. Run it. Verify artifacts: `public/video/skill-studio.mp4` >5 MB, `ffprobe` duration in [178, 212] seconds; `public/video/skill-studio.webm` exists; `stat -f %m` on mp4 and webm differ by <300 seconds; `public/video/skill-studio.vtt` starts with `WEBVTT` and has ≥ 11 cue blocks.
 
@@ -140,7 +140,7 @@ Add npm script `video:render:studio:all` to `package.json` chaining: `npm run vi
 
 ### T-011: VideoPlayer.tsx — captionsSrc prop + conditional track render
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-03, AC-US3-04, AC-US3-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Update `src/app/components/shared/VideoPlayer.tsx`: add optional `captionsSrc?: string` prop to the `VideoPlayerProps` interface. Render `<track kind="captions" srcLang="en" label="English" src={captionsSrc} default>` ONLY when `captionsSrc` is provided (omit the track entirely when absent — empty track is invalid HTML and confuses Chrome). Existing callers remain unchanged (no captions for them). Add Vitest unit test asserting: with `captionsSrc` → `<track>` present with correct `src`, `kind`, `label`; without `captionsSrc` → no `<track>` element.
 
@@ -155,7 +155,7 @@ Update `src/app/components/shared/VideoPlayer.tsx`: add optional `captionsSrc?: 
 
 ### T-012: buildChapters.ts + studio/page.tsx chapters auto-gen + captions wiring
 **User Story**: US-003, US-005 | **Satisfies ACs**: AC-US3-06, AC-US5-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Create `src/app/studio/buildChapters.ts`: pure function `buildStudioChapters()` reading `STUDIO_SCRIPT`, computing cumulative seconds with 15-frame transition overlap per plan §7.3, returning `{ time: string; seconds: number; title: string }[]`. Update `src/app/studio/page.tsx`: (a) replace hand-typed `DEMO_CHAPTERS` array with `const DEMO_CHAPTERS = buildStudioChapters()`; (b) switch `mp4=` prop from R2 URL to `"/video/skill-studio.mp4"`; (c) add `captionsSrc="/video/skill-studio.vtt"` to `ProductDemoCard` (or wire through if it wraps `VideoPlayer`); (d) replace hardcoded `hasPart` SEO array with `DEMO_CHAPTERS.map(c => ({ "@type": "Clip", name: c.title, startOffset: c.seconds, ... }))`. Unit test at `src/app/studio/__tests__/chapters.test.ts`: given known `STUDIO_SCRIPT`, asserts `DEMO_CHAPTERS[i].seconds === Math.floor(cumFrames/30)` and `DEMO_CHAPTERS.length === STUDIO_SCRIPT.length`.
 
@@ -168,7 +168,7 @@ Create `src/app/studio/buildChapters.ts`: pure function `buildStudioChapters()` 
 
 ### T-013: Create src/app/docs/studio/page.tsx (full content)
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Create `src/app/docs/studio/page.tsx` as a Next.js App Router `.tsx` page (marketing-shaped, not MDX). Export `metadata` object with `title` containing "Studio". Embed `<VideoPlayer mp4="/video/skill-studio.mp4" webm="/video/skill-studio.webm" captionsSrc="/video/skill-studio.vtt" ariaLabel="Skill Studio product walkthrough" accentColor="#06b6d4" />` near the top. Body: 7 sections with `<h2>` headings — Plain-English Evals (`id="evals"`), A/B Compare (`id="ab-compare"`), Any Model (`id="any-model"`), Local-first 100% Local (`id="local-first"`), Publish-to-GitHub (`id="publish-to-github"`), Install Scopes (`id="install-scopes"`), Update Notifications (`id="updates"`). Each section: 60–120 word paragraph. Related section with internal links to `/docs/security-guidelines`, `/docs/plugins`, `/docs/submitting`.
 
@@ -181,7 +181,7 @@ Create `src/app/docs/studio/page.tsx` as a Next.js App Router `.tsx` page (marke
 
 ### T-014: docs-nav.ts Studio entry + sitemap.ts + nav test update
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-04, AC-US4-05, AC-US4-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Update `src/app/docs/docs-nav.ts`: insert Studio nav section with `label: "Studio"`, `href: "/docs/studio"`, and 7 anchor-linked children (Overview → `/docs/studio`, Plain-English Evals → `#evals`, A/B Compare → `#ab-compare`, Any Model → `#any-model`, Publish to GitHub → `#publish-to-github`, Install Scopes → `#install-scopes`, Updates → `#updates`) positioned AFTER the Quickstart entry and BEFORE the Core Concepts entry. Update `src/app/sitemap.ts`: add `{ url: \`\${base}/docs/studio\`, changeFrequency: "weekly", priority: 0.7 }` grouped with other `/docs/*` entries. Update `docs-nav.test.ts` (or its allow-list): extend section hierarchy allow-list to include "Studio" so the position-enforcer test continues to pass.
 
@@ -194,7 +194,7 @@ Update `src/app/docs/docs-nav.ts`: insert Studio nav section with `label: "Studi
 
 ### T-015: Verification gates (E2E + type-check + unit sweep)
 **User Story**: US-001, US-002, US-003, US-004, US-005 | **Satisfies ACs**: AC-US3-04, AC-US3-05, AC-US4-06, AC-US2-05, AC-US2-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Run all closure gates:
 1. `npx tsc --noEmit` → 0 errors across all modified and created files
