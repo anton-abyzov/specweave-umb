@@ -99,7 +99,7 @@ Run `npx tsc --noEmit`.
 
 ### T-006: Implement CaptionBar + PillTag primitives
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Create `src/remotion/scene-kit/primitives/CaptionBar.tsx`:
 - Props: `text`, `accentColor?: AccentColor` (default `BRAND_COLORS.cyan`), `position?: "bottom"|"top"`, `fontSize?: number`, `delay?: number`
@@ -118,7 +118,7 @@ Create `src/remotion/scene-kit/primitives/PillTag.tsx`:
 
 ### T-007: Implement CommandTypewriter + TUIFrame primitives
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Create `src/remotion/scene-kit/primitives/CommandTypewriter.tsx`:
 - Props: `command`, `charSpeed?` (default 2), `prefix?` (default `"$ "`), `delay?`, `onCompleteFrame?`, `fontSize?`, `accentColor?` (default `BRAND_COLORS.green`)
@@ -137,7 +137,7 @@ Create `src/remotion/scene-kit/primitives/TUIFrame.tsx`:
 
 ### T-008: Implement BrowserChrome + MetricBar + SkillCard primitives; run tsc gate
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Create `src/remotion/scene-kit/primitives/BrowserChrome.tsx`:
 - Props: `url`, `width?`, `height?`, `children`, `accentColor?`
@@ -162,7 +162,7 @@ After all 7 new primitives exist: run `npx tsc --noEmit` (barrel from T-004 now 
 
 ### T-009: Update src/app/globals.css — 4 token value swaps + 4 new accent-purple tokens
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Apply in-place edits per plan §4.1 and §4.2.
 
@@ -189,7 +189,7 @@ Pre-edit: run `grep -rn '0891B2\|4ADE80\|22D3EE\|3FB950' src/app/` — document 
 
 ### T-010: Write globals-token-sync.test.ts — CSS ↔ canonical hexes bidirectional
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-05
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Create `src/app/__tests__/globals-token-sync.test.ts` per plan §4.4. The test reads `src/app/globals.css` via `readFileSync`, parses `:root` and `[data-theme="dark"]` blocks, and asserts all four canonical values (`--accent-cyan: #06b6d4`, `--code-green: #22c55e`, `--bg-code: #1a1a1a`, `--accent-purple: #a855f7`) are present in BOTH blocks. Build fails if either block drifts.
 
@@ -204,7 +204,7 @@ If `vitest.config.ts` `include` array does not cover `src/app/**/__tests__/**`, 
 
 ### T-011: Write tokens.test.ts — BRAND_COLORS ↔ Studio FEATURES parity
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-06
-**Status**: [ ] pending
+**Status**: [x] completed
 
 Create `src/remotion/scene-kit/__tests__/tokens.test.ts`. The test:
 - Imports `BRAND_COLORS` from `../tokens`
