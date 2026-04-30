@@ -1,0 +1,16 @@
+{
+  "id": "0811-fix-scanner-phantom-skill-versions",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-04-30T06:24:51.692Z",
+  "lastActivity": "2026-04-30T06:30:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  }
+}
