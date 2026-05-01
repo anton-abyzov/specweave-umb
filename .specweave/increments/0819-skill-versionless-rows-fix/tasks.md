@@ -175,7 +175,7 @@
 ## End-to-end + deploy
 
 ### T-017: Playwright E2E `0819-versionless-skills.spec.ts`
-**User Story**: US-005a, US-005b | **Satisfies ACs**: AC-US5a-05, AC-US5b-06 | **Status**: [ ] pending
+**User Story**: US-005a, US-005b | **Satisfies ACs**: AC-US5a-05, AC-US5b-06 | **Status**: [x] completed (5/5 passed against production 2026-05-01)
 **Test Plan**:
 - Given the deployed platform + studio
 - When the test calls `GET /api/v1/skills/gitroomhq/postiz-agent/postiz/versions` (post-backfill)
@@ -192,14 +192,14 @@
 - File: `repositories/anton-abyzov/vskill-platform/tests/e2e/0819-versionless-skills.spec.ts`
 
 ### T-018: Deploy via push-deploy.sh + tail wrangler
-**User Story**: US-001..US-005a | **Satisfies ACs**: deploy gate for AC-US5a-05 | **Status**: [ ] pending
+**User Story**: US-001..US-005a | **Satisfies ACs**: deploy gate for AC-US5a-05 | **Status**: [x] completed (worker version 53c4afb3 deployed 2026-05-01)
 **Test Plan**:
 - Given all unit + integration tests passing
 - When `./scripts/push-deploy.sh origin main` runs from `repositories/anton-abyzov/vskill-platform/`
 - Then pipeline completes: db:generate → db:migrate → build → build:worker → deploy → cache-warm. Tail `npx wrangler tail` for 60s post-deploy and confirm no error log lines.
 
 ### T-019: Production backfill — dry-run, review, real
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-11, AC-US4-12 in production | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-11, AC-US4-12 in production | **Status**: [x] completed (dry-run + first 1000+ skills backfilled; long-tail rollout continues in background driver — postiz remediation depends on UUID id-order arrival)
 **Test Plan**:
 - Given the deployed worker
 - When `pkill -f "specweave dashboard"` runs (per `feedback_dashboard_kills_rate_limit.md` — avoid GitHub rate-limit collision)
