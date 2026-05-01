@@ -1,0 +1,383 @@
+{
+  "id": "0819-skill-versionless-rows-fix",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-05-01T14:54:46.602Z",
+  "lastActivity": "2026-05-01T15:23:47.643Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-05-01T15:23:47.643Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T15:23:43.147Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T15:23:37.760Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T15:23:33.594Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T15:23:28.836Z",
+      "updated": [
+        "AC-US4-01"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-05-01T15:23:22.010Z",
+      "updated": [
+        "AC-US4-06",
+        "AC-US4-07",
+        "AC-US4-13"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-05-01T15:23:16.497Z",
+      "updated": [
+        "AC-US4-02",
+        "AC-US4-03",
+        "AC-US4-04",
+        "AC-US4-09",
+        "AC-US4-10",
+        "AC-US4-05",
+        "AC-US4-08"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 7
+    },
+    {
+      "timestamp": "2026-05-01T15:23:10.874Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T15:23:04.843Z",
+      "updated": [
+        "AC-US3-05"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-05-01T15:22:48.298Z",
+      "updated": [
+        "AC-US3-01",
+        "AC-US3-02",
+        "AC-US3-03",
+        "AC-US3-04",
+        "AC-US3-06"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 5
+    },
+    {
+      "timestamp": "2026-05-01T15:22:42.964Z",
+      "updated": [
+        "AC-US2-06"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-05-01T15:22:36.530Z",
+      "updated": [
+        "AC-US2-01",
+        "AC-US2-02",
+        "AC-US2-03"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-05-01T15:22:31.799Z",
+      "updated": [
+        "AC-US2-04",
+        "AC-US2-05"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-05-01T15:22:27.080Z",
+      "updated": [
+        "AC-US1-01"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-05-01T15:22:22.565Z",
+      "updated": [
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US1-04",
+        "AC-US1-07"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 4
+    },
+    {
+      "timestamp": "2026-05-01T15:22:17.667Z",
+      "updated": [
+        "AC-US1-05",
+        "AC-US1-06"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-05-01T15:05:21.599Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5a-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-04 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5a-05 referenced in tasks.md but not found in spec.md",
+        "AC-US5b-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "activatedAt": "2026-05-01T15:05:00Z"
+}
