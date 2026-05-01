@@ -1,10 +1,10 @@
 ---
 increment: 0819-skill-versionless-rows-fix
-title: "Skill Versionless Rows Fix"
+title: Skill Versionless Rows Fix
 type: bug
 priority: P1
-status: planned
-created: 2026-05-01
+status: ready_for_review
+created: 2026-05-01T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
