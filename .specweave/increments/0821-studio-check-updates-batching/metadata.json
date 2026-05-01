@@ -1,0 +1,18 @@
+{
+  "id": "0821-studio-check-updates-batching",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-05-01T15:10:00Z",
+  "lastActivity": "2026-05-01T15:10:00Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [],
+  "activatedAt": "2026-05-01T15:10:00Z"
+}
