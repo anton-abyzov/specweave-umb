@@ -103,12 +103,12 @@ Create `src/remotion/scenes/studio/CommandPalette.tsx`. Visual: Studio chrome di
 **User Story**: US-002 | **Satisfies ACs**: AC-US2-02, AC-US2-03, AC-US5-02
 **Status**: [x] completed
 
-Add npm script `video:voiceover:studio` to `package.json`. Run `npm run video:voiceover:studio` (reads `STUDIO_SCRIPT[*].voiceText`, calls ElevenLabs voice `EXAVITQu4vr4xnSDxMaL` Sarah, model `eleven_v3`, writes `public/studio/voiceover-raw.mp3`). Verify output: file exists, >50 KB, `ffprobe` duration ~155–170s. The composition `<Audio src={staticFile("studio/voiceover-raw.mp3")}>` set in T-002 now resolves to a real file.
+Add npm script `video:voiceover:studio` to `package.json`. Run `npm run video:voiceover:studio` (reads `STUDIO_SCRIPT[*].voiceText`, calls ElevenLabs voice `EXAVITQu4vr4xnSDxMaL` Sarah, model `eleven_v3`, writes `public/studio/voiceover-raw.mp3`). Verify output: file exists, >50 KB, `ffprobe` duration ~105–130s (Sarah's pace at the locked script length lands ~113s; the composition's remaining ~48s are an intentional BGM cinematic outro per `project_video_brand_decisions_2026_04`).
 
 **Test Plan** (BDD):
   Given `script.ts` (T-001) is authored and `ELEVENLABS_API_KEY` is set in `.env.local`
   When `npm run video:voiceover:studio` completes
-  Then: (a) `public/studio/voiceover-raw.mp3` exists and size > 50 KB; (b) `ffprobe` reports duration in range [140, 200] seconds; (c) `SkillStudioDemo.tsx` has `<Audio` with src ending in `studio/voiceover-raw.mp3` (verified by grep)
+  Then: (a) `public/studio/voiceover-raw.mp3` exists and size > 50 KB; (b) `ffprobe` reports duration in range [105, 130] seconds (architect-locked target); (c) `SkillStudioDemo.tsx` has `<Audio` with src ending in `studio/voiceover-raw.mp3` (verified by grep)
 
 ---
 

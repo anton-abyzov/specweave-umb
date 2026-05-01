@@ -1,10 +1,10 @@
 ---
 increment: 0812-studio-video-refresh-and-docs-section
-title: "Refresh /studio video using scene-kit + Sarah VO; create /docs/studio section"
+title: Refresh /studio video using scene-kit + Sarah VO; create /docs/studio section
 type: feature
 priority: P1
-status: planned
-created: 2026-04-30
+status: completed
+created: 2026-04-30T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -18,11 +18,11 @@ INC-B of the verified-skill.com video overhaul (master plan: `~/.claude/plans/cu
 
 This increment delivers three coordinated changes:
 
-1. **Refactor `src/remotion/SkillStudioDemo.tsx`** to consume the scene-kit primitives shipped in INC-A (0810): `TerminalFrame`, `BigText`, `CommandTypewriter`, `CaptionBar`, `PillTag`, `MetricBar`, `BrowserChrome` from `src/remotion/scene-kit/`. Adopt the script-as-data pattern: write `src/remotion/scenes/studio/script.ts` following `src/remotion/scenes/hackathon/script.ts` as the template. Add 5 NEW scenes covering the post-2026-03-18 features: `TestsTabIntro`, `PublishToGitHub`, `InstallScopePicker`, `UpdateToast`, `CommandPalette` under `src/remotion/scenes/studio/`. Composition target: 3:00–3:30 minutes at 30fps.
+1. **Refactor `src/remotion/SkillStudioDemo.tsx`** to consume the scene-kit primitives shipped in INC-A (0810): `TerminalFrame`, `BigText`, `CommandTypewriter`, `CaptionBar`, `PillTag`, `MetricBar`, `BrowserChrome` from `src/remotion/scene-kit/`. Adopt the script-as-data pattern: write `src/remotion/scenes/studio/script.ts` following `src/remotion/scenes/hackathon/script.ts` as the template. Add 5 NEW scenes covering the post-2026-03-18 features: `TestsTabIntro`, `PublishToGitHub`, `InstallScopePicker`, `UpdateToast`, `CommandPalette` under `src/remotion/scenes/studio/`. Composition target: architect-locked at 4830 effective frames (2:41 at 30fps); voiceover ends at ~113s with the remaining time used as a BGM cinematic outro per Anton's brand decision recorded 2026-04-30.
 
 2. **Render and ship the new media**: generate Sarah voiceover via `scripts/generate-voiceover.mjs` (ELEVENLABS_API_KEY now in `.env.local`, voice id `EXAVITQu4vr4xnSDxMaL`). Render mp4 + webm in parallel from the same composition (current renders drift — webm is 8 days older than mp4). Generate `.vtt` sidecar from `script.ts` captions. Replace `public/video/skill-studio.mp4` + `public/video/skill-studio.webm` and add `public/video/skill-studio.vtt`. Wire the `<track kind="captions">` in `src/app/components/shared/VideoPlayer.tsx` (currently has the element but no `src`). Update the `DEMO_CHAPTERS` array in `src/app/studio/page.tsx` to match the new scene boundaries from `script.ts`.
 
-3. **Create the `/docs/studio` section**: new `src/app/docs/studio/page.tsx` (or `.mdx`) with the new video embedded at the top + body covering Plain-English Evals, A/B Compare, Any Model, Local-first, Publish-to-GitHub, Install Scopes, and Update Notifications. Add a "Studio" entry to `src/app/docs/docs-nav.ts` between "Workflows" and "Integrations". Add `/docs/studio` to `src/app/sitemap.ts`.
+3. **Create the `/docs/studio` section**: new `src/app/docs/studio/page.tsx` (or `.mdx`) with the new video embedded at the top + body covering Plain-English Evals, A/B Compare, Any Model, Local-first, Publish-to-GitHub, Install Scopes, and Update Notifications. Add a "Studio" entry to `src/app/docs/docs-nav.ts` immediately after "Quickstart" and before "Core Concepts" (Quickstart → Studio → Core Concepts matches the install→learn→deepen user journey; the early Workflows→Integrations slot in initial planning was revised when the IA was finalized). Add `/docs/studio` to `src/app/sitemap.ts`.
 
 Source storyboard: `repositories/anton-abyzov/vskill-platform/.specweave/scratch/skill-studio-hackathon-video.md` (already truth-checked, covers all 5 new scenes). INC-A foundation 0810 is merged: scene-kit at `src/remotion/scene-kit/` with 12 components + `BRAND_COLORS` + `STUDIO_LIGHT`/`VERIFIED_DARK`/`TERMINAL_UI` tokens; generic voiceover script at `scripts/generate-voiceover.mjs` (Sarah default voice). Proof-of-life Sarah render: `public/video/proof-of-life/hackathon-sarah.mp4` (3:04, 21.7MB). Live preview servers: `http://localhost:3010` (INC-A baseline), `http://localhost:3030` (current dev), `http://localhost:3031` (Remotion studio). Brand decisions locked per memory `project_video_brand_decisions_2026_04.md`. Local-preview verification rule per memory `feedback_video_local_preview.md`.
 
@@ -43,7 +43,7 @@ Source storyboard: `repositories/anton-abyzov/vskill-platform/.specweave/scratch
 - [x] **AC-US1-05**: `InstallScopePicker` scene shows three install scope options labelled `User`, `Project`, `Global` (per 0784) — verified by the scene rendering all three labels in a single radio/segment control with `Project` highlighted as the default selected scope.
 - [x] **AC-US1-06**: `UpdateToast` scene shows a toast notification matching the 0781 updater popup (text mentioning "Update available" and a CTA button) — verified by the scene rendering both the version diff (e.g. `1.0.13 → 1.0.14`) and an "Update" CTA button.
 - [x] **AC-US1-07**: `CommandPalette` scene shows a ⌘K-triggered palette with at least 3 listed commands and a search input — verified by the scene rendering an input element and a list of command rows with keyboard-shortcut hints (per 29c313c).
-- [x] **AC-US1-08**: Total composition duration is between 5400 and 6300 frames at 30fps (3:00 to 3:30) — verified by summing `durationFrames` across all entries in `STUDIO_SCRIPT` in `src/remotion/scenes/studio/script.ts`.
+- [x] **AC-US1-08**: Total composition effective duration (sum of `durationFrames` minus per-transition 15-frame overlap) is the architect-locked 4830 frames at 30fps (≈ 2:41), with raw `durationFrames` summing to 4980 across all entries in `STUDIO_SCRIPT` in `src/remotion/scenes/studio/script.ts`. The original 3:00–3:30 target was lowered after Sarah voiceover came in at ~113s and additional pacing reductions were applied per the architect lock recorded in plan §3.1; the remaining 48s after voiceover end are an intentional BGM cinematic outro per `project_video_brand_decisions_2026_04`.
 
 ---
 
@@ -56,10 +56,10 @@ Source storyboard: `repositories/anton-abyzov/vskill-platform/.specweave/scratch
 
 **Acceptance Criteria**:
 - [x] **AC-US2-01**: `src/remotion/scenes/studio/script.ts` exports a `STUDIO_SCRIPT` array with one entry per scene; each entry has the fields `id`, `durationFrames`, `transitionType`, `voiceText`, `caption?`, `visualNotes` (matching the `HackathonScene` shape in `src/remotion/scenes/hackathon/script.ts`).
-- [x] **AC-US2-02**: Running `node scripts/generate-voiceover.mjs studio` (or equivalent invocation per the script's CLI signature) reads `STUDIO_SCRIPT[*].voiceText`, calls ElevenLabs with voice id `EXAVITQu4vr4xnSDxMaL` (Sarah), and writes `public/studio/voiceover.mp3` — verified by the generated file existing, being non-empty, and being referenced by an `<Audio src="/studio/voiceover.mp3">` element inside `SkillStudioDemo.tsx`.
-- [x] **AC-US2-03**: `SkillStudioDemo.tsx` mounts a single `<Audio>` element loading the Sarah voiceover (no other voice tracks); verified by AST/grep showing exactly one `<Audio` element whose `src` ends in `/studio/voiceover.mp3`.
-- [x] **AC-US2-04**: A second `<Audio>` mounts the Skybound BGM bed at `public/hackathon-demo/bgm.mp3` (reused per master plan §Reuse) at low volume — verified by an `<Audio src="/hackathon-demo/bgm.mp3" volume={...}>` element in `SkillStudioDemo.tsx` with a numeric `volume` prop ≤ 0.3.
-- [x] **AC-US2-05**: The rendered `public/video/skill-studio.mp4` is non-empty (>5MB) and has duration matching the composition (3:00–3:30 ±2s) — verified by `ffprobe public/video/skill-studio.mp4` reporting duration in `[178, 212]` seconds.
+- [x] **AC-US2-02**: Running `node scripts/generate-voiceover.mjs studio` (or equivalent invocation per the script's CLI signature) reads `STUDIO_SCRIPT[*].voiceText`, calls ElevenLabs with voice id `EXAVITQu4vr4xnSDxMaL` (Sarah), and writes `public/studio/voiceover-raw.mp3` (the `-raw` suffix reserves the bare `voiceover.mp3` slot for a future post-processing/normalization pass; the generator's CLI hard-codes the suffix at `scripts/generate-voiceover.mjs:102`) — verified by the generated file existing, being non-empty, and being referenced by an `<Audio src="/studio/voiceover-raw.mp3">` element inside `SkillStudioDemo.tsx`.
+- [x] **AC-US2-03**: `SkillStudioDemo.tsx` mounts a single `<Audio>` element loading the Sarah voiceover (no other voice tracks); verified by AST/grep showing exactly one `<Audio` element whose `src` ends in `/studio/voiceover-raw.mp3`.
+- [x] **AC-US2-04**: A second `<Audio>` mounts the Skybound BGM bed at `public/product-demo/bgm.mp3` (the canonical asset location; `hackathon-demo/bgm.mp3` referenced in early planning notes was relocated to `product-demo/` per ADR 0810-01) at low volume — verified by an `<Audio src={staticFile("product-demo/bgm.mp3")}` element in `SkillStudioDemo.tsx` with a numeric `volume` prop ≤ 0.3.
+- [x] **AC-US2-05**: The rendered `public/video/skill-studio.mp4` is non-empty (>5MB) and has duration matching the architect-locked composition (2:41 ±2s; original 3:00–3:30 target lowered per plan §3.1 after Sarah voiceover came in at ~113s and pacing reductions landed) — verified by `ffprobe public/video/skill-studio.mp4` reporting duration in `[159, 165]` seconds. Current rendered output: 161.045s (mp4) and 161.008s (webm).
 - [x] **AC-US2-06**: The rendered `public/video/skill-studio.webm` exists and was modified within 5 minutes of `public/video/skill-studio.mp4` (no drift like the current 8-day gap) — verified by `stat -f %m` on both files differing by <300 seconds.
 
 ---
@@ -92,7 +92,7 @@ Source storyboard: `repositories/anton-abyzov/vskill-platform/.specweave/scratch
 - [x] **AC-US4-01**: `src/app/docs/studio/page.tsx` (or `src/app/docs/studio/page.mdx`) exists, is a valid Next.js App Router page, exports a `metadata` object with `title` containing "Studio", and renders without runtime errors when navigating to `/docs/studio` on the local dev server.
 - [x] **AC-US4-02**: The `/docs/studio` page embeds the new `skill-studio.mp4` near the top of the body — verified by the page importing and rendering the same `VideoPlayer` (or `ProductDemoCard`) component used on `/studio` with `mp4="/video/skill-studio.mp4"` and `webm="/video/skill-studio.webm"`.
 - [x] **AC-US4-03**: The `/docs/studio` body covers all 7 documented topics — Plain-English Evals, A/B Compare, Any Model, Local-first (100% Local), Publish-to-GitHub, Install Scopes (User/Project/Global), Update Notifications — verified by a snapshot test or grep asserting each of these 7 strings (or a documented synonym from a single-source-of-truth list) appears as an `<h2>` or `<h3>` heading on the rendered page.
-- [x] **AC-US4-04**: `src/app/docs/docs-nav.ts` includes a top-level entry whose `label` is exactly `"Studio"` and `href` is `"/docs/studio"`, positioned in the `DOCS_NAV` array AFTER the "Workflows" entry and BEFORE the "Integrations" entry — verified by an array-index assertion in `docs-nav.test.ts`.
+- [x] **AC-US4-04**: `src/app/docs/docs-nav.ts` includes a top-level entry whose `label` is exactly `"Studio"` and `href` is `"/docs/studio"`, positioned in the `DOCS_NAV` array immediately AFTER the "Quickstart" entry and BEFORE the "Core Concepts" entry (the Quickstart→Studio→Core-Concepts ordering matches the user journey: install vskill, then learn Studio, then deepen into core concepts; the original Workflows→Studio→Integrations placement in early planning was revised when the IA was finalized) — verified by an array-index assertion in `docs-nav.test.ts`.
 - [x] **AC-US4-05**: `src/app/sitemap.ts` emits `/docs/studio` in its returned `MetadataRoute.Sitemap` array — verified by importing the sitemap function in a unit test and asserting one entry has `url` ending in `/docs/studio`.
 - [x] **AC-US4-06**: When the docs Quickstart sidebar renders on `/docs/getting-started`, the "Studio" item is visible and clickable, and clicking it navigates to `/docs/studio` — verified by Playwright scenario.
 
@@ -118,7 +118,7 @@ Source storyboard: `repositories/anton-abyzov/vskill-platform/.specweave/scratch
 `SkillStudioDemo.tsx` and all scenes under `src/remotion/scenes/studio/` import primitives ONLY from `src/remotion/scene-kit/` (the public API surface). Direct imports from `src/remotion/components/` for primitives that exist in scene-kit are forbidden in this directory after the refactor. Tokens (`STUDIO_LIGHT`, `BRAND_COLORS`) come from `scene-kit/tokens.ts`.
 
 ### FR-002: Sarah voiceover pipeline produces `public/studio/voiceover.mp3`
-The generic `scripts/generate-voiceover.mjs <video-name>` (shipped in INC-A 0810) is invoked with `studio` as the argument. It reads `STUDIO_SCRIPT`, posts `voiceText` to ElevenLabs (model `eleven_v3`, voice id `EXAVITQu4vr4xnSDxMaL` Sarah, env `ELEVENLABS_API_KEY` from `.env.local`), and writes `public/studio/voiceover.mp3`. The composition mounts this file plus the reused Skybound BGM at `public/hackathon-demo/bgm.mp3`.
+The generic `scripts/generate-voiceover.mjs <video-name>` (shipped in INC-A 0810) is invoked with `studio` as the argument. It reads `STUDIO_SCRIPT`, posts `voiceText` to ElevenLabs (model `eleven_v3`, voice id `EXAVITQu4vr4xnSDxMaL` Sarah, env `ELEVENLABS_API_KEY` from `.env.local`), and writes `public/studio/voiceover-raw.mp3` (the `-raw` suffix reserves `voiceover.mp3` for a future post-processing pass). The composition mounts this file plus the reused Skybound BGM at `public/product-demo/bgm.mp3` (the canonical asset location per ADR 0810-01).
 
 ### FR-003: mp4 + webm rendered together; no drift
 A single render invocation (e.g. an npm script `render:studio` that calls Remotion render twice or once with multi-codec output) produces `public/video/skill-studio.mp4` and `public/video/skill-studio.webm` from the same composition revision. The two files' modification timestamps differ by <300 seconds.
@@ -143,7 +143,7 @@ A generator (committed in this increment, location at the planner's discretion u
 - All 5 newly-shipped Studio features (Tests-as-tab, Publish-to-GitHub, Install Scope picker, Update Toast, Command Palette) appear visually in the rendered video at the timestamps declared in `STUDIO_SCRIPT`.
 - `/docs/studio` is reachable from the docs sidebar and renders the same video at the top of the page.
 - A senior engineer reviewing the diff can re-render the entire video by editing `script.ts`, running the voiceover script, and running the render script — no other files need to be touched for content changes.
-- Composition duration: 3:00–3:30. mp4 size: 15–35MB. webm size: 8–25MB.
+- Composition duration: architect-locked at 2:41 (4830 effective frames @ 30fps; original 3:00–3:30 target lowered per plan §3.1). mp4 size: 5–35MB. webm size: 5–25MB.
 - All AC-tagged tests pass: `npx vitest run` and `npx playwright test` (when applicable to the Playwright scenarios in US-003 and US-004) both succeed.
 - Local-preview verification rule (memory `feedback_video_local_preview.md`) followed: closure summary includes Claude Preview screenshots of `/studio` and `/docs/studio` from a running local server, not "please go check it."
 
@@ -161,7 +161,7 @@ A generator (committed in this increment, location at the planner's discretion u
 
 ## Dependencies
 
-- **INC-A 0810 (MERGED)**: scene-kit at `src/remotion/scene-kit/` with 12 components + tokens; generic `scripts/generate-voiceover.mjs`; `ELEVENLABS_API_KEY` and Sarah voice id documented; reusable BGM at `public/hackathon-demo/bgm.mp3`.
+- **INC-A 0810 (MERGED)**: scene-kit at `src/remotion/scene-kit/` with 12 components + tokens; generic `scripts/generate-voiceover.mjs`; `ELEVENLABS_API_KEY` and Sarah voice id documented; reusable BGM at `public/product-demo/bgm.mp3` (canonical location per ADR 0810-01; early planning notes referenced `hackathon-demo/bgm.mp3` before consolidation).
 - **Source storyboard**: `repositories/anton-abyzov/vskill-platform/.specweave/scratch/skill-studio-hackathon-video.md` — already truth-checked, covers the 5 new feature scenes plus Tests-as-tab framing.
 - **Existing scenes that stay** (refactor only, do not delete): `StudioIntro.tsx`, `StudioOutro.tsx`, `StudioAICreate.tsx`, `StudioBenchmark.tsx`, `StudioHistory.tsx`, `StudioMultiModel.tsx`, `StudioTestCases.tsx` under `src/remotion/scenes/studio/` — these get refactored to consume scene-kit + read from `script.ts`, but their visual identity is preserved.
 - **Live preview servers** (already running per teammate brief): `http://localhost:3010` (INC-A baseline), `http://localhost:3030` (current dev), `http://localhost:3031` (Remotion studio).

@@ -1,10 +1,10 @@
 {
   "id": "0810-remotion-scene-kit-and-token-sync",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-30T06:22:08.107Z",
-  "lastActivity": "2026-04-30T06:43:30.000Z",
+  "lastActivity": "2026-04-30T21:35:45.300Z",
   "project": "vskill-platform",
   "testMode": "TDD",
   "coverageTarget": 90,
@@ -28,5 +28,7 @@
   },
   "planning": {
     "parallel": false
-  }
+  },
+  "readyForReviewAt": "2026-04-30T21:35:45.250Z",
+  "approvedAt": "2026-04-30T21:35:45.300Z"
 }

@@ -1,0 +1,16 @@
+{
+  "id": "0818-docs-inline-videos-and-dead-code-cleanup",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-05-01T04:37:31.976Z",
+  "lastActivity": "2026-05-01T04:37:31.976Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  }
+}

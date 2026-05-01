@@ -1,10 +1,12 @@
 ---
 increment: 0810-remotion-scene-kit-and-token-sync
-title: "Remotion scene-kit foundation + globals.css token sync + Sarah voiceover pipeline"
+title: >-
+  Remotion scene-kit foundation + globals.css token sync + Sarah voiceover
+  pipeline
 type: feature
 priority: P1
-status: planned
-created: 2026-04-30
+status: completed
+created: 2026-04-30T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -60,7 +62,7 @@ The interview state at `.specweave/state/interview-0810-remotion-scene-kit-and-t
 - [x] **AC-US2-03**: `:root` `--bg-code: #1a1a1a` (was `#111111`); `[data-theme="dark"]` `--bg-code: #1a1a1a` (was `#161B22`).
 - [x] **AC-US2-04**: A new token `--accent-purple: #a855f7` is added to both `:root` and `[data-theme="dark"]` blocks, matching `STUDIO_LIGHT.accentPurple` semantics in Remotion (used for AI-Assisted / Generate / Any-Model surfaces).
 - [x] **AC-US2-05**: A Vitest snapshot test parses `globals.css` and asserts the four canonical values above are present in BOTH `:root` and `[data-theme="dark"]` blocks; the test fails the build if either block drifts.
-- [ ] **AC-US2-06**: Visual smoke check via `npm run dev` + Claude Preview MCP: the `/studio` page's four `FEATURES` swatches (`#22c55e`, `#3b82f6`, `#a855f7`, `#06b6d4`) and the four CSS tokens render as the same colors when sampled in DevTools — no perceptible drift.
+- [x] **AC-US2-06**: Visual smoke check via `npm run dev` + Claude Preview MCP: the `/studio` page's four `FEATURES` swatches (`#22c55e`, `#3b82f6`, `#a855f7`, `#06b6d4`) and the four CSS tokens render as the same colors when sampled in DevTools — no perceptible drift.
 - [x] **AC-US2-07**: All downstream tier-card / status-token rules that currently `color-mix()` against `--code-green` or `--accent-cyan` (lines 849, 851, 964, 1066, 1083, 1066-1068 in globals.css) continue to render without contrast regressions — verified by re-running the existing Track E tier-card visual snapshot tests.
 
 ---
