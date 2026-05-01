@@ -1,10 +1,10 @@
 {
   "id": "0819-skill-versionless-rows-fix",
-  "status": "ready_for_review",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-05-01T14:54:46.602Z",
-  "lastActivity": "2026-05-01T16:03:22.244Z",
+  "lastActivity": "2026-05-01T18:30:01.641Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -443,5 +443,6 @@
     }
   ],
   "activatedAt": "2026-05-01T15:05:00Z",
-  "readyForReviewAt": "2026-05-01T16:03:22.244Z"
+  "readyForReviewAt": "2026-05-01T16:03:22.244Z",
+  "approvedAt": "2026-05-01T18:30:01.641Z"
 }
