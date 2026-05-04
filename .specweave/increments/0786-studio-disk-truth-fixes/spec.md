@@ -1,10 +1,10 @@
 ---
 increment: 0786-studio-disk-truth-fixes
-title: "Studio UI/Disk-State Truth Fixes"
+title: Studio UI/Disk-State Truth Fixes
 type: bug
 priority: P1
-status: active
-created: 2026-04-27
+status: completed
+created: 2026-04-27T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
