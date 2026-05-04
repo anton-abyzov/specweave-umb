@@ -1,10 +1,10 @@
 ---
 increment: 0798-admin-counters-match-queue-strict
-title: "Admin counters use strict verified filter to match queue and home"
+title: Admin counters use strict verified filter to match queue and home
 type: bug
 priority: P2
-status: active
-created: 2026-04-28
+status: completed
+created: 2026-04-28T00:00:00.000Z
 ---
 
 # 0798: Admin counters use strict verified filter to match queue and home

@@ -1,10 +1,10 @@
 {
   "id": "0798-admin-counters-match-queue-strict",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P2",
   "created": "2026-04-28T02:28:38.908Z",
-  "lastActivity": "2026-04-28T02:28:38.908Z",
+  "lastActivity": "2026-05-04T18:48:52.954Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -12,5 +12,7 @@
   "externalLinks": {},
   "planning": {
     "parallel": false
-  }
+  },
+  "readyForReviewAt": "2026-05-04T18:48:27.322Z",
+  "approvedAt": "2026-05-04T18:48:52.954Z"
 }
