@@ -1,10 +1,10 @@
 ---
 increment: 0821-studio-check-updates-batching
-title: "Studio Check-Updates Batching"
+title: Studio Check-Updates Batching
 type: bug
 priority: P1
-status: active
-created: 2026-05-01
+status: completed
+created: 2026-05-01T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
