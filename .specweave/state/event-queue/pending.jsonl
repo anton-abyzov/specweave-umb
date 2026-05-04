@@ -8,3 +8,6 @@
 {"incrementId":"0798-admin-counters-match-queue-strict","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-05-04T18:48:27.329Z"}
 {"incrementId":"0798-admin-counters-match-queue-strict","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-05-04T18:48:52.973Z"}
 {"incrementId":"0798-admin-counters-match-queue-strict","eventType":"increment.done","timestamp":"2026-05-04T18:48:52.973Z"}
+{"incrementId":"0802-studio-personal-folder-first-headers","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-05-04T19:06:21.745Z"}
+{"incrementId":"0802-studio-personal-folder-first-headers","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-05-04T19:06:21.788Z"}
+{"incrementId":"0802-studio-personal-folder-first-headers","eventType":"increment.done","timestamp":"2026-05-04T19:06:21.788Z"}
