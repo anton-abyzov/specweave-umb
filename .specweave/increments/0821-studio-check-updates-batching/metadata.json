@@ -9,7 +9,22 @@
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1435",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1435",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-05-04T19:35:40.734Z"
+    },
+    "ado": {
+      "featureId": "2274",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2274",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-05-04T19:35:45.348Z"
+    }
+  },
   "planning": {
     "parallel": false
   },
