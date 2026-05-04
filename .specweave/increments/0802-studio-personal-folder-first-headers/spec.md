@@ -1,10 +1,12 @@
 ---
 increment: 0802-studio-personal-folder-first-headers
-title: "Studio sidebar — Personal section uses folder name + tool sublabel (parity with Project)"
+title: >-
+  Studio sidebar — Personal section uses folder name + tool sublabel (parity
+  with Project)
 type: bug
 priority: P2
-status: active
-created: 2026-04-29
+status: completed
+created: 2026-04-29T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

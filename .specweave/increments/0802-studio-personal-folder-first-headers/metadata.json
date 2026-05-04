@@ -1,10 +1,10 @@
 {
   "id": "0802-studio-personal-folder-first-headers",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P2",
   "created": "2026-04-29T00:00:00.000Z",
-  "lastActivity": "2026-04-29T03:38:42.718Z",
+  "lastActivity": "2026-05-04T19:06:21.768Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -45,5 +45,22 @@
       "changesCount": 0
     }
   ],
-  "externalLinks": {}
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1426",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1426",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-05-04T19:07:03.983Z"
+    },
+    "ado": {
+      "featureId": "2265",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2265",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-05-04T19:07:09.016Z"
+    }
+  },
+  "readyForReviewAt": "2026-05-04T19:06:21.736Z",
+  "approvedAt": "2026-05-04T19:06:21.768Z"
 }
