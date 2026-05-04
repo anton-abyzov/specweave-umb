@@ -1,10 +1,10 @@
 ---
 increment: 0784-studio-detail-install-button
-title: "Studio detail: primary Install button + readability pass"
+title: 'Studio detail: primary Install button + readability pass'
 type: feature
 priority: P2
-status: planned
-created: 2026-04-27
+status: completed
+created: 2026-04-27T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
