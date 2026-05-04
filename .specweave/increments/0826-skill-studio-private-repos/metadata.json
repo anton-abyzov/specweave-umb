@@ -1,0 +1,162 @@
+{
+  "id": "0826-skill-studio-private-repos",
+  "status": "ready_for_review",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-05-03T19:30:02.338Z",
+  "lastActivity": "2026-05-04T01:00:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1420",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1420",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-05-03T19:55:02.313Z"
+    },
+    "ado": {
+      "featureId": "2259",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2259",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-05-03T19:55:04.929Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-05-04T00:24:54.119Z",
+      "updated": [
+        "AC-US8-02",
+        "AC-US8-04",
+        "AC-US8-05"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-05-04T00:24:47.810Z",
+      "updated": [
+        "AC-US6-05"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-05-04T00:24:39.216Z",
+      "updated": [
+        "AC-US7-05"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-05-04T00:24:29.563Z",
+      "updated": [
+        "AC-US4-05",
+        "AC-US4-06"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-05-03T23:55:30.073Z",
+      "updated": [
+        "AC-NFR2-01",
+        "AC-US9-06"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-05-03T23:55:10.727Z",
+      "updated": [
+        "AC-US9-03",
+        "AC-US9-05"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-05-03T23:55:05.365Z",
+      "updated": [
+        "AC-US9-01",
+        "AC-US9-02",
+        "AC-US9-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-05-03T23:50:25.944Z",
+      "updated": [
+        "AC-US14-02",
+        "AC-US14-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-05-03T23:50:21.302Z",
+      "updated": [
+        "AC-US12-01"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-05-03T23:50:07.332Z",
+      "updated": [
+        "AC-US12-02",
+        "AC-US12-03",
+        "AC-US12-04",
+        "AC-US12-05"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 4
+    },
+    {
+      "timestamp": "2026-05-03T23:50:02.481Z",
+      "updated": [
+        "AC-US11-05",
+        "AC-US11-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-05-03T23:38:28.715Z",
+      "updated": [
+        "AC-NFR1-04"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-05-03T23:38:08.521Z",
+      "updated": [
+        "AC-NFR1-01"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "0823-studio-installed-skill-readonly-and-rescan",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-05-01T16:04:38.777Z",
+  "lastActivity": "2026-05-02T02:59:52.395Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1397",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1397",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-05-02T03:00:14.040Z"
+    },
+    "ado": {
+      "featureId": "2236",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2236",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-05-02T03:00:19.936Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "completedAt": "2026-05-01T17:00:00Z",
+  "approvedAt": "2026-05-02T02:59:52.395Z"
+}

@@ -1,0 +1,234 @@
+{
+  "id": "0822-vskill-clone-skill-fork",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-05-01T15:50:53.267Z",
+  "lastActivity": "2026-05-01T16:39:07.895Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1390",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1390",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-05-01T16:01:24.500Z"
+    },
+    "ado": {
+      "featureId": "2229",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2229",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-05-01T16:01:27.854Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-05-01T16:26:04.877Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US6-01: [x] but only 1/2 tasks complete (50%)",
+        "AC-US6-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US6-03: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T16:20:20.208Z",
+      "updated": [
+        "AC-US4-01",
+        "AC-US4-02",
+        "AC-US4-03"
+      ],
+      "conflicts": [
+        "AC-US5-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-04: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-01: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US3-01: [x] but only 1/2 tasks complete (50%)",
+        "AC-US6-01: [x] but only 1/2 tasks complete (50%)",
+        "AC-US6-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US6-03: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-05-01T16:20:15.719Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-01: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-04: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-01: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US3-01: [x] but only 1/2 tasks complete (50%)",
+        "AC-US6-01: [x] but only 1/2 tasks complete (50%)",
+        "AC-US6-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US6-03: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T16:18:54.300Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-01: [x] but only 2/4 tasks complete (50%)",
+        "AC-US1-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-04: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-01: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US3-01: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T16:17:05.487Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-01: [x] but only 2/4 tasks complete (50%)",
+        "AC-US1-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-04: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-01: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US3-01: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T16:16:07.626Z",
+      "updated": [
+        "AC-US3-03"
+      ],
+      "conflicts": [
+        "AC-US5-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-01: [x] but only 2/4 tasks complete (50%)",
+        "AC-US1-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-04: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-01: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-02: [x] but only 1/2 tasks complete (50%)",
+        "AC-US2-03: [x] but only 1/2 tasks complete (50%)",
+        "AC-US3-01: [x] but only 1/2 tasks complete (50%)"
+      ],
+      "warnings": [],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-05-01T16:14:30.901Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-01: [x] but only 2/4 tasks complete (50%)",
+        "AC-US1-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-04: [x] but only 2/3 tasks complete (66.67%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T16:14:10.415Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-01: [x] but only 2/4 tasks complete (50%)",
+        "AC-US1-02: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US1-04: [x] but only 2/3 tasks complete (66.67%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T16:14:08.557Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-02: [x] but only 3/4 tasks complete (75%)",
+        "AC-US1-01: [x] but only 2/4 tasks complete (50%)",
+        "AC-US1-02: [x] but only 1/3 tasks complete (33.33%)",
+        "AC-US1-04: [x] but only 2/3 tasks complete (66.67%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T16:13:05.389Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US5-02: [x] but only 2/4 tasks complete (50%)",
+        "AC-US1-01: [x] but only 1/4 tasks complete (25%)",
+        "AC-US1-02: [x] but only 1/3 tasks complete (33.33%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T16:12:05.914Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 2/3 tasks complete (66.67%)",
+        "AC-US5-02: [x] but only 2/4 tasks complete (50%)",
+        "AC-US1-01: [x] but only 1/4 tasks complete (25%)",
+        "AC-US1-02: [x] but only 1/3 tasks complete (33.33%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T16:11:06.605Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 1/3 tasks complete (33.33%)",
+        "AC-US5-02: [x] but only 1/4 tasks complete (25%)",
+        "AC-US1-01: [x] but only 1/4 tasks complete (25%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T16:10:12.504Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 1/3 tasks complete (33.33%)",
+        "AC-US5-02: [x] but only 1/4 tasks complete (25%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-01T16:06:08.867Z",
+      "updated": [
+        "AC-US5-03"
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "changesCount": 1
+    }
+  ],
+  "readyForReviewAt": "2026-05-01T16:39:07.863Z",
+  "approvedAt": "2026-05-01T16:39:07.895Z"
+}
