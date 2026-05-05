@@ -1,0 +1,233 @@
+{
+  "id": "0827-studio-install-button-scope-awareness",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-05-05T04:18:01.273Z",
+  "lastActivity": "2026-05-05T08:01:34.824Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1439",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1439",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-05-05T04:27:42.293Z"
+    },
+    "ado": {
+      "featureId": "2278",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2278",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-05-05T04:27:46.282Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-05-05T08:01:34.824Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:57:56.425Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:57:47.105Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:57:41.938Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:57:37.095Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:57:32.661Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:57:28.191Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:57:23.747Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:57:19.234Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:57:14.615Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:57:08.367Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:57:03.972Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:56:59.303Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:56:53.983Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:56:43.343Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:56:37.404Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:56:32.068Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:56:25.221Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:56:20.303Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-05T07:56:13.780Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-06: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
