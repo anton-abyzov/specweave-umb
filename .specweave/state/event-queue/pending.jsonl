@@ -17,3 +17,5 @@
 {"incrementId":"0821-studio-check-updates-batching","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-05-04T19:32:47.711Z"}
 {"incrementId":"0821-studio-check-updates-batching","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-05-04T19:32:47.750Z"}
 {"incrementId":"0821-studio-check-updates-batching","eventType":"increment.done","timestamp":"2026-05-04T19:32:47.750Z"}
+{"incrementId":"0827-studio-install-button-scope-awareness","eventType":"status.changed","metadata":{"newStatus":"ready_for_review"},"timestamp":"2026-05-05T08:08:16.046Z"}
+{"incrementId":"0827-studio-install-button-scope-awareness","eventType":"status.changed","metadata":{"newStatus":"completed"},"timestamp":"2026-05-05T08:08:16.085Z"}

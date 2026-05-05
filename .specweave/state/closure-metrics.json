@@ -542,6 +542,14 @@
       "success": true,
       "timestamp": "2026-04-24T07:38:17.350Z",
       "durationMs": 1469
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1439",
+      "incrementId": "0827-studio-install-button-scope-awareness",
+      "success": true,
+      "timestamp": "2026-05-05T08:08:29.866Z",
+      "durationMs": 1710
     }
   ],
   "summary": {
@@ -563,12 +571,12 @@
       ]
     },
     "jira": {
-      "totalAttempts": 5,
-      "successful": 5,
+      "totalAttempts": 6,
+      "successful": 6,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-04-24T07:38:17.350Z",
-      "avgDurationMs": 1528,
+      "lastSuccess": "2026-05-05T08:08:29.866Z",
+      "avgDurationMs": 1558.3333333333333,
       "recentErrors": []
     },
     "ado": {
@@ -579,11 +587,11 @@
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 67,
-      "successful": 61,
+      "totalAttempts": 68,
+      "successful": 62,
       "failed": 6,
-      "successRate": 0.9104477611940298
+      "successRate": 0.9117647058823529
     },
-    "lastUpdated": "2026-04-24T07:38:17.351Z"
+    "lastUpdated": "2026-05-05T08:08:29.867Z"
   }
 }

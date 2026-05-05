@@ -1,10 +1,10 @@
 {
   "id": "0827-studio-install-button-scope-awareness",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-05-05T04:18:01.273Z",
-  "lastActivity": "2026-05-05T08:01:34.824Z",
+  "lastActivity": "2026-05-05T08:08:16.070Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +15,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1439",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-05-05T04:27:42.293Z"
+      "syncedAt": "2026-05-05T08:08:24.625Z"
     },
     "ado": {
       "featureId": "2278",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2278",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-05-05T04:27:46.282Z"
+      "syncedAt": "2026-05-05T08:08:27.654Z"
     }
   },
   "planning": {
@@ -229,5 +229,7 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-05-05T08:08:16.037Z",
+  "approvedAt": "2026-05-05T08:08:16.070Z"
 }

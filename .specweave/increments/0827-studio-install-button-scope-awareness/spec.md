@@ -1,10 +1,10 @@
 ---
 increment: 0827-studio-install-button-scope-awareness
-title: "Studio install button: scope clarity + installed-state awareness"
+title: 'Studio install button: scope clarity + installed-state awareness'
 type: feature
 priority: P1
-status: planned
-created: 2026-05-05
+status: completed
+created: 2026-05-05T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
