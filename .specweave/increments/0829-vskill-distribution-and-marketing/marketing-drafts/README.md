@@ -2,7 +2,7 @@
 
 **STATUS: DRAFTS ONLY. Nothing has been posted. The user picks the launch date.**
 
-This directory holds launch-day announcement drafts for vSkill Desktop (US-024 in spec.md).
+This directory holds launch-day announcement drafts for Skill Studio (US-024 in spec.md).
 Each file is self-contained, with a posting window, a body, and a checklist.
 
 ## Files

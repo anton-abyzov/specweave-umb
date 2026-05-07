@@ -1,4 +1,4 @@
-# vSkill Desktop — Next 30 Days
+# Skill Studio — Next 30 Days
 
 > Companion to LAUNCH_CHECKLIST.md. Maps the punch list onto a calendar.
 
@@ -85,7 +85,7 @@
 - **Install conversion**: GitHub Releases download count vs. ProductHunt view-count and HN unique-visitor estimate.
 - **R2 egress**: should be flat after launch spike. If spiky, investigate updater poll cadence.
 - **SmartScreen reputation**: Windows downloads accumulate trust. After ~1k clean downloads SmartScreen warning typically diminishes.
-- **SEO indexing**: search "vSkill Studio AI" on Google — verified-skill.com should be top-3 within 2 weeks.
+- **SEO indexing**: search "Skill Studio" on Google — verified-skill.com should be top-3 within 2 weeks.
 
 ### Things that might come up
 - **macOS notarize stalls** — Apple's queue periodically jams. The release workflow has a 3× retry built in; manual recovery via `xcrun notarytool history` (see `scripts/release/macos-README.md` §Troubleshooting).
@@ -122,4 +122,4 @@ By Day 30, the following should be true:
 - [ ] Press kit downloadable; press@ alias active.
 - [ ] At least one external bloggers / awesome-list / community post not initiated by you.
 - [ ] Crash-free % above 95% (or no crashes at all if telemetry not wired).
-- [ ] SEO: verified-skill.com ranks top-3 for "vSkill Studio AI".
+- [ ] SEO: verified-skill.com ranks top-3 for "Skill Studio".

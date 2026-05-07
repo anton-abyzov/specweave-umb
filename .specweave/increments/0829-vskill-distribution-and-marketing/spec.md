@@ -32,10 +32,10 @@ Five implementation agents (macos-distribution, windows-port, linux-port, ci-pip
 ## 1. Vision & Problem Statement
 
 ### Problem
-0828 delivered the vSkill Desktop app shell (Tauri 2 + Node SEA sidecar) that **compiles and launches locally on macOS**. But the artifacts cannot ship: no Developer ID cert exists, the bundle ID isn't registered, there are no Windows or Linux builds, no auto-update wiring, no GitHub Releases pipeline, and no marketing surface to drive downloads. Without this increment, 0828 is a dev demo, not a product.
+0828 delivered the Skill Studio app shell (Tauri 2 + Node SEA sidecar) that **compiles and launches locally on macOS**. But the artifacts cannot ship: no Developer ID cert exists, the bundle ID isn't registered, there are no Windows or Linux builds, no auto-update wiring, no GitHub Releases pipeline, and no marketing surface to drive downloads. Without this increment, 0828 is a dev demo, not a product.
 
 ### Vision
-In **hours, not days**, take vSkill Desktop from "compiles locally" to "publicly distributable on macOS, Windows, and Linux" with:
+In **hours, not days**, take Skill Studio from "compiles locally" to "publicly distributable on macOS, Windows, and Linux" with:
 - Signed + notarized macOS `.dmg` (Developer ID, universal2)
 - Unsigned Windows `.msi` (SmartScreen warning documented; OV cert deferred)
 - Linux `.deb` + `.rpm` + `.AppImage` with GPG-signed checksums
@@ -47,7 +47,7 @@ In **hours, not days**, take vSkill Desktop from "compiles locally" to "publicly
 ### Strategic Outcomes
 - vSkill becomes installable by anyone via official download links
 - Auto-update channel makes future shipping low-friction
-- SEO baseline gets vSkill discoverable for "vSkill Studio AI"
+- SEO baseline gets vSkill discoverable for "Skill Studio"
 - Marketing drafts are ready so launch is a one-click decision, not weeks of prep
 
 ### Inherited Givens (from 0828 — DO NOT redesign)
@@ -75,7 +75,7 @@ In **hours, not days**, take vSkill Desktop from "compiles locally" to "publicly
 - Wants auto-update to "just work" — no terminal involvement
 
 ### P-2: SEO Discovery User (SECONDARY)
-- Searches "vSkill Studio AI" or "AI skill authoring" on Google
+- Searches "Skill Studio" or "AI skill authoring" on Google
 - Lands on verified-skill.com from organic search
 - Decides in <30s whether to download based on the landing page
 
@@ -122,7 +122,7 @@ In **hours, not days**, take vSkill Desktop from "compiles locally" to "publicly
 - Release notes auto-generated from conventional commits since last `desktop-v*` tag
 
 **Track E — SEO + Marketing**
-- verified-skill.com homepage: H1 mentioning "vSkill Studio AI", schema.org `SoftwareApplication` JSON-LD, OG image, sitemap.xml, robots.txt
+- verified-skill.com homepage: H1 mentioning "Skill Studio", schema.org `SoftwareApplication` JSON-LD, OG image, sitemap.xml, robots.txt
 - Landing pages: `/desktop`, `/ai-studio`, `/skill-studio` with download CTAs
 - Google Search Console verified, sitemap submitted
 - Lighthouse SEO + perf + accessibility ≥ 90 on all marketing pages
@@ -166,7 +166,7 @@ In **hours, not days**, take vSkill Desktop from "compiles locally" to "publicly
 
 **Acceptance Criteria** _(All require user action — see `LAUNCH_CHECKLIST.md` §1)_:
 - [ ] AC-US01-01: Developer ID Application cert is created via `asc certificates create --type DEVELOPER_ID_APPLICATION` and visible in `asc certificates list` _(User action: documented manual fallback in `scripts/release/macos-README.md`)_
-- [ ] AC-US01-02: Bundle ID `com.verifiedskill.desktop` is registered via `asc bundle-ids create --identifier com.verifiedskill.desktop --name "vSkill Desktop" --platform MACOS` _(User action.)_
+- [ ] AC-US01-02: Bundle ID `com.verifiedskill.desktop` is registered via `asc bundle-ids create --identifier com.verifiedskill.desktop --name "Skill Studio" --platform MACOS` _(User action.)_
 - [ ] AC-US01-03: Cert + private key are imported into the GitHub Actions macOS runner keychain via secrets `MACOS_CERTIFICATE_P12_BASE64` + `MACOS_CERTIFICATE_PASSWORD` _(User action — secrets list at `reports/ci-pipeline/secrets.md`)_
 - [ ] AC-US01-04: `xcrun notarytool submit --wait` returns `status: Accepted` for a built `.dmg` _(Pipeline ready in `notarize-macos.sh` + `desktop-release.yml`; runs after cert provisioned.)_
 - [ ] AC-US01-05: `xcrun stapler validate vskill.dmg` succeeds; `spctl --assess --type install vskill.dmg` returns `accepted` _(Pipeline ready; runs at first signed release.)_
@@ -239,7 +239,7 @@ In **hours, not days**, take vSkill Desktop from "compiles locally" to "publicly
 #### US-007: vskill:// deep-link registers on Windows
 **Project**: vskill
 **As** a Windows user clicking a `vskill://` URL
-**I want** vSkill Desktop to launch and route to the appropriate screen
+**I want** Skill Studio to launch and route to the appropriate screen
 **So that** deep-links from verified-skill.com work cross-platform
 
 **Acceptance Criteria**:
@@ -383,12 +383,12 @@ In **hours, not days**, take vSkill Desktop from "compiles locally" to "publicly
 
 #### US-018: verified-skill.com homepage is SEO-baseline ready
 **Project**: vskill
-**As** a user searching "vSkill Studio AI" on Google
+**As** a user searching "Skill Studio" on Google
 **I want** verified-skill.com to appear in results
 **So that** I can find and download vSkill organically
 
 **Acceptance Criteria**:
-- [x] AC-US18-01: Homepage `<h1>` contains the exact phrase "vSkill Studio AI" (or chosen exact-match keyword agreed with architect) _(Delivered: HeroStats H1 update on homepage.)_
+- [x] AC-US18-01: Homepage `<h1>` contains the exact phrase "Skill Studio" (or chosen exact-match keyword agreed with architect) _(Delivered: HeroStats H1 update on homepage.)_
 - [x] AC-US18-02: Homepage `<head>` includes schema.org `SoftwareApplication` JSON-LD with name, OS support, downloadURL, screenshots _(Delivered: `layout.tsx` injects JSON-LD.)_
 - [ ] AC-US18-03: OG image (1200×630) is set via `<meta property="og:image">` and renders correctly on X, LinkedIn, Discord previews _(Meta tag wired; OG PNG asset render is a user action — see `LAUNCH_CHECKLIST`.)_
 - [x] AC-US18-04: `sitemap.xml` is published at `/sitemap.xml` and lists all marketing pages with `<lastmod>` _(Delivered: `sitemap.ts` updated.)_
@@ -533,7 +533,7 @@ In **hours, not days**, take vSkill Desktop from "compiles locally" to "publicly
 
 **Acceptance Criteria** _(All post-launch verification — done after marketing pages deploy + Search Console verified)_:
 - [ ] AC-US29-01: 7 days after deploying SEO baseline: `site:verified-skill.com` returns ≥ 4 pages on Google _(Post-launch.)_
-- [ ] AC-US29-02: Manual search for "vSkill Studio AI" returns verified-skill.com in top 10 results within 30 days _(Post-launch.)_
+- [ ] AC-US29-02: Manual search for "Skill Studio" returns verified-skill.com in top 10 results within 30 days _(Post-launch.)_
 - [ ] AC-US29-03: Search Console "Coverage" report shows 0 errors on submitted pages _(Post-launch.)_
 - [ ] AC-US29-04: Lighthouse SEO score remains ≥ 90 (regression check at +7 days) _(Post-launch — CI gate already in place.)_
 
@@ -580,7 +580,7 @@ In **hours, not days**, take vSkill Desktop from "compiles locally" to "publicly
 ### Primary
 - **SM-01**: Cumulative downloads ≥ 500 across all 3 platforms within 30 days post-launch
 - **SM-02**: Install success rate ≥ 95% across all 3 platforms (measured via crash-free sessions in GitHub Release feedback / manual reports)
-- **SM-03**: Find-skill discoverability: ranks page 1 of Google for "vSkill Studio AI" within 30 days of launch
+- **SM-03**: Find-skill discoverability: ranks page 1 of Google for "Skill Studio" within 30 days of launch
 
 ### Secondary
 - **SM-04**: Auto-update adoption ≥ 60% of installed base within 7 days of a new release

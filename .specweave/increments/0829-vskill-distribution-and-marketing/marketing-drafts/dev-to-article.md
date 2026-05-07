@@ -7,7 +7,7 @@
 
 ## Title
 
-Building a Tauri + Node SEA hybrid: lessons from vSkill Desktop
+Building a Tauri + Node SEA hybrid: lessons from Skill Studio
 
 ## Tags
 
@@ -19,7 +19,7 @@ Building a Tauri + Node SEA hybrid: lessons from vSkill Desktop
 
 ## Body (~1500 words)
 
-Two months ago I shipped vSkill Desktop — a native Mac/Windows/Linux app for browsing,
+Two months ago I shipped Skill Studio — a native Mac/Windows/Linux app for browsing,
 installing, and running AI agent skills. Cold launch is 1.5 s on Apple Silicon. The bundle
 is 114 MB. Auto-update works on every platform. And the entire eval runtime is the same
 Node.js code that ships in `npx vskill studio`, packaged as a Single-Executable-Application
@@ -111,7 +111,7 @@ If I were starting today:
 
 ### Try it
 
-vSkill Desktop is open source (MIT) at github.com/anton-abyzov/vskill. Downloads for Mac,
+Skill Studio is open source (MIT) at github.com/anton-abyzov/vskill. Downloads for Mac,
 Windows, and Linux at verified-skill.com/desktop. The eval-server architecture is in
 src/server/ if you want to see how the sidecar is structured.
 

@@ -87,7 +87,7 @@ Once created:
 ```bash
 asc bundle-ids create \
   --identifier com.verifiedskill.desktop \
-  --name "vSkill Desktop" \
+  --name "Skill Studio" \
   --platform MACOS \
   --profile vskill
 ```
@@ -234,7 +234,7 @@ Mitigation: the Node binary itself is bundled and signed by us (re-signed during
   with:
     args: --target ${{ matrix.target }} --bundles app,dmg
     tagName: ${{ github.ref_name }}
-    releaseName: 'vSkill Desktop ${{ github.ref_name }}'
+    releaseName: 'Skill Studio ${{ github.ref_name }}'
     releaseDraft: true
     prerelease: false
 ```
@@ -597,7 +597,7 @@ jobs:
         with:
           args: --target ${{ matrix.target }}
           tagName: ${{ github.ref_name }}
-          releaseName: 'vSkill Desktop ${{ github.ref_name }}'
+          releaseName: 'Skill Studio ${{ github.ref_name }}'
           releaseDraft: true
           prerelease: false
 
@@ -762,17 +762,17 @@ The platform already has solid SEO foundations:
 - Homepage (`src/app/page.tsx`) has `WebSite` + `@graph` JSON-LD already. **AC-US18-02 requires `SoftwareApplication` JSON-LD on the homepage as well** — we extend the `@graph` to add a `SoftwareApplication` node alongside the existing `WebSite` node.
 - `next.config.ts` has redirects (`/learn` → `/watch`).
 
-**Homepage H1 keyword decision (AC-US18-01)**: spec leaves the exact phrase open ("vSkill Studio AI" or chosen exact-match keyword). Architect's recommendation: use **"vSkill Studio AI"** as the homepage `<h1>` exact-match keyword. Rationale: it's the spec's default suggestion, captures the high-intent "AI Studio" search pool, and aligns with the `/ai-studio` SEO bridge (so internal links across the site reinforce the same exact-match phrase). PM confirms in OQ-08.
+**Homepage H1 keyword decision (AC-US18-01)**: spec leaves the exact phrase open ("Skill Studio" or chosen exact-match keyword). Architect's recommendation: use **"Skill Studio"** as the homepage `<h1>` exact-match keyword. Rationale: it's the spec's default suggestion, captures the high-intent "AI Studio" search pool, and aligns with the `/ai-studio` SEO bridge (so internal links across the site reinforce the same exact-match phrase). PM confirms in OQ-08.
 
 **Missing for desktop launch**: `/desktop`, `/ai-studio`, `/skill-studio`, `/security`, `/press` pages. (Note: `/skill-studio` may overlap with the existing `/studio` route — see §8.2 disambiguation.)
 
 ### 8.2 Three landing pages
 
-#### `/desktop` — primary marketing landing for vSkill Desktop
+#### `/desktop` — primary marketing landing for Skill Studio
 
 `src/app/desktop/page.tsx`:
 
-- **H1**: "vSkill Desktop — your skill marketplace, native"
+- **H1**: "Skill Studio — your skill marketplace, native"
 - **Hero**: 30s screencast loop (existing `public/product-demo/` asset reused) + OS-detect download CTA.
 - **Three download cards** (primary + alternates):
   - macOS (auto-detected arch) — `.dmg` from latest GitHub Release / R2.
@@ -785,7 +785,7 @@ OS-detect via UA in a Server Component on first paint; CTA hydrates client-side 
 
 #### `/ai-studio` — repositioning page for "AI Studio" search keyword
 
-A SEO-focused page targeting users searching "ai studio" / "claude skill ai studio" — explains what vSkill Studio is, links to `/studio` (the in-product flagship surface) and `/desktop`. No new product surface, just an SEO bridge.
+A SEO-focused page targeting users searching "ai studio" / "claude skill ai studio" — explains what Skill Studio is, links to `/studio` (the in-product flagship surface) and `/desktop`. No new product surface, just an SEO bridge.
 
 #### `/skill-studio` — repositioning page for "skill studio" keyword
 
@@ -801,7 +801,7 @@ Existing `/studio` is the flagship surface (priority 0.95 in sitemap). `/ai-stud
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "vSkill Desktop",
+  "name": "Skill Studio",
   "operatingSystem": "macOS, Windows, Linux",
   "applicationCategory": "DeveloperApplication",
   "applicationSubCategory": "AI Tooling",
@@ -834,10 +834,10 @@ Per page (Next.js 15 `metadata` export):
 
 ```ts
 export const metadata = {
-  title: "vSkill Desktop — Native skill marketplace for macOS, Windows, Linux",
+  title: "Skill Studio — Native skill marketplace for macOS, Windows, Linux",
   description: "Install AI skills with one click. Native Dock icon, signed installer, auto-update, vskill:// deep links.",
   openGraph: {
-    title: "vSkill Desktop",
+    title: "Skill Studio",
     description: "...",
     url: "https://verified-skill.com/desktop",
     siteName: "Verified Skill",
@@ -846,7 +846,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "vSkill Desktop",
+    title: "Skill Studio",
     description: "...",
     images: ["https://verified-skill.com/images/desktop/og.png"],
   },
@@ -874,7 +874,7 @@ OG image: 1200×630 PNG, generated from a Remotion still consistent with `/dmg-b
 Static page with:
 - Logo: SVG + 1024×1024 PNG + 256×256 PNG (transparent + on-light + on-dark variants, 6 PNGs total).
 - Screenshots: 3 product screenshots from 0828 install-test (1280×800 PNG).
-- One-liner: "vSkill Desktop is the native AI skill marketplace for macOS, Windows, and Linux."
+- One-liner: "Skill Studio is the native AI skill marketplace for macOS, Windows, and Linux."
 - Three-line description.
 - Founder bio: 100 words about Anton Abyzov + headshot (Anton-provided).
 - Contact email: `press@verified-skill.com` (alias to `anton.abyzov@gmail.com`).
@@ -930,7 +930,7 @@ Add to `repositories/anton-abyzov/vskill/README.md` top:
 
 ### 8.9 Track E deliverables
 
-- [ ] T-E-01: Homepage `<h1>` set to "vSkill Studio AI" — covers AC-US18-01
+- [ ] T-E-01: Homepage `<h1>` set to "Skill Studio" — covers AC-US18-01
 - [ ] T-E-02: Homepage `@graph` JSON-LD extended with `SoftwareApplication` node — covers AC-US18-02
 - [ ] T-E-03: `src/app/desktop/page.tsx` with hero, OS-detect CTA, feature strip, JSON-LD, 3 download CTAs (mac/win/linux × 3 formats) — covers AC-US19-01, AC-US19-04, AC-US19-05
 - [ ] T-E-04: `src/app/ai-studio/page.tsx` SEO bridge with primary CTA + install instructions section — covers AC-US19-02, AC-US19-04, AC-US19-05
@@ -965,7 +965,7 @@ Runs **after** Track D produces a successful published release. Pure post-deploy
 | **macos-verify-agent** | local macos-14 (architect's machine) — uses computer-use MCP | Download `.dmg` from latest release, `hdiutil attach`, drag to /Applications, launch via `open`, AppleScript window check, simulate `Cmd+K` (with ATCC permission caveat documented), assert studio loads, assert `Find Skills` opens. Capture screenshots for proof. |
 | **windows-verify-agent** | dispatched via `windows-verify.yml` workflow on `windows-2022` runner | Download `.msi`, install via `msiexec /i ... /qn`, launch via `Start-Process`, `Get-Process vSkill`, assert HTTP server reachable on hashed port, capture screenshot. |
 | **linux-verify-agent** | dispatched via `linux-verify.yml` workflow on `ubuntu-22.04` runner | Three sub-jobs: `.deb` install via `dpkg -i`; `.rpm` install via `rpm -ivh` (in Fedora container); `.AppImage` `chmod +x && ./vSkill_*.AppImage --no-sandbox`. xvfb headless. Assert process tree + HTTP server. |
-| **seo-verify-agent** | local — uses claude-in-chrome MCP | Lighthouse against `/desktop`, `/ai-studio`, `/skill-studio`, `/`, `/studio`. Manual Google search for "vSkill Studio AI" / "vskill desktop" — record SERP position (likely 0 results day 1; scheduled re-check 2 weeks later). Bing same. Verify sitemap.xml has new URLs. Verify Google Search Console submission (manual handoff to Anton). |
+| **seo-verify-agent** | local — uses claude-in-chrome MCP | Lighthouse against `/desktop`, `/ai-studio`, `/skill-studio`, `/`, `/studio`. Manual Google search for "Skill Studio" / "vskill desktop" — record SERP position (likely 0 results day 1; scheduled re-check 2 weeks later). Bing same. Verify sitemap.xml has new URLs. Verify Google Search Console submission (manual handoff to Anton). |
 
 ### 9.2 Verification report
 
@@ -999,7 +999,7 @@ Orchestrator aggregates → `.specweave/increments/0829-vskill-distribution-and-
 - [ ] T-F-07: Failure of any verification job blocks release announcement (release stays as draft until manually promoted) — covers AC-US26-07
 - [ ] T-F-08: Cmd+K (mac) / Ctrl+K (win/linux) "Find Skills" modal parity test — covers AC-US27-01..05
 - [ ] T-F-09: Update-flow E2E test (install vN-1 → point at staging manifest with vN → trigger check → verify notification → install → restart → verify version) — covers AC-US28-01..05
-- [ ] T-F-10: Post-deploy SEO verification at +7d and +30d (Google `site:verified-skill.com` count, "vSkill Studio AI" SERP position, Search Console coverage report, Lighthouse SEO regression check) — covers AC-US29-01..04
+- [ ] T-F-10: Post-deploy SEO verification at +7d and +30d (Google `site:verified-skill.com` count, "Skill Studio" SERP position, Search Console coverage report, Lighthouse SEO regression check) — covers AC-US29-01..04
 - [ ] T-F-11: First-release verification report aggregated to `.specweave/increments/0829-vskill-distribution-and-marketing/reports/verify-summary.md`
 
 ---
@@ -1090,7 +1090,7 @@ Architect's resolutions for spec.md §8 OQ-01..06 + new architect-OQ items:
 
 7. **OQ-A1 (SmartScreen mitigation strategy)** → **Open for PM**: stick with unsigned + documented "Run anyway" UX (architect default per spec AC-US06-01..04), or invest in closed-cohort warm-up first (0828 R8 strategy)? Architect leans documented-only for v1 since cohort coordination is operational overhead and reputation accrues with public downloads anyway. Spec R-02 hints "consider buying OV cert in v1.1" — cohort approach can be deferred along with that.
 8. **OQ-A2 (`/ai-studio` vs `/skill-studio` content disambiguation)** → **Open for PM**: spec AC-US19-02..03 requires both pages exist with unique titles/meta — does PM want stand-alone unique copy (architect default, captures both keyword pools) or canonical-to-`/studio` (simpler but loses one keyword pool)? Architect leans stand-alone.
-9. **OQ-A3 (homepage H1 exact-match keyword)** → architect picked `"vSkill Studio AI"` per spec AC-US18-01's default. PM confirms?
+9. **OQ-A3 (homepage H1 exact-match keyword)** → architect picked `"Skill Studio"` per spec AC-US18-01's default. PM confirms?
 10. **OQ-A4 (press kit founder bio + headshot)** → **Open for Anton**: needs his copy + photo. Track E ships `/press` with a placeholder TODO marker for Anton to fill.
 11. **OQ-A5 (`releases@verified-skill.com` email alias)** → **Open for Anton**: needs setup before Phase 1 GPG key (used as the GPG UID email). Alternative: use Anton's primary email; users verify by fingerprint, not email. Architect leans alias-route since it survives email-provider migrations.
 12. **OQ-A6 (cohort warm-up + ProductHunt timing)** → spec AC-US24-05 explicitly says "user picks the launch date" and "DRAFT — DO NOT POST." Architect respects that gate; no action item.

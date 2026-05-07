@@ -15,7 +15,7 @@ The package manager for AI skills. Author. Eval. Install.
 
 ## Description (260 chars max)
 
-Browse, install, and run AI agent skills locally with vSkill Studio AI. Native Mac, Windows, Linux app. Three-tier security scan, A/B model evals, 53 agent platforms supported. Open source, no telemetry. Built on Tauri + Node SEA.
+Browse, install, and run AI agent skills locally with Skill Studio. Native Mac, Windows, Linux app. Three-tier security scan, A/B model evals, 53 agent platforms supported. Open source, no telemetry. Built on Tauri + Node SEA.
 
 ## Topics (pick 3-4 most relevant)
 

@@ -128,7 +128,7 @@ or the P0 code-fix gap and are deliberately deferred to a follow-up commit.
 
 ### T-E-03: HeroStats H1 update
 **User Story**: US-018 | **Satisfies ACs**: AC-US18-01 | **Status**: [x] completed
-**Outcome**: Homepage H1 contains exact-match keyword "vSkill Studio AI".
+**Outcome**: Homepage H1 contains exact-match keyword "Skill Studio".
 
 ### T-E-04: README badges
 **User Story**: US-023 | **Satisfies ACs**: AC-US23-01, AC-US23-02, AC-US23-03 | **Status**: [x] completed

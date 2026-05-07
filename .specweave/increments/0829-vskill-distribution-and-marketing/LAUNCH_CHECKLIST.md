@@ -1,4 +1,4 @@
-# vSkill Desktop — LAUNCH CHECKLIST
+# Skill Studio — LAUNCH CHECKLIST
 
 > Punch list of every user-action item flagged by 0828 + 0829 implementation agents. Knock these out in order; the runbook at the bottom triggers your first signed release.
 
@@ -84,7 +84,7 @@ Env-var checks fire before the `DRY_RUN` short-circuit, so a credential-less dry
 > Source: `scripts/release/macos-README.md` §"Manual fallback".
 
 - [ ] **Confirm Admin role on EasyChamp team** at developer.apple.com → Membership. The ASC API key may need elevation to create a Developer ID cert non-interactively. (~2 min)  *(blocking)*
-- [ ] **Register bundle ID `com.verifiedskill.desktop`** at developer.apple.com → Identifiers → `+` → App IDs → App. Description: "vSkill Desktop". Platform: macOS. App services: none. *(blocking, ~3 min)*
+- [ ] **Register bundle ID `com.verifiedskill.desktop`** at developer.apple.com → Identifiers → `+` → App IDs → App. Description: "Skill Studio". Platform: macOS. App services: none. *(blocking, ~3 min)*
 - [ ] **Generate a CSR** via Keychain Access → Certificate Assistant → Request a Certificate from a Certificate Authority. Email: `anton.abyzov@gmail.com`. Common Name: `Anton Abyzov` (or `EasyChamp, Inc.`). Save to `~/.certs/vskill-developer-id.csr`. *(blocking, ~3 min)*
 - [ ] **Create the Developer ID Application cert** at developer.apple.com → Certificates → `+` → Developer ID Application. Upload the `.csr`. Download the `.cer`. *(blocking, ~5 min)*
 - [ ] **Install the .cer** by double-clicking → Keychain Access opens → confirm install in `login` keychain. *(blocking, ~1 min)*

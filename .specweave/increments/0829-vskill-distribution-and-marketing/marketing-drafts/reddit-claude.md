@@ -16,7 +16,7 @@ Hi r/ClaudeAI,
 If you've been hand-managing your `~/.claude/skills/` folder and wishing it worked more
 like a real package manager — that's exactly what I built.
 
-**vSkill Desktop** gives you:
+**Skill Studio** gives you:
 
 - A native Mac/Windows/Linux app to browse, install, and version skills
 - Live SKILL.md editor with linting and autocomplete

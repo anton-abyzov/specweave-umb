@@ -8,7 +8,7 @@
 
 ## Tweet 1 (hook)
 
-Just shipped vSkill Desktop — the package manager for AI agent skills.
+Just shipped Skill Studio — the package manager for AI agent skills.
 
 Browse, install, and run skills locally on Mac, Windows, Linux.
 Works with Claude, GPT, Llama, Gemini, Ollama.
@@ -83,7 +83,7 @@ If you've ever copy-pasted a SKILL.md folder into a new project and prayed — t
 
 ## Tweet 8 (CTA + hashtags)
 
-Get vSkill Desktop:
+Get Skill Studio:
 🟦 Mac, Windows, Linux: verified-skill.com/desktop
 📦 npm: npx vskill@latest studio
 ⭐ Source (MIT): github.com/anton-abyzov/vskill

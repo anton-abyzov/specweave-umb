@@ -11,7 +11,7 @@ Show HN: vSkill — Local skill marketplace for AI agents (Tauri + Node sidecar)
 
 ## Alternate titles to A/B with maker
 
-- Show HN: vSkill Desktop — native skill manager for Claude/GPT/Llama agents
+- Show HN: Skill Studio — native skill manager for Claude/GPT/Llama agents
 - Show HN: A local-first registry for AI agent skills (open source, MIT)
 
 ## URL

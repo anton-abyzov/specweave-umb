@@ -7,7 +7,7 @@
 
 ## Title
 
-[Tool] vSkill Desktop — local-first skill marketplace for AI agents (works with Ollama, LM Studio, llama.cpp)
+[Tool] Skill Studio — local-first skill marketplace for AI agents (works with Ollama, LM Studio, llama.cpp)
 
 ## Body
 
