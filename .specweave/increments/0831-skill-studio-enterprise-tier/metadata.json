@@ -1,0 +1,31 @@
+{
+  "id": "0831-skill-studio-enterprise-tier",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P0",
+  "created": "2026-05-07T20:42:11.805Z",
+  "lastActivity": "2026-05-07T20:42:11.805Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1505",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1505",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-05-07T21:09:59.668Z"
+    },
+    "ado": {
+      "featureId": "2344",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2344",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-05-07T21:10:00.985Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  }
+}
