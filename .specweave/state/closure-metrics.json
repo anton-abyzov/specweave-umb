@@ -550,6 +550,38 @@
       "success": true,
       "timestamp": "2026-05-05T08:08:29.866Z",
       "durationMs": 1710
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1486",
+      "incrementId": "0830-skill-studio-settings-and-updates",
+      "success": true,
+      "timestamp": "2026-05-07T13:21:04.581Z",
+      "durationMs": 1671
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1443",
+      "incrementId": "0828-vskill-desktop-app",
+      "success": true,
+      "timestamp": "2026-05-07T13:24:19.506Z",
+      "durationMs": 1815
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1456",
+      "incrementId": "0829-vskill-distribution-and-marketing",
+      "success": true,
+      "timestamp": "2026-05-07T13:25:59.873Z",
+      "durationMs": 1593
+    },
+    {
+      "tool": "ado",
+      "itemId": 2295,
+      "incrementId": "0829-vskill-distribution-and-marketing",
+      "success": true,
+      "timestamp": "2026-05-07T13:26:00.697Z",
+      "durationMs": 159
     }
   ],
   "summary": {
@@ -571,27 +603,29 @@
       ]
     },
     "jira": {
-      "totalAttempts": 6,
-      "successful": 6,
+      "totalAttempts": 9,
+      "successful": 9,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-05-05T08:08:29.866Z",
-      "avgDurationMs": 1558.3333333333333,
+      "lastSuccess": "2026-05-07T13:25:59.873Z",
+      "avgDurationMs": 1603.2222222222222,
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 0,
-      "successful": 0,
+      "totalAttempts": 1,
+      "successful": 1,
       "failed": 0,
       "successRate": 1,
+      "lastSuccess": "2026-05-07T13:26:00.697Z",
+      "avgDurationMs": 159,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 68,
-      "successful": 62,
+      "totalAttempts": 72,
+      "successful": 66,
       "failed": 6,
-      "successRate": 0.9117647058823529
+      "successRate": 0.9166666666666666
     },
-    "lastUpdated": "2026-05-05T08:08:29.867Z"
+    "lastUpdated": "2026-05-07T13:26:00.698Z"
   }
 }
