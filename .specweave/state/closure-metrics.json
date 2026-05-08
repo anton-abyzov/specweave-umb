@@ -582,6 +582,14 @@
       "success": true,
       "timestamp": "2026-05-07T13:26:00.697Z",
       "durationMs": 159
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1508",
+      "incrementId": "0832-studio-process-lifecycle",
+      "success": true,
+      "timestamp": "2026-05-08T00:31:08.383Z",
+      "durationMs": 2831
     }
   ],
   "summary": {
@@ -603,12 +611,12 @@
       ]
     },
     "jira": {
-      "totalAttempts": 9,
-      "successful": 9,
+      "totalAttempts": 10,
+      "successful": 10,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-05-07T13:25:59.873Z",
-      "avgDurationMs": 1603.2222222222222,
+      "lastSuccess": "2026-05-08T00:31:08.383Z",
+      "avgDurationMs": 1726,
       "recentErrors": []
     },
     "ado": {
@@ -621,11 +629,11 @@
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 72,
-      "successful": 66,
+      "totalAttempts": 73,
+      "successful": 67,
       "failed": 6,
-      "successRate": 0.9166666666666666
+      "successRate": 0.9178082191780822
     },
-    "lastUpdated": "2026-05-07T13:26:00.698Z"
+    "lastUpdated": "2026-05-08T00:31:08.386Z"
   }
 }

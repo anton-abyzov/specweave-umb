@@ -1,10 +1,12 @@
 ---
 increment: 0832-studio-process-lifecycle
-title: "Skill Studio process lifecycle — detect existing instances + kill/reuse/replace actions"
+title: >-
+  Skill Studio process lifecycle — detect existing instances +
+  kill/reuse/replace actions
 type: feature
 priority: P1
-status: planned
-created: 2026-05-07
+status: completed
+created: 2026-05-07T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -73,11 +75,11 @@ Saw a tutorial mentioning `npx vskill studio`, ran it, then later installed the 
 **So that** I don't end up with two parallel instances by accident
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: At desktop boot, before `sidecar::spawn_sidecar` runs, a new `process_discovery::scan()` enumerates running processes matching `vskill-server`, `node.*vskill.*studio`, or `npm exec vskill.*studio`.
-- [ ] **AC-US1-02**: For each match, scanner extracts: `pid`, `port` (from `--port N` arg or `~/.vskill/runtime/` lock file), `started_at`, `source: "tauri" | "npx-cli" | "node-direct"`, `cmdline` (truncated to 120 chars).
-- [ ] **AC-US1-03**: If exactly one external (`source != "tauri"`) instance found, desktop shows the lifecycle modal (US-002) before completing boot.
-- [ ] **AC-US1-04**: Zero external instances → desktop boots normally (existing 0828 path).
-- [ ] **AC-US1-05**: Scanner has hard 500ms timeout — never blocks cold-launch.
+- [x] **AC-US1-01**: At desktop boot, before `sidecar::spawn_sidecar` runs, a new `process_discovery::scan()` enumerates running processes matching `vskill-server`, `node.*vskill.*studio`, or `npm exec vskill.*studio`.
+- [x] **AC-US1-02**: For each match, scanner extracts: `pid`, `port` (from `--port N` arg or `~/.vskill/runtime/` lock file), `started_at`, `source: "tauri" | "npx-cli" | "node-direct"`, `cmdline` (truncated to 120 chars).
+- [x] **AC-US1-03**: If exactly one external (`source != "tauri"`) instance found, desktop shows the lifecycle modal (US-002) before completing boot.
+- [x] **AC-US1-04**: Zero external instances → desktop boots normally (existing 0828 path).
+- [x] **AC-US1-05**: Scanner has hard 500ms timeout — never blocks cold-launch.
 
 ---
 
@@ -89,13 +91,13 @@ Saw a tutorial mentioning `npx vskill studio`, ran it, then later installed the 
 **So that** I can pick the behavior I actually want
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: Modal title: "Skill Studio is already running". Body shows detected instance: `port {N} · {source} · started {relative time}`.
-- [ ] **AC-US2-02**: Three primary actions, keyboard-accessible: **Use that instance**, **Stop it and use desktop app**, **Run alongside**. Default focus on **Use that instance**.
-- [ ] **AC-US2-03**: **Cancel** secondary action exits desktop cleanly (don't leave half-booted Tauri window).
-- [ ] **AC-US2-04**: "Use that instance" → desktop window navigates to `http://127.0.0.1:{detected.port}/` and skips spawning its own sidecar.
-- [ ] **AC-US2-05**: "Stop it and use desktop app" → SIGTERM to `detected.pid`, 3s grace, escalate to SIGKILL, then proceed with normal sidecar spawn.
-- [ ] **AC-US2-06**: "Run alongside" → spawn own sidecar on fresh port; both instances coexist.
-- [ ] **AC-US2-07**: "Don't ask again — always X" checkbox persists choice to `~/.vskill/settings.json::studio.lifecycleDefault` (`"ask" | "use-existing" | "stop-and-replace" | "run-alongside"`). Honored on subsequent boots until reset in Preferences → Advanced.
+- [x] **AC-US2-01**: Modal title: "Skill Studio is already running". Body shows detected instance: `port {N} · {source} · started {relative time}`.
+- [x] **AC-US2-02**: Three primary actions, keyboard-accessible: **Use that instance**, **Stop it and use desktop app**, **Run alongside**. Default focus on **Use that instance**.
+- [x] **AC-US2-03**: **Cancel** secondary action exits desktop cleanly (don't leave half-booted Tauri window).
+- [x] **AC-US2-04**: "Use that instance" → desktop window navigates to `http://127.0.0.1:{detected.port}/` and skips spawning its own sidecar.
+- [x] **AC-US2-05**: "Stop it and use desktop app" → SIGTERM to `detected.pid`, 3s grace, escalate to SIGKILL, then proceed with normal sidecar spawn.
+- [x] **AC-US2-06**: "Run alongside" → spawn own sidecar on fresh port; both instances coexist.
+- [x] **AC-US2-07**: "Don't ask again — always X" checkbox persists choice to `~/.vskill/settings.json::studio.lifecycleDefault` (`"ask" | "use-existing" | "stop-and-replace" | "run-alongside"`). Honored on subsequent boots until reset in Preferences → Advanced.
 
 ---
 
@@ -107,11 +109,11 @@ Saw a tutorial mentioning `npx vskill studio`, ran it, then later installed the 
 **So that** I can switch between them or kill stale ones without leaving the UI
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Native menu bar gains `Window → Studio Instances` submenu, populated dynamically when opened.
-- [ ] **AC-US3-02**: Each row: `port {N} · {source-shorthand} · {pid}`. Tauri-spawned instances marked `(this app)` and disabled.
-- [ ] **AC-US3-03**: External rows have **Switch** (load instance URL) and **Stop** (kill with confirmation) actions.
-- [ ] **AC-US3-04**: Submenu refreshes within 1s of being opened (not on a poll).
-- [ ] **AC-US3-05**: Empty state shows disabled `No other instances` placeholder.
+- [x] **AC-US3-01**: Native menu bar gains `Window → Studio Instances` submenu, populated dynamically when opened.
+- [x] **AC-US3-02**: Each row: `port {N} · {source-shorthand} · {pid}`. Tauri-spawned instances marked `(this app)` and disabled.
+- [x] **AC-US3-03**: External rows have **Switch** (load instance URL) and **Stop** (kill with confirmation) actions.
+- [x] **AC-US3-04**: Submenu refreshes within 1s of being opened (not on a poll).
+- [x] **AC-US3-05**: Empty state shows disabled `No other instances` placeholder.
 
 ---
 
@@ -123,11 +125,11 @@ Saw a tutorial mentioning `npx vskill studio`, ran it, then later installed the 
 **So that** I'm not forced to use the desktop UI for every action
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: `vskill studio --replace` runs scan, kills every external instance (SIGTERM 3s → SIGKILL), then starts fresh studio.
-- [ ] **AC-US4-02**: `vskill studio --status` runs scan, prints one line per instance (`port {N}\tsource={src}\tpid={pid}\tstarted={iso8601}`), exits 0. No output + exit 0 if none found.
-- [ ] **AC-US4-03**: Both flags documented in `vskill studio --help`.
-- [ ] **AC-US4-04**: When CLI starts, writes `~/.vskill/runtime/studio-{port}.lock` with PID + start timestamp + cmdline. Rust scanner reads this directory as a fast path.
-- [ ] **AC-US4-05**: Lock files atomically removed on graceful shutdown (CLI: SIGTERM/SIGINT handler; desktop: existing `RunEvent::Exit`). Stale (>1d, no matching PID) pruned by scanner.
+- [x] **AC-US4-01**: `vskill studio --replace` runs scan, kills every external instance (SIGTERM 3s → SIGKILL), then starts fresh studio.
+- [x] **AC-US4-02**: `vskill studio --status` runs scan, prints one line per instance (`port {N}\tsource={src}\tpid={pid}\tstarted={iso8601}`), exits 0. No output + exit 0 if none found.
+- [x] **AC-US4-03**: Both flags documented in `vskill studio --help`.
+- [x] **AC-US4-04**: When CLI starts, writes `~/.vskill/runtime/studio-{port}.lock` with PID + start timestamp + cmdline. Rust scanner reads this directory as a fast path.
+- [x] **AC-US4-05**: Lock files atomically removed on graceful shutdown (CLI: SIGTERM/SIGINT handler; desktop: existing `RunEvent::Exit`). Stale (>1d, no matching PID) pruned by scanner.
 
 ---
 
@@ -139,10 +141,10 @@ Saw a tutorial mentioning `npx vskill studio`, ran it, then later installed the 
 **So that** the modal can come back if I change workflow
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Preferences → Advanced → new "Studio lifecycle" section with dropdown: `Ask each time` (default) | `Use existing instance` | `Stop existing + use this app` | `Run alongside`.
-- [ ] **AC-US5-02**: Selecting `Ask each time` clears `studio.lifecycleDefault` to `"ask"` and modal resumes appearing.
-- [ ] **AC-US5-03**: Tooltip explains each option in plain language.
-- [ ] **AC-US5-04**: Setting roundtrips through existing 0830 settings store (atomic write, 0600 perms, 250ms debounce).
+- [x] **AC-US5-01**: Preferences → Advanced → new "Studio lifecycle" section with dropdown: `Ask each time` (default) | `Use existing instance` | `Stop existing + use this app` | `Run alongside`.
+- [x] **AC-US5-02**: Selecting `Ask each time` clears `studio.lifecycleDefault` to `"ask"` and modal resumes appearing.
+- [x] **AC-US5-03**: Tooltip explains each option in plain language.
+- [x] **AC-US5-04**: Setting roundtrips through existing 0830 settings store (atomic write, 0600 perms, 250ms debounce).
 
 ---
 
