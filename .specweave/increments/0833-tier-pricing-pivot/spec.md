@@ -1,10 +1,12 @@
 ---
 increment: 0833-tier-pricing-pivot
-title: "Pivot pricing model: free covers most users; paid gates private repos; enterprise is support"
+title: >-
+  Pivot pricing model: free covers most users; paid gates private repos;
+  enterprise is support
 type: change-request
 priority: P0
-status: planned
-created: 2026-05-08
+status: completed
+created: 2026-05-08T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -78,11 +80,11 @@ Has a team. Cares about SSO, audit log, dedicated support — not feature differ
 **So that** Skill Studio doesn't punish engagement
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: `/api/v1/billing/quota` returns `skillLimit: null` for `tier === "free"` (was `50`).
-- [ ] **AC-US1-02**: `useTier()` derived state interprets `skillLimit: null` as "unlimited" — no badge, no warning, no UI affordance suggesting a cap.
-- [ ] **AC-US1-03**: `quota_can_create_skill` Tauri IPC always returns `{allowed: true}` for free tier when `skillLimit === null` (does not consult `currentCount`). Limit-check logic is bypassed when limit is null.
-- [ ] **AC-US1-04**: Existing cached `quota.json` on a v1.0.14 user's disk gets updated on next 1h sync — server returns null, cache overwrites the old `50` value. No migration script needed; eventual consistency.
-- [ ] **AC-US1-05**: Server still increments `lastReportedSkillCount` via `/quota/report` POST (telemetry use case is preserved — we want to know engagement levels even though we don't gate on them).
+- [x] **AC-US1-01**: `/api/v1/billing/quota` returns `skillLimit: null` for `tier === "free"` (was `50`).
+- [x] **AC-US1-02**: `useTier()` derived state interprets `skillLimit: null` as "unlimited" — no badge, no warning, no UI affordance suggesting a cap.
+- [x] **AC-US1-03**: `quota_can_create_skill` Tauri IPC always returns `{allowed: true}` for free tier when `skillLimit === null` (does not consult `currentCount`). Limit-check logic is bypassed when limit is null.
+- [x] **AC-US1-04**: Existing cached `quota.json` on a v1.0.14 user's disk gets updated on next 1h sync — server returns null, cache overwrites the old `50` value. No migration script needed; eventual consistency.
+- [x] **AC-US1-05**: Server still increments `lastReportedSkillCount` via `/quota/report` POST (telemetry use case is preserved — we want to know engagement levels even though we don't gate on them).
 
 ---
 
@@ -94,12 +96,12 @@ Has a team. Cares about SSO, audit log, dedicated support — not feature differ
 **So that** the upgrade prompt corresponds to a real feature ask
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: The skill-create flow no longer calls `quota_can_create_skill`. The pre-create gate is removed; the create proceeds without any tier check.
-- [ ] **AC-US2-02**: A new pre-flight gate fires on the "Connect private repo" UI action: if `useTier().isFree`, show PaywallModal; otherwise proceed to GitHub App installation flow.
-- [ ] **AC-US2-03**: `PaywallModal` body copy is updated: title "Connect private repositories with Skill Studio Pro", body "Pro adds private repo connections, priority support, and unlimited skills. Free users keep all current features for public repos.", CTAs unchanged ("Upgrade to Pro" → /pricing, "Maybe later" → close).
-- [ ] **AC-US2-04**: `[Pro]` chip on private-repo connect button stays — it's the visible affordance that telegraphs which features are paid.
-- [ ] **AC-US2-05**: ConnectedRepoWidget for a public repo never shows a paywall, ever — public is fully free.
-- [ ] **AC-US2-06**: When tier transitions free → pro (via successful upgrade or manual tier flip), the paywall is dismissed automatically on next QuotaProvider tick.
+- [x] **AC-US2-01**: The skill-create flow no longer calls `quota_can_create_skill`. The pre-create gate is removed; the create proceeds without any tier check.
+- [x] **AC-US2-02**: A new pre-flight gate fires on the "Connect private repo" UI action: if `useTier().isFree`, show PaywallModal; otherwise proceed to GitHub App installation flow.
+- [x] **AC-US2-03**: `PaywallModal` body copy is updated: title "Connect private repositories with Skill Studio Pro", body "Pro adds private repo connections, priority support, and unlimited skills. Free users keep all current features for public repos.", CTAs unchanged ("Upgrade to Pro" → /pricing, "Maybe later" → close).
+- [x] **AC-US2-04**: `[Pro]` chip on private-repo connect button stays — it's the visible affordance that telegraphs which features are paid.
+- [x] **AC-US2-05**: ConnectedRepoWidget for a public repo never shows a paywall, ever — public is fully free.
+- [x] **AC-US2-06**: When tier transitions free → pro (via successful upgrade or manual tier flip), the paywall is dismissed automatically on next QuotaProvider tick.
 
 ---
 
@@ -111,11 +113,11 @@ Has a team. Cares about SSO, audit log, dedicated support — not feature differ
 **So that** I can identify which tier matches my needs
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: Free card lead bullet: "Unlimited public skills". Sub-bullets: connect public repos · all CLI features · auto-update · all 53 agent platforms. CTA: "Download" → /desktop. **No mention of a 50-skill cap anywhere.**
-- [ ] **AC-US3-02**: Pro card lead bullet: "+ Private repository connections". Sub-bullets: priority support email · early access to new features · supports the project. Highlight strip: "MOST POPULAR — for indie devs + consultants". CTA: "Notify me" → waitlist form (Stripe wiring still out of scope).
-- [ ] **AC-US3-03**: Enterprise card lead bullet: "+ SSO + audit log + dedicated support". Sub-bullets: custom contract · invoice billing · seat-based licensing · private support Slack. CTA: "Contact sales" → mailto with subject pre-filled (no actual sales pipeline yet).
-- [ ] **AC-US3-04**: SEO meta description updated: "Skill Studio is free for public skills and public repos. Pro adds private repo connections."
-- [ ] **AC-US3-05**: schema.org SoftwareApplication JSON-LD `offers` updated: free tier is `price: "0"`, Pro stays `price: "0"` with note "Coming soon" until Stripe ships.
+- [x] **AC-US3-01**: Free card lead bullet: "Unlimited public skills". Sub-bullets: connect public repos · all CLI features · auto-update · all 53 agent platforms. CTA: "Download" → /desktop. **No mention of a 50-skill cap anywhere.**
+- [x] **AC-US3-02**: Pro card lead bullet: "+ Private repository connections". Sub-bullets: priority support email · early access to new features · supports the project. Highlight strip: "MOST POPULAR — for indie devs + consultants". CTA: "Notify me" → waitlist form (Stripe wiring still out of scope).
+- [x] **AC-US3-03**: Enterprise card lead bullet: "+ SSO + audit log + dedicated support". Sub-bullets: custom contract · invoice billing · seat-based licensing · private support Slack. CTA: "Contact sales" → mailto with subject pre-filled (no actual sales pipeline yet).
+- [x] **AC-US3-04**: SEO meta description updated: "Skill Studio is free for public skills and public repos. Pro adds private repo connections."
+- [x] **AC-US3-05**: schema.org SoftwareApplication JSON-LD `offers` updated: free tier is `price: "0"`, Pro stays `price: "0"` with note "Coming soon" until Stripe ships.
 
 ---
 
@@ -127,11 +129,11 @@ Has a team. Cares about SSO, audit log, dedicated support — not feature differ
 **So that** CI continues to pass and regressions are caught
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: `e2e/desktop/auth-and-paywall.spec.ts` test "paywall on 51st create" is deleted or rewritten — there's no longer a 51st-create paywall. Replace with "paywall on private-repo connect".
-- [ ] **AC-US4-02**: `e2e/desktop/auth-flow-regression.spec.ts` Test 3 "Paywall on 51st create" is rewritten to "Paywall on private-repo connect". Stub returns `{tier: "free"}` and a private repo; click Connect → paywall appears.
-- [ ] **AC-US4-03**: Vitest tests for `useTier()` hook updated to assert `skillLimit: null` produces `isUnlimited: true` derived state.
-- [ ] **AC-US4-04**: Cargo test for `quota_can_create_skill` updated to assert null-limit returns `allowed: true` regardless of count.
-- [ ] **AC-US4-05**: Vitest tests for `/api/v1/billing/quota` endpoint updated: free tier returns `skillLimit: null`.
+- [x] **AC-US4-01**: `e2e/desktop/auth-and-paywall.spec.ts` test "paywall on 51st create" is deleted or rewritten — there's no longer a 51st-create paywall. Replace with "paywall on private-repo connect".
+- [x] **AC-US4-02**: `e2e/desktop/auth-flow-regression.spec.ts` Test 3 "Paywall on 51st create" is rewritten to "Paywall on private-repo connect". Stub returns `{tier: "free"}` and a private repo; click Connect → paywall appears.
+- [x] **AC-US4-03**: Vitest tests for `useTier()` hook updated to assert `skillLimit: null` produces `isUnlimited: true` derived state.
+- [x] **AC-US4-04**: Cargo test for `quota_can_create_skill` updated to assert null-limit returns `allowed: true` regardless of count.
+- [x] **AC-US4-05**: Vitest tests for `/api/v1/billing/quota` endpoint updated: free tier returns `skillLimit: null`.
 
 ---
 
@@ -143,11 +145,11 @@ Has a team. Cares about SSO, audit log, dedicated support — not feature differ
 **So that** I never see contradictory messaging
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: Search the entire vskill repo for "50 skill" / "50-skill" / "skillLimit" / "free tier" / "Pro tier" copy strings; update where they reference the cap.
-- [ ] **AC-US5-02**: PaywallModal text — done in US-002.
-- [ ] **AC-US5-03**: ProChip tooltip text: was "Upgrade for unlimited skills + private repos" → "Upgrade for private repo connections".
-- [ ] **AC-US5-04**: README.md (vskill) tier mentions — update any copy that references the 50 cap.
-- [ ] **AC-US5-05**: vskill-platform marketing pages (/desktop, /skill-studio, /ai-studio) — scan for skill-cap mentions, update.
+- [x] **AC-US5-01**: Search the entire vskill repo for "50 skill" / "50-skill" / "skillLimit" / "free tier" / "Pro tier" copy strings; update where they reference the cap.
+- [x] **AC-US5-02**: PaywallModal text — done in US-002.
+- [x] **AC-US5-03**: ProChip tooltip text: was "Upgrade for unlimited skills + private repos" → "Upgrade for private repo connections".
+- [x] **AC-US5-04**: README.md (vskill) tier mentions — update any copy that references the 50 cap.
+- [x] **AC-US5-05**: vskill-platform marketing pages (/desktop, /skill-studio, /ai-studio) — scan for skill-cap mentions, update.
 
 ---
 

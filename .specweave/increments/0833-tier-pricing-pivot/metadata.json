@@ -1,10 +1,11 @@
 {
   "id": "0833-tier-pricing-pivot",
-  "status": "planned",
+  "status": "completed",
   "type": "change-request",
   "priority": "P0",
   "created": "2026-05-08T04:04:15.691Z",
-  "lastActivity": "2026-05-08T04:06:28.015Z",
+  "lastActivity": "2026-05-08T05:30:40.003Z",
+  "readyForReviewAt": "2026-05-08T05:00:00Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -15,14 +16,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1519",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-05-08T04:06:56.222Z"
+      "syncedAt": "2026-05-08T05:31:30.032Z"
     },
     "ado": {
       "featureId": "2358",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2358",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-05-08T04:06:56.923Z"
+      "syncedAt": "2026-05-08T05:31:31.821Z"
     }
   },
   "planning": {
@@ -39,5 +40,6 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "approvedAt": "2026-05-08T05:30:40.003Z"
 }
