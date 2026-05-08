@@ -16,7 +16,7 @@ test_mode: TDD
 
 ### T-001: Prisma migration — User tier + quota fields + PricingWaitlist model
 **User Story**: US-006, US-009 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-03, AC-US9-02
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `User.tier`, `User.lastReportedSkillCount`, `User.quotaSyncedAt`, `PricingWaitlist` (plan.md §2 — vskill-platform table)
 **ADR**: ADR-0831-04
 
@@ -34,7 +34,7 @@ test_mode: TDD
 
 ### T-002: `verifyGithubToken` helper + `requireUserOrGithubBearer` middleware
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-04
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `auth::verifyGithubToken` at `src/lib/auth-github.ts`; `requireUserOrGithubBearer` extension to `src/lib/auth.ts` (plan.md §2)
 **ADR**: ADR-0831-04, Risk R-5
 
@@ -52,7 +52,7 @@ test_mode: TDD
 
 ### T-003: `GET /api/v1/billing/quota` endpoint
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-04, AC-US6-05, AC-US6-06
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `src/app/api/v1/billing/quota/route.ts` (GET) (plan.md §2)
 
 **Test Plan**:
@@ -74,7 +74,7 @@ test_mode: TDD
 
 ### T-004: `POST /api/v1/billing/quota` telemetry endpoint
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-03, AC-US6-04, AC-US6-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: same `route.ts` file, POST method (plan.md §2)
 
 **Test Plan**:
@@ -91,7 +91,7 @@ test_mode: TDD
 
 ### T-005: Pricing page `/pricing` + waitlist endpoint + nav link
 **User Story**: US-009 | **Satisfies ACs**: AC-US9-01, AC-US9-02, AC-US9-03, AC-US9-04, AC-US9-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `src/app/pricing/page.tsx`, `src/app/api/v1/waitlist/route.ts`, `src/app/account/subscription/page.tsx`, `SiteNav.tsx` (plan.md §2)
 
 **Test Plan**:
@@ -110,7 +110,7 @@ test_mode: TDD
 
 ### T-006: Add `keyring` crate + `auth::token_store` module
 **User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-04, AC-US2-02
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `src-tauri/src/auth/token_store.rs` (plan.md §2); ADR-0831-01
 
 **Test Plan**:
@@ -127,7 +127,7 @@ test_mode: TDD
 
 ### T-007: `auth::device_flow` state machine
 **User Story**: US-001 | **Satisfies ACs**: AC-US1-02, AC-US1-03, AC-US1-06
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `src-tauri/src/auth/device_flow.rs` (plan.md §2); ADR-0831-02, Risk R-6
 
 **Test Plan**:
@@ -144,7 +144,7 @@ test_mode: TDD
 
 ### T-008: `auth::github_client` — `get_user`, `get_repo`, `revoke_token`
 **User Story**: US-001, US-002, US-004 | **Satisfies ACs**: AC-US1-05, AC-US2-02, AC-US4-02
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `src-tauri/src/auth/github_client.rs` (plan.md §2)
 
 **Test Plan**:
@@ -161,7 +161,7 @@ test_mode: TDD
 
 ### T-009: Tauri IPC commands — auth (`auth_start_device_flow`, `auth_poll_token`, `auth_get_user`, `auth_sign_out`)
 **User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US1-03, AC-US1-04, AC-US1-06, AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US2-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `commands::auth_*` in `src-tauri/src/commands.rs` (plan.md §2)
 
 **Test Plan**:
@@ -178,7 +178,7 @@ test_mode: TDD
 
 ### T-010: `AuthContext` + `useDesktopBridge` auth hooks (TypeScript)
 **User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-05, AC-US2-03, AC-US2-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `src/eval-ui/src/AuthContext.tsx` (new); `useDesktopBridge.ts` extension (plan.md §2)
 
 **Test Plan**:
@@ -195,7 +195,7 @@ test_mode: TDD
 
 ### T-011: `SignInPanel` + `UserMenu` UI components
 **User Story**: US-001, US-002 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-06, AC-US2-01, AC-US2-04
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `SignInPanel.tsx`, `UserMenu.tsx` wired into `Sidebar.tsx` header (plan.md §2)
 
 **Test Plan**:
@@ -214,7 +214,7 @@ test_mode: TDD
 
 ### T-012: `project::folder_picker::classify` — four-way path classifier
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-06
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `src-tauri/src/project/folder_picker.rs` (plan.md §2); ADR-0831-03
 
 **Test Plan**:
@@ -240,7 +240,7 @@ test_mode: TDD
 
 ### T-013: `project_pick_folder` IPC + `FolderPickerDialog` React component
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-05, AC-US3-06
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `commands::project_pick_folder` in `commands.rs`; `FolderPickerDialog.tsx` (plan.md §2)
 
 **Test Plan**:
@@ -257,7 +257,7 @@ test_mode: TDD
 
 ### T-014: Persist recent folders to `settings.recents` + `project_recents` IPC
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `Settings::recents` extension in `preferences/settings.rs`; `commands::project_recents` (plan.md §2)
 
 **Test Plan**:
@@ -276,7 +276,7 @@ test_mode: TDD
 
 ### T-015: `project::repo_detect` — git remote + sync state detection
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-04, AC-US4-05, AC-US4-06
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `src-tauri/src/project/repo_detect.rs` (plan.md §2)
 
 **Test Plan**:
@@ -293,7 +293,7 @@ test_mode: TDD
 
 ### T-016: `ConnectedRepoWidget` React component (replaces `SidebarGitHubIndicator`)
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04, AC-US4-05, AC-US4-06, AC-US4-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `ConnectedRepoWidget.tsx` (replaces `SidebarGitHubIndicator.tsx`) (plan.md §2, §Phase 3)
 
 **Test Plan**:
@@ -312,7 +312,7 @@ test_mode: TDD
 
 ### T-017: `quota::cache` + Settings extension (`QuotaCache`)
 **User Story**: US-010 | **Satisfies ACs**: AC-US10-01, AC-US10-02, AC-US10-03, AC-US10-04
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `src-tauri/src/quota/cache.rs`; `Settings::quota: QuotaCache` (plan.md §2); ADR-0831-04, ADR-0831-05
 
 **Test Plan**:
@@ -329,7 +329,7 @@ test_mode: TDD
 
 ### T-018: `quota::sync` background task + `quota_force_sync` IPC
 **User Story**: US-010 | **Satisfies ACs**: AC-US10-04, AC-US10-05, AC-US10-06
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `src-tauri/src/quota/sync.rs`; `commands::quota_force_sync` (plan.md §2)
 
 **Test Plan**:
@@ -346,7 +346,7 @@ test_mode: TDD
 
 ### T-019: `SkillCountBadge` in StatusBar + `quota_can_create_skill` IPC
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02, AC-US5-06, AC-US5-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `StatusBar.tsx` extension + `commands::quota_can_create_skill` (plan.md §2)
 
 **Test Plan**:
@@ -363,7 +363,7 @@ test_mode: TDD
 
 ### T-020: `PaywallModal` component + 51st-skill create intercept
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-03, AC-US5-04, AC-US5-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `PaywallModal.tsx`; intercept in skill-create IPC path (plan.md §2 + §Phase 4)
 
 **Test Plan**:
@@ -380,7 +380,7 @@ test_mode: TDD
 
 ### T-021: Quota force-sync on 51st create — race condition resolution
 **User Story**: US-005 | **Satisfies ACs**: AC-US5-04, AC-US5-07
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: quota force-sync in skill-create intercept (plan.md §Phase 4, Risk R-2)
 
 **Test Plan**:
@@ -399,7 +399,7 @@ test_mode: TDD
 
 ### T-022: `tierFeatures` lookup + `TierGate` component
 **User Story**: US-008 | **Satisfies ACs**: AC-US8-02, AC-US8-03, AC-US8-04, AC-US8-05, AC-US8-06
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `src/eval-ui/src/lib/tier-features.ts`; `TierGate.tsx` (plan.md §2)
 
 **Test Plan**:
@@ -416,7 +416,7 @@ test_mode: TDD
 
 ### T-023: Private-repo lock state in `ConnectedRepoWidget` + free-tier upgrade CTA
 **User Story**: US-008 | **Satisfies ACs**: AC-US8-01, AC-US8-02
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `ConnectedRepoWidget.tsx` extension; `TierGate` integration (plan.md §Phase 3 + §Phase 5)
 
 **Test Plan**:
@@ -435,7 +435,7 @@ test_mode: TDD
 
 ### T-024: GitHub App install CTA + Pro tier detection in `ConnectedRepoWidget`
 **User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02, AC-US7-05
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `ConnectedRepoWidget` + `commands::project_get_repo_state`; `tauri-plugin-shell` (plan.md §Phase 5)
 
 **Test Plan**:
@@ -452,7 +452,7 @@ test_mode: TDD
 
 ### T-025: Installation callback + re-detect on `quota://updated`
 **User Story**: US-007 | **Satisfies ACs**: AC-US7-03, AC-US7-04, AC-US7-06
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: deep-link handler `vskill://installation-complete`; quota sync re-triggering repo state refresh (plan.md §Phase 5)
 
 **Test Plan**:
@@ -469,7 +469,7 @@ test_mode: TDD
 
 ### T-026: "Connect private repos" button in Preferences Account tab
 **User Story**: US-007 | **Satisfies ACs**: AC-US7-01, AC-US7-02
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: new Account tab in `src/eval-ui/src/preferences/` (plan.md §Existing code references)
 
 **Test Plan**:
@@ -488,7 +488,7 @@ test_mode: TDD
 
 ### T-027: Unit tests — folder classifier edge cases (10 parameterized cases)
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-06
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: supplements T-012 with an exhaustive parameterized test suite (plan.md §Phase 2)
 
 **Test Plan**:
@@ -515,7 +515,7 @@ test_mode: TDD
 
 ### T-028: Integration tests — quota endpoint (all four auth states + rate-limit)
 **User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02, AC-US6-04, AC-US6-05, AC-US6-06
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: supplements T-003/T-004 with a complete integration test suite (plan.md §Phase 4 exit criteria)
 
 **Test Plan**:
@@ -537,7 +537,7 @@ test_mode: TDD
 
 ### T-029: Offline grace-period boundary tests (7-day cache + reconnect prompt)
 **User Story**: US-010 | **Satisfies ACs**: AC-US10-01, AC-US10-02, AC-US10-03, AC-US10-04, AC-US10-05, AC-US10-06
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: quota cache + sync integration (plan.md §Phase 4 exit criteria + ADR-0831-05)
 
 **Test Plan**:
@@ -554,7 +554,7 @@ test_mode: TDD
 
 ### T-030: E2E Playwright — auth flow + folder pick + 50-skill paywall
 **User Story**: US-001, US-003, US-005 | **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US3-01, AC-US5-03, AC-US5-04
-**Status**: [ ] Not Started
+**Status**: [x] completed
 **Plan component**: `e2e/desktop/auth-flow.spec.ts` (plan.md §Phase 2 suggestion)
 
 **Test Plan**:
