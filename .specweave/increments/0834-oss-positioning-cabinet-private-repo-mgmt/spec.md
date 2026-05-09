@@ -228,7 +228,7 @@ Connected a private repo, decided not to use the product. Wants to disconnect cl
 **So that** I can script integrations against verified-skill.com
 
 **Acceptance Criteria**:
-- [x] **AC-US8-01**: New `ApiToken` Prisma model: `id`, `userId`, `name`, `tokenHash` (sha256), `tokenPrefix` (first 8 chars, displayed in table), `scopes` (string[] — for now: `"read"`, `"write"`), `lastUsedAt`, `createdAt`, `expiresAt` (default 90 days), `revokedAt`.
+- [x] **AC-US8-01**: New `ApiToken` Prisma model: `id`, `userId`, `name`, `tokenHash` (sha256), `tokenPrefix` (first 12 chars, e.g. `vsk_x9a2b8c4`, displayed in table), `scopes` (string[] — for now: `"read"`, `"write"`), `lastUsedAt`, `createdAt`, `expiresAt` (default 90 days), `revokedAt`.
 - [x] **AC-US8-02**: Endpoints: `GET /api/v1/account/tokens` (list, never returns hash), `POST /api/v1/account/tokens` (create, returns `{plaintext, prefix}` ONCE — only time plaintext is exposed), `DELETE /api/v1/account/tokens/{id}` (revoke).
 - [x] **AC-US8-03**: Tokens tab UI: Cloudflare-style table — Name · Scopes · Last used · Created · Actions (Revoke). "Generate new token" button top-right opens modal: name + scopes (checkbox: read/write) + expiry (dropdown: 30/90/365 days/never). Submit shows generated token in a copy-to-clipboard panel with warning "This is the only time you'll see this token. Store it securely."
 - [x] **AC-US8-04**: Tokens authenticate against existing `requireUserOrGithubBearer` — extend it to accept verified-skill `vsk_` prefixed bearer tokens (lookup by hash). If verified-skill token is valid, set the same auth context as a user cookie.
@@ -261,7 +261,7 @@ Connected a private repo, decided not to use the product. Wants to disconnect cl
 **So that** I'm not spammed and important alerts still reach me
 
 **Acceptance Criteria**:
-- [x] **AC-US10-01**: Tab shows checkbox group: **Weekly digest** (default off) · **Security alerts** (default on, can't be unchecked — explain "We'll always notify you about suspicious account activity") · **Comment replies** (default on) · **Product updates** (default off, marketing).
+- [x] **AC-US10-01**: Tab shows checkbox group: **Weekly digest** (default off) · **Security alerts** (default on, can't be unchecked — explain "We'll always notify you about suspicious account activity") · **Comment replies** (default on) · **Product updates** (default off, marketing). API contract: `PATCH /api/v1/account/notifications` accepts `securityAlerts: true` as a no-op (so a client that round-trips the GET response can PATCH without scrubbing the field) and rejects `securityAlerts: false` with 400 `field_immutable` (the value is hard-pinned to true server-side).
 - [x] **AC-US10-02**: "Save preferences" button persists to `User.notificationPrefs` JSON column via `PATCH /api/v1/account/notifications`. Toast on success.
 - [x] **AC-US10-03**: Email backend (digest cron) is **out of scope** — the preferences are stored, but no email job ships in v1. Tooltip on Weekly digest checkbox: "Daily/weekly digest emails ship in a future update."
 
