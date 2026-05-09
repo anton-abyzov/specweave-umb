@@ -622,6 +622,22 @@
       "success": true,
       "timestamp": "2026-05-09T15:04:29.345Z",
       "durationMs": 1452
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-822",
+      "incrementId": "0670-skill-builder-universal",
+      "success": true,
+      "timestamp": "2026-05-09T18:23:45.984Z",
+      "durationMs": 1369
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1420",
+      "incrementId": "0826-skill-studio-private-repos",
+      "success": true,
+      "timestamp": "2026-05-09T18:40:07.752Z",
+      "durationMs": 1501
     }
   ],
   "summary": {
@@ -643,12 +659,12 @@
       ]
     },
     "jira": {
-      "totalAttempts": 14,
-      "successful": 14,
+      "totalAttempts": 16,
+      "successful": 16,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-05-09T15:04:29.345Z",
-      "avgDurationMs": 1625.2142857142858,
+      "lastSuccess": "2026-05-09T18:40:07.752Z",
+      "avgDurationMs": 1601.4375,
       "recentErrors": []
     },
     "ado": {
@@ -661,11 +677,11 @@
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 77,
-      "successful": 71,
+      "totalAttempts": 79,
+      "successful": 73,
       "failed": 6,
-      "successRate": 0.922077922077922
+      "successRate": 0.9240506329113924
     },
-    "lastUpdated": "2026-05-09T15:04:29.346Z"
+    "lastUpdated": "2026-05-09T18:40:07.753Z"
   }
 }
