@@ -1,0 +1,125 @@
+{
+  "id": "0835-skill-studio-install-modal-feedback",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-05-09T14:12:13.285Z",
+  "lastActivity": "2026-05-09T15:04:16.980Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1532",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1532",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-05-09T15:05:07.914Z"
+    },
+    "ado": {
+      "featureId": "2371",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2371",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-05-09T15:05:10.397Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-05-09T14:47:32.200Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US2-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-03: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-01..06 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-09T14:28:29.217Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US2-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-03: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-01..06 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-09T14:28:24.958Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-06: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-04: [x] but only 0/2 tasks complete (0%)",
+        "AC-US2-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US2-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-03: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-01..06 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-09T14:16:11.570Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-01..05 referenced in tasks.md but not found in spec.md",
+        "AC-US1-01..06 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "readyForReviewAt": "2026-05-09T15:04:16.953Z",
+  "approvedAt": "2026-05-09T15:04:16.980Z"
+}
