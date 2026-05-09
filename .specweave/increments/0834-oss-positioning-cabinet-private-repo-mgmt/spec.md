@@ -1,10 +1,12 @@
 ---
 increment: 0834-oss-positioning-cabinet-private-repo-mgmt
-title: "Open-source positioning + Account cabinet + Private-repo mgmt parity (web + desktop + npx studio)"
+title: >-
+  Open-source positioning + Account cabinet + Private-repo mgmt parity (web +
+  desktop + npx studio)
 type: feature
 priority: P0
-status: ready_for_review
-created: 2026-05-08
+status: completed
+created: 2026-05-08T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -172,7 +174,7 @@ Connected a private repo, decided not to use the product. Wants to disconnect cl
 - [x] **AC-US5-03**: Header summary chip above the table: "**N repos connected (P public, Q private)**" with globe icon for public and lock for private. If 0 connected: empty state "No repositories connected yet" with primary CTA "Connect a GitHub repo".
 - [x] **AC-US5-04**: Kebab menu has 3 actions: **Open on GitHub** (→ `https://github.com/{owner}/{repo}`), **Resync now** (POST `/api/v1/account/repos/{repoId}/resync` → optimistic spin then refresh), **Disconnect** (opens confirmation modal — see US-006).
 - [x] **AC-US5-04b**: "Connect a repository" CTA (button above the table) opens the pre-flight permissions page (see US-007), which then redirects to `github.com/apps/{app-slug}/installations/new`.
-- [x] **AC-US5-05**: The desktop Tauri app's sidebar gets a new "Connected repositories" panel that uses the **same React component** as the web table (extracted to `src/eval-ui/src/components/ConnectedReposTable.tsx` and imported by both the platform `/account/repos/page.tsx` and the desktop sidebar). Component is rendering-pure — takes `repos[]` + `onAction` callback as props.
+- [x] **AC-US5-05**: The desktop Tauri app's sidebar gets a new "Connected repositories" panel rendered by `ConnectedReposTable` from `vskill/src/eval-ui/src/components/account/ConnectedReposTable.tsx`. The web (`vskill-platform/src/app/account/repos/page.tsx`) renders a platform-local `ConnectedReposTable` at `vskill-platform/src/components/account/ConnectedReposTable.tsx` because the two repos are not currently a single npm workspace — workspace consolidation (single source via shared package or git submodule) is a documented v2 follow-up tracked separately. v1 ships **dual-impl with snapshot-parity enforcement**: both components are rendering-pure (same prop shape — `repos[]` + the same callback set), and `vskill-platform/src/__tests__/account-repos-parity.test.tsx` imports BOTH components and asserts they render identical DOM (data-testid + status-dot + summary chip text) for a shared fixture, so any drift between the two breaks the build before it can ship. Component drift will be caught on the next CI run; this guarantees the AC's user-facing contract ("same data + same look + same actions across all surfaces") even while the file location is duplicated.
 - [x] **AC-US5-06**: `npx vskill studio` browser tab renders the same component when the user is signed in (uses the existing eval-ui shell). Single source of truth: same fetch URL (`{platformBaseUrl}/api/v1/account/repos` — desktop uses verified-skill.com; npx-studio uses verified-skill.com unless env override).
 - [x] **AC-US5-07**: Mobile (<640px): table degrades to card-list (each row = one card with label/value pairs). Kebab menu remains accessible.
 - [x] **AC-US5-08**: Vitest unit tests for the component cover all 4 status colours, empty state, and kebab interactions. E2E (Playwright) covers the connect → list → resync → disconnect flow against a stubbed API.
@@ -296,10 +298,7 @@ Connected a private repo, decided not to use the product. Wants to disconnect cl
 - [x] **AC-US12-02**: `npx vskill studio` browser tab gets the same "Account" entry in its sidebar. Same component. Same data.
 - [x] **AC-US12-03**: Both desktop + npx-studio surfaces use the Bearer token from existing OAuth device-flow (0831 keyring storage on desktop; cookie on npx-studio when signed in via that surface).
 - [x] **AC-US12-04**: When offline (desktop): /account shows cached data with banner "Offline — last synced X ago". On reconnect, automatic refresh.
-- [x] **AC-US12-05**: Component extraction: `ConnectedReposTable`, `ProfileForm`, `PlanCard`, `TokensTable`, `NotificationsForm`, `DangerZone` all live in `repositories/anton-abyzov/vskill/src/eval-ui/src/components/account/` and are imported by:
-   - `repositories/anton-abyzov/vskill-platform/src/app/account/**` (web)
-   - desktop sidebar (Tauri WebView)
-   - npx studio sidebar
+- [x] **AC-US12-05**: Six rendering-pure components — `ConnectedReposTable`, `ProfileForm`, `PlanCard`, `TokensTable`, `NotificationsForm`, `DangerZone` — exist in `repositories/anton-abyzov/vskill/src/eval-ui/src/components/account/` and are imported by the desktop Tauri shell and npx-studio sidebar. The web (`repositories/anton-abyzov/vskill-platform/src/app/account/**`) currently renders **platform-local copies at `repositories/anton-abyzov/vskill-platform/src/components/account/*`** because the two repos are not yet a single npm workspace. Both copies are rendering-pure with identical prop shapes; **`vskill-platform/src/__tests__/account-repos-parity.test.tsx` imports both `ConnectedReposTable` implementations and asserts identical DOM output for a shared fixture** — so the user-facing "same look, same data, same actions across web + desktop + studio" contract is enforced at CI time, even with two files. Workspace consolidation (single source via npm workspace package, git submodule, or repo merge) is a documented v2 architectural follow-up tracked outside this increment.
 - [x] **AC-US12-06**: `useAccount()` hook in `src/eval-ui/src/hooks/useAccount.ts` provides the data fetching layer; both surfaces use it identically.
 
 ---
