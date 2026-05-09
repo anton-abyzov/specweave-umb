@@ -1,0 +1,362 @@
+{
+  "id": "0834-oss-positioning-cabinet-private-repo-mgmt",
+  "status": "ready_for_review",
+  "type": "feature",
+  "priority": "P0",
+  "created": "2026-05-08T12:54:24.288Z",
+  "lastActivity": "2026-05-09T00:00:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1530",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1530",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-05-08T13:01:54.961Z"
+    },
+    "ado": {
+      "featureId": "2369",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2369",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-05-08T13:01:55.788Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-05-08T14:54:24.995Z",
+      "updated": [
+        "AC-US5-01",
+        "AC-US11-02",
+        "AC-US10-02",
+        "AC-US4-01",
+        "AC-US4-05",
+        "AC-US8-02",
+        "AC-US10-01",
+        "AC-US4-02",
+        "AC-US5-03",
+        "AC-US5-04",
+        "AC-US6-01",
+        "AC-US6-02",
+        "AC-US6-06",
+        "AC-US7-01",
+        "AC-US7-04",
+        "AC-US7-05",
+        "AC-US7-07",
+        "AC-US8-04",
+        "AC-US8-07",
+        "AC-US8-06",
+        "AC-US9-01",
+        "AC-US9-02",
+        "AC-US9-04",
+        "AC-US10-03",
+        "AC-US11-03",
+        "AC-US2-02",
+        "AC-US2-01",
+        "AC-US2-04",
+        "AC-US2-05",
+        "AC-US12-05",
+        "AC-US5-05",
+        "AC-US12-06",
+        "AC-US5-06",
+        "AC-US12-01",
+        "AC-US12-04",
+        "AC-US12-02",
+        "AC-US12-03",
+        "AC-US13-04",
+        "AC-US13-05",
+        "AC-US13-06"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 40
+    },
+    {
+      "timestamp": "2026-05-08T13:24:37.390Z",
+      "updated": [
+        "AC-US11-01"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-05-08T13:24:32.950Z",
+      "updated": [
+        "AC-US8-03",
+        "AC-US8-05"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-05-08T13:24:28.641Z",
+      "updated": [
+        "AC-US6-03",
+        "AC-US6-04",
+        "AC-US6-05"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-05-08T13:24:24.241Z",
+      "updated": [
+        "AC-US7-02",
+        "AC-US7-03",
+        "AC-US7-06"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 3
+    },
+    {
+      "timestamp": "2026-05-08T13:24:15.777Z",
+      "updated": [
+        "AC-US5-02",
+        "AC-US5-07"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-05-08T13:24:11.094Z",
+      "updated": [
+        "AC-US4-03",
+        "AC-US4-04"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 2
+    },
+    {
+      "timestamp": "2026-05-08T13:24:06.564Z",
+      "updated": [
+        "AC-US3-01",
+        "AC-US3-02",
+        "AC-US3-03",
+        "AC-US3-04",
+        "AC-US3-05",
+        "AC-US3-06",
+        "AC-US3-07"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 7
+    },
+    {
+      "timestamp": "2026-05-08T13:23:58.517Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-08T13:23:46.257Z",
+      "updated": [
+        "AC-US1-01",
+        "AC-US1-02",
+        "AC-US1-03",
+        "AC-US1-04",
+        "AC-US1-05",
+        "AC-US1-06"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 6
+    },
+    {
+      "timestamp": "2026-05-08T13:10:18.293Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-08T13:10:13.331Z",
+      "updated": [
+        "AC-US8-01"
+      ],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 1
+    },
+    {
+      "timestamp": "2026-05-08T13:10:08.112Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-08T13:01:16.205Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US5-04b referenced in tasks.md but not found in spec.md",
+        "AC-US9-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US10-01..03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-07: has no tasks mapped",
+        "AC-US2-03: has no tasks mapped",
+        "AC-US5-08: has no tasks mapped",
+        "AC-US9-03: has no tasks mapped",
+        "AC-US13-01: has no tasks mapped",
+        "AC-US13-02: has no tasks mapped",
+        "AC-US13-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
