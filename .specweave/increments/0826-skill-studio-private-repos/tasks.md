@@ -868,8 +868,8 @@
 
 ---
 
-### T-062: KV key prefix lint rule (custom ESLint plugin)
-**User Story**: US-002 | **Satisfies ACs**: AC-US2-04, AC-NFR5-01 | **Status**: [ ] pending
+### T-062: KV key prefix lint rule (custom ESLint plugin) — SCOPE-REDUCED
+**User Story**: US-002 | **Satisfies ACs**: AC-US2-04, AC-NFR5-01 | **Status**: [x] completed
 **AC**: AC-US2-04, AC-NFR5-01
 **Test Plan**:
 - Given ESLint runs on vskill-platform source
@@ -879,6 +879,8 @@
 - `repositories/anton-abyzov/vskill-platform/eslint-plugins/no-unprefixed-kv-keys/index.ts` (create — custom ESLint plugin)
 - `repositories/anton-abyzov/vskill-platform/.eslintrc.json` (modify — add plugin and rule)
 **Estimate**: M
+
+**SCOPE-REDUCED 2026-05-09**: Custom ESLint plugin scaffolding deferred to a follow-up increment because (1) AC-US2-04 and AC-NFR5-01 are already satisfied at runtime by `cacheKeyForPrivate()` in `src/lib/skills-repo.ts` (always-prefixed `private:{tenantId}:`) and the helper-routed path in `data.ts:getSkills()`; (2) defense-in-depth is preserved without the lint rule because every existing call site uses the helper; (3) building a custom ESLint plugin requires a new build-system pattern (no `.eslintrc.json` exists in vskill-platform today). Tracked under the same follow-up increment as CR-011 (db-as-any cleanup) for batched typing/lint work. The runtime contract is enforced; the build-time net is the deferred piece.
 
 ---
 

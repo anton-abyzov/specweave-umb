@@ -230,7 +230,7 @@
 ---
 
 ### T-012c: Manual verification gate — path B browser flow + trigger-activation across 3 agents
-**User Story**: US-007 | **Satisfies ACs**: AC-US2-02 (manual), AC-US1-07 (evidence trail) | **Status**: [ ] pending | **Type**: MANUAL
+**User Story**: US-007 | **Satisfies ACs**: AC-US2-02 (manual), AC-US1-07 (evidence trail) | **Status**: [x] completed (deferred per Anton signoff 2026-05-09; see grill report manualSignoff field) | **Type**: MANUAL
 
 **Test Plan**:
 - **Given** T-012b automated regression passed

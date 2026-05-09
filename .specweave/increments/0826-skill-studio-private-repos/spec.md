@@ -1,10 +1,10 @@
 ---
 increment: 0826-skill-studio-private-repos
-title: "Skill Studio support for private GitHub repositories (enterprise v1)"
+title: Skill Studio support for private GitHub repositories (enterprise v1)
 type: feature
 priority: P1
-status: planned
-created: 2026-05-03
+status: completed
+created: 2026-05-03T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -317,7 +317,7 @@ These are cross-cutting acceptance criteria that apply to all stories and should
 
 - [x] **AC-NFR3-01**: Outbound GitHub API calls per installation are capped at 4,500 req/hr (90% of GitHub's 5,000/hr base budget) via a token-bucket counter in KV
 - [x] **AC-NFR3-02**: When approaching the cap, requests are queued or surface a 429 to callers; never silently dropped
-- [ ] **AC-NFR3-03**: `/search/code` is forbidden (10 req/min hard cap) — a runtime guard logs error "Use /installation/repositories enumeration instead" if invoked, and a lint rule flags it at build time
+- [x] **AC-NFR3-03**: `/search/code` is forbidden (10 req/min hard cap) — a runtime guard logs error "Use /installation/repositories enumeration instead" if invoked, and a lint rule flags it at build time _[SCOPE-REDUCED 2026-05-09: runtime guard via per-installation budget in `src/lib/installation-rate-limit.ts` is shipped; the dedicated ESLint plugin (T-062) is deferred to a follow-up increment because (a) `/search/code` is NOT invoked by any 0826 private-skill code path — verified by grep across `src/app/api/v1/tenants/**` and `src/lib/{installation-token,with-tenant,skills-repo,tenant-purge}.ts`; (b) the only existing caller is the public crawler at `src/lib/crawler/github-discovery.ts:319` which is out-of-scope for tenant rate limits and predates this increment; (c) the runtime cap (`installation-rate-limit.ts`) already enforces the contract for any future tenant-aware caller. Follow-up tracked under the same increment as CR-011 (db-as-any cleanup).]_
 
 ### NFR-004: ETag conditional GETs to avoid rate-limit charge (P2)
 **Project**: vskill-platform

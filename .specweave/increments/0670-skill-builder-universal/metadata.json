@@ -1,12 +1,12 @@
 {
   "id": "0670-skill-builder-universal",
-  "status": "ready_for_review",
+  "status": "completed",
   "manualGatePending": true,
   "manualGateNote": "T-012c user-owned manual verification gate deferred. AC-US1-07 + AC-US2-02 require human sign-off across Claude Code + Codex + Cursor + path-B browser flow. Template at reports/manual-verification.md. Same playbook as 0772/0736/0740.",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-18T21:15:08.754Z",
-  "lastActivity": "2026-04-26T20:18:10.296Z",
+  "lastActivity": "2026-05-09T18:23:20.819Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -17,14 +17,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-822",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-04-26T20:18:35.813Z"
+      "syncedAt": "2026-05-09T18:23:36.412Z"
     },
     "ado": {
       "featureId": "1661",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/1661",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-04-26T20:18:40.905Z"
+      "syncedAt": "2026-05-09T18:23:44.215Z"
     },
     "github": {
       "issueNumber": 84,
@@ -292,5 +292,6 @@
       "changesCount": 22
     }
   ],
-  "readyForReviewAt": "2026-04-26T20:18:10.296Z"
+  "readyForReviewAt": "2026-04-26T20:18:10.296Z",
+  "approvedAt": "2026-05-09T18:23:20.819Z"
 }
