@@ -20,7 +20,7 @@ parent: 0833-tier-pricing-pivot
 
 This increment delivers three tightly-coupled changes:
 
-1. **Pricing pivot v2 — OSS-first.** Make it unmistakable that the product is **free and open source (MIT)**. Reposition Pro to lead with **"Hosted private skill storage from your private GitHub repos"** — that is the actual paid feature, not a 50-skill cap (already removed in 0833) or anything else. Enterprise stays the support tier (SSO + audit + dedicated support + custom contract). Replace any `*@verified-skill.com` email (the domain has no MX records) with `sales@easychamp.com` (Anton's existing business inbox). All "Talk to sales" CTAs route there.
+1. **Pricing pivot v2 — OSS-first.** Make it unmistakable that the product is **free and open source (MIT)**. Reposition Pro to lead with **"Hosted private skill storage from your private GitHub repos"** — that is the actual paid feature, not a 50-skill cap (already removed in 0833) or anything else. Enterprise stays the support tier (SSO + audit + dedicated support + custom contract). Replace any `*@verified-skill.com` email (the domain has no MX records) with `anton.abyzov@easychamp.com` (Anton's existing business inbox). All "Talk to sales" CTAs route there.
 
 2. **/account cabinet** — a new authenticated user-settings hub at `verified-skill.com/account`. Vercel-style left sidebar with 7 tabs (Profile, Plan & billing, Connected repositories, Skills, API tokens, Notifications, Danger zone). Single source of truth for user identity, billing, integrations, and destructive account actions.
 
@@ -42,14 +42,14 @@ The increment closes the loop on 0831/0833: the user can now self-serve their ac
 
 ## Goals (v1 — must ship today)
 
-1. **Pricing copy v2** with prominent "Open Source · MIT" badge on Free, "Hosted private skill storage" lead on Pro, sales@easychamp.com on Enterprise mailto.
+1. **Pricing copy v2** with prominent "Open Source · MIT" badge on Free, "Hosted private skill storage" lead on Pro, anton.abyzov@easychamp.com on Enterprise mailto.
 2. **schema.org JSON-LD** stays correct; meta description updated to reflect OSS positioning.
 3. **/account page** with all 7 sidebar tabs functional (some may be minimal v1 — Notifications can be a static "coming soon" message — but the page exists, the routes exist, the tabs render).
 4. **/api/v1/account/*** endpoints back the page (profile, connected-repos, tokens, notifications, delete).
 5. **Connected-repos table** working in all 3 surfaces (web, Tauri, npx studio) with real data from the same endpoint.
 6. **Disconnect flow** working (removes our link, does NOT call GitHub uninstall).
 7. **Permissions pre-flight page** (the screen we own before redirecting to github.com/apps/...) with verbatim "what we read / what we'll never do" copy.
-8. **Email replacement sweep** — every `*@verified-skill.com` mailto in source code → `sales@easychamp.com` (or removed if not Sales-related).
+8. **Email replacement sweep** — every `*@verified-skill.com` mailto in source code → `anton.abyzov@easychamp.com` (or removed if not Sales-related).
 9. **Top-nav avatar dropdown** with "Sign out" + "Account settings" links (the canonical UX pattern — sign-out is NOT inside /account).
 10. **Tests** — Vitest for endpoints + components, Playwright e2e for the /account flow.
 
@@ -82,7 +82,7 @@ Has client work in private GitHub repos. Free tier doesn't help them; they need 
 Already converted. Has 8 repos connected across personal + employer org. Wants to: see the full list, sync a stale repo, disconnect one that left the org, generate a CLI token. Goes to /account → Connected repositories → does it all in one place. Was using github.com/settings/installations before; now uses our cabinet for the verified-skill-specific actions.
 
 ### P-4: Enterprise admin (the contact path)
-Looking at /pricing for SSO + audit log. Wants to email sales. Clicks the Enterprise CTA → sales@easychamp.com (working inbox) → conversation begins. Today this email bounces silently — major brand damage we're fixing.
+Looking at /pricing for SSO + audit log. Wants to email sales. Clicks the Enterprise CTA → anton.abyzov@easychamp.com (working inbox) → conversation begins. Today this email bounces silently — major brand damage we're fixing.
 
 ### P-5: Privacy-conscious developer (the disconnect path)
 Connected a private repo, decided not to use the product. Wants to disconnect cleanly and confirm nothing got stored. Goes to /account → Connected repositories → row kebab → Disconnect → modal explains "skills already published stay published, but we stop syncing". Confirms. Disconnect succeeds; row disappears; receives a confirmation toast.
@@ -101,7 +101,7 @@ Connected a private repo, decided not to use the product. Wants to disconnect cl
 **Acceptance Criteria**:
 - [x] **AC-US1-01**: Free card has a prominent **"Open Source · MIT"** badge above its title (or in a visible secondary line). Card body bullet 1 reads "Free forever. Self-host or use our public registry." with a link reading "View source on GitHub →" that points at `https://github.com/anton-abyzov/vskill`.
 - [x] **AC-US1-02**: Pro card lead bullet rewritten to: "Hosted private skill storage from your private GitHub repos." Sub-bullets: "Connect private repos · sync skills automatically · priority email support". Highlight strip stays "MOST POPULAR — for indie devs + consultants". CTA stays "Notify me" (Stripe deferred).
-- [x] **AC-US1-03**: Enterprise card lead bullet stays "+ SSO + audit log + dedicated support". CTA changes from any verified-skill.com mailto to **`mailto:sales@easychamp.com?subject=Skill%20Studio%20Enterprise%20Inquiry`**. CTA label stays "Talk to sales" (matches industry pattern: 7/8 surveyed competitors use this phrasing).
+- [x] **AC-US1-03**: Enterprise card lead bullet stays "+ SSO + audit log + dedicated support". CTA changes from any verified-skill.com mailto to **`mailto:anton.abyzov@easychamp.com?subject=Skill%20Studio%20Enterprise%20Inquiry`**. CTA label stays "Talk to sales" (matches industry pattern: 7/8 surveyed competitors use this phrasing).
 - [x] **AC-US1-04**: SEO meta description updated to: "Skill Studio is open source (MIT). Free for public skills and public repos. Pro adds hosted private skill storage from your private GitHub repos."
 - [x] **AC-US1-05**: schema.org SoftwareApplication JSON-LD `offers` array includes `softwareLicense: "MIT"` and `softwareSourceCodeRepositoryUrl: "https://github.com/anton-abyzov/vskill"`. Both Free and Pro `offers.price` stay "0" until Stripe ships (Enterprise omits price → "Contact sales").
 - [x] **AC-US1-06**: A new section near the top of /pricing (above the three cards) — "Open Source · MIT" hero strip with three sub-points: "Self-host the desktop app · Self-host the studio runtime · Inspect every line of source." Links to GitHub repo + license file.
@@ -118,9 +118,9 @@ Connected a private repo, decided not to use the product. Wants to disconnect cl
 
 **Acceptance Criteria**:
 - [x] **AC-US2-01**: `grep -rn "@verified-skill\\.com" repositories/anton-abyzov/{vskill,vskill-platform}/src` returns zero hits in user-facing strings (mailtos, copy, alt text, docs).
-- [x] **AC-US2-02**: All such occurrences replaced with `sales@easychamp.com` for sales-related CTAs, removed entirely for placeholder/example uses (no fake addresses left in copy).
+- [x] **AC-US2-02**: All such occurrences replaced with `anton.abyzov@easychamp.com` for sales-related CTAs, removed entirely for placeholder/example uses (no fake addresses left in copy).
 - [x] **AC-US2-03**: Test fixtures (`.test.ts` files referencing fake emails) keep their fake `*@example.com` addresses — no churn there.
-- [x] **AC-US2-04**: README files in both repos updated to reference sales@easychamp.com for any "Contact" sections.
+- [x] **AC-US2-04**: README files in both repos updated to reference anton.abyzov@easychamp.com for any "Contact" sections.
 - [x] **AC-US2-05**: `mailto:` link with `subject=` query string is URL-encoded correctly (no raw spaces). The Enterprise card CTA's `subject` matches exactly: "Skill Studio Enterprise Inquiry".
 
 ---

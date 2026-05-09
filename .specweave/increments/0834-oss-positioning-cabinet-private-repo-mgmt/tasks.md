@@ -103,7 +103,7 @@
 **Owner**: platform-frontend-agent
 **Status**: [x] completed
 **Satisfies ACs**: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US1-05, AC-US1-06, AC-US2-02
-**Test**: Vitest SSR test asserts every AC bullet (license badge present, Pro lead-bullet text, Enterprise mailto matches sales@easychamp.com with subject, meta description text, JSON-LD softwareLicense field, OSS hero strip).
+**Test**: Vitest SSR test asserts every AC bullet (license badge present, Pro lead-bullet text, Enterprise mailto matches anton.abyzov@easychamp.com with subject, meta description text, JSON-LD softwareLicense field, OSS hero strip).
 
 ### T-017: Email substitution sweep (vskill-platform)
 **Owner**: platform-frontend-agent
