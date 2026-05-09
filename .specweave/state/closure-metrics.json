@@ -590,6 +590,38 @@
       "success": true,
       "timestamp": "2026-05-08T00:31:08.383Z",
       "durationMs": 2831
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1505",
+      "incrementId": "0831-skill-studio-enterprise-tier",
+      "success": true,
+      "timestamp": "2026-05-08T03:59:27.629Z",
+      "durationMs": 1406
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1519",
+      "incrementId": "0833-tier-pricing-pivot",
+      "success": true,
+      "timestamp": "2026-05-08T05:30:58.759Z",
+      "durationMs": 1353
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1530",
+      "incrementId": "0834-oss-positioning-cabinet-private-repo-mgmt",
+      "success": true,
+      "timestamp": "2026-05-09T14:51:00.369Z",
+      "durationMs": 1282
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1532",
+      "incrementId": "0835-skill-studio-install-modal-feedback",
+      "success": true,
+      "timestamp": "2026-05-09T15:04:29.345Z",
+      "durationMs": 1452
     }
   ],
   "summary": {
@@ -611,12 +643,12 @@
       ]
     },
     "jira": {
-      "totalAttempts": 10,
-      "successful": 10,
+      "totalAttempts": 14,
+      "successful": 14,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-05-08T00:31:08.383Z",
-      "avgDurationMs": 1726,
+      "lastSuccess": "2026-05-09T15:04:29.345Z",
+      "avgDurationMs": 1625.2142857142858,
       "recentErrors": []
     },
     "ado": {
@@ -629,11 +661,11 @@
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 73,
-      "successful": 67,
+      "totalAttempts": 77,
+      "successful": 71,
       "failed": 6,
-      "successRate": 0.9178082191780822
+      "successRate": 0.922077922077922
     },
-    "lastUpdated": "2026-05-08T00:31:08.386Z"
+    "lastUpdated": "2026-05-09T15:04:29.346Z"
   }
 }
