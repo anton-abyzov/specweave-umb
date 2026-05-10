@@ -53,5 +53,6 @@
   "0796-plugin-update-banner-notifier": 1777322026394,
   "0797-admin-stats-unified-cache": 1777340097667,
   "0800-studio-tests-discoverability-and-readonly-run": 1777435404496,
-  "0827-studio-install-button-scope-awareness": 1777968303977
+  "0827-studio-install-button-scope-awareness": 1777968303977,
+  "0838-sse-diagnose-source-origin-updates": 1778382394365
 }
