@@ -1,10 +1,10 @@
 {
   "id": "0836-skill-studio-hardening-pass",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P0",
   "created": "2026-05-10T00:02:51.843Z",
-  "lastActivity": "2026-05-10T02:53:38.171Z",
+  "lastActivity": "2026-05-10T04:12:20.616Z",
   "activatedAt": "2026-05-10T00:25:00.000Z",
   "testMode": "TDD",
   "coverageTarget": 90,
@@ -16,14 +16,14 @@
       "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1536",
       "projectKey": "SWE2E",
       "domain": "antonabyzov.atlassian.net",
-      "syncedAt": "2026-05-10T00:23:53.745Z"
+      "syncedAt": "2026-05-10T04:13:06.644Z"
     },
     "ado": {
       "featureId": "2375",
       "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2375",
       "organization": "EasyChamp",
       "project": "SpecWeaveSync",
-      "syncedAt": "2026-05-10T00:23:58.587Z"
+      "syncedAt": "2026-05-10T04:13:11.405Z"
     }
   },
   "planning": {
@@ -447,5 +447,7 @@
       "warnings": [],
       "changesCount": 0
     }
-  ]
+  ],
+  "readyForReviewAt": "2026-05-10T04:12:20.569Z",
+  "approvedAt": "2026-05-10T04:12:20.616Z"
 }

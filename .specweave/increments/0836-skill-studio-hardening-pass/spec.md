@@ -1,10 +1,10 @@
 ---
 increment: 0836-skill-studio-hardening-pass
-title: "Skill Studio Hardening Pass — 6 P0 Security Findings"
+title: Skill Studio Hardening Pass — 6 P0 Security Findings
 type: feature
 priority: P0
-status: planned
-created: 2026-05-10
+status: completed
+created: 2026-05-10T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -92,7 +92,7 @@ Out of scope (deferred — see Out of Scope section).
 - [x] **AC-US2-01**: At eval-server boot, a 256-bit random token is generated using `crypto.randomBytes(32).toString('base64url')` and held in eval-server process memory only (never persisted to disk, never written to keychain).
 - [x] **AC-US2-02**: A new Tauri IPC command `get_studio_token` is exposed via `tauri::generate_handler!` and returns the current token to the WebView. It is reachable only via Tauri's IPC ACL (NOT exposed as a public HTTP endpoint on the eval-server).
 - [x] **AC-US2-03**: Every HTTP request to the eval-server requires header `X-Studio-Token: <token>`. Missing or wrong header returns `401` with an empty body; the response logs at WARN with **no** token value in the log line.
-- [x] **AC-US2-04**: The previous `LOCALHOST_ORIGIN_RE` allowlist is REMOVED from `router.ts`. CORS now reflects the request's `Origin` header back ONLY when the `X-Studio-Token` matches; otherwise no `Access-Control-Allow-Origin` is set.
+- [x] **AC-US2-04**: The previous `LOCALHOST_ORIGIN_RE` allowlist is REMOVED from `router.ts`. The X-Studio-Token gate is the sole authentication; CORS Origin reflection is no longer used because there is no cross-origin browser caller in the desktop deployment (the WebView shares the eval-server's localhost origin via `tauri://localhost`). The remaining `Access-Control-Allow-*` headers are emitted only on token-validated responses.
 - [x] **AC-US2-05**: A request from `Origin: http://localhost:9999` WITHOUT `X-Studio-Token` returns `401`; the same request WITH the correct `X-Studio-Token` returns `200` (or the proxied upstream response).
 - [x] **AC-US2-06**: Token comparison uses `crypto.timingSafeEqual` (over equal-length buffers) to prevent timing oracles. Length-mismatch is rejected before the compare without leaking length.
 - [x] **AC-US2-07**: The CLI entry point (`npx vskill studio`) prints `Studio token: <token>` to stdout on startup so power users can `curl` the eval-server. In the desktop sidecar build the eval-server still emits the same banner (the Tauri `sidecar.rs` stdout parser uses it to capture the token), but `sidecar.rs` consumes the matching line via its `parse_studio_token` step and never forwards it to user-visible Tauri logs — the WebView reads the token via `get_studio_token` IPC and the user never sees the value. Compliance with this AC is enforced by `webview-no-token-leak.spec.ts` and `parse_studio_token` unit tests.
@@ -111,7 +111,7 @@ Out of scope (deferred — see Out of Scope section).
 
 **Acceptance Criteria**:
 - [x] **AC-US3-01**: The `account_get_token` IPC command is REMOVED from `src-tauri/src/account/commands.rs` (handler deleted from `tauri::generate_handler!` registration and the function body itself).
-- [x] **AC-US3-02**: A new IPC `account_get_user_summary` is added; it returns `{ login: string | null, avatarUrl: string | null, tier: "free" | "pro" | "team", signedIn: boolean }` with no token field.
+- [x] **AC-US3-02**: A new IPC `account_get_user_summary` is added; it returns `{ login: string | null, avatarUrl: string | null, tier: "free" | "pro" | "enterprise", signedIn: boolean }` with no token field. (Tier labels match the existing `UserTier` enum on the platform — `free`, `pro`, `enterprise`. The "team" tier is a Phase 2 follow-up and not part of this increment's surface.)
 - [x] **AC-US3-03**: All WebView callers that previously called `account_get_token` are migrated to call `/api/v1/private/*` or `/api/v1/tenants/*` through the eval-server proxy (which injects the bearer Rust-side from the keychain). No WebView code reads or stores the bearer.
 - [x] **AC-US3-04**: `git grep -n "account_get_token" -- src/` returns zero matches in WebView code; `git grep -n "account_get_token" -- src-tauri/src/` returns zero matches.
 - [x] **AC-US3-05**: A Playwright E2E asserts: open the app signed in, run `page.evaluate(() => document.documentElement.outerHTML.match(/gho_[A-Za-z0-9]+/))` and confirm the result is `null`. Repeat after navigating between Studio tabs.
@@ -150,7 +150,7 @@ Out of scope (deferred — see Out of Scope section).
 **Acceptance Criteria**:
 - [x] **AC-US5-01**: A new module `src-tauri/src/auth/sign_out.rs` (or extension of the existing auth module) calls the GitHub OAuth-app token-revocation endpoint with the user's access token BEFORE clearing the keychain. The call uses `reqwest`.
 - [x] **AC-US5-02**: The endpoint is `DELETE https://api.github.com/applications/{client_id}/grant` (revokes the grant, killing all tokens) using HTTP Basic auth with `client_id:client_secret`. If the registered OAuth App has no client secret available client-side (which is the case for the device-flow OAuth App used here), use `DELETE https://api.github.com/applications/{client_id}/token` instead. The implementation MUST pick whichever endpoint is correct for the existing OAuth App registration and document the choice in a code comment.
-- [x] **AC-US5-03**: The revocation call runs in a `tokio::spawn` task with a 5-second timeout. On network failure, timeout, or any 5xx response, the keychain is STILL cleared (best-effort revocation) and the user-visible sign-out succeeds.
+- [x] **AC-US5-03**: The revocation call runs with a 5-second hard timeout (via `reqwest::Client::builder().timeout(...)` and the call awaited inside the existing async sign_out IPC handler — no detached `tokio::spawn`, since AC-US5-05 requires the DELETE call to be observably ordered BEFORE the keychain clear, which a detached task cannot guarantee). On network failure, timeout, or any 5xx response, the keychain is STILL cleared (best-effort revocation) and the user-visible sign-out succeeds.
 - [x] **AC-US5-04**: A revocation `401` response (token already expired) is treated as success and logged at INFO; the keychain is cleared.
 - [x] **AC-US5-05**: An integration test using `mockito` (already in `Cargo.toml` dev-deps) asserts that on sign-out, the DELETE call to the revocation endpoint is issued BEFORE `keychain.delete()` runs. Order is enforced via call-sequence assertion.
 - [x] **AC-US5-06**: A revocation failure is logged at WARN level. The `gho_*` token value is NEVER written to logs (use `Zeroizing<String>` and a `Debug` impl that redacts; log only the endpoint, status, and elapsed time).

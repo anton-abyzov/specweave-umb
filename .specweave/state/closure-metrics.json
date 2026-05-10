@@ -638,6 +638,14 @@
       "success": true,
       "timestamp": "2026-05-09T18:40:07.752Z",
       "durationMs": 1501
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1536",
+      "incrementId": "0836-skill-studio-hardening-pass",
+      "success": true,
+      "timestamp": "2026-05-10T04:12:41.061Z",
+      "durationMs": 1367
     }
   ],
   "summary": {
@@ -659,12 +667,12 @@
       ]
     },
     "jira": {
-      "totalAttempts": 16,
-      "successful": 16,
+      "totalAttempts": 17,
+      "successful": 17,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-05-09T18:40:07.752Z",
-      "avgDurationMs": 1601.4375,
+      "lastSuccess": "2026-05-10T04:12:41.061Z",
+      "avgDurationMs": 1587.6470588235295,
       "recentErrors": []
     },
     "ado": {
@@ -677,11 +685,11 @@
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 79,
-      "successful": 73,
+      "totalAttempts": 80,
+      "successful": 74,
       "failed": 6,
-      "successRate": 0.9240506329113924
+      "successRate": 0.925
     },
-    "lastUpdated": "2026-05-09T18:40:07.753Z"
+    "lastUpdated": "2026-05-10T04:12:41.064Z"
   }
 }
