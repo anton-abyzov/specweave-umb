@@ -1,10 +1,11 @@
 {
   "id": "0839-cli-auth-wiring-tenant-switcher",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-05-09T18:33:00.000Z",
-  "lastActivity": "2026-05-09T18:33:00.000Z",
+  "lastActivity": "2026-05-10T05:05:30.210Z",
+  "activatedAt": "2026-05-10T03:50:00.000Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -14,5 +15,130 @@
   },
   "phase": "P1",
   "parentScope": "vskill-redesign-around-login",
-  "summary": "Wire vskill CLI install/add/list/marketplace to read keychain Bearer + tenant scope. Add Studio tenant switcher. Make the already-shipped 0834 auth foundation actually visible and usable."
+  "summary": "Wire vskill CLI install/add/list/marketplace to read keychain Bearer + tenant scope. Add Studio tenant switcher. Make the already-shipped 0834 auth foundation actually visible and usable.",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-05-10T04:25:06.543Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T04:25:02.554Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T04:08:54.218Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T04:08:49.676Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T04:08:45.211Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T04:08:40.740Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T04:08:35.871Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T04:08:31.441Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T03:57:15.289Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T03:55:58.975Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US3-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    }
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-05-10T04:53:56.297Z",
+  "approvedAt": "2026-05-10T05:05:30.210Z"
 }
