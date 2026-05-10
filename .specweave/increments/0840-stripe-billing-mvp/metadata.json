@@ -1,0 +1,59 @@
+{
+  "id": "0840-stripe-billing-mvp",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-05-09T18:33:00.000Z",
+  "lastActivity": "2026-05-10T02:22:28.092Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "planning": {
+    "parallel": false
+  },
+  "phase": "P2",
+  "parentScope": "vskill-redesign-around-login",
+  "summary": "Stripe billing MVP. New Prisma models (BillingCustomer, Subscription, Invoice, StripeWebhookEvent). Checkout + portal + webhooks. Pricing $20 Pro / $30 Team / Custom Enterprise. 90-day grace coupon for grandfathered auto-PRO users. 50% off year one for waitlist.",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-05-10T02:22:28.092Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US2-04 referenced in tasks.md but not found in spec.md",
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US1-03 referenced in tasks.md but not found in spec.md",
+        "AC-US1-04 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5-01 referenced in tasks.md but not found in spec.md",
+        "AC-US5-02 referenced in tasks.md but not found in spec.md",
+        "AC-US5-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5-05 referenced in tasks.md but not found in spec.md",
+        "AC-US2-05 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US2-06 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-02 referenced in tasks.md but not found in spec.md",
+        "AC-US4-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-04 referenced in tasks.md but not found in spec.md",
+        "AC-US4-05 referenced in tasks.md but not found in spec.md",
+        "AC-US6-01 referenced in tasks.md but not found in spec.md",
+        "AC-US8-01 referenced in tasks.md but not found in spec.md",
+        "AC-US8-02 referenced in tasks.md but not found in spec.md",
+        "AC-US8-03 referenced in tasks.md but not found in spec.md",
+        "AC-US5-04 referenced in tasks.md but not found in spec.md",
+        "AC-US9-01 referenced in tasks.md but not found in spec.md",
+        "AC-US9-02 referenced in tasks.md but not found in spec.md",
+        "AC-US9-03 referenced in tasks.md but not found in spec.md",
+        "AC-US9-04 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ]
+}

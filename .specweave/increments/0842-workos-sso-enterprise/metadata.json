@@ -1,0 +1,55 @@
+{
+  "id": "0842-workos-sso-enterprise",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P4",
+  "created": "2026-05-09T18:33:00.000Z",
+  "lastActivity": "2026-05-10T02:27:16.897Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "planning": {
+    "parallel": false
+  },
+  "phase": "P4",
+  "parentScope": "vskill-redesign-around-login",
+  "dependsOn": [
+    "0840-stripe-billing-mvp",
+    "0841-per-org-seat-licensing"
+  ],
+  "trigger": "First paying enterprise LOI",
+  "summary": "WorkOS SAML SSO + SCIM Directory Sync for Enterprise tier. Tenant.ssoConnectionId mirroring WorkOS connection. Audit log UI surface (data layer already shipped). SOC 2 Type II prep deferred to LOI.",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-05-10T02:27:16.897Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US7-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T02:27:09.516Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US6-01: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T02:25:46.396Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-02: has no tasks mapped",
+        "AC-US6-01: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
