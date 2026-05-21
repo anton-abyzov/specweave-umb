@@ -1,0 +1,17 @@
+{
+  "id": "0848-private-public-skill-visualization",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-05-21T16:00:00.000Z",
+  "activatedAt": "2026-05-21T16:00:00.000Z",
+  "lastActivity": "2026-05-21T16:00:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "planning": {
+    "parallel": false
+  },
+  "summary": "Smart public/private skill separation across Skill Studio (desktop) + web cabinet. Add inline lock badge on private-repo skills, group private/public skill rows within sections, add private-skill discovery hints across public surfaces."
+}
