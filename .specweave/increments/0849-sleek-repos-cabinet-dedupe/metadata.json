@@ -1,0 +1,17 @@
+{
+  "id": "0849-sleek-repos-cabinet-dedupe",
+  "status": "active",
+  "type": "ux",
+  "priority": "P1",
+  "created": "2026-05-21T22:30:00.000Z",
+  "activatedAt": "2026-05-21T22:30:00.000Z",
+  "lastActivity": "2026-05-22T00:42:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "planning": {
+    "parallel": false
+  },
+  "summary": "Sectioned Public/Private Repositories cabinet (web + Mac), one canonical Connect CTA per surface, empty state stays informational. Closes user feedback: duplicated buttons + unclear public/private differentiation."
+}
