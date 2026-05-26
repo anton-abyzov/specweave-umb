@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verify Runtime — 0853 (phase-3-verify port)</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --line: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --pass: #3fb950;
+      --fail: #f85149;
+      --blocked: #d29922;
+      --probe: #58a6ff;
+      --accent: #a371f7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 28px; border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
+    }
+    header h1 { margin: 0; font-size: 16px; letter-spacing: 0.5px; }
+    header h1 small { color: var(--muted); font-weight: normal; margin-left: 10px; }
+    .row { display: flex; gap: 12px; align-items: center; }
+    button {
+      background: var(--accent); color: white; border: 0; padding: 8px 16px;
+      border-radius: 6px; cursor: pointer; font-weight: 600;
+      font-family: inherit; font-size: 13px;
+    }
+    button:hover { filter: brightness(1.15); }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+    main { padding: 24px 28px; max-width: 1100px; margin: 0 auto; }
+    .summary {
+      display: flex; gap: 24px; padding: 16px 20px;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 8px; margin-bottom: 24px;
+    }
+    .summary div { display: flex; flex-direction: column; }
+    .summary span:first-child { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+    .summary span:last-child { font-size: 16px; font-weight: 600; margin-top: 4px; }
+    .unit {
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 8px; margin-bottom: 16px; overflow: hidden;
+    }
+    .unit-header {
+      padding: 14px 20px; border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .unit-header h2 { margin: 0; font-size: 14px; font-weight: 600; }
+    .unit-header code { color: var(--muted); font-size: 12px; }
+    .fixture {
+      padding: 12px 20px 12px 32px; border-bottom: 1px solid var(--line);
+      display: grid; grid-template-columns: 90px 100px 1fr 80px; gap: 12px; align-items: center;
+    }
+    .fixture:last-child { border-bottom: 0; }
+    .fixture-id { font-weight: 600; }
+    .fixture-id small { display: block; color: var(--muted); font-weight: normal; font-size: 11px; margin-top: 2px; }
+    .duration { color: var(--muted); font-size: 12px; text-align: right; }
+    .badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .badge.PASS { background: rgba(63, 185, 80, 0.16); color: var(--pass); }
+    .badge.FAIL { background: rgba(248, 81, 73, 0.16); color: var(--fail); }
+    .badge.BLOCKED { background: rgba(210, 153, 34, 0.16); color: var(--blocked); }
+    .tag {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 2px 8px; border-radius: 12px; font-size: 11px;
+    }
+    .tag.probe { background: rgba(88, 166, 255, 0.16); color: var(--probe); }
+    .tag.happy { background: rgba(255,255,255,0.06); color: var(--muted); }
+    .checks {
+      grid-column: 1 / -1; margin-top: 8px;
+      padding: 10px 14px; background: rgba(255,255,255,0.02);
+      border-radius: 4px; font-size: 12px;
+      display: none;
+    }
+    .checks.open { display: block; }
+    .check { display: flex; gap: 8px; padding: 2px 0; }
+    .check .status { width: 18px; text-align: center; }
+    .check .status.ok { color: var(--pass); }
+    .check .status.fail { color: var(--fail); }
+    .check .status.warn { color: var(--blocked); }
+    .check .id { color: var(--muted); }
+    .toggle-checks {
+      grid-column: 1 / -1; margin-top: 6px;
+      background: transparent; color: var(--muted); padding: 4px 8px;
+      font-size: 11px;
+    }
+    footer {
+      padding: 20px 28px; color: var(--muted); font-size: 11px;
+      border-top: 1px solid var(--line); text-align: center;
+    }
+    a { color: var(--probe); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .ts { color: var(--muted); font-size: 11px; }
+    #busy { color: var(--blocked); }
+  </style>
+</head>
+<body
+  data-sw-verify-page="verify-dashboard"
+  data-sw-verify-version="1.0">
+
+<header>
+  <h1>
+    Verify runtime <small>0853 · phase-3-verify port · vskill install + create</small>
+  </h1>
+  <div class="row">
+    <span id="busy" data-sw-verify-busy="false"></span>
+    <button id="runAll" data-sw-verify-action="run-all">▶ Run all</button>
+  </div>
+</header>
+
+<main>
+  <section class="summary" id="summary"
+    data-sw-verify-unit="summary"
+    data-sw-verify-overall=""
+    data-sw-verify-units-total="0"
+    data-sw-verify-units-pass="0">
+    <div><span>Overall verdict</span><span id="overall" class="badge">—</span></div>
+    <div><span>Units</span><span id="unitsCount">—</span></div>
+    <div><span>Fixtures</span><span id="fixturesCount">—</span></div>
+    <div><span>Probes</span><span id="probesCount">—</span></div>
+    <div><span>Last run</span><span id="lastRun" class="ts">—</span></div>
+  </section>
+
+  <div id="units"></div>
+</main>
+
+<footer>
+  Reads <code>.specweave/state/verify-current.json</code> · same JSON the CLI grid and vitest matrix consume ·
+  <a href="/api/verify-current.json" target="_blank">raw JSON</a>
+</footer>
+
+<script>
+  const api = {
+    current: () => fetch("/api/verify-current.json").then(r => r.json()),
+    runAll: () => fetch("/api/run-all", { method: "POST" }).then(r => r.json()),
+  };
+
+  const $ = (sel) => document.querySelector(sel);
+
+  function badge(verdict) {
+    return `<span class="badge ${verdict}" data-sw-verify-badge="${verdict}">${verdict}</span>`;
+  }
+
+  function render(state) {
+    const result = state.current;
+    if (!result) {
+      $("#units").innerHTML = `<div style="padding:20px;color:var(--muted);">No verify run yet — click <b>Run all</b>.</div>`;
+      return;
+    }
+
+    // summary
+    const summary = $("#summary");
+    $("#overall").outerHTML = `<span id="overall" class="badge ${result.verdict}" data-sw-verify-overall-badge="${result.verdict}">${result.verdict}</span>`;
+    $("#unitsCount").textContent = result.units.length;
+    const allFix = result.units.flatMap(u => u.fixtures);
+    $("#fixturesCount").textContent = allFix.length;
+    $("#probesCount").textContent = allFix.filter(f => f.probe).length;
+    $("#lastRun").textContent = result.runAt;
+    summary.setAttribute("data-sw-verify-overall", result.verdict);
+    summary.setAttribute("data-sw-verify-units-total", String(result.units.length));
+    summary.setAttribute("data-sw-verify-units-pass", String(result.units.filter(u => u.verdict === "PASS").length));
+
+    // units
+    $("#units").innerHTML = result.units.map(u => `
+      <section class="unit"
+        data-sw-verify-unit="${u.unitId}"
+        data-sw-verify-verdict="${u.verdict}"
+        data-sw-verify-fixtures="${u.fixtures.length}">
+        <div class="unit-header">
+          ${badge(u.verdict)}
+          <h2>${u.unitId}</h2>
+          <code>${u.command}</code>
+        </div>
+        ${u.fixtures.map(f => `
+          <div class="fixture" data-sw-verify-fixture="${f.fixtureId}" data-sw-verify-fixture-verdict="${f.verdict}" data-sw-verify-probe="${f.probe}">
+            ${badge(f.verdict)}
+            <span class="tag ${f.probe ? "probe" : "happy"}">${f.probe ? "🔍 probe" : "✅ happy"}</span>
+            <div class="fixture-id">${f.fixtureId}<small>${f.checks.length} checks</small></div>
+            <span class="duration">${f.durationMs}ms</span>
+            <button class="toggle-checks" data-target="checks-${u.unitId}-${f.fixtureId}">show checks ▾</button>
+            <div class="checks" id="checks-${u.unitId}-${f.fixtureId}">
+              ${f.checks.map(c => `
+                <div class="check">
+                  <span class="status ${c.status}">${c.status === "ok" ? "✓" : c.status === "fail" ? "✗" : "⚠"}</span>
+                  <span class="id">${c.id}</span>
+                  <span>${c.message || ""}</span>
+                </div>
+              `).join("")}
+              ${f.blockedReason ? `<div class="check"><span class="status warn">⊘</span><span>BLOCKED: ${f.blockedReason.split("\n")[0]}</span></div>` : ""}
+            </div>
+          </div>
+        `).join("")}
+      </section>
+    `).join("");
+
+    // toggle handlers
+    document.querySelectorAll(".toggle-checks").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const id = e.target.getAttribute("data-target");
+        const box = document.getElementById(id);
+        box.classList.toggle("open");
+        e.target.textContent = box.classList.contains("open") ? "hide checks ▴" : "show checks ▾";
+      });
+    });
+  }
+
+  async function load() {
+    try { render(await api.current()); }
+    catch (err) { $("#units").innerHTML = `<div style="color:var(--fail);padding:20px">${err.message}</div>`; }
+  }
+
+  $("#runAll").addEventListener("click", async () => {
+    const btn = $("#runAll"); const busy = $("#busy");
+    btn.disabled = true; busy.textContent = "running…"; busy.parentNode.setAttribute("data-sw-verify-busy", "true");
+    try {
+      const result = await api.runAll();
+      render({ current: result });
+    } catch (err) {
+      busy.textContent = "error: " + err.message;
+    } finally {
+      btn.disabled = false; busy.textContent = ""; busy.parentNode.setAttribute("data-sw-verify-busy", "false");
+    }
+  });
+
+  load();
+
+  // Agent handle — equivalent of window.__verify in Anthropic's repo.
+  window.__sw_verify = {
+    version: "1.0",
+    refresh: load,
+    runAll: api.runAll,
+    current: api.current,
+  };
+</script>
+
+</body>
+</html>

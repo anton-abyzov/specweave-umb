@@ -1,0 +1,15 @@
+{
+  "id": "0853",
+  "name": "verify-runtime-vskill",
+  "title": "Verify-runtime pattern for vskill install + create (Anthropic phase-3-verify port)",
+  "status": "active",
+  "created": "2026-05-25",
+  "owner": "anton",
+  "repo": "specweave-umb",
+  "related": ["0843-skill-studio-workspace-tree", "0850-studio-install-feedback-and-status"],
+  "source": {
+    "kind": "research-port",
+    "upstream": "https://github.com/anthropics/cwc-workshops/tree/main/how-we-claude-code/phase-3-verify",
+    "video": "https://www.youtube.com/watch?v=IlqJqcl8ONE"
+  }
+}
