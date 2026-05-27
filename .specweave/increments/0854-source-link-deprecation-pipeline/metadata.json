@@ -1,0 +1,38 @@
+{
+  "id": "0854-source-link-deprecation-pipeline",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-05-27T18:11:29.577Z",
+  "lastActivity": "2026-05-27T18:16:13.703Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-05-27T18:16:13.703Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01: has no tasks mapped",
+        "AC-US1-02: has no tasks mapped",
+        "AC-US1-03: has no tasks mapped",
+        "AC-US2-01: has no tasks mapped",
+        "AC-US2-02: has no tasks mapped",
+        "AC-US3-01: has no tasks mapped",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-03: has no tasks mapped",
+        "AC-US4-01: has no tasks mapped",
+        "AC-US4-02: has no tasks mapped",
+        "AC-US4-03: has no tasks mapped",
+        "AC-US4-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    }
+  ]
+}
