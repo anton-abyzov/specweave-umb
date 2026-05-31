@@ -1,0 +1,36 @@
+{
+  "id": "0861",
+  "title": "Skill Dedup Hardening + Failure Notification",
+  "status": "active",
+  "type": "feature",
+  "created": "2026-05-31",
+  "updated": "2026-05-31",
+  "branch": "main",
+  "owner": "anton",
+  "repo": "vskill-platform",
+  "domains": [
+    "backend",
+    "infra"
+  ],
+  "decisions": {
+    "alertChannel": "email-only (SendGrid)",
+    "leakedTokens": "owner declined revocation/history-rewrite — accepted risk"
+  },
+  "relatedIncrements": [
+    "0673-submission-dedup-cleanup-at-scale",
+    "0685-rescan-published-dedup-fix",
+    "0748-crawl-worker-watchdog",
+    "0787-crawler-skills-sh-popular-coverage",
+    "0794",
+    "0807-queue-observability-alerts",
+    "0808-fix-queue-observability-alerts-followups",
+    "0849-sleek-repos-cabinet-dedupe",
+    "0859-do-reliable-submission-notifications"
+  ],
+  "deferredTo": "0862-crawler-discovery-completeness",
+  "origin": "Workflow audit weqo4pza2 (skill-scrape-audit-and-harden) — 12 agents, adversarially hardened",
+  "tasks": {
+    "total": 13,
+    "completed": 1
+  }
+}
