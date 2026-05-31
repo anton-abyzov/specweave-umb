@@ -1,0 +1,10 @@
+{
+  "id": "0862",
+  "name": "lifecycle-demo-video",
+  "title": "Screen-recorded demo video: bump version → submit in Skill Studio → review notification → update locally",
+  "status": "active",
+  "created": "2026-05-31",
+  "owner": "anton",
+  "repo": "specweave-umb",
+  "related": ["0847", "0859", "0860"]
+}
