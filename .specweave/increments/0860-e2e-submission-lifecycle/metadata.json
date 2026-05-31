@@ -1,0 +1,10 @@
+{
+  "id": "0860",
+  "name": "e2e-submission-lifecycle",
+  "title": "E2E test: improve skill → in-app submit → monitor review → decision notification → update locally (+ theme readability)",
+  "status": "active",
+  "created": "2026-05-31",
+  "owner": "anton",
+  "repo": "specweave-umb",
+  "related": ["0847", "0855", "0859"]
+}
