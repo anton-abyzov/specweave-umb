@@ -1,0 +1,10 @@
+{
+  "id": "0858",
+  "name": "hybrid-regression-scheduling",
+  "title": "Hybrid regression scheduling: GitHub cron backstop + Mac scheduled-task",
+  "status": "active",
+  "created": "2026-05-30",
+  "owner": "anton",
+  "repo": "specweave-umb",
+  "related": ["0853", "0857"]
+}
