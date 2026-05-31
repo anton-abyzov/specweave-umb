@@ -19,3 +19,21 @@ Modeled on the existing `e2e-live-nightly.yml` (Node 22, checkout@v4, setup-node
 - GitHub cron = always-on, hermetic, but cannot run `claude-cli`/`lm-studio` (no local binary/server on hosted runners).
 - Mac task = the only place the local-model leg can run, but skips silently when the laptop is closed.
 - Together: CI guarantees the create/install/run-with-model wiring never regresses; the Mac task adds authoritative real-local-model coverage.
+
+## CI-skip classification (0858 AC-US1-01/02 — added 2026-05-30)
+
+The verify harness (`test/verify/`) is now CI-aware. Detection: `process.env.CI === 'true'` (GitHub Actions sets this automatically) OR explicit `VSKILL_VERIFY_CI=1`. Helper: `test/verify/ci-mode.mjs`.
+
+Per-unit `ciSafe` flag (opt-out; default `true` = hermetic, always runs):
+
+| Unit | ciSafe | Reason (surfaced as `::warning::` in CI) |
+|------|--------|------------------------------------------|
+| U-GOLDEN | true | core regression guard — MUST run + PASS in CI |
+| U-SKILL-NEW, U-REMOVE, U-INFO, U-OUTDATED, U-AUDIT, U-INIT | true | hermetic |
+| U-INSTALL | false | requires real coding agents installed (cross-agent install asserts ≥4 detected agents) |
+| U-LIST | false | requires real coding agents installed (baseline install cross-agent layout) |
+| U-PIN | false | requires real coding agents installed (pin runs against cross-agent baseline install) |
+| U-LOCKFILE-CYCLE | false | requires real coding agents installed (per-agent once-only count over cross-agent dirs) |
+| U-STUDIO-API-INSTALL-STATE | false | requires a spawnable vskill studio server (HTTP install-state API) |
+
+CI behavior: `ciSafe:false` units are SKIP-LOUD — not executed, emit a `::warning::` GitHub annotation with the reason, recorded as `verdict:"SKIP"` in the VerifyResult JSON, and excluded from the Overall roll-up. Hermetic units still run; a real FAIL (incl. a golden-path regression) still fails the run with exit 1. Off CI, all 12 units run unchanged. The classification is pinned by a guard test in `matrix.test.mjs` so a future edit can't silently flip U-GOLDEN (or any hermetic unit) into the skipped bucket.
