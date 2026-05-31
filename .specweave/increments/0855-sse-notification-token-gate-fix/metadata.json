@@ -1,0 +1,1 @@
+{"id":"0855","name":"sse-notification-token-gate-fix","title":"Fix SSE notifications: token-gate exemption for EventSource stream path","status":"active","created":"2026-05-30","owner":"anton","repo":"specweave-umb","related":["0836","0838","0850"]}

@@ -1,0 +1,10 @@
+{
+  "id": "0857",
+  "name": "stub-provider-shared-verify-harness",
+  "title": "Deterministic stub LLM provider + shared verify harness (create->install->run-with-model)",
+  "status": "active",
+  "created": "2026-05-30",
+  "owner": "anton",
+  "repo": "specweave-umb",
+  "related": ["0853", "0856", "0858"]
+}
