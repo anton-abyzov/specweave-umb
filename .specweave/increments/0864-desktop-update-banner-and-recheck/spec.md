@@ -137,7 +137,7 @@ the developer's eye-path — as a highlighted chip that's impossible to miss.
   (`bannerVisible`/`bannerDismissed`/`dismiss`) removed; `available =
   Boolean(update)` drives the chip; the foreground re-check (focus/visibility/
   hourly, throttled) is retained.
-- [ ] AC-US7-05: Released as **v1.0.54** via `release-desktop.sh 1.0.54`.
+- [x] AC-US7-05: Released as **v1.0.54** via `release-desktop.sh 1.0.54` (LIVE; manifest serves 1.0.54).
 
 ## Out of Scope
 - Beta/channel infra, in-app changelog viewer, system tray indicator.

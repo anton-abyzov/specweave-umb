@@ -66,6 +66,6 @@ cluster); the full-width banner is gone; clicking installs+restarts.
 useAppUpdater.recheck.test.tsx — all green; eval-ui builds.
 
 ### T-011: Publish desktop v1.0.54 (header chip)
-**AC**: AC-US7-05 | **Status**: [ ] pending (after v1.0.53 completes)
+**AC**: AC-US7-05 | **Status**: [x] completed (v1.0.54 LIVE)
 **Test Plan**: `bash scripts/release/release-desktop.sh 1.0.54`; live manifest
 serves 1.0.54; chip visible on a real build.
