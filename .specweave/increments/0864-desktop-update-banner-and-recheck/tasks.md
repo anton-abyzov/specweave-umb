@@ -40,6 +40,19 @@ sleeps the short retry (~1h); When it succeeds, Then the 24h cadence is kept.
 `cargo build` (src-tauri) all green.
 
 ### T-007: Publish desktop v1.0.52
-**AC**: AC-US5-02 | **Status**: [ ] in progress (CI building)
+**AC**: AC-US5-02 | **Status**: [x] completed
 **Test Plan**: `bash scripts/release/release-desktop.sh 1.0.52`; then
 `curl https://verified-skill.com/desktop/latest.json` serves version 1.0.52.
+
+### T-008: Scoped remote-updater capability (studio window IPC)
+**AC**: AC-US6-01, AC-US6-02 | **Status**: [x] completed
+**Test Plan**: Given the studio main window (localhost remote origin), When the
+`studio-updater` capability + `allow-updater-commands` permission are added,
+Then `check_for_updates`/`get_settings`/`get_app_metadata` invoke successfully
+and the banner renders; cargo check validates the ACL. Verified on a real
+notarized build: v1.0.51 demo → click Update now → updated to v1.0.52.
+
+### T-009: Publish desktop v1.0.53 (capability fix)
+**AC**: AC-US6-03 | **Status**: [ ] in progress (CI building)
+**Test Plan**: `bash scripts/release/release-desktop.sh 1.0.53`; then
+`curl https://verified-skill.com/desktop/latest.json` serves 1.0.53.

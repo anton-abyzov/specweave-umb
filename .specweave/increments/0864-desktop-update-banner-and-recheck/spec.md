@@ -87,11 +87,35 @@ blackhole for a full day.
 - [ ] AC-US4-02: A successful background check keeps the existing 24h cadence.
 
 ### US-005 — Ship it
-- [ ] AC-US5-01: `npm run build`, `npm run build:eval-ui`, and the eval-ui unit
+- [x] AC-US5-01: `npm run build`, `npm run build:eval-ui`, and the eval-ui unit
   suite pass.
-- [ ] AC-US5-02: A new signed desktop release **v1.0.52** is published via
+- [x] AC-US5-02: A new signed desktop release **v1.0.52** is published via
   `scripts/release/release-desktop.sh 1.0.52`; `verified-skill.com/desktop/latest.json`
   serves 1.0.52.
+
+### US-006 — Make the banner actually reachable from the studio window (FOLLOW-UP)
+Verifying v1.0.52 on a real build revealed the banner never fired: the studio
+**main window loads from the local sidecar (`http://127.0.0.1`)** — a *remote*
+origin to Tauri — and `capabilities/default.json` is `local:true` (no `remote`),
+so Tauri v2 **blocks all IPC** from that window (a deliberate boundary — it
+renders untrusted marketplace skill content). `check_for_updates` was
+ACL-rejected before reaching Rust, so `bridge.available`/the banner never
+surfaced. Proven by per-command `std::fs::write` diagnostics: without the
+capability the main window invokes ZERO commands; with it, get_app_metadata /
+get_settings / check_for_updates all fire and the banner renders.
+
+**Acceptance Criteria**
+- [x] AC-US6-01: A scoped `capabilities/studio-updater.json` grants the studio
+  window (`windows:["main"]`, `remote.urls` = 127.0.0.1/localhost) ONLY
+  `core:event:default` + `updater:default` + a new `allow-updater-commands`
+  permission (check/download-install/cancel/restart + get_app_metadata /
+  get_settings / open_preferences). The broad `allow-app-commands` set stays
+  local-only so untrusted content can't reach shell/fs/dialog/OAuth/quota.
+- [x] AC-US6-02: With the capability, the main-window banner detects the update
+  and "Update now" performs a real download → install → relaunch (verified
+  end-to-end on a notarized build: a v1.0.51 demo updated itself to v1.0.52).
+- [x] AC-US6-03: A new signed desktop release **v1.0.53** ships the capability
+  fix via `release-desktop.sh 1.0.53`.
 
 ## Out of Scope
 - Beta/channel infra, in-app changelog viewer, system tray indicator.
