@@ -4,7 +4,7 @@
   "type": "feature",
   "priority": "P0",
   "created": "2026-06-01T05:00:00.000Z",
-  "lastActivity": "2026-06-01T07:10:54.744Z",
+  "lastActivity": "2026-06-01T07:22:52.433Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -14,6 +14,25 @@
     "parallel": false
   },
   "acSyncEvents": [
+    {
+      "timestamp": "2026-06-01T07:22:52.432Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US5-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US5-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US6-01: [x] but only 0/1 tasks complete (0%)",
+        "AC-US6-02: [x] but only 0/1 tasks complete (0%)",
+        "AC-US6-03: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US7-01..04 referenced in tasks.md but not found in spec.md",
+        "AC-US7-01: [x] but no tasks found (manual verification?)",
+        "AC-US7-02: [x] but no tasks found (manual verification?)",
+        "AC-US7-03: [x] but no tasks found (manual verification?)",
+        "AC-US7-04: [x] but no tasks found (manual verification?)"
+      ],
+      "changesCount": 0
+    },
     {
       "timestamp": "2026-06-01T07:10:54.744Z",
       "updated": [],

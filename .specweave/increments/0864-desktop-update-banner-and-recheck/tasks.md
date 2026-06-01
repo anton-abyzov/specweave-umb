@@ -53,6 +53,19 @@ and the banner renders; cargo check validates the ACL. Verified on a real
 notarized build: v1.0.51 demo → click Update now → updated to v1.0.52.
 
 ### T-009: Publish desktop v1.0.53 (capability fix)
-**AC**: AC-US6-03 | **Status**: [ ] in progress (CI building)
+**AC**: AC-US6-03 | **Status**: [x] completed (CI building → live)
 **Test Plan**: `bash scripts/release/release-desktop.sh 1.0.53`; then
 `curl https://verified-skill.com/desktop/latest.json` serves 1.0.53.
+
+### T-010: Header-integrated highlighted update chip
+**AC**: AC-US7-01..04 | **Status**: [x] completed
+**Test Plan**: Given a desktop update is available, Then the highlighted chip
+renders in the top rail's left group after the project picker (NOT the right
+cluster); the full-width banner is gone; clicking installs+restarts.
+**Test**: TopRail.updateBell.test.tsx (left-group placement), AppUpdateButton.test.tsx,
+useAppUpdater.recheck.test.tsx — all green; eval-ui builds.
+
+### T-011: Publish desktop v1.0.54 (header chip)
+**AC**: AC-US7-05 | **Status**: [ ] pending (after v1.0.53 completes)
+**Test Plan**: `bash scripts/release/release-desktop.sh 1.0.54`; live manifest
+serves 1.0.54; chip visible on a real build.

@@ -117,6 +117,28 @@ get_settings / check_for_updates all fire and the banner renders.
 - [x] AC-US6-03: A new signed desktop release **v1.0.53** ships the capability
   fix via `release-desktop.sh 1.0.53`.
 
+### US-007 — Header-integrated highlighted chip (DESIGN REFINEMENT)
+Per feedback: drop the separate full-width banner row; instead inject the update
+affordance into the EXISTING top rail, right beside the project/folder picker —
+the developer's eye-path — as a highlighted chip that's impossible to miss.
+
+**Acceptance Criteria**
+- [x] AC-US7-01: The full-width `UpdateBanner` row is removed (component +
+  test deleted; App.tsx banner slot back to just `DisconnectBanner`).
+- [x] AC-US7-02: The `AppUpdateButton` is moved from the right action cluster
+  into the left logo group, rendered immediately after the project-picker slot
+  (`TopRail.tsx`). Order: logo → project picker → update chip.
+- [x] AC-US7-03: The chip is visually HIGHLIGHTED when an update is available —
+  amber `--color-own` fill, up-arrow glyph, "Update available" label, and a soft
+  amber halo (`box-shadow`, static — no shimmer). States: Installing… N% /
+  Restart to update / Restarting… / Update failed. One click =
+  download→install→restart. Renders null until available (desktop-only).
+- [x] AC-US7-04: `useAppUpdater` simplified — banner-only fields
+  (`bannerVisible`/`bannerDismissed`/`dismiss`) removed; `available =
+  Boolean(update)` drives the chip; the foreground re-check (focus/visibility/
+  hourly, throttled) is retained.
+- [ ] AC-US7-05: Released as **v1.0.54** via `release-desktop.sh 1.0.54`.
+
 ## Out of Scope
 - Beta/channel infra, in-app changelog viewer, system tray indicator.
 - Browser-mode (npx studio) self-update / CLI-update nudge.
