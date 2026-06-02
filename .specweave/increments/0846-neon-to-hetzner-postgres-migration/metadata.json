@@ -1,0 +1,21 @@
+{
+  "id": "0846-neon-to-hetzner-postgres-migration",
+  "status": "abandoned",
+  "abandoned_reason": "Superseded by vskill-platform increment 0002-neon-to-hetzner-postgres-migration, which executed the migration on 2026-05-17 (Neon project blue-fog-19673548 deleted, traffic on Hetzner postgres-easychamp PG17 cluster port 5433). This umbrella spec was spec-only and never executed.",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-05-11T02:30:00.000Z",
+  "lastActivity": "2026-05-11T02:30:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "planning": {
+    "parallel": false
+  },
+  "phase": "infra-cost",
+  "parentScope": "vskill-cost-optimization",
+  "trigger": "Neon monthly cost exceeds Hetzner equivalent + ops capacity available",
+  "summary": "Migrate verified-skill.com Postgres from Neon serverless to self-hosted PostgreSQL on existing Hetzner VM infrastructure. Cost-optimization play — Neon's per-compute-hour pricing scales unfavorably as the catalog grows past ~120K skills; a managed Hetzner VM with pgBackRest can serve the same workload at a fraction of the cost. Out-of-scope for this session; spec only.",
+  "externalLinks": {}
+}

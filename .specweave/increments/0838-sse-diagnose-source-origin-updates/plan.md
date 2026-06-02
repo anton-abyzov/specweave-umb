@@ -115,8 +115,7 @@ eval-server proxy + verified-skill.com staging.
 ### Tests (new files)
 - `repositories/anton-abyzov/vskill/src/eval-ui/src/utils/__tests__/toastQueue.test.ts`
 - `repositories/anton-abyzov/vskill/src/eval-ui/src/utils/__tests__/resolveSubscriptionIds.source-origin.test.ts`
-- `repositories/anton-abyzov/vskill/src/eval-ui/src/hooks/__tests__/useSkillUpdates.visibility-queue.test.ts`
-- `repositories/anton-abyzov/vskill/src/eval-ui/src/hooks/__tests__/useSkillUpdates.telemetry.test.ts`
+- `repositories/anton-abyzov/vskill/src/eval-ui/src/hooks/__tests__/useSkillUpdates.visibility-queue.test.ts` (covers visibility-queue, debug-logging, telemetry pings, and replay-timer cleanup)
 - `repositories/anton-abyzov/vskill/src/eval-ui/src/components/__tests__/UpdateBell.status-pip.test.tsx`
 - `repositories/anton-abyzov/vskill/src/eval-server/__tests__/platform-proxy-debug-log.test.ts`
 - `repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/updates/__tests__/source-origin.test.ts`

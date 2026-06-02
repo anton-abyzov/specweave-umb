@@ -13,5 +13,6 @@
   "planning": {
     "parallel": false
   },
-  "summary": "Smart public/private skill separation across Skill Studio (desktop) + web cabinet. Add inline lock badge on private-repo skills, group private/public skill rows within sections, add private-skill discovery hints across public surfaces."
+  "summary": "Smart public/private skill separation across Skill Studio (desktop) + web cabinet. Add inline lock badge on private-repo skills, group private/public skill rows within sections, add private-skill discovery hints across public surfaces.",
+  "externalLinks": {}
 }

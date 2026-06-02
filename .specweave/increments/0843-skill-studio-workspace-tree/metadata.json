@@ -1,0 +1,78 @@
+{
+  "id": "0843-skill-studio-workspace-tree",
+  "status": "paused",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-05-10T04:16:00.737Z",
+  "lastActivity": "2026-05-14T06:27:11.730Z",
+  "activatedAt": "2026-05-10T04:40:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1547",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1547",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-05-10T04:37:57.619Z"
+    },
+    "ado": {
+      "featureId": "2386",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2386",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-05-10T04:38:01.998Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-05-10T04:44:44.551Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US1-01: [x] but only 0/2 tasks complete (0%)",
+        "AC-US1-02: [x] but only 0/2 tasks complete (0%)",
+        "AC-US1-05: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-03: [x] but only 0/1 tasks complete (0%)",
+        "AC-US1-04: [x] but only 0/1 tasks complete (0%)"
+      ],
+      "warnings": [
+        "AC-US1-01..AC-US5-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T04:43:36.820Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01..AC-US5-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T04:42:17.961Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01..AC-US5-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T04:37:07.747Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01..AC-US5-06 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "pausedReason": "Paused to execute approved /goal 0847-skill-install-publish-scale",
+  "pausedAt": "2026-05-14T06:27:11.730Z"
+}

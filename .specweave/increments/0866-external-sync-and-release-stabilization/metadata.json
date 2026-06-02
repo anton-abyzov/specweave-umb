@@ -1,0 +1,175 @@
+{
+  "id": "0866-external-sync-and-release-stabilization",
+  "name": "external-sync-and-release-stabilization",
+  "title": "Stabilize from-scratch install: publish 1.0.586, fix onboarding command, prove GitHub/Jira/ADO sync via live round-trip",
+  "status": "completed",
+  "created": "2026-06-01",
+  "owner": "anton",
+  "repo": "specweave-umb",
+  "related": [
+    "0852",
+    "0856",
+    "0865"
+  ],
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1580",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1580",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-06-01T20:52:13.024Z"
+    },
+    "ado": {
+      "featureId": "2425",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2425",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-06-01T20:52:14.497Z"
+    }
+  },
+  "priority": "high",
+  "lastActivity": "2026-06-01T20:52:01.799Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "type": "hotfix",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-06-01T20:45:48.189Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-06-01T20:45:25.732Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-06-01T20:44:41.817Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-06-01T20:39:20.256Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-06-01T20:38:35.954Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-06-01T20:37:49.300Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-06-01T20:36:17.172Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-06-01T20:34:06.700Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-01 referenced in tasks.md but not found in spec.md",
+        "AC-US1-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-01 referenced in tasks.md but not found in spec.md",
+        "AC-US2-02 referenced in tasks.md but not found in spec.md",
+        "AC-US2-03 referenced in tasks.md but not found in spec.md",
+        "AC-US4-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01 referenced in tasks.md but not found in spec.md",
+        "AC-US3-02 referenced in tasks.md but not found in spec.md",
+        "AC-US3-03 referenced in tasks.md but not found in spec.md"
+      ],
+      "changesCount": 0
+    }
+  ],
+  "readyForReviewAt": "2026-06-01T20:52:01.788Z",
+  "approvedAt": "2026-06-01T20:52:01.799Z"
+}

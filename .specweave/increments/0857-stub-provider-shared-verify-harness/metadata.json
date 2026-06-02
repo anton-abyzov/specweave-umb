@@ -1,10 +1,20 @@
 {
-  "id": "0857",
+  "id": "0857-stub-provider-shared-verify-harness",
   "name": "stub-provider-shared-verify-harness",
   "title": "Deterministic stub LLM provider + shared verify harness (create->install->run-with-model)",
   "status": "active",
   "created": "2026-05-30",
   "owner": "anton",
   "repo": "specweave-umb",
-  "related": ["0853", "0856", "0858"]
+  "related": [
+    "0853",
+    "0856",
+    "0858"
+  ],
+  "externalLinks": {},
+  "priority": "medium",
+  "lastActivity": "2026-05-30",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "type": "feature"
 }

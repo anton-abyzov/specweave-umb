@@ -3,7 +3,8 @@ increment: 0838-sse-diagnose-source-origin-updates
 title: 'Skill Studio: SSE diagnose mode + source-origin update tracking'
 type: feature
 priority: P0
-status: active
+status: completed
+project: vskill
 created: 2026-05-09T18:33:00.000Z
 structure: user-stories
 test_mode: TDD
@@ -118,7 +119,7 @@ update dropdown body itself.
 ## User Stories
 
 ### US-001: User-initiated SSE diagnostic mode (P0)
-**Project**: vskill (eval-ui + eval-server)
+**Project**: vskill
 
 **As a** user reporting "I never see updates"
 **I want** a one-click way to verify whether SSE is working
@@ -152,7 +153,7 @@ filing a support ticket
   branch from console + tooltip + Network tab.
 
 ### US-002: Source-origin update tracking (P0)
-**Project**: vskill (eval-ui) + vskill-platform (Next.js)
+**Project**: vskill, vskill-platform
 
 **As a** skill author working on locally-authored skills (`origin=source`)
 **I want** update notifications when the upstream registry version surpasses
@@ -191,7 +192,7 @@ hand
   on `name` collisions.
 
 ### US-003: Toast queue across visibility transitions (P0)
-**Project**: vskill (eval-ui)
+**Project**: vskill
 
 **As a** user who multitasks through long publish runs
 **I want** to NOT lose update toasts when the Studio window is backgrounded
@@ -226,7 +227,7 @@ the foreground
   in-memory dedupe to prevent cross-window double-toasts.
 
 ### US-004: Status indicator in bell tooltip (P1)
-**Project**: vskill (eval-ui)
+**Project**: vskill
 
 **As a** user glancing at the bell
 **I want** an at-a-glance signal of whether live updates are connected,
@@ -258,7 +259,7 @@ reconnecting, or offline
   New selectors: `update-bell-status-pip`, `update-bell-status-text`.
 
 ### US-005: Telemetry counter for SSE health (P1)
-**Project**: vskill (eval-ui) + vskill-platform (Cloudflare Worker)
+**Project**: vskill, vskill-platform
 
 **As a** Studio operator on the platform team
 **I want** aggregate SSE health metrics across the fleet

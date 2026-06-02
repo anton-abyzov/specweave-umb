@@ -1,10 +1,10 @@
 {
   "id": "0838-sse-diagnose-source-origin-updates",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P0",
   "created": "2026-05-09T18:33:00.000Z",
-  "lastActivity": "2026-05-10T02:26:30.000Z",
+  "lastActivity": "2026-05-10T03:45:20.920Z",
   "activatedAt": "2026-05-10T02:26:30.000Z",
   "testMode": "TDD",
   "coverageTarget": 90,
@@ -15,5 +15,23 @@
   },
   "phase": "P0",
   "parentScope": "vskill-redesign-around-login",
-  "summary": "Diagnose why SSE updates are not surfaced in the macOS Skill Studio app. Add observability and ship source-origin update tracking so locally-authored skills also fire toasts."
+  "summary": "Diagnose why SSE updates are not surfaced in the macOS Skill Studio app. Add observability and ship source-origin update tracking so locally-authored skills also fire toasts.",
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1543",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1543",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-05-10T03:48:37.379Z"
+    },
+    "ado": {
+      "featureId": "2382",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2382",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-05-10T03:48:40.476Z"
+    }
+  },
+  "readyForReviewAt": "2026-05-10T03:36:15.319Z",
+  "approvedAt": "2026-05-10T03:45:20.920Z"
 }

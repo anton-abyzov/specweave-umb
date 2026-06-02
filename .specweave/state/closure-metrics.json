@@ -646,6 +646,62 @@
       "success": true,
       "timestamp": "2026-05-10T04:12:41.061Z",
       "durationMs": 1367
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1559",
+      "incrementId": "0841-per-org-seat-licensing",
+      "success": true,
+      "timestamp": "2026-05-10T23:54:25.829Z",
+      "durationMs": 1533
+    },
+    {
+      "tool": "ado",
+      "itemId": 2398,
+      "incrementId": "0841-per-org-seat-licensing",
+      "success": true,
+      "timestamp": "2026-05-10T23:54:28.102Z",
+      "durationMs": 173
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1560",
+      "incrementId": "0845-cross-tool-skill-installation",
+      "success": true,
+      "timestamp": "2026-05-11T07:50:34.480Z",
+      "durationMs": 1528
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1575",
+      "incrementId": "0865-rubric-live-and-sync-hardening",
+      "success": true,
+      "timestamp": "2026-06-01T07:28:42.755Z",
+      "durationMs": 1530
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1580",
+      "incrementId": "0866-external-sync-and-release-stabilization",
+      "success": true,
+      "timestamp": "2026-06-01T20:52:16.309Z",
+      "durationMs": 1409
+    },
+    {
+      "tool": "ado",
+      "itemId": 2425,
+      "incrementId": "0866-external-sync-and-release-stabilization",
+      "success": true,
+      "timestamp": "2026-06-01T20:52:17.790Z",
+      "durationMs": 155
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1589",
+      "incrementId": "0867-cross-tool-work-handoff",
+      "success": true,
+      "timestamp": "2026-06-02T01:01:05.783Z",
+      "durationMs": 1523
     }
   ],
   "summary": {
@@ -667,29 +723,29 @@
       ]
     },
     "jira": {
-      "totalAttempts": 17,
-      "successful": 17,
+      "totalAttempts": 22,
+      "successful": 22,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-05-10T04:12:41.061Z",
-      "avgDurationMs": 1587.6470588235295,
+      "lastSuccess": "2026-06-02T01:01:05.783Z",
+      "avgDurationMs": 1568.7727272727273,
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 1,
-      "successful": 1,
+      "totalAttempts": 3,
+      "successful": 3,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-05-07T13:26:00.697Z",
-      "avgDurationMs": 159,
+      "lastSuccess": "2026-06-01T20:52:17.790Z",
+      "avgDurationMs": 162.33333333333334,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 80,
-      "successful": 74,
+      "totalAttempts": 87,
+      "successful": 81,
       "failed": 6,
-      "successRate": 0.925
+      "successRate": 0.9310344827586207
     },
-    "lastUpdated": "2026-05-10T04:12:41.064Z"
+    "lastUpdated": "2026-06-02T01:01:05.784Z"
   }
 }

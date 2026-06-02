@@ -1,10 +1,11 @@
 {
   "id": "0840-stripe-billing-mvp",
-  "status": "planned",
+  "status": "completed",
+  "activatedAt": "2026-05-10T05:30:00.000Z",
   "type": "feature",
   "priority": "P2",
   "created": "2026-05-09T18:33:00.000Z",
-  "lastActivity": "2026-05-10T02:22:28.092Z",
+  "lastActivity": "2026-05-10T22:48:38.032Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -16,6 +17,142 @@
   "parentScope": "vskill-redesign-around-login",
   "summary": "Stripe billing MVP. New Prisma models (BillingCustomer, Subscription, Invoice, StripeWebhookEvent). Checkout + portal + webhooks. Pricing $20 Pro / $30 Team / Custom Enterprise. 90-day grace coupon for grandfathered auto-PRO users. 50% off year one for waitlist.",
   "acSyncEvents": [
+    {
+      "timestamp": "2026-05-10T22:13:58.888Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-05: has no tasks mapped",
+        "AC-US6-02: has no tasks mapped",
+        "AC-US6-03: has no tasks mapped",
+        "AC-US6-04: has no tasks mapped",
+        "AC-US6-05: has no tasks mapped",
+        "AC-US7-01: has no tasks mapped",
+        "AC-US7-02: has no tasks mapped",
+        "AC-US7-03: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T22:09:33.679Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-05: has no tasks mapped",
+        "AC-US6-02: has no tasks mapped",
+        "AC-US6-03: has no tasks mapped",
+        "AC-US6-04: has no tasks mapped",
+        "AC-US6-05: has no tasks mapped",
+        "AC-US7-01: has no tasks mapped",
+        "AC-US7-02: has no tasks mapped",
+        "AC-US7-03: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T22:09:20.580Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-05: has no tasks mapped",
+        "AC-US6-02: has no tasks mapped",
+        "AC-US6-03: has no tasks mapped",
+        "AC-US6-04: has no tasks mapped",
+        "AC-US6-05: has no tasks mapped",
+        "AC-US7-01: has no tasks mapped",
+        "AC-US7-02: has no tasks mapped",
+        "AC-US7-03: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T22:09:09.007Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-05: has no tasks mapped",
+        "AC-US6-02: has no tasks mapped",
+        "AC-US6-03: has no tasks mapped",
+        "AC-US6-04: has no tasks mapped",
+        "AC-US6-05: has no tasks mapped",
+        "AC-US7-01: has no tasks mapped",
+        "AC-US7-02: has no tasks mapped",
+        "AC-US7-03: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T22:00:05.918Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-05: has no tasks mapped",
+        "AC-US6-02: has no tasks mapped",
+        "AC-US6-03: has no tasks mapped",
+        "AC-US6-04: has no tasks mapped",
+        "AC-US6-05: has no tasks mapped",
+        "AC-US7-01: has no tasks mapped",
+        "AC-US7-02: has no tasks mapped",
+        "AC-US7-03: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T21:59:36.335Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-05: has no tasks mapped",
+        "AC-US6-02: has no tasks mapped",
+        "AC-US6-03: has no tasks mapped",
+        "AC-US6-04: has no tasks mapped",
+        "AC-US6-05: has no tasks mapped",
+        "AC-US7-01: has no tasks mapped",
+        "AC-US7-02: has no tasks mapped",
+        "AC-US7-03: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T21:53:59.042Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-05: has no tasks mapped",
+        "AC-US6-02: has no tasks mapped",
+        "AC-US6-03: has no tasks mapped",
+        "AC-US6-04: has no tasks mapped",
+        "AC-US6-05: has no tasks mapped",
+        "AC-US7-01: has no tasks mapped",
+        "AC-US7-02: has no tasks mapped",
+        "AC-US7-03: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T21:53:48.769Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US1-05: has no tasks mapped",
+        "AC-US6-02: has no tasks mapped",
+        "AC-US6-03: has no tasks mapped",
+        "AC-US6-04: has no tasks mapped",
+        "AC-US6-05: has no tasks mapped",
+        "AC-US7-01: has no tasks mapped",
+        "AC-US7-02: has no tasks mapped",
+        "AC-US7-03: has no tasks mapped",
+        "AC-US7-04: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
     {
       "timestamp": "2026-05-10T02:22:28.092Z",
       "updated": [],
@@ -55,5 +192,8 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-05-10T22:48:37.987Z",
+  "approvedAt": "2026-05-10T22:48:38.032Z"
 }

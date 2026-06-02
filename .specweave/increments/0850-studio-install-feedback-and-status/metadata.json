@@ -2,5 +2,11 @@
   "id": "0850-studio-install-feedback-and-status",
   "title": "Skill Studio install feedback + install-state aware modal",
   "status": "active",
-  "createdAt": "2026-05-25T12:00:00Z"
+  "created": "2026-05-25T12:00:00Z",
+  "externalLinks": {},
+  "priority": "medium",
+  "lastActivity": "2026-05-25T12:00:00Z",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "type": "feature"
 }

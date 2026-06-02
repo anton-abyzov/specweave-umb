@@ -1,19 +1,20 @@
 {
-  "version": "2.0",
-  "project": {
-    "name": "specweave",
-    "version": "1.0.1"
-  },
-  "pluginAutoLoad": {
-    "enabled": true,
-    "suggestOnly": false
-  },
-  "multiProject": {
-    "enabled": true
-  },
-  "billing": {
-    "planType": "subscription",
-    "monthlyAmount": 200
+  "version": "3.0",
+  "language": "en",
+  "translation": {
+    "enabled": false,
+    "languages": [
+      "en"
+    ],
+    "primary": "en",
+    "method": "manual",
+    "preserveFrameworkTerms": true,
+    "scope": {
+      "incrementSpecs": false,
+      "livingDocs": false,
+      "externalSync": false
+    },
+    "keepEnglishOriginals": false
   },
   "adapters": {
     "default": "claude"
@@ -25,15 +26,114 @@
     "provider": "jira",
     "domain": "antonabyzov.atlassian.net",
     "projects": [
-      { "key": "SWE2E", "id": "10139", "name": "SpecWeave E2E Test" },
-      { "key": "WTTC", "id": "10001", "name": "What To Code" }
+      {
+        "key": "SWE2E",
+        "id": "10139",
+        "name": "SpecWeave E2E Test"
+      },
+      {
+        "key": "WTTC",
+        "id": "10106",
+        "name": "WC2026 Travel & Ticket Companion"
+      }
     ]
+  },
+  "testing": {
+    "defaultTestMode": "TDD",
+    "defaultCoverageTarget": 90,
+    "coverageTargets": {
+      "unit": 60,
+      "integration": 90,
+      "e2e": 100
+    },
+    "playwright": {
+      "preferCli": true
+    },
+    "tddEnforcement": "warn"
+  },
+  "limits": {
+    "maxActiveIncrements": 7,
+    "hardCap": 25,
+    "allowEmergencyInterrupt": true,
+    "typeBehaviors": {
+      "canInterrupt": [
+        "hotfix",
+        "bug"
+      ],
+      "autoAbandonDays": {
+        "experiment": 14
+      }
+    },
+    "staleness": {
+      "paused": 7,
+      "active": 30
+    }
+  },
+  "deduplication": {
+    "enabled": true,
+    "windowMs": 1000,
+    "maxCacheSize": 1000,
+    "debug": false,
+    "cleanupIntervalMs": 60000
+  },
+  "archiving": {
+    "keepLast": 5,
+    "autoArchive": false,
+    "autoArchiveThreshold": 10,
+    "archiveAfterDays": 60,
+    "preserveActive": true,
+    "archiveCompleted": false,
+    "archivePatterns": [],
+    "preserveList": []
+  },
+  "livingDocs": {
+    "copyBasedSync": {
+      "enabled": true,
+      "autoGenerate": true
+    },
+    "threeLayerSync": {
+      "enabled": true,
+      "autoSync": true
+    }
+  },
+  "apiDocs": {
+    "enabled": false,
+    "openApiPath": "openapi.yaml",
+    "autoGenerateOpenApi": true,
+    "generatePostman": true,
+    "postmanPath": "postman-collection.json",
+    "postmanEnvPath": "postman-environment.json",
+    "generateOn": "on-increment-done",
+    "watchPatterns": [
+      "**/routes/**",
+      "**/controllers/**",
+      "**/api/**",
+      "**/endpoints/**"
+    ],
+    "baseUrl": "http://localhost:3000"
+  },
+  "hooks": {
+    "post_task_completion": {
+      "sync_tasks_md": true,
+      "external_tracker_sync": false
+    },
+    "post_increment_planning": {
+      "auto_create_github_issue": true,
+      "sync_living_docs": true
+    },
+    "post_increment_done": {
+      "sync_living_docs": true,
+      "sync_to_github_project": true,
+      "close_github_issue": true
+    }
   },
   "sync": {
     "enabled": true,
-    "preset": "bidirectional",
     "direction": "bidirectional",
     "autoSync": true,
+    "includeStatus": true,
+    "autoApplyLabels": true,
+    "preset": "bidirectional",
     "provider": "jira",
     "defaultProfile": "jira-swe2e",
     "settings": {
@@ -75,20 +175,82 @@
       "project": "SpecWeaveSync"
     }
   },
-  "hooks": {
-    "post_task_completion": {
-      "sync_tasks_md": true,
-      "external_tracker_sync": false
-    },
-    "post_increment_planning": {
-      "auto_create_github_issue": true,
-      "sync_living_docs": true
-    },
-    "post_increment_done": {
-      "sync_living_docs": true,
-      "sync_to_github_project": true,
-      "close_github_issue": true
+  "statusLine": {
+    "enabled": true,
+    "maxCacheAge": 30000,
+    "progressBarWidth": 8,
+    "maxNameLength": 30
+  },
+  "pluginAutoLoad": {
+    "enabled": true,
+    "suggestOnly": false
+  },
+  "incrementAssist": {
+    "enabled": true,
+    "suggestNewIncrement": true,
+    "suggestReopen": true,
+    "confidenceThreshold": 0.7,
+    "mandatory": true
+  },
+  "planning": {
+    "deepInterview": {
+      "enabled": true,
+      "minQuestions": 5,
+      "categories": [
+        "architecture",
+        "integrations",
+        "ui-ux",
+        "performance",
+        "security",
+        "edge-cases"
+      ],
+      "enforcement": "strict"
     }
+  },
+  "cicd": {
+    "pushStrategy": "direct",
+    "git": {
+      "branchPrefix": "sw/",
+      "targetBranch": "main",
+      "deleteOnMerge": true,
+      "includeExternalKey": false
+    },
+    "autoFix": {
+      "enabled": true,
+      "maxRetries": 1,
+      "allowedBranches": [
+        "develop",
+        "main"
+      ]
+    }
+  },
+  "contextBudget": {
+    "level": "full",
+    "autoAdapt": true
+  },
+  "quality": {
+    "thinkingBudget": "xhigh",
+    "grillConfidenceThreshold": 50,
+    "tokenBudgets": {
+      "pm.interview": 1500,
+      "brainstorm.idea": 1800
+    }
+  },
+  "cache": {
+    "staticContextFiles": [
+      "CLAUDE.md",
+      ".specweave/config.json",
+      ".specweave/increments/<active>/spec.md",
+      ".specweave/increments/<active>/rubric.md"
+    ]
+  },
+  "project": {
+    "name": "specweave",
+    "version": "1.0.1"
+  },
+  "billing": {
+    "planType": "subscription",
+    "monthlyAmount": 200
   },
   "auto": {
     "enabled": true,
@@ -97,16 +259,6 @@
     "requireValidation": true,
     "requireJudgeLLM": false,
     "skipQualityGates": false
-  },
-  "testing": {
-    "defaultTestMode": "TDD",
-    "tddEnforcement": "warn",
-    "defaultCoverageTarget": 90,
-    "coverageTargets": {
-      "unit": 60,
-      "integration": 90,
-      "e2e": 100
-    }
   },
   "documentation": {
     "directories": [
@@ -125,92 +277,84 @@
       ]
     }
   },
-  "language": "en",
-  "translation": {
-    "enabled": false,
-    "languages": [
-      "en"
-    ],
-    "primary": "en",
-    "method": "manual",
-    "preserveFrameworkTerms": true,
-    "scope": {
-      "livingDocs": false,
-      "externalSync": false,
-      "incrementSpecs": false
-    },
-    "keepEnglishOriginals": false
-  },
   "lsp": {
     "enabled": true,
     "autoInstallPlugins": true,
     "marketplace": "boostvolt/claude-code-lsps"
   },
-  "planning": {
-    "deepInterview": {
-      "enabled": true,
-      "enforcement": "strict",
-      "minQuestions": 5,
-      "categories": [
-        "architecture",
-        "integrations",
-        "ui-ux",
-        "performance",
-        "security",
-        "edge-cases"
-      ]
-    }
-  },
-  "limits": {
-    "maxActiveIncrements": 7,
-    "hardCap": 25,
-    "allowEmergencyInterrupt": true
-  },
-  "umbrella": {
-    "enabled": true,
-    "projectName": "specweave-umb",
-    "sync": {
-      "github": { "owner": "anton-abyzov", "repo": "specweave-umb" },
-      "jira": { "projectKey": "SWE2E" },
-      "ado": { "organization": "EasyChamp", "project": "SpecWeaveSync" }
-    },
-    "childRepos": [
+  "workspace": {
+    "name": "specweave-umb",
+    "repos": [
       {
         "id": "specweave",
         "path": "repositories/anton-abyzov/specweave",
-        "name": "specweave",
         "prefix": "SPE",
-        "githubUrl": "https://github.com/anton-abyzov/specweave.git",
+        "name": "specweave",
         "sync": {
-          "github": { "owner": "anton-abyzov", "repo": "specweave" },
-          "jira": { "projectKey": "SWE2E" },
-          "ado": { "organization": "EasyChamp", "project": "SpecWeaveSync" }
+          "github": {
+            "owner": "anton-abyzov",
+            "repo": "specweave"
+          },
+          "jira": {
+            "projectKey": "SWE2E"
+          },
+          "ado": {
+            "project": "SpecWeaveSync",
+            "organization": "EasyChamp"
+          }
         }
       },
       {
         "id": "vskill",
         "path": "repositories/anton-abyzov/vskill",
-        "name": "vskill",
         "prefix": "VSK",
-        "githubUrl": "https://github.com/anton-abyzov/vskill.git",
+        "name": "vskill",
         "sync": {
-          "github": { "owner": "anton-abyzov", "repo": "vskill" },
-          "jira": { "projectKey": "SWE2E" },
-          "ado": { "organization": "EasyChamp", "project": "SpecWeaveSync" }
+          "github": {
+            "owner": "anton-abyzov",
+            "repo": "vskill"
+          },
+          "jira": {
+            "projectKey": "SWE2E"
+          },
+          "ado": {
+            "project": "SpecWeaveSync",
+            "organization": "EasyChamp"
+          }
         }
       },
       {
         "id": "vskill-platform",
         "path": "repositories/anton-abyzov/vskill-platform",
-        "name": "vskill-platform",
         "prefix": "VPL",
-        "githubUrl": "https://github.com/anton-abyzov/vskill-platform.git",
+        "name": "vskill-platform",
         "sync": {
-          "github": { "owner": "anton-abyzov", "repo": "vskill-platform" },
-          "jira": { "projectKey": "SWE2E" },
-          "ado": { "organization": "EasyChamp", "project": "SpecWeaveSync" }
+          "github": {
+            "owner": "anton-abyzov",
+            "repo": "vskill-platform"
+          },
+          "jira": {
+            "projectKey": "SWE2E"
+          },
+          "ado": {
+            "project": "SpecWeaveSync",
+            "organization": "EasyChamp"
+          }
         }
       }
-    ]
+    ],
+    "rootRepo": {
+      "github": {
+        "owner": "anton-abyzov",
+        "repo": "specweave-umb"
+      },
+      "jira": {
+        "projectKey": "SWE2E"
+      },
+      "ado": {
+        "project": "SpecWeaveSync",
+        "organization": "EasyChamp"
+      }
+    }
   }
 }

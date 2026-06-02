@@ -1,10 +1,11 @@
 {
   "id": "0841-per-org-seat-licensing",
-  "status": "planned",
+  "status": "completed",
+  "activatedAt": "2026-05-10T23:00:00.000Z",
   "type": "feature",
   "priority": "P3",
   "created": "2026-05-09T18:33:00.000Z",
-  "lastActivity": "2026-05-09T18:33:00.000Z",
+  "lastActivity": "2026-05-10T23:54:22.408Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -14,6 +15,157 @@
   },
   "phase": "P3",
   "parentScope": "vskill-redesign-around-login",
-  "dependsOn": ["0840-stripe-billing-mvp"],
-  "summary": "Per-org seat licensing for Team plan. Seat enforcement on OrgMember.create, /billing/seats/sync reconciler, tier-aware tenant caps (Free 5/10, Pro 50/5, Team unlimited/seats, Enterprise contract)."
+  "dependsOn": [
+    "0840-stripe-billing-mvp"
+  ],
+  "summary": "Per-org seat licensing for Team plan. Seat enforcement on OrgMember.create, /billing/seats/sync reconciler, tier-aware tenant caps (Free 5/10, Pro 50/5, Team unlimited/seats, Enterprise contract).",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-05-10T23:53:53.787Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US3-01..AC-US3-06 referenced in tasks.md but not found in spec.md",
+        "AC-US9-03 referenced in tasks.md but not found in spec.md",
+        "AC-US9-04 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01: has no tasks mapped",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-05: has no tasks mapped",
+        "AC-US3-06: has no tasks mapped",
+        "AC-US6-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T23:53:49.922Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US3-01..AC-US3-06 referenced in tasks.md but not found in spec.md",
+        "AC-US9-03 referenced in tasks.md but not found in spec.md",
+        "AC-US9-04 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01: has no tasks mapped",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-05: has no tasks mapped",
+        "AC-US3-06: has no tasks mapped",
+        "AC-US6-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T23:53:40.444Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US3-01..AC-US3-06 referenced in tasks.md but not found in spec.md",
+        "AC-US9-03 referenced in tasks.md but not found in spec.md",
+        "AC-US9-04 referenced in tasks.md but not found in spec.md",
+        "AC-US3-01: has no tasks mapped",
+        "AC-US3-02: has no tasks mapped",
+        "AC-US3-05: has no tasks mapped",
+        "AC-US3-06: has no tasks mapped",
+        "AC-US6-03: has no tasks mapped"
+      ],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-05-10T23:05:06.924Z",
+      "updated": [],
+      "conflicts": [],
+      "warnings": [
+        "AC-US9-03 referenced in tasks.md but not found in spec.md (US-009 was out of scope for the 0841 spec — tasks reference cross-spec audit fanout)",
+        "AC-US9-04 referenced in tasks.md but not found in spec.md (US-009 was out of scope for the 0841 spec — tasks reference cross-spec audit fanout)"
+      ],
+      "notes": "0841 closer-pass-2 (F-012): Spec.md verified to contain AC-US3-01..AC-US3-06 (all six are present). The duplicate AC-US3-* warnings in prior entries were stale — earlier sync runs caught a transient mid-edit state that resolved before closer-pass-1 ran. Stale duplicate event entries pruned for clarity. AC-US9-* references in tasks.md are intentional cross-spec hooks (audit/event taxonomy unified in the 0838 audit-log spec); they are not regressions and will not be backfilled into the 0841 spec.",
+      "changesCount": 0
+    }
+  ],
+  "jira": {
+    "issue": "SWE2E-1559",
+    "url": "https://antonabyzov.atlassian.net/browse/SWE2E-1559",
+    "synced": "2026-05-10T23:33:36.948Z"
+  },
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1559",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1559",
+      "syncedAt": "2026-05-10T23:33:36.948Z",
+      "userStories": {
+        "US-001": {
+          "issueKey": "SWE2E-1559",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1559",
+          "syncedAt": "2026-05-10T23:33:36.948Z"
+        },
+        "US-002": {
+          "issueKey": "SWE2E-1559",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1559",
+          "syncedAt": "2026-05-10T23:33:36.948Z"
+        },
+        "US-003": {
+          "issueKey": "SWE2E-1559",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1559",
+          "syncedAt": "2026-05-10T23:33:36.948Z"
+        },
+        "US-004": {
+          "issueKey": "SWE2E-1559",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1559",
+          "syncedAt": "2026-05-10T23:33:36.948Z"
+        },
+        "US-005": {
+          "issueKey": "SWE2E-1559",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1559",
+          "syncedAt": "2026-05-10T23:33:36.948Z"
+        },
+        "US-006": {
+          "issueKey": "SWE2E-1559",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1559",
+          "syncedAt": "2026-05-10T23:33:36.948Z"
+        }
+      }
+    },
+    "ado": {
+      "featureId": "2398",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2398",
+      "syncedAt": "2026-05-10T23:33:41.737Z",
+      "userStories": {
+        "US-001": {
+          "workItemId": 2399,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2399",
+          "syncedAt": "2026-05-10T23:33:41.737Z"
+        },
+        "US-002": {
+          "workItemId": 2400,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2400",
+          "syncedAt": "2026-05-10T23:33:41.737Z"
+        },
+        "US-003": {
+          "workItemId": 2401,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2401",
+          "syncedAt": "2026-05-10T23:33:41.737Z"
+        },
+        "US-004": {
+          "workItemId": 2402,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2402",
+          "syncedAt": "2026-05-10T23:33:41.737Z"
+        },
+        "US-005": {
+          "workItemId": 2403,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2403",
+          "syncedAt": "2026-05-10T23:33:41.737Z"
+        },
+        "US-006": {
+          "workItemId": 2404,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2404",
+          "syncedAt": "2026-05-10T23:33:41.737Z"
+        }
+      }
+    }
+  },
+  "ado": {
+    "workItem": 2398,
+    "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2398",
+    "synced": "2026-05-10T23:33:41.737Z"
+  },
+  "readyForReviewAt": "2026-05-10T23:54:14.582Z",
+  "approvedAt": "2026-05-10T23:54:22.408Z"
 }

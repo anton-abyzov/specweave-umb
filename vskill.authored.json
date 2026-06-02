@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "skills": {
+    "anton-abyzov/vskill/greet-elena": {
+      "sourcePath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill/skills/greet-elena/SKILL.md",
+      "publishedAt": "2026-05-14T14:21:22.682Z"
+    },
+    "anton-abyzov/vskill/appstore": {
+      "sourcePath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill/plugins/mobile/skills/appstore/SKILL.md",
+      "publishedAt": "2026-05-14T14:21:29.036Z"
+    },
+    "anton-abyzov/vskill/skill-builder": {
+      "sourcePath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill/plugins/skills/skills/skill-builder/SKILL.md",
+      "publishedAt": "2026-05-14T14:21:37.460Z"
+    },
+    "anton-abyzov/vskill/agents-md-author": {
+      "sourcePath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill/plugins/codex-bridge/skills/agents-md-author/SKILL.md",
+      "publishedAt": "2026-05-14T15:00:35.749Z"
+    },
+    "anton-abyzov/vskill/scout": {
+      "sourcePath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill/plugins/skills/skills/scout/SKILL.md",
+      "publishedAt": "2026-05-14T15:01:16.594Z"
+    },
+    "anton-abyzov/vskill/obsidian-brain": {
+      "sourcePath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill/plugins/personal/skills/obsidian-brain/SKILL.md",
+      "publishedAt": "2026-05-14T15:02:23.015Z"
+    },
+    "anton-abyzov/vskill/tax-filing": {
+      "sourcePath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill/plugins/personal/skills/tax-filing/SKILL.md",
+      "publishedAt": "2026-05-14T15:03:28.104Z"
+    }
+  }
+}

@@ -150,3 +150,10 @@ Re-closure round-4 review surfaced these follow-ons; none are regressions and no
 - Production-mode queue Playwright: `CI=1 E2E_BASE_URL=http://localhost:3311 npx playwright test tests/e2e/queue-truthful-load.spec.ts tests/e2e/queue-cold-load.spec.ts tests/e2e/queue-filter-performance.spec.ts tests/e2e/queue-duplicates.spec.ts --project=chromium --reporter=line` → **9/9 passing**.
 - Full vitest suite remains blocked by unrelated repo failures (representative: auth cookie SameSite expectation, trusted-org/vendor-count drift, stale queue consumer expectations, missing `skills/check-updates` test import target, eval regression provider config).
 - Full Playwright remains blocked by unrelated live pipeline smoke failures (representative: trust tier breakdown missing, public submission pipeline 500 in that scenario, empty queue logs, external crawl-worker VMs unreachable).
+
+**Follow-up evidence (2026-05-17):**
+- Queue hotfix shipped for the stuck `Submissions are syncing` state: implicit active loads now auto-fallback to a real dataset when the active counter is stale and the live active list is empty, instead of idling forever on an empty active pane.
+- Native button semantics restored for clickable queue stat cards, which keeps the compact queue shell keyboard-activatable after the rollback.
+- `npx vitest run src/app/queue/__tests__/QueuePageClient.test.tsx src/app/queue/__tests__/page.test.tsx src/app/queue/__tests__/data.initial-data.test.ts` → **31/31 passing**.
+- `npm run build` on `repositories/anton-abyzov/vskill-platform` → **passed** on May 17, 2026.
+- Local Playwright against the live dev queue path was rerun, but it remains noisy under local Cloudflare/Hyperdrive emulation; the new report documents the exact command lines, the passing unit/build evidence, and the remaining local-browser instability separately from product behavior.

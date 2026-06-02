@@ -1,10 +1,19 @@
 {
-  "id": "0859",
+  "id": "0859-do-reliable-submission-notifications",
   "name": "do-reliable-submission-notifications",
   "title": "Cross-isolate reliable approve/reject notifications via the UpdateHub Durable Object",
   "status": "active",
   "created": "2026-05-31",
   "owner": "anton",
   "repo": "specweave-umb",
-  "related": ["0847", "0855"]
+  "related": [
+    "0847",
+    "0855"
+  ],
+  "externalLinks": {},
+  "priority": "medium",
+  "lastActivity": "2026-05-31",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "type": "feature"
 }

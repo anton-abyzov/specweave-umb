@@ -1,10 +1,20 @@
 {
-  "id": "0860",
+  "id": "0860-e2e-submission-lifecycle",
   "name": "e2e-submission-lifecycle",
   "title": "E2E test: improve skill → in-app submit → monitor review → decision notification → update locally (+ theme readability)",
   "status": "active",
   "created": "2026-05-31",
   "owner": "anton",
   "repo": "specweave-umb",
-  "related": ["0847", "0855", "0859"]
+  "related": [
+    "0847",
+    "0855",
+    "0859"
+  ],
+  "externalLinks": {},
+  "priority": "medium",
+  "lastActivity": "2026-05-31",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "type": "feature"
 }

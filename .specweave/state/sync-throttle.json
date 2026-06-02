@@ -54,5 +54,9 @@
   "0797-admin-stats-unified-cache": 1777340097667,
   "0800-studio-tests-discoverability-and-readonly-run": 1777435404496,
   "0827-studio-install-button-scope-awareness": 1777968303977,
-  "0838-sse-diagnose-source-origin-updates": 1778382394365
+  "0838-sse-diagnose-source-origin-updates": 1778382394365,
+  "0841-per-org-seat-licensing": 1778457238639,
+  "0847-skill-install-publish-scale": 1779240201896,
+  "0001-core-framework": 1779264521581,
+  "0852-external-sync-architecture-audit": 1779692751700
 }

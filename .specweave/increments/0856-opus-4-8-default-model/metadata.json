@@ -1,10 +1,19 @@
 {
-  "id": "0856",
+  "id": "0856-opus-4-8-default-model",
   "name": "opus-4-8-default-model",
   "title": "Add Claude Opus 4.8 and make it the opus/best default",
   "status": "active",
   "created": "2026-05-30",
   "owner": "anton",
   "repo": "specweave-umb",
-  "related": ["0853", "0857"]
+  "related": [
+    "0853",
+    "0857"
+  ],
+  "externalLinks": {},
+  "priority": "medium",
+  "lastActivity": "2026-05-30",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "type": "feature"
 }

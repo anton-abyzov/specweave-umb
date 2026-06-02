@@ -120,8 +120,9 @@ These findings were confirmed during planning and should be treated as the start
 - The stats API no longer computes queue stats on demand. Request paths read fresh cache, stale non-zero cache marked degraded, or degraded empty stats quickly; cron owns expensive recompute.
 - Queue SSR now reads exact list cache, latest per-filter cache, then a bounded direct fallback. Empty cache snapshots are ignored so poisoned `submissions:list:*` and `submissions:latest:*` entries cannot force a false empty page.
 - The client now honors the server-selected `defaultFilter` when the URL has no filter, so a published fallback dataset no longer hydrates as active.
+- As of 2026-05-17, the client also auto-falls back when the implicit active view comes back empty but cached counters still claim active work exists. That removes the long-lived `Submissions are syncing` dead-end seen in production and immediately switches the user to a real dataset such as `published` or `all`.
 - Warm category switching uses the default first-page `submissions:latest:<filter>` path before DB and avoids overwriting that latest cache with custom page/sort responses.
 - Queue list serving now deduplicates `(repoUrl, skillName)` using the same latest-row winner model as queue stats, rejects underfilled duplicate KV snapshots, and keeps a final client guard so stale cache cannot reintroduce visible duplicates.
-- The rolled-back queue stat filters are keyboard-focusable buttons with focus-visible styling, and the search input restores a visible focus ring.
+- The rolled-back queue stat filters use native button semantics with focus-visible styling, and the search input restores a visible focus ring.
 - `reports/queue-performance-runtime-inventory.md` records the queue runtime bindings and secret names with values redacted.
 - Full closure remains blocked by broader repo test failures unrelated to this queue performance patch.

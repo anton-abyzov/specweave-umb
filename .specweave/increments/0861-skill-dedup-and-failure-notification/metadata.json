@@ -1,5 +1,5 @@
 {
-  "id": "0861",
+  "id": "0861-skill-dedup-and-failure-notification",
   "title": "Skill Dedup Hardening + Failure Notification",
   "status": "active",
   "type": "feature",
@@ -32,5 +32,10 @@
   "tasks": {
     "total": 13,
     "completed": 1
-  }
+  },
+  "externalLinks": {},
+  "priority": "medium",
+  "lastActivity": "2026-05-31",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
