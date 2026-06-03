@@ -1,0 +1,82 @@
+{
+  "id": "0870-restore-dead-hooks",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-06-03T06:30:00.000Z",
+  "lastActivity": "2026-06-03T05:51:46.591Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave-umb",
+  "relatedIncrements": [
+    "0868-stop-handoff-wiring-fix",
+    "0869-hook-wiring-audit"
+  ],
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1885,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1885",
+          "status": "closed"
+        },
+        "US-002": {
+          "issueNumber": 1886,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1886",
+          "status": "closed"
+        },
+        "US-003": {
+          "issueNumber": 1887,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1887",
+          "status": "closed"
+        }
+      },
+      "milestone": 252,
+      "syncedAt": "2026-06-03T05:52:24.411Z"
+    },
+    "jira": {
+      "epicKey": "SWE2E-1595",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1595",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-06-03T05:52:14.793Z"
+    },
+    "ado": {
+      "featureId": "2440",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2440",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-06-03T05:52:17.407Z"
+    }
+  },
+  "readyForReviewAt": "2026-06-03T05:51:46.557Z",
+  "approvedAt": "2026-06-03T05:51:46.591Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1885,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1885",
+        "createdAt": "2026-06-03T05:51:53.402Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1886,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1886",
+        "createdAt": "2026-06-03T05:51:59.699Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1887,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1887",
+        "createdAt": "2026-06-03T05:52:06.042Z"
+      }
+    ],
+    "lastSync": "2026-06-03T05:52:06.042Z"
+  }
+}
