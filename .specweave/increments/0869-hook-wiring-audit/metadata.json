@@ -1,0 +1,60 @@
+{
+  "id": "0869-hook-wiring-audit",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-06-03T05:30:00.000Z",
+  "lastActivity": "2026-06-03T05:27:43.053Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave-umb",
+  "relatedIncrements": [
+    "0867-cross-tool-work-handoff",
+    "0868-stop-handoff-wiring-fix"
+  ],
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1884,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1884",
+          "status": "closed"
+        }
+      },
+      "milestone": 251,
+      "syncedAt": "2026-06-03T05:28:02.322Z"
+    },
+    "jira": {
+      "epicKey": "SWE2E-1593",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1593",
+      "projectKey": "SWE2E",
+      "domain": "antonabyzov.atlassian.net",
+      "syncedAt": "2026-06-03T05:27:54.780Z"
+    },
+    "ado": {
+      "featureId": "2438",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2438",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-06-03T05:27:56.664Z"
+    }
+  },
+  "readyForReviewAt": "2026-06-03T05:27:43.013Z",
+  "approvedAt": "2026-06-03T05:27:43.053Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1884,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1884",
+        "createdAt": "2026-06-03T05:27:49.635Z"
+      }
+    ],
+    "lastSync": "2026-06-03T05:27:49.635Z"
+  }
+}
