@@ -4,7 +4,7 @@ title: "Dashboard Cost Display & Real-Time Updates Redesign"
 type: feature
 status: completed
 priority: P1
-created: 2026-03-19T00:00:00.000Z
+created: "2026-03-19T00:00:00.000Z"
 lastUpdated: 2026-03-19
 tldr: "The vskill Studio dashboard cost display is nearly useless — only OpenRouter returns actual cost data."
 complexity: high

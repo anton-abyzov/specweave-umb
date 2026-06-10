@@ -2,7 +2,7 @@
 
 **Goal:** finish the SpecWeave intro you started end of March. You have **8:47 already recorded** in your voice (`/Users/antonabyzov/Movies/DaVinci/Specweave_start_unfinished.mov`). This script continues from the exact word it cuts off on and runs the whole thing to **~23 minutes**.
 
-**HyperFrames project:** running locally now at **http://localhost:3002** (`hyperframes-demo`, project `scratch`). Overlay/voice assets live under `hyperframes-demo/scratch/skill-studio-intro/`.
+**⚠️ CURRENT EDIT STATE (reconciled 2026-06-02):** The real assembly is **NOT** in `hyperframes-demo` — it's in **`repositories/anton-abyzov/specweave/video/hyperframes/`** (HeyGen HyperFrames; `npm run dev` to preview, `npm run render` to export). As of May 7 it already has: the raw 8:47 auto-trimmed by **SmartCut v4 → a 6:06 tight master** (`assets/master_tight.mp4`, 43 cuts / 32% dead air removed, sentence-aware — recovered "docs"/"with"/"And not only"), **11 timed motion overlays** (`assets/overlays.json`, covering the 0–269s pitch), and a fully-wired composition (`index.html`, root timeline = 366.61s). It is **not yet rendered** to a final MP4, and it stops at the WC2026 teaser (~6:06). The reusable Skill Studio overlays referenced in PART 5③ still live separately under `hyperframes-demo/scratch/skill-studio-intro/`.
 
 **How to read this:** `>>` = what you say (narration). `[ ]` = what's on screen / B-roll / overlay. Timecodes are cumulative and approximate. Everything from **PART 5 onward is new** — that's what you record next.
 
@@ -151,11 +151,11 @@ github.com/anton-abyzov/specweave   ·   spec-weave.com   ·   verified-skill.co
 
 ## Production notes
 
-- **Total runtime:** ~23:30. You're adding ~14:45 of new narration to the existing 8:47.
+- **Total runtime:** ~23:30. The existing take is now a **6:06 tight cut** (down from the raw 8:47 after SmartCut) — plan the math off 6:06, not 8:47. You're adding ~14:45 of new narration on top.
 - **Record PARTS 5–9** in your voice to match the existing take (same mic, same energy — the take is confident and direct; keep that).
 - **Screen recordings to capture:** WC2026 app flow · EasyChamp match sim · `npx vskill studio` · AnyModel multi-model route · a real `specweave init` → `/sw:increment "auth"` → `/sw:do` → `/sw:done` session (record on ≥1.0.586 so the init fix is in) · a sync split-screen (increment ↔ GitHub/Jira/ADO).
 - **Reusable overlays** already rendered in `hyperframes-demo/scratch/skill-studio-intro/`: marketplace-counts, localhost-no-cloud, skills-primitive, bell-pulse, validated. Style + the 4 accent colors are documented in that folder's READMEs.
-- **Assemble** in HyperFrames (the studio is up at `:3002`): existing take on V1, new segments appended, chips/overlays on V2+.
+- **Assemble** in HyperFrames at `repositories/anton-abyzov/specweave/video/hyperframes/` (`npm run dev`): the 6:06 tight master + its 11 overlays are already on the timeline; append the new PART 5–9 segments, add chips/overlays for the project tour (currently un-overlaid past 269s).
 - **Chapters** (for YouTube description): 0:00 Problem · 3:30 Meet SpecWeave · 8:00 10 projects · 14:30 From scratch · 19:00 Team sync & gates · 21:30 What's new · 22:45 Close.
 - **Stat discipline:** keep the numbers you already said (600+ increments, 500+ releases, 10 projects/3 months). The 110K+ scanned-skills figure is verified (registry shows 110,949 published).
 

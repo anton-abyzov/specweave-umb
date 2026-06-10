@@ -1,0 +1,54 @@
+{
+  "id": "0873-desktop-verified-skill-repo-link",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-06-04T16:17:43.536Z",
+  "lastActivity": "2026-06-04T16:36:16.081Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "jira": {
+      "epicKey": "SWE2E-1605",
+      "epicUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1605",
+      "syncedAt": "2026-06-04T16:31:13.654Z",
+      "userStories": {
+        "US-001": {
+          "issueKey": "SWE2E-1605",
+          "issueUrl": "https://antonabyzov.atlassian.net/browse/SWE2E-1605",
+          "syncedAt": "2026-06-04T16:31:13.654Z"
+        }
+      }
+    },
+    "ado": {
+      "featureId": "2450",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2450",
+      "syncedAt": "2026-06-04T16:31:17.967Z",
+      "userStories": {
+        "US-001": {
+          "workItemId": 2450,
+          "workItemUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2450",
+          "syncedAt": "2026-06-04T16:31:17.967Z"
+        }
+      }
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave-umb",
+  "jira": {
+    "issue": "SWE2E-1605",
+    "url": "https://antonabyzov.atlassian.net/browse/SWE2E-1605",
+    "synced": "2026-06-04T16:31:13.654Z"
+  },
+  "ado": {
+    "workItem": 2450,
+    "url": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2450",
+    "synced": "2026-06-04T16:31:17.967Z"
+  },
+  "readyForReviewAt": "2026-06-04T16:32:24.365Z",
+  "approvedAt": "2026-06-04T16:36:16.081Z"
+}
