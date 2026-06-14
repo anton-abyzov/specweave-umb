@@ -205,3 +205,8 @@ hello_world.py
 .specweave/increments/0654-*/
 .env.*
 scripts/.cf-monitor.env
+
+# Internal security/test reports — never commit to this PUBLIC repo
+# (documents attack vectors + internal infra IDs; keep local or in a private repo)
+ENTERPRISE-PRIVATE-SKILLS-TEST-REPORT.md
+*-TEST-REPORT.md

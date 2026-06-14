@@ -1,0 +1,14 @@
+{
+  "id": "0874",
+  "name": "tiered-private-skills-paywall",
+  "title": "Tiered private skills — paid unlocks private + clear UI distinction",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "created": "2026-06-10",
+  "relatedIncrements": ["0848", "0833"],
+  "repos": ["repositories/anton-abyzov/vskill", "repositories/anton-abyzov/vskill-platform"],
+  "summary": "Free tier = public skills only; paying via Stripe (Pro/Team) unlocks connecting private repos and publishing private skills. Adds a privacy chooser to the Skill Studio publish flow, surfaces a clear private/public visual distinction across Studio + platform UI, wires the upgrade paywall to a real Stripe checkout, and finishes the open ACs of increment 0848."
+}
