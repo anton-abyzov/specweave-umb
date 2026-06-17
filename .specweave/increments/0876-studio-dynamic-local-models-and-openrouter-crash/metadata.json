@@ -1,0 +1,24 @@
+{
+  "id": "0876-studio-dynamic-local-models-and-openrouter-crash",
+  "name": "studio-dynamic-local-models-and-openrouter-crash",
+  "title": "Skill Studio: real local model list + OpenRouter hover-crash fix",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-06-17T04:04:46.662Z",
+  "lastActivity": "2026-06-17T04:40:00.000Z",
+  "completedAt": "2026-06-17T04:40:00.000Z",
+  "repos": [
+    "repositories/anton-abyzov/vskill"
+  ],
+  "summary": "Skill Studio model picker fixes: (1) the Ollama list is now dynamic (probeOllama -> GET /api/tags) with no hardcoded fallback — an offline runtime yields an empty list + the start-service CTA instead of four fake Llama-family models; (2) OpenRouter hover no longer crashes — hydrateOpenRouter guards a malformed catalog, rankFiltered is null-safe, and useMemo/useVirtualList were hoisted above the empty-card early return to fix the React #300 hook-order crash. Probe timeout raised 500ms->2000ms for cold-sidecar starts.",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave-umb"
+}
