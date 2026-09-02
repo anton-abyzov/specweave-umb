@@ -205,3 +205,17 @@ hello_world.py
 .specweave/increments/0654-*/
 .env.*
 scripts/.cf-monitor.env
+
+# SpecWeave (added by specweave update)
+.handoff/
+.specweave/state/handoff-latest.*
+.specweave/backups/
+.specweave/increments/**/reports/artifacts/
+.claude/worktrees/
+!.specweave/increments/**/reports/*.log
+**/reports/*.mp4
+**/reports/*.png
+**/reports/*.jpg
+**/reports/*.aab
+**/reports/*.ipa
+**/reports/*.dSYM/

@@ -1,0 +1,23 @@
+{
+  "id": "0875",
+  "name": "specweave-2-overhaul",
+  "title": "SpecWeave 2.0: concept + templates cleanup, Windows fixes, security hardening, release",
+  "type": "feature",
+  "status": "completed",
+  "priority": "P0",
+  "created": "2026-09-01T22:00:00Z",
+  "lastActivity": "2026-09-02T21:45:00Z",
+  "project": "specweave-umb",
+  "closeReason": "SpecWeave 2.0.0 published to npm; vskill 1.1.0 + platform pushed; desktop-v1.0.63 tagged",
+  "externalLinks": {
+    "issuesClosed": [
+      "#1847",
+      "#1925"
+    ],
+    "prsClosed": [
+      "#1902"
+    ],
+    "releaseRun": "33685537680",
+    "npm": "specweave@2.0.0"
+  }
+}
