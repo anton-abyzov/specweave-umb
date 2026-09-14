@@ -1,0 +1,12 @@
+{
+  "version": "1.1.1",
+  "registry": "https://registry.npmjs.org",
+  "registryIntegrity": "sha512-vtq2cinPVYxe2+OsLkQtrJhrnqL8yhJk5m1clMzpgpndPCtJUGd5WDUJRbeAlbj5DmREuqJsqUl842ZHe+8mQQ==",
+  "registryTarballSha256": "544cc10b683f386d589f9d829b9ae6bd3e940a758bd4a79eda3b8fc4675b83ad",
+  "installedFilesMatchRegistryTarball": 758,
+  "filesChangedFromTestedLocalPackage": [
+    "agents.json"
+  ],
+  "preservedSpecweavePluginAndConfigFiles": 626,
+  "packagedStudioAssetsMatchTestedBuild": true
+}

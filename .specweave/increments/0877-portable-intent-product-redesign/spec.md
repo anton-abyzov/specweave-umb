@@ -7,13 +7,13 @@ SpecWeave's purpose is to preserve requested outcomes and verified progress when
 Research both supplied OpenAI articles and current harness/product documentation. Redesign the local dashboard around work intent with optional linked increments, evidence, and execution history. Redesign SpecWeave and Verified Skills entry points with progressive navigation. Audit and reversibly uninstall obsolete personal/project skills. Fix scoped vskill cleanup. Reassess hooks and tracker integrations, implement verified improvements, build, test headlessly, release and install eligible packages, deploy sites, and deliver an evidence-backed report.
 
 ## Acceptance Criteria
-- [ ] AC-01: Research report distinguishes sourced facts from product hypotheses and records business value, rejected alternatives, integrations strategy, and kill criteria.
-- [ ] AC-02: Dashboard reads current ledger tasks and plain acceptance criteria, refreshes on authoritative file changes, and shows accurate completion/evidence.
-- [ ] AC-03: Work board supports persistent intent items with optional increment links, clear summaries, state movement by drag/drop and accessible controls, plus honest harness/model/effort execution history.
-- [ ] AC-04: SpecWeave website presents portable intent and verified progress through a responsive, layered design with useful generated graphics and working navigation.
-- [ ] AC-05: Verified Skills website presents scoped expertise, provenance, security evidence, and measured usefulness honestly through a responsive, layered design.
-- [ ] AC-06: vskill cleanup and removal respect scope, preserve unrelated global installations, and include regression coverage.
-- [ ] AC-07: Personal/project skill inventory, reversible removals, retained expertise, and recovery manifest are documented; unnecessary hooks are removed or made optional without losing supported handoffs.
+- [x] AC-01: Research report distinguishes sourced facts from product hypotheses and records business value, rejected alternatives, integrations strategy, and kill criteria.
+- [x] AC-02: Dashboard reads current ledger tasks and plain acceptance criteria, refreshes on authoritative file changes, and shows accurate completion/evidence.
+- [x] AC-03: Work board supports persistent intent items with optional increment links, clear summaries, state movement by drag/drop and accessible controls, plus honest harness/model/effort execution history.
+- [x] AC-04: SpecWeave website presents portable intent and verified progress through a responsive, layered design with useful generated graphics and working navigation.
+- [x] AC-05: Verified Skills website presents scoped expertise, provenance, security evidence, and measured usefulness honestly through a responsive, layered design.
+- [x] AC-06: vskill cleanup and removal respect scope, preserve unrelated global installations, and include regression coverage.
+- [x] AC-07: Personal/project skill inventory, reversible removals, retained expertise, and recovery manifest are documented; unnecessary hooks are removed or made optional without losing supported handoffs.
 - [ ] AC-08: Relevant builds, tests, lint, coverage and headless E2E pass; failures outside scope are recorded accurately; review findings resolved; release/install/deploy evidence is recorded.
 
 ## Approach

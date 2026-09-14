@@ -1,0 +1,18 @@
+{
+  "id": "0877-portable-intent-product-redesign",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-09-14T05:49:42.998Z",
+  "updated": "2026-09-14T07:26:55.682Z",
+  "lastActivity": "2026-09-14T07:26:55.682Z",
+  "testMode": "TDD",
+  "coverageTarget": 60,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave-umb"
+}

@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "increment": "0877",
+  "reviewedAt": "2026-09-14T06:26:32.867447+00:00",
+  "mode": "single",
+  "reviewedCommit": "8ce135e",
+  "releaseWorkflowFindings": [],
+  "droppedNits": 0,
+  "resolvedFindings": [
+    {
+      "severity": "high",
+      "file": "src/commands/remove.ts",
+      "line": 46,
+      "summary": "Nested local removal deletes ancestor installation instead of the child that owns its own lockfile",
+      "confidence": "confirmed",
+      "fixCommit": "010a49a",
+      "status": "fixed-independently-verified",
+      "independentEvidence": "skills_audit verified 33 focused ownership tests; root final suite 6167 passed; PR139 CI passed before merge"
+    }
+  ],
+  "findings": [],
+  "resolvedAtCommit": "0e18781"
+}

@@ -1,0 +1,26 @@
+{
+  "specweave": {
+    "registry": {
+      "version": "2.1.0",
+      "dist.integrity": "sha512-MO83vzUHgjGf8vmh4ALIT0M/ZJrq7It2rzn/xkoMqpwU/5m3sQvVcx/UEDqjyuSVk5n3l5NPb2bLSYVAk/2g5A==",
+      "dist.tarball": "https://registry.npmjs.org/specweave/-/specweave-2.1.0.tgz"
+    },
+    "release": {
+      "publishedAt": "2026-09-14T07:04:53Z",
+      "tagName": "v2.1.0",
+      "url": "https://github.com/anton-abyzov/specweave/releases/tag/v2.1.0"
+    }
+  },
+  "vskill": {
+    "registry": {
+      "version": "1.1.1",
+      "dist.integrity": "sha512-vtq2cinPVYxe2+OsLkQtrJhrnqL8yhJk5m1clMzpgpndPCtJUGd5WDUJRbeAlbj5DmREuqJsqUl842ZHe+8mQQ==",
+      "dist.tarball": "https://registry.npmjs.org/vskill/-/vskill-1.1.1.tgz"
+    },
+    "release": {
+      "publishedAt": "2026-09-14T07:11:44Z",
+      "tagName": "v1.1.1",
+      "url": "https://github.com/anton-abyzov/vskill/releases/tag/v1.1.1"
+    }
+  }
+}
