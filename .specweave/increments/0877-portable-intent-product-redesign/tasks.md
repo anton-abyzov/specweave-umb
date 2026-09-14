@@ -8,7 +8,7 @@
 | T-03 | done | codex-root | 1489f3891; root build pass; 186 hooks/doctor tests pass; sk… |  |
 | T-04 | done | codex-skills | 8ce135ed236759c38f65a09b68f8550128ff6497; full npm test -- … |  |
 | T-05 | done | codex-product | cd /tmp/vskill-platform-0877-product && npm run build → exi… |  |
-| T-06 | claimed | codex-root |  |  |
+| T-06 | open |  |  | Waiting for required GitHub review or explicit admin-merge … |
 | T-07 | done | codex-sync | 2776db874c37f493bd28bbbb9cd0f9e57ad04a4d; 894 broad sync te… |  |
 | T-08 | done | codex-sync | 30d272e60; 25 files 225 dashboard tests pass; full build an… |  |
 | T-09 | done | codex-root | 6c98afff8; three supported session-ID regressions failed fi… |  |
@@ -23,7 +23,7 @@
 | T-18 | done | codex-product | e2fe683; npm run build passed; 75 focused Vitest tests pass… |  |
 | T-19 | done | codex-dashboard | specweave 4bc26e486; 2 portable regressions and existing te… |  |
 | T-20 | done | codex-dashboard | specweave ecaa15073; 3 relocation/path regressions failed f… |  |
-| T-21 | claimed | codex-product |  |  |
+| T-21 | done | codex-product | 51032632b3da86de89ee262b257735109c9f21a6; independently rev… |  |
 | T-22 | done | codex-product | e6b45b0; root independent review approved; local production… |  |
 | T-23 | done | codex-dashboard | specweave c502b35d6; final docs build passed; 7 headless en… |  |
 | T-24 | done | codex-skills | source 8052b9bd9; installed CLI 2.1.0; Codex + all 4 Claude… |  |
@@ -31,9 +31,12 @@
 | T-26 | done | codex-product | 1673da8; root independent approval;2 accessible-name/state/… |  |
 | T-27 | done | codex-dashboard | specweave 6a2750ac2; exactly6docs,4current guides and2histo… |  |
 | T-28 | done | codex-root | 59fd2c4d5; reproduced current CI ENOENT in lifecycle-pointe… |  |
-| T-29 | claimed | codex-product |  |  |
+| T-29 | done | codex-product | 51032632b3da86de89ee262b257735109c9f21a6; independently rev… |  |
+| T-30 | done | codex-dashboard | vskill-platform52eabeb; populatedSSR2redregressionsfirst;23… |  |
+| T-31 | done | codex-root | 991f29e0b; independent core review approved corrected seman… |  |
+| T-32 | done | codex-skills | 3a41c2882ecbe71a7510c1f8b476ab20583c2de1; unchanged focused… |  |
 
-26/29 done · 0 skipped · 3 claimed · 0 blocked · 0 stale · 0 open
+31/32 done · 0 skipped · 0 claimed · 0 blocked · 0 stale · 1 open
 <!-- /SW:BOARD -->
 
 ### T-01 Research and product decisions
@@ -58,7 +61,7 @@
 
 ### T-06 Review verification releases and report
 - AC: AC-08 | Files: reports/, specweave/package.json, specweave/package-lock.json, specweave/CHANGELOG.md, specweave/.claude-plugin/, specweave/plugins/specweave/.claude-plugin/plugin.json, vskill/package.json, vskill/package-lock.json, vskill/CHANGELOG.md, vskill/.github/workflows/npm-release.yml, AGENTS.md | Test: manual: independent review; builds and headless E2E; registry and deployment verification
-- [ ] claimed by codex-root since 2026-09-14T06:15:51.331Z
+- [ ] open
 
 ### T-07 Visible integration failures
 - AC: AC-01, AC-08 | Files: specweave/src/sync/external-change-puller.ts, specweave/src/cli/commands/sync.ts, specweave/tests/unit/sync/, specweave/tests/unit/cli/commands/sync* | Test: manual: regression tests distinguish unavailable provider from no changes and retain successful partial results
@@ -118,7 +121,7 @@
 
 ### T-21 Release and verify the redesigned Verified Skills site
 - AC: AC-05, AC-08 | Files: reports/platform-deployment.md, reports/platform-verification.md, reports/artifacts/platform-redesign/ | Test: manual: independent root approval, exact-head unit CI green, normal PR merge, fresh Worker build plus queue-health build/deployment checks, explicit-headless production catalog/Studio/video/mobile and axe verification
-- [ ] claimed by codex-product since 2026-09-14T06:54:58.051Z
+- [x] done by codex-product 2026-09-14T07:53:25.083Z — 51032632b3da86de89ee262b257735109c9f21a6; independently reviewed PR68 and69 normally merged; exact-head unit CI34819085…
 
 ### T-22 Provide authenticated disposable CI fixtures
 - AC: AC-08 | Files: vskill-platform/.github/workflows/0826-e2e.yml, reports/platform-deployment.md | Test: manual: confirm original trace sign-in500/missingJWT prerequisite; ephemeral masked signing key plus sign-in200 readiness, unchanged production auth/tests; inspect new E2E execution
@@ -148,6 +151,18 @@
 - AC: AC-08 | Files: specweave/tests/e2e/lifecycle/closure-2.0.e2e.ts, reports/lifecycle-pointer-contract.md | Test: cd /tmp/specweave-0877-root && npx vitest run --config vitest.e2e.config.ts tests/e2e/lifecycle/closure-2.0.e2e.ts
 - [x] done by codex-root 2026-09-14T07:25:37.955Z — 59fd2c4d5; reproduced current CI ENOENT in lifecycle-pointer-red.log; required relative pointer and exact fixture-root …
 
-### T-29 Preserve chapter selection during cold video loading
-- AC: AC-05, AC-08 | Files: vskill-platform/src/app/components/shared/ProductDemoCard.tsx, vskill-platform/src/app/components/shared/__tests__/ProductDemoCard.test.tsx, vskill-platform/tests/e2e/product-evidence.spec.ts, reports/platform-verification.md, reports/platform-deployment.md | Test: manual: reproduce cold metadata chapter jump failure, failing-first regression then native headless cold-load E2E; independently reviewed hotfix build/deploy/live checks
-- [ ] claimed by codex-product since 2026-09-14T07:26:55.682Z
+### T-29 Serve byte ranges for cold video chapter seeking
+- AC: AC-05, AC-08 | Files: vskill-platform/src/lib/media-range.ts, vskill-platform/src/lib/__tests__/media-range.test.ts, vskill-platform/src/lib/__tests__/media-range.workerd.test.ts, vskill-platform/scripts/build-worker-entry.ts, vskill-platform/wrangler.jsonc, vskill-platform/tests/e2e/product-evidence.spec.ts, reports/platform-verification.md, reports/platform-deployment.md | Test: manual: reproduce ignored byte-range response and cold chapter reset; failing-first exact-byte regression then native headless cold-load E2E; independently reviewed hotfix build/deploy/live checks
+- [x] done by codex-product 2026-09-14T07:49:08.950Z — 51032632b3da86de89ee262b257735109c9f21a6; independently reviewed093bdc0;32focused including real-workerd tests and3prod…
+
+### T-30 Repair populated trending catalog hydration
+- AC: AC-05, AC-08 | Files: vskill-platform/src/app/components/home/TrendingSkills.tsx, vskill-platform/src/app/components/home/__tests__/TrendingSkills.test.tsx, reports/platform-hydration-review.md, reports/artifacts/platform-hydration/ | Test: manual: populated SSR/hydration regression fails first; focused tests and headless real-anchor keyboard/navigation checks pass; root independently reviews before deployment
+- [x] done by codex-dashboard 2026-09-14T07:37:48.207Z — vskill-platform52eabeb; populatedSSR2redregressionsfirst;23focusedtests passed; fullnpm buildpassed; headlessdesktop/mo…
+
+### T-31 Canonical documentation links and current navigation contracts
+- AC: AC-04, AC-08 | Files: specweave/docs-site/docs/, specweave/docs-site/docusaurus.config.ts, specweave/docs-site/src/__tests__/sidebars.test.ts, specweave/docs-site/src/theme/Footer/__tests__/Footer.test.tsx, reports/docs-final-gates.md | Test: cd /tmp/specweave-0877-root/docs-site && npm run build && npx vitest run src/__tests__/docusaurus-config.test.ts src/__tests__/sidebars.test.ts src/theme/Footer/__tests__/Footer.test.tsx
+- [x] done by codex-root 2026-09-14T07:46:49.325Z — 991f29e0b; independent core review approved corrected semantic links; strict production build zero broken links;14 conf…
+
+### T-32 Avoid unused AST source-location work in slash-command guard
+- AC: AC-08 | Files: specweave/tests/unit/cli/slash-command-hints.test.ts, reports/slash-guard-* | Test: cd /tmp/specweave-0877-guard-performance && npx vitest run tests/unit/cli/slash-command-hints.test.ts
+- [x] done by codex-skills 2026-09-14T07:43:43.180Z — 3a41c2882ecbe71a7510c1f8b476ab20583c2de1; unchanged focused tests 2/2 pass; independent 849-file scan has identical ord…

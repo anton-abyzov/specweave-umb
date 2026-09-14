@@ -1,7 +1,29 @@
-# Verified Skills deployment readiness — 0877
+# Verified Skills deployed and verified — 0877
 
-PR: https://github.com/anton-abyzov/vskill-platform/pull/68
-Product commit: `a1815ec`. CI repair: `55bcd49`. No deployment performed by this lane.
+[Verified Skills](https://verified-skill.com) is live and verified. [PR68](https://github.com/anton-abyzov/vskill-platform/pull/68) redesigned the product; [PR69](https://github.com/anton-abyzov/vskill-platform/pull/69) repaired defects found during live verification. Both merged normally, without admin bypass, after independent root review.
+
+| Release evidence | Current value |
+|---|---|
+| Source | `51032632b3da86de89ee262b257735109c9f21a6`, PR69 squash merge at 2026-09-14T07:44:24Z; tree identical to reviewed `093bdc0` |
+| Worker version | `671dfaed-3df4-4aec-8520-755f52085f53` |
+| Deployment | `3eec2517-0a33-4341-a000-b3f665755082`, 2026-09-14T07:45:03.129558Z, 100% traffic |
+| Validation | Fresh OpenNext Worker build, queue build contract, Wrangler dry-run, and public/internal queue deployment smoke all pass |
+
+Existing bindings and remote variables were preserved with `--keep-vars`. No production database migration ran.
+
+Live headless verification passes: 16-category/10-trending catalog data; TypeScript search with 20 results; actual result navigation to `microsoft/fast/typescript` with its install command visible; canonical Studio redirect; all three published native installer links (1.0.63); exact 1,024-byte 206 responses for both recording formats; cold native video seeking from 7→75→7 seconds; 11 caption cues; and mobile navigation. The final video sample has readyState 4 at 7.020467 seconds.
+
+Twelve route/viewport/theme combinations (`/`, `/methodology`, `/studio`; 1440/390px; light/dark) have **zero serious/critical WCAG violations, zero overflow, and zero browser errors**. Desktop/mobile screenshots were visually inspected. Evidence is in `artifacts/platform-redesign/production/report.json`, `catalog-navigation.json`, and 12 screenshots named `{home,methodology,studio}-{1440,390}-{light,dark}.png`.
+
+Hotfix validation: **32 focused tests pass**, including three real-workerd ASSETS/range/HEAD/routing tests; **3 product E2E tests pass**. Exact-head unit CI [`34819085901`](https://github.com/anton-abyzov/vskill-platform/actions/runs/34819085901) is **green: 5,858 passed, 14 skipped; 629 files passed, 4 skipped**. It completed at 2026-09-14T07:52:12Z (9m51s). PR68's earlier full CI `34816692738` passed 5,826 tests with 14 skips.
+
+Private-workspace CI `34819086030` finished with the same disclosed result: **35 passed, 5 failed, 3 flaky, 3 existing skips** in 2.3 minutes. The remaining failures concern private publish feedback, a mock catalog seed, and three streamed-notFound HTTP status assertions; the 404 bodies contain no private content. Their backend/test expressions are unchanged by the redesign. A complete pre-change runtime replay was not performed.
+
+Rollback targets: the immediately preceding reviewed redesign version `9d71aeab-3b57-4af2-9f2c-425d87e3b8d7` (PR68, with the two diagnosed defects), or pre-redesign version `2ff7bf82-5deb-4d82-8f6a-fe201661210f`. No rollback was needed. Deployment inventories and logs are preserved under `artifacts/platform-redesign/release/`.
+
+Root independently approved T30 `52eabeb` (integrated as `f94f88d`) and T29 `093bdc0` before redeployment. The media adapter streams selected bytes from the existing asset cache. Late seeks still read/discard their prefix internally; this bounded-memory tradeoff avoids new storage/bindings and should be revisited if recording sizes or traffic justify native range-backed storage.
+
+Older sections below preserve diagnostic history; this section records the current release.
 
 ## Deployment target and build
 

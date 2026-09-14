@@ -13,12 +13,18 @@
     "review-sync.md",
     "review-costs.md",
     "review-closure-portability.json",
-    "docs-2.1-semantics.md"
+    "docs-2.1-semantics.md",
+    "lifecycle-pointer-contract.md",
+    "review-docs-strict-links.md",
+    "slash-guard-performance.md",
+    "platform-hydration-review.md"
   ],
   "finalCommits": {
     "specweaveRuntime": "8052b9bd9",
     "specweaveDocs": "048751d3c",
     "vskill": "0e18781",
-    "vskillPlatform": "1673da8"
+    "vskillPlatform": "51032632b3da86de89ee262b257735109c9f21a6",
+    "specweaveDocsAndTest": "59fd2c4d5",
+    "specweaveDocsAndTests": "991f29e0b"
   }
 }
