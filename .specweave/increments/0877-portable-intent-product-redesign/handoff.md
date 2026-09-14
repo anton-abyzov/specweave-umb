@@ -1,12 +1,12 @@
 # Handoff — 0877-portable-intent-product-redesign 0877 — Portable intent, live progress, and focused skills
-agent: codex-root · 2026-09-14T08:02:49.296Z · branch main @ d19b69ee · tree: 494 uncommitted · redactions: 0
+agent: codex-root · 2026-09-14T18:48:07.112Z · branch main @ 6454914c · tree: 496 uncommitted · redactions: 5
 active claims: none
 
 ## Where I left off
-Why: Waiting for explicit GitHub admin-merge authorization or another-account review
-SpecWeave 2.1.0 and vskill 1.1.1 published and registry-installed. Verified Skills deployed and live-verified at 51032632. 48 obsolete skill locations removed with backups; native plugins use SessionStart/Stop. Only SpecWeave website deployment remains; final report is reports/final-report.md. T-06 released for resumption; 31/32 tasks and 7/8 ACs complete.
-Increment 0877-portable-intent-product-redesign (active) · tasks 31/32 done · ACs 7/8
-Gotcha: Preserve unrelated dirty umbrella and original child checkouts. Use existing /tmp worktrees. All browser tests explicitly headless. Never display tokens; vskill key is in private Obsidian note and GitHub secret. Existing docs10/private-E2E5/LSP-timing failures are documented. Do not commit handoff.diff or private credentials; do not push umbrella.
+Why: Release completed and deployed
+All36tasks and8ACs complete. SpecWeave2.1.0/vskill1.1.1 published and installed. SpecWeave PR1940 and1944 merged; final Pages34882131675 source5d9a91cb deployed and18productionflows pass zero runtime/consoleerrors. VerifiedSkills remains live. Public concise report https://spec-weave.com/releases/2.1/.48obsolete skill locations removed with backups.
+Increment 0877-portable-intent-product-redesign (completed) · tasks 36/36 done · ACs 8/8
+Gotcha: Preserve unrelated dirty umbrella and original child checkouts; do not push private reports or credentials. Current source worktree /tmp/specweave-0877-root branchcodex/0877-delivery-fixes, merged tree5d9a91cb. Browser tests explicitly headless. ExternalRenderpricingtimeout from this Mac remains documented; GitHub fullcrawl passes. No new Cloudflare keys/settings were introduced.
 
 ## Done / Pending
 | Task | State | By | Evidence / note |
@@ -16,7 +16,7 @@ Gotcha: Preserve unrelated dirty umbrella and original child checkouts. Use exis
 | T-03 SpecWeave product site and focused hooks | done | codex-root | 1489f3891; root build pass; 186 hooks/doctor tests pass; ski |
 | T-04 Scoped vskill maintenance and personal cleanup | done | codex-skills | 8ce135ed236759c38f65a09b68f8550128ff6497; full npm test -- - |
 | T-05 Verified Skills product site | done | codex-product | cd /tmp/vskill-platform-0877-product && npm run build → exit |
-| T-06 Review verification releases and report | open |  | Waiting for required GitHub review or explicit admin-merge a |
+| T-06 Review verification releases and report | done | codex-root | Final source5d9a91cb; all task PRs merged; SpecWeave2.1.0/vs |
 | T-07 Visible integration failures | done | codex-sync | 2776db874c37f493bd28bbbb9cd0f9e57ad04a4d; 894 broad sync tes |
 | T-08 Live native session refresh and independent dashboard review | done | codex-sync | 30d272e60; 25 files 225 dashboard tests pass; full build and |
 | T-09 Preserve supported session IDs in hook fast path | done | codex-root | 6c98afff8; three supported session-ID regressions failed fir |
@@ -36,12 +36,12 @@ Gotcha: Preserve unrelated dirty umbrella and original child checkouts. Use exis
 | T-23 Repair published documentation navigation | done | codex-dashboard | specweave c502b35d6; final docs build passed; 7 headless ent |
 | T-24 Install SpecWeave 2.1.0 and refresh native plugins | done | codex-skills | source 8052b9bd9; installed CLI 2.1.0; Codex + all 4 Claude  |
 | T-25 Preserve contrast when live catalog data is populated | done | codex-product | 495f0fa; root independent review approved; populated public- |
-| … | +7 more | | see tasks.md |
-31/32 done · 0 skipped · 0 claimed · 0 blocked · 0 stale · 1 open
+| … | +11 more | | see tasks.md |
+36/36 done · 0 skipped · 0 claimed · 0 blocked · 0 stale · 0 open
 
 ## Decisions
-- Intent and execution metadata are deterministic local state; no model calls for board updates.
-- Business value is cross-tool continuity and inspectable evidence; paid demand remains a pilot hypothesis.
+- Keep portable intent and evidence in local files; board refresh needs no model calls.
+- Paid demand is unproven; validate handoff value against a small Markdown baseline before enterprise expansion.
 
 ## Files touched
 UNCOMMITTED — commit or stash before anything destructive.
@@ -53,21 +53,23 @@ M .specweave/increments/0683-studio-update-notifications/metadata.json
  M .specweave/increments/0877-portable-intent-product-redesign/ledger.jsonl
  M .specweave/increments/0877-portable-intent-product-redesign/metadata.json
  M .specweave/increments/0877-portable-intent-product-redesign/reports/final-report.md
- M .specweave/increments/0877-portable-intent-product-redesign/reports/lifecycle-pointer-contract.md
- M .specweave/increments/0877-portable-intent-product-redesign/reports/npm-credential-discovery.md
- M .specweave/increments/0877-portable-intent-product-redesign/reports/platform-deployment.md
- M .specweave/increments/0877-portable-intent-product-redesign/reports/platform-verification.md
+ M .specweave/increments/0877-portable-intent-product-redesign/reports/release-evidence.json
  M .specweave/increments/0877-portable-intent-product-redesign/reports/review.json
  M .specweave/increments/0877-portable-intent-product-redesign/reports/review.md
+ M .specweave/increments/0877-portable-intent-product-redesign/reports/specweave-production-verification-ready.md
+ M .specweave/increments/0877-portable-intent-product-redesign/reports/verify-specweave-production.cjs
+ M .specweave/increments/0877-portable-intent-product-redesign/reports/verify.json
+ M .specweave/increments/0877-portable-intent-product-redesign/reports/verify.md
+ M .specweave/increments/0877-portable-intent-product-redesign/spec.md
  M .specweave/increments/0877-portable-intent-product-redesign/tasks.md
  M .specweave/reports/twitter-replies/x-algorithm-notes.md
+ M .specweave/state/closure-metrics.json
  M package-lock.json
  M package.json
 ?? .gitattributes
 ?? .metadata_never_index
 ?? .specweave/increments/0874-crawl-coverage-healthcheck-and-email-alerts/
 ?? .specweave/increments/0877-portable-intent-product-redesign/handoff.diff
-?? .specweave/increments/0877-portable-intent-product-redesign/handoff.md
 ?? .specweave/increments/0877-portable-intent-product-redesign/scripts/
 ?? .specweave/reports/twitter-replies/2026-06-09-run-1.md
 ?? .specweave/reports/twitter-replies/2026-06-09-run-2.md
@@ -544,7 +546,7 @@ M .specweave/increments/0683-studio-update-notifications/metadata.json
 Full diff: `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/handoff.diff`
 
 ## Next steps
-After explicit admin-merge authorization or a required approving review, confirm PR 1940 head is the reviewed 991f29e0b51c71acaefe4c85ee0a882ca02d825c, merge through the authorized path, wait for existing Pages deployment, run reports/verify-specweave-production.cjs and the documented recursive crawl, record production evidence, finish T-06 and AC-08, run verify with explicit commands, then complete through CLI. Do not override branch protection without authorization.
+No release work remains. For future work read reports/final-report.md and known limitations first. Optional Jira mirror failed because configured site returns404 Site temporarily unavailable; do not treat it as successfully synced. GitHub milestone258 closed and ADO2451 Done. No need to republish packages for the website-only followup.
 
 ## Resume
 1. Read this file; if the path does not exist on your machine, ask for it to be pasted.

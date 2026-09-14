@@ -1,0 +1,51 @@
+{
+  "status": "deployed-and-verified",
+  "authorizedAdminMerge": true,
+  "pr": "https://github.com/anton-abyzov/specweave/pull/1940",
+  "reviewedHead": "5a5c5a9f064a2d2d532e66855852d9c1bf31eec6",
+  "mergeCommit": "b5e79688276b7acf78c9bfae63fae9e8ce841fba",
+  "mergedAt": "2026-09-14T18:24:06Z",
+  "pagesRun": 34880569459,
+  "pagesUrl": "https://github.com/anton-abyzov/specweave/actions/runs/34880569459",
+  "site": "https://spec-weave.com",
+  "htmlReport": "https://spec-weave.com/releases/2.1/",
+  "verificationPending": false,
+  "initialBrowserInteractionCasesPassed": 18,
+  "initialBrowserConsoleErrors": 36,
+  "initialCrawlFailures": {
+    "emailProtectionOccurrences": 32,
+    "renderPricingTimeoutOccurrences": 2
+  },
+  "followupPr": "https://github.com/anton-abyzov/specweave/pull/1944",
+  "followupHead": "fb727eaab851c484b43fb2b32f22b47ff023b208",
+  "htmlReportVerified": true,
+  "htmlReportReviewedSha256": "f0f79fa98af77fed35f3a621ef4737175ed94575d6cedc0b4447d2e3ece736f4",
+  "showcaseVerified": true,
+  "followupMerged": true,
+  "followupMergeCommit": "5d9a91cb27f49a5ad9414d55dd3f96f6089a189c",
+  "followupPagesRun": 34882131675,
+  "followupPagesUrl": "https://github.com/anton-abyzov/specweave/actions/runs/34882131675",
+  "ciBuildAndFullCrawl": {
+    "run": 34881875897,
+    "conclusion": "success"
+  },
+  "finalSource": "5d9a91cb27f49a5ad9414d55dd3f96f6089a189c",
+  "finalPagesConclusion": "success",
+  "finalPagesCompletedAt": "2026-09-14T18:41:42Z",
+  "productionBrowser": {
+    "status": "passed",
+    "cases": 18,
+    "runtimeErrors": 0,
+    "consoleErrors": 0
+  },
+  "productionCrawl": {
+    "links": 654,
+    "exit": 1,
+    "ownedRouteFailures": 0,
+    "externalTimeoutOccurrences": 2,
+    "externalTimeoutUrl": "https://render.com/pricing"
+  },
+  "htmlReportAxeViolations": 0,
+  "finalUnitE2ESmokeRun": 34881875938,
+  "finalUnitE2ESmokeConclusion": "success"
+}

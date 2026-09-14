@@ -19,7 +19,11 @@ const origin = 'https://spec-weave.com';
 const artifactDir = path.join(__dirname, 'artifacts', 'production-specweave');
 const resultFile = path.join(__dirname, 'specweave-production-verification.json');
 const expectedAssetHash = '3f84480b6f3b4b3d4e7e53c83ee4982b5e9047a67fe1a08ab87833e06ea13c5d';
-const expectedSource = '048751d3c986f5c28686ef1464b90deddb755637';
+const expectedSource = process.env.SPECWEAVE_DEPLOYED_SOURCE;
+if (!/^[a-f0-9]{40}$/.test(expectedSource || '')) {
+  console.error('Set SPECWEAVE_DEPLOYED_SOURCE to the successful Pages workflow commit.');
+  process.exit(2);
+}
 const routes = [
   ['/', ['Change agents.', 'Keep the thread.'], ['Your tools will change.', 'Example data above.']],
   ['/product', ['The work outlives', 'the session.'], ['Moving a card is a planning action.', 'Missing telemetry stays unknown.']],

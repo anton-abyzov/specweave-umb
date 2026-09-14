@@ -1,0 +1,81 @@
+{
+  "base": "https://spec-weave.com",
+  "at": "2026-09-14T18:27:09.913Z",
+  "headless": true,
+  "checks": [
+    {
+      "width": 1440,
+      "status": 200,
+      "links": [
+        {
+          "name": "EasyChamp",
+          "href": "https://easychamp.com",
+          "keyboardFocus": true,
+          "targetSize": {
+            "width": 386.65625,
+            "height": 149.890625
+          }
+        },
+        {
+          "name": "JobWeave",
+          "href": "https://jobweave.ai",
+          "keyboardFocus": true,
+          "targetSize": {
+            "width": 386.671875,
+            "height": 149.890625
+          }
+        },
+        {
+          "name": "Verified Skills",
+          "href": "https://verified-skill.com",
+          "keyboardFocus": true,
+          "targetSize": {
+            "width": 386.65625,
+            "height": 149.890625
+          }
+        }
+      ],
+      "detailUrl": "https://spec-weave.com/docs/overview/dogfooding",
+      "detailExamples": 10,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "links": [
+        {
+          "name": "EasyChamp",
+          "href": "https://easychamp.com",
+          "keyboardFocus": true,
+          "targetSize": {
+            "width": 342,
+            "height": 149.890625
+          }
+        },
+        {
+          "name": "JobWeave",
+          "href": "https://jobweave.ai",
+          "keyboardFocus": true,
+          "targetSize": {
+            "width": 342,
+            "height": 149.890625
+          }
+        },
+        {
+          "name": "Verified Skills",
+          "href": "https://verified-skill.com",
+          "keyboardFocus": true,
+          "targetSize": {
+            "width": 342,
+            "height": 149.890625
+          }
+        }
+      ],
+      "detailUrl": "https://spec-weave.com/docs/overview/dogfooding",
+      "detailExamples": 10,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

@@ -1,6 +1,6 @@
 # Verify — 0877-portable-intent-product-redesign
 
-FAIL · 2026-09-14T08:02:35.824Z · commands from explicit
+PASS · 2026-09-14T18:46:17.567Z · commands from explicit
 
 ## Commands
 
@@ -8,26 +8,26 @@ FAIL · 2026-09-14T08:02:35.824Z · commands from explicit
 
 ```
 lint-skills: 37 files clean
-docs-refs: OK — 153 pages, 10 skills, 80 CLI commands.
+docs-refs: OK — 154 pages, 10 skills, 80 CLI commands.
 ```
 
-### `cd /tmp/specweave-0877-root/docs-site && npx vitest run src/__tests__/docusaurus-config.test.ts src/__tests__/sidebars.test.ts src/theme/Footer/__tests__/Footer.test.tsx` → exit 0 (2s)
+### `cd /tmp/specweave-0877-root/docs-site && npx vitest run src/__tests__/docusaurus-config.test.ts src/__tests__/sidebars.test.ts src/theme/Footer/__tests__/Footer.test.tsx` → exit 0 (1s)
 
 ```
 
  RUN  v4.0.18 /private/tmp/specweave-0877-root/docs-site
 
- ✓ src/__tests__/docusaurus-config.test.ts (2 tests) 2ms
+ ✓ src/__tests__/docusaurus-config.test.ts (4 tests) 2ms
  ✓ src/__tests__/sidebars.test.ts (7 tests) 3ms
- ✓ src/theme/Footer/__tests__/Footer.test.tsx (5 tests) 52ms
+ ✓ src/theme/Footer/__tests__/Footer.test.tsx (5 tests) 39ms
 
  Test Files  3 passed (3)
-      Tests  14 passed (14)
-   Start at  04:02:27
-   Duration  1.32s (transform 252ms, setup 347ms, import 327ms, tests 57ms, environment 2.57s)
+      Tests  16 passed (16)
+   Start at  14:46:13
+   Duration  669ms (transform 186ms, setup 290ms, import 275ms, tests 44ms, environment 952ms)
 ```
 
-### `cd /tmp/specweave-0877-root && node scripts/release/preflight-publish.mjs` → exit 0 (7s)
+### `cd /tmp/specweave-0877-root && node scripts/release/preflight-publish.mjs` → exit 0 (3s)
 
 ```
 [preflight] ok — tarball carries 4125 entries including bin/specweave.js, the dist/ modules bin imports, dist/dashboard/** and both plugin manifests
@@ -35,7 +35,7 @@ docs-refs: OK — 153 pages, 10 skills, 80 CLI commands.
 
 ## Acceptance criteria
 
-7/8 checked
+8/8 checked
 
 | AC | Done | Text |
 |---|---|---|
@@ -46,7 +46,7 @@ docs-refs: OK — 153 pages, 10 skills, 80 CLI commands.
 | AC-05 | x | Verified Skills website presents scoped expertise, provenance, security evidence, and measured usefulness honestly through a responsive, layered design. |
 | AC-06 | x | vskill cleanup and removal respect scope, preserve unrelated global installations, and include regression coverage. |
 | AC-07 | x | Personal/project skill inventory, reversible removals, retained expertise, and recovery manifest are documented; unnecessary hooks are removed or made optional without losing supported handoffs. |
-| AC-08 |   | Relevant builds, tests, lint, coverage and headless E2E pass; failures outside scope are recorded accurately; review findings resolved; release/install/deploy evidence is recorded. |
+| AC-08 | x | Relevant builds, tests, lint, coverage and headless E2E pass; failures outside scope are recorded accurately; review findings resolved; release/install/deploy evidence is recorded. |
 
 ## Tasks (ledger)
 
@@ -57,7 +57,7 @@ docs-refs: OK — 153 pages, 10 skills, 80 CLI commands.
 | T-03 | done | codex-root | 1489f3891; root build pass; 186 hooks/doctor tests pass; sk… |  |
 | T-04 | done | codex-skills | 8ce135ed236759c38f65a09b68f8550128ff6497; full npm test -- … |  |
 | T-05 | done | codex-product | cd /tmp/vskill-platform-0877-product && npm run build → exi… |  |
-| T-06 | open |  |  | Waiting for required GitHub review or explicit admin-merge … |
+| T-06 | done | codex-root | Final source5d9a91cb; all task PRs merged; SpecWeave2.1.0/v… |  |
 | T-07 | done | codex-sync | 2776db874c37f493bd28bbbb9cd0f9e57ad04a4d; 894 broad sync te… |  |
 | T-08 | done | codex-sync | 30d272e60; 25 files 225 dashboard tests pass; full build an… |  |
 | T-09 | done | codex-root | 6c98afff8; three supported session-ID regressions failed fi… |  |
@@ -84,5 +84,9 @@ docs-refs: OK — 153 pages, 10 skills, 80 CLI commands.
 | T-30 | done | codex-dashboard | vskill-platform52eabeb; populatedSSR2redregressionsfirst;23… |  |
 | T-31 | done | codex-root | 991f29e0b; independent core review approved corrected seman… |  |
 | T-32 | done | codex-skills | 3a41c2882ecbe71a7510c1f8b476ab20583c2de1; unchanged focused… |  |
+| T-33 | done | codex-product | 9d3e59216; strict docs npm build passed; explicit-headless1… |  |
+| T-34 | done | codex-root | 5a5c5a9f0; public HTML report deployed in Pages34882131675 … |  |
+| T-35 | done | codex-core | dc7db569e; exact CI README sync red exit1 for two relative … |  |
+| T-36 | done | codex-root | fb727eaab; two regressions failed before repair;16focusedte… |  |
 
-31/32 done · 0 skipped · 0 claimed · 0 blocked · 0 stale · 1 open
+36/36 done · 0 skipped · 0 claimed · 0 blocked · 0 stale · 0 open

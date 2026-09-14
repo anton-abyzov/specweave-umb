@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0877 — Portable intent, live progress, and focused skills
 
 ## Problem
@@ -14,7 +17,7 @@ Research both supplied OpenAI articles and current harness/product documentation
 - [x] AC-05: Verified Skills website presents scoped expertise, provenance, security evidence, and measured usefulness honestly through a responsive, layered design.
 - [x] AC-06: vskill cleanup and removal respect scope, preserve unrelated global installations, and include regression coverage.
 - [x] AC-07: Personal/project skill inventory, reversible removals, retained expertise, and recovery manifest are documented; unnecessary hooks are removed or made optional without losing supported handoffs.
-- [ ] AC-08: Relevant builds, tests, lint, coverage and headless E2E pass; failures outside scope are recorded accurately; review findings resolved; release/install/deploy evidence is recorded.
+- [x] AC-08: Relevant builds, tests, lint, coverage and headless E2E pass; failures outside scope are recorded accurately; review findings resolved; release/install/deploy evidence is recorded.
 
 ## Approach
 User explicitly authorizes autonomous implementation, testing, installation and releases; this authorizes routine plan/design decisions. One worktree per code lane, preserving existing dirty checkouts. Base SpecWeave on published v2.0.3, vskill and platform on fetched main. Shared board state is deterministic local data, not periodic model inference; unknown telemetry remains unknown and observed use is not a causal quality ranking. Existing specs/ledger remain evidence sources; small intents do not require a new increment. Integrations stay opt-in under a dedicated integration surface, with explicit conflict and authority rules rather than blanket removal. Inspect relevant architecture and current implementation before changes. Use frontend-design, product audit, brainstorm, deep-research, Kie.ai, and SpecWeave ledger workflows. Kie visuals decorate explanatory surfaces, never substitute for real dashboard data. Primary audience: developers and small teams who switch coding tools. Enterprise connectors are an optional extension.

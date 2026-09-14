@@ -1,0 +1,51 @@
+{
+  "url": "https://spec-weave.com/releases/2.1/",
+  "headless": true,
+  "expectedSha256": "f0f79fa98af77fed35f3a621ef4737175ed94575d6cedc0b4447d2e3ece736f4",
+  "cases": [
+    {
+      "name": "desktop",
+      "status": 200,
+      "actualSha256": "96c4da4463f882a138194e9c541688e71a23e96295a71bb0da0b02754f8f3b4f",
+      "normalizedSha256": "f0f79fa98af77fed35f3a621ef4737175ed94575d6cedc0b4447d2e3ece736f4",
+      "cloudflareAnalyticsInsertions": 1,
+      "pageErrors": [],
+      "axe": [
+        {
+          "state": "closed",
+          "violations": [],
+          "passes": 30
+        },
+        {
+          "state": "open",
+          "violations": [],
+          "passes": 32
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "status": 200,
+      "actualSha256": "96c4da4463f882a138194e9c541688e71a23e96295a71bb0da0b02754f8f3b4f",
+      "normalizedSha256": "f0f79fa98af77fed35f3a621ef4737175ed94575d6cedc0b4447d2e3ece736f4",
+      "cloudflareAnalyticsInsertions": 1,
+      "pageErrors": [],
+      "axe": [
+        {
+          "state": "closed",
+          "violations": [],
+          "passes": 30
+        },
+        {
+          "state": "open",
+          "violations": [],
+          "passes": 32
+        }
+      ]
+    }
+  ],
+  "verifiedDeployment": {
+    "run": 34882131675,
+    "source": "5d9a91cb27f49a5ad9414d55dd3f96f6089a189c"
+  }
+}

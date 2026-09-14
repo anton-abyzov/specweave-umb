@@ -1,18 +1,28 @@
 {
   "id": "0877-portable-intent-product-redesign",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-09-14T05:49:42.998Z",
-  "updated": "2026-09-14T08:01:42.311Z",
-  "lastActivity": "2026-09-14T08:01:42.311Z",
+  "updated": "2026-09-14T18:46:22.637Z",
+  "lastActivity": "2026-09-14T18:46:22.637Z",
   "testMode": "TDD",
   "coverageTarget": 60,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2451",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2451",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-09-14T18:46:29.457Z"
+    }
+  },
   "planning": {
     "parallel": false
   },
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "readyForReviewAt": "2026-09-14T18:46:22.635Z",
+  "approvedAt": "2026-09-14T18:46:22.637Z"
 }

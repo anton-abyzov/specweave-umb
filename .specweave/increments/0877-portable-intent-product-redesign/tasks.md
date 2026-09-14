@@ -8,7 +8,7 @@
 | T-03 | done | codex-root | 1489f3891; root build pass; 186 hooks/doctor tests pass; sk… |  |
 | T-04 | done | codex-skills | 8ce135ed236759c38f65a09b68f8550128ff6497; full npm test -- … |  |
 | T-05 | done | codex-product | cd /tmp/vskill-platform-0877-product && npm run build → exi… |  |
-| T-06 | open |  |  | Waiting for required GitHub review or explicit admin-merge … |
+| T-06 | done | codex-root | Final source5d9a91cb; all task PRs merged; SpecWeave2.1.0/v… |  |
 | T-07 | done | codex-sync | 2776db874c37f493bd28bbbb9cd0f9e57ad04a4d; 894 broad sync te… |  |
 | T-08 | done | codex-sync | 30d272e60; 25 files 225 dashboard tests pass; full build an… |  |
 | T-09 | done | codex-root | 6c98afff8; three supported session-ID regressions failed fi… |  |
@@ -35,8 +35,12 @@
 | T-30 | done | codex-dashboard | vskill-platform52eabeb; populatedSSR2redregressionsfirst;23… |  |
 | T-31 | done | codex-root | 991f29e0b; independent core review approved corrected seman… |  |
 | T-32 | done | codex-skills | 3a41c2882ecbe71a7510c1f8b476ab20583c2de1; unchanged focused… |  |
+| T-33 | done | codex-product | 9d3e59216; strict docs npm build passed; explicit-headless1… |  |
+| T-34 | done | codex-root | 5a5c5a9f0; public HTML report deployed in Pages34882131675 … |  |
+| T-35 | done | codex-core | dc7db569e; exact CI README sync red exit1 for two relative … |  |
+| T-36 | done | codex-root | fb727eaab; two regressions failed before repair;16focusedte… |  |
 
-31/32 done · 0 skipped · 0 claimed · 0 blocked · 0 stale · 1 open
+36/36 done · 0 skipped · 0 claimed · 0 blocked · 0 stale · 0 open
 <!-- /SW:BOARD -->
 
 ### T-01 Research and product decisions
@@ -61,7 +65,7 @@
 
 ### T-06 Review verification releases and report
 - AC: AC-08 | Files: reports/, specweave/package.json, specweave/package-lock.json, specweave/CHANGELOG.md, specweave/.claude-plugin/, specweave/plugins/specweave/.claude-plugin/plugin.json, vskill/package.json, vskill/package-lock.json, vskill/CHANGELOG.md, vskill/.github/workflows/npm-release.yml, AGENTS.md | Test: manual: independent review; builds and headless E2E; registry and deployment verification
-- [ ] open
+- [x] done by codex-root 2026-09-14T18:46:12.272Z — Final source5d9a91cb; all task PRs merged; SpecWeave2.1.0/vskill1.1.1 published and registry-installed; bothsitesdeploy…
 
 ### T-07 Visible integration failures
 - AC: AC-01, AC-08 | Files: specweave/src/sync/external-change-puller.ts, specweave/src/cli/commands/sync.ts, specweave/tests/unit/sync/, specweave/tests/unit/cli/commands/sync* | Test: manual: regression tests distinguish unavailable provider from no changes and retain successful partial results
@@ -166,3 +170,19 @@
 ### T-32 Avoid unused AST source-location work in slash-command guard
 - AC: AC-08 | Files: specweave/tests/unit/cli/slash-command-hints.test.ts, reports/slash-guard-* | Test: cd /tmp/specweave-0877-guard-performance && npx vitest run tests/unit/cli/slash-command-hints.test.ts
 - [x] done by codex-skills 2026-09-14T07:43:43.180Z — 3a41c2882ecbe71a7510c1f8b476ab20583c2de1; unchanged focused tests 2/2 pass; independent 849-file scan has identical ord…
+
+### T-33 Restore concise real product examples
+- AC: AC-04 | Files: docs-site/src/pages/index.tsx, docs-site/src/pages/continuity.module.css, docs-site/docs/overview/dogfooding.md | Test: docs-site npm run build; headless desktop/mobile showcase navigation
+- [x] done by codex-product 2026-09-14T18:20:36.929Z — 9d3e59216; strict docs npm build passed; explicit-headless1440/390showcase keyboard/links/detail navigation and zeroove…
+
+### T-34 Publish concise HTML release report
+- AC: AC-08 | Files: docs-site/static/releases/2.1/index.html, reports/ | Test: headless desktop/mobile HTML report and local links; deployed report HTTP and content checks
+- [x] done by codex-root 2026-09-14T18:46:11.425Z — 5a5c5a9f0; public HTML report deployed in Pages34882131675 source5d9a91cb; independent desktop/mobile exact-content, ke…
+
+### T-35 Repair generated README documentation links
+- AC: AC-04, AC-08 | Files: README.md | Test: reproduce deployment README sync and strict docs-site build
+- [x] done by codex-core 2026-09-14T18:18:50.172Z — dc7db569e; exact CI README sync red exit1 for two relative paths, same sync strict docs build green exit0; generated HT…
+
+### T-36 Repair production analytics and email edge behavior
+- AC: AC-04, AC-08 | Files: docs-site/docusaurus.config.ts, docs-site/src/__tests__/docusaurus-config.test.ts, Cloudflare spec-weave.com zone settings, reports/ | Test: production zero-console-error browser checks and unchanged recursive link crawl; relevant config tests and strict build
+- [x] done by codex-root 2026-09-14T18:46:11.849Z — fb727eaab; two regressions failed before repair;16focusedtests pass; all183app pages preserve email markers; all256HTML…
