@@ -782,6 +782,14 @@
       "success": true,
       "timestamp": "2026-06-04T00:08:42.689Z",
       "durationMs": 165
+    },
+    {
+      "tool": "ado",
+      "itemId": 2451,
+      "incrementId": "0877-portable-intent-product-redesign",
+      "success": true,
+      "timestamp": "2026-09-14T18:46:31.209Z",
+      "durationMs": 206
     }
   ],
   "summary": {
@@ -812,20 +820,20 @@
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 8,
-      "successful": 8,
+      "totalAttempts": 9,
+      "successful": 9,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-06-04T00:08:42.689Z",
-      "avgDurationMs": 208.25,
+      "lastSuccess": "2026-09-14T18:46:31.209Z",
+      "avgDurationMs": 208,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 97,
-      "successful": 91,
+      "totalAttempts": 98,
+      "successful": 92,
       "failed": 6,
-      "successRate": 0.9381443298969072
+      "successRate": 0.9387755102040817
     },
-    "lastUpdated": "2026-06-04T00:08:42.689Z"
+    "lastUpdated": "2026-09-14T18:46:31.210Z"
   }
 }

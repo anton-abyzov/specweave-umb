@@ -199,5 +199,13 @@
       }
     }
   },
-  "livingDocs": "onDone"
+  "livingDocs": "onDone",
+  "jev": {
+    "enabled": true,
+    "provider": "openrouter",
+    "model": "jev-1.13",
+    "guards": {
+      "bash": true
+    }
+  }
 }

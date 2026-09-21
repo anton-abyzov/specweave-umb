@@ -1,16 +1,17 @@
-<!-- SW:META template="agents" version="2.0.0" sections="header,structure,loop,verify,parallel,conventions,umbrella,troubleshooting" -->
+<!-- SW:META template="agents" version="2.2.0" sections="header,structure,loop,verify,parallel,conventions,umbrella,jev,troubleshooting" -->
 
-<!-- SW:SECTION:header version="2.0.0" -->
+<!-- SW:SECTION:header version="2.2.0" -->
 # specweave
 
-SpecWeave project. Work happens in increments under `.specweave/increments/NNNN-slug/`. `spec.md` (Problem, ACs, Approach) is the source of truth; the ledger records who did what. This file is for Codex, OpenCode, Cursor, Gemini, Aider and humans; Claude Code reads CLAUDE.md (same content). Keep it under one page; project-specific notes go in **Project notes** at the bottom.
+SpecWeave project. Small requests live in the intent board; scoped work lives in increments under `.specweave/increments/NNNN-slug/`. `spec.md` (Problem, ACs, Approach) is the source of truth; the ledger records who did what. This file is for Codex, OpenCode, Cursor, Gemini, Aider and humans; Claude Code reads CLAUDE.md (same content). Keep it under one page; project-specific notes go in **Project notes** at the bottom.
 <!-- SW:END:header -->
 
-<!-- SW:SECTION:structure version="2.0.0" -->
+<!-- SW:SECTION:structure version="2.2.0" -->
 ## Structure
 
 ```
 .specweave/
+  intents/board.jsonl       append-only intent history (latest revision per id; planning state, not verification)
   increments/NNNN-slug/   spec.md (Problem · ACs · Approach) · tasks.md (tasks + rendered board) · ledger.jsonl (claims/done, CLI-written) · handoff.md · reports/ (evidence; binaries in reports/artifacts/, gitignored)
   docs/                    ADRs and hand-written docs (read before changing architecture)
   config.json
@@ -20,12 +21,12 @@ Only those files (plus optional `plan.md` when Approach outgrows a page, and `sc
 `tasks.md` format (the CLI parses it): `### T-01 Title` followed by one line `- AC: AC-01, AC-02 | Files: src/login.ts, src/login.test.ts | Test: npm test -- login`. `ledger.jsonl` is one JSON object per line, append-only: `{"t":"T-01","e":"claim|done|skip|release|block","by":"<tool>@<host>","at":"<ISO>","evidence":"<sha>","note":"<why>"}` (`evidence` required for `done`, `note` required for `skip`, both optional elsewhere).
 <!-- SW:END:structure -->
 
-<!-- SW:SECTION:loop version="2.0.0" -->
+<!-- SW:SECTION:loop version="2.2.0" -->
 ## The loop
 
 | Step | Command (each step is also a standalone skill you can install into any tool with `npx vskill install anton-abyzov/specweave/sw-do` — same for `sw-increment`, `sw-review`, `sw-handoff`, `sw-task`) |
 |---|---|
-| Plan a feature: write `spec.md` (Problem, Scope, `AC-01…` checkboxes, Approach: files that change, order of work, risks, decisions), get approval before any code | `specweave create-increment "title"` |
+| Plan a feature: write `spec.md` (Problem, Scope, `AC-01…` checkboxes, Approach: files that change, order of work, risks, decisions), resolve material scope questions before implementation | `specweave create-increment "title"` |
 | Work the tasks | `specweave task next` → `specweave task claim T-NN` → implement → commit (`NNNN: …`) → `specweave task done T-NN --run "<test cmd>"` (the command runs through your OS shell: cmd.exe on Windows, sh elsewhere) |
 | Verify the whole increment | `specweave verify` |
 | Review before closing (recommended for anything that ships) | in a fresh session: read spec.md, list findings by severity citing path:line, re-verify each before writing `reports/review.md`; the authoring session never approves its own work |
@@ -33,7 +34,7 @@ Only those files (plus optional `plan.md` when Approach outgrows a page, and `sc
 | Stop for any reason | `specweave handoff` |
 
 Without the `specweave` CLI: create the folder by hand (id = highest existing 4-digit prefix + 1, zero-padded); append one JSON line per event to `ledger.jsonl` as UTF-8 without BOM, LF-terminated, e.g. `{"t":"T-01","e":"claim","by":"<tool>@<host>","at":"<ISO>"}` (bash: `>>`; PowerShell: `[IO.File]::AppendAllText('ledger.jsonl', $line + "`n")`, never `>>`, it writes UTF-16); mark done with the same line using `"e":"done","evidence":"<commit sha>"` after the Test command exits 0; write `reports/verify.md` with the real test output and say the increment is ready to close (closing itself needs the CLI).
-Start every feature with an increment, even a small one, unless the user says "no increment". Fix a bug by writing the failing test first, then fixing the code without touching the test.
+Use an increment for work that needs shared scope, acceptance criteria, or a handoff. Small self-contained fixes can remain a lightweight intent. For bugs, reproduce the failure and add a regression test when it protects behavior. User authorization carries through routine implementation and verification.
 <!-- SW:END:loop -->
 
 <!-- SW:SECTION:verify version="2.0.0" -->
@@ -42,7 +43,7 @@ Start every feature with an increment, even a small one, unless the user says "n
 Run the project's build/test/lint (see **Commands**) before reporting any task complete and paste the real output. A task is done only when its **Test** command exits 0. Never skip, weaken, or delete a test to make it pass. Never set `status: completed` by hand; use `specweave complete`.
 <!-- SW:END:verify -->
 
-<!-- SW:SECTION:parallel version="2.0.0" -->
+<!-- SW:SECTION:parallel version="2.2.0" -->
 ## Working in parallel (any tool, any account)
 
 1. One worktree per agent, named after the agent: `git worktree add ../NNNN-<agent> -b inc/NNNN-<agent>` (e.g. `../0042-codex -b inc/0042-codex`). The branch name must contain the increment id.
@@ -50,8 +51,7 @@ Run the project's build/test/lint (see **Commands**) before reporting any task c
 3. Never edit ledger lines or another task's status; append only. On a git conflict in `ledger.jsonl` keep every line from both sides.
 4. `done` needs the task's **Test** command exit 0 and a commit sha. A task that turns out unnecessary is closed with `specweave task skip T-NN --reason "..."` (no CLI: append a `skip` ledger line with a reason), never ticked.
 5. When you stop: `specweave task release --all-mine` then `specweave handoff`.
-
-Resuming: find the active increment with `specweave status` (or the `NNNN-*` folder whose `metadata.json` has `"status": "active"`), read `spec.md`, then the latest `handoff.md`, then `specweave task next`.
+Resuming: check `.specweave/intents/board.jsonl` (latest revision per id) or `specweave dashboard` for unfinished intents, including work without an increment. Then find the active increment with `specweave status` (or the `NNNN-*` folder whose `metadata.json` has `"status": "active"`), read `spec.md`, then the latest `handoff.md`, then `specweave task next`.
 <!-- SW:END:parallel -->
 
 <!-- SW:SECTION:conventions version="2.0.0" -->
@@ -65,6 +65,28 @@ Resuming: find the active increment with `specweave status` (or the `NNNN-*` fol
 <!-- SW:SECTION:umbrella version="2.0.0" -->
 - Umbrella projects only: nested repos live under `repositories/<org>/<repo>/`; commit inside each nested repo, then the umbrella.
 <!-- SW:END:umbrella -->
+
+<!-- SW:SECTION:jev version="2.2.0" -->
+## Jev (System One) — closed-set decisions
+
+Jev answers questions whose every possible answer can be written down in advance: about 250 ms, about $0.00002, calibrated probabilities, no generation. Delegate the decision, then act on it yourself.
+
+| Moment | Command |
+|---|---|
+| Before choosing a skill or a subagent model tier | `specweave jev route "<prompt>"` |
+| Picking the tier for one task already in the ledger | `specweave jev task T-NN` — a suggestion you act on; nothing re-routes models behind you |
+| Before an unattended risky shell command | `specweave jev guard "<command>"` — exit 0 allow, 2 warn, 3 deny |
+| Pulled issue / PR / web text, a red test run | `specweave jev screen <file>` · `specweave jev failure <file>` |
+| Any other closed set of your own | `specweave jev ask --state @state.json --questions @q.json` |
+| Mechanical browser navigation (headless only) | `specweave jev browse --goal "<goal>" --url "<url>"` |
+| Is it configured here, what has it cost | `specweave jev doctor` · `specweave jev usage` |
+
+Exit 4 means Jev is unavailable — continue without it. Never send Jev code, prose, compaction, counting or date maths, another model's free-text output, or a question whose answers you cannot enumerate. Below `jev.thresholds.route` treat the answer as no answer.
+
+Every call sends its state — prompt text, task titles and ACs, the shell command, test-output tails, screened text, page text and element names — to the configured provider under the user's own key; secret-shaped values are masked heuristically first, best-effort only.
+
+The Bash guard is per project (`specweave jev setup --guard-bash` writes the config flag, the `.specweave/state/jev-guard.enabled` marker and a project-level `PreToolUse` hook; `--no-guard-bash` removes all three). A regex prefilter skips Jev for `npm test`, `npm run build|test|lint`, `pnpm/yarn test`, `cargo test`, `go test` and plain read commands, so project-defined scripts are trusted by the guard. A denied command is the user's to approve — stop and ask; do not reword it, wrap it or edit config around it.
+<!-- SW:END:jev -->
 
 <!-- SW:SECTION:troubleshooting version="2.0.0" -->
 ## Troubleshooting
