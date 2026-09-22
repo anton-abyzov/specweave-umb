@@ -1,0 +1,18 @@
+
+> specweave@2.3.0 validate:versions
+> node scripts/validation/validate-versions.cjs
+
+🔍 Validating version alignment across plugin manifests...
+
+  ✅ package.json                                  2.3.0
+  ✅ marketplace.json (root)                       2.3.0
+  ✅ marketplace.json (plugins[0])                 2.3.0
+  ✅ plugins/specweave/.claude-plugin/plugin.json  2.3.0
+
+✅ All four version locations aligned at 2.3.0
+
+> specweave@2.3.0 release:preflight
+> node scripts/release/preflight-publish.mjs
+
+[install-check] packed bin preserved; clean installed specweave --version = 2.3.0
+[preflight] ok — tarball carries 4173 entries including bin/specweave.js, the dist/ modules bin imports, dist/dashboard/** and both plugin manifests

@@ -1,0 +1,33 @@
+
+> docs-site@0.0.0 build
+> docusaurus build
+
+
+ ------------------------------------------------------------------------------                                                                                                         Update available 3.9.2 → 3.10.2                                                                                                                 To upgrade Docusaurus packages with the latest version, run the                                       following command:                                                         `npm i @docusaurus/core@latest                                            @docusaurus/plugin-client-redirects@latest                          @docusaurus/preset-classic@latest @docusaurus/theme-mermaid@latest              @docusaurus/module-type-aliases@latest @docusaurus/tsconfig@latest                                  @docusaurus/types@latest`                                                                                                             ------------------------------------------------------------------------------ 
+
+[WARNING] The `siteConfig.onBrokenMarkdownLinks` config option is deprecated and will be removed in Docusaurus v4.
+Please migrate and move this option to `siteConfig.markdown.hooks.onBrokenMarkdownLinks` instead.
+[INFO] [en] Creating an optimized production build...
+[WARNING] The `siteConfig.onBrokenMarkdownLinks` config option is deprecated and will be removed in Docusaurus v4.
+Please migrate and move this option to `siteConfig.markdown.hooks.onBrokenMarkdownLinks` instead.
+[WARNING] Some blog authors used in "2026-01-04-seo-best-practices.md" are not defined in "authors.yml":
+- {"name":"SpecWeave Team","title":"Documentation Engineers","url":"https://github.com/anton-abyzov/specweave","image_url":"/img/logo.svg","imageURL":"/img/logo.svg","socials":{},"key":null,"page":null}
+
+Note that we recommend to declare authors once in a "authors.yml" file and reference them by key in blog posts front matter to avoid author info duplication.
+But if you want to allow inline blog authors, you can disable this message by setting onInlineAuthors: 'ignore' in your blog plugin options.
+More info at https://docusaurus.io/docs/blog
+
+[WARNING] Tags [SEO, documentation, performance] used in 2026-01-04-seo-best-practices.md are not defined in tags.yml
+[WARNING] Tags [security, verified-skills, ToxicSkills, supply-chain, Snyk] used in 2026-02-21-toxicskills-why-your-ai-agent-skills-need-verification.md are not defined in tags.yml
+Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[webpackbar] ℹ Compiling Client
+[webpackbar] ℹ Compiling Server
+[webpackbar] ✔ Server: Compiled successfully in 1.81s
+Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[webpackbar] ✔ Client: Compiled successfully in 4.59s
+[SUCCESS] Generated static files in "build".
+[INFO] Use `npm run serve` command to test your build locally.
