@@ -1,19 +1,29 @@
 {
   "id": "0883-deploy-bounded-cli-scan-fixes",
-  "status": "active",
+  "status": "completed",
   "type": "hotfix",
   "priority": "P1",
   "created": "2026-09-22T04:41:20.866Z",
-  "updated": "2026-09-22T04:53:32.385Z",
-  "lastActivity": "2026-09-22T04:53:32.385Z",
+  "updated": "2026-09-22T05:37:51.207Z",
+  "lastActivity": "2026-09-22T05:37:51.207Z",
   "testMode": "TDD",
   "coverageTarget": 60,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2456",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2456",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-09-22T05:38:29.051Z"
+    }
+  },
   "planning": {
     "parallel": false
   },
   "project": "specweave-umb",
-  "parent": "0882-finish-bounded-cli-filesystem-scans"
+  "parent": "0882-finish-bounded-cli-filesystem-scans",
+  "readyForReviewAt": "2026-09-22T05:37:51.205Z",
+  "approvedAt": "2026-09-22T05:37:51.207Z"
 }

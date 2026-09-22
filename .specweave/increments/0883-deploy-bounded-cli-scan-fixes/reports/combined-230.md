@@ -30,3 +30,5 @@ BLACKBOX: PASS
 This is source-candidate verification. Registry download and clean installation remain pending.
 
 The release task reported 16,856 combined unit tests passed (159 existing skips), headless UI verification, independent review, and clean package preflight. Documentation CI found a generated overview link error; cec237cb8 corrects the README guide URL and documentation workflow triggers without runtime changes. Awaiting final CI and public package.
+
+Final candidate c8fbd8c16 adds the update dry-run fix. Independent bounded-scans harness passed again against rebuilt dist. Release task supplied the final CI coverage receipt: 751 files and 16,858 tests passed, 159 existing skips; lines 69.52%, branches 61.96%, functions 71.41%, statements 68.94%, exceeding the 60% target. Documentation and 685 links passed. Source log: /tmp/specweave-0881-ci-unit.log.
