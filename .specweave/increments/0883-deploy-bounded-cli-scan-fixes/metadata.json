@@ -1,0 +1,19 @@
+{
+  "id": "0883-deploy-bounded-cli-scan-fixes",
+  "status": "active",
+  "type": "hotfix",
+  "priority": "P1",
+  "created": "2026-09-22T04:41:20.866Z",
+  "updated": "2026-09-22T04:53:32.385Z",
+  "lastActivity": "2026-09-22T04:53:32.385Z",
+  "testMode": "TDD",
+  "coverageTarget": 60,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave-umb",
+  "parent": "0882-finish-bounded-cli-filesystem-scans"
+}
