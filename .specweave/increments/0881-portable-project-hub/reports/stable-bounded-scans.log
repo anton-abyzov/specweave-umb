@@ -1,0 +1,20 @@
+PASS living-docs: exit 1, 67 ms
+PASS gc: exit 1, 46 ms
+PASS dashboard --no-browser: exit 1, 47 ms
+PASS lsp setup --dry-run: exit 1, 62 ms
+PASS lsp search foo: exit 1, 62 ms
+PASS lsp refs missing.ts foo: exit 1, 61 ms
+PASS lsp def missing.ts foo: exit 1, 62 ms
+PASS lsp hover missing.ts foo: exit 1, 62 ms
+PASS lsp symbols missing.ts: exit 1, 64 ms
+PASS lsp warmup: exit 1, 63 ms
+PASS lsp status: exit 1, 63 ms
+PASS lsp warmup --quiet: exit 1, 61 ms
+PASS gc --json: exit 1, 46 ms
+PASS save --dry-run --no-push: exit 1, 58 ms
+PASS symlink escape and discovery depth: counted = scanned = 16
+PASS lsp setup --dry-run --min-files 1: exit 0, 61 ms
+PASS gc --json: exit 0, 43 ms
+PASS save --dry-run --no-push: exit 0, 114 ms
+PASS save --dry-run --no-push: exit 0, 244 ms
+BLACKBOX: PASS

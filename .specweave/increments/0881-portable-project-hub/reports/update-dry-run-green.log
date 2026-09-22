@@ -1,0 +1,10 @@
+
+ RUN  v4.1.11 /private/tmp/specweave-0881-root
+
+ ✓ tests/unit/cli/commands/update.test.ts (68 tests) 1455ms
+
+ Test Files  1 passed (1)
+      Tests  68 passed (68)
+   Start at  01:17:36
+   Duration  1.66s (transform 159ms, setup 33ms, import 114ms, tests 1.46s, environment 0ms)
+

@@ -1,0 +1,78 @@
+{
+  "source": "193f9f6c317ee959626b86a66291a4701daa4277",
+  "version": "2.3.0",
+  "node": "22.20.0",
+  "unit": {
+    "filesPassed": 750,
+    "testsPassed": 16856,
+    "existingSkipped": 159
+  },
+  "coverage": {
+    "lines": 95.61,
+    "branches": 86.44,
+    "functions": 90.24,
+    "statements": 92.55
+  },
+  "passed": [
+    "build",
+    "dashboard TypeScript",
+    "skill lint",
+    "docs reference lint",
+    "docs site build",
+    "17 smoke checks",
+    "ledger E2E",
+    "project CLI and headless UI lifecycle",
+    "live website brand parity",
+    "desktop tablet mobile",
+    "8 adjacent routes with populated charts",
+    "package preflight clean CLI install",
+    "independent bounded-scans E2E",
+    "exact CI README import, full documentation build and candidate link regression",
+    "full candidate link crawl: 685 links, no failures"
+  ],
+  "logs": [
+    "stable-unit",
+    "stable-build",
+    "stable-lint",
+    "stable-docs",
+    "stable-coverage",
+    "stable-ledger",
+    "stable-smoke",
+    "brand-parity",
+    "aligned-e2e",
+    "preflight"
+  ],
+  "documentationFix": "d2aedcbc4d5dc54cb3bd7a6f0db35541551360d0 (README URL, source revision links and docs triggers only; runtime unchanged)",
+  "finalSource": "c8fbd8c16cee0dd6b83fb7353d889fdb73e5eabc",
+  "ciUnit": {
+    "filesPassed": 751,
+    "testsPassed": 16858,
+    "existingSkipped": 159,
+    "coverage": {
+      "statements": 68.94,
+      "branches": 61.96,
+      "functions": 71.41,
+      "lines": 69.52
+    },
+    "requiredUnitCoverage": 60,
+    "url": "https://github.com/anton-abyzov/specweave/actions/runs/35690148260"
+  },
+  "finalLocalCoverage": {
+    "statements": 68.99,
+    "branches": 61.96,
+    "functions": 71.47,
+    "lines": 69.57
+  },
+  "finalLocalCommand": "npm run test:unit -- --maxWorkers=4",
+  "fastProfileAttempts": "Earlier original fast-profile run passed16856; two final attempts hit5s real-Git fixture timeouts. The standard release suite passed unchanged tests with its existing10s profile. See attempt logs.",
+  "ciE2E": {
+    "passed": 88,
+    "failed": 1,
+    "existingSkipped": 106,
+    "failure": "Existing nonblocking LSP vs grep speed benchmark:49.36ms versus45.81ms threshold on retry; unchanged test/workflow policy",
+    "functionalHarnesses": "project hub browser/CLI, native installer, ledger and bounded-scan harnesses all passed"
+  },
+  "optionalClaudeReview": "Failed external review runner; independent reviews clean",
+  "mergedSource": "8be01b24e23f18c1a87036e7f6e8ab0d4c98cce3",
+  "tree": "945cb78dcc95153479fa41d17e8d306fa02d07f2"
+}
