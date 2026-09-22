@@ -1,0 +1,18 @@
+{
+  "id": "0880-jev-real-use-evidence-and-site",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-09-22T02:49:48.776Z",
+  "updated": "2026-09-22T02:49:48.776Z",
+  "lastActivity": "2026-09-22T02:49:48.776Z",
+  "testMode": "TDD",
+  "coverageTarget": 60,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave-umb"
+}
