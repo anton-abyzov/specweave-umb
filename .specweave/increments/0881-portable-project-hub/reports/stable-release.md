@@ -22,3 +22,6 @@ The normal shell resolves SpecWeave at /Users/antonabyzov/.nvm/versions/node/v22
 
 ## Recorded limitations
 The existing nonblocking LSP-versus-grep timing assertion failed in CI, including a retry (49.36 ms versus 45.81 ms threshold); 88 other E2E tests passed. The test and CI policy were not weakened. The optional Claude review runner also failed at startup; independent reviews passed. Two local fast-profile attempts hit the existing 5-second Git-fixture limits; the unchanged standard release suite passed with its existing 10-second profile. Raw receipts retain these failures alongside the passing release checks.
+
+## Closure
+Final fresh `specweave verify 0881` passed all four commands against the installed npm artifact, including headless project/brand flows, native skill preservation, bounded filesystem scans and source version/lint checks. All 9 acceptance criteria and 7 tasks are complete. `specweave complete 0881 --yes` exited 0 and set the increment to completed; the intent board now records done. Azure DevOps feature 2457 reached Done. Jira synchronization remains unavailable: its API returned HTTP 404 with `Site temporarily unavailable`, and no issue key was created. This external tracker outage does not change the published package, installed version or verified product behavior.

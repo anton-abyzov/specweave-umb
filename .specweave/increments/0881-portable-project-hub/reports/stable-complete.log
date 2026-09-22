@@ -1,0 +1,102 @@
+✓ Coverage validation passed: 70.0% >= 60%
+metadata(0713B-production-rollout): excluded from status — Failed to read metadata for 0713B-production-rollout: Invalid type: ops
+metadata(0849-sleek-repos-cabinet-dedupe): excluded from status — Failed to read metadata for 0849-sleek-repos-cabinet-dedupe: Invalid type: ux
+🔍 Building feature registry...
+✅ Registry built with 280 features
+📁 Single-project mode: using specweave
+🔄 Derived feature ID: FS-881
+📚 Syncing 0881-portable-project-hub → FS-881...
+No per-US **Project**: fields found in 0881-portable-project-hub
+Resolved project for 0881-portable-project-hub: specweave (high, source: config)
+Using cached project resolution for 0881-portable-project-hub
+   Resolved project: specweave (config, high)
+Loaded 3 projects from registry
+   📁 Feature folder: specweave/FS-881/
+   ✅ GitHub sync enabled (config.sync.github, owner: anton-abyzov)
+   ✅ Jira sync enabled (config.sync.jira)
+   ✅ ADO sync enabled (config.sync.ado)
+   📡 External tools detected: github, jira, ado
+
+📡 Syncing to external tools: github, jira, ado
+   📋 Permissions: upsert=true, update=true, status=true
+   🔄 Syncing to GitHub...
+   🔑 GitHub token: .env GITHUB_TOKEN (pat)
+   📝 Using GitHub config: anton-abyzov/specweave
+   📝 Using distributed sync target (child-repo-name): anton-abyzov/specweave
+
+🔄 Syncing Feature FS-881 to GitHub...
+   📦 Feature: 0881 — Portable project hub
+   📊 Status: completed
+   🚀 Creating GitHub Milestone...
+   ✅ Created Milestone #264
+
+   📝 Found 0 User Stories to sync...
+   🌿 Default branch: develop
+
+✅ Feature sync complete!
+   Milestone: https://github.com/anton-abyzov/specweave/milestone/264
+   User Stories: 0
+   Issues created: 0
+   Issues updated: 0
+   ✅ Synced to GitHub: 0 updated, 0 created
+   🔄 Syncing to JIRA...
+   📝 Using distributed JIRA target (child-repo-name): SWE2E
+   📝 Using JIRA config: antonabyzov.atlassian.net
+
+🔄 Syncing spec FS-881 to Jira Epic...
+   Creating new Jira Epic...
+❌ Error syncing to Jira: Request failed with status code 404
+   Response: {"errorMessage":"Site temporarily unavailable","errorCode":"OTHER"}
+   ⚠️  JIRA sync had issues: Request failed with status code 404
+   🔄 Syncing to Azure DevOps...
+   📝 Using distributed ADO target (child-repo-name): EasyChamp/SpecWeaveSync
+   📝 Using ADO config: EasyChamp/SpecWeaveSync
+
+🔄 Syncing spec FS-881 to ADO Feature...
+   Creating new ADO Feature...
+      ℹ️  Work item type "Feature" not available, using "Epic"
+   ✅ Created ADO Feature #2457: https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2457
+   ℹ️  No user stories to sync
+✅ Sync complete!
+   ✅ Synced to ADO: 2457
+      📝 Backfilled metadata.json with ado links
+✅ Synced 0881-portable-project-hub → FS-881
+   Created: 1 files
+
+🔒 Syncing increment CLOSURE for 0881-portable-project-hub...
+✅ All gates passed - closing external issues for user stories
+
+🔹 GitHub: Handled by GitHubFeatureSync pipeline (skipping SyncCoordinator path)
+
+🔹 JIRA: Closing issues for completed user stories...
+  📎 Derived feature ID for user story loading: FS-881
+  ⚠️ Living docs folder missing: specweave-umb/FS-881/
+     Falling back to parsing user stories from spec.md
+     Run specweave sync push to create living docs
+  ⚠️ No user stories found in spec.md body
+📚 Found 0 user stories for JIRA closure
+⚠️  JIRA enabled but no issue key resolvable for increment — skipping closure
+   ✅ Closed 0 JIRA issue(s)
+
+🔹 ADO: Closing work items for completed user stories...
+  📎 Derived feature ID for user story loading: FS-881
+  ⚠️ Living docs folder missing: specweave-umb/FS-881/
+     Falling back to parsing user stories from spec.md
+     Run specweave sync push to create living docs
+  ⚠️ No user stories found in spec.md body
+📚 Found 0 user stories for ADO closure
+🔍 Detected ADO Process Template: Basic
+🔍 Querying Azure DevOps with WIQL: SELECT  [System.Id] FROM WorkItems WHERE [System.TeamProject] = 'SpecWeaveSync' AND [System.Id] IN (2457) ORDER BY [System.ChangedDate] DESC
+✅ Retrieved 1 work items from Azure DevOps
+  🔒 Closing ADO work item #2457...
+🔧 Updating work item #2457
+✅ Updated work item #2457
+  ✅ ADO #2457 transitioned to Done
+   ✅ Closed 1 ADO work item(s)
+
+✅ Increment closure sync complete
+   Total items closed: 1
+   ⚠️  1 error(s) occurred
+[2026-09-22T05:43:38.630Z] [LifecycleHookDispatcher.onIncrementDone:closure] Hook dispatch error: Provider closure errors for 0881-portable-project-hub: JIRA enabled but no issue key resolvable for increment
+[skill-gen] No LLM config found — skipping pattern detection
+💡 Skill suggestion: Detected "api-patterns-pattern" pattern across 4 sources. Worth capturing as a project skill.
