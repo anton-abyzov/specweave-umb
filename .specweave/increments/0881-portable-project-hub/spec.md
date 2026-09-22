@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0881 — Portable project hub
 
 ## Problem
@@ -17,7 +20,7 @@ Out: proprietary design editor, mobile/cloud runtime, a second agent runtime, co
 - [x] AC-07: Regression tests, build, skill/docs lint, targeted coverage and packaged-install smoke pass; release classification and actual installed version are recorded.
 
 - [x] AC-08: Dashboard and website consume shared brand tokens; paper, ink, accent, surfaces, type and controls match the current public website with responsive headless comparison evidence.
-- [ ] AC-09: Stable npm version is published from pushed source, installed from the registry on this machine, and passes full source and installed-package checks; implementation and umbrella evidence are pushed.
+- [x] AC-09: Stable npm version is published from pushed source, installed from the registry on this machine, and passes full source and installed-package checks; implementation and umbrella evidence are pushed.
 
 ## Approach
 Reuse existing IntentStore for assignments and execution history; do not create a competing task ledger. Add optional .specweave/project/hub.json with optimistic revisions, exclusive cross-process locking and atomic replacement. Artifact files remain in place; store references only. Project context is explicit user-maintained text, not transcript mining. Prepare fresh worker briefs on demand so snapshot staleness is explicit. Routines store cadence/instructions and export briefs for native scheduling; no scheduler is implied. Add project CLI and dashboard route/tab. Correct Codex adapter path and guidance, retaining legacy files. Keep umbrella config and increment placement unchanged. Additive capability merits 2.3.0 (no breaking migration). Deliver 2.3.0-rc.1 locally first; stable publication and UI closure remain separate from install proof.
@@ -28,4 +31,4 @@ Existing ADR 0142 describes historical per-repo increments; current umbrella ins
 On 2026-09-22 the user accepted the UI, required exact alignment with the current website design system, and explicitly authorized pushing all task work, publishing the latest stable release, installing locally and full testing. This resolves the manual acceptance gate; complete the requested design alignment and automated checks before closure. No further permission request is needed.
 
 ## Stable release integration
-Final candidate 193f9f6c3 includes exact merged ancestry of sibling scan fixes (#1950, #1951, #1954), preserves version 2.3.0 and adds their bounded-discovery behavior to the release. Full source tests and package preflight run on this combined tree.
+Released commit 8be01b24e23f18c1a87036e7f6e8ab0d4c98cce3 has the same tree as the reviewed final candidate c8fbd8c16cee0dd6b83fb7353d889fdb73e5eabc. It includes exact merged ancestry of sibling scan fixes (#1950, #1951, #1954), shared website design tokens, and the update --check regression fix. Full source tests, coverage, package preflight and registry-installed browser/CLI checks passed. Stable npm and GitHub release 2.3.0 are public; installation and umbrella evidence are pushed in PR #93. Known nonblocking CI timing and optional review-runner failures are retained in reports/stable-release.md.
