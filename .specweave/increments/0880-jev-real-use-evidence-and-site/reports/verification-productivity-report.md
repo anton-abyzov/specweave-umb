@@ -1,0 +1,52 @@
+# Jev: practical value, evidence, and release audit
+
+## Decision
+Jev has a defensible narrow use: choose among a fixed set of safe read handlers when deterministic routing does not understand a request. It is not faster than regex. It should not control permissions, approval, writes, test pass/fail, or release acceptance. General browser delegation has not demonstrated a productivity win in this audit.
+
+## What changed from the published benchmark
+The earlier 0878 benchmark did make real provider calls, but its EasyChamp messages were authored examples, not production traffic. Its 25/26 classification score evaluated a broader intent taxonomy. The new evaluation exercises actual Python baseline code and an intentionally narrower rule: only unfiltered, authorized reads may bypass general chat. These accuracy figures are not interchangeable.
+
+The exact published cards were recovered from the saved publication assets and visually inspected. They already say “small synthetic test set,” “not production accuracy,” and that judgments are not authorization. Their frozen full-run snapshot contains 94 items, 231 ms median, and $0.002884 reported cost; a later internal 98-item run is a different snapshot. No correction to those caveats is needed. The missing part was a concrete user journey and application-path evidence, now supplied. Direct X fetch returned 403; publication receipt and local assets, not a fresh view of the tweet, were used for this audit.
+
+## Fresh EasyChamp replay
+62 authored messages (26 original, 36 fixed held-out), 41 live provider calls, model `jev-1.13`, threshold 0.95. The existing router made 45/62 correct safe-route decisions; the hybrid made 50/62. Five additional direct reads were correct; zero newly accepted Jev routes were incorrect. Three pre-existing regex misroutes remain visible. Provider median 288.6 ms, p95 437.3 ms, reported total cost $0.000862344. Regex median 0.0704 ms. Inputs and raw results: `easychamp-evaluation.json`.
+
+This is measured handler selection, not measured customer productivity. The acceptance rate is five out of 41 provider calls, so most calls add latency before fallback. A production gain requires enough avoided general-chat work to outweigh this overhead. Provider confidence has not been calibrated on production traffic. English reply templates remain English for multilingual requests.
+
+## Controlled actual-handler comparison
+The actual EasyChamp Python message handler was exercised with live Jev and Gemini 2.5 Flash calls and fixture API data. Five previously successful messages were selected, so this is a demonstration rather than an independent benchmark. Four routed directly again in 276–400 ms; their Gemini baseline runs took 1.2–3.3 seconds and did not list the requested data. For “Could I see the leagues available to me?”, baseline returned an inability to list after 1.988 seconds; Jev reached the existing read endpoint and returned the fixture league after 0.307 seconds.
+
+The fifth case fell from confidence 0.95 to 0.94 and correctly used the fallback. This exposes real repeatability limits at the threshold. Model networks and application routing were real; production HTTP authentication and database latency were not exercised. Gemini token counts are recorded but billed cost was unavailable. Do not attribute the fifth fallback run's faster response to Jev: cache state and model variation differ. Full paired outputs: `easychamp-agent-comparison.json`.
+
+Causal caveat: the current Gemini fallback has no generic collection-list tool. Adding those existing safe reads to its tool registry is another improvement to test. The comparison demonstrates a useful alternative application path, not an intrinsic superiority of one model. Across all 41 replay calls, Jev added 12.883 seconds of classifier time for five recovered reads: avoiding more than 2.577 seconds per recovered request would be necessary to break even on that corpus, before other overhead. Do not generalize selected winning pairs to the full workload.
+
+## Browser evidence
+A headless live EasyChamp navigation run claimed completion twice before reaching the requested competition listing. The verifier blocked both claims. Runtime: 2.357 seconds, reported cost $0.000751254. A second, more explicit prompt clicked the named link correctly, but that link led to a homepage anchor; again the verifier blocked completion. Runtime: 4.086 seconds, cost $0.001129758. Both failures are preserved with screenshots and raw decisions. Neither is a successful productivity demonstration.
+
+The first browser attempt also failed because global Playwright was missing. The dependency was installed and subsequent headless execution worked. Setup instructions must distinguish provider connectivity from browser readiness.
+
+## Engineering findings
+Reproductions identified mutating shell commands bypassing the read-only prefilter, unredacted question text, partial PEM redaction, malformed provider answers becoming allow verdicts, and domain checks occurring after navigation. Full findings and regression evidence live in `jev-audit.md` and the Jev fix report. No real secret or destructive command was used in the probes. Secret masking remains heuristic; API input is still an external data transfer.
+
+Post-fix live guard counterexample: `rg '--pre=/tmp/jev-audit-helper' pattern /tmp/jev-audit-input` correctly reached the provider (`prefiltered: false`), but Jev labelled it read-only and allowed it with 0.98 reported confidence (462 ms; $0.000023856). Only the command string was classified; nothing executed. The prefilter fix works, but the semantic guard decision is wrong. This is direct evidence that guard output and confidence cannot authorize execution. See `verification-new-guard-live.json`. Deterministic execution policy remains necessary, and advisory fail-open behavior is not a security boundary.
+
+## Product and acquisition
+The old homepage had no Jev link and many 9–13 px labels, including narrow mobile cards. The new path should make one job obvious: route bounded read requests, inspect the evidence, then run a first decision. Keep historical benchmarks secondary and label generated art separately from screenshots.
+
+Do not buy broader promotion until activation can be observed. Measure visits to /jev, setup-guide clicks, successful first decision, first real workflow integration, seven-day repeat use, fallback rate, wrong accepted routes, and total end-to-end latency/cost. Website clicks alone are not adoption. No verified conversion or retention dataset was available in this audit, so no user-growth outcome is claimed.
+
+Recommended next validation is an opt-in canary against existing authenticated read endpoints, with a deterministic kill switch and rollback to current routing. Keep authentication and tenant permissions in existing handlers. Require a representative independently labelled sample before general enablement; preserve failures as evidence rather than tuning labels to improve the score.
+
+## Graphics
+Premium Kie Nano Banana Pro 4K artwork: 5056 × 3392 source, provider receipt 24 credits, listed price approximately $0.12. Responsive WebP versions weigh about 11/22/49 KB. This is concept art, not empirical evidence. See `graphics.md` and its generation receipt.
+
+## Verification and delivery
+SpecWeave v2.2.3 was published by GitHub OIDC run [35682396681](https://github.com/anton-abyzov/specweave/actions/runs/35682396681). Source tag points to a8b4fd0d49a606fbf891cd462f78a53417cf10ee. npm accepted the upload before registry propagation; later download and SHA-512 validation confirmed the actual published artifact. It is installed globally at /Users/antonabyzov/.nvm/versions/node/v22.20.0/lib/node_modules/specweave. The installed command reports 2.2.3, its Jev files match the verified build byte-for-byte, and live doctor ping succeeded in 529 ms. Receipts: release-local-install.json and artifacts/release/.
+
+Node 22 build, CLI/skills/docs lints and 16,740 fast unit tests passed. Jev-focused 304 tests and changed-file coverage passed. Website built and ten headless viewport checks passed. Candidate documentation CI [35683058800](https://github.com/anton-abyzov/specweave/actions/runs/35683058800) built successfully and checked 680 links. Fifteen new release tests verify artifact metadata, installation, propagation, interrupted body retries and integrity rejection. Later CI-only hardening does not change the published runtime. Exact-head technical CI at e96ac183b passed: 16,753 unit tests (159 skipped), 89 E2E tests (106 skipped), and whole-project coverage 69.22% lines / 61.63% branches / 71.13% functions. Documentation build/link checks and publish preflight also passed. The optional Claude review action failed before model usage with is_error:true and no permission denials; this is not a code-review verdict. Independent review findings were fixed and verified. EasyChamp rollout is still being followed.
+
+The website is not yet deployed: [PR #1952](https://github.com/anton-abyzov/specweave/pull/1952) awaits the external approving review required by develop branch protection. Pages accepts only develop/main, and the feature-branch deployment was rejected by that environment restriction. An explicit admin-merge authorization question is pending; no protection was changed or bypassed. Manual UI acceptance is also required before increment closure by this workspace's AGENTS.md.
+
+EasyChamp’s first full CI run passed 4,875 tests (299 skipped, 9 deselected) and all required functional gates, but failed a final translation-registration gate on an internal exception diagnostic. That unused text was removed without weakening a gate. Source e8e0a5d8723a444057309a1377a72525c2769342 is undergoing the full deployment rerun [35683367197](https://github.com/anton-abyzov/ec-chat-api/actions/runs/35683367197). The opt-in router remains off by default.
+
+The promotion draft and measurable activation plan are in verification-promotion-brief.md. Nothing was posted, no customer growth was claimed, and no new tracking was installed.
