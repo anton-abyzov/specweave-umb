@@ -1,0 +1,2 @@
+Previous native skill preserved: /private/var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/sw-native-package-pBZ4IS/.specweave/state/skill-backups/99cfab57-6040-4028-9b7d-2fd2d6083b9b/sw-project
+PASS: installed CLI init + refresh installs all 12 native Codex skills, preserves custom project skill and refreshes idempotently

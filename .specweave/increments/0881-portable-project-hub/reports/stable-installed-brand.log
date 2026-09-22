@@ -1,0 +1,2 @@
+[LogParser] logDir=/Users/antonabyzov/.claude/projects/-var-folders-js-x0hbrvjj2rl7hsgjy5955_r40000gn-T-sw-brand-project-xEDH1H files=0
+PASS: live website/dashboard colors, type, buttons and panels match; fonts load locally; desktop/tablet/mobile and eight adjacent routes pass with selected-control and primary-action assertions

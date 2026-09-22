@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-09-22T05:38:00.066Z",
+  "version": "2.3.0",
+  "packageRoot": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/lib/node_modules/specweave",
+  "cliVersion": "2.3.0",
+  "published": {
+    "version": "2.3.0",
+    "gitHead": "8be01b24e23f18c1a87036e7f6e8ab0d4c98cce3",
+    "dist.integrity": "sha512-rsjJ5MSHZ/snUSFxV1m1tW4uHxCSuJ7IqeBrW+7mV0DeT5VXVk2/2bWN1lMPK5dtZsO9UfUV9dhjo1cjngt2hQ=="
+  },
+  "preservedFiles": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    ".specweave/config.json",
+    ".specweave/project/hub.json"
+  ],
+  "nativeSkills": [
+    "sw-auto",
+    "sw-brainstorm",
+    "sw-do",
+    "sw-done",
+    "sw-handoff",
+    "sw-increment",
+    "sw-jev",
+    "sw-project",
+    "sw-qa",
+    "sw-review",
+    "sw-sync",
+    "sw-team"
+  ]
+}

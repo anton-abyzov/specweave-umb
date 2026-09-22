@@ -1,0 +1,75 @@
+{
+  "verifiedAt": "2026-09-22T05:38:00.375Z",
+  "bin": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/specweave",
+  "resolvedBin": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/lib/node_modules/specweave/bin/specweave.js",
+  "results": [
+    {
+      "cwd": "/var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/specweave-installed-proof-VeT5Gg",
+      "args": [
+        "--version"
+      ],
+      "exit": 0,
+      "elapsedMs": 38,
+      "output": "2.3.0"
+    },
+    {
+      "cwd": "/var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/specweave-installed-proof-VeT5Gg/bare",
+      "args": [
+        "refresh-plugins"
+      ],
+      "exit": 1,
+      "elapsedMs": 66,
+      "output": "No SpecWeave project found: no .specweave/config.json in /private/var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/specweave-installed-proof-VeT5Gg/bare or any parent directory\n  Run this command from inside a SpecWeave project, or run `specweave init` first."
+    },
+    {
+      "cwd": "/var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/specweave-installed-proof-VeT5Gg/bare",
+      "args": [
+        "refresh-plugins",
+        "--quiet"
+      ],
+      "exit": 1,
+      "elapsedMs": 66,
+      "output": ""
+    },
+    {
+      "cwd": "/var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/specweave-installed-proof-VeT5Gg/bare",
+      "args": [
+        "refresh-plugins"
+      ],
+      "exit": 1,
+      "elapsedMs": 72,
+      "output": "No SpecWeave project found: no .specweave/config.json in /private/var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/specweave-installed-proof-VeT5Gg/bare or any parent directory\n  Run this command from inside a SpecWeave project, or run `specweave init` first."
+    },
+    {
+      "cwd": "/var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/specweave-installed-proof-VeT5Gg/bare",
+      "args": [
+        "refresh-plugins",
+        "--quiet"
+      ],
+      "exit": 1,
+      "elapsedMs": 71,
+      "output": ""
+    },
+    {
+      "cwd": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "args": [
+        "refresh-plugins"
+      ],
+      "exit": 0,
+      "elapsedMs": 930,
+      "output": "SpecWeave Plugin Refresh\n  Mode: native Claude CLI (claude plugin install)\n\nFound specweave root at /Users/antonabyzov/.nvm/versions/node/v22.20.0/lib/node_modules/specweave\n  Installing 1 of 1 plugins\n  ✓ sw: active (v2.3.0)\n  ↻ sw: content synced (v2.3.0)\n\n  Summary\n  Active: 1\n  Location: ~/.claude/plugins/cache/ (native)"
+    },
+    {
+      "cwd": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave",
+      "args": [
+        "refresh-plugins"
+      ],
+      "exit": 0,
+      "elapsedMs": 583,
+      "output": "SpecWeave Plugin Refresh\n  Mode: native Claude CLI (claude plugin install)\n\nFound specweave root at /Users/antonabyzov/.nvm/versions/node/v22.20.0/lib/node_modules/specweave\n  Installing 1 of 1 plugins\n  ✓ sw: active (v2.3.0)\n  ↻ sw: content synced (v2.3.0)\n\n  Summary\n  Active: 1\n  Location: ~/.claude/plugins/cache/ (native)"
+    }
+  ],
+  "noProjectWrites": true,
+  "localAndSymlinkTargetLocksPreserved": true,
+  "status": "PASS"
+}
