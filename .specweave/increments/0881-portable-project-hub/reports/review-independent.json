@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "increment": "0881",
+  "reviewedAt": "2026-09-22T05:21:10.217969+00:00",
+  "mode": "single",
+  "reviewerContext": "independent subagent",
+  "phase": "final independent release follow-up",
+  "findings": [],
+  "resolvedFindings": [
+    {
+      "severity": "high",
+      "file": "src/cli/commands/project.ts",
+      "line": 28,
+      "summary": "Initialization followed unchecked sw-project directory symlinks and dangling AGENTS.md symlinks, creating files outside the chosen project.",
+      "confidence": "confirmed",
+      "status": "resolved",
+      "verification": "Both original cases reproduced with Node 22 before fix; lstat coverage added for every managed path and targeted source tests passed (46 total)."
+    },
+    {
+      "severity": "medium",
+      "file": "src/dashboard/client/src/pages/ProjectHubPage.tsx",
+      "line": 88,
+      "summary": "A stale open form cannot recover through Refresh; its submitted revision remains stale.",
+      "confidence": "confirmed",
+      "status": "resolved",
+      "reproduction": "Open Edit brief at revision 1, enter a draft, write revision 2 through CLI, Save =>409, Refresh => UI shows Revision 2, Save =>409 with request revision=1.",
+      "fix": "The author added an explicit draft rebase action preserving inputs; verify against rebuilt assets.",
+      "verification": "Built dashboard headless recheck: 409 at stale revision; explicit draft rebase retains My edit and saves HTTP200 with revision2, producing revision3. Delayed /api/projects also exposes no editable form before project resolution."
+    },
+    {
+      "severity": "high",
+      "file": "src/adapters/codex/adapter.ts",
+      "line": 125,
+      "summary": "Refreshing Codex native skills silently overwrites existing unmanaged .agents/skills entries with colliding names.",
+      "confidence": "confirmed",
+      "status": "resolved",
+      "relatedLocation": "src/utils/plugin-copier.ts:990-994",
+      "reproduction": "Preseed .agents/skills/project/SKILL.md with custom user content, then copy current sw plugin into .agents/skills with no force. Returns success=true; original content is replaced and no backup remains.",
+      "fix": "Use consistently namespaced managed destinations or preserve/back up conflicting user files before replacement, and test the actual refresh path.",
+      "verification": "Independent Vite SSR source execution under Node22: real legacy copy seeded global receipt; new native copy succeeded in two project roots; unnamespaced custom skill preserved; colliding sw-project content backed up byte-for-byte; unchanged native repeat skipped."
+    },
+    {
+      "severity": "medium",
+      "file": "src/adapters/codex/adapter.ts",
+      "line": 125,
+      "summary": "Codex native skill migration can report success while leaving .agents/skills absent because refresh reuses a global source hash without checking its destination.",
+      "confidence": "confirmed",
+      "status": "resolved",
+      "relatedLocation": "src/utils/plugin-copier.ts:942-944",
+      "reproduction": "Copy current sw plugin to .codex/skills, then call copyPluginSkillsToProject with targetSkillsDir=.agents/skills and no force. First call copies 12 skills; second returns success=true, skipped=true; .agents/skills does not exist.",
+      "fix": "Require target-specific evidence before skipping; cover legacy-to-native migration and multiple project roots.",
+      "verification": "Independent Vite SSR source execution under Node22: real legacy copy seeded global receipt; new native copy succeeded in two project roots; unnamespaced custom skill preserved; colliding sw-project content backed up byte-for-byte; unchanged native repeat skipped."
+    },
+    {
+      "severity": "medium",
+      "file": "src/utils/native-skill-installer.ts",
+      "line": 66,
+      "summary": "Companion executable files lose executable permissions during native skill installation.",
+      "confidence": "confirmed",
+      "status": "resolved",
+      "reproduction": "Source scripts/check.sh is mode0755; installNativeSkills writes it as0644; direct spawn fails with EACCES.",
+      "fix": "Carry source permissions into installation and verify executable-bit state as well as file bytes.",
+      "verification": "Independent source fixture now installs mode0755, executes successfully, skips unchanged state and detects/repairs mode-only drift with a backup. Native installer/adapter/refresh suites: 3 files, 18 tests passed."
+    }
+  ],
+  "verification": [
+    "Node 22.20.0 temporary-directory reproduction of both initialization symlink escapes.",
+    "Chromium headless:true stale-form reproduction, PWDEBUG=0 and PLAYWRIGHT_HTML_OPEN=never.",
+    "Node 22.20.0 temporary-home stub reproduced legacy-to-native skill refresh skip without mutating the real user home.",
+    "npm pack --dry-run --json --ignore-scripts: all 10 checked entrypoint/runtime/skill/dashboard paths included among 4154 files; version 2.2.2 at check time.",
+    "npx vitest run tests/unit/cli/commands/project.test.ts tests/unit/project-hub/store.test.ts tests/unit/dashboard/project-hub-routes.test.ts: 3 files and 46 tests passed.",
+    "Built Node22 symlink recheck rejected both original cases before any project/outside writes; rebuilt Chromium headless recheck verified initial loading and explicit stale draft recovery.",
+    "Native installer, Codex adapter and refresh adapter targeted suites: 3 files and 17 tests passed under Node22.20.0.",
+    "Independent native migration/cache/preservation reproductions now pass; executable companion fixture reproduces source0755 -> installed0644 -> EACCES.",
+    "Final mode regression recheck: source0755 installs0755; direct script execution prints PASS; permission-only drift repaired with backup. Targeted suites: 3 files and 18 tests passed."
+  ],
+  "limitations": [
+    "Full build/test suite, responsive E2E, final packaged installation and release gates are owned by the parent task; this bounded follow-up does not claim to repeat them.",
+    "Earlier native installer verification executed TypeScript through Vite SSR; final package installation is separately verified by the parent task.",
+    "UI manual acceptance was reported approved by the user in the parent task before the release follow-up."
+  ],
+  "droppedNits": 0,
+  "reviewedCommit": "c8fbd8c16cee0dd6b83fb7353d889fdb73e5eabc",
+  "releaseFollowUp": {
+    "baseCommit": "193f9f6c3",
+    "headCommit": "c8fbd8c16cee0dd6b83fb7353d889fdb73e5eabc",
+    "scope": [
+      "src/cli/commands/update.ts",
+      "tests/unit/cli/commands/update.test.ts",
+      "docs-site/docusaurus.config.ts",
+      ".github/workflows/docs-build.yml"
+    ],
+    "findings": [],
+    "verification": [
+      "Independently reran the update command suite under Node 22.20.0: 1 test file, 68 tests passed.",
+      "Reviewed the red/green regression receipts: the old update --check path called plugin refresh; the fixed guard skips plugin refresh and its nested cache refresh while retaining ordinary update behavior.",
+      "Evaluated actual Docusaurus configuration under Node 22.20.0 with the expected require resolver: docs and blog editUrl both use the supplied candidate SHA; absent and empty DOCS_SOURCE_REF both fall back to develop.",
+      "Verified the PR documentation build supplies github.event.pull_request.head.sha at build time.",
+      "Source tree remained clean. No browser, full build, broad test suite, or publication was run by this reviewer."
+    ],
+    "boundaries": [
+      "Parent-reported 685-link documentation crawl was not independently repeated during this bounded follow-up."
+    ]
+  }
+}

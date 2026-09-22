@@ -1,0 +1,40 @@
+{
+  "verifiedAt": "2026-09-22T03:27:21.264Z",
+  "version": "2.2.3",
+  "installedPath": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/lib/node_modules/specweave",
+  "sourceTag": "v2.2.3",
+  "sourceCommit": "a8b4fd0d49a606fbf891cd462f78a53417cf10ee",
+  "installMethod": "Published npm tarball, SHA-512 verified; cache-busting URL needed during CDN propagation",
+  "files": [
+    {
+      "file": "/dist/src/core/jev/client.js",
+      "sha256": "63631d003244843ac369c63919b0ed77b8a08b202147e0b9bcaf71708c67439f",
+      "matchesBuilt": true
+    },
+    {
+      "file": "/dist/src/core/jev/decide.js",
+      "sha256": "b5ed03b8f5f7c43c3475158f676681689a7f17700f40771e947187eb1e8ab673",
+      "matchesBuilt": true
+    },
+    {
+      "file": "/dist/src/core/jev/browse.js",
+      "sha256": "0af9e2977b863021707e5672c0ccbada71560a320df8f2d7368e439376458981",
+      "matchesBuilt": true
+    }
+  ],
+  "doctor_observed": {
+    "status": "ok",
+    "provider": "openrouter",
+    "model": "typesafe/jev-1.13-20260917",
+    "latency_ms": 529,
+    "key_source_name": "OPENROUTER_API_KEY",
+    "note": "Observed from installed specweave jev doctor during this installation verification; credential value was not printed."
+  },
+  "latest_machine_readback": {
+    "checked_at": "2026-09-22T03:55:30.400779+00:00",
+    "version": "2.3.0-rc.1",
+    "jev_files_match_published_2_2_3": true,
+    "owner_task": "01a0c712-f935-7de2-8285-15fc93773bae",
+    "reason_preserved": "Parallel user-requested project-hub task installed newer 2.3.0-rc.1 including published 2.2.3 fixes. Do not downgrade it."
+  }
+}

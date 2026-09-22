@@ -1,199 +1,116 @@
-<!-- SW:META template="agents" version="1.0.526" sections="rules,orchestration,principles,commands,nonclaudetools,syncworkflow,contextloading,structure,agents,skills,taskformat,usformat,workflows,troubleshooting,docs" -->
+<!-- SW:META template="agents" version="2.2.0" sections="header,structure,loop,verify,parallel,conventions,umbrella,jev,troubleshooting" -->
 
-<!-- SW:SECTION:rules version="1.0.526" -->
-## Essential Rules
+<!-- SW:SECTION:header version="2.2.0" -->
+# specweave
 
-```
-1. NEVER pollute project root with .md files
-2. Increment IDs unique (0001-9999)
-3. ONLY 4 files in increment root: metadata.json, spec.md, plan.md, tasks.md
-4. ALL reports/scripts/logs → increment subfolders (NEVER at root!)
-5. metadata.json MUST exist BEFORE spec.md can be created
-6. tasks.md + spec.md = SOURCE OF TRUTH (update after every task!)
-7. EVERY User Story MUST have **Project**: field
-8. For 2-level structures: EVERY US also needs **Board**: field
-```
+SpecWeave project. Small requests live in the intent board; scoped work lives in increments under `.specweave/increments/NNNN-slug/`. `spec.md` (Problem, ACs, Approach) is the source of truth; the ledger records who did what. This file is for Codex, OpenCode, Cursor, Gemini, Aider and humans; Claude Code reads CLAUDE.md (same content). Keep it under one page; project-specific notes go in **Project notes** at the bottom.
+<!-- SW:END:header -->
 
-### Increment Folder Structure
+<!-- SW:SECTION:structure version="2.2.0" -->
+## Structure
 
 ```
-.specweave/increments/0001-feature/
-├── metadata.json                  # REQUIRED - create FIRST
-├── spec.md                        # WHAT & WHY
-├── plan.md                        # HOW (optional)
-├── tasks.md                       # Task checklist
-├── reports/                       # ALL other .md files go here!
-├── scripts/                       # Helper scripts
-└── logs/                          # Execution logs
-    └── 2026-01-04/
+.specweave/
+  intents/board.jsonl       append-only intent history (latest revision per id; planning state, not verification)
+  increments/NNNN-slug/   spec.md (Problem · ACs · Approach) · tasks.md (tasks + rendered board) · ledger.jsonl (claims/done, CLI-written) · handoff.md · reports/ (evidence; binaries in reports/artifacts/, gitignored)
+  docs/                    ADRs and hand-written docs (read before changing architecture)
+  config.json
 ```
-<!-- SW:END:rules -->
+Only those files (plus optional `plan.md` when Approach outgrows a page, and `scripts/`) live in an increment root; everything else goes in `reports/`. Commit messages start with the increment id: `0042: add login form`.
 
-<!-- SW:SECTION:orchestration version="1.0.526" -->
-## Workflow Orchestration
+`tasks.md` format (the CLI parses it): `### T-01 Title` followed by one line `- AC: AC-01, AC-02 | Files: src/login.ts, src/login.test.ts | Test: npm test -- login`. `ledger.jsonl` is one JSON object per line, append-only: `{"t":"T-01","e":"claim|done|skip|release|block","by":"<tool>@<host>","at":"<ISO>","evidence":"<sha>","note":"<why>"}` (`evidence` required for `done`, `note` required for `skip`, both optional elsewhere).
+<!-- SW:END:structure -->
 
-### 1. Plan Before Code (MANDATORY)
+<!-- SW:SECTION:loop version="2.2.0" -->
+## The loop
 
-BEFORE implementing ANY task — create an increment FIRST:
-1. Create increment: spec.md (WHAT/WHY) + plan.md (HOW) + tasks.md (checklist)
-2. Get user approval before implementing
-3. If something goes sideways → STOP and re-plan
+| Step | Command (each step is also a standalone skill you can install into any tool with `npx vskill install anton-abyzov/specweave/sw-do` — same for `sw-increment`, `sw-review`, `sw-handoff`, `sw-task`) |
+|---|---|
+| Plan a feature: write `spec.md` (Problem, Scope, `AC-01…` checkboxes, Approach: files that change, order of work, risks, decisions), resolve material scope questions before implementation | `specweave create-increment "title"` |
+| Work the tasks | `specweave task next` → `specweave task claim T-NN` → implement → commit (`NNNN: …`) → `specweave task done T-NN --run "<test cmd>"` (the command runs through your OS shell: cmd.exe on Windows, sh elsewhere) |
+| Verify the whole increment | `specweave verify` |
+| Review before closing (recommended for anything that ships) | in a fresh session: read spec.md, list findings by severity citing path:line, re-verify each before writing `reports/review.md`; the authoring session never approves its own work |
+| Close (needs a green verify or `--reason "<why>"`) | `specweave complete NNNN` |
+| Stop for any reason | `specweave handoff` |
 
-**No exceptions for "simple" tasks** — "simple", "quick", "basic" still require an increment. The only exception: user explicitly says "don't create an increment."
+Without the `specweave` CLI: create the folder by hand (id = highest existing 4-digit prefix + 1, zero-padded); append one JSON line per event to `ledger.jsonl` as UTF-8 without BOM, LF-terminated, e.g. `{"t":"T-01","e":"claim","by":"<tool>@<host>","at":"<ISO>"}` (bash: `>>`; PowerShell: `[IO.File]::AppendAllText('ledger.jsonl', $line + "`n")`, never `>>`, it writes UTF-16); mark done with the same line using `"e":"done","evidence":"<commit sha>"` after the Test command exits 0; write `reports/verify.md` with the real test output and say the increment is ready to close (closing itself needs the CLI).
+Use an increment for work that needs shared scope, acceptance criteria, or a handoff. Small self-contained fixes can remain a lightweight intent. For bugs, reproduce the failure and add a regression test when it protects behavior. User authorization carries through routine implementation and verification.
+<!-- SW:END:loop -->
 
-**Setup/config actions are NOT implementation** — "connect github", "setup sync", "import issues" → use the matching setup command directly, not the increment workflow.
+<!-- SW:SECTION:verify version="2.0.0" -->
+## Verification before "done"
 
-See **Task Format** and **User Story Format** sections for templates.
+Run the project's build/test/lint (see **Commands**) before reporting any task complete and paste the real output. A task is done only when its **Test** command exits 0. Never skip, weaken, or delete a test to make it pass. Never set `status: completed` by hand; use `specweave complete`.
+<!-- SW:END:verify -->
 
-### 2. Verify Before Done
+<!-- SW:SECTION:parallel version="2.2.0" -->
+## Working in parallel (any tool, any account)
 
-Never mark a task complete without proving it works:
-- Code compiles/builds successfully
-- Run tests after every task: `npx vitest run` + `npx playwright test`
-- Review code quality before committing — check for duplication, readability issues, and inefficiencies (Claude Code: `/simplify`; other tools: manual review or linter)
-- `sw:grill` writes `grill-report.json` — CLI blocks closure without it
-- `sw:judge-llm` writes `judge-llm-report.json` — WAIVED if consent denied
-- Acceptance criteria actually satisfied
+1. One worktree per agent, named after the agent: `git worktree add ../NNNN-<agent> -b inc/NNNN-<agent>` (e.g. `../0042-codex -b inc/0042-codex`). The branch name must contain the increment id.
+2. Claim before editing: `specweave task claim T-NN` (or `specweave task next`). Edit only that task's **Files**; need another file → claim its task or add a task. A claim older than 2h with no `done` is stale and may be re-claimed.
+3. Never edit ledger lines or another task's status; append only. On a git conflict in `ledger.jsonl` keep every line from both sides.
+4. `done` needs the task's **Test** command exit 0 and a commit sha. A task that turns out unnecessary is closed with `specweave task skip T-NN --reason "..."` (no CLI: append a `skip` ledger line with a reason), never ticked.
+5. When you stop: `specweave task release --all-mine` then `specweave handoff`.
+Resuming: check `.specweave/intents/board.jsonl` (latest revision per id) or `specweave dashboard` for unfinished intents, including work without an increment. Then find the active increment with `specweave status` (or the `NNNN-*` folder whose `metadata.json` has `"status": "active"`), read `spec.md`, then the latest `handoff.md`, then `specweave task next`.
+<!-- SW:END:parallel -->
 
-### 2b. Auto-Closure (MANDATORY)
+<!-- SW:SECTION:conventions version="2.0.0" -->
+## Conventions
 
-When ALL tasks are complete, IMMEDIATELY run `sw:done` — do NOT stop to ask for user confirmation. Quality gates (grill, judge-llm, PM validation) ARE the review. If gates fail, the increment stays open. User can re-open if they disagree with closure.
+- Secrets: confirm a key is present without printing its value (`grep -q NAME .env` or `Select-String -Quiet NAME .env`); never commit `.env*`.
+- Prefer deleting code over adapting it; change only what the task needs.
+- Check `.specweave/docs/` ADRs before architectural changes; record new decisions in spec.md **Approach** or an ADR. When a new increment replaces an old one, create it with `--supersedes NNNN` (or set `supersedes` in its metadata.json) instead of leaving the old one open.
+<!-- SW:END:conventions -->
 
-### 4. Large-Scale Changes
+<!-- SW:SECTION:umbrella version="2.0.0" -->
+- Umbrella projects only: nested repos live under `repositories/<org>/<repo>/`; commit inside each nested repo, then the umbrella.
+<!-- SW:END:umbrella -->
 
-For codebase-wide migrations or bulk refactors:
-- **Claude Code**: Use `/batch` — decomposes work into parallel agents with worktree isolation, each producing its own PR
-- **Other tools**: Break work into isolated branches (one per unit), implement each independently, review and merge separately
-- Always get approval on the decomposition plan before executing
+<!-- SW:SECTION:jev version="2.2.0" -->
+## Jev (System One) — closed-set decisions
 
-### 3. Dependencies First
+Jev answers questions whose every possible answer can be written down in advance: about 250 ms, about $0.00002, calibrated probabilities, no generation. Delegate the decision, then act on it yourself.
 
-Satisfy dependencies BEFORE dependent operations.
+| Moment | Command |
+|---|---|
+| Before choosing a skill or a subagent model tier | `specweave jev route "<prompt>"` |
+| Picking the tier for one task already in the ledger | `specweave jev task T-NN` — a suggestion you act on; nothing re-routes models behind you |
+| Before an unattended risky shell command | `specweave jev guard "<command>"` — exit 0 allow, 2 warn, 3 deny |
+| Pulled issue / PR / web text, a red test run | `specweave jev screen <file>` · `specweave jev failure <file>` |
+| Any other closed set of your own | `specweave jev ask --state @state.json --questions @q.json` |
+| Mechanical browser navigation (headless only) | `specweave jev browse --goal "<goal>" --url "<url>"` |
+| Is it configured here, what has it cost | `specweave jev doctor` · `specweave jev usage` |
 
-```
-Bad:  node script.js → Error → npm run build
-Good: npm run build → node script.js → Success
-```
-<!-- SW:END:orchestration -->
+Exit 4 means Jev is unavailable — continue without it. Never send Jev code, prose, compaction, counting or date maths, another model's free-text output, or a question whose answers you cannot enumerate. Below `jev.thresholds.route` treat the answer as no answer.
 
-<!-- SW:SECTION:principles version="1.0.526" -->
-## Core Principles (Quality)
+Every call sends its state — prompt text, task titles and ACs, the shell command, test-output tails, screened text, page text and element names — to the configured provider under the user's own key; secret-shaped values are masked heuristically first, best-effort only.
 
-### Simplicity First
-- Write the simplest code that solves the problem
-- Avoid over-engineering and premature optimization
-- One function = one responsibility
-- If you can delete code and tests still pass, delete it
-- **Match tooling to complexity** — simple tasks (calculator, todo) need 0 domain plugins and vanilla code. Don't load heavyweight frameworks, design systems, or i18n for trivial features
+The Bash guard is per project (`specweave jev setup --guard-bash` writes the config flag, the `.specweave/state/jev-guard.enabled` marker and a project-level `PreToolUse` hook; `--no-guard-bash` removes all three). A regex prefilter skips Jev for `npm test`, `npm run build|test|lint`, `pnpm/yarn test`, `cargo test`, `go test` and plain read commands, so project-defined scripts are trusted by the guard. A denied command is the user's to approve — stop and ask; do not reword it, wrap it or edit config around it.
+<!-- SW:END:jev -->
 
-### No Laziness
-- Don't leave TODO comments for "later"
-- Don't skip error handling because "it probably won't fail"
-- Don't copy-paste without understanding
-- Test edge cases, not just happy paths
+<!-- SW:SECTION:troubleshooting version="2.0.0" -->
+## Troubleshooting
 
-### Minimal Impact
-- Change only what's necessary for the task
-- Don't refactor adjacent code unless asked
-- Keep PRs focused and reviewable
-- Preserve existing patterns unless improving them is the task
+| Issue | Fix |
+|---|---|
+| `specweave` not found | `npm i -g specweave` (optional; the loop works without it) |
+| Instructions out of date after upgrade | `specweave update` |
+| Unsure who owns a task | `specweave task list` |
+<!-- SW:END:troubleshooting -->
 
-### Demand Elegance (Balanced)
-- Code should be readable by humans first
-- Names should reveal intent
-- BUT: Don't over-abstract for hypothetical futures
-- Pragmatic > Perfect
+## Commands
 
-### DRY (Don't Repeat Yourself)
-- Flag repetitions aggressively — duplicated logic, config, or patterns
-- Extract shared code into reusable functions/modules
-- If you see the same block twice, refactor before adding a third
-- Applies to code, config, tests, and documentation alike
+| Action | Command |
+|---|---|
+| Build | `npm --prefix repositories/anton-abyzov/specweave run build && npm --prefix repositories/anton-abyzov/vskill run build && npm --prefix repositories/anton-abyzov/vskill-platform run build` |
+| Test | `npm --prefix repositories/anton-abyzov/specweave run test:unit:fast && npm --prefix repositories/anton-abyzov/vskill test && npm --prefix repositories/anton-abyzov/vskill-platform test` |
+| Lint | `npm --prefix repositories/anton-abyzov/specweave run lint:skills && npm --prefix repositories/anton-abyzov/specweave run lint:docs-refs && npm --prefix repositories/anton-abyzov/vskill run lint:skills-spec` |
 
-### Plan Review Before Code
-- Review the full plan thoroughly before writing any code
-- Verify plan covers all ACs and edge cases before implementation
-- If the plan has gaps, fix the plan first — don't discover them mid-coding
-- Re-read the plan between tasks to stay aligned
+Use Node 22. For isolated worktrees, pass their actual commands with `specweave verify --cmd`. The platform currently has no configured ESLint command; do not claim a clean platform lint run. UI changes also require their relevant headless browser checks and product builds.
 
-### Test Before Ship
-- Tests pass at every step — unit after each task, E2E before close, no exceptions
-- `sw:increment` generates BDD test plans during design via the sw-planner agent — verify they exist before `sw:do`
-- TDD cycle: `sw:tdd-red` → `sw:tdd-green` → `sw:tdd-refactor`
-- E2E with Playwright CLI (`npx playwright test`) is a blocking closure gate
-<!-- SW:END:principles -->
+## Project notes
 
-<!-- SW:SECTION:commands version="1.0.526" -->
-## Commands Reference
-
-Commands are shown as `sw:<name>`. How you invoke them depends on your AI tool:
-
-| Tool | Invocation | Example |
-|------|-----------|---------|
-| **Claude Code** | Slash command | `/sw:do` |
-| **Cursor / Windsurf** | Type in chat | `sw:do` or describe the action |
-| **Copilot / ChatGPT** | Describe in chat | "Execute increment tasks" |
-| **Gemini CLI / Codex** | Reference in prompt | "Run sw:do on my increment" |
-| **Any tool** | SpecWeave CLI (where available) | `specweave validate 0001` |
-
-| Command | Purpose |
-|---------|---------|
-| `sw:increment "name"` | Plan new feature (PM-led) |
-| `sw:do` | Execute tasks from active increment |
-| `sw:done 0001` | Close increment (validates gates) |
-| `sw:progress` | Show task completion status |
-| `sw:validate 0001` | Quality check before closing |
-| `sw:progress-sync` | Sync tasks.md with reality |
-| `sw:sync-docs update` | Sync to living docs |
-| `sw-github:sync 0001` | Sync increment to GitHub issue |
-| `sw-jira:sync 0001` | Sync to Jira |
-| `sw-ado:sync 0001` | Sync to Azure DevOps |
-| `sw:sync-setup` | Connect GitHub/Jira/ADO integration |
-| `sw:import` | Import issues from external tools |
-<!-- SW:END:commands -->
-
-<!-- SW:SECTION:nonclaudetools version="1.0.526" -->
-## Non-Claude Tools (Cursor, Copilot, etc.)
-
-Claude Code has automatic hooks and orchestration. Other tools must do these manually.
-
-### Capability Comparison
-
-| Capability | Claude Code | Non-Claude Tools |
-|------------|-------------|------------------|
-| **Plan Mode** | `EnterPlanMode` → `/sw:increment` | Manual: Create spec.md + plan.md + tasks.md |
-| **Subagents** | `Task` tool for parallel work | Split into multiple chat sessions |
-| **Verification** | PostToolUse hooks auto-validate | Manual: Run tests, check ACs |
-| **Code quality** | `/simplify` (3 parallel review agents) | Manual: lint, review for duplication/readability/perf |
-| **Batch migration** | `/batch` (worktree-isolated parallel agents) | Manual: one branch per unit, implement separately |
-| **Hooks** | Auto-run on events | YOU must mimic (see below) |
-| **Task sync** | Automatic AC updates | Manual: Edit tasks.md + spec.md |
-| **Skills** | Auto-activate on keywords | Read SKILL.md, follow manually |
-
-### Manual Hook Checklist
-
-**After EVERY task completion:**
-1. Update tasks.md: `[ ] pending` → `[x] completed`
-2. Update spec.md ACs if satisfied: `[ ] AC` → `[x] AC`
-3. Review code quality: check for duplication, readability, performance issues (Claude Code: `/simplify`)
-4. Run `sw:progress-sync`
-5. Run `sw-github:sync <id>` (if GitHub configured)
-
-**After all ACs for a User Story are done:**
-- Run `sw:sync-docs update`
-
-**After increment completion:**
-1. `sw:validate <id>`
-2. `sw:sync-docs update`
-3. `sw-github:close-issue <id>`
-
-**Session start:**
-1. `specweave jobs` (check background jobs)
-2. `sw:progress` (check current state)
-3. `sw:do` (continue work)
-
-**Background jobs**: Monitor with `specweave jobs` (clone-repos, import-issues, living-docs-builder, sync-external).
-<!-- SW:END:nonclaudetools -->
+(architecture map, things agents get wrong here, recurring mistakes — keep it short)
 
 ## Available Subagent Types
 
@@ -207,235 +124,6 @@ SpecWeave uses specialized subagents for different phases of the increment workf
 | `sw:sw-planner` | Writes tasks.md with BDD test plans | During `sw:increment` planning phase |
 
 Agent definitions live in `plugins/specweave/agents/`. The team-lead orchestrator spawns these automatically when needed.
-
-<!-- SW:SECTION:syncworkflow version="1.0.526" -->
-## Sync Workflow
-
-### Source of Truth
-
-| Level | Location | Update Method |
-|-------|----------|---------------|
-| **Source** | tasks.md + spec.md | Edit directly |
-| **Derived** | .specweave/docs/internal/specs/ | `sw:sync-docs update` |
-| **Mirror** | GitHub/Jira/ADO | `sw-github:sync`, `sw-jira:sync`, `sw-ado:sync` |
-
-**Update order**: ALWAYS tasks.md/spec.md FIRST → progress-sync → sync-docs → external tools
-
-### Sync Commands
-
-| Command | When to Run |
-|---------|-------------|
-| `sw:progress-sync` | After editing tasks.md |
-| `sw:sync-docs update` | After US complete |
-| `sw-github:sync <id>` | After each task |
-| `sw-github:close-issue <id>` | On increment done |
-| `sw-jira:sync <id>` | After each task |
-| `sw-ado:sync <id>` | After each task |
-<!-- SW:END:syncworkflow -->
-
-<!-- SW:SECTION:contextloading version="1.0.526" -->
-## Context Loading
-
-### Efficient Context Management
-
-```
-Read only what's needed for the current task:
-- Active increment: spec.md, tasks.md (always)
-- Supporting docs: only when referenced in tasks
-- Living docs: load per-US when implementing
-```
-
-### Token-Efficient Approach
-
-1. Start with increment's `tasks.md` - contains current task list
-2. Reference `spec.md` for acceptance criteria
-3. Load living docs only when needed for context
-4. Avoid loading entire documentation trees
-<!-- SW:END:contextloading -->
-
-<!-- SW:SECTION:structure version="1.0.526" -->
-## Project Structure
-
-```
-.specweave/
-├── increments/           # Feature increments (0001-9999)
-│   └── 0001-feature/
-│       ├── metadata.json # Increment metadata - REQUIRED
-│       ├── spec.md       # WHAT & WHY (user stories, ACs)
-│       ├── plan.md       # HOW (architecture, APIs) - optional
-│       └── tasks.md      # Task checklist with test plans
-├── docs/internal/
-│   ├── strategy/         # PRD, business requirements
-│   ├── specs/            # Living docs (extracted user stories)
-│   │   └── {project}/    # Per-project specs
-│   ├── architecture/     # HLD, ADRs, technical design
-│   └── delivery/         # CI/CD, deployment guides
-└── state/                # Runtime state (active increment, caches)
-```
-
-### Repository Structure
-
-**Every workspace uses `repositories/` to organize code. Each repo has its own `.specweave/`:**
-
-```
-workspace/
-├── .specweave/config.json          # Workspace config ONLY
-├── repositories/
-│   ├── org/frontend/
-│   │   └── .specweave/increments/  # Frontend increments HERE
-│   ├── org/backend/
-│   │   └── .specweave/increments/  # Backend increments HERE
-│   └── org/shared/
-│       └── .specweave/increments/  # Shared increments HERE
-```
-
-**Rules**: Each repo manages its own increments. Never create increments in the workspace root.
-<!-- SW:END:structure -->
-
-<!-- SW:SECTION:agents version="1.0.526" -->
-## Agents (Roles)
-
-{AGENTS_SECTION}
-
-**Usage**: Adopt role perspective when working on related tasks.
-<!-- SW:END:agents -->
-
-<!-- SW:SECTION:skills version="1.0.526" -->
-## Skills (Capabilities)
-
-{SKILLS_SECTION}
-
-**Claude Code**: Skills auto-activate based on keywords in your prompt.
-
-**Non-Claude Tools**: Skills are installed in your tool's native rules folder:
-
-| Tool | Skills Location | Auto-loaded? |
-|------|----------------|-------------|
-| Cursor | `.cursor/skills/` | Yes |
-| GitHub Copilot | `.github/skills/` | Yes (as workspace instructions) |
-| Gemini CLI | `.gemini/` | Reference in prompt |
-| OpenAI Codex | `.codex/skills/` | Reference in prompt |
-| Windsurf | `.windsurf/skills/` | Yes |
-| Continue.dev | `.continue/skills/` | Yes |
-| Cline | `.cline/skills/` | Yes |
-| Zed | `.zed/skills/` | Yes |
-| Amazon Q Developer | `.amazonq/skills/` | Yes |
-| JetBrains AI | `.junie/skills/` | Yes |
-| Aider | `.aider/skills/` | Reference in prompt |
-| Tabnine | `.tabnine/skills/` | Yes |
-| Generic (any tool) | `AGENTS.md` (inlined) | Manual |
-
-Install/refresh skills: `specweave refresh-plugins`
-<!-- SW:END:skills -->
-
-<!-- SW:SECTION:taskformat version="1.0.526" -->
-## Task Format
-
-```markdown
-### T-001: Task Title
-**User Story**: US-001
-**Satisfies ACs**: AC-US1-01, AC-US1-02
-**Status**: [ ] pending / [x] completed
-
-**Test Plan** (BDD):
-- Given [context] → When [action] → Then [result]
-```
-<!-- SW:END:taskformat -->
-
-<!-- SW:SECTION:usformat version="1.0.526" -->
-## User Story Format (CRITICAL for spec.md)
-
-**MANDATORY: Every User Story MUST have `**Project**:` field!**
-
-```markdown
-### US-001: Feature Name
-**Project**: my-app          # ← MANDATORY! Get from: specweave context projects
-**Board**: digital-ops       # ← MANDATORY for 2-level structures ONLY
-
-**As a** user
-**I want** [goal]
-**So that** [benefit]
-
-**Acceptance Criteria**:
-- [ ] **AC-US1-01**: [Criterion 1]
-- [ ] **AC-US1-02**: [Criterion 2]
-```
-
-**How to get Project/Board values:**
-```bash
-# Run BEFORE creating any increment:
-specweave context projects
-
-# 1-level output (single project):
-# {"level":1,"projects":[{"id":"my-app"}]}
-# → Use: **Project**: my-app
-
-# 2-level output (multi-project with boards):
-# {"level":2,"projects":[...],"boardsByProject":{"corp":[{"id":"digital-ops"}]}}
-# → Use: **Project**: corp AND **Board**: digital-ops
-```
-<!-- SW:END:usformat -->
-
-<!-- SW:SECTION:workflows version="1.0.526" -->
-## Workflows
-
-### Creating Increment
-1. Run `specweave context projects` → store project IDs
-2. `mkdir -p .specweave/increments/XXXX-feature`
-3. Create `metadata.json` (MUST be FIRST)
-4. Create `spec.md` — every US needs `**Project**:` field (see User Story Format)
-5. Create `tasks.md` (task checklist with BDD tests)
-6. Optional: `plan.md` for complex features
-7. **Verify** tasks.md has `**Test Plan**:` for every task with testable ACs
-8. **Verify** E2E scenarios exist for user-facing user stories — re-run `sw:plan --force` if missing
-
-### Completing Tasks
-1. Implement the task
-2. Run unit tests: `npx vitest run`
-3. Run E2E tests (if task touches UI/API): `npx playwright test`
-4. Only mark task `[x]` after tests pass
-5. Review code quality before committing (Claude Code: `/simplify`; other tools: lint + manual review)
-6. Update tasks.md: `[ ] pending` → `[x] completed`
-7. Update spec.md: check off satisfied ACs
-8. Sync to external trackers if enabled
-9. If 3 consecutive test failures: STOP, re-plan, ask user
-
-### Closing Increment (AUTO — do NOT stop to ask)
-1. Full test suite: `npx vitest run`
-2. Full E2E: `npx playwright test`
-3. `sw:grill <id>` — writes `grill-report.json` (CLI requires it)
-4. `sw:done <id>` — validates report files + PM 3 gates (tasks, tests, docs) + syncs to GitHub/Jira/ADO
-
-**CRITICAL**: When all tasks are done, IMMEDIATELY chain to closure. Quality gates (grill, judge-llm, PM validation) ARE the review. Never stop to ask "should I close?" — just close it. If a gate fails, the increment stays open. User can re-open if they disagree.
-<!-- SW:END:workflows -->
-
-<!-- SW:SECTION:troubleshooting version="1.0.526" -->
-## Troubleshooting
-
-| Issue | Fix |
-|-------|-----|
-| Commands not working (non-Claude) | Read `plugins/specweave/commands/<name>.md`, follow manually |
-| GitHub/Jira not updating | `sw:progress-sync` → `sw:sync-docs update` → `sw-github:sync <id>` |
-| .md files in project root | `mv *.md .specweave/increments/<current>/reports/` |
-| Progress % wrong | Update tasks.md manually or `sw:progress-sync` |
-| Tool crashes on start | Load only active increment's spec.md + tasks.md, not entire docs/ |
-| Missing **Project**: field | `specweave context projects`, add `**Project**:` to every US |
-| Skills not activating (non-Claude) | Expected — read SKILL.md from `plugins/specweave*/skills/` |
-<!-- SW:END:troubleshooting -->
-
-<!-- SW:SECTION:docs version="1.0.526" -->
-## Documentation
-
-| Resource | Purpose |
-|----------|---------|
-| CLAUDE.md | Quick reference (Claude Code) |
-| AGENTS.md | This file (all AI tools) |
-| verified-skill.com | Official documentation |
-| .specweave/docs/ | Project-specific docs |
-<!-- SW:END:docs -->
-
----
-<!-- ↓ PROJECT-SPECIFIC ↓ -->
 
 ## Project Overview
 
@@ -451,3 +139,8 @@ Before `sw:done`, also run:
 ### File Limits
 - Max 1500 lines per file — extract before adding
 - Check ADRs at `.specweave/docs/internal/architecture/adr/` before implementing changes
+
+<!-- specweave:project-hub -->
+## Shared project context
+Read .specweave/project/hub.json for the project goal, shared context, artifacts and routine definitions. Run `specweave project show` for current work and `specweave project brief` for a fresh coordinator brief. Use native task tools only within user authorization. Routines are definitions until configured in the host scheduler.
+<!-- /specweave:project-hub -->

@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "ranAt": "2026-09-22T05:43:22.997Z",
+  "increment": "0881-portable-project-hub",
+  "commands": [
+    {
+      "cmd": "node /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0881-portable-project-hub/reports/verify-stable-install.mjs",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /tmp/specweave-0881-root && node scripts/e2e/project-hub-e2e.mjs --browser && node scripts/e2e/brand-parity.mjs",
+      "exit": 0
+    },
+    {
+      "cmd": "node /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0881-portable-project-hub/reports/native-install-smoke.mjs && node /tmp/specweave-0881-root/scripts/e2e/bounded-scans.mjs",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /tmp/specweave-0881-root && npm run validate:versions && npm run lint:skills && npm run lint:docs-refs",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 9,
+    "done": 9
+  },
+  "tasks": {
+    "total": 7,
+    "done": 7,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

@@ -1,0 +1,56 @@
+
+> specweave@2.3.0 test
+> npm run test:smoke
+
+
+> specweave@2.3.0 test:smoke
+> bash tests/smoke/smoke-test.sh
+
+🚀 SpecWeave Smoke Test Suite
+==============================
+
+📦 Test 1: Package Build
+------------------------
+Testing: TypeScript compilation... [0;32m✓ PASS[0m
+
+📂 Test 2: CLI Binary
+------------------------
+Testing: specweave CLI exists... [0;32m✓ PASS[0m
+Testing: specweave --version works... [0;32m✓ PASS[0m
+Testing: specweave --help works... [0;32m✓ PASS[0m
+
+Note: Full init testing is done by e2e-smoke-test.yml workflow
+
+🔌 Test 3: Plugin Structure
+----------------------------
+Testing: plugins/specweave/ exists... [0;32m✓ PASS[0m
+Testing: plugins/specweave/skills/ exists... [0;32m✓ PASS[0m
+
+📋 Test 4: Core Plugin Components
+----------------------------------
+Testing: increment skill exists... [0;32m✓ PASS[0m
+Testing: review skill exists... [0;32m✓ PASS[0m
+Testing: team skill exists... [0;32m✓ PASS[0m
+Testing: hooks.json exists... [0;32m✓ PASS[0m
+
+🔧 Test 5: Templates
+------------------------
+Testing: CLAUDE.md.template exists... [0;32m✓ PASS[0m
+Testing: README.md.template exists... [0;32m✓ PASS[0m
+Testing: .gitignore.template exists... [0;32m✓ PASS[0m
+Testing: AGENTS.md.template exists... [0;32m✓ PASS[0m
+
+📚 Test 6: Package Structure
+---------------------------------
+Testing: package.json exists... [0;32m✓ PASS[0m
+Testing: dist/ directory exists... [0;32m✓ PASS[0m
+Testing: dist/src/cli directory exists... [0;32m✓ PASS[0m
+
+
+==============================
+📊 Test Results
+==============================
+[0;32mPassed: 17[0m
+[0;31mFailed: 0[0m
+
+[0;32m✅ All smoke tests passed![0m

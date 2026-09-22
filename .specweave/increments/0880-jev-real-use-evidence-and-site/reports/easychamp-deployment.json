@@ -1,0 +1,75 @@
+{
+  "recorded_at": "2026-09-22T03:16:34.002092+00:00",
+  "release_commit": "e8e0a5d8723a444057309a1377a72525c2769342",
+  "workflow_url": "https://github.com/anton-abyzov/ec-chat-api/actions/runs/35683367197",
+  "pre_rollout": {
+    "image": "ghcr.io/anton-abyzov/ec-chat-api:develop-81ef02e",
+    "ready_replicas": 2,
+    "argo_revision": "35ee3d42a28d24600173d8c97d8a50276d7ca784",
+    "argo_branch": "develop",
+    "pods": [
+      {
+        "name": "ec-chat-api-7695d4bf4f-25mz8",
+        "created": "2026-09-21T20:57:02Z",
+        "ready": true
+      },
+      {
+        "name": "ec-chat-api-7695d4bf4f-tpnl4",
+        "created": "2026-09-21T21:02:13Z",
+        "ready": true
+      }
+    ],
+    "health": {
+      "url": "https://easychamp.com/ec-chat-api/healthz",
+      "status": 200,
+      "body": "{\"status\":\"healthy\"}",
+      "method": "curl with certificate validation enabled"
+    }
+  },
+  "initial_ci_failure": {
+    "run": "35681731161",
+    "stage": "i18n",
+    "cause": "Unused caught ValueError message was unregistered",
+    "fix_commit": "e8e0a5d"
+  },
+  "verified_at": "2026-09-22T04:05:19.825029+00:00",
+  "final": {
+    "image": "ghcr.io/anton-abyzov/ec-chat-api:develop-e8e0a5d",
+    "ready_replicas": 2,
+    "argo_revision": "ce752bf721a50c632125d0bc95bed7804ba06ee9",
+    "argo_sync": "Synced",
+    "argo_health": "Healthy",
+    "pods": [
+      {
+        "name": "ec-chat-api-8899d457b-5pfld",
+        "created": "2026-09-22T04:02:58Z",
+        "ready": true,
+        "image_id": "ghcr.io/anton-abyzov/ec-chat-api@sha256:e53268b8d6452127a88d2702b9133fa7330e40782ad74f1a463f0f2ffcc5ff9c",
+        "local_health": {
+          "status": "healthy"
+        }
+      },
+      {
+        "name": "ec-chat-api-8899d457b-9v9xv",
+        "created": "2026-09-22T04:02:58Z",
+        "ready": true,
+        "image_id": "ghcr.io/anton-abyzov/ec-chat-api@sha256:e53268b8d6452127a88d2702b9133fa7330e40782ad74f1a463f0f2ffcc5ff9c",
+        "local_health": {
+          "status": "healthy"
+        }
+      }
+    ],
+    "public_health": {
+      "url": "https://easychamp.com/ec-chat-api/healthz",
+      "status": 200,
+      "body": {
+        "status": "healthy"
+      }
+    },
+    "smoke_receipt": "easychamp-pod-smoke-attempt-1.json",
+    "smoke_attempts": 1,
+    "module_sha256": "07cb2ce5b967a9a21bdbf9d68cebe6e046509559ca4133cd1362b5f735f01bc4",
+    "normal_production_mode": "off",
+    "feature_globally_enabled": false
+  }
+}

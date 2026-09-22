@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "ranAt": "2026-09-22T04:49:11.638Z",
+  "increment": "0880-jev-real-use-evidence-and-site",
+  "commands": [
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0880-release && npm run build && npm run lint:skills && npm run lint:docs-refs && npm run lint:standalone-skills",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0880-release && npx vitest run tests/unit/jev tests/unit/commands/jev-command.test.ts tests/unit/hooks/jev-bash-guard.test.ts tests/unit/release/installability.test.ts --maxWorkers=4",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0880-release && SITE_URL=https://spec-weave.com SITE_ARTIFACTS=/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0880-jev-real-use-evidence-and-site/reports/artifacts/live node docs-site/tests/jev-mobile.mjs",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 6,
+    "done": 6
+  },
+  "tasks": {
+    "total": 14,
+    "done": 14,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

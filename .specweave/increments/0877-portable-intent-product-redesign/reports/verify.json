@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "ranAt": "2026-09-14T18:46:17.567Z",
+  "increment": "0877-portable-intent-product-redesign",
+  "commands": [
+    {
+      "cmd": "cd /tmp/specweave-0877-root && node scripts/lint-skills.mjs && node scripts/lint-docs-refs.mjs",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /tmp/specweave-0877-root/docs-site && npx vitest run src/__tests__/docusaurus-config.test.ts src/__tests__/sidebars.test.ts src/theme/Footer/__tests__/Footer.test.tsx",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /tmp/specweave-0877-root && node scripts/release/preflight-publish.mjs",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 8,
+    "done": 8
+  },
+  "tasks": {
+    "total": 36,
+    "done": 36,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

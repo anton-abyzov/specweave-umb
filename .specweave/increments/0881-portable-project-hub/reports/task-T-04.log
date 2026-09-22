@@ -1,0 +1,14 @@
+$ cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run lint:skills && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run lint:docs-refs && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH node scripts/e2e/project-hub-e2e.mjs
+# exit 0 — 2026-09-22T03:46:51.056Z
+
+
+> specweave@2.3.0-rc.1 lint:skills
+> node scripts/lint-skills.mjs
+
+lint-skills: 46 files clean
+
+> specweave@2.3.0-rc.1 lint:docs-refs
+> node scripts/lint-docs-refs.mjs
+
+docs-refs: OK — 155 pages, 12 skills, 82 CLI commands.
+PASS: real CLI init, preservation, stale writes, work lifecycle, artifact/routine library and three harness briefs

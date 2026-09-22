@@ -1,0 +1,32 @@
+{
+  "baseline": "59fd2c4d5",
+  "candidate": false,
+  "node": "v22.20.0",
+  "sourceFiles": 849,
+  "orderedHits": 22,
+  "orderedHitsSha256": "31e3fdddeb20b54e3b757cc882b50082b7c5db72053b784cc793011bb0206c3b",
+  "fixtureHits": 25,
+  "fixtureOrderedEquality": true,
+  "repositoryOrderedEquality": true,
+  "unchangedTraversal": true,
+  "timings": {
+    "oldMs": [
+      592.9554169999999,
+      470.2298750000002
+    ],
+    "newMs": [
+      383.226667,
+      519.2261249999999
+    ]
+  },
+  "workCounters": {
+    "old": {
+      "literals": 17275,
+      "locationLookups": 17275
+    },
+    "new": {
+      "literals": 17275,
+      "locationLookups": 12
+    }
+  }
+}

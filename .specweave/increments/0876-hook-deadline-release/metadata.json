@@ -1,0 +1,20 @@
+{
+  "id": "0876-hook-deadline-release",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-09-06T05:25:08.908Z",
+  "updated": "2026-09-06T05:43:01.918Z",
+  "lastActivity": "2026-09-06T05:43:01.918Z",
+  "testMode": "TDD",
+  "coverageTarget": 60,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave",
+  "readyForReviewAt": "2026-09-06T05:43:01.916Z",
+  "approvedAt": "2026-09-06T05:43:01.918Z"
+}

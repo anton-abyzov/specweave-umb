@@ -1,0 +1,50 @@
+{
+  "at": "2026-09-14T18:42:40.584Z",
+  "headless": true,
+  "routes": [
+    {
+      "route": "/docs/workflows/hotfix",
+      "status": 200,
+      "rawLinks": [],
+      "decoded": [],
+      "remaining": [],
+      "scripts": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+      ]
+    },
+    {
+      "route": "/docs/getting-started/installation",
+      "status": 200,
+      "rawLinks": [],
+      "decoded": [],
+      "remaining": [],
+      "scripts": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+      ]
+    }
+  ],
+  "responses": [
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "status": 200,
+      "contentType": "text/javascript;charset=UTF-8"
+    },
+    {
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "status": 204,
+      "contentType": "text/plain"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "status": 200,
+      "contentType": "text/javascript;charset=UTF-8"
+    },
+    {
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "status": 204,
+      "contentType": "text/plain"
+    }
+  ],
+  "errors": [],
+  "protectionEndpointStatus": 404
+}

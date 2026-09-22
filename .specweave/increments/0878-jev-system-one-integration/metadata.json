@@ -1,0 +1,28 @@
+{
+  "id": "0878-jev-system-one-integration",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-09-21T17:21:06.078Z",
+  "updated": "2026-09-21T19:16:21.731Z",
+  "lastActivity": "2026-09-21T19:16:21.731Z",
+  "testMode": "TDD",
+  "coverageTarget": 60,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "ado": {
+      "featureId": "2452",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2452",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-09-21T19:16:29.296Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave-umb",
+  "readyForReviewAt": "2026-09-21T19:16:21.729Z",
+  "approvedAt": "2026-09-21T19:16:21.731Z"
+}

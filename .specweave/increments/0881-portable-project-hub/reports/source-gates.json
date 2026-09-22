@@ -1,0 +1,39 @@
+{
+  "ok": false,
+  "ranAt": "2026-09-22T03:43:26.117Z",
+  "increment": "0881-portable-project-hub",
+  "commands": [
+    {
+      "cmd": "cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never npm run test:unit:fast",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run build",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run lint:skills && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run lint:docs-refs && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx tsc -p src/dashboard/client/tsconfig.json --noEmit",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run tests/unit/project-hub tests/unit/cli/commands/project.test.ts tests/unit/dashboard/project-hub-routes.test.ts tests/unit/native-skill-installer.test.ts --coverage --coverage.include=\"src/core/project-hub/**\" --coverage.include=\"src/cli/commands/project.ts\" --coverage.include=\"src/dashboard/server/routes/project-hub-routes.ts\" --coverage.include=\"src/utils/native-skill-installer.ts\" --coverage.thresholds.lines=60 --coverage.thresholds.functions=60 --coverage.thresholds.branches=60 --coverage.thresholds.statements=60",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never SPECWEAVE_E2E_ARTIFACTS=/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0881-portable-project-hub/reports/artifacts node scripts/e2e/project-hub-e2e.mjs --browser",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 7,
+    "done": 0
+  },
+  "tasks": {
+    "total": 5,
+    "done": 4,
+    "skipped": 0,
+    "open": 1
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

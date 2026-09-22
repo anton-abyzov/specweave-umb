@@ -1,0 +1,13 @@
+
+  SpecWeave Plugin Refresh
+  Mode: native Claude CLI (claude plugin install)
+
+Found specweave root at /Users/antonabyzov/.nvm/versions/node/v22.20.0/lib/node_modules/specweave
+  Installing 1 of 1 plugins
+  + sw: installed (v2.3.0)
+  ↻ sw: content synced (v2.3.0)
+
+  Summary
+  Installed: 1
+  Location: ~/.claude/plugins/cache/ (native)
+

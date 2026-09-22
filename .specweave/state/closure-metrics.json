@@ -702,6 +702,94 @@
       "success": true,
       "timestamp": "2026-06-02T01:01:05.783Z",
       "durationMs": 1523
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1591",
+      "incrementId": "0868-stop-handoff-wiring-fix",
+      "success": true,
+      "timestamp": "2026-06-03T04:16:30.196Z",
+      "durationMs": 1403
+    },
+    {
+      "tool": "ado",
+      "itemId": 2436,
+      "incrementId": "0868-stop-handoff-wiring-fix",
+      "success": true,
+      "timestamp": "2026-06-03T04:16:31.668Z",
+      "durationMs": 175
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1593",
+      "incrementId": "0869-hook-wiring-audit",
+      "success": true,
+      "timestamp": "2026-06-03T05:27:58.317Z",
+      "durationMs": 1347
+    },
+    {
+      "tool": "ado",
+      "itemId": 2438,
+      "incrementId": "0869-hook-wiring-audit",
+      "success": true,
+      "timestamp": "2026-06-03T05:28:00.627Z",
+      "durationMs": 455
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1595",
+      "incrementId": "0870-restore-dead-hooks",
+      "success": true,
+      "timestamp": "2026-06-03T05:52:19.112Z",
+      "durationMs": 1302
+    },
+    {
+      "tool": "ado",
+      "itemId": 2440,
+      "incrementId": "0870-restore-dead-hooks",
+      "success": true,
+      "timestamp": "2026-06-03T05:52:20.427Z",
+      "durationMs": 161
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1599",
+      "incrementId": "0871-plugin-version-sync",
+      "success": true,
+      "timestamp": "2026-06-03T23:10:21.024Z",
+      "durationMs": 1564
+    },
+    {
+      "tool": "ado",
+      "itemId": 2444,
+      "incrementId": "0871-plugin-version-sync",
+      "success": true,
+      "timestamp": "2026-06-03T23:10:22.844Z",
+      "durationMs": 223
+    },
+    {
+      "tool": "jira",
+      "itemId": "SWE2E-1602",
+      "incrementId": "0872-refresh-plugins-force-sync",
+      "success": true,
+      "timestamp": "2026-06-04T00:08:41.084Z",
+      "durationMs": 1445
+    },
+    {
+      "tool": "ado",
+      "itemId": 2447,
+      "incrementId": "0872-refresh-plugins-force-sync",
+      "success": true,
+      "timestamp": "2026-06-04T00:08:42.689Z",
+      "durationMs": 165
+    },
+    {
+      "tool": "ado",
+      "itemId": 2451,
+      "incrementId": "0877-portable-intent-product-redesign",
+      "success": true,
+      "timestamp": "2026-09-14T18:46:31.209Z",
+      "durationMs": 206
     }
   ],
   "summary": {
@@ -723,29 +811,29 @@
       ]
     },
     "jira": {
-      "totalAttempts": 22,
-      "successful": 22,
+      "totalAttempts": 27,
+      "successful": 27,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-06-02T01:01:05.783Z",
-      "avgDurationMs": 1568.7727272727273,
+      "lastSuccess": "2026-06-04T00:08:41.084Z",
+      "avgDurationMs": 1539.7777777777778,
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 3,
-      "successful": 3,
+      "totalAttempts": 9,
+      "successful": 9,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-06-01T20:52:17.790Z",
-      "avgDurationMs": 162.33333333333334,
+      "lastSuccess": "2026-09-14T18:46:31.209Z",
+      "avgDurationMs": 208,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 87,
-      "successful": 81,
+      "totalAttempts": 98,
+      "successful": 92,
       "failed": 6,
-      "successRate": 0.9310344827586207
+      "successRate": 0.9387755102040817
     },
-    "lastUpdated": "2026-06-02T01:01:05.784Z"
+    "lastUpdated": "2026-09-14T18:46:31.210Z"
   }
 }

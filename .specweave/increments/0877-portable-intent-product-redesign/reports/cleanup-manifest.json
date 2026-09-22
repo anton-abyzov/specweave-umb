@@ -1,0 +1,974 @@
+{
+  "increment": "0877",
+  "createdAt": "2026-09-14T05:58:46.895927+00:00",
+  "backupRoot": "/Users/antonabyzov/.codex/skill-backups/0877",
+  "beforeInventory": [
+    {
+      "root": "/Users/antonabyzov/.agents/skills",
+      "skillReferences": 58
+    },
+    {
+      "root": "/Users/antonabyzov/.codex/skills",
+      "skillReferences": 12
+    },
+    {
+      "root": "/Users/antonabyzov/.claude/skills",
+      "skillReferences": 54
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb/.agents/skills",
+      "skillReferences": 18
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb/.codex/skills",
+      "skillReferences": 19
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb/.claude/skills",
+      "skillReferences": 19
+    }
+  ],
+  "entries": [
+    {
+      "path": "/Users/antonabyzov/.agents/skills/_archive/excalidraw-diagram-generator-20260901",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/.agents/skills/_archive/excalidraw-diagram-generator-20260901",
+      "name": "excalidraw-diagram-generator",
+      "reason": "Previously archived skill remained discoverable under skills/_archive; relocate outside discovery.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          ".DS_Store": {
+            "kind": "file",
+            "sha256": "0989ebf03e6f33cc0a682fa65b01b3b5b4d6a33cc9636c69b53c63f06c1c2ed8",
+            "bytes": 6148
+          },
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "3a987a8bae2a726b40c30d3c082579b401723a17ab944f5fe4ed595c64c25c3a",
+            "bytes": 23830
+          },
+          "references/excalidraw-schema.md": {
+            "kind": "file",
+            "sha256": "fd153de21f64eb2d0018461f8d674801b7ec54eb2bf8686bb1df4358e40b014a",
+            "bytes": 8419
+          },
+          "references/element-types.md": {
+            "kind": "file",
+            "sha256": "57238dcce1ae42028705d6480819f1e2f40366a0aeccb567986088d51b16da04",
+            "bytes": 8717
+          },
+          "scripts/split-excalidraw-library.py": {
+            "kind": "file",
+            "sha256": "af99780564a93590730b0d816da384e46765ee7970200ec440343a8fc1dfbd21",
+            "bytes": 5564
+          },
+          "scripts/add-icon-to-diagram.py": {
+            "kind": "file",
+            "sha256": "2f8a013d3ea6f73b4154a3abb86fa1781d32786d0ec905517de0628f1493b203",
+            "bytes": 13391
+          },
+          "scripts/README.md": {
+            "kind": "file",
+            "sha256": "b541d038477d184630aa5e7a2e8335b2fbd54dba7b3282b48765a744feb60a3f",
+            "bytes": 6537
+          },
+          "scripts/.gitignore": {
+            "kind": "file",
+            "sha256": "49f9ee4c099793eb02a72838891842a5ce6e26ecde0a79bd658dab5af79fa8ca",
+            "bytes": 484
+          },
+          "scripts/add-arrow.py": {
+            "kind": "file",
+            "sha256": "2895b8bc96d3fc298c3c33c5ff0470e0f89fd3727c7668d007fc9a635d779778",
+            "bytes": 9775
+          },
+          "templates/relationship-template.excalidraw": {
+            "kind": "file",
+            "sha256": "fb6414487e26d5c6af5f2e64c5d8084f08968a730ad0be828f189d1db41ca6ca",
+            "bytes": 3321
+          },
+          "templates/mindmap-template.excalidraw": {
+            "kind": "file",
+            "sha256": "d619a1d95d1e6800f3464c39dc30b78585b690bbc5e844d33051a18d94484d45",
+            "bytes": 5382
+          },
+          "templates/class-diagram-template.excalidraw": {
+            "kind": "file",
+            "sha256": "4d3f8984ddb57c27d5ffb7d68331a1ea59a4928c986a1b0e366586e9ed6198e4",
+            "bytes": 12924
+          },
+          "templates/flowchart-template.excalidraw": {
+            "kind": "file",
+            "sha256": "2d40fe507d44c45ba46a4d5be24ed5ceff380fb1651c86296ab2d1ff6c8c2eea",
+            "bytes": 4080
+          },
+          "templates/er-diagram-template.excalidraw": {
+            "kind": "file",
+            "sha256": "50313fac3520d3fe60387dc9386c5589e5fc46795d242efc3663cac336aab096",
+            "bytes": 15414
+          },
+          "templates/data-flow-diagram-template.excalidraw": {
+            "kind": "file",
+            "sha256": "da41355072ce76a594bd405696de7f6ba65da6b90cef4a6480addb3947e50533",
+            "bytes": 6447
+          },
+          "templates/sequence-diagram-template.excalidraw": {
+            "kind": "file",
+            "sha256": "1edf67683f35f4b7f2ac4c3e23d674ddb966fe1b9e53801dbf98f8a6b66394d9",
+            "bytes": 11716
+          },
+          "templates/business-flow-swimlane-template.excalidraw": {
+            "kind": "file",
+            "sha256": "30f4708c5e93a6602e8687b73c6f440fd6e8996189d87dc7530224786a3bfacb",
+            "bytes": 7795
+          }
+        }
+      },
+      "action": "archived-outside-discovery"
+    },
+    {
+      "path": "/Users/antonabyzov/.agents/skills/my-skill",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/.agents/skills/my-skill",
+      "name": "my-skill",
+      "reason": "Exact cold-email body duplicate with missing name and unnecessary model: opus override.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "3a0a4c57e4c770d5518bd2a1986b32032c7e72fa455910c3e7c5b82e23d63e12",
+            "bytes": 6641
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.agent/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.agent/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/greet-anton"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.agent/skills/obsidian-brain",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.agent/skills/obsidian-brain",
+      "name": "obsidian-brain",
+      "reason": "Project v1.1 shadow references obsolete CronCreate; global v1.4 skill retained.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/obsidian-brain"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.agent/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.agent/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.agents/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.agents/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "4ad8e96b72ab418c48dd55f3e4e74e0c13b0949799eb6d896407d869d1dcef9f",
+            "bytes": 4361
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.agents/skills/obsidian-brain",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.agents/skills/obsidian-brain",
+      "name": "obsidian-brain",
+      "reason": "Project v1.1 shadow references obsolete CronCreate; global v1.4 skill retained.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "2640d074c14e42b1a2fee664702ef9f198987fd057032af5c113f1bbfa19057b",
+            "bytes": 12370
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.aider/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.aider/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/greet-anton"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.aider/skills/obsidian-brain",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.aider/skills/obsidian-brain",
+      "name": "obsidian-brain",
+      "reason": "Project v1.1 shadow references obsolete CronCreate; global v1.4 skill retained.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/obsidian-brain"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.aider/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.aider/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.aider/skills/tiny-test-plugin",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.aider/skills/tiny-test-plugin",
+      "name": "tiny-test-plugin",
+      "reason": "0853 test fixture installed into active discovery; original increment fixture remains.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "plugin.json": {
+            "kind": "file",
+            "sha256": "a03df1e44d7aa0dec0b7241d0e74f1843c995c08e1b301f9001415a257b271a0",
+            "bytes": 159
+          },
+          "hello-world/SKILL.md": {
+            "kind": "file",
+            "sha256": "c655b2a65c6720a29227f81c10c2de35634c8c6ac3b42d457381c3796d3d519a",
+            "bytes": 476
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.claude/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.claude/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "4ad8e96b72ab418c48dd55f3e4e74e0c13b0949799eb6d896407d869d1dcef9f",
+            "bytes": 4361
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.claude/skills/obsidian-brain",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.claude/skills/obsidian-brain",
+      "name": "obsidian-brain",
+      "reason": "Project v1.1 shadow references obsolete CronCreate; global v1.4 skill retained.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "c3a47760617096e80722273a7952c55dc4d12da04734d83cdf584879b2fce9fc",
+            "bytes": 12385
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.claude/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.claude/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.claude/skills/remotion-best-practices",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.claude/skills/remotion-best-practices",
+      "name": "remotion-best-practices",
+      "reason": "Broken project symlink; global working skill retained.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/remotion-best-practices"
+      },
+      "action": "unlinked-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.claude/skills/tiny-test-plugin",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.claude/skills/tiny-test-plugin",
+      "name": "tiny-test-plugin",
+      "reason": "0853 test fixture installed into active discovery; original increment fixture remains.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "plugin.json": {
+            "kind": "file",
+            "sha256": "a03df1e44d7aa0dec0b7241d0e74f1843c995c08e1b301f9001415a257b271a0",
+            "bytes": 159
+          },
+          "hello-world/SKILL.md": {
+            "kind": "file",
+            "sha256": "c655b2a65c6720a29227f81c10c2de35634c8c6ac3b42d457381c3796d3d519a",
+            "bytes": 476
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.codex/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.codex/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/greet-anton"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.codex/skills/obsidian-brain",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.codex/skills/obsidian-brain",
+      "name": "obsidian-brain",
+      "reason": "Project v1.1 shadow references obsolete CronCreate; global v1.4 skill retained.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/obsidian-brain"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.codex/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.codex/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.codex/skills/tiny-test-plugin",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.codex/skills/tiny-test-plugin",
+      "name": "tiny-test-plugin",
+      "reason": "0853 test fixture installed into active discovery; original increment fixture remains.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "plugin.json": {
+            "kind": "file",
+            "sha256": "a03df1e44d7aa0dec0b7241d0e74f1843c995c08e1b301f9001415a257b271a0",
+            "bytes": 159
+          },
+          "hello-world/SKILL.md": {
+            "kind": "file",
+            "sha256": "c655b2a65c6720a29227f81c10c2de35634c8c6ac3b42d457381c3796d3d519a",
+            "bytes": 476
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.continue/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.continue/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.cursor/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.cursor/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/greet-anton"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.cursor/skills/obsidian-brain",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.cursor/skills/obsidian-brain",
+      "name": "obsidian-brain",
+      "reason": "Project v1.1 shadow references obsolete CronCreate; global v1.4 skill retained.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/obsidian-brain"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.cursor/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.cursor/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.cursor/skills/tiny-test-plugin",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.cursor/skills/tiny-test-plugin",
+      "name": "tiny-test-plugin",
+      "reason": "0853 test fixture installed into active discovery; original increment fixture remains.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "plugin.json": {
+            "kind": "file",
+            "sha256": "a03df1e44d7aa0dec0b7241d0e74f1843c995c08e1b301f9001415a257b271a0",
+            "bytes": 159
+          },
+          "hello-world/SKILL.md": {
+            "kind": "file",
+            "sha256": "c655b2a65c6720a29227f81c10c2de35634c8c6ac3b42d457381c3796d3d519a",
+            "bytes": 476
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.gemini/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.gemini/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/greet-anton"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.gemini/skills/obsidian-brain",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.gemini/skills/obsidian-brain",
+      "name": "obsidian-brain",
+      "reason": "Project v1.1 shadow references obsolete CronCreate; global v1.4 skill retained.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/obsidian-brain"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.gemini/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.gemini/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.github/copilot/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.github/copilot/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../../.agents/skills/greet-anton"
+      },
+      "action": "unlinked-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.junie/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.junie/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.kiro/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.kiro/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/greet-anton"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.kiro/skills/obsidian-brain",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.kiro/skills/obsidian-brain",
+      "name": "obsidian-brain",
+      "reason": "Project v1.1 shadow references obsolete CronCreate; global v1.4 skill retained.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/obsidian-brain"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.kiro/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.kiro/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.kiro/skills/tiny-test-plugin",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.kiro/skills/tiny-test-plugin",
+      "name": "tiny-test-plugin",
+      "reason": "0853 test fixture installed into active discovery; original increment fixture remains.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "plugin.json": {
+            "kind": "file",
+            "sha256": "a03df1e44d7aa0dec0b7241d0e74f1843c995c08e1b301f9001415a257b271a0",
+            "bytes": 159
+          },
+          "hello-world/SKILL.md": {
+            "kind": "file",
+            "sha256": "c655b2a65c6720a29227f81c10c2de35634c8c6ac3b42d457381c3796d3d519a",
+            "bytes": 476
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.openclaw/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.openclaw/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/greet-anton"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.openclaw/skills/obsidian-brain",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.openclaw/skills/obsidian-brain",
+      "name": "obsidian-brain",
+      "reason": "Project v1.1 shadow references obsolete CronCreate; global v1.4 skill retained.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/obsidian-brain"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.openclaw/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.openclaw/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.opencode/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.opencode/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/greet-anton"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.opencode/skills/obsidian-brain",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.opencode/skills/obsidian-brain",
+      "name": "obsidian-brain",
+      "reason": "Project v1.1 shadow references obsolete CronCreate; global v1.4 skill retained.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/obsidian-brain"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.opencode/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.opencode/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.pi/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.pi/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/greet-anton"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.pi/skills/obsidian-brain",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.pi/skills/obsidian-brain",
+      "name": "obsidian-brain",
+      "reason": "Project v1.1 shadow references obsolete CronCreate; global v1.4 skill retained.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/obsidian-brain"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.pi/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.pi/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.pi/skills/tiny-test-plugin",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.pi/skills/tiny-test-plugin",
+      "name": "tiny-test-plugin",
+      "reason": "0853 test fixture installed into active discovery; original increment fixture remains.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "plugin.json": {
+            "kind": "file",
+            "sha256": "a03df1e44d7aa0dec0b7241d0e74f1843c995c08e1b301f9001415a257b271a0",
+            "bytes": 159
+          },
+          "hello-world/SKILL.md": {
+            "kind": "file",
+            "sha256": "c655b2a65c6720a29227f81c10c2de35634c8c6ac3b42d457381c3796d3d519a",
+            "bytes": 476
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.trae/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.trae/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.windsurf/skills/greet-anton",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.windsurf/skills/greet-anton",
+      "name": "greet-anton",
+      "reason": "Forced greeting before every action contradicts current communication preference and adds no domain knowledge.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/greet-anton"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.windsurf/skills/obsidian-brain",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.windsurf/skills/obsidian-brain",
+      "name": "obsidian-brain",
+      "reason": "Project v1.1 shadow references obsolete CronCreate; global v1.4 skill retained.",
+      "snapshot": {
+        "kind": "symlink",
+        "target": "../../.agents/skills/obsidian-brain"
+      },
+      "action": "vskill-uninstalled-after-backup"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/.windsurf/skills/postiz",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/payload/Users/antonabyzov/Projects/github/specweave-umb/.windsurf/skills/postiz",
+      "name": "postiz",
+      "reason": "64-byte malformed relative-path wrapper; actual installed Postiz plugins remain.",
+      "snapshot": {
+        "kind": "directory",
+        "files": {
+          "SKILL.md": {
+            "kind": "file",
+            "sha256": "9de110201fbc2b54e80394d6739b063b735765e136a1b943daece59313595f5d",
+            "bytes": 64
+          }
+        }
+      },
+      "action": "vskill-uninstalled-after-backup"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "node",
+        "/tmp/vskill-0877-skills/dist/bin.js",
+        "remove",
+        "greet-anton",
+        "--local",
+        "--force",
+        "--json"
+      ],
+      "cwd": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "returncode": 0,
+      "stdout": "{\"skill\":\"greet-anton\",\"scope\":\"project\",\"pluginId\":null,\"pluginUninstallOk\":null,\"removedCount\":12,\"removedFrom\":[\"Aider (local)\",\"Antigravity (local)\",\"Claude Code (local)\",\"Codex CLI (local)\",\"Cursor (local)\",\"Gemini CLI (local)\",\"Kiro CLI (local)\",\"OpenClaw (local)\",\"OpenCode (local)\",\"Pi (local)\",\"Windsurf (local)\",\"canonical store (project)\"],\"perAgent\":[{\"id\":\"aider\",\"displayName\":\"Aider\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"antigravity\",\"displayName\":\"Antigravity\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"claude-code\",\"displayName\":\"Claude Code\",\"surface\":\"claude-code-style\",\"action\":\"removed\"},{\"id\":\"codex\",\"displayName\":\"Codex CLI\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"continue\",\"displayName\":\"Continue\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"cursor\",\"displayName\":\"Cursor\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"gemini-cli\",\"displayName\":\"Gemini CLI\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"junie\",\"displayName\":\"Junie\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"kiro-cli\",\"displayName\":\"Kiro CLI\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"openclaw\",\"displayName\":\"OpenClaw\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"opencode\",\"displayName\":\"OpenCode\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"pi\",\"displayName\":\"Pi\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"trae\",\"displayName\":\"Trae\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"windsurf\",\"displayName\":\"Windsurf\",\"surface\":\"auto-discover\",\"action\":\"removed\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "node",
+        "/tmp/vskill-0877-skills/dist/bin.js",
+        "remove",
+        "tiny-test-plugin",
+        "--local",
+        "--force",
+        "--json"
+      ],
+      "cwd": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "returncode": 0,
+      "stdout": "{\"skill\":\"tiny-test-plugin\",\"scope\":\"project\",\"pluginId\":null,\"pluginUninstallOk\":null,\"removedCount\":6,\"removedFrom\":[\"Aider (local)\",\"Claude Code (local)\",\"Codex CLI (local)\",\"Cursor (local)\",\"Kiro CLI (local)\",\"Pi (local)\"],\"perAgent\":[{\"id\":\"aider\",\"displayName\":\"Aider\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"antigravity\",\"displayName\":\"Antigravity\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"claude-code\",\"displayName\":\"Claude Code\",\"surface\":\"claude-code-style\",\"action\":\"removed\"},{\"id\":\"codex\",\"displayName\":\"Codex CLI\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"continue\",\"displayName\":\"Continue\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"cursor\",\"displayName\":\"Cursor\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"gemini-cli\",\"displayName\":\"Gemini CLI\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"junie\",\"displayName\":\"Junie\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"kiro-cli\",\"displayName\":\"Kiro CLI\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"openclaw\",\"displayName\":\"OpenClaw\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"opencode\",\"displayName\":\"OpenCode\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"pi\",\"displayName\":\"Pi\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"trae\",\"displayName\":\"Trae\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"windsurf\",\"displayName\":\"Windsurf\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "node",
+        "/tmp/vskill-0877-skills/dist/bin.js",
+        "remove",
+        "postiz",
+        "--local",
+        "--force",
+        "--json"
+      ],
+      "cwd": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "returncode": 0,
+      "stdout": "{\"skill\":\"postiz\",\"scope\":\"project\",\"pluginId\":\"postiz@postiz-agent\",\"pluginUninstallOk\":null,\"removedCount\":14,\"removedFrom\":[\"Aider (local)\",\"Antigravity (local)\",\"Claude Code (local)\",\"Codex CLI (local)\",\"Continue (local)\",\"Cursor (local)\",\"Gemini CLI (local)\",\"Junie (local)\",\"Kiro CLI (local)\",\"OpenClaw (local)\",\"OpenCode (local)\",\"Pi (local)\",\"Trae (local)\",\"Windsurf (local)\"],\"perAgent\":[{\"id\":\"aider\",\"displayName\":\"Aider\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"antigravity\",\"displayName\":\"Antigravity\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"claude-code\",\"displayName\":\"Claude Code\",\"surface\":\"claude-code-style\",\"action\":\"removed\"},{\"id\":\"codex\",\"displayName\":\"Codex CLI\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"continue\",\"displayName\":\"Continue\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"cursor\",\"displayName\":\"Cursor\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"gemini-cli\",\"displayName\":\"Gemini CLI\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"junie\",\"displayName\":\"Junie\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"kiro-cli\",\"displayName\":\"Kiro CLI\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"openclaw\",\"displayName\":\"OpenClaw\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"opencode\",\"displayName\":\"OpenCode\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"pi\",\"displayName\":\"Pi\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"trae\",\"displayName\":\"Trae\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"windsurf\",\"displayName\":\"Windsurf\",\"surface\":\"auto-discover\",\"action\":\"removed\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "node",
+        "/tmp/vskill-0877-skills/dist/bin.js",
+        "remove",
+        "obsidian-brain",
+        "--local",
+        "--force",
+        "--json"
+      ],
+      "cwd": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "returncode": 0,
+      "stdout": "{\"skill\":\"obsidian-brain\",\"scope\":\"project\",\"pluginId\":null,\"pluginUninstallOk\":null,\"removedCount\":12,\"removedFrom\":[\"Aider (local)\",\"Antigravity (local)\",\"Claude Code (local)\",\"Codex CLI (local)\",\"Cursor (local)\",\"Gemini CLI (local)\",\"Kiro CLI (local)\",\"OpenClaw (local)\",\"OpenCode (local)\",\"Pi (local)\",\"Windsurf (local)\",\"canonical store (project)\"],\"perAgent\":[{\"id\":\"aider\",\"displayName\":\"Aider\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"antigravity\",\"displayName\":\"Antigravity\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"claude-code\",\"displayName\":\"Claude Code\",\"surface\":\"claude-code-style\",\"action\":\"removed\"},{\"id\":\"codex\",\"displayName\":\"Codex CLI\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"continue\",\"displayName\":\"Continue\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"cursor\",\"displayName\":\"Cursor\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"gemini-cli\",\"displayName\":\"Gemini CLI\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"junie\",\"displayName\":\"Junie\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"kiro-cli\",\"displayName\":\"Kiro CLI\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"openclaw\",\"displayName\":\"OpenClaw\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"opencode\",\"displayName\":\"OpenCode\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"pi\",\"displayName\":\"Pi\",\"surface\":\"auto-discover\",\"action\":\"removed\"},{\"id\":\"trae\",\"displayName\":\"Trae\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"windsurf\",\"displayName\":\"Windsurf\",\"surface\":\"auto-discover\",\"action\":\"removed\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "node",
+        "/tmp/vskill-0877-skills/dist/bin.js",
+        "remove",
+        "my-skill",
+        "--global",
+        "--force",
+        "--json"
+      ],
+      "cwd": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "returncode": 0,
+      "stdout": "{\"skill\":\"my-skill\",\"scope\":\"user\",\"pluginId\":null,\"pluginUninstallOk\":null,\"removedCount\":1,\"removedFrom\":[\"canonical store (global)\"],\"perAgent\":[{\"id\":\"aider\",\"displayName\":\"Aider\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"antigravity\",\"displayName\":\"Antigravity\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"claude-code\",\"displayName\":\"Claude Code\",\"surface\":\"claude-code-style\",\"action\":\"not-applicable\"},{\"id\":\"codex\",\"displayName\":\"Codex CLI\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"continue\",\"displayName\":\"Continue\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"cursor\",\"displayName\":\"Cursor\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"gemini-cli\",\"displayName\":\"Gemini CLI\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"junie\",\"displayName\":\"Junie\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"kiro-cli\",\"displayName\":\"Kiro CLI\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"openclaw\",\"displayName\":\"OpenClaw\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"opencode\",\"displayName\":\"OpenCode\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"pi\",\"displayName\":\"Pi\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"trae\",\"displayName\":\"Trae\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"},{\"id\":\"windsurf\",\"displayName\":\"Windsurf\",\"surface\":\"auto-discover\",\"action\":\"not-applicable\"}]}\n",
+      "stderr": ""
+    }
+  ],
+  "lockfiles": [
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/vskill.lock",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/lockfiles/Users/antonabyzov/Projects/github/specweave-umb/vskill.lock",
+      "sha256": "78cd12ced820509477783aaef7a85aeb96991047da2d682535ca60fd63e1b07a"
+    },
+    {
+      "path": "/Users/antonabyzov/.agents/vskill.lock",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/lockfiles/Users/antonabyzov/.agents/vskill.lock",
+      "sha256": "a91615345c47a99150ec9acad58f8bb7a5525741873330e77d8bd300f56d2fc5"
+    },
+    {
+      "path": "/Users/antonabyzov/vskill.lock",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/lockfiles/Users/antonabyzov/vskill.lock",
+      "sha256": "501dd7d976081062e1a5857854ec83875f9ae2c4a4592dbf103a14fd5b162361"
+    },
+    {
+      "path": "/Users/antonabyzov/.agents/.skill-lock.json",
+      "backup": "/Users/antonabyzov/.codex/skill-backups/0877/lockfiles/Users/antonabyzov/.agents/.skill-lock.json",
+      "sha256": "66cbe7c21500ceb3f187527b83a19884fc031e8938836ad523edaae6ada45ebf"
+    }
+  ],
+  "notes": [
+    "No plugin cache or domain expertise source removed.",
+    "Symlink bytes and files verified against backup before removals.",
+    "Restore individual entries; merge saved lock entries rather than overwriting newer lockfiles."
+  ],
+  "lockEntryChanges": [
+    {
+      "path": "/Users/antonabyzov/.agents/.skill-lock.json",
+      "name": "excalidraw-diagram-generator",
+      "previous": {
+        "source": "github/awesome-copilot",
+        "sourceType": "github",
+        "sourceUrl": "https://github.com/github/awesome-copilot.git",
+        "skillPath": "skills/excalidraw-diagram-generator/SKILL.md",
+        "skillFolderHash": "ba20eb1474ed8c2123f2a98e36f822b9bf369834",
+        "installedAt": "2026-03-05T00:50:38.114Z",
+        "updatedAt": "2026-03-05T00:50:38.114Z"
+      },
+      "action": "removed-stale-entry"
+    }
+  ],
+  "afterInventory": [
+    {
+      "root": "/Users/antonabyzov/.agents/skills",
+      "skillReferences": 56
+    },
+    {
+      "root": "/Users/antonabyzov/.codex/skills",
+      "skillReferences": 12
+    },
+    {
+      "root": "/Users/antonabyzov/.claude/skills",
+      "skillReferences": 54
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb/.agents/skills",
+      "skillReferences": 16
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb/.codex/skills",
+      "skillReferences": 15
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb/.claude/skills",
+      "skillReferences": 15
+    }
+  ],
+  "completedAt": "2026-09-14T05:58:47.480914+00:00"
+}

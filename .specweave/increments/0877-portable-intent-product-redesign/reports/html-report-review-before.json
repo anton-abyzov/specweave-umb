@@ -1,0 +1,289 @@
+{
+  "sourceSha256": "97054ab4002038f2a98b161bf8eabea36f5f5dbed7428995ab6a476385e97d57",
+  "headless": true,
+  "sourceEdits": false,
+  "localCases": [
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1050
+      },
+      "status": 200,
+      "hashAnchors": [
+        "#main",
+        "#changes",
+        "#cleanup",
+        "#evidence",
+        "#products"
+      ],
+      "keyboardDisclosures": [
+        "48 obsolete installation locations removed, with backups",
+        "Known limits and what this release does not claim"
+      ],
+      "overflowClosed": false,
+      "overflowOpen": false,
+      "internalLinks": [
+        {
+          "path": "/",
+          "status": 200
+        },
+        {
+          "path": "/product",
+          "status": 200
+        },
+        {
+          "path": "/docs/guides/analytics-dashboard",
+          "status": 200
+        },
+        {
+          "path": "/docs/guides/cross-tool-handoff",
+          "status": 200
+        },
+        {
+          "path": "/integrations",
+          "status": 200
+        },
+        {
+          "path": "/docs/overview/dogfooding",
+          "status": 200
+        }
+      ],
+      "pageErrors": [],
+      "axe": [
+        {
+          "violations": [
+            {
+              "id": "region",
+              "impact": "moderate",
+              "description": "Ensure all page content is contained by landmarks",
+              "nodes": [
+                {
+                  "target": [
+                    ".top"
+                  ],
+                  "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                }
+              ]
+            }
+          ],
+          "passes": 29,
+          "state": "closed"
+        },
+        {
+          "violations": [
+            {
+              "id": "region",
+              "impact": "moderate",
+              "description": "Ensure all page content is contained by landmarks",
+              "nodes": [
+                {
+                  "target": [
+                    ".top"
+                  ],
+                  "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                }
+              ]
+            }
+          ],
+          "passes": 31,
+          "state": "open"
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "hashAnchors": [
+        "#main",
+        "#changes",
+        "#cleanup",
+        "#evidence",
+        "#products"
+      ],
+      "keyboardDisclosures": [
+        "48 obsolete installation locations removed, with backups",
+        "Known limits and what this release does not claim"
+      ],
+      "overflowClosed": false,
+      "overflowOpen": false,
+      "internalLinks": [
+        {
+          "path": "/",
+          "status": 200
+        },
+        {
+          "path": "/product",
+          "status": 200
+        },
+        {
+          "path": "/docs/guides/analytics-dashboard",
+          "status": 200
+        },
+        {
+          "path": "/docs/guides/cross-tool-handoff",
+          "status": 200
+        },
+        {
+          "path": "/integrations",
+          "status": 200
+        },
+        {
+          "path": "/docs/overview/dogfooding",
+          "status": 200
+        }
+      ],
+      "pageErrors": [],
+      "axe": [
+        {
+          "violations": [
+            {
+              "id": "region",
+              "impact": "moderate",
+              "description": "Ensure all page content is contained by landmarks",
+              "nodes": [
+                {
+                  "target": [
+                    ".top"
+                  ],
+                  "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                }
+              ]
+            }
+          ],
+          "passes": 29,
+          "state": "closed"
+        },
+        {
+          "violations": [
+            {
+              "id": "region",
+              "impact": "moderate",
+              "description": "Ensure all page content is contained by landmarks",
+              "nodes": [
+                {
+                  "target": [
+                    ".top"
+                  ],
+                  "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                }
+              ]
+            }
+          ],
+          "passes": 31,
+          "state": "open"
+        }
+      ]
+    },
+    {
+      "name": "narrow",
+      "viewport": {
+        "width": 320,
+        "height": 720
+      },
+      "status": 200,
+      "hashAnchors": [
+        "#main",
+        "#changes",
+        "#cleanup",
+        "#evidence",
+        "#products"
+      ],
+      "keyboardDisclosures": [
+        "48 obsolete installation locations removed, with backups",
+        "Known limits and what this release does not claim"
+      ],
+      "overflowClosed": false,
+      "overflowOpen": false,
+      "internalLinks": [
+        {
+          "path": "/",
+          "status": 200
+        },
+        {
+          "path": "/product",
+          "status": 200
+        },
+        {
+          "path": "/docs/guides/analytics-dashboard",
+          "status": 200
+        },
+        {
+          "path": "/docs/guides/cross-tool-handoff",
+          "status": 200
+        },
+        {
+          "path": "/integrations",
+          "status": 200
+        },
+        {
+          "path": "/docs/overview/dogfooding",
+          "status": 200
+        }
+      ],
+      "pageErrors": [],
+      "axe": [
+        {
+          "violations": [
+            {
+              "id": "region",
+              "impact": "moderate",
+              "description": "Ensure all page content is contained by landmarks",
+              "nodes": [
+                {
+                  "target": [
+                    ".top"
+                  ],
+                  "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                }
+              ]
+            }
+          ],
+          "passes": 29,
+          "state": "closed"
+        },
+        {
+          "violations": [
+            {
+              "id": "region",
+              "impact": "moderate",
+              "description": "Ensure all page content is contained by landmarks",
+              "nodes": [
+                {
+                  "target": [
+                    ".top"
+                  ],
+                  "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+                }
+              ]
+            }
+          ],
+          "passes": 31,
+          "state": "open"
+        }
+      ]
+    }
+  ],
+  "livePages": [
+    {
+      "url": "https://verified-skill.com/",
+      "finalUrl": "https://verified-skill.com/",
+      "status": 200,
+      "title": "Verified Skills \u2014 Focused expertise. Visible evidence.",
+      "h1": "Give your agent\nskills that\nearn their place.",
+      "pageErrors": []
+    },
+    {
+      "url": "https://verified-skill.com/studio",
+      "finalUrl": "https://verified-skill.com/studio",
+      "status": 200,
+      "title": "Skill Studio \u2014 Author, evaluate, and ship verified AI skills | vSkill",
+      "h1": "Skill Studio",
+      "pageErrors": []
+    }
+  ]
+}
