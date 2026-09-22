@@ -139,3 +139,8 @@ Before `sw:done`, also run:
 ### File Limits
 - Max 1500 lines per file — extract before adding
 - Check ADRs at `.specweave/docs/internal/architecture/adr/` before implementing changes
+
+<!-- specweave:project-hub -->
+## Shared project context
+Read .specweave/project/hub.json for the project goal, shared context, artifacts and routine definitions. Run `specweave project show` for current work and `specweave project brief` for a fresh coordinator brief. Use native task tools only within user authorization. Routines are definitions until configured in the host scheduler.
+<!-- /specweave:project-hub -->

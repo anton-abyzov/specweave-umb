@@ -1,0 +1,36 @@
+
+ RUN  v4.1.11 /private/tmp/specweave-0881-root
+      Coverage enabled with v8
+
+ ✓ tests/unit/native-skill-installer.test.ts (8 tests) 44ms
+ ✓ tests/unit/project-hub/store.test.ts (29 tests) 51ms
+ ✓ tests/unit/cli/commands/project.test.ts (12 tests) 32ms
+ ✓ tests/unit/dashboard/project-hub-routes.test.ts (5 tests) 51ms
+
+ Test Files  4 passed (4)
+      Tests  54 passed (54)
+   Start at  23:37:21
+   Duration  356ms (transform 346ms, setup 114ms, import 410ms, tests 179ms, environment 0ms)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   92.55 |    86.44 |   90.24 |   95.61 |                   
+ cli/commands      |   86.66 |    78.43 |   66.66 |    88.7 |                   
+  project.ts       |   86.66 |    78.43 |   66.66 |    88.7 | 92-99             
+ core/project-hub  |   96.15 |    93.45 |     100 |      99 |                   
+  brief.ts         |     100 |    97.43 |     100 |     100 | 18                
+  store.ts         |   95.41 |    91.17 |     100 |   98.82 | 65                
+ .../server/routes |   93.44 |    93.02 |   71.42 |   97.77 |                   
+  ...hub-routes.ts |   93.44 |    93.02 |   71.42 |   97.77 | 52                
+ utils             |   92.72 |    76.19 |     100 |   95.45 |                   
+  ...-installer.ts |   92.72 |    76.19 |     100 |   95.45 | 22,51             
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 92.55% ( 311/336 )
+Branches     : 86.44% ( 236/273 )
+Functions    : 90.24% ( 37/41 )
+Lines        : 95.61% ( 240/251 )
+================================================================================

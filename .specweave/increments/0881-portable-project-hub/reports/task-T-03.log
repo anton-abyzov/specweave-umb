@@ -1,0 +1,89 @@
+$ cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run tests/unit/dashboard/project-hub-routes.test.ts && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run build
+# exit 0 — 2026-09-22T03:38:55.272Z
+
+
+ RUN  v4.1.11 /private/tmp/specweave-0881-root
+
+ ✓ tests/unit/dashboard/project-hub-routes.test.ts (5 tests) 46ms
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  23:38:42
+   Duration  246ms (transform 93ms, setup 25ms, import 111ms, tests 46ms, environment 0ms)
+
+
+> specweave@2.3.0-rc.1 build
+> tsc && npm run build:dashboard && npm run copy:locales && npm run copy:plugins && npm run copy:hook-deps && npm run copy:adapters && npm run stamp:plugin-version
+
+
+> specweave@2.3.0-rc.1 build:dashboard
+> npx vite build --config src/dashboard/client/vite.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 84 modules transformed.
+rendering chunks...
+computing gzip size...
+../../../dist/dashboard/index.html                   0.63 kB │ gzip:   0.41 kB
+../../../dist/dashboard/assets/index-B23Cd38D.css   68.11 kB │ gzip:  13.60 kB
+../../../dist/dashboard/assets/index-gvEBwjp3.js   442.78 kB │ gzip: 122.47 kB
+✓ built in 635ms
+
+> specweave@2.3.0-rc.1 copy:locales
+> node scripts/build/copy-locales.js
+
+✓ Locales copied successfully
+
+> specweave@2.3.0-rc.1 copy:plugins
+> node scripts/build/copy-plugin-js.js
+
+📦 Transpiling plugin TypeScript files with esbuild...
+✓ Transpiled 25 plugin files (88 skipped, already up-to-date)
+
+> specweave@2.3.0-rc.1 copy:hook-deps
+> node scripts/build/copy-hook-dependencies.js
+
+🔧 Copying hook dependencies to plugin vendor directories...
+
+
+📦 Copying dependencies for plugin: specweave
+   ✅ Copied: core/increment/ac-status-manager.js
+   ✅ Copied: core/increment/active-increment-manager.js
+   ✅ Copied: core/increment/auto-transition-manager.js
+   ✅ Copied: core/increment/duplicate-detector.js
+   ✅ Copied: core/increment/metadata-manager.js
+   ✅ Copied: core/increment/status-auto-transition.js
+   ✅ Copied: core/types/increment-metadata.js
+   ✅ Copied: generators/spec/task-parser.js
+   ✅ Copied: core/tasks/task-id.js
+   ✅ Copied: utils/logger.js
+   ✅ Copied: utils/credential-masker.js
+   ✅ Copied: utils/translation.js
+   ✅ Copied: core/ac-test-validator.js
+   ✅ Copied: core/ac-test-validator-cli.js
+   ✅ Copied: utils/fs-native.js
+   ✅ Copied: utils/chalk-fallback.js
+   ✅ Copied: sync/github-reconciler.js
+   ✅ Copied: core/universal-auto-create.js
+   ✅ Copied: utils/feature-id-derivation.js
+   ✅ Copied: sync/provider-router.js
+   ✅ Copied: sync/status-mapper.js
+   ✅ Copied: sync/config.js
+   ✅ Copied: utils/execFileNoThrow.js
+   ✅ Copied: utils/clean-env.js
+   ✅ Copied: utils/auth-helpers.js
+   📊 Copied 25/25 files
+
+✅ All hook dependencies copied successfully!
+
+> specweave@2.3.0-rc.1 copy:adapters
+> node scripts/build/copy-adapters.js
+
+✓ Adapter assets copied successfully
+
+> specweave@2.3.0-rc.1 stamp:plugin-version
+> node scripts/build/stamp-plugin-version.cjs
+
+  stamped plugins/specweave/.claude-plugin/plugin.json (version) -> 2.3.0-rc.1
+  stamped .claude-plugin/marketplace.json (version) -> 2.3.0-rc.1
+  stamped .claude-plugin/marketplace.json (plugins.0.version) -> 2.3.0-rc.1

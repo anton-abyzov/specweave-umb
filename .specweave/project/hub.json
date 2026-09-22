@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "revision": 3,
+  "updatedAt": "2026-09-22T03:46:26.988Z",
+  "name": "SpecWeave workspace",
+  "goal": "Build and maintain SpecWeave and related tools with portable intent, shared context and verified progress.",
+  "context": "This umbrella coordinates SpecWeave and related repositories under repositories/anton-abyzov. Keep shared intent and verified task evidence in the umbrella; commit implementation inside the owning repository. Preserve unrelated changes and active worktrees. Use the same project brief, intent board and increment ledger in Codex, Claude Code or another tool. Native tools own agent execution and scheduling. Browser checks must remain headless. Read AGENTS.md before acting.",
+  "artifacts": [
+    {
+      "id": "db3064a1-773c-43b7-82f3-cfbf5145e7ba",
+      "title": "Video analysis and product decision",
+      "location": ".specweave/increments/0881-portable-project-hub/reports/video-analysis.md",
+      "kind": "file",
+      "intentId": "b3685943-24d4-4761-8fd3-94af27db763b",
+      "createdAt": "2026-09-22T03:46:26.987Z"
+    }
+  ],
+  "routines": []
+}

@@ -1,0 +1,20 @@
+{
+  "installedVersion": "2.3.0-rc.1",
+  "previousVersion": "2.2.3",
+  "hubRevision": 1,
+  "configUnchanged": true,
+  "originalAgentsPreserved": true,
+  "originalAgentsSha256": "f14a13d80e25a18108e1a9c3d0fc3eea9561dad763c3db69192a3d8a1b757290",
+  "originalConfigSha256": "0bd4c852694f723ddb2fc85fb8478ab7783d751e82865fc4fb74b1c8143c9059",
+  "sourceHead": "d43b766a58ece6a5f294baa39cdb32c4b7d37115",
+  "baseVersion": "2.2.3",
+  "baseGitHead": "a8b4fd0d49a606fbf891cd462f78a53417cf10ee",
+  "tarball": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0881-portable-project-hub/reports/artifacts/specweave-2.3.0-rc.1.tgz",
+  "tarballSha256": "2b0403721858fed13e6808c503683385411330a99d75ff443ef49f4a7b82620f",
+  "isolatedInstallPassed": true,
+  "packagedHeadlessFlowsPassed": true,
+  "nativeRefreshPassed": true,
+  "stablePublished": false,
+  "manualUiAcceptance": "pending",
+  "pullRequest": "https://github.com/anton-abyzov/specweave/pull/1953"
+}
