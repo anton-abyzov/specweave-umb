@@ -8,8 +8,10 @@
 | T-03 | done | codex-0881 | cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm… |  |
 | T-04 | done | codex-0881 | cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm… |  |
 | T-05 | done | codex-0881 | cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm… |  |
+| T-06 | done | codex-0881 | cd /tmp/specweave-0881-root && export PATH=/Users/antonabyz… |  |
+| T-07 | claimed | codex-0881 |  |  |
 
-5/5 done · 0 skipped · 0 claimed · 0 blocked · 0 stale · 0 open
+6/7 done · 0 skipped · 1 claimed · 0 blocked · 0 stale · 0 open
 <!-- /SW:BOARD -->
 
 ### T-01 Project hub contract, store and portable briefs
@@ -34,3 +36,11 @@
 ### T-05 Independent review fixes and regression checks
 - AC: AC-01, AC-04, AC-05, AC-06, AC-07 | Files: bin/, scripts/lint-docs-refs.mjs, src/cli/commands/project.ts, plugins/specweave/marketplace.json, src/core/project-hub/, src/dashboard/client/src/pages/ProjectHubPage.tsx, src/dashboard/server/routes/project-hub-routes.ts, src/templates/AGENTS.md.template, tests/unit/cli/commands/project.test.ts, tests/unit/project-hub/, tests/unit/dashboard/project-hub-routes.test.ts, tests/unit/cli/helpers/init/instruction-templates.test.ts, tests/unit/build/version-alignment.test.ts, src/utils/native-skill-installer.ts, src/utils/plugin-copier.ts, src/adapters/codex/, src/adapters/registry.yaml, tests/unit/native-skill-installer.test.ts | Test: cd /tmp/specweave-0881-root && npx vitest run tests/unit/project-hub tests/unit/cli/commands/project.test.ts tests/unit/dashboard/project-hub-routes.test.ts tests/unit/cli/helpers/init/instruction-templates.test.ts tests/unit/build/version-alignment.test.ts
 - [x] done by codex-0881 2026-09-22T03:39:48.547Z — cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run tests/unit/…
+
+### T-06 Consolidate dashboard with the current website design system
+- AC: AC-05, AC-08 | Files: src/styles/, src/dashboard/client/, docs-site/src/pages/continuity.module.css, scripts/e2e/project-hub-e2e.mjs, scripts/e2e/brand-parity.mjs, tests/unit/dashboard/ | Test: cd /tmp/specweave-0881-root && npm run build && node scripts/e2e/project-hub-e2e.mjs --browser && node scripts/e2e/brand-parity.mjs
+- [x] done by codex-0881 2026-09-22T05:07:58.338Z — cd /tmp/specweave-0881-root && export PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGH…
+
+### T-07 Publish stable release, push repositories and verify installation
+- AC: AC-07, AC-09 | Files: README.md, CHANGELOG.md, package.json, package-lock.json, .claude-plugin/marketplace.json, plugins/specweave/.claude-plugin/plugin.json, plugins/specweave/skills/project/, .specweave/increments/0881-portable-project-hub/, scripts/release/, .github/workflows/, docs-site/docusaurus.config.ts, bin/, src/cli/, src/core/doctor/, src/core/living-docs/, src/core/lsp/, src/utils/, tests/unit/, scripts/e2e/bounded-scans.mjs | Test: cd /tmp/specweave-0881-root && npm run validate:versions && npm run release:preflight
+- [ ] claimed by codex-0881 since 2026-09-22T04:46:48.981Z

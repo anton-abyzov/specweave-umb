@@ -1,10 +1,10 @@
 {
   "ok": true,
   "increment": "0881",
-  "reviewedAt": "2026-09-22T03:38:04.875826+00:00",
+  "reviewedAt": "2026-09-22T05:21:10.217969+00:00",
   "mode": "single",
   "reviewerContext": "independent subagent",
-  "phase": "final independent recheck",
+  "phase": "final independent release follow-up",
   "findings": [],
   "resolvedFindings": [
     {
@@ -75,9 +75,31 @@
     "Final mode regression recheck: source0755 installs0755; direct script execution prints PASS; permission-only drift repaired with backup. Targeted suites: 3 files and 18 tests passed."
   ],
   "limitations": [
-    "No full build/test suite repeated; parent owns full build, responsive E2E, package installation and release gates.",
-    "The final native installer changes were independently executed from current TypeScript through Vite SSR. Final rebuilt packaged installation remains a separate parent-owned verification.",
-    "UI manual acceptance remains required before increment closure under umbrella AGENTS.md."
+    "Full build/test suite, responsive E2E, final packaged installation and release gates are owned by the parent task; this bounded follow-up does not claim to repeat them.",
+    "Earlier native installer verification executed TypeScript through Vite SSR; final package installation is separately verified by the parent task.",
+    "UI manual acceptance was reported approved by the user in the parent task before the release follow-up."
   ],
-  "droppedNits": 0
+  "droppedNits": 0,
+  "reviewedCommit": "c8fbd8c16cee0dd6b83fb7353d889fdb73e5eabc",
+  "releaseFollowUp": {
+    "baseCommit": "193f9f6c3",
+    "headCommit": "c8fbd8c16cee0dd6b83fb7353d889fdb73e5eabc",
+    "scope": [
+      "src/cli/commands/update.ts",
+      "tests/unit/cli/commands/update.test.ts",
+      "docs-site/docusaurus.config.ts",
+      ".github/workflows/docs-build.yml"
+    ],
+    "findings": [],
+    "verification": [
+      "Independently reran the update command suite under Node 22.20.0: 1 test file, 68 tests passed.",
+      "Reviewed the red/green regression receipts: the old update --check path called plugin refresh; the fixed guard skips plugin refresh and its nested cache refresh while retaining ordinary update behavior.",
+      "Evaluated actual Docusaurus configuration under Node 22.20.0 with the expected require resolver: docs and blog editUrl both use the supplied candidate SHA; absent and empty DOCS_SOURCE_REF both fall back to develop.",
+      "Verified the PR documentation build supplies github.event.pull_request.head.sha at build time.",
+      "Source tree remained clean. No browser, full build, broad test suite, or publication was run by this reviewer."
+    ],
+    "boundaries": [
+      "Parent-reported 685-link documentation crawl was not independently repeated during this bounded follow-up."
+    ]
+  }
 }

@@ -23,4 +23,13 @@ Reviewer context: independent subagent. Scope: diff against origin/develop, untr
 
 ## Remaining verification boundaries
 
-Full build, responsive E2E, final packaged installation and release-version proof are owned by the parent task. The final helper was independently tested from source; package build/install remains a separate gate. UI manual acceptance remains required before increment closure under umbrella AGENTS.md. This review is not a claim that those release gates have completed.
+Full build, responsive E2E, final packaged installation and release-version proof are owned by the parent task. The final helper was independently tested from source; package build/install remains a separate gate. The parent task reports that the user approved the UI. This review is not a claim that the other release gates have completed.
+
+## Final release follow-up — c8fbd8c16
+
+Verdict: no remaining findings in the bounded changes since `193f9f6c3`. Application source was not edited.
+
+- `src/cli/commands/update.ts:458`: `--check` skips plugin refresh and the nested cache refresh. The dry-run summary accurately says “Would refresh”; ordinary update remains enabled. The strengthened regression fails against the former implementation. Independently reran the update suite under Node22.20.0: **1 file, 68 tests passed**.
+- `docs-site/docusaurus.config.ts:160` and `:178`: evaluated the actual configuration with candidate SHA, absent variable and empty variable. Both docs and blog source URLs use the supplied SHA or the intended `develop` fallback. `.github/workflows/docs-build.yml` supplies the PR head SHA to the documentation build.
+
+The parent-reported 685-link documentation crawl was not repeated. This follow-up used no browser and did not rerun broader release gates. Reviewed HEAD: `c8fbd8c16cee0dd6b83fb7353d889fdb73e5eabc`; source tree remained clean.
