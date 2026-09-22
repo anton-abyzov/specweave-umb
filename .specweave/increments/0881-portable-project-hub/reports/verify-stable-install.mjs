@@ -15,6 +15,7 @@ const cliVersion = execFileSync(process.execPath, [path.join(pkg, 'bin/specweave
 assert.equal(cliVersion, expected);
 const published = JSON.parse(execFileSync('npm', ['view', `specweave@${expected}`, 'version', 'gitHead', 'dist.integrity', '--json'], { encoding: 'utf8' }));
 assert.equal(published.version, expected);
+assert.equal(published.gitHead, '8be01b24e23f18c1a87036e7f6e8ab0d4c98cce3');
 assert.ok(published['dist.integrity']?.startsWith('sha512-'));
 assert.equal(execFileSync('npm', ['view', 'specweave', 'version'], { encoding: 'utf8' }).trim(), expected);
 const before = JSON.parse(fs.readFileSync(path.join(reports, 'stable-install-prestate.json'), 'utf8'));

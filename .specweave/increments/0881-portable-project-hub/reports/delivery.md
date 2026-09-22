@@ -1,3 +1,5 @@
+> Historical RC snapshot. Stable release supersedes it: [2.3.0 delivery](stable-release.md).
+
 # Portable project hub — delivery
 
 Installed locally: **SpecWeave 2.3.0-rc.1**, built from `d43b766a58ece6a5f294baa39cdb32c4b7d37115`. Previous global CLI was 2.2.3. Stable npm release remains unpublished. Draft PR: https://github.com/anton-abyzov/specweave/pull/1953, stacked on published-2.2.3 delivery PR #1952.

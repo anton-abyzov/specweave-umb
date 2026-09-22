@@ -1,0 +1,22 @@
+$ cd /tmp/specweave-0881-root && export PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH SPECWEAVE_PACKAGE_ROOT=/Users/antonabyzov/.nvm/versions/node/v22.20.0/lib/node_modules/specweave && npm run validate:versions && npm run release:preflight && node /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0881-portable-project-hub/reports/verify-stable-install.mjs
+# exit 0 — 2026-09-22T05:38:00.070Z
+
+
+> specweave@2.3.0 validate:versions
+> node scripts/validation/validate-versions.cjs
+
+🔍 Validating version alignment across plugin manifests...
+
+  ✅ package.json                                  2.3.0
+  ✅ marketplace.json (root)                       2.3.0
+  ✅ marketplace.json (plugins[0])                 2.3.0
+  ✅ plugins/specweave/.claude-plugin/plugin.json  2.3.0
+
+✅ All four version locations aligned at 2.3.0
+
+> specweave@2.3.0 release:preflight
+> node scripts/release/preflight-publish.mjs
+
+[install-check] packed bin preserved; clean installed specweave --version = 2.3.0
+[preflight] ok — tarball carries 4173 entries including bin/specweave.js, the dist/ modules bin imports, dist/dashboard/** and both plugin manifests
+PASS: registry latest and installed CLI 2.3.0; 12 native Codex skills; existing config, instructions and project hub preserved; bundled font licenses present

@@ -9,9 +9,9 @@
 | T-04 | done | codex-0881 | cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm… |  |
 | T-05 | done | codex-0881 | cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm… |  |
 | T-06 | done | codex-0881 | cd /tmp/specweave-0881-root && export PATH=/Users/antonabyz… |  |
-| T-07 | claimed | codex-0881 |  |  |
+| T-07 | done | codex-0881 | cd /tmp/specweave-0881-root && export PATH=/Users/antonabyz… |  |
 
-6/7 done · 0 skipped · 1 claimed · 0 blocked · 0 stale · 0 open
+7/7 done · 0 skipped · 0 claimed · 0 blocked · 0 stale · 0 open
 <!-- /SW:BOARD -->
 
 ### T-01 Project hub contract, store and portable briefs
@@ -43,4 +43,4 @@
 
 ### T-07 Publish stable release, push repositories and verify installation
 - AC: AC-07, AC-09 | Files: README.md, CHANGELOG.md, package.json, package-lock.json, .claude-plugin/marketplace.json, plugins/specweave/.claude-plugin/plugin.json, plugins/specweave/skills/project/, .specweave/increments/0881-portable-project-hub/, scripts/release/, .github/workflows/, docs-site/docusaurus.config.ts, bin/, src/cli/, src/core/doctor/, src/core/living-docs/, src/core/lsp/, src/utils/, tests/unit/, scripts/e2e/bounded-scans.mjs | Test: cd /tmp/specweave-0881-root && npm run validate:versions && npm run release:preflight
-- [ ] claimed by codex-0881 since 2026-09-22T04:46:48.981Z
+- [x] done by codex-0881 2026-09-22T05:38:00.094Z — cd /tmp/specweave-0881-root && export PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH SPECWEAVE_PACKAGE_R…
