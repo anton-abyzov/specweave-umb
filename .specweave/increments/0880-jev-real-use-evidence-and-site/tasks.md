@@ -6,7 +6,7 @@
 | T-01 | done | easychamp | cd /Users/antonabyzov/Projects/sw-easychamp/repositories/an… |  |
 | T-02 | done | site | cd /Users/antonabyzov/Projects/github/specweave-umb/reposit… |  |
 | T-03 | done | graphics | node .specweave/increments/0880-jev-real-use-evidence-and-s… |  |
-| T-04 | open |  |  |  |
+| T-04 | done | release | cd /Users/antonabyzov/Projects/github/specweave-umb/reposit… |  |
 | T-05 | done | graphics | cd /Users/antonabyzov/Projects/github/specweave-umb/reposit… |  |
 | T-06 | done | site | export PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/… |  |
 | T-07 | done | graphics | cd /Users/antonabyzov/Projects/github/specweave-umb/reposit… |  |
@@ -18,7 +18,7 @@
 | T-13 | done | release | python3 .specweave/increments/0880-jev-real-use-evidence-an… |  |
 | T-14 | done | site | cd /Users/antonabyzov/Projects/github/specweave-umb/reposit… |  |
 
-13/14 done · 0 skipped · 0 claimed · 0 blocked · 0 stale · 1 open
+14/14 done · 0 skipped · 0 claimed · 0 blocked · 0 stale · 0 open
 <!-- /SW:BOARD -->
 
 ### T-01 EasyChamp Jev integration and reproducible evaluation
@@ -35,7 +35,7 @@
 
 ### T-04 Integrated verification deploy release install
 - AC: AC-05, AC-06 | Files: specweave/package.json, specweave/package-lock.json, specweave/CHANGELOG.md, specweave version metadata, reports/release*, reports/verification*, handoff.md | Test: manual: production HTTP/headless proof and installed package version
-- [ ] open
+- [x] done by release 2026-09-22T04:48:13.092Z — cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0880-release && PATH=/Users/antonabyzov/.…
 
 ### T-05 Fix verified Jev secret handling and guard validation
 - AC: AC-02, AC-05, AC-06 | Files: specweave/src/core/jev/client.ts, specweave/src/core/jev/decide.ts, specweave/src/core/jev/browse.ts, specweave/src/core/session/handoff-secret-scrub.ts, specweave/src/**/handoff-secret-scrub.ts, specweave/tests/unit/jev, specweave/tests/unit/**/handoff-secret-scrub*, reports/jev-fixes* | Test: manual: regression tests and Jev focused coverage
