@@ -8,7 +8,7 @@ In: audit practical Jev behavior, integrate a bounded safe EasyChamp workflow, m
 
 ## Acceptance Criteria
 - [x] AC-01: Reproducible EasyChamp evaluation records source revision, real execution, baseline, accuracy, latency, cost, fallback and limits; no synthetic corpus described as production usage.
-- [ ] AC-02: EasyChamp has a tested bounded Jev use path with deterministic authorization and failure fallback; deployment state is explicit.
+- [x] AC-02: EasyChamp has a tested bounded Jev use path with deterministic authorization and failure fallback; deployment state is explicit.
 - [x] AC-03: SpecWeave website links practical use cases and evidence, distinguishes forecast from observed productivity, and works at mobile/tablet/desktop widths.
 - [x] AC-04: Premium Kie graphics have model/settings receipts and visual inspection; screenshots show actual UI independently of generated art.
 - [ ] AC-05: Relevant tests/build/lint and headless checks pass; deployed URLs and release/package installation have fresh receipts.

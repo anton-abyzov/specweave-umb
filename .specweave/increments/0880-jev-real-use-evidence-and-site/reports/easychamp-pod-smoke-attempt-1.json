@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "handled": true,
+  "response": "I found 1 league(s):\n\n\u2022 **Demo Community League**\n  View: https://easychamp.com/observe/league/demo-league\n",
+  "latency_ms": 458.4086000000127,
+  "decisions": [
+    {
+      "route": "get_leagues",
+      "reason": "accepted",
+      "confidence": 0.95,
+      "latency_ms": 431.19365100000095,
+      "cost_usd": 2.1042e-05,
+      "provider_choice": "get_leagues"
+    }
+  ],
+  "api_calls": [
+    {
+      "method": "GET",
+      "path": "/aioptimize/champ-leagues/my"
+    }
+  ],
+  "module_sha256": "07cb2ce5b967a9a21bdbf9d68cebe6e046509559ca4133cd1362b5f735f01bc4",
+  "process_mode": "enabled",
+  "customer_data_used": false,
+  "deployment_mode_changed": false,
+  "inherited_mode": "off",
+  "measured_at": "2026-09-22T04:04:45.137391+00:00",
+  "pod": "ec-chat-api-8899d457b-5pfld",
+  "image": "ghcr.io/anton-abyzov/ec-chat-api:develop-e8e0a5d",
+  "image_id": "ghcr.io/anton-abyzov/ec-chat-api@sha256:e53268b8d6452127a88d2702b9133fa7330e40782ad74f1a463f0f2ffcc5ff9c",
+  "deployment_mode": "unset (default off)"
+}

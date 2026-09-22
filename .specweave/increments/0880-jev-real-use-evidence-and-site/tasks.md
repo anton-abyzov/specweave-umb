@@ -6,7 +6,7 @@
 | T-01 | done | easychamp | cd /Users/antonabyzov/Projects/sw-easychamp/repositories/an… |  |
 | T-02 | done | site | cd /Users/antonabyzov/Projects/github/specweave-umb/reposit… |  |
 | T-03 | done | graphics | node .specweave/increments/0880-jev-real-use-evidence-and-s… |  |
-| T-04 | claimed | release |  |  |
+| T-04 | open |  |  |  |
 | T-05 | done | graphics | cd /Users/antonabyzov/Projects/github/specweave-umb/reposit… |  |
 | T-06 | done | site | export PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/… |  |
 | T-07 | done | graphics | cd /Users/antonabyzov/Projects/github/specweave-umb/reposit… |  |
@@ -15,8 +15,10 @@
 | T-10 | done | site | cd /Users/antonabyzov/Projects/github/specweave-umb/reposit… |  |
 | T-11 | done | release | gh run view 35683432093 --repo anton-abyzov/specweave --jso… |  |
 | T-12 | done | graphics | cd /Users/antonabyzov/Projects/github/specweave-umb/reposit… |  |
+| T-13 | done | release | python3 .specweave/increments/0880-jev-real-use-evidence-an… |  |
+| T-14 | done | site | cd /Users/antonabyzov/Projects/github/specweave-umb/reposit… |  |
 
-11/12 done · 0 skipped · 1 claimed · 0 blocked · 0 stale · 0 open
+13/14 done · 0 skipped · 0 claimed · 0 blocked · 0 stale · 1 open
 <!-- /SW:BOARD -->
 
 ### T-01 EasyChamp Jev integration and reproducible evaluation
@@ -33,7 +35,7 @@
 
 ### T-04 Integrated verification deploy release install
 - AC: AC-05, AC-06 | Files: specweave/package.json, specweave/package-lock.json, specweave/CHANGELOG.md, specweave version metadata, reports/release*, reports/verification*, handoff.md | Test: manual: production HTTP/headless proof and installed package version
-- [ ] claimed by release since 2026-09-22T02:52:07.892Z
+- [ ] open
 
 ### T-05 Fix verified Jev secret handling and guard validation
 - AC: AC-02, AC-05, AC-06 | Files: specweave/src/core/jev/client.ts, specweave/src/core/jev/decide.ts, specweave/src/core/jev/browse.ts, specweave/src/core/session/handoff-secret-scrub.ts, specweave/src/**/handoff-secret-scrub.ts, specweave/tests/unit/jev, specweave/tests/unit/**/handoff-secret-scrub*, reports/jev-fixes* | Test: manual: regression tests and Jev focused coverage
@@ -66,3 +68,11 @@
 ### T-12 Retry interrupted registry response bodies
 - AC: AC-05 | Files: specweave/scripts/release/verify-package-install.mjs, specweave/tests/unit/release/installability.test.ts, reports/release-packaging* | Test: node 22 release installability regression suite
 - [x] done by graphics 2026-09-22T03:30:53.797Z — cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0880-graphics && PATH=/Users/antonabyzov/…
+
+### T-13 Distinguish historical evidence revision from deployment
+- AC: AC-01, AC-03 | Files: specweave/docs-site/static/evidence/jev-easychamp-replay.json, reports/verification-provenance* | Test: manual: historical metrics unchanged and revision caveat explicit
+- [x] done by release 2026-09-22T03:40:45.569Z — python3 .specweave/increments/0880-jev-real-use-evidence-and-site/reports/verification-provenance-latest.py → exit 0 lo…
+
+### T-14 Meet text contrast on Jev accent surfaces
+- AC: AC-03, AC-05 | Files: specweave/docs-site/src/pages/continuity.module.css, specweave/docs-site/tests/jev-mobile.mjs, reports/site-contrast* | Test: manual: actual browser text contrast and existing ten responsive checks
+- [x] done by site 2026-09-22T03:48:40.406Z — cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0880-site && export PATH=/Users/antonabyz…
