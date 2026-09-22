@@ -1,18 +1,28 @@
 {
   "id": "0880-jev-real-use-evidence-and-site",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-09-22T02:49:48.776Z",
-  "updated": "2026-09-22T04:07:55.592Z",
-  "lastActivity": "2026-09-22T04:07:55.592Z",
+  "updated": "2026-09-22T04:49:16.172Z",
+  "lastActivity": "2026-09-22T04:49:16.172Z",
   "testMode": "TDD",
   "coverageTarget": 60,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2455",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2455",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-09-22T04:49:42.690Z"
+    }
+  },
   "planning": {
     "parallel": false
   },
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "readyForReviewAt": "2026-09-22T04:49:16.170Z",
+  "approvedAt": "2026-09-22T04:49:16.172Z"
 }

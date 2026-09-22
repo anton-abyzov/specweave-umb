@@ -1,3 +1,6 @@
+---
+status: completed
+---
 # 0880 — Jev real use and evidence-led website
 
 ## Problem
@@ -11,7 +14,7 @@ In: audit practical Jev behavior, integrate a bounded safe EasyChamp workflow, m
 - [x] AC-02: EasyChamp has a tested bounded Jev use path with deterministic authorization and failure fallback; deployment state is explicit.
 - [x] AC-03: SpecWeave website links practical use cases and evidence, distinguishes forecast from observed productivity, and works at mobile/tablet/desktop widths.
 - [x] AC-04: Premium Kie graphics have model/settings receipts and visual inspection; screenshots show actual UI independently of generated art.
-- [ ] AC-05: Relevant tests/build/lint and headless checks pass; deployed URLs and release/package installation have fresh receipts.
+- [x] AC-05: Relevant tests/build/lint and headless checks pass; deployed URLs and release/package installation have fresh receipts.
 - [x] AC-06: Risk and acquisition report identifies implementation issues, limits, and concrete activation measurement; manual UI acceptance remains visible before increment closure.
 
 ## Approach
