@@ -1,0 +1,28 @@
+{
+  "id": "0879-refresh-plugins-walks-the-filesystem-from-cwd-when-no-project-is-found",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-09-21T20:26:13.994Z",
+  "updated": "2026-09-22T00:07:01.319Z",
+  "lastActivity": "2026-09-22T00:07:01.319Z",
+  "testMode": "TDD",
+  "coverageTarget": 60,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "ado": {
+      "featureId": "2453",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2453",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-09-21T23:27:18.996Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave-umb",
+  "readyForReviewAt": "2026-09-21T23:27:14.290Z",
+  "approvedAt": "2026-09-21T23:27:14.294Z"
+}
