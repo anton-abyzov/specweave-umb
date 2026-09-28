@@ -1,0 +1,270 @@
+$ cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations && env -u DATABASE_URL -u E2E_BYPASS -u JWT_SECRET -u ENABLE_PRIVATE_REPOS PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node node_modules/vitest/vitest.mjs run src/lib/submission/__tests__ src/app/api/v1/submissions/bulk/__tests__ && python3 /tmp/cc-work-release-20260928/0874/t030-validate-delivery.py --checkout /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations --merged-source 7f86c79ceeee190d6017d6e2f857a68ea522067a --worker 504442ec-e26e-4ee7-8872-bae010516a61 --deployment /tmp/cc-work-release-20260928/0874/t030-clock-final-readback.json --snapshot /tmp/cc-work-release-20260928/0874/t030-natural-snapshot-final-v2.json --canonical-row /tmp/cc-work-release-20260928/0874/t030-natural-db-final.json --public-smoke /tmp/cc-work-release-20260928/0874/t030-clock-final-public-smoke.json --merged-ci /tmp/cc-work-release-20260928/0874/t030-clock-final-check-runs.json --tail-receipt /tmp/cc-work-release-20260928/0874/t030-clock-final-tail.json --output /tmp/cc-work-release-20260928/0874/t030-composed-delivery-verdict-final.json
+# exit 0 — 2026-09-28T23:38:40.841Z
+
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations
+
+ ✓ src/lib/submission/__tests__/state-history.test.ts (7 tests) 3ms
+ ✓ src/lib/submission/__tests__/synthetic-scan-result.integration.test.ts (16 tests) 18ms
+ ✓ src/lib/submission/__tests__/synthetic-scan-result.test.ts (16 tests) 5ms
+stderr | src/lib/submission/__tests__/state-history-shape.test.ts > getSubmissionFullFromDb stateHistory shape (0713 US-003) > returns null on Prisma throw (no unhandled exception)
+[getSubmissionFullFromDb] sub_x: Error: DB unavailable
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/src/lib/submission/__tests__/state-history-shape.test.ts:74:42
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+ ✓ src/lib/submission/__tests__/state-history-shape.test.ts (3 tests) 5ms
+stderr | src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not claim a PUBLISHED rescan when the durable send fails
+[upsertSubmission] queue.send failed for sub_canonical; leaving row PUBLISHED: fixture queue unavailable
+
+stderr | src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not claim a REJECTED rescan when the durable send fails
+[upsertSubmission] resubmit queue.send failed for sub_canonical; leaving row REJECTED: fixture queue unavailable
+
+ ✓ src/lib/submission/__tests__/upsert-natural-key.test.ts (53 tests) 15ms
+stderr | src/lib/submission/__tests__/upsert-requeue.test.ts > upsertSubmission — PUBLISHED + contentHash changed → requeue (T-002, AC-US1-02) > leaves state=PUBLISHED and returns verified when queue.send throws (0705 F-005)
+[upsertSubmission] queue.send failed for sub_existing; leaving row PUBLISHED: Queue offline
+
+stderr | src/lib/submission/__tests__/upsert-requeue-rejected.test.ts > upsertSubmission — REJECTED/DEQUEUED resubmission requeue on content change > REJECTED + changed hash but queue.send throws → stays rejected
+[upsertSubmission] resubmit queue.send failed for sub_rejected; leaving row REJECTED: Queue offline
+
+ ✓ src/lib/submission/__tests__/upsert-requeue.test.ts (8 tests) 5ms
+ ✓ src/lib/submission/__tests__/upsert-requeue-rejected.test.ts (8 tests) 8ms
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — happy path (T-009) > returns kind:'created' with id/state/createdAt when db.submission.create succeeds
+[upsertSubmission] KV write failed for sub_new-1: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — happy path (T-009) > forwards optional fields into db.submission.create data
+[upsertSubmission] KV write failed for sub_new-2: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — P2002 branches (T-010) > maps P2002 + existing state=PUBLISHED with skill row to kind:'verified'
+[upsertSubmission] SkillVersion lookup failed for sub_existing: Cannot read properties of undefined (reading 'findFirst')
+
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — P2002 branches (T-010) > maps P2002 + existing state=PUBLISHED without skill row to kind:'pending' (orphan guard)
+[upsertSubmission] orphan-PUBLISHED skill lookup failed for https://github.com/owner/repo/my-skill: Cannot read properties of undefined (reading 'findUnique')
+
+ ✓ src/lib/submission/__tests__/publish-outbox-retrofit.test.ts (3 tests) 24ms
+stderr | src/lib/submission/__tests__/publish-degraded-data.test.ts > publishSkill — degraded-data guard (F-CR-2C) > refuses to create SkillVersion when BOTH scan.contentHash and skillmd KV are missing
+[publishSkill] skipping post-write steps for submission sub_degraded — no SkillVersion row was written.
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.db-lifecycle.test.ts (7 tests) 44ms
+ ↓ src/lib/submission/__tests__/upsert-concurrency.int.test.ts (1 test | 1 skipped)
+ ✓ src/lib/submission/__tests__/stage-timings.test.ts (6 tests) 2ms
+ ✓ src/lib/submission/__tests__/getSubmissionFull-publishedSkillName.test.ts (4 tests) 6ms
+stderr | src/lib/submission/__tests__/publish-rescan.test.ts > publishSkill — rescan different hash (T-005, AC-US2-02) > when scan yields gitSha="" or "latest", does NOT persist an empty/placeholder gitSha (ghost-row guard)
+[publishSkill] skipping new SkillVersion for sk_1: gitSha="" invalid; updated content + cert metadata on sv_old in place.
+
+stderr | src/lib/submission/__tests__/publish-rescan.test.ts > publishSkill — rescan different hash (T-005, AC-US2-02) > 0705 F-007: ghost-guard with a genuine content change updates latest row content in-place (not just cert metadata)
+[publishSkill] skipping new SkillVersion for sk_1: gitSha="latest" invalid; updated content + cert metadata on sv_old in place.
+
+stderr | src/lib/submission/__tests__/publish-rescan.test.ts > publishSkill — post-write gating on create failure (F-CR-002) > does NOT link submission or emit rebuild_search_shard when tx.skillVersion.create throws a generic error
+[publishSkill] SkillVersion creation failed for sub_1: Error: connection reset mid-insert
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/src/lib/submission/__tests__/publish-rescan.test.ts:338:21
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runFiles (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1787:3) {
+  code: 'P2002_like'
+}
+[publishSkill] skipping post-write steps for submission sub_1 — no SkillVersion row was written.
+
+ ✓ src/lib/submission/__tests__/publish-rescan.test.ts (5 tests) 134ms
+ ✓ src/lib/submission/__tests__/publish-privacy-failsafe.test.ts (3 tests) 134ms
+ ✓ src/lib/submission/__tests__/publish-degraded-data.test.ts (3 tests) 138ms
+ ✓ src/lib/submission/__tests__/publish-manifest.test.ts (6 tests) 158ms
+ ✓ src/lib/submission/__tests__/publish-v2.test.ts (9 tests) 166ms
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — P2025 race in P2002 catch (F-CR-007) > retries the outer upsert once when findUniqueOrThrow throws P2025 — succeeds on retry
+[upsertSubmission] KV write failed for sub_retry-success: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+
+ ✓ src/lib/submission/__tests__/upsert.test.ts (21 tests) 429ms
+   ✓ upsertSubmission — P2002 branches (T-010) > maps P2002 + existing state=REJECTED to kind:'rejected'  334ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/registry-alias.test.ts (4 tests) 80ms
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.defer.test.ts > bulk route — identity defer (T-002, AC-US1-05) > a non-defer error still propagates (defer is not a catch-all)
+POST /api/v1/submissions/bulk error: {
+  message: 'boom',
+  stack: 'Error: boom\n' +
+    '    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/src/app/api/v1/submissions/bulk/__tests__/route.defer.test.ts:132:43\n' +
+    '    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n' +
+    '    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n' +
+    '    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n' +
+    '    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)\n' +
+    '    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)'
+}
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.defer.test.ts (2 tests) 51ms
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-016: continues batch when createSubmission fails for one entry
+[bulk] Failed to create submission: https://github.com/org/repo-2 skill-2 KV write timeout
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-017: succeeds even when queue send fails
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-017: succeeds even when queue send fails
+[bulk] Queue send failed for sub_2: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-018: walks skillPathCandidates when primary path 404s, persists resolved path
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-019: skillPathCandidates absent → behavior is identical to today (root SKILL.md fallback)
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-022: walks trailing-strip candidate when primary + leading-strip both 404
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.intake.test.ts > storage failure cannot become a terminal policy receipt
+[bulk] Failed to create submission: https://github.com/acme/skills alpha fixture storage unavailable
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.test.ts (13 tests) 74ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.intake.test.ts (11 tests) 17ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.skillpath-validation.test.ts (16 tests) 15ms
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > never settles an exhausted deleted-row race under HTTP200 (["sourceType","sourceId","artifactPath"])
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity changed during intake; retry
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > never settles an exhausted deleted-row race under HTTP200 (["repoUrl","skillName"])
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity changed during intake; retry
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > does not settle, disclose or requeue a scoped canonical match ({"privacy":"PRIVATE","tenantId":null})
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity cannot be safely reused
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > does not settle, disclose or requeue a scoped canonical match ({"privacy":"PUBLIC","tenantId":"other-tenant"})
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity cannot be safely reused
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts (5 tests) 12ms
+
+ Test Files  23 passed | 1 skipped (24)
+      Tests  229 passed | 1 skipped (230)
+   Start at  19:38:39
+   Duration  1.26s (transform 937ms, setup 3.09s, collect 2.65s, tests 1.54s, environment 1.87s, prepare 1.27s)
+
+{
+  "at": "2026-09-28T23:38:40.836120+00:00",
+  "verified": true,
+  "reviewedHead": "05f9bb6ef6a25026c3cf35f0b63b62bebdb0c4cb",
+  "mergedSource": "7f86c79ceeee190d6017d6e2f857a68ea522067a",
+  "workerVersion": "504442ec-e26e-4ee7-8872-bae010516a61",
+  "allFourChecksGreen": true,
+  "allFourMergedSourceChecksGreen": true,
+  "allFourReviewedSourceHashesMatch": true,
+  "sixConsumersUnchanged": true,
+  "naturalIntakeProof": {
+    "verified": true,
+    "checks": {
+      "baseline_is_exact_blocked_item": true,
+      "worker_latest_at_100_percent": true,
+      "snapshot_after_deployment": true,
+      "post_deployment_invocation_finished": true,
+      "same_containers_images_process_starts": true,
+      "same_existing_sweep_config": true,
+      "same_target_hash": true,
+      "historical_checkpoint_counters_retained": true,
+      "historical_lost_694_retained": true,
+      "historical_failure_counts_retained": true,
+      "distinct_lower_bound_not_reset": true,
+      "accepted_399_to_400_or_cursor_advanced": true,
+      "original_pending_batch_drained": true,
+      "target_no_longer_unresolved": true,
+      "final_version_post_deployment_bulk_http200_observed": true,
+      "runtime_scheduler_timestamp_semantics_verified": true
+    },
+    "progressMode": "cursor_advanced",
+    "targetIdentitySha256": "e3b3310ba35a22b2930f29b8482c17577a288bb7253c97ffd493c62a76dd4b50",
+    "sweepId": "026ba568-3ac5-4855-95fd-6c441c8007d2",
+    "before": {
+      "acceptedCurrentLeaf": 399,
+      "cursor": [
+        1,
+        4
+      ],
+      "pendingUnresolvedCount": 1,
+      "counters": {
+        "totalDiscovered": 1062,
+        "totalSubmitted": 1021,
+        "totalCreated": 198,
+        "totalSkipped": 463,
+        "totalKnownSkipped": 73,
+        "totalLost": 694,
+        "totalErrors": 152,
+        "totalRejected": 121,
+        "totalPrivateFiltered": 0,
+        "totalVisibilityUnknown": 0
+      }
+    },
+    "after": {
+      "acceptedCurrentLeaf": 478,
+      "cursor": [
+        1,
+        5
+      ],
+      "pendingUnresolvedCount": 22,
+      "counters": {
+        "totalDiscovered": 1162,
+        "totalSubmitted": 1124,
+        "totalCreated": 229,
+        "totalSkipped": 467,
+        "totalKnownSkipped": 73,
+        "totalLost": 694,
+        "totalErrors": 192,
+        "totalRejected": 137,
+        "totalPrivateFiltered": 0,
+        "totalVisibilityUnknown": 0
+      }
+    },
+    "limitation": "Only original blocked target/batch is closed. Last invocation failed with new unresolved work; HTTP200 is not per-item success or clean-continuation proof.",
+    "observedFinalVersionBulkHttp200Count": 3,
+    "latestSourceStatus": {
+      "status": "backoff",
+      "lastRunAt": "2026-09-28T23:17:58.057Z",
+      "lastProgressAt": "2026-09-28T20:26:05.220Z",
+      "runCount": 0,
+      "continuationCount": 1,
+      "errorCount": 48,
+      "consecutiveErrors": 48,
+      "lastResult": {
+        "completed": false,
+        "durationMs": 88301,
+        "totalDiscovered": 100,
+        "totalSubmitted": 101,
+        "totalCreated": 31,
+        "totalSkipped": 4,
+        "totalLost": 0,
+        "totalErrors": 38,
+        "errorEntryCount": 1,
+        "errorStringsExported": false
+      }
+    },
+    "latestRunClean": false,
+    "attribution": "Original target is accepted after reviewed repair deployment. Final-version HTTP200 intake and later invocation finish are separately observed; the exact Worker version that accepted the target is not claimed."
+  },
+  "originalCanonicalRowPreserved": true,
+  "currentVersionPublicSmokePassed": true,
+  "inputSha256": {
+    "/private/tmp/cc-work-release-20260928/0874/t030-source-receipt.json": "4bc65a3a553289b0880f58ed5ec232ddbb319354909127aceb4c2f1df71833bb",
+    "/private/tmp/cc-work-release-20260928/0874/t030-ci-green.json": "9453acd5d7045703946b9b3fbdf5f8ed7727a5afb90389ff2926b1f5326ca79c",
+    "/Users/antonabyzov/.codex/visualizations/2026/09/28/01a0e6ab-6a15-7a40-923e-04ea3fd64426/cc-work-continuation/0874/t030-parity-review.json": "d50274d448d0365c1d5b5c19c1b3cbe724cb3bf5f5edda120befaddf76966c6e",
+    "/private/tmp/cc-work-release-20260928/0874/t030-artifact-manifest.json": "9d9d7198e94e367f1e450f734d92e318952980e6f2dd008e8018da3a19566f80",
+    "/private/tmp/cc-work-release-20260928/0874/t030-verify-natural.py": "0e5babd1a1a2324b04147e118c4f3ef3eaedfa76c67f6eddd7f9d2998dfb4fe4",
+    "/private/tmp/cc-work-release-20260928/0874/t030-natural-baseline.json": "155d90f406a7e9f226d3dca77ff909fbfb212dfa4aa7938e9cc9c672fc1f4d76",
+    "/tmp/cc-work-release-20260928/0874/t030-clock-final-readback.json": "2644f04290a7b05885e92003a0d299cb69ff77e436715ffa336c87f103f227aa",
+    "/tmp/cc-work-release-20260928/0874/t030-natural-snapshot-final-v2.json": "ea957d6ce9dee562bad101de1826c21af33e95065b661e5d68df2de5d38c66ce",
+    "/tmp/cc-work-release-20260928/0874/t030-natural-db-final.json": "928647c464e38f91891050e09755bbb34211602a87cd4fa4f299ffc799a9e6dd",
+    "/tmp/cc-work-release-20260928/0874/t030-clock-final-public-smoke.json": "709c86b76e7f398eb8719f523a3b82fe6cc90e8a6c71cf1bd3a88cb863ace81c",
+    "/tmp/cc-work-release-20260928/0874/t030-clock-final-check-runs.json": "ca7730f4940b774cd24ac4055b69df9a40518953fe4978038ba6373fe6722834",
+    "/tmp/cc-work-release-20260928/0874/t030-clock-final-tail.json": "4d4a319ce3778bead5dd5811b7796c464276646bf24fe9fe07d0ddcf5af06d81"
+  },
+  "fullBreadthProven": false,
+  "limitation": "Closes the exact canonical collision repair and its original blocked batch only. Full adaptive sweep and corpus coverage remain open."
+}

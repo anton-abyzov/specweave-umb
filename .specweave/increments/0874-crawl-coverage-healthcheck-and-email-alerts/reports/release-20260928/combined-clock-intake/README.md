@@ -13,3 +13,5 @@ The same VM3 sweep `026ba568-3ac5-4855-95fd-6c441c8007d2` and historical failed-
 T030 remains open here pending the separate natural-intake diagnosis and bounded closure decision. The original blocked item has advanced, but new unresolved items are being investigated. This document does not attribute the exact original acceptance time to the final Worker version and does not claim a clean or complete sweep. T017 and T027 remain separate open work.
 
 The local receipt parser pads Cloudflare's fractional timestamps for Python 3.9 without changing their instants. This evidence-only compatibility correction did not alter product code. TypeScript still has 314 unchanged baseline diagnostics; no green typecheck is claimed.
+
+T030 bounded canonical recovery was subsequently closed through the CLI at 2026-09-28T23:38:40.864Z. Its final proof is in `../intake-identity/final-delivery/`. Twenty-two new distinct-artifact failures are owned by T031; no clean sweep is claimed.

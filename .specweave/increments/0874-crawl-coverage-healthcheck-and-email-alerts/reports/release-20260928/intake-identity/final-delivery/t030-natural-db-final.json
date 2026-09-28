@@ -1,0 +1,20 @@
+{
+  "at": "2026-09-28T23:16:48.789Z",
+  "readOnlyTransaction": true,
+  "sourceIdSha256": "85136bf1b8ddbdba05226c47bdf77d114d6633d9a735f173d4dd74506f9e6d59",
+  "artifactPathSha256": "c101124f447dbba36b8258c2cb8c8e45e7965015df5fd95453766076ec9684d7",
+  "matchingRows": 1,
+  "rows": [
+    {
+      "rowIdSha256": "7821b066b63a6920b563d8c2cc71461e231b2c4a6f1531991a487de29075de02",
+      "sameOriginalRow": true,
+      "state": "PUBLISHED",
+      "userIdPresent": false,
+      "linkedSkillPresent": true,
+      "linkedSkillPublic": true,
+      "linkedSkillTenantPresent": false
+    }
+  ],
+  "canonicalRowAndPublicScopePreserved": true,
+  "limitation": "Separate from scheduler acceptance; lifecycle state may change through normal existing rescan policy."
+}

@@ -1,0 +1,617 @@
+{
+  "at": "2026-09-28T23:26:06.937Z",
+  "readOnlyTransaction": true,
+  "sweepId": "026ba568-3ac5-4855-95fd-6c441c8007d2",
+  "pendingPageSha256": "ec37796184197c35fe07b2f5701eb81ffd605b3b7ef7bbc9a7d6f66a3705b3d3",
+  "exactPendingItems": 22,
+  "rawIdentitiesExported": false,
+  "summary": {
+    "matchingRows": 22,
+    "canonicalPrimary": 0,
+    "canonicalFallback": 2,
+    "legacyKeys": 22,
+    "userOwned": 0,
+    "linkedPublic": 19,
+    "linkedTenant": 0,
+    "scopeDenied": 0,
+    "primaryPathMismatch": 22,
+    "primaryTupleMismatch": 22
+  },
+  "items": [
+    {
+      "itemIdentitySha256": "21ef4d0da327720cfbe393612874299bb5df5af6f432eb8f7ecb79fd19becc03",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "f83cdf3a289d45ec8b392be28e862c9576bfb1f775fb5ab89225545a0f38d782",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "dc34246d3ea922a39f80dedf1e0cd6d6b0b299671640e351f96edaf95ac5e1f6",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "6fad0d255fed283b760b6f5a134b010fdee5685283caa235541128fbca8d8571",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": true,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "a7f92a1b553e5b91dbe2d813eddc824fb7113f58bbfeeb73ec6959cd76724ea2",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "5532fa9e741b3a34e70b6ae4118e76765e7275c80308124a25d7cd0f3d96aa9f",
+          "state": "DEQUEUED",
+          "canonicalPrimary": false,
+          "canonicalFallback": true,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": false,
+          "linkedPublic": false,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "5d38b8a8e7ea8eff74ce63c985badccebd6831d952dd373a3a53482e0bb81a7f",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "c9cd5d8a744a1b43acb05581c2e9e7a5ad3a8913b6d610ba6af3a61c6c0f4369",
+          "state": "DEQUEUED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": false,
+          "linkedPublic": false,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "bf400260ca8db04295c4ab8c5a3e921f852f06e24f07079135cfe56b38e40fc3",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "518911e849d1cac7139371a58bcb452c78f7159de3b001e279a5ae6ea4703e35",
+          "state": "DEQUEUED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": false,
+          "linkedPublic": false,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "83eff9207aa4c164fcaa5f4f3562449d63dcb71d5c7d583aa6411c05045572da",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "627c67d94c661beaf981bec763ce4e9d076895971aeaa7f08babc06f87369897",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "a412eaa2030be836b1dc76aa75d116f0b35e4da0eb42557ab0a8e7479be91240",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "f55337ac828b79f062fb1e3c39e191002998959731ff3bbd2032659c651cabfb",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "d7485d25c439a40a9a9550024aa348815c77d74bc11d0018acac90d3a19e48a7",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "f55337ac828b79f062fb1e3c39e191002998959731ff3bbd2032659c651cabfb",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "5484ba0f5738c100f38fa2705faef1c0916f25eb236f137c1a17e9f022c0286a",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "b7d4b5496d6c18ec9005e9bcb54517259093c37e489befdad21b16c1141cbbda",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "a5643443def290b76d4dee6468c056dd24ade91a79ec81fc6f26a369ba5270b7",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "f55337ac828b79f062fb1e3c39e191002998959731ff3bbd2032659c651cabfb",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "4bf9677d32c93c39429763180d10996f3b4554ebe987deaee034b173ac1418de",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "4a2ea83c67175a87891cb41ef11a671ca268eea185ea440b773f3262c8cb69a7",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "a26bb050050b94821a2cd9c8f3e065303b5af5a333a50b3694fc2efc7baf5b63",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "f55337ac828b79f062fb1e3c39e191002998959731ff3bbd2032659c651cabfb",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "58e3ffaed0bce3ba2f682ad30873ddf87e050e34f9c12bce4ce77e7a524e4464",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "f55337ac828b79f062fb1e3c39e191002998959731ff3bbd2032659c651cabfb",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "475852564d4367cd51e6fbb9e09d358ba9d91eb869c9b217c70acdc13b4e6d91",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "b7d4b5496d6c18ec9005e9bcb54517259093c37e489befdad21b16c1141cbbda",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "d6045f9c94bd8fb0629d13863116e77e23396fe39c268e956619d5637a4f7ca9",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "4a2ea83c67175a87891cb41ef11a671ca268eea185ea440b773f3262c8cb69a7",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "1ccce86e29bf116f65b35251799c69d10731db3b7ec3b649d22843d30ba4e5d1",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "b7d4b5496d6c18ec9005e9bcb54517259093c37e489befdad21b16c1141cbbda",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "46e1b2681a1121c2e8e22416b16f0848048663cb47ff7207b632d38ccb051123",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "4a2ea83c67175a87891cb41ef11a671ca268eea185ea440b773f3262c8cb69a7",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "f4bb272c7733e93ddf53b4357ae5b6dad68b703e3e29bef6ad4aa5370217009d",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "f55337ac828b79f062fb1e3c39e191002998959731ff3bbd2032659c651cabfb",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "d08d3988774db5e53eaea09b6e58dcbc16dca2894a0c7010d4f46d188453f93c",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "b7d4b5496d6c18ec9005e9bcb54517259093c37e489befdad21b16c1141cbbda",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "80e6d4ecf9432e329c2fbbac6cfbe0372c2d81d44bbc48389aae14f465b4afa6",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "f55337ac828b79f062fb1e3c39e191002998959731ff3bbd2032659c651cabfb",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "eaa5c61076f9df4946e758b198753e41b48894368300c46db1f2c5a9a8d187cb",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "f55337ac828b79f062fb1e3c39e191002998959731ff3bbd2032659c651cabfb",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    },
+    {
+      "itemIdentitySha256": "bea3799c09cf287da5da7e0f6a49b6baccef577e85af86291569f92a0e0aef1b",
+      "cachedIdentityCount": 1,
+      "primaryPathIsRoot": false,
+      "candidatePathCount": 2,
+      "rowCount": 1,
+      "rows": [
+        {
+          "rowIdSha256": "b4c87849894558feee76e5db31b942bc90fcdf8adff6ad818b7f27e73f42dda6",
+          "state": "PUBLISHED",
+          "canonicalPrimary": false,
+          "canonicalFallback": false,
+          "legacyKey": true,
+          "tuplePrimaryMatches": false,
+          "normalizedPathPrimaryMatches": false,
+          "sourceTypeMatches": true,
+          "sourceIdMatches": true,
+          "artifactPrimaryMatches": false,
+          "userOwned": false,
+          "linkedSkill": true,
+          "linkedPublic": true,
+          "linkedTenant": false,
+          "scopePermitsInternalPublicCaller": true,
+          "primaryGuardPass": false
+        }
+      ]
+    }
+  ],
+  "limitation": "Candidate/fallback rows are separate; no assumption that a source primary path survived mutable content fallback. No contents, identities or credentials exported; no query can write."
+}

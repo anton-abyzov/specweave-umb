@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "case": "exact accepted400 clears old pending batch",
+      "passed": true
+    },
+    {
+      "case": "cursor advancement clears old batch despite new unrelated pending work",
+      "passed": true
+    },
+    {
+      "case": "still blocked",
+      "passed": true
+    },
+    {
+      "case": "lost history reset",
+      "passed": true
+    },
+    {
+      "case": "new sweep",
+      "passed": true
+    },
+    {
+      "case": "restart",
+      "passed": true
+    },
+    {
+      "case": "run before release",
+      "passed": true
+    },
+    {
+      "case": "cursor without batch replacement",
+      "passed": true
+    },
+    {
+      "case": "wrong deployed version fails",
+      "passed": true
+    },
+    {
+      "case": "Cloudflare variable fractional precision retains exact instant",
+      "passed": true
+    },
+    {
+      "case": "combined delivery requires final version natural HTTP observation",
+      "passed": true
+    },
+    {
+      "case": "wrong tail version",
+      "passed": true
+    },
+    {
+      "case": "predeployment tail",
+      "passed": true
+    },
+    {
+      "case": "HTTP500 tail",
+      "passed": true
+    },
+    {
+      "case": "Prisma exception tail",
+      "passed": true
+    },
+    {
+      "case": "tail reader failed",
+      "passed": true
+    }
+  ],
+  "passed": 16,
+  "productionRequests": 0
+}

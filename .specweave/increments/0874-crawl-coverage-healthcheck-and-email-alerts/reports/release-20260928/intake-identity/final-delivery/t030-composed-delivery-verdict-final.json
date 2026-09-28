@@ -1,0 +1,118 @@
+{
+  "at": "2026-09-28T23:38:40.836120+00:00",
+  "verified": true,
+  "reviewedHead": "05f9bb6ef6a25026c3cf35f0b63b62bebdb0c4cb",
+  "mergedSource": "7f86c79ceeee190d6017d6e2f857a68ea522067a",
+  "workerVersion": "504442ec-e26e-4ee7-8872-bae010516a61",
+  "allFourChecksGreen": true,
+  "allFourMergedSourceChecksGreen": true,
+  "allFourReviewedSourceHashesMatch": true,
+  "sixConsumersUnchanged": true,
+  "naturalIntakeProof": {
+    "verified": true,
+    "checks": {
+      "baseline_is_exact_blocked_item": true,
+      "worker_latest_at_100_percent": true,
+      "snapshot_after_deployment": true,
+      "post_deployment_invocation_finished": true,
+      "same_containers_images_process_starts": true,
+      "same_existing_sweep_config": true,
+      "same_target_hash": true,
+      "historical_checkpoint_counters_retained": true,
+      "historical_lost_694_retained": true,
+      "historical_failure_counts_retained": true,
+      "distinct_lower_bound_not_reset": true,
+      "accepted_399_to_400_or_cursor_advanced": true,
+      "original_pending_batch_drained": true,
+      "target_no_longer_unresolved": true,
+      "final_version_post_deployment_bulk_http200_observed": true,
+      "runtime_scheduler_timestamp_semantics_verified": true
+    },
+    "progressMode": "cursor_advanced",
+    "targetIdentitySha256": "e3b3310ba35a22b2930f29b8482c17577a288bb7253c97ffd493c62a76dd4b50",
+    "sweepId": "026ba568-3ac5-4855-95fd-6c441c8007d2",
+    "before": {
+      "acceptedCurrentLeaf": 399,
+      "cursor": [
+        1,
+        4
+      ],
+      "pendingUnresolvedCount": 1,
+      "counters": {
+        "totalDiscovered": 1062,
+        "totalSubmitted": 1021,
+        "totalCreated": 198,
+        "totalSkipped": 463,
+        "totalKnownSkipped": 73,
+        "totalLost": 694,
+        "totalErrors": 152,
+        "totalRejected": 121,
+        "totalPrivateFiltered": 0,
+        "totalVisibilityUnknown": 0
+      }
+    },
+    "after": {
+      "acceptedCurrentLeaf": 478,
+      "cursor": [
+        1,
+        5
+      ],
+      "pendingUnresolvedCount": 22,
+      "counters": {
+        "totalDiscovered": 1162,
+        "totalSubmitted": 1124,
+        "totalCreated": 229,
+        "totalSkipped": 467,
+        "totalKnownSkipped": 73,
+        "totalLost": 694,
+        "totalErrors": 192,
+        "totalRejected": 137,
+        "totalPrivateFiltered": 0,
+        "totalVisibilityUnknown": 0
+      }
+    },
+    "limitation": "Only original blocked target/batch is closed. Last invocation failed with new unresolved work; HTTP200 is not per-item success or clean-continuation proof.",
+    "observedFinalVersionBulkHttp200Count": 3,
+    "latestSourceStatus": {
+      "status": "backoff",
+      "lastRunAt": "2026-09-28T23:17:58.057Z",
+      "lastProgressAt": "2026-09-28T20:26:05.220Z",
+      "runCount": 0,
+      "continuationCount": 1,
+      "errorCount": 48,
+      "consecutiveErrors": 48,
+      "lastResult": {
+        "completed": false,
+        "durationMs": 88301,
+        "totalDiscovered": 100,
+        "totalSubmitted": 101,
+        "totalCreated": 31,
+        "totalSkipped": 4,
+        "totalLost": 0,
+        "totalErrors": 38,
+        "errorEntryCount": 1,
+        "errorStringsExported": false
+      }
+    },
+    "latestRunClean": false,
+    "attribution": "Original target is accepted after reviewed repair deployment. Final-version HTTP200 intake and later invocation finish are separately observed; the exact Worker version that accepted the target is not claimed."
+  },
+  "originalCanonicalRowPreserved": true,
+  "currentVersionPublicSmokePassed": true,
+  "inputSha256": {
+    "/private/tmp/cc-work-release-20260928/0874/t030-source-receipt.json": "4bc65a3a553289b0880f58ed5ec232ddbb319354909127aceb4c2f1df71833bb",
+    "/private/tmp/cc-work-release-20260928/0874/t030-ci-green.json": "9453acd5d7045703946b9b3fbdf5f8ed7727a5afb90389ff2926b1f5326ca79c",
+    "/Users/antonabyzov/.codex/visualizations/2026/09/28/01a0e6ab-6a15-7a40-923e-04ea3fd64426/cc-work-continuation/0874/t030-parity-review.json": "d50274d448d0365c1d5b5c19c1b3cbe724cb3bf5f5edda120befaddf76966c6e",
+    "/private/tmp/cc-work-release-20260928/0874/t030-artifact-manifest.json": "9d9d7198e94e367f1e450f734d92e318952980e6f2dd008e8018da3a19566f80",
+    "/private/tmp/cc-work-release-20260928/0874/t030-verify-natural.py": "0e5babd1a1a2324b04147e118c4f3ef3eaedfa76c67f6eddd7f9d2998dfb4fe4",
+    "/private/tmp/cc-work-release-20260928/0874/t030-natural-baseline.json": "155d90f406a7e9f226d3dca77ff909fbfb212dfa4aa7938e9cc9c672fc1f4d76",
+    "/tmp/cc-work-release-20260928/0874/t030-clock-final-readback.json": "2644f04290a7b05885e92003a0d299cb69ff77e436715ffa336c87f103f227aa",
+    "/tmp/cc-work-release-20260928/0874/t030-natural-snapshot-final-v2.json": "ea957d6ce9dee562bad101de1826c21af33e95065b661e5d68df2de5d38c66ce",
+    "/tmp/cc-work-release-20260928/0874/t030-natural-db-final.json": "928647c464e38f91891050e09755bbb34211602a87cd4fa4f299ffc799a9e6dd",
+    "/tmp/cc-work-release-20260928/0874/t030-clock-final-public-smoke.json": "709c86b76e7f398eb8719f523a3b82fe6cc90e8a6c71cf1bd3a88cb863ace81c",
+    "/tmp/cc-work-release-20260928/0874/t030-clock-final-check-runs.json": "ca7730f4940b774cd24ac4055b69df9a40518953fe4978038ba6373fe6722834",
+    "/tmp/cc-work-release-20260928/0874/t030-clock-final-tail.json": "4d4a319ce3778bead5dd5811b7796c464276646bf24fe9fe07d0ddcf5af06d81"
+  },
+  "fullBreadthProven": false,
+  "limitation": "Closes the exact canonical collision repair and its original blocked batch only. Full adaptive sweep and corpus coverage remain open."
+}

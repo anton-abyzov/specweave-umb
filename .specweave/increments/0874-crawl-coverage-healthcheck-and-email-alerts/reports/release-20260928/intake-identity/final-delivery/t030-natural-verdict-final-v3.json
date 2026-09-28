@@ -1,0 +1,97 @@
+{
+  "verified": true,
+  "checks": {
+    "baseline_is_exact_blocked_item": true,
+    "worker_latest_at_100_percent": true,
+    "snapshot_after_deployment": true,
+    "post_deployment_invocation_finished": true,
+    "same_containers_images_process_starts": true,
+    "same_existing_sweep_config": true,
+    "same_target_hash": true,
+    "historical_checkpoint_counters_retained": true,
+    "historical_lost_694_retained": true,
+    "historical_failure_counts_retained": true,
+    "distinct_lower_bound_not_reset": true,
+    "accepted_399_to_400_or_cursor_advanced": true,
+    "original_pending_batch_drained": true,
+    "target_no_longer_unresolved": true,
+    "final_version_post_deployment_bulk_http200_observed": true,
+    "runtime_scheduler_timestamp_semantics_verified": true
+  },
+  "progressMode": "cursor_advanced",
+  "targetIdentitySha256": "e3b3310ba35a22b2930f29b8482c17577a288bb7253c97ffd493c62a76dd4b50",
+  "sweepId": "026ba568-3ac5-4855-95fd-6c441c8007d2",
+  "before": {
+    "acceptedCurrentLeaf": 399,
+    "cursor": [
+      1,
+      4
+    ],
+    "pendingUnresolvedCount": 1,
+    "counters": {
+      "totalDiscovered": 1062,
+      "totalSubmitted": 1021,
+      "totalCreated": 198,
+      "totalSkipped": 463,
+      "totalKnownSkipped": 73,
+      "totalLost": 694,
+      "totalErrors": 152,
+      "totalRejected": 121,
+      "totalPrivateFiltered": 0,
+      "totalVisibilityUnknown": 0
+    }
+  },
+  "after": {
+    "acceptedCurrentLeaf": 478,
+    "cursor": [
+      1,
+      5
+    ],
+    "pendingUnresolvedCount": 22,
+    "counters": {
+      "totalDiscovered": 1162,
+      "totalSubmitted": 1124,
+      "totalCreated": 229,
+      "totalSkipped": 467,
+      "totalKnownSkipped": 73,
+      "totalLost": 694,
+      "totalErrors": 192,
+      "totalRejected": 137,
+      "totalPrivateFiltered": 0,
+      "totalVisibilityUnknown": 0
+    }
+  },
+  "limitation": "Only original blocked target/batch is closed. Last invocation failed with new unresolved work; HTTP200 is not per-item success or clean-continuation proof.",
+  "observedFinalVersionBulkHttp200Count": 3,
+  "latestSourceStatus": {
+    "status": "backoff",
+    "lastRunAt": "2026-09-28T23:17:58.057Z",
+    "lastProgressAt": "2026-09-28T20:26:05.220Z",
+    "runCount": 0,
+    "continuationCount": 1,
+    "errorCount": 48,
+    "consecutiveErrors": 48,
+    "lastResult": {
+      "completed": false,
+      "durationMs": 88301,
+      "totalDiscovered": 100,
+      "totalSubmitted": 101,
+      "totalCreated": 31,
+      "totalSkipped": 4,
+      "totalLost": 0,
+      "totalErrors": 38,
+      "errorEntryCount": 1,
+      "errorStringsExported": false
+    }
+  },
+  "latestRunClean": false,
+  "attribution": "Original target is accepted after reviewed repair deployment. Final-version HTTP200 intake and later invocation finish are separately observed; the exact Worker version that accepted the target is not claimed.",
+  "at": "2026-09-28T23:22:44.093680+00:00",
+  "workerVersion": "504442ec-e26e-4ee7-8872-bae010516a61",
+  "inputSha256": {
+    "/private/tmp/cc-work-release-20260928/0874/t030-natural-baseline.json": "155d90f406a7e9f226d3dca77ff909fbfb212dfa4aa7938e9cc9c672fc1f4d76",
+    "/tmp/cc-work-release-20260928/0874/t030-natural-snapshot-final-v2.json": "ea957d6ce9dee562bad101de1826c21af33e95065b661e5d68df2de5d38c66ce",
+    "/tmp/cc-work-release-20260928/0874/t030-clock-final-readback.json": "2644f04290a7b05885e92003a0d299cb69ff77e436715ffa336c87f103f227aa",
+    "/tmp/cc-work-release-20260928/0874/t030-clock-final-tail.json": "4d4a319ce3778bead5dd5811b7796c464276646bf24fe9fe07d0ddcf5af06d81"
+  }
+}

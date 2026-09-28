@@ -1,0 +1,85 @@
+{
+  "runtimeSchedulerSemantics": {
+    "sha256": "ea8f2b9ca9842454324915e9a33542080d104035eb6f2e2306521be21630cc38",
+    "successfulChunksAdvanceLastProgressAt": true,
+    "onlyCompleteSuccessAdvancesLastRunAt": true,
+    "failureAlsoAdvancesLastRunAt": true
+  },
+  "at": "2026-09-28T23:24:35.129944+00:00",
+  "containers": [
+    {
+      "id": "0c47dfee262668ab608c461e16896f76f2582aa12ce7df6a943f11d553f8db0a",
+      "image": "sha256:9fb777180cfcc41491781b9988338181523ba8e66f43e2322c20d5da018d51d3",
+      "running": true,
+      "paused": false,
+      "startedAt": "2026-09-28T18:39:17.400411394Z",
+      "restartCount": 0
+    },
+    {
+      "id": "2633c121f4f10ed37a6a23f0b7b762a228ab6bd3d12d2a149c30f2b79e8919ff",
+      "image": "sha256:f67269eb76d6ce8ba760c09593a93ea538d9b4849ba7563c28427d69c71776f5",
+      "running": true,
+      "paused": false,
+      "startedAt": "2026-05-14T20:25:24.116657813Z",
+      "restartCount": 0
+    }
+  ],
+  "checkpoint": {
+    "schemaVersion": 2,
+    "checkpointSha256": "4571a3bb2a12ed05a944fa375705404921fa8799b435d7874ecf59e1318f50b1",
+    "sweepId": "026ba568-3ac5-4855-95fd-6c441c8007d2",
+    "configSignature": "328df0860343a75d2ec32875ef3ffd78ac8d59ceddd7166a7d5bddb8d17c1dc7",
+    "startedAt": "2026-09-28T18:39:17.696Z",
+    "phase": "crawling",
+    "shardIndex": 1,
+    "page": 5,
+    "leafSha256": "da78fab869a6d9056bea0271dfba8b7b56c5d906c8479f90b6b134d3ebecd0c7",
+    "pendingPagePresent": true,
+    "pendingPageSha256": "ec37796184197c35fe07b2f5701eb81ffd605b3b7ef7bbc9a7d6f66a3705b3d3",
+    "pendingPageCount": 100,
+    "pendingUnresolvedCount": 22,
+    "targetIdentitySha256": "e3b3310ba35a22b2930f29b8482c17577a288bb7253c97ffd493c62a76dd4b50",
+    "targetPendingCount": 0,
+    "targetUnresolvedCount": 0,
+    "targetAccepted": true,
+    "acceptedCurrentLeaf": 478,
+    "discoveredCurrentLeaf": 500,
+    "distinctDiscoveredLowerBound": 1162,
+    "distinctCountExact": true,
+    "recoveredFailureCount": 49,
+    "counters": {
+      "totalDiscovered": 1162,
+      "totalSubmitted": 1146,
+      "totalCreated": 229,
+      "totalSkipped": 467,
+      "totalKnownSkipped": 73,
+      "totalLost": 694,
+      "totalErrors": 214,
+      "totalRejected": 137,
+      "totalPrivateFiltered": 0,
+      "totalVisibilityUnknown": 0
+    }
+  },
+  "sourceStatus": {
+    "status": "backoff",
+    "lastRunAt": "2026-09-28T23:23:21.874Z",
+    "lastProgressAt": "2026-09-28T20:26:05.220Z",
+    "runCount": 0,
+    "continuationCount": 1,
+    "errorCount": 49,
+    "consecutiveErrors": 49,
+    "lastResult": {
+      "completed": false,
+      "durationMs": 23810,
+      "totalDiscovered": 0,
+      "totalSubmitted": 22,
+      "totalCreated": 0,
+      "totalSkipped": 0,
+      "totalLost": 0,
+      "totalErrors": 22,
+      "errorEntryCount": 1,
+      "errorStringsExported": false
+    }
+  },
+  "source": "existing VM3 status GET + checkpoint read; no discovery/intake requests"
+}

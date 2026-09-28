@@ -1,0 +1,45 @@
+{
+  "at": "2026-09-28T23:18:26.307909+00:00",
+  "source": "Cloudflare live tail restricted to VM3 IP and deployed version; no requests submitted",
+  "workerVersion": "504442ec-e26e-4ee7-8872-bae010516a61",
+  "durationSeconds": 180.01,
+  "parsedEvents": 60,
+  "bulkEvents": [
+    {
+      "timestamp": 1790637389824,
+      "outcome": "ok",
+      "responseStatus": 200,
+      "exceptionNames": [],
+      "classifications": [],
+      "prismaCodes": [],
+      "logCount": 0,
+      "wallTimeMs": null,
+      "cpuTimeMs": null
+    },
+    {
+      "timestamp": 1790637394927,
+      "outcome": "ok",
+      "responseStatus": 200,
+      "exceptionNames": [],
+      "classifications": [],
+      "prismaCodes": [],
+      "logCount": 3,
+      "wallTimeMs": null,
+      "cpuTimeMs": null
+    },
+    {
+      "timestamp": 1790637429601,
+      "outcome": "ok",
+      "responseStatus": 200,
+      "exceptionNames": [],
+      "classifications": [],
+      "prismaCodes": [],
+      "logCount": 19,
+      "wallTimeMs": null,
+      "cpuTimeMs": null
+    }
+  ],
+  "tailExitCode": 0,
+  "rawOutputPersisted": false,
+  "tailErrorPresent": false
+}

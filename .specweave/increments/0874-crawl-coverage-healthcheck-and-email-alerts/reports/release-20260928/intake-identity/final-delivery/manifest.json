@@ -1,0 +1,66 @@
+[
+  {
+    "file": "t030-validate-delivery.py",
+    "sha256": "f495f1ad8b7bf6dfef80402e777da6b17fcc40ff4177dc4b1e7ac537d67e2e11"
+  },
+  {
+    "file": "t030-composed-delivery-verdict-final.json",
+    "sha256": "bdd59ed431c946a3d5282f30f50ee390307c6fef7c2b73a5f32a9383d6bc6932"
+  },
+  {
+    "file": "t030-verify-natural.py",
+    "sha256": "0e5babd1a1a2324b04147e118c4f3ef3eaedfa76c67f6eddd7f9d2998dfb4fe4"
+  },
+  {
+    "file": "t030-verifier-self-test-v4.json",
+    "sha256": "3d1342689c7c3c5fa7d44e24a9fadef0a5364ff8bcf6eb967a06c74d4d0ad3ba"
+  },
+  {
+    "file": "t030-natural-verdict-final-v3.json",
+    "sha256": "f7e7404e50069ddb6c0c5c9d968832b45bbec572843a79cb7ecf7ba04e556ea7"
+  },
+  {
+    "file": "t030-natural-snapshot-final-v2.json",
+    "sha256": "ea957d6ce9dee562bad101de1826c21af33e95065b661e5d68df2de5d38c66ce"
+  },
+  {
+    "file": "t030-natural-snapshot-final-v3.json",
+    "sha256": "aa4fecdab096e6b731ee3a5bb9eeab22ce1a55a25a9589dbf30efa0f0fc46314"
+  },
+  {
+    "file": "t030-natural-db-final.json",
+    "sha256": "928647c464e38f91891050e09755bbb34211602a87cd4fa4f299ffc799a9e6dd"
+  },
+  {
+    "file": "t030-clock-final-tail.json",
+    "sha256": "4d4a319ce3778bead5dd5811b7796c464276646bf24fe9fe07d0ddcf5af06d81"
+  },
+  {
+    "file": "t030-new-pending-diagnosis.md",
+    "sha256": "4889415eb73b31e38f6c0c209d2ec5c2653d39de4845bd54ae99422ffb9fd623"
+  },
+  {
+    "file": "t030-pending-scope-read.json",
+    "sha256": "1fa1645cadbbce35974cf04698364fe1fe6e5590b651298ad3b0de7b2b0be68e"
+  },
+  {
+    "file": "t030-pending-linked-consistency-read.json",
+    "sha256": "91a3bda1058249dcb03610872ac4d98157d804b8ab209b4a3394f2add3d52066"
+  },
+  {
+    "file": "t030-pending-publication-collision-read.json",
+    "sha256": "a57a885e8c3cc2f44dd55337e3de017ba16e482686aa53a5ea58c3a7a87c40e0"
+  },
+  {
+    "file": "t030-pending-next-tail.json",
+    "sha256": "d78af3359088e0970d6e06bc1e5d0a26dc8c251e551ff386e5840e86ce114e26"
+  },
+  {
+    "file": "t030-cli-closure.log",
+    "sha256": "027030caafb54934a7e1caf4f5b799476544474c5802ad95309f776f39a77933"
+  },
+  {
+    "file": "task-T-030.txt",
+    "sha256": "bbc90f8ba6ac058c4ff3144cd6a872451e883d0edd6202341951620776720a60"
+  }
+]
