@@ -1,0 +1,14 @@
+{
+  "head": "1687ce4837c5a430321e5e1c2fbafb4d860716de",
+  "passed": 7,
+  "results": [
+    "Actual auth and registered identity reject before writes",
+    "Concurrent same-source writes survive with server identity and safe metadata",
+    "Actual detector duplicate-source baseline and dedup remain independent",
+    "Scoped write failure and subsequent heartbeat failure cannot return false success",
+    "Compatibility failure preserves canonical source and explicitly reports partial success",
+    "Actual TTL expiry exposes absent VMs without refreshed synthetic observations",
+    "Malformed scoped record never promotes healthy compatibility aggregate"
+  ],
+  "scope": "Actual source modules; synthetic in-memory Cloudflare bindings and clock; no network or repository writes"
+}

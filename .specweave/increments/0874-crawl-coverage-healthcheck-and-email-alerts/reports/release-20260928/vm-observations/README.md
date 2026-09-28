@@ -1,6 +1,6 @@
 # T029 per-VM source observations
 
-Candidate `1687ce4837c5a430321e5e1c2fbafb4d860716de` from merged `789f423b102d728cac91e808b8369d40e27d9e53`, clean isolated worktree `0874-vm-observations`, branch `codex/0874-vm-observations`. Ten source/test files are bound by the manifest. Root independently ran 141 focused tests and matched all ten hashes; the additional EasyChamp reviewer is completing a separate review. Draft PR creation is authorized; merge/deploy remain gated on final review and required CI.
+Candidate `1687ce4837c5a430321e5e1c2fbafb4d860716de` from merged `789f423b102d728cac91e808b8369d40e27d9e53`, clean isolated worktree `0874-vm-observations`, branch `codex/0874-vm-observations`. Ten source/test files are bound by the manifest. Root independently ran 141 focused tests and matched all ten hashes; the additional EasyChamp reviewer independently passed 141 focused cases and seven standalone actual-module probes with no actionable finding. Draft PR78 is open and attached; merge/deploy remain gated on required CI and root guards.
 
 Installed and registry SpecWeave are both 3.0.3. Authenticated shared context `0a7b2a80291892de697cad4d85b4ed9218b99929` (19:47:41Z) was read; later root merge/runtime receipts supersede its pending status. No overlapping changed task files were found in existing worktrees; original owners and checkouts remain preserved. T029 was claimed through the CLI in the existing0874 ledger.
 

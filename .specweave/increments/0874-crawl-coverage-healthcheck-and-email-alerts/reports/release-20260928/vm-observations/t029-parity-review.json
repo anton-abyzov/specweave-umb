@@ -1,0 +1,72 @@
+{
+  "at": "2026-09-28T22:42:41.095632+00:00",
+  "reviewer": "independent parity lane",
+  "head": "1687ce4837c5a430321e5e1c2fbafb4d860716de",
+  "tree": "d5b923c6a8c545ab508847115d18cf398c0a810e",
+  "base": "789f423b102d728cac91e808b8369d40e27d9e53",
+  "files": {
+    "src/app/api/v1/admin/queue-health/__tests__/route.test.ts": "b5044e6840f51ae77d8db5ac7328af8919474432e5eba2b0e38427926943d4cd",
+    "src/app/api/v1/admin/queue-health/route.ts": "c50e48412a61b8a6c8b740b240d1e4a0655c9542bc8ac6ead9d5708d4ebfc9bf",
+    "src/app/api/v1/internal/alerts-evaluator/__tests__/route.test.ts": "bbd40d0daf2b14f6ca7717280a39ae16c8a39d87fbe014080aa8ad479a03e2f5",
+    "src/app/api/v1/internal/alerts-evaluator/route.ts": "cd589b3a415c986611101ff7534ef6b429179421f95e0d3db50a4583650fa043",
+    "src/app/api/v1/internal/vm-heartbeat/__tests__/route.test.ts": "52c997ffcaa8d8cd2feb4f92029f6be0722591851df3ade4e299724829044896",
+    "src/app/api/v1/internal/vm-heartbeat/route.ts": "e1f21b44448daa6efc4a70f9ec81f01b618128bbd6519c97ecac154824597689",
+    "src/lib/alerts/__tests__/detectors.test.ts": "c6239fbd63df116f9ccd2b6d00c61e11e7da4e4e23fea73ffbba31680bd5b4ba",
+    "src/lib/alerts/__tests__/source-observations.test.ts": "28834efefcfe7045342622e51d8f8eb080da3fde944eb3d15e888a69cdec868b",
+    "src/lib/alerts/detectors.ts": "7cd01c7a4fa0c793cca17789d8e3bafc982c2f4bf5cb8838189127469d7eb0d5",
+    "src/lib/alerts/source-observations.ts": "58045719db4c250fb5447daa9bae271ad49fb81568ccb1473b36fa03948eb7ac"
+  },
+  "findings": [],
+  "verdict": "No blocking finding in the bounded ten-file T029 change",
+  "independentTests": {
+    "passed": 141,
+    "files": 5,
+    "exitCode": 0,
+    "log": "/tmp/cc-work-release-20260928/0874/t029-independent-parity-tests.log"
+  },
+  "independentActualModuleProbes": {
+    "head": "1687ce4837c5a430321e5e1c2fbafb4d860716de",
+    "passed": 7,
+    "results": [
+      "Actual auth and registered identity reject before writes",
+      "Concurrent same-source writes survive with server identity and safe metadata",
+      "Actual detector duplicate-source baseline and dedup remain independent",
+      "Scoped write failure and subsequent heartbeat failure cannot return false success",
+      "Compatibility failure preserves canonical source and explicitly reports partial success",
+      "Actual TTL expiry exposes absent VMs without refreshed synthetic observations",
+      "Malformed scoped record never promotes healthy compatibility aggregate"
+    ],
+    "scope": "Actual source modules; synthetic in-memory Cloudflare bindings and clock; no network or repository writes"
+  },
+  "authorEvidence": {
+    "fullPlatformPassed": 5986,
+    "existingSkipped": 14,
+    "Node22WorkerBuild": "passed per retained log",
+    "typecheck": {
+      "base": "789f423b102d728cac91e808b8369d40e27d9e53",
+      "head": "1687ce4837c5a430321e5e1c2fbafb4d860716de",
+      "baseErrors": 314,
+      "headErrors": 314,
+      "newErrors": [],
+      "removedErrors": [],
+      "normalization": "Source line/column and the two exact checkout prefixes replaced; diagnostic relative path/code/message retained"
+    }
+  },
+  "boundaries": [
+    "Shared fleet-key authentication preserves registered identity; no per-VM origin attestation is claimed.",
+    "Legacy aggregate write is intentionally retained; canonical per-VM records redact free-form errors.",
+    "No production requests, source edits, deployment, scanner restart, synthetic heartbeat or scheduling change by reviewer.",
+    "Hosted exact-head CI and natural production scheduled-heartbeat readback remain release evidence gates."
+  ],
+  "sharedContext": {
+    "repo": "anton-abyzov/easychamp-umb",
+    "ref": "7260dc65e4bfc8735dbddc689886b9556a74b89e",
+    "sha256": {
+      "memory/MEMORY.md": "71f02e5f441167c4623807e8a84288cb9beaea8bb71e1c28e3ef5be008bf2615",
+      "memory/antonoly-max-index.md": "1eca1a8f51137a27b595cc2c16702e4f522d2208ce95bd2060a95be663913a0b",
+      "SYNC-LOG.md": "d873a62c64e193871cc8a71e03af3d6835717e94415cab57e78f0607846bf613"
+    }
+  },
+  "specweaveInstalled": "3.0.3",
+  "specweaveNpmLatest": "3.0.3"
+}
