@@ -1,0 +1,27 @@
+{
+  "base": "e3718ee6ea7dbac3b25a4d2a9a098e3c33d40857",
+  "baseRun": "https://github.com/anton-abyzov/vskill-platform/actions/runs/36336260934",
+  "head": "9792c5236e02b92bcce6a732bee1f1570696c311",
+  "headRun": "https://github.com/anton-abyzov/vskill-platform/actions/runs/36390637429",
+  "sameFailedTests": true,
+  "baselineFailures": [
+    "[chromium] \u203a tests/e2e/0826/anti-mistake-publish.spec.ts:112:7 \u203a 0826 / anti-mistake publish \u203a PRIVATE submission yields an in-page success status",
+    "[chromium] \u203a tests/e2e/0826/public-private-isolation.spec.ts:60:7 \u203a 0826 / public-private isolation \u203a public catalog shows public skill but NOT private skill",
+    "[chromium] \u203a tests/e2e/0826/public-private-isolation.spec.ts:85:7 \u203a 0826 / public-private isolation \u203a anonymous direct URL to a private skill returns 404 (no 401 oracle)",
+    "[chromium] \u203a tests/e2e/0826/public-private-isolation.spec.ts:94:7 \u203a 0826 / public-private isolation \u203a anonymous canonical URL pattern also 404s",
+    "[chromium] \u203a tests/e2e/0826/public-private-isolation.spec.ts:109:7 \u203a 0826 / public-private isolation \u203a non-member of T2 hitting T2's private skill gets 404"
+  ],
+  "headFailures": [
+    "[chromium] \u203a tests/e2e/0826/anti-mistake-publish.spec.ts:112:7 \u203a 0826 / anti-mistake publish \u203a PRIVATE submission yields an in-page success status",
+    "[chromium] \u203a tests/e2e/0826/public-private-isolation.spec.ts:60:7 \u203a 0826 / public-private isolation \u203a public catalog shows public skill but NOT private skill",
+    "[chromium] \u203a tests/e2e/0826/public-private-isolation.spec.ts:85:7 \u203a 0826 / public-private isolation \u203a anonymous direct URL to a private skill returns 404 (no 401 oracle)",
+    "[chromium] \u203a tests/e2e/0826/public-private-isolation.spec.ts:94:7 \u203a 0826 / public-private isolation \u203a anonymous canonical URL pattern also 404s",
+    "[chromium] \u203a tests/e2e/0826/public-private-isolation.spec.ts:109:7 \u203a 0826 / public-private isolation \u203a non-member of T2 hitting T2's private skill gets 404"
+  ],
+  "bothSummary": {
+    "passed": 35,
+    "failed": 5,
+    "flaky": 3,
+    "skipped": 3
+  }
+}

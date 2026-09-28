@@ -11,3 +11,5 @@ Node 22 affected platform suite: 244 passed / 29 files. Complete crawler: 208 pa
 Independent lead review resolved two findings: identity deferral now preserves full intake provenance and the existing retry budget; failed-shard checkpoints now replay unaccepted discoveries after exhausted bulk retries. Review approved exact head with no critical/high findings. CI and lead merge decision remain separate. Deploy intake producer and queue consumer together after approval; this packet performs no merge/deploy.
 
 See manifest.json for task mapping and SHA-256 receipts. Source-failure red/green evidence retains the earlier six-test subset; the full crawler receipt includes the final seventh regression.
+
+Final CI at head 9792c523: root Vitest passed 5,889 tests (14 skipped), 632 files (4 skipped); crawler Node 20/22 and payload/signature scans passed. Required 0826 E2E failed: 35 passed, 5 failed, 3 flaky, 3 skipped. The exact same five failures occur on base e3718ee6, run 36336260934, and branch run 36390637429. See ci-e2e-comparison.json. No test was weakened. The draft remains behind the required E2E merge gate; the lead owns any further decision.

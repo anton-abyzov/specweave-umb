@@ -59,6 +59,29 @@
     "source-loss-red.txt": "21aff98fe3e84e5449ded7fa37cbad2796a776a2010445dd14de6659b4aaa23b",
     "source-failure-final.txt": "82554d34950c78e6a9b8a1c5dab979fa59c699ca0bae363ca699dc0f416cbd37",
     "typecheck.txt": "4715beeeb45da992ac7f7c5b19c749208d38f2d6b996521aad074bd8cf2307fb",
-    "typecheck-baseline.txt": "393b434b218595572833fa11d04bb77a8f8683378a8ac65547b6c12cc87a9f91"
+    "typecheck-baseline.txt": "393b434b218595572833fa11d04bb77a8f8683378a8ac65547b6c12cc87a9f91",
+    "ci-checks.json": "44de5bb810eb5360facf6607c5574c01461224a6a1e1889ba7a882b0ee1f96ce",
+    "ci-e2e-comparison.json": "7b5150dd8c911e75bdf97d454ebc2e57a1382310b2a292db352ce0a5af3b41df"
+  },
+  "ci": {
+    "vitest": {
+      "passed": 5889,
+      "skipped": 14,
+      "filesPassed": 632,
+      "filesSkipped": 4
+    },
+    "crawlerNode20": "pass",
+    "crawlerNode22": "pass",
+    "payloadScan": "pass",
+    "signatureScan": "pass",
+    "e2e": {
+      "state": "failed",
+      "passed": 35,
+      "failed": 5,
+      "flaky": 3,
+      "skipped": 3,
+      "sameFiveFailuresOnExactBase": true
+    },
+    "mergeGate": "required E2E red; root owns merge decision; draft remains"
   }
 }
