@@ -1,0 +1,13 @@
+✔ real GitHub code search retains the size dimension and rejects date sharding (3080.403375ms)
+ℹ {"query":"filename:SKILL.md","status":200,"total_count":6553600,"incomplete_results":false}
+ℹ {"query":"filename:SKILL.md created:2020-01-01..2026-01-01","status":200,"total_count":0,"incomplete_results":false}
+ℹ {"query":"filename:SKILL.md size:0..200","status":200,"total_count":44864,"incomplete_results":false}
+ℹ {"query":"filename:SKILL.md size:180","status":422}
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3247.342125

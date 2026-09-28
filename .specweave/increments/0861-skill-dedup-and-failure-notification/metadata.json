@@ -4,7 +4,7 @@
   "status": "active",
   "type": "feature",
   "created": "2026-05-31",
-  "updated": "2026-05-31",
+  "updated": "2026-09-28T07:16:56.762Z",
   "branch": "main",
   "owner": "anton",
   "repo": "vskill-platform",
@@ -35,7 +35,7 @@
   },
   "externalLinks": {},
   "priority": "medium",
-  "lastActivity": "2026-05-31",
+  "lastActivity": "2026-09-28T07:16:56.762Z",
   "testMode": "test-after",
   "coverageTarget": 80
 }

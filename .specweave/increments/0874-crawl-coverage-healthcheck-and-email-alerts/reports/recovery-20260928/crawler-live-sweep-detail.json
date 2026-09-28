@@ -1,0 +1,74 @@
+{
+  "at": "2026-09-28T07:06:26.490617+00:00",
+  "method": "GET /metrics and /status; no crawl triggered",
+  "vm3": {
+    "metrics": {
+      "githubSharded": {
+        "status": "cooldown",
+        "lastRunAt": "2026-09-28T06:54:08.797Z",
+        "lastResult": {
+          "totalDiscovered": 600,
+          "totalSubmitted": 32,
+          "totalCreated": 0,
+          "totalSkipped": 0,
+          "totalLost": 0,
+          "shardsTotal": 7,
+          "shardsCompleted": 7,
+          "shardsSkipped": 0,
+          "shardsZeroResultCount": 0,
+          "startedFromShard": 0,
+          "shardMode": "size-bisect",
+          "errors": [
+            "Error searching \"filename:SKILL.md size:0..200\": GitHub Code Search failed: 401 Unauthorized",
+            "Error searching \"filename:SKILL.md size:201..500\": GitHub Code Search failed: 401 Unauthorized",
+            "Error searching \"filename:SKILL.md size:501..1000\": GitHub Code Search failed: 401 Unauthorized",
+            "Error searching \"filename:SKILL.md size:1001..2000\": GitHub Code Search failed: 401 Unauthorized",
+            "Error searching \"filename:SKILL.md size:2001..5000\": GitHub Code Search failed: 401 Unauthorized",
+            "Error searching \"filename:SKILL.md size:5001..10000\": GitHub Code Search failed: 401 Unauthorized",
+            "Error searching \"filename:SKILL.md size:>=10001\": GitHub Code Search failed: 401 Unauthorized"
+          ],
+          "durationMs": 65860
+        },
+        "lastError": null,
+        "runCount": 150,
+        "errorCount": 0,
+        "consecutiveErrors": 0
+      },
+      "manualGithubSharded": null
+    },
+    "status": {
+      "githubSharded": {
+        "status": "cooldown",
+        "lastRunAt": "2026-09-28T06:54:08.797Z",
+        "lastResult": {
+          "totalDiscovered": 600,
+          "totalSubmitted": 32,
+          "totalCreated": 0,
+          "totalSkipped": 0,
+          "totalLost": 0,
+          "shardsTotal": 7,
+          "shardsCompleted": 7,
+          "shardsSkipped": 0,
+          "shardsZeroResultCount": 0,
+          "startedFromShard": 0,
+          "shardMode": "size-bisect",
+          "errors": [
+            "Error searching \"filename:SKILL.md size:0..200\": GitHub Code Search failed: 401 Unauthorized",
+            "Error searching \"filename:SKILL.md size:201..500\": GitHub Code Search failed: 401 Unauthorized",
+            "Error searching \"filename:SKILL.md size:501..1000\": GitHub Code Search failed: 401 Unauthorized",
+            "Error searching \"filename:SKILL.md size:1001..2000\": GitHub Code Search failed: 401 Unauthorized",
+            "Error searching \"filename:SKILL.md size:2001..5000\": GitHub Code Search failed: 401 Unauthorized",
+            "Error searching \"filename:SKILL.md size:5001..10000\": GitHub Code Search failed: 401 Unauthorized",
+            "Error searching \"filename:SKILL.md size:>=10001\": GitHub Code Search failed: 401 Unauthorized"
+          ],
+          "durationMs": 65860
+        },
+        "lastError": null,
+        "runCount": 150,
+        "errorCount": 0,
+        "consecutiveErrors": 0
+      },
+      "manualGithubSharded": null
+    }
+  }
+}

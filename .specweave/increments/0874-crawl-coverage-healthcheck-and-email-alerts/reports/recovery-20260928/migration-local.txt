@@ -1,0 +1,551 @@
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery
+
+ ✓ src/lib/queue/__tests__/cron-event-log.test.ts (7 tests) 26ms
+ ✓ src/db/dedup/resolve.test.ts (15 tests) 6ms
+ ✓ src/lib/queue/__tests__/metrics-store.test.ts (10 tests) 12ms
+ ✓ src/lib/queue/__tests__/bulk-intake-retry.test.ts (9 tests) 45ms
+stderr | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > REVERIFY trigger handling > should process REVERIFY trigger without throwing
+[eval-consumer] Could not fetch SKILL.md for test-skill, using description (27 chars)
+
+stdout | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > REVERIFY trigger handling > should process REVERIFY trigger without throwing
+[eval-consumer] Eval complete for test-skill: verdict=EFFECTIVE quality=80 delta=20 cases=5 pass=4 fail=1
+
+stderr | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > REVERIFY trigger handling > should use 5 test prompts for REVERIFY trigger (V1 path)
+[eval-consumer] Could not fetch SKILL.md for test-skill, using description (27 chars)
+
+stdout | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > REVERIFY trigger handling > should use 5 test prompts for REVERIFY trigger (V1 path)
+[eval-consumer] Eval complete for test-skill: verdict=EFFECTIVE quality=80 delta=20 cases=5 pass=4 fail=1
+
+stderr | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > V2 engine routing > should route to V2 engine when methodologyVersion is 2
+[eval-consumer] Could not fetch SKILL.md for test-skill, using description (27 chars)
+
+stdout | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > V2 engine routing > should route to V2 engine when methodologyVersion is 2
+[eval-consumer] Eval complete for test-skill: verdict=EFFECTIVE quality=80 delta=20 cases=5 pass=4 fail=1
+
+stderr | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > V2 engine routing > should pass runsPerCase to V2 engine options when provided
+[eval-consumer] Could not fetch SKILL.md for test-skill, using description (27 chars)
+
+stdout | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > V2 engine routing > should pass runsPerCase to V2 engine options when provided
+[eval-consumer] Eval complete for test-skill: verdict=EFFECTIVE quality=80 delta=20 cases=5 pass=4 fail=1
+
+stderr | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > V2 engine routing > should use V1 engine when methodologyVersion is not set
+[eval-consumer] Could not fetch SKILL.md for test-skill, using description (27 chars)
+
+stdout | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > V2 engine routing > should use V1 engine when methodologyVersion is not set
+[eval-consumer] Eval complete for test-skill: verdict=EFFECTIVE quality=80 delta=20 cases=5 pass=4 fail=1
+
+stderr | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > V2 engine routing > should use V1 engine when methodologyVersion is 1
+[eval-consumer] Could not fetch SKILL.md for test-skill, using description (27 chars)
+
+stdout | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > V2 engine routing > should use V1 engine when methodologyVersion is 1
+[eval-consumer] Eval complete for test-skill: verdict=EFFECTIVE quality=80 delta=20 cases=5 pass=4 fail=1
+
+stderr | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > V2 REVERIFY — no auto-deprecation > should store V2 REVERIFY results without deprecating the skill
+[eval-consumer] Could not fetch SKILL.md for test-skill, using description (27 chars)
+
+stdout | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > V2 REVERIFY — no auto-deprecation > should store V2 REVERIFY results without deprecating the skill
+[eval-consumer] Eval complete for test-skill: verdict=DEGRADING quality=20 delta=20 cases=5 pass=4 fail=1
+
+stderr | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > test prompt count by trigger > should use 10 test prompts for REGRESSION trigger
+[eval-consumer] Could not fetch SKILL.md for test-skill, using description (27 chars)
+
+stdout | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > test prompt count by trigger > should use 10 test prompts for REGRESSION trigger
+[eval-consumer] Eval complete for test-skill: verdict=EFFECTIVE quality=80 delta=20 cases=5 pass=4 fail=1
+
+stderr | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > test prompt count by trigger > should use 5 test prompts for SUBMISSION trigger
+[eval-consumer] Could not fetch SKILL.md for test-skill, using description (27 chars)
+
+stdout | src/lib/queue/__tests__/eval-consumer.test.ts > eval-consumer > test prompt count by trigger > should use 5 test prompts for SUBMISSION trigger
+[eval-consumer] Eval complete for test-skill: verdict=EFFECTIVE quality=80 delta=20 cases=5 pass=4 fail=1
+
+ ✓ src/lib/queue/__tests__/skillmd-kv-store.test.ts (2 tests) 58ms
+ ✓ src/lib/queue/__tests__/eval-consumer.test.ts (9 tests) 12ms
+stderr | src/lib/queue/__tests__/process-submission.test.ts > processSubmission > tier 2 fallback > falls back to tier 1 scoring when tier 2 fails (code skill)
+Tier 2 scan failed, falling back to Tier 1: Error: AI unavailable
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/process-submission.test.ts:381:42
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+stdout | src/lib/queue/__tests__/process-submission.test.ts > processSubmission > multi-skill expansion > forceRescan does NOT reset a BLOCKED submission (admin-authoritative)
+[processSubmission] skipping sub-test-1: blocked by admin/blocklist
+
+stdout | src/lib/queue/__tests__/process-submission.test.ts > processSubmission > multi-skill expansion > skips processing when submission is already EXPANDED
+[processSubmission] skipping sub-test-1: already EXPANDED
+
+ ✓ src/lib/queue/__tests__/queue-stats-cache.backfill.test.ts (2 tests) 300ms
+ ✓ src/lib/queue/__tests__/fetch-submission-list.test.ts (10 tests) 8ms
+stderr | src/lib/queue/__tests__/process-submission.test.ts > processSubmission > Socket.dev supply chain integration > gracefully degrades when Socket enrichment throws
+Socket enrichment failed, using local-only analysis: Error: Socket API timeout
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/process-submission.test.ts:1226:52
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+ ✓ src/lib/queue/__tests__/process-submission.test.ts (38 tests) 200ms
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > returns zeroes when no stuck submissions
+[recovery] found 0 stuck submissions to process
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > returns zeroes when no stuck submissions
+[recovery] found=0 requeued=0 reconciled=0 failed=0
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > re-enqueues a first-time stuck submission
+[recovery] found 1 stuck submissions to process
+
+stdout | src/lib/queue/__tests__/stale-received-recovery.test.ts > recoverStaleReceived > auto-rejects RECEIVED submission older than 24h
+[recovery] found 1 stale RECEIVED submissions
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > re-enqueues a first-time stuck submission
+[recovery] found=1 requeued=1 reconciled=0 failed=0
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > marks as REJECTED when already retried
+[recovery] found 1 stuck submissions to process
+
+stdout | src/lib/queue/__tests__/consumer.resolve-identity-retry.test.ts > handleSubmissionQueue — resolve_identity_retry (0861 T-002) > success: resolves identity, upserts with the natural key, enqueues a scan, acks
+[consumer] resolve_identity_retry resolved https://github.com/acme/skills → github:12345, created sub_new
+
+stdout | src/lib/queue/__tests__/consumer.resolve-identity-retry.test.ts > handleSubmissionQueue — resolve_identity_retry (0861 T-002) > success but SKIP_QUEUE_ENQUEUE=true: upserts, does NOT enqueue a scan, acks
+[consumer] resolve_identity_retry resolved https://github.com/acme/skills → github:12345, created sub_new
+
+stdout | src/lib/queue/__tests__/consumer.resolve-identity-retry.test.ts > handleSubmissionQueue — resolve_identity_retry (0861 T-002) > re-defer: re-enqueues with attempt+1 and acks (no submission created)
+[consumer] resolve_identity_retry re-deferred for https://github.com/acme/skills (attempt 2/5)
+
+stdout | src/lib/queue/__tests__/consumer.resolve-identity-retry.test.ts > handleSubmissionQueue — resolve_identity_retry (0861 T-002) > first defer (no attempt field) re-enqueues with attempt=1
+[consumer] resolve_identity_retry re-deferred for https://github.com/acme/skills (attempt 1/5)
+
+stderr | src/lib/queue/__tests__/consumer.resolve-identity-retry.test.ts > handleSubmissionQueue — resolve_identity_retry (0861 T-002) > max-retries: at the cap, stops re-enqueuing and drops (acks, no re-send)
+[consumer] resolve_identity_retry exhausted for https://github.com/acme/skills (acme/skills) after 5 attempt(s) — dropping (dead-letter)
+
+stderr | src/lib/queue/__tests__/consumer.resolve-identity-retry.test.ts > handleSubmissionQueue — resolve_identity_retry (0861 T-002) > re-defer with no queue binding drops rather than looping
+[consumer] resolve_identity_retry exhausted for https://github.com/acme/skills (acme/skills) after 2 attempt(s) — dropping (dead-letter)
+
+stderr | src/lib/queue/__tests__/consumer.resolve-identity-retry.test.ts > handleSubmissionQueue — resolve_identity_retry (0861 T-002) > re-enqueue send failure retries the in-flight message (item not lost)
+[consumer] resolve_identity_retry re-enqueue failed for https://github.com/acme/skills: queue unavailable
+
+stderr | src/lib/queue/__tests__/consumer.resolve-identity-retry.test.ts > handleSubmissionQueue — resolve_identity_retry (0861 T-002) > unexpected upsert error retries the in-flight message
+[consumer] resolve_identity_retry failed for https://github.com/acme/skills: Error: db down
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/consumer.resolve-identity-retry.test.ts:255:44
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+stdout | src/lib/queue/__tests__/consumer.resolve-identity-retry.test.ts > handleSubmissionQueue — resolve_identity_retry (0861 T-002) > does NOT route resolve_identity_retry into processSubmission
+[consumer] resolve_identity_retry resolved https://github.com/acme/skills → github:12345, created sub_new
+
+stderr | src/lib/queue/__tests__/consumer.resolve-identity-retry.test.ts > handleSubmissionQueue — resolve_identity_retry (0861 T-002) > unknown message type is acked as a no-op (never reaches processSubmission)
+[consumer] dropping unknown queue message type: "totally_unknown_type"
+
+ ✓ src/lib/queue/__tests__/consumer.resolve-identity-retry.test.ts (10 tests) 16ms
+stderr | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > marks as REJECTED when already retried
+[synthetic-scan-result] write failed for sub_abc: Error: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+    at getKV (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/kv-store.ts:42:11)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at storeScanResult (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/kv-store.ts:286:14)
+    at writeSyntheticScanResult (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/synthetic-scan-result.ts:130:5)
+    at resolveStuckTargetState (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/recovery.ts:108:5)
+    at Module.recoverStuckSubmissions (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/recovery.ts:391:55)
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/recovery.test.ts:120:20
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > marks as REJECTED when already retried
+[recovery] found=1 requeued=0 reconciled=0 failed=1
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > marks as REJECTED when re-enqueue fails
+[recovery] found 1 stuck submissions to process
+
+stderr | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > marks as REJECTED when re-enqueue fails
+[recovery] error processing sub_abc: Error: Queue unavailable
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/recovery.test.ts:136:49
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+stderr | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > marks as REJECTED when re-enqueue fails
+[synthetic-scan-result] write failed for sub_abc: Error: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+    at getKV (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/kv-store.ts:42:11)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at storeScanResult (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/kv-store.ts:286:14)
+    at writeSyntheticScanResult (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/synthetic-scan-result.ts:130:5)
+    at resolveStuckTargetState (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/recovery.ts:108:5)
+    at Module.recoverStuckSubmissions (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/recovery.ts:417:53)
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/recovery.test.ts:138:20
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > marks as REJECTED when re-enqueue fails
+[recovery] found=1 requeued=0 reconciled=0 failed=1
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > skips submission that moved to terminal state since detection
+[recovery] found 1 stuck submissions to process
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > skips submission that moved to terminal state since detection
+[recovery] found=1 requeued=0 reconciled=0 failed=0
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > skips submission that was deleted
+[recovery] found 1 stuck submissions to process
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > skips submission that was deleted
+[recovery] found=1 requeued=0 reconciled=0 failed=0
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > reconciles DB when KV shows terminal state but DB shows active
+[recovery] found 1 stuck submissions to process
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > recoverStuckSubmissions > reconciles DB when KV shows terminal state but DB shows active
+[recovery] reconciled sub_abc: DB TIER1_SCANNING → PUBLISHED
+[recovery] found=1 requeued=0 reconciled=1 failed=0
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > reconcileActiveFromKv > reconciles item when KV shows terminal state but DB shows RECEIVED
+[reconcile-active] checking 1 active items against KV
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > reconcileActiveFromKv > reconciles item when KV shows terminal state but DB shows RECEIVED
+[reconcile-active] checked=1 reconciled=1 missing=0
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > reconcileActiveFromKv > reconciles item when KV shows terminal state but DB shows TIER1_SCANNING
+[reconcile-active] checking 1 active items against KV
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > reconcileActiveFromKv > reconciles item when KV shows terminal state but DB shows TIER1_SCANNING
+[reconcile-active] checked=1 reconciled=1 missing=0
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > reconcileActiveFromKv > resets to RECEIVED when KV entry is missing and no scan results
+[reconcile-active] checking 1 active items against KV
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > reconcileActiveFromKv > resets to RECEIVED when KV entry is missing and no scan results
+[reconcile-active] reset sub_3 to RECEIVED (no KV, no scan results)
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > reconcileActiveFromKv > resets to RECEIVED when KV entry is missing and no scan results
+[reconcile-active] checked=1 reconciled=0 missing=1
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > reconcileActiveFromKv > handles mixed states in same batch
+[reconcile-active] checking 3 active items against KV
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > reconcileActiveFromKv > handles mixed states in same batch
+[reconcile-active] checked=3 reconciled=2 missing=0
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > reconcileActiveFromKv > invalidates stats cache when reconciliations happen
+[reconcile-active] checking 1 active items against KV
+
+stdout | src/lib/queue/__tests__/recovery.test.ts > reconcileActiveFromKv > invalidates stats cache when reconciliations happen
+[reconcile-active] checked=1 reconciled=1 missing=0
+
+stderr | src/lib/queue/__tests__/stale-received-recovery.test.ts > recoverStaleReceived > auto-rejects RECEIVED submission older than 24h
+[synthetic-scan-result] write failed for sub_old: Error: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+    at getKV (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/kv-store.ts:42:11)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at storeScanResult (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/kv-store.ts:286:14)
+    at writeSyntheticScanResult (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/synthetic-scan-result.ts:130:5)
+    at resolveStuckTargetState (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/recovery.ts:108:5)
+    at Module.recoverStaleReceived (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/recovery.ts:582:53)
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/stale-received-recovery.test.ts:86:20
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20
+
+stdout | src/lib/queue/__tests__/stale-received-recovery.test.ts > recoverStaleReceived > auto-rejects RECEIVED submission older than 24h
+[recovery] stale-received: found=1 requeued=0 rejected=1
+
+stdout | src/lib/queue/__tests__/stale-received-recovery.test.ts > recoverStaleReceived > auto-rejects when retry budget (3) is exhausted
+[recovery] found 1 stale RECEIVED submissions
+
+stderr | src/lib/queue/__tests__/stale-received-recovery.test.ts > recoverStaleReceived > auto-rejects when retry budget (3) is exhausted
+[synthetic-scan-result] write failed for sub_stale: Error: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+    at getKV (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/kv-store.ts:42:11)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at storeScanResult (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/kv-store.ts:286:14)
+    at writeSyntheticScanResult (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/synthetic-scan-result.ts:130:5)
+    at resolveStuckTargetState (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/recovery.ts:108:5)
+    at Module.recoverStaleReceived (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/recovery.ts:582:53)
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/stale-received-recovery.test.ts:105:20
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20
+
+stdout | src/lib/queue/__tests__/stale-received-recovery.test.ts > recoverStaleReceived > auto-rejects when retry budget (3) is exhausted
+[recovery] stale-received: found=1 requeued=0 rejected=1
+
+stdout | src/lib/queue/__tests__/stale-received-recovery.test.ts > recoverStaleReceived > touches updatedAt after re-enqueue so next cron at <15min does NOT re-enqueue
+[recovery] found 1 stale RECEIVED submissions
+
+stdout | src/lib/queue/__tests__/stale-received-recovery.test.ts > recoverStaleReceived > touches updatedAt after re-enqueue so next cron at <15min does NOT re-enqueue
+[recovery] stale-received: found=1 requeued=1 rejected=0
+
+ ✓ src/lib/queue/__tests__/recovery.test.ts (13 tests) 92ms
+ ✓ src/lib/queue/__tests__/stale-received-recovery.test.ts (3 tests) 96ms
+stdout | src/db/dedup/claim-natural-key-concurrency.test.ts > T-010 regression: recoverStaleReceived terminal escalation is intact > escalates a >24h RECEIVED submission to a TERMINAL state (auto-reject)
+[recovery] found 1 stale RECEIVED submissions
+
+stderr | src/lib/queue/__tests__/consumer.test.ts > handleSubmissionQueue > calls retry() on processing failure
+Queue processing failed for sub-1: Error: Processing failed
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/consumer.test.ts:147:45
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+stderr | src/lib/queue/__tests__/consumer.test.ts > handleSubmissionQueue > calls retry() on processing failure
+[consumer] tryFinalizeFromScanResults failed for sub-1: Error: [vitest] No "getWorkerEnv" export is defined on the "../../worker-context" mock. Did you forget to return it from "vi.mock"?
+If you need to partially mock a module, you can use "importOriginal" helper inside:
+
+    at VitestMocker.createError (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/vitest/dist/chunks/execute.B7h3T_Hc.js:284:17)
+    at Object.get (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/vitest/dist/chunks/execute.B7h3T_Hc.js:330:16)
+    at resolveDatabaseConnection (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/db.ts:152:21)
+    at getDb (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/db.ts:189:28)
+    at tryFinalizeFromScanResults (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/consumer.ts:49:22)
+    at processOne (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/consumer.ts:415:33)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/consumer.ts:441:9
+    at async Promise.all (index 0)
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/consumer.ts:444:5 {
+  codeFrame: 'vi.mock(import("../../worker-context"), async (importOriginal) => {\n' +
+    '  const actual = await importOriginal()\n' +
+    '  return {\n' +
+    '    ...actual,\n' +
+    '    // your mocked methods\n' +
+    '  }\n' +
+    '})'
+}
+
+stderr | src/lib/queue/__tests__/consumer.test.ts > handleSubmissionQueue > TC-054: runWithWorkerEnv is called once and wraps all message processing including failures
+Queue processing failed for sub-fail: Error: processing failed
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/consumer.test.ts:181:30
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+stderr | src/lib/queue/__tests__/consumer.test.ts > handleSubmissionQueue > TC-054: runWithWorkerEnv is called once and wraps all message processing including failures
+[consumer] tryFinalizeFromScanResults failed for sub-fail: Error: [vitest] No "getWorkerEnv" export is defined on the "../../worker-context" mock. Did you forget to return it from "vi.mock"?
+If you need to partially mock a module, you can use "importOriginal" helper inside:
+
+    at VitestMocker.createError (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/vitest/dist/chunks/execute.B7h3T_Hc.js:284:17)
+    at Object.get (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/vitest/dist/chunks/execute.B7h3T_Hc.js:330:16)
+    at resolveDatabaseConnection (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/db.ts:152:21)
+    at getDb (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/db.ts:189:28)
+    at tryFinalizeFromScanResults (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/consumer.ts:49:22)
+    at processOne (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/consumer.ts:415:33)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/consumer.ts:441:9
+    at async Promise.all (index 1)
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/consumer.ts:444:5 {
+  codeFrame: 'vi.mock(import("../../worker-context"), async (importOriginal) => {\n' +
+    '  const actual = await importOriginal()\n' +
+    '  return {\n' +
+    '    ...actual,\n' +
+    '    // your mocked methods\n' +
+    '  }\n' +
+    '})'
+}
+
+ ✓ src/lib/queue/__tests__/consumer.test.ts (7 tests) 20ms
+stderr | src/db/dedup/claim-natural-key-concurrency.test.ts > T-010 regression: recoverStaleReceived terminal escalation is intact > escalates a >24h RECEIVED submission to a TERMINAL state (auto-reject)
+[synthetic-scan-result] write failed for sub_old: Error: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+    at getKV (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/kv-store.ts:42:11)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at storeScanResult (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/kv-store.ts:286:14)
+    at writeSyntheticScanResult (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/synthetic-scan-result.ts:130:5)
+    at resolveStuckTargetState (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/recovery.ts:108:5)
+    at Module.recoverStaleReceived (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/recovery.ts:582:53)
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/db/dedup/claim-natural-key-concurrency.test.ts:271:20
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20
+
+stdout | src/db/dedup/claim-natural-key-concurrency.test.ts > T-010 regression: recoverStaleReceived terminal escalation is intact > escalates a >24h RECEIVED submission to a TERMINAL state (auto-reject)
+[recovery] stale-received: found=1 requeued=0 rejected=1
+
+stdout | src/db/dedup/claim-natural-key-concurrency.test.ts > T-010 regression: recoverStaleReceived terminal escalation is intact > escalates to TERMINAL when the retry budget (3) is exhausted
+[recovery] found 1 stale RECEIVED submissions
+
+stderr | src/db/dedup/claim-natural-key-concurrency.test.ts > T-010 regression: recoverStaleReceived terminal escalation is intact > escalates to TERMINAL when the retry budget (3) is exhausted
+[synthetic-scan-result] write failed for sub_stale: Error: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+    at getKV (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/kv-store.ts:42:11)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at storeScanResult (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/kv-store.ts:286:14)
+    at writeSyntheticScanResult (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/submission/synthetic-scan-result.ts:130:5)
+    at resolveStuckTargetState (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/recovery.ts:108:5)
+    at Module.recoverStaleReceived (/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/recovery.ts:582:53)
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/db/dedup/claim-natural-key-concurrency.test.ts:289:20
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20
+
+stdout | src/db/dedup/claim-natural-key-concurrency.test.ts > T-010 regression: recoverStaleReceived terminal escalation is intact > escalates to TERMINAL when the retry budget (3) is exhausted
+[recovery] stale-received: found=1 requeued=0 rejected=1
+
+stdout | src/db/dedup/claim-natural-key-concurrency.test.ts > T-010 regression: recoverStaleReceived terminal escalation is intact > finalize is idempotent: an existing scan finalizes WITHOUT re-enqueue
+[recovery] found 1 stale RECEIVED submissions
+
+stdout | src/db/dedup/claim-natural-key-concurrency.test.ts > T-010 regression: recoverStaleReceived terminal escalation is intact > finalize is idempotent: an existing scan finalizes WITHOUT re-enqueue
+[recovery] stale-received: finalized sub_stale with existing score 90: → PUBLISHED
+[recovery] stale-received: found=1 requeued=0 rejected=1
+
+stdout | src/db/dedup/claim-natural-key-concurrency.test.ts > T-010 regression: recoverStaleReceived terminal escalation is intact > finalize is idempotent: an existing scan finalizes WITHOUT re-enqueue
+[recovery] found 1 stale RECEIVED submissions
+
+stdout | src/db/dedup/claim-natural-key-concurrency.test.ts > T-010 regression: recoverStaleReceived terminal escalation is intact > finalize is idempotent: an existing scan finalizes WITHOUT re-enqueue
+[recovery] stale-received: finalized sub_stale with existing score 90: → PUBLISHED
+[recovery] stale-received: found=1 requeued=0 rejected=1
+
+ ✓ src/db/dedup/claim-natural-key-concurrency.test.ts (9 tests) 76ms
+stdout | src/lib/queue/__tests__/multi-skill-expand.test.ts > tryExpandMultiSkill > expands multi-skill repo into individual submissions
+[multi-skill-expand] sub-001 expanded into 3 skills for https://github.com/anton-abyzov/specweave
+
+stderr | src/lib/queue/__tests__/multi-skill-expand.test.ts > tryExpandMultiSkill > falls through on discovery failure
+[multi-skill-expand] discovery failed for https://github.com/anton-abyzov/specweave: Error: Network error
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/multi-skill-expand.test.ts:158:50
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+stderr | src/lib/queue/__tests__/multi-skill-expand.test.ts > tryExpandMultiSkill > falls through on discovery error response
+[multi-skill-expand] discovery error for https://github.com/anton-abyzov/specweave: Rate limited
+
+stderr | src/lib/queue/__tests__/multi-skill-expand.test.ts > tryExpandMultiSkill > falls through when no selfReference available
+[multi-skill-expand] cannot expand sub-001: no selfReference/internalKey
+
+stderr | src/lib/queue/__tests__/multi-skill-expand.test.ts > tryExpandMultiSkill > falls through when self-reference call fails
+[multi-skill-expand] batch creation failed (500): Internal error
+
+ ✓ src/lib/queue/__tests__/multi-skill-expand.test.ts (15 tests) 10ms
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — happy path (T-009) > returns kind:'created' with id/state/createdAt when db.submission.create succeeds
+[upsertSubmission] KV write failed for sub_new-1: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — happy path (T-009) > forwards optional fields into db.submission.create data
+[upsertSubmission] KV write failed for sub_new-2: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — P2002 branches (T-010) > maps P2002 + existing state=PUBLISHED with skill row to kind:'verified'
+[upsertSubmission] SkillVersion lookup failed for sub_existing: Cannot read properties of undefined (reading 'findFirst')
+
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — P2002 branches (T-010) > maps P2002 + existing state=PUBLISHED without skill row to kind:'pending' (orphan guard)
+[upsertSubmission] orphan-PUBLISHED skill lookup failed for https://github.com/owner/repo/my-skill: Cannot read properties of undefined (reading 'findUnique')
+
+ ✓ src/lib/queue/__tests__/dlq-consumer.test.ts (4 tests) 18ms
+stdout | src/lib/queue/__tests__/recovery.scanning.test.ts > releaseStuckScanning > resets a first-time stuck item back to RECEIVED with trigger='scanner_timeout'
+[release-scanning] scanned=1 released=1 rejected=0
+
+stdout | src/lib/queue/__tests__/recovery.scanning.test.ts > releaseStuckScanning > rejects after 3 prior releases with trigger='scanner_timeout_max_retries'
+[release-scanning] scanned=1 released=0 rejected=1
+
+stdout | src/lib/queue/__tests__/recovery.scanning.test.ts > releaseStuckScanning > caps processing at 100 items per call
+[release-scanning] scanned=100 released=100 rejected=0
+
+stderr | src/lib/queue/__tests__/recovery.scanning.test.ts > releaseStuckScanning > no-ops when DB circuit breaker is open
+[release-scanning] DB circuit open — skipping
+
+ ✓ src/lib/queue/__tests__/recovery.scanning.test.ts (5 tests) 9ms
+ ✓ src/db/dedup/dedup.test.ts (14 tests) 34ms
+ ✓ src/lib/queue/__tests__/process-submission.decision.test.ts (3 tests) 12ms
+ ✓ src/db/dedup/repo-identity.test.ts (8 tests) 4ms
+stderr | src/lib/queue/__tests__/search-index-consumer.test.ts > handleSearchIndexUpdate > swallows bumpRespVersion failure — shard update still succeeds
+bumpRespVersion failed during shard update: Error: KV write failed
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/search-index-consumer.test.ts:135:43
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+ ✓ src/lib/queue/__tests__/search-index-consumer.test.ts (8 tests) 18ms
+ ✓ src/lib/queue/__tests__/dlq-store.test.ts (8 tests) 6ms
+ ✓ src/lib/queue/__tests__/flush-db-updates.test.ts (3 tests) 3ms
+ ✓ src/db/dedup/apply-reconcile.test.ts (5 tests) 17ms
+ ✓ src/db/dedup/reconcile.test.ts (19 tests) 4ms
+ ✓ src/lib/cron/dedup-reconciler.test.ts (9 tests) 11ms
+ ✓ src/db/dedup/registry-alias.test.ts (11 tests) 5ms
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — P2025 race in P2002 catch (F-CR-007) > retries the outer upsert once when findUniqueOrThrow throws P2025 — succeeds on retry
+[upsertSubmission] KV write failed for sub_retry-success: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — P2025 race in P2002 catch (F-CR-007) > returns kind:'pending' cleanly (no 500) when P2025 persists after retry
+[upsertSubmission] P2025 race persisted after retry for https://github.com/owner/repo / persistent-race
+
+ ✓ src/lib/submission/__tests__/upsert.test.ts (21 tests) 758ms
+   ✓ upsertSubmission — P2002 branches (T-010) > maps P2002 + existing state=REJECTED to kind:'rejected'  636ms
+ ✓ src/lib/queue/__tests__/types.test.ts (1 test) 27ms
+stderr | src/lib/queue/__tests__/state-guard.test.ts > updateState — SUCCESS_LOCKED guard > blocks PUBLISHED → REJECTED (duplicate processing scenario)
+[updateState] blocked PUBLISHED → REJECTED for sub_1
+
+stderr | src/lib/queue/__tests__/state-guard.test.ts > updateState — SUCCESS_LOCKED guard > blocks PUBLISHED → TIER1_SCANNING (re-scan attempt)
+[updateState] blocked PUBLISHED → TIER1_SCANNING for sub_2
+
+ ✓ src/lib/queue/__tests__/state-guard.test.ts (9 tests) 4ms
+stdout | src/lib/queue/__tests__/drain-stuck-received.test.ts > drainStuckReceived (0713 US-004) > returns zeroes when no stale RECEIVED rows
+[drain-stuck-received] found=0 enqueued=0 skipped=0
+
+stdout | src/lib/queue/__tests__/drain-stuck-received.test.ts > drainStuckReceived (0713 US-004) > re-enqueues a stale RECEIVED row exactly once with the expected payload
+[drain-stuck-received] found=1 enqueued=1 skipped=0
+
+stdout | src/lib/queue/__tests__/drain-stuck-received.test.ts > drainStuckReceived (0713 US-004) > dryRun does NOT enqueue but still reports found count
+[drain-stuck-received] DRY RUN would enqueue sub_a (https://github.com/org/repo/test-skill)
+[drain-stuck-received] DRY RUN would enqueue sub_b (https://github.com/org/repo/test-skill)
+[drain-stuck-received] DRY RUN would enqueue sub_c (https://github.com/org/repo/test-skill)
+
+stdout | src/lib/queue/__tests__/drain-stuck-received.test.ts > drainStuckReceived (0713 US-004) > skips rows with KV inflight:<id> set (currently being processed)
+[drain-stuck-received] skipping sub_inflight: inflight marker held
+
+stdout | src/lib/queue/__tests__/drain-stuck-received.test.ts > drainStuckReceived (0713 US-004) > skips rows with KV inflight:<id> set (currently being processed)
+[drain-stuck-received] found=2 enqueued=1 skipped=1
+
+stdout | src/lib/queue/__tests__/drain-stuck-received.test.ts > drainStuckReceived (0713 US-004) > filters by repoUrl when provided
+[drain-stuck-received] found=1 enqueued=1 skipped=0
+
+ ↓ src/lib/submission/__tests__/upsert-concurrency.int.test.ts (1 test | 1 skipped)
+stderr | src/lib/queue/__tests__/drain-stuck-received.test.ts > drainStuckReceived (0713 US-004) > continues processing after a per-row queue.send error (does not abort batch)
+[drain-stuck-received] enqueue failed for sub_will_fail: Error: queue transient error
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/src/lib/queue/__tests__/drain-stuck-received.test.ts:149:30
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+stdout | src/lib/queue/__tests__/drain-stuck-received.test.ts > drainStuckReceived (0713 US-004) > continues processing after a per-row queue.send error (does not abort batch)
+[drain-stuck-received] found=2 enqueued=1 skipped=1
+
+ ✓ src/lib/queue/__tests__/drain-stuck-received.test.ts (6 tests) 13ms
+ ✓ src/lib/queue/__tests__/queue-stats-cache.timeout.test.ts (1 test) 1ms
+
+ Test Files  32 passed | 1 skipped (33)
+      Tests  294 passed | 1 skipped (295)
+   Start at  02:59:49
+   Duration  3.59s (transform 5.00s, setup 6.75s, collect 12.59s, tests 1.92s, environment 8ms, prepare 3.57s)
+

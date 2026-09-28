@@ -1,0 +1,116 @@
+{
+  "at": "2026-09-28T07:02:14.430Z",
+  "identity": {
+    "host": "178.156.163.74",
+    "database": "vskill_platform"
+  },
+  "transaction": "READ ONLY",
+  "connection": [
+    {
+      "database": "vskill_platform",
+      "read_only": "on"
+    }
+  ],
+  "columns": [
+    {
+      "table_name": "Submission",
+      "column_name": "artifactPath",
+      "data_type": "text"
+    },
+    {
+      "table_name": "Submission",
+      "column_name": "sourceId",
+      "data_type": "text"
+    },
+    {
+      "table_name": "Submission",
+      "column_name": "sourceType",
+      "data_type": "USER-DEFINED"
+    },
+    {
+      "table_name": "submission_registry_aliases",
+      "column_name": "artifactPath",
+      "data_type": "text"
+    },
+    {
+      "table_name": "submission_registry_aliases",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone"
+    },
+    {
+      "table_name": "submission_registry_aliases",
+      "column_name": "id",
+      "data_type": "text"
+    },
+    {
+      "table_name": "submission_registry_aliases",
+      "column_name": "listingId",
+      "data_type": "text"
+    },
+    {
+      "table_name": "submission_registry_aliases",
+      "column_name": "listingUrl",
+      "data_type": "text"
+    },
+    {
+      "table_name": "submission_registry_aliases",
+      "column_name": "registry",
+      "data_type": "USER-DEFINED"
+    },
+    {
+      "table_name": "submission_registry_aliases",
+      "column_name": "sourceId",
+      "data_type": "text"
+    },
+    {
+      "table_name": "submission_registry_aliases",
+      "column_name": "sourceType",
+      "data_type": "USER-DEFINED"
+    },
+    {
+      "table_name": "submission_registry_aliases",
+      "column_name": "submissionId",
+      "data_type": "text"
+    }
+  ],
+  "indexes": [
+    {
+      "index_name": "Submission_repoUrl_skillName_key",
+      "is_unique": true,
+      "is_valid": true,
+      "definition": "CREATE UNIQUE INDEX \"Submission_repoUrl_skillName_key\" ON public.\"Submission\" USING btree (\"repoUrl\", \"skillName\")"
+    },
+    {
+      "index_name": "submission_source_natural_key",
+      "is_unique": true,
+      "is_valid": true,
+      "definition": "CREATE UNIQUE INDEX submission_source_natural_key ON public.\"Submission\" USING btree (\"sourceType\", \"sourceId\", \"artifactPath\")"
+    }
+  ],
+  "counts": [
+    {
+      "total": 447060,
+      "fully_keyed": 428259,
+      "active_unkeyed": 13898
+    }
+  ],
+  "storedDuplicateGroups": 0,
+  "aliasCount": 15112,
+  "migrations": [
+    {
+      "migration_name": "20260531000000_0861_dedup_phase_a_columns",
+      "finished_at": "2026-05-31T07:18:32.871Z",
+      "rolled_back_at": null
+    },
+    {
+      "migration_name": "20260531000001_0861_dedup_phase_b_constraint",
+      "finished_at": "2026-05-31T07:18:33.197Z",
+      "rolled_back_at": null
+    },
+    {
+      "migration_name": "20260531000002_0861_registry_alias",
+      "finished_at": "2026-05-31T15:03:37.551Z",
+      "rolled_back_at": null
+    }
+  ]
+}

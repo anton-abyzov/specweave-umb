@@ -1,0 +1,8 @@
+{
+  "baseline": "e3718ee6ea7dbac3b25a4d2a9a098e3c33d40857",
+  "baselineErrors": 314,
+  "branchErrors": 314,
+  "added": [],
+  "removed": [],
+  "normalization": "checkout absolute path and diagnostic line/column only"
+}

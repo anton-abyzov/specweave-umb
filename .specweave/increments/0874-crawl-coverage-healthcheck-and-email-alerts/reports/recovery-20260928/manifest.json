@@ -1,0 +1,64 @@
+{
+  "at": "2026-09-28T07:16:23.415175+00:00",
+  "branch": "codex/0874-crawler-recovery",
+  "base": "e3718ee6ea7dbac3b25a4d2a9a098e3c33d40857",
+  "head": "9792c5236e02b92bcce6a732bee1f1570696c311",
+  "pr": "https://github.com/anton-abyzov/vskill-platform/pull/74",
+  "checks": {
+    "node22AffectedPlatform": {
+      "passed": 244,
+      "files": 29
+    },
+    "node22Crawler": {
+      "passed": 208,
+      "skipped": 1
+    },
+    "liveGithubGuard": {
+      "passed": 1,
+      "queries": 4,
+      "identity": "local audit gh; NOT live VM crawler identity"
+    },
+    "dedupMigration": {
+      "passed": 294,
+      "skipped": 1
+    },
+    "typecheck": {
+      "baselineErrors": 314,
+      "branchErrors": 314,
+      "added": 0
+    }
+  },
+  "doneTasks": [
+    "T-006",
+    "T-007",
+    "T-008",
+    "T-009",
+    "T-019"
+  ],
+  "blockedTasks": {
+    "T-017": "VM3 seven401 errors;600discoveries;SHARD_BISECT absent; no clean fullsweep proof"
+  },
+  "review": "Lead independently reviewed and resolved identity provenance retry and checkpoint intake-loss findings; no remaining critical/high at exact head",
+  "noMutations": [
+    "protected original roots",
+    "handoff pointers",
+    "credentials",
+    "production data",
+    "deployment"
+  ],
+  "receipts": {
+    "platform-node22-final.txt": "e94214fd932f114b689d260732cab6368cb067bba30b7415ac2dbf11a9434acb",
+    "crawler-node22-final.txt": "18d08b90efbe430a146c3a0e0e50979a9bc6f6d1ffd93193b3867664eb0c845c",
+    "github-dimensions-live.txt": "42ad776302e4770ee89cf0ee85a7ef17ddf8f0ea4263cbd1abcba56a190e568b",
+    "migration-local.txt": "56485df4cc6bf7efa000f73cb0e90c478fa5e05b2c239a582fa0c6236ff2bb87",
+    "typecheck-comparison.json": "7eb16ee28068af007d93b7f0570e601ccbd0549bc4ca45321aa63447f0e63b7b",
+    "crawler-live-readback.json": "99c90c0cadb247293ac1ee8025a75d0415805ca2753989902acb1fd6e9a73ff8",
+    "crawler-live-sweep-detail.json": "53f4578c2089173f1a5231daf36bb44e7dcd5130a7c74ad42e87cea24ddb5083",
+    "crawler-credential-owner.json": "2ba901e517b0df18f21331b7c62dce694f20ea6e73c365d047ee3fd3ba9a0408",
+    "source-failure-baseline-red.txt": "dc399f84f584502f52aee7b6117d412cf4aa4ad939228e301b9b980a3086dcfc",
+    "source-loss-red.txt": "21aff98fe3e84e5449ded7fa37cbad2796a776a2010445dd14de6659b4aaa23b",
+    "source-failure-final.txt": "82554d34950c78e6a9b8a1c5dab979fa59c699ca0bae363ca699dc0f416cbd37",
+    "typecheck.txt": "4715beeeb45da992ac7f7c5b19c749208d38f2d6b996521aad074bd8cf2307fb",
+    "typecheck-baseline.txt": "393b434b218595572833fa11d04bb77a8f8683378a8ac65547b6c12cc87a9f91"
+  }
+}

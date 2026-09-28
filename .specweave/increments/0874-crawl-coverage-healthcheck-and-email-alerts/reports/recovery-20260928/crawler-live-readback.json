@@ -1,0 +1,53 @@
+{
+  "at": "2026-09-28T07:02:54.504920+00:00",
+  "vms": {
+    "5.161.69.232": {
+      "metrics": {},
+      "scheduler": {
+        "running": true,
+        "sourceCount": 2,
+        "sources": {}
+      }
+    },
+    "91.107.239.24": {
+      "metrics": {},
+      "scheduler": {
+        "running": true,
+        "sourceCount": 5,
+        "sources": {}
+      }
+    },
+    "5.161.56.136": {
+      "metrics": {
+        "github-sharded": {
+          "totalRuns": 150,
+          "totalErrors": 0,
+          "totalTimeouts": 0,
+          "totalDiscovered": 345467,
+          "totalSubmitted": 81383,
+          "totalCreated": 38,
+          "totalLost": 450
+        }
+      },
+      "scheduler": {
+        "running": true,
+        "sourceCount": 3,
+        "sources": {
+          "github-sharded": {
+            "lastRunAt": "2026-09-28T06:54:08.797Z",
+            "lastResult": {
+              "totalDiscovered": 600,
+              "totalSubmitted": 32,
+              "totalCreated": 0,
+              "totalLost": 0,
+              "shardsCompleted": 7,
+              "shardsZeroResultCount": 0,
+              "startedFromShard": 0,
+              "durationMs": 65860
+            }
+          }
+        }
+      }
+    }
+  }
+}

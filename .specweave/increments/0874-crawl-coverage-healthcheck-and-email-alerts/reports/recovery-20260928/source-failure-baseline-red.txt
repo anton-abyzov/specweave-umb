@@ -1,0 +1,123 @@
+TAP version 13
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] full run complete, checkpoint cleared
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] partial run (1/2), checkpoint saved
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] full run complete, checkpoint cleared
+# [github-sharded] mode=size-bisect, shards=7, starting at 0
+# [github-sharded] full run complete, checkpoint cleared
+# [scheduler] Starting continuous crawl for sources: github-sharded
+# [scheduler] github-sharded: timeout=120min, cooldown=20min
+# [heartbeat] VM_PUBLIC_IP or INTERNAL_KEY missing — heartbeat disabled
+# [github-sharded] mode=size-bisect, shards=7, starting at 0
+# [github-sharded] full run complete, checkpoint cleared
+# [scheduler] github-sharded completed in 0.0s: {"totalDiscovered":0,"totalSubmitted":0,"totalCreated":0,"totalSkipped":0,"totalLost":0,"shardsTotal":7,"shardsCompleted":7,"shardsSkipped":0,"shardsZeroResultCount":0,"startedFromShard":0,"shardMode"
+# Subtest: search 401 rejects without advancing or clearing the failed shard
+not ok 1 - search 401 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 11.998709
+  type: 'test'
+  location: '/private/tmp/vskill-0874-baseline/crawl-worker/__tests__/github-sharded-failure.test.js:15:3'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'rejects'
+  stack: |-
+    async TestContext.<anonymous> (file:///private/tmp/vskill-0874-baseline/crawl-worker/__tests__/github-sharded-failure.test.js:24:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: search 429 rejects without advancing or clearing the failed shard
+not ok 2 - search 429 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 1.326958
+  type: 'test'
+  location: '/private/tmp/vskill-0874-baseline/crawl-worker/__tests__/github-sharded-failure.test.js:15:3'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'rejects'
+  stack: |-
+    async TestContext.<anonymous> (file:///private/tmp/vskill-0874-baseline/crawl-worker/__tests__/github-sharded-failure.test.js:24:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: search 503 rejects without advancing or clearing the failed shard
+not ok 3 - search 503 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 0.778625
+  type: 'test'
+  location: '/private/tmp/vskill-0874-baseline/crawl-worker/__tests__/github-sharded-failure.test.js:15:3'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'rejects'
+  stack: |-
+    async TestContext.<anonymous> (file:///private/tmp/vskill-0874-baseline/crawl-worker/__tests__/github-sharded-failure.test.js:24:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: failed bisection cannot fall back to a misleading successful coarse sweep
+not ok 4 - failed bisection cannot fall back to a misleading successful coarse sweep
+  ---
+  duration_ms: 0.736166
+  type: 'test'
+  location: '/private/tmp/vskill-0874-baseline/crawl-worker/__tests__/github-sharded-failure.test.js:34:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'rejects'
+  stack: |-
+    async TestContext.<anonymous> (file:///private/tmp/vskill-0874-baseline/crawl-worker/__tests__/github-sharded-failure.test.js:41:3)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# [scheduler] Stopped all source loops
+# Subtest: real source auth failure reaches scheduler error metrics and backoff
+not ok 5 - real source auth failure reaches scheduler error metrics and backoff
+  ---
+  duration_ms: 1215.23075
+  type: 'test'
+  location: '/private/tmp/vskill-0874-baseline/crawl-worker/__tests__/github-sharded-failure.test.js:46:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'cooldown'
+    - 'backoff'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'backoff'
+  actual: 'cooldown'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/vskill-0874-baseline/crawl-worker/__tests__/github-sharded-failure.test.js:57:12)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 0
+# fail 5
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1280.341375

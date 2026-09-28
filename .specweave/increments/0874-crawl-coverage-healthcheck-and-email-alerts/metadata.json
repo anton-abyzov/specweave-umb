@@ -1,0 +1,38 @@
+{
+  "id": "0874-crawl-coverage-healthcheck-and-email-alerts",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-06-18T10:27:23.008Z",
+  "lastActivity": "2026-09-28T07:16:56.243Z",
+  "testMode": "TDD",
+  "coverageTarget": 90,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave-umb",
+  "acSyncEvents": [
+    {
+      "timestamp": "2026-06-25T15:09:50.436Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    },
+    {
+      "timestamp": "2026-06-24T19:04:02.475Z",
+      "updated": [],
+      "conflicts": [
+        "AC-US4-02: [x] but only 0/2 tasks complete (0%)"
+      ],
+      "warnings": [],
+      "changesCount": 0
+    }
+  ],
+  "updated": "2026-09-28T07:16:56.243Z"
+}

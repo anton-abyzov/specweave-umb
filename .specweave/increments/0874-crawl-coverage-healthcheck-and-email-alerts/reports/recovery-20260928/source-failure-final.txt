@@ -1,0 +1,67 @@
+TAP version 13
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] mode=size-bisect, shards=1, starting at 0
+# Subtest: search 401 rejects without advancing or clearing the failed shard
+ok 1 - search 401 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 11.634083
+  type: 'test'
+  ...
+# Subtest: search 429 rejects without advancing or clearing the failed shard
+ok 2 - search 429 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 0.971
+  type: 'test'
+  ...
+# Subtest: search 503 rejects without advancing or clearing the failed shard
+ok 3 - search 503 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 0.822125
+  type: 'test'
+  ...
+# Subtest: failed bisection cannot fall back to a misleading successful coarse sweep
+ok 4 - failed bisection cannot fall back to a misleading successful coarse sweep
+  ---
+  duration_ms: 0.263417
+  type: 'test'
+  ...
+# [github-sharded] resuming persisted size-bisect leaf plan (1 shards) from index 0
+# [github-sharded] resuming from shard 0/1 (0 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=1, starting at 0
+# [github-sharded] shard 1/1: +100 new (total=100)
+# [github-sharded] full run complete, checkpoint cleared
+# [scheduler] Starting continuous crawl for sources: github-sharded
+# [scheduler] github-sharded: timeout=120min, cooldown=20min
+# [heartbeat] VM_PUBLIC_IP or INTERNAL_KEY missing — heartbeat disabled
+# [github-sharded] mode=size-bisect, shards=7, starting at 0
+# [scheduler] github-sharded failed: GitHub shard 1/7 failed: GitHub Code Search failed: 401 
+# Subtest: search failure plus exhausted intake retries replays every unaccepted discovery
+ok 5 - search failure plus exhausted intake retries replays every unaccepted discovery
+  ---
+  duration_ms: 9485.265459
+  type: 'test'
+  ...
+# [scheduler] Stopped all source loops
+# Subtest: real source auth failure reaches scheduler error metrics and backoff
+ok 6 - real source auth failure reaches scheduler error metrics and backoff
+  ---
+  duration_ms: 12.845167
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9553.474458
