@@ -1,0 +1,5 @@
+# T031 ownership and natural verification preparation
+
+T031 is claimed by codex-0874-artifact-identity in existing increment0874. Product author live_activity owns isolated checkout0874-artifact-identity from7f86c79c. The live spec/tasks/ledger, not the design snapshot, define the current exact Files. The initial18 files were extended to include orphan/recovery safeguards and ten authoritative DB test fixtures. No other live file owner or open PR overlap was found; parked tasks, original worktrees and historical fixtures remain protected.
+
+The natural verification plan and schema3 helper preserve a hash-only baseline for22 incoming artifacts,10 existing Submissions and7 existing linked Skills. Twenty-one offline cases pass. A real pre-release readback found0 new canonical rows; strict verification correctly exited2. No production mutation or manual retry was performed. Original schema1/2 baselines remain for provenance. Root reviews, merges and deploys; source implementation and final runtime outcome are still pending. The helper distinguishes settled intake from completed publication and cannot prove a full corpus sweep.

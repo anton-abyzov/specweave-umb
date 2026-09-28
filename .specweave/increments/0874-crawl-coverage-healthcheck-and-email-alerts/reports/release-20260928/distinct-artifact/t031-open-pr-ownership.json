@@ -1,0 +1,100 @@
+{
+  "at": "2026-09-28T23:32:14.197504+00:00",
+  "prs": [
+    {
+      "author": {
+        "is_bot": true,
+        "login": "app/dependabot"
+      },
+      "headRefName": "dependabot/npm_and_yarn/dev-dependencies-d0dcc9e4a0",
+      "headRefOid": "b2dddd554523e0b79ab392b6ffd260b8802395f2",
+      "number": 67,
+      "title": "build(deps-dev): bump the dev-dependencies group across 1 directory with 9 updates",
+      "updatedAt": "2026-09-28T14:38:55Z",
+      "files": [
+        "package-lock.json",
+        "package.json"
+      ]
+    },
+    {
+      "author": {
+        "is_bot": true,
+        "login": "app/dependabot"
+      },
+      "headRefName": "dependabot/npm_and_yarn/cloudflare-5557738cd5",
+      "headRefOid": "a0cbe239ac03076974226ee45cf4d06e2dd57f1a",
+      "number": 65,
+      "title": "build(deps-dev): bump the cloudflare group across 1 directory with 3 updates",
+      "updatedAt": "2026-09-28T14:37:42Z",
+      "files": [
+        "package-lock.json",
+        "package.json"
+      ]
+    },
+    {
+      "author": {
+        "is_bot": true,
+        "login": "app/dependabot"
+      },
+      "headRefName": "dependabot/npm_and_yarn/prisma-fcf4e39635",
+      "headRefOid": "ed189f07b7c42551487ebd0575525cca3e54e9a9",
+      "number": 64,
+      "title": "build(deps): bump the prisma group across 1 directory with 4 updates",
+      "updatedAt": "2026-09-28T14:37:57Z",
+      "files": [
+        "package-lock.json",
+        "package.json"
+      ]
+    },
+    {
+      "author": {
+        "is_bot": true,
+        "login": "app/dependabot"
+      },
+      "headRefName": "dependabot/github_actions/actions/upload-artifact-7",
+      "headRefOid": "c69eee37e3c68e2340bd66d7b3ae3175e43eb078",
+      "number": 63,
+      "title": "build(deps): bump actions/upload-artifact from 4 to 7",
+      "updatedAt": "2026-09-27T17:15:31Z",
+      "files": [
+        ".github/workflows/0826-e2e.yml"
+      ]
+    },
+    {
+      "author": {
+        "is_bot": true,
+        "login": "app/dependabot"
+      },
+      "headRefName": "dependabot/github_actions/actions/checkout-7",
+      "headRefOid": "35c5f6497d36066d35b8fe0085ec515ddbf304e9",
+      "number": 62,
+      "title": "build(deps): bump actions/checkout from 4 to 7",
+      "updatedAt": "2026-09-27T17:15:31Z",
+      "files": [
+        ".github/workflows/0826-e2e.yml",
+        ".github/workflows/crawl-worker-tests.yml",
+        ".github/workflows/external-scan.yml",
+        ".github/workflows/supply-chain-scan.yml",
+        ".github/workflows/unit-tests.yml"
+      ]
+    },
+    {
+      "author": {
+        "is_bot": true,
+        "login": "app/dependabot"
+      },
+      "headRefName": "dependabot/github_actions/actions/setup-node-7",
+      "headRefOid": "2619c2f96e3f86bcb78931c8cb23071ea6360a17",
+      "number": 61,
+      "title": "build(deps): bump actions/setup-node from 4 to 7",
+      "updatedAt": "2026-09-27T17:15:30Z",
+      "files": [
+        ".github/workflows/0826-e2e.yml",
+        ".github/workflows/crawl-worker-tests.yml",
+        ".github/workflows/external-scan.yml",
+        ".github/workflows/supply-chain-scan.yml",
+        ".github/workflows/unit-tests.yml"
+      ]
+    }
+  ]
+}

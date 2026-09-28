@@ -1,0 +1,98 @@
+[
+  {
+    "file": "t031-implementation-design.md",
+    "sha256": "1c7e6179ef4caf1838395e601aac6339485eba395d84ec9d1828581e5abbfdab"
+  },
+  {
+    "file": "t031-worktree-ownership.json",
+    "sha256": "095311a4f9a4b82d7f21e5f42848753d1be09186593fff1c2ecc68b18af16777"
+  },
+  {
+    "file": "t031-open-pr-ownership.json",
+    "sha256": "a23f77d39fdb49fb874621248c576d2141fdcbf19162abc3cc8a7b9fc6938936"
+  },
+  {
+    "file": "t031-increment-ownership.json",
+    "sha256": "5c6bead2afa162ca68c8f7b5ee146a80be8a8dfa5fff6ed51e4c8ba7556a11b7"
+  },
+  {
+    "file": "t031-added-path-ownership.json",
+    "sha256": "f5e5585853f6b241b17b7d86cadca4d4a70832d7ffe149fb6db88ee47b351e7d"
+  },
+  {
+    "file": "t031-live-process-ownership.json",
+    "sha256": "4c47e3bba783766777fe5531c97334cd509e351b594d7eb9caac96776aadab47"
+  },
+  {
+    "file": "t031-app-ownership.json",
+    "sha256": "91472e0666032d9a333c565bd8bd4ca14b2f144a882743ef55f157259fd4625d"
+  },
+  {
+    "file": "t031-final-path-owner-check.json",
+    "sha256": "9dc4ca774e066c876e1160ba73d45f31d499e311d4d40fae39691930c0e6eb8d"
+  },
+  {
+    "file": "t031-recovery-owner-check.json",
+    "sha256": "648c714226c8037ff12e2660b10c75188a9e2f72d00c9a892de81466de9b6435"
+  },
+  {
+    "file": "t031-test-fixture-owner-check.json",
+    "sha256": "8c0aa98e87949944e02788029732071e836ed7135abadd5828d2a64073f1aeb4"
+  },
+  {
+    "file": "t031-natural-proof.cjs",
+    "sha256": "2b3de2a8d38b29673b7d1a4239a099dfa9acfb097208cb0d447c31e17e4b66fc"
+  },
+  {
+    "file": "t031-natural-proof-v1.cjs",
+    "sha256": "b668b4442723df322a0269cf857fee5f7b2e79531ebc665c690f1cc5d2ea7ba3"
+  },
+  {
+    "file": "t031-natural-proof-v2.cjs",
+    "sha256": "45489618fff00e37e9eff3997220085ee50d564bdcc1b49a929fe7b39854c355"
+  },
+  {
+    "file": "t031-natural-proof.test.cjs",
+    "sha256": "9c5a175a63c10f7e7cfe8f69490348e5cede4b23b6a0839e3cc95b90da09ff00"
+  },
+  {
+    "file": "t031-natural-proof-self-test.json",
+    "sha256": "e629220c0cb3e04be7d393c23ff31d20e750ca2af339dab80c37184a6bc9a1a5"
+  },
+  {
+    "file": "t031-natural-baseline.json",
+    "sha256": "b3bc7c51a103d1c9a73f091121e2dfb9eeb28b80b165c4d6ffe230b777d0f44d"
+  },
+  {
+    "file": "t031-natural-baseline-v2.json",
+    "sha256": "6cbe4e8a6f9bcb9e501e9b6c4a6210ff9857b9e84043940315e7ec79f7ad49be"
+  },
+  {
+    "file": "t031-natural-baseline-v3.json",
+    "sha256": "1d20f1bb44b12c1e8702771a3183503f633b3204892c910f195045ab5d2f5194"
+  },
+  {
+    "file": "t031-natural-readback-before-release.json",
+    "sha256": "83627eb41821abed39af7592f4dd55a3f85956efd882656f393ce40e1dc2b4bb"
+  },
+  {
+    "file": "t031-natural-readback-before-release-v3.json",
+    "sha256": "aaf55e46afd4e60d0dc15419be9411a068a8e91f4ac42a54c234517d33b322da"
+  },
+  {
+    "file": "t031-natural-comparison-before-release.json",
+    "sha256": "08416d82733d55136ad391f30cc1c8708429e647e7a56bbc4748978716662e22"
+  },
+  {
+    "file": "t031-natural-verdict-before-release-v3.json",
+    "sha256": "904b49a15e96005a8b9343f3e4c7b109206ba9a855f540e6d6e50cb60138b2ba"
+  },
+  {
+    "file": "t031-natural-verification-plan.md",
+    "sha256": "3e3fce1bc13105d6ada3778cf2b966f785a3f1b8c0637a83c97b0ae6ac9a1de2"
+  },
+  {
+    "file": "context-read-receipt.json",
+    "sha256": "782327dbf7aba0edecafe1035dbf50f01c753a4c5e45f3788bfeb5a159c87486"
+  }
+]

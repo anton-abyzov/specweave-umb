@@ -1,0 +1,219 @@
+{
+  "at": "2026-09-28T23:45:50.957667+00:00",
+  "paths": [
+    "src/lib/orphan-cleanup.ts",
+    "src/lib/__tests__/orphan-cleanup.test.ts",
+    "src/lib/queue/recovery.ts",
+    "src/lib/queue/__tests__/recovery.test.ts",
+    "src/lib/queue/__tests__/recovery.scanning.test.ts"
+  ],
+  "worktrees": [
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform",
+      "matchingChanges": []
+    },
+    {
+      "path": "/private/tmp/0874-t029-typecheck-baseline",
+      "matchingChanges": []
+    },
+    {
+      "path": "/private/tmp/0874-t030-regression-baseline",
+      "matchingChanges": []
+    },
+    {
+      "path": "/private/tmp/vskill-0874-baseline",
+      "matchingChanges": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-adaptive-resume",
+      "matchingChanges": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory",
+      "matchingChanges": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery",
+      "matchingChanges": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-heartbeat-progress",
+      "matchingChanges": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-intake-identity",
+      "matchingChanges": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations",
+      "matchingChanges": []
+    }
+  ],
+  "increments": [
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0713-queue-pipeline-restoration",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 96,
+          "text": "- Create `src/lib/queue/recovery.ts` exporting `drainStuckReceived({repoUrl?, ageMin, limit, dryRun, prisma, queue, kv})`."
+        },
+        {
+          "file": "plan.md",
+          "line": 116,
+          "text": "**Code reuse**: extract the queue-send logic from `drain-stuck-received.ts` into `src/lib/queue/recovery.ts` and import it from both the script and the cron."
+        },
+        {
+          "file": "plan.md",
+          "line": 185,
+          "text": "| `src/lib/queue/recovery.ts` (NEW) | Shared queue-send logic for drain script + recovery cron | US-004 |"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0720-submission-rejection-detail-visibility",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 52,
+          "text": "**Files**: `src/lib/queue/__tests__/recovery.test.ts` (NEW or extend)"
+        },
+        {
+          "file": "tasks.md",
+          "line": 57,
+          "text": "**Files**: `src/lib/queue/recovery.ts` (modify ~line 120)"
+        },
+        {
+          "file": "plan.md",
+          "line": 11,
+          "text": "1. **Non-scanner rejections** \u2014 blocklist short-circuits in `processSubmission` (`src/lib/queue/process-submission.ts:250`) and `finalize-scan` (`src/app/api/v1/internal/finalize-scan/route.ts:279`), recovery\u2019s \"no scan results\" path (`src/lib/queue/recovery.ts:120`), admin reject/block, and bulk repo-block. None of these write a `ScanResult` row, so the page has nothing to render under \"Scan Results\" or \"Detailed Findings.\""
+        },
+        {
+          "file": "plan.md",
+          "line": 62,
+          "text": "| `src/lib/queue/recovery.ts` | edit | In `resolveStuckTargetState` no-scan branch (line ~120), call `writeSyntheticScanResult(id, { kind: \"recovery-no-scan\", reason: \"Submission expired without scan results\" })` before returning. |"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0658-fix-submission-pipeline-reliability",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "plan.md",
+          "line": 174,
+          "text": "All tests use Vitest with ESM mocking (`vi.hoisted()` + `vi.mock()`), matching existing test patterns in `src/lib/__tests__/submission-store.test.ts` and `src/lib/queue/__tests__/recovery.test.ts`."
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0762-queue-drain-recovery-and-telemetry",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "plan.md",
+          "line": 10,
+          "text": "| `src/lib/queue/recovery.ts` | New `releaseStuckScanning(env)`: Prisma `updateMany` where `state='TIER1_SCANNING' AND updatedAt < now-30min`, increment retry KV, write stateEvent and `sub:<id>` KV; reject after 3 releases. Cap 100 items per call. |"
+        },
+        {
+          "file": "plan.md",
+          "line": 31,
+          "text": "3. `src/lib/queue/__tests__/recovery.scanning.test.ts` \u2192 CAS reset + retry cap + reject after 3 cycles."
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0713-queue-pipeline-restoration",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 96,
+          "text": "- Create `src/lib/queue/recovery.ts` exporting `drainStuckReceived({repoUrl?, ageMin, limit, dryRun, prisma, queue, kv})`."
+        },
+        {
+          "file": "plan.md",
+          "line": 116,
+          "text": "**Code reuse**: extract the queue-send logic from `drain-stuck-received.ts` into `src/lib/queue/recovery.ts` and import it from both the script and the cron."
+        },
+        {
+          "file": "plan.md",
+          "line": 185,
+          "text": "| `src/lib/queue/recovery.ts` (NEW) | Shared queue-send logic for drain script + recovery cron | US-004 |"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0720-submission-rejection-detail-visibility",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 52,
+          "text": "**Files**: `src/lib/queue/__tests__/recovery.test.ts` (NEW or extend)"
+        },
+        {
+          "file": "tasks.md",
+          "line": 57,
+          "text": "**Files**: `src/lib/queue/recovery.ts` (modify ~line 120)"
+        },
+        {
+          "file": "plan.md",
+          "line": 11,
+          "text": "1. **Non-scanner rejections** \u2014 blocklist short-circuits in `processSubmission` (`src/lib/queue/process-submission.ts:250`) and `finalize-scan` (`src/app/api/v1/internal/finalize-scan/route.ts:279`), recovery\u2019s \"no scan results\" path (`src/lib/queue/recovery.ts:120`), admin reject/block, and bulk repo-block. None of these write a `ScanResult` row, so the page has nothing to render under \"Scan Results\" or \"Detailed Findings.\""
+        },
+        {
+          "file": "plan.md",
+          "line": 62,
+          "text": "| `src/lib/queue/recovery.ts` | edit | In `resolveStuckTargetState` no-scan branch (line ~120), call `writeSyntheticScanResult(id, { kind: \"recovery-no-scan\", reason: \"Submission expired without scan results\" })` before returning. |"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0658-fix-submission-pipeline-reliability",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "plan.md",
+          "line": 174,
+          "text": "All tests use Vitest with ESM mocking (`vi.hoisted()` + `vi.mock()`), matching existing test patterns in `src/lib/__tests__/submission-store.test.ts` and `src/lib/queue/__tests__/recovery.test.ts`."
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0762-queue-drain-recovery-and-telemetry",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "plan.md",
+          "line": 10,
+          "text": "| `src/lib/queue/recovery.ts` | New `releaseStuckScanning(env)`: Prisma `updateMany` where `state='TIER1_SCANNING' AND updatedAt < now-30min`, increment retry KV, write stateEvent and `sub:<id>` KV; reject after 3 releases. Cap 100 items per call. |"
+        },
+        {
+          "file": "plan.md",
+          "line": 31,
+          "text": "3. `src/lib/queue/__tests__/recovery.scanning.test.ts` \u2192 CAS reset + retry cap + reject after 3 cycles."
+        }
+      ],
+      "claims": []
+    }
+  ],
+  "openPRMatches": []
+}

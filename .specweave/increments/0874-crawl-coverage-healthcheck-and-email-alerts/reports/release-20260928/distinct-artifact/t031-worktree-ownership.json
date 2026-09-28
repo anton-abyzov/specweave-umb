@@ -1,0 +1,125 @@
+{
+  "at": "2026-09-28T23:31:07.087828+00:00",
+  "worktrees": [
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform",
+      "exists": true,
+      "ref": "branch refs/heads/main",
+      "statusExit": 0,
+      "dirtyPaths": [],
+      "scopeOverlap": []
+    },
+    {
+      "path": "/private/tmp/0874-t029-typecheck-baseline",
+      "exists": true,
+      "ref": null,
+      "statusExit": 0,
+      "dirtyPaths": [
+        "node_modules"
+      ],
+      "scopeOverlap": []
+    },
+    {
+      "path": "/private/tmp/0874-t030-regression-baseline",
+      "exists": true,
+      "ref": null,
+      "statusExit": 0,
+      "dirtyPaths": [
+        "src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts",
+        "src/lib/submission/__tests__/upsert-natural-key.test.ts"
+      ],
+      "scopeOverlap": [
+        "src/lib/submission/__tests__/upsert-natural-key.test.ts"
+      ]
+    },
+    {
+      "path": "/private/tmp/claude-501/-Users-antonabyzov-Projects-github-specweave-umb/007f4490-f738-4096-92e7-8e89eaea2194/scratchpad/wt-graphql",
+      "exists": false,
+      "ref": "branch refs/heads/fix/graphql-check-phase2-budget"
+    },
+    {
+      "path": "/private/tmp/claude-501/-Users-antonabyzov-Projects-github-specweave-umb/00aae641-dabe-45d6-8a75-9a3508c5eaf6/wt/vp-int",
+      "exists": false,
+      "ref": "branch refs/heads/release/2.0"
+    },
+    {
+      "path": "/private/tmp/claude-501/-Users-antonabyzov-Projects-github-specweave-umb/ae110dd1-ad55-480b-ae18-47a5af1b56d3/wt/platform-crawl",
+      "exists": false,
+      "ref": "branch refs/heads/feat/crawl-breadth"
+    },
+    {
+      "path": "/private/tmp/claude-501/-Users-antonabyzov-Projects-github-specweave-umb/ae110dd1-ad55-480b-ae18-47a5af1b56d3/wt/platform-sec",
+      "exists": false,
+      "ref": "branch refs/heads/sec/hardening"
+    },
+    {
+      "path": "/private/tmp/vskill-0874-baseline",
+      "exists": true,
+      "ref": null,
+      "statusExit": 0,
+      "dirtyPaths": [
+        "crawl-worker/__tests__/github-sharded-failure.test.js",
+        "node_modules"
+      ],
+      "scopeOverlap": []
+    },
+    {
+      "path": "/private/tmp/vskill-platform-0877-hydration",
+      "exists": false,
+      "ref": "branch refs/heads/codex/0877-hydration"
+    },
+    {
+      "path": "/private/tmp/vskill-platform-0877-product",
+      "exists": false,
+      "ref": null
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-adaptive-resume",
+      "exists": true,
+      "ref": "branch refs/heads/codex/0874-adaptive-resume",
+      "statusExit": 0,
+      "dirtyPaths": [],
+      "scopeOverlap": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory",
+      "exists": true,
+      "ref": "branch refs/heads/codex/0874-bulk-request-memory",
+      "statusExit": 0,
+      "dirtyPaths": [],
+      "scopeOverlap": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery",
+      "exists": true,
+      "ref": "branch refs/heads/codex/0874-crawler-recovery",
+      "statusExit": 0,
+      "dirtyPaths": [],
+      "scopeOverlap": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-heartbeat-progress",
+      "exists": true,
+      "ref": "branch refs/heads/codex/0874-heartbeat-progress",
+      "statusExit": 0,
+      "dirtyPaths": [],
+      "scopeOverlap": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-intake-identity",
+      "exists": true,
+      "ref": "branch refs/heads/codex/0874-intake-identity",
+      "statusExit": 0,
+      "dirtyPaths": [],
+      "scopeOverlap": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations",
+      "exists": true,
+      "ref": "branch refs/heads/codex/0874-observation-clock",
+      "statusExit": 0,
+      "dirtyPaths": [],
+      "scopeOverlap": []
+    }
+  ]
+}

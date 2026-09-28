@@ -1,0 +1,59 @@
+{
+  "at": "2026-09-28T23:56:28.927514+00:00",
+  "paths": [
+    "src/lib/submission/__tests__/publish-v2.test.ts",
+    "src/lib/submission/__tests__/publish-manifest.test.ts",
+    "src/lib/submission/__tests__/publish-degraded-data.test.ts",
+    "src/lib/submission/__tests__/publish-rescan.test.ts",
+    "src/lib/submission/__tests__/publish-privacy-failsafe.test.ts",
+    "src/lib/submission/__tests__/publish-outbox-retrofit.test.ts",
+    "src/lib/__tests__/dual-publish.test.ts",
+    "src/lib/__tests__/publish-db-only.test.ts",
+    "src/lib/__tests__/submission-store.test.ts",
+    "src/lib/__tests__/skill-version-creation.test.ts"
+  ],
+  "dirty": [],
+  "openPRs": [],
+  "references": [
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0687-queue-truthful-load-and-studio-light-refresh",
+      "status": "completed"
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0658-fix-submission-pipeline-reliability",
+      "status": "completed"
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0680-registry-versioning-v2-phase1",
+      "status": "completed"
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0680-registry-versioning-v2-phase1",
+      "status": "completed"
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0687-queue-truthful-load-and-studio-light-refresh",
+      "status": "completed"
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0658-fix-submission-pipeline-reliability",
+      "status": "completed"
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0680-registry-versioning-v2-phase1",
+      "status": "completed"
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0680-registry-versioning-v2-phase1",
+      "status": "completed"
+    }
+  ]
+}

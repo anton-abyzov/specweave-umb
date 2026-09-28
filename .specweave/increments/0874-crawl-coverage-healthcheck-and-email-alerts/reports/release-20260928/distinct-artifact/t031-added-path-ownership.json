@@ -1,0 +1,387 @@
+[
+  {
+    "increment": "0789-submissions-list-filters",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "plan.md",
+        "line": 10,
+        "text": "The fix is **strictly contained** in `src/app/api/v1/submissions/route.ts` GET handler. No new infrastructure, no schema changes, no migrations."
+      },
+      {
+        "file": "plan.md",
+        "line": 18,
+        "text": "| `repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts` | Parse `repoUrl` and `q` from `searchParams`; add to `where` clause; bypass KV cache fast-path AND cache-write when either filter is active |"
+      }
+    ]
+  },
+  {
+    "increment": "0751-cert-tier-safety-followup",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 82,
+        "text": "- [x] **AC-US4-03**: Allowlist includes: `src/lib/submission/types.ts` (deriveCertTier itself), `src/lib/trust/trust-updater.ts` (parallel canonical derivation), the three vendor-only backfill routes (`trusted-author-backfill`, `recompute-version-cert-tiers`, `recompute-skill-cert-tiers`), the two read-only Prisma `where`-filter sites (`trust-backfill/route.ts` and `eval/reverify/route.ts` \u2014 these match the regex but never write), and all `__tests__/` + `*.test.ts` files."
+      },
+      {
+        "file": "spec.md",
+        "line": 131,
+        "text": "- `deriveCertTier()` at `src/lib/submission/types.ts:160` (existing, reused)."
+      },
+      {
+        "file": "plan.md",
+        "line": 143,
+        "text": "| `deriveCertTier` | `src/lib/submission/types.ts:160` | 2 |"
+      }
+    ]
+  },
+  {
+    "increment": "0713-queue-pipeline-restoration",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 69,
+        "text": "- [x] **AC-US3-01**: The state-history writer in `src/lib/submission/db-persist.ts` requires non-null `to` always. `from` may be null only on the initial RECEIVED row."
+      },
+      {
+        "file": "tasks.md",
+        "line": 74,
+        "text": "- Update `parseUsableListCache` (`src/app/api/v1/submissions/route.ts:78-94`): only return null when JSON parse fails or required fields missing. A well-formed `{submissions: [], total: 0}` is a valid cached payload."
+      },
+      {
+        "file": "tasks.md",
+        "line": 128,
+        "text": "- Replace `src/lib/submission/db-persist.ts:190` per plan.md."
+      },
+      {
+        "file": "plan.md",
+        "line": 60,
+        "text": "`src/app/api/v1/submissions/route.ts` GET handler:"
+      },
+      {
+        "file": "plan.md",
+        "line": 73,
+        "text": "`src/lib/submission/db-persist.ts:190` casts `fromState` as a string when null:"
+      },
+      {
+        "file": "plan.md",
+        "line": 88,
+        "text": "Validate at write-time: `to` MUST be a `SubmissionState` enum value; `from` MUST be either null (initial RECEIVED only) or a `SubmissionState` value. Throw on violation. The KV mirror (`hist:<id>`) uses the same shape \u2014 declare a shared `StateHistoryEntry` type if not already in `src/lib/submission/types.ts`."
+      },
+      {
+        "file": "plan.md",
+        "line": 180,
+        "text": "| `src/app/api/v1/submissions/route.ts` | Update `parseUsableListCache`, wrap non-category branch in try/catch, add stats-mismatch warning | US-002 |"
+      },
+      {
+        "file": "plan.md",
+        "line": 181,
+        "text": "| `src/lib/submission/db-persist.ts` | Type-safe state-history writer; reject null `to`; allow null `from` only on initial | US-003 |"
+      },
+      {
+        "file": "plan.md",
+        "line": 182,
+        "text": "| `src/lib/submission/types.ts` (if not present) | Export `StateHistoryEntry` type | US-003 |"
+      }
+    ]
+  },
+  {
+    "increment": "0814-studio-github-publish-phase0",
+    "status": "planned",
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 168,
+        "text": "- `repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts:1-80` \u2014 referenced only as the destination of the optional handoff URL; not called directly from Studio in Phase 0."
+      }
+    ]
+  },
+  {
+    "increment": "0668-vskill-platform-audit-fixes",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 30,
+        "text": "- [x] **AC-US1-02**: Publish race condition fixed \u2014 `src/app/api/v1/submissions/route.ts` approval path uses a Prisma transaction with an optimistic version check (or equivalent atomic guard) so that concurrent double-approval is impossible"
+      },
+      {
+        "file": "spec.md",
+        "line": 32,
+        "text": "- [x] **AC-US1-04**: Rate limit fires before KV \u2014 in `src/app/api/v1/submissions/route.ts`, rate-limit check executes before any KV cache access so that unauthenticated spam cannot trigger cache reads"
+      },
+      {
+        "file": "tasks.md",
+        "line": 17,
+        "text": "When: src/lib/submission/types.ts is created with all those interfaces (~120 lines)"
+      },
+      {
+        "file": "tasks.md",
+        "line": 26,
+        "text": "When: src/lib/submission/db-persist.ts is created (~250 lines) importing from types.ts"
+      },
+      {
+        "file": "tasks.md",
+        "line": 101,
+        "text": "Given: src/app/api/v1/submissions/route.ts performs KV cache access before rate-limit check"
+      },
+      {
+        "file": "plan.md",
+        "line": 224,
+        "text": "1. Extract `src/lib/submission/types.ts` from submission-store.ts"
+      },
+      {
+        "file": "plan.md",
+        "line": 225,
+        "text": "2. Extract `src/lib/submission/db-persist.ts` (DB persistence helpers)"
+      }
+    ]
+  },
+  {
+    "increment": "0672-queue-reliability",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 19,
+        "text": "1. **Empty default render** \u2014 `/queue` with no query params shows a blank flash / \"No submissions\" state on first load. Root cause is an SSR cache miss in `src/app/queue/data.ts:95` combined with lazy-only cache writes in `src/app/api/v1/submissions/route.ts:375`; cold Workers, Neon circuit-breaker trips, and the 60 s TTL leave the KV cache empty during low-traffic windows."
+      },
+      {
+        "file": "spec.md",
+        "line": 84,
+        "text": "- [x] **AC-US3-05**: The existing `src/app/api/v1/submissions/route.ts` call sites at approx. lines 582, 668\u2013679, and 778 are updated to use `upsertSubmission` instead of `checkSubmissionDedup(...) + db.submission.create(...)`. No remaining caller imports from `submission-dedup.ts`."
+      },
+      {
+        "file": "spec.md",
+        "line": 175,
+        "text": "| `/api/v1/submissions` contract preservation | Contract | Vitest HTTP fixtures | `src/app/api/v1/submissions/route.contract.test.ts` |"
+      },
+      {
+        "file": "tasks.md",
+        "line": 92,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts`"
+      },
+      {
+        "file": "tasks.md",
+        "line": 98,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts`"
+      },
+      {
+        "file": "tasks.md",
+        "line": 119,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/queue/fetch-submission-list.ts`, `repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts`"
+      },
+      {
+        "file": "tasks.md",
+        "line": 147,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts`"
+      },
+      {
+        "file": "plan.md",
+        "line": 29,
+        "text": "| Submissions API | [src/app/api/v1/submissions/route.ts:582, 670, 778](../../../repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts) | Replace `checkSubmissionDedup` + `createSubmission` call pattern with `upsertSubmission`; preserve HTTP contract. |"
+      },
+      {
+        "file": "plan.md",
+        "line": 234,
+        "text": "**Call-site updates** in [src/app/api/v1/submissions/route.ts](../../../repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts):"
+      },
+      {
+        "file": "plan.md",
+        "line": 329,
+        "text": "**TTL change** \u2014 find `LIST_CACHE_TTL` in `src/app/api/v1/submissions/route.ts` (the existing `setex`/`put` call in the GET handler) and raise from `60` to `5400`. Comment explains the warm-up cadence. The lazy write behavior stays as a safety net for requests that hit the API before the cron runs after deploy."
+      },
+      {
+        "file": "plan.md",
+        "line": 361,
+        "text": "5. Replace call sites in `src/app/api/v1/submissions/route.ts`; delete `src/lib/submission-dedup.ts`; update contract test."
+      },
+      {
+        "file": "plan.md",
+        "line": 440,
+        "text": "| [repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts:572-603, 668-679, 775-785](../../../repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts) | Replace `checkSubmissionDedup(Batch)` usages with `upsertSubmission`. Delete staleness env parsing. |"
+      },
+      {
+        "file": "plan.md",
+        "line": 441,
+        "text": "| `repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts` (GET handler, near `LIST_CACHE_TTL`) | Raise TTL from 60 s \u2192 5400 s; switch key-building to shared helper. |"
+      }
+    ]
+  },
+  {
+    "increment": "0687-queue-truthful-load-and-studio-light-refresh",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "tasks.md",
+        "line": 18,
+        "text": "- **F-M01 (deferred)** \u2014 `src/app/api/v1/submissions/route.ts:391` drift-rate `total` extrapolates on un-deduped `dbTotal` \u2192 phantom pages possible on tenants with >2000 duplicate-laden active rows. Impact: edge case; common tenants unaffected. Deferred: fix requires coordinated change in drift-rate calculation and pagination contract."
+      },
+      {
+        "file": "tasks.md",
+        "line": 19,
+        "text": "- **F-M02 (deferred)** \u2014 `src/app/api/v1/submissions/route.ts:416` `flushDbUpdates().catch(() => {})` silently swallows reconciliation failures. Impact: reconciliation drift goes unnoticed; no user-visible symptom in normal operation. Deferred: fix requires narrowing catch + deciding error-surface strategy (warn-log with rate limit vs. structured metric)."
+      },
+      {
+        "file": "tasks.md",
+        "line": 28,
+        "text": "- **F-REVIEW-003 (deferred)** \u2014 `src/app/queue/data.ts:78` + `src/app/api/v1/submissions/route.ts:80` `JSON.parse(cached)` in `parseUsableListCache` has no per-call try/catch; poisoned KV entries surface as 500/503 instead of graceful null. Low severity. Deferred."
+      },
+      {
+        "file": "tasks.md",
+        "line": 29,
+        "text": "- **F-REVIEW-004 (deferred)** \u2014 `src/lib/queue/submission-dedup.ts:18` `dedupeSubmissions` is first-row-wins; Prisma fallback in `fetch-submission-list.ts` sorts by `processingOrder`, not `updatedAt desc`. Part of F-003 family. Deferred."
+      },
+      {
+        "file": "tasks.md",
+        "line": 31,
+        "text": "- **G-0687-01 (deferred)** \u2014 `src/app/api/v1/submissions/route.ts:478,485` in `tryKvFallback` error path, `parseUsableListCache(cached)` is called with no args, defaulting to `limit=50, offset=0`. Same bug class as F-001 but in a different file (route.ts vs data.ts). Only triggers on DB outage + non-first-page queries (uncommon combination). Grill verdict PASS (0 critical, 1 high, ship readiness NEEDS REVIEW). Deferred to follow-up \u2014 same one-line fix pattern as F-001."
+      }
+    ]
+  },
+  {
+    "increment": "0720-submission-rejection-detail-visibility",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 97,
+        "text": "- Existing `persistScanResultToDb()` in `src/lib/submission/db-persist.ts` (DB upsert)"
+      }
+    ]
+  },
+  {
+    "increment": "0658-fix-submission-pipeline-reliability",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 65,
+        "text": "**Context**: `src/app/api/v1/submissions/route.ts:811-826` catches `SUBMISSION_QUEUE.send()` errors but only logs them. The submission is already created in DB as RECEIVED and returned to the caller as \"created\", but it's never enqueued \u2014 it becomes a ghost submission with no processing path."
+      },
+      {
+        "file": "plan.md",
+        "line": 77,
+        "text": "**Files**: `src/app/api/v1/submissions/route.ts`"
+      }
+    ]
+  },
+  {
+    "increment": "0841-per-org-seat-licensing",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "tasks.md",
+        "line": 46,
+        "text": "- `src/app/api/v1/submissions/route.ts` \u2014 same migration; billing subscription lookup wrapped in try/catch (failure \u2192 null sub \u2192 FREE tier, safer than 500)."
+      }
+    ]
+  },
+  {
+    "increment": "0744-fix-cert-tier-muddle-versions-tab",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 94,
+        "text": "All code paths that create or update SkillVersion.certTier MUST call `deriveCertTier(scan, { isVendor })` from `src/lib/submission/types.ts`. Hardcoded values are forbidden."
+      },
+      {
+        "file": "spec.md",
+        "line": 123,
+        "text": "- `deriveCertTier()` at `src/lib/submission/types.ts:160` (existing, reused)."
+      },
+      {
+        "file": "plan.md",
+        "line": 92,
+        "text": "| `deriveCertTier` | `src/lib/submission/types.ts:160` | 1 |"
+      }
+    ]
+  },
+  {
+    "increment": "0826-skill-studio-private-repos",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "tasks.md",
+        "line": 323,
+        "text": "- `repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts` (modify \u2014 add privacy ternary validation + repo visibility cross-check)"
+      },
+      {
+        "file": "tasks.md",
+        "line": 337,
+        "text": "- `repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts` (modify \u2014 add cap check before insertion)"
+      }
+    ]
+  },
+  {
+    "increment": "0727-0708-followup-security-and-dos-hardening",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "tasks.md",
+        "line": 89,
+        "text": "- [x] `src/app/api/v1/submissions/route.ts:577` \u2014 `internalKey === cfEnvForKey.INTERNAL_BROADCAST_KEY` \u2192 fixed (closure follow-up)"
+      }
+    ]
+  },
+  {
+    "increment": "0762-queue-drain-recovery-and-telemetry",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 22,
+        "text": "4. **List cache poisoning** \u2014 `src/app/api/v1/submissions/route.ts:475` writes `submissions: []` with `total: N>0` to the 24h `submissions:latest:active` cache when drift correction empties the visible list. Once written, the queue page serves a near-empty list for up to 24h."
+      },
+      {
+        "file": "spec.md",
+        "line": 43,
+        "text": "- [x] **AC-US4-01**: `src/app/api/v1/submissions/route.ts` only writes the KV list cache when `submissions.length > 0`; an empty `submissions` array is never persisted, regardless of the `total` field."
+      },
+      {
+        "file": "plan.md",
+        "line": 13,
+        "text": "| `src/app/api/v1/submissions/route.ts:475` | Predicate change: cache only when `submissions.length > 0`. |"
+      },
+      {
+        "file": "plan.md",
+        "line": 14,
+        "text": "| `src/app/api/v1/submissions/route.ts:442` | Wrap `flushDbUpdates` to log per-rejection results. |"
+      },
+      {
+        "file": "plan.md",
+        "line": 22,
+        "text": "- `parseUsableListCache` from `src/app/api/v1/submissions/route.ts` \u2014 used by `/api/v1/queue/health` to read cached list metadata."
+      }
+    ]
+  },
+  {
+    "increment": "0705-vskill-versioning-multi-file-diff",
+    "status": "completed",
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 138,
+        "text": "- Submission route: `repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts:719`."
+      },
+      {
+        "file": "tasks.md",
+        "line": 14,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts:717-807`"
+      },
+      {
+        "file": "plan.md",
+        "line": 16,
+        "text": "src/app/api/v1/submissions/route.ts                        [modify]"
+      },
+      {
+        "file": "plan.md",
+        "line": 38,
+        "text": "Today `src/app/api/v1/submissions/route.ts:719` calls `prisma.submission.create()` directly inside a try/catch that re-throws. Replace with an `upsertSubmission()` call. The upsert helper already knows how to catch P2002 and map existing row state to a `kind`. Removing the raw `create()` call kills the 500."
+      }
+    ]
+  }
+]

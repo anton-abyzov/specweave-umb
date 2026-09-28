@@ -1,0 +1,93 @@
+{
+  "at": "2026-09-28T23:55:57.206Z",
+  "passed": 21,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "all 22 exact distinct rows, stable old 10 and completed publication",
+      "passed": true
+    },
+    {
+      "name": "missing canonical row cannot settle after page removal",
+      "passed": true
+    },
+    {
+      "name": "old Submission name/path/identity change fails protection",
+      "passed": true
+    },
+    {
+      "name": "old Skill name/privacy/slug change fails protection",
+      "passed": true
+    },
+    {
+      "name": "old version target removal fails protection",
+      "passed": true
+    },
+    {
+      "name": "new canonical row reusing old Submission fails",
+      "passed": true
+    },
+    {
+      "name": "new path adopting an old linked Skill fails",
+      "passed": true
+    },
+    {
+      "name": "two distinct artifacts cannot share a new Skill",
+      "passed": true
+    },
+    {
+      "name": "same page unresolved cannot settle",
+      "passed": true
+    },
+    {
+      "name": "same page positive accepted hashes can settle",
+      "passed": true
+    },
+    {
+      "name": "scanner rejection is distinct from published success",
+      "passed": true
+    },
+    {
+      "name": "processing intake does not claim completed publication",
+      "passed": true
+    },
+    {
+      "name": "unknown or mismatched sweep cannot settle",
+      "passed": true
+    },
+    {
+      "name": "runtime replacement is explicit rather than hidden",
+      "passed": true
+    },
+    {
+      "name": "historical lost/error counter resets rejected",
+      "passed": true
+    },
+    {
+      "name": "tampered baseline receipt rejected",
+      "passed": true
+    },
+    {
+      "name": "private or path-mismatched publication fails",
+      "passed": true
+    },
+    {
+      "name": "historical version alone cannot prove current publication",
+      "passed": true
+    },
+    {
+      "name": "deprecated new publication cannot complete",
+      "passed": true
+    },
+    {
+      "name": "strict verification rejects every incomplete gate",
+      "passed": true
+    },
+    {
+      "name": "timestamps and metrics are outside protected fingerprints",
+      "passed": true
+    }
+  ],
+  "networkCalls": 0,
+  "helperSha256": "2b3de2a8d38b29673b7d1a4239a099dfa9acfb097208cb0d447c31e17e4b66fc"
+}

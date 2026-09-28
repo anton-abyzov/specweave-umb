@@ -1,0 +1,839 @@
+[
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0755-studio-search-discoverability-fixes",
+    "status": "planned",
+    "updated": "2026-04-26T07:55:40.038Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "tasks.md",
+        "line": 112,
+        "text": "**File**: `vskill-platform/src/lib/submission/publish.ts`"
+      },
+      {
+        "file": "plan.md",
+        "line": 88,
+        "text": "**File**: `vskill-platform/src/lib/submission/publish.ts`"
+      },
+      {
+        "file": "plan.md",
+        "line": 107,
+        "text": "- `vskill-platform/src/lib/submission/publish.ts` \u2014 enqueue at PUBLISHED transition"
+      },
+      {
+        "file": "plan.md",
+        "line": 138,
+        "text": "- `src/lib/submission/publish.ts` \u2014 submission update + KV waitUntil (phases 3-4)"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0777-fix-submission-published-link-collision",
+    "status": "completed",
+    "updated": "2026-04-26T21:04:43.764Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "plan.md",
+        "line": 27,
+        "text": "- `Skill.name` is the hierarchical 3-segment string (e.g. `anton-abyzov/greet-anton/greet-anton-abyzov`) created by `buildHierarchicalName()` in `src/lib/slug.ts:105-107` and stored as the unique key on the Skill row."
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0750-studio-skill-version-display-fallback",
+    "status": "completed",
+    "updated": "2026-04-26T06:48:19.249Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 125,
+        "text": "- Changes to publish flow (`vskill-platform/src/lib/submission/publish.ts:272` 1.0.0 default stays)"
+      },
+      {
+        "file": "tasks.md",
+        "line": 159,
+        "text": "- Changing `vskill-platform/src/lib/submission/publish.ts` 1.0.0 default"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0668-vskill-platform-audit-fixes",
+    "status": "completed",
+    "updated": "2026-04-19T05:37:27.071Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "tasks.md",
+        "line": 44,
+        "text": "When: src/lib/submission/publish.ts is created (~500 lines) importing from kv-store.ts and db-persist.ts"
+      },
+      {
+        "file": "plan.md",
+        "line": 227,
+        "text": "4. Extract `src/lib/submission/publish.ts` (publish workflow)"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0752-search-index-dirty-flag-coverage",
+    "status": "planned",
+    "updated": "2026-04-26T07:05:04.052Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 22,
+        "text": "1. `src/lib/submission/publish.ts:671` already sets the dirty flag but is **missing `expirationTtl: 86400`** \u2014 inconsistent with the cron-handler write at `scripts/build-worker-entry.ts:165-167`."
+      },
+      {
+        "file": "spec.md",
+        "line": 39,
+        "text": "- [ ] **AC-US1-02**: Helper resolves `SEARCH_CACHE_KV` via `getWorkerEnv()` first, falling back to `getCloudflareContext({ async: true })` \u2014 same dual-path pattern currently inlined at `src/lib/submission/publish.ts:657-674`."
+      },
+      {
+        "file": "spec.md",
+        "line": 50,
+        "text": "**I want** the inline env-resolve + put block at `src/lib/submission/publish.ts:657-674` replaced with a single `await markSearchIndexDirty()` call"
+      },
+      {
+        "file": "spec.md",
+        "line": 54,
+        "text": "- [ ] **AC-US2-01**: `src/lib/submission/publish.ts` no longer contains an inline `searchKv.put('search-index:dirty', '1')` invocation; the env-resolution code at lines 657-674 is removed."
+      },
+      {
+        "file": "tasks.md",
+        "line": 62,
+        "text": "- `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts` (modify lines 657-674; -17 lines, +2 lines: 1 import + 1 call)"
+      },
+      {
+        "file": "plan.md",
+        "line": 15,
+        "text": "1. **Missing TTL** \u2014 `src/lib/submission/publish.ts:671` calls `searchKv.put('search-index:dirty', '1')` without `{ expirationTtl: 86400 }`. The matching cron-handler write at `scripts/build-worker-entry.ts:165-167` does include the TTL. Inconsistent."
+      },
+      {
+        "file": "plan.md",
+        "line": 145,
+        "text": "### 5.2 Modified: `src/lib/submission/publish.ts:657-674`"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0672-queue-reliability",
+    "status": "completed",
+    "updated": "2026-04-21T17:13:31.351Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "tasks.md",
+        "line": 78,
+        "text": "### T-012: Implement `src/lib/submission/upsert.ts` (GREEN)"
+      },
+      {
+        "file": "tasks.md",
+        "line": 81,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/upsert.ts`, `repositories/anton-abyzov/vskill-platform/src/lib/submission/index.ts`, `repositories/anton-abyzov/vskill-platform/src/lib/submission-store.ts`"
+      },
+      {
+        "file": "plan.md",
+        "line": 173,
+        "text": "// src/lib/submission/upsert.ts  (new file, re-exported from src/lib/submission/index.ts)"
+      },
+      {
+        "file": "plan.md",
+        "line": 360,
+        "text": "4. Write `src/lib/submission/upsert.ts` + export via existing shim."
+      },
+      {
+        "file": "plan.md",
+        "line": 450,
+        "text": "| `repositories/anton-abyzov/vskill-platform/src/lib/submission/upsert.ts` | `upsertSubmission` implementation. |"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0819-skill-versionless-rows-fix",
+    "status": "completed",
+    "updated": "2026-05-01T18:30:01.641Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 56,
+        "text": "- [x] **AC-US2-06**: `src/lib/submission/publish.ts:300` is intentionally not modified \u2014 its existing pairing via `writeSkillVersionWithOutbox` (line 676) is already correct. A comment in the refactor PR description notes this as a deliberate non-change."
+      },
+      {
+        "file": "spec.md",
+        "line": 135,
+        "text": "All code paths that create a new `Skill` row MUST go through `createSkillWithVersion()` so the first `SkillVersion` is written in the same transaction. Existing publish flows that already pair correctly (`src/lib/submission/publish.ts`) are exempt because they are already correct \u2014 the architecture test allowlists them explicitly."
+      },
+      {
+        "file": "spec.md",
+        "line": 164,
+        "text": "- Renaming or refactoring `src/lib/submission/publish.ts` \u2014 already correct, intentionally untouched."
+      },
+      {
+        "file": "plan.md",
+        "line": 27,
+        "text": "**Decision**: New helper at `src/lib/skills/create-skill-with-version.ts` accepts `{ where, create, update }` for `Skill.upsert` plus a `SkillVersionInput`, runs both inside `db.$transaction`, and returns `{ skill, skillVersion, eventId, payload }`. All future Skill-row writers route through it. Allowlist exception: `src/lib/submission/publish.ts:300` \u2014 already pair-writes via `writeSkillVersionWithOutbox` at line 676 inside its own transaction; refactoring that caller is out of scope and would add risk without value."
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0673-submission-dedup-cleanup-at-scale",
+    "status": "completed",
+    "updated": "2026-04-24T20:39:19.511Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 175,
+        "text": "- **Changes to 0672's `upsertSubmission`** (`src/lib/submission/upsert.ts`) or cache warm-up (`src/lib/cron/queue-list-warmup.ts`) \u2014 both already shipped in commit `5b92a50` and confirmed correct."
+      },
+      {
+        "file": "plan.md",
+        "line": 210,
+        "text": "- `repositories/anton-abyzov/vskill-platform/src/lib/submission/upsert.ts` \u2014 `upsertSubmission` stays as-is; it's the write-side pattern that the cleanup makes safe to keep."
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0744-fix-cert-tier-muddle-versions-tab",
+    "status": "completed",
+    "updated": "2026-04-26T05:42:31.537Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 26,
+        "text": "1. **Bug**: `src/lib/skill-update/scanner.ts:184` hardcodes `certTier: 'VERIFIED'` on the auto-poll path, ignoring vendor status. The submission/publish path (`src/lib/submission/publish.ts:218`) correctly calls `deriveCertTier(scan, { isVendor })`. Vendor-org skills get the wrong tier when the auto-poll detects a new commit."
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0727-0708-followup-security-and-dos-hardening",
+    "status": "completed",
+    "updated": "2026-04-25T20:08:07.310Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 100,
+        "text": "- [x] **AC-US4-04** (F-CR9): The broad `try/catch` around fingerprint computation in `src/lib/submission/publish.ts` is narrowed to the specific error class (likely `RangeError` or `TypeError`). Other error types propagate. Unit test asserts a synthetic `Error` (non-targeted) is *not* swallowed by the narrowed catch."
+      },
+      {
+        "file": "spec.md",
+        "line": 213,
+        "text": "- `src/lib/submission/publish.ts` \u2014 US-004 (F-CR9)"
+      },
+      {
+        "file": "tasks.md",
+        "line": 257,
+        "text": "> **Audit note before T-021**: grep `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts` for fingerprint-adjacent `try/catch`. If the broad catch was already removed (refactor since 0708), close T-020 and T-021 as no-ops with a note."
+      },
+      {
+        "file": "tasks.md",
+        "line": 271,
+        "text": "- `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts` (update)"
+      },
+      {
+        "file": "plan.md",
+        "line": 395,
+        "text": "| AC-US4-04 | F-CR9 | `src/lib/submission/publish.ts` | (audit needed \u2014 broad catch around fingerprint computation; line numbers diverged from finding's `~125`) | Implementor greps for fingerprint-adjacent try/catch and narrows from `catch` to `catch (err) { if (err instanceof TypeError \\|\\| err instanceof RangeError) { /* expected \u2014 log warn and proceed */ } else throw err; }`. If the audit shows the catch was already removed (refactor since 0708), close as no-op with note. |"
+      },
+      {
+        "file": "plan.md",
+        "line": 593,
+        "text": "| `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts` | US-004 | Narrow broad catch around fingerprint compute |"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0680-registry-versioning-v2-phase1",
+    "status": "completed",
+    "updated": "2026-04-23T13:44:39.210Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 17,
+        "text": "The verified-skill.com registry auto-patch-bumps every submission in `src/lib/submission/publish.ts:210-284`. There is no way for authors to declare `1.0.0 \u2192 2.0.0`, no protection against duplicate or backward versions, and no publisher attribution on version rows. Worse, the integrity hash covers only `SKILL.md` \u2014 `scripts/**` and `references/**` can change silently, a real supply-chain gap. The completed companion increment `0584-skill-versioning` shipped the CLI-side algorithms (full-file SHA-256, deterministic `path\\0content\\n` concat, frontmatter extraction, three-way resolveVersion priority). This increment **completes the loop on the server** so the registry honours the contract the CLI already speaks."
+      },
+      {
+        "file": "tasks.md",
+        "line": 148,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts`, `repositories/anton-abyzov/vskill-platform/src/lib/integrity/errors.ts` (new)"
+      },
+      {
+        "file": "tasks.md",
+        "line": 165,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts`"
+      },
+      {
+        "file": "tasks.md",
+        "line": 188,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts`"
+      },
+      {
+        "file": "plan.md",
+        "line": 15,
+        "text": "Today `publishSkill()` in `src/lib/submission/publish.ts:210-284` auto-patch-bumps on every content change, hashes only `SKILL.md` (ignoring `scripts/**` \u2014 a real supply-chain gap), and has no concept of author intent, pre-releases, yank, deprecate, or attribution. Phase 1 closes the server-side gaps in a **purely additive** way so existing skills continue to behave exactly as they do today (all default to `versioningMode=\"auto\"`)."
+      },
+      {
+        "file": "plan.md",
+        "line": 572,
+        "text": "### 5.5 `src/lib/submission/publish.ts` (MODIFIED)"
+      },
+      {
+        "file": "plan.md",
+        "line": 809,
+        "text": "| `src/lib/submission/publish.ts` | 210-284 | Primary injection point \u2014 branch here |"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0732-skill-update-tracking-resolution",
+    "status": "completed",
+    "updated": "2026-04-26T00:47:59.305Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 46,
+        "text": "- [x] **AC-US1-05**: When a new Skill row is minted at the Skill-row minting sites (`src/app/api/v1/admin/rebuild-index/route.ts` and `src/lib/submission/publish.ts`), it persists `sourceRepoUrl` and `sourceBranch` directly at insert time on the `create` branch \u2014 the resolver becomes the fallback, not the only path. (Spec originally named `scanner.ts`, but the actual minting sites are the rebuild-index route and submission publish path; resolver wiring at `resolveSkillSource` consumes the precedence chain for any rows minted before this change.)"
+      },
+      {
+        "file": "plan.md",
+        "line": 8,
+        "text": "2. **Skill-row write-at-discovery** \u2014 persist `sourceRepoUrl`/`sourceBranch` directly at the Skill-row minting sites (`src/app/api/v1/admin/rebuild-index/route.ts` and `src/lib/submission/publish.ts`). The earlier plan named `scanner.ts:362\u2013389`; the actual minting happens in the admin rebuild-index batched upsert and the submission publish upsert. Both write on the `create` branch only \u2014 preserves the AC-US1-04 user-locked spirit on `update`."
+      },
+      {
+        "file": "plan.md",
+        "line": 101,
+        "text": "- **`src/lib/submission/publish.ts:248`** \u2014 single `db.skill.upsert` when promoting a submitted skill. Updated in this fix: writes `sourceRepoUrl: normalizedRepoUrl`, `sourceBranch: \"main\"` on the `create` branch only."
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0705-vskill-versioning-multi-file-diff",
+    "status": "completed",
+    "updated": "2026-04-24T20:34:16.140Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 136,
+        "text": "- Publish code: `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts:337-356`."
+      },
+      {
+        "file": "spec.md",
+        "line": 137,
+        "text": "- Upsert code: `repositories/anton-abyzov/vskill-platform/src/lib/submission/upsert.ts:101-120`."
+      },
+      {
+        "file": "tasks.md",
+        "line": 22,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/upsert.ts:101-120`"
+      },
+      {
+        "file": "tasks.md",
+        "line": 31,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts:337-356`"
+      },
+      {
+        "file": "tasks.md",
+        "line": 40,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts:32-45`"
+      },
+      {
+        "file": "plan.md",
+        "line": 17,
+        "text": "src/lib/submission/upsert.ts                               [modify]"
+      },
+      {
+        "file": "plan.md",
+        "line": 18,
+        "text": "src/lib/submission/publish.ts                              [modify]"
+      },
+      {
+        "file": "plan.md",
+        "line": 42,
+        "text": "In `src/lib/submission/upsert.ts:101-120`, the PUBLISHED branch currently returns `{kind: \"verified\"}` unconditionally. Add:"
+      },
+      {
+        "file": "plan.md",
+        "line": 66,
+        "text": "In `src/lib/submission/publish.ts:337-356`, the `create()` payload currently omits `manifest`. The `treeFiles` map (line 264) already has every file's content in memory. Add:"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+    "increment": "0685-rescan-published-dedup-fix",
+    "status": "completed",
+    "updated": "2026-04-23T13:05:54.505Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 104,
+        "text": "- **DO NOT** change `src/lib/submission/publish.ts` \u2014 its contract of"
+      },
+      {
+        "file": "plan.md",
+        "line": 53,
+        "text": "- `src/lib/submission/publish.ts` \u2014 publish contract is the reason we can reuse."
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0755-studio-search-discoverability-fixes",
+    "status": "planned",
+    "updated": "2026-04-26T07:55:40.038Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "tasks.md",
+        "line": 112,
+        "text": "**File**: `vskill-platform/src/lib/submission/publish.ts`"
+      },
+      {
+        "file": "plan.md",
+        "line": 88,
+        "text": "**File**: `vskill-platform/src/lib/submission/publish.ts`"
+      },
+      {
+        "file": "plan.md",
+        "line": 107,
+        "text": "- `vskill-platform/src/lib/submission/publish.ts` \u2014 enqueue at PUBLISHED transition"
+      },
+      {
+        "file": "plan.md",
+        "line": 138,
+        "text": "- `src/lib/submission/publish.ts` \u2014 submission update + KV waitUntil (phases 3-4)"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0777-fix-submission-published-link-collision",
+    "status": "completed",
+    "updated": "2026-04-26T21:04:43.764Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "plan.md",
+        "line": 27,
+        "text": "- `Skill.name` is the hierarchical 3-segment string (e.g. `anton-abyzov/greet-anton/greet-anton-abyzov`) created by `buildHierarchicalName()` in `src/lib/slug.ts:105-107` and stored as the unique key on the Skill row."
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0750-studio-skill-version-display-fallback",
+    "status": "completed",
+    "updated": "2026-04-26T06:48:19.249Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 125,
+        "text": "- Changes to publish flow (`vskill-platform/src/lib/submission/publish.ts:272` 1.0.0 default stays)"
+      },
+      {
+        "file": "tasks.md",
+        "line": 159,
+        "text": "- Changing `vskill-platform/src/lib/submission/publish.ts` 1.0.0 default"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0668-vskill-platform-audit-fixes",
+    "status": "completed",
+    "updated": "2026-04-19T05:37:27.071Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "tasks.md",
+        "line": 44,
+        "text": "When: src/lib/submission/publish.ts is created (~500 lines) importing from kv-store.ts and db-persist.ts"
+      },
+      {
+        "file": "plan.md",
+        "line": 227,
+        "text": "4. Extract `src/lib/submission/publish.ts` (publish workflow)"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0752-search-index-dirty-flag-coverage",
+    "status": "planned",
+    "updated": "2026-04-26T07:05:04.052Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 22,
+        "text": "1. `src/lib/submission/publish.ts:671` already sets the dirty flag but is **missing `expirationTtl: 86400`** \u2014 inconsistent with the cron-handler write at `scripts/build-worker-entry.ts:165-167`."
+      },
+      {
+        "file": "spec.md",
+        "line": 39,
+        "text": "- [ ] **AC-US1-02**: Helper resolves `SEARCH_CACHE_KV` via `getWorkerEnv()` first, falling back to `getCloudflareContext({ async: true })` \u2014 same dual-path pattern currently inlined at `src/lib/submission/publish.ts:657-674`."
+      },
+      {
+        "file": "spec.md",
+        "line": 50,
+        "text": "**I want** the inline env-resolve + put block at `src/lib/submission/publish.ts:657-674` replaced with a single `await markSearchIndexDirty()` call"
+      },
+      {
+        "file": "spec.md",
+        "line": 54,
+        "text": "- [ ] **AC-US2-01**: `src/lib/submission/publish.ts` no longer contains an inline `searchKv.put('search-index:dirty', '1')` invocation; the env-resolution code at lines 657-674 is removed."
+      },
+      {
+        "file": "tasks.md",
+        "line": 62,
+        "text": "- `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts` (modify lines 657-674; -17 lines, +2 lines: 1 import + 1 call)"
+      },
+      {
+        "file": "plan.md",
+        "line": 15,
+        "text": "1. **Missing TTL** \u2014 `src/lib/submission/publish.ts:671` calls `searchKv.put('search-index:dirty', '1')` without `{ expirationTtl: 86400 }`. The matching cron-handler write at `scripts/build-worker-entry.ts:165-167` does include the TTL. Inconsistent."
+      },
+      {
+        "file": "plan.md",
+        "line": 145,
+        "text": "### 5.2 Modified: `src/lib/submission/publish.ts:657-674`"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0672-queue-reliability",
+    "status": "completed",
+    "updated": "2026-04-21T17:13:31.351Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "tasks.md",
+        "line": 78,
+        "text": "### T-012: Implement `src/lib/submission/upsert.ts` (GREEN)"
+      },
+      {
+        "file": "tasks.md",
+        "line": 81,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/upsert.ts`, `repositories/anton-abyzov/vskill-platform/src/lib/submission/index.ts`, `repositories/anton-abyzov/vskill-platform/src/lib/submission-store.ts`"
+      },
+      {
+        "file": "plan.md",
+        "line": 173,
+        "text": "// src/lib/submission/upsert.ts  (new file, re-exported from src/lib/submission/index.ts)"
+      },
+      {
+        "file": "plan.md",
+        "line": 360,
+        "text": "4. Write `src/lib/submission/upsert.ts` + export via existing shim."
+      },
+      {
+        "file": "plan.md",
+        "line": 450,
+        "text": "| `repositories/anton-abyzov/vskill-platform/src/lib/submission/upsert.ts` | `upsertSubmission` implementation. |"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0819-skill-versionless-rows-fix",
+    "status": "completed",
+    "updated": "2026-05-01T18:30:01.641Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 56,
+        "text": "- [x] **AC-US2-06**: `src/lib/submission/publish.ts:300` is intentionally not modified \u2014 its existing pairing via `writeSkillVersionWithOutbox` (line 676) is already correct. A comment in the refactor PR description notes this as a deliberate non-change."
+      },
+      {
+        "file": "spec.md",
+        "line": 135,
+        "text": "All code paths that create a new `Skill` row MUST go through `createSkillWithVersion()` so the first `SkillVersion` is written in the same transaction. Existing publish flows that already pair correctly (`src/lib/submission/publish.ts`) are exempt because they are already correct \u2014 the architecture test allowlists them explicitly."
+      },
+      {
+        "file": "spec.md",
+        "line": 164,
+        "text": "- Renaming or refactoring `src/lib/submission/publish.ts` \u2014 already correct, intentionally untouched."
+      },
+      {
+        "file": "plan.md",
+        "line": 27,
+        "text": "**Decision**: New helper at `src/lib/skills/create-skill-with-version.ts` accepts `{ where, create, update }` for `Skill.upsert` plus a `SkillVersionInput`, runs both inside `db.$transaction`, and returns `{ skill, skillVersion, eventId, payload }`. All future Skill-row writers route through it. Allowlist exception: `src/lib/submission/publish.ts:300` \u2014 already pair-writes via `writeSkillVersionWithOutbox` at line 676 inside its own transaction; refactoring that caller is out of scope and would add risk without value."
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0673-submission-dedup-cleanup-at-scale",
+    "status": "completed",
+    "updated": "2026-04-24T20:39:19.511Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 175,
+        "text": "- **Changes to 0672's `upsertSubmission`** (`src/lib/submission/upsert.ts`) or cache warm-up (`src/lib/cron/queue-list-warmup.ts`) \u2014 both already shipped in commit `5b92a50` and confirmed correct."
+      },
+      {
+        "file": "plan.md",
+        "line": 210,
+        "text": "- `repositories/anton-abyzov/vskill-platform/src/lib/submission/upsert.ts` \u2014 `upsertSubmission` stays as-is; it's the write-side pattern that the cleanup makes safe to keep."
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0744-fix-cert-tier-muddle-versions-tab",
+    "status": "completed",
+    "updated": "2026-04-26T05:42:31.537Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 26,
+        "text": "1. **Bug**: `src/lib/skill-update/scanner.ts:184` hardcodes `certTier: 'VERIFIED'` on the auto-poll path, ignoring vendor status. The submission/publish path (`src/lib/submission/publish.ts:218`) correctly calls `deriveCertTier(scan, { isVendor })`. Vendor-org skills get the wrong tier when the auto-poll detects a new commit."
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0874-crawl-coverage-healthcheck-and-email-alerts",
+    "status": "active",
+    "updated": "2026-09-28T23:27:15.760Z",
+    "claims": [
+      {
+        "t": "T-017",
+        "e": "block",
+        "by": "codex-0874-crawler",
+        "at": "2026-09-28T23:27:15.401Z",
+        "note": "Authentication and existing-token configuration are repaired; initial seven-root sweep completed. Adaptive schema2 source preserves sweep026ba568 and historical loss694. Reviewed T029 telemetry is deployed and CLI-verified; original T030 canonical collision target has settled and its batch advanced. A later page retains22 unresolved entries under separate diagnosis, and clean normal continuation plus complete uncapped breadth remain unproved. Preserve active crawler/scanner; no manual replay, reset or credential rotation."
+      },
+      {
+        "t": "T-027",
+        "e": "block",
+        "by": "codex-0874-crawler",
+        "at": "2026-09-28T23:27:15.760Z",
+        "note": "Reviewed adaptive source/typed intake, T028 request-memory scope and T029 per-VM telemetry are deployed. Final Worker504442ec matches merged7f86c79c; all4checks and public/private/queue guards pass. Same schema2 sweep retains history. Original canonical collision is recovered;22new unresolved items remain under diagnosis, with no clean scheduled budget continuation/full-breadth proof yet. T030 closure is held pending reason classification. Do not reset or restart active work."
+      },
+      {
+        "t": "T-030",
+        "e": "claim",
+        "by": "codex-0874-intake-identity",
+        "at": "2026-09-28T22:44:37.134Z"
+      }
+    ],
+    "fileRefs": [
+      {
+        "file": "tasks.md",
+        "line": 209,
+        "text": "**Files**: `src/lib/submission/upsert.ts`, `src/lib/submission/__tests__/upsert.test.ts`, `src/lib/submission/__tests__/upsert-natural-key.test.ts`, `src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts`"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0727-0708-followup-security-and-dos-hardening",
+    "status": "completed",
+    "updated": "2026-04-25T20:08:07.310Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 100,
+        "text": "- [x] **AC-US4-04** (F-CR9): The broad `try/catch` around fingerprint computation in `src/lib/submission/publish.ts` is narrowed to the specific error class (likely `RangeError` or `TypeError`). Other error types propagate. Unit test asserts a synthetic `Error` (non-targeted) is *not* swallowed by the narrowed catch."
+      },
+      {
+        "file": "spec.md",
+        "line": 213,
+        "text": "- `src/lib/submission/publish.ts` \u2014 US-004 (F-CR9)"
+      },
+      {
+        "file": "tasks.md",
+        "line": 257,
+        "text": "> **Audit note before T-021**: grep `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts` for fingerprint-adjacent `try/catch`. If the broad catch was already removed (refactor since 0708), close T-020 and T-021 as no-ops with a note."
+      },
+      {
+        "file": "tasks.md",
+        "line": 271,
+        "text": "- `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts` (update)"
+      },
+      {
+        "file": "plan.md",
+        "line": 395,
+        "text": "| AC-US4-04 | F-CR9 | `src/lib/submission/publish.ts` | (audit needed \u2014 broad catch around fingerprint computation; line numbers diverged from finding's `~125`) | Implementor greps for fingerprint-adjacent try/catch and narrows from `catch` to `catch (err) { if (err instanceof TypeError \\|\\| err instanceof RangeError) { /* expected \u2014 log warn and proceed */ } else throw err; }`. If the audit shows the catch was already removed (refactor since 0708), close as no-op with note. |"
+      },
+      {
+        "file": "plan.md",
+        "line": 593,
+        "text": "| `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts` | US-004 | Narrow broad catch around fingerprint compute |"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0680-registry-versioning-v2-phase1",
+    "status": "completed",
+    "updated": "2026-04-23T13:44:39.210Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 17,
+        "text": "The verified-skill.com registry auto-patch-bumps every submission in `src/lib/submission/publish.ts:210-284`. There is no way for authors to declare `1.0.0 \u2192 2.0.0`, no protection against duplicate or backward versions, and no publisher attribution on version rows. Worse, the integrity hash covers only `SKILL.md` \u2014 `scripts/**` and `references/**` can change silently, a real supply-chain gap. The completed companion increment `0584-skill-versioning` shipped the CLI-side algorithms (full-file SHA-256, deterministic `path\\0content\\n` concat, frontmatter extraction, three-way resolveVersion priority). This increment **completes the loop on the server** so the registry honours the contract the CLI already speaks."
+      },
+      {
+        "file": "tasks.md",
+        "line": 148,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts`, `repositories/anton-abyzov/vskill-platform/src/lib/integrity/errors.ts` (new)"
+      },
+      {
+        "file": "tasks.md",
+        "line": 165,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts`"
+      },
+      {
+        "file": "tasks.md",
+        "line": 188,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts`"
+      },
+      {
+        "file": "plan.md",
+        "line": 15,
+        "text": "Today `publishSkill()` in `src/lib/submission/publish.ts:210-284` auto-patch-bumps on every content change, hashes only `SKILL.md` (ignoring `scripts/**` \u2014 a real supply-chain gap), and has no concept of author intent, pre-releases, yank, deprecate, or attribution. Phase 1 closes the server-side gaps in a **purely additive** way so existing skills continue to behave exactly as they do today (all default to `versioningMode=\"auto\"`)."
+      },
+      {
+        "file": "plan.md",
+        "line": 572,
+        "text": "### 5.5 `src/lib/submission/publish.ts` (MODIFIED)"
+      },
+      {
+        "file": "plan.md",
+        "line": 809,
+        "text": "| `src/lib/submission/publish.ts` | 210-284 | Primary injection point \u2014 branch here |"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0732-skill-update-tracking-resolution",
+    "status": "completed",
+    "updated": "2026-04-26T00:47:59.305Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 46,
+        "text": "- [x] **AC-US1-05**: When a new Skill row is minted at the Skill-row minting sites (`src/app/api/v1/admin/rebuild-index/route.ts` and `src/lib/submission/publish.ts`), it persists `sourceRepoUrl` and `sourceBranch` directly at insert time on the `create` branch \u2014 the resolver becomes the fallback, not the only path. (Spec originally named `scanner.ts`, but the actual minting sites are the rebuild-index route and submission publish path; resolver wiring at `resolveSkillSource` consumes the precedence chain for any rows minted before this change.)"
+      },
+      {
+        "file": "plan.md",
+        "line": 8,
+        "text": "2. **Skill-row write-at-discovery** \u2014 persist `sourceRepoUrl`/`sourceBranch` directly at the Skill-row minting sites (`src/app/api/v1/admin/rebuild-index/route.ts` and `src/lib/submission/publish.ts`). The earlier plan named `scanner.ts:362\u2013389`; the actual minting happens in the admin rebuild-index batched upsert and the submission publish upsert. Both write on the `create` branch only \u2014 preserves the AC-US1-04 user-locked spirit on `update`."
+      },
+      {
+        "file": "plan.md",
+        "line": 101,
+        "text": "- **`src/lib/submission/publish.ts:248`** \u2014 single `db.skill.upsert` when promoting a submitted skill. Updated in this fix: writes `sourceRepoUrl: normalizedRepoUrl`, `sourceBranch: \"main\"` on the `create` branch only."
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0705-vskill-versioning-multi-file-diff",
+    "status": "completed",
+    "updated": "2026-04-24T20:34:16.140Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 136,
+        "text": "- Publish code: `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts:337-356`."
+      },
+      {
+        "file": "spec.md",
+        "line": 137,
+        "text": "- Upsert code: `repositories/anton-abyzov/vskill-platform/src/lib/submission/upsert.ts:101-120`."
+      },
+      {
+        "file": "tasks.md",
+        "line": 22,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/upsert.ts:101-120`"
+      },
+      {
+        "file": "tasks.md",
+        "line": 31,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts:337-356`"
+      },
+      {
+        "file": "tasks.md",
+        "line": 40,
+        "text": "**Files**: `repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts:32-45`"
+      },
+      {
+        "file": "plan.md",
+        "line": 17,
+        "text": "src/lib/submission/upsert.ts                               [modify]"
+      },
+      {
+        "file": "plan.md",
+        "line": 18,
+        "text": "src/lib/submission/publish.ts                              [modify]"
+      },
+      {
+        "file": "plan.md",
+        "line": 42,
+        "text": "In `src/lib/submission/upsert.ts:101-120`, the PUBLISHED branch currently returns `{kind: \"verified\"}` unconditionally. Add:"
+      },
+      {
+        "file": "plan.md",
+        "line": 66,
+        "text": "In `src/lib/submission/publish.ts:337-356`, the `create()` payload currently omits `manifest`. The `treeFiles` map (line 264) already has every file's content in memory. Add:"
+      }
+    ]
+  },
+  {
+    "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+    "increment": "0685-rescan-published-dedup-fix",
+    "status": "completed",
+    "updated": "2026-04-23T13:05:54.505Z",
+    "claims": [],
+    "fileRefs": [
+      {
+        "file": "spec.md",
+        "line": 104,
+        "text": "- **DO NOT** change `src/lib/submission/publish.ts` \u2014 its contract of"
+      },
+      {
+        "file": "plan.md",
+        "line": 53,
+        "text": "- `src/lib/submission/publish.ts` \u2014 publish contract is the reason we can reuse."
+      }
+    ]
+  }
+]

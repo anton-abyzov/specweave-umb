@@ -1,0 +1,44 @@
+{
+  "at": "2026-09-28T23:35:44.566Z",
+  "scope": "Codex app's 50 recent tasks plus pinned tasks; related and active summaries only",
+  "threads": [
+    {
+      "id": "01a0e6ab-6a15-7a40-923e-04ea3fd64426",
+      "title": "Find incomplete CC work",
+      "status": "active"
+    },
+    {
+      "id": "01a0c796-8527-7780-8cfe-0f3eebadad71",
+      "title": "Release and install patch",
+      "status": "notLoaded"
+    },
+    {
+      "id": "01a0c712-f935-7de2-8285-15fc93773bae",
+      "title": "cc projects in sw: https://www.youtube.com/watch?v=NDTbUObZ…",
+      "status": "notLoaded"
+    },
+    {
+      "id": "01a0c71f-86a6-7302-9ab3-d89f7a09b61a",
+      "title": "lsp followup: Find and complete parallel session",
+      "status": "notLoaded"
+    },
+    {
+      "id": "01a0c703-ceb1-7ab1-8267-358c789583aa",
+      "title": "Promote Jev productivity gains",
+      "status": "notLoaded"
+    },
+    {
+      "id": "01a0c688-df51-7b93-9256-70b24c26e772",
+      "title": "Implement DCFC ticket capacity",
+      "status": "notLoaded"
+    },
+    {
+      "id": "01a09e74-ae18-7953-9dd7-e63e2ec4809d",
+      "title": "Rethink SpecWeave website and skills",
+      "status": "notLoaded"
+    }
+  ],
+  "unavailableHosts": [],
+  "unavailableSources": [],
+  "limitation": "notLoaded and idle are protected states, not abandonment; Claude parked-session ownership is not disproved by this inventory."
+}

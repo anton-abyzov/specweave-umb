@@ -1,0 +1,72 @@
+{
+  "paths": [
+    "src/lib/submission/artifact-identity.ts",
+    "src/lib/submission/upsert.ts",
+    "src/lib/submission/publish.ts",
+    "src/lib/submission/types.ts",
+    "src/lib/submission/kv-store.ts",
+    "src/lib/queue/submission-dedup.ts",
+    "src/lib/queue/fetch-submission-list.ts",
+    "src/app/api/v1/submissions/route.ts",
+    "src/app/api/v1/submissions/search/route.ts",
+    "src/lib/submission/__tests__/artifact-identity.test.ts",
+    "src/lib/submission/__tests__/upsert-distinct-artifact.test.ts",
+    "src/lib/submission/__tests__/publish-artifact-identity.test.ts",
+    "src/lib/submission/__tests__/submission-artifact-flow.test.ts",
+    "src/lib/submission/__tests__/upsert-natural-key.test.ts",
+    "src/lib/queue/__tests__/submission-dedup.test.ts",
+    "src/lib/queue/__tests__/fetch-submission-list.test.ts",
+    "src/app/api/v1/submissions/__tests__/route.artifact-identity.test.ts",
+    "src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts"
+  ],
+  "worktrees": [
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform",
+      "matchingChanges": []
+    },
+    {
+      "path": "/private/tmp/0874-t029-typecheck-baseline",
+      "matchingChanges": []
+    },
+    {
+      "path": "/private/tmp/0874-t030-regression-baseline",
+      "matchingChanges": [
+        "?? src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts",
+        "?? src/lib/submission/__tests__/upsert-natural-key.test.ts"
+      ]
+    },
+    {
+      "path": "/private/tmp/vskill-0874-baseline",
+      "matchingChanges": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-adaptive-resume",
+      "matchingChanges": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory",
+      "matchingChanges": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery",
+      "matchingChanges": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-heartbeat-progress",
+      "matchingChanges": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-intake-identity",
+      "matchingChanges": []
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations",
+      "matchingChanges": []
+    }
+  ],
+  "openPRMatches": [],
+  "preserveFixtureExceptions": [
+    "/private/tmp/0874-t030-regression-baseline"
+  ],
+  "scope": "Exact paths only; parked sessions remain protected."
+}

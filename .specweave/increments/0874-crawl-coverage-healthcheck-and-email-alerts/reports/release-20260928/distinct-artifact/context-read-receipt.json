@@ -1,0 +1,11 @@
+{
+  "repo": "anton-abyzov/easychamp-umb",
+  "branch": "claude-project-sync",
+  "sha": "bbcc7ad88d1e5f4a15bb871b183f5f0edc9ae3e4",
+  "files": [
+    "README.md",
+    "memory/MEMORY.md",
+    "memory/antonoly-max-index.md",
+    "SYNC-LOG.md"
+  ]
+}
