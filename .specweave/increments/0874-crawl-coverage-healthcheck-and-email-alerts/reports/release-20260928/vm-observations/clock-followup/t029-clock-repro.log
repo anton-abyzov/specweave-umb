@@ -1,0 +1,65 @@
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations
+
+ ❯ src/lib/alerts/__tests__/source-observations.test.ts (20 tests | 1 failed) 16ms
+   ✓ registered VM observation records > retains independent VM arrays, safe sweep fields, original failure counters and server time 2ms
+   ✓ registered VM observation records > reports a missing VM without substituting another healthy VM or aggregate 1ms
+   ✓ registered VM observation records > distinguishes valid empty from absent and preserves stale server timestamps 0ms
+   ✓ registered VM observation records > uses bounded legacy fallback only when every scoped key is genuinely absent; strips forged vmId 0ms
+   ✓ registered VM observation records > rejects malformed scoped input without aggregate fallback 0ms
+   ✓ registered VM observation records > rejects malformed scoped input without aggregate fallback 0ms
+   ✓ registered VM observation records > rejects malformed scoped input without aggregate fallback 0ms
+   ✓ registered VM observation records > rejects malformed scoped input without aggregate fallback 0ms
+   ✓ registered VM observation records > rejects malformed scoped input without aggregate fallback 0ms
+   ✓ registered VM observation records > rejects malformed discoveredTotal 0ms
+   ✓ registered VM observation records > rejects malformed receivedAt 0ms
+   ✓ registered VM observation records > rejects malformed lastRunAt 0ms
+   ✓ registered VM observation records > rejects malformed totalLost 0ms
+   ✓ registered VM observation records > rejects malformed source 0ms
+   ✓ registered VM observation records > distinguishes read failures, missing KV and malformed configuration 0ms
+   ✓ registered VM observation records > bounds configured keys, per-record sources and concurrent fetches 6ms
+   ✓ registered VM observation records > persists only safe fields and suppresses invalid completion claims 0ms
+   ✓ registered VM observation records > keeps scoped and legacy detector identities separate and unambiguous 0ms
+   ✓ legacy namespace fallback requires true absence of all canonical records 0ms
+   × accepts a legitimate server heartbeat written while its KV read is in flight 4ms
+     → expected { Object (mode, degraded, ...) } to match object { mode: 'scoped', …(2) }
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/lib/alerts/__tests__/source-observations.test.ts > accepts a legitimate server heartbeat written while its KV read is in flight
+AssertionError: expected { Object (mode, degraded, ...) } to match object { mode: 'scoped', …(2) }
+
+- Expected
++ Received
+
+  {
+-   "degraded": false,
++   "degraded": true,
+    "mode": "scoped",
+    "vms": [
+      {
+-       "receivedAt": 1790622000100,
+-       "status": "ok",
++       "status": "malformed",
+        "vmId": "a",
+      },
+    ],
+  }
+
+ ❯ src/lib/alerts/__tests__/source-observations.test.ts:118:32
+    116|   try {
+    117|     const result = await readSourceObservations(kv, "a");
+    118|     expect(result.diagnostics).toMatchObject({ mode: "scoped", degrade…
+       |                                ^
+    119|     expect(result.observations[0].receivedAt).toBe(now + 100);
+    120|   } finally { spy.mockRestore(); }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 19 passed (20)
+   Start at  18:57:34
+   Duration  321ms (transform 31ms, setup 80ms, collect 22ms, tests 16ms, environment 0ms, prepare 36ms)
+

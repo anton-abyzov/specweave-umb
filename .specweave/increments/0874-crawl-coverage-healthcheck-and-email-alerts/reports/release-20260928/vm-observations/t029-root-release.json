@@ -1,0 +1,62 @@
+{
+  "at": "2026-09-28T23:00:06.912154+00:00",
+  "sourceMerge": "1e8058fbab6afe37864d5b882bb8d3552eef1349",
+  "reviewedHead": "1687ce4837c5a430321e5e1c2fbafb4d860716de",
+  "workerVersion": "72af68f0-09f7-4ffe-b7bb-ed7bd562f23b",
+  "allSixConsumersUnchanged": true,
+  "naturalHeartbeatRecords": [
+    {
+      "vmId": "5.161.69.232",
+      "firstReceivedAt": 1790636208323,
+      "secondReceivedAt": 1790636328388,
+      "sourceCount": 2
+    },
+    {
+      "vmId": "91.107.239.24",
+      "firstReceivedAt": 1790636246575,
+      "secondReceivedAt": 1790636305896,
+      "sourceCount": 5
+    },
+    {
+      "vmId": "5.161.56.136",
+      "firstReceivedAt": 1790636238920,
+      "secondReceivedAt": 1790636358495,
+      "sourceCount": 3
+    }
+  ],
+  "targetSource": {
+    "source": "github-sharded",
+    "vmIdMatches": true,
+    "serverTimeMatches": true,
+    "receivedAt": 1790636358495,
+    "discoveredTotal": 1062,
+    "submittedTotal": 1020,
+    "publishedTotal": 198,
+    "totalErrors": 44,
+    "totalTimeouts": 0,
+    "totalLost": 694,
+    "consecutiveErrors": 44,
+    "probesCompleted": 7,
+    "probesPending": 10,
+    "shardsCompleted": 1,
+    "shardsTotal": 2,
+    "distinctDiscoveredLowerBound": 1062,
+    "totalRejected": 121,
+    "recoveredFailureCount": 44,
+    "totalVisibilityUnknown": 0,
+    "totalPrivateFiltered": 0,
+    "cappedLeafCount": 0,
+    "intakeItemErrors": 151,
+    "completed": false,
+    "coverageComplete": false,
+    "distinctCountExact": true,
+    "phase": "crawling",
+    "sweepId": "026ba568-3ac5-4855-95fd-6c441c8007d2",
+    "distinctKeysSha256": "bf84d7c07992e18d191dc4e4a50c882532395c51ee3431fe9d474b7b5fa5eb5d",
+    "lastError": "reported-error"
+  },
+  "publicPrivateQueueChecks": "pass",
+  "closure": "open: reader clock follow-up7c6c4d82 requires review/CI/release",
+  "runtimeReadback": "t029-runtime-readback.json",
+  "fullSweepProven": false
+}

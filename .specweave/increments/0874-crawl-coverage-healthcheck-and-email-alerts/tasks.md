@@ -201,6 +201,8 @@ Domains: **A** = platform alerts/heartbeat, **B** = platform intake, **C** = cra
 **Test**: Node 22 focused receiver, scoped-reader, detector, evaluator and admin tests; full platform suite; Worker build and required CI. Reproduce interleaved VM overwrite first, then prove independent source histories/baselines/dedup, missing/stale VM semantics, bounded input and concurrency, no malformed/read-error legacy fallback, no raw payload persistence.
 **Contract**: New isolated worktree `0874-vm-observations` on `codex/0874-vm-observations` from merged789f423b. Keep aggregate compatibility, add versioned per-registered-VM records, read configured identities only and preserve server-clock freshness. No production heartbeat injection, VM restart, checkpoint change, credential change or deployment before independent review and safe T028 runtime verification.
 
+**T029 timing amendment**: Validate server timestamps with the actual clock after each awaited KV read, preserving explicit deterministic cutoffs. A heartbeat arriving during a read must remain valid; truly future timestamps still fail closed. Four existing task files only; independently reviewed PR80, no rollback or crawler mutation. T029 remains open through this follow-up release verification.
+
 ### T-030: Resolve intake uniqueness races through the exact canonical tuple
 **AC**: AC-US2-01
 **Acceptance**: Reuse only an exact complete canonical tuple after natural/legacy uniqueness conflicts, including rename and case changes. Preserve published, pending, blocked and rejected states and tenant/private/path/source boundaries. Unknown constraints, other errors and deleted-row races stay explicit retryable errors; never acknowledge an empty-ID pending result or false skip.

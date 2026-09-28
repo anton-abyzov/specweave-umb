@@ -1,0 +1,13 @@
+# T029 release and readback
+
+Source candidate: PR78, 1687ce4837c5a430321e5e1c2fbafb4d860716de. Root merges only exact reviewed head after all four required CI checks pass and ownership/current-main checks. Root coordinates the separate T030 intake repair; do not combine unreviewed changes or assume another release's current Worker version.
+
+Build the root-provided merged commit in the owned isolated worktree with exact Node22.20.0 PATH, recording process.version and executable. Exclude local fixture env files and unset E2E_BYPASS/JWT_SECRET/DATABASE_URL/ENABLE_PRIVATE_REPOS. PWDEBUG=0, PLAYWRIGHT_HTML_OPEN=never. Verify frozen source hashes, Worker build and queue-health contract. Record actual generated-count input/hash and full artifact manifest before restoring only incidental count drift.
+
+Fresh authoritative Cloudflare prestate must match the then-current version at100% and the reviewed six queue consumer configurations/delivery settings. Known T028 version at22:29 is9544aae4-75e4-45ea-b099-1858f4036ab7; this is a checkpoint, not authority to overwrite a later version. Deploy only after root's guarded authorization. Any uncertain CLI result needs authoritative deployment/queue readback before retry or rollback.
+
+Worker only. No crawler/scanner restart, image/env change, state reset, migration, credentials, scheduler change, synthetic heartbeat or manual intake replay. Existing source sweep must retain its identity and historical counters. Recheck public harness404s, actual private anonymous404, catalog redirect, public data and schema2 queue-health/internal dry-run contracts.
+
+After naturally scheduled VM heartbeats, read the configured per-VM SOURCE_OBS_KEY records from SUBMISSIONS_KV. Verify envelope version1, matching registered VM identity, real server receivedAt timestamps, distinct same-name source observations and target VM3 sweepId/probes/shards/failed-attempt counters. Capture a second scheduled heartbeat to demonstrate independent records persist while other VMs report. No raw payload, secret, path or repository identities in evidence. Run no production evaluator or admin endpoint merely for testing if it could emit notifications; local distinct-namespace integration tests cover these readers. Read-only stored baseline/history inspection is allowed and must remain keyed by VM/source.
+
+Missing/malformed/read-error VM records remain explicit diagnostics; valid empty is distinct. The legacy aggregate compatibility write is not fleet-wide health proof. Fleet authentication remains a shared internal key plus registered body IP, not machine attestation. Completion of a partial adaptive sweep is a separate gate and cannot be inferred from healthy telemetry.
