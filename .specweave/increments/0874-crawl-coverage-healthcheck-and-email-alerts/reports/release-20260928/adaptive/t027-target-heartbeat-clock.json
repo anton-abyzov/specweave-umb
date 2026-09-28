@@ -1,0 +1,38 @@
+{
+  "at": "2026-09-28T19:09:36.606927+00:00",
+  "vm-health:5.161.56.136:lastSeen": {
+    "ts": 1790622557771,
+    "status": "ok",
+    "scheduler": {
+      "running": true,
+      "sourceCount": 3
+    }
+  },
+  "alerts:vm:source-observations": [
+    {
+      "source": "vendor-org-discovery",
+      "receivedAt": 1790622565625,
+      "totalLost": 790
+    },
+    {
+      "source": "sast-scanner",
+      "receivedAt": 1790622565625,
+      "totalLost": 0
+    },
+    {
+      "source": "submission-scanner",
+      "receivedAt": 1790622565625,
+      "totalLost": 0
+    },
+    {
+      "source": "github-graphql-check",
+      "receivedAt": 1790622565625,
+      "totalLost": 4747
+    },
+    {
+      "source": "sourcegraph",
+      "receivedAt": 1790622565625,
+      "totalLost": 27150
+    }
+  ]
+}
