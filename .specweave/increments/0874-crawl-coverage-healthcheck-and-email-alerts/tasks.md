@@ -203,7 +203,7 @@ Domains: **A** = platform alerts/heartbeat, **B** = platform intake, **C** = cra
 ### T-030: Resolve intake uniqueness races through the exact canonical tuple
 **AC**: AC-US2-01
 **Acceptance**: Reuse only an exact complete canonical tuple after natural/legacy uniqueness conflicts, including rename and case changes. Preserve published, pending, blocked and rejected states and tenant/private/path/source boundaries. Unknown constraints, other errors and deleted-row races stay explicit retryable errors; never acknowledge an empty-ID pending result or false skip.
-**Files**: `src/lib/submission/upsert.ts`, `src/lib/submission/__tests__/upsert.test.ts`, `src/lib/submission/__tests__/upsert-natural-key.test.ts`
+**Files**: `src/lib/submission/upsert.ts`, `src/lib/submission/__tests__/upsert.test.ts`, `src/lib/submission/__tests__/upsert-natural-key.test.ts`, `src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts`
 **Test**: npm test -- src/lib/submission/__tests__ src/app/api/v1/submissions/bulk/__tests__
 **Verification**: Deterministic red/green natural-key regression receipt; full required checks and independent review before release.
 **Contract**: Owner `codex-0874-intake-identity` (live_activity), isolated worktree `0874-intake-identity`, branch `codex/0874-intake-identity`, base `789f423b102d728cac91e808b8369d40e27d9e53`. Integrate the actual merged T029 base before final tests/CI and a separate Worker release. No schema, production database, credential, crawler, checkpoint, scheduler or scanner changes; no manual replay or synthetic production intake. Root authorized after exact uniqueness proof; evidence stays sanitized.
