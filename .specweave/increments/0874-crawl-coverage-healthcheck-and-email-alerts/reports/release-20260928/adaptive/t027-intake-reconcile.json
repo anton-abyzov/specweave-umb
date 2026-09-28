@@ -1,0 +1,190 @@
+{
+  "at": "2026-09-28T18:51:31.300Z",
+  "transaction": "READ ONLY",
+  "database": {
+    "host": "178.156.163.74",
+    "database": "vskill_platform"
+  },
+  "observed": {
+    "sweepId": "026ba568-3ac5-4855-95fd-6c441c8007d2",
+    "startedAt": "2026-09-28T18:39:17.696Z",
+    "configSignature": "328df0860343a75d2ec32875ef3ffd78ac8d59ceddd7166a7d5bddb8d17c1dc7",
+    "distinctDiscoveredLowerBound": 300,
+    "distinctCountExact": true,
+    "distinctKeysSha256": "feb1aea7dc72764722326ba222d8412b19b5754f1672f96e748c4e7988f6d02b",
+    "counters": {
+      "totalDiscovered": 300,
+      "totalSubmitted": 139,
+      "totalCreated": 2,
+      "totalSkipped": 78,
+      "totalKnownSkipped": 61,
+      "totalLost": 44,
+      "totalErrors": 10,
+      "totalRejected": 10,
+      "totalPrivateFiltered": 0,
+      "totalVisibilityUnknown": 0
+    }
+  },
+  "attribution": "Exact hashed repo/path intersection with the live VM3 sweep and creation time after sweep start; other fleet sources can concurrently discover the same identity.",
+  "historicalEstimatedRows": "448116",
+  "historicalMatchingSubmissions": 129,
+  "unresolvedPendingIdentities": 100,
+  "historicalMatchesAmongUnresolved": 20,
+  "historicalStateCounts": {
+    "PUBLISHED": 97,
+    "REJECTED": 1,
+    "DEQUEUED": 24,
+    "RECEIVED": 7
+  },
+  "recentRowsExamined": 37,
+  "recentQuerySaturated": false,
+  "matchingNewSubmissions": 31,
+  "states": {
+    "DEQUEUED": 24,
+    "RECEIVED": 7
+  },
+  "matchingKeyedSubmissions": 31,
+  "matchingPublishedPublicSkills": 0,
+  "examples": [
+    {
+      "submissionIdSha256": "4f3c43931d4bd4bbab8842201de4fff29f6d08d2ce4c0a5019ec7a41176e599c",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:45:51.201Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "99e29a1582dfecf3a103183f3516740239b57d4d509b25d81115819619c6a7ad",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:46:09.745Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "21cd965af70962462d609d9ae755e6ffefb64a9b1ee49709420eb495e082ff89",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:46:16.541Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "3e55bbc9f5880d885f0b63a825be9f78554fdc3a5a32bf9bba55b0d0da694f96",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:46:18.201Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "0b469b6efa7c71a5558d4888a134a6e7321e4a19b278ca895fae25560da7708c",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:46:19.018Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "293997438c71f878184e239eba86f4daada047c69e113c6e3e0f7c897a9e0a94",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:46:19.856Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "96693cdecda197d895b526a495670a595dba8841d57368864d000408a36d7d39",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:46:20.700Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "8cc92ddb6878f62159e32200c4adec5889679cb07830c6411c6b7f9deb23354e",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:46:21.667Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "a4881cd4fba4d5170fd16180eaccf6afddfc77982bbb36629d689948747b2b8f",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:48:16.052Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "b1493582a078f8d740938df2c2c1a593c0fb62e61dcf6e172f2afa566a02075a",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:48:16.951Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "f87775e7b13a8133f3e5ae97fc18f7b4082b7e63681c11ec07b97adfc81678a6",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:48:17.790Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "f5d9d5bc4b5220aa952130c5f20b9bdca3bdf25bd29f79c56989847062a74aa7",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:48:18.654Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "02f5746326fccb572a5b052f5b5c2b5c8c7e2eb1bcbf9a5b0af5aee26c46f999",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:48:20.448Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "f52291f12fdc419d0f60ff2c603d794c228212546b51ae127ec1de99f4c8148f",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:48:22.999Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "0ab206ff3c8aee884aa2c4d09c45be99025511b9bb692c27872678bc1b3265f5",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:48:23.807Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "8b3f7e38725effb8ab32aec545b7fa93a5a01854d8226203e8be91f985522a24",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:48:29.481Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "66e329ad2aa567f89d2b55edb104c5ac0ff419d56ce55cc90c3cb4a3ec116e70",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:48:30.285Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "2add5f1eb50009d0e4dc57931b8997b03a3ea6a8b433495be43c2f0d64eb0edc",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:49:15.379Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "e1380af829d83888fd3d14cfe4e7018eef084c32e2575ffed4df97988feb16d6",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:49:16.515Z",
+      "keyed": true,
+      "publicSkill": false
+    },
+    {
+      "submissionIdSha256": "3d7786b1fc8fb515989b074c9ed194e0b2c8b0f01ae4a97b85a202ef3a2c558c",
+      "state": "DEQUEUED",
+      "createdAt": "2026-09-28T18:49:51.010Z",
+      "keyed": true,
+      "publicSkill": false
+    }
+  ]
+}

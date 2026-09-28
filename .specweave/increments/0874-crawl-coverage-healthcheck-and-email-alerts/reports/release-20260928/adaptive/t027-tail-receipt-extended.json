@@ -1,0 +1,72 @@
+{
+  "at": "2026-09-28T18:52:15.875704+00:00",
+  "source": "Cloudflare live tail restricted to VM3 IP and deployed version; no requests submitted",
+  "durationSeconds": 180.019,
+  "parsedEvents": 45,
+  "bulkEvents": [
+    {
+      "timestamp": 1790621328860,
+      "outcome": "ok",
+      "responseStatus": 200,
+      "exceptionNames": [],
+      "classifications": [],
+      "prismaCodes": [],
+      "logCount": 0,
+      "wallTimeMs": null,
+      "cpuTimeMs": null
+    },
+    {
+      "timestamp": 1790621370502,
+      "outcome": "exceededMemory",
+      "responseStatus": 503,
+      "exceptionNames": [
+        "Error",
+        "Error"
+      ],
+      "classifications": [],
+      "prismaCodes": [],
+      "logCount": 0,
+      "wallTimeMs": null,
+      "cpuTimeMs": null
+    },
+    {
+      "timestamp": 1790621426622,
+      "outcome": "exceededMemory",
+      "responseStatus": 503,
+      "exceptionNames": [
+        "Error",
+        "Error"
+      ],
+      "classifications": [],
+      "prismaCodes": [],
+      "logCount": 0,
+      "wallTimeMs": null,
+      "cpuTimeMs": null
+    },
+    {
+      "timestamp": 1790621509703,
+      "outcome": "ok",
+      "responseStatus": 200,
+      "exceptionNames": [],
+      "classifications": [],
+      "prismaCodes": [],
+      "logCount": 0,
+      "wallTimeMs": null,
+      "cpuTimeMs": null
+    },
+    {
+      "timestamp": 1790621520816,
+      "outcome": "ok",
+      "responseStatus": 200,
+      "exceptionNames": [],
+      "classifications": [],
+      "prismaCodes": [],
+      "logCount": 0,
+      "wallTimeMs": null,
+      "cpuTimeMs": null
+    }
+  ],
+  "tailExitCode": 0,
+  "rawOutputPersisted": false,
+  "tailErrorPresent": false
+}

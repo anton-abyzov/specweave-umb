@@ -1,0 +1,55 @@
+{
+  "at": "2026-09-28T18:51:41.983780+00:00",
+  "repository": "anton-abyzov/vskill-platform",
+  "pr": 76,
+  "reviewedHead": "437a0f429978b5df925be3d51f4a69f300c951f1",
+  "base": "4b7888a19ebce292b3f77d49c052fad31abfe90a",
+  "merge": {
+    "sha": "8d0929aa80628b6d8a43a8f4327f9881a97ad3ee",
+    "merged": true,
+    "message": "Pull Request successfully merged"
+  },
+  "tree": "1f6ae440d12d448cd2253c274e5c7f46f237264e",
+  "checks": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-28T18:47:12Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/anton-abyzov/vskill-platform/actions/runs/36467166778/job/109080033518",
+      "name": "e2e",
+      "startedAt": "2026-09-28T18:43:13Z",
+      "status": "COMPLETED",
+      "workflowName": "0826 E2E (Skill Studio Private Repos)"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-28T18:43:28Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/anton-abyzov/vskill-platform/actions/runs/36467166704/job/109080032470",
+      "name": "Payload scan",
+      "startedAt": "2026-09-28T18:43:12Z",
+      "status": "COMPLETED",
+      "workflowName": "Supply-chain scan"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-28T18:51:07Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/anton-abyzov/vskill-platform/actions/runs/36467166732/job/109080032681",
+      "name": "vitest",
+      "startedAt": "2026-09-28T18:43:11Z",
+      "status": "COMPLETED",
+      "workflowName": "unit tests"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-09-28T18:44:22Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/anton-abyzov/vskill-platform/actions/runs/36467166704/job/109080032880",
+      "name": "npm audit signatures",
+      "startedAt": "2026-09-28T18:43:12Z",
+      "status": "COMPLETED",
+      "workflowName": "Supply-chain scan"
+    }
+  ]
+}

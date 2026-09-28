@@ -1,0 +1,15 @@
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-heartbeat-progress
+
+ ✓ src/lib/alerts/__tests__/detectors.test.ts (41 tests) 9ms
+stderr | src/app/api/v1/internal/vm-heartbeat/__tests__/route.test.ts > POST /api/v1/internal/vm-heartbeat > degrades to 200 ok:false when SUBMISSIONS_KV missing (no 5xx)
+[vm-heartbeat] SUBMISSIONS_KV binding missing
+
+ ✓ src/app/api/v1/internal/vm-heartbeat/__tests__/route.test.ts (43 tests) 20ms
+
+ Test Files  2 passed (2)
+      Tests  84 passed (84)
+   Start at  14:42:47
+   Duration  1.75s (transform 251ms, setup 436ms, collect 285ms, tests 29ms, environment 980ms, prepare 146ms)
+

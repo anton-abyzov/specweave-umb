@@ -1,0 +1,84 @@
+{
+  "at": "2026-09-28T18:39:59.085246+00:00",
+  "crawlerId": "0c47dfee262668ab608c461e16896f76f2582aa12ce7df6a943f11d553f8db0a",
+  "image": "sha256:9fb777180cfcc41491781b9988338181523ba8e66f43e2322c20d5da018d51d3",
+  "revision": "4b7888a19ebce292b3f77d49c052fad31abfe90a",
+  "running": true,
+  "paused": false,
+  "scannerId": "2633c121f4f10ed37a6a23f0b7b762a228ab6bd3d12d2a149c30f2b79e8919ff",
+  "activeCrawls": 0,
+  "schedulerRunning": true,
+  "sources": {
+    "github-sharded": {
+      "status": "crawling",
+      "lastRunAt": null,
+      "runCount": 0,
+      "continuationCount": 0,
+      "errorCount": 0,
+      "consecutiveErrors": 0,
+      "lastResult": null
+    },
+    "skills-sh": {
+      "status": "crawling",
+      "lastRunAt": null,
+      "runCount": 0,
+      "continuationCount": 0,
+      "errorCount": 0,
+      "consecutiveErrors": 0,
+      "lastResult": null
+    },
+    "submission-scanner": {
+      "status": "crawling",
+      "lastRunAt": null,
+      "runCount": 0,
+      "continuationCount": 0,
+      "errorCount": 0,
+      "consecutiveErrors": 0,
+      "lastResult": null
+    }
+  },
+  "runtime": {
+    "node": "v20.20.2",
+    "adaptive": "1",
+    "shardMode": "size-date",
+    "assignedSources": "github-sharded,skills-sh,submission-scanner",
+    "tokenCount": 1,
+    "checkpoint": {
+      "exists": true,
+      "sha256": "26ea91ff964f577d9dbf01b5a6a811af357217fda2adba1f407c509c1d388beb",
+      "mode": "600",
+      "schemaVersion": 2,
+      "sweepId": "026ba568-3ac5-4855-95fd-6c441c8007d2",
+      "configSignature": "328df0860343a75d2ec32875ef3ffd78ac8d59ceddd7166a7d5bddb8d17c1dc7",
+      "startedAt": "2026-09-28T18:39:17.696Z",
+      "phase": "crawling",
+      "probesCompleted": 5,
+      "probesPending": 10,
+      "leaves": 1,
+      "shardsCompleted": 0,
+      "page": 1,
+      "zeroLeaves": 0,
+      "pendingPageItems": 0,
+      "acceptedCurrentLeaf": 0,
+      "discoveredCurrentLeaf": 0,
+      "counters": {
+        "totalDiscovered": 0,
+        "totalSubmitted": 0,
+        "totalCreated": 0,
+        "totalSkipped": 0,
+        "totalKnownSkipped": 0,
+        "totalLost": 0,
+        "totalErrors": 0,
+        "totalRejected": 0,
+        "totalPrivateFiltered": 0,
+        "totalVisibilityUnknown": 0
+      },
+      "recoveredFailureCount": 0,
+      "distinctDiscoveredLowerBound": 0,
+      "distinctCountExact": true,
+      "distinctKeysSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "cappedLeafCount": 0,
+      "coverageComplete": false
+    }
+  }
+}
