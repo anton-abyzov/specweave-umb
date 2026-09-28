@@ -1,0 +1,2316 @@
+
+> vskill-crawl-worker@1.0.0 test
+> node --test
+
+TAP version 13
+# Subtest: each persisted probe boundary resumes the exact remaining tree
+ok 1 - each persisted probe boundary resumes the exact remaining tree
+  ---
+  duration_ms: 109.165292
+  type: 'test'
+  ...
+# Subtest: open-ended root retains its tail and reports capped terminal leaves
+ok 2 - open-ended root retains its tail and reports capped terminal leaves
+  ---
+  duration_ms: 0.2855
+  type: 'test'
+  ...
+# Subtest: legacy, changed config and corrupt checkpoint gates never overwrite bytes
+ok 3 - legacy, changed config and corrupt checkpoint gates never overwrite bytes
+  ---
+  duration_ms: 29.196166
+  type: 'test'
+  ...
+# Subtest: budget reserves rate-limit waits without discarding planning progress
+ok 4 - budget reserves rate-limit waits without discarding planning progress
+  ---
+  duration_ms: 1.434625
+  type: 'test'
+  ...
+# Subtest: malformed depth, leaf, counter and cursor fields are rejected without touching bytes
+ok 5 - malformed depth, leaf, counter and cursor fields are rejected without touching bytes
+  ---
+  duration_ms: 4.502708
+  type: 'test'
+  ...
+# Subtest: fresh processes resume each planning and page boundary without repeating probes or submissions
+ok 6 - fresh processes resume each planning and page boundary without repeating probes or submissions
+  ---
+  duration_ms: 519.315917
+  type: 'test'
+  ...
+# Subtest: mixed per-item errors retain page and accepted/deferred receipts across process restart
+ok 7 - mixed per-item errors retain page and accepted/deferred receipts across process restart
+  ---
+  duration_ms: 413.527583
+  type: 'test'
+  ...
+# Subtest: HTTP401 preserves pending probe and cannot complete
+ok 8 - HTTP401 preserves pending probe and cannot complete
+  ---
+  duration_ms: 62.732042
+  type: 'test'
+  ...
+# Subtest: HTTP403 preserves pending probe and cannot complete
+ok 9 - HTTP403 preserves pending probe and cannot complete
+  ---
+  duration_ms: 119.7985
+  type: 'test'
+  ...
+# Subtest: HTTP429 preserves pending probe and cannot complete
+ok 10 - HTTP429 preserves pending probe and cannot complete
+  ---
+  duration_ms: 122.95575
+  type: 'test'
+  ...
+# Subtest: HTTP500 preserves pending probe and cannot complete
+ok 11 - HTTP500 preserves pending probe and cannot complete
+  ---
+  duration_ms: 74.854708
+  type: 'test'
+  ...
+# Subtest: GitHub incomplete result is never persisted as a complete count probe
+ok 12 - GitHub incomplete result is never persisted as a complete count probe
+  ---
+  duration_ms: 64.062667
+  type: 'test'
+  ...
+# Subtest: unsplittable hot spot discloses capped coverage after all retrievable pages complete
+ok 13 - unsplittable hot spot discloses capped coverage after all retrievable pages complete
+  ---
+  duration_ms: 354.579625
+  type: 'test'
+  ...
+# Subtest: partial response cannot warm missing acknowledgements before a changed-page retry
+ok 14 - partial response cannot warm missing acknowledgements before a changed-page retry
+  ---
+  duration_ms: 403.018208
+  type: 'test'
+  ...
+# Subtest: SIGKILL after one acknowledged batch preserves the pending page across a fresh process
+ok 15 - SIGKILL after one acknowledged batch preserves the pending page across a fresh process
+  ---
+  duration_ms: 398.318625
+  type: 'test'
+  ...
+# Subtest: turning adaptive off preserves the versioned checkpoint without any request
+ok 16 - turning adaptive off preserves the versioned checkpoint without any request
+  ---
+  duration_ms: 110.737208
+  type: 'test'
+  ...
+# Subtest: same repo and name with different paths cannot share a partial acknowledgement
+ok 17 - same repo and name with different paths cannot share a partial acknowledgement
+  ---
+  duration_ms: 417.454167
+  type: 'test'
+  ...
+# Subtest: overlapping query encounters retain an exact completed natural-key union
+ok 18 - overlapping query encounters retain an exact completed natural-key union
+  ---
+  duration_ms: 832.470709
+  type: 'test'
+  ...
+# Subtest: distinct union saturates honestly while retaining the exact 10000-key proof
+ok 19 - distinct union saturates honestly while retaining the exact 10000-key proof
+  ---
+  duration_ms: 194.610834
+  type: 'test'
+  ...
+# Subtest: public crawler excludes private/internal and unknown visibility (adaptive=false)
+ok 20 - public crawler excludes private/internal and unknown visibility (adaptive=false)
+  ---
+  duration_ms: 275.020291
+  type: 'test'
+  ...
+# Subtest: public crawler excludes private/internal and unknown visibility (adaptive=true)
+ok 21 - public crawler excludes private/internal and unknown visibility (adaptive=true)
+  ---
+  duration_ms: 328.299584
+  type: 'test'
+  ...
+# Subtest: an all-private page advances without any intake or private identity checkpoint
+ok 22 - an all-private page advances without any intake or private identity checkpoint
+  ---
+  duration_ms: 325.875625
+  type: 'test'
+  ...
+# Subtest: malformed missing count cannot advance a probe
+ok 23 - malformed missing count cannot advance a probe
+  ---
+  duration_ms: 68.181708
+  type: 'test'
+  ...
+# Subtest: malformed negative count cannot advance a probe
+ok 24 - malformed negative count cannot advance a probe
+  ---
+  duration_ms: 69.428916
+  type: 'test'
+  ...
+# Subtest: malformed string count cannot advance a probe
+ok 25 - malformed string count cannot advance a probe
+  ---
+  duration_ms: 74.145542
+  type: 'test'
+  ...
+# Subtest: malformed missing items cannot advance a probe
+ok 26 - malformed missing items cannot advance a probe
+  ---
+  duration_ms: 65.988875
+  type: 'test'
+  ...
+# Subtest: malformed missing completeness cannot advance a probe
+ok 27 - malformed missing completeness cannot advance a probe
+  ---
+  duration_ms: 71.215417
+  type: 'test'
+  ...
+# Subtest: malformed non-array items cannot advance a probe
+ok 28 - malformed non-array items cannot advance a probe
+  ---
+  duration_ms: 74.776167
+  type: 'test'
+  ...
+# Subtest: malformed oversized page cannot advance a probe
+ok 29 - malformed oversized page cannot advance a probe
+  ---
+  duration_ms: 65.855375
+  type: 'test'
+  ...
+# Subtest: malformed malformed item cannot advance a probe
+ok 30 - malformed malformed item cannot advance a probe
+  ---
+  duration_ms: 65.054666
+  type: 'test'
+  ...
+# Subtest: search timeout/abort retains the pending range: {"maxRunMs":30}
+ok 31 - search timeout/abort retains the pending range: {"maxRunMs":30}
+  ---
+  duration_ms: 84.265542
+  type: 'test'
+  ...
+# Subtest: search timeout/abort retains the pending range: {"abortAfterMs":30}
+ok 32 - search timeout/abort retains the pending range: {"abortAfterMs":30}
+  ---
+  duration_ms: 70.246333
+  type: 'test'
+  ...
+# Subtest: coarse search with incomplete results cannot report a completed sweep
+ok 33 - coarse search with incomplete results cannot report a completed sweep
+  ---
+  duration_ms: 45.233584
+  type: 'test'
+  ...
+# Subtest: typed policy rejection survives restart while transient siblings remain replayable
+ok 34 - typed policy rejection survives restart while transient siblings remain replayable
+  ---
+  duration_ms: 418.491125
+  type: 'test'
+  ...
+# Subtest: path-bound policy receipt cannot acknowledge a pathless same-name sibling
+ok 35 - path-bound policy receipt cannot acknowledge a pathless same-name sibling
+  ---
+  duration_ms: 399.459584
+  type: 'test'
+  ...
+# Subtest: catalog total, all-time installs and run discoveries cannot be confused
+ok 36 - catalog total, all-time installs and run discoveries cannot be confused
+  ---
+  duration_ms: 0.425083
+  type: 'test'
+  ...
+# Subtest: unavailable observations remain null, including older checkpoint installs
+ok 37 - unavailable observations remain null, including older checkpoint installs
+  ---
+  duration_ms: 0.059375
+  type: 'test'
+  ...
+# Subtest: parses explicit install count from plain and escaped flight JSON
+ok 38 - parses explicit install count from plain and escaped flight JSON
+  ---
+  duration_ms: 0.404584
+  type: 'test'
+  ...
+# Subtest: TC-032: Filters PushEvents from event stream
+    # Subtest: should only process PushEvents and ignore other event types
+    ok 1 - should only process PushEvents and ignore other event types
+      ---
+      duration_ms: 16.224125
+      type: 'test'
+      ...
+    1..1
+ok 39 - TC-032: Filters PushEvents from event stream
+  ---
+  duration_ms: 22.701834
+  type: 'suite'
+  ...
+# Subtest: TC-033: Ignores social events
+    # Subtest: should not check any repos when every event is social
+    ok 1 - should not check any repos when every event is social
+      ---
+      duration_ms: 4.264875
+      type: 'test'
+      ...
+    1..1
+ok 40 - TC-033: Ignores social events
+  ---
+  duration_ms: 5.767542
+  type: 'suite'
+  ...
+# Subtest: TC-033b: Checks CreateEvent repos
+    # Subtest: checks the CreateEvent repo and ignores the WatchEvent repo
+    ok 1 - checks the CreateEvent repo and ignores the WatchEvent repo
+      ---
+      duration_ms: 2.623458
+      type: 'test'
+      ...
+    1..1
+ok 41 - TC-033b: Checks CreateEvent repos
+  ---
+  duration_ms: 3.16625
+  type: 'suite'
+  ...
+# Subtest: TC-034: Respects X-Poll-Interval header
+    # Subtest: should wait at least the poll interval between requests
+    ok 1 - should wait at least the poll interval between requests
+      ---
+      duration_ms: 2011.003667
+      type: 'test'
+      ...
+    1..1
+ok 42 - TC-034: Respects X-Poll-Interval header
+  ---
+  duration_ms: 2011.551375
+  type: 'suite'
+  ...
+# Subtest: TC-035: Uses ETag for conditional requests
+    # Subtest: should send If-None-Match header and handle 304 gracefully
+    ok 1 - should send If-None-Match header and handle 304 gracefully
+      ---
+      duration_ms: 4.030417
+      type: 'test'
+      ...
+    1..1
+ok 43 - TC-035: Uses ETag for conditional requests
+  ---
+  duration_ms: 4.491166
+  type: 'suite'
+  ...
+# Subtest: TC-036: Collects unique repos from multiple push events
+    # Subtest: should deduplicate repos across multiple push events and polls
+    ok 1 - should deduplicate repos across multiple push events and polls
+      ---
+      duration_ms: 5.673458
+      type: 'test'
+      ...
+    1..1
+ok 44 - TC-036: Collects unique repos from multiple push events
+  ---
+  duration_ms: 6.041333
+  type: 'suite'
+  ...
+# Subtest: shard plan: topics under the search cap get no star shards
+    # Subtest: emits exactly one query for a small topic
+    ok 1 - emits exactly one query for a small topic
+      ---
+      duration_ms: 0.361667
+      type: 'test'
+      ...
+    # Subtest: splits a big topic by stars only (no date shards up front)
+    ok 2 - splits a big topic by stars only (no date shards up front)
+      ---
+      duration_ms: 0.082459
+      type: 'test'
+      ...
+    # Subtest: star-shards an unmeasured topic (conservative default)
+    ok 3 - star-shards an unmeasured topic (conservative default)
+      ---
+      duration_ms: 0.05375
+      type: 'test'
+      ...
+    # Subtest: ships the skill topics, not the old generic AI tags
+    ok 4 - ships the skill topics, not the old generic AI tags
+      ---
+      duration_ms: 0.092875
+      type: 'test'
+      ...
+    # Subtest: year windows are closed ranges covering everything before the first year
+    ok 5 - year windows are closed ranges covering everything before the first year
+      ---
+      duration_ms: 5.367
+      type: 'test'
+      ...
+    # Subtest: an over-cap shard splits stars → years → halved windows, then gives up
+    ok 6 - an over-cap shard splits stars → years → halved windows, then gives up
+      ---
+      duration_ms: 1.568291
+      type: 'test'
+      ...
+    1..6
+ok 45 - shard plan: topics under the search cap get no star shards
+  ---
+  duration_ms: 8.057459
+  type: 'suite'
+  ...
+# Subtest: GraphQL verification reads root + skills/ tree
+    # Subtest: builds aliased fragments that ask for the skills tree
+    ok 1 - builds aliased fragments that ask for the skills tree
+      ---
+      duration_ms: 0.198958
+      type: 'test'
+      ...
+    # Subtest: names every skill path the payload proves exists
+    ok 2 - names every skill path the payload proves exists
+      ---
+      duration_ms: 0.217041
+      type: 'test'
+      ...
+    # Subtest: returns nothing for a null (deleted/private) repo
+    ok 3 - returns nothing for a null (deleted/private) repo
+      ---
+      duration_ms: 0.158125
+      type: 'test'
+      ...
+    1..3
+ok 46 - GraphQL verification reads root + skills/ tree
+  ---
+  duration_ms: 0.784209
+  type: 'suite'
+  ...
+# [github-graphql-check] sweep complete (2 shards), checkpoint cleared
+# Subtest: crawl: small topics run one query each and submit with a skillPath
+    # Subtest: queries once per small topic and submits real skill paths
+    ok 1 - queries once per small topic and submits real skill paths
+      ---
+      duration_ms: 28.6065
+      type: 'test'
+      ...
+    1..1
+ok 47 - crawl: small topics run one query each and submit with a skillPath
+  ---
+  duration_ms: 34.963625
+  type: 'suite'
+  ...
+# Subtest: crawl: a shard over the result cap splits by created: year
+    # Subtest: subdivides instead of truncating at 1,000 results
+    ok 1 - subdivides instead of truncating at 1,000 results
+      ---
+      duration_ms: 50.568792
+      type: 'test'
+      ...
+    1..1
+ok 48 - crawl: a shard over the result cap splits by created: year
+  ---
+  duration_ms: 62.14725
+  type: 'suite'
+  ...
+# [github-graphql-check] sweep complete (3 shards), checkpoint cleared
+# Subtest: crawl: checkpoints per shard and resumes
+    # Subtest: stops at the run budget, persists, then continues where it left off
+    ok 1 - stops at the run budget, persists, then continues where it left off
+      ---
+      duration_ms: 20.667709
+      type: 'test'
+      ...
+    1..1
+ok 49 - crawl: checkpoints per shard and resumes
+  ---
+  duration_ms: 25.078542
+  type: 'suite'
+  ...
+# Subtest: crawl: a failing shard is retried, not dropped
+    # Subtest: re-queues the shard and records the error
+    ok 1 - re-queues the shard and records the error
+      ---
+      duration_ms: 3.907167
+      type: 'test'
+      ...
+    1..1
+ok 50 - crawl: a failing shard is retried, not dropped
+  ---
+  duration_ms: 4.942041
+  type: 'suite'
+  ...
+# Subtest: real GitHub code search retains the size dimension and rejects date sharding
+ok 51 - real GitHub code search retains the size dimension and rejects date sharding # SKIP GITHUB_TEST_TOKEN missing: live API guard not executed
+  ---
+  duration_ms: 0.302792
+  type: 'test'
+  ...
+# Subtest: T-014: crawl(size-bisect) issues size: queries and discovers repos
+ok 52 - T-014: crawl(size-bisect) issues size: queries and discovers repos
+  ---
+  duration_ms: 770.574625
+  type: 'test'
+  ...
+# Subtest: T-014: crawl(size-bisect) splits an over-cap root into size sub-shards
+ok 53 - T-014: crawl(size-bisect) splits an over-cap root into size sub-shards
+  ---
+  duration_ms: 968.283375
+  type: 'test'
+  ...
+# [github-sharded] mode=size-bisect, shards=12, starting at 0
+# Subtest: T-020: crawl emits shardsZeroResultCount = number of zero-total shards
+ok 54 - T-020: crawl emits shardsZeroResultCount = number of zero-total shards
+  ---
+  duration_ms: 1150.536542
+  type: 'test'
+  ...
+# [github-sharded] shard 1/12: +1 new (total=1)
+# [github-sharded] shard 2/12: +1 new (total=2)
+# [github-sharded] shard 3/12: +1 new (total=3)
+# [github-sharded] shard 4/12: +1 new (total=4)
+# [github-sharded] shard 5/12: +1 new (total=5)
+# [github-sharded] shard 6/12: +1 new (total=6)
+# [github-sharded] shard 7/12: +1 new (total=7)
+# [github-sharded] shard 8/12: +1 new (total=8)
+# [github-sharded] shard 9/12: +1 new (total=9)
+# [github-sharded] shard 10/12: +1 new (total=10)
+# [github-sharded] shard 11/12: +1 new (total=11)
+# [github-sharded] shard 12/12: +1 new (total=12)
+# [github-sharded] full run complete, checkpoint cleared
+# [github-sharded] resuming persisted size-bisect leaf plan (12 shards) from index 5
+# [github-sharded] resuming from shard 5/12 (0 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=12, starting at 5
+# [github-sharded] shard 6/12: +1 new (total=1)
+# [github-sharded] shard 7/12: +1 new (total=2)
+# [github-sharded] shard 8/12: +1 new (total=3)
+# [github-sharded] shard 9/12: +1 new (total=4)
+# [github-sharded] shard 10/12: +1 new (total=5)
+# [github-sharded] shard 11/12: +1 new (total=6)
+# [github-sharded] shard 12/12: +1 new (total=7)
+# [github-sharded] full run complete, checkpoint cleared
+# Subtest: T-016: a legacy size-bisect resume replays the SAME persisted leaf plan
+ok 55 - T-016: a legacy size-bisect resume replays the SAME persisted leaf plan
+  ---
+  duration_ms: 3855.211625
+  type: 'test'
+  ...
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] mode=size-bisect, shards=1, starting at 0
+# Subtest: search 401 rejects without advancing or clearing the failed shard
+ok 56 - search 401 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 27.811
+  type: 'test'
+  ...
+# Subtest: search 422 rejects without advancing or clearing the failed shard
+ok 57 - search 422 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 4.943417
+  type: 'test'
+  ...
+# Subtest: search 429 rejects without advancing or clearing the failed shard
+ok 58 - search 429 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 17.220833
+  type: 'test'
+  ...
+# Subtest: search 503 rejects without advancing or clearing the failed shard
+ok 59 - search 503 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 8.850167
+  type: 'test'
+  ...
+# Subtest: failed bisection cannot fall back to a misleading successful coarse sweep
+ok 60 - failed bisection cannot fall back to a misleading successful coarse sweep
+  ---
+  duration_ms: 42.073708
+  type: 'test'
+  ...
+# [github-sharded] resuming persisted size-bisect leaf plan (1 shards) from index 0
+# [github-sharded] resuming from shard 0/1 (0 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=1, starting at 0
+# [github-sharded] shard 1/1: +100 new (total=100)
+# [github-sharded] full run complete, checkpoint cleared
+# [scheduler] Starting continuous crawl for sources: github-sharded
+# [scheduler] github-sharded: timeout=120min, cooldown=20min
+# [heartbeat] VM_PUBLIC_IP or INTERNAL_KEY missing — heartbeat disabled
+# [github-sharded] mode=size-bisect, shards=7, starting at 0
+# [scheduler] github-sharded failed: GitHub shard 1/7 failed: GitHub Code Search failed: 401
+# Subtest: search failure plus exhausted intake retries replays every unaccepted discovery
+ok 61 - search failure plus exhausted intake retries replays every unaccepted discovery
+  ---
+  duration_ms: 9995.955833
+  type: 'test'
+  ...
+# [scheduler] Stopped all source loops
+# [github-sharded] mode=size-bisect, shards=1, starting at 0
+# Subtest: real source auth failure reaches scheduler error metrics and backoff
+ok 62 - real source auth failure reaches scheduler error metrics and backoff
+  ---
+  duration_ms: 12.122333
+  type: 'test'
+  ...
+# Subtest: successful search with failed intake cannot clear a sweep checkpoint
+ok 63 - successful search with failed intake cannot clear a sweep checkpoint
+  ---
+  duration_ms: 201.179917
+  type: 'test'
+  ...
+# [github-sharded] SHARD_MODE=size-date is retired (created:/language: are dead on code search); using size-bisect
+# [github-sharded] SHARD_MODE=full is retired (created:/language: are dead on code search); using size-bisect
+# Subtest: splitSizeRange halves a multi-value range at the midpoint
+ok 64 - splitSizeRange halves a multi-value range at the midpoint
+  ---
+  duration_ms: 0.690917
+  type: 'test'
+  ...
+# Subtest: splitSizeRange returns null for a single value (lo===hi)
+ok 65 - splitSizeRange returns null for a single value (lo===hi)
+  ---
+  duration_ms: 0.105708
+  type: 'test'
+  ...
+# Subtest: splitSizeRange handles two adjacent values
+ok 66 - splitSizeRange handles two adjacent values
+  ---
+  duration_ms: 0.076334
+  type: 'test'
+  ...
+# Subtest: splitSizeRange tiles its halves with no gap and no overlap
+ok 67 - splitSizeRange tiles its halves with no gap and no overlap
+  ---
+  duration_ms: 0.04675
+  type: 'test'
+  ...
+# Subtest: splitSizeRange caps the open-ended top root [10001,null] before splitting
+ok 68 - splitSizeRange caps the open-ended top root [10001,null] before splitting
+  ---
+  duration_ms: 0.066542
+  type: 'test'
+  ...
+# Subtest: SIZE_BISECT_TOP_CAP is the documented 384000 ceiling
+ok 69 - SIZE_BISECT_TOP_CAP is the documented 384000 ceiling
+  ---
+  duration_ms: 0.033083
+  type: 'test'
+  ...
+# Subtest: bisectWindow bisects an integer size range via injected splitSizeRange
+ok 70 - bisectWindow bisects an integer size range via injected splitSizeRange
+  ---
+  duration_ms: 0.159458
+  type: 'test'
+  ...
+# Subtest: bisectWindow with splitSizeRange terminates on a single over-cap value
+ok 71 - bisectWindow with splitSizeRange terminates on a single over-cap value
+  ---
+  duration_ms: 0.05975
+  type: 'test'
+  ...
+# Subtest: expandPlanByBisection bisects on shard.size when shardMode=size-bisect
+ok 72 - expandPlanByBisection bisects on shard.size when shardMode=size-bisect
+  ---
+  duration_ms: 0.307209
+  type: 'test'
+  ...
+# Subtest: expandPlanByBisection passes through a shard with no size range
+ok 73 - expandPlanByBisection passes through a shard with no size range
+  ---
+  duration_ms: 0.249042
+  type: 'test'
+  ...
+# Subtest: buildShardPlan(size-bisect) seeds coarse size roots
+ok 74 - buildShardPlan(size-bisect) seeds coarse size roots
+  ---
+  duration_ms: 0.158375
+  type: 'test'
+  ...
+# Subtest: buildShardPlan(size-bisect) honors config.sizeShards (the previously-dead param)
+ok 75 - buildShardPlan(size-bisect) honors config.sizeShards (the previously-dead param)
+  ---
+  duration_ms: 0.0495
+  type: 'test'
+  ...
+# Subtest: buildShardPlan(size-bisect) without config.sizeShards falls back to default SIZE_SHARDS
+ok 76 - buildShardPlan(size-bisect) without config.sizeShards falls back to default SIZE_SHARDS
+  ---
+  duration_ms: 0.03075
+  type: 'test'
+  ...
+# Subtest: buildQuery renders a single-value leaf as size:N..N, never bare size:N
+ok 77 - buildQuery renders a single-value leaf as size:N..N, never bare size:N
+  ---
+  duration_ms: 0.089334
+  type: 'test'
+  ...
+# Subtest: buildQuery still renders a normal range and the open-ended top
+ok 78 - buildQuery still renders a normal range and the open-ended top
+  ---
+  duration_ms: 0.031041
+  type: 'test'
+  ...
+# Subtest: size-bisect tiling of [0,N] has no gaps, no overlaps, and no leaf probe >cap
+ok 79 - size-bisect tiling of [0,N] has no gaps, no overlaps, and no leaf probe >cap
+  ---
+  duration_ms: 2.258
+  type: 'test'
+  ...
+# Subtest: bisectWindow leaves an already-under-cap range untouched
+ok 80 - bisectWindow leaves an already-under-cap range untouched
+  ---
+  duration_ms: 0.079375
+  type: 'test'
+  ...
+# Subtest: bisectWindow respects maxDepth as a recursion guard
+ok 81 - bisectWindow respects maxDepth as a recursion guard
+  ---
+  duration_ms: 0.064417
+  type: 'test'
+  ...
+# Subtest: buildQuery never emits a created: or language: qualifier
+ok 82 - buildQuery never emits a created: or language: qualifier
+  ---
+  duration_ms: 0.03425
+  type: 'test'
+  ...
+# Subtest: buildShardPlan ignores the retired mode argument and always seeds size roots
+ok 83 - buildShardPlan ignores the retired mode argument and always seeds size roots
+  ---
+  duration_ms: 0.093458
+  type: 'test'
+  ...
+# Subtest: normalizeShardMode retires the date/language modes to size-bisect
+ok 84 - normalizeShardMode retires the date/language modes to size-bisect
+  ---
+  duration_ms: 0.334584
+  type: 'test'
+  ...
+# [github-sharded] mode=size-bisect, shards=7, starting at 0
+# [github-sharded] shard 1/7: +1 new (total=1)
+# [github-sharded] full run complete, checkpoint cleared
+# Subtest: TC-018: Size shard generation
+# [github-sharded] mode=size-only, shards=7, starting at 0
+    # Subtest: should generate all 7 default size shards per query
+    ok 1 - should generate all 7 default size shards per query
+      ---
+      duration_ms: 1435.595583
+      type: 'test'
+      ...
+    1..1
+ok 85 - TC-018: Size shard generation
+  ---
+  duration_ms: 1441.966791
+  type: 'suite'
+  ...
+# [github-sharded] shard 1/7: +250 new (total=250)
+# [github-sharded] full run complete, checkpoint cleared
+# Subtest: TC-019: Shard pagination
+# [github-sharded] mode=size-bisect, shards=2, starting at 0
+    # Subtest: should paginate through all 3 pages of results in a shard
+    ok 1 - should paginate through all 3 pages of results in a shard
+      ---
+      duration_ms: 4248.628625
+      type: 'test'
+      ...
+    1..1
+ok 86 - TC-019: Shard pagination
+  ---
+  duration_ms: 4250.153791
+  type: 'suite'
+  ...
+# [github-sharded] full run complete, checkpoint cleared
+# Subtest: TC-020: Adaptive rate limit delay
+# [github-sharded] mode=size-bisect, shards=6, starting at 0
+    # Subtest: should wait longer when rate limit remaining is low
+    ok 1 - should wait longer when rate limit remaining is low
+      ---
+      duration_ms: 2003.236208
+      type: 'test'
+      ...
+    1..1
+ok 87 - TC-020: Adaptive rate limit delay
+  ---
+  duration_ms: 2004.121833
+  type: 'suite'
+  ...
+# [github-sharded] full run complete, checkpoint cleared
+# Subtest: TC-021: Token rotation
+    # Subtest: should rotate through tokens in round-robin order
+    ok 1 - should rotate through tokens in round-robin order
+      ---
+      duration_ms: 1212.500125
+      type: 'test'
+      ...
+    1..1
+ok 88 - TC-021: Token rotation
+  ---
+  duration_ms: 1213.076375
+  type: 'suite'
+  ...
+# Subtest: counters are monotonic across successive runs and never decrease
+ok 89 - counters are monotonic across successive runs and never decrease
+  ---
+  duration_ms: 2.4
+  type: 'test'
+  ...
+# Subtest: lastSuccessfulPublishAt only advances on an actual publish
+ok 90 - lastSuccessfulPublishAt only advances on an actual publish
+  ---
+  duration_ms: 0.438334
+  type: 'test'
+  ...
+# Subtest: heartbeat carries lastRunAt, lastError and consecutiveErrors from loop state
+ok 91 - heartbeat carries lastRunAt, lastError and consecutiveErrors from loop state
+  ---
+  duration_ms: 0.100916
+  type: 'test'
+  ...
+# Subtest: a source with only loop state (no completed run) still reports zeroed counters
+ok 92 - a source with only loop state (no completed run) still reports zeroed counters
+  ---
+  duration_ms: 0.057125
+  type: 'test'
+  ...
+# Subtest: heartbeat carries coverageTotal for skills-sh from lastResult.totalSkillsSh
+ok 93 - heartbeat carries coverageTotal for skills-sh from lastResult.totalSkillsSh
+  ---
+  duration_ms: 0.05725
+  type: 'test'
+  ...
+# Subtest: coverageTotal prefers an explicit metric upstreamTotal when present
+ok 94 - coverageTotal prefers an explicit metric upstreamTotal when present
+  ---
+  duration_ms: 0.0535
+  type: 'test'
+  ...
+# Subtest: coverageTotal is null for a source that reports no total
+ok 95 - coverageTotal is null for a source that reports no total
+  ---
+  duration_ms: 0.05325
+  type: 'test'
+  ...
+# Subtest: heartbeat carries shardsZeroResultCount from a github-sharded run
+ok 96 - heartbeat carries shardsZeroResultCount from a github-sharded run
+  ---
+  duration_ms: 0.049875
+  type: 'test'
+  ...
+# Subtest: shardsZeroResultCount is null when the source never reports it
+ok 97 - shardsZeroResultCount is null when the source never reports it
+  ---
+  duration_ms: 0.205625
+  type: 'test'
+  ...
+# Subtest: heartbeat carries totalErrors, totalTimeouts and totalLost
+ok 98 - heartbeat carries totalErrors, totalTimeouts and totalLost
+  ---
+  duration_ms: 0.280916
+  type: 'test'
+  ...
+# Subtest: a source with no metrics yet reports zeroed failure counters, never undefined
+ok 99 - a source with no metrics yet reports zeroed failure counters, never undefined
+  ---
+  duration_ms: 0.09475
+  type: 'test'
+  ...
+# Subtest: a request timeout is retryable and retried once the transport recovers
+ok 100 - a request timeout is retryable and retried once the transport recovers
+  ---
+  duration_ms: 0.890125
+  type: 'test'
+  ...
+# Subtest: AbortError and undici socket failures are classified retryable
+ok 101 - AbortError and undici socket failures are classified retryable
+  ---
+  duration_ms: 0.136834
+  type: 'test'
+  ...
+# Subtest: a non-retryable status throws immediately — one retry layer, no second loop
+ok 102 - a non-retryable status throws immediately — one retry layer, no second loop
+  ---
+  duration_ms: 0.210333
+  type: 'test'
+  ...
+# Subtest: a batch that exhausts its retries is lost, counted, and never re-queued
+ok 103 - a batch that exhausts its retries is lost, counted, and never re-queued
+  ---
+  duration_ms: 0.164167
+  type: 'test'
+  ...
+# Subtest: one submission batch-size default, owned by InlineSubmitter
+ok 104 - one submission batch-size default, owned by InlineSubmitter
+  ---
+  duration_ms: 2.998958
+  type: 'test'
+  ...
+# Subtest: a known key is skipped before it is ever buffered
+ok 105 - a known key is skipped before it is ever buffered
+  ---
+  duration_ms: 4.730166
+  type: 'test'
+  ...
+# Subtest: only the items the platform accepted are recorded as known
+ok 106 - only the items the platform accepted are recorded as known
+  ---
+  duration_ms: 0.220958
+  type: 'test'
+  ...
+# Subtest: a response with errors and no per-item detail records nothing
+ok 107 - a response with errors and no per-item detail records nothing
+  ---
+  duration_ms: 0.069125
+  type: 'test'
+  ...
+# Subtest: omitted and unknown per-item decisions never warm the known-key cache
+ok 108 - omitted and unknown per-item decisions never warm the known-key cache
+  ---
+  duration_ms: 0.912334
+  type: 'test'
+  ...
+# Subtest: same-name collision groups need complete receipts or explicit artifact-path binding
+ok 109 - same-name collision groups need complete receipts or explicit artifact-path binding
+  ---
+  duration_ms: 0.427167
+  type: 'test'
+  ...
+# Subtest: typed policy rejection settles only its exact input and never warms known keys
+ok 110 - typed policy rejection settles only its exact input and never warms known keys
+  ---
+  duration_ms: 0.337541
+  type: 'test'
+  ...
+# Subtest: naturalKey: repo + path, lowercased repo, default root SKILL.md
+ok 111 - naturalKey: repo + path, lowercased repo, default root SKILL.md
+  ---
+  duration_ms: 1.583208
+  type: 'test'
+  ...
+# Subtest: add + has, persisted across instances via flush
+ok 112 - add + has, persisted across instances via flush
+  ---
+  duration_ms: 8.841666
+  type: 'test'
+  ...
+# Subtest: time-based eviction: entries older than maxAgeMs are forgotten on load and on has()
+ok 113 - time-based eviction: entries older than maxAgeMs are forgotten on load and on has()
+  ---
+  duration_ms: 0.809458
+  type: 'test'
+  ...
+# Subtest: size-bounded: LRU eviction keeps the most recently seen keys
+ok 114 - size-bounded: LRU eviction keeps the most recently seen keys
+  ---
+  duration_ms: 2.984791
+  type: 'test'
+  ...
+# Subtest: corrupt lines are skipped, later lines win
+ok 115 - corrupt lines are skipped, later lines win
+  ---
+  duration_ms: 4.931125
+  type: 'test'
+  ...
+# Subtest: compaction rewrites the file when the appended tail outgrows the live set
+ok 116 - compaction rewrites the file when the appended tail outgrows the live set
+  ---
+  duration_ms: 203.963708
+  type: 'test'
+  ...
+# Subtest: queue-processor isAgentConfigPath (0693)
+    # Subtest: rejects .claude/skills/* paths
+    ok 1 - rejects .claude/skills/* paths
+      ---
+      duration_ms: 0.515375
+      type: 'test'
+      ...
+    # Subtest: rejects .cursor/skills/* paths
+    ok 2 - rejects .cursor/skills/* paths
+      ---
+      duration_ms: 0.073542
+      type: 'test'
+      ...
+    # Subtest: rejects .github/copilot/* paths
+    ok 3 - rejects .github/copilot/* paths
+      ---
+      duration_ms: 0.045291
+      type: 'test'
+      ...
+    # Subtest: rejects .vscode/* paths (non-agent config dir)
+    ok 4 - rejects .vscode/* paths (non-agent config dir)
+      ---
+      duration_ms: 0.085292
+      type: 'test'
+      ...
+    # Subtest: accepts root SKILL.md
+    ok 5 - accepts root SKILL.md
+      ---
+      duration_ms: 0.043875
+      type: 'test'
+      ...
+    # Subtest: accepts skills/foo/SKILL.md
+    ok 6 - accepts skills/foo/SKILL.md
+      ---
+      duration_ms: 0.034542
+      type: 'test'
+      ...
+    # Subtest: accepts plugins/specweave/skills/foo/SKILL.md (framework, not agent)
+    ok 7 - accepts plugins/specweave/skills/foo/SKILL.md (framework, not agent)
+      ---
+      duration_ms: 0.105375
+      type: 'test'
+      ...
+    # Subtest: handles backslashes (Windows-style)
+    ok 8 - handles backslashes (Windows-style)
+      ---
+      duration_ms: 0.13325
+      type: 'test'
+      ...
+    # Subtest: handles empty input
+    ok 9 - handles empty input
+      ---
+      duration_ms: 0.156917
+      type: 'test'
+      ...
+    # Subtest: does not reject non-dotted similar names
+    ok 10 - does not reject non-dotted similar names
+      ---
+      duration_ms: 0.263416
+      type: 'test'
+      ...
+    1..10
+ok 117 - queue-processor isAgentConfigPath (0693)
+  ---
+  duration_ms: 2.1935
+  type: 'suite'
+  ...
+# Subtest: repo-files AGENT_CONFIG_PREFIXES (0693)
+    # Subtest: is non-empty and derived (>= 30 entries from registry + extras)
+    ok 1 - is non-empty and derived (>= 30 entries from registry + extras)
+      ---
+      duration_ms: 0.350041
+      type: 'test'
+      ...
+    # Subtest: contains common agent prefixes
+    ok 2 - contains common agent prefixes
+      ---
+      duration_ms: 0.049583
+      type: 'test'
+      ...
+    # Subtest: contains non-agent dirs as trailing-slash entries
+    ok 3 - contains non-agent dirs as trailing-slash entries
+      ---
+      duration_ms: 0.078958
+      type: 'test'
+      ...
+    # Subtest: isAgentConfigPath matches expected behavior
+    ok 4 - isAgentConfigPath matches expected behavior
+      ---
+      duration_ms: 0.102042
+      type: 'test'
+      ...
+    # Subtest: does not over-reject .github/workflows/* (only .github/copilot|agents)
+    ok 5 - does not over-reject .github/workflows/* (only .github/copilot|agents)
+      ---
+      duration_ms: 0.040167
+      type: 'test'
+      ...
+    # Subtest: passes a supplied token to private repo raw file fetches
+    ok 6 - passes a supplied token to private repo raw file fetches
+      ---
+      duration_ms: 0.402
+      type: 'test'
+      ...
+    1..6
+ok 118 - repo-files AGENT_CONFIG_PREFIXES (0693)
+  ---
+  duration_ms: 1.426084
+  type: 'suite'
+  ...
+# [sast-scanner] 3 pending scans found
+# [sast-scanner] dispatched SEMGREP/express → scanner-worker:9500
+# [sast-scanner] dispatched NJSSCAN/lodash → scanner-worker:9500
+# [sast-scanner] dispatched TRUFFLEHOG/axios → scanner-worker:9500
+# [sast-scanner] done: checked=3 dispatched=3 skipped=0 errors=0
+# [sast-scanner] 2 pending scans found
+# [sast-scanner] dispatched SEMGREP/express → scanner-worker:9500
+# [sast-scanner] skipped s2 (SEMGREP/lodash): already_claimed
+# [sast-scanner] done: checked=2 dispatched=1 skipped=1 errors=0
+# [sast-scanner] 1 pending scans found
+# [sast-scanner] dispatched SEMGREP/express → scanner-worker:9500
+# [sast-scanner] done: checked=1 dispatched=1 skipped=0 errors=0
+# [sast-scanner] 1 pending scans found
+# [sast-scanner] dispatched SEMGREP/express → scanner-worker:9500
+# [sast-scanner] done: checked=1 dispatched=1 skipped=0 errors=0
+# [sast-scanner] 1 pending scans found
+# [sast-scanner] dispatched SEMGREP/express → scanner-worker:9500
+# [sast-scanner] done: checked=1 dispatched=1 skipped=0 errors=0
+# [sast-scanner] 1 pending scans found
+# [sast-scanner] dispatched SEMGREP/express → scanner-worker:9500
+# [sast-scanner] done: checked=1 dispatched=1 skipped=0 errors=0
+# Subtest: sast-scanner source
+    # Subtest: TC-001: fetches pending and claims sequentially (happy path)
+    ok 1 - TC-001: fetches pending and claims sequentially (happy path)
+      ---
+      duration_ms: 1.943916
+      type: 'test'
+      ...
+    # Subtest: TC-002: skips already claimed scans
+    ok 2 - TC-002: skips already claimed scans
+      ---
+      duration_ms: 0.640042
+      type: 'test'
+      ...
+    # Subtest: TC-003: parses repoUrl to owner and name
+    ok 3 - TC-003: parses repoUrl to owner and name
+      ---
+      duration_ms: 0.5465
+      type: 'test'
+      ...
+    # Subtest: TC-004: uses WORKER_SECRET for scanner auth
+    ok 4 - TC-004: uses WORKER_SECRET for scanner auth
+      ---
+      duration_ms: 0.981208
+      type: 'test'
+      ...
+    # Subtest: TC-005: constructs correct callback URL
+    ok 5 - TC-005: constructs correct callback URL
+      ---
+      duration_ms: 0.269875
+      type: 'test'
+      ...
+    # Subtest: TC-006: returns stats object
+    ok 6 - TC-006: returns stats object
+      ---
+      duration_ms: 0.135125
+      type: 'test'
+      ...
+    # Subtest: TC-007: handles empty pending list
+    ok 7 - TC-007: handles empty pending list
+      ---
+      duration_ms: 0.094083
+      type: 'test'
+      ...
+    1..7
+ok 119 - sast-scanner source
+  ---
+  duration_ms: 5.281959
+  type: 'suite'
+  ...
+# [scheduler] Stopped all source loops
+# [scheduler] Stopped all source loops
+# Subtest: getSourceTimeout
+    # Subtest: should return known source timeouts
+    ok 1 - should return known source timeouts
+      ---
+      duration_ms: 202.502208
+      type: 'test'
+      ...
+# [scheduler] Stopped all source loops
+    # Subtest: should return default 10min for unknown sources
+    ok 2 - should return default 10min for unknown sources
+      ---
+      duration_ms: 201.711333
+      type: 'test'
+      ...
+    1..2
+ok 120 - getSourceTimeout
+  ---
+  duration_ms: 404.718083
+  type: 'suite'
+  ...
+# [scheduler] No ASSIGNED_SOURCES configured, scheduler disabled
+# [scheduler] Stopped all source loops
+# Subtest: getSchedulerState before start
+    # Subtest: should report not running when scheduler has not started
+    ok 1 - should report not running when scheduler has not started
+      ---
+      duration_ms: 200.870125
+      type: 'test'
+      ...
+    1..1
+ok 121 - getSchedulerState before start
+  ---
+  duration_ms: 201.000166
+  type: 'suite'
+  ...
+# [scheduler] No ASSIGNED_SOURCES configured, scheduler disabled
+# [scheduler] Stopped all source loops
+# Subtest: startScheduler with empty config
+    # Subtest: should not start when assignedSources is empty
+    ok 1 - should not start when assignedSources is empty
+      ---
+      duration_ms: 200.786417
+      type: 'test'
+      ...
+# [scheduler] Starting continuous crawl for sources: skills-sh
+# [scheduler] skills-sh: timeout=120min, cooldown=240min
+# [heartbeat] VM_PUBLIC_IP or INTERNAL_KEY missing — heartbeat disabled
+# [scheduler] Stopped all source loops
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] partial run (page -1, 3 page(s) to retry), checkpoint saved
+# [scheduler] skills-sh completed in 0.0s: {"totalDiscovered":0,"totalSubmitted":0,"totalCreated":0,"totalSkipped":0,"totalLost":0,"lastPage":-1,"startedFromPage":0,"retriedPages":0,"failedPages":[0,1,2],"reachedEnd":false,"totalSkillsSh":0,"s
+    # Subtest: should not start when assignedSources is undefined
+    ok 2 - should not start when assignedSources is undefined
+      ---
+      duration_ms: 201.145083
+      type: 'test'
+      ...
+    1..2
+ok 122 - startScheduler with empty config
+  ---
+  duration_ms: 402.376083
+  type: 'suite'
+  ...
+# [scheduler] Starting continuous crawl for sources: fake-a, fake-b
+# [scheduler] fake-a: timeout=10min, cooldown=60min
+# [scheduler] fake-b: timeout=10min, cooldown=60min
+# [heartbeat] VM_PUBLIC_IP or INTERNAL_KEY missing — heartbeat disabled
+# [scheduler] Stopped all source loops
+# [scheduler] Stopped all source loops
+# Subtest: startScheduler lifecycle
+    # Subtest: should become running when valid sources are assigned
+    ok 1 - should become running when valid sources are assigned
+      ---
+      duration_ms: 203.33725
+      type: 'test'
+      ...
+# [scheduler] Starting continuous crawl for sources: fake-x, fake-y, fake-z
+# [scheduler] fake-x: timeout=10min, cooldown=60min
+# [scheduler] fake-y: timeout=10min, cooldown=60min
+# [scheduler] fake-z: timeout=10min, cooldown=60min
+# [heartbeat] VM_PUBLIC_IP or INTERNAL_KEY missing — heartbeat disabled
+# [scheduler] Stopped all source loops
+    # Subtest: should stop all loops when stopScheduler is called
+    ok 2 - should stop all loops when stopScheduler is called
+      ---
+      duration_ms: 202.314333
+      type: 'test'
+      ...
+# [scheduler] Stopped all source loops
+    # Subtest: should parse multiple sources with whitespace correctly
+    ok 3 - should parse multiple sources with whitespace correctly
+      ---
+      duration_ms: 201.993916
+      type: 'test'
+      ...
+    1..3
+ok 123 - startScheduler lifecycle
+  ---
+  duration_ms: 607.986125
+  type: 'suite'
+  ...
+# [scheduler] Starting continuous crawl for sources: github-sharded
+# [scheduler] github-sharded: timeout=120min, cooldown=10min
+# [heartbeat] VM_PUBLIC_IP or INTERNAL_KEY missing — heartbeat disabled
+# Subtest: resumable source completion gates
+    # Subtest: never emits a dead-man success for partial or capped retrieval
+    ok 1 - never emits a dead-man success for partial or capped retrieval
+      ---
+      duration_ms: 201.250917
+      type: 'test'
+      ...
+# [scheduler] github-sharded checkpointed in 0.0s: {"totalDiscovered":0,"totalSubmitted":0,"totalCreated":0,"totalSkipped":0,"totalKnownSkipped":0,"totalLost":0,"totalErrors":0,"totalRejected":0,"totalPrivateFiltered":0,"totalVisibilityUnknown":0,"com
+# [scheduler] github-sharded completed in 0.1s: {"totalDiscovered":1,"totalSubmitted":1,"totalCreated":1,"totalSkipped":0,"totalKnownSkipped":0,"totalLost":0,"totalErrors":0,"totalRejected":0,"totalPrivateFiltered":0,"totalVisibilityUnknown":0,"com
+# [scheduler] Stopped all source loops
+# [scheduler] Stopped all source loops
+    # Subtest: continues planning promptly without a completed run or the normal sweep cooldown
+    ok 2 - continues planning promptly without a completed run or the normal sweep cooldown
+      ---
+      duration_ms: 1332.157417
+      type: 'test'
+      ...
+    1..2
+ok 124 - resumable source completion gates
+  ---
+  duration_ms: 1533.543417
+  type: 'suite'
+  ...
+# Subtest: TC-001: GET /health
+    # Subtest: returns 200 with status, activeCrawls, and maxConcurrent
+    ok 1 - returns 200 with status, activeCrawls, and maxConcurrent
+      ---
+      duration_ms: 14.396916
+      type: 'test'
+      ...
+    1..1
+ok 125 - TC-001: GET /health
+  ---
+  duration_ms: 53.947458
+  type: 'suite'
+  ...
+# Subtest: TC-002: POST /crawl auth - missing signature
+    # Subtest: returns 401 without X-Worker-Signature header
+    ok 1 - returns 401 without X-Worker-Signature header
+      ---
+      duration_ms: 7.442083
+      type: 'test'
+      ...
+    1..1
+ok 126 - TC-002: POST /crawl auth - missing signature
+  ---
+  duration_ms: 7.64975
+  type: 'suite'
+  ...
+# Subtest: TC-003: POST /crawl auth - wrong signature
+    # Subtest: returns 401 with incorrect X-Worker-Signature
+    ok 1 - returns 401 with incorrect X-Worker-Signature
+      ---
+      duration_ms: 2.202917
+      type: 'test'
+      ...
+    1..1
+ok 127 - TC-003: POST /crawl auth - wrong signature
+  ---
+  duration_ms: 2.341875
+  type: 'suite'
+  ...
+# Subtest: TC-004: POST /crawl at capacity
+    # Subtest: returns 503 when max concurrent crawls reached
+    ok 1 - returns 503 when max concurrent crawls reached
+      ---
+      duration_ms: 2033.340709
+      type: 'test'
+      ...
+    1..1
+ok 128 - TC-004: POST /crawl at capacity
+  ---
+  duration_ms: 6013.012791
+  type: 'suite'
+  ...
+# Worker stderr: Crawl failed [github-sharded/10af886a-45a1-4193-a9f1-9324f2fc95f9]: No GitHub tokens provided
+# Subtest: TC-005: POST /crawl valid request
+    # Subtest: returns 202 with accepted, jobId, and source
+    ok 1 - returns 202 with accepted, jobId, and source
+      ---
+      duration_ms: 59.075459
+      type: 'test'
+      ...
+    1..1
+ok 129 - TC-005: POST /crawl valid request
+  ---
+  duration_ms: 59.264417
+  type: 'suite'
+  ...
+# Subtest: TC-006: POST /crawl invalid source
+    # Subtest: returns 400 for unknown source
+    ok 1 - returns 400 for unknown source
+      ---
+      duration_ms: 0.814875
+      type: 'test'
+      ...
+    # Subtest: returns 400 when source is missing
+    ok 2 - returns 400 when source is missing
+      ---
+      duration_ms: 0.556042
+      type: 'test'
+      ...
+    1..2
+ok 130 - TC-006: POST /crawl invalid source
+  ---
+  duration_ms: 1.473917
+  type: 'suite'
+  ...
+# Subtest: TC-007: GET /status
+    # Subtest: returns status with activeCrawls, maxConcurrent, uptime, lastResults
+    ok 1 - returns status with activeCrawls, maxConcurrent, uptime, lastResults
+      ---
+      duration_ms: 0.391042
+      type: 'test'
+      ...
+    1..1
+ok 131 - TC-007: GET /status
+  ---
+  duration_ms: 0.439708
+  type: 'suite'
+  ...
+# Subtest: TC-009: GET /coverage
+    # Subtest: returns 200 with skillsShUpstreamReportedTotal, lastSkillsShRunAt, lastSampledAt fields
+    ok 1 - returns 200 with skillsShUpstreamReportedTotal, lastSkillsShRunAt, lastSampledAt fields
+      ---
+      duration_ms: 0.471042
+      type: 'test'
+      ...
+    1..1
+ok 132 - TC-009: GET /coverage
+  ---
+  duration_ms: 0.509125
+  type: 'suite'
+  ...
+# Subtest: TC-008: Unknown routes
+    # Subtest: returns 404 for GET /unknown
+    ok 1 - returns 404 for GET /unknown
+      ---
+      duration_ms: 0.407667
+      type: 'test'
+      ...
+    # Subtest: returns 404 for POST /unknown
+    ok 2 - returns 404 for POST /unknown
+      ---
+      duration_ms: 0.618583
+      type: 'test'
+      ...
+    # Subtest: returns 404 for DELETE /health
+    ok 3 - returns 404 for DELETE /health
+      ---
+      duration_ms: 0.217583
+      type: 'test'
+      ...
+    1..3
+ok 133 - TC-008: Unknown routes
+  ---
+  duration_ms: 1.3015
+  type: 'suite'
+  ...
+# Subtest: parseSizeShards: unset/empty → undefined (fall back to default const)
+ok 134 - parseSizeShards: unset/empty → undefined (fall back to default const)
+  ---
+  duration_ms: 0.372
+  type: 'test'
+  ...
+# Subtest: parseSizeShards: JSON array form
+ok 135 - parseSizeShards: JSON array form
+  ---
+  duration_ms: 0.3605
+  type: 'test'
+  ...
+# Subtest: parseSizeShards: compact comma-range form, trailing dash → open-ended null
+ok 136 - parseSizeShards: compact comma-range form, trailing dash → open-ended null
+  ---
+  duration_ms: 0.357042
+  type: 'test'
+  ...
+# Subtest: parseSizeShards: malformed → undefined (never throws, never partial)
+ok 137 - parseSizeShards: malformed → undefined (never throws, never partial)
+  ---
+  duration_ms: 0.635792
+  type: 'test'
+  ...
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] full crawl complete (reached end at page 0), checkpoint cleared
+# Subtest: skills-sh source: basic pagination
+    # Subtest: should discover all 5 skills from single page (zero-indexed)
+    ok 1 - should discover all 5 skills from single page (zero-indexed)
+      ---
+      duration_ms: 15.605375
+      type: 'test'
+      ...
+    1..1
+ok 138 - skills-sh source: basic pagination
+  ---
+  duration_ms: 21.621541
+  type: 'suite'
+  ...
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] full crawl complete (reached end at page 2), checkpoint cleared
+# Subtest: skills-sh source: multi-page pagination
+    # Subtest: should paginate through all 3 pages (0, 1, 2)
+    ok 1 - should paginate through all 3 pages (0, 1, 2)
+      ---
+      duration_ms: 35.374916
+      type: 'test'
+      ...
+    1..1
+ok 139 - skills-sh source: multi-page pagination
+  ---
+  duration_ms: 38.090084
+  type: 'suite'
+  ...
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] full crawl complete (reached end at page 0), checkpoint cleared
+# Subtest: skills-sh source: deduplication
+    # Subtest: should deduplicate by repo+skillName
+    ok 1 - should deduplicate by repo+skillName
+      ---
+      duration_ms: 5.08275
+      type: 'test'
+      ...
+    1..1
+ok 140 - skills-sh source: deduplication
+  ---
+  duration_ms: 5.936458
+  type: 'suite'
+  ...
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] full crawl complete (reached end at page 1), checkpoint cleared
+# Subtest: skills-sh source: batch submission
+    # Subtest: should submit in batches of 100
+    ok 1 - should submit in batches of 100
+      ---
+      duration_ms: 11.374708
+      type: 'test'
+      ...
+    1..1
+ok 141 - skills-sh source: batch submission
+  ---
+  duration_ms: 12.192417
+  type: 'suite'
+  ...
+# [skills-sh] starting a fresh sweep at page 1 (fresh)
+# [skills-sh] full crawl complete (reached end at page 2), checkpoint cleared
+# Subtest: skills-sh source: startPage config
+    # Subtest: should start from page 1 when startPage=1 (skipping page 0)
+    ok 1 - should start from page 1 when startPage=1 (skipping page 0)
+      ---
+      duration_ms: 19.656
+      type: 'test'
+      ...
+    1..1
+ok 142 - skills-sh source: startPage config
+  ---
+  duration_ms: 20.522709
+  type: 'suite'
+  ...
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] full crawl complete (reached end at page -1), checkpoint cleared
+# Subtest: skills-sh source: handles API errors gracefully
+    # Subtest: should return empty results without throwing
+    ok 1 - should return empty results without throwing
+      ---
+      duration_ms: 3.7455
+      type: 'test'
+      ...
+    1..1
+ok 143 - skills-sh source: handles API errors gracefully
+  ---
+  duration_ms: 4.395958
+  type: 'suite'
+  ...
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] full crawl complete (reached end at page 0), checkpoint cleared
+# Subtest: skills-sh source: submits correct skillPath + candidates
+    # Subtest: should pass skills/{skillId}/SKILL.md as primary path + emit candidates
+    ok 1 - should pass skills/{skillId}/SKILL.md as primary path + emit candidates
+      ---
+      duration_ms: 3.074333
+      type: 'test'
+      ...
+    1..1
+ok 144 - skills-sh source: submits correct skillPath + candidates
+  ---
+  duration_ms: 3.617125
+  type: 'suite'
+  ...
+# Subtest: skills-sh source: candidateSkillPaths()
+    # Subtest: vendor-prefixed skillId produces stripped-prefix candidates
+    ok 1 - vendor-prefixed skillId produces stripped-prefix candidates
+      ---
+      duration_ms: 0.06275
+      type: 'test'
+      ...
+    # Subtest: trailing-stripped skillId produces shorter-suffix candidates (e.g. remotion-best-practices → remotion)
+    ok 2 - trailing-stripped skillId produces shorter-suffix candidates (e.g. remotion-best-practices → remotion)
+      ---
+      duration_ms: 0.105792
+      type: 'test'
+      ...
+    # Subtest: plain skillId still produces multiple candidates including root SKILL.md
+    ok 3 - plain skillId still produces multiple candidates including root SKILL.md
+      ---
+      duration_ms: 0.049125
+      type: 'test'
+      ...
+    # Subtest: output is deduplicated
+    ok 4 - output is deduplicated
+      ---
+      duration_ms: 0.026416
+      type: 'test'
+      ...
+    1..4
+ok 145 - skills-sh source: candidateSkillPaths()
+  ---
+  duration_ms: 0.288792
+  type: 'suite'
+  ...
+# [skills-sh] resuming from page 6
+# [skills-sh] full crawl complete (reached end at page 7), checkpoint cleared
+# Subtest: skills-sh source: resumes from a fresh checkpoint
+    # Subtest: continues at lastPage + 1 and does not replay crawled pages
+    ok 1 - continues at lastPage + 1 and does not replay crawled pages
+      ---
+      duration_ms: 9.922792
+      type: 'test'
+      ...
+    1..1
+ok 146 - skills-sh source: resumes from a fresh checkpoint
+  ---
+  duration_ms: 10.855709
+  type: 'suite'
+  ...
+# [crawl-state] skills-sh: stale checkpoint (72.0h old), ignoring
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] full crawl complete (reached end at page 1), checkpoint cleared
+# Subtest: skills-sh source: a stale checkpoint restarts the sweep
+    # Subtest: starts again at page 0
+    ok 1 - starts again at page 0
+      ---
+      duration_ms: 12.478375
+      type: 'test'
+      ...
+    1..1
+ok 147 - skills-sh source: a stale checkpoint restarts the sweep
+  ---
+  duration_ms: 13.532208
+  type: 'suite'
+  ...
+# Subtest: skills-sh source: resumePlan()
+    # Subtest: starts fresh with no checkpoint
+    ok 1 - starts fresh with no checkpoint
+      ---
+      duration_ms: 0.414208
+      type: 'test'
+      ...
+    # Subtest: starts fresh when the checkpoint predates savedAt stamping
+    ok 2 - starts fresh when the checkpoint predates savedAt stamping
+      ---
+      duration_ms: 0.048916
+      type: 'test'
+      ...
+    # Subtest: starts fresh when the checkpoint is older than maxAgeMs
+    ok 3 - starts fresh when the checkpoint is older than maxAgeMs
+      ---
+      duration_ms: 0.032625
+      type: 'test'
+      ...
+    # Subtest: carries failed pages forward, deduped and sorted
+    ok 4 - carries failed pages forward, deduped and sorted
+      ---
+      duration_ms: 0.044667
+      type: 'test'
+      ...
+    1..4
+ok 148 - skills-sh source: resumePlan()
+  ---
+  duration_ms: 0.596375
+  type: 'suite'
+  ...
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] partial run (page 2, 1 page(s) to retry), checkpoint saved
+# [skills-sh] resuming from page 3 (retrying 1 failed page(s))
+# [skills-sh] full crawl complete (reached end at page 2), checkpoint cleared
+# Subtest: skills-sh source: a failed page is retried, not skipped forever
+    # Subtest: records the failed page and re-fetches it on the next run
+    ok 1 - records the failed page and re-fetches it on the next run
+      ---
+      duration_ms: 12.918459
+      type: 'test'
+      ...
+    1..1
+ok 149 - skills-sh source: a failed page is retried, not skipped forever
+  ---
+  duration_ms: 16.8465
+  type: 'suite'
+  ...
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] partial run (page 2, 1 page(s) to retry), checkpoint saved
+# Subtest: skills-sh source: one empty page does not end the crawl
+    # Subtest: keeps paginating and books the empty page for retry
+    ok 1 - keeps paginating and books the empty page for retry
+      ---
+      duration_ms: 12.205666
+      type: 'test'
+      ...
+    1..1
+ok 150 - skills-sh source: one empty page does not end the crawl
+  ---
+  duration_ms: 12.859041
+  type: 'suite'
+  ...
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] partial run (page 1, 3 page(s) to retry), checkpoint saved
+# Subtest: skills-sh source: aborts on consecutive page errors
+    # Subtest: breaks out of the page loop after a small number of consecutive failures
+    ok 1 - breaks out of the page loop after a small number of consecutive failures
+      ---
+      duration_ms: 3.197459
+      type: 'test'
+      ...
+    1..1
+ok 151 - skills-sh source: aborts on consecutive page errors
+  ---
+  duration_ms: 3.897958
+  type: 'suite'
+  ...
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] full crawl complete (reached end at page 0), checkpoint cleared
+# Subtest: skills-sh source: reports totalSkillsSh from API
+    # Subtest: should report totalSkillsSh from API response
+    ok 1 - should report totalSkillsSh from API response
+      ---
+      duration_ms: 2.218
+      type: 'test'
+      ...
+    1..1
+ok 152 - skills-sh source: reports totalSkillsSh from API
+  ---
+  duration_ms: 2.729833
+  type: 'suite'
+  ...
+# Subtest: fills every counter with a number, whatever the source returned
+ok 153 - fills every counter with a number, whatever the source returned
+  ---
+  duration_ms: 0.527125
+  type: 'test'
+  ...
+# Subtest: a source that returns nothing still yields a full contract
+ok 154 - a source that returns nothing still yields a full contract
+  ---
+  duration_ms: 0.311458
+  type: 'test'
+  ...
+# Subtest: keeps source-specific fields alongside the contract
+ok 155 - keeps source-specific fields alongside the contract
+  ---
+  duration_ms: 0.784916
+  type: 'test'
+  ...
+# Subtest: coerces the legacy errors shapes to a string array
+ok 156 - coerces the legacy errors shapes to a string array
+  ---
+  duration_ms: 0.268333
+  type: 'test'
+  ...
+# Subtest: a non-numeric counter degrades to 0 rather than NaN
+ok 157 - a non-numeric counter degrades to 0 rather than NaN
+  ---
+  duration_ms: 0.101167
+  type: 'test'
+  ...
+# Subtest: partial results retain continuation identity and never normalize to complete
+ok 158 - partial results retain continuation identity and never normalize to complete
+  ---
+  duration_ms: 0.0585
+  type: 'test'
+  ...
+# Subtest: sourcegraph budget, skip and logging
+    # Subtest: skips cleanly with a reason when Sourcegraph refuses the search
+    ok 1 - skips cleanly with a reason when Sourcegraph refuses the search
+      ---
+      duration_ms: 13.154166
+      type: 'test'
+      ...
+    # Subtest: sends the token when one is configured, and none otherwise
+    ok 2 - sends the token when one is configured, and none otherwise
+      ---
+      duration_ms: 10.346667
+      type: 'test'
+      ...
+    # Subtest: logs read and submit progress with counts
+    ok 3 - logs read and submit progress with counts
+      ---
+      duration_ms: 7.235875
+      type: 'test'
+      ...
+    # Subtest: stops submitting when the run budget is spent and reports what is pending
+    ok 4 - stops submitting when the run budget is spent and reports what is pending
+      ---
+      duration_ms: 1.886
+      type: 'test'
+      ...
+    # Subtest: stops after consecutive lost batches instead of burning the whole run
+    ok 5 - stops after consecutive lost batches instead of burning the whole run
+      ---
+      duration_ms: 3.696958
+      type: 'test'
+      ...
+    # Subtest: explains each kind of refused search
+    ok 6 - explains each kind of refused search
+      ---
+      duration_ms: 0.093167
+      type: 'test'
+      ...
+    1..6
+ok 159 - sourcegraph budget, skip and logging
+  ---
+  duration_ms: 37.044875
+  type: 'suite'
+  ...
+# [sourcegraph] run start: 1 pattern(s), budget 100 min, anonymous
+# [sourcegraph] read start: SKILL.md
+# [sourcegraph] read end: SKILL.md: 3 matches in 13 ms (done=true, truncated=false)
+# [sourcegraph] run end: 3 matches, 3 unique, 3 submitted, 0 known, 0 lost in 17 ms
+# Subtest: TC-014: SSE match parsing
+# [sourcegraph] run start: 1 pattern(s), budget 100 min, anonymous
+# [sourcegraph] read start: SKILL.md
+    # Subtest: should extract 3 repos from SSE match events
+    ok 1 - should extract 3 repos from SSE match events
+      ---
+      duration_ms: 17.154875
+      type: 'test'
+      ...
+    1..1
+ok 160 - TC-014: SSE match parsing
+  ---
+  duration_ms: 21.510417
+  type: 'suite'
+  ...
+# [sourcegraph] read end: SKILL.md: 250 matches in 3 ms (done=true, truncated=false)
+# [sourcegraph] run end: 250 matches, 250 unique, 250 submitted, 0 known, 0 lost in 11 ms
+# Subtest: TC-015: Batch submission at batchSize boundary
+# [sourcegraph] run start: 1 pattern(s), budget 100 min, anonymous
+# [sourcegraph] read start: SKILL.md
+    # Subtest: should make 3 batch submissions for 250 matches with batchSize=100
+    ok 1 - should make 3 batch submissions for 250 matches with batchSize=100
+      ---
+      duration_ms: 11.85125
+      type: 'test'
+      ...
+    1..1
+ok 161 - TC-015: Batch submission at batchSize boundary
+  ---
+  duration_ms: 13.295292
+  type: 'suite'
+  ...
+# [sourcegraph] read end: SKILL.md: 50 matches in 14 ms (done=false, truncated=false), error: Stream error for "SKILL.md": terminated
+# [sourcegraph] run end: 50 matches, 50 unique, 50 submitted, 0 known, 0 lost in 18 ms
+# Subtest: TC-016: Stream error handling
+# [sourcegraph] run start: 1 pattern(s), budget 100 min, anonymous
+# [sourcegraph] read start: SKILL.md
+    # Subtest: should still submit partial results when stream errors
+    ok 1 - should still submit partial results when stream errors
+      ---
+      duration_ms: 17.8415
+      type: 'test'
+      ...
+    1..1
+ok 162 - TC-016: Stream error handling
+  ---
+  duration_ms: 18.46825
+  type: 'suite'
+  ...
+# [sourcegraph] read end: SKILL.md: 1 matches in 2 ms (done=true, truncated=false)
+# [sourcegraph] run end: 1 matches, 1 unique, 1 submitted, 0 known, 0 lost in 4 ms
+# Subtest: TC-017: Only SKILL.md file patterns searched
+# [sourcegraph] run start: 1 pattern(s), budget 100 min, anonymous
+# [sourcegraph] read start: SKILL.md
+    # Subtest: should only search for SKILL.md, never .claude/commands
+    ok 1 - should only search for SKILL.md, never .claude/commands
+      ---
+      duration_ms: 5.708375
+      type: 'test'
+      ...
+    1..1
+ok 163 - TC-017: Only SKILL.md file patterns searched
+  ---
+  duration_ms: 6.227667
+  type: 'suite'
+  ...
+# [sourcegraph] read end: SKILL.md: 5 matches in 2 ms (done=true, truncated=false)
+# [sourcegraph] run end: 5 matches, 2 unique, 2 submitted, 0 known, 0 lost in 3 ms
+# Subtest: TC-018: Non-GitHub repo filtering
+# [sourcegraph] run start: 2 pattern(s), budget 100 min, anonymous
+# [sourcegraph] read start: SKILL.md
+    # Subtest: should only include github.com repos, skip gitlab/bitbucket/etc
+    ok 1 - should only include github.com repos, skip gitlab/bitbucket/etc
+      ---
+      duration_ms: 3.493542
+      type: 'test'
+      ...
+    1..1
+ok 164 - TC-018: Non-GitHub repo filtering
+  ---
+  duration_ms: 3.960083
+  type: 'suite'
+  ...
+# [sourcegraph] read end: SKILL.md: 2 matches in 2 ms (done=true, truncated=false)
+# [sourcegraph] read start: .cursorrules
+# [sourcegraph] read end: .cursorrules: 2 matches in 1 ms (done=true, truncated=false)
+# [sourcegraph] run end: 4 matches, 3 unique, 3 submitted, 0 known, 0 lost in 4 ms
+# Subtest: TC-019: Cross-pattern deduplication
+# [sourcegraph] run start: 1 pattern(s), budget 100 min, anonymous
+# [sourcegraph] read start: SKILL.md
+    # Subtest: should count shared/repo only once across SKILL.md and .cursorrules
+    ok 1 - should count shared/repo only once across SKILL.md and .cursorrules
+      ---
+      duration_ms: 4.8175
+      type: 'test'
+      ...
+    1..1
+ok 165 - TC-019: Cross-pattern deduplication
+  ---
+  duration_ms: 5.5015
+  type: 'suite'
+  ...
+# [sourcegraph] read end: SKILL.md: 4 matches in 1 ms (done=true, truncated=false)
+# [sourcegraph] run end: 4 matches, 4 unique, 4 submitted, 0 known, 0 lost in 4 ms
+# Subtest: TC-020: Multi-skill repo deduplication
+# [sourcegraph] run start: 1 pattern(s), budget 100 min, anonymous
+# [sourcegraph] read start: SKILL.md
+    # Subtest: should submit each nested SKILL.md as a separate skill with correct names
+    ok 1 - should submit each nested SKILL.md as a separate skill with correct names
+      ---
+      duration_ms: 3.644416
+      type: 'test'
+      ...
+    1..1
+ok 166 - TC-020: Multi-skill repo deduplication
+  ---
+  duration_ms: 4.048625
+  type: 'suite'
+  ...
+# [sourcegraph] read end: SKILL.md: 250 matches in 2 ms (done=true, truncated=false)
+# [sourcegraph] run end: 250 matches, 250 unique, 250 submitted, 0 known, 0 lost in 6 ms
+# Subtest: 0875: reads the whole stream before submitting
+# [sourcegraph] run start: 1 pattern(s), budget 100 min, anonymous
+# [sourcegraph] read start: SKILL.md
+    # Subtest: every stream request precedes every submission
+    ok 1 - every stream request precedes every submission
+      ---
+      duration_ms: 5.341125
+      type: 'test'
+      ...
+    1..1
+ok 167 - 0875: reads the whole stream before submitting
+  ---
+  duration_ms: 5.735291
+  type: 'suite'
+  ...
+# [sourcegraph] read end: SKILL.md: 0 matches in 1 ms (done=true, truncated=false)
+# [sourcegraph] run end: 0 matches, 0 unique, 0 submitted, 0 known, 0 lost in 1 ms
+# Subtest: 0875: query excludes forks and archived repos
+# [sourcegraph] run start: 1 pattern(s), budget 100 min, anonymous
+# [sourcegraph] read start: SKILL.md
+    # Subtest: sends fork:no archived:no with count:all
+    ok 1 - sends fork:no archived:no with count:all
+      ---
+      duration_ms: 1.109959
+      type: 'test'
+      ...
+    1..1
+ok 168 - 0875: query excludes forks and archived repos
+  ---
+  duration_ms: 1.696333
+  type: 'suite'
+  ...
+# [sourcegraph] read end: SKILL.md: 100 matches in 1 ms (done=true, truncated=true)
+# [sourcegraph] run end: 100 matches, 100 unique, 100 submitted, 0 known, 0 lost in 5 ms
+# Subtest: 0875: the in-memory read is bounded
+    # Subtest: stops reading at maxMatches and reports truncation
+    ok 1 - stops reading at maxMatches and reports truncation
+      ---
+      duration_ms: 5.089167
+      type: 'test'
+      ...
+    1..1
+ok 169 - 0875: the in-memory read is bounded
+  ---
+  duration_ms: 5.665166
+  type: 'suite'
+  ...
+# [vendor-org-discovery] starting discovery for 1/1 vendor orgs
+# [vendor-org-discovery] listing repos for acme...
+# Subtest: rateLimitWait
+    # Subtest: uses retry-after for a secondary limit
+    ok 1 - uses retry-after for a secondary limit
+      ---
+      duration_ms: 1.74875
+      type: 'test'
+      ...
+    # Subtest: uses x-ratelimit-reset when the primary quota is spent
+    ok 2 - uses x-ratelimit-reset when the primary quota is spent
+      ---
+      duration_ms: 0.2055
+      type: 'test'
+      ...
+    # Subtest: recognises a secondary limit from the body when retry-after is missing
+    ok 3 - recognises a secondary limit from the body when retry-after is missing
+      ---
+      duration_ms: 1.024375
+      type: 'test'
+      ...
+    # Subtest: treats a plain 403 as not rate limited
+    ok 4 - treats a plain 403 as not rate limited
+      ---
+      duration_ms: 0.335875
+      type: 'test'
+      ...
+    1..4
+ok 170 - rateLimitWait
+  ---
+  duration_ms: 3.8105
+  type: 'suite'
+  ...
+# [vendor-org-discovery] acme: 3 repos found, scanning trees...
+# [vendor-org-discovery] found: acme/one/one (SKILL.md)
+# [vendor-org-discovery] acme: rate limited: GitHub asked for 1200s (secondary limit, retry-after), deferring to next cycle; checkpoint saved at repo 1/3
+# [vendor-org-discovery] acme: done in 0.4s — 3 repos, 1 skills
+# [vendor-org-discovery] run deferred: 1 skills found, 1 submitted, 1 orgs pending
+# [vendor-org-discovery] starting discovery for 1/1 vendor orgs (resuming acme at repo 1/3)
+# [vendor-org-discovery] acme: resuming at repo 1/3
+# [vendor-org-discovery] found: acme/two/two (SKILL.md)
+# [vendor-org-discovery] found: acme/three/three (SKILL.md)
+# [vendor-org-discovery] acme: done in 0.4s — 3 repos, 2 skills
+# [vendor-org-discovery] run complete: 2 skills found, 2 submitted, 0 orgs pending
+# Subtest: vendor-org-discovery rate-limit budget
+# [vendor-org-discovery] starting discovery for 1/1 vendor orgs
+# [vendor-org-discovery] listing repos for acme...
+    # Subtest: a long secondary limit
+        # Subtest: defers without waiting, checkpoints, and the next run resumes at the same repo
+        ok 1 - defers without waiting, checkpoints, and the next run resumes at the same repo
+          ---
+          duration_ms: 840.569375
+          type: 'test'
+          ...
+        1..1
+    ok 1 - a long secondary limit
+      ---
+      duration_ms: 845.632125
+      type: 'suite'
+      ...
+# [vendor-org-discovery] acme: 1 repos found, scanning trees...
+# [vendor-org-discovery] rate limited (secondary limit, retry-after, attempt 1/4), waiting 1s...
+# [vendor-org-discovery] found: acme/one/one (SKILL.md)
+# [vendor-org-discovery] acme: done in 1.4s — 1 repos, 1 skills
+# [vendor-org-discovery] run complete: 1 skills found, 1 submitted, 0 orgs pending
+    # Subtest: a short secondary limit
+# [vendor-org-discovery] starting discovery for 1/1 vendor orgs
+# [vendor-org-discovery] listing repos for acme...
+        # Subtest: waits it out and retries within the run
+        ok 1 - waits it out and retries within the run
+          ---
+          duration_ms: 1410.878875
+          type: 'test'
+          ...
+        1..1
+    ok 2 - a short secondary limit
+      ---
+      duration_ms: 1412.377709
+      type: 'suite'
+      ...
+# [vendor-org-discovery] acme: 2 repos found, scanning trees...
+# [vendor-org-discovery] scanRepoTree acme/blocked: HTTP 403
+# [vendor-org-discovery] found: acme/fine/fine (SKILL.md)
+# [vendor-org-discovery] acme: done in 0.4s — 2 repos, 1 skills
+# [vendor-org-discovery] run complete: 1 skills found, 1 submitted, 0 orgs pending
+    # Subtest: a plain 403
+# [vendor-org-discovery] starting discovery for 1/1 vendor orgs
+# [vendor-org-discovery] acme: rate limited: GitHub asked for 0s (run budget spent), deferring to next cycle; checkpoint saved at repo 0/0
+# [vendor-org-discovery] acme: done in 0.0s — 0 repos, 0 skills
+# [vendor-org-discovery] run deferred: 0 skills found, 0 submitted, 1 orgs pending
+        # Subtest: skips the repo and keeps going
+        ok 1 - skips the repo and keeps going
+          ---
+          duration_ms: 415.092083
+          type: 'test'
+          ...
+        1..1
+    ok 3 - a plain 403
+      ---
+      duration_ms: 415.677292
+      type: 'suite'
+      ...
+    # Subtest: the run budget
+        # Subtest: defers cleanly when the budget is spent
+        ok 1 - defers cleanly when the budget is spent
+          ---
+          duration_ms: 1.258083
+          type: 'test'
+          ...
+        1..1
+    ok 4 - the run budget
+      ---
+      duration_ms: 1.711959
+      type: 'suite'
+      ...
+    # Subtest: RateLimitDeferral carries the requested wait
+    ok 5 - RateLimitDeferral carries the requested wait
+      ---
+      duration_ms: 0.741292
+      type: 'test'
+      ...
+    1..5
+ok 171 - vendor-org-discovery rate-limit budget
+  ---
+  duration_ms: 2676.50175
+  type: 'suite'
+  ...
+# [vendor-org-discovery] starting discovery for 6/6 vendor orgs
+# [vendor-org-discovery] listing repos for anthropics...
+# [vendor-org-discovery] anthropics: 1 repos found, scanning trees...
+# [vendor-org-discovery] found: anthropics/claude-code/my-skill (plugins/my-skill/SKILL.md)
+# [vendor-org-discovery] anthropics: done in 0.4s — 1 repos, 1 skills
+# [vendor-org-discovery] listing repos for openai...
+# [vendor-org-discovery] openai: 0 repos found, scanning trees...
+# [vendor-org-discovery] openai: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for google-gemini...
+# [vendor-org-discovery] google-gemini: 0 repos found, scanning trees...
+# [vendor-org-discovery] google-gemini: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for vercel...
+# [vendor-org-discovery] vercel: 0 repos found, scanning trees...
+# [vendor-org-discovery] vercel: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for cloudflare...
+# [vendor-org-discovery] cloudflare: 0 repos found, scanning trees...
+# [vendor-org-discovery] cloudflare: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for anton-abyzov...
+# [vendor-org-discovery] anton-abyzov: 0 repos found, scanning trees...
+# [vendor-org-discovery] anton-abyzov: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] run complete: 1 skills found, 1 submitted, 0 orgs pending
+# Subtest: vendor-org-discovery
+# [vendor-org-discovery] starting discovery for 6/6 vendor orgs
+# [vendor-org-discovery] listing repos for anthropics...
+    # Subtest: TC-030: full pipeline discovery to submission
+        # Subtest: discovers SKILL.md and submits via InlineSubmitter
+        ok 1 - discovers SKILL.md and submits via InlineSubmitter
+          ---
+          duration_ms: 1440.952042
+          type: 'test'
+          ...
+        1..1
+    ok 1 - TC-030: full pipeline discovery to submission
+      ---
+      duration_ms: 1445.607291
+      type: 'suite'
+      ...
+# [vendor-org-discovery] anthropics: 2 repos found, scanning trees...
+# [vendor-org-discovery] found: anthropics/real-repo/real-repo (SKILL.md)
+# [vendor-org-discovery] found: anthropics/zero-star-repo/zero-star-repo (SKILL.md)
+# [vendor-org-discovery] anthropics: done in 0.6s — 2 repos, 2 skills
+# [vendor-org-discovery] listing repos for openai...
+# [vendor-org-discovery] openai: 0 repos found, scanning trees...
+# [vendor-org-discovery] openai: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for google-gemini...
+# [vendor-org-discovery] google-gemini: 0 repos found, scanning trees...
+# [vendor-org-discovery] google-gemini: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for vercel...
+# [vendor-org-discovery] vercel: 0 repos found, scanning trees...
+# [vendor-org-discovery] vercel: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for cloudflare...
+# [vendor-org-discovery] cloudflare: 0 repos found, scanning trees...
+# [vendor-org-discovery] cloudflare: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for anton-abyzov...
+# [vendor-org-discovery] anton-abyzov: 0 repos found, scanning trees...
+# [vendor-org-discovery] anton-abyzov: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] run complete: 2 skills found, 2 submitted, 0 orgs pending
+    # Subtest: TC-031: skips forks but includes zero-star vendor repos
+# [vendor-org-discovery] starting discovery for 6/6 vendor orgs
+# [vendor-org-discovery] listing repos for anthropics...
+        # Subtest: discovers from non-fork repos including zero-star vendor repos
+        ok 1 - discovers from non-fork repos including zero-star vendor repos
+          ---
+          duration_ms: 1632.389375
+          type: 'test'
+          ...
+        1..1
+    ok 2 - TC-031: skips forks but includes zero-star vendor repos
+      ---
+      duration_ms: 1633.853291
+      type: 'suite'
+      ...
+# [vendor-org-discovery] anthropics: 1 repos found, scanning trees...
+# [vendor-org-discovery] found: anthropics/my-repo/bar (plugins/bar/SKILL.md)
+# [vendor-org-discovery] anthropics: done in 0.4s — 1 repos, 1 skills
+# [vendor-org-discovery] listing repos for openai...
+# [vendor-org-discovery] openai: 0 repos found, scanning trees...
+# [vendor-org-discovery] openai: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for google-gemini...
+# [vendor-org-discovery] google-gemini: 0 repos found, scanning trees...
+# [vendor-org-discovery] google-gemini: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for vercel...
+# [vendor-org-discovery] vercel: 0 repos found, scanning trees...
+# [vendor-org-discovery] vercel: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for cloudflare...
+# [vendor-org-discovery] cloudflare: 0 repos found, scanning trees...
+# [vendor-org-discovery] cloudflare: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for anton-abyzov...
+# [vendor-org-discovery] anton-abyzov: 0 repos found, scanning trees...
+# [vendor-org-discovery] anton-abyzov: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] run complete: 1 skills found, 1 submitted, 0 orgs pending
+    # Subtest: TC-032: excludes agent config paths
+# [vendor-org-discovery] starting discovery for 6/6 vendor orgs
+# [vendor-org-discovery] listing repos for anthropics...
+        # Subtest: excludes SKILL.md inside .claude/ dir
+        ok 1 - excludes SKILL.md inside .claude/ dir
+          ---
+          duration_ms: 1426.79125
+          type: 'test'
+          ...
+        1..1
+    ok 3 - TC-032: excludes agent config paths
+      ---
+      duration_ms: 1427.474833
+      type: 'suite'
+      ...
+# [vendor-org-discovery] anthropics: 0 repos found, scanning trees...
+# [vendor-org-discovery] anthropics: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for openai...
+# [vendor-org-discovery] openai: 0 repos found, scanning trees...
+# [vendor-org-discovery] openai: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for google-gemini...
+# [vendor-org-discovery] google-gemini: 0 repos found, scanning trees...
+# [vendor-org-discovery] google-gemini: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for vercel...
+# [vendor-org-discovery] vercel: 0 repos found, scanning trees...
+# [vendor-org-discovery] vercel: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for cloudflare...
+# [vendor-org-discovery] cloudflare: 0 repos found, scanning trees...
+# [vendor-org-discovery] cloudflare: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] listing repos for anton-abyzov...
+# [vendor-org-discovery] anton-abyzov: 0 repos found, scanning trees...
+# [vendor-org-discovery] anton-abyzov: done in 0.2s — 0 repos, 0 skills
+# [vendor-org-discovery] run complete: 0 skills found, 0 submitted, 0 orgs pending
+    # Subtest: TC-033: handles empty vendor org gracefully
+        # Subtest: returns zero skills with no errors for all 6 vendor orgs
+        ok 1 - returns zero skills with no errors for all 6 vendor orgs
+          ---
+          duration_ms: 1221.619
+          type: 'test'
+          ...
+        1..1
+    ok 4 - TC-033: handles empty vendor org gracefully
+      ---
+      duration_ms: 1222.132792
+      type: 'suite'
+      ...
+    1..4
+ok 172 - vendor-org-discovery
+  ---
+  duration_ms: 5733.44175
+  type: 'suite'
+  ...
+# Subtest: shouldPingSuccess: 200-with-0-skills cycle does NOT ping (AC-US4-01)
+ok 173 - shouldPingSuccess: 200-with-0-skills cycle does NOT ping (AC-US4-01)
+  ---
+  duration_ms: 0.7855
+  type: 'test'
+  ...
+# Subtest: pingCycleResult: a 200-with-0-skills cycle fires NO ping (AC-US4-01)
+ok 174 - pingCycleResult: a 200-with-0-skills cycle fires NO ping (AC-US4-01)
+  ---
+  duration_ms: 0.143292
+  type: 'test'
+  ...
+# Subtest: pingCycleResult: DB-down (no confirmed write) gates the success ping red (AC-US4-01 / L2)
+ok 175 - pingCycleResult: DB-down (no confirmed write) gates the success ping red (AC-US4-01 / L2)
+  ---
+  duration_ms: 0.050125
+  type: 'test'
+  ...
+# Subtest: pingCycleResult: a real publish + confirmed DB write pings the success url (AC-US4-01)
+ok 176 - pingCycleResult: a real publish + confirmed DB write pings the success url (AC-US4-01)
+  ---
+  duration_ms: 0.422459
+  type: 'test'
+  ...
+# Subtest: one check per VM: skipping VM2's ping leaves VM2 red while VM1/VM3 stay green (AC-US4-03)
+ok 177 - one check per VM: skipping VM2's ping leaves VM2 red while VM1/VM3 stay green (AC-US4-03)
+  ---
+  duration_ms: 0.166125
+  type: 'test'
+  ...
+# Subtest: pingFail: an in-process exception POSTs /fail, flipping the check red (AC-US4-02)
+ok 178 - pingFail: an in-process exception POSTs /fail, flipping the check red (AC-US4-02)
+  ---
+  duration_ms: 0.067708
+  type: 'test'
+  ...
+# Subtest: ping never throws even when the network fails
+ok 179 - ping never throws even when the network fails
+  ---
+  duration_ms: 0.146459
+  type: 'test'
+  ...
+# Subtest: ping no-ops cleanly when no UUID is configured
+ok 180 - ping no-ops cleanly when no UUID is configured
+  ---
+  duration_ms: 0.043166
+  type: 'test'
+  ...
+# Subtest: total provider failure: both Healthchecks.io and cron-job.org down -> allProvidersDown (AC-US4-04)
+ok 181 - total provider failure: both Healthchecks.io and cron-job.org down -> allProvidersDown (AC-US4-04)
+  ---
+  duration_ms: 0.304709
+  type: 'test'
+  ...
+# Subtest: partial provider failure: primary down but backstop up -> NOT allProvidersDown
+ok 182 - partial provider failure: primary down but backstop up -> NOT allProvidersDown
+  ---
+  duration_ms: 0.31625
+  type: 'test'
+  ...
+# Subtest: an unconfigured backstop does NOT count as a provider outage
+ok 183 - an unconfigured backstop does NOT count as a provider outage
+  ---
+  duration_ms: 0.119083
+  type: 'test'
+  ...
+# Subtest: pingBackup: best-effort, no url -> skipped
+ok 184 - pingBackup: best-effort, no url -> skipped
+  ---
+  duration_ms: 0.035416
+  type: 'test'
+  ...
+# Subtest: deadmanConfigFromEnv reads HEALTHCHECK_UUID / base / backup
+ok 185 - deadmanConfigFromEnv reads HEALTHCHECK_UUID / base / backup
+  ---
+  duration_ms: 0.046209
+  type: 'test'
+  ...
+# Subtest: normalizeRepoUrl collapses every variant to github.com/acme/skills
+ok 186 - normalizeRepoUrl collapses every variant to github.com/acme/skills
+  ---
+  duration_ms: 0.492417
+  type: 'test'
+  ...
+# Subtest: normalizeRepoUrl returns null for empty/non-string
+ok 187 - normalizeRepoUrl returns null for empty/non-string
+  ---
+  duration_ms: 0.050292
+  type: 'test'
+  ...
+# Subtest: parseOwnerRepo is case-insensitive and github-only
+ok 188 - parseOwnerRepo is case-insensitive and github-only
+  ---
+  duration_ms: 1.225875
+  type: 'test'
+  ...
+# Subtest: artifactPathFromSkillPath strips /SKILL.md, preserves dir casing
+ok 189 - artifactPathFromSkillPath strips /SKILL.md, preserves dir casing
+  ---
+  duration_ms: 0.11625
+  type: 'test'
+  ...
+# Subtest: fullNameFromRepoUrl yields the lowercased cache key
+ok 190 - fullNameFromRepoUrl yields the lowercased cache key
+  ---
+  duration_ms: 0.121792
+  type: 'test'
+  ...
+# Subtest: DEDUP-01/02: slash + .git variants resolve to one repo_id, one row
+ok 191 - DEDUP-01/02: slash + .git variants resolve to one repo_id, one row
+  ---
+  duration_ms: 1.166959
+  type: 'test'
+  ...
+# Subtest: DEDUP-03: case variants resolve once (durable cache hit, no 2nd call)
+ok 192 - DEDUP-03: case variants resolve once (durable cache hit, no 2nd call)
+  ---
+  duration_ms: 0.151
+  type: 'test'
+  ...
+# Subtest: DEDUP-04: rename follows 301 to the same repo_id
+ok 193 - DEDUP-04: rename follows 301 to the same repo_id
+  ---
+  duration_ms: 0.139791
+  type: 'test'
+  ...
+# Subtest: DEDUP-19: 403 defers (no row); retry persists; bounce hits durable cache
+ok 194 - DEDUP-19: 403 defers (no row); retry persists; bounce hits durable cache
+  ---
+  duration_ms: 0.262625
+  type: 'test'
+  ...
+# Subtest: non-github URL throws (caller keys it as `other`)
+ok 195 - non-github URL throws (caller keys it as `other`)
+  ---
+  duration_ms: 0.151458
+  type: 'test'
+  ...
+1..195
+# tests 251
+# suites 70
+# pass 250
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 10388.8345

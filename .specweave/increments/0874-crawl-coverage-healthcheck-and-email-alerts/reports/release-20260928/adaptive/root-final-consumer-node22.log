@@ -1,0 +1,524 @@
+TAP version 13
+# Subtest: each persisted probe boundary resumes the exact remaining tree
+ok 1 - each persisted probe boundary resumes the exact remaining tree
+  ---
+  duration_ms: 112.561333
+  type: 'test'
+  ...
+# Subtest: open-ended root retains its tail and reports capped terminal leaves
+ok 2 - open-ended root retains its tail and reports capped terminal leaves
+  ---
+  duration_ms: 0.275292
+  type: 'test'
+  ...
+# Subtest: legacy, changed config and corrupt checkpoint gates never overwrite bytes
+ok 3 - legacy, changed config and corrupt checkpoint gates never overwrite bytes
+  ---
+  duration_ms: 13.432792
+  type: 'test'
+  ...
+# Subtest: budget reserves rate-limit waits without discarding planning progress
+ok 4 - budget reserves rate-limit waits without discarding planning progress
+  ---
+  duration_ms: 0.597208
+  type: 'test'
+  ...
+# Subtest: malformed depth, leaf, counter and cursor fields are rejected without touching bytes
+ok 5 - malformed depth, leaf, counter and cursor fields are rejected without touching bytes
+  ---
+  duration_ms: 1.592042
+  type: 'test'
+  ...
+# Subtest: fresh processes resume each planning and page boundary without repeating probes or submissions
+ok 6 - fresh processes resume each planning and page boundary without repeating probes or submissions
+  ---
+  duration_ms: 507.118167
+  type: 'test'
+  ...
+# Subtest: mixed per-item errors retain page and accepted/deferred receipts across process restart
+ok 7 - mixed per-item errors retain page and accepted/deferred receipts across process restart
+  ---
+  duration_ms: 456.896167
+  type: 'test'
+  ...
+# Subtest: HTTP401 preserves pending probe and cannot complete
+ok 8 - HTTP401 preserves pending probe and cannot complete
+  ---
+  duration_ms: 62.882833
+  type: 'test'
+  ...
+# Subtest: HTTP403 preserves pending probe and cannot complete
+ok 9 - HTTP403 preserves pending probe and cannot complete
+  ---
+  duration_ms: 124.507
+  type: 'test'
+  ...
+# Subtest: HTTP429 preserves pending probe and cannot complete
+ok 10 - HTTP429 preserves pending probe and cannot complete
+  ---
+  duration_ms: 111.751666
+  type: 'test'
+  ...
+# Subtest: HTTP500 preserves pending probe and cannot complete
+ok 11 - HTTP500 preserves pending probe and cannot complete
+  ---
+  duration_ms: 63.900792
+  type: 'test'
+  ...
+# Subtest: GitHub incomplete result is never persisted as a complete count probe
+ok 12 - GitHub incomplete result is never persisted as a complete count probe
+  ---
+  duration_ms: 64.805208
+  type: 'test'
+  ...
+# Subtest: unsplittable hot spot discloses capped coverage after all retrievable pages complete
+ok 13 - unsplittable hot spot discloses capped coverage after all retrievable pages complete
+  ---
+  duration_ms: 353.412083
+  type: 'test'
+  ...
+# Subtest: partial response cannot warm missing acknowledgements before a changed-page retry
+ok 14 - partial response cannot warm missing acknowledgements before a changed-page retry
+  ---
+  duration_ms: 390.301916
+  type: 'test'
+  ...
+# Subtest: SIGKILL after one acknowledged batch preserves the pending page across a fresh process
+ok 15 - SIGKILL after one acknowledged batch preserves the pending page across a fresh process
+  ---
+  duration_ms: 376.182375
+  type: 'test'
+  ...
+# Subtest: turning adaptive off preserves the versioned checkpoint without any request
+ok 16 - turning adaptive off preserves the versioned checkpoint without any request
+  ---
+  duration_ms: 96.785208
+  type: 'test'
+  ...
+# Subtest: same repo and name with different paths cannot share a partial acknowledgement
+ok 17 - same repo and name with different paths cannot share a partial acknowledgement
+  ---
+  duration_ms: 398.629958
+  type: 'test'
+  ...
+# Subtest: overlapping query encounters retain an exact completed natural-key union
+ok 18 - overlapping query encounters retain an exact completed natural-key union
+  ---
+  duration_ms: 821.675583
+  type: 'test'
+  ...
+# Subtest: distinct union saturates honestly while retaining the exact 10000-key proof
+ok 19 - distinct union saturates honestly while retaining the exact 10000-key proof
+  ---
+  duration_ms: 210.794917
+  type: 'test'
+  ...
+# Subtest: public crawler excludes private/internal and unknown visibility (adaptive=false)
+ok 20 - public crawler excludes private/internal and unknown visibility (adaptive=false)
+  ---
+  duration_ms: 276.587209
+  type: 'test'
+  ...
+# Subtest: public crawler excludes private/internal and unknown visibility (adaptive=true)
+ok 21 - public crawler excludes private/internal and unknown visibility (adaptive=true)
+  ---
+  duration_ms: 325.351375
+  type: 'test'
+  ...
+# Subtest: an all-private page advances without any intake or private identity checkpoint
+ok 22 - an all-private page advances without any intake or private identity checkpoint
+  ---
+  duration_ms: 329.34925
+  type: 'test'
+  ...
+# Subtest: malformed missing count cannot advance a probe
+ok 23 - malformed missing count cannot advance a probe
+  ---
+  duration_ms: 60.7465
+  type: 'test'
+  ...
+# Subtest: malformed negative count cannot advance a probe
+ok 24 - malformed negative count cannot advance a probe
+  ---
+  duration_ms: 63.347
+  type: 'test'
+  ...
+# Subtest: malformed string count cannot advance a probe
+ok 25 - malformed string count cannot advance a probe
+  ---
+  duration_ms: 62.941625
+  type: 'test'
+  ...
+# Subtest: malformed missing items cannot advance a probe
+ok 26 - malformed missing items cannot advance a probe
+  ---
+  duration_ms: 62.656792
+  type: 'test'
+  ...
+# Subtest: malformed missing completeness cannot advance a probe
+ok 27 - malformed missing completeness cannot advance a probe
+  ---
+  duration_ms: 61.942125
+  type: 'test'
+  ...
+# Subtest: malformed non-array items cannot advance a probe
+ok 28 - malformed non-array items cannot advance a probe
+  ---
+  duration_ms: 63.021042
+  type: 'test'
+  ...
+# Subtest: malformed oversized page cannot advance a probe
+ok 29 - malformed oversized page cannot advance a probe
+  ---
+  duration_ms: 68.806791
+  type: 'test'
+  ...
+# Subtest: malformed malformed item cannot advance a probe
+ok 30 - malformed malformed item cannot advance a probe
+  ---
+  duration_ms: 62.061333
+  type: 'test'
+  ...
+# Subtest: search timeout/abort retains the pending range: {"maxRunMs":30}
+ok 31 - search timeout/abort retains the pending range: {"maxRunMs":30}
+  ---
+  duration_ms: 82.443291
+  type: 'test'
+  ...
+# Subtest: search timeout/abort retains the pending range: {"abortAfterMs":30}
+ok 32 - search timeout/abort retains the pending range: {"abortAfterMs":30}
+  ---
+  duration_ms: 70.99625
+  type: 'test'
+  ...
+# Subtest: coarse search with incomplete results cannot report a completed sweep
+ok 33 - coarse search with incomplete results cannot report a completed sweep
+  ---
+  duration_ms: 43.304084
+  type: 'test'
+  ...
+# Subtest: typed policy rejection survives restart while transient siblings remain replayable
+ok 34 - typed policy rejection survives restart while transient siblings remain replayable
+  ---
+  duration_ms: 412.91075
+  type: 'test'
+  ...
+# Subtest: path-bound policy receipt cannot acknowledge a pathless same-name sibling
+ok 35 - path-bound policy receipt cannot acknowledge a pathless same-name sibling
+  ---
+  duration_ms: 399.88925
+  type: 'test'
+  ...
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] resuming persisted size-bisect leaf plan (2 shards) from index 1
+# [github-sharded] resuming from shard 1/2 (1 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=2, starting at 1
+# [github-sharded] mode=size-bisect, shards=1, starting at 0
+# Subtest: search 401 rejects without advancing or clearing the failed shard
+ok 36 - search 401 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 15.275
+  type: 'test'
+  ...
+# Subtest: search 422 rejects without advancing or clearing the failed shard
+ok 37 - search 422 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 4.183042
+  type: 'test'
+  ...
+# Subtest: search 429 rejects without advancing or clearing the failed shard
+ok 38 - search 429 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 4.460083
+  type: 'test'
+  ...
+# Subtest: search 503 rejects without advancing or clearing the failed shard
+ok 39 - search 503 rejects without advancing or clearing the failed shard
+  ---
+  duration_ms: 0.524958
+  type: 'test'
+  ...
+# Subtest: failed bisection cannot fall back to a misleading successful coarse sweep
+ok 40 - failed bisection cannot fall back to a misleading successful coarse sweep
+  ---
+  duration_ms: 45.606917
+  type: 'test'
+  ...
+# [github-sharded] resuming persisted size-bisect leaf plan (1 shards) from index 0
+# [github-sharded] resuming from shard 0/1 (0 repos in dedup set)
+# [github-sharded] mode=size-bisect, shards=1, starting at 0
+# [github-sharded] shard 1/1: +100 new (total=100)
+# [github-sharded] full run complete, checkpoint cleared
+# [scheduler] Starting continuous crawl for sources: github-sharded
+# [scheduler] github-sharded: timeout=120min, cooldown=20min
+# [heartbeat] VM_PUBLIC_IP or INTERNAL_KEY missing — heartbeat disabled
+# [github-sharded] mode=size-bisect, shards=7, starting at 0
+# [scheduler] github-sharded failed: GitHub shard 1/7 failed: GitHub Code Search failed: 401
+# Subtest: search failure plus exhausted intake retries replays every unaccepted discovery
+ok 41 - search failure plus exhausted intake retries replays every unaccepted discovery
+  ---
+  duration_ms: 8536.083125
+  type: 'test'
+  ...
+# [scheduler] Stopped all source loops
+# [github-sharded] mode=size-bisect, shards=1, starting at 0
+# Subtest: real source auth failure reaches scheduler error metrics and backoff
+ok 42 - real source auth failure reaches scheduler error metrics and backoff
+  ---
+  duration_ms: 11.304917
+  type: 'test'
+  ...
+# Subtest: successful search with failed intake cannot clear a sweep checkpoint
+ok 43 - successful search with failed intake cannot clear a sweep checkpoint
+  ---
+  duration_ms: 204.3295
+  type: 'test'
+  ...
+# Subtest: a request timeout is retryable and retried once the transport recovers
+ok 44 - a request timeout is retryable and retried once the transport recovers
+  ---
+  duration_ms: 0.790375
+  type: 'test'
+  ...
+# Subtest: AbortError and undici socket failures are classified retryable
+ok 45 - AbortError and undici socket failures are classified retryable
+  ---
+  duration_ms: 0.1225
+  type: 'test'
+  ...
+# Subtest: a non-retryable status throws immediately — one retry layer, no second loop
+ok 46 - a non-retryable status throws immediately — one retry layer, no second loop
+  ---
+  duration_ms: 0.198083
+  type: 'test'
+  ...
+# Subtest: a batch that exhausts its retries is lost, counted, and never re-queued
+ok 47 - a batch that exhausts its retries is lost, counted, and never re-queued
+  ---
+  duration_ms: 0.159667
+  type: 'test'
+  ...
+# Subtest: one submission batch-size default, owned by InlineSubmitter
+ok 48 - one submission batch-size default, owned by InlineSubmitter
+  ---
+  duration_ms: 0.134375
+  type: 'test'
+  ...
+# Subtest: a known key is skipped before it is ever buffered
+ok 49 - a known key is skipped before it is ever buffered
+  ---
+  duration_ms: 5.466708
+  type: 'test'
+  ...
+# Subtest: only the items the platform accepted are recorded as known
+ok 50 - only the items the platform accepted are recorded as known
+  ---
+  duration_ms: 0.211541
+  type: 'test'
+  ...
+# Subtest: a response with errors and no per-item detail records nothing
+ok 51 - a response with errors and no per-item detail records nothing
+  ---
+  duration_ms: 0.064417
+  type: 'test'
+  ...
+# Subtest: omitted and unknown per-item decisions never warm the known-key cache
+ok 52 - omitted and unknown per-item decisions never warm the known-key cache
+  ---
+  duration_ms: 4.231208
+  type: 'test'
+  ...
+# Subtest: same-name collision groups need complete receipts or explicit artifact-path binding
+ok 53 - same-name collision groups need complete receipts or explicit artifact-path binding
+  ---
+  duration_ms: 0.434167
+  type: 'test'
+  ...
+# Subtest: typed policy rejection settles only its exact input and never warms known keys
+ok 54 - typed policy rejection settles only its exact input and never warms known keys
+  ---
+  duration_ms: 0.33125
+  type: 'test'
+  ...
+# [scheduler] Stopped all source loops
+# [scheduler] Stopped all source loops
+# Subtest: getSourceTimeout
+    # Subtest: should return known source timeouts
+    ok 1 - should return known source timeouts
+      ---
+      duration_ms: 202.224458
+      type: 'test'
+      ...
+# [scheduler] Stopped all source loops
+    # Subtest: should return default 10min for unknown sources
+    ok 2 - should return default 10min for unknown sources
+      ---
+      duration_ms: 199.523708
+      type: 'test'
+      ...
+    1..2
+ok 55 - getSourceTimeout
+  ---
+  duration_ms: 402.182459
+  type: 'suite'
+  ...
+# [scheduler] No ASSIGNED_SOURCES configured, scheduler disabled
+# [scheduler] Stopped all source loops
+# Subtest: getSchedulerState before start
+    # Subtest: should report not running when scheduler has not started
+    ok 1 - should report not running when scheduler has not started
+      ---
+      duration_ms: 200.818208
+      type: 'test'
+      ...
+    1..1
+ok 56 - getSchedulerState before start
+  ---
+  duration_ms: 200.932958
+  type: 'suite'
+  ...
+# [scheduler] No ASSIGNED_SOURCES configured, scheduler disabled
+# [scheduler] Stopped all source loops
+# Subtest: startScheduler with empty config
+    # Subtest: should not start when assignedSources is empty
+    ok 1 - should not start when assignedSources is empty
+      ---
+      duration_ms: 201.720791
+      type: 'test'
+      ...
+# [scheduler] Starting continuous crawl for sources: skills-sh
+# [scheduler] skills-sh: timeout=120min, cooldown=240min
+# [heartbeat] VM_PUBLIC_IP or INTERNAL_KEY missing — heartbeat disabled
+# [scheduler] Stopped all source loops
+# [skills-sh] starting a fresh sweep at page 0 (fresh)
+# [skills-sh] partial run (page -1, 3 page(s) to retry), checkpoint saved
+# [scheduler] skills-sh completed in 0.0s: {"totalDiscovered":0,"totalSubmitted":0,"totalCreated":0,"totalSkipped":0,"totalLost":0,"lastPage":-1,"startedFromPage":0,"retriedPages":0,"failedPages":[0,1,2],"reachedEnd":false,"totalSkillsSh":0,"s
+    # Subtest: should not start when assignedSources is undefined
+    ok 2 - should not start when assignedSources is undefined
+      ---
+      duration_ms: 201.12325
+      type: 'test'
+      ...
+    1..2
+ok 57 - startScheduler with empty config
+  ---
+  duration_ms: 403.257708
+  type: 'suite'
+  ...
+# [scheduler] Starting continuous crawl for sources: fake-a, fake-b
+# [scheduler] fake-a: timeout=10min, cooldown=60min
+# [scheduler] fake-b: timeout=10min, cooldown=60min
+# [heartbeat] VM_PUBLIC_IP or INTERNAL_KEY missing — heartbeat disabled
+# [scheduler] Stopped all source loops
+# [scheduler] Stopped all source loops
+# Subtest: startScheduler lifecycle
+    # Subtest: should become running when valid sources are assigned
+    ok 1 - should become running when valid sources are assigned
+      ---
+      duration_ms: 204.83325
+      type: 'test'
+      ...
+# [scheduler] Starting continuous crawl for sources: fake-x, fake-y, fake-z
+# [scheduler] fake-x: timeout=10min, cooldown=60min
+# [scheduler] fake-y: timeout=10min, cooldown=60min
+# [scheduler] fake-z: timeout=10min, cooldown=60min
+# [heartbeat] VM_PUBLIC_IP or INTERNAL_KEY missing — heartbeat disabled
+# [scheduler] Stopped all source loops
+    # Subtest: should stop all loops when stopScheduler is called
+    ok 2 - should stop all loops when stopScheduler is called
+      ---
+      duration_ms: 201.679
+      type: 'test'
+      ...
+# [scheduler] Stopped all source loops
+    # Subtest: should parse multiple sources with whitespace correctly
+    ok 3 - should parse multiple sources with whitespace correctly
+      ---
+      duration_ms: 201.6465
+      type: 'test'
+      ...
+    1..3
+ok 58 - startScheduler lifecycle
+  ---
+  duration_ms: 608.439584
+  type: 'suite'
+  ...
+# [scheduler] Starting continuous crawl for sources: github-sharded
+# [scheduler] github-sharded: timeout=120min, cooldown=10min
+# [heartbeat] VM_PUBLIC_IP or INTERNAL_KEY missing — heartbeat disabled
+# Subtest: resumable source completion gates
+    # Subtest: never emits a dead-man success for partial or capped retrieval
+    ok 1 - never emits a dead-man success for partial or capped retrieval
+      ---
+      duration_ms: 202.17725
+      type: 'test'
+      ...
+# [scheduler] github-sharded checkpointed in 0.0s: {"totalDiscovered":0,"totalSubmitted":0,"totalCreated":0,"totalSkipped":0,"totalKnownSkipped":0,"totalLost":0,"totalErrors":0,"totalRejected":0,"totalPrivateFiltered":0,"totalVisibilityUnknown":0,"com
+# [scheduler] github-sharded completed in 0.1s: {"totalDiscovered":1,"totalSubmitted":1,"totalCreated":1,"totalSkipped":0,"totalKnownSkipped":0,"totalLost":0,"totalErrors":0,"totalRejected":0,"totalPrivateFiltered":0,"totalVisibilityUnknown":0,"com
+# [scheduler] Stopped all source loops
+# [scheduler] Stopped all source loops
+    # Subtest: continues planning promptly without a completed run or the normal sweep cooldown
+    ok 2 - continues planning promptly without a completed run or the normal sweep cooldown
+      ---
+      duration_ms: 1328.374584
+      type: 'test'
+      ...
+    1..2
+ok 59 - resumable source completion gates
+  ---
+  duration_ms: 1530.697417
+  type: 'suite'
+  ...
+# Subtest: fills every counter with a number, whatever the source returned
+ok 60 - fills every counter with a number, whatever the source returned
+  ---
+  duration_ms: 0.404917
+  type: 'test'
+  ...
+# Subtest: a source that returns nothing still yields a full contract
+ok 61 - a source that returns nothing still yields a full contract
+  ---
+  duration_ms: 0.299875
+  type: 'test'
+  ...
+# Subtest: keeps source-specific fields alongside the contract
+ok 62 - keeps source-specific fields alongside the contract
+  ---
+  duration_ms: 0.395917
+  type: 'test'
+  ...
+# Subtest: coerces the legacy errors shapes to a string array
+ok 63 - coerces the legacy errors shapes to a string array
+  ---
+  duration_ms: 0.129625
+  type: 'test'
+  ...
+# Subtest: a non-numeric counter degrades to 0 rather than NaN
+ok 64 - a non-numeric counter degrades to 0 rather than NaN
+  ---
+  duration_ms: 0.07175
+  type: 'test'
+  ...
+# Subtest: partial results retain continuation identity and never normalize to complete
+ok 65 - partial results retain continuation identity and never normalize to complete
+  ---
+  duration_ms: 0.052292
+  type: 'test'
+  ...
+1..65
+# tests 70
+# suites 5
+# pass 70
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8865.186625

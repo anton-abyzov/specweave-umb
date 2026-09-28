@@ -1,7 +1,19 @@
 {
-  "README.md": "b16f27c54ccb85e96c87dee4afc815eaf7039435bb365f51f8192558ddb39ff8",
+  "README.md": "40daef5ed0f27b1b850518b35ca9f4e3ba150e9a04e622a19bd26b8cc0561ad7",
+  "root-final-consumer-node22.log": "eb9c70badbba32fb91c8c379fe56e957e84783bccdcd6a94f752e1e8cdf53f58",
+  "root-final-producer-node22.log": "be379abac33be15b778f46a277455984118c662bf204f162a2387d1b03d2774e",
+  "t027-deploy-plan.md": "9b708d5553e88854bed620b19d7c21dcbd8af4e31d5df655adc4b17e19a4921f",
   "t027-gitleaks.log": "0783231c69478b98f616c16fe33fc0fa99bd9ea028380df9eb9675f7cd7d809f",
   "t027-node22-final.log": "7355b8a5c68f77f8c9fc09445438a1b18d62e650b8bcb3ebaf29869b3fb3c62e",
+  "t027-node22-frozen.log": "b4478dfbc7351b8f86ed596bf8fe12ced014605c3d06b48c38fee5dba6aed3b9",
+  "t027-platform-final.log": "dc000a8ea28fd997747a75c99d72b0f17aff872c6b8009e881389abc8a33b93c",
   "t027-review-manifest.json": "83b19d4eb5ce28a63adf233c86bcfd1165c7b5ba95b56ee493284876527df007",
-  "t027-visibility-focused.log": "35786cb129316f80808fd3c7d98e75016cf280cfecd3223983c8a4c0f16b9441"
+  "t027-runtime-preflight-readonly.json": "2e90ea5c0ec59338c0c336d8db57937da21ab69622978176f0a9d8dbd282b464",
+  "t027-terminal-disposition-plan.md": "5ff88aa684367d61cb8611133bd554e35eadfe9f80fac820d3e3cc77897befdf",
+  "t027-terminal-gitleaks.log": "db3fd902068159297ff703fef2bca9d89d24d022d26965a65f7538a0485b4c49",
+  "t027-terminal-node22-final.log": "a57789ac0962dbeba4d9892eeed7982617762fe91c982fdf5dd1af6e8263ff2a",
+  "t027-terminal-platform-focused.log": "a75e10878cf2aa6c1aec1154fa0539c5291916960307686653385fae578636e2",
+  "t027-visibility-focused.log": "35786cb129316f80808fd3c7d98e75016cf280cfecd3223983c8a4c0f16b9441",
+  "t027-worker-build-inputs.json": "202920d08efa427390aae7bff45ca28e956179d84b71cb066c81856d0b681f68",
+  "t027-worker-node22-isolated.log": "7d45b6b93f5e9e70fc5015edbac6300f5b3f95a631131350f7c19912680f71ad"
 }

@@ -11,3 +11,12 @@ A bounded exact natural-key union (first 10,000) is kept only in mode 0600 runti
 Read-only privacy trace: the bulk route authenticates content probes and creates submissions without GitHub privacy metadata. The existing publishSkill guard rejects explicit tenant/private intent, but does not independently check source repository visibility. The public crawler now fails closed on this boundary. No actual historical leak was established; no historical data was changed.
 
 Initial release T025 is done with the retained seven-root runtime receipt. T017 full-breadth acceptance remains open; a millions-of-matches sweep can take days at GitHub quota. No full-corpus completion is claimed from this local test suite.
+
+
+## Final reviewed source
+
+Final head: `ebc6c4ad4b8ad13ea5a90acc3b734cbb6c6003d3`, draft PR https://github.com/anton-abyzov/vskill-platform/pull/75 . Follow-up validation rejects malformed/incomplete responses and coarse 422 without advancing. Typed permanent policy receipts preserve legacy error fields and carry an explicit original path; only four closed validation codes can settle rejection, and rejected identities never warm accepted-key cache. Missing content and transient failures remain retryable. All bulk details carry original input paths, including fallback probes.
+
+Full final crawler suite: 250 passed, zero failed, one optional live-GitHub-token skip. Platform: 5904 passed, 14 existing skips. Bulk producer: 46/46. Independent root review: 70/70 consumer plus 46/46 producer, no critical/high blocker. Worker build and queue-health contract passed with exact Node 22.20.0 and isolated dependencies. The first build with a symlinked dependency tree failed during OpenNext bundling; it is superseded by the isolated successful build, not hidden. Actual generated public-count input/hash is retained before restoring source drift.
+
+All production changes remain gated on exact-head CI, root merge/authorization and fresh idle/identity checks. The approved plan requires Worker producer first, then crawler-only adaptive enable, runtime continuation with one stable sweep ID, and honest partial intake/coverage evidence. No schema 2 checkpoint may be removed to make rollback to an incompatible coarse reader appear successful.
