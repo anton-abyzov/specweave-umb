@@ -1,0 +1,31 @@
+{
+  "at": "2026-09-28T22:26:56.377980+00:00",
+  "repo": "anton-abyzov/vskill-platform",
+  "pr": 77,
+  "reviewedHead": "3967d7441c47d2d2b167d5779d7e9ed4a8ea414d",
+  "base": "8d0929aa80628b6d8a43a8f4327f9881a97ad3ee",
+  "merge": "789f423b102d728cac91e808b8369d40e27d9e53",
+  "treeMatchesReviewedHead": true,
+  "checks": [
+    {
+      "name": "Payload scan",
+      "conclusion": "success",
+      "url": "https://github.com/anton-abyzov/vskill-platform/actions/runs/36473097086/job/109099978272"
+    },
+    {
+      "name": "e2e",
+      "conclusion": "success",
+      "url": "https://github.com/anton-abyzov/vskill-platform/actions/runs/36473097065/job/109099978685"
+    },
+    {
+      "name": "npm audit signatures",
+      "conclusion": "success",
+      "url": "https://github.com/anton-abyzov/vskill-platform/actions/runs/36473097086/job/109099978607"
+    },
+    {
+      "name": "vitest",
+      "conclusion": "success",
+      "url": "https://github.com/anton-abyzov/vskill-platform/actions/runs/36473097062/job/109099978184"
+    }
+  ]
+}

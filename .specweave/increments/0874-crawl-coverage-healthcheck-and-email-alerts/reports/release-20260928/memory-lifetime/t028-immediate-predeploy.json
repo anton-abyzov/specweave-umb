@@ -1,0 +1,325 @@
+{
+  "at": "2026-09-28T22:29:05.550278+00:00",
+  "worker": "verified-skill-com",
+  "deployments": {
+    "deployments": [
+      {
+        "id": "f7f6c13a-f40b-4ab5-a734-438d01319be9",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "anton.abyzov@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "a8c5fa31-104f-4809-b072-3e79201def68",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-28T18:56:59.048365Z"
+      },
+      {
+        "id": "7de20ae0-07f7-4b83-b955-31f7a03c0b5c",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "anton.abyzov@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "771d44dd-158e-45b8-bc81-075db8091254",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-28T18:25:02.278819Z"
+      },
+      {
+        "id": "78ab30c4-e2ec-407c-9596-ae1867ca7209",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "anton.abyzov@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "d69cd63d-224c-4b37-b1c3-88aa11906a58",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-28T17:02:44.27504Z"
+      },
+      {
+        "id": "7e522d97-af8d-4886-8726-e7d2d2cd9882",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "anton.abyzov@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "42eade92-cc55-43de-944f-f76321b3bc18",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-26T03:14:03.203238Z"
+      },
+      {
+        "id": "93ea1864-ee0d-448b-8d9b-2b4169620e43",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "anton.abyzov@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "55229d17-3c54-4894-9e9a-f1b24241d2fd",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-25T20:51:51.183981Z"
+      },
+      {
+        "id": "c8cb2e9b-08fe-4ed4-a9b5-7028e6509d57",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "anton.abyzov@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "1df7bf11-f774-49a0-b32c-37a6f172fdae",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-25T20:32:10.021044Z"
+      },
+      {
+        "id": "3eec2517-0a33-4341-a000-b3f665755082",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "anton.abyzov@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "671dfaed-3df4-4aec-8520-755f52085f53",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-14T07:45:03.129558Z"
+      },
+      {
+        "id": "61150e4b-8cc1-4c30-bba0-d5d2a459352a",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "anton.abyzov@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "9d71aeab-3b57-4af2-9f2c-425d87e3b8d7",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-14T07:23:24.995379Z"
+      },
+      {
+        "id": "239ed4c9-a40b-4e65-b494-67376c2567bd",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "anton.abyzov@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "2ff7bf82-5deb-4d82-8f6a-fe201661210f",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-09-03T05:50:32.868641Z"
+      },
+      {
+        "id": "ae9dec6b-8685-4c26-be67-3d3a49be3b28",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "author_email": "anton.abyzov@gmail.com",
+        "annotations": {
+          "workers/triggered_by": "deployment"
+        },
+        "versions": [
+          {
+            "version_id": "7618f47b-7f1c-4782-9532-4397f24d0579",
+            "percentage": 100
+          }
+        ],
+        "created_on": "2026-07-15T13:42:24.535883Z"
+      }
+    ]
+  },
+  "queues": [
+    {
+      "queueId": "a2773165cbfb4c039aa550b7e7b053d6",
+      "queueName": "scan-normal",
+      "consumers": [
+        {
+          "script": "verified-skill-com",
+          "dead_letter_queue": "submission-dlq",
+          "settings": {
+            "batch_size": 10,
+            "max_retries": 2,
+            "max_wait_time_ms": 5000,
+            "max_concurrency": 5,
+            "retry_delay": 60
+          },
+          "consumer_id": "a78a1b464ed24f9b9b024e795ca04d08",
+          "type": "worker"
+        }
+      ],
+      "settings": {
+        "delivery_delay": 0,
+        "delivery_paused": false,
+        "message_retention_period": 345600
+      },
+      "consumerMatchesReviewedBaseline": true,
+      "deliveryEnabled": true
+    },
+    {
+      "queueId": "1a6cba67e6e34676835854c71128a98b",
+      "queueName": "submission-processing",
+      "consumers": [
+        {
+          "script": "verified-skill-com",
+          "dead_letter_queue": "submission-dlq",
+          "settings": {
+            "batch_size": 5,
+            "max_retries": 3,
+            "max_wait_time_ms": 30000,
+            "max_concurrency": 10,
+            "retry_delay": 60
+          },
+          "consumer_id": "b908ad0eb7014c13acd5accd9eeb6779",
+          "type": "worker"
+        }
+      ],
+      "settings": {
+        "delivery_delay": 0,
+        "delivery_paused": false,
+        "message_retention_period": 86400
+      },
+      "consumerMatchesReviewedBaseline": true,
+      "deliveryEnabled": true
+    },
+    {
+      "queueId": "934caf499beb4181a9044271223e5629",
+      "queueName": "submission-dlq",
+      "consumers": [
+        {
+          "script": "verified-skill-com",
+          "settings": {
+            "batch_size": 1,
+            "max_retries": 3,
+            "max_wait_time_ms": 0,
+            "retry_delay": 0
+          },
+          "consumer_id": "61aa503a29b44a3f9d5cbf598733c14a",
+          "type": "worker"
+        }
+      ],
+      "settings": {
+        "delivery_delay": 0,
+        "delivery_paused": false,
+        "message_retention_period": 86400
+      },
+      "consumerMatchesReviewedBaseline": true,
+      "deliveryEnabled": true
+    },
+    {
+      "queueId": "04c9cb6a0c2041f5ad22a81d0c658cd7",
+      "queueName": "eval-processing",
+      "consumers": [
+        {
+          "script": "verified-skill-com",
+          "dead_letter_queue": "submission-dlq",
+          "settings": {
+            "batch_size": 1,
+            "max_retries": 2,
+            "max_wait_time_ms": 0,
+            "max_concurrency": 2,
+            "retry_delay": 120
+          },
+          "consumer_id": "464c5fb225234cebaa885ab1dfb08989",
+          "type": "worker"
+        }
+      ],
+      "settings": {
+        "delivery_delay": 0,
+        "delivery_paused": false,
+        "message_retention_period": 345600
+      },
+      "consumerMatchesReviewedBaseline": true,
+      "deliveryEnabled": true
+    },
+    {
+      "queueId": "a519c49b0902461b90f915425c8cc4ef",
+      "queueName": "scan-high",
+      "consumers": [
+        {
+          "script": "verified-skill-com",
+          "dead_letter_queue": "submission-dlq",
+          "settings": {
+            "batch_size": 1,
+            "max_retries": 3,
+            "max_wait_time_ms": 1000,
+            "max_concurrency": 10,
+            "retry_delay": 30
+          },
+          "consumer_id": "85e46d175d4a4096b74615f9451b0c29",
+          "type": "worker"
+        }
+      ],
+      "settings": {
+        "delivery_delay": 0,
+        "delivery_paused": false,
+        "message_retention_period": 345600
+      },
+      "consumerMatchesReviewedBaseline": true,
+      "deliveryEnabled": true
+    },
+    {
+      "queueId": "a997f4ed763341d7ac5922496ad5a50d",
+      "queueName": "discovery-resolve",
+      "consumers": [
+        {
+          "script": "verified-skill-com",
+          "dead_letter_queue": "submission-dlq",
+          "settings": {
+            "batch_size": 10,
+            "max_retries": 2,
+            "max_wait_time_ms": 3000,
+            "max_concurrency": 5,
+            "retry_delay": 60
+          },
+          "consumer_id": "98dfcc6739e14dc1b013a693eccba859",
+          "type": "worker"
+        }
+      ],
+      "settings": {
+        "delivery_delay": 0,
+        "delivery_paused": false,
+        "message_retention_period": 345600
+      },
+      "consumerMatchesReviewedBaseline": true,
+      "deliveryEnabled": true
+    }
+  ],
+  "allSixConsumersMatch": true
+}

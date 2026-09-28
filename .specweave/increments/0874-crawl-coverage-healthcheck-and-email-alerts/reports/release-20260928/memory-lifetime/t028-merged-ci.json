@@ -1,0 +1,44 @@
+{
+  "at": "2026-09-28T22:35:07.836275+00:00",
+  "head": "789f423b102d728cac91e808b8369d40e27d9e53",
+  "runs": [
+    {
+      "conclusion": "",
+      "databaseId": 36493239030,
+      "headSha": "789f423b102d728cac91e808b8369d40e27d9e53",
+      "name": "dead-man (external uptime)",
+      "status": "in_progress"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 36492447231,
+      "headSha": "789f423b102d728cac91e808b8369d40e27d9e53",
+      "name": "Supply-chain scan",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 36492447226,
+      "headSha": "789f423b102d728cac91e808b8369d40e27d9e53",
+      "name": "0826 E2E (Skill Studio Private Repos)",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 36492447274,
+      "headSha": "789f423b102d728cac91e808b8369d40e27d9e53",
+      "name": "unit tests",
+      "status": "completed"
+    }
+  ],
+  "requiredSourceGreen": true,
+  "otherRuns": [
+    {
+      "conclusion": "",
+      "databaseId": 36493239030,
+      "headSha": "789f423b102d728cac91e808b8369d40e27d9e53",
+      "name": "dead-man (external uptime)",
+      "status": "in_progress"
+    }
+  ]
+}
