@@ -53,6 +53,9 @@ Make every degradation visible + alerting (health check + email), fix the genuin
 - [ ] **AC-US2-02**: `checkSkillMdExists` returns tri-state `{exists, transient}`; in `bulk/route.ts` a transient (403/429/5xx/timeout) is **deferred** (reuse the 403 identity-defer path), and "not found" is pushed only on a confirmed 404.
 - [ ] **AC-US2-03**: `headCache` never memoizes a transient false — one rate-limited probe cannot cascade-drop sibling skills in the same monorepo batch.
 - [ ] **AC-US2-04**: Per-source `{submitted,skipped,errors,deferred,aliased}` counters thread into `inline-submitter.js` + scheduler `lastResult` and expose `submit_rate`/`intake_notfound_rate` on `/coverage`.
+- [ ] **AC-US2-05**: A confirmed same-repository, different full case-preserving artifact path gets a distinct durable Submission with a readable path-qualified label after an exact canonical miss. Bounded create races may reuse only the complete exact tuple; old rows, scope, state and labels remain unchanged. Unknown constraints, deleted rows, unrelated qualified-name collisions and private/tenant boundaries fail closed.
+- [ ] **AC-US2-06**: Publication and orphan-PUBLISHED recovery bind to the exact complete canonical tuple and authoritative DB linkage. Existing valid exact-artifact URLs stay stable; new distinct paths, including case differences and shared basenames, cannot collide or overwrite another Skill. Atomic metadata/version/outbox/link predicates preserve identity and scope through races; failed identity proofs never report successful publication.
+- [ ] **AC-US2-07**: Durable readable labels and case-preserving artifact paths survive DB, raw SQL, KV, list, search and cache projections. Shared dedup keeps different known paths distinct, collapses duplicate snapshots of one ID, and preserves path-missing legacy compatibility without merging it into a known different artifact.
 
 ## US-003: GitHub discovery breadth via size-bisection (Track C)
 **Project**: vskill-platform
@@ -95,3 +98,8 @@ The required privacy E2E failures and Node database connection exhaustion are ne
 
 - **AC-REL-01**: The full required0826 suite runs without skips or weakened checks, proving paid publishing, FREE denial without writes, real private404 responses, authorized200 and populated public catalog isolation.
 - **AC-REL-02**: The same suite passes with PostgreSQL max_connections=100; Node reuses its database pool while Cloudflare and explicit Worker contexts retain separate I/O clients.
+
+
+## Distinct-artifact recovery boundary — 2026-09-28
+
+T030 closes only exact canonical uniqueness recovery. Its final delivery proof preserves the failed packaging artifact, guarded rollback and all historical errors; the current run is not clean. Twenty-two newly exposed entries have legitimate distinct paths that collide with ten existing legacy Submission rows (nineteen linked-Skill matches). T031 owns this follow-on through publication and read-surface identity. Use a fresh isolated branch from merged `7f86c79ceeee190d6017d6e2f857a68ea522067a`; preserve all original owners and fixtures. Source authority is the complete tuple `[sourceType, stable sourceId, case-preserving artifactPath]`, never a decoded label or queue payload. Use a bounded full-tuple discriminator only for new publication identities; preserve exact linked legacy URLs. No global slug change, DDL, historical backfill/delete, synthetic production input, manual replay, crawler/scanner restart, privacy relaxation or shared handoff mutation. Independent review and required CI precede root-owned Worker release. Natural read-only hashed baselines must prove new tuples settle without old Submission/Skill identity, name or privacy overwrite. T017 and T027 full-sweep gates remain open.
