@@ -1,0 +1,108 @@
+$ cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations && env -u DATABASE_URL -u E2E_BYPASS -u JWT_SECRET -u ENABLE_PRIVATE_REPOS PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node node_modules/vitest/vitest.mjs run src/lib/alerts/__tests__/source-observations.test.ts src/lib/alerts/__tests__/detectors.test.ts src/app/api/v1/internal/vm-heartbeat/__tests__/route.test.ts src/app/api/v1/internal/alerts-evaluator/__tests__/route.test.ts src/app/api/v1/admin/queue-health/__tests__/route.test.ts && python3 /tmp/cc-work-release-20260928/0874/t029-validate-delivery.py --worker 504442ec-e26e-4ee7-8872-bae010516a61 --deployment /tmp/cc-work-release-20260928/0874/t030-clock-final-readback.json --first /tmp/cc-work-release-20260928/0874/t029-clock-natural-first.json --second /tmp/cc-work-release-20260928/0874/t029-clock-natural-third.json --checkout /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations --amendment-ci /tmp/cc-work-release-20260928/0874/t029-clock-ci-final.json --public-smoke /tmp/cc-work-release-20260928/0874/t030-clock-final-public-smoke.json --merged-ci /tmp/cc-work-release-20260928/0874/t030-clock-final-check-runs.json
+# exit 0 — 2026-09-28T23:23:14.516Z
+
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations
+
+ ✓ src/lib/alerts/__tests__/detectors.test.ts (44 tests) 7ms
+ ✓ src/lib/alerts/__tests__/source-observations.test.ts (20 tests) 12ms
+stderr | src/app/api/v1/admin/queue-health/__tests__/route.test.ts > GET /api/v1/admin/queue-health > SendGrid throws → route still 200 (alert failure is non-fatal)
+[admin/queue-health] alert send failed: Error: sendgrid down
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/src/app/api/v1/admin/queue-health/__tests__/route.test.ts:223:52
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+ ✓ src/app/api/v1/admin/queue-health/__tests__/route.test.ts (13 tests) 12ms
+stderr | src/app/api/v1/internal/vm-heartbeat/__tests__/route.test.ts > POST /api/v1/internal/vm-heartbeat > degrades to 200 ok:false when SUBMISSIONS_KV missing (no 5xx)
+[vm-heartbeat] SUBMISSIONS_KV binding missing
+
+ ✓ src/app/api/v1/internal/vm-heartbeat/__tests__/route.test.ts (50 tests) 16ms
+stderr | src/app/api/v1/internal/alerts-evaluator/__tests__/route.test.ts > POST /api/v1/internal/alerts-evaluator > 0874 incident: a persistently dead discovery-floor query still pages BLIND after exhausting retries (never-silent-green preserved)
+[alerts-evaluator] discovery-floor query failed (detector-blind): Error: DB operation timed out after 8000ms
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/src/app/api/v1/internal/alerts-evaluator/__tests__/route.test.ts:126:49
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runFiles (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1787:3)
+
+stderr | src/app/api/v1/internal/alerts-evaluator/__tests__/route.test.ts > POST /api/v1/internal/alerts-evaluator > 0874 incident: an open DB circuit pages immediately without burning the retry budget
+[alerts-evaluator] discovery-floor query failed (detector-blind): Error: DB circuit open — skipping Skill.count
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/src/app/api/v1/internal/alerts-evaluator/__tests__/route.test.ts:145:52
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runFiles (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@vitest/runner/dist/chunk-hooks.js:1787:3)
+
+ ✓ src/app/api/v1/internal/alerts-evaluator/__tests__/route.test.ts (15 tests) 1024ms
+   ✓ POST /api/v1/internal/alerts-evaluator > 0874 incident: a persistently dead discovery-floor query still pages BLIND after exhausting retries (never-silent-green preserved)  756ms
+
+ Test Files  5 passed (5)
+      Tests  142 passed (142)
+   Start at  19:23:12
+   Duration  1.64s (transform 181ms, setup 285ms, collect 225ms, tests 1.07s, environment 780ms, prepare 157ms)
+
+{
+  "reviewedSource": "1687ce4837c5a430321e5e1c2fbafb4d860716de",
+  "reviewedClockAmendment": "7c6c4d827ad70b44a2c0b86dd14a66c27745af36",
+  "workerVersion": "504442ec-e26e-4ee7-8872-bae010516a61",
+  "allFourChecksGreen": true,
+  "allFourMergedSourceChecksGreen": true,
+  "allTenReviewedFilesMatch": true,
+  "sixConsumersUnchanged": true,
+  "currentVersionPublicSmokePassed": true,
+  "naturalHeartbeatRecords": [
+    {
+      "vmId": "5.161.56.136",
+      "firstReceivedAt": 1790637378445,
+      "secondReceivedAt": 1790637498535,
+      "sources": [
+        "github-sharded",
+        "skills-sh",
+        "submission-scanner"
+      ]
+    },
+    {
+      "vmId": "5.161.69.232",
+      "firstReceivedAt": 1790637348359,
+      "secondReceivedAt": 1790637468407,
+      "sources": [
+        "github-events",
+        "submission-scanner"
+      ]
+    },
+    {
+      "vmId": "91.107.239.24",
+      "firstReceivedAt": 1790637326538,
+      "secondReceivedAt": 1790637505787,
+      "sources": [
+        "github-graphql-check",
+        "sast-scanner",
+        "sourcegraph",
+        "submission-scanner",
+        "vendor-org-discovery"
+      ]
+    }
+  ],
+  "targetSweepId": "026ba568-3ac5-4855-95fd-6c441c8007d2",
+  "targetFailedAttemptItems": 694,
+  "partialSweep": true,
+  "fullBreadthProven": false
+}
