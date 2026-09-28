@@ -1,0 +1,74 @@
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations
+
+stderr | src/app/api/v1/internal/vm-heartbeat/__tests__/route.test.ts > POST /api/v1/internal/vm-heartbeat > degrades to 200 ok:false when SUBMISSIONS_KV missing (no 5xx)
+[vm-heartbeat] SUBMISSIONS_KV binding missing
+
+ ❯ src/app/api/v1/internal/vm-heartbeat/__tests__/route.test.ts (44 tests | 1 failed) 17ms
+   ✓ POST /api/v1/internal/vm-heartbeat > returns 401 for missing X-Internal-Key 2ms
+   ✓ POST /api/v1/internal/vm-heartbeat > returns 401 for wrong X-Internal-Key 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > returns 400 for invalid JSON body 1ms
+   ✓ POST /api/v1/internal/vm-heartbeat > returns 400 when ip missing 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > returns 403 when ip not in HETZNER_VM_IPS (anti-spoofing) 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > stores heartbeat with 10-min TTL on valid call 1ms
+   ✓ POST /api/v1/internal/vm-heartbeat > each VM stores under its own key 1ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T-001: persists per-source coverageTotal into SOURCE_OBS_KEY 1ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T-001: coverageTotal is null when the source omits it 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0875: persists the VM failure view verbatim 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0875: missing failure counters become 0, missing signals stay null 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: preserves bounded sweep progress without persisting identity payloads 1ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized phase 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized sweepId 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized sweepId 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized probesCompleted 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized probesPending 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized shardsCompleted 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized shardsTotal 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized cappedLeafCount 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized totalPrivateFiltered 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized totalVisibilityUnknown 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized distinctDiscoveredLowerBound 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized distinctCountExact 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized distinctKeysSha256 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized distinctKeysSha256 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized intakeItemErrors 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized totalRejected 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized recoveredFailureCount 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized completed 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized coverageComplete 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: omits malformed or oversized discoveryCounting 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: carries real completion but never promotes inconsistent partial progress 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: does not persist contradictory completion or coverage {"probesPending":1} 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: does not persist contradictory completion or coverage {"shardsCompleted":4} 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: does not persist contradictory completion or coverage {"shardsCompleted":6} 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: does not persist contradictory completion or coverage {"shardsTotal":"5"} 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: does not persist contradictory completion or coverage {"probesPending":null} 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: does not persist contradictory completion or coverage {"cappedLeafCount":1} 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: does not persist contradictory completion or coverage {"totalVisibilityUnknown":1} 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: does not persist contradictory completion or coverage {"cappedLeafCount":-1} 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > 0874 T027: does not persist contradictory completion or coverage {"totalVisibilityUnknown":null} 0ms
+   ✓ POST /api/v1/internal/vm-heartbeat > degrades to 200 ok:false when SUBMISSIONS_KV missing (no 5xx) 1ms
+   × 0874 per-VM observations > retains both fleets after interleaved and simultaneous same-source heartbeats 2ms
+     → Cannot read properties of undefined (reading 'value')
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/app/api/v1/internal/vm-heartbeat/__tests__/route.test.ts > 0874 per-VM observations > retains both fleets after interleaved and simultaneous same-source heartbeats
+TypeError: Cannot read properties of undefined (reading 'value')
+ ❯ src/app/api/v1/internal/vm-heartbeat/__tests__/route.test.ts:344:87
+    342|       POST(makeReq(body("5.161.56.136", 200))),
+    343|     ]);
+    344|     const one = JSON.parse(kvStore.get("alerts:vm:source-observations:…
+       |                                                                                       ^
+    345|     const two = JSON.parse(kvStore.get("alerts:vm:source-observations:…
+    346|     expect(one.observations[0]).toMatchObject({ source: "github-sharde…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 43 passed (44)
+   Start at  18:29:34
+   Duration  972ms (transform 54ms, setup 88ms, collect 50ms, tests 17ms, environment 580ms, prepare 38ms)
+

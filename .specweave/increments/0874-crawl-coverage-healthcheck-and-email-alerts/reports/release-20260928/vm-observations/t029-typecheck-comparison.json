@@ -1,0 +1,9 @@
+{
+  "base": "789f423b102d728cac91e808b8369d40e27d9e53",
+  "head": "1687ce4837c5a430321e5e1c2fbafb4d860716de",
+  "baseErrors": 314,
+  "headErrors": 314,
+  "newErrors": [],
+  "removedErrors": [],
+  "normalization": "Source line/column and the two exact checkout prefixes replaced; diagnostic relative path/code/message retained"
+}

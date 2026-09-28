@@ -1,0 +1,46 @@
+{
+  "at": "2026-09-28T22:28:23.652070+00:00",
+  "files": [
+    "src/lib/alerts/source-observations.ts",
+    "src/lib/alerts/__tests__/source-observations.test.ts",
+    "src/lib/alerts/detectors.ts",
+    "src/lib/alerts/__tests__/detectors.test.ts",
+    "src/app/api/v1/internal/vm-heartbeat/route.ts",
+    "src/app/api/v1/internal/vm-heartbeat/__tests__/route.test.ts",
+    "src/app/api/v1/internal/alerts-evaluator/route.ts",
+    "src/app/api/v1/internal/alerts-evaluator/__tests__/route.test.ts",
+    "src/app/api/v1/admin/queue-health/route.ts",
+    "src/app/api/v1/admin/queue-health/__tests__/route.test.ts"
+  ],
+  "worktrees": [
+    {
+      "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform",
+      "scopedChanges": []
+    },
+    {
+      "worktree": "/private/tmp/vskill-0874-baseline",
+      "scopedChanges": []
+    },
+    {
+      "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-adaptive-resume",
+      "scopedChanges": []
+    },
+    {
+      "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory",
+      "scopedChanges": []
+    },
+    {
+      "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery",
+      "scopedChanges": []
+    },
+    {
+      "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-heartbeat-progress",
+      "scopedChanges": []
+    },
+    {
+      "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations",
+      "scopedChanges": []
+    }
+  ],
+  "parentAuthorization": "Root owns release. No active exact-file owner found; legacy metadata not treated as abandonment. Scope restricted to existing0874 telemetry task."
+}

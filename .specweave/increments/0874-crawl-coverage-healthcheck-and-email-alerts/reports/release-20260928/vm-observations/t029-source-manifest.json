@@ -1,0 +1,18 @@
+{
+  "at": "2026-09-28T22:38:12.627412+00:00",
+  "head": "1687ce4837c5a430321e5e1c2fbafb4d860716de",
+  "base": "789f423b102d728cac91e808b8369d40e27d9e53",
+  "tree": "d5b923c6a8c545ab508847115d18cf398c0a810e",
+  "files": {
+    "src/app/api/v1/admin/queue-health/__tests__/route.test.ts": "b5044e6840f51ae77d8db5ac7328af8919474432e5eba2b0e38427926943d4cd",
+    "src/app/api/v1/admin/queue-health/route.ts": "c50e48412a61b8a6c8b740b240d1e4a0655c9542bc8ac6ead9d5708d4ebfc9bf",
+    "src/app/api/v1/internal/alerts-evaluator/__tests__/route.test.ts": "bbd40d0daf2b14f6ca7717280a39ae16c8a39d87fbe014080aa8ad479a03e2f5",
+    "src/app/api/v1/internal/alerts-evaluator/route.ts": "cd589b3a415c986611101ff7534ef6b429179421f95e0d3db50a4583650fa043",
+    "src/app/api/v1/internal/vm-heartbeat/__tests__/route.test.ts": "52c997ffcaa8d8cd2feb4f92029f6be0722591851df3ade4e299724829044896",
+    "src/app/api/v1/internal/vm-heartbeat/route.ts": "e1f21b44448daa6efc4a70f9ec81f01b618128bbd6519c97ecac154824597689",
+    "src/lib/alerts/__tests__/detectors.test.ts": "c6239fbd63df116f9ccd2b6d00c61e11e7da4e4e23fea73ffbba31680bd5b4ba",
+    "src/lib/alerts/__tests__/source-observations.test.ts": "28834efefcfe7045342622e51d8f8eb080da3fde944eb3d15e888a69cdec868b",
+    "src/lib/alerts/detectors.ts": "7cd01c7a4fa0c793cca17789d8e3bafc982c2f4bf5cb8838189127469d7eb0d5",
+    "src/lib/alerts/source-observations.ts": "58045719db4c250fb5447daa9bae271ad49fb81568ccb1473b36fa03948eb7ac"
+  }
+}
