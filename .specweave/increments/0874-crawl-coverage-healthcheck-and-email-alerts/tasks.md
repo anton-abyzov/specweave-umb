@@ -188,7 +188,8 @@ Domains: **A** = platform alerts/heartbeat, **B** = platform intake, **C** = cra
 **2026-09-28 telemetry amendment**: Preserve the new safe sweep metadata through the authenticated heartbeat receiver and SourceObservation type. Allow only bounded enums/UUID/checksum, booleans and nonnegative safe-integer counters; reject raw identities, path/payload fields and malformed values. Legacy counter mapping remains unchanged. Worktree `0874-heartbeat-progress`, branch `codex/0874-heartbeat-progress`, base `4b7888a19ebce292b3f77d49c052fad31abfe90a`. Reproduce dropped metadata before implementation, then verify receiver, detector and full platform suites and independent root review before release.
 
 ### T-028: Bound bulk intake Prisma lifetime to one request
-**AC**: AC-US2-01; production intake must not multiply Prisma clients per entry or share Worker I/O across requests.
+**AC**: AC-US2-01
+**Acceptance**: Production intake must not multiply Prisma clients per entry or share Worker I/O across requests.
 **Files**: `src/lib/db.ts`, `src/lib/__tests__/db-request-scope.test.ts`, `src/app/api/v1/submissions/bulk/route.ts`, `src/app/api/v1/submissions/bulk/__tests__/route.db-lifecycle.test.ts`
 **Test**: Node 22 Vitest request-scope, real-helper bulk lifecycle, existing DB Worker isolation and all bulk intake suites; full platform tests; Worker build and required CI.
 **Contract**: Reproduce per-entry client fan-out before implementation. Add explicit asynchronous request scope around bulk handler only; lazy concurrent-safe client reuse within one scope, separate concurrent request connections, no global Hyperdrive URL/client reuse inside scope. Close scope before bounded best-effort disposal; preserve original response/error; reject detached work after close. Keep existing Node singleton/unscoped Worker behavior. No crawler restart, checkpoint reset, manual replay, credentials or submission-policy changes. Independent review before release.
