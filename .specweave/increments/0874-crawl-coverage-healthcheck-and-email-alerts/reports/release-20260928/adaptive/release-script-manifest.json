@@ -1,0 +1,10 @@
+{
+  "t027-enable-adaptive.py": "8a8c749d9e2b260953c3e607ae09a609fa57ad648bbc20d02403c829c32e5466",
+  "t027-crawler-rollout.py": "70166ef1e053be11519186ed8eb82bac631c87f963eeeeb0f290a79dd0b081bf",
+  "t027-observe-runtime.py": "8655698fe8c46e6286516686ba86af27e6be6f2dbd2e665d7d136a8847842678",
+  "t027-deploy-plan.md": "cf78b140b993645e34e13a0881346ed3f144f67d7f905aed6723482123a2e68d",
+  "t027-ci-green.json": "7b16ad4ad2e5de4d91b02134dfd57139e82ca26236c114c36c9d3799834011d3",
+  "t027-final-source-manifest.json": "15c68fcf8bc624f90c554fe4c9c15ae582100b2978dae885c4a055011420299c",
+  "t027-candidate-artifact-hashes.json": "6332d4277397e8123111686c7c9b196f989a4d5bcada7f2476b2f3e391c03ba4",
+  "t027-runtime-preflight-latest.json": "e40508cdcc74e4ec645f8277fd8ffb877b6e5beb31dd47da96bd31fbe0094846"
+}

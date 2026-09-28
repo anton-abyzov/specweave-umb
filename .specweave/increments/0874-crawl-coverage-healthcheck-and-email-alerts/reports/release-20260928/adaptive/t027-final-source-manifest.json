@@ -1,0 +1,24 @@
+{
+  "head": "ebc6c4ad4b8ad13ea5a90acc3b734cbb6c6003d3",
+  "base": "a066df378c8f42ef6e5515d906d7feb996c2d475",
+  "tree": "69098fa437905da504af359ce9bfc0d1ca1b47ba",
+  "files": {
+    "crawl-worker/DEPLOY-NOTES.md": "e6ffde08818446f58701f71a1eb6e73b7210e36aadc721770d25bf894ca5263e",
+    "crawl-worker/__tests__/adaptive-search-plan.test.js": "2001abd6f40057465342d87aebfd24bc790f92583aa5d683ce13c1f8027425d6",
+    "crawl-worker/__tests__/adaptive-search-resume.test.js": "9ae849342777d26bffeabfc6b2c17d0d490b95e8ba8cf88900ed6eda7b01b63f",
+    "crawl-worker/__tests__/github-sharded-crawl.test.js": "84e496120da621767836badb2786fa50dc212563a942dc72bfc81686794072de",
+    "crawl-worker/__tests__/github-sharded-failure.test.js": "7c62985287625e364f9e7a2fc38e78732713e92dce3923fd9a6598f878f3cba5",
+    "crawl-worker/__tests__/github-sharded.test.js": "cdb66f4bf7939eca3d12226516e32558d907271610f9135a81d93130c0b2addc",
+    "crawl-worker/__tests__/inline-submitter.test.js": "fce61b6b8afe7565eab0c6baeb7b8ca58bb154e2fc0706b660eeeee0cdb970cb",
+    "crawl-worker/__tests__/scheduler.test.js": "77760cf889f7da208068f986468ef59118d67d1d8964ed8c74cdcc2d68cde622",
+    "crawl-worker/__tests__/source-result.test.js": "bd03a9262641472c3ee78ef6fcd7fd4b004f6f0136392337234016fb7df817ac",
+    "crawl-worker/lib/adaptive-search-plan.js": "6ee3988d568b668d6e3119f80a2c08fbcdf11e88a75997b7f2baf7ee40dcecee",
+    "crawl-worker/lib/inline-submitter.js": "dcede5c9ec6be5a5b1b4a2851ac7b56161c23cb48c54c9cc299ca4282bc814b1",
+    "crawl-worker/lib/source-result.js": "ec84beaeeb63bf208aa50c491610cce4df6dd9bcdba5e369c7f21d5a94bc24ac",
+    "crawl-worker/scheduler.js": "ea8f2b9ca9842454324915e9a33542080d104035eb6f2e2306521be21630cc38",
+    "crawl-worker/sources/github-sharded.js": "2bc504dc50f1f52d88e85342bab3cd844e0e9cd05b8de6e811c82b9985b2b427",
+    "src/app/api/v1/submissions/bulk/__tests__/route.intake.test.ts": "1f987008c3351aba914f44643b35db2a603a24443186b9cff0be022789b806db",
+    "src/app/api/v1/submissions/bulk/__tests__/route.skillpath-validation.test.ts": "c37ca792a002139ff56875c933ae4db799fcdd8adbd533975abfc74acebb8f30",
+    "src/app/api/v1/submissions/bulk/route.ts": "58b3da66fbf6ddcfdcbccdb59e523c3aa5034de43def03014053998bc8b25fa4"
+  }
+}

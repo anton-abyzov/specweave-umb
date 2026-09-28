@@ -1,0 +1,71 @@
+{
+  "at": "2026-09-28T18:20:34.104638+00:00",
+  "containers": [
+    {
+      "name": "scanner-worker-crawl-worker-1",
+      "id": "6b4993745009807c3ac61bd3a8b6d8f2775da9d29c55137d87183775cd2d694a",
+      "image": "sha256:52ff7bbdd69eeb895bd34f16c501aad3d898ba5546fa0ddee4e3c5c574e31d14",
+      "revision": "a066df378c8f42ef6e5515d906d7feb996c2d475",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "scanner-worker_crawl-state",
+          "destination": "/tmp/crawl-state"
+        }
+      ]
+    },
+    {
+      "name": "scanner-worker-scanner-worker-1",
+      "id": "2633c121f4f10ed37a6a23f0b7b762a228ab6bd3d12d2a149c30f2b79e8919ff",
+      "image": "sha256:f67269eb76d6ce8ba760c09593a93ea538d9b4849ba7563c28427d69c71776f5",
+      "revision": null,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "scanner-worker_scan-workspace",
+          "destination": "/tmp/scan-workspace"
+        }
+      ]
+    }
+  ],
+  "fileHashes": {
+    "/opt/scanner-worker/.env": "94a681b1f67f786a39d20fbce9c41c492c1c9a3b85cb25f891e61d5ca076055e",
+    "/opt/crawl-worker/.env": "8d7f11b89c1f3a9ef67abb417d8603b32076966711199ef167b838ec7c5f28d7",
+    "/opt/scanner-worker/docker-compose.yml": "3d17aee7fbf5876cb28ad8331e2310b133ba7bcbebba9c1cf3a0f4feb5b7e875"
+  },
+  "activeCrawls": 0,
+  "schedulerRunning": true,
+  "sources": {
+    "github-sharded": {
+      "status": "cooldown",
+      "lastRunAt": "2026-09-28T18:01:34.073Z",
+      "runCount": 2,
+      "errorCount": 1,
+      "consecutiveErrors": 0
+    },
+    "skills-sh": {
+      "status": "cooldown",
+      "lastRunAt": "2026-09-28T17:24:39.344Z",
+      "runCount": 1,
+      "errorCount": 0,
+      "consecutiveErrors": 0
+    },
+    "submission-scanner": {
+      "status": "crawling",
+      "lastRunAt": "2026-09-28T18:15:16.370Z",
+      "runCount": 10,
+      "errorCount": 0,
+      "consecutiveErrors": 0
+    }
+  },
+  "runtime": {
+    "node": "v20.20.2",
+    "adaptive": null,
+    "shardMode": "size-date",
+    "assignedSources": "github-sharded,skills-sh,submission-scanner",
+    "tokenCount": 1,
+    "checkpoint": {
+      "exists": false
+    }
+  }
+}
