@@ -1,0 +1,2 @@
+# Preserve original evidence bytes for receipt SHA-256 verification.
+*.log -text
