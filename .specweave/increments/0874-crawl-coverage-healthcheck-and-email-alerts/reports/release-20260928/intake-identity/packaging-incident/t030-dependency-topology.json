@@ -1,0 +1,86 @@
+[
+  {
+    "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations",
+    "nodeModulesIsSymlink": false,
+    "packageLockSha256": "880bcc0c85de2544b7a40a97a5c4ff5c48d483d9be807a608a86aca491199947",
+    "packages": [
+      {
+        "name": "next",
+        "isSymlink": false,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/next"
+      },
+      {
+        "name": "@opennextjs",
+        "isSymlink": false,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@opennextjs"
+      },
+      {
+        "name": "@opennextjs/cloudflare",
+        "isSymlink": false,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@opennextjs/cloudflare"
+      },
+      {
+        "name": "@prisma",
+        "isSymlink": false,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@prisma"
+      },
+      {
+        "name": "@prisma/client",
+        "isSymlink": false,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/@prisma/client"
+      },
+      {
+        "name": "react",
+        "isSymlink": false,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/react"
+      },
+      {
+        "name": "react-dom",
+        "isSymlink": false,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations/node_modules/react-dom"
+      }
+    ]
+  },
+  {
+    "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-intake-identity",
+    "nodeModulesIsSymlink": false,
+    "packageLockSha256": "880bcc0c85de2544b7a40a97a5c4ff5c48d483d9be807a608a86aca491199947",
+    "packages": [
+      {
+        "name": "next",
+        "isSymlink": true,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/next"
+      },
+      {
+        "name": "@opennextjs",
+        "isSymlink": true,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@opennextjs"
+      },
+      {
+        "name": "@opennextjs/cloudflare",
+        "isSymlink": false,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@opennextjs/cloudflare"
+      },
+      {
+        "name": "@prisma",
+        "isSymlink": true,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@prisma"
+      },
+      {
+        "name": "@prisma/client",
+        "isSymlink": false,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@prisma/client"
+      },
+      {
+        "name": "react",
+        "isSymlink": true,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/react"
+      },
+      {
+        "name": "react-dom",
+        "isSymlink": true,
+        "realpath": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/react-dom"
+      }
+    ]
+  }
+]

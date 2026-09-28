@@ -1,0 +1,39 @@
+{
+  "at": "2026-09-28T23:11:25.985802+00:00",
+  "workerVersion": "72af68f0-09f7-4ffe-b7bb-ed7bd562f23b",
+  "checks": [
+    {
+      "method": "GET",
+      "path": "/api/v1/skills?limit=3",
+      "status": 200,
+      "finalUrl": "https://verified-skill.com/api/v1/skills?limit=3",
+      "recordCount": 3
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/queue/health",
+      "status": 200,
+      "finalUrl": "https://verified-skill.com/api/v1/queue/health",
+      "schemaVersion": 2,
+      "oldestAgeBasis": "updatedAt"
+    },
+    {
+      "method": "GET",
+      "path": "/catalog",
+      "status": 200,
+      "finalUrl": "https://verified-skill.com/skills"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/e2e-harness/seed",
+      "status": 404,
+      "finalUrl": "https://verified-skill.com/api/v1/e2e-harness/seed"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/e2e-harness/reset",
+      "status": 404,
+      "finalUrl": "https://verified-skill.com/api/v1/e2e-harness/reset"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "at": "2026-09-28T23:13:34.561131+00:00",
+  "failedVersion": "97e2143c-fa5e-4475-853d-a1a2eb81f1fe",
+  "failedSource": "b4eefbb5db319360326e2b65e2ea3e09b1b50aa8",
+  "firstPublicSmoke": {
+    "path": "/api/v1/skills?limit=3",
+    "status": 500,
+    "body": "Internal Server Error"
+  },
+  "rollbackVersion": "72af68f0-09f7-4ffe-b7bb-ed7bd562f23b",
+  "rollbackPublicChecks": 5,
+  "rollbackAllSixConsumersUnchanged": true,
+  "diagnosis": "External per-package dependency symlinks changed Next tracing; failed artifact omitted Prisma runtime assets (0 versus124 in verified build)",
+  "next": "Build actual combined7f86c79c source in verified checkout-local dependency topology; require all14source hashes, fullsuite, Prisma Worker assets, build, fresh live guards and natural retry",
+  "codeState": "No product source mutation to conceal packaging failure"
+}
