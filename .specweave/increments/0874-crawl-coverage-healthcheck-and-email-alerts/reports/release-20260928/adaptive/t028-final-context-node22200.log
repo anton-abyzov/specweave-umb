@@ -1,0 +1,55 @@
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory
+
+ ✓ src/lib/__tests__/db-request-scope.test.ts (11 tests) 8ms
+ ✓ src/lib/__tests__/db-worker-context.test.ts (10 tests) 11ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.db-lifecycle.test.ts (7 tests) 35ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/registry-alias.test.ts (4 tests) 51ms
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.defer.test.ts > bulk route — identity defer (T-002, AC-US1-05) > a non-defer error still propagates (defer is not a catch-all)
+POST /api/v1/submissions/bulk error: {
+  message: 'boom',
+  stack: 'Error: boom\n' +
+    '    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/src/app/api/v1/submissions/bulk/__tests__/route.defer.test.ts:132:43\n' +
+    '    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n' +
+    '    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n' +
+    '    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n' +
+    '    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)\n' +
+    '    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)'
+}
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.defer.test.ts (2 tests) 53ms
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-016: continues batch when createSubmission fails for one entry
+[bulk] Failed to create submission: https://github.com/org/repo-2 skill-2 KV write timeout
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-017: succeeds even when queue send fails
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-017: succeeds even when queue send fails
+[bulk] Queue send failed for sub_2: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-018: walks skillPathCandidates when primary path 404s, persists resolved path
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-019: skillPathCandidates absent → behavior is identical to today (root SKILL.md fallback)
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-022: walks trailing-strip candidate when primary + leading-strip both 404
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.intake.test.ts > storage failure cannot become a terminal policy receipt
+[bulk] Failed to create submission: https://github.com/acme/skills alpha fixture storage unavailable
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.intake.test.ts (11 tests) 16ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.test.ts (13 tests) 55ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.skillpath-validation.test.ts (16 tests) 16ms
+
+ Test Files  8 passed (8)
+      Tests  74 passed (74)
+   Start at  15:25:38
+   Duration  663ms (transform 244ms, setup 536ms, collect 498ms, tests 246ms, environment 1.33s, prepare 393ms)
+

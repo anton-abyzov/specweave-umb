@@ -1,0 +1,22 @@
+{
+  "at": "2026-09-28T19:15:54.962457+00:00",
+  "source": "Cloudflare live tail restricted to VM3 IP and deployed version; no requests submitted",
+  "durationSeconds": 65.018,
+  "parsedEvents": 2,
+  "heartbeatEvents": [
+    {
+      "timestamp": 1790622917752,
+      "outcome": "ok",
+      "responseStatus": 200,
+      "exceptionNames": [],
+      "classifications": [],
+      "prismaCodes": [],
+      "logCount": 0,
+      "wallTimeMs": null,
+      "cpuTimeMs": null
+    }
+  ],
+  "tailExitCode": 0,
+  "rawOutputPersisted": false,
+  "tailErrorPresent": false
+}
