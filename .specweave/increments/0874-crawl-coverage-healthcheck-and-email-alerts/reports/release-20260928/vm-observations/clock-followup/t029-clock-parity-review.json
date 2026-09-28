@@ -1,0 +1,59 @@
+{
+  "reviewedAt": "2026-09-28T23:00:56.624863+00:00",
+  "head": "7c6c4d827ad70b44a2c0b86dd14a66c27745af36",
+  "tree": "9d4f375b09f14933d771808f8c920c3fae367249",
+  "base": "1e8058fbab6afe37864d5b882bb8d3552eef1349",
+  "scope": "Four-file delayed KV timestamp follow-up to T029; source review and synthetic local tests only",
+  "verdict": "No actionable or blocking finding",
+  "findings": [],
+  "manifest": [
+    {
+      "path": "src/app/api/v1/admin/queue-health/route.ts",
+      "sha256": "935707a61676f36efec7a3def94465d1b77c9f657cc65296bc5758ebd185abfe",
+      "matchesFrozenHead": true
+    },
+    {
+      "path": "src/app/api/v1/internal/alerts-evaluator/route.ts",
+      "sha256": "308e1b92cd2dbd1c40f406a1724ec12d5934736ae0639fd80a4603fe032bdf61",
+      "matchesFrozenHead": true
+    },
+    {
+      "path": "src/lib/alerts/__tests__/source-observations.test.ts",
+      "sha256": "707c4f25f1cb0aa443f97e26b1691598bf4cb0117bc674ee2a789ca033be7d0b",
+      "matchesFrozenHead": true
+    },
+    {
+      "path": "src/lib/alerts/source-observations.ts",
+      "sha256": "098c392aa3e39a835ad1ceb6500f1652b6de0669867a4b8abb67347bfdffe7bc",
+      "matchesFrozenHead": true
+    }
+  ],
+  "focusedTests": {
+    "passed": 142,
+    "skipped": 0,
+    "exitCode": 0,
+    "runtime": "Node 22.23.2",
+    "log": "/tmp/cc-work-release-20260928/0874/t029-clock-independent-tests.log"
+  },
+  "probes": {
+    "head": "7c6c4d827ad70b44a2c0b86dd14a66c27745af36",
+    "base": "1e8058fbab6afe37864d5b882bb8d3552eef1349",
+    "passed": 7,
+    "results": [
+      "Base reproduction rejects legitimate heartbeat arriving after read begins",
+      "Frozen actual source accepts delayed heartbeat with server timestamp preserved",
+      "Clock refresh occurs for each record across multiple bounded batches",
+      "Explicit deterministic clock override remains authoritative across delayed reads",
+      "Actually future records still fail closed and cannot promote healthy legacy fallback",
+      "Zero-valued explicit clock is retained by nullish fallback",
+      "Absent and failed storage remain degraded without fabricated observations"
+    ],
+    "scope": "Actual baseline/frozen source modules with synthetic awaited KV and clock; no network, DB or source writes"
+  },
+  "currentWorktreeStatus": "",
+  "limitations": [
+    "No live/production KV calls, deployment, or production telemetry attestation",
+    "Author full-suite/build and current-head hosted CI remain separate release evidence"
+  ],
+  "harnessCorrection": "Initial reviewer multi-VM probe incorrectly used the first :vm: key segment. Corrected to the final encoded VM segment; no product source change."
+}
