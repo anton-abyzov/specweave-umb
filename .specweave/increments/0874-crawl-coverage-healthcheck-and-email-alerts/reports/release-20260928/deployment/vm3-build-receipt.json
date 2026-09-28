@@ -1,0 +1,12 @@
+{
+  "phase": "build",
+  "mergeSha": "a066df378c8f42ef6e5515d906d7feb996c2d475",
+  "archiveSha256": "1bf41e18937f6c5f3fb043ec143e1e82ed6159e59d0648f4bdb77be3ec24054d",
+  "imageId": "sha256:52ff7bbdd69eeb895bd34f16c501aad3d898ba5546fa0ddee4e3c5c574e31d14",
+  "imageTag": "vskill-crawl-worker:a066df378c8f42ef6e5515d906d7feb996c2d475",
+  "sourceDir": "/opt/crawl-worker-releases/a066df378c8f42ef6e5515d906d7feb996c2d475",
+  "labels": {
+    "org.opencontainers.image.revision": "a066df378c8f42ef6e5515d906d7feb996c2d475",
+    "org.opencontainers.image.source": "https://github.com/anton-abyzov/vskill-platform"
+  }
+}

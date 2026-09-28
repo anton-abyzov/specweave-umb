@@ -1,0 +1,126 @@
+
+ ⛅️ wrangler 4.65.0 (update available 4.143.0)
+──────────────────────────────────────────────
+
+Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+🌀 Building list of assets...
+✨ Read 804 files from the assets directory /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/.open-next/assets
+🌀 Starting asset upload...
+🌀 Found 65 new or modified static assets to upload. Proceeding with upload...
++ /BUILD_ID
++ /_next/static/chunks/app/desktop/page-aae850d6e187c26e.js
++ /_next/static/chunks/app/admin/settings/page-55f2bed10aa461bc.js
++ /_next/static/chunks/app/settings/integrations/page-4255dbe53c563516.js
++ /_next/static/chunks/app/skills/[owner]/[repo]/[skill]/error-16188a411c0d69bf.js
++ /_next/static/chunks/app/skills/page-0e7f2153fd81b09c.js
++ /_next/static/chunks/app/account/notifications/page-0a243d3621d7438d.js
++ /_next/static/chunks/app/docs/workflows/page-223a539c37fe93f0.js
++ /_next/static/chunks/app/account/repos/connect/page-546c4e7c16d754a0.js
++ /_next/static/chunks/app/page-e1ae61cdbd9c43ab.js
++ /_next/static/chunks/app/admin/page-32ec31d77a9a447c.js
++ /_next/static/chunks/app/account/danger/page-652ec2fca45bcef6.js
++ /_next/static/chunks/app/admin/cron-log/page-a031d588a0f5f6e5.js
++ /_next/static/chunks/app/admin/blocklist/page-5eb41eae45f42861.js
++ /_next/static/chunks/app/publishers/[name]/page-d5d2e2dad65ffa10.js
++ /_next/static/chunks/app/admin/reports/page-aadf08e6306b6799.js
++ /_next/static/chunks/app/publish/page-35d9d0c6517ff25e.js
++ /_next/static/chunks/app/admin/submissions/page-6a0c486e26b06b31.js
++ /_next/static/chunks/app/skills/[owner]/[repo]/[skill]/versions/[version]/page-28db43e474338d10.js
++ /_next/static/chunks/app/submit/page-173ae4c4f6a0ffff.js
++ /_next/static/chunks/app/admin/submissions/[id]/page-b337c057b3ae9680.js
++ /_next/static/chunks/app/queue/page-06c4ba7de9ec4281.js
++ /_next/static/chunks/app/docs/submitting/page-203a337ff784e0e5.js
++ /_next/static/chunks/app/skills/[owner]/[repo]/[skill]/security/page-e10e3c9087804ff5.js
++ /_next/static/chunks/app/docs/getting-started/page-79fbf1d0fc11e273.js
++ /_next/static/chunks/app/account/layout-b274528dee811e06.js
++ /_next/static/chunks/app/error-1975a1c7e2f63eea.js
++ /_next/static/chunks/app/account/profile/page-a7de254bc1e5f0ef.js
++ /_next/static/chunks/app/watch/page-c8f649eb050d15c9.js
++ /_next/static/chunks/app/account/skills/page-ca67a95ae1744ef5.js
++ /_next/static/chunks/app/studio/layout-b8de058a7430d3f6.js
++ /_next/static/chunks/app/account/orgs/[tenantId]/page-64b92ef687e0f8b7.js
++ /_next/static/chunks/app/admin/users/page-65b336272fdb8cf9.js
++ /_next/static/chunks/app/report/page-bca1dbfa9f055b77.js
++ /_next/static/chunks/app/admin/skills/page-5da2a6d3a8410366.js
++ /_next/static/chunks/app/docs/studio/page-c2a31e6e5898d23b.js
++ /_next/static/chunks/app/skills/[owner]/[repo]/[skill]/evals/page-de2a793fd5ad19fa.js
++ /_next/static/chunks/app/studio/page-2c96c608282273f6.js
++ /_next/static/chunks/app/skills/[owner]/[repo]/[skill]/versions/compare/page-d4c03f1b06635524.js
++ /_next/static/chunks/app/skills/[owner]/[repo]/[skill]/page-1ece80025db9bea0.js
++ /_next/static/chunks/app/docs/faq/page-2af47919aad84255.js
++ /_next/static/chunks/app/studio/find/[owner]/[repo]/[skill]/page-293fe0b728bd7beb.js
++ /_next/static/chunks/app/submit/[id]/page-7b4b795e06187b33.js
++ /_next/static/chunks/app/trust/page-236da4a3e6909786.js
++ /_next/static/chunks/main-app-369667301dcb5997.js
++ /_next/static/chunks/app/skills/[owner]/[repo]/[skill]/versions/page-ac8b9ac58d35115a.js
++ /_next/static/chunks/app/publishers/page-76556f403d4d3048.js
++ /_next/static/chunks/app/docs/page-9fe1ba78e5e73dd5.js
++ /_next/static/chunks/app/global-error-ad3cdd6a0f829f21.js
++ /_next/static/chunks/app/e2e/studio-mock/page-8bf6f0067ed71f91.js
++ /_next/static/chunks/app/watch/[slug]/page-4b131ac3f672f70e.js
++ /_next/static/chunks/app/orgs/[orgSlug]/audit-log/page-2bfd472ea7a940f2.js
++ /_next/static/chunks/app/auth/error/page-ab5804cc3256300c.js
++ /_next/static/chunks/app/docs/plugins/page-8eb4171df6e6748d.js
++ /_next/static/chunks/app/report/my-reports/page-e5abeea9293a40ba.js
++ /_next/static/chunks/app/pricing/page-982363c78283a8c0.js
++ /_next/static/chunks/app/admin/layout-927771fbc7f8c84b.js
++ /_next/static/chunks/app/account/tokens/page-c80d7cccb4286058.js
++ /_next/static/chunks/app/admin/installs/page-d918128d160d99f1.js
++ /_next/static/chunks/app/layout-cad927013e07c4da.js
++ /_next/static/chunks/app/account/billing/page-8635fa3e61515693.js
++ /_next/static/chunks/app/account/repos/page-b072b496eb51ec92.js
++ /_next/static/chunks/app/admin/dashboard/page-5629512a903d914c.js
++ /_next/static/chunks/app/studio/find/page-c8456b9cae0ebd06.js
++ /_next/static/chunks/app/admin/queue/page-e530d09ffc4cb4e9.js
+Uploaded 21 of 65 assets
+Uploaded 43 of 65 assets
+Uploaded 65 of 65 assets
+✨ Success! Uploaded 65 files (359 already uploaded) (1.69 sec)
+
+Total Upload: 37482.63 KiB / gzip: 6284.51 KiB
+Worker Startup Time: 87 ms
+Your Worker has access to the following bindings:
+Binding                                                                              Resource                      
+env.QUEUE_HANDLER (DOQueueHandler)                                                   Durable Object                
+env.SHARDED_TAG_CACHE (DOShardedTagCache)                                            Durable Object                
+env.BUCKET_CACHE_PURGE (BucketCachePurge)                                            Durable Object                
+env.UPDATE_HUB (UpdateHub)                                                           Durable Object                
+env.OUTBOX_RECONCILER_DO (OutboxReconcilerDO)                                        Durable Object                
+env.WEBHOOK_DEDUP_DO (WebhookDeliveryDedupDO)                                        Durable Object                
+env.SUBMISSIONS_KV (d21d89b0c2644c2aa9303878300332e8)                                KV Namespace                  
+env.EXTERNAL_SCANS_KV (4ca57e4e08e34edc8332a4b079c7bc84)                             KV Namespace                  
+env.RATE_LIMIT_KV (de6c0b7a32d0454ca9afecdc181afb64)                                 KV Namespace                  
+env.QUEUE_METRICS_KV (65c54f6dfbfe4013b8796cee18388a36)                              KV Namespace                  
+env.REPO_HEALTH_KV (a638c65a7df14de99c74ca60e8155ce2)                                KV Namespace                  
+env.SEARCH_CACHE_KV (4570fe0338444a8a8e2a7b5bcd014057)                               KV Namespace                  
+env.EVAL_KV (d844ae6c1ea741989adcf0779898cd7c)                                       KV Namespace                  
+env.ALERTS_KV (d21d89b0c2644c2aa9303878300332e8)                                     KV Namespace                  
+env.FALLBACK_LOG_KV (d21d89b0c2644c2aa9303878300332e8)                               KV Namespace                  
+env.SUBMISSION_QUEUE (submission-processing)                                         Queue                         
+env.EVAL_QUEUE (eval-processing)                                                     Queue                         
+env.SCAN_HIGH_QUEUE (scan-high)                                                      Queue                         
+env.SCAN_NORMAL_QUEUE (scan-normal)                                                  Queue                         
+env.DISCOVERY_RESOLVE_QUEUE (discovery-resolve)                                      Queue                         
+env.HYPERDRIVE (6eaac2cc0fe449dc9488a96aa2573193)                                    Hyperdrive Config             
+env.VSKILL_AUDIT_ARCHIVE_BUCKET (vskill-audit-archive)                               R2 Bucket                     
+env.VSKILL_DESKTOP_BUCKET (vskill-desktop)                                           R2 Bucket                     
+env.WORKER_SELF_REFERENCE (verified-skill-com)                                       Worker                        
+env.UPDATE_METRICS_AE (skill_update_metrics)                                         Analytics Engine Dataset      
+env.STUDIO_LOCKDOWN_AE (studio_lockdown_events)                                      Analytics Engine Dataset      
+env.STUDIO_SSE_TELEMETRY (studio_sse_telemetry)                                      Analytics Engine Dataset      
+env.AI                                                                               AI                            
+env.ASSETS                                                                           Assets                        
+env.HETZNER_VM_IPS ("5.161.69.232,91.107.239.24,5.161.56.136")                       Environment Variable          
+env.VSKILL_FREE_PRIVATE_SKILL_LIMIT ("50")                                           Environment Variable          
+env.CATALOG_DB_STRICT ("1")                                                          Environment Variable          
+
+Uploaded verified-skill-com (25.88 sec)
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mA request to the Cloudflare API (/accounts/1364b528762500de4f870e064229d443/queues/a2773165cbfb4c039aa550b7e7b053d6/consumers/a78a1b464ed24f9b9b024e795ca04d08) failed.[0m
+
+  An unknown error has occurred. If this error persists, please file a report in workers-sdk ([4mhttps://github.com/cloudflare/workers-sdk/issues[0m) or reach out to your account team. [code: 10013]
+  
+  If you think this is a bug, please open an issue at: [4mhttps://github.com/cloudflare/workers-sdk/issues/new/choose[0m
+
+
+🪵  Logs were written to "/Users/antonabyzov/Library/Preferences/.wrangler/logs/wrangler-2026-09-28_17-02-20_605.log"

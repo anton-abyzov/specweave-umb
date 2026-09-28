@@ -1,0 +1,63 @@
+[
+  {
+    "path": "/api/v1/e2e-harness/healthz",
+    "status": 404,
+    "bytes": 44,
+    "location": null
+  },
+  {
+    "path": "/api/v1/_test/healthz",
+    "status": 404,
+    "bytes": 44,
+    "location": null
+  },
+  {
+    "path": "/orgs/0874-private-smoke/skills/nonexistent",
+    "status": 404,
+    "bytes": 23781,
+    "location": null
+  },
+  {
+    "path": "/catalog",
+    "status": 307,
+    "bytes": 22530,
+    "location": "/skills"
+  },
+  {
+    "path": "/skills",
+    "status": 200,
+    "bytes": 144922,
+    "location": null
+  },
+  {
+    "path": "/api/v1/skills?limit=2",
+    "status": 200,
+    "bytes": 2503,
+    "location": null,
+    "keys": [
+      "skills",
+      "total",
+      "limit",
+      "offset"
+    ],
+    "schemaVersion": null,
+    "skillsCount": 2
+  },
+  {
+    "path": "/api/v1/queue/health",
+    "status": 200,
+    "bytes": 427,
+    "location": null,
+    "keys": [
+      "schemaVersion",
+      "statsAge",
+      "oldestActive",
+      "orphanedActive",
+      "drainRate",
+      "vmHeartbeat",
+      "cached"
+    ],
+    "schemaVersion": 2,
+    "skillsCount": 0
+  }
+]

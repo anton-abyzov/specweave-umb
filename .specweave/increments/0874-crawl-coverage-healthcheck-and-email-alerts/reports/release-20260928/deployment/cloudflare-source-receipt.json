@@ -1,0 +1,12 @@
+{
+  "mergeSha": "a066df378c8f42ef6e5515d906d7feb996c2d475",
+  "tree": "321fed9e30f8be76ef9c3da5889673417494efeb",
+  "entrySha256": "e352f941f51a59119e9cdf1739eb4a3b0b910406d072b516c6e0374fecac9147",
+  "preVersion": "42eade92-cc55-43de-944f-f76321b3bc18",
+  "excludedBuildEnvironment": [
+    "E2E_BYPASS",
+    "JWT_SECRET",
+    "DATABASE_URL",
+    "ENABLE_PRIVATE_REPOS"
+  ]
+}

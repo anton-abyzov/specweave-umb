@@ -1,0 +1,92 @@
+
+ ⛅️ wrangler 4.65.0 (update available 4.143.0)
+──────────────────────────────────────────────
+Created:     2026-07-09T00:19:42.342Z
+Author:      anton.abyzov@gmail.com
+Source:      Unknown (deployment)
+Message:     -
+Version(s):  (100%) 7846d1bf-bf4f-442c-8e4c-178a3adf0239
+                 Created:  2026-07-09T00:19:36.636Z
+                     Tag:  -
+                 Message:  -
+
+Created:     2026-07-15T13:03:44.546Z
+Author:      anton.abyzov@gmail.com
+Source:      Unknown (deployment)
+Message:     -
+Version(s):  (100%) b7789af7-e17d-4bfd-a5f3-a7f96381d231
+                 Created:  2026-07-15T13:03:39.094Z
+                     Tag:  -
+                 Message:  -
+
+Created:     2026-07-15T13:42:24.535Z
+Author:      anton.abyzov@gmail.com
+Source:      Unknown (deployment)
+Message:     -
+Version(s):  (100%) 7618f47b-7f1c-4782-9532-4397f24d0579
+                 Created:  2026-07-15T13:42:19.768Z
+                     Tag:  -
+                 Message:  -
+
+Created:     2026-09-03T05:50:32.868Z
+Author:      anton.abyzov@gmail.com
+Source:      Unknown (deployment)
+Message:     -
+Version(s):  (100%) 2ff7bf82-5deb-4d82-8f6a-fe201661210f
+                 Created:  2026-09-03T05:50:27.626Z
+                     Tag:  -
+                 Message:  -
+
+Created:     2026-09-14T07:23:24.995Z
+Author:      anton.abyzov@gmail.com
+Source:      Unknown (deployment)
+Message:     -
+Version(s):  (100%) 9d71aeab-3b57-4af2-9f2c-425d87e3b8d7
+                 Created:  2026-09-14T07:23:20.086Z
+                     Tag:  -
+                 Message:  -
+
+Created:     2026-09-14T07:45:03.129Z
+Author:      anton.abyzov@gmail.com
+Source:      Unknown (deployment)
+Message:     -
+Version(s):  (100%) 671dfaed-3df4-4aec-8520-755f52085f53
+                 Created:  2026-09-14T07:44:54.613Z
+                     Tag:  -
+                 Message:  -
+
+Created:     2026-09-25T20:32:10.021Z
+Author:      anton.abyzov@gmail.com
+Source:      Unknown (deployment)
+Message:     -
+Version(s):  (100%) 1df7bf11-f774-49a0-b32c-37a6f172fdae
+                 Created:  2026-09-25T20:32:03.368Z
+                     Tag:  -
+                 Message:  -
+
+Created:     2026-09-25T20:51:51.183Z
+Author:      anton.abyzov@gmail.com
+Source:      Unknown (deployment)
+Message:     -
+Version(s):  (100%) 55229d17-3c54-4894-9e9a-f1b24241d2fd
+                 Created:  2026-09-25T20:51:44.632Z
+                     Tag:  -
+                 Message:  -
+
+Created:     2026-09-26T03:14:03.203Z
+Author:      anton.abyzov@gmail.com
+Source:      Unknown (deployment)
+Message:     -
+Version(s):  (100%) 42eade92-cc55-43de-944f-f76321b3bc18
+                 Created:  2026-09-26T03:13:57.525Z
+                     Tag:  -
+                 Message:  -
+
+Created:     2026-09-28T17:02:44.275Z
+Author:      anton.abyzov@gmail.com
+Source:      Unknown (deployment)
+Message:     -
+Version(s):  (100%) d69cd63d-224c-4b37-b1c3-88aa11906a58
+                 Created:  2026-09-28T17:02:36.235Z
+                     Tag:  -
+                 Message:  -

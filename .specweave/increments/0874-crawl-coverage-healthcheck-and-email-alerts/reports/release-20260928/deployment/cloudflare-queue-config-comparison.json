@@ -1,0 +1,65 @@
+[
+  {
+    "queue": "submission-processing",
+    "checks": {
+      "batch_size": true,
+      "max_retries": true,
+      "max_concurrency": true,
+      "retry_delay": true,
+      "max_wait_time_ms": true
+    },
+    "ok": true
+  },
+  {
+    "queue": "submission-dlq",
+    "checks": {
+      "batch_size": true,
+      "max_wait_time_ms": true
+    },
+    "ok": true
+  },
+  {
+    "queue": "eval-processing",
+    "checks": {
+      "batch_size": true,
+      "max_retries": true,
+      "max_concurrency": true,
+      "retry_delay": true,
+      "max_wait_time_ms": true
+    },
+    "ok": true
+  },
+  {
+    "queue": "scan-high",
+    "checks": {
+      "batch_size": true,
+      "max_retries": true,
+      "max_concurrency": true,
+      "retry_delay": true,
+      "max_wait_time_ms": true
+    },
+    "ok": true
+  },
+  {
+    "queue": "scan-normal",
+    "checks": {
+      "batch_size": true,
+      "max_retries": true,
+      "max_concurrency": true,
+      "retry_delay": true,
+      "max_wait_time_ms": true
+    },
+    "ok": true
+  },
+  {
+    "queue": "discovery-resolve",
+    "checks": {
+      "batch_size": true,
+      "max_retries": true,
+      "max_concurrency": true,
+      "retry_delay": true,
+      "max_wait_time_ms": true
+    },
+    "ok": true
+  }
+]

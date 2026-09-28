@@ -1,0 +1,20 @@
+{
+  "source-release-manifest.json": "c0fabb2e5271a8e787efbdd4022817216353c177a87a3417b7ef7b6aea1f74e2",
+  "cloudflare-source-receipt.json": "7878e10734a4ef3ab29becaa697f7767e7dac5fe3454371bdfe91399c3ffb6ad",
+  "cloudflare-artifact-hashes.json": "9e42e4963669f2e864a1776a87991ab1fe46296c8fa4c3291890fd1567f24f7d",
+  "cloudflare-deploy.log": "24976934f35e734c03341dd63cd10470e311092e3c82a33d002e3b373bfead31",
+  "cloudflare-predeploy.txt": "6261565c138150ad933f19b55dc17f14d87ae6ecef31080aec6d4772a3b79f2e",
+  "cloudflare-post-attempt.txt": "9c3a0d8994c7154bbde0618c66a56788b1238022de0a3c261dc2b9a17a16b8b4",
+  "cloudflare-queue-readback.json": "821c9b3e703e2e1b1c3b2d4d9b51ec2d4cb07374a6b12b0d61e7edc02b324b00",
+  "cloudflare-queue-config-comparison.json": "98637daa4df0f692d1460bb5f49d63eb9f178be80f9143e6ece11e3fff80ecb0",
+  "public-smoke-curl.json": "8dedacf059110aaa68eda67ca8b2856c17b434478f94bfa1471efd731ca3da6e",
+  "queue-health-deploy-smoke.log": "5fb207d50bc4e7f2e0c8907ec976a1b526da5af4f49eca36ae41c2d12cefbf74",
+  "vm3-build-receipt.json": "c1643d5cd732271c1910d5de0bb464b609f64b52d3def203d783ccc688b0ffdc",
+  "vm3-crawler-rollout.py": "8b7df9d58413839150afee6adc0898ef82d869750183cc5a6ec80ac99eb8f1f9",
+  "vm3-rollout-receipt.jsonl": "e727d66c09d2d59bd0e001e32eb4f61d67543f770efc9cf44fcf1fa5364c556d",
+  "vm3-heartbeat-readback.json": "1d47a6f4df865df0a39bfa2afffa7709bda1394488a820f16bbf694731ba3577",
+  "production-runtime-readback.json": "24a6d355dd37ba1638ca02c021d553edbb2c86e39a570cc58dd73369cbccf950",
+  "node22-artifact-comparison.json": "1521c638594468dc7911252197e40b106f7d76681b42a1bf977d43303691c0e2",
+  "worker-build-merged.log": "af700600aada87d924df805835dc8b734521ac3a6eef8c8c4126e7d23b5e0512",
+  "worker-build-merged-node22.log": "06236cbb2ee7f530fe65dd6986d8c9c4ab044a53a06e17686643e8eaa1fa14d0"
+}

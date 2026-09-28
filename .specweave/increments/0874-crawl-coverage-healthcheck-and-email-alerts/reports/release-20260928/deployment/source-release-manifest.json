@@ -1,0 +1,16 @@
+{
+  "mergeSha": "a066df378c8f42ef6e5515d906d7feb996c2d475",
+  "tree": "321fed9e30f8be76ef9c3da5889673417494efeb",
+  "archiveSha256": "1bf41e18937f6c5f3fb043ec143e1e82ed6159e59d0648f4bdb77be3ec24054d",
+  "trackedFiles": 75,
+  "excluded": [
+    "crawl-worker/.env.example"
+  ],
+  "envFiles": 0,
+  "sourceHashes": {
+    "server.js": "107e47757cbc0df85af1927ff40f5e64116035f6e969078f7a537d3f8bf79c67",
+    "scheduler.js": "55a555d090ac9e9bd414ccd6da717ccc960c6291aa1b63d0937c11d99594d2a2",
+    "sources/github-sharded.js": "46c7c3c8273f937c00e554780a0ca4c5ecc2fa9eb098fb2d43f61b8cccf8b97c",
+    "lib/inline-submitter.js": "14c4e5d167bfb61c62d09709d1ceb5d9ccf1d99747cd5e1a7e2a8fc7e5e2f334"
+  }
+}
