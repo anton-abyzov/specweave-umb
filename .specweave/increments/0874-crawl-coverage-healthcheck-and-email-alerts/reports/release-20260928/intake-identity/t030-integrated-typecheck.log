@@ -1,0 +1,779 @@
+e2e/account-flow.spec.ts(199,27): error TS2322: Type '{ id: string; name: string; prefix: string; scopes: ("read" | "write")[]; lastUsedAt: string; createdAt: string; expiresAt: string; revokedAt: string | null; } | { id: string; name: string; prefix: string; ... 4 more ...; revokedAt: string | null; }' is not assignable to type '{ id: string; name: string; prefix: string; scopes: ("read" | "write")[]; lastUsedAt: string; createdAt: string; expiresAt: string; revokedAt: string | null; }'.
+  Type '{ id: string; name: string; prefix: string; scopes: ("read" | "write")[]; lastUsedAt: string | null; createdAt: string; expiresAt: string; revokedAt: string | null; }' is not assignable to type '{ id: string; name: string; prefix: string; scopes: ("read" | "write")[]; lastUsedAt: string; createdAt: string; expiresAt: string; revokedAt: string | null; }'.
+    Types of property 'lastUsedAt' are incompatible.
+      Type 'string | null' is not assignable to type 'string'.
+        Type 'null' is not assignable to type 'string'.
+e2e/account-flow.spec.ts(199,45): error TS2322: Type '{ id: string; name: string; prefix: string; scopes: ("read" | "write")[]; lastUsedAt: string | null; createdAt: string; expiresAt: string; revokedAt: string | null; }' is not assignable to type '{ id: string; name: string; prefix: string; scopes: ("read" | "write")[]; lastUsedAt: string; createdAt: string; expiresAt: string; revokedAt: string | null; }'.
+  Types of property 'lastUsedAt' are incompatible.
+    Type 'string | null' is not assignable to type 'string'.
+      Type 'null' is not assignable to type 'string'.
+e2e/account-flow.spec.ts(501,34): error TS2322: Type '{ tier: "pro"; userId: string; displayName: string; githubHandle: string; avatarUrl: string; bio: string; publicProfile: boolean; createdAt: string; }' is not assignable to type '{ userId: string; displayName: string; githubHandle: string; avatarUrl: string; bio: string; publicProfile: boolean; tier: "free"; createdAt: string; }'.
+  Types of property 'tier' are incompatible.
+    Type '"pro"' is not assignable to type '"free"'.
+scripts/0840-grandfather-existing-pro-users.ts(395,34): error TS2339: Property 'coupon' does not exist on type 'PromotionCode'.
+scripts/0840-grandfather-existing-pro-users.ts(395,58): error TS2339: Property 'coupon' does not exist on type 'PromotionCode'.
+scripts/0840-grandfather-existing-pro-users.ts(395,69): error TS2339: Property 'coupon' does not exist on type 'PromotionCode'.
+scripts/0840-grandfather-existing-pro-users.ts(403,11): error TS2353: Object literal may only specify known properties, and 'coupon' does not exist in type 'PromotionCodeCreateParams'.
+scripts/0840-grandfather-existing-pro-users.ts(409,34): error TS2339: Property 'coupon' does not exist on type 'Response<PromotionCode>'.
+scripts/0840-grandfather-existing-pro-users.ts(409,58): error TS2339: Property 'coupon' does not exist on type 'Response<PromotionCode>'.
+scripts/0840-grandfather-existing-pro-users.ts(409,69): error TS2339: Property 'coupon' does not exist on type 'Response<PromotionCode>'.
+scripts/__tests__/backfill-source-repo-url.test.ts(87,12): error TS2322: Type '{ db: { skill: { findMany: () => Promise<OrphanRow[]>; update: (args: { where: { id: string; }; data: { sourceRepoUrl: string; sourceBranch: string; }; }) => Promise<...>; }; }; fetchMarketplace: (owner: string, repo: string) => Promise<...>; fetchPluginDir: ((owner: string, repo: string, sourcePath: string) => Prom...' is not assignable to type 'BackfillDeps'.
+  The types returned by 'fetchMarketplace(...)' are incompatible between these types.
+    Type 'Promise<unknown>' is not assignable to type 'Promise<MarketplaceLike | null>'.
+      Type 'unknown' is not assignable to type 'MarketplaceLike | null'.
+scripts/backfill-skill-version-ghosts.ts(341,7): error TS2322: Type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>' is not assignable to type '{ skillVersion: { update: (args: unknown) => Promise<unknown>; delete: (args: unknown) => Promise<unknown>; }; }'.
+  The types of 'skillVersion.update' are incompatible between these types.
+    Type '<T extends SkillVersionUpdateArgs>(args: SelectSubset<T, SkillVersionUpdateArgs<DefaultArgs>>) => Prisma__SkillVersionClient<GetFindResult<$SkillVersionPayload<DefaultArgs>, T, PrismaClientOptions>, never, DefaultArgs, PrismaClientOptions>' is not assignable to type '(args: unknown) => Promise<unknown>'.
+      Types of parameters 'args' and 'args' are incompatible.
+        Type 'unknown' is not assignable to type '{ select?: SkillVersionSelect<DefaultArgs> | null | undefined; omit?: SkillVersionOmit<DefaultArgs> | null | undefined; include?: SkillVersionInclude<...> | ... 1 more ... | undefined; data: (Without<...> & SkillVersionUncheckedUpdateInput) | (Without<...> & SkillVersionUpdateInput); where: SkillVersionWhereUniqueIn...'.
+scripts/backfill-source-repo-url.ts(301,21): error TS2352: Conversion of type 'typeof import("/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-intake-identity/src/lib/db")' to type '{ getDb: () => Promise<{ skill: { findMany: (args: { where: { sourceRepoUrl: null; }; }) => Promise<OrphanSkill[]>; update: (args: { where: { id: string; }; data: { sourceRepoUrl: string; sourceBranch: string; }; }) => Promise<...>; }; }>; }' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  The types returned by 'getDb()' are incompatible between these types.
+    Type 'Promise<PrismaClient<PrismaClientOptions, never, DefaultArgs>>' is not comparable to type 'Promise<{ skill: { findMany: (args: { where: { sourceRepoUrl: null; }; }) => Promise<OrphanSkill[]>; update: (args: { where: { id: string; }; data: { sourceRepoUrl: string; sourceBranch: string; }; }) => Promise<...>; }; }>'.
+      Type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>' is not comparable to type '{ skill: { findMany: (args: { where: { sourceRepoUrl: null; }; }) => Promise<OrphanSkill[]>; update: (args: { where: { id: string; }; data: { sourceRepoUrl: string; sourceBranch: string; }; }) => Promise<...>; }; }'.
+        The types of 'skill.findMany' are incompatible between these types.
+          Type '<T extends SkillFindManyArgs>(args?: SelectSubset<T, SkillFindManyArgs<DefaultArgs>> | undefined) => PrismaPromise<GetFindResult<$SkillPayload<DefaultArgs>, T, PrismaClientOptions>[]>' is not comparable to type '(args: { where: { sourceRepoUrl: null; }; }) => Promise<OrphanSkill[]>'.
+            Types of parameters 'args' and 'args' are incompatible.
+              Type '{ where: { sourceRepoUrl: null; }; }' is not comparable to type 'SelectSubset<any, SkillFindManyArgs<DefaultArgs>> | undefined'.
+                Type '{ where: { sourceRepoUrl: null; }; }' is not comparable to type '{ [x: string]: never; } & "Please either choose `select` or `omit`."'.
+                  Type '{ where: { sourceRepoUrl: null; }; }' is not comparable to type '{ [x: string]: never; }'.
+                    Property 'where' is incompatible with index signature.
+                      Type '{ sourceRepoUrl: null; }' is not comparable to type 'never'.
+scripts/backfill-version-stamps.ts(125,19): error TS2352: Conversion of type '<T extends SkillVersionFindManyArgs>(args?: SelectSubset<T, SkillVersionFindManyArgs<DefaultArgs>> | undefined) => PrismaPromise<GetFindResult<$SkillVersionPayload<...>, T, PrismaClientOptions>[]>' to type '(args: { where?: Record<string, unknown> | undefined; select?: Record<string, true> | undefined; orderBy?: Record<string, "asc" | "desc"> | undefined; }) => Promise<...>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Types of parameters 'args' and 'args' are incompatible.
+    Type '{ where?: Record<string, unknown> | undefined; select?: Record<string, true> | undefined; orderBy?: Record<string, "asc" | "desc"> | undefined; }' is not comparable to type 'SelectSubset<any, SkillVersionFindManyArgs<DefaultArgs>> | undefined'.
+      Type '{ where?: Record<string, unknown> | undefined; select?: Record<string, true> | undefined; orderBy?: Record<string, "asc" | "desc"> | undefined; }' is not comparable to type '{ [x: string]: never; } & "Please either choose `select` or `omit`."'.
+        Type '{ where?: Record<string, unknown> | undefined; select?: Record<string, true> | undefined; orderBy?: Record<string, "asc" | "desc"> | undefined; }' is not comparable to type '{ [x: string]: never; }'.
+          Property 'where' is incompatible with index signature.
+            Type 'Record<string, unknown>' is not comparable to type 'never'.
+scripts/backfill-version-stamps.ts(126,17): error TS2352: Conversion of type '<T extends SkillVersionUpdateArgs>(args: SelectSubset<T, SkillVersionUpdateArgs<DefaultArgs>>) => Prisma__SkillVersionClient<GetFindResult<$SkillVersionPayload<DefaultArgs>, T, PrismaClientOptions>, never, DefaultArgs, PrismaClientOptions>' to type '(args: { where: { id: string; }; data: { content: string; contentHash: string; }; }) => Promise<unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Types of parameters 'args' and 'args' are incompatible.
+    Type '{ where: { id: string; }; data: { content: string; contentHash: string; }; }' is not comparable to type 'SelectSubset<any, SkillVersionUpdateArgs<DefaultArgs>>'.
+      Type '{ where: { id: string; }; data: { content: string; contentHash: string; }; }' is not comparable to type '{ [x: string]: never; } & "Please either choose `select` or `omit`."'.
+        Type '{ where: { id: string; }; data: { content: string; contentHash: string; }; }' is not comparable to type '{ [x: string]: never; }'.
+          Property 'where' is incompatible with index signature.
+            Type '{ id: string; }' is not comparable to type 'never'.
+scripts/cleanup-ghost-versions.ts(133,45): error TS2339: Property 'version' does not exist on type '"" | { id: string; createdAt: Date; contentHash: string; version: string; gitSha: string; }'.
+  Property 'version' does not exist on type '""'.
+scripts/cleanup-ghost-versions.ts(133,66): error TS2339: Property 'gitSha' does not exist on type '"" | { id: string; createdAt: Date; contentHash: string; version: string; gitSha: string; }'.
+  Property 'gitSha' does not exist on type '""'.
+scripts/cleanup-ghost-versions.ts(203,11): error TS2353: Object literal may only specify known properties, and 'reason' does not exist in type 'Without<SubmissionStateEventCreateInput, SubmissionStateEventUncheckedCreateInput> & SubmissionStateEventUncheckedCreateInput'.
+scripts/import-vendor-skills.ts(580,7): error TS2322: Type '{ displayName: string; description: string; author: string; repoUrl: string; category: string; currentVersion: string; certTier: "CERTIFIED"; certMethod: "VENDOR_AUTO"; certScore: number; certifiedAt: Date; ... 12 more ...; pluginName: string | null; }' is not assignable to type '(Without<SkillCreateInput, SkillUncheckedCreateInput> & SkillUncheckedCreateInput) | (Without<...> & SkillCreateInput)'.
+  Type '{ displayName: string; description: string; author: string; repoUrl: string; category: string; currentVersion: string; certTier: "CERTIFIED"; certMethod: "VENDOR_AUTO"; certScore: number; certifiedAt: Date; ... 12 more ...; pluginName: string | null; }' is not assignable to type 'Without<SkillCreateInput, SkillUncheckedCreateInput> & SkillUncheckedCreateInput'.
+    Type '{ displayName: string; description: string; author: string; repoUrl: string; category: string; currentVersion: string; certTier: "CERTIFIED"; certMethod: "VENDOR_AUTO"; certScore: number; certifiedAt: Date; ... 12 more ...; pluginName: string | null; }' is not assignable to type 'SkillUncheckedCreateInput'.
+      Types of property 'extensionPoints' are incompatible.
+        Type 'ExtensionPoint[]' is not assignable to type 'JsonNull | InputJsonValue | undefined'.
+          Type 'ExtensionPoint[]' is not assignable to type 'InputJsonObject'.
+            Index signature for type 'string' is missing in type 'ExtensionPoint[]'.
+scripts/import-vendor-skills.ts(586,7): error TS2322: Type '{ pluginName: string | null; displayName: string; description: string; author: string; repoUrl: string; category: string; currentVersion: string; certTier: "CERTIFIED"; certMethod: "VENDOR_AUTO"; ... 11 more ...; repositoryId: string; }' is not assignable to type '(Without<SkillUpdateInput, SkillUncheckedUpdateInput> & SkillUncheckedUpdateInput) | (Without<...> & SkillUpdateInput)'.
+  Type '{ pluginName: string | null; displayName: string; description: string; author: string; repoUrl: string; category: string; currentVersion: string; certTier: "CERTIFIED"; certMethod: "VENDOR_AUTO"; ... 11 more ...; repositoryId: string; }' is not assignable to type 'Without<SkillUpdateInput, SkillUncheckedUpdateInput> & SkillUncheckedUpdateInput'.
+    Type '{ pluginName: string | null; displayName: string; description: string; author: string; repoUrl: string; category: string; currentVersion: string; certTier: "CERTIFIED"; certMethod: "VENDOR_AUTO"; ... 11 more ...; repositoryId: string; }' is not assignable to type 'SkillUncheckedUpdateInput'.
+      Types of property 'extensionPoints' are incompatible.
+        Type 'ExtensionPoint[]' is not assignable to type 'JsonNull | InputJsonValue | undefined'.
+          Type 'ExtensionPoint[]' is not assignable to type 'InputJsonObject'.
+            Index signature for type 'string' is missing in type 'ExtensionPoint[]'.
+scripts/insert-eval-batch.ts(116,11): error TS2322: Type 'string' is not assignable to type 'EvalVerdict'.
+scripts/insert-eval-batch.ts(150,11): error TS2322: Type 'string' is not assignable to type 'NullableEnumEvalVerdictFieldUpdateOperationsInput | EvalVerdict | null | undefined'.
+scripts/migrations/0672-collapse-submission-dupes.ts(103,7): error TS2322: Type 'unknown[]' is not assignable to type 'Record<string, unknown>[]'.
+  Type 'unknown' is not assignable to type 'Record<string, unknown>'.
+scripts/migrations/0672-collapse-submission-dupes.ts(104,7): error TS2322: Type 'unknown[]' is not assignable to type 'Record<string, unknown>[]'.
+  Type 'unknown' is not assignable to type 'Record<string, unknown>'.
+scripts/migrations/0672-collapse-submission-dupes.ts(105,7): error TS2322: Type 'unknown[]' is not assignable to type 'Record<string, unknown>[]'.
+  Type 'unknown' is not assignable to type 'Record<string, unknown>'.
+scripts/migrations/0672-collapse-submission-dupes.ts(106,7): error TS2322: Type 'unknown[]' is not assignable to type 'Record<string, unknown>[]'.
+  Type 'unknown' is not assignable to type 'Record<string, unknown>'.
+scripts/migrations/0672-collapse-submission-dupes.ts(107,7): error TS2322: Type 'unknown[]' is not assignable to type 'Record<string, unknown>[]'.
+  Type 'unknown' is not assignable to type 'Record<string, unknown>'.
+scripts/migrations/0673-cleanup-submission-dupes.ts(41,16): error TS7016: Could not find a declaration file for module 'ws'. '/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/ws/wrapper.mjs' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/ws` if it exists or add a new declaration (.d.ts) file containing `declare module 'ws';`
+scripts/migrations/__tests__/0672-collapse.int.test.ts(85,35): error TS2345: Argument of type 'NeonQueryFunction<false, false>' is not assignable to parameter of type 'NeonQueryFunction<boolean, boolean>'.
+  Types of property 'transaction' are incompatible.
+    Type '<ArrayModeOverride extends boolean = false, FullResultsOverride extends boolean = false>(queriesOrFn: NeonQueryPromise<false, false, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise<...>' is not assignable to type '<ArrayModeOverride extends boolean = boolean, FullResultsOverride extends boolean = boolean>(queriesOrFn: NeonQueryPromise<boolean, boolean, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise...'.
+      Types of parameters 'queriesOrFn' and 'queriesOrFn' are incompatible.
+        Type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+          Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+            Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type 'NeonQueryPromise<false, false, any>[]'.
+              Type 'NeonQueryPromise<boolean, boolean, any>' is not assignable to type 'NeonQueryPromise<false, false, any>'.
+                Type 'boolean' is not assignable to type 'false'.
+scripts/migrations/__tests__/0672-collapse.int.test.ts(90,35): error TS2345: Argument of type 'NeonQueryFunction<false, false>' is not assignable to parameter of type 'NeonQueryFunction<boolean, boolean>'.
+  Types of property 'transaction' are incompatible.
+    Type '<ArrayModeOverride extends boolean = false, FullResultsOverride extends boolean = false>(queriesOrFn: NeonQueryPromise<false, false, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise<...>' is not assignable to type '<ArrayModeOverride extends boolean = boolean, FullResultsOverride extends boolean = boolean>(queriesOrFn: NeonQueryPromise<boolean, boolean, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise...'.
+      Types of parameters 'queriesOrFn' and 'queriesOrFn' are incompatible.
+        Type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+          Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+            Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type 'NeonQueryPromise<false, false, any>[]'.
+              Type 'NeonQueryPromise<boolean, boolean, any>' is not assignable to type 'NeonQueryPromise<false, false, any>'.
+                Type 'boolean' is not assignable to type 'false'.
+scripts/migrations/__tests__/0672-collapse.int.test.ts(94,26): error TS2345: Argument of type 'NeonQueryFunction<false, false>' is not assignable to parameter of type 'NeonQueryFunction<boolean, boolean>'.
+  Types of property 'transaction' are incompatible.
+    Type '<ArrayModeOverride extends boolean = false, FullResultsOverride extends boolean = false>(queriesOrFn: NeonQueryPromise<false, false, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise<...>' is not assignable to type '<ArrayModeOverride extends boolean = boolean, FullResultsOverride extends boolean = boolean>(queriesOrFn: NeonQueryPromise<boolean, boolean, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise...'.
+      Types of parameters 'queriesOrFn' and 'queriesOrFn' are incompatible.
+        Type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+          Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+            Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type 'NeonQueryPromise<false, false, any>[]'.
+              Type 'NeonQueryPromise<boolean, boolean, any>' is not assignable to type 'NeonQueryPromise<false, false, any>'.
+                Type 'boolean' is not assignable to type 'false'.
+scripts/migrations/__tests__/0672-collapse.int.test.ts(142,26): error TS2345: Argument of type 'NeonQueryFunction<false, false>' is not assignable to parameter of type 'NeonQueryFunction<boolean, boolean>'.
+  Types of property 'transaction' are incompatible.
+    Type '<ArrayModeOverride extends boolean = false, FullResultsOverride extends boolean = false>(queriesOrFn: NeonQueryPromise<false, false, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise<...>' is not assignable to type '<ArrayModeOverride extends boolean = boolean, FullResultsOverride extends boolean = boolean>(queriesOrFn: NeonQueryPromise<boolean, boolean, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise...'.
+      Types of parameters 'queriesOrFn' and 'queriesOrFn' are incompatible.
+        Type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+          Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+            Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type 'NeonQueryPromise<false, false, any>[]'.
+              Type 'NeonQueryPromise<boolean, boolean, any>' is not assignable to type 'NeonQueryPromise<false, false, any>'.
+                Type 'boolean' is not assignable to type 'false'.
+scripts/migrations/__tests__/0672-restore.int.test.ts(48,35): error TS2345: Argument of type 'NeonQueryFunction<false, false>' is not assignable to parameter of type 'NeonQueryFunction<boolean, boolean>'.
+  Types of property 'transaction' are incompatible.
+    Type '<ArrayModeOverride extends boolean = false, FullResultsOverride extends boolean = false>(queriesOrFn: NeonQueryPromise<false, false, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise<...>' is not assignable to type '<ArrayModeOverride extends boolean = boolean, FullResultsOverride extends boolean = boolean>(queriesOrFn: NeonQueryPromise<boolean, boolean, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise...'.
+      Types of parameters 'queriesOrFn' and 'queriesOrFn' are incompatible.
+        Type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+          Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+            Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type 'NeonQueryPromise<false, false, any>[]'.
+              Type 'NeonQueryPromise<boolean, boolean, any>' is not assignable to type 'NeonQueryPromise<false, false, any>'.
+                Type 'boolean' is not assignable to type 'false'.
+scripts/migrations/__tests__/0672-restore.int.test.ts(52,35): error TS2345: Argument of type 'NeonQueryFunction<false, false>' is not assignable to parameter of type 'NeonQueryFunction<boolean, boolean>'.
+  Types of property 'transaction' are incompatible.
+    Type '<ArrayModeOverride extends boolean = false, FullResultsOverride extends boolean = false>(queriesOrFn: NeonQueryPromise<false, false, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise<...>' is not assignable to type '<ArrayModeOverride extends boolean = boolean, FullResultsOverride extends boolean = boolean>(queriesOrFn: NeonQueryPromise<boolean, boolean, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise...'.
+      Types of parameters 'queriesOrFn' and 'queriesOrFn' are incompatible.
+        Type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+          Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+            Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type 'NeonQueryPromise<false, false, any>[]'.
+              Type 'NeonQueryPromise<boolean, boolean, any>' is not assignable to type 'NeonQueryPromise<false, false, any>'.
+                Type 'boolean' is not assignable to type 'false'.
+scripts/migrations/__tests__/0672-restore.int.test.ts(74,27): error TS2345: Argument of type 'NeonQueryFunction<false, false>' is not assignable to parameter of type 'NeonQueryFunction<boolean, boolean>'.
+  Types of property 'transaction' are incompatible.
+    Type '<ArrayModeOverride extends boolean = false, FullResultsOverride extends boolean = false>(queriesOrFn: NeonQueryPromise<false, false, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise<...>' is not assignable to type '<ArrayModeOverride extends boolean = boolean, FullResultsOverride extends boolean = boolean>(queriesOrFn: NeonQueryPromise<boolean, boolean, any>[] | ((sql: NeonQueryFunctionInTransaction<ArrayModeOverride, FullResultsOverride>) => NeonQueryInTransaction[]), opts?: HTTPTransactionOptions<...> | undefined) => Promise...'.
+      Types of parameters 'queriesOrFn' and 'queriesOrFn' are incompatible.
+        Type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+          Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type '((sql: NeonQueryFunctionInTransaction<any, any>) => NeonQueryInTransaction[]) | NeonQueryPromise<false, false, any>[]'.
+            Type 'NeonQueryPromise<boolean, boolean, any>[]' is not assignable to type 'NeonQueryPromise<false, false, any>[]'.
+              Type 'NeonQueryPromise<boolean, boolean, any>' is not assignable to type 'NeonQueryPromise<false, false, any>'.
+                Type 'boolean' is not assignable to type 'false'.
+scripts/register-greet-anton-standalone.ts(34,7): error TS1117: An object literal cannot have multiple properties with the same name.
+src/app/__tests__/globals-css-tokens.test.ts(4,36): error TS7016: Could not find a declaration file for module 'wcag-contrast'. '/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/wcag-contrast/dist/index.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/wcag-contrast` if it exists or add a new declaration (.d.ts) file containing `declare module 'wcag-contrast';`
+src/app/account/billing/BillingClient.tsx(38,42): error TS2503: Cannot find namespace 'JSX'.
+src/app/admin/blocklist/__tests__/page.test.tsx(149,9): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(predicate: (value: any[], index: number, obj: any[][]) => value is any[], thisArg?: any): any[] | undefined', gave the following error.
+    Argument of type '(c: [string, RequestInit?]) => boolean' is not assignable to parameter of type '(value: any[], index: number, obj: any[][]) => value is any[]'.
+      Types of parameters 'c' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string, (RequestInit | undefined)?]'.
+          Target requires 1 element(s) but source may have fewer.
+  Overload 2 of 2, '(predicate: (value: any[], index: number, obj: any[][]) => unknown, thisArg?: any): any[] | undefined', gave the following error.
+    Argument of type '(c: [string, RequestInit?]) => boolean' is not assignable to parameter of type '(value: any[], index: number, obj: any[][]) => unknown'.
+      Types of parameters 'c' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string, (RequestInit | undefined)?]'.
+          Target requires 1 element(s) but source may have fewer.
+src/app/admin/dashboard/__tests__/page.test.tsx(177,9): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(predicate: (value: any[], index: number, obj: any[][]) => value is any[], thisArg?: any): any[] | undefined', gave the following error.
+    Argument of type '(c: [string, RequestInit?]) => boolean' is not assignable to parameter of type '(value: any[], index: number, obj: any[][]) => value is any[]'.
+      Types of parameters 'c' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string, (RequestInit | undefined)?]'.
+          Target requires 1 element(s) but source may have fewer.
+  Overload 2 of 2, '(predicate: (value: any[], index: number, obj: any[][]) => unknown, thisArg?: any): any[] | undefined', gave the following error.
+    Argument of type '(c: [string, RequestInit?]) => boolean' is not assignable to parameter of type '(value: any[], index: number, obj: any[][]) => unknown'.
+      Types of parameters 'c' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string, (RequestInit | undefined)?]'.
+          Target requires 1 element(s) but source may have fewer.
+src/app/admin/submissions/[id]/__tests__/page.test.tsx(172,9): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(predicate: (value: any[], index: number, obj: any[][]) => value is any[], thisArg?: any): any[] | undefined', gave the following error.
+    Argument of type '(c: [string, RequestInit?]) => boolean' is not assignable to parameter of type '(value: any[], index: number, obj: any[][]) => value is any[]'.
+      Types of parameters 'c' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string, (RequestInit | undefined)?]'.
+          Target requires 1 element(s) but source may have fewer.
+  Overload 2 of 2, '(predicate: (value: any[], index: number, obj: any[][]) => unknown, thisArg?: any): any[] | undefined', gave the following error.
+    Argument of type '(c: [string, RequestInit?]) => boolean' is not assignable to parameter of type '(value: any[], index: number, obj: any[][]) => unknown'.
+      Types of parameters 'c' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string, (RequestInit | undefined)?]'.
+          Target requires 1 element(s) but source may have fewer.
+src/app/admin/submissions/__tests__/page.test.tsx(122,11): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(predicate: (value: any[], index: number, obj: any[][]) => value is any[], thisArg?: any): any[] | undefined', gave the following error.
+    Argument of type '(c: [string]) => boolean' is not assignable to parameter of type '(value: any[], index: number, obj: any[][]) => value is any[]'.
+      Types of parameters 'c' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string]'.
+          Target requires 1 element(s) but source may have fewer.
+  Overload 2 of 2, '(predicate: (value: any[], index: number, obj: any[][]) => unknown, thisArg?: any): any[] | undefined', gave the following error.
+    Argument of type '(c: [string]) => boolean' is not assignable to parameter of type '(value: any[], index: number, obj: any[][]) => unknown'.
+      Types of parameters 'c' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string]'.
+          Target requires 1 element(s) but source may have fewer.
+src/app/admin/submissions/__tests__/page.test.tsx(142,9): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(predicate: (value: any[], index: number, obj: any[][]) => value is any[], thisArg?: any): any[] | undefined', gave the following error.
+    Argument of type '(c: [string]) => boolean' is not assignable to parameter of type '(value: any[], index: number, obj: any[][]) => value is any[]'.
+      Types of parameters 'c' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string]'.
+          Target requires 1 element(s) but source may have fewer.
+  Overload 2 of 2, '(predicate: (value: any[], index: number, obj: any[][]) => unknown, thisArg?: any): any[] | undefined', gave the following error.
+    Argument of type '(c: [string]) => boolean' is not assignable to parameter of type '(value: any[], index: number, obj: any[][]) => unknown'.
+      Types of parameters 'c' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string]'.
+          Target requires 1 element(s) but source may have fewer.
+src/app/api/v1/account/profile/route.ts(118,5): error TS2322: Type '{ bio?: string | null | undefined; publicProfile?: boolean | undefined; preferences?: Record<string, unknown> | undefined; }' is not assignable to type '(Without<UserUpdateInput, UserUncheckedUpdateInput> & UserUncheckedUpdateInput) | (Without<...> & UserUpdateInput)'.
+  Type '{ bio?: string | null | undefined; publicProfile?: boolean | undefined; preferences?: Record<string, unknown> | undefined; }' is not assignable to type 'Without<UserUncheckedUpdateInput, UserUpdateInput> & UserUpdateInput'.
+    Type '{ bio?: string | null | undefined; publicProfile?: boolean | undefined; preferences?: Record<string, unknown> | undefined; }' is not assignable to type 'UserUpdateInput'.
+      Types of property 'preferences' are incompatible.
+        Type 'Record<string, unknown> | undefined' is not assignable to type 'JsonNull | InputJsonValue | undefined'.
+          Type 'Record<string, unknown>' is not assignable to type 'JsonNull | InputJsonValue | undefined'.
+            Type 'Record<string, unknown>' is missing the following properties from type 'readonly (InputJsonValue | null)[]': length, concat, join, slice, and 26 more.
+src/app/api/v1/admin/blocklist/route.ts(52,9): error TS2322: Type 'unknown[]' is not assignable to type 'JsonNull | InputJsonValue | undefined'.
+  Type 'unknown[]' is not assignable to type 'InputJsonObject'.
+    Index signature for type 'string' is missing in type 'unknown[]'.
+src/app/api/v1/admin/eval/direct/route.ts(88,17): error TS2352: Conversion of type 'CloudflareEnv' to type 'Record<string, unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Index signature for type 'string' is missing in type 'CloudflareEnv'.
+src/app/api/v1/admin/eval/direct/route.ts(88,60): error TS2304: Cannot find name 'KVNamespace'.
+src/app/api/v1/admin/eval/regression/batch/route.ts(44,11): error TS2352: Conversion of type 'CloudflareEnv' to type 'Record<string, unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Index signature for type 'string' is missing in type 'CloudflareEnv'.
+src/app/api/v1/admin/eval/regression/batch/route.ts(49,7): error TS2345: Argument of type '{ AI: unknown; EVAL_KV?: any; }' is not assignable to parameter of type 'RegressionEnv'.
+  Types of property 'AI' are incompatible.
+    Type 'unknown' is not assignable to type 'Ai'.
+src/app/api/v1/admin/eval/regression/batch/route.ts(49,39): error TS2304: Cannot find name 'KVNamespace'.
+src/app/api/v1/admin/eval/regression/route.ts(37,11): error TS2352: Conversion of type 'CloudflareEnv' to type 'Record<string, unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Index signature for type 'string' is missing in type 'CloudflareEnv'.
+src/app/api/v1/admin/eval/regression/route.ts(42,7): error TS2345: Argument of type '{ AI: unknown; EVAL_KV?: any; }' is not assignable to parameter of type 'RegressionEnv'.
+  Types of property 'AI' are incompatible.
+    Type 'unknown' is not assignable to type 'Ai'.
+src/app/api/v1/admin/eval/regression/route.ts(42,39): error TS2304: Cannot find name 'KVNamespace'.
+src/app/api/v1/admin/health/skills/__tests__/route.test.ts(49,6): error TS2352: Conversion of type '(result: Response | AdminTokenPayload | UserTokenPayload) => result is Response' to type 'Mock<Procedure>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type '(result: Response | AdminTokenPayload | UserTokenPayload) => result is Response' is missing the following properties from type 'Mock<Procedure>': getMockName, mockName, mock, mockClear, and 14 more.
+src/app/api/v1/admin/health/skills/__tests__/route.test.ts(115,6): error TS2352: Conversion of type '(result: Response | AdminTokenPayload | UserTokenPayload) => result is Response' to type 'Mock<Procedure>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type '(result: Response | AdminTokenPayload | UserTokenPayload) => result is Response' is missing the following properties from type 'Mock<Procedure>': getMockName, mockName, mock, mockClear, and 14 more.
+src/app/api/v1/admin/rebuild-index/__tests__/route.test.ts(181,6): error TS2352: Conversion of type '(result: Response | AdminTokenPayload | UserTokenPayload) => result is Response' to type 'Mock<Procedure>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type '(result: Response | AdminTokenPayload | UserTokenPayload) => result is Response' is missing the following properties from type 'Mock<Procedure>': getMockName, mockName, mock, mockClear, and 14 more.
+src/app/api/v1/admin/rebuild-index/__tests__/route.test.ts(252,6): error TS2352: Conversion of type '(result: Response | AdminTokenPayload | UserTokenPayload) => result is Response' to type 'Mock<Procedure>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type '(result: Response | AdminTokenPayload | UserTokenPayload) => result is Response' is missing the following properties from type 'Mock<Procedure>': getMockName, mockName, mock, mockClear, and 14 more.
+src/app/api/v1/admin/recompute-version-cert-tiers/__tests__/route.test.ts(136,82): error TS2352: Conversion of type '{ id: string; email: string; role: "SUPER_ADMIN"; }' to type 'NextResponse<unknown> | AdminTokenPayload | UserTokenPayload' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type '{ id: string; email: string; role: "SUPER_ADMIN"; }' is missing the following properties from type 'UserTokenPayload': sub, type, githubUsername
+src/app/api/v1/admin/repo-block/route.ts(126,15): error TS2304: Cannot find name 'markSearchIndexDirty'.
+src/app/api/v1/admin/scan-model-stats/__tests__/route.test.ts(103,73): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/scan-model-stats/__tests__/route.test.ts(104,101): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/scan-model-stats/__tests__/route.test.ts(105,73): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/scan-model-stats/__tests__/route.test.ts(124,83): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/scan-model-stats/__tests__/route.test.ts(125,84): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/scan-model-stats/__tests__/route.test.ts(143,73): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/scan-model-stats/__tests__/route.test.ts(144,84): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/scan-model-stats/__tests__/route.test.ts(145,101): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/scan-model-stats/__tests__/route.test.ts(174,64): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/scan-model-stats/__tests__/route.test.ts(201,73): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/scan-model-stats/__tests__/route.test.ts(202,73): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/scan-model-stats/__tests__/route.test.ts(203,83): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/block/route.ts(125,17): error TS2322: Type '"BLOCKED"' is not assignable to type 'EnumCertificationTierFieldUpdateOperationsInput | CertificationTier | undefined'.
+src/app/api/v1/admin/stats/route.ts(106,12): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/stats/route.ts(107,23): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/stats/route.ts(108,22): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/stats/route.ts(109,21): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/app/api/v1/admin/submissions/[id]/block/route.ts(159,19): error TS2322: Type '"BLOCKED"' is not assignable to type 'EnumCertificationTierFieldUpdateOperationsInput | CertificationTier | undefined'.
+src/app/api/v1/admin/submissions/[id]/dequeue/__tests__/route.test.ts(12,7): error TS7022: 'mockDb' implicitly has type 'any' because it does not have a type annotation and is referenced directly or indirectly in its own initializer.
+src/app/api/v1/admin/submissions/[id]/dequeue/route.ts(69,28): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/api/v1/admin/submissions/[id]/dequeue/route.ts(69,51): error TS2339: Property 'status' does not exist on type '{ id: string; updatedAt: Date; state: SubmissionState; skillName: string; } & Record<"error", unknown>'.
+src/app/api/v1/admin/submissions/[id]/reprioritize/__tests__/route.test.ts(12,7): error TS7022: 'mockDb' implicitly has type 'any' because it does not have a type annotation and is referenced directly or indirectly in its own initializer.
+src/app/api/v1/auth/github/installation/callback/route.ts(182,32): error TS2322: Type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>' is not assignable to type '{ auditEvent: { create(args: { data: { tenantId: string | null; actorId: string | null; actorType: ActorType; action: string; resourceType: string | null; resourceId: string | null; ip: string | null; userAgent: string | null; metadata: Record<...>; outcome: AuditOutcome; }; }): Promise<...>; }; }'.
+  The types of 'auditEvent.create' are incompatible between these types.
+    Type '<T extends AuditEventCreateArgs>(args: SelectSubset<T, AuditEventCreateArgs<DefaultArgs>>) => Prisma__AuditEventClient<GetFindResult<$AuditEventPayload<DefaultArgs>, T, PrismaClientOptions>, never, DefaultArgs, PrismaClientOptions>' is not assignable to type '(args: { data: { tenantId: string | null; actorId: string | null; actorType: ActorType; action: string; resourceType: string | null; resourceId: string | null; ip: string | null; userAgent: string | null; metadata: Record<...>; outcome: AuditOutcome; }; }) => Promise<...>'.
+      Types of parameters 'args' and 'args' are incompatible.
+        Type '{ data: { tenantId: string | null; actorId: string | null; actorType: ActorType; action: string; resourceType: string | null; resourceId: string | null; ip: string | null; userAgent: string | null; metadata: Record<...>; outcome: AuditOutcome; }; }' is not assignable to type '{ select?: AuditEventSelect<DefaultArgs> | null | undefined; omit?: AuditEventOmit<DefaultArgs> | null | undefined; include?: AuditEventInclude<...> | ... 1 more ... | undefined; data: (Without<...> & AuditEventUncheckedCreateInput) | (Without<...> & AuditEventCreateInput); }'.
+          Types of property 'data' are incompatible.
+            Type '{ tenantId: string | null; actorId: string | null; actorType: ActorType; action: string; resourceType: string | null; resourceId: string | null; ip: string | null; userAgent: string | null; metadata: Record<...>; outcome: AuditOutcome; }' is not assignable to type '(Without<AuditEventCreateInput, AuditEventUncheckedCreateInput> & AuditEventUncheckedCreateInput) | (Without<...> & AuditEventCreateInput)'.
+              Type '{ tenantId: string | null; actorId: string | null; actorType: ActorType; action: string; resourceType: string | null; resourceId: string | null; ip: string | null; userAgent: string | null; metadata: Record<...>; outcome: AuditOutcome; }' is not assignable to type 'Without<AuditEventCreateInput, AuditEventUncheckedCreateInput> & AuditEventUncheckedCreateInput'.
+                Type '{ tenantId: string | null; actorId: string | null; actorType: ActorType; action: string; resourceType: string | null; resourceId: string | null; ip: string | null; userAgent: string | null; metadata: Record<...>; outcome: AuditOutcome; }' is not assignable to type 'AuditEventUncheckedCreateInput'.
+                  Types of property 'metadata' are incompatible.
+                    Type 'Record<string, unknown>' is not assignable to type 'JsonNull | InputJsonValue | undefined'.
+                      Type 'Record<string, unknown>' is missing the following properties from type 'readonly (InputJsonValue | null)[]': length, concat, join, slice, and 26 more.
+src/app/api/v1/billing/seats/usage/__tests__/route.test.ts(68,6): error TS2352: Conversion of type '(result: NextResponse<unknown> | AuthenticatedUser) => result is NextResponse<unknown>' to type 'Mock<Procedure>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type '(result: NextResponse<unknown> | AuthenticatedUser) => result is NextResponse<unknown>' is missing the following properties from type 'Mock<Procedure>': getMockName, mockName, mock, mockClear, and 14 more.
+src/app/api/v1/billing/seats/usage/route.ts(107,30): error TS2345: Argument of type 'TenantSummary' is not assignable to parameter of type 'GetTenantCapsTenant'.
+  Types of property 'tier' are incompatible.
+    Type '"TEAM" | "FREE" | "ENTERPRISE" | undefined' is not assignable to type 'TenantTier'.
+      Type 'undefined' is not assignable to type 'TenantTier'.
+src/app/api/v1/e2e-harness/__tests__/guard.test.ts(26,47): error TS2704: The operand of a 'delete' operator cannot be a read-only property.
+src/app/api/v1/e2e-harness/__tests__/guard.test.ts(27,20): error TS2540: Cannot assign to 'NODE_ENV' because it is a read-only property.
+src/app/api/v1/e2e-harness/__tests__/guard.test.ts(63,17): error TS2540: Cannot assign to 'NODE_ENV' because it is a read-only property.
+src/app/api/v1/e2e-harness/__tests__/harness.test.ts(109,47): error TS2704: The operand of a 'delete' operator cannot be a read-only property.
+src/app/api/v1/e2e-harness/__tests__/harness.test.ts(110,20): error TS2540: Cannot assign to 'NODE_ENV' because it is a read-only property.
+src/app/api/v1/e2e-harness/__tests__/harness.test.ts(116,17): error TS2540: Cannot assign to 'NODE_ENV' because it is a read-only property.
+src/app/api/v1/eval/run/route.ts(23,23): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'Response | AdminTokenPayload | UserTokenPayload'.
+src/app/api/v1/eval/run/route.ts(24,34): error TS2339: Property 'message' does not exist on type 'Response'.
+src/app/api/v1/eval/run/route.ts(24,47): error TS2339: Property 'statusCode' does not exist on type 'Response'.
+src/app/api/v1/eval/run/route.ts(52,20): error TS2352: Conversion of type 'CloudflareEnv' to type 'Record<string, unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Index signature for type 'string' is missing in type 'CloudflareEnv'.
+src/app/api/v1/internal/finalize-scan/route.ts(405,5): error TS2322: Type 'DependencyRiskPayload | undefined' is not assignable to type '{ totalDeps: number; flaggedCount: number; riskScore: number; hasLifecycleScripts: boolean; packages?: { name: string; version: string; isDev: boolean; socketSupplyChain?: number | undefined; socketVulnerability?: number | undefined; flagged: boolean; flagReason?: string | undefined; }[] | undefined; socketScore?: {...'.
+  Type 'DependencyRiskPayload' is not assignable to type '{ totalDeps: number; flaggedCount: number; riskScore: number; hasLifecycleScripts: boolean; packages?: { name: string; version: string; isDev: boolean; socketSupplyChain?: number | undefined; socketVulnerability?: number | undefined; flagged: boolean; flagReason?: string | undefined; }[] | undefined; socketScore?: {...'.
+    Types of property 'socketScore' are incompatible.
+      Type 'unknown' is not assignable to type '{ overallRiskScore: number; packagesScored: number; packagesFailed: number; apiAvailable: boolean; durationMs: number; flaggedBySocket: { name: string; supplyChain: number; vulnerability: number; reason: string; }[]; } | undefined'.
+src/app/api/v1/internal/finalize-scan/route.ts(448,7): error TS2322: Type 'DependencyRiskPayload | undefined' is not assignable to type '{ totalDeps: number; flaggedCount: number; riskScore: number; hasLifecycleScripts: boolean; packages?: { name: string; version: string; isDev: boolean; socketSupplyChain?: number | undefined; socketVulnerability?: number | undefined; flagged: boolean; flagReason?: string | undefined; }[] | undefined; socketScore?: {...'.
+  Type 'DependencyRiskPayload' is not assignable to type '{ totalDeps: number; flaggedCount: number; riskScore: number; hasLifecycleScripts: boolean; packages?: { name: string; version: string; isDev: boolean; socketSupplyChain?: number | undefined; socketVulnerability?: number | undefined; flagged: boolean; flagReason?: string | undefined; }[] | undefined; socketScore?: {...'.
+    Types of property 'socketScore' are incompatible.
+      Type 'unknown' is not assignable to type '{ overallRiskScore: number; packagesScored: number; packagesFailed: number; apiAvailable: boolean; durationMs: number; flaggedBySocket: { name: string; supplyChain: number; vulnerability: number; reason: string; }[]; } | undefined'.
+src/app/api/v1/internal/reconciler/ensure/route.ts(41,19): error TS2352: Conversion of type 'CloudflareContext<IncomingRequestCfProperties, ExecutionContext>' to type '{ env: ReconcilerEnv; }' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Types of property 'env' are incompatible.
+    Property 'OUTBOX_RECONCILER_DO' is missing in type 'CloudflareEnv' but required in type 'ReconcilerEnv'.
+src/app/api/v1/internal/stats/queue/route.ts(50,23): error TS2352: Conversion of type 'QueueStatsPayload' to type 'Record<string, unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Index signature for type 'string' is missing in type 'QueueStatsPayload'.
+src/app/api/v1/internal/stats/queue/route.ts(51,8): error TS2352: Conversion of type 'QueueStatsPayload' to type 'Record<string, unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Index signature for type 'string' is missing in type 'QueueStatsPayload'.
+src/app/api/v1/legacy-redirect/[slug]/__tests__/route.test.ts(37,7): error TS2345: Argument of type 'Request' is not assignable to parameter of type 'NextRequest'.
+  Type 'Request' is missing the following properties from type 'NextRequest': cookies, nextUrl, page, ua
+src/app/api/v1/legacy-redirect/[slug]/__tests__/route.test.ts(50,7): error TS2345: Argument of type 'Request' is not assignable to parameter of type 'NextRequest'.
+  Type 'Request' is missing the following properties from type 'NextRequest': cookies, nextUrl, page, ua
+src/app/api/v1/legacy-redirect/[slug]/__tests__/route.test.ts(75,7): error TS2345: Argument of type 'Request' is not assignable to parameter of type 'NextRequest'.
+  Type 'Request' is missing the following properties from type 'NextRequest': cookies, nextUrl, page, ua
+src/app/api/v1/legacy-redirect/[slug]/__tests__/route.test.ts(87,7): error TS2345: Argument of type 'Request' is not assignable to parameter of type 'NextRequest'.
+  Type 'Request' is missing the following properties from type 'NextRequest': cookies, nextUrl, page, ua
+src/app/api/v1/skills/[owner]/[repo]/[skill]/versions/compare/route.ts(165,15): error TS2352: Conversion of type 'CloudflareEnv' to type 'Record<string, unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Index signature for type 'string' is missing in type 'CloudflareEnv'.
+src/app/api/v1/skills/[owner]/[repo]/[skill]/versions/compare/route.ts(166,18): error TS2352: Conversion of type 'CloudflareEnv' to type 'Record<string, unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Index signature for type 'string' is missing in type 'CloudflareEnv'.
+src/app/api/v1/skills/check-updates/route.ts(310,41): error TS2345: Argument of type '(s: SkillRow) => [string, SkillRow]' is not assignable to parameter of type '(value: unknown, index: number, array: unknown[]) => [string, SkillRow]'.
+  Types of parameters 's' and 'value' are incompatible.
+    Type 'unknown' is not assignable to type 'SkillRow'.
+src/app/api/v1/skills/check-updates/route.ts(311,33): error TS2345: Argument of type '(s: SkillRow) => string' is not assignable to parameter of type '(value: unknown, index: number, array: unknown[]) => string'.
+  Types of parameters 's' and 'value' are incompatible.
+    Type 'unknown' is not assignable to type 'SkillRow'.
+src/app/api/v1/studio/telemetry/[kind]/route.ts(158,51): error TS2304: Cannot find name 'AnalyticsEngineDataset'.
+src/app/api/v1/submissions/route.ts(1413,23): error TS2339: Property 'SEARCH_INDEX_KV' does not exist on type 'CloudflareEnv'.
+src/app/api/v1/user/preferences/__tests__/route.test.ts(84,79): error TS2345: Argument of type 'RequestInit' is not assignable to parameter of type 'import("/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/next/dist/server/web/spec-extension/request").RequestInit'.
+  Types of property 'signal' are incompatible.
+    Type 'AbortSignal | null | undefined' is not assignable to type 'AbortSignal | undefined'.
+      Type 'null' is not assignable to type 'AbortSignal | undefined'.
+src/app/api/v1/user/preferences/__tests__/route.test.ts(94,70): error TS2345: Argument of type 'RequestInit' is not assignable to parameter of type 'import("/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/next/dist/server/web/spec-extension/request").RequestInit'.
+  Types of property 'signal' are incompatible.
+    Type 'AbortSignal | null | undefined' is not assignable to type 'AbortSignal | undefined'.
+      Type 'null' is not assignable to type 'AbortSignal | undefined'.
+src/app/auth/error/page.tsx(39,18): error TS18047: 'searchParams' is possibly 'null'.
+src/app/auth/error/page.tsx(40,22): error TS18047: 'searchParams' is possibly 'null'.
+src/app/components/__tests__/BlockedSkillView.test.tsx(57,19): error TS2352: Conversion of type '{ sourceUrl: undefined; skillName: string; sourceRegistry: string | null; threatType: string; severity: string; reason: string; discoveredBy: string | null; discoveredAt: string; }' to type 'BlockedSkillData' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Types of property 'sourceUrl' are incompatible.
+    Type 'undefined' is not comparable to type 'string | null'.
+src/app/components/__tests__/BlockedSkillView.test.tsx(63,19): error TS2352: Conversion of type '{ discoveredBy: undefined; skillName: string; sourceUrl: string | null; sourceRegistry: string | null; threatType: string; severity: string; reason: string; discoveredAt: string; }' to type 'BlockedSkillData' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Types of property 'discoveredBy' are incompatible.
+    Type 'undefined' is not comparable to type 'string | null'.
+src/app/components/__tests__/ReportProblemModal.test.tsx(274,35): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(predicate: (value: any[], index: number, obj: any[][]) => value is any[], thisArg?: any): any[] | undefined', gave the following error.
+    Argument of type '([url]: [string]) => boolean' is not assignable to parameter of type '(value: any[], index: number, obj: any[][]) => value is any[]'.
+      Types of parameters '__0' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string]'.
+          Target requires 1 element(s) but source may have fewer.
+  Overload 2 of 2, '(predicate: (value: any[], index: number, obj: any[][]) => unknown, thisArg?: any): any[] | undefined', gave the following error.
+    Argument of type '([url]: [string]) => boolean' is not assignable to parameter of type '(value: any[], index: number, obj: any[][]) => unknown'.
+      Types of parameters '__0' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string]'.
+          Target requires 1 element(s) but source may have fewer.
+src/app/components/__tests__/ReportProblemModal.test.tsx(276,29): error TS18048: 'submitCall' is possibly 'undefined'.
+src/app/components/__tests__/SearchPalette.test.tsx(104,29): error TS2345: Argument of type 'MockInstance<{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }>' is not assignable to parameter of type 'MockInstance<(this: unknown, ...args: unknown[]) => unknown>'.
+  Types of property 'mock' are incompatible.
+    Type 'MockContext<{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }>' is not assignable to type 'MockContext<(this: unknown, ...args: unknown[]) => unknown>'.
+      Type '{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }' is not assignable to type '(this: unknown, ...args: unknown[]) => unknown'.
+        Types of parameters 'input' and 'args' are incompatible.
+          Type 'unknown' is not assignable to type 'URL | RequestInfo'.
+src/app/components/__tests__/SearchPalette.test.tsx(123,29): error TS2345: Argument of type 'MockInstance<{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }>' is not assignable to parameter of type 'MockInstance<(this: unknown, ...args: unknown[]) => unknown>'.
+  Types of property 'mock' are incompatible.
+    Type 'MockContext<{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }>' is not assignable to type 'MockContext<(this: unknown, ...args: unknown[]) => unknown>'.
+      Type '{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }' is not assignable to type '(this: unknown, ...args: unknown[]) => unknown'.
+        Types of parameters 'input' and 'args' are incompatible.
+          Type 'unknown' is not assignable to type 'URL | RequestInfo'.
+src/app/components/__tests__/SearchPalette.test.tsx(127,29): error TS2345: Argument of type 'MockInstance<{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }>' is not assignable to parameter of type 'MockInstance<(this: unknown, ...args: unknown[]) => unknown>'.
+  Types of property 'mock' are incompatible.
+    Type 'MockContext<{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }>' is not assignable to type 'MockContext<(this: unknown, ...args: unknown[]) => unknown>'.
+      Type '{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }' is not assignable to type '(this: unknown, ...args: unknown[]) => unknown'.
+        Types of parameters 'input' and 'args' are incompatible.
+          Type 'unknown' is not assignable to type 'URL | RequestInfo'.
+src/app/components/__tests__/SearchPalette.test.tsx(560,29): error TS2345: Argument of type 'MockInstance<{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }>' is not assignable to parameter of type 'MockInstance<(this: unknown, ...args: unknown[]) => unknown>'.
+  Types of property 'mock' are incompatible.
+    Type 'MockContext<{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }>' is not assignable to type 'MockContext<(this: unknown, ...args: unknown[]) => unknown>'.
+      Type '{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }' is not assignable to type '(this: unknown, ...args: unknown[]) => unknown'.
+        Types of parameters 'input' and 'args' are incompatible.
+          Type 'unknown' is not assignable to type 'URL | RequestInfo'.
+src/app/components/__tests__/SearchPalette.test.tsx(691,29): error TS2345: Argument of type 'MockInstance<{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }>' is not assignable to parameter of type 'MockInstance<(this: unknown, ...args: unknown[]) => unknown>'.
+  Types of property 'mock' are incompatible.
+    Type 'MockContext<{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }>' is not assignable to type 'MockContext<(this: unknown, ...args: unknown[]) => unknown>'.
+      Type '{ (input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>; (input: string | URL | Request, init?: RequestInit | undefined): Promise<...>; }' is not assignable to type '(this: unknown, ...args: unknown[]) => unknown'.
+        Types of parameters 'input' and 'args' are incompatible.
+          Type 'unknown' is not assignable to type 'URL | RequestInfo'.
+src/app/components/Diagram.tsx(24,26): error TS2307: Cannot find module './diagrams-data.generated' or its corresponding type declarations.
+src/app/components/FileViewer.tsx(343,64): error TS2339: Property 'idx' does not exist on type 'never'.
+src/app/components/home/TrendingSkills.tsx(53,28): error TS2322: Type 'string' is not assignable to type 'CertificationTier'.
+src/app/pricing/PricingCTAs.tsx(44,23): error TS2503: Cannot find namespace 'JSX'.
+src/app/publishers/PublishersSearch.tsx(16,24): error TS18047: 'searchParams' is possibly 'null'.
+src/app/publishers/PublishersSearch.tsx(28,42): error TS18047: 'searchParams' is possibly 'null'.
+src/app/queue/QueuePageClient.tsx(146,31): error TS18047: 'searchParams' is possibly 'null'.
+src/app/queue/QueuePageClient.tsx(150,26): error TS18047: 'searchParams' is possibly 'null'.
+src/app/queue/QueuePageClient.tsx(152,23): error TS18047: 'searchParams' is possibly 'null'.
+src/app/queue/QueuePageClient.tsx(153,30): error TS18047: 'searchParams' is possibly 'null'.
+src/app/queue/QueuePageClient.tsx(159,6): error TS18047: 'searchParams' is possibly 'null'.
+src/app/queue/QueuePageClient.tsx(188,24): error TS18047: 'searchParams' is possibly 'null'.
+src/app/queue/QueuePageClient.tsx(189,23): error TS18047: 'searchParams' is possibly 'null'.
+src/app/queue/QueuePageClient.tsx(256,84): error TS18047: 'searchParams' is possibly 'null'.
+src/app/queue/QueuePageClient.tsx(380,24): error TS2345: Argument of type 'SubmissionIdentityRow[]' is not assignable to parameter of type 'SetStateAction<SubmissionRow[]>'.
+  Type 'SubmissionIdentityRow[]' is not assignable to type 'SubmissionRow[]'.
+    Type 'SubmissionIdentityRow' is missing the following properties from type 'SubmissionRow': id, state, score, createdAt, updatedAt
+src/app/queue/QueuePageClient.tsx(567,26): error TS2345: Argument of type 'SubmissionIdentityRow[]' is not assignable to parameter of type 'SetStateAction<SubmissionRow[] | null>'.
+  Type 'SubmissionIdentityRow[]' is not assignable to type 'SubmissionRow[]'.
+    Type 'SubmissionIdentityRow' is missing the following properties from type 'SubmissionRow': id, state, score, createdAt, updatedAt
+src/app/queue/QueuePageClient.tsx(768,36): error TS18047: 'searchParams' is possibly 'null'.
+src/app/report/page.tsx(30,26): error TS18047: 'searchParams' is possibly 'null'.
+src/app/skills/[owner]/[repo]/[skill]/error.tsx(26,20): error TS18047: 'pathname' is possibly 'null'.
+src/app/skills/[owner]/[repo]/[skill]/evals/page.tsx(92,44): error TS18047: 'db' is possibly 'null'.
+src/app/skills/[owner]/[repo]/[skill]/evals/page.tsx(93,46): error TS18047: 'db' is possibly 'null'.
+src/app/skills/[owner]/[repo]/[skill]/evals/page.tsx(101,5): error TS2322: Type '{ id: string; createdAt: Date; verdict: EvalVerdict; trigger: EvalTrigger; qualityScore: number; baselineScore: number; deltaScore: number; testCaseCount: number; passCount: number; failCount: number; neutralCount: number; modelUsed: string; }[]' is not assignable to type '{ id: string; createdAt: Date; skillId: string | null; submissionId: string | null; verdict: EvalVerdict; trigger: EvalTrigger; qualityScore: number; ... 16 more ...; runCountPerCase: number | null; }[]'.
+  Type '{ id: string; createdAt: Date; verdict: EvalVerdict; trigger: EvalTrigger; qualityScore: number; baselineScore: number; deltaScore: number; testCaseCount: number; passCount: number; failCount: number; neutralCount: number; modelUsed: string; }' is missing the following properties from type '{ id: string; createdAt: Date; skillId: string | null; submissionId: string | null; verdict: EvalVerdict; trigger: EvalTrigger; qualityScore: number; ... 16 more ...; runCountPerCase: number | null; }': skillId, submissionId, totalTokensUsed, totalDurationMs, and 8 more.
+src/app/skills/[owner]/[repo]/[skill]/evals/page.tsx(128,19): error TS2339: Property 'evalCases' does not exist on type '{ id: string; createdAt: Date; skillId: string | null; submissionId: string | null; verdict: EvalVerdict; trigger: EvalTrigger; qualityScore: number; ... 16 more ...; runCountPerCase: number | null; }'.
+src/app/skills/[owner]/[repo]/[skill]/evals/page.tsx(128,34): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/app/skills/[owner]/[repo]/[skill]/evals/page.tsx(197,38): error TS2339: Property 'evalCases' does not exist on type '{ id: string; createdAt: Date; skillId: string | null; submissionId: string | null; verdict: EvalVerdict; trigger: EvalTrigger; qualityScore: number; ... 16 more ...; runCountPerCase: number | null; }'.
+src/app/skills/[owner]/[repo]/[skill]/evals/page.tsx(201,26): error TS2339: Property 'evalCases' does not exist on type '{ id: string; createdAt: Date; skillId: string | null; submissionId: string | null; verdict: EvalVerdict; trigger: EvalTrigger; qualityScore: number; ... 16 more ...; runCountPerCase: number | null; }'.
+src/app/skills/[owner]/[repo]/[skill]/evals/page.tsx(201,41): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/app/skills/[owner]/[repo]/[skill]/versions/compare/page.tsx(53,17): error TS18047: 'params' is possibly 'null'.
+src/app/skills/[owner]/[repo]/[skill]/versions/compare/page.tsx(54,16): error TS18047: 'params' is possibly 'null'.
+src/app/skills/[owner]/[repo]/[skill]/versions/compare/page.tsx(55,17): error TS18047: 'params' is possibly 'null'.
+src/app/skills/[owner]/[repo]/[skill]/versions/compare/page.tsx(58,50): error TS18047: 'searchParams' is possibly 'null'.
+src/app/skills/[owner]/[repo]/[skill]/versions/compare/page.tsx(59,46): error TS18047: 'searchParams' is possibly 'null'.
+src/app/skills/PrivateSkillsHint.tsx(21,46): error TS2503: Cannot find namespace 'JSX'.
+src/app/studio/hooks/useSubmitDeepLink.test.tsx(162,34): error TS2339: Property 'url' does not exist on type 'SubmitDeepLinkToast'.
+  Property 'url' does not exist on type '{ kind: "opening"; message: string; }'.
+src/app/submit/[id]/page.tsx(113,14): error TS18047: 'params' is possibly 'null'.
+src/app/submit/[id]/page.tsx(114,16): error TS18047: 'searchParams' is possibly 'null'.
+src/app/trust/__tests__/TrustCenterPage.test.tsx(71,42): error TS2345: Argument of type '"blocked"' is not assignable to parameter of type 'null'.
+src/app/trust/__tests__/TrustCenterPage.test.tsx(92,42): error TS2345: Argument of type '"rejected"' is not assignable to parameter of type 'null'.
+src/app/trust/page.tsx(36,22): error TS18047: 'searchParams' is possibly 'null'.
+src/components/billing/CheckoutButton.tsx(69,26): error TS2503: Cannot find namespace 'JSX'.
+src/components/billing/InvoiceTable.tsx(52,54): error TS2503: Cannot find namespace 'JSX'.
+src/components/billing/InvoiceTable.tsx(76,24): error TS2503: Cannot find namespace 'JSX'.
+src/components/billing/InvoiceTable.tsx(167,59): error TS2503: Cannot find namespace 'JSX'.
+src/components/billing/InvoiceTable.tsx(188,5): error TS2503: Cannot find namespace 'JSX'.
+src/components/billing/ManageSubscriptionButton.tsx(28,36): error TS2503: Cannot find namespace 'JSX'.
+src/components/billing/PlanCard.tsx(127,26): error TS2503: Cannot find namespace 'JSX'.
+src/components/billing/PlanCard.tsx(251,68): error TS2503: Cannot find namespace 'JSX'.
+src/components/billing/SeatSelectorModal.tsx(63,29): error TS2503: Cannot find namespace 'JSX'.
+src/components/billing/SeatsWidget.tsx(83,70): error TS2503: Cannot find namespace 'JSX'.
+src/lib/__tests__/crawl-dispatch.test.ts(59,7): error TS2345: Argument of type '(call: [string, ...unknown[]]) => string' is not assignable to parameter of type '(value: any[], index: number, array: any[][]) => string'.
+  Types of parameters 'call' and 'value' are incompatible.
+    Type 'any[]' is not assignable to type '[string, ...unknown[]]'.
+      Source provides no match for required element at position 0 in target.
+src/lib/__tests__/external-scan-dispatch.test.ts(192,10): error TS2352: Conversion of type 'any[]' to type '{ where: { skillName_provider: { provider: string; }; }; }' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'where' is missing in type 'any[]' but required in type '{ where: { skillName_provider: { provider: string; }; }; }'.
+src/lib/__tests__/metric-utils.test.ts(17,3): error TS2322: Type '{ id: string; name: string; displayName: string; command?: string | null | undefined; pluginName?: string | null | undefined; description: string; author: string; repoUrl: string; skillPath?: string | null | undefined; ownerSlug?: string | undefined; ... 39 more ...; lastEvalAt?: string | null | undefined; }' is not assignable to type 'SkillData'.
+  Types of property 'npmDownloadsWeekly' are incompatible.
+    Type 'number | undefined' is not assignable to type 'number'.
+      Type 'undefined' is not assignable to type 'number'.
+src/lib/__tests__/popularity-fetcher.test.ts(24,3): error TS2322: Type '{ id: string; name: string; displayName: string; command?: string | null | undefined; pluginName?: string | null | undefined; description: string; author: string; repoUrl: string; skillPath?: string | null | undefined; ownerSlug?: string | undefined; ... 39 more ...; lastEvalAt?: string | null | undefined; }' is not assignable to type 'SkillData'.
+  Types of property 'npmDownloadsWeekly' are incompatible.
+    Type 'number | undefined' is not assignable to type 'number'.
+      Type 'undefined' is not assignable to type 'number'.
+src/lib/__tests__/rate-limit-bypass.test.ts(10,17): error TS2540: Cannot assign to 'NODE_ENV' because it is a read-only property.
+src/lib/__tests__/rate-limit-bypass.test.ts(14,17): error TS2540: Cannot assign to 'NODE_ENV' because it is a read-only property.
+src/lib/__tests__/rate-limit-bypass.test.ts(19,17): error TS2540: Cannot assign to 'NODE_ENV' because it is a read-only property.
+src/lib/__tests__/rate-limit-bypass.test.ts(24,17): error TS2540: Cannot assign to 'NODE_ENV' because it is a read-only property.
+src/lib/__tests__/rate-limit-bypass.test.ts(29,12): error TS2704: The operand of a 'delete' operator cannot be a read-only property.
+src/lib/__tests__/search-index.test.ts(497,21): error TS2493: Tuple type '[key: string, value: string]' of length '2' has no element at index '2'.
+src/lib/__tests__/search-index.test.ts(606,19): error TS2493: Tuple type '[key: string, value: string]' of length '2' has no element at index '2'.
+src/lib/__tests__/search-index.test.ts(624,19): error TS2493: Tuple type '[key: string, value: string]' of length '2' has no element at index '2'.
+src/lib/__tests__/search-index.test.ts(639,24): error TS2493: Tuple type '[key: string, value: string]' of length '2' has no element at index '2'.
+src/lib/__tests__/search-index.test.ts(655,19): error TS2493: Tuple type '[key: string, value: string]' of length '2' has no element at index '2'.
+src/lib/__tests__/search-index.test.ts(669,31): error TS2493: Tuple type '[key: string, value: string]' of length '2' has no element at index '2'.
+src/lib/__tests__/search-index.test.ts(682,24): error TS2493: Tuple type '[key: string, value: string]' of length '2' has no element at index '2'.
+src/lib/__tests__/stats-compute.test.ts(360,12): error TS18047: 'stats.updatedAt' is possibly 'null'.
+src/lib/__tests__/stats-compute.test.ts(361,12): error TS18047: 'stats.updatedAt' is possibly 'null'.
+src/lib/__tests__/submission-store-db.test.ts(27,52): error TS2314: Generic type 'Promise<T>' requires 1 type argument(s).
+src/lib/account/scan-connected-repo.test.ts(160,31): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/lib/account/scan-connected-repo.test.ts(178,53): error TS2493: Tuple type '[]' of length '0' has no element at index '0'.
+src/lib/account/scan-connected-repo.test.ts(194,31): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/lib/billing/quota-shape.ts(59,13): error TS2322: Type '"TEAM"' is not assignable to type 'never'.
+src/lib/blocklist-check.ts(57,3): error TS2322: Type '{ id: string; skillName: string; reason: string; sourceUrl: string | null; threatType: string; severity: string; } | null' is not assignable to type 'BlocklistMatch | null'.
+  Property 'evidenceUrls' is missing in type '{ id: string; skillName: string; reason: string; sourceUrl: string | null; threatType: string; severity: string; }' but required in type 'BlocklistMatch'.
+src/lib/blocklist-upsert.ts(65,9): error TS2322: Type '{ findings?: StoredScanFinding[] | undefined; commitSha?: string | null | undefined; severity: string; reason: string; threatType: string; evidenceUrls: string[]; sourceUrl: string | null; }' is not assignable to type '(Without<BlocklistEntryUpdateInput, BlocklistEntryUncheckedUpdateInput> & BlocklistEntryUncheckedUpdateInput) | (Without<...> & BlocklistEntryUpdateInput)'.
+  Type '{ findings?: StoredScanFinding[] | undefined; commitSha?: string | null | undefined; severity: string; reason: string; threatType: string; evidenceUrls: string[]; sourceUrl: string | null; }' is not assignable to type 'Without<BlocklistEntryUncheckedUpdateInput, BlocklistEntryUpdateInput> & BlocklistEntryUpdateInput'.
+    Type '{ findings?: StoredScanFinding[] | undefined; commitSha?: string | null | undefined; severity: string; reason: string; threatType: string; evidenceUrls: string[]; sourceUrl: string | null; }' is not assignable to type 'BlocklistEntryUpdateInput'.
+      Types of property 'findings' are incompatible.
+        Type 'StoredScanFinding[] | undefined' is not assignable to type 'JsonNull | InputJsonValue | undefined'.
+          Type 'StoredScanFinding[]' is not assignable to type 'JsonNull | InputJsonValue | undefined'.
+            Type 'StoredScanFinding[]' is not assignable to type 'InputJsonObject'.
+              Index signature for type 'string' is missing in type 'StoredScanFinding[]'.
+src/lib/blocklist-upsert.ts(89,9): error TS2322: Type 'StoredScanFinding[]' is not assignable to type 'JsonNull | InputJsonValue | undefined'.
+  Type 'StoredScanFinding[]' is not assignable to type 'InputJsonObject'.
+    Index signature for type 'string' is missing in type 'StoredScanFinding[]'.
+src/lib/cloudflare.ts(11,16): error TS2304: Cannot find name 'Hyperdrive'.
+src/lib/crawler/__tests__/discovery-skillmd-wiring.test.ts(103,7): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(predicate: (value: any[], index: number, array: any[][]) => value is any[], thisArg?: any): any[][]', gave the following error.
+    Argument of type '(c: [string, ...unknown[]]) => boolean' is not assignable to parameter of type '(value: any[], index: number, array: any[][]) => value is any[]'.
+      Types of parameters 'c' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string, ...unknown[]]'.
+          Source provides no match for required element at position 0 in target.
+  Overload 2 of 2, '(predicate: (value: any[], index: number, array: any[][]) => unknown, thisArg?: any): any[][]', gave the following error.
+    Argument of type '(c: [string, ...unknown[]]) => boolean' is not assignable to parameter of type '(value: any[], index: number, array: any[][]) => unknown'.
+      Types of parameters 'c' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string, ...unknown[]]'.
+          Source provides no match for required element at position 0 in target.
+src/lib/crawler/__tests__/github-discovery-npm.test.ts(129,7): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(predicate: (value: any[], index: number, array: any[][]) => value is any[], thisArg?: any): any[][]', gave the following error.
+    Argument of type '(call: [string]) => boolean' is not assignable to parameter of type '(value: any[], index: number, array: any[][]) => value is any[]'.
+      Types of parameters 'call' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string]'.
+          Target requires 1 element(s) but source may have fewer.
+  Overload 2 of 2, '(predicate: (value: any[], index: number, array: any[][]) => unknown, thisArg?: any): any[][]', gave the following error.
+    Argument of type '(call: [string]) => boolean' is not assignable to parameter of type '(value: any[], index: number, array: any[][]) => unknown'.
+      Types of parameters 'call' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string]'.
+          Target requires 1 element(s) but source may have fewer.
+src/lib/crawler/__tests__/github-discovery-npm.test.ts(178,7): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(predicate: (value: any[], index: number, array: any[][]) => value is any[], thisArg?: any): any[][]', gave the following error.
+    Argument of type '(call: [string]) => boolean' is not assignable to parameter of type '(value: any[], index: number, array: any[][]) => value is any[]'.
+      Types of parameters 'call' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string]'.
+          Target requires 1 element(s) but source may have fewer.
+  Overload 2 of 2, '(predicate: (value: any[], index: number, array: any[][]) => unknown, thisArg?: any): any[][]', gave the following error.
+    Argument of type '(call: [string]) => boolean' is not assignable to parameter of type '(value: any[], index: number, array: any[][]) => unknown'.
+      Types of parameters 'call' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string]'.
+          Target requires 1 element(s) but source may have fewer.
+src/lib/crawler/__tests__/github-discovery-npm.test.ts(220,7): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(predicate: (value: any[], index: number, array: any[][]) => value is any[], thisArg?: any): any[][]', gave the following error.
+    Argument of type '(call: [string]) => boolean' is not assignable to parameter of type '(value: any[], index: number, array: any[][]) => value is any[]'.
+      Types of parameters 'call' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string]'.
+          Target requires 1 element(s) but source may have fewer.
+  Overload 2 of 2, '(predicate: (value: any[], index: number, array: any[][]) => unknown, thisArg?: any): any[][]', gave the following error.
+    Argument of type '(call: [string]) => boolean' is not assignable to parameter of type '(value: any[], index: number, array: any[][]) => unknown'.
+      Types of parameters 'call' and 'value' are incompatible.
+        Type 'any[]' is not assignable to type '[string]'.
+          Target requires 1 element(s) but source may have fewer.
+src/lib/cron/__tests__/eval-regression.test.ts(128,19): error TS2304: Cannot find name 'KVNamespace'.
+src/lib/cron/enrichment.ts(316,27): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(arg: PrismaPromise<any>[], options?: { isolationLevel?: TransactionIsolationLevel | undefined; } | undefined): Promise<any[]>', gave the following error.
+    Argument of type '(tx: PrismaClient<Prisma.PrismaClientOptions, never, DefaultArgs>) => Promise<void>' is not assignable to parameter of type 'PrismaPromise<any>[]'.
+  Overload 2 of 2, '(fn: (prisma: Omit<PrismaClient<PrismaClientOptions, never, DefaultArgs>, "$connect" | "$disconnect" | "$on" | "$transaction" | "$extends">) => Promise<...>, options?: { ...; } | undefined): Promise<...>', gave the following error.
+    Argument of type '(tx: PrismaClient<Prisma.PrismaClientOptions, never, DefaultArgs>) => Promise<void>' is not assignable to parameter of type '(prisma: Omit<PrismaClient<PrismaClientOptions, never, DefaultArgs>, "$connect" | "$disconnect" | "$on" | "$transaction" | "$extends">) => Promise<...>'.
+      Types of parameters 'tx' and 'prisma' are incompatible.
+        Type 'Omit<PrismaClient<PrismaClientOptions, never, DefaultArgs>, "$connect" | "$disconnect" | "$on" | "$transaction" | "$extends">' is missing the following properties from type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>': $on, $connect, $disconnect, $transaction, $extends
+src/lib/cron/enrichment.ts(369,44): error TS2345: Argument of type '{ githubStars: number; npmDownloadsWeekly: number; vskillInstalls: number; repoUrl: string; name: string; id: string; displayName: string; command: string | null; pluginName: string | null; ... 18 more ...; tenantId: string | null; }' is not assignable to parameter of type 'SkillForSearchEntry'.
+  Property 'currentVersion' is missing in type '{ githubStars: number; npmDownloadsWeekly: number; vskillInstalls: number; repoUrl: string; name: string; id: string; displayName: string; command: string | null; pluginName: string | null; ... 18 more ...; tenantId: string | null; }' but required in type 'SkillForSearchEntry'.
+src/lib/cron/enrichment.ts(386,44): error TS2345: Argument of type '{ name: string; id: string; displayName: string; command: string | null; pluginName: string | null; author: string; repoUrl: string; skillPath: string | null; category: string; certTier: CertificationTier; ... 17 more ...; tenantId: string | null; }' is not assignable to parameter of type 'SkillForSearchEntry'.
+  Property 'currentVersion' is missing in type '{ name: string; id: string; displayName: string; command: string | null; pluginName: string | null; author: string; repoUrl: string; skillPath: string | null; category: string; certTier: CertificationTier; ... 17 more ...; tenantId: string | null; }' but required in type 'SkillForSearchEntry'.
+src/lib/cron/eval-regression.ts(22,34): error TS2304: Cannot find name 'KVNamespace'.
+src/lib/cron/eval-regression.ts(29,38): error TS2304: Cannot find name 'KVNamespace'.
+src/lib/cron/eval-regression.ts(43,13): error TS2304: Cannot find name 'KVNamespace'.
+src/lib/eval/__tests__/eval-store.test.ts(125,32): error TS2304: Cannot find name 'KVNamespace'.
+src/lib/eval/__tests__/eval-store.test.ts(216,7): error TS2353: Object literal may only specify known properties, and 'assertionResults' does not exist in type 'EvalCaseResult'.
+src/lib/eval/__tests__/eval-store.test.ts(311,32): error TS2304: Cannot find name 'KVNamespace'.
+src/lib/eval/eval-store.ts(15,8): error TS2304: Cannot find name 'KVNamespace'.
+src/lib/eval/eval-store.ts(137,15): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/lib/github-metrics.ts(105,18): error TS2352: Conversion of type 'typeof globalThis' to type '{ caches?: { default: Cache; } | undefined; }' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Types of property 'caches' are incompatible.
+    Property 'default' is missing in type 'CacheStorage' but required in type '{ default: Cache; }'.
+src/lib/queue/__tests__/consumer.test.ts(210,18): error TS2322: Type '{ id: string; timestamp: Date; body: SearchShardQueueMessage; attempts: number; ack: Mock<Procedure>; retry: Mock<Procedure>; }' is not assignable to type '{ id: string; timestamp: Date; body: SubmissionQueueMessage; attempts: number; ack: Mock<Procedure>; retry: Mock<Procedure>; }'.
+  Types of property 'body' are incompatible.
+    Type 'SearchShardQueueMessage' is missing the following properties from type 'SubmissionQueueMessage': submissionId, repoUrl, skillPath, enqueuedAt
+src/lib/queue/__tests__/consumer.test.ts(241,26): error TS2322: Type '{ id: string; timestamp: Date; body: SearchShardQueueMessage; attempts: number; ack: Mock<Procedure>; retry: Mock<Procedure>; }' is not assignable to type '{ id: string; timestamp: Date; body: SubmissionQueueMessage; attempts: number; ack: Mock<Procedure>; retry: Mock<Procedure>; }'.
+  Types of property 'body' are incompatible.
+    Type 'SearchShardQueueMessage' is missing the following properties from type 'SubmissionQueueMessage': submissionId, repoUrl, skillPath, enqueuedAt
+src/lib/queue/__tests__/dlq-store.test.ts(42,27): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/dlq-store.test.ts(58,27): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/dlq-store.test.ts(59,27): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/dlq-store.test.ts(73,27): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/dlq-store.test.ts(85,40): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/dlq-store.test.ts(94,39): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/dlq-store.test.ts(97,39): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/dlq-store.test.ts(107,40): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/dlq-store.test.ts(113,40): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/dlq-store.test.ts(123,26): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/metrics-store.test.ts(50,29): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/metrics-store.test.ts(65,29): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/metrics-store.test.ts(66,29): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/metrics-store.test.ts(82,26): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/metrics-store.test.ts(95,27): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/metrics-store.test.ts(107,32): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/metrics-store.test.ts(116,45): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/metrics-store.test.ts(126,29): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/metrics-store.test.ts(127,26): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/metrics-store.test.ts(129,45): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/metrics-store.test.ts(139,45): error TS2352: Conversion of type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' to type 'QueueKV' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'delete' is missing in type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; _store: Map<string, string>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/recovery.test.ts(80,50): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/recovery.test.ts(90,50): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/recovery.test.ts(120,50): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/recovery.test.ts(138,50): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/recovery.test.ts(156,50): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/recovery.test.ts(169,50): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/recovery.test.ts(187,50): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/recovery.test.ts(219,48): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/recovery.test.ts(228,48): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/recovery.test.ts(244,48): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/recovery.test.ts(261,48): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/recovery.test.ts(284,48): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/recovery.test.ts(309,33): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/search-index-consumer.test.ts(16,3): error TS2741: Property 'delete' is missing in type '{ get: Mock<Procedure>; put: Mock<Procedure>; }' but required in type 'QueueKV'.
+src/lib/queue/__tests__/stale-received-recovery.test.ts(86,47): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/stale-received-recovery.test.ts(105,47): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/__tests__/stale-received-recovery.test.ts(122,47): error TS2345: Argument of type '{ SUBMISSIONS_KV: { get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }; SUBMISSION_QUEUE: { ...; }; _kvStore: Map<...>; }' is not assignable to parameter of type 'RecoveryEnv'.
+  Types of property 'SUBMISSIONS_KV' are incompatible.
+    Type '{ get: Mock<(key: string) => Promise<string | null>>; put: Mock<(key: string, value: string) => Promise<void>>; }' is missing the following properties from type '{ get(key: string): Promise<string | null>; put(key: string, value: string, options?: { expirationTtl?: number | undefined; } | undefined): Promise<void>; delete(key: string): Promise<...>; list(options?: { ...; } | undefined): Promise<...>; }': delete, list
+src/lib/queue/eval-consumer.ts(21,13): error TS2304: Cannot find name 'KVNamespace'.
+src/lib/queue/eval-consumer.ts(42,26): error TS2345: Argument of type 'Record<string, unknown>' is not assignable to parameter of type 'CloudflareEnv'.
+  Type 'Record<string, unknown>' is missing the following properties from type 'CloudflareEnv': SUBMISSIONS_KV, RATE_LIMIT_KV, EXTERNAL_SCANS_KV, QUEUE_METRICS_KV, and 6 more.
+src/lib/queue/eval-consumer.ts(42,26): error TS2352: Conversion of type 'EvalEnv' to type 'Record<string, unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Index signature for type 'string' is missing in type 'EvalEnv'.
+src/lib/queue/fetch-submission-list.ts(313,36): error TS2322: Type 'string[]' is not assignable to type 'never'.
+src/lib/queue/process-submission.ts(49,20): error TS2352: Conversion of type 'CloudflareEnv' to type 'Record<string, unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Index signature for type 'string' is missing in type 'CloudflareEnv'.
+src/lib/queue/recovery.ts(189,5): error TS2322: Type 'unknown' is not assignable to type 'string'.
+src/lib/queue/recovery.ts(190,5): error TS2322: Type 'unknown' is not assignable to type 'string'.
+src/lib/queue/recovery.ts(191,5): error TS2322: Type '{} | null' is not assignable to type 'string | null'.
+  Type '{}' is not assignable to type 'string'.
+src/lib/queue/recovery.ts(192,5): error TS2322: Type 'unknown' is not assignable to type 'boolean'.
+src/lib/queue/recovery.ts(843,29): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/lib/queue/search-index-consumer.ts(15,31): error TS2345: Argument of type '{ name: string; displayName: string; command?: string | null | undefined; pluginName?: string | null | undefined; author: string; category: string; certTier: string; githubStars: number; trustScore: number; ... 7 more ...; trustTier?: string | undefined; }' is not assignable to parameter of type 'SearchIndexEntry'.
+  Types of property 'npmDownloadsWeekly' are incompatible.
+    Type 'number | undefined' is not assignable to type 'number'.
+      Type 'undefined' is not assignable to type 'number'.
+src/lib/scanner/__tests__/scanner-parity.test.ts(3,1): error TS2578: Unused '@ts-expect-error' directive.
+src/lib/security-report.ts(180,23): error TS2352: Conversion of type 'CloudflareEnv' to type 'Record<string, unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Index signature for type 'string' is missing in type 'CloudflareEnv'.
+src/lib/security-report.ts(181,19): error TS2352: Conversion of type 'CloudflareEnv' to type 'Record<string, unknown>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Index signature for type 'string' is missing in type 'CloudflareEnv'.
+src/lib/skill-update/__tests__/publish-client.test.ts(61,18): error TS2352: Conversion of type 'undefined' to type 'RequestInit' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+src/lib/skill-update/__tests__/publish-client.test.ts(61,45): error TS2493: Tuple type '[]' of length '0' has no element at index '1'.
+src/lib/skill-update/__tests__/queue-consumer.test.ts(92,12): error TS18048: 'env.RATE_LIMIT_KV' is possibly 'undefined'.
+src/lib/skill-update/__tests__/queue-consumer.test.ts(98,12): error TS18048: 'env.RATE_LIMIT_KV' is possibly 'undefined'.
+src/lib/skill-update/__tests__/queue-consumer.test.ts(189,12): error TS18048: 'env.RATE_LIMIT_KV' is possibly 'undefined'.
+src/lib/skill-update/__tests__/sse-integration.test.ts(110,49): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.idempotency.test.ts(58,51): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.idempotency.test.ts(90,51): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.idempotency.test.ts(105,51): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.replay.test.ts(135,51): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.replay.test.ts(152,51): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.replay.test.ts(168,51): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.replay.test.ts(185,51): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.test.ts(120,45): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.test.ts(179,52): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.test.ts(187,52): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.test.ts(201,52): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.test.ts(208,52): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.test.ts(223,51): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.test.ts(238,51): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/__tests__/update-hub.test.ts(261,45): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/update-hub.ts(54,27): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/update-hub.ts(58,22): error TS2304: Cannot find name 'DurableObjectState'.
+src/lib/skill-update/update-hub.ts(88,8): error TS2339: Property 'serializeAttachment' does not exist on type 'WebSocket'.
+src/lib/skills-repo.test.ts(97,43): error TS2345: Argument of type '{ skill: { findMany: (args: { where?: Record<string, unknown>; }) => Promise<FakeSkillRow[]>; count: (args: { where?: Record<string, unknown>; }) => Promise<number>; }; _trace: { ...; }; }' is not assignable to parameter of type 'SkillsDb'.
+  The types returned by 'skill.findMany(...)' are incompatible between these types.
+    Type 'Promise<FakeSkillRow[]>' is not assignable to type 'Promise<SkillRow[]>'.
+      Type 'FakeSkillRow[]' is not assignable to type 'SkillRow[]'.
+        Type 'FakeSkillRow' is not assignable to type 'SkillRow'.
+          Index signature for type 'string' is missing in type 'FakeSkillRow'.
+src/lib/skills-repo.test.ts(107,43): error TS2345: Argument of type '{ skill: { findMany: (args: { where?: Record<string, unknown>; }) => Promise<FakeSkillRow[]>; count: (args: { where?: Record<string, unknown>; }) => Promise<number>; }; _trace: { ...; }; }' is not assignable to parameter of type 'SkillsDb'.
+  The types returned by 'skill.findMany(...)' are incompatible between these types.
+    Type 'Promise<FakeSkillRow[]>' is not assignable to type 'Promise<SkillRow[]>'.
+      Type 'FakeSkillRow[]' is not assignable to type 'SkillRow[]'.
+        Type 'FakeSkillRow' is not assignable to type 'SkillRow'.
+          Index signature for type 'string' is missing in type 'FakeSkillRow'.
+src/lib/skills-repo.test.ts(122,44): error TS2345: Argument of type '{ skill: { findMany: (args: { where?: Record<string, unknown>; }) => Promise<FakeSkillRow[]>; count: (args: { where?: Record<string, unknown>; }) => Promise<number>; }; _trace: { ...; }; }' is not assignable to parameter of type 'SkillsDb'.
+  The types returned by 'skill.findMany(...)' are incompatible between these types.
+    Type 'Promise<FakeSkillRow[]>' is not assignable to type 'Promise<SkillRow[]>'.
+      Type 'FakeSkillRow[]' is not assignable to type 'SkillRow[]'.
+        Type 'FakeSkillRow' is not assignable to type 'SkillRow'.
+          Index signature for type 'string' is missing in type 'FakeSkillRow'.
+src/lib/skills-repo.test.ts(132,44): error TS2345: Argument of type '{ skill: { findMany: (args: { where?: Record<string, unknown>; }) => Promise<FakeSkillRow[]>; count: (args: { where?: Record<string, unknown>; }) => Promise<number>; }; _trace: { ...; }; }' is not assignable to parameter of type 'SkillsDb'.
+  The types returned by 'skill.findMany(...)' are incompatible between these types.
+    Type 'Promise<FakeSkillRow[]>' is not assignable to type 'Promise<SkillRow[]>'.
+      Type 'FakeSkillRow[]' is not assignable to type 'SkillRow[]'.
+        Type 'FakeSkillRow' is not assignable to type 'SkillRow'.
+          Index signature for type 'string' is missing in type 'FakeSkillRow'.
+src/lib/skills-repo.test.ts(141,36): error TS2345: Argument of type '{ skill: { findMany: (args: { where?: Record<string, unknown>; }) => Promise<FakeSkillRow[]>; count: (args: { where?: Record<string, unknown>; }) => Promise<number>; }; _trace: { ...; }; }' is not assignable to parameter of type 'SkillsDb'.
+  The types returned by 'skill.findMany(...)' are incompatible between these types.
+    Type 'Promise<FakeSkillRow[]>' is not assignable to type 'Promise<SkillRow[]>'.
+      Type 'FakeSkillRow[]' is not assignable to type 'SkillRow[]'.
+        Type 'FakeSkillRow' is not assignable to type 'SkillRow'.
+          Index signature for type 'string' is missing in type 'FakeSkillRow'.
+src/lib/skills-repo.test.ts(142,37): error TS2345: Argument of type '{ skill: { findMany: (args: { where?: Record<string, unknown>; }) => Promise<FakeSkillRow[]>; count: (args: { where?: Record<string, unknown>; }) => Promise<number>; }; _trace: { ...; }; }' is not assignable to parameter of type 'SkillsDb'.
+  The types returned by 'skill.findMany(...)' are incompatible between these types.
+    Type 'Promise<FakeSkillRow[]>' is not assignable to type 'Promise<SkillRow[]>'.
+      Type 'FakeSkillRow[]' is not assignable to type 'SkillRow[]'.
+        Type 'FakeSkillRow' is not assignable to type 'SkillRow'.
+          Index signature for type 'string' is missing in type 'FakeSkillRow'.
+src/lib/skills-repo.test.ts(143,37): error TS2345: Argument of type '{ skill: { findMany: (args: { where?: Record<string, unknown>; }) => Promise<FakeSkillRow[]>; count: (args: { where?: Record<string, unknown>; }) => Promise<number>; }; _trace: { ...; }; }' is not assignable to parameter of type 'SkillsDb'.
+  The types returned by 'skill.findMany(...)' are incompatible between these types.
+    Type 'Promise<FakeSkillRow[]>' is not assignable to type 'Promise<SkillRow[]>'.
+      Type 'FakeSkillRow[]' is not assignable to type 'SkillRow[]'.
+        Type 'FakeSkillRow' is not assignable to type 'SkillRow'.
+          Index signature for type 'string' is missing in type 'FakeSkillRow'.
+src/lib/skills-repo.test.ts(160,36): error TS2345: Argument of type '{ skill: { findMany: (args: { where?: Record<string, unknown>; }) => Promise<FakeSkillRow[]>; count: (args: { where?: Record<string, unknown>; }) => Promise<number>; }; _trace: { ...; }; }' is not assignable to parameter of type 'SkillsDb'.
+  The types returned by 'skill.findMany(...)' are incompatible between these types.
+    Type 'Promise<FakeSkillRow[]>' is not assignable to type 'Promise<SkillRow[]>'.
+      Type 'FakeSkillRow[]' is not assignable to type 'SkillRow[]'.
+        Type 'FakeSkillRow' is not assignable to type 'SkillRow'.
+          Index signature for type 'string' is missing in type 'FakeSkillRow'.
+src/lib/skills-repo.test.ts(161,37): error TS2345: Argument of type '{ skill: { findMany: (args: { where?: Record<string, unknown>; }) => Promise<FakeSkillRow[]>; count: (args: { where?: Record<string, unknown>; }) => Promise<number>; }; _trace: { ...; }; }' is not assignable to parameter of type 'SkillsDb'.
+  The types returned by 'skill.findMany(...)' are incompatible between these types.
+    Type 'Promise<FakeSkillRow[]>' is not assignable to type 'Promise<SkillRow[]>'.
+      Type 'FakeSkillRow[]' is not assignable to type 'SkillRow[]'.
+        Type 'FakeSkillRow' is not assignable to type 'SkillRow'.
+          Index signature for type 'string' is missing in type 'FakeSkillRow'.
+src/lib/skills-repo.test.ts(198,45): error TS2345: Argument of type '{ skill: { findMany: (args: { where?: Record<string, unknown>; }) => Promise<FakeSkillRow[]>; count: (args: { where?: Record<string, unknown>; }) => Promise<number>; }; _trace: { ...; }; }' is not assignable to parameter of type 'SkillsDb'.
+  The types returned by 'skill.findMany(...)' are incompatible between these types.
+    Type 'Promise<FakeSkillRow[]>' is not assignable to type 'Promise<SkillRow[]>'.
+      Type 'FakeSkillRow[]' is not assignable to type 'SkillRow[]'.
+        Type 'FakeSkillRow' is not assignable to type 'SkillRow'.
+          Index signature for type 'string' is missing in type 'FakeSkillRow'.
+src/lib/stats-compute.ts(324,40): error TS2345: Argument of type '{ name: string; id: string; displayName: string; author: string; repoUrl: string; certTier: CertificationTier; trustTier: string; trendingScore7d: number; trendingScore30d: number; ... 5 more ...; skillSlug: string | null; }[]' is not assignable to parameter of type 'TrendingSkillEntry[]'.
+  Type '{ name: string; id: string; displayName: string; author: string; repoUrl: string; certTier: CertificationTier; trustTier: string; trendingScore7d: number; trendingScore30d: number; ... 5 more ...; skillSlug: string | null; }' is not assignable to type 'TrendingSkillEntry'.
+    Types of property 'ownerSlug' are incompatible.
+      Type 'string | null' is not assignable to type 'string | undefined'.
+        Type 'null' is not assignable to type 'string | undefined'.
+src/lib/stripe/__tests__/sdk-availability.test.ts(66,7): error TS2322: Type '"2025-09-30.clover"' is not assignable to type '"2026-04-22.dahlia"'.
+src/lib/submission/__tests__/synthetic-scan-result.integration.test.ts(54,47): error TS2493: Tuple type '[]' of length '0' has no element at index '1'.
+src/lib/submission/__tests__/synthetic-scan-result.integration.test.ts(67,47): error TS2493: Tuple type '[]' of length '0' has no element at index '1'.
+src/lib/submission/__tests__/synthetic-scan-result.integration.test.ts(81,47): error TS2493: Tuple type '[]' of length '0' has no element at index '1'.
+src/lib/submission/__tests__/synthetic-scan-result.integration.test.ts(103,64): error TS2493: Tuple type '[]' of length '0' has no element at index '0'.
+src/lib/submission/__tests__/synthetic-scan-result.integration.test.ts(104,21): error TS2493: Tuple type '[]' of length '0' has no element at index '1'.
+src/lib/submission/__tests__/upsert-concurrency.int.test.ts(60,46): error TS2339: Property 'id' does not exist on type 'UpsertResult'.
+  Property 'id' does not exist on type '{ kind: "requeued"; submissionId: string; }'.
+tests/integration/deploy-vm-env-guard.test.ts(22,58): error TS2741: Property 'NODE_ENV' is missing in type '{}' but required in type 'ProcessEnv'.
+tests/integration/deploy-vm-env-guard.test.ts(65,38): error TS2345: Argument of type '{ ALLOW_MISSING_VM_ENV: string; }' is not assignable to parameter of type 'ProcessEnv'.
+  Property 'NODE_ENV' is missing in type '{ ALLOW_MISSING_VM_ENV: string; }' but required in type 'ProcessEnv'.
+tests/integration/webhook-signature-fuzz.test.ts(71,58): error TS2554: Expected 0 arguments, but got 1.

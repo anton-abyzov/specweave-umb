@@ -1,0 +1,124 @@
+{
+  "at": "2026-09-28T22:45:19.348424+00:00",
+  "paths": [
+    "src/lib/submission/upsert.ts",
+    "src/lib/submission/__tests__/upsert.test.ts",
+    "src/lib/submission/__tests__/upsert-natural-key.test.ts"
+  ],
+  "worktrees": [
+    {
+      "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform",
+      "head": "6cc87d97dd54015fb616a15c529fb38798d6c708",
+      "scopedDirtyPaths": []
+    },
+    {
+      "worktree": "/private/tmp/0874-t029-typecheck-baseline",
+      "head": "789f423b102d728cac91e808b8369d40e27d9e53",
+      "scopedDirtyPaths": []
+    },
+    {
+      "worktree": "/private/tmp/vskill-0874-baseline",
+      "head": "e3718ee6ea7dbac3b25a4d2a9a098e3c33d40857",
+      "scopedDirtyPaths": []
+    },
+    {
+      "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-adaptive-resume",
+      "head": "4b7888a19ebce292b3f77d49c052fad31abfe90a",
+      "scopedDirtyPaths": []
+    },
+    {
+      "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory",
+      "head": "789f423b102d728cac91e808b8369d40e27d9e53",
+      "scopedDirtyPaths": []
+    },
+    {
+      "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery",
+      "head": "a066df378c8f42ef6e5515d906d7feb996c2d475",
+      "scopedDirtyPaths": []
+    },
+    {
+      "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-heartbeat-progress",
+      "head": "8d0929aa80628b6d8a43a8f4327f9881a97ad3ee",
+      "scopedDirtyPaths": []
+    },
+    {
+      "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-vm-observations",
+      "head": "1687ce4837c5a430321e5e1c2fbafb4d860716de",
+      "scopedDirtyPaths": []
+    }
+  ],
+  "claudeCwds": [
+    {
+      "pid": 1158,
+      "cwd": [
+        "/Users/antonabyzov/.claude/chrome"
+      ]
+    },
+    {
+      "pid": 1159,
+      "cwd": [
+        "/Users/antonabyzov/.claude/chrome"
+      ]
+    },
+    {
+      "pid": 1160,
+      "cwd": [
+        "/Users/antonabyzov/.claude/chrome"
+      ]
+    },
+    {
+      "pid": 1161,
+      "cwd": [
+        "/Users/antonabyzov/.claude/chrome"
+      ]
+    },
+    {
+      "pid": 26862,
+      "cwd": [
+        "/Users/antonabyzov/Projects/sw-easychamp"
+      ]
+    },
+    {
+      "pid": 48018,
+      "cwd": [
+        "/Users/antonabyzov/Projects/sw-easychamp"
+      ]
+    },
+    {
+      "pid": 56382,
+      "cwd": [
+        "/Users/antonabyzov/Projects/sw-easychamp"
+      ]
+    },
+    {
+      "pid": 56446,
+      "cwd": [
+        "/Users/antonabyzov/Projects/sw-easychamp"
+      ]
+    },
+    {
+      "pid": 57593,
+      "cwd": [
+        "/Users/antonabyzov/Projects/sw-easychamp"
+      ]
+    },
+    {
+      "pid": 67180,
+      "cwd": [
+        "/Users/antonabyzov/Projects/sw-easychamp"
+      ]
+    },
+    {
+      "pid": 71286,
+      "cwd": [
+        "/Users/antonabyzov/Projects/sw-easychamp"
+      ]
+    },
+    {
+      "pid": 76062,
+      "cwd": [
+        "/Users/antonabyzov/Projects/sw-easychamp"
+      ]
+    }
+  ]
+}

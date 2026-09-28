@@ -1,0 +1,7 @@
+{
+  "path": "src/lib/generated-counts.ts",
+  "headSha256": "6790e0124850add5428256de7b61d486decada44a421a25f1a26a1d5d779f82c",
+  "buildSha256": "625f84f6c6d3664f9f6704a9aaad5707ac3b6e7316fca0daebc787157b8c8b92",
+  "diff": "diff --git a/src/lib/generated-counts.ts b/src/lib/generated-counts.ts\nindex 918411d0..d6877771 100644\n--- a/src/lib/generated-counts.ts\n+++ b/src/lib/generated-counts.ts\n@@ -18,7 +18,7 @@ export const COUNTS = {\n   skills: 17,\n   scanPatterns: 52,\n   vskillVersion: \"1.1.0\",\n-  specWeaveVersion: \"2.0.0\",\n+  specWeaveVersion: \"3.0.3\",\n } as const;\n \n export type Counts = typeof COUNTS;\n",
+  "restoredAfterBuild": true
+}

@@ -1,0 +1,19 @@
+{
+  "at": "2026-09-28T22:59:20.119107+00:00",
+  "head": "05f9bb6ef6a25026c3cf35f0b63b62bebdb0c4cb",
+  "tree": "324cb07f237fdb099fdfa74a0e2db5ba17c86a7c",
+  "status": "",
+  "node": "/tmp/cc-work-release-20260928/0874/node22-ci/node-v22.23.2-darwin-arm64/bin/node",
+  "nodeVersion": "v22.23.2",
+  "inputs": {
+    "package-lock.json": "880bcc0c85de2544b7a40a97a5c4ff5c48d483d9be807a608a86aca491199947",
+    "package.json": "1f285438f3c5eefebe405dff588fcc7f808ce6dc85613fddcbeed852a6c8cc29",
+    "next.config.ts": "d8154f1fbe49c90df026d8112afd4b5aa8b1d9bd04991828964d6f50de0413ed",
+    "open-next.config.ts": "8e02c850592160eb80d1aed908789f317babcb76985792a86bb79e7c0dd4b1d9",
+    "wrangler.jsonc": "33ac0ba76848b23e1094b16cb536daf254511245a803456f76f2655dba50788e",
+    "scripts/build-worker-entry.ts": "22caebebd8d33027500e410e01c79a6b8b94926efb3a9b4066a8376845344918",
+    "src/lib/submission/upsert.ts": "2a03a24b18adb348101670ba5c39186d3746fe14caf74a5380c0eb958518b907"
+  },
+  "command": "npm run build:worker (explicit Node22.23.2 on PATH); node scripts/verify-queue-health-build.mjs",
+  "productionDeployment": false
+}

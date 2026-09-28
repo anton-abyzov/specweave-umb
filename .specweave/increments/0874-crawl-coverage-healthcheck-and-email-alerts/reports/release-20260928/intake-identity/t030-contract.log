@@ -1,0 +1,153 @@
+
+> vskill-platform@0.0.2 test
+> vitest run src/lib/submission/__tests__ src/app/api/v1/submissions/bulk/__tests__
+
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-intake-identity
+
+ ✓ src/lib/submission/__tests__/synthetic-scan-result.integration.test.ts (16 tests) 16ms
+ ✓ src/lib/submission/__tests__/stage-timings.test.ts (6 tests) 2ms
+ ✓ src/lib/submission/__tests__/synthetic-scan-result.test.ts (16 tests) 4ms
+stderr | src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not claim a PUBLISHED rescan when the durable send fails
+[upsertSubmission] queue.send failed for sub_canonical; leaving row PUBLISHED: fixture queue unavailable
+
+stderr | src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not claim a REJECTED rescan when the durable send fails
+[upsertSubmission] resubmit queue.send failed for sub_canonical; leaving row REJECTED: fixture queue unavailable
+
+ ✓ src/lib/submission/__tests__/upsert-natural-key.test.ts (53 tests) 14ms
+stderr | src/lib/submission/__tests__/upsert-requeue.test.ts > upsertSubmission — PUBLISHED + contentHash changed → requeue (T-002, AC-US1-02) > leaves state=PUBLISHED and returns verified when queue.send throws (0705 F-005)
+[upsertSubmission] queue.send failed for sub_existing; leaving row PUBLISHED: Queue offline
+
+ ✓ src/lib/submission/__tests__/upsert-requeue.test.ts (8 tests) 5ms
+ ✓ src/lib/submission/__tests__/getSubmissionFull-publishedSkillName.test.ts (4 tests) 9ms
+stderr | src/lib/submission/__tests__/upsert-requeue-rejected.test.ts > upsertSubmission — REJECTED/DEQUEUED resubmission requeue on content change > REJECTED + changed hash but queue.send throws → stays rejected
+[upsertSubmission] resubmit queue.send failed for sub_rejected; leaving row REJECTED: Queue offline
+
+ ✓ src/lib/submission/__tests__/upsert-requeue-rejected.test.ts (8 tests) 13ms
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — happy path (T-009) > returns kind:'created' with id/state/createdAt when db.submission.create succeeds
+[upsertSubmission] KV write failed for sub_new-1: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — happy path (T-009) > forwards optional fields into db.submission.create data
+[upsertSubmission] KV write failed for sub_new-2: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — P2002 branches (T-010) > maps P2002 + existing state=PUBLISHED with skill row to kind:'verified'
+[upsertSubmission] SkillVersion lookup failed for sub_existing: Cannot read properties of undefined (reading 'findFirst')
+
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — P2002 branches (T-010) > maps P2002 + existing state=PUBLISHED without skill row to kind:'pending' (orphan guard)
+[upsertSubmission] orphan-PUBLISHED skill lookup failed for https://github.com/owner/repo/my-skill: Cannot read properties of undefined (reading 'findUnique')
+
+ ✓ src/lib/submission/__tests__/publish-outbox-retrofit.test.ts (3 tests) 14ms
+stderr | src/lib/submission/__tests__/publish-degraded-data.test.ts > publishSkill — degraded-data guard (F-CR-2C) > refuses to create SkillVersion when BOTH scan.contentHash and skillmd KV are missing
+[publishSkill] skipping post-write steps for submission sub_degraded — no SkillVersion row was written.
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.db-lifecycle.test.ts (7 tests) 28ms
+stderr | src/lib/submission/__tests__/publish-rescan.test.ts > publishSkill — rescan different hash (T-005, AC-US2-02) > when scan yields gitSha="" or "latest", does NOT persist an empty/placeholder gitSha (ghost-row guard)
+[publishSkill] skipping new SkillVersion for sk_1: gitSha="" invalid; updated content + cert metadata on sv_old in place.
+
+stderr | src/lib/submission/__tests__/publish-rescan.test.ts > publishSkill — rescan different hash (T-005, AC-US2-02) > 0705 F-007: ghost-guard with a genuine content change updates latest row content in-place (not just cert metadata)
+[publishSkill] skipping new SkillVersion for sk_1: gitSha="latest" invalid; updated content + cert metadata on sv_old in place.
+
+ ✓ src/lib/submission/__tests__/publish-privacy-failsafe.test.ts (3 tests) 68ms
+stderr | src/lib/submission/__tests__/publish-rescan.test.ts > publishSkill — post-write gating on create failure (F-CR-002) > does NOT link submission or emit rebuild_search_shard when tx.skillVersion.create throws a generic error
+[publishSkill] SkillVersion creation failed for sub_1: Error: connection reset mid-insert
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-intake-identity/src/lib/submission/__tests__/publish-rescan.test.ts:338:21
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runFiles (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1787:3) {
+  code: 'P2002_like'
+}
+[publishSkill] skipping post-write steps for submission sub_1 — no SkillVersion row was written.
+
+ ✓ src/lib/submission/__tests__/publish-rescan.test.ts (5 tests) 69ms
+ ✓ src/lib/submission/__tests__/publish-degraded-data.test.ts (3 tests) 72ms
+ ✓ src/lib/submission/__tests__/publish-manifest.test.ts (6 tests) 112ms
+ ↓ src/lib/submission/__tests__/upsert-concurrency.int.test.ts (1 test | 1 skipped)
+ ✓ src/lib/submission/__tests__/publish-v2.test.ts (9 tests) 129ms
+ ✓ src/lib/submission/__tests__/state-history.test.ts (7 tests) 5ms
+stderr | src/lib/submission/__tests__/state-history-shape.test.ts > getSubmissionFullFromDb stateHistory shape (0713 US-003) > returns null on Prisma throw (no unhandled exception)
+[getSubmissionFullFromDb] sub_x: Error: DB unavailable
+    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-intake-identity/src/lib/submission/__tests__/state-history-shape.test.ts:74:42
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+ ✓ src/lib/submission/__tests__/state-history-shape.test.ts (3 tests) 6ms
+stderr | src/lib/submission/__tests__/upsert.test.ts > upsertSubmission — P2025 race in P2002 catch (F-CR-007) > retries the outer upsert once when findUniqueOrThrow throws P2025 — succeeds on retry
+[upsertSubmission] KV write failed for sub_retry-success: SUBMISSIONS_KV unavailable: not in worker or Next.js request context
+
+ ✓ src/lib/submission/__tests__/upsert.test.ts (21 tests) 510ms
+   ✓ upsertSubmission — P2002 branches (T-010) > maps P2002 + existing state=REJECTED to kind:'rejected'  323ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/registry-alias.test.ts (4 tests) 72ms
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-016: continues batch when createSubmission fails for one entry
+[bulk] Failed to create submission: https://github.com/org/repo-2 skill-2 KV write timeout
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-017: succeeds even when queue send fails
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-017: succeeds even when queue send fails
+[bulk] Queue send failed for sub_2: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-018: walks skillPathCandidates when primary path 404s, persists resolved path
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-019: skillPathCandidates absent → behavior is identical to today (root SKILL.md fallback)
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-022: walks trailing-strip candidate when primary + leading-strip both 404
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.intake.test.ts > storage failure cannot become a terminal policy receipt
+[bulk] Failed to create submission: https://github.com/acme/skills alpha fixture storage unavailable
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.test.ts (13 tests) 87ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.intake.test.ts (11 tests) 13ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.skillpath-validation.test.ts (16 tests) 13ms
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > never settles an exhausted deleted-row race under HTTP200 (["sourceType","sourceId","artifactPath"])
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity changed during intake; retry
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > never settles an exhausted deleted-row race under HTTP200 (["repoUrl","skillName"])
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity changed during intake; retry
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > does not settle, disclose or requeue a scoped canonical match ({"privacy":"PRIVATE","tenantId":null})
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity cannot be safely reused
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > does not settle, disclose or requeue a scoped canonical match ({"privacy":"PUBLIC","tenantId":"other-tenant"})
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity cannot be safely reused
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts (5 tests) 11ms
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.defer.test.ts > bulk route — identity defer (T-002, AC-US1-05) > a non-defer error still propagates (defer is not a catch-all)
+POST /api/v1/submissions/bulk error: {
+  message: 'boom',
+  stack: 'Error: boom\n' +
+    '    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-intake-identity/src/app/api/v1/submissions/bulk/__tests__/route.defer.test.ts:132:43\n' +
+    '    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n' +
+    '    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n' +
+    '    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n' +
+    '    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n' +
+    '    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)\n' +
+    '    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-bulk-request-memory/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)'
+}
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.defer.test.ts (2 tests) 40ms
+
+ Test Files  23 passed | 1 skipped (24)
+      Tests  229 passed | 1 skipped (230)
+   Start at  18:52:38
+   Duration  1.18s (transform 870ms, setup 1.98s, collect 2.64s, tests 1.31s, environment 1.73s, prepare 1.09s)
+

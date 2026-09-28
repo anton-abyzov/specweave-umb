@@ -1,0 +1,48 @@
+{
+  "at": "2026-09-28T23:00:28.213133+00:00",
+  "head": "05f9bb6ef6a25026c3cf35f0b63b62bebdb0c4cb",
+  "nodeVersion": "v22.23.2",
+  "workerBuildExit": 0,
+  "queueContract": "queue-health build contract ok",
+  "canonicalRetryContractFoundIn": [
+    ".next/server/chunks/1792.js",
+    ".open-next/server-functions/default/handler.mjs"
+  ],
+  "artifacts": {
+    ".open-next/worker.js": {
+      "sha256": "f06df8bb8d9b0ca77069049a211285b42d2314ff0d436be8d3eec4793e56e91d",
+      "bytes": 2646
+    },
+    ".open-next/worker-with-queues.js": {
+      "sha256": "e352f941f51a59119e9cdf1739eb4a3b0b910406d072b516c6e0374fecac9147",
+      "bytes": 25215
+    },
+    ".open-next/server-functions/default/handler.mjs": {
+      "sha256": "b5bd4a0438a9d8943f40a253f3fac709052c6ef0ef282e1def8b7d4bf06b5dc1",
+      "bytes": 27118544
+    },
+    ".next/BUILD_ID": {
+      "sha256": "d5ddeacce18283d1b72dfaf8801e202c0ad2ff9d67881569de2136d7125d1876",
+      "bytes": 21
+    },
+    ".next/server/chunks/1792.js": {
+      "sha256": "8bbda88879a5b0a2cd9407c5f84843f4d6dc21dde0fe5a0f8ac9f71aa0c9d2a3",
+      "bytes": 36096
+    }
+  },
+  "generatedInputs": {
+    "path": "src/lib/generated-counts.ts",
+    "headSha256": "6790e0124850add5428256de7b61d486decada44a421a25f1a26a1d5d779f82c",
+    "buildSha256": "625f84f6c6d3664f9f6704a9aaad5707ac3b6e7316fca0daebc787157b8c8b92",
+    "diff": "diff --git a/src/lib/generated-counts.ts b/src/lib/generated-counts.ts\nindex 918411d0..d6877771 100644\n--- a/src/lib/generated-counts.ts\n+++ b/src/lib/generated-counts.ts\n@@ -18,7 +18,7 @@ export const COUNTS = {\n   skills: 17,\n   scanPatterns: 52,\n   vskillVersion: \"1.1.0\",\n-  specWeaveVersion: \"2.0.0\",\n+  specWeaveVersion: \"3.0.3\",\n } as const;\n \n export type Counts = typeof COUNTS;\n",
+    "restoredAfterBuild": true
+  },
+  "sourceSha256": {
+    "src/lib/submission/upsert.ts": "2a03a24b18adb348101670ba5c39186d3746fe14caf74a5380c0eb958518b907",
+    "src/lib/submission/__tests__/upsert.test.ts": "54bffbaf83ab5238d137579ba16020d9c15dd6d69555c353ca5d57be2f50ffdc",
+    "src/lib/submission/__tests__/upsert-natural-key.test.ts": "170982b2510c5e78a736d66f61b8431c69ea0ba88b2248863410db015a691509",
+    "src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts": "ffa05bd8ea9a8b96eaf2462794782d4fb07a3fd7548d7113cc4ea9154c8a9b3d"
+  },
+  "statusAfterRestore": "",
+  "deployed": false
+}

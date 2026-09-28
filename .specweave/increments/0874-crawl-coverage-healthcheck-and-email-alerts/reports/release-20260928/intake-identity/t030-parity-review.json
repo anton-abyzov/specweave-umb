@@ -1,0 +1,66 @@
+{
+  "reviewedAt": "2026-09-28T22:56:57.309816+00:00",
+  "head": "05f9bb6ef6a25026c3cf35f0b63b62bebdb0c4cb",
+  "tree": "324cb07f237fdb099fdfa74a0e2db5ba17c86a7c",
+  "base": "1e8058fbab6afe37864d5b882bb8d3552eef1349",
+  "scope": "Four-file T030 canonical identity collision patch; independent read-only review and synthetic boundary testing",
+  "verdict": "No actionable or blocking finding",
+  "findings": [],
+  "manifest": [
+    {
+      "path": "src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts",
+      "sha256": "ffa05bd8ea9a8b96eaf2462794782d4fb07a3fd7548d7113cc4ea9154c8a9b3d",
+      "matchesFrozenHead": true
+    },
+    {
+      "path": "src/lib/submission/__tests__/upsert-natural-key.test.ts",
+      "sha256": "170982b2510c5e78a736d66f61b8431c69ea0ba88b2248863410db015a691509",
+      "matchesFrozenHead": true
+    },
+    {
+      "path": "src/lib/submission/__tests__/upsert.test.ts",
+      "sha256": "54bffbaf83ab5238d137579ba16020d9c15dd6d69555c353ca5d57be2f50ffdc",
+      "matchesFrozenHead": true
+    },
+    {
+      "path": "src/lib/submission/upsert.ts",
+      "sha256": "2a03a24b18adb348101670ba5c39186d3746fe14caf74a5380c0eb958518b907",
+      "matchesFrozenHead": true
+    }
+  ],
+  "focused": {
+    "passed": 229,
+    "skipped": 1,
+    "exitCode": 0,
+    "runtime": "Node 22.23.2",
+    "command": "PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never /tmp/cc-work-release-20260928/0874/node22-ci/node-v22.23.2-darwin-arm64/bin/node node_modules/vitest/vitest.mjs run src/lib/submission/__tests__ src/app/api/v1/submissions/bulk/__tests__",
+    "log": "/tmp/cc-work-release-20260928/0874/t030-independent-contract.log",
+    "skip": "Existing opt-in Neon database concurrency test; no database credentials supplied or writes performed"
+  },
+  "independentProbes": {
+    "head": "05f9bb6ef6a25026c3cf35f0b63b62bebdb0c4cb",
+    "passed": 12,
+    "results": [
+      "Real exact-key lookup reuses renamed public catalog row without storage or scan writes",
+      "Canonical row wins when independent legacy collision names another identity",
+      "Different forge/repository/case never becomes a duplicate; lookup exhaustion remains retryable",
+      "Exact unkeyed legacy fallback is read-only and bounded",
+      "Legacy fallback rejects populated foreign natural identity",
+      "Linked private and tenant catalog rows are denied before content fetch or enqueue",
+      "Unlinked foreign-owned submission is not disclosed",
+      "Deletion race creates one durable replacement on the single retry",
+      "Repeated deletion race throws instead of empty-ID pending acknowledgement",
+      "Unrelated unique constraint never enters identity lookup",
+      "Published and rejected content change queue existing ID and current path without identity rewrite",
+      "Queue failure retains prior verified state and never claims a rescan"
+    ],
+    "scope": "Actual source modules with key-selecting in-memory DB and synthetic boundary dependencies; network forbidden; no product writes"
+  },
+  "limitations": [
+    "No production calls, schema changes, database repair, or real-database concurrency proof",
+    "Full-suite, Worker build, hosted CI and natural production retry are separate release evidence",
+    "TypeScript baseline remains 314 diagnostics; author normalized comparison shows no added or removed diagnostics",
+    "Legacy callers without a complete natural tuple retain their existing lookup behavior; this is not a global legacy privacy redesign"
+  ],
+  "sourceRemainedClean": true
+}

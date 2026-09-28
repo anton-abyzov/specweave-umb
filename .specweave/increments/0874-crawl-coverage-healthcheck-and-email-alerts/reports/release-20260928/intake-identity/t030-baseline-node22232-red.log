@@ -1,0 +1,527 @@
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /private/tmp/0874-t030-regression-baseline
+
+ ❯ src/lib/submission/__tests__/upsert-natural-key.test.ts (53 tests | 43 failed) 19ms
+   × canonical submission collision identity (0874 T030) > reuses the exact canonical record across repo/skill renames (["sourceType","sourceId","artifactPath"]) 3ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > reuses the exact canonical record across repo/skill renames (["\"sourceType\"","\"sourceId\"","\"artifactPath\""]) 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > reuses the exact canonical record across repo/skill renames ("sourceType, sourceId, artifactPath") 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > reuses the exact canonical record across repo/skill renames ("submission_source_natural_key") 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > reuses the exact canonical record across repo/skill renames ("Submission_sourceType_sourceId_artifactPath_key") 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > preserves RECEIVED without fabricating a new record 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > preserves TIER1_SCANNING without fabricating a new record 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > preserves TIER2_SCANNING without fabricating a new record 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > preserves AUTO_APPROVED without fabricating a new record 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > preserves VENDOR_APPROVED without fabricating a new record 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > preserves PUBLISHED without fabricating a new record 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > preserves terminal REJECTED 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > preserves terminal TIER1_FAILED 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > preserves terminal DEQUEUED 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > preserves terminal BLOCKED 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > allows a published public tenantless skill from another originating user 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > does not expose or requeue a scoped linked skill ({"privacy":"PRIVATE","tenantId":null}) 3ms
+     → expected [Function] to throw error including 'Submission identity cannot be safely …' but got 'fixture unique violation'
+   × canonical submission collision identity (0874 T030) > does not expose or requeue a scoped linked skill ({"privacy":"PUBLIC","tenantId":"tenant-other"}) 0ms
+     → expected [Function] to throw error including 'Submission identity cannot be safely …' but got 'fixture unique violation'
+   × canonical submission collision identity (0874 T030) > does not expose or requeue a scoped linked skill ({"privacy":"PRIVATE","tenantId":"tenant-other"}) 0ms
+     → expected [Function] to throw error including 'Submission identity cannot be safely …' but got 'fixture unique violation'
+   × canonical submission collision identity (0874 T030) > does not reuse an unlinked submission from another user 0ms
+     → expected [Function] to throw error including 'Submission identity cannot be safely …' but got 'fixture unique violation'
+   × canonical submission collision identity (0874 T030) > allows the same user to recover their unlinked exact identity 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > rejects mismatched or incomplete returned identity ({"sourceType":"gitlab"}) 1ms
+     → expected [Function] to throw error including 'Submission identity cannot be safely …' but got 'fixture unique violation'
+   × canonical submission collision identity (0874 T030) > rejects mismatched or incomplete returned identity ({"sourceId":"67890"}) 0ms
+     → expected [Function] to throw error including 'Submission identity cannot be safely …' but got 'fixture unique violation'
+   × canonical submission collision identity (0874 T030) > rejects mismatched or incomplete returned identity ({"artifactPath":"skills/case"}) 0ms
+     → expected [Function] to throw error including 'Submission identity cannot be safely …' but got 'fixture unique violation'
+   × canonical submission collision identity (0874 T030) > rejects mismatched or incomplete returned identity ({"skillPath":"skills/Other/SKILL.md"}) 0ms
+     → expected [Function] to throw error including 'Submission identity cannot be safely …' but got 'fixture unique violation'
+   × canonical submission collision identity (0874 T030) > rejects mismatched or incomplete returned identity ({"sourceId":null}) 0ms
+     → expected [Function] to throw error including 'Submission identity cannot be safely …' but got 'fixture unique violation'
+   ✓ canonical submission collision identity (0874 T030) > never guesses a canonical key from partial/inconsistent input ({"sourceType":null}) 0ms
+   ✓ canonical submission collision identity (0874 T030) > never guesses a canonical key from partial/inconsistent input ({"sourceId":null}) 0ms
+   ✓ canonical submission collision identity (0874 T030) > never guesses a canonical key from partial/inconsistent input ({"sourceId":""}) 0ms
+   ✓ canonical submission collision identity (0874 T030) > never guesses a canonical key from partial/inconsistent input ({"artifactPath":null}) 0ms
+   ✓ canonical submission collision identity (0874 T030) > never guesses a canonical key from partial/inconsistent input ({"artifactPath":"skills/case"}) 0ms
+   × canonical submission collision identity (0874 T030) > accepts the empty root artifact path as a complete key 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > prefers canonical identity even when legacy or unspecified constraint wins (["repoUrl","skillName"]) 2ms
+     → expected "spy" to be called with arguments: [ ObjectContaining{…} ]
+
+Received: 
+
+  1st spy call:
+
+  [
+-   ObjectContaining {
++   {
++     "select": {
++       "contentHashAtScan": true,
++       "createdAt": true,
++       "id": true,
++       "skill": {
++         "select": {
++           "id": true,
++           "name": true,
++         },
++       },
++       "skillId": true,
++       "state": true,
++     },
+      "where": {
+-       "submission_source_natural_key": {
+-         "artifactPath": "skills/Case",
+-         "sourceId": "12345",
+-         "sourceType": "github",
++       "repoUrl_skillName": {
++         "repoUrl": "https://github.com/new-owner/renamed-repo",
++         "skillName": "renamed-skill",
+        },
+      },
+    },
+  ]
+
+
+Number of calls: 1
+
+   × canonical submission collision identity (0874 T030) > prefers canonical identity even when legacy or unspecified constraint wins ("Submission_repoUrl_skillName_key") 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > prefers canonical identity even when legacy or unspecified constraint wins (undefined) 0ms
+     → expected "spy" to be called with arguments: [ ObjectContaining{…} ]
+
+Received: 
+
+  1st spy call:
+
+  [
+-   ObjectContaining {
++   {
++     "select": {
++       "contentHashAtScan": true,
++       "createdAt": true,
++       "id": true,
++       "skill": {
++         "select": {
++           "id": true,
++           "name": true,
++         },
++       },
++       "skillId": true,
++       "state": true,
++     },
+      "where": {
+-       "submission_source_natural_key": {
+-         "artifactPath": "skills/Case",
+-         "sourceId": "12345",
+-         "sourceType": "github",
++       "repoUrl_skillName": {
++         "repoUrl": "https://github.com/new-owner/renamed-repo",
++         "skillName": "renamed-skill",
+        },
+      },
+    },
+  ]
+
+
+Number of calls: 1
+
+   ✓ canonical submission collision identity (0874 T030) > supports an exact unkeyed legacy record without adopting or mutating it 0ms
+   × canonical submission collision identity (0874 T030) > does not acknowledge a colliding legacy name with foreign identity ({"skillPath":"skills/Other/SKILL.md"}) 1ms
+     → promise resolved "{ kind: 'pending', …(2) }" instead of rejecting
+   × canonical submission collision identity (0874 T030) > does not acknowledge a colliding legacy name with foreign identity ({"sourceType":"gitlab"}) 0ms
+     → promise resolved "{ kind: 'pending', …(2) }" instead of rejecting
+   × canonical submission collision identity (0874 T030) > does not acknowledge a colliding legacy name with foreign identity ({"sourceId":"different"}) 0ms
+     → promise resolved "{ kind: 'pending', …(2) }" instead of rejecting
+   × canonical submission collision identity (0874 T030) > does not acknowledge a colliding legacy name with foreign identity ({"artifactPath":"skills/case"}) 0ms
+     → promise resolved "{ kind: 'pending', …(2) }" instead of rejecting
+   × canonical submission collision identity (0874 T030) > keeps deleted canonical records retryable after one bounded create retry 0ms
+     → expected [Function] to throw error including 'Submission identity changed during in…' but got 'fixture unique violation'
+   × canonical submission collision identity (0874 T030) > recovers if the unique slot becomes free on the bounded retry 0ms
+     → fixture unique violation
+   ✓ canonical submission collision identity (0874 T030) > does not swallow another constraint (["id"]) 0ms
+   ✓ canonical submission collision identity (0874 T030) > does not swallow another constraint (["sourceId","artifactPath"]) 0ms
+   ✓ canonical submission collision identity (0874 T030) > does not swallow another constraint (["sourceType","sourceId","artifactPath","tenantId"]) 0ms
+   ✓ canonical submission collision identity (0874 T030) > does not swallow another constraint ("unrelated_index") 0ms
+   × canonical submission collision identity (0874 T030) > reuses the same canonical ID for concurrent retries without new storage or scan work 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > cannot self-heal an orphan canonical submission onto a private or tenant Skill 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > preserves PUBLISHED hash-change rescan using the current resolved path and original ID 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > preserves REJECTED hash-change rescan using the current resolved path and original ID 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > does not claim a PUBLISHED rescan when the durable send fails 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > does not claim a REJECTED rescan when the durable send fails 0ms
+     → fixture unique violation
+   × canonical submission collision identity (0874 T030) > does not turn a database read error into a duplicate acknowledgement 0ms
+     → expected Error: fixture unique violation { …(2) } to be Error: unavailable { code: 'P1001' } // Object.is equality
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > acknowledges a real public canonical record despite URL/name rename
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name fixture collision
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > never settles an exhausted deleted-row race under HTTP200 (["sourceType","sourceId","artifactPath"])
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name fixture collision
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > never settles an exhausted deleted-row race under HTTP200 (["repoUrl","skillName"])
+[upsertSubmission] P2025 race persisted after retry for https://github.com/new-owner/new-repo / new-name
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > does not settle, disclose or requeue a scoped canonical match ({"privacy":"PRIVATE","tenantId":null})
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name fixture collision
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > does not settle, disclose or requeue a scoped canonical match ({"privacy":"PUBLIC","tenantId":"other-tenant"})
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name fixture collision
+
+ ❯ src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts (5 tests | 3 failed) 15ms
+   × bulk route with actual canonical upsert > acknowledges a real public canonical record despite URL/name rename 9ms
+     → expected { submitted: +0, skipped: +0, …(4) } to match object { skipped: 1, submitted: +0, …(3) }
+(1 matching property omitted from actual)
+   × bulk route with actual canonical upsert > never settles an exhausted deleted-row race under HTTP200 (["sourceType","sourceId","artifactPath"]) 1ms
+     → expected "spy" to be called 2 times, but got 1 times
+   × bulk route with actual canonical upsert > never settles an exhausted deleted-row race under HTTP200 (["repoUrl","skillName"]) 2ms
+     → expected { submitted: +0, skipped: 1, …(4) } to match object { skipped: +0, submitted: +0, …(3) }
+(1 matching property omitted from actual)
+   ✓ bulk route with actual canonical upsert > does not settle, disclose or requeue a scoped canonical match ({"privacy":"PRIVATE","tenantId":null}) 1ms
+   ✓ bulk route with actual canonical upsert > does not settle, disclose or requeue a scoped canonical match ({"privacy":"PUBLIC","tenantId":"other-tenant"}) 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 46 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > reuses the exact canonical record across repo/skill renames (["sourceType","sourceId","artifactPath"])
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > reuses the exact canonical record across repo/skill renames (["\"sourceType\"","\"sourceId\"","\"artifactPath\""])
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > reuses the exact canonical record across repo/skill renames ("sourceType, sourceId, artifactPath")
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > reuses the exact canonical record across repo/skill renames ("submission_source_natural_key")
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > reuses the exact canonical record across repo/skill renames ("Submission_sourceType_sourceId_artifactPath_key")
+Error: fixture unique violation
+ ❯ unique src/lib/submission/__tests__/upsert-natural-key.test.ts:27:24
+     25| });
+     26| function unique(target: unknown = ["sourceType", "sourceId", "artifact…
+     27|   return Object.assign(new Error("fixture unique violation"), { code: …
+       |                        ^
+     28| }
+     29| function missing() { return Object.assign(new Error("fixture missing r…
+ ❯ src/lib/submission/__tests__/upsert-natural-key.test.ts:52:44
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/46]⎯
+
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > preserves RECEIVED without fabricating a new record
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > preserves TIER1_SCANNING without fabricating a new record
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > preserves TIER2_SCANNING without fabricating a new record
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > preserves AUTO_APPROVED without fabricating a new record
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > preserves VENDOR_APPROVED without fabricating a new record
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > preserves PUBLISHED without fabricating a new record
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > preserves terminal REJECTED
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > preserves terminal TIER1_FAILED
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > preserves terminal DEQUEUED
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > preserves terminal BLOCKED
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > allows a published public tenantless skill from another originating user
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > allows the same user to recover their unlinked exact identity
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > accepts the empty root artifact path as a complete key
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > reuses the same canonical ID for concurrent retries without new storage or scan work
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > cannot self-heal an orphan canonical submission onto a private or tenant Skill
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > preserves PUBLISHED hash-change rescan using the current resolved path and original ID
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > preserves REJECTED hash-change rescan using the current resolved path and original ID
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not claim a PUBLISHED rescan when the durable send fails
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not claim a REJECTED rescan when the durable send fails
+Error: fixture unique violation
+ ❯ unique src/lib/submission/__tests__/upsert-natural-key.test.ts:27:24
+     25| });
+     26| function unique(target: unknown = ["sourceType", "sourceId", "artifact…
+     27|   return Object.assign(new Error("fixture unique violation"), { code: …
+       |                        ^
+     28| }
+     29| function missing() { return Object.assign(new Error("fixture missing r…
+ ❯ src/lib/submission/__tests__/upsert-natural-key.test.ts:38:42
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/46]⎯
+
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not expose or requeue a scoped linked skill ({"privacy":"PRIVATE","tenantId":null})
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not expose or requeue a scoped linked skill ({"privacy":"PUBLIC","tenantId":"tenant-other"})
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not expose or requeue a scoped linked skill ({"privacy":"PRIVATE","tenantId":"tenant-other"})
+AssertionError: expected [Function] to throw error including 'Submission identity cannot be safely …' but got 'fixture unique violation'
+
+Expected: "Submission identity cannot be safely reused"
+Received: "fixture unique violation"
+
+ ❯ src/lib/submission/__tests__/upsert-natural-key.test.ts:85:5
+     83|   ])("does not expose or requeue a scoped linked skill (%j)", async (s…
+     84|     db.submission.findUniqueOrThrow.mockResolvedValue({ ...row(), stat…
+     85|     await expect(upsertSubmission(input)).rejects.toThrow("Submission …
+       |     ^
+     86|     expect(db.skillVersion.findFirst).not.toHaveBeenCalled();
+     87|     noSideEffects();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/46]⎯
+
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not reuse an unlinked submission from another user
+AssertionError: expected [Function] to throw error including 'Submission identity cannot be safely …' but got 'fixture unique violation'
+
+Expected: "Submission identity cannot be safely reused"
+Received: "fixture unique violation"
+
+ ❯ src/lib/submission/__tests__/upsert-natural-key.test.ts:92:5
+     90|   it("does not reuse an unlinked submission from another user", async …
+     91|     db.submission.findUniqueOrThrow.mockResolvedValue({ ...row(), user…
+     92|     await expect(upsertSubmission(input)).rejects.toThrow("Submission …
+       |     ^
+     93|     noSideEffects();
+     94|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/46]⎯
+
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > rejects mismatched or incomplete returned identity ({"sourceType":"gitlab"})
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > rejects mismatched or incomplete returned identity ({"sourceId":"67890"})
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > rejects mismatched or incomplete returned identity ({"artifactPath":"skills/case"})
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > rejects mismatched or incomplete returned identity ({"skillPath":"skills/Other/SKILL.md"})
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > rejects mismatched or incomplete returned identity ({"sourceId":null})
+AssertionError: expected [Function] to throw error including 'Submission identity cannot be safely …' but got 'fixture unique violation'
+
+Expected: "Submission identity cannot be safely reused"
+Received: "fixture unique violation"
+
+ ❯ src/lib/submission/__tests__/upsert-natural-key.test.ts:106:5
+    104|   ])("rejects mismatched or incomplete returned identity (%j)", async …
+    105|     db.submission.findUniqueOrThrow.mockResolvedValue({ ...row(), ...m…
+    106|     await expect(upsertSubmission(input)).rejects.toThrow("Submission …
+       |     ^
+    107|     noSideEffects();
+    108|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/46]⎯
+
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > prefers canonical identity even when legacy or unspecified constraint wins (["repoUrl","skillName"])
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > prefers canonical identity even when legacy or unspecified constraint wins (undefined)
+AssertionError: expected "spy" to be called with arguments: [ ObjectContaining{…} ]
+
+Received: 
+
+  1st spy call:
+
+  [
+-   ObjectContaining {
++   {
++     "select": {
++       "contentHashAtScan": true,
++       "createdAt": true,
++       "id": true,
++       "skill": {
++         "select": {
++           "id": true,
++           "name": true,
++         },
++       },
++       "skillId": true,
++       "state": true,
++     },
+      "where": {
+-       "submission_source_natural_key": {
+-         "artifactPath": "skills/Case",
+-         "sourceId": "12345",
+-         "sourceType": "github",
++       "repoUrl_skillName": {
++         "repoUrl": "https://github.com/new-owner/renamed-repo",
++         "skillName": "renamed-skill",
+        },
+      },
+    },
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/lib/submission/__tests__/upsert-natural-key.test.ts:129:45
+    127|     expect(await upsertSubmission(input)).toMatchObject({ id: "sub_can…
+    128|     expect(db.submission.findUniqueOrThrow).toHaveBeenCalledTimes(1);
+    129|     expect(db.submission.findUniqueOrThrow).toHaveBeenCalledWith(expec…
+       |                                             ^
+    130|   });
+    131| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/46]⎯
+
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > prefers canonical identity even when legacy or unspecified constraint wins ("Submission_repoUrl_skillName_key")
+Error: fixture unique violation
+ ❯ unique src/lib/submission/__tests__/upsert-natural-key.test.ts:27:24
+     25| });
+     26| function unique(target: unknown = ["sourceType", "sourceId", "artifact…
+     27|   return Object.assign(new Error("fixture unique violation"), { code: …
+       |                        ^
+     28| }
+     29| function missing() { return Object.assign(new Error("fixture missing r…
+ ❯ src/lib/submission/__tests__/upsert-natural-key.test.ts:126:44
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/46]⎯
+
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not acknowledge a colliding legacy name with foreign identity ({"skillPath":"skills/Other/SKILL.md"})
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not acknowledge a colliding legacy name with foreign identity ({"sourceType":"gitlab"})
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not acknowledge a colliding legacy name with foreign identity ({"sourceId":"different"})
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not acknowledge a colliding legacy name with foreign identity ({"artifactPath":"skills/case"})
+AssertionError: promise resolved "{ kind: 'pending', …(2) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "id": "sub_canonical",
++   "kind": "pending",
++   "state": "RECEIVED",
+  }
+
+ ❯ src/lib/submission/__tests__/upsert-natural-key.test.ts:143:41
+    141|     db.submission.create.mockRejectedValue(unique(["repoUrl", "skillNa…
+    142|     db.submission.findUniqueOrThrow.mockRejectedValueOnce(missing()).m…
+    143|     await expect(upsertSubmission(input)).rejects.toThrow("Submission …
+       |                                         ^
+    144|     noSideEffects();
+    145|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/46]⎯
+
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > keeps deleted canonical records retryable after one bounded create retry
+AssertionError: expected [Function] to throw error including 'Submission identity changed during in…' but got 'fixture unique violation'
+
+Expected: "Submission identity changed during intake; retry"
+Received: "fixture unique violation"
+
+ ❯ src/lib/submission/__tests__/upsert-natural-key.test.ts:149:5
+    147|   it("keeps deleted canonical records retryable after one bounded crea…
+    148|     db.submission.findUniqueOrThrow.mockRejectedValue(missing());
+    149|     await expect(upsertSubmission(input)).rejects.toThrow("Submission …
+       |     ^
+    150|     expect(db.submission.create).toHaveBeenCalledTimes(2);
+    151|     expect(db.submission.findUniqueOrThrow).toHaveBeenCalledTimes(2);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/46]⎯
+
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > recovers if the unique slot becomes free on the bounded retry
+Error: fixture unique violation
+ ❯ unique src/lib/submission/__tests__/upsert-natural-key.test.ts:27:24
+     25| });
+     26| function unique(target: unknown = ["sourceType", "sourceId", "artifact…
+     27|   return Object.assign(new Error("fixture unique violation"), { code: …
+       |                        ^
+     28| }
+     29| function missing() { return Object.assign(new Error("fixture missing r…
+ ❯ src/lib/submission/__tests__/upsert-natural-key.test.ts:157:48
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/46]⎯
+
+ FAIL  src/lib/submission/__tests__/upsert-natural-key.test.ts > canonical submission collision identity (0874 T030) > does not turn a database read error into a duplicate acknowledgement
+AssertionError: expected Error: fixture unique violation { …(2) } to be Error: unavailable { code: 'P1001' } // Object.is equality
+
+- Expected
++ Received
+
+  Error {
+-   "message": "unavailable",
+-   "code": "P1001",
++   "message": "fixture unique violation",
++   "code": "P2002",
++   "meta": {
++     "target": [
++       "sourceType",
++       "sourceId",
++       "artifactPath",
++     ],
++   },
+  }
+
+ ❯ src/lib/submission/__tests__/upsert-natural-key.test.ts:208:5
+    206|     const error = Object.assign(new Error("unavailable"), { code: "P10…
+    207|     db.submission.findUniqueOrThrow.mockRejectedValue(error);
+    208|     await expect(upsertSubmission(input)).rejects.toBe(error);
+       |     ^
+    209|     expect(db.submission.create).toHaveBeenCalledTimes(1);
+    210|     noSideEffects();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/46]⎯
+
+ FAIL  src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > acknowledges a real public canonical record despite URL/name rename
+AssertionError: expected { submitted: +0, skipped: +0, …(4) } to match object { skipped: 1, submitted: +0, …(3) }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "aliased": 0,
+    "deferred": 0,
+-   "errors": 0,
+-   "skipped": 1,
++   "errors": 1,
++   "skipped": 0,
+    "submitted": 0,
+  }
+
+ ❯ src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts:47:18
+     45|     const response = await POST(request()); const body = await respons…
+     46|     expect(response.status).toBe(200);
+     47|     expect(body).toMatchObject({ skipped: 1, submitted: 0, errors: 0, …
+       |                  ^
+     48|     expect(body.details).toEqual([{ repoUrl: entry.repoUrl, skillName:…
+     49|     expect(mocks.find).toHaveBeenCalledWith(expect.objectContaining({ …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/46]⎯
+
+ FAIL  src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > never settles an exhausted deleted-row race under HTTP200 (["sourceType","sourceId","artifactPath"])
+AssertionError: expected "spy" to be called 2 times, but got 1 times
+ ❯ src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts:60:26
+     58|     expect(body).toMatchObject({ skipped: 0, submitted: 0, errors: 1, …
+     59|     expect(body.details[0]).toEqual({ repoUrl: entry.repoUrl, skillNam…
+     60|     expect(mocks.create).toHaveBeenCalledTimes(2);
+       |                          ^
+     61|     expect(mocks.find).toHaveBeenCalledTimes(target[0] === "repoUrl" ?…
+     62|     untouched();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/46]⎯
+
+ FAIL  src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > never settles an exhausted deleted-row race under HTTP200 (["repoUrl","skillName"])
+AssertionError: expected { submitted: +0, skipped: 1, …(4) } to match object { skipped: +0, submitted: +0, …(3) }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "aliased": 0,
+    "deferred": 0,
+-   "errors": 1,
+-   "skipped": 0,
++   "errors": 0,
++   "skipped": 1,
+    "submitted": 0,
+  }
+
+ ❯ src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts:58:18
+     56|     const response = await POST(request()); const body = await respons…
+     57|     expect(response.status).toBe(200);
+     58|     expect(body).toMatchObject({ skipped: 0, submitted: 0, errors: 1, …
+       |                  ^
+     59|     expect(body.details[0]).toEqual({ repoUrl: entry.repoUrl, skillNam…
+     60|     expect(mocks.create).toHaveBeenCalledTimes(2);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/46]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  46 failed | 12 passed (58)
+   Start at  18:56:03
+   Duration  563ms (transform 94ms, setup 104ms, collect 104ms, tests 34ms, environment 252ms, prepare 66ms)
+

@@ -1,0 +1,42 @@
+{
+  "at": "2026-09-28T22:43:17.951915+00:00",
+  "source": "Cloudflare live tail restricted to VM3 IP and deployed version; no requests submitted",
+  "workerVersion": "9544aae4-75e4-45ea-b099-1858f4036ab7",
+  "durationSeconds": 300.015,
+  "parsedEvents": 153,
+  "bulkEvents": [
+    {
+      "timestamp": 1790635280395,
+      "outcome": "ok",
+      "responseStatus": 200,
+      "exceptionNames": [],
+      "classifications": [
+        "database",
+        "bulk_create_submission",
+        "db_unique_constraint",
+        "db_error_hidden"
+      ],
+      "prismaCodes": [],
+      "logCount": 1,
+      "logPayloadSha256": "f1521a3f24eec544dacc1a0d8b6adf6e78a5fc6b27aee3878533925ed5653f74",
+      "constraintTokens": [
+        "sourceType",
+        "sourceId",
+        "artifactPath"
+      ],
+      "messageShape": [
+        [
+          "str",
+          "str",
+          "str",
+          "str"
+        ]
+      ],
+      "wallTimeMs": null,
+      "cpuTimeMs": null
+    }
+  ],
+  "tailExitCode": 0,
+  "rawOutputPersisted": false,
+  "tailErrorPresent": false
+}

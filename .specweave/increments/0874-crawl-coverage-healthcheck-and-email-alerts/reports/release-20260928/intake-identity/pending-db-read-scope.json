@@ -1,0 +1,43 @@
+{
+  "at": "2026-09-28T22:44:50.920Z",
+  "readOnlyTransaction": true,
+  "identitySha256": "e3b3310ba35a22b2930f29b8482c17577a288bb7253c97ffd493c62a76dd4b50",
+  "configuredHostSha256": "df93e7fef37a822cd16d3194b30e27fe6770ba3175b98d38e766669402715e3e",
+  "configuredDbSha256": "6022cc71e9d2fb8d00f84054ecd1c79032afbd76e0e19e58df73447e9c1fdc7c",
+  "cachedRepoIdentityCount": 1,
+  "sourceIdSha256": "85136bf1b8ddbdba05226c47bdf77d114d6633d9a735f173d4dd74506f9e6d59",
+  "artifactPathSha256": "c101124f447dbba36b8258c2cb8c8e45e7965015df5fd95453766076ec9684d7",
+  "uniqueIndexes": [
+    {
+      "indexname": "Submission_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Submission_pkey\" ON public.\"Submission\" USING btree (id)"
+    },
+    {
+      "indexname": "Submission_repoUrl_skillName_key",
+      "indexdef": "CREATE UNIQUE INDEX \"Submission_repoUrl_skillName_key\" ON public.\"Submission\" USING btree (\"repoUrl\", \"skillName\")"
+    },
+    {
+      "indexname": "submission_source_natural_key",
+      "indexdef": "CREATE UNIQUE INDEX submission_source_natural_key ON public.\"Submission\" USING btree (\"sourceType\", \"sourceId\", \"artifactPath\")"
+    }
+  ],
+  "matchingRowCount": 1,
+  "rows": [
+    {
+      "rowIdSha256": "7821b066b63a6920b563d8c2cc71461e231b2c4a6f1531991a487de29075de02",
+      "state": "PUBLISHED",
+      "repoUrlMatches": false,
+      "skillNameMatches": true,
+      "skillPathMatches": true,
+      "sourceTypeMatches": true,
+      "sourceIdMatches": true,
+      "artifactPathMatches": true,
+      "userIdPresent": false,
+      "linkedSkillPresent": true,
+      "linkedSkillPublic": true,
+      "linkedSkillTenantPresent": false,
+      "legacyKeyMatches": false,
+      "canonicalKeyMatches": true
+    }
+  ]
+}
