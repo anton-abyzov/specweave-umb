@@ -1,0 +1,150 @@
+
+Running 16 tests using 1 worker
+
+(node:99961) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:99961) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:59:7 › 0826 / anti-mistake publish › submit is disabled when no privacy is chosen (DECIDE_LATER) (3.1s)
+  ✓   2 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:70:7 › 0826 / anti-mistake publish › submit enables when PUBLIC is chosen with a non-private repo URL (271ms)
+  ✓   3 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:87:7 › 0826 / anti-mistake publish › PUBLIC + repo URL containing 'private' → visibility-mismatch alert (238ms)
+  ✘   4 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:112:7 › 0826 / anti-mistake publish › PRIVATE submission yields an in-page success status (5.2s)
+(node:233) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:233) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:129:7 › 0826 / anti-mistake publish › PRIVATE → PUBLIC opens role=dialog with aria-modal=true (302ms)
+  ✓   6 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:144:7 › 0826 / anti-mistake publish › typing wrong skill name keeps confirm disabled (338ms)
+  ✓   7 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:156:7 › 0826 / anti-mistake publish › typing exact skill name enables confirm (393ms)
+  ✓   8 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:168:7 › 0826 / anti-mistake publish › ESC closes the dialog without committing PUBLIC (274ms)
+  ✓   9 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:184:7 › 0826 / anti-mistake publish › focus moves into the dialog on open (338ms)
+  ✘  10 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:60:7 › 0826 / public-private isolation › public catalog shows public skill but NOT private skill (15.2s)
+(node:1755) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1755) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:71:7 › 0826 / public-private isolation › public search must not return private skills (829ms)
+  ✘  12 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:85:7 › 0826 / public-private isolation › anonymous direct URL to a private skill returns 404 (no 401 oracle) (88ms)
+(node:1825) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1825) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  13 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:94:7 › 0826 / public-private isolation › anonymous canonical URL pattern also 404s (113ms)
+(node:1843) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1843) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  14 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:109:7 › 0826 / public-private isolation › non-member of T2 hitting T2's private skill gets 404 (103ms)
+(node:1860) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1860) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:119:7 › 0826 / public-private isolation › authenticated org member can view private skill (200 + private banner) (579ms)
+  ✓  16 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:135:7 › 0826 / public-private isolation › sitemap.xml does not list any private slugs (72ms)
+
+
+  1) [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:112:7 › 0826 / anti-mistake publish › PRIVATE submission yields an in-page success status 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('status').filter({ hasText: /Published privately/i })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('status').filter({ hasText: /Published privately/i })[22m
+
+
+      123 |     // Server-less mock: page sets a role="status" success div on submit.
+      124 |     const status = page.getByRole("status").filter({ hasText: /Published privately/i });
+    > 125 |     await expect(status).toBeVisible({ timeout: 5_000 });
+          |                          ^
+      126 |     await expect(status).toContainText(FIXTURES.tenant.slug);
+      127 |   });
+      128 |
+        at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/tests/e2e/0826/anti-mistake-publish.spec.ts:125:26
+
+    Error Context: test-results/tests-e2e-0826-anti-mistak-e1c57-s-an-in-page-success-status-chromium/error-context.md
+
+  2) [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:60:7 › 0826 / public-private isolation › public catalog shows public skill but NOT private skill 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByText('markdown-formatter').first()
+    Expected: visible
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 15000ms[22m
+    [2m  - waiting for getByText('markdown-formatter').first()[22m
+
+
+      60 |   test("public catalog shows public skill but NOT private skill", async ({ page }) => {
+      61 |     await page.goto("/catalog");
+    > 62 |     await expect(page.getByText("markdown-formatter").first()).toBeVisible({
+         |                                                                ^
+      63 |       timeout: 15_000,
+      64 |     });
+      65 |     // Hard isolation: the private skill name must not appear ANYWHERE on
+        at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/tests/e2e/0826/public-private-isolation.spec.ts:62:64
+
+    Error Context: test-results/tests-e2e-0826-public-priv-97207-skill-but-NOT-private-skill-chromium/error-context.md
+
+  3) [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:85:7 › 0826 / public-private isolation › anonymous direct URL to a private skill returns 404 (no 401 oracle) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m404[39m
+    Received: [31m200[39m
+
+      89 |     );
+      90 |     // Critical: a 401 would tell an attacker the resource exists. Must be 404.
+    > 91 |     expect(res.status()).toBe(404);
+         |                          ^
+      92 |   });
+      93 |
+      94 |   test("anonymous canonical URL pattern also 404s", async ({ request }) => {
+        at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/tests/e2e/0826/public-private-isolation.spec.ts:91:26
+
+  4) [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:94:7 › 0826 / public-private isolation › anonymous canonical URL pattern also 404s 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+
+    Expected value: [32m200[39m
+    Received array: [31m[404, 308][39m
+
+       98 |       { failOnStatusCode: false },
+       99 |     );
+    > 100 |     expect([404, 308]).toContain(res.status());
+          |                        ^
+      101 |     if (res.status() === 308) {
+      102 |       const loc = res.headers()["location"] ?? "";
+      103 |       // Even a redirect must NOT lead to a 200 surface anonymously.
+        at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/tests/e2e/0826/public-private-isolation.spec.ts:100:24
+
+  5) [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:109:7 › 0826 / public-private isolation › non-member of T2 hitting T2's private skill gets 404 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m404[39m
+    Received: [31m200[39m
+
+      114 |       { failOnStatusCode: false },
+      115 |     );
+    > 116 |     expect(res.status()).toBe(404);
+          |                          ^
+      117 |   });
+      118 |
+      119 |   test("authenticated org member can view private skill (200 + private banner)", async ({
+        at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/tests/e2e/0826/public-private-isolation.spec.ts:116:26
+
+  5 failed
+    [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:112:7 › 0826 / anti-mistake publish › PRIVATE submission yields an in-page success status 
+    [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:60:7 › 0826 / public-private isolation › public catalog shows public skill but NOT private skill 
+    [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:85:7 › 0826 / public-private isolation › anonymous direct URL to a private skill returns 404 (no 401 oracle) 
+    [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:94:7 › 0826 / public-private isolation › anonymous canonical URL pattern also 404s 
+    [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:109:7 › 0826 / public-private isolation › non-member of T2 hitting T2's private skill gets 404 
+  11 passed (33.2s)

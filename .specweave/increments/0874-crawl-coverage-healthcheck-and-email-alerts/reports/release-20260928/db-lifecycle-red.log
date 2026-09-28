@@ -1,0 +1,56 @@
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery
+
+ ❯ src/lib/__tests__/db-worker-context.test.ts (9 tests | 2 failed) 9ms
+   ✓ getDb (worker context fallback) > uses process.env.DATABASE_URL when available 3ms
+   ✓ getDb (worker context fallback) > uses globalThis.__DATABASE_URL when process.env is not set 0ms
+   ✓ getDb (worker context fallback) > falls back to worker context DATABASE_URL when others are not set 0ms
+   ✓ getDb (worker context fallback) > throws when no DATABASE_URL available from any source 1ms
+   ✓ getDb (worker context fallback) > throws when worker env exists but has no DATABASE_URL 0ms
+   × getDb (worker context fallback) > caches resolved URL and skips re-resolution on subsequent calls 2ms
+     → expected "spy" to be called 1 times, but got 3 times
+   × getDb (worker context fallback) > reuses one Node client for concurrent and sequential getDb calls 2ms
+     → expected 20 to be 1 // Object.is equality
+   ✓ getDb (worker context fallback) > keeps Cloudflare clients request-local even with node compatibility 0ms
+   ✓ getDb (worker context fallback) > does not reuse a Node client inside an explicit worker context 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/lib/__tests__/db-worker-context.test.ts > getDb (worker context fallback) > caches resolved URL and skips re-resolution on subsequent calls
+AssertionError: expected "spy" to be called 1 times, but got 3 times
+ ❯ src/lib/__tests__/db-worker-context.test.ts:101:26
+     99|     // Worker env is checked during first resolution to prefer Hyperdr…
+    100|     expect(mockGetWorkerEnv).toHaveBeenCalled();
+    101|     expect(PrismaClient).toHaveBeenCalledTimes(1);
+       |                          ^
+    102|   });
+    103|   it("reuses one Node client for concurrent and sequential getDb calls…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/lib/__tests__/db-worker-context.test.ts > getDb (worker context fallback) > reuses one Node client for concurrent and sequential getDb calls
+AssertionError: expected 20 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 20
+
+ ❯ src/lib/__tests__/db-worker-context.test.ts:106:35
+    104|     process.env.DATABASE_URL = "postgresql://test@localhost:5432/node-…
+    105|     const clients = await Promise.all(Array.from({ length: 20 }, () =>…
+    106|     expect(new Set(clients).size).toBe(1);
+       |                                   ^
+    107|     expect(await getDb()).toBe(clients[0]);
+    108|     expect(PrismaClient).toHaveBeenCalledTimes(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 7 passed (9)
+   Start at  12:42:35
+   Duration  346ms (transform 52ms, setup 84ms, collect 70ms, tests 9ms, environment 0ms, prepare 34ms)
+

@@ -164,3 +164,18 @@ Domains: **A** = platform alerts/heartbeat, **B** = platform intake, **C** = cra
 **Root cause**: NOT a missing/disabled source — `runSkillUpdateScan` (`src/lib/skill-update/scanner.ts`) IS wired into the */10 light-cohort cron (`scripts/build-worker-entry.ts:400`), but its `db.skill.findMany({where:{sourceRepoUrl:{not:null}}})` had **no `take` limit**: it loaded the ENTIRE scannable population (67,060 rows in prod) and looped a GitHub commit-fetch + DB write over all of them in one Worker tick. As the table grew past the CPU/timeout cliff (the 2026-05-31 dedup cutover — exactly the freeze date), the unbounded load+loop stopped completing, the scan threw (swallowed by the cron handler at `build-worker-entry.ts:404`), and `lastCheckedAt` froze for ~25 days. (`provenanceCheckedAt` is separately dead — its writer was removed entirely; NOT restored here — future work.)
 **Fix**: (1) bound the scan to `take: SKILL_UPDATE_SCAN_BATCH` (default 250) most-stale-first, with an `OR[lastCheckedAt null | < now-SKILL_UPDATE_RECHECK_DAYS]` gate so a caught-up loop stops re-fetching fresh skills → round-robins the 67k over ~2-3 days; (2) new `detectRecheckStale` detector + `recheck-stale` AlertKind + email + evaluator reader (`max(lastCheckedAt)` age) → pages if the newest check ages past `ALERT_RECHECK_STALE_MS` (default 24h) so this can't silently rot again. Verified: platform tests green (scanner batch ×3, detector ×4, 107 total); deployed Version 7860d7ce; live evaluator shows `recheckMaxAgeMs` + fired `recheck-stale` (correct — pages the 25d stall until the scanner catches up).
 **Files**: `src/lib/skill-update/scanner.ts`, `src/lib/alerts/detectors.ts`, `src/lib/alerts/types.ts`, `src/lib/email.ts`, `src/app/api/v1/internal/alerts-evaluator/route.ts` (+ tests)
+
+### T-024: Repair required Studio release checks without weakening privacy or paid entitlements
+**AC**: AC-REL-01
+**Files**: `src/app/layout.tsx`, `src/app/catalog/page.tsx`, `src/app/api/v1/e2e-harness/seed/route.ts`, `src/app/api/v1/e2e-harness/reset/route.ts`, `src/app/api/v1/e2e-harness/__tests__/harness.test.ts`, `tests/e2e/0826/anti-mistake-publish.spec.ts`, `tests/e2e/0826/free-tier-caps.spec.ts`, `tests/e2e/0826/public-private-isolation.spec.ts`, `tests/e2e/0826/_helpers/fixtures.ts`, `src/app/components/PrivacyTernaryField.tsx`
+**Test**: Build the production app and run all 0826 Playwright tests headlessly on an isolated disposable local PostgreSQL database. Verify actual 404 status, no private payload leakage, populated public catalog, and paid fixture publishing plus FREE denial.
+
+### T-025: Reconcile VM3 token pool and prepare guarded release
+**AC**: AC-US3-06
+**Files**: `reports/release-20260928/`, `crawl-worker/DEPLOY-NOTES.md`
+**Test**: Read-only authenticated code-search status for existing pool entries, exact runtime/config identities and guarded deployment recipe; after independent root approval, valid completed size-bisect sweep evidence.
+
+### T-026: Reuse database pools only in the long-running Node runtime
+**AC**: AC-REL-02
+**Files**: `src/lib/db.ts`, `src/lib/__tests__/db-worker-context.test.ts`
+**Test**: Runtime regression tests prove Node requests reuse one pool while Cloudflare and explicit worker contexts create fresh clients; all required 0826 browser tests pass with PostgreSQL max_connections=100, no CI capacity increase.

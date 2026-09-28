@@ -1,0 +1,149 @@
+
+Running 47 tests using 1 worker
+
+(node:23125) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23125) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/0826/accessibility-audit.spec.ts:94:7 › 0826 / a11y audit › /orgs/{slug} has zero serious or critical violations (3.1s)
+  ✓   2 [chromium] › tests/e2e/0826/accessibility-audit.spec.ts:106:7 › 0826 / a11y audit › /publish has zero serious or critical violations (475ms)
+  ✓   3 [chromium] › tests/e2e/0826/accessibility-audit.spec.ts:114:7 › 0826 / a11y audit › /orgs/{slug}/audit-log has zero serious or critical violations (563ms)
+  ✓   4 [chromium] › tests/e2e/0826/accessibility-audit.spec.ts:122:7 › 0826 / a11y audit › PrivateBadge passes color-contrast specifically (437ms)
+  ✓   5 [chromium] › tests/e2e/0826/accessibility-audit.spec.ts:137:7 › 0826 / a11y audit › PrivateBanner has correct aria-live + role (229ms)
+  ✓   6 [chromium] › tests/e2e/0826/accessibility-audit.spec.ts:150:7 › 0826 / a11y audit › privacy-toggle dialog has role=dialog + aria-modal=true (259ms)
+  ✓   7 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:59:7 › 0826 / anti-mistake publish › submit is disabled when no privacy is chosen (DECIDE_LATER) (230ms)
+  ✓   8 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:70:7 › 0826 / anti-mistake publish › submit enables when PUBLIC is chosen with a non-private repo URL (262ms)
+  ✓   9 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:87:7 › 0826 / anti-mistake publish › PUBLIC + repo URL containing 'private' → visibility-mismatch alert (299ms)
+  ✓  10 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:112:7 › 0826 / anti-mistake publish › PRIVATE submission yields an in-page success status (483ms)
+  ✓  11 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:132:7 › 0826 / anti-mistake publish › FREE subscription cannot publish a private skill (290ms)
+  ✓  12 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:152:7 › 0826 / anti-mistake publish › PRIVATE → PUBLIC opens role=dialog with aria-modal=true (226ms)
+  ✓  13 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:167:7 › 0826 / anti-mistake publish › typing wrong skill name keeps confirm disabled (518ms)
+  ✓  14 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:179:7 › 0826 / anti-mistake publish › typing exact skill name enables confirm (237ms)
+  ✓  15 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:191:7 › 0826 / anti-mistake publish › ESC closes the dialog without committing PUBLIC (283ms)
+  ✓  16 [chromium] › tests/e2e/0826/anti-mistake-publish.spec.ts:207:7 › 0826 / anti-mistake publish › focus moves into the dialog on open (484ms)
+  ✘  17 [chromium] › tests/e2e/0826/audit-log-viewer.spec.ts:48:7 › 0826 / audit log viewer › audit log table renders the mocked events (10.1s)
+(node:23633) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23633) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  18 [chromium] › tests/e2e/0826/audit-log-viewer.spec.ts:60:7 › 0826 / audit log viewer › filter by action group 'installation.*' narrows results (316ms)
+  ✓  19 [chromium] › tests/e2e/0826/audit-log-viewer.spec.ts:72:7 › 0826 / audit log viewer › filter by outcome=failure narrows results (211ms)
+  ✓  20 [chromium] › tests/e2e/0826/audit-log-viewer.spec.ts:80:7 › 0826 / audit log viewer › filter by actor narrows results (207ms)
+  ✓  21 [chromium] › tests/e2e/0826/audit-log-viewer.spec.ts:88:7 › 0826 / audit log viewer › CSV export anchor exists with correct query params (244ms)
+  ✓  22 [chromium] › tests/e2e/0826/audit-log-viewer.spec.ts:98:7 › 0826 / audit log viewer › JSON export anchor exists with correct query params (461ms)
+  ✓  23 [chromium] › tests/e2e/0826/cli-auth-flow.spec.ts:53:7 › 0826 / CLI auth flow (Studio integration) › sidebar shows 'Connect GitHub' CTA when no GitHub auth is present (240ms)
+  ✓  24 [chromium] › tests/e2e/0826/cli-auth-flow.spec.ts:70:7 › 0826 / CLI auth flow (Studio integration) › clicking Connect GitHub shows the device-flow user code (320ms)
+  ✓  25 [chromium] › tests/e2e/0826/cli-auth-flow.spec.ts:91:7 › 0826 / CLI auth flow (Studio integration) › after simulated approval, sidebar lists the org's private skills (333ms)
+  ✓  26 [chromium] › tests/e2e/0826/cli-auth-flow.spec.ts:111:7 › 0826 / CLI auth flow (Studio integration) › device-flow request hits the mocked GitHub endpoint, never real github.com (307ms)
+  ✓  27 [chromium] › tests/e2e/0826/free-tier-caps.spec.ts:52:7 › 0826 / free-tier caps › healthy usage on /publish does NOT render TenantCapBanner (224ms)
+  ✓  28 [chromium] › tests/e2e/0826/free-tier-caps.spec.ts:59:7 › 0826 / free-tier caps › healthy usage on /orgs/{slug} does NOT render TenantCapBanner (205ms)
+  ✘  29 [chromium] › tests/e2e/0826/free-tier-caps.spec.ts:64:7 › 0826 / free-tier caps › usage stats render with current counts on /orgs/{slug} (5.2s)
+(node:23941) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23941) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -  30 [chromium] › tests/e2e/0826/free-tier-caps.spec.ts:74:7 › 0826 / free-tier caps › publishing 51st private skill — guarded by feature flag, skip if 404
+  -  31 [chromium] › tests/e2e/0826/install-flow.spec.ts:63:7 › 0826 / install-flow › connect-org button redirects to GitHub install page (mocked)
+  -  32 [chromium] › tests/e2e/0826/install-flow.spec.ts:77:7 › 0826 / install-flow › install callback creates Tenant + Installation + OrgMember rows
+  -  33 [chromium] › tests/e2e/0826/install-flow.spec.ts:104:7 › 0826 / install-flow › audit event 'installation.create' is recorded
+  -  34 [chromium] › tests/e2e/0826/install-flow.spec.ts:114:7 › 0826 / install-flow › after install, /orgs/{slug}/skills loads with PrivateBadge chrome
+  -  35 [chromium] › tests/e2e/0826/install-flow.spec.ts:151:7 › 0826 / install-flow › toast / banner confirms successful install
+  ✘  36 [chromium] › tests/e2e/0826/private-banner-persistence.spec.ts:44:7 › 0826 / private banner persistence › PrivateBanner is visible above the fold (10.2s)
+(node:24550) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24550) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  37 [chromium] › tests/e2e/0826/private-banner-persistence.spec.ts:56:7 › 0826 / private banner persistence › PrivateBadge (role=status) is rendered alongside the heading (269ms)
+  ✓  38 [chromium] › tests/e2e/0826/private-banner-persistence.spec.ts:69:7 › 0826 / private banner persistence › browser tab title contains [Private] (256ms)
+  ✓  39 [chromium] › tests/e2e/0826/private-banner-persistence.spec.ts:74:7 › 0826 / private banner persistence › PrivateBanner has NO dismiss button (security-critical) (269ms)
+  ✓  40 [chromium] › tests/e2e/0826/private-banner-persistence.spec.ts:86:7 › 0826 / private banner persistence › banner has aria-live so screen readers announce privacy (245ms)
+  ✓  41 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:60:7 › 0826 / public-private isolation › public catalog shows public skill but NOT private skill (196ms)
+  ✓  42 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:71:7 › 0826 / public-private isolation › public search must not return private skills (1.1s)
+  ✓  43 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:84:7 › 0826 / public-private isolation › anonymous direct URL to a private skill returns 404 (no 401 oracle) (81ms)
+  ✓  44 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:94:7 › 0826 / public-private isolation › anonymous canonical URL pattern also 404s (93ms)
+  -  45 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:109:7 › 0826 / public-private isolation › non-member of T2 hitting T2's private skill gets 404
+  -  46 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:124:7 › 0826 / public-private isolation › authenticated org member can view private skill (200 + private banner)
+  -  47 [chromium] › tests/e2e/0826/public-private-isolation.spec.ts:140:7 › 0826 / public-private isolation › sitemap.xml does not list any private slugs
+
+
+  1) [chromium] › tests/e2e/0826/audit-log-viewer.spec.ts:48:7 › 0826 / audit log viewer › audit log table renders the mocked events 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('table', { name: /audit events/i })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for getByRole('table', { name: /audit events/i })[22m
+
+
+      49 |     await page.goto(`/orgs/${FIXTURES.tenant.slug}/audit-log`);
+      50 |     const table = page.getByRole("table", { name: /audit events/i });
+    > 51 |     await expect(table).toBeVisible({ timeout: 10_000 });
+         |                         ^
+      52 |     const rows = table.locator("tbody tr");
+      53 |     // 8 mocked events.
+      54 |     await expect(rows).toHaveCount(8);
+        at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/tests/e2e/0826/audit-log-viewer.spec.ts:51:25
+
+    Error Context: test-results/tests-e2e-0826-audit-log-v-d5942-e-renders-the-mocked-events-chromium/error-context.md
+
+  2) [chromium] › tests/e2e/0826/free-tier-caps.spec.ts:64:7 › 0826 / free-tier caps › usage stats render with current counts on /orgs/{slug} 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('[data-testid="usage-skills"]')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('[data-testid="usage-skills"]')[22m
+
+
+      67 |     // upgrade can be verified end-to-end.
+      68 |     await page.goto(`/orgs/${FIXTURES.tenant.slug}`);
+    > 69 |     await expect(page.locator('[data-testid="usage-skills"]')).toBeVisible();
+         |                                                                ^
+      70 |     await expect(page.locator('[data-testid="usage-members"]')).toBeVisible();
+      71 |     await expect(page.locator('[data-testid="usage-skills"]')).toContainText("/");
+      72 |   });
+        at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/tests/e2e/0826/free-tier-caps.spec.ts:69:64
+
+    Error Context: test-results/tests-e2e-0826-free-tier-c-939ca-urrent-counts-on-orgs-slug--chromium/error-context.md
+
+  3) [chromium] › tests/e2e/0826/private-banner-persistence.spec.ts:44:7 › 0826 / private banner persistence › PrivateBanner is visible above the fold 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('[data-private-banner="true"]').first()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for locator('[data-private-banner="true"]').first()[22m
+
+
+      46 |     await page.goto(`/orgs/${TENANT}/skills/${SKILL_SLUG}`);
+      47 |     const banner = page.locator('[data-private-banner="true"]').first();
+    > 48 |     await expect(banner).toBeVisible({ timeout: 10_000 });
+         |                          ^
+      49 |
+      50 |     const box = await banner.boundingBox();
+      51 |     expect(box).not.toBeNull();
+        at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery/tests/e2e/0826/private-banner-persistence.spec.ts:48:26
+
+    Error Context: test-results/tests-e2e-0826-private-ban-32a8b-r-is-visible-above-the-fold-chromium/error-context.md
+
+  3 failed
+    [chromium] › tests/e2e/0826/audit-log-viewer.spec.ts:48:7 › 0826 / audit log viewer › audit log table renders the mocked events 
+    [chromium] › tests/e2e/0826/free-tier-caps.spec.ts:64:7 › 0826 / free-tier caps › usage stats render with current counts on /orgs/{slug} 
+    [chromium] › tests/e2e/0826/private-banner-persistence.spec.ts:44:7 › 0826 / private banner persistence › PrivateBanner is visible above the fold 
+  9 skipped
+  35 passed (43.9s)

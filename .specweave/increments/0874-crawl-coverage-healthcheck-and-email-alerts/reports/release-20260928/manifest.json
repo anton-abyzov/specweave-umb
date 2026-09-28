@@ -1,0 +1,91 @@
+{
+  "sourceSha": "9f2b9795faaea5350c99639ce3c60d1764d678cb",
+  "baseSha": "e3718ee6ea7dbac3b25a4d2a9a098e3c33d40857",
+  "pr": "https://github.com/anton-abyzov/vskill-platform/pull/74",
+  "e2e": {
+    "passed": 47,
+    "skipped": 0,
+    "retries": 0,
+    "postgresMaxConnections": 100,
+    "connectionsAfterSuite": 12,
+    "headless": true
+  },
+  "vitest": {
+    "passed": 5898,
+    "skipped": 14,
+    "filesPassed": 633,
+    "filesSkipped": 4
+  },
+  "workerBuild": "passed",
+  "queueContract": "passed",
+  "typecheck": "320 baseline diagnostics at matching locations/codes",
+  "credentialChange": "Reviewed existing valid pool entry retained, rejected peer removed; no restart",
+  "remaining": [
+    "current-head required CI",
+    "root merge/deploy",
+    "honest coarse sweep + downstream intake proof",
+    "separately reviewed resumable adaptive expansion + full breadth proof"
+  ],
+  "files": [
+    {
+      "path": "build-worker.log",
+      "sha256": "cdbd76e1cf1c52544b4eb249f32aa0da6d52ac3626eef29b5e5cf522beacd823"
+    },
+    {
+      "path": "typecheck-comparison-final.json",
+      "sha256": "17617981fca892f42360dfd48bc427a942ae7ae22d9a1b867b309adecba0e971"
+    },
+    {
+      "path": "worker-build-verify.log",
+      "sha256": "7190ab3e96bb1795674efaf09700c207d2aaa5e8e0f3ff6d802596514b2f0eaf"
+    },
+    {
+      "path": "deploy-plan.md",
+      "sha256": "fc97b9a56f12f37008413353ad6ebab4681da1e8cca8a9a9e7f1ea1a40500a3c"
+    },
+    {
+      "path": "vitest-all.log",
+      "sha256": "d93c319916c59c66810d74021c21819084293e70d5e997e1bf198e57e216681c"
+    },
+    {
+      "path": "db-lifecycle-red.log",
+      "sha256": "5c5e4842474ead8134da7cf04e02bc4ec6a4ba4fea490199ed3d1b06e5c1eb09"
+    },
+    {
+      "path": "e2e-locked-pg100.log",
+      "sha256": "e26df459f2f958c3f1bd84ceb6206a9b6ff3290c2d7c09b18f804d36228a176d"
+    },
+    {
+      "path": "vm3-env-repair-receipt.jsonl",
+      "sha256": "f9f7b555382a494804ea70d1077ee4659c4a117dac8958e0c78f26cd799c2090"
+    },
+    {
+      "path": "root-runtime-harness-review.log",
+      "sha256": "502a1eba42dd7ff49b58f7dc4bd1e414dd93f76b3d3baa11f8bbdcb22e23226f"
+    },
+    {
+      "path": "adaptive-follow-on-plan.md",
+      "sha256": "c479286b6eafc19033b79585c28d8704669b9d2a570e52385f30e7f0b23ffc02"
+    },
+    {
+      "path": "runtime-harness-final.log",
+      "sha256": "fd14bb73daa63b849441f26f9ec37f2af86b9e902014fd71776773a565ef5fab"
+    },
+    {
+      "path": "e2e-final-pg100.log",
+      "sha256": "d4d791c188e817a3bd36737cb229048dd7653ac142f45c693552e562096606a6"
+    },
+    {
+      "path": "vm3-env-repair.py",
+      "sha256": "b239926adf62dc03eb5a836e6899abb1e783786a9f91e1b1ed838602c8ac6f27"
+    },
+    {
+      "path": "e2e-baseline.log",
+      "sha256": "dfa21faef81a929eb1d5ad8b6f5632cd54d9542e96480da1518edcbaad573938"
+    },
+    {
+      "path": "db-lifecycle-final.log",
+      "sha256": "f3ff11fa1265d88005b35fccf646d855ce0350dc02c3991dde98ffa4afd30a04"
+    }
+  ]
+}

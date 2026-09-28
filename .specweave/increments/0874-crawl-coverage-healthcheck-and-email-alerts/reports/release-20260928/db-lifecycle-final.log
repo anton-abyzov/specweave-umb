@@ -1,0 +1,11 @@
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery
+
+ ✓ src/lib/__tests__/db-worker-context.test.ts (10 tests) 8ms
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  12:49:01
+   Duration  334ms (transform 31ms, setup 55ms, collect 36ms, tests 8ms, environment 0ms, prepare 28ms)
+

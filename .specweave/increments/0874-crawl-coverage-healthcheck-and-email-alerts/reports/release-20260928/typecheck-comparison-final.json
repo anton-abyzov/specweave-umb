@@ -1,0 +1,16 @@
+{
+  "base": "e3718ee6ea7dbac3b25a4d2a9a098e3c33d40857",
+  "baseDiagnostics": 320,
+  "headDiagnostics": 320,
+  "added": [
+    ".next/types/app/api/v1/submissions/route.ts(line,col): error TS2344: Type 'OmitWithTag<typeof import(\"<checkout>/src/app/api/v1/submissions/route\"), \"POST\" | \"GET\" | \"PATCH\" | ... 12 more ... | \"OPTIONS\", \"\">' does not satisfy the constraint '{ [x: string]: never; }'.",
+    ".next/types/app/submit/page.ts(line,col): error TS2344: Type 'OmitWithTag<typeof import(\"<checkout>/src/app/submit/page\"), \"default\" | \"metadata\" | \"config\" | ... 11 more ... | \"experimental_ppr\", \"\">' does not satisfy the constraint '{ [x: string]: never; }'."
+  ],
+  "removed": [
+    ".next/types/app/api/v1/submissions/route.ts(line,col): error TS2344: Type 'OmitWithTag<typeof import(\"<checkout>/src/app/api/v1/submissions/route\"), \"dynamic\" | \"config\" | \"generateStaticParams\" | \"revalidate\" | \"dynamicParams\" | \"fetchCache\" | ... 9 more ... | \"PATCH\", \"\">' does not satisfy the constraint '{ [x: string]: never; }'.",
+    ".next/types/app/submit/page.ts(line,col): error TS2344: Type 'OmitWithTag<typeof import(\"<checkout>/src/app/submit/page\"), \"default\" | \"dynamic\" | \"metadata\" | \"config\" | \"generateStaticParams\" | \"revalidate\" | \"dynamicParams\" | ... 7 more ... | \"experimental_ppr\", \"\">' does not satisfy the constraint '{ [x: string]: never; }'."
+  ],
+  "setup": "Same generated Next route declarations and diagrams copied onto base; only checkout paths and line/column normalized.",
+  "sameDiagnosticLocationsAndCodes": true,
+  "textDifferences": "Two pre-existing generated Next OmitWithTag messages print different union member ordering; all paths/codes/counts identical. No touched production/test file introduced diagnostics."
+}

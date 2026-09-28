@@ -88,3 +88,10 @@ GH Archive / BigQuery exhaustive backfill; full git-history secret purge (BFG/fi
 ## Recovery implementation boundary — 2026-09-28
 
 Use rewritten vskill-platform origin/main e3718ee6 as the source base. This lane owns T-006, T-007, T-008, T-009 and T-019; T-017 includes a bounded failed-sweep signal repair after live read-only evidence showed seven 401s hidden under success; its production run remains read-only and blocked. 0861 migration state is read-only verification. Extend the existing task file sets for regression coverage and durable intake retry plumbing. A transient probe must not become confirmed absence, poison memoized sibling checks, select an unrelated fallback skill, or disappear after an acknowledged queue retry. Retain candidate/source provenance through retries. No production mutation or deployment before independent review; no shared handoff-pointer changes.
+
+## Authorized release repair — 2026-09-28
+
+The required privacy E2E failures and Node database connection exhaustion are necessary release gates for crawler PR74. These bounded repairs live in the existing0874 increment and isolated worktree. Original dirty roots, existing SEO/release owners, and cross-tool handoff pointers remain protected.
+
+- **AC-REL-01**: The full required0826 suite runs without skips or weakened checks, proving paid publishing, FREE denial without writes, real private404 responses, authorized200 and populated public catalog isolation.
+- **AC-REL-02**: The same suite passes with PostgreSQL max_connections=100; Node reuses its database pool while Cloudflare and explicit Worker contexts retain separate I/O clients.

@@ -1,0 +1,11 @@
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-crawler-recovery
+
+·······························
+
+ Test Files  3 passed (3)
+      Tests  31 passed (31)
+   Start at  12:48:40
+   Duration  1.28s (transform 126ms, setup 300ms, collect 175ms, tests 93ms, environment 1.34s, prepare 149ms)
+
