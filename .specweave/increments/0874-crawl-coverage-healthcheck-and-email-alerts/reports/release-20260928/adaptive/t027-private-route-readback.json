@@ -1,0 +1,30 @@
+{
+  "at": "2026-09-28T18:26:17.913Z",
+  "identity": {
+    "host": "178.156.163.74",
+    "database": "vskill_platform"
+  },
+  "transaction": "READ ONLY",
+  "since": "2026-09-28T17:08:38Z",
+  "recentSubmissionStates": [
+    {
+      "state": "RECEIVED",
+      "count": 1
+    },
+    {
+      "state": "PUBLISHED",
+      "count": 187
+    },
+    {
+      "state": "DEQUEUED",
+      "count": 225
+    }
+  ],
+  "recentPublicSkills": 992,
+  "recentKeyedSubmissions": 413,
+  "existingPrivateProbe": {
+    "rowExists": true,
+    "pathSha256": "14de9c6d76783b336d73a702478d8a97c431595b4c0eb9ab4963aff489d8e7e2",
+    "status": 404
+  }
+}

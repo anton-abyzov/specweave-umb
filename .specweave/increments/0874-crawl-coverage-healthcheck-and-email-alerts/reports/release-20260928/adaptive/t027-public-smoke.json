@@ -1,0 +1,32 @@
+{
+  "at": "2026-09-28T18:25:53.187604+00:00",
+  "checks": [
+    {
+      "path": "/api/v1/e2e-harness/healthz",
+      "status": 404
+    },
+    {
+      "path": "/api/v1/_test/healthz",
+      "status": 404
+    },
+    {
+      "path": "/catalog",
+      "status": 307,
+      "location": "/skills"
+    },
+    {
+      "path": "/skills",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/skills?limit=2",
+      "status": 200,
+      "returnedRecords": 2
+    },
+    {
+      "path": "/api/v1/queue/health",
+      "status": 200,
+      "schemaVersion": 2
+    }
+  ]
+}

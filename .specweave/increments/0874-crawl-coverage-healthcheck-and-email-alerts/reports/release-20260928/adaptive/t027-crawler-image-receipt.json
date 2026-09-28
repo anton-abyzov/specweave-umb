@@ -1,0 +1,18 @@
+{
+  "at": "2026-09-28T18:27:03.299635+00:00",
+  "image": "sha256:9fb777180cfcc41491781b9988338181523ba8e66f43e2322c20d5da018d51d3",
+  "labels": {
+    "org.opencontainers.image.revision": "4b7888a19ebce292b3f77d49c052fad31abfe90a",
+    "org.opencontainers.image.source": "https://github.com/anton-abyzov/vskill-platform",
+    "vskill.source-archive-sha256": "8db2ff201cf4401c225b80bf50cac4280db4bb526e1d187c205aeaf0088a5592"
+  },
+  "sourceHashes": {
+    "server.js": "107e47757cbc0df85af1927ff40f5e64116035f6e969078f7a537d3f8bf79c67",
+    "scheduler.js": "ea8f2b9ca9842454324915e9a33542080d104035eb6f2e2306521be21630cc38",
+    "sources/github-sharded.js": "2bc504dc50f1f52d88e85342bab3cd844e0e9cd05b8de6e811c82b9985b2b427",
+    "lib/adaptive-search-plan.js": "6ee3988d568b668d6e3119f80a2c08fbcdf11e88a75997b7f2baf7ee40dcecee",
+    "lib/inline-submitter.js": "dcede5c9ec6be5a5b1b4a2851ac7b56161c23cb48c54c9cc299ca4282bc814b1",
+    "lib/source-result.js": "ec84beaeeb63bf208aa50c491610cce4df6dd9bcdba5e369c7f21d5a94bc24ac"
+  },
+  "verification": "docker image inspect plus docker run --rm --entrypoint sha256sum; exact tool readback retained in task transcript"
+}
