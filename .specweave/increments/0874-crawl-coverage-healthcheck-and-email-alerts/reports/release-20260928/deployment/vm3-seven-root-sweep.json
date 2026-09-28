@@ -1,0 +1,218 @@
+{
+  "at": "2026-09-28T17:30:24.924157+00:00",
+  "status": {
+    "activeCrawls": 0,
+    "maxConcurrent": 8,
+    "uptime": 1306.351,
+    "lastResults": {},
+    "scheduler": {
+      "running": true,
+      "sourceCount": 3,
+      "sources": {
+        "github-sharded": {
+          "status": "cooldown",
+          "lastRunAt": "2026-09-28T17:28:54.779Z",
+          "lastResult": {
+            "totalDiscovered": 5933,
+            "totalSubmitted": 1720,
+            "totalCreated": 9,
+            "totalSkipped": 127,
+            "totalLost": 0,
+            "shardsTotal": 7,
+            "shardsCompleted": 7,
+            "shardsSkipped": 0,
+            "shardsZeroResultCount": 0,
+            "startedFromShard": 0,
+            "shardMode": "size-bisect",
+            "errors": [],
+            "durationMs": 844641
+          },
+          "lastError": null,
+          "runCount": 1,
+          "errorCount": 1,
+          "consecutiveErrors": 0
+        },
+        "skills-sh": {
+          "status": "cooldown",
+          "lastRunAt": "2026-09-28T17:24:39.344Z",
+          "lastResult": {
+            "totalDiscovered": 9673,
+            "totalSubmitted": 3709,
+            "totalCreated": 0,
+            "totalSkipped": 0,
+            "totalLost": 0,
+            "lastPage": 49,
+            "startedFromPage": 0,
+            "retriedPages": 0,
+            "failedPages": [],
+            "reachedEnd": true,
+            "totalSkillsSh": 9832,
+            "skillsShUpstreamReportedTotal": 9832,
+            "skillsShAllTimeInstalls": 1467424,
+            "errors": [],
+            "durationMs": 960721
+          },
+          "lastError": null,
+          "runCount": 1,
+          "errorCount": 0,
+          "consecutiveErrors": 0
+        },
+        "submission-scanner": {
+          "status": "cooldown",
+          "lastRunAt": "2026-09-28T17:28:41.264Z",
+          "lastResult": {
+            "batches": 4,
+            "checked": 121,
+            "processed": 121,
+            "skipped": 0,
+            "errors": [],
+            "totalDiscovered": 0,
+            "totalSubmitted": 0,
+            "totalCreated": 0,
+            "totalSkipped": 0,
+            "totalLost": 0,
+            "durationMs": 122541
+          },
+          "lastError": null,
+          "runCount": 3,
+          "errorCount": 0,
+          "consecutiveErrors": 0
+        }
+      }
+    }
+  },
+  "metrics": {
+    "uptime": 1306.434,
+    "metrics": {
+      "submission-scanner": {
+        "totalRuns": 3,
+        "totalErrors": 0,
+        "totalTimeouts": 0,
+        "totalDiscovered": 0,
+        "totalSubmitted": 0,
+        "totalCreated": 0,
+        "totalLost": 0,
+        "avgDurationMs": 200920,
+        "dedupRatio": "N/A"
+      },
+      "github-sharded": {
+        "totalRuns": 1,
+        "totalErrors": 1,
+        "totalTimeouts": 0,
+        "totalDiscovered": 5933,
+        "totalSubmitted": 1720,
+        "totalCreated": 9,
+        "totalLost": 0,
+        "avgDurationMs": 844643,
+        "dedupRatio": "99.5%"
+      },
+      "skills-sh": {
+        "totalRuns": 1,
+        "totalErrors": 0,
+        "totalTimeouts": 0,
+        "totalDiscovered": 9673,
+        "totalSubmitted": 3709,
+        "totalCreated": 0,
+        "totalLost": 0,
+        "avgDurationMs": 960843,
+        "dedupRatio": "100.0%"
+      }
+    },
+    "scheduler": {
+      "running": true,
+      "sourceCount": 3,
+      "sources": {
+        "github-sharded": {
+          "status": "cooldown",
+          "lastRunAt": "2026-09-28T17:28:54.779Z",
+          "lastResult": {
+            "totalDiscovered": 5933,
+            "totalSubmitted": 1720,
+            "totalCreated": 9,
+            "totalSkipped": 127,
+            "totalLost": 0,
+            "shardsTotal": 7,
+            "shardsCompleted": 7,
+            "shardsSkipped": 0,
+            "shardsZeroResultCount": 0,
+            "startedFromShard": 0,
+            "shardMode": "size-bisect",
+            "errors": [],
+            "durationMs": 844641
+          },
+          "lastError": null,
+          "runCount": 1,
+          "errorCount": 1,
+          "consecutiveErrors": 0
+        },
+        "skills-sh": {
+          "status": "cooldown",
+          "lastRunAt": "2026-09-28T17:24:39.344Z",
+          "lastResult": {
+            "totalDiscovered": 9673,
+            "totalSubmitted": 3709,
+            "totalCreated": 0,
+            "totalSkipped": 0,
+            "totalLost": 0,
+            "lastPage": 49,
+            "startedFromPage": 0,
+            "retriedPages": 0,
+            "failedPages": [],
+            "reachedEnd": true,
+            "totalSkillsSh": 9832,
+            "skillsShUpstreamReportedTotal": 9832,
+            "skillsShAllTimeInstalls": 1467424,
+            "errors": [],
+            "durationMs": 960721
+          },
+          "lastError": null,
+          "runCount": 1,
+          "errorCount": 0,
+          "consecutiveErrors": 0
+        },
+        "submission-scanner": {
+          "status": "cooldown",
+          "lastRunAt": "2026-09-28T17:28:41.264Z",
+          "lastResult": {
+            "batches": 4,
+            "checked": 121,
+            "processed": 121,
+            "skipped": 0,
+            "errors": [],
+            "totalDiscovered": 0,
+            "totalSubmitted": 0,
+            "totalCreated": 0,
+            "totalSkipped": 0,
+            "totalLost": 0,
+            "durationMs": 122541
+          },
+          "lastError": null,
+          "runCount": 3,
+          "errorCount": 0,
+          "consecutiveErrors": 0
+        }
+      }
+    }
+  },
+  "events": [
+    "[scheduler] Starting continuous crawl for sources: github-sharded, skills-sh, submission-scanner",
+    "[scheduler] github-sharded: timeout=120min, cooldown=20min",
+    "[heartbeat] started (every 60s)",
+    "[github-sharded] SHARD_MODE=size-date is retired (created:/language: are dead on code search); using size-bisect",
+    "[github-sharded] mode=size-bisect, shards=7, starting at 0",
+    "[scheduler] github-sharded failed: GitHub shard 1/7 failed: Intake lost 50 discoveries",
+    "[github-sharded] SHARD_MODE=size-date is retired (created:/language: are dead on code search); using size-bisect",
+    "[github-sharded] resuming persisted size-bisect leaf plan (7 shards) from index 0",
+    "[github-sharded] resuming from shard 0/7 (0 repos in dedup set)",
+    "[github-sharded] mode=size-bisect, shards=7, starting at 0",
+    "[github-sharded] shard 1/7: +870 new (total=870)",
+    "[github-sharded] shard 2/7: +764 new (total=1634)",
+    "[github-sharded] shard 3/7: +913 new (total=2547)",
+    "[github-sharded] shard 4/7: +972 new (total=3519)",
+    "[github-sharded] shard 5/7: +752 new (total=4271)",
+    "[github-sharded] shard 6/7: +761 new (total=5032)",
+    "[github-sharded] shard 7/7: +901 new (total=5933)",
+    "[github-sharded] full run complete, checkpoint cleared",
+    "[scheduler] github-sharded completed in 844.6s: {\"totalDiscovered\":5933,\"totalSubmitted\":1720,\"totalCreated\":9,\"totalSkipped\":127,\"totalLost\":0,\"shardsTotal\":7,\"shardsCompleted\":7,\"shardsSkipped\":0,\"shardsZeroResultCount\":0,\"startedFromShard\":0,\"sh"
+  ]
+}

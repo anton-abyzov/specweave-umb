@@ -1,0 +1,20 @@
+{
+  "base": "a066df378c8f42ef6e5515d906d7feb996c2d475",
+  "worktree": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0874-adaptive-resume",
+  "files": {
+    "crawl-worker/DEPLOY-NOTES.md": "a26bfe0edb02a5bef239f4a9db260d0e70d28334172b715ed2ec492f43a2cb5c",
+    "crawl-worker/__tests__/adaptive-search-plan.test.js": "2001abd6f40057465342d87aebfd24bc790f92583aa5d683ce13c1f8027425d6",
+    "crawl-worker/__tests__/adaptive-search-resume.test.js": "9f6b82c8485c5baf81c216f4de231447942c94011f6cab33f1a682c978ed6676",
+    "crawl-worker/__tests__/github-sharded-crawl.test.js": "84e496120da621767836badb2786fa50dc212563a942dc72bfc81686794072de",
+    "crawl-worker/__tests__/github-sharded-failure.test.js": "9187659f4d65c0d2acb80f259bc5561534f04e7b0584940f131c3463a8918709",
+    "crawl-worker/__tests__/github-sharded.test.js": "cdb66f4bf7939eca3d12226516e32558d907271610f9135a81d93130c0b2addc",
+    "crawl-worker/__tests__/inline-submitter.test.js": "616883910d0a0f8f9b784a57a90712ca4034a8660c4f03c086a960581b09af5a",
+    "crawl-worker/__tests__/scheduler.test.js": "11531a6c7ff96b108d16a5bf5e155c4141f7a7a3a37524f3542f949f1db265a1",
+    "crawl-worker/__tests__/source-result.test.js": "bd03a9262641472c3ee78ef6fcd7fd4b004f6f0136392337234016fb7df817ac",
+    "crawl-worker/lib/adaptive-search-plan.js": "c2378acd968ea54d3b1eb66ec860106a939b14dd07b2a756d91fb70a68645878",
+    "crawl-worker/lib/inline-submitter.js": "4a5d6242f8a0b0c1589a01e9c64922557049cca8d640e7895c4cb63651f76eeb",
+    "crawl-worker/lib/source-result.js": "ec84beaeeb63bf208aa50c491610cce4df6dd9bcdba5e369c7f21d5a94bc24ac",
+    "crawl-worker/scheduler.js": "167aac85c2bdc8218257ef24398158bdb33741d9180b96615355072cf41a29cf",
+    "crawl-worker/sources/github-sharded.js": "bf9f03f25116c7eb42961db8a4b5624c84a1caad99d2eda30a088510d9d53bcd"
+  }
+}
