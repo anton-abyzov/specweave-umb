@@ -94,5 +94,9 @@
   {
     "file": "context-read-receipt.json",
     "sha256": "782327dbf7aba0edecafe1035dbf50f01c753a4c5e45f3788bfeb5a159c87486"
+  },
+  {
+    "file": "t031-display-owner-check.json",
+    "sha256": "1525ecabcc31fd17a8ff18eb6aa196a4c85052de913a63866aca79e518e4df48"
   }
 ]

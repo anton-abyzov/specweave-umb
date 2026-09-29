@@ -1,0 +1,329 @@
+{
+  "at": "2026-09-28T23:59:06.573124+00:00",
+  "paths": [
+    "src/app/skills/page.tsx",
+    "src/app/skills/[owner]/[repo]/[skill]/page.tsx"
+  ],
+  "dirty": [],
+  "openPRs": [],
+  "references": [
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0731-studio-find-slick-ui",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 42,
+          "text": "- Given `BlockedSkillView` and `BlockedRow` are currently defined inside `src/app/skills/[owner]/[repo]/[skill]/page.tsx`"
+        },
+        {
+          "file": "tasks.md",
+          "line": 46,
+          "text": "**Implementation files**: `src/app/components/BlockedSkillView.tsx` (new \u2014 lifted from platform page), `src/app/skills/[owner]/[repo]/[skill]/page.tsx` (remove definition, add import)"
+        },
+        {
+          "file": "plan.md",
+          "line": 344,
+          "text": "| `src/app/skills/[owner]/[repo]/[skill]/page.tsx` | Remove now-extracted `BlockedSkillView` definition; import from `@/app/components/BlockedSkillView`. | \u221290 |"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0854-source-link-deprecation-pipeline",
+      "status": "active",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 28,
+          "text": "**File**: `src/app/skills/[owner]/[repo]/[skill]/page.tsx`"
+        },
+        {
+          "file": "plan.md",
+          "line": 36,
+          "text": "**File**: `repositories/anton-abyzov/vskill-platform/src/app/skills/[owner]/[repo]/[skill]/page.tsx:313`"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0668-vskill-platform-audit-fixes",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 168,
+          "text": "Given: src/app/skills/[owner]/[repo]/[skill]/page.tsx fetches from DB on every page view"
+        },
+        {
+          "file": "spec.md",
+          "line": 63,
+          "text": "- [x] **AC-US3-05**: Skill page ISR enabled \u2014 `src/app/skills/[owner]/[repo]/[skill]/page.tsx` adds `revalidate: 3600` (or equivalent ISR config) so DB queries are not repeated on every page view"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0721-tier2-llm-scan-restoration-and-clarity",
+      "status": "planned",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 644,
+          "text": "1. In `src/app/skills/[owner]/[repo]/[skill]/page.tsx`, update lines 362-363 per ADR 0721-05 implementation contract:"
+        },
+        {
+          "file": "tasks.md",
+          "line": 657,
+          "text": "- `src/app/skills/[owner]/[repo]/[skill]/page.tsx`"
+        },
+        {
+          "file": "spec.md",
+          "line": 178,
+          "text": "- [ ] **AC-US5-03**: In `src/app/skills/[owner]/[repo]/[skill]/page.tsx` (lines ~362-363), the SAST gate labels rendered from `ExternalScanResult.tier` change at the JSX layer only: `Tier 1 PASS` \u2192 `Static Scan PASS`, `Tier 2 PASS` \u2192 `Deep Scan PASS`. (Same mapping for non-PASS verdicts: `Tier 1 FAIL` \u2192 `Static Scan FAIL`, etc.) Verified by component snapshot test."
+        },
+        {
+          "file": "plan.md",
+          "line": 163,
+          "text": "`src/app/skills/[owner]/[repo]/[skill]/page.tsx`: lines 362-363, change ScanChip labels `Tier 1` \u2192 `Static Scan`, `Tier 2` \u2192 `Deep Scan`. The `tier1Pass`/`tier2Pass` TS variable names are unchanged."
+        },
+        {
+          "file": "plan.md",
+          "line": 253,
+          "text": "| `src/app/skills/[owner]/[repo]/[skill]/page.tsx` | Lines 362-363: `Tier 1` \u2192 `Static Scan`, `Tier 2` \u2192 `Deep Scan` | UI | ~5 |"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0664-skill-version-awareness",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "plan.md",
+          "line": 208,
+          "text": "**File**: `src/app/skills/[owner]/[repo]/[skill]/page.tsx` (modify)"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0657-dark-theme-semantic-tokens",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 195,
+          "text": "Replace remaining hardcoded status hex in `src/app/skills/[owner]/[repo]/[skill]/page.tsx` with `var(--status-*)` tokens. Use `scoreIntent()` for score-based coloring."
+        },
+        {
+          "file": "spec.md",
+          "line": 274,
+          "text": "- `src/app/skills/[owner]/[repo]/[skill]/page.tsx`"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0695-prod-smoke-drift-and-stats-kv-gap",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 33,
+          "text": "Added `export const dynamic = \"force-dynamic\"` and a `readCachedDefaultSkills()` helper to [src/app/skills/page.tsx](../../../repositories/anton-abyzov/vskill-platform/src/app/skills/page.tsx). When `getSkills()` returns empty AND the request is the default-unfiltered page-1 load, the server component reads from the cron-warmed KV cache (`skills:list:all:trending:20:0`). This doesn't help today because the cron *also* depends on `skill.findMany` and therefore writes an empty array; once the 0680 migration is applied, the fallback will protect against future DB outages."
+        },
+        {
+          "file": "spec.md",
+          "line": 20,
+          "text": "2. `skills page loads with skill rows` \u2014 `a.skills-list-row` is missing from the SSR HTML even though 110k+ skills exist in DB. ([skills/page.tsx:242-257](repositories/anton-abyzov/vskill-platform/src/app/skills/page.tsx))"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/0874-crawler-evidence",
+      "increment": "0739-vskill-platform-skill-page-fail-soft",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "spec.md",
+          "line": 19,
+          "text": "The canonical skill detail route `/skills/{owner}/{repo}/{skill}` rendered by `src/app/skills/[owner]/[repo]/[skill]/page.tsx` (line 152-163) crashes with a Cloudflare Workers digest UI (\"This page could not be loaded\u2026 digest: 4225981758\") when a transient Prisma/D1 hiccup hits one of the **fallback** queries:"
+        },
+        {
+          "file": "plan.md",
+          "line": 5,
+          "text": "Tiny, surgical bug fix in **two catch blocks** of `repositories/anton-abyzov/vskill-platform/src/lib/data.ts`. The page render contract at `src/app/skills/[owner]/[repo]/[skill]/page.tsx:152-163` is **unchanged** \u2014 it already treats a `null` return from the fallback queries as \"not blocked / not rejected\" and falls through to `notFound()`. We just stop the two outlier functions from rethrowing."
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0731-studio-find-slick-ui",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 42,
+          "text": "- Given `BlockedSkillView` and `BlockedRow` are currently defined inside `src/app/skills/[owner]/[repo]/[skill]/page.tsx`"
+        },
+        {
+          "file": "tasks.md",
+          "line": 46,
+          "text": "**Implementation files**: `src/app/components/BlockedSkillView.tsx` (new \u2014 lifted from platform page), `src/app/skills/[owner]/[repo]/[skill]/page.tsx` (remove definition, add import)"
+        },
+        {
+          "file": "plan.md",
+          "line": 344,
+          "text": "| `src/app/skills/[owner]/[repo]/[skill]/page.tsx` | Remove now-extracted `BlockedSkillView` definition; import from `@/app/components/BlockedSkillView`. | \u221290 |"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0854-source-link-deprecation-pipeline",
+      "status": "active",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 28,
+          "text": "**File**: `src/app/skills/[owner]/[repo]/[skill]/page.tsx`"
+        },
+        {
+          "file": "plan.md",
+          "line": 36,
+          "text": "**File**: `repositories/anton-abyzov/vskill-platform/src/app/skills/[owner]/[repo]/[skill]/page.tsx:313`"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0668-vskill-platform-audit-fixes",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 168,
+          "text": "Given: src/app/skills/[owner]/[repo]/[skill]/page.tsx fetches from DB on every page view"
+        },
+        {
+          "file": "spec.md",
+          "line": 63,
+          "text": "- [x] **AC-US3-05**: Skill page ISR enabled \u2014 `src/app/skills/[owner]/[repo]/[skill]/page.tsx` adds `revalidate: 3600` (or equivalent ISR config) so DB queries are not repeated on every page view"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0721-tier2-llm-scan-restoration-and-clarity",
+      "status": "planned",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 644,
+          "text": "1. In `src/app/skills/[owner]/[repo]/[skill]/page.tsx`, update lines 362-363 per ADR 0721-05 implementation contract:"
+        },
+        {
+          "file": "tasks.md",
+          "line": 657,
+          "text": "- `src/app/skills/[owner]/[repo]/[skill]/page.tsx`"
+        },
+        {
+          "file": "spec.md",
+          "line": 178,
+          "text": "- [ ] **AC-US5-03**: In `src/app/skills/[owner]/[repo]/[skill]/page.tsx` (lines ~362-363), the SAST gate labels rendered from `ExternalScanResult.tier` change at the JSX layer only: `Tier 1 PASS` \u2192 `Static Scan PASS`, `Tier 2 PASS` \u2192 `Deep Scan PASS`. (Same mapping for non-PASS verdicts: `Tier 1 FAIL` \u2192 `Static Scan FAIL`, etc.) Verified by component snapshot test."
+        },
+        {
+          "file": "plan.md",
+          "line": 163,
+          "text": "`src/app/skills/[owner]/[repo]/[skill]/page.tsx`: lines 362-363, change ScanChip labels `Tier 1` \u2192 `Static Scan`, `Tier 2` \u2192 `Deep Scan`. The `tier1Pass`/`tier2Pass` TS variable names are unchanged."
+        },
+        {
+          "file": "plan.md",
+          "line": 253,
+          "text": "| `src/app/skills/[owner]/[repo]/[skill]/page.tsx` | Lines 362-363: `Tier 1` \u2192 `Static Scan`, `Tier 2` \u2192 `Deep Scan` | UI | ~5 |"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0664-skill-version-awareness",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "plan.md",
+          "line": 208,
+          "text": "**File**: `src/app/skills/[owner]/[repo]/[skill]/page.tsx` (modify)"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0657-dark-theme-semantic-tokens",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 195,
+          "text": "Replace remaining hardcoded status hex in `src/app/skills/[owner]/[repo]/[skill]/page.tsx` with `var(--status-*)` tokens. Use `scoreIntent()` for score-based coloring."
+        },
+        {
+          "file": "spec.md",
+          "line": 274,
+          "text": "- `src/app/skills/[owner]/[repo]/[skill]/page.tsx`"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0695-prod-smoke-drift-and-stats-kv-gap",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "tasks.md",
+          "line": 33,
+          "text": "Added `export const dynamic = \"force-dynamic\"` and a `readCachedDefaultSkills()` helper to [src/app/skills/page.tsx](../../../repositories/anton-abyzov/vskill-platform/src/app/skills/page.tsx). When `getSkills()` returns empty AND the request is the default-unfiltered page-1 load, the server component reads from the cron-warmed KV cache (`skills:list:all:trending:20:0`). This doesn't help today because the cron *also* depends on `skill.findMany` and therefore writes an empty array; once the 0680 migration is applied, the fallback will protect against future DB outages."
+        },
+        {
+          "file": "spec.md",
+          "line": 20,
+          "text": "2. `skills page loads with skill rows` \u2014 `a.skills-list-row` is missing from the SSR HTML even though 110k+ skills exist in DB. ([skills/page.tsx:242-257](repositories/anton-abyzov/vskill-platform/src/app/skills/page.tsx))"
+        }
+      ],
+      "claims": []
+    },
+    {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "increment": "0739-vskill-platform-skill-page-fail-soft",
+      "status": "completed",
+      "matches": [
+        {
+          "file": "spec.md",
+          "line": 19,
+          "text": "The canonical skill detail route `/skills/{owner}/{repo}/{skill}` rendered by `src/app/skills/[owner]/[repo]/[skill]/page.tsx` (line 152-163) crashes with a Cloudflare Workers digest UI (\"This page could not be loaded\u2026 digest: 4225981758\") when a transient Prisma/D1 hiccup hits one of the **fallback** queries:"
+        },
+        {
+          "file": "plan.md",
+          "line": 5,
+          "text": "Tiny, surgical bug fix in **two catch blocks** of `repositories/anton-abyzov/vskill-platform/src/lib/data.ts`. The page render contract at `src/app/skills/[owner]/[repo]/[skill]/page.tsx:152-163` is **unchanged** \u2014 it already treats a `null` return from the fallback queries as \"not blocked / not rejected\" and falls through to `notFound()`. We just stop the two outlier functions from rethrowing."
+        }
+      ],
+      "claims": []
+    }
+  ]
+}
