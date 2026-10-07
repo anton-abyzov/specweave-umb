@@ -163,6 +163,18 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
             errors.append(str(error))
 report = {'checkedAt': datetime.now(timezone.utc).isoformat(), 'site': args.site, 'passed': len(results), 'failed': len(errors), 'results': results, 'errors': errors}
 destination = Path(__file__).resolve().parents[1] / 'reports' / ('public-verification-' + args.site + '.json')
-destination.write_text(json.dumps(report, indent=2) + '\n')
+# Preserve every result while keeping generated receipts within the project's
+# 1,500-line limit when the complete public sitemap is crawled.
+lines = ['{']
+for index, (key, value) in enumerate(report.items()):
+    comma = ',' if index < len(report) - 1 else ''
+    if isinstance(value, list):
+        lines.append('  ' + json.dumps(key) + ': [')
+        lines.extend('    ' + json.dumps(item, separators=(',', ':')) + (',' if i < len(value) - 1 else '') for i, item in enumerate(value))
+        lines.append('  ]' + comma)
+    else:
+        lines.append('  ' + json.dumps(key) + ': ' + json.dumps(value) + comma)
+lines.append('}')
+destination.write_text('\n'.join(lines) + '\n')
 print(json.dumps({'passed': len(results), 'failed': len(errors), 'errors': errors}))
 raise SystemExit(bool(errors))

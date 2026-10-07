@@ -1,0 +1,219 @@
+{
+  "checkedAt": "2026-10-07T14:49:53.773Z",
+  "base": "http://localhost:3941",
+  "headless": true,
+  "rawHtml": [
+    {
+      "path": "/help/league-console/create-league-or-tournament",
+      "httpStatus": 200,
+      "videoObjects": 2,
+      "iframes": 2,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/aHjrZktaWIU?rel=0",
+          "title": "Create your league",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        },
+        {
+          "src": "https://www.youtube-nocookie.com/embed/lYWivk-WUts?rel=0",
+          "title": "Create your league on iPad",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/add-teams-and-players",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/F_3z8lPPyIg?rel=0",
+          "title": "Add a competition, teams and players",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/import-teams-csv",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/4eQwT8Ff9wM?rel=0",
+          "title": "Import teams and players from a spreadsheet",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/generate-schedule",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/NwLANJZhS1E?rel=0",
+          "title": "Generate your schedule",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/enter-results-match-center",
+      "httpStatus": 200,
+      "videoObjects": 2,
+      "iframes": 2,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/LN7dgPLSneo?rel=0",
+          "title": "Enter results and update standings",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        },
+        {
+          "src": "https://www.youtube-nocookie.com/embed/agFQCm4MXjY?rel=0",
+          "title": "Enter results on iPad",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/registration-entry-fees",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/YccMyflmJfg?rel=0",
+          "title": "Open registration with an entry fee",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/connect-stripe-payouts",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/8xEqh4PUWgg?rel=0",
+          "title": "Connect Stripe to get paid",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/club-registration-programs",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/bsPU4eI5w6E?rel=0",
+          "title": "Club registration programs",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/customize-pages-and-blocks",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/sOZJ7FULJ3w?rel=0",
+          "title": "Customize pages with blocks",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/site-menu-and-theme",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/CX5xz7aSD8w?rel=0",
+          "title": "Site menu and theme",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/put-league-website-live",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/eK56BTP4b7U?rel=0",
+          "title": "Put your league website live",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/facilities/publish-facility",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/s04EEJCS0Qw?rel=0",
+          "title": "Set up and publish your facility",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    }
+  ],
+  "geometry": [],
+  "playback": null,
+  "status": "failed",
+  "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(geometry.left>=0&&geometry.left+geometry.width<=width+1)\n"
+}

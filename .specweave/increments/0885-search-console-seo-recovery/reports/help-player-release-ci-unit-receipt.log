@@ -1,0 +1,301 @@
+# Archived excerpt: final 300 lines. Full unchanged output: help-player-release-ci-unit-receipt.log.gz
+validate	Unit tests	2026-10-07T15:01:48.5198260Z
+validate	Unit tests	2026-10-07T15:01:48.5199070Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mko: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5200030Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5200417Z
+validate	Unit tests	2026-10-07T15:01:48.5212925Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mko: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5214018Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5214428Z
+validate	Unit tests	2026-10-07T15:01:48.5225127Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mnl: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5226456Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5227101Z
+validate	Unit tests	2026-10-07T15:01:48.5249083Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mnl: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5261760Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5262268Z
+validate	Unit tests	2026-10-07T15:01:48.5263143Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mpl: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5264160Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5265356Z
+validate	Unit tests	2026-10-07T15:01:48.5266205Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mpl: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5267223Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5267652Z
+validate	Unit tests	2026-10-07T15:01:48.5268495Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mpt-BR: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5269512Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5270147Z
+validate	Unit tests	2026-10-07T15:01:48.5281073Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mpt-BR: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5282793Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5283201Z
+validate	Unit tests	2026-10-07T15:01:48.5287508Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mru: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5305232Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5305688Z
+validate	Unit tests	2026-10-07T15:01:48.5326368Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mru: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5327143Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5327383Z
+validate	Unit tests	2026-10-07T15:01:48.5343211Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mtr: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5344029Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5344281Z
+validate	Unit tests	2026-10-07T15:01:48.5361969Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mtr: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5373568Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5401068Z
+validate	Unit tests	2026-10-07T15:01:48.5411589Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2muk: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5412661Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5417519Z
+validate	Unit tests	2026-10-07T15:01:48.5418170Z  [32m✓[39m src/components/home/__tests__/results-sync.test.tsx [2m([22m[2m20 tests[22m[2m)[22m[32m 86[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:48.5446933Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2muk: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5451691Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5452075Z
+validate	Unit tests	2026-10-07T15:01:48.5452957Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mzh-CN: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5454273Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5454624Z
+validate	Unit tests	2026-10-07T15:01:48.5455408Z [90mstderr[2m | src/components/home/__tests__/results-sync.test.tsx[2m > [22m[2mhome results-sync block[2m > [22m[2mzh-CN: reads its own pack and leaves no slot unfilled
+validate	Unit tests	2026-10-07T15:01:48.5456320Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:48.5456663Z
+validate	Unit tests	2026-10-07T15:01:50.0726136Z  [32m✓[39m src/app/__tests__/club-app-setup-0549.test.tsx [2m([22m[2m18 tests[22m[2m)[22m[33m 600[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:50.8989518Z  [32m✓[39m src/components/earn/__tests__/FoundingForm.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 70[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:51.5899308Z  [32m✓[39m src/lib/__tests__/responsive-media-0689.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:51.9169811Z  [32m✓[39m src/lib/__tests__/playing-figures.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:52.3281530Z  [32m✓[39m src/lib/tools/__tests__/share.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:52.9326969Z [90mstderr[2m | src/components/__tests__/analytics-host-guard.test.tsx[2m > [22m[2manalytics on localhost (0269 host guard)[2m > [22m[2mAnalytics loads no tag and creates no dataLayer
+validate	Unit tests	2026-10-07T15:01:52.9362082Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:52.9381414Z
+validate	Unit tests	2026-10-07T15:01:52.9432386Z [90mstderr[2m | src/components/__tests__/analytics-host-guard.test.tsx[2m > [22m[2manalytics on localhost (0269 host guard)[2m > [22m[2mAnalytics loads no tag and creates no dataLayer
+validate	Unit tests	2026-10-07T15:01:52.9433656Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:52.9434327Z
+validate	Unit tests	2026-10-07T15:01:52.9449179Z [90mstderr[2m | src/components/__tests__/analytics-host-guard.test.tsx[2m > [22m[2manalytics on localhost (0269 host guard)[2m > [22m[2mPostHogAnalytics injects no snippet
+validate	Unit tests	2026-10-07T15:01:52.9451039Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:52.9451586Z
+validate	Unit tests	2026-10-07T15:01:52.9483017Z [90mstderr[2m | src/components/__tests__/analytics-host-guard.test.tsx[2m > [22m[2manalytics on localhost (0269 host guard)[2m > [22m[2mPostHogAnalytics injects no snippet
+validate	Unit tests	2026-10-07T15:01:52.9484715Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:52.9485253Z
+validate	Unit tests	2026-10-07T15:01:52.9496907Z [90mstderr[2m | src/components/__tests__/analytics-host-guard.test.tsx[2m > [22m[2manalytics on localhost (0269 host guard)[2m > [22m[2mtrack() still reaches /api/track but forwards nothing to a vendor
+validate	Unit tests	2026-10-07T15:01:52.9498661Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:52.9499197Z
+validate	Unit tests	2026-10-07T15:01:52.9577214Z [90mstderr[2m | src/components/__tests__/analytics-host-guard.test.tsx[2m > [22m[2manalytics on localhost (0269 host guard)[2m > [22m[2mtrack() still reaches /api/track but forwards nothing to a vendor
+validate	Unit tests	2026-10-07T15:01:52.9578993Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:52.9579525Z
+validate	Unit tests	2026-10-07T15:01:52.9587753Z  [32m✓[39m src/components/__tests__/analytics-host-guard.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 30[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:53.2327335Z  [32m✓[39m src/lib/pricing/__tests__/club-app-sale.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:53.8250185Z [90mstderr[2m | src/components/__tests__/posthog-exposure.test.tsx[2m > [22m[2mPosthogExposureBeacon[2m > [22m[2mmeasures its content parent after one visible second, once
+validate	Unit tests	2026-10-07T15:01:53.8252451Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:53.8253495Z
+validate	Unit tests	2026-10-07T15:01:53.8387344Z [90mstderr[2m | src/components/__tests__/posthog-exposure.test.tsx[2m > [22m[2mPosthogExposureBeacon[2m > [22m[2mmeasures its content parent after one visible second, once
+validate	Unit tests	2026-10-07T15:01:53.8389787Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:53.8390390Z
+validate	Unit tests	2026-10-07T15:01:53.8405449Z [90mstderr[2m | src/components/__tests__/posthog-exposure.test.tsx[2m > [22m[2mPosthogExposureBeacon[2m > [22m[2mcancels the dwell when the content leaves view
+validate	Unit tests	2026-10-07T15:01:53.8407032Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:53.8407539Z
+validate	Unit tests	2026-10-07T15:01:53.8426041Z [90mstderr[2m | src/components/__tests__/posthog-exposure.test.tsx[2m > [22m[2mPosthogExposureBeacon[2m > [22m[2mcancels the dwell when the content leaves view
+validate	Unit tests	2026-10-07T15:01:53.8427604Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:53.8428144Z
+validate	Unit tests	2026-10-07T15:01:53.8438075Z  [32m✓[39m src/components/__tests__/posthog-exposure.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:54.1182838Z  [32m✓[39m src/lib/__tests__/circle-share.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:54.4421298Z  [32m✓[39m src/lib/pricing/__tests__/club-app-mobile-offer.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:54.9031735Z  [32m✓[39m src/lib/__tests__/alternates.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:55.2222904Z  [32m✓[39m src/lib/__tests__/checkout-locale.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:55.5475559Z  [32m✓[39m src/app/help/structured.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:57.0407302Z  [32m✓[39m src/components/tools/session/__tests__/settings-planner.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 610[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:57.0450139Z    [33m[2m✓[22m[39m plain prompts retain choices and explicit prompt knobs override only their own fields [33m 425[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:57.9460347Z [90mstderr[2m | src/app/account/__tests__/account-gate.test.tsx[2m > [22m[2m/account gate[2m > [22m[2mshows the Gate Card with NO data behind it when signed out
+validate	Unit tests	2026-10-07T15:01:57.9461890Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:57.9463681Z
+validate	Unit tests	2026-10-07T15:01:57.9689992Z [90mstderr[2m | src/app/account/__tests__/account-gate.test.tsx[2m > [22m[2m/account gate[2m > [22m[2mshows the Gate Card with NO data behind it when signed out
+validate	Unit tests	2026-10-07T15:01:57.9691808Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:57.9692689Z
+validate	Unit tests	2026-10-07T15:01:57.9700674Z [90mstderr[2m | src/app/account/__tests__/account-gate.test.tsx[2m > [22m[2m/account gate[2m > [22m[2mroutes the gate CTA back to /account after sign-in
+validate	Unit tests	2026-10-07T15:01:57.9702078Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:57.9702851Z
+validate	Unit tests	2026-10-07T15:01:57.9759796Z [90mstderr[2m | src/app/account/__tests__/account-gate.test.tsx[2m > [22m[2m/account gate[2m > [22m[2mroutes the gate CTA back to /account after sign-in
+validate	Unit tests	2026-10-07T15:01:57.9761123Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:57.9761906Z
+validate	Unit tests	2026-10-07T15:01:57.9768289Z [90mstderr[2m | src/app/account/__tests__/account-gate.test.tsx[2m > [22m[2m/account gate[2m > [22m[2mreserves the shell (no gate, no data) while the session resolves
+validate	Unit tests	2026-10-07T15:01:57.9769537Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:57.9770268Z
+validate	Unit tests	2026-10-07T15:01:57.9785877Z [90mstderr[2m | src/app/account/__tests__/account-gate.test.tsx[2m > [22m[2m/account gate[2m > [22m[2mreserves the shell (no gate, no data) while the session resolves
+validate	Unit tests	2026-10-07T15:01:57.9787804Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:01:57.9788503Z
+validate	Unit tests	2026-10-07T15:01:57.9795086Z  [32m✓[39m src/app/account/__tests__/account-gate.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 37[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:58.6261835Z  [32m✓[39m src/components/pricing/__tests__/how-it-works.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:58.9062039Z  [32m✓[39m src/lib/pricing/__tests__/club-app-offer.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:01:59.2057739Z  [32m✓[39m src/lib/__tests__/sanitize-public-html.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:00.3281968Z  [32m✓[39m src/app/soccer-league-software/__tests__/soccer-page.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 219[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:00.6742504Z  [32m✓[39m src/lib/__tests__/checkout-url-boundary.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:00.9522728Z  [32m✓[39m src/i18n/__tests__/organizer-fee-disclosure.test.ts [2m([22m[2m18 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:01.7660060Z [90mstderr[2m | src/components/__tests__/checkout-owner-fence.test.tsx[2m > [22m[2mcheckout action owner fence[2m > [22m[2mblocks stale plan click before analytics, storage, or network
+validate	Unit tests	2026-10-07T15:02:01.7672078Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:01.7672875Z
+validate	Unit tests	2026-10-07T15:02:01.7684321Z [90mstderr[2m | src/components/__tests__/checkout-owner-fence.test.tsx[2m > [22m[2mcheckout action owner fence[2m > [22m[2mblocks stale plan click before analytics, storage, or network
+validate	Unit tests	2026-10-07T15:02:01.7685623Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:01.7686161Z
+validate	Unit tests	2026-10-07T15:02:01.7715235Z [90mstderr[2m | src/components/__tests__/checkout-owner-fence.test.tsx[2m > [22m[2mcheckout action owner fence[2m > [22m[2mblocks stale product click before analytics, storage, or network
+validate	Unit tests	2026-10-07T15:02:01.7716949Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:01.7717466Z
+validate	Unit tests	2026-10-07T15:02:01.7723836Z [90mstderr[2m | src/components/__tests__/checkout-owner-fence.test.tsx[2m > [22m[2mcheckout action owner fence[2m > [22m[2mblocks stale product click before analytics, storage, or network
+validate	Unit tests	2026-10-07T15:02:01.7725053Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:01.7725531Z
+validate	Unit tests	2026-10-07T15:02:01.7733584Z  [32m✓[39m src/components/__tests__/checkout-owner-fence.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:02.0472567Z  [32m✓[39m src/lib/__tests__/plan-tier.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:02.3913288Z [90mstderr[2m | src/test/css-purity-ratchet.test.ts[2m > [22m[2mcss purity ratchet (0689 Lane 6)[2m > [22m[2mwarns when counts dropped so the baseline can be lowered in the same change
+validate	Unit tests	2026-10-07T15:02:02.3918225Z [22m[39m[css-purity] counts dropped; run `npm run gate:css-purity -- --update-baseline`:
+validate	Unit tests	2026-10-07T15:02:02.3924124Z  [32m✓[39m src/test/css-purity-ratchet.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:02.3931669Z   src/app/account/error.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3932216Z   src/app/calculator/page.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3932828Z   src/app/callback/page.tsx font-size-arbitrary: 2 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3933456Z   src/app/case-study/dade-county-fc/page.tsx font-size-arbitrary: 6 -> 1
+validate	Unit tests	2026-10-07T15:02:02.3934050Z   src/app/club-app/commerce/page.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3934590Z   src/app/club-app/page.tsx font-size-arbitrary: 2 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3935056Z   src/app/globals.css font-size-literal: 88 -> 85
+validate	Unit tests	2026-10-07T15:02:02.3935916Z   src/app/news/error.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3936518Z   src/app/organizers/page.tsx font-size-arbitrary: 10 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3937030Z   src/app/pricing/page.tsx font-size-arbitrary: 2 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3937527Z   src/app/tools/page.tsx font-size-arbitrary: 2 -> 1
+validate	Unit tests	2026-10-07T15:02:02.3938097Z   src/app/user-profile/[id]/CareerSection.tsx font-size-arbitrary: 5 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3938776Z   src/app/user-profile/[id]/PassportClient.tsx font-size-arbitrary: 2 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3939357Z   src/components/CoinRail.tsx font-size-arbitrary: 2 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3939864Z   src/components/Hero.tsx font-size-arbitrary: 3 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3940385Z   src/components/HowItWorks.tsx font-size-arbitrary: 5 -> 3
+validate	Unit tests	2026-10-07T15:02:02.3941010Z   src/components/LegalNav.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3941554Z   src/components/PricingStrip.tsx font-size-arbitrary: 11 -> 3
+validate	Unit tests	2026-10-07T15:02:02.3942110Z   src/components/ProductCards.tsx font-size-arbitrary: 3 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3942655Z   src/components/SiteFooter.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3943185Z   src/components/SiteHeader.tsx font-size-arbitrary: 3 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3943726Z   src/components/StudioMonitor.tsx font-size-arbitrary: 3 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3944378Z   src/components/TickerMarquee.tsx font-size-arbitrary: 4 -> 1
+validate	Unit tests	2026-10-07T15:02:02.3944940Z   src/components/account/KpiStrip.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3945540Z   src/components/account/OpenPositions.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3946317Z   src/components/case-study/CaseStudyCallout.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3946999Z   src/components/case-study/CaseStudyFigure.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3947709Z   src/components/club-app/CommerceScreenshots.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3948380Z   src/components/club-app/DcfcLiveExample.tsx font-size-arbitrary: 8 -> 6
+validate	Unit tests	2026-10-07T15:02:02.3948997Z   src/components/earn/FeeCalculator.tsx font-size-arbitrary: 9 -> 2
+validate	Unit tests	2026-10-07T15:02:02.3949570Z   src/components/earn/FoundingForm.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3950101Z   src/components/earn/MoneyFlow.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3950621Z   src/components/earn/MoneyStrip.tsx font-size-arbitrary: 3 -> 1
+validate	Unit tests	2026-10-07T15:02:02.3951288Z   src/components/earn/PlayWidget.tsx font-size-arbitrary: 2 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3951783Z   src/components/earn/Shot.tsx font-size-arbitrary: 2 -> 1
+validate	Unit tests	2026-10-07T15:02:02.3952323Z   src/components/esports/EsportsPageBody.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3952870Z   src/components/help/help.module.css font-size-literal: 14 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3953423Z   src/components/matchcam/MatchCamPageBody.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3954001Z   src/components/media/ExplainerVideo.tsx font-size-arbitrary: 1 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3954572Z   src/components/pricing/ClubAppRateCard.tsx font-size-arbitrary: 3 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3955192Z   src/components/pricing/CustomDomainConcierge.tsx font-size-arbitrary: 3 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3955796Z   src/components/pricing/FeeComparison.tsx font-size-arbitrary: 5 -> 2
+validate	Unit tests	2026-10-07T15:02:02.3956395Z   src/components/pricing/PlayerToolsPricing.tsx font-size-arbitrary: 4 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3957014Z   src/components/pricing/ProductsPricing.tsx font-size-arbitrary: 16 -> 2
+validate	Unit tests	2026-10-07T15:02:02.3957626Z   src/components/proclubs/ProClubsPageBody.tsx font-size-arbitrary: 2 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3958236Z   src/components/products/PlayPageBody.tsx font-size-arbitrary: 9 -> 3
+validate	Unit tests	2026-10-07T15:02:02.3958861Z   src/components/quote/QuoteBuilder.tsx font-size-arbitrary: 3 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3962060Z   src/components/solutions/WhoItsFor.tsx font-size-arbitrary: 2 -> 0
+validate	Unit tests	2026-10-07T15:02:02.3962480Z
+validate	Unit tests	2026-10-07T15:02:02.9273690Z  [32m✓[39m src/lib/__tests__/circle-intent.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:03.2382208Z  [32m✓[39m src/json-ld-escaping.gate.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 45[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:03.5033117Z  [32m✓[39m src/lib/__tests__/logout-framing.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:03.7697851Z  [32m✓[39m src/lib/__tests__/env.amplitude.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:04.4679988Z  [32m✓[39m src/components/club-app/DcfcLiveExample.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 95[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:04.7549482Z  [32m✓[39m src/lib/__tests__/human-gate-settle.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:05.0478565Z  [32m✓[39m src/lib/pricing/__tests__/slots.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:05.5952229Z  [32m✓[39m src/components/tools/session/__tests__/recent.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:06.3090931Z [90mstderr[2m | src/components/account/__tests__/passport-card.test.tsx[2m > [22m[2moffice passport card[2m > [22m[2mlinks to the public passport for the canonical id
+validate	Unit tests	2026-10-07T15:02:06.3122163Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:06.3123160Z
+validate	Unit tests	2026-10-07T15:02:06.3239307Z [90mstderr[2m | src/components/account/__tests__/passport-card.test.tsx[2m > [22m[2moffice passport card[2m > [22m[2mlinks to the public passport for the canonical id
+validate	Unit tests	2026-10-07T15:02:06.3241637Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:06.3242145Z
+validate	Unit tests	2026-10-07T15:02:06.3257564Z [90mstderr[2m | src/components/account/__tests__/passport-card.test.tsx[2m > [22m[2moffice passport card[2m > [22m[2mpublishes NO figure of its own — that is the whole point
+validate	Unit tests	2026-10-07T15:02:06.3259261Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:06.3259817Z
+validate	Unit tests	2026-10-07T15:02:06.3286042Z [90mstderr[2m | src/components/account/__tests__/passport-card.test.tsx[2m > [22m[2moffice passport card[2m > [22m[2mpublishes NO figure of its own — that is the whole point
+validate	Unit tests	2026-10-07T15:02:06.3287681Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:06.3288206Z
+validate	Unit tests	2026-10-07T15:02:06.3296039Z [90mstderr[2m | src/components/account/__tests__/passport-card.test.tsx[2m > [22m[2moffice passport card[2m > [22m[2msays the link is pending rather than linking somewhere wrong
+validate	Unit tests	2026-10-07T15:02:06.3297660Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:06.3298228Z
+validate	Unit tests	2026-10-07T15:02:06.3316513Z [90mstderr[2m | src/components/account/__tests__/passport-card.test.tsx[2m > [22m[2moffice passport card[2m > [22m[2msays the link is pending rather than linking somewhere wrong
+validate	Unit tests	2026-10-07T15:02:06.3318151Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:06.3318975Z
+validate	Unit tests	2026-10-07T15:02:06.3325239Z [90mstderr[2m | src/components/account/__tests__/passport-card.test.tsx[2m > [22m[2moffice passport card[2m > [22m[2mescapes an id rather than pasting it into the href raw
+validate	Unit tests	2026-10-07T15:02:06.3326604Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:06.3327072Z
+validate	Unit tests	2026-10-07T15:02:06.3341546Z [90mstderr[2m | src/components/account/__tests__/passport-card.test.tsx[2m > [22m[2moffice passport card[2m > [22m[2mescapes an id rather than pasting it into the href raw
+validate	Unit tests	2026-10-07T15:02:06.3343088Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:06.3343608Z
+validate	Unit tests	2026-10-07T15:02:06.3354588Z  [32m✓[39m src/components/account/__tests__/passport-card.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:06.6944397Z  [32m✓[39m src/lib/__tests__/blog-rss.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:07.2428219Z  [32m✓[39m src/app/__tests__/llms-txt.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:07.5635102Z  [32m✓[39m src/lib/__tests__/identity-directory-0400.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:07.8496961Z  [32m✓[39m src/i18n/__tests__/pricing-fee-truth.test.ts [2m([22m[2m37 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:08.1153761Z  [32m✓[39m src/components/showcase/__tests__/demo-model.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:09.0223184Z  [32m✓[39m src/app/__tests__/organizers-conversion.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 66[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:10.0412718Z  [32m✓[39m src/components/showcase/__tests__/routes.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 178[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:10.6513490Z  [32m✓[39m src/components/__tests__/tracked-cta-link.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:10.9542730Z  [32m✓[39m src/lib/__tests__/lead-rate-limit.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 43[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:11.5496097Z [90mstderr[2m | src/components/earn/__tests__/EarnImage.test.tsx[2m > [22m[2mEarnImage[2m > [22m[2mfills its frame with a true-width srcset and the cover-aware sizes
+validate	Unit tests	2026-10-07T15:02:11.5511713Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:11.5531201Z
+validate	Unit tests	2026-10-07T15:02:11.5659075Z [90mstderr[2m | src/components/earn/__tests__/EarnImage.test.tsx[2m > [22m[2mEarnImage[2m > [22m[2mfills its frame with a true-width srcset and the cover-aware sizes
+validate	Unit tests	2026-10-07T15:02:11.5660139Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:11.5660497Z
+validate	Unit tests	2026-10-07T15:02:11.5669109Z [90mstderr[2m | src/components/earn/__tests__/EarnImage.test.tsx[2m > [22m[2mEarnImage[2m > [22m[2mkeeps intrinsic width/height for an in-flow capture
+validate	Unit tests	2026-10-07T15:02:11.5670030Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:11.5670409Z
+validate	Unit tests	2026-10-07T15:02:11.5684644Z [90mstderr[2m | src/components/earn/__tests__/EarnImage.test.tsx[2m > [22m[2mEarnImage[2m > [22m[2mkeeps intrinsic width/height for an in-flow capture
+validate	Unit tests	2026-10-07T15:02:11.5686415Z [22m[39mImage with src "/earn/shots/registrations.webp" has a "loader" property that does not implement width. Please implement it or use the "unoptimized" property instead.
+validate	Unit tests	2026-10-07T15:02:11.5687354Z Read more: https://nextjs.org/docs/messages/next-image-missing-loader-width
+validate	Unit tests	2026-10-07T15:02:11.5687730Z
+validate	Unit tests	2026-10-07T15:02:11.5692483Z [90mstderr[2m | src/components/earn/__tests__/EarnImage.test.tsx[2m > [22m[2mEarnImage[2m > [22m[2mkeeps intrinsic width/height for an in-flow capture
+validate	Unit tests	2026-10-07T15:02:11.5693395Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:11.5694104Z
+validate	Unit tests	2026-10-07T15:02:11.5703000Z  [32m✓[39m src/components/earn/__tests__/EarnImage.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:12.1368188Z  [32m✓[39m src/components/__tests__/analytics-identity-ready.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 10[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:14.4202808Z  [32m✓[39m src/components/tools/session/__tests__/session-sheet-lessons.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1486[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:14.4251942Z      [33m[2m✓[22m[39m links matching lessons as outbound YouTube links in en [33m 447[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:14.4252707Z      [33m[2m✓[22m[39m links matching lessons as outbound YouTube links in de [33m 556[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:14.4253114Z      [33m[2m✓[22m[39m links matching lessons as outbound YouTube links in ru [33m 482[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:14.7022507Z  [32m✓[39m src/lib/pricing/__tests__/plan-copy-parity.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:15.0442432Z  [32m✓[39m src/i18n/__tests__/pricing-locale-integrity-0508.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 80[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:15.3626719Z  [32m✓[39m src/native-date-inputs.gate.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 64[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:16.2777421Z  [32m✓[39m src/app/registration-fees-compared/__tests__/fees-compared.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 93[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:17.3708787Z  [32m✓[39m src/app/tournament-software/__tests__/tournament-software-i18n-0563.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 213[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:18.7322916Z  [32m✓[39m src/components/__tests__/pricing-grid-publication-0728.test.tsx [2m([22m[2m18 tests[22m[2m)[22m[33m 601[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:19.8445096Z  [32m✓[39m src/app/league-management-software/__tests__/league-management-software-i18n-0563.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 205[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:20.1475049Z  [32m✓[39m src/lib/pricing/__tests__/ai-assistant-plan-lines.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:21.2860391Z  [32m✓[39m src/app/registration/__tests__/registration-i18n-0563.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 225[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:21.5653258Z  [32m✓[39m src/lib/__tests__/images.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:21.8818494Z  [32m✓[39m src/lib/__tests__/club-trial-checkout.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:22.8291838Z  [32m✓[39m src/components/tools/session/__tests__/session-diagram-legend.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 124[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:23.1043953Z  [32m✓[39m src/lib/__tests__/analytics-ci-contract.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:23.7987657Z  [32m✓[39m src/app/__tests__/club-app-availability.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 89[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:24.0878168Z  [32m✓[39m src/lib/pricing/__tests__/plan-prices.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:24.6975357Z [90mstderr[2m | src/components/__tests__/analytics-meta-config.test.tsx[2m > [22m[2mLanding Meta Pixel configuration[2m > [22m[2mpasses the audited public Pixel id to the shared consent-gated loader
+validate	Unit tests	2026-10-07T15:02:24.6977064Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:24.6977918Z
+validate	Unit tests	2026-10-07T15:02:24.7047458Z [90mstderr[2m | src/components/__tests__/analytics-meta-config.test.tsx[2m > [22m[2mLanding Meta Pixel configuration[2m > [22m[2mpasses the audited public Pixel id to the shared consent-gated loader
+validate	Unit tests	2026-10-07T15:02:24.7048846Z [22m[39mThe current testing environment is not configured to support act(...)
+validate	Unit tests	2026-10-07T15:02:24.7049677Z
+validate	Unit tests	2026-10-07T15:02:24.7076558Z  [32m✓[39m src/components/__tests__/analytics-meta-config.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:25.8416925Z  [32m✓[39m src/app/scheduling/__tests__/scheduling-i18n-0563.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 185[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:27.2865806Z  [32m✓[39m src/app/training/__tests__/training-page.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 479[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:27.2886565Z      [33m[2m✓[22m[39m renders every locale with no unresolved key [33m 408[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:27.7469896Z  [32m✓[39m src/lib/__tests__/english-only-paths.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:28.4483739Z  [32m✓[39m src/components/products/__tests__/product-engine-proof.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 46[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:29.0822638Z  [32m✓[39m src/components/tools/session/__tests__/settings.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:29.3596016Z  [32m✓[39m src/lib/__tests__/checkout-analytics-contract.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:29.6328861Z  [32m✓[39m src/lib/__tests__/store-clean.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:29.9273001Z  [32m✓[39m src/lib/__tests__/html-limited-bots.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:30.2327112Z  [32m✓[39m src/lib/__tests__/safe-return-to.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:30.5380677Z  [32m✓[39m src/providers/__tests__/client-dictionary.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:30.8318414Z  [32m✓[39m src/test/local-origin-proxy.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:31.5832768Z  [32m✓[39m src/app/account/__tests__/error.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 23[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:31.8663077Z  [32m✓[39m src/lib/__tests__/snap.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:32.1903738Z  [32m✓[39m src/lib/pricing/__tests__/plan-name-parity.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:32.4823030Z  [32m✓[39m src/lib/pricing/__tests__/public-offer-locales-0728.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:32.7658149Z  [32m✓[39m src/lib/__tests__/analytics-event-vocabulary.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:33.3176897Z  [32m✓[39m src/components/pricing/__tests__/facilities-live-example-0505.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:33.8328754Z  [32m✓[39m src/lib/__tests__/home-players.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 4[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:34.1324521Z  [32m✓[39m src/lib/number-format.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:34.4572849Z  [32m✓[39m src/app/__tests__/leagues-route.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:35.0061379Z  [32m✓[39m src/lib/__tests__/dedicated-oidc-client.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+validate	Unit tests	2026-10-07T15:02:35.0201253Z
+validate	Unit tests	2026-10-07T15:02:35.0222368Z [2m Test Files [22m [1m[32m283 passed[39m[22m[90m (283)[39m
+validate	Unit tests	2026-10-07T15:02:35.0270607Z [2m      Tests [22m [1m[32m5745 passed[39m[22m[2m | [22m[33m1 skipped[39m[90m (5746)[39m
+validate	Unit tests	2026-10-07T15:02:35.0271558Z [2m   Start at [22m 14:57:48
+validate	Unit tests	2026-10-07T15:02:35.0274200Z [2m   Duration [22m 286.93s[2m (transform 15.53s, setup 53.96s, import 52.13s, tests 122.25s, environment 34.41s)[22m
+validate	Unit tests	2026-10-07T15:02:35.0275852Z

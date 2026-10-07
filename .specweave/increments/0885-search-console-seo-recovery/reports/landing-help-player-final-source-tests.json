@@ -1,0 +1,55 @@
+{
+  "worktree": "/tmp/easychamp-seo-inventory-landing-20261007",
+  "base": "07cde1843350a8474fccef2aad86adc6ce3ef768",
+  "head": "1cf2f06ffc6125e2b30bbb8fb702e90d305759cb",
+  "node": "22.20.0",
+  "fullTest": {
+    "invocation": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never npm test -- --maxWorkers=4 > /tmp/easychamp-seo-audit-20261007/landing-help-player-width-full-final-tests.log 2>&1",
+    "exitCode": 0,
+    "filesPassed": 283,
+    "testsPassed": 5745,
+    "testsSkipped": 1,
+    "durationSeconds": 48.58
+  },
+  "focusedTest": {
+    "exitCode": 0,
+    "filesPassed": 3,
+    "testsPassed": 25,
+    "note": "25 focused tests passed in the documented coverage invocation below; no separate final focused-only invocation claimed."
+  },
+  "coverage": {
+    "invocation": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never npx vitest run src/components/help/HelpVideo.test.tsx src/components/help/guides.test.ts src/app/help/structured.test.ts --coverage --coverage.include=src/components/help/HelpVideo.tsx --maxWorkers=4 > /tmp/easychamp-seo-audit-20261007/landing-help-player-minviewport-coverage.log 2>&1",
+    "exitCode": 0,
+    "statements": "100% (13/13)",
+    "branches": "100% (20/20)",
+    "functions": "100% (3/3)",
+    "lines": "100% (11/11)",
+    "note": "Component source at coverage head391fc08 equals final1cf2f06; final follow-up changes only CSS width constraint."
+  },
+  "build": {
+    "invocation": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never npm run build > /tmp/easychamp-seo-audit-20261007/landing-help-player-width-build.log 2>&1",
+    "exitCode": 0,
+    "staticPages": 290
+  },
+  "typecheck": {
+    "invocation": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never npm run typecheck > /tmp/easychamp-seo-audit-20261007/landing-help-player-width-typecheck.log 2>&1",
+    "exitCode": 0
+  },
+  "retainedEarlierFailures": [
+    {
+      "logs": [
+        "landing-help-player-focused-tests.log",
+        "landing-help-player-full-tests.log"
+      ],
+      "cause": "New regression read the unsupported jsdom iframe.allow property; assertion corrected to the rendered allow attribute without weakening the no-autoplay requirement."
+    },
+    {
+      "receipt": "help-initial-players-local-proof.json",
+      "cause": "Headless mobile YouTube uses accessible Play video control instead of the desktop .ytp-large-play-button selector. Raw HTML and all 36 geometry checks passed. Corrected headless playback check uses the actual accessible player button."
+    },
+    {
+      "receipt": "help-initial-players-local-minviewport-proof.json",
+      "cause": "Browser regression caught aspect-ratio/min-height expanding the automatic wrapper width on320px. Final CSS explicitly constrains wrapper to100% width; final geometry checks retain minimum200px height."
+    }
+  ]
+}
