@@ -1,0 +1,12 @@
+{
+  "id": "9012661d-9f49-47a9-b223-140a4a630912",
+  "status": "success",
+  "exitCode": 0,
+  "startedAt": "2026-10-07T07:20:03.639Z",
+  "endedAt": "2026-10-07T07:20:27.316Z",
+  "nativeResponse": "Reading the two local files.\n\nSWITCH_RESTORE_0884\nSWITCH_PLAN_0884",
+  "model": null,
+  "sandbox": "read-only",
+  "fileHashesUnchanged": true,
+  "nativeTurnCompleted": true
+}

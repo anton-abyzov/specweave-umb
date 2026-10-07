@@ -1,0 +1,19 @@
+test_duplicate_members_rejected (__main__.ArchiveTests) ... ok
+test_regular_archive_and_executable_mode (__main__.ArchiveTests) ... ok
+test_unsafe_archive_rejected_before_any_file_created (__main__.ArchiveTests) ... ok
+test_asynchronous_teardown_waits_before_replacement (__main__.InstallerTests) ... ok
+test_bootstrap_failure_rolls_back_exact_service (__main__.InstallerTests) ... ok
+test_changed_old_bundle_preserved (__main__.InstallerTests) ... ok
+test_existing_install_lock_preserved (__main__.InstallerTests) ... ok
+test_failed_bootout_keeps_loaded_prior_service (__main__.InstallerTests) ... ok
+test_init_failure_and_missing_domain_do_not_stop_service (__main__.InstallerTests) ... ok
+test_modified_service_and_loaded_foreign_identity_preserved (__main__.InstallerTests) ... ok
+test_receipt_failure_after_bootstrap_rolls_back (__main__.InstallerTests) ... ok
+test_unknown_launcher_preserved_even_optimized (__main__.InstallerTests) ... ok
+test_update_success_preserves_profiles_and_previous_bundle (__main__.InstallerTests) ... ok
+test_wait_is_bounded_and_rejects_unknown_errors (__main__.InstallerTests) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 6.494s
+
+OK

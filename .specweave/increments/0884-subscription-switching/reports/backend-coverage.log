@@ -1,0 +1,208 @@
+TAP version 13
+# Subtest: dirty tracked file restores into real isolated worktree with base/hash checks
+ok 1 - dirty tracked file restores into real isolated worktree with base/hash checks
+  ---
+  duration_ms: 837.918416
+  type: 'test'
+  ...
+# Subtest: checkpoint rejects untracked, absolute/traversal, env, keys, symlinks and quoted JSON secrets
+ok 2 - checkpoint rejects untracked, absolute/traversal, env, keys, symlinks and quoted JSON secrets
+  ---
+  duration_ms: 704.17825
+  type: 'test'
+  ...
+# Subtest: tracked base secret remains denied even after dirty working file removes it
+ok 3 - tracked base secret remains denied even after dirty working file removes it
+  ---
+  duration_ms: 973.366291
+  type: 'test'
+  ...
+# Subtest: restoration preserves executable permissions and supports explicitly staged additions
+ok 4 - restoration preserves executable permissions and supports explicitly staged additions
+  ---
+  duration_ms: 786.778958
+  type: 'test'
+  ...
+# Subtest: staged deletion restores without requiring an entry in the capture-time index
+ok 5 - staged deletion restores without requiring an entry in the capture-time index
+  ---
+  duration_ms: 794.320042
+  type: 'test'
+  ...
+# Subtest: excluded sensitive dirty paths do not block allowlisted capture or leak into metadata
+ok 6 - excluded sensitive dirty paths do not block allowlisted capture or leak into metadata
+  ---
+  duration_ms: 1097.21725
+  type: 'test'
+  ...
+# Subtest: escaped native JSON credentials remain denied in tracked checkpoint content
+ok 7 - escaped native JSON credentials remain denied in tracked checkpoint content
+  ---
+  duration_ms: 551.77825
+  type: 'test'
+  ...
+# Subtest: restore rejects manifest hash, file hash, base mismatch and malicious allowlist before worktree creation
+ok 8 - restore rejects manifest hash, file hash, base mismatch and malicious allowlist before worktree creation
+  ---
+  duration_ms: 938.051417
+  type: 'test'
+  ...
+# Subtest: supported app-server initialized handshake precedes account/rateLimits/read
+ok 9 - supported app-server initialized handshake precedes account/rateLimits/read
+  ---
+  duration_ms: 609.230666
+  type: 'test'
+  ...
+# Subtest: Claude consumer OAuth is eligible; API keys and unknown identity cannot spend subscriptions
+ok 10 - Claude consumer OAuth is eligible; API keys and unknown identity cannot spend subscriptions
+  ---
+  duration_ms: 697.586167
+  type: 'test'
+  ...
+# Subtest: ambient legacy Claude OAuth in empty isolated roots does not prove multiple subscriptions
+ok 11 - ambient legacy Claude OAuth in empty isolated roots does not prove multiple subscriptions
+  ---
+  duration_ms: 1149.175667
+  type: 'test'
+  ...
+# Subtest: CLI reinspects isolated Claude login and blocks ambient fallback before spawning sign-in
+ok 12 - CLI reinspects isolated Claude login and blocks ambient fallback before spawning sign-in
+  ---
+  duration_ms: 657.511125
+  type: 'test'
+  ...
+# Subtest: native environment keeps HOME while selecting config home and suppressing inherited API auth
+ok 13 - native environment keeps HOME while selecting config home and suppressing inherited API auth
+  ---
+  duration_ms: 0.392125
+  type: 'test'
+  ...
+# Subtest: Claude default leaves native keychain config scope unset while isolated profiles set it
+ok 14 - Claude default leaves native keychain config scope unset while isolated profiles set it
+  ---
+  duration_ms: 0.150125
+  type: 'test'
+  ...
+# Subtest: native window duration maps a weekly-only primary and honors ordinary/spend-control denial
+ok 15 - native window duration maps a weekly-only primary and honors ordinary/spend-control denial
+  ---
+  duration_ms: 0.133625
+  type: 'test'
+  ...
+# Subtest: init creates seven distinct nonsecret slots and preserves native auth/config
+ok 16 - init creates seven distinct nonsecret slots and preserves native auth/config
+  ---
+  duration_ms: 530.697917
+  type: 'test'
+  ...
+# Subtest: selection excludes auth-required, exhausted, stale, active and unknown
+ok 17 - selection excludes auth-required, exhausted, stale, active and unknown
+  ---
+  duration_ms: 0.433708
+  type: 'test'
+  ...
+# Subtest: three deterministic policies and provider preference choose different eligible slots
+ok 18 - three deterministic policies and provider preference choose different eligible slots
+  ---
+  duration_ms: 0.365042
+  type: 'test'
+  ...
+# Subtest: explicit selection can return to automatic; corrupt/error/stale quota never becomes eligible
+ok 19 - explicit selection can return to automatic; corrupt/error/stale quota never becomes eligible
+  ---
+  duration_ms: 0.14
+  type: 'test'
+  ...
+# Subtest: stale positive legacy Claude slot state cannot regain eligibility from manual quota or allow-unknown
+ok 20 - stale positive legacy Claude slot state cannot regain eligibility from manual quota or allow-unknown
+  ---
+  duration_ms: 0.105625
+  type: 'test'
+  ...
+# Subtest: exclusive lease rejects duplicate canonical or symlinked workspace
+ok 21 - exclusive lease rejects duplicate canonical or symlinked workspace
+  ---
+  duration_ms: 529.115542
+  type: 'test'
+  ...
+# Subtest: launch reservation rejects a newer unverified identity after an earlier eligible recommendation
+ok 22 - launch reservation rejects a newer unverified identity after an earlier eligible recommendation
+  ---
+  duration_ms: 458.085625
+  type: 'test'
+  ...
+# Subtest: failed native run persists failure and redacts JSON credentials; no synthetic success
+ok 23 - failed native run persists failure and redacts JSON credentials; no synthetic success
+  ---
+  duration_ms: 581.34925
+  type: 'test'
+  ...
+# Subtest: quota failover occurs only after exit; retains failed attempt, checkpoints dirty tracked files
+ok 24 - quota failover occurs only after exit; retains failed attempt, checkpoints dirty tracked files
+  ---
+  duration_ms: 777.6225
+  type: 'test'
+  ...
+# Subtest: dirty workspace without allowlist stops failover and timeout cannot become success
+ok 25 - dirty workspace without allowlist stops failover and timeout cannot become success
+  ---
+  duration_ms: 1681.196792
+  type: 'test'
+  ...
+# Subtest: explicit Claude file-write run uses ordinary permissions and passes mandatory headless rules
+ok 26 - explicit Claude file-write run uses ordinary permissions and passes mandatory headless rules
+  ---
+  duration_ms: 594.49625
+  type: 'test'
+  ...
+# Subtest: authoritative quota failure excludes profile across groups until newer valid observation
+ok 27 - authoritative quota failure excludes profile across groups until newer valid observation
+  ---
+  duration_ms: 978.906959
+  type: 'test'
+  ...
+# Subtest: real-shaped Codex NDJSON nested strings and secret fields are redacted in receipts
+ok 28 - real-shaped Codex NDJSON nested strings and secret fields are redacted in receipts
+  ---
+  duration_ms: 572.667209
+  type: 'test'
+  ...
+# Subtest: loopback API rejects cross-origin/Host/schema/oversize and never exposes an exec route
+ok 29 - loopback API rejects cross-origin/Host/schema/oversize and never exposes an exec route
+  ---
+  duration_ms: 545.580791
+  type: 'test'
+  ...
+# Subtest: dedicated SSH dashboard aliases require exact same-origin JSON and exclude other hosts/ports
+ok 30 - dedicated SSH dashboard aliases require exact same-origin JSON and exclude other hosts/ports
+  ---
+  duration_ms: 463.738541
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6730.235167
+# start of coverage report
+# -------------------------------------------------------------------------
+# file                   | line % | branch % | funcs % | uncovered lines
+# -------------------------------------------------------------------------
+# contrib                |        |          |         | 
+#  subscription-switch   |        |          |         | 
+#   lib                  |        |          |         | 
+#    checkpoint.mjs      |  96.77 |    78.30 |  100.00 | 119-122
+#    native.mjs          |  76.34 |    78.02 |   61.11 | 37 93-100 102-123
+#    policy.mjs          | 100.00 |    94.83 |   95.83 | 
+#    runner.mjs          | 100.00 |    82.98 |  100.00 | 
+#    server.mjs          |  95.16 |    80.77 |  100.00 | 40-42
+#    state.mjs           | 100.00 |    82.35 |  100.00 | 
+#    util.mjs            | 100.00 |    84.21 |   78.26 | 
+# -------------------------------------------------------------------------
+# all files              |  93.82 |    83.62 |   88.60 | 
+# -------------------------------------------------------------------------
+# end of coverage report

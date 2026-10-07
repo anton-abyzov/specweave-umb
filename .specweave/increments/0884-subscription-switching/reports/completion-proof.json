@@ -1,0 +1,73 @@
+{
+  "observedAt": "2026-10-07T08:06:49.834377+00:00",
+  "sourceCommit": "00fafd0eddfd9f0ace1660ef7e14fbbc3da04d7f",
+  "sourceBranch": "codex/0884-subscription-switch",
+  "baseCommit": "77e6ebb1a",
+  "bundleSha256": "45b0ae98559b5fbd2837d7a3869cab70a790eba502da0ffa4e74a90a23d4c53d",
+  "installedHosts": [
+    "m4",
+    "m1",
+    "m3"
+  ],
+  "installDomains": {
+    "m4": "gui/501",
+    "m1": "gui/501",
+    "m3": "gui/501"
+  },
+  "nativeCodexRuns": {
+    "m4": "9012661d-9f49-47a9-b223-140a4a630912",
+    "m1": "aedf6464-aa12-4936-acf7-37b6b3e46830",
+    "m3": "4a100955-625d-42f3-8dd1-ccfca71c94b8"
+  },
+  "nativeCodexPassedAllHosts": true,
+  "verifiedDistinctCodexQuotaIdentities": 2,
+  "m1m3SameCodexQuotaIdentity": true,
+  "nativeModelIdObserved": false,
+  "checkpointId": "29e1efaa-82db-4da8-8c39-433b15847a70",
+  "restoreHashesAndModesVerified": true,
+  "tests": {
+    "companion": {
+      "pass": 30,
+      "fail": 0,
+      "skip": 0,
+      "libraryLineCoverage": 93.82,
+      "libraryBranchCoverage": 83.62,
+      "libraryFunctionCoverage": 88.6
+    },
+    "installer": {
+      "pass": 14
+    },
+    "anymodel": {
+      "pass": 532,
+      "suites": 102,
+      "skips": 0
+    }
+  },
+  "activationGates": [
+    "Five additional main-host native profile sign-ins",
+    "M1 native Claude consumer subscription identity; legacy isolated profile binding unverified",
+    "Tailscale macOS system-extension consent and native tailnet sign-in on each host",
+    "CLIProxyAPI upstream provider login before proxy inference",
+    "Manual acceptance of the new UI before closing increment0884"
+  ],
+  "proxyInferenceVerified": false,
+  "tailnetConnectivityVerified": false,
+  "crossMachineCheckpointImportVerified": false,
+  "realMultiAccountAutomaticFailoverVerified": false,
+  "sourcePublished": false,
+  "incrementClosed": false,
+  "headlessUi": {
+    "status": "passed",
+    "fixture": false,
+    "intercepted": false,
+    "allHosts": true,
+    "captureCount": 12,
+    "viewportThemes": [
+      "desktop-light",
+      "desktop-dark",
+      "phone-light",
+      "phone-dark"
+    ],
+    "deployedAssetsMatchSource": true
+  }
+}

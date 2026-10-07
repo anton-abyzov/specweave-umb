@@ -28,6 +28,6 @@ Source changes live only in contrib/subscription-switch in isolated SpecWeave wo
 ### T-03 Build the private account dashboard
 - AC: AC-06 | Files: contrib/subscription-switch/public/, contrib/subscription-switch/scripts/ui-check.py | Test: python3 contrib/subscription-switch/scripts/ui-check.py
 ### T-04 Install proxies, companion and isolated T3 nightly; verify real behavior
-- AC: AC-02, AC-07 | Files: contrib/subscription-switch/scripts/install-local.py, contrib/subscription-switch/README.md, reports/install.json, reports/real-run.json | Test: node contrib/subscription-switch/bin/specweave-switch.mjs doctor
+- AC: AC-02, AC-07 | Files: contrib/subscription-switch/scripts/install-local.py, contrib/subscription-switch/scripts/install-switch.py, contrib/subscription-switch/scripts/installer-check.py, contrib/subscription-switch/bin/specweave-mac.py, contrib/subscription-switch/README.md, reports/install.json, reports/real-run.json | Test: node contrib/subscription-switch/bin/specweave-switch.mjs doctor
 ### T-05 Verify fleet and prepare worker bootstrap
 - AC: AC-08 | Files: contrib/subscription-switch/scripts/worker-bootstrap.sh, reports/fleet.md | Test: bash -n contrib/subscription-switch/scripts/worker-bootstrap.sh

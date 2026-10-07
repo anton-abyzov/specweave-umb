@@ -1,0 +1,8 @@
+{
+  "bundleSha256": "45b0ae98559b5fbd2837d7a3869cab70a790eba502da0ffa4e74a90a23d4c53d",
+  "release": "/Users/antonabyzov/.local/share/specweave/subscription-switch/versions/45b0ae98559b5fbd2837d7a3869cab70a790eba502da0ffa4e74a90a23d4c53d",
+  "launcher": "/Users/antonabyzov/.local/bin/specweave-switch",
+  "node": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node",
+  "serviceInstalled": true,
+  "serviceDomain": "gui/501"
+}
