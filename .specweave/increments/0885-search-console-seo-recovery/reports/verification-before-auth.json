@@ -1,6 +1,6 @@
 {
-  "ok": true,
-  "ranAt": "2026-10-07T19:04:47.401Z",
+  "ok": false,
+  "ranAt": "2026-10-07T16:25:32.406Z",
   "increment": "0885-search-console-seo-recovery",
   "commands": [
     {
@@ -14,13 +14,13 @@
   ],
   "acs": {
     "total": 7,
-    "done": 7
+    "done": 6
   },
   "tasks": {
     "total": 7,
-    "done": 7,
+    "done": 6,
     "skipped": 0,
-    "open": 0
+    "open": 1
   },
   "skipped": [],
   "ledgerMalformed": 0

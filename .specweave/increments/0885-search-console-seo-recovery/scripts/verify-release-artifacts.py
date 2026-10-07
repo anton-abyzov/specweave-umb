@@ -3,6 +3,7 @@ import gzip
 import hashlib
 import json
 import re
+from datetime import datetime
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
@@ -16,6 +17,10 @@ def read(name):
 
 def read_lines(name):
     return [json.loads(line) for line in (REPORTS / name).read_text().splitlines()]
+
+
+def timestamp(value):
+    return datetime.fromisoformat(value.replace('Z', '+00:00'))
 
 
 def plan_nodes(node):
@@ -122,8 +127,158 @@ if not vskill['worker']['newRolloutPerformed']:
     assert vskill['performance']['defaultKeyAbsenceAuthenticatedImmediatelyBefore'] is False
     assert vskill['gates']['freshAuthenticatedWorkerRolloutAndBindings'] == 'BLOCKED_CLOUDFLARE_AUTH'
     assert vskill['gates']['authenticatedDefaultKvAbsenceHitProof'] == 'BLOCKED_CLOUDFLARE_AUTH'
+else:
+    worker = vskill['worker']
+    fresh = vskill['postAuthentication']
+    rollout = read(worker['proofFile'])
+    assert rollout == fresh['rollout']
+    assert fresh['source'] == rollout['source'] == worker['source'] == vskill['source']['mergedMain']
+    assert fresh['sourceCleanBeforeAndAfterBuild'] and rollout['sourceCleanAfterBuild']
+    assert worker['freshPostIndexIdentityReadback'] == 'PASS'
+    assert worker['version'] == rollout['currentVersion'] == '230dca40-7d6b-462a-9ed2-48cda828f345'
+    assert worker['deployment'] == rollout['deployment']['id'] == 'e92d344b-3892-49f8-83f2-03a02e6b1f5d'
+    assert timestamp(public['checkedAt']) > timestamp(worker['deployedAt'])
+    assert worker['percentage'] == 100
+    assert rollout['deployment']['versions'] == [{'version_id': worker['version'], 'percentage': 100}]
+    assert fresh['postProofWorkerIdentityUnchanged']
+    assert fresh['canonicalWorkerBuild'] == fresh['queueHealthBuild'] == fresh['queueHealthDeploy'] == 'PASS'
+    assert rollout['queueHealthBuild'] == rollout['queueHealthDeploy'] == 'PASS'
+    assert rollout['canonicalDeployInitialExit'] == 1 and 'Post-deploy guard lacked' in rollout['canonicalDeployInitialFailure']
+    assert not rollout['dbMigrationsRun'] and not rollout['indexReapplied']
+    assert rollout['immutableOldNewVersionBindingsExactEquality']
+    assert not rollout['preDeploymentLiveConsumerSettingsSnapshotRetained']
+    assert not rollout['initialPreDeploymentToolOutput']['fullSnapshotRetained']
+    assert all(rollout['retainedLivePostDeploymentSnapshotsParity'].values())
+    inventories = []
+    for filename, recorded in rollout['retainedLiveSnapshotTimes'].items():
+        inventory = read(filename)
+        assert timestamp(inventory['recordedAt']) == timestamp(recorded) > timestamp(worker['deployedAt'])
+        assert inventory['bindingsCount'] == len(inventory['bindings']) == worker['bindings'] == 66
+        assert inventory['consumerCount'] == worker['queueConsumers'] == 6
+        assert inventory['producerCount'] == worker['queueProducers'] == 5
+        assert len(inventory['cronSchedules']) == worker['cronTriggers'] == 7
+        assert all(set(binding) == {'name', 'type', 'signature'} for binding in inventory['bindings'])
+        inventories.append(inventory)
+    for key in ['bindings', 'cronSchedules']:
+        assert all(row[key] == inventories[0][key] for row in inventories)
+    # The final readback also retains DLQ names; compare fields present in every
+    # post-deploy snapshot, then verify final DLQ mappings against config below.
+    queue_snapshots = [[dict(queue, consumers=[{key: consumer[key] for key in ['type', 'script', 'settings']}
+                                               for consumer in queue['consumers']])
+                        for queue in row['queueInventory']] for row in inventories]
+    assert all(row == queue_snapshots[0] for row in queue_snapshots)
+    config = read(rollout['actualConfigReadbackFile'])
+    actual = read(config['actualInventoryFile'])
+    assert config['configUnchangedFromPreviousDeployedSource']
+    assert config['currentSource'] == worker['source']
+    assert config['previousRuntimeSource'] == vskill['source']['runtimeSourceComparedWith']
+    assert config['configSha256'] == '33ac0ba76848b23e1094b16cb536daf254511245a803456f76f2655dba50788e'
+    assert rollout['currentActualConsumerProducerCronConfigMatchesByteIdenticalPreviousRuntimeConfig']
+    comparisons = config['consumerSettingsComparedWithUnchangedCanonicalConfig']
+    assert len(comparisons) == 6
+    for comparison in comparisons:
+        queue = next(row for row in actual['queueInventory'] if row['queue'] == comparison['queue'])
+        assert len(queue['consumers']) == 1
+        consumer = queue['consumers'][0]
+        assert consumer['settings'] == comparison['actualSettings']
+        assert all(consumer['settings'][key] == value for key, value in comparison['expectedSettings'].items())
+        assert consumer['deadLetterQueue'] == comparison['deadLetterQueue']
+        assert consumer['script'] == comparison['script'] == rollout['worker'] and comparison['parity']
+    assert config['producerParity'] and config['cronParity']
+    assert config['producerQueues'] == sorted(row['queue'] for row in actual['queueInventory'] if row['producerCount'])
+    assert config['cronSchedules'] == actual['cronSchedules']
 
-for filename in ['source-tests/manifest.json', 'help-player-artifact-manifest.json', 'vskill-index-artifact-manifest.json']:
+    cache = read(fresh['defaultPublisherCache']['proofFile'])
+    assert cache['workerVersion'] == worker['version']
+    assert cache['controlPlaneAbsenceImmediatelyBefore'] and cache['observedWriteThrough']
+    assert cache['ssrCachePayloadParity'] and cache['repeatedResponsePayloadParity']
+    assert cache['expirationUnchangedDuringRepeatedResponses']
+    assert not cache['exactBoundedKeyDeletion'] and not cache['directHitMissTelemetryAvailable']
+    events = cache['events']
+    assert all(timestamp(a['recordedAt']) < timestamp(b['recordedAt']) for a, b in zip(events, events[1:]))
+    assert all(row['status'] == 404 for row in events[:2])
+    assert events[2]['kind'] == 'authenticatedExactKeyList' and not events[2]['exactKeys']
+    first = next(row for row in events if row['kind'] == 'defaultFirstAfterAuthenticatedAbsence')
+    assert first == fresh['defaultPublisherCache']['firstResponse']
+    populated = next(row for row in events if row['kind'] == 'authenticatedControlPlaneValue' and row['status'] == 200)
+    repeats = [row for row in events if row['kind'] == 'repeatedDefaultResponse']
+    api = next(row for row in events if row['kind'] == 'defaultApiPayloadParity')
+    assert len(repeats) == 3
+    assert all(row['status'] == 200 and row['cards'] == 20 and row['total'] == 101704 for row in [first, populated, *repeats, api])
+    assert timestamp(first['recordedAt']) < timestamp(populated['recordedAt'])
+    assert [row['elapsedSeconds'] for row in repeats] == fresh['defaultPublisherCache']['repeatedResponseSeconds']
+    lists = [row for row in events if row['kind'] == 'authenticatedExactKeyList']
+    assert all(not row['unrelatedKeysMutated'] for row in lists)
+    assert lists[1]['exactKeys'] == lists[2]['exactKeys']
+    assert lists[1]['exactKeys'][0]['name'] == cache['key']
+    assert not fresh['defaultPublisherCache']['directHitMissBranchesObserved']
+    assert vskill['gates']['authenticatedDefaultKvAbsenceHitProof'] == 'PASS_OBSERVED_ABSENCE_WRITE_THROUGH_PARITY_NO_DIRECT_BRANCH_TELEMETRY'
+    assert vskill['gates']['freshAuthenticatedWorkerRolloutAndBindings'] == 'PASS'
+
+    matrix = read(fresh['publicMatrix']['proofFile'])
+    assert len(matrix) == fresh['publicMatrix']['assertionsPassed'] == 31
+    assert max(row['elapsedSeconds'] for row in matrix) == fresh['publicMatrix']['maxResponseSeconds']
+    assert all(row['status'] == (404 if parse_qs(urlsplit(row['path']).query).get('page') == ['999999'] and row['path'].startswith('/publishers?') else 200) for row in matrix)
+    assert sum(row['status'] == 404 and row['cards'] == 0 for row in matrix) == 2
+    uncached_fresh = read(fresh['guaranteedUncacheableSorts']['proofFile'])
+    assert len(uncached_fresh) == 3
+    assert {parse_qs(urlsplit(row['path']).query)['sort'][0] for row in uncached_fresh} == {'stars', 'skills', 'trust'}
+    assert all(parse_qs(urlsplit(row['path']).query)['limit'] == ['21'] and row['status'] == 200
+               and row['cards'] == 21 and row['total'] == 101704 and not row['publisherKVCacheEligible'] for row in uncached_fresh)
+    assert [row['elapsedSeconds'] for row in uncached_fresh] == fresh['guaranteedUncacheableSorts']['responseSeconds']
+    assert fresh['guaranteedUncacheableSorts']['publisherKvBypassGuaranteedBySourcePredicate']
+    assert fresh['guaranteedUncacheableSorts']['freshUniqueSeoProbeUrls']
+    assert fresh['guaranteedUncacheableSorts']['apiResponseCacheControl'].startswith('public, max-age=120')
+    catalog = read(fresh['freshIndexReadback']['proofFile'])
+    assert catalog['readonlyCatalogOnly'] and catalog['index']['oid'] == applied['after']['oid']
+    assert catalog['index']['definition'] == applied['after']['definition']
+    assert all(catalog['index'][flag] for flag in ['indisvalid', 'indisready', 'indislive'])
+    assert catalog['ledger']['finished'] and catalog['ledger']['not_rolled_back']
+    assert catalog['ledger']['checksum'] == vskill['database']['checksum']
+    headless = fresh['headlessProduction']
+    assert headless['casesPassed'] == 6 and headless['workers'] == 1 and headless['retries'] == 0
+    assert headless['explicitHeadless'] and headless['PWDEBUG'] == '0'
+    assert headless['PLAYWRIGHT_HTML_OPEN'] == headless['htmlReporterOpen'] == 'never'
+    assert '6 passed' in (REPORTS / headless['proofFile']).read_text()
+    assert len(list((REPORTS / headless['screenshotsDirectory']).rglob('*.png'))) == 20
+    release = read(fresh['publishedReleaseMetadata']['proofFile'])
+    assert len(release) == 3 and all(row['status'] == 200 for row in release)
+    assert all(row.get('visibleCurrentVskillVersion', True) for row in release)
+    assert all(release[2][key] for key in ['metadataSkills19', 'hasAllPublishedPluginNames', 'hasFiveNewPublishedSkills', 'specweaveInstallCommandCorrect'])
+    archive = read('vskill-index-artifact-manifest.json')
+    assert len(archive['files']) == 96 and sum(row['file'].endswith('.png') for row in archive['files']) == 40
+    assert len(archive['excluded']) == 2 and all('headless-report/index.html' in row['path'] for row in archive['excluded'])
+    assert not (REPORTS / 'vskill-auth-final-predeploy-inventory.json').exists()
+
+mail = read('mailbox-auth-resume-readback.json')
+assert mail['mailbox'] == 'admin@easychamp.com' and mail['matchingMessages'] == 88
+assert mail['paginationComplete'] and mail['previousInventoryMatchesCurrent']
+assert mail['newMatchingMessages'] == mail['removedMatchingMessages'] == 0
+easy = read('easychamp-auth-resume-current-release.json')
+assert easy['ownersAndCheckoutsPreserved']
+current_landing, arena = easy['cluster']['deployments']
+assert current_landing['images'] == landing['images']
+assert current_landing['ready'] == current_landing['updated'] == current_landing['replicas'] == 2
+assert arena['ready'] == arena['updated'] == arena['replicas'] == 5
+assert arena['images'] == ['ghcr.io/anton-abyzov/ec-arena-ui:develop-817f749']
+assert all(row['argocdSync'] == 'Synced' and row['argocdHealth'] == 'Healthy' for row in [current_landing, arena])
+assert all(row['argocdRevision'] == 'f08289e78974443b9be2ae73757089d6bd03c466' for row in [current_landing, arena])
+assert all(container['ready'] and container['imageID'] == help_release['deployment']['digest']
+           for pod in current_landing['pods'] for container in pod['containers'])
+assert all(container['ready'] and container['imageID'].endswith('sha256:6524b9f96fea921f4dbeb3df0d6d0904ddcccb2c251968ce03cfe965aa49f430')
+           for pod in arena['pods'] for container in pod['containers'])
+assert easy['source'][1]['deployedDescendantOfSEO'] and easy['source'][1]['newerOwnerReleasesPreserved']
+assert all(row['seoMergeBlob'] == row['deployedBlob'] == row['latestDevelopBlob'] and row['unchangedSinceSEO'] for row in easy['arenaSEOBlobChecks'])
+assert easy['arenaCurrentCI'][0]['conclusion'] == 'failure' and easy['arenaCurrentCI'][1]['conclusion'] == 'success'
+watch = read('auth-resume-watch-simulated-crawler-headless.json')
+assert watch['headless'] and watch['httpStatus'] == 200 and watch['status'] == 'passed'
+assert 'simulated' in watch['proofType'] and 'not actual Google URL Inspection' in watch['proofType']
+assert watch['state']['scrollWidth'] <= watch['state']['width'] == 390
+assert not any(row.get('@type') == 'VideoObject' for row in watch['state']['nodes'])
+raw_watch = read('auth-resume-watch-raw-seo.json')
+assert raw_watch['httpStatus'] == 200 and raw_watch['SportsEventCount'] == 1 and raw_watch['VideoObjectCount'] == 0
+
+for filename in ['source-tests/manifest.json', 'help-player-artifact-manifest.json', 'vskill-index-artifact-manifest.json', 'auth-resume-artifact-manifest.json']:
     for row in read(filename)['files']:
         path = REPORTS / row['file']
         assert hashlib.sha256(path.read_bytes()).hexdigest() == row['archivedSha256'], path
@@ -148,4 +303,4 @@ for path in BASE.rglob('*'):
     checked += 1
 
 assert json.loads((BASE / 'metadata.json').read_text())['status'] == 'active'
-print(f'PASS: 120 public checks, 32 design cases, Help deployment/playback, Verified Skills live index/uncached queries/headless proof, archive hashes and {checked} text artifacts; rollout/auth and global coverage gates remain explicit')
+print(f'PASS: 120 public checks, 32 design cases, Help deployment/playback, current owner-preserving EasyChamp readback, Verified Skills authenticated rollout/config/cache observation/31 public/3 uncached/6 headless, archive hashes and {checked} text artifacts; global coverage and Google indexing gates remain explicit')

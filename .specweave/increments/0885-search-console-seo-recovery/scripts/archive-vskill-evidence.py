@@ -7,6 +7,12 @@ from pathlib import Path
 SOURCE = Path('/tmp/easychamp-seo-audit-20261007')
 REPORTS = Path(__file__).resolve().parents[1] / 'reports'
 manifest = []
+upstream = json.loads((SOURCE / 'vskill-index-archive-sha256.json').read_text())
+upstream = upstream['files'] if isinstance(upstream, dict) else upstream
+for row in upstream:
+    original = (SOURCE / row['path']).read_bytes()
+    assert len(original) == row['bytes']
+    assert hashlib.sha256(original).hexdigest() == row['sha256'], row['path']
 
 for name in (SOURCE / 'vskill-index-archive-manifest.txt').read_text().splitlines():
     source = SOURCE / name
@@ -43,12 +49,12 @@ for name in (SOURCE / 'vskill-index-archive-manifest.txt').read_text().splitline
             'method': method,
         })
 
-upstream = json.loads((SOURCE / 'vskill-index-archive-sha256.json').read_text())
-excluded = [dict(row, reason='Generated HTML renderer omitted; native log, status and all 20 original screenshots retained')
+screenshots = sum(row['file'].endswith('.png') for row in manifest)
+excluded = [dict(row, reason='Generated HTML renderer omitted; native log, status and all original screenshots retained')
             for row in upstream if 'headless-report' in row['path']]
 (REPORTS / 'vskill-index-artifact-manifest.json').write_text(json.dumps({
     'files': manifest,
     'excluded': excluded,
-    'note': 'Curated sanitized native receipts. Long logs retain complete unchanged gzip. Generated HTML report remains local; native test log and all 20 production screenshots are archived. Runtime gates are recorded separately in the current-release receipt.',
+    'note': f'Curated sanitized native receipts. Long logs retain complete unchanged gzip. Generated HTML reports remain local; native test logs and all {screenshots} original screenshots are archived. Runtime gates are recorded separately in the current-release receipt.',
 }, indent=2) + '\n')
 print(f'Archived {len(manifest)} complete artifacts or full-log excerpts with hashes')

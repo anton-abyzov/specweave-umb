@@ -1,0 +1,3 @@
+{"path": "/api/v1/authors?sort=stars&limit=21&seoProbe=1791398407219204000", "status": 200, "elapsedSeconds": 0.788, "cards": 21, "total": 101704, "publisherKVCacheEligible": false}
+{"path": "/api/v1/authors?sort=skills&limit=21&seoProbe=1791398408007830000", "status": 200, "elapsedSeconds": 0.627, "cards": 21, "total": 101704, "publisherKVCacheEligible": false}
+{"path": "/api/v1/authors?sort=trust&limit=21&seoProbe=1791398408634465000", "status": 200, "elapsedSeconds": 0.689, "cards": 21, "total": 101704, "publisherKVCacheEligible": false}

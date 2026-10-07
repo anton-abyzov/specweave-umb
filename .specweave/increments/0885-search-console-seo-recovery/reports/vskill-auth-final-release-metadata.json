@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/docs",
+    "status": 200,
+    "recordedAt": "2026-10-07T18:41:43.300Z",
+    "canonical": "https://verified-skill.com/docs",
+    "visibleCurrentVskillVersion": true
+  },
+  {
+    "path": "/docs/cli-reference",
+    "status": 200,
+    "recordedAt": "2026-10-07T18:41:43.395Z",
+    "canonical": "https://verified-skill.com/docs/cli-reference",
+    "visibleCurrentVskillVersion": true
+  },
+  {
+    "path": "/docs/plugins",
+    "status": 200,
+    "recordedAt": "2026-10-07T18:41:43.518Z",
+    "canonical": "https://verified-skill.com/docs/plugins",
+    "metadataSkills19": true,
+    "hasAllPublishedPluginNames": true,
+    "hasFiveNewPublishedSkills": true,
+    "specweaveInstallCommandCorrect": true
+  }
+]
