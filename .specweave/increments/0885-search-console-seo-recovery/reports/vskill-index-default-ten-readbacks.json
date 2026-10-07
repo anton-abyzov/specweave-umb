@@ -1,0 +1,72 @@
+[
+  {
+    "attempt": 1,
+    "status": 200,
+    "elapsedSeconds": 0.428,
+    "cards": 20,
+    "cacheHitAuthenticated": false
+  },
+  {
+    "attempt": 2,
+    "status": 200,
+    "elapsedSeconds": 1.602,
+    "cards": 20,
+    "cacheHitAuthenticated": false
+  },
+  {
+    "attempt": 3,
+    "status": 200,
+    "elapsedSeconds": 1.904,
+    "cards": 20,
+    "cacheHitAuthenticated": false
+  },
+  {
+    "attempt": 4,
+    "status": 200,
+    "elapsedSeconds": 0.618,
+    "cards": 20,
+    "cacheHitAuthenticated": false
+  },
+  {
+    "attempt": 5,
+    "status": 200,
+    "elapsedSeconds": 0.736,
+    "cards": 20,
+    "cacheHitAuthenticated": false
+  },
+  {
+    "attempt": 6,
+    "status": 200,
+    "elapsedSeconds": 0.513,
+    "cards": 20,
+    "cacheHitAuthenticated": false
+  },
+  {
+    "attempt": 7,
+    "status": 200,
+    "elapsedSeconds": 0.512,
+    "cards": 20,
+    "cacheHitAuthenticated": false
+  },
+  {
+    "attempt": 8,
+    "status": 200,
+    "elapsedSeconds": 0.338,
+    "cards": 20,
+    "cacheHitAuthenticated": false
+  },
+  {
+    "attempt": 9,
+    "status": 200,
+    "elapsedSeconds": 0.41,
+    "cards": 20,
+    "cacheHitAuthenticated": false
+  },
+  {
+    "attempt": 10,
+    "status": 200,
+    "elapsedSeconds": 0.328,
+    "cards": 20,
+    "cacheHitAuthenticated": false
+  }
+]

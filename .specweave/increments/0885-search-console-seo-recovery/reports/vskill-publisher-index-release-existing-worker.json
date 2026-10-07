@@ -1,0 +1,247 @@
+[
+  {
+    "path": "/publishers",
+    "status": 200,
+    "elapsedSeconds": 2.136,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/publishers",
+    "status": 200,
+    "elapsedSeconds": 0.436,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/publishers",
+    "status": 200,
+    "elapsedSeconds": 0.403,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/publishers",
+    "status": 200,
+    "elapsedSeconds": 0.548,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/publishers",
+    "status": 200,
+    "elapsedSeconds": 0.494,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/publishers",
+    "status": 200,
+    "elapsedSeconds": 0.371,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/publishers",
+    "status": 200,
+    "elapsedSeconds": 0.674,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/publishers",
+    "status": 200,
+    "elapsedSeconds": 0.527,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/publishers",
+    "status": 200,
+    "elapsedSeconds": 0.405,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/publishers",
+    "status": 200,
+    "elapsedSeconds": 0.532,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/publishers?sort=totalGithubStars",
+    "status": 200,
+    "elapsedSeconds": 0.504,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/api/v1/authors?sort=stars",
+    "status": 200,
+    "elapsedSeconds": 0.283,
+    "cards": 20,
+    "total": 101314,
+    "parity": true
+  },
+  {
+    "path": "/publishers?sort=skillCount",
+    "status": 200,
+    "elapsedSeconds": 1.755,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/api/v1/authors?sort=skills",
+    "status": 200,
+    "elapsedSeconds": 1.395,
+    "cards": 20,
+    "total": 101314,
+    "parity": true
+  },
+  {
+    "path": "/publishers?sort=avgTrustScore",
+    "status": 200,
+    "elapsedSeconds": 1.73,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/api/v1/authors?sort=trust",
+    "status": 200,
+    "elapsedSeconds": 1.468,
+    "cards": 20,
+    "total": 101314,
+    "parity": true
+  },
+  {
+    "path": "/publishers?page=2",
+    "status": 200,
+    "elapsedSeconds": 1.212,
+    "cards": 20,
+    "total": 101314,
+    "empty": false
+  },
+  {
+    "path": "/api/v1/authors?offset=20",
+    "status": 200,
+    "elapsedSeconds": 1.573,
+    "cards": 20,
+    "total": 101314,
+    "parity": true
+  },
+  {
+    "path": "/publishers?search=seo-no-publisher-20261007-index-fresh-1791389073792944000",
+    "status": 200,
+    "elapsedSeconds": 2.332,
+    "cards": 0,
+    "total": 0,
+    "empty": true
+  },
+  {
+    "path": "/api/v1/authors?search=seo-no-publisher-20261007-index-fresh-1791389073792944000",
+    "status": 200,
+    "elapsedSeconds": 1.579,
+    "cards": 0,
+    "total": 0
+  },
+  {
+    "path": "/publishers?search=seo-no-publisher-20261007-index-fresh-1791389073792944000-repeat-0",
+    "status": 200,
+    "elapsedSeconds": 1.735,
+    "cards": 0,
+    "total": 0,
+    "empty": true
+  },
+  {
+    "path": "/publishers?search=seo-no-publisher-20261007-index-fresh-1791389073792944000-repeat-1",
+    "status": 200,
+    "elapsedSeconds": 2.892,
+    "cards": 0,
+    "total": 0,
+    "empty": true
+  },
+  {
+    "path": "/publishers?search=ANTON",
+    "status": 200,
+    "elapsedSeconds": 3.213,
+    "cards": 20,
+    "total": 95,
+    "empty": false
+  },
+  {
+    "path": "/api/v1/authors?search=ANTON",
+    "status": 200,
+    "elapsedSeconds": 1.133,
+    "cards": 20,
+    "total": 95,
+    "parity": true
+  },
+  {
+    "path": "/publishers?search=ANTON&page=2",
+    "status": 200,
+    "elapsedSeconds": 1.158,
+    "cards": 20,
+    "total": 95,
+    "empty": false
+  },
+  {
+    "path": "/api/v1/authors?search=ANTON&offset=20",
+    "status": 200,
+    "elapsedSeconds": 0.872,
+    "cards": 20,
+    "total": 95,
+    "parity": true
+  },
+  {
+    "path": "/publishers?search=ANTON&page=999999",
+    "status": 404,
+    "elapsedSeconds": 1.458,
+    "cards": 0,
+    "total": null,
+    "empty": false
+  },
+  {
+    "path": "/api/v1/authors?search=ANTON&offset=19999960",
+    "status": 200,
+    "elapsedSeconds": 1.212,
+    "cards": 0,
+    "total": 95
+  },
+  {
+    "path": "/publishers?search=a",
+    "status": 200,
+    "elapsedSeconds": 1.138,
+    "cards": 20,
+    "total": 65726,
+    "empty": false
+  },
+  {
+    "path": "/publishers?page=999999",
+    "status": 404,
+    "elapsedSeconds": 1.466,
+    "cards": 0,
+    "total": null,
+    "empty": false
+  },
+  {
+    "path": "/api/v1/authors?offset=19999960",
+    "status": 200,
+    "elapsedSeconds": 1.33,
+    "cards": 0,
+    "total": 101314
+  }
+]

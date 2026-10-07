@@ -1,0 +1,19 @@
+
+> vskill-platform@0.0.2 test
+> vitest run --run scripts/__tests__/public-publisher-index.test.ts src/lib/__tests__/publisher-list-page.test.ts src/lib/__tests__/publisher-public-scope.test.ts
+
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.4 /Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform
+
+stderr | src/lib/__tests__/publisher-list-page.test.ts > publisher list cache reliability > propagates DB errors and partial results without caching invented empty states
+[publisher-page] Public aggregation failed: timeout
+
+ ✓ scripts/__tests__/public-publisher-index.test.ts (20 tests) 6ms
+ ✓ src/lib/__tests__/publisher-list-page.test.ts (17 tests) 6ms
+ ✓ src/lib/__tests__/publisher-public-scope.test.ts (10 tests) 5ms
+
+ Test Files  3 passed (3)
+      Tests  47 passed (47)
+   Start at  11:38:20
+   Duration  394ms (transform 102ms, setup 284ms, collect 148ms, tests 16ms, environment 0ms, prepare 106ms)

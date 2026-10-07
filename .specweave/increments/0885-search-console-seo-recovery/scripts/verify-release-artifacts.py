@@ -4,6 +4,7 @@ import hashlib
 import json
 import re
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 BASE = Path(__file__).resolve().parents[1]
 REPORTS = BASE / 'reports'
@@ -11,6 +12,16 @@ REPORTS = BASE / 'reports'
 
 def read(name):
     return json.loads((REPORTS / name).read_text())
+
+
+def read_lines(name):
+    return [json.loads(line) for line in (REPORTS / name).read_text().splitlines()]
+
+
+def plan_nodes(node):
+    yield node
+    for child in node.get('Plans', []):
+        yield from plan_nodes(child)
 
 
 public = read('public-verification-all.json')
@@ -65,7 +76,54 @@ for sample in help_release['public']['isolatedPlayback']:
     assert not sample['after']['paused'] and sample['after']['time'] > 1
     assert sample['after']['readyState'] == 4
 
-for filename in ['source-tests/manifest.json', 'help-player-artifact-manifest.json']:
+vskill = read('vskill-index-current-release-receipt.json')
+assert vskill['source']['mergedMain'] == '4e4690cad68bc3b19e4fdf17ba774f4cd46f52ce'
+assert vskill['source']['applicationPublicConfigDependencySourceIdentical'] is True
+assert vskill['source']['mergedWorkerBuild'] == vskill['source']['queueHealthBuild'] == 'PASS'
+checks = read('vskill-pr89-checks.json')
+assert len(checks) == 4 and all(row['state'] == 'SUCCESS' for row in checks)
+applied = read('vskill-index-production-apply.json')
+assert applied['migrationRecorded'] and applied['before']['index'] is None
+assert applied['checksum'] == vskill['database']['checksum']
+assert applied['after']['oid'] == vskill['database']['index']['oid'] == '199021'
+assert applied['after']['definition'] == vskill['database']['index']['definition']
+assert all(applied['after'][flag] for flag in ['indisvalid', 'indisready', 'indislive'])
+plans = read_lines('vskill-merged-query-plan-after-visible.jsonl')
+assert len(plans) == 3
+for row, milliseconds in zip(plans, vskill['performance']['databaseExecutionMs']):
+    plan = row['plan'][0]['QUERY PLAN'][0]
+    assert plan['Execution Time'] == milliseconds and milliseconds < 10000
+    assert any(node['Node Type'] == 'Index Only Scan' and node.get('Index Name') == 'Skill_public_author_metrics_idx'
+               for node in plan_nodes(plan['Plan']))
+source = read_lines('vskill-index-source-proof.jsonl')
+assert len(source) == vskill['performance']['actualSourceMatrixCases'] == 13
+assert all(row.get('allUntainted', True) and row.get('allMatch', True) for row in source)
+http = read('vskill-publisher-index-release-existing-worker.json')
+assert len(http) == vskill['performance']['publicMatrixAssertions'] == 31
+assert max(row['elapsedSeconds'] for row in http) == vskill['performance']['publicMaxResponseSeconds']
+assert all(row['status'] == (404 if row['path'].startswith('/publishers?') and parse_qs(urlsplit(row['path']).query).get('page') == ['999999'] else 200) for row in http)
+assert sum(row['status'] == 404 and row['cards'] == 0 for row in http) == 2
+uncached = read('vskill-index-uncached-sort-proof.json')
+assert len(uncached) == 3
+assert all(row['status'] == 200 and row['cards'] == 21 and row['total'] == vskill['performance']['publicTotalAtMatrix']
+           and row['publisherKVCacheEligible'] is False and row['elapsedSeconds'] < 10 for row in uncached)
+assert vskill['verification']['headlessExplicit'] is True
+assert vskill['verification']['headlessProductionCasesPassed'] == 6
+assert '6 passed' in (REPORTS / 'vskill-index-production-headless.log').read_text()
+assert len(list((REPORTS / 'vskill-index-production-headless').rglob('*.png'))) == 20
+coverage = read('vskill-public-index-coverage/coverage-summary.json')['total']
+assert coverage['lines']['pct'] == coverage['statements']['pct'] == vskill['coverage']['globalLinesAndStatementsPct'] == 48.97
+assert vskill['coverage']['enforcedExitCode'] == 1 and vskill['coverage']['unchangedRequiredThresholdPct'] == 60
+assert vskill['coverage']['thresholdsAndExcludesWeakened'] is False
+assert vskill['gates']['sourceReviewCiUnitsBuild'] == vskill['gates']['databaseIndexMigrationAndDefaultPlanner'] == 'PASS'
+assert vskill['gates']['publicFunctionalMetadataDataPlaybackDesign'] == 'PASS'
+if not vskill['worker']['newRolloutPerformed']:
+    assert vskill['worker']['freshPostIndexIdentityReadback'] == 'PENDING_AUTH'
+    assert vskill['performance']['defaultKeyAbsenceAuthenticatedImmediatelyBefore'] is False
+    assert vskill['gates']['freshAuthenticatedWorkerRolloutAndBindings'] == 'BLOCKED_CLOUDFLARE_AUTH'
+    assert vskill['gates']['authenticatedDefaultKvAbsenceHitProof'] == 'BLOCKED_CLOUDFLARE_AUTH'
+
+for filename in ['source-tests/manifest.json', 'help-player-artifact-manifest.json', 'vskill-index-artifact-manifest.json']:
     for row in read(filename)['files']:
         path = REPORTS / row['file']
         assert hashlib.sha256(path.read_bytes()).hexdigest() == row['archivedSha256'], path
@@ -90,4 +148,4 @@ for path in BASE.rglob('*'):
     checked += 1
 
 assert json.loads((BASE / 'metadata.json').read_text())['status'] == 'active'
-print(f'PASS: 120 public checks, 32 design cases, Help deployment/playback, archive hashes and {checked} text artifacts; increment remains active for its separate global coverage gate')
+print(f'PASS: 120 public checks, 32 design cases, Help deployment/playback, Verified Skills live index/uncached queries/headless proof, archive hashes and {checked} text artifacts; rollout/auth and global coverage gates remain explicit')
