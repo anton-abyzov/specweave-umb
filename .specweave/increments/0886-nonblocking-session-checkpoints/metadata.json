@@ -1,0 +1,11 @@
+{
+  "id": "0886-nonblocking-session-checkpoints",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-07T23:55:42.927Z",
+  "updated": "2026-10-07T23:57:41.180Z",
+  "lastActivity": "2026-10-07T23:57:41.180Z",
+  "title": "Nonblocking session checkpoints",
+  "project": "specweave-umb"
+}
