@@ -1,0 +1,4 @@
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mFailed to fetch https://api.cloudflare.com/client/v4/accounts/1364b528762500de4f870e064229d443/storage/kv/namespaces/d21d89b0c2644c2aa9303878300332e8/values/authors%3Alist%3Apublic-v3%3AtotalGithubStars%3A20%3A0 - 404: Not Found);[0m
+
+
+🪵  Logs were written to "/Users/antonabyzov/Library/Preferences/.wrangler/logs/wrangler-2026-10-07_15-45-02_283.log"

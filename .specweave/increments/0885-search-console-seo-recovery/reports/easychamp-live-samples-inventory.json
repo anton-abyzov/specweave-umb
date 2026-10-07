@@ -1,0 +1,325 @@
+[
+  {
+    "url": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+    "finalUrl": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+    "status": 200,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1\"/>"
+    ],
+    "robots": [],
+    "types": [
+      "SportsEvent",
+      "Place",
+      "PostalAddress",
+      "GeoCoordinates",
+      "SportsOrganization",
+      "SportsTeam",
+      "SportsTeam",
+      "SportsTeam",
+      "SportsTeam",
+      "SportsTeam",
+      "SportsTeam",
+      "BreadcrumbList",
+      "ListItem",
+      "ListItem",
+      "ListItem"
+    ],
+    "events": [
+      {
+        "@type": "SportsEvent",
+        "name": "South Africa vs Iraq",
+        "image": [
+          "https://watch.easychamp.com/api/og?type=match&id=40aff015-26af-40cb-961a-414886763cd1&locale=en"
+        ],
+        "startDate": "2009-06-14T14:00:00Z",
+        "location": {
+          "@type": "Place",
+          "name": "Emirates Airline Park",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "South Africa Johannesburg"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -26.197519,
+            "longitude": 28.060767
+          }
+        },
+        "eventStatus": "https://schema.org/EventScheduled",
+        "organizer": {
+          "@type": "SportsOrganization",
+          "name": "International",
+          "url": "https://watch.easychamp.com/league/2e270f59-4dad-4a9b-80b2-934386162dd0"
+        },
+        "description": "South Africa 0 \u2013 0 Iraq in Confederations Cup 2009.",
+        "uploadDate": null,
+        "thumbnailUrl": null
+      }
+    ],
+    "bytes": 210875
+  },
+  {
+    "url": "https://watch.easychamp.com/match/new-zealand-vs-spain-11fc4398-1253-421b-8aef-950e6c672275",
+    "finalUrl": "https://watch.easychamp.com/match/new-zealand-vs-spain-11fc4398-1253-421b-8aef-950e6c672275",
+    "status": 200,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://watch.easychamp.com/match/new-zealand-vs-spain-11fc4398-1253-421b-8aef-950e6c672275\"/>"
+    ],
+    "robots": [],
+    "types": [
+      "SportsEvent",
+      "Place",
+      "PostalAddress",
+      "GeoCoordinates",
+      "SportsOrganization",
+      "SportsTeam",
+      "SportsTeam",
+      "SportsTeam",
+      "SportsTeam",
+      "SportsTeam",
+      "SportsTeam",
+      "BreadcrumbList",
+      "ListItem",
+      "ListItem",
+      "ListItem"
+    ],
+    "events": [
+      {
+        "@type": "SportsEvent",
+        "name": "New Zealand vs Spain",
+        "image": [
+          "https://watch.easychamp.com/api/og?type=match&id=11fc4398-1253-421b-8aef-950e6c672275&locale=en"
+        ],
+        "startDate": "2009-06-14T18:30:00Z",
+        "location": {
+          "@type": "Place",
+          "name": "Royal Bafokeng Stadium",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "South Africa Rustenburg"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -25.5786,
+            "longitude": 27.1607
+          }
+        },
+        "eventStatus": "https://schema.org/EventScheduled",
+        "organizer": {
+          "@type": "SportsOrganization",
+          "name": "International",
+          "url": "https://watch.easychamp.com/league/2e270f59-4dad-4a9b-80b2-934386162dd0"
+        },
+        "description": "New Zealand 0 \u2013 5 Spain in Confederations Cup 2009.",
+        "uploadDate": null,
+        "thumbnailUrl": null
+      }
+    ],
+    "bytes": 221880
+  },
+  {
+    "url": "https://watch.easychamp.com/match/brazil-vs-egypt-2c1643e4-01de-4014-840f-e3aa59700e1d",
+    "finalUrl": "https://watch.easychamp.com/match/brazil-vs-egypt-2c1643e4-01de-4014-840f-e3aa59700e1d",
+    "status": 200,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://watch.easychamp.com/match/brazil-vs-egypt-2c1643e4-01de-4014-840f-e3aa59700e1d\"/>"
+    ],
+    "robots": [],
+    "types": [
+      "SportsEvent",
+      "Place",
+      "PostalAddress",
+      "GeoCoordinates",
+      "SportsOrganization",
+      "SportsTeam",
+      "SportsTeam",
+      "SportsTeam",
+      "SportsTeam",
+      "SportsTeam",
+      "SportsTeam",
+      "BreadcrumbList",
+      "ListItem",
+      "ListItem",
+      "ListItem"
+    ],
+    "events": [
+      {
+        "@type": "SportsEvent",
+        "name": "Brazil vs Egypt",
+        "image": [
+          "https://watch.easychamp.com/api/og?type=match&id=2c1643e4-01de-4014-840f-e3aa59700e1d&locale=en"
+        ],
+        "startDate": "2009-06-15T14:00:00Z",
+        "location": {
+          "@type": "Place",
+          "name": "Free State Stadium",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "South Africa Bloemfontein"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -29.117292,
+            "longitude": 26.208847
+          }
+        },
+        "eventStatus": "https://schema.org/EventScheduled",
+        "organizer": {
+          "@type": "SportsOrganization",
+          "name": "International",
+          "url": "https://watch.easychamp.com/league/2e270f59-4dad-4a9b-80b2-934386162dd0"
+        },
+        "description": "Brazil 4 \u2013 3 Egypt in Confederations Cup 2009.",
+        "uploadDate": null,
+        "thumbnailUrl": null
+      }
+    ],
+    "bytes": 223625
+  },
+  {
+    "url": "https://watch.easychamp.com/competition/d6b14098-982b-4335-b4a0-84a0b638ad7d",
+    "finalUrl": "https://watch.easychamp.com/competition/d6b14098-982b-4335-b4a0-84a0b638ad7d",
+    "status": 200,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://watch.easychamp.com/competition/d6b14098-982b-4335-b4a0-84a0b638ad7d\"/>"
+    ],
+    "robots": [],
+    "types": [
+      "WebPage",
+      "ImageObject",
+      "SportsOrganization",
+      "BreadcrumbList",
+      "ListItem",
+      "ListItem",
+      "ListItem"
+    ],
+    "events": [],
+    "bytes": 388245
+  },
+  {
+    "url": "https://watch.easychamp.com/competition/7a12fccd-b9d6-4dcc-84a0-5cc0fb8501bd",
+    "finalUrl": "https://watch.easychamp.com/competition/7a12fccd-b9d6-4dcc-84a0-5cc0fb8501bd",
+    "status": 200,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://watch.easychamp.com/competition/7a12fccd-b9d6-4dcc-84a0-5cc0fb8501bd\"/>"
+    ],
+    "robots": [],
+    "types": [
+      "WebPage",
+      "ImageObject",
+      "SportsOrganization",
+      "BreadcrumbList",
+      "ListItem",
+      "ListItem",
+      "ListItem"
+    ],
+    "events": [],
+    "bytes": 293312
+  },
+  {
+    "url": "https://watch.easychamp.com/competition/8fe881d5-50a7-411e-a9c9-f8d5ec1e542b",
+    "finalUrl": "https://watch.easychamp.com/competition/8fe881d5-50a7-411e-a9c9-f8d5ec1e542b",
+    "status": 200,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://watch.easychamp.com/competition/8fe881d5-50a7-411e-a9c9-f8d5ec1e542b\"/>"
+    ],
+    "robots": [],
+    "types": [
+      "WebPage",
+      "ImageObject",
+      "SportsOrganization",
+      "BreadcrumbList",
+      "ListItem",
+      "ListItem",
+      "ListItem"
+    ],
+    "events": [],
+    "bytes": 229985
+  },
+  {
+    "url": "https://easychamp.com/pro-clubs",
+    "finalUrl": "https://easychamp.com/pro-clubs",
+    "status": 200,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://easychamp.com/pro-clubs\"/>"
+    ],
+    "robots": [],
+    "types": [
+      "Organization",
+      "WebSite",
+      "WebApplication",
+      "Offer",
+      "BreadcrumbList",
+      "ListItem",
+      "ListItem",
+      "FAQPage",
+      "Question",
+      "Answer",
+      "Question",
+      "Answer",
+      "Question",
+      "Answer",
+      "Question",
+      "Answer",
+      "Question",
+      "Answer",
+      "Question",
+      "Answer"
+    ],
+    "events": [],
+    "bytes": 460210
+  },
+  {
+    "url": "https://easychamp.com/ko",
+    "finalUrl": "https://easychamp.com/ko",
+    "status": 200,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://easychamp.com/ko\"/>"
+    ],
+    "robots": [],
+    "types": [
+      "Organization",
+      "WebSite",
+      "SoftwareApplication",
+      "Offer",
+      "Offer",
+      "UnitPriceSpecification"
+    ],
+    "events": [],
+    "bytes": 343297
+  },
+  {
+    "url": "https://easychamp.com/sim",
+    "finalUrl": "https://easychamp.com/sim",
+    "status": 200,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://easychamp.com/sim\"/>"
+    ],
+    "robots": [],
+    "types": [
+      "Organization",
+      "WebSite",
+      "FAQPage",
+      "Question",
+      "Answer",
+      "Question",
+      "Answer",
+      "Question",
+      "Answer",
+      "Question",
+      "Answer",
+      "Question",
+      "Answer"
+    ],
+    "events": [],
+    "bytes": 398962
+  },
+  {
+    "url": "https://easychamp.com/seo-nonexistent-20261007",
+    "status": 404
+  },
+  {
+    "url": "https://zzz-seo-proof-20261007.at.easychamp.com/main",
+    "status": 404
+  }
+]

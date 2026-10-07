@@ -1,0 +1,1032 @@
+{
+  "retrievedAt": "2026-10-07",
+  "mailbox": "admin@easychamp.com",
+  "query": "in:anywhere from:sc-noreply@google.com",
+  "paginationComplete": true,
+  "matchingMessages": 88,
+  "propertyCounts": {
+    "easychamp.com": 75,
+    "spec-weave.com": 4,
+    "sportchamp.ru": 4,
+    "verified-skill.com": 5
+  },
+  "messages": [
+    {
+      "messageId": "1a1159ab89e6ba90",
+      "receivedAt": "2026-10-07T02:03:43-07:00",
+      "property": "verified-skill.com",
+      "subject": "New reasons prevent pages from being indexed on site verified-skill.com",
+      "kind": "issue",
+      "issues": [
+        "Blocked by robots.txt",
+        "Soft 404",
+        "Not found (404)",
+        "Alternate page with proper canonical tag",
+        "Duplicate without user-selected canonical"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a1159a263d1256b",
+      "receivedAt": "2026-10-07T02:03:05-07:00",
+      "property": "verified-skill.com",
+      "subject": "New reasons prevent pages in a sitemap from being indexed on site verified-skill.com",
+      "kind": "issue",
+      "issues": [
+        "Soft 404",
+        "Duplicate without user-selected canonical",
+        "Excluded by ‘noindex’ tag"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a11562dfc6fffce",
+      "receivedAt": "2026-10-07T01:02:43-07:00",
+      "property": "spec-weave.com",
+      "subject": "New reasons prevent pages from being indexed on site spec-weave.com",
+      "kind": "issue",
+      "issues": [
+        "Page with redirect",
+        "Not found (404)",
+        "Excluded by ‘noindex’ tag",
+        "Alternate page with proper canonical tag",
+        "Blocked by robots.txt"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a1155eb0d8cfb70",
+      "receivedAt": "2026-10-07T00:58:09-07:00",
+      "property": "spec-weave.com",
+      "subject": "New reasons prevent pages in a sitemap from being indexed on site spec-weave.com",
+      "kind": "issue",
+      "issues": [
+        "Alternate page with proper canonical tag",
+        "Blocked by robots.txt"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a1124581a71f0a8",
+      "receivedAt": "2026-10-06T10:31:46-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [
+        "your site. Specifically, we are checking for 'Missing field \"image\"', which"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a1117426dc0ddb7",
+      "receivedAt": "2026-10-06T06:43:06-07:00",
+      "property": "easychamp.com",
+      "subject": "Your September Search performance for easychamp.com",
+      "kind": "performance",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a110dbd959d7359",
+      "receivedAt": "2026-10-06T03:56:45-07:00",
+      "property": "easychamp.com",
+      "subject": "Some fixes failed for Events structured data issues on site easychamp.com",
+      "kind": "validation-failed",
+      "issues": [
+        "following issue: 'Missing field \"image\"'."
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a110dbc9adc7486",
+      "receivedAt": "2026-10-06T03:56:41-07:00",
+      "property": "easychamp.com",
+      "subject": "Events structured data issues successfully fixed for site easychamp.com",
+      "kind": "validated",
+      "issues": [
+        "easychamp.com. The specific issue validated was: Missing field \"url\""
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a10cafb8bd4bf6b",
+      "receivedAt": "2026-10-05T08:30:05-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [
+        "your site. Specifically, we are checking for 'Missing field \"url\""
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a10cabbf27e3bdc",
+      "receivedAt": "2026-10-05T08:25:44-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [
+        "your site. Specifically, we are checking for 'Missing field \"organizer\"',"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a10ca99f8247cec",
+      "receivedAt": "2026-10-05T08:23:25-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [
+        "your site. Specifically, we are checking for 'Missing field \"eventStatus\"',"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a10ca6b9cb977e5",
+      "receivedAt": "2026-10-05T08:20:14-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [
+        "your site. Specifically, we are checking for 'Missing field \"performer\"',"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a10ca68da88a3ca",
+      "receivedAt": "2026-10-05T08:20:03-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [
+        "your site. Specifically, we are checking for 'Missing field \"image\"', which"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a10ca642975b44f",
+      "receivedAt": "2026-10-05T08:19:44-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [
+        "your site. Specifically, we are checking for 'Missing field \"description\"',"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a10ca34056e6653",
+      "receivedAt": "2026-10-05T08:16:27-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [
+        "your site. Specifically, we are checking for 'Missing field \"location\"',"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a10ca2982727240",
+      "receivedAt": "2026-10-05T08:15:44-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [
+        "your site. Specifically, we are checking for 'Missing field \"startDate\"',"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a10ca26ace72887",
+      "receivedAt": "2026-10-05T08:15:32-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [
+        "your site. Specifically, we are checking for 'Missing field \"address\""
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a10ca23375eda58",
+      "receivedAt": "2026-10-05T08:15:18-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a10b81f1a2d7387",
+      "receivedAt": "2026-10-05T03:00:27-07:00",
+      "property": "easychamp.com",
+      "subject": "New Events structured data issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Invalid object type for field \"location\""
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a1063fa6f8c3ee4",
+      "receivedAt": "2026-10-04T02:29:57-07:00",
+      "property": "easychamp.com",
+      "subject": "New Videos structured data issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Datetime property \"uploadDate\" is missing a timezone",
+        "Invalid datetime value for \"uploadDate\""
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a0f382e7418b2a5",
+      "receivedAt": "2026-09-30T11:10:37-07:00",
+      "property": "easychamp.com",
+      "subject": "Congrats on reaching 450 clicks in 28 days!",
+      "kind": "milestone",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a0e9dc8b7146954",
+      "receivedAt": "2026-09-28T14:12:19-07:00",
+      "property": "verified-skill.com",
+      "subject": "New reasons prevent videos from being indexed on site verified-skill.com",
+      "kind": "issue",
+      "issues": [
+        "No thumbnail URL provided"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a0e2d0629d56848",
+      "receivedAt": "2026-09-27T05:21:42-07:00",
+      "property": "spec-weave.com",
+      "subject": "Monitor the Google Search traffic to spec-weave.com",
+      "kind": "property-notice",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a0e2c4b7c8c6b33",
+      "receivedAt": "2026-09-27T05:08:57-07:00",
+      "property": "verified-skill.com",
+      "subject": "Monitor the Google Search traffic to verified-skill.com",
+      "kind": "property-notice",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a0da355c90bf229",
+      "receivedAt": "2026-09-25T13:15:25-07:00",
+      "property": "verified-skill.com",
+      "subject": "Improve Google presence for verified-skill.com",
+      "kind": "property-notice",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a0da2a0f275a27d",
+      "receivedAt": "2026-09-25T13:03:04-07:00",
+      "property": "spec-weave.com",
+      "subject": "Improve Google presence for spec-weave.com",
+      "kind": "property-notice",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a08121304fb72f7",
+      "receivedAt": "2026-09-08T06:07:10-07:00",
+      "property": "easychamp.com",
+      "subject": "Your August Search performance for easychamp.com",
+      "kind": "performance",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a078823502484f3",
+      "receivedAt": "2026-09-06T13:56:33-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent pages in a sitemap from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Duplicate without user-selected canonical"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1a07596e235fa00c",
+      "receivedAt": "2026-09-06T00:20:17-07:00",
+      "property": "easychamp.com",
+      "subject": "Congrats on reaching 350 clicks in 28 days!",
+      "kind": "milestone",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "19fcb60ef83c56b9",
+      "receivedAt": "2026-08-03T23:05:54-07:00",
+      "property": "easychamp.com",
+      "subject": "Your July Search performance for easychamp.com",
+      "kind": "performance",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "19fa761bd9b21665",
+      "receivedAt": "2026-07-27T23:20:27-07:00",
+      "property": "easychamp.com",
+      "subject": "New Events structured data issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Missing field \"url\" (in \"organizer\")"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "19fa61e3e1fbef4c",
+      "receivedAt": "2026-07-27T17:27:07-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent pages from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Duplicate, Google chose different canonical than user"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "19f817bf934c3b63",
+      "receivedAt": "2026-07-20T14:43:33-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent videos from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "No thumbnail URL provided"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "19f790782d78f5a4",
+      "receivedAt": "2026-07-18T23:19:23-07:00",
+      "property": "easychamp.com",
+      "subject": "New Events structured data issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Missing field \"location\"",
+        "Missing field \"startDate\"",
+        "Missing field \"eventStatus\"",
+        "Missing field \"endDate\"",
+        "Missing field \"image\"",
+        "Missing field \"offers\"",
+        "Missing field \"description\""
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "19f74dd23a2be10b",
+      "receivedAt": "2026-07-18T03:54:37-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent pages from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Excluded by ‘noindex’ tag"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "19d95cf5ad6d870c",
+      "receivedAt": "2026-04-16T03:21:27-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent pages from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Indexed, though blocked by robots.txt"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "19878d6604e59fee",
+      "receivedAt": "2025-08-04T23:06:11-07:00",
+      "property": "easychamp.com",
+      "subject": "Your July Search performance for easychamp.com",
+      "kind": "performance",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "19827abf3be2775a",
+      "receivedAt": "2025-07-20T04:50:36-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent pages from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Excluded by ‘noindex’ tag"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "198196a4ec129820",
+      "receivedAt": "2025-07-17T10:24:13-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent pages in a sitemap from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Page with redirect"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "197e8b632c19c84f",
+      "receivedAt": "2025-07-07T23:25:43-07:00",
+      "property": "easychamp.com",
+      "subject": "Your June Search performance for easychamp.com",
+      "kind": "performance",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "197cb6ebb5860abc",
+      "receivedAt": "2025-07-02T06:58:40-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent pages from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Blocked due to other 4xx issue"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "197a76565b8e4aef",
+      "receivedAt": "2025-06-25T07:02:09-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent pages in a sitemap from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Soft 404"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "197979086115d092",
+      "receivedAt": "2025-06-22T05:15:20-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent pages in a sitemap from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Duplicate without user-selected canonical"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "19772fcecd2edece",
+      "receivedAt": "2025-06-15T02:47:47-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent pages in a sitemap from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Server error (5xx)",
+        "Not found (404)"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "19772fcc6d25778c",
+      "receivedAt": "2025-06-15T02:47:37-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent pages from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Blocked due to access forbidden (403)"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "19735e39a74bf38d",
+      "receivedAt": "2025-06-03T06:03:17-07:00",
+      "property": "easychamp.com",
+      "subject": "Your May Search performance for easychamp.com",
+      "kind": "performance",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "195a182c795cff0d",
+      "receivedAt": "2025-03-16T17:30:57-07:00",
+      "property": "easychamp.com",
+      "subject": "Improve Google presence for easychamp.com",
+      "kind": "property-notice",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "195a17531311dc1a",
+      "receivedAt": "2025-03-16T17:16:06-07:00",
+      "property": "easychamp.com",
+      "subject": "Request sent to associate your Play Console developer account with site https://easychamp.com/",
+      "kind": "property-notice",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "18ae01fc787917f5",
+      "receivedAt": "2023-09-29T01:48:13-07:00",
+      "property": "easychamp.com",
+      "subject": "New reasons prevent videos from being indexed on site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Video too small"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "18a66019cd4fb7d9",
+      "receivedAt": "2023-09-05T08:41:36-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Page indexing issue fixes for all submitted pages for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [
+        "site. Specifically, we are checking for 'Soft 404', which currently affects"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "18a65701fbee4041",
+      "receivedAt": "2023-09-05T06:02:41-07:00",
+      "property": "easychamp.com",
+      "subject": "Your August Search performance for easychamp.com",
+      "kind": "performance",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "18a64caa38ef3390",
+      "receivedAt": "2023-09-05T03:01:56-07:00",
+      "property": "easychamp.com",
+      "subject": "New Page indexing issues detected in submitted URLs for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Soft 404"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "18a44ee7ef2ea1ba",
+      "receivedAt": "2023-08-29T22:33:15-07:00",
+      "property": "easychamp.com",
+      "subject": "Page indexing issues successfully fixed for all submitted pages on site easychamp.com",
+      "kind": "validated",
+      "issues": [
+        "easychamp.com. The specific issue validated was: Server error (5xx)."
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "18a37cbe674f2f5e",
+      "receivedAt": "2023-08-27T09:20:24-07:00",
+      "property": "easychamp.com",
+      "subject": "We're validating your Page indexing issue fixes for all submitted pages for site easychamp.com",
+      "kind": "validation-started",
+      "issues": [
+        "site. Specifically, we are checking for 'Server error (5xx)', which"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "18a3567387db7e4c",
+      "receivedAt": "2023-08-26T22:11:11-07:00",
+      "property": "easychamp.com",
+      "subject": "New Page indexing issues detected in submitted URLs for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Server error (5xx)"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "189eb3aff1cc29cf",
+      "receivedAt": "2023-08-12T12:30:58-07:00",
+      "property": "easychamp.com",
+      "subject": "New Mobile Usability issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Text too small to read",
+        "Clickable elements too close together"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "189d5ff2b51da9de",
+      "receivedAt": "2023-08-08T09:33:35-07:00",
+      "property": "easychamp.com",
+      "subject": "Your July Search performance for easychamp.com",
+      "kind": "performance",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "189c909af171b676",
+      "receivedAt": "2023-08-05T21:10:02-07:00",
+      "property": "easychamp.com",
+      "subject": "New Page indexing issues detected in submitted URLs for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Page with redirect"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "189be3de4995da61",
+      "receivedAt": "2023-08-03T18:51:14-07:00",
+      "property": "easychamp.com",
+      "subject": "New Video page indexing issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Video outside the viewport"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "18964ad277e00a38",
+      "receivedAt": "2023-07-17T09:26:56-07:00",
+      "property": "easychamp.com",
+      "subject": "Your June Search performance for easychamp.com",
+      "kind": "performance",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "189458e60f257d25",
+      "receivedAt": "2023-07-11T08:25:06-07:00",
+      "property": "easychamp.com",
+      "subject": "Core Web Vitals INP issue detected on your website easychamp.com",
+      "kind": "issue",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "188fa5c8b417b9ac",
+      "receivedAt": "2023-06-26T17:59:08-07:00",
+      "property": "easychamp.com",
+      "subject": "Congrats on reaching 250 clicks in 28 days!",
+      "kind": "milestone",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "188ce782d27659f1",
+      "receivedAt": "2023-06-18T05:26:01-07:00",
+      "property": "easychamp.com",
+      "subject": "Congrats on reaching 150 clicks in 28 days!",
+      "kind": "milestone",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "188aa6086a508e6a",
+      "receivedAt": "2023-06-11T05:13:52-07:00",
+      "property": "easychamp.com",
+      "subject": "Congrats on reaching 100 clicks in 28 days!",
+      "kind": "milestone",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "188a81a2ec1569be",
+      "receivedAt": "2023-06-10T18:37:47-07:00",
+      "property": "easychamp.com",
+      "subject": "New Page indexing issues detected in submitted URLs for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Not found (404)",
+        "Duplicate without user-selected canonical"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1884b56e330f31d9",
+      "receivedAt": "2023-05-23T18:19:24-07:00",
+      "property": "easychamp.com",
+      "subject": "New Page indexing issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Soft 404"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1884a6b8aab9829b",
+      "receivedAt": "2023-05-23T14:02:21-07:00",
+      "property": "easychamp.com",
+      "subject": "New Mobile Usability issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Clickable elements too close together",
+        "Content wider than screen",
+        "Text too small to read"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "188127c6507426b0",
+      "receivedAt": "2023-05-12T17:22:02-07:00",
+      "property": "easychamp.com",
+      "subject": "Congrats on reaching 80 clicks in 28 days!",
+      "kind": "milestone",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "187e2b4ab08ada03",
+      "receivedAt": "2023-05-03T10:41:43-07:00",
+      "property": "easychamp.com",
+      "subject": "Congrats on reaching 50 clicks in 28 days!",
+      "kind": "milestone",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "187bd494e4e5a19a",
+      "receivedAt": "2023-04-26T04:18:30-07:00",
+      "property": "easychamp.com",
+      "subject": "New Page indexing issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Blocked by robots.txt"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "1871b337a5478a82",
+      "receivedAt": "2023-03-25T16:56:11-07:00",
+      "property": "easychamp.com",
+      "subject": "New Page indexing issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Blocked due to access forbidden (403)"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "185c69be50c6e9ce",
+      "receivedAt": "2023-01-18T12:39:43-08:00",
+      "property": "easychamp.com",
+      "subject": "New Mobile Usability issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "18564d1ba952e808",
+      "receivedAt": "2022-12-30T12:55:44-08:00",
+      "property": "easychamp.com",
+      "subject": "New Mobile Usability issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Text too small to read",
+        "Clickable elements too close together"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "18502540b03c3acd",
+      "receivedAt": "2022-12-11T09:55:40-08:00",
+      "property": "easychamp.com",
+      "subject": "Congrats on reaching 30 clicks in 28 days!",
+      "kind": "milestone",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "184b7f0461d79ee4",
+      "receivedAt": "2022-11-26T23:14:47-08:00",
+      "property": "easychamp.com",
+      "subject": "Congrats on reaching 15 clicks in 28 days!",
+      "kind": "milestone",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "18472b7c26fb95f6",
+      "receivedAt": "2022-11-13T12:39:16-08:00",
+      "property": "easychamp.com",
+      "subject": "New Mobile Usability issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Clickable elements too close together",
+        "Text too small to read"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "184705a62dee2fa9",
+      "receivedAt": "2022-11-13T01:38:02-08:00",
+      "property": "easychamp.com",
+      "subject": "New Page indexing issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Blocked due to access forbidden (403)"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "183f6e0f19a4cbc3",
+      "receivedAt": "2022-10-20T12:31:19-07:00",
+      "property": "easychamp.com",
+      "subject": "Congrats on reaching 10 clicks in 28 days!",
+      "kind": "milestone",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "183ec0281d2c871b",
+      "receivedAt": "2022-10-18T09:52:10-07:00",
+      "property": "easychamp.com",
+      "subject": "Improve the search presence of https://easychamp.com/champs/",
+      "kind": "property-notice",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "183b18409145f46b",
+      "receivedAt": "2022-10-07T01:16:03-07:00",
+      "property": "easychamp.com",
+      "subject": "Congrats on reaching 5 clicks in 28 days!",
+      "kind": "milestone",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "183a71360f680915",
+      "receivedAt": "2022-10-05T00:36:48-07:00",
+      "property": "easychamp.com",
+      "subject": "New Page indexing issues detected for easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Alternate page with proper canonical tag",
+        "Blocked by robots.txt",
+        "Duplicate, Google chose different canonical than user"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "182cd42b2e802f66",
+      "receivedAt": "2022-08-23T17:31:16-07:00",
+      "property": "easychamp.com",
+      "subject": "New Page indexing issue detected for site easychamp.com",
+      "kind": "issue",
+      "issues": [
+        "Soft 404"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "17cd30e2cd0698f7",
+      "receivedAt": "2021-10-30T14:14:53-07:00",
+      "property": "sportchamp.ru",
+      "subject": "New Mobile Usability issues detected for site sportchamp.ru",
+      "kind": "issue",
+      "issues": [
+        "Clickable elements too close together",
+        "Content wider than screen",
+        "Text too small to read"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "17c4996b078af6a8",
+      "receivedAt": "2021-10-03T21:36:24-07:00",
+      "property": "easychamp.com",
+      "subject": "Monitor the Google Search traffic to easychamp.com",
+      "kind": "property-notice",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "17bd6bf4be0d04a9",
+      "receivedAt": "2021-09-11T14:24:25-07:00",
+      "property": "sportchamp.ru",
+      "subject": "New Coverage issue detected for site sportchamp.ru",
+      "kind": "issue",
+      "issues": [
+        "Server error (5xx)"
+      ],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "17bc98634c865a79",
+      "receivedAt": "2021-09-09T00:47:00-07:00",
+      "property": "sportchamp.ru",
+      "subject": "Monitor the Google Search traffic to sportchamp.ru",
+      "kind": "property-notice",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "17bc01ccdc816ce2",
+      "receivedAt": "2021-09-07T04:55:17-07:00",
+      "property": "easychamp.com",
+      "subject": "Improve Google presence for easychamp.com",
+      "kind": "property-notice",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    },
+    {
+      "messageId": "17bc01c6fd221b43",
+      "receivedAt": "2021-09-07T04:54:53-07:00",
+      "property": "sportchamp.ru",
+      "subject": "Improve Google presence for sportchamp.ru",
+      "kind": "property-notice",
+      "issues": [],
+      "decoded": true,
+      "recipientVerified": true
+    }
+  ]
+}

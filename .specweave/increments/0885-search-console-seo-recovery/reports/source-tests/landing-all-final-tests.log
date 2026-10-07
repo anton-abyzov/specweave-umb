@@ -1,0 +1,111 @@
+
+ RUN  v4.1.11 /private/tmp/easychamp-seo-inventory-landing-20261007
+
+Error: Not implemented: window.print
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at /private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/Window.js:960:7
+    at onClick (/private/tmp/easychamp-seo-inventory-landing-20261007/src/components/tools/ToolForm.tsx:227:18)
+    at executeDispatch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/react-dom/cjs/react-dom-client.development.js:20804:9)
+    at runWithFiberInDEV (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/react-dom/cjs/react-dom-client.development.js:1048:13)
+    at processDispatchQueue (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/react-dom/cjs/react-dom-client.development.js:20854:19)
+    at /private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/react-dom/cjs/react-dom-client.development.js:21423:9
+    at batchedUpdates$1 (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/react-dom/cjs/react-dom-client.development.js:3437:40)
+    at dispatchEventForPluginEventSystem (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/react-dom/cjs/react-dom-client.development.js:21008:7)
+    at dispatchEvent (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/react-dom/cjs/react-dom-client.development.js:26142:11) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at LocationImpl._locationObjectNavigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/Location-impl.js:30:5)
+    at LocationImpl.replace (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/Location-impl.js:220:10)
+    at Location.replace (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/generated/Location.js:94:36)
+    at _IFrameWindow.navigate (file:///private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/oidc-client-ts/dist/esm/oidc-client-ts.js:2380:27)
+    at _IFrameWindow.navigate (file:///private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/oidc-client-ts/dist/esm/oidc-client-ts.js:2549:24)
+    at UserManager._signinStart (file:///private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/oidc-client-ts/dist/esm/oidc-client-ts.js:3299:27)
+    at UserManager._signin (file:///private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/oidc-client-ts/dist/esm/oidc-client-ts.js:3291:25) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at LocationImpl.reload (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/Location-impl.js:225:5)
+    at Location.reload (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/generated/Location.js:102:36)
+    at /private/tmp/easychamp-seo-inventory-landing-20261007/src/lib/auth.ts:875:29 undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at LocationImpl.reload (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/Location-impl.js:225:5)
+    at Location.reload (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/generated/Location.js:102:36)
+    at /private/tmp/easychamp-seo-inventory-landing-20261007/src/lib/auth.ts:875:29 undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at LocationImpl._locationObjectNavigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/Location-impl.js:30:5)
+    at LocationImpl.replace (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/Location-impl.js:220:10)
+    at Location.replace (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/generated/Location.js:94:36)
+    at _IFrameWindow.navigate (file:///private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/oidc-client-ts/dist/esm/oidc-client-ts.js:2380:27)
+    at _IFrameWindow.navigate (file:///private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/oidc-client-ts/dist/esm/oidc-client-ts.js:2549:24)
+    at UserManager._signinStart (file:///private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/oidc-client-ts/dist/esm/oidc-client-ts.js:3299:27)
+    at UserManager._signin (file:///private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/oidc-client-ts/dist/esm/oidc-client-ts.js:3291:25) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-landing-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+
+ Test Files  282 passed (282)
+      Tests  5741 passed | 1 skipped (5742)
+   Start at  09:47:43
+   Duration  67.60s (transform 16.35s, setup 57.71s, import 51.70s, tests 108.07s, environment 30.10s)

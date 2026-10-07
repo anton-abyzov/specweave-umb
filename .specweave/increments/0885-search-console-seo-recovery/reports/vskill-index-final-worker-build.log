@@ -1,0 +1,377 @@
+
+> vskill-platform@0.0.2 build:worker
+> npx @opennextjs/cloudflare build && npx tsx scripts/build-worker-entry.ts
+
+
+┌─────────────────────────────┐
+│ OpenNext — Cloudflare build │
+└─────────────────────────────┘
+
+App directory: /Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform
+Next.js version : 15.5.12
+@opennextjs/cloudflare version: 1.16.5
+@opennextjs/aws version: 3.9.16
+
+┌─────────────────────────────────┐
+│ OpenNext — Building Next.js app │
+└─────────────────────────────────┘
+
+
+> vskill-platform@0.0.2 build
+> npm run build:prepare && next build
+
+
+> vskill-platform@0.0.2 build:prepare
+> node scripts/sync-agents-json.cjs && node scripts/generate-diagrams-data.cjs
+
+[sync-agents-json] copied from /Users/antonabyzov/.codex/worktrees/search-console-seo/vskill/agents.json
+  -> /Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/crawl-worker/agents.json
+  -> /Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/src/lib/agents.json
+[sync-agents-json] wrote /Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/src/lib/generated-counts.ts
+  agentPlatforms=54 plugins=9 skills=19 scanPatterns=52 vskillVersion=1.2.1 specWeaveVersion=3.0.3
+[generate-diagrams-data] wrote 4 diagram(s) to src/app/components/diagrams-data.generated.ts
+   ▲ Next.js 15.5.12
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 9.5s
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+   Generating static pages (0/222) ...
+   Generating static pages (55/222)
+   Generating static pages (110/222)
+   Generating static pages (166/222)
+ ✓ Generating static pages (222/222)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                                                 Size  First Load JS
+┌ ƒ /                                                                    3.02 kB         105 kB
+├ ƒ /_not-found                                                            675 B         103 kB
+├ ƒ /account                                                               675 B         103 kB
+├ ƒ /account/billing                                                     4.17 kB         106 kB
+├ ƒ /account/danger                                                      3.02 kB         105 kB
+├ ƒ /account/notifications                                               1.76 kB         104 kB
+├ ƒ /account/orgs/[tenantId]                                             2.63 kB         105 kB
+├ ƒ /account/profile                                                     1.53 kB         104 kB
+├ ƒ /account/repos                                                       4.86 kB         107 kB
+├ ƒ /account/repos/connect                                               2.27 kB         108 kB
+├ ƒ /account/skills                                                         2 kB         104 kB
+├ ƒ /account/tokens                                                      3.51 kB         106 kB
+├ ƒ /admin                                                               2.69 kB         105 kB
+├ ƒ /admin/blocklist                                                     3.71 kB         106 kB
+├ ƒ /admin/cron-log                                                      3.72 kB         106 kB
+├ ƒ /admin/dashboard                                                     5.86 kB         108 kB
+├ ƒ /admin/installs                                                      4.17 kB         106 kB
+├ ƒ /admin/queue                                                         11.1 kB         113 kB
+├ ƒ /admin/reports                                                       4.19 kB         106 kB
+├ ƒ /admin/settings                                                        545 B         103 kB
+├ ƒ /admin/skills                                                         3.7 kB         106 kB
+├ ƒ /admin/submissions                                                      5 kB         107 kB
+├ ƒ /admin/submissions/[id]                                              7.66 kB         110 kB
+├ ƒ /admin/users                                                         3.39 kB         106 kB
+├ ƒ /ai-studio                                                             675 B         103 kB
+├ ƒ /api/learn/notify                                                      675 B         103 kB
+├ ƒ /api/v1/account/delete                                                 675 B         103 kB
+├ ƒ /api/v1/account/export                                                 675 B         103 kB
+├ ƒ /api/v1/account/notifications                                          675 B         103 kB
+├ ƒ /api/v1/account/profile                                                675 B         103 kB
+├ ƒ /api/v1/account/repos                                                  675 B         103 kB
+├ ƒ /api/v1/account/repos/[id]                                             675 B         103 kB
+├ ƒ /api/v1/account/repos/[id]/resync                                      675 B         103 kB
+├ ƒ /api/v1/account/repos/connect                                          675 B         103 kB
+├ ƒ /api/v1/account/repos/github/callback                                  675 B         103 kB
+├ ƒ /api/v1/account/sign-out-all                                           675 B         103 kB
+├ ƒ /api/v1/account/skills/summary                                         675 B         103 kB
+├ ƒ /api/v1/account/tenants                                                675 B         103 kB
+├ ƒ /api/v1/account/tokens                                                 675 B         103 kB
+├ ƒ /api/v1/account/tokens/[id]                                            675 B         103 kB
+├ ƒ /api/v1/admin/alerts/[id]/ack                                          675 B         103 kB
+├ ƒ /api/v1/admin/alerts/recent                                            675 B         103 kB
+├ ƒ /api/v1/admin/backfill-slugs                                           675 B         103 kB
+├ ƒ /api/v1/admin/backfill-versionless-skills                              675 B         103 kB
+├ ƒ /api/v1/admin/backfill-versions                                        675 B         103 kB
+├ ƒ /api/v1/admin/blocklist                                                675 B         103 kB
+├ ƒ /api/v1/admin/blocklist/[id]                                           675 B         103 kB
+├ ƒ /api/v1/admin/blocklist/[id]/unblock                                   675 B         103 kB
+├ ƒ /api/v1/admin/blocklist/enrich                                         675 B         103 kB
+├ ƒ /api/v1/admin/bulk-reprocess                                           675 B         103 kB
+├ ƒ /api/v1/admin/category-rescan                                          675 B         103 kB
+├ ƒ /api/v1/admin/cron-log                                                 675 B         103 kB
+├ ƒ /api/v1/admin/dedup-skills                                             675 B         103 kB
+├ ƒ /api/v1/admin/dep-backfill                                             675 B         103 kB
+├ ƒ /api/v1/admin/discovery                                                675 B         103 kB
+├ ƒ /api/v1/admin/discovery/bulk                                           675 B         103 kB
+├ ƒ /api/v1/admin/discovery/stats                                          675 B         103 kB
+├ ƒ /api/v1/admin/discovery/vendor-orgs                                    675 B         103 kB
+├ ƒ /api/v1/admin/enrich                                                   675 B         103 kB
+├ ƒ /api/v1/admin/eval/bulk                                                675 B         103 kB
+├ ƒ /api/v1/admin/eval/direct                                              675 B         103 kB
+├ ƒ /api/v1/admin/eval/purge                                               675 B         103 kB
+├ ƒ /api/v1/admin/eval/regression                                          675 B         103 kB
+├ ƒ /api/v1/admin/eval/regression/batch                                    675 B         103 kB
+├ ƒ /api/v1/admin/eval/reverify                                            675 B         103 kB
+├ ƒ /api/v1/admin/eval/trigger                                             675 B         103 kB
+├ ƒ /api/v1/admin/health/skills                                            675 B         103 kB
+├ ƒ /api/v1/admin/install-stats                                            675 B         103 kB
+├ ƒ /api/v1/admin/migrate-slugs                                            675 B         103 kB
+├ ƒ /api/v1/admin/npm-backfill                                             675 B         103 kB
+├ ƒ /api/v1/admin/purge-no-skillmd                                         675 B         103 kB
+├ ƒ /api/v1/admin/queue-health                                             675 B         103 kB
+├ ƒ /api/v1/admin/queue/bulk-enqueue                                       675 B         103 kB
+├ ƒ /api/v1/admin/queue/bulk-requeue                                       675 B         103 kB
+├ ƒ /api/v1/admin/queue/dlq                                                675 B         103 kB
+├ ƒ /api/v1/admin/queue/metrics                                            675 B         103 kB
+├ ƒ /api/v1/admin/queue/pause                                              675 B         103 kB
+├ ƒ /api/v1/admin/queue/status                                             675 B         103 kB
+├ ƒ /api/v1/admin/rebuild-index                                            675 B         103 kB
+├ ƒ /api/v1/admin/rebuild-search                                           675 B         103 kB
+├ ƒ /api/v1/admin/recompute-skill-cert-tiers                               675 B         103 kB
+├ ƒ /api/v1/admin/recompute-slugs                                          675 B         103 kB
+├ ƒ /api/v1/admin/recompute-version-cert-tiers                             675 B         103 kB
+├ ƒ /api/v1/admin/reenqueue                                                675 B         103 kB
+├ ƒ /api/v1/admin/refresh-skills                                           675 B         103 kB
+├ ƒ /api/v1/admin/rejections                                               675 B         103 kB
+├ ƒ /api/v1/admin/repo-backfill                                            675 B         103 kB
+├ ƒ /api/v1/admin/repo-block                                               675 B         103 kB
+├ ƒ /api/v1/admin/reports                                                  675 B         103 kB
+├ ƒ /api/v1/admin/reports/[id]                                             675 B         103 kB
+├ ƒ /api/v1/admin/rescan-published                                         675 B         103 kB
+├ ƒ /api/v1/admin/scan-external                                            675 B         103 kB
+├ ƒ /api/v1/admin/scan-model-stats                                         675 B         103 kB
+├ ƒ /api/v1/admin/skills                                                   675 B         103 kB
+├ ƒ /api/v1/admin/skills/[owner]/[repo]/[skill]/backfill-content-hashes    675 B         103 kB
+├ ƒ /api/v1/admin/skills/[owner]/[repo]/[skill]/block                      675 B         103 kB
+├ ƒ /api/v1/admin/skills/[owner]/[repo]/[skill]/delete                     675 B         103 kB
+├ ƒ /api/v1/admin/skills/[owner]/[repo]/[skill]/reset-version              675 B         103 kB
+├ ƒ /api/v1/admin/skills/bulk-delete                                       675 B         103 kB
+├ ƒ /api/v1/admin/stats                                                    675 B         103 kB
+├ ƒ /api/v1/admin/submissions                                              675 B         103 kB
+├ ƒ /api/v1/admin/submissions/[id]                                         675 B         103 kB
+├ ƒ /api/v1/admin/submissions/[id]/approve                                 675 B         103 kB
+├ ƒ /api/v1/admin/submissions/[id]/block                                   675 B         103 kB
+├ ƒ /api/v1/admin/submissions/[id]/dequeue                                 675 B         103 kB
+├ ƒ /api/v1/admin/submissions/[id]/reject                                  675 B         103 kB
+├ ƒ /api/v1/admin/submissions/[id]/reprioritize                            675 B         103 kB
+├ ƒ /api/v1/admin/submissions/bulk-delete                                  675 B         103 kB
+├ ƒ /api/v1/admin/submissions/bulk-reject                                  675 B         103 kB
+├ ƒ /api/v1/admin/submissions/purge-terminal                               675 B         103 kB
+├ ƒ /api/v1/admin/submissions/restore-published                            675 B         103 kB
+├ ƒ /api/v1/admin/submissions/state-counts                                 675 B         103 kB
+├ ƒ /api/v1/admin/taint-rescan                                             675 B         103 kB
+├ ƒ /api/v1/admin/tenants/[tenantId]/promote-enterprise                    675 B         103 kB
+├ ƒ /api/v1/admin/trust-backfill                                           675 B         103 kB
+├ ƒ /api/v1/admin/trusted-author-backfill                                  675 B         103 kB
+├ ƒ /api/v1/admin/users                                                    675 B         103 kB
+├ ƒ /api/v1/agents                                                         675 B         103 kB
+├ ƒ /api/v1/audits                                                         675 B         103 kB
+├ ƒ /api/v1/auth/github                                                    675 B         103 kB
+├ ƒ /api/v1/auth/github/callback                                           675 B         103 kB
+├ ƒ /api/v1/auth/github/desktop-callback                                   675 B         103 kB
+├ ƒ /api/v1/auth/github/device-flow/code                                   675 B         103 kB
+├ ƒ /api/v1/auth/github/device-flow/token                                  675 B         103 kB
+├ ƒ /api/v1/auth/github/exchange-for-vsk-token                             675 B         103 kB
+├ ƒ /api/v1/auth/github/grant                                              675 B         103 kB
+├ ƒ /api/v1/auth/github/installation/callback                              675 B         103 kB
+├ ƒ /api/v1/auth/github/installation/init                                  675 B         103 kB
+├ ƒ /api/v1/auth/github/installation/uninstall                             675 B         103 kB
+├ ƒ /api/v1/auth/login                                                     675 B         103 kB
+├ ƒ /api/v1/auth/logout                                                    675 B         103 kB
+├ ƒ /api/v1/auth/me                                                        675 B         103 kB
+├ ƒ /api/v1/auth/refresh                                                   675 B         103 kB
+├ ƒ /api/v1/auth/sign-out-all                                              675 B         103 kB
+├ ƒ /api/v1/auth/user/refresh                                              675 B         103 kB
+├ ƒ /api/v1/authors                                                        675 B         103 kB
+├ ƒ /api/v1/authors/[name]                                                 675 B         103 kB
+├ ƒ /api/v1/authors/[name]/skills                                          675 B         103 kB
+├ ƒ /api/v1/billing/checkout/session                                       675 B         103 kB
+├ ƒ /api/v1/billing/portal                                                 675 B         103 kB
+├ ƒ /api/v1/billing/quota                                                  675 B         103 kB
+├ ƒ /api/v1/billing/quota/report                                           675 B         103 kB
+├ ƒ /api/v1/billing/seats/sync                                             675 B         103 kB
+├ ƒ /api/v1/billing/seats/usage                                            675 B         103 kB
+├ ƒ /api/v1/billing/subscription                                           675 B         103 kB
+├ ƒ /api/v1/billing/waitlist                                               675 B         103 kB
+├ ƒ /api/v1/billing/webhooks/stripe                                        675 B         103 kB
+├ ƒ /api/v1/blocklist                                                      675 B         103 kB
+├ ƒ /api/v1/blocklist/check                                                675 B         103 kB
+├ ƒ /api/v1/e2e-harness/audit                                              675 B         103 kB
+├ ƒ /api/v1/e2e-harness/healthz                                            675 B         103 kB
+├ ƒ /api/v1/e2e-harness/reset                                              675 B         103 kB
+├ ƒ /api/v1/e2e-harness/rows                                               675 B         103 kB
+├ ƒ /api/v1/e2e-harness/seed                                               675 B         103 kB
+├ ƒ /api/v1/e2e-harness/sign-in                                            675 B         103 kB
+├ ƒ /api/v1/eval/results/[skillId]                                         675 B         103 kB
+├ ƒ /api/v1/eval/run                                                       675 B         103 kB
+├ ƒ /api/v1/integrations/github/callback                                   675 B         103 kB
+├ ƒ /api/v1/internal/alerts-digest                                         675 B         103 kB
+├ ƒ /api/v1/internal/alerts-evaluator                                      675 B         103 kB
+├ ƒ /api/v1/internal/broadcast                                             675 B         103 kB
+├ ƒ /api/v1/internal/cache-warm                                            675 B         103 kB
+├ ƒ /api/v1/internal/cache/publishers                                      675 B         103 kB
+├ ƒ /api/v1/internal/cache/skills                                          675 B         103 kB
+├ ƒ /api/v1/internal/claim-sast-scan                                       675 B         103 kB
+├ ƒ /api/v1/internal/claim-submission                                      675 B         103 kB
+├ ƒ /api/v1/internal/deadman-provider-down                                 675 B         103 kB
+├ ƒ /api/v1/internal/enqueue-submissions                                   675 B         103 kB
+├ ƒ /api/v1/internal/finalize-scan                                         675 B         103 kB
+├ ƒ /api/v1/internal/pending-sast-scans                                    675 B         103 kB
+├ ƒ /api/v1/internal/pending-submissions                                   675 B         103 kB
+├ ƒ /api/v1/internal/queue-health-check                                    675 B         103 kB
+├ ƒ /api/v1/internal/reconciler/ensure                                     675 B         103 kB
+├ ƒ /api/v1/internal/skills/publish                                        675 B         103 kB
+├ ƒ /api/v1/internal/stats/platform                                        675 B         103 kB
+├ ƒ /api/v1/internal/stats/queue                                           675 B         103 kB
+├ ƒ /api/v1/internal/stats/queue-list-warmup                               675 B         103 kB
+├ ƒ /api/v1/internal/submission-state                                      675 B         103 kB
+├ ƒ /api/v1/internal/test-sendgrid                                         675 B         103 kB
+├ ƒ /api/v1/internal/unclaim-submission                                    675 B         103 kB
+├ ƒ /api/v1/internal/vm-healthcheck                                        675 B         103 kB
+├ ƒ /api/v1/internal/vm-heartbeat                                          675 B         103 kB
+├ ƒ /api/v1/legacy-redirect/[slug]                                         675 B         103 kB
+├ ƒ /api/v1/models/default                                                 675 B         103 kB
+├ ƒ /api/v1/packages/[owner]/[repo]/[skillName]/history                    675 B         103 kB
+├ ƒ /api/v1/packages/[owner]/[repo]/[skillName]/latest                     675 B         103 kB
+├ ƒ /api/v1/problem-reports                                                675 B         103 kB
+├ ƒ /api/v1/problem-reports/mine                                           675 B         103 kB
+├ ƒ /api/v1/queue/health                                                   675 B         103 kB
+├ ƒ /api/v1/queue/logs                                                     675 B         103 kB
+├ ƒ /api/v1/rejections                                                     675 B         103 kB
+├ ƒ /api/v1/reports                                                        675 B         103 kB
+├ ƒ /api/v1/skills                                                         675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]                                  675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]/badge                            675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]/badge/[provider]                 675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]/eval                             675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]/eval/history                     675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]/installs                         675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]/repo-health                      675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]/security                         675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]/security/[provider]              675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]/versions                         675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]/versions/[version]               675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]/versions/compare                 675 B         103 kB
+├ ƒ /api/v1/skills/[owner]/[repo]/[skill]/versions/diff                    675 B         103 kB
+├ ƒ /api/v1/skills/by-id/[id]/register-tracking                            675 B         103 kB
+├ ƒ /api/v1/skills/by-id/[id]/rescan                                       675 B         103 kB
+├ ƒ /api/v1/skills/check-source                                            675 B         103 kB
+├ ƒ /api/v1/skills/check-updates                                           675 B         103 kB
+├ ƒ /api/v1/skills/installs                                                675 B         103 kB
+├ ƒ /api/v1/skills/lookup-by-name                                          675 B         103 kB
+├ ƒ /api/v1/skills/search                                                  675 B         103 kB
+├ ƒ /api/v1/skills/stream                                                  675 B         103 kB
+├ ƒ /api/v1/stats                                                          675 B         103 kB
+├ ƒ /api/v1/stats/health                                                   675 B         103 kB
+├ ƒ /api/v1/studio/search                                                  675 B         103 kB
+├ ƒ /api/v1/studio/telemetry/[kind]                                        675 B         103 kB
+├ ƒ /api/v1/studio/telemetry/sse                                           675 B         103 kB
+├ ƒ /api/v1/studio/workspace-info                                          675 B         103 kB
+├ ƒ /api/v1/submissions                                                    675 B         103 kB
+├ ƒ /api/v1/submissions/[id]                                               675 B         103 kB
+├ ƒ /api/v1/submissions/bulk                                               675 B         103 kB
+├ ƒ /api/v1/submissions/discover                                           675 B         103 kB
+├ ƒ /api/v1/submissions/positions                                          675 B         103 kB
+├ ƒ /api/v1/submissions/search                                             675 B         103 kB
+├ ƒ /api/v1/submissions/stats                                              675 B         103 kB
+├ ƒ /api/v1/submissions/stream                                             675 B         103 kB
+├ ƒ /api/v1/tenants/[tenantId]/audit-log                                   675 B         103 kB
+├ ƒ /api/v1/tenants/[tenantId]/audit-log/export                            675 B         103 kB
+├ ƒ /api/v1/tenants/[tenantId]/members/invite                              675 B         103 kB
+├ ƒ /api/v1/tenants/[tenantId]/skills                                      675 B         103 kB
+├ ƒ /api/v1/tenants/[tenantId]/skills/[slug]                               675 B         103 kB
+├ ƒ /api/v1/user/preferences                                               675 B         103 kB
+├ ƒ /api/v1/webhooks/github                                                675 B         103 kB
+├ ƒ /api/v1/webhooks/scan-results                                          675 B         103 kB
+├ ƒ /audits                                                                675 B         103 kB
+├ ƒ /auth/error                                                          2.44 kB         105 kB
+├ ƒ /auth/login                                                            675 B         103 kB
+├ ƒ /blocklist                                                             675 B         103 kB
+├ ƒ /catalog                                                               675 B         103 kB
+├ ƒ /claude-code-skills                                                    675 B         103 kB
+├ ƒ /claude-code-skills/[category]                                         675 B         103 kB
+├ ƒ /desktop                                                               394 B         103 kB
+├ ƒ /desktop/[...asset]                                                    675 B         103 kB
+├ ƒ /desktop/latest.json                                                   675 B         103 kB
+├ ƒ /docs                                                                1.27 kB         103 kB
+├ ƒ /docs/cli-reference                                                  1.27 kB         103 kB
+├ ƒ /docs/faq                                                               7 kB         109 kB
+├ ƒ /docs/getting-started                                                  788 B         160 kB
+├ ƒ /docs/parameters-and-secrets                                         1.27 kB         103 kB
+├ ƒ /docs/plugins                                                        2.75 kB         105 kB
+├ ƒ /docs/security-guidelines                                            1.27 kB         103 kB
+├ ƒ /docs/studio                                                         3.85 kB         109 kB
+├ ƒ /docs/submitting                                                       177 B         159 kB
+├ ƒ /docs/workflows                                                      2.08 kB         104 kB
+├ ƒ /e2e/studio-mock                                                     1.71 kB         104 kB
+├ ƒ /insights                                                              675 B         103 kB
+├ ƒ /insights/claude-code                                                  675 B         103 kB
+├ ƒ /insights/claude-code-fixes                                            675 B         103 kB
+├ ○ /llms.txt                                                              675 B         103 kB
+├ ƒ /methodology                                                           675 B         103 kB
+├ ƒ /orgs/[orgSlug]                                                        675 B         103 kB
+├ ƒ /orgs/[orgSlug]/audit-log                                               2 kB         104 kB
+├ ƒ /orgs/[orgSlug]/skills                                                 675 B         103 kB
+├ ƒ /orgs/[orgSlug]/skills/[slug]                                          675 B         103 kB
+├ ƒ /press                                                                 675 B         103 kB
+├ ƒ /pricing                                                             3.51 kB         106 kB
+├ ƒ /publish                                                             4.57 kB         107 kB
+├ ƒ /publishers                                                            806 B         103 kB
+├ ƒ /publishers/[name]                                                   3.57 kB         106 kB
+├ ƒ /queue                                                               14.6 kB         117 kB
+├ ƒ /report                                                              3.59 kB         106 kB
+├ ƒ /report/my-reports                                                   3.35 kB         105 kB
+├ ○ /robots.txt                                                            675 B         103 kB
+├ ƒ /settings/integrations                                                 993 B         103 kB
+├ ƒ /sitemap.xml                                                           675 B         103 kB
+├ ƒ /skill-studio                                                          675 B         103 kB
+├ ƒ /skills                                                              1.62 kB         104 kB
+├ ƒ /skills/[owner]/[repo]/[skill]                                       5.49 kB         111 kB
+├ ƒ /skills/[owner]/[repo]/[skill]/evals                                 3.61 kB         106 kB
+├ ƒ /skills/[owner]/[repo]/[skill]/security                                486 B         103 kB
+├ ƒ /skills/[owner]/[repo]/[skill]/security/[provider]                     486 B         103 kB
+├ ƒ /skills/[owner]/[repo]/[skill]/versions                                499 B         106 kB
+├ ƒ /skills/[owner]/[repo]/[skill]/versions/[version]                     5.1 kB         111 kB
+├ ƒ /skills/[owner]/[repo]/[skill]/versions/compare                      4.03 kB         110 kB
+├ ƒ /studio                                                              4.67 kB         107 kB
+├ ƒ /studio/find                                                         7.58 kB         117 kB
+├ ƒ /studio/find/[owner]/[repo]/[skill]                                  6.65 kB         116 kB
+├ ƒ /submit                                                              7.02 kB         109 kB
+├ ƒ /submit/[id]                                                         7.72 kB         110 kB
+├ ƒ /trust                                                               13.9 kB         116 kB
+├ ƒ /watch                                                               2.02 kB         108 kB
+└ ƒ /watch/[slug]                                                          969 B         103 kB
++ First Load JS shared by all                                             102 kB
+  ├ chunks/1255-a390e12b70b4a9fb.js                                        46 kB
+  ├ chunks/4bd1b696-f785427dddbba9fb.js                                  54.2 kB
+  └ other shared chunks (total)                                          1.92 kB
+
+Route (pages)                                                               Size  First Load JS
+─ ○ /500                                                                   269 B         102 kB
++ First Load JS shared by all                                             102 kB
+  ├ chunks/framework-e60c938074ff7136.js                                 59.7 kB
+  ├ chunks/main-5fe835826c7143d9.js                                        40 kB
+  └ other shared chunks (total)                                          1.89 kB
+
+ƒ Middleware                                                             34.3 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+┌──────────────────────────────┐
+│ OpenNext — Generating bundle │
+└──────────────────────────────┘
+
+Bundling middleware function...
+Bundling static assets...
+Bundling cache assets...
+Building server function: default...
+Applying code patches: 1.619s
+# copyPackageTemplateFiles
+[35m⚙️ Bundling the OpenNext server...
+[0m
+[35mWorker saved in `.open-next/worker.js` 🚀
+[0m
+OpenNext build complete.
+Created /Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/.open-next/worker-with-queues.js
+queue-health build contract ok

@@ -1,0 +1,95 @@
+{
+  "normalization": "LF and trailing-whitespace normalization only; original raw logs remain in private audit directory. No output content, failures, thresholds or results removed.",
+  "files": [
+    {
+      "file": "source-tests/specweave-tests-targeted-coverage.log",
+      "sourceBytes": 1240,
+      "sourceSha256": "a4fe6a82083c942817ed18c0bac39fd0ee671b5496d283c9ef8c5ebe2d5b5c64",
+      "archivedSha256": "454b626e772694f874164312182e9deca6d41e1c30be6d9526fe0041bd69aa63"
+    },
+    {
+      "file": "source-tests/arena-source-attribution-build.log",
+      "sourceBytes": 11005,
+      "sourceSha256": "b931d4da4aa0cfb3e97ddd560fb5ee6da42250c2ca44927351a8e41b10ffcaf1",
+      "archivedSha256": "1c30c6ae12b1dc344f3626776aa1c4b91e27065ff118ff8201d1310f5cbb4a22"
+    },
+    {
+      "file": "source-tests/uikit-video-coverage.log",
+      "sourceBytes": 888,
+      "sourceSha256": "b5b350c1146c4e325578b7093d3b91e636e0703ee2c39098c2bdb8ed3610b6c0",
+      "archivedSha256": "fdec48ba2c1340edb3f27476ca9b82805827a511df0752e43273c93f84d35d1a"
+    },
+    {
+      "file": "source-tests/landing-final-typecheck.log",
+      "sourceBytes": 46,
+      "sourceSha256": "03d7552a090fe7006bcc8064754779ca3f5b58fffd145e36d8bb7fce3d44ec21",
+      "archivedSha256": "8363b133f7c1f6b602b692e23b7b55662216ac1f6735ce5021e18e41bdf9b06a"
+    },
+    {
+      "file": "source-tests/arena-all-final-tests.log",
+      "sourceBytes": 3971,
+      "sourceSha256": "fbaaa09f54c2306a2fe371f8e88fd3bb1ab2f0a09a53470c71e1bf2ded4ff0ba",
+      "archivedSha256": "9619db451138df79ba6350250e173950da296e9542d3d7238bba6eebd523d63a"
+    },
+    {
+      "file": "source-tests/uikit-build.log",
+      "sourceBytes": 22558,
+      "sourceSha256": "04ce752b4eaa948e213356c658b7bf5e6d48fed3e0962c9d1b45b32d5359849c",
+      "archivedSha256": "04ce752b4eaa948e213356c658b7bf5e6d48fed3e0962c9d1b45b32d5359849c"
+    },
+    {
+      "file": "source-tests/specweave-build-dark-links-final.log",
+      "sourceBytes": 2005,
+      "sourceSha256": "7f072b3425e95ecf51b454449cc15f8ab3317142ac7d821df99f8b112e200f2c",
+      "archivedSha256": "7560d89fcd78a8701588d30ca86bda31534f9f3ac61efd3372b77cc78bd270a8"
+    },
+    {
+      "file": "source-tests/arena-source-attribution-test-final.log",
+      "sourceBytes": 241,
+      "sourceSha256": "2f186488b0ff29a98114810598b99eb8bff36aadb7c60ac60784638fbe3be27d",
+      "archivedSha256": "84613be3de5aa45dcdfbbf6125c2b22c74ada95e0e05eb4bc378178a99465690"
+    },
+    {
+      "file": "source-tests/arena-final-typecheck.log",
+      "sourceBytes": 47,
+      "sourceSha256": "7dbe3a0ddda91244a899b7e6aebda9209662edd8d7729b81ade8a16db4f55658",
+      "archivedSha256": "749b4278907c17797fe684d69ea76803843139046a4fbb2726d36511c7c01c04"
+    },
+    {
+      "file": "source-tests/landing-all-final-tests.log",
+      "sourceBytes": 12589,
+      "sourceSha256": "36cef8b80c2050310b9992fcc36434de7b23e09c65bec4897bf60ce5c5d2d335",
+      "archivedSha256": "25caa1a563649792f073e3affef2c54d0c82e9995e76c78ad09265831a4cd5bc"
+    },
+    {
+      "file": "source-tests/landing-blog-help-coverage-final.log",
+      "sourceBytes": 1324,
+      "sourceSha256": "c90613f79067c44b381c06f35591286fe72f7c29d4213a11a7c49708613c57f2",
+      "archivedSha256": "59981c722ff66f9be78168f9a0e8befb60f5cb38486f6db905bcd957a41edc5d"
+    },
+    {
+      "file": "source-tests/uikit-public-site-test.log",
+      "sourceBytes": 246,
+      "sourceSha256": "edaeeef1172e3008e18ae2e095f303bf327484d9c663e48cd89a97d7a9db99de",
+      "archivedSha256": "b752a8b6de1f2f9d669480ae4a96f41349b671906bac453e9398aeba3adcd21e"
+    },
+    {
+      "file": "source-tests/landing-blog-video-build.log",
+      "sourceBytes": 11724,
+      "sourceSha256": "0981edc97d6c602181d66db7a203097540bddc5701ecf6998e7382cf590d3a06",
+      "archivedSha256": "f31317c71a3f87b42335de15a6e89f6568f5b1e36e805bd2e30c4e35eacee2c3"
+    },
+    {
+      "file": "source-tests/arena-attribution-coverage-final.log",
+      "sourceBytes": 1153,
+      "sourceSha256": "ee4a433a401a2e5569a3f4cf761ba5ef63b67bb74783d68a165c66ed4980e4f4",
+      "archivedSha256": "fed88b867f2258aea9843a99ea4c4f64f087ea95f5b7378182c28c974b4ce9ac"
+    },
+    {
+      "file": "source-tests/landing-blog-video-tests.log",
+      "sourceBytes": 241,
+      "sourceSha256": "852115960976f421bb3145f6c35361c225d41b8be01433e45c4439887b0f2928",
+      "archivedSha256": "469aa101177a9a8fd388b0874654eccd893a56b6bd8f985151bb40e170ed2872"
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "files": [
+    {
+      "file": "vskill-index-current-release-receipt.json",
+      "originalBytes": 5946,
+      "originalSha256": "781e7ce5ad589606ee9ea79556a0697b241be608a2237450a4f7c450f66ee8f0",
+      "archivedSha256": "781e7ce5ad589606ee9ea79556a0697b241be608a2237450a4f7c450f66ee8f0",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-runtime-source-delta.txt",
+      "originalBytes": 203,
+      "originalSha256": "cbdd909a0ad67e81228c007070f5514bc7786bb050425f3aa19c3b4e330a6922",
+      "archivedSha256": "cbdd909a0ad67e81228c007070f5514bc7786bb050425f3aa19c3b4e330a6922",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-pr89-checks.json",
+      "originalBytes": 559,
+      "originalSha256": "8ff3faccdee253a4567ab6ecc807e501436514ebd6acbb1cb205cb3960d7db02",
+      "archivedSha256": "8ff3faccdee253a4567ab6ecc807e501436514ebd6acbb1cb205cb3960d7db02",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-pr89-github-unit.log",
+      "originalBytes": 1449360,
+      "originalSha256": "905ec5375795ffa6c14be81bd7c17338c38c89ba514ae8cf32c1e65f94c6f296",
+      "archivedSha256": "248c60ce101a88eb6eff5d712ce5543f19ffe1aa5918900b70230bda213ead68",
+      "method": "last 300 lines; complete unchanged gzip also archived"
+    },
+    {
+      "file": "vskill-public-index-focused.log",
+      "originalBytes": 1011,
+      "originalSha256": "716e96e380a0a510241cd14be7be86fe7673e6cc4fd6d6bd01042a6e39b76588",
+      "archivedSha256": "477b606845851dca917ba41e1cf2508665974de5fa8c257362dbef2944ceddd5",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-public-index-final-full-unit.log",
+      "originalBytes": 848663,
+      "originalSha256": "4facb36dc6c349ba015d583387e00b171a93b843ba9ee5034fad33395dad5597",
+      "archivedSha256": "aec9f87415f9b3354066fa7a8be673fbc9da5d5f43d99403baaeecf5e7c3ee08",
+      "method": "last 300 lines; complete unchanged gzip also archived"
+    },
+    {
+      "file": "vskill-public-index-final-build.log",
+      "originalBytes": 31488,
+      "originalSha256": "523470b5206ffced6731bc062b2fc9bc0ea3987250ad476ea467c980319d237c",
+      "archivedSha256": "10081650cb13d961dc21a40a99aadb1d1a45cf2dd6aa91f61107c2b498fdf1d0",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-public-index-security.log",
+      "originalBytes": 106,
+      "originalSha256": "12311509ef4ef5e5579c03d09b7551e72e4427a7a0fedb63789acde59f21e19c",
+      "archivedSha256": "12311509ef4ef5e5579c03d09b7551e72e4427a7a0fedb63789acde59f21e19c",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-public-index-coverage.log",
+      "originalBytes": 960063,
+      "originalSha256": "062f0d71a3a1ad52372e57545dc27377c6537cb02c6d1f4a304b68d5d89c9048",
+      "archivedSha256": "bb1ff0f37c65dc2a98fc9b5417ef1217006360d72ac7557c1b4c00f0ed667929",
+      "method": "last 300 lines; complete unchanged gzip also archived"
+    },
+    {
+      "file": "vskill-public-index-coverage/coverage-summary.json",
+      "originalBytes": 342500,
+      "originalSha256": "f2d328bcf4858a5838393bd67ef1fb129f0ac54d102b0a474f4e502c555fc77a",
+      "archivedSha256": "f2d328bcf4858a5838393bd67ef1fb129f0ac54d102b0a474f4e502c555fc77a",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-final-worker-build.log",
+      "originalBytes": 32952,
+      "originalSha256": "417e9e6a26ae3ce3b5d831927534bd3244958438aaa864df37a736b577d2fb4e",
+      "archivedSha256": "f3456bfd458eea74c1276ccac3485bbcec7c386992318c7ea880c8a20fac2e30",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-final-prestate.json",
+      "originalBytes": 495,
+      "originalSha256": "82866639ec0876e5adb2dc5b091e6e4cc50551d6f1f39c93931c245a0e78f6a5",
+      "archivedSha256": "82866639ec0876e5adb2dc5b091e6e4cc50551d6f1f39c93931c245a0e78f6a5",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-production-apply.json",
+      "originalBytes": 1105,
+      "originalSha256": "b685c59ca763fa78a57c8fa171b99fcbc4d9d3feb502d716f56bd98c3bbda993",
+      "archivedSha256": "b685c59ca763fa78a57c8fa171b99fcbc4d9d3feb502d716f56bd98c3bbda993",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-production-apply-error.json",
+      "originalBytes": 0,
+      "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archivedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-source-relation.json",
+      "originalBytes": 80,
+      "originalSha256": "351dc3adf041f4ca466cce9993065b881e3b1fc7823ec4bc1b0f502619e1278c",
+      "archivedSha256": "351dc3adf041f4ca466cce9993065b881e3b1fc7823ec4bc1b0f502619e1278c",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-planner-settings.json",
+      "originalBytes": 1305,
+      "originalSha256": "c5eee6be79fe007b7c867aeca587407716e10bab8cee3ede217c4b5c67803c56",
+      "archivedSha256": "c5eee6be79fe007b7c867aeca587407716e10bab8cee3ede217c4b5c67803c56",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-planner-settings-repeat.json",
+      "originalBytes": 1308,
+      "originalSha256": "e50aec62e60e1c7ccb03ce25599fad27769ca99f302ddb4f664605eb56397dda",
+      "archivedSha256": "e50aec62e60e1c7ccb03ce25599fad27769ca99f302ddb4f664605eb56397dda",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-publisher-index-posthealth.json",
+      "originalBytes": 5655,
+      "originalSha256": "091992a7d268c45b12ec600cf4781fb74f9743ca1335692faae8278adb5469b9",
+      "archivedSha256": "091992a7d268c45b12ec600cf4781fb74f9743ca1335692faae8278adb5469b9",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-merged-query-plan-before.jsonl",
+      "originalBytes": 8256,
+      "originalSha256": "5b5627b5987e6317ffccc67693d060960a0011597cfaaa6f8e4fb68c51ecca32",
+      "archivedSha256": "5b5627b5987e6317ffccc67693d060960a0011597cfaaa6f8e4fb68c51ecca32",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-merged-query-plan-after.jsonl",
+      "originalBytes": 21225,
+      "originalSha256": "5b7ddd1b2da65c7438135fdb12fa0cfe7a837b1f958151b0b1ba2cb5d4a6b41e",
+      "archivedSha256": "5b7ddd1b2da65c7438135fdb12fa0cfe7a837b1f958151b0b1ba2cb5d4a6b41e",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-merged-query-plan-after-visible.jsonl",
+      "originalBytes": 14633,
+      "originalSha256": "1545a8ef58065272e9c5c964f380ac1ddc8199ad704ba505d7771e0688928405",
+      "archivedSha256": "1545a8ef58065272e9c5c964f380ac1ddc8199ad704ba505d7771e0688928405",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-source-proof.jsonl",
+      "originalBytes": 1675,
+      "originalSha256": "24350b8f6335e7341e1a9354c5a87b2bf036c897937ccdb6ad74517e277a745b",
+      "archivedSha256": "24350b8f6335e7341e1a9354c5a87b2bf036c897937ccdb6ad74517e277a745b",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-source-proof-error.json",
+      "originalBytes": 0,
+      "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archivedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-publisher-index-release-existing-worker.json",
+      "originalBytes": 4837,
+      "originalSha256": "1ad1c58ac27807c41f0bbcba4ee6b0ccead9a24b795748fa8c63c41793fa51cd",
+      "archivedSha256": "3985a32ff677916eb8be9c235e15c011f7de2b0c7e9822b680ff092d502b888a",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-publisher-index-public-existing-worker.log",
+      "originalBytes": 7156,
+      "originalSha256": "60d85d33d45f1fc1c9e688351e7e0f1810780bbff362084f128a1fe4e8b3b341",
+      "archivedSha256": "60d85d33d45f1fc1c9e688351e7e0f1810780bbff362084f128a1fe4e8b3b341",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-publisher-index-http-receipts.jsonl",
+      "originalBytes": 3571,
+      "originalSha256": "dbe5b735ac1a00a6999e5ceadf7f800423c5a6c20ea356c0c93027cc4133f729",
+      "archivedSha256": "dbe5b735ac1a00a6999e5ceadf7f800423c5a6c20ea356c0c93027cc4133f729",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-uncached-sort-proof.json",
+      "originalBytes": 642,
+      "originalSha256": "06c94166718ac90a9028589295b6f663ba386083ca130998254c6d93bef1413c",
+      "archivedSha256": "0f2c69f1fb38b35a6de50f8a194deb2727613b6b4a88bf3093bd4c903b62726f",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-uncached-sort-proof.log",
+      "originalBytes": 547,
+      "originalSha256": "c19f45e58105b8e41b4a204984973933ae4b8331adea885b1b357673d0b9eea3",
+      "archivedSha256": "c19f45e58105b8e41b4a204984973933ae4b8331adea885b1b357673d0b9eea3",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-default-ten-readbacks.json",
+      "originalBytes": 1272,
+      "originalSha256": "331d9d873be893803ae1aa0356cef0dceb4fc03bef1f46e3bd1a6d65226651d1",
+      "archivedSha256": "c8117158e5a13b1656b2dd5c58bdb4948254f58563f28ad6c81f293ab0b4b402",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-production-headless.log",
+      "originalBytes": 1106,
+      "originalSha256": "dcd57c31bc0e4e1283866d1a1f59b26a2b11f9db034a75e49fb0b8d85110d144",
+      "archivedSha256": "dcd57c31bc0e4e1283866d1a1f59b26a2b11f9db034a75e49fb0b8d85110d144",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-production-headless/.last-run.json",
+      "originalBytes": 45,
+      "originalSha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+      "archivedSha256": "fff6299efb51ba9ef550e500ecc967e972c83e86be387042c360caea7fdbae29",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-1440px-in-dark-mode-chromium/-docs-plugins-1440-dark.png",
+      "originalBytes": 478474,
+      "originalSha256": "90881538c4f1af8cc13c10b9fdf85c0c80e0ba1ec685c1ef813a33564cf16870",
+      "archivedSha256": "90881538c4f1af8cc13c10b9fdf85c0c80e0ba1ec685c1ef813a33564cf16870",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-1440px-in-dark-mode-chromium/-publishers-1440-dark.png",
+      "originalBytes": 152862,
+      "originalSha256": "d9aad7d9d9a072cf4d6515989b211cc8239e3fbf5b80f7afbc4cc6911760b4db",
+      "archivedSha256": "d9aad7d9d9a072cf4d6515989b211cc8239e3fbf5b80f7afbc4cc6911760b4db",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-1440px-in-dark-mode-chromium/-skills-1440-dark.png",
+      "originalBytes": 382770,
+      "originalSha256": "b9b8588534057c8571fb3e2b1bf2e6880e544f3d5039bdee73fa5a9fa8ceff95",
+      "archivedSha256": "b9b8588534057c8571fb3e2b1bf2e6880e544f3d5039bdee73fa5a9fa8ceff95",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-1440px-in-dark-mode-chromium/-watch-1440-dark.png",
+      "originalBytes": 151638,
+      "originalSha256": "e99626337f6c6faae31fdbe511eed7d952367afa5e754641f71d315a8f82b49c",
+      "archivedSha256": "e99626337f6c6faae31fdbe511eed7d952367afa5e754641f71d315a8f82b49c",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-1440px-in-dark-mode-chromium/-watch-getting-started-101-1440-dark.png",
+      "originalBytes": 87333,
+      "originalSha256": "afc9e06a2a9bda99a6030d1db8b51ea77d2b870f3f3516643327129035f179c9",
+      "archivedSha256": "afc9e06a2a9bda99a6030d1db8b51ea77d2b870f3f3516643327129035f179c9",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-1440px-in-light-mode-chromium/-docs-plugins-1440-light.png",
+      "originalBytes": 435408,
+      "originalSha256": "58d4004faf396882bfc004ca6afc80e0f1020f9f25d0afdf312dabb0c85eee6a",
+      "archivedSha256": "58d4004faf396882bfc004ca6afc80e0f1020f9f25d0afdf312dabb0c85eee6a",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-1440px-in-light-mode-chromium/-publishers-1440-light.png",
+      "originalBytes": 135545,
+      "originalSha256": "be9dda74b45ae187d5c8cf7869b7440a955e04ba7546413e823f48d466ed3e9a",
+      "archivedSha256": "be9dda74b45ae187d5c8cf7869b7440a955e04ba7546413e823f48d466ed3e9a",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-1440px-in-light-mode-chromium/-skills-1440-light.png",
+      "originalBytes": 347859,
+      "originalSha256": "a90a0e9428630e135cc632bf0f1ae5def31fbc5900ddc37c16a21fafa21a5225",
+      "archivedSha256": "a90a0e9428630e135cc632bf0f1ae5def31fbc5900ddc37c16a21fafa21a5225",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-1440px-in-light-mode-chromium/-watch-1440-light.png",
+      "originalBytes": 138265,
+      "originalSha256": "91ab61c9153b496bfdeb3dd32b9e50f735418b1e266919b5e9a33cf5294d9d17",
+      "archivedSha256": "91ab61c9153b496bfdeb3dd32b9e50f735418b1e266919b5e9a33cf5294d9d17",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-1440px-in-light-mode-chromium/-watch-getting-started-101-1440-light.png",
+      "originalBytes": 80789,
+      "originalSha256": "c04afaf1d5500310e770bddf135f79430fd74a4bdb1585d23f858b1484b00125",
+      "archivedSha256": "c04afaf1d5500310e770bddf135f79430fd74a4bdb1585d23f858b1484b00125",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-390px-in-dark-mode-chromium/-docs-plugins-390-dark.png",
+      "originalBytes": 400684,
+      "originalSha256": "8e080044362058f7eeb5ee627671710b409735bdfda950b7c97c67e96d49d622",
+      "archivedSha256": "8e080044362058f7eeb5ee627671710b409735bdfda950b7c97c67e96d49d622",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-390px-in-dark-mode-chromium/-publishers-390-dark.png",
+      "originalBytes": 158441,
+      "originalSha256": "73f713133c820ff5ac502c220290c8f6f7257c01b55763f2a038b20cfaa304d1",
+      "archivedSha256": "73f713133c820ff5ac502c220290c8f6f7257c01b55763f2a038b20cfaa304d1",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-390px-in-dark-mode-chromium/-skills-390-dark.png",
+      "originalBytes": 372694,
+      "originalSha256": "676e64b3e1a5ab0b2d11f123a58b8fa06b774b11f2e652bf7d71612ed4a46c27",
+      "archivedSha256": "676e64b3e1a5ab0b2d11f123a58b8fa06b774b11f2e652bf7d71612ed4a46c27",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-390px-in-dark-mode-chromium/-watch-390-dark.png",
+      "originalBytes": 157769,
+      "originalSha256": "f2c566345632b5ee78efc01b83d3e7dfcceac2943ccfc33efa9e49e98c53e4a0",
+      "archivedSha256": "f2c566345632b5ee78efc01b83d3e7dfcceac2943ccfc33efa9e49e98c53e4a0",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-390px-in-dark-mode-chromium/-watch-getting-started-101-390-dark.png",
+      "originalBytes": 46849,
+      "originalSha256": "78e0a80a3107e5bcb15c2bd957e94f7b8c281c6814669ecdcd0abe64a36144f8",
+      "archivedSha256": "78e0a80a3107e5bcb15c2bd957e94f7b8c281c6814669ecdcd0abe64a36144f8",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-390px-in-light-mode-chromium/-docs-plugins-390-light.png",
+      "originalBytes": 354198,
+      "originalSha256": "943545dc605144ac9ca82bc7784611d9c8663ee621f7a5c7aa59a81a2acf1f40",
+      "archivedSha256": "943545dc605144ac9ca82bc7784611d9c8663ee621f7a5c7aa59a81a2acf1f40",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-390px-in-light-mode-chromium/-publishers-390-light.png",
+      "originalBytes": 139692,
+      "originalSha256": "480b037b33fdaa72c4ad443cbbf1c78a15a277b0cc383d976c202d9c61f0c590",
+      "archivedSha256": "480b037b33fdaa72c4ad443cbbf1c78a15a277b0cc383d976c202d9c61f0c590",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-390px-in-light-mode-chromium/-skills-390-light.png",
+      "originalBytes": 323490,
+      "originalSha256": "fe760d056ef27e53ae75a3cfb48743939c0c2c4f053c9795fb8a557e2723c514",
+      "archivedSha256": "fe760d056ef27e53ae75a3cfb48743939c0c2c4f053c9795fb8a557e2723c514",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-390px-in-light-mode-chromium/-watch-390-light.png",
+      "originalBytes": 140952,
+      "originalSha256": "971a1d231c2de7c851caccdcd2ca9a6c0aec0a612d2837fb25233e5cf5a67a86",
+      "archivedSha256": "971a1d231c2de7c851caccdcd2ca9a6c0aec0a612d2837fb25233e5cf5a67a86",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-production-headless/tests-e2e-seo-recovery-public-design-at-390px-in-light-mode-chromium/-watch-getting-started-101-390-light.png",
+      "originalBytes": 41815,
+      "originalSha256": "447eeb6c57080354fd058ff73da17ceb82c25dbaed885026221c21aea0c2e022",
+      "archivedSha256": "447eeb6c57080354fd058ff73da17ceb82c25dbaed885026221c21aea0c2e022",
+      "method": "complete original screenshot"
+    },
+    {
+      "file": "vskill-index-cold-default-kv-error.txt",
+      "originalBytes": 580,
+      "originalSha256": "4f1d2d167de79bbc856d05bed9d1a7de07dcab1f2247a8017d024bf642351f22",
+      "archivedSha256": "4f1d2d167de79bbc856d05bed9d1a7de07dcab1f2247a8017d024bf642351f22",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-index-publisher-cache-prestate-error.txt",
+      "originalBytes": 406,
+      "originalSha256": "ccaff46a4d725d157ca8c28e181baa28cfa7b101a708ad457588d0ea02bd8b69",
+      "archivedSha256": "ccaff46a4d725d157ca8c28e181baa28cfa7b101a708ad457588d0ea02bd8b69",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-publisher-timeouts-sanitized.json",
+      "originalBytes": 544,
+      "originalSha256": "9d7d4fb15a14b144534c5f8dbba77fefc94598e86c353c3a71d047ee22756301",
+      "archivedSha256": "743c35a9dd610e9ad81643ea22579b90a6a1ba4aa3d770fa0292e2995ab491a3",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-publisher-historical-tail-sanitized.json",
+      "originalBytes": 14028,
+      "originalSha256": "18ff17b1785bcdcd50e32d8268a0410b0748501e1454d78f6eb21a2286f2e4ba",
+      "archivedSha256": "da3106fea5d5f679400b9b2fb63d89b911674f7d15d3ecd1d1b31c750baf1be2",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-publisher-final-public-first-failure.log",
+      "originalBytes": 1994,
+      "originalSha256": "18c9a59dfcbff5748df6daea01d7f738dd01d7d2928f586c9fd672e342c70f29",
+      "archivedSha256": "18c9a59dfcbff5748df6daea01d7f738dd01d7d2928f586c9fd672e342c70f29",
+      "method": "complete text; LF and trailing whitespace only"
+    },
+    {
+      "file": "vskill-final-page2-api-repeat.txt",
+      "originalBytes": 48,
+      "originalSha256": "897e8d688c66f8be8684f0fb1653aa2e372c6decebd73a67cafb8577ef134771",
+      "archivedSha256": "897e8d688c66f8be8684f0fb1653aa2e372c6decebd73a67cafb8577ef134771",
+      "method": "complete text; LF and trailing whitespace only"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "vskill-index-production-headless-report/index.html",
+      "bytes": 538992,
+      "sha256": "ebd2aecfff5e78d50cf7db8d9d87c371cd86e5cc5291e66c8365021a595fe9b6",
+      "reason": "Generated HTML renderer omitted; native log, status and all 20 original screenshots retained"
+    }
+  ],
+  "note": "Curated sanitized native receipts. Long logs retain complete unchanged gzip. Generated HTML report remains local; native test log and all 20 production screenshots are archived. Runtime gates are recorded separately in the current-release receipt."
+}

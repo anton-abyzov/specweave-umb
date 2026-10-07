@@ -1,0 +1,160 @@
+{
+  "recordedAt": "2026-10-07T16:15:44.420177+00:00",
+  "status": "Functional repairs live and verified; final Cloudflare rollout and authenticated default-cache absence pending",
+  "source": {
+    "mergedMain": "4e4690cad68bc3b19e4fdf17ba774f4cd46f52ce",
+    "reviewedHead": "a73c6916c85a32b82ba4483154df4f05544f6e13",
+    "pullRequest": "https://github.com/anton-abyzov/vskill-platform/pull/89",
+    "allFourPullRequestChecks": "SUCCESS",
+    "cleanIsolatedCheckout": true,
+    "runtimeSourceComparedWith": "07ede835ac9948b2dc871356fcae347afc108685",
+    "changedFiles": [
+      "prisma/migrations/20261007160000_public_publisher_covering_index/migration.sql",
+      "scripts/__tests__/public-publisher-index.test.ts",
+      "scripts/db/public-publisher-index.cjs",
+      "scripts/db/public-publisher-index.md"
+    ],
+    "applicationPublicConfigDependencySourceIdentical": true,
+    "mergedWorkerBuild": "PASS",
+    "queueHealthBuild": "PASS"
+  },
+  "worker": {
+    "lastAuthoritativeReadbackRecordedAt": "2026-10-07T15:42:58.402663+00:00",
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "percentage": 100,
+    "deployment": "7c9de3d9-3bb3-40ce-9a9e-636e31969341",
+    "deployedAt": "2026-10-07T15:04:21.461459Z",
+    "newRolloutPerformed": false,
+    "freshPostIndexIdentityReadback": "PENDING_AUTH",
+    "lastVerifiedBindings": 66,
+    "lastVerifiedQueueConsumers": 6,
+    "lastVerifiedQueueProducers": 5,
+    "lastVerifiedCronTriggers": 7,
+    "consumerNames": [
+      "submission-processing",
+      "submission-dlq",
+      "eval-processing",
+      "scan-high",
+      "scan-normal",
+      "discovery-resolve"
+    ]
+  },
+  "database": {
+    "oneConcurrentIndexApplied": true,
+    "appliedAt": "2026-10-07T15:54:18.658Z",
+    "index": {
+      "oid": "199021",
+      "definition": "CREATE INDEX \"Skill_public_author_metrics_idx\" ON public.\"Skill\" USING btree (lower(author), \"normalizedRepoUrl\") INCLUDE (author, \"githubStars\", \"trustScore\", \"isTainted\") WHERE ((\"tenantId\" IS NULL) AND (\"isDeprecated\" = false))",
+      "indisvalid": true,
+      "indisready": true,
+      "indislive": true,
+      "bytes": "120913920"
+    },
+    "migration": "20261007160000_public_publisher_covering_index",
+    "checksum": "91bf3713936a26d24a93efb0b7d42262452b3c6f3ffd65b87bc8e8114385c401",
+    "finishedExactMigrationReadback": true,
+    "applicationQueryTimeoutMs": 10000,
+    "globalPlannerChanges": false,
+    "manualVacuumPerformed": false,
+    "backgroundAutovacuumAt": "2026-10-07T15:57:25.954Z",
+    "visibleHeapPagesAfterBackgroundVacuum": 283695,
+    "totalHeapPages": 283765,
+    "slowInitialPostIndexPlansRetained": true
+  },
+  "performance": {
+    "defaultPlannerUsesNewIndexOnlyScanAllThreeSorts": true,
+    "databaseExecutionMs": [
+      617.651,
+      604.264,
+      579.56
+    ],
+    "actualSourceMatrixCases": 13,
+    "actualSourceAdapterRangeMs": [
+      217,
+      1322
+    ],
+    "publicMatrixAssertions": 31,
+    "publicMaxResponseSeconds": 3.213,
+    "defaultFirstResponseSeconds": 2.136,
+    "defaultKeyAbsenceAuthenticatedImmediatelyBefore": false,
+    "additionalDefaultReadbacks": 10,
+    "additionalDefaultResponseRangeSeconds": [
+      0.328,
+      1.904
+    ],
+    "defaultCacheHitsAuthenticated": false,
+    "guaranteedUncacheableAllSortApiLimit": 21,
+    "uncacheableSortResponseSeconds": [
+      1.021,
+      0.937,
+      0.833
+    ],
+    "publicTotalAtMatrix": 101314,
+    "matchingANTONTotal": 95,
+    "sourceSearchPageTwoAndOutOfRangeCountFallback": "PASS",
+    "publicSearchPageTwoAndOutOfRange404ApiCountParity": "PASS",
+    "original500TimeoutsAndUnchangedRepeatFailuresRetained": true
+  },
+  "verification": {
+    "focusedTestsPassed": 47,
+    "indexGuardRegressionsPassed": 20,
+    "plainLocalFullUnitTestsPassed": 6145,
+    "plainLocalExistingSkips": 14,
+    "githubFullUnitTestsPassed": 6141,
+    "githubExistingSkips": 14,
+    "productBuild": "PASS",
+    "payloadSelfTestAndSupplyChainScan": "PASS",
+    "independentPostgresqlEmittedSqlFixtureCasesPassed": 90,
+    "headlessProductionCasesPassed": 6,
+    "headlessExplicit": true,
+    "headlessWorkers": 1,
+    "headlessRetries": 0,
+    "viewportWidths": [
+      1440,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "realNativePlayerPosterControlsPlayState": "PASS",
+    "pluginCatalogAndMetadata": {
+      "vskillVersion": "1.2.1",
+      "publishedGitHead": "d91bec68776c96d095e7989cde66bcc5acdb1e54",
+      "agents": 54,
+      "scannerPatterns": 52,
+      "plugins": 9,
+      "skills": 19,
+      "specweaveVersion": "3.0.3"
+    },
+    "rootIndependentPublicCrawl": {
+      "passed": 120,
+      "failed": 0,
+      "source": "Root report"
+    }
+  },
+  "coverage": {
+    "enforcedExitCode": 1,
+    "globalLinesAndStatementsPct": 48.97,
+    "unchangedRequiredThresholdPct": 60,
+    "newGuardLinesPct": 81.13,
+    "newGuardBranchesPct": 86.95,
+    "gate": "FAIL_EXISTING_GLOBAL_DEFICIT",
+    "thresholdsAndExcludesWeakened": false
+  },
+  "pending": [
+    "Cloudflare CLI OAuth refresh returns400 after expiry15:47:09Z; no fresh Worker rollout/identity/binding readback",
+    "Authenticated current default publisher KV absence/hit proof; default response is not labeled KV-cold",
+    "Five first-party videos lack verified first-publication DateTime provenance, so VideoObject is intentionally omitted pending enrichment",
+    "Google Search Console crawl/revalidation remains external"
+  ],
+  "sanitization": "No credentials, mailbox HTML/tracking tokens, private publisher identifiers or raw Worker queue events in this receipt",
+  "gates": {
+    "sourceReviewCiUnitsBuild": "PASS",
+    "databaseIndexMigrationAndDefaultPlanner": "PASS",
+    "publicFunctionalMetadataDataPlaybackDesign": "PASS",
+    "freshAuthenticatedWorkerRolloutAndBindings": "BLOCKED_CLOUDFLARE_AUTH",
+    "authenticatedDefaultKvAbsenceHitProof": "BLOCKED_CLOUDFLARE_AUTH",
+    "globalAllSourceCoverage60Pct": "FAIL_EXISTING_DEFICIT"
+  }
+}
