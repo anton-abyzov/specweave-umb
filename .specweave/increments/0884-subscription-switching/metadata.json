@@ -1,0 +1,11 @@
+{
+  "id": "0884-subscription-switching",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-07T06:53:09.456Z",
+  "updated": "2026-10-07T06:59:39.220Z",
+  "lastActivity": "2026-10-07T06:59:39.220Z",
+  "title": "Subscription switching and verified local proxy fleet",
+  "project": "specweave-umb"
+}
