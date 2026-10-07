@@ -1,0 +1,44 @@
+[
+  {
+    "url": "https://watch.easychamp.com/api/og?type=match&id=40aff015-26af-40cb-961a-414886763cd1&locale=en",
+    "ua": "Googlebot",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 81749
+  },
+  {
+    "url": "https://watch.easychamp.com/api/og?type=match&id=40aff015-26af-40cb-961a-414886763cd1&locale=en",
+    "ua": "Googlebot-Image/1.0",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 81749
+  },
+  {
+    "url": "https://watch.easychamp.com/api/og?type=match&id=40aff015-26af-40cb-961a-414886763cd1&locale=en",
+    "ua": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 81749
+  },
+  {
+    "url": "https://easychamp.com/media/help/create-league-desktop-poster.jpg",
+    "ua": "Googlebot",
+    "status": 200,
+    "type": "image/jpeg",
+    "bytes": 122542
+  },
+  {
+    "url": "https://easychamp.com/media/help/create-league-desktop-poster.jpg",
+    "ua": "Googlebot-Image/1.0",
+    "status": 200,
+    "type": "image/jpeg",
+    "bytes": 122542
+  },
+  {
+    "url": "https://easychamp.com/media/help/create-league-desktop-poster.jpg",
+    "ua": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+    "status": 200,
+    "type": "image/jpeg",
+    "bytes": 122542
+  }
+]
