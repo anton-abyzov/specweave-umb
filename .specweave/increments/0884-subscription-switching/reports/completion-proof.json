@@ -54,7 +54,7 @@
   "tailnetConnectivityVerified": false,
   "crossMachineCheckpointImportVerified": false,
   "realMultiAccountAutomaticFailoverVerified": false,
-  "sourcePublished": false,
+  "sourcePublished": true,
   "incrementClosed": false,
   "headlessUi": {
     "status": "passed",
@@ -69,5 +69,41 @@
       "phone-dark"
     ],
     "deployedAssetsMatchSource": true
+  },
+  "draftPullRequest": "https://github.com/anton-abyzov/specweave/pull/1980",
+  "sourceMerged": false,
+  "finalWorkerHostStateReceipts": [
+    "m1-final-host-state.json",
+    "m3-final-host-state.json"
+  ],
+  "specweaveVerify": {
+    "status": "passed",
+    "tasksDone": 5,
+    "acceptanceCriteriaCovered": 8,
+    "incrementClosed": false,
+    "manualAcceptancePending": true
+  },
+  "githubChecks": {
+    "passed": [
+      "unit",
+      "e2e",
+      "smoke",
+      "results",
+      "Payload scan",
+      "npm audit signatures"
+    ],
+    "claudeReview": {
+      "status": "failed-before-review",
+      "sourceFindings": null,
+      "cause": "unavailable; native output hidden",
+      "blockingWorkflowFailure": false,
+      "diagnosis": "ci-review-37592029270/diagnosis.md"
+    }
+  },
+  "nativeTailscaleSetup": {
+    "systemExtension": "approval-required",
+    "vpnConfiguration": "granted",
+    "tailnetLogin": "required",
+    "computerUseActionTimeConfirmation": "pending"
   }
 }

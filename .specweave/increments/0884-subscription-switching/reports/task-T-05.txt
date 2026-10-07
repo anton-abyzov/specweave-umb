@@ -1,0 +1,3 @@
+$ bash -n /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0884-switch/contrib/subscription-switch/scripts/worker-bootstrap.sh
+# exit 0 — 2026-10-07T08:12:51.102Z
+

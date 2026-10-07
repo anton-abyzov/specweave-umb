@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-07T08:13:29.910Z",
+  "increment": "0884-subscription-switching",
+  "commands": [
+    {
+      "cmd": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node --test /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0884-switch/contrib/subscription-switch/test/*.test.mjs",
+      "exit": 0
+    },
+    {
+      "cmd": "/usr/bin/python3 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0884-switch/contrib/subscription-switch/scripts/installer-check.py",
+      "exit": 0
+    },
+    {
+      "cmd": "PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never SWITCH_EVIDENCE_DIR=/Users/antonabyzov/Projects/research/subscription-switching-2026-10-07/ui-increment-verification /opt/anaconda3/envs/ml_env39/bin/python /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0884-switch/contrib/subscription-switch/scripts/ui-check.py",
+      "exit": 0
+    },
+    {
+      "cmd": "bash -n /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0884-switch/contrib/subscription-switch/scripts/worker-bootstrap.sh",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 8,
+    "done": 8
+  },
+  "tasks": {
+    "total": 5,
+    "done": 5,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

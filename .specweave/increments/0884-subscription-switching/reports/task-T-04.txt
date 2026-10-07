@@ -1,0 +1,269 @@
+$ /Users/antonabyzov/.local/bin/specweave-switch doctor
+# exit 0 — 2026-10-07T08:12:08.736Z
+
+{
+  "checkedAt": "2026-10-07T08:12:08.023Z",
+  "node": "v22.20.0",
+  "stateRoot": "/Users/antonabyzov/.local/share/specweave/switch",
+  "providers": [
+    {
+      "provider": "codex",
+      "binary": "/Users/antonabyzov/.local/share/t3/providers/node_modules/.bin/codex",
+      "version": "codex-cli 0.160.1",
+      "status": "available"
+    },
+    {
+      "provider": "claude",
+      "binary": "/Users/antonabyzov/.local/share/t3/providers/node_modules/.bin/claude",
+      "version": "2.1.292 (Claude Code)",
+      "status": "available"
+    }
+  ],
+  "state": {
+    "accounts": [
+      {
+        "id": "codex-1",
+        "provider": "codex",
+        "label": "Codex 1",
+        "authenticated": true,
+        "authKind": "chatgpt",
+        "authError": null,
+        "status": "ready",
+        "quota": {
+          "window": null,
+          "weekly": {
+            "usedPercent": 24,
+            "resetsAt": 1791948578
+          },
+          "observedAt": "2026-10-07T08:12:08.731Z",
+          "expiresAt": "2026-10-07T08:27:08.731Z",
+          "source": "native-app-server",
+          "ordinaryUsageAllowed": true,
+          "spendControlReached": false
+        }
+      },
+      {
+        "id": "codex-2",
+        "provider": "codex",
+        "label": "Codex 2",
+        "authenticated": false,
+        "authKind": null,
+        "authError": null,
+        "status": "auth-required",
+        "quota": {
+          "window": null,
+          "weekly": null,
+          "observedAt": null,
+          "expiresAt": null,
+          "source": null
+        }
+      },
+      {
+        "id": "codex-3",
+        "provider": "codex",
+        "label": "Codex 3",
+        "authenticated": false,
+        "authKind": null,
+        "authError": null,
+        "status": "auth-required",
+        "quota": {
+          "window": null,
+          "weekly": null,
+          "observedAt": null,
+          "expiresAt": null,
+          "source": null
+        }
+      },
+      {
+        "id": "codex-4",
+        "provider": "codex",
+        "label": "Codex 4",
+        "authenticated": false,
+        "authKind": null,
+        "authError": null,
+        "status": "auth-required",
+        "quota": {
+          "window": null,
+          "weekly": null,
+          "observedAt": null,
+          "expiresAt": null,
+          "source": null
+        }
+      },
+      {
+        "id": "claude-1",
+        "provider": "claude",
+        "label": "Claude 1",
+        "authenticated": true,
+        "authKind": "claude.ai",
+        "authError": null,
+        "status": "exhausted",
+        "quota": {
+          "window": null,
+          "weekly": null,
+          "observedAt": null,
+          "expiresAt": null,
+          "source": null
+        }
+      },
+      {
+        "id": "claude-2",
+        "provider": "claude",
+        "label": "Claude 2",
+        "authenticated": false,
+        "authKind": "unknown",
+        "authError": null,
+        "status": "auth-required",
+        "quota": {
+          "window": null,
+          "weekly": null,
+          "observedAt": null,
+          "expiresAt": null,
+          "source": null
+        }
+      },
+      {
+        "id": "claude-3",
+        "provider": "claude",
+        "label": "Claude 3",
+        "authenticated": false,
+        "authKind": "unknown",
+        "authError": null,
+        "status": "auth-required",
+        "quota": {
+          "window": null,
+          "weekly": null,
+          "observedAt": null,
+          "expiresAt": null,
+          "source": null
+        }
+      }
+    ],
+    "policy": {
+      "mode": "balanced",
+      "preferredProvider": null,
+      "selectedAccount": null
+    },
+    "hosts": [
+      {
+        "id": "local",
+        "label": "M4 Main Mac",
+        "hostname": "Antons-MacBook-M4MAX.local",
+        "role": "main",
+        "status": "local",
+        "sshReachable": null,
+        "installed": true,
+        "source": "local-installation; installed-native-Codex-turn.completed",
+        "observedAt": "2026-10-07T07:57:47.039Z"
+      },
+      {
+        "id": "m1",
+        "label": "M1 Max",
+        "hostname": "192.168.40.134",
+        "role": "worker",
+        "status": "ready",
+        "sshReachable": true,
+        "installed": true,
+        "companionRunning": true,
+        "nativeReadyProfiles": [
+          "codex-1"
+        ],
+        "source": "pinned-authenticated-ssh; reviewed-bundle-http200; installed-native-Codex-turn.completed",
+        "observedAt": "2026-10-07T08:02:21.863459+00:00",
+        "bundleSha256": "45b0ae98559b5fbd2837d7a3869cab70a790eba502da0ffa4e74a90a23d4c53d"
+      },
+      {
+        "id": "m3",
+        "label": "M3 Mac",
+        "hostname": "192.168.40.66",
+        "role": "worker",
+        "status": "ready",
+        "sshReachable": true,
+        "installed": true,
+        "companionRunning": true,
+        "nativeReadyProfiles": [
+          "codex-1"
+        ],
+        "source": "pinned-authenticated-ssh; reviewed-bundle-http200; installed-native-Codex-turn.completed",
+        "observedAt": "2026-10-07T08:02:24.493892+00:00",
+        "bundleSha256": "45b0ae98559b5fbd2837d7a3869cab70a790eba502da0ffa4e74a90a23d4c53d"
+      }
+    ],
+    "services": [
+      {
+        "id": "t3",
+        "label": "T3 stable",
+        "port": 3773,
+        "status": "running",
+        "observedAt": "2026-10-07T08:12:08.731Z",
+        "source": "loopback-tcp"
+      },
+      {
+        "id": "t3-nightly",
+        "label": "T3 nightly",
+        "port": 3774,
+        "status": "running",
+        "observedAt": "2026-10-07T08:12:08.732Z",
+        "source": "loopback-tcp"
+      },
+      {
+        "id": "cli-proxy",
+        "label": "CLIProxyAPI",
+        "port": 8317,
+        "status": "running",
+        "observedAt": "2026-10-07T08:12:08.732Z",
+        "source": "loopback-tcp"
+      }
+    ],
+    "runs": [
+      {
+        "id": "d1cfa1a6-56dc-454e-b164-d1a98fb4f7fe",
+        "accountId": "claude-1",
+        "provider": "claude",
+        "cwd": "/Users/antonabyzov/Projects/research/subscription-switching-2026-10-07/live-restored",
+        "status": "quota-exhausted",
+        "startedAt": "2026-10-07T07:21:44.109Z",
+        "endedAt": "2026-10-07T07:21:45.779Z",
+        "exitCode": 1,
+        "model": null,
+        "checkpointId": null,
+        "error": "You've hit your weekly limit · resets Oct 8 at 10pm (America/New_York)"
+      },
+      {
+        "id": "9012661d-9f49-47a9-b223-140a4a630912",
+        "accountId": "codex-1",
+        "provider": "codex",
+        "cwd": "/Users/antonabyzov/Projects/research/subscription-switching-2026-10-07/live-restored",
+        "status": "success",
+        "startedAt": "2026-10-07T07:20:03.639Z",
+        "endedAt": "2026-10-07T07:20:27.318Z",
+        "exitCode": 0,
+        "model": null,
+        "checkpointId": null,
+        "error": null
+      }
+    ],
+    "recommendations": [
+      {
+        "provider": "any",
+        "id": "codex-1",
+        "reason": "balanced; ready observation"
+      },
+      {
+        "provider": "codex",
+        "id": "codex-1",
+        "reason": "balanced; ready observation"
+      },
+      {
+        "provider": "claude",
+        "id": null,
+        "reason": "No eligible profile with fresh observed quota; unknown quota requires an explicit account and --allow-unknown"
+      }
+    ]
+  },
+  "notes": [
+    "Quota unknown means unavailable, not zero usage",
+    "Worker TCP/SSH reachability is not authenticated installation proof",
+    "App installation does not prove Tailscale connection"
+  ]
+}

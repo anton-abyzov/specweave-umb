@@ -1,0 +1,72 @@
+$ PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never SWITCH_EVIDENCE_DIR=/Users/antonabyzov/Projects/research/subscription-switching-2026-10-07/ui-task-verification /opt/anaconda3/envs/ml_env39/bin/python /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0884-switch/contrib/subscription-switch/scripts/ui-check.py
+# exit 0 — 2026-10-07T08:11:47.106Z
+
+{
+  "headless": true,
+  "fixture": true,
+  "url": "http://127.0.0.1:8318",
+  "checks": [
+    {
+      "viewport": "desktop-light",
+      "overflow": false,
+      "policy_refresh_selection": "passed",
+      "automatic_selection": "passed",
+      "unknown_exhausted": "passed",
+      "invalid_measurements": "passed",
+      "xss_long_rtl": "passed",
+      "failed_run": "passed",
+      "newest_receipts_first": "passed",
+      "api_error": "passed",
+      "legacy_auth_gates": "passed"
+    },
+    {
+      "viewport": "desktop-dark",
+      "overflow": false,
+      "policy_refresh_selection": "passed",
+      "automatic_selection": "passed",
+      "unknown_exhausted": "passed",
+      "invalid_measurements": "passed",
+      "xss_long_rtl": "passed",
+      "failed_run": "passed",
+      "newest_receipts_first": "passed",
+      "api_error": "passed",
+      "legacy_auth_gates": "passed"
+    },
+    {
+      "viewport": "phone-light",
+      "overflow": false,
+      "policy_refresh_selection": "passed",
+      "automatic_selection": "passed",
+      "unknown_exhausted": "passed",
+      "invalid_measurements": "passed",
+      "xss_long_rtl": "passed",
+      "failed_run": "passed",
+      "newest_receipts_first": "passed",
+      "api_error": "passed",
+      "legacy_auth_gates": "passed"
+    },
+    {
+      "viewport": "phone-dark",
+      "overflow": false,
+      "policy_refresh_selection": "passed",
+      "automatic_selection": "passed",
+      "unknown_exhausted": "passed",
+      "invalid_measurements": "passed",
+      "xss_long_rtl": "passed",
+      "failed_run": "passed",
+      "newest_receipts_first": "passed",
+      "api_error": "passed",
+      "legacy_auth_gates": "passed"
+    }
+  ],
+  "screenshots": [
+    "/Users/antonabyzov/Projects/research/subscription-switching-2026-10-07/ui-task-verification/desktop-light.png",
+    "/Users/antonabyzov/Projects/research/subscription-switching-2026-10-07/ui-task-verification/desktop-light-auth-gates.png",
+    "/Users/antonabyzov/Projects/research/subscription-switching-2026-10-07/ui-task-verification/desktop-dark.png",
+    "/Users/antonabyzov/Projects/research/subscription-switching-2026-10-07/ui-task-verification/desktop-dark-auth-gates.png",
+    "/Users/antonabyzov/Projects/research/subscription-switching-2026-10-07/ui-task-verification/phone-light.png",
+    "/Users/antonabyzov/Projects/research/subscription-switching-2026-10-07/ui-task-verification/phone-light-auth-gates.png",
+    "/Users/antonabyzov/Projects/research/subscription-switching-2026-10-07/ui-task-verification/phone-dark.png",
+    "/Users/antonabyzov/Projects/research/subscription-switching-2026-10-07/ui-task-verification/phone-dark-auth-gates.png"
+  ]
+}
