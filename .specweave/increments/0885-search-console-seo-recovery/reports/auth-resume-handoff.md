@@ -40,4 +40,9 @@ After authorized Cloudflare login or existing profile is supplied, verify accoun
 
 ---
 <!-- Doc format v2 -->
-Verification clarification: the generated `ACs 0/7` line counts unticked manual spec checkboxes. Native `specweave verify` derives six of seven acceptance criteria as met from the completed task ledger; AC-05 remains blocked. See [verify.md](verify.md). No statuses or thresholds were set by hand.
+Verification clarification: the generated `ACs 0/7` line counts unticked manual spec checkboxes. Native `specweave verify` derives six of seven acceptance criteria as met from the completed task ledger; AC-05 remains blocked. See the retained [historical verification](verification-before-auth.md). No statuses or thresholds were set by hand.
+
+
+## Authentication gate resolved — 2026-10-07
+
+The user restored authentication. Source 4e4690 deployed as Worker 230dca40, deployment e92d344b at 100% traffic. Queue/config readback, fresh 31 publisher assertions, three publisher-KV-ineligible sort probes and 6/6 headless cases pass; root public crawl passes 120/120. All 88 mailbox matches remain unchanged. See [current release receipt](vskill-index-current-release-receipt.json), [current EasyChamp owner-preserving readback](easychamp-auth-resume-current-release.json) and [final audit](seo-release-audit.md). The historical blocked state above is retained for provenance. Full live pre-deploy queue-settings JSON was not retained; immutable version bindings match and current settings agree with unchanged canonical config. Authenticated default cache observations do not directly prove source HIT/MISS branches. The remaining formal closure gate is existing global coverage 48.97% versus 60%; Google recrawl/Inspection, field INP and unknown video publication times remain unverified.

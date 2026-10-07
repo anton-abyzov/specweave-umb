@@ -1,0 +1,150 @@
+{
+  "recordedAt": "2026-10-07T18:46:31.420Z",
+  "configUnchangedFromPreviousDeployedSource": true,
+  "previousRuntimeSource": "07ede835ac9948b2dc871356fcae347afc108685",
+  "currentSource": "4e4690cad68bc3b19e4fdf17ba774f4cd46f52ce",
+  "configSha256": "33ac0ba76848b23e1094b16cb536daf254511245a803456f76f2655dba50788e",
+  "actualInventoryFile": "vskill-auth-final-final-inventory.json",
+  "consumerSettingsComparedWithUnchangedCanonicalConfig": [
+    {
+      "queue": "submission-processing",
+      "type": "worker",
+      "script": "verified-skill-com",
+      "expectedSettings": {
+        "max_retries": 3,
+        "batch_size": 5,
+        "max_wait_time_ms": 30000,
+        "max_concurrency": 10,
+        "retry_delay": 60
+      },
+      "actualSettings": {
+        "batch_size": 5,
+        "max_retries": 3,
+        "max_wait_time_ms": 30000,
+        "max_concurrency": 10,
+        "retry_delay": 60
+      },
+      "deadLetterQueue": "submission-dlq",
+      "parity": true
+    },
+    {
+      "queue": "submission-dlq",
+      "type": "worker",
+      "script": "verified-skill-com",
+      "expectedSettings": {
+        "batch_size": 1,
+        "max_wait_time_ms": 0
+      },
+      "actualSettings": {
+        "batch_size": 1,
+        "max_retries": 3,
+        "max_wait_time_ms": 0,
+        "retry_delay": 0
+      },
+      "deadLetterQueue": null,
+      "parity": true
+    },
+    {
+      "queue": "eval-processing",
+      "type": "worker",
+      "script": "verified-skill-com",
+      "expectedSettings": {
+        "max_retries": 2,
+        "batch_size": 1,
+        "max_wait_time_ms": 0,
+        "max_concurrency": 2,
+        "retry_delay": 120
+      },
+      "actualSettings": {
+        "batch_size": 1,
+        "max_retries": 2,
+        "max_wait_time_ms": 0,
+        "max_concurrency": 2,
+        "retry_delay": 120
+      },
+      "deadLetterQueue": "submission-dlq",
+      "parity": true
+    },
+    {
+      "queue": "scan-high",
+      "type": "worker",
+      "script": "verified-skill-com",
+      "expectedSettings": {
+        "max_retries": 3,
+        "batch_size": 1,
+        "max_wait_time_ms": 1000,
+        "max_concurrency": 10,
+        "retry_delay": 30
+      },
+      "actualSettings": {
+        "batch_size": 1,
+        "max_retries": 3,
+        "max_wait_time_ms": 1000,
+        "max_concurrency": 10,
+        "retry_delay": 30
+      },
+      "deadLetterQueue": "submission-dlq",
+      "parity": true
+    },
+    {
+      "queue": "scan-normal",
+      "type": "worker",
+      "script": "verified-skill-com",
+      "expectedSettings": {
+        "max_retries": 2,
+        "batch_size": 10,
+        "max_wait_time_ms": 5000,
+        "max_concurrency": 5,
+        "retry_delay": 60
+      },
+      "actualSettings": {
+        "batch_size": 10,
+        "max_retries": 2,
+        "max_wait_time_ms": 5000,
+        "max_concurrency": 5,
+        "retry_delay": 60
+      },
+      "deadLetterQueue": "submission-dlq",
+      "parity": true
+    },
+    {
+      "queue": "discovery-resolve",
+      "type": "worker",
+      "script": "verified-skill-com",
+      "expectedSettings": {
+        "max_retries": 2,
+        "batch_size": 10,
+        "max_wait_time_ms": 3000,
+        "max_concurrency": 5,
+        "retry_delay": 60
+      },
+      "actualSettings": {
+        "batch_size": 10,
+        "max_retries": 2,
+        "max_wait_time_ms": 3000,
+        "max_concurrency": 5,
+        "retry_delay": 60
+      },
+      "deadLetterQueue": "submission-dlq",
+      "parity": true
+    }
+  ],
+  "producerQueues": [
+    "discovery-resolve",
+    "eval-processing",
+    "scan-high",
+    "scan-normal",
+    "submission-processing"
+  ],
+  "producerParity": true,
+  "cronSchedules": [
+    "*/10 * * * *",
+    "*/15 * * * *",
+    "0 * * * *",
+    "0 2 * * *",
+    "0 4 * * *",
+    "30 3 * * *",
+    "5,15,25,35,45,55 * * * *"
+  ],
+  "cronParity": true
+}

@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-10-07T18:38:30.992744+00:00",
+  "mailbox": "admin@easychamp.com",
+  "matchingMessages": 88,
+  "paginationComplete": true,
+  "newMatchingMessages": 0,
+  "removedMatchingMessages": 0,
+  "previousInventoryMatchesCurrent": true,
+  "source": "Authenticated Google Workspace Gmail API read; raw message identifiers remain private"
+}
