@@ -4,3 +4,4 @@
 {"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-07T06:54:54.164Z"}
 {"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-07T06:54:54.486Z"}
 {"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-07T06:59:39.220Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-07T07:00:14.563Z","evidence":"test -s .specweave/increments/0884-subscription-switching/reports/research.md && test -s .specweave/increments/0884-subscription-switching/reports/vault-context.md → exit 0\nlog: .specweave/increments/0884-subscription-switching/reports/task-T-01.txt\nHEAD 1d726d05"}
