@@ -43,3 +43,6 @@ All 75 EasyChamp emails were additionally reconciled to 35 issue categories and 
 Actual Search Console URL Inspection and validation completion remain unverified. The analytics connector recognizes all three properties but its prioritized-account subscription blocks current SpecWeave/Verified Skills performance queries; account priorities were preserved. Historical sportchamp.ru and retired legacy EasyChamp routes remain outside the supported implementation scope. Active owners, their checkouts, dirty original files and infrastructure policy were preserved.
 
 Cloudflare authentication is resolved and all release work is verified. The historical [auth checkpoint](auth-resume-handoff.md) is retained with its final resolution. All seven native tasks and seven acceptance criteria pass final scoped [verification](verify.md); both retained evidence commands exit0. Independent package review finds no remaining critical/high gaps. Formal closure remains open for the existing global coverage gate; Google recrawl, authenticated URL Inspection, field INP and five unknown video publication times remain outside the completed release proof.
+
+
+The final [portable checkpoint](final-release-handoff.md) records completed release tasks, exact deployed source and the remaining formal/external gates. No active claim remains.
