@@ -1,0 +1,141 @@
+{
+  "checkedAt": "2026-10-07T14:05:19.990391+00:00",
+  "site": "easychamp",
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "url": "https://easychamp.com/pro-clubs",
+      "finalUrl": "https://easychamp.com/pro-clubs",
+      "status": 200,
+      "canonical": [
+        "https://easychamp.com/pro-clubs"
+      ],
+      "robots": null,
+      "h1": 1,
+      "videoObjects": 0
+    },
+    {
+      "url": "https://easychamp.com/ko",
+      "finalUrl": "https://easychamp.com/ko",
+      "status": 200,
+      "canonical": [
+        "https://easychamp.com/ko"
+      ],
+      "robots": null,
+      "h1": 1,
+      "videoObjects": 0
+    },
+    {
+      "url": "https://easychamp.com/sim",
+      "finalUrl": "https://easychamp.com/sim",
+      "status": 200,
+      "canonical": [
+        "https://easychamp.com/sim"
+      ],
+      "robots": null,
+      "h1": 1,
+      "videoObjects": 0
+    },
+    {
+      "url": "https://easychamp.com/ko/sim",
+      "finalUrl": "https://easychamp.com/ko/sim",
+      "status": 200,
+      "canonical": [
+        "https://easychamp.com/ko/sim"
+      ],
+      "robots": null,
+      "h1": 1,
+      "videoObjects": 0
+    },
+    {
+      "url": "https://easychamp.com/ko/coach",
+      "finalUrl": "https://easychamp.com/ko/coach",
+      "status": 200,
+      "canonical": [
+        "https://easychamp.com/ko/coach"
+      ],
+      "robots": null,
+      "h1": 1,
+      "videoObjects": 0
+    },
+    {
+      "url": "https://easychamp.com/tr/sim",
+      "finalUrl": "https://easychamp.com/tr/sim",
+      "status": 200,
+      "canonical": [
+        "https://easychamp.com/tr/sim"
+      ],
+      "robots": null,
+      "h1": 1,
+      "videoObjects": 0
+    },
+    {
+      "url": "https://easychamp.com/tools/round-robin-generator",
+      "finalUrl": "https://easychamp.com/tools/round-robin-generator",
+      "status": 200,
+      "canonical": [
+        "https://easychamp.com/tools/round-robin-generator"
+      ],
+      "robots": null,
+      "h1": 1,
+      "videoObjects": 0
+    },
+    {
+      "url": "https://easychamp.com/help",
+      "finalUrl": "https://easychamp.com/help",
+      "status": 200,
+      "canonical": [
+        "https://easychamp.com/help"
+      ],
+      "robots": null,
+      "h1": 1,
+      "videoObjects": 0
+    },
+    {
+      "url": "https://easychamp.com/help/league-console/create-league-or-tournament",
+      "finalUrl": "https://easychamp.com/help/league-console/create-league-or-tournament",
+      "status": 200,
+      "canonical": [
+        "https://easychamp.com/help/league-console/create-league-or-tournament"
+      ],
+      "robots": null,
+      "h1": 1,
+      "videoObjects": 2
+    },
+    {
+      "url": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+      "finalUrl": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+      "status": 200,
+      "canonical": [
+        "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1"
+      ],
+      "robots": null,
+      "h1": 1,
+      "videoObjects": 0
+    },
+    {
+      "url": "https://watch.easychamp.com/match/new-zealand-vs-spain-11fc4398-1253-421b-8aef-950e6c672275",
+      "finalUrl": "https://watch.easychamp.com/match/new-zealand-vs-spain-11fc4398-1253-421b-8aef-950e6c672275",
+      "status": 200,
+      "canonical": [
+        "https://watch.easychamp.com/match/new-zealand-vs-spain-11fc4398-1253-421b-8aef-950e6c672275"
+      ],
+      "robots": null,
+      "h1": 1,
+      "videoObjects": 0
+    },
+    {
+      "url": "https://watch.easychamp.com/match/brazil-vs-egypt-2c1643e4-01de-4014-840f-e3aa59700e1d",
+      "finalUrl": "https://watch.easychamp.com/match/brazil-vs-egypt-2c1643e4-01de-4014-840f-e3aa59700e1d",
+      "status": 200,
+      "canonical": [
+        "https://watch.easychamp.com/match/brazil-vs-egypt-2c1643e4-01de-4014-840f-e3aa59700e1d"
+      ],
+      "robots": null,
+      "h1": 1,
+      "videoObjects": 0
+    }
+  ],
+  "errors": []
+}

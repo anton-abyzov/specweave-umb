@@ -1,0 +1,77 @@
+[
+  {
+    "at": "2026-10-07T13:16:52.378Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run build > /tmp/easychamp-seo-audit-20261007/uikit-build.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-uikit-20261007"
+  },
+  {
+    "at": "2026-10-07T13:16:52.378Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run src/public-site --maxWorkers=4 > /tmp/easychamp-seo-audit-20261007/uikit-public-site-test.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-uikit-20261007"
+  },
+  {
+    "at": "2026-10-07T13:18:46.337Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run src/public-site --maxWorkers=4 > /tmp/easychamp-seo-audit-20261007/uikit-public-site-test.log 2>&1 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run build > /tmp/easychamp-seo-audit-20261007/uikit-build.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-uikit-20261007"
+  },
+  {
+    "at": "2026-10-07T13:23:02.447Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run src/public-site/__tests__/video-schema.test.ts --coverage --coverage.include=src/public-site/videoSchema.ts --maxWorkers=2 > /tmp/easychamp-seo-audit-20261007/uikit-video-coverage.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-uikit-20261007"
+  },
+  {
+    "at": "2026-10-07T13:24:10.989Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run typecheck > /tmp/easychamp-seo-audit-20261007/landing-typecheck.log 2>&1 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run build > /tmp/easychamp-seo-audit-20261007/landing-build.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-landing-20261007"
+  },
+  {
+    "at": "2026-10-07T13:24:10.989Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run typecheck > /tmp/easychamp-seo-audit-20261007/arena-typecheck.log 2>&1 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run build > /tmp/easychamp-seo-audit-20261007/arena-build.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-arena-20261007"
+  },
+  {
+    "at": "2026-10-07T13:24:52.071Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run typecheck > /tmp/easychamp-seo-audit-20261007/landing-typecheck.log 2>&1 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run build > /tmp/easychamp-seo-audit-20261007/landing-build.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-landing-20261007"
+  },
+  {
+    "at": "2026-10-07T13:46:49.761Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run src/lib/__tests__/news-jsonld.test.ts src/lib/__tests__/broadcast-fixture-video-0788.test.ts src/app/__tests__/fixture-video-0788.test.tsx src/app/__tests__/fixture-goal-replays.test.tsx src/lib/__tests__/seo-jsonld-broadcast-0788.test.ts src/lib/__tests__/video-subject-jsonld.test.ts --maxWorkers=4 > /tmp/easychamp-seo-audit-20261007/arena-source-attribution-test-final.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-arena-20261007"
+  },
+  {
+    "at": "2026-10-07T13:46:49.761Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run src/lib/__tests__/blog-seo.test.ts src/lib/__tests__/blog-sanitize.test.ts src/app/help/structured.test.ts --maxWorkers=4 > /tmp/easychamp-seo-audit-20261007/landing-blog-video-tests.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-landing-20261007"
+  },
+  {
+    "at": "2026-10-07T13:47:43.109Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run typecheck && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run build > /tmp/easychamp-seo-audit-20261007/arena-source-attribution-build.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-arena-20261007"
+  },
+  {
+    "at": "2026-10-07T13:47:43.109Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run typecheck && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run build > /tmp/easychamp-seo-audit-20261007/landing-blog-video-build.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-landing-20261007"
+  },
+  {
+    "at": "2026-10-07T13:47:43.109Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run --maxWorkers=4 > /tmp/easychamp-seo-audit-20261007/arena-all-final-tests.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-arena-20261007"
+  },
+  {
+    "at": "2026-10-07T13:47:43.109Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run --maxWorkers=4 > /tmp/easychamp-seo-audit-20261007/landing-all-final-tests.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-landing-20261007"
+  },
+  {
+    "at": "2026-10-07T13:49:48.871Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run src/lib/__tests__/news-jsonld.test.ts src/lib/__tests__/broadcast-fixture-video-0788.test.ts src/lib/__tests__/seo-jsonld-broadcast-0788.test.ts src/lib/__tests__/video-subject-jsonld.test.ts src/app/__tests__/fixture-video-0788.test.tsx src/app/__tests__/fixture-goal-replays.test.tsx --coverage --coverage.include=src/lib/news-jsonld.ts --coverage.include=src/lib/broadcast-fixture-video.ts --coverage.include=src/lib/seo-jsonld-broadcast.ts --coverage.include=src/lib/video-subject-jsonld.ts --maxWorkers=4 > /tmp/easychamp-seo-audit-20261007/arena-attribution-coverage-final.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-arena-20261007"
+  },
+  {
+    "at": "2026-10-07T13:49:48.871Z",
+    "cmd": "PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run src/lib/__tests__/blog-seo.test.ts src/lib/__tests__/blog-sanitize.test.ts src/app/help/structured.test.ts --coverage --coverage.include=src/lib/blog-seo.ts --coverage.include=src/app/help/structured.ts --maxWorkers=4 > /tmp/easychamp-seo-audit-20261007/landing-blog-help-coverage-final.log 2>&1",
+    "workdir": "/tmp/easychamp-seo-inventory-landing-20261007"
+  }
+]

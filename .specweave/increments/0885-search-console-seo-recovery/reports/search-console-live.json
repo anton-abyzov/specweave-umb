@@ -1,0 +1,89 @@
+{
+  "recordedAt": "2026-10-07T13:33:01.155Z",
+  "querySample": {
+    "success": true,
+    "data": {
+      "schedule_id": "22679649e040080afe831c320984297c3cd6f65b004738dad9bf6f94d088ebe1",
+      "status": "completed",
+      "data": "[50]{page,query,clicks,impressions,ctr,position}:\n  (unknown),(unknown),341,6290,0.0542,7.9226\n  \"https://easychamp.com/pro-clubs\",pro clubs tracker fc 26,42,182,0.2308,8.1538\n  \"https://easychamp.com/\",easychamp,40,61,0.6557,1.1639\n  \"https://easychamp.com/ko/sim\",\ucd95\uad6c \uc2dc\ubbac\ub808\uc774\uc158 \uc0ac\uc774\ud2b8,15,74,0.2027,4.9595\n  \"https://easychamp.com/pro-clubs\",fc 26 pro clubs tracker,13,54,0.2407,8.537\n  \"https://easychamp.com/\",easy champ,12,51,0.2353,1.8431\n  \"https://easychamp.com/ko\",\ucd95\uad6c \uc2dc\ubbac\ub808\uc774\uc158 \uc0ac\uc774\ud2b8,9,54,0.1667,7.5\n  \"https://easychamp.com/ko/coach\",\ucd95\uad6c \ucee4\ub9ac\uc5b4 \uc2dc\ubbac\ub808\uc774\uc158,9,64,0.1406,7.5\n  \"https://easychamp.com/pro-clubs\",pro clubs tracker fc26,9,27,0.3333,8.5926\n  \"https://easychamp.com/pro-clubs\",fc 26 clubs tracker,8,21,0.381,8.9048\n  \"https://easychamp.com/pro-clubs\",fc26 pro clubs tracker,7,31,0.2258,8.2258\n  \"https://easychamp.com/pro-clubs\",pro clubs stats fc 26,7,30,0.2333,10.7\n  \"https://easychamp.com/tr/sim\",ma\u00e7 sim\u00fclasyonu,7,25,0.28,3.36\n  \"https://easychamp.com/ko/coach\",\ucd95\uad6c \ucee4\ub9ac\uc5b4 \uc2dc\ubbac\ub808\uc774\uc158 \uc0ac\uc774\ud2b8,6,27,0.2222,5.3333\n  \"https://easychamp.com/ko\",\ucd95\uad6c \ucee4\ub9ac\uc5b4 \uc2dc\ubbac\ub808\uc774\uc158,5,35,0.1429,7.5143\n  \"https://easychamp.com/pro-clubs\",clubs tracker fc 26,5,25,0.2,8\n  \"https://easychamp.com/pro-clubs\",fc26 pro clubs stats,5,10,0.5,15.1\n  \"https://easychamp.com/pro-clubs\",pro clubs stats 26,5,18,0.2778,8.3889\n  \"https://easychamp.com/tr/sim\",ma\u00e7 sim\u00fcle etme,5,57,0.0877,7.1754\n  \"https://ff.at.easychamp.com/main\",florida football alliance,4,16,0.25,5.9375\n  \"https://easychamp.com/ko/sim\",\ucd95\uad6c \uc2dc\ubbac\ub808\uc774\uc158 \ud504\ub85c\uadf8\ub7a8,3,9,0.3333,4.6667\n  \"https://easychamp.com/pro-clubs\",fc 26 club tracker,3,15,0.2,9.1333\n  \"https://easychamp.com/pro-clubs\",fc 26 pro clubs player stats,3,11,0.2727,9.3636\n  \"https://easychamp.com/pro-clubs\",fc 26 pro clubs stats,3,17,0.1765,12.7647\n  \"https://easychamp.com/pro-clubs\",fc 26 pro clubs stats tracker,3,17,0.1765,6.1176\n  \"https://easychamp.com/pro-clubs\",fc26 clubs tracker,3,22,0.1364,10.9545\n  \"https://easychamp.com/\",league sim,2,37,0.0541,8.2973\n  \"https://easychamp.com/matchcam\",matchcam,2,68,0.0294,8.2353\n  \"https://easychamp.com/pro-clubs\",fc 26 clubs stats,2,5,0.4,10\n  \"https://easychamp.com/pro-clubs\",fc 26 clubs stats tracker,2,9,0.2222,9.8889\n  \"https://easychamp.com/pro-clubs\",fc 26 pro club stats,2,2,1,7.5\n  \"https://easychamp.com/pro-clubs\",fc26 pro club tracker,2,5,0.4,9.8\n  \"https://easychamp.com/tools/round-robin-generator\",round robin generator,2,193,0.0104,12.0466\n  \"https://easychamp.com/tr/sim\",ma\u00e7 sim\u00fcle etme sitesi,2,8,0.25,7.875\n  \"https://easychamp.com/zh-CN/tools\",\u8cfd\u7a0b\u8868\u7522\u751f\u5668,2,20,0.1,7.35\n  \"https://easychamp.com/\",easy league,1,5,0.2,9.2\n  \"https://easychamp.com/\",easychamp d,1,31,0.0323,5.4194\n  \"https://easychamp.com/\",league maker,1,3,0.3333,54\n  \"https://easychamp.com/\",tournament simulator,1,3,0.3333,21.3333\n  \"https://easychamp.com/ko\",\uadf8\ub0e5 \uc0ac\uc774\ud2b8,1,1,1,1\n  \"https://easychamp.com/ko/sim\",\ucd95\uad6c \uacbd\uae30 \uc2dc\ubbac\ub808\uc774\uc158,1,2,0.5,3.5\n  \"https://easychamp.com/league-management-software\",sports league management software free,1,8,0.125,31.375\n  \"https://easychamp.com/pro-clubs\",clubs stats fc 26,1,1,1,6\n  \"https://easychamp.com/pro-clubs\",clubs tracker fc26,1,4,0.25,8.25\n  \"https://easychamp.com/pro-clubs\",ea fc 26 clubs tracker,1,2,0.5,8\n  \"https://easychamp.com/pro-clubs\",eafc 26 clubs stats,1,1,1,12\n  \"https://easychamp.com/pro-clubs\",estatisticas pro clubs ea fc 26,1,2,0.5,8\n  \"https://easychamp.com/pro-clubs\",fc 26 club stats,1,1,1,8\n  \"https://easychamp.com/pro-clubs\",fc26 club stats,1,1,1,22\n  \"https://easychamp.com/pro-clubs\",fc26 club tracker,1,4,0.25,9",
+      "requested_field_ids": [
+        "page",
+        "query",
+        "clicks",
+        "impressions",
+        "ctr",
+        "position"
+      ],
+      "canonical_field_ids": null,
+      "cache_used": false,
+      "cache_time": null,
+      "success": true
+    },
+    "error": null,
+    "notes": [
+      "The result contains exactly 50 rows, matching your max_rows setting. There are likely more rows available. Increase max_rows to fetch more if needed."
+    ],
+    "business_context": null,
+    "metadata": {
+      "tool_version": "1.17.0",
+      "span_id": "462b8de2b8fe45a3"
+    }
+  },
+  "otherPropertyLimit": {
+    "success": false,
+    "data": null,
+    "error": "[QUERY_ERROR] You've reached your plan's limit of 3 prioritised Google Search Console accounts. This query needs 2 more.\nAdd accounts or swap which ones are prioritised on your subscription page:\nhttps://hub.supermetrics.com/subscriptions/1924948#ds-GW\n\nSOLUTION: The plan's limit of prioritised accounts for this data source is reached. Offer to add accounts via the subscription link above (Owner/Admin), or to swap prioritised accounts with manage_user_and_team get_prioritised_accounts with ds_id='GW', then set_prioritised_accounts (pass the complete set).",
+    "notes": [
+      "If the user wants to contact Supermetrics support about this error, they should include this ID: 67f37301c705dc93"
+    ],
+    "business_context": null,
+    "metadata": {
+      "tool_version": "1.17.0",
+      "span_id": "67f37301c705dc93",
+      "exception_type": "RuntimeError"
+    }
+  },
+  "additional": [
+    {
+      "success": true,
+      "data": {
+        "schedule_id": "d2af1e4772a989be3a51c3e3466e2619f61cc467fb3389b8bd037e1a295be388",
+        "status": "completed",
+        "data": "[1]{clicks,impressions,ctr,position}:\n  636,13266,0.0479,17.1241",
+        "requested_field_ids": [
+          "clicks",
+          "impressions",
+          "ctr",
+          "position"
+        ],
+        "canonical_field_ids": null,
+        "cache_used": true,
+        "cache_time": "2026-10-07T13:32:59+00:00",
+        "success": true
+      },
+      "error": null,
+      "notes": [
+        "Served from the platform's result cache as of 2026-10-07T13:32:59+00:00, not read live. A change made after that time will not appear yet."
+      ],
+      "business_context": null,
+      "metadata": {
+        "tool_version": "1.17.0",
+        "span_id": "208902c601f28280"
+      }
+    },
+    {
+      "success": false,
+      "data": null,
+      "error": "[START_DATE_REQUIRED] Missing value for query start date.\n\nSOLUTION: This data source requires a date range. Pass date_range_type (e.g. 'last_30_days') or date_range_type='custom' with start_date and end_date as root-level parameters, not inside settings.",
+      "notes": [
+        "If the user wants to contact Supermetrics support about this error, they should include this ID: 0b53a66a921ce6c4"
+      ],
+      "business_context": null,
+      "metadata": {
+        "tool_version": "1.17.0",
+        "span_id": "0b53a66a921ce6c4",
+        "exception_type": "RuntimeError"
+      }
+    }
+  ]
+}

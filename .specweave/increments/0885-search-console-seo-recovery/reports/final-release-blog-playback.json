@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-07T14:16:33.296Z",
+  "headless": true,
+  "url": "https://easychamp.com/blog/efa-efootball-qualification-2026-groups-playoffs",
+  "player": {
+    "currentTime": 2.04692,
+    "duration": 55.9,
+    "paused": false,
+    "readyState": 4,
+    "source": "https://minio.easychamp.com/sportchamp-prod/ChampLeagues/blog/4196a534-b58c-492a-8b18-664591c76a9f/92a863ce0da0b7ec-864a0e8d222f9cb29d95f74d4ff722a0.mp4",
+    "poster": "https://minio.easychamp.com/sportchamp-prod/ChampLeagues/cd65eac914a607ab20e50694/6aa1e38fa34aa261bb0627da.jpg"
+  },
+  "status": "passed"
+}

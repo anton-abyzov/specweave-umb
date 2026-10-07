@@ -12,6 +12,10 @@ Authenticated gws profile and Gmail users.getProfile both identify admin@easycha
 
 September EasyChamp email reports 596 web clicks / 14.7K impressions: /pro-clubs 187 clicks, homepage 116, /ko 83. Leading queries include easychamp (46), the Korean phrase for football simulation site (29), and pro clubs tracker fc 26 (27). Public metadata and internal links should serve those existing page intents, with localized pages retaining their own canonicals. No invented ranking/traffic guarantees or keyword stuffing.
 
+Authenticated Search Console analytics confirms 636 clicks, 13,266 impressions, CTR 4.79%, average position 17.1241 for finalized September 7–October 6. Aggregate metrics were queried directly; the response was cached at 2026-10-07T13:32:59Z. The uncached 50-row page/query sample confirms FC26 pro-club tracker, Korean simulation/coach and Turkish simulation intent. Round-robin generator recorded 2 clicks from 193 impressions at position 12.0466. Sample rows are capped, and the unknown page/query row is not attributed to a landing page. Reciprocal hreflang, localized titles/descriptions/headings, self canonicals and accessible OG images pass on these public routes.
+
+The analytics connector recognizes all three admin Search Console properties, but its prioritized-account license prevents querying SpecWeave and Verified Skills. No subscription or account-priority settings were changed. The EasyChamp sitemap report returned no rows, which is not evidence of zero sitemap submissions. URL Inspection and validation completion remain unverified.
+
 ## Reconciliation
 
 Latest authenticated EasyChamp project context: claude-project-sync 8e5cfe07470d86f9eb9afb7ee5b07ea900bb2583, committed 2026-10-07T12:24:21Z. Active B2B/design checkout owners are preserved. Supported public repos are ec-landing/ec-arena-ui/ec-uikit; deprecated web/webengine/mobile repositories remain untouched.
@@ -24,7 +28,7 @@ EasyChamp latest source already contains Event image/location fixes; three publi
 
 Historical sportchamp.ru notices are retained as historical evidence. Removed-page 404s, private noindex routes, correct canonical alternatives and redirects are expected when excluded from submitted sitemaps. Older EasyChamp INP/mobile notices require current measurements before attributing them to today's supported frontend.
 
-Google revalidation is asynchronous. Source tests and public readback can prove released fixes; they cannot prove Google's final index/rich-result decision. Existing gws authorization lacks the Search Console scope, so no claim of authenticated URL Inspection or final validation is made.
+Google revalidation is asynchronous. Source tests and public readback can prove released fixes; they cannot prove Google's final index/rich-result decision. The existing gws authorization lacks Search Console scope; the analytics connector provides performance data but no authenticated URL Inspection or final validation receipt.
 
 ## Primary references
 
