@@ -4,8 +4,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-07T23:55:42.927Z",
-  "updated": "2026-10-07T23:57:41.180Z",
-  "lastActivity": "2026-10-07T23:57:41.180Z",
+  "updated": "2026-10-08T00:26:32.696Z",
+  "lastActivity": "2026-10-08T00:26:32.696Z",
   "title": "Nonblocking session checkpoints",
   "project": "specweave-umb"
 }

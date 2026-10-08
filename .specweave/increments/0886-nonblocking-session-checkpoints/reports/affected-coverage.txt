@@ -1,0 +1,67 @@
+
+ RUN  v4.1.11 /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave
+      Coverage enabled with v8
+
+ ✓ src/core/session/handoff-doc-format.test.ts (19 tests) 4ms
+ ✓ tests/unit/core/session/grok-limit-handoff.test.ts (4 tests) 15ms
+ ✓ tests/unit/core/session/usage-guard.test.ts (30 tests) 78ms
+ ✓ src/core/session/handoff-git-state.test.ts (7 tests) 6245ms
+     ✓ captures branch, sha, porcelain status, stat and dumps the working diff  739ms
+     ✓ captures the FULL body of a brand-new untracked file in the diff (AC-US4-01/02)  748ms
+     ✓ reports no uncommitted changes on a clean repo and writes an empty diff  881ms
+   ✓ bounds stalled Git by the total capture budget  3504ms
+ ✓ tests/unit/core/session/session-checkpoint.test.ts (13 tests) 7622ms
+     ✓ captures tracked and untracked work and summary without changing ownership, index, refs, or pointer  361ms
+     ✓ captures a child repository while retaining unique umbrella increment context  312ms
+     ✓ throttles only successful saves and keeps the immediately preceding generation  610ms
+     ✓ rechecks the successful receipt after acquiring a lease  321ms
+     ✓ leaves the last successful receipt untouched after Git failure and retries immediately  416ms
+     ✓ retains the old receipt when a scrubbed diff cannot be written completely  544ms
+     ✓ fails within the Git budget and preserves recovery when a required Git command stalls  3724ms
+     ✓ reaps helpers orphaned by a Git timeout when the POSIX capture worker exits  323ms
+ ✓ src/core/session/work-handoff.test.ts (17 tests) 12903ms
+     ✓ assembles id/status/ledger table/ACs/decisions into the increment handoff.md  755ms
+     ✓ orders the board by T-id, not user-story group order (G-001)  757ms
+     ✓ records only the agent's --decision, pointing at spec.md for planned ones  1076ms
+     ✓ releases the agent's own claims and records a handoff event  729ms
+     ✓ keeps claims with keepClaims  674ms
+     ✓ is idempotent — re-running overwrites the same files  859ms
+     ✓ writes a git+config doc noting no active increment  726ms
+     ✓ throws listing candidate ids when no explicit id  557ms
+     ✓ uses the explicit id when provided  710ms
+     ✓ writes .handoff/HANDOFF.md + .handoff/.gitignore=*  687ms
+     ✓ captures the combined diff and shows the uncommitted warning  860ms
+     ✓ redacts planted secrets in free-text AND the diff, with counts in the doc  1029ms
+     ✓ classifies a stale .specweave/ with empty active-increment.json as non-SpecWeave  719ms
+     ✓ classifies a .specweave/ with NO active-increment.json as non-SpecWeave  677ms
+     ✓ refuses to overwrite a foreign root ./HANDOFF.md and writes to .handoff/  685ms
+     ✓ overwrites a root ./HANDOFF.md in-place when it carries the marker  717ms
+     ✓ does not lazily create metadata.json for an active id whose folder lacks it  684ms
+
+ Test Files  6 passed (6)
+      Tests  90 passed (90)
+   Start at  20:12:14
+   Duration  13.30s (transform 658ms, setup 160ms, import 762ms, tests 26.87s, environment 0ms)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   84.17 |    75.81 |   87.17 |    87.8 |
+ cli/commands      |   90.05 |    76.28 |   96.15 |   94.03 |
+  auto-handoff.ts  |   90.05 |    76.28 |   96.15 |   94.03 | ...92-193,276-278
+ core/session      |   82.71 |    75.68 |   84.61 |   86.21 |
+  ...int-worker.ts |       0 |        0 |       0 |       0 | 6-36
+  ...doc-format.ts |    94.4 |    89.13 |     100 |   97.24 | 219-220,286
+  ...-git-state.ts |    87.5 |    76.56 |     100 |   92.45 | 76-77,140-141
+  ...checkpoint.ts |   83.63 |    78.86 |    87.5 |   89.84 | 138,178-196
+  usage-guard.ts   |   89.09 |     72.1 |   87.87 |   93.54 | ...11,247,260-262
+  work-handoff.ts  |   77.83 |    72.97 |   81.81 |   79.37 | ...70-299,400-401
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 84.17% ( 766/910 )
+Branches     : 75.81% ( 561/740 )
+Functions    : 87.17% ( 102/117 )
+Lines        : 87.8% ( 655/746 )
+================================================================================

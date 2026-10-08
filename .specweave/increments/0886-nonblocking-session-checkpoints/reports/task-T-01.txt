@@ -1,0 +1,23 @@
+$ cd /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave && env PATH="/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH" npx vitest run --config vitest.unit.config.ts tests/unit/core/session/session-checkpoint.test.ts
+# exit 0 — 2026-10-08T00:14:51.390Z
+
+
+ RUN  v4.1.11 /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave
+
+ ✓ tests/unit/core/session/session-checkpoint.test.ts (13 tests) 12332ms
+     ✓ captures tracked and untracked work and summary without changing ownership, index, refs, or pointer  599ms
+     ✓ captures a child repository while retaining unique umbrella increment context  754ms
+     ✓ saves useful work without guessing an increment when several are active  844ms
+     ✓ throttles only successful saves and keeps the immediately preceding generation  1112ms
+     ✓ rechecks the successful receipt after acquiring a lease  317ms
+     ✓ leaves the last successful receipt untouched after Git failure and retries immediately  545ms
+     ✓ retains the old receipt when a scrubbed diff cannot be written completely  1650ms
+     ✓ fails within the Git budget and preserves recovery when a required Git command stalls  4014ms
+     ✓ scrubs secrets before persisting worker input and from the captured diff  742ms
+     ✓ supports an unborn repository and a plain folder, and rejects unsafe input  920ms
+     ✓ reaps helpers orphaned by a Git timeout when the POSIX capture worker exits  511ms
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  20:14:38
+   Duration  13.08s (transform 489ms, setup 89ms, import 516ms, tests 12.33s, environment 0ms)

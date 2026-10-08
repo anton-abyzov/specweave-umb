@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Handoff report: Nonblocking session checkpoints</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1c1b19;--mut:#6b6760;--line:#e4e0d8;--card:#fff;--acc:#2f6f5e;--hand:#fff6e0;--claude:#b8612f;--codex:#2f5f9e;--grok:#6a4bb0;--muse:#0f7c86;--gemini:#9a6a00;--other:#555}
+@media (prefers-color-scheme:dark){:root{--bg:#161614;--fg:#ece9e2;--mut:#a29d93;--line:#2e2c28;--card:#1e1d1a;--acc:#6fc2a8;--hand:#3a3120}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:32px 16px}h1{font-size:26px;margin:0 0 4px}h2{font-size:17px;margin:32px 0 10px}
+.sub{color:var(--mut);margin:0 0 24px}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}.stat .v{font-size:22px;font-weight:650}.stat .l{color:var(--mut);font-size:13px}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:600}tr:last-child td{border-bottom:0}tr.hand td{background:var(--hand)}
+td.t{white-space:nowrap;color:var(--mut)}td.d{white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;max-width:420px}
+.who{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;padding:1px 6px;border-radius:6px;border:1px solid currentColor;white-space:nowrap}
+.claude{color:var(--claude)}.codex{color:var(--codex)}.grok{color:var(--grok)}.muse{color:var(--muse)}.gemini{color:var(--gemini)}.other{color:var(--other)}
+.st{font-size:12.5px;padding:1px 6px;border-radius:6px;background:var(--line)}.st.done{background:var(--acc);color:var(--bg)}
+ul.acs{padding-left:18px}ul.acs li.met{color:var(--acc)}ul.acs li.met::marker{content:"✓ "}footer{color:var(--mut);font-size:13px;margin-top:32px}
+</style>
+</head>
+<body>
+<main>
+<h1>Nonblocking session checkpoints</h1>
+<p class="sub">Increment 0886-nonblocking-session-checkpoints · active · report generated 2026-10-08 00:26 from <code>ledger.jsonl</code></p>
+<div class="stats">
+<div class="stat"><div class="v">3/4</div><div class="l">tasks done</div></div>
+<div class="stat"><div class="v">4/5</div><div class="l">acceptance criteria met</div></div>
+<div class="stat"><div class="v">1</div><div class="l">handoff</div></div>
+<div class="stat"><div class="v">0</div><div class="l">pickups</div></div>
+<div class="stat"><div class="v">codex-checkpoint-engine, codex-checkpoint-main, codex-checkpoint-e2e</div><div class="l">tools</div></div>
+<div class="stat"><div class="v">1</div><div class="l">recorded sessions</div></div>
+</div>
+<h2>Timeline</h2>
+<div class="wrap"><table>
+<thead><tr><th>When (UTC)</th><th>Who</th><th>What</th><th>Task</th><th>Evidence or note</th></tr></thead>
+<tbody>
+<tr><td class="t">2026-10-07 23:57</td><td><span class="who other">codex-checkpoint-engine</span></td><td>started a session</td><td></td><td class="d">session 01a118c9-af67-7c71-8743-3bc74b437029</td></tr>
+<tr><td class="t">2026-10-07 23:57</td><td><span class="who other">codex-checkpoint-engine</span></td><td>claimed</td><td>T-01</td><td class="d"></td></tr>
+<tr><td class="t">2026-10-07 23:57</td><td><span class="who other">codex-checkpoint-main</span></td><td>claimed</td><td>T-02</td><td class="d"></td></tr>
+<tr><td class="t">2026-10-07 23:57</td><td><span class="who other">codex-checkpoint-e2e</span></td><td>claimed</td><td>T-03</td><td class="d"></td></tr>
+<tr><td class="t">2026-10-08 00:12</td><td><span class="who other">codex-checkpoint-main</span></td><td>claimed</td><td>T-04</td><td class="d"></td></tr>
+<tr><td class="t">2026-10-08 00:14</td><td><span class="who other">codex-checkpoint-engine</span></td><td>finished</td><td>T-01</td><td class="d">cd /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave &amp;&amp; env PATH=&quot;/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH&quot; npx vitest run --config vitest.unit.config.ts tests/unit/core/session/session-checkpoint.test.ts → exit 0
+log: .specweave/increments/0886-nonblocking-session-checkpoints/reports/task-T-01.txt
+RUN  v4.1.11 /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave
+…</td></tr>
+<tr><td class="t">2026-10-08 00:14</td><td><span class="who other">codex-checkpoint-main</span></td><td>finished</td><td>T-02</td><td class="d">cd /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave &amp;&amp; env PATH=&quot;/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH&quot; npx vitest run --config vitest.unit.config.ts tests/unit/core/session/usage-guard.test.ts tests/unit/core/session/grok-limit-handoff.test.ts → exit 0
+log: .specweave/increments/0886-nonblocking-session-checkpoints/reports/task-T-02.txt
+RUN  v4.1.11 /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave
+…</td></tr>
+<tr><td class="t">2026-10-08 00:15</td><td><span class="who other">codex-checkpoint-e2e</span></td><td>finished</td><td>T-03</td><td class="d">cd /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave &amp;&amp; env PATH=&quot;/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH&quot; node scripts/e2e/session-checkpoints.mjs → exit 0
+log: .specweave/increments/0886-nonblocking-session-checkpoints/reports/task-T-03.txt
+PASS strict fast hook and successful local checkpoint without quota read
+…</td></tr>
+<tr><td class="t">2026-10-08 00:23</td><td><span class="who other">codex-checkpoint-main</span></td><td>left a note</td><td></td><td class="d">Source PR #1983 at cee5a538b27e1c7197d87d68277b057bb2e8c231 has independent ship review and green test/docs/link/lint/package CI. GitHub still requires another reviewer; administrator merge permission was requested in the user chat and has not been received. Do not merge administratively or publish until that answer, or an actual qualifying review. Version 3.0.4 is prepared but public and shared CLI remain 3.0.3. After approval: exact-head merge, workflow release.yml on develop with version=3.0.4, public tarball integrity/clean install/E2E, then T-04 verify and completion. Proxy PIDs 6862/1472 and Tailscale remain healthy.</td></tr>
+<tr><td class="t">2026-10-08 00:26</td><td><span class="who other">codex-checkpoint-main</span></td><td>released</td><td>T-04</td><td class="d">handoff</td></tr>
+<tr class="hand"><td class="t">2026-10-08 00:26</td><td><span class="who other">codex-checkpoint-main</span></td><td>handed off</td><td></td><td class="d">Awaiting required GitHub review approval before release · next: Check the user response and current PR head/review. Only after qualifying review or explicit administrator-merge approval, merge exact head, dispatch release.yml from develop with version=3.0.4, verify public registry/tarball/clean installed checkpoint E2E, then finish T-04 and complete the increment.</td></tr>
+</tbody></table></div>
+<h2>Tasks</h2>
+<div class="wrap"><table>
+<thead><tr><th>Task</th><th>Title</th><th>State</th><th>By</th></tr></thead>
+<tbody>
+<tr><td>T-01</td><td>Background checkpoint engine</td><td><span class="st done">done</span></td><td><span class="who other">codex-checkpoint-engine</span></td></tr>
+<tr><td>T-02</td><td>Nonblocking hook integration and documentation</td><td><span class="st done">done</span></td><td><span class="who other">codex-checkpoint-main</span></td></tr>
+<tr><td>T-03</td><td>Real CLI parallel and network regression</td><td><span class="st done">done</span></td><td><span class="who other">codex-checkpoint-e2e</span></td></tr>
+<tr><td>T-04</td><td>Review, release and evidence</td><td><span class="st open">open</span></td><td></td></tr>
+</tbody></table></div>
+<h2>Acceptance criteria</h2>
+<ul class="acs">
+<li class="met"><b>AC-01</b> Stop and rate-limit hooks emit strict empty JSON and never ask the model to stop or continue, regardless of reported usage or credits. <small>(met by its tasks)</small></li>
+<li class="met"><b>AC-02</b> Enabled hooks refresh an atomic local checkpoint at most once per five minutes per canonical worktree/session; failures preserve previous evidence and remain retryable. <small>(met by its tasks)</small></li>
+<li class="met"><b>AC-03</b> Automatic saves never push, release claims, change user Git index/refs, or overwrite another session or the explicit handoff pointer. Ambiguous increments do not choose an owner. <small>(met by its tasks)</small></li>
+<li class="met"><b>AC-04</b> Actual CLI regression tests cover duplicate startup warnings, parallel sessions, unavailable network/proxy and slow Git; hook return stays under two seconds. <small>(met by its tasks)</small></li>
+<li class=""><b>AC-05</b> Fresh review, meaningful coverage/build/lint and public npm tarball verification pass for the released version; existing Tailscale and proxy remain healthy.</li>
+</ul>
+<footer>Agents: codex-checkpoint-engine, codex-checkpoint-main, codex-checkpoint-e2e. Handoff and pickup rows are highlighted. Generated by <code>specweave report</code>.</footer>
+</main>
+</body>
+</html>

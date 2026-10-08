@@ -1,0 +1,844 @@
+
+ RUN  v4.1.11 /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave
+      Coverage enabled with v8
+
+ ✓ tests/unit/sync/external-issue-auto-creator.test.ts (89 tests) 41ms
+ ✓ tests/unit/cli/helpers/init/external-import.test.ts (67 tests) 19ms
+Sourcemap for "/Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave/plugins/specweave/lib/vendor/utils/execFileNoThrow.js" points to missing source files
+Sourcemap for "/Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave/plugins/specweave/lib/vendor/utils/clean-env.js" points to missing source files
+ ✓ tests/unit/utils/validators/jira-validator.test.ts (76 tests) 19ms
+Sourcemap for "/Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave/plugins/specweave/lib/vendor/utils/auth-helpers.js" points to missing source files
+ ✓ tests/unit/sync/github-reconciler.test.ts (82 tests) 28ms
+ ✓ tests/unit/cli/commands/init.test.ts (81 tests) 56ms
+ ✓ tests/unit/core/qa/quality-gate-decider.test.ts (112 tests) 17ms
+ ✓ tests/unit/cli/commands/sync-progress.test.ts (82 tests) 536ms
+ ✓ tests/unit/core/living-docs/discovery.test.ts (80 tests) 32ms
+ ✓ tests/unit/core/living-docs/feature-consistency-validator.test.ts (50 tests) 13ms
+ ✓ tests/unit/core/living-docs/hierarchy-mapper.test.ts (92 tests) 42ms
+ ✓ tests/unit/sync/sync-coordinator.test.ts (40 tests) 15ms
+ ✓ tests/unit/importers/item-converter.test.ts (36 tests) 104ms
+ ✓ tests/unit/cli/helpers/init/jira-ado-auto-detect.test.ts (86 tests) 19ms
+ ✓ tests/unit/core/living-docs/feature-archiver.test.ts (67 tests) 549ms
+ ✓ tests/unit/core/living-docs/living-docs-sync.test.ts (109 tests) 4734ms
+       ✓ should detect JIRA from metadata.json  411ms
+       ✓ should read GitHub config from multiProject active project  417ms
+       ✓ should read JIRA config from sync.jira with .env token  417ms
+       ✓ should read ADO config from sync.ado with .env PAT  2032ms
+       ✓ should read ADO config from sync profiles  304ms
+ ✓ tests/unit/cli/helpers/issue-tracker/jira.test.ts (71 tests) 49ms
+ ✓ tests/unit/cli/helpers/github-repo-selector.test.ts (77 tests) 32ms
+ ✓ tests/unit/sync/closure-metrics.test.ts (57 tests) 21ms
+ ✓ tests/unit/core/doctor/checkers/installation-health-checker.test.ts (47 tests) 193ms
+ ✓ tests/unit/cli/commands/update.test.ts (71 tests) 1572ms
+ ✓ tests/unit/cli/helpers/issue-tracker/ado.test.ts (63 tests) 43ms
+ ✓ tests/unit/core/qa/qa-runner.test.ts (79 tests) 23ms
+ ✓ tests/unit/sync/format-preservation-sync.test.ts (61 tests) 16ms
+ ✓ tests/unit/utils/validators/ado-validator.test.ts (64 tests) 20ms
+ ✓ tests/unit/core/increment/increment-archiver.test.ts (77 tests) 612ms
+ ✓ tests/unit/cli/helpers/selection-strategy.test.ts (106 tests) 17ms
+ ✓ tests/unit/core/plugins/plugin-loader.test.ts (75 tests) 14ms
+ ✓ tests/unit/core/living-docs/generators.test.ts (116 tests) 20ms
+ ✓ tests/unit/cli/helpers/issue-tracker/github.test.ts (67 tests) 58ms
+ ✓ tests/unit/core/fabric/security-scanner.test.ts (101 tests) 18ms
+ ✓ tests/unit/core/specs/spec-parser.test.ts (82 tests) 12ms
+ ✓ tests/unit/core/specs/spec-metadata-manager.test.ts (67 tests) 80ms
+ ✓ tests/unit/utils/project-detection.test.ts (128 tests) 85ms
+ ✓ tests/unit/core/credentials/credentials-manager.test.ts (60 tests) 16ms
+ ✓ tests/unit/cli/helpers/issue-tracker/github-multi-repo.test.ts (44 tests) 13ms
+ ✓ tests/unit/ac-status-manager.test.ts (43 tests) 32ms
+ ✓ tests/unit/metrics/report-generator.test.ts (88 tests) 45ms
+ ✓ tests/unit/increment-utils.test.ts (79 tests) 87ms
+ ✓ tests/unit/core/cache/cache-manager.test.ts (75 tests) 140ms
+ ✓ tests/unit/sync/status-mapper.test.ts (76 tests) 7ms
+ ✓ tests/unit/cli/helpers/issue-tracker/sync-config-writer.test.ts (38 tests) 9ms
+ ✓ tests/unit/cli/commands/auto-status.test.ts (57 tests) 98ms
+ ✓ tests/unit/utils/claude-cli-detector.test.ts (62 tests) 9ms
+ ✓ tests/unit/commands/jev-command.test.ts (39 tests) 95ms
+ ✓ tests/unit/cli/commands/init-multirepo.test.ts (21 tests) 11ms
+ ✓ tests/unit/cli/commands/interview.test.ts (49 tests) 53ms
+ ✓ tests/unit/cli/commands/doctor.test.ts (45 tests) 21ms
+ ✓ tests/unit/core/dashboard/dashboard-data-aggregator.test.ts (38 tests) 16ms
+ ✓ tests/unit/config/workspace-migrator.test.ts (29 tests) 15ms
+ ✓ tests/unit/feature-id-collision.test.ts (45 tests) 111ms
+ ✓ tests/unit/jev/browse.test.ts (31 tests) 1848ms
+     ✓ stops with step_limit when the budget of steps runs out  302ms
+     ✓ honours maxSteps from the project config  303ms
+     ✓ lets the flags win over the config for both settings  305ms
+ ✓ tests/unit/utils/structure-level-detector.test.ts (35 tests) 32ms
+ ✓ tests/unit/cli/commands/auto.test.ts (31 tests) 88ms
+ ✓ tests/unit/cli/helpers/init/instruction-file-merger.test.ts (32 tests) 15ms
+ ✓ tests/unit/increment/status-auto-transition.test.ts (43 tests) 133ms
+ ✓ tests/unit/utils/plugin-copier.test.ts (37 tests) 48ms
+ ✓ tests/unit/utils/auth-helpers.test.ts (52 tests) 133ms
+ ✓ tests/unit/living-docs/fs-id-allocator.test.ts (31 tests) 247ms
+ ✓ tests/unit/cli/commands/refresh-plugins.test.ts (34 tests) 13ms
+ ✓ tests/unit/adapters/adapter-base.test.ts (45 tests) 13ms
+ ✓ tests/unit/core/ac-progress-sync.test.ts (26 tests) 17ms
+ ✓ tests/unit/core/repo-structure/repo-structure-manager.test.ts (26 tests) 28ms
+ ✓ tests/unit/core/increment/template-creator.test.ts (32 tests) 75ms
+ ✓ tests/unit/user-story-issue-builder.test.ts (15 tests) 302ms
+ ✓ tests/unit/cli/commands/status.test.ts (29 tests) 129ms
+ ✓ tests/unit/i18n/translation.test.ts (67 tests) 12ms
+ ✓ tests/unit/plugins/github/github-ac-comment-poster.test.ts (16 tests) 11ms
+ ✓ tests/unit/core/i18n/language-manager.test.ts (49 tests) 9ms
+ ✓ tests/unit/utils/find-project-root.test.ts (51 tests) 203ms
+ ✓ tests/unit/sync/sync-coordinator.externallinks-closure.test.ts (7 tests) 1770ms
+       ✓ pushes the error message into result.errors and does not throw  706ms
+       ✓ ADO still closes when JIRA throws  1054ms
+ ✓ tests/unit/plugins/per-us-sync/github-per-us-sync.test.ts (15 tests) 10ms
+ ✓ tests/unit/cli/helpers/init/github-repo-cloning.test.ts (29 tests) 46ms
+ ✓ tests/unit/core/repo-structure/repo-bulk-discovery.test.ts (26 tests) 11ms
+ ✓ tests/unit/cli/commands/init-integration.test.ts (13 tests) 44ms
+ ✓ tests/unit/increment/metadata-manager.test.ts (39 tests) 120ms
+ ✓ tests/unit/config-test-mode.test.ts (15 tests) 105ms
+ ✓ tests/unit/utils/lock-manager.test.ts (36 tests) 73ms
+ ✓ tests/unit/cli/helpers/init/workspace-setup.test.ts (41 tests) 267ms
+ ✓ tests/unit/cli/commands/init-repo-clone-flow.test.ts (8 tests) 41ms
+ ✓ tests/unit/core/llm/providers/claude-code-provider.test.ts (32 tests) 2181ms
+       ✓ should retry on failure  1014ms
+       ✓ should throw after all retries exhausted  1015ms
+ ✓ tests/unit/core/repo-structure/multi-repo-configurator.test.ts (14 tests) 15ms
+ ✓ tests/unit/living-docs/scaffolding.test.ts (34 tests) 108ms
+ ✓ tests/unit/plugins/per-us-sync/ado-per-us-sync.test.ts (11 tests) 9ms
+ ✓ tests/unit/issue-tracker/github-repo-reuse.test.ts (13 tests) 142ms
+ ✓ tests/unit/core/increment/active-increment-manager.test.ts (35 tests) 183ms
+ ✓ tests/unit/skill-gen/signal-collector.test.ts (16 tests) 93ms
+ ✓ tests/unit/qa/quality-gate-decider.test.ts (23 tests) 7ms
+ ✓ tests/unit/adapters/cursor-adapter.test.ts (39 tests) 10ms
+[completeIncrement] Unexpected failure for 9999-missing: file not found
+[completeIncrement] Failed transition 0001-test to "active": spec.md write failed
+ ✓ tests/unit/core/increment/status-commands.test.ts (27 tests) 91ms
+ ✓ tests/unit/jev/client.test.ts (35 tests) 79ms
+ ✓ tests/unit/jev/decide.test.ts (105 tests) 84ms
+ ✓ tests/unit/increment/completion-validator.test.ts (18 tests) 116ms
+ ↓ tests/unit/core/lazy-loading/agent-sdk-integration.test.ts (20 tests | 20 skipped)
+ ✓ tests/unit/core/project/project-resolution.test.ts (33 tests) 9ms
+ ✓ tests/unit/plugins/per-us-sync/jira-per-us-sync.test.ts (11 tests) 12ms
+ ✓ tests/unit/feature-id-manager.test.ts (17 tests) 120ms
+ ✓ tests/unit/core/background/job-launcher.test.ts (26 tests) 264ms
+ ✓ tests/unit/importers/import-coordinator.test.ts (18 tests) 15ms
+ ✓ tests/unit/cli/helpers/init/shell-config.test.ts (46 tests) 37ms
+ ✓ tests/unit/hooks/jev-bash-guard.test.ts (23 tests) 663ms
+ ✓ tests/unit/utils/llm-json-extractor.test.ts (44 tests) 7ms
+ ✓ tests/unit/user-story-issue-builder-enhanced.test.ts (13 tests) 51ms
+ ✓ tests/unit/core/i18n/language-detector.test.ts (47 tests) 7ms
+ ✓ tests/unit/cli/helpers/init/repo-connect.test.ts (32 tests) 9ms
+ ✓ tests/unit/core/doctor/doctor.test.ts (25 tests) 9109ms
+       ✓ should return a DoctorReport with all categories  1435ms
+       ✓ should include summary counts  1197ms
+       ✓ should skip external checks when skipExternal is true  1879ms
+       ✓ should run faster in quick mode  600ms
+       ✓ should suggest fix command when issues found  1514ms
+       ✓ should check Node.js version  428ms
+       ✓ should check for Git  304ms
+       ✓ should check for Claude CLI  463ms
+       ✓ should check for optional tools with warn status  373ms
+       ✓ dry-runs all four events through run.mjs and validates their output  352ms
+ ✓ tests/unit/completion-calculator.test.ts (13 tests) 254ms
+ ✓ tests/unit/core/living-docs/board-matcher.test.ts (23 tests) 306ms
+ ✓ tests/unit/dashboard/marketplace-routes.test.ts (16 tests) 76ms
+ ✓ tests/unit/living-docs/umbrella-detector.test.ts (18 tests) 112ms
+ ✓ tests/unit/sync/concurrent-sync-safety.test.ts (11 tests) 20512ms
+       ✓ should allow only one agent to acquire lock at a time  10022ms
+       ✓ should preserve fresh locks held by other processes  10025ms
+ ✓ tests/unit/dashboard/work-board.test.ts (17 tests) 92ms
+ ✓ tests/unit/integrations/jira/jira-client.test.ts (28 tests) 13ms
+ ✓ tests/unit/repo-structure/setup-state-manager.test.ts (20 tests) 52ms
+ ✓ tests/unit/init/plugin-installer.test.ts (24 tests | 1 skipped) 10ms
+ ✓ tests/unit/utils/env-file.test.ts (48 tests) 21ms
+ ✓ tests/unit/core/i18n/language-registry.test.ts (55 tests) 23ms
+ ✓ tests/unit/core/repo-structure/github-provider.test.ts (30 tests) 15ms
+ ✓ tests/unit/core/fabric/submission-queue.test.ts (26 tests) 121ms
+ ✓ tests/unit/qa/risk-calculator.test.ts (35 tests) 7ms
+ ✓ tests/unit/increment/duplicate-detector.test.ts (24 tests) 294ms
+ ✓ tests/unit/living-docs/hierarchy-mapper-project-detection.test.ts (21 tests) 60ms
+ ✓ tests/unit/core/project/project-registry.test.ts (29 tests) 76ms
+ ✓ tests/unit/validation/increment-structure-validation.test.ts (20 tests) 48ms
+ ✓ tests/unit/skill-gen/integration.test.ts (11 tests) 387ms
+ ✓ tests/unit/importers/path-resolver.test.ts (37 tests) 10ms
+ ✓ tests/unit/sync/sync-settings.test.ts (50 tests) 7ms
+ ✓ tests/unit/generators/task-parser.test.ts (16 tests) 22ms
+ ✓ tests/unit/increment-closure-safeguards.test.ts (13 tests) 69ms
+ ✓ tests/unit/importers/ado-importer.test.ts (13 tests) 11ms
+ ✓ tests/unit/metrics/github-client.test.ts (21 tests) 22ms
+ ✓ tests/unit/importers/jira-importer.test.ts (14 tests) 20ms
+ ✓ tests/unit/living-docs/task-project-specific-generator.test.ts (15 tests) 33ms
+ ✓ tests/unit/integrations/ado/ado-client.test.ts (24 tests) 16ms
+ ✓ tests/unit/init/skill-creator-installer.test.ts (19 tests) 8ms
+ ✓ tests/unit/sync/jira-sync-coordinator.test.ts (11 tests) 53ms
+ ✓ tests/unit/cli/helpers/init/plugin-installer.test.ts (20 tests) 9ms
+ ✓ tests/unit/sync/github-reconciler-bulk.test.ts (8 tests) 9ms
+ ✓ tests/unit/plugins/github/github-feature-sync-auto-close.test.ts (5 tests) 5ms
+ ✓ tests/unit/core/session/handoff-all.test.ts (15 tests) 326ms
+ ✓ tests/unit/increment/spec-frontmatter-updater.test.ts (16 tests) 144ms
+ ✓ tests/unit/plugins/github/github-us-auto-closer.test.ts (8 tests) 9ms
+ ✓ tests/unit/cli/commands/team.test.ts (20 tests) 56ms
+ ✓ tests/unit/importers/rate-limiter.test.ts (25 tests) 236ms
+ ✓ tests/unit/core/session/pickup.test.ts (16 tests) 5402ms
+     ✓ snapshots a same-size edit made in the same second as the last commit  2404ms
+     ✓ pushes the branch and a WIP snapshot without touching the index or branch  2431ms
+ ✓ tests/unit/core/ac-test-validator.test.ts (16 tests) 292ms
+ ✓ tests/unit/plugins/github/github-ac-sync-integration.test.ts (4 tests) 9ms
+ ✓ tests/unit/core/project/project-event-bus.test.ts (21 tests) 47ms
+ ✓ tests/unit/importers/duplicate-detector.test.ts (19 tests) 85ms
+ ✓ tests/unit/utils/credential-masker.test.ts (31 tests) 10ms
+ ✓ tests/unit/sync/github-reconciler-no-resync.test.ts (11 tests) 7ms
+ ✓ tests/unit/utils/feature-id-collision.test.ts (40 tests) 176ms
+ ↓ tests/unit/cli/repair-status-desync.test.ts (20 tests | 20 skipped)
+ ✓ tests/unit/utils/cleanup-stale-plugins-multi-marketplace.test.ts (8 tests) 39ms
+ ✓ tests/unit/increment-0000-rejection.test.ts (24 tests) 41ms
+ ✓ tests/unit/core/config/config-manager.test.ts (29 tests) 60ms
+ ✓ tests/unit/hooks/post-increment-planning-idempotency.test.ts (13 tests) 40ms
+ ✓ tests/unit/cli/commands/lsp-setup.test.ts (12 tests) 27ms
+ ✓ tests/unit/cli/helpers/init/repo-connect-loop.test.ts (10 tests) 9ms
+ ✓ tests/unit/sync/config.test.ts (39 tests) 8ms
+ ✓ tests/unit/sync/sync-metadata.test.ts (17 tests) 23ms
+ ✓ tests/unit/cli/helpers/init/gitignore-generator.test.ts (25 tests) 30ms
+ ✓ tests/unit/github-metadata-removal.test.ts (18 tests) 41ms
+ ✓ tests/unit/core/session/handoff-roundtrip.test.ts (9 tests) 31013ms
+     ✓ moves claims, uncommitted edits and the next task to a fresh clone on another branch  2543ms
+     ✓ a fresh clone on the default branch picks up on the handed-off branch and leaves the default alone  3045ms
+     ✓ comes back: fast-forwards the original checkout and sets its stale edits aside  4010ms
+     ✓ never overwrites edits it has not seen  3514ms
+     ✓ records one pickup when another tool picks up in the same checkout  4492ms
+     ✓ pickup --no-apply records nothing  2803ms
+     ✓ keeps a handoff local with push: false and says so  3818ms
+     ✓ writes an HTML report of the chain of custody  4673ms
+     ✓ pickup on a legacy increment shows tasks.md state and AC text without a migration  2114ms
+ ✓ tests/unit/core/config/migrate-to-2.test.ts (14 tests) 23ms
+ ✓ tests/unit/core/llm/providers/workers-ai-provider.test.ts (19 tests) 245ms
+ ✓ tests/unit/core/hooks/handlers/stop.test.ts (13 tests) 127ms
+ ✓ tests/unit/sync/github-reconciler-completion.test.ts (10 tests) 15ms
+ ✓ tests/unit/cli/helpers/init/init-architecture.test.ts (12 tests) 285ms
+ ✓ tests/unit/importers/jira-1level-structure.test.ts (7 tests) 149ms
+ ✓ tests/unit/cli/helpers/init/summary-banner.test.ts (27 tests) 6ms
+ ✓ tests/unit/lock-manager.test.ts (17 tests) 188ms
+ ✓ tests/unit/core/hooks/lifecycle-hook-dispatcher.test.ts (12 tests) 445ms
+       ✓ TC-008: dispatches living docs sync when livingDocs='onDone'  432ms
+ ✓ tests/unit/cli/commands/sync-health.test.ts (14 tests) 8ms
+ ✓ tests/unit/core/fabric/registry-schema-extensions.test.ts (22 tests) 10ms
+ ✓ tests/unit/cli/commands/lsp.test.ts (24 tests) 223ms
+ ✓ tests/unit/core/ac-progress-sync-integration.test.ts (5 tests) 12ms
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+ ❯ tests/unit/cli/commands/save.test.ts (51 tests | 7 failed) 147455ms
+       ✓ should commit with custom message provided  1394ms
+       ✓ should use same custom message for all repos in umbrella  5285ms
+       ✓ should respect long commit messages  1152ms
+       ✓ should auto-generate feat message for source files  1083ms
+       ✓ should auto-generate docs message for markdown files  1219ms
+       ✓ should auto-generate test message for test files  1633ms
+       ✓ should auto-generate chore message for config files  2020ms
+       ✓ should categorize files correctly by extension  2162ms
+       ✓ should prioritize primary category in multi-file commits  2241ms
+       ✓ should not push when --no-push flag is set  2556ms
+       ✓ should record that changes were committed only  2176ms
+       ✓ should handle --force flag for force push (with confirmation)  2372ms
+       ✓ should preview changes without committing  1299ms
+       ✓ should show git commands that would be executed  931ms
+       ✓ should not modify working directory in dry-run  946ms
+       ✓ should not create commits in dry-run with umbrella repos  5482ms
+       ✓ should detect new files  3193ms
+       ✓ should detect modified files  3471ms
+       ✓ should detect deleted files  2575ms
+       ✓ should handle mixed file categories  1956ms
+       ✓ should track file counts by type  1764ms
+       ✓ should skip when no changes exist  1313ms
+       ✓ should show skipped count in summary  1272ms
+       ✓ should not create commit if nothing to commit  1033ms
+       ✓ should leave working directory clean after save  1414ms
+       ✓ should preserve unstaged changes with --no-stash  1442ms
+       ✓ should handle stashing of uncommitted changes  1403ms
+       × should detect and process umbrella config from config.json 5856ms
+       × should process multiple child repos in sequence 6142ms
+       × should skip repos without remotes 6192ms
+       × should filter repos with --repos flag 6474ms
+       × should handle repos with separate branches 6274ms
+       ✓ should handle git errors gracefully  1320ms
+       ✓ should report failed repos in summary  1119ms
+       ✓ should not stop on single repo failure in umbrella  4763ms
+       ✓ should show pre-flight check results  1213ms
+       ✓ should show repository mode indicator  1535ms
+       ✓ should show analysis of changes before commit  2937ms
+       ✓ should display final summary with counts  2528ms
+       ✓ should list commit messages in output  3048ms
+       ✓ should accept sync strategy option (rebase, merge, none)  3198ms
+       ✓ should handle merge strategy when specified  4729ms
+       ✓ should skip sync when strategy is none  3329ms
+       ✓ should handle end-to-end save workflow  3238ms
+       ✓ should handle rapid successive saves  4502ms
+       × should produce valid git history 6372ms
+     ✓ refuses to run when no projectRoot is given and the cwd is not inside a git repository  1675ms
+     ✓ operates on the enclosing git repository from a subdirectory, SpecWeave project or not  1992ms
+     ✓ saves only the child repo when run inside an umbrella child whose .specweave/ has no config.json  4481ms
+     × fans out to nested repos from the umbrella root, which is a SpecWeave project root 5032ms
+     ✓ does not fan out from a plain git repo with nested repos unless --all is given  4718ms
+ ✓ tests/unit/core/session/usage-guard.test.ts (30 tests) 215ms
+ ✓ tests/unit/core/types/sync-config.test.ts (38 tests) 8ms
+ ✓ tests/unit/core/qa/qa-runner-helpers.test.ts (49 tests) 21ms
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+ ✓ tests/unit/cli/helpers/ado-area-selector.test.ts (37 tests) 23ms
+ ✓ tests/unit/cli/commands/cancel-auto.test.ts (24 tests) 34ms
+ ✓ tests/unit/core/session/session-checkpoint.test.ts (9 tests) 19075ms
+     ✓ captures tracked and untracked work and summary without changing ownership, index, refs, or pointer  2803ms
+     ✓ isolates sessions and Git worktrees while canonicalizing subdirectories and symlinks  1256ms
+     ✓ captures a child repository while retaining unique umbrella increment context  3467ms
+     ✓ saves useful work without guessing an increment when several are active  2092ms
+     ✓ throttles only successful saves and keeps the immediately preceding generation  2840ms
+     ✓ leaves the last successful receipt untouched after Git failure and retries immediately  2193ms
+     ✓ bounds simultaneous reservations and recovers stale locks without altering another active lease  1198ms
+     ✓ scrubs secrets before persisting worker input and from the captured diff  1618ms
+     ✓ supports an unborn repository and a plain folder, and rejects unsafe input  1606ms
+ ✓ tests/unit/core/types/origin-metadata.test.ts (44 tests) 14ms
+ ✓ tests/unit/cli/commands/init-path-resolution.test.ts (6 tests) 74ms
+ ✓ tests/unit/cli/commands/init-config-validation.test.ts (4 tests) 14ms
+ ✓ tests/unit/cli/workers/marketplace-scanner-worker.test.ts (12 tests) 43ms
+ ✓ tests/unit/core/qa/risk-calculator.test.ts (46 tests) 9ms
+ ✓ tests/unit/cli/commands/create-increment-auto-id.test.ts (13 tests) 286ms
+ ✓ tests/unit/cli/workers/clone-worker.test.ts (15 tests) 2512ms
+       ✓ creates result.json with proper structure on successful clone  702ms
+       ✓ sanitizes PAT from error messages  795ms
+       ✓ never marks clone job as failed (uses completed_with_warnings)  759ms
+ ✓ tests/unit/core/lsp/lsp-client.test.ts (18 tests | 3 skipped) 122ms
+ ✓ tests/unit/config/import-config.test.ts (22 tests) 36ms
+ ✓ tests/unit/cli/helpers/init/greenfield-detection.test.ts (29 tests) 69ms
+ ✓ tests/unit/cli/helpers/issue-tracker/project-mapping-wizard.test.ts (21 tests) 12ms
+ ✓ tests/unit/dashboard/cost-aggregator-cache.test.ts (10 tests) 282ms
+ ✓ tests/unit/metrics/lead-time.test.ts (10 tests) 16ms
+ ✓ tests/unit/cli/helpers/init/config-detection.test.ts (16 tests) 58ms
+ ✓ tests/unit/cli/helpers/init/init-location-guards.test.ts (29 tests) 49ms
+ ✓ tests/unit/core/living-docs/sync-reentrancy-guard.test.ts (4 tests) 145ms
+ ✓ tests/unit/core/increment/discipline-checker.test.ts (20 tests) 292ms
+ ✓ tests/unit/jev/config.test.ts (29 tests) 64ms
+ ✓ tests/unit/dashboard/marketplace-aggregator.test.ts (17 tests) 57ms
+ ✓ tests/unit/i18n/language-manager.test.ts (36 tests) 17ms
+ ✓ tests/unit/cli/helpers/async-project-loader.test.ts (11 tests) 15707ms
+       ✓ should retry on network error and succeed on second attempt  1003ms
+       ✓ should retry 3 times before giving up  3010ms
+       ✓ should throttle when rate limit is low  2509ms
+       ✓ should reduce batch size from 50 → 25 on timeout  3056ms
+       ✓ should continue fetching after single batch failure  3056ms
+       ✓ should log errors to file  3006ms
+ ✓ tests/unit/core/plugins/skill-frontmatter-21x.test.ts (18 tests) 25ms
+ ✓ tests/unit/integrations/jira-client-comments.test.ts (14 tests) 10ms
+ ✓ tests/unit/core/cicd/pr-workflow.integration.test.ts (17 tests) 39ms
+ ✓ tests/unit/dashboard/cost-aggregator.test.ts (14 tests) 104ms
+ ↓ tests/unit/cli/validate-status-sync.test.ts (14 tests | 14 skipped)
+ ✓ tests/unit/utils/git-utils.test.ts (26 tests) 8198ms
+       ✓ should get current branch  1683ms
+       ✓ should get current commit SHA  2026ms
+       ✓ should detect clean working directory  1029ms
+       ✓ should detect dirty working directory  733ms
+       ✓ should get recent commits  2670ms
+ ✓ tests/unit/importers/jira-grouping.test.ts (15 tests) 19ms
+ ✓ tests/unit/skills/standalone-skills.test.ts (12 tests) 377ms
+ ✓ tests/unit/cli/commands/fix-hook-permissions.test.ts (9 tests) 30ms
+ ✓ tests/unit/plugins/github/github-token-passthrough.test.ts (17 tests) 8ms
+ ✓ tests/unit/sync/github-ac-comment-dedup.test.ts (4 tests) 7ms
+ ✓ tests/unit/core/repo-structure/url-generator.test.ts (36 tests) 11ms
+ ✓ tests/unit/increment/metadata-manager-validation.test.ts (16 tests) 662ms
+ ✓ tests/unit/skill-gen/utils.test.ts (27 tests) 397ms
+ ✓ tests/unit/cli/helpers/progress-tracker.test.ts (15 tests) 232ms
+ ✓ tests/unit/utils/increment-id-validator.test.ts (58 tests) 9ms
+ ✓ tests/unit/living-docs/umbrella-discovery-integration.test.ts (6 tests) 302ms
+ ✓ tests/unit/hooks/run-mjs.test.ts (10 tests) 7006ms
+     ✓ session-start prints one SessionStart additionalContext object  389ms
+     ✓ stop and pre-compact print {} in a project with no auto session  1909ms
+     ✓ prints {} for an unknown event and for garbage stdin, exit 0  1351ms
+     ✓ prints the inactive notice on SessionStart when no CLI can be found  1244ms
+     ✓ resolves the CLI from CLAUDE_PLUGIN_ROOT/../.. when SPECWEAVE_HOME is unset  698ms
+     ✓ never reads or writes the legacy world-writable temp cache file  410ms
+     ✓ honors a regular cache file owned by the user under $HOME/.specweave  302ms
+     ✓ ignores the cache when it is a symlink (planted-path attack)  322ms
+ ✓ tests/unit/sync/github-rate-limit-budget.test.ts (15 tests) 400ms
+ ✓ tests/unit/utils/feature-id-derivation.test.ts (54 tests) 23ms
+ ✓ tests/unit/core/doctor/checkers/plugins-checker.test.ts (11 tests) 22ms
+ ✓ tests/unit/cli/helpers/init/root-repo-detection.test.ts (15 tests) 9ms
+ ✓ tests/unit/core/universal-auto-create.test.ts (10 tests) 14ms
+ ✓ tests/unit/cli/helpers/init/provider-detection.test.ts (23 tests) 187ms
+ ✓ tests/unit/skill-gen/suggestion-engine.test.ts (12 tests) 200ms
+ ✓ tests/unit/increment/planning-status.test.ts (32 tests) 18ms
+ ✓ tests/unit/core/types/sync-profile-helpers.test.ts (19 tests) 9ms
+ ✓ tests/unit/hooks/lightweight-intents.test.ts (11 tests) 632ms
+ ✓ tests/unit/importers/jira-custom-types.test.ts (22 tests) 7ms
+ ✓ tests/unit/cli/helpers/init/smart-defaults.test.ts (18 tests) 871ms
+       ✓ every config key from smart-defaults should be referenced in plugins or src  860ms
+ ✓ tests/unit/increment-utils-suffix.test.ts (31 tests) 43ms
+ ↓ tests/unit/increment/duplicate-prevention.test.ts (7 tests | 7 skipped)
+ ✓ tests/unit/cli/helpers/init/path-utils.test.ts (19 tests) 67ms
+ ✓ tests/unit/cli/helpers/project-count-fetcher.test.ts (9 tests) 4082ms
+       ✓ should retry on timeout and succeed on second attempt  1003ms
+       ✓ should retry on network error and eventually fail  3007ms
+ ✓ tests/unit/cli/helpers/init/plugin-installer-vskill.test.ts (8 tests) 8ms
+ ✓ tests/unit/lock-staleness.test.ts (15 tests) 10239ms
+       ✓ should timeout when lock is held by active process  10073ms
+ ✓ tests/unit/hooks/hook-wiring-parity.test.ts (19 tests) 67ms
+ ✓ tests/unit/cli/commands/get.test.ts (13 tests) 260ms
+ ✓ tests/unit/github/ac-checkbox-sync.test.ts (12 tests) 6ms
+ ✓ tests/unit/cli/helpers/init/instruction-file-writer.test.ts (13 tests) 123ms
+ ✓ tests/unit/cli/commands/sync.test.ts (13 tests) 38ms
+ ↓ tests/unit/cli/commands/cleanup-cache.test.ts (10 tests | 10 skipped)
+ ✓ tests/unit/core/repo-structure/platform-registry.test.ts (17 tests) 12ms
+ ✓ tests/unit/cli/commands/init-footprint.test.ts (11 tests) 6182ms
+     ✓ installs the SpecWeave pre-commit hook when asked  3727ms
+ ✓ tests/unit/auto/config.test.ts (17 tests) 29ms
+ ✓ tests/unit/core/llm/consent.test.ts (25 tests) 334ms
+ ✓ tests/unit/init/uninstall.test.ts (8 tests) 31ms
+ ✓ tests/unit/project-hub/store.test.ts (29 tests) 344ms
+ ✓ tests/unit/metrics/mttr.test.ts (12 tests) 23ms
+ ✓ tests/unit/core/session/nested-repos.test.ts (13 tests) 50390ms
+     ✓ reads branch, upstream, ahead and the changed-file count  2045ms
+     ✓ reports a detached HEAD  2170ms
+     ✓ matches a 4-digit id in a path or branch, not inside a longer number  2198ms
+     ✓ finds repositories/<org>/<repo> checkouts and worktree folders beside them  4594ms
+     ✓ counts uncommitted files and commits ahead of the upstream  6147ms
+     ✓ flags a branch with no remote and counts commits that are on no remote  7049ms
+     ✓ leaves a clean, pushed checkout unflagged  4276ms
+     ✓ returns null for a folder that is not a Git checkout  2192ms
+     ✓ lists only checkouts with local-only work, includes worktrees outside repositories/, and never writes  9128ms
+     ✓ flags the workspace root when it has local-only work  2232ms
+     ✓ skips the PR column silently when the lookup throws  4272ms
+     ✓ asks gh for the open PR of the branch and reads its JSON  1957ms
+     ✓ returns undefined when gh fails  2128ms
+ ✓ tests/unit/github/github-token-passthrough.test.ts (8 tests) 9ms
+ ❯ tests/unit/cli/slash-command-hints.test.ts (2 tests | 1 failed) 11351ms
+     ✓ has the 2.0 skill surface to check against 2ms
+     × resolves every slash command printed by the CLI 11348ms
+ ✓ tests/unit/cli/helpers/init/repo-connect-validation.test.ts (19 tests) 8ms
+ ✓ tests/unit/utils/cleanup-stale-lockfiles.test.ts (7 tests) 21ms
+ ✓ tests/unit/skill-gen/drift-detector.test.ts (9 tests) 187ms
+ ❯ tests/unit/cli/helpers/init/instruction-templates.test.ts (21 tests | 1 failed) 14ms
+     ✓ AGENTS.md is the one instruction file and CLAUDE.md imports it 3ms
+     ✓ the umbrella section of AGENTS.md is conditional on its own flag 0ms
+     ✓ the hub section of AGENTS.md is conditional on its own flag 0ms
+     ✓ the jev section of AGENTS.md is conditional on its own flag 0ms
+     ✓ AGENTS.md maps "hand off" and "pick up" to the two commands 0ms
+     ✓ CLAUDE.md.template contains no bash-only syntax 0ms
+     ✓ AGENTS.md.template contains no bash-only syntax 0ms
+     ✓ CLAUDE.md.template uses only the supported placeholders 0ms
+     ✓ AGENTS.md.template uses only the supported placeholders 0ms
+     ✓ CLAUDE.md.template keeps the managed block small and the Project notes outside it 0ms
+     × AGENTS.md.template keeps the managed block small and the Project notes outside it 3ms
+     ✓ AGENTS.md keeps the Commands table outside the managed block 0ms
+     ✓ every `specweave <cmd>` in CLAUDE.md.template is registered in bin/specweave.js 3ms
+     ✓ every `specweave <cmd>` in AGENTS.md.template is registered in bin/specweave.js 1ms
+     ✓ every `specweave <cmd>` in README.md.template is registered in bin/specweave.js 0ms
+     ✓ every /sw:<skill> in CLAUDE.md.template is a 2.0 core skill that exists 0ms
+     ✓ every /sw:<skill> in AGENTS.md.template is a 2.0 core skill that exists 0ms
+     ✓ every /sw:<skill> in README.md.template is a 2.0 core skill that exists 0ms
+     ✓ CLAUDE.md uses slash commands and AGENTS.md uses the CLI plus the standalone skills 0ms
+     ✓ README.md.template is short and only needs {{PROJECT_NAME}} 0ms
+     ✓ dead 1.x template files are gone 0ms
+ ✓ tests/unit/plugins/jira/jira-file-locking.test.ts (5 tests) 153ms
+ ✓ tests/unit/core/sync/sync-retry-queue.test.ts (11 tests) 474ms
+     ✓ enqueue respects 100-entry cap by pruning oldest  329ms
+ ✓ tests/unit/cli/commands/update-robustness.test.ts (13 tests) 14ms
+ ✓ tests/unit/tdd/template-selection.test.ts (10 tests | 1 skipped) 20ms
+ ✓ tests/unit/dashboard/server/routes/workspace-routes.test.ts (13 tests) 6ms
+ ✓ tests/unit/integrations/github/label-cache-persistence.test.ts (9 tests) 12ms
+ ✓ tests/unit/living-docs/format-preservation-metadata.test.ts (13 tests) 6ms
+ ✓ tests/unit/increment/sync-circuit-breaker.test.ts (16 tests) 9ms
+ ✓ tests/unit/utils/cleanup-stale-plugins.test.ts (10 tests) 51ms
+ ✓ tests/unit/cli/commands/lsp-find-symbol-position.test.ts (13 tests) 15ms
+ ✓ tests/unit/core/hooks/handlers/session-start.test.ts (13 tests) 154ms
+ ✓ tests/unit/cli/commands/create-increment.test.ts (9 tests) 60ms
+ ✓ tests/unit/commands/refresh-plugins.test.ts (8 tests) 56ms
+ ✓ tests/unit/sync/reconciler-dual-format.test.ts (13 tests) 14ms
+ ✓ tests/unit/cli/helpers/get/bulk-get.test.ts (19 tests) 8ms
+ ✓ tests/unit/core/qa/coverage-validator.test.ts (14 tests) 6ms
+ ✓ tests/unit/core/lsp/lsp-client-server-requests.test.ts (3 tests) 5425ms
+     ✓ should respond to workspace/configuration and still handle hover  2128ms
+     ✓ should handle window/showMessageRequest by auto-dismissing  3106ms
+ ✓ tests/unit/init/vskill-init-invoker.test.ts (13 tests) 6ms
+ ✓ tests/unit/core/llm/model-capabilities.test.ts (22 tests) 5ms
+ ✓ tests/unit/skill-gen/rule-collector.test.ts (14 tests) 47ms
+ ✓ tests/unit/plugin-copier-target-dir.test.ts (5 tests) 8ms
+ ✓ tests/unit/adapter-loader.test.ts (15 tests) 138ms
+ ✓ tests/unit/dashboard/claude-log-parser.test.ts (9 tests) 63ms
+ ✓ tests/unit/increment-utils-gap-filling.test.ts (12 tests) 27ms
+ ✓ tests/unit/config/plugin-scope-config.test.ts (19 tests) 5ms
+ ✓ tests/unit/living-docs/epic-id-allocator.test.ts (7 tests) 57ms
+ ✓ tests/unit/sync/platform-suffix-ids.test.ts (30 tests) 8ms
+ ✓ tests/unit/cli/helpers/get/register-repo.test.ts (9 tests) 7ms
+ ✓ tests/unit/core/increment/completion-validator-coverage.test.ts (5 tests) 146ms
+ ✓ tests/unit/tdd/spec-contract.test.ts (9 tests | 1 skipped) 21ms
+ ✓ tests/unit/increment/auto-transition-manager.test.ts (13 tests) 11ms
+ ✓ tests/unit/integrations/github/skip-linked-issues.test.ts (9 tests) 8ms
+ ✓ tests/unit/increment/completion-validator-closure-gate.test.ts (9 tests) 121ms
+ ✓ tests/unit/cost/spend-aggregator.test.ts (9 tests) 23ms
+ ✓ tests/unit/sync/sync-coordinator-messages.test.ts (5 tests) 26ms
+ ✓ tests/unit/github/issue-state-manager.test.ts (12 tests) 6ms
+ ✓ tests/unit/core/doctor/checkers/project-structure-checker.test.ts (9 tests) 17ms
+ ✓ tests/unit/cli/helpers/issue-tracker/github-multi-repo-umbrella.test.ts (4 tests) 10ms
+ ✓ tests/unit/release/installability.test.ts (15 tests) 38ms
+ ✓ tests/unit/cli/commands/project.test.ts (12 tests) 69ms
+ ✓ tests/unit/core/state/state-gc.test.ts (10 tests) 65ms
+ ✓ tests/unit/metrics/percentile.test.ts (23 tests) 5ms
+ ✓ tests/unit/sync/story-router.test.ts (20 tests) 5ms
+ ✓ tests/unit/core/doctor/checkers/instruction-files-checker.test.ts (12 tests) 25ms
+ ✓ tests/unit/dashboard/dashboard-data-aggregator.test.ts (6 tests) 24ms
+ ✓ tests/unit/sync/ado-status-sync.test.ts (13 tests) 4837ms
+       ✓ should handle API errors gracefully  859ms
+       ✓ should handle API errors gracefully  1883ms
+       ✓ should handle API errors gracefully  2034ms
+ ✓ tests/unit/cli/commands/sync-retry.test.ts (8 tests) 56ms
+ ✓ tests/unit/increment-reserved-names.test.ts (50 tests) 63ms
+ ✓ tests/unit/hooks/sync-living-docs-permissions.test.ts (15 tests) 4ms
+ ✓ tests/unit/cli/commands/init-workspace-config.test.ts (3 tests) 17ms
+ ✓ tests/unit/cli/helpers/issue-tracker/setup-simplified.test.ts (9 tests) 5ms
+ ✓ tests/unit/cli/helpers/init/type-simplification.test.ts (13 tests) 9ms
+ ✓ tests/unit/sync/sync-target-resolver.test.ts (10 tests) 5ms
+ ✓ tests/unit/project-manager/caching.test.ts (7 tests) 7ms
+[2026-10-08T00:07:16.500Z] [LifecycleHookDispatcher.onIncrementDone:closure] Hook dispatch error: Provider closure errors for 0696-hotfix-fixture: JIRA SWE2E-X: boom
+[2026-10-08T00:07:16.504Z] [LifecycleHookDispatcher.onIncrementDone:closure] Hook dispatch error: network ECONNRESET
+[2026-10-08T00:07:16.505Z] [LifecycleHookDispatcher.onIncrementDone:closure] Hook dispatch error: boom
+[LifecycleHookDispatcher.logError] hooks.log write failed: EROFS: read-only filesystem
+ ✓ tests/unit/core/hooks/lifecycle-hook-dispatcher.closure-0696.test.ts (3 tests) 11ms
+ ✓ tests/unit/core/repo-structure/wizard-umbrella-skip.test.ts (2 tests) 6ms
+ ✓ tests/unit/core/hooks/handlers/utils.test.ts (14 tests) 30ms
+ ✓ tests/unit/dashboard/dashboard-data-aggregator-sync.test.ts (6 tests) 18ms
+ ✓ tests/unit/test-utils/normalize-output.test.ts (26 tests) 6ms
+ ✓ tests/unit/core/ac-checkbox-formatter.test.ts (17 tests) 4ms
+ ✓ tests/unit/plugins/github/github-feature-sync-default-branch.test.ts (5 tests) 6ms
+ ✓ tests/unit/plugins/jira/jira-circuit-breaker.test.ts (4 tests) 7ms
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+ ✓ tests/unit/cost/model-pricing-registry.test.ts (18 tests) 6ms
+ ✓ tests/unit/init/methodology-selection.test.ts (14 tests) 4ms
+ ✓ tests/unit/sync/github-reconciler-lock.test.ts (11 tests) 25ms
+ ✓ tests/unit/cli/helpers/init/gitignore-specweave-entries.test.ts (6 tests) 69ms
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+ ✓ tests/unit/core/lsp/lsp-manager-typescript-detection.test.ts (6 tests) 8ms
+ ✓ tests/unit/cost/spend-record-writer.test.ts (7 tests) 10ms
+ ✓ tests/unit/sync/external-change-puller.test.ts (6 tests) 14ms
+ ✓ tests/unit/plugin-system/plugin-loader.test.ts (9 tests) 6ms
+ ✓ tests/unit/core/hooks/lifecycle-hook-dispatcher-cross-project-links.test.ts (3 tests) 13ms
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+ ✓ tests/unit/dashboard/server/data/dashboard-data-aggregator-sync.test.ts (7 tests) 14ms
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+ ✓ tests/unit/core/hooks/handlers/pre-compact.test.ts (7 tests) 4622ms
+     ✓ returns {} and writes nothing when no increment is active  711ms
+     ✓ writes a handoff for the active increment and honors the agent reason  890ms
+     ✓ uses the default reason when the agent supplies none  779ms
+     ✓ picks the first active increment when several are active (no ambiguity error)  746ms
+     ✓ abandons the write when the budget is exceeded and still returns {}  880ms
+     ✓ SPECWEAVE_HOOK_DRY_RUN=1 skips the write (doctor dry-run)  596ms
+ ✓ tests/unit/integrations/github/milestone-cache.test.ts (5 tests) 4ms
+ ✓ tests/unit/core/living-docs/parsers.test.ts (8 tests) 7ms
+ ✓ tests/unit/increment/status-vocabulary.test.ts (17 tests) 14ms
+ ✓ tests/unit/cli/helpers/get/clone-repo.test.ts (11 tests) 6ms
+ ✓ tests/unit/sync/retry-wrapper.test.ts (9 tests) 164ms
+ ✓ tests/unit/core/increment/completion-validator-ac-coverage.test.ts (4 tests) 12ms
+ ✓ tests/unit/cli/commands/get-bulk.test.ts (5 tests) 7ms
+ ✓ tests/unit/dashboard/hooks/hook-event-store.test.ts (10 tests) 20ms
+ ✓ tests/unit/cost/spend-record.test.ts (7 tests) 5ms
+ ✓ tests/unit/core/hooks/handlers/pre-tool-use.test.ts (12 tests) 16ms
+ ✓ tests/unit/sync/duplicate-detector-phase3.test.ts (3 tests) 4009ms
+     ✓ runs Phase 3 verification by default (no env vars set)  2006ms
+     ✓ old SPECWEAVE_VERIFY_DUPLICATES=1 is a no-op (Phase 3 runs regardless)  2002ms
+ ✓ tests/unit/core/fabric/discovery/github-provider.test.ts (6 tests) 4ms
+ ✓ tests/unit/sync/sync-throttle.test.ts (10 tests) 11ms
+ ✓ tests/unit/cli/helpers/get/source-parser.test.ts (18 tests) 4ms
+ ✓ tests/unit/cli/helpers/init/scan-workspace-repos.test.ts (8 tests) 9ms
+ ✓ tests/unit/jev/security-regressions.test.ts (18 tests) 34ms
+ ✓ tests/unit/core/lsp/lsp-client-project-detection.test.ts (9 tests) 62ms
+ ✓ tests/unit/test-utils/temp-home.test.ts (11 tests) 13ms
+ ✓ tests/unit/generators/task-id-grammar.test.ts (8 tests) 15ms
+ ✓ tests/unit/dashboard/project-hub-routes.test.ts (5 tests) 62ms
+ ✓ tests/unit/cli/commands/scan-root-guards.test.ts (12 tests) 18ms
+ ✓ tests/unit/cli/commands/get-clone-path.test.ts (6 tests) 5ms
+ ✓ tests/unit/dashboard/hooks/hook-routes.test.ts (6 tests) 32ms
+ ✓ tests/unit/skills/generate-skills.test.ts (6 tests) 394ms
+ ✓ tests/unit/cost/spend-tracking-provider.test.ts (7 tests) 7ms
+ ✓ tests/unit/core/fabric/discovery/source-registry.test.ts (7 tests) 4ms
+ ✓ tests/unit/github/git-detector.test.ts (16 tests) 4ms
+ ✓ tests/unit/core/tasks/one-file-increment.test.ts (5 tests) 43ms
+ ✓ tests/unit/i18n/locale-manager.test.ts (14 tests) 6ms
+ ✓ tests/unit/dashboard/hooks/handlers.test.ts (9 tests) 5ms
+ ✓ tests/unit/core/skills/project-skills.test.ts (9 tests) 45ms
+ ✓ tests/unit/integrations/github/duplicate-detector-phase3.test.ts (3 tests) 2005ms
+     ✓ should RUN Phase 3 by default (no env var set)  2003ms
+ ✓ tests/unit/sync/increment-folder-suffix.test.ts (20 tests) 3ms
+ ✓ tests/unit/issue-tracker/quick-mode-skip.test.ts (3 tests) 100ms
+ ✓ tests/unit/cli/complete-command.test.ts (7 tests) 5ms
+ ✓ tests/unit/core/increment/metadata-project-injection.test.ts (5 tests) 11ms
+ ✓ tests/unit/sync-setup-command.test.ts (7 tests) 10ms
+ ✓ tests/unit/dashboard/scan-repositories.test.ts (7 tests) 17ms
+ ✓ tests/unit/cli/commands/hooks-cmd.test.ts (8 tests) 11ms
+ ✓ tests/unit/core/hooks/handlers/hook-router.test.ts (6 tests) 30ms
+ ✓ tests/unit/utils/plugin-copier-sync.test.ts (5 tests) 30ms
+ ✓ tests/unit/native-skill-installer.test.ts (8 tests) 45ms
+ ✓ tests/unit/cli/helpers/init/build-umbrella-config.test.ts (4 tests) 3ms
+ ✓ tests/unit/init/github-credential-reuse.test.ts (6 tests) 55ms
+ ✓ tests/unit/core/sync/sync-resilience-audit-logger.test.ts (6 tests) 25ms
+ ✓ tests/unit/refresh-plugins-adapter.test.ts (8 tests) 5ms
+ ✓ tests/unit/cli/helpers/init/init-side-effects.test.ts (8 tests) 7ms
+ ✓ tests/unit/dashboard/sse-manager.test.ts (7 tests) 7ms
+ ✓ tests/unit/utils/env-file-generator.test.ts (7 tests) 4ms
+ ✓ tests/unit/sync/external-issue-auto-creator-distributed.test.ts (7 tests) 3ms
+ ✓ tests/unit/integrations/github/github-client-v2-graphql.test.ts (3 tests) 5ms
+ ✓ tests/unit/core/fabric/discovery/scan-pipeline.test.ts (5 tests) 16ms
+ ✓ tests/unit/integrations/github/create-epic-skip-dedup.test.ts (3 tests) 3ms
+ ✓ tests/unit/core/fabric/discovery/npm-provider.test.ts (6 tests) 5ms
+ ✓ tests/unit/utils/is-sw-plugin-installed-natively.test.ts (7 tests) 4ms
+ ✓ tests/unit/plugins/jira/jira-status-sync.test.ts (4 tests) 4ms
+ ✓ tests/unit/cli/commands/sync-pull-failures.test.ts (4 tests) 11ms
+ ✓ tests/unit/utils/html-to-mdx.test.ts (18 tests) 4ms
+ ✓ tests/unit/integrations/github/label-cache.test.ts (8 tests) 4ms
+ ✓ tests/unit/cli/helpers/init/plugin-enabler.test.ts (7 tests) 7ms
+ ✓ tests/unit/core/lsp/config/timeout-resolver.test.ts (10 tests) 3ms
+ ✓ tests/unit/cli/commands/sync-status.test.ts (5 tests) 9ms
+ ✓ tests/unit/core/sync/ac-gate.test.ts (6 tests) 4ms
+ ✓ tests/unit/core/session/handoff-keep.test.ts (4 tests) 127ms
+ ✓ tests/unit/core/increment/types.test.ts (6 tests) 3ms
+ ✓ tests/unit/dashboard/hooks/hook-event-store-hydrate.test.ts (6 tests) 19ms
+ ✓ tests/unit/core/doctor/checkers/hygiene-checker.test.ts (8 tests) 730ms
+ ✓ tests/unit/core/hooks/hook-response-warnings.test.ts (6 tests) 3ms
+ ✓ tests/unit/core/session/grok-limit-handoff.test.ts (4 tests) 15ms
+ ✓ tests/unit/cli/auto.test.ts (8 tests) 3ms
+ ✓ tests/unit/integrations/github/github-access-error.test.ts (9 tests) 3ms
+ ✓ tests/unit/core/increment/detect-project-from-cwd.test.ts (10 tests) 3ms
+ ✓ tests/unit/cli/commands/sync-gaps.test.ts (7 tests) 14ms
+ ✓ tests/unit/cli/helpers/init/stack-detector.test.ts (11 tests) 16ms
+ ✓ tests/unit/cli/helpers/init/claude-settings-env.test.ts (5 tests) 8ms
+ ✓ tests/unit/cli/commands/gc.test.ts (4 tests) 5ms
+ ✓ tests/unit/dashboard/file-watcher-retry.test.ts (4 tests) 314ms
+     ✓ should pick up files created after startup on retry  305ms
+ ✓ tests/unit/core/config/migrate-config-file.test.ts (5 tests) 11ms
+ ✓ tests/unit/sync/living-docs-sync-distributed.test.ts (3 tests) 3ms
+ ✓ tests/unit/sync/github-body-utils.test.ts (14 tests) 4ms
+ ✓ tests/unit/sync/story-router-prefix.test.ts (7 tests) 4ms
+ ✓ tests/unit/cli/completions-sync.test.ts (8 tests) 7ms
+ ✓ tests/unit/cli/helpers/init/wizard-navigation.test.ts (19 tests) 4ms
+ ✓ tests/unit/sync/permission-presets.test.ts (10 tests) 4ms
+ ✓ tests/unit/core/config/limits-migrator.test.ts (6 tests) 7ms
+ ✓ tests/unit/core/increment/sync-resolver-integration.test.ts (5 tests) 3ms
+ ✓ tests/unit/core/lsp/config/lsp-config.test.ts (11 tests) 5ms
+ ✓ tests/unit/sync/issue-title-format.test.ts (14 tests) 4ms
+ ✓ tests/unit/core/fabric/discovery/skillssh-provider.test.ts (6 tests) 5ms
+ ✓ tests/unit/cost/budget-monitor.test.ts (4 tests) 14ms
+ ✓ tests/unit/sync/config-validation.test.ts (7 tests) 3ms
+ ✓ tests/unit/importers/markdown-generator-project.test.ts (5 tests) 3ms
+ ✓ tests/unit/core/auto/auto-mode-flag-schema.test.ts (5 tests) 5ms
+ ✓ tests/unit/core/rubric/rubric-generator.test.ts (8 tests) 6ms
+ ✓ tests/unit/dashboard/hooks/hook-event-router.test.ts (5 tests) 8ms
+ ✓ tests/unit/utils/resolve-github-token.test.ts (6 tests) 6ms
+ ✓ tests/unit/core/fabric/discovery/content-fetcher.test.ts (6 tests) 4ms
+ ✓ tests/unit/core/config/types.test.ts (9 tests) 3ms
+ ✓ tests/unit/sync/suffix-convention.test.ts (2 tests) 12ms
+ ✓ tests/unit/sync/github-body-diff.test.ts (5 tests) 3ms
+ ✓ tests/unit/core/doctor/checkers/configuration-checker-config-shape.test.ts (7 tests) 7ms
+ ✓ tests/unit/scan-misplaced-repos.test.ts (9 tests) 10ms
+ ✓ tests/unit/dashboard/hooks/types.test.ts (6 tests) 4ms
+ ✓ tests/unit/build/publish-path-guard.test.ts (6 tests) 3ms
+ ✓ tests/unit/integrations/github/from-repo-project-root.test.ts (4 tests) 3ms
+ ✓ tests/unit/core/cicd/branch-utils.test.ts (9 tests) 3ms
+ ✓ tests/unit/plugins/ado/ado-status-sync.test.ts (4 tests) 1670ms
+     ✓ includes httpStatus and responseBody in SyncError  1665ms
+ ✓ tests/unit/core/doctor/checkers/configuration-checker-claude-md.test.ts (4 tests) 7ms
+ ✓ tests/unit/core/doctor/checkers/configuration-checker.test.ts (4 tests) 15ms
+ ✓ tests/unit/dashboard/client/pages/WorkspacePage.test.ts (9 tests) 3ms
+ ✓ tests/unit/dashboard/hooks/dashboard-server-pid.test.ts (3 tests) 19ms
+ ✓ tests/unit/utils/string-utils.test.ts (20 tests) 4ms
+ ✓ tests/unit/core/sync/cached-rate-limiter.test.ts (8 tests) 6ms
+ ✓ tests/unit/sync/sync-progress-distributed.test.ts (2 tests) 3ms
+ ✓ tests/unit/cli/helpers/init/directory-structure-guard.test.ts (3 tests) 10ms
+ ✓ tests/unit/sync/github-client-search-cache.test.ts (3 tests) 4ms
+ ✓ tests/unit/plugins/ado/ado-rate-limiter-integration.test.ts (5 tests) 16ms
+ ✓ tests/unit/core/fabric/dci-integration.test.ts (3 tests) 5ms
+ ✓ tests/unit/utils/resolve-increment-id.test.ts (7 tests) 10ms
+ ✓ tests/unit/sync/github-feature-sync-lock.test.ts (7 tests) 4ms
+ ✓ tests/unit/hooks/minimal-hooks.test.ts (6 tests) 800ms
+ ✓ tests/unit/dashboard/file-watcher-prompt-health.test.ts (2 tests) 1207ms
+     ✓ should emit error-detected when prompt-health.json changes  604ms
+     ✓ should emit error-detected when prompt-health-alert.json changes  602ms
+ ✓ tests/unit/build/version-alignment.test.ts (4 tests) 3ms
+ ✓ tests/unit/plugins/ado/ado-client.test.ts (2 tests) 4ms
+ ✓ tests/unit/repo-structure/repo-id-generator.test.ts (19 tests) 3ms
+ ✓ tests/unit/core/increment/transition-path.test.ts (8 tests) 3ms
+ ✓ tests/unit/repo-structure/setup-summary.test.ts (2 tests) 5ms
+ ✓ tests/unit/plugins/github/github-client-v2-write-errors.test.ts (6 tests) 5ms
+ ✓ tests/unit/repo-structure/prompt-consolidator.test.ts (4 tests) 3ms
+ ✓ tests/unit/importers/import-coordinator-workspace.test.ts (6 tests) 4ms
+ ✓ tests/unit/cli/helpers/init/gitattributes.test.ts (5 tests) 7ms
+ ✓ tests/unit/cli/helpers/init/next-steps.test.ts (3 tests) 7ms
+ ✓ tests/unit/dashboard/useUrlState.test.ts (3 tests) 3ms
+ ✓ tests/unit/core/sync/circuit-breaker-registry.test.ts (7 tests) 6ms
+ ✓ tests/unit/cli/commands/sync-commands-integration.test.ts (4 tests) 7ms
+ ✓ tests/unit/sync/pr-linker.test.ts (8 tests) 3ms
+ ✓ tests/unit/config/sync-mode-config.test.ts (3 tests) 77ms
+ ✓ tests/unit/plugins/ado/ado-circuit-breaker.test.ts (5 tests) 5ms
+ ✓ tests/unit/core/lsp/lsp-symlinks.test.ts (8 tests) 41ms
+ ✓ tests/unit/cli/commands/init-ci-detection.test.ts (7 tests) 3ms
+ ✓ tests/unit/cli/commands/create-increment-parallel-flag.test.ts (3 tests) 3ms
+ ✓ tests/unit/sync/format-preservation-sync-pr.test.ts (3 tests) 3ms
+ ✓ tests/unit/skills/brainstorm-docs.test.ts (5 tests) 3ms
+ ✓ tests/unit/adapters/gemini-context-setting.test.ts (4 tests) 6ms
+ ✓ tests/unit/plugins/ado/ado-rate-limiter.test.ts (7 tests) 5ms
+ ✓ tests/unit/core/increment/active-increment-manager-root.test.ts (3 tests) 3ms
+ ✓ tests/unit/dashboard/plugin-scanner.test.ts (3 tests) 6ms
+ ✓ tests/unit/sync/sync-throttle-wiring.test.ts (3 tests) 8ms
+ ✓ tests/unit/init/next-steps-command.test.ts (3 tests) 4ms
+ ✓ tests/unit/core/session/resume-matrix.test.ts (4 tests) 3ms
+ ✓ tests/unit/core/errors/sync-error.test.ts (5 tests) 3ms
+ ✓ tests/unit/cli/commands/doctor-fix-status.test.ts (2 tests) 4ms
+ ✓ tests/unit/living-docs/umbrella-full-pipeline.test.ts (1 test) 4ms
+ ✓ tests/unit/core/config/hook-config-structure.test.ts (4 tests) 3ms
+ ✓ tests/unit/core/hooks/ghost-command-references.test.ts (1 test) 78ms
+ ✓ tests/unit/utils/npm-constants.test.ts (5 tests) 2ms
+ ✓ tests/unit/core/workflow/workflow-orchestrator.test.ts (3 tests) 2ms
+ ✓ tests/unit/core/config/default-config-testing.test.ts (4 tests) 3ms
+ ✓ tests/unit/sync/format-suffixed-id.test.ts (5 tests) 3ms
+ ✓ tests/unit/hooks/hook-deadline.test.ts (2 tests) 7756ms
+   ✓ supervises a synchronously stuck router below the 10-second host timeout  7575ms
+ ✓ tests/unit/adapters/codex-adapter.test.ts (2 tests) 2ms
+ ✓ tests/unit/core/increment/recognized-lifecycle-folders.test.ts (4 tests) 4ms
+ ✓ tests/unit/core/config-closure-hooks.test.ts (1 test) 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/cli/slash-command-hints.test.ts > CLI output never names a slash command that does not exist > resolves every slash command printed by the CLI
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/unit/cli/slash-command-hints.test.ts:188:3
+    186|   });
+    187|
+    188|   it('resolves every slash command printed by the CLI', () => {
+       |   ^
+    189|     const unresolved = collectHits().filter((h) => {
+    190|       if (NOT_OURS.has(h.token)) return false;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  tests/unit/cli/commands/save.test.ts > save command > T-008: Multi-repository (umbrella) handling > should detect and process umbrella config from config.json
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/unit/cli/commands/save.test.ts:757:5
+    755|
+    756|   describe('T-008: Multi-repository (umbrella) handling', () => {
+    757|     it('should detect and process umbrella config from config.json', a…
+       |     ^
+    758|       // Given: Umbrella repo with config
+    759|       const { umbrellaDir, cleanup: umbrellaCleanup } = await createUm…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  tests/unit/cli/commands/save.test.ts > save command > T-008: Multi-repository (umbrella) handling > should process multiple child repos in sequence
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/unit/cli/commands/save.test.ts:784:5
+    782|     });
+    783|
+    784|     it('should process multiple child repos in sequence', async () => {
+       |     ^
+    785|       // Given: Umbrella with 3 child repos with changes
+    786|       const { umbrellaDir, cleanup: umbrellaCleanup } = await createUm…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  tests/unit/cli/commands/save.test.ts > save command > T-008: Multi-repository (umbrella) handling > should skip repos without remotes
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/unit/cli/commands/save.test.ts:820:5
+    818|     });
+    819|
+    820|     it('should skip repos without remotes', async () => {
+       |     ^
+    821|       // Given: Umbrella with mixed repos (some with/without remotes)
+    822|       const { umbrellaDir, cleanup: umbrellaCleanup } = await createUm…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  tests/unit/cli/commands/save.test.ts > save command > T-008: Multi-repository (umbrella) handling > should filter repos with --repos flag
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/unit/cli/commands/save.test.ts:845:5
+    843|     });
+    844|
+    845|     it('should filter repos with --repos flag', async () => {
+       |     ^
+    846|       // Given: Umbrella with multiple repos
+    847|       const { umbrellaDir, cleanup: umbrellaCleanup } = await createUm…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  tests/unit/cli/commands/save.test.ts > save command > T-008: Multi-repository (umbrella) handling > should handle repos with separate branches
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/unit/cli/commands/save.test.ts:872:5
+    870|     });
+    871|
+    872|     it('should handle repos with separate branches', async () => {
+       |     ^
+    873|       // Given: Umbrella where child repos are on different branches
+    874|       const { umbrellaDir, cleanup: umbrellaCleanup } = await createUm…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+ FAIL  tests/unit/cli/commands/save.test.ts > save command > T-012: Integration tests > should produce valid git history
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/unit/cli/commands/save.test.ts:1206:5
+    1204|     });
+    1205|
+    1206|     it('should produce valid git history', async () => {
+       |     ^
+    1207|       // Given: Repo with multiple saves
+    1208|       for (let i = 1; i <= 3; i++) {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯
+
+ FAIL  tests/unit/cli/commands/save.test.ts > executeSave project root resolution (0879) > fans out to nested repos from the umbrella root, which is a SpecWeave project root
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/unit/cli/commands/save.test.ts:1339:3
+    1337|   });
+    1338|
+    1339|   it('fans out to nested repos from the umbrella root, which is a Spec…
+       |   ^
+    1340|     const { root } = await umbrella();
+    1341|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/9]⎯
+
+ FAIL  tests/unit/cli/helpers/init/instruction-templates.test.ts > CLAUDE.md.template / AGENTS.md.template (2.0) > AGENTS.md.template keeps the managed block small and the Project notes outside it
+AssertionError: expected 3520 to be less than or equal to 3300
+ ❯ tests/unit/cli/helpers/init/instruction-templates.test.ts:123:29
+    121|     const rendered = [...unconditional.map(s => s.content), t.tail].jo…
+    122|     // About 800 tokens for AGENTS.md (it was 1,860 in 2.x).
+    123|     expect(rendered.length).toBeLessThanOrEqual(3300);
+       |                             ^
+    124|     expect(t.tail).toContain('## Project notes');
+    125|     expect(t.sections.map(s => s.content).join('\n')).not.toContain('#…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/9]⎯
+
+
+ Test Files  3 failed | 488 passed | 5 skipped (496)
+      Tests  9 failed | 9913 passed | 77 skipped (9999)
+   Start at  20:03:05
+   Duration  281.70s (transform 8.47s, setup 6.37s, import 19.34s, tests 420.35s, environment 43ms)
