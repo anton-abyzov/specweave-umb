@@ -1,0 +1,11 @@
+
+ RUN  v4.1.11 /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave
+
+ ✓ tests/unit/cli/commands/save.test.ts (51 tests | 49 skipped) 17720ms
+       ✓ should use same custom message for all repos in umbrella  8275ms
+       ✓ should process multiple child repos in sequence  9443ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed | 49 skipped (51)
+   Start at  20:24:55
+   Duration  18.40s (transform 438ms, setup 109ms, import 413ms, tests 17.72s, environment 0ms)

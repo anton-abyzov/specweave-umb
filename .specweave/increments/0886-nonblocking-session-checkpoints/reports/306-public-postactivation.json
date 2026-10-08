@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "activeVersion": "3.0.6",
+  "activeLink": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/specweave",
+  "activeTarget": "/Users/antonabyzov/.local/share/specweave/releases/3.0.6-63d0901d69ce/bin/specweave",
+  "oldPackageVersion": "3.0.3",
+  "preservedConfigAndOldCliHashes": true,
+  "tailscale": {
+    "backendState": "Running",
+    "health": [],
+    "online": true
+  },
+  "listeningServicePids": {
+    "8317": [
+      883
+    ],
+    "8318": [
+      887
+    ]
+  },
+  "processes": {
+    "883": "/Users/antonabyzov/.local/share/specweave/proxy/bin/cli-proxy-api",
+    "887": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node",
+    "916": "/Applications/Tailscale.app/Contents/MacOS/Tailscale",
+    "969": "/Library/SystemExtensions/0A830711-85AE-4E76-BF07-2B4605102E9F/io.tailscale.ipn.macsys.network-extension.systemextension/Contents/MacOS/io.tailscale.ipn.macsys.network-extension"
+  },
+  "liveProofWorkerLeaseCleared": true
+}

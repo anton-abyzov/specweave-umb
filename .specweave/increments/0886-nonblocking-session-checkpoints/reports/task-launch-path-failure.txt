@@ -1,0 +1,4 @@
+$ cd /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave && env PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run --config vitest.unit.config.ts tests/unit/core/session/session-checkpoint.test.ts
+# exit 127 — 2026-10-08T00:13:39.386Z
+
+env: Support/JetBrains/Toolbox/scripts:/Users/antonabyzov/.dotnet/tools:/Applications/Obsidian.app/Contents/MacOS:/opt/homebrew/share/google-cloud-sdk/bin:/Users/antonabyzov/.maestro/bin:/Users/antonabyzov/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS:/Users/antonabyzov/Library/Application: No such file or directory

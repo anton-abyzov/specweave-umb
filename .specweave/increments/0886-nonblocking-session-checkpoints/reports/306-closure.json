@@ -1,0 +1,26 @@
+{
+  "increment": "0886-nonblocking-session-checkpoints",
+  "command": "specweave complete 0886-nonblocking-session-checkpoints --yes",
+  "exitCode": 0,
+  "statusReadback": "completed",
+  "tasks": {
+    "done": 5,
+    "total": 5
+  },
+  "acceptanceCriteria": {
+    "done": 6,
+    "total": 6
+  },
+  "verify": "verify.json",
+  "freshReviews": [
+    "306-final-review.json",
+    "306-docs-panel-review.json"
+  ],
+  "optionalSyncWarnings": [
+    "Legacy completion configuration attempted Jira and ADO closure without credentials; this increment has zero linked user stories or external items.",
+    "Completion normalized six unrelated legacy metadata files in this isolated checkout; those exact CLI-generated changes were restored to their clean prestate."
+  ],
+  "milestone": "https://github.com/anton-abyzov/specweave/milestone/265",
+  "milestoneState": "closed",
+  "completedStatusAfterFinalHandoff": "completed"
+}

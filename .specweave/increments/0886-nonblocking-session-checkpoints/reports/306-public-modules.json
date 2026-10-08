@@ -1,0 +1,10 @@
+{
+  "checkpointModules": [
+    "dist/src/core/session/checkpoint-worker.js",
+    "dist/src/core/session/session-checkpoint.js"
+  ],
+  "openaiModules": [
+    "dist/src/core/llm/providers/openai-provider.js",
+    "dist/src/core/jev/openai.js"
+  ]
+}

@@ -1,0 +1,49 @@
+$ cd /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave && env PATH="/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH" node scripts/e2e/session-checkpoints.mjs
+# exit 0 — 2026-10-08T00:15:01.795Z
+
+PASS strict fast hook and successful local checkpoint without quota read
+PASS concurrent sessions and worktrees plus StopFailure
+PASS failed refresh preserves snapshot and retries without consuming a once-only marker
+PASS stalled local Git bounded outside hook with preserved recovery and retry
+PASS no Git network, refs, index, claims, edits or handoff pointer changes
+{
+  "result": "PASS",
+  "hooks": [
+    {
+      "label": "legacy 90% settings; unreadable quota; duplicate active increments",
+      "elapsedMs": 82
+    },
+    {
+      "label": "repeated stop",
+      "elapsedMs": 49
+    },
+    {
+      "label": "parallel session",
+      "elapsedMs": 52
+    },
+    {
+      "label": "same session in another worktree",
+      "elapsedMs": 51
+    },
+    {
+      "label": "StopFailure",
+      "elapsedMs": 51
+    },
+    {
+      "label": "failed background refresh",
+      "elapsedMs": 49
+    },
+    {
+      "label": "retry after failure",
+      "elapsedMs": 54
+    },
+    {
+      "label": "stalled local Git",
+      "elapsedMs": 50
+    },
+    {
+      "label": "retry after local Git stall",
+      "elapsedMs": 65
+    }
+  ]
+}

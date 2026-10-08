@@ -1,0 +1,14 @@
+Docs external platform route
+Check for Broken Links	Serve and check links	2026-10-08T06:20:18.4489414Z [500] https://verified-skill.com/claude-code-skills
+Check for Broken Links	Serve and check links	2026-10-08T06:20:18.4499123Z   [500] https://verified-skill.com/claude-code-skills
+Check for Broken Links	Serve and check links	2026-10-08T06:20:18.4499913Z ERROR: Detected 1 broken links. Scanned 397 links in 31.567 seconds.
+
+Windows fixture timeout
+run.mjs smoke (windows-latest)	Hook unit tests	2026-10-08T06:19:55.4547215Z ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+run.mjs smoke (windows-latest)	Hook unit tests	2026-10-08T06:19:55.4548475Z  FAIL  tests/unit/core/hooks/handlers/session-start.test.ts > session-start > finishes well under 300 ms even with many increments
+run.mjs smoke (windows-latest)	Hook unit tests	2026-10-08T06:19:55.4549608Z Error: Test timed out in 10000ms.
+run.mjs smoke (windows-latest)	Hook unit tests	2026-10-08T06:19:55.4551823Z  ❯ tests/unit/core/hooks/handlers/session-start.test.ts:142:3
+run.mjs smoke (windows-latest)	Hook unit tests	2026-10-08T06:19:55.4594969Z  Test Files  1 failed | 18 passed (19)
+run.mjs smoke (windows-latest)	Hook unit tests	2026-10-08T06:19:55.4596520Z       Tests  1 failed | 188 passed (189)
+
+Windows rerun37736832155 passed without code/test/timeout changes. External listing failure reproduced twice; root registry servedHTTP200 in0.255s with actual skill links. Final docs-only7c8288e5c points generic guidance to the working catalog entry, without changing checks or platform configuration.

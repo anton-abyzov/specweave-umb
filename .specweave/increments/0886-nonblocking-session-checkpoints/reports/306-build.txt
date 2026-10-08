@@ -1,0 +1,75 @@
+
+> specweave@3.0.6 build
+> npm run generate:skills && tsc && npm run build:dashboard && npm run copy:locales && npm run copy:plugins && npm run copy:hook-deps && npm run copy:adapters && npm run stamp:plugin-version
+
+
+> specweave@3.0.6 generate:skills
+> node scripts/build/generate-skills.mjs
+
+generate-skills: 11 skills, 0 file(s) changed
+
+> specweave@3.0.6 build:dashboard
+> npx vite build --config src/dashboard/client/vite.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 84 modules transformed.
+rendering chunks...
+computing gzip size...
+../../../dist/dashboard/index.html                      0.60 kB │ gzip:   0.40 kB
+../../../dist/dashboard/assets/web-6-CuVUMDWO.woff2     5.54 kB
+../../../dist/dashboard/assets/web-3-tuJ4lY6O.woff2     9.61 kB
+../../../dist/dashboard/assets/web-9-CjmLAiqB.woff2    11.85 kB
+../../../dist/dashboard/assets/web-7-B2O-dwcv.woff2    15.25 kB
+../../../dist/dashboard/assets/web-2-Cuw1d432.woff2    16.30 kB
+../../../dist/dashboard/assets/web-0-CXU3YvQl.woff2    19.68 kB
+../../../dist/dashboard/assets/web-8-b0I-AwbV.woff2    24.41 kB
+../../../dist/dashboard/assets/web-1-CnEgTPdE.woff2    25.41 kB
+../../../dist/dashboard/assets/web-4-KUPCjGsn.woff2    25.87 kB
+../../../dist/dashboard/assets/web-10-ppjp2k5c.woff2   36.33 kB
+../../../dist/dashboard/assets/web-5-BD64o3ke.woff2    40.24 kB
+../../../dist/dashboard/assets/web-11-T5L87s1n.woff2   58.15 kB
+../../../dist/dashboard/assets/index-DS3yH-sX.css      82.61 kB │ gzip:  14.26 kB
+../../../dist/dashboard/assets/index-DjfDqgzX.js      442.77 kB │ gzip: 122.46 kB
+✓ built in 3.23s
+
+> specweave@3.0.6 copy:locales
+> node scripts/build/copy-locales.js
+
+✓ Locales copied successfully
+
+> specweave@3.0.6 copy:plugins
+> node scripts/build/copy-plugin-js.js
+
+📦 Transpiling plugin TypeScript files with esbuild...
+✓ Transpiled 9 plugin files (29 skipped, already up-to-date)
+
+> specweave@3.0.6 copy:hook-deps
+> node scripts/build/copy-hook-dependencies.js
+
+🔧 Copying hook dependencies to plugin vendor directories...
+
+
+📦 Copying dependencies for plugin: specweave
+   ✅ Copied: utils/logger.js
+   ✅ Copied: utils/credential-masker.js
+   ✅ Copied: utils/feature-id-derivation.js
+   ✅ Copied: utils/execFileNoThrow.js
+   ✅ Copied: utils/clean-env.js
+   ✅ Copied: utils/auth-helpers.js
+   ✅ Copied: sync/provider-router.js
+   ✅ Copied: sync/status-mapper.js
+   ✅ Copied: sync/config.js
+   📊 Copied 9/9 files
+
+✅ All hook dependencies copied successfully!
+
+> specweave@3.0.6 copy:adapters
+> node scripts/build/copy-adapters.js
+
+✓ Adapter assets copied successfully
+
+> specweave@3.0.6 stamp:plugin-version
+> node scripts/build/stamp-plugin-version.cjs
+
+✓ plugin/marketplace versions already aligned at 3.0.6
