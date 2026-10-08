@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "verdict": "SHIP",
+  "reviewedHead": "557076b7667b0409d3a1ffc1837ccf391e9d0509",
+  "findings": [],
+  "evidence": [
+    "production build and SEO validation",
+    "32 headless panel states",
+    "6 pricing FAQ checks",
+    "desktop and mobile screenshots"
+  ],
+  "publicReadbackPending": false,
+  "mergeCommit": "55abf329cd0f59190c41042e0a3d1ef9d20752ed",
+  "pullRequest": "https://github.com/anton-abyzov/specweave/pull/1986",
+  "testWorkflow": "https://github.com/anton-abyzov/specweave/actions/runs/37739436933",
+  "testWorkflowResult": "success",
+  "docsWorkflow": "https://github.com/anton-abyzov/specweave/actions/runs/37739437135",
+  "docsWorkflowResult": "success",
+  "claudeBot": "failed before review; independent review SHIP; user-authorized administrator merge",
+  "mergedTreeEqualsReviewedTree": true
+}

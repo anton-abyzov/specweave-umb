@@ -1,0 +1,6 @@
+Final reviewed source: 7c8288e5cf486fdfcbfc966296b0bb70dc4e315e
+Merged equivalent tree: 10969cdf6d4d8f28db5cde0b0fb1b31964946c9f
+CI: https://github.com/anton-abyzov/specweave/actions/runs/37737485331
+unit	Run unit tests	2026-10-08T06:28:24.6543939Z  Test Files  494 passed | 5 skipped (499)
+unit	Run unit tests	2026-10-08T06:28:24.6596020Z       Tests  9983 passed | 77 skipped (10060)
+unit	Run unit tests	2026-10-08T06:28:24.7086835Z All files          |   70.71 |    63.28 |   72.77 |    71.6 |                   

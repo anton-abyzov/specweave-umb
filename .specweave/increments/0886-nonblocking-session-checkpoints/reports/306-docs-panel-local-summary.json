@@ -1,0 +1,32 @@
+{
+  "head": "557076b7667b0409d3a1ffc1837ccf391e9d0509",
+  "productionBuild": true,
+  "typecheckPassed": true,
+  "ok": true,
+  "headless": true,
+  "panelStates": 32,
+  "pricingStates": 6,
+  "widths": [
+    320,
+    390,
+    1440
+  ],
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "motion": [
+    "no-preference",
+    "reduce"
+  ],
+  "minimumActiveOpacity": 1,
+  "desktopTransforms": [
+    "none"
+  ],
+  "pageErrors": [],
+  "scriptSha256": "94b1c77dcd81c50ad1e65ec5876fb13a642fee511757cf9314986c659f5d62bd",
+  "screenshots": [
+    "/tmp/specweave-0886-docs-panel/local/landing-1440-dark-no-preference.png",
+    "/tmp/specweave-0886-docs-panel/local/landing-390-light-no-preference.png"
+  ]
+}

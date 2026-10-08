@@ -1,0 +1,35 @@
+{
+  "version": "3.0.5",
+  "node": "v22.20.0",
+  "registryLatest": "3.0.5",
+  "sharedInstalledVersion": "3.0.3",
+  "prefix": "/tmp/specweave-public-3.0.5-l5r5p1e8/install",
+  "bin": "/tmp/specweave-public-3.0.5-l5r5p1e8/install/node_modules/specweave/bin/specweave.js",
+  "tarball": "/tmp/specweave-public-3.0.5-l5r5p1e8/specweave-3.0.5.tgz",
+  "registryGitHead": "b714637caccabab74edb7383fb725afa25532106",
+  "registryIntegrity": "sha512-hawbCCakqKU078mHaBMgoCF+uWmx50Ahc4TYf6Z87zsMExViz0/Y8KBdKYkjNhlfvvxcW0FFV6vQvBTTBgmAxQ==",
+  "actualIntegrity": "sha512-hawbCCakqKU078mHaBMgoCF+uWmx50Ahc4TYf6Z87zsMExViz0/Y8KBdKYkjNhlfvvxcW0FFV6vQvBTTBgmAxQ==",
+  "integrityVerified": true,
+  "shasumVerified": true,
+  "releaseRun": {
+    "id": 37732401131,
+    "conclusion": "success",
+    "url": "https://github.com/anton-abyzov/specweave/actions/runs/37732401131",
+    "publishedAt": "2026-10-08T05:32:36Z"
+  },
+  "hookSource": {
+    "hasSessionCheckpointModule": false,
+    "stillContainsBlockingHandoffInstruction": true
+  },
+  "transport": {
+    "tailscaleOnline": true,
+    "tailscaleHealth": [],
+    "tailscalePid": 916,
+    "tailscaleExtensionPid": 969,
+    "proxyPid": 883,
+    "proxyListen": "127.0.0.1:8317",
+    "switchPid": 887,
+    "switchListen": "127.0.0.1:8318"
+  },
+  "sharedStateChanged": false
+}

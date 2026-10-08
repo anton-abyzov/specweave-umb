@@ -1,11 +1,16 @@
 {
   "id": "0886-nonblocking-session-checkpoints",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-07T23:55:42.927Z",
-  "updated": "2026-10-08T00:28:15.349Z",
-  "lastActivity": "2026-10-08T00:28:15.349Z",
+  "updated": "2026-10-08T06:55:30.167Z",
+  "lastActivity": "2026-10-08T06:55:30.167Z",
   "title": "Nonblocking session checkpoints",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-08T06:55:30.166Z",
+  "approvedAt": "2026-10-08T06:55:30.167Z"
 }

@@ -1,0 +1,11 @@
+{
+  "version": "3.0.6",
+  "tarball": "/tmp/specweave-public-3.0.6-t6denzsf/specweave-3.0.6.tgz",
+  "gitHead": "10969cdf6d4d8f28db5cde0b0fb1b31964946c9f",
+  "bytes": 2960920,
+  "integrity": "sha512-qmND7tbnDg+2sbfvvTGSzOO5vPLQQfVZQ+d7KVyghiK/mgJ18BVNjTgLYc6Yru+Fl5yEeH1oLSx8EWxWR2dapA==",
+  "sha256": "63d0901d69ceaa3fc179ee740b8f132225a0f1aa43ddf74fedb2dcbabc20251f",
+  "prefix": "/Users/antonabyzov/.local/share/specweave/releases/3.0.6-63d0901d69ce",
+  "integrityVerified": true,
+  "shasumVerified": true
+}

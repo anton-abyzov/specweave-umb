@@ -1,0 +1,9 @@
+$ env PATH="/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH" npm --prefix /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave run release:preflight
+# exit 0 — 2026-10-08T06:42:13.764Z
+
+
+> specweave@3.0.6 release:preflight
+> node scripts/release/preflight-publish.mjs
+
+[install-check] packed bin preserved; clean installed specweave --version = 3.0.6
+[preflight] ok — tarball carries 2232 entries including bin/specweave.js, the dist/ modules bin imports, dist/dashboard/** and both plugin manifests
