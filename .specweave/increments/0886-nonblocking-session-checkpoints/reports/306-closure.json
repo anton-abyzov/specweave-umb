@@ -20,5 +20,7 @@
     "Legacy completion configuration attempted Jira and ADO closure without credentials; this increment has zero linked user stories or external items.",
     "Completion normalized six unrelated legacy metadata files in this isolated checkout; those exact CLI-generated changes were restored to their clean prestate."
   ],
-  "milestone": "https://github.com/anton-abyzov/specweave/milestone/265"
+  "milestone": "https://github.com/anton-abyzov/specweave/milestone/265",
+  "milestoneState": "closed",
+  "completedStatusAfterFinalHandoff": "completed"
 }
