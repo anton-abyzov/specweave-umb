@@ -1,14 +1,24 @@
 {
   "id": "0887-studio-upstream-leftovers-cleanup",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-10T19:03:06.298Z",
-  "updated": "2026-10-10T19:34:30.679Z",
-  "lastActivity": "2026-10-10T19:34:30.679Z",
+  "updated": "2026-10-10T22:55:10.026Z",
+  "lastActivity": "2026-10-10T22:55:10.026Z",
   "title": "Studio upstream leftovers cleanup",
   "project": "specweave-umb",
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2473",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2473",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-10T22:55:12.819Z"
+    }
+  },
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-10T22:55:10.026Z",
+  "approvedAt": "2026-10-10T22:55:10.026Z"
 }
