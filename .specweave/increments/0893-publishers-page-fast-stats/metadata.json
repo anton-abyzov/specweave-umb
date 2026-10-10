@@ -1,0 +1,11 @@
+{
+  "id": "0893-publishers-page-fast-stats",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-10T23:20:30.583Z",
+  "updated": "2026-10-10T23:22:14.592Z",
+  "lastActivity": "2026-10-10T23:22:14.592Z",
+  "title": "Publishers page fast stats",
+  "project": "specweave-umb"
+}
