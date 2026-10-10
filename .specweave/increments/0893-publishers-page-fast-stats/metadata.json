@@ -1,11 +1,16 @@
 {
   "id": "0893-publishers-page-fast-stats",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-10T23:20:30.583Z",
-  "updated": "2026-10-10T23:22:14.592Z",
-  "lastActivity": "2026-10-10T23:22:14.592Z",
+  "updated": "2026-10-10T23:47:26.375Z",
+  "lastActivity": "2026-10-10T23:47:26.375Z",
   "title": "Publishers page fast stats",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-10T23:47:26.374Z",
+  "approvedAt": "2026-10-10T23:47:26.375Z"
 }
