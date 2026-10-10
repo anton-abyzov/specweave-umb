@@ -50,3 +50,26 @@ Work happens in isolated worktrees: `0874-paywall-vskill` and `0874-paywall-plat
 
 ### T-07 Review, full suites and merge
 - AC: AC-09 | Files: .specweave/increments/0874-tiered-private-skills-paywall/reports/* | Test: cd /Users/antonabyzov/Projects/github/0874-paywall-vskill && npx vitest run && cd /Users/antonabyzov/Projects/github/0874-paywall-platform && npx vitest run
+
+## Delivery
+Merged 2026-10-10: vskill#147 (merge 5c0b73cd) and vskill-platform#99 (merge c0bcae86), both with green CI. They were reviewed independently before merge. The review found that the website fallback could prefill a private repo URL in `?repo=`; that was fixed and tested before merge. Neither repo was deployed or released. Studio ships with the next vskill release, the platform with the next deploy.
+
+Out of scope and left open:
+- `ConnectedRepoWidget` still shows a "Pro" chip for a free user's private repo. Connect tier-gating is Out.
+- Both platform publish routes return 503 for private publishing without reading `HOSTED_PRIVATE_PUBLISHING_AVAILABLE`. Opening the gate needs those routes, both constants and Stripe prices changed together (0847).
+
+## Manual acceptance (owner)
+Use Stripe test mode only. The test key in `vskill-platform/.env.local` returned `api_key_expired` on 2026-10-10, and the Stripe CLI test sessions expired in August. Roll a new test key and run `stripe login` first.
+
+Closed gate, as shipped:
+1. Studio: in a skill from a private GitHub repo, open Publish and Commit & Push. The push succeeds. The drawer says nothing was submitted to verified-skill.com and gives the reason. It shows no website link and no sign-in prompt.
+2. Studio: in a public repo, open Publish. Private reads "not open yet" and offers Join the waitlist. Decide later is absent. The submission reaches the queue as public.
+3. Platform `/account/repos`, the connect page, and the account plan card: no "require Pro", no "50 private skills", and the free CTA goes to `/pricing#hosted-waitlist`.
+
+Open gate, local only, nothing deployed:
+4. Set both constants to true. Open the two publish routes as described in 0847.
+5. Run `stripe listen --forward-to localhost:3000/api/v1/billing/webhooks/stripe`.
+6. Check out Pro with card 4242 4242 4242 4242. The webhook sets the tier to PRO, and `/api/v1/billing/quota` reports pro.
+7. Studio: Private is now selectable for the paid user. A free user gets the paywall with the publish wording.
+8. Publish a private skill. It does not appear in the catalog, search, the sitemap or the publisher page, except in the owner's footer.
+9. The billing portal opens. Then revert both constants.
