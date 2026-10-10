@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-10T23:00:12.609254+00:00",
+  "site": "vskill",
+  "passed": 11,
+  "failed": 1,
+  "results": [
+    {"url":"https://verified-skill.com/skills","finalUrl":"https://verified-skill.com/skills","status":200,"canonical":["https://verified-skill.com/skills"],"robots":"index, follow","h1":1,"videoObjects":0,"initialHtmlIframes":0},
+    {"url":"https://verified-skill.com/docs","finalUrl":"https://verified-skill.com/docs","status":200,"canonical":["https://verified-skill.com/docs"],"robots":"index, follow","h1":1,"videoObjects":0,"initialHtmlIframes":0},
+    {"url":"https://verified-skill.com/docs/plugins","finalUrl":"https://verified-skill.com/docs/plugins","status":200,"canonical":["https://verified-skill.com/docs/plugins"],"robots":"index, follow","h1":1,"videoObjects":0,"initialHtmlIframes":0},
+    {"url":"https://verified-skill.com/insights","finalUrl":"https://verified-skill.com/insights","status":200,"canonical":["https://verified-skill.com/insights"],"robots":"index, follow","h1":1,"videoObjects":0,"initialHtmlIframes":0},
+    {"url":"https://verified-skill.com/pricing","finalUrl":"https://verified-skill.com/pricing","status":200,"canonical":["https://verified-skill.com/pricing"],"robots":"index, follow","h1":1,"videoObjects":0,"initialHtmlIframes":0},
+    {"url":"https://verified-skill.com/watch","finalUrl":"https://verified-skill.com/watch","status":200,"canonical":["https://verified-skill.com/watch"],"robots":"index, follow","h1":1,"videoObjects":0,"initialHtmlIframes":0},
+    {"url":"https://verified-skill.com/watch/getting-started-101","finalUrl":"https://verified-skill.com/watch/getting-started-101","status":200,"canonical":["https://verified-skill.com/watch/getting-started-101"],"robots":"index, follow","h1":1,"videoObjects":0,"initialHtmlIframes":0},
+    {"url":"https://verified-skill.com/queue","finalUrl":"https://verified-skill.com/queue","status":200,"canonical":["https://verified-skill.com/queue"],"robots":"noindex, follow","h1":0,"videoObjects":0,"initialHtmlIframes":0},
+    {"url":"https://verified-skill.com/submit","finalUrl":"https://verified-skill.com/submit","status":200,"canonical":["https://verified-skill.com/submit"],"robots":"noindex, follow","h1":0,"videoObjects":0,"initialHtmlIframes":0},
+    {"url":"https://verified-skill.com/watch/specweave-workflow-101","finalUrl":"https://verified-skill.com/watch/specweave-workflow-101","status":404,"canonical":[],"robots":"index, follow","h1":0,"videoObjects":0,"initialHtmlIframes":0},
+    {"url":"https://verified-skill.com/sitemap.xml","status":200,"submittedUrls":6045}
+  ],
+  "errors": [
+    "https://verified-skill.com/publishers: HTTP 500, expected 200"
+  ]
+}
