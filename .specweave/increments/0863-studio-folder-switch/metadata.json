@@ -1,10 +1,10 @@
 {
   "id": "0863-studio-folder-switch",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-05-31T21:28:21.025Z",
-  "lastActivity": "2026-05-31T23:59:00.000Z",
+  "lastActivity": "2026-10-10T22:51:57.105Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -12,5 +12,9 @@
   "externalLinks": {},
   "planning": {
     "parallel": false
-  }
+  },
+  "updated": "2026-10-10T22:51:57.105Z",
+  "readyForReviewAt": "2026-10-10T22:51:57.104Z",
+  "closeReason": "All tasks were checked off by 2026-06-01 and nothing changed since; closed in the 2026-10-10 sweep without a fresh verify run",
+  "approvedAt": "2026-10-10T22:51:57.105Z"
 }

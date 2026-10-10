@@ -1,11 +1,11 @@
 {
   "id": "0848-private-public-skill-visualization",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-05-21T16:00:00.000Z",
   "activatedAt": "2026-05-21T16:00:00.000Z",
-  "lastActivity": "2026-05-21T16:00:00.000Z",
+  "lastActivity": "2026-10-10T22:50:49.234Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -14,5 +14,17 @@
     "parallel": false
   },
   "summary": "Smart public/private skill separation across Skill Studio (desktop) + web cabinet. Add inline lock badge on private-repo skills, group private/public skill rows within sections, add private-skill discovery hints across public surfaces.",
-  "externalLinks": {}
+  "externalLinks": {
+    "ado": {
+      "featureId": "2458",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2458",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-10T22:50:55.661Z"
+    }
+  },
+  "updated": "2026-10-10T22:50:49.234Z",
+  "readyForReviewAt": "2026-10-10T22:50:49.233Z",
+  "closeReason": "All tasks were checked off by 2026-06-01 and nothing changed since; closed in the 2026-10-10 sweep without a fresh verify run",
+  "approvedAt": "2026-10-10T22:50:49.234Z"
 }

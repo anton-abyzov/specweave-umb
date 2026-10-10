@@ -1,6 +1,6 @@
 {
   "id": "0791-home-queue-stat-alignment",
-  "status": "ready for review",
+  "status": "planned",
   "type": "bug",
   "priority": "P2",
   "created": "2026-04-27T13:30:00.000Z",
@@ -12,5 +12,6 @@
   "externalLinks": {},
   "planning": {
     "parallel": false
-  }
+  },
+  "updated": "2026-04-27T13:30:00.000Z"
 }

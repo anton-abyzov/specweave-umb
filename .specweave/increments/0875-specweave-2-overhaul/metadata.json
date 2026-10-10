@@ -1,5 +1,5 @@
 {
-  "id": "0875",
+  "id": "0875-specweave-2-overhaul",
   "name": "specweave-2-overhaul",
   "title": "SpecWeave 2.0: concept + templates cleanup, Windows fixes, security hardening, release",
   "type": "feature",
@@ -19,5 +19,8 @@
     ],
     "releaseRun": "33685537680",
     "npm": "specweave@2.0.0"
-  }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "updated": "2026-09-02T21:45:00Z"
 }

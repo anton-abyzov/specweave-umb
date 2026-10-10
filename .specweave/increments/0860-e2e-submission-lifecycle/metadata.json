@@ -2,7 +2,7 @@
   "id": "0860-e2e-submission-lifecycle",
   "name": "e2e-submission-lifecycle",
   "title": "E2E test: improve skill → in-app submit → monitor review → decision notification → update locally (+ theme readability)",
-  "status": "active",
+  "status": "completed",
   "created": "2026-05-31",
   "owner": "anton",
   "repo": "specweave-umb",
@@ -11,10 +11,22 @@
     "0855",
     "0859"
   ],
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2469",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2469",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-10T22:51:50.860Z"
+    }
+  },
   "priority": "medium",
-  "lastActivity": "2026-05-31",
+  "lastActivity": "2026-10-10T22:51:48.560Z",
   "testMode": "test-after",
   "coverageTarget": 80,
-  "type": "feature"
+  "type": "feature",
+  "updated": "2026-10-10T22:51:48.560Z",
+  "readyForReviewAt": "2026-10-10T22:51:48.558Z",
+  "closeReason": "All tasks were checked off by 2026-06-01 and nothing changed since; closed in the 2026-10-10 sweep without a fresh verify run",
+  "approvedAt": "2026-10-10T22:51:48.560Z"
 }

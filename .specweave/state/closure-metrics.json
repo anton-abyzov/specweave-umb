@@ -790,6 +790,150 @@
       "success": true,
       "timestamp": "2026-09-14T18:46:31.209Z",
       "durationMs": 206
+    },
+    {
+      "tool": "ado",
+      "itemId": 2452,
+      "incrementId": "0878-jev-system-one-integration",
+      "success": true,
+      "timestamp": "2026-09-21T19:16:34.548Z",
+      "durationMs": 482
+    },
+    {
+      "tool": "ado",
+      "itemId": 2453,
+      "incrementId": "0879-refresh-plugins-walks-the-filesystem-from-cwd-when-no-project-is-found",
+      "success": true,
+      "timestamp": "2026-09-21T23:27:20.796Z",
+      "durationMs": 149
+    },
+    {
+      "tool": "ado",
+      "itemId": 2454,
+      "incrementId": "0882-finish-bounded-cli-filesystem-scans",
+      "success": true,
+      "timestamp": "2026-09-22T03:38:49.938Z",
+      "durationMs": 144
+    },
+    {
+      "tool": "ado",
+      "itemId": 2455,
+      "incrementId": "0880-jev-real-use-evidence-and-site",
+      "success": true,
+      "timestamp": "2026-09-22T04:49:23.223Z",
+      "durationMs": 243
+    },
+    {
+      "tool": "ado",
+      "itemId": 2456,
+      "incrementId": "0883-deploy-bounded-cli-scan-fixes",
+      "success": true,
+      "timestamp": "2026-09-22T05:37:57.325Z",
+      "durationMs": 164
+    },
+    {
+      "tool": "ado",
+      "itemId": 2457,
+      "incrementId": "0881-portable-project-hub",
+      "success": true,
+      "timestamp": "2026-09-22T05:43:38.629Z",
+      "durationMs": 142
+    },
+    {
+      "tool": "ado",
+      "itemId": 2458,
+      "incrementId": "0848-private-public-skill-visualization",
+      "success": true,
+      "timestamp": "2026-10-10T22:50:57.490Z",
+      "durationMs": 412
+    },
+    {
+      "tool": "ado",
+      "itemId": 2459,
+      "incrementId": "0852-external-sync-architecture-audit",
+      "success": true,
+      "timestamp": "2026-10-10T22:51:27.381Z",
+      "durationMs": 174
+    },
+    {
+      "tool": "ado",
+      "itemId": 2463,
+      "incrementId": "0853-verify-runtime-vskill",
+      "success": true,
+      "timestamp": "2026-10-10T22:51:33.102Z",
+      "durationMs": 147
+    },
+    {
+      "tool": "ado",
+      "itemId": 2464,
+      "incrementId": "0855-sse-notification-token-gate-fix",
+      "success": true,
+      "timestamp": "2026-10-10T22:51:36.016Z",
+      "durationMs": 137
+    },
+    {
+      "tool": "ado",
+      "itemId": 2465,
+      "incrementId": "0856-opus-4-8-default-model",
+      "success": true,
+      "timestamp": "2026-10-10T22:51:39.161Z",
+      "durationMs": 142
+    },
+    {
+      "tool": "ado",
+      "itemId": 2466,
+      "incrementId": "0857-stub-provider-shared-verify-harness",
+      "success": true,
+      "timestamp": "2026-10-10T22:51:42.295Z",
+      "durationMs": 127
+    },
+    {
+      "tool": "ado",
+      "itemId": 2467,
+      "incrementId": "0858-hybrid-regression-scheduling",
+      "success": true,
+      "timestamp": "2026-10-10T22:51:45.465Z",
+      "durationMs": 146
+    },
+    {
+      "tool": "ado",
+      "itemId": 2468,
+      "incrementId": "0859-do-reliable-submission-notifications",
+      "success": true,
+      "timestamp": "2026-10-10T22:51:48.547Z",
+      "durationMs": 278
+    },
+    {
+      "tool": "ado",
+      "itemId": 2469,
+      "incrementId": "0860-e2e-submission-lifecycle",
+      "success": true,
+      "timestamp": "2026-10-10T22:51:51.481Z",
+      "durationMs": 138
+    },
+    {
+      "tool": "ado",
+      "itemId": 2470,
+      "incrementId": "0861-skill-dedup-and-failure-notification",
+      "success": true,
+      "timestamp": "2026-10-10T22:51:54.233Z",
+      "durationMs": 148
+    },
+    {
+      "tool": "ado",
+      "itemId": 2471,
+      "incrementId": "0862-lifecycle-demo-video",
+      "success": true,
+      "timestamp": "2026-10-10T22:51:57.098Z",
+      "durationMs": 151
+    },
+    {
+      "tool": "ado",
+      "itemId": 2472,
+      "incrementId": "0864-desktop-update-banner-and-recheck",
+      "success": true,
+      "timestamp": "2026-10-10T22:52:01.702Z",
+      "durationMs": 136
     }
   ],
   "summary": {
@@ -820,20 +964,20 @@
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 9,
-      "successful": 9,
+      "totalAttempts": 27,
+      "successful": 27,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-09-14T18:46:31.209Z",
-      "avgDurationMs": 208,
+      "lastSuccess": "2026-10-10T22:52:01.702Z",
+      "avgDurationMs": 197.4814814814815,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 98,
-      "successful": 92,
+      "totalAttempts": 116,
+      "successful": 110,
       "failed": 6,
-      "successRate": 0.9387755102040817
+      "successRate": 0.9482758620689655
     },
-    "lastUpdated": "2026-09-14T18:46:31.210Z"
+    "lastUpdated": "2026-10-10T22:52:01.702Z"
   }
 }

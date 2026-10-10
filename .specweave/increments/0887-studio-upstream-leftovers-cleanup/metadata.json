@@ -1,0 +1,14 @@
+{
+  "id": "0887-studio-upstream-leftovers-cleanup",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-10T19:03:06.298Z",
+  "updated": "2026-10-10T19:34:30.679Z",
+  "lastActivity": "2026-10-10T19:34:30.679Z",
+  "title": "Studio upstream leftovers cleanup",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

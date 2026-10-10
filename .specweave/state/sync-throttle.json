@@ -59,5 +59,9 @@
   "0847-skill-install-publish-scale": 1779240201896,
   "0001-core-framework": 1779264521581,
   "0852-external-sync-architecture-audit": 1779692751700,
-  "0873-desktop-verified-skill-repo-link": 1780590681205
+  "0873-desktop-verified-skill-repo-link": 1780590681205,
+  "0882-finish-bounded-cli-filesystem-scans": 1790048364685,
+  "0880-jev-real-use-evidence-and-site": 1790052583098,
+  "0883-deploy-bounded-cli-scan-fixes": 1790055509392,
+  "0881-portable-project-hub": 1790055863835
 }
