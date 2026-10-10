@@ -1,0 +1,151 @@
+{
+  "checkedAt": "2026-10-07T14:05:20.549511+00:00",
+  "hubVideoCount": 0,
+  "leafPages": 12,
+  "leafVideoCount": 14,
+  "rows": [
+    {
+      "url": "https://easychamp.com/help",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 0,
+      "uploadDates": [],
+      "thumbnailUrls": []
+    },
+    {
+      "url": "https://easychamp.com/help/league-console/create-league-or-tournament",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 2,
+      "uploadDates": [
+        "2026-09-29T06:28:29.000Z",
+        "2026-09-29T06:31:23.000Z"
+      ],
+      "thumbnailUrls": [
+        "https://easychamp.com/media/help/create-league-desktop-poster.jpg",
+        "https://easychamp.com/media/help/create-league-ipad-poster.jpg"
+      ]
+    },
+    {
+      "url": "https://easychamp.com/help/league-console/add-teams-and-players",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 1,
+      "uploadDates": [
+        "2026-09-29T06:31:32.000Z"
+      ],
+      "thumbnailUrls": [
+        "https://easychamp.com/media/help/teams-players-desktop-poster.jpg"
+      ]
+    },
+    {
+      "url": "https://easychamp.com/help/league-console/import-teams-csv",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 1,
+      "uploadDates": [
+        "2026-09-29T06:31:30.000Z"
+      ],
+      "thumbnailUrls": [
+        "https://easychamp.com/media/help/import-csv-desktop-poster.jpg"
+      ]
+    },
+    {
+      "url": "https://easychamp.com/help/league-console/generate-schedule",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 1,
+      "uploadDates": [
+        "2026-09-29T06:31:31.000Z"
+      ],
+      "thumbnailUrls": [
+        "https://easychamp.com/media/help/schedule-desktop-poster.jpg"
+      ]
+    },
+    {
+      "url": "https://easychamp.com/help/league-console/enter-results-match-center",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 2,
+      "uploadDates": [
+        "2026-09-29T06:31:35.000Z",
+        "2026-09-29T06:31:50.000Z"
+      ],
+      "thumbnailUrls": [
+        "https://easychamp.com/media/help/results-desktop-poster.jpg",
+        "https://easychamp.com/media/help/results-ipad-poster.jpg"
+      ]
+    },
+    {
+      "url": "https://easychamp.com/help/league-console/registration-entry-fees",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 1,
+      "uploadDates": [
+        "2026-09-29T06:31:47.000Z"
+      ],
+      "thumbnailUrls": [
+        "https://easychamp.com/media/help/registration-fees-desktop-poster.jpg"
+      ]
+    },
+    {
+      "url": "https://easychamp.com/help/league-console/connect-stripe-payouts",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 1,
+      "uploadDates": [
+        "2026-09-29T06:31:49.000Z"
+      ],
+      "thumbnailUrls": [
+        "https://easychamp.com/media/help/stripe-payouts-desktop-poster.jpg"
+      ]
+    },
+    {
+      "url": "https://easychamp.com/help/league-console/club-registration-programs",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 1,
+      "uploadDates": [
+        "2026-09-29T06:32:01.000Z"
+      ],
+      "thumbnailUrls": [
+        "https://easychamp.com/media/help/club-programs-desktop-poster.jpg"
+      ]
+    },
+    {
+      "url": "https://easychamp.com/help/website-builder/customize-pages-and-blocks",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 1,
+      "uploadDates": [
+        "2026-09-29T06:32:05.000Z"
+      ],
+      "thumbnailUrls": [
+        "https://easychamp.com/media/help/customize-pages-desktop-poster.jpg"
+      ]
+    },
+    {
+      "url": "https://easychamp.com/help/website-builder/site-menu-and-theme",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 1,
+      "uploadDates": [
+        "2026-09-29T06:31:58.000Z"
+      ],
+      "thumbnailUrls": [
+        "https://easychamp.com/media/help/menu-theme-desktop-poster.jpg"
+      ]
+    },
+    {
+      "url": "https://easychamp.com/help/website-builder/put-league-website-live",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 1,
+      "uploadDates": [
+        "2026-09-29T06:31:36.000Z"
+      ],
+      "thumbnailUrls": [
+        "https://easychamp.com/media/help/go-live-desktop-poster.jpg"
+      ]
+    },
+    {
+      "url": "https://easychamp.com/help/facilities/publish-facility",
+      "httpStatus": 200,
+      "rawHtmlVideoCount": 1,
+      "uploadDates": [
+        "2026-09-29T06:32:38.000Z"
+      ],
+      "thumbnailUrls": [
+        "https://easychamp.com/media/help/publish-facility-desktop-poster.jpg"
+      ]
+    }
+  ]
+}

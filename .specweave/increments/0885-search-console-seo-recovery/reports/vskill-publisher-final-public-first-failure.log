@@ -1,0 +1,18 @@
+{"path": "/publishers", "status": 200, "elapsedSeconds": 9.589, "cards": 20, "total": 101263, "empty": false}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 1.486, "cards": 20, "total": 101263, "empty": false}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 2.068, "cards": 20, "total": 101263, "empty": false}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 1.788, "cards": 20, "total": 101263, "empty": false}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 2.903, "cards": 20, "total": 101263, "empty": false}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 2.204, "cards": 20, "total": 101263, "empty": false}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.441, "cards": 20, "total": 101263, "empty": false}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.383, "cards": 20, "total": 101263, "empty": false}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 2.541, "cards": 20, "total": 101263, "empty": false}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.437, "cards": 20, "total": 101263, "empty": false}
+{"path": "/publishers?sort=totalGithubStars", "status": 200, "elapsedSeconds": 0.371, "cards": 20, "total": 101263, "empty": false}
+{"path": "/api/v1/authors?sort=stars", "status": 200, "elapsedSeconds": 0.209, "cards": 20, "total": 101263, "parity": true}
+{"path": "/publishers?sort=skillCount", "status": 500, "elapsedSeconds": 10.525, "cards": 0, "total": null, "empty": false}
+{"path": "/api/v1/authors?sort=skills", "status": 200, "elapsedSeconds": 9.488, "cards": 20, "total": 101263, "parity": false}
+Traceback (most recent call last):
+  File "/tmp/easychamp-seo-audit-20261007/verify-vskill-publisher-final.py", line 40, in <module>
+    assert status==200 and len(data["authors"])==20 and data["total"]==row["total"] and check["parity"],check
+AssertionError: {'path': '/api/v1/authors?sort=skills', 'status': 200, 'elapsedSeconds': 9.488, 'cards': 20, 'total': 101263, 'parity': False}

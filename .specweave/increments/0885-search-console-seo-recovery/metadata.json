@@ -1,0 +1,11 @@
+{
+  "id": "0885-search-console-seo-recovery",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-07T13:11:04.065Z",
+  "updated": "2026-10-07T19:07:28.343Z",
+  "lastActivity": "2026-10-07T19:07:28.343Z",
+  "title": "Search Console SEO recovery across public sites",
+  "project": "specweave-umb"
+}

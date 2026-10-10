@@ -1,0 +1,57 @@
+{"response": {"path": "/publishers", "status": 200, "elapsedSeconds": 2.136, "bodyBytes": 119202}}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 2.136, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/publishers", "status": 200, "elapsedSeconds": 0.436, "bodyBytes": 119202}}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.436, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/publishers", "status": 200, "elapsedSeconds": 0.403, "bodyBytes": 119202}}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.403, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/publishers", "status": 200, "elapsedSeconds": 0.548, "bodyBytes": 119202}}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.548, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/publishers", "status": 200, "elapsedSeconds": 0.494, "bodyBytes": 119202}}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.494, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/publishers", "status": 200, "elapsedSeconds": 0.371, "bodyBytes": 119202}}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.371, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/publishers", "status": 200, "elapsedSeconds": 0.674, "bodyBytes": 119202}}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.674, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/publishers", "status": 200, "elapsedSeconds": 0.527, "bodyBytes": 119202}}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.527, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/publishers", "status": 200, "elapsedSeconds": 0.405, "bodyBytes": 119202}}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.405, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/publishers", "status": 200, "elapsedSeconds": 0.532, "bodyBytes": 119202}}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.532, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/publishers?sort=totalGithubStars", "status": 200, "elapsedSeconds": 0.504, "bodyBytes": 119268}}
+{"path": "/publishers?sort=totalGithubStars", "status": 200, "elapsedSeconds": 0.504, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/api/v1/authors?sort=stars", "status": 200, "elapsedSeconds": 0.283, "bodyBytes": 2090, "cards": 20, "total": 101314, "error": null}}
+{"path": "/api/v1/authors?sort=stars", "status": 200, "elapsedSeconds": 0.283, "cards": 20, "total": 101314, "parity": true}
+{"response": {"path": "/publishers?sort=skillCount", "status": 200, "elapsedSeconds": 1.755, "bodyBytes": 119596}}
+{"path": "/publishers?sort=skillCount", "status": 200, "elapsedSeconds": 1.755, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/api/v1/authors?sort=skills", "status": 200, "elapsedSeconds": 1.395, "bodyBytes": 2116, "cards": 20, "total": 101314, "error": null}}
+{"path": "/api/v1/authors?sort=skills", "status": 200, "elapsedSeconds": 1.395, "cards": 20, "total": 101314, "parity": true}
+{"response": {"path": "/publishers?sort=avgTrustScore", "status": 200, "elapsedSeconds": 1.73, "bodyBytes": 119281}}
+{"path": "/publishers?sort=avgTrustScore", "status": 200, "elapsedSeconds": 1.73, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/api/v1/authors?sort=trust", "status": 200, "elapsedSeconds": 1.468, "bodyBytes": 2038, "cards": 20, "total": 101314, "error": null}}
+{"path": "/api/v1/authors?sort=trust", "status": 200, "elapsedSeconds": 1.468, "cards": 20, "total": 101314, "parity": true}
+{"response": {"path": "/publishers?page=2", "status": 200, "elapsedSeconds": 1.212, "bodyBytes": 119425}}
+{"path": "/publishers?page=2", "status": 200, "elapsedSeconds": 1.212, "cards": 20, "total": 101314, "empty": false}
+{"response": {"path": "/api/v1/authors?offset=20", "status": 200, "elapsedSeconds": 1.573, "bodyBytes": 2094, "cards": 20, "total": 101314, "error": null}}
+{"response": {"path": "/publishers?search=seo-no-publisher-20261007-index-fresh-1791389073792944000", "status": 200, "elapsedSeconds": 2.332, "bodyBytes": 35552}}
+{"path": "/publishers?search=seo-no-publisher-20261007-index-fresh-1791389073792944000", "status": 200, "elapsedSeconds": 2.332, "cards": 0, "total": 0, "empty": true}
+{"response": {"path": "/api/v1/authors?search=seo-no-publisher-20261007-index-fresh-1791389073792944000", "status": 200, "elapsedSeconds": 1.579, "bodyBytes": 46, "cards": 0, "total": 0, "error": null}}
+{"response": {"path": "/publishers?search=seo-no-publisher-20261007-index-fresh-1791389073792944000-repeat-0", "status": 200, "elapsedSeconds": 1.735, "bodyBytes": 35633}}
+{"path": "/publishers?search=seo-no-publisher-20261007-index-fresh-1791389073792944000-repeat-0", "status": 200, "elapsedSeconds": 1.735, "cards": 0, "total": 0, "empty": true}
+{"response": {"path": "/publishers?search=seo-no-publisher-20261007-index-fresh-1791389073792944000-repeat-1", "status": 200, "elapsedSeconds": 2.892, "bodyBytes": 35633}}
+{"path": "/publishers?search=seo-no-publisher-20261007-index-fresh-1791389073792944000-repeat-1", "status": 200, "elapsedSeconds": 2.892, "cards": 0, "total": 0, "empty": true}
+{"response": {"path": "/publishers?search=ANTON", "status": 200, "elapsedSeconds": 3.213, "bodyBytes": 119520}}
+{"path": "/publishers?search=ANTON", "status": 200, "elapsedSeconds": 3.213, "cards": 20, "total": 95, "empty": false}
+{"response": {"path": "/api/v1/authors?search=ANTON", "status": 200, "elapsedSeconds": 1.133, "bodyBytes": 2048, "cards": 20, "total": 95, "error": null}}
+{"response": {"path": "/publishers?search=ANTON&page=2", "status": 200, "elapsedSeconds": 1.158, "bodyBytes": 119873}}
+{"path": "/publishers?search=ANTON&page=2", "status": 200, "elapsedSeconds": 1.158, "cards": 20, "total": 95, "empty": false}
+{"response": {"path": "/api/v1/authors?search=ANTON&offset=20", "status": 200, "elapsedSeconds": 0.872, "bodyBytes": 2070, "cards": 20, "total": 95, "error": null}}
+{"response": {"path": "/publishers?search=ANTON&page=999999", "status": 404, "elapsedSeconds": 1.458, "bodyBytes": 22588}}
+{"path": "/publishers?search=ANTON&page=999999", "status": 404, "elapsedSeconds": 1.458, "cards": 0, "total": null, "empty": false}
+{"response": {"path": "/api/v1/authors?search=ANTON&offset=19999960", "status": 200, "elapsedSeconds": 1.212, "bodyBytes": 54, "cards": 0, "total": 95, "error": null}}
+{"response": {"path": "/publishers?search=a", "status": 200, "elapsedSeconds": 1.138, "bodyBytes": 119436}}
+{"path": "/publishers?search=a", "status": 200, "elapsedSeconds": 1.138, "cards": 20, "total": 65726, "empty": false}
+{"response": {"path": "/publishers?page=999999", "status": 404, "elapsedSeconds": 1.466, "bodyBytes": 22563}}
+{"path": "/publishers?page=999999", "status": 404, "elapsedSeconds": 1.466, "cards": 0, "total": null, "empty": false}
+{"response": {"path": "/api/v1/authors?offset=19999960", "status": 200, "elapsedSeconds": 1.33, "bodyBytes": 58, "cards": 0, "total": 101314, "error": null}}
+Publisher release checks passed: 31

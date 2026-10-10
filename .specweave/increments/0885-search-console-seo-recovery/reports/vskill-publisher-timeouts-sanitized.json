@@ -1,0 +1,24 @@
+[
+  {
+    "eventTimestamp": 1791382747554,
+    "outcome": "ok",
+    "scriptVersion": {
+      "id": "ea792e62-52d9-4a05-a309-5f0d190df2b1"
+    },
+    "url": "https://verified-skill.com/publishers?search=seo-no-publisher-20261007-ab6x",
+    "response": {
+      "status": 500
+    }
+  },
+  {
+    "eventTimestamp": 1791385512953,
+    "outcome": "ok",
+    "scriptVersion": {
+      "id": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb"
+    },
+    "url": "https://verified-skill.com/publishers?sort=skillCount",
+    "response": {
+      "status": 500
+    }
+  }
+]

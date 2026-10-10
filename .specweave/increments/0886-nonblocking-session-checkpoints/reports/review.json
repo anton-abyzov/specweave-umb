@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "commit": "cee5a538b27e1c7197d87d68277b057bb2e8c231",
+  "findings": [],
+  "platform": "macOS",
+  "node": "22.20.0",
+  "windowsVerified": false,
+  "runtimeReviewedCommit": "26f931f7477189b39f3698e7342fcafcb7d79452",
+  "finalDelta": "Two canonical registry URL corrections; independently reviewed, no findings."
+}

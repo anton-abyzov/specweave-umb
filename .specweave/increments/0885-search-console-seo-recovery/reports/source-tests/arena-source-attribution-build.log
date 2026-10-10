@@ -1,0 +1,166 @@
+
+> ec-arena-ui@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.27
+   - Experiments (use with caution):
+     · imgOptConcurrency: 1
+     · imgOptMaxInputPixels: 40000000
+     ✓ imgOptSequentialRead
+
+   Creating an optimized production build ...
+<w> [webpack.cache.PackFileCacheStrategy] Skipped not serializable cache item 'Compilation/modules|javascript/auto|/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/next/dist/build/webpack/loaders/next-flight-css-loader.js??ruleSet[1].rules[14].oneOf[5].use[0]!/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[1]!/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!/private/tmp/easychamp-seo-inventory-arena-20261007/src/components/quiz-library/QuizLibrary.module.css|rsc': No serializer registered for Warning
+<w> while serializing webpack/lib/cache/PackFileCacheStrategy.PackContentItems -> webpack/lib/NormalModule -> Array { 2 items } -> webpack/lib/ModuleWarning -> Warning
+<w> [webpack.cache.PackFileCacheStrategy] Skipped not serializable cache item 'Compilation/modules|javascript/auto|/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/next/dist/build/webpack/loaders/next-flight-css-loader.js??ruleSet[1].rules[14].oneOf[5].use[0]!/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[1]!/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!/private/tmp/easychamp-seo-inventory-arena-20261007/src/components/quiz-library/QuizLibrary.module.css|ssr': No serializer registered for Warning
+<w> while serializing webpack/lib/cache/PackFileCacheStrategy.PackContentItems -> webpack/lib/NormalModule -> Array { 2 items } -> webpack/lib/ModuleWarning -> Warning
+ ⚠ Compiled with warnings in 6.6s
+
+./src/components/quiz-library/QuizLibrary.module.css
+Warning
+
+(1242:3) autoprefixer: end value has mixed support, consider using flex-end instead
+
+Import trace for requested module:
+./src/components/quiz-library/QuizLibrary.module.css
+./src/app/play/quiz/library/sources/page.tsx
+
+./src/components/quiz-library/QuizLibrary.module.css
+Warning
+
+(1277:3) autoprefixer: start value has mixed support, consider using flex-start instead
+
+Import trace for requested module:
+./src/components/quiz-library/QuizLibrary.module.css
+./src/app/play/quiz/library/sources/page.tsx
+
+./src/components/quiz-library/QuizLibrary.module.css
+Warning
+
+(1242:3) autoprefixer: end value has mixed support, consider using flex-end instead
+
+Import trace for requested module:
+./src/components/quiz-library/QuizLibrary.module.css
+./src/components/quiz-library/QuizCouch.tsx
+
+./src/components/quiz-library/QuizLibrary.module.css
+Warning
+
+(1277:3) autoprefixer: start value has mixed support, consider using flex-start instead
+
+Import trace for requested module:
+./src/components/quiz-library/QuizLibrary.module.css
+./src/components/quiz-library/QuizCouch.tsx
+
+ ✓ Compiled successfully in 8.8s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/19) ...
+   Generating static pages (4/19)
+   Generating static pages (9/19)
+   Generating static pages (14/19)
+ ✓ Generating static pages (19/19)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                          Size  First Load JS
+┌ ƒ /                                              5.2 kB         803 kB
+├ ƒ /_not-found                                     250 B         103 kB
+├ ƒ /.well-known/apple-app-site-association         250 B         103 kB
+├ ƒ /.well-known/assetlinks.json                    250 B         103 kB
+├ ƒ /[page]                                       8.12 kB        1.03 MB
+├ ƒ /about                                        3.64 kB         659 kB
+├ ƒ /announcements                                3.39 kB         658 kB
+├ ƒ /api/betting/[...path]                          250 B         103 kB
+├ ƒ /api/facility-preview                           250 B         103 kB
+├ ƒ /api/facility-refund-quote                      250 B         103 kB
+├ ƒ /api/facility-reservations                      250 B         103 kB
+├ ƒ /api/facility-signup                            250 B         103 kB
+├ ƒ /api/facility-waitlist                          250 B         103 kB
+├ ƒ /api/fan/[...path]                              250 B         103 kB
+├ ƒ /api/favorites/[...path]                        250 B         103 kB
+├ ƒ /api/health                                     250 B         103 kB
+├ ƒ /api/healthz                                    250 B         103 kB
+├ ƒ /api/log-error                                  250 B         103 kB
+├ ƒ /api/og                                         250 B         103 kB
+├ ƒ /api/placement/[...path]                        250 B         103 kB
+├ ƒ /api/player-portrait/[id]                       250 B         103 kB
+├ ƒ /api/player-portrait/[id]/[candidate]           250 B         103 kB
+├ ƒ /api/portal/search                              250 B         103 kB
+├ ƒ /api/profile-messaging                          250 B         103 kB
+├ ƒ /api/quiz-library                               250 B         103 kB
+├ ƒ /api/quiz-library/[slug]                        250 B         103 kB
+├ ƒ /api/quiz/[...path]                             250 B         103 kB
+├ ƒ /api/readiness                                  250 B         103 kB
+├ ƒ /api/reminders/[[...path]]                      250 B         103 kB
+├ ƒ /api/session                                    250 B         103 kB
+├ ƒ /api/session/logout                             250 B         103 kB
+├ ƒ /api/session/me                                 250 B         103 kB
+├ ƒ /api/session/relay-origin                       250 B         103 kB
+├ ƒ /api/session/renew                              250 B         103 kB
+├ ƒ /api/session/token                              250 B         103 kB
+├ ƒ /api/site-preview                               209 B         309 kB
+├ ƒ /api/site-request                               250 B         103 kB
+├ ƒ /api/site-seo                                   209 B         309 kB
+├ ƒ /api/standings/fixture/[id]/workspace-access    250 B         103 kB
+├ ƒ /api/standings/manage-access/[kind]/[id]        250 B         103 kB
+├ ƒ /api/standings/manage-scope                     250 B         103 kB
+├ ƒ /api/standings/player-claims                    250 B         103 kB
+├ ƒ /api/standings/player-claims/mine               250 B         103 kB
+├ ƒ /api/standings/player-identity/[id]             250 B         103 kB
+├ ƒ /api/standings/user/me                          250 B         103 kB
+├ ƒ /api/standings/user/me/profile                  250 B         103 kB
+├ ƒ /calendar                                     6.28 kB           1 MB
+├ ƒ /callback                                     1.69 kB         129 kB
+├ ƒ /champ/[id]                                   12.1 kB         598 kB
+├ ƒ /champs                                       3.39 kB         658 kB
+├ ƒ /champs/[family]                              2.78 kB         497 kB
+├ ƒ /chat/channel/[channelId]                     1.04 kB         104 kB
+├ ƒ /coach/[slug]                                   170 B         107 kB
+├ ƒ /coaches                                        170 B         107 kB
+├ ƒ /competition/[id]                             8.46 kB         674 kB
+├ ƒ /competition/[id]/entrant/[entryId]             250 B         103 kB
+├ ƒ /competition/[id]/leaderboard                 6.83 kB         112 kB
+├ ƒ /fixture/[id]                                 5.06 kB         699 kB
+├ ƒ /healthz                                        250 B         103 kB
+├ ƒ /league/[id]                                  7.88 kB         532 kB
+├ ƒ /logout                                         784 B         104 kB
+├ ƒ /main                                          5.1 kB         673 kB
+├ ƒ /match/[id]                                   25.5 kB         733 kB
+├ ƒ /match/[id]/protocol.pdf                        250 B         103 kB
+├ ƒ /match/[id]/video/[subject]                   6.84 kB         154 kB
+├ ƒ /news-details/[newsId]                        4.75 kB         434 kB
+├ ƒ /play                                         11.7 kB         714 kB
+├ ƒ /play/[sessionId]                             3.67 kB         272 kB
+├ ƒ /play/quiz                                    1.01 kB         106 kB
+├ ƒ /play/quiz/[code]                             9.56 kB         116 kB
+├ ƒ /play/quiz/library                              129 B         111 kB
+├ ƒ /play/quiz/library/[slug]                       168 B         112 kB
+├ ƒ /play/quiz/library/create                     6.88 kB         118 kB
+├ ƒ /play/quiz/library/sources                    1.47 kB         105 kB
+├ ƒ /play/quiz/library/topic/[topic]                129 B         111 kB
+├ ƒ /play/reservations                            4.11 kB         172 kB
+├ ƒ /player/[id]                                  13.6 kB         739 kB
+├ ƒ /players                                      3.66 kB         659 kB
+├ ƒ /predict                                      12.3 kB         461 kB
+├ ƒ /predict-share/[id]                             986 B         186 kB
+├ ƒ /predict/[slug]                               15.4 kB         238 kB
+├ ƒ /predict/[slug]/rules                           954 B         116 kB
+├ ƒ /profile                                      16.4 kB         343 kB
+├ ƒ /referee/[id]                                 1.87 kB         480 kB
+├ ƒ /referees                                     3.38 kB         658 kB
+├ ƒ /robots.txt                                     250 B         103 kB
+├ ƒ /s/e/[eventId]                                1.04 kB         104 kB
+├ ƒ /sitemap.xml                                    209 B         309 kB
+├ ƒ /sitemap/[file]                                 250 B         103 kB
+├ ƒ /team/[id]                                    5.84 kB        1.03 MB
+├ ƒ /teams                                        3.67 kB         659 kB
+└ ƒ /venues                                       4.42 kB         659 kB
++ First Load JS shared by all                      103 kB
+  ├ chunks/1255-fbff2a247371566e.js               46.2 kB
+  ├ chunks/4bd1b696-100b9d70ed4e49c1.js           54.2 kB
+  └ other shared chunks (total)                   2.71 kB
+
+
+ƒ Middleware                                      49.6 kB
+
+ƒ  (Dynamic)  server-rendered on demand

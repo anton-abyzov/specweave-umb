@@ -1,0 +1,191 @@
+{
+  "increment": "0885-search-console-seo-recovery",
+  "task": "T-07",
+  "repository": "anton-abyzov/ec-landing",
+  "worktree": "/tmp/easychamp-seo-inventory-landing-20261007",
+  "branch": "codex/0885-help-player-discoverability",
+  "base": "07cde1843350a8474fccef2aad86adc6ce3ef768",
+  "reviewedHead": "1cf2f06ffc6125e2b30bbb8fb702e90d305759cb",
+  "pullRequest": "https://github.com/anton-abyzov/ec-landing/pull/168",
+  "mergedCommit": "396874efc4859e9cc15cd4af28706c488c30fb33",
+  "mergedAt": "2026-10-07T14:56:20Z",
+  "review": "Independent seo_independent_review approved exact final base/head with no critical/high findings; reran 25 focused tests and inspected original failures plus unchanged isolated playback successes.",
+  "change": "Visible lazy privacy-enhanced YouTube iframe players emitted in initial HTML; accessible titles, explicit dimensions, responsive aspect ratio and 200px minimum viewport height constrained to card width. No autoplay. Existing captions, cards, native playback and verified publication timestamps retained.",
+  "sourceTestReceipt": "landing-help-player-final-source-tests.json",
+  "fullTest": {
+    "command": "npm test -- --maxWorkers=4",
+    "exitCode": 0,
+    "files": 283,
+    "passed": 5745,
+    "skipped": 1,
+    "log": "landing-help-player-width-full-final-tests.log"
+  },
+  "build": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "log": "landing-help-player-width-build.log"
+  },
+  "typecheck": {
+    "command": "npm run typecheck",
+    "exitCode": 0,
+    "log": "landing-help-player-width-typecheck.log"
+  },
+  "focusedCoverage": {
+    "tests": 25,
+    "statements": 100,
+    "branches": 100,
+    "functions": 100,
+    "lines": 100,
+    "log": "landing-help-player-minviewport-coverage.log"
+  },
+  "localRawHtml": {
+    "pages": 12,
+    "videoObjects": 14,
+    "matchingInitialPlayers": 14,
+    "receipt": "help-initial-players-local-width-final-proof.json"
+  },
+  "localGeometry": {
+    "rows": 36,
+    "widths": [
+      320,
+      390,
+      1440
+    ],
+    "minHeight": 200,
+    "overflow": false,
+    "receipt": "help-initial-players-local-width-final-proof.json"
+  },
+  "localIsolatedPlayback": [
+    {
+      "width": 320,
+      "status": "passed",
+      "beforeTime": 0,
+      "beforePaused": true,
+      "afterTime": 1.02072,
+      "afterPaused": false,
+      "readyState": 4,
+      "receipt": "help-isolated-playback-local-320.json"
+    },
+    {
+      "width": 390,
+      "status": "passed",
+      "beforeTime": 0,
+      "beforePaused": true,
+      "afterTime": 1.020889,
+      "afterPaused": false,
+      "readyState": 4,
+      "receipt": "help-isolated-playback-local-390.json"
+    }
+  ],
+  "retainedFailures": [
+    {
+      "receipt": "landing-help-player-focused-tests.log",
+      "disposition": "jsdom lacks iframe.allow property; regression corrected to inspect rendered allow attribute, retaining no-autoplay assertion."
+    },
+    {
+      "receipt": "help-initial-players-local-proof.json",
+      "disposition": "Desktop CSS selector missed actual mobile accessible Play video control. Corrected headless interaction passed."
+    },
+    {
+      "receipt": "help-initial-players-local-minviewport-proof.json",
+      "disposition": "Browser gate caught min-height/aspect-ratio preferred width overflow; explicit 100% wrapper width fixes it."
+    },
+    {
+      "receipt": "help-initial-players-local-width-final-proof.json",
+      "disposition": "All raw HTML and 36 geometry gates pass; subsequent combined 320 playback timed out. Unchanged isolated 320 and 390 playback pass separately with original timeout unchanged. Exact cause is unproven; no failed run rewritten as passed."
+    }
+  ],
+  "deployment": {
+    "status": "passed",
+    "exactSha": "396874efc4859e9cc15cd4af28706c488c30fb33",
+    "runId": 37640893666,
+    "url": "https://github.com/anton-abyzov/ec-landing/actions/runs/37640893666",
+    "watchLog": "help-player-release-ci-watch.log",
+    "prestateReceipt": "help-player-release-cluster-pre.json",
+    "ciConclusion": "success",
+    "ciJobs": [
+      {
+        "name": "build",
+        "conclusion": "success"
+      },
+      {
+        "name": "validate",
+        "conclusion": "success"
+      },
+      {
+        "name": "update-gitops",
+        "conclusion": "success"
+      }
+    ],
+    "gitopsCommit": "c113cc38dc2507b3934b1690685f0cf749962305",
+    "gitopsReceipt": "help-player-release-gitops-proof.json",
+    "clusterReceipt": "help-player-release-cluster-final.json",
+    "image": "ghcr.io/anton-abyzov/ec-landing:develop-396874e",
+    "digest": "ghcr.io/anton-abyzov/ec-landing@sha256:ad8ea72390fa66c5eeebace8b5d8130d555bf16ee362280a44d252fbf48a46f9",
+    "replicas": 2,
+    "ready": 2,
+    "updated": 2,
+    "argocdSync": "Synced",
+    "argocdHealth": "Healthy",
+    "ciReceipt": "help-player-release-ci-proof.json",
+    "ciUnitLog": "help-player-release-ci-unit-receipt.log"
+  },
+  "public": {
+    "status": "passed",
+    "rawPages": 12,
+    "videoObjects": 14,
+    "matchingInitialPlayers": 14,
+    "geometryRows": 36,
+    "playerSamples": 42,
+    "widths": [
+      320,
+      390,
+      1440
+    ],
+    "minPlayerHeight": 200,
+    "minPlayerWidth": 278,
+    "overflow": false,
+    "receipt": "help-initial-players-public-final-proof.json",
+    "isolatedPlayback": [
+      {
+        "width": 320,
+        "status": "passed",
+        "before": {
+          "time": 0,
+          "paused": true,
+          "readyState": 0
+        },
+        "after": {
+          "time": 1.021467,
+          "paused": false,
+          "readyState": 4,
+          "duration": 65.481
+        },
+        "receipt": "help-isolated-playback-public-320.json",
+        "log": "help-isolated-playback-public-320.log"
+      },
+      {
+        "width": 390,
+        "status": "passed",
+        "before": {
+          "time": 0,
+          "paused": true,
+          "readyState": 0
+        },
+        "after": {
+          "time": 1.018667,
+          "paused": false,
+          "readyState": 4,
+          "duration": 65.481
+        },
+        "receipt": "help-isolated-playback-public-390.json",
+        "log": "help-isolated-playback-public-390.log"
+      }
+    ]
+  },
+  "supportingPrimarySources": [
+    "https://developers.google.com/search/docs/appearance/video",
+    "https://developers.google.com/youtube/iframe_api_reference#Requirements"
+  ],
+  "limits": "Public release and Google recrawl are distinct. This receipt does not claim Google indexing validation or current field INP. Intentional crawler-shed policy, private/removed pages and legacy route boundary remain unchanged."
+}

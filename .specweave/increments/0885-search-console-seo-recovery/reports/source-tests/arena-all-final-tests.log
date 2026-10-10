@@ -1,0 +1,43 @@
+
+ RUN  v4.1.11 /private/tmp/easychamp-seo-inventory-arena-20261007
+
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/private/tmp/easychamp-seo-inventory-arena-20261007/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:588:17)
+    at processTimers (node:internal/timers:523:7) undefined
+
+ Test Files  683 passed (683)
+      Tests  8521 passed (8521)
+   Start at  09:47:43
+   Duration  71.97s (transform 19.03s, setup 9.08s, import 112.92s, tests 75.32s, environment 39.35s)

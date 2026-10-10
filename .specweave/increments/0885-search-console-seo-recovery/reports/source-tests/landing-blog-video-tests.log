@@ -1,0 +1,8 @@
+
+ RUN  v4.1.11 /private/tmp/easychamp-seo-inventory-landing-20261007
+
+
+ Test Files  3 passed (3)
+      Tests  61 passed (61)
+   Start at  09:46:50
+   Duration  1.03s (transform 2.07s, setup 2.34s, import 373ms, tests 24ms, environment 0ms)

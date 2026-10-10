@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "data": {
+    "schedule_id": "16816775d0d4ffe52ebde2efc24a771d262b8d5582dccb5650fe4d6492f75ecb",
+    "status": "completed",
+    "data": "[]",
+    "requested_field_ids": [
+      "profile",
+      "path",
+      "lastDownloaded",
+      "lastSubmitted",
+      "isSitemapsIndex",
+      "submitted",
+      "indexed",
+      "warnings",
+      "errors"
+    ],
+    "canonical_field_ids": null,
+    "cache_used": false,
+    "cache_time": null,
+    "success": true
+  },
+  "error": null,
+  "notes": null,
+  "business_context": null,
+  "metadata": {
+    "tool_version": "1.17.0",
+    "span_id": "406c629e2105e0cb"
+  }
+}

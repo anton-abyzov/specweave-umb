@@ -1,0 +1,194 @@
+{
+  "checkedAt": "2026-10-07T14:14:22.734Z",
+  "url": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+  "headless": true,
+  "proofType": "simulated crawler rendering; not actual Google URL Inspection",
+  "userAgent": "Mozilla/5.0 (compatible; Google-InspectionTool/1.0;)",
+  "httpStatus": 200,
+  "headers": {
+    "age": "39",
+    "alt-svc": "h3=\":443\"; ma=86400",
+    "cache-control": "public, max-age=14400",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a46d83091c45de00-MIA",
+    "content-encoding": "zstd",
+    "content-type": "text/html; charset=utf-8",
+    "date": "Wed, 07 Oct 2026 14:14:22 GMT",
+    "last-modified": "Wed, 07 Oct 2026 14:13:43 GMT",
+    "link": "</_next/static/css/92516a6294b0302b.css>; rel=preload; as=\"style\", </_next/static/css/32790651049b7c6a.css>; rel=preload; as=\"style\", </_next/static/css/2454e8a195203116.css>; rel=preload; as=\"style\", </_next/static/css/84fe0a4fea8e66ee.css>; rel=preload; as=\"style\", </_next/static/css/b1b3b2fe7e93fc9c.css>; rel=preload; as=\"style\", </_next/static/css/3cc46922f5c5ff23.css>; rel=preload; as=\"style\", </_next/static/css/c3304657b025bb45.css>; rel=preload; as=\"style\", </_next/static/css/913f11d59aa1fd59.css>; rel=preload; as=\"style\", </_next/static/css/736786a3e1acdfcc.css>; rel=preload; as=\"style\", </_next/static/css/d1fea393b7a8cc8a.css>; rel=preload; as=\"style\", </_next/static/css/44a2f63f95a81ca1.css>; rel=preload; as=\"style\", </_next/static/css/707da3ff49cce4b4.css>; rel=preload; as=\"style\", </_next/static/css/1ab611c9c833fcc7.css>; rel=preload; as=\"style\"",
+    "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=yNCZH%2FIZBbPj6cR4Eix4JObVMWIz1yz58oF12LTHbYvImiF0c6drFjL9xfu5Pna44dNMW%2B5RaHtYfjFmvIaLjboAjqe5qTegRMHHL6Vc8CyRMO5RHA3GY40OPo4ka8t7tIELnJbF\"}]}",
+    "server": "cloudflare",
+    "server-timing": "cfCacheStatus;desc=\"HIT\", cfEdge;dur=9,cfOrigin;dur=0,cfWorker;dur=9",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+    "x-ec-shed": "bot; HIT"
+  },
+  "state": {
+    "title": "South Africa vs Iraq (0\u20130) \u2014 EasyChamp Matchday",
+    "canonical": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+    "h1": [
+      "South Africa vs Iraq"
+    ],
+    "width": 390,
+    "scrollWidth": 390,
+    "nodes": [
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsEvent",
+        "@id": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+        "name": "South Africa vs Iraq",
+        "url": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+        "startDate": "2009-06-14T14:00:00Z",
+        "image": [
+          "https://watch.easychamp.com/api/og?type=match&id=40aff015-26af-40cb-961a-414886763cd1&locale=en"
+        ],
+        "description": "South Africa 0 \u2013 0 Iraq in Confederations Cup 2009.",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Emirates Airline Park",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "South Africa Johannesburg"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -26.197519,
+            "longitude": 28.060767
+          }
+        },
+        "organizer": {
+          "@type": "SportsOrganization",
+          "name": "International",
+          "url": "https://watch.easychamp.com/league/2e270f59-4dad-4a9b-80b2-934386162dd0"
+        },
+        "homeTeam": {
+          "@type": "SportsTeam",
+          "name": "South Africa"
+        },
+        "awayTeam": {
+          "@type": "SportsTeam",
+          "name": "Iraq"
+        },
+        "competitor": [
+          {
+            "@type": "SportsTeam",
+            "name": "South Africa"
+          },
+          {
+            "@type": "SportsTeam",
+            "name": "Iraq"
+          }
+        ],
+        "performer": [
+          {
+            "@type": "SportsTeam",
+            "name": "South Africa"
+          },
+          {
+            "@type": "SportsTeam",
+            "name": "Iraq"
+          }
+        ]
+      },
+      {
+        "@type": "Place",
+        "name": "Emirates Airline Park",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "South Africa Johannesburg"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -26.197519,
+          "longitude": 28.060767
+        }
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "South Africa Johannesburg"
+      },
+      {
+        "@type": "GeoCoordinates",
+        "latitude": -26.197519,
+        "longitude": 28.060767
+      },
+      {
+        "@type": "SportsOrganization",
+        "name": "International",
+        "url": "https://watch.easychamp.com/league/2e270f59-4dad-4a9b-80b2-934386162dd0"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": "South Africa"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": "Iraq"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": "South Africa"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": "Iraq"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": "South Africa"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": "Iraq"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://watch.easychamp.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Confederations Cup 2009",
+            "item": "https://watch.easychamp.com/competition/d9dcd2cc-1cd1-4066-9a6d-210fc0bd3d1a"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "South Africa vs Iraq",
+            "item": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1"
+          }
+        ]
+      },
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://watch.easychamp.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Confederations Cup 2009",
+        "item": "https://watch.easychamp.com/competition/d9dcd2cc-1cd1-4066-9a6d-210fc0bd3d1a"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "South Africa vs Iraq",
+        "item": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1"
+      }
+    ],
+    "text": "EasyChamp Matchday\nSign in\nSouth Africa vs Iraq\nConfederations Cup 2009\nCONFEDERATIONS CUP 2009\nFT\nSA\nSouth Africa\nSouth Africa\n0\n\u2013\n0\nIR\nIraq\nIraq\nEmirates Airline Park\nHALVES\nH1\n0\u20130\nH2\n0\u20130\n\nSouth Africa Johannesburg\n\nFacts\nStandings\nEvents\nCOMPETITION\nConfederations Cup 2009\n\u00b7\nstage_1\n\u00b7\n1\nVENUE\nEmirates Airline Park\n\u00b7\nSunday, June 14, 2009 \u00b7 2:00\u00a0PM\u00a0UTC\n\nPrint match protocol\n\nBEFORE KICK-OFF\n\nHead-to-head\n\nHistory before Sunday, June 14, 2009 \u00b7 2:00\u00a0PM\u00a0UTC\n\nRecent form\n\nLast 5 completed matches\n\nSA\nSouth Africa\n0 W 0 D 0 L\nGoals for / against 0 / 0\n\nNo matches yet.\n\nIR\nIraq\n0 W 0 D 0 L\nGoals for / against 0 / 0\n\nNo matches yet.\n\nPrevious meetings\n\nNo previous meetings\n\nHome\nMatches\nPredict\nDiscover\nMore\nTerms\nPrivacy"
+  },
+  "screenshot": "/tmp/easychamp-seo-audit-20261007/final-release-watch-simulated-crawler-390.png",
+  "status": "passed"
+}

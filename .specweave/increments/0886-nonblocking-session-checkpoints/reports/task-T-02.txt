@@ -1,0 +1,13 @@
+$ cd /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave && env PATH="/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH" npx vitest run --config vitest.unit.config.ts tests/unit/core/session/usage-guard.test.ts tests/unit/core/session/grok-limit-handoff.test.ts
+# exit 0 — 2026-10-08T00:14:53.139Z
+
+
+ RUN  v4.1.11 /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave
+
+ ✓ tests/unit/core/session/grok-limit-handoff.test.ts (4 tests) 18ms
+ ✓ tests/unit/core/session/usage-guard.test.ts (30 tests) 101ms
+
+ Test Files  2 passed (2)
+      Tests  34 passed (34)
+   Start at  20:14:52
+   Duration  347ms (transform 269ms, setup 97ms, import 222ms, tests 119ms, environment 0ms)

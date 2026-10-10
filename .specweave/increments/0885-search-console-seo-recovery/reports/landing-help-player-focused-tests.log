@@ -1,0 +1,25 @@
+
+ RUN  v4.1.11 /private/tmp/easychamp-seo-inventory-landing-20261007
+
+ ❯ src/components/help/HelpVideo.test.tsx (4 tests | 1 failed) 40ms
+     × renders a discoverable player for every published tutorial VideoObject before interaction 30ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/components/help/HelpVideo.test.tsx > Help video initial HTML > renders a discoverable player for every published tutorial VideoObject before interaction
+AssertionError: the given combination of arguments (undefined and string) is invalid for this assertion. You can use an array, a map, an object, a set, a string, or a weakset instead of a string
+ ❯ src/components/help/HelpVideo.test.tsx:34:33
+     32|         expect(new URL(frame.src).hostname).toBe("www.youtube-nocookie…
+     33|         expect(new URL(frame.src).searchParams.get("autoplay")).not.to…
+     34|         expect(frame.allow).not.toContain("autoplay");
+       |                                 ^
+     35|         expect(frame.width).toBe("1280");
+     36|         expect(frame.height).toBe("720");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 24 passed (25)
+   Start at  10:42:20
+   Duration  9.29s (transform 19.61s, setup 17.03s, import 5.62s, tests 82ms, environment 800ms)

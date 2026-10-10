@@ -1,0 +1,25 @@
+
+ RUN  v4.1.11 /private/tmp/easychamp-seo-inventory-arena-20261007
+      Coverage enabled with v8
+
+
+ Test Files  6 passed (6)
+      Tests  77 passed (77)
+   Start at  09:49:49
+   Duration  1.10s (transform 1.75s, setup 404ms, import 2.50s, tests 67ms, environment 299ms)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-------------------|---------|----------|---------|---------|-------------------
+All files          |     100 |    95.04 |     100 |     100 |
+ ...d-broadcast.ts |     100 |    92.15 |     100 |     100 | 90,93,123
+ ...ject-jsonld.ts |     100 |     90.9 |     100 |     100 | 42,45
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 55/55 )
+Branches     : 95.04% ( 115/121 )
+Functions    : 100% ( 14/14 )
+Lines        : 100% ( 44/44 )
+================================================================================

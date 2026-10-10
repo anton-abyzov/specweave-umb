@@ -1,0 +1,368 @@
+{
+  "recordedAt": "2026-10-07T18:55:19.280767+00:00",
+  "status": "Final authenticated Worker rollout and public verification passed; global coverage deficit and video publication-time enrichment remain recorded",
+  "source": {
+    "mergedMain": "4e4690cad68bc3b19e4fdf17ba774f4cd46f52ce",
+    "reviewedHead": "a73c6916c85a32b82ba4483154df4f05544f6e13",
+    "pullRequest": "https://github.com/anton-abyzov/vskill-platform/pull/89",
+    "allFourPullRequestChecks": "SUCCESS",
+    "cleanIsolatedCheckout": true,
+    "runtimeSourceComparedWith": "07ede835ac9948b2dc871356fcae347afc108685",
+    "changedFiles": [
+      "prisma/migrations/20261007160000_public_publisher_covering_index/migration.sql",
+      "scripts/__tests__/public-publisher-index.test.ts",
+      "scripts/db/public-publisher-index.cjs",
+      "scripts/db/public-publisher-index.md"
+    ],
+    "applicationPublicConfigDependencySourceIdentical": true,
+    "mergedWorkerBuild": "PASS",
+    "queueHealthBuild": "PASS"
+  },
+  "worker": {
+    "lastAuthoritativeReadbackRecordedAt": "2026-10-07T18:42:41.547991+00:00",
+    "version": "230dca40-7d6b-462a-9ed2-48cda828f345",
+    "percentage": 100,
+    "deployment": "e92d344b-3892-49f8-83f2-03a02e6b1f5d",
+    "deployedAt": "2026-10-07T18:35:42.318639Z",
+    "source": "4e4690cad68bc3b19e4fdf17ba774f4cd46f52ce",
+    "newRolloutPerformed": true,
+    "freshPostIndexIdentityReadback": "PASS",
+    "bindings": 66,
+    "queueConsumers": 6,
+    "queueProducers": 5,
+    "cronTriggers": 7,
+    "consumerNames": [
+      "submission-processing",
+      "submission-dlq",
+      "eval-processing",
+      "scan-high",
+      "scan-normal",
+      "discovery-resolve"
+    ],
+    "previousAuthoritativeIdentity": {
+      "lastAuthoritativeReadbackRecordedAt": "2026-10-07T15:42:58.402663+00:00",
+      "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+      "percentage": 100,
+      "deployment": "7c9de3d9-3bb3-40ce-9a9e-636e31969341",
+      "deployedAt": "2026-10-07T15:04:21.461459Z",
+      "newRolloutPerformed": false,
+      "freshPostIndexIdentityReadback": "PENDING_AUTH",
+      "lastVerifiedBindings": 66,
+      "lastVerifiedQueueConsumers": 6,
+      "lastVerifiedQueueProducers": 5,
+      "lastVerifiedCronTriggers": 7,
+      "consumerNames": [
+        "submission-processing",
+        "submission-dlq",
+        "eval-processing",
+        "scan-high",
+        "scan-normal",
+        "discovery-resolve"
+      ]
+    },
+    "proofFile": "vskill-auth-final-rollout.json"
+  },
+  "database": {
+    "oneConcurrentIndexApplied": true,
+    "appliedAt": "2026-10-07T15:54:18.658Z",
+    "index": {
+      "oid": "199021",
+      "definition": "CREATE INDEX \"Skill_public_author_metrics_idx\" ON public.\"Skill\" USING btree (lower(author), \"normalizedRepoUrl\") INCLUDE (author, \"githubStars\", \"trustScore\", \"isTainted\") WHERE ((\"tenantId\" IS NULL) AND (\"isDeprecated\" = false))",
+      "indisvalid": true,
+      "indisready": true,
+      "indislive": true,
+      "bytes": "120913920"
+    },
+    "migration": "20261007160000_public_publisher_covering_index",
+    "checksum": "91bf3713936a26d24a93efb0b7d42262452b3c6f3ffd65b87bc8e8114385c401",
+    "finishedExactMigrationReadback": true,
+    "applicationQueryTimeoutMs": 10000,
+    "globalPlannerChanges": false,
+    "manualVacuumPerformed": false,
+    "backgroundAutovacuumAt": "2026-10-07T15:57:25.954Z",
+    "visibleHeapPagesAfterBackgroundVacuum": 283695,
+    "totalHeapPages": 283765,
+    "slowInitialPostIndexPlansRetained": true
+  },
+  "performance": {
+    "defaultPlannerUsesNewIndexOnlyScanAllThreeSorts": true,
+    "databaseExecutionMs": [
+      617.651,
+      604.264,
+      579.56
+    ],
+    "actualSourceMatrixCases": 13,
+    "actualSourceAdapterRangeMs": [
+      217,
+      1322
+    ],
+    "publicMatrixAssertions": 31,
+    "publicMaxResponseSeconds": 3.213,
+    "defaultFirstResponseSeconds": 2.136,
+    "defaultKeyAbsenceAuthenticatedImmediatelyBefore": false,
+    "additionalDefaultReadbacks": 10,
+    "additionalDefaultResponseRangeSeconds": [
+      0.328,
+      1.904
+    ],
+    "defaultCacheHitsAuthenticated": false,
+    "guaranteedUncacheableAllSortApiLimit": 21,
+    "uncacheableSortResponseSeconds": [
+      1.021,
+      0.937,
+      0.833
+    ],
+    "publicTotalAtMatrix": 101314,
+    "matchingANTONTotal": 95,
+    "sourceSearchPageTwoAndOutOfRangeCountFallback": "PASS",
+    "publicSearchPageTwoAndOutOfRange404ApiCountParity": "PASS",
+    "original500TimeoutsAndUnchangedRepeatFailuresRetained": true
+  },
+  "verification": {
+    "focusedTestsPassed": 47,
+    "indexGuardRegressionsPassed": 20,
+    "plainLocalFullUnitTestsPassed": 6145,
+    "plainLocalExistingSkips": 14,
+    "githubFullUnitTestsPassed": 6141,
+    "githubExistingSkips": 14,
+    "productBuild": "PASS",
+    "payloadSelfTestAndSupplyChainScan": "PASS",
+    "independentPostgresqlEmittedSqlFixtureCasesPassed": 90,
+    "headlessProductionCasesPassed": 6,
+    "headlessExplicit": true,
+    "headlessWorkers": 1,
+    "headlessRetries": 0,
+    "viewportWidths": [
+      1440,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "realNativePlayerPosterControlsPlayState": "PASS",
+    "pluginCatalogAndMetadata": {
+      "vskillVersion": "1.2.1",
+      "publishedGitHead": "d91bec68776c96d095e7989cde66bcc5acdb1e54",
+      "agents": 54,
+      "scannerPatterns": 52,
+      "plugins": 9,
+      "skills": 19,
+      "specweaveVersion": "3.0.3"
+    },
+    "rootIndependentPublicCrawl": {
+      "passed": 120,
+      "failed": 0,
+      "source": "Root report"
+    }
+  },
+  "coverage": {
+    "enforcedExitCode": 1,
+    "globalLinesAndStatementsPct": 48.97,
+    "unchangedRequiredThresholdPct": 60,
+    "newGuardLinesPct": 81.13,
+    "newGuardBranchesPct": 86.95,
+    "gate": "FAIL_EXISTING_GLOBAL_DEFICIT",
+    "thresholdsAndExcludesWeakened": false
+  },
+  "pending": [
+    "Five first-party videos lack verified first-publication DateTime provenance, so VideoObject is intentionally omitted pending enrichment",
+    "Google Search Console recrawl and validation remain external",
+    "Default all-source coverage remains48.97% versus unchanged60% threshold; existing global deficit retained"
+  ],
+  "sanitization": "No credentials, mailbox HTML/tracking tokens, private publisher identifiers or raw Worker queue events in this receipt",
+  "gates": {
+    "sourceReviewCiUnitsBuild": "PASS",
+    "databaseIndexMigrationAndDefaultPlanner": "PASS",
+    "publicFunctionalMetadataDataPlaybackDesign": "PASS",
+    "freshAuthenticatedWorkerRolloutAndBindings": "PASS",
+    "authenticatedDefaultKvAbsenceHitProof": "PASS_OBSERVED_ABSENCE_WRITE_THROUGH_PARITY_NO_DIRECT_BRANCH_TELEMETRY",
+    "globalAllSourceCoverage60Pct": "FAIL_EXISTING_DEFICIT"
+  },
+  "historicalPerformanceRecordedAt": "2026-10-07T16:15:44.420177+00:00",
+  "postAuthentication": {
+    "recordedAt": "2026-10-07T18:42:41.547991+00:00",
+    "source": "4e4690cad68bc3b19e4fdf17ba774f4cd46f52ce",
+    "sourceCleanBeforeAndAfterBuild": true,
+    "unchangedSourceFullUnitEvidenceReused": true,
+    "canonicalWorkerBuild": "PASS",
+    "queueHealthBuild": "PASS",
+    "queueHealthDeploy": "PASS",
+    "rollout": {
+      "recordedAt": "2026-10-07T18:37:46.038214+00:00",
+      "source": "4e4690cad68bc3b19e4fdf17ba774f4cd46f52ce",
+      "sourceCleanAfterBuild": true,
+      "worker": "verified-skill-com",
+      "previousVersion": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+      "currentVersion": "230dca40-7d6b-462a-9ed2-48cda828f345",
+      "deployment": {
+        "id": "e92d344b-3892-49f8-83f2-03a02e6b1f5d",
+        "created_on": "2026-10-07T18:35:42.318639Z",
+        "source": "wrangler",
+        "strategy": "percentage",
+        "versions": [
+          {
+            "version_id": "230dca40-7d6b-462a-9ed2-48cda828f345",
+            "percentage": 100
+          }
+        ]
+      },
+      "bindingsCount": 66,
+      "consumerCount": 6,
+      "producerCount": 5,
+      "cronCount": 7,
+      "versionBindingsExactEquality": true,
+      "queueHealthBuild": "PASS",
+      "queueHealthDeploy": "PASS",
+      "canonicalDeployInitialExit": 1,
+      "canonicalDeployInitialFailure": "Post-deploy guard lacked isolated-checkout INTERNAL_BROADCAST_KEY; Worker deploy succeeded. Existing key loaded only into child process and exact guard reran exit0.",
+      "dbMigrationsRun": false,
+      "indexReapplied": false,
+      "files": [
+        "vskill-auth-final-postdeploy-inventory-first.json",
+        "vskill-auth-final-postdeploy-inventory.json",
+        "vskill-auth-final-queue-guard.log",
+        "vskill-auth-final-deploy.log",
+        "vskill-auth-final-final-inventory.json",
+        "vskill-auth-final-config-readback.json"
+      ],
+      "immutableOldNewVersionBindingsExactEquality": true,
+      "retainedLivePostDeploymentSnapshotsParity": {
+        "bindings": true,
+        "cronSchedules": true,
+        "queueInventory": true,
+        "consumerCount": true,
+        "producerCount": true
+      },
+      "initialPreDeploymentToolOutput": {
+        "bindingsCount": 66,
+        "consumerCount": 6,
+        "producerCount": 5,
+        "consumerNames": [
+          "discovery-resolve",
+          "eval-processing",
+          "scan-high",
+          "scan-normal",
+          "submission-dlq",
+          "submission-processing"
+        ],
+        "fullSnapshotRetained": false,
+        "note": "Initial API read ran before npm run deploy. Its JSON was overwritten by a later cron-shape normalization read; retained inventory-first is accurately labeled post-deployment."
+      },
+      "retainedLiveSnapshotTimes": {
+        "vskill-auth-final-postdeploy-inventory-first.json": "2026-10-07T18:36:37.000Z",
+        "vskill-auth-final-postdeploy-inventory.json": "2026-10-07T18:37:06.330Z",
+        "vskill-auth-final-final-inventory.json": "2026-10-07T18:46:14.474Z"
+      },
+      "currentActualConsumerProducerCronConfigMatchesByteIdenticalPreviousRuntimeConfig": true,
+      "actualConfigReadbackFile": "vskill-auth-final-config-readback.json",
+      "preDeploymentLiveConsumerSettingsSnapshotRetained": false
+    },
+    "defaultPublisherCache": {
+      "startedAt": "2026-10-07T18:38:46.846Z",
+      "finishedAt": "2026-10-07T18:38:57.461Z",
+      "authenticatedControlPlaneAbsenceImmediatelyBefore": true,
+      "absenceRecordedAt": "2026-10-07T18:38:47.318Z",
+      "absenceStatus": 404,
+      "exactKeyListAlsoEmptyBefore": true,
+      "exactKeyDeletionNeeded": false,
+      "firstResponse": {
+        "kind": "defaultFirstAfterAuthenticatedAbsence",
+        "path": "/publishers",
+        "recordedAt": "2026-10-07T18:38:53.237Z",
+        "status": 200,
+        "elapsedSeconds": 5.735,
+        "cfCacheStatus": null,
+        "cards": 20,
+        "total": 101704
+      },
+      "observedWriteThroughPopulatedCache": true,
+      "ssrApiCachePayloadParity": true,
+      "repeatedResponseSeconds": [
+        0.066,
+        0.148,
+        0.065
+      ],
+      "expirationUnchangedDuringRepeatedResponses": true,
+      "directHitMissBranchesObserved": false,
+      "eventualConsistencyCaveat": "Control-plane absence and subsequent populated payload parity are observed. HIT/MISS source branches have no telemetry and are not directly observed.",
+      "proofFile": "vskill-auth-final-default-cache.json"
+    },
+    "publicMatrix": {
+      "assertionsPassed": 31,
+      "maxResponseSeconds": 5.524,
+      "defaultTenResponseRangeSeconds": [
+        0.108,
+        1.853
+      ],
+      "publicTotal": 101704,
+      "matchingANTONTotal": 96,
+      "sortApiParitySearchPage2EmptyOutOfRange": "PASS",
+      "proofFile": "vskill-auth-final-public-matrix.json",
+      "requestReceiptsFile": "vskill-auth-final-http-receipts.jsonl"
+    },
+    "guaranteedUncacheableSorts": {
+      "limit": 21,
+      "sorts": [
+        "stars",
+        "skills",
+        "trust"
+      ],
+      "cardsPerResponse": 21,
+      "allPassed": true,
+      "responseSeconds": [
+        0.788,
+        0.627,
+        0.689
+      ],
+      "proofFile": "vskill-auth-final-uncached-sort-proof.json",
+      "cacheScopeClarification": "Publisher-KV-ineligible 21-row requests with fresh probe URLs; universal HTTP uncacheability is not asserted.",
+      "publisherKvBypassGuaranteedBySourcePredicate": true,
+      "freshUniqueSeoProbeUrls": true,
+      "apiResponseCacheControl": "public, max-age=120, s-maxage=600, stale-while-revalidate=900",
+      "httpCacheReuseScope": "Fresh nonce URLs reduce HTTP cache reuse; the API response permits HTTP caching."
+    },
+    "freshIndexReadback": {
+      "catalogOnly": true,
+      "oid": "199021",
+      "valid": true,
+      "ready": true,
+      "exactFinishedMigrationChecksum": "91bf3713936a26d24a93efb0b7d42262452b3c6f3ffd65b87bc8e8114385c401",
+      "proofFile": "vskill-auth-final-index-catalog.json"
+    },
+    "headlessProduction": {
+      "casesPassed": 6,
+      "workers": 1,
+      "retries": 0,
+      "explicitHeadless": true,
+      "PWDEBUG": "0",
+      "PLAYWRIGHT_HTML_OPEN": "never",
+      "htmlReporterOpen": "never",
+      "viewportWidths": [
+        1440,
+        390
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "nativeVideoPosterControlsPlayState": "PASS",
+      "overflowBrokenImagesAndMetadata": "PASS",
+      "publishedPluginCatalog9AndSkills19": "PASS",
+      "proofFile": "vskill-auth-final-production-headless.log",
+      "screenshotsDirectory": "vskill-auth-final-production-headless/",
+      "reportDirectory": "vskill-auth-final-production-headless-report/"
+    },
+    "publishedReleaseMetadata": {
+      "vskillVersion": "1.2.1",
+      "plugins": 9,
+      "skills": 19,
+      "sourcePublishedGitHead": "d91bec68776c96d095e7989cde66bcc5acdb1e54",
+      "visibleVersionCatalogAndFixedInstallCommand": "PASS",
+      "proofFile": "vskill-auth-final-release-metadata.json"
+    },
+    "postProofWorkerIdentityUnchanged": true,
+    "queueSettingsProvenanceClarification": "Immutable old/new Worker version bindings are exactly equal. Full retained live queue/settings snapshots are post-deployment; original pre-deploy tool output proves counts/names, but its JSON was overwritten by normalization. Current actual six consumer settings including DLQ mapping, five producers and seven crons match the byte-identical Wrangler config from prior deployed source07ede835 and current4e.",
+    "actualQueueConfigReadbackFile": "vskill-auth-final-config-readback.json"
+  }
+}

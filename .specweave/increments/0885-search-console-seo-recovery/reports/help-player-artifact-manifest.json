@@ -1,0 +1,180 @@
+{
+  "files": [
+    {
+      "file": "help-player-final-release-receipt.json",
+      "originalBytes": 6558,
+      "originalSha256": "585f55653e7eca262350dcb6806a96158341742239f1c9407d2834ce92581477",
+      "archivedSha256": "585f55653e7eca262350dcb6806a96158341742239f1c9407d2834ce92581477",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "easychamp-gap-audit-help-resolution.json",
+      "originalBytes": 2538,
+      "originalSha256": "e79f7e3ad6ee55cf22fb612963025dc2d2b1b007238931c889896735535542c8",
+      "archivedSha256": "e79f7e3ad6ee55cf22fb612963025dc2d2b1b007238931c889896735535542c8",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "landing-help-player-final-source-tests.json",
+      "originalBytes": 2994,
+      "originalSha256": "fccf87fbde2bbe501fcf7071e1727fa9d29c66545a64651f7a7b1367f2a30a73",
+      "archivedSha256": "fccf87fbde2bbe501fcf7071e1727fa9d29c66545a64651f7a7b1367f2a30a73",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "help-initial-players-public-final-proof.json",
+      "originalBytes": 32196,
+      "originalSha256": "9eb19b615590f28f3a1c5cfd13cb8ef2867af9ec8e44d2913d4ffd37d561df20",
+      "archivedSha256": "0824ace542fcf66e74c734031eb78eb3b733c01323e0811e11dc0787fd495fe6",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "help-isolated-playback-public-320.json",
+      "originalBytes": 802,
+      "originalSha256": "c375d8bcd8a3718da3bfeace3b5ef26214d36c388e4b88b3b64c01a856ded0a1",
+      "archivedSha256": "2ab76b36959f79f98c66075328b5ba2ef539d4ef453aaab6871da3ebceb87cb9",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "help-isolated-playback-public-390.json",
+      "originalBytes": 1093,
+      "originalSha256": "12b1f5ab41284a734d4d3df28703f823f1b7a6a30b4d26a326078f81d9051778",
+      "archivedSha256": "97211c287dc62ac184fed291ca9242f6824da1f1ca33d686b7eef1ace86b9a07",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "help-player-release-cluster-final.json",
+      "originalBytes": 2879,
+      "originalSha256": "d528646775ad3577ec0e10a84065a33b96732872d299713e7c0be7da8e5012ba",
+      "archivedSha256": "d528646775ad3577ec0e10a84065a33b96732872d299713e7c0be7da8e5012ba",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "help-player-release-gitops-proof.json",
+      "originalBytes": 443,
+      "originalSha256": "c59d57c223503f4e6dab839df5c07f4ae40ed866fb8d85a80f16004ba713c42c",
+      "archivedSha256": "4a6085575cfcfbb378dabe4bef288ca879ed83cfc846719bfa53b5f3e518e7f7",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "help-player-release-ci-proof.json",
+      "originalBytes": 7662,
+      "originalSha256": "91e4e42d48a4b926710a6b9fa155e6e57c68d3b5f77693bf50ed101901503f77",
+      "archivedSha256": "a0197aca2f7b272311b5211c942c33af27e2949895afb4f78bb710f541ff1524",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "landing-help-player-width-full-final-tests.log",
+      "originalBytes": 11072,
+      "originalSha256": "9cea83798a42e8d2535a9cd6a6fe04bb2072b31cc0b7f9cbed3d941de7ed3e25",
+      "archivedSha256": "55e503639900f753876a8d695c5075fdc6ea9727a8b32f48e658684c61407c48",
+      "method": "complete log; LF and trailing whitespace only"
+    },
+    {
+      "file": "landing-help-player-width-build.log",
+      "originalBytes": 11724,
+      "originalSha256": "42fde4706fe38f23a62d55fc99fc558d71761cbc6c8cd3432375437a2a225ab2",
+      "archivedSha256": "dd4196fb0bd648994104a0d7fd6e63a513712c9d1be0030ee908df9ed86132d4",
+      "method": "complete log; LF and trailing whitespace only"
+    },
+    {
+      "file": "landing-help-player-width-typecheck.log",
+      "originalBytes": 46,
+      "originalSha256": "03d7552a090fe7006bcc8064754779ca3f5b58fffd145e36d8bb7fce3d44ec21",
+      "archivedSha256": "8363b133f7c1f6b602b692e23b7b55662216ac1f6735ce5021e18e41bdf9b06a",
+      "method": "complete log; LF and trailing whitespace only"
+    },
+    {
+      "file": "landing-help-player-minviewport-coverage.log",
+      "originalBytes": 890,
+      "originalSha256": "12506e99b0dd34ec1747ea6e3eca29255c7c344dcc65f5f99df89821b925e401",
+      "archivedSha256": "7a6fce55793cf100f1d5685142b5d59797edc9d4505cd331ffe23043200a7064",
+      "method": "complete log; LF and trailing whitespace only"
+    },
+    {
+      "file": "help-initial-players-local-width-final-proof.json",
+      "originalBytes": 32797,
+      "originalSha256": "a3c7c94d5f675983764a7373b0e8060f70670de6c53f6ad76c4ee178528a8927",
+      "archivedSha256": "db0ede835c500e38bf4f9236057cccafdb684e66907da865942fbd1706304e9e",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "help-isolated-playback-local-320.json",
+      "originalBytes": 801,
+      "originalSha256": "047bab37a58c6040e5ce15a28a963e99f9696f1338d0f5f14334fd669f59742a",
+      "archivedSha256": "1670662ee85d79863f93762035c113f130ff831bcf8f837ecefd7b78e564f43f",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "help-isolated-playback-local-390.json",
+      "originalBytes": 945,
+      "originalSha256": "deffca14b7637b3c6ea11f5b551df6da69045ba60a9de8b0b62cb84f6413ba7f",
+      "archivedSha256": "a212b359adf03e6aeaf8fdd0e48b7685fc269dffb2beea5d384138e180eeb0da",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "landing-help-player-focused-tests.log",
+      "originalBytes": 1368,
+      "originalSha256": "90b836716ec5064c6708455675f134a9f3268e27d7b5ae963a1f9013f954833e",
+      "archivedSha256": "ba4a5c9df09ecea7b45d438e3bea402cf21e4df267f04d4fa6df6af171616439",
+      "method": "complete log; LF and trailing whitespace only"
+    },
+    {
+      "file": "help-initial-players-local-proof.json",
+      "originalBytes": 32666,
+      "originalSha256": "57babb66805ba21f7e638f6963b96d5cbb9f781a303c262bd4fbda3994325400",
+      "archivedSha256": "5cd6243a3d3226785248aa4ef7e98c3316b25724d80d6b997d67441f7a893047",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "help-initial-players-local-minviewport-proof.json",
+      "originalBytes": 6064,
+      "originalSha256": "28398d92f01250020933be5ef85c85af5f5fda52120812325019fff1fb7cf118",
+      "archivedSha256": "befe66263309de523c96ca3329203ae78e772f4b22df6c4c9f385f2aef355255",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "help-player-release-ci-watch.log",
+      "originalBytes": 17494,
+      "originalSha256": "033c1a07ea377335172eb5b4a795f50a744ff7b23864d480cb74c0bf9145d7ea",
+      "archivedSha256": "e9760a9e3a0d7c460625819fcbf06cb957a46840e8073d3e9b8ebdb3299c814a",
+      "method": "complete log; LF and trailing whitespace only"
+    },
+    {
+      "file": "help-player-release-cluster-pre.json",
+      "originalBytes": 3281,
+      "originalSha256": "de4bf65f6b63a5b354a70dec6be7ae6ab4d991746c0f38d3061adcc737e99932",
+      "archivedSha256": "de4bf65f6b63a5b354a70dec6be7ae6ab4d991746c0f38d3061adcc737e99932",
+      "method": "complete JSON; whitespace formatting only"
+    },
+    {
+      "file": "help-player-release-ci-unit-receipt.log",
+      "originalBytes": 10339714,
+      "originalSha256": "12f5aa36327cf42548217944ea4c6120056d2a4d157875fafc4aaf1930e7b706",
+      "archivedSha256": "14cbf96323727c641339e1644c78d82957083552e7556b606a4ccfeb30dcbef7",
+      "method": "last 300 lines for readable excerpt; complete unchanged gzip also archived"
+    },
+    {
+      "file": "help-isolated-playback-public-320.log",
+      "originalBytes": 582,
+      "originalSha256": "0065450d6123f4c836358cb688ebe1869bb730cffcd0061c7568e3eb5bac17fa",
+      "archivedSha256": "0065450d6123f4c836358cb688ebe1869bb730cffcd0061c7568e3eb5bac17fa",
+      "method": "complete log; LF and trailing whitespace only"
+    },
+    {
+      "file": "help-isolated-playback-public-390.log",
+      "originalBytes": 787,
+      "originalSha256": "9297f171095c6a57a12c92d7a0161c97197a573f88a39fdfa648198a7f582605",
+      "archivedSha256": "9297f171095c6a57a12c92d7a0161c97197a573f88a39fdfa648198a7f582605",
+      "method": "complete log; LF and trailing whitespace only"
+    },
+    {
+      "file": "landing-help-player-full-tests.log",
+      "originalBytes": 13782,
+      "originalSha256": "e9d8fe6c5c7c31122bf003ac5b3093c05e67b1832372d76f3dd83244765e8194",
+      "archivedSha256": "fb2fe61886321c49c8a3921b1764aed2f92131fc1cef395a1aea64bfbe7dadbc",
+      "method": "complete log; LF and trailing whitespace only"
+    }
+  ],
+  "note": "Receipts are sanitized native agent outputs; no raw mailbox content, credentials or tracking query values copied."
+}
