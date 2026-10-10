@@ -1,10 +1,10 @@
 {
   "id": "0861-skill-dedup-and-failure-notification",
   "title": "Skill Dedup Hardening + Failure Notification",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "created": "2026-05-31",
-  "updated": "2026-05-31",
+  "updated": "2026-10-10T22:51:51.490Z",
   "branch": "main",
   "owner": "anton",
   "repo": "vskill-platform",
@@ -33,9 +33,20 @@
     "total": 13,
     "completed": 1
   },
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2470",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2470",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-10T22:51:53.591Z"
+    }
+  },
   "priority": "medium",
-  "lastActivity": "2026-05-31",
+  "lastActivity": "2026-10-10T22:51:51.490Z",
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-10T22:51:51.488Z",
+  "closeReason": "All tasks were checked off by 2026-06-01 and nothing changed since; closed in the 2026-10-10 sweep without a fresh verify run",
+  "approvedAt": "2026-10-10T22:51:51.490Z"
 }
