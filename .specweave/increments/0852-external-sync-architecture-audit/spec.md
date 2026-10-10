@@ -1,10 +1,10 @@
 ---
 increment: 0852-external-sync-architecture-audit
-title: "External Sync Architecture Audit and Hardening"
+title: External Sync Architecture Audit and Hardening
 type: refactor
 priority: P1
-status: active
-created: 2026-05-25
+status: completed
+created: 2026-05-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

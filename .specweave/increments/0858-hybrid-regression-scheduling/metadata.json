@@ -2,7 +2,7 @@
   "id": "0858-hybrid-regression-scheduling",
   "name": "hybrid-regression-scheduling",
   "title": "Hybrid regression scheduling: GitHub cron backstop + Mac scheduled-task",
-  "status": "active",
+  "status": "completed",
   "created": "2026-05-30",
   "owner": "anton",
   "repo": "specweave-umb",
@@ -10,10 +10,22 @@
     "0853",
     "0857"
   ],
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2467",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2467",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-10T22:51:44.696Z"
+    }
+  },
   "priority": "medium",
-  "lastActivity": "2026-05-30",
+  "lastActivity": "2026-10-10T22:51:42.302Z",
   "testMode": "test-after",
   "coverageTarget": 80,
-  "type": "feature"
+  "type": "feature",
+  "updated": "2026-10-10T22:51:42.302Z",
+  "readyForReviewAt": "2026-10-10T22:51:42.302Z",
+  "closeReason": "All tasks were checked off by 2026-06-01 and nothing changed since; closed in the 2026-10-10 sweep without a fresh verify run",
+  "approvedAt": "2026-10-10T22:51:42.302Z"
 }

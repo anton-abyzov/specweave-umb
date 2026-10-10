@@ -1,0 +1,8 @@
+ Test Files  659 passed | 4 skipped (663)
+      Tests  6467 passed | 14 skipped (6481)
+Statements   : 63.57% ( 82677/130037 )
+Branches     : 80.43% ( 13985/17386 )
+Functions    : 80.72% ( 2249/2786 )
+Lines        : 63.57% ( 82677/130037 )
+exit=0
+source: vskill-platform main 7cd5ae79 (PR #98 merge), npx vitest run --coverage, standalone run 2026-10-10
