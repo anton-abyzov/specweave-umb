@@ -1,10 +1,10 @@
 {
   "id": "0713B-production-rollout",
-  "status": "backlog",
-  "type": "ops",
+  "status": "abandoned",
+  "type": "change-request",
   "priority": "P0",
   "created": "2026-04-25T23:59:00.000Z",
-  "lastActivity": "2026-04-25T23:59:00.000Z",
+  "lastActivity": "2026-10-11T04:36:27.126Z",
   "testMode": "manual",
   "coverageTarget": 0,
   "feature_id": null,
@@ -14,5 +14,8 @@
     "parallel": false
   },
   "parent": "0713-queue-pipeline-restoration",
-  "notes": "Operator-only execution split out from 0713. Code shipped in 0713; this increment tracks deploy + production verification + drain/backfill against prod DB. Anton-only — agents must not auto-execute."
+  "notes": "Operator-only execution split out from 0713. Code shipped in 0713; this increment tracks deploy + production verification + drain/backfill against prod DB. Anton-only — agents must not auto-execute.",
+  "updated": "2026-10-11T04:36:27.126Z",
+  "abandonedReason": "Superseded: April submission rollout steps overtaken by later queue work 0762, 0790, 0807 and 0001-queue-drain",
+  "abandonedAt": "2026-10-11T04:36:27.126Z"
 }

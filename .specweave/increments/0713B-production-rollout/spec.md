@@ -1,10 +1,10 @@
 ---
 increment: 0713B-production-rollout
-title: "Queue Pipeline Restoration (P0) — Production Rollout"
+title: Queue Pipeline Restoration (P0) — Production Rollout
 type: ops
 priority: P0
-status: backlog
-created: 2026-04-25
+status: abandoned
+created: 2026-04-25T00:00:00.000Z
 parent: 0713-queue-pipeline-restoration
 structure: user-stories
 test_mode: manual

@@ -1,10 +1,10 @@
 ---
 increment: 0726-skill-gen-vskill-integration
-title: "Rewire sw:skill-gen to prefer vskill skill new"
+title: 'Rewire sw:skill-gen to prefer vskill skill new'
 type: feature
 priority: P3
-status: planned
-created: 2026-04-25
+status: abandoned
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

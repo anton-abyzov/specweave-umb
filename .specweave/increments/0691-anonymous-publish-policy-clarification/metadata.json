@@ -1,13 +1,16 @@
 {
   "id": "0691-anonymous-publish-policy-clarification",
-  "status": "planned",
+  "status": "abandoned",
   "type": "change-request",
   "priority": "P3",
   "created": "2026-04-23T15:36:46.279Z",
-  "lastActivity": "2026-04-23T15:36:46.279Z",
+  "lastActivity": "2026-10-11T04:36:39.046Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "updated": "2026-10-11T04:36:39.046Z",
+  "abandonedReason": "Decided in code: publish.ts stores anonymous publishes with null attribution",
+  "abandonedAt": "2026-10-11T04:36:39.046Z"
 }

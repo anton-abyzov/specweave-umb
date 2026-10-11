@@ -1,10 +1,10 @@
 ---
 increment: 0690-triage-preexisting-vitest-failures
-title: "Triage 82 pre-existing vitest failures across 17 files"
+title: Triage 82 pre-existing vitest failures across 17 files
 type: bug
 priority: P2
-status: planned
-created: 2026-04-23
+status: abandoned
+created: 2026-04-23T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

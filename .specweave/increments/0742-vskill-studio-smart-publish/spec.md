@@ -1,10 +1,10 @@
 ---
 increment: 0742-vskill-studio-smart-publish
-title: "vskill Studio Smart Publish (MVP): dirty-state pill + AI-commit publish drawer"
+title: 'vskill Studio Smart Publish (MVP): dirty-state pill + AI-commit publish drawer'
 type: feature
 priority: P2
-status: planned
-created: 2026-04-26
+status: abandoned
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

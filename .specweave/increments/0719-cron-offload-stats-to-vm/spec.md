@@ -1,10 +1,10 @@
 ---
 increment: 0719-cron-offload-stats-to-vm
-title: "Cron Offload — Stats Compute to Hetzner VM"
+title: Cron Offload — Stats Compute to Hetzner VM
 type: feature
 priority: P1
-status: planned
-created: 2026-04-25
+status: abandoned
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

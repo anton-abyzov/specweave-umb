@@ -1,10 +1,10 @@
 {
   "id": "0719-cron-offload-stats-to-vm",
-  "status": "planned",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-25T03:46:32.991Z",
-  "lastActivity": "2026-04-25T03:53:50.954Z",
+  "lastActivity": "2026-10-11T04:36:30.068Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -30,5 +30,8 @@
       ],
       "changesCount": 0
     }
-  ]
+  ],
+  "updated": "2026-10-11T04:36:30.068Z",
+  "abandonedReason": "Superseded by 0768-cron-cpu-budget-split; VM side depended on decommissioned Neon",
+  "abandonedAt": "2026-10-11T04:36:30.068Z"
 }

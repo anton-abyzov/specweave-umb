@@ -1,13 +1,16 @@
 {
   "id": "0690-triage-preexisting-vitest-failures",
-  "status": "planned",
+  "status": "abandoned",
   "type": "bug",
   "priority": "P2",
   "created": "2026-04-23T15:36:38.894Z",
-  "lastActivity": "2026-04-23T15:36:38.894Z",
+  "lastActivity": "2026-10-11T04:35:54.861Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "updated": "2026-10-11T04:35:54.861Z",
+  "abandonedReason": "Obsolete: vskill-platform CI is green (6,280+ unit tests pass); the April 82-failure triage no longer applies",
+  "abandonedAt": "2026-10-11T04:35:54.861Z"
 }
