@@ -1,5 +1,5 @@
 {
-  "id": "0874",
+  "id": "0874-tiered-private-skills-paywall",
   "name": "tiered-private-skills-paywall",
   "title": "Tiered private skills — paid unlocks private + clear UI distinction",
   "status": "active",
@@ -18,5 +18,6 @@
   ],
   "summary": "Free tier = public skills only; paying via Stripe (Pro/Team) unlocks connecting private repos and publishing private skills. Adds a privacy chooser to the Skill Studio publish flow, surfaces a clear private/public visual distinction across Studio + platform UI, wires the upgrade paywall to a real Stripe checkout, and finishes the open ACs of increment 0848.",
   "updated": "2026-10-10T23:26:54.613Z",
-  "lastActivity": "2026-10-10T23:26:54.613Z"
+  "lastActivity": "2026-10-10T23:26:54.613Z",
+  "externalLinks": {}
 }
