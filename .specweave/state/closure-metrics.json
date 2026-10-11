@@ -942,6 +942,14 @@
       "success": true,
       "timestamp": "2026-10-10T22:55:13.686Z",
       "durationMs": 132
+    },
+    {
+      "tool": "ado",
+      "itemId": 2474,
+      "incrementId": "0849-sleek-repos-cabinet-dedupe",
+      "success": true,
+      "timestamp": "2026-10-11T04:39:27.395Z",
+      "durationMs": 266
     }
   ],
   "summary": {
@@ -972,20 +980,20 @@
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 28,
-      "successful": 28,
+      "totalAttempts": 29,
+      "successful": 29,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-10-10T22:55:13.686Z",
-      "avgDurationMs": 195.14285714285714,
+      "lastSuccess": "2026-10-11T04:39:27.395Z",
+      "avgDurationMs": 197.58620689655172,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 117,
-      "successful": 111,
+      "totalAttempts": 118,
+      "successful": 112,
       "failed": 6,
-      "successRate": 0.9487179487179487
+      "successRate": 0.9491525423728814
     },
-    "lastUpdated": "2026-10-10T22:55:13.686Z"
+    "lastUpdated": "2026-10-11T04:39:27.397Z"
   }
 }
