@@ -54,3 +54,18 @@ Screenshots and scripts: `scratchpad/e2e/0874-acceptance/` in the session scratc
 - Production `wrangler.jsonc` sets `VSKILL_FREE_PRIVATE_SKILL_LIMIT=50`, so free tenants would get 50 private skills, not the code default of 0.
 - The billing PlanCard Pro copy hard-codes "Hosted private publishing is not available yet" and does not follow the gate.
 - After an immediate test cancellation (`customer.subscription.deleted`), the Subscription row is CANCELED but keeps `currentPeriodEnd` 2026-11-11, and `/api/v1/billing/quota` still reports `pro`. This needs a decision: is it intended grace, or should it end at `ended_at`?
+
+## Addendum, 2026-10-11: fixes merged and shipped
+
+Steps 1 and 3 failed as shipped and pass with these fixes, which are now merged, deployed and released:
+
+| Fix | Merge SHA | Ships in |
+|---|---|---|
+| vskill #165, Overview tab Publish passes skill identity (step 1) | `218febc0b6b1af99e096b593b2a8106f8d52f4eb` | vskill 1.2.6 (npm `latest`, tag `v1.2.6` at `2f7d7d48`) |
+| vskill-platform #105, billing PlanCard free CTA follows the gate (step 3) | `58b00f6ddfd55f6910a94f0b322c69c41ec18fcf` | platform deploy, Worker version `56fe12a9-630f-459e-8e41-657f53b0801b` (git `a0bb32a3`) |
+| vskill-platform #107, plan, pricing, orgs seats CTA, integrations and TenantCapBanner copy follow the gate (also closes the "PlanCard Pro copy hard-codes" gap above) | `32fed139b798c14f1bc5ce92deb3c3eb65bb7d1e` | same deploy |
+| vskill-platform #106, paid tier ends at Stripe `ended_at` on immediate cancel (the cancellation question above: a bug, not grace) | `a0bb32a35c0aeb21fab157fcd2e945bd5faa31a4` | same deploy |
+
+CI was green on each PR before merge. The deploy's rollback version is `df92d6a2-6c62-45bb-99cc-0793551653b8` (git `fc48d4a2`).
+
+Step 8's private publish failure is out of 0874 scope (0874 Out: opening the launch gate). It and the other open-gate gaps are recorded as ACs in increment 0896 (umbrella commit `2b4af337`).
