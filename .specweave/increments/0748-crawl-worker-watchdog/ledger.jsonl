@@ -1,0 +1,4 @@
+{"t":"*","e":"note","by":"claude@antons-macbook-m4max","at":"2026-10-11T04:55:02.509Z","note":"Still open 2026-10-11: T-010 manual alert simulation with a bogus IP (sends a real alert email, needs Anton's OK); T-014 queue-health smoke against the live fleet; T-015 full vitest run (platform main passes 6521 tests today, record it when closing); T-016 closure."}
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-11T04:55:11.228Z","note":"session ac3b010d-5ca3-4d8f-8256-14b4ffe54eb8"}
+{"t":"T-015","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-11T04:55:11.229Z"}
+{"t":"T-015","e":"release","by":"claude@antons-macbook-m4max","at":"2026-10-11T04:56:25.882Z","note":"platform node_modules being reinstalled by another session; full vitest passed earlier (6521 tests) but rerun for evidence failed on missing tinypool"}
