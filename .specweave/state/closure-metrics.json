@@ -934,6 +934,14 @@
       "success": true,
       "timestamp": "2026-10-10T22:52:01.702Z",
       "durationMs": 136
+    },
+    {
+      "tool": "ado",
+      "itemId": 2473,
+      "incrementId": "0887-studio-upstream-leftovers-cleanup",
+      "success": true,
+      "timestamp": "2026-10-10T22:55:13.686Z",
+      "durationMs": 132
     }
   ],
   "summary": {
@@ -964,20 +972,20 @@
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 27,
-      "successful": 27,
+      "totalAttempts": 28,
+      "successful": 28,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-10-10T22:52:01.702Z",
-      "avgDurationMs": 197.4814814814815,
+      "lastSuccess": "2026-10-10T22:55:13.686Z",
+      "avgDurationMs": 195.14285714285714,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 116,
-      "successful": 110,
+      "totalAttempts": 117,
+      "successful": 111,
       "failed": 6,
-      "successRate": 0.9482758620689655
+      "successRate": 0.9487179487179487
     },
-    "lastUpdated": "2026-10-10T22:52:01.702Z"
+    "lastUpdated": "2026-10-10T22:55:13.686Z"
   }
 }
