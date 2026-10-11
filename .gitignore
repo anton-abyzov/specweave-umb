@@ -5,7 +5,11 @@
 # They are user-personal and should live globally, not in the umbrella repo.
 # Child repos under repositories/ manage their own AI configs separately.
 .agent/
-.agents/
+.agents/*
+!.agents/skills/
+.agents/skills/*
+# SpecWeave skills are committed so cloud sessions and every tool load them
+!.agents/skills/sw-*/
 .aider/
 .codex/
 .cursor/
@@ -132,7 +136,10 @@ post-history/
 
 # Local dev artifacts
 *.code-workspace
-.claude/
+.claude/*
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/sw-*/
 .playwright-mcp/
 
 # AI tool config dirs (personal cross-tool skill replication, not project code)
@@ -141,7 +148,6 @@ post-history/
 # When `npx skills add` is run here it scatters skills/ subdirs into many of these
 # per its supported-agents matrix — pre-ignoring keeps test runs from dirtying git.
 .agent/
-.agents/
 .aider/
 .codex/
 .continue/
