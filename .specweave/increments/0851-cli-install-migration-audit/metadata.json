@@ -1,16 +1,83 @@
 {
   "id": "0851-cli-install-migration-audit",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-05-25T06:30:43.176Z",
-  "lastActivity": "2026-05-25T06:30:43.176Z",
+  "lastActivity": "2026-10-11T04:41:42.002Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {},
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 2012,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/2012",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 2013,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/2013",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 2014,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/2014",
+          "status": "active"
+        },
+        "US-004": {
+          "issueNumber": 2015,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/2015",
+          "status": "active"
+        }
+      },
+      "milestone": 281,
+      "syncedAt": "2026-10-11T04:42:11.491Z"
+    },
+    "ado": {
+      "featureId": "2475",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2475",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-11T04:42:18.615Z"
+    }
+  },
   "planning": {
     "parallel": false
+  },
+  "updated": "2026-10-11T04:41:42.002Z",
+  "readyForReviewAt": "2026-10-11T04:41:41.995Z",
+  "closeReason": "10/10 tasks done; specweave PR #1879 and vskill ebe83da merged and released; T-010 proved by a fresh isolated install of npm specweave 3.0.12 running init and get",
+  "approvedAt": "2026-10-11T04:41:42.002Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 2012,
+        "url": "https://github.com/anton-abyzov/specweave/issues/2012",
+        "createdAt": "2026-10-11T04:41:49.258Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 2013,
+        "url": "https://github.com/anton-abyzov/specweave/issues/2013",
+        "createdAt": "2026-10-11T04:41:56.779Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 2014,
+        "url": "https://github.com/anton-abyzov/specweave/issues/2014",
+        "createdAt": "2026-10-11T04:42:04.256Z"
+      },
+      {
+        "userStory": "US-004",
+        "number": 2015,
+        "url": "https://github.com/anton-abyzov/specweave/issues/2015",
+        "createdAt": "2026-10-11T04:42:11.491Z"
+      }
+    ],
+    "lastSync": "2026-10-11T04:42:11.491Z"
   }
 }

@@ -950,6 +950,14 @@
       "success": true,
       "timestamp": "2026-10-11T04:39:27.395Z",
       "durationMs": 266
+    },
+    {
+      "tool": "ado",
+      "itemId": 2475,
+      "incrementId": "0851-cli-install-migration-audit",
+      "success": true,
+      "timestamp": "2026-10-11T04:42:19.539Z",
+      "durationMs": 138
     }
   ],
   "summary": {
@@ -980,20 +988,20 @@
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 29,
-      "successful": 29,
+      "totalAttempts": 30,
+      "successful": 30,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-10-11T04:39:27.395Z",
-      "avgDurationMs": 197.58620689655172,
+      "lastSuccess": "2026-10-11T04:42:19.539Z",
+      "avgDurationMs": 195.6,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 118,
-      "successful": 112,
+      "totalAttempts": 119,
+      "successful": 113,
       "failed": 6,
-      "successRate": 0.9491525423728814
+      "successRate": 0.9495798319327731
     },
-    "lastUpdated": "2026-10-11T04:39:27.397Z"
+    "lastUpdated": "2026-10-11T04:42:19.540Z"
   }
 }
