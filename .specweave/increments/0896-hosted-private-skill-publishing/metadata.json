@@ -1,0 +1,15 @@
+{
+  "id": "0896-hosted-private-skill-publishing",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-10-11T04:58:46.283Z",
+  "updated": "2026-10-11T04:58:46.283Z",
+  "lastActivity": "2026-10-11T04:58:46.285Z",
+  "title": "Hosted private skill publishing",
+  "project": "specweave-umb",
+  "parent": "0847-skill-install-publish-scale",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
