@@ -223,3 +223,11 @@ scripts/.cf-monitor.env
 # (documents attack vectors + internal infra IDs; keep local or in a private repo)
 ENTERPRISE-PRIVATE-SKILLS-TEST-REPORT.md
 *-TEST-REPORT.md
+
+# Machine-local or personal records; keep out of this PUBLIC repo
+.metadata_never_index
+.specweave/handoffs/
+.specweave/increments/*/handoff.diff
+.specweave/reports/twitter-replies/
+.specweave/reports/seo-measured-data.md
+.specweave/reports/**/*.png
