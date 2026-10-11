@@ -1,8 +1,9 @@
 ---
 increment: 0791-home-queue-stat-alignment
-title: "Align homepage hero counters with /queue stats (single KV source)"
+title: Align homepage hero counters with /queue stats (single KV source)
 type: bug
 priority: P2
+status: completed
 ---
 
 # 0791: Align homepage hero counters with /queue stats
