@@ -1,14 +1,24 @@
 {
   "id": "0894-consolidate-agent-skills-across-tools",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-11T04:33:51.553Z",
-  "updated": "2026-10-11T05:42:19.080Z",
-  "lastActivity": "2026-10-11T05:42:19.080Z",
+  "updated": "2026-10-11T11:54:59.774Z",
+  "lastActivity": "2026-10-11T11:54:59.774Z",
   "title": "Consolidate agent skills across tools",
   "project": "specweave-umb",
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2480",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2480",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-11T11:55:05.102Z"
+    }
+  },
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-11T11:54:59.773Z",
+  "approvedAt": "2026-10-11T11:54:59.774Z"
 }
