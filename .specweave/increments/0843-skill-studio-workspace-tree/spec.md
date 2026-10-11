@@ -3,7 +3,7 @@ increment: 0843-skill-studio-workspace-tree
 title: Skill Studio Workspace Tree — GitHub-mapped Sidebar with Login
 type: feature
 priority: P1
-status: paused
+status: backlog
 created: 2026-05-10T00:00:00.000Z
 structure: user-stories
 test_mode: TDD

@@ -1,10 +1,10 @@
 {
   "id": "0843-skill-studio-workspace-tree",
-  "status": "paused",
+  "status": "backlog",
   "type": "feature",
   "priority": "P1",
   "created": "2026-05-10T04:16:00.737Z",
-  "lastActivity": "2026-05-14T06:27:11.730Z",
+  "lastActivity": "2026-10-11T04:37:29.000Z",
   "activatedAt": "2026-05-10T04:40:00.000Z",
   "testMode": "TDD",
   "coverageTarget": 90,
@@ -73,6 +73,6 @@
       "changesCount": 0
     }
   ],
-  "pausedReason": "Paused to execute approved /goal 0847-skill-install-publish-scale",
-  "pausedAt": "2026-05-14T06:27:11.730Z"
+  "backlogReason": "Deferred to backlog: 0847 is done; resume T-004..T-015 only when the workspace tree is wanted",
+  "updated": "2026-10-11T04:37:29.000Z"
 }

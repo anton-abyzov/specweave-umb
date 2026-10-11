@@ -1,10 +1,10 @@
 {
   "id": "0842-workos-sso-enterprise",
-  "status": "planned",
+  "status": "backlog",
   "type": "feature",
   "priority": "P4",
   "created": "2026-05-09T18:33:00.000Z",
-  "lastActivity": "2026-05-10T02:27:16.897Z",
+  "lastActivity": "2026-10-11T04:37:29.000Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -53,5 +53,6 @@
     }
   ],
   "externalLinks": {},
-  "updated": "2026-05-10T02:27:16.897Z"
+  "updated": "2026-10-11T04:37:29.000Z",
+  "backlogReason": "Deferred to backlog: no enterprise SSO demand yet (0847 release report: 42 accounts, SSO/SCIM unimplemented)"
 }

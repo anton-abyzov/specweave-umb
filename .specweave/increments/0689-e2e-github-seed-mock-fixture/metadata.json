@@ -1,13 +1,15 @@
 {
   "id": "0689-e2e-github-seed-mock-fixture",
-  "status": "planned",
+  "status": "backlog",
   "type": "bug",
   "priority": "P3",
   "created": "2026-04-23T15:36:33.611Z",
-  "lastActivity": "2026-04-23T15:36:33.611Z",
+  "lastActivity": "2026-10-11T04:37:29.000Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "backlogReason": "Deferred to backlog: never planned; skip guard still in skill-versioning e2e, re-plan when needed",
+  "updated": "2026-10-11T04:37:29.000Z"
 }

@@ -3,7 +3,7 @@ increment: 0689-e2e-github-seed-mock-fixture
 title: "Replace GitHub seed repo with local fixture for E2E versioning flow"
 type: bug
 priority: P3
-status: planned
+status: backlog
 created: 2026-04-23
 structure: user-stories
 test_mode: TDD
