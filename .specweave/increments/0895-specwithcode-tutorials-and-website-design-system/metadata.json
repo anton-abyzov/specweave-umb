@@ -1,0 +1,14 @@
+{
+  "id": "0895-specwithcode-tutorials-and-website-design-system",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-11T04:55:20.576Z",
+  "updated": "2026-10-11T05:40:40.040Z",
+  "lastActivity": "2026-10-11T05:40:40.040Z",
+  "title": "SpecWithCode tutorials and website design system",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
