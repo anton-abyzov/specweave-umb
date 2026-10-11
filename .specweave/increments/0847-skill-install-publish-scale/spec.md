@@ -1,10 +1,10 @@
 ---
 increment: 0847-skill-install-publish-scale
-title: "Skill Install and Publish Scale - Plugin and GitHub Repository Flows"
+title: Skill Install and Publish Scale - Plugin and GitHub Repository Flows
 type: feature
 priority: P1
-status: active
-created: 2026-05-14
+status: completed
+created: 2026-05-14T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
@@ -108,7 +108,7 @@ Out of scope:
 - [x] **AC-US3-03**: Publishing rejects non-monotonic versions, missing versions when required, malformed semver, and changed post-scan content with clear states.
 - [x] **AC-US3-04**: Publishing a skill with multiple files records a stable manifest and diff summary; rerunning publish on the same commit is idempotent.
 - [x] **AC-US3-05**: Platform search, skill detail, versions, diff, update check, and install tracking endpoints all surface the newly published version.
-- [ ] **AC-US3-06**: Public and private publish sandboxes both pass, with private access using scoped GitHub credentials only.
+- **AC-US3-06** (moved 2026-10-11 to 0896-hosted-private-skill-publishing as AC-03; hosted private publishing is not implemented and stays behind HOSTED_PRIVATE_PUBLISHING_AVAILABLE=false): Public and private publish sandboxes both pass, with private access using scoped GitHub credentials only.
 
 ---
 
@@ -157,7 +157,7 @@ Out of scope:
 
 **Acceptance Criteria**:
 - [x] **AC-US6-01**: Full validation runs `npm run build`, `npx vitest run`, `npx playwright test`, desktop sidecar/build checks, platform build/tests, and targeted private/public sandbox suites.
-- [ ] **AC-US6-02**: The release script bumps versions only after tests pass and updates package metadata consistently.
+- [x] **AC-US6-02**: The release script bumps versions only after tests pass and updates package metadata consistently.
 - [x] **AC-US6-03**: The newly built `vskill` package is installed on the local machine and smoke-tested with public GitHub, private GitHub, plugin, and ChatGPT/OpenAI export flows.
 - [x] **AC-US6-04**: Any failed release candidate is followed by a fix and a new version candidate rather than reusing the same broken version.
 - [x] **AC-US6-05**: Reports are written only under `.specweave/increments/0847-skill-install-publish-scale/reports/` and contain no secret values.
@@ -197,3 +197,76 @@ Tests may use `GITHUB_TOKEN`, `GH_TOKEN`, `VSKILL_TEST_GITHUB_PAT`, `NPM_TOKEN`,
 - `vskill` desktop app: `src-tauri`, sidecar, eval UI install modal, update and publish UI surfaces.
 - `vskill-platform` submission and publish pipeline: `src/lib/submission/*`, `src/lib/scanner.ts`, API routes under `src/app/api/v1/submissions`, `admin/submissions`, and `skills`.
 - Local secrets: repo `.env*`, vskill-platform `.env*`, and Obsidian credential notes. Values are never copied into increment artifacts.
+
+## October 2026 audit acceptance
+
+Requested 2026-10-09: audit current enterprise pricing/auth/storage, supported models, testcase fidelity, real creation/testing/publication, catalog health/adoption and integration with SpecWeave Studio. Current upstream sources take precedence over historical checkbox evidence. Preserve other active Studio/crawler owners; no pricing changes or enterprise rollout on this audit.
+
+- [x] **AC-AUDIT-01**: Verified current model IDs are selectable with provider-compatible requests and testcase round-trips preserve headings/newlines.
+- [x] **AC-AUDIT-02**: Sign-out clears both platform and GitHub credentials including legacy fallbacks; fallback key files are owner-only. Optional usage telemetry requires consent and excludes search text. Tenant publication preserves authentication, owner/admin authorization and private-submission boundaries.
+- [x] **AC-AUDIT-03**: Three useful authored example skills have reproducible tests, public source receipts and truthful registry queue/publication status.
+- [x] **AC-AUDIT-04**: Enterprise, production queue/crawler, actual adoption and Studio integration conclusions cite fresh evidence and distinguish unsupported claims.
+
+### T-032 Require write scope for repository disconnect
+- AC: AC-AUDIT-04 | Files: repositories/anton-abyzov/vskill-platform/src/app/api/v1/account/repos/[id]/route.ts, repositories/anton-abyzov/vskill-platform/src/__tests__/account/repos-disconnect.test.ts | Test: cd /Users/antonabyzov/Projects/github/vskill-platform-enterprise-20261009 && PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never npm test -- src/__tests__/account/repos-disconnect.test.ts
+
+Reject read-only or missing-scope API tokens before repository reads/mutations, while retaining browser/GitHub auth behavior and write-token owner isolation. No production writes/deployment.
+
+### T-033 Honor personal Pro for personally owned private installations
+- AC: AC-AUDIT-04 | Files: repositories/anton-abyzov/vskill-platform/src/lib/tenant-subscription.ts, repositories/anton-abyzov/vskill-platform/src/lib/__tests__/tenant-subscription.test.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/__tests__/route.private-paywall.test.ts | Test: cd /Users/antonabyzov/Projects/github/vskill-platform-enterprise-20261009 && PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never npm test -- tenant-subscription route.private-paywall tenant-caps
+
+Resolve paid personal entitlements using the GitHub personal installation owner identity, never an organization member or installer. Preserve tenant Team billing and canceled/expired handling; prove the actual submission route uses the real lookup. No billing changes, migrations or deployment.
+
+### T-035: Integrate and deploy reviewed platform hardening
+- AC: AC-AUDIT-04 | Files: reports/studio-audit-20261009/platform-release/, repositories/anton-abyzov/vskill-platform/ | Test: cd /Users/antonabyzov/Projects/github/vskill-platform-enterprise-20261009 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH node scripts/verify-queue-health-deploy.mjs
+
+User authorized complete/push/deploy/test/verify on 2026-10-09. Merge reviewed platform PR91/92 through normal checks, build/deploy through existing pipeline, record exact source/artifact and live route health. Coordinate crawl-worker/VM ownership with crawler lane; no price/subscription changes, no broad cache-warm, no migration. Cleanup only after parent preserves evidence and authorizes it.
+
+## October 9 release authorization
+
+Anton explicitly requested applying all reviewed changes, pushing, deploying, testing, verifying and cleaning this job's worktrees. This supersedes the earlier draft-only release hold. Existing unrelated owners and their worktrees remain protected. Include the reproduced Team checkout and tenant-production publication repairs; pricing copy must describe shipped local versus hosted features without promising unimplemented SSO. Keep current billing amounts and customer subscriptions unchanged.
+
+### T-039: Require write scope for authenticated submission mutations
+- AC: AC-AUDIT-04 | Files: repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/submission-list-route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/__tests__/route.auth-degrade.test.ts | Test: cd /Users/antonabyzov/Projects/github/vskill-platform-enterprise-20261009 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never npm test -- src/app/api/v1/submissions/__tests__/route.auth-degrade.test.ts
+
+Reject valid read-only/empty/missing-scope vskill API tokens before authenticated submission writes; preserve cookie/GitHub auth and anonymous public submissions. Coordinate with root tenant route forwarding; no billing mutations.
+
+### T-040: Bound publisher statistics to the indexed public author
+- AC: AC-AUDIT-04 | Files: repositories/anton-abyzov/vskill-platform/src/lib/data.ts, repositories/anton-abyzov/vskill-platform/src/lib/__tests__/publisher-public-scope.test.ts, repositories/anton-abyzov/vskill-platform/src/lib/__tests__/star-dedup.test.ts | Test: cd /Users/antonabyzov/Projects/github/vskill-scanner-health-20261009 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm test -- publisher-public-scope star-dedup
+
+Use the existing lower(author) partial index for public, nondeprecated publisher statistics. Preserve tenant filtering, bound parameters, rounding, taint and deduplicated stars. Production EXPLAIN showed old ILIKE scan cost219038 versus indexed equality1146; no schema change.
+
+### T-041: Refuse private publishing and unsaved drafts in the public pipeline
+- AC: AC-AUDIT-04 | Files: repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/__tests__/route.privacy-gate.test.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/__tests__/route.private-paywall.test.ts, repositories/anton-abyzov/vskill-platform/src/lib/hosted-publishing.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/billing/checkout/session/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/billing/checkout/session/__tests__/route.test.ts | Test: cd /Users/antonabyzov/Projects/github/vskill-platform-enterprise-20261009 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never npm test -- src/app/api/v1/submissions/__tests__
+
+The current Submission persistence drops tenant/privacy and public publisher writes PUBLIC. Reject private intent before billing, repository or queue writes; keep tenant membership errors, block false draft success, preserve public submissions. Trace private storage capability without migrations.
+
+### T-044: Align account billing and pricing availability copy
+- AC: AC-AUDIT-04 | Files: repositories/anton-abyzov/vskill-platform/src/app/pricing/page.tsx, repositories/anton-abyzov/vskill-platform/src/__tests__/billing/pricing-page.test.tsx, repositories/anton-abyzov/vskill-platform/src/components/billing/PlanCard.tsx, repositories/anton-abyzov/vskill-platform/src/components/billing/SeatsWidget.tsx, repositories/anton-abyzov/vskill-platform/src/components/billing/__tests__/PlanCard.test.tsx, repositories/anton-abyzov/vskill-platform/src/components/billing/__tests__/SeatsWidget.test.tsx | Test: cd /Users/antonabyzov/Projects/github/vskill-scanner-health-20261009 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm test -- pricing-page PlanCard SeatsWidget
+
+Remove residual hero/account promises that payment unlocks unavailable hosted private storage or SSO. Preserve existing subscription and seat management, offer waitlist for free accounts.
+
+### T-042: Keep public queue scans from reading private repository content
+- AC: AC-AUDIT-02 | Files: repositories/anton-abyzov/vskill-platform/src/lib/scanner.ts, repositories/anton-abyzov/vskill-platform/src/lib/__tests__/scanner-public-only.test.ts, repositories/anton-abyzov/vskill-platform/src/lib/queue/process-submission.ts, repositories/anton-abyzov/vskill-platform/src/lib/queue/__tests__/process-submission.test.ts, repositories/anton-abyzov/vskill-platform/src/lib/queue/__tests__/process-submission.decision.test.ts, repositories/anton-abyzov/vskill-platform/src/lib/queue/__tests__/skillmd-kv-store.test.ts, repositories/anton-abyzov/vskill-platform/src/lib/queue/multi-skill-expand.ts, repositories/anton-abyzov/vskill-platform/src/lib/queue/__tests__/multi-skill-expand.test.ts | Test: cd /Users/antonabyzov/Projects/github/vskill-scanner-health-20261009 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm test -- scanner-public-only scanner-fetch-repo-files process-submission multi-skill-expand --maxWorkers=2
+
+Confirm explicit public repository metadata before queue scan, including trusted vendors; never use platform credentials for public content reads or multi-skill expansion. Refuse private and retry unknown metadata.
+
+### T-045: Enforce write scope on account and billing mutations
+- AC: AC-AUDIT-04 | Files: repositories/anton-abyzov/vskill-platform/src/lib/auth/require-write-scope.ts, repositories/anton-abyzov/vskill-platform/src/__tests__/account/write-scope.test.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/account/profile/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/account/notifications/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/account/repos/connect/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/account/repos/github/callback/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/account/repos/[id]/resync/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/billing/checkout/session/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/billing/portal/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/billing/seats/sync/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/billing/quota/report/route.ts | Test: cd /Users/antonabyzov/Projects/github/vskill-platform-enterprise-20261009 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never npm test -- src/__tests__/account/ src/app/api/v1/billing
+
+Deny valid read-only/missing-scope tokens before known account, repo-connect/resync and billing mutations. Preserve browser/GitHub identities and write tokens. No blanket HTTP-method gate; read-only routes and existing cookie-only dangerous operations remain intact. No production account or billing changes beyond temporary verification token creation/revocation.
+
+### T-043: Keep scanner health responsive and reject invalid scan success
+- AC: AC-AUDIT-04 | Files: repositories/anton-abyzov/vskill-platform/scanner-worker/docker-compose.yml, repositories/anton-abyzov/vskill-platform/scanner-worker/scanner.js, repositories/anton-abyzov/vskill-platform/scanner-worker/server.js, repositories/anton-abyzov/vskill-platform/scanner-worker/scanner.test.js, repositories/anton-abyzov/vskill-platform/scanner-worker/responsiveness.test.js, repositories/anton-abyzov/vskill-platform/scanner-worker/fixtures/vulnerable.js | Test: cd /Users/antonabyzov/Projects/github/vskill-scanner-health-20261009 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH node --test scanner-worker/scanner.test.js scanner-worker/responsiveness.test.js
+
+Replace blocking child execution with awaited processes, keep one scan active, bound callbacks, preserve file-backed output and timeout findings, and refuse missing/invalid reports instead of PASS. Deploy exact reviewed source only in a verified idle window with recoverable state.
+
+### T-046: Reject Worker artifacts with missing OpenNext runtime patches
+- AC: AC-AUDIT-04 | Files: repositories/anton-abyzov/vskill-platform/scripts/verify-worker-runtime-build.mjs, repositories/anton-abyzov/vskill-platform/scripts/verify-worker-runtime-build.test.mjs, repositories/anton-abyzov/vskill-platform/package.json | Test: cd /Users/antonabyzov/Projects/github/vskill-platform-enterprise-20261009 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH node --test scripts/verify-worker-runtime-build.test.mjs
+
+A production candidate built through an external node_modules symlink omitted OpenNext NextServer patches and returned HTTP500 for every route. The candidate was rolled back to the previous verified release. Add a build-time contract guard that rejects the retained broken artifact and accepts the working artifact; verify rebuilt local-dependency artifacts in local workerd before another deployment. Keep privacy/auth behavior unchanged. Preserve failed build evidence and rollback identity.
+
+### T-047: Prevent stale cached release metadata from regressing Worker builds
+- AC: AC-AUDIT-01, AC-AUDIT-04 | Files: repositories/anton-abyzov/vskill-platform/scripts/sync-agents-json.cjs, repositories/anton-abyzov/vskill-platform/src/lib/__tests__/generated-counts.test.ts | Test: cd /Users/antonabyzov/Projects/github/vskill-platform-enterprise-20261009 && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm test -- src/lib/__tests__/generated-counts.test.ts
+
+A concurrent build of current main regressed committed vskill1.2.2 catalog metadata to1.2.1 because a24hour build cache won over the npm registry. Query current published stable metadata on every build; retain an explicit offline fallback without downgrading newer committed metadata or claiming an unpublished release. Test registry freshness, failure fallback and downgrade protection. Do not modify registry releases.
