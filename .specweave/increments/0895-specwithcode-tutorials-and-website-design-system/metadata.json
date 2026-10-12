@@ -1,14 +1,24 @@
 {
   "id": "0895-specwithcode-tutorials-and-website-design-system",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-11T04:55:20.576Z",
-  "updated": "2026-10-11T10:21:40.142Z",
-  "lastActivity": "2026-10-11T10:21:40.142Z",
+  "updated": "2026-10-12T02:36:19.388Z",
+  "lastActivity": "2026-10-12T02:36:19.388Z",
   "title": "SpecWithCode tutorials and website design system",
   "project": "specweave-umb",
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2482",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2482",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-12T02:36:26.089Z"
+    }
+  },
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-12T02:36:19.387Z",
+  "approvedAt": "2026-10-12T02:36:19.388Z"
 }

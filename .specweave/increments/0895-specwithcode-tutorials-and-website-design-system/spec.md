@@ -27,6 +27,7 @@ Rejected: recording against v0.2.4 now (every app shot would be re-shot after th
 ## Open questions
 
 - none. Anton approved the recommended defaults on 2026-10-11: pilot-access wording until a public install path exists, orange palette, Anton's cloned voice, six agents (Claude Code, Codex, OpenCode, Antigravity, Grok, Cursor).
+- Later on 2026-10-11 Anton confirmed: SpecWithCode is free in early access (no "pilot" wording in copy or videos), and the Cursor episode stays "coming soon" on /tutorials until a Cursor Pro account exists (the free plan is refused; see video/tutorials/PIPELINE.md). AC-06 is met by the five episodes that can be recorded; the Cursor script and terminal captures stay in the repo for that later render.
 
 ## Tasks
 
