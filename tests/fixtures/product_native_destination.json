@@ -1,0 +1,1416 @@
+{
+  "synthetic": true,
+  "purpose": "INVENTED UNIT TEST DATA, NOT OPERATIONAL EVIDENCE",
+  "plan": {
+    "version": 1,
+    "mode": "destination",
+    "host": "m1",
+    "environmentId": "environment",
+    "operationId": "12345678-1234-4123-8123-123456789012",
+    "projectId": "machine-handoff:12345678-1234-4123-8123-123456789012",
+    "coordinatorId": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+    "workspaceRoot": "/private/proof/workspace",
+    "nestedRoot": "/private/proof/workspace/repositories/owner/code",
+    "originalShas": {
+      "root": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "nested": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "paths": {
+      "implementation": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs",
+      "test": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs",
+      "readme": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/README.md",
+      "continuation": "/private/proof/workspace/.specweave/increments/proof/product-continuation.md",
+      "context": "/private/proof/context.json"
+    },
+    "frozen": {
+      "implementation": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a",
+      "test": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a",
+      "readme": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a",
+      "continuation": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a",
+      "context": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+    },
+    "nodePath": "/private/node22/bin/node",
+    "expectedTestCount": 2,
+    "contextRequired": [
+      "SOURCE-MARKER-0907",
+      "Decision: preserve stable ordering"
+    ],
+    "profile": {
+      "coordinator": {
+        "instanceId": "codex",
+        "model": "gpt-6.1-sol"
+      },
+      "worker": {
+        "instanceId": "codex",
+        "model": "gpt-6.1-sol"
+      }
+    },
+    "branch": "codex/0907-product-jobweave-m1",
+    "commitMessage": "0907: Complete jobweave handoff diagnostic",
+    "receiveReceiptPath": "/private/proof/receive.json",
+    "priorProjectionPath": "/private/proof/prior.json",
+    "startMessageId": "start",
+    "timeoutMs": 1000
+  },
+  "receipt": {
+    "version": 1,
+    "mode": "destination",
+    "host": "m1",
+    "projectId": "machine-handoff:12345678-1234-4123-8123-123456789012",
+    "coordinatorId": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+    "operationId": "12345678-1234-4123-8123-123456789012",
+    "status": "passed",
+    "baseline": {
+      "files": {
+        "implementation": {
+          "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "test": {
+          "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "readme": {
+          "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/README.md",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "continuation": {
+          "path": "/private/proof/workspace/.specweave/increments/proof/product-continuation.md",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "context": {
+          "path": "/private/proof/context.json",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        }
+      },
+      "repos": {
+        "root": {
+          "path": "/private/proof/workspace",
+          "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "branch": "starting",
+          "status": "",
+          "configSha256": "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2"
+        },
+        "nested": {
+          "path": "/private/proof/workspace/repositories/owner/code",
+          "sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "branch": "starting",
+          "status": "",
+          "configSha256": "233562de1a0288b139c4fa40b7d189f806e906eeb048517aeb67f34ac0e2faf1"
+        }
+      }
+    },
+    "after": {
+      "files": {
+        "implementation": {
+          "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs",
+          "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        },
+        "test": {
+          "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "readme": {
+          "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/README.md",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "continuation": {
+          "path": "/private/proof/workspace/.specweave/increments/proof/product-continuation.md",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "context": {
+          "path": "/private/proof/context.json",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        }
+      },
+      "repos": {
+        "root": {
+          "path": "/private/proof/workspace",
+          "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "branch": "starting",
+          "status": "",
+          "configSha256": "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2"
+        },
+        "nested": {
+          "path": "/private/proof/workspace/repositories/owner/code",
+          "sha": "cccccccccccccccccccccccccccccccccccccccc",
+          "branch": "codex/0907-product-jobweave-m1",
+          "status": "",
+          "configSha256": "233562de1a0288b139c4fa40b7d189f806e906eeb048517aeb67f34ac0e2faf1"
+        }
+      }
+    },
+    "prior": null,
+    "parent": {
+      "thread": {
+        "id": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+        "projectId": "machine-handoff:12345678-1234-4123-8123-123456789012",
+        "runtimeMode": "approval-required",
+        "modelSelection": {
+          "instanceId": "codex",
+          "model": "gpt-6.1-sol"
+        }
+      },
+      "runs": [
+        {
+          "id": "first",
+          "status": "completed",
+          "userMessageId": "start"
+        },
+        {
+          "id": "wake",
+          "status": "completed",
+          "userMessageId": "wake-msg"
+        }
+      ],
+      "providerTurns": [],
+      "attempts": [],
+      "turnItems": [
+        {
+          "id": "context-read",
+          "threadId": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+          "runId": "first",
+          "providerTurnId": "turn-1",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/context.json'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "startedAt": "2026-10-13T12:00:01Z",
+          "completedAt": "2026-10-13T12:00:02Z",
+          "updatedAt": "2026-10-13T12:00:02Z"
+        },
+        {
+          "id": "delegate",
+          "type": "dynamic_tool",
+          "threadId": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+          "runId": "first",
+          "providerTurnId": "turn-1",
+          "status": "completed",
+          "toolName": "studio-code.delegate_task",
+          "input": {
+            "task": "/private/proof/workspace/repositories/owner/code\n/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs\n/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs\nSOURCE-MARKER-0907\nDecision: preserve stable ordering",
+            "target": {
+              "providerInstanceId": "codex",
+              "model": "gpt-6.1-sol"
+            },
+            "title": "bounded source",
+            "mode": "async",
+            "clientRequestId": "fresh",
+            "runtimeMode": "approval-required",
+            "machine": "local"
+          },
+          "startedAt": "2026-10-13T12:00:00Z"
+        },
+        {
+          "id": "approval",
+          "type": "approval_request",
+          "requestId": "request",
+          "requestKind": "mcp-elicitation",
+          "providerTurnId": "turn-1",
+          "runId": "first",
+          "status": "completed",
+          "appName": "studio-code",
+          "prompt": "Allow the studio-code MCP server to run tool \"delegate_task\"?"
+        },
+        {
+          "id": "relay",
+          "type": "assistant_message",
+          "runId": "wake",
+          "status": "completed",
+          "text": "SOURCE-MARKER-0907\nDecision: preserve stable ordering\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\ncccccccccccccccccccccccccccccccccccccccc studio://thread/worker"
+        }
+      ],
+      "nodes": [],
+      "subagents": [
+        {
+          "id": "task",
+          "origin": "app_owned",
+          "childThreadId": "worker",
+          "runId": "first",
+          "status": "completed",
+          "completedAt": "2026-10-13T12:01:00Z",
+          "completionDelivery": {
+            "state": "delivered",
+            "observedByRunId": "wake"
+          }
+        }
+      ],
+      "runtimeRequests": [
+        {
+          "id": "request",
+          "providerTurnId": "turn-1",
+          "kind": "mcp-elicitation",
+          "status": "resolved",
+          "responseCapability": {
+            "type": "live",
+            "providerSessionId": "session"
+          },
+          "nativeRequestRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "native"
+          },
+          "decision": "accept"
+        }
+      ],
+      "messages": [
+        {
+          "id": "start",
+          "runId": "first",
+          "text": "Continue handoff 12345678-1234-4123-8123-123456789012. /private/proof/context.json /private/proof/workspace",
+          "createdBy": "user",
+          "creationSource": "server"
+        },
+        {
+          "id": "wake-msg",
+          "runId": "wake",
+          "text": "Completed worker",
+          "createdBy": "agent",
+          "creationSource": "server",
+          "createdAt": "2026-10-13T12:02:00Z",
+          "delegatedCompletion": {
+            "parentRunId": "first",
+            "taskIds": [
+              "task"
+            ]
+          }
+        }
+      ]
+    },
+    "worker": {
+      "thread": {
+        "id": "worker",
+        "projectId": "machine-handoff:12345678-1234-4123-8123-123456789012",
+        "runtimeMode": "approval-required",
+        "modelSelection": {
+          "instanceId": "codex",
+          "model": "gpt-6.1-sol"
+        }
+      },
+      "runs": [
+        {
+          "id": "child-run",
+          "status": "completed"
+        }
+      ],
+      "providerTurns": [],
+      "attempts": [],
+      "turnItems": [
+        {
+          "id": "cmd-0",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace' 'rev-parse' '--show-toplevel' 'HEAD'",
+          "output": "/private/proof/workspace\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:04Z",
+          "startedAt": "2026-10-13T12:00:03Z",
+          "completedAt": "2026-10-13T12:00:04Z"
+        },
+        {
+          "id": "cmd-1",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace/repositories/owner/code' 'rev-parse' '--show-toplevel' 'HEAD'",
+          "output": "/private/proof/workspace/repositories/owner/code\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:06Z",
+          "startedAt": "2026-10-13T12:00:05Z",
+          "completedAt": "2026-10-13T12:00:06Z"
+        },
+        {
+          "id": "cmd-2",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:08Z",
+          "startedAt": "2026-10-13T12:00:07Z",
+          "completedAt": "2026-10-13T12:00:08Z"
+        },
+        {
+          "id": "cmd-3",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:10Z",
+          "startedAt": "2026-10-13T12:00:09Z",
+          "completedAt": "2026-10-13T12:00:10Z"
+        },
+        {
+          "id": "cmd-4",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/README.md'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:12Z",
+          "startedAt": "2026-10-13T12:00:11Z",
+          "completedAt": "2026-10-13T12:00:12Z"
+        },
+        {
+          "id": "cmd-5",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/.specweave/increments/proof/product-continuation.md'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:14Z",
+          "startedAt": "2026-10-13T12:00:13Z",
+          "completedAt": "2026-10-13T12:00:14Z"
+        },
+        {
+          "id": "cmd-6",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/context.json'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:16Z",
+          "startedAt": "2026-10-13T12:00:15Z",
+          "completedAt": "2026-10-13T12:00:16Z"
+        },
+        {
+          "id": "cmd-8",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace/repositories/owner/code' 'rev-parse' 'HEAD'",
+          "output": "cccccccccccccccccccccccccccccccccccccccc\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:28Z",
+          "startedAt": "2026-10-13T12:00:27Z",
+          "completedAt": "2026-10-13T12:00:28Z"
+        },
+        {
+          "id": "answer",
+          "type": "assistant_message",
+          "runId": "child-run",
+          "status": "completed",
+          "text": "SOURCE-MARKER-0907\nDecision: preserve stable ordering\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\ncccccccccccccccccccccccccccccccccccccccc"
+        },
+        {
+          "id": "branch",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "nativeItemRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "branch"
+          },
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '-c' 'core.hooksPath=/dev/null' '-C' '/private/proof/workspace/repositories/owner/code' 'switch' '-c' 'codex/0907-product-jobweave-m1'",
+          "output": "done\n",
+          "exitCode": 0,
+          "startedAt": "2026-10-13T12:00:15Z",
+          "completedAt": "2026-10-13T12:00:16Z",
+          "updatedAt": "2026-10-13T12:00:16Z"
+        },
+        {
+          "id": "patch",
+          "type": "file_change",
+          "fileName": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs",
+          "changes": [
+            {
+              "operation": "update",
+              "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs"
+            }
+          ],
+          "diffStr": "@@ -1 +1 @@\n-old\n+new\n",
+          "nativeItemRef": {
+            "driver": "codex",
+            "nativeId": "native",
+            "strength": "strong"
+          },
+          "providerTurnId": "child-turn",
+          "runId": "child-run",
+          "status": "completed",
+          "threadId": "worker",
+          "startedAt": "2026-10-13T12:00:17Z",
+          "completedAt": "2026-10-13T12:00:18Z",
+          "updatedAt": "2026-10-13T12:00:18Z"
+        },
+        {
+          "id": "cmd-7",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'cd' '/private/proof/workspace/repositories/owner/code' && '/private/node22/bin/node' '--test' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs'",
+          "output": "TAP version 13\nok 1 - complete\nok 2 - invariant\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 1\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:21Z",
+          "startedAt": "2026-10-13T12:00:20Z",
+          "completedAt": "2026-10-13T12:00:21Z"
+        },
+        {
+          "id": "add",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "nativeItemRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "add"
+          },
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '-C' '/private/proof/workspace/repositories/owner/code' 'add' '--' 'scripts/diagnostics/handoff/proof/case.mjs'",
+          "output": "done\n",
+          "exitCode": 0,
+          "startedAt": "2026-10-13T12:00:23Z",
+          "completedAt": "2026-10-13T12:00:24Z",
+          "updatedAt": "2026-10-13T12:00:24Z"
+        },
+        {
+          "id": "commit",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "nativeItemRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "commit"
+          },
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '-c' 'core.hooksPath=/dev/null' '-c' 'commit.gpgSign=false' '-C' '/private/proof/workspace/repositories/owner/code' 'commit' '-m' '0907: Complete jobweave handoff diagnostic' '--' 'scripts/diagnostics/handoff/proof/case.mjs'",
+          "output": "[codex/0907-product-jobweave-m1 ccccccc] 0907: Complete jobweave handoff diagnostic\n 1 file changed\n",
+          "exitCode": 0,
+          "startedAt": "2026-10-13T12:00:25Z",
+          "completedAt": "2026-10-13T12:00:26Z",
+          "updatedAt": "2026-10-13T12:00:26Z"
+        },
+        {
+          "id": "approval-branch",
+          "type": "approval_request",
+          "requestId": "req-branch",
+          "requestKind": "command",
+          "providerTurnId": "child-turn",
+          "runId": "child-run",
+          "status": "completed",
+          "prompt": "'/Library/Developer/CommandLineTools/usr/bin/git' '-c' 'core.hooksPath=/dev/null' '-C' '/private/proof/workspace/repositories/owner/code' 'switch' '-c' 'codex/0907-product-jobweave-m1'"
+        },
+        {
+          "id": "approval-patch",
+          "type": "approval_request",
+          "requestId": "req-patch",
+          "requestKind": "file-change",
+          "providerTurnId": "child-turn",
+          "runId": "child-run",
+          "status": "completed",
+          "prompt": "Allow exact patch?",
+          "grantRoot": null
+        },
+        {
+          "id": "approval-add",
+          "type": "approval_request",
+          "requestId": "req-add",
+          "requestKind": "command",
+          "providerTurnId": "child-turn",
+          "runId": "child-run",
+          "status": "completed",
+          "prompt": "'/Library/Developer/CommandLineTools/usr/bin/git' '-C' '/private/proof/workspace/repositories/owner/code' 'add' '--' 'scripts/diagnostics/handoff/proof/case.mjs'"
+        },
+        {
+          "id": "approval-commit",
+          "type": "approval_request",
+          "requestId": "req-commit",
+          "requestKind": "command",
+          "providerTurnId": "child-turn",
+          "runId": "child-run",
+          "status": "completed",
+          "prompt": "'/Library/Developer/CommandLineTools/usr/bin/git' '-c' 'core.hooksPath=/dev/null' '-c' 'commit.gpgSign=false' '-C' '/private/proof/workspace/repositories/owner/code' 'commit' '-m' '0907: Complete jobweave handoff diagnostic' '--' 'scripts/diagnostics/handoff/proof/case.mjs'"
+        }
+      ],
+      "nodes": [],
+      "subagents": [],
+      "runtimeRequests": [
+        {
+          "id": "req-branch",
+          "providerTurnId": "child-turn",
+          "kind": "command",
+          "status": "resolved",
+          "decision": "accept",
+          "responseCapability": {
+            "type": "live",
+            "providerSessionId": "session"
+          },
+          "nativeRequestRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "branch"
+          }
+        },
+        {
+          "id": "req-patch",
+          "providerTurnId": "child-turn",
+          "kind": "file-change",
+          "status": "resolved",
+          "decision": "accept",
+          "responseCapability": {
+            "type": "live",
+            "providerSessionId": "session"
+          },
+          "nativeRequestRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "native"
+          }
+        },
+        {
+          "id": "req-add",
+          "providerTurnId": "child-turn",
+          "kind": "command",
+          "status": "resolved",
+          "decision": "accept",
+          "responseCapability": {
+            "type": "live",
+            "providerSessionId": "session"
+          },
+          "nativeRequestRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "add"
+          }
+        },
+        {
+          "id": "req-commit",
+          "providerTurnId": "child-turn",
+          "kind": "command",
+          "status": "resolved",
+          "decision": "accept",
+          "responseCapability": {
+            "type": "live",
+            "providerSessionId": "session"
+          },
+          "nativeRequestRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "commit"
+          }
+        }
+      ],
+      "messages": []
+    },
+    "rawParent": {
+      "thread": {
+        "id": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+        "projectId": "machine-handoff:12345678-1234-4123-8123-123456789012",
+        "runtimeMode": "approval-required",
+        "modelSelection": {
+          "instanceId": "codex",
+          "model": "gpt-6.1-sol"
+        }
+      },
+      "runs": [
+        {
+          "id": "first",
+          "status": "completed",
+          "userMessageId": "start"
+        },
+        {
+          "id": "wake",
+          "status": "completed",
+          "userMessageId": "wake-msg"
+        }
+      ],
+      "providerTurns": [],
+      "attempts": [],
+      "turnItems": [
+        {
+          "id": "context-read",
+          "threadId": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+          "runId": "first",
+          "providerTurnId": "turn-1",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/context.json'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "startedAt": "2026-10-13T12:00:01Z",
+          "completedAt": "2026-10-13T12:00:02Z",
+          "updatedAt": "2026-10-13T12:00:02Z"
+        },
+        {
+          "id": "delegate",
+          "type": "dynamic_tool",
+          "threadId": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+          "runId": "first",
+          "providerTurnId": "turn-1",
+          "status": "completed",
+          "toolName": "studio-code.delegate_task",
+          "input": {
+            "task": "/private/proof/workspace/repositories/owner/code\n/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs\n/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs\nSOURCE-MARKER-0907\nDecision: preserve stable ordering",
+            "target": {
+              "providerInstanceId": "codex",
+              "model": "gpt-6.1-sol"
+            },
+            "title": "bounded source",
+            "mode": "async",
+            "clientRequestId": "fresh",
+            "runtimeMode": "approval-required",
+            "machine": "local"
+          },
+          "startedAt": "2026-10-13T12:00:00Z"
+        },
+        {
+          "id": "approval",
+          "type": "approval_request",
+          "requestId": "request",
+          "requestKind": "mcp-elicitation",
+          "providerTurnId": "turn-1",
+          "runId": "first",
+          "status": "completed",
+          "appName": "studio-code",
+          "prompt": "Allow the studio-code MCP server to run tool \"delegate_task\"?"
+        },
+        {
+          "id": "relay",
+          "type": "assistant_message",
+          "runId": "wake",
+          "status": "completed",
+          "text": "SOURCE-MARKER-0907\nDecision: preserve stable ordering\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\ncccccccccccccccccccccccccccccccccccccccc studio://thread/worker"
+        }
+      ],
+      "nodes": [],
+      "subagents": [
+        {
+          "id": "task",
+          "origin": "app_owned",
+          "childThreadId": "worker",
+          "runId": "first",
+          "status": "completed",
+          "completedAt": "2026-10-13T12:01:00Z",
+          "completionDelivery": {
+            "state": "delivered",
+            "observedByRunId": "wake"
+          }
+        }
+      ],
+      "runtimeRequests": [
+        {
+          "id": "request",
+          "providerTurnId": "turn-1",
+          "kind": "mcp-elicitation",
+          "status": "resolved",
+          "responseCapability": {
+            "type": "live",
+            "providerSessionId": "session"
+          },
+          "nativeRequestRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "native"
+          },
+          "decision": "accept"
+        }
+      ],
+      "messages": [
+        {
+          "id": "start",
+          "runId": "first",
+          "text": "Continue handoff 12345678-1234-4123-8123-123456789012. /private/proof/context.json /private/proof/workspace",
+          "createdBy": "user",
+          "creationSource": "server"
+        },
+        {
+          "id": "wake-msg",
+          "runId": "wake",
+          "text": "Completed worker",
+          "createdBy": "agent",
+          "creationSource": "server",
+          "createdAt": "2026-10-13T12:02:00Z",
+          "delegatedCompletion": {
+            "parentRunId": "first",
+            "taskIds": [
+              "task"
+            ]
+          }
+        }
+      ]
+    },
+    "approvals": [
+      {
+        "threadId": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+        "requestId": "request",
+        "itemId": "delegate",
+        "kind": "mcp",
+        "payloadSha256": "2f6e73d08562c54b8036a2f1f8bd364e8ab6ef5bbc9ad065cdb3f9fd48d9864d",
+        "payload": {
+          "threadId": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+          "request": {
+            "id": "request",
+            "providerTurnId": "turn-1",
+            "kind": "mcp-elicitation",
+            "status": "pending",
+            "responseCapability": {
+              "type": "live",
+              "providerSessionId": "session"
+            },
+            "nativeRequestRef": {
+              "driver": "codex",
+              "strength": "strong",
+              "nativeId": "native"
+            }
+          },
+          "approval": {
+            "id": "approval",
+            "type": "approval_request",
+            "requestId": "request",
+            "requestKind": "mcp-elicitation",
+            "providerTurnId": "turn-1",
+            "runId": "first",
+            "status": "waiting",
+            "appName": "studio-code",
+            "prompt": "Allow the studio-code MCP server to run tool \"delegate_task\"?"
+          },
+          "action": {
+            "id": "delegate",
+            "type": "dynamic_tool",
+            "threadId": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+            "runId": "first",
+            "providerTurnId": "turn-1",
+            "status": "waiting",
+            "toolName": "studio-code.delegate_task",
+            "input": {
+              "task": "/private/proof/workspace/repositories/owner/code\n/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs\n/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs\nSOURCE-MARKER-0907\nDecision: preserve stable ordering",
+              "target": {
+                "providerInstanceId": "codex",
+                "model": "gpt-6.1-sol"
+              },
+              "title": "bounded source",
+              "mode": "async",
+              "clientRequestId": "fresh",
+              "runtimeMode": "approval-required",
+              "machine": "local"
+            },
+            "startedAt": "2026-10-13T12:00:00Z"
+          }
+        },
+        "decision": "accept"
+      },
+      {
+        "threadId": "worker",
+        "requestId": "req-branch",
+        "itemId": "branch",
+        "kind": "branch",
+        "payloadSha256": "3193c8f9a274f2b0fad8f09f41c51f880ad59c3d81ddbe6ab39db46430af7f51",
+        "payload": {
+          "threadId": "worker",
+          "request": {
+            "id": "req-branch",
+            "providerTurnId": "child-turn",
+            "kind": "command",
+            "status": "pending",
+            "responseCapability": {
+              "type": "live",
+              "providerSessionId": "session"
+            },
+            "nativeRequestRef": {
+              "driver": "codex",
+              "strength": "strong",
+              "nativeId": "branch"
+            }
+          },
+          "approval": {
+            "id": "approval-branch",
+            "type": "approval_request",
+            "requestId": "req-branch",
+            "requestKind": "command",
+            "providerTurnId": "child-turn",
+            "runId": "child-run",
+            "status": "waiting",
+            "prompt": "'/Library/Developer/CommandLineTools/usr/bin/git' '-c' 'core.hooksPath=/dev/null' '-C' '/private/proof/workspace/repositories/owner/code' 'switch' '-c' 'codex/0907-product-jobweave-m1'"
+          },
+          "action": {
+            "id": "branch",
+            "threadId": "worker",
+            "runId": "child-run",
+            "providerTurnId": "child-turn",
+            "nativeItemRef": {
+              "driver": "codex",
+              "strength": "strong",
+              "nativeId": "branch"
+            },
+            "type": "command_execution",
+            "status": "waiting",
+            "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '-c' 'core.hooksPath=/dev/null' '-C' '/private/proof/workspace/repositories/owner/code' 'switch' '-c' 'codex/0907-product-jobweave-m1'",
+            "output": "done\n",
+            "exitCode": 0,
+            "startedAt": "2026-10-13T12:00:15Z",
+            "completedAt": "2026-10-13T12:00:16Z",
+            "updatedAt": "2026-10-13T12:00:16Z"
+          }
+        },
+        "decision": "accept"
+      },
+      {
+        "threadId": "worker",
+        "requestId": "req-patch",
+        "itemId": "patch",
+        "kind": "file-change",
+        "payloadSha256": "7de0f7575040a811ad1e226b10b3019eff9ccd6ae425e71344e83ecea06b514a",
+        "payload": {
+          "threadId": "worker",
+          "request": {
+            "id": "req-patch",
+            "providerTurnId": "child-turn",
+            "kind": "file-change",
+            "status": "pending",
+            "responseCapability": {
+              "type": "live",
+              "providerSessionId": "session"
+            },
+            "nativeRequestRef": {
+              "driver": "codex",
+              "strength": "strong",
+              "nativeId": "native"
+            }
+          },
+          "approval": {
+            "id": "approval-patch",
+            "type": "approval_request",
+            "requestId": "req-patch",
+            "requestKind": "file-change",
+            "providerTurnId": "child-turn",
+            "runId": "child-run",
+            "status": "waiting",
+            "prompt": "Allow exact patch?",
+            "grantRoot": null
+          },
+          "action": {
+            "id": "patch",
+            "type": "file_change",
+            "fileName": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs",
+            "changes": [
+              {
+                "operation": "update",
+                "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs"
+              }
+            ],
+            "diffStr": "@@ -1 +1 @@\n-old\n+new\n",
+            "nativeItemRef": {
+              "driver": "codex",
+              "nativeId": "native",
+              "strength": "strong"
+            },
+            "providerTurnId": "child-turn",
+            "runId": "child-run",
+            "status": "waiting",
+            "threadId": "worker",
+            "startedAt": "2026-10-13T12:00:17Z",
+            "completedAt": "2026-10-13T12:00:18Z",
+            "updatedAt": "2026-10-13T12:00:18Z"
+          }
+        },
+        "decision": "accept"
+      },
+      {
+        "threadId": "worker",
+        "requestId": "req-add",
+        "itemId": "add",
+        "kind": "add",
+        "payloadSha256": "98fe95608651ddc684149f4a50c1d2787a77b892c094cec568cb97235ee8cc08",
+        "payload": {
+          "threadId": "worker",
+          "request": {
+            "id": "req-add",
+            "providerTurnId": "child-turn",
+            "kind": "command",
+            "status": "pending",
+            "responseCapability": {
+              "type": "live",
+              "providerSessionId": "session"
+            },
+            "nativeRequestRef": {
+              "driver": "codex",
+              "strength": "strong",
+              "nativeId": "add"
+            }
+          },
+          "approval": {
+            "id": "approval-add",
+            "type": "approval_request",
+            "requestId": "req-add",
+            "requestKind": "command",
+            "providerTurnId": "child-turn",
+            "runId": "child-run",
+            "status": "waiting",
+            "prompt": "'/Library/Developer/CommandLineTools/usr/bin/git' '-C' '/private/proof/workspace/repositories/owner/code' 'add' '--' 'scripts/diagnostics/handoff/proof/case.mjs'"
+          },
+          "action": {
+            "id": "add",
+            "threadId": "worker",
+            "runId": "child-run",
+            "providerTurnId": "child-turn",
+            "nativeItemRef": {
+              "driver": "codex",
+              "strength": "strong",
+              "nativeId": "add"
+            },
+            "type": "command_execution",
+            "status": "waiting",
+            "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '-C' '/private/proof/workspace/repositories/owner/code' 'add' '--' 'scripts/diagnostics/handoff/proof/case.mjs'",
+            "output": "done\n",
+            "exitCode": 0,
+            "startedAt": "2026-10-13T12:00:23Z",
+            "completedAt": "2026-10-13T12:00:24Z",
+            "updatedAt": "2026-10-13T12:00:24Z"
+          }
+        },
+        "decision": "accept"
+      },
+      {
+        "threadId": "worker",
+        "requestId": "req-commit",
+        "itemId": "commit",
+        "kind": "commit",
+        "payloadSha256": "5ab0337837dcfd301db8500e6db12ab7711ccb88bdc9e3506f38105f4a42ee4d",
+        "payload": {
+          "threadId": "worker",
+          "request": {
+            "id": "req-commit",
+            "providerTurnId": "child-turn",
+            "kind": "command",
+            "status": "pending",
+            "responseCapability": {
+              "type": "live",
+              "providerSessionId": "session"
+            },
+            "nativeRequestRef": {
+              "driver": "codex",
+              "strength": "strong",
+              "nativeId": "commit"
+            }
+          },
+          "approval": {
+            "id": "approval-commit",
+            "type": "approval_request",
+            "requestId": "req-commit",
+            "requestKind": "command",
+            "providerTurnId": "child-turn",
+            "runId": "child-run",
+            "status": "waiting",
+            "prompt": "'/Library/Developer/CommandLineTools/usr/bin/git' '-c' 'core.hooksPath=/dev/null' '-c' 'commit.gpgSign=false' '-C' '/private/proof/workspace/repositories/owner/code' 'commit' '-m' '0907: Complete jobweave handoff diagnostic' '--' 'scripts/diagnostics/handoff/proof/case.mjs'"
+          },
+          "action": {
+            "id": "commit",
+            "threadId": "worker",
+            "runId": "child-run",
+            "providerTurnId": "child-turn",
+            "nativeItemRef": {
+              "driver": "codex",
+              "strength": "strong",
+              "nativeId": "commit"
+            },
+            "type": "command_execution",
+            "status": "waiting",
+            "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '-c' 'core.hooksPath=/dev/null' '-c' 'commit.gpgSign=false' '-C' '/private/proof/workspace/repositories/owner/code' 'commit' '-m' '0907: Complete jobweave handoff diagnostic' '--' 'scripts/diagnostics/handoff/proof/case.mjs'",
+            "output": "[codex/0907-product-jobweave-m1 ccccccc] 0907: Complete jobweave handoff diagnostic\n 1 file changed\n",
+            "exitCode": 0,
+            "startedAt": "2026-10-13T12:00:25Z",
+            "completedAt": "2026-10-13T12:00:26Z",
+            "updatedAt": "2026-10-13T12:00:26Z"
+          }
+        },
+        "decision": "accept"
+      }
+    ],
+    "outputs": [
+      {
+        "threadId": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+        "itemId": "context-read",
+        "runId": "first",
+        "role": "coordinator",
+        "kind": "read-context",
+        "input": "'/bin/cat' '/private/proof/context.json'",
+        "response": {
+          "id": "context-read",
+          "threadId": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+          "runId": "first",
+          "providerTurnId": "turn-1",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/context.json'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "startedAt": "2026-10-13T12:00:01Z",
+          "completedAt": "2026-10-13T12:00:02Z",
+          "updatedAt": "2026-10-13T12:00:02Z"
+        },
+        "sha256": "b852ed1e440bf9780b85b4b5c6d5752bed4b550389a467c11665fe069737bce4"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-0",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "git-root-head",
+        "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace' 'rev-parse' '--show-toplevel' 'HEAD'",
+        "response": {
+          "id": "cmd-0",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace' 'rev-parse' '--show-toplevel' 'HEAD'",
+          "output": "/private/proof/workspace\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:04Z",
+          "startedAt": "2026-10-13T12:00:03Z",
+          "completedAt": "2026-10-13T12:00:04Z"
+        },
+        "sha256": "d3788d8d9d8c7f76de2dbb7e760826eea2a47a3f4f87b806e357f2f02e494105"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-1",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "git-nested-head",
+        "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace/repositories/owner/code' 'rev-parse' '--show-toplevel' 'HEAD'",
+        "response": {
+          "id": "cmd-1",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace/repositories/owner/code' 'rev-parse' '--show-toplevel' 'HEAD'",
+          "output": "/private/proof/workspace/repositories/owner/code\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:06Z",
+          "startedAt": "2026-10-13T12:00:05Z",
+          "completedAt": "2026-10-13T12:00:06Z"
+        },
+        "sha256": "68afb39806bdf27fc476a199b9606dadae5b8a17ac8c356b71b9f6e2ff3c60fb"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-2",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "read-implementation",
+        "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs'",
+        "response": {
+          "id": "cmd-2",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:08Z",
+          "startedAt": "2026-10-13T12:00:07Z",
+          "completedAt": "2026-10-13T12:00:08Z"
+        },
+        "sha256": "8b73439234243ae4caf72bf75ab7e13297e339163d43e7362ee43ee7d544c055"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-3",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "read-test",
+        "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs'",
+        "response": {
+          "id": "cmd-3",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:10Z",
+          "startedAt": "2026-10-13T12:00:09Z",
+          "completedAt": "2026-10-13T12:00:10Z"
+        },
+        "sha256": "41dd4ca48a89f5b26ec49f6dfba542067d6065c269c12a280b3552260924a275"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-4",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "read-readme",
+        "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/README.md'",
+        "response": {
+          "id": "cmd-4",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/README.md'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:12Z",
+          "startedAt": "2026-10-13T12:00:11Z",
+          "completedAt": "2026-10-13T12:00:12Z"
+        },
+        "sha256": "377b38db1c22eb9575dd38b0171232c9f73bcab41159aeaa86fed1f2f9bdbfac"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-5",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "read-continuation",
+        "input": "'/bin/cat' '/private/proof/workspace/.specweave/increments/proof/product-continuation.md'",
+        "response": {
+          "id": "cmd-5",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/.specweave/increments/proof/product-continuation.md'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:14Z",
+          "startedAt": "2026-10-13T12:00:13Z",
+          "completedAt": "2026-10-13T12:00:14Z"
+        },
+        "sha256": "b239011b6774aeefa7f31c9cd1544a22bf685561fb3cc43da36356e14b3988ff"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-6",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "read-context",
+        "input": "'/bin/cat' '/private/proof/context.json'",
+        "response": {
+          "id": "cmd-6",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/context.json'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:16Z",
+          "startedAt": "2026-10-13T12:00:15Z",
+          "completedAt": "2026-10-13T12:00:16Z"
+        },
+        "sha256": "65f0c8a134544a5d50343f9493933063072bb0c5bf04a3984b0e69072a2b5fd4"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-8",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "git-final-head",
+        "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace/repositories/owner/code' 'rev-parse' 'HEAD'",
+        "response": {
+          "id": "cmd-8",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace/repositories/owner/code' 'rev-parse' 'HEAD'",
+          "output": "cccccccccccccccccccccccccccccccccccccccc\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:28Z",
+          "startedAt": "2026-10-13T12:00:27Z",
+          "completedAt": "2026-10-13T12:00:28Z"
+        },
+        "sha256": "d167c0819d364a1494cad29825ba3fbd12ca854a8e43af876acdfc60fadd6dc8"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "branch",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "branch",
+        "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '-c' 'core.hooksPath=/dev/null' '-C' '/private/proof/workspace/repositories/owner/code' 'switch' '-c' 'codex/0907-product-jobweave-m1'",
+        "response": {
+          "id": "branch",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "nativeItemRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "branch"
+          },
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '-c' 'core.hooksPath=/dev/null' '-C' '/private/proof/workspace/repositories/owner/code' 'switch' '-c' 'codex/0907-product-jobweave-m1'",
+          "output": "done\n",
+          "exitCode": 0,
+          "startedAt": "2026-10-13T12:00:15Z",
+          "completedAt": "2026-10-13T12:00:16Z",
+          "updatedAt": "2026-10-13T12:00:16Z"
+        },
+        "sha256": "be0e0921d6f768f5716667a245376bd81279c6c66aa32eba8cfc5560b2f48fe8"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-7",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "test",
+        "input": "'cd' '/private/proof/workspace/repositories/owner/code' && '/private/node22/bin/node' '--test' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs'",
+        "response": {
+          "id": "cmd-7",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'cd' '/private/proof/workspace/repositories/owner/code' && '/private/node22/bin/node' '--test' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs'",
+          "output": "TAP version 13\nok 1 - complete\nok 2 - invariant\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 1\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:00:21Z",
+          "startedAt": "2026-10-13T12:00:20Z",
+          "completedAt": "2026-10-13T12:00:21Z"
+        },
+        "sha256": "c5fce33cbb957fafb1ba15d8fb6e12335b73222e518a766c62d6758271167709"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "add",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "add",
+        "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '-C' '/private/proof/workspace/repositories/owner/code' 'add' '--' 'scripts/diagnostics/handoff/proof/case.mjs'",
+        "response": {
+          "id": "add",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "nativeItemRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "add"
+          },
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '-C' '/private/proof/workspace/repositories/owner/code' 'add' '--' 'scripts/diagnostics/handoff/proof/case.mjs'",
+          "output": "done\n",
+          "exitCode": 0,
+          "startedAt": "2026-10-13T12:00:23Z",
+          "completedAt": "2026-10-13T12:00:24Z",
+          "updatedAt": "2026-10-13T12:00:24Z"
+        },
+        "sha256": "80647033ee13ddcc70707554d852425dc2e6bbc0e78576a91d60623bdca0f2dd"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "commit",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "commit",
+        "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '-c' 'core.hooksPath=/dev/null' '-c' 'commit.gpgSign=false' '-C' '/private/proof/workspace/repositories/owner/code' 'commit' '-m' '0907: Complete jobweave handoff diagnostic' '--' 'scripts/diagnostics/handoff/proof/case.mjs'",
+        "response": {
+          "id": "commit",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "nativeItemRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "commit"
+          },
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '-c' 'core.hooksPath=/dev/null' '-c' 'commit.gpgSign=false' '-C' '/private/proof/workspace/repositories/owner/code' 'commit' '-m' '0907: Complete jobweave handoff diagnostic' '--' 'scripts/diagnostics/handoff/proof/case.mjs'",
+          "output": "[codex/0907-product-jobweave-m1 ccccccc] 0907: Complete jobweave handoff diagnostic\n 1 file changed\n",
+          "exitCode": 0,
+          "startedAt": "2026-10-13T12:00:25Z",
+          "completedAt": "2026-10-13T12:00:26Z",
+          "updatedAt": "2026-10-13T12:00:26Z"
+        },
+        "sha256": "07e0dd4ed91d080b4e6a0b00d1e8b13f1241839ab814d2b1ad2bf38f4c5022e6"
+      }
+    ],
+    "testRecords": [
+      {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0,
+        "exitCode": 0,
+        "itemId": "cmd-7",
+        "mode": "destination",
+        "implementationSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "outcome": {
+      "workerText": "SOURCE-MARKER-0907\nDecision: preserve stable ordering\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\ncccccccccccccccccccccccccccccccccccccccc",
+      "relayText": "SOURCE-MARKER-0907\nDecision: preserve stable ordering\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\ncccccccccccccccccccccccccccccccccccccccc studio://thread/worker",
+      "workerThreadId": "worker",
+      "automaticWakeRunId": "wake",
+      "completionState": "delivered"
+    },
+    "git": {
+      "commit": "cccccccccccccccccccccccccccccccccccccccc",
+      "parent": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "changedPath": "scripts/diagnostics/handoff/proof/case.mjs",
+      "evidence": {
+        "parents": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "subject": "0907: Complete jobweave handoff diagnostic",
+        "paths": "scripts/diagnostics/handoff/proof/case.mjs",
+        "modifiedPaths": "scripts/diagnostics/handoff/proof/case.mjs"
+      }
+    },
+    "quiescence": [
+      {
+        "threadId": "project-coordinator:machine-handoff:12345678-1234-4123-8123-123456789012",
+        "runs": [],
+        "turns": [],
+        "requests": [],
+        "work": [],
+        "tasks": [],
+        "deliveries": []
+      },
+      {
+        "threadId": "worker",
+        "runs": [],
+        "turns": [],
+        "requests": [],
+        "work": [],
+        "tasks": [],
+        "deliveries": []
+      }
+    ]
+  }
+}

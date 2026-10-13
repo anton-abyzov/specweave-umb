@@ -2,6 +2,7 @@
 """Validate private operational receipts without loading environment secrets."""
 import argparse
 import hashlib
+import importlib.util
 import json
 from pathlib import Path
 
@@ -289,11 +290,18 @@ def environment(root):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--phase", choices=("audit", "handoff", "environment", "all"), required=True)
+    parser.add_argument("--phase", choices=("audit", "handoff", "environment", "all", "product-code",
+                        "product-review", "product-release", "product-handoff", "product-all"), required=True)
     parser.add_argument("--evidence", type=Path, default=Path.home() / ".local/share/specweave/fleet/handoff-proof-20261013")
     args = parser.parse_args()
     phases = {"audit": audit, "handoff": handoff, "environment": environment}
+    if args.phase.startswith("product-"):
+        spec = importlib.util.spec_from_file_location("product_handoff_evidence",
+                                                     Path(__file__).with_name("product_handoff_evidence.py"))
+        product = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(product)
+        phases = product.PHASES
     for name, check in phases.items():
-        if args.phase in (name, "all"):
+        if args.phase in (name, "all", "product-all"):
             check(args.evidence)
             print(f"{name}: passed")

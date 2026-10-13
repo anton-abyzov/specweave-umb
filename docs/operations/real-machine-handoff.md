@@ -16,7 +16,7 @@ The live continuation test exposed primary-branch-only fetch mappings left by th
 
 ## What is published
 
-The fleet baseline contains published, merged code. It does not include every active M4 edit. The current M4 audit found local modifications in 20 repositories. EasyChamp's umbrella had two local commits absent from the published develop branch; SpecWeave's umbrella had two commits unmerged to main. Do not sweep these into a handoff or commit them on another owner's behalf.
+The fleet baseline contains published, merged code. It does not include every active M4 edit. The initial October 13 M4 audit found local modifications in 20 repositories. At that snapshot, EasyChamp's umbrella had two local commits absent from the published develop branch; SpecWeave's umbrella had two commits unmerged to main. These counts are historical while other owners continue working. Do not sweep their changes into a handoff or commit them on another owner's behalf.
 
 ## Source and context transfer
 
@@ -57,6 +57,8 @@ Both hosts have a private reusable launcher at `~/.local/share/specweave/fleet/h
 
 For example: `python3 ~/.local/share/specweave/fleet/handoff-proof-20261013/local-dev-control.py m1 db-start`. The launcher reads private configuration locally; commands do not contain credentials. Its private runbook records remaining feature-level limitations.
 
+Those configuration and startup checks apply to the registered fleet checkouts. A separate Git worktree does not inherit ignored `.env` files or `node_modules`. Provision its required configuration privately and install its dependencies before claiming full application readiness. The product continuation diagnostics use only Node's built-in test runner and need no application secrets.
+
 ## Evidence
 
 The October 13 continuation runs passed all six routes. Each project first ran a real M4 coordinator and worker, deliberately left package inspection as the next step, and transported that actual checkpoint to both hosts. Each destination coordinator launched one fresh local worker, read the checkpoint and matching local code, completed the deferred package inspection, and resumed automatically from the worker's completion. Nine cycles produced 27 completed native runs. No provider session or running worker moved between machines.
@@ -78,3 +80,5 @@ Private receipts live under `~/.local/share/specweave/fleet/handoff-proof-202610
 ## Product handoff work still open
 
 Increment 0907 also tracks ordinary coordinator destination selection, guarded opt-in source transfer, a new Mac release and six subsequent routes through that app-owned flow. The manual proof above does not satisfy those product gates. Its current `--phase all` command covers audit, manual continuation and local environment only. Product acceptance must include an owned source code change, carried decisions and unfinished coding/test work, destination workers completing that work without receiving the answers again, and authoritative evidence of the app's own code transfer. The release owner coordinates one build/install and concrete manual UI acceptance.
+
+The reviewed 1.0.10 candidate publishes each required root and nested commit to `refs/heads/codex/handoff/<operation-id>/<commit>`. The destination creates isolated worktrees pinned to those commits and leaves its registered checkout in place. It carries retained coordinator and worker conversation plus project context, bounded by a checked payload size; this is not a native session migration. The new coordinator reads that context and delegates to a fresh worker. The destination then uses its own feature branch for new work. Source review and a signed build are complete; publication and the six ordinary UI routes remain acceptance gates until their actual receipts pass.
