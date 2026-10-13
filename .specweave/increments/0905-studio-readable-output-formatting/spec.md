@@ -47,3 +47,8 @@ Anton approved the linked compact-message layout on October 13, 2026 and explici
 
 ## Updated browser authorization
 On October 13, 2026 Anton granted standing permission for visible browser use when needed for an authorized task, superseding older headless-only copies. Routine tests remain preferably headless. The evidence in this increment was captured headlessly; no visible-browser approval is needed for future authorized follow-up.
+
+### Release source reconciliation — October 13
+The shared Studio history was truncated while this lane was interrupted. Original candidate `4b9b94a7a359092f81a13ed311d71b79f4ac3613` maps to current `51c49ab4603c17c87362e9700cd242b24ed83e2e`; both have tree `3f70ed237cfd885acee20cec16afaac9e64a306a`. An independent paired-DAG audit found identical trees for all 1,020 retained commits. Original artifacts and receipts remain preserved. A fresh signed build and runtime package were made and audited against the current source; the update plan admits the actual installed pre-rewrite source IDs for 1.0.7 and 1.0.8.
+
+PR 164 merged normally as `34826e95eea37bf5979452773e6f5c75d6803556`. The frozen release source is its ancestor; the only additional merge-tree change is the previously merged documentation explaining pre-rewrite installed source IDs. T-07 evidence checks the successful fresh build, 512 focused test results, scoped unit coverage, four headless visual cases, and the compiled Google client/navigation gate. Earlier test receipts retain their original source attribution, with exact tree equivalence recorded separately. Publication and installed readback remain T-08.
