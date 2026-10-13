@@ -1,6 +1,10 @@
 # Product source review
 
-No candidate is currently accepted for release. The preservation audit found that preview can trigger Git's promisor lazy fetch and add filter metadata to existing clones. T-11 tracks the correction and a real missing-object regression; the release owner is consolidating the corrected source into one 1.0.11 candidate. The original failed comparison and all prior source/build receipts remain unchanged.
+No candidate is currently accepted for release. The frozen 1.0.11 source is now `5b1dffae50d4b6ced1ccd9bf499021a072ccbd38`, which combines the preview and consent corrections with the accepted handoff UI alignment. Its build, runtime, six ordinary handoffs and final publication must all bind to that source. Earlier receipts remain candidate-specific.
+
+The preceding `f12f4a524002470c8263f3895f5d566248981165` candidate passed 883 focused tests, 12 external tests, the desktop build and standard TypeScript checks. The configured Effect checker still failed with 803 diagnostics; the retained source review classified the changed diagnostic locations as nonblocking under the repository's focused-test/build policy. This is not a claim that the configured checker passed. All three backend services were verified on that candidate; the native M4 app remained 1.0.10, and zero ordinary UI routes were accepted before the next source change.
+
+The original preservation audit found that preview could trigger Git's promisor lazy fetch and add filter metadata to existing clones. T-11 adds the correction and a real missing-object regression. The original failed comparison and all prior source/build receipts remain unchanged.
 
 The combined 1.0.11 source at 425a659 was held before building: review found that a destination preview received conversation content before explicit confirmation, and the handoff dialog did not suspend underlying worker keyboard shortcuts. T-12 tracks the metadata-only preview boundary; the release owner also fixes the shortcut interaction. A new frozen source, review, build and runtime proof are required. No 425a659 artifacts or installs are accepted.
 
