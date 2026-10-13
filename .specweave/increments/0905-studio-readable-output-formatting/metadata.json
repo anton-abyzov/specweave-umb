@@ -1,11 +1,16 @@
 {
   "id": "0905-studio-readable-output-formatting",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-13T06:01:06.391Z",
-  "updated": "2026-10-13T12:19:51.418Z",
-  "lastActivity": "2026-10-13T12:19:51.418Z",
+  "updated": "2026-10-13T13:23:09.804Z",
+  "lastActivity": "2026-10-13T13:23:09.804Z",
   "title": "Studio readable output formatting",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-13T13:23:09.803Z",
+  "approvedAt": "2026-10-13T13:23:09.805Z"
 }
