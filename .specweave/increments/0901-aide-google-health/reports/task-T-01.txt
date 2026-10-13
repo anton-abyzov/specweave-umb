@@ -1,0 +1,16 @@
+$ cd /Users/antonabyzov/.codex/worktrees/aide-google-health/specweave-umb/repositories/anton-abyzov/studio-google-diagnostics && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node node_modules/vite-plus/bin/vp test run apps/server/src/integrations/google/GoogleAccountService.test.ts apps/server/src/integrations/google/googleAccountHealth.test.ts apps/server/src/mcp/toolkits/google/handlers.test.ts apps/server/src/integrations/google/GoogleApi.test.ts apps/server/src/integrations/google/googleAccountLogic.test.ts
+# exit 0 — 2026-10-13T03:21:18.458Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.codex/worktrees/aide-google-health/specweave-umb/repositories/anton-abyzov/studio-google-diagnostics
+
+
+ Test Files  5 passed (5)
+      Tests  38 passed (38)
+   Start at  23:21:04
+   Duration  14.19s (transform 79%, import 20%, tests 1%)
+
+  Transform  transforming modules took 17.71s · 79% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns

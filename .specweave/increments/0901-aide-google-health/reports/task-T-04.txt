@@ -1,0 +1,34 @@
+$ python3 .specweave/increments/0901-aide-google-health/reports/verify-release.py
+# exit 0 — 2026-10-13T03:39:30.125Z
+
+{
+  "checkedAt": "2026-10-13T03:39:30.114766+00:00",
+  "version": "1.0.7",
+  "sourceCommit": "54aa7e7d7ba1c59bb2b7af2f31f7f6ab86a0e06f",
+  "releases": [
+    {
+      "repository": "anton-abyzov/specweave-studio",
+      "tag": "v1.0.7",
+      "publishedAt": "2026-10-13T03:37:59Z",
+      "url": "https://github.com/anton-abyzov/specweave-studio/releases/tag/v1.0.7",
+      "assetsVerified": 11,
+      "publicUnauthenticatedReadback": false
+    },
+    {
+      "repository": "anton-abyzov/specwithcode",
+      "tag": "v1.0.7",
+      "publishedAt": "2026-10-13T03:38:00Z",
+      "url": "https://github.com/anton-abyzov/specwithcode/releases/tag/v1.0.7",
+      "assetsVerified": 11,
+      "publicUnauthenticatedReadback": true
+    }
+  ],
+  "headlessGoogleProof": "passed with fake Google",
+  "realGoogleAccount": "not connected; user sign-in and project grants required",
+  "coveragePercent": {
+    "lines": 84.86,
+    "statements": 83.21,
+    "branches": 72.55,
+    "functions": 76.19
+  }
+}

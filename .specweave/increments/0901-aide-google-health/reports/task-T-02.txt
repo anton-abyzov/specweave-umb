@@ -1,0 +1,18 @@
+$ cd repositories/anton-abyzov/specweave-studio && PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never /Users/antonabyzov/.local/share/specweave-studio/toolchains/node-v24.13.1-darwin-arm64/bin/node node_modules/vite-plus/bin/vp test run apps/server/src/project/ProjectWorkspaceService.test.ts
+# exit 0 — 2026-10-13T03:16:00.846Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.codex/worktrees/aide-google-health/specweave-umb/repositories/anton-abyzov/specweave-studio
+
+(node:7523) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  1 passed (1)
+      Tests  11 passed (11)
+   Start at  23:15:55
+   Duration  5.77s (transform 66%, tests 17%, import 16%)
+
+  Transform  transforming modules took 3.70s · 66% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns

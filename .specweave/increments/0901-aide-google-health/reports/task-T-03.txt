@@ -1,0 +1,16 @@
+$ cd repositories/anton-abyzov/specweave-studio && PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never /Users/antonabyzov/.local/share/specweave-studio/toolchains/node-v24.13.1-darwin-arm64/bin/node node_modules/vite-plus/bin/vp test run apps/server/src/studio/Capacity.test.ts apps/server/src/orchestration-v2/ProviderAdapter.test.ts apps/server/src/orchestration-v2/ProviderFailure.test.ts apps/server/src/orchestration-v2/ProviderTurnStartService.test.ts
+# exit 0 — 2026-10-13T03:16:21.905Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.codex/worktrees/aide-google-health/specweave-umb/repositories/anton-abyzov/specweave-studio
+
+
+ Test Files  4 passed (4)
+      Tests  91 passed (91)
+   Start at  23:16:04
+   Duration  17.15s (transform 84%, import 15%, tests 1%)
+
+  Transform  transforming modules took 23.22s · 84% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
