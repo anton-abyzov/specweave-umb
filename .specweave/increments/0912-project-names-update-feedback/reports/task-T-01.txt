@@ -1,0 +1,17 @@
+$ cd repositories/anton-abyzov/specweave-studio && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH node node_modules/vite-plus/bin/vp test run apps/web/src/components/studio/shell/StudioSidebar.test.tsx
+# exit 0 — 2026-10-13T19:34:41.375Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.codex/worktrees/project-names-release/specweave-umb/repositories/anton-abyzov/specweave-studio
+
+
+ Test Files  1 passed (1)
+      Tests  33 passed (33)
+   Start at  15:34:31
+   Duration  9.92s (transform 57%, environment 18%, import 17%, tests 8%)
+
+  Transform  transforming modules took 5.57s · 57% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
