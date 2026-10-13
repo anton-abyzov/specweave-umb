@@ -71,7 +71,7 @@ The Bash guard is per project (`specweave jev setup --guard-bash` writes the con
 | Test | `npm --prefix repositories/anton-abyzov/specweave run test:unit:fast && npm --prefix repositories/anton-abyzov/vskill test && npm --prefix repositories/anton-abyzov/vskill-platform test` |
 | Lint | `npm --prefix repositories/anton-abyzov/specweave run lint:skills && npm --prefix repositories/anton-abyzov/specweave run lint:docs-refs && npm --prefix repositories/anton-abyzov/vskill run lint:skills-spec` |
 
-Use Node 22. For isolated worktrees, pass their actual commands with `specweave verify --cmd`. The platform currently has no configured ESLint command; do not claim a clean platform lint run. UI changes also require their relevant headless browser checks and product builds.
+Use Node 22. For isolated worktrees, pass their actual commands with `specweave verify --cmd`. The platform currently has no configured ESLint command; do not claim a clean platform lint run. UI changes also require their relevant browser checks and product builds. Prefer headless checks when suitable; visible browsers are authorized when needed without separate visibility approval (2026-10-13).
 
 ## Project notes
 

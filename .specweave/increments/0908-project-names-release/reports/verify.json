@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-13T15:52:08.353Z",
+  "increment": "0908-project-names-release",
+  "commands": [
+    {
+      "cmd": "cd repositories/anton-abyzov/specweave-studio && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH node node_modules/vite-plus/bin/vp test run packages/client-runtime/src/state/projectGrouping.test.ts apps/web/src/components/studio/shell/StudioSidebar.test.tsx",
+      "exit": 0
+    },
+    {
+      "cmd": "git diff --check",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 4,
+    "done": 4
+  },
+  "tasks": {
+    "total": 4,
+    "done": 4,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}
