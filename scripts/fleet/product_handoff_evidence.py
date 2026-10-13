@@ -15,6 +15,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import shutil
+import struct
 import subprocess
 
 PROJECTS = ("sw-easychamp", "jobweave", "specweave")
@@ -485,17 +486,91 @@ def runtime(evidence, reference, host, released=False):
         client = evidence.json(observed["clientReadback"])
         require(client["sourceCommit"] == evidence.candidate["sourceCommit"]
                 and client["version"] == observed["version"], "served client differs from candidate")
-        require(client["assets"] and len({a["url"] for a in client["assets"]}) == len(client["assets"]),
-                "distinct served client assets required")
-        for asset in client["assets"]:
-            require(asset["url"].startswith(("https://", "http://")), "client asset URL missing")
-            built, served = evidence.path(asset["builtAsset"]), evidence.path(asset["servedAsset"])
-            require(built.stat().st_size > 0 and served.stat().st_size > 0
-                    and asset["builtAsset"]["sha256"] == asset["servedAsset"]["sha256"] == asset["sha256"],
-                    "served client asset differs from candidate build")
+        if host == "m4":
+            require(client.get("delivery") == "native-bundle", "M4 UI requires native bundled client proof")
+        if client.get("delivery") == "native-bundle":
+            native_client(evidence, client, app, observed)
+        else:
+            require(client.get("delivery", "http-service") == "http-service", "unknown client delivery")
+            http_client(evidence, client)
     require(HEX64.fullmatch(app["executableSha256"]), "installed executable hash missing")
     require(app["runningExecutableSha256"] == app["executableSha256"], "running executable differs from installed")
     return observed
+
+
+def http_client(evidence, client):
+    require(client["assets"] and len({a["url"] for a in client["assets"]}) == len(client["assets"]),
+            "distinct served client assets required")
+    for asset in client["assets"]:
+        require(asset["url"].startswith(("https://", "http://")), "client asset URL missing")
+        built, served = evidence.path(asset["builtAsset"]), evidence.path(asset["servedAsset"])
+        require(built.stat().st_size > 0 and served.stat().st_size > 0
+                and asset["builtAsset"]["sha256"] == asset["servedAsset"]["sha256"] == asset["sha256"],
+                "served client asset differs from candidate build")
+
+
+def asar_file(archive, name):
+    """Read one packed ASAR entry as data; never load archive JavaScript."""
+    relative = PurePosixPath(name)
+    require(not relative.is_absolute() and str(relative) == name and relative.parts
+            and not any(part in (".", "..") for part in relative.parts)
+            and not re.search(r"[\x00-\x1f]", name), "unsafe ASAR entry")
+    with archive.open("rb") as stream:
+        header = stream.read(16)
+        require(len(header) == 16, "truncated ASAR header")
+        first, header_size, payload_size, json_size = struct.unpack("<4I", header)
+        length = archive.stat().st_size
+        require(first == 4 and header_size == payload_size + 4
+                and 0 < json_size <= min(payload_size - 4, 16 * 1024 * 1024)
+                and 8 + header_size <= length, "invalid ASAR header")
+        entry = decode(stream.read(json_size))
+        for part in relative.parts:
+            entry = entry["files"][part]
+        require(not entry.get("unpacked") and "link" not in entry and "files" not in entry,
+                "ASAR entry is not a packed regular file")
+        require(isinstance(entry["offset"], str) and re.fullmatch(r"\d+", entry["offset"]), "invalid ASAR offset")
+        offset, size = 8 + header_size + int(entry["offset"]), entry["size"]
+        require(type(size) is int and 0 <= size <= 32 * 1024 * 1024
+                and offset + size <= length, "ASAR entry out of bounds")
+        stream.seek(offset)
+        return stream.read(size)
+
+
+def native_client(evidence, client, app, observed):
+    require(app["version"] == observed["version"] and app["sourceCommit"] == evidence.candidate["sourceCommit"],
+            "native UI wrapper is not the candidate")
+    archive = evidence.path(client["appAsar"])
+    require(app["appAsarSha256"] == app["runningAppAsarSha256"] == client["appAsar"]["sha256"],
+            "running native ASAR differs from bundled client")
+    audit = evidence.json(client["artifactAudit"])
+    require(audit["result"] == "passed" and audit["sourceCommit"] == evidence.candidate["sourceCommit"]
+            and audit["version"] == observed["version"]
+            and audit["local"]["desktop"]["appAsarSha256"] == client["appAsar"]["sha256"],
+            "native client archive differs from audited candidate")
+    process = evidence.json(app["nativeProcessProof"])
+    time_value(process["at"])
+    identity = process["nativeProcess"]
+    require(process["phase"] == "installed-process-verified" and process["protectedStatePreserved"] is True
+            and process["sourceCommit"] == evidence.candidate["sourceCommit"]
+            and process["version"] == observed["version"] and process["asarSha256"] == client["appAsar"]["sha256"]
+            and type(app["pid"]) is int and identity["pid"] == app["pid"] > 0,
+            "native process proof does not bind the candidate")
+    require(absolute(identity["executable"]) == absolute(app["executable"])
+            and identity["startedAt"] == app["startedAt"]
+            and re.fullmatch(r"[A-Za-z]{3} [A-Za-z]{3} \d{1,2} \d{2}:\d{2}:\d{2} \d{4}", app["startedAt"]),
+            "native process executable/start time differs from wrapper readback")
+    assets = client["assets"]
+    prefix = "apps/server/dist/client/"
+    paths = {a["entry"] for a in assets}
+    require(assets and len(paths) == len(assets) and prefix + "index.html" in paths
+            and any(path.startswith(prefix) and path.endswith(".js") for path in paths),
+            "native client requires distinct HTML and JavaScript entries")
+    for asset in assets:
+        require(asset["entry"].startswith(prefix)
+                and asset["url"] == "studio://app/" + asset["entry"][len(prefix):], "native client protocol entry mismatch")
+        built, bundled = evidence.data(asset["builtAsset"]), evidence.data(asset["bundledAsset"])
+        require(built == bundled == asar_file(archive, asset["entry"]) and built
+                and digest(built) == asset["sha256"], "native bundled asset differs from actual ASAR or build")
 
 
 def source_runtime(evidence, reference, plan, key):
@@ -766,6 +841,10 @@ def product_handoff(root):
         require(worker not in workers, "destination worker was reused")
         workers.add(worker)
         ui = ui_selection(evidence, route["ui"], source, plan, bundle, existing)
+        transfer_app = evidence.json(transfer_runtime["wrapperReadback"])
+        installed = evidence.json(transfer_app["nativeProcessProof"])
+        require(time_value(installed["at"]) <= time_value(ui["actions"][0]["startedAt"]),
+                "candidate native installation postdates source UI actions")
         bracket(preserved, "m4", [at for action in ui["actions"] for at in (action["startedAt"], action["observedAt"])])
         for ui_host in ("m4", host):
             bracket(preserved, ui_host, [at for action in ui["actions"]

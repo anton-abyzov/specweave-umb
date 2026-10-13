@@ -5,6 +5,7 @@ import importlib.util
 import json
 from pathlib import Path
 import shutil
+import struct
 import subprocess
 import tempfile
 import unittest
@@ -31,6 +32,55 @@ def ref(root, name, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(data)
     return {"path": name, "sha256": V.digest(data)}
+
+
+def invented_asar(entries, change=None):
+    """Minimal real ASAR framing containing explicitly invented entry bytes."""
+    header, payload = {"files": {}}, b""
+    for path, data in entries.items():
+        parent = header
+        parts = path.split("/")
+        for part in parts[:-1]:
+            parent = parent["files"].setdefault(part, {"files": {}})
+        parent["files"][parts[-1]] = {"size": len(data), "offset": str(len(payload))}
+        payload += data
+    if change:
+        change(header)
+    encoded = encode(header)
+    padding = b"\0" * (-len(encoded) % 4)
+    payload_size = 4 + len(encoded) + len(padding)
+    return struct.pack("<4I", 4, payload_size + 4, payload_size, len(encoded)) + encoded + padding + payload
+
+
+def invented_native_client(root, host):
+    prefix = "apps/server/dist/client/"
+    entries = {prefix + "index.html": b'<script src="/assets/synthetic.js"></script>',
+               prefix + "assets/synthetic.js": b"// explicit invented bundled client\n"}
+    archive = ref(root, f"{host}-synthetic.asar", invented_asar(entries))
+    audit = ref(root, f"{host}-synthetic-audit.json", {"result": "passed",
+        "sourceCommit": CANDIDATE["sourceCommit"], "version": CANDIDATE["version"],
+        "local": {"desktop": {"appAsarSha256": archive["sha256"]}}})
+    process = ref(root, f"{host}-synthetic-process.json", {"phase": "installed-process-verified",
+        "at": "2026-10-13T12:01:30Z",
+        "protectedStatePreserved": True, "sourceCommit": CANDIDATE["sourceCommit"],
+        "version": CANDIDATE["version"], "asarSha256": archive["sha256"], "nativeProcess": {"pid": 4242,
+            "executable": "/synthetic/SpecWithCode.app/Contents/MacOS/SpecWithCode",
+            "startedAt": "Tue Oct 13 12:00:00 2026"}})
+    app = ref(root, f"{host}-wrapper.json", {"version": CANDIDATE["version"],
+        "sourceCommit": CANDIDATE["sourceCommit"], "pid": 4242, "nativeProcessProof": process,
+        "executable": "/synthetic/SpecWithCode.app/Contents/MacOS/SpecWithCode", "startedAt": "Tue Oct 13 12:00:00 2026",
+        "appAsarSha256": archive["sha256"], "runningAppAsarSha256": archive["sha256"],
+        "executableSha256": "e" * 64, "runningExecutableSha256": "e" * 64})
+    assets = []
+    for n, (entry, data) in enumerate(entries.items()):
+        built = ref(root, f"{host}-built-native-{n}", data)
+        bundled = ref(root, f"{host}-bundled-native-{n}", data)
+        assets.append({"entry": entry, "url": "studio://app/" + entry[len(prefix):],
+            "sha256": built["sha256"], "builtAsset": built, "bundledAsset": bundled})
+    client = ref(root, f"{host}-client.json", {"sourceCommit": CANDIDATE["sourceCommit"],
+        "version": CANDIDATE["version"], "delivery": "native-bundle", "appAsar": archive,
+        "artifactAudit": audit, "assets": assets})
+    return app, client
 
 
 def rehash_native(native):
@@ -122,6 +172,8 @@ def invented_evidence(root):
         client = ref(root, f"{host}-client.json", {"sourceCommit": CANDIDATE["sourceCommit"],
             "version": CANDIDATE["version"], "assets": [{"url": f"http://localhost/{host}/synthetic-client.js",
                 "sha256": asset["sha256"], "builtAsset": asset, "servedAsset": served}]})
+        if host == "m4":
+            app, client = invented_native_client(root, host)
         runtimes[host] = ref(root, f"{host}-runtime.json", {"candidateCommit": CANDIDATE["sourceCommit"],
             "host": host, "version": CANDIDATE["version"], "environmentId": "synthetic-env-" + host,
             "kind": "transfer-service", "wrapperReadback": app, "clientReadback": client, "serverReadback": server})
@@ -281,6 +333,134 @@ def invented_release_evidence(root, index):
     (root / "product-evidence-index.json").write_bytes(encode(index))
 
 
+class NativeBundledClientTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory(prefix="synthetic-native-client-")
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        index = invented_evidence(self.root)
+        self.reference = index["handoff"]["routes"][0]["sourceRuntime"]
+        self.runtime = self.read(self.reference)
+        self.app, self.client = self.read(self.runtime["wrapperReadback"]), self.read(self.runtime["clientReadback"])
+
+    def read(self, reference):
+        return json.loads((self.root / reference["path"]).read_bytes())
+
+    def verify(self):
+        self.runtime["wrapperReadback"] = ref(self.root, "m4-wrapper.json", self.app)
+        self.runtime["clientReadback"] = ref(self.root, "m4-client.json", self.client)
+        self.reference = ref(self.root, "m4-runtime.json", self.runtime)
+        return V.runtime(V.Evidence(self.root), self.reference, "m4")
+
+    def test_real_asar_framing_and_candidate_native_process_are_accepted(self):
+        self.verify()
+
+    def test_m4_http_service_cannot_prove_bundled_native_ui(self):
+        self.client["delivery"] = "http-service"
+        with self.assertRaisesRegex(ValueError, "M4 UI requires native bundled"):
+            self.verify()
+
+    def test_missing_installer_timestamp_is_rejected(self):
+        process = self.read(self.app["nativeProcessProof"])
+        del process["at"]
+        self.app["nativeProcessProof"] = ref(self.root, "undated-process.json", process)
+        with self.assertRaises(KeyError):
+            self.verify()
+
+    def test_candidate_service_with_old_wrapper_cannot_prove_native_ui(self):
+        self.app["version"] = "1.0.9"
+        with self.assertRaisesRegex(ValueError, "wrapper is not the candidate"):
+            self.verify()
+
+    def test_running_asar_must_match_installed_archive(self):
+        self.app["runningAppAsarSha256"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "running native ASAR"):
+            self.verify()
+
+    def test_audited_asar_must_be_the_retained_archive(self):
+        audit = self.read(self.client["artifactAudit"])
+        audit["local"]["desktop"]["appAsarSha256"] = "0" * 64
+        self.client["artifactAudit"] = ref(self.root, "wrong-audit.json", audit)
+        with self.assertRaisesRegex(ValueError, "audited candidate"):
+            self.verify()
+
+    def test_installer_process_must_match_running_wrapper_pid(self):
+        self.app["pid"] += 1
+        with self.assertRaisesRegex(ValueError, "native process proof"):
+            self.verify()
+
+    def test_failed_installer_cannot_claim_candidate_process(self):
+        process = self.read(self.app["nativeProcessProof"])
+        process["phase"] = "failed"
+        self.app["nativeProcessProof"] = ref(self.root, "failed-process.json", process)
+        with self.assertRaisesRegex(ValueError, "native process proof"):
+            self.verify()
+
+    def test_reused_pid_with_another_start_time_is_rejected(self):
+        self.app["startedAt"] = "Tue Oct 13 11:00:00 2026"
+        with self.assertRaisesRegex(ValueError, "executable/start time"):
+            self.verify()
+
+    def test_another_executable_cannot_claim_installed_native_process(self):
+        self.app["executable"] = "/synthetic/Other.app/Contents/MacOS/Other"
+        with self.assertRaisesRegex(ValueError, "executable/start time"):
+            self.verify()
+
+    def test_matching_retained_files_do_not_override_actual_archive_bytes(self):
+        asset = self.client["assets"][1]
+        wrong = ref(self.root, "unrelated.js", b"// unrelated built and retained bytes")
+        asset.update(builtAsset=wrong, bundledAsset=wrong, sha256=wrong["sha256"])
+        with self.assertRaisesRegex(ValueError, "actual ASAR or build"):
+            self.verify()
+
+    def test_html_alone_does_not_prove_client_bundle(self):
+        self.client["assets"].pop()
+        with self.assertRaisesRegex(ValueError, "HTML and JavaScript"):
+            self.verify()
+
+    def test_native_entry_must_match_actual_protocol_url(self):
+        self.client["assets"][1]["url"] = "http://localhost/assets/synthetic.js"
+        with self.assertRaisesRegex(ValueError, "protocol entry mismatch"):
+            self.verify()
+
+    def test_archive_hash_is_verified_before_extraction(self):
+        (self.root / self.client["appAsar"]["path"]).write_bytes(b"corrupted archive")
+        with self.assertRaisesRegex(ValueError, "evidence hash mismatch"):
+            self.verify()
+
+
+class AsarDataReaderTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory(prefix="synthetic-asar-reader-")
+        self.addCleanup(self.temp.cleanup)
+        self.archive = Path(self.temp.name) / "synthetic.asar"
+
+    def test_reads_exact_nested_bytes_without_executing_javascript(self):
+        data = b"throw new Error('must never execute fixture');"
+        self.archive.write_bytes(invented_asar({"a/b.js": data, "other": b"not b.js"}))
+        self.assertEqual(V.asar_file(self.archive, "a/b.js"), data)
+
+    def test_noncanonical_entry_paths_are_rejected(self):
+        self.archive.write_bytes(invented_asar({"a/b.js": b"fixture"}))
+        for name in ("/a/b.js", "a/../b.js", "a//b.js", "a/./b.js", "a/\x00.js", ""):
+            with self.subTest(name=name), self.assertRaises(ValueError):
+                V.asar_file(self.archive, name)
+
+    def test_truncated_and_impossible_headers_are_rejected(self):
+        for raw in (b"short", struct.pack("<4I", 4, 9000, 8996, 8000), struct.pack("<4I", 3, 8, 4, 0)):
+            self.archive.write_bytes(raw)
+            with self.subTest(raw=raw), self.assertRaises(ValueError):
+                V.asar_file(self.archive, "file")
+
+    def test_link_unpacked_directory_and_out_of_bounds_entries_are_rejected(self):
+        for fields in ({"link": "outside"}, {"unpacked": True}, {"files": {}},
+                       {"offset": "-1"}, {"offset": "999999"}, {"size": -1}, {"size": True}):
+            self.archive.write_bytes(invented_asar({"file": b"fixture"},
+                lambda header: header["files"]["file"].update(fields)))
+            with self.subTest(fields=fields), self.assertRaises(ValueError):
+                V.asar_file(self.archive, "file")
+
+
 class ProductHandoffEvidenceTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix="synthetic-product-evidence-")
@@ -414,6 +594,19 @@ class ProductHandoffEvidenceTests(unittest.TestCase):
         wrapper = evidence.json(observed["wrapperReadback"])
         self.assertEqual(wrapper["version"], "1.0.9")
         self.assertNotEqual(wrapper["version"], CANDIDATE["version"])
+
+    def test_rehashed_later_install_cannot_prove_earlier_native_ui_actions(self):
+        reference = self.index["handoff"]["routes"][0]["sourceRuntime"]
+        runtime = json.loads((self.root / reference["path"]).read_bytes())
+        app = json.loads((self.root / runtime["wrapperReadback"]["path"]).read_bytes())
+        process = json.loads((self.root / app["nativeProcessProof"]["path"]).read_bytes())
+        process["at"] = "2026-10-13T12:08:00Z"
+        app["nativeProcessProof"] = ref(self.root, "late-installed-process.json", process)
+        runtime["wrapperReadback"] = ref(self.root, "late-wrapper.json", app)
+        reference.update(ref(self.root, reference["path"], runtime))
+        self.save()
+        with self.assertRaisesRegex(ValueError, "installation postdates source UI"):
+            V.product_handoff(self.root)
 
     def test_wrong_served_client_bytes_are_rejected(self):
         reference = self.index["handoff"]["routes"][0]["runtime"]
