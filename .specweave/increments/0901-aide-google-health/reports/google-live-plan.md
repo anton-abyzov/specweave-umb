@@ -145,3 +145,13 @@ python3 /absolute/reports/verify-real-google.py /absolute/reports/unique-status.
 ```
 
 The validator requires both receipts to report the expected actual version and full source. All original four-tool, three-service grant, bounded-read, no-additional-tool, no-delegation, completed-run and owned-auth-cleanup checks remain. Its output derives source/version from the native receipt only after equality checks. It has no default source or version and makes no live calls. `test-proof-artifacts.py` uses temporary synthetic receipts only to check acceptance/rejection behavior; those tests are not real Google proof.
+
+## Pre-install verification review, 2026-10-13 06:55Z
+
+Independent source review found Codex persists MCP names as `studio-code.studio_google_*`. The runner now accepts that exact namespace, bare tool names and Claude's exact `mcp__studio-code__` namespace; unrelated MCP prefixes are rejected. Structured content and text-array envelopes are covered by offline fake-RPC tests. The receipt stores only tool metadata/counts and classified provider failures, never free-text provider diagnostics.
+
+Fresh native runs must have no pre-existing matching command ID. The runner binds the attempted dispatch to the observed release before sending; a lost acknowledgement or delayed completion must be recovered using `--phase inspect --dispatch-receipt /absolute/original-native.json` and the same command ID, plus a fresh matching status receipt. Inspect requires matching source, version, host, project, command and thread, records the original receipt's SHA-256, and never resends. The offline validator needs that same `--dispatch-receipt` option for an inspect receipt. Do not overwrite the original receipt or relabel an older-release run as current-release proof.
+
+Passing proof also requires the successful health probe to precede every content read by persisted ordinal and the health result's `checkedAt` timestamp (set after all probes). Tool `completedAt` is provider-notification ingestion time, so it may lag a native read start; same-thread context handoff records are likewise not delegation. Extra native shell/file/search/plan/secret operations, extra dynamic tools and actual delegation still fail. Sixteen Node envelope/provenance tests and 46 Python receipt cases pass offline; neither constitutes Google API proof. The actual Aide check still awaits the coordinated installation.
+
+Anton's current standing authorization permits visible browsers when useful for an authorized task and supersedes the older headless-only language above. This runner remains browser-free; routine tests stay headless.
