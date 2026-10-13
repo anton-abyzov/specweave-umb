@@ -1,4 +1,4 @@
-"""Invented review envelopes exercising actual observed R3 regression names."""
+"""Invented review envelopes exercising actual observed product regressions."""
 import copy
 import json
 from pathlib import Path
@@ -45,8 +45,8 @@ class DestinationRegressionReviewTests(unittest.TestCase):
             case["testReport"] = reference
             case["command"] = commands[case["command"]["path"]]
 
-    def test_ten_case_fixture_binds_both_partial_clone_assertions_and_sidebar(self):
-        self.assertEqual(len(self.review["cases"]), 10)
+    def test_eleven_case_fixture_binds_identity_sidebar_and_local_preview(self):
+        self.assertEqual(len(self.review["cases"]), 11)
         self.save()
         fixtures.V.product_review(self.root)
 
@@ -111,3 +111,43 @@ class DestinationRegressionReviewTests(unittest.TestCase):
         case = self.review["cases"]["sidebar-independent-destination"]
         case["testReport"] = fixtures.ref(self.root, "detached-report.json", self.read(case["testReport"]))
         self.reject("review test report detached from execution")
+
+    def test_preview_witness_in_another_suite_does_not_count(self):
+        case = self.review["cases"]["preview-no-lazy-fetch-preservation"]
+        report = self.read(case["testReport"])
+        suite = next(s for s in report["testResults"] if s.get("name") == case["testPath"])
+        witness = next(a for a in suite["assertionResults"] if a["fullName"] == case["assertion"])
+        suite["assertionResults"].remove(witness)
+        report["testResults"].append({"name": "/foreign/preview.test.ts", "assertionResults": [witness]})
+        self.replace_report(report)
+        self.reject("actual frozen candidate suite")
+
+    def test_failed_or_skipped_preview_cannot_hide_behind_passed_report_summary(self):
+        case = self.review["cases"]["preview-no-lazy-fetch-preservation"]
+        baseline = self.read(case["testReport"])
+        for status in ("failed", "skipped", "pending"):
+            with self.subTest(status=status):
+                report = copy.deepcopy(baseline)
+                witness = next(a for s in report["testResults"] for a in s["assertionResults"]
+                               if a["fullName"] == case["assertion"])
+                witness["status"] = status
+                self.replace_report(report)
+                self.reject("failed|assertion")
+
+    def test_preview_report_must_be_from_its_retained_execution(self):
+        case = self.review["cases"]["preview-no-lazy-fetch-preservation"]
+        case["testReport"] = fixtures.ref(self.root, "detached-preview-report.json", self.read(case["testReport"]))
+        self.reject("review test report detached from execution")
+
+    def test_preview_command_cannot_be_relabelled_from_another_candidate(self):
+        case = self.review["cases"]["preview-no-lazy-fetch-preservation"]
+        command = self.read(case["command"])
+        command["candidateCommit"] = "f" * 40
+        replacement = fixtures.ref(self.root, case["command"]["path"], command)
+        code = self.read(self.index["code"])
+        for check in code["checks"]:
+            if check["command"]["path"] == replacement["path"]:
+                check["command"] = replacement
+        self.index["code"] = fixtures.ref(self.root, self.index["code"]["path"], code)
+        case["command"] = replacement
+        self.reject("wrong product candidate")

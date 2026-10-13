@@ -32,10 +32,14 @@ PARTIAL_CLONE_REGRESSIONS = (
     "RepositoryIdentityResolverLive resolves a real local partial-clone with an annotated origin remote",
     "RepositoryIdentityResolverLive resolves a real local partial-clone with an annotated upstream remote")
 SIDEBAR_DESTINATION_REGRESSION = "offers matching registered destinations even when sidebar grouping keeps the source separate"
+PREVIEW_NO_LAZY_FETCH_REGRESSION = (
+    "HandoffGit real repositories previews real promisor clones without fetching missing commits or changing Git state")
 DESTINATION_REGRESSIONS = {
     "partial-clone-identity": ("apps/server/src/project/RepositoryIdentityResolver.test.ts", PARTIAL_CLONE_REGRESSIONS),
     "sidebar-independent-destination": ("apps/web/src/components/studio/ProjectMachineHandoff.test.tsx",
-                                        (SIDEBAR_DESTINATION_REGRESSION,))}
+                                        (SIDEBAR_DESTINATION_REGRESSION,)),
+    "preview-no-lazy-fetch-preservation": ("apps/server/src/fleet/handoffGit.test.ts",
+                                          (PREVIEW_NO_LAZY_FETCH_REGRESSION,))}
 
 
 def require(value, message):
