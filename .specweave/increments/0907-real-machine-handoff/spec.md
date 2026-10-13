@@ -17,11 +17,11 @@ In: audit source ownership and destination paths; prepare explicit branch and co
 
 ## Approach
 
-Use the existing owned umbrella worktree on codex/real-machine-handoff. Keep private runtime receipts and configuration hashes under ~/.local/share/specweave/fleet/handoff-proof-20261013. Use clean owned source checkpoints and explicit feature branches; a branch name alone is insufficient for nested repositories. Preserve the shared specweave-handoff pointer used by other owners: transport this bounded proof on explicit pushed branches with a no-push CLI handoff document, then read that exact checkpoint on the destination. Native destination workers start fresh from the source checkpoint; they do not inherit a running process. Do not claim general UI handoff support: 1.0.9 only exposes it after a real usage-limit failure. Resolve paths by exact environment/project identity rather than whichever duplicate repository happens to be listed first. Secrets travel only over SSH into ignored private files, never through Git or model prompts. Local service tests must use isolated local data targets.
+Use the existing owned umbrella worktree on codex/real-machine-handoff. Keep private runtime receipts and configuration hashes under ~/.local/share/specweave/fleet/handoff-proof-20261013. Use clean owned source checkpoints and explicit feature branches; a branch name alone is insufficient for nested repositories. Repair the provisioner's single-branch fetch configuration so newly fetched feature branches can be tracked normally, preserving origins and other settings. Preserve the shared specweave-handoff pointer used by other owners: transport this bounded proof on explicit pushed branches with a no-push CLI handoff document, then read that exact checkpoint on the destination. Native destination workers start fresh from the source checkpoint; they do not inherit a running process. Do not claim general UI handoff support: 1.0.9 only exposes it after a real usage-limit failure. Resolve paths by exact environment/project identity rather than whichever duplicate repository happens to be listed first. Secrets travel only over SSH into ignored private files, never through Git or model prompts. Local service tests must use isolated local data targets.
 
-## Open questions
+## Path decision
 
-- Whether original M1 checkouts can safely become the active normal paths without disrupting local changes or processes is decided from the live ownership audit.
+Preserve the original M1 EasyChamp directory: it contains local work and points to a different upstream. Keep the prepared fleet checkout registered until a separate archive-and-promote migration preserves the old linked worktree and changes the registration together.
 
 ## Tasks
 
@@ -29,10 +29,10 @@ Use the existing owned umbrella worktree on codex/real-machine-handoff. Keep pri
 - AC: AC-01 | Files: docs/operations/real-machine-handoff.md | Test: python3 scripts/fleet/verify-handoff-evidence.py --phase audit
 
 ### T-02 Exercise actual M4 checkpoints on six destination routes
-- AC: AC-02 | Files: scripts/fleet/verify-handoff-evidence.py, docs/operations/real-machine-handoff.md | Test: python3 scripts/fleet/verify-handoff-evidence.py --phase handoff
+- AC: AC-02 | Files: scripts/fleet-project-sync.py, scripts/fleet/verify-handoff-evidence.py, tests/test_handoff_evidence.py, docs/operations/real-machine-handoff.md | Test: python3 scripts/fleet/verify-handoff-evidence.py --phase handoff
 
 ### T-03 Provision and verify local development configuration
 - AC: AC-03 | Files: docs/operations/real-machine-handoff.md | Test: python3 scripts/fleet/verify-handoff-evidence.py --phase environment
 
 ### T-04 Review and publish the continuation procedure
-- AC: AC-04 | Files: docs/operations/real-machine-handoff.md, .specweave/increments/0907-real-machine-handoff/spec.md | Test: python3 scripts/fleet/verify-handoff-evidence.py --phase all
+- AC: AC-04 | Files: README.md, CHANGELOG.md, AGENTS.md, docs/operations/real-machine-handoff.md, .specweave/increments/0907-real-machine-handoff/spec.md | Test: python3 scripts/fleet/verify-handoff-evidence.py --phase all

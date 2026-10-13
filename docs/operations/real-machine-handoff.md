@@ -12,6 +12,8 @@ The original M1 `~/Projects/sw-easychamp` points to `anton-abyzov/easychamp-umb`
 
 Each destination has 46 clean, independent, non-shallow checkouts with no shared object alternates. Promisor metadata remains, so missing historical objects may require network access. These are working clones, not guaranteed complete offline archives.
 
+The live continuation test exposed primary-branch-only fetch mappings left by the initial bounded clone. All 92 owned clones now use Git's normal `+refs/heads/*:refs/remotes/origin/*` mapping, preserving their origins, authentication configuration, current commits and working trees. This lets newly fetched feature branches acquire an upstream normally.
+
 ## What is published
 
 The fleet baseline contains published, merged code. It does not include every active M4 edit. The current M4 audit found local modifications in 20 repositories. EasyChamp's umbrella had two local commits absent from the published develop branch; SpecWeave's umbrella had two commits unmerged to main. Do not sweep these into a handoff or commit them on another owner's behalf.
@@ -40,6 +42,33 @@ The JobWeave audit found old umbrella-root environment files pointing to Supabas
 
 The EasyChamp history contains absolute dependency symlinks, including a tracked Python virtual-environment symlink. Rebuild dependencies locally and invoke the host-local environment explicitly; do not follow a link into the preserved old checkout.
 
+The October 13 local checks passed on both hosts: EasyChamp and JobWeave served their actual Next.js interfaces with HTTP 200 and application markers; SpecWeave compiled from source and its CLI launched. JobWeave's isolated PostgreSQL database on loopback port 45432 passed all repository migrations, pgvector operations and real Prisma model queries. Existing PostgreSQL on M3 port 5432 was preserved. Seven private configuration files per host were verified with mode 0600, Git-ignore status and hash readback.
+
+These checks cover local startup and the isolated database. JobWeave uses the repository's auth-schema rehearsal stubs; a local Supabase Auth service was not installed. The checks do not establish production authentication, payments, email delivery, external AI-provider calls, or the entire EasyChamp microservice fleet. Test web processes and isolated database servers were stopped after verification.
+
+Both hosts have a private reusable launcher at `~/.local/share/specweave/fleet/handoff-proof-20261013/local-dev-control.py`. Use Python 3 and the actual host name (`m1` or `m3`) followed by one action:
+
+| Action | Result |
+| --- | --- |
+| `db-start` / `db-status` / `db-stop` | Control only the isolated JobWeave database on 45432 |
+| `web-jobweave` | Run the JobWeave web app on 43802 after starting its database |
+| `web-easychamp` | Run EasyChamp's console on 43801 |
+| `specweave-version` | Launch the verified source CLI |
+
+For example: `python3 ~/.local/share/specweave/fleet/handoff-proof-20261013/local-dev-control.py m1 db-start`. The launcher reads private configuration locally; commands do not contain credentials. Its private runbook records remaining feature-level limitations.
+
 ## Evidence
+
+The October 13 continuation runs passed all six routes. Each project first ran a real M4 coordinator and worker, deliberately left package inspection as the next step, and transported that actual checkpoint to both hosts. Each destination coordinator launched one fresh local worker, read the checkpoint and matching local code, completed the deferred package inspection, and resumed automatically from the worker's completion. Nine cycles produced 27 completed native runs. No provider session or running worker moved between machines.
+
+| Project | Tested transport root commit | Nested code commit | M1 | M3 |
+| --- | --- | --- | --- | --- |
+| EasyChamp | `73b0efcc9a873ff24ad2490b5dfe20810d8929f3` | `3bb2dd5e6c5d627e95969957410a3866a61c4916` | Passed | Passed |
+| JobWeave | `7a4ac3cd1e5e44b5987a471242c6c8bc73e4ad24` | `d1b1f864b0939dd41e1f4643116929bcf3973aac` | Passed | Passed |
+| SpecWeave | `a8c47fca7a1b2b4f1a25516c665cd8f4b528f574` | `a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a` | Passed | Passed |
+
+The source root commits precede the transport commits because the transport adds the actual checkpoint and handoff documents. The nested application code remains at the same recorded commit. Later proof-branch commits record the destination results; they are not substituted for the tested transport commits.
+
+Earlier failed attempts remain in the private evidence: the first feature-branch checkout exposed the fetch-mapping defect; bounded test-harness retries corrected terminal completion acknowledgement and the macOS `cat` path. Failed attempts are not counted as successful routes. Successful receipts independently record clean source preservation, native command execution, actual carried context, server-triggered coordinator wake, retained checkpoint/package command output and revoked temporary control sessions.
 
 Private receipts live under `~/.local/share/specweave/fleet/handoff-proof-20261013`. The source audit is verified with `python3 scripts/fleet/verify-handoff-evidence.py --phase audit`. Native continuation and environment phases require successful current receipts and fail when a route or runtime check is missing. Earlier 0906 destination-only cycles do not count as M4 handoff evidence.

@@ -1,3 +1,7 @@
 {"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-13T14:32:22.709Z","note":"session 01a133f6-b1c8-7813-a48e-ea8a6048fec2"}
 {"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-13T14:32:22.710Z"}
 {"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-13T14:42:24.761Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-13T14:44:38.073Z","evidence":"python3 scripts/fleet/verify-handoff-evidence.py --phase audit → exit 0\nlog: .specweave/increments/0907-real-machine-handoff/reports/task-T-01.txt\naudit: passed\nHEAD dbbaaacbd"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-13T14:56:35.292Z"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-13T14:56:51.173Z","evidence":"python3 scripts/fleet/verify-handoff-evidence.py --phase environment → exit 0\nlog: .specweave/increments/0907-real-machine-handoff/reports/task-T-03.txt\nenvironment: passed\nHEAD dbbaaacbd"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-13T15:21:08.486Z"}

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Provision pinned independent checkouts; never repair existing repositories.
+"""Provision pinned independent checkouts; preserve existing source and history.
+Only verified clean checkouts may have legacy origin branch mappings expanded.
 Bundle/receipt modes validate saved evidence; they cannot prove fresh live state.
 """
 import argparse
@@ -129,6 +130,29 @@ def verify_checkout(target, row):
     require(not git(["status", "--porcelain=v1", "--untracked-files=all", "--ignore-submodules=none"], target),
             "Dirty checkout; preserve existing work")
 
+ORIGIN_FETCH = "+refs/heads/*:refs/remotes/origin/*"
+
+def normalize_origin_fetch(target, apply):
+    """Expand clone-generated mappings without changing other local config."""
+    before = git(["config", "--local", "--get-all", "remote.origin.fetch"], target).splitlines()
+    for refspec in before:
+        match = re.fullmatch(r"\+refs/heads/(.+):refs/remotes/origin/\1", refspec)
+        require(match is not None, "Custom origin fetch mapping; preserve existing configuration")
+        if match.group(1) != "*":
+            git(["check-ref-format", "refs/heads/" + match.group(1)])
+    changed = before != [ORIGIN_FETCH]
+    if changed:
+        require(apply, "Restricted origin fetch mapping; use --apply after checking ownership")
+        def other_config():
+            return [entry for entry in git(["config", "--local", "--null", "--list"], target).split("\0")
+                    if not entry.startswith("remote.origin.fetch\n")]
+        preserved = other_config()
+        git(["config", "--local", "--replace-all", "remote.origin.fetch", ORIGIN_FETCH], target)
+        require(other_config() == preserved, "Unrelated local Git configuration changed")
+    after = git(["config", "--local", "--get-all", "remote.origin.fetch"], target).splitlines()
+    require(after == [ORIGIN_FETCH], "Origin does not track all branches")
+    return {"before": before, "after": after, "changed": changed}
+
 def same_repository(canonical, effective):
     """Permit a credential-free GitHub HTTPS/SSH rewrite, never a new destination."""
     if canonical == effective:
@@ -179,6 +203,8 @@ def provision(base, row, apply, bundle_dir=None):
         source = source_for(row, bundle_dir)
         if target.exists():
             verify_checkout(target, row)
+            result["originFetch"] = normalize_origin_fetch(target, apply)
+            verify_checkout(target, row)
             result["status"] = "already_verified"
         elif not apply:
             result["status"] = "missing"
@@ -196,6 +222,9 @@ def provision(base, row, apply, bundle_dir=None):
                 git(["remote", "set-url", "origin", row["origin"]], stage)
             git(["checkout", row["branch"]], stage)
             verify_checkout(stage, row)
+            # Keep the initial transfer bounded, but let future handoff feature
+            # branches fetch and acquire normal origin tracking without repair.
+            result["originFetch"] = normalize_origin_fetch(stage, True)
             source_for(row, bundle_dir)
             destination(base, row["relativePath"])
             exclusive_rename(stage, target)
@@ -217,7 +246,9 @@ def final_readback(base, results):
         if row["status"] not in ("created_verified", "already_verified"):
             continue
         try:
-            verify_checkout(destination(base, row["relativePath"]), row)
+            target = destination(base, row["relativePath"])
+            verify_checkout(target, row)
+            normalize_origin_fetch(target, False)
         except (Refusal, OSError, ValueError) as error:
             row.update(status="failed", error="Final readback: " + str(error))
 
@@ -283,6 +314,63 @@ class SafetyTests(unittest.TestCase):
         self.assertEqual(provision(self.base, self.row, False)["status"], "missing")
         self.assertEqual(self.apply()["status"], "created_verified")
         self.assertEqual(self.apply()["status"], "already_verified")
+
+    def test_new_and_legacy_clones_fetch_and_track_future_feature(self):
+        bare = self.root / "remote.git"
+        git(["clone", "--bare", "--", str(self.origin), str(bare)])
+        for legacy in (False, True):
+            with self.subTest(legacy=legacy):
+                row = {**self.row, "origin": str(bare), "relativePath": "legacy" if legacy else "new"}
+                self.assertEqual(provision(self.base, row, True)["status"], "created_verified")
+                target = self.base / row["relativePath"]
+                if legacy:
+                    git(["config", "--local", "--replace-all", "remote.origin.fetch",
+                         "+refs/heads/main:refs/remotes/origin/main"], target)
+                    git(["config", "--local", "--add", "remote.origin.fetch",
+                         "+refs/heads/earlier:refs/remotes/origin/earlier"], target)
+                    git(["config", "--local", "credential.helper", "fixture-preserved"], target)
+                    git(["config", "--local", "core.sshCommand", "/usr/bin/false fixture-preserved"], target)
+                    git(["config", "--local", "remote.origin.pushurl", str(bare)], target)
+                    before = (target / ".git/config").read_bytes()
+                    self.assertEqual(provision(self.base, row, False)["status"], "failed")
+                    self.assertEqual((target / ".git/config").read_bytes(), before)
+                    self.assertEqual(provision(self.base, row, True)["status"], "already_verified")
+                    self.assertEqual(git(["config", "--local", "--get", "credential.helper"], target), "fixture-preserved")
+                    self.assertEqual(git(["config", "--local", "--get", "core.sshCommand"], target), "/usr/bin/false fixture-preserved")
+                    self.assertEqual(git(["config", "--local", "--get", "remote.origin.pushurl"], target), str(bare))
+                self.assertEqual(git(["config", "--local", "--get-all", "remote.origin.fetch"], target), ORIGIN_FETCH)
+                self.assertEqual(git(["config", "--local", "--get", "remote.origin.url"], target), str(bare))
+                verify_checkout(target, row)
+                feature = "codex/feature-" + row["relativePath"]
+                git(["switch", "-c", feature, "main"], self.origin)
+                (self.origin / "feature.txt").write_text(feature + "\n")
+                git(["add", "feature.txt"], self.origin)
+                git(["commit", "-m", "future handoff feature"], self.origin)
+                feature_sha = git(["rev-parse", "HEAD"], self.origin)
+                git(["push", "--", str(bare), "HEAD:refs/heads/" + feature], self.origin)
+                git(["fetch", "origin"], target)
+                git(["switch", "--track", "origin/" + feature], target)
+                self.assertEqual(git(["rev-parse", "HEAD"], target), feature_sha)
+                self.assertEqual(git(["rev-parse", "--abbrev-ref", "@{upstream}"], target), "origin/" + feature)
+                self.assertEqual((target / "feature.txt").read_text(), feature + "\n")
+                self.assertEqual(git(["status", "--porcelain=v1"], target), "")
+
+    def test_legacy_fetch_repair_preserves_dirty_or_custom_checkouts(self):
+        self.apply()
+        target = self.base / "jobweave"
+        git(["config", "--local", "--replace-all", "remote.origin.fetch",
+             "+refs/heads/main:refs/remotes/origin/main"], target)
+        before = (target / ".git/config").read_bytes()
+        (target / "file.txt").write_text("owner change\n")
+        self.assertEqual(self.apply()["status"], "failed")
+        self.assertEqual((target / ".git/config").read_bytes(), before)
+        self.assertEqual((target / "file.txt").read_text(), "owner change\n")
+        (target / "file.txt").write_text("initial\n")
+        git(["config", "--local", "--add", "remote.origin.fetch", "^refs/heads/private/*"], target)
+        before = (target / ".git/config").read_bytes()
+        self.assertEqual(self.apply()["status"], "failed")
+        self.assertEqual((target / ".git/config").read_bytes(), before)
+        self.assertEqual(git(["rev-parse", "HEAD"], target), self.row["sha"])
 
     def test_dirty_and_untracked_preserved(self):
         self.apply()
@@ -367,6 +455,7 @@ class SafetyTests(unittest.TestCase):
         self.assertEqual(provision(self.base, row, True, self.root)["status"], "created_verified")
         self.assertEqual(provision(self.base, row, True, self.root)["status"], "already_verified")
         self.assertEqual(git(["rev-parse", "@{upstream}"], self.base / "jobweave"), row["sha"])
+        self.assertEqual(git(["config", "--local", "--get-all", "remote.origin.fetch"], self.base / "jobweave"), ORIGIN_FETCH)
         self.assertNotIn("[blob:none]", git(["remote", "-v"], self.base / "jobweave"))
         self.assertEqual(provision(self.base, {**row, "bundleSha256": "0" * 64}, True, self.root)["status"], "failed")
 
