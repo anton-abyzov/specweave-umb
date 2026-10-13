@@ -69,6 +69,12 @@ The October 13 continuation runs passed all six routes. Each project first ran a
 
 The source root commits precede the transport commits because the transport adds the actual checkpoint and handoff documents. The nested application code remains at the same recorded commit. Later proof-branch commits record the destination results; they are not substituted for the tested transport commits.
 
+After the manual proof, all six destination project roots returned to their original published default branches. A fresh check verified all 92 repository commits, clean working trees, zero ahead/behind counts and normal fetch mappings. Completed proof branches remain available. Configuration hashes and all 14 private environment files were preserved. The three M4 proof project registrations were archived with their histories and folders intact; canonical JobWeave was registered at its existing M4 umbrella folder without starting a coordinator.
+
 Earlier failed attempts remain in the private evidence: the first feature-branch checkout exposed the fetch-mapping defect; bounded test-harness retries corrected terminal completion acknowledgement and the macOS `cat` path. Failed attempts are not counted as successful routes. Successful receipts independently record clean source preservation, native command execution, actual carried context, server-triggered coordinator wake, retained checkpoint/package command output and revoked temporary control sessions.
 
 Private receipts live under `~/.local/share/specweave/fleet/handoff-proof-20261013`. The source audit is verified with `python3 scripts/fleet/verify-handoff-evidence.py --phase audit`. Native continuation and environment phases require successful current receipts and fail when a route or runtime check is missing. Earlier 0906 destination-only cycles do not count as M4 handoff evidence.
+
+## Product handoff work still open
+
+Increment 0907 also tracks ordinary coordinator destination selection, guarded opt-in source transfer, a new Mac release and six subsequent routes through that app-owned flow. The manual proof above does not satisfy those product gates. Its current `--phase all` command covers audit, manual continuation and local environment only. Product acceptance must include an owned source code change, carried decisions and unfinished coding/test work, destination workers completing that work without receiving the answers again, and authoritative evidence of the app's own code transfer. The release owner coordinates one build/install and concrete manual UI acceptance.

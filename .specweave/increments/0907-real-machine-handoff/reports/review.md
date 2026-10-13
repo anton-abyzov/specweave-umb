@@ -1,8 +1,10 @@
 # Review: 0907 Real machine handoff
 
-Verdict: ship · risk: low · 7 reviewed files · 0 unresolved findings
+Verdict: ship for completed manual phase T-01–T-04 only · risk: low · 7 reviewed files · 0 unresolved findings in that scope
 
-Reviewer context: delegated reviewer independent of the verifier, its synthetic tests, and the documentation authors. Reviewed `scripts/fleet/verify-handoff-evidence.py`, `tests/test_handoff_evidence.py`, `docs/operations/real-machine-handoff.md`, `README.md`, `CHANGELOG.md`, `AGENTS.md`, and this increment's specification. Review performed on 2026-10-13 after all six destination receipts and their retained command outputs were available.
+Scope annotation after the product expansion: this report approves the completed manual-continuation evidence, documentation and verifier, with the provisioner covered by the separate review below. It does **not** approve the new ordinary product handoff, destination picker, guarded product-managed synchronization, Mac candidate release or six-route product acceptance in T-05–T-08 / AC-05–AC-08. The earlier `--phase all` result covered only the then-existing audit, manual handoff and environment phases. Increment 0907 remains open for the new product gates, their independent review and concrete UI acceptance.
+
+Reviewer context: delegated reviewer independent of the verifier, its synthetic tests, and the documentation authors. Reviewed `scripts/fleet/verify-handoff-evidence.py`, `tests/test_handoff_evidence.py`, `docs/operations/real-machine-handoff.md`, `README.md`, `CHANGELOG.md`, `AGENTS.md`, and this increment's original manual-phase specification. Review performed on 2026-10-13 after all six manual destination receipts and their retained command outputs were available, before T-05–T-08 expanded the scope.
 
 The reviewer authored the provisioner repair and therefore does not approve that code here. The separate `dev_environment_audit` reviewer reported **ship, no findings** for `scripts/fleet-project-sync.py:135–154`, its call sites at 204–227 and 244–253, and independently ran its 13 safety tests successfully in 35.451 seconds. That review covered real local bare-Git feature fetch/tracking, unchanged authentication and other Git configuration, read-only inspection, and dirty/custom configuration refusal.
 
