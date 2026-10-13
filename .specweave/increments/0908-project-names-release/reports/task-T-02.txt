@@ -1,0 +1,130 @@
+$ /opt/homebrew/bin/python3.13 /Users/antonabyzov/Projects/research/studio-project-names-release-2026-10-13/run-sidebar-check.py
+# exit 0 — 2026-10-13T15:50:28.906Z
+
+{
+  "source": "c89bb4e946d0ddddd6aede95e82114bc26074a71",
+  "observedAt": "2026-10-13T15:50:17.279001+00:00",
+  "proof": "Isolated real StudioSidebar + real grouping/snapshot source, production CSS, existing component-test mocks; no live stores/providers",
+  "screenshots": [
+    {
+      "path": "/Users/antonabyzov/Projects/research/studio-project-names-release-2026-10-13/1440-light.png",
+      "sha256": "b843b46e96096aa5d44fd7fd90b78cdf8f8742d04ab35649d1a0a1441fd3bafe"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/research/studio-project-names-release-2026-10-13/1440-dark.png",
+      "sha256": "a5493bb5b9b594b44516de8d93b5067b15386c6a45f0af84b74fb93330cdccfe"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/research/studio-project-names-release-2026-10-13/390-light.png",
+      "sha256": "ae3f0de48f83b660b33803a6eec42387bb8b1bcdb120746c17ad30121e5f74ae"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/research/studio-project-names-release-2026-10-13/390-dark.png",
+      "sha256": "95bc22e786cea06063ba577ccf28e0f78e344159aa46cadfbb51857534f2a4dc"
+    }
+  ],
+  "cases": [
+    {
+      "theme": "light",
+      "viewport": 1440,
+      "labels": [
+        "Aide",
+        "anton-abyzov/unnamed",
+        "EasyChamp",
+        "folder-only",
+        "JobWeave",
+        "SpecWithCode"
+      ],
+      "groupedMembers": 2,
+      "selectedHref": "/projects/github.com/anton-abyzov/sw_easychamp",
+      "tooltip": true,
+      "menu": true,
+      "errors": []
+    },
+    {
+      "theme": "dark",
+      "viewport": 1440,
+      "labels": [
+        "Aide",
+        "anton-abyzov/unnamed",
+        "EasyChamp",
+        "folder-only",
+        "JobWeave",
+        "SpecWithCode"
+      ],
+      "groupedMembers": 2,
+      "selectedHref": "/projects/github.com/anton-abyzov/sw_easychamp",
+      "tooltip": true,
+      "menu": true,
+      "errors": []
+    },
+    {
+      "theme": "light",
+      "viewport": 390,
+      "labels": [
+        "Aide",
+        "anton-abyzov/unnamed",
+        "EasyChamp",
+        "folder-only",
+        "JobWeave",
+        "SpecWithCode"
+      ],
+      "groupedMembers": 2,
+      "selectedHref": "/projects/github.com/anton-abyzov/sw_easychamp",
+      "tooltip": true,
+      "menu": true,
+      "errors": []
+    },
+    {
+      "theme": "dark",
+      "viewport": 390,
+      "labels": [
+        "Aide",
+        "anton-abyzov/unnamed",
+        "EasyChamp",
+        "folder-only",
+        "JobWeave",
+        "SpecWithCode"
+      ],
+      "groupedMembers": 2,
+      "selectedHref": "/projects/github.com/anton-abyzov/sw_easychamp",
+      "tooltip": true,
+      "menu": true,
+      "errors": []
+    },
+    {
+      "mode": "repository_path",
+      "labels": [
+        "Aide",
+        "anton-abyzov/unnamed",
+        "EasyChamp",
+        "folder-only",
+        "JobWeave",
+        "SpecWithCode"
+      ],
+      "groupedMembers": 2,
+      "errors": []
+    },
+    {
+      "mode": "separate",
+      "labels": [
+        "Aide",
+        "EasyChamp",
+        "folder-only",
+        "JobWeave",
+        "SpecWithCode",
+        "sw_easychamp",
+        "unnamed",
+        "unnamed-alt"
+      ],
+      "groupedMembers": 1,
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "sourceUnchanged": true,
+  "browser": "153.0.8010.12",
+  "completedAt": "2026-10-13T15:50:28.655865+00:00"
+}
+Verified retained production builds and headless Sidebar UI at c89bb4e946d0ddddd6aede95e82114bc26074a71

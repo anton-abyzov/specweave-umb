@@ -23,7 +23,7 @@ Use isolated umbrella and product branches codex/project-names-release. Baseline
 - AC: AC-01 | Files: repositories/anton-abyzov/specweave-studio/packages/client-runtime/src/state/projectGrouping.ts, repositories/anton-abyzov/specweave-studio/packages/client-runtime/src/state/projectGrouping.test.ts | Test: cd repositories/anton-abyzov/specweave-studio && node node_modules/vite-plus/bin/vp test run packages/client-runtime/src/state/projectGrouping.test.ts
 
 ### T-02 Verify rendered labels and production builds
-- AC: AC-02 | Files: .specweave/increments/0908-project-names-release/reports | Test: node repositories/anton-abyzov/specweave-studio/scripts/studio-verify/project-names.mjs
+- AC: AC-02 | Files: .specweave/increments/0908-project-names-release/reports | Test: /opt/homebrew/bin/python3.13 /Users/antonabyzov/Projects/research/studio-project-names-release-2026-10-13/run-sidebar-check.py
 
 ### T-03 Preserve and push reviewed pending work
 - AC: AC-03 | Files: .specweave/increments/0908-project-names-release/reports/git-state.md, .specweave/increments/0896-hosted-private-skill-publishing/ledger.jsonl, .specweave/increments/0897-free-first-pricing-and-launch, .specweave/increments/0898-team-usage-view, .specweave/project/hub.json, .specweave/state/closure-metrics.json, AGENTS.md, .specweave/reports | Test: git diff --check
