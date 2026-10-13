@@ -27,6 +27,7 @@ HEX40 = re.compile(r"[a-f0-9]{40}\Z")
 HEX64 = re.compile(r"[a-f0-9]{64}\Z")
 UUID = re.compile(r"[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}\Z")
 RUNNER = Path(__file__).with_name("replay_product_native.mjs")
+HISTORY_RUNNER = Path(__file__).with_name("replay_source_history.mjs")
 PROJECT_RUNTIME_REGRESSION = "launches with the project's approval mode instead of the host's full-access default"
 PARTIAL_CLONE_REGRESSIONS = (
     "RepositoryIdentityResolverLive resolves a real local partial-clone with an annotated origin remote",
@@ -34,12 +35,16 @@ PARTIAL_CLONE_REGRESSIONS = (
 SIDEBAR_DESTINATION_REGRESSION = "offers matching registered destinations even when sidebar grouping keeps the source separate"
 PREVIEW_NO_LAZY_FETCH_REGRESSION = (
     "HandoffGit real repositories previews real promisor clones without fetching missing commits or changing Git state")
+PREVIEW_CONTEXT_CONSENT_REGRESSION = (
+    "previews without publishing, then rechecks the selected machine before one explicit transfer")
 DESTINATION_REGRESSIONS = {
     "partial-clone-identity": ("apps/server/src/project/RepositoryIdentityResolver.test.ts", PARTIAL_CLONE_REGRESSIONS),
     "sidebar-independent-destination": ("apps/web/src/components/studio/ProjectMachineHandoff.test.tsx",
                                         (SIDEBAR_DESTINATION_REGRESSION,)),
     "preview-no-lazy-fetch-preservation": ("apps/server/src/fleet/handoffGit.test.ts",
-                                          (PREVIEW_NO_LAZY_FETCH_REGRESSION,))}
+                                          (PREVIEW_NO_LAZY_FETCH_REGRESSION,)),
+    "preview-context-consent": ("apps/web/src/components/studio/ProjectMachineHandoff.test.tsx",
+                                (PREVIEW_CONTEXT_CONSENT_REGRESSION,))}
 
 
 def require(value, message):
@@ -161,6 +166,34 @@ def replay(evidence, plan_ref, receipt_ref):
     require(report == {"verified": True, "mode": plan["mode"], "projectId": plan["projectId"],
                        "operationId": plan.get("operationId")}, "unexpected native replay output")
     return plan, receipt
+
+
+def source_context(evidence, entry, plan, native, route, bundle):
+    carried = [thread["threadId"] for thread in bundle["context"]["threads"]]
+    original = [plan["coordinatorId"]] + [task["childThreadId"] for task in native["rawParent"]["subagents"]
+                                         if task["origin"] == "app_owned"]
+    require(len(set(carried)) == len(carried), "duplicate carried source thread")
+    if "sourceHistory" not in route:
+        require(sorted(carried) == sorted(original), "expanded source history requires terminal supplement")
+        return
+    refs = [entry["plan"], entry["native"], route["sourceHistory"], route["sourceRecord"]]
+    # Decode every hash-bound input with the same duplicate-key/size restrictions
+    # before the fixed JS runner consumes the exact original bytes.
+    for reference in refs:
+        evidence.json(reference)
+    paths = [str(evidence.path(reference)) for reference in refs]
+    executable, env = node22()
+    result = subprocess.run([executable, str(HISTORY_RUNNER), *paths],
+                            capture_output=True, text=True, timeout=30, env=env)
+    require(result.returncode == 0 and not result.stderr, "source terminal history replay failed")
+    report = decode(result.stdout)
+    require(set(report) == {"verified", "projectId", "originalSuccessfulWorkerId", "threadIds",
+                            "historicalOnlyThreadIds"}
+            and report["verified"] is True and report["projectId"] == plan["projectId"]
+            and report["originalSuccessfulWorkerId"] == native["outcome"]["workerThreadId"]
+            and sorted(report["threadIds"]) == sorted(carried)
+            and sorted(report["historicalOnlyThreadIds"]) == sorted(set(carried) - set(original)),
+            "unexpected source history replay output")
 
 
 def command(evidence, reference):
@@ -868,10 +901,16 @@ def product_prompt(operation, context_path, workspace):
             "Do not repeat already completed work or seed a claimed answer.")
 
 
-def product_launch(destination, initial):
+def product_launch(destination, initial, bundle=None):
     """Bind persisted launch intent to the separately replayed native first run."""
-    require(set(destination) == {"digest", "destinationProjectId", "receipt", "configured", "launch"},
+    require(set(destination) == {"digest", "destinationProjectId", "receipt", "configured", "launch"}
+            | ({"metadata"} if "metadata" in destination else set()),
             "unexpected persisted destination record")
+    if "metadata" in destination:
+        require(isinstance(bundle, dict) and destination["metadata"] == {
+            field: bundle[field] for field in ("manifest", "sourceEnvironmentId", "sourceProjectId",
+                                               "sourceThreadId", "digest")},
+            "persisted preview metadata differs from transferred bundle")
     receive = destination["receipt"]
     require(set(receive) == {"operationId", "phase", "projectId", "coordinatorThreadId",
                              "workspacePath", "contextPath", "replayed"}
@@ -921,14 +960,14 @@ def product_handoff(root):
         worker = native["outcome"]["workerThreadId"]
         require(worker not in workers, "source worker reused")
         workers.add(worker)
-        sources[key] = (plan, native, relative)
+        sources[key] = (plan, native, relative, item)
     routes = section["routes"]
     require(len(routes) == 6 and {(r["key"], r["host"]) for r in routes}
             == {(p, h) for p in PROJECTS for h in HOSTS}, "six distinct product routes required")
     operations, workspaces = set(), set()
     for route in routes:
         key, host = route["key"], route["host"]
-        source, source_native, relative = sources[key]
+        source, source_native, relative, source_entry = sources[key]
         plan, native = replay(evidence, route["plan"], route["native"])
         require(plan["host"] == host and plan["mode"] == "destination", "wrong destination native mode")
         require(plan["originalShas"] == source["originalShas"], "destination source pins differ")
@@ -983,6 +1022,7 @@ def product_handoff(root):
                     and repo["identity"] == identities[key][repo["relativePath"]]
                     and repo["ref"] == f"refs/heads/codex/handoff/{operation}/{repo['head']}", "wrong published repository pin")
         threads = bundle["context"]["threads"]
+        source_context(evidence, source_entry, source, source_native, route, bundle)
         for thread_id, output in ((source["coordinatorId"], source_native["outcome"]["relayText"]),
                                   (source_native["outcome"]["workerThreadId"], source_native["outcome"]["workerText"])):
             require(any(t["threadId"] == thread_id and any(m["role"] == "assistant" and output in m["text"]
@@ -1024,7 +1064,7 @@ def product_handoff(root):
         parent = native["parent"]
         initial = next(m for m in parent["messages"] if m["id"] == next(r for r in parent["runs"]
                        if r["id"] != native["outcome"]["automaticWakeRunId"])["userMessageId"])
-        product_launch(destination, initial)
+        product_launch(destination, initial, bundle)
         worker = native["outcome"]["workerThreadId"]
         require(worker not in workers, "destination worker was reused")
         workers.add(worker)

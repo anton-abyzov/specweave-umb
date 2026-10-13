@@ -45,8 +45,8 @@ class DestinationRegressionReviewTests(unittest.TestCase):
             case["testReport"] = reference
             case["command"] = commands[case["command"]["path"]]
 
-    def test_eleven_case_fixture_binds_identity_sidebar_and_local_preview(self):
-        self.assertEqual(len(self.review["cases"]), 11)
+    def test_twelve_case_fixture_binds_identity_sidebar_preview_and_consent(self):
+        self.assertEqual(len(self.review["cases"]), 12)
         self.save()
         fixtures.V.product_review(self.root)
 
@@ -151,3 +151,20 @@ class DestinationRegressionReviewTests(unittest.TestCase):
         self.index["code"] = fixtures.ref(self.root, self.index["code"]["path"], code)
         case["command"] = replacement
         self.reject("wrong product candidate")
+
+    def test_consent_witness_is_the_actual_candidate_suite_not_detached_report(self):
+        case = self.review["cases"]["preview-context-consent"]
+        case["testReport"] = fixtures.ref(self.root, "detached-consent-report.json", self.read(case["testReport"]))
+        self.reject("review test report detached from execution")
+
+    def test_failed_or_skipped_consent_cannot_hide_behind_passed_summary(self):
+        case = self.review["cases"]["preview-context-consent"]
+        baseline = self.read(case["testReport"])
+        for status in ("failed", "skipped", "pending"):
+            with self.subTest(status=status):
+                report = copy.deepcopy(baseline)
+                witness = next(a for s in report["testResults"] for a in s["assertionResults"]
+                               if a["fullName"] == case["assertion"])
+                witness["status"] = status
+                self.replace_report(report)
+                self.reject("failed|assertion")

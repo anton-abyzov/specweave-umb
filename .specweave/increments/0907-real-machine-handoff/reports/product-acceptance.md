@@ -2,6 +2,8 @@
 
 Status: pending. Zero of six ordinary app routes are accepted. The earlier six manual continuation routes remain separately verified.
 
+Manual UI acceptance is complete: Anton explicitly answered “Approve the handoff UI” after reviewing the desktop and mobile previews. That human reply was verified directly in the release chat and retained privately as `product-handoff-ui-human-acceptance.json`. It approves the shown screen; the six real route and runtime checks below remain required.
+
 The source coordinator and worker ran on M4 for each project, inspected an intentionally unfinished diagnostic and recorded its decision and next step. These frozen root and nested commits define the work to continue:
 
 | Project | Root commit | Nested commit | M1 | M3 |
