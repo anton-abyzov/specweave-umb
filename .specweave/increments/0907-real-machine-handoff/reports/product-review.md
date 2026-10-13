@@ -1,5 +1,13 @@
 # Product source review
 
+Current accepted source review: SpecWithCode 1.0.10, `a26cf5a0c5805d9bcc75aa3b44c5adb90430cdc2`. T-09 fixes coordinator launch to honor the resolved project permission mode and records the red-to-green regression. The actual corrected-candidate `product-code` and `product-review` gates passed on October 13; T-09 was completed through its declared CLI test.
+
+The corrected source has 538 passing assertions across 16 suites, plus 12 freshly executed external assertions. Fresh independent review covers the seven failure paths below and the eighth `project-runtime-mode` case, bound to the actual assertion "launches with the project's approval mode instead of the host's full-access default" in `ProjectCoordinatorService.test.ts`. Source typecheck and changed-file lint also passed.
+
+The evidence verifier has 183 passing tests and 99% measured coverage. An independent reviewer replayed the actual code/review fragments and checked the retained build creation and launch records against the original session. Build provenance explicitly distinguishes the observed wrapper execution from child arguments derived from the retained builder. M4 native bundle and M1/M3 service identity checks separately passed against the same candidate. Publication and all six ordinary UI destination executions remain separate acceptance gates.
+
+## Superseded first candidate
+
 Historical review, superseded before live UI acceptance: destination inspection found that coordinator launch ignores the scoped project permission mode. T-09 tracks the fix and fresh named regression/review. The d7edbf9 candidate below is not accepted for release; its raw test receipts remain unchanged.
 
 Candidate: SpecWithCode 1.0.10, `d7edbf9c8fc1ac6bad3c24dbb73232e3ca489068`.
