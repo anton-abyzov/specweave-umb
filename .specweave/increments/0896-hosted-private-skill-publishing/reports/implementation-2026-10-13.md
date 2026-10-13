@@ -38,6 +38,12 @@ Postgres14 local-only databases vskill_0896_private (integration lane) and vskil
 - Independent sandbox initial23/23 passes: actual production public/private processors and authenticated routes backed by isolated PostgreSQL. Headless browser checks traverse an HTTP test server importing production handlers, not the Next website UI. Coverage/trace run in progress.
 - Production VSKILL_TOKEN_KEK is absent according to secret-name inventory; no encrypted installation credentials exist. The additive migration creates PrivateSubmission and PrivateSkillArtifact, with tenant/version foreign keys and PRIVATE-only constraint. Both need release validation before live private publishing.
 
+- A second read-only production check confirms latest migration20261011220000_skill_delisted_reason is applied; private tables are absent. The only tenant is an existing test fixture, not Anton's account, and it has no encrypted installation token. No production row was changed. GitHub's user/installations endpoint rejects the existing classic PAT with403, so its presence cannot prove App authorization.
+
+- Independent integration final23/23 passed; coverage of errors/github/http/scan/service is92.45% lines/statements,94.44% functions,73.76% branches (80% line/statement gate passed). The sandbox database was cleaned and released. Source/report copies are preserved locally; the backend runs one final integrated replay after scanner hardening.
+- CLI private workflow commit f7e6b9c adds submit/install/update;121 focused/regression checks pass, including64 new tests. A real authenticated loopback HTTP test exercised actual Codex/Claude canonical install and link readback, exact pinning, executable mode and integrity failures. This is synthetic transport proof, not hosted production proof. Temporary installs removed; global credentials and personal skills unchanged.
+- Umbrella repository is public. Account/credential-prestate reports are local-only and must not be pushed or copied into a public PR. Product PR descriptions contain generic behavior and synthetic validation only.
+
 ## Current status
 
 Implementation in progress; hosted launch gate remains closed. No production migration, hosted private submission, deployment, public publication, or payment was performed.
