@@ -14,3 +14,6 @@
 {"t":"T-07","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-13T16:21:56.476Z"}
 {"t":"T-08","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-13T16:21:56.836Z"}
 {"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-10-13T16:21:57.204Z","note":"T-06 and T-07 owner: existing release chat 01a133f7-afb4-7771-8e87-55cfabfd6858; integrated independent source review and release helper review are active. T-08 owner: this umbrella chat for six UI-driven native acceptance routes and evidence validation. Source characterization runs on installed 1.0.9; actual product transfer and destination edits await frozen reviewed candidate 1.0.10."}
+{"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-13T18:04:20.095Z"}
+{"t":"T-05","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-13T18:04:20.096Z","evidence":"python3 scripts/fleet/verify-handoff-evidence.py --phase product-code → exit 0\nlog: .specweave/increments/0907-real-machine-handoff/reports/task-T-05.txt\nproduct-code: passed\nHEAD dd5731b4b"}
+{"t":"T-06","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-13T18:04:20.457Z","evidence":"python3 scripts/fleet/verify-handoff-evidence.py --phase product-review → exit 0\nlog: .specweave/increments/0907-real-machine-handoff/reports/task-T-06.txt\nproduct-review: passed\nHEAD dd5731b4b"}

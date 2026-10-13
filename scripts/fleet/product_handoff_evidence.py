@@ -8,6 +8,7 @@ persisted source/destination records, not reconstructed RPC requests.
 Native validation executes only the adjacent, reviewed replay runner. Neither
 the index nor a receipt can choose executable validator code.
 """
+import base64
 import datetime
 import hashlib
 import json
@@ -474,6 +475,16 @@ def runtime(evidence, reference, host, released=False):
     require(server["environmentId"] == observed["environmentId"], "server environment mismatch")
     require(observed["kind"] == ("released-native-app" if released else "transfer-service"),
             "wrong runtime evidence kind for phase")
+    if "serviceReadback" in observed:
+        require(not released and host in HOSTS and "wrapperReadback" not in observed
+                and "appReadback" not in observed, "worker service proof cannot replace native UI or released app proof")
+        client = evidence.json(observed["clientReadback"])
+        require(client["sourceCommit"] == evidence.candidate["sourceCommit"]
+                and client["version"] == observed["version"]
+                and client["delivery"] == "http-service", "worker service client differs from candidate")
+        worker_service(evidence, observed, client)
+        http_client(evidence, client)
+        return observed
     app = evidence.json(observed["appReadback" if released else "wrapperReadback"])
     if released:
         require(app["sourceCommit"] == evidence.candidate["sourceCommit"]
@@ -507,6 +518,79 @@ def http_client(evidence, client):
         require(built.stat().st_size > 0 and served.stat().st_size > 0
                 and asset["builtAsset"]["sha256"] == asset["servedAsset"]["sha256"] == asset["sha256"],
                 "served client asset differs from candidate build")
+
+
+def retained_bytes(record):
+    data = base64.b64decode(record["base64"], validate=True)
+    require(type(record["bytes"]) is int and len(data) == record["bytes"]
+            and digest(data) == record["sha256"], "retained remote bytes differ from raw readback")
+    return data
+
+
+def worker_service(evidence, observed, client):
+    """Remote workers need the exact running service, without a desktop UI."""
+    raw = evidence.json(observed["serviceReadback"])
+    owner = evidence.json(observed["serviceOwnerReadback"])
+    previous = owner["readback"]
+    require(owner["controllerPhase"] == "installed-verified" and owner["released"] is True
+            and owner["installationVersion"] == observed["version"], "worker install readback is not verified")
+    require(raw["host"] == previous["identity"] == observed["host"]
+            and raw["sourceCommit"] == previous["sourceCommit"] == evidence.candidate["sourceCommit"]
+            and raw["version"] == observed["version"]
+            and raw["archiveSha256"] == previous["archiveSha256"]
+            and HEX64.fullmatch(raw["archiveSha256"]), "worker service source/host/archive mismatch")
+    require(retained_bytes(raw["environmentFile"]).decode().strip() == raw["environmentId"] == observed["environmentId"]
+            and raw["environmentFile"]["sha256"] == previous["environmentIdFingerprint"],
+            "worker environment differs from preserved machine identity")
+    time_value(raw["observedAt"])
+    require(time_value(raw["observedAt"]) >= time_value(previous["observedAtUTC"]), "worker readback predates installation")
+    process, running = raw["process"], raw["runtime"]
+    require(type(process["pid"]) is int and process["pid"] > 0
+            and process["pid"] == running["pid"] == previous["runtime"]["pid"]
+            and previous["service"]["state"] == "running", "worker service PID differs from installed process")
+    executable = str(absolute(process["executable"]))
+    require(executable == previous["node"]
+            and HEX64.fullmatch(process["installedExecutableSha256"])
+            and process["installedExecutableSha256"] == process["runningExecutableSha256"]
+            and re.fullmatch(r"[A-Za-z]{3} [A-Za-z]{3} \d{1,2} \d{2}:\d{2}:\d{2} \d{4}", process["startedAt"]),
+            "worker service executable/start identity invalid")
+    release = str(absolute(raw["release"]))
+    state = absolute(raw["stateDir"])
+    require(release == previous["release"] and str(state) == previous["stateDir"]
+            and running == previous["runtime"] and running["host"] == "127.0.0.1"
+            and type(running["port"]) is int and 0 < running["port"] < 65536
+            and running["origin"] == f"http://127.0.0.1:{running['port']}", "worker service runtime paths differ")
+    expected_argv = [executable, release + "/bin.mjs", "start", "--no-browser", "--host", "127.0.0.1",
+                     "--port", str(running["port"]), "--base-dir", str(state.parent), "--mode", "web"]
+    require(process["argv"] == expected_argv, "worker process is not the installed candidate server command")
+    manifest = decode(retained_bytes(raw["manifest"]))
+    require(manifest["sourceCommit"] == evidence.candidate["sourceCommit"]
+            and manifest["version"] == observed["version"]
+            and len(manifest["files"]) == previous["filesVerified"] > 0,
+            "worker installed manifest differs from verified candidate")
+    files = {item["path"]: item for item in manifest["files"]}
+    require(len(files) == len(manifest["files"]), "duplicate installed manifest path")
+    expected_files = [{"path": item["path"], "type": item["type"],
+                       **({"target": item["target"]} if item["type"] == "symlink" else {"sha256": item["sha256"]})}
+                      for item in manifest["files"]]
+    require(raw["filesReadback"] == expected_files, "worker installed file readback differs from candidate manifest")
+    entry = raw["sourceEntry"]
+    require(entry["path"] == release + "/bin.mjs"
+            and digest(retained_bytes(entry["content"])) == files["bin.mjs"]["sha256"],
+            "running service entry differs from candidate manifest")
+    require(len(raw["assets"]) == len(client["assets"]) >= 2, "worker HTML and JavaScript readbacks required")
+    for retained, asset in zip(raw["assets"], client["assets"]):
+        relative = retained["relativePath"]
+        require(relative == asset["relativePath"] and relative.startswith("client/")
+                and retained["url"] == asset["url"]
+                and asset["url"] == running["origin"] + ("/" if relative == "client/index.html" else "/" + relative[7:]),
+                "worker HTTP asset route differs from installed client")
+        require(retained_bytes(retained["built"]) == retained_bytes(retained["served"])
+                == evidence.data(asset["builtAsset"]) == evidence.data(asset["servedAsset"])
+                and retained["built"]["sha256"] == files[relative]["sha256"],
+                "worker HTTP bytes differ from raw response or candidate manifest")
+    require(any(a["relativePath"] == "client/index.html" for a in client["assets"])
+            and any(a["relativePath"].endswith(".js") for a in client["assets"]), "worker client HTML or JavaScript missing")
 
 
 def asar_file(archive, name):
@@ -759,6 +843,10 @@ def product_handoff(root):
                     == absolute(source["paths"][name]).relative_to(absolute(source["workspaceRoot"])),
                     "destination fixture path differs")
         observed = runtime(evidence, route["runtime"], host)
+        if "serviceReadback" in observed:
+            service = evidence.json(observed["serviceReadback"])
+            require(time_value(service["observedAt"]) <= min(time_value(at) for at in native_times(native)),
+                    "worker candidate service readback postdates native execution")
         require(observed["environmentId"] == plan["environmentId"] != source["environmentId"],
                 "destination environment mismatch")
         require(environments.setdefault(host, plan["environmentId"]) == plan["environmentId"],

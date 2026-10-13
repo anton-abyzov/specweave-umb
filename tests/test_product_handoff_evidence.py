@@ -1,4 +1,5 @@
 """Invented offline evidence only; never a real handoff or release receipt."""
+import base64
 import copy
 import hashlib
 import importlib.util
@@ -81,6 +82,48 @@ def invented_native_client(root, host):
         "version": CANDIDATE["version"], "delivery": "native-bundle", "appAsar": archive,
         "artifactAudit": audit, "assets": assets})
     return app, client
+
+
+def invented_worker_service(root, host="m1"):
+    def packed(data):
+        return {"base64": base64.b64encode(data).decode(), "bytes": len(data), "sha256": V.digest(data)}
+    environment = "synthetic-env-" + host
+    release, state, node = f"/synthetic/{host}/release", f"/synthetic/{host}/userdata", f"/synthetic/{host}/node"
+    running = {"pid": 31337, "host": "127.0.0.1", "port": 8319, "origin": "http://127.0.0.1:8319",
+               "startedAt": "2026-10-13T12:01:30Z"}
+    assets, retained = [], []
+    entries = {"client/index.html": b'<script src="/assets/test.js"></script>',
+               "client/assets/test.js": b"// invented service fixture", "bin.mjs": b"// invented entry"}
+    for n, (path, data) in enumerate(list(entries.items())[:2]):
+        url = running["origin"] + ("/" if n == 0 else "/assets/test.js")
+        retained.append({"relativePath": path, "url": url, "built": packed(data), "served": packed(data)})
+        assets.append({"relativePath": path, "url": url, "sha256": V.digest(data),
+            "builtAsset": ref(root, f"{host}-service-{n}-built", data),
+            "servedAsset": ref(root, f"{host}-service-{n}-served", data)})
+    manifest = {"sourceCommit": CANDIDATE["sourceCommit"], "version": CANDIDATE["version"],
+                "files": [{"path": path, "type": "file", "sha256": V.digest(data)} for path, data in entries.items()]}
+    raw = {"host": host, "sourceCommit": CANDIDATE["sourceCommit"], "version": CANDIDATE["version"],
+        "observedAt": "2026-10-13T12:02:00Z", "environmentId": environment,
+        "environmentFile": packed(environment.encode()), "archiveSha256": "b" * 64,
+        "release": release, "stateDir": state, "runtime": running,
+        "process": {"pid": 31337, "executable": node, "startedAt": "Tue Oct 13 12:01:30 2026",
+            "installedExecutableSha256": "e" * 64, "runningExecutableSha256": "e" * 64,
+            "argv": [node, release + "/bin.mjs", "start", "--no-browser", "--host", "127.0.0.1", "--port", "8319",
+                     "--base-dir", str(Path(state).parent), "--mode", "web"]},
+        "manifest": packed(encode(manifest)), "filesReadback": copy.deepcopy(manifest["files"]), "assets": retained,
+        "sourceEntry": {"path": release + "/bin.mjs", "content": packed(entries["bin.mjs"])}}
+    owner = {"controllerPhase": "installed-verified", "released": True, "installationVersion": CANDIDATE["version"],
+        "readback": {"identity": host, "sourceCommit": CANDIDATE["sourceCommit"], "archiveSha256": "b" * 64,
+            "observedAtUTC": "2026-10-13T12:01:40Z", "environmentIdFingerprint": V.digest(environment.encode()),
+            "runtime": running, "service": {"state": "running"}, "node": node, "release": release,
+            "stateDir": state, "filesVerified": len(entries)}}
+    runtime = json.loads((root / f"{host}-runtime.json").read_bytes())
+    del runtime["wrapperReadback"]
+    runtime.update(serviceReadback=ref(root, f"{host}-service.raw.json", raw),
+        serviceOwnerReadback=ref(root, f"{host}-service-owner.raw.json", owner),
+        clientReadback=ref(root, f"{host}-service-client.json", {"delivery": "http-service",
+            "sourceCommit": CANDIDATE["sourceCommit"], "version": CANDIDATE["version"], "assets": assets}))
+    return runtime, raw, owner
 
 
 def rehash_native(native):
@@ -331,6 +374,105 @@ def invented_release_evidence(root, index):
     index["release"] = ref(root, "release.json", {"candidateCommit": CANDIDATE["sourceCommit"],
         "version": CANDIDATE["version"], "build": build, "artifact": artifact, "publication": publication, "hosts": hosts})
     (root / "product-evidence-index.json").write_bytes(encode(index))
+
+
+class WorkerServiceRuntimeTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory(prefix="synthetic-worker-service-")
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.index = invented_evidence(self.root)
+        self.runtime, self.raw, self.owner = invented_worker_service(self.root)
+
+    def verify(self, host="m1", released=False):
+        self.runtime["serviceReadback"] = ref(self.root, "m1-service.raw.json", self.raw)
+        self.runtime["serviceOwnerReadback"] = ref(self.root, "m1-service-owner.raw.json", self.owner)
+        reference = ref(self.root, "m1-runtime.json", self.runtime)
+        return V.runtime(V.Evidence(self.root), reference, host, released=released)
+
+    def test_worker_service_requires_no_running_native_wrapper(self):
+        self.verify()
+        self.assertNotIn("wrapperReadback", self.runtime)
+
+    def test_worker_service_cannot_substitute_for_m4_native_ui(self):
+        self.runtime.update(host="m4", environmentId="synthetic-env-m4")
+        self.runtime["serverReadback"] = ref(self.root, "m4-service-server.json", {
+            "sourceCommit": CANDIDATE["sourceCommit"], "version": CANDIDATE["version"], "environmentId": "synthetic-env-m4"})
+        with self.assertRaisesRegex(ValueError, "cannot replace native UI"):
+            self.verify(host="m4")
+
+    def test_worker_service_cannot_substitute_for_released_native_app(self):
+        self.runtime["kind"] = "released-native-app"
+        with self.assertRaisesRegex(ValueError, "cannot replace native UI"):
+            self.verify(released=True)
+
+    def test_wrong_service_source_is_rejected(self):
+        self.raw["sourceCommit"] = "0" * 40
+        with self.assertRaisesRegex(ValueError, "source/host/archive mismatch"):
+            self.verify()
+
+    def test_other_machine_environment_is_rejected(self):
+        self.raw["environmentId"] = "another-machine"
+        with self.assertRaisesRegex(ValueError, "preserved machine identity"):
+            self.verify()
+
+    def test_other_running_pid_is_rejected(self):
+        self.raw["process"]["pid"] += 1
+        with self.assertRaisesRegex(ValueError, "PID differs"):
+            self.verify()
+
+    def test_wrong_executable_hash_is_rejected(self):
+        self.raw["process"]["runningExecutableSha256"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "executable/start identity"):
+            self.verify()
+
+    def test_another_server_entry_in_process_args_is_rejected(self):
+        self.raw["process"]["argv"][1] = "/synthetic/another/bin.mjs"
+        with self.assertRaisesRegex(ValueError, "candidate server command"):
+            self.verify()
+
+    def test_manifest_from_another_candidate_is_rejected(self):
+        manifest = json.loads(V.retained_bytes(self.raw["manifest"]))
+        manifest["sourceCommit"] = "0" * 40
+        data = encode(manifest)
+        self.raw["manifest"] = {"base64": base64.b64encode(data).decode(), "bytes": len(data), "sha256": V.digest(data)}
+        with self.assertRaisesRegex(ValueError, "manifest differs"):
+            self.verify()
+
+    def test_raw_remote_bytes_cannot_be_replaced_with_summary_claim(self):
+        self.raw["sourceEntry"]["content"]["base64"] = base64.b64encode(b"different source").decode()
+        with self.assertRaisesRegex(ValueError, "retained remote bytes"):
+            self.verify()
+
+    def test_http_response_must_match_installed_manifest_and_retained_bytes(self):
+        data = b"another served client"
+        self.raw["assets"][1]["served"] = {"base64": base64.b64encode(data).decode(), "bytes": len(data), "sha256": V.digest(data)}
+        with self.assertRaisesRegex(ValueError, "HTTP bytes differ"):
+            self.verify()
+
+    def test_http_asset_route_must_be_actual_local_service(self):
+        self.raw["assets"][0]["url"] = "http://another.invalid/"
+        with self.assertRaisesRegex(ValueError, "HTTP asset route"):
+            self.verify()
+
+    def test_changed_installed_module_cannot_reuse_original_manifest(self):
+        self.raw["filesReadback"][-1]["sha256"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "installed file readback"):
+            self.verify()
+
+    def test_complete_handoff_accepts_preexisting_worker_service_without_native_ui(self):
+        self.verify()
+        runtime_ref = ref(self.root, "m1-runtime.json", self.runtime)
+        for route in self.index["handoff"]["routes"]:
+            if route["host"] == "m1":
+                route["runtime"] = runtime_ref
+        (self.root / "product-evidence-index.json").write_bytes(encode(self.index))
+        V.product_handoff(self.root)
+
+    def test_later_service_readback_cannot_prove_earlier_native_execution(self):
+        self.raw["observedAt"] = "2026-10-13T12:08:00Z"
+        with self.assertRaisesRegex(ValueError, "service readback postdates"):
+            self.test_complete_handoff_accepts_preexisting_worker_service_without_native_ui()
 
 
 class NativeBundledClientTests(unittest.TestCase):
