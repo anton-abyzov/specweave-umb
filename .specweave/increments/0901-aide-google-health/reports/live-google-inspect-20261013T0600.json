@@ -1,0 +1,72 @@
+{
+  "phase": "inspect",
+  "runId": "77db7aa9-ae03-4557-be6f-6efd132e6dea",
+  "startedAt": "2026-10-13T05:59:43.252Z",
+  "origin": "http://127.0.0.1:8319",
+  "baseDir": "/Users/antonabyzov/.specweave-studio/m4",
+  "projectId": "5428ab1e-79c4-4f5f-b245-5f231b4f2cdf",
+  "expectedVersion": "1.0.7",
+  "nativeTurnsRequested": 0,
+  "consentReady": true,
+  "cleanup": {
+    "ownedSessionRevoked": true,
+    "existingActiveSessionsPreserved": true,
+    "unownedActiveSessionsAdded": 0,
+    "pairingLinksCreatedByRunner": 0,
+    "revocationRetainsAuditRow": true
+  },
+  "auth": {
+    "ownedSessionId": "beebf07f-4e67-435b-a578-7a3d17a846d3",
+    "expiresAt": "2026-10-13T06:09:46.800Z",
+    "scopes": [
+      "orchestration:read"
+    ]
+  },
+  "serverVersion": "1.0.7",
+  "google": {
+    "clientConfigured": true,
+    "clientSource": "studio",
+    "connected": true,
+    "services": [
+      "gmail",
+      "calendar",
+      "drive"
+    ],
+    "aideAccess": [
+      "gmail",
+      "calendar",
+      "drive"
+    ],
+    "signInPending": false,
+    "hasConnectionError": false
+  },
+  "native": {
+    "commandId": "be0f17f6-0942-4d5c-a3ba-7eb962184cba",
+    "threadId": "project-coordinator:5428ab1e-79c4-4f5f-b245-5f231b4f2cdf",
+    "dispatched": false,
+    "resumedReceipt": true,
+    "toolResults": [],
+    "runId": "run:thread:project-coordinator%3A5428ab1e-79c4-4f5f-b245-5f231b4f2cdf:ordinal:4",
+    "runStatus": "failed",
+    "completedAt": "2026-10-13T05:57:41.100Z",
+    "googleToolCalls": 0,
+    "unexpectedGoogleToolCalls": 0,
+    "additionalDynamicTools": 0,
+    "delegationItems": 0,
+    "providerFailureClasses": [
+      "provider_error"
+    ],
+    "providerFailures": [
+      {
+        "class": "provider_error",
+        "message": "The effective Codex route for this workspace is not verified as a native subscription. Configure custom endpoints as an explicit API instance.",
+        "code": null,
+        "retryable": null,
+        "resetAt": null
+      }
+    ],
+    "success": false
+  },
+  "failure": "native_verification_incomplete",
+  "finishedAt": "2026-10-13T05:59:54.531Z"
+}

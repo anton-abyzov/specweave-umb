@@ -14,6 +14,7 @@ Actionable private Google diagnostics and minimal read-only API health probes; c
 - [ ] AC-05: Focused tests, builds and independent review pass; matching newer artifacts and update plans are published to both feeds and read back.
 - [ ] AC-06: The coordinated guarded updater installs 1.0.7 on M4 with preserved state, passing health, exact source/version readback, and matching desktop version.
 - [ ] AC-07: Aide completes real read-only Gmail, Calendar and Drive requests through its native Google tools after account consent and project authorization, with exact evidence and no fabricated success.
+- [ ] AC-08: Cancel, X, Escape and backdrop dismissal of Morning briefing return to its originating screen including settings scope and hash; direct links safely fall back to Scheduled tasks, successful saves remain there, and other Settings cancellation paths are audited and regression checked.
 
 ## Approach
 Isolated umbrella and source worktrees from main ed78ddc47; installed c95d3fd7 inspected read-only. Add diagnostics through existing studio_google_status, preserving fields and project gates; avoid unrelated UI/auth changes. Tests use fake Google and isolated homes. Reuse cc6be54fc from 0899 without changing its worktrees or ledgers. No live restart while other work runs. Node22 runtime and scoped Node24 build tools where required; headless:true, PWDEBUG=0, PLAYWRIGHT_HTML_OPEN=never.
@@ -37,6 +38,13 @@ Isolated umbrella and source worktrees from main ed78ddc47; installed c95d3fd7 i
 
 ### T-06 Verify real Google service reads in Aide
 - AC: AC-07 | Files: .specweave/increments/0901-aide-google-health/reports | Test: live authorized Gmail, Calendar and Drive tool results plus Aide coordinator completion evidence
+
+### T-07 Restore consistent cancellation destinations
+- AC: AC-08 | Files: repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/GoogleAccountSettings.tsx, repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/ScheduledTasksSettings.tsx, repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/scheduledTasksSettings.logic.ts, repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/scheduledTasksSettings.logic.test.ts, repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/ThemeSettings.tsx, repositories/anton-abyzov/specweave-studio/scripts/studio-google/verify.mjs, repositories/anton-abyzov/specweave-studio/apps/web/src/components/chat/ThreadAutomationsPanel.tsx, repositories/anton-abyzov/specweave-studio/apps/web/src/components/chat/MessagesTimeline.tsx, repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/ScheduledTaskLink.tsx, .specweave/increments/0901-aide-google-health/reports/navigation | Test: focused scheduled-task navigation tests, web and server builds, isolated headless cancellation checks and independent review
+
+## Cancellation follow-up 2026-10-13
+
+Anton reports Morning briefing cancellation returning home and requests consistent return behavior throughout Settings. Preserve full validated local origin for the routed template editor; consume its one-shot query on dismissal or save, with separate outcomes. Preserve intentional Settings exit behavior and existing Base UI overlay handling; consume Escape in the custom theme variant picker. The 0904 coordinator QA owner remains the sole publisher and installer for the next 1.0.8 release; send this reviewed source commit for integration. Browser proof remains isolated and headless.
 
 ## Resumed scope 2026-10-13
 

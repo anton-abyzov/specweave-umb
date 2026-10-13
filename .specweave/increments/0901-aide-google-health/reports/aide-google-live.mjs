@@ -23,7 +23,7 @@ function options(argv) {
     const flag = argv[index];
     if (flag === "--maintenance-complete") value.maintenanceComplete = true;
     else if (flag === "--help") value.help = true;
-    else if (["--phase", "--cli", "--base-dir", "--origin", "--out", "--project-id", "--expected-version", "--status-receipt", "--command-id"].includes(flag)) {
+    else if (["--phase", "--cli", "--base-dir", "--origin", "--out", "--project-id", "--expected-version", "--expected-source", "--status-receipt", "--command-id"].includes(flag)) {
       if (!argv[index + 1] || argv[index + 1].startsWith("--")) throw new Error("missing_option_value");
       value[flag.slice(2)] = argv[++index];
     } else throw new Error("unknown_option");
@@ -44,6 +44,7 @@ const fail = (code) => { throw new SafeFailure(code); };
 const codeOf = (error) => error instanceof SafeFailure ? error.code : "verification_internal_error";
 const subset = (value) => Array.isArray(value) ? SERVICES.filter((service) => value.includes(service)) : [];
 const iso = (value) => typeof value === "string" && Number.isFinite(Date.parse(value)) ? new Date(value).toISOString() : null;
+const sourceCommit = (value) => typeof value === "string" && /^[a-f0-9]{40}$/i.test(value) ? value.toLowerCase() : null;
 
 function cliJSON(config, args) {
   const result = spawnSync(config.cli, [...args, "--base-dir", config.baseDir, "--json"], {
@@ -160,6 +161,24 @@ function toolName(item) {
   return TOOLS.find((name) => item.toolName === name || item.toolName.endsWith(`__${name}`)) ?? null;
 }
 
+// Failure messages are already transport-redacted by Studio's ProviderFailure.ts.
+// Bound them again and remove account addresses, paths and credential-shaped text.
+function safeProviderFailure(failure) {
+  const scrub = (value) => typeof value === "string" ? value.slice(0, 4096)
+    .replace(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, "[account]")
+    .replace(/\b(?:https?|wss?):\/\/[^\s<>"']+/gi, "[url]")
+    .replace(/(?:\/Users\/|\/var\/|\/tmp\/)[^\s"']+/g, "[path]")
+    .replace(/\b(?:Bearer|Basic)\s+[^\s,;]+/gi, "[credential]")
+    .replace(/\b(?:token|password|secret|api[_-]?key|authorization)\s*[:=]\s*[^\s,;]+/gi, "[credential]")
+    .replace(/\bsk-[A-Za-z0-9_-]{16,}\b/g, "[credential]") : null;
+  return {
+    class: ERROR_CLASSES.has(failure?.class) ? failure.class : "unknown",
+    message: scrub(failure?.message), code: scrub(failure?.code),
+    retryable: typeof failure?.retryable === "boolean" ? failure.retryable : null,
+    resetAt: iso(failure?.resetAt),
+  };
+}
+
 function summarizeTool(item, name) {
   const receipt = { tool: name, completedAt: iso(item.completedAt), runtimeStatus: ["completed", "failed", "cancelled", "interrupted", "running", "waiting"].includes(item.status) ? item.status : "unknown", success: false };
   const rejected = unwrap(item.output, (value) => value.isError === true || (typeof value.code === "string" && typeof value.message === "string"));
@@ -191,6 +210,7 @@ async function nativeTurn(config, rpc, workspace, receipt, checkpoint) {
   let projection = await rpc.call("orchestration.getThreadProjection", { threadId });
   if (projection.thread?.projectId !== config.projectId || projection.thread?.id !== threadId) fail("aide_thread_identity_mismatch");
   const priorRun = projection.runs?.find((run) => run.userMessageId === messageId);
+  if (config.phase === "inspect" && !priorRun) fail("inspection_run_not_found_no_dispatch");
   if ((projection.runs ?? []).some((run) => ACTIVE.has(run.status) && run.id !== priorRun?.id)) fail("aide_coordinator_busy");
   receipt.native = { commandId: config.commandId, threadId, dispatched: false, resumedReceipt: Boolean(priorRun), toolResults: [] };
   checkpoint();
@@ -233,6 +253,7 @@ async function nativeTurn(config, rpc, workspace, receipt, checkpoint) {
   receipt.native.additionalDynamicTools = [...items.values()].filter((item) => item.type === "dynamic_tool" && !toolName(item)).length;
   receipt.native.delegationItems = [...items.values()].filter((item) => ["subagent", "thread_created"].includes(item.type)).length;
   receipt.native.providerFailureClasses = [...new Set([...items.values()].filter((item) => item.type === "error").map((item) => ERROR_CLASSES.has(item.failure?.class) ? item.failure.class : "unknown"))];
+  receipt.native.providerFailures = [...items.values()].filter((item) => item.type === "error").map((item) => safeProviderFailure(item.failure));
   receipt.native.success = run.status === "completed" && result.length === 4 && TOOLS.every((name) => result.filter((row) => row.tool === name && row.success).length === 1) && receipt.native.googleToolCalls === 4 && receipt.native.additionalDynamicTools === 0 && receipt.native.delegationItems === 0 && receipt.native.providerFailureClasses.length === 0;
   if (!receipt.native.success) receipt.failure = FINAL.has(run.status) ? "native_verification_incomplete" : run.status === "waiting" ? "native_verification_needs_attention" : "native_verification_timeout";
   // Do not retry, interrupt, approve or alter a run on timeout/failure.
@@ -241,32 +262,37 @@ async function nativeTurn(config, rpc, workspace, receipt, checkpoint) {
 async function main() {
   const args = options(process.argv.slice(2));
   if (args.help || !args.phase) {
-    console.log("Prepared runner. Required: --phase status|native --maintenance-complete --cli /absolute/specweave-studio --base-dir /absolute/live-home --origin http://127.0.0.1:8319 --out /absolute/receipt.json. Native additionally requires --status-receipt /absolute/status.json --command-id <stable-UUID>. No actions taken.");
+    console.log("Prepared runner. Required: --phase status|native|inspect --maintenance-complete --cli /absolute/specweave-studio --base-dir /absolute/live-home --origin http://127.0.0.1:8319 --out /absolute/receipt.json. Release gates: --expected-version VERSION --expected-source FULL_40_HEX_COMMIT. Native/inspect additionally require --status-receipt /absolute/status.json --command-id <stable-UUID> and matching observed source. Inspect uses read scope and never dispatches. No actions taken.");
     return;
   }
   if (!args.maintenanceComplete) fail("maintenance_gate_not_cleared");
-  if (!["status", "native"].includes(args.phase)) fail("invalid_phase");
+  if (!["status", "native", "inspect"].includes(args.phase)) fail("invalid_phase");
   const config = {
     phase: args.phase, cli: args.cli, baseDir: args["base-dir"], origin: new URL(args.origin).origin,
     out: args.out ?? resolve(REPORTS, `google-${args.phase}-${randomUUID()}.json`),
     expectedVersion: args["expected-version"] ?? "1.0.7", projectId: args["project-id"] ?? "5428ab1e-79c4-4f5f-b245-5f231b4f2cdf", commandId: args["command-id"],
+    expectedSource: sourceCommit(args["expected-source"]),
   };
+  if (args["expected-source"] !== undefined && config.expectedSource === null) fail("expected_source_requires_full_commit");
   if (![config.cli, config.baseDir, config.out].every((path) => typeof path === "string" && isAbsolute(path))) fail("absolute_paths_required");
   // This local CLI must issue into the same local host's store; remote use is out of scope.
   if (!["127.0.0.1", "localhost", "[::1]"].includes(new URL(config.origin).hostname)) fail("local_origin_required");
   if (!existsSync(config.cli) || !existsSync(config.baseDir)) fail("runtime_paths_missing");
-  if (config.phase === "native") {
+  let priorSource = null;
+  if (["native", "inspect"].includes(config.phase)) {
     if (!args["status-receipt"] || !config.commandId || !/^[a-f0-9-]{36}$/i.test(config.commandId)) fail("native_status_receipt_and_command_id_required");
     let prior;
     try { prior = JSON.parse(readFileSync(args["status-receipt"], "utf8")); } catch { fail("status_receipt_unreadable"); }
     const priorTime = Date.parse(prior.finishedAt);
     if (prior.phase !== "status" || prior.origin !== config.origin || prior.baseDir !== config.baseDir || prior.projectId !== config.projectId || prior.serverVersion !== config.expectedVersion || prior.consentReady !== true || prior.cleanup?.ownedSessionRevoked !== true || prior.cleanup?.existingActiveSessionsPreserved !== true || prior.cleanup?.failure || prior.failure || !Number.isFinite(priorTime) || priorTime > Date.now() || Date.now() - priorTime > 15 * 60_000) fail("status_receipt_not_ready_or_stale");
+    priorSource = sourceCommit(prior.serverSourceCommit);
+    if (priorSource === null || (config.expectedSource !== null && priorSource !== config.expectedSource)) fail("status_receipt_source_mismatch_or_missing");
   }
   if (existsSync(config.out)) fail("receipt_path_already_exists");
   const runId = randomUUID();
   const subject = `0901-google-${config.phase}-${runId}`;
   const label = `0901 Google ${config.phase} ${runId}`;
-  const receipt = { phase: config.phase, runId, startedAt: new Date().toISOString(), origin: config.origin, baseDir: config.baseDir, projectId: config.projectId, expectedVersion: config.expectedVersion, nativeTurnsRequested: config.phase === "native" ? 1 : 0, consentReady: false, cleanup: { ownedSessionRevoked: false, existingActiveSessionsPreserved: null, unownedActiveSessionsAdded: null, pairingLinksCreatedByRunner: 0 } };
+  const receipt = { phase: config.phase, runId, startedAt: new Date().toISOString(), origin: config.origin, baseDir: config.baseDir, projectId: config.projectId, expectedVersion: config.expectedVersion, expectedSourceCommit: config.expectedSource, nativeTurnsRequested: config.phase === "native" ? 1 : 0, consentReady: false, cleanup: { ownedSessionRevoked: false, existingActiveSessionsPreserved: null, unownedActiveSessionsAdded: null, pairingLinksCreatedByRunner: 0 } };
   const checkpoint = () => writePrivate(config.out, receipt);
   checkpoint();
   let before = [], issued, rpc, issueAttempted = false;
@@ -288,10 +314,13 @@ async function main() {
     rpc.call = (...values) => abort.signal.aborted ? Promise.reject(new SafeFailure("interrupted")) : originalCall(...values);
     const server = await rpc.call("server.getConfig");
     receipt.serverVersion = server.environment?.serverVersion ?? null;
+    receipt.serverSourceCommit = sourceCommit(server.environment?.serverSourceCommit);
     if (receipt.serverVersion !== config.expectedVersion) fail("server_version_mismatch");
+    if (config.expectedSource !== null && receipt.serverSourceCommit !== config.expectedSource) fail("server_source_mismatch_or_missing");
+    if (priorSource !== null && receipt.serverSourceCommit !== priorSource) fail("server_source_changed_since_status");
     const status = safeGoogleStatus(await rpc.call("googleAccount.status"), config.projectId);
     receipt.google = status; receipt.consentReady = ready(status); checkpoint();
-    if (config.phase === "native") {
+    if (["native", "inspect"].includes(config.phase)) {
       if (!receipt.consentReady) fail("google_consent_or_aide_grants_missing");
       const workspace = await rpc.call("projects.workspaceRead", { projectId: config.projectId });
       if (workspace.settings?.kind !== "personal") fail("aide_project_kind_mismatch");

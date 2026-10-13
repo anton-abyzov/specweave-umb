@@ -1,0 +1,65 @@
+{
+  "phase": "native",
+  "runId": "445d44fb-0f1d-4aa8-99b3-60eba5e04d58",
+  "startedAt": "2026-10-13T05:56:31.132Z",
+  "origin": "http://127.0.0.1:8319",
+  "baseDir": "/Users/antonabyzov/.specweave-studio/m4",
+  "projectId": "5428ab1e-79c4-4f5f-b245-5f231b4f2cdf",
+  "expectedVersion": "1.0.7",
+  "nativeTurnsRequested": 1,
+  "consentReady": true,
+  "cleanup": {
+    "ownedSessionRevoked": true,
+    "existingActiveSessionsPreserved": true,
+    "unownedActiveSessionsAdded": 0,
+    "pairingLinksCreatedByRunner": 0,
+    "revocationRetainsAuditRow": true
+  },
+  "auth": {
+    "ownedSessionId": "9f84594b-90e3-4163-af9a-cd812e2a4e64",
+    "expiresAt": "2026-10-13T06:06:38.341Z",
+    "scopes": [
+      "orchestration:read",
+      "orchestration:operate"
+    ]
+  },
+  "serverVersion": "1.0.7",
+  "google": {
+    "clientConfigured": true,
+    "clientSource": "studio",
+    "connected": true,
+    "services": [
+      "gmail",
+      "calendar",
+      "drive"
+    ],
+    "aideAccess": [
+      "gmail",
+      "calendar",
+      "drive"
+    ],
+    "signInPending": false,
+    "hasConnectionError": false
+  },
+  "native": {
+    "commandId": "be0f17f6-0942-4d5c-a3ba-7eb962184cba",
+    "threadId": "project-coordinator:5428ab1e-79c4-4f5f-b245-5f231b4f2cdf",
+    "dispatched": true,
+    "resumedReceipt": false,
+    "toolResults": [],
+    "dispatchAttemptedAt": "2026-10-13T05:56:40.809Z",
+    "runId": "run:thread:project-coordinator%3A5428ab1e-79c4-4f5f-b245-5f231b4f2cdf:ordinal:4",
+    "runStatus": "failed",
+    "completedAt": "2026-10-13T05:57:41.100Z",
+    "googleToolCalls": 0,
+    "unexpectedGoogleToolCalls": 0,
+    "additionalDynamicTools": 0,
+    "delegationItems": 0,
+    "providerFailureClasses": [
+      "provider_error"
+    ],
+    "success": false
+  },
+  "failure": "native_verification_incomplete",
+  "finishedAt": "2026-10-13T05:58:13.074Z"
+}

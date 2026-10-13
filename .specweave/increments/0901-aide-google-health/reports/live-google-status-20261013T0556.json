@@ -1,0 +1,44 @@
+{
+  "phase": "status",
+  "runId": "80f18e64-d966-415c-a35f-3bad25e29fc6",
+  "startedAt": "2026-10-13T05:55:44.195Z",
+  "origin": "http://127.0.0.1:8319",
+  "baseDir": "/Users/antonabyzov/.specweave-studio/m4",
+  "projectId": "5428ab1e-79c4-4f5f-b245-5f231b4f2cdf",
+  "expectedVersion": "1.0.7",
+  "nativeTurnsRequested": 0,
+  "consentReady": true,
+  "cleanup": {
+    "ownedSessionRevoked": true,
+    "existingActiveSessionsPreserved": true,
+    "unownedActiveSessionsAdded": 0,
+    "pairingLinksCreatedByRunner": 0,
+    "revocationRetainsAuditRow": true
+  },
+  "auth": {
+    "ownedSessionId": "fd5fbc7c-2c19-440a-831b-5df1fb483ca1",
+    "expiresAt": "2026-10-13T06:05:50.592Z",
+    "scopes": [
+      "orchestration:read"
+    ]
+  },
+  "serverVersion": "1.0.7",
+  "google": {
+    "clientConfigured": true,
+    "clientSource": "studio",
+    "connected": true,
+    "services": [
+      "gmail",
+      "calendar",
+      "drive"
+    ],
+    "aideAccess": [
+      "gmail",
+      "calendar",
+      "drive"
+    ],
+    "signInPending": false,
+    "hasConnectionError": false
+  },
+  "finishedAt": "2026-10-13T05:55:58.819Z"
+}

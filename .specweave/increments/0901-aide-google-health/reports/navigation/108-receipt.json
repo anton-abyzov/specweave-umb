@@ -1,0 +1,95 @@
+{
+  "headless": true,
+  "realBuiltServer": true,
+  "fakeGoogle": true,
+  "nativeTurns": 0,
+  "checks": [
+    {
+      "compiledGoogleClientAvailable": false,
+      "noRuntimeGoogleClient": true
+    },
+    {
+      "personalProjectCreated": "7f1bf83e-d04e-4473-87e9-05747f309c74"
+    },
+    {
+      "readOnlyScopesOnly": true,
+      "pkce": true,
+      "loopbackRedirect": true
+    },
+    {
+      "connected": true,
+      "email": "verifier@example.com",
+      "services": [
+        "gmail",
+        "calendar"
+      ]
+    },
+    {
+      "projectAccess": [
+        {
+          "projectId": "7f1bf83e-d04e-4473-87e9-05747f309c74",
+          "services": [
+            "gmail",
+            "calendar"
+          ]
+        }
+      ]
+    },
+    {
+      "morningBriefingDismissal": "cancel",
+      "exactOriginRestored": true
+    },
+    {
+      "morningBriefingDismissal": "close",
+      "exactOriginRestored": true
+    },
+    {
+      "morningBriefingDismissal": "escape",
+      "exactOriginRestored": true
+    },
+    {
+      "morningBriefingDismissal": "backdrop",
+      "exactOriginRestored": true
+    },
+    {
+      "nestedSelectEscapeStaysInEditor": true
+    },
+    {
+      "directLinkFallbackAndHistory": true,
+      "localTaskCancelStaysOnList": true,
+      "noTasksCreatedByCancel": true
+    },
+    {
+      "saveStaysOnTaskList": true,
+      "editCancelPreservesTask": true,
+      "disabledFixtureNeverRan": true
+    },
+    {
+      "providerWizardCancelAndEscapeStayInSettings": true
+    },
+    {
+      "themeVariantHoverAndFocusEscapeStayInSettings": true
+    },
+    {
+      "pastedSignIn": true,
+      "singleUseState": true,
+      "forgedCallbackRefused": true
+    },
+    {
+      "revokedOnDisconnect": true,
+      "removed": true,
+      "pageErrors": []
+    },
+    {
+      "secretsNotLogged": true
+    }
+  ],
+  "screenshots": [
+    "/tmp/0901-navigation-108/1-google-empty.png",
+    "/tmp/0901-navigation-108/2-google-callback.png",
+    "/tmp/0901-navigation-108/3-google-connected.png",
+    "/tmp/0901-navigation-108/4-morning-briefing-template.png",
+    "/tmp/0901-navigation-108/5-cancel-settings-verified.png"
+  ],
+  "privateHomeRemoved": true
+}

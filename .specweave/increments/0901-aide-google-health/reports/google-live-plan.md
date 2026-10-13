@@ -110,9 +110,9 @@ If provider admission fails, report the provider error and stop: no Google read 
 - `apps/web/src/components/settings/GoogleAccountSettings.tsx:275-454`: user-facing sign-in and Aide service switches.
 - `docs/studio/google-account.md`: official-release setup, scope and consent contract.
 
-## Prepared runner (not executed)
+## Runner and release gates
 
-`aide-google-live.mjs` in this report directory implements the two phases with Node 22.20+ and no browser. Syntax-only `node --check` passed; no auth CLI, runtime RPC, Google call or provider turn was executed by preparing it.
+`aide-google-live.mjs` in this report directory implements status, native and read-only inspect phases with Node 22.20+ and no browser. Original preparation executed no live calls. The later 1.0.7 run is documented separately in `live-google-verification-20261013.md`: consent passed, provider admission failed, and no Google tool ran. The 1.0.8 preparation adds release identity gates and performs offline checks only; it is not evidence that 1.0.8 is installed or that real Google reads succeeded.
 
 The runner uses the official `auth session issue` command with explicit `--base-dir`, ten-minute TTL and only `orchestration:read`; the separate native phase adds `orchestration:operate`. It exchanges its bearer for a WebSocket ticket directly. It creates no pairing grant or browser cookie, and captures the returned `sessionId` for exact cleanup. `finally` revokes only the issued session, then verifies active-session preservation. If CLI output is lost, cleanup identifies only a newly added session with the runner's unique subject AND label. Session revocation retains its audit row, so this authorized verification intentionally changes auth history; run only after maintenance and its continuity comparison have finished. Do not delete audit rows to make a continuity comparison pass.
 
@@ -121,15 +121,27 @@ This corrects the old `/tmp/aide-google-live-check.mjs` cleanup assumption: `Aut
 Required invocation shape, after the parent explicitly clears the current maintenance hold:
 
 ```sh
-/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /absolute/reports/aide-google-live.mjs --phase status --maintenance-complete --cli /Users/antonabyzov/.local/bin/specweave-studio --base-dir /Users/antonabyzov/.specweave-studio/m4 --origin http://127.0.0.1:8319 --out /absolute/reports/unique-status.json
+/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /absolute/reports/aide-google-live.mjs --phase status --maintenance-complete --cli /Users/antonabyzov/.local/bin/specweave-studio --base-dir /Users/antonabyzov/.specweave-studio/m4 --origin http://127.0.0.1:8319 --expected-version 1.0.8 --expected-source FULL_40_HEX_GIT_COMMIT --out /absolute/reports/unique-status.json
 ```
 
-The status phase saves only the server version, configured/connected booleans, service names, Aide grants, sign-in/error presence booleans, and owned-auth cleanup evidence. It starts no provider turn. `consentReady:false` is a real remaining consent/project-grant gate.
+Replace `FULL_40_HEX_GIT_COMMIT` with the independently verified full release source commit from the coordinated installation evidence; no source default is substituted. `server.getConfig.environment.serverSourceCommit` supplies the actual observed value (`packages/contracts/src/environment.ts` and `apps/server/src/environment/ServerEnvironment.ts`). The expected source is a gate, never a replacement for missing runtime evidence. The status phase saves the observed server version and source commit, configured/connected booleans, service names, Aide grants, sign-in/error presence booleans, and owned-auth cleanup evidence. It starts no provider turn. `consentReady:false` is a real remaining consent/project-grant gate.
 
 Only with a successful, cleanup-verified, consent-ready status receipt less than fifteen minutes old:
 
 ```sh
-/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /absolute/reports/aide-google-live.mjs --phase native --maintenance-complete --cli /Users/antonabyzov/.local/bin/specweave-studio --base-dir /Users/antonabyzov/.specweave-studio/m4 --origin http://127.0.0.1:8319 --status-receipt /absolute/reports/unique-status.json --command-id <fresh-UUID> --out /absolute/reports/unique-native.json
+/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /absolute/reports/aide-google-live.mjs --phase native --maintenance-complete --cli /Users/antonabyzov/.local/bin/specweave-studio --base-dir /Users/antonabyzov/.specweave-studio/m4 --origin http://127.0.0.1:8319 --expected-version 1.0.8 --expected-source FULL_40_HEX_GIT_COMMIT --status-receipt /absolute/reports/unique-status.json --command-id FRESH_UUID --out /absolute/reports/unique-native.json
 ```
 
 Use a fresh output path. Keep the same native `--command-id` after an ambiguous response: it identifies the deterministic coordinator message and an existing run is read rather than resent. The native phase rechecks consent before sending, refuses absent/paused/archived/busy coordinators, waits at most five minutes, saves only the four real tool outcome/count records, and never approves, retries or interrupts a waiting/failed run. A timeout leaves the run untouched and records the command/thread identity for continued readback. A successful assistant sentence without four persisted successful tool results cannot pass.
+
+Native and inspect phases require the status receipt to contain a full observed source commit, matching the expected source when supplied. After connecting they re-read the actual server source and refuse to proceed if it differs from the status observation. Historical receipts with no source field cannot be promoted into source-verified evidence. Do not backfill old receipts from a release label or an expected value.
+
+The `inspect` phase uses the native invocation shape with `--phase inspect`, the existing command ID, a fresh matching status receipt and a fresh output path. It has only read scope, refuses a missing existing run and cannot dispatch.
+
+Validate real saved receipts offline, using explicit independent release identity:
+
+```sh
+python3 /absolute/reports/verify-real-google.py /absolute/reports/unique-status.json /absolute/reports/unique-native.json --expected-version 1.0.8 --expected-source FULL_40_HEX_GIT_COMMIT
+```
+
+The validator requires both receipts to report the expected actual version and full source. All original four-tool, three-service grant, bounded-read, no-additional-tool, no-delegation, completed-run and owned-auth-cleanup checks remain. Its output derives source/version from the native receipt only after equality checks. It has no default source or version and makes no live calls. `test-proof-artifacts.py` uses temporary synthetic receipts only to check acceptance/rejection behavior; those tests are not real Google proof.
