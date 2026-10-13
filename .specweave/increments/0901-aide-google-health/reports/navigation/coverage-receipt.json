@@ -1,0 +1,70 @@
+{
+  "startedAt": "2026-10-13T07:10:11.043522+00:00",
+  "cwd": "/Users/antonabyzov/.codex/worktrees/aide-google-health/specweave-umb/repositories/anton-abyzov/specweave-studio",
+  "command": [
+    "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node",
+    "node_modules/vite-plus/bin/vp",
+    "test",
+    "run",
+    "apps/web/src/components/settings/scheduledTasksSettings.logic.test.ts",
+    "--coverage",
+    "--coverage.provider=custom",
+    "--coverage.customProviderModule=/Users/antonabyzov/.local/share/specweave-studio/toolchains/coverage-v8-5.0.1/node_modules/@vitest/coverage-v8/dist/index.js",
+    "--coverage.include=apps/web/src/components/settings/scheduledTasksSettings.logic.ts",
+    "--coverage.reporter=text",
+    "--coverage.reporter=json-summary",
+    "--coverage.reporter=json",
+    "--coverage.reportsDirectory=/Users/antonabyzov/.codex/worktrees/aide-google-health/specweave-umb/repositories/anton-abyzov/specweave-studio/.artifacts/0901-t07-navigation-coverage-20261013T0715/coverage",
+    "--coverage.thresholds.lines=60",
+    "--coverage.thresholds.statements=60",
+    "--coverage.thresholds.functions=60",
+    "--coverage.thresholds.branches=60"
+  ],
+  "head": "1ec4388aeb499745a92f3bd63f2d37ad6153f251",
+  "nodeVersion": "v22.20.0",
+  "coverageProvider": "/Users/antonabyzov/.local/share/specweave-studio/toolchains/coverage-v8-5.0.1/node_modules/@vitest/coverage-v8/dist/index.js",
+  "unitThreshold": 60,
+  "scope": "scheduledTasksSettings.logic.ts only",
+  "sourceHashes": {
+    "apps/web/src/components/settings/scheduledTasksSettings.logic.ts": "9b1fb321d9993626ee1e2fc377cc58f57444f95a6bfb46d2ce9909d4d61d6f6a",
+    "apps/web/src/components/settings/scheduledTasksSettings.logic.test.ts": "568ce35c8c928314c3e25c9d6a109346a8b9c5b1af53b74fe6e545aa11024bca",
+    "vite.config.ts": "202010c76a9b1d6bac23884105a4263df977ea9f0871cf8a1ef09726205561bd"
+  },
+  "exitCode": 0,
+  "completedAt": "2026-10-13T07:10:21.278018+00:00",
+  "sourceHashesUnchanged": true,
+  "gitStatusAfter": "?? .artifacts/\n",
+  "coverageSummary": {
+    "lines": {
+      "total": 50,
+      "covered": 43,
+      "skipped": 0,
+      "pct": 86
+    },
+    "statements": {
+      "total": 55,
+      "covered": 48,
+      "skipped": 0,
+      "pct": 87.27
+    },
+    "functions": {
+      "total": 16,
+      "covered": 15,
+      "skipped": 0,
+      "pct": 93.75
+    },
+    "branches": {
+      "total": 106,
+      "covered": 79,
+      "skipped": 0,
+      "pct": 74.52
+    },
+    "branchesTrue": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": "Unknown"
+    }
+  },
+  "limitations": "Focused unit coverage includes scheduledTasksSettings.logic.ts only. It does not instrument TSX components, browser execution, or the entire application. Existing headless/build evidence is separate."
+}
