@@ -9,8 +9,10 @@ SpecWithCode 1.0.7 published and independently verified on both feeds; PR160 mer
 Intent board: .specweave/intents/board.jsonl — 0 open intents (planning state, not verification).
 
 [Open the intent board](../../intents/board.jsonl)
-Increment 0901-aide-google-health (active) · tasks 4/4 done · ACs 0/5
+Increment 0901-aide-google-health (active) · tasks 4/4 done · verified ACs 5/5 in reports/verify.json; manual authentication acceptance pending.
 Gotcha: Preserve active owners and service processes. Do not copy account tokens or infer Google consent. No automatic retry of historical exhausted Claude worker. Installed desktop1.0.6/service1.0.5 at readback; release availability is not installation proof.
+
+03:44 UTC follow-up: the separate 1.0.6 updater retry ended at preflight with `Guarded prestate changed: otherListeners`, pointers unchanged. Its install marker is gone; the updater is `waiting-for-quiet`. Preserve active work and the automatic updater. Do not start another helper or bypass its guard. Details and current release provenance are in reports/release.md.
 
 ## Done / Pending
 | Task | State | By | Evidence / note |
