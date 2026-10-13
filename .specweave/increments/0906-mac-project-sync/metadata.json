@@ -1,0 +1,11 @@
+{
+  "id": "0906-mac-project-sync",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-13T06:36:53.223Z",
+  "updated": "2026-10-13T06:38:37.430Z",
+  "lastActivity": "2026-10-13T06:38:37.430Z",
+  "title": "Verified project copies across M4 M1 and M3",
+  "project": "specweave-umb"
+}
