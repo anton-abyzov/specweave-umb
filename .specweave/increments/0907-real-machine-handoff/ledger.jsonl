@@ -27,3 +27,5 @@
 {"t":"T-11","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-13T22:00:30.598Z"}
 {"t":"T-11","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-13T22:00:30.599Z","evidence":"python3 scripts/fleet/verify-handoff-evidence.py --phase product-code && python3 scripts/fleet/verify-handoff-evidence.py --phase product-review → exit 0\nlog: .specweave/increments/0907-real-machine-handoff/reports/task-T-11.txt\nproduct-code: passed\nproduct-review: passed\nHEAD dd88c94f3"}
 {"t":"T-12","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-13T22:00:31.219Z","evidence":"python3 scripts/fleet/verify-handoff-evidence.py --phase product-code && python3 scripts/fleet/verify-handoff-evidence.py --phase product-review → exit 0\nlog: .specweave/increments/0907-real-machine-handoff/reports/task-T-12.txt\nproduct-code: passed\nproduct-review: passed\nHEAD dd88c94f3"}
+{"t":"T-13","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-13T23:19:01.038Z"}
+{"t":"T-14","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-13T23:20:46.436Z"}
