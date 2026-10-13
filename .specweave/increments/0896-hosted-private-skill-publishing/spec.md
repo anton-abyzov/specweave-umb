@@ -25,7 +25,7 @@ Anton authorized completing hosted private publishing on 2026-10-13. Existing 08
 
 Private submission records and processing are isolated from the existing public submission store, queue listings, lifecycle broadcasts, and external public scan dispatch. An additive tenant-scoped private submission model avoids migrating the public catalog's global identity constraints. Private publication uses tenant-namespaced internal Skill identities with normal display names; every private status/read authenticates tenant membership. Queue messages carry only the private record ID, and processing re-resolves tenant, entitlement and scoped GitHub installation credentials from persistence. Never fall back to platform GitHub credentials. A content-hash match is an idempotent no-op; changed bundles create versions. Closed-gate rollback rejects new private work and checkout.
 
-Free hosted private allowance is 0 (Anton's 2026-10-12 decision, preserved in ledger). Local private GitHub installation remains free. Tests use an isolated local database, never inherited production DATABASE_URL, and explicitly headless browsers. Production migration and new UI require concrete manual acceptance before closure.
+Free hosted private allowance is 0 (Anton's 2026-10-12 decision, preserved in ledger). Local private GitHub installation remains free. Tests use an isolated local database, never inherited production DATABASE_URL, and explicitly headless browsers. Production migration and new UI require concrete manual acceptance before closure. Existing Prisma schema exceeds 1500 lines; split it into a Prisma schema folder before adding models, retaining all existing definitions and SQL semantics.
 
 ## Tasks
 
@@ -48,7 +48,7 @@ Free hosted private allowance is 0 (Anton's 2026-10-12 decision, preserved in le
 - AC: AC-07 | Files: repositories/anton-abyzov/vskill-platform/wrangler.jsonc, repositories/anton-abyzov/vskill-platform/src/lib/tenant-caps.ts, repositories/anton-abyzov/vskill-platform/src/lib/tenant-caps.test.ts | Test: npm --prefix repositories/anton-abyzov/vskill-platform test -- src/lib/tenant-caps.test.ts
 
 ### T-07 Persist privacy and tenant on submissions
-- AC: AC-08, AC-01 | Files: repositories/anton-abyzov/vskill-platform/prisma/schema.prisma, repositories/anton-abyzov/vskill-platform/prisma/migrations/, repositories/anton-abyzov/vskill-platform/src/lib/private-publishing/ | Test: npm --prefix repositories/anton-abyzov/vskill-platform test -- src/app/api/v1/submissions/__tests__ src/lib/submission
+- AC: AC-08, AC-01 | Files: repositories/anton-abyzov/vskill-platform/prisma/, repositories/anton-abyzov/vskill-platform/package.json, repositories/anton-abyzov/vskill-platform/package-lock.json, repositories/anton-abyzov/vskill-platform/src/__tests__/schema/, repositories/anton-abyzov/vskill-platform/scripts/, repositories/anton-abyzov/vskill-platform/src/lib/private-publishing/ | Test: npm --prefix repositories/anton-abyzov/vskill-platform test -- src/app/api/v1/submissions/__tests__ src/lib/submission
 
 ### T-08 Verify private status, publication and no public egress
 - AC: AC-01, AC-02, AC-03, AC-08 | Files: repositories/anton-abyzov/vskill-platform/tests/integration/0896/, repositories/anton-abyzov/vskill-platform/tests/e2e/0896/, repositories/anton-abyzov/vskill-platform/scripts/0896/ | Test: npm --prefix repositories/anton-abyzov/vskill-platform test -- tests/integration/0896
