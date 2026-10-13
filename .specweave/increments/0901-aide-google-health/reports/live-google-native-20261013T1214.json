@@ -1,0 +1,123 @@
+{
+  "phase": "native",
+  "runId": "834382ff-ae0c-493c-a076-96ea1276504c",
+  "startedAt": "2026-10-13T12:13:10.306Z",
+  "origin": "http://127.0.0.1:8319",
+  "baseDir": "/Users/antonabyzov/.specweave-studio/m4",
+  "projectId": "5428ab1e-79c4-4f5f-b245-5f231b4f2cdf",
+  "expectedVersion": "1.0.8",
+  "expectedSourceCommit": "291f919c24b600e400b8c64e9f3dd383795f33a6",
+  "nativeTurnsRequested": 1,
+  "consentReady": true,
+  "cleanup": {
+    "ownedSessionRevoked": true,
+    "existingActiveSessionsPreserved": true,
+    "unownedActiveSessionsAdded": 0,
+    "pairingLinksCreatedByRunner": 0,
+    "revocationRetainsAuditRow": true
+  },
+  "auth": {
+    "ownedSessionId": "b6a8812e-8330-48e3-ba4c-c058b7cf1a76",
+    "expiresAt": "2026-10-13T12:23:11.414Z",
+    "scopes": [
+      "orchestration:read",
+      "orchestration:operate"
+    ]
+  },
+  "serverVersion": "1.0.8",
+  "serverSourceCommit": "291f919c24b600e400b8c64e9f3dd383795f33a6",
+  "google": {
+    "clientConfigured": true,
+    "clientSource": "studio",
+    "connected": true,
+    "services": [
+      "gmail",
+      "calendar",
+      "drive"
+    ],
+    "aideAccess": [
+      "gmail",
+      "calendar",
+      "drive"
+    ],
+    "signInPending": false,
+    "hasConnectionError": false
+  },
+  "native": {
+    "commandId": "00e7e310-7bcf-4bba-9cce-ac0cc7c4c621",
+    "threadId": "project-coordinator:5428ab1e-79c4-4f5f-b245-5f231b4f2cdf",
+    "dispatched": true,
+    "resumedReceipt": false,
+    "dispatchBoundToSource": true,
+    "toolResults": [
+      {
+        "tool": "studio_google_status",
+        "ordinal": 6000003,
+        "startedAt": "2026-10-13T12:13:22.488Z",
+        "completedAt": "2026-10-13T12:13:24.201Z",
+        "runtimeStatus": "completed",
+        "success": true,
+        "connectionState": "verified",
+        "checkedAt": "2026-10-13T12:13:24.192Z",
+        "serviceChecks": [
+          {
+            "service": "gmail",
+            "status": "ok"
+          },
+          {
+            "service": "calendar",
+            "status": "ok"
+          },
+          {
+            "service": "drive",
+            "status": "ok"
+          }
+        ]
+      },
+      {
+        "tool": "studio_google_calendar_events",
+        "ordinal": 6000004,
+        "startedAt": "2026-10-13T12:13:34.426Z",
+        "completedAt": "2026-10-13T12:13:34.668Z",
+        "runtimeStatus": "completed",
+        "success": true,
+        "requestMatches": true,
+        "itemCount": 1
+      },
+      {
+        "tool": "studio_google_gmail_search",
+        "ordinal": 6000005,
+        "startedAt": "2026-10-13T12:13:34.427Z",
+        "completedAt": "2026-10-13T12:13:35.031Z",
+        "runtimeStatus": "completed",
+        "success": true,
+        "requestMatches": true,
+        "itemCount": 1
+      },
+      {
+        "tool": "studio_google_drive_search",
+        "ordinal": 6000006,
+        "startedAt": "2026-10-13T12:13:34.427Z",
+        "completedAt": "2026-10-13T12:13:34.850Z",
+        "runtimeStatus": "completed",
+        "success": true,
+        "requestMatches": true,
+        "itemCount": 1
+      }
+    ],
+    "dispatchAttemptedAt": "2026-10-13T12:13:11.520Z",
+    "runId": "run:thread:project-coordinator%3A5428ab1e-79c4-4f5f-b245-5f231b4f2cdf:ordinal:6",
+    "runStatus": "completed",
+    "completedAt": "2026-10-13T12:13:39.367Z",
+    "googleToolCalls": 4,
+    "unexpectedGoogleToolCalls": 0,
+    "additionalDynamicTools": 0,
+    "additionalNativeTools": 0,
+    "delegationItems": 0,
+    "healthBeforeReads": true,
+    "providerFailureClasses": [],
+    "providerFailures": [],
+    "success": true
+  },
+  "finishedAt": "2026-10-13T12:13:44.030Z"
+}
