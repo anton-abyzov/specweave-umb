@@ -131,4 +131,122 @@ class StagedNativeTests(unittest.TestCase):
                      b'\xff\xd8\xff\xc0\x00\x08\x08'+struct.pack('>HH',10,10)+b'\x01\xff\xd9']:
             with self.subTest(data=data),self.assertRaises(ValueError):V.native_screenshot_shape(data)
 
+
+class CredentialCreationTests(unittest.TestCase):
+    """Invented audit metadata only; no credential payload or operational acceptance."""
+    setUp = StagedNativeTests.setUp
+    read = StagedNativeTests.read
+    verify = StagedNativeTests.verify
+
+    def fixture(self):
+        StagedNativeTests.fixture(self)
+        for key, field in [('stage','state'),('launchStart','before'),('launch','state'),('readback','state')]:
+            value=self.read(self.proof[key])
+            value[field]['configurationHashes']['desktop-service-credentials.json']=None if key!='readback' else '7'*64
+            value[field]['service']['environmentIdSha256']='9'*64
+            self.proof[key]=ref(self.root,key+'-creation.json',value)
+        self.audit={'result':'validated-exact-encrypted-cache-creation','validEncryptedEntryShape':True,
+          'decryptionChecked':False,'entryCount':1,'environmentKeyHashes':['9'*64],'observedAt':'2026-10-13T12:01:31Z',
+          'file':{'path':'/synthetic/.specweave-studio/m4/userdata/desktop-service-credentials.json',
+            'uid':501,'mode':384,'bytes':919,'device':1,'inode':42,
+            'birthtime':V.time_value('2026-10-13T12:01:30Z').timestamp()+0.25,
+            'mtimeNs':int(V.time_value('2026-10-13T12:01:30Z').timestamp()*1e9)+500000000,'sha256':'7'*64},
+          'regularNonSymlink':True,'singleHardlink':True,'stableBeforeDuringAfterInspection':True,
+          'stageAndLaunchStateExactlyEqual':True,'credentialAbsentAtStageAndCandidateLaunch':True,
+          'creationAfterCandidateLaunchBeforeAudit':True,
+          'stage':{'path':'/synthetic/stage.json','at':self.read(self.proof['stage'])['at'],'sha256':self.proof['stage']['sha256']},
+          'candidateLaunch':{'path':'/synthetic/candidate-launch.json','at':self.read(self.proof['launch'])['at'],'sha256':self.proof['launch']['sha256']},
+          'binding':{'path':'/synthetic/binding.json','sha256':self.proof['binding']['sha256']},
+          'encryptedPayloadRetained':False,'writeAttributionEstablished':False,
+          'accountAcceptanceStillRequired':True,'nativeOrServiceActionPerformed':False}
+        self.transition={'auditOriginPath':'/synthetic/creation-audit.json',
+          'wrapper':ref(self.root,'wrapper.py',b'# invented inert wrapper, never executed\n')}
+        self.execution={'at':'2026-10-13T12:01:34Z',
+          'result':'original-helper-phase-verified-with-reviewed-process-and-cache-transitions','phase':'readback-candidate',
+          'adapterSha256':self.transition['wrapper']['sha256'],'originalHelperSha256':self.proof['helper']['sha256'],
+          'originalBindingSha256':self.proof['binding']['sha256'],'processesStoppedOrReaped':False}
+        self.seal()
+
+    def seal(self):
+        self.transition['audit']=ref(self.root,'creation-audit.json',self.audit)
+        self.execution['credentialCreationAudit']={'path':self.transition['auditOriginPath'],
+          'sha256':self.transition['audit']['sha256'],'preexistingBytesClaimedIdentical':False}
+        self.execution['originalReceipt']={'path':'/synthetic/candidate-readback.json','sha256':self.proof['readback']['sha256']}
+        self.transition['execution']=ref(self.root,'execution.json',self.execution)
+        self.proof['credentialCreation']=self.transition
+        self.app['nativeProcessProof']=ref(self.root,'staged-proof.json',self.proof)
+
+    def reject_audit(self, fn):
+        self.fixture();fn(self.audit);self.seal()
+        with self.assertRaises((ValueError,KeyError)):self.verify()
+
+    def test_exact_creation_preserves_truthful_boundaries(self):
+        self.fixture();self.verify()
+        self.assertFalse(self.audit['writeAttributionEstablished'])
+        self.assertTrue(self.audit['accountAcceptanceStillRequired'])
+
+    def test_creation_without_optional_audit_still_rejected(self):
+        self.fixture();del self.proof['credentialCreation']
+        self.app['nativeProcessProof']=ref(self.root,'staged-proof.json',self.proof)
+        with self.assertRaises(ValueError):self.verify()
+
+    def test_wrong_encrypted_envelope_or_claims_rejected(self):
+        for field,value in [('entryCount',2),('environmentKeyHashes',['0'*64]),('validEncryptedEntryShape',False),
+            ('decryptionChecked',True),('encryptedPayloadRetained',True),('writeAttributionEstablished',True),
+            ('accountAcceptanceStillRequired',False),('nativeOrServiceActionPerformed',True),
+            ('regularNonSymlink',False),('singleHardlink',False),('stableBeforeDuringAfterInspection',False)]:
+            with self.subTest(field=field):self.reject_audit(lambda d:d.update({field:value}))
+
+    def test_wrong_credential_metadata_rejected(self):
+        for field,value in [('path','/synthetic/foreign.json'),('uid',502),('mode',420),('bytes',0),
+            ('device',0),('inode',0),('sha256','0'*64),('birthtime',1),('mtimeNs',1)]:
+            with self.subTest(field=field):self.reject_audit(lambda d:d['file'].update({field:value}))
+
+    def test_audit_baseline_and_order_must_match(self):
+        for field,value in [('sha256','0'*64),('path','/foreign/stage.json'),('at','2026-10-13T12:00:00Z')]:
+            with self.subTest(field=field):self.reject_audit(lambda d:d['stage'].update({field:value}))
+        self.reject_audit(lambda d:d.update(observedAt='2026-10-13T12:01:35Z'))
+        self.reject_audit(lambda d:d['binding'].update(sha256='0'*64))
+
+    def test_original_absence_and_full_state_equality_are_replayed(self):
+        for key,field in [('stage','state'),('launchStart','before'),('launch','state')]:
+            with self.subTest(key=key):
+                self.fixture();raw=self.read(self.proof[key]);raw[field]['configurationHashes']['desktop-service-credentials.json']='7'*64
+                self.proof[key]=ref(self.root,key+'-changed.json',raw)
+                if key=='stage':self.audit['stage']['sha256']=self.proof[key]['sha256']
+                if key=='launch':self.audit['candidateLaunch']['sha256']=self.proof[key]['sha256']
+                self.seal()
+                with self.assertRaises(ValueError):self.verify()
+
+    def test_other_protected_configuration_remains_strict(self):
+        for name in ['settings.json','environment-id','credentials.json','auth.json','saved-environments.json']:
+            with self.subTest(name=name):
+                self.fixture();raw=self.read(self.proof['readback']);raw['state']['configurationHashes'][name]='0'*64
+                self.proof['readback']=ref(self.root,'readback-changed.json',raw);self.seal()
+                with self.assertRaises(ValueError):self.verify()
+
+    def test_successful_bound_wrapper_execution_is_required(self):
+        for field,value in [('result','failed'),('phase','readback-original'),('adapterSha256','0'*64),
+            ('originalHelperSha256','0'*64),('originalBindingSha256','0'*64),('processesStoppedOrReaped',True),
+            ('at','2026-10-13T12:01:31Z')]:
+            with self.subTest(field=field):
+                self.fixture();self.execution[field]=value;self.seal()
+                with self.assertRaises(ValueError):self.verify()
+
+    def test_wrapper_cannot_relabel_prior_bytes_or_other_readback(self):
+        for key,field,value in [('credentialCreationAudit','preexistingBytesClaimedIdentical',True),
+            ('credentialCreationAudit','sha256','0'*64),('credentialCreationAudit','path','/other/audit.json'),
+            ('originalReceipt','sha256','0'*64),('originalReceipt','path','/other/readback.json')]:
+            with self.subTest(key=key,field=field):
+                self.fixture();self.execution[key][field]=value
+                self.transition['execution']=ref(self.root,'execution-changed.json',self.execution)
+                self.app['nativeProcessProof']=ref(self.root,'staged-proof.json',self.proof)
+                with self.assertRaises(ValueError):self.verify()
+
+    def test_closed_optional_schema_and_payload_refusal(self):
+        self.reject_audit(lambda d:d.update(encryptedBearerToken='invented-secret-not-an-allowed-field'))
+        self.fixture();self.transition['credentialBytes']=ref(self.root,'forbidden.bytes',b'not credential bytes')
+        self.app['nativeProcessProof']=ref(self.root,'staged-proof.json',self.proof)
+        with self.assertRaises(ValueError):self.verify()
+
 if __name__=='__main__':unittest.main()

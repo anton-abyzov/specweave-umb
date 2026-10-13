@@ -773,11 +773,78 @@ def native_screenshot_shape(data):
     return {"encoding": encoding, "width": width, "height": height}
 
 
+def staged_credential_creation(evidence, proof, stage, launch, readback, identity, home):
+    """Permit one independently observed encrypted cache creation, without retaining its bytes."""
+    transition = proof["credentialCreation"]
+    require(set(transition) == {"audit", "auditOriginPath", "wrapper", "execution"},
+            "closed credential creation proof required")
+    audit = evidence.json(transition["audit"])
+    fields = {"result", "validEncryptedEntryShape", "decryptionChecked", "entryCount", "environmentKeyHashes",
+              "observedAt", "file", "regularNonSymlink", "singleHardlink", "stableBeforeDuringAfterInspection",
+              "stageAndLaunchStateExactlyEqual", "credentialAbsentAtStageAndCandidateLaunch",
+              "creationAfterCandidateLaunchBeforeAudit", "stage", "candidateLaunch", "binding",
+              "encryptedPayloadRetained", "writeAttributionEstablished", "accountAcceptanceStillRequired",
+              "nativeOrServiceActionPerformed"}
+    require(set(audit) == fields and audit["result"] == "validated-exact-encrypted-cache-creation",
+            "exact independent credential audit required")
+    require(all(audit[k] is True for k in ("validEncryptedEntryShape", "regularNonSymlink", "singleHardlink",
+                "stableBeforeDuringAfterInspection", "stageAndLaunchStateExactlyEqual",
+                "credentialAbsentAtStageAndCandidateLaunch", "creationAfterCandidateLaunchBeforeAudit",
+                "accountAcceptanceStillRequired")) and all(audit[k] is False for k in
+                ("decryptionChecked", "encryptedPayloadRetained", "writeAttributionEstablished", "nativeOrServiceActionPerformed")),
+            "credential audit overstates its evidence")
+    name = "desktop-service-credentials.json"
+    initial = stage["state"]
+    require(stage["state"] == launch["state"] and initial["configurationHashes"][name] is None
+            and type(audit["entryCount"]) is int and audit["entryCount"] == 1
+            and HEX64.fullmatch(initial["service"]["environmentIdSha256"])
+            and audit["environmentKeyHashes"] == [initial["service"]["environmentIdSha256"]],
+            "credential creation is not first creation for the same environment")
+    for field, key, filename in (("stage", "stage", "stage.json"),
+                                 ("candidateLaunch", "launch", "candidate-launch.json")):
+        raw = stage if key == "stage" else launch
+        require(set(audit[field]) == {"path", "sha256", "at"}
+                and audit[field]["sha256"] == proof[key]["sha256"] and audit[field]["at"] == raw["at"]
+                and absolute(audit[field]["path"]) == absolute(launch["appPath"]).parent / filename,
+                "credential audit detached from raw native baseline")
+    require(set(audit["binding"]) == {"path", "sha256"}
+            and audit["binding"]["sha256"] == proof["binding"]["sha256"]
+            and absolute(audit["binding"]["path"]).name == "binding.json", "credential audit binding differs")
+    file = audit["file"]
+    require(set(file) == {"path", "uid", "mode", "bytes", "device", "inode", "mtimeNs", "birthtime", "sha256"}
+            and absolute(file["path"]) == home / ".specweave-studio/m4/userdata" / name
+            and type(file["uid"]) is int and file["uid"] == identity["uid"]
+            and type(file["mode"]) is int and file["mode"] == 0o600
+            and all(type(file[k]) is int and file[k] > 0 for k in ("bytes", "device", "inode", "mtimeNs"))
+            and type(file["birthtime"]) in (int, float) and HEX64.fullmatch(file["sha256"])
+            and readback["state"]["configurationHashes"][name] == file["sha256"],
+            "credential metadata differs from exact observed creation")
+    require(time_value(launch["at"]).timestamp() < file["birthtime"] <= file["mtimeNs"] / 1e9
+            <= time_value(audit["observedAt"]).timestamp() <= time_value(readback["at"]).timestamp(),
+            "credential creation is outside observed native launch window")
+    executed = evidence.json(transition["execution"])
+    require(set(executed) == {"at", "result", "phase", "adapterSha256", "originalHelperSha256",
+                "originalBindingSha256", "credentialCreationAudit", "originalReceipt", "processesStoppedOrReaped"}
+            and executed["result"] == "original-helper-phase-verified-with-reviewed-process-and-cache-transitions"
+            and executed["phase"] == "readback-candidate" and executed["processesStoppedOrReaped"] is False
+            and executed["adapterSha256"] == transition["wrapper"]["sha256"]
+            and executed["originalHelperSha256"] == proof["helper"]["sha256"]
+            and executed["originalBindingSha256"] == proof["binding"]["sha256"]
+            and evidence.data(transition["wrapper"]), "successful exact-transition wrapper execution required")
+    require(executed["credentialCreationAudit"] == {"path": str(absolute(transition["auditOriginPath"])),
+                "sha256": transition["audit"]["sha256"], "preexistingBytesClaimedIdentical": False}
+            and executed["originalReceipt"] == {"path": str(absolute(launch["appPath"]).parent / "candidate-readback.json"),
+                "sha256": proof["readback"]["sha256"]}
+            and time_value(executed["at"]) >= time_value(readback["at"]),
+            "transition wrapper detached from audit or native readback")
+    return file["sha256"]
+
+
 def staged_native_process(evidence, proof, candidate, version, asar_sha):
     """Replay raw staged-app observations without inventing an installation phase."""
     fields = {"kind", "at", "binding", "helper", "stage", "launchStart", "spawn", "launch",
               "readback", "uiObservation", "uiOriginPath", "uiArtifacts"}
-    require(set(proof) == fields and proof["kind"] == "staged-native-observation",
+    require(set(proof) in (fields, fields | {"credentialCreation"}) and proof["kind"] == "staged-native-observation",
             "closed staged-native proof required")
     binding, stage, start, spawn, launch, readback, ui = [evidence.json(proof[k]) for k in
         ("binding", "stage", "launchStart", "spawn", "launch", "readback", "uiObservation")]
@@ -822,9 +889,12 @@ def staged_native_process(evidence, proof, candidate, version, asar_sha):
     initial = stage["state"]
     require(initial["service"]["sourceCommit"] == candidate and initial["service"]["version"] == version,
             "staged managed service differs from candidate")
-    for state in (start["before"], launch["state"], readback["state"]):
+    created = (staged_credential_creation(evidence, proof, stage, launch, readback, identity, home)
+               if "credentialCreation" in proof else None)
+    for position, state in enumerate((start["before"], launch["state"], readback["state"])):
         require(all(state[k] == initial[k] for k in ("service", "profile", "defaultState"))
-                and all(state["configurationHashes"][k] == initial["configurationHashes"][k] for k in protected),
+                and all(state["configurationHashes"][k] == (created if created is not None and position == 2
+                    and k == "desktop-service-credentials.json" else initial["configurationHashes"][k]) for k in protected),
                 "staged protected state changed")
     require(ui["method"] == "settings-general-ui" and ui["bridgeStateObserved"] is False
             and ui["securityWarningBypassed"] is False and ui["quitPerformed"] is False
