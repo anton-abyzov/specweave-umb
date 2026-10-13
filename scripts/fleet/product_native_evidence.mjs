@@ -1,7 +1,7 @@
 // Pure product-native receipt validation. No network, filesystem, process or private imports.
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-import {isAbsolute, relative, resolve} from 'node:path';
+import {basename, dirname, isAbsolute, relative, resolve} from 'node:path';
 import {isDeepStrictEqual} from 'node:util';
 
 export const sha256 = value => createHash('sha256').update(value).digest('hex');
@@ -226,11 +226,19 @@ export function assertMcp(plan, parent, item, worker = null) {
   if (op === 'delegate_task') {
     exactKeys(x,['task','target','title','mode','clientRequestId','runtimeMode','machine']);
     assert.equal(x.mode,'async'); assert.equal(x.machine,'local'); assert.equal(x.runtimeMode,'approval-required');
-    assert.deepEqual(x.target,{providerInstanceId:plan.profile.worker.instanceId,model:plan.profile.worker.model});
+    if (x.target !== undefined) assert.deepEqual(x.target,{providerInstanceId:plan.profile.worker.instanceId,model:plan.profile.worker.model});
     assert.ok(typeof x.clientRequestId === 'string' && x.clientRequestId.length > 0 && x.clientRequestId.length < 200);
     assert.ok(typeof x.title === 'string' && x.title.length > 0 && x.title.length < 200);
     assert.ok(typeof x.task === 'string' && x.task.length < 40000);
-    includesAll(x.task,[plan.nestedRoot,plan.paths.implementation,plan.paths.test,...plan.contextRequired],'delegation-context-incomplete');
+    includesAll(x.task,plan.contextRequired,'delegation-context-incomplete');
+    const fullPaths=[plan.nestedRoot,plan.paths.implementation,plan.paths.test];
+    if (!fullPaths.every(path=>x.task.includes(path))) {
+      includesAll(x.task,[plan.workspaceRoot,relative(plan.workspaceRoot,plan.paths.implementation)],'delegation-context-incomplete');
+      assert.equal(dirname(plan.paths.test),dirname(plan.paths.implementation),'delegation-test-directory-mismatch');
+      const testPath=relative(plan.workspaceRoot,plan.paths.test),name=basename(plan.paths.test);
+      const tokens=x.task.split(/[\s`"'(),;:]+/);
+      assert.ok(x.task.includes(plan.paths.test)||x.task.includes(testPath)||tokens.includes(name),'delegation-test-context-incomplete');
+    }
     return;
   }
   assert.equal(tools.filter(i => ['task_status','studio_thread_read'].includes(toolOperation(i))).length,1,'result-polling-refused');
@@ -274,7 +282,21 @@ export function assertFileChange(plan, item) {
   return {fileName:item.fileName,changes:item.changes,diffStr:item.diffStr};
 }
 
-export function approvalPayload(plan, projection, parent, requestId, worker = null) {
+// Captured from two fresh normal project/workspace reads immediately before acceptance.
+// An omitted MCP target is safe only when this coordinator has an explicit saved worker choice.
+export function delegationRouting(plan, project, workspace) {
+  assert.equal(project?.id,plan.projectId,'delegation-project-mismatch');
+  assert.equal(project?.workspaceRoot,plan.workspaceRoot,'delegation-workspace-mismatch');
+  assert.equal(workspace?.settings?.coordinatorThreadId,plan.coordinatorId,'delegation-coordinator-mismatch');
+  assert.deepEqual(project.defaultModelSelection,plan.profile.worker,'delegation-worker-default-mismatch');
+  assert.ok(!workspace.settings.workerMachine && !workspace.settings.autoResume,'delegation-nonlocal-routing');
+  return {projectId:project.id,workspaceRoot:project.workspaceRoot,coordinatorThreadId:workspace.settings.coordinatorThreadId,defaultModelSelection:project.defaultModelSelection,workerMachine:workspace.settings.workerMachine??null,autoResume:workspace.settings.autoResume??false};
+}
+export function assertDelegationRouting(plan, routing) {
+  requireObject(routing);exactKeys(routing,['projectId','workspaceRoot','coordinatorThreadId','defaultModelSelection','workerMachine','autoResume']);
+  assert.deepEqual(routing,delegationRouting(plan,{id:routing.projectId,workspaceRoot:routing.workspaceRoot,defaultModelSelection:routing.defaultModelSelection},{settings:{coordinatorThreadId:routing.coordinatorThreadId,workerMachine:routing.workerMachine,autoResume:routing.autoResume}}),'delegation-routing-incomplete');
+}
+export function approvalPayload(plan, projection, parent, requestId, worker = null, routing = null) {
   assert.equal(projection.thread.projectId,plan.projectId);
   const req = one(projection.runtimeRequests.filter(r => r.id === requestId),'request-not-found');
   assert.equal(req.status,'pending'); assert.equal(req.responseCapability.type,'live');
@@ -297,7 +319,9 @@ export function approvalPayload(plan, projection, parent, requestId, worker = nu
     else { assert.ok(!coordinator,'coordinator-cannot-edit'); assert.equal(approval.grantRoot,null,'file-write-grant-must-be-explicitly-absent'); assertFileChange(plan,action); }
   }
   assert.equal(action.runId,approval.runId); assert.equal(action.providerTurnId,req.providerTurnId);
-  return {threadId:projection.thread.id,request:req,approval,action};
+  const inherited = action.type==='dynamic_tool' && toolOperation(action)==='delegate_task' && action.input.target===undefined;
+  if(inherited)assertDelegationRouting(plan,routing);
+  return {threadId:projection.thread.id,request:req,approval,action,...(inherited?{delegationRouting:routing}:{})};
 }
 
 export function assertRetainedItem(projectionItem, response, kind = null) {
@@ -465,7 +489,7 @@ export function verifyReceipt(plan,receipt) {
     atApproval.runs = atApproval.runs.map(r => r.id === action.runId ? {...r,status:'running'} : r);
     let parentAtApproval = record.threadId === plan.coordinatorId ? atApproval : parent;
     if (action.type === 'dynamic_tool' && toolOperation(action) === 'delegate_task') { atApproval.subagents = []; parentAtApproval = atApproval; }
-    const revalidated = approvalPayload(plan,atApproval,parentAtApproval,record.requestId,worker);
+    const revalidated = approvalPayload(plan,atApproval,parentAtApproval,record.requestId,worker,payload.delegationRouting??null);
     assert.equal(sha256(JSON.stringify(revalidated)),record.payloadSha256,'approval-payload-replay-mismatch');
     const kind = action.type === 'file_change' ? 'file-change' : action.type === 'command_execution' ? classifyCommand(plan,action.input,record.threadId === plan.coordinatorId ? 'coordinator' : 'worker').kind : 'mcp';
     assert.equal(record.kind,kind,'approval-kind-summary-forged'); assert.ok(!observer.approved.has(action.id),'action-approved-twice'); observer.approved.set(action.id,record.payloadSha256);

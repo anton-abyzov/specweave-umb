@@ -161,3 +161,62 @@ class PersistedProductLaunchTests(unittest.TestCase):
         (self.root / "product-evidence-index.json").write_bytes(fixtures.encode(self.index))
         with self.assertRaisesRegex(ValueError, "native supervision or temporary session cleanup incomplete"):
             fixtures.V.product_handoff(self.root)
+
+
+class NativeWorkerRoutingReplayTests(unittest.TestCase):
+    """The inherited profile is evidence, not permission to guess a worker model."""
+    setUp = NativeDiscoveryReplayTests.setUp
+    replay = NativeDiscoveryReplayTests.replay
+    def inherited(self):
+        data = json.loads((fixtures.FIXTURES / 'product_native_destination.json').read_bytes())
+        self.assertTrue(data['synthetic'])
+        p, receipt = data['plan'], data['receipt']
+        receipt['temporarySessionRevoked'] = True
+        for key in ('parent', 'rawParent'):
+            next(i for i in receipt[key]['turnItems'] if i.get('toolName') == 'studio-code.delegate_task')['input'].pop('target')
+        record = next(r for r in receipt['approvals'] if r['payload']['action'].get('toolName') == 'studio-code.delegate_task')
+        record['payload']['action']['input'].pop('target')
+        record['payload']['delegationRouting'] = {'projectId': p['projectId'], 'workspaceRoot': p['workspaceRoot'],
+            'coordinatorThreadId': p['coordinatorId'], 'defaultModelSelection': p['profile']['worker'],
+            'workerMachine': None, 'autoResume': False}
+        fixtures.rehash_native(receipt)
+        return data
+
+    def test_omitted_target_uses_exact_retained_project_routing(self):
+        self.replay(self.inherited())
+
+    def test_rehashed_missing_or_changed_routing_never_substitutes_worker_profile(self):
+        mutations = [lambda r: r['payload'].pop('delegationRouting'),
+                     lambda r: r['payload']['delegationRouting'].update(defaultModelSelection={'instanceId': 'codex', 'model': 'other'}),
+                     lambda r: r['payload']['delegationRouting'].update(projectId='foreign'),
+                     lambda r: r['payload']['delegationRouting'].update(workerMachine='m3'),
+                     lambda r: r['payload']['delegationRouting'].update(autoResume=True)]
+        for mutate in mutations:
+            data = self.inherited()
+            record = next(r for r in data['receipt']['approvals'] if 'delegationRouting' in r['payload'])
+            mutate(record)
+            fixtures.rehash_native(data['receipt'])
+            with self.assertRaises(ValueError): self.replay(data)
+
+    def test_actual_worker_cannot_differ_even_when_saved_default_matches(self):
+        data = self.inherited()
+        data['receipt']['worker']['thread']['modelSelection'] = {'instanceId': 'codex', 'model': 'other'}
+        with self.assertRaises(ValueError): self.replay(data)
+
+    def test_relative_paths_remain_anchored_to_exact_workspace_and_adjacent_test(self):
+        data = self.inherited()
+        p, receipt = data['plan'], data['receipt']
+        task = ' '.join([p['workspaceRoot'], str(Path(p['paths']['implementation']).relative_to(p['workspaceRoot'])),
+                         Path(p['paths']['test']).name, *p['contextRequired']])
+        def update(text):
+            for key in ('parent', 'rawParent'):
+                next(i for i in receipt[key]['turnItems'] if i.get('toolName') == 'studio-code.delegate_task')['input']['task'] = text
+            record = next(r for r in receipt['approvals'] if 'delegationRouting' in r['payload'])
+            record['payload']['action']['input']['task'] = text
+            fixtures.rehash_native(receipt)
+        update(task)
+        self.replay(data)
+        for changed in [task.replace(p['workspaceRoot'], '/foreign'),
+                        task.replace(Path(p['paths']['test']).name, 'foreign/'+Path(p['paths']['test']).name)]:
+            update(changed)
+            with self.assertRaises(ValueError): self.replay(data)
