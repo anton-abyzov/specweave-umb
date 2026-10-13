@@ -19,7 +19,7 @@ Use authenticated Git remote state as source truth. Freeze commits after complet
 ## Tasks
 
 ### T-01 Inventory source and provision clean project copies
-- AC: AC-01, AC-02 | Files: .specweave/increments/0906-mac-project-sync/spec.md, scripts/fleet-project-sync.py | Test: python3 scripts/fleet-project-sync.py --self-test
+- AC: AC-01, AC-02 | Files: .specweave/increments/0906-mac-project-sync/spec.md, scripts/fleet-project-sync.py, README.md, AGENTS.md, CHANGELOG.md | Test: python3 scripts/fleet-project-sync.py --self-test
 
 ### T-02 Verify cross-machine coordinator and worker execution
 - AC: AC-03 | Files: .specweave/increments/0906-mac-project-sync/runtime-verification.md | Test: python3 scripts/fleet-project-sync.py --verify-receipt /Users/antonabyzov/.local/share/specweave/fleet/project-sync-20261013/receipt.json

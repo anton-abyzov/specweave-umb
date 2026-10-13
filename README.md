@@ -2,6 +2,12 @@
 
 **A SpecWeave project** - where specifications drive development.
 
+## Project copies on another machine
+
+Use `python3 scripts/fleet-project-sync.py --help` for pinned, independent Git checkouts. Inspect a private version-1 manifest with `--inspect MANIFEST --base /absolute/home`; provision missing paths with `--apply MANIFEST --base /absolute/home --receipt NEW_RECEIPT`. Existing dirty, diverged or mismatched repositories are preserved. Offline bundles require matching SHA-256 metadata and `--bundle-dir`.
+
+The helper verifies source copies; saved receipts do not prove current runtime health. Coordinators and workers need a directory on their execution host. Code tasks also need the relevant nested repositories and task dependencies. See [fleet verification](.specweave/increments/0906-mac-project-sync/runtime-verification.md) for the tested scope.
+
 ## 🚀 Quick Start
 
 Your project is initialized! Now describe what you want to build.

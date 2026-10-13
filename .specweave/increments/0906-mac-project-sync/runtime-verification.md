@@ -12,6 +12,8 @@ The private manifest pins published source. Concurrent owner-held M4 changes wer
 
 Both installed 1.0.7 runtimes passed metadata-only inspection. Their native Codex profiles were authenticated with verified included routes; automatic credit, API-credit and reset use were disabled. Temporary scoped inspection sessions were revoked and global settings were unchanged. These metadata checks are not native execution proof.
 
+Actual code smoke tests also passed on both Macs using Node 22.20.0: EasyChamp 26 tests for time zones and ticket QR handling; JobWeave 141 shared-package tests for schemas, scoring, stages and eligibility; SpecWeave 18 tests for one-file ledgers and nested-repository inspection. That is 185 tests per Mac, 370 total. Locked dependencies were installed locally with lifecycle scripts disabled. Test execution had outbound network access denied. Every tested checkout retained identical source state and lockfile hashes. These bounded tests do not represent full application or deployment acceptance.
+
 ## Folder and repository requirements
 
 Both coordinator and worker native execution need a directory on the execution host. Git is optional for a general or personal project: managed project creation can create an empty folder. Code work needs the actual checkout and relevant nested repositories on that host, with dependencies prepared for the task.

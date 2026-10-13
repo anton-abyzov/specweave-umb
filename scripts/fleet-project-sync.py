@@ -112,6 +112,11 @@ def verify_checkout(target, row):
             "Destination is not an independent Git checkout")
     require(git(["rev-parse", "--show-toplevel"], target) == str(target), "Repository root mismatch")
     require(git(["config", "--local", "--get", "remote.origin.url"], target) == row["origin"], "Origin mismatch")
+    for operation in (["remote", "get-url", "--all", "origin"],
+                      ["remote", "get-url", "--push", "--all", "origin"]):
+        effective = git(operation, target).splitlines()
+        require(len(effective) == 1 and same_repository(row["origin"], effective[0]),
+                "Effective Git transport targets a different repository")
     require(git(["symbolic-ref", "--short", "HEAD"], target) == row["branch"], "Branch mismatch")
     require(git(["rev-parse", "HEAD"], target) == row["sha"], "Commit differs; preserve existing work")
     require(git(["rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{upstream}"], target)
@@ -123,6 +128,22 @@ def verify_checkout(target, row):
             "Checkout has ahead/behind commits")
     require(not git(["status", "--porcelain=v1", "--untracked-files=all", "--ignore-submodules=none"], target),
             "Dirty checkout; preserve existing work")
+
+def same_repository(canonical, effective):
+    """Permit a credential-free GitHub HTTPS/SSH rewrite, never a new destination."""
+    if canonical == effective:
+        return True
+    def github_identity(value):
+        match = re.fullmatch(r"(?:https://github\.com/|git@github\.com:|ssh://git@github\.com/)([A-Za-z0-9_.-]+)/([A-Za-z0-9_.-]+)", value)
+        if not match:
+            return None
+        owner, repo = match.groups()
+        repo = repo[:-4] if repo.endswith(".git") else repo
+        if owner in (".", "..") or repo in ("", ".", ".."):
+            return None
+        return owner.casefold(), repo.casefold()
+    expected = github_identity(canonical)
+    return expected is not None and expected == github_identity(effective)
 
 def exclusive_rename(source, target):
     """Atomic no-replace publication; ordinary os.rename can overwrite an empty target."""
@@ -345,6 +366,25 @@ class SafetyTests(unittest.TestCase):
         self.assertEqual(provision(self.base, row, True, self.root)["status"], "already_verified")
         self.assertEqual(git(["rev-parse", "@{upstream}"], self.base / "jobweave"), row["sha"])
         self.assertEqual(provision(self.base, {**row, "bundleSha256": "0" * 64}, True, self.root)["status"], "failed")
+
+    def test_scoped_transport_preserves_identity_and_rejects_redirects(self):
+        self.apply()
+        target = self.base / "jobweave"
+        origin = "https://github.com/fixture/project.git"
+        row = {**self.row, "origin": origin}
+        git(["remote", "set-url", "origin", origin], target)
+        key = "url.git@github.com:fixture/project.git.insteadOf"
+        git(["config", "--local", key, origin], target)
+        verify_checkout(target, row)
+        self.assertEqual(git(["config", "--local", "--get", "remote.origin.url"], target), origin)
+        git(["config", "--local", "remote.origin.pushurl", "git@github.com:foreign/project.git"], target)
+        with self.assertRaises(Refusal):
+            verify_checkout(target, row)
+        git(["config", "--local", "--unset", "remote.origin.pushurl"], target)
+        git(["config", "--local", "--unset", key], target)
+        git(["config", "--local", "url.git@foreign.example:fixture/project.git.insteadOf", origin], target)
+        with self.assertRaises(Refusal):
+            verify_checkout(target, row)
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
