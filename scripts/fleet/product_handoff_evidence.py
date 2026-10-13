@@ -743,6 +743,132 @@ def asar_file(archive, name):
         return stream.read(size)
 
 
+def native_screenshot_shape(data):
+    """Identify retained pixels by bytes, including JPEG supplied under a .png name."""
+    if len(data) >= 33 and data[:8] == b"\x89PNG\r\n\x1a\n" and data[12:16] == b"IHDR":
+        width, height = struct.unpack(">II", data[16:24])
+        encoding = "png"
+    else:
+        require(data[:2] == b"\xff\xd8", "native screenshot must be PNG or JPEG")
+        pos, width, height = 2, 0, 0
+        while pos + 4 <= len(data):
+            require(data[pos] == 255, "malformed JPEG marker")
+            while pos < len(data) and data[pos] == 255:
+                pos += 1
+            require(pos < len(data), "truncated JPEG marker")
+            marker = data[pos]
+            pos += 1
+            if marker in (0xD9, 0xDA):
+                break
+            require(pos + 2 <= len(data), "truncated JPEG segment")
+            length = int.from_bytes(data[pos:pos + 2], "big")
+            require(length >= 2 and pos + length <= len(data), "malformed JPEG segment")
+            if marker in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                require(length >= 8, "JPEG dimensions missing")
+                height, width = struct.unpack(">HH", data[pos + 3:pos + 7])
+                break
+            pos += length
+        encoding = "jpeg"
+    require(width >= 320 and height >= 240, "native screenshot too small")
+    return {"encoding": encoding, "width": width, "height": height}
+
+
+def staged_native_process(evidence, proof, candidate, version, asar_sha):
+    """Replay raw staged-app observations without inventing an installation phase."""
+    fields = {"kind", "at", "binding", "helper", "stage", "launchStart", "spawn", "launch",
+              "readback", "uiObservation", "uiOriginPath", "uiArtifacts"}
+    require(set(proof) == fields and proof["kind"] == "staged-native-observation",
+            "closed staged-native proof required")
+    binding, stage, start, spawn, launch, readback, ui = [evidence.json(proof[k]) for k in
+        ("binding", "stage", "launchStart", "spawn", "launch", "readback", "uiObservation")]
+    require(binding["sourceCommit"] == candidate and binding["version"] == version
+            and binding["asarSha256"] == asar_sha and HEX64.fullmatch(binding["runtimeArchiveSha256"]),
+            "staged binding differs from candidate")
+    require(stage["phase"] == "staged-only" and stage["installationPerformed"] is False
+            and stage["bindingSha256"] == proof["binding"]["sha256"]
+            and stage["helperSha256"] == binding["helperSha256"] == proof["helper"]["sha256"]
+            and evidence.data(proof["helper"]), "stage does not bind retained producer")
+    identity = launch["nativeMain"]
+    executable = str(absolute(launch["appPath"]) / "Contents/MacOS/SpecWithCode")
+    require(identity["executable"] == executable == stage["candidateProof"]["executable"]
+            and stage["candidateProof"]["version"] == version and launch["asarSha256"] == asar_sha
+            and HEX64.fullmatch(stage["candidateProof"]["treeSha256"])
+            and launch["nativeUpdaterAndRouteReadbackPending"] is True,
+            "staged launch does not bind app bytes")
+    require(type(identity["pid"]) is int and identity["pid"] > 0 and type(identity["uid"]) is int
+            and identity["uid"] > 0 and re.fullmatch(
+                r"[A-Za-z]{3} [A-Za-z]{3} \d{1,2} \d{2}:\d{2}:\d{2} \d{4}", identity["startedAt"]),
+            "staged native process identity invalid")
+    require(start["argv"] == [executable] and spawn["pid"] == identity["pid"]
+            and spawn["executable"] == executable, "staged spawn differs from launch")
+    home = absolute(start["cwd"])
+    require(start["environmentOverrides"] == {"STUDIO_HOME": str(home / ".specweave-studio/m4"),
+                                             "STUDIO_DISABLE_AUTO_UPDATE": "true"},
+            "staged launch environment differs")
+    require(readback["phase"] == "candidate-native-settings-ui-verified"
+            and readback["appPath"] == launch["appPath"] and readback["sixRouteOwnerEvidenceRequired"] is True
+            and readback["normalPublishedUpdaterTestStillRequired"] is False
+            and readback["originalApplicationsTreeSha256"] == stage["originalProof"]["treeSha256"]
+            and HEX64.fullmatch(readback["originalApplicationsTreeSha256"]),
+            "staged candidate readback phase or original tree differs")
+    rows = readback["nativeProcesses"]
+    require(rows and len({r["pid"] for r in rows}) == len(rows), "duplicate staged native process")
+    mains = [r for r in rows if r["pid"] == identity["pid"]]
+    require(len(mains) == 1 and all(mains[0][k] == identity[k] for k in ("pid", "uid", "startedAt", "executable"))
+            and all(r["uid"] == identity["uid"] and absolute(r["executable"]).is_relative_to(
+                absolute(launch["appPath"])) for r in rows), "staged readback process differs")
+    protected = ("settings.json", "environment-id", "credentials.json", "auth.json",
+                 "desktop-service-credentials.json", "saved-environments.json")
+    initial = stage["state"]
+    require(initial["service"]["sourceCommit"] == candidate and initial["service"]["version"] == version,
+            "staged managed service differs from candidate")
+    for state in (start["before"], launch["state"], readback["state"]):
+        require(all(state[k] == initial[k] for k in ("service", "profile", "defaultState"))
+                and all(state["configurationHashes"][k] == initial["configurationHashes"][k] for k in protected),
+                "staged protected state changed")
+    require(ui["method"] == "settings-general-ui" and ui["bridgeStateObserved"] is False
+            and ui["securityWarningBypassed"] is False and ui["quitPerformed"] is False
+            and ui["applicationPath"] == launch["appPath"] and ui["observedVersion"] == version
+            and ui["observedTrack"] == "Stable"
+            and not any(k in ui for k in ("state", "status", "currentVersion", "availableVersion", "downloadedVersion")),
+            "staged UI observation is not truthful candidate Settings evidence")
+    require(re.fullmatch(r"\s*" + str(identity["pid"]) + r"\s+" + re.escape(identity["startedAt"])
+                         + r"\s+" + re.escape(executable) + r"\s*", ui["processRaw"]),
+            "staged UI process differs")
+    if "sourceCommit" in ui:
+        require(ui["sourceCommit"] == candidate, "staged UI source differs")
+    artifacts = proof["uiArtifacts"]
+    require(set(artifacts) == {"accessibility", "screenshot"}
+            and artifacts["accessibility"]["sha256"] == ui["ax"]["sha256"]
+            and artifacts["screenshot"]["sha256"] == ui["screenshot"]["sha256"],
+            "staged UI artifacts differ from raw observation")
+    ax = evidence.data(artifacts["accessibility"]).decode("utf-8")
+    headings = list(re.finditer(r"(?m)^\s*\d+ heading Version " + re.escape(version) + r", Value: 3$", ax))
+    require(ax.startswith('Window: "SpecWithCode", App: SpecWithCode.')
+            and 'HTML content SpecWithCode, URL: studio://app/#/settings/general' in ax
+            and len(headings) == 1, "staged native About AX heading missing")
+    track = re.search(r"(?m)^\s*\d+ heading Update track, Value: 3$", ax[headings[0].end():])
+    require(track is not None, "staged native About update track missing")
+    end = headings[0].end() + track.start()
+    require(re.search(r"(?m)^\s*\d+ text " + re.escape(version) + r"$", ax[headings[0].start():end])
+            and re.search(r"(?m)^\s*\d+ combo box \(settable\) Description: Update track, Value: Stable$", ax[end:end + 500]),
+            "staged native About AX values missing")
+    native_screenshot_shape(evidence.data(artifacts["screenshot"]))
+    text(ui["screenshotLimitation"], "staged screenshot limitation missing")
+    update = readback["nativeUpdateEvidence"]
+    require(update["method"] == "settings-general-ui" and update["bridgeResponseObserved"] is False
+            and update["receiptSha256"] == proof["uiObservation"]["sha256"]
+            and update["receiptPath"] == str(absolute(proof["uiOriginPath"]))
+            and update["observedAt"] == ui["observedAt"], "staged readback differs from actual UI receipt")
+    stamps = [stage["at"], start["at"], spawn["at"], launch["at"], ui["startedAt"], ui["observedAt"], readback["at"]]
+    require([time_value(t) for t in stamps] == sorted(time_value(t) for t in stamps)
+            and proof["at"] == launch["at"] and time_value(launch["at"]) <= time_value(ui["processObservedAt"])
+            and (time_value(ui["observedAt"]) - time_value(ui["startedAt"])).total_seconds() <= 30
+            and abs((time_value(ui["processObservedAt"]) - time_value(ui["observedAt"])).total_seconds()) <= 30,
+            "staged launch and native observations are out of order")
+    return identity
+
+
 def native_client(evidence, client, app, observed):
     require(app["version"] == observed["version"] and app["sourceCommit"] == evidence.candidate["sourceCommit"],
             "native UI wrapper is not the candidate")
@@ -756,12 +882,18 @@ def native_client(evidence, client, app, observed):
             "native client archive differs from audited candidate")
     process = evidence.json(app["nativeProcessProof"])
     time_value(process["at"])
-    identity = process["nativeProcess"]
-    require(process["phase"] == "installed-process-verified" and process["protectedStatePreserved"] is True
-            and process["sourceCommit"] == evidence.candidate["sourceCommit"]
-            and process["version"] == observed["version"] and process["asarSha256"] == client["appAsar"]["sha256"]
-            and type(app["pid"]) is int and identity["pid"] == app["pid"] > 0,
-            "native process proof does not bind the candidate")
+    if process.get("kind") == "staged-native-observation":
+        identity = staged_native_process(evidence, process, evidence.candidate["sourceCommit"],
+                                         observed["version"], client["appAsar"]["sha256"])
+        require(type(app["pid"]) is int and identity["pid"] == app["pid"] > 0,
+                "staged native process proof does not bind wrapper")
+    else:
+        identity = process["nativeProcess"]
+        require(process["phase"] == "installed-process-verified" and process["protectedStatePreserved"] is True
+                and process["sourceCommit"] == evidence.candidate["sourceCommit"]
+                and process["version"] == observed["version"] and process["asarSha256"] == client["appAsar"]["sha256"]
+                and type(app["pid"]) is int and identity["pid"] == app["pid"] > 0,
+                "native process proof does not bind the candidate")
     require(absolute(identity["executable"]) == absolute(app["executable"])
             and identity["startedAt"] == app["startedAt"]
             and re.fullmatch(r"[A-Za-z]{3} [A-Za-z]{3} \d{1,2} \d{2}:\d{2}:\d{2} \d{4}", app["startedAt"]),
