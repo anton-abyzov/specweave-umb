@@ -1,20 +1,28 @@
 {
   "ok": true,
-  "ranAt": "2026-10-13T03:40:06.537Z",
+  "ranAt": "2026-10-13T13:16:33.335Z",
   "increment": "0901-aide-google-health",
   "commands": [
     {
-      "cmd": "python3 .specweave/increments/0901-aide-google-health/reports/verify-release.py",
+      "cmd": "python3 -B .specweave/increments/0901-aide-google-health/reports/verify-shipment-109.py",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 -B .specweave/increments/0901-aide-google-health/reports/navigation/verify-receipts.py",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 -B .specweave/increments/0901-aide-google-health/reports/verify-real-google.py .specweave/increments/0901-aide-google-health/reports/live-google-status-20261013T1214.json .specweave/increments/0901-aide-google-health/reports/live-google-native-20261013T1214.json --expected-version 1.0.8 --expected-source 291f919c24b600e400b8c64e9f3dd383795f33a6",
       "exit": 0
     }
   ],
   "acs": {
-    "total": 5,
-    "done": 5
+    "total": 9,
+    "done": 9
   },
   "tasks": {
-    "total": 4,
-    "done": 4,
+    "total": 8,
+    "done": 8,
     "skipped": 0,
     "open": 0
   },

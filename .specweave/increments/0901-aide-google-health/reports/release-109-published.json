@@ -1,0 +1,76 @@
+{
+  "checkedAt": "2026-10-13T12:26:09.886553+00:00",
+  "version": "1.0.9",
+  "sourceCommit": "51c49ab4603c17c87362e9700cd242b24ed83e2e",
+  "releaseState": "published",
+  "nativeInferenceExecuted": false,
+  "installationPerformed": false,
+  "headlessBrowserUsed": false,
+  "local": {
+    "runtime": {
+      "sourceCommit": "51c49ab4603c17c87362e9700cd242b24ed83e2e",
+      "node": "v22.20.0",
+      "standalone": true,
+      "version": "specweave-studio v1.0.9",
+      "filesVerified": 7481,
+      "runtimeRootsLoaded": [
+        "@cursor/sdk",
+        "@ff-labs/fff-node",
+        "@napi-rs/keyring",
+        "node-pty",
+        "playwright-core",
+        "zod"
+      ],
+      "legalNoticesVerified": true,
+      "inferenceExecuted": false
+    },
+    "helperFilesVerified": 57,
+    "desktop": {
+      "bundleId": "com.specweave.studio",
+      "version": "1.0.9",
+      "appAsarSha256": "d08736ab3e60f16e96054954b13fa14c02400ca78b59b09d61424d1e395583c5",
+      "infoPlistSha256": "d86de9f520302f9559b872f19db166713de820a9a5fe5496d0aa687f705e33f1",
+      "feed": "anton-abyzov/specwithcode",
+      "codeSignatureVerified": true,
+      "signingAuthority": "Apple Development: Anton Abyzov (W39WQZNW64)",
+      "bundleSwapUpdater": true,
+      "notarizationVerified": false,
+      "zipDmgPayloadMatches": true
+    },
+    "compiledGooglePairPresentAndApproved": true,
+    "googleAccountAccessVerified": false,
+    "firstPartyGoogleTokenPatternScan": "no matches; supplementary only",
+    "upgradeSources": [
+      "291f919c24b600e400b8c64e9f3dd383795f33a6",
+      "54aa7e7d7ba1c59bb2b7af2f31f7f6ab86a0e06f"
+    ],
+    "upgradeArguments": [
+      [
+        "--allow-existing-browser-heartbeat"
+      ]
+    ]
+  },
+  "releases": [
+    {
+      "repository": "anton-abyzov/specweave-studio",
+      "tag": "v1.0.9",
+      "sourceCommit": "51c49ab4603c17c87362e9700cd242b24ed83e2e",
+      "url": "https://github.com/anton-abyzov/specweave-studio/releases/tag/v1.0.9",
+      "draft": false,
+      "publishedAt": "2026-10-13T12:26:07Z",
+      "assetsVerified": 11,
+      "publicUnauthenticatedReadback": false
+    },
+    {
+      "repository": "anton-abyzov/specwithcode",
+      "tag": "v1.0.9",
+      "sourceCommit": "a0c9729d707b6c7b5f7ff18d8baef44a1164a54c",
+      "url": "https://github.com/anton-abyzov/specwithcode/releases/tag/v1.0.9",
+      "draft": false,
+      "publishedAt": "2026-10-13T12:26:09Z",
+      "assetsVerified": 11,
+      "publicUnauthenticatedReadback": true
+    }
+  ],
+  "result": "passed"
+}

@@ -50,7 +50,7 @@ Isolated umbrella and source worktrees from main ed78ddc47; installed c95d3fd7 i
 
 Installed 1.0.8 source 291f919c24b600e400b8c64e9f3dd383795f33a6 passed one actual Aide native run at 12:13:39Z: all three health probes verified, Gmail/Calendar/Drive each returned one item, no other tools/delegation/provider errors, temporary auth revoked and existing sessions preserved. Independent receipt review passed. The earlier failed runs remain retained. Anton's Connected response supplied the manual Google consent step; no permissions or defaults were changed by the verification.
 
-Morning briefing and Theme fixes are installed in 1.0.8. The separately coordinated 1.0.9 candidate contains the chat-linked editor fix and expanded navigation runner. T-08 retains that shipping boundary so completing code/tests is not mistaken for installing all requested fixes. The next release owner is chat 01a133f7-afb4-7771-8e87-55cfabfd6858; do not create a competing installer.
+All cancellation fixes are now published and installed in 1.0.9 source 51c49ab4603c17c87362e9700cd242b24ed83e2e. T-08 verifies both public release feeds, exact reviewed navigation inclusion, all 7,481 installed runtime entries, runtime HTTP and web assets, native loaded desktop About/source, ASAR/signature, and guarded database/authentication/settings/service preservation. The sole installer was chat 01a133f7-afb4-7771-8e87-55cfabfd6858; no competing installer was created. See reports/closure-review.md and reports/shipment-109-verified.json.
 
 ## Cancellation follow-up 2026-10-13
 

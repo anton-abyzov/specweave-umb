@@ -1,11 +1,16 @@
 {
   "id": "0901-aide-google-health",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-10-13T03:10:25.207Z",
-  "updated": "2026-10-13T12:16:55.143Z",
-  "lastActivity": "2026-10-13T12:16:55.143Z",
+  "updated": "2026-10-13T13:16:49.753Z",
+  "lastActivity": "2026-10-13T13:16:49.753Z",
   "title": "Aide Google diagnostics and verified release",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-13T13:16:49.752Z",
+  "approvedAt": "2026-10-13T13:16:49.753Z"
 }

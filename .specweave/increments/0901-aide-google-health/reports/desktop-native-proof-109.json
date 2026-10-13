@@ -1,0 +1,19 @@
+{
+  "version": "1.0.9",
+  "desktopPid": 49969,
+  "previousPid": 20391,
+  "about": {
+    "observedAt": "2026-10-13T12:37:42.346Z",
+    "desktopPid": 49969,
+    "version": "1.0.9",
+    "sourceCommitShort": "51c49ab4603c",
+    "method": "native About panel via CUA"
+  },
+  "aboutTextSha256": "946f07cba553d014d8cf75eada148ce32221fa3f7e9ee1dcb465968ac3c20357",
+  "aboutPngSha256": "9acdd9b8f3b1504c4fc62d22047ba00ed796520ff63ef3cec56aea67c1f63423",
+  "asarSha256": "d08736ab3e60f16e96054954b13fa14c02400ca78b59b09d61424d1e395583c5",
+  "plistSha256": "d86de9f520302f9559b872f19db166713de820a9a5fe5496d0aa687f705e33f1",
+  "codeSignatureVerified": true,
+  "bundleVersion": "1.0.9",
+  "sourceCommitShort": "51c49ab4603c"
+}

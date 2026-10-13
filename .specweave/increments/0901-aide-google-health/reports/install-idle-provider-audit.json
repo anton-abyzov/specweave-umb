@@ -1,0 +1,95 @@
+{
+  "checkedAt": "2026-10-13T12:37:06.475181+00:00",
+  "readOnly": true,
+  "latestAideRun": {
+    "run_id": "run:thread:project-coordinator%3A5428ab1e-79c4-4f5f-b245-5f231b4f2cdf:ordinal:6",
+    "ordinal": 6,
+    "status": "completed",
+    "requested_at": "2026-10-13T12:13:11.577Z",
+    "completed_at": "2026-10-13T12:13:39.367Z"
+  },
+  "globalNonterminalRunCount": 0,
+  "codexRunsAfterAideVerification": 0,
+  "sharedProviderThreadStatuses": {
+    "idle": 14,
+    "not_loaded": 8
+  },
+  "servicePid": 77886,
+  "serviceProcessTree": [
+    {
+      "pid": 32333,
+      "ppid": 77886,
+      "startedLocal": "Tue Oct 13 08:13:12 2026",
+      "processName": "node"
+    },
+    {
+      "pid": 32336,
+      "ppid": 32333,
+      "startedLocal": "Tue Oct 13 08:13:12 2026",
+      "processName": "codex"
+    },
+    {
+      "pid": 32482,
+      "ppid": 32336,
+      "startedLocal": "Tue Oct 13 08:13:13 2026",
+      "processName": "node"
+    },
+    {
+      "pid": 32484,
+      "ppid": 32336,
+      "startedLocal": "Tue Oct 13 08:13:13 2026",
+      "processName": "mcp-server-darwin-arm64"
+    },
+    {
+      "pid": 32486,
+      "ppid": 32336,
+      "startedLocal": "Tue Oct 13 08:13:13 2026",
+      "processName": "node_repl"
+    },
+    {
+      "pid": 32488,
+      "ppid": 32336,
+      "startedLocal": "Tue Oct 13 08:13:13 2026",
+      "processName": "node"
+    },
+    {
+      "pid": 32492,
+      "ppid": 32336,
+      "startedLocal": "Tue Oct 13 08:13:13 2026",
+      "processName": "uv"
+    },
+    {
+      "pid": 32500,
+      "ppid": 32492,
+      "startedLocal": "Tue Oct 13 08:13:13 2026",
+      "processName": "python3"
+    },
+    {
+      "pid": 32523,
+      "ppid": 32482,
+      "startedLocal": "Tue Oct 13 08:13:13 2026",
+      "processName": "node_repl"
+    },
+    {
+      "pid": 33724,
+      "ppid": 32336,
+      "startedLocal": "Tue Oct 13 08:13:22 2026",
+      "processName": "codex-code-mode-host"
+    },
+    {
+      "pid": 77886,
+      "ppid": 1,
+      "startedLocal": "Tue Oct 13 03:23:03 2026",
+      "processName": "node"
+    },
+    {
+      "pid": 77892,
+      "ppid": 77886,
+      "startedLocal": "Tue Oct 13 03:23:03 2026",
+      "processName": "caffeinate"
+    }
+  ],
+  "processTimeZone": "America/New_York",
+  "interpretation": "Provider process starts coincide with owned verification; all runs are terminal, but session is shared. No cleanup performed. Sole installer owns further guarded action.",
+  "officialTemporaryAuthSessions": "Previously revoked in successful verification receipts; distinct from native provider processes"
+}
