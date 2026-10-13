@@ -1,0 +1,11 @@
+{
+  "id": "0901-aide-google-health",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-13T03:10:25.207Z",
+  "updated": "2026-10-13T03:12:18.410Z",
+  "lastActivity": "2026-10-13T03:12:18.410Z",
+  "title": "Aide Google diagnostics and verified release",
+  "project": "specweave-umb"
+}
