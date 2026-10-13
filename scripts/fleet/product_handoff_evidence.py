@@ -28,6 +28,7 @@ HEX64 = re.compile(r"[a-f0-9]{64}\Z")
 UUID = re.compile(r"[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}\Z")
 RUNNER = Path(__file__).with_name("replay_product_native.mjs")
 HISTORY_RUNNER = Path(__file__).with_name("replay_source_history.mjs")
+CHECKPOINT_RUNNER = Path(__file__).with_name("replay_source_checkpoint.mjs")
 PROJECT_RUNTIME_REGRESSION = "launches with the project's approval mode instead of the host's full-access default"
 PARTIAL_CLONE_REGRESSIONS = (
     "RepositoryIdentityResolverLive resolves a real local partial-clone with an annotated origin remote",
@@ -194,6 +195,23 @@ def source_context(evidence, entry, plan, native, route, bundle):
             and sorted(report["threadIds"]) == sorted(carried)
             and sorted(report["historicalOnlyThreadIds"]) == sorted(set(carried) - set(original)),
             "unexpected source history replay output")
+
+
+def source_checkpoint(evidence, entry, reference, source_record=None):
+    refs = [entry["plan"], entry["native"], reference] + ([source_record] if source_record else [])
+    for item in refs:
+        evidence.json(item)
+    executable, env = node22()
+    result = subprocess.run([executable, str(CHECKPOINT_RUNNER),
+                             *[str(evidence.path(item)) for item in refs]],
+                            capture_output=True, text=True, timeout=30, env=env)
+    require(result.returncode == 0 and not result.stderr, "source checkpoint advance replay failed")
+    report = decode(result.stdout)
+    require(set(report) == {"verified", "projectId", "originalShas", "newShas", "preservation", "finishedAt"}
+            and report["verified"] is True
+            and report["projectId"] == evidence.json(entry["plan"])["projectId"],
+            "unexpected source checkpoint replay output")
+    return report
 
 
 def command(evidence, reference):
@@ -1015,7 +1033,8 @@ def native_times(receipt):
     return times
 
 
-def preservation(evidence, refs):
+def preservation(evidence, refs, advances=None):
+    advances = advances or {}
     require(len(refs) == 3, "all original machines require preservation readbacks")
     records = {}
     expected = {(project, kind) for project in PROJECTS for kind in ("root", "nested")}
@@ -1042,7 +1061,16 @@ def preservation(evidence, refs):
             require(isinstance(row["branch"], str), "original branch missing")
             for field in ("statusSha256", "gitConfigSha256", "indexSha256"):
                 require(HEX64.fullmatch(row[field]), "original state hash missing")
-        require(sorted(before, key=lambda r: r["path"]) == sorted(after, key=lambda r: r["path"]),
+        normalized_after = list(after)
+        if host == "m4":
+            for advance in advances.values():
+                prior, current = advance["preservation"]["before"], advance["preservation"]["after"]
+                require(before.count(prior) == 1 and after.count(current) == 1,
+                        "checkpoint advance does not bind exact preservation rows")
+                require(time_value(item["beforeAt"]) <= time_value(advance["finishedAt"])
+                        <= time_value(item["afterAt"]), "checkpoint advance outside preservation interval")
+                normalized_after[normalized_after.index(current)] = prior
+        require(sorted(before, key=lambda r: r["path"]) == sorted(normalized_after, key=lambda r: r["path"]),
                 "an original checkout changed")
         require(time_value(item["afterAt"]) >= time_value(item["beforeAt"]), "preservation interval invalid")
         require(time_value(item["configAfterAt"]) >= time_value(item["configBeforeAt"]),
@@ -1137,7 +1165,23 @@ def product_launch(destination, initial, bundle=None):
 def product_handoff(root):
     evidence = Evidence(root)
     section = evidence.index["handoff"]
-    preserved = preservation(evidence, section["preservation"])
+    advances, advance_refs = {}, {}
+    for route in section["routes"]:
+        if "sourceCheckpointAdvance" not in route:
+            continue
+        key = route["key"]
+        require(key == "sw-easychamp", "checkpoint advance outside owned cleanup")
+        entries = [item for item in section["sources"] if item["key"] == key]
+        require(len(entries) == 1, "checkpoint source entry missing or duplicated")
+        reference = route["sourceCheckpointAdvance"]
+        require(advance_refs.setdefault(key, reference) == reference, "routes use different checkpoint advances")
+        if key not in advances:
+            advances[key] = source_checkpoint(evidence, entries[0], reference)
+    for route in section["routes"]:
+        if route["key"] in advances:
+            require(route.get("sourceCheckpointAdvance") == advance_refs[route["key"]],
+                    "both routes require the same reviewed source checkpoint")
+    preserved = preservation(evidence, section["preservation"], advances)
     require(len(section["sources"]) == 3 and {s["key"] for s in section["sources"]} == set(PROJECTS),
             "three distinct source diagnostics required")
     sources, identities, workers, environments = {}, {}, set(), {}
@@ -1179,7 +1223,9 @@ def product_handoff(root):
         source, source_native, relative, source_entry = sources[key]
         plan, native = replay(evidence, route["plan"], route["native"])
         require(plan["host"] == host and plan["mode"] == "destination", "wrong destination native mode")
-        require(plan["originalShas"] == source["originalShas"], "destination source pins differ")
+        checkpoint = advances.get(key)
+        source_pins = checkpoint["newShas"] if checkpoint else source["originalShas"]
+        require(plan["originalShas"] == source_pins, "destination source pins differ")
         require(str(absolute(plan["nestedRoot"]).relative_to(absolute(plan["workspaceRoot"]))) == relative,
                 "destination nested path differs")
         require(plan["contextRequired"] == source["contextRequired"], "continuation decisions changed")
@@ -1223,7 +1269,10 @@ def product_handoff(root):
                 "operation missing, wrong or reused")
         operations.add(operation)
         require(manifest["version"] == 1 and len(manifest["repositories"]) == 2, "root/nested manifest required")
-        expected = {".": source["originalShas"]["root"], relative: source["originalShas"]["nested"]}
+        if checkpoint:
+            require(source_checkpoint(evidence, source_entry, route["sourceCheckpointAdvance"],
+                                      route["sourceRecord"]) == checkpoint, "checkpoint bundle replay differs")
+        expected = {".": source_pins["root"], relative: source_pins["nested"]}
         require(manifest["repositories"][0]["relativePath"] == "."
                 and {r["relativePath"] for r in manifest["repositories"]} == set(expected), "manifest paths differ")
         for repo in manifest["repositories"]:
