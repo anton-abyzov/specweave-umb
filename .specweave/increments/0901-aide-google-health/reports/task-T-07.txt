@@ -1,0 +1,4 @@
+$ python3 -B .specweave/increments/0901-aide-google-health/reports/navigation/verify-receipts.py
+# exit 0 — 2026-10-13T06:26:29.206Z
+
+PASS: two saved headless receipts and retained artifact hashes; no live Google claim
