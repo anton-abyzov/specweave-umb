@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "status": "passed",
+  "host": "m3",
+  "mode": "destination",
+  "key": "specweave",
+  "projectId": "95e79172-0bd9-473e-b8f0-ca61144bb648",
+  "coordinatorId": "project-coordinator:95e79172-0bd9-473e-b8f0-ca61144bb648",
+  "startedAt": "2026-10-13T15:18:36.037Z",
+  "baseline": [
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb",
+      "sha": "a8c47fca7a1b2b4f1a25516c665cd8f4b528f574",
+      "branch": "codex/0907-handoff-specweave",
+      "origin": "git@github.com:anton-abyzov/specweave-umb.git",
+      "status": "",
+      "readmeSha256": "732a37ae2d8fb6f7187f11152af07aef994e99f7c02e174648044c00f9ef847a"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave",
+      "sha": "a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a",
+      "branch": "develop",
+      "origin": "git@github.com:anton-abyzov/specweave.git",
+      "status": "",
+      "readmeSha256": "d39febdaaa6105bc3d00b79f24c5c9aa2415e2d47c309e86c84085b994c26fab"
+    }
+  ],
+  "marker": "M4-CONTEXT-b7848dd2911a8799",
+  "decision": "Inspect package metadata next; defer installation and deployment.",
+  "outcome": {
+    "workerText": "I\u2019ll run only the ten specified read-only commands and compare the observed Git metadata with the transport envelope.\n\nOutcome: All ten commands succeeded. Observed root HEAD matches the transport commit; nested HEAD matches the checkpoint code pin.\n\nRoot: `/Users/antonabyzov/Projects/github/specweave-umb`; origin `git@github.com:anton-abyzov/specweave-umb.git`; branch `codex/0907-handoff-specweave`; HEAD `a8c47fca7a1b2b4f1a25516c665cd8f4b528f574`.\n\nNested: `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave`; origin `git@github.com:anton-abyzov/specweave.git`; branch `develop`; HEAD `a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a`. Its branch and SSH origin differ from the source\u2019s detached checkout and HTTPS origin; the code SHA matches.\n\nCheckpoint marker: `M4-CONTEXT-b7848dd2911a8799`. Source decision: \u201cInspect package metadata next; defer installation and deployment.\u201d Package name: `specweave`; script key `test:unit:fast`, complete command verbatim: `vitest run --config vitest.unit.config.ts`.\n\nREADME evidence confirms saved receipts do not prove current runtime health and SpecWithCode is a desktop app built on SpecWeave. Only the requested read-only inspection ran; no blockers.",
+    "relayText": "The destination worker has finished; I\u2019ll read its terminal result once.\n[SpecWeave destination proof](studio://thread/thread%3Adelegated-task%3Acommand%253Amcp%253A25772bf5-d802-4bd6-b3b7-b231d52359e3%253Adelegate-task%253Adestination-proof-20261013-8247a1da-f8d3-4915-bf07-699571b081b6) completed all ten read-only commands without blockers; the observed root HEAD matches the transport commit and nested HEAD matches the code pin.\n\nRoot `/Users/antonabyzov/Projects/github/specweave-umb`: origin `git@github.com:anton-abyzov/specweave-umb.git`, branch `codex/0907-handoff-specweave`, HEAD `a8c47fca7a1b2b4f1a25516c665cd8f4b528f574`. Nested `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave`: origin `git@github.com:anton-abyzov/specweave.git`, branch `develop`, HEAD `a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a`.\n\n[Checkpoint](/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0907-m4-portable-continuation-proof/checkpoint.json) marker: `M4-CONTEXT-b7848dd2911a8799`; decision: \u201cInspect package metadata next; defer installation and deployment.\u201d Verified [package.json](/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/package.json) name: `specweave`; script key `test:unit:fast`, complete command: `vitest run --config vitest.unit.config.ts`.",
+    "workerThreadId": "thread:delegated-task:command%3Amcp%3A25772bf5-d802-4bd6-b3b7-b231d52359e3%3Adelegate-task%3Adestination-proof-20261013-8247a1da-f8d3-4915-bf07-699571b081b6",
+    "automaticWakeRunId": "run:thread:project-coordinator%3A95e79172-0bd9-473e-b8f0-ca61144bb648:ordinal:4",
+    "completionState": "acknowledged",
+    "packageInspection": {
+      "name": "specweave",
+      "packageSha256": "680d2499169c6d496259d88f8b64843f8ab7781bbcd83095c0ccbb3ecaeacd54",
+      "workerScripts": [
+        [
+          "test:unit:fast",
+          "vitest run --config vitest.unit.config.ts"
+        ]
+      ],
+      "relayScripts": [
+        [
+          "test:unit:fast",
+          "vitest run --config vitest.unit.config.ts"
+        ]
+      ]
+    }
+  },
+  "quiescence": [
+    {
+      "threadId": "project-coordinator:95e79172-0bd9-473e-b8f0-ca61144bb648",
+      "activeRuns": [],
+      "activeProviderTurns": [],
+      "pendingRequests": [],
+      "pendingWork": [],
+      "activeTasks": [],
+      "pendingDeliveries": []
+    },
+    {
+      "threadId": "thread:delegated-task:command%3Amcp%3A25772bf5-d802-4bd6-b3b7-b231d52359e3%3Adelegate-task%3Adestination-proof-20261013-8247a1da-f8d3-4915-bf07-699571b081b6",
+      "activeRuns": [],
+      "activeProviderTurns": [],
+      "pendingRequests": [],
+      "pendingWork": [],
+      "activeTasks": [],
+      "pendingDeliveries": []
+    }
+  ],
+  "temporarySessionRevoked": true
+}
