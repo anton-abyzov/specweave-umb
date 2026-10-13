@@ -1,6 +1,14 @@
 # Product source review
 
-Next source review is pending under T-10. Live destination refresh found that a26cf5a rejects valid partial-clone remote output and sidebar grouping can hide otherwise matching destinations. The release owner is correcting both with real partial-clone and separate-group regressions. Preserve the clone configuration and re-run the candidate gates; a26cf5a is not accepted for release.
+Current accepted source/build review: SpecWithCode 1.0.10, `133ebdec798acdf5c68754024aea10daedf46de8`. T-10 fixes valid partial-clone remote parsing and derives verified destinations independently of sidebar grouping. The actual `product-code` and `product-review` gates passed, and T-10 completed through its declared CLI test. Installation, publication and six successful ordinary UI continuations remain separate gates.
+
+The final candidate passed 563 focused assertions plus 12 independent external assertions, server and web typechecks, changed-file lint and fresh source review. The ten required review cases retain all eight earlier cases and add `partial-clone-identity` and `sidebar-independent-destination`. The parser case binds both actual origin and upstream partial-clone tests, including real Git filter annotations; the UI case verifies selection when the sidebar separates matching checkouts. Browser checks passed; the final test-only type correction left that web code unchanged.
+
+The desktop build and local artifact audit passed at the exact candidate. Build evidence retains directly observed child and wrapper arguments, working directories, timestamps, exit status, source bindings and pre-launch reviews. No prior candidate receipt was relabeled. The public evidence verifier passed 208 tests with 99% measured coverage and an independent review. Its native replay accepts one bounded lookup in the calling coordinator's own project and binds the persisted launch to the actual first destination run; those changes do not turn the failed earlier operation into a successful continuation.
+
+## Superseded permission-mode candidate
+
+Live destination refresh found that a26cf5a rejected valid partial-clone remote output and sidebar grouping could hide matching destinations. T-10 corrected both; a26cf5a is not accepted for release.
 
 Historical successful source review: SpecWithCode 1.0.10, `a26cf5a0c5805d9bcc75aa3b44c5adb90430cdc2`. T-09 fixes coordinator launch to honor the resolved project permission mode and records the red-to-green regression. The actual corrected-candidate `product-code` and `product-review` gates passed on October 13; T-09 was completed through its declared CLI test.
 
