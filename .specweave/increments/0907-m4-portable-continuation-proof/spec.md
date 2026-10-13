@@ -2,6 +2,7 @@
 id: 0907-m4-portable-continuation-proof
 title: M4 portable continuation proof
 project: specweave
+status: completed
 ---
 
 # M4 portable continuation proof
