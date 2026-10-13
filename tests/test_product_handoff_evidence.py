@@ -191,11 +191,17 @@ def set_context(plan, native, content):
             output["response"]["output"] = content.decode()
     initial = next(run for run in native["parent"]["runs"]
                    if run["id"] != native["outcome"]["automaticWakeRunId"])
+    initial_id = initial["userMessageId"]
+    product_id = f"coordinator-send:{plan['projectId']}:machine-handoff-start:{plan['operationId']}"
     prompt = V.product_prompt(plan["operationId"], plan["paths"]["context"], plan["workspaceRoot"])
     for projection in (native["parent"], native["rawParent"]):
         for message in projection["messages"]:
-            if message["id"] == initial["userMessageId"]:
+            if message["id"] == initial_id:
+                message["id"] = product_id
                 message["text"] = prompt
+        for run in projection["runs"]:
+            if run["id"] == initial["id"]:
+                run["userMessageId"] = product_id
         for item in projection["turnItems"]:
             if item["type"] == "user_message" and item.get("runId") == initial["id"]:
                 item["text"] = prompt
@@ -285,6 +291,11 @@ def invented_evidence(root):
             receive = {"operationId": operation, "phase": "started", "projectId": plan["projectId"],
                        "coordinatorThreadId": plan["coordinatorId"], "workspacePath": plan["workspaceRoot"],
                        "contextPath": plan["paths"]["context"], "replayed": False}
+            command_id = f"coordinator-send:{plan['projectId']}:machine-handoff-start:{operation}"
+            launch = {"projectId": plan["projectId"], "threadId": plan["coordinatorId"],
+                      "commandId": command_id, "messageId": command_id, "workspacePath": plan["workspaceRoot"],
+                      "contextPath": plan["paths"]["context"],
+                      "prompt": V.product_prompt(operation, plan["paths"]["context"], plan["workspaceRoot"])}
             actions = []
             for number, action in enumerate(("open-handoff", "select-destination", "confirm-transfer")):
                 observation = f"Synthetic visible {action} for {key} {host}"
@@ -304,7 +315,8 @@ def invented_evidence(root):
                 "runtime": runtimes[host], "sourceRuntime": runtimes["m4"], "sourceRecord": ref(root, f"{prefix}-source-record.json",
                     {"bundle": bundle, "publication": "published", "contextBytes": len(context), "messageCount": 2}),
                 "destinationRecord": ref(root, f"{prefix}-destination-record.json",
-                    {"digest": bundle["digest"], "destinationProjectId": existing_id, "configured": True, "receipt": receive}),
+                    {"digest": bundle["digest"], "destinationProjectId": existing_id, "configured": True,
+                     "receipt": receive, "launch": launch}),
                 "context": ref(root, f"{prefix}-context.json", context),
                 "gitOperation": ref(root, f"{prefix}-git-operation.json", {"version": 1,
                     "manifestSha256": V.digest(encode(bundle["manifest"])), "manifest": bundle["manifest"],
@@ -322,14 +334,19 @@ def invented_release_evidence(root, index):
     """Additional invented command/report bytes for the three release gates."""
     cwd = "/synthetic/candidate-studio"
     names = ["wrong-repository", "dirty-destination", "diverged-destination", "missing-source-object",
-             "nested-pin-mismatch", "active-owner", "denied-transfer", "project-runtime-mode"]
+             "nested-pin-mismatch", "active-owner", "denied-transfer"]
     runtime_suite = cwd + "/apps/server/src/project/ProjectCoordinatorService.test.ts"
-    report = ref(root, "synthetic-vitest-report.json", {"success": True, "numTotalTests": len(names) + 1,
-        "numPassedTests": len(names) + 1, "numFailedTests": 0, "numPendingTests": 0,
-        "testResults": [{"assertionResults": [{"fullName": name, "status": "passed"} for name in names[:-1]]},
-                        {"name": runtime_suite, "assertionResults": [
-                            {"fullName": V.PROJECT_RUNTIME_REGRESSION, "status": "passed"},
-                            {"fullName": "unrelated synthetic coordinator behavior", "status": "passed"}]}]})
+    suites = [{"assertionResults": [{"fullName": name, "status": "passed"} for name in names]}]
+    for label, (path, assertions) in V.DESTINATION_REGRESSIONS.items():
+        suites.append({"name": cwd + "/" + path, "assertionResults": [
+            {"fullName": name, "status": "passed"} for name in (*assertions, "unrelated synthetic " + label)]})
+    suites.append({"name": runtime_suite, "assertionResults": [
+        {"fullName": V.PROJECT_RUNTIME_REGRESSION, "status": "passed"},
+        {"fullName": "unrelated synthetic coordinator behavior", "status": "passed"}]})
+    count = sum(len(suite["assertionResults"]) for suite in suites)
+    report = ref(root, "synthetic-vitest-report.json", {"success": True, "numTotalTests": count,
+        "numPassedTests": count, "numFailedTests": 0, "numPendingTests": 0, "testResults": suites})
+    names += ["project-runtime-mode", *V.DESTINATION_REGRESSIONS]
 
     def command(name, argv, stdout, test=False):
         item = {"candidateCommit": CANDIDATE["sourceCommit"], "argv": argv, "cwd": cwd, "exitCode": 0,
@@ -351,12 +368,16 @@ def invented_release_evidence(root, index):
                    "headCommand": head, "statusCommand": status, "originCommand": origin},
         "checks": [{"kind": kind, "command": cmd, **({"testReport": report} if kind != "build" else {})}
                    for kind, cmd in (("unit", unit), ("component", component), ("build", build))]})
+    cases = {name: {"command": unit, "testReport": report,
+                   "assertion": V.PROJECT_RUNTIME_REGRESSION if name == "project-runtime-mode" else name,
+                   **({"testPath": runtime_suite} if name == "project-runtime-mode" else {})} for name in names}
+    for label, (path, assertions) in V.DESTINATION_REGRESSIONS.items():
+        cases[label].update(assertion=assertions[0], testPath=cwd + "/" + path,
+                            additionalAssertions=list(assertions[1:]))
     index["review"] = ref(root, "review.json", {"candidateCommit": CANDIDATE["sourceCommit"],
         "reviewer": "synthetic-independent-reviewer", "implementationOwner": "synthetic-author", "unresolvedFindings": [],
         "report": ref(root, "review.md", f"synthetic-independent-reviewer reviewed {CANDIDATE['sourceCommit']}\n".encode()),
-        "cases": {name: {"command": unit, "testReport": report,
-                         "assertion": V.PROJECT_RUNTIME_REGRESSION if name == "project-runtime-mode" else name,
-                         **({"testPath": runtime_suite} if name == "project-runtime-mode" else {})} for name in names}})
+        "cases": cases})
     artifact = ref(root, "synthetic-release.bin", b"Explicit invented artifact, never a real application.")
     build_record = json.loads((root / build["path"]).read_text())
     build_record["producedArtifacts"] = [artifact]
@@ -821,7 +842,7 @@ class ProductHandoffEvidenceTests(unittest.TestCase):
             for projection in (d["parent"], d["rawParent"]):
                 next(m for m in projection["messages"] if m["id"] == initial_id)["text"] += " Here is the completed answer."
         self.change(self.index["handoff"]["routes"][0]["native"], reseed)
-        with self.assertRaisesRegex(ValueError, "product continuation prompt"):
+        with self.assertRaisesRegex(ValueError, "native first message differs from persisted product launch"):
             V.product_handoff(self.root)
 
     def test_ui_confirmation_after_native_start_is_rejected(self):

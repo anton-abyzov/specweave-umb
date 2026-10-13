@@ -28,6 +28,14 @@ HEX64 = re.compile(r"[a-f0-9]{64}\Z")
 UUID = re.compile(r"[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}\Z")
 RUNNER = Path(__file__).with_name("replay_product_native.mjs")
 PROJECT_RUNTIME_REGRESSION = "launches with the project's approval mode instead of the host's full-access default"
+PARTIAL_CLONE_REGRESSIONS = (
+    "RepositoryIdentityResolverLive resolves a real local partial-clone with an annotated origin remote",
+    "RepositoryIdentityResolverLive resolves a real local partial-clone with an annotated upstream remote")
+SIDEBAR_DESTINATION_REGRESSION = "offers matching registered destinations even when sidebar grouping keeps the source separate"
+DESTINATION_REGRESSIONS = {
+    "partial-clone-identity": ("apps/server/src/project/RepositoryIdentityResolver.test.ts", PARTIAL_CLONE_REGRESSIONS),
+    "sidebar-independent-destination": ("apps/web/src/components/studio/ProjectMachineHandoff.test.tsx",
+                                        (SIDEBAR_DESTINATION_REGRESSION,))}
 
 
 def require(value, message):
@@ -366,27 +374,43 @@ def product_review(root):
             "review report does not bind reviewer and candidate")
     required = {"wrong-repository", "dirty-destination", "diverged-destination",
                 "missing-source-object", "nested-pin-mismatch", "active-owner", "denied-transfer",
-                "project-runtime-mode"}
+                "project-runtime-mode", *DESTINATION_REGRESSIONS}
     require(set(record["cases"]) == required, "missing adversarial review case")
     code = evidence.json(evidence.index["code"])
     executed = [check["command"] for check in code["checks"] if check["kind"] in ("unit", "component")]
     for label, case in record["cases"].items():
+        additional = case.get("additionalAssertions", [])
+        require(isinstance(additional, list) and all(isinstance(name, str) and name for name in additional),
+                "additional review assertions must name actual tests")
+        assertions = [case["assertion"], *additional]
         if "externalTest" in case:
             external = external_review_test(evidence, case["externalTest"], code, record)
             require(case["command"] == external["command"] and case["testReport"] == external["testReport"],
                     "external review case detached from actual execution")
             suites = evidence.json(external["testReport"])["testResults"]
             require(case["testPath"] in {f["path"] for f in external["testFiles"]}
-                    and any(suite["name"] == case["testPath"] and any(
-                        assertion["fullName"] == case["assertion"] and assertion["status"] == "passed"
-                        for assertion in suite["assertionResults"]) for suite in suites),
+                    and any(suite["name"] == case["testPath"] and all(any(
+                        assertion["fullName"] == name and assertion["status"] == "passed"
+                        for assertion in suite["assertionResults"]) for name in assertions) for suite in suites),
                     "external case assertion is not from its executed frozen suite")
         else:
             require(case["command"] in executed, "review refers to an unverified test execution")
         check, _, _ = command(evidence, case["command"])
         require(check["testReport"] == case["testReport"], "review test report detached from execution")
         names = test_report(evidence, case["testReport"])
-        require(case["assertion"] in names, "review case has no actual passing assertion")
+        require(all(name in names for name in assertions), "review case has no actual passing assertion")
+        if label in DESTINATION_REGRESSIONS:
+            relative, expected = DESTINATION_REGRESSIONS[label]
+            expected_path = code["source"]["path"] + "/" + relative
+            require(case["assertion"] == expected[0], "destination review case names an unrelated regression")
+            if label == "partial-clone-identity":
+                require(additional == list(expected[1:]), "partial clone review needs the exact upstream witness")
+            suites = evidence.json(case["testReport"])["testResults"]
+            require("externalTest" not in case and case["testPath"] == expected_path and any(
+                suite.get("name") == expected_path and all(any(
+                    assertion["fullName"] == name and assertion["status"] == "passed"
+                    for assertion in suite["assertionResults"]) for name in assertions) for suite in suites),
+                "destination regressions are not from the actual frozen candidate suite")
         if label == "project-runtime-mode":
             expected_path = code["source"]["path"] + "/apps/server/src/project/ProjectCoordinatorService.test.ts"
             suites = evidence.json(case["testReport"])["testResults"]
@@ -840,6 +864,24 @@ def product_prompt(operation, context_path, workspace):
             "Do not repeat already completed work or seed a claimed answer.")
 
 
+def product_launch(destination, initial):
+    """Bind persisted launch intent to the separately replayed native first run."""
+    require(set(destination) == {"digest", "destinationProjectId", "receipt", "configured", "launch"},
+            "unexpected persisted destination record")
+    receive = destination["receipt"]
+    require(set(receive) == {"operationId", "phase", "projectId", "coordinatorThreadId",
+                             "workspacePath", "contextPath", "replayed"}
+            and receive["replayed"] is False, "original persisted receive receipt required")
+    command_id = f"coordinator-send:{receive['projectId']}:machine-handoff-start:{receive['operationId']}"
+    prompt = product_prompt(receive["operationId"], receive["contextPath"], receive["workspacePath"])
+    require(destination["launch"] == {"projectId": receive["projectId"],
+            "threadId": receive["coordinatorThreadId"], "commandId": command_id, "messageId": command_id,
+            "workspacePath": receive["workspacePath"], "contextPath": receive["contextPath"], "prompt": prompt},
+            "persisted launch metadata mismatch")
+    require(initial["id"] == command_id and initial["text"] == prompt,
+            "native first message differs from persisted product launch")
+
+
 def product_handoff(root):
     evidence = Evidence(root)
     section = evidence.index["handoff"]
@@ -978,8 +1020,7 @@ def product_handoff(root):
         parent = native["parent"]
         initial = next(m for m in parent["messages"] if m["id"] == next(r for r in parent["runs"]
                        if r["id"] != native["outcome"]["automaticWakeRunId"])["userMessageId"])
-        require(initial["text"] == product_prompt(operation, receive["contextPath"], receive["workspacePath"]),
-                "destination prompt is not the product continuation prompt")
+        product_launch(destination, initial)
         worker = native["outcome"]["workerThreadId"]
         require(worker not in workers, "destination worker was reused")
         workers.add(worker)

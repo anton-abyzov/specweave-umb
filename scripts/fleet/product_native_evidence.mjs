@@ -213,7 +213,16 @@ export function assertMcp(plan, parent, item, worker = null) {
   const tools = parent.turnItems.filter(i => i.type === 'dynamic_tool');
   assert.ok(tools.filter(i => toolOperation(i) === op).length <= 1,'duplicate-mcp-operation');
   if (op === 'orchestrator_capabilities') { exactKeys(x,[]); return; }
-  if (op === 'studio_thread_list') { exactKeys(x,['projectId']); assert.equal(x.projectId,plan.projectId,'discovery-project-mismatch'); return; }
+  if (op === 'studio_thread_list') {
+    // a26cf OrchestratorMcpService resolves omission to this calling thread's project.
+    // No machine or pagination/filter overrides: one bounded local discovery only.
+    exactKeys(x,['projectId','includeSubagents','limit']);
+    assert.equal(parent.thread.id,plan.coordinatorId,'discovery-caller-mismatch');assert.equal(parent.thread.projectId,plan.projectId,'discovery-caller-project-mismatch');
+    if(x.projectId!==undefined)assert.equal(x.projectId,plan.projectId,'discovery-project-mismatch');
+    if(x.includeSubagents!==undefined)assert.equal(typeof x.includeSubagents,'boolean','discovery-subagent-option-invalid');
+    if(x.limit!==undefined)assert.ok(Number.isInteger(x.limit)&&x.limit>=1&&x.limit<=100,'discovery-limit-invalid');
+    return;
+  }
   if (op === 'delegate_task') {
     exactKeys(x,['task','target','title','mode','clientRequestId','runtimeMode','machine']);
     assert.equal(x.mode,'async'); assert.equal(x.machine,'local'); assert.equal(x.runtimeMode,'approval-required');
