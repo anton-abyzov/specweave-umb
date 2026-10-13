@@ -1,0 +1,12 @@
+{
+  "id": "0912-project-names-update-feedback",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-13T19:28:36.855Z",
+  "updated": "2026-10-13T19:47:35.260Z",
+  "lastActivity": "2026-10-13T19:47:35.260Z",
+  "title": "Keep saved project names and show update results",
+  "project": "specweave-umb",
+  "parent": "0908-project-names-release"
+}

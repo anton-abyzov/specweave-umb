@@ -1,0 +1,71 @@
+import { createRequire } from 'node:module';
+import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { dirname, resolve, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+const port=Number(process.env.SIDEBAR_VERIFY_PORT||5897);
+const evidence = dirname(fileURLToPath(import.meta.url));
+const repo = '/Users/antonabyzov/.codex/worktrees/project-names-release/specweave-umb/repositories/anton-abyzov/specweave-studio';
+const app = join(repo, 'apps/web');
+const require = createRequire(join(repo, 'package.json'));
+const webRequire = createRequire(join(app, 'package.json'));
+const { createServer } = require('vite-plus');
+const react=webRequire('@vitejs/plugin-react').default;
+const ts = require('/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/node_modules/.pnpm/typescript@6.0.3/node_modules/typescript');
+const testPath = join(app, 'src/components/studio/shell/StudioSidebar.test.tsx');
+const text = readFileSync(testPath, 'utf8');
+const ast = ts.createSourceFile(testPath, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+const modules = new Map();
+function inspect(n) {
+  if (ts.isCallExpression(n) && n.expression.getText(ast) === 'vi.mock') {
+    const name = n.arguments[0].text, factory = n.arguments[1];
+    let obj = factory.body; while (ts.isParenthesizedExpression(obj)) obj = obj.expression;
+    const keys = obj.properties.map(p => p.name.getText(ast));
+    const code = `import React from 'react'; const state=new Proxy({}, {get:(_target,key)=>window.__sidebarState[key]}); const vi={fn:(f=()=>null)=>f}; const mocked=(${factory.getText(ast)})(); ${keys.map(k=>`export const ${k}=mocked.${k};`).join('\n')}`;
+    const key = name.startsWith('.') ? resolve(dirname(testPath), name) : name;
+    modules.set(key, ts.transpileModule(code, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext, jsx: ts.JsxEmit.React } }).outputText);
+  }
+  ts.forEachChild(n, inspect);
+}
+inspect(ast);
+modules.set(join(app, 'src/composerDraftStore'), 'export const DraftId={make:value=>value}; export const useComposerDraftStore=Object.assign((select)=>select({getDraftSession:()=>null}),{getState:()=>({getDraftSession:()=>null})});');
+modules.set(join(app, 'src/components/ProjectFavicon'), `import React from 'react'; export function ProjectFavicon({project}) {return React.createElement('span', {'aria-hidden':true,style:{width:18,height:18,borderRadius:5,background:'#ddc9fd',color:'#7833af',fontSize:10,textAlign:'center',flexShrink:0}},project.title?.slice(0,2)||'P');}`);
+const sourceId = join(app, 'src/components/settings/useSettingsProjectGroups');
+// The existing component fixture receives groups produced by the REAL grouping/snapshot code.
+modules.set(sourceId, 'export const useSettingsProjectGroups=()=>window.__sidebarState.groups;');
+modules.set(join(app,'src/env'), 'export const isElectron=true;');
+modules.set(join(app,'src/state/desktopUpdate'), 'export const useDesktopUpdateState=()=>window.__updateState;');
+modules.set(join(app,'src/localApi'), 'export const ensureLocalApi=()=>({dialogs:{confirm:async()=>true}});');
+modules.set(join(app,'src/components/ui/sidebar'), `import React from 'react'; export const SidebarContent=({children,...rest})=>React.createElement('div',rest,children); export const SidebarMenuItem=({children,...rest})=>React.createElement('div',rest,children); export const useSidebar=()=>({isMobile:false,setOpenMobile:()=>{}});`);
+const css = readdirSync(join(app, 'dist/assets')).find(n=>n.startsWith('main-')&&n.endsWith('.css'));
+if (!css) throw new Error('Production web CSS missing');
+const script = `import React from 'react';
+import {createRoot} from 'react-dom/client';
+import {buildSidebarProjectSnapshots} from ${JSON.stringify(join(app,'src/sidebarProjectGrouping.ts'))};
+import StudioSidebar from ${JSON.stringify(join(app,'src/components/studio/shell/StudioSidebar.tsx'))};
+import {SidebarUpdatePill} from ${JSON.stringify(join(app,'src/components/sidebar/SidebarUpdatePill.tsx'))};
+import {ToastProvider} from ${JSON.stringify(join(app,'src/components/ui/toast.tsx'))};
+const query=new URLSearchParams(location.search); const mode=query.get('mode')||'repository';
+const identity=(name,root)=>({canonicalKey:'github.com/anton-abyzov/'+name,locator:{source:'git-remote',remoteName:'origin',remoteUrl:'https://github.com/anton-abyzov/'+name+'.git'},provider:'github',owner:'anton-abyzov',name,displayName:'anton-abyzov/'+name,rootPath:root});
+const project=(id,title,root,repoName,extra={})=>({id,environmentId:'host',title,workspaceRoot:root,repositoryIdentity:repoName?identity(repoName,root):null,defaultModelSelection:null,scripts:[],createdAt:'2026-10-13T00:00:00Z',updatedAt:'2026-10-13T00:00:00Z',...extra});
+const projects=[project('easy','EasyChamp','/work/sw_easychamp','sw_easychamp'),project('studio','SpecWithCode','/work/specweave-umb','specweave-umb'),project('job','JobWeave','/work/jobweave-umb','jobweave-umb'),project('fallback','folder-only','/work/folder-only',null),project('repo-fallback','unnamed','/work/unnamed','unnamed'),project('repo-fallback-remote','unnamed-alt','/remote/unnamed-alt','unnamed',{environmentId:'remote'}),project('easy-remote','sw_easychamp','/remote/sw_easychamp','sw_easychamp',{environmentId:'remote'}),project('assistant','Aide','/work/aide',null,{workspaceSettings:{kind:'personal',revision:0}})];
+projects.push(project('easy-proof','EasyChamp handoff proof','/proof/sw_easychamp','sw_easychamp'),project('studio-proof','Studio handoff proof','/proof/specweave-umb','specweave-umb'),project('job-proof','JobWeave handoff proof','/proof/jobweave-umb','jobweave-umb'));
+const groups=buildSidebarProjectSnapshots({projects,settings:{sidebarProjectGroupingMode:mode,sidebarProjectGroupingOverrides:{}},primaryEnvironmentId:'host',resolveEnvironmentLabel:id=>id==='host'?'This Mac':'Remote Mac'}).sort((a,b)=>a.displayName.localeCompare(b.displayName));
+window.__sidebarState={navigate:()=>{},start:async()=>true,settle:()=>{},pathname:'/projects',params:{projectKey:groups.find(g=>g.memberProjects.some(m=>m.id==='easy'))?.projectKey},search:{},shells:[],keybindings:[],primaryEnvironmentId:'host',savedMachines:{},scratchRoots:new Map(),updateProject:async()=>({_tag:'Success'}),groups};
+const easyGroup=groups.find(g=>g.memberProjects.some(m=>m.id==='easy'));
+const selection=query.get('selection');
+if(selection==='remote') window.__sidebarState.search={checkout:'remote:easy-remote'};
+if(selection==='saved') window.__sidebarState.savedMachines={[easyGroup.projectKey]:'host:easy-proof'};
+if(selection==='invalid') window.__sidebarState.search={checkout:'missing:project'};
+window.__updateState={enabled:true,status:'idle',channel:'latest',currentVersion:'1.0.10',hostArch:'arm64',appArch:'arm64',runningUnderArm64Translation:false,availableVersion:null,downloadedVersion:null,releaseNotes:[],omittedReleaseCount:0,downloadPercent:null,checkedAt:null,message:null,errorContext:null,canRetry:false};
+window.desktopBridge={checkForUpdate:async()=>({checked:true,state:{...window.__updateState,status:'up-to-date',checkedAt:new Date().toISOString(),...(query.get('update')==='error'?{status:'error',message:'Update server is temporarily unavailable.',errorContext:'check',canRetry:true}:{})}})};
+window.__groups=groups.map(g=>({name:g.displayName,key:g.projectKey,members:g.memberProjects.length}));
+document.documentElement.classList.toggle('dark',query.get('theme')==='dark');
+createRoot(document.getElementById('root')).render(React.createElement(ToastProvider,null,React.createElement('aside',{className:'sws-sidebar'},React.createElement(StudioSidebar),React.createElement('div',{style:{position:'fixed',bottom:20,left:274}},React.createElement(SidebarUpdatePill)))));
+`;
+const server=await createServer({configFile:false,root:evidence,cacheDir:join(evidence,'vite-cache'),optimizeDeps:{include:['react','react-dom/client','react/jsx-runtime']},plugins:[{name:'sidebar-existing-test-mocks',enforce:'pre',resolveId(source,importer){
+if(modules.has(source))return '\0sidebar-mock:'+source;
+if(!importer)return;
+const path=source.startsWith('~/')?join(app,'src',source.slice(2)):source.startsWith('.')?resolve(dirname(importer),source):source.startsWith('/')?source:null;
+const normalized=path?.replace(/\.(tsx?|jsx?)$/,'');if(normalized&&modules.has(normalized))return '\0sidebar-mock:'+normalized;
+},load(id){if(id.startsWith('\0sidebar-mock:'))return modules.get(id.slice('\0sidebar-mock:'.length));if(id==='\0sidebar-entry')return script;},configureServer(s){s.middlewares.use(async(req,res,next)=>{if(req.url?.split('?')[0]!=='/')return next();const html='<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/@fs/'+app+'/dist/assets/'+css+'"><style>:root{--workspace-topbar-height:0px}body{margin:0;background:var(--sidebar);color:var(--foreground)}#root{width:320px;max-width:100vw;height:100vh}.sws-sidebar{height:100%;padding:12px;border-right:1px solid var(--border)}</style></head><body><div id="root"></div><script type="module" src="/@id/__x00__sidebar-entry"></script></body></html>';res.setHeader('Content-Type','text/html');res.end(await s.transformIndexHtml('/',html));});}},react()],resolve:{alias:{'~':join(app,'src')},dedupe:['react','react-dom']},server:{host:'127.0.0.1',port,strictPort:true,fs:{allow:[repo,evidence,'/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/node_modules']}}});
+await server.listen(); console.log('Isolated real StudioSidebar on http://127.0.0.1:'+port);
