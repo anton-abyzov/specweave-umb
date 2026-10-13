@@ -312,6 +312,13 @@ def check_invocation(argv, kind):
                     for word in argv[1:]), "version/help/eval or no-op is not a product check")
     executable, args = Path(argv[0]).name, argv[1:]
     testing = kind in ("unit", "component")
+    if kind == "typecheck" and argv[0] == (
+            "node_modules/.pnpm/@typescript+typescript-darwin-arm64@7.0.2/node_modules/"
+            "@typescript/typescript-darwin-arm64/lib/tsc.original"):
+        require(args in (["--noEmit", "-p", "apps/server/tsconfig.json"],
+                         ["--noEmit", "-p", "apps/web/tsconfig.json"]),
+                "unexpected native TypeScript check arguments")
+        return
     if executable in ("npm", "pnpm", "bun"):
         if testing and args and args[0] == "test":
             return

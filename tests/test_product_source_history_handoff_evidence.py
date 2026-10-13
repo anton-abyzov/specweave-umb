@@ -306,3 +306,31 @@ class PreviewMetadataTests(unittest.TestCase):
             self.root, self.route["destinationRecord"]["path"], self.destination)
         (self.root / "product-evidence-index.json").write_bytes(fixtures.encode(self.index))
         fixtures.V.product_handoff(self.root)
+
+
+class NativeTypeScriptInvocationTests(unittest.TestCase):
+    compiler = ("node_modules/.pnpm/@typescript+typescript-darwin-arm64@7.0.2/node_modules/"
+                "@typescript/typescript-darwin-arm64/lib/tsc.original")
+
+    def test_observed_standard_server_and_web_typechecks_keep_actual_native_argv(self):
+        for project in ("server", "web"):
+            fixtures.V.check_invocation([self.compiler, "--noEmit", "-p", f"apps/{project}/tsconfig.json"], "typecheck")
+
+    def test_unrelated_binary_version_or_cwd_form_cannot_substitute(self):
+        for executable in ("tsc.original", "/tmp/tsc.original", self.compiler.replace("7.0.2", "7.0.3"),
+                           self.compiler.replace("darwin-arm64", "other-platform"), "../" + self.compiler):
+            with self.subTest(executable=executable), self.assertRaises(ValueError):
+                fixtures.V.check_invocation([executable, "--noEmit", "-p", "apps/server/tsconfig.json"], "typecheck")
+
+    def test_emit_help_arbitrary_config_or_extra_arguments_are_rejected(self):
+        for args in (["--version"], ["-p", "apps/server/tsconfig.json"],
+                     ["--noEmit", "-p", "/foreign/tsconfig.json"],
+                     ["--noEmit", "-p", "apps/server/tsconfig.json", "--listFilesOnly"],
+                     ["--noEmit", "-p", "apps/server/tsconfig.json", "unrelated.ts"]):
+            with self.subTest(args=args), self.assertRaises(ValueError):
+                fixtures.V.check_invocation([self.compiler, *args], "typecheck")
+
+    def test_native_typecheck_is_not_build_or_test_evidence(self):
+        for kind in ("unit", "component", "build"):
+            with self.subTest(kind=kind), self.assertRaises(ValueError):
+                fixtures.V.check_invocation([self.compiler, "--noEmit", "-p", "apps/server/tsconfig.json"], kind)
