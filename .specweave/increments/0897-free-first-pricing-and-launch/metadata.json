@@ -1,0 +1,14 @@
+{
+  "id": "0897-free-first-pricing-and-launch",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-12T21:37:06.000Z",
+  "updated": "2026-10-12T22:39:59.000Z",
+  "lastActivity": "2026-10-12T22:39:59.000Z",
+  "title": "Free-first pricing and launch",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
