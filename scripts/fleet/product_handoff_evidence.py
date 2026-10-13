@@ -27,6 +27,7 @@ HEX40 = re.compile(r"[a-f0-9]{40}\Z")
 HEX64 = re.compile(r"[a-f0-9]{64}\Z")
 UUID = re.compile(r"[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}\Z")
 RUNNER = Path(__file__).with_name("replay_product_native.mjs")
+PROJECT_RUNTIME_REGRESSION = "launches with the project's approval mode instead of the host's full-access default"
 
 
 def require(value, message):
@@ -321,11 +322,12 @@ def product_review(root):
     require(evidence.candidate["sourceCommit"] in report and record["reviewer"] in report,
             "review report does not bind reviewer and candidate")
     required = {"wrong-repository", "dirty-destination", "diverged-destination",
-                "missing-source-object", "nested-pin-mismatch", "active-owner", "denied-transfer"}
+                "missing-source-object", "nested-pin-mismatch", "active-owner", "denied-transfer",
+                "project-runtime-mode"}
     require(set(record["cases"]) == required, "missing adversarial review case")
     code = evidence.json(evidence.index["code"])
     executed = [check["command"] for check in code["checks"] if check["kind"] in ("unit", "component")]
-    for case in record["cases"].values():
+    for label, case in record["cases"].items():
         if "externalTest" in case:
             external = external_review_test(evidence, case["externalTest"], code, record)
             require(case["command"] == external["command"] and case["testReport"] == external["testReport"],
@@ -342,6 +344,16 @@ def product_review(root):
         require(check["testReport"] == case["testReport"], "review test report detached from execution")
         names = test_report(evidence, case["testReport"])
         require(case["assertion"] in names, "review case has no actual passing assertion")
+        if label == "project-runtime-mode":
+            expected_path = code["source"]["path"] + "/apps/server/src/project/ProjectCoordinatorService.test.ts"
+            suites = evidence.json(case["testReport"])["testResults"]
+            require(case["assertion"] == PROJECT_RUNTIME_REGRESSION,
+                    "project runtime case does not name the scoped-approval regression")
+            require("externalTest" not in case and case["testPath"] == expected_path and any(
+                suite.get("name") == expected_path and any(
+                    assertion["fullName"] == case["assertion"] and assertion["status"] == "passed"
+                    for assertion in suite["assertionResults"]) for suite in suites),
+                "project runtime regression is not from the actual coordinator suite")
 
 
 def external_review_test(evidence, reference, code, review):

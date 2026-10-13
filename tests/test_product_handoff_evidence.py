@@ -322,10 +322,14 @@ def invented_release_evidence(root, index):
     """Additional invented command/report bytes for the three release gates."""
     cwd = "/synthetic/candidate-studio"
     names = ["wrong-repository", "dirty-destination", "diverged-destination", "missing-source-object",
-             "nested-pin-mismatch", "active-owner", "denied-transfer"]
-    report = ref(root, "synthetic-vitest-report.json", {"success": True, "numTotalTests": len(names),
-        "numPassedTests": len(names), "numFailedTests": 0, "numPendingTests": 0,
-        "testResults": [{"assertionResults": [{"fullName": name, "status": "passed"} for name in names]}]})
+             "nested-pin-mismatch", "active-owner", "denied-transfer", "project-runtime-mode"]
+    runtime_suite = cwd + "/apps/server/src/project/ProjectCoordinatorService.test.ts"
+    report = ref(root, "synthetic-vitest-report.json", {"success": True, "numTotalTests": len(names) + 1,
+        "numPassedTests": len(names) + 1, "numFailedTests": 0, "numPendingTests": 0,
+        "testResults": [{"assertionResults": [{"fullName": name, "status": "passed"} for name in names[:-1]]},
+                        {"name": runtime_suite, "assertionResults": [
+                            {"fullName": V.PROJECT_RUNTIME_REGRESSION, "status": "passed"},
+                            {"fullName": "unrelated synthetic coordinator behavior", "status": "passed"}]}]})
 
     def command(name, argv, stdout, test=False):
         item = {"candidateCommit": CANDIDATE["sourceCommit"], "argv": argv, "cwd": cwd, "exitCode": 0,
@@ -339,8 +343,8 @@ def invented_release_evidence(root, index):
     head = command("head", git + ["rev-parse", "HEAD"], CANDIDATE["sourceCommit"] + "\n")
     status = command("status", git + ["status", "--porcelain=v1", "--untracked-files=all"], "")
     origin = command("origin", git + ["remote", "get-url", "origin"], CANDIDATE["repository"] + "\n")
-    unit = command("unit", ["npm", "run", "test:unit"], "7 tests passed\n", True)
-    component = command("component", ["npm", "run", "test:component"], "7 tests passed\n", True)
+    unit = command("unit", ["npm", "run", "test:unit"], "9 tests passed\n", True)
+    component = command("component", ["npm", "run", "test:component"], "9 tests passed\n", True)
     build = command("build", ["npm", "run", "build"], "Synthetic build completed\n")
     index["code"] = ref(root, "code.json", {"candidateCommit": CANDIDATE["sourceCommit"],
         "source": {"head": CANDIDATE["sourceCommit"], "origin": CANDIDATE["repository"], "status": "", "path": cwd,
@@ -350,7 +354,9 @@ def invented_release_evidence(root, index):
     index["review"] = ref(root, "review.json", {"candidateCommit": CANDIDATE["sourceCommit"],
         "reviewer": "synthetic-independent-reviewer", "implementationOwner": "synthetic-author", "unresolvedFindings": [],
         "report": ref(root, "review.md", f"synthetic-independent-reviewer reviewed {CANDIDATE['sourceCommit']}\n".encode()),
-        "cases": {name: {"command": unit, "testReport": report, "assertion": name} for name in names}})
+        "cases": {name: {"command": unit, "testReport": report,
+                         "assertion": V.PROJECT_RUNTIME_REGRESSION if name == "project-runtime-mode" else name,
+                         **({"testPath": runtime_suite} if name == "project-runtime-mode" else {})} for name in names}})
     artifact = ref(root, "synthetic-release.bin", b"Explicit invented artifact, never a real application.")
     build_record = json.loads((root / build["path"]).read_text())
     build_record["producedArtifacts"] = [artifact]
@@ -1271,6 +1277,46 @@ class ProductReleaseEvidenceTests(unittest.TestCase):
         del review["cases"]["denied-transfer"]
         self.replace(self.index["review"], review)
         with self.assertRaisesRegex(ValueError, "adversarial"):
+            V.product_review(self.root)
+
+    def test_missing_project_runtime_regression_is_rejected(self):
+        review = self.read(self.index["review"])
+        del review["cases"]["project-runtime-mode"]
+        self.replace(self.index["review"], review)
+        with self.assertRaisesRegex(ValueError, "adversarial review case"):
+            V.product_review(self.root)
+
+    def test_runtime_case_cannot_reuse_an_unrelated_passing_assertion(self):
+        review = self.read(self.index["review"])
+        review["cases"]["project-runtime-mode"]["assertion"] = "wrong-repository"
+        self.replace(self.index["review"], review)
+        with self.assertRaisesRegex(ValueError, "scoped-approval regression"):
+            V.product_review(self.root)
+
+    def test_runtime_case_cannot_reuse_unrelated_passing_test_in_same_coordinator_suite(self):
+        review = self.read(self.index["review"])
+        review["cases"]["project-runtime-mode"]["assertion"] = "unrelated synthetic coordinator behavior"
+        self.replace(self.index["review"], review)
+        with self.assertRaisesRegex(ValueError, "scoped-approval regression"):
+            V.product_review(self.root)
+
+    def test_runtime_case_must_name_candidate_coordinator_test_path(self):
+        review = self.read(self.index["review"])
+        review["cases"]["project-runtime-mode"]["testPath"] = "/synthetic/another-checkout/ProjectCoordinatorService.test.ts"
+        self.replace(self.index["review"], review)
+        with self.assertRaisesRegex(ValueError, "actual coordinator suite"):
+            V.product_review(self.root)
+
+    def test_failed_runtime_regression_overrides_passing_summary(self):
+        code = self.read(self.index["code"])
+        check = self.read(code["checks"][0]["command"])
+        report = self.read(check["testReport"])
+        report["testResults"][-1]["assertionResults"][0]["status"] = "failed"
+        self.replace(check["testReport"], report)
+        code["checks"][0]["testReport"] = check["testReport"]
+        self.replace(code["checks"][0]["command"], check)
+        self.replace(self.index["code"], code)
+        with self.assertRaisesRegex(ValueError, "assertions"):
             V.product_review(self.root)
 
     def test_unresolved_finding_is_rejected(self):

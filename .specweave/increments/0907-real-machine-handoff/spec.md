@@ -25,6 +25,8 @@ Use the existing owned umbrella worktree on codex/real-machine-handoff. Keep pri
 
 Ownership: this chat owns the umbrella spec, ledger, provisioning/evidence code and final six-route acceptance. The existing release chat `01a133f7-afb4-7771-8e87-55cfabfd6858` owns Studio product implementation coordination, its fresh source review, build, release and installation. The umbrella owner records their exact task evidence without concurrent edits to this ledger. Completed manual proof remains valid but does not satisfy AC-05 through AC-08. Keep this increment open until those product gates pass; obtain the repository-required manual acceptance for the new UI against a concrete tested candidate.
 
+Pre-UI finding on October 13: candidate d7edbf9 passed its recorded source checks, but destination settings inspection found that ProjectCoordinatorService launches with the global permission mode instead of the resolved project mode. T-05/T-06 remain historical test receipts because the CLI treats done tasks as terminal; T-09 tracks the correction and fresh review. The initial candidate is not accepted for release. Keep global settings unchanged, set approval-required only on the six owned target projects through the supported settings API, then repeat source/build/runtime gates against the corrected candidate before starting destination workers.
+
 ## Path decision
 
 Preserve the original M1 EasyChamp directory: it contains local work and points to a different upstream. Keep the prepared fleet checkout registered until a separate archive-and-promote migration preserves the old linked worktree and changes the registration together.
@@ -54,3 +56,6 @@ Preserve the original M1 EasyChamp directory: it contains local work and points 
 
 ### T-08 Verify six ordinary product handoff routes and destination selection
 - AC: AC-08 | Files: scripts/fleet/verify-handoff-evidence.py, scripts/fleet/product_handoff_evidence.py, scripts/fleet/product_native_evidence.mjs, scripts/fleet/replay_product_native.mjs, tests/test_handoff_evidence.py, tests/test_product_handoff_evidence.py, tests/fixtures/product_native_source.json, tests/fixtures/product_native_destination.json, docs/operations/real-machine-handoff.md, .specweave/increments/0907-real-machine-handoff/reports/product-acceptance.md | Test: python3 scripts/fleet/verify-handoff-evidence.py --phase product-handoff
+
+### T-09 Honor scoped coordinator permission mode and revalidate the corrected candidate
+- AC: AC-05, AC-06 | Files: repositories/anton-abyzov/specweave-studio/apps/server/src/project/ProjectCoordinatorService.ts, repositories/anton-abyzov/specweave-studio/apps/server/src/project/ProjectCoordinatorService.test.ts, scripts/fleet/product_handoff_evidence.py, tests/test_product_handoff_evidence.py, .specweave/increments/0907-real-machine-handoff/reports/product-review.md | Test: python3 scripts/fleet/verify-handoff-evidence.py --phase product-code && python3 scripts/fleet/verify-handoff-evidence.py --phase product-review

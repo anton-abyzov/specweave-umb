@@ -17,3 +17,4 @@
 {"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-13T18:04:20.095Z"}
 {"t":"T-05","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-13T18:04:20.096Z","evidence":"python3 scripts/fleet/verify-handoff-evidence.py --phase product-code → exit 0\nlog: .specweave/increments/0907-real-machine-handoff/reports/task-T-05.txt\nproduct-code: passed\nHEAD dd5731b4b"}
 {"t":"T-06","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-13T18:04:20.457Z","evidence":"python3 scripts/fleet/verify-handoff-evidence.py --phase product-review → exit 0\nlog: .specweave/increments/0907-real-machine-handoff/reports/task-T-06.txt\nproduct-review: passed\nHEAD dd5731b4b"}
+{"t":"T-09","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-13T18:14:28.823Z","note":"Release owner fixes scoped coordinator runtime; root owns fresh evidence gate and six target settings, preserving globals."}

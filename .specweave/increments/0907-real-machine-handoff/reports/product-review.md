@@ -1,5 +1,7 @@
 # Product source review
 
+Historical review, superseded before live UI acceptance: destination inspection found that coordinator launch ignores the scoped project permission mode. T-09 tracks the fix and fresh named regression/review. The d7edbf9 candidate below is not accepted for release; its raw test receipts remain unchanged.
+
 Candidate: SpecWithCode 1.0.10, `d7edbf9c8fc1ac6bad3c24dbb73232e3ca489068`.
 
 Studio implementation: [PR 168](https://github.com/anton-abyzov/specweave-studio/pull/168). Independent source review reports no unresolved findings. The actual `product-code` and `product-review` evidence gates passed on October 13, 2026.
