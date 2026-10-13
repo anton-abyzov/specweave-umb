@@ -161,7 +161,7 @@ def command(evidence, reference):
     if "combinedOutput" in item:
         require("stdout" not in item and "stderr" not in item, "combined output cannot claim separated streams")
         owner = evidence.json(item["ownerReceipt"])
-        if item.get("invocationProvenance") == "derived-from-retained-builder":
+        if item.get("invocationProvenance") in ("derived-from-retained-builder", "derived-from-observed-builder-launch"):
             retained_builder(evidence, item, owner)
         else:
             require(owner["command"] == item["argv"] and owner["cwd"] == item["cwd"],
@@ -183,17 +183,22 @@ def retained_builder(evidence, command, receipt):
     """
     builder = evidence.data(command["builderSource"]).decode()
     prepared = evidence.json(command["builderPreparation"])
-    require(any(row["file"] == "build-final.mjs" and row["preparedSha256"] == command["builderSource"]["sha256"]
-                for row in prepared["files"]), "builder bytes differ from pre-build preparation")
-    require(time_value(prepared["preparedAt"]) <= time_value(command["startedAt"]), "builder was not frozen before execution")
+    observed_launch = command.get("invocationProvenance") == "derived-from-observed-builder-launch"
+    if not observed_launch:
+        require(any(row["file"] == "build-final.mjs" and row["preparedSha256"] == command["builderSource"]["sha256"]
+                    for row in prepared["files"]), "builder bytes differ from pre-build preparation")
+        require(time_value(prepared["preparedAt"]) <= time_value(command["startedAt"]), "builder was not frozen before execution")
     constants = {}
     for name in ("root", "stage", "node"):
         matches = re.findall(r"const " + name + r" = '([^'\n]+)';", builder)
         require(len(matches) == 1, "ambiguous retained builder constant")
         constants[name] = matches[0]
     version = evidence.candidate["version"]
-    require(prepared["repoRoot"] == constants["root"] and prepared["version"] == version,
-            "prepared builder repository/version differs")
+    if observed_launch:
+        observed_builder_launch(evidence, command, receipt, prepared, constants)
+    else:
+        require(prepared["repoRoot"] == constants["root"] and prepared["version"] == version,
+                "prepared builder repository/version differs")
     arguments = ["scripts/build-desktop-artifact.ts", "--platform", "mac", "--target", "dmg", "--arch", "arm64",
                  "--build-version", version, "--output-dir", constants["stage"]]
     literal = "['scripts/build-desktop-artifact.ts','--platform','mac','--target','dmg','--arch','arm64','--build-version','" + version + "','--output-dir',stage]"
@@ -201,6 +206,44 @@ def retained_builder(evidence, command, receipt):
             "retained builder does not contain the exact real artifact spawn")
     require(command["argv"] == [constants["node"], *arguments] and command["cwd"] == constants["root"]
             and receipt["stage"] == constants["stage"], "derived build invocation differs from frozen creator")
+
+
+def observed_builder_launch(evidence, command, receipt, prepared, constants):
+    """A real wrapper launch plus reviewed creator is a separate provenance
+    form. Its child argv is derived; no pre-run builder hash is invented.
+    """
+    review = evidence.json(command["builderReview"])
+    require(prepared["changes"]["build-final.mjs"]["sha256"] == command["builderSource"]["sha256"]
+            == review["filesSha256"]["build-final.mjs"]
+            and review["preparationSha256"] == command["builderPreparation"]["sha256"]
+            and review["verdict"] == "SHIP for r2 binding/build", "observed builder bytes were not reviewed")
+    time_value(review["reviewedAt"])
+    binding = evidence.json(command["builderSourceBinding"])
+    require(binding["schemaVersion"] == 1 and binding["sourceCommit"] == evidence.candidate["sourceCommit"]
+            and binding["repoRoot"] == constants["root"] and binding["stage"] == constants["stage"]
+            and binding["node22"] == constants["node"] and binding["version"] == evidence.candidate["version"]
+            and time_value(binding["boundAt"]) <= time_value(command["startedAt"]),
+            "observed builder lacks exact pre-run source binding")
+    event = evidence.json(command["builderLaunch"])
+    payload, item = event["payload"], event["payload"]["item"]
+    require(event["type"] == "event_msg" and payload["type"] == "item_completed"
+            and item["type"] == "CommandExecution" and item["source"] == "unified_exec_startup"
+            and item["status"] == "completed" and item["exit_code"] == 0,
+            "builder launch is not an actual completed command event")
+    for field in ("thread_id", "turn_id"):
+        text(payload[field], "builder event ownership missing")
+    for field in ("id", "process_id"):
+        text(item[field], "builder event identity missing")
+    folder = str(absolute(str(PurePosixPath(binding["buildReceipt"]).parent)))
+    require(item["cwd"] == "file://" + folder and item["command"] == [
+        "/bin/zsh", "-lc", constants["node"] + " build-final.mjs"], "actual wrapper launch differs from retained creator")
+    require(decode(item["aggregated_output"]) == receipt, "actual wrapper output differs from build receipt")
+    start, end = payload["started_at_ms"], payload["completed_at_ms"]
+    require(type(start) is int and type(end) is int and start <= end
+            and start / 1000 <= time_value(command["startedAt"]).timestamp()
+            <= time_value(command["finishedAt"]).timestamp() <= end / 1000
+            and time_value(event["timestamp"]).timestamp() == end / 1000,
+            "actual wrapper interval does not contain the build")
 
 
 def test_report(evidence, reference):
