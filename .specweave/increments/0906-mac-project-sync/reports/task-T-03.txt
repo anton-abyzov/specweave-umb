@@ -1,0 +1,4 @@
+$ python3 scripts/fleet-project-sync.py --verify-release /Users/antonabyzov/.local/share/specweave/fleet/project-sync-20261013/release.json
+# exit 0 — 2026-10-13T13:17:02.890Z
+
+Recorded evidence verified; this is not a fresh live probe.

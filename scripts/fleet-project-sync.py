@@ -187,7 +187,9 @@ def provision(base, row, apply, bundle_dir=None):
             destination(base, row["relativePath"])
             stage = pathlib.Path(tempfile.mkdtemp(prefix=".fleet-sync-", dir=target.parent))
             result["stagingPath"] = str(stage)
-            git(["clone", "--depth=1", "--filter=blob:none", "--no-checkout", "--single-branch", "--branch",
+            # A complete bundle must not become a promisor clone. Git annotates
+            # its remote with [blob:none], which can obscure repository identity.
+            git(["clone", *(["--depth=1", "--filter=blob:none"] if bundle_dir is None else []), "--no-checkout", "--single-branch", "--branch",
                  row["branch"], "--", source, str(stage)])
             require(git(["rev-parse", "HEAD"], stage) == row["sha"], "Remote moved during clone; staging retained")
             if bundle_dir is not None:
@@ -365,6 +367,7 @@ class SafetyTests(unittest.TestCase):
         self.assertEqual(provision(self.base, row, True, self.root)["status"], "created_verified")
         self.assertEqual(provision(self.base, row, True, self.root)["status"], "already_verified")
         self.assertEqual(git(["rev-parse", "@{upstream}"], self.base / "jobweave"), row["sha"])
+        self.assertNotIn("[blob:none]", git(["remote", "-v"], self.base / "jobweave"))
         self.assertEqual(provision(self.base, {**row, "bundleSha256": "0" * 64}, True, self.root)["status"], "failed")
 
     def test_scoped_transport_preserves_identity_and_rejects_redirects(self):
