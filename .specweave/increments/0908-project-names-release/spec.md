@@ -15,7 +15,7 @@ In: shared project label derivation, focused regression and browser verification
 ## Approach
 Change packages/client-runtime/src/state/projectGrouping.ts so custom titles are considered separately from repository/display/folder defaults. Retain the existing repository fallback for conflicting custom titles. Preserve grouping keys, physical project refs and fork boundaries. Check the shared label in its actual sidebar consumer.
 
-Use isolated umbrella and product branches codex/project-names-release. Baselines: umbrella 99e16cf4e, Studio 2ef696067. SpecWeave 3.0.14 verified against npm. The chat Improve SpecWithCode release output owns the successor release with 0907; coordinate only with explicit human messaging authorization. No live installation or service restart is required by this preparation task.
+Use isolated umbrella and product branches codex/project-names-release. Baselines: umbrella 99e16cf4e, Studio 2ef696067. SpecWeave 3.0.14 verified against npm. The chat Improve SpecWithCode release output owns the successor release with 0907; Anton explicitly authorized coordinating one release; the existing owner confirmed tentative version 1.0.10 and inclusion of the reviewed naming fix before freezing. No live installation or service restart is required by this preparation task.
 
 ## Tasks
 
@@ -23,7 +23,7 @@ Use isolated umbrella and product branches codex/project-names-release. Baseline
 - AC: AC-01 | Files: repositories/anton-abyzov/specweave-studio/packages/client-runtime/src/state/projectGrouping.ts, repositories/anton-abyzov/specweave-studio/packages/client-runtime/src/state/projectGrouping.test.ts | Test: cd repositories/anton-abyzov/specweave-studio && node node_modules/vite-plus/bin/vp test run packages/client-runtime/src/state/projectGrouping.test.ts
 
 ### T-02 Verify rendered labels and production builds
-- AC: AC-02 | Files: repositories/anton-abyzov/specweave-studio/apps/web/tests/project-names, repositories/anton-abyzov/specweave-studio/scripts/studio-verify/project-names.mjs, .specweave/increments/0908-project-names-release/reports | Test: node repositories/anton-abyzov/specweave-studio/scripts/studio-verify/project-names.mjs
+- AC: AC-02 | Files: .specweave/increments/0908-project-names-release/reports | Test: node repositories/anton-abyzov/specweave-studio/scripts/studio-verify/project-names.mjs
 
 ### T-03 Preserve and push reviewed pending work
 - AC: AC-03 | Files: .specweave/increments/0908-project-names-release/reports/git-state.md, .specweave/increments/0896-hosted-private-skill-publishing/ledger.jsonl, .specweave/increments/0897-free-first-pricing-and-launch, .specweave/increments/0898-team-usage-view, .specweave/project/hub.json, .specweave/state/closure-metrics.json, AGENTS.md, .specweave/reports | Test: git diff --check
