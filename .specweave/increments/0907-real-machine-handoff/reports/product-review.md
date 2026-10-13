@@ -1,6 +1,10 @@
 # Product source review
 
-Current accepted source/build review: SpecWithCode 1.0.10, `133ebdec798acdf5c68754024aea10daedf46de8`. T-10 fixes valid partial-clone remote parsing and derives verified destinations independently of sidebar grouping. The actual `product-code` and `product-review` gates passed, and T-10 completed through its declared CLI test. Installation, publication and six successful ordinary UI continuations remain separate gates.
+No candidate is currently accepted for release. The preservation audit found that preview can trigger Git's promisor lazy fetch and add filter metadata to existing clones. T-11 tracks the correction and a real missing-object regression; the release owner is consolidating the corrected source into one 1.0.11 candidate. The original failed comparison and all prior source/build receipts remain unchanged.
+
+## Superseded partial-clone and destination-picker candidate
+
+Historical successful source/build review: SpecWithCode 1.0.10, `133ebdec798acdf5c68754024aea10daedf46de8`. T-10 fixes valid partial-clone remote parsing and derives verified destinations independently of sidebar grouping. The actual `product-code` and `product-review` gates passed, and T-10 completed through its declared CLI test. The subsequently discovered preview side effect prevents release acceptance. Installation, publication and six successful ordinary UI continuations remain separate gates.
 
 The final candidate passed 563 focused assertions plus 12 independent external assertions, server and web typechecks, changed-file lint and fresh source review. The ten required review cases retain all eight earlier cases and add `partial-clone-identity` and `sidebar-independent-destination`. The parser case binds both actual origin and upstream partial-clone tests, including real Git filter annotations; the UI case verifies selection when the sidebar separates matching checkouts. Browser checks passed; the final test-only type correction left that web code unchanged.
 
