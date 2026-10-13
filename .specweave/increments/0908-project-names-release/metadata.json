@@ -1,0 +1,11 @@
+{
+  "id": "0908-project-names-release",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-13T15:33:55.950Z",
+  "updated": "2026-10-13T15:36:07.582Z",
+  "lastActivity": "2026-10-13T15:36:07.582Z",
+  "title": "Preserve project names and prepare release",
+  "project": "specweave-umb"
+}
