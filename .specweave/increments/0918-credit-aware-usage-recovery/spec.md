@@ -20,3 +20,6 @@ Isolated product checkout /Users/antonabyzov/Projects/github/studio-credit-recov
 - AC: AC-01, AC-02, AC-03 | Files: /Users/antonabyzov/Projects/github/studio-credit-recovery/apps/web/src/components/chat/, /Users/antonabyzov/Projects/github/studio-credit-recovery/apps/web/src/components/ChatView.tsx, /Users/antonabyzov/Projects/github/studio-credit-recovery/apps/web/tests/usage-limit-recovery/, /Users/antonabyzov/Projects/github/studio-credit-recovery/docs/user/usage.md | Test: focused credit, recovery and timeline tests; headless visual fixture; web/server build
 ### T-02 Review and release completed fixes
 - AC: AC-04 | Files: /Users/antonabyzov/Projects/github/studio-credit-recovery/CHANGELOG.md, /Users/antonabyzov/Projects/github/studio-credit-recovery/apps/*/package.json, /Users/antonabyzov/Projects/github/studio-credit-recovery/packages/contracts/package.json, .specweave/increments/0918-credit-aware-usage-recovery/reports/ | Test: release asset and deployed version readback
+
+## Manual acceptance
+Anton accepted the linked credit recovery and resolved-warning UI previews on October 14, 2026 (reply: "Accept the UI"). This is UI acceptance of the reviewed previews; installed/deployed version readback remains T-02.
