@@ -1,0 +1,8 @@
+$ python3 .specweave/increments/0918-credit-aware-usage-recovery/reports/verify-release.py
+# exit 0 — 2026-10-14T13:50:45.041Z
+
+m1: installed 1.0.14, sealed readback verified
+m3: installed 1.0.14, sealed readback verified
+Mac app: installed 1.0.14
+Public release: 1.0.14, 11 assets, anonymous readback receipt verified
+Live paid inference and six-route handoff acceptance are not asserted.

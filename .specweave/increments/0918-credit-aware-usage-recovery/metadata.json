@@ -1,11 +1,16 @@
 {
   "id": "0918-credit-aware-usage-recovery",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-14T12:52:59.320Z",
-  "updated": "2026-10-14T13:05:18.297Z",
-  "lastActivity": "2026-10-14T13:05:18.297Z",
+  "updated": "2026-10-14T13:50:45.665Z",
+  "lastActivity": "2026-10-14T13:50:45.665Z",
   "title": "Credit-aware usage recovery and release",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-14T13:50:45.665Z",
+  "approvedAt": "2026-10-14T13:50:45.665Z"
 }
