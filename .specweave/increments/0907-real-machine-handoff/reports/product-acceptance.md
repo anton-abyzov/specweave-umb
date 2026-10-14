@@ -19,3 +19,10 @@ The historical SpecWeave-to-M3 operation `23084e77-d203-4463-9f85-7fbc208d2299` 
 The historical preview changed four promisor clone Git configuration hashes. Its failed comparison stays retained. A byte-level historical audit and a fresh pre-corrected-candidate baseline are separate from the final candidate's strict before/after preservation check. Configuration values, credentials and raw private conversation receipts are not published in this report.
 
 Private source, operation, UI, runtime and native-worker receipts live under `~/.local/share/specweave/fleet/handoff-proof-20261013`. The required acceptance command is `python3 scripts/fleet/verify-handoff-evidence.py --phase product-handoff`; it must fail until all six genuine route records and final preservation readbacks are present.
+
+
+## Release continuity — 1.0.13
+
+The released native app and all three managed hosts now use source `9cdc215c4171b441321aea65b4f6c8ba7ee2756c`. Publication, updater and installed-runtime evidence is recorded in `product-release.md`. The 1.0.13 successor evidence root is `/Volumes/SanDisk APFS/SpecWithCodeReleases/0907-113`; the earlier evidence root and every failed route remain historical records.
+
+This release preparation accepts zero of the six routes. The frozen diagnostic source commits above and genuine subsequent source-checkpoint records remain distinct from the product release commit. T-08 still needs the exact six successful operation/native-worker records, context/code transfer proof, final commits, coordinator continuation and before/after preservation under the existing verifier.
