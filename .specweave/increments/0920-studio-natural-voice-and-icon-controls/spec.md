@@ -26,3 +26,6 @@ Owned worktree /Users/antonabyzov/Projects/github/studio-voice-quality, codex/vo
 
 ### T-04 Review and coordinate deployment
 - AC: AC-03 | Files: reports/voice-quality/ | Test: git diff --check
+
+### T-05 Keep voice settings usable in short windows
+- AC: AC-02 | Files: apps/web/src/components/studio/VoiceSettings.tsx | Test: cd /Users/antonabyzov/Projects/github/studio-voice-quality && PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node reports/voice-quality/check-ui.mjs
