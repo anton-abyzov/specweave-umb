@@ -4,7 +4,7 @@
 Provider Allow All appears alongside Studio access mode and can contradict it.
 
 ## Scope
-ACP permission configuration and composer options, focused regression tests, production builds and headless verification. No release or live provider turns.
+ACP permission configuration and composer options, focused regression tests, production builds and headless verification. Anton accepted the UI and authorized merge/deployment on 2026-10-14. Preserve the active release owner and existing live work. No unsolicited provider turns.
 
 ## Acceptance Criteria
 - [ ] AC-01: Full access enables native Allow All; every other access mode disables it. Saved model overrides cannot override policy.
@@ -21,3 +21,6 @@ Owned checkout /Users/antonabyzov/Projects/github/studio-unified-permissions, br
 
 ### T-02 Build and verify UI
 - AC: AC-04 | Files: /Users/antonabyzov/Projects/github/studio-unified-permissions/reports/unified-permissions/, /Users/antonabyzov/Projects/github/studio-unified-permissions/apps/web/tests/unified-permissions/ | Test: web and server production build; headless composer check
+
+### T-03 Merge and deploy accepted change
+- AC: AC-04 | Files: /Users/antonabyzov/Projects/github/studio-unified-permissions/, .specweave/increments/0921-studio-unified-provider-permissions/reports/ | Test: focused release-base tests and builds, merged commit readback and installed artifact verification
