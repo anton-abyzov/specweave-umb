@@ -1,0 +1,11 @@
+{
+  "id": "0921-studio-unified-provider-permissions",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-14T13:07:17.287Z",
+  "updated": "2026-10-14T13:20:56.723Z",
+  "lastActivity": "2026-10-14T13:20:56.723Z",
+  "title": "Studio unified provider permissions",
+  "project": "specweave-umb"
+}
