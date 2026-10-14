@@ -431,3 +431,65 @@ class NativeSyntheticApprovalParentTests(unittest.TestCase):
             with self.subTest(mutate=mutate):
                 value = self.projection(); mutate(value)
                 self.assertNotEqual(self.run_binding(value), 0)
+
+
+class NativeReadDiscoveryReplayTests(unittest.TestCase):
+    """Invented inputs exercise the fixed public module, never a host command."""
+    def invoke(self, body, value):
+        import subprocess
+        node, env = fixtures.V.node22()
+        module = fixtures.V.RUNNER.with_name('product_native_evidence.mjs').as_uri()
+        script = ('import fs from "node:fs"; import assert from "node:assert/strict"; import * as M from '
+                  + json.dumps(module) + '; const x=JSON.parse(fs.readFileSync(0,"utf8"));' + body)
+        result = subprocess.run([node, '--input-type=module', '-e', script], input=json.dumps(value),
+                                text=True, capture_output=True, env=env)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
+    def data(self):
+        data = json.loads((fixtures.FIXTURES / 'product_native_destination.json').read_bytes())
+        self.assertTrue(data['synthetic'])
+        data['receipt'] = invented_graph(data['receipt'])
+        return data
+
+    def test_literal_metadata_batch_stays_read_only_and_binds_actual_output(self):
+        self.invoke('''const p={...x.plan,_graph:true}, b=x.receipt.baseline;
+          const input="git rev-parse HEAD\\ngit status --porcelain=v1\\ngit -C "
+            +p.nestedRoot+" rev-parse HEAD\\ngit -C "+p.nestedRoot+" status --porcelain=v1";
+          const e=M.classifyCommand(p,input,"worker"); assert.equal(e.kind,"git-read-batch");
+          const o={response:{output:b.repos.root.sha+"\\n"+b.repos.nested.sha+"\\n"},readState:b};
+          M.assertDiscoveryOutput(p,e,o,b); o.response.output="forged\\n";
+          assert.throws(()=>M.assertDiscoveryOutput(p,e,o,b));
+          const changed=structuredClone(b); changed.repos.nested.branch=p.branch;
+          assert.throws(()=>M.assertLocalMutation(p,e.kind,changed,b,[]));
+          for(const suffix of ["git push","cat .env","git status; touch bad","git -C /foreign rev-parse HEAD"])
+            assert.throws(()=>M.classifyCommand(p,"git rev-parse HEAD\\n"+suffix,"worker"));
+          assert.throws(()=>M.classifyCommand(x.plan,input,"worker"));''', self.data())
+
+    def test_instruction_discovery_requires_exact_path_and_real_absence_output(self):
+        self.invoke('''const p={...x.plan,_graph:true}, path=p.nestedRoot+"/AGENTS.md";
+          const e=M.classifyCommand(p,"cat '"+path+"'","worker");
+          assert.equal(e.kind,"instructions-nested");
+          const o={discovery:{path,parentRealpath:p.nestedRoot,exists:false},
+            response:{status:"failed",exitCode:1,output:"cat: "+path+": No such file or directory\\n"}};
+          M.assertDiscoveryOutput(p,e,o,x.receipt.baseline);
+          for(const output of ["permission denied\\n","","cat: /foreign/AGENTS.md: No such file or directory\\n"])
+            assert.throws(()=>M.assertDiscoveryOutput(p,e,{...o,response:{...o.response,output}},x.receipt.baseline));
+          for(const file of [p.nestedRoot+"/.env",p.nestedRoot+"/child/AGENTS.md","/foreign/AGENTS.md"])
+            assert.throws(()=>M.classifyCommand(p,"cat '"+file+"'","worker"));
+          assert.throws(()=>M.assertInstructionSnapshot(p,e.kind,{...o.discovery,parentRealpath:"/foreign"}));''', self.data())
+
+    def test_existing_instruction_bytes_require_matching_hash(self):
+        self.invoke('''const p={...x.plan,_graph:true}, path=p.nestedRoot+"/AGENTS.md", text="Read only.\\n";
+          const e={kind:"instructions-nested"}, o={discovery:{path,parentRealpath:p.nestedRoot,exists:true,
+            realpath:path,isFile:true,isSymbolicLink:false,size:text.length,sha256:M.sha256(text)},
+            response:{status:"completed",exitCode:0,output:text}};
+          M.assertDiscoveryOutput(p,e,o,x.receipt.baseline);
+          assert.throws(()=>M.assertDiscoveryOutput(p,e,{...o,response:{...o.response,output:"changed"}},x.receipt.baseline));
+          assert.throws(()=>M.assertInstructionSnapshot(p,e.kind,{...o.discovery,isSymbolicLink:true}));''', self.data())
+
+    def test_old_sha_after_commit_cannot_replace_required_final_native_head(self):
+        self.invoke('''const p=x.plan,r=x.receipt; M.verifyReceipt(p,r);
+          const out=r.outputs.find(o=>o.kind==="git-final-head"), item=r.workers[0].turnItems.find(i=>i.id===out.itemId);
+          item.output=p.originalShas.nested+"\\n"; out.response=structuredClone(item);
+          out.sha256=M.sha256(JSON.stringify(item));
+          assert.throws(()=>M.verifyReceipt(p,r),/post-commit-final-head-stale/);''', self.data())

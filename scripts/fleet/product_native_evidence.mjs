@@ -51,11 +51,12 @@ export function validatePlan(p) {
 
 // Deliberately small shell grammar: literal words, quoting, and at most one cd &&.
 // No substitutions, redirections, pipes, comments, globs, variables or command lists.
-export function shellWords(text) {
-  assert.ok(typeof text === 'string' && text.length > 0 && text.length < 20000 && !/[\r\n\0`$]/.test(text), 'unsafe-shell-syntax');
+export function shellWords(text, allowQuotedNewline = false) {
+  assert.ok(typeof text === 'string' && text.length > 0 && text.length < 20000 && !(allowQuotedNewline ? /[\r\0`$]/ : /[\r\n\0`$]/).test(text), 'unsafe-shell-syntax');
   const result = []; let word = '', active = false, quote = null;
   for (let i = 0; i < text.length; i++) {
     const c = text[i];
+    assert.ok(c!=='\n'||(allowQuotedNewline&&quote),'unquoted-newline-refused');
     if (quote) { if (c === quote) quote = null; else if (c === '\\' && quote === '"') { assert.ok(i + 1 < text.length); word += text[++i]; } else word += c; active = true; continue; }
     if (c === "'" || c === '"') { quote = c; active = true; continue; }
     if (/\s/.test(c)) { if (active) { result.push(word); word = ''; active = false; } continue; }
@@ -78,6 +79,10 @@ export function buildCommandPolicy(p) {
     for (const [kind,args] of [['head',['rev-parse','--show-toplevel','HEAD']], ['branch',['branch','--show-current']], ['origin',['remote','get-url','origin']], ['status',['status','--porcelain=v1','--untracked-files=all']]])
       add('worker','git-' + rootKey + '-' + kind,[GIT,'--no-optional-locks','-C',root,...args],kind === 'head');
   }
+  if(p._graph) {
+    for(const [key,root]of [['root',p.workspaceRoot],['nested',p.nestedRoot]])for(const role of ['worker','coordinator'])add(role,'instructions-'+key,['/bin/cat',root+'/AGENTS.md']);
+    add('worker','git-root-head-only',[GIT,'--no-optional-locks','-C',p.workspaceRoot,'rev-parse','HEAD']);
+  }
   for (const key of ['implementation','test','readme','continuation', ...(p.mode === 'destination' ? ['context'] : [])]) {
     add('worker','read-' + key,['/bin/cat',p.paths[key]], true);
     if (key === 'context'||p._graph) add('coordinator','read-' + key,['/bin/cat',p.paths[key]], false);
@@ -97,6 +102,14 @@ export function buildCommandPolicy(p) {
   return entries;
 }
 export function classifyCommand(plan, input, role) {
+  if(plan._graph&&input.includes('\n')) {
+    let script=input.trim();
+    if(/^\/(?:bin\/zsh|bin\/bash)\s/.test(script)){const wrapper=shellWords(script,true);assert.equal(wrapper.length,3);assert.equal(wrapper[1],'-lc');script=wrapper[2];}
+    const lines=script.split('\n');assert.ok(lines.length>=2&&lines.length<=8&&lines.every(x=>x.trim()),'bounded-git-lines-required');
+    const parts=lines.map(line=>classifyCommand(plan,line,role));
+    assert.ok(parts.every(e=>/^git-(?:(?:root|nested)-(?:head|head-only|branch|origin|status)|final-head)$/.test(e.kind)),'batch-read-only-git-required');
+    return {role,kind:'git-read-batch',parts,command:input,required:false};
+  }
   let words = commandWords(input), cwd = plan.workspaceRoot;
   if (words[0] === 'cd') {
     assert.equal(words[2],'&&','only-cd-and-one-command'); cwd = resolve(cwd,words[1]);
@@ -126,6 +139,7 @@ export function classifyCommand(plan, input, role) {
     assert.ok([plan.workspaceRoot,plan.nestedRoot].includes(root),'git-root-outside-scope');
     const args = words.slice(at);
     if(args[0]==='checkout'&&args[1]==='-b'){assert.equal(args.length,3,'exact-checkout-branch-required');args.splice(0,2,'switch','-c');}
+    if(plan._graph&&args.join(' ')==='status --porcelain=v1')args.push('--untracked-files=all');
     const write = ['switch','add','commit'].includes(args[0]);
     const expectedConfigs = args[0] === 'switch' ? ['core.hooksPath=/dev/null'] : args[0] === 'commit' ? ['core.hooksPath=/dev/null','commit.gpgSign=false'] : [];
     assert.deepEqual(configs,expectedConfigs,'unexpected-git-config-override');
@@ -332,18 +346,19 @@ export function approvalPayload(plan, projection, parent, requestId, worker = nu
 export function assertRetainedItem(projectionItem, response, kind = null) {
   const item = response?.item; assert.ok(item,'retained-item-missing');
   for (const key of ['id','threadId','runId','providerTurnId','type','input','status','exitCode','updatedAt']) assert.deepEqual(item[key],projectionItem[key],'retained-item-binding-mismatch');
-  const emptyIsMeaningful = ['git-root-status','git-nested-status','add','diff'].includes(kind);
+  const emptyIsMeaningful = ['git-root-status','git-nested-status','git-read-batch','add','diff'].includes(kind);
   assert.ok(typeof item.output === 'string' || (item.output === null && emptyIsMeaningful),'retained-output-required'); assert.ok(!item.outputOmitted,'output-still-omitted');
   if (typeof item.output === 'string') assert.ok(!item.output.includes('… output truncated for transport'),'retained-output-truncated'); return item;
 }
 export function assertNativeRead(plan,kind,item,finalHead = null) {
+  if(kind==='git-root-head-only')assert.equal(item.output.trimEnd(),plan.originalShas.root,'native-root-head-mismatch');
   if(kind==='node-version')assert.match(item.output.trim(),/^v22\.\d+\.\d+$/,'node22-version-output-required');
   if (kind.startsWith('read-')&&!(plan._graph&&kind==='read-implementation')) assert.equal(sha256(item.output),plan.frozen[kind.slice(5)],'frozen-native-read-output-mismatch');
   if (kind === 'git-root-head' || kind === 'git-nested-head') {
     const key = kind === 'git-root-head' ? 'root' : 'nested', path = key === 'root' ? plan.workspaceRoot : plan.nestedRoot;
     assert.equal(item.output.trimEnd(),path + '\n' + plan.originalShas[key],'native-git-path-or-head-mismatch');
   }
-  if (kind === 'git-final-head') { assert.equal(plan.mode,'destination'); assert.match(finalHead,HEX40); assert.notEqual(finalHead,plan.originalShas.nested); assert.equal(item.output.trimEnd(),finalHead,'native-final-head-mismatch'); }
+  if (kind === 'git-final-head') { assert.equal(plan.mode,'destination'); assert.match(finalHead,HEX40); if(!plan._graph)assert.notEqual(finalHead,plan.originalShas.nested); assert.ok(item.output.trimEnd()===finalHead||(plan._graph&&item.output.trimEnd()===plan.originalShas.nested),'native-final-head-mismatch'); }
 }
 export function assertTap(item, count, mode) {
   assert.ok(item.status==='completed'||(mode==='source'&&item.status==='failed'),'test-command-not-terminal');
@@ -358,6 +373,7 @@ export function assertTap(item, count, mode) {
   return {tests:count,pass:value('pass'),fail:value('fail'),exitCode:item.exitCode};
 }
 export function assertCommandResult(plan,kind,item) {
+  if(plan._graph&&kind.startsWith('instructions-')&&item.status==='failed'&&item.exitCode===1)return;
   assert.ok(item.status==='completed'||((plan.mode==='source'||plan._graph)&&kind==='test'&&item.status==='failed'&&item.exitCode===1),'unexpected-command-status');
   if(kind!=='test')assert.equal(item.exitCode,0,'native-command-failed');
 }
@@ -381,6 +397,7 @@ export function assertWorkerReadsBeforeEdit(plan,observer,edit,owningThreadId=ed
 
 export function assertLocalMutation(plan,kind,state,baseline,testRecords) {
   assertFrozen(plan,state);
+  if(kind==='git-read-batch')assert.deepEqual(state,baseline,'metadata-batch-state-must-be-original');
   assert.equal(state.repos.root.sha,baseline.repos.root.sha); assert.equal(state.repos.root.status,'','umbrella-changed');
   for (const key of ['root','nested']) assert.equal(state.repos[key].configSha256,baseline.repos[key].configSha256,'git-config-changed');
   if (kind === 'branch') { assert.equal(state.repos.nested.sha,plan.originalShas.nested); assert.equal(state.repos.nested.status,''); assert.equal(state.repos.nested.branch,baseline.repos.nested.branch); }
@@ -393,7 +410,7 @@ export function assertLocalMutation(plan,kind,state,baseline,testRecords) {
     const latest = testRecords.at(-1); assert.ok(latest?.mode === 'destination','passing-test-required-before-commit'); assert.equal(latest.implementationSha256,state.files.implementation.sha256,'code-changed-after-test');
     assert.equal(state.repos.nested.status,'M  ' + relative(plan.nestedRoot,plan.paths.implementation),'exact-staged-implementation-required');
   }
-  if (kind === 'git-final-head') { assert.equal(state.repos.nested.branch,plan.branch); assert.equal(state.repos.nested.status,''); assert.notEqual(state.repos.nested.sha,plan.originalShas.nested,'final-head-before-commit'); }
+  if (kind === 'git-final-head' && !(plan._graph&&state.repos.nested.sha===plan.originalShas.nested&&state.repos.nested.status==='')) { assert.equal(state.repos.nested.branch,plan.branch); assert.equal(state.repos.nested.status,''); assert.notEqual(state.repos.nested.sha,plan.originalShas.nested,'final-head-before-commit'); }
 }
 export function validateFinalState(plan,baseline,state,testRecords,readGit = () => { throw new Error("collected-git-evidence-required"); }) {
   assertFrozen(plan,state); assert.equal(state.repos.root.sha,baseline.repos.root.sha); assert.equal(state.repos.root.branch,baseline.repos.root.branch); assert.equal(state.repos.root.status,'');
@@ -533,7 +550,7 @@ export function validateGraphOutcome(plan,parent,workers,observer,finalCommit) {
   assert.ok(workerTexts.find(w=>w.threadId===editor.thread.id).text.trim(),'editing-worker-result-required');
   assert.ok([...relayText.matchAll(/studio:\/\/thread\/([^\s)]+)/g)].some(([,value])=>{try{return decodeURIComponent(value)===editor.thread.id;}catch{return false;}}),'editing-child-link-not-relayed');
   for(const worker of workers)assert.ok([...observer.outputs.values()].some(o=>o.threadId===worker.thread.id&&o.kind==='read-context'),'every-worker-must-read-retained-context');
-  for(const entry of buildCommandPolicy(plan).filter(e=>e.required))assert.ok([...observer.outputs.values()].some(o=>o.kind===entry.kind&&(SHARED_GIT_KINDS.has(entry.kind)||o.threadId===editor.thread.id)),'required-editor-native-output-missing-'+entry.kind);
+  for(const entry of buildCommandPolicy(plan).filter(e=>e.required))assert.ok([...observer.outputs.values()].some(o=>outputHasKind(plan,o,entry.kind)&&(SHARED_GIT_KINDS.has(entry.kind)||o.threadId===editor.thread.id)),'required-editor-native-output-missing-'+entry.kind);
   return {initialRunId:initial.id,completionRunId:finalEdge.wakeRunId,workerThreadIds:workers.map(w=>w.thread.id),editingWorkerThreadId:editor.thread.id,edges,workerTexts,relayText};
 }
 
@@ -563,16 +580,8 @@ function actionIdentity(item) {
 function approvalIdentity(item) {
   return Object.fromEntries(['id','type','requestId','requestKind','runId','providerTurnId','prompt','appName','grantRoot'].filter(k => Object.hasOwn(item,k)).map(k => [k,item[k]]));
 }
-// Pure replay. This verifies evidence relationships; the parent additionally
-// pins the entire plan/receipt bytes with SHA256 in its public acceptance proof.
-export function verifyReceipt(plan,receipt) {
-  validatePlan(plan); requireObject(receipt);assert.ok(receipt.workflowVersion===undefined||receipt.workflowVersion===2,'unknown-workflow-version');assert.ok(receipt.workflowVersion!==2||plan.mode==='destination','graph-destination-only');const graph=plan.mode==='destination'&&receipt.workflowVersion===2;if(graph)plan={...plan,_graph:true};
-  for (const key of ['mode','host','projectId','coordinatorId']) assert.equal(receipt[key],plan[key],'receipt-plan-binding');
-  assert.equal(receipt.operationId,plan.operationId ?? null); assertInitialState(plan,receipt.baseline);
-  const parent=receipt.parent,workers=graph?receipt.workers:[receipt.worker];assert.ok(parent&&Array.isArray(workers)&&workers.length&&workers.every(Boolean)&&receipt.rawParent,'final-projections-required');const worker=graph?workers.find(w=>w.turnItems.some(i=>i.type==='file_change')):receipt.worker;assert.ok(worker,'editing-worker-required');
-  assert.deepEqual(scopeProjection(receipt.rawParent,receipt.prior ?? null,plan),parent,'final-history-scope-mismatch');
-  if(graph)assertGraphOwnership(plan,parent,workers);else{assertParentOwnership(plan,parent);assert.equal(worker.thread.id,one(parent.subagents,'one-child-required').childThreadId);}
-  const observer = makeObserver(plan), seenRequests = new Set();
+function replayApprovals(plan,receipt,parent,workers,observer) {
+  const graph=!!plan._graph,worker=workers[0],seenRequests=new Set();
   for (const record of receipt.approvals) {
     assert.ok(!seenRequests.has(record.requestId),'duplicate-approval-receipt'); seenRequests.add(record.requestId);
     assert.equal(record.decision,'accept'); const payload = record.payload;
@@ -597,6 +606,19 @@ export function verifyReceipt(plan,receipt) {
     const kind = action.type === 'file_change' ? 'file-change' : action.type === 'command_execution' ? classifyCommand(plan,action.input,record.threadId === plan.coordinatorId ? 'coordinator' : 'worker').kind : 'mcp';
     assert.equal(record.kind,kind,'approval-kind-summary-forged'); assert.ok(!observer.approved.has(action.id),'action-approved-twice'); observer.approved.set(action.id,record.payloadSha256);
   }
+}
+// Pure replay. This verifies evidence relationships; the parent additionally
+// pins the entire plan/receipt bytes with SHA256 in its public acceptance proof.
+export function verifyReceipt(plan,receipt) {
+  validatePlan(plan); requireObject(receipt);assert.ok(receipt.workflowVersion===undefined||receipt.workflowVersion===2,'unknown-workflow-version');assert.ok(receipt.workflowVersion!==2||plan.mode==='destination','graph-destination-only');const graph=plan.mode==='destination'&&receipt.workflowVersion===2;if(graph)plan={...plan,_graph:true};
+  for (const key of ['mode','host','projectId','coordinatorId']) assert.equal(receipt[key],plan[key],'receipt-plan-binding');
+  assert.equal(receipt.operationId,plan.operationId ?? null); assertInitialState(plan,receipt.baseline);
+  if(receipt.resume)assertResumeBinding(plan,receipt);
+  const parent=receipt.parent,workers=graph?receipt.workers:[receipt.worker];assert.ok(parent&&Array.isArray(workers)&&workers.length&&workers.every(Boolean)&&receipt.rawParent,'final-projections-required');const worker=graph?workers.find(w=>w.turnItems.some(i=>i.type==='file_change')):receipt.worker;assert.ok(worker,'editing-worker-required');
+  assert.deepEqual(scopeProjection(receipt.rawParent,receipt.prior ?? null,plan),parent,'final-history-scope-mismatch');
+  if(graph)assertGraphOwnership(plan,parent,workers);else{assertParentOwnership(plan,parent);assert.equal(worker.thread.id,one(parent.subagents,'one-child-required').childThreadId);}
+  const observer = makeObserver(plan), seenRequests = new Set();
+  replayApprovals(plan,receipt,parent,workers,observer);
   observe(observer,parent,parent);for(const w of workers)observe(observer,w,parent);
   const sourceItems = [...parent.turnItems,...workers.flatMap(w=>w.turnItems)].filter(i => i.type === 'command_execution');
   assert.equal(receipt.outputs.length,sourceItems.length,'missing-or-extra-retained-outputs');
@@ -611,13 +633,14 @@ export function verifyReceipt(plan,receipt) {
     assert.equal(output.threadId,actual.threadId); assert.equal(output.runId,actual.runId); assert.equal(output.input,actual.input);
     assert.equal(output.kind,entry.kind); assert.equal(output.role,entry.role);
     assertNativeRead(plan,entry.kind,actual,receipt.after?.repos?.nested?.sha);
+    if(graph){assertDiscoveryOutput(plan,entry,output,receipt.baseline);if(entry.kind.startsWith('instructions-')){const approval=one(receipt.approvals.filter(a=>a.itemId===actual.id),'instructions-approval-required');assertInstructionSnapshot(plan,entry.kind,approval.discovery);assert.deepEqual(output.discovery,approval.discovery,'instructions-changed-after-approval');}}
     if(graph&&entry.kind==='read-implementation')assert.equal(output.implementationSha256,sha256(actual.output),'observed-implementation-read-hash-mismatch');
     if (entry.kind === 'test') {
       const mode = actual.exitCode === 0 ? 'destination' : 'source'; assert.ok(plan.mode === 'destination' || mode === 'source','source-was-not-red');
       const derived = assertTap(actual,plan.expectedTestCount,mode), saved = one(receipt.testRecords.filter(t => t.itemId === actual.id),'test-summary-missing');
       for (const key of ['tests','pass','fail','exitCode']) assert.equal(saved[key],derived[key],'test-summary-forged'); assert.equal(saved.mode,mode);
       assert.match(saved.implementationSha256,HEX64); tests.push(saved);
-    } else assert.equal(actual.exitCode,0);
+    } else if(!entry.kind.startsWith('instructions-')) assert.equal(actual.exitCode,0);
     observer.outputs.set(actual.id,output);
   }
   assert.equal(receipt.testRecords.length,tests.length,'extra-test-summary'); assert.ok(tests.length > 0);
@@ -641,7 +664,8 @@ export function verifyReceipt(plan,receipt) {
     const commitOutput = observer.outputs.get(commit.id).response.output;
     const abbreviated = one([...commitOutput.matchAll(/^\[[^\r\n]* ([a-f0-9]{7,40})\] /gm)],'native-commit-output-missing')[1];
     assert.ok(receipt.after.repos.nested.sha.startsWith(abbreviated),'native-commit-output-sha-mismatch');
-    const finalRead = one(sourceItems.filter(i => observer.commands.get(i.id)?.kind === 'git-final-head'),'one-final-head-read-required');
+    const finalRead = one(sourceItems.filter(i => observer.commands.get(i.id)?.kind === 'git-final-head'&&(!graph||Date.parse(i.startedAt)>=Date.parse(commit.completedAt))),'one-final-head-read-required');
+    assert.equal(observer.outputs.get(finalRead.id).response.output.trimEnd(),receipt.after.repos.nested.sha,'post-commit-final-head-stale');
     assert.ok(Number.isFinite(Date.parse(finalRead.startedAt)) && Number.isFinite(Date.parse(commit.completedAt)) && Date.parse(finalRead.startedAt) >= Date.parse(commit.completedAt),'final-head-read-before-commit');
   }
   assert.deepEqual(receipt.quiescence,[quiescence(parent),...workers.map(quiescence)],'quiescence-summary-forged');
@@ -649,5 +673,55 @@ export function verifyReceipt(plan,receipt) {
 }
 const cloneProjection = p => structuredClone(p);
 
+
+export function instructionPath(plan,kind){assert.ok(['instructions-root','instructions-nested'].includes(kind));return (kind==='instructions-root'?plan.workspaceRoot:plan.nestedRoot)+'/AGENTS.md';}
+export function assertInstructionSnapshot(plan,kind,value){
+  assert.equal(value.path,instructionPath(plan,kind));assert.equal(value.parentRealpath,dirname(value.path));assert.equal(typeof value.exists,'boolean');
+  if(value.exists){assert.equal(value.realpath,value.path);assert.equal(value.isFile,true);assert.equal(value.isSymbolicLink,false);assert.ok(Number.isInteger(value.size)&&value.size>=0&&value.size<2097152);assert.match(value.sha256,HEX64);}
+  else assert.deepEqual(Object.keys(value).sort(),['exists','parentRealpath','path']);
+}
+export function assertDiscoveryOutput(plan,entry,output,baseline){
+  if(entry.kind.startsWith('instructions-')){
+    const d=output.discovery;assertInstructionSnapshot(plan,entry.kind,d);const item=output.response;
+    if(d.exists){assert.equal(item.status,'completed');assert.equal(item.exitCode,0);assert.equal(sha256(item.output),d.sha256);}
+    else {assert.equal(item.status,'failed');assert.equal(item.exitCode,1);assert.ok([`cat: ${d.path}: No such file or directory\n`,`/bin/cat: ${d.path}: No such file or directory\n`,`/usr/bin/cat: ${d.path}: No such file or directory\n`].includes(item.output),'absent-instructions-native-error-required');}
+  }
+  if(entry.kind==='git-read-batch'){
+    const s=output.readState;assertFrozen(plan,s);assert.equal(s.repos.root.sha,baseline.repos.root.sha);assert.equal(s.repos.root.status,'');
+    for(const key of ['root','nested']){assert.equal(s.repos[key].path,baseline.repos[key].path);assert.equal(s.repos[key].configSha256,baseline.repos[key].configSha256);assert.match(s.repos[key].sha,HEX40);}
+    // Batches are metadata discovery only; no post-edit batch is needed for acceptance.
+    assert.deepEqual(s,baseline,'metadata-batch-state-must-be-original');
+    let expected='';for(const part of entry.parts){const key=part.kind.includes('root')?'root':'nested',r=s.repos[key];if(part.kind.endsWith('head'))expected+=(part.kind==='git-final-head'?'':r.path+'\n')+r.sha+'\n';else if(part.kind.endsWith('head-only'))expected+=r.sha+'\n';else if(part.kind.endsWith('status'))expected+=r.status?r.status+'\n':'';else if(part.kind.endsWith('branch'))expected+=r.branch?r.branch+'\n':'';else if(part.kind.endsWith('origin')){assert.equal(typeof output.origins?.[key],'string');assert.ok(output.origins[key]&&!/[\r\n\0]/.test(output.origins[key]));expected+=output.origins[key]+'\n';}else assert.fail('unknown-batch-kind');}
+    assert.equal(output.response.output??'',expected,'native-git-batch-output-mismatch');
+  }
+}
+function outputHasKind(plan,o,kind){
+  const parts=o.kind==='git-read-batch'?classifyCommand(plan,o.input,o.role).parts:[{kind:o.kind}];
+  return parts.some(p=>p.kind===kind||(kind==='git-root-head'&&p.kind==='git-root-head-only')||(kind==='git-nested-head'&&p.kind==='git-final-head'&&(o.kind==='git-read-batch'||o.response.output.trimEnd()===plan.originalShas.nested)));
+}
+export function verifyResumeCheckpoint(input,resume){
+  validatePlan(input);const plan={...input,_graph:true};assert.equal(input.mode,'destination');
+  assert.equal(resume.version,1);for(const key of ['receipt','pause'])assert.equal(sha256(resume[key+'Text']),resume[key+'Sha256'],'resume-byte-hash-mismatch');
+  const old=JSON.parse(resume.receiptText),pause=JSON.parse(resume.pauseText);assert.equal(old.status,'awaiting-review');assert.equal(old.workflowVersion,2);assert.equal(old.temporarySessionRevoked,true);assert.ok(!old.resume,'one-pre-mutation-resume-only');
+  for(const key of ['operationId','projectId','coordinatorId','host']){assert.equal(old[key],plan[key]);assert.equal(pause[key],plan[key]);}assert.equal(pause.environmentId,plan.environmentId);assert.equal(pause.planSha256,sha256(JSON.stringify(input)));
+  assert.equal(pause.kind,'owned-pending-approval-awaiting-review');assert.equal(pause.accepted,false);assert.equal(pause.noAnswerSent,true);assert.equal(pause.noCleanupPerformed,true);assert.equal(old.review.artifact.sha256,resume.pauseSha256);assert.equal(old.review.payloadSha256,sha256(JSON.stringify(pause)));
+  assertInitialState(plan,old.baseline);assert.deepEqual(pause.state,old.baseline,'paused-state-not-original');assert.deepEqual(pause.existingApprovals,old.approvals);assert.deepEqual(pause.existingOutputs,old.outputs);assert.deepEqual(old.parent,pause.parent);assert.deepEqual(old.rawParent,pause.rawParent);assert.deepEqual(old.workers,pause.workers);assert.equal(old.testRecords.length,0,'pre-mutation-resume-only');
+  assertGraphOwnership(plan,pause.parent,pause.workers);const ps=[pause.parent,...pause.workers];
+  assert.ok(!ps.some(p=>p.turnItems.some(i=>i.type==='file_change')),'resume-after-edit-refused');assert.ok(old.approvals.every(a=>!['branch','add','commit','file-change'].includes(a.kind)),'resume-after-mutation-refused');
+  const pending=ps.flatMap(p=>p.runtimeRequests.filter(r=>r.status==='pending').map(request=>({p,request})));assert.equal(pending.length,1);assert.equal(pending[0].request.id,pause.pending.request.id);assert.equal(pending[0].p.thread.id,pause.pending.threadId);
+  assert.deepEqual(ps.flatMap(p=>p.runtimeRequests.filter(r=>r.status==='resolved'&&r.decision==='accept').map(r=>r.id)).sort(),old.approvals.map(a=>a.requestId).sort(),'resume-accepted-request-inventory-mismatch');
+  const o=makeObserver(plan);replayApprovals(plan,old,pause.parent,pause.workers,o);for(const p of ps)observe(o,p,pause.parent);
+  const payload=approvalPayload(plan,pending[0].p,pause.parent,pending[0].request.id);assert.deepEqual(payload.action,pause.pending.action);assert.deepEqual(payload.approval,pause.pending.approval);assert.deepEqual(payload.request,pause.pending.request);
+  for(const record of old.outputs){assert.ok(!o.outputs.has(record.itemId));const p=one(ps.filter(p=>p.thread.id===record.threadId),'resume-output-thread');const item=one(p.turnItems.filter(i=>i.id===record.itemId),'resume-output-item');const entry=o.commands.get(item.id);const actual=assertRetainedItem(item,{item:record.response},entry.kind);assert.equal(record.sha256,sha256(JSON.stringify(actual)));assert.equal(record.kind,entry.kind);assert.equal(record.input,item.input);assert.equal(record.runId,item.runId);assert.equal(record.role,entry.role);assertCommandResult(plan,entry.kind,actual);assertNativeRead(plan,entry.kind,actual,old.baseline.repos.nested.sha);assertDiscoveryOutput(plan,entry,record,old.baseline);o.outputs.set(item.id,record);}
+  return {old,pause,observer:o,pending:payload};
+}
+export function assertResumeLive(input,resume,snapshot,state){
+  const result=verifyResumeCheckpoint(input,resume);assert.deepEqual(state,result.old.baseline,'resume-state-changed');assert.deepEqual(snapshot,{parent:result.pause.parent,workers:result.pause.workers},'resume-native-history-changed');return result;
+}
+function assertResumeBinding(plan,receipt){
+  const input={...plan};delete input._graph;const {old,pause}=verifyResumeCheckpoint(input,receipt.resume);
+  assert.deepEqual(receipt.baseline,old.baseline);assert.equal(receipt.startedAt,old.startedAt);assert.deepEqual(receipt.approvals.slice(0,old.approvals.length),old.approvals,'resume-approval-prefix-changed');assert.deepEqual(receipt.outputs.slice(0,old.outputs.length),old.outputs,'resume-output-prefix-changed');assert.deepEqual(receipt.resume.snapshot,{parent:pause.parent,workers:pause.workers});assert.deepEqual(receipt.resume.state,old.baseline);assert.ok(Number.isFinite(Date.parse(receipt.resume.resumedAt))&&Date.parse(receipt.resume.resumedAt)>=Date.parse(pause.observedAt));
+  for(const p of [pause.parent,...pause.workers]){const final=one([receipt.parent,...receipt.workers].filter(x=>x.thread.id===p.thread.id),'resumed-thread-missing');for(const key of ['messages','runs'])for(const row of p[key]){const next=one(final[key].filter(x=>x.id===row.id),'resumed-history-missing');if(key==='messages')assert.deepEqual(next,row,'resumed-message-changed');else for(const f of ['id','threadId','userMessageId','requestedAt','startedAt'])assert.deepEqual(next[f],row[f],'resumed-run-identity-changed');}}
+}
 
 export {PENDING, SETTLED, GIT};
