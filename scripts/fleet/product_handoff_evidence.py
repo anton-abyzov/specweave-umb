@@ -680,7 +680,40 @@ def product_release(root):
             and len(record["hosts"]) == 3, "three release host readbacks required")
     for item in record["hosts"]:
         observed = runtime(evidence, item["readback"], item["host"], released=True)
-        require(observed["installedFromArtifactSha256"] == record["artifact"]["sha256"], "installed artifact mismatch")
+        if observed["kind"] == "released-worker-service":
+            archive = published_runtime_archive(evidence, record["runtimeArchive"], built)
+            raw = evidence.json(observed["serviceReadback"])
+            require(observed["installedFromArchiveSha256"] == raw["archiveSha256"] == archive["sha256"],
+                    "installed worker archive differs from public release")
+        else:
+            require(observed["installedFromArtifactSha256"] == record["artifact"]["sha256"], "installed artifact mismatch")
+
+
+def published_runtime_archive(evidence, record, built):
+    """Bind the worker archive separately from the desktop download."""
+    artifact = record["artifact"]
+    path = evidence.path(artifact)
+    binding = evidence.json(record["buildBinding"])
+    owner = evidence.json(built["ownerReceipt"])
+    require(binding["verified"] is True and binding["sourceCommit"] == evidence.candidate["sourceCommit"]
+            and binding["buildReceiptSha256"] == built["ownerReceipt"]["sha256"]
+            and owner["source"] == evidence.candidate["sourceCommit"] and owner["sourceUnchanged"] is True
+            and owner["exitCode"] == 0, "runtime archive not bound to candidate build")
+    require(binding["sha256"] == artifact["sha256"] and binding["archive"] == path.name
+            and type(binding["bytes"]) is int and binding["bytes"] == path.stat().st_size > 0,
+            "runtime archive bytes differ from build binding")
+    fingerprint = binding["serverDistFingerprint"]
+    require(fingerprint == owner["serverDistFingerprint"] and HEX64.fullmatch(fingerprint["sha256"])
+            and type(fingerprint["files"]) is int and fingerprint["files"] > 0
+            and time_value(binding["completedAt"]) >= time_value(built["finishedAt"]),
+            "runtime archive differs from built server")
+    published = evidence.json(record["publication"])
+    require(published["sourceCommit"] == evidence.candidate["sourceCommit"]
+            and published["version"] == evidence.candidate["version"]
+            and published["artifactSha256"] == artifact["sha256"]
+            and published["downloadedArtifact"] == artifact and published["url"].startswith("https://"),
+            "public runtime archive download/readback missing")
+    return artifact
 
 
 def runtime(evidence, reference, host, released=False):
@@ -692,10 +725,13 @@ def runtime(evidence, reference, host, released=False):
     require(server["sourceCommit"] == evidence.candidate["sourceCommit"]
             and server["version"] == observed["version"], "server source/version differs from candidate")
     require(server["environmentId"] == observed["environmentId"], "server environment mismatch")
-    require(observed["kind"] == ("released-native-app" if released else "transfer-service"),
+    worker_release = released and observed["kind"] == "released-worker-service"
+    require(observed["kind"] == ("released-native-app" if released else "transfer-service") or worker_release,
             "wrong runtime evidence kind for phase")
+    require(not worker_release or (host in HOSTS and "serviceReadback" in observed),
+            "released worker role requires remote service proof")
     if "serviceReadback" in observed:
-        require(not released and host in HOSTS and "wrapperReadback" not in observed
+        require((not released or worker_release) and host in HOSTS and "wrapperReadback" not in observed
                 and "appReadback" not in observed, "worker service proof cannot replace native UI or released app proof")
         client = evidence.json(observed["clientReadback"])
         require(client["sourceCommit"] == evidence.candidate["sourceCommit"]

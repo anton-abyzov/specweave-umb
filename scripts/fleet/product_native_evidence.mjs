@@ -459,13 +459,25 @@ export function observe(observer,p,parent) {
     }
   }
 }
+function syntheticMcpApprovalParent(p,row) {
+  if(row.kind!=='approval_request')return false;
+  const native={driver:'codex',nativeId:'mcp-elicitation:studio-code',strength:'strong'};
+  assert.deepEqual(row.nativeItemRef,native,'synthetic-approval-native-binding');
+  assert.equal(row.parentNodeId,'node:provider:codex:native-item:'+encodeURIComponent(native.nativeId),'synthetic-approval-parent-binding');
+  const request=one(p.runtimeRequests.filter(r=>r.id===row.runtimeRequestId),'synthetic-approval-request-missing');
+  assert.equal(request.nodeId,row.id);assert.equal(request.providerTurnId,row.providerTurnId);assert.equal(request.kind,'mcp-elicitation');assert.deepEqual(request.nativeRequestRef,native);
+  const display=one(p.turnItems.filter(t=>t.type==='approval_request'&&t.requestId===request.id),'synthetic-approval-display-missing');
+  for(const key of ['threadId','runId','nodeId','providerTurnId'])assert.equal(display[key],key==='nodeId'?row.id:row[key],'synthetic-approval-display-binding');
+  assert.deepEqual(display.nativeItemRef,native);assert.equal(display.appName,'studio-code');assert.equal(display.requestKind,'mcp-elicitation');
+  return true;
+}
 export function assertProjectionBindings(p) {
   const by=(field)=>{const rows=p[field]??[],map=new Map(rows.map(x=>[x.id,x]));assert.equal(map.size,rows.length,'duplicate-'+field+'-record');return map;};
   const runs=by('runs'),turns=by('providerTurns'),nodes=by('nodes'),attempts=by('attempts');
   const maps={runId:runs,providerTurnId:turns,nodeId:nodes,parentNodeId:nodes,rootNodeId:nodes,runAttemptId:attempts};
   for(const field of ['runs','providerTurns','attempts','turnItems','nodes','runtimeRequests','messages','subagents'])for(const row of p[field]??[]){
     if(row.threadId!=null)assert.equal(row.threadId,p.thread.id,'foreign-'+field+'-thread');
-    for(const [key,map]of Object.entries(maps))if(row[key]!=null){assert.ok(map.has(row[key]),'foreign-'+field+'-'+key);const target=map.get(row[key]);if(row.runId!=null&&target.runId!=null)assert.equal(target.runId,row.runId,'cross-run-'+field+'-'+key);}
+    for(const [key,map]of Object.entries(maps))if(row[key]!=null){if(field==='nodes'&&key==='parentNodeId'&&!map.has(row[key])&&syntheticMcpApprovalParent(p,row))continue;assert.ok(map.has(row[key]),'foreign-'+field+'-'+key);const target=map.get(row[key]);if(row.runId!=null&&target.runId!=null)assert.equal(target.runId,row.runId,'cross-run-'+field+'-'+key);}
     if(row.providerTurnId!=null&&row.runId!=null){const turn=turns.get(row.providerTurnId),attempt=attempts.get(turn.runAttemptId),node=nodes.get(turn.nodeId);for(const owner of [attempt,node].filter(Boolean))assert.equal(owner.runId,row.runId,'foreign-provider-turn-run');}
   }
 }

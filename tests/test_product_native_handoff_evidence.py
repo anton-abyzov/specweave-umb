@@ -394,3 +394,40 @@ class NativeGraphEnvelopeTests(unittest.TestCase):
             output['threadId'] = 'unrelated'
         self.update(change)
         with self.assertRaisesRegex(ValueError, 'native evidence replay failed'): fixtures.V.product_handoff(self.root)
+
+
+class NativeSyntheticApprovalParentTests(unittest.TestCase):
+    def projection(self):
+        native = {'driver': 'codex', 'nativeId': 'mcp-elicitation:studio-code', 'strength': 'strong'}
+        return {'thread': {'id': 'owned'}, 'runs': [{'id': 'run'}], 'providerTurns': [{'id': 'turn'}],
+            'nodes': [{'id': 'approval-node', 'threadId': 'owned', 'runId': 'run', 'providerTurnId': 'turn',
+                'kind': 'approval_request', 'parentNodeId': 'node:provider:codex:native-item:mcp-elicitation%3Astudio-code',
+                'nativeItemRef': native, 'runtimeRequestId': 'request'}],
+            'runtimeRequests': [{'id': 'request', 'nodeId': 'approval-node', 'providerTurnId': 'turn',
+                'kind': 'mcp-elicitation', 'nativeRequestRef': native}],
+            'turnItems': [{'id': 'display', 'type': 'approval_request', 'requestId': 'request',
+                'threadId': 'owned', 'runId': 'run', 'nodeId': 'approval-node', 'providerTurnId': 'turn',
+                'nativeItemRef': native, 'appName': 'studio-code', 'requestKind': 'mcp-elicitation'}]}
+
+    def run_binding(self, value):
+        import subprocess
+        node, env = fixtures.V.node22()
+        module = fixtures.V.RUNNER.with_name('product_native_evidence.mjs').as_uri()
+        script = ('import fs from "node:fs"; import {assertProjectionBindings} from ' + json.dumps(module)
+                  + '; assertProjectionBindings(JSON.parse(fs.readFileSync(0,"utf8")));')
+        return subprocess.run([node, '--input-type=module', '-e', script], input=json.dumps(value),
+                              text=True, capture_output=True, env=env).returncode
+
+    def test_exact_codex_synthetic_approval_parent_is_supported(self):
+        self.assertEqual(self.run_binding(self.projection()), 0)
+
+    def test_missing_parent_exception_cannot_hide_foreign_or_wrong_kind_rows(self):
+        mutations = [lambda p: p['nodes'][0].update(parentNodeId='foreign'),
+            lambda p: p['nodes'][0].update(kind='tool_call'),
+            lambda p: p['turnItems'][0].update(appName='foreign'),
+            lambda p: p['turnItems'][0].update(runId='foreign'),
+            lambda p: p['runtimeRequests'][0].update(nativeRequestRef={'driver': 'codex', 'nativeId': 'foreign', 'strength': 'strong'})]
+        for mutate in mutations:
+            with self.subTest(mutate=mutate):
+                value = self.projection(); mutate(value)
+                self.assertNotEqual(self.run_binding(value), 0)
