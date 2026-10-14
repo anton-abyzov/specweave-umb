@@ -26,3 +26,11 @@ Private source, operation, UI, runtime and native-worker receipts live under `~/
 The released native app and all three managed hosts now use source `9cdc215c4171b441321aea65b4f6c8ba7ee2756c`. Publication, updater and installed-runtime evidence is recorded in `product-release.md`. The 1.0.13 successor evidence set is `0907-113`; the earlier evidence root and every failed route remain historical records.
 
 This release preparation accepts zero of the six routes. The frozen diagnostic source commits above and genuine subsequent source-checkpoint records remain distinct from the product release commit. T-08 still needs the exact six successful operation/native-worker records, context/code transfer proof, final commits, coordinator continuation and before/after preservation under the existing verifier.
+
+## First native 1.0.13 route
+
+The ordinary native picker transferred the SpecWeave root and nested commits, nine retained messages and an isolated checkout from M4 to M1. The destination coordinator ran `specweave pickup` before reading the received context. The verifier rejected that command because it can fetch or apply a different handoff and write session state. This route remains failed; transfer success alone does not satisfy continuation acceptance.
+
+The observer requested interruption, then encountered an asynchronous cleanup race. A fresh readback confirmed the owned run had stopped, with no worker created and one stale context-read request. That exact request was cancelled only after confirming its owning run was terminal. Final readback verified quiescence, temporary-session revocation and preservation of existing sessions/settings. The failed receipt remains unchanged. The M3 picker was closed before confirmation; it performed no transfer.
+
+T-16 tracks the bounded context-first correction with the existing source owner. T-17 requires a new reviewed release candidate. The six-route gate remains open. The updated exact 1.0.13 prompt verifier passed all 341 public verifier tests; no broad command allowance was added.

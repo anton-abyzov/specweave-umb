@@ -1250,7 +1250,12 @@ def product_prompt(operation, context_path, workspace):
             f"The workspace is {workspace}; its repositories are pinned to the exact commits in that file. "
             "Continue through the normal coordinator workflow: delegate the next bounded code-and-test step to a fresh worker "
             "in this workspace, preserving unrelated work. Report actual edits and test evidence. "
-            "Do not repeat already completed work or seed a claimed answer.")
+            "Do not repeat already completed work or seed a claimed answer."
+            " If a user-authorized write is sandbox-blocked and no approval has been denied, "
+            "request only the access needed for that operation through the provider's supported native approval flow. "
+            "Pass this rule to delegated workers. Do not automatically grant access, change permission modes or request broader access. "
+            "If approval is unavailable or explicitly denied, stop and report the blocker; "
+            "do not bypass the restriction or retry the denied operation.")
 
 
 def product_launch(destination, initial, bundle=None):
