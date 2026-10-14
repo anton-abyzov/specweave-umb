@@ -4,7 +4,7 @@
 Resolved failed workers remain in Waiting on you. Empty state groups disappear. The project right panel has fixed columns and no drag handler.
 
 ## Scope
-Local Studio lifecycle grouping, all state headings, persistent right-panel resizing, focused tests and headless browser evidence. No release or live account mutation.
+Studio lifecycle grouping, resolved chat details and reopening, persistent right-panel resizing, focused tests and headless browser evidence. Deployment and a new version were authorized on 2026-10-14; the existing release owner handles publication and installation. Preserve live account data.
 
 ## Acceptance Criteria
 - [ ] AC-01: Resolving a failed or usage-limited worker moves it to Resolved and removes its waiting badge; reopening restores its actionable status. Pending approvals/input and running work remain visible.
