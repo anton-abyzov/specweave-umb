@@ -9,6 +9,7 @@ Native validation executes only the adjacent, reviewed replay runner. Neither
 the index nor a receipt can choose executable validator code.
 """
 import base64
+import ast
 import datetime
 import hashlib
 import json
@@ -224,6 +225,9 @@ def command(evidence, reference):
     if "combinedOutput" in item:
         require("stdout" not in item and "stderr" not in item, "combined output cannot claim separated streams")
         owner = evidence.json(item["ownerReceipt"])
+        if item.get("invocationProvenance") == "retained-r3-source-execution":
+            retained_source_execution(evidence, item, owner)
+            return item, evidence.data(item["combinedOutput"]).decode(), ""
         if item.get("invocationProvenance") in ("derived-from-retained-builder", "derived-from-observed-builder-launch"):
             retained_builder(evidence, item, owner)
         else:
@@ -238,6 +242,77 @@ def command(evidence, reference):
         output = evidence.data(item["stdout"]).decode()
         error = evidence.data(item["stderr"]).decode()
     return item, output, error
+
+
+def retained_source_execution(evidence, item, owner):
+    """Bind observed endedAt/combined-log records without inventing snapshots."""
+    proof = item["executionProof"]
+    common = {"kind", "start", "completionOriginPath", "startOriginPath"}
+    require(proof["kind"] in ("coverage-run", "native-typescript"), "unknown retained source execution")
+    coverage = proof["kind"] == "coverage-run"
+    require(set(proof) == common | ({"producer", "producerOriginPath"} if coverage else set()),
+            "unexpected retained execution references")
+    completed, started = absolute(proof["completionOriginPath"]), absolute(proof["startOriginPath"])
+    require(completed.suffix == ".json" and started == completed.with_name(completed.stem + ".start.json")
+            and item["combinedOutput"]["originPath"] == str(completed.with_suffix(".log")),
+            "retained execution files do not share the actual invocation")
+    start = evidence.json(proof["start"])
+    header = ({"source", "sourceTree", "command", "cwd", "startedAt"} if coverage else
+              {"sourceBefore", "command", "cwd", "startedAt", "compilerSha256", "qualification"})
+    require(set(start) == header and all(owner.get(k) == v for k, v in start.items()),
+            "completion differs from retained start")
+    require(owner["command"] == item["argv"] and owner["cwd"] == item["cwd"]
+            and owner["startedAt"] == item["startedAt"] and owner["endedAt"] == item["finishedAt"]
+            and owner["exitCode"] == 0 and owner["sourceUnchanged"] is True,
+            "retained source command or outcome differs")
+    if coverage:
+        require(set(owner) == header | {"endedAt", "exitCode", "sourceUnchanged", "tests", "passed",
+                                      "failed", "suites", "coverage"}
+                and owner["source"] == item["candidateCommit"] and HEX40.fullmatch(owner["sourceTree"]),
+                "coverage candidate or raw shape differs")
+        report = evidence.json(item["testReport"])
+        require(owner["tests"] == owner["passed"] == report["numTotalTests"] == report["numPassedTests"]
+                and owner["failed"] == report["numFailedTests"] == 0
+                and owner["suites"] == report["numTotalTestSuites"], "coverage report detached from execution")
+        producer_path = absolute(proof["producerOriginPath"])
+        require(producer_path.parent == completed.parent, "coverage producer outside invocation directory")
+        producer = ast.parse(evidence.data(proof["producer"]).decode())
+        constants = {n.targets[0].id: n.value for n in producer.body if isinstance(n, ast.Assign)
+                     and len(n.targets) == 1 and isinstance(n.targets[0], ast.Name)}
+        require(ast.literal_eval(constants["source"]) == item["candidateCommit"]
+                and ast.dump(constants["p"]) == ast.dump(ast.parse("pathlib.Path(" + repr(item["cwd"]) + ")", mode="eval").body),
+                "retained producer source or checkout differs")
+        nodes = [ast.dump(node) for node in producer.body]
+        required = ["assert git('rev-parse','HEAD')==source and not git('status','--porcelain')",
+                    "write(" + repr(started.name) + ",rec)",
+                    "with (r/" + repr(completed.with_suffix('.log').name) + ").open('x') as f: "
+                    "result=subprocess.run(cmd,cwd=p,env=env,stdout=f,stderr=subprocess.STDOUT)",
+                    "rec.update(endedAt=now(),exitCode=result.returncode,"
+                    "sourceUnchanged=git('rev-parse','HEAD')==source and not git('status','--porcelain'))",
+                    "write(" + repr(completed.name) + ",rec)"]
+        expected = [ast.dump(ast.parse(code).body[0]) for code in required]
+        require(all(nodes.count(node) == 1 for node in expected)
+                and [nodes.index(node) for node in expected] == sorted(nodes.index(node) for node in expected),
+                "retained producer lacks ordered top-level execution and observed outcome")
+        output_flags = [a.split("=", 1)[1] for a in item["argv"] if a.startswith("--outputFile=")]
+        require(len(output_flags) == 1 and absolute(output_flags[0]).parent == completed.parent,
+                "coverage report output path differs")
+        require(item["testReportOriginPath"] == output_flags[0], "coverage report origin differs")
+    else:
+        require(set(owner) == header | {"endedAt", "exitCode", "sourceUnchanged", "sourceAfter", "log", "logSha256"},
+                "native TypeScript raw shape differs")
+        before = owner["sourceBefore"]
+        require(set(before) == {"source", "tree", "status"} and before == owner["sourceAfter"]
+                and before["source"] == item["candidateCommit"] and before["status"] == ""
+                and HEX40.fullmatch(before["tree"]), "native TypeScript source changed")
+        executable = str(absolute(item["cwd"]) / "node_modules/.pnpm/@typescript+typescript-darwin-arm64@7.0.2/node_modules/@typescript/typescript-darwin-arm64/lib/tsc")
+        require(item["argv"][0] == executable and item["argv"][1:] in
+                (["--noEmit", "-p", "apps/server/tsconfig.json"], ["--noEmit", "-p", "apps/web/tsconfig.json"])
+                and HEX64.fullmatch(owner["compilerSha256"]), "unexpected actual native TypeScript invocation")
+        require("configured Effect" in owner["qualification"] and "non-green" in owner["qualification"],
+                "configured checker qualification missing")
+        require(owner["log"] == item["combinedOutput"]["originPath"]
+                and owner["logSha256"] == item["combinedOutput"]["sha256"], "native TypeScript log differs")
 
 
 def retained_builder(evidence, command, receipt):
@@ -532,12 +607,15 @@ def external_review_test(evidence, reference, code, review):
         require(config_source.startswith("export default ") and config_source.endswith(";"),
                 "external config must be retained static JSON")
         config_object = decode(config_source[len("export default "):-1])
-        require(set(config_object) == {"test"}, "external config has unreviewed runner overrides")
+        require(set(config_object) in ({"test"}, {"test", "cacheDir"}), "external config has unreviewed runner overrides")
         settings = config_object["test"]
         require(set(settings).issubset({"root", "include", "environment", "testTimeout", "hookTimeout"}),
                 "external config has unreviewed test overrides")
         require(settings["environment"] == "node", "external config environment differs")
         config_root = absolute(settings["root"])
+        if "cacheDir" in config_object:
+            require(absolute(config_object["cacheDir"]) == config_root / "cache",
+                    "external cache must remain inside the actual harness directory")
         configured_paths = {absolute(str(config_root / rel)) for rel in settings["include"]}
         require(configured_paths == {absolute(f["path"]) for f in external["testFiles"]},
                 "external config test inventory differs")
