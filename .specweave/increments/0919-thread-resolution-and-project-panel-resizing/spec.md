@@ -8,7 +8,7 @@ Local Studio lifecycle grouping, all state headings, persistent right-panel resi
 
 ## Acceptance Criteria
 - [ ] AC-01: Resolving a failed or usage-limited worker moves it to Resolved and removes its waiting badge; reopening restores its actionable status. Pending approvals/input and running work remain visible.
-- [ ] AC-02: All five state groups are visible with counts, including empty Resolved.
+- [ ] AC-02: All four state groups are visible with counts, including empty Resolved; legacy archived threads are included in Resolved.
 - [ ] AC-03: Dragging the project divider changes panel width, persists across reload, clamps to available space, and preserves mobile/expanded modes.
 - [ ] AC-04: Focused tests, production web build and headless browser checks pass; manual UI acceptance remains pending.
 
@@ -18,3 +18,8 @@ Owned product worktree /Users/antonabyzov/Projects/github/studio-thread-resoluti
 ## Tasks
 ### T-01 Implement and verify lifecycle and divider
 - AC: AC-01, AC-02, AC-03, AC-04 | Files: /Users/antonabyzov/Projects/github/studio-thread-resolution/apps/web/src/studio/, /Users/antonabyzov/Projects/github/studio-thread-resolution/apps/web/src/components/studio/, /Users/antonabyzov/Projects/github/studio-thread-resolution/apps/web/tests/project-workspace/ | Test: focused lifecycle/shell/workspace tests, web production build and headless resolution-resize-check.mjs
+
+### T-02 Unify legacy resolved history and restore details
+- AC: AC-01, AC-04 | Files: /Users/antonabyzov/Projects/github/studio-resolved-details/apps/web/ | Test: focused lifecycle, shell, header, archived-shell and workspace tests; production web build; headless resolved-details check
+
+Follow-up requested 2026-10-14: legacy archived project threads belong in Resolved with visible status and Reopen. Preserve history and storage; supply the selected archived shell to embedded detail reads, with live shells authoritative. Reopen clears both legacy archival and settlement. Isolated successor branch codex/resolved-details from 90f900a58; previous owner checkout remains untouched. Manual acceptance remains pending.
