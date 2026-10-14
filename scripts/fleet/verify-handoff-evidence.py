@@ -303,5 +303,7 @@ if __name__ == "__main__":
         phases = product.PHASES
     for name, check in phases.items():
         if args.phase in (name, "all", "product-all"):
-            check(args.evidence)
+            qualification = check(args.evidence)
             print(f"{name}: passed")
+            if qualification is not None:
+                print(json.dumps(qualification, sort_keys=True))
