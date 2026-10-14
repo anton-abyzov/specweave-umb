@@ -23,6 +23,6 @@ Private source, operation, UI, runtime and native-worker receipts live under `~/
 
 ## Release continuity — 1.0.13
 
-The released native app and all three managed hosts now use source `9cdc215c4171b441321aea65b4f6c8ba7ee2756c`. Publication, updater and installed-runtime evidence is recorded in `product-release.md`. The 1.0.13 successor evidence root is `/Volumes/SanDisk APFS/SpecWithCodeReleases/0907-113`; the earlier evidence root and every failed route remain historical records.
+The released native app and all three managed hosts now use source `9cdc215c4171b441321aea65b4f6c8ba7ee2756c`. Publication, updater and installed-runtime evidence is recorded in `product-release.md`. The 1.0.13 successor evidence set is `0907-113`; the earlier evidence root and every failed route remain historical records.
 
 This release preparation accepts zero of the six routes. The frozen diagnostic source commits above and genuine subsequent source-checkpoint records remain distinct from the product release commit. T-08 still needs the exact six successful operation/native-worker records, context/code transfer proof, final commits, coordinator continuation and before/after preservation under the existing verifier.

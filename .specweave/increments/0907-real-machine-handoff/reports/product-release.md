@@ -10,12 +10,12 @@ The final source owner retained 466 passing tests across 15 files, eight release
 
 The desktop build completed successfully before its private fingerprint writer encountered a generated client symlink. The approved recovery preserved that symlink and materialized byte-equivalent output without rebuilding or changing desktop artifacts. Original build-time guards are labeled admission-derived; recovery snapshots are measured separately. Native-update auth-session changes are preserved and qualified; only the later managed-service comparison is proven heartbeat-only.
 
-Private evidence root: `/Volumes/SanDisk APFS/SpecWithCodeReleases/0907-113`. The successor manifest is `evidence/final0907-preparation/release-evidence-manifest.json`; the proposed aggregate index is `evidence/final0907-preparation/product-evidence-index.proposed.json` (SHA-256 `6ee2ae075df34244fb7bd17e20807ccc6c83d77e342837a3465c0d18b7d99b68`). The historical 1.0.11 index and failed route records remain unchanged.
+Private evidence set: `0907-113`. The successor manifest is `evidence/final0907-preparation/release-evidence-manifest.json`; the proposed aggregate index is `evidence/final0907-preparation/product-evidence-index.proposed.json` (SHA-256 `6ee2ae075df34244fb7bd17e20807ccc6c83d77e342837a3465c0d18b7d99b68`). The historical 1.0.11 index and failed route records remain unchanged.
 
 The release owner installed the successor as `product-evidence-index.json` at that evidence root and ran the unchanged T-07 command:
 
 ```sh
-python3 scripts/fleet/verify-handoff-evidence.py --phase product-release --evidence '/Volumes/SanDisk APFS/SpecWithCodeReleases/0907-113'
+python3 scripts/fleet/verify-handoff-evidence.py --phase product-release --evidence "$EVIDENCE_ROOT"
 ```
 
 The unchanged product-code, product-review and product-release gates all passed. The retained aggregate receipt is `evidence/final0907-preparation/aggregate-gates/receipt.json` (SHA-256 `2e6a15c70c0188560a403eb395f2fdb9125614c5d6b5c534536eabc843664688`). T-08 remains zero of six; no native route or increment closure is claimed here.
