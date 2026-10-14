@@ -459,7 +459,7 @@ class NativeReadDiscoveryReplayTests(unittest.TestCase):
           const o={response:{output:b.repos.root.sha+"\\n"+b.repos.nested.sha+"\\n"},readState:b};
           M.assertDiscoveryOutput(p,e,o,b); o.response.output="forged\\n";
           assert.throws(()=>M.assertDiscoveryOutput(p,e,o,b));
-          const changed=structuredClone(b); changed.repos.nested.branch=p.branch;
+          const changed=structuredClone(b); changed.repos.nested.branch="codex/foreign";
           assert.throws(()=>M.assertLocalMutation(p,e.kind,changed,b,[]));
           for(const suffix of ["git push","cat .env","git status; touch bad","git -C /foreign rev-parse HEAD"])
             assert.throws(()=>M.classifyCommand(p,"git rev-parse HEAD\\n"+suffix,"worker"));
@@ -493,3 +493,324 @@ class NativeReadDiscoveryReplayTests(unittest.TestCase):
           item.output=p.originalShas.nested+"\\n"; out.response=structuredClone(item);
           out.sha256=M.sha256(JSON.stringify(item));
           assert.throws(()=>M.verifyReceipt(p,r),/post-commit-final-head-stale/);''', self.data())
+
+
+class NativeRawPathAndBatchRegressionTests(unittest.TestCase):
+    """Pure observer regressions ported from reviewed private suites; invented data only."""
+    data = NativeReadDiscoveryReplayTests.data
+
+    def run_ported(self, body):
+        import subprocess
+        node, env = fixtures.V.node22()
+        module = fixtures.V.RUNNER.with_name('product_native_evidence.mjs').as_uri()
+        script = ('import fs from "node:fs"; import assert from "node:assert/strict"; '
+                  'import {relative} from "node:path"; import * as M from ' + json.dumps(module)
+                  + '; const x=JSON.parse(fs.readFileSync(0,"utf8")); '
+                  + 'const {classifyCommand,sha256,assertFileReadBatchSnapshot,assertFileReadBatchOutput,'
+                  'assertWorkerReadsBeforeEdit,makeObserver,verifyReceipt,approvalPayload,assertLocalMutation,'
+                  'assertDiscoveryOutput,assertMetadataBatchState}=M; '
+                  + 'const cases=[]; const test=(name,run)=>{try { const result=run(); '
+                  'assert.ok(!result?.then,"pure synchronous cases only"); cases.push(name); '
+                  '} catch(error) {throw new Error(name+": "+error.stack);}}; '
+                  + body + '; console.log(JSON.stringify(cases));')
+        result = subprocess.run([node, '--input-type=module', '-e', script],
+                                input=json.dumps(self.data()), text=True, capture_output=True, env=env)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        cases = json.loads(result.stdout)
+        self.assertTrue(cases)
+        self.assertEqual(len(cases), len(set(cases)))
+
+    def test_raw_parent_path_boundaries(self):
+        self.run_ported(r'''
+const p={...x.plan,_graph:true};
+const q=s=>"'"+s.replaceAll("'","'\\''")+"'";
+const parentAlias=path=>path.replace(/\/([^/]+)$/, '/link/../$1');
+const forbidden=[
+  ['instruction-cat', `cat ${q(p.workspaceRoot+'/link/../AGENTS.md')}`],
+  ['fixture-cat', `cat ${q(parentAlias(p.paths.implementation))}`],
+  ['relative-cat', 'cat link/../AGENTS.md'],
+  ['cd', `cd ${q(p.workspaceRoot+'/link/..')} && git rev-parse HEAD`],
+  ['git-C', `git -C ${q(p.nestedRoot+'/link/..')} rev-parse HEAD`],
+  ['node-test', `${q(p.nodePath)} --test ${q(parentAlias(p.paths.test))}`],
+  ['git-diff', `git -C ${q(p.nestedRoot)} diff -- ${q(parentAlias(p.paths.implementation))}`],
+  ['git-add', `git -C ${q(p.nestedRoot)} add -- ${q(parentAlias(p.paths.implementation))}`],
+  ['git-batch', `git -C ${q(p.workspaceRoot)} rev-parse HEAD\ngit -C ${q(p.nestedRoot+'/link/..')} status --porcelain=v1`],
+  ['wrapped', `/bin/zsh -lc ${q('cat '+q(p.workspaceRoot+'/link/../AGENTS.md'))}`],
+  ['quoted-component', `cat ${q(p.workspaceRoot)}'/link/'".."'/AGENTS.md'`],
+];
+for(const [name,input] of forbidden)test('refuse raw parent traversal: '+name,()=>assert.throws(()=>classifyCommand(p,input,'worker'),/raw-parent-path-segment-refused/));
+for(const [name,input,kind]of [
+  ['instruction',`cat ${q(p.workspaceRoot+'/AGENTS.md')}`,'instructions-root'],
+  ['instruction-dot','cat ./AGENTS.md','instructions-root'],
+  ['context',`cat ${q(p.paths.context)}`,'read-context'],
+  ['test',`cd ${q(p.nestedRoot)} && ${q(p.nodePath)} --test ${q(p.paths.test)}`,'test'],
+  ['git',`git -C ${q(p.nestedRoot)} rev-parse HEAD`,'git-final-head'],
+])test('preserve intended command: '+name,()=>assert.equal(classifyCommand(p,input,'worker').kind,kind));
+''')
+
+    def test_exact_multifile_read_evidence(self):
+        self.run_ported(r'''
+const clone=structuredClone,q=s=>"'"+s.replaceAll("'","'\\''")+"'";
+const keys=['implementation','test','readme','continuation','context'];
+const frozenBody='frozen fixture body\n';
+function fixture(){const f={p:structuredClone(x.plan),receipt:structuredClone(x.receipt)};return {...f,plan:{...f.p,_graph:true}};}
+const command=(p,ks=keys.slice(0,3))=>'/bin/cat '+ks.map(k=>q(p.paths[k])).join(' ');
+const snapshots=(p,ks=keys.slice(0,3),bodies={})=>ks.map(key=>{const data=Buffer.from(bodies[key]??frozenBody);return {key,path:p.paths[key],size:data.length,sha256:sha256(data),base64:data.toString('base64')};});
+function record(p,ks=keys.slice(0,3)){const input=command(p,ks);return {threadId:'worker',role:'worker',kind:'file-read-batch',input,readFiles:snapshots(p,ks),readState:{files:Object.fromEntries(keys.map(k=>[k,{path:p.paths[k],sha256:p.frozen[k]}]))},response:{status:'completed',exitCode:0,output:frozenBody.repeat(ks.length),completedAt:'2026-10-13T12:00:14Z'}};}
+for(const count of [2,3,4,5])test('cat accepts '+count+' exact unique frozen files',()=>{const {plan:p}=fixture(),ks=keys.slice(0,count);for(const role of ['worker','coordinator'])for(const cmd of [command(p,ks),`cd ${q(p.nestedRoot)} && cat ${ks.map(k=>q(relative(p.nestedRoot,p.paths[k]))).join(' ')}`,`/bin/zsh -lc ${q(command(p,ks))}`]){if(cmd.includes('..'))continue;const entry=classifyCommand(p,cmd,role);assert.equal(entry.kind,'file-read-batch');assert.deepEqual(entry.parts.map(e=>e.kind),ks.map(k=>'read-'+k));assertFileReadBatchOutput(p,entry,record(p,ks));}});
+for(const [name,make]of Object.entries({duplicate:p=>command(p,['implementation','implementation']),duplicateAlias:p=>command(p,['implementation'])+' '+q(p.paths.implementation.replace('/case.mjs','/./case.mjs')),six:p=>command(p,keys)+' '+q(p.paths.implementation),foreign:p=>command(p,['implementation'])+' /etc/hosts',instructions:p=>command(p,['implementation'])+' '+q(p.workspaceRoot+'/AGENTS.md'),flag:p=>'/bin/cat -n '+keys.slice(0,2).map(k=>q(p.paths[k])).join(' '),flagEnd:p=>command(p)+' --',chain:p=>command(p)+' && git status',semicolon:p=>command(p)+'; touch bad',substitution:p=>command(p)+' $(whoami)',rawParent:p=>command(p,['implementation'])+' '+q(p.paths.test.replace('/case.check.mjs','/link/../case.check.mjs')),quotedParent:p=>command(p,['implementation'])+' '+q(p.nestedRoot)+"'/link/'\"..\"'/case.check.mjs'",newline:p=>command(p)+'\n'+command(p)}))test('multi-cat refuses '+name,()=>{const {plan:p}=fixture();assert.throws(()=>classifyCommand(p,make(p),'worker'));});
+test('legacy and source grammar stay single-file only',()=>{const {p}=fixture();assert.throws(()=>classifyCommand(p,command(p),'worker'));assert.throws(()=>classifyCommand({...p,mode:'source'},command(p),'worker'));});
+for(const [name,change]of Object.entries({missing:o=>o.readFiles.pop(),extra:o=>o.readFiles.push(clone(o.readFiles[0])),reordered:o=>o.readFiles.reverse(),foreignPath:o=>o.readFiles[0].path='/etc/hosts',wrongKey:o=>o.readFiles[0].key='context',forgedHash:o=>o.readFiles[0].sha256='f'.repeat(64),changedBytes:o=>o.readFiles[0].base64=Buffer.from('changed').toString('base64'),noncanonicalBase64:o=>o.readFiles[0].base64+='\n',missingSize:o=>delete o.readFiles[0].size,wrongSize:o=>o.readFiles[0].size++,oversize:o=>o.readFiles[0].size=2097152,extraKey:o=>o.readFiles[0].pretend=true,truncated:o=>o.response.output=o.response.output.slice(0,-1),extraOutput:o=>o.response.output+='forged',nonzero:o=>o.response.exitCode=1,failed:o=>o.response.status='failed'}))test('complete retained batch validation rejects '+name,()=>{const {plan:p}=fixture(),o=record(p),entry=classifyCommand(p,o.input,o.role);change(o);assert.throws(()=>assertFileReadBatchOutput(p,entry,o));});
+test('byte boundaries bind varied content and ordering including empty/non-newline files',()=>{const {plan:p}=fixture(),bodies={implementation:'first',test:'',readme:'third\n'};for(const key of Object.keys(bodies))p.frozen[key]=sha256(bodies[key]);const o=record(p);o.readFiles=snapshots(p,keys.slice(0,3),bodies);o.response.output='firstthird\n';const e=classifyCommand(p,o.input,'worker');assertFileReadBatchOutput(p,e,o);o.readFiles.reverse();assert.throws(()=>assertFileReadBatchOutput(p,e,o));});
+test('invalid UTF8 cannot masquerade as complete original bytes',()=>{const {plan:p}=fixture(),o=record(p),bytes=Buffer.from([255]);p.frozen.implementation=sha256(bytes);o.readState.files.implementation.sha256=sha256(bytes);Object.assign(o.readFiles[0],{size:1,sha256:sha256(bytes),base64:bytes.toString('base64')});o.response.output='�'+frozenBody.repeat(2);assert.throws(()=>assertFileReadBatchOutput(p,classifyCommand(p,o.input,'worker'),o),/output-bytes/);});
+test('each batch file counts only for its actual worker before its edit',()=>{const {plan:p}=fixture(),o=makeObserver(p),r=record(p,keys);o.outputs.set('batch',r);const edit={threadId:'worker',startedAt:'2026-10-13T12:00:17Z'};assertWorkerReadsBeforeEdit(p,o,edit);r.threadId='prerequisite-worker';assert.throws(()=>assertWorkerReadsBeforeEdit(p,o,edit),/worker-frozen-read/);r.threadId='worker';r.response.completedAt='2026-10-13T12:00:18Z';assert.throws(()=>assertWorkerReadsBeforeEdit(p,o,edit),/worker-frozen-read/);r.response.completedAt='2026-10-13T12:00:14Z';r.readFiles[0].sha256='f'.repeat(64);assert.throws(()=>assertWorkerReadsBeforeEdit(p,o,edit));});
+function batchReceipt(ks=keys.slice(0,3)){const f=fixture(),r=f.receipt,w=r.workers[0],remove=w.turnItems.filter(i=>i.type==='command_execution'&&ks.some(k=>classifyCommand(f.plan,i.input,'worker').kind==='read-'+k));const item=clone(remove[0]);Object.assign(item,{id:'batch-read',input:command(f.plan,ks),output:frozenBody.repeat(ks.length),nativeItemRef:{driver:'codex',strength:'strong',nativeId:'batch-native'}});w.turnItems=w.turnItems.filter(i=>!remove.some(old=>old.id===i.id));w.turnItems.push(item);r.outputs=r.outputs.filter(o=>!remove.some(old=>old.id===o.itemId));const a=clone(r.approvals.find(a=>a.kind==='branch'));Object.assign(a,{requestId:'batch-request',itemId:item.id,kind:'file-read-batch',readFiles:snapshots(f.plan,ks),readState:clone(r.baseline)});Object.assign(a.payload.request,{id:a.requestId,nativeRequestRef:clone(item.nativeItemRef)});a.payload.action={...clone(item),status:'waiting'};Object.assign(a.payload.approval,{id:'batch-approval',requestId:a.requestId,prompt:item.input});a.payloadSha256=sha256(JSON.stringify(a.payload));w.runtimeRequests.push({...clone(a.payload.request),status:'resolved',decision:'accept'});w.turnItems.push({...clone(a.payload.approval),status:'completed'});r.approvals.push(a);r.outputs.push({...record(f.plan,ks),itemId:item.id,runId:item.runId,response:clone(item),sha256:sha256(JSON.stringify(item))});return f;}
+test('pure final replay accepts real batch relationships without inventing individual commands',()=>{const f=batchReceipt();assert.equal(verifyReceipt(f.p,f.receipt).verified,true);assert.equal(f.receipt.outputs.filter(o=>o.kind==='file-read-batch').length,1);});
+for(const [name,change]of Object.entries({missingApproval:r=>r.approvals.pop(),approvalBytes:r=>r.approvals.at(-1).readFiles[0].base64+='AA',outputBytes:r=>r.outputs.at(-1).readFiles[0].base64+='AA',forgedOutput:r=>{r.outputs.at(-1).response.output+='forged';r.outputs.at(-1).sha256=sha256(JSON.stringify(r.outputs.at(-1).response));},missingFile:r=>r.outputs.at(-1).readFiles.pop(),lateRead:r=>{const i=r.workers[0].turnItems.find(i=>i.id==='batch-read');i.completedAt='2026-10-13T12:00:18Z';const o=r.outputs.at(-1);o.response=clone(i);o.sha256=sha256(JSON.stringify(i));}}))test('final batch replay rejects '+name,()=>{const f=batchReceipt();change(f.receipt);assert.throws(()=>verifyReceipt(f.p,f.receipt));});
+test('all five files may share one actual cat, including retained context',()=>{const f=batchReceipt(keys);assert.equal(verifyReceipt(f.p,f.receipt).verified,true);});
+test('post-edit implementation reread is exact current state but cannot earn original-read credit',()=>{const {plan:p}=fixture(),o=record(p,keys),bytes=Buffer.from('legitimate edited implementation\n');Object.assign(o.readFiles[0],{size:bytes.length,sha256:sha256(bytes),base64:bytes.toString('base64')});o.readState.files.implementation.sha256=sha256(bytes);o.response.output=bytes.toString('utf8')+frozenBody.repeat(4);assertFileReadBatchOutput(p,classifyCommand(p,o.input,'worker'),o);const observer=makeObserver(p);observer.outputs.set('post-edit-read',o);assert.throws(()=>assertWorkerReadsBeforeEdit(p,observer,{threadId:'worker',startedAt:'2026-10-13T12:00:17Z'}),/before-edit-implementation/);o.readState.files.implementation.sha256=p.frozen.implementation;assert.throws(()=>assertFileReadBatchOutput(p,classifyCommand(p,o.input,'worker'),o),/state-hash/);});
+test('final replay retains a later changed implementation batch separately from original reads',()=>{const f=batchReceipt(),r=f.receipt,w=r.workers[0],oldApproval=r.approvals.at(-1),a=clone(oldApproval),o=clone(r.outputs.at(-1)),bytes=Buffer.from('edited implementation\n');r.after.files.implementation.sha256=sha256(bytes);r.testRecords[0].implementationSha256=sha256(bytes);const state=clone(r.baseline);state.repos.nested.branch=f.p.branch;state.files.implementation.sha256=sha256(bytes);const files=clone(a.readFiles);Object.assign(files[0],{size:bytes.length,sha256:sha256(bytes),base64:bytes.toString('base64')});a.itemId='reread-batch';a.requestId='reread-request';a.readFiles=files;a.readState=state;a.payload.request.id=a.requestId;a.payload.request.nativeRequestRef.nativeId='reread-native';Object.assign(a.payload.action,{id:a.itemId,nativeItemRef:clone(a.payload.request.nativeRequestRef),startedAt:'2026-10-13T12:00:18Z',completedAt:'2026-10-13T12:00:19Z',updatedAt:'2026-10-13T12:00:19Z',output:bytes.toString('utf8')+frozenBody.repeat(2)});Object.assign(a.payload.approval,{id:'reread-display',requestId:a.requestId});a.payloadSha256=sha256(JSON.stringify(a.payload));const item={...clone(a.payload.action),status:'completed'};w.turnItems.push(item,{...clone(a.payload.approval),status:'completed'});w.runtimeRequests.push({...clone(a.payload.request),status:'resolved',decision:'accept'});Object.assign(o,{itemId:a.itemId,readFiles:clone(files),readState:clone(state),response:clone(item),sha256:sha256(JSON.stringify(item))});r.approvals.push(a);r.outputs.push(o);assert.equal(verifyReceipt(f.p,r).verified,true);r.outputs=r.outputs.filter(x=>x.itemId!=='batch-read');assert.throws(()=>verifyReceipt(f.p,r));});
+''')
+
+    def test_metadata_states_and_head_provenance(self):
+        self.run_ported(r'''
+const clone=structuredClone;
+const q=s=>"'"+s.replaceAll("'","'\\''")+"'";
+function fixture(){const f={p:structuredClone(x.plan),receipt:structuredClone(x.receipt)};return {...f,plan:{...f.p,_graph:true}};}
+const command=(p,head='rev-parse HEAD')=>`git -C ${q(p.nestedRoot)} ${head}\ngit -C ${q(p.nestedRoot)} status --porcelain=v1`;
+function states(f){
+  const original=clone(f.receipt.baseline),owned=clone(original),edited=clone(original),staged=clone(original),both=clone(original),committed=clone(f.receipt.after);
+  const path=relative(f.p.nestedRoot,f.p.paths.implementation);
+  for(const s of [owned,edited,staged,both])s.repos.nested.branch=f.p.branch;
+  for(const [s,status]of [[edited,' M '],[staged,'M  '],[both,'MM ']]){s.repos.nested.status=status+path;s.files.implementation.sha256=f.receipt.after.files.implementation.sha256;}
+  return {original,owned,edited,staged,both,committed};
+}
+function output(state,withPath=false){return (withPath?state.repos.nested.path+'\n':'')+state.repos.nested.sha+'\n'+(state.repos.nested.status?state.repos.nested.status+'\n':'');}
+for(const name of ['original','owned','edited','staged','both','committed'])test('metadata batch accepts exact '+name+' state',()=>{
+  const f=fixture(),state=states(f)[name];
+  assertLocalMutation(f.plan,'git-read-batch',state,f.receipt.baseline,[]);
+  for(const head of ['rev-parse HEAD','rev-parse --show-toplevel HEAD']){
+    const entry=classifyCommand(f.plan,command(f.p,head),'worker');
+    const record={readState:state,response:{output:output(state,head.includes('toplevel'))}};
+    assertDiscoveryOutput(f.plan,entry,record,f.receipt.baseline);
+    record.response.output+='unexpected\n';
+    assert.throws(()=>assertDiscoveryOutput(f.plan,entry,record,f.receipt.baseline),/native-git-batch-output/);
+  }
+});
+for(const [name,change]of Object.entries({
+  foreignBranch:s=>s.repos.nested.branch='codex/foreign',
+  rootHead:s=>s.repos.root.sha='f'.repeat(40),
+  rootBranch:s=>s.repos.root.branch='foreign',
+  rootDirty:s=>s.repos.root.status=' M file',
+  rootPath:s=>s.repos.root.path='/foreign',
+  nestedPath:s=>s.repos.nested.path='/foreign',
+  rootConfig:s=>s.repos.root.configSha256='f'.repeat(64),
+  nestedConfig:s=>s.repos.nested.configSha256='f'.repeat(64),
+  testChanged:s=>s.files.test.sha256='f'.repeat(64),
+  contextChanged:s=>s.files.context.sha256='f'.repeat(64),
+  implementationPath:s=>s.files.implementation.path='/foreign',
+  invalidImplementationHash:s=>s.files.implementation.sha256='not-hash',
+  invalidHead:s=>s.repos.nested.sha='not-sha',
+  foreignDirty:s=>s.repos.nested.status=' M foreign-file',
+  multipleDirty:s=>s.repos.nested.status+='\n M foreign',
+  newFile:s=>s.repos.nested.status='?? case.mjs',
+  deletedFile:s=>s.repos.nested.status=s.repos.nested.status.replace(' M ',' D '),
+}))test('metadata batch rejects '+name,()=>{
+  const f=fixture(),state=states(f).edited;change(state);
+  assert.throws(()=>assertLocalMutation(f.plan,'git-read-batch',state,f.receipt.baseline,[]));
+  const entry=classifyCommand(f.plan,command(f.p),'worker');
+  assert.throws(()=>assertDiscoveryOutput(f.plan,entry,{readState:state,response:{output:output(state)}},f.receipt.baseline));
+});
+for(const [name,stateKey,change]of [
+  ['original branch changed head','original',s=>s.repos.nested.sha='f'.repeat(40)],
+  ['original branch dirty','original',s=>s.repos.nested.status=' M diagnostic/case.mjs'],
+  ['original branch changed bytes','original',s=>s.files.implementation.sha256='f'.repeat(64)],
+  ['clean original head changed bytes','owned',s=>s.files.implementation.sha256='f'.repeat(64)],
+  ['postcommit dirty','committed',s=>s.repos.nested.status=' M diagnostic/case.mjs'],
+])test('metadata phase rejects '+name,()=>{
+  const f=fixture(),state=states(f)[stateKey];change(state);
+  assert.throws(()=>assertMetadataBatchState(f.plan,state,f.receipt.baseline));
+});
+function replaceHead(f,kind,readState,withPath=false){
+  const r=f.receipt,w=r.workers[0],item=w.turnItems.find(i=>i.type==='command_execution'&&classifyCommand(f.plan,i.input,'worker').kind===kind);
+  assert.ok(item);item.input=command(f.p,withPath?'rev-parse --show-toplevel HEAD':'rev-parse HEAD');item.output=output(readState,withPath);
+  const record=r.outputs.find(o=>o.itemId===item.id);
+  Object.assign(record,{kind:'git-read-batch',input:item.input,response:clone(item),sha256:sha256(JSON.stringify(item)),readState:clone(readState),origins:{}});
+  return {item,record};
+}
+for(const withPath of [false,true])test('native postcommit batch proves final SHA'+(withPath?' with path':''),()=>{
+  const f=fixture();replaceHead(f,'git-final-head',f.receipt.after,withPath);
+  assert.equal(verifyReceipt(f.p,f.receipt).verified,true);
+});
+for(const stateKey of ['original','owned','edited','staged'])test('initial nested HEAD credit requires actual original SHA in '+stateKey+' batch',()=>{
+  const f=fixture();replaceHead(f,'git-nested-head',states(f)[stateKey]);
+  assert.equal(verifyReceipt(f.p,f.receipt).verified,true);
+});
+test('a final-SHA batch cannot substitute for original nested HEAD discovery',()=>{
+  const f=fixture();replaceHead(f,'git-nested-head',f.receipt.after);
+  assert.throws(()=>verifyReceipt(f.p,f.receipt),/required-editor-native-output-missing-git-nested-head/);
+});
+test('removing initial discovery still fails despite genuine postcommit HEAD batch',()=>{
+  const f=fixture(),w=f.receipt.workers[0];replaceHead(f,'git-final-head',f.receipt.after);
+  const initial=w.turnItems.find(i=>i.type==='command_execution'&&classifyCommand(f.plan,i.input,'worker').kind==='git-nested-head');
+  w.turnItems=w.turnItems.filter(i=>i!==initial);f.receipt.outputs=f.receipt.outputs.filter(o=>o.itemId!==initial.id);
+  assert.throws(()=>verifyReceipt(f.p,f.receipt),/required-editor-native-output-missing-git-nested-head/);
+});
+test('postcommit batch with stale original SHA is not final proof',()=>{
+  const f=fixture();replaceHead(f,'git-final-head',states(f).owned);
+  assert.throws(()=>verifyReceipt(f.p,f.receipt),/post-commit-final-head-stale/);
+});
+for(const time of ['2026-10-13T12:00:25Z','invalid'])test('final batch must start after completed native commit: '+time,()=>{
+  const f=fixture(),{item,record}=replaceHead(f,'git-final-head',f.receipt.after);
+  item.startedAt=time;record.response=clone(item);record.sha256=sha256(JSON.stringify(item));
+  assert.throws(()=>verifyReceipt(f.p,f.receipt),/one-final-head-read-required/);
+});
+test('batch cannot mismatch recorded current SHA and native output',()=>{
+  const f=fixture(),{item,record}=replaceHead(f,'git-final-head',f.receipt.after);
+  item.output=f.p.originalShas.nested+'\n';record.response=clone(item);record.sha256=sha256(JSON.stringify(item));
+  assert.throws(()=>verifyReceipt(f.p,f.receipt),/native-git-batch-output-mismatch/);
+});
+test('postcommit batch state with another clean commit cannot stand in for final commit',()=>{
+  const f=fixture(),state=clone(f.receipt.after);state.repos.nested.sha='f'.repeat(40);replaceHead(f,'git-final-head',state);
+  assert.throws(()=>verifyReceipt(f.p,f.receipt),/post-commit-final-head-stale/);
+});
+''')
+
+
+class NativeBranchDenialReplayTests(unittest.TestCase):
+    """Invented no-effect denials; successful native branch evidence remains mandatory."""
+    data = NativeReadDiscoveryReplayTests.data
+    invoke = NativeReadDiscoveryReplayTests.invoke
+    SETUP = r'''
+const clone=structuredClone,at=n=>`2026-10-13T12:00:${String(n).padStart(2,'0')}Z`;
+const p={...x.plan,_graph:true},r=x.receipt,w=r.workers[0];
+const success=r.approvals.find(a=>a.kind==='branch'),branch=w.turnItems.find(i=>i.id===success.itemId);
+const commonDir='/invented/fleet/specweave/.git',refName='refs/heads/'+p.branch;
+const before={state:clone(r.baseline),git:{gitDir:commonDir+'/worktrees/invented',commonDir,
+  refName,refPath:commonDir+'/'+refName,refValue:'',refExists:false}};
+const item={...clone(branch),id:'invented-denied-branch',status:'failed',exitCode:128,
+  nativeItemRef:{driver:'codex',strength:'strong',nativeId:'invented-denied-native'},
+  startedAt:at(13),completedAt:at(14),updatedAt:at(14),
+  output:`fatal: cannot lock ref '${refName}': unable to create directory for ${before.git.refPath}\n`};
+const a=clone(success);Object.assign(a,{itemId:item.id,requestId:'invented-denied-request',branchBefore:clone(before)});
+Object.assign(a.payload.request,{id:a.requestId,nativeRequestRef:clone(item.nativeItemRef)});
+Object.assign(a.payload.approval,{id:'invented-denied-display',requestId:a.requestId,prompt:item.input});
+a.payload.action={...clone(item),status:'waiting',exitCode:undefined,output:undefined,completedAt:undefined};
+a.payloadSha256=M.sha256(JSON.stringify(a.payload));success.branchBefore=clone(before);
+const output={threadId:item.threadId,itemId:item.id,runId:item.runId,role:'worker',kind:'branch',
+  input:item.input,response:clone(item),nativeResponse:{item:clone(item)},
+  sha256:M.sha256(JSON.stringify(item)),branchAfter:clone(before)};
+r.approvals.push(a);r.outputs.push(output);w.turnItems.push(item,{...clone(a.payload.approval),status:'completed'});
+w.runtimeRequests.push({...clone(a.payload.request),status:'resolved',decision:'accept'});
+function observer(){const o=M.makeObserver(p);for(const approval of r.approvals)o.approved.set(approval.itemId,approval.payloadSha256);return o;}
+function rehash(o){o.sha256=M.sha256(JSON.stringify(o.response));o.nativeResponse={item:clone(o.response)};}
+'''
+
+    def test_one_denial_and_one_scoped_success_replay_with_both_outputs_retained(self):
+        self.invoke(self.SETUP + r'''
+M.verifyReceipt(x.plan,r);assert.equal(r.outputs.filter(o=>o.kind==='branch').length,2);
+for(const kind of ['branch','add','commit'])assert.throws(()=>M.assertCommandResult(p,kind,{status:'failed',exitCode:128}));
+''', self.data())
+
+    def test_error_bytes_state_ref_and_ownership_are_bound(self):
+        self.invoke(self.SETUP + r'''
+const changes=[o=>o.response.output+='extra\n',o=>o.response.output=o.response.output.trimEnd(),
+  o=>o.response.output=o.response.output.replace('/invented/fleet','/foreign'),
+  o=>o.response.output='fatal: branch already exists\n',o=>o.response.exitCode=1,
+  o=>o.threadId='foreign',o=>o.runId='foreign',o=>o.input+=' --force',
+  o=>o.branchAfter.state.files.implementation.sha256='f'.repeat(64),
+  o=>o.branchAfter.state.files.test.sha256='f'.repeat(64),
+  o=>o.branchAfter.state.repos.nested.sha='f'.repeat(40),
+  o=>o.branchAfter.state.repos.nested.branch=p.branch,
+  o=>o.branchAfter.state.repos.root.branch='foreign',
+  o=>o.branchAfter.state.repos.nested.configSha256='f'.repeat(64),
+  o=>o.branchAfter.git.commonDir='/foreign',o=>o.branchAfter.git.gitDir+='/foreign',
+  o=>o.branchAfter.git.refPath+='/foreign',o=>o.branchAfter.git.refPath+='/../target',
+  o=>o.branchAfter.git.refValue='foreign-ref',o=>o.branchAfter.git.refExists=true,
+  o=>o.response.completedAt='invalid',o=>o.response.completedAt=at(12)];
+for(const change of changes){const bad=clone(output);change(bad);rehash(bad);
+  assert.throws(()=>M.registerBranchDenial(observer(),bad,a,r.baseline));
+  const receipt=clone(r);receipt.outputs[receipt.outputs.length-1]=bad;
+  assert.throws(()=>M.verifyReceipt(x.plan,receipt));}
+for(const field of ['sha256','nativeResponse','branchAfter']){const bad=clone(output);delete bad[field];assert.throws(()=>M.registerBranchDenial(observer(),bad,a,r.baseline));}
+assert.throws(()=>M.registerBranchDenial(M.makeObserver(p),output,a,r.baseline));
+''', self.data())
+
+    def test_retry_is_identical_owned_later_and_single(self):
+        self.invoke(self.SETUP + r'''
+const o=observer();M.registerBranchDenial(o,output,a,r.baseline);M.assertBranchRetry(o,branch,before);
+for(const change of [i=>i.id=item.id,i=>i.threadId='foreign',i=>i.runId='foreign',
+  i=>i.providerTurnId='foreign',i=>i.input+=' ',i=>i.startedAt=at(13),
+  i=>i.startedAt='invalid',i=>i.nativeItemRef.nativeId=item.nativeItemRef.nativeId,
+  i=>i.nativeItemRef.strength='weak']){const bad=clone(branch);change(bad);assert.throws(()=>M.assertBranchRetry(o,bad,before));}
+const changed=clone(before);changed.state.repos.nested.status=' M foreign';assert.throws(()=>M.assertBranchRetry(o,branch,changed));
+assert.throws(()=>M.registerBranchDenial(o,output,a,r.baseline),/second-branch-denial/);
+w.turnItems.push({...clone(branch),id:'third-branch',status:'waiting'});
+assert.throws(()=>M.observe(o,w,r.parent),/duplicate-git-mutation/);
+''', self.data())
+
+    def test_denied_branch_cannot_supply_completion_or_success_chronology(self):
+        self.invoke(self.SETUP + r'''
+const missing=clone(r),mw=missing.workers[0];
+mw.turnItems=mw.turnItems.filter(i=>i.id!==branch.id&&i.requestId!==success.requestId);
+mw.runtimeRequests=mw.runtimeRequests.filter(q=>q.id!==success.requestId);
+missing.approvals=missing.approvals.filter(a=>a.itemId!==branch.id);
+missing.outputs=missing.outputs.filter(o=>o.itemId!==branch.id);
+assert.throws(()=>M.verifyReceipt(x.plan,missing),/required-editor-native-output-missing-branch/);
+branch.completedAt=at(20);const committed=r.outputs.find(o=>o.itemId===branch.id);
+committed.response=clone(branch);committed.sha256=M.sha256(JSON.stringify(branch));
+assert.throws(()=>M.verifyReceipt(x.plan,r),/edit-before-owned-branch/);
+''', self.data())
+
+
+class NativeOutputProofReplayTests(unittest.TestCase):
+    """Invented metadata and raw envelopes; no operational receipts are published."""
+    data = NativeReadDiscoveryReplayTests.data
+    invoke = NativeReadDiscoveryReplayTests.invoke
+
+    def test_detached_branch_empty_stdout_is_state_bound(self):
+        self.invoke(r'''
+const p={...x.plan,_graph:true},r=x.receipt;
+r.baseline.repos.root.branch='';r.baseline.repos.nested.branch='';
+for(const kind of ['git-root-branch','git-nested-branch']){
+  const entry=M.buildCommandPolicy(p).find(e=>e.kind===kind&&e.role==='worker');
+  const item={id:'invented-empty',threadId:'worker',runId:'child-run',providerTurnId:'child-turn',
+    type:'command_execution',input:entry.command,status:'completed',exitCode:0,output:null};
+  const output={response:item,readState:structuredClone(r.baseline)};
+  assert.equal(M.assertRetainedItem(item,{item},kind).output,null);
+  M.assertDiscoveryOutput(p,entry,output,r.baseline);
+  for(const value of [undefined,'foreign\n']){const changed={...item,output:value};
+    assert.throws(()=>{M.assertRetainedItem(item,{item:changed},kind);
+      M.assertDiscoveryOutput(p,entry,{...output,response:changed},r.baseline);});}
+  assert.throws(()=>M.assertRetainedItem(item,{item:{...item,outputOmitted:true}},kind));
+  for(const other of ['read-test','read-context','read-implementation','test','git-root-head','git-final-head','branch','commit'])
+    assert.throws(()=>M.assertRetainedItem(item,{item},other));
+}
+''', self.data())
+
+    def test_branch_output_cannot_disagree_with_owned_state(self):
+        self.invoke(r'''
+const p={...x.plan,_graph:true},r=x.receipt,entry=M.buildCommandPolicy(p).find(e=>e.kind==='git-nested-branch');
+const output={response:{output:p.branch+'\n'},readState:structuredClone(r.baseline)};
+output.readState.repos.nested.branch=p.branch;
+M.assertDiscoveryOutput(p,entry,output,r.baseline);
+assert.throws(()=>M.assertDiscoveryOutput(p,entry,{...output,response:{output:null}},r.baseline));
+for(const change of [s=>s.repos.nested.branch='foreign',s=>s.repos.root.sha='f'.repeat(40),
+  s=>s.repos.nested.configSha256='f'.repeat(64),s=>s.files.test.sha256='f'.repeat(64),
+  s=>s.repos.nested.status=' M unrelated']){const bad=structuredClone(output);change(bad.readState);
+  assert.throws(()=>M.assertDiscoveryOutput(p,entry,bad,r.baseline));}
+''', self.data())
+
+    def test_raw_envelopes_bind_to_projection_and_credited_outputs(self):
+        self.invoke(r'''
+const r=x.receipt,items=[r.parent,...r.workers].flatMap(p=>p.turnItems).filter(i=>i.type==='command_execution');
+r.retainedItems=r.outputs.map(o=>({threadId:o.threadId,itemId:o.itemId,
+  projectionItem:structuredClone(items.find(i=>i.id===o.itemId)),nativeResponse:{item:structuredClone(o.response)},
+  sha256:M.sha256(JSON.stringify({item:o.response}))}));
+M.verifyReceipt(x.plan,r);
+for(const change of [r=>r.retainedItems.pop(),r=>r.retainedItems.push(structuredClone(r.retainedItems[0])),
+  r=>r.retainedItems[0].sha256='f'.repeat(64),r=>r.retainedItems[0].threadId='foreign',
+  r=>r.retainedItems[0].projectionItem.runId='foreign',r=>r.retainedItems[0].nativeResponse.item.output+='x',
+  r=>r.retainedItems[0].fetchFailure={message:'missing'}]){const bad=structuredClone(r);change(bad);
+  assert.throws(()=>M.verifyReceipt(x.plan,bad));}
+''', self.data())
