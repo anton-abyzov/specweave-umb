@@ -180,6 +180,20 @@ class CheckpointTests(unittest.TestCase):
         refs[0]=f.ref(self.root,refs[0]['path'],preserved)
         with self.assertRaises(ValueError): f.V.preservation(self.evidence(),refs,{'sw-easychamp':report})
 
+    def test_cleanup_cannot_be_relabelled_as_verified_published_merge(self):
+        self.advance['kind'] = 'source-checkpoint-published-baseline-merge'
+        with self.assertRaisesRegex(ValueError, 'source checkpoint advance replay failed'):
+            self.replay()
+        self.advance.update(priorCleanup={'sha256': '0' * 64, 'base64': 'e30='},
+                            published={'sha256': '0' * 64, 'base64': 'e30='}, ownership={})
+        with self.assertRaisesRegex(ValueError, 'source checkpoint advance replay failed'):
+            self.replay()
+
+    def test_unknown_checkpoint_kind_cannot_dispatch_legacy_proof(self):
+        self.advance['kind'] = 'arbitrary-source-advance'
+        with self.assertRaisesRegex(ValueError, 'source checkpoint advance replay failed'):
+            self.replay()
+
 
 if __name__ == '__main__':
     unittest.main()

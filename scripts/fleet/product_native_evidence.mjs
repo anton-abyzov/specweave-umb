@@ -11,6 +11,7 @@ const UUID = /^[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-
 const PENDING = new Set(['idle', 'pending', 'queued', 'preparing', 'starting', 'running', 'waiting']);
 const SETTLED = new Set(['acknowledged', 'delivered', 'disposed']);
 const ARRAY_FIELDS = ['runs','providerTurns','attempts','turnItems','nodes','subagents','runtimeRequests','messages','plans','checkpointScopes','checkpoints','contextHandoffs','contextTransfers'];
+const SHARED_GIT_KINDS=new Set(['branch','add','commit','diff','git-final-head']);
 const GIT = '/Library/Developer/CommandLineTools/usr/bin/git';
 const q = s => "'" + s.replaceAll("'", "'\\''") + "'";
 const requireObject = x => assert.ok(x && typeof x === 'object' && !Array.isArray(x), 'object-required');
@@ -21,7 +22,7 @@ const abs = p => { assert.equal(typeof p, 'string'); assert.ok(isAbsolute(p) && 
 const below = (root, path) => { const r = relative(root, path); assert.ok(r && !r.startsWith('../') && r !== '..' && !isAbsolute(r), 'path-outside-owned-root'); return r; };
 
 export function validatePlan(p) {
-  requireObject(p); assert.equal(p.version, 1); assert.ok(['m4','m1','m3'].includes(p.host));
+  requireObject(p); assert.ok(!Object.hasOwn(p,'_graph'),'reserved-internal-plan-key'); assert.equal(p.version, 1); assert.ok(['m4','m1','m3'].includes(p.host));
   assert.ok(['source','destination'].includes(p.mode));
   for (const k of ['environmentId','projectId','coordinatorId']) assert.ok(typeof p[k] === 'string' && p[k].length > 0);
   assert.equal(p.coordinatorId, 'project-coordinator:' + p.projectId);
@@ -79,8 +80,9 @@ export function buildCommandPolicy(p) {
   }
   for (const key of ['implementation','test','readme','continuation', ...(p.mode === 'destination' ? ['context'] : [])]) {
     add('worker','read-' + key,['/bin/cat',p.paths[key]], true);
-    if (key === 'context') add('coordinator','read-' + key,['/bin/cat',p.paths[key]], true);
+    if (key === 'context'||p._graph) add('coordinator','read-' + key,['/bin/cat',p.paths[key]], false);
   }
+  add('worker','node-version',[p.nodePath,'--version']);
   add('worker','test',['cd',p.nestedRoot,'&&',p.nodePath,'--test',p.paths.test],true);
   if (p.mode === 'destination') {
     const rel = relative(p.nestedRoot,p.paths.implementation);
@@ -91,6 +93,7 @@ export function buildCommandPolicy(p) {
     add('worker','commit',[GIT,'-c','core.hooksPath=/dev/null','-c','commit.gpgSign=false','-C',p.nestedRoot,'commit','-m',p.commitMessage,'--',rel],true);
     add('worker','git-final-head',[GIT,'--no-optional-locks','-C',p.nestedRoot,'rev-parse','HEAD'],true);
   }
+  if(p.mode==='destination')for(const entry of entries.filter(e=>SHARED_GIT_KINDS.has(e.kind)))entries.push({...entry,role:'coordinator',required:false});
   return entries;
 }
 export function classifyCommand(plan, input, role) {
@@ -102,6 +105,8 @@ export function classifyCommand(plan, input, role) {
   assert.ok(!words.includes('&&'),'multiple-shell-commands-refused');
   if (['cat','/bin/cat','/usr/bin/cat'].includes(words[0])) {
     assert.equal(words.length,2); words = ['/bin/cat',resolve(cwd,words[1])];
+  } else if (words[0] === plan.nodePath && words.length===2 && words[1]==='--version') {
+    words=[plan.nodePath,'--version'];
   } else if (words[0] === plan.nodePath) {
     const args=[];let reporters=0;for(let i=1;i<words.length;i++) {
       if(words[i]==='--test-reporter=tap'){assert.ok(args.length<2,'reporter-must-precede-test-path');reporters++;continue;}
@@ -202,6 +207,7 @@ export function assertParentOwnership(plan,parent) {
   const first = firstRuns[0], msg = one(parent.messages.filter(m => m.id === first.userMessageId),'start-message-required');
   if (plan.mode === 'source') assert.equal(msg.id,plan.startMessageId,'source-start-message-mismatch');
   else includesAll(msg.text,[`Continue handoff ${plan.operationId}.`,plan.paths.context,plan.workspaceRoot],'product-start-context-mismatch');
+  if(plan._graph){assertGraphOwnership(plan,parent);return first;}
   assert.ok(parent.subagents.length <= 1,'extra-child-before-ownership');
   for (const child of parent.subagents) { assert.equal(child.origin,'app_owned'); assert.equal(child.runId,first.id,'child-not-owned-by-start'); }
   for (const run of parent.runs.filter(r => r.id !== first.id)) assertAutomaticWake(parent,one(parent.subagents,'wake-needs-owned-child'),run.id);
@@ -210,7 +216,7 @@ export function assertParentOwnership(plan,parent) {
 export function assertMcp(plan, parent, item, worker = null) {
   const op = toolOperation(item), x = item.input; requireObject(x);
   assert.ok(['orchestrator_capabilities','studio_thread_list','delegate_task','task_status','studio_thread_read'].includes(op),'unexpected-mcp-tool');
-  const tools = parent.turnItems.filter(i => i.type === 'dynamic_tool');
+  const tools = parent.turnItems.filter(i => i.type === 'dynamic_tool'&&(!plan._graph||i.runId===item.runId));
   assert.ok(tools.filter(i => toolOperation(i) === op).length <= 1,'duplicate-mcp-operation');
   if (op === 'orchestrator_capabilities') { exactKeys(x,[]); return; }
   if (op === 'studio_thread_list') {
@@ -224,25 +230,23 @@ export function assertMcp(plan, parent, item, worker = null) {
     return;
   }
   if (op === 'delegate_task') {
-    exactKeys(x,['task','target','title','mode','clientRequestId','runtimeMode','machine']);
-    assert.equal(x.mode,'async'); assert.equal(x.machine,'local'); assert.equal(x.runtimeMode,'approval-required');
+    exactKeys(x,['task','target','title','mode','clientRequestId','runtimeMode','machine','role','interactionMode']);
+    if(x.mode!==undefined)assert.equal(x.mode,'async');
+    if(x.machine!==undefined)assert.equal(x.machine,'local');
+    if(x.runtimeMode!==undefined)assert.ok(['inherit','approval-required'].includes(x.runtimeMode),'delegation-runtime-mode-refused');
+    if(x.interactionMode!==undefined)assert.ok(x.interactionMode==='inherit'||x.interactionMode===parent.thread.interactionMode,'delegation-interaction-mode-refused');
+    if(x.role!==undefined)assert.ok(['implementation','research','review','design','test','general'].includes(x.role),'delegation-role-refused');
     if (x.target !== undefined) assert.deepEqual(x.target,{providerInstanceId:plan.profile.worker.instanceId,model:plan.profile.worker.model});
-    assert.ok(typeof x.clientRequestId === 'string' && x.clientRequestId.length > 0 && x.clientRequestId.length < 200);
-    assert.ok(typeof x.title === 'string' && x.title.length > 0 && x.title.length < 200);
-    assert.ok(typeof x.task === 'string' && x.task.length < 40000);
-    includesAll(x.task,plan.contextRequired,'delegation-context-incomplete');
-    const fullPaths=[plan.nestedRoot,plan.paths.implementation,plan.paths.test];
-    if (!fullPaths.every(path=>x.task.includes(path))) {
-      includesAll(x.task,[plan.workspaceRoot,relative(plan.workspaceRoot,plan.paths.implementation)],'delegation-context-incomplete');
-      assert.equal(dirname(plan.paths.test),dirname(plan.paths.implementation),'delegation-test-directory-mismatch');
-      const testPath=relative(plan.workspaceRoot,plan.paths.test),name=basename(plan.paths.test);
-      const tokens=x.task.split(/[\s`"'(),;:]+/);
-      assert.ok(x.task.includes(plan.paths.test)||x.task.includes(testPath)||tokens.includes(name),'delegation-test-context-incomplete');
-    }
+    if(x.clientRequestId!==undefined)assert.ok(typeof x.clientRequestId === 'string' && x.clientRequestId.length > 0 && x.clientRequestId.length < 200);
+    if(x.title!==undefined)assert.ok(typeof x.title === 'string' && x.title.length > 0 && x.title.length < 200);
+    assert.ok(typeof x.task === 'string' && x.task.trim().length > 0 && x.task.length < 40000);
+    if(plan.mode==='source')includesAll(x.task,plan.contextRequired,'delegation-context-incomplete');
+    // Delegation prose is context, not an executable path specification.
+    // Actual workspace, reads, edits and commit scope are validated separately.
     return;
   }
   assert.equal(tools.filter(i => ['task_status','studio_thread_read'].includes(toolOperation(i))).length,1,'result-polling-refused');
-  const task = one(parent.subagents.filter(s => s.origin === 'app_owned'),'owned-child-required');
+  const task = one(parent.subagents.filter(s => s.origin === 'app_owned'&&(!plan._graph||(op==='task_status'?s.id===x.taskId:s.childThreadId===x.threadId))),'owned-child-required');
   assert.equal(task.status,'completed');
   if (op === 'task_status') { exactKeys(x,['taskId']); assert.equal(x.taskId,task.id); }
   else {
@@ -296,6 +300,7 @@ export function assertDelegationRouting(plan, routing) {
   requireObject(routing);exactKeys(routing,['projectId','workspaceRoot','coordinatorThreadId','defaultModelSelection','workerMachine','autoResume']);
   assert.deepEqual(routing,delegationRouting(plan,{id:routing.projectId,workspaceRoot:routing.workspaceRoot,defaultModelSelection:routing.defaultModelSelection},{settings:{coordinatorThreadId:routing.coordinatorThreadId,workerMachine:routing.workerMachine,autoResume:routing.autoResume}}),'delegation-routing-incomplete');
 }
+export function needsDelegationRouting(action) { return action.type==='dynamic_tool' && toolOperation(action)==='delegate_task' && (action.input.target===undefined||action.input.machine===undefined||action.input.runtimeMode===undefined||action.input.runtimeMode==='inherit'||action.input.role!==undefined||action.input.interactionMode!==undefined||action.input.mode===undefined); }
 export function approvalPayload(plan, projection, parent, requestId, worker = null, routing = null) {
   assert.equal(projection.thread.projectId,plan.projectId);
   const req = one(projection.runtimeRequests.filter(r => r.id === requestId),'request-not-found');
@@ -309,7 +314,7 @@ export function approvalPayload(plan, projection, parent, requestId, worker = nu
     action = one(projection.turnItems.filter(i => i.type === 'dynamic_tool' && i.providerTurnId === req.providerTurnId && PENDING.has(i.status)),'ambiguous-mcp-action');
     assertMcp(plan,parent,action,worker); assert.equal(approval.appName,'studio-code');
     assert.equal(approval.prompt,`Allow the studio-code MCP server to run tool "${toolOperation(action)}"?`);
-    if (toolOperation(action) === 'delegate_task') assert.equal(parent.subagents.length,0,'child-already-created');
+    if (toolOperation(action) === 'delegate_task') {if(plan._graph){assert.ok(parent.subagents.length<3,'worker-budget-exceeded');assert.ok(parent.subagents.every(s=>s.status==='completed'&&['claimed','delivered','acknowledged'].includes(s.completionDelivery?.state)),'previous-worker-not-settled');}else assert.equal(parent.subagents.length,0,'child-already-created');}
   } else {
     assert.ok(['command','file-change'].includes(req.kind),'unsupported-request-kind');
     assert.ok(req.nativeRequestRef?.nativeId && req.nativeRequestRef.driver === 'codex' && req.nativeRequestRef.strength === 'strong','native-action-binding-required');
@@ -319,8 +324,8 @@ export function approvalPayload(plan, projection, parent, requestId, worker = nu
     else { assert.ok(!coordinator,'coordinator-cannot-edit'); assert.equal(approval.grantRoot,null,'file-write-grant-must-be-explicitly-absent'); assertFileChange(plan,action); }
   }
   assert.equal(action.runId,approval.runId); assert.equal(action.providerTurnId,req.providerTurnId);
-  const inherited = action.type==='dynamic_tool' && toolOperation(action)==='delegate_task' && action.input.target===undefined;
-  if(inherited)assertDelegationRouting(plan,routing);
+  const inherited = needsDelegationRouting(action);
+  if(inherited){assertDelegationRouting(plan,routing);assert.equal(parent.thread.id,plan.coordinatorId);assert.equal(parent.thread.projectId,plan.projectId);assert.equal(parent.thread.runtimeMode,'approval-required');assert.ok(parent.thread.worktreePath==null||parent.thread.worktreePath===plan.workspaceRoot);assert.deepEqual({instanceId:parent.thread.modelSelection.instanceId,model:parent.thread.modelSelection.model},plan.profile.coordinator);}
   return {threadId:projection.thread.id,request:req,approval,action,...(inherited?{delegationRouting:routing}:{})};
 }
 
@@ -332,7 +337,8 @@ export function assertRetainedItem(projectionItem, response, kind = null) {
   if (typeof item.output === 'string') assert.ok(!item.output.includes('… output truncated for transport'),'retained-output-truncated'); return item;
 }
 export function assertNativeRead(plan,kind,item,finalHead = null) {
-  if (kind.startsWith('read-')) assert.equal(sha256(item.output),plan.frozen[kind.slice(5)],'frozen-native-read-output-mismatch');
+  if(kind==='node-version')assert.match(item.output.trim(),/^v22\.\d+\.\d+$/,'node22-version-output-required');
+  if (kind.startsWith('read-')&&!(plan._graph&&kind==='read-implementation')) assert.equal(sha256(item.output),plan.frozen[kind.slice(5)],'frozen-native-read-output-mismatch');
   if (kind === 'git-root-head' || kind === 'git-nested-head') {
     const key = kind === 'git-root-head' ? 'root' : 'nested', path = key === 'root' ? plan.workspaceRoot : plan.nestedRoot;
     assert.equal(item.output.trimEnd(),path + '\n' + plan.originalShas[key],'native-git-path-or-head-mismatch');
@@ -352,7 +358,7 @@ export function assertTap(item, count, mode) {
   return {tests:count,pass:value('pass'),fail:value('fail'),exitCode:item.exitCode};
 }
 export function assertCommandResult(plan,kind,item) {
-  assert.ok(item.status==='completed'||(plan.mode==='source'&&kind==='test'&&item.status==='failed'&&item.exitCode===1),'unexpected-command-status');
+  assert.ok(item.status==='completed'||((plan.mode==='source'||plan._graph)&&kind==='test'&&item.status==='failed'&&item.exitCode===1),'unexpected-command-status');
   if(kind!=='test')assert.equal(item.exitCode,0,'native-command-failed');
 }
 
@@ -363,6 +369,16 @@ export function assertInitialState(plan,state) {
   assertFrozen(plan,state); assert.equal(state.files.implementation.sha256,plan.frozen.implementation);
   for (const key of ['root','nested']) { assert.equal(state.repos[key].sha,plan.originalShas[key]); assert.equal(state.repos[key].status,'','initial-checkout-dirty'); }
 }
+
+export function assertWorkerReadsBeforeEdit(plan,observer,edit,owningThreadId=edit.threadId) {
+  if(plan.mode!=='destination')return;
+  assert.ok(typeof owningThreadId==='string'&&owningThreadId&&owningThreadId!==plan.coordinatorId,'editing-worker-identity-required');if(edit.threadId!==undefined)assert.equal(edit.threadId,owningThreadId,'editing-worker-identity-mismatch');
+  for(const key of ['context','continuation','implementation','readme','test']) {
+    const reads=[...observer.outputs.values()].filter(o=>o.role==='worker'&&o.threadId===owningThreadId&&o.kind==='read-'+key&&sha256(o.response.output)===plan.frozen[key]);
+    assert.ok(reads.some(o=>Number.isFinite(Date.parse(o.response.completedAt))&&Number.isFinite(Date.parse(edit.startedAt))&&Date.parse(o.response.completedAt)<=Date.parse(edit.startedAt)),'worker-frozen-read-required-before-edit-'+key);
+  }
+}
+
 export function assertLocalMutation(plan,kind,state,baseline,testRecords) {
   assertFrozen(plan,state);
   assert.equal(state.repos.root.sha,baseline.repos.root.sha); assert.equal(state.repos.root.status,'','umbrella-changed');
@@ -408,22 +424,27 @@ export function observe(observer,p,parent) {
   assert.deepEqual({instanceId:p.thread.modelSelection.instanceId,model:p.thread.modelSelection.model},plan.profile[coordinator ? 'coordinator' : 'worker']);
   observer.threads.add(p.thread.id); for (const r of p.runs) observer.runs.add(r.id);
   for (const t of p.providerTurns ?? []) observer.turns.add(t.id); for (const a of p.attempts ?? []) observer.attempts.add(a.id);
-  assert.ok(observer.threads.size <= 2 && observer.runs.size <= 3 && observer.turns.size <= 3 && observer.attempts.size <= 3,'native-budget-exceeded');
+  assert.ok(observer.threads.size <= (plan._graph?4:2) && observer.runs.size <= (plan._graph?7:3) && observer.turns.size <= (plan._graph?7:3) && observer.attempts.size <= (plan._graph?7:3),'native-budget-exceeded');
   assert.ok(p.runs.every(r => !['failed','interrupted','cancelled'].includes(r.status)),'native-run-failed');
-  assert.ok((p.subagents ?? []).length <= (coordinator ? 1 : 0),'extra-native-worker');
+  assert.ok((p.subagents ?? []).length <= (coordinator ? (plan._graph?3:1) : 0),'extra-native-worker');
   assert.ok((p.subagents ?? []).every(s => s.origin === 'app_owned' && s.childThreadId),'provider-subagent-refused');
   assert.ok(!(p.nodes ?? []).some(n => n.kind === 'hook'),'unexpected-hook');
   for (const item of p.turnItems ?? []) {
     assert.ok(!['web_search','file_search','user_input_request','error'].includes(item.type),'unapproved-native-operation');
     if (item.type === 'dynamic_tool') {
-      assert.ok(coordinator,'worker-mcp-refused'); assertMcp(plan,parent,item);
+      if(coordinator)assertMcp(plan,parent,item);
+      else {
+        assert.equal(toolOperation(item),'orchestrator_capabilities','worker-mcp-refused');
+        assert.deepEqual(item.input,{},'worker-capabilities-empty-input-required');
+        assert.equal(p.turnItems.filter(i=>i.type==='dynamic_tool').length,1,'duplicate-worker-capabilities-read');
+      }
       const h = sha256(JSON.stringify({toolName:item.toolName,input:item.input})); assert.ok(!observer.tools.has(item.id) || observer.tools.get(item.id) === h,'mcp-input-changed'); observer.tools.set(item.id,h);
     }
     if (item.type === 'command_execution') {
       const entry = classifyCommand(plan,item.input,coordinator ? 'coordinator' : 'worker');
       assert.ok(!observer.commands.has(item.id) || observer.commands.get(item.id).input === item.input,'command-input-changed');
       observer.commands.set(item.id,{...entry,input:item.input}); assert.ok(observer.commands.size <= 40,'command-budget-exceeded');
-      if (coordinator) assert.equal([...observer.commands.values()].filter(x => x.role === 'coordinator').length,1,'coordinator-context-read-once');
+      if (coordinator) assert.ok([...observer.commands.values()].filter(x => x.role === 'coordinator'&&x.kind==='read-context').length<=1,'coordinator-context-read-once');
       if (entry.kind === 'test') assert.ok([...observer.commands.values()].filter(x => x.kind === 'test').length <= (plan.mode === 'source' ? 1 : 4),'test-command-budget-exceeded');
       if (['branch','add','commit'].includes(entry.kind)) {
         assert.equal([...observer.commands.values()].filter(x => x.kind === entry.kind).length,1,'duplicate-git-mutation');
@@ -438,19 +459,89 @@ export function observe(observer,p,parent) {
     }
   }
 }
+export function assertProjectionBindings(p) {
+  const by=(field)=>{const rows=p[field]??[],map=new Map(rows.map(x=>[x.id,x]));assert.equal(map.size,rows.length,'duplicate-'+field+'-record');return map;};
+  const runs=by('runs'),turns=by('providerTurns'),nodes=by('nodes'),attempts=by('attempts');
+  const maps={runId:runs,providerTurnId:turns,nodeId:nodes,parentNodeId:nodes,rootNodeId:nodes,runAttemptId:attempts};
+  for(const field of ['runs','providerTurns','attempts','turnItems','nodes','runtimeRequests','messages','subagents'])for(const row of p[field]??[]){
+    if(row.threadId!=null)assert.equal(row.threadId,p.thread.id,'foreign-'+field+'-thread');
+    for(const [key,map]of Object.entries(maps))if(row[key]!=null){assert.ok(map.has(row[key]),'foreign-'+field+'-'+key);const target=map.get(row[key]);if(row.runId!=null&&target.runId!=null)assert.equal(target.runId,row.runId,'cross-run-'+field+'-'+key);}
+    if(row.providerTurnId!=null&&row.runId!=null){const turn=turns.get(row.providerTurnId),attempt=attempts.get(turn.runAttemptId),node=nodes.get(turn.nodeId);for(const owner of [attempt,node].filter(Boolean))assert.equal(owner.runId,row.runId,'foreign-provider-turn-run');}
+  }
+}
+export function assertGraphOwnership(plan,parent,workers=null) {
+  assert.equal(parent.thread.id,plan.coordinatorId);assert.equal(parent.thread.projectId,plan.projectId);assertProjectionBindings(parent);
+  const firstRuns=parent.runs.filter(r=>!parent.messages.find(m=>m.id===r.userMessageId)?.delegatedCompletion);
+  assert.ok(firstRuns.length<=1,'unrelated-new-coordinator-run');
+  if(!firstRuns.length){assert.equal(parent.runs.length,0);assert.equal(parent.subagents.length,0);return null;}
+  const first=firstRuns[0],msg=one(parent.messages.filter(m=>m.id===first.userMessageId),'start-message-required');
+  includesAll(msg.text,[`Continue handoff ${plan.operationId}.`,plan.paths.context,plan.workspaceRoot],'product-start-context-mismatch');
+  assert.ok(parent.subagents.length<=3,'worker-budget-exceeded');
+  const childIds=new Set(),parentRuns=new Set();
+  for(const task of parent.subagents){
+    assert.equal(task.origin,'app_owned');assert.equal(task.threadId,parent.thread.id);assert.equal(task.createdBy,'agent');
+    assert.ok(task.childThreadId&&!childIds.has(task.childThreadId),'duplicate-or-missing-worker');childIds.add(task.childThreadId);assert.ok(!parentRuns.has(task.runId),'parallel-child-delegation-refused');parentRuns.add(task.runId);one(parent.runs.filter(r=>r.id===task.runId),'delegating-run-missing');
+    const delegated=one(parent.turnItems.filter(i=>i.type==='dynamic_tool'&&toolOperation(i)==='delegate_task'&&i.runId===task.runId),'task-delegation-tool-missing');
+    const input=delegated.input,expected=input.role===undefined||input.role==='general'?input.task:`Act as the ${input.role} sub-agent for this task.\n\n${input.task}`;assert.equal(task.prompt,expected,'delegated-prompt-changed');
+    assert.ok(Number.isFinite(Date.parse(task.startedAt))&&Number.isFinite(Date.parse(delegated.startedAt))&&Date.parse(task.startedAt)>=Date.parse(delegated.startedAt),'task-start-precedes-delegation');
+  }
+  for(const run of parent.runs.filter(r=>r.id!==first.id)){
+    const message=one(parent.messages.filter(m=>m.id===run.userMessageId),'wake-message-missing');
+    const task=one(parent.subagents.filter(s=>message.delegatedCompletion?.taskIds?.includes(s.id)),'wake-needs-owned-child');assertAutomaticWake(parent,task,run.id);assert.ok(Number.isFinite(Date.parse(task.completedAt))&&Date.parse(message.createdAt)>=Date.parse(task.completedAt),'wake-before-worker-completion');
+  }
+  for(const task of parent.subagents.filter(s=>s.runId!==first.id)){
+    const run=one(parent.runs.filter(r=>r.id===task.runId),'delegation-run-missing'),message=one(parent.messages.filter(m=>m.id===run.userMessageId),'delegation-wake-missing');
+    const previous=one(parent.subagents.filter(s=>message.delegatedCompletion?.taskIds?.includes(s.id)),'serial-delegation-needs-completed-predecessor');
+    assert.equal(previous.status,'completed');assert.equal(previous.completionDelivery?.observedByRunId,run.id);assert.ok(['claimed','delivered','acknowledged'].includes(previous.completionDelivery?.state));assert.ok(Date.parse(task.startedAt)>=Date.parse(message.createdAt)&&Date.parse(task.startedAt)>=Date.parse(previous.completedAt),'overlapping-child-work');
+  }
+  assert.ok(parent.subagents.filter(s=>PENDING.has(s.status)).length<=1,'overlapping-workers-refused');
+  if(workers){for(const w of workers)assertProjectionBindings(w);assert.equal(workers.length,childIds.size);const seen=new Set();for(const worker of workers){assert.ok(childIds.has(worker.thread.id)&&!seen.has(worker.thread.id),'foreign-or-duplicate-worker');seen.add(worker.thread.id);assert.equal(worker.thread.projectId,plan.projectId);assert.ok(worker.runs.length<=1,'worker-has-unrelated-run');
+    const task=one(parent.subagents.filter(s=>s.childThreadId===worker.thread.id),'child-task-missing');assert.deepEqual(worker.thread.lineage,{parentThreadId:parent.thread.id,relationshipToParent:'subagent',rootThreadId:parent.thread.id});assert.deepEqual(worker.thread.forkedFrom,{type:'node',nodeId:task.id});
+    if(worker.runs.length){const run=worker.runs[0],message=one(worker.messages.filter(m=>m.id===run.userMessageId),'child-start-message-missing');assert.equal(run.threadId,worker.thread.id);assert.equal(message.threadId,worker.thread.id);assert.equal(message.runId,run.id);assert.equal(message.createdBy,'agent');assert.equal(message.creationSource,'mcp');assert.equal(message.senderThreadId,parent.thread.id);assert.equal(message.text,task.prompt,'child-task-context-changed');assert.ok(Date.parse(run.requestedAt)>=Date.parse(task.startedAt),'child-run-precedes-delegation');if(run.startedAt!=null)assert.ok(Number.isFinite(Date.parse(run.startedAt))&&Date.parse(run.startedAt)>=Date.parse(run.requestedAt),'child-start-before-request');if(run.completedAt!=null)assert.ok(Number.isFinite(Date.parse(run.startedAt))&&Date.parse(run.completedAt)>=Date.parse(run.startedAt),'child-completed-before-start');if(task.status==='completed'){assert.equal(run.status,'completed');assert.ok(Number.isFinite(Date.parse(run.completedAt))&&Date.parse(task.completedAt)>=Date.parse(run.completedAt),'task-before-child-completed');}}
+  }}
+  return first;
+}
+export function assertCausalPath(initialRunId,completionRunId,edges,runs) {
+  const visited=new Set([initialRunId]),tasks=new Set();let cursor=initialRunId;
+  while(true){const next=edges.filter(e=>e.parentRunId===cursor);if(!next.length)break;assert.equal(next.length,1,'causal-branch-refused');const edge=next[0];assert.ok(!tasks.has(edge.taskId)&&!visited.has(edge.wakeRunId),'causal-cycle-refused');tasks.add(edge.taskId);cursor=edge.wakeRunId;visited.add(cursor);}
+  assert.equal(cursor,completionRunId,'causal-terminal-mismatch');assert.equal(tasks.size,edges.length,'disconnected-causal-task');assert.deepEqual([...visited].sort(),runs.map(r=>r.id).sort(),'disconnected-causal-run');
+}
+export function validateGraphOutcome(plan,parent,workers,observer,finalCommit) {
+  const initial=assertGraphOwnership(plan,parent,workers);assert.ok(initial);assert.ok(workers.length>=1&&workers.length<=3);
+  assert.ok([parent,...workers].every(p=>p.runs.every(r=>r.status==='completed')&&isQuiet(p)),'graph-not-completed-and-quiet');
+  assert.ok([parent,...workers].every(w=>w.turnItems.filter(i=>i.type==='dynamic_tool').every(i=>i.status==='completed')),'graph-tool-not-completed');
+  const editors=workers.filter(w=>w.turnItems.some(i=>i.type==='file_change')),editor=one(editors,'exactly-one-editing-worker-required');
+  const edges=parent.subagents.map(task=>{const worker=one(workers.filter(w=>w.thread.id===task.childThreadId),'missing-worker');assert.equal(worker.runs.length,1);assert.equal(task.status,'completed');assert.ok(['delivered','acknowledged'].includes(task.completionDelivery?.state));const wakeRunId=task.completionDelivery.observedByRunId;assertAutomaticWake(parent,task,wakeRunId);return {taskId:task.id,parentRunId:task.runId,workerThreadId:worker.thread.id,workerRunId:worker.runs[0].id,wakeRunId,completionState:task.completionDelivery.state};});
+  assert.equal(parent.runs.length,edges.length+1,'unexplained-coordinator-runs');
+  const finalEdge=one(edges.filter(e=>!edges.some(next=>next.parentRunId===e.wakeRunId)),'one-terminal-wake-required');
+  assertCausalPath(initial.id,finalEdge.wakeRunId,edges,parent.runs);
+  const text=(p,run)=>p.turnItems.filter(i=>i.type==='assistant_message'&&i.runId===run).map(i=>i.text).join('\n');
+  const workerTexts=workers.map(w=>({threadId:w.thread.id,text:text(w,w.runs[0].id)})),relayText=text(parent,finalEdge.wakeRunId);
+  assert.match(finalCommit,HEX40);includesAll(relayText,[plan.originalShas.root,plan.originalShas.nested,finalCommit],'final-code-pins-not-relayed');
+  assert.ok(workerTexts.find(w=>w.threadId===editor.thread.id).text.trim(),'editing-worker-result-required');
+  assert.ok([...relayText.matchAll(/studio:\/\/thread\/([^\s)]+)/g)].some(([,value])=>{try{return decodeURIComponent(value)===editor.thread.id;}catch{return false;}}),'editing-child-link-not-relayed');
+  for(const worker of workers)assert.ok([...observer.outputs.values()].some(o=>o.threadId===worker.thread.id&&o.kind==='read-context'),'every-worker-must-read-retained-context');
+  for(const entry of buildCommandPolicy(plan).filter(e=>e.required))assert.ok([...observer.outputs.values()].some(o=>o.kind===entry.kind&&(SHARED_GIT_KINDS.has(entry.kind)||o.threadId===editor.thread.id)),'required-editor-native-output-missing-'+entry.kind);
+  return {initialRunId:initial.id,completionRunId:finalEdge.wakeRunId,workerThreadIds:workers.map(w=>w.thread.id),editingWorkerThreadId:editor.thread.id,edges,workerTexts,relayText};
+}
+
 export function validateOutcome(plan,parent,worker,observer,finalCommit = null) {
   assert.equal(parent.runs.length,2); assert.equal(worker.runs.length,1); assert.ok([...parent.runs,...worker.runs].every(r => r.status === 'completed'));
   assert.ok(isQuiet(parent) && isQuiet(worker),'native-not-quiescent');
+  assert.ok(worker.turnItems.filter(i=>i.type==='dynamic_tool').every(i=>i.status==='completed'),'worker-capabilities-not-completed');
   const task = one(parent.subagents,'one-worker-required'); assert.equal(task.origin,'app_owned'); assert.equal(task.childThreadId,worker.thread.id); assert.equal(task.status,'completed');
   const wake = one(parent.runs.filter(r => r.id !== task.runId),'one-wake-required'); assertAutomaticWake(parent,task,wake.id);
   assert.ok(['delivered','acknowledged'].includes(task.completionDelivery.state)); assert.equal(task.completionDelivery.observedByRunId,wake.id);
   const text = (p,run) => p.turnItems.filter(i => i.type === 'assistant_message' && i.runId === run).map(i => i.text).join('\n');
   const workerText = text(worker,worker.runs[0].id), relayText = text(parent,wake.id);
   const pins = [plan.originalShas.root,plan.originalShas.nested];
-  if (plan.mode === 'destination') { assert.match(finalCommit,HEX40,'final-commit-required'); pins.push(finalCommit); }
   for (const s of [workerText,relayText]) includesAll(s,[...plan.contextRequired,...pins],'context-and-code-pins-not-carried-through-worker-and-relay');
+  if (plan.mode === 'destination') {
+    assert.match(finalCommit,HEX40,'final-commit-required');includesAll(relayText,[finalCommit],'final-commit-not-relayed');
+    if([...observer.commands.values()].some(e=>e.role==='worker'&&e.kind==='commit'))includesAll(workerText,[finalCommit],'worker-commit-not-reported');
+  }
   assert.ok([...relayText.matchAll(/studio:\/\/thread\/([^\s)]+)/g)].some(([,value]) => {try{return decodeURIComponent(value) === worker.thread.id;}catch{return false;}}),'child-link-not-relayed');
-  for (const entry of buildCommandPolicy(plan).filter(e => e.required)) assert.ok([...observer.outputs.values()].some(o => o.role === entry.role && o.kind === entry.kind),'required-native-output-missing-' + entry.role + '-' + entry.kind);
+  for (const entry of buildCommandPolicy(plan).filter(e => e.required)) assert.ok([...observer.outputs.values()].some(o => (o.role === entry.role || (plan.mode==='destination'&&SHARED_GIT_KINDS.has(entry.kind))) && o.kind === entry.kind),'required-native-output-missing-' + entry.role + '-' + entry.kind);
   return {workerText,relayText,workerThreadId:worker.thread.id,automaticWakeRunId:wake.id,completionState:task.completionDelivery.state};
 }
 
@@ -463,19 +554,19 @@ function approvalIdentity(item) {
 // Pure replay. This verifies evidence relationships; the parent additionally
 // pins the entire plan/receipt bytes with SHA256 in its public acceptance proof.
 export function verifyReceipt(plan,receipt) {
-  validatePlan(plan); requireObject(receipt);
+  validatePlan(plan); requireObject(receipt);assert.ok(receipt.workflowVersion===undefined||receipt.workflowVersion===2,'unknown-workflow-version');assert.ok(receipt.workflowVersion!==2||plan.mode==='destination','graph-destination-only');const graph=plan.mode==='destination'&&receipt.workflowVersion===2;if(graph)plan={...plan,_graph:true};
   for (const key of ['mode','host','projectId','coordinatorId']) assert.equal(receipt[key],plan[key],'receipt-plan-binding');
   assert.equal(receipt.operationId,plan.operationId ?? null); assertInitialState(plan,receipt.baseline);
-  const {parent,worker} = receipt; assert.ok(parent && worker && receipt.rawParent,'final-projections-required');
+  const parent=receipt.parent,workers=graph?receipt.workers:[receipt.worker];assert.ok(parent&&Array.isArray(workers)&&workers.length&&workers.every(Boolean)&&receipt.rawParent,'final-projections-required');const worker=graph?workers.find(w=>w.turnItems.some(i=>i.type==='file_change')):receipt.worker;assert.ok(worker,'editing-worker-required');
   assert.deepEqual(scopeProjection(receipt.rawParent,receipt.prior ?? null,plan),parent,'final-history-scope-mismatch');
-  assertParentOwnership(plan,parent); assert.equal(worker.thread.id,one(parent.subagents,'one-child-required').childThreadId);
+  if(graph)assertGraphOwnership(plan,parent,workers);else{assertParentOwnership(plan,parent);assert.equal(worker.thread.id,one(parent.subagents,'one-child-required').childThreadId);}
   const observer = makeObserver(plan), seenRequests = new Set();
   for (const record of receipt.approvals) {
     assert.ok(!seenRequests.has(record.requestId),'duplicate-approval-receipt'); seenRequests.add(record.requestId);
     assert.equal(record.decision,'accept'); const payload = record.payload;
     assert.equal(record.payloadSha256,sha256(JSON.stringify(payload)),'approval-receipt-hash-mismatch');
     assert.equal(record.threadId,payload.threadId); assert.equal(record.itemId,payload.action.id); assert.equal(record.requestId,payload.request.id);
-    const p = record.threadId === plan.coordinatorId ? parent : worker; assert.equal(p.thread.id,record.threadId,'foreign-approved-thread');
+    const p = record.threadId === plan.coordinatorId ? parent : one(workers.filter(w=>w.thread.id===record.threadId),'foreign-approved-worker'); assert.equal(p.thread.id,record.threadId,'foreign-approved-thread');
     const req = one(p.runtimeRequests.filter(r => r.id === record.requestId),'approved-request-missing');
     assert.equal(req.status,'resolved'); assert.equal(req.decision,'accept');
     for (const key of ['id','providerTurnId','kind','nativeRequestRef','responseCapability']) assert.deepEqual(req[key],payload.request[key],'approval-request-binding-changed');
@@ -488,14 +579,14 @@ export function verifyReceipt(plan,receipt) {
     atApproval.turnItems = atApproval.turnItems.map(i => i.id === action.id ? payload.action : i.id === approval.id ? payload.approval : i);
     atApproval.runs = atApproval.runs.map(r => r.id === action.runId ? {...r,status:'running'} : r);
     let parentAtApproval = record.threadId === plan.coordinatorId ? atApproval : parent;
-    if (action.type === 'dynamic_tool' && toolOperation(action) === 'delegate_task') { atApproval.subagents = []; parentAtApproval = atApproval; }
-    const revalidated = approvalPayload(plan,atApproval,parentAtApproval,record.requestId,worker,payload.delegationRouting??null);
+    if (action.type === 'dynamic_tool' && toolOperation(action) === 'delegate_task') { atApproval.subagents = graph?atApproval.subagents.filter(s=>s.runId!==action.runId&&s.completionDelivery?.observedByRunId===action.runId):[]; parentAtApproval = atApproval; }
+    const revalidated = approvalPayload(plan,atApproval,parentAtApproval,record.requestId,graph?null:worker,payload.delegationRouting??null);
     assert.equal(sha256(JSON.stringify(revalidated)),record.payloadSha256,'approval-payload-replay-mismatch');
     const kind = action.type === 'file_change' ? 'file-change' : action.type === 'command_execution' ? classifyCommand(plan,action.input,record.threadId === plan.coordinatorId ? 'coordinator' : 'worker').kind : 'mcp';
     assert.equal(record.kind,kind,'approval-kind-summary-forged'); assert.ok(!observer.approved.has(action.id),'action-approved-twice'); observer.approved.set(action.id,record.payloadSha256);
   }
-  observe(observer,parent,parent); observe(observer,worker,parent);
-  const sourceItems = [...parent.turnItems,...worker.turnItems].filter(i => i.type === 'command_execution');
+  observe(observer,parent,parent);for(const w of workers)observe(observer,w,parent);
+  const sourceItems = [...parent.turnItems,...workers.flatMap(w=>w.turnItems)].filter(i => i.type === 'command_execution');
   assert.equal(receipt.outputs.length,sourceItems.length,'missing-or-extra-retained-outputs');
   const tests = [];
   for (const output of receipt.outputs) {
@@ -508,6 +599,7 @@ export function verifyReceipt(plan,receipt) {
     assert.equal(output.threadId,actual.threadId); assert.equal(output.runId,actual.runId); assert.equal(output.input,actual.input);
     assert.equal(output.kind,entry.kind); assert.equal(output.role,entry.role);
     assertNativeRead(plan,entry.kind,actual,receipt.after?.repos?.nested?.sha);
+    if(graph&&entry.kind==='read-implementation')assert.equal(output.implementationSha256,sha256(actual.output),'observed-implementation-read-hash-mismatch');
     if (entry.kind === 'test') {
       const mode = actual.exitCode === 0 ? 'destination' : 'source'; assert.ok(plan.mode === 'destination' || mode === 'source','source-was-not-red');
       const derived = assertTap(actual,plan.expectedTestCount,mode), saved = one(receipt.testRecords.filter(t => t.itemId === actual.id),'test-summary-missing');
@@ -518,26 +610,30 @@ export function verifyReceipt(plan,receipt) {
   }
   assert.equal(receipt.testRecords.length,tests.length,'extra-test-summary'); assert.ok(tests.length > 0);
   assert.deepEqual(tests,receipt.testRecords,'test-order-mismatch');
-  const nativeTests = worker.turnItems.filter(i => i.type === 'command_execution' && classifyCommand(plan,i.input,'worker').kind === 'test');
+  const nativeTests = workers.flatMap(w=>w.turnItems).filter(i => i.type === 'command_execution' && classifyCommand(plan,i.input,'worker').kind === 'test');
   assert.deepEqual(tests.map(t => t.itemId),nativeTests.map(t => t.id),'retained-test-order-mismatch');
-  const outcome = validateOutcome(plan,parent,worker,observer,receipt.after?.repos?.nested?.sha); assert.deepEqual(receipt.outcome,outcome,'outcome-summary-forged');
+  const outcome = graph?validateGraphOutcome(plan,parent,workers,observer,receipt.after?.repos?.nested?.sha):validateOutcome(plan,parent,worker,observer,receipt.after?.repos?.nested?.sha); assert.deepEqual(receipt.outcome,outcome,'outcome-summary-forged');
   const evidence = receipt.git?.evidence;
   const readGit = (_root,args) => args.includes('--format=%P') ? evidence?.parents : args.includes('--format=%s') ? evidence?.subject : args.includes('--diff-filter=M') ? evidence?.modifiedPaths : evidence?.paths;
   const git = validateFinalState(plan,receipt.baseline,receipt.after,tests,readGit); assert.deepEqual(receipt.git,git,'git-summary-forged');
   if (plan.mode === 'destination') {
     const lastTest = nativeTests.at(-1), changes = worker.turnItems.filter(i => i.type === 'file_change'); assert.ok(changes.length > 0,'no-native-file-edit');
+    for(const change of changes)assertWorkerReadsBeforeEdit(plan,observer,change,worker.thread.id);
+    const branch=one(sourceItems.filter(i=>observer.commands.get(i.id)?.kind==='branch'),'one-native-branch-required');
+    for(const change of changes)assert.ok(Number.isFinite(Date.parse(branch.completedAt))&&Date.parse(branch.completedAt)<=Date.parse(change.startedAt),'edit-before-owned-branch');
     assert.ok(Number.isFinite(Date.parse(lastTest.startedAt)) && Number.isFinite(Date.parse(lastTest.completedAt)),'native-test-time-required');
     for (const change of changes) assert.ok(Number.isFinite(Date.parse(change.completedAt)) && Date.parse(change.completedAt) <= Date.parse(lastTest.startedAt),'final-edit-after-successful-test');
-    const commit = one(worker.turnItems.filter(i => i.type === 'command_execution' && classifyCommand(plan,i.input,'worker').kind === 'commit'),'one-native-commit-required');
+    const commit = one(sourceItems.filter(i => observer.commands.get(i.id)?.kind === 'commit'),'one-native-commit-required');
     assert.ok(Number.isFinite(Date.parse(commit.startedAt)) && Date.parse(commit.startedAt) >= Date.parse(lastTest.completedAt),'commit-before-successful-test');
+    if(graph&&commit.threadId===parent.thread.id){const message=one(parent.messages.filter(m=>m.runId===commit.runId&&m.delegatedCompletion),'coordinator-commit-needs-completion-wake');assert.ok(Date.parse(commit.startedAt)>=Date.parse(message.createdAt),'coordinator-commit-before-wake');}
     const commitOutput = observer.outputs.get(commit.id).response.output;
     const abbreviated = one([...commitOutput.matchAll(/^\[[^\r\n]* ([a-f0-9]{7,40})\] /gm)],'native-commit-output-missing')[1];
     assert.ok(receipt.after.repos.nested.sha.startsWith(abbreviated),'native-commit-output-sha-mismatch');
-    const finalRead = one(worker.turnItems.filter(i => i.type === 'command_execution' && classifyCommand(plan,i.input,'worker').kind === 'git-final-head'),'one-final-head-read-required');
+    const finalRead = one(sourceItems.filter(i => observer.commands.get(i.id)?.kind === 'git-final-head'),'one-final-head-read-required');
     assert.ok(Number.isFinite(Date.parse(finalRead.startedAt)) && Number.isFinite(Date.parse(commit.completedAt)) && Date.parse(finalRead.startedAt) >= Date.parse(commit.completedAt),'final-head-read-before-commit');
   }
-  assert.deepEqual(receipt.quiescence,[quiescence(parent),quiescence(worker)],'quiescence-summary-forged');
-  return {verified:true,mode:plan.mode,operationId:plan.operationId ?? null,projectId:plan.projectId,workerThreadId:worker.thread.id,tests:tests.at(-1),git};
+  assert.deepEqual(receipt.quiescence,[quiescence(parent),...workers.map(quiescence)],'quiescence-summary-forged');
+  return {verified:true,mode:plan.mode,operationId:plan.operationId ?? null,projectId:plan.projectId,...(graph?{workerThreadIds:workers.map(w=>w.thread.id),initialRunId:outcome.initialRunId,completionRunId:outcome.completionRunId}:{workerThreadId:worker.thread.id}),tests:tests.at(-1),git};
 }
 const cloneProjection = p => structuredClone(p);
 

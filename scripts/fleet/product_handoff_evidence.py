@@ -1103,7 +1103,8 @@ def bracket(preserved, host, times, configuration=False):
 
 def native_times(receipt):
     times = []
-    for projection in (receipt["parent"], receipt["worker"]):
+    projections = [receipt["parent"], *receipt["workers"]] if receipt.get("workflowVersion") == 2 else [receipt["parent"], receipt["worker"]]
+    for projection in projections:
         for run in projection["runs"]:
             start, finish = run["startedAt"], run["completedAt"]
             require(time_value(start) <= time_value(finish), "native run interval invalid")
@@ -1398,12 +1399,16 @@ def product_handoff(root):
         require(plan["workspaceRoot"] not in workspaces, "destination workspace reused")
         workspaces.add(plan["workspaceRoot"])
         parent = native["parent"]
-        initial = next(m for m in parent["messages"] if m["id"] == next(r for r in parent["runs"]
-                       if r["id"] != native["outcome"]["automaticWakeRunId"])["userMessageId"])
+        graph = native.get("workflowVersion") == 2
+        initial_run = next(r for r in parent["runs"] if
+                           (r["id"] == native["outcome"]["initialRunId"] if graph
+                            else r["id"] != native["outcome"]["automaticWakeRunId"]))
+        initial = next(m for m in parent["messages"] if m["id"] == initial_run["userMessageId"])
         product_launch(destination, initial, bundle)
-        worker = native["outcome"]["workerThreadId"]
-        require(worker not in workers, "destination worker was reused")
-        workers.add(worker)
+        route_workers = native["outcome"]["workerThreadIds"] if graph else [native["outcome"]["workerThreadId"]]
+        require(len(set(route_workers)) == len(route_workers) and not set(route_workers) & workers,
+                "destination worker was reused")
+        workers.update(route_workers)
         ui = ui_selection(evidence, route["ui"], source, plan, bundle, existing)
         transfer_app = evidence.json(transfer_runtime["wrapperReadback"])
         installed = evidence.json(transfer_app["nativeProcessProof"])
@@ -1413,7 +1418,6 @@ def product_handoff(root):
         for ui_host in ("m4", host):
             bracket(preserved, ui_host, [at for action in ui["actions"]
                     for at in (action["startedAt"], action["observedAt"])], configuration=True)
-        initial_run = next(r for r in parent["runs"] if r["id"] != native["outcome"]["automaticWakeRunId"])
         require(time_value(ui["actions"][-1]["startedAt"]) <= time_value(initial_run["startedAt"]),
                 "destination was already running before UI confirmation")
 

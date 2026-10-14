@@ -203,20 +203,194 @@ class NativeWorkerRoutingReplayTests(unittest.TestCase):
         data['receipt']['worker']['thread']['modelSelection'] = {'instanceId': 'codex', 'model': 'other'}
         with self.assertRaises(ValueError): self.replay(data)
 
-    def test_relative_paths_remain_anchored_to_exact_workspace_and_adjacent_test(self):
-        data = self.inherited()
-        p, receipt = data['plan'], data['receipt']
-        task = ' '.join([p['workspaceRoot'], str(Path(p['paths']['implementation']).relative_to(p['workspaceRoot'])),
-                         Path(p['paths']['test']).name, *p['contextRequired']])
-        def update(text):
-            for key in ('parent', 'rawParent'):
-                next(i for i in receipt[key]['turnItems'] if i.get('toolName') == 'studio-code.delegate_task')['input']['task'] = text
-            record = next(r for r in receipt['approvals'] if 'delegationRouting' in r['payload'])
-            record['payload']['action']['input']['task'] = text
-            fixtures.rehash_native(receipt)
-        update(task)
-        self.replay(data)
-        for changed in [task.replace(p['workspaceRoot'], '/foreign'),
-                        task.replace(Path(p['paths']['test']).name, 'foreign/'+Path(p['paths']['test']).name)]:
-            update(changed)
+    def update_task(self, data, task):
+        receipt = data['receipt']
+        for key in ('parent', 'rawParent'):
+            next(i for i in receipt[key]['turnItems'] if i.get('toolName') == 'studio-code.delegate_task')['input']['task'] = task
+        record = next(r for r in receipt['approvals'] if 'delegationRouting' in r['payload'])
+        record['payload']['action']['input']['task'] = task
+        fixtures.rehash_native(receipt)
+
+    def test_context_bearing_prose_does_not_determine_executable_paths(self):
+        for prose in ('Read fixture/{case.mjs,case.check.mjs,README.md}.',
+                      'Read case.mjs, case.check.mjs, README.md under the fixture directory.',
+                      'Continue the transferred diagnostic.',
+                      'Historical /foreign/source is reference material only.'):
+            data = self.inherited()
+            self.update_task(data, ' '.join([prose, *data['plan']['contextRequired']]))
+            self.replay(data)
+        for task in ('', ' ', 'x' * 40000):
+            data = self.inherited()
+            self.update_task(data, task)
             with self.assertRaises(ValueError): self.replay(data)
+
+    def test_prose_does_not_authorize_foreign_actual_read_or_edit(self):
+        for operation in ('read', 'edit'):
+            data = self.inherited()
+            self.update_task(data, ' '.join(['Continue the diagnostic.', *data['plan']['contextRequired']]))
+            if operation == 'read':
+                item = next(i for i in data['receipt']['worker']['turnItems']
+                            if i['type'] == 'command_execution')
+                item['input'] = '/bin/cat /foreign/case.mjs'
+            else:
+                item = next(i for i in data['receipt']['worker']['turnItems'] if i['type'] == 'file_change')
+                item['changes'][0]['path'] = '/foreign/case.mjs'
+            fixtures.rehash_native(data['receipt'])
+            with self.assertRaises(ValueError): self.replay(data)
+
+    def test_actual_frozen_reads_remain_required(self):
+        for kind in ('read-context', 'read-continuation', 'read-test', 'read-readme', 'read-implementation'):
+            data = self.inherited()
+            receipt = data['receipt']
+            output = next(o for o in receipt['outputs'] if o['kind'] == kind and o['role'] == 'worker')
+            receipt['outputs'].remove(output)
+            receipt['worker']['turnItems'] = [i for i in receipt['worker']['turnItems'] if i['id'] != output['itemId']]
+            with self.assertRaises(ValueError): self.replay(data)
+
+
+class NativeWorkerCapabilitiesReplayTests(unittest.TestCase):
+    """Invented data tests one automatic read without adding worker permissions."""
+    setUp = NativeDiscoveryReplayTests.setUp
+    replay = NativeDiscoveryReplayTests.replay
+
+    def fixture(self, mode):
+        data = json.loads((fixtures.FIXTURES / f"product_native_{mode}.json").read_bytes())
+        self.assertTrue(data["synthetic"])
+        data["receipt"]["temporarySessionRevoked"] = True
+        worker = data["receipt"]["worker"]
+        worker["turnItems"].append({"id": "invented-worker-capabilities", "type": "dynamic_tool",
+            "toolName": "studio-code.orchestrator_capabilities", "input": {}, "status": "completed",
+            "threadId": worker["thread"]["id"], "runId": worker["runs"][0]["id"]})
+        return data
+
+    def reject(self, mutate):
+        for mode in ("source", "destination"):
+            data = self.fixture(mode)
+            mutate(data["receipt"]["worker"])
+            with self.assertRaisesRegex(ValueError, "native evidence replay failed"):
+                self.replay(data)
+
+    def test_single_empty_completed_capability_read_remains_replayable(self):
+        for mode in ("source", "destination"):
+            self.replay(self.fixture(mode))
+
+    def test_extra_inputs_null_and_nonobject_are_rejected(self):
+        for value in (None, [], {"projectId": "foreign"}, {"machine": "local"}, {"readOnly": True}):
+            self.reject(lambda worker: worker["turnItems"][-1].update(input=value))
+        self.reject(lambda worker: worker["turnItems"][-1].pop("input"))
+
+    def test_duplicate_capability_read_is_rejected(self):
+        def duplicate(worker):
+            worker["turnItems"].append({**worker["turnItems"][-1], "id": "second"})
+        self.reject(duplicate)
+
+    def test_other_worker_tools_and_foreign_namespace_remain_rejected(self):
+        for name in ("studio-code.delegate_task", "studio-code.studio_thread_list",
+                     "studio-code.task_status", "studio-code.studio_thread_read",
+                     "foreign.orchestrator_capabilities"):
+            self.reject(lambda worker: worker["turnItems"][-1].update(toolName=name))
+
+    def test_pending_failed_or_unknown_status_never_proves_completed_read(self):
+        for status in ("running", "waiting", "failed", "interrupted", "unknown", None):
+            self.reject(lambda worker: worker["turnItems"][-1].update(status=status))
+        self.reject(lambda worker: worker["turnItems"][-1].pop("status"))
+
+    def test_capabilities_cannot_substitute_worker_profile_or_single_run(self):
+        self.reject(lambda worker: worker["thread"]["modelSelection"].update(model="foreign"))
+        self.reject(lambda worker: worker["runs"].append({"id": "extra", "status": "completed"}))
+
+
+def invented_graph(native):
+    """Upgrade only invented data; original operational source receipts stay intact."""
+    def times(value, key=None):
+        if isinstance(value, dict): return {k: times(v, k) for k, v in value.items()}
+        if isinstance(value, list): return [times(v) for v in value]
+        if key in ('startedAt', 'completedAt', 'createdAt', 'requestedAt', 'updatedAt') and isinstance(value, str):
+            return value.replace('2026-10-13T12:01:', '2026-10-13T12:07:').replace('2026-10-13T12:02:', '2026-10-13T12:08:')
+        return value
+    r = times(native)
+    r['workflowVersion'] = 2
+    w = r.pop('worker')
+    r['workers'] = [w]
+    parent, task = r['parent'], r['parent']['subagents'][0]
+    delegate = next(i for i in parent['turnItems'] if i.get('toolName') == 'studio-code.delegate_task')
+    task.update(threadId=parent['thread']['id'], createdBy='agent', prompt=delegate['input']['task'],
+                startedAt=delegate['startedAt'])
+    w['thread'].update(lineage={'parentThreadId': parent['thread']['id'], 'relationshipToParent': 'subagent',
+                               'rootThreadId': parent['thread']['id']}, forkedFrom={'type': 'node', 'nodeId': task['id']})
+    run = w['runs'][0]
+    run.update(threadId=w['thread']['id'], userMessageId=w['thread']['id'] + '-start',
+               requestedAt=task['startedAt'], startedAt=task['startedAt'], completedAt=task['completedAt'])
+    w['messages'] = [dict(id=run['userMessageId'], threadId=w['thread']['id'], runId=run['id'],
+                         createdBy='agent', creationSource='mcp', senderThreadId=parent['thread']['id'],
+                         text=task['prompt'], createdAt=task['startedAt'])]
+    for projection in (parent, w):
+        ids = {i.get('providerTurnId') for i in projection['turnItems'] + projection['runtimeRequests']}
+        known = {t['id'] for t in projection['providerTurns']}
+        projection['providerTurns'].extend(dict(id=i, status='completed') for i in sorted(ids - {None} - known))
+    wake = next(x for x in parent['runs'] if x['id'] == r['outcome']['automaticWakeRunId'])
+    wake.update(startedAt='2026-10-13T12:08:00Z', completedAt='2026-10-13T12:09:00Z')
+    r['rawParent'] = copy.deepcopy(parent)
+    old = r['outcome']
+    r['outcome'] = dict(initialRunId=task['runId'], completionRunId=wake['id'],
+        workerThreadIds=[w['thread']['id']], editingWorkerThreadId=w['thread']['id'],
+        edges=[dict(taskId=task['id'], parentRunId=task['runId'], workerThreadId=w['thread']['id'],
+                    workerRunId=run['id'], wakeRunId=wake['id'], completionState='delivered')],
+        workerTexts=[dict(threadId=w['thread']['id'], text=old['workerText'])], relayText=old['relayText'])
+    for output in r['outputs']:
+        if output['kind'] == 'read-implementation':
+            output['implementationSha256'] = fixtures.V.digest(output['response']['output'].encode())
+    fixtures.rehash_native(r)
+    return r
+
+
+class NativeGraphEnvelopeTests(unittest.TestCase):
+    def setUp(self):
+        temp = tempfile.TemporaryDirectory(prefix='invented-graph-envelope-')
+        self.addCleanup(temp.cleanup)
+        self.root = Path(temp.name).resolve()
+        self.index = fixtures.invented_evidence(self.root)
+        for route in self.index['handoff']['routes']:
+            old = route['native']
+            native = invented_graph(json.loads((self.root / old['path']).read_bytes()))
+            route['native'] = fixtures.ref(self.root, old['path'], native)
+        self.save()
+
+    def save(self):
+        (self.root / 'product-evidence-index.json').write_bytes(fixtures.encode(self.index))
+
+    def update(self, mutate):
+        route = self.index['handoff']['routes'][0]
+        p, n = (json.loads((self.root / route[k]['path']).read_bytes()) for k in ('plan', 'native'))
+        mutate(p, n)
+        fixtures.rehash_native(n)
+        for key, value in [('plan', p), ('native', n)]:
+            route[key] = fixtures.ref(self.root, route[key]['path'], value)
+        self.save()
+
+    def test_six_graph_routes_replay_with_unchanged_legacy_sources(self):
+        fixtures.V.product_handoff(self.root)
+
+    def test_every_graph_worker_interval_is_bracketed(self):
+        route = self.index['handoff']['routes'][0]
+        n = json.loads((self.root / route['native']['path']).read_bytes())
+        n['workers'].append({'runs': [{'startedAt': '2026-10-13T13:00:00Z',
+                                      'completedAt': '2026-10-13T13:01:00Z'}]})
+        self.assertIn('2026-10-13T13:01:00Z', fixtures.V.native_times(n))
+        n['workers'][-1]['runs'][0]['completedAt'] = '2026-10-13T12:59:00Z'
+        with self.assertRaisesRegex(ValueError, 'interval invalid'): fixtures.V.native_times(n)
+
+    def test_forged_initial_run_cannot_replace_persisted_product_start(self):
+        self.update(lambda p, n: n['outcome'].update(initialRunId='wake'))
+        with self.assertRaisesRegex(ValueError, 'native evidence replay failed'): fixtures.V.product_handoff(self.root)
+
+    def test_unexplained_worker_or_changed_completion_never_enters_envelope(self):
+        self.update(lambda p, n: n['outcome']['workerThreadIds'].append('unrelated'))
+        with self.assertRaisesRegex(ValueError, 'native evidence replay failed'): fixtures.V.product_handoff(self.root)
+
+    def test_prerequisite_worker_cannot_supply_missing_editor_context(self):
+        def change(p, n):
+            output = next(o for o in n['outputs'] if o['kind'] == 'read-context' and o['role'] == 'worker')
+            output['threadId'] = 'unrelated'
+        self.update(change)
+        with self.assertRaisesRegex(ValueError, 'native evidence replay failed'): fixtures.V.product_handoff(self.root)
