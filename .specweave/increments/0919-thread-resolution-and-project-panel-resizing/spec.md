@@ -23,3 +23,8 @@ Owned product worktree /Users/antonabyzov/Projects/github/studio-thread-resoluti
 - AC: AC-01, AC-04 | Files: /Users/antonabyzov/Projects/github/studio-resolved-details/apps/web/ | Test: focused lifecycle, shell, header, archived-shell and workspace tests; production web build; headless resolved-details check
 
 Follow-up requested 2026-10-14: legacy archived project threads belong in Resolved with visible status and Reopen. Preserve history and storage; supply the selected archived shell to embedded detail reads, with live shells authoritative. Reopen clears both legacy archival and settlement. Isolated successor branch codex/resolved-details from 90f900a58; previous owner checkout remains untouched. Manual acceptance remains pending.
+
+### T-03 Release resolved chat improvements
+- AC: AC-01, AC-02, AC-03, AC-04 | Files: /Users/antonabyzov/Projects/github/studio-resolved-details/, .specweave/increments/0919-thread-resolution-and-project-panel-resizing/ | Test: independent review, focused tests and production build on current release base; published artifact identity and installed application readback
+
+Anton authorized deployment/new version and coordination with the active release owner on 2026-10-14. Coordinate with chat 01a133f7-afb4-7771-8e87-55cfabfd6858 to avoid concurrent 1.0.16 installation; preserve all unrelated sessions, profile data and existing rollout ownership.
