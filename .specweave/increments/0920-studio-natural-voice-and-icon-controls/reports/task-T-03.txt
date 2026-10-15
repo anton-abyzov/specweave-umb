@@ -1,0 +1,13 @@
+$ cd /Users/antonabyzov/Projects/github/studio-voice-quality/apps/desktop && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp test run src/voice/
+# exit 0 — 2026-10-14T13:30:51.624Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/Projects/github/studio-voice-quality/apps/desktop
+
+
+ Test Files  3 passed (3)
+      Tests  20 passed (20)
+   Start at  09:30:51
+   Duration  145ms (transform 45%, tests 39%, import 7%, setup 5%, worker 3%)
+

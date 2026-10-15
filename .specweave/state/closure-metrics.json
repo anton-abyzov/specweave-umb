@@ -982,6 +982,38 @@
       "success": true,
       "timestamp": "2026-10-12T02:36:27.915Z",
       "durationMs": 188
+    },
+    {
+      "tool": "ado",
+      "itemId": 2483,
+      "incrementId": "0923-shared-connections-discovery-and-tool-matrix",
+      "success": true,
+      "timestamp": "2026-10-14T21:35:25.664Z",
+      "durationMs": 532
+    },
+    {
+      "tool": "ado",
+      "itemId": 2484,
+      "incrementId": "0912-project-names-update-feedback",
+      "success": true,
+      "timestamp": "2026-10-15T03:44:14.095Z",
+      "durationMs": 145
+    },
+    {
+      "tool": "ado",
+      "itemId": 2485,
+      "incrementId": "0921-studio-unified-provider-permissions",
+      "success": true,
+      "timestamp": "2026-10-15T03:44:19.351Z",
+      "durationMs": 159
+    },
+    {
+      "tool": "ado",
+      "itemId": 2486,
+      "incrementId": "0924-specwithcode-product-led-landing-and-subscription-value",
+      "success": true,
+      "timestamp": "2026-10-15T03:44:23.791Z",
+      "durationMs": 142
     }
   ],
   "summary": {
@@ -1012,20 +1044,20 @@
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 33,
-      "successful": 33,
+      "totalAttempts": 37,
+      "successful": 37,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-10-12T02:36:27.915Z",
-      "avgDurationMs": 194.42424242424244,
+      "lastSuccess": "2026-10-15T03:44:23.791Z",
+      "avgDurationMs": 199.83783783783784,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 122,
-      "successful": 116,
+      "totalAttempts": 126,
+      "successful": 120,
       "failed": 6,
-      "successRate": 0.9508196721311475
+      "successRate": 0.9523809523809523
     },
-    "lastUpdated": "2026-10-12T02:36:27.915Z"
+    "lastUpdated": "2026-10-15T03:44:23.792Z"
   }
 }

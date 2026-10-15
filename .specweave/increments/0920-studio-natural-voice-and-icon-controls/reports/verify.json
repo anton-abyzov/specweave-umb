@@ -1,0 +1,31 @@
+{
+  "ok": false,
+  "ranAt": "2026-10-14T13:32:25.195Z",
+  "increment": "0920-studio-natural-voice-and-icon-controls",
+  "commands": [
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/studio-voice-quality/apps/desktop && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp test run src/voice/",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/studio-voice-quality/apps/web && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp build",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/studio-voice-quality && git diff --check",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 3,
+    "done": 2
+  },
+  "tasks": {
+    "total": 4,
+    "done": 2,
+    "skipped": 0,
+    "open": 2
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}
