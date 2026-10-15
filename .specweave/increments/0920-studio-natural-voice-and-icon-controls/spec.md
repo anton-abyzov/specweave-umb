@@ -7,9 +7,9 @@ The coordinator reads replies with macOS synthesis that sounds poor to Anton. Vo
 Opt-in ElevenLabs synthesis in the desktop main process, using an existing voice; preserve on-device microphone transcription. Accessible icon controls and accurate cloud disclosure. No voice upload or cloning. Anton authorized deployment on 2026-10-14; coordinate with the active release owner. Free local speech is the default; optional ElevenLabs uses each user’s key. Managed paid voice is Coming soon only; no billing/fulfillment implementation.
 
 ## Acceptance Criteria
-- [ ] AC-01: Configured ElevenLabs voice synthesizes replies with bounded network requests and useful errors without exposing credentials; unconfigured calls remain local.
-- [ ] AC-02: Stop and dismiss use accessible icons; cloud reply processing is disclosed.
-- [ ] AC-03: Focused tests and production build pass; Anton accepts sound and UI before closure.
+- [x] AC-01: Configured ElevenLabs voice synthesizes replies with bounded network requests and useful errors without exposing credentials; unconfigured calls remain local.
+- [x] AC-02: Stop and dismiss use accessible icons; cloud reply processing is disclosed.
+- [x] AC-03: Focused tests and production build pass; Anton accepts sound and UI before closure.
 
 ## Approach
 Owned worktree /Users/antonabyzov/Projects/github/studio-voice-quality, codex/voice-quality from origin/main 4d6e30488. Existing owners on credit recovery and thread resolution remain untouched. Voice sample found in Downloads, account API verified the existing voice Anton Abyzov best voice (0Ki1af67ybTaTu4TNmO8); generated a live preview without uploading or cloning audio. Credentials stay in main-process environment; no keys or personal recordings committed. Check current ElevenLabs documentation. Disk has ~125 MB free after sparse checkout; builds may be blocked.

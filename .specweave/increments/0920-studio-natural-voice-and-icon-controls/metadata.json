@@ -1,14 +1,24 @@
 {
   "id": "0920-studio-natural-voice-and-icon-controls",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-14T13:04:37.044Z",
-  "updated": "2026-10-15T03:45:12.367Z",
-  "lastActivity": "2026-10-15T03:45:12.367Z",
+  "updated": "2026-10-15T15:18:05.426Z",
+  "lastActivity": "2026-10-15T15:18:05.426Z",
   "title": "Studio natural voice and icon controls",
   "project": "specweave-umb",
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2489",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2489",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-15T15:18:08.695Z"
+    }
+  },
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-15T15:18:05.425Z",
+  "approvedAt": "2026-10-15T15:18:05.426Z"
 }

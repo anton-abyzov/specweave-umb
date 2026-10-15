@@ -1,14 +1,24 @@
 {
   "id": "0919-thread-resolution-and-project-panel-resizing",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-14T13:03:06.505Z",
-  "updated": "2026-10-15T03:45:12.073Z",
-  "lastActivity": "2026-10-15T03:45:12.073Z",
+  "updated": "2026-10-15T15:17:46.157Z",
+  "lastActivity": "2026-10-15T15:17:46.157Z",
   "title": "Thread resolution and project panel resizing",
   "project": "specweave-umb",
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2487",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2487",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-15T15:17:53.059Z"
+    }
+  },
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-15T15:17:46.156Z",
+  "approvedAt": "2026-10-15T15:17:46.157Z"
 }

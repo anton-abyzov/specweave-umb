@@ -7,10 +7,10 @@ Resolved failed workers remain in Waiting on you. Empty state groups disappear. 
 Studio lifecycle grouping, resolved chat details and reopening, persistent right-panel resizing, focused tests and headless browser evidence. Deployment and a new version were authorized on 2026-10-14; the existing release owner handles publication and installation. Preserve live account data.
 
 ## Acceptance Criteria
-- [ ] AC-01: Resolving a failed or usage-limited worker moves it to Resolved and removes its waiting badge; reopening restores its actionable status. Pending approvals/input and running work remain visible.
-- [ ] AC-02: All four state groups are visible with counts, including empty Resolved; legacy archived threads are included in Resolved.
-- [ ] AC-03: Dragging the project divider changes panel width, persists across reload, clamps to available space, and preserves mobile/expanded modes.
-- [ ] AC-04: Focused tests, production web build and headless browser checks pass; manual UI acceptance remains pending.
+- [x] AC-01: Resolving a failed or usage-limited worker moves it to Resolved and removes its waiting badge; reopening restores its actionable status. Pending approvals/input and running work remain visible.
+- [x] AC-02: All four state groups are visible with counts, including empty Resolved; legacy archived threads are included in Resolved.
+- [x] AC-03: Dragging the project divider changes panel width, persists across reload, clamps to available space, and preserves mobile/expanded modes.
+- [x] AC-04: Focused tests, production web build and headless browser checks pass; manual UI acceptance remains pending.
 
 ## Approach
 Owned product worktree /Users/antonabyzov/Projects/github/studio-thread-resolution, branch codex/thread-resolution, origin/main base 4d6e30488. No existing active increment owns these files. Keep live approvals/input and runtime above settlement; settlement overrides historical failure. Extract column sizing into its own component to keep the workspace below 1500 lines. Reuse existing resize hooks. CLI 3.0.15 matches registry. Jev unavailable (no key). Browser headless true, PWDEBUG=0, PLAYWRIGHT_HTML_OPEN=never; no live stores or provider turns.

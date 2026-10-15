@@ -7,10 +7,10 @@ Included plan exhaustion appears as total unavailability despite funded credits;
 Credit balance and explicit one-request continuation, resolved historical warnings, user instructions, focused tests, headless visual checks, builds, and coordinated successor release of completed mainline fixes.
 
 ## Acceptance Criteria
-- [ ] AC-01: A funded eligible Codex account exposes its balance and explicit Continue using credits action with existing account/model/freshness checks.
-- [ ] AC-02: A later started run resolves the earlier usage warning; queued or pre-start failed requests do not.
-- [ ] AC-03: Instructions and regression/headless checks cover credits, unavailable permissions, and recovery.
-- [ ] AC-04: Reviewed source is released and deployment readback records exact version; manual UI acceptance remains explicit.
+- [x] AC-01: A funded eligible Codex account exposes its balance and explicit Continue using credits action with existing account/model/freshness checks. (Fixture-tested only; no funded account available, accepted by Anton 2026-10-15.)
+- [x] AC-02: A later started run resolves the earlier usage warning; queued or pre-start failed requests do not.
+- [x] AC-03: Instructions and regression/headless checks cover credits, unavailable permissions, and recovery.
+- [x] AC-04: Reviewed source is released and deployment readback records exact version; manual UI acceptance remains explicit.
 
 ## Approach
 Isolated product checkout /Users/antonabyzov/Projects/github/studio-credit-recovery at origin/main 4d6e30488. Preserve other owners including pending 1.0.14. New credit continuation is an explicit foreground submission in the same chat; no persistent spend permission. Extract new behavior into small modules rather than adding logic to oversized legacy components. Browser automation is headless with PWDEBUG=0 and PLAYWRIGHT_HTML_OPEN=never. Node22.20 scoped; no shared toolchain changes.
