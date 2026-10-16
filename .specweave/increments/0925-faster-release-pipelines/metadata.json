@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-16T16:33:47.020Z",
-  "updated": "2026-10-16T16:33:47.020Z",
-  "lastActivity": "2026-10-16T16:33:47.020Z",
+  "updated": "2026-10-16T22:12:16.051Z",
+  "lastActivity": "2026-10-16T22:12:16.051Z",
   "title": "Faster release pipelines and release-timing regression scanning",
   "project": "specweave-umb"
 }
