@@ -1,0 +1,16 @@
+{
+  "id": "0908-project-names-release",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-13T15:33:55.950Z",
+  "updated": "2026-10-13T15:52:38.606Z",
+  "lastActivity": "2026-10-13T15:52:38.606Z",
+  "title": "Preserve project names and prepare release",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-13T15:52:38.605Z",
+  "approvedAt": "2026-10-13T15:52:38.606Z"
+}

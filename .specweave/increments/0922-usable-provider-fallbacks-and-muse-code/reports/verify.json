@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-14T13:44:46.326Z",
+  "increment": "0922-usable-provider-fallbacks-and-muse-code",
+  "commands": [
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/studio-muse-fallback && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH node apps/server/scripts/cli.ts build",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/studio-muse-fallback && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH STUDIO_CHROMIUM_EXECUTABLE=\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" node scripts/studio-verify/muse-picker.mjs",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 4,
+    "done": 4
+  },
+  "tasks": {
+    "total": 2,
+    "done": 2,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

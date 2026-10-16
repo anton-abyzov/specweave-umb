@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-15T03:42:08.912Z",
+  "increment": "0921-studio-unified-provider-permissions",
+  "commands": [
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/cw-rel119 && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node node_modules/vite-plus/bin/vp test run apps/server/src/provider/acp/AcpPermissions.test.ts apps/server/src/provider/acp/AcpPermissions.lifecycle.test.ts apps/server/src/provider/acp/AcpSessionConfig.test.ts apps/web/src/components/chat/unifiedPermissions.test.tsx apps/web/src/components/chat/composerProviderState.test.tsx",
+      "exit": 0
+    },
+    {
+      "cmd": "test \"$(defaults read /Applications/SpecWithCode.app/Contents/Info CFBundleShortVersionString)\" = 1.0.19 && echo installed 1.0.19",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 4,
+    "done": 4
+  },
+  "tasks": {
+    "total": 3,
+    "done": 3,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

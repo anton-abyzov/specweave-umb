@@ -1,0 +1,17 @@
+$ cd /Users/antonabyzov/Projects/github/studio-credit-recovery && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH node node_modules/vite-plus/bin/vp test run apps/web/src/components/chat/CreditRecoveryAction.test.tsx apps/web/src/components/chat/UsageLimitRecoveryBanner.test.tsx apps/web/src/components/chat/explicitCreditSend.test.ts apps/web/src/components/chat/usageWarningResolution.test.ts apps/web/src/components/chat/MessagesTimeline.logic.test.ts apps/server/src/studio/nativeCreditContinuation.test.ts packages/contracts/src/manualCodexCredits.test.ts
+# exit 0 — 2026-10-14T13:05:18.275Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/Projects/github/studio-credit-recovery
+
+
+ Test Files  7 passed (7)
+      Tests  305 passed (305)
+   Start at  09:05:16
+   Duration  1.36s (transform 49%, import 44%, tests 6%, setup 1%)
+
+  Transform  transforming modules took 2.52s · 49% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+

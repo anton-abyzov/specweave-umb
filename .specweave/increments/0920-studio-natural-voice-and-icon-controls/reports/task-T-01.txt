@@ -1,0 +1,49 @@
+$ cd /Users/antonabyzov/Projects/github/studio-voice-quality && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node --experimental-strip-types --test apps/desktop/src/voice/elevenLabsVoice.test.ts
+# exit 0 — 2026-10-14T13:12:08.369Z
+
+TAP version 13
+# Subtest: only complete explicit Studio configuration enables cloud voice
+ok 1 - only complete explicit Studio configuration enables cloud voice
+  ---
+  duration_ms: 0.755375
+  type: 'test'
+  ...
+# Subtest: uses selected voice, neutral pacing, and encoded audio
+ok 2 - uses selected voice, neutral pacing, and encoded audio
+  ---
+  duration_ms: 10.316459
+  type: 'test'
+  ...
+# Subtest: provider failures give safe actionable messages
+ok 3 - provider failures give safe actionable messages
+  ---
+  duration_ms: 0.557125
+  type: 'test'
+  ...
+# Subtest: rejects non-audio and empty audio
+ok 4 - rejects non-audio and empty audio
+  ---
+  duration_ms: 0.299666
+  type: 'test'
+  ...
+# Subtest: hang-up cancels synthesis without leaking fetch errors
+ok 5 - hang-up cancels synthesis without leaking fetch errors
+  ---
+  duration_ms: 0.248583
+  type: 'test'
+  ...
+# Subtest: bounds streaming audio memory
+ok 6 - bounds streaming audio memory
+  ---
+  duration_ms: 0.515167
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 77.49025
