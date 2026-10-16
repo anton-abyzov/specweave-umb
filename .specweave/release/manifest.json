@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-10-16",
+  "about": "Release manifest for every product in this umbrella. Read by scripts/release/release.sh and scripts/release/ci-wait.sh. Holds paths, commands and env var names only, never secret values. This repository is public.",
+  "repos_root": "repositories/anton-abyzov",
+  "policy": {
+    "no_ask": [
+      "merge PRs whose checks are green (known noise excluded)",
+      "cut releases and publish packages",
+      "deploy",
+      "run verification",
+      "remove worktrees and branches whose work is fully merged"
+    ],
+    "still_ask": [
+      "discarding work that exists nowhere else (unmerged commits, dirty worktrees, stashes)",
+      "data migrations",
+      "auth changes",
+      "payment flows",
+      "new UI flows that need manual acceptance"
+    ],
+    "merge_ready_prs": true,
+    "release": true,
+    "deploy": true,
+    "verify": true,
+    "cleanup_merged_worktrees": true,
+    "waits": "Never block a tool call longer than 540s. Use scripts/release/ci-wait.sh (exit 2 = still pending, call again) in the background with a monitor on its output, and never wait on a condition that ignores error output.",
+    "studio_fleet_order": ["m4", "m1+m3"],
+    "studio_fleet_note": "Install on M4 first and wait for installedVersion; then M1 and M3 together. M4 hosts the release session, so its request is normal mode with no blocking wait when the release runs there. Never force-restart the service hosting in-flight release work.",
+    "source": "Owner rules recorded 2026-10-11 and 2026-10-16 (merge, release, deploy, verify and clean merged worktrees without asking)."
+  },
+  "known_noise_checks": [
+    {
+      "name": "claude-review",
+      "repo": "anton-abyzov/specweave",
+      "reason": "Job-level continue-on-error; fails on every PR while the workflow run reports success."
+    },
+    {
+      "name": "E2E Live (nightly)",
+      "repo": "anton-abyzov/vskill",
+      "reason": "Fails on purpose until the VSKILL_PLATFORM_TOKEN secret exists; adding it is the owner's job."
+    }
+  ],
+  "ci_wait": {
+    "default_budget_seconds": 540,
+    "tool_cap_seconds": 600,
+    "poll_seconds": [10, 15, 20, 30],
+    "log_fail_regex_platform": "This socket has been closed|Connection terminated|TLS Handshake"
+  },
+  "cleanup": {
+    "protected_globs": [
+      "studio-rel-*",
+      "studio-release-*",
+      "studio-lockfix*",
+      "studio-rev-*",
+      "relperf-*",
+      "release.noindex*",
+      "desktop.noindex*"
+    ],
+    "min_idle_minutes": 30,
+    "rule": "Remove a worktree only when it is clean, unlocked, on a branch, idle for min_idle_minutes (HEAD, index and reflog unchanged), and either git cherry against origin/<default> shows no unique commits or its PR is MERGED with headRefOid equal to the branch tip. A git error keeps the worktree."
+  },
+  "repos": [
+    {
+      "name": "specweave",
+      "slug": "anton-abyzov/specweave",
+      "path": "repositories/anton-abyzov/specweave",
+      "default_branch": "develop",
+      "visibility": "public",
+      "merge": { "method": "squash", "admin": true, "why_admin": "develop requires one approving review, which the owner cannot give himself" },
+      "version_file": "package.json",
+      "npm_package": "specweave",
+      "tag_prefix": "v"
+    },
+    {
+      "name": "vskill",
+      "slug": "anton-abyzov/vskill",
+      "path": "repositories/anton-abyzov/vskill",
+      "default_branch": "main",
+      "visibility": "public",
+      "merge": { "method": "squash", "admin": false },
+      "version_file": "package.json",
+      "npm_package": "vskill",
+      "tag_prefix": "v"
+    },
+    {
+      "name": "vskill-platform",
+      "slug": "anton-abyzov/vskill-platform",
+      "path": "repositories/anton-abyzov/vskill-platform",
+      "default_branch": "main",
+      "visibility": "private",
+      "merge": { "method": "squash", "admin": false },
+      "worker": "verified-skill-com",
+      "site": "https://verified-skill.com"
+    },
+    {
+      "name": "specweave-studio",
+      "display": "SpecWithCode",
+      "slug": "anton-abyzov/specwithcode-dev",
+      "mirror_slug": "anton-abyzov/specwithcode",
+      "mirror_checkout": "~/Projects/github/specwithcode-public",
+      "path": "repositories/anton-abyzov/specweave-studio",
+      "default_branch": "main",
+      "visibility": "private",
+      "actions_enabled": false,
+      "merge": { "method": "squash", "admin": false, "gh_needs_repo_flag": true },
+      "version_file": "apps/server/package.json",
+      "tag_prefix": "v"
+    }
+  ],
+  "groups": {
+    "all": ["specweave", "vskill-npm", "vskill-desktop", "platform", "studio"],
+    "vskill": ["vskill-npm", "vskill-desktop"]
+  },
+  "tracks": {
+    "specweave": {
+      "repo": "specweave",
+      "release": ["bash", "scripts/release/release.sh"],
+      "default_args": ["patch"],
+      "args_help": "<patch|minor|major|x.y.z> [--dry-run]",
+      "dry_run_flag": "--dry-run",
+      "dispatch_fallback": "gh workflow run release.yml -R anton-abyzov/specweave --ref develop -f version=X.Y.Z",
+      "expect_version": "default_branch_version",
+      "verify": [
+        { "name": "npm latest", "kind": "npm_version", "package": "specweave" },
+        { "name": "GitHub release", "kind": "gh_release", "repo": "anton-abyzov/specweave", "tag": "v{version}" },
+        { "name": "docs site", "kind": "http", "url": "https://spec-weave.com", "status": 200 },
+        { "name": "docs deploy on develop", "kind": "gh_run", "repo": "anton-abyzov/specweave", "workflow": "deploy-docs.yml", "branch": "develop", "blocking": false },
+        { "name": "tests on develop", "kind": "gh_run", "repo": "anton-abyzov/specweave", "workflow": "test.yml", "branch": "develop", "blocking": false }
+      ]
+    },
+    "vskill-npm": {
+      "repo": "vskill",
+      "release": ["bash", "scripts/release/release-npm.sh"],
+      "default_args": [],
+      "args_help": "[<version>] [--dry-run]",
+      "dry_run_flag": "--dry-run",
+      "expect_version": "default_branch_version",
+      "verify": [
+        { "name": "npm latest", "kind": "npm_version", "package": "vskill" },
+        { "name": "GitHub release", "kind": "gh_release", "repo": "anton-abyzov/vskill", "tag": "v{version}" },
+        { "name": "CI on main", "kind": "gh_run", "repo": "anton-abyzov/vskill", "workflow": "ci.yml", "branch": "main", "blocking": false }
+      ]
+    },
+    "vskill-desktop": {
+      "repo": "vskill",
+      "release": ["bash", "scripts/release/release-desktop.sh"],
+      "default_args": [],
+      "args_help": "[<version>] [--dry-run]",
+      "dry_run_flag": "--dry-run",
+      "expect_version": "latest_tag:desktop-v",
+      "rule": "Tag desktop-v<next> on origin/main after its CI is green; CI stamps the version from the tag, so no bump PR. Ship script fixes as a separate PR.",
+      "signing_files": [
+        "~/.config/skill-studio-release/minisign.key",
+        "~/.config/skill-studio-release/minisign.pub",
+        "~/.config/skill-studio-release/minisign.passphrase"
+      ],
+      "required_secret_names": ["TAURI_SIGNING_PRIVATE_KEY", "TAURI_SIGNING_PRIVATE_KEY_PASSWORD", "APPLE_CERTIFICATE", "APPLE_ID", "CLOUDFLARE_R2_*", "GPG_PRIVATE_KEY"],
+      "verify": [
+        { "name": "updater manifest", "kind": "latest_json", "url": "https://verified-skill.com/desktop/latest.json", "header": "x-manifest-source: r2" },
+        { "name": "GitHub release assets", "kind": "gh_release", "repo": "anton-abyzov/vskill", "tag": "desktop-v{version}", "assets": ["*.app.tar.gz.sig", "*-setup.exe.sig", "*.AppImage.sig", "*.dmg"] },
+        { "name": "Desktop Release run", "kind": "gh_run", "repo": "anton-abyzov/vskill", "workflow": "desktop-release.yml", "branch": "desktop-v{version}", "blocking": true }
+      ]
+    },
+    "platform": {
+      "repo": "vskill-platform",
+      "release": ["bash", "scripts/release.sh"],
+      "default_args": [],
+      "args_help": "[--dry-run] [--sha X] [--migrate|--no-migrate]",
+      "dry_run_flag": "--dry-run",
+      "manual_gates": ["--migrate is a data migration: the owner approves it"],
+      "deploy_fallback": "npm run db:generate && npm run deploy (bash scripts/push-deploy.sh when migrations changed)",
+      "post_deploy_fail_regex": "This socket has been closed|Connection terminated|TLS Handshake",
+      "expect_version": "none",
+      "verify": [
+        { "name": "site", "kind": "http", "url": "https://verified-skill.com/", "status": 200 },
+        { "name": "queue health contract", "kind": "http", "url": "https://verified-skill.com/api/v1/queue/health", "status": 200, "json_field": "schemaVersion", "equals": "2" },
+        { "name": "latest Workers deployment", "kind": "wrangler_deployments", "worker": "verified-skill-com", "blocking": false },
+        { "name": "unit tests on main", "kind": "gh_run", "repo": "anton-abyzov/vskill-platform", "workflow": "unit-tests.yml", "branch": "main", "blocking": false }
+      ]
+    },
+    "studio": {
+      "repo": "specweave-studio",
+      "release": ["bash", "scripts/release/release.sh"],
+      "default_args": ["{next_patch}"],
+      "args_help": "<version> [--dry-run] [--resume]",
+      "dry_run_flag": "--dry-run",
+      "expect_version": "latest_tag:v",
+      "env": {
+        "node": "22.20.0",
+        "sdkroot": "xcrun --sdk macosx --show-sdk-path",
+        "strip_path": ["anaconda3"],
+        "cert_dir": "~/.config/skill-studio-release/cert",
+        "notary_key_glob": "~/.private_keys/AuthKey_*.p8",
+        "env_file": ".env in the studio checkout (var names only)",
+        "env_var_names": ["CSC_LINK", "CSC_KEY_PASSWORD", "APPLE_API_KEY", "APPLE_API_KEY_ID", "APPLE_API_ISSUER", "STUDIO_GOOGLE_OAUTH_*"]
+      },
+      "release_dir_pattern": "~/Projects/github/studio-rel-<version>",
+      "assets_dir_pattern": "~/Projects/github/studio-release-<version>-assets",
+      "fleet": {
+        "inventory": "$STUDIO_FLEET_HOSTS or ~/.local/share/specweave/fleet/hosts.json (read via scripts/studio-fleet/fleet_hosts.py)",
+        "ssh_key": "~/.local/share/specweave/fleet/id_ed25519",
+        "hosts": [
+          { "id": "m4", "role": "orchestrator", "port": 8319, "update_mode": "normal", "wait": false },
+          { "id": "m1", "role": "worker", "port": 18319, "update_mode": "install", "wait": true },
+          { "id": "m3", "role": "worker", "port": 28319, "update_mode": "install", "wait": true }
+        ],
+        "updater_label": "com.specweave.studio.<id>.updater",
+        "state_file": "~/.specweave-studio/<id>/updates/state.json",
+        "status_command": "python3 -B scripts/studio-fleet/update_agent.py --identity <id> --status"
+      },
+      "verify": [
+        { "name": "private release", "kind": "gh_release", "repo": "anton-abyzov/specwithcode-dev", "tag": "v{version}", "assets": ["studio-update.json", "SHA256SUMS", "*.dmg"] },
+        { "name": "public mirror release", "kind": "gh_release", "repo": "anton-abyzov/specwithcode", "tag": "v{version}" },
+        { "name": "M4 service", "kind": "fleet_endpoint", "url": "http://127.0.0.1:8319/.well-known/studio/environment", "state_file": "~/.specweave-studio/m4/updates/state.json" },
+        { "name": "M1 service", "kind": "fleet_endpoint", "url": "http://127.0.0.1:18319/.well-known/studio/environment" },
+        { "name": "M3 service", "kind": "fleet_endpoint", "url": "http://127.0.0.1:28319/.well-known/studio/environment" }
+      ]
+    }
+  }
+}
