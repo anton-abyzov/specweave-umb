@@ -1,0 +1,12 @@
+{
+  "id": "0925-faster-release-pipelines",
+  "uuid": "29367ad3-8db2-4cd0-9f3d-44b83a87b5db",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-16T16:33:47.020Z",
+  "updated": "2026-10-16T16:33:47.020Z",
+  "lastActivity": "2026-10-16T16:33:47.020Z",
+  "title": "Faster release pipelines and release-timing regression scanning",
+  "project": "specweave-umb"
+}
