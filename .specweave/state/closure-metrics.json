@@ -1014,6 +1014,30 @@
       "success": true,
       "timestamp": "2026-10-15T03:44:23.791Z",
       "durationMs": 142
+    },
+    {
+      "tool": "ado",
+      "itemId": 2487,
+      "incrementId": "0919-thread-resolution-and-project-panel-resizing",
+      "success": true,
+      "timestamp": "2026-10-15T15:17:54.825Z",
+      "durationMs": 191
+    },
+    {
+      "tool": "ado",
+      "itemId": 2488,
+      "incrementId": "0918-credit-aware-usage-recovery",
+      "success": true,
+      "timestamp": "2026-10-15T15:18:04.740Z",
+      "durationMs": 182
+    },
+    {
+      "tool": "ado",
+      "itemId": 2489,
+      "incrementId": "0920-studio-natural-voice-and-icon-controls",
+      "success": true,
+      "timestamp": "2026-10-15T15:18:09.990Z",
+      "durationMs": 206
     }
   ],
   "summary": {
@@ -1044,20 +1068,20 @@
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 37,
-      "successful": 37,
+      "totalAttempts": 40,
+      "successful": 40,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-10-15T03:44:23.791Z",
-      "avgDurationMs": 199.83783783783784,
+      "lastSuccess": "2026-10-15T15:18:09.990Z",
+      "avgDurationMs": 199.325,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 126,
-      "successful": 120,
+      "totalAttempts": 129,
+      "successful": 123,
       "failed": 6,
-      "successRate": 0.9523809523809523
+      "successRate": 0.9534883720930233
     },
-    "lastUpdated": "2026-10-15T03:44:23.792Z"
+    "lastUpdated": "2026-10-15T15:18:09.990Z"
   }
 }
