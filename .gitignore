@@ -28,7 +28,6 @@
 .specweave/logs/
 .specweave/state/
 .specweave/jobs/
-.specweave/memory/
 .specweave/scratch/
 .specweave/config.json
 .specweave/sync-metadata.json
