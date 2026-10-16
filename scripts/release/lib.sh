@@ -115,15 +115,18 @@ next_patch() {
 }
 
 # state_set <track> <phase> [waiting_on] [log] [result]
-# Updates .specweave/state/release-run.json (ephemeral, gitignored).
+# Updates .specweave/state/release-run.json (ephemeral, gitignored). Tracks run
+# in parallel, so the read-modify-write holds an exclusive lock.
 state_set() {
   mkdir -p "$(dirname "$RELEASE_STATE")"
   python3 - "$RELEASE_STATE" "$@" <<'PY'
-import json, os, sys, tempfile, time
+import fcntl, json, os, sys, tempfile, time
 path, track, phase = sys.argv[1], sys.argv[2], sys.argv[3]
 extra = sys.argv[4:] + [None] * 3
 waiting_on, log_path, result = extra[0], extra[1], extra[2]
 now = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
+lock = open(path + '.lock', 'a')
+fcntl.flock(lock, fcntl.LOCK_EX)
 try:
     with open(path) as f:
         state = json.load(f)

@@ -14,12 +14,13 @@
 #
 # Tracks, repos, commands and policy come from .specweave/release/manifest.json.
 # status prints JSON on stdout and a table on stderr. Exit codes: 0 ok, 1 failure,
-# 2 pending (verify/cleanup: something is still rolling out; call again).
+# 2 pending (ship/verify/cleanup: something is still rolling out; run verify again).
+# ship --dry-run refuses a track script that has no dry-run option.
 # Progress for long runs is written to .specweave/state/release-run.json.
 set -euo pipefail
 . "$(dirname "$0")/lib.sh"
 
-usage() { sed -n '2,20p' "$0" | sed 's/^# \{0,1\}//'; }
+usage() { sed -n '2,19p' "$0" | sed 's/^# \{0,1\}//'; }
 
 WORK="$(mktemp -d "${TMPDIR:-/tmp}/release-sh.XXXXXX")"
 cleanup_work() { rm -rf "$WORK"; }
@@ -90,39 +91,43 @@ check_gh_release() {
 }
 
 check_http() {
-  local url want field equals contains code
+  local url want field equals contains code body
+  body="$(mktemp "$WORK/http.XXXXXX")"
   url="$(expand "$(jq -r '.url' <<<"$CHECK")" "$VERSION")"
   want="$(jq -r '.status // 200' <<<"$CHECK")"
   field="$(jq -r '.json_field // empty' <<<"$CHECK")"
   equals="$(jq -r '.equals // empty' <<<"$CHECK")"
   contains="$(jq -r '.contains // empty' <<<"$CHECK")"
-  code="$(curl -s -m 20 -o "$WORK/http.body" -w '%{http_code}' "$url")" || code="000"
+  code="$(curl -s -m 20 -o "$body" -w '%{http_code}' "$url")" || code="000"
   if [ "$code" != "$want" ]; then
     C_STATUS=fail; C_DETAIL="$url answered HTTP $code, want $want"; return
   fi
   if [ -n "$field" ]; then
     local got
-    got="$(jq -r --arg f "$field" '.[$f] // empty | tostring' "$WORK/http.body" 2>/dev/null)" || got=""
+    got="$(jq -r --arg f "$field" '.[$f] // empty | tostring' "$body" 2>/dev/null)" || got=""
     if [ "$got" != "$equals" ]; then
       C_STATUS=fail; C_DETAIL="$field is '${got}', want '$equals'"; return
     fi
   fi
-  if [ -n "$contains" ] && ! grep -qF -- "$contains" "$WORK/http.body"; then
+  if [ -n "$contains" ] && ! grep -qF -- "$contains" "$body"; then
     C_STATUS=fail; C_DETAIL="body lacks '$contains'"; return
   fi
   C_STATUS=pass; C_DETAIL="HTTP $code${field:+, $field=$equals}"
 }
 
 check_latest_json() {
-  local url header code got
+  local url header code got hdr body
+  hdr="$(mktemp "$WORK/lj-hdr.XXXXXX")"
+  body="$(mktemp "$WORK/lj-body.XXXXXX")"
   url="$(jq -r '.url' <<<"$CHECK")"
   header="$(jq -r '.header // empty' <<<"$CHECK")"
-  code="$(curl -s -m 20 -D "$WORK/lj.hdr" -o "$WORK/lj.body" -w '%{http_code}' "$url?ts=$(now_epoch)")" || code="000"
+  code="$(curl -s -m 20 -D "$hdr" -o "$body" -w '%{http_code}' "$url?ts=$(now_epoch)")" || code="000"
   if [ "$code" != "200" ]; then
     C_STATUS=fail; C_DETAIL="$url answered HTTP $code"; return
   fi
-  got="$(jq -r '.version // empty' "$WORK/lj.body" 2>/dev/null)" || got=""
-  if [ -n "$header" ] && ! tr -d '\r' <"$WORK/lj.hdr" | grep -qiF -- "$header"; then
+  got="$(jq -r '.version // empty' "$body" 2>/dev/null)" || got=""
+  tr -d '\r' <"$hdr" >"$hdr.lf"
+  if [ -n "$header" ] && ! grep -qiF -- "$header" "$hdr.lf"; then
     C_STATUS=fail; C_DETAIL="missing header '$header' (version $got)"; return
   fi
   if [ -n "$VERSION" ] && [ "$got" != "$VERSION" ]; then
@@ -265,6 +270,9 @@ cmd_verify() {
   [ -n "$target" ] || die "usage: release.sh verify <track|group> [--version X]"
   local tracks
   tracks="$(expand_tracks "$target")"
+  if [ -n "$version" ] && [ "$(printf '%s\n' "$tracks" | wc -l | tr -d ' ')" -gt 1 ]; then
+    die "--version applies to one track; $target has several"
+  fi
   for track in $tracks; do
     verify_track "$track" "$version" 0 >"$WORK/v-$track.json"
     print_verify_table "$WORK/v-$track.json"
@@ -572,17 +580,30 @@ ship_track() {
       args+=("$arg")
     done < <(mf '.tracks[$t].default_args // [] | .[]' --arg t "$track")
   fi
-  if [ "$dry" -eq 1 ]; then args+=("$(track_field "$track" dry_run_flag)"); fi
+  local dry_flag="" no_dry=0
+  if [ "$dry" -eq 1 ]; then
+    dry_flag="$(track_field "$track" dry_run_flag)"
+    [ -n "$dry_flag" ] || die "$track: the manifest names no dry_run_flag, so it cannot be dry-run"
+    args+=("$dry_flag")
+    # An older script that does not parse the flag would take it as a positional
+    # argument and run for real, so refuse unless the script mentions it.
+    if [ -f "$path/$script_rel" ] && ! grep -qF -- "$dry_flag" "$path/$script_rel"; then no_dry=1; fi
+  fi
   local shown="${cmd[*]}${args[*]+ ${args[*]}}"
   if [ "$plan" -eq 1 ]; then
-    if [ -f "$path/$script_rel" ]; then
-      printf '[%s] would run: (cd %s && %s), then verify %s and cleanup %s --apply\n' "$track" "$path" "$shown" "$track" "$track"
-    else
+    if [ ! -f "$path/$script_rel" ]; then
       printf '[%s] would run: (cd %s && %s), but %s is missing there: merge its 0925 branch first\n' "$track" "$path" "$shown" "$script_rel"
+    elif [ "$no_dry" -eq 1 ]; then
+      printf '[%s] would refuse: %s in %s has no %s option, so a dry run would run for real\n' "$track" "$script_rel" "$path" "$dry_flag"
+    elif [ "$dry" -eq 1 ]; then
+      printf '[%s] would run: (cd %s && %s); a dry run skips verify and cleanup\n' "$track" "$path" "$shown"
+    else
+      printf '[%s] would run: (cd %s && %s), then verify %s and cleanup %s --apply\n' "$track" "$path" "$shown" "$track" "$track"
     fi
     return 0
   fi
   [ -f "$path/$script_rel" ] || die "$track: $path/$script_rel does not exist; merge the branch that adds it first"
+  [ "$no_dry" -eq 0 ] || die "$track: $script_rel has no $dry_flag option; refusing a dry run that would run for real (merge its 0925 branch first)"
   log_dir="$(dirname "$RELEASE_STATE")/release-logs"
   mkdir -p "$log_dir"
   log_file="$log_dir/$track-$(date -u +%Y%m%dT%H%M%SZ).log"
@@ -616,16 +637,20 @@ ship_track() {
   if [ "$vr" -eq 2 ]; then
     state_set "$track" verify-pending "" "" "shipped; verify pending"
     log "[$track] shipped; verify still pending. Re-run: release.sh verify $track, then release.sh cleanup $track --apply"
-    return 0
+    return 2
   elif [ "$vr" -ne 0 ]; then
     state_set "$track" failed "" "" "shipped but verify failed"
     return 1
   fi
   state_set "$track" cleanup
-  if ! cmd_cleanup "$track" --apply >"$WORK/ship-cleanup-$track.json"; then
+  # A subshell, so a cleanup that dies cannot turn a shipped, verified track
+  # into a failed one.
+  local cleaned="cleaned up"
+  if ! (cmd_cleanup "$track" --apply) >"$WORK/ship-cleanup-$track.json"; then
+    cleaned="cleanup reported a problem (release.sh cleanup $track)"
     log "[$track] cleanup reported a problem; see release.sh cleanup $track"
   fi
-  state_set "$track" done "" "" "shipped, verified and cleaned up in $(( $(now_epoch) - start ))s"
+  state_set "$track" done "" "" "shipped and verified, $cleaned, in $(( $(now_epoch) - start ))s"
   return 0
 }
 
@@ -651,6 +676,7 @@ cmd_ship() {
     cmd_status >"$WORK/pre-status.json"
   fi
   # One pipeline per repo, run in parallel; tracks sharing a repo run in order.
+  # A track whose verify is still pending (exit 2) does not stop the next one.
   local repos repo pids="" names="" track
   repos="$(for track in $tracks; do track_field "$track" repo; done | awk '!seen[$0]++')"
   for repo in $repos; do
@@ -658,7 +684,11 @@ cmd_ship() {
       local_rc=0
       for track in $tracks; do
         [ "$(track_field "$track" repo)" = "$repo" ] || continue
-        if ! ship_track "$track" "$dry" "$plan" ${extra[@]+"${extra[@]}"}; then
+        one=0
+        ship_track "$track" "$dry" "$plan" ${extra[@]+"${extra[@]}"} || one=$?
+        if [ "$one" -eq 2 ]; then
+          local_rc=2
+        elif [ "$one" -ne 0 ]; then
           local_rc=1
           break
         fi
@@ -668,20 +698,26 @@ cmd_ship() {
     pids="$pids $!"
     names="$names $repo"
   done
-  local pid rc=0 i=1 failed=""
+  local pid rc=0 i=1 failed="" pending="" w
   for pid in $pids; do
-    if ! wait "$pid"; then
+    w=0
+    wait "$pid" || w=$?
+    if [ "$w" -eq 2 ]; then
+      pending="$pending $(printf '%s\n' $names | sed -n "${i}p")"
+    elif [ "$w" -ne 0 ]; then
       rc=1
       failed="$failed $(printf '%s\n' $names | sed -n "${i}p")"
     fi
     i=$((i + 1))
   done
+  if [ "$rc" -eq 0 ] && [ -n "$pending" ]; then rc=2; fi
   if [ "$plan" -eq 0 ] && [ "$dry" -eq 0 ]; then
     local tc=0
     python3 "$TIMING_PY" check >&2 || tc=$?
     [ "$tc" -ne 2 ] || log "timing: regressions flagged above (report only)"
   fi
-  if [ "$rc" -ne 0 ]; then
+  [ -z "$pending" ] || log "ship: verify still pending for:$pending (call release.sh verify, then cleanup --apply)"
+  if [ "$rc" -eq 1 ]; then
     log "ship: failed for:$failed (state: release.sh status --run)"
   else
     log "ship: $target finished"
