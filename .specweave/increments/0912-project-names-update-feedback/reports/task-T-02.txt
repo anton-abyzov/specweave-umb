@@ -1,0 +1,13 @@
+$ cd repositories/anton-abyzov/specweave-studio && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH node node_modules/vite-plus/bin/vp test run apps/web/src/components/sidebar/SidebarUpdatePill.test.tsx
+# exit 0 — 2026-10-13T19:37:12.986Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.codex/worktrees/project-names-release/specweave-umb/repositories/anton-abyzov/specweave-studio
+
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  15:37:10
+   Duration  2.64s (transform 56%, import 41%, tests 2%)
+

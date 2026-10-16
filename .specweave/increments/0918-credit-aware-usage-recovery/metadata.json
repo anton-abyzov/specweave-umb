@@ -1,0 +1,24 @@
+{
+  "id": "0918-credit-aware-usage-recovery",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-14T12:52:59.320Z",
+  "updated": "2026-10-15T15:17:59.029Z",
+  "lastActivity": "2026-10-15T15:17:59.029Z",
+  "title": "Credit-aware usage recovery and release",
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2488",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2488",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-15T15:18:03.726Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-15T15:17:59.028Z",
+  "approvedAt": "2026-10-15T15:17:59.029Z"
+}

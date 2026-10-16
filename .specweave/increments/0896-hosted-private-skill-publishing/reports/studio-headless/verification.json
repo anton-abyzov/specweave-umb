@@ -1,0 +1,126 @@
+{
+  "headless": true,
+  "passed": true,
+  "calls": [
+    {
+      "path": "/api/project/github-status",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/api/v1/account/tenants",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/__internal/active-tenant",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/api/v1/billing/quota",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/api/git/diff",
+      "method": "POST",
+      "body": null
+    },
+    {
+      "path": "/api/config",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/__internal/active-tenant",
+      "method": "POST",
+      "body": {
+        "currentTenant": "team"
+      }
+    },
+    {
+      "path": "/api/v1/account/tenants",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/__internal/active-tenant",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/api/git/publish",
+      "method": "POST",
+      "body": {}
+    },
+    {
+      "path": "/api/v1/submissions",
+      "method": "POST",
+      "body": {
+        "repoUrl": "https://github.com/acme/private-skills",
+        "skillName": "private-team-skill",
+        "skillPath": "skills/private-team-skill/SKILL.md",
+        "source": "studio-submit",
+        "privacy": "private",
+        "tenantId": "tenant-2"
+      }
+    },
+    {
+      "path": "/api/v1/submissions/psub_0896",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/api/project/github-status",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/api/v1/account/tenants",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/__internal/active-tenant",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/api/v1/billing/quota",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/api/git/diff",
+      "method": "POST",
+      "body": null
+    },
+    {
+      "path": "/api/config",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/api/project/github-status",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/api/v1/billing/quota",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "path": "/api/git/diff",
+      "method": "POST",
+      "body": null
+    },
+    {
+      "path": "/api/config",
+      "method": "GET",
+      "body": null
+    }
+  ],
+  "pageErrors": []
+}

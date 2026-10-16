@@ -1,0 +1,15 @@
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.codex/worktrees/project-names-release/specweave-umb/repositories/anton-abyzov/specweave-studio
+      Coverage enabled with v8
+
+
+ Test Files  2 passed (2)
+      Tests  46 passed (46)
+   Start at  15:43:06
+   Duration  4.95s (transform 44%, import 27%, tests 14%, environment 14%, worker 1%)
+
+  Transform  transforming modules took 3.17s · 44% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+

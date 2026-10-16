@@ -1,0 +1,69 @@
+{
+ "checkedAt": "2026-10-15T03:43:43.143Z",
+ "pages": [
+  {
+   "mode": "light",
+   "w": 1440,
+   "status": 200,
+   "finalUrl": "https://spec-weave.com/code/?live=1792035823176",
+   "title": "SpecWithCode: AI agents on your machines, under your control | SpecWeave",
+   "canonical": "https://spec-weave.com/code/",
+   "theme": "light",
+   "h1": "Your agents.\nYour machines.\nYour control.",
+   "hasYourAgents": true,
+   "hasTwoMeters": true,
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "errs": []
+  },
+  {
+   "mode": "light",
+   "w": 375,
+   "status": 200,
+   "finalUrl": "https://spec-weave.com/code/?live=1792035825661",
+   "title": "SpecWithCode: AI agents on your machines, under your control | SpecWeave",
+   "canonical": "https://spec-weave.com/code/",
+   "theme": "light",
+   "h1": "Your agents.\nYour machines.\nYour control.",
+   "hasYourAgents": true,
+   "hasTwoMeters": true,
+   "scrollWidth": 375,
+   "innerWidth": 375,
+   "errs": []
+  },
+  {
+   "mode": "dark",
+   "w": 1440,
+   "status": 200,
+   "finalUrl": "https://spec-weave.com/code/?live=1792035828219",
+   "title": "SpecWithCode: AI agents on your machines, under your control | SpecWeave",
+   "canonical": "https://spec-weave.com/code/",
+   "theme": "dark",
+   "h1": "Your agents.\nYour machines.\nYour control.",
+   "hasYourAgents": true,
+   "hasTwoMeters": true,
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "errs": []
+  },
+  {
+   "mode": "dark",
+   "w": 375,
+   "status": 200,
+   "finalUrl": "https://spec-weave.com/code/?live=1792035830673",
+   "title": "SpecWithCode: AI agents on your machines, under your control | SpecWeave",
+   "canonical": "https://spec-weave.com/code/",
+   "theme": "dark",
+   "h1": "Your agents.\nYour machines.\nYour control.",
+   "hasYourAgents": true,
+   "hasTwoMeters": true,
+   "scrollWidth": 375,
+   "innerWidth": 375,
+   "errs": []
+  }
+ ],
+ "studio": {
+  "status": 200,
+  "finalUrl": "https://spec-weave.com/code/?live=1792035833068"
+ }
+}

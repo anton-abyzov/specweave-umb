@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-14T16:29:44.554Z",
+  "increment": "0919-thread-resolution-and-project-panel-resizing",
+  "commands": [
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/studio-resolved-details && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node node_modules/vite-plus/bin/vp test run apps/web/src/studio/projectWorkspaceModel.test.ts apps/web/src/studio/shellModel.test.ts apps/web/src/components/studio/ProjectWorkspace.test.tsx apps/web/src/components/studio/shell/ProjectThreadHeader.test.tsx apps/web/src/state/selectedThreadShell.test.ts apps/web/src/state/entities.selectedThreadShell.test.tsx apps/web/src/studio/projectThreadResolution.test.ts",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 4,
+    "done": 4
+  },
+  "tasks": {
+    "total": 2,
+    "done": 2,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

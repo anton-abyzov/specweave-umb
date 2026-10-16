@@ -73,7 +73,13 @@ The Bash guard is per project (`specweave jev setup --guard-bash` writes the con
 | Test | `npm --prefix repositories/anton-abyzov/specweave run test:unit:fast && npm --prefix repositories/anton-abyzov/vskill test && npm --prefix repositories/anton-abyzov/vskill-platform test` |
 | Lint | `npm --prefix repositories/anton-abyzov/specweave run lint:skills && npm --prefix repositories/anton-abyzov/specweave run lint:docs-refs && npm --prefix repositories/anton-abyzov/vskill run lint:skills-spec` |
 
-Use Node 22. For isolated worktrees, pass their actual commands with `specweave verify --cmd`. The platform currently has no configured ESLint command; do not claim a clean platform lint run. UI changes also require their relevant headless browser checks and product builds.
+Use Node 22. For isolated worktrees, pass their actual commands with `specweave verify --cmd`. The platform currently has no configured ESLint command; do not claim a clean platform lint run. UI changes also require their relevant browser checks and product builds.
+
+## Headless browser automation — mandatory (2026-10-13)
+
+All automated browser tests, E2E checks, visual verification, screenshots, recordings, scrapers, and delegated runs must use headless Chrome/Playwright CLI. Set `headless: true` (Python: `headless=True`) explicitly. Keep `PWDEBUG=0` and `PLAYWRIGHT_HTML_OPEN=never`; configure HTML reporters with `open: 'never'`. Save screenshots, videos, traces, and reports to files.
+
+If a visible browser is truly necessary, ask Anton and wait for explicit confirmation before opening it. Do not open headed mode, Playwright UI/Inspector, DevTools, or a personal browser for automation without that confirmation. A headless failure is not permission to retry visibly. This rule supersedes all earlier visible-browser authorization, including retained copies in worktrees and historical records. Preserve unrelated tabs and sessions, verify the destination account before account changes, and propagate this rule to every delegated run.
 
 ## Project notes
 

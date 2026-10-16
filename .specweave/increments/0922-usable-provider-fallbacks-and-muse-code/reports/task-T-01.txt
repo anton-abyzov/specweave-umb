@@ -1,0 +1,13 @@
+$ cd /Users/antonabyzov/Projects/github/studio-muse-fallback && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH node node_modules/vite-plus/bin/vp test run packages/shared/src/providerFallback.test.ts packages/shared/src/providerFallbackEligibility.test.ts
+# exit 0 — 2026-10-14T13:13:15.825Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/Projects/github/studio-muse-fallback
+
+
+ Test Files  2 passed (2)
+      Tests  40 passed (40)
+   Start at  09:13:15
+   Duration  536ms (transform 55%, import 44%, tests 1%, setup 1%)
+

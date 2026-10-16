@@ -1,0 +1,24 @@
+{
+  "id": "0924-specwithcode-product-led-landing-and-subscription-value",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-14T21:33:10.423Z",
+  "updated": "2026-10-15T03:44:19.678Z",
+  "lastActivity": "2026-10-15T03:44:19.678Z",
+  "title": "SpecWithCode product-led landing and subscription value",
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2486",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2486",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-15T03:44:22.601Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-15T03:44:19.678Z",
+  "approvedAt": "2026-10-15T03:44:19.678Z"
+}
