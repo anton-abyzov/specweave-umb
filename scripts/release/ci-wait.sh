@@ -19,7 +19,7 @@
 set -euo pipefail
 . "$(dirname "$0")/lib.sh"
 
-usage() { sed -n '2,19p' "$0" | sed 's/^# \{0,1\}//'; }
+usage() { sed -n '2,18p' "$0" | sed 's/^# \{0,1\}//'; }
 
 [ $# -ge 1 ] || { usage >&2; exit 64; }
 MODE="$1"
@@ -70,6 +70,7 @@ LAST_HB=0
 CACHE="${TMPDIR:-/tmp}/ci-wait-$(id -u)"
 mkdir -p "$CACHE"
 chmod 700 "$CACHE"
+find "$CACHE" -type f -mmin +1440 -exec rm -f {} + 2>/dev/null || :
 
 NOISE_JSON="$(
   {
@@ -110,30 +111,46 @@ pending_exit() {
 }
 
 # api_get <path>: GET with If-None-Match. Sets API_CODE and API_BODY (a file).
+# Each body is stored under a name derived from its own ETag, so a 304 always
+# reuses the body that ETag belongs to, even when several ci-wait processes
+# poll the same path at once.
 API_CODE=""
 API_BODY=""
 api_get() {
-  local path="$1" key raw etag_f body_f
+  local path="$1" key raw etag="" body_f new_etag new_body tmp
   key="$(printf '%s' "$path" | cksum | awk '{print $1}')"
-  raw="$CACHE/$key.raw"
-  etag_f="$CACHE/$key.etag"
-  body_f="$CACHE/$key.body"
-  if [ -s "$etag_f" ] && [ -s "$body_f" ]; then
-    if gh api -i -H "If-None-Match: $(cat "$etag_f")" "$path" >"$raw" 2>"$raw.err"; then :; fi
+  if [ -s "$CACHE/$key.etag" ]; then etag="$(cat "$CACHE/$key.etag")"; fi
+  body_f="$CACHE/$key.$(printf '%s' "$etag" | cksum | awk '{print $1}').body"
+  raw="$(mktemp "$CACHE/raw.XXXXXX")"
+  if [ -n "$etag" ] && [ -s "$body_f" ]; then
+    if gh api -i -H "If-None-Match: $etag" "$path" >"$raw" 2>"$raw.err"; then :; fi
   else
     if gh api -i "$path" >"$raw" 2>"$raw.err"; then :; fi
   fi
   API_CODE="$(head -1 "$raw" | awk '{print $2}')"
-  API_BODY="$body_f"
   case "$API_CODE" in
-    304) return 0 ;;
+    304)
+      API_BODY="$body_f"
+      touch "$body_f" "$CACHE/$key.etag"  # in use: keep it out of the daily prune
+      rm -f "$raw" "$raw.err"
+      return 0 ;;
     200)
-      awk 'BEGIN { h = 1 } h && /^\r?$/ { h = 0; next } !h' "$raw" >"$body_f.tmp"
-      mv "$body_f.tmp" "$body_f"
-      grep -i '^etag:' "$raw" | head -1 | sed 's/^[^:]*:[[:space:]]*//' | tr -d '\r\n' >"$etag_f"
+      new_etag="$(grep -i '^etag:' "$raw" | sed -n '1s/^[^:]*:[[:space:]]*//p' | tr -d '\r\n')"
+      new_body="$CACHE/$key.$(printf '%s' "$new_etag" | cksum | awk '{print $1}').body"
+      tmp="$(mktemp "$CACHE/body.XXXXXX")"
+      awk 'BEGIN { h = 1 } h && /^\r?$/ { h = 0; next } !h' "$raw" >"$tmp"
+      mv "$tmp" "$new_body"
+      tmp="$(mktemp "$CACHE/etag.XXXXXX")"
+      printf '%s' "$new_etag" >"$tmp"
+      mv "$tmp" "$CACHE/$key.etag"
+      API_BODY="$new_body"
+      rm -f "$raw" "$raw.err"
       return 0
       ;;
-    *) API_CODE="${API_CODE:-000}"; return 1 ;;
+    *)
+      API_CODE="${API_CODE:-000}"
+      rm -f "$raw" "$raw.err"
+      return 1 ;;
   esac
 }
 
@@ -284,7 +301,7 @@ mode_tag() {
 }
 
 mode_pr() {
-  local slug number sha="" new_sha head_age=0 checks statuses verdict
+  local slug number sha="" new_sha head_age=0 checks statuses wf_runs verdict
   if [ "$NPOS" -eq 1 ]; then
     case "${POS[0]}" in
       https://github.com/*/pull/*)
@@ -317,17 +334,28 @@ mode_pr() {
       statuses="$CACHE/empty-status.json"
       printf '{"statuses":[]}' >"$statuses"
       if api_get "repos/$slug/commits/$sha/status"; then statuses="$API_BODY"; fi
-      verdict="$(jq -n -r --argjson noise "$NOISE_JSON" --slurpfile c "$checks" --slurpfile s "$statuses" '
+      wf_runs="$CACHE/empty-runs.json"
+      printf '{"workflow_runs":[]}' >"$wf_runs"
+      if api_get "repos/$slug/actions/runs?head_sha=$sha&per_page=100"; then wf_runs="$API_BODY"; fi
+      verdict="$(jq -n -r --argjson noise "$NOISE_JSON" --slurpfile c "$checks" --slurpfile s "$statuses" --slurpfile w "$wf_runs" '
         def noisy: (ascii_downcase) as $n | ($noise | index($n)) != null;
-        ([$c[0].check_runs[] | select((.name | noisy) | not)]) as $runs
+        ($c[0].check_runs) as $all
+        | ([$all[] | select((.name | noisy) | not)]) as $runs
         | ([$s[0].statuses[]? | select((.context | noisy) | not)]) as $sts
+        # A workflow run still going counts as pending unless every check run it
+        # has created so far is known noise.
+        | ([$w[0].workflow_runs[]? | select(.status != "completed")
+            | .check_suite_id as $suite
+            | select(([$all[] | select(.check_suite.id == $suite)] as $mine
+                      | ($mine | length) > 0 and all($mine[]; .name | noisy)) | not)]) as $open_runs
         | ([$runs[] | select(.status == "completed" and (.conclusion | IN("failure", "timed_out", "cancelled", "action_required", "startup_failure")))] | map("\(.name) [\(.conclusion)] \(.details_url // "")")
            + [$sts[] | select(.state == "failure" or .state == "error") | "\(.context) [\(.state)] \(.target_url // "")"]) as $failed
         | (([$runs[] | select(.status != "completed")] | length) + ([$sts[] | select(.state == "pending")] | length)) as $pending
         | (($runs | length) + ($sts | length)) as $total
         | if ($failed | length) > 0 then "FAIL\t" + ($failed | join("\n"))
-          elif $total == 0 then "NONE\t"
-          elif $pending == 0 then "PASS\t\($total) checks green"
+          elif $total == 0 and ($open_runs | length) == 0 then "NONE\t"
+          elif $pending == 0 and ($open_runs | length) == 0 then "PASS\t\($total) checks green"
+          elif $pending == 0 then "WAIT\t\($total) checks done; workflow still running: \($open_runs | map(.name) | unique | join(", "))"
           else "WAIT\t\($total - $pending)/\($total) checks done" end')"
       case "${verdict%%	*}" in
         FAIL)
@@ -343,7 +371,9 @@ mode_pr() {
           printf 'ci-wait: PR %s#%s green on %s after %ss (%s)\n' "$slug" "$number" "${sha:0:9}" "$(elapsed)" "${verdict#*	}"
           exit 0 ;;
         NONE)
-          if [ "$head_age" -gt 300 ]; then
+          # GitHub needs a few seconds to create runs after a push, and the head
+          # commit can be older than the push, so also require 60s of no checks.
+          if [ "$head_age" -gt 300 ] && [ "$(elapsed)" -ge 60 ]; then
             printf 'ci-wait: PR %s#%s: no checks reported for %s (head pushed %ss ago); nothing to wait on\n' "$slug" "$number" "${sha:0:9}" "$head_age"
             exit 0
           fi
@@ -396,14 +426,17 @@ mode_url() {
     else case "$code" in 2??) ;; *) ok=0 ;; esac
     fi
     if [ "$ok" -eq 1 ] && [ -n "$want" ] && ! grep -qF -- "$want" "$body"; then ok=0; fi
-    if [ "$ok" -eq 1 ] && [ -n "$WANT_HEADER" ] && ! tr -d '\r' <"$hdr" | grep -qiF -- "$WANT_HEADER"; then ok=0; fi
+    if [ "$ok" -eq 1 ] && [ -n "$WANT_HEADER" ]; then
+      tr -d '\r' <"$hdr" >"$hdr.lf"
+      grep -qiF -- "$WANT_HEADER" "$hdr.lf" || ok=0
+    fi
     if [ "$ok" -eq 1 ]; then
       printf 'ci-wait: %s ready (HTTP %s) after %ss\n' "$url" "$code" "$(elapsed)"
-      rm -f "$body" "$hdr"
+      rm -f "$body" "$hdr" "$hdr.lf"
       exit 0
     fi
     tick "url $url HTTP $code, not ready"
-    next_poll "5 10 15 20" || { rm -f "$body" "$hdr"; pending_exit "$url not ready"; }
+    next_poll "5 10 15 20" || { rm -f "$body" "$hdr" "$hdr.lf"; pending_exit "$url not ready"; }
   done
 }
 
