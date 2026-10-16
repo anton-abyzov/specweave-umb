@@ -53,3 +53,27 @@ Live GitHub App metadata confirms owneranton-abyzov, Contents/Metadata read, eve
 Production source passed fresh independent review at platforma17599a6 and CLI4f9d129. The CLI's subsequent test-fixture-only head1a20957 passed every PR check, including fullunit7,014 passed/11 skipped (run38355622953), three-OS sidecar runtime, install/diff/key-store smoke, and Windows Rust. Platform full coverage CI passed7,604 tests/14 skipped with66.17% lines/statements,80.99% branches and81.49% functions (run38354175469). Local final Worker build passed at unchanged production source; log/tmp/0896-platform-worker-build.log.
 
 Final local platform8ef2818f passed36/36 combined PostgreSQL/headless checks with92.58% private line/statement coverage. Concurrent intake passed20 repeated runs after a test-only Worker environment correction; clean CI had exposed mocked dynamic-import nondeterminism, not a database defect. Onboarding CI38356550483 passed47/47. Replacement dedicated CI38357888207 remains pending. Both hosted launch gates remain closed. No production migration, hosted private submission, deployment, public publication, or payment was performed.
+
+## Activation candidate verification
+
+Platform adfa8e12 passed CI38358831309:36/36 real PostgreSQL/headless publication checks,92.58% private-source coverage and the Worker build/runtime contract. CI38358831353 passed47/47 onboarding browser checks. Full activation coverage passed7607 tests but failed2 stale pricing assertions that assumed the former closed default; the owner is preserving explicit rollback assertions and adding actual release-default coverage. CLI8cd6181 passed all7014 tests plus cross-platform install/diff/key-store and sidecar checks. The unchanged Windows settings test fixed-sleep race is being rerun once before considering any fixture edit.
+
+Visible Chrome now works. The authenticated anton-abyzov settings page confirms existing Verified Skill Studio installation135567134. Opening its settings reaches GitHub Confirm access; the user has been asked to complete passkey/authenticator confirmation. No repository grant or GitHub App setting has changed.
+
+Pricing test followup fd173ea6 preserves the original rollback assertions and adds actual-enabled Pro/Team coverage;81/81 focused checks and fresh review pass. Its sandbox/Worker CI38360468721 and47-case browser CI38360468634 pass; final full unit/coverage38360468659 is pending. CLI Windows Rust rerun38359089539 attempt2 passed168/168 without edits; all CLI8cd6181 PR checks now pass.
+
+Read-only Cloudflare prestate: production deployment033f8654-77f2-4fd9-b2a7-7ddc6493944f serves version09e5b23a-a99a-4267-a2d7-fc2aed208b51 at100%, created2026-10-12T20:05:41Z. Original platform checkout remains clean at2e0c6247 (2026-10-12T20:01:15Z). Live-source comparison is being checked independently; no deployment performed.
+
+## Native proof boundary
+
+Tauri launcher sidecar.rs232 starts vskill-server with --port0 and does not inject credential overrides. Hosted publishing, tenant discovery and online entitlement use the same-origin Node proxy and protected vsk token. Locked Cargo keyring3.6.3 resolves only default with no native backend features (cargo tree --locked --offline -e features -i keyring); legacy Rust quota uses its mock store in this build. The standalone1.0.64 sidecar proof is not full GUI proof. Post-release acceptance must verify installed1.0.65, a fresh sidecar/port, the X-Studio-Token bridge, matching live profile/Pro/tenants, enabled Private selection and the authorized publish/status/download flow. No GUI launch or credential mutation was performed for this source check.
+
+## Live baseline comparison
+
+Independent read-only comparison found no Worker artifact/config drift: both deployed modules match the clean2e0c6247 checkout's existing-artifact Wrangler dry-run byte for byte;162 direct source-map inputs match Git HEAD;71 config checks, both custom domains and current version bindings match. Details and hashes are in review.md. The prebuilt Next handler was not rebuilt from tracked source; deployed sourcemap/commit annotation is absent. Static assets, secret values, queue consumer settings and DB/provider state remain separate release checks. No production write occurred.
+
+## Final candidate checks and pending acceptance
+
+All platform PR123 checks pass at fd173ea6:7611 tests/14 existing skips,718 files/4 skips,66.17% lines/statements above60%,81.02% branches,81.49% functions (CI38360468659);36-case sandbox/Worker CI38360468721 and47-case browser CI38360468634 pass. All CLI PR174 checks pass at8cd6181, including7014 unit tests and168 Windows native tests. Fresh source review and read-only live baseline comparison pass.
+
+Concrete manual acceptance/release approval was requested for the reviewed UI, additive migration, encryption-key setup, Cloudflare deployment, npm1.2.8 and native1.0.65 releases; no response yet. GitHub passkey confirmation remains independently pending. No production secret, migration, grant, deployment, hosted submission, release tag, npm publication or payment has been performed.

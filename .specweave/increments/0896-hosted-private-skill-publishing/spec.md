@@ -36,7 +36,7 @@ Free hosted private allowance is 0 (Anton's 2026-10-12 decision, preserved in le
 - AC: AC-03 | Files: repositories/anton-abyzov/vskill-platform/tests/e2e/0896/, repositories/anton-abyzov/vskill-platform/scripts/0896/, repositories/anton-abyzov/vskill-platform/.github/workflows/0896-private-publishing.yml | Test: cd repositories/anton-abyzov/vskill-platform && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH VSKILL_0896_DATABASE_URL=postgresql://antonabyzov@127.0.0.1:5432/vskill_0896_private bash scripts/0896/run-sandbox.sh --reporter=verbose
 
 ### T-03 Open the launch gate after both sandboxes pass
-- AC: AC-04 | Files: repositories/anton-abyzov/vskill-platform/src/lib/hosted-publishing.ts | Test: npm --prefix repositories/anton-abyzov/vskill-platform test -- hosted-publishing
+- AC: AC-04 | Files: repositories/anton-abyzov/vskill-platform/src/lib/hosted-publishing.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/billing/checkout/session/__tests__/route.test.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/__tests__/route.private-paywall.test.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/__tests__/route.privacy-gate.test.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/tenants/[tenantId]/skills/__tests__/production-publish.test.ts, repositories/anton-abyzov/vskill-platform/src/app/pricing/__tests__/page.test.tsx | Test: npm --prefix repositories/anton-abyzov/vskill-platform test -- --maxWorkers=1 src/app/api/v1/billing/checkout/session/__tests__/route.test.ts src/app/pricing/__tests__/page.test.tsx
 
 ### T-04 Studio sends the tenant on private publish
 - AC: AC-05 | Files: repositories/anton-abyzov/vskill/src/eval-ui/, repositories/anton-abyzov/vskill/src/api/, repositories/anton-abyzov/vskill/src/eval-server/platform-proxy.ts, repositories/anton-abyzov/vskill/src/lib/hosted-publishing.ts | Test: npm --prefix repositories/anton-abyzov/vskill test -- src/eval-ui/src/components/__tests__/PublishButton.test.tsx src/eval-ui/src/components/__tests__/PublishDrawerPrivacy.test.tsx
@@ -79,3 +79,9 @@ Free hosted private allowance is 0 (Anton's 2026-10-12 decision, preserved in le
 
 ### T-17 Update the blocklist fixture for filesystem containment probes
 - AC: AC-03 | Files: repositories/anton-abyzov/vskill/src/commands/add-blocklist-e2e.test.ts | Test: npm --prefix repositories/anton-abyzov/vskill test -- --maxWorkers=1 src/commands/add-blocklist-e2e.test.ts
+
+### T-18 Enable the prepared CLI and Studio private capability
+- AC: AC-04, AC-05, AC-06 | Files: repositories/anton-abyzov/vskill/src/lib/hosted-publishing.ts, repositories/anton-abyzov/vskill/docs/private-skills-repo.md, repositories/anton-abyzov/vskill/src/eval-server/__tests__/platform-proxy-submission-guard.test.ts, repositories/anton-abyzov/vskill/src/eval-ui/src/components/__tests__/PublishDrawerPrivacy.test.tsx | Test: npm --prefix repositories/anton-abyzov/vskill test -- src/eval-server/__tests__/platform-proxy-submission-guard.test.ts src/eval-ui/src/components/__tests__/PublishDrawerPrivacy.test.tsx
+
+### T-19 Verify activated pricing and rollback rendering
+- AC: AC-04 | Files: repositories/anton-abyzov/vskill-platform/src/app/pricing/__tests__/page.test.tsx | Test: npm --prefix repositories/anton-abyzov/vskill-platform test -- --maxWorkers=1 src/app/pricing/__tests__/page.test.tsx src/__tests__/billing/pricing-page.test.tsx src/components/billing/__tests__/PlanCard.test.tsx src/app/api/v1/billing/checkout/session/__tests__/route.test.ts
