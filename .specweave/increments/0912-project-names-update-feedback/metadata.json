@@ -1,0 +1,25 @@
+{
+  "id": "0912-project-names-update-feedback",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-13T19:28:36.855Z",
+  "updated": "2026-10-15T03:44:08.036Z",
+  "lastActivity": "2026-10-15T03:44:08.036Z",
+  "title": "Keep saved project names and show update results",
+  "project": "specweave-umb",
+  "parent": "0908-project-names-release",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2484",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2484",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-15T03:44:13.228Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-15T03:44:08.035Z",
+  "approvedAt": "2026-10-15T03:44:08.036Z"
+}

@@ -1,0 +1,12 @@
+$ cd repositories/anton-abyzov/specweave-studio && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH node node_modules/vite-plus/bin/vp test run packages/client-runtime/src/state/projectGrouping.test.ts apps/web/src/components/studio/shell/StudioSidebar.test.tsx
+# exit 0 — 2026-10-13T15:44:47.681Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.codex/worktrees/project-names-release/specweave-umb/repositories/anton-abyzov/specweave-studio
+
+
+ Test Files  2 passed (2)
+      Tests  50 passed (50)
+   Start at  11:44:44
+   Duration  2.65s (transform 46%, import 26%, environment 14%, tests 13%)

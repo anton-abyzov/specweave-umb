@@ -1,0 +1,4 @@
+$ cd /Users/antonabyzov/Projects/github/studio-voice-quality && PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node reports/voice-quality/check-ui.mjs
+# exit 0 — 2026-10-14T13:36:19.340Z
+
+Headless voice controls passed
