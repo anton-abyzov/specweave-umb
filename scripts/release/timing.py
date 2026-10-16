@@ -11,6 +11,7 @@ Records live in .specweave/metrics/release-timings.jsonl, one JSON object per li
 """
 import argparse
 import datetime
+import fcntl
 import json
 import os
 import pathlib
@@ -20,6 +21,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import urllib.parse
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 DEFAULT_LOG = pathlib.Path(os.environ.get('RELEASE_TIMINGS_LOG') or ROOT / '.specweave' / 'metrics' / 'release-timings.jsonl')
@@ -75,19 +77,23 @@ def identity(record):
 
 
 def append(log, new_records):
-    known = {identity(r) for r in load(log)}
-    fresh = []
-    for record in new_records:
-        key = identity(record)
-        if key is not None and key in known:
-            continue
-        known.add(key)
-        fresh.append(record)
-    if fresh:
-        log.parent.mkdir(parents=True, exist_ok=True)
-        with log.open('a') as stream:
-            for record in fresh:
-                stream.write(json.dumps(record, sort_keys=True) + '\n')
+    # Parallel tracks and ci-wait calls append at once: hold a lock across the
+    # dedupe read and the write.
+    log.parent.mkdir(parents=True, exist_ok=True)
+    with open(str(log) + '.lock', 'a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        known = {identity(r) for r in load(log)}
+        fresh = []
+        for record in new_records:
+            key = identity(record)
+            if key is not None and key in known:
+                continue
+            known.add(key)
+            fresh.append(record)
+        if fresh:
+            with log.open('a') as stream:
+                for record in fresh:
+                    stream.write(json.dumps(record, sort_keys=True) + '\n')
     return fresh
 
 
@@ -130,13 +136,18 @@ CACHE_PATTERNS = [
 GROUP_RUN = re.compile(r'##\[group\]Run (\S+)')
 
 
+def cache_label(uses):
+    """`Swatinem/rust-cache@v2` -> `Swatinem/rust-cache`: a version bump keeps the history."""
+    return uses.split('@', 1)[0]
+
+
 def cache_events(log_text):
     """[(step label, hit)] from a job log, attributed to the last `Run <action>` group."""
     events, current = [], None
     for line in log_text.splitlines():
         group = GROUP_RUN.search(line)
         if group:
-            current = group.group(1)
+            current = cache_label(group.group(1))
             continue
         for pattern, hit in CACHE_PATTERNS:
             if pattern.search(line):
@@ -201,7 +212,10 @@ def cmd_record(args):
 # ---------------------------------------------------------------- check
 
 def key_of(record):
-    return (record.get('repo'), record.get('workflow'), record.get('job'), record.get('step'), record.get('kind'))
+    step = record.get('step')
+    if record.get('kind') == 'cache' and step:
+        step = cache_label(step)
+    return (record.get('repo'), record.get('workflow'), record.get('job'), step, record.get('kind'))
 
 
 def label(key):
@@ -220,8 +234,16 @@ def check(records, ratio=1.5, floor=60.0, window=10, min_samples=3, miss_runs=3,
     for key, items in sorted(groups.items(), key=lambda kv: label(kv[0])):
         items.sort(key=lambda r: r.get('at') or '')
         if key[4] == 'cache':
-            recent = items[-miss_runs:]
-            if len(recent) >= miss_runs and all(r.get('hit') is False for r in recent):
+            # One verdict per run: a run hit when any restore under this key hit.
+            runs, order = {}, []
+            for r in items:
+                run = (r.get('run_id'), r.get('attempt')) if r.get('run_id') is not None else ('at', r.get('at'))
+                if run not in runs:
+                    order.append(run)
+                    runs[run] = False
+                runs[run] = runs[run] or r.get('hit') is True
+            recent = order[-miss_runs:]
+            if len(recent) >= miss_runs and not any(runs[run] for run in recent):
                 flags.append({'type': 'cache-miss', 'key': label(key), 'runs': len(recent),
                               'message': 'cache missed on the last %d runs' % len(recent)})
             continue
@@ -269,6 +291,7 @@ RULES = [
     ('unpinned-action', 'warn', 'third-party action is pinned to a tag or branch, not a commit SHA'),
     ('vitest-private-workers', 'warn', 'vitest on a 2-vCPU private-repo runner without --maxWorkers runs on one worker'),
     ('continue-on-error-red', 'warn', 'continue-on-error check is red on most recent PRs (from --history)'),
+    ('workflow-invalid', 'error', 'workflow file is not valid YAML, so GitHub cannot run it'),
 ]
 SEVERITY = {rule: severity for rule, severity, _ in RULES}
 FIRST_PARTY = ('actions', 'github')
@@ -282,6 +305,9 @@ INSTALL_PY = re.compile(r'\b(pip3?\s+install|poetry\s+install|uv\s+sync|pipenv\s
 CARGO = re.compile(r'\bcargo\s+(build|test|check|clippy|run|install|tauri)\b')
 SHA = re.compile(r'^[0-9a-f]{40}$')
 EXCLUDE_ARG = re.compile(r'--exclude[= ]+("[^"]*"|\'[^\']*\'|\S+)')
+# A command that runs vitest tests (not .vitest-reports paths, vitest-* scripts
+# or --merge-reports, which runs no tests).
+VITEST_RUN = re.compile(r'(^|[\s;&|(])((npx|bunx|yarn)\s+|pnpm\s+(exec\s+)?|npm\s+exec\s+)?vitest(\s|$)')
 
 
 def triggers(doc):
@@ -446,7 +472,8 @@ def scan_workflow(repo_name, rel, text, doc, private=False, default='main', rust
         if compiles and not any(a in ('swatinem/rust-cache', 'mozilla-actions/sccache-action') for a in actions) \
                 and not has_cache_action and not has_local_action:
             add('dep-cache-missing', name, 'job compiles Rust without rust-cache or actions/cache')
-        suites = [line for line in runs_text.splitlines() if re.search(r'\bvitest\b', line)
+        suites = [line for line in runs_text.splitlines() if VITEST_RUN.search(line)
+                  and '--merge-reports' not in line and not TRIVIAL.match(line) and not line.lstrip().startswith('#')
                   and not re.search(r'\.(test|spec)\.[cm]?[jt]sx?\b', EXCLUDE_ARG.sub('', line))]
         if private and 'ubuntu' in runner and suites \
                 and not any(re.search(r'--max-?workers|maxWorkers=', line, re.I) for line in suites):
@@ -458,7 +485,8 @@ def history_red_rate(slug, check_name, prs=20):
     raw = gh(['pr', 'list', '-R', slug, '--state', 'all', '-L', str(prs), '--json', 'headRefOid'])
     reds = total = 0
     for pr in json.loads(raw):
-        body = json.loads(gh(['api', 'repos/%s/commits/%s/check-runs?check_name=%s' % (slug, pr['headRefOid'], check_name)]))
+        body = json.loads(gh(['api', 'repos/%s/commits/%s/check-runs?check_name=%s'
+                              % (slug, pr['headRefOid'], urllib.parse.quote(check_name, safe=''))]))
         runs = [r for r in body.get('check_runs', []) if r.get('status') == 'completed']
         if not runs:
             continue
@@ -467,11 +495,31 @@ def history_red_rate(slug, check_name, prs=20):
     return reds, total
 
 
+def remote_slug(path):
+    """owner/name of the origin remote, or None."""
+    try:
+        url = subprocess.run(['git', '-C', str(path), 'remote', 'get-url', 'origin'], capture_output=True,
+                             text=True, timeout=10).stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        return None
+    match = re.search(r'github\.com[:/]([^/]+/[^/]+?)(\.git)?/?$', url)
+    return match.group(1) if match else None
+
+
+def repo_meta(path, repos):
+    """Manifest entry for a checkout: by directory name, else (worktrees) by origin slug."""
+    meta = next((r for r in repos if pathlib.Path(r.get('path', '')).name == path.name), None)
+    if meta is None:
+        slug = remote_slug(path)
+        meta = next((r for r in repos if slug and r.get('slug', '').lower() == slug.lower()), None)
+    return meta or {}
+
+
 def scan_repo(path, private=None, history=False):
     import yaml  # PyYAML; only scan-ci needs it.
     path = pathlib.Path(path)
     name = path.name
-    meta = next((r for r in manifest_repos() if pathlib.Path(r.get('path', '')).name == name), {})
+    meta = repo_meta(path, manifest_repos())
     if private is None:
         private = meta.get('visibility') == 'private'
     default = meta.get('default_branch') or 'main'
@@ -500,8 +548,8 @@ def scan_repo(path, private=None, history=False):
     for file, text, doc, error in parsed:
         rel = str(file.relative_to(path))
         if error:
-            findings.append({'rule': 'job-timeout', 'severity': 'error', 'repo': name, 'file': rel, 'line': None,
-                             'job': None, 'message': 'workflow is not valid YAML: ' + error})
+            findings.append({'rule': 'workflow-invalid', 'severity': SEVERITY['workflow-invalid'], 'repo': name,
+                             'file': rel, 'line': None, 'job': None, 'message': 'workflow is not valid YAML: ' + error})
             continue
         findings += scan_workflow(name, rel, text, doc, private, default, rust_keys)
     if history:
@@ -632,6 +680,9 @@ jobs:
           HITS=$(grep -rn "process.env.X" src/ 2>/dev/null || true)
           test -z "$HITS"
       - run: npx vitest run tests/one-file.test.ts
+      - run: npx vitest run --merge-reports --coverage --reporter=dot
+      - run: node scripts/ci/vitest-timing-summary.mjs .vitest-reports
+      - run: echo "vitest shards finished"
       - name: Show disk usage
         run: du -sh . || true
   desktop:
@@ -775,8 +826,45 @@ class SelfTest(unittest.TestCase):
             self.assertEqual(len(load(log)), 4)
 
     def test_cache_log_parse(self):
-        self.assertEqual(cache_events(CACHE_LOG), [('Swatinem/rust-cache@v2', False), ('actions/setup-node@v4', True),
-                                                   ('actions/cache@v4', False)])
+        self.assertEqual(cache_events(CACHE_LOG), [('Swatinem/rust-cache', False), ('actions/setup-node', True),
+                                                   ('actions/cache', False)])
+
+    def test_cache_miss_counts_runs_not_lines(self):
+        # Three miss lines from one run are one run, not three.
+        one_run = [rec(0, '2026-10-01T00:00:0%dZ' % i, run_id=1, kind='cache', hit=False, step='rust-cache')
+                   for i in range(3)]
+        self.assertEqual(check(one_run), [])
+        # A hit anywhere in a run makes that run a hit.
+        runs = [rec(0, '2026-10-0%dT00:00:00Z' % (i + 1), run_id=i, kind='cache', hit=False, step='rust-cache')
+                for i in range(3)]
+        runs.append(rec(0, '2026-10-03T00:00:01Z', run_id=2, kind='cache', hit=True, step='rust-cache'))
+        self.assertEqual(check(runs), [])
+
+    def test_cache_label_ignores_action_version(self):
+        old = [rec(0, '2026-10-0%dT00:00:00Z' % (i + 1), run_id=i, kind='cache', hit=False,
+                   step='actions/setup-node@v4') for i in range(2)]
+        new = [rec(0, '2026-10-05T00:00:00Z', run_id=5, kind='cache', hit=False, step='actions/setup-node@v7')]
+        self.assertEqual([f['type'] for f in check(old + new)], ['cache-miss'])
+
+    def test_invalid_yaml_has_its_own_rule(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            wf = pathlib.Path(tmp) / '.github' / 'workflows'
+            wf.mkdir(parents=True)
+            (wf / 'broken.yml').write_text('on: [push\njobs: {')
+            findings, count = scan_repo(tmp)
+            self.assertEqual((count, [f['rule'] for f in findings]), (1, ['workflow-invalid']))
+
+    def test_worktree_matched_to_manifest_by_remote(self):
+        repos = [{'name': 'vskill-platform', 'slug': 'anton-abyzov/vskill-platform',
+                  'path': 'repositories/anton-abyzov/vskill-platform', 'visibility': 'private'}]
+        with tempfile.TemporaryDirectory() as tmp:
+            checkout = pathlib.Path(tmp) / 'relperf-platform'
+            checkout.mkdir()
+            subprocess.run(['git', 'init', '-q', str(checkout)], check=True)
+            subprocess.run(['git', '-C', str(checkout), 'remote', 'add', 'origin',
+                            'https://github.com/anton-abyzov/vskill-platform.git'], check=True)
+            self.assertEqual(repo_meta(checkout, repos).get('visibility'), 'private')
+            self.assertEqual(repo_meta(pathlib.Path(tmp), repos), {})
 
     def test_record_cli_appends(self):
         with tempfile.TemporaryDirectory() as tmp:
