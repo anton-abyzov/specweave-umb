@@ -278,6 +278,32 @@ cmd_verify() {
 
 # ---------------------------------------------------------------- status
 
+# unique_commits <repo path> <upstream> <branch>: how many commits of <branch>
+# have no patch-equivalent in <upstream>. Fails when git cherry fails (missing
+# ref, bad branch), so callers never mistake an error for "fully merged".
+# No `| grep -q` here: under pipefail an early grep exit can SIGPIPE git and
+# flip the result.
+unique_commits() {
+  local out
+  out="$(git -C "$1" cherry "$2" "$3" 2>/dev/null)" || return 1
+  printf '%s\n' "$out" | awk '/^\+/ { n++ } END { print n + 0 }'
+}
+
+# idle_minutes <worktree>: minutes since its HEAD, index or reflog last changed.
+idle_minutes() {
+  local gitdir
+  gitdir="$(git -C "$1" rev-parse --absolute-git-dir 2>/dev/null)" || return 1
+  python3 - "$1" "$gitdir" <<'PY'
+import os, sys, time
+wt, gitdir = sys.argv[1], sys.argv[2]
+paths = [wt] + [os.path.join(gitdir, name) for name in ('HEAD', 'index', os.path.join('logs', 'HEAD'))]
+times = [os.path.getmtime(path) for path in paths if os.path.exists(path)]
+if not times:
+    sys.exit(1)
+print(max(0, int((time.time() - max(times)) // 60)))
+PY
+}
+
 # worktree_rows <repo path>: "path|head|branch|locked" per worktree, main checkout first.
 worktree_rows() {
   git -C "$1" worktree list --porcelain 2>/dev/null | awk '
@@ -308,12 +334,12 @@ status_repo() {
       counts="$(git -C "$path" rev-list --left-right --count "origin/$def...HEAD" 2>/dev/null)" || counts="0 0"
       behind="$(printf '%s\n' "$counts" | awk '{print $1}')"
       ahead="$(printf '%s\n' "$counts" | awk '{print $2}')"
-      local wt_path wt_head wt_branch wt_locked wt_n=0
+      local wt_path wt_head wt_branch wt_locked wt_n=0 wt_unique
       while IFS='|' read -r wt_path wt_head wt_branch wt_locked <&3; do
         wt_n=$((wt_n + 1))
         [ "$wt_n" -gt 1 ] || continue
         wt_total=$((wt_total + 1))
-        if [ -n "$wt_branch" ] && ! git -C "$path" cherry "origin/$def" "$wt_branch" 2>/dev/null | grep -q '^+'; then
+        if [ -n "$wt_branch" ] && wt_unique="$(unique_commits "$path" "origin/$def" "$wt_branch")" && [ "$wt_unique" -eq 0 ]; then
           wt_merged=$((wt_merged + 1))
         fi
       done 3< <(worktree_rows "$path")
@@ -445,12 +471,13 @@ cmd_cleanup() {
     esac
   done
   [ -n "$track" ] && track_exists "$track" || die "usage: release.sh cleanup <track> [--apply] (a single track)"
-  verify_track "$track" "" 0 >"$WORK/gate.json"
-  print_verify_table "$WORK/gate.json"
+  local gate_file="$WORK/gate-$track.json"
+  verify_track "$track" "" 0 >"$gate_file"
+  print_verify_table "$gate_file"
   local gate=0
-  result_code "$WORK/gate.json" || gate=$?
+  result_code "$gate_file" || gate=$?
   if [ "$gate" -ne 0 ]; then
-    log "cleanup $track: refused, verify is $(jq -r .result "$WORK/gate.json"); nothing was touched"
+    log "cleanup $track: refused, verify is $(jq -r .result "$gate_file"); nothing was touched"
     return "$gate"
   fi
   local repo path slug def
@@ -459,15 +486,20 @@ cmd_cleanup() {
   slug="$(repo_field "$repo" slug)"
   def="$(repo_field "$repo" default_branch)"
   [ -e "$path/.git" ] || die "no checkout at $path"
-  local globs
+  git -C "$path" rev-parse -q --verify "refs/remotes/origin/$def" >/dev/null ||
+    die "no origin/$def ref in $path; fetch it first (cleanup compares every branch against it)"
+  local globs idle_min
   globs="$(mf '.cleanup.protected_globs[]')"
   [ -n "$globs" ] || die "manifest has no cleanup.protected_globs"
-  : >"$WORK/cleanup.jsonl"
+  idle_min="$(mf '.cleanup.min_idle_minutes // 30')"
+  case "$idle_min" in ''|*[!0-9]*) die "cleanup.min_idle_minutes must be whole minutes" ;; esac
+  local out="$WORK/cleanup-$track.jsonl" err="$WORK/wt-$track.err"
+  : >"$out"
   local wt head branch locked n=0 rc=0
   while IFS='|' read -r wt head branch locked <&3; do
     n=$((n + 1))
     [ "$n" -gt 1 ] || continue
-    local action=keep reason="" base glob protected=0
+    local action=keep reason="" base glob protected=0 wt_status="" idle="" unique=""
     base="$(basename "$wt")"
     while IFS= read -r glob; do
       # shellcheck disable=SC2254
@@ -477,8 +509,12 @@ cmd_cleanup() {
     elif [ -n "$locked" ]; then reason="locked"
     elif [ -z "$branch" ]; then reason="detached HEAD"
     elif [ ! -d "$wt" ]; then reason="missing directory (git worktree prune handles it)"
-    elif [ -n "$(GIT_OPTIONAL_LOCKS=0 git -C "$wt" status --porcelain 2>/dev/null | head -1)" ]; then reason="uncommitted changes"
-    elif ! git -C "$path" cherry "origin/$def" "$branch" 2>/dev/null | grep -q '^+'; then
+    elif ! wt_status="$(GIT_OPTIONAL_LOCKS=0 git -C "$wt" status --porcelain 2>/dev/null)"; then reason="git status failed"
+    elif [ -n "$wt_status" ]; then reason="uncommitted changes"
+    elif ! idle="$(idle_minutes "$wt")"; then reason="cannot read worktree activity"
+    elif [ "$idle" -lt "$idle_min" ]; then reason="active ${idle} min ago (kept under ${idle_min} min idle)"
+    elif ! unique="$(unique_commits "$path" "origin/$def" "$branch")"; then reason="git cherry failed"
+    elif [ "$unique" -eq 0 ]; then
       action=remove; reason="no commits outside origin/$def"
     else
       local merged_tip
@@ -488,24 +524,24 @@ cmd_cleanup() {
       fi
     fi
     if [ "$action" = remove ] && [ "$apply" -eq 1 ]; then
-      if git -C "$path" worktree remove "$wt" 2>"$WORK/wt.err"; then
+      if git -C "$path" worktree remove "$wt" 2>"$err"; then
         if git -C "$path" branch -d "$branch" >/dev/null 2>&1 || git -C "$path" branch -D "$branch" >/dev/null 2>&1; then
           action=removed
         else
           action=removed-worktree; reason="$reason; branch $branch kept"
         fi
       else
-        action=keep; reason="git worktree remove refused: $(tail -1 "$WORK/wt.err")"; rc=1
+        action=keep; reason="git worktree remove refused: $(tail -1 "$err")"; rc=1
       fi
     fi
     jq -cn --arg path "$wt" --arg branch "$branch" --arg action "$action" --arg reason "$reason" \
-      '{path: $path, branch: $branch, action: $action, reason: $reason}' >>"$WORK/cleanup.jsonl"
+      '{path: $path, branch: $branch, action: $action, reason: $reason}' >>"$out"
   done 3< <(worktree_rows "$path")
-  jq -r '"\(.action)\t\(.branch)\t\(.path)\t\(.reason)"' "$WORK/cleanup.jsonl" |
+  jq -r '"\(.action)\t\(.branch)\t\(.path)\t\(.reason)"' "$out" |
     awk -F'\t' '{ printf "%-16s %-40s %s (%s)\n", $1, substr($2, 1, 40), $3, $4 }' >&2
-  log "cleanup $track: $(jq -s '[.[] | select(.action | startswith("remov"))] | length' "$WORK/cleanup.jsonl") to remove of $((n - 1)) worktrees$([ "$apply" -eq 1 ] || printf ' (dry run; pass --apply)')"
+  log "cleanup $track: $(jq -s '[.[] | select(.action | startswith("remov"))] | length' "$out") to remove of $((n - 1)) worktrees$([ "$apply" -eq 1 ] || printf ' (dry run; pass --apply)')"
   jq -s --arg track "$track" --argjson applied "$([ "$apply" -eq 1 ] && echo true || echo false)" \
-    '{track: $track, applied: $applied, worktrees: .}' "$WORK/cleanup.jsonl"
+    '{track: $track, applied: $applied, worktrees: .}' "$out"
   return "$rc"
 }
 

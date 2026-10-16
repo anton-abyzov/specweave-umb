@@ -56,7 +56,8 @@
       "release.noindex*",
       "desktop.noindex*"
     ],
-    "rule": "Remove a worktree only when it is clean and either git cherry against the default branch shows no unique commits, or its PR is MERGED with headRefOid equal to the branch tip."
+    "min_idle_minutes": 30,
+    "rule": "Remove a worktree only when it is clean, unlocked, on a branch, idle for min_idle_minutes (HEAD, index and reflog unchanged), and either git cherry against origin/<default> shows no unique commits or its PR is MERGED with headRefOid equal to the branch tip. A git error keeps the worktree."
   },
   "repos": [
     {
