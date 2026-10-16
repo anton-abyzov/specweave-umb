@@ -25,3 +25,6 @@ Isolated product checkout /Users/antonabyzov/Projects/github/studio-credit-recov
 - AC: AC-01, AC-04 | Files: .specweave/increments/0918-credit-aware-usage-recovery/reports/ | Test: Anton confirms, on an installed release with a funded eligible Codex account, the balance and explicit Continue using credits action, and accepts the recovery UI
 
 Added 2026-10-15 at close-out. Shipped in 1.0.19 (see reports/release-readback.md). The installed M4 account has no funded balance, so no live credits evidence exists yet.
+
+## Manual acceptance
+Anton accepted the linked credit recovery and resolved-warning UI previews on October 14, 2026 (reply: "Accept the UI"). This is UI acceptance of the reviewed previews; installed/deployed version readback remains T-02.
