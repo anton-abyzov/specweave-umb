@@ -22,7 +22,7 @@ import tempfile
 import unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-DEFAULT_LOG = ROOT / '.specweave' / 'metrics' / 'release-timings.jsonl'
+DEFAULT_LOG = pathlib.Path(os.environ.get('RELEASE_TIMINGS_LOG') or ROOT / '.specweave' / 'metrics' / 'release-timings.jsonl')
 MANIFEST = ROOT / '.specweave' / 'release' / 'manifest.json'
 RUN_FIELDS = 'databaseId,workflowName,headSha,headBranch,event,conclusion,createdAt,startedAt,updatedAt,attempt,url,jobs'
 
