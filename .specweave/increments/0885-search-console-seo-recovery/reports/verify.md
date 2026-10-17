@@ -1,6 +1,6 @@
 # Verify — 0885-search-console-seo-recovery
 
-FAIL · 2026-10-10T23:01:07.388Z · commands from explicit
+PASS · 2026-10-17T06:57:21.924Z · commands from explicit
 
 ## Commands
 
@@ -10,86 +10,86 @@ FAIL · 2026-10-10T23:01:07.388Z · commands from explicit
 PASS: 88 complete decoded notices from verified admin mailbox; no tracking links retained
 ```
 
-### `python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-release-artifacts.py` → exit 0 (2s)
+### `python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-release-artifacts.py` → exit 0 (1s)
 
 ```
-PASS: 120 public checks, 32 design cases, Help deployment/playback, current owner-preserving EasyChamp readback, Verified Skills authenticated rollout/config/cache observation/31 public/3 uncached/6 headless, archive hashes and 177 text artifacts; global coverage and Google indexing gates remain explicit
+PASS: 120 public checks, 32 design cases, Help deployment/playback, current owner-preserving EasyChamp readback, Verified Skills authenticated rollout/config/cache observation/31 public/3 uncached/6 headless, archive hashes and 181 text artifacts; global coverage and Google indexing gates remain explicit
 ```
 
-### `npm --prefix /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0885-coverage run test:coverage -- --reporter=dot` → exit 1 (100s)
+### `npm --prefix /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify run test:coverage -- --reporter=dot` → exit 0 (51s)
 
 ```
-stderr | src/lib/github/__tests__/compare.test.ts > githubCompare > F-CR-2D response-shape validation > returns null when fetch response omits `files` entirely
-[githubCompare] upstream response failed shape validation for a/b:4f2285d...71a9132
+    at [90mfile:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4mvitest[24m/dist/chunks/runBaseTests.9Ij9_de-.js:117:26
+    at withEnv [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4mvitest[24m/dist/chunks/runBaseTests.9Ij9_de-.js:84:3[90m)[39m {
+  digest: [32m'abc123'[39m
+}
 
-·················································································································································································································································································································································································································································································································  ! error on bad: D1 unavailable
-·············································································stderr | src/lib/queue/__tests__/state-guard.test.ts > updateState — SUCCESS_LOCKED guard > blocks PUBLISHED → REJECTED (duplicate processing scenario)
-[updateState] blocked PUBLISHED → REJECTED for sub_1
+·····stderr | src/app/skills/[owner]/[repo]/[skill]/__tests__/error.test.tsx > SkillError boundary > links back to skill when on a nested sub-page (security/provider)
+Skill page error boundary caught: Error: DB circuit open
+    at [90m/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39msrc/app/skills/[owner]/[repo]/[skill]/__tests__/error.test.tsx:26:35
+    at [90mfile:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:734:40
+    at runWithSuite [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1849:8[90m)[39m
+    at Object.collect [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:734:10[90m)[39m
+    at Object.collect [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:738:54[90m)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at collectTests [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1179:25[90m)[39m
+    at startTests [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1817:17[90m)[39m
+    at [90mfile:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4mvitest[24m/dist/chunks/runBaseTests.9Ij9_de-.js:117:26
+    at withEnv [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4mvitest[24m/dist/chunks/runBaseTests.9Ij9_de-.js:84:3[90m)[39m {
+  digest: [32m'abc123'[39m
+}
 
-stderr | src/lib/queue/__tests__/state-guard.test.ts > updateState — SUCCESS_LOCKED guard > blocks PUBLISHED → TIER1_SCANNING (re-scan attempt)
-[updateState] blocked PUBLISHED → TIER1_SCANNING for sub_2
+stderr | src/app/skills/[owner]/[repo]/[skill]/__tests__/error.test.tsx > SkillError boundary > renders without digest when not provided
+Skill page error boundary caught: Error: fail
+    at [90m/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39msrc/app/skills/[owner]/[repo]/[skill]/__tests__/error.test.tsx:72:38
+    at [90mfile:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1863:10[90m)[39m
+    at runTest [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1574:12[90m)[39m
+    at runSuite [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1729:8[90m)[39m
+    at runSuite [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1729:8[90m)[39m
+    at runFiles [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1787:3[90m)[39m {
+  digest: [90mundefined[39m
+}
 
-························································································································································································································································································································································································································································································································----········--------·6:59:47 PM [vite] (ssr) warning: Duplicate key "certTier" in object literal
-32 |        pluginName: null,
-33 |        certTier: "VERIFIED",
-34 |        certTier: "VERIFIED" as const,
-   |        ^
-35 |        certMethod: "AUTOMATED_SCAN" as const,
-36 |        certScore: 100,
+·······························································································································································································································································································································································
 
-  Plugin: vite:esbuild
-  File: /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0885-coverage/scripts/register-greet-anton-standalone.ts
-
-⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
-
-Vitest caught 1 unhandled error during the test run.
-This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
-
-⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
-Error: [vitest-worker]: Timeout calling "onTaskUpdate"
- ❯ Object.onTimeoutError node_modules/vitest/dist/chunks/rpc.-pEldfrD.js:53:10
- ❯ Timeout._onTimeout node_modules/vitest/dist/chunks/index.B521nVV-.js:59:62
- ❯ listOnTimeout node:internal/timers:588:17
- ❯ processTimers node:internal/timers:523:7
-
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
-
-
- Test Files  659 passed | 4 skipped (663)
-      Tests  6467 passed | 14 skipped (6481)
-     Errors  1 error
-   Start at  18:58:10
-   Duration  98.67s (transform 22.07s, setup 176.43s, collect 78.66s, tests 289.96s, environment 481.41s, prepare 85.54s)
+ Test Files  732 passed | 4 skipped (736)
+      Tests  7789 passed | 14 skipped (7803)
+   Start at  02:55:30
+   Duration  50.80s (transform 14.23s, setup 24.73s, collect 48.72s, tests 210.57s, environment 81.51s, prepare 35.84s)
 
  % Coverage report from v8
 
 =============================== Coverage summary ===============================
-Statements   : 63.58% ( 82681/130037 )
-Branches     : 80.41% ( 13980/17385 )
-Functions    : 80.72% ( 2249/2786 )
-Lines        : 63.58% ( 82681/130037 )
+Statements   : 66.38% ( 93899/141454 )
+Branches     : 81.41% ( 18132/22272 )
+Functions    : 81.78% ( 2797/3420 )
+Lines        : 66.38% ( 93899/141454 )
 ================================================================================
 ```
 
-### `python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-live-seo.py --site specweave --crawl-specweave` → exit 0 (10s)
+### `python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-live-seo.py --site specweave --crawl-specweave` → exit 0 (3s)
 
 ```
-{"passed": 103, "failed": 0, "errors": []}
+{"passed": 110, "failed": 0, "errors": []}
 ```
 
-### `python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-live-seo.py --site vskill` → exit 1 (13s)
+### `python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-live-seo.py --site vskill` → exit 0 (15s)
 
 ```
-{"passed": 11, "failed": 1, "errors": ["https://verified-skill.com/publishers: HTTP 500, expected 200"]}
+{"passed": 12, "failed": 0, "errors": []}
 ```
 
-### `python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-live-seo.py --site easychamp` → exit 1 (2s)
+### `python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-live-seo.py --site easychamp` → exit 0 (3s)
 
 ```
-{"passed": 11, "failed": 1, "errors": ["https://easychamp.com/help/league-console/create-league-or-tournament: expected at least 2 videos, found 0"]}
+{"passed": 13, "failed": 0, "errors": []}
 ```
 
-### `env PLAYWRIGHT_MODULE=/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0885-coverage/node_modules/playwright node .specweave/increments/0885-search-console-seo-recovery/scripts/verify-specweave-design.mjs` → exit 0 (53s)
+### `env PLAYWRIGHT_MODULE=/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/node_modules/playwright node .specweave/increments/0885-search-console-seo-recovery/scripts/verify-specweave-design.mjs` → exit 0 (39s)
 
 ```
 {"passed":32,"failed":0,"errors":[]}
