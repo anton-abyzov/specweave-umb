@@ -1,0 +1,12 @@
+{
+  "id": "0926-cloud-sessions",
+  "uuid": "a3055cf1-69ac-4c50-8974-bb3363da3116",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-16T23:12:26.000Z",
+  "updated": "2026-10-17T00:09:30.387Z",
+  "lastActivity": "2026-10-17T00:09:30.387Z",
+  "title": "Cloud sessions and Linux workers for SpecWithCode",
+  "project": "specweave-umb"
+}

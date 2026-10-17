@@ -1,0 +1,5 @@
+$ node apps/server/scripts/cli.ts build
+# exit 0 — 2026-10-16T20:47:40.995Z
+
+[16:47:38.551] INFO (#1): [cli] Running tsdown...
+[16:47:40.975] WARN (#1): [cli] Web dist not found — skipping client bundle.

@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 3,
-  "updatedAt": "2026-09-22T03:46:26.988Z",
+  "revision": 4,
+  "updatedAt": "2026-10-16T17:12:28.756Z",
   "name": "SpecWeave workspace",
   "goal": "Build and maintain SpecWeave and related tools with portable intent, shared context and verified progress.",
   "context": "This umbrella coordinates SpecWeave and related repositories under repositories/anton-abyzov. Keep shared intent and verified task evidence in the umbrella; commit implementation inside the owning repository. Preserve unrelated changes and active worktrees. Use the same project brief, intent board and increment ledger in Codex, Claude Code or another tool. Native tools own agent execution and scheduling. Always use headless Chrome/Playwright CLI for browser tests and automation. If a visible browser is truly necessary, ask Anton and wait for explicit confirmation before opening it; this supersedes earlier visible-browser authorization (Anton, 2026-10-13). Propagate this rule to delegated runs. Read AGENTS.md before acting.",
@@ -15,5 +15,14 @@
       "createdAt": "2026-09-22T03:46:26.987Z"
     }
   ],
-  "routines": []
+  "routines": [
+    {
+      "id": "cdc8faa6-cb74-4425-b8c9-c316bbea2459",
+      "title": "Weekly release-timing and CI workflow scan",
+      "instructions": "From the umbrella root, run `python3 scripts/release/timing.py scan-ci repositories/anton-abyzov/specweave repositories/anton-abyzov/vskill repositories/anton-abyzov/vskill-platform repositories/anton-abyzov/specweave-studio --fail-on none` and `python3 scripts/release/timing.py check`. Compare the scan-ci counts by rule with last week's run; open a fix (or a small increment) for every new error-level finding (job without timeout-minutes, a gating command ending in || true) and for every CACHE-MISS or SLOW flag from check. Read-only otherwise: do not release, deploy or change secrets.",
+      "cadence": "weekly, Monday 09:00 America/New_York",
+      "enabled": true,
+      "createdAt": "2026-10-16T17:12:28.756Z"
+    }
+  ]
 }

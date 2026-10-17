@@ -1,15 +1,25 @@
 {
   "id": "0896-hosted-private-skill-publishing",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P2",
   "created": "2026-10-11T04:58:46.283Z",
-  "updated": "2026-10-13T07:05:00.178Z",
-  "lastActivity": "2026-10-13T07:05:00.178Z",
+  "updated": "2026-10-17T01:52:36.915Z",
+  "lastActivity": "2026-10-17T01:52:36.915Z",
   "title": "Hosted private skill publishing",
   "project": "specweave-umb",
   "parent": "0847-skill-install-publish-scale",
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2490",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2490",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-17T01:52:42.346Z"
+    }
+  },
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-17T01:52:36.914Z",
+  "approvedAt": "2026-10-17T01:52:36.915Z"
 }

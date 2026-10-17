@@ -69,6 +69,8 @@ The Bash guard is per project (`specweave jev setup --guard-bash` writes the con
 | Fleet checkout safety tests | `python3 scripts/fleet-project-sync.py --self-test` |
 | Handoff verifier regression tests | `python3 -m unittest discover -s tests -p test_handoff_evidence.py` |
 | Actual fleet handoff and environment evidence | `python3 scripts/fleet/verify-handoff-evidence.py --phase all` (requires private machine receipts) |
+| Release status (read-only audit) | `bash scripts/release/release.sh status` |
+| Release tooling tests | `python3 scripts/release/timing.py --self-test` |
 | Build | `npm --prefix repositories/anton-abyzov/specweave run build && npm --prefix repositories/anton-abyzov/vskill run build && npm --prefix repositories/anton-abyzov/vskill-platform run build` |
 | Test | `npm --prefix repositories/anton-abyzov/specweave run test:unit:fast && npm --prefix repositories/anton-abyzov/vskill test && npm --prefix repositories/anton-abyzov/vskill-platform test` |
 | Lint | `npm --prefix repositories/anton-abyzov/specweave run lint:skills && npm --prefix repositories/anton-abyzov/specweave run lint:docs-refs && npm --prefix repositories/anton-abyzov/vskill run lint:skills-spec` |
@@ -84,6 +86,8 @@ If a visible browser is truly necessary, ask Anton and wait for explicit confirm
 ## Project notes
 
 - Usage never blocks work here (owner's rule, 2026-10-10). The guard stays in checkpoint-only mode; check with `specweave auto-handoff status`. `specweave update` rewrites the Handoff paragraph in "The loop", so re-apply this rule there after each update.
+- Release policy (owner's rule, 2026-10-16). Every release goes through `bash scripts/release/release.sh` (`status`, `ship <track>`, `verify <track>`, `cleanup <track>`), driven by `.specweave/release/manifest.json`; the runbook is `.specweave/release/README.md`. Merge green PRs, release, deploy, verify and remove fully merged worktrees without asking. Still ask before discarding work that exists nowhere else, and for data migrations, auth changes and payment flows. `claude-review` and `E2E Live (nightly)` are known noise and never block.
+- Waits: never hold a tool call on CI, a registry or a log for more than 540s. Use `bash scripts/release/ci-wait.sh pr|run|tag|npm|url|log ...` (exit 0 done, 1 failed with the log tail, 2 still pending: call again), in the background with a monitor for long waits, and never wait on a condition that ignores error output.
 
 ## Available Subagent Types
 

@@ -28,10 +28,10 @@
 .specweave/logs/
 .specweave/state/
 .specweave/jobs/
-.specweave/memory/
 .specweave/scratch/
 .specweave/config.json
 .specweave/sync-metadata.json
+.specweave/metrics/*.lock
 .specweave/docs/
 .specweave/increments/*/logs/
 .specweave/increments/*/test-results/

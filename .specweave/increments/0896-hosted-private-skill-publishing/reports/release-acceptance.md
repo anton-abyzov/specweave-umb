@@ -1,6 +1,6 @@
 # 0896 release acceptance
 
-Status: implementation, source review, sandbox, coverage and builds pass. All final platform checks pass at fd173ea6 and all CLI/desktop candidate checks pass at8cd6181. Release approval and GitHub passkey confirmation have been requested; neither has been received. Production launch is not yet claimed.
+Status: RELEASED 2026-10-17. Owner acceptance received 01:25Z. Platform 58bdf536 live as version 4b0360cb-f870-4ac2-a317-68e2b4111bc0 with migration 20261013050000_private_publishing; CLI vskill 1.2.9 on npm (replaces the 1.2.8 plan; 1.2.8 shipped separately). Details: [release-2026-10-17.md](release-2026-10-17.md).
 
 Platform draft: https://github.com/anton-abyzov/vskill-platform/pull/123. CLI/Studio draft: https://github.com/anton-abyzov/vskill/pull/174. The deployed platform and installed clients remain gated. Prepared release candidates enable the capability; neither candidate has been deployed or published.
 
