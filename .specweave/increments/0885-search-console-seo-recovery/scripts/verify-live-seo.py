@@ -10,6 +10,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urljoin
 
 try:
     import certifi
@@ -22,7 +23,7 @@ class Document(HTMLParser):
     def __init__(self, text):
         super().__init__()
         self.canonicals, self.meta, self.schemas = [], {}, []
-        self.iframes = []
+        self.iframes, self.videos = [], []
         self.in_schema = False
         self.schema_text = ''
         self.h1_count = 0
@@ -40,6 +41,10 @@ class Document(HTMLParser):
             self.h1_count += 1
         if tag == 'iframe':
             self.iframes.append(attrs)
+        if tag == 'video':
+            self.videos.append({**attrs, 'sources': []})
+        if tag == 'source' and self.videos:
+            self.videos[-1]['sources'].append(attrs.get('src', ''))
         if tag == 'script' and attrs.get('type') == 'application/ld+json':
             self.in_schema = True
             self.schema_text = ''
@@ -92,6 +97,15 @@ def page(url, *, canonical=None, noindex=False, status=200, h1=False, min_videos
     assert len(videos) >= min_videos, f'{url}: expected at least {min_videos} videos, found {len(videos)}'
     if require_players:
         for video in videos:
+            if video.get('contentUrl'):
+                # Self-hosted file: a native <video> whose <source> is the schema contentUrl.
+                players = [player for player in doc.videos if video['contentUrl'] in [urljoin(url, src) for src in player['sources']]]
+                assert len(players) == 1, f'{url}: video player absent or inconsistent in initial HTML: {video["contentUrl"]}'
+                player = players[0]
+                assert (player.get('aria-label') or player.get('title') or '').strip(), f'{url}: video player lacks accessible name'
+                assert 'controls' in player and 'autoplay' not in player, f'{url}: video player must show controls and not autoplay'
+                assert urljoin(url, player.get('poster', '')) == (video['thumbnailUrl'][0] if isinstance(video['thumbnailUrl'], list) else video['thumbnailUrl']), f'{url}: player poster differs from thumbnailUrl'
+                continue
             embed = video.get('embedUrl', '')
             identity = embed.split('?', 1)[0].rstrip('/')
             frames = [frame for frame in doc.iframes if frame.get('src', '').split('?', 1)[0].rstrip('/') == identity]
@@ -148,7 +162,10 @@ if args.site in ('all', 'vskill'):
     checks += [(page, ('https://verified-skill.com' + path,), {'noindex': True}) for path in ['/queue', '/submit']]
     checks += [(page, ('https://verified-skill.com/watch/specweave-workflow-101',), {'status': 404}), (sitemap, ('https://verified-skill.com', ['/queue', '/submit', '/blocklist']), {})]
 if args.site in ('all', 'easychamp'):
-    checks += [(page, ('https://easychamp.com' + path,), {'canonical': 'https://easychamp.com' + path}) for path in ['/pro-clubs', '/ko', '/sim', '/ko/sim', '/ko/coach', '/tr/sim', '/tools/round-robin-generator']]
+    checks += [(page, ('https://easychamp.com' + path,), {'canonical': 'https://easychamp.com' + path}) for path in ['/pro-clubs', '/ko', '/ko/coach', '/tools/round-robin-generator']]
+    # Owner decision 2026-10-13 (ec-landing adca4d5): /sim stays crawlable but out of the index and the sitemap.
+    checks += [(page, ('https://easychamp.com' + path,), {'canonical': 'https://easychamp.com' + path, 'noindex': True}) for path in ['/sim', '/ko/sim', '/tr/sim']]
+    checks += [(sitemap, ('https://easychamp.com', ['/sim', '/ko/sim', '/tr/sim']), {})]
     checks += [(page, ('https://easychamp.com/help',), {'canonical': 'https://easychamp.com/help'})]
     checks += [(page, ('https://easychamp.com/help/league-console/create-league-or-tournament',), {'canonical': 'https://easychamp.com/help/league-console/create-league-or-tournament', 'min_videos': 2, 'require_players': True})]
     for path in ['/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1', '/match/new-zealand-vs-spain-11fc4398-1253-421b-8aef-950e6c672275', '/match/brazil-vs-egypt-2c1643e4-01de-4014-840f-e3aa59700e1d']:
