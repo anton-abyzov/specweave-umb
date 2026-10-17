@@ -1038,6 +1038,14 @@
       "success": true,
       "timestamp": "2026-10-15T15:18:09.990Z",
       "durationMs": 206
+    },
+    {
+      "tool": "ado",
+      "itemId": 2490,
+      "incrementId": "0896-hosted-private-skill-publishing",
+      "success": true,
+      "timestamp": "2026-10-17T01:52:43.822Z",
+      "durationMs": 164
     }
   ],
   "summary": {
@@ -1068,20 +1076,20 @@
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 40,
-      "successful": 40,
+      "totalAttempts": 41,
+      "successful": 41,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-10-15T15:18:09.990Z",
-      "avgDurationMs": 199.325,
+      "lastSuccess": "2026-10-17T01:52:43.822Z",
+      "avgDurationMs": 198.46341463414635,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 129,
-      "successful": 123,
+      "totalAttempts": 130,
+      "successful": 124,
       "failed": 6,
-      "successRate": 0.9534883720930233
+      "successRate": 0.9538461538461539
     },
-    "lastUpdated": "2026-10-15T15:18:09.990Z"
+    "lastUpdated": "2026-10-17T01:52:43.823Z"
   }
 }
