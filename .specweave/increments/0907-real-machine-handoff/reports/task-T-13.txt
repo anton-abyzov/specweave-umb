@@ -1,0 +1,22 @@
+$ cd /Users/antonabyzov/.codex/worktrees/machine-handoff-release/specweave-umb/repositories/anton-abyzov/studio-release-111-r3 && node node_modules/vite-plus/bin/vp test run apps/server/src/fleet/MachineHandoff.test.ts apps/server/src/fleet/MachineHandoff.modelSelection.test.ts apps/server/src/project/ProjectService.test.ts apps/server/src/project/ProjectDelegation.test.ts apps/server/src/orchestration-v2/ProjectCommands.test.ts packages/contracts/src/machineHandoff.test.ts
+# exit 0 — 2026-10-14T00:04:10.615Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.codex/worktrees/machine-handoff-release/specweave-umb/repositories/anton-abyzov/studio-release-111-r3
+
+(node:54341) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54342) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54343) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  6 passed (6)
+      Tests  110 passed (110)
+   Start at  20:03:48
+   Duration  22.16s (tests 57%, transform 29%, import 15%)
+
+  Transform  transforming modules took 9.59s · 29% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns

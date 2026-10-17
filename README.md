@@ -8,6 +8,8 @@ Use `python3 scripts/fleet-project-sync.py --help` for pinned, independent Git c
 
 The helper verifies source copies; saved receipts do not prove current runtime health. Coordinators and workers need a directory on their execution host. Code tasks also need the relevant nested repositories and task dependencies. See [fleet verification](.specweave/increments/0906-mac-project-sync/runtime-verification.md) for the tested scope.
 
+Provisioned checkouts fetch and track feature branches normally. Existing conventional single-branch mappings are repaired by `--apply` only after the checkout matches its clean pinned baseline; `--inspect` stays read-only. See [cross-machine continuation](docs/operations/real-machine-handoff.md) for exact code pins, portable context, destination folders and private local configuration. Run `python3 -m unittest discover -s tests -p test_handoff_evidence.py` for synthetic verifier regression tests; actual machine receipts are checked separately with `python3 scripts/fleet/verify-handoff-evidence.py --phase all`.
+
 ## 🚀 Quick Start
 
 Your project is initialized! Now describe what you want to build.
