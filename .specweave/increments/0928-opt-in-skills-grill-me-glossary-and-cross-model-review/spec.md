@@ -6,7 +6,7 @@ SpecWeave installs 11 skills into every project, several restating each other (a
 
 ## Scope
 
-In: a skill catalog with core and opt-in skills, `specweave skills`, `sw-grill-me`, `sw-glossary`, `specweave glossary check`, `specweave review` (cross-model), folding auto and team into sw-do, deleting sw-brainstorm, sw-team and `skills-optional/`, docs naming the method "done-first development". Out: renaming the product, npm package or repo; the honest close gate and spec-model changes from the October 16 grill.
+In: a skill catalog with core and opt-in skills, `specweave skills`, `sw-grill-me`, `sw-glossary`, `specweave glossary check`, `specweave review` (cross-model), folding auto and team into sw-do, deleting sw-brainstorm, sw-team and `skills-optional/`, docs naming the method "intent-first development". Out: renaming the product, npm package or repo; the honest close gate and spec-model changes from the October 16 grill.
 
 ## Acceptance Criteria
 
@@ -18,7 +18,7 @@ In: a skill catalog with core and opt-in skills, `specweave skills`, `sw-grill-m
 - [ ] AC-06: sw-grill-me asks in rounds, each question with a recommended answer, and records Decisions; sw-glossary interviews the user and writes GLOSSARY.md entries with Business, Data, Code and UI levels; both pass `lint:standalone-skills`.
 - [ ] AC-07: `specweave glossary check` lists _Avoid_ words used as identifiers and Data/Code pointers that no longer resolve, with file:line; exit 0, or 1 with `--strict` when anything is found.
 - [ ] AC-08: `specweave review` builds a brief from the increment (ACs, task Files, diff range, author family from the ledger), runs a reviewer from another model family (default Codex `gpt-6.1-sol` when Claude wrote the code), writes `reports/review-<reviewer>.md`, appends a ledger note, and exits 0 for ship, 3 for fix first, 1 on error; `--brief` only prints the brief.
-- [ ] AC-09: The docs call the method "done-first development", list the new skill set and the opt-in commands, and rename nothing else.
+- [ ] AC-09: The docs call the method "intent-first development", list the new skill set and the opt-in commands, and rename nothing else.
 
 ## Approach
 
@@ -27,8 +27,8 @@ In: a skill catalog with core and opt-in skills, `specweave skills`, `sw-grill-m
 ## Decisions
 
 ### Asked
-- D-01 Product, package and repo name → asked by card; nothing is renamed in this increment.
-- D-02 Method name for the docs → asked by card; default "done-first development".
+- D-01 Product, package and repo name → keep SpecWeave (user, October 17, 2026); nothing is renamed.
+- D-02 Method name for the docs → "intent-first development" (user, October 17, 2026), replacing "spec-driven development".
 ### Defaulted (change any before sw-do)
 - D-03 Grill skill name → `sw-grill-me`, because 2.x `sw:grill` meant code review and the doctor still maps it to sw:review.
 - D-04 Opt-in store → `skills.enabled` and `skills.disabled` in `.specweave/config.json`; the plugin ships core skills only.
@@ -41,18 +41,18 @@ In: a skill catalog with core and opt-in skills, `specweave skills`, `sw-grill-m
 ## Tasks
 
 ### T-01 Skill catalog and opt-in install
-- AC: AC-01, AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specweave/skills/catalog.json, repositories/anton-abyzov/specweave/scripts/build/generate-skills.mjs, repositories/anton-abyzov/specweave/src/core/skills/, repositories/anton-abyzov/specweave/src/cli/commands/skills.ts, repositories/anton-abyzov/specweave/src/cli/commands/init.ts, repositories/anton-abyzov/specweave/src/cli/commands/update.ts, repositories/anton-abyzov/specweave/src/cli/commands/refresh-plugins.ts, repositories/anton-abyzov/specweave/src/core/config/types.ts, repositories/anton-abyzov/specweave/bin/specweave.js, repositories/anton-abyzov/specweave/tests/unit/skills/ | Test: cd repositories/anton-abyzov/specweave && npx vitest run tests/unit/skills tests/unit/cli/commands/skills.test.ts
+- AC: AC-01, AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specweave/skills/catalog.json, repositories/anton-abyzov/specweave/scripts/build/generate-skills.mjs, repositories/anton-abyzov/specweave/src/core/skills/, repositories/anton-abyzov/specweave/src/cli/commands/skills.ts, repositories/anton-abyzov/specweave/src/cli/commands/init.ts, repositories/anton-abyzov/specweave/src/cli/commands/update.ts, repositories/anton-abyzov/specweave/src/cli/commands/refresh-plugins.ts, repositories/anton-abyzov/specweave/src/core/config/types.ts, repositories/anton-abyzov/specweave/bin/specweave.js, repositories/anton-abyzov/specweave/scripts/completions/, repositories/anton-abyzov/specweave/tests/unit/skills/, repositories/anton-abyzov/specweave/tests/unit/core/skills/, repositories/anton-abyzov/specweave/tests/unit/cli/commands/ | Test: cd repositories/anton-abyzov/specweave && npx vitest run tests/unit/skills tests/unit/cli/commands/skills.test.ts
 
 ### T-02 Skill content and runtime messages
-- AC: AC-05, AC-06 | Files: repositories/anton-abyzov/specweave/skills/, repositories/anton-abyzov/specweave/skills-optional/, repositories/anton-abyzov/specweave/plugins/specweave/, repositories/anton-abyzov/specweave/src/core/hooks/handlers/stop.ts, repositories/anton-abyzov/specweave/src/core/increment/template-creator.ts, repositories/anton-abyzov/specweave/src/cli/commands/create-increment.ts, repositories/anton-abyzov/specweave/src/templates/, repositories/anton-abyzov/specweave/scripts/lint-skills.mjs, repositories/anton-abyzov/specweave/scripts/lint-standalone-skills.mjs | Test: cd repositories/anton-abyzov/specweave && npm run lint:standalone-skills && npm run lint:skills && node scripts/build/generate-skills.mjs --check
+- AC: AC-05, AC-06 | Files: repositories/anton-abyzov/specweave/skills/, repositories/anton-abyzov/specweave/skills-optional/, repositories/anton-abyzov/specweave/plugins/specweave/, repositories/anton-abyzov/specweave/src/core/hooks/handlers/stop.ts, repositories/anton-abyzov/specweave/src/core/increment/template-creator.ts, repositories/anton-abyzov/specweave/src/cli/commands/create-increment.ts, repositories/anton-abyzov/specweave/src/templates/, repositories/anton-abyzov/specweave/src/cli/helpers/init/instruction-file-writer.ts, repositories/anton-abyzov/specweave/src/cli/commands/jev-helpers.ts, repositories/anton-abyzov/specweave/CHANGELOG.md, repositories/anton-abyzov/specweave/tests/unit/cli/helpers/init/, repositories/anton-abyzov/specweave/tests/unit/core/hooks/handlers/stop.test.ts, repositories/anton-abyzov/specweave/scripts/lint-skills.mjs, repositories/anton-abyzov/specweave/scripts/lint-standalone-skills.mjs | Test: cd repositories/anton-abyzov/specweave && npm run lint:standalone-skills && npm run lint:skills && node scripts/build/generate-skills.mjs --check
 
 ### T-03 Glossary check
 - AC: AC-07 | Files: repositories/anton-abyzov/specweave/src/core/glossary/, repositories/anton-abyzov/specweave/src/cli/commands/glossary.ts, repositories/anton-abyzov/specweave/tests/unit/glossary/ | Test: cd repositories/anton-abyzov/specweave && npx vitest run tests/unit/glossary
 
 ### T-04 Cross-model review command
-- AC: AC-08 | Files: repositories/anton-abyzov/specweave/src/core/review/, repositories/anton-abyzov/specweave/src/cli/commands/review.ts, repositories/anton-abyzov/specweave/skills/sw-review/SKILL.md, repositories/anton-abyzov/specweave/skills/sw-done/SKILL.md, repositories/anton-abyzov/specweave/tests/unit/review/ | Test: cd repositories/anton-abyzov/specweave && npx vitest run tests/unit/review
+- AC: AC-08 | Files: repositories/anton-abyzov/specweave/src/core/review/, repositories/anton-abyzov/specweave/src/cli/commands/review.ts, repositories/anton-abyzov/specweave/skills/sw-review/SKILL.md, repositories/anton-abyzov/specweave/skills/sw-done/SKILL.md, repositories/anton-abyzov/specweave/src/core/tasks/closure-gate.ts, repositories/anton-abyzov/specweave/tests/unit/review/ | Test: cd repositories/anton-abyzov/specweave && npx vitest run tests/unit/review
 
-### T-05 Docs: done-first development and the new skills
+### T-05 Docs: intent-first development and the new skills
 - AC: AC-09 | Files: repositories/anton-abyzov/specweave/docs-site/docs/, repositories/anton-abyzov/specweave/README.md | Test: cd repositories/anton-abyzov/specweave/docs-site && npm run build
 
 ### T-06 Cross-model review of this increment and PRs
