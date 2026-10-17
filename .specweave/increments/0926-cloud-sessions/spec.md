@@ -55,3 +55,6 @@ Risks: the CLI's interactive output format can change; the parser is isolated an
 
 ### T-06 Linux worker artifacts and guide
 - AC: AC-07 | Files: scripts/release/release.sh, docs/user/linux-worker.md, docs/user/install.md | Test: bash scripts/release/release.sh --dry-run
+
+### T-07 Repair cloud release typechecks
+- AC: AC-01, AC-02, AC-03 | Files: /Users/antonabyzov/.specwithcode/m4/scratch/release-1042-cloud-repairs/apps/server/src/cloudSessions/, /Users/antonabyzov/.specwithcode/m4/scratch/release-1042-cloud-repairs/apps/server/src/server.ts, /Users/antonabyzov/.specwithcode/m4/scratch/release-1042-cloud-repairs/apps/server/src/ws.layer-types.ts | Test: focused cloud tests and the supported typecheck gate with no new diagnostics; retain all diagnostic severities

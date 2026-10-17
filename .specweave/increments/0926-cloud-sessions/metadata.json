@@ -1,12 +1,25 @@
 {
   "id": "0926-cloud-sessions",
   "uuid": "a3055cf1-69ac-4c50-8974-bb3363da3116",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-16T23:12:26.000Z",
-  "updated": "2026-10-17T00:09:30.387Z",
-  "lastActivity": "2026-10-17T00:09:30.387Z",
+  "updated": "2026-10-17T20:01:24.524Z",
+  "lastActivity": "2026-10-17T20:01:24.524Z",
   "title": "Cloud sessions and Linux workers for SpecWithCode",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2491",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2491",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-17T20:01:31.162Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-17T20:01:24.523Z",
+  "approvedAt": "2026-10-17T20:01:24.524Z"
 }
