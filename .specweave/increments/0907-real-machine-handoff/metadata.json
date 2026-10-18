@@ -1,11 +1,17 @@
 {
   "id": "0907-real-machine-handoff",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-13T14:19:55.193Z",
-  "updated": "2026-10-14T07:22:51.884Z",
-  "lastActivity": "2026-10-14T07:22:51.884Z",
+  "updated": "2026-10-18T02:18:38.822Z",
+  "lastActivity": "2026-10-18T02:18:38.822Z",
   "title": "Real cross-machine handoff and local development readiness",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-18T02:18:38.821Z",
+  "closeReason": "Product code complete and tested on 1.0.43 (157 handoff tests pass); owner dropped the six-route real-machine proof (T-08, T-17 skipped) on 2026-10-18.",
+  "approvedAt": "2026-10-18T02:18:38.822Z"
 }
