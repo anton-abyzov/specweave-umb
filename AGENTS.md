@@ -67,6 +67,8 @@ The Bash guard is per project (`specweave jev setup --guard-bash` writes the con
 | Action | Command |
 |---|---|
 | Fleet checkout safety tests | `python3 scripts/fleet-project-sync.py --self-test` |
+| Handoff verifier regression tests | `python3 -m unittest discover -s tests -p test_handoff_evidence.py` |
+| Actual fleet handoff and environment evidence | `python3 scripts/fleet/verify-handoff-evidence.py --phase all` (requires private machine receipts) |
 | Release status (read-only audit) | `bash scripts/release/release.sh status` |
 | Release tooling tests | `python3 scripts/release/timing.py --self-test` |
 | Build | `npm --prefix repositories/anton-abyzov/specweave run build && npm --prefix repositories/anton-abyzov/vskill run build && npm --prefix repositories/anton-abyzov/vskill-platform run build` |
