@@ -1,0 +1,12 @@
+{
+  "id": "0932-vskill-publish-pin-and-search-loop",
+  "uuid": "b49fe2d8-9bce-471c-bb0a-c58b005eb358",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-18T15:40:26.203Z",
+  "updated": "2026-10-18T15:40:26.203Z",
+  "lastActivity": "2026-10-18T15:40:26.203Z",
+  "title": "vSkill publish, pin and search loop",
+  "project": "specweave-umb"
+}

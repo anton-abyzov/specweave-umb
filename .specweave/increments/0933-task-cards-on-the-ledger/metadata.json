@@ -1,0 +1,12 @@
+{
+  "id": "0933-task-cards-on-the-ledger",
+  "uuid": "5d08833a-80fc-426e-9e9a-b549f040d28b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-18T15:40:26.526Z",
+  "updated": "2026-10-18T15:40:26.526Z",
+  "lastActivity": "2026-10-18T15:40:26.526Z",
+  "title": "Task cards on the ledger",
+  "project": "specweave-umb"
+}
