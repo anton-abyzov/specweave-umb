@@ -1,14 +1,24 @@
 {
   "id": "0897-free-first-pricing-and-launch",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-12T21:37:06.000Z",
-  "updated": "2026-10-12T22:39:59.000Z",
-  "lastActivity": "2026-10-12T22:39:59.000Z",
+  "updated": "2026-10-18T06:31:35.599Z",
+  "lastActivity": "2026-10-18T06:31:35.599Z",
   "title": "Free-first pricing and launch",
   "project": "specweave-umb",
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2493",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2493",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-18T06:31:41.350Z"
+    }
+  },
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-18T06:31:35.597Z",
+  "approvedAt": "2026-10-18T06:31:35.599Z"
 }
