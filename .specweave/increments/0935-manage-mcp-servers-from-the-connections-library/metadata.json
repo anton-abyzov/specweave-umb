@@ -1,0 +1,12 @@
+{
+  "id": "0935-manage-mcp-servers-from-the-connections-library",
+  "uuid": "e791678b-5bd8-440f-be65-cee06a5f8acc",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-18T15:41:06.815Z",
+  "updated": "2026-10-18T15:41:06.815Z",
+  "lastActivity": "2026-10-18T15:41:06.815Z",
+  "title": "Manage MCP servers from the Connections library",
+  "project": "specweave-umb"
+}
