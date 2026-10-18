@@ -1,12 +1,25 @@
 {
   "id": "0928-opt-in-skills-grill-me-glossary-and-cross-model-review",
   "uuid": "8254ecde-76ac-49cb-9523-1e4e31a96cca",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-17T06:06:51.905Z",
-  "updated": "2026-10-17T07:32:52.097Z",
-  "lastActivity": "2026-10-17T07:32:52.097Z",
+  "updated": "2026-10-18T00:38:42.353Z",
+  "lastActivity": "2026-10-18T00:38:42.353Z",
   "title": "Opt-in skills, grill-me, glossary and cross-model review",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2492",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2492",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-18T00:38:47.023Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-18T00:38:42.353Z",
+  "approvedAt": "2026-10-18T00:38:42.353Z"
 }
