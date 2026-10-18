@@ -28,7 +28,15 @@
       "unit": 60,
       "integration": 90,
       "e2e": 100
-    }
+    },
+    "commands": [
+      "npm --prefix repositories/anton-abyzov/specweave run test:unit:fast",
+      "npm --prefix repositories/anton-abyzov/vskill test",
+      "npm --prefix repositories/anton-abyzov/vskill-platform test",
+      "python3 scripts/fleet-project-sync.py --self-test",
+      "python3 -m unittest discover -s tests -p test_handoff_evidence.py",
+      "python3 scripts/release/timing.py --self-test"
+    ]
   },
   "limits": {
     "activeIncrements": 7
@@ -88,7 +96,7 @@
     }
   },
   "planning": {
-    "deepInterview": "warn"
+    "deepInterview": "critical"
   },
   "cicd": {
     "pushStrategy": "direct",
