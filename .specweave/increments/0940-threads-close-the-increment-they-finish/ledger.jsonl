@@ -1,0 +1,9 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-19T07:24:58.987Z","note":"session 8fcd1668-7b0e-45ab-a54b-c6c3e9594bf2"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T07:24:58.999Z"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T07:24:58.999Z","evidence":"specweave PR #2108 merge c24200c3 (v3.1.2): instruction-templates + skills tests pass in CI\nHEAD ad6191b82"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T07:25:02.828Z"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T07:25:02.833Z","evidence":"specweave PR #2108 merge c24200c3 (v3.1.2): close-pending.test.ts 6/6 pass\nHEAD ad6191b82"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T07:25:06.992Z"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T07:25:06.993Z","evidence":"specweave PR #2108 merge c24200c3 (v3.1.2): stop.test.ts + run-mjs.test.ts pass\nHEAD ad6191b82"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T07:25:11.440Z"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T07:25:11.441Z","evidence":"specwithcode-dev PR #422 merge c312a63d: projectStarterSuggestions + ProjectWorkspaceService tests pass, CI green\nHEAD ad6191b82"}
