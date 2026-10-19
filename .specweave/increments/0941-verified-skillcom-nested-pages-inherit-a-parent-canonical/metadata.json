@@ -1,0 +1,26 @@
+{
+  "id": "0941-verified-skillcom-nested-pages-inherit-a-parent-canonical",
+  "uuid": "31702008-92e0-4c72-8f77-20ef5a658ea6",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T20:17:01.836Z",
+  "updated": "2026-10-19T20:39:08.456Z",
+  "lastActivity": "2026-10-19T20:39:08.456Z",
+  "title": "verified-skill.com nested pages inherit a parent canonical",
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2499",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2499",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-19T20:39:12.660Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-19T20:39:08.455Z",
+  "closeReason": "verify failures are outside this increment: vskill src/commands/add-tenant.test.ts and specweave tests/unit/hooks/run-mjs.test.ts each fail alone in untouched checkouts (env/stale dist); vskill-platform, the only repo changed, passes its full suite; fresh-context review in reports/review.md; live readback /tmp/vs-canon/live-verify.txt 16/16 OK",
+  "approvedAt": "2026-10-19T20:39:08.456Z"
+}
