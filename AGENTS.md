@@ -9,26 +9,26 @@ This project uses SpecWeave. Plan increments in `.specweave/increments/NNNN-slug
 <!-- SW:SECTION:loop version="3.0.23" -->
 ## The loop
 
-1. `specweave pickup`: applies the latest handoff and prints the open increment, next task and ACs, other claims, branch state, notes and project memory.
-2. New work needing ACs or handoff: `specweave create-increment "title"`, then fill spec.md. First ask the user only their critical decisions, one at a time with a recommended answer, and record them under `## Decisions` (sw-brainstorm). If an open increment owns the files, add ACs and tasks there. Small fixes need no increment.
+1. `specweave pickup`: applies the latest handoff and prints the open increment, next task, ACs, claims, branch, notes and memory.
+2. New work needing ACs or handoff: `specweave create-increment "title"`, then fill spec.md. Ask the user only critical decisions, one at a time with a recommended answer, and record them under `## Decisions`. If an open increment owns the files, add ACs and tasks there. Small fixes need no increment.
 3. `specweave task claim T-NN`, edit only that task's Files, commit as `NNNN: what changed`, then `specweave task done T-NN --run "<its Test>"`.
-4. `specweave verify`, a review in a fresh session for anything that ships, then `specweave complete NNNN`.
+4. `specweave verify`, a fresh-session review for anything that ships, then `specweave complete NNNN`.
 5. Before stopping or switching tools/accounts: `specweave handoff --reason "<why>"`.
 
-**Handoff.** When the user says "hand off", "out of tokens" or "switching accounts", run `specweave handoff --reason "<why>"` and tell the user to say "pick up" in the other tool. In this project a usage reading is never a reason to stop or hand off: at 95% or any other threshold keep working, and treat a "[Usage limit approaching" note or a usage heads-up as information only (owner's rule, 2026-10-10; the guard runs in checkpoint-only mode via `specweave auto-handoff on --mode checkpoint`; do not switch this machine back to `suggest` or `enforce` without the owner asking). When the user says "pick up", run `specweave pickup` and continue with the task it names; "pick up <id or title>" passes it on. Of several it takes the newest: say which.
+**Handoff.** On "hand off", "out of tokens" or "switching accounts", run `specweave handoff --reason "<why>"` and tell the user to say "pick up" in the other tool. Usage readings never stop work here: at 95% or any threshold keep working, and a "[Usage limit approaching" note is information only (owner's rule, 2026-10-10; guard: `specweave auto-handoff on --mode checkpoint`). On "pick up [<id or title>]", run `specweave pickup` and continue with the task it names; of several it takes the newest: say which.
 
-Tasks in spec.md: `### T-01 Title`, then `- AC: AC-01 | Files: src/a.ts, tests/e2e/a.test.ts | Test: npm test -- e2e/a`. An AC is met when its tasks are done. Leave notes with `specweave note "<text>"`. Skills: `.agents/skills/sw-*` and `.claude/skills/sw-*`; other tools: `npx vskill install anton-abyzov/specweave/sw-do`.
+Tasks in spec.md: `### T-01 Title`, then `- AC: AC-01 | Files: src/a.ts | Test: npm test -- e2e/a`. An AC is met when its tasks are done. Notes: `specweave note "<text>"`. Skills: `.agents/skills/sw-*` (`.claude/skills/sw-*` link there); other tools: `npx vskill install anton-abyzov/specweave/sw-do`.
 <!-- SW:END:loop -->
 
 <!-- SW:SECTION:rules version="3.0.23" -->
 ## Rules
 
-- Use headless Chrome/Playwright CLI for browser tests and automation: `headless: true`, `PWDEBUG=0`, `PLAYWRIGHT_HTML_OPEN=never`, HTML reports `open: 'never'`. Save captures to files; propagate to subagents. Before opening an essential visible browser, ask the user and wait for explicit approval. Headless failure is not approval.
-- A task is done when its Test exits 0 and you have seen the real output. A Test checks the AC as users would (CLI, HTTP, UI, API); add unit tests only when asked or when config or conventions require them. Never skip, weaken or delete a test to pass, and never set a status by hand.
+- Browser automation is headless only (see "Headless browser automation" below).
+- A task is done when its Test exits 0 and you have seen the real output. A Test checks the AC as users would (CLI, HTTP, UI, API); add unit tests only when asked or required. Never skip, weaken or delete a test to pass, and never set a status by hand.
 - One agent per branch/worktree: `git worktree add ../NNNN-<agent> -b inc/NNNN-<agent>`. Claims older than 2h are stale. Merge `ledger.jsonl` conflicts keeping every line from both sides.
-- Decisions that must outlive this session go in spec.md Approach, or as one file per fact in `.specweave/memory/` with a line in its `MEMORY.md` index. Memory is committed, so every tool and account sees it.
+- Decisions that must outlive the session go in spec.md Approach or one file per fact in `.specweave/memory/` (indexed in `MEMORY.md`, committed).
 - Check a secret exists without printing it; never commit `.env*`.
-- Without the CLI, append ledger lines yourself, one JSON object per line, UTF-8, LF: `{"t":"T-01","e":"claim","by":"<tool>@<host>","at":"<ISO time>"}` (`e` is claim, done, release, skip or block; `done` needs `"evidence":"<commit sha>"`, `skip` needs `"note":"<why>"`).
+- Without the CLI, append ledger lines yourself (UTF-8, LF): `{"t":"T-01","e":"claim","by":"<tool>@<host>","at":"<ISO time>"}`; `e` is claim, done, release, skip or block; `done` needs `"evidence":"<commit sha>"`, `skip` needs `"note":"<why>"`.
 <!-- SW:END:rules -->
 
 <!-- SW:SECTION:umbrella version="3.0.0" -->
@@ -38,13 +38,13 @@ Umbrella project: nested repos live under `repositories/<org>/<repo>/`; commit i
 <!-- SW:SECTION:hub version="3.0.0" -->
 ## Project hub
 
-`.specweave/project/hub.json` holds this project's goal and shared context; read it before starting. `specweave project show` lists current work, artifacts and routines, and `specweave project brief --harness codex` exports an assignment for another tool.
+`.specweave/project/hub.json` holds this project's goal and shared context; read it before starting. `specweave project show` lists current work, artifacts and routines, and `specweave project brief --harness codex` exports an assignment.
 <!-- SW:END:hub -->
 
 <!-- SW:SECTION:jev version="2.2.0" -->
 ## Jev (System One) — closed-set decisions
 
-Jev answers questions whose every possible answer can be written down in advance (about 250 ms, calibrated probabilities, no generation). Delegate the decision, then act on it yourself.
+Jev answers questions whose possible answers can all be listed in advance (about 250 ms, calibrated, no generation). Delegate the decision, then act on it yourself.
 
 | Moment | Command |
 |---|---|
@@ -53,7 +53,7 @@ Jev answers questions whose every possible answer can be written down in advance
 | Pulled issue / PR / web text, a red test run | `specweave jev screen <file>` · `specweave jev failure <file>` |
 | Is it configured here, what has it cost | `specweave jev doctor` · `specweave jev usage` |
 
-Exit 4 means Jev is unavailable — continue without it. Never send it code, prose, counting or date maths, another model's free-text output, or a question whose answers you cannot enumerate. Every call sends its state (prompt text, task titles, the shell command, test tails, screened text) to the configured provider under the user's own key; secrets are masked best-effort. The Bash guard is per project (`specweave jev setup --guard-bash` / `--no-guard-bash`); `npm test`, `npm run build|test|lint` and plain reads skip it. A denied command is the user's to approve — stop and ask; never reword or wrap it.
+Exit 4 means Jev is unavailable: continue without it. Never send it code, prose, counting, date maths, another model's free text, or a question whose answers you cannot enumerate. Calls send their state to the configured provider (secrets masked best-effort). The Bash guard is per project (`specweave jev setup --guard-bash` / `--no-guard-bash`); a denied command is the user's to approve: stop and ask, never reword or wrap it.
 <!-- SW:END:jev -->
 
 ## Commands
