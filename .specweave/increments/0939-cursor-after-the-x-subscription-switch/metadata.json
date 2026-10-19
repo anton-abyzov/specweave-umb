@@ -1,0 +1,25 @@
+{
+  "id": "0939-cursor-after-the-x-subscription-switch",
+  "uuid": "d9ca6ebd-49b1-4ee4-a368-5ec167c709ce",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T06:06:20.537Z",
+  "updated": "2026-10-19T08:05:22.760Z",
+  "lastActivity": "2026-10-19T08:05:22.760Z",
+  "title": "Cursor after the X Subscription switch",
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2496",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2496",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-19T08:05:28.010Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-19T08:05:22.757Z",
+  "approvedAt": "2026-10-19T08:05:22.760Z"
+}
