@@ -1,0 +1,12 @@
+{
+  "id": "0938-specwithcode-seo-fix-batch",
+  "uuid": "6e0d3c78-56f8-4474-82d3-8e65a9cc53a8",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T03:22:06.171Z",
+  "updated": "2026-10-19T03:22:06.171Z",
+  "lastActivity": "2026-10-19T03:22:06.171Z",
+  "title": "SpecWithCode SEO fix batch",
+  "project": "specweave-umb"
+}
