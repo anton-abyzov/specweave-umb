@@ -1,12 +1,25 @@
 {
   "id": "0936-full-access-workers-never-wait-on-approvals",
   "uuid": "0b5a3305-e1ef-4bfb-b6a4-7fdb2cc41ccf",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-18T18:33:25.856Z",
-  "updated": "2026-10-18T19:28:09.321Z",
-  "lastActivity": "2026-10-18T19:28:09.321Z",
+  "updated": "2026-10-19T13:18:08.407Z",
+  "lastActivity": "2026-10-19T13:18:08.407Z",
   "title": "Full access workers never wait on approvals",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2497",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2497",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-19T13:18:15.150Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-19T13:18:08.406Z",
+  "approvedAt": "2026-10-19T13:18:08.407Z"
 }
