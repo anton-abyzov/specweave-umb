@@ -1,0 +1,25 @@
+{
+  "id": "0937-narration-and-captions-for-every-silent-site-video",
+  "uuid": "456ba1f9-64aa-4889-a7c0-906a268100af",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T03:02:14.888Z",
+  "updated": "2026-10-19T03:33:03.564Z",
+  "lastActivity": "2026-10-19T03:33:03.564Z",
+  "title": "Narration and captions for every silent site video",
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2494",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2494",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-19T03:33:09.369Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-19T03:33:03.563Z",
+  "approvedAt": "2026-10-19T03:33:03.564Z"
+}
