@@ -555,12 +555,38 @@ cmd_cleanup() {
 
 # ---------------------------------------------------------------- ship
 
+# script_tree <repo> <checkout>: where a track whose manifest says "run_script_from": "origin" runs
+# its release script. The local checkout can sit hundreds of commits off origin (studio's did on
+# 2026-10-19), and a stale release.sh published 1.0.52 in the old stage order: the fleet waited on a
+# release only the private feed had, so no host updated. This keeps one detached tree per repo at
+# origin/<default>, synced before every run; the checkout itself is never touched.
+script_tree() {
+  local repo="$1" checkout="$2" def tree
+  def="$(repo_field "$repo" default_branch)"
+  def="${def:-main}"
+  tree="${RELEASE_SCRIPT_TREES:-$HOME/Projects/github/release-scripts.noindex}/release-script-$repo"
+  git -C "$checkout" fetch --quiet origin "$def" >&2 || die "$repo: cannot fetch origin/$def for its release script"
+  if [ -e "$tree/.git" ]; then
+    git -C "$tree" checkout --quiet --detach --force "origin/$def" >&2 ||
+      die "$repo: cannot move $tree to origin/$def"
+  else
+    mkdir -p "$(dirname "$tree")"
+    git -C "$checkout" worktree add --quiet --detach --force "$tree" "origin/$def" >&2 ||
+      die "$repo: cannot create the release script tree $tree"
+  fi
+  log "[$repo] release script from origin/$def at $(git -C "$tree" rev-parse --short HEAD) ($tree)"
+  printf '%s\n' "$tree"
+}
+
 ship_track() {
   local track="$1" dry="$2" plan="$3"
   shift 3
   local repo path script_rel log_dir log_file start rc=0 arg
   repo="$(track_field "$track" repo)"
   path="$(repo_abs_path "$repo")"
+  if [ "$(track_field "$track" run_script_from)" = origin ] && [ "$plan" -eq 0 ]; then
+    path="$(script_tree "$repo" "$path")" || exit 1
+  fi
   local cmd=()
   while IFS= read -r arg; do cmd+=("$arg"); done < <(mf '.tracks[$t].release[]' --arg t "$track")
   [ ${#cmd[@]} -ge 2 ] || die "track $track has no release command"

@@ -49,6 +49,7 @@
   "cleanup": {
     "protected_globs": [
       "studio-rel-*",
+      "release-script-*",
       "studio-release-*",
       "studio-lockfix*",
       "studio-rev-*",
@@ -181,6 +182,7 @@
     "studio": {
       "repo": "specweave-studio",
       "release": ["bash", "scripts/release/release.sh"],
+      "run_script_from": "origin",
       "default_args": ["{next_patch}"],
       "args_help": "<version> [--dry-run] [--resume]",
       "dry_run_flag": "--dry-run",
