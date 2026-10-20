@@ -1,0 +1,28 @@
+## Installed check, 2026-10-20T04:25:01Z
+### CLI version
+specweave-studio v1.0.60
+### App Info.plist
+1.0.60
+### installation.json
+{"version":"1.0.60","sourceCommit":"6dc4616e3889d4845cddf2c16961416afb7816e3"}
+### release dir /Users/antonabyzov/.specwithcode/install/releases/bced1c3402743d4f7c0e
+### bundle files registering the tools
+/Users/antonabyzov/.specwithcode/install/releases/bced1c3402743d4f7c0e/binCli-DyEIsmFx.mjs
+/Users/antonabyzov/.specwithcode/install/releases/bced1c3402743d4f7c0e/binCli-DyEIsmFx.mjs:6
+### empty-params fix in bundle (Struct({}) absent for route_targets)
+### live service on 127.0.0.1:8319
+GET / -> 200
+listener pid 91650 node
+### running service process
+91650 /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/.specwithcode/install/releases/bced1c3402743d4f7c0e/bin.mjs start --no-browser --host 127.0.0.1 --port 8319 --base-dir /Users/antonabyzov/.
+### PR #438 merge d2d2bb56 in v1.0.60
+ancestor: yes
+v1.0.60
+### live MCP from a SpecWeave-project worker thread on the 1.0.60 service
+tools/list exposes mcp__studio-code__studio_route_targets (inputSchema {"type":"object","additionalProperties":false}) and mcp__studio-code__studio_project_route.
+studio_route_targets call -> {"_tag":"OrchestratorMcpFailure","code":"capability_denied","message":"Only a personal assistant's coordinator routes requests between projects. A project coordinator starts its own workers with delegate_task."}
+(expected: caller is not a personal-project coordinator). Service not restarted; no browser used.
+### positive check from Aide's coordinator on 1.0.60 (run ordinal 41, 2026-10-20T04:34Z, copilot provider)
+studio_route_targets -> targets: EasyChamp (grantedBy /Users/antonabyzov/Projects/sw-easychamp), specweave (grantedBy /Users/antonabyzov/Projects/github/specweave-umb)
+unavailable: No project (outside Aide's approved folders); studio-notify-test, Folder Choice 3f31488e, Projects, emergeAmergicas_hackathon, emergeAmericas_hackathon2 (archived)
+No studio_project_route call was made.

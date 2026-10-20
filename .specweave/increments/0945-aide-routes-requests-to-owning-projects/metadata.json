@@ -1,15 +1,26 @@
 {
   "id": "0945-aide-routes-requests-to-owning-projects",
   "uuid": "26f40d42-e04f-4596-8a63-befe0eb080db",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-19T22:34:44.466Z",
-  "updated": "2026-10-19T22:59:50.204Z",
-  "lastActivity": "2026-10-19T22:59:50.204Z",
+  "updated": "2026-10-20T04:37:58.415Z",
+  "lastActivity": "2026-10-20T04:37:58.415Z",
   "title": "Aide routes requests to the projects that own them",
   "project": "specweave-umb",
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2504",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2504",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-20T04:38:16.707Z"
+    }
+  },
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T04:37:58.409Z",
+  "closeReason": "verify testing.commands failed only on timing budgets/timeouts in specweave, vskill and vskill-platform (handoff-roundtrip 5000ms timeout, session-start 382>300ms, scanner 1884>1000ms) with host load average 983; 0945 changed only specwithcode-dev (PR #438, d2d2bb56, shipped in v1.0.60), ACs 7/7, fresh review PASS, installed evidence in evidence/installed-1.0.60.txt",
+  "approvedAt": "2026-10-20T04:37:58.415Z"
 }
