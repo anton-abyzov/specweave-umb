@@ -1,15 +1,18 @@
 {
   "id": "0933-task-cards-on-the-ledger",
   "uuid": "5d08833a-80fc-426e-9e9a-b549f040d28b",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-18T15:40:26.526Z",
-  "updated": "2026-10-19T13:36:55.216Z",
-  "lastActivity": "2026-10-19T13:36:55.216Z",
+  "updated": "2026-10-20T05:13:24.484Z",
+  "lastActivity": "2026-10-20T05:13:24.484Z",
   "title": "Task cards on the ledger",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T05:13:24.482Z",
+  "closeReason": "3 verify runs: vskill, vskill-platform and python suites pass; specweave unit fails only on 5s timeouts in git-heavy tests (save.test.ts, handoff-roundtrip, run-mjs), a different set each run, at load average 60-950 from other sessions; those files pass alone and in CI on PR #2116. Review PASS: reports/review.md",
+  "approvedAt": "2026-10-20T05:13:24.484Z"
 }

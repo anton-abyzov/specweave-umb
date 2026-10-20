@@ -15,7 +15,7 @@ In: SpecWithCode (`anton-abyzov/specwithcode-dev`) contracts, server orchestrati
 - [ ] AC-03: The source is recorded as moved first (`movedTo`), then archived with its queue discarded, its running turn and delegated tasks stopped; afterwards it refuses new turns, so nothing it held runs against the wrong project. Its history, linked pull requests and project stay where they were.
 - [ ] AC-04: "Start it there now" sends the opening request in the new thread only after the source is stopped; it defaults on for work that was running and off for stopped or cancelled work, which then waits in the new thread's composer.
 - [ ] AC-05: Coordinators, provider-native subagents, a thread already moved, the same project, an archived/paused/missing target and non-user callers are refused with a reason; delegated tasks move as ordinary threads. A retry with the same command id resumes the move without a second thread.
-- [ ] AC-06: Both threads show a banner linking to the other; older servers do not offer the action.
+- [ ] AC-06: Both threads show a banner linking to the other. The original is archived, so the new thread's link opens it once it is restored and leads to Archived settings until then. Older servers do not offer the action.
 
 ## Approach
 
@@ -43,5 +43,8 @@ Client command `thread.move-to-project` is routed in `ws.ts` to `ThreadMoveServi
 
 ### T-04 PR, merge and installed runtime check
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: none | Test: installed service reports threadProjectMove; move a scratch thread end to end
+
+### T-06 Closure review fixes: original link and target runtime mode
+- AC: AC-02, AC-06 | Files: apps/server/src/orchestration-v2/ThreadMoveService.ts, apps/web/src/components/ChatView.tsx, scripts/studio-verify/thread-move.mjs | Test: vp test run apps/server/src/orchestration-v2/ThreadMoveService.test.ts; headless thread-move.mjs
 
 ### T-05 Verify and close 0947

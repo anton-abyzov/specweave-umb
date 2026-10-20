@@ -1,15 +1,17 @@
 {
   "id": "0956-links-inside-the-viewer-open-in-front",
   "uuid": "95e290bb-c7f8-4273-8426-c030b8dda091",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-19T23:54:32.945Z",
-  "updated": "2026-10-19T23:54:32.945Z",
-  "lastActivity": "2026-10-19T23:54:32.945Z",
+  "updated": "2026-10-20T05:13:44.482Z",
+  "lastActivity": "2026-10-20T05:13:44.482Z",
   "title": "Links inside the viewer open in front",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T05:13:44.481Z",
+  "approvedAt": "2026-10-20T05:13:44.482Z"
 }

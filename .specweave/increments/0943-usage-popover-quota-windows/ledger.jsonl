@@ -2,3 +2,7 @@
 {"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T21:42:23.936Z"}
 {"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T21:42:24.248Z","evidence":"PR anton-abyzov/specwithcode-dev#435; vp test run hostLimitsModel/HostLimitsCompact/ProjectUsageIndicator/UsageProviderSettings: 39 passed\nHEAD 1269af80c"}
 {"t":"*","e":"note","by":"claude@antons-macbook-m4max","at":"2026-10-19T22:08:54.171Z","note":"0943: PR anton-abyzov/specwithcode-dev#435 merged as 2ae3bd294e; ships in 1.0.55 cut by the 0942 worker (agreed, single release). Evidence ~/Projects/github/studio-research-notes/usage-quota-windows-2026-10-19/report.md"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-20T04:30:35.148Z"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-20T04:30:47.823Z","evidence":"Fixture headless 4 widths x 2 themes pass (after/receipt.json, AA worst 5.82/6.91); installed 1.0.60 live popover headless: Claude 5-hour 94% / Weekly 80% binding / Fable 100% (installed-1.0.60/receipt.json); PR #435 merged 2ae3bd294e\nHEAD 2404cd80c"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-20T04:41:55.624Z"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-20T04:41:57.418Z","evidence":"Fresh-context closure review PASS (AC-01..06); specweave verify ACs 6/6, command FAILs are 5s timeouts in specweave/vskill/vskill-platform suites under load avg ~777 with 4 concurrent verifies, none touched by 0943; worktree removed\nHEAD 9ebce6746"}

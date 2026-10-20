@@ -1,15 +1,26 @@
 {
   "id": "0946-project-return-keeps-the-reading-position",
   "uuid": "10654971-4e63-46d1-9388-d6a9c151a967",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-19T22:36:16.398Z",
-  "updated": "2026-10-19T23:33:25.492Z",
-  "lastActivity": "2026-10-19T23:33:25.492Z",
+  "updated": "2026-10-20T04:37:09.339Z",
+  "lastActivity": "2026-10-20T04:37:09.339Z",
   "title": "Project return keeps the reading position",
   "project": "specweave-umb",
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2503",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2503",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-20T04:37:27.128Z"
+    }
+  },
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T04:37:09.337Z",
+  "closeReason": "verify FAIL only on umbrella timing tests in specweave and vskill-platform (load average 885); 0946 code lives in specwithcode-dev, ACs 5/5, PR #440 checks green, installed 1.0.60 headless check ok, fresh review PASS",
+  "approvedAt": "2026-10-20T04:37:09.339Z"
 }

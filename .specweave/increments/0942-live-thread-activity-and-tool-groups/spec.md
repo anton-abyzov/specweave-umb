@@ -15,7 +15,7 @@ In: the chat timeline's Working header, live activity row (tool or thinking) and
 - [ ] AC-01: The live activity row names the current step from real turn items (the running tool's label, "Thinking" while the latest item is reasoning or a tool just finished) and shows how long that step has run, timed from the item's own start.
 - [ ] AC-02: When no turn item has changed for 60 seconds or more, the activity row says "No new events for N" instead of "Thinking"; the time comes from the newest turn item's update, never from the client timer.
 - [ ] AC-03: The Working header shows a compact machine label for the thread's host and a live dot that animates only while events are fresh; when the host is not connected it says the status may be stale instead of implying progress.
-- [ ] AC-04: A tool-group header (live or settled) shows a chevron and the count of tool calls it opens, and its accessible name says it shows or hides those calls.
+- [ ] AC-04: A tool-group header (live or settled) shows a chevron and, from two calls up, the count of tool calls it opens; its accessible name says it shows or hides those calls (a single call reads "show tool call details").
 - [ ] AC-05: Expanded tool calls sit inside an indented, left-bordered group so they read as a sibling list of the turn, not as subtasks of the running command; each call keeps its own disclosure.
 
 ## Approach
@@ -29,6 +29,12 @@ In: the chat timeline's Working header, live activity row (tool or thinking) and
 ### Defaulted (change any before sw-do)
 - D-01: Quiet threshold 60 s for the activity row; the existing 10-minute stall chip with Stop/Continue stays as is.
 - D-02: Machine label shows on the Working header only, not as a new thread-panel element.
+- D-03 (close review, October 20, 2026): a single running call's header is that call's own disclosure, so it shows no "1 call" count.
+
+## Deferred (close review, October 20, 2026)
+- Quiet is client clock minus host-stamped `updatedAt` with no skew correction; a host clock 60 s or more off misreports quiet.
+- Quiet is not evaluated while a tool call is in progress; a provider that dies mid-tool keeps "Running" until the 10-minute stall chip.
+- `useNowMs` re-renders the Working header and Thinking row every second; one timeout at the 60 s mark would do.
 
 ## Tasks
 

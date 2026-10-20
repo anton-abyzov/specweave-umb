@@ -3,3 +3,7 @@
 {"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T22:11:55.893Z","evidence":"specwithcode-dev 1136b13773 (PR #436): markdownDocument + MarkdownDocumentView in 4 viewers; shared 1396/1396, web viewer tests 173/173\nHEAD 1269af80c"}
 {"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T22:11:56.592Z"}
 {"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T22:11:57.245Z","evidence":"specwithcode-dev 1136b13773: isMarkdownFileLinkLabel accepts ~/ labels; client-runtime 2232/2232\nHEAD 1269af80c"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-20T04:31:31.855Z"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-20T04:31:31.878Z","evidence":"Installed M4 1.0.60 (6dc4616e3, contains #436 4e401f08f0): headless check of the release's own server, private state. Report frontmatter shows as properties (Date, Source, Installed, Session, Status), title once, no raw YAML. Receipt /Users/antonabyzov/.specwithcode/m4/scratch/installed-viewer-check/evidence/installed-receipt.json, screenshot /Users/antonabyzov/.specwithcode/m4/scratch/installed-viewer-check/evidence/installed-report-top.png\nHEAD 2404cd80c"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-20T04:33:22.009Z"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-20T04:33:22.011Z","evidence":"specweave verify + fresh-context review below\nHEAD 2404cd80c"}

@@ -1,15 +1,25 @@
 {
   "id": "0944-report-documents-show-frontmatter-as-properties",
   "uuid": "98e976db-d5f9-462c-b8c7-2478bbb04e71",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-19T22:09:59.877Z",
-  "updated": "2026-10-19T22:11:57.245Z",
-  "lastActivity": "2026-10-19T22:11:57.245Z",
+  "updated": "2026-10-20T04:48:52.659Z",
+  "lastActivity": "2026-10-20T04:48:52.659Z",
   "title": "Report documents show frontmatter as properties",
   "project": "specweave-umb",
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2506",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2506",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-20T04:48:58.190Z"
+    }
+  },
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T04:48:52.658Z",
+  "approvedAt": "2026-10-20T04:48:52.659Z"
 }

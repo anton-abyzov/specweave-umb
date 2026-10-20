@@ -1,0 +1,15 @@
+{
+  "id": "0957-one-click-fast-updates",
+  "uuid": "8e500efc-d3ba-4881-8f9f-cfd82e7e492b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T04:26:25.113Z",
+  "updated": "2026-10-20T04:26:25.113Z",
+  "lastActivity": "2026-10-20T04:26:25.113Z",
+  "title": "One-click fast updates",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

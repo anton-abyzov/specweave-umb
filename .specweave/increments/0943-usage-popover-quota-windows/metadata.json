@@ -1,15 +1,26 @@
 {
   "id": "0943-usage-popover-quota-windows",
   "uuid": "43600a85-725d-4364-ac29-4b44f16ef43f",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-19T21:35:11.141Z",
-  "updated": "2026-10-19T22:08:54.171Z",
-  "lastActivity": "2026-10-19T22:08:54.171Z",
+  "updated": "2026-10-20T04:41:58.416Z",
+  "lastActivity": "2026-10-20T04:41:58.416Z",
   "title": "Every quota window in the limits popover",
   "project": "specweave-umb",
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2505",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2505",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-20T04:42:02.791Z"
+    }
+  },
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T04:41:58.415Z",
+  "closeReason": "Code is in anton-abyzov/specwithcode-dev (PR #435, merged 2ae3bd294e, all PR checks green, 39 focused tests pass), verified headless on fixture and on installed 1.0.60; closure review PASS. verify.md FAILs are 5s test timeouts in specweave, vskill and vskill-platform suites (untouched by 0943) while the Mac ran at load average ~777 with four concurrent verify runs.",
+  "approvedAt": "2026-10-20T04:41:58.416Z"
 }

@@ -1118,6 +1118,38 @@
       "success": true,
       "timestamp": "2026-10-20T00:45:30.599Z",
       "durationMs": 175
+    },
+    {
+      "tool": "ado",
+      "itemId": 2503,
+      "incrementId": "0946-project-return-keeps-the-reading-position",
+      "success": true,
+      "timestamp": "2026-10-20T04:37:28.763Z",
+      "durationMs": 250
+    },
+    {
+      "tool": "ado",
+      "itemId": 2504,
+      "incrementId": "0945-aide-routes-requests-to-owning-projects",
+      "success": true,
+      "timestamp": "2026-10-20T04:38:18.929Z",
+      "durationMs": 213
+    },
+    {
+      "tool": "ado",
+      "itemId": 2505,
+      "incrementId": "0943-usage-popover-quota-windows",
+      "success": true,
+      "timestamp": "2026-10-20T04:42:03.949Z",
+      "durationMs": 208
+    },
+    {
+      "tool": "ado",
+      "itemId": 2506,
+      "incrementId": "0944-report-documents-show-frontmatter-as-properties",
+      "success": true,
+      "timestamp": "2026-10-20T04:49:00.436Z",
+      "durationMs": 195
     }
   ],
   "summary": {
@@ -1148,20 +1180,20 @@
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 50,
-      "successful": 50,
+      "totalAttempts": 54,
+      "successful": 54,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-10-20T00:45:30.599Z",
-      "avgDurationMs": 199.14,
+      "lastSuccess": "2026-10-20T04:49:00.436Z",
+      "avgDurationMs": 200.42592592592592,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 139,
-      "successful": 133,
+      "totalAttempts": 143,
+      "successful": 137,
       "failed": 6,
-      "successRate": 0.9568345323741008
+      "successRate": 0.958041958041958
     },
-    "lastUpdated": "2026-10-20T00:45:30.600Z"
+    "lastUpdated": "2026-10-20T04:49:00.436Z"
   }
 }
