@@ -22,7 +22,7 @@ In: the CLI fixes above in anton-abyzov/vskill, the platform fixes in anton-abyz
 - [ ] AC-10: A published skill's description comes from its SKILL.md frontmatter, and a scheduled rescan re-verifies any skill whose source HEAD SKILL.md hash differs from its latest version's content hash.
 - [ ] AC-11: Messages and docs match behaviour: a 404 source says "not found", `submit` prints the full name for `vskill info`, a rejected submission is not reported as a duplicate, "Installed (symlinked)" says "copied" when it copies, and the CLI reference documents `--private`, `--tenant`, `--version`, `pin` and resubmit-to-republish.
 - [ ] AC-12: The account anton-abyzov has a tenant mapped to its GitHub App installation, `VSKILL_PLATFORM_TOKEN` is set on anton-abyzov/vskill, and the nightly live E2E is green once.
-- [ ] AC-13: vskill 1.2.10 is on npm and installed globally on this Mac; the private probe `e2e-probe-20261018` publishes at 1.0.0 and 1.0.1, installs pinned at both, updates to 1.0.1, and is then removed; the six specweave skills show 3.1.0 with real descriptions on verified-skill.com.
+- [ ] AC-13: vskill 1.2.10 is on npm and installed globally on this Mac; the private probe `e2e-probe-20261018` publishes at 1.0.0 and 1.0.1, installs pinned at both, updates to 1.0.1, and is then removed; the six specweave skills show their SKILL.md versions (3.1.0; sw-handoff is 3.0.0 in source) with real descriptions on verified-skill.com.
 
 ## Approach
 

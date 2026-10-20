@@ -1,15 +1,18 @@
 {
   "id": "0932-vskill-publish-pin-and-search-loop",
   "uuid": "b49fe2d8-9bce-471c-bb0a-c58b005eb358",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-18T15:40:26.203Z",
-  "updated": "2026-10-20T07:04:48.672Z",
-  "lastActivity": "2026-10-20T07:04:48.672Z",
+  "updated": "2026-10-20T21:11:37.513Z",
+  "lastActivity": "2026-10-20T21:11:37.513Z",
   "title": "vSkill publish, pin and search loop",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T21:11:37.507Z",
+  "closeReason": "ACs 13/13, tasks 11/11; fresh review PASS. Verify failed only on 5000ms timeouts/1s timing bounds under load avg 50-370 (other agents): specweave save.test+pre-compact pass alone 58/58 and CI Test & Validate is green at c6ecd6ba; vskill and vskill-platform suites each passed in a verify run (October 20).",
+  "approvedAt": "2026-10-20T21:11:37.513Z"
 }
