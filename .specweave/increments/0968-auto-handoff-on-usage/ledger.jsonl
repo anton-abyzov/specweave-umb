@@ -1,0 +1,10 @@
+{"t":"T-01","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T21:35:43.244Z"}
+{"t":"T-01","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T21:35:43.246Z","evidence":"1dbb5b246f PR #512: switch-at threshold in MachineFallbackSettings; web tests 39 pass\nHEAD 135ddd03a","line":"Threshold setting merged in #512","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/512"}
+{"t":"T-02","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T21:35:43.586Z"}
+{"t":"T-02","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T21:35:43.586Z","evidence":"1dbb5b246f PR #512: ProviderLimitMachineTargets contract + settings rows; web/shared tests pass\nHEAD 135ddd03a","line":"Machine targets merged in #512","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/512"}
+{"t":"T-03","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T21:35:43.946Z"}
+{"t":"T-03","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T21:35:43.946Z","evidence":"1dbb5b246f PR #512: providerUsageSummary in fleet capabilities; server tests 103 pass\nHEAD 135ddd03a","line":"Fleet usage summary merged in #512","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/512"}
+{"t":"T-07","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T21:35:44.305Z"}
+{"t":"T-07","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T21:35:44.306Z","evidence":"1dbb5b246f PR #512: sha256 account-pool fingerprint, RemoteWorkers usage; providerUsageSummary.test.ts pass\nHEAD 135ddd03a","line":"Fingerprint and fleet usage merged in #512","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/512"}
+{"t":"T-08","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T21:35:44.945Z"}
+{"t":"T-08","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T21:35:44.946Z","evidence":"1dbb5b246f PR #512: judgeMachineCandidate reasons + target order; shared 71 tests pass; proof run6 13/13\nHEAD 135ddd03a","line":"Eligibility reasons and order merged in #512","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/512"}
