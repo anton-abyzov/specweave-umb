@@ -25,6 +25,8 @@ Out: auto-layout and constraints, vector boolean operations, real-time multi-use
 - [ ] AC-11: `html` nodes (agent-written HTML) render in an opaque-origin sandboxed iframe with the existing render bootstrap; they never get same-origin access.
 - [ ] AC-12: "Implement this frame" opens a picker for a coding thread in the design's project (new or existing) and sends the frame's JSON, PNG, used tokens and matching design-system components.
 - [ ] AC-13: The canvas stays at 60 fps with 500 nodes on a page (headless performance trace) and does not repaint while idle.
+- [ ] AC-15: Share in the editor header opens a dialog that shows the owner, who has access (this Mac, the owner's paired devices and linked machines, agent threads) and sets the members and agents levels (edit, comment, view), with Copy link and the export formats. The dialog states that public web links are not available in this build instead of showing a dead control.
+- [ ] AC-16: The bound thread shows on the left; a binding to another machine's thread shows that machine with "Open there" (when linked) and "Start a thread here".
 - [ ] AC-14: Headless screenshots and a recording of drawing, editing, an agent edit arriving, a comment, export and present mode, light and dark. Keyboard-only use reaches every tool.
 
 ## Approach
@@ -37,7 +39,7 @@ Out: auto-layout and constraints, vector boolean operations, real-time multi-use
 - none
 ### Defaulted (change any before sw-do)
 - D-01: Operation rebase with property-level conflicts instead of whole-document last-writer-wins.
-- D-02: Export only; no share links.
+- D-02: Share controls access inside the user's own devices, machines and agents, plus app links; public web publication is out of this build and needs explicit consent (see 0972 D-02).
 ### Open
 - none
 
@@ -63,6 +65,9 @@ Out: auto-layout and constraints, vector boolean operations, real-time multi-use
 
 ### T-07 Implement this frame
 - AC: AC-12 | Files: ImplementFrameDialog.tsx | Test: component test
+
+### T-10 Share dialog and bound thread
+- AC: AC-15, AC-16 | Files: components/design/editor/ShareDialog.tsx, editor header | Test: component tests, headless screenshots
 
 ### T-08 Performance and evidence
 - AC: AC-13, AC-14 | Files: apps/web/tests/design-canvas/* | Test: headless Playwright trace, screenshots, recording

@@ -24,6 +24,9 @@ Out: the canvas editor tools (0974), design-system extraction and Figma (0973), 
 - [ ] AC-10: The sidebar shows Design under Assistant. `/design` lists designs with tabs All, Playground and Projects, a project filter, search, grid and list views, and cards with a live thumbnail, kind, owner and "Edited N min ago". The Make something new row shows only kinds that work in this build. The command palette has "Open Design".
 - [ ] AC-11: A project's Library shows a Designs group listing that project's designs with open, copy to Playground and reveal file actions.
 - [ ] AC-12: "Design from code" asks for the project, creates a design owned by it and starts an agent thread in that project bound to the design (default model: the project's worker model, Claude Opus 5.5 high on this machine), with instructions to use `design_*` tools and the project's design system. No provider-specific code path.
+- [ ] AC-14: Access levels from the Share dialog are enforced by the server: `members` (the owner's other paired devices and linked machines) and `agents` (design tools) each get edit, comment or view. Comment allows only comment operations; view allows none; the owner session on this machine always edits. Tested over RPC with a non-owner session and over MCP.
+- [ ] AC-15: A design link (`/design/<key>` in the app) opens the design on any client already signed in to this environment or on a linked member that has the file. It needs no new token and no hosted service; a client without access gets the normal sign-in or "Not on this machine yet" state.
+- [ ] AC-16: A design records its bound thread with the thread's environment. `design_create` from an agent binds the calling thread; Design from code binds the thread it starts; a binding to another machine's thread shows that machine instead of opening a dead thread.
 - [ ] AC-13: Headless screenshots (light and dark) of the gallery, the Library Designs group and the Design from code dialog, plus server tests for storage, CAS, history, ownership rejection and reference resolution.
 
 ## Approach
@@ -41,7 +44,7 @@ Risk: conflict hotspots with active lanes in `clientRpcPermissions.ts`, `RpcInst
 ### Asked
 - D-01: Project attachment vs a common playground → both, with explicit ownership and copy (user, October 20, 2026).
 ### Defaulted (change any before sw-do)
-- D-02: No Share button. Export (PNG, HTML, PDF in 0974) replaces it; sharing to people was not requested and would publish content.
+- D-02: Share is built as access control inside the user's own devices, machines and agents (AC-14, AC-15, 0974 AC-15). A public web link needs a hosted publishing service, which the app keeps off by default; it is recorded as remaining scope that needs the user's explicit consent, not built silently and not shown as a dead button. (Revised October 20, 2026 after the user asked for full parity including Share.)
 - D-03: Copy, never link, across owners, so no project content leaks into another owner by reference.
 - D-04: Autosave history lives in `.history/` next to the design and is git-ignored; named versions are committed with the project.
 ### Open
@@ -72,6 +75,9 @@ Risk: conflict hotspots with active lanes in `clientRpcPermissions.ts`, `RpcInst
 
 ### T-08 Design from code
 - AC: AC-12 | Files: components/design/DesignFromCodeDialog.tsx, server thread start | Test: component and server tests
+
+### T-11 Access enforcement, links and thread binding
+- AC: AC-14, AC-15, AC-16 | Files: apps/server/src/design/DesignService.ts, MCP handlers, gallery Design from code | Test: RPC non-owner and MCP access tests, link route test
 
 ### T-09 Evidence
 - AC: AC-13 | Files: apps/web/tests/design-workspace/*, scripts/studio-verify/design-workspace.mjs | Test: headless Playwright light and dark
