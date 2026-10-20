@@ -1,0 +1,12 @@
+{
+  "id": "0974-design-canvas-editor",
+  "uuid": "011b2c36-1bf1-44f2-afdd-997c17f06590",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T18:45:00.129Z",
+  "updated": "2026-10-20T18:45:00.129Z",
+  "lastActivity": "2026-10-20T18:45:00.129Z",
+  "title": "Design canvas editor",
+  "project": "specweave-umb"
+}

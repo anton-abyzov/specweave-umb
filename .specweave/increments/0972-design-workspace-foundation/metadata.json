@@ -1,0 +1,12 @@
+{
+  "id": "0972-design-workspace-foundation",
+  "uuid": "85f33762-f590-4543-91b3-df6ec80100fb",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T18:44:59.385Z",
+  "updated": "2026-10-20T18:44:59.385Z",
+  "lastActivity": "2026-10-20T18:44:59.385Z",
+  "title": "Design workspace: artifacts, ownership and agent tools",
+  "project": "specweave-umb"
+}
