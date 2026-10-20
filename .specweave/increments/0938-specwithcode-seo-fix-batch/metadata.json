@@ -1,15 +1,18 @@
 {
   "id": "0938-specwithcode-seo-fix-batch",
   "uuid": "6e0d3c78-56f8-4474-82d3-8e65a9cc53a8",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-19T03:22:06.171Z",
-  "updated": "2026-10-19T03:22:06.171Z",
-  "lastActivity": "2026-10-19T03:22:06.171Z",
+  "updated": "2026-10-20T13:44:12.049Z",
+  "lastActivity": "2026-10-20T13:44:12.049Z",
   "title": "SpecWithCode SEO fix batch",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T13:44:12.046Z",
+  "closeReason": "verify: 5/5 ACs, 5/5 tasks. Red checks are outside 0938 (docs-site only): specweave unit timeouts in save/handoff-roundtrip under load, vskill tier1 perf + FindSkillsPalette, timing.py self-test missing PyYAML. 0938 docs build, release-link test and verify-tutorials green; PR #2120 CI green",
+  "approvedAt": "2026-10-20T13:44:12.049Z"
 }
