@@ -1046,6 +1046,78 @@
       "success": true,
       "timestamp": "2026-10-17T01:52:43.822Z",
       "durationMs": 164
+    },
+    {
+      "tool": "ado",
+      "itemId": 2494,
+      "incrementId": "0937-narration-and-captions-for-every-silent-site-video",
+      "success": true,
+      "timestamp": "2026-10-19T03:33:10.239Z",
+      "durationMs": 151
+    },
+    {
+      "tool": "ado",
+      "itemId": 2495,
+      "incrementId": "0940-threads-close-the-increment-they-finish",
+      "success": true,
+      "timestamp": "2026-10-19T07:34:10.519Z",
+      "durationMs": 232
+    },
+    {
+      "tool": "ado",
+      "itemId": 2496,
+      "incrementId": "0939-cursor-after-the-x-subscription-switch",
+      "success": true,
+      "timestamp": "2026-10-19T08:05:29.588Z",
+      "durationMs": 240
+    },
+    {
+      "tool": "ado",
+      "itemId": 2497,
+      "incrementId": "0936-full-access-workers-never-wait-on-approvals",
+      "success": true,
+      "timestamp": "2026-10-19T13:18:16.884Z",
+      "durationMs": 192
+    },
+    {
+      "tool": "ado",
+      "itemId": 2498,
+      "incrementId": "0935-manage-mcp-servers-from-the-connections-library",
+      "success": true,
+      "timestamp": "2026-10-19T20:17:47.926Z",
+      "durationMs": 268
+    },
+    {
+      "tool": "ado",
+      "itemId": 2499,
+      "incrementId": "0941-verified-skillcom-nested-pages-inherit-a-parent-canonical",
+      "success": true,
+      "timestamp": "2026-10-19T20:39:14.372Z",
+      "durationMs": 222
+    },
+    {
+      "tool": "ado",
+      "itemId": 2500,
+      "incrementId": "0952-sidebar-chats-hold-still-during-live-updates",
+      "success": true,
+      "timestamp": "2026-10-20T00:31:35.039Z",
+      "durationMs": 166
+    },
+    {
+      "tool": "ado",
+      "itemId": 2501,
+      "incrementId": "0953-verified-skillcom-hub-pages-and-submissions-api-return-500",
+      "success": true,
+      "timestamp": "2026-10-20T00:38:06.875Z",
+      "durationMs": 174
+    },
+    {
+      "tool": "ado",
+      "itemId": 2502,
+      "incrementId": "0955-ordered-fallback-models-for-usage-limits",
+      "success": true,
+      "timestamp": "2026-10-20T00:45:30.599Z",
+      "durationMs": 175
     }
   ],
   "summary": {
@@ -1076,20 +1148,20 @@
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 41,
-      "successful": 41,
+      "totalAttempts": 50,
+      "successful": 50,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-10-17T01:52:43.822Z",
-      "avgDurationMs": 198.46341463414635,
+      "lastSuccess": "2026-10-20T00:45:30.599Z",
+      "avgDurationMs": 199.14,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 130,
-      "successful": 124,
+      "totalAttempts": 139,
+      "successful": 133,
       "failed": 6,
-      "successRate": 0.9538461538461539
+      "successRate": 0.9568345323741008
     },
-    "lastUpdated": "2026-10-17T01:52:43.823Z"
+    "lastUpdated": "2026-10-20T00:45:30.600Z"
   }
 }

@@ -1,0 +1,15 @@
+{
+  "id": "0951-per-project-machine-grants",
+  "uuid": "83ca1959-6e71-4515-9c27-9f720245fc89",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T23:08:24.000Z",
+  "updated": "2026-10-20T04:04:47.471Z",
+  "lastActivity": "2026-10-20T04:04:47.471Z",
+  "title": "Per-project machine grants, delegation limits and coordinator takeover",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

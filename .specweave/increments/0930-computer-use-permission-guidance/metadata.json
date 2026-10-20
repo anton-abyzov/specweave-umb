@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-18T03:23:13.454Z",
-  "updated": "2026-10-18T03:23:13.454Z",
-  "lastActivity": "2026-10-18T03:23:13.454Z",
+  "updated": "2026-10-19T13:42:30.936Z",
+  "lastActivity": "2026-10-19T13:42:30.936Z",
   "title": "Computer use permission guidance",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

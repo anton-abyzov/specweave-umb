@@ -1,0 +1,15 @@
+{
+  "id": "0950-handoff-credentials-and-secrets",
+  "uuid": "7552deb5-2392-4d84-9f6b-7a8c587ef263",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T23:08:24.000Z",
+  "updated": "2026-10-20T01:43:04.397Z",
+  "lastActivity": "2026-10-20T01:43:04.397Z",
+  "title": "Destination sign-in checklist and opt-in secret files",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-19T22:11:54.954Z","note":"session d4668d47-dd75-4d1d-9f38-db51c6d5fcc4"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T22:11:54.961Z"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T22:11:55.893Z","evidence":"specwithcode-dev 1136b13773 (PR #436): markdownDocument + MarkdownDocumentView in 4 viewers; shared 1396/1396, web viewer tests 173/173\nHEAD 1269af80c"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T22:11:56.592Z"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T22:11:57.245Z","evidence":"specwithcode-dev 1136b13773: isMarkdownFileLinkLabel accepts ~/ labels; client-runtime 2232/2232\nHEAD 1269af80c"}

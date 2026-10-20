@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-19T23:02:31.665Z","note":"session 28564474-7cbc-4ac7-856f-b5369bb4f103"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T23:02:31.673Z"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T23:02:33.269Z"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T23:02:34.667Z","evidence":"specwithcode-dev PR #440 (671d331eb4): place recorded on scroll and restored on reveal/remount; useConversationFollow.test.tsx 6/6, studio suite 598/598\nHEAD 53a8ef3b3"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T23:02:35.517Z","evidence":"specwithcode-dev PR #440: JumpToLatestButton shared by coordinator and ChatView; render tests updated; headless keyboard jump passes\nHEAD 53a8ef3b3"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T23:33:22.654Z"}
+{"t":"*","e":"note","by":"claude@antons-macbook-m4max","at":"2026-10-19T23:33:25.492Z","note":"PR #440 merged 155c12bb3c (Checks 39340585384 green). Headless: ~/.specwithcode/m4/scratch/project-return-evidence/{before,after}. Waiting for 1.0.56 (release owner thread) for the installed-runtime check, then T-03 done and close."}

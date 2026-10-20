@@ -1,0 +1,26 @@
+{
+  "id": "0952-sidebar-chats-hold-still-during-live-updates",
+  "uuid": "9649666f-2990-48ec-a85d-9dce20d9445b",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-19T23:29:13.941Z",
+  "updated": "2026-10-20T00:31:26.095Z",
+  "lastActivity": "2026-10-20T00:31:26.095Z",
+  "title": "Sidebar chats hold still during live updates",
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2500",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2500",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-20T00:31:33.227Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T00:31:26.092Z",
+  "closeReason": "0952 changed only specweave-studio (PR #443, CI green, 80/80 focused tests, headless fixture 0 reorders); umbrella verify failures are in untouched repos: specweave pre-compact 5s timeouts under load, vskill env token leak, vskill-platform safe.bareRepository git config",
+  "approvedAt": "2026-10-20T00:31:26.095Z"
+}

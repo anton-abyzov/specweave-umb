@@ -1,0 +1,15 @@
+{
+  "id": "0944-report-documents-show-frontmatter-as-properties",
+  "uuid": "98e976db-d5f9-462c-b8c7-2478bbb04e71",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T22:09:59.877Z",
+  "updated": "2026-10-19T22:11:57.245Z",
+  "lastActivity": "2026-10-19T22:11:57.245Z",
+  "title": "Report documents show frontmatter as properties",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

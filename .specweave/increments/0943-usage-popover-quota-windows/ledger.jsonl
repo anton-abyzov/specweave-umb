@@ -1,0 +1,4 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-19T21:42:23.935Z","note":"session f6e3072c-e8d3-4aa5-ac56-699bcd7e7d42"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T21:42:23.936Z"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T21:42:24.248Z","evidence":"PR anton-abyzov/specwithcode-dev#435; vp test run hostLimitsModel/HostLimitsCompact/ProjectUsageIndicator/UsageProviderSettings: 39 passed\nHEAD 1269af80c"}
+{"t":"*","e":"note","by":"claude@antons-macbook-m4max","at":"2026-10-19T22:08:54.171Z","note":"0943: PR anton-abyzov/specwithcode-dev#435 merged as 2ae3bd294e; ships in 1.0.55 cut by the 0942 worker (agreed, single release). Evidence ~/Projects/github/studio-research-notes/usage-quota-windows-2026-10-19/report.md"}

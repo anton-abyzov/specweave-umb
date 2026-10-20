@@ -1,0 +1,15 @@
+{
+  "id": "0949-folder-copy-handoff",
+  "uuid": "1fa887c0-fe11-44f7-a7c3-c7a5bf368a94",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T23:08:24.000Z",
+  "updated": "2026-10-20T01:12:17.352Z",
+  "lastActivity": "2026-10-20T01:12:17.352Z",
+  "title": "Handoff copies the project folder, reconciles and can undo",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

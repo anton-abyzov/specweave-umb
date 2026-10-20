@@ -1,12 +1,26 @@
 {
   "id": "0935-manage-mcp-servers-from-the-connections-library",
   "uuid": "e791678b-5bd8-440f-be65-cee06a5f8acc",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-18T15:41:06.815Z",
-  "updated": "2026-10-18T15:41:06.815Z",
-  "lastActivity": "2026-10-18T15:41:06.815Z",
+  "updated": "2026-10-19T20:17:40.660Z",
+  "lastActivity": "2026-10-19T20:17:40.660Z",
   "title": "Manage MCP servers from the Connections library",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2498",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2498",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-19T20:17:46.213Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-19T20:17:40.659Z",
+  "closeReason": "Verify red only on two environmental failures outside 0935 code (stale umbrella specweave dist; vskill test reads real ~/.vskill tenant); both pass isolated. App tests 76/76 + 15/15 on specwithcode-dev 8358add5d9; fresh review APPROVE. See reports/review.md",
+  "approvedAt": "2026-10-19T20:17:40.660Z"
 }

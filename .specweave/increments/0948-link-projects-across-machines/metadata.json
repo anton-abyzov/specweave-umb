@@ -1,0 +1,15 @@
+{
+  "id": "0948-link-projects-across-machines",
+  "uuid": "906ff388-6c9d-411f-9400-37d189785bd3",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T23:08:24.000Z",
+  "updated": "2026-10-20T03:36:14.663Z",
+  "lastActivity": "2026-10-20T03:36:14.663Z",
+  "title": "Link a project with its copy on another machine",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

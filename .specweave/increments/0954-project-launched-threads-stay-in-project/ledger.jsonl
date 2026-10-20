@@ -1,0 +1,6 @@
+{"t":"T-01","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T00:30:32.866Z"}
+{"t":"T-01","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T00:30:32.868Z","evidence":"PR #447 (66582f11db); handlers.test.ts pass\nHEAD 53a8ef3b3"}
+{"t":"T-02","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T00:30:34.915Z"}
+{"t":"T-02","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T00:30:34.916Z","evidence":"PR #447; ThreadMoveService.test.ts 16/16 incl. race test\nHEAD 53a8ef3b3"}
+{"t":"T-03","e":"block","by":"cli@antons-macbook-m4max","at":"2026-10-20T01:47:37.993Z","note":"Shipped in 1.0.57 (built from 9217ac6460, includes #447); artifact adopt flow proven headless. Waits on the user updating M4 from 1.0.54 and moving the five No project chats."}
+{"t":"T-03","e":"block","by":"cli@antons-macbook-m4max","at":"2026-10-20T02:45:45.607Z","note":"Not user-only: I move the five chats myself through the app's move flow once M4 runs 1.0.57 or later. Waiting on the release owner's M4 restart and install (service lost its SQLite locks). Baseline: ~/Projects/github/studio-audit-evidence/move-thread-1.0.57/five-chats/before.jsonl"}

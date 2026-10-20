@@ -1,0 +1,19 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:36:08.773Z","note":"session 3a946108-3eb9-4674-b633-0539218148ae"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:36:08.777Z"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:36:08.822Z","evidence":"75791ba; npx vitest run src/commands/__tests__/install-version.test.ts: 8/8 passed; tsc clean\nHEAD 2ddab015a"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:36:19.563Z"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:36:19.569Z","evidence":"89f2102; npx vitest run src/commands/__tests__/install-tier.test.ts: 8/8 passed; no VERIFIED literals in install paths\nHEAD 2ddab015a"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:36:25.712Z"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:36:25.721Z","evidence":"0a54436 + 77bf2a0 (object-source plugin selected by name now skipped); npx vitest run src/commands/__tests__/install-shortname.test.ts: 6/6 passed\nHEAD 2ddab015a"}
+{"t":"T-07","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:45:27.166Z"}
+{"t":"T-07","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:45:27.168Z","evidence":"vskill-platform 41443b10 (PR #154): search-slug.test.ts 10/10 pass; PR CI green\nHEAD 2ddab015a"}
+{"t":"T-08","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:45:28.047Z"}
+{"t":"T-08","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:45:28.049Z","evidence":"vskill-platform 41443b10 (PR #154): rescan-stale + skills route tests 26 files/239 tests pass; PR CI green\nHEAD 2ddab015a"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:53:47.984Z"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:53:47.985Z","evidence":"61123b6 (PR https://github.com/anton-abyzov/vskill/pull/189); npx vitest run src/discovery/__tests__/github-calls.test.ts: 3/3 passed (5 REST calls, raw HEAD fallback, rate-limit message)\nHEAD 596f2d788"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:53:48.289Z"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:53:48.290Z","evidence":"7404a33 + 56bbbe4 (PR https://github.com/anton-abyzov/vskill/pull/189); npx vitest run src/commands/__tests__/update-outdated.test.ts src/commands/__tests__/doctor-namespace.test.ts: 10/10 passed. Compare-route half of AC-07 is platform T-08.\nHEAD 596f2d788"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:57:22.203Z"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T13:57:22.212Z","evidence":"CLI: 3a7623c in PR https://github.com/anton-abyzov/vskill/pull/189 (merged 92e35a7): submit/not-found/copied messages + README publish/pin/--private/--tenant/--version/republish; npm test 7127 passed, CI green. Platform docs: vskill-platform PR #154 (merged).\nHEAD 596f2d788"}
+{"t":"T-09","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T14:03:13.058Z"}
+{"t":"T-09","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T14:03:13.060Z","evidence":"vskill 1.2.10 tagged v1.2.10 on 92e35a7 (PR https://github.com/anton-abyzov/vskill/pull/189), npm Release run 39264645024 success, npm latest=1.2.10, npm i -g done; T-09 test passed. Platform deploy owned by platform agent (PR #154). Report: reports/release.md\nHEAD 1529aeac0"}

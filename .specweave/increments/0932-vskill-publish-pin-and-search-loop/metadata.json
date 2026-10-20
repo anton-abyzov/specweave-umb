@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-18T15:40:26.203Z",
-  "updated": "2026-10-18T15:40:26.203Z",
-  "lastActivity": "2026-10-18T15:40:26.203Z",
+  "updated": "2026-10-19T14:03:13.060Z",
+  "lastActivity": "2026-10-19T14:03:13.060Z",
   "title": "vSkill publish, pin and search loop",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

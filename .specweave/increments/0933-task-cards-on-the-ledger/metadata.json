@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-18T15:40:26.526Z",
-  "updated": "2026-10-18T15:40:26.526Z",
-  "lastActivity": "2026-10-18T15:40:26.526Z",
+  "updated": "2026-10-19T13:36:55.216Z",
+  "lastActivity": "2026-10-19T13:36:55.216Z",
   "title": "Task cards on the ledger",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

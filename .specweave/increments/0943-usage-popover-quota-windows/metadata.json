@@ -1,0 +1,15 @@
+{
+  "id": "0943-usage-popover-quota-windows",
+  "uuid": "43600a85-725d-4364-ac29-4b44f16ef43f",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T21:35:11.141Z",
+  "updated": "2026-10-19T22:08:54.171Z",
+  "lastActivity": "2026-10-19T22:08:54.171Z",
+  "title": "Every quota window in the limits popover",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

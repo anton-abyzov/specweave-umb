@@ -1,0 +1,15 @@
+{
+  "id": "0947-move-thread-to-another-project",
+  "uuid": "424b9832-be7a-4cba-8e2a-b243db6e2573",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T22:58:41.669Z",
+  "updated": "2026-10-20T02:45:46.025Z",
+  "lastActivity": "2026-10-20T02:45:46.025Z",
+  "title": "Move a thread to another project",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

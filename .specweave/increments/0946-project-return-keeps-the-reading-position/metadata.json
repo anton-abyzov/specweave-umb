@@ -1,0 +1,15 @@
+{
+  "id": "0946-project-return-keeps-the-reading-position",
+  "uuid": "10654971-4e63-46d1-9388-d6a9c151a967",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T22:36:16.398Z",
+  "updated": "2026-10-19T23:33:25.492Z",
+  "lastActivity": "2026-10-19T23:33:25.492Z",
+  "title": "Project return keeps the reading position",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

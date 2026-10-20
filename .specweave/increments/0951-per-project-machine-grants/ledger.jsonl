@@ -1,0 +1,15 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-19T23:16:29.912Z","note":"session 1db90de9-6b29-4702-9843-3c50406afc78"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T23:16:29.913Z"}
+{"t":"T-05","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T00:51:27.212Z"}
+{"t":"T-01","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T00:51:30.687Z"}
+{"t":"T-02","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T00:51:31.135Z"}
+{"t":"T-03","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T00:51:31.510Z"}
+{"t":"T-01","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T02:02:33.660Z"}
+{"t":"T-05","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T02:02:33.949Z"}
+{"t":"T-01","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T02:02:34.256Z","evidence":"PR anton-abyzov/specwithcode-dev#450 merged 0bb5f1adfb; PR Gate + typecheck pass; focused tests 3022 passed (8 handoffGit failures pre-existing on main); verify.mjs headless pass (machine-grants-report/verify-2036)\nHEAD 53a8ef3b3"}
+{"t":"T-02","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T02:02:34.537Z","evidence":"PR anton-abyzov/specwithcode-dev#450 merged 0bb5f1adfb; PR Gate + typecheck pass; focused tests 3022 passed (8 handoffGit failures pre-existing on main); verify.mjs headless pass (machine-grants-report/verify-2036)\nHEAD 53a8ef3b3"}
+{"t":"T-03","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T02:02:34.847Z","evidence":"PR anton-abyzov/specwithcode-dev#450 merged 0bb5f1adfb; PR Gate + typecheck pass; focused tests 3022 passed (8 handoffGit failures pre-existing on main); verify.mjs headless pass (machine-grants-report/verify-2036)\nHEAD 53a8ef3b3"}
+{"t":"T-05","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T02:02:35.155Z","evidence":"PR anton-abyzov/specwithcode-dev#450 merged 0bb5f1adfb; PR Gate + typecheck pass; focused tests 3022 passed (8 handoffGit failures pre-existing on main); verify.mjs headless pass (machine-grants-report/verify-2036)\nHEAD 53a8ef3b3"}
+{"t":"T-06","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T02:02:38.656Z"}
+{"t":"T-06","e":"block","by":"cli@antons-macbook-m4max","at":"2026-10-20T02:02:38.968Z","note":"PR #450 merged (0bb5f1adfb), waiting for release; T-04 PR pending 0948"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-20T04:04:47.471Z"}

@@ -1,0 +1,15 @@
+{
+  "id": "0954-project-launched-threads-stay-in-project",
+  "uuid": "9e24ad0f-98eb-44bc-8d7a-b2c98b536b93",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-19T23:42:17.000Z",
+  "updated": "2026-10-20T02:45:45.607Z",
+  "lastActivity": "2026-10-20T02:45:45.607Z",
+  "title": "Project-launched threads stay in their project",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

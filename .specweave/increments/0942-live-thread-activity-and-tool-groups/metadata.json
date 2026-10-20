@@ -1,0 +1,15 @@
+{
+  "id": "0942-live-thread-activity-and-tool-groups",
+  "uuid": "20899df0-80b0-4269-857b-1c0b4e34c8c7",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T20:28:36.798Z",
+  "updated": "2026-10-19T20:41:57.479Z",
+  "lastActivity": "2026-10-19T20:41:57.479Z",
+  "title": "Live thread activity and tool groups",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

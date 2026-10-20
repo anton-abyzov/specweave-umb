@@ -1,0 +1,26 @@
+{
+  "id": "0955-ordered-fallback-models-for-usage-limits",
+  "uuid": "f0f5a066-9ab4-4e86-b172-5c864fedefd3",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T23:47:38.222Z",
+  "updated": "2026-10-20T00:45:23.288Z",
+  "lastActivity": "2026-10-20T00:45:23.288Z",
+  "title": "Ordered fallback models for usage limits",
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2502",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2502",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-20T00:45:28.855Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T00:45:23.285Z",
+  "closeReason": "AC-06 deferred to a follow-up (D-04); umbrella verify failures are in unrelated repos (specweave, vskill, vskill-platform test suites); app tests and typechecks pass on PR #448",
+  "approvedAt": "2026-10-20T00:45:23.288Z"
+}
