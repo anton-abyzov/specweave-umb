@@ -17,14 +17,14 @@ Out: account or billing changes that only Anton can make (branch protection, npm
 
 ## Acceptance Criteria
 
-- [ ] AC-01: vskill-platform unit tests use every runner core and are sharded with merged coverage that still enforces the 60% thresholds; PR wall time for the check drops well below today's 13-15 min.
-- [ ] AC-02: vskill-platform has one release command that gates on green CI for the deployed tree, builds once, watches production logs after deploy and rolls back automatically on the Hyperdrive/pg error signatures.
-- [ ] AC-03: vskill desktop tag builds restore warm Rust caches written on main, RPM bundling is off the critical leg, the release needs no bump PR, the DMG is notarized and stapled with gating checks, and the release script tags, watches and verifies end to end.
-- [ ] AC-04: vskill CI and Sidecar Smoke drop redundant work (sharded unit suite, single cargo test, no unfiltered push trigger, concurrency, timeouts) and the Windows settings flake is fixed deterministically.
-- [ ] AC-05: specweave release-path workflows skip work that cannot affect the result, have timeouts, and a one-command release script covers bump, merge, tag, publish and verification.
-- [ ] AC-06: SpecWithCode has a resumable one-command local release: preflight, parallel stage-1 suites, sharded server suite run once on the final candidate, bundle verified before signing, drafts during waits, fleet rollout M4 first then M1/M3 on installedVersion, and a per-stage timing record compared with the previous release.
-- [ ] AC-07: The umbrella has a release manifest, a release entrypoint with status and verify, a CI-wait helper that never trips the 600s cap, and a timing scanner that records step durations, flags regressions against a baseline and lints every workflow for missing caches, timeouts, concurrency and unfiltered triggers.
-- [ ] AC-08: Memory notes and runbooks describe the current procedures, MEMORY.md fits its load limit, and no secret value remains in a memory note.
+- [x] AC-01: vskill-platform unit tests use every runner core and are sharded with merged coverage that still enforces the 60% thresholds; PR wall time for the check drops well below today's 13-15 min.
+- [x] AC-02: vskill-platform has one release command that gates on green CI for the deployed tree, builds once, watches production logs after deploy and rolls back automatically on the Hyperdrive/pg error signatures.
+- [x] AC-03: vskill desktop tag builds restore warm Rust caches written on main, RPM bundling is off the critical leg, the release needs no bump PR, the DMG is notarized and stapled with gating checks, and the release script tags, watches and verifies end to end.
+- [x] AC-04: vskill CI and Sidecar Smoke drop redundant work (sharded unit suite, single cargo test, no unfiltered push trigger, concurrency, timeouts) and the Windows settings flake is fixed deterministically.
+- [x] AC-05: specweave release-path workflows skip work that cannot affect the result, have timeouts, and a one-command release script covers bump, merge, tag, publish and verification.
+- [x] AC-06: SpecWithCode has a resumable one-command local release: preflight, parallel stage-1 suites, sharded server suite run once on the final candidate, bundle verified before signing, drafts during waits, fleet rollout M4 first then M1/M3 on installedVersion, and a per-stage timing record compared with the previous release.
+- [x] AC-07: The umbrella has a release manifest, a release entrypoint with status and verify, a CI-wait helper that never trips the 600s cap, and a timing scanner that records step durations, flags regressions against a baseline and lints every workflow for missing caches, timeouts, concurrency and unfiltered triggers.
+- [x] AC-08: Memory notes and runbooks describe the current procedures, MEMORY.md fits its load limit, and no secret value remains in a memory note.
 
 ## Approach
 

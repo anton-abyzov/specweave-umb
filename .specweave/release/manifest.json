@@ -25,7 +25,7 @@
     "cleanup_merged_worktrees": true,
     "waits": "Never block a tool call longer than 540s. Use scripts/release/ci-wait.sh (exit 2 = still pending, call again) in the background with a monitor on its output, and never wait on a condition that ignores error output.",
     "studio_fleet_order": ["m4", "m1+m3"],
-    "studio_fleet_note": "Install on M4 first and wait for installedVersion; then M1 and M3 together. M4 hosts the release session, so its request is normal mode with no blocking wait when the release runs there. Never force-restart the service hosting in-flight release work.",
+    "studio_fleet_note": "The studio release fleet stage runs scripts/studio-fleet/fleet_rollout.py. M4 goes first: once its agent offers the release, the service drains and holds itself the way Update now does, then one forced request bound to the version with a 15-minute hold, and the rollout waits for installedVersion; a rollout that gives up cancels only its own request and releases its hold. M1 and M3 follow together with version-bound requests once M4 verifies. Never force an unheld install on a service hosting in-flight release work.",
     "source": "Owner rules recorded 2026-10-11 and 2026-10-16 (merge, release, deploy, verify and clean merged worktrees without asking)."
   },
   "known_noise_checks": [
@@ -202,18 +202,18 @@
         "inventory": "$STUDIO_FLEET_HOSTS or ~/.local/share/specweave/fleet/hosts.json (read via scripts/studio-fleet/fleet_hosts.py)",
         "ssh_key": "~/.local/share/specweave/fleet/id_ed25519",
         "hosts": [
-          { "id": "m4", "role": "orchestrator", "port": 8319, "update_mode": "normal", "wait": false },
+          { "id": "m4", "role": "orchestrator", "port": 8319, "update_mode": "force-held", "wait": true },
           { "id": "m1", "role": "worker", "port": 18319, "update_mode": "install", "wait": true },
           { "id": "m3", "role": "worker", "port": 28319, "update_mode": "install", "wait": true }
         ],
         "updater_label": "com.specweave.studio.<id>.updater",
-        "state_file": "~/.specweave-studio/<id>/updates/state.json",
+        "state_file": "~/.specwithcode/<id>/updates/state.json",
         "status_command": "python3 -B scripts/studio-fleet/update_agent.py --identity <id> --status"
       },
       "verify": [
         { "name": "private release", "kind": "gh_release", "repo": "anton-abyzov/specwithcode-dev", "tag": "v{version}", "assets": ["studio-update.json", "SHA256SUMS", "*.dmg"] },
         { "name": "public mirror release", "kind": "gh_release", "repo": "anton-abyzov/specwithcode", "tag": "v{version}" },
-        { "name": "M4 service", "kind": "fleet_endpoint", "url": "http://127.0.0.1:8319/.well-known/studio/environment", "state_file": "~/.specweave-studio/m4/updates/state.json" },
+        { "name": "M4 service", "kind": "fleet_endpoint", "url": "http://127.0.0.1:8319/.well-known/studio/environment", "state_file": "~/.specwithcode/m4/updates/state.json" },
         { "name": "M1 service", "kind": "fleet_endpoint", "url": "http://127.0.0.1:18319/.well-known/studio/environment" },
         { "name": "M3 service", "kind": "fleet_endpoint", "url": "http://127.0.0.1:28319/.well-known/studio/environment" }
       ]
