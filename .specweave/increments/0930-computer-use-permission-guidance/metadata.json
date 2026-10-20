@@ -1,15 +1,18 @@
 {
   "id": "0930-computer-use-permission-guidance",
   "uuid": "9b77f432-a68f-4bae-b971-18b2a976662d",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-18T03:23:13.454Z",
-  "updated": "2026-10-19T13:42:30.936Z",
-  "lastActivity": "2026-10-19T13:42:30.936Z",
+  "updated": "2026-10-20T13:32:25.052Z",
+  "lastActivity": "2026-10-20T13:32:25.052Z",
   "title": "Computer use permission guidance",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T13:32:25.048Z",
+  "closeReason": "ACs 4/4, tasks 3/3, review: no critical/high. Verify red only on umbrella-wide checks outside 0930: specweave/vskill/vskill-platform unit timeouts under load and timing.py missing yaml module; 0930 code (specwithcode-dev #348) shipped in 1.0.62, permissions proven persistent on M4",
+  "approvedAt": "2026-10-20T13:32:25.052Z"
 }
