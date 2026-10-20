@@ -48,22 +48,22 @@ Risks: main-thread indexing stalls (bounded by 200-chunk batches and yields); Cl
 ## Tasks
 
 ### T-01 Knowledge index, sources and switching rule
-- AC: AC-01, AC-02, AC-03, AC-07 | Files: apps/server/src/project/knowledge/*.ts, packages/contracts/src/projectKnowledge.ts | Test: vp test run apps/server/src/project/knowledge
+- AC: AC-01, AC-02, AC-03, AC-07 | Files: apps/server/src/project/knowledge/*.ts, packages/contracts/src/projectKnowledge.ts, packages/contracts/src/environment.ts, apps/server/src/environment/ServerEnvironment.ts | Test: vp test run apps/server/src/project/knowledge
 
 ### T-02 Delivery through the project context
-- AC: AC-04 | Files: apps/server/src/project/ProjectWorkspaceService.ts, apps/server/src/project/ProjectContextDelivery.ts, apps/server/src/project/ProjectContextSnapshot.ts, apps/server/src/project/knowledge/ProjectKnowledgeContext.ts | Test: vp test run apps/server/src/project/ProjectContextBudget.test.ts apps/server/src/project/ProjectContextDelivery.test.ts apps/server/src/project/ProjectWorkspaceService.test.ts apps/server/src/project/knowledge
+- AC: AC-04 | Files: apps/server/src/project/ProjectWorkspaceService.ts, apps/server/src/project/ProjectContextDelivery.ts, apps/server/src/project/ProjectContextSnapshot.ts, apps/server/src/project/ProjectContextRuntime.ts, apps/server/src/project/knowledge/knowledgeSections.ts, apps/server/src/project/promptFence.ts, apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.ts | Test: vp test run apps/server/src/project/ProjectContextBudget.test.ts apps/server/src/project/ProjectContextDelivery.test.ts apps/server/src/project/ProjectWorkspaceService.test.ts apps/server/src/project/knowledge
 
 ### T-03 Agent search and read tools
-- AC: AC-05 | Files: apps/server/src/mcp/toolkits/projectKnowledge/*, apps/server/src/mcp/McpHttpServer.ts, apps/server/src/orchestration-v2/runtimeLayer.ts, packages/shared/src/studioMcpToolPresentation.ts | Test: vp test run apps/server/src/mcp/toolkits/projectKnowledge apps/server/src/mcp/toolkits/core.test.ts
+- AC: AC-05 | Files: apps/server/src/mcp/toolkits/projectKnowledge/*, apps/server/src/mcp/McpHttpServer.ts, apps/server/src/orchestration-v2/runtimeLayer.ts, packages/shared/src/studioMcpToolPresentation.ts, packages/client-runtime/src/studioToolSummary.ts, packages/client-runtime/src/work-log/presentation.ts | Test: vp test run apps/server/src/mcp/toolkits/projectKnowledge apps/server/src/mcp/toolkits/core.test.ts
 
 ### T-04 RPCs and the Project knowledge card
-- AC: AC-06 | Files: packages/contracts/src/projectWorkspaceRpc.ts, apps/server/src/project/ProjectWorkspaceRpc.ts, apps/server/src/auth/RpcAuthorization.ts, packages/client-runtime/src/state/projectWorkspace.ts, apps/web/src/components/studio/ProjectKnowledge.tsx | Test: vp test run apps/web/src/components/studio/ProjectKnowledge.test.tsx packages/contracts/src/projectKnowledge.test.ts
+- AC: AC-06 | Files: packages/contracts/src/projectWorkspaceRpc.ts, packages/contracts/src/rpc.ts, packages/contracts/src/clientRpcPermissions.ts, apps/server/src/project/ProjectWorkspaceRpc.ts, apps/server/src/auth/RpcAuthorization.ts, apps/server/src/ws.ts, apps/server/src/observability/RpcInstrumentation.ts, packages/client-runtime/src/state/projectWorkspace.ts, apps/web/src/components/studio/ProjectKnowledge.tsx, apps/web/src/studio/projectKnowledgeModel.ts, apps/web/src/components/studio/ProjectWorkspaceSettings.tsx, apps/web/src/components/studio/projectSettingsSearch.logic.ts, apps/web/src/components/studio/projectWorkspace.css, apps/web/tests/project-workspace/* | Test: vp test run apps/web/src/components/studio/ProjectKnowledge.test.tsx packages/contracts/src/projectKnowledge.test.ts
 
 ### T-05 Deletion and orphan cleanup
 - AC: AC-08 | Files: apps/server/src/project/knowledge/ProjectKnowledge.ts | Test: vp test run apps/server/src/project/knowledge
 
 ### T-06 Design document, review and merge
-- AC: AC-09 | Files: docs/studio/project-knowledge.md, docs/studio/project-orchestration.md | Test: gh pr checks on the specwithcode-dev pull request
+- AC: AC-09 | Files: docs/studio/project-knowledge.md, docs/studio/project-orchestration.md, docs/operations/live-database.md | Test: gh pr checks on the specwithcode-dev pull request
 
 ### T-07 Verify and close 0927
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09 | Files: .specweave/increments/0927-project-knowledge-retrieval/ledger.jsonl | Test: specweave verify 0927
