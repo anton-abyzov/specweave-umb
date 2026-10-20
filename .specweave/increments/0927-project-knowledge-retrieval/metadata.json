@@ -1,0 +1,15 @@
+{
+  "id": "0927-project-knowledge-retrieval",
+  "uuid": "0e2280d9-4009-478c-8509-c1045ccd9057",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-17T00:00:00.000Z",
+  "updated": "2026-10-20T04:35:53.000Z",
+  "lastActivity": "2026-10-20T04:35:53.000Z",
+  "title": "Project knowledge with automatic search mode",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
