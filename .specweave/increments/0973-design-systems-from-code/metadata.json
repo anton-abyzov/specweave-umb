@@ -1,12 +1,15 @@
 {
   "id": "0973-design-systems-from-code",
   "uuid": "91b230cd-a3bf-46ff-be38-47967a99ca84",
-  "status": "planned",
+  "status": "active",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-20T18:44:59.754Z",
-  "updated": "2026-10-20T18:44:59.754Z",
-  "lastActivity": "2026-10-20T18:44:59.754Z",
+  "updated": "2026-10-20T19:12:43.966Z",
+  "lastActivity": "2026-10-20T19:12:43.966Z",
   "title": "Design systems from code, files and Figma",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
