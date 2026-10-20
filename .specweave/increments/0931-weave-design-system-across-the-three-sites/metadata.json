@@ -1,15 +1,18 @@
 {
   "id": "0931-weave-design-system-across-the-three-sites",
   "uuid": "0ffe1bb9-d6e3-40d3-8bac-76690999d71c",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-18T03:58:55.690Z",
-  "updated": "2026-10-20T14:01:26.186Z",
-  "lastActivity": "2026-10-20T14:01:26.186Z",
+  "updated": "2026-10-20T14:51:24.106Z",
+  "lastActivity": "2026-10-20T14:51:24.106Z",
   "title": "Weave design system across the three sites",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T14:51:24.104Z",
+  "closeReason": "verify red only outside 0931: specweave save/handoff-roundtrip git tests, vskill eval-server git routes, vskill-platform regex timing and 0752 admin reject route; 0931 changed only site styles (vskill-platform #168, specweave #2122). Fresh review PASS, ACs 5/5, tasks 4/4",
+  "approvedAt": "2026-10-20T14:51:24.106Z"
 }
