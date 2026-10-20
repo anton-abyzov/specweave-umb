@@ -1,0 +1,12 @@
+{
+  "id": "0977-decision-card-reply-in-chat",
+  "uuid": "d39fa31d-8515-4712-a537-a53f4f043d28",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-20T19:48:29.000Z",
+  "updated": "2026-10-20T19:48:29.000Z",
+  "lastActivity": "2026-10-20T19:48:29.000Z",
+  "title": "Decision cards: reply in chat with attachments, no lost messages",
+  "project": "specweave-umb"
+}

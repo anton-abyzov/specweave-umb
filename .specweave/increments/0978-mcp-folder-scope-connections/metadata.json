@@ -1,0 +1,12 @@
+{
+  "id": "0978-mcp-folder-scope-connections",
+  "uuid": "ef6de4bf-14ee-46ae-99a9-825835dbed75",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-20T19:48:29.000Z",
+  "updated": "2026-10-20T19:48:29.000Z",
+  "lastActivity": "2026-10-20T19:48:29.000Z",
+  "title": "MCP connections: folder-only Claude entries, labels and exposure",
+  "project": "specweave-umb"
+}
