@@ -16,7 +16,7 @@ In: the Studio skills view fixes, the machine hygiene (plugins off, trash moved,
 - [ ] AC-04: Running the repro script (`scratchpad/studio-skills-ui/repro.ts`, moved into the repo as a test fixture runner) on the specweave cwd reports at most 12 attention rows, all real.
 - [ ] AC-05: On this Mac the synced "sw", marketing and cowork-plugin-management org plugins and the three org skill copies are off, `~/.claude/skills/.trash` is outside the skills tree, the Claude sw plugin is 3.0.23, the umbrella `.claude/skills` entries are symlinks to `.agents/skills` with the retired sw-brainstorm and sw-team gone, the two legacy lock entries are removed, and `vskill doctor --json` reports no bad-name, bad-description or identical-copy finding.
 - [ ] AC-06: A 90-day Codex re-check (find -L over ~/.codex/sessions, including the external archive) is recorded per candidate; only candidates with zero Claude calls and zero Codex reads are removed; the removals, merges and deprecations from the merge map are applied, each merged skill's content is folded into its target with the target's trigger phrase extended, and `vskill doctor` is clean afterwards.
-- [ ] AC-07: The 14 user skills without a "Use when" trigger have one, remotion-best-practices has a real description, html-report's description is at most 1,024 characters; obsidian-brain, social-media-posting and every edited skill are republished through vSkill and relocked (lock sha equals disk).
+- [ ] AC-07: The 14 user skills without a "Use when" trigger have one, remotion-best-practices has a real description, html-report's description is at most 1,024 characters; obsidian-brain, social-media-posting and every edited skill are republished through vSkill and relocked (lock sha equals disk); personal forks are relocked without republishing (D-03).
 - [ ] AC-08: Umbrella AGENTS.md has no "Available Subagent Types" section, the Jev table is at most 6 rows, and the SpecWeave procedure text is at most 1.2k tokens measured by `wc -c` divided by 4.
 
 ## Approach
@@ -27,6 +27,7 @@ Studio work in one worktree off main (one PR): `projectSkillsInventory.ts` group
 
 - D-01 Removals are deletions on this Mac, approved by the owner on 2026-10-18 (D3); every removed skill is reinstallable through vSkill or the hyperframes router.
 - D-02 sw-team and sw-brainstorm are retired in the catalog and never recommended.
+- D-03 AC-07's republish clause excludes the personal forks obsidian-brain and kie-gemini-omni: they hold the owner's email, vault paths and private workflow. The owner delegated the call on October 20, 2026 and the safe default was taken: they stay unpublished, obsidian-brain is relocked to its disk copy and pinned at 1.1.0, kie-gemini-omni is in no lock (see reports/relock.md).
 
 ## Open questions
 

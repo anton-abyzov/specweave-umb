@@ -1,15 +1,17 @@
 {
   "id": "0934-skills-consolidation-and-studio-skills-view",
   "uuid": "87dad099-1585-484f-9d68-92a31e1d5206",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-18T15:40:26.851Z",
-  "updated": "2026-10-20T06:05:59.031Z",
-  "lastActivity": "2026-10-20T06:05:59.031Z",
+  "updated": "2026-10-20T07:20:24.062Z",
+  "lastActivity": "2026-10-20T07:20:24.062Z",
   "title": "Skills consolidation and Studio skills view",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T07:20:24.061Z",
+  "approvedAt": "2026-10-20T07:20:24.062Z"
 }
