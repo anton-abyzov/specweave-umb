@@ -12,7 +12,7 @@ The first attempt failed the same way on 1.0.49, 1.0.50, 1.0.53, 1.0.54 and 1.0.
 
 ## Scope
 
-In: one Update now press that installs the service and then the app, a visible clock and state while it runs, reload-proof follow-up, never downgrading a forced request, one download clock for app and service, the service catching up to the app's release, release-pipeline follow-ups found while shipping 1.0.60 to 1.0.62 (M4 held before forcing, the rollout cancelling only its own request, a stage-wide retry cap, waiting for ShipIt, setting a half-installed app aside), a faster service install, and releasing 1.0.63. Out: the agent refusing an apply after the app relaunches (PR #466, its own thread), a main-process follow-up when every window is closed, and moving update options between Settings and the toast beyond routing both buttons through one flow.
+In: one Update now press that installs the service and then the app, a visible clock and state while it runs, reload-proof follow-up, never downgrading a forced request, one download clock for app and service, the service catching up to the app's release, release-pipeline follow-ups found while shipping 1.0.60 to 1.0.62 (M4 held before forcing, the rollout cancelling only its own request, a stage-wide retry cap, waiting for ShipIt, setting a half-installed app aside), a faster service install, and releasing them (1.0.63 shipped the first version; the fixes ship in 1.0.67). Out: the agent refusing an apply after the app relaunches (PR #466, its own thread), a main-process follow-up when every window is closed, and moving update options between Settings and the toast beyond routing both buttons through one flow.
 
 ## Acceptance Criteria
 
@@ -22,7 +22,8 @@ In: one Update now press that installs the service and then the app, a visible c
 - [ ] AC-04: When the service runs an older release than the app, Update now brings the service to the app's release.
 - [ ] AC-05: The release pipeline holds M4 before any forced request, cancels only its own request when it gives up, caps stage-1 retries across the whole stage, waits for the app's own ShipIt, and moves a half-installed app aside instead of keeping it.
 - [ ] AC-06: The service install skips full database re-hash passes when nothing was committed since the last one and records per-phase timings in its receipt, with proof output byte-identical to today's on fixtures.
-- [ ] AC-07: SpecWithCode 1.0.63 is released and a one-press update is checked on M4, M1 and M3.
+- [ ] AC-08: The app never activates a release ahead of the local service: a downloaded app release is staged for install-on-quit, or installed by a restart, only once the service runs that release or a newer one; until then the app keeps working on its version and the sidebar names both versions and the service's reason (operation-scoped, no blanket lockout). A service on a deleted database log is restarted for a held Update now by SIGTERM and a wait, never `kickstart -k` or SIGKILL.
+- [ ] AC-07: SpecWithCode 1.0.67 is released with the review fixes and the faster install, and a one-press update is checked on M4, M1 and M3. (1.0.63 shipped the first version; 1.0.64 to 1.0.66 shipped without these fixes.)
 
 ## Approach
 
@@ -62,5 +63,8 @@ Risks: the update to 1.0.63 itself still runs the old two-press flow once, becau
 ### T-05 Faster service install with per-phase timings
 - AC: AC-06 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/database_continuity.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update.py | Test: cd repositories/anton-abyzov/specweave-studio/scripts/studio-fleet && python3 -B test-update.py && python3 -B test-database-continuity.py
 
-### T-06 Release 1.0.63 and check one press on the fleet
-- AC: AC-07 | Files: .specweave/release/manifest.json | Test: bash scripts/release/release.sh verify studio --version 1.0.63
+### T-07 Service-first activation gate and a safe restart for a deleted log
+- AC: AC-08 | Files: repositories/anton-abyzov/specweave-studio/apps/desktop/src/updates/appActivationGate.ts, repositories/anton-abyzov/specweave-studio/apps/desktop/src/updates/DesktopUpdates.ts, repositories/anton-abyzov/specweave-studio/apps/desktop/src/ipc/methods/serviceUpdates.ts, repositories/anton-abyzov/specweave-studio/packages/contracts/src/ipc.ts, repositories/anton-abyzov/specweave-studio/apps/web/src/components/sidebar/SidebarRestartToUpdate.logic.ts, repositories/anton-abyzov/specweave-studio/apps/web/src/components/sidebar/SidebarRestartToUpdate.tsx, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/database_restart.py, repositories/anton-abyzov/specweave-studio/docs/studio/updates.md | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/coordinated-update/apps/desktop && node ../../node_modules/vite-plus/bin/vp test run src/updates/appActivationGate.test.ts src/updates/DesktopUpdates.activation.test.ts && cd ../web && node ../../node_modules/vite-plus/bin/vp test run src/components/sidebar/SidebarRestartToUpdate.activation.test.ts && cd ../../scripts/studio-fleet && python3 -B test-database-restart.py
+
+### T-06 Release 1.0.67 and check one press on the fleet
+- AC: AC-07 | Files: .specweave/release/manifest.json | Test: bash scripts/release/release.sh verify studio --version 1.0.67
