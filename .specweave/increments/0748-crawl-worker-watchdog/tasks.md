@@ -183,15 +183,17 @@ status: planned
 
 ---
 
-### T-010: MANUAL — Alert simulation with bogus IP
-**Type**: MANUAL | **User Story**: US-004 | **Satisfies ACs**: AC-US4-06 | **Status**: [ ] pending
+### T-010: MANUAL — Approved isolated scheduled alert acceptance
+**Type**: MANUAL | **User Story**: US-004 | **Satisfies ACs**: AC-US4-06
 
 **Test Plan**:
-- Given `HETZNER_VM_IPS` temporarily updated to include `127.0.0.1:9999` (unreachable), when two `*/10 * * * *` cron ticks complete (~20 minutes), then exactly one `QUEUE_HEALTH_ALERT` email with subject `[ALERT] crawl-worker VM 127.0.0.1` arrives at `anton.abyzov@gmail.com`.
-- Given the HETZNER_VM_IPS reverted and one more cron tick, when the route runs, then `wrangler tail` shows the KV throttle key and fail counter cleared for that IP.
+- The old fake-IP/shared-allowlist procedure is unsafe and superseded by the authorized October 21 source-isolation correction. It is not valid evidence and must not be run.
+- After reviewed source, gated deployment and explicit approval of the exact private run packet, observe four distinct consecutive real cron slots: failure, second failure plus one attempt, throttled failure, healthy reset of only run state. Confirm one received email at the approved destination separately from provider acceptance.
+- Record immutable manifest digest, deployment identity, four controller timestamps, strict 40-minute expiry, provider evidence and recipient receipt, plus unchanged real VM/heartbeat/source/aggregate/dead-man/recipient readbacks. No real VM stop, backlog, fake allowlist entry, source publication or global recipient override.
+- Remains blocked until T-017, T-018 and live evidence satisfy the corrected AC-US4-06. No fixture or mail is currently authorized.
 
 **Files**:
-- `.specweave/increments/0748-crawl-worker-watchdog/reports/phase2-alert-simulation.md` (NEW — record email screenshot or copy, timestamps)
+- `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0748-crawl-worker-watchdog/reports/phase2-alert-simulation.md`
 
 ---
 
@@ -315,13 +317,72 @@ status: planned
 
 ---
 
+## October 21 corrective acceptance isolation
+
+### T-017: Isolate scheduled acceptance without changing real monitoring
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-06
+- AC: AC-US4-06 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/health-transition.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/acceptance.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/acceptance-do.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/__tests__/acceptance.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/__tests__/acceptance-email.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/skill-update/webhook-dedup-do.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/email.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/app/api/v1/internal/vm-healthcheck/route.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/app/api/v1/internal/vm-healthcheck/__tests__/route.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/scripts/build-worker-entry.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/scripts/__tests__/build-worker-entry.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/docs/watchdog-acceptance.md, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/__tests__/acceptance.workerd.test.ts , /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/__tests__/email-regression.test.ts | Test: Node 22 focused acceptance, real monitoring and webhook tests
+
+**Test Plan**:
+- Four distinct actual cron slots use the shared failure/throttle/recovery decision: failure, failure plus one send attempt, throttled failure, healthy reset.
+- Absent/invalid/expired manifest, wrong cron, missing/out-of-order/duplicate slots, changed run identity, storage failure and concurrent calls fail closed without extra delivery attempts.
+- Atomic Durable Object claim precedes transport; ambiguous send failures never retry. Real VM/source/heartbeat keys, recipient configuration and webhook deduplication remain unchanged.
+- Focused Node 22 tests and coverage; fresh independent review before merge or activation.
+
+**Files**:
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/health-transition.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/acceptance.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/acceptance-do.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/__tests__/acceptance.test.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/__tests__/acceptance-email.test.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/skill-update/webhook-dedup-do.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/email.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/app/api/v1/internal/vm-healthcheck/route.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/app/api/v1/internal/vm-healthcheck/__tests__/route.test.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/scripts/build-worker-entry.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/scripts/__tests__/build-worker-entry.test.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/docs/watchdog-acceptance.md`
+
+### T-019: Preserve real-monitor throttling and inspect acceptance identity without sending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-06
+- AC: AC-US4-06 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/health-transition.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/__tests__/acceptance.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/app/api/v1/internal/vm-healthcheck/__tests__/route.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/app/api/v1/internal/test-sendgrid/route.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/app/api/v1/internal/test-sendgrid/__tests__/route.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/docs/watchdog-acceptance.md | Test: Node 22 malformed-counter differential regressions and authenticated no-send inspection tests
+
+**Test Plan**:
+- Existing malformed failure counters retain the pre-extraction alert eligibility and cannot bypass a real VM throttle across repeated unhealthy checks. Valid counters keep existing behavior.
+- A bounded opt-in inspection mode authenticates before returning configured sender identity and only required configuration-presence booleans. It never invokes transport, writes state, returns credentials or provider response bodies, or changes default deliverability behavior.
+- Responses use no-store. Unauthorized, disabled/missing credentials and accidental recipient parameters are tested; inspection never sends even when a recipient is provided.
+- Re-run the fixed full six-module coverage denominator, expanding it for the inspection route, and obtain a fresh independent review before release. Production acceptance remains disabled.
+
+**Files**:
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/health-transition.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/__tests__/acceptance.test.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/app/api/v1/internal/vm-healthcheck/__tests__/route.test.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/app/api/v1/internal/test-sendgrid/route.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/app/api/v1/internal/test-sendgrid/__tests__/route.test.ts`
+- `/Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/docs/watchdog-acceptance.md`
+
+### T-018: Prepare reviewed acceptance packet and reassess literal live gates
+- AC: AC-US4-06 | Files: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0748-crawl-worker-watchdog/reports/isolated-acceptance-packet.md, /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0748-crawl-worker-watchdog/reports/phase3-queue-health-smoke.md | Test: Review exact private packet and literal T-014 evidence
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-06
+**Dependencies**: T-017, T-019
+
+**Test Plan**:
+- After source review, prepare exact deployed identity, one explicitly authorized destination, immutable UUID, four UTC slots, strict expiry, before/after real-monitoring evidence and stop conditions.
+- Obtain separate approval before changing production acceptance configuration or sending mail. Do not reuse the old shared allowlist procedure.
+- Reassess T-014: the recorded internal dry-run is not the literal authenticated admin GET acceptance; preserve that evidence and record the missing or newly verified surface honestly.
+- T-010 remains blocked until actual scheduled and recipient receipt evidence exists. Verify and close 0748 only after all literal gates and fresh review pass.
+
+**Files**:
+- `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0748-crawl-worker-watchdog/reports/isolated-acceptance-packet.md`
+- `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0748-crawl-worker-watchdog/reports/phase3-queue-health-smoke.md`
+
 ## Closure
 
-### T-016: Run /sw:done 0748 — closure pipeline
+### T-016: Verify and close 0748
 **Status**: [ ] pending
 
 **Test Plan**:
-- Given all tasks T-001 through T-015 are marked complete, when `/sw:done 0748` runs, then:
+- Given all implementation and acceptance tasks, including T-017 through T-019, are done or honestly skipped with explicit scope decisions, when `/sw:done 0748` runs, then:
   - `sw:code-reviewer` writes `code-review-report.json` with no critical/high/medium findings (or fix loop completes within 3 iterations).
   - `/simplify` runs and removes any duplication or readability issues.
   - `sw:grill` writes `grill-report.json` confirming all ACs satisfied.
@@ -332,3 +393,5 @@ status: planned
 - `.specweave/increments/0748-crawl-worker-watchdog/reports/code-review-report.json`
 - `.specweave/increments/0748-crawl-worker-watchdog/reports/grill-report.json`
 - `.specweave/increments/0748-crawl-worker-watchdog/reports/judge-llm-report.json`
+
+Verify and close 0748.

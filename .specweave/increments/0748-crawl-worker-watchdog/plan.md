@@ -387,3 +387,10 @@ T-011..T-014 (admin route + tests + internal queue-health-check route + cron blo
 7. Confirm `[cron] vm-healthcheck status=200` and `[cron] queue-health-check status=200` log lines via `wrangler tail` after the next 10-min tick.
 8. Hit `GET /api/v1/admin/queue-health` (admin cookie) — sees `oldestReceivedAgeMs` near 0 with healthy fleet.
 9. Manually delete a `vm-health:<ip>:alerted` KV key, kill a VM, wait 20 min — confirm alert email arrives.
+
+
+### AD-008: Source-isolated scheduled acceptance (October 21 correction)
+
+The old fake-VM allowlist procedure affects aggregate health and dead-man monitoring and cannot be used. Reuse the deployed WEBHOOK_DEDUP_DO class/binding in a distinct watchdog-acceptance:<UUID> instance; add no migration, binding, database table or external service. Its existing global webhook five-minute TTL is unchanged. The acceptance record retains an immutable run identity and an atomic, never-released send claim; operational execution expires after exactly 40 minutes. Four contiguous ten-minute cron slots exercise the same pure failure/throttle/recovery transition as the real VM route. No public acceptance route is added. Request-local SendGrid delivery uses one manifest recipient and an exact expected sender; global alert/dry-run recipient settings are not modified. Source tests prove contracts; actual cron, provider acceptance and recipient receipt remain distinct live gates.
+
+T-014's prior internal dry-run evidence must be reassessed against the literal authenticated admin endpoint requirement at closure. Cancelled prior owners remain cancelled; the sole successor author is /root/disk_refresh under the disk completion lead. Verify and close 0748.

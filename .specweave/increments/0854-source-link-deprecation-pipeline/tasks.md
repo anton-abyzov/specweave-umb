@@ -88,6 +88,10 @@ All file paths below are relative to `repositories/anton-abyzov/vskill-platform/
 - AC: AC-US1-01, AC-US2-01 | Files: repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/check-source/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/__tests__/
 - A healthy unrelated URL must never restore another named skill. Preserve public-only, recent-successful-submission and admin-delisting guards; verify matching source identity with failing-first tests, then fresh review and gated deployment.
 
+### T-021: Keep scheduled source probes bound to their real source
+- AC: AC-US4-01, AC-US4-02, AC-US4-04 | Files: repositories/anton-abyzov/vskill-platform/src/lib/cron/source-probe.ts, repositories/anton-abyzov/vskill-platform/src/lib/cron/stale-source-sweep.ts, repositories/anton-abyzov/vskill-platform/src/lib/cron/__tests__/source-probe.test.ts, repositories/anton-abyzov/vskill-platform/src/lib/cron/__tests__/stale-source-sweep.test.ts
+- Preserve literal tree/blob owner and repository names when forming source URLs. Treat unknown HTTP statuses as transient, count actual attempted skill probes, and bind scheduled deprecation writes to the selected public source identity. Retain the 24-hour guard and existing batch limits. Failing-first tests, fresh review and retention-safe release; no manual cron or backfill.
+
 ### T-019: Verify and close 0854
 - AC: AC-US1-01, AC-US1-02, AC-US1-03, AC-US2-01, AC-US2-02, AC-US3-01, AC-US3-02, AC-US3-03, AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | Files: .specweave/increments/0854-source-link-deprecation-pipeline/reports/
-- Depends on T-015, T-016, T-017, T-018, T-020. Fresh scoped verify, independent review and required manual UI acceptance precede closure. The earlier completed metadata is historical, not proof of these corrective tasks.
+- Depends on T-015, T-016, T-017, T-018, T-020, T-021. Fresh scoped verify, independent review and required manual UI acceptance precede closure. The earlier completed metadata is historical, not proof of these corrective tasks.
