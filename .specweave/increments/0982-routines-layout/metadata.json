@@ -1,0 +1,17 @@
+{
+  "id": "0982-routines-layout",
+  "uuid": "bf43fd84-ed79-4a37-a72a-921cebaeafcd",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-21T04:33:19.066Z",
+  "updated": "2026-10-21T20:07:13.321Z",
+  "lastActivity": "2026-10-21T20:07:13.321Z",
+  "title": "Routines layout in the project pane and manager",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-21T20:07:13.319Z",
+  "approvedAt": "2026-10-21T20:07:13.321Z"
+}
