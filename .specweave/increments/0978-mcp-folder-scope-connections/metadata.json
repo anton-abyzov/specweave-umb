@@ -5,8 +5,11 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-10-20T19:48:29.000Z",
-  "updated": "2026-10-20T19:48:29.000Z",
-  "lastActivity": "2026-10-20T19:48:29.000Z",
+  "updated": "2026-10-21T03:07:16.439Z",
+  "lastActivity": "2026-10-21T03:07:16.439Z",
   "title": "MCP connections: folder-only Claude entries, labels and exposure",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
