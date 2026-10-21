@@ -461,3 +461,14 @@ ESM mocking: always use `vi.hoisted()` + `vi.mock()` for `fs`, `child_process`, 
 - Umbrella repo `main` branch (sync commit after release)
 
 **Estimated**: S
+
+### T-028: Correct engine execution and form acceptance gaps
+- AC: AC-US1-04, AC-US2-02, AC-US2-05, AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05, AC-US3-06, AC-US4-01, AC-US4-03, AC-US4-04, AC-US4-07, AC-US5-03, AC-US5-05, AC-US5-09, AC-US5-10 | Files: repositories/anton-abyzov/vskill/src/eval-server/, repositories/anton-abyzov/vskill/src/eval-ui/src/, repositories/anton-abyzov/vskill/src/utils/, repositories/anton-abyzov/vskill/src/shared/, repositories/anton-abyzov/vskill/e2e/ | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-0734-engine-completion && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never node node_modules/vitest/vitest.mjs run src/eval-server/__tests__/skill-create-routes-engine.test.ts src/eval-server/__tests__/skill-authoring-route.test.ts src/eval-server/__tests__/skill-authoring-engine.test.ts src/eval-server/__tests__/install-engine-routes.test.ts src/eval-server/__tests__/detect-engines.test.ts src/utils/__tests__/skill-builder-detection.test.ts src/eval-ui/src/hooks/__tests__/useCreateSkill.engine-version.test.ts src/eval-ui/src/components/__tests__/EngineSelector.test.tsx src/eval-ui/src/components/__tests__/InstallEngineModal.test.tsx src/eval-ui/src/components/__tests__/VersionInput.test.tsx --maxWorkers=1 --no-file-parallelism
+
+The October 21, 2026 fresh review found that the selected engine did not reach generation, Anthropic output was labeled without engine execution, and the page did not enforce engine availability or invalid-version gates. Implement actual engine-specific behavior, preserve native output and update metadata, and cover the full form path. Prior completed tasks remain historical; this correction is additive and tracked in the ledger.
+
+### T-029: Verify, release and close 0734 corrections
+- AC: AC-US6-01, AC-US6-02, AC-US6-03, AC-US6-04 | Files: repositories/anton-abyzov/vskill/, .specweave/increments/0734-studio-create-skill-engine-selector/reports/ | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-0734-engine-completion && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run build
+- Dependencies: T-028
+
+Require exact merged head, fresh-context acceptance review, scoped coverage, headless built UI, project-required manual UI acceptance, and a published npm artifact containing the corrective commit. Coordinate the existing release owner; preserve all worktrees while the incident cleanup hold remains. Verify and close 0734.
