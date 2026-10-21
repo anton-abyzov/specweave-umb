@@ -1,0 +1,201 @@
+{
+  "headless": true,
+  "scope": "Real StudioSidebar and Run on menu (DraftMachinePicker) with the real assistant rules (personalAssistant.ts, addToMachine.ts) and machine naming; simulated two-machine fleet (Studio Mac = this machine m4, Anna's MacBook = anna) and fictional projects; no live servers",
+  "cases": [
+    {
+      "name": "sidebar-two-machines",
+      "viewport": "1280x900",
+      "facts": {
+        "assistantRows": [
+          {
+            "key": "m4:/fixtures/assistants/studio-mac",
+            "label": "Aide",
+            "hint": "Studio Mac"
+          },
+          {
+            "key": "anna:/fixtures/assistants/annas-macbook",
+            "label": "Aide",
+            "hint": "Anna's MacBook"
+          }
+        ],
+        "projects": [
+          "Example Household",
+          "Recipe Notes"
+        ]
+      },
+      "pageErrors": 0,
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-1280x900-sidebar-two-machines.png"
+    },
+    {
+      "name": "sidebar-earlier-duplicate",
+      "viewport": "1280x900",
+      "facts": {
+        "assistantRows": [
+          {
+            "key": "m4:/fixtures/assistants/studio-mac",
+            "label": "Aide",
+            "hint": "Studio Mac"
+          },
+          {
+            "key": "anna:/fixtures/assistants/annas-macbook",
+            "label": "Aide",
+            "hint": "Anna's MacBook"
+          },
+          {
+            "key": "m4:/fixtures/assistants/studio-mac-2",
+            "label": "Aide",
+            "hint": "Studio Mac · extra"
+          }
+        ],
+        "duplicateHintClipped": false
+      },
+      "pageErrors": 0,
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-1280x900-sidebar-earlier-duplicate.png"
+    },
+    {
+      "name": "sidebar-one-machine",
+      "viewport": "1280x900",
+      "facts": {
+        "assistantRows": [
+          {
+            "key": "m4:/fixtures/assistants/studio-mac",
+            "label": "Aide",
+            "hint": null
+          }
+        ]
+      },
+      "pageErrors": 0,
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-1280x900-sidebar-one-machine.png"
+    },
+    {
+      "name": "run-on-assistant",
+      "viewport": "1280x900",
+      "facts": {
+        "listedMachines": [
+          "Studio Mac"
+        ],
+        "addToAnotherMachineItems": 0,
+        "annaMentions": 0
+      },
+      "pageErrors": 0,
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-1280x900-run-on-assistant.png"
+    },
+    {
+      "name": "run-on-code-project",
+      "viewport": "1280x900",
+      "facts": {
+        "listedMachines": [
+          "Studio Mac"
+        ],
+        "addableMachines": [
+          "Anna's MacBook"
+        ],
+        "addableStatus": "Clone it there"
+      },
+      "pageErrors": 0,
+      "screenshot": [
+        "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-1280x900-run-on-code-project.png",
+        "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-1280x900-run-on-code-project-add.png"
+      ]
+    },
+    {
+      "name": "sidebar-two-machines",
+      "viewport": "390x844",
+      "facts": {
+        "assistantRows": [
+          {
+            "key": "m4:/fixtures/assistants/studio-mac",
+            "label": "Aide",
+            "hint": "Studio Mac"
+          },
+          {
+            "key": "anna:/fixtures/assistants/annas-macbook",
+            "label": "Aide",
+            "hint": "Anna's MacBook"
+          }
+        ],
+        "projects": [
+          "Example Household",
+          "Recipe Notes"
+        ]
+      },
+      "pageErrors": 0,
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-390x844-sidebar-two-machines.png"
+    },
+    {
+      "name": "sidebar-earlier-duplicate",
+      "viewport": "390x844",
+      "facts": {
+        "assistantRows": [
+          {
+            "key": "m4:/fixtures/assistants/studio-mac",
+            "label": "Aide",
+            "hint": "Studio Mac"
+          },
+          {
+            "key": "anna:/fixtures/assistants/annas-macbook",
+            "label": "Aide",
+            "hint": "Anna's MacBook"
+          },
+          {
+            "key": "m4:/fixtures/assistants/studio-mac-2",
+            "label": "Aide",
+            "hint": "Studio Mac · extra"
+          }
+        ],
+        "duplicateHintClipped": false
+      },
+      "pageErrors": 0,
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-390x844-sidebar-earlier-duplicate.png"
+    },
+    {
+      "name": "sidebar-one-machine",
+      "viewport": "390x844",
+      "facts": {
+        "assistantRows": [
+          {
+            "key": "m4:/fixtures/assistants/studio-mac",
+            "label": "Aide",
+            "hint": null
+          }
+        ]
+      },
+      "pageErrors": 0,
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-390x844-sidebar-one-machine.png"
+    },
+    {
+      "name": "run-on-assistant",
+      "viewport": "390x844",
+      "facts": {
+        "listedMachines": [
+          "Studio Mac"
+        ],
+        "addToAnotherMachineItems": 0,
+        "annaMentions": 0
+      },
+      "pageErrors": 0,
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-390x844-run-on-assistant.png"
+    },
+    {
+      "name": "run-on-code-project",
+      "viewport": "390x844",
+      "facts": {
+        "listedMachines": [
+          "Studio Mac"
+        ],
+        "addableMachines": [
+          "Anna's MacBook"
+        ],
+        "addableStatus": "Clone it there"
+      },
+      "pageErrors": 0,
+      "screenshot": [
+        "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-390x844-run-on-code-project.png",
+        "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-390x844-run-on-code-project-add.png"
+      ]
+    }
+  ],
+  "pageErrors": [],
+  "passed": true,
+  "pageErrorCount": 0
+}

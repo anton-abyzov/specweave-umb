@@ -1,0 +1,8 @@
+Audit of personal assistants on the M4, October 20, 2026 (approved CLI, counts only, no project content read)
+
+Command: specweave-studio db query "SELECT COUNT(*) AS personal_total, SUM(deleted_at IS NULL) AS not_deleted, SUM(deleted_at IS NULL AND archived) AS archived FROM projection_projects WHERE kind = personal"
+Result: {"personal_total":1,"not_deleted":1,"archived":0}
+
+Conclusion: the M4 holds exactly one personal assistant. No duplicate exists, so no cleanup or user decision is needed here. Other machines (M3, Anna's notebook) were not queried from the M4; on any machine with a pre-rule duplicate, the earliest-created one is that machine's assistant and later ones keep their data, labelled 'earlier assistant'. Nothing is deleted, merged, archived or rewritten.
+
+Coordination sent: iOS owner mcp:2c7d2701 (0970: voice, hang, iOS selection), 0967 owner mcp:228a8ae1 (HandoffMode guard + hide toggle), 0969 owner mcp:a18dd41c (no cross-machine coordinator path for personal).
