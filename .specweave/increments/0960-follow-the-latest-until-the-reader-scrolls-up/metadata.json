@@ -1,0 +1,15 @@
+{
+  "id": "0960-follow-the-latest-until-the-reader-scrolls-up",
+  "uuid": "966d7092-644b-4b4f-ab92-8d20add0e953",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T13:50:41.644Z",
+  "updated": "2026-10-21T02:27:39.453Z",
+  "lastActivity": "2026-10-21T02:27:39.453Z",
+  "title": "Follow the latest until the reader scrolls up",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
