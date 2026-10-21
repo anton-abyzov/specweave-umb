@@ -1,0 +1,12 @@
+{
+  "id": "0986-auto-enable-signed-in-providers",
+  "uuid": "ff2113b5-f8ee-4ddd-988e-4ee57acfdd42",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-21T15:24:10.447Z",
+  "updated": "2026-10-21T15:24:10.447Z",
+  "lastActivity": "2026-10-21T15:24:10.447Z",
+  "title": "Auto-enable signed-in providers",
+  "project": "specweave-umb"
+}
