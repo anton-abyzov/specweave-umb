@@ -1,0 +1,15 @@
+{
+  "id": "0969-orchestrator-per-machine",
+  "uuid": "26740a68-670e-40fe-a2ea-a0c71e845723",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T17:49:58.000Z",
+  "updated": "2026-10-21T06:07:30.210Z",
+  "lastActivity": "2026-10-21T06:07:30.210Z",
+  "title": "An orchestrator on each machine of a project",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
