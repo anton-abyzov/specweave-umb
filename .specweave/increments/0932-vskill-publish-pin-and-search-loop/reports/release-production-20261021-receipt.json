@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-21T07:03:26.195449+00:00",
+  "pullRequest": "https://github.com/anton-abyzov/vskill-platform/pull/176",
+  "head": "58e2eb892e5868ee1010da6a8a2eb6edbc4bf4d3",
+  "mergedCommit": "8df21dfec72137e61763361d0de3197d9b3aadf4",
+  "productionVersion": "cd550753-3cb9-4306-beba-3d347569f8d6",
+  "previousProductionVersion": "8a62538e-3da1-4b83-9862-a61e3e1a72be",
+  "releaseExit": 0,
+  "migrationChanges": false,
+  "migrationsRun": false,
+  "unitTests": "https://github.com/anton-abyzov/vskill-platform/actions/runs/39557968494",
+  "errorGate": {
+    "result": "PASS",
+    "seconds": 90,
+    "events": 933,
+    "http5xx": 0,
+    "failedInvocations": 4,
+    "failedInvocationLimit": 9,
+    "connectionTerminated": 2,
+    "connectionTerminatedLimit": 13
+  },
+  "queueHealthSmoke": "PASS",
+  "cacheWarmHttp": 200,
+  "log": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0932-vskill-publish-pin-and-search-loop/reports/release-production-20261021.log"
+}

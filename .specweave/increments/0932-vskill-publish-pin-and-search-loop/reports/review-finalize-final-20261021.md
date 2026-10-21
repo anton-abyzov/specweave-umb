@@ -1,0 +1,20 @@
+# Review: 0932 final VM content preservation and repair
+
+Verdict: SHIP · 6 changed files · 0 critical or high findings.
+
+Reviewer context: independent subagent that did not implement these changes or conduct the earlier source review. Read-only source review on October 21, 2026, at head `58e2eb892e5868ee1010da6a8a2eb6edbc4bf4d3`, relative to main `72093a8abe5d033aa5b9b543f64cc61b8e89cdf9`. Worktree was clean before and after review. Scope: all six changed source/test files in PR 176, covering T-12/T-13 and AC-02/AC-10.
+
+## Evidence and checks
+
+Existing `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0932-vskill-publish-pin-and-search-loop/reports/verify.md` reports PASS from explicit commands. I inspected that result and the complete six-file diff, then reopened the changed code with surrounding control flow. No broad test suite was repeated and no CI status was polled during this review.
+
+- `/Users/antonabyzov/Projects/github/wt-0932-0934/platform-finalize/crawl-worker/sources/submission-scanner.js:405` transports the fetched vendor document, its freshly computed SHA-256, and the same fetch's commit. `/Users/antonabyzov/Projects/github/wt-0932-0934/platform-finalize/crawl-worker/sources/submission-scanner.js:667` transports the ordinary scan's same document alongside its already computed hash and commit. Missing vendor content now follows the existing genuine-missing/transient-retry branches. The fixture in `/Users/antonabyzov/Projects/github/wt-0932-0934/platform-finalize/crawl-worker/sources/submission-scanner.test.js:65` asserts exact document bytes, hash, commit, pinned raw refs, and both missing-file outcomes without external network calls.
+- `/Users/antonabyzov/Projects/github/wt-0932-0934/platform-finalize/src/app/api/v1/internal/finalize-scan/route.ts:458` rejects malformed documents, false file-presence flags, nonmatching SHA-256, and non-null commits that are not 40 lowercase hex characters before writes. The existing authenticated, size-bounded request path remains in place. `/Users/antonabyzov/Projects/github/wt-0932-0934/platform-finalize/src/app/api/v1/internal/finalize-scan/route.ts:578` persists content before scan/publication transitions and returns 503 on storage failure; the VM retries and unclaims on failed finalization. Vendor scan records now retain the hash and commit at line 592.
+- `/Users/antonabyzov/Projects/github/wt-0932-0934/platform-finalize/src/lib/submission/publish.ts:641` independently hashes the supplied document before restoration, selects a missing row by exact skill/hash rather than blindly choosing the latest row, and uses a conditional update keyed by row ID, hash, and still-missing content. The repair does not alter version, commit, or content hash. Existing bundle identity is retained; single-document metadata is generated only when both metadata fields are absent. `/Users/antonabyzov/Projects/github/wt-0932-0934/platform-finalize/src/lib/submission/__tests__/publish.test.ts:165` covers null/empty repair, an older matching version, existing bundle metadata/content, mismatched bytes, and canonical-only matches.
+- Rolling compatibility remains explicit: absent document fields do not overwrite the cache or trigger the new document validation. A null commit remains allowed for the existing fetch fallback; no commit is invented by this change. `/Users/antonabyzov/Projects/github/wt-0932-0934/platform-finalize/src/app/api/v1/internal/finalize-scan/__tests__/route.test.ts:121` covers old workers, and line 148 covers the null-commit fallback. These compatibility paths do not claim a verified immutable commit when none was fetched.
+
+## Limits
+
+This is a source-review verdict, not a deployment or live-registry receipt. Final CI on the integrated head, the platform/crawler rollout, and the live repaired version's description/content/hash still belong to the parent completion gate. PR 177's framework-support exception is already in the reviewed base and is outside this six-file review.
+
+Nits: none.

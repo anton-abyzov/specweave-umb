@@ -1,0 +1,16 @@
+{
+  "restoredAt": "2026-10-21T06:22:43.908341+00:00",
+  "source": "/Users/antonabyzov/.claude/skills-trash-20261018/removed-0934/asc-id-resolver",
+  "target": "/Users/antonabyzov/.agents/skills/asc-id-resolver",
+  "backupPreserved": true,
+  "files": [
+    {
+      "relativePath": "SKILL.md",
+      "sourceSha256": "44c892e57e89c28448103e1294a190cfc48cc0b8f162bb34ec068ddad808ea60",
+      "restoredSha256": "44c892e57e89c28448103e1294a190cfc48cc0b8f162bb34ec068ddad808ea60",
+      "bytes": 3413
+    }
+  ],
+  "providerLinks": "No former link evidence was unambiguous; restored canonical directory only.",
+  "ascCliUsageUnchangedSha256": "a304f349cf858a0723ca76bc9e47c8b1114798cf82db0e0c294161781f6b1892"
+}

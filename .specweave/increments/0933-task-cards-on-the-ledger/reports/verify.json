@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-21T06:30:22.358Z",
+  "increment": "0933-task-cards-on-the-ledger",
+  "commands": [
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/node_modules/vitest/vitest.mjs run /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/tests/unit/core/tasks/cards.test.ts /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/tests/unit/core/tasks/ledger.test.ts --maxWorkers=1 --no-file-parallelism",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/node_modules/vitest/vitest.mjs run /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/tests/unit/cli/commands/card.test.ts /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/tests/unit/core/session/pickup.test.ts --maxWorkers=1 --no-file-parallelism",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/node_modules/vitest/vitest.mjs run /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/tests/unit/core/tasks/verify-runner.test.ts /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/tests/unit/core/lifecycle/LifecycleHookDispatcher.test.ts --maxWorkers=1 --no-file-parallelism",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave && npm run lint:standalone-skills && npm run lint:docs-refs",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/node_modules/vite-plus/bin/vp test run /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/server/src/mods/__tests__/SpecweaveProgress.cards.test.ts /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/web/src/studio/threadPlanProgress.test.ts --maxWorkers=1 --no-file-parallelism",
+      "exit": 0
+    },
+    {
+      "cmd": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /opt/homebrew/lib/node_modules/specweave/bin/specweave.js cards 0930 --md | grep -q 'pull/348' && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /opt/homebrew/lib/node_modules/specweave/bin/specweave.js cards 0931 --md | grep -q 'pull/2081'",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/node_modules/vitest/vitest.mjs run /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/src/core/tasks/verify-and-gate.test.ts --maxWorkers=1 --no-file-parallelism",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 11,
+    "done": 11
+  },
+  "tasks": {
+    "total": 6,
+    "done": 6,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}
