@@ -1,0 +1,17 @@
+{
+  "id": "0965-crafted-glyphs-no-brain-lock",
+  "uuid": "1417453f-f56f-4dcb-9979-c16001d4b49a",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T17:49:58.000Z",
+  "updated": "2026-10-20T20:33:52.422Z",
+  "lastActivity": "2026-10-20T20:33:52.422Z",
+  "title": "Replace brain, lock and thinking icons with crafted glyphs",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T20:33:52.418Z",
+  "approvedAt": "2026-10-20T20:33:52.422Z"
+}

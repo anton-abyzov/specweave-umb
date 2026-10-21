@@ -11,3 +11,5 @@
 {"t":"T-04","e":"block","by":"cli@antons-macbook-m4max","at":"2026-10-20T02:45:46.025Z","note":"Waiting on the release owner's M4 restart and install; then I run the installed-service move check myself. Artifact already passes."}
 {"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-20T04:55:06.404Z"}
 {"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-20T04:55:06.407Z","evidence":"ThreadMoveService.test.ts 8/8; headless thread-move.mjs 8/8 ~/.specwithcode/m4/scratch/thread-move-e2e-fix/receipt.json\nHEAD 9ebce6746","line":"Target runtime defaults + Find original link (PR #465)","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/465"}
+{"t":"T-05","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T06:44:21.589Z"}
+{"t":"T-05","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T06:44:21.590Z","evidence":"specweave verify PASS (reports/verify.md, Node 22, GIT_CONFIG_VALUE_0=all to undo harness safe.bareRepository=explicit; rebuilt stale specweave dist); fresh-context review: close, 4 deferrable findings\nHEAD a5c59ce3c"}

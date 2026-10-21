@@ -13,3 +13,8 @@
 {"t":"T-06","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T02:02:38.656Z"}
 {"t":"T-06","e":"block","by":"cli@antons-macbook-m4max","at":"2026-10-20T02:02:38.968Z","note":"PR #450 merged (0bb5f1adfb), waiting for release; T-04 PR pending 0948"}
 {"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-20T04:04:47.471Z"}
+{"t":"T-04","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T07:55:57.675Z"}
+{"t":"T-04","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T07:55:57.996Z","evidence":"PR anton-abyzov/specwithcode-dev#459 merged f46147cc12; PR Gate, typecheck, Google pass; focused tests server 705, contracts 813, web 971 passed; server typecheck 0 new vs baseline\nHEAD ddc29b344"}
+{"t":"T-06","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T14:40:23.826Z","evidence":"PR Gate green on #450/#459; M4 installed 1.0.62 (8f8637367e); verify.mjs on installed bin.mjs PASS 25 checks incl grant scope, Who can run work, revoke, takeover; evidence ~/.specwithcode/m4/scratch/join-installed-check/evidence-1.0.62/\nHEAD 3625dc0f1"}
+{"t":"T-07","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T16:23:48.674Z"}
+{"t":"T-07","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T16:23:48.676Z","evidence":"verify PASS October 20 12:2x PM (ACs 8/8, all suites ok) reports/verify.md; fresh-context review READY; follow-ups specwithcode-dev #487 #488\nHEAD 8fac518b9"}

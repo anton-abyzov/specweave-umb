@@ -1,0 +1,4 @@
+{"t":"T-01","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T15:00:01.638Z"}
+{"t":"T-01","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T15:00:01.639Z","evidence":"4eb12db1d8: 26 tests pass, new test red on origin/main, tsc 0, PR #484\nHEAD 8fac518b9"}
+{"t":"T-02","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T15:00:04.154Z"}
+{"t":"T-02","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T15:00:04.155Z","evidence":"4eb12db1d8: live-before.json bound 0/21 picker 0; live-after.json 21/21 picker 300\nHEAD 8fac518b9"}

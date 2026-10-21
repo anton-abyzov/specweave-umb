@@ -1,0 +1,11 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-20T13:47:39.327Z","note":"session 7ea04157-e262-40f6-9e6c-73aa9314a797"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-20T13:47:39.329Z"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-20T13:47:42.286Z","evidence":"specwithcode-dev PR #480 d4de616bd7: markdown-links.shorthand 10/10, threadArtifacts, ChatMarkdown.outside 13/13 (4 new); web+contracts+server related suites 3227 pass, 1 pre-existing renderCost failure also on main\nHEAD 83d939be4"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-20T13:47:44.081Z"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-20T13:47:46.203Z","evidence":"PR #480 d4de616bd7: MissingFileNotice 5/5, contracts project.test, WorkspaceFileSystem app-home read + userdata refused 27/27 with contracts\nHEAD 83d939be4"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-20T13:47:47.492Z"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-20T13:47:48.665Z","evidence":"PR #480 d4de616bd7: StudioOrchestrationInstructions 9/9 (rule asserted), apps/server/src/project suites pass\nHEAD 83d939be4"}
+{"t":"T-04","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T14:44:45.479Z"}
+{"t":"T-04","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T14:44:45.481Z","evidence":"PR #480 merged 295ff49777 (head cb8084080a, all CI checks pass); headless report-links 4/4 variants, evidence ~/.specwithcode/m4/scratch/brace-links-evidence\nHEAD 3625dc0f1"}
+{"t":"T-05","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T14:45:04.318Z"}
+{"t":"T-05","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T14:45:04.319Z","evidence":"verify + fresh-context review + complete\nHEAD 3625dc0f1"}

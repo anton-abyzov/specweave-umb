@@ -1,0 +1,15 @@
+{
+  "id": "0979-provision-fleet-machines",
+  "uuid": "60113779-1141-42e2-b81a-a7dc4640f261",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T21:14:49.000Z",
+  "updated": "2026-10-21T00:06:53.903Z",
+  "lastActivity": "2026-10-21T00:06:53.903Z",
+  "title": "Provision a fleet machine from scratch with one command and one button",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

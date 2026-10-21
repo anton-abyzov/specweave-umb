@@ -1,0 +1,18 @@
+{
+  "id": "0961-thread-plan-umbrella-root",
+  "uuid": "f41bb610-dfdb-4c31-a597-e20df603d8e1",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-20T14:59:04.945Z",
+  "updated": "2026-10-20T15:28:52.100Z",
+  "lastActivity": "2026-10-20T15:28:52.100Z",
+  "title": "Thread plan cards read umbrella increments",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T15:28:52.098Z",
+  "closeReason": "verify FAIL is 4 load-timing tests in specweave/vskill-platform (load avg 100-400); 0961 changes only specwithcode-dev; save+handoff-roundtrip 60/60 and webhook-signature-fuzz 2/2 pass alone",
+  "approvedAt": "2026-10-20T15:28:52.100Z"
+}

@@ -1,0 +1,8 @@
+{"t":"T-01","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:33.825Z"}
+{"t":"T-01","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:33.826Z","evidence":"specweave ef26d707e (PR #2123): verify-ac-items.test.ts pass, 72/72 targeted\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specweave/pull/2123"}
+{"t":"T-02","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:34.150Z"}
+{"t":"T-02","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:34.150Z","evidence":"specwithcode-dev bcf79ed95b (PR #492): ThreadIncrementProgress.test.ts pass; 770/770 targeted\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/492"}
+{"t":"T-03","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:34.462Z"}
+{"t":"T-03","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:34.463Z","evidence":"bcf79ed95b: ThreadPlanCriteria.test.tsx pass; headless verify.mjs card light/dark asserts AC-02<-T-01,T-02\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/492"}
+{"t":"T-04","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:14:09.483Z"}
+{"t":"T-04","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:14:09.484Z","evidence":"0962 verify PASS (ACs 5/5); verify run; fresh-context review found 3 medium issues, fixed in specwithcode-dev ccad65fc61 with regression tests (721/721 server project tests pass)\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/492"}

@@ -20,3 +20,8 @@
 {"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-20T01:00:57.092Z","evidence":"PR https://github.com/anton-abyzov/specwithcode-dev/pull/452, commit de7ab41727; MachinesSettings.test.tsx, machinesSettings.logic.test.ts, personalAssistant.test.ts, CommandPalette.logic.test.ts pass (part of 273/273)\nHEAD 53a8ef3b3"}
 {"t":"T-07","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-20T03:36:14.390Z"}
 {"t":"T-07","e":"release","by":"claude@antons-macbook-m4max","at":"2026-10-20T03:36:14.663Z","note":"merged, waiting for release: PR #452 squash-merged as 7ca81696c0"}
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-20T12:14:56.571Z","note":"session f37d248a-9a78-4f8e-9e6a-6660e7bfdb38"}
+{"t":"T-07","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-20T12:14:56.572Z"}
+{"t":"T-07","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-20T12:14:56.573Z","evidence":"PR #452 merged 7ca81696c0; M4 installed 1.0.62 (8f8637367e, receipt update-1.0.62-20261020T120302714732Z.json); verify.mjs against installed bin.mjs (sha e3a55132) PASS: link, remote worker, unlink, grants, takeover; ~/.specwithcode/m4/scratch/join-installed-check/evidence-1.0.62/receipt.json\nHEAD ddc29b344"}
+{"t":"T-08","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T16:57:42.581Z"}
+{"t":"T-08","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T16:57:42.583Z","evidence":"AC-04 PASS on installed 1.0.62 (PR #491): M3 run run:thread:mcp%3Afc659432-66c7-4b4d-9266-5c48b4540fb8:ordinal:1 completed in joined workspaceRoot; evidence ~/.specwithcode/m4/scratch/join-installed-check/evidence-1.0.62-ac04/receipt.json; verify PASS 12/12; fresh review PASS\nHEAD 8fac518b9"}

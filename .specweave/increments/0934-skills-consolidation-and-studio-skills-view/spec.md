@@ -55,3 +55,12 @@ Studio work in one worktree off main (one PR): `projectSkillsInventory.ts` group
 
 ### T-07 Trim AGENTS.md
 - AC: AC-08 | Files: AGENTS.md | Test: ! grep -q 'Available Subagent Types' AGENTS.md && test $(wc -c < AGENTS.md) -lt 9000
+
+### T-08 Finish archived usage evidence and restore used skills
+- AC: AC-06 | Files: .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/, /Users/antonabyzov/.agents/skills/asc-id-resolver/, /Users/antonabyzov/.claude/skills/asc-id-resolver, /Users/antonabyzov/.codex/skills/asc-id-resolver | Test: test -f /Users/antonabyzov/.agents/skills/asc-id-resolver/SKILL.md && cmp /Users/antonabyzov/.agents/skills/asc-id-resolver/SKILL.md /Users/antonabyzov/.claude/skills-trash-20261018/removed-0934/asc-id-resolver/SKILL.md
+
+### T-09 Verify the social skill publication reaches the registry
+- AC: AC-07 | Files: .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/relock.md | Test: curl --fail --silent https://verified-skill.com/api/v1/skills/anton-abyzov/social-media-posting-skill/social-media-posting-skill | jq -e '(.skill.currentVersion != null) and (.skill.description | startswith("One skill for"))'
+
+### T-10 Reconcile recreated duplicate copies and redundant provider links
+- AC: AC-05, AC-06 | Files: /Users/antonabyzov/.claude/skills/hyperframes/, /Users/antonabyzov/.claude/skills/hyperframes-creative/, /Users/antonabyzov/.claude/skills/media-use/, /Users/antonabyzov/.cursor/skills/, /Users/antonabyzov/.gemini/skills/, /Users/antonabyzov/.config/opencode/skills/, /Users/antonabyzov/.specweave/recovery/0934-hygiene-20261021/, .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/hygiene-reconcile-20261021* | Test: vskill doctor --json | jq -e '.issues | length == 0' && /usr/local/bin/python3 /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/hygiene-reconcile-20261021-check.py

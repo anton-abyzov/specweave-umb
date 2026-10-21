@@ -1,0 +1,18 @@
+{
+  "id": "0959-rename-sidebar-chats-by-double-click",
+  "uuid": "7ddd8853-e41e-40d9-8112-404571741094",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T13:26:21.117Z",
+  "updated": "2026-10-20T15:15:08.911Z",
+  "lastActivity": "2026-10-20T15:15:08.911Z",
+  "title": "Rename sidebar chats by double click",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T15:15:08.910Z",
+  "closeReason": "Umbrella verify failures are 5000ms test timeouts in specweave and vskill at load average 165 (pre-compact.test.ts also times out alone); 0959 changes only specwithcode-dev, whose PR #479 PR Gate passed. Re-review verdict is ship (Updated verdict section).",
+  "approvedAt": "2026-10-20T15:15:08.911Z"
+}

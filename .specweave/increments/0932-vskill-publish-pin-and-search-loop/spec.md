@@ -72,3 +72,9 @@ CLI first (one worktree, one PR to main), platform second (one worktree, one PR 
 
 ### T-11 Resubmit the specweave skills
 - AC: AC-13 | Files: .specweave/increments/0932-vskill-publish-pin-and-search-loop/reports/resubmit.md | Test: curl -s https://verified-skill.com/api/v1/skills/anton-abyzov/specweave/sw-do | grep -q '"3.1.0"'
+
+### T-12 Preserve scanned content through VM finalization
+- AC: AC-10 | Files: repositories/anton-abyzov/vskill-platform/src/app/api/v1/internal/finalize-scan/, repositories/anton-abyzov/vskill-platform/crawl-worker/sources/submission-scanner.js, repositories/anton-abyzov/vskill-platform/crawl-worker/sources/submission-scanner.test.js, repositories/anton-abyzov/vskill-platform/src/lib/submission/__tests__/, .specweave/increments/0932-vskill-publish-pin-and-search-loop/reports/finalize-content.md | Test: cd repositories/anton-abyzov/vskill-platform && npx vitest run src/app/api/v1/internal/finalize-scan --maxWorkers=2 && node --test crawl-worker/sources/submission-scanner.test.js
+
+### T-13 Repair missing version content on a matching verified rescan
+- AC: AC-02, AC-10 | Files: repositories/anton-abyzov/vskill-platform/src/lib/submission/publish.ts, repositories/anton-abyzov/vskill-platform/src/lib/submission/__tests__/publish.test.ts, .specweave/increments/0932-vskill-publish-pin-and-search-loop/reports/finalize-content.md | Test: cd repositories/anton-abyzov/vskill-platform && npx vitest run src/lib/submission/__tests__/publish.test.ts --maxWorkers=2

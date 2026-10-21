@@ -1,0 +1,6 @@
+{"t":"T-01","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:34.768Z"}
+{"t":"T-01","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:34.768Z","evidence":"bcf79ed95b: IncrementIndex.test.ts (3000 incs, paging, search, counts, mtime cache, legacy 300) pass\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/492"}
+{"t":"T-02","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:35.078Z"}
+{"t":"T-02","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:35.078Z","evidence":"bcf79ed95b: LinkIncrementDialog.test.ts pass; headless: Showing 50->100 of 3000, search+active filter -> 1 row\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/492"}
+{"t":"T-03","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:14:09.857Z"}
+{"t":"T-03","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:14:09.858Z","evidence":"0963 verify ACs 5/5; only failure is unrelated save.test.ts 5000ms timeout under load, passes alone 51/51; verify run; fresh-context review found 3 medium issues, fixed in specwithcode-dev ccad65fc61 with regression tests (721/721 server project tests pass)\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/492"}
