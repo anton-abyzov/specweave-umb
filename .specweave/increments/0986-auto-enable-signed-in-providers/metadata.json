@@ -1,12 +1,17 @@
 {
   "id": "0986-auto-enable-signed-in-providers",
   "uuid": "ff2113b5-f8ee-4ddd-988e-4ee57acfdd42",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-21T15:24:10.447Z",
-  "updated": "2026-10-21T15:24:10.447Z",
-  "lastActivity": "2026-10-21T15:24:10.447Z",
+  "updated": "2026-10-21T16:40:57.424Z",
+  "lastActivity": "2026-10-21T16:40:57.424Z",
   "title": "Auto-enable signed-in providers",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-21T16:40:57.416Z",
+  "approvedAt": "2026-10-21T16:40:57.424Z"
 }
