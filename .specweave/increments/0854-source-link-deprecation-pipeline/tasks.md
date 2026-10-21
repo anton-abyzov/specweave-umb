@@ -67,3 +67,23 @@ All file paths below are relative to `repositories/anton-abyzov/vskill-platform/
 **User Story**: US-003 | **Satisfies ACs**: AC-US3-02 | **Status**: [ ] pending
 **Cmd**: `npx tsx scripts/backfill-stale-source.ts`
 **Verify**: `curl https://verified-skill.com/api/v1/skills/stephengpope/thepopebot/kie-ai | jq .skill.isDeprecated` → `true`.
+
+### T-015: Preserve unknown source status after upstream failures
+- AC: AC-US1-02, AC-US1-03, AC-US4-02 | Files: repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/check-source/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/__tests__/, repositories/anton-abyzov/vskill-platform/src/app/skills/[owner]/[repo]/[skill]/ | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0854-transient-source && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run src/app/api/v1/skills/__tests__/check-source.cache.test.ts src/app/api/v1/skills/__tests__/check-source.waitUntil.test.ts SourceLinkAndBanner.test.tsx --maxWorkers=1 --no-file-parallelism
+- Keep 429/500/network results unknown, without removal styling or database mutations. Retain the 24-hour guard. Delivered source and release evidence must remain distinct from acceptance below.
+
+### T-016: Verify source-check safety contracts and coverage
+- AC: AC-US1-02, AC-US2-02, AC-US4-02 | Files: repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/__tests__/, .specweave/increments/0854-source-link-deprecation-pipeline/reports/ | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0854-transient-source && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run check-source SourceLinkAndBanner.test.tsx --maxWorkers=1 --no-file-parallelism
+- Meet the existing 90% increment target without shrinking the three-module correction scope. Exercise real route contracts with fake database, KV, time and transport; no live mutations.
+
+### T-017: Measure eligible page-to-database deprecation latency
+- AC: AC-US1-01, AC-US1-03, AC-US2-01 | Files: .specweave/increments/0854-source-link-deprecation-pipeline/reports/
+- Retain the 24-hour guard. Prepare an isolated, reviewable fixture before seeking authorization for any production state change. Do not equate current deprecated state or mocked timing with the required ten-second runtime receipt.
+
+### T-018: Establish actual hourly sweep and backlog evidence
+- AC: AC-US3-01, AC-US3-02, AC-US4-01, AC-US4-03, AC-US4-04 | Files: .specweave/increments/0854-source-link-deprecation-pipeline/reports/
+- Observe existing scheduled runtime and record its exact revision and outcomes. Distinguish candidate counts from confirmed missing sources and measured drain. No production backfill is authorized; preserve that gate explicitly.
+
+### T-019: Verify and close 0854
+- AC: AC-US1-01, AC-US1-02, AC-US1-03, AC-US2-01, AC-US2-02, AC-US3-01, AC-US3-02, AC-US3-03, AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | Files: .specweave/increments/0854-source-link-deprecation-pipeline/reports/
+- Depends on T-015, T-016, T-017, T-018. Fresh scoped verify, independent review and required manual UI acceptance precede closure. The earlier completed metadata is historical, not proof of these corrective tasks.
