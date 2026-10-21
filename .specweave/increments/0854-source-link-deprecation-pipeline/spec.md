@@ -1,10 +1,10 @@
 ---
 increment: 0854-source-link-deprecation-pipeline
-title: "Source-link auto-deprecation pipeline + stale-skill backfill"
+title: Source-link auto-deprecation pipeline + stale-skill backfill
 type: bug
 priority: P1
-status: planned
-created: 2026-05-27
+status: completed
+created: 2026-05-27T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90
