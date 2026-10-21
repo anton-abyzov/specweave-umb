@@ -1,12 +1,15 @@
 {
   "id": "0975-design-slides",
   "uuid": "f5ba9813-e08c-4ced-b8f3-2b6cbad19d42",
-  "status": "planned",
+  "status": "active",
   "type": "feature",
   "priority": "P2",
   "created": "2026-10-20T18:45:00.485Z",
-  "updated": "2026-10-20T18:45:00.485Z",
-  "lastActivity": "2026-10-20T18:45:00.485Z",
+  "updated": "2026-10-21T02:01:06.000Z",
+  "lastActivity": "2026-10-21T02:01:06.000Z",
   "title": "Slides on the design canvas",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
