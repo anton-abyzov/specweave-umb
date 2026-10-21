@@ -1,15 +1,18 @@
 {
   "id": "0977-decision-card-reply-in-chat",
   "uuid": "d39fa31d-8515-4712-a537-a53f4f043d28",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-10-20T19:48:29.000Z",
-  "updated": "2026-10-21T02:53:04.224Z",
-  "lastActivity": "2026-10-21T02:53:04.224Z",
+  "updated": "2026-10-21T02:57:58.789Z",
+  "lastActivity": "2026-10-21T02:57:58.789Z",
   "title": "Decision cards: reply in chat with attachments, no lost messages",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-21T02:57:58.787Z",
+  "closeReason": "Verify ACs 6/6, tasks 5/5; the only FAIL is an unrelated 5000ms timeout in specweave tests/unit/cli/commands/save.test.ts (T-008 multi-repo), outside this specweave-studio increment; PR specwithcode-dev#514 merged 6728899d06 with green PR Gate",
+  "approvedAt": "2026-10-21T02:57:58.789Z"
 }
