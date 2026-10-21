@@ -84,6 +84,10 @@ All file paths below are relative to `repositories/anton-abyzov/vskill-platform/
 - AC: AC-US3-01, AC-US3-02, AC-US4-01, AC-US4-03, AC-US4-04 | Files: .specweave/increments/0854-source-link-deprecation-pipeline/reports/
 - Observe existing scheduled runtime and record its exact revision and outcomes. Distinguish candidate counts from confirmed missing sources and measured drain. No production backfill is authorized; preserve that gate explicitly.
 
+### T-020: Bind source restoration to the recorded skill identity
+- AC: AC-US1-01, AC-US2-01 | Files: repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/check-source/route.ts, repositories/anton-abyzov/vskill-platform/src/app/api/v1/skills/__tests__/
+- A healthy unrelated URL must never restore another named skill. Preserve public-only, recent-successful-submission and admin-delisting guards; verify matching source identity with failing-first tests, then fresh review and gated deployment.
+
 ### T-019: Verify and close 0854
 - AC: AC-US1-01, AC-US1-02, AC-US1-03, AC-US2-01, AC-US2-02, AC-US3-01, AC-US3-02, AC-US3-03, AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | Files: .specweave/increments/0854-source-link-deprecation-pipeline/reports/
-- Depends on T-015, T-016, T-017, T-018. Fresh scoped verify, independent review and required manual UI acceptance precede closure. The earlier completed metadata is historical, not proof of these corrective tasks.
+- Depends on T-015, T-016, T-017, T-018, T-020. Fresh scoped verify, independent review and required manual UI acceptance precede closure. The earlier completed metadata is historical, not proof of these corrective tasks.
