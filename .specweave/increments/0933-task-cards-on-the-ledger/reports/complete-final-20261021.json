@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-21T17:56:11.160580+00:00",
+  "increment": "0933-task-cards-on-the-ledger",
+  "command": [
+    "specweave",
+    "complete",
+    "0933"
+  ],
+  "exitCode": 0,
+  "stdout": "\nCompleting increment 0933-task-cards-on-the-ledger...\n\n\u26a0\ufe0f  Increment 0933-task-cards-on-the-ledger is already completed\n",
+  "stderr": "",
+  "metadataStatus": "completed",
+  "verificationReceipt": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0933-task-cards-on-the-ledger/reports/verify.json",
+  "verifiedAt": "2026-10-21T06:30:22.358Z",
+  "verificationScope": "explicit task-scoped commands, not the umbrella aggregate suite",
+  "independentReview": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/review-final-20261021.md",
+  "alreadyCompletedCaveat": "Metadata was already completed. The explicit verification and review establish this follow-up closure; complete may return an already-completed no-op."
+}

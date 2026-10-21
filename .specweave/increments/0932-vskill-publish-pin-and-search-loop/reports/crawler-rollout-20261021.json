@@ -1,0 +1,476 @@
+{
+  "ok": true,
+  "checkedAt": "2026-10-21T07:10:01.846344+00:00",
+  "mergeCommit": "8df21dfec72137e61763361d0de3197d9b3aadf4",
+  "platformVersionConfirmedByParent": "cd550753-3cb9-4306-beba-3d347569f8d6",
+  "runtimeSourceSha256": "840f92d148e806ed99e9af27869c1df203c8337e074360f62b4ebde019aaaa4c",
+  "order": [
+    "vm3",
+    "vm2",
+    "vm1"
+  ],
+  "vms": {
+    "vm3": {
+      "vm": "vm3",
+      "host": "5.161.56.136",
+      "exit": 0,
+      "log": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0932-vskill-publish-pin-and-search-loop/reports/crawler-rollout-vm3-20261021.log",
+      "events": [
+        {
+          "phase": "before",
+          "at": "2026-10-21T07:04:47.502440+00:00",
+          "data": {
+            "health": {
+              "status": "ok",
+              "activeCrawls": 0,
+              "scheduler": {
+                "running": true,
+                "sourceCount": 3
+              }
+            },
+            "crawler": {
+              "id": "75f8f9bd84b775cec1db174f84370a4534b927636207b2a293ad484bb528f6cc",
+              "image": "sha256:26017cd40fcb77873959c61fb3b72e3e9bd0b89cff81d32994e14e4d7ffa3265",
+              "status": "running",
+              "startedAt": "2026-10-16T17:49:12.72856662Z",
+              "health": "healthy",
+              "envHash": "354bd6ebc403ae71e9f18cc7cd988f252638930d0c59be1c2e76b3f4cbeef16a",
+              "mounts": [
+                {
+                  "Type": "volume",
+                  "Name": "scanner-worker_crawl-state",
+                  "Source": "/var/lib/docker/volumes/scanner-worker_crawl-state/_data",
+                  "Destination": "/tmp/crawl-state",
+                  "RW": true
+                },
+                {
+                  "Type": "bind",
+                  "Name": null,
+                  "Source": "/opt/scanner-worker/secrets/github-app",
+                  "Destination": "/run/secrets/github-app",
+                  "RW": false
+                }
+              ]
+            },
+            "mainScanner": {
+              "id": "903353303c3ead9c2128d654cd7c1542596c73f5f93b517d6357fed6a03f86db",
+              "image": "sha256:1c13a540f839999f8bf2a447cd568809388c8ca44557187569752b1aa0510096",
+              "status": "running",
+              "startedAt": "2026-10-11T14:11:54.18870185Z",
+              "health": "healthy",
+              "envHash": "ee8d2ced6376c071f74f01b93874460798c5d05968c654fc202d35cf5fb9e03e",
+              "mounts": [
+                {
+                  "Type": "volume",
+                  "Name": "scanner-worker_scan-workspace",
+                  "Source": "/var/lib/docker/volumes/scanner-worker_scan-workspace/_data",
+                  "Destination": "/tmp/scan-workspace",
+                  "RW": true
+                }
+              ]
+            },
+            "sourceHash": "840f92d148e806ed99e9af27869c1df203c8337e074360f62b4ebde019aaaa4c",
+            "runtimeSourceHash": "2b366393f22fc456738e965d08da791b174ba7057f234f93e7ebc2176b0787d2",
+            "composeEnvHash": "df9ec57247127d7b26bb5383be2daee80be00b5f017373dab193076d970d4755",
+            "crawlerEnvHash": "f0ea5af319b01e2454713bb0b4460825eb671f2b5c435dd0742160a4bb4bf030",
+            "composeFileHash": "950542b15801880fb85f6650a5eacf03a50d4c6e1db0fff12fccfd2fdbf51405",
+            "configuredEnvMatchesRuntime": true,
+            "hostRuntimeSourceDifferences": [
+              "sources/submission-scanner.js"
+            ],
+            "sourceFilesCount": 53,
+            "sourceFilesDigest": "86e16ca1bf9988a734bfa4f874b46a80bbc7ebcff9765797d60727023291b482",
+            "checkpointCount": 3,
+            "checkpointDigest": "f0de5e54ee82853ce31084b3e4202eefd2776e805576c3659f612a52abbdd379"
+          }
+        },
+        {
+          "phase": "after",
+          "at": "2026-10-21T07:05:29.184955+00:00",
+          "data": {
+            "health": {
+              "status": "ok",
+              "activeCrawls": 0,
+              "scheduler": {
+                "running": true,
+                "sourceCount": 3
+              }
+            },
+            "crawler": {
+              "id": "c64b8415910040accc76604fb4b9a7927ed9abc8e0bcde8c0b62072d4c42045b",
+              "image": "sha256:75b10d8b3d9d5e048747026a794f67a3c3011482da9f343afd5e9e1e6b90e5ae",
+              "status": "running",
+              "startedAt": "2026-10-21T07:04:58.346812978Z",
+              "health": "healthy",
+              "envHash": "354bd6ebc403ae71e9f18cc7cd988f252638930d0c59be1c2e76b3f4cbeef16a",
+              "mounts": [
+                {
+                  "Type": "volume",
+                  "Name": "scanner-worker_crawl-state",
+                  "Source": "/var/lib/docker/volumes/scanner-worker_crawl-state/_data",
+                  "Destination": "/tmp/crawl-state",
+                  "RW": true
+                },
+                {
+                  "Type": "bind",
+                  "Name": null,
+                  "Source": "/opt/scanner-worker/secrets/github-app",
+                  "Destination": "/run/secrets/github-app",
+                  "RW": false
+                }
+              ]
+            },
+            "mainScanner": {
+              "id": "903353303c3ead9c2128d654cd7c1542596c73f5f93b517d6357fed6a03f86db",
+              "image": "sha256:1c13a540f839999f8bf2a447cd568809388c8ca44557187569752b1aa0510096",
+              "status": "running",
+              "startedAt": "2026-10-11T14:11:54.18870185Z",
+              "health": "healthy",
+              "envHash": "ee8d2ced6376c071f74f01b93874460798c5d05968c654fc202d35cf5fb9e03e",
+              "mounts": [
+                {
+                  "Type": "volume",
+                  "Name": "scanner-worker_scan-workspace",
+                  "Source": "/var/lib/docker/volumes/scanner-worker_scan-workspace/_data",
+                  "Destination": "/tmp/scan-workspace",
+                  "RW": true
+                }
+              ]
+            },
+            "sourceHash": "840f92d148e806ed99e9af27869c1df203c8337e074360f62b4ebde019aaaa4c",
+            "runtimeSourceHash": "840f92d148e806ed99e9af27869c1df203c8337e074360f62b4ebde019aaaa4c",
+            "composeEnvHash": "df9ec57247127d7b26bb5383be2daee80be00b5f017373dab193076d970d4755",
+            "crawlerEnvHash": "f0ea5af319b01e2454713bb0b4460825eb671f2b5c435dd0742160a4bb4bf030",
+            "composeFileHash": "950542b15801880fb85f6650a5eacf03a50d4c6e1db0fff12fccfd2fdbf51405",
+            "configuredEnvMatchesRuntime": true,
+            "hostRuntimeSourceDifferences": [],
+            "sourceFilesCount": 53,
+            "sourceFilesDigest": "86e16ca1bf9988a734bfa4f874b46a80bbc7ebcff9765797d60727023291b482",
+            "checkpointCount": 4,
+            "checkpointDigest": "b93fd9a0c1ede700a32e1c961c143bab3fc82f085ead165b35a2dd5bf893d060"
+          },
+          "checks": {
+            "runtimeSourceCorrect": true,
+            "runningImageCorrect": true,
+            "mainScannerUnchanged": true,
+            "environmentUnchanged": true,
+            "stateMountUnchanged": true,
+            "schedulerRunning": true,
+            "expectedSourceCount": true,
+            "checkpointDigestUnchanged": false,
+            "checkpointCountBefore": 3,
+            "checkpointCountAfter": 4
+          }
+        }
+      ]
+    },
+    "vm2": {
+      "vm": "vm2",
+      "host": "91.107.239.24",
+      "exit": 0,
+      "log": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0932-vskill-publish-pin-and-search-loop/reports/crawler-rollout-vm2-20261021.log",
+      "events": [
+        {
+          "phase": "before",
+          "at": "2026-10-21T07:06:13.218071+00:00",
+          "data": {
+            "health": {
+              "status": "ok",
+              "activeCrawls": 0,
+              "scheduler": {
+                "running": true,
+                "sourceCount": 5
+              }
+            },
+            "crawler": {
+              "id": "9320e08d11089d3ecb83393a73f23d3d676bc87f790a6a91fcd5e8b1a759c145",
+              "image": "sha256:49499be2bd187aab23988823369860e6f0f64ebbce5cbf22e25a8c9912b93d7e",
+              "status": "running",
+              "startedAt": "2026-10-16T17:48:59.222106875Z",
+              "health": "healthy",
+              "envHash": "32f024e98a1a7189b7e84f69991f185da5da4991253ea4156c0d1386e92f002d",
+              "mounts": [
+                {
+                  "Type": "bind",
+                  "Name": null,
+                  "Source": "/opt/scanner-worker/secrets/github-app",
+                  "Destination": "/run/secrets/github-app",
+                  "RW": false
+                },
+                {
+                  "Type": "volume",
+                  "Name": "scanner-worker_crawl-state",
+                  "Source": "/var/lib/docker/volumes/scanner-worker_crawl-state/_data",
+                  "Destination": "/tmp/crawl-state",
+                  "RW": true
+                }
+              ]
+            },
+            "mainScanner": {
+              "id": "5211eb903d8232f4ca7ee7742ee5bed98a887511e1b5362e762966851669cf0e",
+              "image": "sha256:5c2bcd4c099faaed12afe619104a0b303b840be325f908bc56aaab7767332325",
+              "status": "running",
+              "startedAt": "2026-10-11T14:12:55.001474692Z",
+              "health": "healthy",
+              "envHash": "21c361651a003ee66c3cfe79340216033f0cd62a93c2ffa1bf7f4d614a72e39b",
+              "mounts": [
+                {
+                  "Type": "volume",
+                  "Name": "scanner-worker_scan-workspace",
+                  "Source": "/var/lib/docker/volumes/scanner-worker_scan-workspace/_data",
+                  "Destination": "/tmp/scan-workspace",
+                  "RW": true
+                }
+              ]
+            },
+            "sourceHash": "840f92d148e806ed99e9af27869c1df203c8337e074360f62b4ebde019aaaa4c",
+            "runtimeSourceHash": "2b366393f22fc456738e965d08da791b174ba7057f234f93e7ebc2176b0787d2",
+            "composeEnvHash": "e662a700ac563b14653101ad203dfbda9272975b54bda046e1d1792b0372542c",
+            "crawlerEnvHash": "c7a71d5ef977414e660a3b45b4bec0934b01ed8d8ccab48af96608d661627e86",
+            "composeFileHash": "af6656ef9e4c0b84387469b578fe42e0d0a6641866460575eb490bff518d1e55",
+            "configuredEnvMatchesRuntime": true,
+            "hostRuntimeSourceDifferences": [
+              "sources/submission-scanner.js"
+            ],
+            "sourceFilesCount": 53,
+            "sourceFilesDigest": "86e16ca1bf9988a734bfa4f874b46a80bbc7ebcff9765797d60727023291b482",
+            "checkpointCount": 4,
+            "checkpointDigest": "8a44349790987b07be12b4f9b2a96a0e8a6da833b1e14cd4ac7d46f0811428d8"
+          }
+        },
+        {
+          "phase": "after",
+          "at": "2026-10-21T07:06:54.116296+00:00",
+          "data": {
+            "health": {
+              "status": "ok",
+              "activeCrawls": 0,
+              "scheduler": {
+                "running": true,
+                "sourceCount": 5
+              }
+            },
+            "crawler": {
+              "id": "69465be19fe2bbd888ed42fbc38c8e3e4f5e7350a6b840e071422cf7580d2fc8",
+              "image": "sha256:cb903044a773d951bcc5d84563a3286893269d6ef0d41c787bc71308d4824c2b",
+              "status": "running",
+              "startedAt": "2026-10-21T07:06:23.896575357Z",
+              "health": "healthy",
+              "envHash": "32f024e98a1a7189b7e84f69991f185da5da4991253ea4156c0d1386e92f002d",
+              "mounts": [
+                {
+                  "Type": "volume",
+                  "Name": "scanner-worker_crawl-state",
+                  "Source": "/var/lib/docker/volumes/scanner-worker_crawl-state/_data",
+                  "Destination": "/tmp/crawl-state",
+                  "RW": true
+                },
+                {
+                  "Type": "bind",
+                  "Name": null,
+                  "Source": "/opt/scanner-worker/secrets/github-app",
+                  "Destination": "/run/secrets/github-app",
+                  "RW": false
+                }
+              ]
+            },
+            "mainScanner": {
+              "id": "5211eb903d8232f4ca7ee7742ee5bed98a887511e1b5362e762966851669cf0e",
+              "image": "sha256:5c2bcd4c099faaed12afe619104a0b303b840be325f908bc56aaab7767332325",
+              "status": "running",
+              "startedAt": "2026-10-11T14:12:55.001474692Z",
+              "health": "healthy",
+              "envHash": "21c361651a003ee66c3cfe79340216033f0cd62a93c2ffa1bf7f4d614a72e39b",
+              "mounts": [
+                {
+                  "Type": "volume",
+                  "Name": "scanner-worker_scan-workspace",
+                  "Source": "/var/lib/docker/volumes/scanner-worker_scan-workspace/_data",
+                  "Destination": "/tmp/scan-workspace",
+                  "RW": true
+                }
+              ]
+            },
+            "sourceHash": "840f92d148e806ed99e9af27869c1df203c8337e074360f62b4ebde019aaaa4c",
+            "runtimeSourceHash": "840f92d148e806ed99e9af27869c1df203c8337e074360f62b4ebde019aaaa4c",
+            "composeEnvHash": "e662a700ac563b14653101ad203dfbda9272975b54bda046e1d1792b0372542c",
+            "crawlerEnvHash": "c7a71d5ef977414e660a3b45b4bec0934b01ed8d8ccab48af96608d661627e86",
+            "composeFileHash": "af6656ef9e4c0b84387469b578fe42e0d0a6641866460575eb490bff518d1e55",
+            "configuredEnvMatchesRuntime": true,
+            "hostRuntimeSourceDifferences": [],
+            "sourceFilesCount": 53,
+            "sourceFilesDigest": "86e16ca1bf9988a734bfa4f874b46a80bbc7ebcff9765797d60727023291b482",
+            "checkpointCount": 4,
+            "checkpointDigest": "39bd3a52a15684f6e04a79f622eb32fadc1dba680697277d93f4302adaae4600"
+          },
+          "checks": {
+            "runtimeSourceCorrect": true,
+            "runningImageCorrect": true,
+            "mainScannerUnchanged": true,
+            "environmentUnchanged": true,
+            "stateMountUnchanged": true,
+            "schedulerRunning": true,
+            "expectedSourceCount": true,
+            "checkpointDigestUnchanged": false,
+            "checkpointCountBefore": 4,
+            "checkpointCountAfter": 4
+          }
+        }
+      ]
+    },
+    "vm1": {
+      "vm": "vm1",
+      "host": "5.161.69.232",
+      "exit": 0,
+      "log": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0932-vskill-publish-pin-and-search-loop/reports/crawler-rollout-vm1-20261021.log",
+      "events": [
+        {
+          "phase": "before",
+          "at": "2026-10-21T07:08:21.613665+00:00",
+          "data": {
+            "health": {
+              "status": "ok",
+              "activeCrawls": 0,
+              "scheduler": {
+                "running": true,
+                "sourceCount": 2
+              }
+            },
+            "crawler": {
+              "id": "c04a81b6fcf2cc3f03770a8e45255b2474b22d8559b551ef0acf3a0b6cd3ebd6",
+              "image": "sha256:78f3ad5f3cf3b7b9cbd2353cdc98ac32e56a0fdaa48b5ec480eb206453938a74",
+              "status": "running",
+              "startedAt": "2026-10-16T17:50:09.694918982Z",
+              "health": "healthy",
+              "envHash": "3f57f8a4eb2bb6ac627b4a097eca7d3a7be6d94dcf92a8c9fd8300fbfac3ca3a",
+              "mounts": [
+                {
+                  "Type": "volume",
+                  "Name": "scanner-worker_crawl-state",
+                  "Source": "/var/lib/docker/volumes/scanner-worker_crawl-state/_data",
+                  "Destination": "/tmp/crawl-state",
+                  "RW": true
+                },
+                {
+                  "Type": "bind",
+                  "Name": null,
+                  "Source": "/opt/scanner-worker/secrets/github-app",
+                  "Destination": "/run/secrets/github-app",
+                  "RW": false
+                }
+              ]
+            },
+            "mainScanner": {
+              "id": "1f9b392bcc219299b4ae5776613c61c8c20f4795156ce2584177ad9ea177fded",
+              "image": "sha256:cc4bbeca301498a9939331dcde932c0f65a90f0e14c33cb25d8bda432c35c530",
+              "status": "running",
+              "startedAt": "2026-10-11T14:14:39.297344926Z",
+              "health": "healthy",
+              "envHash": "ee8d2ced6376c071f74f01b93874460798c5d05968c654fc202d35cf5fb9e03e",
+              "mounts": [
+                {
+                  "Type": "volume",
+                  "Name": "scanner-worker_scan-workspace",
+                  "Source": "/var/lib/docker/volumes/scanner-worker_scan-workspace/_data",
+                  "Destination": "/tmp/scan-workspace",
+                  "RW": true
+                }
+              ]
+            },
+            "sourceHash": "840f92d148e806ed99e9af27869c1df203c8337e074360f62b4ebde019aaaa4c",
+            "runtimeSourceHash": "2b366393f22fc456738e965d08da791b174ba7057f234f93e7ebc2176b0787d2",
+            "composeEnvHash": "387c7d4fd611349ff329db36f5b483d9e52e5bfe59cd31d64bd9f4cd8d222b42",
+            "crawlerEnvHash": "593e050db4812472f6614fa6016f144b6ef2e46c88eb04c976f28004bd48d700",
+            "composeFileHash": "4e9e8d9ff06de0a55d02bbeeed48cef74dd074a1004cd8f2676f228a72c1f1a4",
+            "configuredEnvMatchesRuntime": true,
+            "hostRuntimeSourceDifferences": [
+              "sources/submission-scanner.js"
+            ],
+            "sourceFilesCount": 53,
+            "sourceFilesDigest": "86e16ca1bf9988a734bfa4f874b46a80bbc7ebcff9765797d60727023291b482",
+            "checkpointCount": 0,
+            "checkpointDigest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          }
+        },
+        {
+          "phase": "after",
+          "at": "2026-10-21T07:09:03.622942+00:00",
+          "data": {
+            "health": {
+              "status": "ok",
+              "activeCrawls": 0,
+              "scheduler": {
+                "running": true,
+                "sourceCount": 2
+              }
+            },
+            "crawler": {
+              "id": "0ffb0143ce38ad2d4ec5391db3f174307dc97aaa5be9ec3ffed393f1597e93a7",
+              "image": "sha256:f3701a75e771895d5924a641068f75a823d03fa80f224288f72a1c7935849711",
+              "status": "running",
+              "startedAt": "2026-10-21T07:08:32.377116766Z",
+              "health": "healthy",
+              "envHash": "3f57f8a4eb2bb6ac627b4a097eca7d3a7be6d94dcf92a8c9fd8300fbfac3ca3a",
+              "mounts": [
+                {
+                  "Type": "bind",
+                  "Name": null,
+                  "Source": "/opt/scanner-worker/secrets/github-app",
+                  "Destination": "/run/secrets/github-app",
+                  "RW": false
+                },
+                {
+                  "Type": "volume",
+                  "Name": "scanner-worker_crawl-state",
+                  "Source": "/var/lib/docker/volumes/scanner-worker_crawl-state/_data",
+                  "Destination": "/tmp/crawl-state",
+                  "RW": true
+                }
+              ]
+            },
+            "mainScanner": {
+              "id": "1f9b392bcc219299b4ae5776613c61c8c20f4795156ce2584177ad9ea177fded",
+              "image": "sha256:cc4bbeca301498a9939331dcde932c0f65a90f0e14c33cb25d8bda432c35c530",
+              "status": "running",
+              "startedAt": "2026-10-11T14:14:39.297344926Z",
+              "health": "healthy",
+              "envHash": "ee8d2ced6376c071f74f01b93874460798c5d05968c654fc202d35cf5fb9e03e",
+              "mounts": [
+                {
+                  "Type": "volume",
+                  "Name": "scanner-worker_scan-workspace",
+                  "Source": "/var/lib/docker/volumes/scanner-worker_scan-workspace/_data",
+                  "Destination": "/tmp/scan-workspace",
+                  "RW": true
+                }
+              ]
+            },
+            "sourceHash": "840f92d148e806ed99e9af27869c1df203c8337e074360f62b4ebde019aaaa4c",
+            "runtimeSourceHash": "840f92d148e806ed99e9af27869c1df203c8337e074360f62b4ebde019aaaa4c",
+            "composeEnvHash": "387c7d4fd611349ff329db36f5b483d9e52e5bfe59cd31d64bd9f4cd8d222b42",
+            "crawlerEnvHash": "593e050db4812472f6614fa6016f144b6ef2e46c88eb04c976f28004bd48d700",
+            "composeFileHash": "4e9e8d9ff06de0a55d02bbeeed48cef74dd074a1004cd8f2676f228a72c1f1a4",
+            "configuredEnvMatchesRuntime": true,
+            "hostRuntimeSourceDifferences": [],
+            "sourceFilesCount": 53,
+            "sourceFilesDigest": "86e16ca1bf9988a734bfa4f874b46a80bbc7ebcff9765797d60727023291b482",
+            "checkpointCount": 0,
+            "checkpointDigest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          "checks": {
+            "runtimeSourceCorrect": true,
+            "runningImageCorrect": true,
+            "mainScannerUnchanged": true,
+            "environmentUnchanged": true,
+            "stateMountUnchanged": true,
+            "schedulerRunning": true,
+            "expectedSourceCount": true,
+            "checkpointDigestUnchanged": true,
+            "checkpointCountBefore": 0,
+            "checkpointCountAfter": 0
+          }
+        }
+      ]
+    }
+  }
+}

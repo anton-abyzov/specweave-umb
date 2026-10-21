@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-21T06:25:32.060440+00:00",
+  "ok": true,
+  "archiveFilesScanned": 158,
+  "readOrParseErrors": 0,
+  "newlyUsedCandidate": "asc-id-resolver",
+  "restoredBytesMatchBackup": true,
+  "ascCliUsageUnchanged": true,
+  "relevantDoctorIssues": 0,
+  "unrelatedDoctorIssues": 39,
+  "providerLinksRestored": false,
+  "allBackupDirectoriesPreserved": true,
+  "backupDirectoriesVerified": [
+    "asc-id-resolver",
+    "competitors",
+    "embedded-captions",
+    "excalidraw-mcp",
+    "faceless-explainer",
+    "figma",
+    "music-to-video",
+    "nanobanana",
+    "pr-to-video",
+    "remotion-to-hyperframes",
+    "slack-messaging",
+    "slideshow",
+    "talking-head-recut"
+  ]
+}

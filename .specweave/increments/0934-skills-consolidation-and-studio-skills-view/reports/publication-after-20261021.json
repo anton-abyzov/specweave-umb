@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-10-21T17:45:18.066131+00:00",
+  "registryVersion": "1.2.3",
+  "sourceDeclaredVersion": "1.3.1",
+  "contentHash": "a3d5c75a015c5f12cee2037823dcf754b5e7c84bd6cb893508a23ab3b748bf97",
+  "sourceCommitSha": "2b25fe6ebf3bcc6a477db02d2bb3f76fd1bab236",
+  "manifestEntries": 1,
+  "treeHash": "fca0012b4b0c3b9228b2b23d7f7007a7d3557647b77cb7dc301faa5e2c8270c5",
+  "lockMatchesDisk": true,
+  "descriptionMatchesPublishedContract": true,
+  "descriptionCharacters": 499,
+  "contentBytes": 21975
+}
