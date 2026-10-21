@@ -376,13 +376,26 @@ status: planned
 - `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0748-crawl-worker-watchdog/reports/isolated-acceptance-packet.md`
 - `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0748-crawl-worker-watchdog/reports/phase3-queue-health-smoke.md`
 
+### T-020: Verify the literal authenticated live queue-health acceptance
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-03
+- AC: AC-US4-03 | Files: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0748-crawl-worker-watchdog/reports/phase3-queue-health-smoke.md | Test: Approved authenticated GET to the deployed admin queue-health endpoint with exact response evidence
+
+**Test Plan**:
+- Preserve the historical T-014 internal dry-run and unauthenticated 401 receipt as substitute evidence, not authenticated admin GET proof.
+- Obtain the required account/access and action authorization before the live request; the endpoint may write its cache and emit an alert if its threshold is crossed. No token fabrication, recipient changes or mail test is authorized by this task definition.
+- Record the literal authenticated GET response, deployed identity and timestamp. It must satisfy T-014's small received count and near-zero oldest age with thresholdExceeded false; do not substitute internal/public endpoint responses or manufacture healthy state.
+- If the live queue does not meet literal acceptance, retain the response and leave this task open. No drain/backfill authorization is implied.
+
+**Files**:
+- `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0748-crawl-worker-watchdog/reports/phase3-queue-health-smoke.md`
+
 ## Closure
 
 ### T-016: Verify and close 0748
 **Status**: [ ] pending
 
 **Test Plan**:
-- Given all implementation and acceptance tasks, including T-017 through T-019, are done or honestly skipped with explicit scope decisions, when `/sw:done 0748` runs, then:
+- Given all implementation and acceptance tasks, including T-017 through T-020, are done or honestly skipped with explicit scope decisions, when `/sw:done 0748` runs, then:
   - `sw:code-reviewer` writes `code-review-report.json` with no critical/high/medium findings (or fix loop completes within 3 iterations).
   - `/simplify` runs and removes any duplication or readability issues.
   - `sw:grill` writes `grill-report.json` confirming all ACs satisfied.
