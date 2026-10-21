@@ -1,15 +1,18 @@
 {
   "id": "0969-orchestrator-per-machine",
   "uuid": "26740a68-670e-40fe-a2ea-a0c71e845723",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-20T17:49:58.000Z",
-  "updated": "2026-10-21T06:07:30.210Z",
-  "lastActivity": "2026-10-21T06:07:30.210Z",
+  "updated": "2026-10-21T06:31:18.460Z",
+  "lastActivity": "2026-10-21T06:31:18.460Z",
   "title": "An orchestrator on each machine of a project",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-21T06:31:18.334Z",
+  "closeReason": "verify red only on out-of-scope umbrella suites: specweave/vskill/vskill-platform unit timeouts (5000ms), session-start perf 329>300ms, spy double-calls; 0969 code is specweave-studio, ACs 15/15, PR gates green",
+  "approvedAt": "2026-10-21T06:31:18.460Z"
 }
