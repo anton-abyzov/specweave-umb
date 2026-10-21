@@ -1,0 +1,147 @@
+{
+  "measureOnly": false,
+  "measurements": {
+    "390": {
+      "rows": [
+        {
+          "text": "Error-rate repair watch\nActive\nEvery 30 min\n· Next Today 7:05 PM EDT (in 3h)\n· Atlas Studio\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nRun",
+          "height": 150
+        },
+        {
+          "text": "Final matchday results\nPaused\nSat, Sun at 22:30\n· Atlas Studio\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nRun",
+          "height": 133
+        },
+        {
+          "text": "Watch the mobile club release\nPaused\nWeekdays at 09:00\n· Last ran Sun, Oct 18, 9:00 AM EDT\n· Atlas Studio\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nThe release check could not reach the store listing.\nRun",
+          "height": 169
+        },
+        {
+          "text": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails\nPaused\nMonthly on the 1st at 08:00\n· Atlas Studio\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nRun",
+          "height": 197
+        },
+        {
+          "text": "Finish the approved analytics campaign\nOn request\nWhen you ask\n· Atlas Studio\n· Its own thread\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nRun",
+          "height": 157
+        },
+        {
+          "text": "Deploy preview on push\nListening\nOn webhook\n· Last ran Yesterday 2:05 PM EDT\n· Beacon\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.",
+          "height": 133
+        }
+      ],
+      "overflow": false
+    },
+    "760": {
+      "rows": [
+        {
+          "text": "Error-rate repair watch\nActive\nEvery 30 min\n· Next Today 7:05 PM EDT (in 3h)\n· Atlas Studio\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nRun",
+          "height": 88
+        },
+        {
+          "text": "Final matchday results\nPaused\nSat, Sun at 22:30\n· Atlas Studio\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nRun",
+          "height": 89
+        },
+        {
+          "text": "Watch the mobile club release\nPaused\nWeekdays at 09:00\n· Last ran Sun, Oct 18, 9:00 AM EDT\n· Atlas Studio\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nThe release check could not reach the store listing.\nRun",
+          "height": 125
+        },
+        {
+          "text": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails\nPaused\nMonthly on the 1st at 08:00\n· Atlas Studio\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nRun",
+          "height": 149
+        },
+        {
+          "text": "Finish the approved analytics campaign\nOn request\nWhen you ask\n· Atlas Studio\n· Its own thread\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nRun",
+          "height": 89
+        },
+        {
+          "text": "Deploy preview on push\nListening\nOn webhook\n· Last ran Yesterday 2:05 PM EDT\n· Beacon\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.",
+          "height": 89
+        }
+      ],
+      "overflow": false
+    },
+    "1280": {
+      "rows": [
+        {
+          "text": "Error-rate repair watch\nActive\nEvery 30 min\n· Next Today 7:05 PM EDT (in 3h)\n· Atlas Studio\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nRun",
+          "height": 88
+        },
+        {
+          "text": "Final matchday results\nPaused\nSat, Sun at 22:30\n· Atlas Studio\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nRun",
+          "height": 89
+        },
+        {
+          "text": "Watch the mobile club release\nPaused\nWeekdays at 09:00\n· Last ran Sun, Oct 18, 9:00 AM EDT\n· Atlas Studio\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nThe release check could not reach the store listing.\nRun",
+          "height": 107
+        },
+        {
+          "text": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails\nPaused\nMonthly on the 1st at 08:00\n· Atlas Studio\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nRun",
+          "height": 129
+        },
+        {
+          "text": "Finish the approved analytics campaign\nOn request\nWhen you ask\n· Atlas Studio\n· Its own thread\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nRun",
+          "height": 89
+        },
+        {
+          "text": "Deploy preview on push\nListening\nOn webhook\n· Last ran Yesterday 2:05 PM EDT\n· Beacon\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.",
+          "height": 89
+        }
+      ],
+      "overflow": false
+    },
+    "project-settings-1280": [
+      {
+        "title": "Error-rate repair watch",
+        "height": 61,
+        "plain": true
+      },
+      {
+        "title": "Final matchday results",
+        "height": 62,
+        "plain": true
+      },
+      {
+        "title": "Watch the mobile club release",
+        "height": 84,
+        "plain": false
+      },
+      {
+        "title": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails",
+        "height": 80,
+        "plain": true
+      },
+      {
+        "title": "Finish the approved analytics campaign",
+        "height": 62,
+        "plain": true
+      }
+    ],
+    "project-settings-390": [
+      {
+        "title": "Error-rate repair watch",
+        "height": 97,
+        "plain": true
+      },
+      {
+        "title": "Final matchday results",
+        "height": 98,
+        "plain": true
+      },
+      {
+        "title": "Watch the mobile club release",
+        "height": 157,
+        "plain": false
+      },
+      {
+        "title": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails",
+        "height": 172,
+        "plain": true
+      },
+      {
+        "title": "Finish the approved analytics campaign",
+        "height": 116,
+        "plain": true
+      }
+    ]
+  },
+  "errors": []
+}
