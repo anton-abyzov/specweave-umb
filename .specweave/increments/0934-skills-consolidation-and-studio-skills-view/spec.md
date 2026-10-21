@@ -48,7 +48,7 @@ Studio work in one worktree off main (one PR): `projectSkillsInventory.ts` group
 - AC: AC-05 | Files: .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/hygiene.md, .claude/skills/, .agents/skills/ | Test: vskill doctor --json | jq -e '[.issues[]|select(.kind=="bad-name" or .kind=="bad-description" or .kind=="identical-copy")]|length==0' && test ! -d ~/.claude/skills/.trash
 
 ### T-05 Codex re-check and the merge map
-- AC: AC-06 | Files: .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/codex-90d.md, .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/merge-map-applied.md | Test: vskill doctor --json | jq -e '.issues|length==0' && test ! -d ~/.agents/skills/asc-build-lifecycle
+- AC: AC-06 | Files: .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/codex-90d.md, .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/merge-map-applied.md | Test: vskill doctor --json | jq -e '.issues|length==0' && test -f /Users/antonabyzov/.agents/skills/asc-build-lifecycle/SKILL.md
 
 ### T-06 Triggers, descriptions, republish and relock
 - AC: AC-07 | Files: .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/relock.md | Test: cd ~/.agents && vskill outdated --json | jq -e '[.[]|select(.warning)]|length==0'
@@ -60,7 +60,7 @@ Studio work in one worktree off main (one PR): `projectSkillsInventory.ts` group
 - AC: AC-06 | Files: .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/, /Users/antonabyzov/.agents/skills/asc-id-resolver/, /Users/antonabyzov/.claude/skills/asc-id-resolver, /Users/antonabyzov/.codex/skills/asc-id-resolver | Test: test -f /Users/antonabyzov/.agents/skills/asc-id-resolver/SKILL.md && cmp /Users/antonabyzov/.agents/skills/asc-id-resolver/SKILL.md /Users/antonabyzov/.claude/skills-trash-20261018/removed-0934/asc-id-resolver/SKILL.md
 
 ### T-09 Verify the social skill publication reaches the registry
-- AC: AC-07 | Files: .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/relock.md | Test: curl --fail --silent https://verified-skill.com/api/v1/skills/anton-abyzov/social-media-posting-skill/social-media-posting-skill | jq -e '(.skill.currentVersion != null) and (.skill.description | startswith("One skill for"))'
+- AC: AC-07 | Files: .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/relock.md | Test: /usr/local/bin/python3 /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/publication-check-20261021.py
 
 ### T-10 Reconcile recreated duplicate copies and redundant provider links
 - AC: AC-05, AC-06 | Files: /Users/antonabyzov/.claude/skills/hyperframes/, /Users/antonabyzov/.claude/skills/hyperframes-creative/, /Users/antonabyzov/.claude/skills/media-use/, /Users/antonabyzov/.cursor/skills/, /Users/antonabyzov/.gemini/skills/, /Users/antonabyzov/.config/opencode/skills/, /Users/antonabyzov/.specweave/recovery/0934-hygiene-20261021/, .specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/hygiene-reconcile-20261021* | Test: vskill doctor --json | jq -e '.issues | length == 0' && /usr/local/bin/python3 /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/hygiene-reconcile-20261021-check.py
