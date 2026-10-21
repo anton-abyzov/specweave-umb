@@ -1,0 +1,17 @@
+{
+  "id": "0989-php2shell-check-skill-and-page",
+  "uuid": "621b62fd-879a-4ea9-aa8f-80c99fe5a2dc",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-21T22:23:01.735Z",
+  "updated": "2026-10-21T22:51:27.753Z",
+  "lastActivity": "2026-10-21T22:51:27.753Z",
+  "title": "php2shell check skill and page",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-21T22:51:27.752Z",
+  "approvedAt": "2026-10-21T22:51:27.753Z"
+}
