@@ -124,7 +124,7 @@ Existing infrastructure being reused: Cloudflare Worker cron dispatcher in `scri
   1. `ssh root@5.161.56.136 'cd /opt/scanner-worker && docker compose stop crawl-worker'`.
   2. Wait ≤ 5 minutes; `ssh root@5.161.56.136 'docker ps --filter name=crawl-worker'` shows the container back up.
   3. `ssh root@5.161.56.136 'journalctl -u crawl-worker-watchdog.service --since "10 minutes ago"'` shows the `container missing — restarting via docker compose` log line.
-- [ ] **AC-US4-06**: Live alert-simulation test (manual, post-deploy) — recorded in the increment's `reports/` folder: temporarily set `HETZNER_VM_IPS` to a list including an unreachable IP, wait two `*/10 * * * *` cron ticks, confirm exactly one `QUEUE_HEALTH_ALERT` email arrives at `anton.abyzov@gmail.com`, then revert `HETZNER_VM_IPS` and confirm the next tick clears the throttle and KV failure counter.
+- [ ] **AC-US4-06**: Live alert-simulation test (manual, post-deploy, separately approved) — record four distinct real `*/10 * * * *` cron ticks in an isolated run: failure; second failure and exactly one SendGrid attempt to one explicitly authorized recipient; throttled failure; healthy recovery clearing only the run failure/throttle state. Confirm one received email separately from provider acceptance. The disabled-by-default immutable manifest expires after 40 minutes; missing/late/reordered ticks fail closed. Atomic per-run claim persists before transport and is never released for retry. Do not change real `HETZNER_VM_IPS`, heartbeat/source keys, real alert recipients, queues or VM state. Source correction authorized October 21; this does not claim live completion.
 
 **Required for Validation**:
 - `npx vitest run` — all new tests pass; no regressions in existing tests.
