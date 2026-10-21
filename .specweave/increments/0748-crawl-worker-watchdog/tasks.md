@@ -364,7 +364,7 @@ status: planned
 ### T-018: Prepare reviewed acceptance packet and reassess literal live gates
 - AC: AC-US4-06 | Files: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0748-crawl-worker-watchdog/reports/isolated-acceptance-packet.md, /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0748-crawl-worker-watchdog/reports/phase3-queue-health-smoke.md | Test: Review exact private packet and literal T-014 evidence
 **User Story**: US-004 | **Satisfies ACs**: AC-US4-06
-**Dependencies**: T-017, T-019
+**Dependencies**: T-017, T-019, T-021
 
 **Test Plan**:
 - After source review, prepare exact deployed identity, one explicitly authorized destination, immutable UUID, four UTC slots, strict expiry, before/after real-monitoring evidence and stop conditions.
@@ -388,6 +388,10 @@ status: planned
 
 **Files**:
 - `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0748-crawl-worker-watchdog/reports/phase3-queue-health-smoke.md`
+
+### T-021: Accept bounded real cron timestamps without weakening isolation
+- AC: AC-US4-06 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/acceptance.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/acceptance-do.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/src/lib/watchdog/__tests__/, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform-0748-isolated-acceptance/docs/watchdog-acceptance.md | Test: Replay observed real cron timestamps, adversarial slot-boundary/duplicate/expiry cases, fixed full seven-module coverage and independent review
+- Read-only October 21 scheduled-event evidence shows non-grid UTC millisecond timestamps. The scheduler forwarding and runtime trace preserve the same raw value. Map only valid actual timestamps into their intended ten-minute slots with the existing bounded two-minute arrival window; retain raw timestamps in evidence. Do not fabricate controller times, loosen the exact cron guard, permit early/late/reordered/missing slots, advance on duplicates, extend the 40-minute expiry, release the atomic send claim or modify real monitoring. Deploy disabled through the retention-safe existing process after fresh review. A fresh exact baseline packet/UUID follows; no activation/email is authorized.
 
 ## Closure
 
