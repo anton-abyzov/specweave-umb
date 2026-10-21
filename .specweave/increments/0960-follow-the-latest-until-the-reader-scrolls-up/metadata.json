@@ -1,15 +1,18 @@
 {
   "id": "0960-follow-the-latest-until-the-reader-scrolls-up",
   "uuid": "966d7092-644b-4b4f-ab92-8d20add0e953",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-20T13:50:41.644Z",
-  "updated": "2026-10-21T02:27:39.453Z",
-  "lastActivity": "2026-10-21T02:27:39.453Z",
+  "updated": "2026-10-21T02:34:27.600Z",
+  "lastActivity": "2026-10-21T02:34:27.600Z",
   "title": "Follow the latest until the reader scrolls up",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-21T02:34:27.598Z",
+  "closeReason": "verify red only outside scope: specweave handoff-roundtrip timeouts and session-start 300ms timing under load, vskill webmcp enumerate.e2e; increment changed only specwithcode-dev (PR #481 merged 1e7f22993e, in v1.0.64), ACs 5/5, headless follow-latest/scroll-follow/project-return ok on v1.0.64",
+  "approvedAt": "2026-10-21T02:34:27.600Z"
 }
