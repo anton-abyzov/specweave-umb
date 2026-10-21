@@ -1,15 +1,18 @@
 {
   "id": "0974-design-canvas-editor",
   "uuid": "011b2c36-1bf1-44f2-afdd-997c17f06590",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-20T18:45:00.129Z",
-  "updated": "2026-10-21T03:22:21.172Z",
-  "lastActivity": "2026-10-21T03:22:21.172Z",
+  "updated": "2026-10-21T03:29:28.424Z",
+  "lastActivity": "2026-10-21T03:29:28.424Z",
   "title": "Design canvas editor",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-21T03:29:28.421Z",
+  "closeReason": "ACs 16/16, tasks 10/10. Only verify failures are outside 0974 (its code is specwithcode-dev only): specweave save.test.ts umbrella 5s timeouts at load avg ~129, vskill ModelList debounce unhandled error after teardown (678/678 files pass). Fresh review READY (reports/close-review.md); CSP fix #532 merged; follow-ups issue #535.",
+  "approvedAt": "2026-10-21T03:29:28.424Z"
 }
