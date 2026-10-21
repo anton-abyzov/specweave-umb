@@ -1,0 +1,27 @@
+{"t":"T-10","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:18:01.406Z"}
+{"t":"T-10","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:18:01.407Z","note":"launched by lead","evidence":"launched by lead (0968 thread launched from the lead thread, October 20)\nHEAD 8fac518b9"}
+{"t":"T-11","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T19:27:37.850Z"}
+{"t":"T-11","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T19:27:37.852Z","evidence":"637c3da0e3 (squash of #494)\nHEAD 800c059fc","line":"Contract PR #494 merged","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/494"}
+{"t":"T-01","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T20:35:17.938Z"}
+{"t":"T-01","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T20:35:17.940Z","evidence":"Merged in anton-abyzov/specwithcode-dev#503 (8e15999da4): checkpoints, lease epochs, side-effect fence; PR Gate, typecheck, Google gates green\nHEAD 0c5bf9c58","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/503"}
+{"t":"T-02","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T20:35:26.242Z"}
+{"t":"T-02","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T20:35:26.244Z","evidence":"Merged in anton-abyzov/specwithcode-dev#503 (8e15999da4): checkpoints, lease epochs, side-effect fence; PR Gate, typecheck, Google gates green\nHEAD 0c5bf9c58","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/503"}
+{"t":"T-04","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T20:35:39.375Z"}
+{"t":"T-04","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T20:35:39.377Z","evidence":"Merged in anton-abyzov/specwithcode-dev#503 (8e15999da4): checkpoints, lease epochs, side-effect fence; PR Gate, typecheck, Google gates green\nHEAD 0c5bf9c58","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/503"}
+{"t":"T-05","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T20:36:06.096Z"}
+{"t":"T-05","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T20:36:06.107Z","evidence":"Merged in anton-abyzov/specwithcode-dev#503 (8e15999da4): checkpoints, lease epochs, side-effect fence; PR Gate, typecheck, Google gates green\nHEAD 0c5bf9c58","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/503"}
+{"t":"T-12","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T20:36:13.359Z"}
+{"t":"T-12","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T20:36:13.360Z","evidence":"Merged in anton-abyzov/specwithcode-dev#503 (8e15999da4): checkpoints, lease epochs, side-effect fence; PR Gate, typecheck, Google gates green\nHEAD 0c5bf9c58","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/503"}
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:42.636Z","note":"session 12f1c371-9b9c-4643-9cdd-5773af38e223"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:42.637Z"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:42.639Z","evidence":"Merged in anton-abyzov/specwithcode-dev#533 (15ed773275): tick replicates checkpoints to linked logical-project fleet members; handoffMove.test.ts replication test\nHEAD 3ba97377b"}
+{"t":"T-13","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:43.135Z"}
+{"t":"T-13","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:43.136Z","evidence":"Merged in anton-abyzov/specwithcode-dev#533 (15ed773275): destination takeover resumes via ThreadLaunchService with handoffSeed; usage-limit move+resume test\nHEAD 3ba97377b"}
+{"t":"T-14","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:43.531Z"}
+{"t":"T-14","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:43.532Z","evidence":"Merged in anton-abyzov/specwithcode-dev#533 (15ed773275): peer preflight (ignored files, provider sign-in, grant, project link); failure leaves source untouched test\nHEAD 3ba97377b"}
+{"t":"T-15","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:43.917Z"}
+{"t":"T-15","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:43.918Z","evidence":"#515 042616ef17, #518 cc8bb8027a; markUnreachable + in-doubt handing-off lease and heartbeat fencing in anton-abyzov/specwithcode-dev#533 (15ed773275)\nHEAD 3ba97377b"}
+{"t":"T-16","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:44.281Z"}
+{"t":"T-16","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:44.282Z","evidence":"Merged in anton-abyzov/specwithcode-dev#533 (15ed773275): join only via explicit logicalProject link (linkedLocalProject); unlinked same-name project refused test\nHEAD 3ba97377b"}
+{"t":"T-18","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:44.648Z"}
+{"t":"T-18","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-21T03:43:44.649Z","evidence":"Merged in anton-abyzov/specwithcode-dev#533 (15ed773275): 10 fault scenarios (lost answer, stale epoch, partition self-fence, continue-here); receipt ~/.specwithcode/m4/proofs/0967-handoff-proof/receipt.json 77 passed 0 failed\nHEAD 3ba97377b"}
