@@ -1,0 +1,15 @@
+{
+  "id": "0980-aide-reusable-routines",
+  "uuid": "c6767ac9-2156-460a-adad-64217e3f0d02",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-21T02:27:27.765Z",
+  "updated": "2026-10-21T02:50:02.209Z",
+  "lastActivity": "2026-10-21T02:50:02.209Z",
+  "title": "Reusable routines in the personal assistant",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
