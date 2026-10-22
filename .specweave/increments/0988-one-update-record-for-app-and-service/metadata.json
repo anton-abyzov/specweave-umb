@@ -1,0 +1,17 @@
+{
+  "id": "0988-one-update-record-for-app-and-service",
+  "uuid": "db5f5065-a1db-4f3f-a827-96a1323f4e4c",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-21T21:56:06.078Z",
+  "updated": "2026-10-22T01:55:01.934Z",
+  "lastActivity": "2026-10-22T01:55:01.934Z",
+  "title": "One update record for app and service",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-22T01:55:01.933Z",
+  "approvedAt": "2026-10-22T01:55:01.934Z"
+}
