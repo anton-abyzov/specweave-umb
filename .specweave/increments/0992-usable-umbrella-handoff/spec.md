@@ -24,6 +24,7 @@ Separate UI, source-scope, and Git/remote-verification worktrees based on merged
 - D-02: Never silently widen to arbitrary parents. Recommend only a verified umbrella, show its actual path and included repositories, retain explicit child-only scope.
 - D-03: Each machine retains its own coordinator/service; running processes and credentials remain local.
 - D-04: Distinguish real production transfers, isolated coordinator tests, UI fixtures and installed-runtime evidence.
+- D-05: Release this fix as 1.0.71. A separate owner published 1.0.70 from `48677137815f642cbd605b67da7ef0d7fa2837f1` while PR #590 was validating; preserve that release and its installation work. The earlier 0992 preparation for 1.0.70 did not publish a candidate.
 ### Open
 - None.
 
@@ -32,10 +33,10 @@ Separate UI, source-scope, and Git/remote-verification worktrees based on merged
 - AC: AC-01, AC-05 | Files: apps/web/src/components/studio/MachineHandoffDialog.tsx, apps/web/src/components/studio/HandoffFolderCopy.tsx, apps/web/src/components/studio/ProjectMachineHandoff.tsx, adjacent footer helpers and tests, apps/web/tests/folder-copy | Test: focused handoff UI tests and headless folder-copy verification at desktop/mobile sizes
 
 ### T-02 Resolve and validate umbrella copy scope
-- AC: AC-02, AC-05 | Files: packages/contracts/src/folderCopy.ts, packages/contracts/src index/RPC exports, apps/server/src/fleet/MachineHandoff.ts, extracted folder-copy handlers, apps/server/src/fleet/folderCopyScope.ts and tests, apps/server/src/fleet/folderCopyPreparation.ts, source scope commands/client plumbing and tests | Test: focused source-scope contract/service tests and production server build
+- AC: AC-02, AC-05 | Files: packages/contracts/src/folderCopy.ts, packages/contracts/src/machineHandoff.ts, packages/contracts/src/clientRpcPermissions.ts, packages/contracts/src index/RPC exports, packages/client-runtime operation plumbing, apps/server/src/fleet/MachineHandoff.ts, extracted folder-copy handlers, apps/server/src/fleet/folderCopyScope.ts and tests, apps/server/src/fleet/folderCopyPreparation.ts, apps/server/src/fleet/FolderCopyHandoff.ts, folderTransfer/sourceService.ts, folderTransfer/destinationService.ts, folderTransfer/manifest.ts, folderTransfer/sourceClient.ts metadata sections, source scope commands/client plumbing and tests | Test: focused source-scope contract/service tests and production server build
 
 ### T-03 Preserve portable Git worktrees and verify remote consolidation
-- AC: AC-03, AC-04, AC-05 | Files: apps/server/src/fleet/folderTransfer Git snapshot/scan/reconcile/apply helpers and tests, apps/server/scripts/folder-transfer-acceptance.ts, scripts/studio-folder-transfer | Test: focused folderTransfer tests and real Mac-to-Ministorm scenario harness with Git/content/Undo/source-preservation receipts
+- AC: AC-03, AC-04, AC-05 | Files: apps/server/src/fleet/folderTransfer Git snapshot/scan/reconcile/apply helpers and tests, apps/server/scripts/folder-transfer-acceptance.ts, apps/server/scripts/folder-transfer-consolidation.ts, scripts/studio-folder-transfer | Test: focused folderTransfer tests and real Mac-to-Ministorm scenario harness with Git/content/Undo/source-preservation receipts
 
 ### T-04 Integrate source scope and verify complete UI
 - AC: AC-01, AC-02, AC-05 | Files: apps/web/src/components/studio/HandoffFolderCopy.tsx, extracted source-scope UI, apps/web/src/studio/folderCopy.ts, apps/web/src/components/studio/ProjectMachineHandoff.tsx, adjacent tests, apps/web/tests/folder-copy | Test: focused combined UI tests, web production build and headless light/dark desktop/mobile screenshots
