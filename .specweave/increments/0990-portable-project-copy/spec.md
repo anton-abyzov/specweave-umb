@@ -27,13 +27,16 @@ The source is registered workspaceRoot; never silently widen to arbitrary parent
 
 ## Tasks
 ### T-01 Active copy backend
-- AC: AC-01 | Files: apps/server/src/fleet/MachineHandoff.ts, apps/server/src/fleet/MachineHandoffFolderCopy.test.ts, apps/server/src/fleet/folderTransfer/sourceService.ts, packages/contracts/src/folderCopy.ts, focused backend tests | Test: focused folder-copy and MachineHandoff tests with coverage
+- AC: AC-01 | Files: apps/server/src/fleet/MachineHandoff.ts, apps/server/src/fleet/MachineHandoffFolderCopy.test.ts, apps/server/src/fleet/folderCopyPreparation.ts, apps/server/src/fleet/folderTransfer/sourceService.ts, packages/contracts/src/folderCopy.ts, focused backend tests | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/codex-0990-copy && node node_modules/vite-plus/bin/vp test run apps/server/src/fleet/MachineHandoff*.test.ts apps/server/src/fleet/FolderCopyHandoff.test.ts apps/server/src/fleet/folderTransfer --maxWorkers=2 --coverage
 
 ### T-02 Destination paths and clear copy flow
-- AC: AC-01, AC-02, AC-04 | Files: apps/web/src/components/studio/HandoffFolderCopy.tsx, apps/web/src/components/studio/ProjectMachineHandoff.tsx, apps/web/src/studio/folderCopy.ts, adjacent tests, apps/web/tests/folder-copy | Test: focused component tests and headless copy-dialog verification
+- AC: AC-01, AC-02, AC-04 | Files: apps/web/src/components/studio/HandoffFolderCopy.tsx, apps/web/src/components/studio/ProjectMachineHandoff.tsx, apps/web/src/studio/folderCopy.ts, adjacent tests, apps/web/tests/folder-copy | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/codex-0990-copy && node node_modules/vite-plus/bin/vp test run apps/web/src/components/studio/HandoffFolderCopy.test.tsx apps/web/src/studio/folderCopy.test.ts && node apps/web/tests/folder-copy/verify.mjs
 
 ### T-03 Real Linux transfer proof
-- AC: AC-02, AC-03 | Files: scripts/studio-folder-transfer/ministorm-verify.mjs, scripts/studio-folder-transfer remote helpers, evidence receipt | Test: isolated production transfer engine Mac-to-ministorm with content hashes and Git checks
+- AC: AC-02, AC-03 | Files: scripts/studio-folder-transfer/ministorm-verify.mjs, scripts/studio-folder-transfer remote helpers, evidence receipt | Test: node scripts/studio-folder-transfer/ministorm-verify.mjs <new-absolute-report-directory> /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave
 
 ### T-04 Documentation, integrated review and completion
 - AC: AC-04 | Files: docs/user/moving-a-project.md, increment reports | Test: focused coverage, web/server production builds, independent review, specweave verify 0990, manual UI acceptance, specweave complete 0990
+
+### T-05 Recover a copied snapshot without losing an ownership fence
+- AC: AC-01, AC-04 | Files: apps/server/src/fleet/MachineHandoff.ts, apps/server/src/fleet/folderCopyPreparation.ts, apps/server/src/fleet/folderTransfer/sourceService.ts, apps/server/src/fleet/MachineHandoffFolderCopy.test.ts, apps/server/src/fleet/folderTransfer/sourceService.test.ts | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/codex-0990-copy && node node_modules/vite-plus/bin/vp test run apps/server/src/fleet/MachineHandoffFolderCopy.test.ts apps/server/src/fleet/folderTransfer/sourceService.test.ts
