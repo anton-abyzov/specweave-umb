@@ -1,0 +1,12 @@
+{
+  "id": "0990-portable-project-copy",
+  "uuid": "22868734-ba7f-461c-99a9-fe069885690d",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-22T00:12:36.538Z",
+  "updated": "2026-10-22T00:12:36.538Z",
+  "lastActivity": "2026-10-22T00:12:36.538Z",
+  "title": "Portable project copy with active work",
+  "project": "specweave-umb"
+}
