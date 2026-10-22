@@ -1,0 +1,17 @@
+{
+  "id": "0991-forced-update-closes-and-reopens-questions",
+  "uuid": "766b32a9-6eb1-4808-bc0e-1d5a3b81df30",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-22T00:34:15.142Z",
+  "updated": "2026-10-22T02:19:35.144Z",
+  "lastActivity": "2026-10-22T02:19:35.144Z",
+  "title": "Forced update closes and reopens questions",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-22T02:19:35.143Z",
+  "approvedAt": "2026-10-22T02:19:35.144Z"
+}
