@@ -1,0 +1,17 @@
+{
+  "id": "0996-plan-timeline-forecasts-and-required-increments",
+  "uuid": "f64abe18-7eaa-4cd8-9fad-b68204368fcb",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-22T18:13:31.293Z",
+  "updated": "2026-10-22T18:43:16.557Z",
+  "lastActivity": "2026-10-22T18:43:16.557Z",
+  "title": "Plan timeline, forecasts and required increments",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-22T18:43:16.556Z",
+  "approvedAt": "2026-10-22T18:43:16.557Z"
+}
