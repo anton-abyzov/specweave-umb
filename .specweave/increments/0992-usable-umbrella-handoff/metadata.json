@@ -1,0 +1,12 @@
+{
+  "id": "0992-usable-umbrella-handoff",
+  "uuid": "8c768860-197f-41e3-947e-465ea332f771",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-22T08:03:18.742Z",
+  "updated": "2026-10-22T08:05:58.302Z",
+  "lastActivity": "2026-10-22T08:05:58.302Z",
+  "title": "Usable umbrella handoff and unfinished work portability",
+  "project": "specweave-umb"
+}
