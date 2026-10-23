@@ -97,7 +97,7 @@
   },
   "planning": {
     "deepInterview": "critical",
-    "requireIncrement": "enforce"
+    "requireIncrement": "remind"
   },
   "cicd": {
     "pushStrategy": "direct",
