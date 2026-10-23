@@ -40,3 +40,6 @@ Use /Users/antonabyzov/.specwithcode/m4/worktrees/harness-support-1020 on feat/h
 
 ### T-04 Verify and close 1020
 - AC: AC-05 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/harness-support-1020/report.md | Test: specweave verify 1020
+
+### T-05 Repair PR 632 typecheck diagnostics, verify and close 1020
+- AC: AC-05 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/harness-support-1020/apps/server/src/orchestration-v2/Adapters/OpenCodeAdapterV2.live.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/harness-support-1020/apps/web/src/components/chat/HarnessDescription.test.tsx | Test: CI=1 TYPECHECK_TSC_ARGS="--checkers 2" bash /Users/antonabyzov/.specwithcode/m4/worktrees/harness-support-1020/scripts/studio-verify/typecheck-gate.sh --jobs 1
