@@ -26,6 +26,8 @@ HOSTS = ("m1", "m3")
 REPOSITORIES = {"sw-easychamp": ("sw-easychamp", "ec-console-ui"),
                 "jobweave": ("jobweave-umb", "jobweave"), "specweave": ("specweave-umb", "specweave")}
 HEX40 = re.compile(r"[a-f0-9]{40}\Z")
+# SpecWithCode home, and the pre-October 16, 2026 legacy home that older evidence records.
+STUDIO_HOMES = (".specwithcode", ".specweave-studio")
 HEX64 = re.compile(r"[a-f0-9]{64}\Z")
 UUID = re.compile(r"[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}\Z")
 RUNNER = Path(__file__).with_name("replay_product_native.mjs")
@@ -945,7 +947,7 @@ def staged_credential_creation(evidence, proof, stage, launch, readback, identit
             and absolute(audit["binding"]["path"]).name == "binding.json", "credential audit binding differs")
     file = audit["file"]
     require(set(file) == {"path", "uid", "mode", "bytes", "device", "inode", "mtimeNs", "birthtime", "sha256"}
-            and absolute(file["path"]) == home / ".specweave-studio/m4/userdata" / name
+            and absolute(file["path"]) in {home / h / "m4/userdata" / name for h in STUDIO_HOMES}
             and type(file["uid"]) is int and file["uid"] == identity["uid"]
             and type(file["mode"]) is int and file["mode"] == 0o600
             and all(type(file[k]) is int and file[k] > 0 for k in ("bytes", "device", "inode", "mtimeNs"))
@@ -1002,8 +1004,8 @@ def staged_native_process(evidence, proof, candidate, version, asar_sha):
     require(start["argv"] == [executable] and spawn["pid"] == identity["pid"]
             and spawn["executable"] == executable, "staged spawn differs from launch")
     home = absolute(start["cwd"])
-    require(start["environmentOverrides"] == {"STUDIO_HOME": str(home / ".specweave-studio/m4"),
-                                             "STUDIO_DISABLE_AUTO_UPDATE": "true"},
+    require(start["environmentOverrides"] in [{"STUDIO_HOME": str(home / h / "m4"),
+                                               "STUDIO_DISABLE_AUTO_UPDATE": "true"} for h in STUDIO_HOMES],
             "staged launch environment differs")
     require(readback["phase"] == "candidate-native-settings-ui-verified"
             and readback["appPath"] == launch["appPath"] and readback["sixRouteOwnerEvidenceRequired"] is True
