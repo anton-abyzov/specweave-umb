@@ -1,0 +1,13 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:37.115Z","note":"session 6c6a6305-54c6-4b86-97e1-4aaba51ee486"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:37.116Z"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:37.117Z","evidence":"d94f275e5 f85656cac (specweave#2131); vitest utils/hooks/core-hooks 1174 passed\nHEAD df0d3fc12","link":"https://github.com/anton-abyzov/specweave/pull/2131"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:37.473Z"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:37.474Z","evidence":"d94f275e5 ce78aacb8 (specweave#2131); small-fix + require-increment tests pass\nHEAD df0d3fc12","link":"https://github.com/anton-abyzov/specweave/pull/2131"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:37.825Z"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:37.826Z","evidence":"d94f275e5 0848ea8d2 (specweave#2131); require-increment.test.ts pass\nHEAD df0d3fc12","link":"https://github.com/anton-abyzov/specweave/pull/2131"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:38.182Z"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:38.183Z","evidence":"specwithcode-dev#618 00a13d07d; providerSpawnSites + adapter tests pass\nHEAD df0d3fc12","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/618"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:38.523Z"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:38.525Z","evidence":"specwithcode-dev#618 931ef9fdb; launch/MCP tests pass, typecheck gate 0 new\nHEAD df0d3fc12","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/618"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:38.871Z"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:54:38.873Z","evidence":"specwithcode-dev#618 ce6af4ed4; service + web tests, headless plan-progress pass\nHEAD df0d3fc12","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/618"}

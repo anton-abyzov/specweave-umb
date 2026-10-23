@@ -5,9 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-22T22:08:56.596Z",
-  "updated": "2026-10-22T22:08:56.596Z",
-  "lastActivity": "2026-10-22T22:08:56.598Z",
+  "updated": "2026-10-22T22:54:38.873Z",
+  "lastActivity": "2026-10-22T22:54:38.873Z",
   "title": "Connect SpecWithCode launches to increments",
   "project": "specweave-umb",
-  "parent": "0996-plan-timeline-forecasts-and-required-increments"
+  "parent": "0996-plan-timeline-forecasts-and-required-increments",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
