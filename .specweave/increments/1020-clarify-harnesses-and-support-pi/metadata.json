@@ -1,0 +1,17 @@
+{
+  "id": "1020-clarify-harnesses-and-support-pi",
+  "uuid": "7e068b27-8643-43c7-97f6-309e22d22913",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T05:51:50.097Z",
+  "updated": "2026-10-23T06:08:38.590Z",
+  "lastActivity": "2026-10-23T06:08:38.590Z",
+  "title": "Clarify harnesses and support Pi",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T06:08:38.589Z",
+  "approvedAt": "2026-10-23T06:08:38.590Z"
+}
