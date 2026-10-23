@@ -81,5 +81,13 @@ Extend packages/shared/src/providerFallback.ts and apps/server/src/orchestration
 ### T-11 Fault tests
 - AC: AC-12 | Files: two-server verification script | Test: the script
 
+### T-13 Verify recovery after the target reconnects
+- AC: AC-12 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/0968-closure/scripts/studio-limit-handoff/verify.mjs | Test: two-server verification script with simulated usage and headless screenshots
+- Review finding, October 22, 2026: #550 retries the pending takeover when the target returns. Require exactly one target continuation, no source retry, and preserve the offline hold checks. The previous assertion that the thread remains stuck is obsolete.
+
+### T-14 Prove a running turn hits the limit
+- AC: AC-09, AC-12 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/0968-closure/scripts/studio-limit-handoff/verify.mjs, /Users/antonabyzov/.specwithcode/m4/worktrees/0968-closure/scripts/studio-logical-projects/link-launch-agent.mjs | Test: two-server verification script with a model-free provider writing partial work before returning a usage-limit error
+- Review finding, October 22, 2026: the existing simulation rejects the turn before a provider starts. Make the fixture execute a turn and preserve its partial output and file through the portable checkpoint before the source-offline fault. Never invoke a paid provider.
+
 ### T-12 Verify and close 0968
 - AC: all | Files: none | Test: specweave verify, fresh-context review, specweave complete

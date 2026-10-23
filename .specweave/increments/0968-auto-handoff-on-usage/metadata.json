@@ -1,15 +1,17 @@
 {
   "id": "0968-auto-handoff-on-usage",
   "uuid": "d2246978-0f3b-46ec-8733-368748368a3a",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-20T17:49:58.000Z",
-  "updated": "2026-10-21T15:24:42.647Z",
-  "lastActivity": "2026-10-21T15:24:42.647Z",
+  "updated": "2026-10-23T18:08:51.638Z",
+  "lastActivity": "2026-10-23T18:08:51.638Z",
   "title": "Automatic handoff when a provider nears its usage limit",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T18:08:51.637Z",
+  "approvedAt": "2026-10-23T18:08:51.638Z"
 }
