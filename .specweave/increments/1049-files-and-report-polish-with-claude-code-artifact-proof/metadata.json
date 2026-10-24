@@ -1,0 +1,12 @@
+{
+  "id": "1049-files-and-report-polish-with-claude-code-artifact-proof",
+  "uuid": "01089baf-6dc6-42c0-ad72-496f2d7ef836",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-24T07:19:45.680Z",
+  "updated": "2026-10-24T07:21:56.524Z",
+  "lastActivity": "2026-10-24T07:21:56.524Z",
+  "title": "Files and report polish with Claude Code artifact proof",
+  "project": "specweave-umb"
+}
