@@ -1,0 +1,15 @@
+{
+  "id": "1005-readable-thread-row-fallback-badge",
+  "uuid": "767a5167-7616-4e92-ac4b-777c88e5af95",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T04:43:59.087Z",
+  "updated": "2026-10-23T13:03:10.250Z",
+  "lastActivity": "2026-10-23T13:03:10.250Z",
+  "title": "Readable thread row fallback badge",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

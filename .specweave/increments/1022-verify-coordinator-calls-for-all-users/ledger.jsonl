@@ -1,0 +1,12 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-23T06:06:09.575Z","note":"session 01a1675b-ea81-7412-824b-ce3ad2f7f7d7"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T06:06:09.576Z"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T06:08:26.407Z"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T06:08:26.733Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T06:20:33.586Z","evidence":"221a4ebb2: source entry points, native status, auth/grants and proof limits in owned report\nHEAD 4dd4cd64f"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T06:20:34.227Z"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T06:23:02.780Z","evidence":"84f488335: credential-free coordinator/default selection tests and source gates; shared/web typechecks pass\nHEAD 0c50cf4a3"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T06:23:03.155Z","evidence":"84f488335: native prepare gate, voice hook tests, five headless browser scenarios; production web/server/desktop builds and Swift compile\nHEAD 0c50cf4a3"}
+{"t":"T-04","e":"block","by":"codex@antons-macbook-m4max","at":"2026-10-23T06:25:54.942Z","note":"Source review PASS, 174 tests and 5 headless scenarios pass. App AGENTS.md requires concrete manual acceptance for new UI/auth: installed native microphone, spoken coordinator reply, mute and hang-up. No live account/config/paid test authorized."}
+{"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T06:35:26.393Z"}
+{"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T13:02:08.417Z"}
+{"t":"T-05","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T13:02:08.419Z","evidence":"8f0b1ca11: repaired two TS377033 test provisions; CI=1 TYPECHECK_TSC_ARGS=--checkers 2 gate passed 15 packages, zero new diagnostics; 174 focused tests pass; fresh review PASS. Baseline unchanged. Existing PR 633 fast-forward update; installed T-04 retained.\nHEAD 90dbbfc5f"}

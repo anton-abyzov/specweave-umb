@@ -1,0 +1,17 @@
+{
+  "id": "1010-technical-creators-and-review-budget",
+  "uuid": "515d4eed-efa0-4094-b5d9-fe74282dd055",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T05:13:39.677Z",
+  "updated": "2026-10-23T05:20:40.313Z",
+  "lastActivity": "2026-10-23T05:20:40.313Z",
+  "title": "Technical creators and review budget",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T05:20:40.312Z",
+  "approvedAt": "2026-10-23T05:20:40.313Z"
+}

@@ -2,7 +2,7 @@
 
 ## Problem
 
-The user (October 20, 2026): build installable, fully working Windows and Linux SpecWithCode applications that match macOS functionality, with platform caveats stated, including pairing, the project coordinator and threads, and full test suites running on both operating systems. October 21: "complete the job".
+The user (October 20, 2026): build installable, fully working Windows and Linux SpecWithCode applications that match macOS functionality, with platform caveats stated, including pairing, the project coordinator and threads, and full test suites running on both operating systems. October 21: "complete the job". October 24: make Windows and Linux usable, part of the release and downloadable on the website.
 
 State on October 21: PR anton-abyzov/specwithcode-dev#477 (draft, branch `feat/windows-linux-desktop`, worktree `~/.specwithcode/m4/worktrees/windows-linux`) builds an unsigned NSIS installer and a Linux AppImage/.deb that install and launch in CI, but the full platform run fails on Windows (about 100 test files across server, desktop, web and packages) and one Linux scripts test; the installed-app end-to-end check and the background-service check have not run on a real OS; the CLI single-exe build is broken on main (zod/v3 subpaths), so Windows and Linux CLI archives can't be produced.
 
@@ -28,6 +28,7 @@ Out:
 - [ ] AC-07: `release-windows-linux.yml` publishes Windows and Linux assets beside the macOS release without changing macOS signing and notarization gates; a release is dispatched only after coordination with the project coordinator and current release owners, and its assets are read back (download, checksum, install smoke).
 - [ ] AC-08: User docs list install steps and OS caveats (unsigned Windows installer, computer use macOS-only, Linux update path, service differences).
 - [ ] AC-09: PR #477 passes required checks, gets a fresh-context review (Claude Opus 5.5 high, or Codex high when Claude is out of usage) with findings resolved, and is merged to main.
+- [ ] AC-10: The product download page (https://spec-weave.com/code/download/) links the published Windows installer and the Linux AppImage and .deb of the release that carries them, with their caveats; each link returns HTTP 200 and the page is checked headless after deploy.
 
 ## Approach
 
@@ -68,7 +69,7 @@ Out:
 - AC: AC-06 | Files: apps/server/scripts/cli.ts build-exe, release-windows-linux.yml | Test: build-exe on windows-2025 and ubuntu-24.04
 
 ### T-08 Docs and caveats
-- AC: AC-08 | Files: docs/user/** | Test: docs build
+- AC: AC-08 | Files: docs/user/** | Test: Markdown formatting and local-link validation; CI readback of documented installer paths and asset names (the repository has no docs build target)
 
 ### T-09 Review and merge PR #477
 - AC: AC-09 | Files: PR #477 | Test: required checks green; fresh-context review
@@ -76,5 +77,11 @@ Out:
 ### T-10 Coordinated release and artifact readback
 - AC: AC-07 | Files: release-windows-linux.yml run | Test: download, checksum and install smoke of published assets
 
+### T-12 CI history and browser prerequisites
+- AC: AC-04 | Files: .github/workflows/windows-tests.yml, .github/workflows/platform-tests.yml | Test: full-history preservation audit and headless browser tests in Windows CI; workflow YAML validation
+
+### T-13 Website download links
+- AC: AC-10 | Files: specweave repo docs-site/src/pages/code/download.tsx, docs-site/src/data/specwithcodeRelease.ts | Test: docs-site vitest with CHECK_RELEASE_LINKS=1; headless check of the live page
+
 ### T-11 Verify and close 0984
-- AC: AC-01..AC-09 | Files: .specweave/increments/0984-windows-linux-desktop | Test: specweave verify; fresh-context review; specweave complete
+- AC: AC-01..AC-10 | Files: .specweave/increments/0984-windows-linux-desktop | Test: specweave verify; fresh-context review; specweave complete

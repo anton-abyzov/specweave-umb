@@ -1,0 +1,15 @@
+{
+  "id": "1047-claude-account-change-resume",
+  "uuid": "bbcdd731-c0d1-4140-a395-c86a2160ea28",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-24T04:52:35.078Z",
+  "updated": "2026-10-24T12:25:17.414Z",
+  "lastActivity": "2026-10-24T12:25:17.414Z",
+  "title": "Resume limit-paused Claude threads after an account change",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -1,0 +1,17 @@
+{
+  "id": "1014-implement-t3-connect-setup",
+  "uuid": "27475c4f-e8db-4dd0-9ad6-902c09bd1622",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T05:23:06.990Z",
+  "updated": "2026-10-23T05:40:16.236Z",
+  "lastActivity": "2026-10-23T05:40:16.236Z",
+  "title": "Implement T3 Connect setup",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T05:40:16.235Z",
+  "approvedAt": "2026-10-23T05:40:16.236Z"
+}

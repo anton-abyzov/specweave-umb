@@ -1,0 +1,15 @@
+{
+  "id": "1036-implement-desktop-push-notifications",
+  "uuid": "8c99e083-f87c-4198-946a-0c0fb5aa912b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T22:07:57.693Z",
+  "updated": "2026-10-24T02:03:59.264Z",
+  "lastActivity": "2026-10-24T02:03:59.264Z",
+  "title": "Implement desktop push notifications",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

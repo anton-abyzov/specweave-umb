@@ -1,0 +1,17 @@
+{
+  "id": "0995-readable-provider-errors-and-context-recovery",
+  "uuid": "52cae298-face-4c92-a38c-300602b842af",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-22T17:57:23.429Z",
+  "updated": "2026-10-22T21:50:11.150Z",
+  "lastActivity": "2026-10-22T21:50:11.150Z",
+  "title": "Readable provider errors and context recovery",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-22T21:50:11.149Z",
+  "approvedAt": "2026-10-22T21:50:11.150Z"
+}

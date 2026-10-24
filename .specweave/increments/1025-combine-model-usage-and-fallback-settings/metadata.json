@@ -1,0 +1,15 @@
+{
+  "id": "1025-combine-model-usage-and-fallback-settings",
+  "uuid": "895daa47-7dc4-466d-ae10-2dc9c4ef7c8e",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T12:34:35.445Z",
+  "updated": "2026-10-23T13:03:09.553Z",
+  "lastActivity": "2026-10-23T13:03:09.553Z",
+  "title": "Combine model usage and fallback settings",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -1,0 +1,18 @@
+{
+  "id": "1028-recover-runs-closed-by-update-drains-and-label-interrupts-by-cause",
+  "uuid": "c89b63b9-cbcd-4cd9-8928-ca63f1946917",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-23T15:02:16.030Z",
+  "updated": "2026-10-23T16:29:20.027Z",
+  "lastActivity": "2026-10-23T16:29:20.027Z",
+  "title": "Recover runs closed by update drains and label interrupts by cause",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T16:29:20.026Z",
+  "closeReason": "Verify fails only in repositories/anton-abyzov/specweave test:unit:fast, which 1028 does not touch (its change is specwithcode-dev PR #638, CI green). Failing tests differ per run (session-checkpoint, save, handoff-roundtrip) and pass in isolation (session-checkpoint 3/3): load flakiness.",
+  "approvedAt": "2026-10-23T16:29:20.027Z"
+}

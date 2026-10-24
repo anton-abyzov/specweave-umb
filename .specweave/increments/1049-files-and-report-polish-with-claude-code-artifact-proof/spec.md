@@ -35,9 +35,9 @@ Out:
   - **unknown**: not yet checked.
 
   Opening a missing file shows an explained empty state with the last known path, not an error toast.
-- [ ] AC-05: Property card values wrap only at path and identifier separators (`/`, `\`, `-`, `_`, `.`, `:`), keys never wrap below their minimum width, and selecting or copying a value yields the exact original text. This is checked at 360 px, 1280 px and 200% zoom.
+- [ ] AC-05: Property card values wrap only at path and identifier separators (`/`, `\`, `-`, `_`, `.`, `:`), keys never wrap below their minimum width, and selecting or copying a value yields the exact original text. A single unbroken segment wider than its column, such as a long hash, may still break inside the segment as a last resort. This is checked at 360 px, 1280 px and 200% zoom.
 - [ ] AC-06: The file reader always shows a labeled Close, Escape closes it, and focus returns to the link that opened it. A file link opens in the focused viewer when the conversation and reader cannot both stay readable side by side (D-05). "Open beside" is available when they can.
-- [ ] AC-07: Files entries, pins and hides survive a reload and an app update, a provider switch in the same thread (Claude, Codex, Claude), and migration of the thread to another machine. After migration, file states re-resolve on the new machine. Tests drive each case.
+- [ ] AC-07: Files entries, pins and hides survive a reload and an app update, a provider switch in the same thread (Claude, Codex, Claude), and migration of the thread to another machine. After migration, file states re-resolve on the new machine. Tests drive each case. Pins and hides are stored on the client, so another device or browser profile starts empty; the criterion does not cover cross-device continuity.
 - [ ] AC-08: Delivery meets all of these:
   - focused tests pass;
   - web typecheck and production build pass;
@@ -61,16 +61,16 @@ Risks:
 ## Decisions
 
 ### Asked
-- none
+- D-06 Allow one isolated, consented live publish? Anton, October 24, 2026: "YES, run it once", following the recommendations. Run at 07:28 UTC with a synthetic page, auto-open off, Artifact/Read/Edit only. It published v1, updated in place to v2 (same URL, `seq` 2), read back once, and confirmed that an unauthenticated GET serves only a generic shell. Receipt: `/Users/antonabyzov/.specwithcode/m4/evidence/1049-files-report-polish/live-publish/receipt.json`. The artifact remains in the account; the tool has no delete operation.
+- D-07 Implementation binding ("work autonomously"): implement in the bound worktree as commits stacked on `12d8775f0`. Push only to the new remote branch `feat/files-artifacts-1049`, never to `feat/report-experience-1035`, and open a draft PR based on it. Retarget to `main` and rebase after #661 merges.
 ### Defaulted (change any before sw-do)
 - D-01 Research ownership: a Fable 5.1 subagent (`claudeAgent` `claude-fable-5-1`, high effort) delegated from the bound writer thread does T-01 read-only and writes only to this increment's `reports/` folder and `/Users/antonabyzov/.specwithcode/m4/evidence/1049-files-report-polish/research/`. Implementation stays native Opus 5.5 Ultracode in the bound writer thread. If Fable 5.1 is unavailable, the task stops and reports it; there is no substitute model.
-- D-02 There is no live Artifact publish, read or update. Live availability stays unverified unless D-06 is approved.
+- D-02 The only live account action is the single D-06 run. App-launched sessions stay at the SDK default (`sdk_default_off`), and enabling the tool there is a later opt-in.
 - D-03 Native entries are display-only references. There is no source snapshot and no account-wide import.
 - D-04 This increment is web-only. It parses existing tool output and makes no adapter or server edits.
 - D-05 Width rule: a file link opens in the focused viewer when the right panel would leave the conversation under 560 px or the reader under 480 px. Otherwise it opens in the right panel with a persistent Close. The rule is reversible.
 ### Open
-- D-06 (Anton) Allow one isolated, consented publish experiment: a synthetic source, browser auto-open off, his eligible claude.ai login, observing the init roster, output, update and conflict behavior, and private-URL access. Recommendation: not now. Ship T-03 on fixtures and run the experiment as its own lane if he wants hosted publishing.
-- D-07 (coordinator) Implementation binding: this checkout is `feat/report-experience-1035` (PR #661, frozen). The writer may not switch branches or create worktrees. Recommendation: launch an app-managed worktree from `main` for this increment after #661 merges, keeping the same writer thread. T-01 and T-02 need no checkout and can start now.
+- none
 
 ## Tasks
 
@@ -81,16 +81,16 @@ Risks:
 - AC: AC-03, AC-04, AC-05, AC-06, AC-07 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/1049-files-report-polish/design/ | Test: the matrix lists each state and transition with its expected UI. Headless `html_preview` captures of the popover, property card and reader cover light and dark at 360 px and 1280 px.
 
 ### T-03 Native Artifact references in Files
-- AC: AC-02 | Files: apps/web/src/nativeArtifacts.ts, apps/web/src/nativeArtifacts.test.ts, apps/web/src/threadArtifacts.ts, apps/web/src/artifactShelf.ts | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/nativeArtifacts.test.ts apps/web/src/artifactShelf.test.ts
+- AC: AC-02 | Files: apps/web/src/nativeArtifacts.ts, apps/web/src/nativeArtifacts.test.ts, apps/web/src/threadArtifacts.ts, apps/web/src/artifactShelf.ts, apps/web/src/components/chat/ThreadArtifacts.tsx, apps/web/src/components/chat/useNativeArtifacts.ts | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/nativeArtifacts.test.ts apps/web/src/artifactShelf.test.ts
 
 ### T-04 Files rows and file states
-- AC: AC-03, AC-04 | Files: apps/web/src/components/chat/ArtifactShelfList.tsx, apps/web/src/components/chat/ThreadArtifacts.tsx, apps/web/src/artifactShelf.ts, apps/web/src/components/chat/ArtifactShelfList.test.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/chat/ArtifactShelfList.test.tsx apps/web/src/artifactShelf.test.ts
+- AC: AC-03, AC-04 | Files: apps/web/src/components/chat/ArtifactShelfList.tsx, apps/web/src/components/chat/ThreadArtifacts.tsx, apps/web/src/artifactShelf.ts, apps/web/src/components/chat/ArtifactShelfList.test.tsx, the missing-file hook | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/chat/ArtifactShelfList.test.tsx apps/web/src/artifactShelf.test.ts
 
 ### T-05 Path-aware property cards
-- AC: AC-05 | Files: apps/web/src/components/chat/StructuredBlocks.tsx, apps/web/src/components/chat/structuredBlocks.logic.ts, apps/web/src/components/chat/StructuredBlocks.test.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/chat/StructuredBlocks.test.tsx
+- AC: AC-05 | Files: apps/web/src/components/chat/StructuredBlocks.tsx, apps/web/src/components/chat/structuredBlocks.logic.ts, apps/web/src/components/chat/structuredBlocks.logic.test.ts, apps/web/src/components/chat/StructuredBlocks.test.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/chat/StructuredBlocks.test.tsx apps/web/src/components/chat/structuredBlocks.logic.test.ts apps/web/src/components/studio/RoutineRunCard.test.tsx
 
 ### T-06 File reader close and width-aware opening
-- AC: AC-06 | Files: apps/web/src/components/RightPanelTabs.tsx, apps/web/src/components/ui/panel-tab-close-button.tsx, apps/web/src/components/ViewerOverlayHost.tsx, apps/web/src/components/RightPanelTabs.test.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/RightPanelTabs.test.tsx apps/web/src/components/ViewerOverlayRouteGuard.test.tsx
+- AC: AC-06 | Files: apps/web/src/components/RightPanelTabs.tsx, apps/web/src/components/ui/panel-tab-close-button.tsx, apps/web/src/components/ViewerOverlayHost.tsx, apps/web/src/components/ChatView.tsx (two one-line additions), apps/web/src/components/RightPanelTabs.test.tsx, apps/web/src/components/RightPanelTabs.keyboard.test.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/RightPanelTabs.test.tsx apps/web/src/components/ViewerOverlayRouteGuard.test.tsx
 
 ### T-07 Continuity across reloads, updates, providers and machines
 - AC: AC-07 | Files: apps/web/src/components/chat/useArtifactShelfState.ts, apps/web/src/components/chat/useArtifactShelfState.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/chat/useArtifactShelfState.test.ts

@@ -1,0 +1,15 @@
+{
+  "id": "1009-cursor-support-and-settings-design",
+  "uuid": "ccc246bc-acc3-448f-8135-197e080a7e5c",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T05:10:47.731Z",
+  "updated": "2026-10-24T06:05:46.736Z",
+  "lastActivity": "2026-10-24T06:05:46.736Z",
+  "title": "Cursor support and settings design",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

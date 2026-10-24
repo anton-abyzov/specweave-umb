@@ -1,0 +1,17 @@
+{
+  "id": "1012-fix-ide-zoom-shortcuts",
+  "uuid": "c7a2a90a-dc38-4679-809e-636c2e843ac4",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T05:20:26.428Z",
+  "updated": "2026-10-23T05:24:16.978Z",
+  "lastActivity": "2026-10-23T05:24:16.978Z",
+  "title": "Fix IDE zoom shortcuts",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T05:24:16.977Z",
+  "approvedAt": "2026-10-23T05:24:16.978Z"
+}

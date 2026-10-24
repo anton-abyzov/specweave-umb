@@ -1,0 +1,15 @@
+{
+  "id": "1029-open-all-limits-as-an-app-wide-sheet",
+  "uuid": "9847aa65-c767-4fc8-abd2-1e23af98978c",
+  "status": "active",
+  "type": "bug",
+  "priority": "P2",
+  "created": "2026-10-23T16:31:07.494Z",
+  "updated": "2026-10-23T16:51:41.543Z",
+  "lastActivity": "2026-10-23T16:51:41.543Z",
+  "title": "Open all limits as an app-wide sheet",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -1,0 +1,15 @@
+{
+  "id": "1050-security-review-auth-billing",
+  "uuid": "94176cb5-74d4-43a1-a17c-f793172b652f",
+  "status": "active",
+  "type": "refactor",
+  "priority": "P1",
+  "created": "2026-10-24T07:21:24.862Z",
+  "updated": "2026-10-24T16:13:56.335Z",
+  "lastActivity": "2026-10-24T16:13:56.335Z",
+  "title": "Security and simplification review: auth and billing",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -1,0 +1,17 @@
+{
+  "id": "1018-verify-embedded-browser-and-recover-cancelled-live-previews",
+  "uuid": "1435f5ab-8ba0-4266-afb1-2e3ec14d64e7",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T05:45:39.789Z",
+  "updated": "2026-10-23T05:59:36.797Z",
+  "lastActivity": "2026-10-23T05:59:36.797Z",
+  "title": "Verify embedded browser and recover cancelled live previews",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T05:59:36.796Z",
+  "approvedAt": "2026-10-23T05:59:36.797Z"
+}

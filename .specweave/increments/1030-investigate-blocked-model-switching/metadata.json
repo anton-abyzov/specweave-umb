@@ -1,0 +1,18 @@
+{
+  "id": "1030-investigate-blocked-model-switching",
+  "uuid": "5445a68f-2a97-40df-9163-dea9b67c49bb",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T16:42:08.985Z",
+  "updated": "2026-10-23T17:07:07.786Z",
+  "lastActivity": "2026-10-23T17:07:07.786Z",
+  "title": "Investigate blocked model switching",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T17:07:07.784Z",
+  "closeReason": "Umbrella verify fails only on unrelated timing tests (handoff-roundtrip 5s timeouts, vskill scanner <1000ms, vskill-platform HMAC p99) under machine load; 1030's server tests pass 210/210 in the app worktree",
+  "approvedAt": "2026-10-23T17:07:07.786Z"
+}

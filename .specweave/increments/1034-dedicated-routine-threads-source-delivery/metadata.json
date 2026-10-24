@@ -1,0 +1,15 @@
+{
+  "id": "1034-dedicated-routine-threads-source-delivery",
+  "uuid": "2fc8f8fd-3a1c-4f70-b8fb-45860b02dcce",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T17:37:54.508Z",
+  "updated": "2026-10-23T17:39:29.464Z",
+  "lastActivity": "2026-10-23T17:39:29.464Z",
+  "title": "Dedicated routine threads source delivery",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

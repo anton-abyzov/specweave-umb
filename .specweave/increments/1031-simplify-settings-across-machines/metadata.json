@@ -1,0 +1,18 @@
+{
+  "id": "1031-simplify-settings-across-machines",
+  "uuid": "4fd08b2a-22ef-4928-8ea0-9c85a05fa6fc",
+  "status": "completed",
+  "type": "experiment",
+  "priority": "P1",
+  "created": "2026-10-23T17:00:12.211Z",
+  "updated": "2026-10-24T08:00:22.398Z",
+  "lastActivity": "2026-10-24T08:00:22.398Z",
+  "title": "Simplify settings across machines",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T08:00:22.396Z",
+  "closeReason": "Research-only increment: ACs 5/5, tasks 5/5, fresh-context review round 5 SHIP (reports/review.md). Verify fails only on workspace test commands in specweave, vskill and vskill-platform, which 1031 did not touch: 5s timeouts and speed limits under machine load, with a different failing set on each run (reports/verify.md).",
+  "approvedAt": "2026-10-24T08:00:22.398Z"
+}

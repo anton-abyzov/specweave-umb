@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-23T22:33:25.783Z","note":"session 01a16ae4-4b8e-73d0-a9b6-5415bbb0499f"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T22:33:25.784Z","line":"Implementing project return navigation"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T22:34:32.255Z","line":"Verifying project return behavior"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T22:41:45.886Z","evidence":"86ed15aec: 98 focused tests passed; web typecheck passed with local effect-tsgo patch\nHEAD 52637d855","line":"Restored exact project thread destinations"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T22:41:46.275Z","evidence":"86ed15aec: production build passed; six headless navigation cases and desktop/mobile scroll checks passed; /Users/antonabyzov/.specwithcode/m4/evidence/1037-project-return/receipt.json\nHEAD 52637d855","line":"Verified navigation and retained reader scroll"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T22:41:46.639Z","line":"Reviewing exact PR head and closing increment"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T23:39:57.346Z","evidence":"2415c4c9f merged as 2e95e09ae3; exact-head Checks 40037729888 passed; native Astra SHIP and test-only repair reviewed; retained merged-pr.json and ci-repair-receipt.json\nHEAD 52637d855","line":"Reviewed exact head and verified merged CI"}

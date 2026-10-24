@@ -1,0 +1,17 @@
+{
+  "id": "1016-fix-blurry-pasted-snapshots",
+  "uuid": "acfabe59-ae90-44e7-8447-11c4232aa12b",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T05:39:14.653Z",
+  "updated": "2026-10-23T05:56:23.421Z",
+  "lastActivity": "2026-10-23T05:56:23.421Z",
+  "title": "Fix blurry pasted snapshots",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T05:56:23.420Z",
+  "approvedAt": "2026-10-23T05:56:23.421Z"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "1052-fallback-model-exclusions-and-options",
+  "uuid": "594ca36b-dd5d-4848-8b46-71842c7eaa5d",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-24T12:00:00.000Z",
+  "updated": "2026-10-24T12:27:04.039Z",
+  "lastActivity": "2026-10-24T12:27:04.039Z",
+  "title": "Fallback model exclusions and the continuation options view",
+  "project": "specweave-umb",
+  "parent": "0955-ordered-fallback-models-for-usage-limits",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T12:27:04.038Z",
+  "closeReason": "verify ACs 5/5; only umbrella testing.commands fail, on 5s timing flakes in specweave CLI (save, handoff-roundtrip) and vskill-platform (HMAC timing, regex bounds) under load avg 162; untouched by 1052; flaky CLI tests pass 60/60 in isolation",
+  "approvedAt": "2026-10-24T12:27:04.039Z"
+}

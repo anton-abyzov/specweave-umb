@@ -1,0 +1,17 @@
+{
+  "id": "1039-adversarial-feature-review",
+  "uuid": "27f0dc5d-19bf-4e79-87e6-85b38159f693",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T23:17:51.871Z",
+  "updated": "2026-10-24T03:26:01.464Z",
+  "lastActivity": "2026-10-24T03:26:01.464Z",
+  "title": "Adversarial feature review",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T03:26:01.463Z",
+  "approvedAt": "2026-10-24T03:26:01.464Z"
+}

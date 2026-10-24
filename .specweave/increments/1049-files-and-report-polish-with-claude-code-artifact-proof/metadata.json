@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-24T07:19:45.680Z",
-  "updated": "2026-10-24T07:21:56.524Z",
-  "lastActivity": "2026-10-24T07:21:56.524Z",
+  "updated": "2026-10-24T12:11:48.921Z",
+  "lastActivity": "2026-10-24T12:11:48.921Z",
   "title": "Files and report polish with Claude Code artifact proof",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

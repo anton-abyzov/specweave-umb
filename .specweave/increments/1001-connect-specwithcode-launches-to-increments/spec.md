@@ -112,7 +112,11 @@ Rejected: a plugin-wide PreToolUse hook (reaches every user, reverses the 2.1 po
 ### T-17 Updated pull request head for the release owner
 - AC: AC-13 | Files: none | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/studio/unplannedNotice.test.ts apps/web/src/studio/threadPlanProgress.test.ts
 
+### T-18 Base64 evidence frames are report data
+- AC: AC-11 | Files: apps/server/src/project/ThreadIncrementProgressService.ts, apps/server/src/project/ThreadIncrementProgressService.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/project/ThreadIncrementProgressService.test.ts
+- From the October 24, 2026 seriousness audit, some documentation-only threads still counted as unplanned because of base64 frames and capture scripts written next to their evidence. `.b64` now joins the report data extensions inside `reports` and `evidence` folders. Scripts (`.py`, `.sh`, `.mjs`) stay code, even beside evidence. A rule that treated scripts outside a thread's known roots as evidence was tried and rejected: a thread can edit another repo's `src/reports/view.ts`, and the existing test that requires that edit to count as code would fail. Dismiss (T-15) covers the remaining noise.
+
 ### T-09 Verify and close 1001 after installed optional-notice acceptance
 - AC: AC-08, AC-13 | Files: none | Test: specweave verify 1001
-- Also waits for T-10 to T-17 and installed evidence of the binding repair and Dismiss; T-09 stays the last task.
+- Also waits for T-10 to T-18 and installed evidence of the binding repair and Dismiss; T-09 stays the last task.
 - The earlier T-07 installed acceptance predates T-08. After the existing release owner installs a build containing app PR #624 and PR #658 at `73fd60a48` (or a squash merge proven equal to it), run D1 to D13 of `/Users/antonabyzov/.specwithcode/m4/evidence/optional-increments-1001/binding-repair/t09-installed-acceptance.md` in the installed UI: Dismiss keeps row chips and plan cards and returns only for a thread it has not counted (AC-13), reload persistence, the sort menu switch hiding the notice, row chips and the self-opening plan card, and turning it back on restoring the full count (AC-08). Preserve the app's manual UI acceptance requirement. Record the installed version, source commit and screenshots separately from fixture evidence, then run verification, fresh-context review and completion.

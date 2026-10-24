@@ -1,0 +1,15 @@
+{
+  "id": "1027-investigate-thread-not-found-delivery-failures",
+  "uuid": "658004d0-2b1e-4896-a774-8e7c6fe98717",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T14:53:23.458Z",
+  "updated": "2026-10-23T15:04:03.003Z",
+  "lastActivity": "2026-10-23T15:04:03.003Z",
+  "title": "Investigate thread-not-found delivery failures",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

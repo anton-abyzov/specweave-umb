@@ -1,0 +1,17 @@
+{
+  "id": "1032-finish-threads-and-audit-fallback",
+  "uuid": "18f55ab5-37b2-41d9-8274-5fb5c14f07d4",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-23T17:23:55.601Z",
+  "updated": "2026-10-24T02:13:49.749Z",
+  "lastActivity": "2026-10-24T02:13:49.749Z",
+  "title": "Finish threads and audit fallback",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T02:13:49.748Z",
+  "approvedAt": "2026-10-24T02:13:49.749Z"
+}

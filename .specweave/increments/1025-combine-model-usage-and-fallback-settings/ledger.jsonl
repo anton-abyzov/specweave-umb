@@ -1,0 +1,9 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:08.444Z","note":"session 1b17e495-1bb2-4084-aa79-50b56a028762","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:08.446Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:08.447Z","evidence":"5d106823c; shared 5 tests + ProjectionStore.modelIdentity 2 tests pass\nHEAD 90dbbfc5f","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:08.836Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:08.837Z","evidence":"5d106823c c699158b3 9a0900e97; thread-row-meta 120 checks, fallback-composer 24 cases headless\nHEAD 90dbbfc5f","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:09.192Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:09.193Z","evidence":"cd61f50bf 9a0900e97; web 10503 tests pass; picker-limits screenshots after2/picker-limits\nHEAD 90dbbfc5f","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:09.551Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:09.553Z","evidence":"cd61f50bf; ProjectWorkspaceSettings tests; after2/settings screenshots\nHEAD 90dbbfc5f","model":"claude-opus-5-5[1m]"}

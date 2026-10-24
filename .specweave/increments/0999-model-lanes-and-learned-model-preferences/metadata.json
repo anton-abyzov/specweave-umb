@@ -1,0 +1,18 @@
+{
+  "id": "0999-model-lanes-and-learned-model-preferences",
+  "uuid": "f4cb841f-4111-4f89-a6ea-7d81d0685be1",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-22T21:40:18.953Z",
+  "updated": "2026-10-23T03:06:53.348Z",
+  "lastActivity": "2026-10-23T03:06:53.348Z",
+  "title": "Model lanes and learned model preferences",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T03:06:53.347Z",
+  "closeReason": "All 6 ACs and tasks verified, PR #620 merged as 826f25b14, Release macOS workflow succeeded, release v1.0.74 published and staged",
+  "approvedAt": "2026-10-23T03:06:53.348Z"
+}

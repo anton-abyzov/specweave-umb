@@ -1,0 +1,17 @@
+{
+  "id": "1042-question-reply-provenance-and-recovery",
+  "uuid": "334c182c-4dd5-4ddc-9468-20b47de5d88a",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-23T23:52:22.000Z",
+  "updated": "2026-10-24T16:55:24.334Z",
+  "lastActivity": "2026-10-24T16:55:24.334Z",
+  "title": "Question replies: chat first, clear authorship, no dead ends",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T16:55:24.332Z",
+  "approvedAt": "2026-10-24T16:55:24.334Z"
+}

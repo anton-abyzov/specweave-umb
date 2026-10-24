@@ -1,0 +1,30 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-23T05:01:56.603Z","note":"session fa62d01f-49e4-4d9e-98d0-775c7c2edbbe","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-23T05:01:56.604Z","model":"claude-opus-5-5[1m]"}
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:13:52.061Z","note":"session 01a16728-9503-7bd2-b362-a0882702d1a6"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:13:52.062Z","line":"Resumed original quota-failed review"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:13:59.261Z"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:16:00.274Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:16:00.274Z","evidence":"/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1006-project-setup-and-handoff-review/reports/owners.md\nHEAD 4dc864daf"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:16:00.675Z","evidence":"Installed 1.0.74 screenshots and zero-machine network check in reports/final-checks.json\nHEAD 4dc864daf"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:16:01.024Z"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:16:01.439Z"}
+{"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:16:01.815Z"}
+{"t":"T-06","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:16:02.191Z"}
+{"t":"T-07","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:16:02.580Z"}
+{"t":"T-08","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:16:03.002Z"}
+{"t":"T-01","e":"release","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:16:27.881Z","note":"Resumed same quota-failed worker in Codex"}
+{"t":"T-01","e":"release","by":"claude@antons-macbook-m4max","at":"2026-10-23T05:17:04.485Z","note":"Recovered failed fa62d01f session; ownership transfers to Codex at user request"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:17:04.865Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:17:05.263Z","evidence":"/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1006-project-setup-and-handoff-review/reports/owners.md\nHEAD 4dc864daf"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:23:16.929Z","evidence":"reports/local-folder/result.json: positive import PASS, missing-folder expectation FAIL, source explicitly creates root\nHEAD 4dc864daf"}
+{"t":"T-04","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:23:19.461Z","evidence":"reports/clone/result.json: installed UI real public clone plus model-free execution, occupied destination refusal and tracked invalid URL failure\nHEAD 4dc864daf"}
+{"t":"T-05","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:23:20.676Z","evidence":"reports/connect/result.json: two-server link and roots PASS, view ownership unchanged; remote online rendering UNVERIFIED\nHEAD 4dc864daf"}
+{"t":"T-06","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:23:22.399Z","evidence":"reports/handoff/result.json: destination-owned Git worktree, context marker, fenced source, completed and user-stopped no restart PASS\nHEAD 4dc864daf"}
+{"t":"T-07","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:23:24.243Z","evidence":"reports/errors/result.json: no-grant and actual offline refusal PASS; version gate UNVERIFIED; real fleet read-only needs_grant\nHEAD 4dc864daf"}
+{"t":"T-08","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:23:25.432Z","evidence":"reports/setup-handoff-review.html: reproducible steps, screenshots, exact versions, explicit acceptance gates\nHEAD 4dc864daf"}
+{"t":"T-09","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:24:47.549Z","line":"Verify report; retain unmet acceptance gates"}
+{"t":"T-09","e":"release","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:28:34.872Z","note":"Verification exit 1; AC-02 and unverified view/version gates remain. Review complete, acceptance open."}
+{"t":"T-10","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T17:34:48.353Z","line":"Address pending Astra harness review"}
+{"t":"T-10","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T17:35:24.954Z","evidence":"node --check /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/.worktrees/fix-two-orchestrators-labels/scripts/studio-logical-projects/two-orchestrators.mjs → exit 0\nlog: .specweave/increments/1006-project-setup-and-handoff-review/reports/task-T-10.txt\n40470c813; fresh Astra review addressed; full browser run remains unverified\nHEAD 90dbbfc5f"}
+{"t":"T-11","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-24T07:31:28.880Z","line":"Replace direct database fixture access with supported APIs"}
+{"t":"T-11","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-24T07:39:26.376Z","evidence":"b234e429061293ec81a9231dd00b21c1f3a42276; exact-head harness 11/11 PASS against installed 1.0.75 c52ee223; seven screenshots; hashes verified; fresh Astra review no material findings; reports/safe-harness/exact-head/receipt.json\nHEAD 4e5581119"}

@@ -1,0 +1,15 @@
+{
+  "id": "1017-update-clis-across-connected-machines",
+  "uuid": "f6c08852-796a-4014-b8c8-bb8db04cd063",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T05:41:48.109Z",
+  "updated": "2026-10-23T06:12:50.968Z",
+  "lastActivity": "2026-10-23T06:12:50.968Z",
+  "title": "Update CLIs across connected machines",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

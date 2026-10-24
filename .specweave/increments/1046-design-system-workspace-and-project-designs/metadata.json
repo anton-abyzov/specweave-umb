@@ -1,0 +1,16 @@
+{
+  "id": "1046-design-system-workspace-and-project-designs",
+  "uuid": "a09437fd-8534-4605-9769-6d6281c58602",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-24T02:18:41.396Z",
+  "updated": "2026-10-24T17:28:13.272Z",
+  "lastActivity": "2026-10-24T17:28:13.272Z",
+  "title": "Design system workspace and project-linked designs",
+  "project": "specweave-umb",
+  "parent": "1041-fix-design-creation-and-reuse",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -91,4 +91,8 @@ What the code does today, on `anton-abyzov/specwithcode-dev` main at d6dc8ec68e:
 ### T-06 PR, release coordination and installed check
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07 | Files: none | Test: installed version on the M4, singleton create refused twice, headless
 
+### T-08 Preserve personal kind in title-only MCP creation
+- AC: AC-01, AC-02 | Files: apps/server/src/mcp/toolkits/project/handlers.ts, apps/server/src/mcp/toolkits/project/handlers.test.ts, apps/server/src/mcp/toolkits/project/workGrants.test.ts | Test: vp test run apps/server/src/mcp/toolkits/project
+- Follow-up from installed 1.0.68 acceptance: pass the requested kind to ManagedProjectFolders so repeated personal creation returns the existing assistant.
+
 ### T-07 Verify and close 0981

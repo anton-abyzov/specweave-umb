@@ -1,0 +1,17 @@
+{
+  "id": "0997-consistent-thread-model-identity",
+  "uuid": "94611966-d22a-46e1-9483-bd615515b2f3",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-22T18:15:58.059Z",
+  "updated": "2026-10-22T22:57:38.932Z",
+  "lastActivity": "2026-10-22T22:57:38.932Z",
+  "title": "Consistent thread model identity",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-22T22:57:38.931Z",
+  "approvedAt": "2026-10-22T22:57:38.932Z"
+}

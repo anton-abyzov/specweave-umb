@@ -1,0 +1,18 @@
+{
+  "id": "0983-model-picker-usage",
+  "uuid": "ac1cc36b-f71d-4071-b7bb-47b6f490777b",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-21T05:51:45.761Z",
+  "updated": "2026-10-21T06:08:27.775Z",
+  "lastActivity": "2026-10-21T06:08:27.775Z",
+  "title": "Usage and availability in the chat model picker",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-21T06:08:27.773Z",
+  "closeReason": "Both verify failures are outside this increment's repo (specwithcode-dev web only): timing.py self-test needs PyYAML, not installed here; specweave save.test.ts has 3 5s timeouts. 0983's own checks pass: web typecheck, 265 tests, 44+24 headless checks.",
+  "approvedAt": "2026-10-21T06:08:27.775Z"
+}

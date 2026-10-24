@@ -1,0 +1,16 @@
+{
+  "id": "1051-design-boards-and-slides-claude-parity",
+  "uuid": "8e99447b-dbfb-4b04-8fc2-cb3b9ddb6c02",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-24T07:52:00.000Z",
+  "updated": "2026-10-24T17:14:32.634Z",
+  "lastActivity": "2026-10-24T17:14:32.634Z",
+  "title": "Design boards and slides: Claude parity and full scenario verification",
+  "project": "specweave-umb",
+  "parent": "1046-design-system-workspace-and-project-designs",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

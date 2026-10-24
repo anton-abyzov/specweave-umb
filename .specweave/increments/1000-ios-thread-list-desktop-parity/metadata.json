@@ -1,0 +1,17 @@
+{
+  "id": "1000-ios-thread-list-desktop-parity",
+  "uuid": "0aec51cf-fad5-49d6-8b30-853306c86c23",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-22T21:53:04.615Z",
+  "updated": "2026-10-23T04:00:25.411Z",
+  "lastActivity": "2026-10-23T04:00:25.411Z",
+  "title": "iOS thread list desktop parity",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T04:00:25.409Z",
+  "approvedAt": "2026-10-23T04:00:25.411Z"
+}

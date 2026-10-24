@@ -1,0 +1,83 @@
+# 1041 Fix design creation and reuse
+
+## Problem
+
+Anton's October 23, 2026 screenshots of SpecWithCode (service 1.0.75, desktop app 1.0.74) show three failures in the design workspace.
+
+1. **Creation fails.** Design from code for EasyChamp saves the design, then refuses to start its thread: "The design is saved, but its thread did not start (Only the owner on this machine can change which thread a design is bound to)." PR #594 targeted this error, so the remaining path is unproven.
+2. **Reuse is missed.** The same dialog says "This project has no design system yet" although the EasyChamp repository ships a real design system (ec-uikit). The picker lists only confirmed systems, so the agent never learns what to reuse, and the user cannot see what was found or where it came from.
+3. **Wrong projects in pickers.** New design > Save in lists archived projects (Projects, emergeAmergicas_hackathon, emergeAmericas_hackathon2), agent-made check projects (Run shell Stop acceptance 589) and an Aide demo fixture (Example Household). Anton asked on October 15 that dropdowns hide archived projects; that fix landed only for the Settings scope picker (`0ad576711`), and design pickers added on October 20 never reused it.
+4. **Unreadable model controls.** In a narrow design composer the toolbar shows a provider icon with no name, then a truncated "Next: Claude Code · Opus ..." pill pressed against the attach and send buttons. Model identity is unreadable and controls collide at small widths and high zoom.
+
+Research receipts (Fable 5.1): `/Users/antonabyzov/Projects/github/studio-research-notes/design-create-reuse-2026-10-23/history-and-dropdowns/findings.md` and `/Users/antonabyzov/Projects/github/studio-research-notes/design-create-reuse-2026-10-23/design-rootcause/findings.md`.
+
+## Scope
+
+In: the design-start thread binding failure and its retry; repository design-system discovery, reuse and showcase with provenance in New design and Design from code; one shared rule for ordinary project choices applied to every project dropdown; responsive, accessible model controls in every composer that hosts them; Claude-desktop-faithful polish of the design creation dialogs and composer; tests, headless visual and interaction proof; PR, exact-head CI, review, merge and deployment (authorized by Anton on October 23, 2026 for this scope).
+
+Out: fallback policy and model-lane rules (1032, 1039, 1003); ChatComposer pending-question, attachment and send-routing paths, ChatView pending branch and Coordinator* composer (1042); badge counts (1040); report reader (1035); notification transport (1036); iOS implementation (the iOS lane consumes the shared rule); any write to the EasyChamp checkout; archiving, deleting or reclassifying real projects to hide the bug; registering repositories or changing access controls on Anton's behalf.
+
+## Acceptance Criteria
+
+- [ ] AC-01: Starting a design from New design or Design from code, and "Start a thread" or Ask agent inside the editor, on this machine's paired desktop app (session subject `one-time-token` holding `access:write`), starts and binds its thread on the first press for any provider. The ownership guard still refuses a session without owner rights, and a retry after a partial failure reuses the saved design instead of creating a duplicate.
+- [ ] AC-01b: A refused binding never blocks content saves: the editor binds before or apart from canvas edits, reports a binding refusal next to the thread control, and the unsaved toast names the design's current title. Root cause of the October 23 toast on `d_3eyo4sdp9r8c`: installed service 1.0.75 predates #594, so the desktop session is a "member" and every `set_thread` is refused.
+- [ ] AC-02: When a project has no confirmed design system, the dialogs scan the project repository read-only and show each candidate as "Found in this repository" with name, source path, token and component counts and swatches. The default choice reuses the best candidate; no-candidate, scan-error and budget cases read plainly and never block creation.
+- [ ] AC-03: The agent brief for a design carries the chosen system's provenance (source paths, system id or scan summary), so the EasyChamp fixture design reuses ec-uikit tokens and components; the design shows that provenance to the user. EasyChamp stays unmodified (git status clean, no `.specweave/design` written without confirmation).
+- [ ] AC-04: Every ordinary project dropdown (the 17 pickers in the audit, including design Save in and Design from code) offers no archived, automated, scratch or deleted project as a choice, through one shared helper that reads existing stored metadata only. An already-selected or deep-linked archived or automated project appears as a disabled current-context state, never as a selectable option. Project records, archive state and origin classification are not changed. Management lists (Settings archived list, sidebar Automated section) keep showing them. Design from code and Scan from code list only code projects.
+- [ ] AC-05: Model controls in the thread, coordinator and design composers never overlap or clip unreadably from 320 px container width to wide windows and at 200% zoom: the model name degrades from full to short to icon with the full identity always available by keyboard, tooltip and screen reader, touch targets stay at least 24 px, and focus order is logical.
+- [ ] AC-06: The design creation dialogs and composer match the Claude desktop design experience inventoried in research (layout, copy, states, motion) using existing design tokens, in light and dark themes.
+- [ ] AC-07: The October 15 request and the unfinished October 22 design-gallery session are traced with concrete stop reasons, and every outstanding applicable item is either delivered here or handed to its live owner.
+- [ ] AC-08: Source, merge, deployment and installed acceptance are recorded separately: reviewed PR with exact-head CI, merge commit, the released version the integration owner chooses under the candidate freeze, and file-backed headless UI proof on the deployed build.
+- [ ] AC-09: Wherever a thread's model shows (thread rows, overview rows, header chip, composer chip), a usage-limit fallback is one compact unit. It shows the active provider mark and model first, then the amber detour glyph with a visible link to the home pick: "for" plus the home model where there is room, the home provider's mark when there is less room, the glyph alone at the narrowest. The fit is measured from the row's real room and gives way before the model name, plan chip or PR number clip. There is no pill, and the link never relies on color or hover alone. The tooltip, focus and the accessible name keep the full pick and reason. Unplanned rows show a new original glyph from AI-generated concepts, refined to crisp 16 px in light and dark within the existing glyph family. It is never a brain, lock or thinking icon. It has an accessible name, a hover/focus explanation that points to the thread's existing "Link increment" and "No increment needed" actions, and the same glyph in the header filter. Model semantics, pins and composer ownership (1042) are unchanged.
+
+## Approach
+
+Bound app writer: `fix/1041-design-create-reuse` in `/Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse` (T-02, T-03, T-04, T-06, PR part of T-07). T-05 has its own writer.
+
+- **Binding (T-02).** #594 (on main) makes a session holding `access:write` the design owner; the guard still refuses standard-scope members. The client no longer depends on it: Design from code creates the design already bound (`DesignCreateInput.thread`, checked by the same guard), falls back to an unbound create plus an agent self-bind line in the brief when refused, never retries a `forbidden` bind, and keeps the half-created design per project across dialog opens so a retry reuses it. The editor binds through its own apply outside the autosave batch (`DesignSession.applyAlone`), shows a refusal beside the thread control, keeps showing the started thread, and names the design's current title in the unsaved toast. `design.get` reports the caller's audience so the client stops guessing ownership.
+- **Reuse (T-03).** Scan suggestions are ranked by substance (tokens, components, modes, design-system names) instead of key, CSS copies and duplicate checkouts fold into `copies`, and `designSystem.scan` with `preview` returns counts, modes, swatches and sources for the top suggestions, read-only and within the existing read budget. Both creation dialogs scan when the chosen project has no confirmed system and offer "Found in this repository" rows, defaulting to the best. The choice travels as provenance in the agent brief and on the design (`DesignDocument.reuse`, shown in the editor). Nothing is written into the repository unless the user imports.
+- **Pickers (T-04).** One helper in `projectListVisibility.ts` returns ordinary project choices from existing stored metadata (archived flag, the unchanged `projectOrigin`/`isAutomatedProject` result, scratch, kind): no archived, automated or scratch options, and code-only for Design from code and Scan from code. A current selection or deep link that is archived or automated renders as a disabled current-context state, never an option. Every ordinary picker uses it (web, settings and iOS `Logic.swift`); management lists pass their own explicit option. No change to `projectOrigin`, archive state or any project record.
+- **Polish and proof (T-06).** Dialog layout, copy and states follow the Claude desktop inventory with existing tokens; a headless fixture under `apps/web/tests/design-create` captures light and dark at 360, 768 and 1280 px and 200% zoom into `/Users/antonabyzov/.specwithcode/m4/evidence/design-create-reuse-1041/`.
+
+## Decisions
+
+### Asked
+- D-01 App repository writer binding → Anton added `https://github.com/anton-abyzov/specwithcode-dev.git` (checkout `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio`) under Repositories on October 23, 2026. Bound writers: `mcp:1ccda0aa-1ddc-496b-a38a-3833e80a785e` (branch `fix/1041-design-create-reuse`, T-02..T-04, T-06) and `mcp:af724514-ecc1-405d-8301-4162d0dca6b2` (branch `fix/1041-model-controls` stacked on #637, T-05).
+### Defaulted (change any before sw-do)
+- D-02 Aide and other personal projects stay in New design, New slides and New design system "Save in" (Anton named archived and automated only); Design from code and Scan from code list only kind code projects. Archived and automated are never selectable; a current one shows as disabled context.
+- D-03 No reclassification (coordinator, October 23): origin and archive classification and Example Household's record stay as stored. If its stored metadata does not mark it automated, it stays listed and is reported as an open item instead of hidden by a new heuristic.
+- D-04 The model chip work builds on open PR #637 (1005) instead of duplicating its ModelStateTag rework; fallback wording and policy stay with their owners.
+- D-05 (October 24, Anton's new request) The row and chip fallback shows the home model visibly again, as "for Opus 5.5" or the home provider mark, by measured room. This revises 1025 D-01 (glyph alone at every width) for visible text only; the tooltip, accessible names and the glyph stay as in #637. The work is stacked as `fix/1041-row-model-unit` on #657 so the reviewed #637 and #657 heads stay unchanged. ThreadsPane.tsx is left to 1040 (#655).
+### Open
+- none
+
+## Tasks
+
+### T-01 Research: history, dropdown audit and design root causes
+- AC: AC-07 | Files: /Users/antonabyzov/Projects/github/studio-research-notes/design-create-reuse-2026-10-23/history-and-dropdowns/findings.md, /Users/antonabyzov/Projects/github/studio-research-notes/design-create-reuse-2026-10-23/design-rootcause/findings.md | Test: both findings files exist with file:line citations and named stop reasons
+
+### T-02 Fix design-start binding and retry
+- AC: AC-01 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/server/src/design, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/web/src/components/design, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/packages/contracts/src/design.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/packages/shared/src/designOps.ts | Test: vp test run apps/server/src/design apps/web/src/components/design
+
+### T-03 Discover, reuse and showcase repository design systems
+- AC: AC-02, AC-03 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/server/src/design/systems, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/server/src/mcp/toolkits/designSystems, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/packages/contracts/src/designSystemImport.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/web/src/components/design | Test: vp test run apps/server/src/design/systems apps/web/src/components/design; EasyChamp read-only fixture check
+
+### T-04 One rule for ordinary project choices
+- AC: AC-04 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/web/src/studio/projectListVisibility.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/web/src/components/design, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/web/src/components/chat/DraftHeroHeadline.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/web/src/components/chat/DraftMachinePicker.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/web/src/components/settings, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/ios/SWCKit/Sources/SWCFeatures/Support/Logic.swift | Test: vp test run apps/web/src/studio/projectListVisibility.test.ts plus call-site tests for all 17 pickers (excluded kinds, disabled current context, management lists unchanged); swift test for apps/ios SWCKit
+
+### T-05 Responsive, accessible model controls
+- AC: AC-05 | Files: apps/web/src/components/chat/ChatComposer.tsx, apps/web/src/components/chat/ModelStateTag.tsx, apps/web/src/components/chat/ProviderModelPicker.tsx | Test: vp test run apps/web/src/components/chat; headless width and zoom matrix
+
+### T-06 Claude-desktop polish and headless visual proof
+- AC: AC-06 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/web/src/components/design, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/web/tests/design-create | Test: headless fixture, light and dark, 360/768/1280 px and 200% zoom; headless true, PWDEBUG=0, PLAYWRIGHT_HTML_OPEN=never
+
+### T-09 Fallback beside its home model; Unplanned glyph
+- AC: AC-09 | Files: apps/web/src/components/chat/ModelStateTag.tsx, apps/web/src/components/chat/FallbackGlyph.tsx, apps/web/src/components/studio/shell/ModelBadge.tsx, apps/web/src/components/studio/shell/UnplannedThreads.tsx, apps/web/src/components/studio/shell/rowModelFit.ts, apps/web/src/components/studio/shell/shell.css, apps/web/src/components/chat/ProviderModelPicker.tsx, apps/web/tests/thread-row-meta, /Users/antonabyzov/.specwithcode/m4/evidence/design-create-reuse-1041/row-model-unit | Test: vp test run apps/web/src/components/chat/ModelStateTag.test.tsx apps/web/src/components/studio/shell; headless thread-row-meta matrix (narrow and wide rows, light and dark, keyboard and touch tooltips)
+
+### T-07 PR, exact-head CI, review, merge and deploy
+- AC: AC-08 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/design-create-reuse-1041 | Test: gh pr checks on the exact head; merge commit; released version (chosen by the integration owner) readback; installed headless proof
+
+### T-08 Verify and close 1041
+- AC: AC-08 | Files: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1041-fix-design-creation-and-reuse/ledger.jsonl | Test: specweave verify 1041; fresh-context review; specweave complete 1041
+
+Implementation paths are relative to the app repository and are replaced with the bound worktree path before tasks are claimed.

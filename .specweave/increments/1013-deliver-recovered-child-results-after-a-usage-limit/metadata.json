@@ -1,0 +1,17 @@
+{
+  "id": "1013-deliver-recovered-child-results-after-a-usage-limit",
+  "uuid": "864e6e39-3ccb-4396-bbd0-edfaeeb80db2",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-23T05:21:50.417Z",
+  "updated": "2026-10-23T07:19:51.680Z",
+  "lastActivity": "2026-10-23T07:19:51.680Z",
+  "title": "Deliver recovered child results after a usage limit",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T07:19:51.679Z",
+  "approvedAt": "2026-10-23T07:19:51.680Z"
+}

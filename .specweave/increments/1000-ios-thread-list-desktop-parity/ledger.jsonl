@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-22T21:55:00.944Z","note":"session 01a16597-ce42-75a2-b14d-aca2df8fffba"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-22T21:55:00.944Z","line":"Matching mobile thread groups and identity"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-22T22:02:17.327Z","line":"Verifying simulator lists, screenshots and pull request"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-22T22:03:38.226Z","evidence":"9ec86eb22; 378 Swift tests passed with --no-parallel; registry identity and calendar/state regressions covered\nHEAD d4a3e90ea","line":"Matched mobile groups and current provider/model badges"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-22T22:25:28.632Z","evidence":"PR #614 head 7d3ea5491: 3 required CI gates passed; 378 Swift tests and 9 simulator UI tests passed; light/dark screenshots retained\nHEAD df0d3fc12","line":"Verified simulator lists and green pull request gates","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/614"}

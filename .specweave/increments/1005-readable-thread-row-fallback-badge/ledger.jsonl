@@ -1,0 +1,12 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:09:18.899Z","note":"session 01a16728-9d41-77a2-b7a6-9da817bedb7a"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:09:18.899Z"}
+{"t":"T-06","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:09:44.102Z"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:09:45.883Z","line":"Verify before and after fallback layout evidence"}
+{"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:09:48.319Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:14:49.615Z","evidence":"72 focused tests pass across ModelStateTag, ModelBadge, StudioSidebar and ProjectThreadHeader; row headless fixture 106 checks across 360/520/900px light/dark, with header keyboard tooltip. Receipt: /Users/antonabyzov/.specwithcode/m4/evidence/thread-row-fallback-badge/after/rows-receipt.json. Inspected 360 and 900 screenshots. No commits or index changes.\nHEAD 4dc864daf"}
+{"t":"T-05","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:18:45.524Z","evidence":"53 focused tests pass; Node22 fixture build passes; 24 headless composer cases at 360/520/900 light/dark pass, including whole-model bounds, trigger-child overlap, suffix tiers, >=4.5 contrast, actionable banner <=40px, menu Back action. Receipt /Users/antonabyzov/.specwithcode/m4/evidence/thread-row-fallback-badge/after/composer-receipt.json. Web tsc remaining error belongs to rows ModelBadge optional variant passthrough.\nHEAD 4dc864daf"}
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:09.906Z","note":"session 1b17e495-1bb2-4084-aa79-50b56a028762","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:09.907Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:09.908Z","evidence":"72c474765 cd61f50bf 9a0900e97; CoordinatorModelPicker tests pass\nHEAD 90dbbfc5f","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:10.248Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-23T13:03:10.250Z","evidence":"after2/thread-row-meta, after2/fallback-composer, before/ headless 360/520/900 light+dark\nHEAD 90dbbfc5f","model":"claude-opus-5-5[1m]"}

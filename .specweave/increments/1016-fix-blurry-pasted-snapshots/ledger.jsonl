@@ -1,0 +1,9 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:40:52.301Z","note":"session 01a16744-bf35-7911-813b-6fe600477360"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:40:52.303Z"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:45:10.053Z"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:47:45.184Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:53:13.657Z","evidence":"Native capture preservation tests included in 347 passing focused tests; desktop production build PASS. /Users/antonabyzov/.specwithcode/m4/evidence/snapshot-quality-1016/focused-tests.log\nHEAD 4dc864daf"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:53:13.736Z","evidence":"Headless picker and NativeImage check PASS; original/output SHA256 match; /Users/antonabyzov/.specwithcode/m4/evidence/snapshot-quality-1016/verified/receipt.json\nHEAD 4dc864daf"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:53:13.812Z","evidence":"Actual picker selection/comment/Attach and crops pass at 75/100/150 percent zoom; 347 focused tests and desktop build pass; /Users/antonabyzov/.specwithcode/m4/evidence/snapshot-quality-1016/verified/receipt.json\nHEAD 4dc864daf"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:53:13.864Z"}
+{"t":"T-04","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:55:50.799Z","evidence":"Fresh-context review PASS at /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1016-fix-blurry-pasted-snapshots/reports/review.md; 347 focused tests and desktop build pass; PR629 sent to release1015 owner; scoped verify follows.\nHEAD 4dc864daf"}

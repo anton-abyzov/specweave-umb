@@ -1,0 +1,98 @@
+# One press updates: app applies, install proofs in seconds
+
+## Problem
+
+Update now on M4 (October 22, 2026, 1.0.69 to 1.0.71) took 7.5 minutes from the press to the "did not apply" toast, and the app never updated. Two independent causes, both measured:
+
+1. The app half silently did nothing. `run-app.json` went `installing → relaunching → failed ("App update did not apply.")` 76 s after the service was verified, with one attempt. `desktop.updates.install` returned accepted at 14:01:07Z, no `before-quit` followed, and `~/Library/Caches/com.specweave.studio.ShipIt/ShipIt_stderr.log` has no install request on October 22. Cause: electron-updater 6.8.9's `MacUpdater` asks Squirrel.Mac to fetch the staged zip only when `autoInstallOnAppQuit` was true at download time, or is false when `quitAndInstall()` is called (`MacUpdater.js:220-253`). The app swap gate (`appActivationControl.ts`) keeps the flag false while the service is behind, downloads with it false, then opens and sets it true one tick before the run follow-up calls `installPrepared`. The restage that was meant to cover this (`restageDownloadedUpdate`) lost the race with the follow-up's install (its `checkForUpdates` was refused because the install action was already active) and `quitAndInstall` waited forever for a Squirrel download nobody started. The app then sat with `desktopState.quitting = true` and the install action held, so every later Update now, Restart now and the 10-minute poll refused "busy" or "quitting" until the user quits the app by hand.
+
+2. The helper's receipt (`updates/receipts/update-1.0.71-20261022T135831404492Z.json`) shows 155 s of apply, of which `beforeRead` 60.0 s and `readiness` 60.8 s are two full reads of the 9.65 GB `statev2.sqlite` (1.98 M rows, 1.42 M of them `orchestration_events` at 5.7 GB), plus `gateSettle` 12.1 s, a fixed sleep. The post-restart read exists to prove no row was lost across the restart; it reads and JSON-encodes every row of every guarded table although the service appended 27 events and 11 receipts. The agent's own prestate read (another full read) and the drain ran before the helper even started (press 13:54:54Z, helper 13:58:31Z). The toast showed only the helper's 2:09.
+
+## Scope
+
+In:
+- desktop: an accepted install always ends in a quit and a ShipIt install, or is reported failed and recovered within a minute, never a silent hang; the Squirrel fetch is kicked deterministically by the install path, not by a racing restage;
+- helper: the post-restart proof costs what changed, not the database: pages of the live database are compared with the APFS clone taken after the stop, pages are mapped to tables with `dbstat`, untouched tables reuse the before read, touched small tables are re-read, and append-only logs are proven by page identity plus a row check of the touched leaves; the full read stays as the fallback whenever the page proof cannot decide;
+- helper: the 12 s gate settle becomes 2 s when the service already holds itself for this forced run;
+- receipt: `afterProof` records which path ran, the changed page count, touched tables and timings;
+- release 1.0.72 with both, measured on M4.
+
+Out: the agent's prestate read and the drain time before the helper starts (next increment), the launcher, database growth (`orchestration_events` doubling), closing questions on a forced press (0991).
+
+## Acceptance Criteria
+
+- [ ] AC-01: On macOS with the Squirrel updater, `installDownloadedUpdate` sets install-on-quit false immediately before `quitAndInstall`, so electron-updater's `MacUpdater` asks Squirrel for the staged zip when it has not got it yet; a unit test asserts the flag value at the `quitAndInstall` call and that an install while the gate is open still ends in exactly one `quitAndInstall`.
+- [ ] AC-02: When the app is still running 60 s after an accepted install and has not received `before-quit`, the install is recovered (`recoverFailedInstall`): `quitting` is reset, the install action released, the restart marker removed, the state says the install did not apply, and a later Update now or Restart now is admitted again. A unit test drives the clock.
+- [ ] AC-03: The run follow-up's retry ("Restart now") goes through the same deterministic install path and succeeds in a test where the first attempt's Squirrel fetch was never started.
+- [ ] AC-04: After the restart, when the page proof decides, `readiness` (the post-restart read) finishes in under 10 s on a clone of M4's database with the new service's startup writes simulated (appended events and receipts, auth session updates), and the receipt's `after`, `rowsByteIdentical`, `rowPreservation`, `appendedLogRows` and `completeDatabaseContinuity` are byte-identical to what the full read produces on the same database (fixture test comparing both paths).
+- [ ] AC-05: The page proof refuses (returns None, the full read decides) on every case a fixture can make: an old row updated in place, an old row deleted, an old overflow page rewritten, a table dropped or widened, a page that moved between tables, a changed main-file page not explained by a WAL frame, a WAL of another generation than the one the new service wrote, no clone, or `dbstat` unavailable. A tampered old `orchestration_events` row is caught both by the page proof and by the full read on the same fixture.
+- [ ] AC-06: The gate settle is 2 s when `updates/hold.json` and `config.json` show the running service held for this forced request (`assert_held`), else 12 s as today; tests cover both.
+- [ ] AC-07: The 1.0.65 agent contract tests (`test-update.py OldAgentContract`) and `run-tests.sh` pass; the receipt gains `afterProof` and `timings.pageProof` only.
+- [ ] AC-08: A signed and notarized release containing the updater fixes, newer than 1.0.74, is published, M4's service installs it, the receipt shows `readiness` under 10 s with `afterProof.mode = "pages"` (or names the fallback reason), the app relaunches into that release without a manual Restart press, and `specweave-studio --version` on M4 reports that release.
+
+## Approach
+
+Branch `perf/install-fast-apply` in `~/.specwithcode/m4/worktrees/fast-install` from `origin/main` (ff8e542f6). Two PRs, each reviewed adversarially in a fresh context before merge, then one release.
+
+Desktop: delivered by PR #596 from the parallel "Fix desktop updater install stall" thread (it never calls `quitAndInstall` on an unstaged bundle, restages first, waits for Squirrel's unpack, and recovers a stalled install). The design below was this thread's independent plan and matches #596's; it stays as the acceptance reference. In `installDownloadedUpdate`, after admission and the backend stops, `setAutoInstallOnAppQuit(false)` then `quitAndInstall`, with a comment naming the electron-updater behaviour. A watchdog fiber forked after an accepted install sleeps 60 s and, if `desktopState.quitting` is still true and no `before-quit` arrived (a new `quitRequested` deferred in `DesktopState`, completed by `DesktopLifecycle`'s before-quit handler), runs `recoverFailedInstall("The app did not quit for the update.")`. The restage in `appActivationControl.ts` stays for the install-on-quit path. `APP_INSTALL_APPLY_MS` (75 s) stays above the watchdog so the follow-up sees a recovered updater on its retry.
+
+Helper (`scripts/studio-fleet/after_proof.py`, new; `update.py` wires it between `readinessCheap` and `readiness`; `update_read.py` gains a `reuse` path; `read_delta.py` untouched): the before read keeps, per log table, its sorted legacy and typed lines and both hashers' inputs so an exact whole hash with appended lines can be recomputed in the same process (M4 has 128 GiB; refuse the fast path under a free-memory floor and fall back). After `wait_until_answering`, open a read transaction on the live database, parse the live `-wal` (new generation, frames since its start) for written pages, compare the main file against the clone (`backup_state_clone` output, taken while the service was stopped, so it equals the before read's state once `assert_unchanged_before_restart` passed) in 64 MiB chunks, then per page inside differing chunks; every differing main page must equal the latest live WAL frame for that page (a checkpoint copy), else None. Changed logical pages = WAL pages ∪ explained main pages. Map them to owners with live `dbstat` (table, index, freelist, page 1 = schema → None). Untouched tables copy their `rows`, `databaseCapture` entries and activity buckets from `before`. Touched non-log tables are re-read as today. For a touched log table: its old pages come from the clone's `dbstat` (`?immutable=1`); a changed old leaf is verified row by row against the clone over its rowid range (leaf order from `dbstat` path plus `ORDER BY rowid LIMIT/OFFSET`), a changed old overflow or interior page is mapped to its row through the `dbstat` path (`+cell`), a changed old page no longer owned by the table means None; `count(*) WHERE rowid <= boundary` and `max(rowid)` must match; appended rows (`rowid > boundary`) are read, encoded and merged into the kept sorted lines for the exact whole hash; the prefix entries equal the before values. `assert_idle`, `projectIds`, `threadIds`, the auth invariant, `carried_since` and the cursor tables run live as today. The result feeds the unchanged comparison code; the receipt gains `afterProof`.
+
+Rejected: parallelising the JSON encoding (same 9 GB of work, two snapshots), hashing raw cells (changes the proof format the 1.0.71 agent compares), verifying on the clone in the background after `verified` (a late rollback would lose user work).
+
+## Decisions
+
+### Asked
+- none (the owner is not in the loop; the thread was told to find, implement and release the best solution)
+### Defaulted (change any before sw-do)
+- D-01: 0985's D-02 ("the post-restart full read is never skipped") is superseded: the post-restart proof always runs, as a page proof with the full read as fallback. Reason: the full read is the install time, and page identity against the post-stop clone is a stronger statement than a row hash for untouched pages.
+- D-02: The fast path ships live in 1.0.72 (not shadow mode), gated on fixtures that compare both paths byte for byte and on the refusal cases in AC-05.
+- D-03: The stuck 1.0.69 app on M4 needs one manual quit and reopen (its install action is held and `quitting` is set); the fix cannot reach a process that already hung.
+### Open
+- none
+
+## Tasks
+
+### T-01 Desktop: adopt PR #596 (stage the Squirrel bundle before installing, recover stalled installs)
+- Note: the "Fix desktop updater install stall" thread opened PR #596 (branch fix/updater-unstaged-install-stall) for the same root cause at 14:20Z, with its own fresh-context review; this increment adopts it instead of a second patch. Done when #596 is merged and its tests cover AC-01..AC-03 (installReady gate, restage-then-install, watchdog).
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specweave-studio/apps/desktop/src/updates/DesktopUpdates.ts, repositories/anton-abyzov/specweave-studio/apps/desktop/src/updates/DesktopUpdates.test.ts, repositories/anton-abyzov/specweave-studio/apps/desktop/src/updates/updatesTestHarness.ts, repositories/anton-abyzov/specweave-studio/apps/desktop/src/app/DesktopState.ts, repositories/anton-abyzov/specweave-studio/apps/desktop/src/app/DesktopLifecycle.ts, repositories/anton-abyzov/specweave-studio/apps/desktop/src/updates/runFollowUp.ts, repositories/anton-abyzov/specweave-studio/apps/desktop/src/updates/runFollowUp.test.ts | Test: cd ~/.specwithcode/m4/worktrees/fast-install && export PATH=$HOME/.nvm/versions/node/v22.20.0/bin:$PATH && node node_modules/vite-plus/bin/vp test run apps/desktop/src/updates/DesktopUpdates.test.ts apps/desktop/src/updates/DesktopUpdates.activation.test.ts apps/desktop/src/updates/runFollowUp.test.ts apps/desktop/src/updates/appFollowUp.test.ts && node node_modules/vite-plus/bin/vp run @specweave-studio/desktop#typecheck
+
+### T-02 Helper: page proof after the restart, held-service gate settle, receipt fields
+- AC: AC-04, AC-05, AC-06, AC-07 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/after_proof.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-after-proof.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update_read.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/database_continuity.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/make_helpers.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/run-tests.sh, repositories/anton-abyzov/specweave-studio/docs/studio/updates.md | Test: cd ~/.specwithcode/m4/worktrees/fast-install/scripts/studio-fleet && python3 -B test-after-proof.py && python3 -B test-update.py && python3 -B test-update-timings.py && python3 -B test-database-continuity.py && bash run-tests.sh --out "$(mktemp -d)"
+
+### T-03 Measured run on the clone of M4's database
+- AC: AC-04 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-after-proof.py | Test: cd ~/.specwithcode/m4/worktrees/fast-install/scripts/studio-fleet && /usr/bin/python3 -B test-after-proof.py --measure ~/.specwithcode/m4/scratch/fast-install-profile/clone
+
+### T-04 Release the updater fixes and verify on M4
+- AC: AC-08 | Files: repositories/anton-abyzov/specweave-studio/docs/studio/updates.md | Test: specweave-studio --version && python3 -c "import json,glob;r=json.load(open(sorted(glob.glob('/Users/antonabyzov/.specwithcode/m4/updates/receipts/update-1.0.72-*.json'))[-1]));print(r['timings'], r.get('afterProof'))"
+
+
+### T-05 Enable the existing proof on migration-capable plans and use a fresh auth baseline
+- Note: Resumed October 23, 2026 in `/Users/antonabyzov/Projects/github/studio-backup-space`. The original writer is this thread's interrupted Claude run; its read-only children have finished. Existing recovery files are retained. Fix the migration flag bypass and pre-helper auth-session race, then address clone-aware space admission and agent duplicate reads in follow-up tasks before installed acceptance.
+- AC: AC-04, AC-05, AC-07 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update_compare.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update-apply.py, repositories/anton-abyzov/specweave-studio/docs/studio/updates.md | Test: cd /Users/antonabyzov/Projects/github/studio-backup-space/scripts/studio-fleet && python3 -B test-update.py && python3 -B test-update-apply.py && python3 -B test-after-proof.py && python3 -B test-update-timings.py && python3 -B test-database-continuity.py
+
+
+### T-06 Admit APFS updates by clone headroom, retaining the full-copy fallback guard
+- AC: AC-07, AC-08 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/state_backup.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update-apply.py, repositories/anton-abyzov/specweave-studio/docs/studio/updates.md | Test: cd /Users/antonabyzov/Projects/github/studio-backup-space/scripts/studio-fleet && python3 -B test-update.py && python3 -B test-update-apply.py
+- Admission probes clonefile with a disposable one-byte file on the actual source and backup volumes, never database contents. A supported clone needs the existing clone headroom; an unsupported clone needs the full copy plus margin. If cloning later becomes unavailable, check full-copy space again before copying. Preserve all existing recovery copies beyond the updater's existing retention policy.
+
+
+### T-07 Remove the agent's duplicate full read for a verified forced hold
+- AC: AC-04, AC-05, AC-07 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update_agent.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update-apply.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update-agent-install.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update-agent.py, repositories/anton-abyzov/specweave-studio/docs/studio/updates.md | Test: cd /Users/antonabyzov/Projects/github/studio-backup-space/scripts/studio-fleet && python3 -B test-update.py && python3 -B test-update-apply.py && python3 -B test-update-agent-install.py
+- Forced requests pass their existing request timestamp to snapshot. The helper validates the matching live hold, performs idle and metadata checks without row hashes, and tags that snapshot. Apply revalidates the hold and takes its own full baseline. Every check across pointer changes, service restart and data preservation remains based on that baseline. Ordinary automatic updates keep full snapshots and the quiet-period comparison. Old verified helpers already accept `--request` and ignore it on snapshot, providing a safe full-read fallback.
+
+
+## Resume evidence, October 23, 2026
+
+PR: https://github.com/anton-abyzov/specwithcode-dev/pull/626. App worktree: `/Users/antonabyzov/Projects/github/studio-backup-space`, branch `perf/update-path`. Original claims belong to this thread's interrupted Claude session; no foreign worktree was restored. The untracked model-lanes fixture in the SpecWeave source checkout was left untouched.
+
+PR #623 was found merged on a fresh fetch. Its clone-aware admission, 2 GiB staging margin and recovery-aware retention are retained. T-06's custom clone probe was replaced with the upstream implementation; only its late full-copy fallback guard remains. No cleanup was performed.
+
+M4 baseline from retained receipts: new-work hold 261 s, service disconnected about 6 s, three full reads of an approximately 11 GB database. Installed improvement and peak disk remain unverified until T-04. Release ownership remains with the existing release thread, notified before dispatch. No duplicate release has been started.
+
+Remaining order: finish final fleet tests and CI, merge PR #626, coordinate its merged SHA with release owner, measure installed timings and peak free-space change, complete adopted task evidence, then Verify and close 0993.
+
+
+### T-08 Keep the reaper fixture compatible with held-snapshot request arguments
+- AC: AC-07 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-reap.py | Test: cd /Users/antonabyzov/Projects/github/studio-backup-space/scripts/studio-fleet && python3 -B test-reap.py
+- The integrated fleet run passed 39 suites. The reaper fixture's parser transformation adds `--request` a second time after the shared helper declared it for held snapshots. Retain the shared argument and add only `--reap` in the transformation. No production reaper behavior changes.

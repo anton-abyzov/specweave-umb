@@ -1,0 +1,15 @@
+{
+  "id": "1008-harness-positioning-and-showcase",
+  "uuid": "d2587b8f-0ca4-4a92-ac59-ca1b4cde7fe2",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T05:10:06.385Z",
+  "updated": "2026-10-23T06:16:45.784Z",
+  "lastActivity": "2026-10-23T06:16:45.784Z",
+  "title": "Harness positioning and showcase",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

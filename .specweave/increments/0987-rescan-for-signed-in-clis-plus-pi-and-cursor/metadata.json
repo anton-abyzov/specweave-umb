@@ -1,0 +1,15 @@
+{
+  "id": "0987-rescan-for-signed-in-clis-plus-pi-and-cursor",
+  "uuid": "11cf478b-e30a-4dc8-9113-cf5959d8c8c3",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-21T17:18:35.772Z",
+  "updated": "2026-10-21T17:18:35.772Z",
+  "lastActivity": "2026-10-21T17:18:35.772Z",
+  "title": "Rescan for signed-in CLIs plus Pi and Cursor",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

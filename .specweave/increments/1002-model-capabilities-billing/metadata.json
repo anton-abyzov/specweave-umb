@@ -1,0 +1,18 @@
+{
+  "id": "1002-model-capabilities-billing",
+  "uuid": "7f9886e8-a1b0-4603-bf15-271d641a577c",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-22T22:51:40.435Z",
+  "updated": "2026-10-23T00:46:25.191Z",
+  "lastActivity": "2026-10-23T00:46:25.191Z",
+  "title": "Model capabilities and paid-router safety",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T00:46:25.190Z",
+  "closeReason": "All ACs met; PR #619 merged green; umbrella verify fails only on unrelated vskill tests (CreateSkillPage.picker/prefill, boot-ordering) outside specwithcode-dev",
+  "approvedAt": "2026-10-23T00:46:25.191Z"
+}

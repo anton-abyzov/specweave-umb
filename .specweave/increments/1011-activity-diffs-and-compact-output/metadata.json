@@ -1,0 +1,15 @@
+{
+  "id": "1011-activity-diffs-and-compact-output",
+  "uuid": "fc2338f9-7c0a-4452-8b6e-18e23f9ff6e4",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T05:18:17.043Z",
+  "updated": "2026-10-24T19:13:04.635Z",
+  "lastActivity": "2026-10-24T19:13:04.635Z",
+  "title": "Activity diffs and compact output",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

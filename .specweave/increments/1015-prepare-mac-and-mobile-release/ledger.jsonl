@@ -1,0 +1,12 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:28:09.378Z","note":"session 01a16739-1fa7-7323-9c5c-5efe6a8e72b4"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:28:09.379Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:31:03.818Z","evidence":"Owners611 and623 explicitly transferred dispatch; sole coordinator trigger6:26AM EDT verified; cancelled39898480730 and live ASC receipts recorded in release-readiness.md.\nHEAD 4dc864daf"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:31:04.201Z"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:31:04.634Z","evidence":"Candidate queue and source-bound checks plus trigger instructions in release-readiness.md and handoff.md; final cutoff recheck retained for trigger.\nHEAD 4dc864daf"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T10:27:55.346Z"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T10:28:30.180Z"}
+{"t":"T-04","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T10:56:36.944Z","evidence":"Mac1.0.75 run39939287862 SUCCESS; exact12merge ancestry, public/private asset digests and downloaded sums pass; ZIP DeveloperID/notarized passes and CI exactDMG app check passes; macos-receipt.md retains localDMGmount limit and installed1.0.74 boundary.\nHEAD 90dbbfc5f"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T15:19:10.648Z"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T15:19:10.650Z","evidence":"/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1015-prepare-mac-and-mobile-release/evidence/ios-status-build8-submitted.json\nHEAD 90dbbfc5f"}
+{"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T15:19:26.728Z"}
+{"t":"T-05","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T15:19:26.735Z","evidence":"/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1015-prepare-mac-and-mobile-release/review.md\nHEAD 90dbbfc5f"}

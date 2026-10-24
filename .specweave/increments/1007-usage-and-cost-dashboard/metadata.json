@@ -1,0 +1,15 @@
+{
+  "id": "1007-usage-and-cost-dashboard",
+  "uuid": "53e37a4b-154f-4053-b011-0e2ca3df2550",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T05:00:50.934Z",
+  "updated": "2026-10-23T06:20:24.302Z",
+  "lastActivity": "2026-10-23T06:20:24.302Z",
+  "title": "Usage and cost dashboard",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
