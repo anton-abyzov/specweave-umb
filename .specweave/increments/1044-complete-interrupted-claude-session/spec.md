@@ -15,7 +15,7 @@ In: identify the session and its decisions from the transcript; verify the three
 - [x] AC-03: vskill #203 and vskill-platform #186 are merged; /check/php2shell returns 200 with OG/Twitter tags; the check API answers public hosts and refuses loopback, private and link-local targets; the skill tests pass on vskill main and the install command succeeds in an isolated HOME.
 - [x] AC-04: `php2shell-check` is submitted to verified-skill.com once; the registry lists a version or returns a submission ID with its state.
 - [x] AC-05: Headless screenshots of the check page and the X post are saved to files.
-- [ ] AC-06: The 30-second demo approved in option 1 exists as a rendered video built from real skill and page output, with draft follow-up post text for X, Threads and LinkedIn; nothing is published without Anton's per-post yes.
+- [x] AC-06: The 30-second demo approved in option 1 exists as a rendered video built from real skill and page output, with draft follow-up post text for X, Threads and LinkedIn; nothing is published without Anton's per-post yes.
 
 ## Approach
 
