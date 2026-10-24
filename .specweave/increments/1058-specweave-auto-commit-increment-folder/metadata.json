@@ -1,0 +1,17 @@
+{
+  "id": "1058-specweave-auto-commit-increment-folder",
+  "uuid": "9b79aba0-6992-420f-979c-ab1cb8f886ad",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-24T19:21:38.350Z",
+  "updated": "2026-10-24T22:15:52.560Z",
+  "lastActivity": "2026-10-24T22:15:52.560Z",
+  "title": "SpecWeave auto-commit increment folder",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T22:15:52.559Z",
+  "approvedAt": "2026-10-24T22:15:52.560Z"
+}
