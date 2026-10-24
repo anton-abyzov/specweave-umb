@@ -1,15 +1,18 @@
 {
   "id": "0972-design-workspace-foundation",
   "uuid": "85f33762-f590-4543-91b3-df6ec80100fb",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-20T18:44:59.385Z",
-  "updated": "2026-10-20T19:44:12.444Z",
-  "lastActivity": "2026-10-20T19:44:12.444Z",
+  "updated": "2026-10-24T07:49:09.766Z",
+  "lastActivity": "2026-10-24T07:49:09.766Z",
   "title": "Design workspace: artifacts, ownership and agent tools",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T07:48:25.816Z",
+  "closeReason": "Verify ACs 16/16; red only on unrelated timing tests (load avg 88-155): specweave handoff-roundtrip/save pass on isolated rerun (60/60), vskill tier1/hidden-content pass, vskill-platform regex-bounds NA-002 1s budget still fails under load. Fresh closer review SHIP (October 24). Code on specwithcode-dev main via #569 ea8424064d (#519 930353ff8d, #528 72ac6d84f3). Later scope (repo design-system picker, Designs tab, Connect to a project/move, redirects, Scratch move) belongs to 1041 (#660) and 1046 (#667), unmerged.",
+  "approvedAt": "2026-10-24T07:48:25.818Z"
 }

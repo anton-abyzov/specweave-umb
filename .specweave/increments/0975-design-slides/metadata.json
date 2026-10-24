@@ -1,15 +1,18 @@
 {
   "id": "0975-design-slides",
   "uuid": "f5ba9813-e08c-4ced-b8f3-2b6cbad19d42",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P2",
   "created": "2026-10-20T18:45:00.485Z",
-  "updated": "2026-10-21T06:40:46.562Z",
-  "lastActivity": "2026-10-21T06:40:46.562Z",
+  "updated": "2026-10-24T07:49:11.613Z",
+  "lastActivity": "2026-10-24T07:49:11.613Z",
   "title": "Slides on the design canvas",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T07:48:30.960Z",
+  "closeReason": "Verify ACs 8/8; red only on unrelated timing tests (load avg 88-155), see 0972 note. Fresh closer review SHIP (October 24). PPTX menu e80edc5000 on main via #569; headless e2e verify-slides.mjs 16/16 (slides-pptx-menu/run2). Repository design-system source for the New dialog belongs to 1041 (#660). User-only: open exported PPTX in PowerPoint/Keynote.",
+  "approvedAt": "2026-10-24T07:48:30.962Z"
 }
