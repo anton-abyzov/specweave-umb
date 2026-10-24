@@ -1,0 +1,16 @@
+{
+  "id": "1044-complete-interrupted-claude-session",
+  "uuid": "dbcf37cf-97dc-4ceb-b8cb-dd07e4424be5",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-23T23:58:14.487Z",
+  "updated": "2026-10-24T00:04:14.870Z",
+  "lastActivity": "2026-10-24T00:04:14.870Z",
+  "title": "Complete interrupted Claude session",
+  "project": "specweave-umb",
+  "parent": "0989-php2shell-check-skill-and-page",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
