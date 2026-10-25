@@ -43,3 +43,7 @@ The user requires headless acceptance. The isolated harness cannot exercise the 
 Scratch evidence and harness: `/Users/antonabyzov/.specwithcode/m4/evidence/snapshot-installed-20261025`.
 
 Portable receipt validation: `python3 /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1016-fix-blurry-pasted-snapshots/evidence/installed-20261025/check.py`.
+
+## Receipt CI
+
+The umbrella repository had no existing workflows. A path-scoped workflow validates the retained receipt hashes and explicit boundaries on changes to this increment. A green receipt job proves those retained records are internally consistent; it does not close the live-native gate.

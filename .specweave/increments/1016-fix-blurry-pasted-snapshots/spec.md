@@ -44,7 +44,7 @@ Inspect the capture and delivery code before altering it. Isolate app changes fr
 
 
 ### T-05 Verify installed artifacts and live-provider image handoff
-- AC: AC-06 | Files: .specweave/increments/1016-fix-blurry-pasted-snapshots/evidence/installed-20261025 | Test: python3 .specweave/increments/1016-fix-blurry-pasted-snapshots/evidence/installed-20261025/check.py
+- AC: AC-06 | Files: .github/workflows/snapshot-receipts.yml, .specweave/increments/1016-fix-blurry-pasted-snapshots/evidence/installed-20261025 | Test: python3 .specweave/increments/1016-fix-blurry-pasted-snapshots/evidence/installed-20261025/check.py
 
 ### T-06 Obtain live installed native acceptance
 - AC: AC-07 | Files: .specweave/increments/1016-fix-blurry-pasted-snapshots/evidence/installed-20261025/acceptance.md | Test: live desktop snapshot shortcut and selected-element annotation at 150% zoom, user-operated or explicitly authorized native interaction
