@@ -1,0 +1,13 @@
+{
+  "id": "1068-concise-inbound-agent-messages",
+  "uuid": "f92f43d8-4afa-40a6-97a3-66635058fa0e",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-25T04:20:48.800Z",
+  "updated": "2026-10-25T04:50:49.931Z",
+  "lastActivity": "2026-10-25T04:50:49.931Z",
+  "title": "Concise inbound agent messages",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}
