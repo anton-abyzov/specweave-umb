@@ -1,0 +1,106 @@
+{
+  "version": "1.0.76",
+  "artifact": "/Users/antonabyzov/.specwithcode/install/releases/d1fb12bd4d01664afe5e/bin.mjs",
+  "scratch": "/Users/antonabyzov/Projects/scratch/0981-installed-1076-20261024/",
+  "cases": [
+    {
+      "name": "installed server 1.0.76",
+      "pass": true
+    },
+    {
+      "name": "all providers disabled",
+      "pass": true,
+      "enabled": []
+    },
+    {
+      "name": "first create is personal",
+      "pass": true
+    },
+    {
+      "name": "MCP singleton reuse 1",
+      "pass": true
+    },
+    {
+      "name": "MCP singleton reuse 2",
+      "pass": true
+    },
+    {
+      "name": "concurrent RPC singleton reuse",
+      "pass": true
+    },
+    {
+      "name": "kind immutable",
+      "pass": true
+    },
+    {
+      "name": "assistant fixture thread exists",
+      "pass": true
+    },
+    {
+      "name": "remote list excludes personal",
+      "pass": true
+    },
+    {
+      "name": "remote privacy studio_project_create",
+      "pass": true,
+      "response": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"outside_grant_scope\",\"message\":\"A personal assistant is private to its machine: its threads, memory and routines never move, copy or sync to another machine, and other machines' work cannot reach them.\"}"
+    },
+    {
+      "name": "remote privacy studio_project_create explicit path",
+      "pass": true,
+      "response": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"outside_grant_scope\",\"message\":\"A personal assistant is private to its machine: its threads, memory and routines never move, copy or sync to another machine, and other machines' work cannot reach them.\"}"
+    },
+    {
+      "name": "remote privacy studio_project_read",
+      "pass": true,
+      "response": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"outside_grant_scope\",\"message\":\"A personal assistant is private to its machine: its threads, memory and routines never move, copy or sync to another machine, and other machines' work cannot reach them. fictional-remote-0981 cannot reach this machine's assistant.\"}"
+    },
+    {
+      "name": "remote privacy studio_thread_list",
+      "pass": true,
+      "response": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"outside_grant_scope\",\"message\":\"A personal assistant is private to its machine: its threads, memory and routines never move, copy or sync to another machine, and other machines' work cannot reach them. fictional-remote-0981 cannot reach this machine's assistant.\"}"
+    },
+    {
+      "name": "remote privacy studio_thread_read",
+      "pass": true,
+      "response": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"outside_grant_scope\",\"message\":\"A personal assistant is private to its machine: its threads, memory and routines never move, copy or sync to another machine, and other machines' work cannot reach them. fictional-remote-0981 cannot reach this machine's assistant.\"}"
+    },
+    {
+      "name": "remote privacy studio_thread_send",
+      "pass": true,
+      "response": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"outside_grant_scope\",\"message\":\"A personal assistant is private to its machine: its threads, memory and routines never move, copy or sync to another machine, and other machines' work cannot reach them. fictional-remote-0981 cannot reach this machine's assistant.\"}"
+    },
+    {
+      "name": "remote privacy studio_thread_interrupt",
+      "pass": true,
+      "response": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"outside_grant_scope\",\"message\":\"A personal assistant is private to its machine: its threads, memory and routines never move, copy or sync to another machine, and other machines' work cannot reach them. fictional-remote-0981 cannot reach this machine's assistant.\"}"
+    },
+    {
+      "name": "remote privacy studio_thread_wait",
+      "pass": true,
+      "response": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"outside_grant_scope\",\"message\":\"A personal assistant is private to its machine: its threads, memory and routines never move, copy or sync to another machine, and other machines' work cannot reach them. fictional-remote-0981 cannot reach this machine's assistant.\"}"
+    },
+    {
+      "name": "one personal preserved",
+      "pass": true
+    },
+    {
+      "name": "local owner still reads personal",
+      "pass": true
+    }
+  ],
+  "projectId": "8455bb24-4dc4-4974-80d8-a09da5f151e2",
+  "threadRows": [
+    {
+      "threadId": "fixture-assistant-thread"
+    }
+  ],
+  "pass": true,
+  "ui": {
+    "headless": true,
+    "assistantVisible": true,
+    "forbiddenControls": [],
+    "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/installed-1.0.76-assistant.png"
+  },
+  "appBundleVersion": "1.0.76"
+}
