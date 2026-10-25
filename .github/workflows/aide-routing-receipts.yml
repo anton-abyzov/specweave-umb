@@ -1,0 +1,17 @@
+name: Aide routing receipts
+on:
+  pull_request:
+    paths:
+      - '.specweave/increments/0945-aide-routes-requests-to-owning-projects/evidence/installed-routing-recovered-20261025*'
+      - '.specweave/increments/0945-aide-routes-requests-to-owning-projects/evidence/validate-recovered-routing.mjs'
+      - '.github/workflows/aide-routing-receipts.yml'
+permissions:
+  contents: read
+jobs:
+  receipts:
+    name: Validate recovered routing receipts
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: node .specweave/increments/0945-aide-routes-requests-to-owning-projects/evidence/validate-recovered-routing.mjs
