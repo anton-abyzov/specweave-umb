@@ -1,16 +1,19 @@
 {
   "id": "1051-design-boards-and-slides-claude-parity",
   "uuid": "8e99447b-dbfb-4b04-8fc2-cb3b9ddb6c02",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-24T07:52:00.000Z",
-  "updated": "2026-10-24T17:14:32.634Z",
-  "lastActivity": "2026-10-24T17:14:32.634Z",
+  "updated": "2026-10-25T02:18:55.276Z",
+  "lastActivity": "2026-10-25T02:18:55.276Z",
   "title": "Design boards and slides: Claude parity and full scenario verification",
   "project": "specweave-umb",
   "parent": "1046-design-system-workspace-and-project-designs",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-25T02:18:55.275Z",
+  "closeReason": "AC-08 installed acceptance follows the release that carries #674 (D-07); T-05 skipped (D-05)",
+  "approvedAt": "2026-10-25T02:18:55.276Z"
 }

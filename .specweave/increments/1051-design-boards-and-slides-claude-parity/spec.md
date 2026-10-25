@@ -52,7 +52,7 @@ Out:
 - [ ] AC-05: Board rows B-01 to B-08 pass, or each failure becomes a gap that is fixed and run again.
 - [ ] AC-06: Each row names its Claude reference (a live screenshot or a static spec row) and a verdict: match, gap fixed, local equivalent, or left out (with the reason).
 - [ ] AC-07: Safety. All runs use a private server or a fixture, headless (headless:true, PWDEBUG=0, PLAYWRIGHT_HTML_OPEN=never). Nothing touches statev2.sqlite, the live service is not restarted, and EasyChamp is used read-only (writes go to the copy at `/tmp/swc-1046-compare/repos/ec-uikit`).
-- [ ] AC-08: Installed acceptance is recorded separately, after the release owner ships. Until then the installed app (1.0.75) gets only read-only checks, plus test content in the Playground through the design tools that agents already have.
+- [x] AC-08: Installed acceptance is recorded separately, after the release owner ships. Until then the installed app (1.0.75) gets only read-only checks, plus test content in the Playground through the design tools that agents already have.
 
 ## Scenario matrix
 
@@ -126,10 +126,23 @@ Rows S1 to S8 are run by the 1046 comparison workflow and recorded in `/Users/an
 - D-02: The import flow is a deterministic PowerPoint import, because no authorized evidence shows how Claude imports. Agent rebuilding stays SL-03.
 - D-03: No provider turn on the installed app. The agent-authored deck uses the design tools directly.
 - D-04: The release owner ships. This increment delivers a PR and coordinates with them; it never races them.
+- D-05 (October 24, 2026): SL-03's agent-authored deck is built through the `design_create` and `design_apply` RPCs the agent tools call, on a private server with every provider off. That is the agent-equivalent flow under D-03. On the installed app, a design tool call from this project's thread could not write a Playground design ("This thread can only use its own project's designs", `capability_denied`), so no installed Playground test deck was made, and T-05 stays skipped.
+- D-06 (October 24, 2026): the closure review's gaps were closed in `31ad369cff` (C-02), `e30205a1c2` (B-06), `1d5a996d50` (B-03), `263beff205` (B-04), `af8c3d3edf` and `a0254abeeb` (B-05), then `9cd95c1323` and `f262c0059d` (review R-1 to R-4) and `cefb0df729` (fixture wording). The final matrix, `81d7dc23aa` on the `cefb0df729` build, passed 17 of 17 rows with no provider turn: `/Users/antonabyzov/.specwithcode/m4/evidence/design-boards-slides-1051/runs-final/matrix.md`.
+- D-07 (October 24, 2026): installed acceptance of boards and slides waits for the first release that carries #674 (1.0.77 or later). It is a follow-up for the release owner, not a gate on this source-level close.
+- D-08 (October 25, 2026): installed release-artifact verification on 1.0.85 (`d9a2e72ce34fe6236d858034dc9441914dbf9877`) passed 17/17 matrix rows across the main run and a focused C-01/B-03 rerun, using private homes and no provider turns. Receipt: `/Users/antonabyzov/.specwithcode/m4/evidence/design-boards-slides-1051/installed-1.0.85/RECEIPT.md`. Separate live read-only gallery inspection found three EasyChamp designs and one Playground design; `/Users/antonabyzov/.specwithcode/m4/evidence/design-create-reuse-1041/installed-1.0.85/continuation/RECEIPT.md` records that boundary. T-05 remains skipped under D-05, and no manual acceptance or installed provider generation is claimed.
 
 ### Open
 
 - none
+
+## Deferred (follow-up)
+
+- B-05 is about 800 changed lines against a 500-line plan, mostly the SVG writer and its tests. The Share dialog has no SVG row; SVG is offered from Export.
+- An older server exports components that use `var(--token)` without the system's token CSS until it updates.
+- "Send to existing thread" and "Ask agent" still try to start a turn when no provider is ready. Design from code and Implement hold the brief instead.
+- F-1 (low, `cefb0df729` review): a NUL in a text node shifts SVG line measurement, and a later break can split an emoji.
+- F-2 (low): the "first message waits in the composer" notice also shows on other devices, but the held brief is saved only in the browser that made the thread.
+- SL-04 observation: connecting a Playground deck copies its Playground system into the project by id, so a project that already imported the same system lists two systems with the same name (1046 AC-02 copies by id).
 
 ## Tasks
 
