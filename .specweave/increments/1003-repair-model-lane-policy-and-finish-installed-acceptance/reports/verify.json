@@ -1,0 +1,70 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-25T04:29:51.342Z",
+  "increment": "1003-repair-model-lane-policy-and-finish-installed-acceptance",
+  "commands": [
+    {
+      "cmd": "python3 /Users/antonabyzov/.specwithcode/m4/evidence/model-lanes-20261022/installed-acceptance/verify-receipts.py",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 3,
+    "done": 3,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-03",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-03",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-03",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-03",
+            "status": "done"
+          }
+        ]
+      }
+    ]
+  },
+  "tasks": {
+    "total": 3,
+    "done": 3,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

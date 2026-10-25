@@ -1,0 +1,114 @@
+{
+  "status": 200,
+  "subagents": [
+    {
+      "id": "node:delegated-task:command%3Amcp%3Aff67b0e6-fe25-4168-b9c9-751d248b1c14%3Adelegate-task%3A1003-installed-complex-probe-20261025",
+      "threadId": "thread:project:65b55f55-3993-4b7f-a4b5-550621dc6049:c7d698e7-edcc-42a4-ba59-e8867ac5a441",
+      "runId": "run:thread:thread%3Aproject%3A65b55f55-3993-4b7f-a4b5-550621dc6049%3Ac7d698e7-edcc-42a4-ba59-e8867ac5a441:ordinal:1",
+      "parentNodeId": "node:run:run%3Athread%3Athread%253Aproject%253A65b55f55-3993-4b7f-a4b5-550621dc6049%253Ac7d698e7-edcc-42a4-ba59-e8867ac5a441%3Aordinal%3A1:root",
+      "origin": "app_owned",
+      "createdBy": "agent",
+      "driver": "codex",
+      "providerInstanceId": "codex",
+      "providerThreadId": "provider-thread:provider:codex:native-thread:pending%3Arun%3Athread%3Athread%253Adelegated-task%253Acommand%25253Amcp%25253Aff67b0e6-fe25-4168-b9c9-751d248b1c14%25253Adelegate-task%25253A1003-installed-complex-probe-20261025%3Aordinal%3A1",
+      "childThreadId": "thread:delegated-task:command%3Amcp%3Aff67b0e6-fe25-4168-b9c9-751d248b1c14%3Adelegate-task%3A1003-installed-complex-probe-20261025",
+      "nativeTaskRef": null,
+      "prompt": "Return exactly 1003_COMPLEX_OK. Do not use tools or edit anything.\n\nIf you change code, run `specweave small-fix \"<why>\"` first.",
+      "title": "1003 complex probe",
+      "model": "gpt-6-astra",
+      "routing": {
+        "taskClass": "general",
+        "confidence": "hint",
+        "moved": false,
+        "tier": null,
+        "selection": {
+          "instanceId": "codex",
+          "model": "gpt-6-astra"
+        },
+        "baseline": {
+          "instanceId": "codex",
+          "model": "gpt-6-astra"
+        },
+        "escalation": null,
+        "billing": "subscription",
+        "modelBilling": "subscription",
+        "reason": "Complex and creative (the coordinator judged it): Codex · GPT-6-Astra after skipping 1.",
+        "signals": [
+          "lane: complex",
+          "hint: complex",
+          "hint: general"
+        ],
+        "lane": "complex",
+        "skipped": [
+          "Grok · Grok 4.7: at 100% usage"
+        ],
+        "decidedAt": "2026-10-25T04:27:45.347Z"
+      },
+      "completionWake": "always",
+      "completionDelivery": {
+        "state": "acknowledged",
+        "observedByRunId": "run:thread:thread%3Aproject%3A65b55f55-3993-4b7f-a4b5-550621dc6049%3Ac7d698e7-edcc-42a4-ba59-e8867ac5a441:ordinal:1"
+      },
+      "status": "completed",
+      "result": "1003_COMPLEX_OK",
+      "startedAt": "2026-10-25T04:27:45.350Z",
+      "completedAt": "2026-10-25T04:27:49.468Z",
+      "updatedAt": "2026-10-25T04:27:53.547Z"
+    },
+    {
+      "id": "node:delegated-task:command%3Amcp%3Aff67b0e6-fe25-4168-b9c9-751d248b1c14%3Adelegate-task%3A1003-installed-routine-probe-20261025",
+      "threadId": "thread:project:65b55f55-3993-4b7f-a4b5-550621dc6049:c7d698e7-edcc-42a4-ba59-e8867ac5a441",
+      "runId": "run:thread:thread%3Aproject%3A65b55f55-3993-4b7f-a4b5-550621dc6049%3Ac7d698e7-edcc-42a4-ba59-e8867ac5a441:ordinal:1",
+      "parentNodeId": "node:run:run%3Athread%3Athread%253Aproject%253A65b55f55-3993-4b7f-a4b5-550621dc6049%253Ac7d698e7-edcc-42a4-ba59-e8867ac5a441%3Aordinal%3A1:root",
+      "origin": "app_owned",
+      "createdBy": "agent",
+      "driver": "codex",
+      "providerInstanceId": "codex",
+      "providerThreadId": "provider-thread:provider:codex:native-thread:pending%3Arun%3Athread%3Athread%253Adelegated-task%253Acommand%25253Amcp%25253Aff67b0e6-fe25-4168-b9c9-751d248b1c14%25253Adelegate-task%25253A1003-installed-routine-probe-20261025%3Aordinal%3A1",
+      "childThreadId": "thread:delegated-task:command%3Amcp%3Aff67b0e6-fe25-4168-b9c9-751d248b1c14%3Adelegate-task%3A1003-installed-routine-probe-20261025",
+      "nativeTaskRef": null,
+      "prompt": "Return exactly 1003_ROUTINE_OK. Do not use tools or edit anything.\n\nIf you change code, run `specweave small-fix \"<why>\"` first.",
+      "title": "1003 routine probe",
+      "model": "gpt-6-astra",
+      "routing": {
+        "taskClass": "general",
+        "confidence": "hint",
+        "moved": false,
+        "tier": null,
+        "selection": {
+          "instanceId": "codex",
+          "model": "gpt-6-astra"
+        },
+        "baseline": {
+          "instanceId": "codex",
+          "model": "gpt-6-astra"
+        },
+        "escalation": null,
+        "billing": "subscription",
+        "modelBilling": "subscription",
+        "reason": "Routine (the coordinator judged it): Codex · GPT-6-Astra.",
+        "signals": [
+          "lane: routine",
+          "hint: routine",
+          "hint: general"
+        ],
+        "lane": "routine",
+        "decidedAt": "2026-10-25T04:27:47.517Z"
+      },
+      "completionWake": "always",
+      "completionDelivery": {
+        "state": "acknowledged",
+        "observedByRunId": "run:thread:thread%3Aproject%3A65b55f55-3993-4b7f-a4b5-550621dc6049%3Ac7d698e7-edcc-42a4-ba59-e8867ac5a441:ordinal:1"
+      },
+      "status": "completed",
+      "result": "1003_ROUTINE_OK",
+      "startedAt": "2026-10-25T04:27:47.519Z",
+      "completedAt": "2026-10-25T04:27:50.896Z",
+      "updatedAt": "2026-10-25T04:27:55.513Z"
+    }
+  ],
+  "items": [
+    "I’ll run the two installed-routing probes and preserve their full receipts.\n",
+    "PASS. Both probes completed with exact expected text. Receipt delivered to [Recover agents after limits](studio://thread/thread%3Adelegated-task%3Acommand%253Amcp%253Af9b6f93f-2383-4a68-8fb1-0a0bb9d73b36%253Adelegate-task%253Alimit-recovery-main-subagents-20261023).\n\n```json\n{\n  \"complex\": {\n    \"providerInstanceId\": \"codex\",\n    \"model\": \"gpt-6-astra\",\n    \"status\": \"completed\",\n    \"finalText\": \"1003_COMPLEX_OK\",\n    \"routing\": {\n      \"taskClass\": \"general\",\n      \"confidence\": \"hint\",\n      \"moved\": false,\n      \"tier\": null,\n      \"selection\": {\"instanceId\": \"codex\", \"model\": \"gpt-6-astra\"},\n      \"baseline\": {\"instanceId\": \"codex\", \"model\": \"gpt-6-astra\"},\n      \"escalation\": null,\n      \"billing\": \"subscription\",\n      \"modelBilling\": \"subscription\",\n      \"reason\": \"Complex and creative (the coordinator judged it): Codex · GPT-6-Astra after skipping 1.\",\n      \"signals\": [\"lane: complex\", \"hint: complex\", \"hint: general\"],\n      \"lane\": \"complex\",\n      \"skipped\": [\"Grok · Grok 4.7: at 100% usage\"],\n      \"decidedAt\": \"2026-10-25T04:27:45.347Z\"\n    }\n  },\n  \"routine\": {\n    \"providerInstanceId\": \"codex\",\n    \"model\": \"gpt-6-astra\",\n    \"status\": \"completed\",\n    \"finalText\": \"1003_ROUTINE_OK\",\n    \"routing\": {\n      \"taskClass\": \"general\",\n      \"confidence\": \"hint\",\n      \"moved\": false,\n      \"tier\": null,\n      \"selection\": {\"instanceId\": \"codex\", \"model\": \"gpt-6-astra\"},\n      \"baseline\": {\"instanceId\": \"codex\", \"model\": \"gpt-6-astra\"},\n      \"escalation\": null,\n      \"billing\": \"subscription\",\n      \"modelBilling\": \"subscription\",\n      \"reason\": \"Routine (the coordinator judged it): Codex · GPT-6-Astra.\",\n      \"signals\": [\"lane: routine\", \"hint: routine\", \"hint: general\"],\n      \"lane\": \"routine\",\n      \"decidedAt\": \"2026-10-25T04:27:47.517Z\"\n    }\n  }\n}\n```"
+  ]
+}
