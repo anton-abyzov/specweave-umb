@@ -60,7 +60,7 @@ Risks:
 - none
 ### Defaulted (change any before sw-do)
 - D-01 Follow-up increment, not a reopened 1043 (closed) or 1049 (Files scope, T-09 only) → 1068, owned by the 1043/1049 writer thread.
-- D-02 Concise budgets: fold over 280 characters or 3 non-blank lines, lead 160 characters, decision sentence up to 400 characters. Tuned from the screenshot payload at a 360 px window. Revised after the fresh reviews of `57c282f4f2` and `f047ca4fa3`: blank lines do not count, a fold hides at least 100 characters, a near-empty Concise cut retries at 240, and clipping applies only over the character budget.
+- D-02 Concise budgets: fold over 280 characters or 3 non-blank lines, lead 160 characters, decision sentence up to 400 characters. Tuned from the screenshot payload at a 360 px window. Revised after the fresh reviews of `57c282f4f2` and `f047ca4fa3`: blank lines do not count, a fold hides at least 100 characters, a near-empty Concise cut takes the whole head when it fits 240 or else cuts at 240, and clipping applies only over the character budget. After the review of `72b8b76174`: bold means a `**` or `__` pair as CommonMark pairs them, so a glob, `**kwargs`, `__dirname` or `2 ** n` never holds a cut back, and no piece starts or ends inside a bold run.
 - D-03 Verbose opens agent messages by default, following "Open every turn, tool call and thought".
 ### Open
 - none
