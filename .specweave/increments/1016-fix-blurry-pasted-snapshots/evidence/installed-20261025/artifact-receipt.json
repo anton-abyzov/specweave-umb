@@ -1,0 +1,18 @@
+{
+  "asarSha256": "08ea7f3182d1e683b77542060aa4dd9d01529acc95c1012dc985bab3099913b5",
+  "headerBytes": 1087756,
+  "files": {
+    "package.json": {
+      "size": 998,
+      "offset": "137366316",
+      "integrity": {
+        "algorithm": "SHA256",
+        "hash": "5a93c90d58ac655d7c35ff059f985686c725eb35eae7c1f1dd2cd6ec867e26c9",
+        "blockSize": 4194304,
+        "blocks": [
+          "5a93c90d58ac655d7c35ff059f985686c725eb35eae7c1f1dd2cd6ec867e26c9"
+        ]
+      }
+    }
+  }
+}
