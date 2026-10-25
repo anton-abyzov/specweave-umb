@@ -1,0 +1,16 @@
+{
+  "id": "1074-open-file-links-in-thread-less-library-documents",
+  "uuid": "d4e40b31-6f92-4961-a2d9-7ae46a169473",
+  "status": "active",
+  "type": "bug",
+  "priority": "P2",
+  "created": "2026-10-25T19:01:01.999Z",
+  "updated": "2026-10-25T19:47:20.453Z",
+  "lastActivity": "2026-10-25T19:47:20.453Z",
+  "title": "Open file links in thread-less Library documents",
+  "project": "specweave-umb",
+  "parent": "1049-files-and-report-polish-with-claude-code-artifact-proof",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
