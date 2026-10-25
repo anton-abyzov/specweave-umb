@@ -21,6 +21,8 @@ for (const item of calls) {
   destinations.add(result.projectId);
 }
 assert.equal(destinations.size, 2);
+assert.equal(receipt.recipientItems?.length, 2);
+assert.equal(new Set(receipt.recipientItems.map(item => item.messageId)).size, 2);
 for (const recipient of receipt.recipientItems ?? []) {
   const call = calls.map(item => JSON.parse(item.text)).find(call => call.output.structuredContent.messageId === recipient.messageId);
   assert.ok(call);
