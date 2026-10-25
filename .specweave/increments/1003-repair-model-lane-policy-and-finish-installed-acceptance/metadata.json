@@ -1,16 +1,18 @@
 {
   "id": "1003-repair-model-lane-policy-and-finish-installed-acceptance",
   "uuid": "01501ecd-38ac-4140-8715-1bb79395a099",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-10-23T03:12:08.822Z",
-  "updated": "2026-10-23T17:38:57.188Z",
-  "lastActivity": "2026-10-23T17:38:57.188Z",
+  "updated": "2026-10-25T04:30:13.694Z",
+  "lastActivity": "2026-10-25T04:30:13.694Z",
   "title": "Repair model lane policy and finish installed acceptance",
   "project": "specweave-umb",
   "parent": "0999-model-lanes-and-learned-model-preferences",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-25T04:30:13.693Z",
+  "approvedAt": "2026-10-25T04:30:13.694Z"
 }
