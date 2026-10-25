@@ -1,18 +1,22 @@
 {
+  "asarPath": "/Applications/SpecWithCode.app/Contents/Resources/app.asar",
   "asarSha256": "08ea7f3182d1e683b77542060aa4dd9d01529acc95c1012dc985bab3099913b5",
-  "headerBytes": 1087756,
-  "files": {
+  "dataOffset": 1087764,
+  "members": {
     "package.json": {
+      "offset": 137366316,
       "size": 998,
-      "offset": "137366316",
-      "integrity": {
-        "algorithm": "SHA256",
-        "hash": "5a93c90d58ac655d7c35ff059f985686c725eb35eae7c1f1dd2cd6ec867e26c9",
-        "blockSize": 4194304,
-        "blocks": [
-          "5a93c90d58ac655d7c35ff059f985686c725eb35eae7c1f1dd2cd6ec867e26c9"
-        ]
-      }
+      "sha256": "5a93c90d58ac655d7c35ff059f985686c725eb35eae7c1f1dd2cd6ec867e26c9"
+    },
+    "apps/desktop/dist-electron/main.cjs": {
+      "offset": 59326157,
+      "size": 5857697,
+      "sha256": "a151c7b67dedad76a6cf386e57a8f756542497545fb0ace92c4d783ee8195402"
+    },
+    "apps/desktop/dist-electron/preview-pick-preload.cjs": {
+      "offset": 65224049,
+      "size": 127004,
+      "sha256": "9c0ca7c7637536431130dbca92ac7c09f004ae0a24623e0e663b832e9dea24ce"
     }
   }
 }

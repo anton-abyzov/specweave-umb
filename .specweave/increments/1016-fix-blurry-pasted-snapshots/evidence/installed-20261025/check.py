@@ -7,6 +7,9 @@ root = Path(__file__).resolve().parent
 receipt = json.loads((root / 'installed-receipt.json').read_text())
 provider = json.loads((root / 'provider-result.json').read_text())
 upload = json.loads((root / 'upload-receipt.json').read_text())
+artifact = json.loads((root / 'artifact-receipt.json').read_text())
+assert artifact['members']['apps/desktop/dist-electron/main.cjs']['sha256'] == receipt['mainSha256']
+assert artifact['members']['apps/desktop/dist-electron/preview-pick-preload.cjs']['sha256'] == receipt['preloadSha256']
 assert receipt['appVersion'] == '1.0.76'
 assert receipt['headless'] and receipt['offscreen'] and not receipt['show']
 assert receipt['retina']['sourceSha256'] == receipt['retina']['outputSha256']
