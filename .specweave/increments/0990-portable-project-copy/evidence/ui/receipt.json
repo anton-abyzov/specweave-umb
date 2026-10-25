@@ -1,0 +1,18 @@
+{
+  "headless": true,
+  "source": "Real HandoffFolderCopy with synthetic RPC; no live accounts or provider turns",
+  "cases": [
+    {
+      "theme": "light",
+      "result": "passed",
+      "destination": "/home/anton/Projects/github/specweave-umb",
+      "transfer": "deferred; explicit button remains"
+    },
+    {
+      "theme": "dark",
+      "result": "passed",
+      "destination": "/home/anton/Projects/github/specweave-umb",
+      "transfer": "deferred; explicit button remains"
+    }
+  ]
+}

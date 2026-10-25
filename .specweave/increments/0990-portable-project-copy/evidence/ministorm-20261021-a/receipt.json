@@ -1,0 +1,13 @@
+{
+  "passed": false,
+  "elapsedMs": 14920,
+  "error": "Build failed with 274 errors:\napps/server/src/atomicWrite.ts:1:24: ERROR: Could not resolve \"effect/Effect\"\napps/server/src/atomicWrite.ts:2:28: ERROR: Could not resolve \"effect/FileSystem\"\napps/server/src/atomicWrite.ts:3:22: ERROR: Could not resolve \"effect/Path\"\napps/server/src/atomicWrite.ts:4:37: ERROR: Could not resolve \"/Users/antonabyzov/.specwithcode/m4/worktrees/codex-0990-copy-remote/packages/shared/symlink\" (originally \"@specweave-studio/shared/symlink\")\napps/server/src/attachmentStore.ts:7:39: ERROR: Could not resolve \"/Users/antonabyzov/.specwithcode/m4/worktrees/codex-0990-copy-remote/packages/shared/toolOutput\" (originally \"@specweave-studio/shared/toolOutput\")\n...",
+  "liveServiceUnchanged": true,
+  "beforeHealth": "LISTEN 0      511    127.0.0.1:8319 0.0.0.0:* users:((\"node\",pid=150852,fd=22))\n200",
+  "afterHealth": "LISTEN 0      511    127.0.0.1:8319 0.0.0.0:* users:((\"node\",pid=150852,fd=22))\n200",
+  "report": "/Users/antonabyzov/Projects/github/specweave-copy-fix/.specweave/increments/0990-portable-project-copy/evidence/ministorm-20261021-a",
+  "remote": "/srv/work/swc-copy-acceptance-f7c9ede3-035e-4551-b1bf-1853985d68b7",
+  "source": null,
+  "destination": null,
+  "temporaryDataRemoved": true
+}

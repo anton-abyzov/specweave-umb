@@ -1,0 +1,78 @@
+{
+  "sourceUnchanged": true,
+  "beforeDigest": "de588efae6f5cafb6c1b17616a2330c9ce3fc1a19193c2a3ff109e7d578bfe8f",
+  "afterDigest": "de588efae6f5cafb6c1b17616a2330c9ce3fc1a19193c2a3ff109e7d578bfe8f",
+  "operationId": "06e36036-a9a9-4770-9931-c43a9a85aa50",
+  "state": "committed",
+  "counts": {
+    "hello": 1,
+    "manifest": 12,
+    "chunks": 95,
+    "stat": 2,
+    "secrets": 1,
+    "commit": 1
+  },
+  "totals": {
+    "repository": {
+      "files": 104,
+      "bytes": 275598050
+    },
+    "tracked": {
+      "files": 6103,
+      "bytes": 602098101
+    },
+    "untracked": {
+      "files": 2,
+      "bytes": 62
+    },
+    "ignoredData": {
+      "files": 1,
+      "bytes": 30
+    },
+    "rebuildable": {
+      "files": 1,
+      "bytes": 16
+    },
+    "secret": {
+      "files": 1,
+      "bytes": 40
+    }
+  },
+  "repositoryCount": 4,
+  "repositories": [
+    {
+      "path": ".",
+      "head": "5756c7ac379b1830ede9c8d651211a260255c99a",
+      "refs": "refs/heads/main 5756c7ac379b1830ede9c8d651211a260255c99a",
+      "status": "?? unfinished.txt",
+      "stash": "",
+      "fsck": 0
+    },
+    {
+      "path": "legacy projects/loose group/service",
+      "head": "8fb7fa21d1218782c2869209e719b7a44ff838d7",
+      "refs": "refs/heads/main 8fb7fa21d1218782c2869209e719b7a44ff838d7",
+      "status": "M service.txt",
+      "stash": "",
+      "fsck": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/specweave",
+      "head": "72fe2f8794f21be293f216fc3e44f99106c45b61",
+      "refs": "refs/heads/copy-acceptance-linked 72fe2f8794f21be293f216fc3e44f99106c45b61\nrefs/heads/develop 72fe2f8794f21be293f216fc3e44f99106c45b61\nrefs/stash e8210dc59c8c0788719bb898fe98192aeb98882a",
+      "status": "M README.md\n?? copy-untracked.txt",
+      "stash": "e8210dc59c8c0788719bb898fe98192aeb98882a",
+      "fsck": 0
+    },
+    {
+      "path": "worktrees/specweave-wip",
+      "head": "72fe2f8794f21be293f216fc3e44f99106c45b61",
+      "refs": "refs/heads/copy-acceptance-linked 72fe2f8794f21be293f216fc3e44f99106c45b61\nrefs/heads/develop 72fe2f8794f21be293f216fc3e44f99106c45b61\nrefs/stash e8210dc59c8c0788719bb898fe98192aeb98882a",
+      "status": "",
+      "stash": "e8210dc59c8c0788719bb898fe98192aeb98882a",
+      "fsck": 0
+    }
+  ],
+  "selectedEntries": 7658,
+  "warnings": []
+}

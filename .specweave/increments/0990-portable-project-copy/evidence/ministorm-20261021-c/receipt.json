@@ -1,0 +1,178 @@
+{
+  "passed": true,
+  "elapsedMs": 196772,
+  "error": null,
+  "sourceExit": 0,
+  "liveServiceUnchanged": true,
+  "beforeHealth": "LISTEN 0      511    127.0.0.1:8319 0.0.0.0:* users:((\"node\",pid=150852,fd=22))\n200",
+  "afterHealth": "LISTEN 0      511    127.0.0.1:8319 0.0.0.0:* users:((\"node\",pid=150852,fd=22))\n200",
+  "report": "/Users/antonabyzov/Projects/github/specweave-copy-fix/.specweave/increments/0990-portable-project-copy/evidence/ministorm-20261021-c",
+  "remote": "/srv/work/swc-copy-acceptance-9ebba984-1c01-4b60-b0fc-968937dae03d",
+  "source": {
+    "sourceUnchanged": true,
+    "beforeDigest": "de588efae6f5cafb6c1b17616a2330c9ce3fc1a19193c2a3ff109e7d578bfe8f",
+    "afterDigest": "de588efae6f5cafb6c1b17616a2330c9ce3fc1a19193c2a3ff109e7d578bfe8f",
+    "operationId": "06e36036-a9a9-4770-9931-c43a9a85aa50",
+    "state": "committed",
+    "counts": {
+      "hello": 1,
+      "manifest": 12,
+      "chunks": 95,
+      "stat": 2,
+      "secrets": 1,
+      "commit": 1
+    },
+    "totals": {
+      "repository": {
+        "files": 104,
+        "bytes": 275598050
+      },
+      "tracked": {
+        "files": 6103,
+        "bytes": 602098101
+      },
+      "untracked": {
+        "files": 2,
+        "bytes": 62
+      },
+      "ignoredData": {
+        "files": 1,
+        "bytes": 30
+      },
+      "rebuildable": {
+        "files": 1,
+        "bytes": 16
+      },
+      "secret": {
+        "files": 1,
+        "bytes": 40
+      }
+    },
+    "repositoryCount": 4,
+    "repositories": [
+      {
+        "path": ".",
+        "head": "5756c7ac379b1830ede9c8d651211a260255c99a",
+        "refs": "refs/heads/main 5756c7ac379b1830ede9c8d651211a260255c99a",
+        "status": "?? unfinished.txt",
+        "stash": "",
+        "fsck": 0
+      },
+      {
+        "path": "legacy projects/loose group/service",
+        "head": "8fb7fa21d1218782c2869209e719b7a44ff838d7",
+        "refs": "refs/heads/main 8fb7fa21d1218782c2869209e719b7a44ff838d7",
+        "status": "M service.txt",
+        "stash": "",
+        "fsck": 0
+      },
+      {
+        "path": "repositories/anton-abyzov/specweave",
+        "head": "72fe2f8794f21be293f216fc3e44f99106c45b61",
+        "refs": "refs/heads/copy-acceptance-linked 72fe2f8794f21be293f216fc3e44f99106c45b61\nrefs/heads/develop 72fe2f8794f21be293f216fc3e44f99106c45b61\nrefs/stash e8210dc59c8c0788719bb898fe98192aeb98882a",
+        "status": "M README.md\n?? copy-untracked.txt",
+        "stash": "e8210dc59c8c0788719bb898fe98192aeb98882a",
+        "fsck": 0
+      },
+      {
+        "path": "worktrees/specweave-wip",
+        "head": "72fe2f8794f21be293f216fc3e44f99106c45b61",
+        "refs": "refs/heads/copy-acceptance-linked 72fe2f8794f21be293f216fc3e44f99106c45b61\nrefs/heads/develop 72fe2f8794f21be293f216fc3e44f99106c45b61\nrefs/stash e8210dc59c8c0788719bb898fe98192aeb98882a",
+        "status": "",
+        "stash": "e8210dc59c8c0788719bb898fe98192aeb98882a",
+        "fsck": 0
+      }
+    ],
+    "selectedEntries": 7658,
+    "warnings": []
+  },
+  "destination": {
+    "passed": true,
+    "platform": "linux",
+    "node": "v22.20.0",
+    "operationId": "06e36036-a9a9-4770-9931-c43a9a85aa50",
+    "elapsedMs": 171806,
+    "targetFolder": "/srv/work/swc-copy-acceptance-9ebba984-1c01-4b60-b0fc-968937dae03d/specweave-umb",
+    "checkedFiles": 6210,
+    "changedPointers": [
+      "repositories/anton-abyzov/specweave/.git/worktrees/specweave-wip/gitdir",
+      "worktrees/specweave-wip/.git"
+    ],
+    "repositoryCount": 4,
+    "repositories": [
+      {
+        "path": ".",
+        "head": "5756c7ac379b1830ede9c8d651211a260255c99a",
+        "refs": "refs/heads/main 5756c7ac379b1830ede9c8d651211a260255c99a",
+        "status": "?? unfinished.txt",
+        "stash": "",
+        "fsck": 0
+      },
+      {
+        "path": "legacy projects/loose group/service",
+        "head": "8fb7fa21d1218782c2869209e719b7a44ff838d7",
+        "refs": "refs/heads/main 8fb7fa21d1218782c2869209e719b7a44ff838d7",
+        "status": "M service.txt",
+        "stash": "",
+        "fsck": 0
+      },
+      {
+        "path": "repositories/anton-abyzov/specweave",
+        "head": "72fe2f8794f21be293f216fc3e44f99106c45b61",
+        "refs": "refs/heads/copy-acceptance-linked 72fe2f8794f21be293f216fc3e44f99106c45b61\nrefs/heads/develop 72fe2f8794f21be293f216fc3e44f99106c45b61\nrefs/stash e8210dc59c8c0788719bb898fe98192aeb98882a",
+        "status": "M README.md\n?? copy-untracked.txt",
+        "stash": "e8210dc59c8c0788719bb898fe98192aeb98882a",
+        "fsck": 0
+      },
+      {
+        "path": "worktrees/specweave-wip",
+        "head": "72fe2f8794f21be293f216fc3e44f99106c45b61",
+        "refs": "refs/heads/copy-acceptance-linked 72fe2f8794f21be293f216fc3e44f99106c45b61\nrefs/heads/develop 72fe2f8794f21be293f216fc3e44f99106c45b61\nrefs/stash e8210dc59c8c0788719bb898fe98192aeb98882a",
+        "status": "",
+        "stash": "e8210dc59c8c0788719bb898fe98192aeb98882a",
+        "fsck": 0
+      }
+    ],
+    "secretFilesExcluded": 1,
+    "rebuildablesExcluded": 1,
+    "checks": [
+      {
+        "repo": ".",
+        "ok": true,
+        "problems": []
+      },
+      {
+        "repo": "worktrees/specweave-wip",
+        "ok": true,
+        "problems": []
+      },
+      {
+        "repo": "legacy projects/loose group/service",
+        "ok": true,
+        "problems": []
+      },
+      {
+        "repo": "repositories/anton-abyzov/specweave",
+        "ok": true,
+        "problems": []
+      }
+    ],
+    "warnings": [],
+    "unstable": [],
+    "previewDidNotWrite": true,
+    "undoRemovedTarget": true,
+    "undoEdited": 0,
+    "linuxCase": {
+      "passed": true,
+      "caseDistinctFiles": [
+        "Readme.txt",
+        "README.txt"
+      ],
+      "symlinkPreserved": true,
+      "executableMode": "0755",
+      "undoRemovedTarget": true,
+      "warnings": []
+    }
+  },
+  "temporaryDataRemoved": true
+}

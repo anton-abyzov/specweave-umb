@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "targetFolder": "/home/anton/Projects/swc-copy-alias-1d885e94-6bcf-4739-91c3-79115864eb17/linux-case-target",
+  "caseDistinctFiles": [
+    "Readme.txt",
+    "README.txt"
+  ],
+  "symlinkPreserved": true,
+  "executableMode": "0755",
+  "undoRemovedTarget": true,
+  "warnings": [],
+  "liveServiceUnchanged": true,
+  "bundleSha256": "2ba65743fd8b1d56578891a26333aaeee2ed861927b2283ad7f3548dfb537556",
+  "host": "ministorm"
+}

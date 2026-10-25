@@ -1,0 +1,50 @@
+{
+  "headless": true,
+  "source": "Real HandoffFolderCopy with synthetic RPC; no live accounts or provider turns",
+  "cases": [
+    {
+      "theme": "light",
+      "viewport": {
+        "width": 1280,
+        "height": 1600
+      },
+      "horizontalOverflow": false,
+      "result": "passed",
+      "destination": "/home/anton/Projects/github/specweave-umb",
+      "transfer": "deferred; explicit button remains"
+    },
+    {
+      "theme": "dark",
+      "viewport": {
+        "width": 1280,
+        "height": 1600
+      },
+      "horizontalOverflow": false,
+      "result": "passed",
+      "destination": "/home/anton/Projects/github/specweave-umb",
+      "transfer": "deferred; explicit button remains"
+    },
+    {
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "result": "passed",
+      "destination": "/home/anton/Projects/github/specweave-umb",
+      "transfer": "deferred; explicit button remains"
+    },
+    {
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false,
+      "result": "passed",
+      "destination": "/home/anton/Projects/github/specweave-umb",
+      "transfer": "deferred; explicit button remains"
+    }
+  ]
+}
