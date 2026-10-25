@@ -29,8 +29,8 @@ Out:
 
 ## Acceptance Criteria
 
-- [ ] AC-01: In Concise, a long agent message (over 280 characters or 3 lines) shows its sender, a verbatim lead of whole opening sentences (up to 160 characters; a longer first sentence is cut at a space with an ellipsis), any decision sentence (a question or a `Blockers:` line), its hidden size ("N more characters", as 1043 labels it), "Show full message" and "Copy original". A shorter message shows whole.
-- [ ] AC-02: Normal keeps 1043's fold (600 characters or 8 lines; a lead of up to 280 characters plus the decision sentence). Verbose opens every agent message, which can still be folded with "Show less".
+- [ ] AC-01: In Concise, a long agent message (over 280 characters or 3 non-blank lines) shows its sender, a verbatim lead of whole opening sentences (up to 160 characters; a longer first sentence is cut at a space outside links, code and bold, with an ellipsis, and at Normal's 240 characters when no space falls in the second half of the 160), any decision sentence (a question or a `Blockers:` line), its hidden size ("N more characters", as 1043 labels it), "Show full message" and "Copy original". A shorter message shows whole, as does one whose fold would hide under 100 characters or leave 80% showing. A long message with no prose to cut (only JSON or a code fence) shows its top, clipped with a fade, and its whole size.
+- [ ] AC-02: Normal keeps 1043's fold (600 characters or 8 lines; a lead of up to 280 characters plus the decision sentence), with blank lines no longer counted. Verbose opens every agent message, which can still be folded with "Show less".
 - [ ] AC-03: On a thread page, a message another agent sent uses the same presentation as AC-01 and AC-02, at the thread's own detail level, below its existing "Sent by" provenance. The person's own prompts keep their clamp.
 - [ ] AC-04: Nothing is rewritten. The excerpt and the expanded text come from the stored message. "Copy original" copies it byte for byte. Paths, error text and run-together words are unchanged. Find in the conversation opens a folded message that holds a match. Routing notes, provenance chips and links keep working. Historical messages render the same way, and no stored message changes.
 - [ ] AC-05: Headless captures (headless: true, PWDEBUG=0, PLAYWRIGHT_HTML_OPEN=never) cover a screenshot-shaped payload: about 1,400 characters, run-together words, long absolute paths and an ENOSPC error. They run in the coordinator and on a thread page, in Concise, Normal and Verbose, at a 360 px and a 1280 px window, in light and dark. Before captures use the 1.0.76 behavior; after captures use this branch. Each capture checks the folded height, that no text overflows horizontally, and the exact copy.
@@ -60,7 +60,7 @@ Risks:
 - none
 ### Defaulted (change any before sw-do)
 - D-01 Follow-up increment, not a reopened 1043 (closed) or 1049 (Files scope, T-09 only) → 1068, owned by the 1043/1049 writer thread.
-- D-02 Concise budgets: fold over 280 characters or 3 lines, lead 160 characters, decision sentence up to 400 characters. Tuned from the screenshot payload at a 360 px window.
+- D-02 Concise budgets: fold over 280 characters or 3 non-blank lines, lead 160 characters, decision sentence up to 400 characters. Tuned from the screenshot payload at a 360 px window. Revised after the fresh reviews of `57c282f4f2` and `f047ca4fa3`: blank lines do not count, a fold hides at least 100 characters, a near-empty Concise cut retries at 240, and clipping applies only over the character budget.
 - D-03 Verbose opens agent messages by default, following "Open every turn, tool call and thought".
 ### Open
 - none

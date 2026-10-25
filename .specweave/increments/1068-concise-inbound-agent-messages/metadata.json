@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-25T04:50:49.931Z",
   "title": "Concise inbound agent messages",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
