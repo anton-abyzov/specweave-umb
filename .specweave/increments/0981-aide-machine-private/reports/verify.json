@@ -1,0 +1,154 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-25T03:21:49.924Z",
+  "increment": "0981-aide-machine-private",
+  "commands": [
+    {
+      "cmd": "cd /Users/antonabyzov/.specwithcode/m4/worktrees/aide-reusable-tasks && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node node_modules/vite-plus/bin/vp test run apps/server/src/mcp/toolkits/project apps/server/src/project/ProjectService.personalAssistant.test.ts",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 7,
+    "done": 7,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          },
+          {
+            "id": "T-08",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          },
+          {
+            "id": "T-08",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-03",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-04",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-03",
+            "status": "done"
+          },
+          {
+            "id": "T-05",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-05",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-03",
+            "status": "done"
+          },
+          {
+            "id": "T-05",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-06",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-04",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-07",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-05",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          }
+        ]
+      }
+    ]
+  },
+  "tasks": {
+    "total": 8,
+    "done": 7,
+    "skipped": 0,
+    "open": 1
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}
