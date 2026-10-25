@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-22T09:07:19.416878+00:00",
+  "remoteRoot": "/srv/work/swc-copy-acceptance-9b9f5055-a28c-4ec6-b5f5-7cdb5ea4086b",
+  "remoteRootRemoved": true,
+  "localPrivateRemoved": true,
+  "workerStoppedBeforeRemoval": true,
+  "result": "Verifier typo retained in logs; only exact owned scratch removed."
+}

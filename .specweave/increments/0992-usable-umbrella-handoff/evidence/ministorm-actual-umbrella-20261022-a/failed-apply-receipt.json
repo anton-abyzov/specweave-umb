@@ -1,0 +1,69 @@
+{
+  "state": "applied",
+  "checks": [
+    {
+      "repo": ".",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "repo": "repositories/anton-abyzov/vskill",
+      "ok": false,
+      "problems": [
+        "git status differs from the source."
+      ]
+    },
+    {
+      "repo": "repositories/anton-abyzov/specweave",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "repo": "repositories/anton-abyzov/greet-anton",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "repo": "repositories/anton-abyzov/easychamp-mcp",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "repo": "repositories/anton-abyzov/ec-data-scripts",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "repo": "repositories/anton-abyzov/vskill-platform",
+      "ok": false,
+      "problems": [
+        "git status differs from the source."
+      ]
+    },
+    {
+      "repo": "repositories/anton-abyzov/specweave-status",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "repo": "repositories/anton-abyzov/specweave-studio",
+      "ok": false,
+      "problems": [
+        "git fsck --connectivity-only failed.",
+        "Branch codex/0992-handoff does not match the source.",
+        "Branch codex/0992-scope does not match the source.",
+        "Branch codex/0992-ui does not match the source."
+      ]
+    }
+  ],
+  "warnings": [
+    ".: 4 worktree(s) outside this folder are not copied: umb-0982, specweave-copy-fix, specweave-handoff-fix, umb-project-rag. Copy those working folders separately to preserve their uncommitted changes.",
+    "repositories/anton-abyzov/specweave: 6 worktree(s) outside this folder are not copied: specweave-release-3-1-5, chore-x-one-shot-a-20261021, sw-ac-gate, sw-plain-ac-gate, specweave-cards, wt-specweave-ac-trace. Copy those working folders separately to preserve their uncommitted changes.",
+    "repositories/anton-abyzov/specweave-studio: 54 worktree(s) outside this folder are not copied: mainwt, 0957-activation-restage, 0967-handoff-mode, 0967-handoff-ui, 0967-verify, 0969-aide-guard, 0970-handoff-comparison, 0970-plans-lane, 0970-readability-lane, aide-reusable-tasks, closes-questions, codex-0992-git, codex-0992-handoff, codex-0992-scope, codex-0992-ui, coordinated-update, fast-proofs, finish-pr-diagnostics, handoff-version-check, ios-release-0.1.0-b4, picker-usage, provider-auto-discovery, provider-open-fallback, routines-check-dark, routines-layout-verify, server-layer-typecheck, trim-instructions, update-run-record, windows-linux, wl-fix-acp, wl-fix-fleet, wl-fix-orch, wl-fix-pkgs, wl-fix-project, wl-fix-providers, wl-fix2-codex, wl-fix2-folders, wl-fix2-misc, wl-fix2-service, wl-installed-e2e, wl-t3-windows, wl-wt-desktop, wl-wt-server-a, wl-wt-server-a2, wl-wt-server-b, release-script-specweave-studio, test, studio-ios-b5, studio-main-check, studio-one-press, studio-project-rag, studio-server-banner, studio-update-flow-fix, studio-update-speed. Copy those working folders separately to preserve their uncommitted changes.",
+    "repositories/anton-abyzov/vskill: 4 worktree(s) outside this folder are not copied: vskill-0734-0850, vskill-0734-engine-completion, vskill-0850-status-completion, vskill-release-retention. Copy those working folders separately to preserve their uncommitted changes.",
+    "repositories/anton-abyzov/vskill-platform: 5 worktree(s) outside this folder are not copied: build, build, build, build, vskill-platform-0748-isolated-acceptance. Copy those working folders separately to preserve their uncommitted changes."
+  ],
+  "unstable": [],
+  "updatedAt": "2026-10-22T08:42:33.429Z",
+  "error": null
+}

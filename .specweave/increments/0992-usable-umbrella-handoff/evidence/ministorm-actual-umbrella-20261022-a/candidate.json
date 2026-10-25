@@ -1,0 +1,14 @@
+{
+  "commit": "e97665ed0a4aa81576131617d5b7763fd63debc6",
+  "bundleSha256": "cc05dbdc8a1a65336955845deb6f5fe2ec78fde68a9c3c107200b8e82c4f2317",
+  "remoteFacts": {
+    "platform": "linux",
+    "node": "v22.20.0",
+    "home": "/home/anton"
+  },
+  "host": "ministorm",
+  "remote": "/srv/work/swc-copy-acceptance-e73c7d80-ec6c-43a8-b6ad-8952076e6964",
+  "transport": "production transfer classes over owned SSH reverse loopback tunnel",
+  "liveStoreUsed": false,
+  "coordinatorMoved": false
+}

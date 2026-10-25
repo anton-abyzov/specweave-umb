@@ -1,0 +1,31 @@
+{
+  "state": "applied",
+  "checks": [
+    {
+      "repo": ".",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "repo": "worktrees/specweave-wip",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "repo": "legacy projects/loose group/service",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "repo": "repositories/anton-abyzov/specweave",
+      "ok": true,
+      "problems": []
+    }
+  ],
+  "warnings": [
+    "Git history, branches and staged changes are captured when copying starts. Work created afterward stays on this machine; copy again to include it."
+  ],
+  "unstable": [],
+  "updatedAt": "2026-10-22T09:05:50.913Z",
+  "error": null
+}

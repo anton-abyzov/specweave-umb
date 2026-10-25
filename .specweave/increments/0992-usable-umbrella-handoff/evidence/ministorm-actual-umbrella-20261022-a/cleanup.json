@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-22T08:55:32.837402+00:00",
+  "remoteRoot": "/srv/work/swc-copy-acceptance-e73c7d80-ec6c-43a8-b6ad-8952076e6964",
+  "remoteRootRemoved": true,
+  "localPrivateRemoved": true,
+  "workerStoppedBeforeRemoval": true,
+  "result": "Failed scenario retained in logs; only its exact owned scratch data removed."
+}

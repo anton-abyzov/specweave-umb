@@ -1,0 +1,50 @@
+{
+  "commit": "b1cfc32919a960875bf89385e469146d412cb4b8",
+  "bundleSha256": "2df4f185eca4961fa1c4a56508d694749016889dee31b95fe3c3c69a6ac2efb3",
+  "sourceSha256": {
+    "apps/server/src/fleet/folderTransfer/apply.ts": "a171c3524ca029b7d84e5f494886b4c5a7814f06163e7ef4e99dd37bc0045497",
+    "apps/server/src/fleet/folderTransfer/classify.ts": "68ede7db6f3f5f1d04b5f27fb47df57847d30700dc9453dd0cb698b8e553ad23",
+    "apps/server/src/fleet/folderTransfer/destinationScan.ts": "b601c5d626d9959adcc804b94597fd6560edf9570b8cdb9646a308929dac5e10",
+    "apps/server/src/fleet/folderTransfer/destinationService.ts": "4092f830cc3721a3b14a5e439660db571a1ff384f9b7fc2a65b59d17f030aa81",
+    "apps/server/src/fleet/folderTransfer/durable.ts": "2b080305565f8b2f9050435a37cd3c01716fdff952a98d5467135d99ed052aad",
+    "apps/server/src/fleet/folderTransfer/git.ts": "e8faa7764c578c9f320c9026e0ba5d07cc3452bc831609d941c02f5af32ebc96",
+    "apps/server/src/fleet/folderTransfer/manifest.ts": "1b45bf9c8357ba386e32821cd530331205fbd7847d11c54ec59e7524175209be",
+    "apps/server/src/fleet/folderTransfer/paths.ts": "0e3291ba69304eda05dd9f1c0a6dd7e1b1a990d8f6303f9c38ccfbbb39180049",
+    "apps/server/src/fleet/folderTransfer/portableGit.ts": "b22ded280e569e56deeb447eccf6c1d3faef1b229970b5a06f9e28564b622339",
+    "apps/server/src/fleet/folderTransfer/pullWorker.ts": "0655930e84d530433449d6d7ba42614cb60b853f7a08094f95a88823c1b48a4c",
+    "apps/server/src/fleet/folderTransfer/reconcile.ts": "a493912573fe93f6e8f374bf5bd8019b9b2b89e0ee9e3fc28b515b2396719cd9",
+    "apps/server/src/fleet/folderTransfer/secrets.ts": "6653a6a5585e9f0395f91da5b1b15db810b57fdfc27062478883bf392649892a",
+    "apps/server/src/fleet/folderTransfer/secretsReport.ts": "e5ba4455b78f4eb2ba6e164eb0bd7ea9a546dac914658a1e11c846829d23fdb1",
+    "apps/server/src/fleet/folderTransfer/sourceClient.ts": "7db3a4b1f8847794621e2dd8cae5439d97d237fa27c253f71bc4941f9de4f65c",
+    "apps/server/src/fleet/folderTransfer/sourceRoutes.ts": "0fc6965fa0ffed2648839553350b4c8cb6163664ada5ee1d63844d081eceeaf8",
+    "apps/server/src/fleet/folderTransfer/sourceService.ts": "020ab9456d5e499102d44e5a945b5f123e0e9af1e130baf4b040c846a395276a",
+    "apps/server/src/fleet/folderTransfer/transferGrant.ts": "d36961f70186697251ecd26b8b57f7de9667d82e7cde3f798bb4ecd7afd2d771",
+    "apps/server/src/fleet/folderTransfer/undo.ts": "cc9eb7727b50f0a15fdc2d2fd2f457a72b0033ba41940a820fc2c160fe6e7916",
+    "apps/server/src/fleet/folderTransfer/wire.ts": "a5ee991357dbd2cde7e7471d1c92e204b072c61bb7a799ba26a70685ad47199c",
+    "apps/server/scripts/folder-transfer-acceptance.ts": "cbe888421b86d369e39fcca7d377739044d974fce4f7d0babaa307fb59cb846b",
+    "apps/server/scripts/folder-transfer-consolidation.ts": "b7e0c42c56a6c1ba621bd0764e189d5197197a40c60ccecf2b18fb8d17f85ae5",
+    "scripts/studio-folder-transfer/ministorm-verify.mjs": "633e971b5e51d45ee26949083ccc0c1b5fa74bcf24612899374774c22e6d99e1",
+    "scripts/studio-folder-transfer/remote-fixture.mjs": "5c78b1f12362b1e03b15d79e52c0ea7ea8c110c85f9983f866759609d558ad0d"
+  },
+  "invocation": {
+    "executable": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node",
+    "arguments": [
+      "/Users/antonabyzov/.specwithcode/m4/worktrees/codex-0992-handoff/scripts/studio-folder-transfer/ministorm-verify.mjs",
+      "/Users/antonabyzov/Projects/github/specweave-handoff-fix/.specweave/increments/0992-usable-umbrella-handoff/evidence/ministorm-final-external-worktree-20261022-a",
+      "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave"
+    ],
+    "sourceMode": "external-worktree",
+    "remotePort": 19496
+  },
+  "startedAt": "2026-10-22T08:43:56.911Z",
+  "remoteFacts": {
+    "platform": "linux",
+    "node": "v22.20.0",
+    "home": "/home/anton"
+  },
+  "host": "ministorm",
+  "remote": "/srv/work/swc-copy-acceptance-c82a6273-2a3e-43da-bebb-7d4ee44e6099",
+  "transport": "production transfer classes over owned SSH reverse loopback tunnel",
+  "liveStoreUsed": false,
+  "coordinatorMoved": false
+}

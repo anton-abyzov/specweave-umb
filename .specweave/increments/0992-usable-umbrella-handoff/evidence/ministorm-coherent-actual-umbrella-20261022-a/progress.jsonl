@@ -1,0 +1,5 @@
+{"at":"2026-10-22T09:08:32.342Z","pid":284509,"state":"scanning","updatedAt":"2026-10-22T09:08:32.325Z","writes":0,"journalEntries":0,"error":null}
+{"at":"2026-10-22T09:10:55.747Z","pid":284509,"state":"transferring","updatedAt":"2026-10-22T09:10:52.982Z","writes":0,"journalEntries":0,"error":null}
+{"at":"2026-10-22T09:14:25.921Z","pid":284509,"state":"applying","updatedAt":"2026-10-22T09:13:38.828Z","writes":0,"journalEntries":12754,"error":null}
+{"at":"2026-10-22T09:17:56.056Z","pid":284509,"state":"applying","updatedAt":"2026-10-22T09:13:38.828Z","writes":32950,"journalEntries":79616,"error":null}
+{"at":"2026-10-22T09:21:04.653Z","pid":284509,"state":"applying","updatedAt":"2026-10-22T09:13:38.828Z","writes":62458,"journalEntries":138633,"error":null}

@@ -1,0 +1,60 @@
+{
+  "shards": [
+    {
+      "index": 1,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "seconds": 1230.4,
+      "log": "/home/runner/work/_temp/pr-gate/server/server-1.log",
+      "report": "/home/runner/work/_temp/pr-gate/server/server-1.json",
+      "files": 337,
+      "failedFiles": [],
+      "failures": [],
+      "tests": 4578,
+      "failedTests": 0
+    },
+    {
+      "index": 2,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false,
+      "seconds": 1192.5,
+      "log": "/home/runner/work/_temp/pr-gate/server/server-2.log",
+      "report": "/home/runner/work/_temp/pr-gate/server/server-2.json",
+      "files": 337,
+      "failedFiles": [
+        "src/serviceUpdate/ServiceUpdateHold.test.ts"
+      ],
+      "failures": [
+        {
+          "file": "src/serviceUpdate/ServiceUpdateHold.test.ts",
+          "test": "outlasts its time limit while the agent installs, up to the ceiling",
+          "message": "AssertionError: expected false to be true"
+        }
+      ],
+      "tests": 4759,
+      "failedTests": 1
+    }
+  ],
+  "changed": "e97665ed0a4aa81576131617d5b7763fd63debc6",
+  "changedTestFiles": [
+    "apps/server/src/fleet/MachineHandoffFolderCopy.test.ts",
+    "apps/server/src/fleet/folderCopyContextPaths.test.ts",
+    "apps/server/src/fleet/folderCopyRegistration.test.ts",
+    "apps/server/src/fleet/folderCopyScope.test.ts",
+    "apps/server/src/fleet/folderCopyScope.transfer.test.ts",
+    "apps/server/src/fleet/folderTransfer/destinationService.start.test.ts",
+    "apps/server/src/fleet/folderTransfer/manifest.test.ts",
+    "apps/server/src/fleet/folderTransfer/portableGit.test.ts",
+    "apps/server/src/fleet/folderTransfer/pullWorker.test.ts",
+    "apps/server/src/fleet/folderTransfer/sourceService.test.ts"
+  ],
+  "filters": [],
+  "wallSeconds": 1230.4,
+  "ok": false,
+  "reason": "shard 2 failed",
+  "failedFiles": [
+    "src/serviceUpdate/ServiceUpdateHold.test.ts"
+  ]
+}

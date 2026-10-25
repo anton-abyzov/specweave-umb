@@ -1,0 +1,538 @@
+{
+  "at": "2026-10-22T08:16:52.895Z",
+  "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+  "totals": {
+    "repository": {
+      "files": 36350,
+      "bytes": 2825147328
+    },
+    "tracked": {
+      "files": 42483,
+      "bytes": 1059467823
+    },
+    "untracked": {
+      "files": 13,
+      "bytes": 756897
+    },
+    "ignoredData": {
+      "files": 12361,
+      "bytes": 3050132359
+    },
+    "rebuildable": {
+      "files": 473725,
+      "bytes": 12851880104
+    },
+    "secret": {
+      "files": 10,
+      "bytes": 7300
+    }
+  },
+  "entryCount": 105565,
+  "repositories": [
+    {
+      "path": ".",
+      "kind": "main",
+      "branch": "main",
+      "head": "d75fdbe50243accd57af5521b0de2caf95f16894",
+      "stashCount": 0,
+      "worktrees": [
+        {
+          "path": null,
+          "name": "umb-0982"
+        },
+        {
+          "path": null,
+          "name": "specweave-copy-fix"
+        },
+        {
+          "path": null,
+          "name": "specweave-handoff-fix"
+        },
+        {
+          "path": null,
+          "name": "umb-project-rag"
+        }
+      ],
+      "changedFiles": 24
+    },
+    {
+      "path": "repositories/anton-abyzov/easychamp-mcp",
+      "kind": "main",
+      "branch": "main",
+      "head": "fb58c3ea077bdb33d36769cd0a250313758e2049",
+      "stashCount": 0,
+      "worktrees": [],
+      "changedFiles": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/ec-data-scripts",
+      "kind": "main",
+      "branch": "main",
+      "head": "d085cbccec594439840606f878b24b636306853f",
+      "stashCount": 0,
+      "worktrees": [],
+      "changedFiles": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/greet-anton",
+      "kind": "main",
+      "branch": "main",
+      "head": "94da462c1235ded73e173b579e2af2fd63687763",
+      "stashCount": 0,
+      "worktrees": [],
+      "changedFiles": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/specweave",
+      "kind": "main",
+      "branch": "develop",
+      "head": "72fe2f8794f21be293f216fc3e44f99106c45b61",
+      "stashCount": 0,
+      "worktrees": [
+        {
+          "path": null,
+          "name": "specweave-release-3-1-5"
+        },
+        {
+          "path": null,
+          "name": "chore-x-one-shot-a-20261021"
+        },
+        {
+          "path": null,
+          "name": "sw-ac-gate"
+        },
+        {
+          "path": null,
+          "name": "sw-plain-ac-gate"
+        },
+        {
+          "path": null,
+          "name": "specweave-cards"
+        },
+        {
+          "path": null,
+          "name": "wt-specweave-ac-trace"
+        }
+      ],
+      "changedFiles": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/specweave-status",
+      "kind": "main",
+      "branch": "main",
+      "head": "60fda2715fec527a7b4ffdee06dd71f961a805a2",
+      "stashCount": 0,
+      "worktrees": [],
+      "changedFiles": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/specweave-studio",
+      "kind": "main",
+      "branch": null,
+      "head": "bc3fabf56778cb4fe90a64e485bc8ada97e2695d",
+      "stashCount": 5,
+      "worktrees": [
+        {
+          "path": null,
+          "name": "mainwt"
+        },
+        {
+          "path": null,
+          "name": "0957-activation-restage"
+        },
+        {
+          "path": null,
+          "name": "0967-handoff-mode"
+        },
+        {
+          "path": null,
+          "name": "0967-handoff-ui"
+        },
+        {
+          "path": null,
+          "name": "0967-verify"
+        },
+        {
+          "path": null,
+          "name": "0969-aide-guard"
+        },
+        {
+          "path": null,
+          "name": "0970-handoff-comparison"
+        },
+        {
+          "path": null,
+          "name": "0970-plans-lane"
+        },
+        {
+          "path": null,
+          "name": "0970-readability-lane"
+        },
+        {
+          "path": null,
+          "name": "aide-reusable-tasks"
+        },
+        {
+          "path": null,
+          "name": "closes-questions"
+        },
+        {
+          "path": null,
+          "name": "codex-0992-git"
+        },
+        {
+          "path": null,
+          "name": "codex-0992-handoff"
+        },
+        {
+          "path": null,
+          "name": "codex-0992-scope"
+        },
+        {
+          "path": null,
+          "name": "codex-0992-ui"
+        },
+        {
+          "path": null,
+          "name": "coordinated-update"
+        },
+        {
+          "path": null,
+          "name": "fast-proofs"
+        },
+        {
+          "path": null,
+          "name": "finish-pr-diagnostics"
+        },
+        {
+          "path": null,
+          "name": "handoff-version-check"
+        },
+        {
+          "path": null,
+          "name": "ios-release-0.1.0-b4"
+        },
+        {
+          "path": null,
+          "name": "picker-usage"
+        },
+        {
+          "path": null,
+          "name": "provider-auto-discovery"
+        },
+        {
+          "path": null,
+          "name": "provider-open-fallback"
+        },
+        {
+          "path": null,
+          "name": "routines-check-dark"
+        },
+        {
+          "path": null,
+          "name": "routines-layout-verify"
+        },
+        {
+          "path": null,
+          "name": "server-layer-typecheck"
+        },
+        {
+          "path": null,
+          "name": "trim-instructions"
+        },
+        {
+          "path": null,
+          "name": "update-run-record"
+        },
+        {
+          "path": null,
+          "name": "windows-linux"
+        },
+        {
+          "path": null,
+          "name": "wl-fix-acp"
+        },
+        {
+          "path": null,
+          "name": "wl-fix-fleet"
+        },
+        {
+          "path": null,
+          "name": "wl-fix-orch"
+        },
+        {
+          "path": null,
+          "name": "wl-fix-pkgs"
+        },
+        {
+          "path": null,
+          "name": "wl-fix-project"
+        },
+        {
+          "path": null,
+          "name": "wl-fix-providers"
+        },
+        {
+          "path": null,
+          "name": "wl-fix2-codex"
+        },
+        {
+          "path": null,
+          "name": "wl-fix2-folders"
+        },
+        {
+          "path": null,
+          "name": "wl-fix2-misc"
+        },
+        {
+          "path": null,
+          "name": "wl-fix2-service"
+        },
+        {
+          "path": null,
+          "name": "wl-installed-e2e"
+        },
+        {
+          "path": null,
+          "name": "wl-t3-windows"
+        },
+        {
+          "path": null,
+          "name": "wl-wt-desktop"
+        },
+        {
+          "path": null,
+          "name": "wl-wt-server-a"
+        },
+        {
+          "path": null,
+          "name": "wl-wt-server-a2"
+        },
+        {
+          "path": null,
+          "name": "wl-wt-server-b"
+        },
+        {
+          "path": null,
+          "name": "release-script-specweave-studio"
+        },
+        {
+          "path": null,
+          "name": "test"
+        },
+        {
+          "path": null,
+          "name": "studio-ios-b5"
+        },
+        {
+          "path": null,
+          "name": "studio-main-check"
+        },
+        {
+          "path": null,
+          "name": "studio-one-press"
+        },
+        {
+          "path": null,
+          "name": "studio-project-rag"
+        },
+        {
+          "path": null,
+          "name": "studio-server-banner"
+        },
+        {
+          "path": null,
+          "name": "studio-update-flow-fix"
+        },
+        {
+          "path": null,
+          "name": "studio-update-speed"
+        }
+      ],
+      "changedFiles": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill",
+      "kind": "main",
+      "branch": "main",
+      "head": "3dd60459107066b00714873f97acede04a31c8f1",
+      "stashCount": 0,
+      "worktrees": [
+        {
+          "path": null,
+          "name": "vskill-0734-0850"
+        },
+        {
+          "path": null,
+          "name": "vskill-0734-engine-completion"
+        },
+        {
+          "path": null,
+          "name": "vskill-0850-status-completion"
+        },
+        {
+          "path": null,
+          "name": "vskill-release-retention"
+        }
+      ],
+      "changedFiles": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill-platform",
+      "kind": "main",
+      "branch": "main",
+      "head": "c2766a2b8ef7844b6dfbdff07150197070e11b07",
+      "stashCount": 0,
+      "worktrees": [
+        {
+          "path": null,
+          "name": "build"
+        },
+        {
+          "path": null,
+          "name": "build"
+        },
+        {
+          "path": null,
+          "name": "build"
+        },
+        {
+          "path": null,
+          "name": "build"
+        },
+        {
+          "path": null,
+          "name": "vskill-platform-0748-isolated-acceptance"
+        }
+      ],
+      "changedFiles": 0
+    }
+  ],
+  "warnings": [
+    "Skipped .git/fsmonitor--daemon.ipc: not a file, folder or link."
+  ],
+  "notices": [
+    ".: 4 worktree(s) outside this folder are not copied: umb-0982, specweave-copy-fix, specweave-handoff-fix, umb-project-rag. Copy those working folders separately to preserve their uncommitted changes.",
+    "repositories/anton-abyzov/specweave: 6 worktree(s) outside this folder are not copied: specweave-release-3-1-5, chore-x-one-shot-a-20261021, sw-ac-gate, sw-plain-ac-gate, specweave-cards, wt-specweave-ac-trace. Copy those working folders separately to preserve their uncommitted changes.",
+    "repositories/anton-abyzov/specweave-studio: 54 worktree(s) outside this folder are not copied: mainwt, 0957-activation-restage, 0967-handoff-mode, 0967-handoff-ui, 0967-verify, 0969-aide-guard, 0970-handoff-comparison, 0970-plans-lane, 0970-readability-lane, aide-reusable-tasks, closes-questions, codex-0992-git, codex-0992-handoff, codex-0992-scope, codex-0992-ui, coordinated-update, fast-proofs, finish-pr-diagnostics, handoff-version-check, ios-release-0.1.0-b4, picker-usage, provider-auto-discovery, provider-open-fallback, routines-check-dark, routines-layout-verify, server-layer-typecheck, trim-instructions, update-run-record, windows-linux, wl-fix-acp, wl-fix-fleet, wl-fix-orch, wl-fix-pkgs, wl-fix-project, wl-fix-providers, wl-fix2-codex, wl-fix2-folders, wl-fix2-misc, wl-fix2-service, wl-installed-e2e, wl-t3-windows, wl-wt-desktop, wl-wt-server-a, wl-wt-server-a2, wl-wt-server-b, release-script-specweave-studio, test, studio-ios-b5, studio-main-check, studio-one-press, studio-project-rag, studio-server-banner, studio-update-flow-fix, studio-update-speed. Copy those working folders separately to preserve their uncommitted changes.",
+    "repositories/anton-abyzov/vskill: 4 worktree(s) outside this folder are not copied: vskill-0734-0850, vskill-0734-engine-completion, vskill-0850-status-completion, vskill-release-retention. Copy those working folders separately to preserve their uncommitted changes.",
+    "repositories/anton-abyzov/vskill-platform: 5 worktree(s) outside this folder are not copied: build, build, build, build, vskill-platform-0748-isolated-acceptance. Copy those working folders separately to preserve their uncommitted changes."
+  ],
+  "runtimeDatabases": [
+    {
+      "path": ".codex/config.toml",
+      "class": "ignoredData",
+      "size": 152
+    },
+    {
+      "path": ".codex/skills",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/animejs",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/css-animations",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/greet-anton",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/gsap",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/hyperframes",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/hyperframes-cli",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/hyperframes-media",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/hyperframes-registry",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/lottie",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/obsidian-brain",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/remotion-to-hyperframes",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/scout",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/scout/SKILL.md",
+      "class": "ignoredData",
+      "size": 14197
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/skills",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/skills/scout",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/skills/scout/SKILL.md",
+      "class": "ignoredData",
+      "size": 10151
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/tailwind",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/three",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/waapi",
+      "class": "ignoredData",
+      "size": 0
+    },
+    {
+      "path": "repositories/anton-abyzov/vskill/.codex/skills/website-to-hyperframes",
+      "class": "ignoredData",
+      "size": 0
+    }
+  ]
+}
