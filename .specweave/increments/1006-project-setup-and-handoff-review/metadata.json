@@ -1,15 +1,17 @@
 {
   "id": "1006-project-setup-and-handoff-review",
   "uuid": "bdce964a-df00-4db6-9c56-4f482f2aa407",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-23T04:59:53.972Z",
-  "updated": "2026-10-24T07:39:26.376Z",
-  "lastActivity": "2026-10-24T07:39:26.376Z",
+  "updated": "2026-10-25T20:31:31.534Z",
+  "lastActivity": "2026-10-25T20:31:31.534Z",
   "title": "Project setup and handoff review",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-25T20:31:31.533Z",
+  "approvedAt": "2026-10-25T20:31:31.534Z"
 }

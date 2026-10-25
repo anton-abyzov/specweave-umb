@@ -13,7 +13,7 @@ Out: granting worker access on any real machine, provisioning or credential chan
 ## Acceptance Criteria
 
 - [ ] AC-01: A fresh isolated server on the installed 1.0.74 binary, with no projects and no machines, shows a usable first-run state: an empty project list with a way to add a project, and Settings > Connections with zero machines and an "Add a machine" path; headless screenshots and the server's own machine list prove it.
-- [ ] AC-02: On that server a project created from a local folder records that folder as its workspace root, and a thread started in it runs with that folder as its working directory; a missing folder is refused with a clear message.
+- [ ] AC-02: On that server a project created from a local folder records that folder as its workspace root, and a thread started in it runs with that folder as its working directory; an existing-folder import refuses a missing folder with a clear message, while the explicit Add folder path may create a new directory.
 - [ ] AC-03: A project created from a GitHub URL clones a real public repository into the chosen folder, registers that clone, and a thread there sees the cloned files; an existing destination folder and an invalid URL each give a clear refusal.
 - [ ] AC-04: With two isolated servers acting as two machines, an existing small project is connected to the second machine through the shipped path (Run on > add to machine, Link, or Copy files), and the destination records its own workspace root holding the project's files and shared project identity; view switching alone changes nothing on either machine.
 - [ ] AC-05: Between the same two servers a thread is handed off and continues: the destination runs a new turn in its own workspace root with the handoff context, the source stops owning the thread, and a completed or user-stopped thread is not restarted.
@@ -38,6 +38,8 @@ Risks: harnesses that require source builds or Tailscale proxies; the live servi
 - D-02 Clone target → a tiny public repository (`https://github.com/octocat/Hello-World`); no private repositories or credentials.
 - D-03 Real fleet → read-only; every machine without a grant is reported unverified, not provisioned.
 - D-04 Handoff defects already listed in PR #571 → routed to that PR's owner, not duplicated.
+- D-05 October 24 resumption: distinguish existing-folder import (createWorkspaceRootIfMissing=false) from explicit Add folder (true). Installed 1.0.76 confirms refusal and creation respectively; no product change.
+- D-06 October 25 acceptance: recheck #705 and #644 against installed 1.0.85 d9a2e72ce34fe6236d858034dc9441914dbf9877. Preserve earlier 1.0.74 scenario evidence with its original version; do not claim a full 1.0.85 rerun or physical fleet acceptance.
 ### Open
 - none
 
@@ -72,6 +74,12 @@ Risks: harnesses that require source builds or Tailscale proxies; the live servi
 
 ### T-11 Replace direct database fixture access and verify real clicks
 - AC: AC-04, AC-08 | Files: /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/.worktrees/fix-two-orchestrators-labels/scripts/studio-logical-projects/two-orchestrators.mjs, reports/safe-harness/ | Test: node --check /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/.worktrees/fix-two-orchestrators-labels/scripts/studio-logical-projects/two-orchestrators.mjs
+
+### T-12 Reconcile folder paths and finish installed acceptance
+- AC: AC-02, AC-06, AC-08 | Files: reports/installed-1.0.85/, spec.md | Test: node reports/installed-1.0.85/remaining.mjs
+
+### T-13 Preserve actionable existing-folder errors
+- AC: AC-02 | Files: /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/.worktrees/fix-two-orchestrators-labels/apps/server/src/project/ProjectService.ts, /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/.worktrees/fix-two-orchestrators-labels/apps/server/src/project/http.ts, /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/.worktrees/fix-two-orchestrators-labels/apps/server/src/project/http.test.ts, /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/.worktrees/fix-two-orchestrators-labels/packages/contracts/src/environmentHttp.ts | Test: focused project HTTP tests and exact-head CI
 
 ### T-09 Verify and close 1006
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08 | Files: none | Test: specweave verify 1006
