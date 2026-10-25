@@ -211,7 +211,7 @@ try {
       await shot("manage-routines-landing-1440.png");
     }
   }
-  const routineCommands = receipt.requests.filter((t) => /^scheduledTasks\.(run|toggle|upsert|delete|update|create)/i.test(t));
+  const routineCommands = receipt.requests.filter((t) => /^scheduledTasks\.(run|setEnabled|toggle|upsert|delete|update|create|rotateWebhookToken)/i.test(t));
   NodeAssert.deepEqual(routineCommands, [], "a routine command was sent");
   receipt.requestTags = [...new Set(receipt.requests)].sort();
   delete receipt.requests;

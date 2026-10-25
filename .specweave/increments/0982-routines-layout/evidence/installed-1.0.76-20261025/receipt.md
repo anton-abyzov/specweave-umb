@@ -4,9 +4,9 @@ Three kinds of proof, kept apart.
 
 ## 1. Live M4 service, read-only: blocked by service load
 
-- Target `http://127.0.0.1:8319`, 1.0.76 (`sourceCommit` `4446ca4295`, which contains #542 `515d3d7186`). Index asset `assets/index-CBbz81Ew.js`.
-- One read-only `scheduledTasks.list` over a `orchestration:read` + `diagnostics:read` pair token returned 111 real routines (90 in this project). Nothing was run, enabled, paused, saved or deleted; the token cannot operate.
-- The browser check (`routines-readonly-check.mjs`) never rendered a routine row: Settings showed "Environment disconnected – Reconnect Anton's MacBook M4MAX to view its scheduled tasks" and `/` stayed on the splash. `specweave-studio pair` intermittently returned `NoRunningServerError` while `/` answered in 1.6–7 s. Failure receipts: `live/receipt.json`, `live/failure.png`, `run1/receipt.json`, `run1/failure.png`.
+- Target `http://127.0.0.1:8319`, 1.0.76 (`sourceCommit` `4446ca4295`, which contains #542 `515d3d7186`; `installed-identity.json`). Index asset `assets/index-CBbz81Ew.js`.
+- One read-only `scheduledTasks.list` over a `orchestration:read` + `diagnostics:read` pair token returned 111 real routines (90 in this project; counts only in `probe-output.txt`). Nothing was run, enabled, paused, saved or deleted; the token cannot operate.
+- The browser check (`routines-readonly-check.mjs`) never rendered a routine row: Settings showed "Environment disconnected – Reconnect Anton's MacBook M4MAX to view its scheduled tasks" and `/` stayed on the splash (not captured). `specweave-studio pair` intermittently returned `NoRunningServerError` while `/` answered in 1.6–7 s. Failure receipts: `live/receipt.json`, `live/failure.png`, `run1/receipt.json`, `run1/failure.png` (both runs ended on the same screen; the two PNGs are byte-identical).
 - Not a routines-layout defect and not a user blocker. The service was not restarted and no update was retried (M4 stays on 1.0.76 until the first release containing #720).
 
 ## 2. Installed 1.0.76 build, private state, synthetic routines: PASS
@@ -23,7 +23,7 @@ Three kinds of proof, kept apart.
 | Project Routines pane at 1440 / 390 px | header "On MacBook M4MAX · 25 active · 26 paused · 11 on request", 62 rows, no spills, no "Goes to the coordinator", actions aligned and bordered |
 | "New routine" link | `template=new` and the project |
 | "Manage routines" | opens Settings > Routines for the project |
-| Routine commands sent by the page | none (13 read and subscribe tags only) |
+| Routine commands sent by the page | none; 13 request tags, all reads, subscriptions, asset URLs or activity pings |
 | Routines after the check | unchanged (ids, enabled, last run) |
 
 Screenshots (light and dark): `private-run/settings-routines-1440.png`, `-1440-dark`, `-900`, `-390`, `-390-dark`, `settings-search-routines.png`, `project-routines-pane-1440.png`, `-1440-dark`, `-390`, `-390-dark`, `manage-routines-landing-1440.png`.
