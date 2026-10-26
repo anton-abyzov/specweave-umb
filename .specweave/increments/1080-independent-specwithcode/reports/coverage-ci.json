@@ -1,0 +1,19 @@
+{
+  "repository": "anton-abyzov/specweave",
+  "pullRequest": 2153,
+  "head": "9f8886da0fa518fcfe4b30c9ed7f122481eb7253",
+  "merge": "ece5e2842aa99fb3bcbcbd5bf36ba650e32f91f7",
+  "job": 121397633917,
+  "conclusion": "success",
+  "testFilesPassed": 535,
+  "testFilesSkipped": 5,
+  "testsPassed": 10447,
+  "testsSkipped": 78,
+  "coverage": {
+    "statements": 72.69,
+    "branches": 65.92,
+    "functions": 75.11,
+    "lines": 73.44
+  },
+  "command": "npm run test:unit (vitest run tests/unit --coverage)"
+}

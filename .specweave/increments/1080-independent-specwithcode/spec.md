@@ -33,3 +33,9 @@ Use isolated umbrella and nested worktrees based on current remote main/develop.
 
 ### T-03 Review and publish source docs
 - AC: AC-03 | Files: .specweave/increments/1080-independent-specwithcode/reports/ | Test: git diff --check
+
+### T-04 Preserve agent-record assertions across formatting
+- AC: AC-01 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update-agent-refresh.py | Test: python3 -B repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update-agent-refresh.py
+
+### T-05 Remove remaining guide-wide license claims
+- AC: AC-02 | Files: repositories/anton-abyzov/specweave/docs-site/docs/guides/claude-code-vs-codex.md, repositories/anton-abyzov/specweave/docs-site/docs/guides/claude-code-usage-limit.md, repositories/anton-abyzov/specweave/docs-site/docs/guides/switch-claude-code-to-codex.md, repositories/anton-abyzov/specweave/docs-site/docs/guides/specwithcode-vs-opencode-t3-code.md | Test: npm --prefix repositories/anton-abyzov/specweave/docs-site run build
