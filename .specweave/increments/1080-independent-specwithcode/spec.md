@@ -32,7 +32,7 @@ Use isolated umbrella and nested worktrees based on current remote main/develop.
 - AC: AC-02 | Files: AGENTS.md, CLAUDE.md, repositories/anton-abyzov/specweave/src/templates/AGENTS.md.template, repositories/anton-abyzov/specweave/src/templates/CLAUDE.md.template, repositories/anton-abyzov/specweave/docs-site/src/pages/code.tsx, repositories/anton-abyzov/specweave/docs-site/src/pages/code/download.tsx, repositories/anton-abyzov/specweave/docs-site/src/components/ecosystem/StudioSections.tsx, repositories/anton-abyzov/specweave/docs-site/static/llms.txt | Test: cd repositories/anton-abyzov/specweave && node node_modules/vitest/vitest.mjs run tests/unit/cli/helpers/init/instruction-templates.test.ts tests/unit/cli/helpers/init/instruction-file-writer.test.ts
 
 ### T-03 Review and publish source docs
-- AC: AC-03 | Files: .specweave/increments/1080-independent-specwithcode/reports/ | Test: git diff --check
+- AC: AC-03 | Files: .specweave/increments/1080-independent-specwithcode/reports/ | Test: node .specweave/increments/1080-independent-specwithcode/reports/verify-publication.mjs && PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never node .specweave/increments/1080-independent-specwithcode/reports/verify-live-site.mjs --guides && git diff --check
 
 ### T-04 Preserve agent-record assertions across formatting
 - AC: AC-01 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update-agent-refresh.py | Test: python3 -B repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update-agent-refresh.py
