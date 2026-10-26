@@ -1,0 +1,17 @@
+{
+  "id": "1082-quota-history-burn-rate-and-run-out-forecast-for-pooled-accounts",
+  "uuid": "6421727d-8b9b-4265-a1e0-5460e6f9190b",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-26T13:02:26.967Z",
+  "updated": "2026-10-26T15:56:21.051Z",
+  "lastActivity": "2026-10-26T15:56:21.051Z",
+  "title": "Quota history, burn rate and run-out forecast for pooled accounts",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-26T15:56:21.050Z",
+  "approvedAt": "2026-10-26T15:56:21.051Z"
+}
