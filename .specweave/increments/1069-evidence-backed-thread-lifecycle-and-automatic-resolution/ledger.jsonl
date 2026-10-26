@@ -3,3 +3,5 @@
 {"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-25T05:46:51.990Z","line":"Implementing request-bound completion evidence policy"}
 {"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-25T09:55:54.328Z","line":"Integrating evidence into existing settlement commands"}
 {"t":"T-06","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-25T09:57:40.563Z","line":"Testing automatic settlement missing-evidence refusal"}
+{"t":"T-01","e":"skip","by":"claude@antons-macbook-m4max","at":"2026-10-26T15:32:20.399Z","note":"No owner inventories or receipts exist to reconcile; audit not possible","model":"opus[1m]"}
+{"t":"T-04","e":"block","by":"claude@antons-macbook-m4max","at":"2026-10-26T15:32:23.719Z","note":"Installed acceptance waits on the next release; code, tests and CI land in PR #708","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/708","model":"opus[1m]"}

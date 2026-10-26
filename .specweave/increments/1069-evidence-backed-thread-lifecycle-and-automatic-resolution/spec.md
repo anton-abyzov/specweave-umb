@@ -24,6 +24,7 @@ First reconcile owner inventories and inspect current lifecycle contracts, proje
 
 ## Decisions
 ### Asked
+- D-11: Anton chose to keep PR #708's version (77260fe25e, 957bffb0e4) and port the missing fixes onto it (2026-10-26). Evidence-gated automatic settlement stays behind the server-side default-off `LifecycleEvidenceActivation` flag; receipts are recorded, shown and resolve threads either way. T-01 is skipped (no owner inventories or receipts exist); T-04 installed acceptance waits on the next release.
 - D-10: 1070 ships its dependency seam behind a server-side default-off flag after exact-head SHIP and green CI. Only 1069/#708 may activate it with integrated acceptance checks; unrelated releases remain unblocked.
 - D-08: 1070 owns concurrent changes to ProjectionStore.ts, Orchestrator.ts, DeferredThreadResolution.ts and thread MCP handlers/tools. Sequence 1069 shared persistence changes after its merge; coordinate receipt contracts before editing overlapping files.
 - D-09: Increment collision resolved by the completion owner via CLI: this increment remains 1069; subscription recovery is 1071.
