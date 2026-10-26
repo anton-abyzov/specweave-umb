@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: the closure follows pnpm's store and keeps both versions of a name
+ok 1 - the closure follows pnpm's store and keeps both versions of a name
+  ---
+  duration_ms: 145.891875
+  type: 'test'
+  ...
+# Subtest: the root's version is hoisted and the other one nests under its dependent
+ok 2 - the root's version is hoisted and the other one nests under its dependent
+  ---
+  duration_ms: 1.211
+  type: 'test'
+  ...
+# Subtest: a runtime archive becomes one npm tarball with both commands and no links or maps
+ok 3 - a runtime archive becomes one npm tarball with both commands and no links or maps
+  ---
+  duration_ms: 3837.974875
+  type: 'test'
+  ...
+# Subtest: the npm range matches the server package's own engines
+ok 4 - the npm range matches the server package's own engines
+  ---
+  duration_ms: 1.176959
+  type: 'test'
+  ...
+# Subtest: runtime bundle package registers both command names on the one entry
+ok 5 - runtime bundle package registers both command names on the one entry
+  ---
+  duration_ms: 1.225917
+  type: 'test'
+  ...
+# Subtest: runtime and desktop package the complete executable managed helper graph
+ok 6 - runtime and desktop package the complete executable managed helper graph
+  ---
+  duration_ms: 1287.366125
+  type: 'test'
+  ...
+# Subtest: bundle verification rejects a runtime package without the specwithcode bin
+ok 7 - bundle verification rejects a runtime package without the specwithcode bin
+  ---
+  duration_ms: 3.453
+  type: 'test'
+  ...
+# Subtest: bundle.mjs writes the shared runtime package and verify-bundle checks its bins
+ok 8 - bundle.mjs writes the shared runtime package and verify-bundle checks its bins
+  ---
+  duration_ms: 3.825875
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4128.136334

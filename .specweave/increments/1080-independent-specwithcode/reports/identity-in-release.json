@@ -1,0 +1,32 @@
+{
+  "identityHead": "1f8d1b3ec861e0756f0068941ce7d2b1c9e975d7",
+  "releaseHead": "8200bcd798e2ebe1a961a4d0eedec5e03fd560a0",
+  "base": "ca2ed1d1cac8e867599466951093673b007c6253",
+  "allProductChangesPreserved": true,
+  "matchedFiles": [
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "CLAUDE.md",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "UPSTREAM.md",
+    "apps/desktop/resources/linux/com.specweave.studio.metainfo.xml",
+    "apps/server/package.json",
+    "docs/studio/fleet.md",
+    "docs/studio/getting-started.md",
+    "docs/studio/naming.md",
+    "scripts/build-desktop-artifact.ts",
+    "scripts/public-mirror/publish.mjs",
+    "scripts/studio-brand-audit.mjs",
+    "scripts/studio-fleet/bundle.mjs",
+    "scripts/studio-fleet/make_helpers.py",
+    "scripts/studio-fleet/npm-package.mjs",
+    "scripts/studio-fleet/npm-package.test.mjs",
+    "scripts/studio-fleet/runtime-package.mjs",
+    "scripts/studio-fleet/runtime-package.test.mjs",
+    "scripts/studio-fleet/test-update-agent-refresh.py",
+    "third-party-licenses.config.json"
+  ],
+  "versionOnlyException": "apps/server/package.json:1.0.89 to1.0.90;UNLICENSED retained",
+  "separateCanonicalFixture": "PR801/e67da68ef6"
+}

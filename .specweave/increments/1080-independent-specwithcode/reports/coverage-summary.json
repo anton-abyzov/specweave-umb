@@ -1,0 +1,25 @@
+{
+  "total": {
+    "statements": {
+      "pct": 72.69
+    },
+    "branches": {
+      "pct": 65.92
+    },
+    "functions": {
+      "pct": 75.11
+    },
+    "lines": {
+      "pct": 73.44
+    }
+  },
+  "source": {
+    "kind": "Actual CI V8 summary imported without invented totals",
+    "repository": "anton-abyzov/specweave",
+    "head": "a8865c9be4602459ec3a9129173b6b8cc87f8513",
+    "run": 40293036470,
+    "job": 121472372715,
+    "originalSummaryLine": "2026-10-26T08:48:27.0055966Z All files          |   72.69 |    65.92 |   75.11 |   73.44 |",
+    "note": "Last full unit run; release bump changes only version/metadata files."
+  }
+}
