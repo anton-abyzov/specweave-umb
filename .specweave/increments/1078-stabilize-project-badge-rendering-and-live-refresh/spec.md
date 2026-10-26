@@ -28,3 +28,6 @@ Separate observation validity from transport activity. Subscribe remote requests
 
 ### T-03 Manual UI acceptance
 - AC: AC-02 | Files: .specweave/increments/1078-stabilize-project-badge-rendering-and-live-refresh/reports/manual-acceptance.md | Test: Anton accepts the concrete rendered layout; requested asynchronously with headless screenshot while deployment continues
+
+### T-04 Isolate pure attention scope from the runtime
+- AC: AC-03 | Files: /tmp/swc-badge-stability/apps/web/src/studio/useProjectAttention.ts, /tmp/swc-badge-stability/apps/web/src/studio/projectAttentionScope.ts, /tmp/swc-badge-stability/apps/web/src/studio/projectWorkspaceModel.test.ts | Test: existing projectWorkspaceModel, projectPaneThreads, aggregate and sidebar tests without changing assertions; production web build; fresh review

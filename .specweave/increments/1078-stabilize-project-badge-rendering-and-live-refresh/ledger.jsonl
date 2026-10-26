@@ -4,3 +4,5 @@
 {"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-26T03:24:55.269Z"}
 {"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-26T03:28:56.892Z"}
 {"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-26T03:28:58.853Z","evidence":"Anton accepted layout in this chat; fixture scenario buttons explained as test-only; reports/manual-acceptance.md records exact acceptance and scope.\nHEAD 25b86d470"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-26T04:07:07.189Z"}
+{"t":"T-04","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-26T04:10:26.446Z","evidence":"79e5bdbc34a3ed914386fa3b300d17cb6872715a pushed to PR781. 182 focused scope/pane/sidebar/aggregate/fleet/observation tests pass underNode22; Node22 production web build exit0; independent reviewer confirms byte-identical extracted logic, preserved exports and unchanged assertions; independently reran65 scope/model tests, SHIP.\nHEAD 363357bf0"}
