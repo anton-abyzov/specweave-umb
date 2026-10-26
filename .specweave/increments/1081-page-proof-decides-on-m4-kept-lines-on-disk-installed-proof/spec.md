@@ -17,7 +17,7 @@ In: kept lines on disk instead of in memory (PR #795), the measured run on M4's 
 
 ## Approach
 
-PR #795 (`fix/page-proof-disk`, worktree `~/.specwithcode/m4/worktrees/page-proof-disk`) implements AC-02: the before read writes each kept list, as the exact bytes it hashes, to `kept-lines-<pid>-…` in the service's `updates` folder, and `merged_digest` bisects through an mmap. The release goes through the release thread (`scripts/release/release.sh`).
+PR #795 (`fix/page-proof-disk`, worktree `~/.specwithcode/m4/worktrees/page-proof-disk`) implements AC-02: the before read writes each kept list, as the exact bytes it hashes, to `kept-lines-<pid>-…` in the service's `updates` folder, and `merged_digest` re-hashes from the marks with `pread`. PR #795 also implements AC-04 (D-02): lines stay in memory while `headroom()` holds and move to disk only when memory runs short; each file stops before free space drops below the margin plus the backup reserve (`disk-full`). Merged October 26, 2026 as 4940c76562. The release goes through the release thread (`scripts/release/release.sh`); T-03 is decided by the next M4 install receipt, which should show `afterProof.keptIn = "memory"`.
 
 ## Decisions
 
