@@ -39,3 +39,6 @@ Use isolated umbrella and nested worktrees based on current remote main/develop.
 
 ### T-05 Remove remaining guide-wide license claims
 - AC: AC-02 | Files: repositories/anton-abyzov/specweave/docs-site/docs/guides/claude-code-vs-codex.md, repositories/anton-abyzov/specweave/docs-site/docs/guides/claude-code-usage-limit.md, repositories/anton-abyzov/specweave/docs-site/docs/guides/switch-claude-code-to-codex.md, repositories/anton-abyzov/specweave/docs-site/docs/guides/specwithcode-vs-opencode-t3-code.md | Test: npm --prefix repositories/anton-abyzov/specweave/docs-site run build
+
+### T-06 Integrate the released version without reverting source terms
+- AC: AC-01, AC-03 | Files: repositories/anton-abyzov/specweave-studio/apps/server/package.json | Test: node repositories/anton-abyzov/specweave-studio/scripts/studio-brand-audit.mjs --source-terms-only

@@ -1,19 +1,28 @@
-# Verification and pending publication
+# 1080 live continuation — 2026-10-26
 
-Product head: 078bb6ee6f; templates/site head: 9f8886da0. Fresh-context review: approved after post-format assertion correction.
+## Ownership and paths
+This chat owns increment1080 and source/docs publication. Persistent umbrella worktree: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-1080, branch codex/specwithcode-independent. The previous /tmp checkouts were removed externally; committed branches were restored without touching other owners' work.
 
-Passing: 36 instruction template/writer tests; 22 third-party notice generator tests; 8 post-commit runtime/npm packaging tests; 9 helper archive tests; 11 docs tests (2 existing skips); 4 source-terms audit checks. Actual generated inherited notice is intact in server, web, desktop and mobile manifests. CLI production build, docs production build, SEO and headless Chrome verification of /code/ and /code/download/ pass. Browser receipts and screenshots are adjacent.
+App checkout: repositories/anton-abyzov/specweave-studio, branch codex/independent-product, head 9d9361e8224c83550ae6b63592ba152df2fc041b. App PR https://github.com/anton-abyzov/specwithcode-dev/pull/786 remains open awaiting new-head CI. It now integrates released main1.0.89 and the owner-merged #787 status fix. One package.json conflict was resolved as version1.0.89 + UNLICENSED. No history rewrite.
 
-Full unit coverage attempt after building, with four workers: 10426 tests passed, 20 failed, 77 skipped; 529 files passed, 5 failed, 5 skipped. The three deterministic assertions in require-increment and from-repo-project-root also fail on unchanged base 87fc56226. Remaining failures are Git/handoff timeouts and a POSIX helper-process fixture race. The broad coverage close gate is not satisfied. Do not mark the increment complete or weaken tests.
+CLI/docs checkout: repositories/anton-abyzov/specweave, branch codex/1080-source-terms-guides, head c050250be57fa07b33e5f16e5d24ed4b5372a7d4. Initial PR #2153 merged at ece5e2842aa99fb3bcbcbd5bf36ba650e32f91f7. Its deployment run40274523536 succeeded. Follow-up #2154 corrects four remaining guide claims; docs/SEO build and fresh review pass, CI pending.
 
-Full brand audit: same four failing categories on unchanged base c42d2cadd4692deb232b8c848afd6b42c07c9650 and changed tree. Required inherited MIT bytes pass exactly. All scoped identity and licensing checks pass.
+Public clone: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-1080-public. Prepared sanitized snapshot commit28564b63 (full SHA in git), version1.0.89, source9d9361e822, parent public39b0a05fdf625fd06cef5c2fbe30de87ed3da96f. NOT PUSHED. Before publication: confirm #786 merged, fetch private main, compare its tree to9d9361e822; verify public main still the parent and fast-forward only. Never reset public history or change release tags/assets. Regenerate if merged main differs.
 
-PRs pending checks/merge:
-- https://github.com/anton-abyzov/specwithcode-dev/pull/786
-- https://github.com/anton-abyzov/specweave/pull/2153
+## Coordination
+Anton explicitly authorized coordination. Peer chat01a17670-ba14-74d1-8617-d43c7bddf5f8 (Fix blocked items shown as idle) owns app1.0.90 canonical release candidate/build/test trees. Peer merged #791/#787, confirmed live1.0.89; no public-source write from that lane until our publication completes. Peer is preparing1.0.90 through drafts only, will merge latest main after #786, retain1.0.90 + UNLICENSED and rerun affected gates, then mirror after our completion message. Send publication SHA when done. Do not change peer's branch or release trees.
 
-Public sanitized snapshot prepared locally at /tmp/swc-public-identity, commit 105ff3bc, based on public main ebd518c7. It has passed mirror private-value checks and the updated test file passed the commit secret scan. It is NOT pushed; do not overwrite a newer public release. Before publishing, fetch both remotes, confirm private PR merged and public main unchanged, then fast-forward push only. Never force-push. Rebuild the snapshot from latest merged private main if either changed. Releases and release tags must remain untouched for this docs/source change.
+## Passing verification
+- App source terms audit4/4, exact inherited MIT bytes preserved.
+- Runtime/npm packaging8/8 after final merge.
+- Full fleet suite48/48, exit0, 170s, after isolated frozen scripts dependency installation. Same existing2 acceptance-proof skips asCI. Log fleet-final.log.
+- New fixture fix eeeea79265 makes only formatting-insensitive lookup while retaining exact record path/schema/version/newline and copy→write→hash ordering. 30 refresh tests pass; fresh reviewer approved and tested8 negative fixtures. Final merge reviewed again: ship, no findings.
+- Initial CLI CI all green:535 passing unit files;10447 tests passed,78 skipped. Coverage72.69% statements,65.92% branches,75.11% functions,73.44% lines; all exceed unit60 target. Receipt coverage-ci.json.
+- Local isolated guard/project-root17/17 and checkpoint19/19 pass unchanged. Supported unit coverage run had one local helper-start timing race; its complete19-test file passed on isolated rerun. No test or threshold relaxed.
+- A broad all-test audit also exposed42 legacy integration failures outside projectCI; kept coverage-resume.log. Do not misrepresent it as all-green. The supported coverage script is npm run test:unit; actual cleanCI passes it above targets.
+- Docs builds/SEO pass, both initial and4-guide follow-up. Headless live-site verifier is running/available in reports/verify-live-site.mjs; use --guides after #2154 deploys. Save Chrome headless receipts/screenshots.
 
-Source policy and spec are committed on local umbrella branch codex/specwithcode-independent (de4934d4c). The shared umbrella working directory has the new AGENTS.md/CLAUDE.md policy and copied 1080 spec/ledger, preserving all unrelated dirty work. The umbrella has existing unpushed commits owned by other sessions; do not push its whole history as part of this task.
+## Tasks and next steps
+T01/T02/T04/T05/T06 are done; T03 (publication) is claimed and pending. All work is authorized; no permission request needed for green merges/publication. Continue waiting with scripts/release/ci-wait.sh bounded540s, no error ignoring. Merge #786 when required checks + fleet are green and no completed check fails; merge #2154 when green (develop review requirement may use authorized admin merge, same as #2153). Verify docs deploy, public source and actual GitHub contents. Then task done T03, specweave verify with real scoped commands, final fresh review if needed and complete1080. Do not claim complete while publication remains pending.
 
-Next: wait for exact-head PR checks; diagnose any failures without taking over other owners' lanes; merge green PRs, publish the sanitized public snapshot with fast-forward only, verify public README/license metadata and live docs deployment. Complete T-03 only after publication; keep increment open until the mandatory coverage gate is resolved.
+Verification scripts in reports: verify-publication.mjs (GitHub source/notice/identity/author/version checks) and verify-live-site.mjs (Chrome headless; --guides adds4 guides).
