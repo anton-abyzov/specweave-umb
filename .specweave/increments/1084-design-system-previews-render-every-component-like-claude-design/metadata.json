@@ -1,0 +1,17 @@
+{
+  "id": "1084-design-system-previews-render-every-component-like-claude-design",
+  "uuid": "be39da03-cac5-4e53-b7fe-ff432dbae285",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-26T16:06:10.991Z",
+  "updated": "2026-10-26T17:10:44.539Z",
+  "lastActivity": "2026-10-26T17:10:44.539Z",
+  "title": "Design system previews render every component like Claude Design",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-26T17:10:44.534Z",
+  "approvedAt": "2026-10-26T17:10:44.539Z"
+}
