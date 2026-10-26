@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "build": "8",
+  "bundle": "com.specwithcode.ios",
+  "sha256": "cef31915b41b3268207e4efe276cf9da71fb5291c97a35414b0644758e4757ac",
+  "signatureVerifyExit": 0,
+  "signatureDetails": "Executable=/private/var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/specwithcode-1015-ipa-9v38mkor/Payload/SpecWithCode.app/SpecWithCode\nIdentifier=com.specwithcode.ios\nFormat=app bundle with Mach-O thin (arm64)\nCodeDirectory v=20400 size=18360 flags=0x0(none) hashes=563+7 location=embedded\nVersionPlatform=2\nVersionMin=1703936\nVersionSDK=1704448\nHash type=sha256 size=32\nCandidateCDHash sha256=9274469e8b9f20660b7f702fd4733ca845b6e98e\nCandidateCDHashFull sha256=9274469e8b9f20660b7f702fd4733ca845b6e98ec33f0708cdfd0f08c2a6e991\nHash choices=sha256\nCMSDigest=9274469e8b9f20660b7f702fd4733ca845b6e98ec33f0708cdfd0f08c2a6e991\nCMSDigestType=2\nExecutable Segment base=0\nExecutable Segment limit=8028160\nExecutable Segment flags=0x1\nPage size=16384\nCDHash=9274469e8b9f20660b7f702fd4733ca845b6e98e\nSignature size=4768\nAuthority=iPhone Distribution: EasyChamp, Inc. (NMCB2JZ7QG)\nAuthority=Apple Worldwide Developer Relations Certification Authority\nAuthority=Apple Root CA\nSigned Time=Oct 23, 2026 at 1:29:44\u202fAM\nInfo.plist entries=40\nTeamIdentifier=NMCB2JZ7QG\nSealed Resources version=2 rules=10 files=26\nInternal requirements count=1 size=188\nTotal signatures=1\nChosen signature=1\n",
+  "profileName": "iOS Team Store Provisioning Profile: com.specwithcode.ios",
+  "teamIdentifier": [
+    "NMCB2JZ7QG"
+  ],
+  "getTaskAllow": false,
+  "profileHasProvisionedDevices": false,
+  "uploaded": false
+}

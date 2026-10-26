@@ -66,6 +66,9 @@ Out:
 ### T-05 Row status truth and headless evidence
 - AC: AC-06 | Files: apps/web/src/studio/, apps/web/tests/ | Test: headless fixture, captures under /Users/antonabyzov/.specwithcode/m4/evidence/subagent-handoff-1053/
 
+### T-08 Resolve PR conflicts and continuity CI regressions
+- AC: AC-02, AC-04, AC-06, AC-07 | Files: /tmp/core-recovery/h1053/apps/server/src/orchestration-v2/, /tmp/core-recovery/h1053/apps/web/src/components/studio/shell/SubagentPeek.tsx, /tmp/core-recovery/h1053/apps/web/src/components/studio/ProjectWorkspaceSurface.tsx, /tmp/core-recovery/h1053/apps/mobile/src/features/threads/ProviderSubagentBar.tsx | Test: server orchestration-v2 suites, affected web suites, repository typecheck gate and exact-head fresh review
+
 ### T-06 Fresh review, routed delivery and owner notes
 - AC: AC-07 | Files: .specweave/increments/1053-subagent-handoff-continuity/reports/review.md | Test: test -s .specweave/increments/1053-subagent-handoff-continuity/reports/review.md
 

@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-24T19:42:43.982Z","note":"session 069090c2-48b8-476b-8e6c-87f30f311faa","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-24T19:42:43.984Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-24T19:42:59.614Z","evidence":".specweave/increments/1056-token-usage-audit-and-per-harness-optimization/reports/measurement.md: Claude/Codex/app 14-day measurement and attribution; SpecWeave hooks 0.2%, artifact reads est. 3-6%; rise is request volume (Claude 19x weekly requests, Codex 231-285 sessions/day)\nHEAD 68111d941","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-24T19:43:15.641Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-24T19:43:26.148Z","evidence":".specweave/increments/1056-token-usage-audit-and-per-harness-optimization/reports/research.md: Anthropic and OpenAI caching/context docs with URLs\nHEAD 68111d941","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-24T19:43:34.927Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-24T19:43:42.348Z","evidence":".specweave/increments/1056-token-usage-audit-and-per-harness-optimization/reports/plan.md: 11 ranked optimizations, owners, decisions\nHEAD 68111d941","model":"claude-opus-5-5[1m]"}

@@ -1,0 +1,37 @@
+{
+  "publishedSource": "c52ee223ae58bf79e6aa313089f81aaf56286e9c",
+  "frozenSourceAncestor": true,
+  "allPrivatePublicSharedAssetDigestsMatch": true,
+  "downloaded": [
+    {
+      "file": "/Volumes/Work/specwithcode-release-1075-verify/public/SpecWithCode-1.0.75-arm64.zip",
+      "sha256": "1ff6919543fdcf5eb89b72addff4a6ca22f01ff0baf118be0c7960cdd79a6351",
+      "matchesPublished": true
+    },
+    {
+      "file": "/Volumes/Work/specwithcode-release-1075-verify/public/SpecWithCode-arm64.dmg",
+      "sha256": "c8829e22e988947b41c2a6eed95b8a5039e904ea80815faae86ce05b48933c04",
+      "matchesPublished": true
+    },
+    {
+      "file": "/Volumes/Work/specwithcode-release-1075-verify/public/SpecWithCode-1.0.75-arm64.dmg",
+      "sha256": "c8829e22e988947b41c2a6eed95b8a5039e904ea80815faae86ce05b48933c04",
+      "matchesPublished": true
+    },
+    {
+      "file": "/Volumes/Work/specwithcode-release-1075-verify/public/studio-update.json",
+      "sha256": "a52f08c211d757e59b58de23fc245f1e3228c3cf0be7746b7383d6305df659a4",
+      "matchesPublished": true
+    },
+    {
+      "file": "/Volumes/Work/specwithcode-release-1075-verify/public/deployment-helpers-manifest.json",
+      "sha256": "2cb864ae14e6c0c62e8c1fa282fcb27020c6c920ac2ad4501232ea9035c08c03",
+      "matchesPublished": true
+    },
+    {
+      "file": "/Volumes/Work/specwithcode-release-1075-verify/public/SHA256SUMS",
+      "sha256": "55ca6194a603e348279d4b4825bf3376da2e24aa84688ca96c4a5f97b27a8799",
+      "matchesPublished": true
+    }
+  ]
+}

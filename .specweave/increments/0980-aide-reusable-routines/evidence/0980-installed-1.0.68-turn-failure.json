@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-10-21T23:13:35.336Z",
+  "scratch": "/Users/antonabyzov/Projects/scratch/0980-installed-check-20261021/",
+  "serverPid": 29014,
+  "headless": true,
+  "plistVersion": "1.0.68",
+  "version": "1.0.68",
+  "cases": [
+    {
+      "name": "installed version is 1.0.68",
+      "pass": true,
+      "server": "1.0.68",
+      "plist": "1.0.68"
+    },
+    {
+      "name": "routine Monthly tax prep present",
+      "pass": true,
+      "titles": [
+        "Monthly tax prep",
+        "Monthly profit and loss"
+      ]
+    },
+    {
+      "name": "Run now: failed turn is written back to the routine",
+      "pass": true,
+      "dispatch": {
+        "lastRunStatus": "failed"
+      },
+      "lastRunStatus": "failed",
+      "lastRunError": "Skipped: Claude cannot start on this machine: It is disabled.",
+      "lastRunAt": "2026-10-21T23:14:19.447Z",
+      "secondsToFailed": 0.237
+    },
+    {
+      "name": "no provider process ran",
+      "pass": true,
+      "providerChildren": []
+    },
+    {
+      "name": "routine card shows the failure, not a plain Last ran",
+      "pass": true,
+      "rowText": "Monthly tax prep Last run failed When you ask Last ran Today 7:14 PM EDT Open its thread Receipts ~/Example Household/receipts Result ~/Example Household/tax/{period}.md Skipped: Claude cannot start on this machine: It is disabled. Run now"
+    }
+  ],
+  "screenshots": [
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0980-aide-reusable-routines/evidence/0980-installed-1.0.68-failed-turn-1280.png"
+  ],
+  "pass": true
+}

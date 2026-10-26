@@ -1,0 +1,43 @@
+{
+  "ok": false,
+  "ranAt": "2026-10-23T15:23:20.892Z",
+  "increment": "1015-prepare-mac-and-mobile-release",
+  "commands": [
+    {
+      "cmd": "npm --prefix repositories/anton-abyzov/specweave run test:unit:fast",
+      "exit": 1
+    },
+    {
+      "cmd": "npm --prefix repositories/anton-abyzov/vskill test",
+      "exit": 1
+    },
+    {
+      "cmd": "npm --prefix repositories/anton-abyzov/vskill-platform test",
+      "exit": 1
+    },
+    {
+      "cmd": "python3 scripts/fleet-project-sync.py --self-test",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 -m unittest discover -s tests -p test_handoff_evidence.py",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 scripts/release/timing.py --self-test",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 5,
+    "done": 5
+  },
+  "tasks": {
+    "total": 5,
+    "done": 5,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

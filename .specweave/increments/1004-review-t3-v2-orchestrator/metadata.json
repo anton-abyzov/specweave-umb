@@ -1,15 +1,17 @@
 {
   "id": "1004-review-t3-v2-orchestrator",
   "uuid": "9c35de99-b0e4-4da4-8276-5a04eb050dfe",
-  "status": "active",
+  "status": "completed",
   "type": "experiment",
   "priority": "P1",
   "created": "2026-10-23T04:42:52.149Z",
-  "updated": "2026-10-23T05:22:35.848Z",
-  "lastActivity": "2026-10-23T05:22:35.848Z",
+  "updated": "2026-10-25T03:21:30.684Z",
+  "lastActivity": "2026-10-25T03:21:30.684Z",
   "title": "Review T3 v2 orchestrator",
   "project": "specweave",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-25T03:21:30.681Z",
+  "approvedAt": "2026-10-25T03:21:30.684Z"
 }

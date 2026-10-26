@@ -1,0 +1,16 @@
+apps/chrome-extension 1
+apps/desktop 1
+apps/marketing 1
+apps/mobile 1
+apps/server 1
+apps/web 1
+infra/relay 1
+oxlint-plugin-studio 1
+packages/client-runtime 1
+packages/contracts 1
+packages/effect-acp 1
+packages/effect-codex-app-server 1
+packages/shared 1
+packages/ssh 1
+packages/tailscale 1
+scripts 1

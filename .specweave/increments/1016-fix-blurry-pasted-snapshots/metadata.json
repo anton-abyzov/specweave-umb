@@ -1,17 +1,26 @@
 {
   "id": "1016-fix-blurry-pasted-snapshots",
   "uuid": "acfabe59-ae90-44e7-8447-11c4232aa12b",
-  "status": "completed",
+  "status": "active",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-23T05:39:14.653Z",
-  "updated": "2026-10-23T05:56:23.421Z",
-  "lastActivity": "2026-10-23T05:56:23.421Z",
+  "updated": "2026-10-25T17:22:42.202Z",
+  "lastActivity": "2026-10-25T17:22:42.202Z",
   "title": "Fix blurry pasted snapshots",
   "project": "specweave",
   "externalLinks": {},
   "testMode": "test-after",
   "coverageTarget": 80,
-  "readyForReviewAt": "2026-10-23T05:56:23.420Z",
-  "approvedAt": "2026-10-23T05:56:23.421Z"
+  "reopened": [
+    {
+      "from": "completed",
+      "to": "planned",
+      "at": "2026-10-25T17:20:53.515Z",
+      "by": "codex@antons-macbook-m4max",
+      "reason": "October25 adjudication: live desktop capture acceptance remains unverified; installed-artifact harness and live image handoff receipts added, full native UI check requires user decision.",
+      "approvedAt": "2026-10-23T05:56:23.421Z",
+      "readyForReviewAt": "2026-10-23T05:56:23.420Z"
+    }
+  ]
 }

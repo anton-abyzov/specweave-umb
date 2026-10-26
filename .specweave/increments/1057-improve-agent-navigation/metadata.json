@@ -1,0 +1,15 @@
+{
+  "id": "1057-improve-agent-navigation",
+  "uuid": "eccb1d44-c005-4ab9-9f70-fc53b9ee40ed",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-24T19:18:11.182Z",
+  "updated": "2026-10-24T19:18:11.182Z",
+  "lastActivity": "2026-10-24T19:18:11.182Z",
+  "title": "Improve agent navigation",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

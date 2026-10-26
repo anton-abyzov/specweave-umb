@@ -1,0 +1,49 @@
+{
+  "shards": [
+    {
+      "index": 1,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false,
+      "seconds": 1817.6,
+      "log": "/home/runner/work/_temp/pr-gate/server/server-1.log",
+      "report": "/home/runner/work/_temp/pr-gate/server/server-1.json",
+      "files": 425,
+      "failedFiles": [
+        "src/serverSettings.test.ts"
+      ],
+      "failures": [
+        {
+          "file": "src/serverSettings.test.ts",
+          "test": "server settings clears a sign-in the registry's driver writes while it is disposed",
+          "message": "TimeoutError: Operation timed out after '10s'"
+        }
+      ],
+      "tests": 5643,
+      "failedTests": 1
+    },
+    {
+      "index": 2,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false,
+      "seconds": 1825.3,
+      "log": "/home/runner/work/_temp/pr-gate/server/server-2.log",
+      "report": "/home/runner/work/_temp/pr-gate/server/server-2.json",
+      "files": 424,
+      "failedFiles": [],
+      "failures": [],
+      "tests": 5510,
+      "failedTests": 0
+    }
+  ],
+  "changed": "ef227c979bb9522330c1c82b96b6774651f37f77",
+  "changedTestFiles": [],
+  "filters": [],
+  "wallSeconds": 1825.3,
+  "ok": false,
+  "reason": "shard 1 failed",
+  "failedFiles": [
+    "src/serverSettings.test.ts"
+  ]
+}

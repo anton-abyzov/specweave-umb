@@ -1,0 +1,42 @@
+[
+  {
+    "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/web/src/components/AppSidebarLayout.tsx",
+    "sha256": "89169fa08745361e0ac8e79f2a702e83fd7fd0baf61a03802455bc20d50d068d"
+  },
+  {
+    "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/web/src/components/Sidebar.tsx",
+    "sha256": "4d56f19d771b0eba2cbcdd0406916b414bd442c529401404c87d683880e3a058"
+  },
+  {
+    "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/web/src/components/Sidebar.logic.ts",
+    "sha256": "5184a81afdc11e573a3a307bb0b1e610d0d75f829f5b9b3ad6c2fe09578270dd"
+  },
+  {
+    "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/SettingsPanels.tsx",
+    "sha256": "99d3781db773f3246873a6dabe89cbed10abc5b9187d2000e3b8fa5dd1c6eb74"
+  },
+  {
+    "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/packages/client-runtime/src/state/threadInbox.ts",
+    "sha256": "ed13762bf8d58a16179c7fa59ac1a43a29919ffcbd3cc74561187eb0d524a55a"
+  },
+  {
+    "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/packages/client-runtime/src/state/models.ts",
+    "sha256": "df9e62904d0a01cecea701025cecf7d3c864cf418086e4fd8c02252997ea6719"
+  },
+  {
+    "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/packages/shared/src/orchestrationV2PendingBackgroundWork.ts",
+    "sha256": "5f5bdc3a7e07c34cde11ca8b8fc164a1f5f91a0235293fb32ae46cf0979a0888"
+  },
+  {
+    "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/web/src/studio/projectWorkspaceModel.ts",
+    "sha256": "93f68dbbb79c70a35aff487ceaa8fe7b1810ba5ce716184b1baacc5268be1f94"
+  },
+  {
+    "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/server/src/orchestration-v2/ThreadSettlementService.ts",
+    "sha256": "21eac0c4dc9acabbcb62630fd0fcc95cd4ea281ad9a514516a75e6a546793b44"
+  },
+  {
+    "path": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/server/src/orchestration-v2/ThreadResolutionPolicy.ts",
+    "sha256": "081f48025b3638833d249221ab48b46a5a889991e3e51e732d7fca0791608a09"
+  }
+]

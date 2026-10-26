@@ -1,0 +1,62 @@
+[
+  {
+    "name": "active phases fold; approvals and structured input escape",
+    "result": "pass"
+  },
+  {
+    "name": "reported blocker plus monitor stays folded while project pane needs user",
+    "result": {
+      "inbox": "Working",
+      "project": "Waiting on you"
+    }
+  },
+  {
+    "name": "stalled active run stays folded",
+    "result": "stalled but Working"
+  },
+  {
+    "name": "sign-in request without input flags stays folded",
+    "result": "auth_refresh is not checked by folding predicate"
+  },
+  {
+    "name": "settled plan prompt escapes but active plan run folds",
+    "result": "pass"
+  },
+  {
+    "name": "monitor has Waiting runtime but Idle project group",
+    "result": {
+      "inbox": "Working",
+      "project": "Idle"
+    }
+  },
+  {
+    "name": "subagents excluded from inbox irrespective of beta",
+    "result": "hidden"
+  },
+  {
+    "name": "observed return jumps to top; fresh client loses event time",
+    "result": "observed old first; fresh/off reset new first"
+  },
+  {
+    "name": "unvisited completion is read; unread does not govern folding",
+    "result": "pass"
+  },
+  {
+    "name": "commands do not hold completion; monitor and subagent do",
+    "result": "pass"
+  },
+  {
+    "name": "live rows reconstructed with production background predicate",
+    "result": {
+      "rows": 272,
+      "watched": [
+        {
+          "title": "specweave coordinator",
+          "status": "idle",
+          "projectGroup": "Idle"
+        }
+      ],
+      "blockedMonitors": []
+    }
+  }
+]

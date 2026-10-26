@@ -1,15 +1,17 @@
 {
   "id": "0981-aide-machine-private",
   "uuid": "4a677c57-2f90-4718-bc49-790de6880738",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-21T03:09:42.000Z",
-  "updated": "2026-10-23T17:42:51.512Z",
-  "lastActivity": "2026-10-23T17:42:51.512Z",
+  "updated": "2026-10-25T03:22:04.855Z",
+  "lastActivity": "2026-10-25T03:22:04.855Z",
   "title": "One private personal assistant per machine",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-25T03:22:04.852Z",
+  "approvedAt": "2026-10-25T03:22:04.855Z"
 }

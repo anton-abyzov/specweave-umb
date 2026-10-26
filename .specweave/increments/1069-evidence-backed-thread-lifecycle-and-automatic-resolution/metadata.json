@@ -1,0 +1,16 @@
+{
+  "id": "1069-evidence-backed-thread-lifecycle-and-automatic-resolution",
+  "uuid": "0ecdcfee-9421-4d73-9976-956c40254c3a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-25T05:15:31.943Z",
+  "updated": "2026-10-25T09:57:40.563Z",
+  "lastActivity": "2026-10-25T09:57:40.563Z",
+  "title": "Evidence-backed thread lifecycle and automatic resolution",
+  "project": "specweave-umb",
+  "parent": "1040-fix-project-badges-and-status-counts",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -1,15 +1,17 @@
 {
   "id": "0984-windows-linux-desktop",
   "uuid": "c0e552ff-f32d-4d83-8255-0810c7f8a2b1",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-21T06:09:16.000Z",
-  "updated": "2026-10-24T07:57:23.527Z",
-  "lastActivity": "2026-10-24T07:57:23.527Z",
+  "updated": "2026-10-26T01:46:31.331Z",
+  "lastActivity": "2026-10-26T01:46:31.331Z",
   "title": "Windows and Linux SpecWithCode desktop apps",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-26T01:46:31.330Z",
+  "approvedAt": "2026-10-26T01:46:31.331Z"
 }

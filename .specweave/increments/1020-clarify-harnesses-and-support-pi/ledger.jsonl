@@ -11,3 +11,5 @@
 {"t":"T-05","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T06:21:10.971Z","evidence":"Commit67ee8f8d529f7139858be3792a40458e1e1c8d4e fixes all4 new diagnostics. Exact CI15-package Effect-aware gate passes0 new, unchanged baseline;208 focused tests and real OpenCode adapter pass; fresh review approve. Full receipts /Users/antonabyzov/.specwithcode/m4/evidence/harness-support-1020/pr632-repair/report.md\nHEAD 4dd4cd64f"}
 {"t":"T-06","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T07:06:33.642Z"}
 {"t":"T-06","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T07:08:12.512Z","evidence":"Merge head e6e2c06a48f068d651efad5cf3987b52d8a7fe28: exact15-package gate0 new;352 focused tests;real OpenCode contract pass;fresh exact-head review no findings. Owner provider/routing blobs match main05fa77b27. Receipts /Users/antonabyzov/.specwithcode/m4/evidence/harness-support-1020/pr632-main-merge/report.md\nHEAD 0c50cf4a3"}
+{"t":"T-07","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-25T17:01:42.692Z"}
+{"t":"T-08","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-25T17:02:08.482Z"}

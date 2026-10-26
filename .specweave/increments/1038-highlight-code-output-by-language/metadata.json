@@ -1,15 +1,17 @@
 {
   "id": "1038-highlight-code-output-by-language",
   "uuid": "d2b7ca48-5608-4793-9caf-b5f11e094af6",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-23T22:54:07.262Z",
-  "updated": "2026-10-23T22:54:07.262Z",
-  "lastActivity": "2026-10-23T22:54:07.262Z",
+  "updated": "2026-10-25T05:09:12.075Z",
+  "lastActivity": "2026-10-25T05:09:12.075Z",
   "title": "Highlight code output by language",
   "project": "specweave",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-25T05:09:12.074Z",
+  "approvedAt": "2026-10-25T05:09:12.075Z"
 }

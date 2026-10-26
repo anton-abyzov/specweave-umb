@@ -1,0 +1,13 @@
+{
+  "checkedDownloadsAgainstSumsAndPublishedDigest": [
+    "SpecWithCode-1.0.75-arm64.dmg",
+    "SpecWithCode-1.0.75-arm64.zip",
+    "studio-update.json",
+    "deployment-helpers-manifest.json",
+    "studio-1.0.75-c52ee223ae58.tar.gz",
+    "studio-1.0.75-deployment-helpers-c52ee223ae58.tar.gz"
+  ],
+  "targetSource": "c52ee223ae58bf79e6aa313089f81aaf56286e9c",
+  "upgradeFromInstalled1074Supported": true,
+  "helpersContainUpdateEntrypoint": true
+}

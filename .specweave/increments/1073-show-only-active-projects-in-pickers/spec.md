@@ -1,0 +1,79 @@
+# Show only active projects in pickers
+
+## Problem
+
+Anton's Code Review screenshot lists fixtures, Aide, Example Household, Moonbeam Coffee and multiple EasyChamp registrations. Earlier 1041 added shared picker eligibility, but the reported installed surface still offers inappropriate choices. Determine source omissions, stored classification, stale selections and delivery gaps separately.
+
+Evidence: `/Users/antonabyzov/.specwithcode/m4/userdata/attachments/project-coordinator-1332065e-795b-4f98-91c4-f114917e53f6-ba0c94e4-277b-440f-8dd2-e7e24da83f31.png`.
+
+## Scope
+
+In: all ordinary web/mobile project dropdowns, shared filtering, stale selections, machine identity labels, tests and installed acceptance. Preserve explicit archive/automation management.
+
+Out: project reclassification or archiving to hide rows, merging identities by name/remote, counts/lifecycle changes, duplicate releases, live database files and credentials.
+
+## Acceptance Criteria
+
+- [ ] AC-01: Every ordinary picker offers only active, non-archived, non-automated, non-scratch projects. Code Review is covered.
+- [ ] AC-02: Persisted/deep-linked excluded selections are unavailable and cannot route new work. The selected excluded project remains visible as unavailable; explicit management remains functional.
+- [ ] AC-03: Distinct environment/project identities remain distinct, including same-name and same-remote registrations, with useful machine labels.
+- [ ] AC-04: Tests cover explicit/inferred automation, archive, scratch, eligible personal/code kinds, missing metadata, mixed groups, classification changes, stale/deleted selections and every audited surface. Responsive headless screenshots verify real controls.
+- [ ] AC-05: Pushed exact head passes fresh-context review and required CI; the existing sole release owner coordinates merge, deployment and actual installed acceptance. Receipts distinguish each gate.
+
+## Approach
+
+Check 1041 owner and active counts owner before overlapping edits. Audit current source and existing helper consumers first. Reuse shared eligibility rather than create parallel classifiers. Trace persisted scope and selection handlers before changing defaults. Preserve management exceptions and authoritative stored classification.
+
+Current source already uses shared filtering for Code Review. A concrete independent defect remains: `pullRequestFilterProjects` deduplicates by environment plus canonical repository, contradicting the user's identity rule. Verify it and replace that deduplication with environment/project identity while preserving useful labels. Determine whether the screenshot's excluded rows reflect older installed bytes or metadata, rather than assuming every listed name proves automation.
+
+The sole writer is bound to `/Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers`, branch `feat/active-only-project-pickers`, based on `origin/main` at `b323adb74913af51a4ce710f6e4e558b335ebf1b`. PR #703 owns work grants, design Copy to project, project link, Settings Choose a project and legacy sidebar. None of its changed files may be edited here. Reuse installed dependencies; no full builds or installations.
+
+Use stable `npx -y specweave@3.1.10` (installed 3.1.4). Browser verification: explicit `headless: true`, `PWDEBUG=0`, `PLAYWRIGHT_HTML_OPEN=never`, HTML reporter `open: 'never'`, file-backed evidence. Never access live `statev2.sqlite*` or credentials.
+
+## Decisions
+
+### Asked
+
+- D-01: Anton requires GPT-6.1 Sol, active-only ordinary choices, all surfaces, preserved identities, and delivery through the existing sole release owner.
+
+### Defaulted (change any before sw-do)
+
+- D-02: Preserve stored project classifications. Names alone do not prove automation.
+- D-03: Show excluded current context disabled/unavailable; do not silently redirect drafts.
+- D-04: Preserve eligible personal projects in workflows supporting them; code-only workflows restrict kind. Reconcile Aide's actual stored classification with current policy.
+
+### Open
+
+- None. App binding and owner replies are coordination steps.
+
+## Tasks
+
+### T-01 Audit consumers, ownership and delivery
+- AC: AC-01, AC-02, AC-03 | Files: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1073-show-only-active-projects-in-pickers/audit.md | Test: validate every audit row against exact source, PR/tag, installed evidence and owner replies
+
+### T-02 Fix shared filtering, stale selections and identities
+- AC: AC-01, AC-02, AC-03 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/src/studio/projectListVisibility.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/src/components/pullRequest/pullRequestProjectFilter.logic.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/src/routes/_chat.pull-requests.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/packages/client-runtime/src/state/projectPicker.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/packages/client-runtime/package.json, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/home/homeThreadList.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/home/HomeRouteScreen.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/ThreadNavigationSidebar.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-flow-provider.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/settings/settings-environment-filter.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/settings/components/SettingsEnvironmentFilterHeader.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/keyboard/CommandPalette.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/src/components/chat/DraftHeroHeadline.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/src/components/pullRequest/CompactFilterMenu.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/settings/settings-environment-filter.logic.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/settings/SettingsScheduledTasksRouteScreen.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/settings/scheduled-task-editor.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/studio/projectListVisibility.test.ts apps/web/src/components/pullRequest/pullRequestProjectFilter.logic.test.ts
+
+### T-03 Verify every classification and surface
+- AC: AC-01, AC-02, AC-03, AC-04 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/src/studio/projectListVisibility.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/src/components/pullRequest/pullRequestProjectFilter.logic.test.ts, /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1073-show-only-active-projects-in-pickers/evidence.md, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/packages/client-runtime/src/state/projectPicker.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/home/homeThreadList.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/settings/settings-environment-filter.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/tests/active-project-pickers/, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/src/components/chat/DraftHeroHeadline.test.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/settings/settings-environment-filter.logic.test.ts | Test: focused behavior tests, apps/web tsc (no builds per current disk constraint), responsive headless interactions for Code Review; record exact commands in evidence.md
+
+### T-06 Repair native destination and unavailable-start review findings
+- AC: AC-01, AC-02, AC-03, AC-04 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-flow-provider.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-project-selection.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-project-selection.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/NewTaskDraftScreen.tsx | Test: focused new-task project selection regressions for archived matching destination versus unrelated active project, preserved draft and explicit unavailable feedback
+
+### T-07 Repair repository-match ranking and excluded-selection labels
+- AC: AC-02, AC-03, AC-04 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-flow-provider.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-project-selection.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/src/components/pullRequest/pullRequestProjectFilter.logic.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/src/components/pullRequest/pullRequestProjectFilter.logic.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/tests/active-project-pickers/main.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/tests/active-project-pickers/verify.mjs, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/tests/active-project-pickers/README.md | Test: exact known repository beats an earlier weak basename match; an inactive selected checkout sharing an active checkout title retains distinct machine/path labels and its unavailable identity
+
+### T-08 Preserve missing native draft context and scoped routine defaults
+- AC: AC-01, AC-02, AC-03, AC-04 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-flow-provider.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-project-selection.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-project-selection.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/NewTaskDraftScreen.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/settings/scheduled-task-editor.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/settings/scheduledTaskDraft.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/settings/scheduledTaskDraft.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/web/tests/active-project-pickers/verify.mjs | Test: deleted explicit native draft never retargets to sole remaining scope; resumed missing context keeps its identity and visible recovery with Start blocked; selected inactive routine scope stays selected; All projects still defaults to active; headless captures finish animations
+
+### T-09 Repair CI fixture types and NodeNext imports
+- AC: AC-04, AC-05 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/home/homeThreadList.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/settings/scheduledTaskDraft.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-project-selection.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/packages/client-runtime/src/state/projectPicker.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/packages/client-runtime/src/state/projectPicker.test.ts | Test: focused picker regression tests and apps/web tsc; exact-head CI verifies native/shared typechecking without changing baselines
+
+### T-10 Retain missing draft machine identity and recovery
+- AC: AC-02, AC-03, AC-04 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-flow-provider.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-project-selection.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/new-task-project-selection.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-active-only-project-pickers/apps/mobile/src/features/threads/NewTaskDraftScreen.tsx | Test: deleting A's final project retains A/App and A machine label with Start blocked; sole matching B remains an intentional switch destination; blank drafts still fall back; focused tests and apps/web tsc
+
+### T-04 Push, review and deliver
+- AC: AC-05 | Files: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1073-show-only-active-projects-in-pickers/evidence.md | Test: fresh-context review, exact-head CI and handoff to the existing completion coordinator; installed acceptance remains T-05 through thread:delegated-task:command%3Amcp%3Ad06dc281-372d-4c95-9017-4bd7dd86feb8%3Adelegate-task%3Acompletion-sweep-astra-continuation-20261023
+
+### T-05 Verify and close 1073
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1073-show-only-active-projects-in-pickers/ledger.jsonl | Test: actual installed headless Code Review dropdown readback after the coordinated release, npx -y specweave@3.1.10 verify 1073-show-only-active-projects-in-pickers, fresh-context review, then npx -y specweave@3.1.10 complete 1073-show-only-active-projects-in-pickers

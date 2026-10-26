@@ -1,0 +1,15 @@
+{
+  "id": "1079-optimize-iphone-duo-adaptive-layouts",
+  "uuid": "7cbc3ffe-6f5b-4a24-9df2-70bf15513318",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-26T03:25:38.341Z",
+  "updated": "2026-10-26T05:04:48.813Z",
+  "lastActivity": "2026-10-26T05:04:48.813Z",
+  "title": "Optimize iPhone Duo adaptive layouts",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

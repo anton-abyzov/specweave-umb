@@ -1,0 +1,15 @@
+apps/desktop
+apps/marketing
+apps/mobile
+apps/server
+apps/web
+infra/relay
+oxlint-plugin-studio
+packages/client-runtime
+packages/contracts
+packages/effect-acp
+packages/effect-codex-app-server
+packages/shared
+packages/ssh
+packages/tailscale
+scripts

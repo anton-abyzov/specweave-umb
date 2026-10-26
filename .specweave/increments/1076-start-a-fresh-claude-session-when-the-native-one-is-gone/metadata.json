@@ -1,0 +1,15 @@
+{
+  "id": "1076-start-a-fresh-claude-session-when-the-native-one-is-gone",
+  "uuid": "be961290-39d4-4e4d-b8d2-a4ba793ee160",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-25T19:31:07.083Z",
+  "updated": "2026-10-25T19:53:00.216Z",
+  "lastActivity": "2026-10-25T19:53:00.216Z",
+  "title": "Start a fresh Claude session when the native one is gone",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

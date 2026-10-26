@@ -1,0 +1,74 @@
+{
+  "frozenMain": "ddeaee06b130f8c582e6d4801d636fd66c6936e4",
+  "version": "1.0.75",
+  "included": [
+    {
+      "pr": 622,
+      "merge": "ab96f4d1c25284282553a4099b503b307a0b26a5",
+      "included": true
+    },
+    {
+      "pr": 623,
+      "merge": "252be2eb414150ed57893c94f933bce7493cfd0d",
+      "included": true
+    },
+    {
+      "pr": 625,
+      "merge": "ddeaee06b130f8c582e6d4801d636fd66c6936e4",
+      "included": true
+    },
+    {
+      "pr": 626,
+      "merge": "ef227c979bb9522330c1c82b96b6774651f37f77",
+      "included": true
+    },
+    {
+      "pr": 627,
+      "merge": "8ddb581237755e91154beaf5aece8271eb6ddadc",
+      "included": true
+    },
+    {
+      "pr": 628,
+      "merge": "470f9076579c137a6aaba650bb6f953fe09c0f11",
+      "included": true
+    },
+    {
+      "pr": 629,
+      "merge": "5b0e564eb28c65be94338f38daa82fdf134cb96e",
+      "included": true
+    },
+    {
+      "pr": 630,
+      "merge": "55f392a9715dfad2b69c4916890d3f6c8783e0c3",
+      "included": true
+    },
+    {
+      "pr": 631,
+      "merge": "05fa77b27d7b8d3652dcf6da36745ba359affbc2",
+      "included": true
+    },
+    {
+      "pr": 632,
+      "merge": "1d63fd291f5ca8199008b7947fe43f7018386d32",
+      "included": true
+    },
+    {
+      "pr": 634,
+      "merge": "4b7962d9fe678406c2e8df5f99e8341005ed4ece",
+      "included": true
+    },
+    {
+      "pr": 635,
+      "merge": "f8999fcfefbcdf7e6e83e1053a2435012893d3b7",
+      "included": true
+    }
+  ],
+  "iosTree": "0953d367dcd64f402668836939582928e682fec7",
+  "iosBuild8TreeMatches": true,
+  "excluded": [
+    "633 required typecheck failure",
+    "1008 unmerged working-tree showcase",
+    "1011 no merge candidate"
+  ],
+  "before1011ReceiptExists": true
+}

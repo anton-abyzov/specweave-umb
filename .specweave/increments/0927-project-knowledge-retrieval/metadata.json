@@ -1,0 +1,12 @@
+{
+  "id": "0927-project-knowledge-retrieval",
+  "status": "planned",
+  "type": "feature",
+  "created": "2026-10-26T05:54:29.914Z",
+  "lastActivity": "2026-10-26T05:54:29.914Z",
+  "externalLinks": {},
+  "priority": "medium",
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "updated": "2026-10-26T05:54:29.914Z"
+}

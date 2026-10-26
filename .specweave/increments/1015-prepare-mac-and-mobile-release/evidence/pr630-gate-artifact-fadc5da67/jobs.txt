@@ -1,0 +1,16 @@
+contrast
+pkg:apps/chrome-extension
+pkg:apps/desktop
+pkg:apps/marketing
+pkg:apps/mobile
+pkg:apps/web
+pkg:infra/relay
+pkg:oxlint-plugin-studio
+pkg:packages/client-runtime
+pkg:packages/contracts
+pkg:packages/effect-acp
+pkg:packages/effect-codex-app-server
+pkg:packages/shared
+pkg:packages/ssh
+pkg:packages/tailscale
+pkg:scripts

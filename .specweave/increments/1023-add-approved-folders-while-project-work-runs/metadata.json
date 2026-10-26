@@ -1,15 +1,17 @@
 {
   "id": "1023-add-approved-folders-while-project-work-runs",
   "uuid": "6459a299-7bc6-4062-9452-15335f8584ad",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-23T06:17:49.523Z",
-  "updated": "2026-10-24T07:30:02.582Z",
-  "lastActivity": "2026-10-24T07:30:02.582Z",
+  "updated": "2026-10-25T03:18:41.436Z",
+  "lastActivity": "2026-10-25T03:18:41.436Z",
   "title": "Add approved folders while project work runs",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-25T03:18:41.434Z",
+  "approvedAt": "2026-10-25T03:18:41.436Z"
 }

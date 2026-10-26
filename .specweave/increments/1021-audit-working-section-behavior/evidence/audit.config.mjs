@@ -1,0 +1,2 @@
+import { defineConfig } from '/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/node_modules/vite-plus/dist/index.js';
+export default defineConfig({resolve:{alias:{'~':'/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/web/src'}},test:{root:'/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1021-audit-working-section-behavior/evidence',include:['audit.test.ts'],environment:'node'}});

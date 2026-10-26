@@ -45,3 +45,7 @@ If a cell still says TODO, fill it in from `package.json`/`Makefile` and commit;
 ## Manual Verification Gates
 
 Ask user to manually verify: new UI flows, auth changes, payment flows, data migrations.
+
+## SpecWithCode identity
+
+Apply the SpecWithCode identity and source terms in AGENTS.md: independent product positioning, accurate provenance, required third-party notices, no new project-wide license grant, and preserved development history and concurrent sessions.

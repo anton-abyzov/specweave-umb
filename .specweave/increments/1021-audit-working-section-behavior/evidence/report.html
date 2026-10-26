@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Working section audit</title>
+<style>
+  /*
+   * html-report template. Every color reads a host theme variable first
+   * (SpecWithCode injects --background, --foreground, ...),
+   * then falls back to its own light/dark palette, so the same file looks
+   * right inside a host frame, as a Claude artifact, or opened from disk.
+   */
+  :root {
+    color-scheme: light dark;
+    --r-bg: var(--background, #faf9f7);
+    --r-fg: var(--foreground, #1f1e1c);
+    --r-muted: var(--muted-foreground, #6b6862);
+    --r-border: var(--border, #e4e1db);
+    --r-surface: var(--card, #f3f1ec);
+    --r-code-bg: var(--code-background, #efece6);
+    --r-code-fg: var(--code-foreground, #2b2a27);
+    --r-accent: var(--accent, #c96442);
+    --r-ok: var(--success-foreground, #047857);
+    --r-ok-bg: color-mix(in srgb, var(--success, #10b981) 14%, transparent);
+    --r-bad: var(--destructive-foreground, #b42318);
+    --r-bad-bg: color-mix(in srgb, var(--destructive, #ef4444) 14%, transparent);
+    --r-warn: var(--warning-foreground, #a15c07);
+    --r-warn-bg: color-mix(in srgb, var(--warning, #f59e0b) 16%, transparent);
+    --r-serif: "New York", ui-serif, "Iowan Old Style", Charter, Georgia, serif;
+    --r-sans: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif);
+    --r-mono: var(--font-mono, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --r-bg: var(--background, #1f1e1d);
+      --r-fg: var(--foreground, #eceae4);
+      --r-muted: var(--muted-foreground, #a19d94);
+      --r-border: var(--border, #3a3935);
+      --r-surface: var(--card, #262624);
+      --r-code-bg: var(--code-background, #2c2b28);
+      --r-code-fg: var(--code-foreground, #e6e3dc);
+      --r-ok: var(--success-foreground, #34d399);
+      --r-bad: var(--destructive-foreground, #f87171);
+      --r-warn: var(--warning-foreground, #fbbf24);
+    }
+  }
+  html { background: var(--r-bg); color: var(--r-fg); font-family: var(--r-sans); }
+  body { margin: 0; }
+  /* Opened on its own (wider than any host frame), center the page. */
+  @media (min-width: 1200px) { body { padding: 56px 0; } .report { margin: 0 auto; } }
+  .report { max-width: 680px; padding: 8px 0 32px; }
+  .report * { box-sizing: border-box; }
+
+  /* Properties: the facts a reader scans first. */
+  .props { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 10px 16px; margin: 0; font-size: 14px; }
+  .props dt { color: var(--r-muted); font-size: 13px; padding-top: 1px; }
+  .props dd { margin: 0; min-width: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
+  hr { border: 0; border-top: 1px solid var(--r-border); margin: 24px 0 28px; }
+
+  h1 { font-family: var(--r-serif); font-weight: 500; font-size: 28px; line-height: 1.15; letter-spacing: -0.012em; margin: 0; text-wrap: balance; }
+  .lead, .report p, .report li { font-family: var(--r-serif); font-size: 16px; line-height: 1.6; }
+  .lead { margin: 14px 0 0; }
+  h2 { font-family: var(--r-serif); font-weight: 500; font-size: 21.5px; line-height: 1.3; margin: 32px 0 8px; }
+  .report ul { margin: 0; padding-left: 1.25rem; }
+  .report li + li { margin-top: 6px; }
+  .report p { margin: 8px 0; }
+  a { color: var(--r-accent); text-underline-offset: 2px; }
+
+  code, .chip {
+    font-family: var(--r-mono); font-size: 13px; background: var(--r-code-bg); color: var(--r-code-fg);
+    border: 1px solid var(--r-border); border-radius: 6px; padding: 1px 6px; white-space: nowrap;
+  }
+  .pill { font-family: var(--r-sans); font-size: 12.5px; font-weight: 600; border-radius: 999px; padding: 2px 9px; white-space: nowrap; }
+  .pill.ok { color: var(--r-ok); background: var(--r-ok-bg); }
+  .pill.bad { color: var(--r-bad); background: var(--r-bad-bg); }
+  .pill.warn { color: var(--r-warn); background: var(--r-warn-bg); }
+  .pill.neutral { color: var(--r-muted); background: var(--r-surface); }
+
+  /* Test or check results: one row each, status first. */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+  th { text-align: left; font-weight: 500; color: var(--r-muted); font-size: 12.5px; border-bottom: 1px solid var(--r-border); padding: 6px 8px 6px 0; }
+  td { border-bottom: 1px solid var(--r-border); padding: 8px 8px 8px 0; vertical-align: top; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* Screenshots: two up on wide frames, one up on phones. */
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 10px 0; }
+  figure { margin: 0; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid var(--r-border); border-radius: 10px; }
+  figcaption { font-size: 12.5px; color: var(--r-muted); margin-top: 6px; }
+
+  details { border: 1px solid var(--r-border); border-radius: 10px; padding: 8px 12px; margin: 10px 0; }
+  summary { cursor: pointer; font-size: 14px; }
+  pre { font-family: var(--r-mono); font-size: 12.5px; line-height: 1.5; overflow-x: auto; margin: 8px 0 0; white-space: pre; }
+
+  code {white-space:normal;overflow-wrap:anywhere}
+  .flow {display:grid;grid-template-columns:1fr 28px 1fr;gap:10px;align-items:stretch;margin:18px 0}
+  .flow .node {padding:12px;border:1px solid var(--r-border);border-radius:8px;font-size:13px;line-height:1.5;background:var(--r-surface)}
+  .arrow {align-self:center;text-align:center;color:var(--r-muted)}
+  .flow small{display:block;color:var(--r-muted);margin-top:4px}
+  .note {border-left:3px solid var(--r-warn);padding-left:14px}
+  .report .compact {font-family:var(--r-sans);font-size:14px;line-height:1.6}
+  .source {font-family:var(--r-mono);font-size:11px;overflow-wrap:anywhere}
+  @media(max-width:480px){.props{grid-template-columns:6rem 1fr;gap:8px}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}table{font-size:12px}h1{font-size:26px}}
+</style>
+</head>
+<body>
+<article class="report">
+<dl class="props"><dt>Verdict</dt><dd><span class="pill warn">Partly works</span><span class="pill neutral">Research only</span></dd><dt>Evidence</dt><dd>307 focused checks · read-only M4 snapshot</dd><dt>Closure</dt><dd>1021 completed · verify and review passed</dd><dt>Scope</dt><dd>Optional inbox sidebar</dd></dl><hr>
+<h1>The setting promises more than it controls.</h1>
+<p class="lead">On desktop/web, the Working shelf is implemented. It folds active and monitoring threads, then promotes observed returns. But the default Projects/Chats sidebar and project Threads pane ignore this switch.</p>
+<p class="compact note">The strongest fix is small: make the setting's scope explicit, then share one “needs you” predicate. Stalled runs, sign-in requests and reported blockers with monitors can currently stay folded.</p>
+<h2>What actually happens</h2>
+<div class="flow"><div class="node"><b>Default sidebar</b><small>Projects, Chats and the project Threads pane</small></div><div class="arrow">→</div><div class="node">Toggle has no effect. Existing grouping continues.</div><div class="node"><b>Optional inbox + beta on</b><small>Top-level inbox rows only</small></div><div class="arrow">→</div><div class="node">Active run or background wake-up work → Working.</div><div class="node"><b>Needs your attention</b><small>Approval, structured input, settled plan prompt</small></div><div class="arrow">→</div><div class="node">Leaves Working → inbox, ordered by return time.</div></div>
+<p class="compact">Pinned, snoozed and settled rows keep their shelves. Subagent rows are excluded from the inbox roster. The currently open Working row stays visible even when the shelf is collapsed.</p>
+<h2>Our examples</h2>
+<table><thead><tr><th>Example</th><th>Captured state</th><th>Result</th></tr></thead><tbody>
+<tr><td>Coordinator</td><td>Completed run; watches #477, #628–631; unfinished children</td><td>Inbox helper: Working<br>Project helper: Idle</td></tr>
+<tr><td>Project work / disk audit</td><td>Completed run; unfinished subagent item</td><td>Working wait. Item retention does not prove progress.</td></tr>
+<tr><td>Activity diffs<br><small>activity-code-diffs-compact-output-20261023</small></td><td>Completed run; two workflow entries</td><td>Working wait; project helper says Idle</td></tr>
+<tr><td>CLI fleet update</td><td>Running delegated worker</td><td>Working in project; hidden from top-level inbox</td></tr>
+<tr><td>Release preparation</td><td>Completed run; no captured background work</td><td>Idle. Future dispatch is a separate schedule.</td></tr>
+<tr><td>Cursor support</td><td>Completed; report asks for user action</td><td>Waiting on you in project pane</td></tr>
+<tr><td>Contrast / picker audit</td><td>Failed run; explicitly settled</td><td>Resolved. Settlement is not a test result.</td></tr>
+<tr><td>Stuck Working status</td><td>Historical thread completed and settled</td><td>Resolved; not a live stalled-run example</td></tr></tbody></table>
+<p class="compact">These are persisted records classified through production helpers, not screenshots of the installed sidebar. Sequential reads captured 671 local project threads; 272 had a latest app run for this join. Runless native children were excluded. Reconstruction also omits older active-run selection, held queues and secret-request synthesis. The similarly titled activity-diffs-ultracode-resume-20261023 is a separate blocked thread, not this workflow example.</p>
+<h2>Where the promise breaks</h2>
+<table><thead><tr><th>Gap</th><th>Evidence</th><th>Recommended change</th></tr></thead><tbody>
+<tr><td>Switch is inert on default surfaces</td><td>Source routing and consumers</td><td>Explain or gate the inbox dependency</td></tr>
+<tr><td>Stalled run remains folded</td><td>Production-helper counterexample</td><td>Let health-based attention escape</td></tr>
+<tr><td>Sign-in / blocker plus monitoring stays folded</td><td>Source + isolated counterexamples; no live matching failure claimed</td><td>Share a complete attention predicate</td></tr>
+<tr><td>Monitor reads Idle in project pane</td><td>Live roster + two production classifiers</td><td>Use consistent monitoring semantics</td></tr>
+<tr><td>Some return ordering disappears on reload</td><td>Observed-return map is client memory</td><td>Qualify copy or persist an attention timestamp</td></tr></tbody></table>
+<h2>Three separate mechanisms</h2>
+<p class="compact"><b>Working</b> is presentation. PR watches, workflows and subagents can hold completion; a dev server left behind cannot. Future scheduled jobs are outside this roster. The 6:26 AM EDT release schedule remains enabled.</p>
+<p class="compact"><b>Unread</b> compares completion with the last visit; it does not decide shelf placement. Reading does not cancel a watch. Conversation scrolling follows reader intent separately.</p>
+<p class="compact"><b>Auto-settle</b> is server policy. It needs all relevant PRs merged with passing checks and approved review observations, coherent timestamps and no live work or user blocker. Inactivity alone does not complete work. Host observations do not prove exact-head QA, deployment or installed acceptance.</p>
+<h2>Proof and limits</h2>
+<table><tbody><tr><td><span class="pill ok">220 passed</span></td><td>Existing inbox, roster and settlement tests</td></tr><tr><td><span class="pill ok">60 passed</span></td><td>Project grouping model tests</td></tr><tr><td><span class="pill ok">16 passed</span></td><td>Reader-follow tests</td></tr><tr><td><span class="pill ok">11 passed</span></td><td>Audit tests, including assertions reproducing defects</td></tr></tbody></table>
+<p class="compact">Source checkout: <code>bc3fabf56778cb4fe90a64e485bc8ada97e2695d</code>. CLI reports 1.0.74; installed app/service equivalence was not established. No real thread status, watcher or schedule was changed.</p>
+<details><summary>Full trace, state-flow diagram and retained evidence</summary><p class="compact">The Markdown report contains absolute path:line citations, the Mermaid state flow, exact example boundaries and the prior Stuck Working report.</p><p class="source">/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1021-audit-working-section-behavior/evidence/report.md</p><p class="source">/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1021-audit-working-section-behavior/evidence/checks.json</p><p class="source">/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1021-audit-working-section-behavior/evidence/live-classification.json</p><p class="compact">Local closure passed. Configured JIRA/ADO hooks lacked credentials; zero external items closed. Exact errors are retained in the closure receipt beside the report.</p></details>
+</article></body></html>
