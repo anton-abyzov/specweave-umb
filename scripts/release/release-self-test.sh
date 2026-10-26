@@ -19,8 +19,10 @@ cat >"$T/bin/gh" <<'SH'
 #!/bin/bash
 exit 0
 SH
-# Stub specweave-studio. STUB_OWNERS=1 adds `worktree owners --json` (prints
-# $STUB_OWNERS_FILE); STUB_DB=fail makes `db query` fail, else it prints $STUB_DB_FILE.
+# Stub specweave-studio. `db query --base-dir H` prints H/stub-db.jsonl, a plain
+# `db query` prints $STUB_DB_FILE; STUB_DB=fail makes every db query fail. After
+# the first db query, $STUB_DB_NEXT (a file, or "fail") replaces $STUB_DB_FILE.
+# STUB_OWNERS=1 adds `worktree owners --json`, which prints $STUB_OWNERS_FILE.
 cat >"$T/bin/specweave-studio" <<'SH'
 #!/bin/bash
 printf '%s\n' "$*" >>"$STUB_LOG"
@@ -31,7 +33,12 @@ case "$*" in
   "worktree --help") [ "${STUB_OWNERS:-0}" = 1 ] && printf 'SUBCOMMANDS\n  owners    List owners.\n'
     exit 0 ;;
   "worktree owners --json") [ "${STUB_OWNERS:-0}" = 1 ] || exit 1; cat "$STUB_OWNERS_FILE" ;;
-  "db query "*) [ "${STUB_DB:-ok}" = fail ] && exit 1; cat "$STUB_DB_FILE" ;;
+  "db query --base-dir "*) [ "${STUB_DB:-ok}" = fail ] && exit 1; cat "$4/stub-db.jsonl" ;;
+  "db query "*) [ "${STUB_DB:-ok}" = fail ] && exit 1
+    calls=$(( $(cat "$STUB_LOG.db" 2>/dev/null || echo 0) + 1 )); echo "$calls" >"$STUB_LOG.db"
+    file="$STUB_DB_FILE"; [ "$calls" -gt 1 ] && [ -n "${STUB_DB_NEXT:-}" ] && file="$STUB_DB_NEXT"
+    [ "$file" = fail ] && exit 1
+    cat "$file" ;;
   *) echo "stub: unexpected call: $*" >&2; exit 9 ;;
 esac
 SH
@@ -59,6 +66,7 @@ check() {
 # fresh_repo: origin + main checkout at $T/base/repo, with one commit on main.
 fresh_repo() {
   rm -rf "$T/origin.git" "$T/base/repo" "$T/wt" "$HOME/.specwithcode"
+  : >"$STUB_LOG"; rm -f "$STUB_LOG.db"
   git init -q --bare -b main "$T/origin.git"
   git clone -q "$T/origin.git" "$T/base/repo" 2>/dev/null
   git -C "$T/base/repo" checkout -q -b main
@@ -71,6 +79,10 @@ has_branch() { git -C "$T/base/repo" rev-parse -q --verify "refs/heads/$1" >/dev
 run_cleanup() { bash "$RELEASE_SH" cleanup fx --apply 2>"$T/cleanup.err" >"$T/cleanup.json" || true; }
 action_of() { jq -r --arg p "$1" '.worktrees[] | select(.path == $p) | .action' "$T/cleanup.json"; }
 reason_of() { jq -r --arg p "$1" '.worktrees[] | select(.path == $p) | .reason' "$T/cleanup.json"; }
+exists() { [ -d "$1" ] && echo yes || echo no; }
+# row <k> <p> <b> <archived>: one db query row; "null" means JSON null.
+row() { jq -cn --arg k "$1" --arg p "$2" --arg b "$3" --argjson a "$4" '{k: $k, p: (if $p == "null" then null else $p end), b: (if $b == "null" then null else $b end), archived: $a}'; }
+
 
 # ---- 1. db query bindings: bound worktree kept, unbound removed, recorded branch kept
 fresh_repo
@@ -79,68 +91,154 @@ add_wt "$T/wt/group/inner" inner
 add_wt "$T/wt/free" free
 add_wt "$T/wt/recorded" recorded
 add_wt "$T/wt/archived" archived-wt
+add_wt "$T/wt/project" project-root
+add_wt "$T/wt/session" session-cwd
+add_wt "$T/wt/outer/nested" nested
+add_wt "$T/wt/back\\slash" backslash
 ln -s "$T/wt" "$T/wt-link"
 export STUB_DB_FILE="$T/db.jsonl"
 # The bound folder is recorded through a symlink; "group" holds a nested worktree;
 # "recorded" is a branch whose thread folder lives elsewhere and is archived;
-# "archived-wt" is the folder of an archived thread, so it is not bound.
-cat >"$STUB_DB_FILE" <<EOF
-{"p":"$T/wt-link/bound","b":"bound","archived":0}
-{"p":"$T/wt/group","b":null,"archived":0}
-{"p":"$T/elsewhere","b":"recorded","archived":1}
-{"p":"$T/wt/archived","b":null,"archived":1}
-EOF
-: >"$STUB_LOG"
+# "archived-wt" is the folder of an archived thread, so it is not bound. A project
+# root and a running session sit inside two worktrees; "outer" is a project root
+# that only contains a worktree, which does not hold it.
+{
+  row thread "$T/wt-link/bound" bound 0
+  row thread "$T/wt/group" null 0
+  row thread "$T/elsewhere" recorded 1
+  row thread "$T/wt/archived" null 1
+  row project "$T/wt/project" null 0
+  row session "$T/wt/session/sub" null 0
+  row project "$T/wt/outer" null 0
+  row thread "$T/wt/back\\slash" null 0
+} >"$STUB_DB_FILE"
 run_cleanup
 check "db: bound worktree kept" "keep|bound to a SpecWithCode thread" "$(action_of "$T/wt/bound")|$(reason_of "$T/wt/bound")"
-check "db: bound worktree folder still there" yes "$([ -d "$T/wt/bound" ] && echo yes || echo no)"
+check "db: bound worktree folder still there" yes "$(exists "$T/wt/bound")"
 check "db: bound worktree branch kept" yes "$(has_branch bound)"
 check "db: worktree nested in a thread folder kept" keep "$(action_of "$T/wt/group/inner")"
 check "db: unbound merged worktree removed" removed "$(action_of "$T/wt/free")"
-check "db: unbound merged worktree folder gone" no "$([ -d "$T/wt/free" ] && echo yes || echo no)"
+check "db: unbound merged worktree folder gone" no "$(exists "$T/wt/free")"
 check "db: unbound merged branch deleted with -d" no "$(has_branch free)"
 check "db: branch recorded by a thread: worktree removed" removed-worktree "$(action_of "$T/wt/recorded")"
 check "db: branch recorded by a thread kept" yes "$(has_branch recorded)"
 check "db: archived thread folder is not bound" removed "$(action_of "$T/wt/archived")"
-check "db: query asks only for non-deleted threads" 1 "$(grep -c 'deleted_at IS NULL' "$STUB_LOG" | tr -d ' ')"
+check "db: project root worktree kept" "keep|a SpecWithCode project or running agent session uses it" "$(action_of "$T/wt/project")|$(reason_of "$T/wt/project")"
+check "db: running session folder kept" keep "$(action_of "$T/wt/session")"
+check "db: worktree inside a project root removed" removed "$(action_of "$T/wt/outer/nested")"
+check "db: path with a backslash kept" keep "$(action_of "$T/wt/back\\slash")"
+check "db: every query asks only for non-deleted rows" 0 "$(grep '^db query' "$STUB_LOG" | grep -vc 'deleted_at IS NULL' | tr -d ' ')"
+check "db: bindings read again before each of 4 removals" 5 "$(grep -c '^db query' "$STUB_LOG" | tr -d ' ')"
 
-# ---- 2. worktree owners preferred when the command exists
+# ---- 2. worktree owners adds folders; branches still come from db query
 fresh_repo
 add_wt "$T/wt/owned" owned
 add_wt "$T/wt/deleted-owner" deleted-owner
-export STUB_OWNERS=1 STUB_DB=fail STUB_OWNERS_FILE="$T/owners.json"
-cat >"$STUB_OWNERS_FILE" <<EOF
-[{"worktreePath":"$T/wt/owned","branch":"owned","archived":false,"deleted":false},
- {"worktreePath":"$T/wt/deleted-owner","branch":"deleted-owner","deleted":true}]
-EOF
-: >"$STUB_LOG"
+add_wt "$T/wt/recorded" recorded
+export STUB_OWNERS=1 STUB_OWNERS_FILE="$T/owners.json"
+# The shape the research suggests for `worktree owners`: no branch field.
+cat >"$STUB_OWNERS_FILE" <<JSON
+[{"path":"$T/wt/owned","realPath":"$T/wt/owned","threadId":"t1","archived":false,"deleted":false,"kind":"thread"},
+ {"path":"$T/wt/deleted-owner","realPath":"$T/wt/deleted-owner","threadId":"t2","archived":false,"deleted":true,"kind":"thread"}]
+JSON
+row thread "$T/wt/recorded-old" recorded 1 >"$STUB_DB_FILE"
 run_cleanup
-check "owners: bound worktree kept" keep "$(action_of "$T/wt/owned")"
+check "owners: folder it lists kept" keep "$(action_of "$T/wt/owned")"
 check "owners: deleted thread does not bind" removed "$(action_of "$T/wt/deleted-owner")"
-check "owners: db query not used" 0 "$(grep -c '^db query' "$STUB_LOG" | tr -d ' ')"
-unset STUB_OWNERS STUB_DB
+check "owners: branch from db query kept" yes "$(has_branch recorded)"
+check "owners: db query still used" yes "$(grep -q '^db query' "$STUB_LOG" && echo yes || echo no)"
 
-# ---- 3. no bindings: keep SpecWithCode folders and every branch
+# ---- 3. owners output in an unknown shape is ignored; db query still decides
+for shape in \
+  "{\"worktrees\":[{\"worktreePath\":\"$T/wt/x\",\"branch\":\"x\"}]}" \
+  "{\"owners\":[{\"cwd\":\"$T/wt/x\"}]}" \
+  "[{\"folder\":\"$T/wt/x\",\"branchName\":\"x\"}]" \
+  "[]"; do
+  fresh_repo
+  add_wt "$T/wt/db-bound" db-bound
+  add_wt "$T/wt/x" x
+  printf '%s\n' "$shape" >"$STUB_OWNERS_FILE"
+  row thread "$T/wt/db-bound" db-bound 0 >"$STUB_DB_FILE"
+  run_cleanup
+  check "owners unknown shape $shape: db binding kept" keep "$(action_of "$T/wt/db-bound")"
+  check "owners unknown shape $shape: warning logged" yes "$(grep -q 'worktree owners gave output cleanup cannot read' "$T/cleanup.err" && echo yes || echo no)"
+done
+unset STUB_OWNERS
+
+# ---- 4. every SpecWithCode home is read; a home with no database fails closed
 fresh_repo
-mkdir -p "$HOME/.specwithcode/m4/worktrees" "$HOME/.specwithcode/m4/scratch"
-add_wt "$HOME/.specwithcode/m4/worktrees/managed" managed
-add_wt "$HOME/.specwithcode/m4/scratch/note" note
-add_wt "$T/wt/outside" outside
-export STUB_DB=fail
+SW="$HOME/.specwithcode"
+mkdir -p "$SW/userdata" "$SW/m4/userdata" "$SW/worktrees" "$SW/m4/worktrees" "$SW/m4/scratch" "$SW/other/worktrees"
+touch "$SW/userdata/statev2.sqlite" "$SW/m4/userdata/statev2.sqlite"
+add_wt "$SW/worktrees/root-bound" root-bound
+add_wt "$SW/m4/worktrees/m4-bound" m4-bound
+add_wt "$SW/m4/scratch/free" scratch-free
+add_wt "$SW/other/worktrees/unread" unread
+row thread "$SW/worktrees/root-bound" null 0 >"$SW/stub-db.jsonl"
+row thread "$SW/m4/worktrees/m4-bound" null 0 >"$SW/m4/stub-db.jsonl"
 run_cleanup
-check "unavailable: managed worktree kept" "keep|thread bindings unavailable" "$(action_of "$HOME/.specwithcode/m4/worktrees/managed")|$(reason_of "$HOME/.specwithcode/m4/worktrees/managed")"
-check "unavailable: scratch worktree kept" keep "$(action_of "$HOME/.specwithcode/m4/scratch/note")"
-check "unavailable: outside worktree removed" removed-worktree "$(action_of "$T/wt/outside")"
-check "unavailable: outside branch kept" yes "$(has_branch outside)"
-unset STUB_DB
+check "homes: thread in the root home keeps its worktree" keep "$(action_of "$SW/worktrees/root-bound")"
+check "homes: thread in another home keeps its worktree" keep "$(action_of "$SW/m4/worktrees/m4-bound")"
+check "homes: unbound scratch worktree removed" removed "$(action_of "$SW/m4/scratch/free")"
+check "homes: home with no database fails closed" "keep|thread bindings unavailable" "$(action_of "$SW/other/worktrees/unread")|$(reason_of "$SW/other/worktrees/unread")"
+check "homes: both homes queried" 2 "$(grep '^db query --base-dir' "$STUB_LOG" | awk '{ print $4 }' | sort -u | wc -l | tr -d ' ')"
+check "homes: root home queried" yes "$(grep -q "^db query --base-dir $SW " "$STUB_LOG" && echo yes || echo no)"
+fresh_repo
+mkdir -p "$SW/userdata" "$SW/m4/userdata" "$SW/m4/worktrees"
+touch "$SW/userdata/statev2.sqlite" "$SW/m4/userdata/statev2.sqlite"
+add_wt "$SW/m4/worktrees/m4-free" m4-free
+add_wt "$T/wt/outside" outside
+row thread null null 0 >"$SW/m4/stub-db.jsonl"
+# The root home has no stub-db.jsonl, so its query fails.
+run_cleanup
+check "homes: one home unreadable keeps managed worktrees" "keep|thread bindings unavailable" "$(action_of "$SW/m4/worktrees/m4-free")|$(reason_of "$SW/m4/worktrees/m4-free")"
+check "homes: one home unreadable keeps every branch" yes "$(has_branch outside)"
 
-# ---- 4. dry run reports and touches nothing
+# ---- 5. no bindings: keep SpecWithCode folders and every branch
+no_studio_path="$(printf '%s' "$PATH" | tr ':' '\n' | while IFS= read -r d; do [ -x "$d/specweave-studio" ] || printf '%s:' "$d"; done)"
+for mode in fail unknown missing; do
+  fresh_repo
+  mkdir -p "$HOME/.specwithcode/m4/worktrees" "$HOME/.specwithcode/m4/scratch" "$HOME/.specwithcode/worktrees"
+  add_wt "$HOME/.specwithcode/m4/worktrees/managed" managed
+  add_wt "$HOME/.specwithcode/m4/scratch/note" note
+  add_wt "$HOME/.specwithcode/worktrees/root" root
+  add_wt "$T/wt/outside" outside
+  case "$mode" in
+    fail) STUB_DB=fail run_cleanup ;;
+    unknown) printf '%s\n' "{\"rows\":[{\"p\":\"$T/wt/outside\"}]}" '{"cwd":"/x/a"}' >"$STUB_DB_FILE"; run_cleanup ;;
+    missing) PATH="${no_studio_path%:}" run_cleanup ;;
+  esac
+  check "unavailable ($mode): managed worktree kept" "keep|thread bindings unavailable" "$(action_of "$HOME/.specwithcode/m4/worktrees/managed")|$(reason_of "$HOME/.specwithcode/m4/worktrees/managed")"
+  check "unavailable ($mode): scratch worktree kept" keep "$(action_of "$HOME/.specwithcode/m4/scratch/note")"
+  check "unavailable ($mode): root home worktree kept" keep "$(action_of "$HOME/.specwithcode/worktrees/root")"
+  check "unavailable ($mode): outside worktree removed" removed-worktree "$(action_of "$T/wt/outside")"
+  check "unavailable ($mode): outside branch kept" yes "$(has_branch outside)"
+done
+check "unavailable (missing): stub never called" 0 "$(grep -c . "$STUB_LOG" | tr -d ' ')"
+
+# ---- 6. a thread that binds a worktree during cleanup keeps it
+fresh_repo
+add_wt "$T/wt/late" late
+add_wt "$T/wt/late-fail" late-fail
+: >"$STUB_DB_FILE"
+row thread "$T/wt/late" null 0 >"$T/db-next.jsonl"
+STUB_DB_NEXT="$T/db-next.jsonl" run_cleanup
+check "second read: newly bound worktree kept" "keep|bound to a SpecWithCode thread" "$(action_of "$T/wt/late")|$(reason_of "$T/wt/late")"
+check "second read: its branch kept" yes "$(has_branch late)"
+fresh_repo
+add_wt "$T/wt/late-fail" late-fail
+: >"$STUB_DB_FILE"
+STUB_DB_NEXT=fail run_cleanup
+check "second read failed: worktree kept" "keep|thread bindings unavailable on the second read" "$(action_of "$T/wt/late-fail")|$(reason_of "$T/wt/late-fail")"
+check "second read failed: folder still there" yes "$(exists "$T/wt/late-fail")"
+
+# ---- 7. dry run reports and touches nothing
 fresh_repo
 add_wt "$T/wt/recorded" recorded
-printf '{"p":null,"b":"recorded","archived":0}\n' >"$STUB_DB_FILE"
+row thread null recorded 0 >"$STUB_DB_FILE"
 bash "$RELEASE_SH" cleanup fx 2>"$T/cleanup.err" >"$T/cleanup.json" || true
 check "dry run: would remove, branch noted" "remove|no commits outside origin/main; branch recorded will be kept: a SpecWithCode thread records it" "$(action_of "$T/wt/recorded")|$(reason_of "$T/wt/recorded")"
-check "dry run: folder untouched" yes "$([ -d "$T/wt/recorded" ] && echo yes || echo no)"
+check "dry run: folder untouched" yes "$(exists "$T/wt/recorded")"
 
 printf '\n%d passed, %d failed\n' "$PASSES" "$FAILS"
 [ "$FAILS" -eq 0 ]
