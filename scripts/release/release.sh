@@ -469,6 +469,110 @@ cmd_status() {
 
 # ---------------------------------------------------------------- cleanup
 
+real_path() { python3 -c 'import os, sys; print(os.path.realpath(os.path.expanduser(sys.argv[1])))' "$1"; }
+
+# studio_has_owners_cmd: true when this specweave-studio has `worktree owners`.
+# An unknown subcommand is taken as the server's <cwd> argument and would start
+# a server, so read the help text instead of trying the command. No `grep -q`
+# under pipefail (see unique_commits).
+studio_has_owners_cmd() {
+  local help
+  help="$(with_timeout 30 specweave-studio --help 2>/dev/null)" || return 1
+  printf '%s\n' "$help" | awk '/^ +worktree( |$)/ { f = 1 } END { exit !f }' || return 1
+  help="$(with_timeout 30 specweave-studio worktree --help 2>/dev/null)" || return 1
+  printf '%s\n' "$help" | awk '/^ +owners( |$)/ { f = 1 } END { exit !f }'
+}
+
+# load_thread_bindings: read the folders and branches SpecWithCode threads record,
+# through the read-only specweave-studio CLI (never the database file). Writes the
+# real paths of folders that non-deleted, non-archived threads use to $BOUND_PATHS
+# and the branches every non-deleted thread records to $BOUND_BRANCHES. Sets
+# BINDINGS_OK=1 on success; on failure cleanup keeps what it cannot check.
+load_thread_bindings() {
+  BINDINGS_OK=0
+  BINDINGS_SOURCE=""
+  BOUND_PATHS="$WORK/bound-paths"
+  BOUND_BRANCHES="$WORK/bound-branches"
+  : >"$BOUND_PATHS"
+  : >"$BOUND_BRANCHES"
+  command -v specweave-studio >/dev/null 2>&1 || return 0
+  local raw="$WORK/thread-bindings.raw"
+  if studio_has_owners_cmd && with_timeout 60 specweave-studio worktree owners --json >"$raw" 2>/dev/null &&
+    parse_thread_bindings "$raw"; then
+    BINDINGS_SOURCE="worktree owners"
+  elif with_timeout 60 specweave-studio db query "SELECT json_extract(payload_json,'\$.worktreePath') AS p, json_extract(payload_json,'\$.branch') AS b, archived_at IS NOT NULL AS archived FROM orchestration_v2_projection_threads WHERE deleted_at IS NULL AND (json_extract(payload_json,'\$.worktreePath') IS NOT NULL OR json_extract(payload_json,'\$.branch') IS NOT NULL)" >"$raw" 2>/dev/null &&
+    parse_thread_bindings "$raw"; then
+    BINDINGS_SOURCE="db query"
+  else
+    return 0
+  fi
+  BINDINGS_OK=1
+}
+
+# parse_thread_bindings <raw file>: JSON lines or a JSON array of rows (db query
+# columns p, b, archived; or worktreePath/path, branch, archived, deleted) into
+# $BOUND_PATHS and $BOUND_BRANCHES. Fails on anything it cannot read.
+parse_thread_bindings() {
+  python3 - "$1" "$BOUND_PATHS" "$BOUND_BRANCHES" <<'PY'
+import json, os, sys
+raw, paths_out, branches_out = sys.argv[1:4]
+text = open(raw, encoding='utf-8').read().strip()
+try:
+    doc = json.loads(text) if text else []
+    rows = doc if isinstance(doc, list) else doc.get('owners', [doc]) if isinstance(doc, dict) else None
+except ValueError:
+    rows = [json.loads(line) for line in text.splitlines() if line.strip()]
+if not isinstance(rows, list):
+    sys.exit(1)
+def flag(row, *keys):
+    return any(row.get(k) not in (None, False, 0, '', '0', 'false') for k in keys)
+paths, branches = set(), set()
+for row in rows:
+    if not isinstance(row, dict):
+        sys.exit(1)
+    if flag(row, 'deleted', 'deletedAt', 'deleted_at'):
+        continue
+    path = next((row[k] for k in ('worktreePath', 'p', 'path', 'realPath') if row.get(k)), None)
+    branch = row.get('branch') or row.get('b')
+    if path and not flag(row, 'archived', 'archivedAt', 'archived_at'):
+        path = os.path.expanduser(path)
+        if os.path.isabs(path):
+            paths.add(os.path.realpath(path))
+    if branch:
+        branches.add(branch[len('refs/heads/'):] if branch.startswith('refs/heads/') else branch)
+with open(paths_out, 'w') as f:
+    f.writelines(p + '\n' for p in sorted(paths))
+with open(branches_out, 'w') as f:
+    f.writelines(b + '\n' for b in sorted(branches))
+PY
+}
+
+# path_bound <real path>: true when it equals, sits inside, or contains a folder
+# an open thread uses.
+path_bound() {
+  awk -v w="$1" '
+    function under(a, b) { return a == b || index(a, (b == "/" ? "" : b) "/") == 1 }
+    $0 == "" { next }
+    under(w, $0) || under($0, w) { found = 1; exit }
+    END { exit !found }' "$BOUND_PATHS"
+}
+
+# managed_folder <real path>: inside a SpecWithCode worktrees or scratch folder.
+managed_folder() {
+  case "$1" in "$SW_HOME_REAL"/*/worktrees/*|"$SW_HOME_REAL"/*/scratch/*) return 0 ;; esac
+  return 1
+}
+
+# branch_keep_reason <branch>: why cleanup must keep this branch, or nothing.
+branch_keep_reason() {
+  if [ "$BINDINGS_OK" -ne 1 ]; then printf 'thread bindings unavailable'
+  elif awk -v b="$1" '$0 == b { f = 1 } END { exit !f }' "$BOUND_BRANCHES"; then printf 'a SpecWithCode thread records it'
+  fi
+}
+
+# cmd_cleanup also keeps any worktree a SpecWithCode thread uses and any branch a
+# thread records, so the app can still open or restore that thread. Branches go
+# only through `git branch -d`, which refuses one that is not merged.
 cmd_cleanup() {
   local track="" apply=0
   while [ $# -gt 0 ]; do
@@ -503,12 +607,20 @@ cmd_cleanup() {
   case "$idle_min" in ''|*[!0-9]*) die "cleanup.min_idle_minutes must be whole minutes" ;; esac
   local out="$WORK/cleanup-$track.jsonl" err="$WORK/wt-$track.err"
   : >"$out"
+  SW_HOME_REAL="$(real_path "$HOME/.specwithcode")"
+  load_thread_bindings
+  if [ "$BINDINGS_OK" -eq 1 ]; then
+    log "cleanup $track: thread bindings from specweave-studio $BINDINGS_SOURCE ($(wc -l <"$BOUND_PATHS" | tr -d ' ') open folders, $(wc -l <"$BOUND_BRANCHES" | tr -d ' ') branches)"
+  else
+    log "cleanup $track: warning: thread bindings unavailable; keeping SpecWithCode worktree and scratch folders and every branch"
+  fi
   local wt head branch locked n=0 rc=0
   while IFS='|' read -r wt head branch locked <&3; do
     n=$((n + 1))
     [ "$n" -gt 1 ] || continue
-    local action=keep reason="" base glob protected=0 wt_status="" idle="" unique=""
+    local action=keep reason="" base glob protected=0 wt_status="" idle="" unique="" wt_real branch_keep=""
     base="$(basename "$wt")"
+    wt_real="$(real_path "$wt")"
     while IFS= read -r glob; do
       # shellcheck disable=SC2254
       case "$base" in $glob) protected=1 ;; esac
@@ -517,6 +629,8 @@ cmd_cleanup() {
     elif [ -n "$locked" ]; then reason="locked"
     elif [ -z "$branch" ]; then reason="detached HEAD"
     elif [ ! -d "$wt" ]; then reason="missing directory (git worktree prune handles it)"
+    elif [ "$BINDINGS_OK" -eq 1 ] && path_bound "$wt_real"; then reason="bound to a SpecWithCode thread"
+    elif [ "$BINDINGS_OK" -ne 1 ] && managed_folder "$wt_real"; then reason="thread bindings unavailable"
     elif ! wt_status="$(GIT_OPTIONAL_LOCKS=0 git -C "$wt" status --porcelain 2>/dev/null)"; then reason="git status failed"
     elif [ -n "$wt_status" ]; then reason="uncommitted changes"
     elif ! idle="$(idle_minutes "$wt")"; then reason="cannot read worktree activity"
@@ -531,12 +645,18 @@ cmd_cleanup() {
       else reason="unmerged commits"
       fi
     fi
+    if [ "$action" = remove ]; then
+      branch_keep="$(branch_keep_reason "$branch")"
+      [ "$apply" -eq 1 ] || [ -z "$branch_keep" ] || reason="$reason; branch $branch will be kept: $branch_keep"
+    fi
     if [ "$action" = remove ] && [ "$apply" -eq 1 ]; then
       if git -C "$path" worktree remove "$wt" 2>"$err"; then
-        if git -C "$path" branch -d "$branch" >/dev/null 2>&1 || git -C "$path" branch -D "$branch" >/dev/null 2>&1; then
+        if [ -n "$branch_keep" ]; then
+          action=removed-worktree; reason="$reason; branch $branch kept: $branch_keep"
+        elif git -C "$path" branch -d "$branch" >/dev/null 2>&1; then
           action=removed
         else
-          action=removed-worktree; reason="$reason; branch $branch kept"
+          action=removed-worktree; reason="$reason; branch $branch kept: git branch -d refused (not merged locally)"
         fi
       else
         action=keep; reason="git worktree remove refused: $(tail -1 "$err")"; rc=1
