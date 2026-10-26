@@ -1,0 +1,35 @@
+{
+  "headless": true,
+  "results": [
+    {
+      "url": "https://spec-weave.com/code/",
+      "status": 200,
+      "licenseAbsent": true
+    },
+    {
+      "url": "https://spec-weave.com/code/download/",
+      "status": 200,
+      "licenseAbsent": true
+    },
+    {
+      "url": "https://spec-weave.com/docs/guides/claude-code-vs-codex/",
+      "status": 200,
+      "correctSourceTerms": true
+    },
+    {
+      "url": "https://spec-weave.com/docs/guides/claude-code-usage-limit/",
+      "status": 200,
+      "correctSourceTerms": true
+    },
+    {
+      "url": "https://spec-weave.com/docs/guides/switch-claude-code-to-codex/",
+      "status": 200,
+      "correctSourceTerms": true
+    },
+    {
+      "url": "https://spec-weave.com/docs/compare/specwithcode-vs-opencode-t3-code/",
+      "status": 200,
+      "correctSourceTerms": true
+    }
+  ]
+}

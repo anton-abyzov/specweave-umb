@@ -33,3 +33,7 @@ App head is now76bfbac921491b8dfd0f47a7cbd4b8c52c757e7b. Main ca2ed1d1ca created
 Guide PR2154 MERGED at3d8dfa14277ecadfecb44284e693911cd0ef87fe; all PR CI green. Deployment40277546907 queued, older holder40277307880 succeeded. Initial landing deployment already live and verified; run verify-live-site.mjs --guides after final guide deploy.
 
 Public prepared c99 snapshot90f1d004 remains LOCAL ONLY. Previous prepared28564b63 preserved on local backup/pre-merge-28564b63; public origin remains39b0a05f. Regenerate from final merged main before push; final head76 differs in changelog position, and main may move. No public release tags/assets changed.
+
+Final-head76 local verification: full fleet48 run,0 failed,118s, same2 installed acceptance proof exclusions; packaging8/8. Log fleet-76.log and packaging-76.log. Reviewer SHIP for unchanged changelog move. At06:54UTC guide build succeeded, GitHub Pages deploy job queued; macOS scripts job started while Ubuntu-required jobs still queued. No more source changes planned absent concrete failing check.
+
+Guide deployment40277546907 SUCCEEDED. Headless Chrome verified all6 live pages at spec-weave.com: landing/download plus all4 guides returned200, accurate source terms, no own blanket MIT grant in copy/JSON-LD. Receipt live-site-verification.json and screenshots saved. App still awaiting required/platform checks; Security and macOS scripts green.
