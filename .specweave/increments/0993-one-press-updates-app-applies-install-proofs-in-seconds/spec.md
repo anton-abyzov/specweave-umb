@@ -49,6 +49,7 @@ Rejected: parallelising the JSON encoding (same 9 GB of work, two snapshots), ha
 - D-02: The fast path ships live in 1.0.72 (not shadow mode), gated on fixtures that compare both paths byte for byte and on the refusal cases in AC-05.
 - D-03: The stuck 1.0.69 app on M4 needs one manual quit and reopen (its install action is held and `quitting` is set); the fix cannot reach a process that already hung.
 - D-04: AC-05's "a page that moved between tables" no longer refuses. Freed overflow pages of `turn_items` are reused by `orchestration_events` during shutdown writes, so the refusal would send every such install to the full read. A moved page now marks both tables touched, and both are compared leaf by leaf, which gives the same or a stronger guarantee than the refusal.
+- D-05: Closed on the owner's "close all and complete" (October 26, 2026). T-03, T-04 and T-10 moved unchanged to increment 1081 (AC-04 and AC-08 carried as its AC-01 and AC-03), since they wait on PR #795 and the next M4 install. T-09's shutdown-write fix is verified installed in 1.0.89 (no `old-log-reset` or `gap-touches-log` fallback; pre-restart checks 6 s and 0.5 s).
 ### Open
 - none
 
