@@ -46,3 +46,12 @@ Use /Users/antonabyzov/.specwithcode/m4/worktrees/harness-support-1020 on feat/h
 
 ### T-06 Merge main after PR 631, verify and close 1020
 - AC: AC-05 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/harness-support-1020/CHANGELOG.md | Test: CI=1 TYPECHECK_TSC_ARGS="--checkers 2" bash /Users/antonabyzov/.specwithcode/m4/worktrees/harness-support-1020/scripts/studio-verify/typecheck-gate.sh --jobs 1
+
+### T-07 Verify released picker and runtime readiness on the installed bundle
+- AC: AC-02, AC-03, AC-05 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/harness-acceptance-1020/scripts/harness-support/installed-runtime.py | Test: headless installed-bundle private-state acceptance with saved version, readiness and picker screenshots
+
+### T-08 Exercise compatible Pi and OpenCode 2 runtime contracts
+- AC: AC-03, AC-04, AC-05 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/harness-acceptance-1020/scripts/harness-support/installed-runtime.py, /Users/antonabyzov/.specwithcode/m4/worktrees/harness-acceptance-1020/apps/server/src/provider/opencode2/OpenCode2Server.live.test.ts | Test: real scoped compatible runtimes, isolated HOME/XDG, local deterministic model, tools/stream/resume and OpenCode 2 MCP registration
+
+### T-09 Verify and close 1020
+- AC: AC-05 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/harness-support-1020/acceptance-20261025/report.md | Test: exact-head fresh review, focused checks and hosted CI before PR handoff

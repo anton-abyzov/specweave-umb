@@ -50,7 +50,7 @@ Out:
 - [ ] AC-07: Assets holds named sets, stored as folders, with upload, delete and download, plus a storage footer showing the size used. Uploads are restricted to an allowlist of types and sizes, symlinks are refused, and paths cannot escape the system folder.
 - [ ] AC-08: New design system has "Start from scratch". It creates an empty system with light and dark modes in the chosen owner and opens its page. Settings rows open the page. The page's menu offers Switch system, Rename, Duplicate (copy), Open in Settings, Rescan (for systems with sources), Storage, and Delete with a usage warning.
 - [ ] AC-09: Version skew stays safe. New RPCs are gated by capability flags, older servers hide the new actions, no new literals are added to unions that are stored on disk, and new contract fields are optional.
-- [ ] AC-10: A headless fixture captures every new surface in light and dark at 360, 768 and 1280 px and at 200% zoom into `/Users/antonabyzov/.specwithcode/m4/evidence/design-system-workspace-1046/`. Source, merge and installed acceptance are recorded separately.
+- [x] AC-10: A headless fixture captures every new surface in light and dark at 360, 768 and 1280 px and at 200% zoom into `/Users/antonabyzov/.specwithcode/m4/evidence/design-system-workspace-1046/`. Source, merge and installed acceptance are recorded separately.
 
 ## Deferred (follow-up)
 
@@ -59,6 +59,14 @@ Out:
 - L-2 residual (low): Undo of a removed mode puts the mode back last instead of in its old position.
 - Mode-delete Undo size (low): undoing a mode delete sends one `put_token` per token with a value in that mode (`systemEditIntents.ts`), so a system with more than 2,000 such tokens exceeds the 2,000-operation cap (`designSystemEdit.ts`) and the Undo toast reports "The change was not saved". Follow-up: batch the undo or restore the mode in one operation.
 - R2-4 crash window (low): if the process stops between writing the forward record and placing a moved design, Playground edits to it are refused until Connect is run again; the rename that places the design keeps this window very short. Follow-up: finish or roll back pending moves at startup.
+- F2 of the `fbdb1eaec2` review (medium, main code): `DesignStore.ts` `readJson` and `readDesignAsset` rely on `O_NOFOLLOW` alone, so on Windows they follow a linked record or asset file. Both predate 1046. The fix is a shared lstat-plus-identity open helper, as `fbdb1eaec2` added for stored system files and forward records. It belongs to a main-side Windows pass.
+- F4 (low, Windows): a save that replaces a file between `readSystemFile`'s lstat and its open makes that read report "is a link" instead of reading the old or new bytes. Retry once on an identity mismatch.
+- F5 (low): no test drives the swap branch (lstat sees one file, the open gets another).
+- F6 (low): stored names accept Windows device names (`con`, `aux`, `nul`, `com1`, `lpt1`); refuse them on every platform so checkouts stay portable.
+- F7 (low, Windows): a move whose destination folder appears mid-move surfaces as a raw EPERM instead of `conflict`; the rollback still runs.
+- N1 (low, `b874c7188a` review): `onDiskName` matches folders case-insensitively with `toLowerCase`, so a planted folder spelled with a look-alike such as the Kelvin sign (U+212A) can take writes meant for `kits`. Such files stay out of the listing and the limits. Match only entries that pass `nameProblem`.
+- N2 (low): file results report the spelling that was asked for, not the on-disk one. A move that changes only a folder's case reports success but renames nothing. Only a direct RPC reaches this; the UI does not.
+- N3 (low, Windows): `readForward` maps every lstat error to null, not only ENOENT.
 
 ## Approach
 
@@ -82,6 +90,7 @@ The full plan, with file:line citations, is the codebase map's section D.
 - D-05 Section placement for user-made tokens uses the existing `group` string; no new token types.
 ### Closure
 - D-06 October 24, 2026, closure review: AC-05 said "a conflict asks before overwriting". The page never overwrites: a conflict stops edits and offers Reload, so another window's newer edit is never replaced without being seen. The fresh closure review recommended amending the AC rather than adding an Overwrite choice, because overwriting is the riskier behaviour. The design lane amended AC-05. `062fc44f61` keeps an open add dialog and its typed values through the conflict, so the edit is not lost.
+- D-07 October 24, 2026, closure review: AC-10 screenshots cover every surface at all four sizes. Sub-states that need an interaction first are captured at 360 and 1280 px only, in light and dark: the open assets menu, the board add dialog, the project list in Connect, the add-dialog conflict notice, the saved edit, the JSON, source and SVG file views, and the Settings systems list. The fixture still runs its layout checks at all four sizes, so at 768 px and 200% zoom these sub-states are covered by those checks, not by screenshots.
 ### Open
 - none
 

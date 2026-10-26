@@ -44,7 +44,7 @@ Out:
 - [ ] AC-05: The continuation stays paired in the same thread:
   - the timeline note reads "Claude limit reached · continued on Codex · GPT-6 Astra" (existing note, now also for early moves: "Switched before the Claude limit · continued on …");
   - while a thread runs on a fallback, its header shows "On Codex · GPT-6 Astra for Claude Opus 5.5" with the original's reset time when known, and a "Back to Claude Opus 5.5" action that is enabled when that provider has room.
-- [ ] AC-06 (moved to a follow-up, D-04): A thread moved early at the switch threshold returns to its original model like a limit continuation, once that provider has room or its reset passes.
+- [ ] AC-06 (moved to 1075 on October 25, 2026; D-04): A thread moved early at the switch threshold returns to its original model like a limit continuation, once that provider has room or its reset passes.
 - [ ] AC-07: A fallback dispatch that fails is retried, at most 3 attempts per run with backoff. Persisted command receipts still prevent a duplicate continuation after a restart.
 - [ ] AC-08: A Claude `success` result with `api_error_status` 429 is `usage_limit` only when a window was rejected, the assistant reported `rate_limit`, or the terminal reason is `blocking_limit`. Otherwise it is `provider_error` with "Claude API rate limit reached. Try again later." and no switch.
 

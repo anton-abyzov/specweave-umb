@@ -1,15 +1,17 @@
 {
   "id": "1053-subagent-handoff-continuity",
   "uuid": "d8d7458d-4de2-4114-92fe-2ad90c1e3f44",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-10-24T14:50:26.381Z",
-  "updated": "2026-10-24T18:02:11.601Z",
-  "lastActivity": "2026-10-24T18:02:11.601Z",
+  "updated": "2026-10-25T06:22:11.296Z",
+  "lastActivity": "2026-10-25T06:22:11.296Z",
   "title": "Subagent continuity across model, subscription and machine handoffs",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-25T06:22:11.294Z",
+  "approvedAt": "2026-10-25T06:22:11.296Z"
 }

@@ -1,0 +1,5 @@
+Title-only `studio_project_create` dropped `kind: personal` and created a code project instead of returning the machine’s existing assistant. Pass the requested kind to the managed-folder service. Refuse personal creation from remote grant clients and their worker threads before either create path reaches the service, so this endpoint cannot expose the existing private assistant.
+
+Validation: 60 focused tests passed across nine files on Node 22.20.0, including both creation paths for remote clients and inherited remote threads. Server production build passed; the retained dependency installation reports unresolved design imports (`postcss`, `postcss-value-parser`, `pptxgenjs`). Fresh repair review passed with no remaining findings. The draft CI run passed security checks but skipped the main PR gates; required checks must run after marking this PR ready.
+
+Installed acceptance remains open under increment 0981. The retained 1.0.68 receipt exposed the title-only creation bug. Merge and release stay with the existing release owner.
