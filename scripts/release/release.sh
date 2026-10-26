@@ -469,6 +469,219 @@ cmd_status() {
 
 # ---------------------------------------------------------------- cleanup
 
+real_path() { python3 -c 'import os, sys; print(os.path.realpath(os.path.expanduser(sys.argv[1])))' "$1"; }
+
+# studio_has_owners_cmd: true when this specweave-studio has `worktree owners`.
+# An unknown subcommand is taken as the server's <cwd> argument and would start
+# a server, so read the help text instead of trying the command. No `grep -q`
+# under pipefail (see unique_commits).
+studio_has_owners_cmd() {
+  local help
+  help="$(with_timeout 30 specweave-studio --help 2>/dev/null)" || return 1
+  printf '%s\n' "$help" | awk '/^ +worktree( |$)/ { f = 1 } END { exit !f }' || return 1
+  help="$(with_timeout 30 specweave-studio worktree --help 2>/dev/null)" || return 1
+  printf '%s\n' "$help" | awk '/^ +owners( |$)/ { f = 1 } END { exit !f }'
+}
+
+# What cleanup must not remove, as one read-only query per SpecWithCode home:
+# thread folders and branches (k=thread), project roots (k=project) and the
+# folders of agent sessions that are not stopped (k=session). This matches the
+# app's own removal guard (apps/server/src/git/worktreeRemovalSafety.ts).
+THREAD_BINDINGS_SQL="SELECT 'thread' AS k, json_extract(payload_json,'\$.worktreePath') AS p, json_extract(payload_json,'\$.branch') AS b, archived_at IS NOT NULL AS archived FROM orchestration_v2_projection_threads WHERE deleted_at IS NULL AND (json_extract(payload_json,'\$.worktreePath') IS NOT NULL OR json_extract(payload_json,'\$.branch') IS NOT NULL) UNION ALL SELECT 'project', workspace_root, NULL, 0 FROM projection_projects WHERE deleted_at IS NULL UNION ALL SELECT 'session', json_extract(payload_json,'\$.cwd'), NULL, 0 FROM orchestration_v2_projection_provider_sessions WHERE status != 'stopped' AND json_extract(payload_json,'\$.cwd') IS NOT NULL"
+
+# studio_homes: the SpecWithCode homes on this machine that have a database:
+# ~/.specwithcode itself, each ~/.specwithcode/<id>, and $STUDIO_HOME. It only
+# checks that the database file exists; it never opens it.
+studio_homes() {
+  local home
+  {
+    for home in "$SW_HOME_REAL" "$SW_HOME_REAL"/*/ ${STUDIO_HOME:+"$STUDIO_HOME"}; do
+      if [ -e "$home/userdata/statev2.sqlite" ]; then real_path "$home"; fi
+    done
+  } | awk '!seen[$0]++'
+}
+
+# load_thread_bindings: read what SpecWithCode still uses, through the read-only
+# specweave-studio CLI (never the database file), into fresh files:
+# $BOUND_PATHS     real paths of folders that non-deleted, non-archived threads use;
+# $HELD_PATHS      project roots and the folders of running agent sessions;
+# $BOUND_BRANCHES  branches that any non-deleted thread records.
+# $QUERIED_HOMES lists the homes that were read. Sets BINDINGS_OK=1 only when
+# every home was read; otherwise cleanup keeps what it cannot check. Each call
+# uses its own folder, since `ship` runs one cleanup per repo in parallel.
+load_thread_bindings() {
+  BINDINGS_OK=0
+  BINDINGS_SOURCE=""
+  QUERIED_HOMES=""
+  local dir
+  dir="$(mktemp -d "$WORK/bindings.XXXXXX")"
+  BOUND_PATHS="$dir/bound-paths"
+  HELD_PATHS="$dir/held-paths"
+  BOUND_BRANCHES="$dir/bound-branches"
+  : >"$BOUND_PATHS"
+  : >"$HELD_PATHS"
+  : >"$BOUND_BRANCHES"
+  command -v specweave-studio >/dev/null 2>&1 || return 0
+  local homes home n=0
+  homes="$(studio_homes)"
+  if [ -z "$homes" ]; then
+    # No home with a database: ask the CLI's default home.
+    with_timeout 60 specweave-studio db query "$THREAD_BINDINGS_SQL" >"$dir/db.raw" 2>/dev/null &&
+      parse_thread_bindings db "$dir/db.raw" || return 0
+  else
+    while IFS= read -r home <&4; do
+      n=$((n + 1))
+      with_timeout 60 specweave-studio db query --base-dir "$home" "$THREAD_BINDINGS_SQL" </dev/null >"$dir/db-$n.raw" 2>/dev/null &&
+        parse_thread_bindings db "$dir/db-$n.raw" || return 0
+      QUERIED_HOMES="$QUERIED_HOMES$home"$'\n'
+    done 4<<<"$homes"
+  fi
+  BINDINGS_SOURCE="db query ($([ "$n" -gt 0 ] && printf '%s homes' "$n" || printf 'default home'))"
+  # `worktree owners` (when this CLI has it) only adds folders; branches,
+  # projects and sessions always come from the db query above.
+  if studio_has_owners_cmd; then
+    if with_timeout 60 specweave-studio worktree owners --json >"$dir/owners.raw" 2>/dev/null &&
+      parse_thread_bindings owners "$dir/owners.raw"; then
+      BINDINGS_SOURCE="$BINDINGS_SOURCE and worktree owners"
+    else
+      log "cleanup: warning: specweave-studio worktree owners gave output cleanup cannot read; using the db query only"
+    fi
+  fi
+  BINDINGS_OK=1
+}
+
+# parse_thread_bindings db|owners <raw file>: add the rows of one read to
+# $BOUND_PATHS, $HELD_PATHS and $BOUND_BRANCHES. db: JSON lines with the columns
+# k, p, b, archived of THREAD_BINDINGS_SQL. owners: a JSON array (or {"owners": [...]})
+# of rows that each name a folder. Fails, adding nothing, on any row it does not
+# understand, and on an owners list with no rows.
+parse_thread_bindings() {
+  python3 - "$1" "$2" "$BOUND_PATHS" "$HELD_PATHS" "$BOUND_BRANCHES" <<'PY'
+import json, os, sys
+mode, raw, bound_out, held_out, branches_out = sys.argv[1:6]
+text = open(raw, encoding='utf-8').read().strip()
+try:
+    if mode == 'db':
+        rows = [json.loads(line) for line in text.splitlines() if line.strip()]
+    else:
+        doc = json.loads(text) if text else None
+        rows = doc.get('owners') if isinstance(doc, dict) else doc
+except ValueError:
+    sys.exit(1)
+if not isinstance(rows, list) or (mode == 'owners' and not rows):
+    sys.exit(1)
+def flag(row, *keys):
+    return any(row.get(k) not in (None, False, 0, '', '0', 'false') for k in keys)
+def canon(path):
+    if not isinstance(path, str) or not path:
+        return None
+    path = os.path.expanduser(path)
+    return os.path.realpath(path) if os.path.isabs(path) else None
+def branch_name(b):
+    if b is None:
+        return None
+    if not isinstance(b, str):
+        sys.exit(1)
+    return b[len('refs/heads/'):] if b.startswith('refs/heads/') else b or None
+bound, held, branches = [], [], []
+for row in rows:
+    if not isinstance(row, dict):
+        sys.exit(1)
+    if mode == 'db':
+        if not {'k', 'p', 'b', 'archived'} <= row.keys() or row['k'] not in ('thread', 'project', 'session'):
+            sys.exit(1)
+        path = canon(row['p'])
+        if row['k'] == 'thread':
+            if path and not flag(row, 'archived'):
+                bound.append(path)
+            branch = branch_name(row['b'])
+            if branch:
+                branches.append(branch)
+        elif path:
+            held.append(path)
+        elif row['p'] is not None:
+            sys.exit(1)
+    else:
+        key = next((k for k in ('worktreePath', 'realPath', 'path') if k in row), None)
+        if key is None:
+            sys.exit(1)
+        if flag(row, 'deleted', 'deletedAt', 'deleted_at', 'archived', 'archivedAt', 'archived_at'):
+            continue
+        path = canon(row[key])
+        if path is None:
+            sys.exit(1)
+        bound.append(path)
+        branch = branch_name(row.get('branch'))
+        if branch:
+            branches.append(branch)
+for out, items in ((bound_out, bound), (held_out, held), (branches_out, branches)):
+    with open(out, 'a', encoding='utf-8') as f:
+        f.writelines(i + '\n' for i in items)
+PY
+}
+
+# path_bound <real path>: true when it equals, sits inside, or contains a folder
+# an open thread uses. The path goes through the environment, since awk -v
+# would rewrite backslashes in it.
+path_bound() {
+  W="$1" awk '
+    function under(a, b) { return a == b || index(a, (b == "/" ? "" : b) "/") == 1 }
+    BEGIN { w = ENVIRON["W"] }
+    $0 == "" { next }
+    under(w, $0) || under($0, w) { found = 1; exit }
+    END { exit !found }' "$BOUND_PATHS"
+}
+
+# path_holds <real path>: true when a project root or a running agent session's
+# folder equals it or sits inside it.
+path_holds() {
+  W="$1" awk '
+    function under(a, b) { return a == b || index(a, (b == "/" ? "" : b) "/") == 1 }
+    BEGIN { w = ENVIRON["W"] }
+    $0 == "" { next }
+    under($0, w) { found = 1; exit }
+    END { exit !found }' "$HELD_PATHS"
+}
+
+# managed_home <real path>: the SpecWithCode home whose worktrees or scratch
+# folder holds this path (~/.specwithcode or ~/.specwithcode/<id>), if any.
+managed_home() {
+  local rest="${1#"$SW_HOME_REAL"/}" first second
+  [ "$rest" != "$1" ] || return 1
+  first="${rest%%/*}"
+  rest="${rest#*/}"
+  [ "$rest" != "$first" ] && [ -n "$rest" ] || return 1
+  case "$first" in worktrees|scratch) printf '%s' "$SW_HOME_REAL"; return 0 ;; esac
+  second="${rest%%/*}"
+  rest="${rest#*/}"
+  [ "$rest" != "$second" ] && [ -n "$rest" ] || return 1
+  case "$second" in worktrees|scratch) printf '%s/%s' "$SW_HOME_REAL" "$first"; return 0 ;; esac
+  return 1
+}
+
+# folder_keep_reason <real path>: why cleanup must keep this worktree folder, or
+# fail when nothing SpecWithCode records stops its removal.
+folder_keep_reason() {
+  local home
+  if [ "$BINDINGS_OK" -eq 1 ] && path_bound "$1"; then printf 'bound to a SpecWithCode thread'
+  elif [ "$BINDINGS_OK" -eq 1 ] && path_holds "$1"; then printf 'a SpecWithCode project or running agent session uses it'
+  elif home="$(managed_home "$1")" && { [ "$BINDINGS_OK" -ne 1 ] || ! printf '%s' "$QUERIED_HOMES" | H="$home" awk '$0 == ENVIRON["H"] { f = 1 } END { exit !f }'; }; then
+    printf 'thread bindings unavailable'
+  else
+    return 1
+  fi
+}
+
+# branch_keep_reason <branch>: why cleanup must keep this branch, or nothing.
+branch_keep_reason() {
+  if [ "$BINDINGS_OK" -ne 1 ]; then printf 'thread bindings unavailable'
+  elif B="$1" awk '$0 == ENVIRON["B"] { f = 1 } END { exit !f }' "$BOUND_BRANCHES"; then printf 'a SpecWithCode thread records it'
+  fi
+}
+
+# cmd_cleanup also keeps any worktree a SpecWithCode thread uses and any branch a
+# thread records, so the app can still open or restore that thread. Branches go
+# only through `git branch -d`, which refuses one that is not merged.
 cmd_cleanup() {
   local track="" apply=0
   while [ $# -gt 0 ]; do
@@ -503,12 +716,20 @@ cmd_cleanup() {
   case "$idle_min" in ''|*[!0-9]*) die "cleanup.min_idle_minutes must be whole minutes" ;; esac
   local out="$WORK/cleanup-$track.jsonl" err="$WORK/wt-$track.err"
   : >"$out"
+  SW_HOME_REAL="$(real_path "$HOME/.specwithcode")"
+  load_thread_bindings
+  if [ "$BINDINGS_OK" -eq 1 ]; then
+    log "cleanup $track: thread bindings from specweave-studio $BINDINGS_SOURCE ($(sort -u "$BOUND_PATHS" | wc -l | tr -d ' ') thread folders, $(sort -u "$HELD_PATHS" | wc -l | tr -d ' ') project and session folders, $(sort -u "$BOUND_BRANCHES" | wc -l | tr -d ' ') branches)"
+  else
+    log "cleanup $track: warning: thread bindings unavailable; keeping SpecWithCode worktree and scratch folders and every branch"
+  fi
   local wt head branch locked n=0 rc=0
   while IFS='|' read -r wt head branch locked <&3; do
     n=$((n + 1))
     [ "$n" -gt 1 ] || continue
-    local action=keep reason="" base glob protected=0 wt_status="" idle="" unique=""
+    local action=keep reason="" base glob protected=0 wt_status="" idle="" unique="" wt_real branch_keep="" folder_keep=""
     base="$(basename "$wt")"
+    wt_real="$(real_path "$wt")"
     while IFS= read -r glob; do
       # shellcheck disable=SC2254
       case "$base" in $glob) protected=1 ;; esac
@@ -517,6 +738,7 @@ cmd_cleanup() {
     elif [ -n "$locked" ]; then reason="locked"
     elif [ -z "$branch" ]; then reason="detached HEAD"
     elif [ ! -d "$wt" ]; then reason="missing directory (git worktree prune handles it)"
+    elif folder_keep="$(folder_keep_reason "$wt_real")"; then reason="$folder_keep"
     elif ! wt_status="$(GIT_OPTIONAL_LOCKS=0 git -C "$wt" status --porcelain 2>/dev/null)"; then reason="git status failed"
     elif [ -n "$wt_status" ]; then reason="uncommitted changes"
     elif ! idle="$(idle_minutes "$wt")"; then reason="cannot read worktree activity"
@@ -531,12 +753,28 @@ cmd_cleanup() {
       else reason="unmerged commits"
       fi
     fi
+    # The checks above can take minutes (git cherry, gh), so read the bindings
+    # again right before removing: a thread may have opened this folder since.
+    if [ "$action" = remove ] && [ "$apply" -eq 1 ] && [ "$BINDINGS_OK" -eq 1 ]; then
+      load_thread_bindings
+      if [ "$BINDINGS_OK" -ne 1 ]; then
+        action=keep; reason="thread bindings unavailable on the second read"
+      elif folder_keep="$(folder_keep_reason "$wt_real")"; then
+        action=keep; reason="$folder_keep"
+      fi
+    fi
+    if [ "$action" = remove ]; then
+      branch_keep="$(branch_keep_reason "$branch")"
+      [ "$apply" -eq 1 ] || [ -z "$branch_keep" ] || reason="$reason; branch $branch will be kept: $branch_keep"
+    fi
     if [ "$action" = remove ] && [ "$apply" -eq 1 ]; then
       if git -C "$path" worktree remove "$wt" 2>"$err"; then
-        if git -C "$path" branch -d "$branch" >/dev/null 2>&1 || git -C "$path" branch -D "$branch" >/dev/null 2>&1; then
+        if [ -n "$branch_keep" ]; then
+          action=removed-worktree; reason="$reason; branch $branch kept: $branch_keep"
+        elif git -C "$path" branch -d "$branch" >/dev/null 2>&1; then
           action=removed
         else
-          action=removed-worktree; reason="$reason; branch $branch kept"
+          action=removed-worktree; reason="$reason; branch $branch kept: git branch -d refused (not merged locally)"
         fi
       else
         action=keep; reason="git worktree remove refused: $(tail -1 "$err")"; rc=1
@@ -564,7 +802,7 @@ script_tree() {
   local repo="$1" checkout="$2" def tree
   def="$(repo_field "$repo" default_branch)"
   def="${def:-main}"
-  tree="${RELEASE_SCRIPT_TREES:-$HOME/Projects/github/release-scripts.noindex}/release-script-$repo"
+  tree="${RELEASE_SCRIPT_TREES:-$HOME/.specwithcode/release-scripts.noindex}/release-script-$repo"
   git -C "$checkout" fetch --quiet origin "$def" >&2 || die "$repo: cannot fetch origin/$def for its release script"
   if [ -e "$tree/.git" ]; then
     git -C "$tree" checkout --quiet --detach --force "origin/$def" >&2 ||

@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "skipped": false,
+  "target": 60,
+  "actual": 73.44,
+  "reason": "Coverage 73.4% meets target 60%",
+  "details": {
+    "lines": 73.44,
+    "statements": 72.69,
+    "functions": 75.11,
+    "branches": 65.92,
+    "overall": 73.44
+  },
+  "coverageFile": "/Users/antonabyzov/.specwithcode/m4/worktrees/specweave-1080/.specweave/increments/1080-independent-specwithcode/reports/coverage-summary.json",
+  "format": "istanbul"
+}

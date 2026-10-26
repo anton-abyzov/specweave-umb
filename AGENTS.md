@@ -64,7 +64,7 @@ Exit 4 means Jev is unavailable: continue without it. Never send it code, prose,
 | Handoff verifier regression tests | `python3 -m unittest discover -s tests -p test_handoff_evidence.py` |
 | Actual fleet handoff and environment evidence | `python3 scripts/fleet/verify-handoff-evidence.py --phase all` (requires private machine receipts) |
 | Release status (read-only audit) | `bash scripts/release/release.sh status` |
-| Release tooling tests | `python3 scripts/release/timing.py --self-test` |
+| Release tooling tests | `python3 scripts/release/timing.py --self-test && bash scripts/release/release-self-test.sh` |
 | Build | `npm --prefix repositories/anton-abyzov/specweave run build && npm --prefix repositories/anton-abyzov/vskill run build && npm --prefix repositories/anton-abyzov/vskill-platform run build` |
 | Test | `npm --prefix repositories/anton-abyzov/specweave run test:unit:fast && npm --prefix repositories/anton-abyzov/vskill test && npm --prefix repositories/anton-abyzov/vskill-platform test` |
 | Lint | `npm --prefix repositories/anton-abyzov/specweave run lint:skills && npm --prefix repositories/anton-abyzov/specweave run lint:docs-refs && npm --prefix repositories/anton-abyzov/vskill run lint:skills-spec` |
@@ -96,3 +96,7 @@ Before `sw:done`, also run:
 - Check ADRs at `.specweave/docs/internal/architecture/adr/` before implementing changes
 
 <!-- specweave:project-hub -->
+
+## SpecWithCode identity and source terms
+
+SpecWithCode is an independent product. Lead with its own settings, orchestration and portable handoffs; do not market it as a T3 Code fork. Preserve accurate source provenance, required third-party copyright and permission notices, and existing license grants. Do not add a project-wide MIT grant or contributor showcase. Keep development history, active branches and sessions intact; publish sanitized public snapshots through the owning repository's mirror script.
