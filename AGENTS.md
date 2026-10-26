@@ -95,3 +95,7 @@ Before `sw:done`, also run:
 - Check ADRs at `.specweave/docs/internal/architecture/adr/` before implementing changes
 
 <!-- specweave:project-hub -->
+
+## SpecWithCode identity and source terms
+
+SpecWithCode is an independent product. Lead with its own settings, orchestration and portable handoffs; do not market it as a T3 Code fork. Preserve accurate source provenance, required third-party copyright and permission notices, and existing license grants. Do not add a project-wide MIT grant or contributor showcase. Keep development history, active branches and sessions intact; publish sanitized public snapshots through the owning repository's mirror script.

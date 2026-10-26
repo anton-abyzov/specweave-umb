@@ -1,0 +1,12 @@
+{
+  "id": "1080-independent-specwithcode",
+  "uuid": "4a6575b2-adf1-4bf2-8ff7-7112d4f27ba0",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-26T04:18:40.907Z",
+  "updated": "2026-10-26T04:27:50.447Z",
+  "lastActivity": "2026-10-26T04:27:50.447Z",
+  "title": "Independent SpecWithCode positioning and license scope",
+  "project": "specweave-umb"
+}
