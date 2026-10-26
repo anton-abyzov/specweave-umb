@@ -42,3 +42,9 @@ Use isolated umbrella and nested worktrees based on current remote main/develop.
 
 ### T-06 Integrate the released version without reverting source terms
 - AC: AC-01, AC-03 | Files: repositories/anton-abyzov/specweave-studio/apps/server/package.json | Test: node repositories/anton-abyzov/specweave-studio/scripts/studio-brand-audit.mjs --source-terms-only
+
+### T-07 Integrate concurrent release notes without losing identity changes
+- AC: AC-01, AC-03 | Files: repositories/anton-abyzov/specweave-studio/CHANGELOG.md | Test: node repositories/anton-abyzov/specweave-studio/scripts/studio-brand-audit.mjs --source-terms-only
+
+### T-08 Avoid repeated shared changelog insertion conflicts
+- AC: AC-03 | Files: repositories/anton-abyzov/specweave-studio/CHANGELOG.md | Test: git -C repositories/anton-abyzov/specweave-studio diff --check
