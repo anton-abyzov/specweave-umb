@@ -1,15 +1,18 @@
 {
   "id": "1050-security-review-auth-billing",
   "uuid": "94176cb5-74d4-43a1-a17c-f793172b652f",
-  "status": "active",
+  "status": "completed",
   "type": "refactor",
   "priority": "P1",
   "created": "2026-10-24T07:21:24.862Z",
-  "updated": "2026-10-24T16:13:56.335Z",
-  "lastActivity": "2026-10-24T16:13:56.335Z",
+  "updated": "2026-10-26T05:54:29.750Z",
+  "lastActivity": "2026-10-26T05:54:29.750Z",
   "title": "Security and simplification review: auth and billing",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-26T05:54:29.747Z",
+  "closeReason": "All lanes merged (#676 #677 #679 #773 #774), fresh reviews SHIP, verify PASS on main 74b3edb1da with app-repo suites (umbrella default commands target other repos). Remaining: release 1.0.90 by the release owner and installed acceptance.",
+  "approvedAt": "2026-10-26T05:54:29.750Z"
 }
