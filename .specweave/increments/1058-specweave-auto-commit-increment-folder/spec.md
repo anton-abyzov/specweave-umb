@@ -69,3 +69,9 @@ Risk: a slow pre-commit hook makes every task command slower. Commits time out a
 
 ### T-05 Verify and close 1058
 - AC: - | Files: .specweave/increments/1058-specweave-auto-commit-increment-folder | Test: specweave verify 1058
+
+### T-06 Installed acceptance on the published CLI
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: .specweave/increments/1058-specweave-auto-commit-increment-folder/reports/installed-3.1.13-20261026 | Test: grep -q "36 checks: 36 pass, 0 fail" .specweave/increments/1058-specweave-auto-commit-increment-folder/reports/installed-3.1.13-20261026/results.txt
+
+### T-07 Verify and close 1058 after installed acceptance
+- AC: - | Files: .specweave/increments/1058-specweave-auto-commit-increment-folder | Test: specweave verify 1058
