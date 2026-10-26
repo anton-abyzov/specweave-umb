@@ -25,3 +25,6 @@ Separate observation validity from transport activity. Subscribe remote requests
 - AC: AC-01, AC-02, AC-03 | Files: /tmp/swc-badge-stability/apps/web/src/studio/fleet.ts, /tmp/swc-badge-stability/apps/web/src/studio/fleet.test.ts, /tmp/swc-badge-stability/apps/web/src/studio/remoteAttentionObservation.ts, /tmp/swc-badge-stability/apps/web/src/studio/remoteAttentionObservation.test.ts, /tmp/swc-badge-stability/apps/web/src/components/studio/shell/SidebarProjectList.tsx, /tmp/swc-badge-stability/apps/web/src/components/studio/shell/shell.css, /tmp/swc-badge-stability/apps/web/tests/project-workspace/badge-stability-check.mjs | Test: focused observation tests, headless actual ProjectRow fixture transitions and web production build
 ### T-02 Review, push and deploy
 - AC: AC-03 | Files: .specweave/increments/1078-stabilize-project-badge-rendering-and-live-refresh/reports | Test: fresh-context review, exact-head CI, release entrypoint and fleet version readback
+
+### T-03 Manual UI acceptance
+- AC: AC-02 | Files: .specweave/increments/1078-stabilize-project-badge-rendering-and-live-refresh/reports/manual-acceptance.md | Test: Anton accepts the concrete rendered layout; requested asynchronously with headless screenshot while deployment continues
