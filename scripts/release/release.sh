@@ -802,7 +802,7 @@ script_tree() {
   local repo="$1" checkout="$2" def tree
   def="$(repo_field "$repo" default_branch)"
   def="${def:-main}"
-  tree="${RELEASE_SCRIPT_TREES:-$HOME/Projects/github/release-scripts.noindex}/release-script-$repo"
+  tree="${RELEASE_SCRIPT_TREES:-$HOME/.specwithcode/release-scripts.noindex}/release-script-$repo"
   git -C "$checkout" fetch --quiet origin "$def" >&2 || die "$repo: cannot fetch origin/$def for its release script"
   if [ -e "$tree/.git" ]; then
     git -C "$tree" checkout --quiet --detach --force "origin/$def" >&2 ||
