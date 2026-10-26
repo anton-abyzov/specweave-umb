@@ -75,6 +75,10 @@ Bound app writer: `fix/1041-design-create-reuse` in `/Users/antonabyzov/.specwit
 ### T-09 Fallback beside its home model; Unplanned glyph
 - AC: AC-09 | Files: apps/web/src/components/chat/ModelStateTag.tsx, apps/web/src/components/chat/FallbackGlyph.tsx, apps/web/src/components/studio/shell/ModelBadge.tsx, apps/web/src/components/studio/shell/UnplannedThreads.tsx, apps/web/src/components/studio/shell/rowModelFit.ts, apps/web/src/components/studio/shell/shell.css, apps/web/src/components/chat/ProviderModelPicker.tsx, apps/web/tests/thread-row-meta, /Users/antonabyzov/.specwithcode/m4/evidence/design-create-reuse-1041/row-model-unit | Test: vp test run apps/web/src/components/chat/ModelStateTag.test.tsx apps/web/src/components/studio/shell; headless thread-row-meta matrix (narrow and wide rows, light and dark, keyboard and touch tooltips)
 
+### T-10 Keep archived and automated projects off the Design gallery notices
+- AC: AC-04 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/web/src/components/design/gallery/boardOwner.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1041-design-create-reuse/apps/web/src/components/design/gallery/DesignGalleryView.tsx | Test: vp test run apps/web/src/components/design/gallery; PR exact-head CI and merge; installed readback that the All and Projects views name no archived project
+- Found October 26, 2026 in Anton's screenshot of 1.0.92: the Design gallery's All view listed "its folder … is missing" lines for the archived emergeAmergicas_hackathon and emergeAmericas_hackathon2, with links to open them.
+
 ### T-07 PR, exact-head CI, review, merge and deploy
 - AC: AC-08 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/design-create-reuse-1041 | Test: gh pr checks on the exact head; merge commit; released version (chosen by the integration owner) readback; installed headless proof
 
