@@ -1,15 +1,17 @@
 {
   "id": "0993-one-press-updates-app-applies-install-proofs-in-seconds",
   "uuid": "7f5cb64c-a135-471f-923b-37eb6fcb96b2",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-22T14:25:11.825Z",
-  "updated": "2026-10-26T02:41:07.944Z",
-  "lastActivity": "2026-10-26T02:41:07.944Z",
+  "updated": "2026-10-26T06:00:08.807Z",
+  "lastActivity": "2026-10-26T06:00:08.807Z",
   "title": "One press updates: app applies, install proofs in seconds",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-26T06:00:08.804Z",
+  "approvedAt": "2026-10-26T06:00:08.807Z"
 }

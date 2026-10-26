@@ -1,0 +1,17 @@
+{
+  "id": "1060-coordinator-pick-saved-model-switches-back",
+  "uuid": "b47f7ba9-d826-45d5-9907-6ed40137465c",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-24T22:29:48.242Z",
+  "updated": "2026-10-25T00:28:42.801Z",
+  "lastActivity": "2026-10-25T00:28:42.801Z",
+  "title": "Picking the saved coordinator model switches back from a fallback",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-25T00:28:42.801Z",
+  "approvedAt": "2026-10-25T00:28:42.801Z"
+}

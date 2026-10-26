@@ -1,0 +1,24 @@
+name: Snapshot acceptance receipts
+
+on:
+  pull_request:
+    paths:
+      - '.specweave/increments/1016-fix-blurry-pasted-snapshots/**'
+      - '.github/workflows/snapshot-receipts.yml'
+  push:
+    branches: [main]
+    paths:
+      - '.specweave/increments/1016-fix-blurry-pasted-snapshots/**'
+      - '.github/workflows/snapshot-receipts.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  receipts:
+    name: Validate snapshot evidence boundaries
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: python3 .specweave/increments/1016-fix-blurry-pasted-snapshots/evidence/installed-20261025/check.py

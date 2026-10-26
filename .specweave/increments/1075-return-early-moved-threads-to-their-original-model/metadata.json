@@ -1,0 +1,16 @@
+{
+  "id": "1075-return-early-moved-threads-to-their-original-model",
+  "uuid": "3bac008a-2c36-4b83-99e7-058890fd74fb",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-25T19:23:57.085Z",
+  "updated": "2026-10-25T19:23:57.085Z",
+  "lastActivity": "2026-10-25T19:23:57.085Z",
+  "title": "Return early-moved threads to their original model",
+  "project": "specweave-umb",
+  "parent": "0955",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

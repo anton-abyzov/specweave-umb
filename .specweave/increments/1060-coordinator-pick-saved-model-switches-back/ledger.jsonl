@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-24T22:39:15.049Z","note":"session 19e9227a-a47f-4435-b7e4-d74e3b4d1b57","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-24T22:39:15.050Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-24T22:39:15.051Z","evidence":"6cda4091aa; CoordinatorModelPicker.test.tsx 52/52; PR #685\nHEAD ba2f7dd15","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-24T22:39:15.830Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-24T22:39:15.832Z","evidence":"6cda4091aa; headless verify.mjs 16/16, fails on main with switch-back count 0; ~/.specwithcode/m4/evidence/coordinator-pick-back-20261024/\nHEAD ba2f7dd15","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-25T00:17:46.041Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-25T00:17:46.043Z","evidence":"merged 94a8c8d3f38db249bf20276777f6e94b8282c082 (#685, squash, October 25 00:13 UTC); review ~/.specwithcode/m4/evidence/coordinator-pick-back-20261024/review-685-6cda4091aa.md SHIP\nHEAD 25c65c23c","model":"claude-opus-5-5[1m]"}

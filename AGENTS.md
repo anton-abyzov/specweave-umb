@@ -25,7 +25,7 @@ Tasks in spec.md: `### T-01 Title`, then `- AC: AC-01 | Files: src/a.ts | Test: 
 
 - Browser automation is headless only (see "Headless browser automation" below).
 - A task is done when its Test exits 0 and you have seen the real output. A Test checks the AC as users would (CLI, HTTP, UI, API); add unit tests only when asked or required. Never skip, weaken or delete a test to pass, and never set a status by hand.
-- One agent per branch/worktree: `git worktree add ../NNNN-<agent> -b inc/NNNN-<agent>`. Claims older than 2h are stale. Merge `ledger.jsonl` conflicts keeping every line from both sides.
+- One agent per branch/worktree: `git worktree add <worktree root>/<repo>/NNNN-<agent> -b inc/NNNN-<agent>`, where the worktree root is SpecWithCode's configured one (never `../`: from a repo here that lands in ~/Projects/github). Claims older than 2h are stale. Merge `ledger.jsonl` conflicts keeping every line from both sides.
 - Decisions that must outlive the session go in spec.md Approach or one file per fact in `.specweave/memory/` (indexed in `MEMORY.md`, committed).
 - Check a secret exists without printing it; never commit `.env*`.
 - Without the CLI, append ledger lines yourself (UTF-8, LF): `{"t":"T-01","e":"claim","by":"<tool>@<host>","at":"<ISO time>"}`; `e` is claim, done, release, skip or block; `done` needs `"evidence":"<commit sha>"`, `skip` needs `"note":"<why>"`.
@@ -64,7 +64,7 @@ Exit 4 means Jev is unavailable: continue without it. Never send it code, prose,
 | Handoff verifier regression tests | `python3 -m unittest discover -s tests -p test_handoff_evidence.py` |
 | Actual fleet handoff and environment evidence | `python3 scripts/fleet/verify-handoff-evidence.py --phase all` (requires private machine receipts) |
 | Release status (read-only audit) | `bash scripts/release/release.sh status` |
-| Release tooling tests | `python3 scripts/release/timing.py --self-test` |
+| Release tooling tests | `python3 scripts/release/timing.py --self-test && bash scripts/release/release-self-test.sh` |
 | Build | `npm --prefix repositories/anton-abyzov/specweave run build && npm --prefix repositories/anton-abyzov/vskill run build && npm --prefix repositories/anton-abyzov/vskill-platform run build` |
 | Test | `npm --prefix repositories/anton-abyzov/specweave run test:unit:fast && npm --prefix repositories/anton-abyzov/vskill test && npm --prefix repositories/anton-abyzov/vskill-platform test` |
 | Lint | `npm --prefix repositories/anton-abyzov/specweave run lint:skills && npm --prefix repositories/anton-abyzov/specweave run lint:docs-refs && npm --prefix repositories/anton-abyzov/vskill run lint:skills-spec` |
@@ -77,6 +77,7 @@ All automated browser runs (tests, E2E, screenshots, recordings, scrapers, deleg
 
 ## Project notes
 
+- Nothing new goes directly in ~/Projects/github (owner's rule, 2026-10-26); it holds only the owner's repos. Worktrees: SpecWithCode's configured worktree root, `<root>/<repo>/<slug>`. Scratch, probes and run logs: the session scratchpad or `~/.specwithcode/m4/scratch/<date>-<task>/`. Evidence, screenshots and receipts: the increment's `reports/`, else `~/.specwithcode/m4/evidence/<topic>/`. Archive old evidence to `/Volumes/SanDisk APFS/Archive/specwithcode/` (KINGSTON is video only). Before removing any worktree or folder, check it is not a SpecWithCode project root or thread folder (`specweave-studio db query --base-dir ~/.specwithcode/m4 "select json_extract(payload_json,'$.worktreePath') from orchestration_v2_projection_threads"`), whatever its PR state; removing one breaks that thread.
 - Usage never blocks work here (owner's rule, 2026-10-10). The guard stays in checkpoint-only mode; check with `specweave auto-handoff status`. `specweave update` rewrites the Handoff paragraph in "The loop", so re-apply this rule there after each update.
 - Release policy (owner's rule, 2026-10-16). Every release goes through `bash scripts/release/release.sh` (`status`, `ship <track>`, `verify <track>`, `cleanup <track>`), driven by `.specweave/release/manifest.json`; the runbook is `.specweave/release/README.md`. Merge green PRs, release, deploy, verify and remove fully merged worktrees without asking. Still ask before discarding work that exists nowhere else, and for data migrations, auth changes and payment flows. `claude-review` and `E2E Live (nightly)` are known noise and never block.
 - Waits: never hold a tool call on CI, a registry or a log for more than 540s. Use `bash scripts/release/ci-wait.sh pr|run|tag|npm|url|log ...` (exit 0 done, 1 failed with the log tail, 2 still pending: call again), in the background with a monitor for long waits, and never wait on a condition that ignores error output.
