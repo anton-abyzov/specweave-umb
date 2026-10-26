@@ -1,0 +1,12 @@
+{
+  "id": "1086-opt-in-automatic-coordinator-takeover",
+  "uuid": "d4701c5c-e131-4f4f-be7c-79ae92d672e4",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-26T19:35:55.171Z",
+  "updated": "2026-10-26T19:35:55.171Z",
+  "lastActivity": "2026-10-26T19:35:55.171Z",
+  "title": "Opt-in automatic coordinator takeover",
+  "project": "specweave-umb"
+}
