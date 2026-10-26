@@ -48,3 +48,6 @@ Use isolated umbrella and nested worktrees based on current remote main/develop.
 
 ### T-08 Avoid repeated shared changelog insertion conflicts
 - AC: AC-03 | Files: repositories/anton-abyzov/specweave-studio/CHANGELOG.md | Test: git -C repositories/anton-abyzov/specweave-studio diff --check
+
+### T-09 Stabilize fan-out fixture gate ownership without weakening checks
+- AC: AC-03 | Files: repositories/anton-abyzov/specweave-studio/apps/server/src/mcp/OrchestratorMcpToolkit.integration.test.ts | Test: cd repositories/anton-abyzov/specweave-studio && node_modules/.bin/vp test run apps/server/src/mcp/OrchestratorMcpToolkit.integration.test.ts
