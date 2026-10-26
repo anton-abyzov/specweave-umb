@@ -12,6 +12,7 @@ In: kept lines on disk instead of in memory (PR #795), the measured run on M4's 
 
 - [ ] AC-01 (0993 AC-04): After the restart, when the page proof decides, `readiness` finishes in under 10 s on a clone of M4's database with the new service's startup writes simulated, and the receipt fields are byte-identical to the full read's on the same database.
 - [ ] AC-02: The kept lines live in a scratch folder on disk, with only offsets and digest marks in memory. A disk floor folded into the `backupSpace` admission replaces the memory floor. A refusal records `availableBytes` and `floorBytes` in `afterProof`.
+- [ ] AC-04: The kept lines stay in memory while the system keeps `headroom()` (max of 8 GiB and RAM/8) available, with room for a table's legacy lines before its typed lines are kept, and move to the disk scratch folder only when memory runs short (disk floor permitting). A failed write or no room keeps nothing; a failed update lets the lines go before its rollback read. The receipt records `keptIn`.
 - [ ] AC-03 (0993 AC-08): A signed and notarized release containing PR #795 is installed on M4. The receipt shows `readiness` under 10 s with `afterProof.mode = "pages"`, or names a fallback reason other than memory. `specweave-studio --version` reports that release.
 
 ## Approach
@@ -24,6 +25,7 @@ PR #795 (`fix/page-proof-disk`, worktree `~/.specwithcode/m4/worktrees/page-proo
 - none
 ### Defaulted (change any before sw-do)
 - D-01: 0993 closes on the owner's "close all and complete" (October 26, 2026). Its unfinished T-03, T-04 and T-10 move here, with their ACs, unchanged.
+- D-02: Memory first, disk as the fallback (coordinator, October 26, 2026). A read-only pass on M4's live 21.9 GB database kept 26.7 GB of lines at a 39 GB peak; with 128 GB of RAM, most M4 installs skip the 27 GB write.
 ### Open
 - none
 
@@ -37,3 +39,6 @@ PR #795 (`fix/page-proof-disk`, worktree `~/.specwithcode/m4/worktrees/page-proo
 
 ### T-03 Release and verify on M4
 - AC: AC-03 | Files: repositories/anton-abyzov/specweave-studio/docs/studio/updates.md | Test: specweave-studio --version && python3 -c "import json,glob;r=json.load(open(sorted(glob.glob('/Users/antonabyzov/.specwithcode/m4/updates/receipts/update-*.json'))[-1]));print(r['timings'].get('readiness'), r.get('afterProof'))"
+
+### T-04 Keep lines in memory first, disk as the fallback
+- AC: AC-04 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/kept_lines.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/after_proof.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-after-proof.py, repositories/anton-abyzov/specweave-studio/docs/studio/updates.md | Test: cd ~/.specwithcode/m4/worktrees/perf-update-restart-speed/scripts/studio-fleet && python3 -B test-after-proof.py && bash run-tests.sh --out "$(mktemp -d)"
