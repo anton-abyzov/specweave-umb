@@ -1,0 +1,18 @@
+{
+  "id": "1061-fix-missing-linux-chat-button",
+  "uuid": "53ebece2-1caf-46b3-8442-6d168a4b613e",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-24T22:34:11.087Z",
+  "updated": "2026-10-24T22:59:27.370Z",
+  "lastActivity": "2026-10-24T22:59:27.370Z",
+  "title": "Fix missing Linux chat button",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T22:59:27.368Z",
+  "closeReason": "ACs 4/4, tasks 4/4; verify FAILs are umbrella-wide unrelated suites (timing.py self-test, vskill-platform flaky, specweave unit fast); app checks in PR #686 pass; fresh review SHIP",
+  "approvedAt": "2026-10-24T22:59:27.370Z"
+}

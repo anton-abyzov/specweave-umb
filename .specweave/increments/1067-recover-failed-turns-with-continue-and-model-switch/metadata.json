@@ -1,0 +1,18 @@
+{
+  "id": "1067-recover-failed-turns-with-continue-and-model-switch",
+  "uuid": "0f902180-ec7f-4b58-b911-c6f139eec0bd",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-25T04:20:19.690Z",
+  "updated": "2026-10-25T06:16:48.559Z",
+  "lastActivity": "2026-10-25T06:16:48.559Z",
+  "title": "Recover failed turns with Continue and model switch",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-25T06:16:48.555Z",
+  "closeReason": "Shipped in specwithcode-dev PR #701 (fe6b577253, all checks green); verify red only on unrelated umbrella suites: npm --prefix repositories/anton-abyzov/specweave run test:unit:fast and vskill-platform test",
+  "approvedAt": "2026-10-25T06:16:48.559Z"
+}
