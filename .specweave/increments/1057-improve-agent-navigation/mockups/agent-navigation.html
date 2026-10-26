@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent navigation: proposal for 1057</title>
+<style>
+  :root {
+    --bg: #1c1c1e; --pop: #2a2a2c; --pop-hi: #343437; --border: #3a3a3d;
+    --fg: #ececee; --muted: #9a9aa0; --faint: #6e6e74;
+    --working: #7aa7ff; --waiting: #e8b75c; --failed: #ff8a80; --done: #6e6e74; --quiet: #b49cff;
+    --claude: #d97757; --focus: #7aa7ff;
+    --page: #141416; --ink: #d9d9de; --rule: #2c2c30;
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.5 var(--font); }
+  main { max-width: 1240px; margin: 0 auto; padding: 40px 28px 64px; }
+  h1 { font-size: 26px; font-weight: 650; letter-spacing: -0.01em; margin: 0 0 6px; }
+  .lead { color: var(--muted); max-width: 70ch; margin: 0 0 32px; }
+  h2 { font-size: 16px; font-weight: 600; margin: 40px 0 4px; }
+  .note { color: var(--muted); max-width: 72ch; margin: 0 0 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 28px; align-items: start; }
+  figure { margin: 0; }
+  figcaption { color: var(--muted); font-size: 12.5px; margin-top: 10px; max-width: 52ch; }
+  figcaption b { color: var(--ink); font-weight: 600; }
+
+  /* Popover, matched to panes.css (.sws-subagents-popover) */
+  .pop { width: 380px; background: var(--pop); border: 1px solid var(--border); border-radius: 12px;
+         box-shadow: 0 18px 40px rgba(0,0,0,.45); font-size: 12.5px; color: var(--fg); overflow: hidden;
+         display: flex; flex-direction: column; }
+  .pop.tall { height: 470px; }
+  .pop header { padding: 10px 12px 8px; border-bottom: 1px solid var(--border); display: grid; gap: 8px; }
+  .pop header .top { display: flex; align-items: baseline; gap: 8px; }
+  .pop header strong { font-size: 13px; font-weight: 600; }
+  .pop header .legacy { color: var(--working); font-size: 11.5px; }
+  .filters { display: flex; gap: 6px; flex-wrap: wrap; }
+  .fbtn { font: inherit; font-size: 11.5px; border: 1px solid var(--border); background: transparent; color: var(--muted);
+          border-radius: 999px; padding: 2px 9px 2px 7px; display: inline-flex; align-items: center; gap: 5px; }
+  .fbtn[aria-pressed="true"] { background: var(--pop-hi); color: var(--fg); border-color: #55555a; }
+  .fbtn .d { width: 6px; height: 6px; border-radius: 50%; }
+  .search { display: flex; align-items: center; gap: 6px; border: 1px solid var(--border); border-radius: 7px; padding: 4px 8px; color: var(--muted); }
+  .search.active { border-color: var(--focus); color: var(--fg); }
+  .search kbd { margin-left: auto; font: 11px var(--font); color: var(--faint); border: 1px solid var(--border); border-radius: 4px; padding: 0 5px; }
+  .list { overflow: hidden; padding: 4px; flex: 1; position: relative; }
+  .gh { display: flex; align-items: baseline; gap: 6px; padding: 8px 8px 3px; font-size: 11.5px; color: var(--muted); font-weight: 600; }
+  .gh span { font-weight: 400; color: var(--faint); }
+  .row { display: grid; grid-template-columns: 10px 1fr 12px; gap: 8px; padding: 6px 8px; border-radius: 8px; align-items: start; }
+  .row.focus { background: var(--pop-hi); box-shadow: inset 0 0 0 1.5px var(--focus); }
+  .row.dim { opacity: .55; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 6px; background: var(--done); }
+  .dot.working { background: var(--working); box-shadow: 0 0 0 3px rgba(122,167,255,.18); }
+  .dot.waiting { background: var(--waiting); }
+  .dot.failed { background: var(--failed); }
+  .dot.quiet { background: transparent; border: 1.5px dashed var(--quiet); }
+  .t { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .m { display: flex; flex-wrap: wrap; gap: 0 6px; color: var(--muted); font-size: 11.5px; align-items: center; }
+  .m .working { color: var(--working); } .m .waiting { color: var(--waiting); } .m .failed { color: var(--failed); } .m .quiet { color: var(--quiet); }
+  .claude { color: var(--claude); font-weight: 600; }
+  .r { color: var(--faint); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .chev { color: var(--faint); margin-top: 3px; font-size: 12px; }
+  .nest { padding-left: 22px; }
+  .more { margin: 4px 8px 6px; font: inherit; font-size: 12px; color: var(--muted); background: none; border: 1px dashed var(--border); border-radius: 8px; padding: 6px 8px; width: calc(100% - 16px); text-align: left; }
+  .pills { position: absolute; top: 6px; left: 0; right: 0; display: flex; justify-content: center; gap: 6px; z-index: 2; }
+  .pill { font-size: 11.5px; border-radius: 999px; padding: 3px 10px; background: #3b3b40; color: var(--fg); border: 1px solid #55555a; box-shadow: 0 4px 12px rgba(0,0,0,.4); }
+  .pill.need { background: #4a3b1d; border-color: #7a6026; color: #ffd98a; }
+  .fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 36px; background: linear-gradient(transparent, var(--pop)); }
+  .annot { color: var(--failed); font-size: 12px; margin-top: 8px; }
+  .scrollbar { position: absolute; right: 3px; top: 8px; width: 4px; height: 26px; border-radius: 3px; background: #55555a; }
+
+  /* Narrow sheet */
+  .phone { width: 375px; height: 640px; border-radius: 28px; border: 1px solid var(--border); background: var(--bg); position: relative; overflow: hidden; }
+  .phone .behind { padding: 22px 18px; color: var(--faint); font-size: 13px; }
+  .phone .sheet { position: absolute; left: 0; right: 0; bottom: 0; height: 74%; background: var(--pop); border-top-left-radius: 16px; border-top-right-radius: 16px; border-top: 1px solid var(--border); display: flex; flex-direction: column; }
+  .phone .grab { width: 36px; height: 4px; background: #55555a; border-radius: 2px; margin: 8px auto 0; }
+  .phone .t { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+  table { border-collapse: collapse; width: 100%; max-width: 980px; font-size: 13px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; }
+  td:first-child { white-space: nowrap; font-weight: 600; }
+  .sw { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 7px; }
+  ul.rules { max-width: 80ch; padding-left: 18px; margin: 0; } ul.rules li { margin: 4px 0; }
+  .keys { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; max-width: 640px; font-size: 13px; }
+  .keys kbd { font: 12px var(--font); border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 5px; padding: 1px 6px; background: #202023; color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Agent navigation in the thread agent popover</h1>
+  <p class="lead">Live work and anything waiting on you come first, results you haven't seen come next, and history is folded away. The order is set when the popover opens and stays put while you read; changes show up in place or in a pill you press.</p>
+
+  <h2>Before and after: the 1041 design thread</h2>
+  <p class="note">Same data as the October 24 screenshot: 5 workflows, 55 subagents, 2 working.</p>
+  <div class="grid">
+    <figure id="shot-current">
+      <div class="pop tall" id="current"></div>
+      <figcaption><b>Today.</b> Workflows first, then spawn order. The 2 working agents are rows 59 and 60, so you have to scroll to the bottom to find them. The "2 working" header label doesn't link to anything.</figcaption>
+    </figure>
+    <figure id="shot-proposed">
+      <div class="pop" id="proposed"></div>
+      <figcaption><b>Proposed.</b> Working rows open in the first viewport, results finished since your last look come next, and 55 earlier rows sit behind one button. The header counts double as filters.</figcaption>
+    </figure>
+  </div>
+
+  <h2>While you read</h2>
+  <p class="note">Nothing moves under the pointer. A finished agent changes its dot and label in place. New agents and group changes wait in a pill. Anything that needs you gets its own pill that jumps straight to it.</p>
+  <div class="grid">
+    <figure id="shot-updates">
+      <div class="pop tall" id="updates"></div>
+      <figcaption><b>Open for 4 minutes.</b> "Finish 1051 gap 1" finished and still sits under Working with a Done label. One agent asked for approval and one new agent started. The order changes only when you press a pill or reopen the popover.</figcaption>
+    </figure>
+    <figure id="shot-filter">
+      <div class="pop" id="filter"></div>
+      <figcaption><b>Filter.</b> Press <kbd>/</kbd> and type. While a filter is active, Earlier unfolds and group headings stay. Nested agents stay under their parent, and a parent shows how many of its agents are working.</figcaption>
+    </figure>
+  </div>
+
+  <h2>Narrow window or phone</h2>
+  <div class="grid">
+    <figure id="shot-narrow">
+      <div class="phone"><div class="behind">1041 design create, reuse and pickers<br><br>Neither agent is hanging. Both started about 3 minutes ago…</div><div class="sheet"><div class="grab"></div><div id="narrow" style="display:flex;flex-direction:column;flex:1;min-height:0"></div></div></div>
+      <figcaption><b>Under 480px</b> the popover becomes a bottom sheet. Titles wrap to two lines, and nothing overflows sideways.</figcaption>
+    </figure>
+    <figure>
+      <h2 style="margin-top:0">Keyboard</h2>
+      <div class="keys">
+        <span><kbd>Tab</kbd></span><span>One stop for the whole list; focus returns to the last row you opened</span>
+        <span><kbd>↑</kbd> <kbd>↓</kbd> <kbd>Home</kbd> <kbd>End</kbd></span><span>Move between rows, skipping group headings</span>
+        <span><kbd>Enter</kbd> <kbd>→</kbd></span><span>Open the agent's transcript</span>
+        <span><kbd>←</kbd></span><span>Go to the parent agent or workflow</span>
+        <span>letters</span><span>Jump to the next title starting with them</span>
+        <span><kbd>/</kbd></span><span>Filter by title, task or model</span>
+        <span><kbd>Esc</kbd></span><span>Clear the filter, then close</span>
+      </div>
+      <p class="note" style="margin-top:14px">Screen readers hear each group as a labelled group and each row as "title, status, model, elapsed". Status changes go through one polite live region, at most one announcement every 5 seconds, for example "Finish 1051 gap 1 finished".</p>
+    </figure>
+  </div>
+
+  <h2>Order</h2>
+  <table>
+    <thead><tr><th>Group</th><th>Who belongs</th><th>Order inside</th><th>Shown</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sw" style="background:var(--waiting)"></span>Needs you</td><td>Running and blocked on an approval, an answer or a sign-in</td><td>Oldest request first</td><td>Open</td></tr>
+      <tr><td><span class="sw" style="background:var(--working)"></span>Working</td><td>Running or starting, with recent activity</td><td>Newest started first</td><td>Open</td></tr>
+      <tr><td><span class="sw" style="border:1.5px dashed var(--quiet)"></span>Quiet or unreachable</td><td>Says running but no activity past the stall threshold, or its machine doesn't answer</td><td>Newest started first</td><td>Open, muted, not counted as working</td></tr>
+      <tr><td><span class="sw" style="background:var(--fg)"></span>New results</td><td>Finished, failed or interrupted since you last opened this list</td><td>Failed first, then newest finished</td><td>Open</td></tr>
+      <tr><td><span class="sw" style="background:var(--done)"></span>Earlier</td><td>Everything else that finished</td><td>Newest finished first</td><td>Folded behind "Show N earlier"</td></tr>
+    </tbody>
+  </table>
+  <ul class="rules" style="margin-top:14px">
+    <li>Inside a group, rows sort only on timestamps that never change (start, finish, request time). Last activity is used to detect quiet runs and never to sort, so constant updates can't reshuffle the list.</li>
+    <li>A parent ranks by its most urgent descendant, so a workflow with one agent waiting on you sits in Needs you.</li>
+    <li>The sidebar and Threads pane keep their current stable order. This change only affects the agent popover.</li>
+  </ul>
+</main>
+
+<script>
+const C = '<span class="claude">✳ Claude Code</span> · Opus 5.5';
+const row = (r) => `
+  <div class="row ${r.focus ? 'focus' : ''} ${r.dim ? 'dim' : ''} ${r.nest ? 'nest' : ''}">
+    <span class="dot ${r.tone || ''}"></span>
+    <span style="min-width:0">
+      <div class="t">${r.title}</div>
+      <div class="m">${r.kind ? '<span>⑂ Workflow</span>' : ''}<span class="${r.tone || ''}">${r.label}</span>${r.kind ? '' : '<span>' + C + '</span>'}<span>${r.time}</span></div>
+      ${r.result ? `<div class="r">${r.result}</div>` : ''}
+    </span>
+    <span class="chev">${r.kind ? '' : '›'}</span>
+  </div>`;
+const gh = (name, n) => `<div class="gh" role="heading">${name} <span>${n}</span></div>`;
+const head = (opts = {}) => `
+  <header>
+    <div class="top"><strong>5 workflows, 55 subagents</strong></div>
+    <div class="filters">
+      ${opts.need ? '<button class="fbtn"><span class="d" style="background:var(--waiting)"></span>1 needs you</button>' : ''}
+      <button class="fbtn" ${opts.pressed === 'working' ? 'aria-pressed="true"' : ''}><span class="d" style="background:var(--working)"></span>2 working</button>
+      <button class="fbtn"><span class="d" style="background:var(--fg)"></span>3 new</button>
+      <button class="fbtn" ${opts.pressed === 'all' ? 'aria-pressed="true"' : ''}>All 60</button>
+    </div>
+    <div class="search ${opts.query ? 'active' : ''}">⌕ <span>${opts.query || 'Filter agents'}</span><kbd>/</kbd></div>
+  </header>`;
+
+const W1 = { title: 'Recapture 1046 AC-10 at final head', tone: 'working', label: 'Working', time: '2m 05s', result: 'Recapture the 1046 AC-10 evidence at the exact final head…' };
+const W2 = { title: 'Finish 1051 gap 1 and commit', tone: 'working', label: 'Working', time: '2m 17s', result: 'Finish and commit gap 1 of SpecWeave increment 1051…' };
+const N1 = { title: 'Fresh review of 1046 closure', label: 'Done', time: '6m 32s', result: 'Verdict: do not close. AC-10 rests on captures taken before…' };
+const N2 = { title: 'Recapture 1046 AC-10 evidence', label: 'Done', time: '15m 36s', result: 'Outcome: Pass. The fixture passed 80/80 checks with…' };
+const N3 = { title: 'Re-verify 1046 fixes headlessly', label: 'Done', time: '10m 31s', result: 'Both fixes pass at db19911070. Settings > Design sys…' };
+const E = [
+  { title: 'Settings design system pane audit', label: 'Stopped', time: '8m 13s' },
+  { title: 'Design picker empty-state copy pass', label: 'Done', time: '4m 48s' },
+  { title: 'Scan ec-uikit tokens for reuse', label: 'Done', time: '12m 02s' },
+];
+
+// Current (spawn order, top of list)
+document.getElementById('current').innerHTML = `
+  <header><div class="top"><strong>5 workflows, 55 subagents</strong><span class="legacy">2 working</span></div></header>
+  <div class="list"><span class="scrollbar"></span>
+    ${row({ title: 'design-create-reuse-research', kind: 1, label: 'Done', time: '22m 40s', result: 'Phase 3 of 3: report written' })}
+    ${row({ title: 'picker-regression-sweep', kind: 1, label: 'Done', time: '18m 11s', result: 'All 14 scenarios pass' })}
+    ${row({ title: 'review-1041-lanes', kind: 1, label: 'Done', time: '31m 02s', result: 'Verdict: ship after T-04 fix' })}
+    ${row({ title: 'Read 1041 spec and research findings', label: 'Done', time: '3m 12s', result: 'Findings: #594 already on main; binding retry…' })}
+    ${row({ title: 'Install worktree dependencies', label: 'Done', time: '1m 48s', result: 'pnpm install finished' })}
+    ${row({ title: 'Trace Start design owner check', label: 'Done', time: '6m 20s', result: 'Owner check reads the one-time token…' })}
+    <div class="fade-bottom"></div>
+  </div>`;
+
+// Proposed default
+document.getElementById('proposed').innerHTML = head() + `
+  <div class="list">
+    ${gh('Working', 2)}
+    ${row({ ...W1, focus: true })}
+    ${row(W2)}
+    ${gh('New results', 3)}
+    ${row(N1)}${row(N2)}${row(N3)}
+    ${gh('Earlier', 55)}
+    <button class="more">Show 55 earlier</button>
+  </div>`;
+
+// Updates while open
+document.getElementById('updates').innerHTML = head({ need: true }) + `
+  <div class="list">
+    <div class="pills"><span class="pill need">1 needs you</span><span class="pill">2 updates · Show</span></div>
+    <div style="height:30px"></div>
+    ${gh('Working', 2)}
+    ${row(W1)}
+    ${row({ ...W2, tone: '', label: 'Done just now', time: '4m 51s', result: 'Committed gap 1 as 5e1c0a2; tests 212/212 pass', focus: true })}
+    ${gh('Quiet or unreachable', 1)}
+    ${row({ title: 'Recapture 1046 on Ministorm', tone: 'quiet', label: 'No activity for 14m', time: '22m 10s', result: 'Last: running headless capture 3 of 8', dim: true })}
+    ${gh('New results', 3)}
+    ${row(N1)}${row(N2)}
+  </div>`;
+
+// Filter
+document.getElementById('filter').innerHTML = head({ query: '1046' }) + `
+  <div class="list">
+    ${gh('Working', 1)}
+    ${row(W1)}
+    ${gh('New results', 3)}
+    ${row(N1)}${row(N2)}${row(N3)}
+    ${gh('Earlier', 3)}
+    ${row({ title: 'review-1046-closure', kind: 1, label: 'Done · 1 of 3 failed', time: '19m 44s' })}
+    ${row({ title: 'Check AC-10 capture timestamps', label: 'Failed', tone: 'failed', time: '2m 02s', nest: true, result: 'Captures predate head db19911070' })}
+    ${row({ title: 'Check AC-04 copy', label: 'Done', time: '1m 30s', nest: true })}
+  </div>`;
+
+// Narrow
+document.getElementById('narrow').innerHTML = `
+  <div class="pop" style="width:auto;border:0;box-shadow:none;background:transparent;flex:1">
+  ${head()}
+  <div class="list">
+    ${gh('Working', 2)}
+    ${row({ ...W1, focus: true })}${row(W2)}
+    ${gh('New results', 3)}
+    ${row(N1)}${row(N2)}
+  </div></div>`;
+</script>
+</body>
+</html>

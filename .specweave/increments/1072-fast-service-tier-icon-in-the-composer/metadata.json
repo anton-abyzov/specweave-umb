@@ -1,0 +1,15 @@
+{
+  "id": "1072-fast-service-tier-icon-in-the-composer",
+  "uuid": "7da8988f-0d8a-412b-9fef-c07a606d72b8",
+  "status": "active",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-10-25T05:31:59.156Z",
+  "updated": "2026-10-25T09:55:48.021Z",
+  "lastActivity": "2026-10-25T09:55:48.021Z",
+  "title": "Fast service tier icon in the composer",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

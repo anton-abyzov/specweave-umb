@@ -1,0 +1,16 @@
+{
+  "id": "1064-cancel-live-approvals-when-a-selection-switch-detaches-the-session",
+  "uuid": "a25f633a-54d8-470b-9d50-77206532ea5e",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-25T03:18:27.266Z",
+  "updated": "2026-10-25T03:18:27.266Z",
+  "lastActivity": "2026-10-25T03:18:27.271Z",
+  "title": "Cancel live approvals when a selection switch detaches the session",
+  "project": "specweave",
+  "parent": "1004-review-t3-v2-orchestrator",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

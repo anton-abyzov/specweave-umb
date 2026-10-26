@@ -1,0 +1,15 @@
+{
+  "id": "1056-token-usage-audit-and-per-harness-optimization",
+  "uuid": "e29b4fd5-fa0b-4e51-bf8b-f1703ca640d4",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-24T19:15:49.321Z",
+  "updated": "2026-10-24T19:43:42.348Z",
+  "lastActivity": "2026-10-24T19:43:42.348Z",
+  "title": "Token usage audit and per-harness optimization",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

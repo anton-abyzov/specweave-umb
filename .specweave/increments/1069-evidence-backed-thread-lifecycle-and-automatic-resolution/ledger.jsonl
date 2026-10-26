@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-25T05:17:30.078Z","note":"session 01a16b2c-7ec8-78e0-a249-a87a0aa8778c"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-25T05:17:30.081Z","line":"Auditing lifecycle evidence and inventory boundaries"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-25T05:46:51.990Z","line":"Implementing request-bound completion evidence policy"}
+{"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-25T09:55:54.328Z","line":"Integrating evidence into existing settlement commands"}
+{"t":"T-06","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-25T09:57:40.563Z","line":"Testing automatic settlement missing-evidence refusal"}

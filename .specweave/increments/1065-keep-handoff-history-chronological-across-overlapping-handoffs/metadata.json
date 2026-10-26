@@ -1,0 +1,16 @@
+{
+  "id": "1065-keep-handoff-history-chronological-across-overlapping-handoffs",
+  "uuid": "15286bdf-ac26-4ad4-adcf-535f31800143",
+  "status": "planned",
+  "type": "bug",
+  "priority": "P2",
+  "created": "2026-10-25T03:18:27.403Z",
+  "updated": "2026-10-25T03:18:27.403Z",
+  "lastActivity": "2026-10-25T03:18:27.411Z",
+  "title": "Keep handoff history chronological across overlapping handoffs",
+  "project": "specweave",
+  "parent": "1004-review-t3-v2-orchestrator",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

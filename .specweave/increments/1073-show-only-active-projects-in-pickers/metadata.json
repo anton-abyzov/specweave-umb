@@ -1,0 +1,15 @@
+{
+  "id": "1073-show-only-active-projects-in-pickers",
+  "uuid": "252f4604-8e0d-45a0-b593-b162a12c9051",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-25T05:50:24.558Z",
+  "updated": "2026-10-25T19:42:03.994Z",
+  "lastActivity": "2026-10-25T19:42:03.994Z",
+  "title": "Show only active projects in pickers",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

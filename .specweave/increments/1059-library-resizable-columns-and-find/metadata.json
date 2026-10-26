@@ -1,0 +1,15 @@
+{
+  "id": "1059-library-resizable-columns-and-find",
+  "uuid": "1440cb0d-258f-423f-bd9e-b1b0b3110cf7",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-24T19:32:18.320Z",
+  "updated": "2026-10-24T19:32:18.320Z",
+  "lastActivity": "2026-10-24T19:32:18.320Z",
+  "title": "Library resizable columns and find",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
