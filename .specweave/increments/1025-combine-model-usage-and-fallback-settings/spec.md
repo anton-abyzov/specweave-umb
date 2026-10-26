@@ -25,6 +25,7 @@ Out:
 - Routing, billing and saved preferences: no setting key, default or meaning changes.
 - The global Settings page layout.
 - The backend hang and provider-error work (owned by the fallback credits thread).
+- #665's visible "for <home model>" link: the October 24 request asks for the glyph alone to save space.
 
 ## Acceptance Criteria
 
@@ -34,6 +35,9 @@ Out:
 - [x] AC-04: The coordinator composer has no separate usage chip. The model picker's footer offers "Limits by machine", which swaps the list for every machine's limits and has a Models back action and links to All limits and This project's tokens. Where no picker can show (no provider available on the host), a "Limits by machine" button opens the same panel.
 - [x] AC-05: Project settings > General shows, in order: coordinator model, thread model, then one "When a model runs out" card. The card holds Also served by, When a provider runs out, Fallback order, Other machines, Try first and the remaining rules, followed by the recovery checkbox and then Worker machine. Setting keys and search row ids are unchanged; search finds "When a model runs out" and still matches "usage limits".
 - [ ] AC-06: Merged to main, released, and visible in the installed desktop app.
+- [ ] AC-07: The fallback glyph is a 14px amber switch track (the pick's line runs on faintly, the thread branches onto another), chosen from a headless comparison of six candidates. Hover and focus lead with "Fallback for your pick, <pick in full>".
+- [ ] AC-08: When the fallback runs a model of the same name on another provider (Devin's GPT-6.1 Sol for Codex's GPT-6.1-Sol), the short form says "Fallback for Codex", never the model name twice, and the tip says "the same model through Devin". Rows, composer and coordinator picker share one rule (`fallbackModelState`).
+- [ ] AC-09: A worker launched onto another model because its preferred model had no room, or inheriting a parent's fallback, records `launchFallbackFrom`, and both the shell and the detail projection show it as a fallback until a run goes back to that model or the thread is set back.
 
 ## Approach
 
@@ -73,8 +77,14 @@ Rejected alternatives:
 ### T-04 One fallback card under the model defaults
 - AC: AC-05 | Files: apps/web/src/components/studio/ProjectWorkspaceSettings.tsx, apps/web/src/components/studio/projectSettingsSearch.logic.ts, apps/web/src/components/settings/RecommendedModelProviders.tsx | Test: vp test run src/components/studio/ProjectWorkspaceSettings.test.tsx
 
+### T-07 Switch-track glyph and same-name provider copy
+- AC: AC-07, AC-08 | Files: apps/web/src/components/chat/FallbackGlyph.tsx, apps/web/src/components/chat/ModelStateTag.tsx, apps/web/src/components/studio/shell/ModelBadge.tsx, apps/web/src/components/studio/shell/CoordinatorModelPicker.tsx, apps/web/src/components/chat/ChatComposer.tsx | Test: vp test run src/components/chat src/components/studio/shell; headless candidate sheet and fixtures
+
+### T-08 Record a launch onto a fallback
+- AC: AC-09 | Files: apps/server/src/project/WorkerLaunchRoom.ts, apps/server/src/mcp/OrchestratorMcpService.ts, apps/server/src/mcp/toolkits/project/handlers.ts, packages/contracts/src/orchestrationV2.ts, apps/server/src/orchestration-v2/ProjectionStore.ts, packages/shared/src/threadModelIdentity.ts | Test: vp test run packages/shared/src/threadModelIdentity.test.ts apps/server/src/orchestration-v2/ProjectionStore.modelIdentity.test.ts
+
 ### T-05 Merge, release, verify installed
-- AC: AC-06 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/thread-row-fallback-badge/after2 | Test: CI green, release published, installed app readback and screenshot
+- AC: AC-06 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/thread-row-fallback-badge/after2, /Users/antonabyzov/.specwithcode/m4/evidence/fallback-identity | Test: CI green, release published, installed app readback and screenshot
 
 ### T-06 Verify and close 1025
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: .specweave/increments/1025-combine-model-usage-and-fallback-settings | Test: specweave verify and a fresh-context review
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09 | Files: .specweave/increments/1025-combine-model-usage-and-fallback-settings | Test: specweave verify and a fresh-context review

@@ -8,5 +8,8 @@
   "updated": "2026-10-26T01:52:21.518Z",
   "lastActivity": "2026-10-26T01:52:21.518Z",
   "title": "Pre-restart re-reads stay incremental while threads are busy",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

@@ -138,6 +138,7 @@ Risks:
 - D-05 The subagent TTL stays at Claude Code's default (5 minutes); measured net loss otherwise.
 - D-06 Usage meter display of switch cost or account belongs to 1054; 1055 only exposes fields.
 - D-07 A person's send is never blocked by the governor; it only shows that the account is tight.
+- D-08 (October 25, 2026) AC-01 and AC-02 build on the opaque `usageLimits.accountKey` and the persisted limit-stop key from the auth-recovery owner's branch `feat/subscription-change-recovery` (1063/1067 lane) once it merges, and do not add a second fingerprint. 1055 adds only what that branch leaves out: the key on each turn, switch causes, cold-prefix fields, the same-account guard and per-account pooling.
 ### Open
 - D-01 Ship automatic rotation among Claude subscriptions at all (AC-07)? Recommendation: build it behind the off-by-default setting with the Terms consent dialog, and make the cache-aware policy (AC-01..AC-06, AC-10, AC-11) apply to every switch regardless. Alternative: drop AC-07 and keep only manual "Continue on <subscription>". This is Anton's decision because of the policy risk in finding 5.
 

@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-26T03:20:46.100Z",
-  "updated": "2026-10-26T03:24:55.269Z",
-  "lastActivity": "2026-10-26T03:24:55.269Z",
+  "updated": "2026-10-26T04:10:26.446Z",
+  "lastActivity": "2026-10-26T04:10:26.446Z",
   "title": "Stabilize project badge rendering and live refresh",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
