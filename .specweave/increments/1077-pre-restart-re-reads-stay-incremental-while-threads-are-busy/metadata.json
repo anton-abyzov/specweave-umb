@@ -1,0 +1,12 @@
+{
+  "id": "1077-pre-restart-re-reads-stay-incremental-while-threads-are-busy",
+  "uuid": "a06c730a-fe94-4bab-bf6d-88f145731716",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-26T01:52:21.518Z",
+  "updated": "2026-10-26T01:52:21.518Z",
+  "lastActivity": "2026-10-26T01:52:21.518Z",
+  "title": "Pre-restart re-reads stay incremental while threads are busy",
+  "project": "specweave-umb"
+}
