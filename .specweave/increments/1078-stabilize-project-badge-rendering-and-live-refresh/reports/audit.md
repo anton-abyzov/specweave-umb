@@ -32,3 +32,7 @@ Extracted unchanged AttentionProjectMember, projectAttentionRoots and expandAtte
 ## Full web suite
 
 Node22 full web run:948/949 files and11731/11732 tests passed. Only unrelated Open VSX VSIX import test timed out at15seconds while build/fixture work ran concurrently. Attention scope checks passed. Unchanged isolated Open VSX file rerun:10/10 passed in4.36seconds. Neither its source nor assertions nor timeout were changed. Final headless96-transition check also passed after extraction. This is a first-run timeout plus successful unchanged retry, not a clean first run. Final-head hosted CI and release gates remain required.
+
+## Base integration repair
+
+Hosted Windows server-2 on79e5bdbc failed the pre-existing MCP fan-out projection wait (224 other server files passed). Main had already mergedPR779, whose unchanged Windows server-2 check passed. Brought main into the owned branch, preserving the failed run and all tests. New head9e1e1b0cc00d47fd26034a4c65c3d67bd66b76fb contains the existing non-Git fixture repair; PR diff remains only ten badge/scope files. No failed check was ignored or marked successful.184 focused cases including the MCP integration now pass, and Node22 production web build passes. Final-head hosted CI restarted.
