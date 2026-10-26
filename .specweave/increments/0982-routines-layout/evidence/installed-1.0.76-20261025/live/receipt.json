@@ -1,0 +1,17 @@
+{
+  "origin": "http://127.0.0.1:8319",
+  "scopes": [
+    "orchestration:read",
+    "diagnostics:read"
+  ],
+  "headless": true,
+  "startedAt": "2026-10-25T17:44:02.488Z",
+  "project": "1332065e-795b-4f98-91c4-f114917e53f6",
+  "checks": [],
+  "screenshots": [],
+  "indexAsset": "assets/index-CBbz81Ew.js",
+  "result": "fail",
+  "error": "AssertionError [ERR_ASSERTION]: only 0 routine rows\n    at file:///Users/antonabyzov/.specwithcode/m4/evidence/routines-installed-readonly-20261025/routines-readonly-check.mjs:104:16",
+  "requestTags": [],
+  "finishedAt": "2026-10-25T17:47:45.026Z"
+}

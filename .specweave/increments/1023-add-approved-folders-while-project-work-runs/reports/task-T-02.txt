@@ -1,0 +1,23 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/worktrees/fix-additive-folder-access && node node_modules/vite-plus/bin/vp test run apps/server/src/project/ProjectActionRequests.test.ts apps/server/src/mcp/toolkits/project/route.integration.test.ts apps/server/src/mcp/toolkits/core.test.ts
+# exit 0 — 2026-10-23T06:29:07.451Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/worktrees/fix-additive-folder-access
+
+(node:15169) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15171) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15170) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  3 passed (3)
+      Tests  37 passed (37)
+   Start at  02:29:03
+   Duration  3.80s (transform 65%, import 31%, tests 4%)
+
+  Transform  transforming modules took 6.72s · 65% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+

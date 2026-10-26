@@ -1,0 +1,136 @@
+{
+  "kind": "installed build, private throwaway state, synthetic routines",
+  "app": "/Applications/SpecWithCode.app",
+  "entry": "/Applications/SpecWithCode.app/Contents/Resources/app.asar/apps/server/dist/bin.mjs",
+  "pid": 94855,
+  "state": "/Users/antonabyzov/.local/share/specweave-studio/verification/routines-installed/state-7F05lK",
+  "origin": "http://127.0.0.1:58631",
+  "headless": true,
+  "project": "routines-check",
+  "startedAt": "2026-10-25T18:00:15.136Z",
+  "checks": [
+    {
+      "name": "settings-routines-1440",
+      "ok": true,
+      "rows": 62,
+      "runButtons": 62,
+      "runDisabled": 0,
+      "medianHeight": 89,
+      "maxHeight": 129,
+      "shortNextDates": 25,
+      "sideways": false
+    },
+    {
+      "name": "settings-routines-900",
+      "ok": true,
+      "rows": 62,
+      "runButtons": 62,
+      "runDisabled": 0,
+      "medianHeight": 129,
+      "maxHeight": 169,
+      "shortNextDates": 25,
+      "sideways": false
+    },
+    {
+      "name": "settings-routines-390",
+      "ok": true,
+      "rows": 62,
+      "runButtons": 62,
+      "runDisabled": 0,
+      "medianHeight": 133,
+      "maxHeight": 197,
+      "shortNextDates": 25,
+      "sideways": false
+    },
+    {
+      "name": "settings-search-opens-routines",
+      "ok": true,
+      "url": "/settings/scheduled-tasks"
+    },
+    {
+      "name": "settings-nav-entry-opens-routines",
+      "ok": true,
+      "url": "/settings/scheduled-tasks"
+    },
+    {
+      "name": "project-routines-pane-1440",
+      "ok": true,
+      "header": "Routines | ",
+      "rows": 62,
+      "medianHeight": 98,
+      "maxHeight": 135
+    },
+    {
+      "name": "new-routine-link-names-project",
+      "ok": true,
+      "href": "/settings/scheduled-tasks?project=logical-project%3Alogical%3Aa833909e-1c63-4e81-bfa9-21a9a37d738d&machine=f480fef1-9b21-465f-9551-ed3d40942cdd&template=new&projectId=routines-check"
+    },
+    {
+      "name": "manage-routines-opens-settings",
+      "ok": true,
+      "url": "/settings/scheduled-tasks?project=logical-project%3Alogical%3Aa833909e-1c63-4e81-bfa9-21a9a37d738d&machine=f480fef1-9b21-465f-9551-ed3d40942cdd"
+    },
+    {
+      "name": "project-routines-pane-390",
+      "ok": true,
+      "header": "Routines | ",
+      "rows": 62,
+      "medianHeight": 98,
+      "maxHeight": 154
+    },
+    {
+      "name": "no-routine-commands-sent",
+      "ok": true,
+      "routineCommands": []
+    },
+    {
+      "name": "routines-unchanged-after-check",
+      "ok": true,
+      "routines": 62
+    }
+  ],
+  "screenshots": [
+    "/Users/antonabyzov/.specwithcode/m4/evidence/routines-installed-readonly-20261025/private-run/settings-routines-1440.png",
+    "/Users/antonabyzov/.specwithcode/m4/evidence/routines-installed-readonly-20261025/private-run/settings-routines-1440-dark.png",
+    "/Users/antonabyzov/.specwithcode/m4/evidence/routines-installed-readonly-20261025/private-run/settings-routines-900.png",
+    "/Users/antonabyzov/.specwithcode/m4/evidence/routines-installed-readonly-20261025/private-run/settings-routines-390.png",
+    "/Users/antonabyzov/.specwithcode/m4/evidence/routines-installed-readonly-20261025/private-run/settings-routines-390-dark.png",
+    "/Users/antonabyzov/.specwithcode/m4/evidence/routines-installed-readonly-20261025/private-run/settings-search-routines.png",
+    "/Users/antonabyzov/.specwithcode/m4/evidence/routines-installed-readonly-20261025/private-run/project-routines-pane-1440.png",
+    "/Users/antonabyzov/.specwithcode/m4/evidence/routines-installed-readonly-20261025/private-run/project-routines-pane-1440-dark.png",
+    "/Users/antonabyzov/.specwithcode/m4/evidence/routines-installed-readonly-20261025/private-run/manage-routines-landing-1440.png",
+    "/Users/antonabyzov/.specwithcode/m4/evidence/routines-installed-readonly-20261025/private-run/project-routines-pane-390.png",
+    "/Users/antonabyzov/.specwithcode/m4/evidence/routines-installed-readonly-20261025/private-run/project-routines-pane-390-dark.png"
+  ],
+  "version": "1.0.76",
+  "synthetic": {
+    "created": 62,
+    "enabled": 36,
+    "byType": {
+      "manual": 11,
+      "fixed_time": 21,
+      "monthly": 10,
+      "interval": 10,
+      "once": 10
+    }
+  },
+  "indexAsset": "assets/index-CBbz81Ew.js",
+  "projectRoute": "/projects/logical-project%3Alogical%3Aa833909e-1c63-4e81-bfa9-21a9a37d738d",
+  "requestTags": [
+    "assets.createUrl",
+    "composerDrafts.get",
+    "googleAccount.status",
+    "mods.list",
+    "orchestration.getArchivedShellSnapshot",
+    "orchestration.subscribeShell",
+    "projects.starterSuggestions",
+    "projects.workspaceRead",
+    "scheduledTasks.subscribe",
+    "server.reportClientActivity",
+    "subscribeProjectClones",
+    "subscribeServerConfig",
+    "subscribeServerLifecycle"
+  ],
+  "result": "pass",
+  "finishedAt": "2026-10-25T18:01:05.511Z"
+}
