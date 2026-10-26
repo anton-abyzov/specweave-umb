@@ -218,6 +218,7 @@ scripts/.cf-monitor.env
 .specweave/backups/
 .specweave/increments/**/reports/artifacts/
 .claude/worktrees/
+.worktrees/
 **/reports/*.mp4
 **/reports/*.png
 **/reports/*.jpg
