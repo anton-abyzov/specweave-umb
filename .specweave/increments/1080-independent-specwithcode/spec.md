@@ -51,3 +51,12 @@ Use isolated umbrella and nested worktrees based on current remote main/develop.
 
 ### T-09 Stabilize fan-out fixture gate ownership without weakening checks
 - AC: AC-03 | Files: repositories/anton-abyzov/specweave-studio/apps/server/src/mcp/OrchestratorMcpToolkit.integration.test.ts | Test: cd repositories/anton-abyzov/specweave-studio && node_modules/.bin/vp test run apps/server/src/mcp/OrchestratorMcpToolkit.integration.test.ts
+
+### T-10 Preserve the existing owner's canonical fan-out fixture repair
+- AC: AC-03 | Files: repositories/anton-abyzov/specweave-studio/apps/server/src/mcp/OrchestratorMcpToolkit.integration.test.ts | Test: cd repositories/anton-abyzov/specweave-studio && node_modules/.bin/vp test run apps/server/src/mcp/OrchestratorMcpToolkit.integration.test.ts
+
+### T-11 Prepare the template package release within file limits
+- AC: AC-02, AC-03 | Files: repositories/anton-abyzov/specweave/CHANGELOG.md, repositories/anton-abyzov/specweave/changelog/, .specweave/increments/1080-independent-specwithcode/reports/ | Test: node .specweave/increments/1080-independent-specwithcode/reports/verify-changelog-archive.mjs
+
+### T-12 Publish and verify the template package
+- AC: AC-02, AC-03 | Files: repositories/anton-abyzov/specweave/package.json, repositories/anton-abyzov/specweave/package-lock.json, repositories/anton-abyzov/specweave/CHANGELOG.md, repositories/anton-abyzov/specweave/plugins/specweave/.claude-plugin/plugin.json, repositories/anton-abyzov/specweave/.claude-plugin/marketplace.json, .specweave/increments/1080-independent-specwithcode/reports/ | Test: node .specweave/increments/1080-independent-specwithcode/reports/verify-template-package.mjs
