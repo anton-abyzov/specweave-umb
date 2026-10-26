@@ -1,0 +1,8 @@
+{
+  "package": "specweave",
+  "version": "3.1.11",
+  "integrity": "sha512-fPvc2rrMlwKY1htRnVziB/hmp3xtnf199L/xlb4GlwCR3y64AmIbyplGCtG8PqbDYxRvwfyZ58ml7AXNLVrn6w==",
+  "agentsIdentityGuidance": true,
+  "claudeNoticeGuidance": true,
+  "cliExistingLicensePreserved": true
+}

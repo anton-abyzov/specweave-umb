@@ -1,0 +1,13 @@
+{
+  "head": "952b28e51d8bda25b3e7d79cade3a78a25775770",
+  "releaseAncestor": "8200bcd798e2ebe1a961a4d0eedec5e03fd560a0",
+  "productAncestor": "76bfbac921491b8dfd0f47a7cbd4b8c52c757e7b",
+  "canonicalFixtureMerge": "1fa61350a68e680e48b292f0f2913801a9caebe0",
+  "canonicalFixtureExact": true,
+  "version": "1.0.90",
+  "allVersionFieldsAligned": true,
+  "serverLicense": "UNLICENSED",
+  "rootLicenseAbsent": true,
+  "identityInstructionsPreserved": true,
+  "inheritedNoticeExact": true
+}
