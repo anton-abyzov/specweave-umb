@@ -1,15 +1,17 @@
 {
   "id": "1041-fix-design-creation-and-reuse",
   "uuid": "570179f2-6cc1-412a-a15f-b828e70eebf6",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-23T23:33:34.443Z",
-  "updated": "2026-10-26T23:48:56.566Z",
-  "lastActivity": "2026-10-26T23:48:56.566Z",
+  "updated": "2026-10-27T00:03:23.528Z",
+  "lastActivity": "2026-10-27T00:03:23.528Z",
   "title": "Fix design creation and reuse",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-27T00:03:23.436Z",
+  "approvedAt": "2026-10-27T00:03:23.528Z"
 }
