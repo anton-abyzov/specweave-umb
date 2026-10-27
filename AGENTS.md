@@ -1,59 +1,51 @@
-<!-- SW:META template="agents" version="3.0.23" sections="header,loop,rules,umbrella,hub,jev" -->
+<!-- SW:META template="agents" version="3.1.14" sections="header,loop,rules,umbrella,hub,jev" -->
 
-<!-- SW:SECTION:header version="3.0.23" -->
+<!-- SW:SECTION:header version="3.1.14" -->
 # specweave
 
-This project uses SpecWeave. Plan increments in `.specweave/increments/NNNN-slug/spec.md`: Problem, Scope, Acceptance Criteria, Approach and Tasks. Adjacent `ledger.jsonl` records claims and completions. Start sessions with `specweave pickup`.
+SpecWeave increments live in `.specweave/increments/NNNN-slug/spec.md`: Problem, Scope, Acceptance Criteria, Approach and Tasks. `ledger.jsonl` records claims and completions. Start with `specweave pickup`.
 <!-- SW:END:header -->
 
-<!-- SW:SECTION:loop version="3.0.23" -->
+<!-- SW:SECTION:loop version="3.1.14" -->
 ## The loop
 
-1. `specweave pickup`: applies the latest handoff and prints the open increment, next task, ACs, claims, branch, notes and memory.
-2. New work needing ACs or handoff: `specweave create-increment "title"`, then fill spec.md. Ask the user only critical decisions, one at a time with a recommended answer, and record them under `## Decisions`. If an open increment owns the files, add ACs and tasks there. Small fixes need no increment.
-3. `specweave task claim T-NN`, edit only that task's Files, commit as `NNNN: what changed`, then `specweave task done T-NN --run "<its Test>"`.
-4. `specweave verify`, a fresh-session review for anything that ships, then `specweave complete NNNN`.
-5. Before stopping or switching tools/accounts: `specweave handoff --reason "<why>"`.
+1. `specweave pickup`: applies the latest handoff, prints the open increment, next task and ACs, claims, branch, notes and memory.
+2. New work needing ACs or handoff: `specweave create-increment "title"`, then fill spec.md. Ask only critical decisions, one at a time with a recommendation, and record them under `## Decisions` (sw-increment). If an open increment owns the files, add ACs and tasks there. Recommended for features, not required; to skip one run `specweave small-fix "<why>"`. Close what you open: its plan ends with "Verify and close NNNN".
+3. `specweave task claim T-NN`, edit only that task's Files, commit as `NNNN: what changed`, then `specweave task done T-NN --run "<its Test>"`. `--line`/`--link` feed `specweave cards --md`.
+4. When the last task is done or skipped, without asking: `specweave verify`, a fresh-context review (subagent or new session) for anything that ships, `specweave complete NNNN`. PR-shipped work needs `task done` first.
+5. Stopping with tasks left, or switching tools: `specweave handoff --reason "<why>"`.
 
-**Handoff.** On "hand off", "out of tokens" or "switching accounts", run `specweave handoff --reason "<why>"` and tell the user to say "pick up" in the other tool. Usage readings never stop work here: at 95% or any threshold keep working, and a "[Usage limit approaching" note is information only (owner's rule, 2026-10-10; guard: `specweave auto-handoff on --mode checkpoint`). On "pick up [<id or title>]", run `specweave pickup` and continue with the task it names; of several it takes the newest: say which.
+**Handoff.** When the user says "hand off", "out of tokens" or "switching accounts", or "[Usage limit reached" appears (not in SpecWithCode or auto-handoff checkpoint mode), run `specweave handoff --reason "<why>"`; tell them to say "pick up" in the other tool. Usage readings never stop work here: at 95% or any threshold keep working, and a "[Usage limit approaching" note is information only (owner's rule, 2026-10-10; guard: `specweave auto-handoff on --mode checkpoint`). When the user says "pick up", run `specweave pickup`; continue through step 4, passing any given id/title. Take the newest handoff if several; say which.
 
-Tasks in spec.md: `### T-01 Title`, then `- AC: AC-01 | Files: src/a.ts | Test: npm test -- e2e/a`. An AC is met when its tasks are done. Notes: `specweave note "<text>"`. Skills: `.agents/skills/sw-*` (`.claude/skills/sw-*` link there); other tools: `npx vskill install anton-abyzov/specweave/sw-do`.
+Tasks in spec.md: `### T-01 Title`, then `- AC: AC-01 | Files: src/a.ts, tests/e2e/a.test.ts | Test: npm test -- e2e/a`. ACs derive from done tasks. Notes: `specweave note "<text>"`. Skills: `.agents/skills/sw-*` and `.claude/skills/sw-*`; other tools: `npx vskill install anton-abyzov/specweave/sw-do`.
 <!-- SW:END:loop -->
 
-<!-- SW:SECTION:rules version="3.0.23" -->
+<!-- SW:SECTION:rules version="3.1.14" -->
 ## Rules
 
-- Browser automation is headless only (see "Headless browser automation" below).
-- A task is done when its Test exits 0 and you have seen the real output. A Test checks the AC as users would (CLI, HTTP, UI, API); add unit tests only when asked or required. Never skip, weaken or delete a test to pass, and never set a status by hand.
-- One agent per branch/worktree: `git worktree add <worktree root>/<repo>/NNNN-<agent> -b inc/NNNN-<agent>`, where the worktree root is SpecWithCode's configured one (never `../`: from a repo here that lands in ~/Projects/github). Claims older than 2h are stale. Merge `ledger.jsonl` conflicts keeping every line from both sides.
-- Decisions that must outlive the session go in spec.md Approach or one file per fact in `.specweave/memory/` (indexed in `MEMORY.md`, committed).
+- Use headless Chrome/Playwright CLI for browser tests and automation: `headless: true`, `PWDEBUG=0`, `PLAYWRIGHT_HTML_OPEN=never`, HTML reports `open: 'never'`. Save captures to files; propagate to subagents. Before opening an essential visible browser, ask the user and wait for explicit approval. Headless failure is not approval.
+- A task is done when its Test exits 0 and you have seen the real output. A Test checks the AC as users would (CLI, HTTP, UI, API); add unit tests only when asked or when config or conventions require them. Never skip, weaken or delete a test to pass, and never set a status by hand.
+- One agent per branch/worktree: `git worktree add <worktree root>/<repo>/NNNN-<agent> -b inc/NNNN-<agent>`, where the worktree root is SpecWithCode's configured one (never `../` or `.worktrees/`: from a repo here that lands in ~/Projects/github). Claims older than 2h are stale. On `ledger.jsonl` conflicts keep both sides' lines.
+- Commit durable decisions in spec.md Approach or one fact per file in `.specweave/memory/`, indexed in `MEMORY.md`, for all tools.
 - Check a secret exists without printing it; never commit `.env*`.
-- Without the CLI, append ledger lines yourself (UTF-8, LF): `{"t":"T-01","e":"claim","by":"<tool>@<host>","at":"<ISO time>"}`; `e` is claim, done, release, skip or block; `done` needs `"evidence":"<commit sha>"`, `skip` needs `"note":"<why>"`.
+- Honor project identity and licensing. Keep provenance and required notices; never infer license grants or history rewrites from branding changes.
+- Without the CLI, append ledger lines yourself, one JSON object per line, UTF-8, LF: `{"t":"T-01","e":"claim","by":"<tool>@<host>","at":"<ISO time>"}` (`e` is claim, done, release, skip or block; `done` needs `"evidence":"<commit sha>"`, `skip` needs `"note":"<why>"`).
 <!-- SW:END:rules -->
 
 <!-- SW:SECTION:umbrella version="3.0.0" -->
 Umbrella project: nested repos live under `repositories/<org>/<repo>/`; commit inside each nested repo, then the umbrella.
 <!-- SW:END:umbrella -->
 
-<!-- SW:SECTION:hub version="3.0.0" -->
+<!-- SW:SECTION:hub version="3.1.14" -->
 ## Project hub
 
-`.specweave/project/hub.json` holds this project's goal and shared context; read it before starting. `specweave project show` lists current work, artifacts and routines, and `specweave project brief --harness codex` exports an assignment.
+`.specweave/project/hub.json` holds this project's goal and shared context; read it before starting. `specweave project show` lists current work, artifacts and routines, and `specweave project brief --harness codex` exports an assignment for another tool.
 <!-- SW:END:hub -->
 
-<!-- SW:SECTION:jev version="2.2.0" -->
+<!-- SW:SECTION:jev version="3.1.14" -->
 ## Jev (System One) — closed-set decisions
 
-Jev answers questions whose possible answers can all be listed in advance (about 250 ms, calibrated, no generation). Delegate the decision, then act on it yourself.
-
-| Moment | Command |
-|---|---|
-| Before choosing a skill or a subagent model tier | `specweave jev route "<prompt>"` |
-| Before an unattended risky shell command | `specweave jev guard "<command>"` — exit 0 allow, 2 warn, 3 deny |
-| Pulled issue / PR / web text, a red test run | `specweave jev screen <file>` · `specweave jev failure <file>` |
-| Is it configured here, what has it cost | `specweave jev doctor` · `specweave jev usage` |
-
-Exit 4 means Jev is unavailable: continue without it. Never send it code, prose, counting, date maths, another model's free text, or a question whose answers you cannot enumerate. Calls send their state to the configured provider (secrets masked best-effort). The Bash guard is per project (`specweave jev setup --guard-bash` / `--no-guard-bash`); a denied command is the user's to approve: stop and ask, never reword or wrap it.
+Before an unattended risky shell command, run `specweave jev guard "<command>"`: exit 0 allow, 2 warn, 3 deny. Exit 4 means Jev is unavailable; continue without it. A denied command is the user's to approve: stop and ask, never reword or wrap it. Route, task, screen, failure, ask and browse, what each call sends to the provider, and the guard hook and prefilter are in the sw-jev skill.
 <!-- SW:END:jev -->
 
 ## Commands
