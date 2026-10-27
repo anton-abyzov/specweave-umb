@@ -27,7 +27,7 @@ Out: changes to SpecWithCode continuation code, slash/catalog/composer code (own
 
 1. Write `plugins/productivity/skills/project-wake/SKILL.md` (and an eval file) on a branch of the vskill repo; one short skill, no scripts: the MCP tools are the mechanism.
 2. Merge it to `main` through a PR, then open Skill Studio (`vskill studio`) headless on the vskill checkout and publish through the Publish drawer. Reconcile any earlier submission first.
-3. When the release owner reports 1.0.100 installed, `vskill install anton-abyzov/vskill --skill project-wake --global`, then check the composer `/` list and run it once in a coordinator.
+3. When the release owner reports 1.0.100 installed, `vskill install anton-abyzov/vskill/project-wake --global --agent claude-code --agent codex` (it reads SKILL.md from GitHub main; a non-interactive install without `--agent` picks Claude Code only), then check the composer `/` list and run it once in a coordinator.
 
 Rejected: a SpecWithCode server feature (bigger, and automatic continuation already exists); a SpecWeave `sw-` skill (it orchestrates SpecWithCode threads, not increments); scheduled invocation (user wants manual).
 
@@ -54,7 +54,8 @@ Risk: the coordinator composer may list only certain skill sources; the composer
 - AC: AC-07 | Files: vskill PR | Test: `vskill find project-wake` lists `anton-abyzov/vskill/project-wake`
 
 ### T-03 Install globally after 1.0.100 and verify the coordinator slash command
-- AC: AC-08 | Files: none | Test: `ls ~/.claude/skills/project-wake/SKILL.md` and a coordinator run of `/project-wake`
+- AC: AC-08 | Files: none | Test: `ls ~/.claude/skills/project-wake/SKILL.md ~/.agents/skills/project-wake/SKILL.md` and a coordinator run of `/project-wake`
+- Expected per installed build (1093 owner, October 27, 2026). Without specwithcode-dev #881 (1.0.99, 1.0.100): the `/` row reads `/skill:Project Wake` and a pick inserts `$project-wake`; typed `/project-wake` runs in a Claude coordinator, is plain text in Codex. With #881: the row reads `$project-wake` with a "Personal" badge; typed `/project-wake` runs in Claude and in Codex. `~/.claude/skills` plus `~/.agents/skills` covers Claude Code, Codex and Copilot.
 
 ### T-04 Verify and close 1091
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08 | Files: none | Test: `specweave verify 1091-create-project-wake-skill`
