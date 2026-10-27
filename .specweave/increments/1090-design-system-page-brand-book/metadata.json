@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-27T01:33:24.096Z",
   "title": "Design system page reads like a brand book and builds from scratch",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
