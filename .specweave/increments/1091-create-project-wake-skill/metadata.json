@@ -1,0 +1,12 @@
+{
+  "id": "1091-create-project-wake-skill",
+  "uuid": "d9775c7a-ad6a-4f4b-a1ce-89f30f3c9692",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T03:21:29.269Z",
+  "updated": "2026-10-27T03:35:12.639Z",
+  "lastActivity": "2026-10-27T03:35:12.639Z",
+  "title": "Create project wake skill",
+  "project": "specweave"
+}
