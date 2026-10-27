@@ -1,16 +1,18 @@
 {
   "id": "1001-connect-specwithcode-launches-to-increments",
   "uuid": "a97e1808-415b-4ec5-9954-b1e8b159c50b",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-22T22:08:56.596Z",
-  "updated": "2026-10-24T19:13:56.273Z",
-  "lastActivity": "2026-10-24T19:13:56.273Z",
+  "updated": "2026-10-27T00:34:29.595Z",
+  "lastActivity": "2026-10-27T00:34:29.595Z",
   "title": "Connect SpecWithCode launches to increments",
   "project": "specweave-umb",
   "parent": "0996-plan-timeline-forecasts-and-required-increments",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-27T00:34:29.593Z",
+  "approvedAt": "2026-10-27T00:34:29.595Z"
 }
