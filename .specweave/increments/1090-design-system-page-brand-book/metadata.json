@@ -1,15 +1,17 @@
 {
   "id": "1090-design-system-page-brand-book",
   "uuid": "0cdc35dd-5982-4561-81eb-76d96b5926fa",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-27T01:05:15.410Z",
-  "updated": "2026-10-27T01:33:24.096Z",
-  "lastActivity": "2026-10-27T01:33:24.096Z",
+  "updated": "2026-10-27T05:30:58.317Z",
+  "lastActivity": "2026-10-27T05:30:58.317Z",
   "title": "Design system page reads like a brand book and builds from scratch",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-27T05:30:58.316Z",
+  "approvedAt": "2026-10-27T05:30:58.317Z"
 }
