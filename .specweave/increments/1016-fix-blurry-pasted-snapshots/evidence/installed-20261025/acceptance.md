@@ -2,7 +2,7 @@
 
 Status: Partial. The live provider image handoff passes. The installed-artifact headless harness passes. Full live native UI acceptance remains open, so increment 1016 was reopened.
 
-## Current source and release state
+## Source and release state observed October 25, 2026
 
 PR #629 is merged at `5b0e564eb28c65be94338f38daa82fdf134cb96e`, with green checks on candidate `c1003ccea07c1a9b7e156a977ea67a2dc830b5e5`. The merge is an ancestor of `v1.0.76`, `v1.0.77` and the installed source `4446ca4295caa9283029623e3a36f69ab8c82003`. The related but disjoint browser lifecycle PR #630 is merged at `55f392a9715dfad2b69c4916890d3f6c8783e0c3` and is an ancestor of `v1.0.77`.
 
@@ -38,7 +38,13 @@ REA's initial static analysis returned `artifact_integrity_mismatch` for the sig
 
 ## Open gate
 
-The user requires headless acceptance. The isolated harness cannot exercise the foreground native shortcut and existing desktop annotation UI. A decision card asks Anton to perform that final check manually, or explicitly authorize scoped native UI interaction. No visible automation will proceed without that decision. Stop holds, release ownership, provider configuration, production holds and live database files were preserved. No release, service restart, account switch or billing change was requested or performed.
+Anton authorized scoped native checks and later confirmed the physical both-Shift shortcut works. His two attached PNGs have widths of 4096 pixels. Their hashes and original paths are recorded in the physical-shortcut receipt. This confirms the shortcut and native-sized delivered images; it does not establish every source byte or live 150% selected-element annotation.
+
+During the authorized October 26 native slot, the 0969 composer was empty and the exact accidental substring was absent. No draft edit, undo, replacement or send was performed. Installed app and service version 1.0.95 were observed. The product's setup test capture passed; automation rejected the saved modifier-only Shift + Shift shortcut. Browser views exposed server-backed controls without the native annotation entry point, so no live 150% annotation pass is claimed. Snapshot settings were restored to off, owned test tabs were closed, and the native slot was released. Those native attempt records are retained separately.
+
+Anton then reported that capturing from Settings could open another application/desktop or lose the project conversation. PR #867 pins the scoped conversation through Settings, avoids activating the app for self-capture, and preserves captured source context through durable draft restoration. Candidate `5b44c7a190b000c5d38a748dfa93509350d39784` passes 199 focused checks. Fresh exact-head review is SHIP. CI remains a separate merge gate. The previous candidate `84caf7e64e0c9435e8af943c0088c06eb608af15` was blocked by review and must not be treated as approved.
+
+Remaining acceptance: native selected-element annotation at 150%, plus installed confirmation of the routing follow-up after it ships. Full increment 1016 remains open. No new native input, deployment, restart, provider run, account switch, billing change or Stop-hold release was performed for this follow-up.
 
 Scratch evidence and harness: `/Users/antonabyzov/.specwithcode/m4/evidence/snapshot-installed-20261025`.
 

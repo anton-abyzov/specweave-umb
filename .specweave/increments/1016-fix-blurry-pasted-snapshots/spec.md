@@ -19,6 +19,9 @@ Expanded user scope: selected-element/window preview annotations must retain the
 - [ ] AC-06: Retained installed-artifact evidence and a real provider image handoff prove the delivered crop is readable, with byte hashes and explicit runtime boundaries.
 - [ ] AC-07: The live installed desktop snapshot shortcut and selected-element annotation at 150% zoom have actual outcome evidence.
 
+- [ ] AC-08: A snapshot from a project pane or Settings retains the exact prior scoped thread or draft, never creates an unrelated scratch chat, and does not override a newer user navigation.
+- [ ] AC-09: Capturing the app itself does not request application activation or a cross-display capture animation; external-window capture behavior remains intact.
+
 ## Approach
 Inspect the capture and delivery code before altering it. Isolate app changes from other owners. Change the native macOS capture budget to operate on image pixels rather than window points, retain a conservative maximum pixel envelope, and test Retina and oversized captures. Generate deterministic text imagery headlessly and exercise the actual capture transform with Electron NativeImage. Trace upload and adapters to identify later transformations. Change preview or paste behavior only if evidence shows a separate defect.
 
@@ -48,6 +51,16 @@ Inspect the capture and delivery code before altering it. Isolate app changes fr
 
 ### T-06 Obtain live installed native acceptance
 - AC: AC-07 | Files: .specweave/increments/1016-fix-blurry-pasted-snapshots/evidence/installed-20261025/acceptance.md | Test: live desktop snapshot shortcut and selected-element annotation at 150% zoom, user-operated or explicitly authorized native interaction
+
+### T-08 Preserve snapshot conversation and self-capture focus
+- AC: AC-08, AC-09 | Files: apps/web/src/components/desktop/SnapShotCoordinator.tsx, apps/web/src/components/desktop/SnapShotCoordinator.test.ts, apps/web/src/components/desktop/snapShotTarget.ts, apps/web/src/components/desktop/snapShotTarget.test.ts, apps/web/src/components/sidebar/mainAppLocation.ts, apps/desktop/src/snapShot/DesktopSnapShot.ts, apps/desktop/src/snapShot/DesktopSnapShot.test.ts, docs/studio/snapshot-quality.md | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/desktop/SnapShotCoordinator.test.ts apps/web/src/components/desktop/snapShotTarget.test.ts apps/desktop/src/snapShot/DesktopSnapShot.test.ts
+
+User follow-up October 26, 2026: the physical both-Shift shortcut works, with native PNG attachments. Capturing from Settings can lose project/thread context or change the active app/desktop. Trace this separately from pixel quality; preserve exact scoped project-pane destinations and existing user draft contents. Native input remains stopped outside a newly coordinated slot.
+
+### T-09 Preserve snapshot source metadata through durable draft restore
+- AC: AC-05, AC-08 | Files: packages/contracts/src/composerDraft.ts, apps/server/src/composerDrafts/draftFiles.ts, apps/server/src/composerDrafts/draftFiles.test.ts, apps/web/src/lib/durableComposerDrafts.ts, apps/web/src/lib/durableComposerDrafts.test.ts, apps/web/src/lib/durableComposerDraftBindings.ts, apps/web/src/components/desktop/SnapShotCoordinator.tsx, apps/web/src/components/desktop/SnapShotCoordinator.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/composerDrafts/draftFiles.test.ts apps/web/src/lib/durableComposerDrafts.test.ts apps/web/src/components/desktop/SnapShotCoordinator.test.ts
+
+Fresh review of the first T-08 candidate found that coordinator durability omitted snapshot source metadata. Keep app/window identity, accessibility text/tree and pixel coordinates through journal and host save/restore before acknowledging the native capture. Existing source-less drafts remain readable. No live database access or migration is required.
 
 ### T-07 Verify and close 1016
 - AC: AC-04, AC-06, AC-07 | Files: .specweave/increments/1016-fix-blurry-pasted-snapshots/reports | Test: specweave verify 1016
