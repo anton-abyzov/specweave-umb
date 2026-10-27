@@ -1,0 +1,12 @@
+{
+  "id": "1090-design-system-page-brand-book",
+  "uuid": "0cdc35dd-5982-4561-81eb-76d96b5926fa",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T01:05:15.410Z",
+  "updated": "2026-10-27T01:33:24.096Z",
+  "lastActivity": "2026-10-27T01:33:24.096Z",
+  "title": "Design system page reads like a brand book and builds from scratch",
+  "project": "specweave-umb"
+}
