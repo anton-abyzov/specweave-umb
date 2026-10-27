@@ -55,7 +55,7 @@ Risk: the coordinator composer may list only certain skill sources; the composer
 
 ### T-03 Install globally after 1.0.100 and verify the coordinator slash command
 - AC: AC-08 | Files: none | Test: `ls ~/.claude/skills/project-wake/SKILL.md ~/.agents/skills/project-wake/SKILL.md` and a coordinator run of `/project-wake`
-- Expected per installed build (1093 owner, October 27, 2026). Without specwithcode-dev #881 (1.0.99, 1.0.100): the `/` row reads `/skill:Project Wake` and a pick inserts `$project-wake`; typed `/project-wake` runs in a Claude coordinator, is plain text in Codex. With #881: the row reads `$project-wake` with a "Personal" badge; typed `/project-wake` runs in Claude and in Codex. `~/.claude/skills` plus `~/.agents/skills` covers Claude Code, Codex and Copilot.
+- Expected per installed build (1093 owner, October 27, 2026). Without specwithcode-dev #881 (1.0.99, 1.0.100): the `/` row reads `/skill:Project Wake` and a pick inserts `$project-wake`, which runs; typed `/project-wake` runs only on a turn without project context (a coordinator turn that carries project context gets it as text, `ProjectContextRuntime.ts:34` exempts only `/goal`), and is plain text in Codex. With #881: the row reads `$project-wake` with a "Personal" badge; typed `/project-wake` is sent as `$project-wake` and runs in Claude and in Codex. `~/.claude/skills` plus `~/.agents/skills` covers Claude Code, Codex and Copilot.
 
 ### T-04 Verify and close 1091
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08 | Files: none | Test: `specweave verify 1091-create-project-wake-skill`
