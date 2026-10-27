@@ -1,0 +1,9 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-27T20:14:57.228Z","note":"session 01a17efe-af10-7eb0-a9d6-4945a0336c50"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-27T20:14:57.230Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-27T20:17:27.260Z","evidence":"Source audit and 8 failing behavioral regressions: /Users/antonabyzov/.specwithcode/m4/evidence/1106-red.log; reports/investigation.md\nHEAD 39235ca79"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-27T20:17:27.715Z"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-27T20:22:42.672Z"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-27T20:22:43.106Z"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-27T20:26:48.702Z","evidence":"d5c1283c07; 321 focused web tests passed, 46 policy tests passed; fresh review SHIP with both findings fixed\nHEAD 39235ca79"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-27T20:26:49.172Z","evidence":"d5c1283c07 docs/studio/operator-guide.md matches header, relay and failed-turn regressions\nHEAD 39235ca79"}
+{"t":"T-04","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-27T20:28:00.751Z","evidence":"d5c1283c07; headless native preview before/after receipt, 321 web tests,46 policy tests,production build, fresh review SHIP; final verify follows\nHEAD 39235ca79"}
