@@ -56,7 +56,7 @@ Risks: PR #834 changes `SystemWorkspace.tsx` imports and the Components branch o
 ### Asked
 - none (the coordinator gave the default interpretation; Anton's request is the brief)
 ### Defaulted (change any before sw-do)
-- D-01 Starter colors derive from one accent the person picks (default a neutral blue, `#3b6cf6`), never from a sample brand. Names use the plain `color-*`, `type-*`, `space-*`, `radius-*`, `shadow-*` prefixes.
+- D-01 Starter colors derive from one accent the person picks (default a neutral blue, `#2f6fed`, chosen apart from the Weave sample's `#3b6cf6`), never from a sample brand. Names use the plain `color-*`, `font-*` (families), `type-*` (styles), `space-*`, `radius-*`, `shadow-*` prefixes. An accent that is not hex or rgb() disables Add rather than falling back.
 - D-02 Contrast badges show only on text colors (ink, text, foreground, fg, on-…), as the reference does, not on every color.
 - D-03 Kie AI icons are not used: lucide covers all sections and adapts to both themes. Recorded in the report.
 - D-04 Spacing and radius previews are added although the reference has none, because the coordinator asked for visual previews of spacing and radii.
