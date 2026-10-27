@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-27T00:31:53.881450+00:00",
+  "installedVersion": "1.0.95",
+  "draft0969": "Current composer empty, inserted substring absent; no edits or send",
+  "captureSetupTest": "Passed using existing Screen Recording and Accessibility grants; reached Choose your shortcut",
+  "savedShortcut": "Shift + Shift",
+  "shortcutOutcome": "Not exercised: tools reject modifier-only chords",
+  "cuaError": "Computer Use server error -10005: keyPressIncludedNoNonModifierKeys(ComputerUse.XKeysymString.KeyPress(keys: [ComputerUse.XKeysym.Shift_L, ComputerUse.XKeysym.Shift_R]))",
+  "computerKeyError": "\"shift\" is not a key I can press. Use names such as return, escape, tab, space, up, f5, a, comma.",
+  "annotationOutcome": "Not exercised. Both tool-created and UI-created browser tabs are server-backed; native Annotate preview and capture controls are absent. Source PreviewView.tsx excludes these for isServerTab. No 150% crop acceptance claimed.",
+  "restoration": {
+    "snapshotsEnabled": false,
+    "shortcutUnchanged": true,
+    "testTabsClosed": true,
+    "accountsAndBillingChanged": false,
+    "restartOrDeploy": false
+  },
+  "fullNativeAcceptance": "PENDING"
+}
