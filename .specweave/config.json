@@ -208,7 +208,7 @@
       }
     }
   },
-  "livingDocs": "onDone",
+  "livingDocs": false,
   "jev": {
     "enabled": true,
     "provider": "openrouter",
