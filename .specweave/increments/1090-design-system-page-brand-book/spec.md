@@ -24,15 +24,15 @@ Out: server, contracts and RPC changes (the operations limit of 2,000 per apply 
 
 ## Acceptance Criteria
 
-- [ ] AC-01: Overview opens on a cover built from the system's own data: its name in its display font when it has one, its description, and a mosaic of up to eight of its own base-mode colors. A system with no colors shows the cover without a mosaic. Facts (modes, contents, sources, designs, revision) follow in a compact list.
-- [ ] AC-02: Section titles render in the serif display face at 32 px or more in rounded cards with generous padding; a section still collapses and its count and "+ Add" stay in the header.
-- [ ] AC-03: Every color value sits in a visible bordered field with its swatch inside, opening the existing color editor. Spacing and corner radius values in px, rem or em show a number field with the unit as a suffix; other values show a visible bordered text field. Enter or leaving saves and Escape restores, as before.
-- [ ] AC-04: Text colors (ink, text, foreground, fg, on-…) show their contrast ratio against the mode's ground (or, for on-X, against X) in each mode: a check at 4.5:1 or more, a warning below.
-- [ ] AC-05: A later mode without its own color shows its inherited swatch and the words "Inherits <first mode>".
-- [ ] AC-06: Spacing rows show a bar of the value's length, and corner radius rows show a corner drawn at that radius.
-- [ ] AC-07: Typography has "Upload font" in its header and in its empty state, storing woff, woff2, ttf and otf files under `fonts/`, and ends with a Font files list that says "No font files yet" when empty.
-- [ ] AC-08: An empty Colors, Typography, Spacing, Corner radius or Shadows section offers a starter set built from neutral defaults (an accent the person picks for colors, a font family for type). The welcome sheet offers all five at once. Each adds every token in one undoable edit, skips names already present, and never uses a sample brand's names or values.
-- [ ] AC-09: The section column uses distinct icons for Spacing, Corner radius, Layout, Size and Motion.
+- [x] AC-01: Overview opens on a cover built from the system's own data: its name in its display font when it has one, its description, and a mosaic of up to eight of its own base-mode colors. A system with no colors shows the cover without a mosaic. Facts (modes, contents, sources, designs, revision) follow in a compact list.
+- [x] AC-02: Section titles render in the serif display face at 32 px or more in rounded cards with generous padding; a section still collapses and its count and "+ Add" stay in the header.
+- [x] AC-03: Every color value sits in a visible bordered field with its swatch inside, opening the existing color editor. Spacing and corner radius values in px, rem or em show a number field with the unit as a suffix; other values show a visible bordered text field. Enter or leaving saves and Escape restores, as before.
+- [x] AC-04: Text colors (ink, text, foreground, fg, on-…) show their contrast ratio against the mode's ground (or, for on-X, against X) in each mode: a check at 4.5:1 or more, a warning below.
+- [x] AC-05: A later mode without its own color shows its inherited swatch and the words "Inherits <first mode>".
+- [x] AC-06: Spacing rows show a bar of the value's length, and corner radius rows show a corner drawn at that radius.
+- [x] AC-07: Typography has "Upload font" in its header and in its empty state, storing woff, woff2, ttf and otf files under `fonts/`, and ends with a Font files list that says "No font files yet" when empty.
+- [x] AC-08: An empty Colors, Typography, Spacing, Corner radius or Shadows section offers a starter set built from neutral defaults (an accent the person picks for colors, a font family for type). The welcome sheet offers all five at once. Each adds every token in one undoable edit, skips names already present, and never uses a sample brand's names or values.
+- [x] AC-09: The section column uses distinct icons for Spacing, Corner radius, Layout, Size and Motion.
 
 ## Approach
 
