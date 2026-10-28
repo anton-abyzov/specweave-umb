@@ -1,0 +1,16 @@
+{
+  "id": "1127-seo-keyword-hubs-and-technical-audit",
+  "uuid": "7d2897cd-6dd8-4930-a8fe-7abcc2afda5e",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T14:55:38.756Z",
+  "updated": "2026-10-28T17:39:37.901Z",
+  "lastActivity": "2026-10-28T17:39:37.901Z",
+  "title": "SEO keyword hubs and technical audit",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T17:39:37.885Z",
+  "closeReason": "Shipped via PRs: docs CI build and verify-seo pass (#2184), platform npm test and release verify pass (#200); umbrella-wide specweave/vskill suites run on unrelated stale checkouts",
+  "approvedAt": "2026-10-28T17:39:37.901Z"
+}
