@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-28T06:36:42.803Z",
-  "updated": "2026-10-28T06:36:42.803Z",
-  "lastActivity": "2026-10-28T06:36:42.803Z",
+  "updated": "2026-10-28T08:24:56.202Z",
+  "lastActivity": "2026-10-28T08:24:56.202Z",
   "title": "Updates survive database restarts and finish fast",
   "project": "specweave-umb"
 }
