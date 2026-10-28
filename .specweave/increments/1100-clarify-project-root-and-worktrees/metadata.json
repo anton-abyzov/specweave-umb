@@ -1,0 +1,15 @@
+{
+  "id": "1100-clarify-project-root-and-worktrees",
+  "uuid": "49f0e7fd-bd80-4f6f-9a42-e062d15f6d5e",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T15:20:31.243Z",
+  "updated": "2026-10-28T23:12:49.410Z",
+  "lastActivity": "2026-10-28T23:12:49.410Z",
+  "title": "Clarify project root and worktrees",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T23:12:49.404Z",
+  "approvedAt": "2026-10-28T23:12:49.410Z"
+}
