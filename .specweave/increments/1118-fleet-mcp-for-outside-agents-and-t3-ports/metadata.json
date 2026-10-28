@@ -1,0 +1,12 @@
+{
+  "id": "1118-fleet-mcp-for-outside-agents-and-t3-ports",
+  "uuid": "0c3e5bfb-a80b-4d45-90a4-3ad1685fad44",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T13:04:09.052Z",
+  "updated": "2026-10-28T13:04:09.052Z",
+  "lastActivity": "2026-10-28T13:04:09.052Z",
+  "title": "Fleet MCP for outside agents and T3 ports",
+  "project": "specweave-umb"
+}
