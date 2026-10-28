@@ -66,3 +66,44 @@ User reports overlapping long steer, assistant and tool rows plus temporarily bl
 Verified follow-up direction: the existing web virtualizer delays position recalculation until another animation frame while its MVCP anchor lock is active. Pane narrowing plus live text changes reproduces updated measured heights with stale downstream positions in the first frame. Test the dependency's own web path rather than introducing a second app-level size cache. Native variants stay unchanged. T-06 is unnecessary if the library repair resolves the reproduction. Longer interaction blocking remains unproven and must be tested/reported separately.
 
 Scaling refinement: keep fractional layout border-box units consistent across synchronous reads and ResizeObserver. The final source acceptance uses native headless preview; standalone Playwright wrapper execution and native Electron zoom are explicitly unverified.
+
+
+## Internal receipt follow-up, October 28, 2026
+
+Installed app 1.0.109 still uses old relay/default and coordinator empty-turn rendering. Prior local 1106 commits were never pushed or installed. Current screenshot contains three internal worker receipts followed by empty coordinator acknowledgements. Preserve reply-style and detail settings independently; make non-verbose internal receipts compact in both shared relay consumers, retaining candidate questions/decisions/actionable failures inline and the entire original behind disclosure/Find/copy. Do not change the user's mode. This is presentation only; 1130 stays proposal-only and 1095 retains attention/blocker classification. Both owners are completed, and steer-only 1130 coordination returned thread_not_sendable without resuming it. No release dispatch, external session mutation or Stop release.
+
+- [ ] AC-09: The screenshot receipt sequence folds without hash/log/path previews or metadata-only blank chrome in coordinator and worker views under non-verbose detail. Verbose and disclosure/Find retain complete original text/activity.
+- [ ] AC-10: User prompts, candidate questions/decisions, actionable failures, attachments, thread cards and active output remain accessible; no classification or lifecycle changes overlap 1130/1095.
+- [ ] AC-11: Current source/installed/owner inventory, red-green regressions, real-component headless evidence, exact-head fresh review, CI and PR delivery are recorded separately from installation.
+
+### T-10 Compact shared internal receipt presentation
+- AC: AC-09, AC-10 | Files: apps/web/src/components/studio/RelayedMessage.tsx, apps/web/src/components/studio/RelayedMessage.test.tsx, apps/web/src/studio/workerMessagePresentation.ts, apps/web/src/studio/workerMessagePresentation.test.ts | Test: focused relay and presentation tests for the screenshot sequence, both source directions, disclosure, Find and candidate attention
+
+### T-11 Remove metadata-only coordinator chrome through a shared content predicate
+- AC: AC-09, AC-10 | Files: apps/web/src/components/studio/CoordinatorConversation.tsx, apps/web/src/components/studio/ProjectWorkspace.test.tsx, apps/web/src/components/chat/MessagesTimeline.logic.ts, apps/web/src/components/chat/MessagesTimeline.logic.test.ts, apps/web/src/studio/messagePresentation.ts, apps/web/src/studio/messagePresentation.test.ts | Test: coordinator and worker empty-turn parity, preserve activity access, attachments, cards and active messages
+
+### T-12 Reproduce and deliver current receipt sequence
+- AC: AC-11 | Files: apps/web/tests/activity-diffs/, apps/web/tests/project-workspace/, apps/web/tests/agent-messages/internalReceipts.ts, apps/web/tests/agent-messages/internal-receipts-check.mjs, docs/studio/operator-guide.md, reports/internal-receipts-investigation.md, reports/internal-receipts-validation.md | Test: headless native preview real components in both views at 390/1280 light/dark, focused production build; push own branch and open PR; CI checks
+
+### T-13 Verify and close 1106
+- AC: AC-11 | Files: reports/internal-receipts-review.md | Test: current scoped verify, fresh-context exact-head review, complete; installed acceptance remains explicit proof limit
+
+
+## Explicit timing and 0957 follow-up, October 28, 2026
+
+The header chip receives only shell.latestRun.startedAt/completedAt. It shows the newest presented run's wall-clock span, floored to minutes, or current UTC minute minus start while unfinished. It is not cumulative active work; waits inside a turn count, gaps between completed turns do not. No current active timing/header owner was found in the project title/catalog and file history; old machine-header and timer fixes are merged. 1130 is now running on finite assignment versus durable goal/lifecycle. Steer-only scope coordination delivered; 1106 will not resolve workers or change attention classification.
+
+Defaulted presentation: compact current status or explicit Last turn elapsed. A keyboard/touch-accessible timing disclosure explains start-to-finish wall-clock meaning and recorded-turn cumulative elapsed from available valid spans only. Gaps/background watches outside turns are excluded, overlap is counted once, and waits inside a span are explicitly included. Loaded/partial history and unknown timing are disclosed; no active-work estimate, provider-session age or invented lifetime total. Reuse current activity-run selector and existing run-health/background-work signals, with no telemetry/schema/DB changes. The same component/helper applies to coordinator and worker thread pages; compact coordinator Overview keeps its existing status surface.
+
+- [ ] AC-12: The header distinguishes latest/current turn elapsed from cumulative recorded elapsed, updates for follow-ups/steers/resume, and never silently labels idle/watch duration active work.
+- [ ] AC-13: Recorded totals use available valid unique spans, exclude between-turn gaps and unstarted/invalid/unknown ends, handle overlaps/partial history, and preserve current queued/waiting/stopped status without extrapolating settled turns.
+- [ ] AC-14: The 0957 mobile Connect carry-forward and repetitive no-action receipts fold in non-verbose relay presentation while legitimate user results/questions remain visible; lifecycle ownership remains with 1130.
+
+### T-14 Clarify latest and recorded timing
+- AC: AC-12, AC-13 | Files: apps/web/src/components/chat/ThreadMetaRow.tsx, apps/web/src/components/chat/ThreadMetaRow.test.tsx, apps/web/src/components/chat/threadTiming.ts, apps/web/src/components/chat/threadTiming.test.ts, apps/web/src/components/ChatView.tsx, docs/studio/operator-guide.md, reports/timing-investigation.md | Test: focused timing, metadata and existing execution selector regressions for multiple messages/turns, active/queued/waits/resume/missing timestamps and disclosure accessibility
+
+### T-15 Regress 0957 no-action carry-forward receipts
+- AC: AC-14 | Files: apps/web/src/studio/workerMessagePresentation.ts, apps/web/src/studio/workerMessagePresentation.test.ts, apps/web/tests/agent-messages/internalReceipts.ts, apps/web/src/components/studio/RelayedMessage.test.tsx, apps/web/src/studio/messagePresentation.test.ts, reports/internal-receipts-investigation.md | Test: exact 0957-style receipts fold; user-action and user-result preservation cases pass; coordinate 1130, no lifecycle edits
+
+### T-16 Verify and close 1106
+- AC: AC-12, AC-13, AC-14 | Files: apps/web/tests/thread-machine/, apps/web/tests/chat-density/, reports/timing-validation.md, reports/timing-review.md | Test: headless real metadata component across coordinator/worker, live/settled/waits/multiple follow-ups, relevant production build, exact-head CI/PR959, current scoped verify, fresh-context review and complete

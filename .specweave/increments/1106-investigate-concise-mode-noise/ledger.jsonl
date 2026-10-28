@@ -16,3 +16,13 @@
 {"t":"T-08","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T03:10:23.922Z","evidence":"App commit c43122baf0; 375 focused tests; production and fixture builds; 174 native headless geometry samples; reports/overlap-validation.md records interaction evidence and limits\nHEAD b5fd4c95e"}
 {"t":"T-09","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T03:10:25.339Z","evidence":"App commit c43122baf0; 375 focused tests; production and fixture builds; 174 native headless geometry samples; reports/overlap-validation.md records interaction evidence and limits\nHEAD b5fd4c95e"}
 {"t":"T-07","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T03:10:26.828Z","evidence":"App commit c43122baf0; 375 focused tests; production and fixture builds; 174 native headless geometry samples; reports/overlap-validation.md records interaction evidence and limits\nHEAD b5fd4c95e"}
+{"t":"T-10","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T16:34:05.094Z"}
+{"t":"T-11","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T16:34:06.513Z"}
+{"t":"T-12","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T16:46:40.390Z"}
+{"t":"T-13","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T16:46:41.616Z"}
+{"t":"T-10","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T17:08:45.461Z","evidence":"e0e579ed98; screenshot receipts at coordinator positions 8532/8536/8539, both relay directions; candidate heading/list/login regressions; 443 focused web tests and 12 headless cases pass\nHEAD 3cff22988"}
+{"t":"T-11","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T17:08:46.855Z","evidence":"9a78932f2f and e0e579ed98; shared content predicate preserves active output, attachments/cards and errors; coordinator empty chrome replaced by activity access; worker empty-message regressions pass\nHEAD 3cff22988"}
+{"t":"T-14","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T17:17:31.479Z"}
+{"t":"T-15","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T17:17:37.916Z"}
+{"t":"T-14","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T17:35:09.814Z","evidence":"6e8396eff2454c5228cdf85e85393f672bc633b9; current/latest and recorded interval timing, live selector wiring, 91 focused tests pass; 12 headless timing cases pass; source fresh review SHIP\nHEAD a89f4c27d"}
+{"t":"T-15","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T17:35:20.999Z","evidence":"6e8396eff2454c5228cdf85e85393f672bc633b9; verbatim 0957 p101 relay folds, p99/p108 user results preserved; Markdown requests regression-covered; 91 focused tests pass; lifecycle1130 untouched\nHEAD a89f4c27d"}

@@ -1,12 +1,12 @@
 {
   "id": "1106-investigate-concise-mode-noise",
   "uuid": "dfccf2d6-6012-4a38-8881-6ddd9cdbd2c7",
-  "status": "completed",
+  "status": "active",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-27T20:13:46.594Z",
-  "updated": "2026-10-28T03:12:39.174Z",
-  "lastActivity": "2026-10-28T03:12:39.174Z",
+  "updated": "2026-10-28T17:35:20.999Z",
+  "lastActivity": "2026-10-28T17:35:20.999Z",
   "title": "Investigate concise mode noise",
   "project": "specweave",
   "externalLinks": {},
@@ -19,8 +19,15 @@
       "reason": "User follow-up: reproduce and fix overlapping streamed/steered timeline rows and temporarily blocked interaction",
       "approvedAt": "2026-10-27T20:29:54.782Z",
       "readyForReviewAt": "2026-10-27T20:29:54.781Z"
+    },
+    {
+      "from": "completed",
+      "to": "planned",
+      "at": "2026-10-28T16:31:55.515Z",
+      "by": "codex@antons-macbook-m4max",
+      "reason": "User follow-up: concise internal receipts and metadata-only turns; shared coordinator and worker presentation with PR delivery",
+      "approvedAt": "2026-10-28T03:12:39.174Z",
+      "readyForReviewAt": "2026-10-28T03:12:39.173Z"
     }
-  ],
-  "readyForReviewAt": "2026-10-28T03:12:39.173Z",
-  "approvedAt": "2026-10-28T03:12:39.174Z"
+  ]
 }

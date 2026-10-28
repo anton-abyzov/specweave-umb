@@ -1,0 +1,9 @@
+# Explicit turn timing
+
+October 28, 2026. Worktree: `/Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1106-concise-noise`. PR: https://github.com/anton-abyzov/specwithcode-dev/pull/959 . Installed app independently read as 1.0.109; no installation or restart performed.
+
+The old `Ran 1m` chip receives `shell.latestRun.startedAt/completedAt`. It is that app run's start-to-finish wall-clock duration floored to minutes. It is neither cumulative work nor provider-session age. Live timing subtracts start from a minute-quantized current clock; tool/provider/answer waits within the run count. Follow-ups that create new runs replace the displayed run. Steered messages inside the same run retain its start. Background time outside completed turns is absent. A queued latest run can obscure the execution owner; an unknown terminal end can look live if only null completion is checked.
+
+The replacement reuses `activeActivityRun` and existing run-health/background signals. It shows Last turn, Running with explicit elapsed, Queued/Queue held, Waiting on you, tool waiting, No recent progress or Watching. Timing details show current/latest elapsed and Recorded turn elapsed across valid available unique run spans. Overlaps count once, gaps are excluded, missing terminal ends never extend to now, queued retained starts never count, partial history is labeled. No active-work estimate, telemetry or persistence schema was added. Coordinator and worker thread pages share ChatView and ThreadMetaRow; compact coordinator Overview has its existing status surface.
+
+1130 retains lifecycle/assignment ownership and excludes these files; 1095 attention classification is untouched. Header/timer history and current catalog were inspected without reviving cancelled sessions or claiming other work.
