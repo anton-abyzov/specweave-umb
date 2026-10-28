@@ -38,5 +38,11 @@ specweave-studio, worktree ~/.specwithcode/m4/worktrees/specweave-studio/skills-
 ### T-02 Composer skills popover
 - AC: AC-01, AC-03 | Files: specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.tsx, specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.logic.ts, specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.logic.test.ts, specweave-studio/apps/web/src/components/chat/ChatComposer.tsx, specweave-studio/apps/web/src/components/ChatView.tsx | Test: pnpm --dir specweave-studio exec vitest run apps/web/src/components/chat/ComposerSkillsPopover.logic.test.ts && headless Playwright screenshot of the popover
 
+### T-04 Exact session skill version provenance
+- AC: AC-01, AC-02 | Files: specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.logic.ts, specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.logic.test.ts, specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.tsx | Test: cd apps/web && npx vp test run src/components/chat/ComposerSkillsPopover.logic.test.ts
+
+### T-05 Restore UI guard compliance
+- AC: AC-01 | Files: specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.logic.ts, specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.logic.test.ts, specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.tsx | Test: cd apps/web && npx vp test run src/components/chat/ComposerSkillsPopover.logic.test.ts src/retiredIcons.guard.test.ts src/themeContrastClasses.test.ts
+
 ### T-03 Verify and close 1124
 - AC: AC-01, AC-02, AC-03 | Files: .specweave/increments/1124-skills-in-this-session-popover/reports/ | Test: specweave verify 1124; fresh-context review; specweave complete 1124

@@ -37,5 +37,8 @@ specweave-studio, worktree ~/.specwithcode/m4/worktrees/specweave-studio/fleet-s
 ### T-02 Worker, handler and CLI
 - AC: AC-01, AC-02 | Files: specweave-studio/apps/server/src/fleet/fleetSkills.ts, specweave-studio/apps/server/src/fleet/fleetSkills.test.ts, specweave-studio/apps/server/src/studioFleetHttp.ts, specweave-studio/apps/server/src/server.ts, specweave-studio/apps/server/src/cli/fleet.ts | Test: pnpm --dir specweave-studio exec vitest run apps/server/src/fleet/fleetSkills.test.ts apps/server/src/studioFleetHttp.test.ts
 
+### T-04 Fix Linux process snapshot race exposed by CI
+- AC: AC-01 | Files: specweave-studio/apps/server/src/provider/acp/AcpSessionRuntime.ts, specweave-studio/apps/server/src/provider/acp/AcpSessionRuntime.linuxSnapshot.test.ts | Test: cd apps/server && npx vp test run src/provider/acp/AcpSessionRuntime.linuxSnapshot.test.ts src/provider/acp/AcpSessionRuntime.processTree.test.ts
+
 ### T-03 Verify and close 1125
 - AC: AC-01, AC-02, AC-03 | Files: .specweave/increments/1125-fleet-skill-version-push-over-connect/reports/ | Test: specweave verify 1125; fresh-context review; specweave complete 1125
