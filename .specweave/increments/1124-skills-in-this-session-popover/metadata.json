@@ -1,0 +1,12 @@
+{
+  "id": "1124-skills-in-this-session-popover",
+  "uuid": "8c14d183-b935-4592-b76d-9d91792fb1d0",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T14:52:44.021Z",
+  "updated": "2026-10-28T14:52:44.021Z",
+  "lastActivity": "2026-10-28T14:52:44.021Z",
+  "title": "Skills in this session popover",
+  "project": "specweave-umb"
+}

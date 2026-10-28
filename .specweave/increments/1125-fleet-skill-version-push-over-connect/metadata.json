@@ -1,0 +1,12 @@
+{
+  "id": "1125-fleet-skill-version-push-over-connect",
+  "uuid": "db3ab9c5-06b3-4335-974a-17486b25819e",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T14:52:44.751Z",
+  "updated": "2026-10-28T14:52:44.751Z",
+  "lastActivity": "2026-10-28T14:52:44.751Z",
+  "title": "Fleet skill version push over Connect",
+  "project": "specweave-umb"
+}
