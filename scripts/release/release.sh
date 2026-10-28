@@ -304,6 +304,60 @@ check_desktop_app() {
   fi
 }
 
+# check_tag_drift: fail when the default branch has commits under the check's
+# paths after the tag <tag_prefix><version>, so a build that was never tagged
+# again shows as stale instead of passing on the last tag. It fetches both refs
+# into private refs of the track's checkout (no remote-tracking ref, tag or
+# FETCH_HEAD changes, so a parallel `status --fetch` cannot collide) and
+# deletes them after; when the fetch fails it counts on the local refs.
+check_tag_drift() {
+  local prefix fix path def tag ns head base src="origin" total n newest paths=()
+  prefix="$(jq -r '.tag_prefix // empty' <<<"$CHECK")"
+  fix="$(jq -r '.fix // "ship a new build"' <<<"$CHECK")"
+  path="$(repo_abs_path "$(track_field "$TRACK" repo)")"
+  def="$(repo_field "$(track_field "$TRACK" repo)" default_branch)"
+  def="${def:-main}"
+  while IFS= read -r n; do [ -z "$n" ] || paths+=("$n"); done < <(jq -r '.paths // [] | .[]' <<<"$CHECK")
+  if [ -z "$VERSION" ]; then
+    C_STATUS=fail; C_DETAIL="no $prefix release found to compare origin/$def with"; return
+  fi
+  if [ ${#paths[@]} -eq 0 ]; then
+    C_STATUS=fail; C_DETAIL="tag_drift check lists no paths"; return
+  fi
+  if [ ! -e "$path/.git" ]; then
+    C_STATUS=skip; C_DETAIL="no local checkout at $path"; return
+  fi
+  tag="$prefix$VERSION"
+  ns="refs/release-drift/$(basename "$(mktemp -d "$WORK/drift.XXXXXX")")"
+  if with_timeout 60 git -C "$path" fetch -q --no-tags --no-write-fetch-head --refmap= origin \
+    "+refs/heads/$def:$ns/head" "+refs/tags/$tag:$ns/base" 2>/dev/null; then
+    head="$ns/head"; base="$ns/base"
+  else
+    head="refs/remotes/origin/$def"; base="refs/tags/$tag"; src="local refs (fetch failed)"
+  fi
+  if ! git -C "$path" rev-parse -q --verify "$base^{commit}" >/dev/null 2>&1 ||
+    ! git -C "$path" rev-parse -q --verify "$head^{commit}" >/dev/null 2>&1; then
+    git -C "$path" update-ref -d "$ns/head" 2>/dev/null || true
+    git -C "$path" update-ref -d "$ns/base" 2>/dev/null || true
+    C_STATUS=fail; C_DETAIL="cannot read $tag or origin/$def in $path ($src)"; return
+  fi
+  total="$(git -C "$path" rev-list --count "$base..$head" 2>/dev/null)" || total="?"
+  n="$(git -C "$path" rev-list --count "$base..$head" -- "${paths[@]}" 2>/dev/null)" || n=""
+  newest="$(git -C "$path" log -1 --format='%h %cs %s' "$base..$head" -- "${paths[@]}" 2>/dev/null | cut -c1-80)" || newest=""
+  git -C "$path" update-ref -d "$ns/head" 2>/dev/null || true
+  git -C "$path" update-ref -d "$ns/base" 2>/dev/null || true
+  if [ -z "$n" ]; then
+    C_STATUS=fail; C_DETAIL="git rev-list failed for $tag..origin/$def in $path"
+  elif [ "$n" -gt 0 ]; then
+    C_STATUS=fail
+    C_DETAIL="stale: $n of $total commits on origin/$def since newest tag $tag touch $(printf '%s ' "${paths[@]}")(newest $newest); $fix"
+  else
+    C_STATUS=pass
+    C_DETAIL="current: $tag; $total commits on origin/$def since, none under $(printf '%s ' "${paths[@]}" | sed 's/ $//')"
+  fi
+  [ "$src" = origin ] || C_DETAIL="$C_DETAIL [$src]"
+}
+
 # resolve_version <track>: the version verify should expect.
 resolve_version() {
   local track="$1" how repo slug def file
@@ -344,6 +398,7 @@ verify_track() {
       wrangler_deployments) check_wrangler_deployments ;;
       fleet_endpoint) check_fleet_endpoint ;;
       desktop_app) check_desktop_app ;;
+      tag_drift) check_tag_drift ;;
       *) C_STATUS=fail; C_DETAIL="unknown check kind $kind" ;;
     esac
     emit "$(jq -r '.name' <<<"$CHECK")" "$kind" "$blocking" "$C_STATUS" "$C_DETAIL" >>"$results"
@@ -521,6 +576,8 @@ print_status_table() {
       ([.checks[] | select(.status != "pass")] | if length == 0 then "all live checks pass"
        else map("\(.name): \(.detail)") | join("; ") end)] | @tsv' "$file" |
       awk -F'\t' '{ printf "%-16s %-9s %-8s %s\n", $1, $2, $3, substr($4, 1, 160) }'
+    jq -r '.tracks[] | .track as $t | .checks[] | select(.kind == "tag_drift")
+      | "drift \($t): \(.status | ascii_upcase) \(.detail)"' "$file"
     printf '(* local origin ref is behind GitHub; run status --fetch for exact counts)\n'
   } >&2
 }
@@ -1047,20 +1104,32 @@ cmd_ship() {
   fi
   # One pipeline per repo, run in parallel; tracks sharing a repo run in order.
   # A track whose verify is still pending (exit 2) does not stop the next one.
+  # After a failure the rest of that repo's tracks are skipped, except a track
+  # whose manifest entry says "after_failure": "run" (vskill-desktop builds
+  # from source, not from the npm package). The repo still reports failure.
   local repos repo pids="" names="" track
   repos="$(for track in $tracks; do track_field "$track" repo; done | awk '!seen[$0]++')"
   for repo in $repos; do
     (
       local_rc=0
+      failed_track=""
       for track in $tracks; do
         [ "$(track_field "$track" repo)" = "$repo" ] || continue
+        if [ -n "$failed_track" ]; then
+          if [ "$(track_field "$track" after_failure)" != run ]; then
+            log "[$track] skipped: $failed_track failed earlier in this run"
+            continue
+          fi
+          log "[$track] running although $failed_track failed: it does not depend on it"
+        fi
         one=0
-        ship_track "$track" "$dry" "$plan" ${extra[@]+"${extra[@]}"} || one=$?
+        # A subshell, so a track that dies (die exits) cannot stop the ones after it.
+        (ship_track "$track" "$dry" "$plan" ${extra[@]+"${extra[@]}"}) || one=$?
         if [ "$one" -eq 2 ]; then
-          local_rc=2
+          [ "$local_rc" -eq 1 ] || local_rc=2
         elif [ "$one" -ne 0 ]; then
           local_rc=1
-          break
+          failed_track="${failed_track:+$failed_track, }$track"
         fi
       done
       exit "$local_rc"
