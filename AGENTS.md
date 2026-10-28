@@ -25,7 +25,7 @@ Tasks in spec.md: `### T-01 Title`, then `- AC: AC-01 | Files: src/a.ts, tests/e
 
 - Use headless Chrome/Playwright CLI for browser tests and automation: `headless: true`, `PWDEBUG=0`, `PLAYWRIGHT_HTML_OPEN=never`, HTML reports `open: 'never'`. Save captures to files; propagate to subagents. Before opening an essential visible browser, ask the user and wait for explicit approval. Headless failure is not approval.
 - A task is done when its Test exits 0 and you have seen the real output. A Test checks the AC as users would (CLI, HTTP, UI, API); add unit tests only when asked or when config or conventions require them. Never skip, weaken or delete a test to pass, and never set a status by hand.
-- One agent per branch/worktree: `git worktree add <worktree root>/<repo>/NNNN-<agent> -b inc/NNNN-<agent>`, where the worktree root is SpecWithCode's configured one (never `../` or `.worktrees/`: from a repo here that lands in ~/Projects/github). Claims older than 2h are stale. On `ledger.jsonl` conflicts keep both sides' lines.
+- One agent per branch/worktree: `git worktree add <worktree root>/<repo>/NNNN-<agent> -b inc/NNNN-<agent>`, where the worktree root is SpecWithCode's configured one (never `../` or `.worktrees/`: from a repo here that lands in ~/Projects/github). Remove your worktree once its PR merges or closes. Claims older than 2h are stale. On `ledger.jsonl` conflicts keep both sides' lines.
 - Commit durable decisions in spec.md Approach or one fact per file in `.specweave/memory/`, indexed in `MEMORY.md`, for all tools.
 - Check a secret exists without printing it; never commit `.env*`.
 - Honor project identity and licensing. Keep provenance and required notices; never infer license grants or history rewrites from branding changes.
