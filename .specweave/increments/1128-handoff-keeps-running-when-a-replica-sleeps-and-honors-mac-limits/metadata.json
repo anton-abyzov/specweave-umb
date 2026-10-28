@@ -1,0 +1,12 @@
+{
+  "id": "1128-handoff-keeps-running-when-a-replica-sleeps-and-honors-mac-limits",
+  "uuid": "775dbdef-9e53-4cdc-ac6a-df29e28c9e10",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T14:56:46.686Z",
+  "updated": "2026-10-28T14:56:46.686Z",
+  "lastActivity": "2026-10-28T14:56:46.686Z",
+  "title": "Handoff keeps running when a replica sleeps and honors Mac limits",
+  "project": "specweave-umb"
+}
