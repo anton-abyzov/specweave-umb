@@ -14,6 +14,7 @@ In: carrying a forced request's hold across a held database restart (helper mark
 - [ ] AC-02: A regular Finder .DS_Store file in a release, helper folder, provider release or backup folder no longer fails provider activation, helper verification or backup pruning; any other unlisted file or a symlink named .DS_Store still fails.
 - [ ] AC-03: A forced install whose delta read misses does not repeat a full database read before the stop when the earlier full read still proves the rows; every refusal still names its cause.
 - [ ] AC-04: Orphaned owned-updates folders, held receipts and reap records older than 7 days, and install/verification entries older than 7 days, are pruned after an update; the current run's files and the last verified install's files are never removed.
+- [ ] AC-05: A Finder .DS_Store written into the build or runtime folder while a release bundles never enters the archive and never fails bundle verification.
 
 ## Approach
 
@@ -43,5 +44,8 @@ Studio repo, worktree ~/.specwithcode/m4/worktrees/update-restart-hold, branch f
 ### T-04 Prune orphaned update records and old verification
 - AC: AC-04 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/release_retention.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-release-retention.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update.py | Test: cd ~/.specwithcode/m4/worktrees/update-restart-hold && export PATH=$HOME/.nvm/versions/node/v22.20.0/bin:$PATH && python3 scripts/studio-fleet/test-release-retention.py
 
+### T-06 Keep Finder files out of release bundles
+- AC: AC-05 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/bundle.mjs, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/verify-bundle.mjs | Test: cd ~/.specwithcode/m4/worktrees/update-restart-hold && export PATH=$HOME/.nvm/versions/node/v22.20.0/bin:$PATH && R=$(ls -d ~/.specwithcode/release-staging/*/runtime-* | tail -1) && touch $R/client/.DS_Store && node scripts/studio-fleet/verify-bundle.mjs $R && rm $R/client/.DS_Store
+
 ### T-05 Verify and close 1116
-- AC: AC-01, AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update.py | Test: cd ~/.specwithcode/m4/worktrees/update-restart-hold && export PATH=$HOME/.nvm/versions/node/v22.20.0/bin:$PATH && bash scripts/studio-fleet/run-tests.sh && node node_modules/vite-plus/bin/vp test run apps/server/src/serviceUpdate apps/server/src/serverRuntimeStartup.test.ts && node node_modules/vite-plus/bin/vp run @specweave-studio/server#typecheck
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update.py | Test: cd ~/.specwithcode/m4/worktrees/update-restart-hold && export PATH=$HOME/.nvm/versions/node/v22.20.0/bin:$PATH && bash scripts/studio-fleet/run-tests.sh && node node_modules/vite-plus/bin/vp test run apps/server/src/serviceUpdate apps/server/src/serverRuntimeStartup.test.ts && node node_modules/vite-plus/bin/vp run @specweave-studio/server#typecheck
