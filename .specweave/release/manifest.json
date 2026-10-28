@@ -215,7 +215,10 @@
         { "name": "public mirror release", "kind": "gh_release", "repo": "anton-abyzov/specwithcode", "tag": "v{version}" },
         { "name": "M4 service", "kind": "fleet_endpoint", "url": "http://127.0.0.1:8319/.well-known/studio/environment", "state_file": "~/.specwithcode/m4/updates/state.json" },
         { "name": "M1 service", "kind": "fleet_endpoint", "url": "http://127.0.0.1:18319/.well-known/studio/environment" },
-        { "name": "M3 service", "kind": "fleet_endpoint", "url": "http://127.0.0.1:28319/.well-known/studio/environment" }
+        { "name": "M3 service", "kind": "fleet_endpoint", "url": "http://127.0.0.1:28319/.well-known/studio/environment" },
+        { "name": "M4 app", "kind": "desktop_app", "host": "local" },
+        { "name": "M1 app", "kind": "desktop_app", "host": "m1" },
+        { "name": "M3 app", "kind": "desktop_app", "host": "m3" }
       ]
     }
   }

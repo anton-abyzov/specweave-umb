@@ -199,6 +199,87 @@ check_fleet_endpoint() {
   fi
 }
 
+# desktop_app_probe <app> <plistbuddy> <codesign>: the program /bin/bash -s runs on the Mac, here
+# or over ssh. It prints "missing", or "version=<v>" then "signature=ok" or "signature=bad <why>".
+desktop_app_probe() {
+  printf 'app=%q plistbuddy=%q codesign=%q\n' "$1" "$2" "$3"
+  cat <<'SH'
+if [ ! -d "$app" ]; then echo missing; exit 0; fi
+printf 'version=%s\n' "$("$plistbuddy" -c 'Print :CFBundleShortVersionString' "$app/Contents/Info.plist" 2>/dev/null)"
+if out="$("$codesign" --verify --deep --strict "$app" 2>&1)"; then echo signature=ok; else read -r first <<<"$out"; echo "signature=bad $first"; fi
+SH
+}
+
+# check_desktop_app: /Applications/SpecWithCode.app on one Mac is the released version and passes
+# codesign --verify --deep --strict. "host" is "local" (this Mac, M4) or a fleet id such as m1,
+# looked up in the inventory the track's fleet section names ($STUDIO_FLEET_HOSTS or
+# ~/.local/share/specweave/fleet/hosts.json: {id: {host, user, home}}) and read over the pinned
+# fleet ssh. The self-test overrides RELEASE_DESKTOP_APP (the app's path on every Mac),
+# RELEASE_SSH, RELEASE_PLISTBUDDY and RELEASE_CODESIGN.
+check_desktop_app() {
+  local id app where inventory key known entry user host out rc=0 line last missing=0 version="" signature=""
+  id="$(jq -r '.host // empty' <<<"$CHECK")"
+  app="${RELEASE_DESKTOP_APP:-/Applications/SpecWithCode.app}"
+  if [ -z "$VERSION" ]; then
+    C_STATUS=fail; C_DETAIL="no released version to compare $id's app with (give --version)"; return
+  fi
+  local probe
+  probe="$(desktop_app_probe "$app" "${RELEASE_PLISTBUDDY:-/usr/libexec/PlistBuddy}" "${RELEASE_CODESIGN:-/usr/bin/codesign}")"
+  if [ "$id" = local ]; then
+    where="this Mac"
+    out="$(with_timeout 60 /bin/bash -s <<<"$probe" 2>&1)" || rc=$?
+  else
+    where="$id"
+    if ! [[ $id =~ ^[a-z0-9][a-z0-9_-]{0,31}$ ]]; then
+      C_STATUS=fail; C_DETAIL="host must be local or a fleet id such as m1, not '$id'"; return
+    fi
+    inventory="$(expand_home "${STUDIO_FLEET_HOSTS:-~/.local/share/specweave/fleet/hosts.json}")"
+    key="$(expand_home "$(track_field "$TRACK" fleet | jq -r '.ssh_key // empty' 2>/dev/null)")"
+    key="${key:-$HOME/.local/share/specweave/fleet/id_ed25519}"
+    known="$(dirname "$key")/known_hosts"
+    if [ ! -f "$inventory" ]; then
+      C_STATUS=fail; C_DETAIL="fleet inventory $inventory not found, so $id cannot be reached"; return
+    fi
+    entry="$(jq -r --arg id "$id" '.[$id] | select(type == "object") | "\(.user // "")\t\(.host // "")"' "$inventory" 2>/dev/null)" || entry=""
+    user="${entry%%$'\t'*}"
+    host="${entry#*$'\t'}"
+    if [ -z "$entry" ] || [ -z "$user" ] || [ -z "$host" ]; then
+      C_STATUS=fail; C_DETAIL="$id has no host and user in the fleet inventory $inventory"; return
+    fi
+    if ! [[ $user =~ ^[A-Za-z0-9_][A-Za-z0-9_.-]*$ && $host =~ ^[A-Za-z0-9][A-Za-z0-9.:-]*$ ]]; then
+      C_STATUS=fail; C_DETAIL="$id's host or user in the fleet inventory is not a plain name"; return
+    fi
+    out="$(with_timeout 60 "${RELEASE_SSH:-/usr/bin/ssh}" -F /dev/null -i "$key" -o IdentitiesOnly=yes -o BatchMode=yes \
+      -o StrictHostKeyChecking=yes -o "UserKnownHostsFile=$known" -o ConnectTimeout=10 "$user@$host" /bin/bash -s \
+      <<<"$probe" 2>&1)" || rc=$?
+  fi
+  last="${out%$'\n'}"
+  last="${last##*$'\n'}"
+  if [ "$rc" -eq 255 ] && [ "$id" != local ]; then
+    C_STATUS=fail; C_DETAIL="$id unreachable over ssh: ${last:0:160}"; return
+  fi
+  if [ "$rc" -ne 0 ]; then
+    C_STATUS=fail; C_DETAIL="could not read the app on $where (exit $rc): ${last:0:160}"; return
+  fi
+  while IFS= read -r line; do
+    case "$line" in
+      missing) missing=1 ;;
+      version=*) version="${line#version=}" ;;
+      signature=*) signature="${line#signature=}" ;;
+    esac
+  done <<<"$out"
+  if [ "$missing" -eq 1 ]; then
+    C_STATUS=fail; C_DETAIL="no $app on $where"; return
+  fi
+  if [ "$version" != "$VERSION" ]; then
+    C_STATUS=fail; C_DETAIL="SpecWithCode.app on $where is ${version:-unreadable}, want $VERSION"
+  elif [ "$signature" != ok ]; then
+    C_STATUS=fail; C_DETAIL="SpecWithCode.app $version on $where fails codesign --verify --deep --strict: ${signature#bad }"
+  else
+    C_STATUS=pass; C_DETAIL="SpecWithCode.app $version, signature verified"
+  fi
+}
+
 # resolve_version <track>: the version verify should expect.
 resolve_version() {
   local track="$1" how repo slug def file
@@ -238,6 +319,7 @@ verify_track() {
       gh_run) check_gh_run ;;
       wrangler_deployments) check_wrangler_deployments ;;
       fleet_endpoint) check_fleet_endpoint ;;
+      desktop_app) check_desktop_app ;;
       *) C_STATUS=fail; C_DETAIL="unknown check kind $kind" ;;
     esac
     emit "$(jq -r '.name' <<<"$CHECK")" "$kind" "$blocking" "$C_STATUS" "$C_DETAIL" >>"$results"
