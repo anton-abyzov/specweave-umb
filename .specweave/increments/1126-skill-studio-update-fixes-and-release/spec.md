@@ -46,7 +46,10 @@ vskill worktree ~/.specwithcode/m4/worktrees/vskill/studio-fixes-1126, branch fi
 - AC: AC-04 | Files: scripts/release/release.sh, scripts/release/release-self-test.sh, .specweave/release/manifest.json, .specweave/release/README.md | Test: bash scripts/release/release.sh verify vskill-desktop && bash scripts/release/release-self-test.sh
 
 ### T-04 Release npm 1.2.16 and desktop 1.0.68
-- AC: AC-05 | Files: repositories/anton-abyzov/vskill/package.json, repositories/anton-abyzov/vskill/CHANGELOG.md | Test: bash scripts/release/release.sh verify vskill
+- AC: AC-05 | Files: repositories/anton-abyzov/vskill/package.json, repositories/anton-abyzov/vskill/package-lock.json, repositories/anton-abyzov/vskill/CHANGELOG.md | Test: bash scripts/release/release.sh verify vskill
+
+### T-06 Fleet CLI result integration
+- AC: AC-03 | Files: repositories/anton-abyzov/vskill/src/eval-server/skill-pin-routes.ts, repositories/anton-abyzov/vskill/src/eval-server/__tests__/skill-pin-routes.test.ts | Test: npx vitest run src/eval-server/__tests__/skill-pin-routes.test.ts
 
 ### T-05 Verify and close 1126
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: .specweave/increments/1126-skill-studio-update-fixes-and-release/reports/ | Test: specweave verify 1126; fresh-context review; specweave complete 1126

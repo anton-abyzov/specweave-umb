@@ -1,12 +1,16 @@
 {
   "id": "1126-skill-studio-update-fixes-and-release",
   "uuid": "14a343fd-e2fa-49e6-95a8-45c703778a79",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-28T14:52:45.475Z",
-  "updated": "2026-10-28T14:52:45.475Z",
-  "lastActivity": "2026-10-28T14:52:45.475Z",
+  "updated": "2026-10-28T17:38:38.656Z",
+  "lastActivity": "2026-10-28T17:38:38.656Z",
   "title": "Skill Studio update fixes and release",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T17:38:38.653Z",
+  "closeReason": "Shipped: vskill #215 merged, npm 1.2.16 and desktop 1.0.68 released and release.sh verify vskill PASS (incl. tag_drift); vskill ci.yml green on 1be04c9. Local full suite fails only on host-load timing (load avg 250) and a test reading the host OPENROUTER key; same commit green in CI.",
+  "approvedAt": "2026-10-28T17:38:38.656Z"
 }

@@ -1,12 +1,16 @@
 {
   "id": "1125-fleet-skill-version-push-over-connect",
   "uuid": "db3ab9c5-06b3-4335-974a-17486b25819e",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-28T14:52:44.751Z",
-  "updated": "2026-10-28T14:52:44.751Z",
-  "lastActivity": "2026-10-28T14:52:44.751Z",
+  "updated": "2026-10-28T18:24:13.000Z",
+  "lastActivity": "2026-10-28T18:24:13.000Z",
   "title": "Fleet skill version push over Connect",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T18:24:12.943Z",
+  "closeReason": "PR #953 merged; Checks run 40735990433 green on the PR head (PR Gate, typecheck, fleet, web). Two fresh-context reviews, findings fixed. Live push to M1/M3/ministorm waits for a SpecWithCode release that includes it.",
+  "approvedAt": "2026-10-28T18:24:13.000Z"
 }
