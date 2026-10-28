@@ -50,7 +50,7 @@ OAuth refresh tokens, Guest links, boring-sidebar polish, upstream PeerLinks pai
 - [ ] AC-10: `studio_threads_wait` waits on several local or remote threads (any/all, timeout) and returns each one's status and last reply.
 - [ ] AC-11: Threads started by an outside client or another machine record an origin and show a "From <client> · <machine>" header badge.
 - [ ] AC-12: An agent or outside client can ask a fleet machine (with an all-projects grant) to clone a repo, then launch there.
-- [ ] AC-13: A headless black-box run against an isolated server: static token, tools/list, machine list, scratch launch, multi-wait.
+- [ ] AC-13: A headless black-box run against an isolated server: no-token 401, static token, tools/list, machine list, multi-wait, revoke then 401.
 
 ## Approach
 
@@ -78,6 +78,7 @@ manually before release.
 - D-03 Full-access links still change only threads they started (stricter than Theo) → default.
 - D-04 Static MCP tokens default to 30-day TTL, auto access ceiling unless --access given → default.
 - D-05 Guest links, boring sidebar, link-consent card: later increments → default.
+- D-06 The black-box check does not start a real thread (it would spend paid provider usage on the Mac's real logins); launch paths are covered by remoteLaunch/RemoteWorkers unit tests → default.
 ### Open
 - none
 

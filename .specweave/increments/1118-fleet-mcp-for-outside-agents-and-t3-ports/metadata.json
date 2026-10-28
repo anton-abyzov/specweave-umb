@@ -5,8 +5,9 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-28T13:04:09.052Z",
-  "updated": "2026-10-28T13:04:09.052Z",
-  "lastActivity": "2026-10-28T13:04:09.052Z",
+  "updated": "2026-10-28T14:37:35.777Z",
+  "lastActivity": "2026-10-28T14:37:35.777Z",
   "title": "Fleet MCP for outside agents and T3 ports",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {}
 }
