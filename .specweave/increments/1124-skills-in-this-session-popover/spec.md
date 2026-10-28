@@ -25,16 +25,18 @@ specweave-studio, worktree ~/.specwithcode/m4/worktrees/specweave-studio/skills-
 ### Defaulted (change any before sw-do)
 - D-01: Composer footer popover, not a header chip or a new Settings page (smallest, always beside the session).
 - D-02: "Used" is Claude-only plus `$name` tokens; other agents show "available" only.
+- D-03: Two files beyond the planned Files lists, both wiring only: runtimeLayer.ts provides ProjectionStore to ProjectSkillsService (1 line), and ChatView.tsx (over the 1500-line limit) passes the thread's used skills to the composer (5 lines). Added to T-01/T-02 Files.
+- D-04: The composer sends the server thread's id with its cwd, so the server checks that one thread's worktree; without an id it uses a shell snapshot up to 15s old. A folder answered in the last 15s is served from the per-project cache before any lookup.
 ### Open
 - none
 
 ## Tasks
 
 ### T-01 Thread cwd for project skills
-- AC: AC-02 | Files: specweave-studio/packages/contracts/src/projectSkills.ts, specweave-studio/apps/server/src/project/ProjectSkillsService.ts, specweave-studio/apps/server/src/project/ProjectSkillsService.test.ts, specweave-studio/packages/client-runtime/src/state/projectWorkspace.ts | Test: pnpm --dir specweave-studio exec vitest run apps/server/src/project/ProjectSkillsService.test.ts
+- AC: AC-02 | Files: specweave-studio/packages/contracts/src/projectSkills.ts, specweave-studio/apps/server/src/project/ProjectSkillsService.ts, specweave-studio/apps/server/src/project/ProjectSkillsService.test.ts, specweave-studio/packages/client-runtime/src/state/projectWorkspace.ts, specweave-studio/apps/server/src/orchestration-v2/runtimeLayer.ts | Test: pnpm --dir specweave-studio exec vitest run apps/server/src/project/ProjectSkillsService.test.ts
 
 ### T-02 Composer skills popover
-- AC: AC-01, AC-03 | Files: specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.tsx, specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.logic.ts, specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.logic.test.ts, specweave-studio/apps/web/src/components/chat/ChatComposer.tsx | Test: pnpm --dir specweave-studio exec vitest run apps/web/src/components/chat/ComposerSkillsPopover.logic.test.ts && headless Playwright screenshot of the popover
+- AC: AC-01, AC-03 | Files: specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.tsx, specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.logic.ts, specweave-studio/apps/web/src/components/chat/ComposerSkillsPopover.logic.test.ts, specweave-studio/apps/web/src/components/chat/ChatComposer.tsx, specweave-studio/apps/web/src/components/ChatView.tsx | Test: pnpm --dir specweave-studio exec vitest run apps/web/src/components/chat/ComposerSkillsPopover.logic.test.ts && headless Playwright screenshot of the popover
 
 ### T-03 Verify and close 1124
 - AC: AC-01, AC-02, AC-03 | Files: .specweave/increments/1124-skills-in-this-session-popover/reports/ | Test: specweave verify 1124; fresh-context review; specweave complete 1124
