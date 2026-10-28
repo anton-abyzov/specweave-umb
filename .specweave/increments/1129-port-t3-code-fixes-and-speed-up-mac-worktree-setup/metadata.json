@@ -1,0 +1,16 @@
+{
+  "id": "1129-port-t3-code-fixes-and-speed-up-mac-worktree-setup",
+  "uuid": "3f6e24b0-eba0-4dcf-a020-991873c6b013",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T15:20:32.395Z",
+  "updated": "2026-10-28T18:04:24.936Z",
+  "lastActivity": "2026-10-28T18:04:24.936Z",
+  "title": "Port T3 Code fixes and speed up Mac worktree setup",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T18:04:24.934Z",
+  "closeReason": "PR #957 merged (c6636436d6), required checks green; umbrella verify fails only on an unrelated vskill test (FileBackedStore TC-002) and a Windows job timeout in #952's test",
+  "approvedAt": "2026-10-28T18:04:24.936Z"
+}
