@@ -1,13 +1,15 @@
 {
   "id": "1122-ultracode-toggle-for-claude-models",
   "uuid": "74f272b0-9700-428a-bede-7b0d5d2889f1",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-28T13:40:36.323Z",
-  "updated": "2026-10-28T13:40:36.323Z",
-  "lastActivity": "2026-10-28T13:40:36.323Z",
+  "updated": "2026-10-28T17:28:27.133Z",
+  "lastActivity": "2026-10-28T17:28:27.133Z",
   "title": "Ultracode toggle for Claude models",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T17:28:27.125Z",
+  "approvedAt": "2026-10-28T17:28:27.133Z"
 }

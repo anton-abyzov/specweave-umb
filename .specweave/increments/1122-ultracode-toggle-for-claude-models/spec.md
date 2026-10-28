@@ -10,9 +10,9 @@ In: a boolean Ultracode option for Claude models that support it (xhigh-capable)
 
 ## Acceptance Criteria
 
-- [ ] AC-01: For Opus 5.5 (and other models with xhigh), the traits menu offers Ultracode On/Off separate from the effort list, and the composer chip reads "Medium · Ultracode" when on.
-- [ ] AC-02: The thread's toggle reaches Claude Code as `settings.ultracode` with the chosen effort unchanged; Disabled workflow mode forces it off; unset follows the mode.
-- [ ] AC-03: Saved selections with effort "ultracode" read and run as Extra High with Ultracode on; models without xhigh never get the toggle.
+- [x] AC-01: For Opus 5.5 (and other models with xhigh), the traits menu offers Ultracode On/Off separate from the effort list, and the composer chip reads "Medium · Ultracode" when on.
+- [x] AC-02: The thread's toggle reaches Claude Code as `settings.ultracode` with the chosen effort unchanged; Disabled workflow mode forces it off; unset follows the mode.
+- [x] AC-03: Saved selections with effort "ultracode" read and run as Extra High with Ultracode on; models without xhigh never get the toggle.
 
 ## Approach
 
