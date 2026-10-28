@@ -1,0 +1,15 @@
+{
+  "id": "1119-fleet-updates-over-specwithcode-connect",
+  "uuid": "535786a2-006a-4c8b-8462-c0a14f0f36dd",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T13:08:30.983Z",
+  "updated": "2026-10-28T17:45:14.135Z",
+  "lastActivity": "2026-10-28T17:45:14.135Z",
+  "title": "Fleet updates over SpecWithCode Connect",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T17:45:14.134Z",
+  "approvedAt": "2026-10-28T17:45:14.135Z"
+}
