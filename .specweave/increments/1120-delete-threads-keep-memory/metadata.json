@@ -1,12 +1,15 @@
 {
   "id": "1120-delete-threads-keep-memory",
   "uuid": "72f6ea13-1b94-4a68-8c88-7b98b229a0e6",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-28T13:18:13.676Z",
-  "updated": "2026-10-28T13:39:09.760Z",
-  "lastActivity": "2026-10-28T13:39:09.760Z",
+  "updated": "2026-10-28T14:14:35.200Z",
+  "lastActivity": "2026-10-28T14:14:35.200Z",
   "title": "Delete threads but keep project memory",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T14:14:35.199Z",
+  "approvedAt": "2026-10-28T14:14:35.200Z"
 }
