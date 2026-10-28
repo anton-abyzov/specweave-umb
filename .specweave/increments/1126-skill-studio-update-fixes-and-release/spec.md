@@ -39,7 +39,7 @@ vskill worktree ~/.specwithcode/m4/worktrees/vskill/studio-fixes-1126, branch fi
 - AC: AC-02, AC-03 | Files: repositories/anton-abyzov/vskill/src/eval-server/, repositories/anton-abyzov/vskill/src/eval-ui/src/ | Test: npx vitest run (vskill) + headless Playwright screenshots of Studio
 
 ### T-03 Release pipeline drift check
-- AC: AC-04 | Files: scripts/release/release.sh, .specweave/release/manifest.json, .specweave/release/README.md | Test: bash scripts/release/release.sh verify vskill-desktop && bash scripts/release/release-self-test.sh
+- AC: AC-04 | Files: scripts/release/release.sh, scripts/release/release-self-test.sh, .specweave/release/manifest.json, .specweave/release/README.md | Test: bash scripts/release/release.sh verify vskill-desktop && bash scripts/release/release-self-test.sh
 
 ### T-04 Release npm 1.2.16 and desktop 1.0.68
 - AC: AC-05 | Files: repositories/anton-abyzov/vskill/package.json, repositories/anton-abyzov/vskill/CHANGELOG.md | Test: bash scripts/release/release.sh verify vskill
