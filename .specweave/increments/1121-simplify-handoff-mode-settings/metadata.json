@@ -1,12 +1,15 @@
 {
   "id": "1121-simplify-handoff-mode-settings",
   "uuid": "e777a241-b254-4de1-9f5b-bdd9067d22b2",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-28T13:30:37.734Z",
-  "updated": "2026-10-28T13:33:13.964Z",
-  "lastActivity": "2026-10-28T13:33:13.964Z",
+  "updated": "2026-10-28T14:55:05.879Z",
+  "lastActivity": "2026-10-28T14:55:05.879Z",
   "title": "Simplify handoff mode settings",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T14:55:05.878Z",
+  "approvedAt": "2026-10-28T14:55:05.879Z"
 }
