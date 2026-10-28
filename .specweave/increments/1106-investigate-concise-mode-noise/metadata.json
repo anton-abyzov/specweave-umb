@@ -5,11 +5,22 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-27T20:13:46.594Z",
-  "updated": "2026-10-27T20:29:54.782Z",
-  "lastActivity": "2026-10-27T20:29:54.782Z",
+  "updated": "2026-10-28T03:12:39.174Z",
+  "lastActivity": "2026-10-28T03:12:39.174Z",
   "title": "Investigate concise mode noise",
   "project": "specweave",
   "externalLinks": {},
-  "readyForReviewAt": "2026-10-27T20:29:54.781Z",
-  "approvedAt": "2026-10-27T20:29:54.782Z"
+  "reopened": [
+    {
+      "from": "completed",
+      "to": "planned",
+      "at": "2026-10-28T02:32:33.482Z",
+      "by": "codex@antons-macbook-m4max",
+      "reason": "User follow-up: reproduce and fix overlapping streamed/steered timeline rows and temporarily blocked interaction",
+      "approvedAt": "2026-10-27T20:29:54.782Z",
+      "readyForReviewAt": "2026-10-27T20:29:54.781Z"
+    }
+  ],
+  "readyForReviewAt": "2026-10-28T03:12:39.173Z",
+  "approvedAt": "2026-10-28T03:12:39.174Z"
 }

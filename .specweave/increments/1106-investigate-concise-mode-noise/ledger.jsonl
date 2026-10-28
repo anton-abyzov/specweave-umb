@@ -7,3 +7,12 @@
 {"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-27T20:26:48.702Z","evidence":"d5c1283c07; 321 focused web tests passed, 46 policy tests passed; fresh review SHIP with both findings fixed\nHEAD 39235ca79"}
 {"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-27T20:26:49.172Z","evidence":"d5c1283c07 docs/studio/operator-guide.md matches header, relay and failed-turn regressions\nHEAD 39235ca79"}
 {"t":"T-04","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-27T20:28:00.751Z","evidence":"d5c1283c07; headless native preview before/after receipt, 321 web tests,46 policy tests,production build, fresh review SHIP; final verify follows\nHEAD 39235ca79"}
+{"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T02:33:54.598Z"}
+{"t":"T-08","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T02:39:38.719Z"}
+{"t":"T-05","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T02:44:33.856Z","evidence":"Real headless first-frame and held-frame overlap reproduced; 10 px wheel repairs without releasing frames; 4/8 baseline bundle regression failures. reports/overlap-investigation.md\nHEAD b5fd4c95e"}
+{"t":"T-06","e":"skip","by":"codex@antons-macbook-m4max","at":"2026-10-28T02:44:35.040Z","note":"Verified cause belongs to virtualizer transaction; T-08 fixes its web bundles without a second app cache or app-level remount"}
+{"t":"T-07","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T02:44:36.649Z"}
+{"t":"T-09","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T02:46:16.827Z"}
+{"t":"T-08","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T03:10:23.922Z","evidence":"App commit c43122baf0; 375 focused tests; production and fixture builds; 174 native headless geometry samples; reports/overlap-validation.md records interaction evidence and limits\nHEAD b5fd4c95e"}
+{"t":"T-09","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T03:10:25.339Z","evidence":"App commit c43122baf0; 375 focused tests; production and fixture builds; 174 native headless geometry samples; reports/overlap-validation.md records interaction evidence and limits\nHEAD b5fd4c95e"}
+{"t":"T-07","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T03:10:26.828Z","evidence":"App commit c43122baf0; 375 focused tests; production and fixture builds; 174 native headless geometry samples; reports/overlap-validation.md records interaction evidence and limits\nHEAD b5fd4c95e"}

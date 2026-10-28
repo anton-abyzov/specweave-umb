@@ -13,6 +13,10 @@ In: reply style versus display semantics; persistence and provider/fallback audi
 - [ ] AC-04: Empty settled assistant output creates no blank bodies, copy controls or attribution-only sections; attachments and errors remain accessible.
 - [ ] AC-05: Focused regressions, headless light/dark captures, production web build and fresh review validate changes with installed acceptance reported separately.
 
+- [ ] AC-06: Headless real-timeline reproduction checks streamed and steered messages, width/zoom changes, disclosure changes and hidden-to-visible transitions for non-overlapping mounted rows after layout settles.
+- [ ] AC-07: After those transitions, wheel/keyboard scroll, pointer hit targets and text input remain usable; only deliberate reader upward input pauses live follow, with no restart or native interaction.
+- [ ] AC-08: Installed version/source comparison and ownership checks distinguish the original screenshot cause from local 1106 changes, and the final report states proven causes versus unproven limits.
+
 ## Approach
 Audit TimelineDetailMenu, timelineDetail, responseStyle, MessagesTimeline logic/rendering, runtime policy/settings and adapters. Read 1011/1068 history and coordinate with active 1011 owner before overlapping edits. Work in `/Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1106-concise-noise` on `fix/1106-concise-noise`, based on app origin/main `6aab213a6fb801e39a6f3df608ccc9cf503e22dd`. Add failing focused cases before repairs. Real-component synthetic fixtures use no live store/provider sessions. Record independent review and distinguish fixture from installed proof.
 
@@ -38,3 +42,27 @@ Audit TimelineDetailMenu, timelineDetail, responseStyle, MessagesTimeline logic/
 
 ### T-04 Verify and close 1106
 - AC: AC-05 | Files: apps/web/tests/activity-diffs/, reports/validation.md, reports/review.md | Test: node node_modules/vite-plus/bin/vp build --config apps/web/tests/activity-diffs/vite.config.ts; native headless preview fixture; node ../../node_modules/vite-plus/bin/vp build (from apps/web); specweave verify 1106 with explicit scoped commands
+
+
+## Overlap follow-up, October 27, 2026
+
+User reports overlapping long steer, assistant and tool rows plus temporarily blocked scrolling/input, recovering after slight movement. Installed app and CLI currently report 1.0.105. Local d5c1283c07 has not been installed. Check measured row geometry and hit targets, rather than treating this as cosmetic. Prior scroll thread is completed and read as history only; 1011 owner now completed, steer-only coordination was rejected without starting a turn. Preserve all existing runs/drafts and worktrees. Continue in the same isolated app worktree.
+
+### T-05 Reproduce overlap and blocked interaction
+- AC: AC-06, AC-07, AC-08 | Files: apps/web/tests/activity-diffs/main.tsx, apps/web/tests/activity-diffs/mocks.tsx, apps/web/tests/activity-diffs/vite.config.ts, reports/overlap-investigation.md | Test: synthetic real timeline under streamed/steered content, pane/zoom/reveal/disclosure transitions; record DOM geometry, scroll and hit-test evidence in native headless preview
+
+### T-06 Fix verified row layout or interaction invalidation
+- AC: AC-06, AC-07 | Files: apps/web/src/components/chat/MessagesTimeline.tsx, apps/web/src/components/chat/MessagesTimeline.test.tsx, apps/web/src/components/chat/timelineLayout.ts, apps/web/src/components/chat/timelineLayout.test.ts | Test: focused regression suites and headless reproduction before/after; preserve readerScroll policy
+
+### T-08 Keep measured web rows and positions in the same layout transaction
+- AC: AC-06, AC-07 | Files: patches/@legendapp__list@3.3.5.patch, pnpm-lock.yaml, pnpm-workspace.yaml, scripts/legend-list-row-layout.test.ts | Test: actual patched web bundle regressions; real headless row geometry and interaction matrix on first paint and settled frames; existing timeline scroll anchoring regressions
+
+### T-09 Retain the headless overlap and interaction prevention check
+- AC: AC-06, AC-07 | Files: apps/web/tests/activity-diffs/overlap-check.mjs, docs/studio/operator-guide.md | Test: retained wrapper syntax check; execute the same in-page matrix through native headless preview with file-backed screenshots/action trace; wrapper keeps nonzero failure exit and Playwright trace capture for CI; documentation matches synchronous web measurement behavior
+
+### T-07 Verify and close 1106
+- AC: AC-08 | Files: reports/overlap-validation.md, reports/overlap-review.md | Test: focused production web build, geometry and interaction matrix, fresh-context review, specweave verify 1106 and complete
+
+Verified follow-up direction: the existing web virtualizer delays position recalculation until another animation frame while its MVCP anchor lock is active. Pane narrowing plus live text changes reproduces updated measured heights with stale downstream positions in the first frame. Test the dependency's own web path rather than introducing a second app-level size cache. Native variants stay unchanged. T-06 is unnecessary if the library repair resolves the reproduction. Longer interaction blocking remains unproven and must be tested/reported separately.
+
+Scaling refinement: keep fractional layout border-box units consistent across synchronous reads and ResizeObserver. The final source acceptance uses native headless preview; standalone Playwright wrapper execution and native Electron zoom are explicitly unverified.
