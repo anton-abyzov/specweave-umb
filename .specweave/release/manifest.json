@@ -161,7 +161,7 @@
         { "name": "updater manifest", "kind": "latest_json", "url": "https://verified-skill.com/desktop/latest.json", "header": "x-manifest-source: r2" },
         { "name": "GitHub release assets", "kind": "gh_release", "repo": "anton-abyzov/vskill", "tag": "desktop-v{version}", "assets": ["*.app.tar.gz.sig", "*-setup.exe.sig", "*.AppImage.sig", "*.dmg"] },
         { "name": "Desktop Release run", "kind": "gh_run", "repo": "anton-abyzov/vskill", "workflow": "desktop-release.yml", "branch": "desktop-v{version}", "blocking": true },
-        { "name": "desktop drift", "kind": "tag_drift", "tag_prefix": "desktop-v", "paths": ["src-tauri/", "src/eval-ui/", "src/eval-server/", "src/studio*", "package.json"], "blocking": true, "fix": "run release.sh ship vskill", "note": "Fails when origin/main has commits under these paths after the newest desktop-v tag: the desktop app is behind npm." }
+        { "name": "desktop drift", "kind": "tag_drift", "tag_prefix": "desktop-v", "paths": ["src-tauri/", "src/", "package.json", "package-lock.json", "scripts/desktop/", ":(exclude)src/**/__tests__/**", ":(exclude)src/**/__fixtures__/**", ":(exclude)src/**/*.test.ts", ":(exclude)src/**/*.test.tsx"], "blocking": true, "fix": "run release.sh ship vskill", "note": "Fails when origin/main has commits under these paths after the desktop-v tag: the desktop app is behind npm. The sidecar bundles the whole eval-server module graph (src/eval, src/installer, src/lockfile, src/lib and more), so all of src/ counts except tests and fixtures." }
       ]
     },
     "platform": {

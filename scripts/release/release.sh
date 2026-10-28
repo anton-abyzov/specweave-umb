@@ -201,22 +201,35 @@ check_fleet_endpoint() {
 
 # check_tag_drift: fail when the default branch has commits under the check's
 # paths after the tag <tag_prefix><version>, so a build that was never tagged
-# again shows as stale instead of passing on the last tag. It fetches both refs
-# into private refs of the track's checkout (no remote-tracking ref, tag or
-# FETCH_HEAD changes, so a parallel `status --fetch` cannot collide) and
-# deletes them after; when the fetch fails it counts on the local refs.
+# again shows as stale instead of passing on the last tag. Paths are git
+# pathspecs; ":(exclude)..." entries drop files that never ship (tests).
+# It fetches both refs into private refs of the track's checkout (no
+# remote-tracking ref, tag or FETCH_HEAD changes, so a parallel
+# `status --fetch` cannot collide) and deletes them after.
+# - When the fetch fails it counts on the local refs, which can be behind
+#   GitHub: commits found there still fail, but none found is pending, not pass.
+# - `status` without --fetch (quick mode) never fetches: it reads the local refs
+#   and labels the row.
+# - Right after a ship (DRIFT_SHIP_HEAD, set by ship_track to origin/<default>
+#   as it was when the release script started) it counts up to that commit, so
+#   a PR merged while the signed build ran does not fail the release that just
+#   shipped; it is named in the detail instead, and a standalone verify fails.
 check_tag_drift() {
-  local prefix fix path def tag ns head base src="origin" total n newest paths=()
+  local prefix fix path def tag ns head base src="origin" total n newest later=0 upto shown paths=()
   prefix="$(jq -r '.tag_prefix // empty' <<<"$CHECK")"
   fix="$(jq -r '.fix // "ship a new build"' <<<"$CHECK")"
   path="$(repo_abs_path "$(track_field "$TRACK" repo)")"
   def="$(repo_field "$(track_field "$TRACK" repo)" default_branch)"
   def="${def:-main}"
   while IFS= read -r n; do [ -z "$n" ] || paths+=("$n"); done < <(jq -r '.paths // [] | .[]' <<<"$CHECK")
+  shown="$(jq -r '[.paths // [] | .[] | select(startswith(":(exclude)") | not)] | join(" ")' <<<"$CHECK")"
+  if [ "$(jq -r '[.paths // [] | .[] | select(startswith(":(exclude)"))] | length' <<<"$CHECK")" -gt 0 ]; then
+    shown="$shown (tests excluded)"
+  fi
   if [ -z "$VERSION" ]; then
     C_STATUS=fail; C_DETAIL="no $prefix release found to compare origin/$def with"; return
   fi
-  if [ ${#paths[@]} -eq 0 ]; then
+  if [ -z "$shown" ]; then
     C_STATUS=fail; C_DETAIL="tag_drift check lists no paths"; return
   fi
   if [ ! -e "$path/.git" ]; then
@@ -224,31 +237,51 @@ check_tag_drift() {
   fi
   tag="$prefix$VERSION"
   ns="refs/release-drift/$(basename "$(mktemp -d "$WORK/drift.XXXXXX")")"
-  if with_timeout 60 git -C "$path" fetch -q --no-tags --no-write-fetch-head --refmap= origin \
+  if [ "${V_QUICK:-0}" -eq 1 ] && [ "${FETCH:-0}" -ne 1 ]; then
+    head="refs/remotes/origin/$def"; base="refs/tags/$tag"; src="local refs; status --fetch to refresh"
+  elif with_timeout 60 git -C "$path" fetch -q --no-tags --no-write-fetch-head --refmap= origin \
     "+refs/heads/$def:$ns/head" "+refs/tags/$tag:$ns/base" 2>/dev/null; then
     head="$ns/head"; base="$ns/base"
   else
     head="refs/remotes/origin/$def"; base="refs/tags/$tag"; src="local refs (fetch failed)"
   fi
-  if ! git -C "$path" rev-parse -q --verify "$base^{commit}" >/dev/null 2>&1 ||
-    ! git -C "$path" rev-parse -q --verify "$head^{commit}" >/dev/null 2>&1; then
+  drift_cleanup() {
     git -C "$path" update-ref -d "$ns/head" 2>/dev/null || true
     git -C "$path" update-ref -d "$ns/base" 2>/dev/null || true
+  }
+  if ! git -C "$path" rev-parse -q --verify "$base^{commit}" >/dev/null 2>&1 ||
+    ! git -C "$path" rev-parse -q --verify "$head^{commit}" >/dev/null 2>&1; then
+    drift_cleanup
+    if [ "${V_QUICK:-0}" -eq 1 ] && [ "${FETCH:-0}" -ne 1 ]; then
+      C_STATUS=skip; C_DETAIL="$tag or origin/$def is not in $path yet; run status --fetch"; return
+    fi
     C_STATUS=fail; C_DETAIL="cannot read $tag or origin/$def in $path ($src)"; return
   fi
-  total="$(git -C "$path" rev-list --count "$base..$head" 2>/dev/null)" || total="?"
-  n="$(git -C "$path" rev-list --count "$base..$head" -- "${paths[@]}" 2>/dev/null)" || n=""
-  newest="$(git -C "$path" log -1 --format='%h %cs %s' "$base..$head" -- "${paths[@]}" 2>/dev/null | cut -c1-80)" || newest=""
-  git -C "$path" update-ref -d "$ns/head" 2>/dev/null || true
-  git -C "$path" update-ref -d "$ns/base" 2>/dev/null || true
+  upto="$head"
+  if [ -n "${DRIFT_SHIP_HEAD:-}" ] && [ "$src" = origin ] &&
+    git -C "$path" merge-base --is-ancestor "$DRIFT_SHIP_HEAD" "$head" 2>/dev/null; then
+    upto="$DRIFT_SHIP_HEAD"
+    later="$(git -C "$path" rev-list --count "$upto..$head" -- "${paths[@]}" 2>/dev/null)" || later=0
+  fi
+  total="$(git -C "$path" rev-list --count "$base..$upto" 2>/dev/null)" || total="?"
+  n="$(git -C "$path" rev-list --count "$base..$upto" -- "${paths[@]}" 2>/dev/null)" || n=""
+  newest="$(git -C "$path" log -1 --format='%h %cs %s' "$base..$upto" -- "${paths[@]}" 2>/dev/null | cut -c1-80)" || newest=""
+  drift_cleanup
   if [ -z "$n" ]; then
     C_STATUS=fail; C_DETAIL="git rev-list failed for $tag..origin/$def in $path"
   elif [ "$n" -gt 0 ]; then
     C_STATUS=fail
-    C_DETAIL="stale: $n of $total commits on origin/$def since newest tag $tag touch $(printf '%s ' "${paths[@]}")(newest $newest); $fix"
+    C_DETAIL="stale: $n of $total commits on origin/$def since tag $tag touch $shown (newest $newest); $fix"
+  elif [ "$src" != origin ] && [ "${V_QUICK:-0}" -ne 1 ]; then
+    C_STATUS=pending
+    C_DETAIL="unconfirmed: the local origin/$def has no commits under $shown since tag $tag, but it may be behind GitHub; verify again"
   else
     C_STATUS=pass
-    C_DETAIL="current: $tag; $total commits on origin/$def since, none under $(printf '%s ' "${paths[@]}" | sed 's/ $//')"
+    C_DETAIL="current: $tag; $total commits on origin/$def since, none under $shown"
+  fi
+  if [ "$upto" != "$head" ]; then
+    C_DETAIL="$C_DETAIL; counted up to $(git -C "$path" rev-parse --short "$upto" 2>/dev/null), origin/$def when this ship started"
+    [ "$later" -eq 0 ] || C_DETAIL="$C_DETAIL; $later commit(s) under these paths merged since, not in this build: $fix"
   fi
   [ "$src" = origin ] || C_DETAIL="$C_DETAIL [$src]"
 }
@@ -274,6 +307,7 @@ verify_track() {
   TRACK="$1"
   VERSION="$2"
   local quick="$3" kind blocking results="$WORK/verify-$1.jsonl"
+  V_QUICK="$quick"
   [ -n "$VERSION" ] || VERSION="$(resolve_version "$TRACK")"
   : >"$results"
   while IFS= read -r CHECK <&3; do
@@ -472,7 +506,7 @@ print_status_table() {
       awk -F'\t' '{ printf "%-16s %-9s %-8s %s\n", $1, $2, $3, substr($4, 1, 160) }'
     jq -r '.tracks[] | .track as $t | .checks[] | select(.kind == "tag_drift")
       | "drift \($t): \(.status | ascii_upcase) \(.detail)"' "$file"
-    printf '(* local origin ref is behind GitHub; run status --fetch for exact counts)\n'
+    printf '(* local origin ref is behind GitHub; run status --fetch for exact counts. Without --fetch the drift rows read local refs)\n'
   } >&2
 }
 
@@ -928,6 +962,17 @@ ship_track() {
   log_dir="$(dirname "$RELEASE_STATE")/release-logs"
   mkdir -p "$log_dir"
   log_file="$log_dir/$track-$(date -u +%Y%m%dT%H%M%SZ).log"
+  # The tag_drift check of this ship's verify (and of its cleanup gate) counts
+  # up to origin/<default> as it is now, before the release script tags it, so
+  # a PR merged during the build does not fail this release (dynamic scope).
+  local DRIFT_SHIP_HEAD=""
+  if [ "$dry" -eq 0 ] && [ "$(mf '[.tracks[$t].verify // [] | .[] | select(.kind == "tag_drift")] | length' --arg t "$track")" -gt 0 ]; then
+    local def0 src0
+    def0="$(repo_field "$repo" default_branch)"
+    src0="$(repo_abs_path "$repo")"
+    DRIFT_SHIP_HEAD="$(with_timeout 60 git -C "$src0" ls-remote origin "refs/heads/${def0:-main}" 2>/dev/null | awk 'NR == 1 { print $1 }')" || DRIFT_SHIP_HEAD=""
+    [ -n "$DRIFT_SHIP_HEAD" ] || log "[$track] warning: cannot read origin/${def0:-main}; the drift check after this ship compares with the live branch"
+  fi
   state_set "$track" ship "" "$log_file"
   log "[$track] $shown (log $log_file)"
   start="$(now_epoch)"
