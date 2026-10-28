@@ -1,12 +1,15 @@
 {
   "id": "1116-updates-survive-database-restarts-and-finish-fast",
   "uuid": "7e3d08a4-587d-4bee-b758-4683459ee623",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-28T06:36:42.803Z",
-  "updated": "2026-10-28T08:24:56.202Z",
-  "lastActivity": "2026-10-28T08:24:56.202Z",
+  "updated": "2026-10-28T08:30:56.584Z",
+  "lastActivity": "2026-10-28T08:30:56.584Z",
   "title": "Updates survive database restarts and finish fast",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T08:30:56.583Z",
+  "approvedAt": "2026-10-28T08:30:56.584Z"
 }
