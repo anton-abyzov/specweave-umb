@@ -1,13 +1,15 @@
 {
   "id": "1115-delete-project-with-its-worktrees",
   "uuid": "f8ff258d-497a-4f64-9ebd-40a13880c3f6",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-28T06:32:23.126Z",
-  "updated": "2026-10-28T08:41:49.470Z",
-  "lastActivity": "2026-10-28T08:41:49.470Z",
+  "updated": "2026-10-28T08:44:44.914Z",
+  "lastActivity": "2026-10-28T08:44:44.914Z",
   "title": "Delete project with its worktrees",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T08:44:44.907Z",
+  "approvedAt": "2026-10-28T08:44:44.914Z"
 }
