@@ -149,6 +149,7 @@
       "args_help": "[<version>] [--dry-run]",
       "dry_run_flag": "--dry-run",
       "expect_version": "latest_tag:desktop-v",
+      "after_failure": "run",
       "rule": "Tag desktop-v<next> on origin/main after its CI is green; CI stamps the version from the tag, so no bump PR. Ship script fixes as a separate PR.",
       "signing_files": [
         "~/.config/skill-studio-release/minisign.key",
@@ -159,7 +160,8 @@
       "verify": [
         { "name": "updater manifest", "kind": "latest_json", "url": "https://verified-skill.com/desktop/latest.json", "header": "x-manifest-source: r2" },
         { "name": "GitHub release assets", "kind": "gh_release", "repo": "anton-abyzov/vskill", "tag": "desktop-v{version}", "assets": ["*.app.tar.gz.sig", "*-setup.exe.sig", "*.AppImage.sig", "*.dmg"] },
-        { "name": "Desktop Release run", "kind": "gh_run", "repo": "anton-abyzov/vskill", "workflow": "desktop-release.yml", "branch": "desktop-v{version}", "blocking": true }
+        { "name": "Desktop Release run", "kind": "gh_run", "repo": "anton-abyzov/vskill", "workflow": "desktop-release.yml", "branch": "desktop-v{version}", "blocking": true },
+        { "name": "desktop drift", "kind": "tag_drift", "tag_prefix": "desktop-v", "paths": ["src-tauri/", "src/eval-ui/", "src/eval-server/", "src/studio*", "package.json"], "blocking": true, "fix": "run release.sh ship vskill", "note": "Fails when origin/main has commits under these paths after the newest desktop-v tag: the desktop app is behind npm." }
       ]
     },
     "platform": {

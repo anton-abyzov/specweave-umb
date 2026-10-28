@@ -1,5 +1,6 @@
 #!/bin/bash
-# release-self-test.sh: offline checks for `release.sh cleanup`.
+# release-self-test.sh: offline checks for `release.sh cleanup`, the tag_drift
+# verify check and the order of a group ship.
 # Builds a throwaway repo with worktrees, a fixture manifest with no verify
 # checks, and stub gh/specweave-studio commands on PATH, then runs cleanup
 # --apply against it. Touches nothing outside its temp folder.
@@ -15,8 +16,13 @@ export GIT_AUTHOR_NAME=test GIT_AUTHOR_EMAIL=test@example.com GIT_COMMITTER_NAME
 export RELEASE_MANIFEST="$T/manifest.json" SW_REPOS_BASE="$T/base" RELEASE_STATE_FILE="$T/state.json"
 mkdir -p "$HOME" "$T/bin" "$T/base"
 
+# Stub gh: `gh api repos/<slug>/releases...` prints $STUB_RELEASES (tag names,
+# as the real call's --jq filter would); everything else prints nothing.
 cat >"$T/bin/gh" <<'SH'
 #!/bin/bash
+case "$1 $2" in
+  "api repos/"*"/releases"*) [ -z "${STUB_RELEASES:-}" ] || printf '%s\n' $STUB_RELEASES ;;
+esac
 exit 0
 SH
 # Stub specweave-studio. `db query --base-dir H` prints H/stub-db.jsonl, a plain
@@ -239,6 +245,70 @@ row thread null recorded 0 >"$STUB_DB_FILE"
 bash "$RELEASE_SH" cleanup fx 2>"$T/cleanup.err" >"$T/cleanup.json" || true
 check "dry run: would remove, branch noted" "remove|no commits outside origin/main; branch recorded will be kept: a SpecWithCode thread records it" "$(action_of "$T/wt/recorded")|$(reason_of "$T/wt/recorded")"
 check "dry run: folder untouched" yes "$(exists "$T/wt/recorded")"
+
+# ---- 8. tag_drift: commits under the watched paths after the newest tag fail verify
+fresh_repo
+cat >"$T/manifest-drift.json" <<'JSON'
+{"repos": [{"name": "fx", "slug": "example/fx", "path": "repo", "default_branch": "main"}],
+ "tracks": {"desk": {"repo": "fx", "release": ["true"], "expect_version": "latest_tag:desk-v",
+   "verify": [{"name": "drift", "kind": "tag_drift", "tag_prefix": "desk-v", "paths": ["app/", "src/studio*", "package.json"]}]}},
+ "groups": {"all": ["desk"]}}
+JSON
+R="$T/base/repo"
+commit_file() { mkdir -p "$R/$(dirname "$1")"; echo "$2" >"$R/$1"; git -C "$R" add "$1"; git -C "$R" commit -q -m "$2"; }
+run_drift() { RELEASE_MANIFEST="$T/manifest-drift.json" bash "$RELEASE_SH" verify desk 2>"$T/drift.err" >"$T/drift.json" && echo 0 || echo $?; }
+drift_of() { jq -r ".checks[0].$1" "$T/drift.json"; }
+commit_file app/main.rs v1
+git -C "$R" tag desk-v1.0.1
+commit_file docs/readme.md "docs only"
+git -C "$R" push -q origin main --tags
+export STUB_RELEASES="v9.9.9 desk-v1.0.0 desk-v1.0.1"
+check "drift: only unwatched paths changed passes" "0|pass" "$(run_drift)|$(drift_of status)"
+check "drift: pass names the tag" yes "$(drift_of detail | grep -q '^current: desk-v1.0.1; 1 commits' && echo yes || echo no)"
+commit_file app/ui.ts "touch app"
+commit_file src/studio-runtime/x.ts "touch studio"
+commit_file package.json "bump package"
+commit_file docs/more.md "more docs"
+git -C "$R" push -q origin main
+git -C "$R" update-ref refs/remotes/origin/main "$(git -C "$R" rev-parse HEAD~4)"
+check "drift: watched commits after the tag fail verify" "1|fail" "$(run_drift)|$(drift_of status)"
+check "drift: detail counts watched commits and names the tag" yes "$(drift_of detail | grep -q '^stale: 3 of 5 commits on origin/main since newest tag desk-v1.0.1' && echo yes || echo no)"
+check "drift: detail names the newest watched commit" yes "$(drift_of detail | grep -q 'newest [0-9a-f]* [0-9-]* bump package' && echo yes || echo no)"
+check "drift: counts from origin, not the stale local origin/main" yes "$(drift_of detail | grep -qv 'local refs' && echo yes || echo no)"
+check "drift: private fetch refs removed" 0 "$(git -C "$R" for-each-ref refs/release-drift | wc -l | tr -d ' ')"
+check "drift: local origin/main left alone" "$(git -C "$R" rev-parse HEAD~4)" "$(git -C "$R" rev-parse refs/remotes/origin/main)"
+git -C "$R" tag desk-v1.0.2
+git -C "$R" push -q origin --tags
+STUB_RELEASES="desk-v1.0.1 desk-v1.0.2"
+check "drift: a new tag at the tip passes" "0|pass" "$(run_drift)|$(drift_of status)"
+git -C "$R" remote set-url origin "$T/missing.git"
+git -C "$R" update-ref refs/remotes/origin/main HEAD
+check "drift: fetch failure falls back to local refs" "0|pass|yes" "$(run_drift)|$(drift_of status)|$(drift_of detail | grep -q 'local refs (fetch failed)' && echo yes || echo no)"
+STUB_RELEASES=""
+check "drift: no release tag fails" "1|fail" "$(run_drift)|$(drift_of status)"
+unset STUB_RELEASES
+
+# ---- 9. group ship: a failed track skips the next ones unless they run after a failure
+fresh_repo
+R="$T/base/repo"
+printf '#!/bin/bash\n# accepts --dry-run\nexit 3\n' >"$R/fail.sh"
+printf '#!/bin/bash\n# accepts --dry-run\necho "$RELEASE_TRACK" >>"%s/ran"\n' "$T" >"$R/ok.sh"
+cat >"$T/manifest-ship.json" <<'JSON'
+{"repos": [{"name": "fx", "slug": "example/fx", "path": "repo", "default_branch": "main"}],
+ "policy": {"release": true},
+ "tracks": {
+   "first": {"repo": "fx", "release": ["bash", "fail.sh"], "dry_run_flag": "--dry-run"},
+   "dependent": {"repo": "fx", "release": ["bash", "ok.sh"], "dry_run_flag": "--dry-run"},
+   "independent": {"repo": "fx", "release": ["bash", "ok.sh"], "dry_run_flag": "--dry-run", "after_failure": "run"}},
+ "groups": {"all": ["first", "dependent", "independent"], "grp": ["first", "dependent", "independent"]}}
+JSON
+rm -f "$T/ran"
+ship_rc=0
+RELEASE_MANIFEST="$T/manifest-ship.json" bash "$RELEASE_SH" ship grp --dry-run >"$T/ship.out" 2>"$T/ship.err" || ship_rc=$?
+check "ship: group still fails when its first track fails" 1 "$ship_rc"
+check "ship: independent track runs after the failure" independent "$(cat "$T/ran" 2>/dev/null)"
+check "ship: dependent track skipped" yes "$(grep -q '\[dependent\] skipped: first failed' "$T/ship.err" && echo yes || echo no)"
+check "ship: failure reported for the repo" yes "$(grep -q 'ship: failed for: fx' "$T/ship.err" && echo yes || echo no)"
 
 printf '\n%d passed, %d failed\n' "$PASSES" "$FAILS"
 [ "$FAILS" -eq 0 ]
