@@ -1,0 +1,12 @@
+{
+  "id": "1136-skills-control-center-in-specwithcode",
+  "uuid": "05aaa697-b58c-467f-8561-7b111ce15791",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T22:42:54.744Z",
+  "updated": "2026-10-28T22:42:54.744Z",
+  "lastActivity": "2026-10-28T22:42:54.744Z",
+  "title": "Skills control center in SpecWithCode",
+  "project": "specweave-umb"
+}
