@@ -4,7 +4,7 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-05-27T18:11:29.577Z",
-  "lastActivity": "2026-10-21T20:10:36.147Z",
+  "lastActivity": "2026-10-27T21:10:15.096Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -35,7 +35,7 @@
       "changesCount": 0
     }
   ],
-  "updated": "2026-10-21T20:10:36.147Z",
+  "updated": "2026-10-27T21:10:15.096Z",
   "readyForReviewAt": "2026-10-21T16:36:21.094Z",
   "closeReason": "Legacy tasks.md checkboxes; ledger has 12/14 done, 2 skipped, ACs 12/12 met; verify PASS; deployed 1867e249 (version 48bab6d0)",
   "approvedAt": "2026-10-21T16:36:21.099Z"
