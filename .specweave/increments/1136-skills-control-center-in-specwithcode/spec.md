@@ -27,13 +27,17 @@ Worktree ~/.specwithcode/m4/worktrees/specweave-studio/skills-control-center, br
 - D-01: Native control center for versions, toggles and fleet push; release stays a hand-off to Skill Studio (authoring flow, no --json on submit).
 - D-02: Never call `vskill disable` (it uninstalls Claude plugins).
 - D-03: Grok per-skill toggle not offered (its ignore list hides the skill, so it could never be turned back on from the UI).
+- D-04: A Claude skill switch whose requested file is outranked (a user skill the project's settings.json turns off or on) goes in the repository's settings.local.json, the highest file below managed settings; the preview names the file and says why. The shared project settings.json is never edited.
+- D-05: Codex and Claude-plugin writes that land but are overridden by a higher layer are reported as applied with a warning and the real effective state (Undo stays available), not refused after the write.
+- D-06: Version writes on a user skill recorded only in the legacy ~/vskill.lock are refused (scope_unsupported): vskill install --global writes ~/.agents/vskill.lock.
+- D-07: File-size exception: apps/server/src/ws.ts and packages/contracts/src/rpc.ts were already over 1500 lines; this increment adds only the RPC group wiring lines there (ws.ts +2, rpc.ts +6).
 ### Open
 - none
 
 ## Tasks
 
 ### T-01 Contract, scopes and lock fields
-- AC: AC-01, AC-02, AC-03, AC-04 | Files: packages/contracts/src/projectSkills.ts, packages/contracts/src/projectWorkspaceRpc.ts, apps/server/src/auth/RpcAuthorization.ts, apps/server/src/project/projectSkillsScan.ts | Test: npx vp test run (contracts and server auth tests)
+- AC: AC-01, AC-02, AC-03, AC-04 | Files: packages/contracts/src/projectSkills.ts, packages/contracts/src/projectSkillsActions.test.ts, packages/contracts/src/projectWorkspaceRpc.ts, packages/contracts/src/rpc.ts, packages/contracts/src/clientRpcPermissions.ts, packages/client-runtime/src/state/projectWorkspace.ts, apps/server/src/auth/RpcAuthorization.test.ts, apps/server/src/observability/RpcInstrumentation.ts, apps/server/src/project/projectSkillsInventory*.ts, apps/server/src/project/ProjectSkillsService.ts, apps/server/src/provider/ProviderDriver.ts, apps/server/src/provider/Drivers/ClaudeDriver.ts, apps/server/src/provider/Drivers/ClaudeSkills.ts, apps/server/src/provider/Drivers/CodexDriver.ts, apps/server/src/provider/Drivers/GrokDriver.ts | Test: npx vp test run (contracts and server auth tests)
 
 ### T-02 Versions and version actions over vskill
 - AC: AC-02 | Files: apps/server/src/project/ProjectSkillsActions*.ts | Test: npx vp test run apps/server/src/project/ProjectSkillsActions.test.ts
@@ -45,7 +49,7 @@ Worktree ~/.specwithcode/m4/worktrees/specweave-studio/skills-control-center, br
 - AC: AC-04 | Files: apps/server/src/project/ProjectSkillsFleet*.ts, apps/server/src/ws.ts | Test: npx vp test run apps/server/src/project/ProjectSkillsFleet.test.ts
 
 ### T-05 Control center UI
-- AC: AC-01, AC-02, AC-03, AC-04 | Files: apps/web/src/components/settings/ProjectSkills*.tsx, apps/web/src/components/settings/ProjectSkillsSettings.logic.ts | Test: npx vp test run apps/web/src/components/settings/ + headless Playwright screenshots in reports/
+- AC: AC-01, AC-02, AC-03, AC-04 | Files: apps/web/src/components/settings/ProjectSkill*.tsx, apps/web/src/components/settings/ProjectSkill*.ts, apps/web/src/components/chat/ComposerSkillsPopover*.tsx, apps/web/src/routes/settings.skills.tsx | Test: npx vp test run apps/web/src/components/settings/ + headless Playwright screenshots in reports/
 
 ### T-06 Verify and close 1136
 - AC: AC-01, AC-02, AC-03, AC-04 | Files: .specweave/increments/1136-skills-control-center-in-specwithcode/reports/ | Test: specweave verify 1136; fresh-context review; specweave complete 1136
