@@ -1,0 +1,17 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/skills-control-center/apps/server && npx vp test run src/project/ProjectSkillsFleet.test.ts src/ws.test.ts
+# exit 0 — 2026-10-28T23:42:01.540Z
+
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/skills-control-center/apps/server
+
+(node:24281) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  2 passed (2)
+      Tests  17 passed (17)
+   Start at  19:41:27
+   Duration  33.83s (transform 89%, import 10%, tests 1%)
+
+  Transform  transforming modules took 29.94s · 89% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns

@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "headless": true,
+  "liveSettingsWrites": false,
+  "checks": [
+    "disabled plugin remains actionable",
+    "unsupported individual plugin switches are disabled",
+    "whole-plugin actions select correct enable/disable",
+    "light and dark controls render"
+  ],
+  "calls": [
+    {
+      "kind": "toggle-plugin",
+      "provider": "claudeAgent",
+      "instanceId": "claudeAgent",
+      "pluginId": "sw@mkt",
+      "enabled": true,
+      "scope": "user"
+    },
+    {
+      "kind": "toggle-plugin",
+      "provider": "claudeAgent",
+      "instanceId": "claudeAgent",
+      "pluginId": "sw@mkt",
+      "enabled": false,
+      "scope": "user"
+    }
+  ]
+}
