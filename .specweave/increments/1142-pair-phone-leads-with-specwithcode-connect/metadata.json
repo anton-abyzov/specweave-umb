@@ -1,0 +1,13 @@
+{
+  "id": "1142-pair-phone-leads-with-specwithcode-connect",
+  "uuid": "aef25885-16b7-45ac-9935-974ab3f84457",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-29T12:56:36.535Z",
+  "updated": "2026-10-29T13:34:41.150Z",
+  "lastActivity": "2026-10-29T13:34:41.150Z",
+  "title": "Pair phone leads with SpecWithCode Connect",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

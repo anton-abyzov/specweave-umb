@@ -1,0 +1,16 @@
+{
+  "id": "1139-recover-offline-iphone-machines-without-losing-pairing",
+  "uuid": "747cccfd-96a3-4e27-a5e5-8ffc6b7739cd",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-29T04:04:11.328Z",
+  "updated": "2026-10-29T13:16:46.130Z",
+  "lastActivity": "2026-10-29T13:16:46.130Z",
+  "title": "Recover offline iPhone machines without losing pairing",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-29T13:16:46.128Z",
+  "closeReason": "Build 13 (0.1.0) signed, installed and accepted on iPhoneA by Anton; full simulator suite TEST EXECUTE SUCCEEDED; PR #999 merged 2026-10-29T13:11Z. T-02/T-06/T-07 delivered in build 13. Verify's failing umbrella repo suites (specweave/vskill unit tests) are unrelated to this iOS increment. Desktop pairing hierarchy split to 1142.",
+  "approvedAt": "2026-10-29T13:16:46.130Z"
+}
