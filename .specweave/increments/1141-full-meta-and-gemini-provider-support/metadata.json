@@ -1,0 +1,12 @@
+{
+  "id": "1141-full-meta-and-gemini-provider-support",
+  "uuid": "8b0c2a94-acba-418d-a8f0-e31380c3e9d3",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-29T07:42:39.565Z",
+  "updated": "2026-10-29T12:30:05.684Z",
+  "lastActivity": "2026-10-29T12:30:05.684Z",
+  "title": "Full Meta and Gemini provider support",
+  "project": "specweave-umb"
+}
