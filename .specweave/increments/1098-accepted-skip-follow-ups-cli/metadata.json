@@ -1,0 +1,15 @@
+{
+  "id": "1098-accepted-skip-follow-ups-cli",
+  "uuid": "e16cde07-dd9e-4645-aff9-73debaae4bfb",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T13:47:07.232Z",
+  "updated": "2026-10-27T17:45:05.542Z",
+  "lastActivity": "2026-10-27T17:45:05.542Z",
+  "title": "Accepted-skip follow-ups (CLI)",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-27T14:08:57.043Z",
+  "approvedAt": "2026-10-27T14:08:57.044Z"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "1096-accepted-skip-ledger-evidence-cli",
+  "uuid": "189040bf-c1a4-4665-b3e2-0088f55daaae",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T13:12:54.350Z",
+  "updated": "2026-10-27T13:36:27.449Z",
+  "lastActivity": "2026-10-27T13:36:27.449Z",
+  "title": "Accepted-skip ledger evidence (CLI)",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-27T13:36:27.449Z",
+  "approvedAt": "2026-10-27T13:36:27.449Z"
+}

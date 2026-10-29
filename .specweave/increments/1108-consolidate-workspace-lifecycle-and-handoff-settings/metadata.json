@@ -1,0 +1,13 @@
+{
+  "id": "1108-consolidate-workspace-lifecycle-and-handoff-settings",
+  "uuid": "516885c2-e20d-4df1-99a6-f367846de928",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T22:22:29.577Z",
+  "updated": "2026-10-28T04:18:02.550Z",
+  "lastActivity": "2026-10-28T04:18:02.550Z",
+  "title": "Consolidate workspace lifecycle and handoff settings",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

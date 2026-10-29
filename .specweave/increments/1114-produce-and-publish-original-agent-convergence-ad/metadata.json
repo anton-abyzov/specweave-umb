@@ -1,0 +1,13 @@
+{
+  "id": "1114-produce-and-publish-original-agent-convergence-ad",
+  "uuid": "9548e01a-c022-4698-a638-4f836030627c",
+  "status": "active",
+  "type": "experiment",
+  "priority": "P1",
+  "created": "2026-10-28T05:44:43.438Z",
+  "updated": "2026-10-28T06:39:39.301Z",
+  "lastActivity": "2026-10-28T06:39:39.301Z",
+  "title": "Produce and publish original agent convergence ad",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

@@ -18,6 +18,7 @@ Research, measurements and sources: `/Users/antonabyzov/Projects/github/specweav
    Usage reads are per instance, and M4 rotates by re-login in one home (`claudeAgent`, 2,937 runs), so identity changes under the same instance id. No turn records its account.
 4. **Mixed chains lose the target's own session.** In Claude A → Codex → Claude C → Claude A, A resumes C's copied session (which started from a summary), not A's own native session.
 5. **Policy risk.** "Advertised usage limits for Pro and Max plans assume ordinary, individual usage". The Consumer Terms forbid "bypassing any of our systems or protective measures". No official source allows or forbids rotating subscriptions.
+6. **The app already rotates, on by default.** On `origin/main` `7129dd1fdc`, `providerLimitAction` defaults to `"switch"` (`packages/contracts/src/settings.ts:1729`). `resolveSameModelElsewhere` and `anyReady` rank "another account of the same driver" first (`packages/shared/src/providerFallback.ts:376-451`, `:555`), with no account-level opt-in. Tests pin this (`providerFallback.test.ts:650`, `:1570`; `machineFallback.test.ts:122`).
 
 ## Scope
 
@@ -64,7 +65,7 @@ Out:
   - resumes keep 1047's 5-second spacing.
 
   The cap lifts when a fresh read shows room. Tests cover cap, lift, person priority and restart.
-- [ ] AC-07: Optional automatic rotation. A setting "Rotate between my Claude subscriptions automatically" is off by default. Turning it on shows a consent dialog quoting the "ordinary, individual usage" and "bypassing ... protective measures" texts with their links, and records who agreed and when. Only instances the user marked authorized for rotation are candidates. The target is chosen by fresh room first, then cache warmth, then fallback order. With the setting off, behaviour is unchanged: the existing fallback and 1047 rules apply, and the switch shows a one-click "Continue on <subscription>" instead.
+- [ ] AC-07: Optional automatic rotation. A setting "Rotate between my Claude subscriptions automatically" is off by default. Turning it on shows a consent dialog quoting the "ordinary, individual usage" and "bypassing ... protective measures" texts with their links, and records who agreed and when. Only instances the user marked authorized for rotation are candidates. The target is chosen by fresh room first, then cache warmth, then fallback order. With the setting off, behaviour is unchanged: the existing fallback (including same-driver, different-account switching, D-01) and 1047 rules apply.
 - [ ] AC-08: Rotation keeps the boundaries:
   - a person's Stop is final and also disarms limit recovery on a limit-parked thread (fixes the probable gap in research §4);
   - per-token or API-billed Claude, Vertex and Gemini are never candidates;
@@ -130,7 +131,7 @@ Risks:
 ## Decisions
 
 ### Asked
-- none (research and planning lane; no user questions were asked from it)
+- D-01 Change the shipped same-driver, different-account fallback (on by default, finding 6), or add a note when a second account is added? → No: keep everything as it is for now (Anton, October 27, 2026). AC-07 adds only the optional rotation setting on top; the existing fallback and add-account dialogs are unchanged.
 ### Defaulted (change any before sw-do)
 - D-02 Account identity is a salted hash of `accountUuid` and `organizationUuid` from fields the login watcher already reads. No email in projections or logs.
 - D-03 Cache-savings numbers in UI or docs appear only after AC-09's calibration. Until then the policy uses documented API ratios internally and says "estimate".
@@ -140,7 +141,6 @@ Risks:
 - D-07 A person's send is never blocked by the governor; it only shows that the account is tight.
 - D-08 (October 25, 2026) AC-01 and AC-02 build on the opaque `usageLimits.accountKey` and the persisted limit-stop key from the auth-recovery owner's branch `feat/subscription-change-recovery` (1063/1067 lane) once it merges, and do not add a second fingerprint. 1055 adds only what that branch leaves out: the key on each turn, switch causes, cold-prefix fields, the same-account guard and per-account pooling.
 ### Open
-- D-01 Ship automatic rotation among Claude subscriptions at all (AC-07)? Recommendation: build it behind the off-by-default setting with the Terms consent dialog, and make the cache-aware policy (AC-01..AC-06, AC-10, AC-11) apply to every switch regardless. Alternative: drop AC-07 and keep only manual "Continue on <subscription>". This is Anton's decision because of the policy risk in finding 5.
 
 ## Tasks
 

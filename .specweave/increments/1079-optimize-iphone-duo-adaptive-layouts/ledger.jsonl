@@ -1,0 +1,17 @@
+{"t":"*","e":"session","by":"codex-iphone-duo","at":"2026-10-26T03:26:57.661Z","note":"session 01a1763c-f98a-7bf2-9e5d-44378afd3d99"}
+{"t":"T-01","e":"claim","by":"codex-iphone-duo","at":"2026-10-26T03:26:57.662Z"}
+{"t":"T-02","e":"claim","by":"codex-iphone-duo","at":"2026-10-26T03:27:45.899Z"}
+{"t":"T-01","e":"done","by":"codex-iphone-duo","at":"2026-10-26T03:36:39.990Z","evidence":"e43516d037: make sim-build SIM_NAME=SWC-1079-Compact exited 0; final build/DerivedData native app and tests built; Apple/Theo research in apps/ios/docs/IPHONE-DUO.md\nHEAD 363357bf0"}
+{"t":"T-02","e":"done","by":"codex-iphone-duo","at":"2026-10-26T03:36:42.156Z","evidence":"e43516d037: native compact 20261025-233413 Tests.xcresult 8 passed/0 failed; expanded 20261025-233450 Tests.xcresult 3 passed/0 failed; python3 Tools/test-duo-readiness.py 7 passed; fresh review no findings. Evidence under /tmp/swc-iphone-duo/apps/ios/build\nHEAD 363357bf0"}
+{"t":"T-03","e":"claim","by":"codex-iphone-duo","at":"2026-10-26T03:36:43.983Z"}
+{"t":"T-04","e":"claim","by":"codex-iphone-duo","at":"2026-10-26T03:41:38.917Z"}
+{"t":"T-05","e":"claim","by":"codex-iphone-duo","at":"2026-10-26T03:52:12.289Z"}
+{"t":"T-06","e":"claim","by":"codex-iphone-duo","at":"2026-10-26T04:05:05.644Z"}
+{"t":"T-07","e":"claim","by":"codex-iphone-duo","at":"2026-10-26T04:48:44.063Z"}
+{"t":"T-08","e":"claim","by":"codex-iphone-duo","at":"2026-10-26T04:50:10.152Z"}
+{"t":"T-05","e":"done","by":"codex-iphone-duo","at":"2026-10-26T05:00:20.012Z","evidence":"f091316018: native HitTargetAuditUITests passed in full fixture run build/all-final/20261026-000846/Tests.xcresult after 44pt composer-label fix; real output inspected. Broader run's separate readability timeout passed focused rerun.\nHEAD 234204493"}
+{"t":"T-06","e":"done","by":"codex-iphone-duo","at":"2026-10-26T05:00:28.717Z","evidence":"f091316018: ThreadUITests and ThreadMenuUITests passed in compact traits-final/20261026-005102 (15 passed); SDK-kind-independent author/container selector compiled and ThreadUITests passed again in latest-final/20261026-005749 (9 passed). Exact user text and deletion/count outcomes retained.\nHEAD 234204493"}
+{"t":"T-07","e":"done","by":"codex-iphone-duo","at":"2026-10-26T05:00:30.106Z","evidence":"f091316018: final coordinate-tap/onscreen-44pt Menu helper passed compact latest-final/20261026-005749 (9 passed, 0 failures). Independent native M1 diagnostic input-diagnostic/20261026-005505 proved isHittable=false while the physical coordinate tap opened the drawer.\nHEAD 234204493"}
+{"t":"T-08","e":"done","by":"codex-iphone-duo","at":"2026-10-26T05:00:31.879Z","evidence":"f091316018: explicit wide-compact native test and forced-regular resizing/insets tests passed compact latest-final/20261026-005749; updated UI trait oracle passed there too (9 total, 0 failures).\nHEAD 234204493"}
+{"t":"T-04","e":"done","by":"codex-iphone-duo","at":"2026-10-26T05:01:08.511Z","evidence":"f091316018: M1 Xcode/SDK27.1 and iOS27.1 actual Duo build succeeded; final shipping-source native suite 20261026-010002 has 6 passed, 0 failed/skipped. All 175 native source/config hashes match worktree. SWCKit coverage run core.exit0, 94 tests in18 suites. Shipping result supersedes earlier diagnostic Menu-style runs.\nHEAD 234204493"}
+{"t":"T-09","e":"claim","by":"codex-iphone-duo","at":"2026-10-26T05:04:48.813Z"}

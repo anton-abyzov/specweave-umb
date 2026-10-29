@@ -1,0 +1,15 @@
+{
+  "id": "1132-windows-preview-fixture",
+  "uuid": "4da1d2f1-7fd2-4e48-b213-1601ab619ae0",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-28T18:46:14.830Z",
+  "updated": "2026-10-29T04:12:20.027Z",
+  "lastActivity": "2026-10-29T04:12:20.027Z",
+  "title": "Repair Windows preview fixture dependency paths",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-29T04:12:20.023Z",
+  "approvedAt": "2026-10-29T04:12:20.027Z"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "1101-faster-windows-and-linux-release-pipeline",
+  "uuid": "2652f97b-4a81-4d52-8101-bc59334abeb1",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T15:43:08.421Z",
+  "updated": "2026-10-28T03:34:27.828Z",
+  "lastActivity": "2026-10-28T03:34:27.828Z",
+  "title": "Faster Windows and Linux release pipeline",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

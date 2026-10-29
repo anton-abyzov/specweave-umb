@@ -1,3 +1,13 @@
+# Completed checkpoint: October 27, 2026
+
+1017 is completed. This checkpoint supersedes the historical continuation instructions below. PR #631 merged at 05fa77b27d7b8d3652dcf6da36745ba359affbc2 and is included in installed app/service 1.0.105, source 0b680c88224a92d5b154a364b0332e1e01b68139. Authenticated headless Providers fleet and selected-provider acceptance is recorded. All seven temporary local acceptance sessions were revoked. No installer, remote grant, restart or release was performed during acceptance.
+
+T-04 is done; verification passed 6/6 ACs, 5/5 tasks and 100 focused checks. Fresh review SHIP, with nonblocking popover overlap and fleet screenshot timing limitations retained in /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1017-update-clis-across-connected-machines/reports/review.md. Complete exited 0 without override. Closure hooks reported no resolvable JIRA issue key or ADO work item ID; zero external items changed. No retry or invented tracker association.
+
+Remote execution on M1, M3, Anna Air and Ministorm remains unknown: existing grants are required. This is separate from accepted local installed behavior. Receipt: /Users/antonabyzov/.specwithcode/m4/evidence/provider-cli-fleet-update-1017/installed-acceptance.md.
+
+## Historical handoff (superseded)
+
 ## Superseding Astra sweep checkpoint
 
 October 23, 2026: #631 merged at `05fa77b27d7b8d3652dcf6da36745ba359affbc2`. Former worktree is absent; branch and tested commit remain. Bundle reports `1.0.74`, shell CLI `1.0.75`; running service inclusion is unproven. Current release owner is Complete screenshot sessions, replacing the older 1015 routing below. T-04 remains open. Current exact acceptance and next action: `/Users/antonabyzov/.specwithcode/m4/evidence/provider-cli-fleet-update-1017/installed-acceptance.md`. No remote grant or installer mutation performed.

@@ -1,0 +1,16 @@
+{
+  "id": "1089-bring-back-the-idle-switch-before-the-limit",
+  "uuid": "b7f1c2a4-5e3d-4c8a-9f10-1089a1d2e3f4",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-26T23:30:00.000Z",
+  "updated": "2026-10-26T23:30:00.000Z",
+  "lastActivity": "2026-10-26T23:30:00.000Z",
+  "title": "Bring back the idle switch before the limit",
+  "project": "specweave-umb",
+  "parent": "1075",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -1,0 +1,15 @@
+{
+  "id": "1111-resolve-workflow-capabilities-on-the-execution-machine",
+  "uuid": "9b9c68f2-609a-44c2-90f8-8480ec3733c6",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T04:38:12.933Z",
+  "updated": "2026-10-28T05:31:21.897Z",
+  "lastActivity": "2026-10-28T05:31:21.897Z",
+  "title": "Resolve workflow capabilities on the execution machine",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T05:31:21.895Z",
+  "approvedAt": "2026-10-28T05:31:21.897Z"
+}

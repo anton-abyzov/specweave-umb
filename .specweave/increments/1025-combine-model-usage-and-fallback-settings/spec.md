@@ -83,6 +83,9 @@ Rejected alternatives:
 ### T-08 Record a launch onto a fallback
 - AC: AC-09 | Files: apps/server/src/project/WorkerLaunchRoom.ts, apps/server/src/mcp/OrchestratorMcpService.ts, apps/server/src/mcp/toolkits/project/handlers.ts, packages/contracts/src/orchestrationV2.ts, apps/server/src/orchestration-v2/ProjectionStore.ts, packages/shared/src/threadModelIdentity.ts | Test: vp test run packages/shared/src/threadModelIdentity.test.ts apps/server/src/orchestration-v2/ProjectionStore.modelIdentity.test.ts
 
+### T-09 Explain the folder-copy thread's historical fallback
+- AC: AC-08 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/fallback-home-semantics-20261028 | Test: Safe live provenance read, shared threadModelIdentity tests and web ModelStateTag tests. Record the distinction between a provider substitution and a model fallback, and recommend recovery semantics before changing policy.
+
 ### T-05 Merge, release, verify installed
 - AC: AC-06 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/thread-row-fallback-badge/after2, /Users/antonabyzov/.specwithcode/m4/evidence/fallback-identity | Test: CI green, release published, installed app readback and screenshot
 

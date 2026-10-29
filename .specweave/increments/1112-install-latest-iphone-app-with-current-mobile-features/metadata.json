@@ -1,0 +1,13 @@
+{
+  "id": "1112-install-latest-iphone-app-with-current-mobile-features",
+  "uuid": "514e91df-5968-45e1-ad2d-fa427f423f63",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T04:57:13.303Z",
+  "updated": "2026-10-28T05:31:25.322Z",
+  "lastActivity": "2026-10-28T05:31:25.322Z",
+  "title": "Install latest iPhone app with current mobile features",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

@@ -1,0 +1,138 @@
+{
+  "at": "2026-10-26T04:44:09.923598+00:00",
+  "device": "SWC-1079-Duo",
+  "udid": "4692FC3F-6D84-43EA-81FE-C657192445C8",
+  "sdk": "27.1",
+  "runtime": "27.1 (24A94425)",
+  "automation": "isolated agent-device 0.21.31; native Device Hub for rotations/poses with explicit user exception",
+  "checks": [
+    {
+      "snapshot": "snap-closed",
+      "viewport": {
+        "width": 466,
+        "height": 678
+      },
+      "draft": "Ask Aide anything\u2026",
+      "keyboard": null,
+      "search": false,
+      "menu": true,
+      "close": false,
+      "surface": "absent"
+    },
+    {
+      "snapshot": "draft-inner",
+      "viewport": {
+        "width": 951,
+        "height": 669
+      },
+      "draft": "Duo fold draft 1079",
+      "keyboard": {
+        "kind": "visible",
+        "frame": {
+          "x": 75,
+          "y": 448.99999999999994,
+          "width": 801,
+          "height": 218.99999999999994
+        }
+      },
+      "search": true,
+      "menu": false,
+      "close": false,
+      "surface": "unknown"
+    },
+    {
+      "snapshot": "partial-snapshot",
+      "viewport": {
+        "width": 951,
+        "height": 669
+      },
+      "draft": "Duo fold draft 1079",
+      "keyboard": {
+        "kind": "visible",
+        "frame": {
+          "x": 75,
+          "y": 448.99999999999994,
+          "width": 801,
+          "height": 218.99999999999994
+        }
+      },
+      "search": true,
+      "menu": false,
+      "close": false,
+      "surface": "unknown"
+    },
+    {
+      "snapshot": "rotation-1",
+      "viewport": {
+        "width": 669,
+        "height": 951
+      },
+      "draft": "Duo fold draft 1079",
+      "keyboard": {
+        "kind": "visible",
+        "frame": {
+          "x": 0,
+          "y": 560,
+          "width": 669,
+          "height": 338
+        }
+      },
+      "search": true,
+      "menu": false,
+      "close": false,
+      "surface": "unknown"
+    },
+    {
+      "snapshot": "rotation-2c",
+      "viewport": {
+        "width": 951,
+        "height": 669
+      },
+      "draft": "Duo fold draft 1079",
+      "keyboard": {
+        "kind": "visible",
+        "frame": {
+          "x": 75,
+          "y": 449,
+          "width": 801,
+          "height": 219
+        }
+      },
+      "search": true,
+      "menu": false,
+      "close": false,
+      "surface": "unknown"
+    },
+    {
+      "snapshot": "sheet-closed",
+      "viewport": {
+        "width": 678,
+        "height": 466
+      },
+      "draft": null,
+      "keyboard": null,
+      "search": false,
+      "menu": false,
+      "close": false,
+      "surface": "presented"
+    },
+    {
+      "snapshot": "outer-final",
+      "viewport": {
+        "width": 678,
+        "height": 466
+      },
+      "draft": "Duo fold draft 1079 inner",
+      "keyboard": null,
+      "search": false,
+      "menu": true,
+      "close": false,
+      "surface": "absent"
+    }
+  ],
+  "limitations": [
+    "Hinge-angle readback unavailable: this devicectl has no device motion subcommand. Half-open request is not independently angle-verified.",
+    "Standard XCTest Menu/rotation checks remain red; not removed or weakened.",
+    "No hardware, thermal, battery or Instruments acceptance claimed."
+  ]
+}

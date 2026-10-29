@@ -1,0 +1,13 @@
+{
+  "id": "1138-finish-complete-usage-limit-account-delivery",
+  "uuid": "7e09c3ea-4772-4185-ad53-b1a06ea1b9e3",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-29T03:45:54.047Z",
+  "updated": "2026-10-29T05:05:02.391Z",
+  "lastActivity": "2026-10-29T05:05:02.391Z",
+  "title": "Finish complete usage-limit account delivery",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}
