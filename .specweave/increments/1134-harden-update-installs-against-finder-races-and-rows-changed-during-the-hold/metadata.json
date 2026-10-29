@@ -1,0 +1,15 @@
+{
+  "id": "1134-harden-update-installs-against-finder-races-and-rows-changed-during-the-hold",
+  "uuid": "da8a6162-3de9-47e3-9703-e8050ab30fff",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T21:28:28.874Z",
+  "updated": "2026-10-29T00:32:54.331Z",
+  "lastActivity": "2026-10-29T00:32:54.331Z",
+  "title": "Harden update installs against Finder races and rows changed during the hold",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-29T00:32:54.330Z",
+  "approvedAt": "2026-10-29T00:32:54.331Z"
+}
