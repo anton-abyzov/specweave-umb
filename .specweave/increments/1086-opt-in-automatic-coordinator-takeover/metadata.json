@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-26T19:35:55.171Z",
-  "updated": "2026-10-26T19:35:55.171Z",
-  "lastActivity": "2026-10-26T19:35:55.171Z",
+  "updated": "2026-10-29T02:23:41.707Z",
+  "lastActivity": "2026-10-29T02:23:41.707Z",
   "title": "Opt-in automatic coordinator takeover",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
