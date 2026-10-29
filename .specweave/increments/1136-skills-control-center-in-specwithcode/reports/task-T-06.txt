@@ -1,0 +1,15 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/skills-control-center/apps/server && npx vp test run src/project/ClaudeSettingsWrite.test.ts src/project/ProjectSkillsActions.test.ts src/project/ProjectSkillsToggles.test.ts src/project/ProjectSkillsFleet.test.ts
+# exit 0 — 2026-10-29T02:13:37.895Z
+
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/skills-control-center/apps/server
+
+
+ Test Files  4 passed (4)
+      Tests  46 passed (46)
+   Start at  22:13:21
+   Duration  16.60s (import 50%, transform 31%, tests 17%, setup 2%)
+
+  Transform  transforming modules took 4.73s · 31% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns

@@ -1,0 +1,11 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/skills-control-center/apps/server && npx vp test run src/project/ClaudeSettingsWrite.test.ts src/project/ProjectSkillsToggles.test.ts
+# exit 0 — 2026-10-28T23:41:24.317Z
+
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/skills-control-center/apps/server
+
+
+ Test Files  2 passed (2)
+      Tests  19 passed (19)
+   Start at  19:41:22
+   Duration  1.33s (transform 51%, import 38%, tests 9%, setup 2%)

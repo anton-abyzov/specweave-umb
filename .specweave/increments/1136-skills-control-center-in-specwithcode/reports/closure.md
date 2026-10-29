@@ -1,0 +1,17 @@
+# Increment 1136 completion
+
+Status: completed through `specweave complete 1136 --yes` on 2026-10-29. All 9 tasks done, all 4 acceptance criteria verified, no skipped tasks. Closure covers the accepted macOS skills control center; Windows compatibility remains a separate active lane.
+
+Original session: “See and update skills across machines”, Claude `9135f9ee-04e6-4978-a99e-20b943fc5cb5`. Anton accepted the work at 2026-10-29T03:56:05Z; the provider then returned its weekly-limit error. Anton requested completion in this Codex chat.
+
+Original implementation: PR #985, merge `3e423ef4dec0878ca0e524cabf6664abce24146d`. Closure fixes: PR #995, head `914455629b6a134d019e1cec4a7f9d8d07c52bd5`, merged as `b6f539789ca2068eb904baf189592d055e29a5ff`. Disabled plugins remain available for Undo and re-enable; unsupported Claude plugin per-skill writes are refused; update-to-latest is bound to its exact preview version. Fresh review verdict: ship; final platform-scope review found no new defect in #995.
+
+SpecWithCode 1.0.115 is published in private and public feeds from candidate `095714ab3657cf84ee05de8b3cd38d6df850ab7b`. Original #985 is an ancestor and all six changed production files exactly match reviewed #995. M4, M1, M3 and the Linux worker installed 1.0.115. The macOS desktop apps on M4, M1 and M3 were updated and checked. The separate unreachable MacBook Air was skipped by the fleet pipeline; no fleet-wide or Windows acceptance is claimed. Release record PR #1000 merged as `3e8f1af8b916c96a966c54b5ba39f3e9f40df363`. The canonical ship pipeline completed with exit 0, including its final release verification.
+
+Validation: required GitHub gates passed (the full PR gate took 50 minutes); all 18 canonical release prechecks passed; 13,309 server tests passed, 32 pre-existing pending. Focused validation: 82 server tests, 27 settings UI tests and 7 contracts; scoped action/toggle coverage 93% lines, 81.96% branches, 87.75% functions and 92.15% statements. Baseline-aware typecheck passes with no new diagnostics, with 87 prior server diagnostics retained. Production web/server/desktop build passed. Headless light/dark checks exercised real controls in an isolated fixture without live settings writes. Final `specweave verify 1136` reran focused suites and canonical release verification, all exit 0; see verify.json.
+
+Windows limitations are explicit in windows-ci.md. Existing vskill launcher discovery failures affect fleet/project version fixtures; active PR #991 owns that repair. Unchanged worktree/placement, POSIX-mode and right-panel fixtures also fail on Windows. These results were not hidden, skipped, weakened or reported as green. Manual acceptance is Anton's recorded acceptance, not a claim of automated physical-device interaction.
+
+M4 deployment recovery: the managed relay binary was absent, so the service used Homebrew cloudflared and could not satisfy updater quiescence. Installed the official cloudflared 2026.5.2 archive after matching the SHA256 pinned in the shipped source, then terminated only the verified held-service child PID. The runtime restarted its managed copy and the normal updater completed. Account settings and the unrelated Homebrew tunnel daemon were preserved; see managed-relay-recovery.json.
+
+The CLI marked the increment completed. Its optional JIRA/ADO closure hooks had no linked IDs and closed zero items; those warnings do not undo local completion. The original provider session and unrelated active worktrees were preserved.
