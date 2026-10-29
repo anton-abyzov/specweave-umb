@@ -1,0 +1,57 @@
+{
+  "recordedAt": "2026-10-29T04:52:01.973049+00:00",
+  "version": "1.0.115",
+  "sourceCommit": "095714ab3657cf84ee05de8b3cd38d6df850ab7b",
+  "stage1": {
+    "apps_web": 0,
+    "packages_effect-codex-app-server": 0,
+    "packages_effect-acp": 0,
+    "contrast": 0,
+    "packages_tailscale": 0,
+    "apps_marketing": 0,
+    "infra_relay": 0,
+    "apps_chrome-extension": 0,
+    "packages_shared": 0,
+    "oxlint-plugin-studio": 0,
+    "packages_contracts": 0,
+    "scripts": 0,
+    "apps_desktop": 0,
+    "packages_client-runtime": 0,
+    "fleet": 0,
+    "packages_ssh": 0,
+    "typecheck": 0,
+    "apps_mobile": 0
+  },
+  "server": [
+    {
+      "shard": "server-1",
+      "passed": 3324,
+      "failed": 0,
+      "pending": 9,
+      "success": true
+    },
+    {
+      "shard": "server-2",
+      "passed": 3015,
+      "failed": 0,
+      "pending": 6,
+      "success": true
+    },
+    {
+      "shard": "server-3",
+      "passed": 3536,
+      "failed": 0,
+      "pending": 11,
+      "success": true
+    },
+    {
+      "shard": "server-4",
+      "passed": 3434,
+      "failed": 0,
+      "pending": 6,
+      "success": true
+    }
+  ],
+  "serverResult": "095714ab3657cf84ee05de8b3cd38d6df850ab7b 0",
+  "published": false
+}

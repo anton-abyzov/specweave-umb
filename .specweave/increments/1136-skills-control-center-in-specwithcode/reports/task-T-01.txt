@@ -1,0 +1,28 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/skills-control-center/packages/contracts && npx vp test run src/projectSkillsActions.test.ts && cd /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/skills-control-center/apps/server && npx vp test run src/auth/RpcAuthorization.test.ts src/project/projectSkillsInventory.test.ts
+# exit 0 — 2026-10-28T23:41:02.343Z
+
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/skills-control-center/packages/contracts
+
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  19:40:51
+   Duration  2.92s (transform 75%, import 24%)
+
+  Transform  transforming modules took 2.08s · 75% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/skills-control-center/apps/server
+
+
+ Test Files  2 passed (2)
+      Tests  73 passed (73)
+   Start at  19:40:55
+   Duration  6.40s (transform 70%, import 24%, tests 4%, setup 1%)
+
+  Transform  transforming modules took 4.22s · 70% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns

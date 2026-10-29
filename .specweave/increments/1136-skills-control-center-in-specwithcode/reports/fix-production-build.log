@@ -1,0 +1,76 @@
+Excerpt of retained raw build output.
+Raw SHA256: 3d452bc5d545c8c107faf6597d6f11c9988ae768387572dddcedf84254e6ab10
+Raw local file: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1136-skills-control-center-in-specwithcode/reports/fix-production-build.log
+Raw lines: 2573
+
+~/apps/web$ vp build ⊘ cache disabled
+Warning: Route file "/Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/1136-closure-fixes/apps/web/src/routes/projectReturnRoute.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "/Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/1136-closure-fixes/apps/web/src/routes/-projectReturnRoute.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+
+[Intermediate bundler output omitted; raw log retained locally.]
+
+ℹ 2 files, total: 14.38 kB
+ℹ Hint: consider adding deps.onlyBundle option to avoid unintended bundling of dependencies, or set deps.onlyBundle: false to disable this hint.
+See more at https://tsdown.dev/options/dependencies#deps-onlybundle
+Detected dependencies in bundle:
+- @clerk/electron
+✔ Build complete in 104ms
+ℹ dist-electron/compileCache.cjs      1.61 kB │ gzip: 0.75 kB
+ℹ dist-electron/boot.cjs              0.12 kB │ gzip: 0.12 kB
+ℹ dist-electron/compileCache.cjs.map  1.82 kB │ gzip: 1.00 kB
+ℹ dist-electron/boot.cjs.map          0.33 kB │ gzip: 0.24 kB
+ℹ 4 files, total: 3.88 kB
+ℹ Hint: consider adding deps.onlyBundle option to avoid unintended bundling of dependencies, or set deps.onlyBundle: false to disable this hint.
+See more at https://tsdown.dev/options/dependencies#deps-onlybundle
+Detected dependencies in bundle:
+- react-grab
+✔ Build complete in 127ms
+ℹ dist-electron/preload.cjs      40.51 kB │ gzip:  9.10 kB
+ℹ dist-electron/preload.cjs.map  75.52 kB │ gzip: 17.03 kB
+ℹ 2 files, total: 116.02 kB
+✔ Build complete in 156ms
+ℹ dist-electron/preview-pick-preload.cjs      127.00 kB │ gzip: 33.53 kB
+ℹ dist-electron/preview-pick-preload.cjs.map  222.90 kB │ gzip: 56.82 kB
+ℹ 2 files, total: 349.91 kB
+✔ Build complete in 188ms
+ℹ dist-electron/snapShot/SnapShotAccessibilityWorker.cjs        6.27 kB │ gzip: 1.95 kB
+ℹ dist-electron/snapShot/GlobalShiftShortcutWorker.cjs          5.72 kB │ gzip: 1.60 kB
+ℹ dist-electron/electron/WindowsForegroundFocusWorker.cjs       2.32 kB │ gzip: 0.89 kB
+ℹ dist-electron/snapShot/RegionSnapShotWorker.cjs               0.77 kB │ gzip: 0.43 kB
+ℹ dist-electron/snapShot-C2Pba4gr.cjs.map                       5.34 MB
+ℹ dist-electron/snapShot-C2Pba4gr.cjs                           1.67 MB
+ℹ dist-electron/snapShot/SnapShotAccessibilityWorker.cjs.map   13.70 kB │ gzip: 4.07 kB
+ℹ dist-electron/snapShot/GlobalShiftShortcutWorker.cjs.map     13.64 kB │ gzip: 3.60 kB
+ℹ dist-electron/electron/WindowsForegroundFocusWorker.cjs.map   5.07 kB │ gzip: 1.69 kB
+ℹ dist-electron/snapShot/RegionSnapShotWorker.cjs.map           1.77 kB │ gzip: 0.84 kB
+ℹ dist-electron/rolldown-runtime-VH7oDXx4.cjs                   1.13 kB │ gzip: 0.54 kB
+ℹ 11 files, total: 7.06 MB
+✔ Build complete in 335ms
+ℹ dist-electron/main.cjs       5.99 MB
+ℹ dist-electron/main.cjs.map  14.99 MB
+ℹ 2 files, total: 20.98 MB
+../../node_modules/.pnpm/dbus-next@0.10.2_patch_hash=cfff57561b0ee59b5addb3b2e6c6f20906e967507a530ab67e8db8108e520ba4/node_modules/dbus-next/lib/address-x11.js (7:22) [UNRESOLVED_IMPORT] Could not resolve 'x11' in ../../node_modules/.pnpm/dbus-next@0.10.2_patch_hash=cfff57561b0ee59b5addb3b2e6c6f20906e967507a530ab67e8db8108e520ba4/node_modules/dbus-next/lib/address-x11.js
+   ╭─[ ../../node_modules/.pnpm/dbus-next@0.10.2_patch_hash=cfff57561b0ee59b5addb3b2e6c6f20906e967507a530ab67e8db8108e520ba4/node_modules/dbus-next/lib/address-x11.js:7:23 ]
+   │
+ 7 │   const x11 = require('x11');
+   │                       ──┬──
+   │                         ╰──── Module not found, treating it as an external dependency
+───╯
+
+../../node_modules/.pnpm/effect@4.0.1_patch_hash=a33cba07c41f32374c2aaa86ea4a84d3ab9a872a78c94b65e929b19f8361856f/node_modules/effect/dist/ConfigProvider.js (709:7) [EMPTY_IMPORT_META] `import.meta` may not be a valid syntax with the `cjs` output format.
+     ╭─[ ../../node_modules/.pnpm/effect@4.0.1_patch_hash=a33cba07c41f32374c2aaa86ea4a84d3ab9a872a78c94b65e929b19f8361856f/node_modules/effect/dist/ConfigProvider.js:709:8 ]
+     │
+ 709 │     ...import.meta?.env
+     │        ─────┬─────
+     │             ╰─────── This `import.meta` will be replaced with an empty object (`{}`) automatically. If this is desired, you can suppress this warning by adding `transform.define: { 'import.meta': {} }`. If `import.meta` needs to be kept as-is, you need to set the output format to `esm`.
+─────╯
+
+✔ Build complete in 576ms
+
+---
+vp run: 0/5 cache hit (0%). (Run `vp run --last-details` for full details)

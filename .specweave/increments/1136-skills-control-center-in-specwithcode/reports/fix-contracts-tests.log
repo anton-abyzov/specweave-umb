@@ -1,0 +1,13 @@
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/1136-closure-fixes/packages/contracts
+
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  00:08:51
+   Duration  9.13s (transform 68%, import 31%)
+
+  Transform  transforming modules took 5.67s · 68% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns

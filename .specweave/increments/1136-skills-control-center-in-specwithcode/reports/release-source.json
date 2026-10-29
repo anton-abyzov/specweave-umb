@@ -1,0 +1,31 @@
+{
+  "originalPr985Included": true,
+  "fixPr995Head": "914455629b6a134d019e1cec4a7f9d8d07c52bd5",
+  "releaseCandidate": "095714ab3657cf84ee05de8b3cd38d6df850ab7b",
+  "productionFiles": [
+    {
+      "path": "apps/server/src/project/ProjectSkillsActions.ts",
+      "identical": true
+    },
+    {
+      "path": "apps/server/src/project/ProjectSkillsToggles.ts",
+      "identical": true
+    },
+    {
+      "path": "apps/server/src/provider/Drivers/ClaudeSkills.ts",
+      "identical": true
+    },
+    {
+      "path": "apps/web/src/components/settings/ProjectSkillActions.logic.ts",
+      "identical": true
+    },
+    {
+      "path": "apps/web/src/components/settings/ProjectSkillAgentToggles.tsx",
+      "identical": true
+    },
+    {
+      "path": "packages/contracts/src/projectSkills.ts",
+      "identical": true
+    }
+  ]
+}
