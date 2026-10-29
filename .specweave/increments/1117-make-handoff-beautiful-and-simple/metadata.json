@@ -1,13 +1,15 @@
 {
   "id": "1117-make-handoff-beautiful-and-simple",
   "uuid": "7d0ab17b-4298-40df-b46a-7754cf4433a3",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-28T06:54:48.048Z",
-  "updated": "2026-10-28T09:00:24.345Z",
-  "lastActivity": "2026-10-28T09:00:24.345Z",
+  "updated": "2026-10-29T01:02:48.215Z",
+  "lastActivity": "2026-10-29T01:02:48.215Z",
   "title": "Make handoff beautiful and simple",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-29T01:02:48.214Z",
+  "approvedAt": "2026-10-29T01:02:48.215Z"
 }
