@@ -1,0 +1,13 @@
+{
+  "id": "1147-keep-a-project-to-its-newest-200-active-threads",
+  "uuid": "c096974b-f24a-4797-ba7b-1ca67210d935",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-30T06:11:41.504Z",
+  "updated": "2026-10-30T11:28:52.970Z",
+  "lastActivity": "2026-10-30T11:28:52.970Z",
+  "title": "Keep a project to its newest 200 active threads",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

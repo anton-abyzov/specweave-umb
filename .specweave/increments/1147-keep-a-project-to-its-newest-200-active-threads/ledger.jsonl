@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-30T11:28:49.394Z","note":"session 783736e7-2363-4145-9d3b-468e158c15ad","model":"opus[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-30T11:28:49.396Z","model":"opus[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-30T11:28:50.593Z","evidence":"7e9ab82f40 (PR #1063): InactiveThreadArchive + Orchestrator.inactiveArchive tests 108 passed; typecheck gate 0 new; CI green\nHEAD 87d71d9ed","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1063","model":"opus[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-30T11:28:51.788Z","model":"opus[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-30T11:28:52.970Z","evidence":"7e9ab82f40 (PR #1063): ActiveThreadCapSetting.test.tsx + settings suite 1165 passed; CI green\nHEAD 87d71d9ed","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1063","model":"opus[1m]"}
