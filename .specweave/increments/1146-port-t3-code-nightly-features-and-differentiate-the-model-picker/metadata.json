@@ -1,0 +1,15 @@
+{
+  "id": "1146-port-t3-code-nightly-features-and-differentiate-the-model-picker",
+  "uuid": "f3ce5846-9e82-4ea3-abac-5b0c5e9ac085",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-30T04:51:41.437Z",
+  "updated": "2026-10-30T08:00:17.051Z",
+  "lastActivity": "2026-10-30T08:00:17.051Z",
+  "title": "Port T3 Code nightly features and differentiate the model picker",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-30T08:00:17.050Z",
+  "approvedAt": "2026-10-30T08:00:17.051Z"
+}
