@@ -1,0 +1,23 @@
+{
+  "recordedAt": "2026-10-27T01:07:31.009599+00:00",
+  "userReport": "done it's working",
+  "physicalShortcut": "User-operated both Shift keys confirmed working",
+  "newIssue": "Capturing from Settings can change app/desktop or create an unrelated chat",
+  "annotation150": "Still unverified in live native UI",
+  "images": [
+    {
+      "path": "/Users/antonabyzov/.specwithcode/m4/userdata/attachments/thread-delegated-task-command-3amcp-3af9b6f93f-2383-4a68-8fb1-0a0bb9d73b36-3adel-069e29bb-20e9-4a8b-8c88-ab5ea49d7e6d.png",
+      "width": 4096,
+      "height": 2420,
+      "sizeBytes": 980498,
+      "sha256": "7ac034579826bee71a79fc2699d380627bee4fb263e46279abd4d2e5694ff586"
+    },
+    {
+      "path": "/Users/antonabyzov/.specwithcode/m4/userdata/attachments/thread-delegated-task-command-3amcp-3af9b6f93f-2383-4a68-8fb1-0a0bb9d73b36-3adel-56570efe-c8cd-4b95-a85e-c6b4a1f2f7cf.png",
+      "width": 4096,
+      "height": 2368,
+      "sizeBytes": 576602,
+      "sha256": "fe02c8f9336e26a0c7a09931341018b9cee97163855a61637bf7f7a438d7b3a7"
+    }
+  ]
+}
