@@ -1,14 +1,16 @@
 {
   "id": "0922-usable-provider-fallbacks-and-muse-code",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-14T13:10:17.579Z",
-  "updated": "2026-10-21T17:50:56.337Z",
-  "lastActivity": "2026-10-21T17:50:56.337Z",
+  "updated": "2026-10-27T13:11:23.896Z",
+  "lastActivity": "2026-10-27T13:11:23.896Z",
   "title": "Usable provider fallbacks and Muse Code",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-27T13:11:23.895Z",
+  "approvedAt": "2026-10-27T13:11:23.896Z"
 }

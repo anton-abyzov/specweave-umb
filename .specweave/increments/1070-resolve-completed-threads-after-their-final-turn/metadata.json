@@ -1,15 +1,17 @@
 {
   "id": "1070-resolve-completed-threads-after-their-final-turn",
   "uuid": "e15ab3c5-969a-48e4-be8c-6ea10cb0ebc6",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-25T05:17:46.270Z",
-  "updated": "2026-10-25T19:28:46.369Z",
-  "lastActivity": "2026-10-25T19:28:46.369Z",
+  "updated": "2026-10-26T21:42:20.446Z",
+  "lastActivity": "2026-10-26T21:42:20.446Z",
   "title": "Resolve completed threads after their final turn",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-26T21:42:20.445Z",
+  "approvedAt": "2026-10-26T21:42:20.446Z"
 }

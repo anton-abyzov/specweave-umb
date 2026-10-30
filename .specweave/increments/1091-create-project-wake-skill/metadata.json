@@ -8,5 +8,8 @@
   "updated": "2026-10-27T03:35:12.639Z",
   "lastActivity": "2026-10-27T03:35:12.639Z",
   "title": "Create project wake skill",
-  "project": "specweave"
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

@@ -40,4 +40,8 @@ Store the origin where the 1055 Claude-home return can also read it (a server-lo
 ### T-03 Scenario tests
 - AC: AC-05 | Test: vp test run apps/server/src/orchestration-v2
 
+### T-05 Honor explicit re-selection of the current fallback
+- AC: AC-03 | Files: apps/server/src/orchestration-v2/Orchestrator.ts, apps/server/src/orchestration-v2/Orchestrator.preswitchOrigin.test.ts | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/1075-early-move-return/apps/server && pnpm exec vp test run src/orchestration-v2/Orchestrator.preswitchOrigin.test.ts
+- Distinguish an explicit model-selection command from an ordinary send that carries the same selection. An explicit pick of the current fallback cancels its recorded pre-switch return; server moves and routine sends retain their existing behavior.
+
 ### T-04 Verify and close 1075

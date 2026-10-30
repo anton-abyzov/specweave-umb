@@ -1,15 +1,18 @@
 {
   "id": "1054-usage-meter-model-unit",
   "uuid": "602eb97f-2c36-4ef1-9d71-a8ce17b63c49",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P2",
   "created": "2026-10-24T18:26:05.869Z",
-  "updated": "2026-10-25T20:11:04.144Z",
-  "lastActivity": "2026-10-25T20:11:04.144Z",
+  "updated": "2026-10-27T03:45:55.564Z",
+  "lastActivity": "2026-10-27T03:45:55.564Z",
   "title": "Usage meter that names its account, in the model chip",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-27T03:45:55.562Z",
+  "closeReason": "verify ACs 14/14; only failures were load-timing tests outside 1054 (specweave handoff-roundtrip timeout, passes 9/9 alone; vskill-platform HMAC p99) at load avg 23-31. Fresh review clean; PRs #756 #871 #874 merged",
+  "approvedAt": "2026-10-27T03:45:55.564Z"
 }

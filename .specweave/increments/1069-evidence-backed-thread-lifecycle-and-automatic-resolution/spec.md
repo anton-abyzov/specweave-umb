@@ -19,6 +19,8 @@ Out: underlying task recovery, bulk resolution, archives, Stop release, auth cha
 - [ ] AC-08: Structured reasons persist through reload/restart, supersede stale reasons only on verified recovery, and agree across grouping/filter/pagination. Operational recovery never auto-resumes explicit Stop. Auth/provider/limit failures, pending release/review fixes, active descendants and unknown remote state are covered.
 - [ ] AC-09: Missing evidence, partial delivery, stale evidence and newly reopened acceptance cannot resolve work across transitions or restart. User-blocked requires Anton's output; deployment, dependency and resource waits carry reasons and owners.
 
+- [ ] AC-10: Explicit user-requested self-resolution persists an exact-run intent and resolves only after its successful final turn, independently of automatic activation, PR snapshots and delivery receipts. Stop, pending work, children, supersession and restart races remain guarded; the response distinguishes scheduled resolution from verified delivery.
+
 ## Approach
 First reconcile owner inventories and inspect current lifecycle contracts, projection candidates, settlement service, orchestrator guards and presentation. Define the smallest durable evidence contract before implementation; do not derive acceptance from final-text heuristics. Extend existing commands/events and settlement locking rather than a second sweeper. Keep runtime status separate from delivery disposition. Use isolated synthetic state for tests. Coordinate shared presentation files before edits and retain existing owner boundaries.
 
@@ -58,3 +60,9 @@ First reconcile owner inventories and inspect current lifecycle contracts, proje
 
 ### T-04 Verify and close 1069
 - AC: AC-06, AC-07, AC-08, AC-09 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/project-attention-1040/idle-lifecycle-verification.md | Test: exact supplied final-message/status mismatch; structured persistence across reload/restart; verified recovery and stale-reason supersession; grouping/filter/pagination agreement; preserved unfinished acceptance; missing/partial/stale/reopened evidence transitions; focused regressions, production builds, headless wide/narrow captures, exact-head CI, specweave verify 1069, fresh-context review, specweave complete 1069; retain installed gate if acceptance is unavailable
+
+### T-07 Honor explicit Resolve after the final turn
+- AC: AC-04, AC-09, AC-10 | Files: packages/contracts/src/orchestrationV2.ts, apps/server/src/orchestration-v2/Orchestrator.ts, apps/server/src/orchestration-v2/Orchestrator.control-reads.test.ts, apps/server/src/mcp/toolkits/thread/handlers.ts, apps/server/src/mcp/toolkits/thread/tools.ts, apps/server/src/mcp/OrchestratorMcpToolkit.integration.test.ts | Test: focused orchestrator control and MCP integration tests, server production build; preserve default-off legacy intents and receipt adjudication
+
+### T-08 Verify and close 1069
+- AC: AC-10 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/project-attention-1040/explicit-resolve-followup.md | Test: fresh exact-head review, green required CI, merge and installed explicit Resolve acceptance through existing release owner; specweave verify 1069 and specweave complete 1069 after all original tasks and gates are satisfied
