@@ -1,0 +1,12 @@
+{
+  "id": "1145-hand-off-the-coordinator-of-a-large-project",
+  "uuid": "21f4b9d3-680e-4cf9-b8ce-5e57315c2800",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-30T04:15:57.718Z",
+  "updated": "2026-10-30T04:15:57.718Z",
+  "lastActivity": "2026-10-30T04:15:57.718Z",
+  "title": "Hand off the coordinator of a large project",
+  "project": "specweave-umb"
+}
