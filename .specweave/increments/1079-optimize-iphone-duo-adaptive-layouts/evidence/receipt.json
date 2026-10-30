@@ -1,0 +1,24 @@
+{
+  "commit": "e43516d03746314ea9842afb16efd71b3e548b0e",
+  "branch": "codex/iphone-duo",
+  "pr": "https://github.com/anton-abyzov/specwithcode-dev/pull/783",
+  "worktree": "/tmp/swc-iphone-duo",
+  "checks": {
+    "compact": {
+      "result": "Passed",
+      "passedTests": 8,
+      "failedTests": 0,
+      "bundle": "/tmp/swc-iphone-duo/apps/ios/build/sim-first/20261025-233413/Tests.xcresult"
+    },
+    "expanded-surrogate": {
+      "result": "Passed",
+      "passedTests": 3,
+      "failedTests": 0,
+      "bundle": "/tmp/swc-iphone-duo/apps/ios/build/expanded/20261025-233450/Tests.xcresult"
+    }
+  },
+  "prerequisiteGateCasesPassed": 7,
+  "actualDuoAcceptance": false,
+  "physicalAcceptance": false,
+  "next": "Inspect authorized M1 MacBook Xcode/runtime and run isolated Duo tests if available"
+}

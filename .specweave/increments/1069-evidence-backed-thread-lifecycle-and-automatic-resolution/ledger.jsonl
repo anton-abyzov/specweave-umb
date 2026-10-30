@@ -5,3 +5,4 @@
 {"t":"T-06","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-25T09:57:40.563Z","line":"Testing automatic settlement missing-evidence refusal"}
 {"t":"T-01","e":"skip","by":"claude@antons-macbook-m4max","at":"2026-10-26T15:32:20.399Z","note":"No owner inventories or receipts exist to reconcile; audit not possible","model":"opus[1m]"}
 {"t":"T-04","e":"block","by":"claude@antons-macbook-m4max","at":"2026-10-26T15:32:23.719Z","note":"Installed acceptance waits on the next release; code, tests and CI land in PR #708","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/708","model":"opus[1m]"}
+{"t":"T-07","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-27T00:05:47.903Z","line":"Implement explicit exact-run Resolve after the final turn"}

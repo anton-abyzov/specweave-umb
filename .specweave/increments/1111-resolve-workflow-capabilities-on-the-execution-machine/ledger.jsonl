@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-28T04:40:54.084Z","note":"session 01a18095-ef9b-75c0-88ab-b60291a836e0"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T04:40:54.086Z"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T04:44:29.803Z"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T04:44:30.237Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:16:35.685Z","evidence":"3f04092830: scoped native inventories, portable requirements, effective PATH checks, start/steer preflight and project-scoped read tool;194 focused plus371 native adapter tests pass.\nHEAD 10af84610"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:16:36.514Z","evidence":"3f04092830: Skills dependency/evidence UI and documentation; headless1280light/390dark no overflow; UI and picker regression tests pass; screenshots in reports/validation.md.\nHEAD 10af84610"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:16:37.173Z","evidence":"565 tests pass; web/server builds and web typecheck pass; server typecheck zero new errors against clean2233025d4f; fresh review ship. App AGENTS requires manual UI acceptance before close; holding complete until that gate.\nHEAD 10af84610"}

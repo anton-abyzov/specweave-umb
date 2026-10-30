@@ -71,6 +71,7 @@ Out:
 - [ ] AC-11: The tooltip and aria-label on the existing rail dots name the window, for example "Claude: 5% of the 5-hour limit left, resets in 55m". This is a copy change; the stale comment at `ModelPickerSidebar.tsx:67-71` is corrected.
 - [ ] AC-12: When the running model equals the pick, the running footer reads "Picks apply from your next message." When they differ, it reads "This turn stays on <running>. Your pick, <pick>, starts with your next message."
 - [ ] AC-13: The billing line renders only when it states a fact; "Billing unverified" is no longer the default. This is gated on agreement from 1050. Deferred to the 1050 owner (October 25, 2026): PR #756 leaves the billing line unchanged.
+- [ ] AC-14: A new chat (no project or a project, before its first send) shows the model its first message will go to, the draft's seeded selection (last pick, then the project default), never "Choose a model" while a provider is ready. An explicit pick replaces the chip label at once, with no "next:" tag on a draft. A saved thread keeps showing its own model, with "next:" for a pending pick. Usage for the shown model can still read "Checking". Reported by Anton on October 26, 2026: "No project / New thread" showed "Choose a model ↪ next: GPT-6.1-Sol Checking".
 - [ ] AC-07: Headless fixture screenshots cover AC-01 to AC-06: home, fallback, returned home, spent, stale, unknown, per token, account switch, and two machines sharing one account. Each is shot in light and dark at 390 and 1280 px, with PWDEBUG=0 and evidence saved to files. Coverage extends to AC-08 to AC-13: the reported thread case (home model, 5% left, no fallback), Favorites, search and alternatives with the account line, and the running footer both matching and differing.
 
 ## Approach
@@ -121,5 +122,8 @@ Rejected:
 
 ### T-07 Headless evidence
 - AC: AC-07 | Files: apps/web/tests/fallback-composer/model-controls.mjs, apps/web/tests/picker-usage | Test: headless matrix to ~/.specwithcode/m4/evidence/usage-meter-model-unit-1054/
+
+### T-09 Draft chip shows the send target
+- AC: AC-14 | Files: apps/web/src/components/chat/ChatComposer.tsx, apps/web/src/components/chat/composerModelDisplay.ts, apps/web/src/components/chat/composerModelDisplay.test.ts, apps/web/tests/fallback-composer | Test: vp test run apps/web/src/components/chat/composerModelDisplay.test.ts; headless apps/web/tests/fallback-composer/draft-chip.mjs
 
 ### T-08 Verify and close 1054

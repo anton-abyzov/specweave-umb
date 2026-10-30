@@ -25,6 +25,9 @@ The shipped phone button explicitly says Call the coordinator and talk, making v
 ### Open
 - none
 
+### Current user correction, October 27, 2026
+- D-04: The user questioned the blanket manual-acceptance rule and asked to remove it. Remove that project-wide default. Manual acceptance is a closure gate only when explicitly required by the user or increment criteria; retain untested microphone/audio behavior as an honest proof limit. This does not establish installed-call success or authorize a live call, permission change, paid request, release or restart.
+
 ## Tasks
 
 ### T-01 Trace shipped coordinator entry points and prerequisites
@@ -41,3 +44,6 @@ The shipped phone button explicitly says Call the coordinator and talk, making v
 
 ### T-05 Repair PR 633 lifecycle typecheck regression
 - AC: AC-04 | Files: apps/server/src/project/ProjectCoordinatorService.test.ts, docs/research/coordinator-readiness-1022.md | Test: CI=1 TYPECHECK_TSC_ARGS='--checkers 2' bash scripts/studio-verify/typecheck-gate.sh plus focused coordinator behavior tests and fresh review; fast-forward existing PR 633. T-04 retains installed acceptance and Verify and close 1022.
+
+### T-06 Remove the blanket manual-acceptance instruction
+- AC: AC-04 | Files: /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/AGENTS.md | Test: inspect exact scoped instruction diff, confirm SpecWeave template has no matching rule, fresh review of closure against unchanged ACs. Then Verify and close 1022.

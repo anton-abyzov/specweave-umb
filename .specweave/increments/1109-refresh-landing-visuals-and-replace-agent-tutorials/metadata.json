@@ -1,0 +1,13 @@
+{
+  "id": "1109-refresh-landing-visuals-and-replace-agent-tutorials",
+  "uuid": "f75e2847-90a2-4054-9e09-e8f3b7101895",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T02:36:13.249Z",
+  "updated": "2026-10-28T03:56:21.016Z",
+  "lastActivity": "2026-10-28T03:56:21.016Z",
+  "title": "Refresh landing visuals and replace agent tutorials",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

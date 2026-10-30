@@ -1,0 +1,15 @@
+{
+  "id": "1113-windows-server-changed-sharding",
+  "uuid": "4983a33d-e217-425c-a16a-bd43ddf86202",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-28T04:59:10.293Z",
+  "updated": "2026-10-29T04:16:21.552Z",
+  "lastActivity": "2026-10-29T04:16:21.552Z",
+  "title": "Preserve Windows changed-server coverage across five shards",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-29T04:16:21.550Z",
+  "approvedAt": "2026-10-29T04:16:21.552Z"
+}

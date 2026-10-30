@@ -1,0 +1,13 @@
+{
+  "id": "1104-safe-launcher-repoint-and-linux-rollout",
+  "uuid": "d85492a8-af25-4a86-b036-9c01d39754f3",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-27T17:49:28.718Z",
+  "updated": "2026-10-27T21:02:08.275Z",
+  "lastActivity": "2026-10-27T21:02:08.275Z",
+  "title": "Safe fleet launcher repoint and Linux worker rollout",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

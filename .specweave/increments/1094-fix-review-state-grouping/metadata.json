@@ -1,0 +1,17 @@
+{
+  "id": "1094-fix-review-state-grouping",
+  "uuid": "72fa56c9-5d70-4070-b0e6-92eca896978f",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T03:43:56.357Z",
+  "updated": "2026-10-27T04:19:58.581Z",
+  "lastActivity": "2026-10-27T04:19:58.581Z",
+  "title": "Fix review state grouping",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-27T04:19:58.580Z",
+  "approvedAt": "2026-10-27T04:19:58.581Z"
+}

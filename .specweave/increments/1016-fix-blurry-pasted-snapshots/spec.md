@@ -62,5 +62,15 @@ User follow-up October 26, 2026: the physical both-Shift shortcut works, with na
 
 Fresh review of the first T-08 candidate found that coordinator durability omitted snapshot source metadata. Keep app/window identity, accessibility text/tree and pixel coordinates through journal and host save/restore before acknowledging the native capture. Existing source-less drafts remain readable. No live database access or migration is required.
 
+### T-10 Route captures to the last user-focused conversation
+- AC: AC-08 | Files: apps/web/src/components/studio/ProjectWorkspaceSurface.tsx, apps/web/src/components/studio/CoordinatorQuestionCard.tsx, apps/web/src/components/desktop/SnapShotCoordinator.tsx, apps/web/src/components/desktop/SnapShotCoordinator.test.ts, apps/web/src/components/desktop/snapShotTarget.ts, apps/web/src/components/desktop/snapShotTarget.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/desktop/SnapShotCoordinator.test.ts apps/web/src/components/desktop/snapShotTarget.test.ts
+
+When orchestrator and thread panes coexist, preserve the last conversation selected by user input within this native window. Pin its scoped destination when capture begins, preserve it through Settings and app switching, invalidate it on conversation navigation, and preserve draft text and unsent attachments.
+
+### T-11 Pin native snapshot delivery to its originating app window
+- AC: AC-08 | Files: apps/desktop/src/window/DesktopWindow.ts, apps/desktop/src/window/DesktopWindow.test.ts, apps/desktop/src/snapShot/DesktopSnapShot.ts, apps/desktop/src/snapShot/DesktopSnapShot.test.ts, apps/desktop/src/ipc/methods/snapShot.ts, apps/desktop/src/ipc/methods/snapShot.test.ts, apps/desktop/src/ipc/DesktopIpcHandlers.ts, apps/desktop/src/backend/DesktopBackendPool.test.ts, apps/desktop/src/app/DesktopLifecycle.test.ts, apps/desktop/src/window/DesktopApplicationMenu.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/desktop/src/window/DesktopWindow.test.ts apps/desktop/src/ipc/methods/snapShot.test.ts apps/desktop/src/snapShot/DesktopSnapShot.test.ts
+
+Pin the app window at capture request. Later lifecycle events and pending capture reads must retain that window, including after focus switches. Another renderer must not steal the pending capture. Preserve captures when an originating window closes without delivering them into an unrelated conversation.
+
 ### T-07 Verify and close 1016
 - AC: AC-04, AC-06, AC-07 | Files: .specweave/increments/1016-fix-blurry-pasted-snapshots/reports | Test: specweave verify 1016
