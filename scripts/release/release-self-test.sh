@@ -1,9 +1,10 @@
 #!/bin/bash
-# release-self-test.sh: offline checks for `release.sh cleanup`, the tag_drift
-# verify check (also right after a ship) and the order of a group ship.
+# release-self-test.sh: offline checks for `release.sh cleanup`, verify's desktop_app
+# check, the tag_drift verify check (also right after a ship) and the order of a group ship.
 # Builds a throwaway repo with worktrees, a fixture manifest with no verify
 # checks, and stub gh/specweave-studio commands on PATH, then runs cleanup
-# --apply against it. Touches nothing outside its temp folder.
+# --apply against it; then runs verify on fixture desktop_app checks against a
+# fake app with stub ssh, PlistBuddy, codesign and spctl. Touches nothing outside its temp folder.
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 RELEASE_SH="$HERE/release.sh"
@@ -11,6 +12,9 @@ RELEASE_SH="$HERE/release.sh"
 T="$(cd "$(mktemp -d "${TMPDIR:-/tmp}/release-self-test.XXXXXX")" && pwd -P)"
 trap 'rm -rf "$T"' EXIT
 
+# What release.sh reads from the environment for the desktop_app check, besides HOME: an inventory
+# or tool override exported in the calling shell must not point the fixtures elsewhere.
+unset STUDIO_FLEET_HOSTS RELEASE_DESKTOP_APP RELEASE_SSH RELEASE_PLISTBUDDY RELEASE_CODESIGN RELEASE_SPCTL
 export HOME="$T/home" GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_NOSYSTEM=1
 export GIT_AUTHOR_NAME=test GIT_AUTHOR_EMAIL=test@example.com GIT_COMMITTER_NAME=test GIT_COMMITTER_EMAIL=test@example.com
 export RELEASE_MANIFEST="$T/manifest.json" SW_REPOS_BASE="$T/base" RELEASE_STATE_FILE="$T/state.json"
@@ -250,7 +254,161 @@ bash "$RELEASE_SH" cleanup fx 2>"$T/cleanup.err" >"$T/cleanup.json" || true
 check "dry run: would remove, branch noted" "remove|no commits outside origin/main; branch recorded will be kept: a SpecWithCode thread records it" "$(action_of "$T/wt/recorded")|$(reason_of "$T/wt/recorded")"
 check "dry run: folder untouched" yes "$(exists "$T/wt/recorded")"
 
-# ---- 8. tag_drift: commits under the watched paths after the newest tag fail verify
+# ---- 8. verify kind desktop_app: the app's version and signature, on this Mac and over the fleet ssh
+# Stub PlistBuddy prints the app's Info.plist (here just the version). Stub codesign fails a bundle
+# that has Contents/_bad_signature, prints Contents/_requirement as its designated requirement
+# (implicit, "# designated => ...", for an ad hoc cdhash one) and satisfies -R=<requirement> only
+# when that is it; stub spctl rejects a bundle that has Contents/_rejected. Stub ssh logs its
+# arguments and runs the remote /bin/bash -s here, or fails as an unreachable host does for the
+# host named in $STUB_SSH_DOWN.
+REQ='identifier "com.specweave.studio" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = NMCB2JZ7QG'
+cat >"$T/bin/fake-plistbuddy" <<'SH'
+#!/bin/bash
+for last; do :; done
+cat "$last" 2>/dev/null || { echo 'Print: Entry, ":CFBundleShortVersionString", Does Not Exist' >&2; exit 1; }
+SH
+cat >"$T/bin/fake-codesign" <<'SH'
+#!/bin/bash
+printf '%s\n' "$*" >>"$STUB_LOG.codesign"
+for last; do :; done
+[ -d "$last" ] || { echo "$last: No such file or directory" >&2; exit 1; }
+req="$(cat "$last/Contents/_requirement")"
+if [ "$1" = -d ]; then
+  echo "Executable=$last/Contents/MacOS/SpecWithCode" >&2
+  case "$req" in cdhash*) echo "# designated => $req" ;; *) echo "designated => $req" ;; esac
+  exit 0
+fi
+[ ! -e "$last/Contents/_bad_signature" ] || { echo "$last: a sealed resource is missing or invalid" >&2; exit 1; }
+for arg; do
+  case "$arg" in
+    -R=*) [ "${arg#-R=}" = "$req" ] || { echo "$last: test-requirement: code failed to satisfy specified code requirement(s)" >&2; exit 3; } ;;
+  esac
+done
+SH
+cat >"$T/bin/fake-spctl" <<'SH'
+#!/bin/bash
+printf '%s\n' "$*" >>"$STUB_LOG.spctl"
+for last; do :; done
+[ ! -e "$last/Contents/_rejected" ] || { echo "$last: rejected" >&2; exit 3; }
+echo "$last: accepted" >&2
+SH
+cat >"$T/bin/fake-ssh" <<'SH'
+#!/bin/bash
+printf '%s\n' "$*" >>"$STUB_LOG.ssh"
+for arg; do case "$arg" in *@*) dest="$arg" ;; esac; done
+if [ -n "${STUB_SSH_DOWN:-}" ] && [ "${dest#*@}" = "$STUB_SSH_DOWN" ]; then
+  echo "ssh: connect to host $STUB_SSH_DOWN port 22: Connection refused" >&2
+  exit 255
+fi
+exec /bin/bash -s
+SH
+chmod +x "$T/bin/fake-plistbuddy" "$T/bin/fake-codesign" "$T/bin/fake-spctl" "$T/bin/fake-ssh"
+APP="$T/Applications/SpecWithCode.app"
+FLEET="$HOME/.local/share/specweave/fleet"
+mkdir -p "$FLEET"
+cat >"$FLEET/hosts.json" <<'JSON'
+{"m1": {"host": "m1.example", "user": "tester", "home": "/Users/tester"},
+ "m3": {"host": "-oProxyCommand=false", "user": "tester", "home": "/Users/tester"}}
+JSON
+# make_app <version> [bad|adhoc|other-team|rejected]: the fake app on every Mac (one path: the stub
+# ssh runs here), signed with the release's requirement unless an ad hoc or another team's signature.
+make_app() {
+  rm -rf "$APP"
+  mkdir -p "$APP/Contents"
+  printf '%s\n' "$1" >"$APP/Contents/Info.plist"
+  case "${2:-}" in
+    adhoc) printf '%s' 'cdhash H"4b875ae6a9aaacdc06ace70c099c02314025eb66"' >"$APP/Contents/_requirement" ;;
+    other-team) printf '%s' "${REQ%NMCB2JZ7QG}ABCDE12345" >"$APP/Contents/_requirement" ;;
+    *) printf '%s' "$REQ" >"$APP/Contents/_requirement" ;;
+  esac
+  [ "${2:-}" != bad ] || touch "$APP/Contents/_bad_signature"
+  [ "${2:-}" != rejected ] || touch "$APP/Contents/_rejected"
+}
+# verify_app <host> [version] [requirement]: `release.sh verify` on a track with one desktop_app
+# check and desktop_app.requirement (default $REQ; "none" leaves it out); sets APP_RC, APP_STATUS
+# and APP_DETAIL.
+verify_app() {
+  jq -n --arg host "$1" --arg req "${3:-$REQ}" '{repos: [{name: "fx", slug: "example/fx", path: "repo", default_branch: "main"}],
+    tracks: {apps: ({repo: "fx", release: ["true"], fleet: {ssh_key: "~/.local/share/specweave/fleet/id_ed25519"},
+      verify: [{name: "app", kind: "desktop_app", host: $host}]} + (if $req == "none" then {} else {desktop_app: {requirement: $req}} end))}}' \
+    >"$T/manifest-apps.json"
+  : >"$STUB_LOG.ssh"
+  : >"$STUB_LOG.codesign"
+  : >"$STUB_LOG.spctl"
+  APP_RC=0
+  RELEASE_MANIFEST="$T/manifest-apps.json" RELEASE_DESKTOP_APP="$APP" RELEASE_SSH="$T/bin/fake-ssh" \
+    RELEASE_PLISTBUDDY="$T/bin/fake-plistbuddy" RELEASE_CODESIGN="$T/bin/fake-codesign" RELEASE_SPCTL="$T/bin/fake-spctl" \
+    bash "$RELEASE_SH" verify apps --version "${2:-1.2.3}" >"$T/verify.json" 2>"$T/verify.err" || APP_RC=$?
+  APP_STATUS="$(jq -r '.checks[0].status' "$T/verify.json" 2>/dev/null)" || APP_STATUS=""
+  APP_DETAIL="$(jq -r '.checks[0].detail' "$T/verify.json" 2>/dev/null)" || APP_DETAIL=""
+}
+PASS_DETAIL="SpecWithCode.app 1.2.3, signed with the release's designated requirement, accepted by Gatekeeper"
+make_app 1.2.3
+verify_app local
+check "app: this Mac on the release passes" "0|pass|$PASS_DETAIL" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+check "app: codesign checks deep and strict" 1 "$(grep -cxF -- "--verify --deep --strict $APP" "$STUB_LOG.codesign" | tr -d ' ')"
+check "app: codesign checks the release's requirement" 1 "$(grep -cxF -- "--verify -R=$REQ $APP" "$STUB_LOG.codesign" | tr -d ' ')"
+check "app: Gatekeeper assesses it" "-a -t exec $APP" "$(cat "$STUB_LOG.spctl")"
+check "app: this Mac is not read over ssh" 0 "$(grep -c . "$STUB_LOG.ssh" | tr -d ' ')"
+make_app 1.2.2
+verify_app local
+check "app: another version fails" "1|fail|SpecWithCode.app on this Mac is 1.2.2, want 1.2.3" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.2.3 bad
+verify_app local
+check "app: a bad signature fails" "1|fail|SpecWithCode.app 1.2.3 on this Mac fails codesign --verify --deep --strict: $APP: a sealed resource is missing or invalid" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.2.3 adhoc
+verify_app local
+check "app: an ad hoc build of the release fails" "1|fail|SpecWithCode.app 1.2.3 on this Mac is not signed with the release's designated requirement (it has: none)" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.2.3 other-team
+verify_app local
+check "app: another team's build of the release fails" "1|fail|SpecWithCode.app 1.2.3 on this Mac is not signed with the release's designated requirement (it has: ${REQ%NMCB2JZ7QG}ABCDE12345)" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.2.3 rejected
+verify_app local
+check "app: a build Gatekeeper rejects fails" "1|fail|SpecWithCode.app 1.2.3 on this Mac is not accepted by Gatekeeper (spctl -a -t exec): $APP: rejected" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.2.3
+verify_app local 1.2.3 none
+check "app: a track that names no requirement fails" "1|fail|track apps names no desktop_app.requirement, the designated requirement its app is signed with" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+rm -rf "$APP"
+verify_app local
+check "app: a missing app fails" "1|fail|no $APP on this Mac" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.2.3
+verify_app m1
+check "app: a worker on the release passes over ssh" "0|pass|$PASS_DETAIL" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+check "app: the worker is read over the pinned fleet ssh" \
+  "-F /dev/null -i $FLEET/id_ed25519 -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$FLEET/known_hosts -o ConnectTimeout=10 tester@m1.example /bin/bash -s" \
+  "$(cat "$STUB_LOG.ssh")"
+check "app: the worker's codesign checks the release's requirement" 1 "$(grep -cxF -- "--verify -R=$REQ $APP" "$STUB_LOG.codesign" | tr -d ' ')"
+make_app 1.2.2
+verify_app m1
+check "app: a worker on another version fails" "1|fail|SpecWithCode.app on m1 is 1.2.2, want 1.2.3" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.2.3 bad
+verify_app m1
+check "app: a worker with a bad signature fails" "1|fail|SpecWithCode.app 1.2.3 on m1 fails codesign --verify --deep --strict: $APP: a sealed resource is missing or invalid" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.2.3 adhoc
+verify_app m1
+check "app: a worker with an ad hoc build of the release fails" "1|fail|SpecWithCode.app 1.2.3 on m1 is not signed with the release's designated requirement (it has: none)" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.2.3 rejected
+verify_app m1
+check "app: a worker with a build Gatekeeper rejects fails" "1|fail|SpecWithCode.app 1.2.3 on m1 is not accepted by Gatekeeper (spctl -a -t exec): $APP: rejected" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+rm -rf "$APP"
+verify_app m1
+check "app: a worker without the app fails" "1|fail|no $APP on m1" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.2.3
+STUB_SSH_DOWN=m1.example verify_app m1
+check "app: an unreachable worker fails" "1|fail|m1 unreachable over ssh: ssh: connect to host m1.example port 22: Connection refused" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+verify_app m9
+check "app: a host missing from the inventory fails" "1|fail|m9 has no host and user in the fleet inventory $FLEET/hosts.json" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+verify_app m3
+check "app: an inventory host that is not a plain name is refused" "1|fail|m3's host or user in the fleet inventory is not a plain name" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+check "app: ...before any ssh" 0 "$(grep -c . "$STUB_LOG.ssh" | tr -d ' ')"
+STUDIO_FLEET_HOSTS="$T/no-such-hosts.json" verify_app m1
+check "app: no inventory fails" "1|fail|fleet inventory $T/no-such-hosts.json not found, so m1 cannot be reached" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+check "app: the studio track checks the M4, M1 and M3 apps" "M4 app=local M1 app=m1 M3 app=m3" \
+  "$(jq -r '[.tracks.studio.verify[] | select(.kind == "desktop_app") | "\(.name)=\(.host)"] | join(" ")' "$HERE/../../.specweave/release/manifest.json")"
+check "app: ...against the release's designated requirement" "$REQ" \
+  "$(jq -r '.tracks.studio.desktop_app.requirement' "$HERE/../../.specweave/release/manifest.json")"
+
+# ---- 9. tag_drift: commits under the watched paths after the newest tag fail verify
 fresh_repo
 cat >"$T/manifest-drift.json" <<'JSON'
 {"repos": [{"name": "fx", "slug": "example/fx", "path": "repo", "default_branch": "main"}],
@@ -303,7 +461,7 @@ STUB_RELEASES=""
 check "drift: no release tag fails" "1|fail" "$(run_drift)|$(drift_of status)"
 unset STUB_RELEASES
 
-# ---- 9. group ship: a failed track skips the next ones unless they run after a failure
+# ---- 10. group ship: a failed track skips the next ones unless they run after a failure
 fresh_repo
 R="$T/base/repo"
 printf '#!/bin/bash\n# accepts --dry-run\nexit 3\n' >"$R/fail.sh"

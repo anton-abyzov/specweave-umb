@@ -1,0 +1,30 @@
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/1136-closure-fixes/apps/server
+      Coverage enabled with v8
+
+
+ Test Files  5 passed (5)
+      Tests  82 passed (82)
+   Start at  00:11:07
+   Duration  53.71s (import 39%, tests 31%, transform 27%, setup 3%, worker 1%)
+
+  Transform  transforming modules took 12.63s · 27% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   92.15 |    81.96 |   87.75 |      93 |
+ ...illsActions.ts |   88.65 |       85 |   79.62 |    90.1 | ...10-521,540,551
+ ...illsToggles.ts |   96.66 |    77.94 |   97.72 |   96.59 | ...55,314,468,547
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 92.15% ( 317/344 )
+Branches     : 81.96% ( 259/316 )
+Functions    : 87.75% ( 86/98 )
+Lines        : 93% ( 306/329 )
+================================================================================
