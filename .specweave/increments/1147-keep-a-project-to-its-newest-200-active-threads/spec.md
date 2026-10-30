@@ -18,16 +18,16 @@ Out:
 
 ## Acceptance Criteria
 
-- [ ] AC-01: When a project has more live threads than its cap, the server archives the oldest finished threads until the count is at the cap, about 50 per minute. This applies to agent-created and child threads too.
-- [ ] AC-02: The sweep never archives:
+- [x] AC-01: When a project has more live threads than its cap, the server archives the oldest finished threads until the count is at the cap, about 50 per minute. This applies to agent-created and child threads too.
+- [x] AC-02: The sweep never archives:
   - the coordinator;
   - a running, queued, waiting, pinned, snoozed, stopped-but-unanswered or blocked thread;
   - a thread with a pending request, open terminal, saved draft or watched PR;
   - a thread owned by or executing on another machine;
   - a thread active within the last hour;
   - a thread that a routine targets.
-- [ ] AC-03: The setting is in Settings > Storage, defaults to 200, accepts a custom value from 20 to 5000 or "No limit", and can be overridden per project.
-- [ ] AC-04: An archived thread keeps its history and comes back with Unarchive.
+- [x] AC-03: The setting is in Settings > Storage, defaults to 200, accepts a custom value from 20 to 5000 or "No limit", and can be overridden per project.
+- [x] AC-04: An archived thread keeps its history and comes back with Unarchive.
 
 ## Approach
 

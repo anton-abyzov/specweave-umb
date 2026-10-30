@@ -10,11 +10,11 @@ In: capture copy-and-move like copy-only (with keep-last bytes for files that ne
 
 ## Acceptance Criteria
 
-- [ ] AC-01: A copy-and-move into a destination that already holds the project succeeds while ledger files change on the source; Apply writes the captured bytes.
-- [ ] AC-02: When files changed after the copy, the move is refused with the exact list of changed paths and repositories, not a bare error.
-- [ ] AC-03: "Move without these N paths" completes the move; the accepted paths are recorded and a new path forces a fresh review.
-- [ ] AC-04: The done screen names the paths that stayed on the source.
-- [ ] AC-05: The user docs describe the capture, the list and the three choices.
+- [x] AC-01: A copy-and-move into a destination that already holds the project succeeds while ledger files change on the source; Apply writes the captured bytes.
+- [x] AC-02: When files changed after the copy, the move is refused with the exact list of changed paths and repositories, not a bare error.
+- [x] AC-03: "Move without these N paths" completes the move; the accepted paths are recorded and a new path forces a fresh review.
+- [x] AC-04: The done screen names the paths that stayed on the source.
+- [x] AC-05: The user docs describe the capture, the list and the three choices.
 
 ## Approach
 
