@@ -1150,6 +1150,22 @@
       "success": true,
       "timestamp": "2026-10-20T04:49:00.436Z",
       "durationMs": 195
+    },
+    {
+      "tool": "ado",
+      "itemId": 2507,
+      "incrementId": "0850-studio-install-feedback-and-status",
+      "success": true,
+      "timestamp": "2026-10-27T01:55:54.635Z",
+      "durationMs": 300
+    },
+    {
+      "tool": "ado",
+      "itemId": 1931,
+      "incrementId": "0734-studio-create-skill-engine-selector",
+      "success": true,
+      "timestamp": "2026-10-27T21:01:30.041Z",
+      "durationMs": 672
     }
   ],
   "summary": {
@@ -1180,20 +1196,20 @@
       "recentErrors": []
     },
     "ado": {
-      "totalAttempts": 54,
-      "successful": 54,
+      "totalAttempts": 56,
+      "successful": 56,
       "failed": 0,
       "successRate": 1,
-      "lastSuccess": "2026-10-20T04:49:00.436Z",
-      "avgDurationMs": 200.42592592592592,
+      "lastSuccess": "2026-10-27T21:01:30.041Z",
+      "avgDurationMs": 210.625,
       "recentErrors": []
     },
     "overall": {
-      "totalAttempts": 143,
-      "successful": 137,
+      "totalAttempts": 145,
+      "successful": 139,
       "failed": 6,
-      "successRate": 0.958041958041958
+      "successRate": 0.9586206896551724
     },
-    "lastUpdated": "2026-10-20T04:49:00.436Z"
+    "lastUpdated": "2026-10-27T21:01:30.042Z"
   }
 }

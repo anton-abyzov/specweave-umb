@@ -1,10 +1,10 @@
 ---
 increment: 0734-studio-create-skill-engine-selector
-title: "Studio Create-Skill UI: Engine Selector + Versioning"
+title: 'Studio Create-Skill UI: Engine Selector + Versioning'
 type: feature
 priority: P1
-status: active
-created: 2026-04-26
+status: completed
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

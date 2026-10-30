@@ -206,8 +206,10 @@
         "hosts": [
           { "id": "m4", "role": "orchestrator", "port": 8319, "update_mode": "force-held", "wait": true },
           { "id": "m1", "role": "worker", "port": 18319, "update_mode": "install", "wait": true },
-          { "id": "m3", "role": "worker", "port": 28319, "update_mode": "install", "wait": true }
+          { "id": "m3", "role": "worker", "port": 28319, "update_mode": "install", "wait": true },
+          { "id": "ministorm", "role": "worker", "os": "linux", "ssh": "ministorm", "studio_home": "~/.specwithcode/ministorm", "unit": "studio.service", "update_mode": "self-update", "stage": "fleet-linux", "wait": false, "note": "After merge, best effort: scripts/studio-fleet/linux_rollout.py runs `specweave-studio update <version> --yes` over SSH, skips a busy service, and only warns on failure. Needs its hosts.json entry (os linux, sshConfig true)." }
         ],
+        "order": "macOS first (publish, M4, desktop, M1+M3, merge), then Linux workers (fleet-linux, best effort), then the Windows and Linux desktop apps from release-windows-linux.yml nightly at 07:00 UTC or on dispatch",
         "updater_label": "com.specweave.studio.<id>.updater",
         "state_file": "~/.specwithcode/<id>/updates/state.json",
         "status_command": "python3 -B scripts/studio-fleet/update_agent.py --identity <id> --status"

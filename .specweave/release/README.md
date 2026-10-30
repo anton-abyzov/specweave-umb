@@ -28,6 +28,8 @@ Tracks and their scripts (each script supports `--dry-run`):
 
 Merge green PRs, release, deploy, verify and remove fully merged worktrees without asking. Still ask before discarding work that exists nowhere else, and for the manual gates: data migrations (platform `--migrate`), auth changes, payment flows, new UI that needs acceptance. Known-noise checks (`claude-review`, `E2E Live (nightly)`) never block a merge. SpecWithCode fleet: M4 first and wait for its installedVersion, then M1 and M3 together; when the release runs on M4, its install request is queued in normal mode and not waited on.
 
+SpecWithCode ships macOS first. `release.sh` publishes the macOS app and the fleet assets, rolls out M4, the desktop app, M1 and M3, and merges. Its last stage, `fleet-linux`, then updates the Linux workers (ministorm) with `specweave-studio update <version> --yes` over SSH, best effort: a worker running agent turns is skipped, and a skip or failure only warns and never fails the release. Retry with `python3 -B scripts/studio-fleet/linux_rollout.py --version X.Y.Z` in the studio checkout. The Windows and Linux desktop apps come last, from `release-windows-linux.yml`: nightly at 07:00 UTC for the newest release without them, or by manual dispatch. Running it on every publish (`RELEASE_WINDOWS_LINUX_ON_PUBLISH`) stays off, because those hour-long runs queued for hours and starved PR CI.
+
 ## Waiting without blocking
 
 Never hold a tool call open longer than 540 s, and never wait on a condition that ignores error output. Use `scripts/release/ci-wait.sh`:

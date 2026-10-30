@@ -22,7 +22,8 @@ Audit TimelineDetailMenu, timelineDetail, responseStyle, MessagesTimeline logic/
 
 ## Decisions
 ### Asked
-- None. Investigation and verified repairs are authorized.
+- Anton directly accepted the reviewed PR959 UI at exact `5152e55ac9df121d731ad7cf9fd0a06a1cd9aad6`.
+- Anton explicitly answered "Allow this one-time exception" for PR959 whole-file coverage: 30.76% lines against the unchanged 60% threshold. Retain the failed full-scope evidence; no configuration, scope or test weakening. Additional evidence is 93.5% changed-line coverage and 100% new timing integration coverage. This exception applies only to this reviewed candidate; CI, release and installed verification remain separate. Evidence: `~/.specwithcode/m4/evidence/worktree-audit-20261028-late/concise/manual-ui-acceptance-record.json`.
 ### Defaulted
 - Preserve independent project reply style and client display settings; disclose both rather than silently change saved preferences.
 - Keep meaningful errors, approvals, questions and full activity accessible. Routine worker preview text can collapse in Results only.
@@ -107,3 +108,28 @@ Defaulted presentation: compact current status or explicit Last turn elapsed. A 
 
 ### T-16 Verify and close 1106
 - AC: AC-12, AC-13, AC-14 | Files: apps/web/tests/thread-machine/, apps/web/tests/chat-density/, reports/timing-validation.md, reports/timing-review.md | Test: headless real metadata component across coordinator/worker, live/settled/waits/multiple follow-ups, relevant production build, exact-head CI/PR959, current scoped verify, fresh-context review and complete
+
+### T-17 Preserve exact provenance for the reviewed LegendList patch update
+- AC: AC-05, AC-11 | Files: scripts/studio-toolchain/preservation-audit.mjs, scripts/studio-toolchain/preservation-audit.test.mjs, scripts/studio-toolchain/reviewed-lock-changes.json | Test: preservation audit regressions including unchanged registry integrity, exact same-package patch replacement and negative controls; fresh independent review of the original patch and pinned record
+
+The current-main merge exposed an omitted provenance record for the existing T-08 patch (commit c43122baf030e06e39eea71e3eb8b72e47982776). Permit only a reviewed replacement of the same existing patched package key, with exact before/after hashes and required patch bytes; keep the digest-pinned closed set and all registry protections. No source patch or test assertion is weakened to accommodate the audit.
+
+### T-18 Repair hosted typecheck findings without a baseline waiver
+- AC: AC-11, AC-12, AC-13 | Files: apps/web/src/components/ChatView.tsx, apps/web/src/components/chat/ThreadMetaRow.tsx, apps/web/src/components/chat/threadTiming.ts, apps/web/src/components/chat/threadTiming.test.ts, apps/web/src/studio/messagePresentation.ts, apps/web/src/studio/messagePresentation.test.ts, apps/web/tsconfig.json, scripts/legend-list-row-layout.test.ts | Test: focused timing/presentation/installed LegendList regressions; scoped web+scripts typecheck reports zero new diagnostics; exact-head fresh review and hosted CI.
+
+Hosted PR959 head144738db exposed a real out-of-scope background-task reference in the ChatView render and six additional strict TypeScript/test diagnostics. Use the existing state-owned pending tasks under the same settled-turn predicate, explicitly admit undefined where actual records use it, include the existing shared test fixture in the web composite project, and keep the installed-bundle regression deterministic. No typecheck baseline or assertion/timeout weakening.
+
+### T-19 Retain concise failure counts and verify relay disclosure contracts
+- AC: AC-09, AC-10, AC-11 | Files: apps/web/src/components/chat/MessagesTimeline.logic.ts, apps/web/src/components/chat/MessagesTimeline.activityDiffs.test.tsx, apps/web/src/components/studio/ProjectWorkspace.attachments.test.tsx | Test: actual hosted-failing activity-diffs and attachments component suites plus timeline logic; all original failure counts/chips/attribution preserved and relay original text verified after accessible disclosure.
+
+Hosted web shard1 exposed missing turn-level failure counts after concise failures were deliberately left outside the folded routine work. Count all turn failures in the turn summary while keeping their actionable rows visible. Update the old relay test to exercise the new explicit disclosure instead of assuming all internal messages start expanded; retain original text, source navigation and no-send assertions.
+
+### T-20 Exercise the actual timing projection boundary
+- AC: AC-12, AC-13 | Files: apps/web/src/components/ChatView.tsx, apps/web/src/components/chat/ProjectedThreadMetaRow.tsx, apps/web/src/components/chat/ProjectedThreadMetaRow.test.tsx | Test: render the real metadata wrapper and real ThreadMetaRow with Effect DateTime server runs; assert last/recorded elapsed, partial-to-complete history, live-to-settled run transitions, missing projection and settled background-work gating; measure the extracted glue coverage, focused typecheck and independent review.
+
+The lead authorized meaningful timing-glue integration without broad ChatView refactoring. Extract only the new projection/history/background adapter into the actual metadata wrapper used by ChatView. Tests must not mock ThreadMetaRow or timing derivation. This is boundary integration, not a claim to mount the entire ChatView. Keep all existing changed production files in the whole-file coverage scope and retain the failed60% gate unless the lead/user explicitly resolves it.
+
+### T-21 Integrate reviewed shared Windows repairs
+- AC: AC-05, AC-11 | Files: apps/server/src/fleet/fleetSkills.ts, apps/server/src/fleet/fleetSkills.test.ts, apps/server/src/worktreesDirectory.test.ts, apps/server/src/handoff/handoffPlacement.test.ts, apps/server/src/project/ClaudeSettingsWrite.test.ts, apps/server/src/project/ProjectSkillsActions.test.ts, apps/server/src/project/ProjectSkillsActions.ts, apps/server/src/project/ProjectSkillsActionsCommon.ts, apps/server/src/project/ProjectSkillsActionsRpc.ts, apps/web/src/components/RightPanelTabs.keyboard.test.tsx | Test: exact shared Windows launcher/path regression suites, unchanged concise UI/source blob proof, fresh integration review and exact-head hosted CI.
+
+The lead authorized normal integration of the full reviewed PR991 dependency before its last hosted fleet retry finishes, plus the reviewed PR961 path-fixture delta. Do not duplicate its implementation or weaken tests. Preserve the user's exact5152e55a concise UI acceptance and one-time coverage exception only with byte-identical owned product files; new integration must receive independent review and CI.

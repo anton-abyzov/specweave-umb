@@ -31,6 +31,8 @@ Worktree ~/.specwithcode/m4/worktrees/specweave-studio/skills-control-center, br
 - D-05: Codex and Claude-plugin writes that land but are overridden by a higher layer are reported as applied with a warning and the real effective state (Undo stays available), not refused after the write.
 - D-06: Version writes on a user skill recorded only in the legacy ~/vskill.lock are refused (scope_unsupported): vskill install --global writes ~/.agents/vskill.lock.
 - D-07: File-size exception: apps/server/src/ws.ts and packages/contracts/src/rpc.ts were already over 1500 lines; this increment adds only the RPC group wiring lines there (ws.ts +2, rpc.ts +6).
+- D-08: Claude plugin skills use the whole-plugin control. Their individual switches are disabled with a reason, because Claude does not honor skillOverrides for plugin skills. Explicitly disabled installed plugins stay visible so they can be re-enabled or undone; an enabled copy wins a namespace collision.
+- D-09: Update to latest is bound to the exact version displayed in preview. Registry drift or a missing preview target causes a stale refusal before installation.
 ### Open
 - none
 
@@ -53,3 +55,16 @@ Worktree ~/.specwithcode/m4/worktrees/specweave-studio/skills-control-center, br
 
 ### T-06 Verify and close 1136
 - AC: AC-01, AC-02, AC-03, AC-04 | Files: .specweave/increments/1136-skills-control-center-in-specwithcode/reports/ | Test: specweave verify 1136; fresh-context review; specweave complete 1136
+
+### T-07 Fix closure review findings
+- AC: AC-02, AC-03 | Files: apps/server/src/provider/Drivers/ClaudeSkills.ts, apps/server/src/provider/Drivers/ClaudeSkills.test.ts, apps/server/src/project/ProjectSkillsActions.ts, apps/server/src/project/ProjectSkillsActions.test.ts, apps/server/src/project/ProjectSkillsToggles.ts, apps/server/src/project/ProjectSkillsToggles.test.ts, apps/web/src/components/settings/ProjectSkillActions.logic.ts, apps/web/src/components/settings/ProjectSkillActions.logic.test.ts, apps/web/src/components/settings/ProjectSkillControls.tsx, apps/web/src/components/settings/ProjectSkillControls.test.tsx, packages/contracts/src/projectSkills.ts, packages/contracts/src/projectSkillsActions.test.ts, docs/studio/skills.md | Test: focused provider, action, toggle, contracts and settings regression suites; coverage; typecheck gate and production build
+
+### T-09 Expose re-enable for retained disabled plugins
+- AC: AC-03 | Files: apps/web/src/components/settings/ProjectSkillAgentToggles.tsx, apps/web/src/components/settings/ProjectSkillsSettings.test.tsx, README.md, CHANGELOG.md, AGENTS.md | Test: settings component regression tests and headless skills control check
+
+### T-08 Verify release and close 1136
+- AC: AC-01, AC-02, AC-03, AC-04 | Files: .specweave/increments/1136-skills-control-center-in-specwithcode/reports/ | Test: fresh-context review; specweave verify 1136; canonical release verification; specweave complete 1136
+
+## Completion continuation
+
+Anton accepted the work in the original session at 2026-10-29T03:56:05Z and requested completion here after its weekly limit prevented further work. Fresh closure review found plugin Undo losing its target, unsupported Claude plugin per-skill switches, and registry drift between version preview and apply. Release 1.0.115 was stopped before publication to address these findings. Preserve disabled installed plugins in management discovery, refuse unsupported per-skill writes, and bind version actions to the version actually previewed. This does not expand the feature scope.

@@ -1,15 +1,17 @@
 {
   "id": "1022-verify-coordinator-calls-for-all-users",
   "uuid": "b35704ad-da5e-44ef-b04d-30208ae7cc24",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-23T06:04:43.539Z",
-  "updated": "2026-10-23T13:02:08.419Z",
-  "lastActivity": "2026-10-23T13:02:08.419Z",
+  "updated": "2026-10-27T20:57:54.189Z",
+  "lastActivity": "2026-10-27T20:57:54.189Z",
   "title": "Verify coordinator calls for all users",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-27T20:57:54.184Z",
+  "approvedAt": "2026-10-27T20:57:54.189Z"
 }
