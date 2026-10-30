@@ -1,0 +1,13 @@
+{
+  "id": "1130-prevent-internal-handoff-requests-to-users",
+  "uuid": "f478f686-d4a8-4a6e-836c-e9dfb67bc4d4",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T15:52:12.018Z",
+  "updated": "2026-10-29T05:20:52.646Z",
+  "lastActivity": "2026-10-29T05:20:52.646Z",
+  "title": "Prevent internal handoff requests to users",
+  "project": "specweave",
+  "externalLinks": {}
+}

@@ -1,0 +1,15 @@
+{
+  "id": "1110-audit-skill-and-remote-availability",
+  "uuid": "d600e456-c36a-4f5d-b922-8da3208fc6db",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T03:38:38.325Z",
+  "updated": "2026-10-28T03:47:49.495Z",
+  "lastActivity": "2026-10-28T03:47:49.495Z",
+  "title": "Audit skill and remote availability",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T03:47:49.494Z",
+  "approvedAt": "2026-10-28T03:47:49.495Z"
+}

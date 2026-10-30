@@ -1,0 +1,15 @@
+{
+  "id": "1140-restore-vite-bootstrap-with-available-registry-tarball",
+  "uuid": "69ebf4e7-4835-43e3-b33e-9d48c330904f",
+  "status": "completed",
+  "type": "hotfix",
+  "priority": "P1",
+  "created": "2026-10-29T04:40:25.834Z",
+  "updated": "2026-10-29T05:55:36.368Z",
+  "lastActivity": "2026-10-29T05:55:36.368Z",
+  "title": "Restore Vite bootstrap with available registry tarball",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-29T05:55:36.365Z",
+  "approvedAt": "2026-10-29T05:55:36.368Z"
+}

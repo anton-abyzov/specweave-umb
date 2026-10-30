@@ -1,0 +1,13 @@
+{
+  "id": "1137-finish-resolved-thread-attention-delivery",
+  "uuid": "5e69aaec-def0-47bc-9ba1-613dfe3d198b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-29T03:45:47.313Z",
+  "updated": "2026-10-29T05:57:25.051Z",
+  "lastActivity": "2026-10-29T05:57:25.051Z",
+  "title": "Finish resolved-thread attention delivery",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

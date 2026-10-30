@@ -1,0 +1,13 @@
+{
+  "id": "1097-display-accepted-skips-in-plan-criteria",
+  "uuid": "ebd35ec2-b604-423a-ba80-612a0045f4b6",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T13:43:02.411Z",
+  "updated": "2026-10-27T17:46:49.562Z",
+  "lastActivity": "2026-10-27T17:46:49.562Z",
+  "title": "Display accepted skips in plan criteria",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

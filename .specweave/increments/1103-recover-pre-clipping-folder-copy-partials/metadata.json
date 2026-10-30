@@ -1,0 +1,13 @@
+{
+  "id": "1103-recover-pre-clipping-folder-copy-partials",
+  "uuid": "426a2981-2746-4640-a729-af05e42d106a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T17:48:29.694Z",
+  "updated": "2026-10-28T05:08:16.081Z",
+  "lastActivity": "2026-10-28T05:08:16.081Z",
+  "title": "Recover pre-clipping folder-copy partials",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

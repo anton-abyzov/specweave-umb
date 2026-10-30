@@ -1,0 +1,15 @@
+{
+  "id": "1131-prevent-non-database-workspace-storage-growth",
+  "uuid": "6f1ca74b-00e0-4501-903c-07dad0938d66",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-28T15:58:39.217Z",
+  "updated": "2026-10-28T17:04:45.757Z",
+  "lastActivity": "2026-10-28T17:04:45.757Z",
+  "title": "Prevent non-database workspace storage growth",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-28T17:04:45.756Z",
+  "approvedAt": "2026-10-28T17:04:45.757Z"
+}

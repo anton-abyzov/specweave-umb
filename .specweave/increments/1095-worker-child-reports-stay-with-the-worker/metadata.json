@@ -1,0 +1,24 @@
+{
+  "id": "1095-worker-child-reports-stay-with-the-worker",
+  "uuid": "6538b8c5-2e9f-4328-bcd6-7f2f7188847a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T12:13:02.771Z",
+  "updated": "2026-10-28T03:50:56.251Z",
+  "lastActivity": "2026-10-28T03:50:56.251Z",
+  "title": "Worker child reports stay with the worker",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "reopened": [
+    {
+      "from": "completed",
+      "to": "planned",
+      "at": "2026-10-27T13:06:14.005Z",
+      "by": "codex@antons-macbook-m4max",
+      "reason": "User follow-up: distinguish dependency waiting from actionable user requests in existing PR 899 chain",
+      "approvedAt": "2026-10-27T12:24:30.222Z",
+      "readyForReviewAt": "2026-10-27T12:24:30.222Z"
+    }
+  ]
+}

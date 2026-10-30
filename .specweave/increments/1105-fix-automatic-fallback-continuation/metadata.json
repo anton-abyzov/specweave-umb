@@ -1,0 +1,15 @@
+{
+  "id": "1105-fix-automatic-fallback-continuation",
+  "uuid": "6dd8ae6e-5190-4ba1-8809-911f28a2a0a8",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T20:10:14.998Z",
+  "updated": "2026-10-27T20:16:01.593Z",
+  "lastActivity": "2026-10-27T20:16:01.593Z",
+  "title": "Fix automatic fallback continuation",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-10-27T20:16:01.580Z",
+  "approvedAt": "2026-10-27T20:16:01.593Z"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "1102-readable-report-tables",
+  "uuid": "206d158b-c37f-44e3-9928-d6fd933aa720",
+  "status": "active",
+  "type": "bug",
+  "priority": "P2",
+  "created": "2026-10-27T16:10:33.871Z",
+  "updated": "2026-10-27T18:59:50.044Z",
+  "lastActivity": "2026-10-27T18:59:50.044Z",
+  "title": "Readable report tables",
+  "project": "specweave-umb",
+  "parent": "1035-redesign-report-and-artifact-experience",
+  "externalLinks": {}
+}

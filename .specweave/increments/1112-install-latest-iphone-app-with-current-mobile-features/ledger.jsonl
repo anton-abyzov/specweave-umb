@@ -1,0 +1,10 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-28T04:58:00.740Z","note":"session 01a174b7-d685-7673-a350-222097cde42e"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T04:58:00.742Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T04:59:28.355Z","evidence":"/Users/antonabyzov/.specwithcode/m4/evidence/iphone-latest-20261028/receipt.md\nHEAD 10af84610"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T04:59:31.245Z"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:02:46.428Z","evidence":"415 Swift tests in 56 suites; simulator build passed; 27 app/UI tests passed, 0 failed. /Users/antonabyzov/.specwithcode/m4/evidence/iphone-latest-20261028/simulator-summary.json\nHEAD 10af84610"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:02:47.911Z"}
+{"t":"T-03","e":"block","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:03:44.865Z","note":"Build 11 installed and independently verified; physical launch refused because iPhoneA is locked. Anton must unlock phone to finish launch and live screenshot acceptance."}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:30:15.205Z"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:31:21.539Z","evidence":"Installed 0.1.0 (11), signed Connect/Apple/push verified; unlocked launch PID 10341 matched independent process readback. Physical screenshot service unsupported; account/push/live-control proof limits recorded. /Users/antonabyzov/.specwithcode/m4/evidence/iphone-latest-20261028/receipt.md\nHEAD 10af84610"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:31:25.322Z"}
