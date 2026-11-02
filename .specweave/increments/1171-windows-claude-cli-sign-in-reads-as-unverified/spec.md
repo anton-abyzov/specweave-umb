@@ -20,7 +20,7 @@ In: truthful signed-out state and message for Claude, the start gate quoting it,
 - [ ] AC-03: The start gate refuses with that message instead of "authorization is unverified".
 - [ ] AC-04: A signed-out probe result is not kept in the capabilities cache; a signed-in one still is.
 - [ ] AC-05: Signed in, API key, Console, unreadable-status and token-override reads keep their current results.
-- [ ] AC-06: On `windows-latest` the real CLI and product code read signed out with the new message, for the native and npm installs, and the native install reads ready after credentials appear. The npm install rejects a fixture token after init, and a real login is not testable on a hosted runner, so its ready read is not proved there.
+- [ ] AC-06: On `windows-latest` the real CLI and product code read signed out with the new message, for the native and npm installs, and the native install read ready once after fixture credentials appeared. Both installs can reject a fixture token after init, and a real login is not testable on a hosted runner, so a real Windows sign-in stays unproved there.
 
 ## Approach
 

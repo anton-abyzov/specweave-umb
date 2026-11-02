@@ -3,3 +3,5 @@
 {"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T16:44:50.722Z","evidence":"#1198 merged as 6cd65557af; provider, capacity and cache tests green on all five Windows server jobs and Linux\nHEAD b02091429","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1198","model":"claude-opus-5-5[1m]"}
 {"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T16:44:51.424Z","model":"claude-opus-5-5[1m]"}
 {"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T16:44:51.426Z","evidence":"windows-latest probe: native and npm read signed out with the new message, native then ready; npm ready unproved (fixture token rejected). Exact-head SHIP 14d86eca90; merged 6cd65557af\nHEAD b02091429","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T16:53:10.166Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T16:53:10.175Z","evidence":"Fresh review SHIP; AC-06 reworded to what the runs proved\nHEAD d259a3781","model":"claude-opus-5-5[1m]"}
