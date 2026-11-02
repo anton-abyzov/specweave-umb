@@ -1,0 +1,16 @@
+{
+  "id": "1178-team-rules-phase-2-reach-tools-carried-ceiling-and-fingerprints",
+  "uuid": "53fae74b-6055-48e9-b48a-64b30c349eb3",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T19:41:45.513Z",
+  "updated": "2026-11-02T23:16:41.596Z",
+  "lastActivity": "2026-11-02T23:16:41.596Z",
+  "title": "Team rules phase 2: reach, tools, carried ceiling and fingerprints",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T23:16:41.593Z",
+  "closeReason": "verify fails only in vskill and vskill-platform: timing limits and a timeout at load average 278, plus a window ReferenceError in vskill with all tests passing. PR 1223 touches neither repo; its CI is green and review round 3 returned SHIP.",
+  "approvedAt": "2026-11-02T23:16:41.596Z"
+}
