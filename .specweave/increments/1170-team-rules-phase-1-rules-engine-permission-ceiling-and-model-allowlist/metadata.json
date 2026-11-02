@@ -1,0 +1,15 @@
+{
+  "id": "1170-team-rules-phase-1-rules-engine-permission-ceiling-and-model-allowlist",
+  "uuid": "fd858355-93ce-47eb-838f-074a038467d5",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T13:01:21.553Z",
+  "updated": "2026-11-02T19:39:23.727Z",
+  "lastActivity": "2026-11-02T19:39:23.727Z",
+  "title": "Team rules phase 1: rules engine, permission ceiling and model allowlist",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T19:39:23.725Z",
+  "approvedAt": "2026-11-02T19:39:23.727Z"
+}

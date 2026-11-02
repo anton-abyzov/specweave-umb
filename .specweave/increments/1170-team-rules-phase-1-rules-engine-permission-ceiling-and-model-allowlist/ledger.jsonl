@@ -1,0 +1,21 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:23.827Z","note":"session 40c02e98-2810-4485-a736-183c1e1f3ece","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:23.828Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:23.829Z","evidence":"Commit c2786988ed; focused suites and typecheck gate pass\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:24.475Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:24.476Z","evidence":"Commit c2786988ed; focused suites and typecheck gate pass\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:25.176Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:25.177Z","evidence":"Commit c2786988ed; focused suites and typecheck gate pass\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:25.848Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:25.849Z","evidence":"Commit c2786988ed; focused suites and typecheck gate pass\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:26.537Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:26.538Z","evidence":"Commit c2786988ed; focused suites and typecheck gate pass\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:27.239Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:27.241Z","evidence":"Commit c2786988ed; focused suites and typecheck gate pass\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:27.919Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:27.921Z","evidence":"Commit c2786988ed; focused suites and typecheck gate pass\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-08","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:28.609Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-08","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:28.610Z","evidence":"Commit c2786988ed; focused suites and typecheck gate pass\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-09","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:29.286Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-09","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T14:00:29.287Z","evidence":"Commit c2786988ed; focused suites and typecheck gate pass\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-10","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T19:30:16.318Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-10","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T19:30:16.323Z","evidence":"PR #1197 merged as ecf3851fb7; review SHIP at 5f6d4f25d1; all check-runs green (30 success, 7 skipped); typecheck gate passed locally; screenshots in reports/\nHEAD 8a0c37765","model":"claude-opus-5-5[1m]"}
