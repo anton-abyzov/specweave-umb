@@ -1,0 +1,16 @@
+{
+  "id": "1163-readable-fleet-list-with-live-route",
+  "uuid": "ca25a73c-13bb-4b94-9fa8-cb2dbd03aefe",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T04:06:17.086Z",
+  "updated": "2026-11-02T07:13:34.360Z",
+  "lastActivity": "2026-11-02T07:13:34.360Z",
+  "title": "Readable fleet list with live route",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T07:13:34.359Z",
+  "closeReason": "User approved closing November 2, 2026: verify fails only on vskill src/webmcp/enumerate.e2e.test.ts, a repo PR #1179 never touched. Fresh review passed 8/8 ACs. Fix follows in its own thread.",
+  "approvedAt": "2026-11-02T07:13:34.360Z"
+}
