@@ -99,7 +99,7 @@
       "slug": "anton-abyzov/specwithcode-dev",
       "mirror_slug": "anton-abyzov/specwithcode",
       "mirror_checkout": "~/Projects/github/specwithcode-public",
-      "path": "repositories/anton-abyzov/specweave-studio",
+      "path": "repositories/anton-abyzov/specwithcode-dev",
       "default_branch": "main",
       "visibility": "private",
       "actions_enabled": false,

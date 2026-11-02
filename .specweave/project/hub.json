@@ -19,7 +19,7 @@
     {
       "id": "cdc8faa6-cb74-4425-b8c9-c316bbea2459",
       "title": "Weekly release-timing and CI workflow scan",
-      "instructions": "From the umbrella root, run `python3 scripts/release/timing.py scan-ci repositories/anton-abyzov/specweave repositories/anton-abyzov/vskill repositories/anton-abyzov/vskill-platform repositories/anton-abyzov/specweave-studio --fail-on none` and `python3 scripts/release/timing.py check`. Compare the scan-ci counts by rule with last week's run; open a fix (or a small increment) for every new error-level finding (job without timeout-minutes, a gating command ending in || true) and for every CACHE-MISS or SLOW flag from check. Read-only otherwise: do not release, deploy or change secrets.",
+      "instructions": "From the umbrella root, run `python3 scripts/release/timing.py scan-ci repositories/anton-abyzov/specweave repositories/anton-abyzov/vskill repositories/anton-abyzov/vskill-platform repositories/anton-abyzov/specwithcode-dev --fail-on none` and `python3 scripts/release/timing.py check`. Compare the scan-ci counts by rule with last week's run; open a fix (or a small increment) for every new error-level finding (job without timeout-minutes, a gating command ending in || true) and for every CACHE-MISS or SLOW flag from check. Read-only otherwise: do not release, deploy or change secrets.",
       "cadence": "weekly, Monday 09:00 America/New_York",
       "enabled": true,
       "createdAt": "2026-10-16T17:12:28.756Z"
