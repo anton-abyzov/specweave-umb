@@ -6,7 +6,7 @@ The handoff dialog copies the project folder by default and shows a review scree
 
 ## Scope
 
-In: a minimal dialog (pick a machine, "Add <machine>": clone the project's own repo from Git, link, share settings and memory; "Also move the coordinator there" as a checkbox; "Copy files instead" under More options); removing the review step and the folder-difference banner from the default path; server-side continuous sync of memory and the repo list between linked copies; three-way memory consolidation when the coordinator returns. Out: moving worker transcripts; nested repo cloning itself (#1168).
+In: a minimal dialog (pick a machine, "Add <machine>": clone the project's own repo from Git, link, share settings and memory; "Also move the coordinator there" as a checkbox; "Copy files instead" under More options); removing the review step and the folder-difference banner from the default path; server-side continuous sync of memory and the repo list between linked copies; three-way memory consolidation when the coordinator returns. Out: moving worker transcripts; the repository list and worker brief (#1168).
 
 ## Acceptance Criteria
 
@@ -18,7 +18,7 @@ In: a minimal dialog (pick a machine, "Add <machine>": clone the project's own r
 
 ## Approach
 
-Step 1 reuses Add to another machine (apps/server/src/mcp/toolkits/project/addToMachine.ts, apps/web/src/components/chat/AddToMachineDialog.tsx) behind the handoff dialog (ProjectMachineHandoff.tsx, ProjectMoveOptions.tsx). Step 2 moves linked memory sync from the web app loop to the server. Step 3 keeps the last shared revision per file as the merge base. Coordinate the repository list with #1168 (folder-derived list, cloned before launch).
+Step 1 reuses Add to another machine (apps/server/src/mcp/toolkits/project/addToMachine.ts, apps/web/src/components/chat/AddToMachineDialog.tsx) behind the handoff dialog (ProjectMachineHandoff.tsx, ProjectMoveOptions.tsx). Step 2 moves linked memory sync from the web app loop to the server. Step 3 keeps the last shared revision per file as the merge base. The repository list comes from #1168: the note repositories.md (a table plus a machine-readable list in an HTML comment), built from the coordinator's folder and matched by remote, travels like any note; a remote worker's first message names each repo and tells it to reuse an existing clone or clone on demand. There is no pre-launch clone. Consolidation merges repositories.md's list section by key.
 
 ## Decisions
 
