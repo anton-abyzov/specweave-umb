@@ -1,0 +1,15 @@
+{
+  "id": "1166-linux-chats-fail-with-native-subscription-authorization-unverified",
+  "uuid": "ec0b5f65-6e5b-47fc-9418-81ee24cce837",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T06:50:15.232Z",
+  "updated": "2026-11-02T09:30:40.462Z",
+  "lastActivity": "2026-11-02T09:30:40.462Z",
+  "title": "Linux chats fail with native subscription authorization unverified",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T09:30:40.461Z",
+  "approvedAt": "2026-11-02T09:30:40.462Z"
+}
