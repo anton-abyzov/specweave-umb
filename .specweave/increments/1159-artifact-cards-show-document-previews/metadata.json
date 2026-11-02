@@ -1,0 +1,15 @@
+{
+  "id": "1159-artifact-cards-show-document-previews",
+  "uuid": "1f3bc43e-d41f-4cf7-b90d-489b737841ec",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T03:46:38.226Z",
+  "updated": "2026-11-02T08:13:15.600Z",
+  "lastActivity": "2026-11-02T08:13:15.600Z",
+  "title": "Artifact cards show document previews",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T08:13:15.562Z",
+  "approvedAt": "2026-11-02T08:13:15.600Z"
+}

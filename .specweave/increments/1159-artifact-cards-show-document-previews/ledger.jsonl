@@ -1,0 +1,11 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:14:00.503Z","note":"session 6085a5b4-41cd-4834-aa2a-82349e560d53","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:14:00.506Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:14:02.187Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:14:04.497Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:14:05.897Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:14:07.680Z","evidence":"bench.mjs; evidence ~/.specwithcode/m4/evidence/artifact-previews/before.json and after.json\nHEAD a972d409a","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:14:10.526Z","evidence":"artifactPreview.test.ts passes; PR 1178\nHEAD a972d409a","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:14:11.665Z","evidence":"ProjectArtifactShelf.test.tsx passes; PR 1178\nHEAD a972d409a","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:14:12.798Z","evidence":"verify.mjs 15 checks, screenshots in ~/.specwithcode/m4/evidence/artifact-previews/after-verify\nHEAD a972d409a","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:54:53.103Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:54:53.126Z","evidence":"PR 1178 d63f3baa5b in v1.0.149; installed headless check passed, receipt ~/.specwithcode/m4/evidence/artifact-markdown/installed-1.0.149/receipt.json\nHEAD ba30c2ba7","model":"claude-opus-5-5[1m]"}
