@@ -1,0 +1,15 @@
+{
+  "id": "1172-agents-lead-to-chrome-pairing-before-other-browser-tools",
+  "uuid": "46bb11ac-3c81-4b13-9ca0-04412fd76383",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T15:19:09.435Z",
+  "updated": "2026-11-02T16:08:29.570Z",
+  "lastActivity": "2026-11-02T16:08:29.570Z",
+  "title": "Agents lead to Chrome pairing before other browser tools",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T16:08:29.569Z",
+  "approvedAt": "2026-11-02T16:08:29.570Z"
+}
