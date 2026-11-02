@@ -1,0 +1,15 @@
+{
+  "id": "1181-artifact-cards-show-real-content-for-every-file",
+  "uuid": "456b4113-aa01-408a-9ac3-86dd9d6fb0ec",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T20:59:53.830Z",
+  "updated": "2026-11-02T21:27:22.905Z",
+  "lastActivity": "2026-11-02T21:27:22.905Z",
+  "title": "Artifact cards show real content for every file",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T21:27:22.904Z",
+  "approvedAt": "2026-11-02T21:27:22.905Z"
+}

@@ -1,0 +1,9 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-02T21:16:44.094Z","note":"session 6085a5b4-41cd-4834-aa2a-82349e560d53","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T21:16:44.096Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T21:16:44.098Z","evidence":"maxBytes on projects.readFile; WorkspaceFileSystem.test.ts passes; PR #1224\nHEAD 5562666c5","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T21:16:44.844Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T21:16:44.845Z","evidence":"Absolute paths previewed, thread machine, lasting failures; 2305 tests pass\nHEAD 5562666c5","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T21:16:45.559Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T21:16:45.560Z","evidence":"Dark miniature and fallback; harness 17 checks; screenshots after-m4, after-m1\nHEAD 5562666c5","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T21:16:46.278Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T21:16:46.280Z","evidence":"Headless before/after on installed 1.0.152 and M1 1.0.144; 495-card bench p99 16.7 ms within 18.6 ms\nHEAD 5562666c5","model":"claude-opus-5-5[1m]"}
