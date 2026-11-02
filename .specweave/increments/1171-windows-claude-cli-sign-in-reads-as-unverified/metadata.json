@@ -1,0 +1,13 @@
+{
+  "id": "1171-windows-claude-cli-sign-in-reads-as-unverified",
+  "uuid": "2e4becb7-8c20-4d4f-8c4e-a3ec929aa83a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T14:45:33.131Z",
+  "updated": "2026-11-02T16:44:51.426Z",
+  "lastActivity": "2026-11-02T16:44:51.426Z",
+  "title": "Windows Claude CLI sign-in reads as unverified",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}
