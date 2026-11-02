@@ -15,6 +15,7 @@ In: a minimal dialog (pick a machine, "Add <machine>": clone the project's own r
 - [ ] AC-03: The coordinator window no longer shows the folder-difference review for a copy added this way.
 - [ ] AC-04: Memory and the repository list sync between linked copies from server to server, without an open app window.
 - [ ] AC-06: "Copy files instead" has one checkbox, "Include secrets (.env and similar)", off by default with a one-line warning; ticked, every secret-like file travels over the direct machine-to-machine channel, written 0600, never staged past the copy, never in Git, logs or reports (names and sizes only in the sent list); the per-file list stays for picking a subset.
+- [ ] AC-07: Secret detection adds Azure Functions local.settings.json, gradle.properties and .NET user secrets (~/.microsoft/usersecrets/<UserSecretsId>, outside the folder, matched from the project's .csproj); a per-project "Secret files" setting adds custom patterns and paths, including outside the folder; secrets held in a keychain or vault are listed as "not copied" with a hint, never skipped silently.
 - [ ] AC-05: When the coordinator moves back, each memory file merges against the last shared version; non-overlapping edits merge, a real clash becomes one file flagged for the coordinator, not .conflict copies.
 
 ## Approach
@@ -31,6 +32,9 @@ Step 1 reuses Add to another machine (apps/server/src/mcp/toolkits/project/addTo
 ### T-01 Minimal handoff dialog: Add machine by clone and link
 - AC: AC-01, AC-02, AC-03, AC-06 | Files: apps/web/src/components/studio/ProjectMachineHandoff.tsx, apps/web/src/components/studio/ProjectMoveOptions.tsx | Test: cd apps/web && npx vp test run src/components/studio
 
+### T-05 Wider secret detection and custom secret locations
+- AC: AC-07 | Files: apps/server/src/workspace/WorkspaceSensitivePaths.ts, apps/server/src/fleet/folderTransfer, apps/web/src/components/studio/HandoffSecretsStep.tsx | Test: cd apps/server && npx vp test run src/workspace src/fleet/folderTransfer
+
 ### T-02 Server-side sync of memory and repository list
 - AC: AC-04 | Files: apps/server/src/project | Test: cd apps/server && npx vp test run src/project
 
@@ -38,4 +42,4 @@ Step 1 reuses Add to another machine (apps/server/src/mcp/toolkits/project/addTo
 - AC: AC-05 | Files: apps/server/src/fleet, apps/server/src/project | Test: cd apps/server && npx vp test run src/fleet src/project
 
 ### T-04 Verify and close 1164
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: none | Test: specweave verify 1164-hand-off-a-project-by-sharing-it-not-copying-it
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07 | Files: none | Test: specweave verify 1164-hand-off-a-project-by-sharing-it-not-copying-it
