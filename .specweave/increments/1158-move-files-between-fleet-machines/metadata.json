@@ -1,0 +1,15 @@
+{
+  "id": "1158-move-files-between-fleet-machines",
+  "uuid": "7d66cb44-f795-417b-a518-41109ff73ebc",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T01:32:54.810Z",
+  "updated": "2026-11-02T07:47:51.452Z",
+  "lastActivity": "2026-11-02T07:47:51.452Z",
+  "title": "Move files between fleet machines",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T07:47:51.434Z",
+  "approvedAt": "2026-11-02T07:47:51.452Z"
+}
