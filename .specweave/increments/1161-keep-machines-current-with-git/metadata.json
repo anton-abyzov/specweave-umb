@@ -1,0 +1,15 @@
+{
+  "id": "1161-keep-machines-current-with-git",
+  "uuid": "00cd755f-0493-4940-9098-19671ce23dcf",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T03:56:55.227Z",
+  "updated": "2026-11-02T08:44:13.132Z",
+  "lastActivity": "2026-11-02T08:44:13.132Z",
+  "title": "Keep machines current with Git",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T08:44:13.131Z",
+  "approvedAt": "2026-11-02T08:44:13.132Z"
+}

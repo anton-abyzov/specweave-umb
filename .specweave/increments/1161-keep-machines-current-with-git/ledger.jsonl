@@ -1,0 +1,13 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:34:55.200Z","note":"session 390c340b-e5ec-4f07-bfaa-12114f2b0cd9","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:34:55.204Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:34:55.206Z","evidence":"PR #1181 squash 45526f3de0; CI green and SHIP on 3eaa5caa6e\nHEAD 64a078ac8","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:35:00.306Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:35:00.309Z","evidence":"PR #1181 squash 45526f3de0; CI green and SHIP on 3eaa5caa6e\nHEAD 64a078ac8","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:35:07.742Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:35:07.745Z","evidence":"PR #1181 squash 45526f3de0; CI green and SHIP on 3eaa5caa6e\nHEAD 64a078ac8","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:35:14.482Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:35:14.484Z","evidence":"PR #1181 squash 45526f3de0; CI green and SHIP on 3eaa5caa6e\nHEAD 64a078ac8","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T08:33:32.276Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T08:33:32.281Z","evidence":"PR #1181 merged as 45526f3de0; release 1.0.150 on Ministorm; live receipt reports/ministorm-live-check.md\nHEAD 803e73b8b","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T08:40:39.215Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T08:40:39.280Z","evidence":"Fresh-context close: every AC traced to squash 45526f3de0 (PR #1181), tests and reports/ministorm-live-check.md; table in reports/review.md, verdict ship, 0 critical or high. Gaps: AC-03 banner unit test only, M4 on 1.0.149; AC-09 coordinator move not run live. Verify gate rerun next.\nHEAD 803e73b8b","model":"claude-opus-5-5[1m]"}
