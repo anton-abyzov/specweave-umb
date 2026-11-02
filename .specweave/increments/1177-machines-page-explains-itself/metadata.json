@@ -1,0 +1,15 @@
+{
+  "id": "1177-machines-page-explains-itself",
+  "uuid": "1b1c19a1-da04-4faf-952c-12aabb9d8f14",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T19:03:26.236Z",
+  "updated": "2026-11-02T20:25:46.735Z",
+  "lastActivity": "2026-11-02T20:25:46.735Z",
+  "title": "Machines page explains itself",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T20:25:46.729Z",
+  "approvedAt": "2026-11-02T20:25:46.735Z"
+}
