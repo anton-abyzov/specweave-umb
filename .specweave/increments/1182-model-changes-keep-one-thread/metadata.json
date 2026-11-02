@@ -1,0 +1,16 @@
+{
+  "id": "1182-model-changes-keep-one-thread",
+  "uuid": "79a46b75-35d9-4817-8c94-ba8b94b05cd1",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T21:52:24.352Z",
+  "updated": "2026-11-02T23:28:50.588Z",
+  "lastActivity": "2026-11-02T23:28:50.588Z",
+  "title": "Model changes keep one thread",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T23:28:50.584Z",
+  "closeReason": "Only failing verify rows are npm test in vskill and vskill-platform, sibling repos PR #1227 did not touch; specwithcode-dev required checks passed on the merged head",
+  "approvedAt": "2026-11-02T23:28:50.588Z"
+}
