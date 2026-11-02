@@ -1,0 +1,15 @@
+{
+  "id": "1176-reports-show-once-with-their-own-title",
+  "uuid": "9c3cb4e2-9608-4596-8535-dd6444a7957e",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T17:37:03.347Z",
+  "updated": "2026-11-02T20:12:54.658Z",
+  "lastActivity": "2026-11-02T20:12:54.658Z",
+  "title": "Reports show once with their own title",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T20:12:54.657Z",
+  "approvedAt": "2026-11-02T20:12:54.658Z"
+}

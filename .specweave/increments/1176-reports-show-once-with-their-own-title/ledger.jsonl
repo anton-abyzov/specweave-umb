@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-02T19:03:27.375Z","note":"session 6085a5b4-41cd-4834-aa2a-82349e560d53","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T19:03:27.377Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T19:03:27.377Z","evidence":"threadReport, reportDocument, longReport, MessagesTimeline, ReportArtifact, ProjectWorkspace tests: 2257 passed; reviewed SHIP at 0fc7d4f9f\nHEAD 8a0c37765","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T19:03:28.175Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T19:03:28.176Z","evidence":"Headless render of the real thread text: ~/.specwithcode/m4/evidence/report-duplicate/before.png 2 identical cards, after.png 0 cards with full text\nHEAD 8a0c37765","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T19:03:39.696Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T19:03:39.698Z","evidence":"Merged #1210 as 97977ed035 at reviewed head 0fc7d4f9f; required checks Changed paths, PR Gate, PR Gate (typecheck) passed; release dispatcher notified\nHEAD 8a0c37765","model":"claude-opus-5-5[1m]"}
