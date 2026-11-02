@@ -10,10 +10,11 @@ In: the coordinator keeps its own history (trimmed to fit, newest first, with a 
 
 ## Acceptance Criteria
 
-- [ ] AC-01: A coordinator handoff of a project with more than 100 threads and more than 2 MB of history succeeds; the bundle stays within MACHINE_HANDOFF_MAX_BYTES.
-- [ ] AC-02: The destination coordinator receives its own recent history and a summary list of the workers, and says how many older messages and threads stayed on the source.
-- [ ] AC-03: A small project still carries full transcripts as before; older peers still accept the bundle.
-- [ ] AC-04: The user docs describe what a coordinator handoff carries.
+- [x] AC-01: A coordinator handoff of a project with more than 100 threads and more than 2 MB of history succeeds; the bundle stays within MACHINE_HANDOFF_MAX_BYTES.
+- [x] AC-02: The destination coordinator receives its own recent history and a summary list of the workers, and says how many older messages and threads stayed on the source.
+- [x] AC-03: A small project still carries full transcripts as before; older peers still accept the bundle.
+- [x] AC-04: The user docs describe what a coordinator handoff carries.
+- [x] AC-05: Past the worker cap, the summaries name threads that need the person, run or are pinned before open, resolved and archived ones; a resolved thread's old flags do not count.
 
 ## Approach
 
@@ -32,5 +33,8 @@ Change context() in apps/server/src/fleet/MachineHandoff.ts (extract to a helper
 ### T-02 Document what a coordinator handoff carries
 - AC: AC-04 | Files: docs/user/moving-a-project.md | Test: grep -q "summary" docs/user/moving-a-project.md
 
+### T-04 Rank the workers a large handoff names
+- AC: AC-05 | Files: apps/server/src/fleet/coordinatorContext.ts, apps/server/src/fleet/coordinatorContext.test.ts | Test: gh pr checks 1171 -R anton-abyzov/specwithcode-dev --required
+
 ### T-03 Verify and close 1145
-- AC: AC-01, AC-02, AC-03, AC-04 | Files: none | Test: specweave verify 1145-hand-off-the-coordinator-of-a-large-project
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: none | Test: specweave verify 1145-hand-off-the-coordinator-of-a-large-project
