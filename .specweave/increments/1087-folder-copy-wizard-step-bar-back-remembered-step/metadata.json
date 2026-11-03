@@ -1,15 +1,17 @@
 {
   "id": "1087-folder-copy-wizard-step-bar-back-remembered-step",
   "uuid": "3db1ef9b-c5e5-4acd-b667-87636d8d0b69",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-26T19:55:37.347Z",
-  "updated": "2026-10-26T21:02:50.568Z",
-  "lastActivity": "2026-10-26T21:02:50.568Z",
+  "updated": "2026-11-03T06:22:13.383Z",
+  "lastActivity": "2026-11-03T06:22:13.383Z",
   "title": "Folder copy wizard: step bar, Back, remembered step",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-03T06:22:13.382Z",
+  "approvedAt": "2026-11-03T06:22:13.383Z"
 }
