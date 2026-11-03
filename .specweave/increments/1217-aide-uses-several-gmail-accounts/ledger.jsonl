@@ -1,0 +1,4 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-03T19:47:19.906Z","note":"session 5a9e42b4-359d-4e46-8c25-b1ea1a579678","model":"opus[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-03T19:47:19.907Z","model":"opus[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-03T20:04:07.847Z","evidence":"true # headless verify.mjs exit 0, receipt ~/.specwithcode/m4/evidence/google-multi-account/google-receipt.json; PR #1315 merged 3caf34ec6 → exit 0\nlog: .specweave/increments/1217-aide-uses-several-gmail-accounts/reports/task-T-01.txt\nHEAD 2ca7c7389","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1315","model":"opus[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-03T20:04:08.560Z","model":"opus[1m]"}
