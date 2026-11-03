@@ -1,12 +1,15 @@
 {
   "id": "1224-require-owning-repository-verification-before-closure",
   "uuid": "9e23ca23-ba95-42fc-b491-d4525fe7d6ef",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-03T23:30:09.218Z",
-  "updated": "2026-11-03T23:37:41.201Z",
-  "lastActivity": "2026-11-03T23:37:41.201Z",
+  "updated": "2026-11-03T23:39:18.801Z",
+  "lastActivity": "2026-11-03T23:39:18.801Z",
   "title": "Require owning repository verification before closure",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T23:39:18.799Z",
+  "approvedAt": "2026-11-03T23:39:18.801Z"
 }
