@@ -1,0 +1,15 @@
+{
+  "id": "1208-consistent-skills-counts-and-agent-scoped-settings",
+  "uuid": "09fb69de-1427-489f-8fd7-07a3c8c4a457",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T14:42:56.265Z",
+  "updated": "2026-11-03T15:21:03.725Z",
+  "lastActivity": "2026-11-03T15:21:03.725Z",
+  "title": "Consistent skills counts and agent-scoped settings",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T15:21:03.723Z",
+  "approvedAt": "2026-11-03T15:21:03.725Z"
+}
