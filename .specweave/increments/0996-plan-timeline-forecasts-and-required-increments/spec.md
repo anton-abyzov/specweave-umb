@@ -1,5 +1,7 @@
 # Plan timeline, forecasts and required increments
 
+> Superseded as the current description by [1195](../1195-suggest-an-increment-before-substantial-unplanned-work/spec.md), which consolidates thread-increment binding, launch increments and suggestions. Kept as history.
+
 ## Problem
 
 Feature requests given to agents in SpecWithCode often never become increments, so the plan card stays empty and nobody can see what is in progress. Evidence from October 21-22, 2026:

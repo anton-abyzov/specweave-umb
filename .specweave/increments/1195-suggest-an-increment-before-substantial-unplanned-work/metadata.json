@@ -1,0 +1,12 @@
+{
+  "id": "1195-suggest-an-increment-before-substantial-unplanned-work",
+  "uuid": "ebd55d92-3927-4c3a-b1d0-b98ef63c251a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T07:13:30.889Z",
+  "updated": "2026-11-03T07:25:15.256Z",
+  "lastActivity": "2026-11-03T07:25:15.256Z",
+  "title": "Suggest an increment before substantial unplanned work",
+  "project": "specweave-umb"
+}

@@ -1,5 +1,7 @@
 # Connect SpecWithCode launches to increments
 
+> Superseded as the current description by [1195](../1195-suggest-an-increment-before-substantial-unplanned-work/spec.md), which consolidates thread-increment binding, launch increments and suggestions. Kept as history.
+
 ## Problem
 
 0996 made the CLI bind threads and added an opt-in edit guard, but most SpecWithCode work still never reaches an increment:
