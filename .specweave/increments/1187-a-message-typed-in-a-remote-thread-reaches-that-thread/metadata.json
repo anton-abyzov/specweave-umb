@@ -1,0 +1,15 @@
+{
+  "id": "1187-a-message-typed-in-a-remote-thread-reaches-that-thread",
+  "uuid": "d0b1d353-5c0a-4148-b4db-7a719318fe0f",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T01:13:53.362Z",
+  "updated": "2026-11-03T03:36:42.112Z",
+  "lastActivity": "2026-11-03T03:36:42.112Z",
+  "title": "A message typed in a remote thread reaches that thread",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T03:36:42.111Z",
+  "approvedAt": "2026-11-03T03:36:42.112Z"
+}
