@@ -1,0 +1,15 @@
+{
+  "id": "1216-tab-accepts-suggested-next-prompt",
+  "uuid": "02e49351-6df7-4e95-9d69-0583136fd9ab",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T18:23:15.130Z",
+  "updated": "2026-11-03T19:19:45.476Z",
+  "lastActivity": "2026-11-03T19:19:45.476Z",
+  "title": "Tab accepts suggested next prompt",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T19:19:45.475Z",
+  "approvedAt": "2026-11-03T19:19:45.476Z"
+}
