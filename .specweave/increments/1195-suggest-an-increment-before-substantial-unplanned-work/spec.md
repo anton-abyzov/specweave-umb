@@ -29,12 +29,12 @@ Out: turning on `remind` or `enforce` for projects that have not chosen it; a pl
 
 ## Acceptance Criteria
 
-- [ ] AC-01: The "none" launch brief keeps the small-fix path for a small change and tells the worker that work growing past a small fix (a new endpoint or command, a schema or data change, a deploy or release, or edits across several files), including when a later message turns a question into a build, is planned first with `specweave create-increment "<title>"` and spec.md before code changes.
-- [ ] AC-02: A worker launched in a SpecWeave project with no increment passed or inherited gets a brief with the same sizing rule, under every `requireIncrement` mode, and the existing `remind`/`enforce` warnings still apply.
-- [ ] AC-03: The launch-tool instruction tells a coordinator to pass "new" for feature work and "none" only for questions, reviews or a small fix.
-- [ ] AC-04: In a SpecWeave project, every worker turn's project context carries the sizing rule for a thread with no increment, so a follow-up that widens the work gets the suggestion before code changes; outside a SpecWeave project the line is absent.
-- [ ] AC-05: SpecWeave's `AGENTS.md.template` says `small-fix` is for a change too small to plan, and that work which grows past it gets an increment before more code changes, still recommended, not required.
-- [ ] AC-06: 0996 and 1001 specs point to this spec as the current one.
+- [x] AC-01: The "none" launch brief keeps the small-fix path for a small change and tells the worker that work growing past a small fix (a new endpoint or command, a schema or data change, a deploy or release, or edits across several files), including when a later message turns a question into a build, is planned first with `specweave create-increment "<title>"` and spec.md before code changes.
+- [x] AC-02: A worker launched in a SpecWeave project with no increment passed or inherited gets a brief with the same sizing rule, under every `requireIncrement` mode, and the existing `remind`/`enforce` warnings still apply.
+- [x] AC-03: The launch-tool instruction tells a coordinator to pass "new" for feature work and "none" only for questions, reviews or a small fix.
+- [x] AC-04: In a SpecWeave project, every worker turn's project context carries the sizing rule for a thread with no increment, so a follow-up that widens the work gets the suggestion before code changes; outside a SpecWeave project the line is absent.
+- [x] AC-05: SpecWeave's `AGENTS.md.template` says `small-fix` is for a change too small to plan, and that work which grows past it gets an increment before more code changes, still recommended, not required.
+- [x] AC-06: 0996 and 1001 specs point to this spec as the current one.
 
 ## Approach
 
