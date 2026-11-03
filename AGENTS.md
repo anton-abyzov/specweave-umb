@@ -61,7 +61,7 @@ Before an unattended risky shell command, run `specweave jev guard "<command>"`:
 | Test | `npm --prefix repositories/anton-abyzov/specweave run test:unit:fast && npm --prefix repositories/anton-abyzov/vskill test && npm --prefix repositories/anton-abyzov/vskill-platform test` |
 | Lint | `npm --prefix repositories/anton-abyzov/specweave run lint:skills && npm --prefix repositories/anton-abyzov/specweave run lint:docs-refs && npm --prefix repositories/anton-abyzov/vskill run lint:skills-spec` |
 
-Use Node 22. In any other checkout, pass its actual commands with `specweave verify --cmd`. The platform currently has no configured ESLint command; do not claim a clean platform lint run. UI changes also require their relevant browser checks and product builds.
+Use Node 22. Umbrella verification and closure require SpecWeave 3.1.21 or newer. Use a session-local copy if another session still uses an older CLI. With `testing.strictClose` enabled, `--cmd` adds checks to the configured checks. For each product task, declare `Files` from the umbrella root, for example `repositories/anton-abyzov/specwithcode-dev/apps/server/...`. The legacy `specweave-studio` prefix also resolves to the product gate when that checkout path exists. Existing owners should update their task paths when resuming work. A bare product-relative path cannot select an owning repository. Close from a checkout with the named product directories, terminal tasks, and a fresh ship review after verification. The platform currently has no configured ESLint command; do not claim a clean platform lint run. UI changes also require their relevant browser checks and product builds.
 
 ## Headless browser automation — mandatory (2026-10-13)
 
