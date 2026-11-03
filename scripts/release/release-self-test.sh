@@ -546,7 +546,8 @@ unset STUB_RELEASES_FILE
 # A version inside an HTTP error response cannot satisfy the fleet gate.
 cat >"$T/bin/curl" <<'SH'
 #!/bin/bash
-while [ "$1" != -o ]; do shift; done
+while [ "$#" -gt 0 ] && [ "$1" != -o ]; do shift; done
+[ "$#" -ge 2 ] || exit 1
 printf '{"serverVersion":"1.2.3"}\n' >"$2"
 printf '%s' "$STUB_HTTP_STATUS"
 SH
