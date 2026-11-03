@@ -1,0 +1,15 @@
+{
+  "id": "1183-thread-status-has-one-source-of-truth-unfinished-work-never-reads-idle",
+  "uuid": "b91a1656-54b1-46ee-a5d1-5b4f36092270",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T22:41:37.694Z",
+  "updated": "2026-11-03T01:06:48.106Z",
+  "lastActivity": "2026-11-03T01:06:48.106Z",
+  "title": "Thread status has one source of truth; unfinished work never reads Idle",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T01:06:48.106Z",
+  "approvedAt": "2026-11-03T01:06:48.106Z"
+}
