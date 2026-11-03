@@ -294,6 +294,8 @@ if __name__ == "__main__":
                         "product-review", "product-release", "product-handoff", "product-all"), required=True)
     parser.add_argument("--evidence", type=Path, default=Path.home() / ".local/share/specweave/fleet/handoff-proof-20261013")
     args = parser.parse_args()
+    if not __debug__:
+        parser.error("fleet evidence verification requires Python assertions; disable optimization")
     phases = {"audit": audit, "handoff": handoff, "environment": environment}
     if args.phase.startswith("product-"):
         spec = importlib.util.spec_from_file_location("product_handoff_evidence",
