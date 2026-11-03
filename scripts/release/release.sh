@@ -177,10 +177,15 @@ check_wrangler_deployments() {
 }
 
 check_fleet_endpoint() {
-  local url state got st_status st_down st_msg
+  local url state got st_status st_down st_msg body code
   url="$(jq -r '.url' <<<"$CHECK")"
   state="$(expand_home "$(jq -r '.state_file // empty' <<<"$CHECK")")"
-  got="$(curl -s -m 5 "$url" | jq -r '.serverVersion // empty' 2>/dev/null)" || got=""
+  body="$(mktemp "$WORK/fleet.XXXXXX")"
+  code="$(curl -s -m 5 -o "$body" -w '%{http_code}' "$url")" || code="000"
+  got=""
+  if [ "$code" = "200" ]; then
+    got="$(jq -r '.serverVersion // empty' "$body" 2>/dev/null)" || got=""
+  fi
   if [ -n "$got" ] && { [ -z "$VERSION" ] || [ "$got" = "$VERSION" ]; }; then
     C_STATUS=pass; C_DETAIL="serverVersion $got"; return
   fi
@@ -192,7 +197,9 @@ check_fleet_endpoint() {
       C_STATUS=pending; C_DETAIL="serverVersion ${got:-unreachable}; updater $st_status with $VERSION downloaded: $st_msg"; return
     fi
   fi
-  if [ -z "$got" ]; then
+  if [ "$code" != "200" ]; then
+    C_STATUS=fail; C_DETAIL="$url answered HTTP $code, want 200"
+  elif [ -z "$got" ]; then
     C_STATUS=fail; C_DETAIL="$url unreachable"
   else
     C_STATUS=fail; C_DETAIL="serverVersion $got, want $VERSION"

@@ -543,5 +543,23 @@ RELEASE_MANIFEST="$T/manifest-notag.json" bash "$RELEASE_SH" ship desk >"$T/ship
 check "post-ship: a ship that tagged nothing new fails verify" "1|yes" "$ship_rc|$(grep -q 'FAIL  drift: stale: 1 of 1 commits on origin/main since tag desk-v1.0.2' "$T/ship.err" && echo yes || echo no)"
 unset STUB_RELEASES_FILE
 
+# A version inside an HTTP error response cannot satisfy the fleet gate.
+cat >"$T/bin/curl" <<'SH'
+#!/bin/bash
+while [ "$1" != -o ]; do shift; done
+printf '{"serverVersion":"1.2.3"}\n' >"$2"
+printf '%s' "$STUB_HTTP_STATUS"
+SH
+chmod +x "$T/bin/curl"
+cat >"$T/manifest-fleet.json" <<'JSON'
+{"tracks":{"fleet":{"verify":[{"name":"service","kind":"fleet_endpoint","url":"http://fixture.invalid"}]}}}
+JSON
+run_fleet() {
+  STUB_HTTP_STATUS="$1" RELEASE_MANIFEST="$T/manifest-fleet.json" \
+    bash "$RELEASE_SH" verify fleet --version 1.2.3 >"$T/fleet.json" 2>"$T/fleet.err" && echo 0 || echo $?
+}
+check "fleet: HTTP 503 cannot attest the expected version" "1|fail" "$(run_fleet 503)|$(jq -r .result "$T/fleet.json")"
+check "fleet: HTTP 200 can attest the expected version" "0|pass" "$(run_fleet 200)|$(jq -r .result "$T/fleet.json")"
+
 printf '\n%d passed, %d failed\n' "$PASSES" "$FAILS"
 [ "$FAILS" -eq 0 ]

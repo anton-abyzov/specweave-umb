@@ -1,0 +1,12 @@
+{
+  "id": "1196-fail-closed-when-release-or-status-evidence-is-missing",
+  "uuid": "d562be6c-66b6-4b07-bc55-3c7995f26c00",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T07:23:57.297Z",
+  "updated": "2026-11-03T07:25:04.062Z",
+  "lastActivity": "2026-11-03T07:25:04.062Z",
+  "title": "Fail closed when release or status evidence is missing",
+  "project": "specweave-umb"
+}
