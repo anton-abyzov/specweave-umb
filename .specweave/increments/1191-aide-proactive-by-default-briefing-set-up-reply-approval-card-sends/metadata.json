@@ -1,0 +1,13 @@
+{
+  "id": "1191-aide-proactive-by-default-briefing-set-up-reply-approval-card-sends",
+  "uuid": "257e0533-c948-4bf3-91a6-be91f9a47bc8",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T06:24:26.402Z",
+  "updated": "2026-11-03T06:57:42.394Z",
+  "lastActivity": "2026-11-03T06:57:42.394Z",
+  "title": "Aide proactive by default: briefing set up, reply approval card sends",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}
