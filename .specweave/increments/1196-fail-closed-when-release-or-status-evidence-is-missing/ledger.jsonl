@@ -2,3 +2,6 @@
 {"t":"T-01","e":"claim","by":"codex-release-status","at":"2026-11-03T07:24:28.243Z"}
 {"t":"T-02","e":"claim","by":"codex-release-status","at":"2026-11-03T07:24:47.058Z"}
 {"t":"T-03","e":"claim","by":"codex-release-status","at":"2026-11-03T07:25:04.062Z"}
+{"t":"T-01","e":"done","by":"codex-release-status","at":"2026-11-03T07:27:32.832Z","evidence":"c60b7a79b, release shell suite 115/115, release-regression.log; fresh loopback HTTP 200, 302, 503"}
+{"t":"T-02","e":"done","by":"codex-release-status","at":"2026-11-03T07:27:53.522Z","evidence":"c60b7a79b, handoff 46/46, sync 13/13; optimized invalid receipt exit 2, review-fleet-tests.log\nHEAD ee913a2d9"}
+{"t":"T-03","e":"done","by":"codex-release-status","at":"2026-11-03T07:28:04.085Z","evidence":"status 27cb8348a, Node 8/8, build, coverage, mocked collector and headless fixture, status-node.log\nHEAD ee913a2d9"}

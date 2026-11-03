@@ -5,8 +5,8 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-03T07:23:57.297Z",
-  "updated": "2026-11-03T07:25:04.062Z",
-  "lastActivity": "2026-11-03T07:25:04.062Z",
+  "updated": "2026-11-03T07:28:04.085Z",
+  "lastActivity": "2026-11-03T07:28:04.085Z",
   "title": "Fail closed when release or status evidence is missing",
   "project": "specweave-umb"
 }
