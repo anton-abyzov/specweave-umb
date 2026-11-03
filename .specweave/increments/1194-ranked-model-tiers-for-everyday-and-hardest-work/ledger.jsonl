@@ -1,0 +1,12 @@
+{"t":"T-01","e":"claim","by":"copilot@antons-macbook-m4max","at":"2026-11-03T07:19:27.494Z"}
+{"t":"T-01","e":"done","by":"copilot@antons-macbook-m4max","at":"2026-11-03T07:19:27.496Z","evidence":"3d84dc2d48 modelTiers.ts + providerFallback.ts; shared tests 154 pass\nHEAD 63d9ea0fd","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1276"}
+{"t":"T-02","e":"claim","by":"copilot@antons-macbook-m4max","at":"2026-11-03T07:19:29.338Z"}
+{"t":"T-02","e":"done","by":"copilot@antons-macbook-m4max","at":"2026-11-03T07:19:29.340Z","evidence":"f9b3fc2612 ModelLanesSettings/ProviderLimitSettings/RoutingDecisionChip wording + tests\nHEAD 63d9ea0fd","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1276"}
+{"t":"T-03","e":"claim","by":"copilot@antons-macbook-m4max","at":"2026-11-03T07:19:30.297Z"}
+{"t":"T-03","e":"done","by":"copilot@antons-macbook-m4max","at":"2026-11-03T07:19:30.299Z","evidence":"server ProviderFallback* 12 files 209 tests pass on 3d84dc2d48\nHEAD 63d9ea0fd","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1276"}
+{"t":"T-04","e":"claim","by":"copilot@antons-macbook-m4max","at":"2026-11-03T07:19:31.342Z"}
+{"t":"T-04","e":"done","by":"copilot@antons-macbook-m4max","at":"2026-11-03T07:19:31.344Z","evidence":"~/.specwithcode/m4/evidence/model-tiers-2026-11-03/report.html rendered\nHEAD 63d9ea0fd"}
+{"t":"T-05","e":"claim","by":"copilot@antons-macbook-m4max","at":"2026-11-03T08:43:51.187Z"}
+{"t":"T-05","e":"done","by":"copilot@antons-macbook-m4max","at":"2026-11-03T08:43:51.188Z","evidence":"1.0.169 installed (service+app); v1.0.169 contains 40bf693e39; headless Settings > Providers shows Model tiers, Everyday work above Hardest work: /Users/antonabyzov/.specwithcode/m4/evidence/model-tiers-2026-11-03/installed-1.0.169-settings-tiers.png\nHEAD b5f434e1f","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1276"}
+{"t":"T-06","e":"claim","by":"copilot@antons-macbook-m4max","at":"2026-11-03T08:43:51.874Z"}
+{"t":"T-06","e":"done","by":"copilot@antons-macbook-m4max","at":"2026-11-03T08:43:51.875Z","evidence":"verify + complete after installed check; PR SHIP reviews on 3d84dc2d48 and 7abd50e991\nHEAD b5f434e1f"}
