@@ -1,13 +1,15 @@
 {
   "id": "1233-recheck-current-team-rules-before-retrying-auto-approvals",
   "uuid": "49832510-79f6-4cc7-a71b-2a7d1300ddc5",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-03T23:57:35.614Z",
-  "updated": "2026-11-04T00:03:04.174Z",
-  "lastActivity": "2026-11-04T00:03:04.174Z",
+  "updated": "2026-11-04T06:53:10.447Z",
+  "lastActivity": "2026-11-04T06:53:10.447Z",
   "title": "Recheck current Team Rules before retrying auto approvals",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-04T06:53:10.444Z",
+  "approvedAt": "2026-11-04T06:53:10.447Z"
 }
