@@ -26,13 +26,13 @@ Out: npm CLI publishing (not shipped from this track), AUR, the marketing site d
 
 ### US-01 Stop the bleeding (phase 1)
 As the owner, I want a release to refuse to start when any host lacks disk, and to fail loudly when any required machine does not end verified, so that a release never half-applies or silently skips M1 and M3.
-- [ ] AC-01: `update.py room --version <v> --json` reports needed and free bytes (fallback room for pending FULL_READ migrations + backup + staged release). Release preflight runs it on M4 and every fleet host, and stops with the host name, need and free space when any host is short.
-- [ ] AC-02: `update.py apply` checks fallback room before draining the service. With too little room, the service is never stopped.
-- [ ] AC-03: `fleet_rollout.py` exits non-zero with `result: partial` and a per-host `not-updated` row (with a reason) when any required host (M4, M1, M3) is unreachable, skipped or not verified. Optional hosts may end `not-updated` with exit 0.
-- [ ] AC-04: A host that answers no status reads for up to 5 minutes after install, then reports the new version, ends `verified` (a time window replaces the 5-strike rule).
-- [ ] AC-05: Worker install requests are acknowledged (request id written back) and retried in bounded windows.
-- [ ] AC-06: An exclusive rollout lock stops two rollouts or reconciles from sending duplicate requests. A stale lock left by a dead PID is reclaimed.
-- [ ] AC-07: An M4 `installFinalized` from any path (Update now, hourly agent) triggers a workers reconcile, so M1 and M3 on N-1 get a request and a run row.
+- [x] AC-01: `update.py room --version <v> --json` reports needed and free bytes (fallback room for pending FULL_READ migrations + backup + staged release). Release preflight runs it on M4 and every fleet host, and stops with the host name, need and free space when any host is short.
+- [x] AC-02: `update.py apply` checks fallback room before draining the service. With too little room, the service is never stopped.
+- [x] AC-03: `fleet_rollout.py` exits non-zero with `result: partial` and a per-host `not-updated` row (with a reason) when any required host (M4, M1, M3) is unreachable, skipped or not verified. Optional hosts may end `not-updated` with exit 0.
+- [x] AC-04: A host that answers no status reads for up to 5 minutes after install, then reports the new version, ends `verified` (a time window replaces the 5-strike rule).
+- [x] AC-05: Worker install requests are acknowledged (request id written back) and retried in bounded windows.
+- [x] AC-06: An exclusive rollout lock stops two rollouts or reconciles from sending duplicate requests. A stale lock left by a dead PID is reclaimed.
+- [x] AC-07: An M4 `installFinalized` from any path (Update now, hourly agent) triggers a workers reconcile, so M1 and M3 on N-1 get a request and a run row.
 
 ### US-02 Rehearse migrations before publish (phase 2)
 As the owner, I want every release's migrations rehearsed on real old state before anything is published, so that a migration can never trip the post-update check on the fleet.
