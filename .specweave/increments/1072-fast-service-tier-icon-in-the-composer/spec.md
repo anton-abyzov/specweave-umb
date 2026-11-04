@@ -52,10 +52,10 @@ Rejected alternatives:
 ## Tasks
 
 ### T-01 Bolt in the reasoning control and menu
-- AC: AC-01, AC-02, AC-03 | Files: apps/web/src/components/chat/TraitsPicker.tsx, apps/web/src/components/chat/TraitsSpeed.tsx, apps/web/src/components/chat/TraitsPicker.test.ts | Test: cd apps/web && vp test run src/components/chat/TraitsPicker.test.ts
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/chat/TraitsPicker.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/chat/TraitsSpeed.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/chat/TraitsPicker.test.ts | Test: cd apps/web && vp test run src/components/chat/TraitsPicker.test.ts
 
 ### T-02 Headless Standard/Fast matrix
-- AC: AC-04 | Files: apps/web/tests/fallback-composer/main.tsx, apps/web/tests/fallback-composer/fast-tier.mjs | Test: node apps/web/tests/fallback-composer/fast-tier.mjs /Users/antonabyzov/.specwithcode/m4/evidence/fast-tier-glyph
+- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/tests/fallback-composer/main.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/fallback-composer/fast-tier.mjs | Test: node apps/web/tests/fallback-composer/fast-tier.mjs /Users/antonabyzov/.specwithcode/m4/evidence/fast-tier-glyph
 
 ### T-03 Merge, release, verify installed
 - AC: AC-05 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/fast-tier-glyph | Test: CI green, release published, installed app readback and screenshot

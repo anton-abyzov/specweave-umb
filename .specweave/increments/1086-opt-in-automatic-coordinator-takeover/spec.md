@@ -290,10 +290,10 @@ The `takeover` button cannot do this, because the coordinator is connected (proj
 Test commands assume vitest from the repo root. The exact script in package.json was not checked.
 
 ### T-01 Schema for standby, takenOverBy and capability
-- AC: AC-01, AC-07 | Files: packages/contracts/src/logicalProject.ts, packages/contracts/src/logicalProject.test.ts, packages/contracts/src/environment.ts, apps/server/src/ServerEnvironment.ts | Test: npx vitest run packages/contracts/src/logicalProject.test.ts
+- AC: AC-01, AC-07 | Files: repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/logicalProject.ts, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/logicalProject.test.ts, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/environment.ts, apps/server/src/ServerEnvironment.ts | Test: npx vitest run packages/contracts/src/logicalProject.test.ts
 
 ### T-02 Ownership mode set-standby
-- AC: AC-01 | Files: apps/server/src/orchestration-v2/ProjectCommands.ts, apps/server/src/orchestration-v2/ProjectCommands.test.ts | Test: npx vitest run apps/server/src/orchestration-v2/ProjectCommands.test.ts
+- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProjectCommands.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProjectCommands.test.ts | Test: npx vitest run apps/server/src/orchestration-v2/ProjectCommands.test.ts
 
 ### T-03 Standby store and the pure clock
 - `shouldTakeOver` with an injected monotonic source. Cases:
@@ -303,52 +303,52 @@ Test commands assume vitest from the repo root. The exact script in package.json
   - no lease since `watchingSince` means no fire;
   - unarmed or paused means no fire;
   - a wall-clock jump, standby sleep, or an NTP step backwards resets the window.
-- AC: AC-05, AC-11 | Files: apps/server/src/project/CoordinatorStandbyStore.ts, apps/server/src/project/CoordinatorStandbyWatch.ts, apps/server/src/project/CoordinatorStandbyWatch.test.ts | Test: npx vitest run apps/server/src/project/CoordinatorStandbyWatch.test.ts
+- AC: AC-05, AC-11 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/CoordinatorStandbyStore.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/CoordinatorStandbyWatch.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/CoordinatorStandbyWatch.test.ts | Test: npx vitest run apps/server/src/project/CoordinatorStandbyWatch.test.ts
 
 ### T-04 ProjectLink methods
 - `setStandby`, `acceptStandby`, `replicateFromPeer`, and auto `takeover` with the epoch-first `operationId`. The RPCs go in packages/contracts/src/rpc.ts:2264.
 - Split into `ProjectLinkStandby.ts`, because ProjectLink.ts is 1007 lines.
-- AC: AC-01, AC-07 | Files: apps/server/src/project/ProjectLink.ts, apps/server/src/project/ProjectLinkStandby.ts, apps/server/src/project/ProjectLink.test.ts, packages/contracts/src/rpc.ts | Test: npx vitest run apps/server/src/project/ProjectLink.test.ts
+- AC: AC-01, AC-07 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/ProjectLink.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/ProjectLinkStandby.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/ProjectLink.test.ts, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/rpc.ts | Test: npx vitest run apps/server/src/project/ProjectLink.test.ts
 
 ### T-05 Peer wire and route handler
 - The handler runs under the project lock. It enforces the AC-03 checks, records refused leases (AC-04), checks protocol version, and applies the byte cap.
-- AC: AC-03, AC-04, AC-07 | Files: apps/server/src/handoff/handoffWire.ts, apps/server/src/handoff/handoffPeers.ts, apps/server/src/handoff/handoffRoute.ts, apps/server/src/project/CoordinatorLeaseRoute.ts, apps/server/src/project/CoordinatorLeaseRoute.test.ts | Test: npx vitest run apps/server/src/project/CoordinatorLeaseRoute.test.ts
+- AC: AC-03, AC-04, AC-07 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/handoff/handoffWire.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/handoff/handoffPeers.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/handoff/handoffRoute.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/CoordinatorLeaseRoute.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/CoordinatorLeaseRoute.test.ts | Test: npx vitest run apps/server/src/project/CoordinatorLeaseRoute.test.ts
 
 ### T-06 Coordinator lease loop
 - Covers: `seq`, persisted `lastSuccessfulLeaseAt`, the release protocol, pause and sleep leases, and supersede verification under the lock with interrupt and row stop.
-- AC: AC-04, AC-09, AC-11 | Files: apps/server/src/project/CoordinatorLease.ts, apps/server/src/project/CoordinatorLease.test.ts, apps/server/src/handoff/HandoffModeReactor.ts | Test: npx vitest run apps/server/src/project/CoordinatorLease.test.ts
+- AC: AC-04, AC-09, AC-11 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/CoordinatorLease.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/CoordinatorLease.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/handoff/HandoffModeReactor.ts | Test: npx vitest run apps/server/src/project/CoordinatorLease.test.ts
 
 ### T-07 Wake gate and self-fence
 - A persisted fence. A running coordinator turn is interrupted through `interruptRun` (HandoffMoves.ts:1076-1088).
-- AC: AC-06 | Files: apps/server/src/project/CoordinatorWakeGate.ts, apps/server/src/project/CoordinatorWakeGate.test.ts, apps/server/src/orchestration-v2/Orchestrator.ts (wiring at :1133, :1727, :5266 only), packages/contracts/src/projectWorkspace.ts | Test: npx vitest run apps/server/src/project/CoordinatorWakeGate.test.ts
+- AC: AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/CoordinatorWakeGate.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/CoordinatorWakeGate.test.ts, apps/server/src/orchestration-v2/Orchestrator.ts (wiring at :1133, :1727, :5266 only), repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/projectWorkspace.ts | Test: npx vitest run apps/server/src/project/CoordinatorWakeGate.test.ts
 
 ### T-08 Epoch claim on worker machines
 - Worker machines persist the highest epoch, refuse lower or missing epochs after a claim, and return origins for the listed threads.
-- AC: AC-08 | Files: apps/server/src/mcp/workGrantAccess.ts, apps/server/src/fleet/WorkerEpochStore.ts, apps/server/src/fleet/RemoteStudioMcpClient.ts, apps/server/src/mcp/workGrantAccess.test.ts | Test: npx vitest run apps/server/src/mcp/workGrantAccess.test.ts
+- AC: AC-08 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/mcp/workGrantAccess.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/fleet/WorkerEpochStore.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/fleet/RemoteStudioMcpClient.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/mcp/workGrantAccess.test.ts | Test: npx vitest run apps/server/src/mcp/workGrantAccess.test.ts
 
 ### T-09 Worker row adoption
 - Shadow rows, id mapping, origin and caller filtering, `follow(rowId)`, and the 50-id dedup.
 - On the old machine, rows whose wake fails with `transferred` are stopped.
-- AC: AC-08, AC-09 | Files: apps/server/src/fleet/RemoteWorkerStore.ts, apps/server/src/fleet/RemoteWorkerAdoption.ts, apps/server/src/fleet/RemoteWorkerFollower.ts, apps/server/src/fleet/RemoteWorkerFollower.test.ts | Test: npx vitest run apps/server/src/fleet/RemoteWorkerFollower.test.ts
+- AC: AC-08, AC-09 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/fleet/RemoteWorkerStore.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/fleet/RemoteWorkerAdoption.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/fleet/RemoteWorkerFollower.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/fleet/RemoteWorkerFollower.test.ts | Test: npx vitest run apps/server/src/fleet/RemoteWorkerFollower.test.ts
 
 ### T-10 Auto-continue for handoff threads
 - The designated machine is taken from the source heartbeat. Coordinator threads are skipped, the delay is clamped to at least 5 minutes, and the per-thread fence on the source is persisted. Adds an internal `continueHereAs` on the moves port (HandoffMoves.ts:1151).
-- AC: AC-10 | Files: apps/server/src/handoff/HandoffAutoContinue.ts, apps/server/src/handoff/HandoffAutoContinue.test.ts, apps/server/src/handoff/HandoffMoves.ts, apps/server/src/handoff/handoffState.ts | Test: npx vitest run apps/server/src/handoff/HandoffAutoContinue.test.ts
+- AC: AC-10 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/handoff/HandoffAutoContinue.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/handoff/HandoffAutoContinue.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/handoff/HandoffMoves.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/handoff/handoffState.ts | Test: npx vitest run apps/server/src/handoff/HandoffAutoContinue.test.ts
 
 ### T-11 Desktop suspend calls the server directly
 - Uses the desktop service credential (apps/desktop/src/backend/desktopServiceCredential.ts) and a new endpoint allowed for that credential.
-- AC: AC-11 | Files: apps/desktop/src/app/DesktopHandoffSleep.ts, apps/desktop/src/app/DesktopApp.ts, apps/server/src/project/CoordinatorSuspendRoute.ts | Test: npx vitest run apps/desktop/src/app/DesktopHandoffSleep.test.ts
+- AC: AC-11 | Files: repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/app/DesktopHandoffSleep.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/app/DesktopApp.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/CoordinatorSuspendRoute.ts | Test: npx vitest run apps/desktop/src/app/DesktopHandoffSleep.test.ts
 
 ### T-12 Arming chain
 - Runs only in the desktop app, with full-access sessions to W and M1. The chain is invite, add, allow, narrow the scope to a listed project, then revoke the management session.
 - Verify whether W can update a grant's project scope after `allowFleetWorkers`; it is not verified. Add an update path if it is missing.
-- AC: AC-02 | Files: apps/web/src/studio/projectLink.ts, apps/web/src/studio/standbyArming.ts, apps/server/src/studioFleetHttp.ts, apps/server/src/fleet/FleetWorkerGrants.ts | Test: npx vitest run apps/web/src/studio/standbyArming.test.ts
+- AC: AC-02 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/studio/projectLink.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/studio/standbyArming.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/studioFleetHttp.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/fleet/FleetWorkerGrants.ts | Test: npx vitest run apps/web/src/studio/standbyArming.test.ts
 
 ### T-13 UI and copy
-- AC: AC-12, AC-01 | Files: apps/web/src/components/studio/CoordinatorStandbySettings.tsx, apps/web/src/components/studio/ProjectMachinesSettings.tsx, apps/web/src/components/settings/HandoffModeSettings.tsx | Test: npx vitest run apps/web/src/components/studio/CoordinatorStandbySettings.test.tsx
+- AC: AC-12, AC-01 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/CoordinatorStandbySettings.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/ProjectMachinesSettings.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/HandoffModeSettings.tsx | Test: npx vitest run apps/web/src/components/studio/CoordinatorStandbySettings.test.tsx
 
 ### T-14 Docs
-- AC: AC-12 | Files: docs/user/shared-projects.md, docs/studio/logical-projects.md | Test: npm --prefix repositories/anton-abyzov/specweave run lint:docs-refs
+- AC: AC-12 | Files: repositories/anton-abyzov/specwithcode-dev/docs/user/shared-projects.md, repositories/anton-abyzov/specwithcode-dev/docs/studio/logical-projects.md | Test: npm --prefix repositories/anton-abyzov/specweave run lint:docs-refs
 
 ### T-15 End-to-end scenarios
 - Build the M4, M1 and M3 ProjectLink layers and a peers stub for the new paths. The existing test at handoffMove.test.ts:326 and :402 uses a hand-built `HandoffPeers.of` with no ProjectLink.
@@ -367,7 +367,7 @@ Test commands assume vitest from the repo root. The exact script in package.json
   - a revoked M4 grant on M1;
   - an inflated lease epoch;
   - a replayed `seq`.
-- AC: AC-03..AC-11 | Files: apps/server/src/project/coordinatorAutoTakeover.test.ts | Test: npx vitest run apps/server/src/project/coordinatorAutoTakeover.test.ts
+- AC: AC-03..AC-11 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/coordinatorAutoTakeover.test.ts | Test: npx vitest run apps/server/src/project/coordinatorAutoTakeover.test.ts
 
 ### T-16 Connect dependency (fleet-over-connect line of work)
 - DPoP for handoff peers and `RemoteStudioMcpClient`, plus v2 invite and redeem with the fleet proof key.

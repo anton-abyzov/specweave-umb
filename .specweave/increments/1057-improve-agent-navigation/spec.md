@@ -84,10 +84,10 @@ Risks: 1053 changes the same three files and must merge first; the stall thresho
 - AC: AC-01, AC-02, AC-07 | Files: apps/web/src/studio/subagentNavigation.ts, apps/web/src/studio/subagentNavigation.test.ts (app repo, after 1053 merges) | Test: npx vp test run apps/web/src/studio/subagentNavigation.test.ts
 
 ### T-03 Stable popover: snapshot order, in-place updates, pills, selection retention
-- AC: AC-03, AC-04 | Files: apps/web/src/components/studio/shell/SubagentsChip.tsx, apps/web/src/components/studio/shell/SubagentsChip.test.tsx | Test: npx vp test run apps/web/src/components/studio/shell/SubagentsChip.test.tsx
+- AC: AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/SubagentsChip.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/SubagentsChip.test.tsx | Test: npx vp test run apps/web/src/components/studio/shell/SubagentsChip.test.tsx
 
 ### T-04 Filters, keyboard model, live region, narrow sheet
-- AC: AC-05, AC-06, AC-08 | Files: apps/web/src/components/studio/shell/SubagentsChip.tsx, apps/web/src/components/studio/shell/panes.css | Test: npx vp test run apps/web/src/components/studio/shell/SubagentsChip.test.tsx
+- AC: AC-05, AC-06, AC-08 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/SubagentsChip.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/panes.css | Test: npx vp test run apps/web/src/components/studio/shell/SubagentsChip.test.tsx
 
 ### T-05 Headless fixture: reorder count, keyboard, axe, 375px
 - AC: AC-01, AC-03, AC-05, AC-08 | Files: apps/web/tests/subagent-navigation/ | Test: PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never node apps/web/tests/subagent-navigation/verify.mjs

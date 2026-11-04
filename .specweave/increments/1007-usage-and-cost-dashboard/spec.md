@@ -60,37 +60,37 @@ Risk: billing mode is the current sign-in, not historical; the copy says "now".
 ## Tasks
 
 ### T-01 Unpriced-aware merge fields
-- AC: AC-03 | Files: packages/shared/src/usageMerge.ts, packages/shared/src/usageMerge.test.ts | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard && npx vitest run packages/shared/src/usageMerge.test.ts
+- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/packages/shared/src/usageMerge.ts, repositories/anton-abyzov/specwithcode-dev/packages/shared/src/usageMerge.test.ts | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard && npx vitest run packages/shared/src/usageMerge.test.ts
 
 ### T-02 Billing mode and allowance model
-- AC: AC-01, AC-02, AC-04 | Files: apps/web/src/components/usage/usageBilling.ts, apps/web/src/components/usage/usageBilling.test.ts | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && npx vitest run src/components/usage/usageBilling.test.ts
+- AC: AC-01, AC-02, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/usageBilling.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/usageBilling.test.ts | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && npx vitest run src/components/usage/usageBilling.test.ts
 
 ### T-03 Cost basis strip, filters, pinned period and unpriced cells
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: apps/web/src/components/usage/UsageCostBasis.tsx, apps/web/src/components/usage/UsagePage.tsx, apps/web/src/components/usage/UsageProviderChart.tsx, apps/web/src/components/usage/usageFilters.ts, apps/web/src/components/usage/usageFilters.test.ts, apps/web/src/components/usage/UsagePage.test.tsx | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && npx vitest run src/components/usage
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsageCostBasis.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsagePage.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsageProviderChart.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/usageFilters.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/usageFilters.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsagePage.test.tsx | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && npx vitest run src/components/usage
 
 ### T-04 Headless fixture screenshots
-- AC: AC-07 | Files: apps/web/tests/usage-dashboard, /Users/antonabyzov/.specwithcode/m4/evidence/usage-cost-dashboard-20261023 | Test: headless Playwright fixture at 1440px dark/light and 390px
+- AC: AC-07 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/tests/usage-dashboard, /Users/antonabyzov/.specwithcode/m4/evidence/usage-cost-dashboard-20261023 | Test: headless Playwright fixture at 1440px dark/light and 390px
 
 ### T-05 Merge, release and installed check
 - AC: AC-08 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/usage-cost-dashboard-20261023 | Test: exact-head CI green, release published by the release owner, installed version readback and headless screenshot of the installed /usage
 
 ### T-07 Correct pooled provider branding after CI guard failure
-- AC: AC-01, AC-02, AC-07 | Files: apps/web/src/components/usage/UsageCostBasis.tsx | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && node node_modules/vite-plus/bin/vp test run --project unit src/components/copilotIcon.test.tsx src/components/usage
+- AC: AC-01, AC-02, AC-07 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsageCostBasis.tsx | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && node node_modules/vite-plus/bin/vp test run --project unit src/components/copilotIcon.test.tsx src/components/usage
 
 ### T-08 Measured-history forecast and responsive dashboard hierarchy
-- AC: AC-09, AC-10 | Files: apps/web/src/components/usage/usageForecast.ts, apps/web/src/components/usage/usageForecast.test.ts, apps/web/src/components/usage/UsageOutlook.tsx, apps/web/src/components/usage/UsageFilterBar.tsx, apps/web/src/components/usage/UsagePage.tsx, apps/web/src/components/usage/UsagePage.test.tsx, apps/web/src/components/usage/UsagePage.refresh.test.tsx | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && node node_modules/vite-plus/bin/vp test run --project unit src/components/usage
+- AC: AC-09, AC-10 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/usageForecast.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/usageForecast.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsageOutlook.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsageFilterBar.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsagePage.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsagePage.test.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsagePage.refresh.test.tsx | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && node node_modules/vite-plus/bin/vp test run --project unit src/components/usage
 
 ### T-09 Exact sampled chart interaction and accessible share visualization
-- AC: AC-10, AC-11 | Files: apps/web/src/components/usage/UsageProviderChart.tsx, apps/web/src/components/usage/UsageProviderChart.test.ts, apps/web/src/components/usage/UsageShareBar.tsx | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && node node_modules/vite-plus/bin/vp test run --project unit src/components/usage
+- AC: AC-10, AC-11 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsageProviderChart.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsageProviderChart.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsageShareBar.tsx | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && node node_modules/vite-plus/bin/vp test run --project unit src/components/usage
 
 ### T-10 Forecast and visual interaction acceptance
-- AC: AC-07, AC-09, AC-10, AC-11 | Files: apps/web/tests/usage-dashboard, /Users/antonabyzov/.specwithcode/m4/evidence/usage-cost-dashboard-20261023 | Test: headless production-component fixture in dark/light at 1440px, 1024px and 390px, including forecast available/stale/insufficient/unpriced and pointer/keyboard chart pinning
+- AC: AC-07, AC-09, AC-10, AC-11 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/tests/usage-dashboard, /Users/antonabyzov/.specwithcode/m4/evidence/usage-cost-dashboard-20261023 | Test: headless production-component fixture in dark/light at 1440px, 1024px and 390px, including forecast available/stale/insufficient/unpriced and pointer/keyboard chart pinning
 
 ### T-11 Responsive ranked model breakdown component
-- AC: AC-03, AC-05, AC-10 | Files: apps/web/src/components/usage/UsageModelTable.tsx | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && node node_modules/vite-plus/bin/vp test run --project unit src/components/usage src/components/copilotIcon.test.tsx
+- AC: AC-03, AC-05, AC-10 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsageModelTable.tsx | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && node node_modules/vite-plus/bin/vp test run --project unit src/components/usage src/components/copilotIcon.test.tsx
 
 ### T-12 Keep model drill-down scoped and partial costs explicit
-- AC: AC-03, AC-06, AC-10 | Files: apps/web/src/components/usage/UsageModelDialog.tsx, apps/web/src/components/usage/UsageModelDialog.test.tsx | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && node node_modules/vite-plus/bin/vp test run --project unit src/components/usage
+- AC: AC-03, AC-06, AC-10 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsageModelDialog.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsageModelDialog.test.tsx | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/usage-cost-dashboard/apps/web && node node_modules/vite-plus/bin/vp test run --project unit src/components/usage
 
 ### T-06 Verify and close 1007
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11 | Files: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1007-usage-and-cost-dashboard | Test: specweave verify and fresh-context review
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11 | Files: .specweave/increments/1007-usage-and-cost-dashboard | Test: specweave verify and fresh-context review

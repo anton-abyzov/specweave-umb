@@ -50,10 +50,10 @@ Out:
 ## Tasks
 
 ### T-01 Shared sheet shell and Usage sheet variant
-- AC: AC-01, AC-02, AC-03, AC-04 | Files: apps/web/src/components/ui/app-sheet.tsx, apps/web/src/components/settings/SettingsDialog.tsx, apps/web/src/components/usage/UsagePage.tsx, apps/web/src/components/usage/UsageSheet.tsx, apps/web/src/routes/__root.tsx | Test: `npx vp test run --project unit src/components/usage src/components/settings/SettingsDialog` (apps/web)
+- AC: AC-01, AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/ui/app-sheet.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/SettingsDialog.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsagePage.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/usage/UsageSheet.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/routes/__root.tsx | Test: `npx vp test run --project unit src/components/usage src/components/settings/SettingsDialog` (apps/web)
 
 ### T-02 Popover opens the sheet
-- AC: AC-01, AC-03 | Files: apps/web/src/components/studio/shell/ProjectUsageIndicator.tsx, apps/web/src/components/studio/shell/ProjectUsageIndicator.test.tsx | Test: `npx vp test run --project unit src/components/studio/shell/ProjectUsageIndicator` (apps/web)
+- AC: AC-01, AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/ProjectUsageIndicator.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/ProjectUsageIndicator.test.tsx | Test: `npx vp test run --project unit src/components/studio/shell/ProjectUsageIndicator` (apps/web)
 
 ### T-03 Headless before/after evidence
 - AC: AC-05 | Files: ~/.specwithcode/m4/evidence/usage-limits-overlay-20261023/ | Test: headless Playwright capture script in the evidence folder

@@ -75,24 +75,24 @@ Delivery: this thread has no worktree binding. Code is written in a scratch expo
 ## Tasks
 
 ### T-01 Account change on the Claude usage snapshot
-- AC: AC-01 | Files: apps/server/src/provider/makeManagedServerProvider.ts, apps/server/src/provider/providerUsageLimits.ts, packages/contracts/src/providerUsageLimits.ts | Test: vp test run apps/server/src/provider/makeManagedServerProvider.test.ts
+- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/provider/makeManagedServerProvider.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/provider/providerUsageLimits.ts, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/providerUsageLimits.ts | Test: vp test run apps/server/src/provider/makeManagedServerProvider.test.ts
 
 ### T-02 Early resume on account room with dedup and stagger
-- AC: AC-02, AC-03, AC-04, AC-05 | Files: apps/server/src/orchestration-v2/usageLimitRecovery.ts, apps/server/src/orchestration-v2/UsageLimitRecoveryWorker.ts, apps/server/src/orchestration-v2/Orchestrator.ts | Test: vp test run apps/server/src/orchestration-v2/UsageLimitRecoveryWorker.accountChange.test.ts apps/server/src/orchestration-v2/Orchestrator.accountChangeResume.test.ts
+- AC: AC-02, AC-03, AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/usageLimitRecovery.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/UsageLimitRecoveryWorker.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/Orchestrator.ts | Test: vp test run apps/server/src/orchestration-v2/UsageLimitRecoveryWorker.accountChange.test.ts apps/server/src/orchestration-v2/Orchestrator.accountChangeResume.test.ts
 
 ### T-03 Hold wakes on a limit-paused thread
-- AC: AC-06 | Files: apps/server/src/orchestration-v2/Orchestrator.ts | Test: vp test run apps/server/src/orchestration-v2/Orchestrator.accountChangeResume.test.ts
+- AC: AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/Orchestrator.ts | Test: vp test run apps/server/src/orchestration-v2/Orchestrator.accountChangeResume.test.ts
 
 ### T-04 Account-change notice and composer notice stack
-- AC: AC-07, AC-08 | Files: apps/web/src/components/chat/AccountChangedBanner.tsx, apps/web/src/components/chat/ComposerBannerStack.tsx, apps/web/src/components/chat/ComposerBanner.tsx, apps/web/src/components/chat/ComposerSurface.tsx, apps/web/src/components/ChatView.tsx, apps/web/tests/composer-stack/verify.mjs | Test: vp test run apps/web/src/components/chat/AccountChangedBanner.test.tsx apps/web/src/components/chat/ComposerBannerStack.test.tsx; headless 360/800/1280 light/dark with question + watcher + quota, headless true, PWDEBUG=0, PLAYWRIGHT_HTML_OPEN=never
+- AC: AC-07, AC-08 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/chat/AccountChangedBanner.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/chat/ComposerBannerStack.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/chat/ComposerBanner.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/chat/ComposerSurface.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/ChatView.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/composer-stack/verify.mjs | Test: vp test run apps/web/src/components/chat/AccountChangedBanner.test.tsx apps/web/src/components/chat/ComposerBannerStack.test.tsx; headless 360/800/1280 light/dark with question + watcher + quota, headless true, PWDEBUG=0, PLAYWRIGHT_HTML_OPEN=never
 
 ### T-05 A→B→A continuity test and runtime receipt
-- AC: AC-09, AC-10, AC-11 | Files: apps/server/src/orchestration-v2/testkit/ProviderSwitch.integration.test.ts, /Users/antonabyzov/.specwithcode/m4/evidence/claude-account-switch-20261024/runtime-receipt.json | Test: vp test run apps/server/src/orchestration-v2/testkit/ProviderSwitch.integration.test.ts apps/server/src/orchestration-v2/UsageLimitRecoveryWorker.accountChange.test.ts apps/server/src/orchestration-v2/Orchestrator.accountChangeResume.test.ts apps/server/src/orchestration-v2/usageLimitRecovery.accountMark.test.ts
+- AC: AC-09, AC-10, AC-11 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/testkit/ProviderSwitch.integration.test.ts, /Users/antonabyzov/.specwithcode/m4/evidence/claude-account-switch-20261024/runtime-receipt.json | Test: vp test run apps/server/src/orchestration-v2/testkit/ProviderSwitch.integration.test.ts apps/server/src/orchestration-v2/UsageLimitRecoveryWorker.accountChange.test.ts apps/server/src/orchestration-v2/Orchestrator.accountChangeResume.test.ts apps/server/src/orchestration-v2/usageLimitRecovery.accountMark.test.ts
 
 ### T-06 Fresh review and routed delivery
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/claude-account-switch-20261024/ | Test: fresh-context review verdict SHIP; patch routed to mcp:0ccf0bb8-12f0-47d6-bea0-6586c83aa37d; no merge or release from this lane
 
 ### T-07 Verify and close 1047
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11 | Files: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1047-claude-account-change-resume/ledger.jsonl | Test: specweave verify 1047; fresh-context review; specweave complete 1047
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11 | Files: .specweave/increments/1047-claude-account-change-resume/ledger.jsonl | Test: specweave verify 1047; fresh-context review; specweave complete 1047
 
 Implementation paths are relative to the app repository and are replaced with the bound worktree path before tasks are claimed.

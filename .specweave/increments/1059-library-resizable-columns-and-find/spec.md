@@ -88,10 +88,10 @@ Rejected:
 - AC: AC-02, AC-03, AC-04 | Files: apps/web/src/components/studio/shell/libraryFind.ts, apps/web/src/components/studio/shell/libraryFind.test.ts | Test: npx vp test run apps/web/src/components/studio/shell/libraryFind.test.ts
 
 ### T-03 Resizable columns, persistence, sort headers, treegrid decision
-- AC: AC-01, AC-04, AC-06 | Files: apps/web/src/components/studio/shell/libraryColumns.ts, apps/web/src/components/studio/shell/LibraryPane.tsx, apps/web/src/components/studio/shell/panes.css | Test: npx vp test run apps/web/src/components/studio/shell/libraryColumns.test.ts
+- AC: AC-01, AC-04, AC-06 | Files: apps/web/src/components/studio/shell/libraryColumns.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/LibraryPane.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/panes.css | Test: npx vp test run apps/web/src/components/studio/shell/libraryColumns.test.ts
 
 ### T-04 Find scope control and state copy
-- AC: AC-02, AC-05 | Files: apps/web/src/components/studio/shell/LibraryPane.tsx | Test: npx vp test run apps/web/src/components/studio/shell/LibraryPane.test.tsx
+- AC: AC-02, AC-05 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/LibraryPane.tsx | Test: npx vp test run apps/web/src/components/studio/shell/LibraryPane.test.tsx
 
 ### T-05 Headless interaction and capture matrix
 - AC: AC-06 | Files: apps/web/tests/library-columns/ | Test: PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never node apps/web/tests/library-columns/verify.mjs
