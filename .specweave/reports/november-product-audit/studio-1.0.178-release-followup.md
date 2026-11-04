@@ -25,3 +25,5 @@ Independent review approved the Ubuntu draft's exact head and confirmed the Retr
 The hosted dry run passed the signed update from 1.0.176 to 1.0.178, Retry and replacement on both Ubuntu 22.04 (job 126334199449) and 24.04 (job 126334199383). Both job logs are retained. The owner of #1256 controls integration of #1347 and any subsequent release attachment.
 
 Dry run 41755689449 finished successfully with all eight jobs green. Its release upload step was skipped and the run retained its artifacts. This closes the hosted proof on the stack. Integration and attachment remain with the existing owner.
+
+Connect draft full hosted Checks completed at the exact approved head with 19 passed, one expected skip and zero failures. Its macOS Scripts check also passed. See connect-first-rollout-acceptance.md for the manual auth gate. No new auth acceptance was applied.

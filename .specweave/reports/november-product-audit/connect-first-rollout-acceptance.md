@@ -13,3 +13,5 @@ Candidate [draft PR #1348](https://github.com/anton-abyzov/specwithcode-dev/pull
 ## Verification
 
 Exact independent re-review approved the route pin, peer rule refusal, and separate desktop behavior. Focused checks passed 84 rollout tests, 46 desktop tests and 62 TypeScript tests. The production server build passed. The [draft-preserving full Checks run](https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41756422205) targets the exact head. No live policy, account, worker route, or application state was changed to test this candidate.
+
+Full hosted Checks completed successfully at the exact draft head with 19 passed, one expected skip and zero failures. The normal macOS Scripts check passed. The draft is ready for manual acceptance of the routing behavior above. Acceptance permits normal integration and release after owner checks. It does not establish an installed desktop or approve the separate Gmail and Team Rules Retry drafts.
