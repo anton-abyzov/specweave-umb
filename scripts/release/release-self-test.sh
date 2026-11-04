@@ -379,6 +379,9 @@ rollout_log 1.2.3 "$SKIP"
 make_app 1.2.2
 verify_app_rollout m1
 check "app: a skipped app step on an older app is pending, updates on quit" "2|pending|pending: updates on quit (SpecWithCode.app on m1 is 1.2.2; the rollout skipped its app: needs SSH)" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.9.0
+verify_app_rollout m1
+check "app: a skipped app step on a newer app still fails" "1|fail" "$APP_RC|$APP_STATUS"
 make_app 1.2.3
 verify_app_rollout m1
 check "app: a skipped app step that is already on the release passes" "0|pass" "$APP_RC|$APP_STATUS"

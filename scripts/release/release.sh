@@ -467,7 +467,10 @@ check_desktop_app() {
   if [ "$missing" -eq 1 ]; then
     C_STATUS=fail; C_DETAIL="no $app on $where"; return
   fi
-  if [ "$version" != "$VERSION" ] && [ -n "$skipped" ] && [ -n "$version" ] && [ "$signature" = ok ]; then
+  local older=0  # Only an app behind the release waits for its updater; a newer or odd version fails.
+  [ -z "$version" ] || [ "$version" = "$VERSION" ] ||
+    [ "$(printf '%s\n%s\n' "$version" "$VERSION" | sort -V | head -1)" != "$version" ] || older=1
+  if [ "$older" -eq 1 ] && [ -n "$skipped" ] && [ "$signature" = ok ]; then
     C_STATUS=pending; C_DETAIL="pending: updates on quit (SpecWithCode.app on $where is $version; the rollout skipped its app: $skipped)"
   elif [ "$version" != "$VERSION" ]; then
     C_STATUS=fail; C_DETAIL="SpecWithCode.app on $where is ${version:-unreadable}, want $VERSION"
