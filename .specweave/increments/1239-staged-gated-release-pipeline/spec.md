@@ -36,18 +36,18 @@ As the owner, I want a release to refuse to start when any host lacks disk, and 
 
 ### US-02 Rehearse migrations before publish (phase 2)
 As the owner, I want every release's migrations rehearsed on real old state before anything is published, so that a migration can never trip the post-update check on the fleet.
-- [ ] AC-08: Migrations 068, 070 and 072 have `.test.ts` files: a rebuild on a populated table keeps every row, and the new constraints and indexes exist.
-- [ ] AC-09: The coverage rule fails when a migration after 066 has no sibling test, or rebuilds a table without a `REBUILT` entry and a fixture.
-- [ ] AC-10: Every FULL_READ and REBUILT migration reaches `phase: verified` on a populated fixture.
-- [ ] AC-11: The candidate server started on a fixture with linked memory and a project plan (the synthetic CI fixture) runs 120 s idle. Every protected table keeps the same count and hash, and the test proves `LinkedMemorySync` actually ran.
-- [ ] AC-12: `rehearse_update.py` runs `update.py apply` with the candidate helper and server on a temporary APFS clone of M4's latest real `statev2.sqlite` and `config.json`. The copy never leaves M4 and is deleted afterwards. It asserts verified, proof mode, time budget, unchanged protected hashes, and an upgraded `config.json` with no lost keys. `release.sh` runs it as a blocking background job before publish.
+- [x] AC-08: Migrations 068, 070 and 072 have `.test.ts` files: a rebuild on a populated table keeps every row, and the new constraints and indexes exist.
+- [x] AC-09: The coverage rule fails when a migration after 066 has no sibling test, or rebuilds a table without a `REBUILT` entry and a fixture.
+- [x] AC-10: Every FULL_READ and REBUILT migration reaches `phase: verified` on a populated fixture.
+- [x] AC-11: The candidate server started on a fixture with linked memory and a project plan (the synthetic CI fixture) runs 120 s idle. Every protected table keeps the same count and hash, and the test proves `LinkedMemorySync` actually ran.
+- [x] AC-12: `rehearse_update.py` runs `update.py apply` with the candidate helper and server on a temporary APFS clone of M4's latest real `statev2.sqlite` and `config.json`. The copy never leaves M4 and is deleted afterwards. It asserts verified, proof mode, time budget, unchanged protected hashes, and an upgraded `config.json` with no lost keys. `release.sh` runs it as a blocking background job before publish.
 
 ### US-03 Verify the built app (phase 3)
 As the owner, I want the exact artifact we ship launched headless on a fresh install and on an upgraded install before publish, so that a build that cannot start or pass the post-update check never reaches users.
-- [ ] AC-13: `scripts/release/verify-built-app.mjs` starts the unpacked, signed macOS app headless with an isolated home. The environment endpoint reports `<v>`, and a thread runs against the fake ACP agent, within 120 s.
-- [ ] AC-14: The upgraded mode seeds the home from the previous release's state fixture, then passes the post-update check and `test-installed-startup.mjs --local`.
-- [ ] AC-15: `release.sh` runs both modes after `sign` and before any draft or publish. The acceptance proofs excluded in `run-tests.sh:31-34` run in that stage, and a skipped verify counts as a failure.
-- [ ] AC-16: Desktop E2E gains a macOS leg, and Windows and Linux release jobs run the equivalent verify.
+- [x] AC-13: `scripts/release/verify-built-app.mjs` starts the unpacked, signed macOS app headless with an isolated home. The environment endpoint reports `<v>`, and a thread runs against the fake ACP agent, within 120 s.
+- [x] AC-14: The upgraded mode seeds the home from the previous release's state fixture, then passes the post-update check and `test-installed-startup.mjs --local`.
+- [x] AC-15: `release.sh` runs both modes after `sign` and before any draft or publish. The acceptance proofs excluded in `run-tests.sh:31-34` run in that stage, and a skipped verify counts as a failure.
+- [x] AC-16: Desktop E2E gains a macOS leg, and Windows and Linux release jobs run the equivalent verify.
 
 ### US-04 Candidate channel and canary (phase 4)
 As the owner, I want builds to reach a candidate channel and one canary machine before the fleet and stable, so that a bad release never becomes public or reaches every machine.
