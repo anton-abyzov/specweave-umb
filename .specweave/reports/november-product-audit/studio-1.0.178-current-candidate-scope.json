@@ -1,0 +1,41 @@
+{
+  "candidate": "e38626e8f2f9b5674d7a0eb3bb4c855161041939",
+  "pullRequests": [
+    {
+      "pr": 1327,
+      "mergeCommit": "9334c7ac2a24f1a7d11dbca3cd8fa6e6567c9e1e",
+      "comparison": "ahead",
+      "included": true
+    },
+    {
+      "pr": 1330,
+      "mergeCommit": "a95fe360ab1172666832aa4f5845edf51ad676bb",
+      "comparison": "ahead",
+      "included": true
+    },
+    {
+      "pr": 1333,
+      "mergeCommit": "cb8791b95719b5044141bc7eda31a0ae2679b801",
+      "comparison": "ahead",
+      "included": true
+    },
+    {
+      "pr": 1334,
+      "mergeCommit": "ceaa6299ebb7c8cd768bff90066e81f4bfd831ef",
+      "comparison": "ahead",
+      "included": true
+    },
+    {
+      "pr": 1335,
+      "mergeCommit": "ca754e7e8eb8c6c86f5880a2cdfa9efa2e597b03",
+      "comparison": "ahead",
+      "included": true
+    },
+    {
+      "pr": 1337,
+      "mergeCommit": "2d483ae77c05b770bec6fa2f0a78c144977dde41",
+      "comparison": "ahead",
+      "included": true
+    }
+  ]
+}
