@@ -8,13 +8,14 @@
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 RELEASE_SH="$HERE/release.sh"
+REPO_ROOT="$(cd "$HERE/../.." && pwd)"
 
 T="$(cd "$(mktemp -d "${TMPDIR:-/tmp}/release-self-test.XXXXXX")" && pwd -P)"
 trap 'rm -rf "$T"' EXIT
 
 # What release.sh reads from the environment for the desktop_app check, besides HOME: an inventory
 # or tool override exported in the calling shell must not point the fixtures elsewhere.
-unset STUDIO_FLEET_HOSTS RELEASE_DESKTOP_APP RELEASE_SSH RELEASE_PLISTBUDDY RELEASE_CODESIGN RELEASE_SPCTL
+unset STUDIO_FLEET_HOSTS RELEASE_DESKTOP_APP RELEASE_SSH RELEASE_PLISTBUDDY RELEASE_CODESIGN RELEASE_SPCTL RELEASE_STUDIO_CLI RELEASE_CONNECT_TIMEOUT
 export HOME="$T/home" GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_NOSYSTEM=1
 export GIT_AUTHOR_NAME=test GIT_AUTHOR_EMAIL=test@example.com GIT_COMMITTER_NAME=test GIT_COMMITTER_EMAIL=test@example.com
 export RELEASE_MANIFEST="$T/manifest.json" SW_REPOS_BASE="$T/base" RELEASE_STATE_FILE="$T/state.json"
@@ -563,6 +564,50 @@ run_fleet() {
 }
 check "fleet: HTTP 503 cannot attest the expected version" "1|fail" "$(run_fleet 503)|$(jq -r .result "$T/fleet.json")"
 check "fleet: HTTP 200 can attest the expected version" "0|pass" "$(run_fleet 200)|$(jq -r .result "$T/fleet.json")"
+
+
+# Fleet workers are read over SpecWithCode Connect with M4's CLI, never an SSH tunnel.
+cat >"$T/bin/studio-connect" <<'SH'
+#!/bin/bash
+printf '%s\n' "$*" >"$STUB_CONNECT_ARGS"
+[ -z "$STUB_CONNECT_OUT" ] || printf 'progress line\n%s\n' "$STUB_CONNECT_OUT"
+exit "${STUB_CONNECT_RC:-0}"
+SH
+chmod +x "$T/bin/studio-connect"
+cat >"$T/manifest-connect.json" <<'JSON'
+{"tracks":{"fleet":{"verify":[{"name":"M3 service","kind":"fleet_connect","machine":"m3"}]}}}
+JSON
+run_connect() {
+  STUB_CONNECT_OUT="$1" STUB_CONNECT_RC="${2:-0}" STUB_CONNECT_ARGS="$T/connect.args" RELEASE_STUDIO_CLI="$T/bin/studio-connect" \
+    RELEASE_MANIFEST="$T/manifest-connect.json" bash "$RELEASE_SH" verify fleet --version 1.2.3 >"$T/connect.json" 2>"$T/connect.err" && echo 0 || echo $?
+}
+connect_row() { printf '%s|%s|%s' "$1" "$(jq -r .result "$T/connect.json")" "$(jq -r '.checks[0].detail' "$T/connect.json")"; }
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.3","serverVersion":"1.2.3","status":"up-to-date","phase":"idle"}')"
+check "connect: a worker on the release over Connect passes" "0|pass|transport connect, installedVersion 1.2.3, up-to-date" "$(connect_row "$r")"
+check "connect: the worker is asked read-only over Connect only" "fleet update m3 --status --connect-only --json" "$(cat "$T/connect.args")"
+r="$(run_connect '{"transport":"ssh","installedVersion":"1.2.3","serverVersion":"1.2.3","phase":"idle"}')"
+check "connect: a status that did not come over Connect fails" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '{"error":"m3 did not answer","reason":"unreachable"}' 1)"
+check "connect: an unreachable worker fails and says why" "1|fail|m3 unreachable over SpecWithCode Connect: m3 did not answer (unreachable)" "$(connect_row "$r")"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","downloadedVersion":"1.2.3","phase":"installing"}')"
+check "connect: a worker installing the release is pending" "2|pending" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.3","serverVersion":"1.2.2","phase":"restarting"}')"
+check "connect: installed but not yet served is pending" "2|pending" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","status":"up-to-date","phase":"idle"}')"
+check "connect: an idle worker on an older version fails" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '' 0)"
+check "connect: no status at all fails" "1|fail|m3 gave no SpecWithCode Connect status (exit 0)" "$(connect_row "$r")"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.3","serverVersion":"1.2.3","phase":"idle"}' 3)"
+check "connect: a non-zero CLI exit fails even with a good-looking reply" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(RELEASE_STUDIO_CLI="$T/bin/does-not-exist" RELEASE_MANIFEST="$T/manifest-connect.json" bash "$RELEASE_SH" verify fleet --version 1.2.3 >"$T/connect.json" 2>/dev/null && echo 0 || echo $?)"
+check "connect: a missing CLI fails" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+printf '%s\n' '{"tracks":{"fleet":{"verify":[{"name":"x","kind":"fleet_connect","machine":"m3; rm -rf /"}]}}}' >"$T/manifest-connect-bad.json"
+r="$(STUB_CONNECT_ARGS="$T/connect-bad.args" RELEASE_STUDIO_CLI="$T/bin/studio-connect" RELEASE_MANIFEST="$T/manifest-connect-bad.json" \
+  bash "$RELEASE_SH" verify fleet --version 1.2.3 >"$T/connect.json" 2>/dev/null && echo 0 || echo $?)"
+check "connect: a machine name that is not a plain fleet name is refused before any call" "1|fail|no" \
+  "$(connect_row "$r" | cut -d'|' -f1-2)|$([ -e "$T/connect-bad.args" ] && echo yes || echo no)"
+check "connect: the studio track reads M1 and M3 over Connect, not the SSH tunnels" "fleet_connect m1|fleet_connect m3|0" \
+  "$(jq -r '.tracks.studio.verify[] | select(.name == "M1 service" or .name == "M3 service") | "\(.kind) \(.machine)"' "$REPO_ROOT/.specweave/release/manifest.json" | paste -sd'|' -)|$(grep -c '127.0.0.1:[12]8319' "$REPO_ROOT/.specweave/release/manifest.json")"
 
 printf '\n%d passed, %d failed\n' "$PASSES" "$FAILS"
 [ "$FAILS" -eq 0 ]

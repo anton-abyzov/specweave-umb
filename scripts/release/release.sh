@@ -206,6 +206,58 @@ check_fleet_endpoint() {
   fi
 }
 
+# check_fleet_connect: a fleet worker's service, read over SpecWithCode Connect with M4's
+# installed CLI (`fleet update <machine> --status --connect-only --json`), not over an SSH
+# tunnel. Pass when the route is attested as connect and the machine reports the released
+# version installed (and served, when it says); pending while that version is downloaded or
+# requested and the updater is still busy; fail otherwise, naming why.
+check_fleet_connect() {
+  local machine cli out rc=0 last reply transport installed served status phase down asked err reason
+  machine="$(jq -r '.machine // empty' <<<"$CHECK")"
+  if ! [[ $machine =~ ^[a-z0-9][a-z0-9_-]{0,63}$ ]]; then
+    C_STATUS=fail; C_DETAIL="machine must be a fleet name such as m3, not '$machine'"; return
+  fi
+  cli="${RELEASE_STUDIO_CLI:-specweave-studio}"
+  if ! command -v "$cli" >/dev/null 2>&1; then
+    C_STATUS=fail; C_DETAIL="$cli not found, so $machine cannot be read over SpecWithCode Connect"; return
+  fi
+  out="$(with_timeout "${RELEASE_CONNECT_TIMEOUT:-90}" "$cli" fleet update "$machine" --status --connect-only --json \
+    </dev/null 2>/dev/null)" || rc=$?
+  last="$( { grep -v '^[[:space:]]*$' <<<"$out" || true; } | tail -1)"
+  reply="$(jq -c 'select(type == "object")' <<<"$last" 2>/dev/null)" || reply=""
+  if [ -z "$reply" ]; then
+    C_STATUS=fail; C_DETAIL="$machine gave no SpecWithCode Connect status (exit $rc)"; return
+  fi
+  err="$(jq -r '.error // empty | tostring' <<<"$reply" | cut -c1-120)"
+  reason="$(jq -r '.reason // empty | tostring' <<<"$reply" | cut -c1-60)"
+  if [ "$rc" -ne 0 ] || [ -n "$err" ]; then
+    C_STATUS=fail; C_DETAIL="$machine unreachable over SpecWithCode Connect: ${err:-exit $rc}${reason:+ ($reason)}"; return
+  fi
+  transport="$(jq -r '.transport // empty | tostring' <<<"$reply")"
+  if [ "$transport" != connect ]; then
+    C_STATUS=fail; C_DETAIL="$machine status did not attest the SpecWithCode Connect route (transport ${transport:-none})"; return
+  fi
+  installed="$(jq -r '.installedVersion // empty | tostring' <<<"$reply")"
+  served="$(jq -r '.serverVersion // empty | tostring' <<<"$reply")"
+  status="$(jq -r '.status // empty | tostring' <<<"$reply" | cut -c1-40)"
+  phase="$(jq -r '.phase // empty | tostring' <<<"$reply" | cut -c1-40)"
+  down="$(jq -r '.downloadedVersion // empty | tostring' <<<"$reply")"
+  asked="$(jq -r '.installRequest.version // empty | tostring' <<<"$reply")"
+  if [ -z "$VERSION" ]; then
+    if [ -n "$installed" ]; then C_STATUS=pass; C_DETAIL="transport connect, installedVersion $installed, $status"
+    else C_STATUS=fail; C_DETAIL="$machine reports no installed version"; fi
+    return
+  fi
+  if [ "$installed" = "$VERSION" ] && { [ -z "$served" ] || [ "$served" = "$VERSION" ]; }; then
+    C_STATUS=pass; C_DETAIL="transport connect, installedVersion $installed, ${status:-status unknown}"; return
+  fi
+  if { [ "$down" = "$VERSION" ] || [ "$asked" = "$VERSION" ] || [ "$installed" = "$VERSION" ]; } && [ "$phase" != idle ]; then
+    C_STATUS=pending; C_DETAIL="transport connect, installedVersion ${installed:-none}, served ${served:-unknown}; updater $phase with $VERSION"; return
+  fi
+  C_STATUS=fail
+  C_DETAIL="transport connect, installedVersion ${installed:-none}, served ${served:-unknown}, want $VERSION (${status:-status unknown}, ${phase:-phase unknown})"
+}
+
 # check_tag_drift: fail when the default branch has commits under the check's
 # paths after the tag <tag_prefix><version>, so a build that was never tagged
 # again shows as stale instead of passing on the last tag. Paths are git
@@ -438,6 +490,7 @@ verify_track() {
       gh_run) check_gh_run ;;
       wrangler_deployments) check_wrangler_deployments ;;
       fleet_endpoint) check_fleet_endpoint ;;
+      fleet_connect) check_fleet_connect ;;
       tag_drift) check_tag_drift ;;
       desktop_app) check_desktop_app ;;
       *) C_STATUS=fail; C_DETAIL="unknown check kind $kind" ;;
