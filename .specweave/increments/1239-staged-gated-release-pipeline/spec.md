@@ -51,10 +51,10 @@ As the owner, I want the exact artifact we ship launched headless on a fresh ins
 
 ### US-04 Candidate channel and canary (phase 4)
 As the owner, I want builds to reach a candidate channel and one canary machine before the fleet and stable, so that a bad release never becomes public or reaches every machine.
-- [ ] AC-17: `r2_publish.py` uploads verified assets to `candidate/<v>/`, re-downloads and matches digests, writes `candidate.json`, and prunes old candidate prefixes without touching the current candidate or stable targets.
-- [ ] AC-18: `update_agent.py` reads a channel feed (`stable|candidate`) with GitHub as the fallback. An N-1 agent never crashes or downgrades, and a host not in the rollout never installs from `candidate.json`.
-- [ ] AC-19: The `canary` stage installs the candidate on M4 and soaks 15 min (`fleet_health.py` clean, no new `stderr.log` errors) before `fleet` runs.
-- [ ] AC-20: GitHub draft flips, the `stable.json` swap (keeping `stable.prev.json`) and the `release/<v>` merge happen only in `finalize`, after `fleet` reports M4, M1 and M3 verified. `r2_publish.py rollback` restores the previous stable pointer atomically.
+- [x] AC-17: `r2_publish.py` uploads verified assets to `candidate/<v>/`, re-downloads and matches digests, writes `candidate.json`, and prunes old candidate prefixes without touching the current candidate or stable targets.
+- [x] AC-18: `update_agent.py` reads a channel feed (`stable|candidate`) with GitHub as the fallback. An N-1 agent never crashes or downgrades, and a host not in the rollout never installs from `candidate.json`.
+- [x] AC-19: The `canary` stage installs the candidate on M4 and soaks 15 min (`fleet_health.py` clean, no new `stderr.log` errors) before `fleet` runs.
+- [x] AC-20: GitHub draft flips, the `stable.json` swap (keeping `stable.prev.json`) and the `release/<v>` merge happen only in `finalize`, after `fleet` reports M4, M1 and M3 verified. `r2_publish.py rollback` restores the previous stable pointer atomically.
 
 ### US-05 Show the graph (phase 5)
 As the owner, I want to see the release as a stage graph with a row per machine, both in GitHub Actions and in SpecWithCode, so that I can tell at a glance what passed, what runs and which machine did not update.
