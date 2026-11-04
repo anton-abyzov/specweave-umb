@@ -1,0 +1,18 @@
+[
+  {
+    "identity": "m3",
+    "transport": "connect",
+    "installedVersion": "1.0.179",
+    "serverVersion": "1.0.179",
+    "phase": "idle",
+    "status": "up-to-date"
+  },
+  {
+    "identity": "m1",
+    "transport": "connect",
+    "installedVersion": "1.0.179",
+    "serverVersion": "1.0.179",
+    "phase": "idle",
+    "status": "up-to-date"
+  }
+]

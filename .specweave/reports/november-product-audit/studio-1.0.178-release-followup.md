@@ -27,3 +27,29 @@ The hosted dry run passed the signed update from 1.0.176 to 1.0.178, Retry and r
 Dry run 41755689449 finished successfully with all eight jobs green. Its release upload step was skipped and the run retained its artifacts. This closes the hosted proof on the stack. Integration and attachment remain with the existing owner.
 
 Connect draft full hosted Checks completed at the exact approved head with 19 passed, one expected skip and zero failures. Its macOS Scripts check also passed. See connect-first-rollout-acceptance.md for the manual auth gate. No new auth acceptance was applied.
+
+## November 3 owner reconciliation
+
+| PR | Exact head | Disposition |
+|---|---|---|
+| #1237 | `450a6346bd4c2301b1753b1f6dbed94e54aa40f1` | Open, `feat/team-rules-phase-3` owner retains integration |
+| #1256 | `03845c60f427438eb122b464a19ac18122520971` | Open, `fix/linux-update-no-password` owner retains integration |
+| #1341 | `b339513efe7bff1bc80403b2ebb0d88eb63d5a90` | Open draft stacked on #1237 |
+| #1347 | `ecfe24f5a8db1d46f25eb76c61b7d5e81200532e` | Open draft stacked on #1256 |
+| #1336 | `4e0d5c79c622c46fe55b71743a0093c5fbed4287` | Open draft, auth held |
+| #1339 | `1962cad03285859037bbc66feb0c5e91043438a3` | Open draft, auth held |
+| #1348 | `eee098aa96b99a522984b159e07fe2043d0e5d16` | Open draft, auth held |
+
+No owner or draft head changed and no checkout newly qualified for removal. The private and public 1.0.178 listings still lack Windows/Linux desktop assets. The publisher subsequently published 1.0.179 on both repositories (21:56:12 and 21:56:45 ET on November 3). Both 1.0.179 listings lacked Windows/Linux desktop assets at readback. Publisher attachment run 41763972938 was in progress at head `d9417cfdeb8f2f5bfa0fa8b2d3a3dbba523791a5`. Both Linux builds had passed and both Ubuntu proofs and Windows builds were still running. This separate release does not establish integration of either stacked fix or any held auth draft.
+
+Publisher 1.0.179 attachment [run 41763972938](https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41763972938) completed successfully at `d9417cfdeb8f2f5bfa0fa8b2d3a3dbba523791a5`. All eight jobs passed, including the Ubuntu 22.04 and 24.04 update proofs (126361426436 and 126361426410) and attachment to both releases (126362412292). The public and private release APIs returned matching SHA-256 digests for all 14 new Windows/Linux assets. See `studio-1.0.179-publisher-attachment.json` for job and asset detail. This closes the current publisher Windows/Linux availability gate with 1.0.179. The 1.0.178 listings still lack these assets. The separate stacked drafts and auth holds remain outside this result, as does installed M3 desktop attestation.
+
+### Existing 1.0.179 fleet and desktop receipt
+
+The publisher's retained `.specweave/state/release-logs/studio-20261104T023932Z.log` records the following. M4 installed service 1.0.179 and its installed app passed strict codesign and the notarized Developer ID check (NMCB2JZ7QG). M1 installed service 1.0.179 over SSH and swapped in the 1.0.179 app after checking the archive SHA-256, signature, designated requirement, and Gatekeeper. M3 and Ministorm installed the 1.0.179 service over Connect. The owner explicitly skipped their desktop step because it requires SSH. M3's signed desktop therefore remains unverified. The associated umbrella state reads `shipped but verify failed`; the retained publisher log does not identify individual failing verifier rows. This is distinct from the successful Windows/Linux attachment.
+
+All seven GitHub PRs retained their previous exact heads and open/draft states on the same readback. No cleanup became eligible and no auth hold changed. No new runtime or device checks were run.
+
+## Connect-first integration after acceptance
+
+Anton approved #1348. Required Checks 41775964235 passed and the reviewed patch merged as `24a757c9a8d3f771e8ed31006a4af47c3d188d65`. Main Checks 41777521771 completed successfully. At readback the latest release was still 1.0.179. The designated publisher retains the next release. Fresh 1.0.179 baseline evidence confirmed M3 and M1 services over Connect. The canonical verifier passed 6/8, with the M3 service forward returning HTTP 000 and the pinned SSH desktop fallback timing out. Neither result attests an installed release containing #1348. Gmail and Team Rules Retry remain held.

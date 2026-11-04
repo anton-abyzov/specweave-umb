@@ -15,3 +15,13 @@ Candidate [draft PR #1348](https://github.com/anton-abyzov/specwithcode-dev/pull
 Exact independent re-review approved the route pin, peer rule refusal, and separate desktop behavior. Focused checks passed 84 rollout tests, 46 desktop tests and 62 TypeScript tests. The production server build passed. The [draft-preserving full Checks run](https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41756422205) targets the exact head. No live policy, account, worker route, or application state was changed to test this candidate.
 
 Full hosted Checks completed successfully at the exact draft head with 19 passed, one expected skip and zero failures. The normal macOS Scripts check passed. The draft is ready for manual acceptance of the routing behavior above. Acceptance permits normal integration and release after owner checks. It does not establish an installed desktop or approve the separate Gmail and Team Rules Retry drafts.
+
+## Acceptance received
+
+Anton explicitly approved #1348 at reviewed head `eee098aa96b99a522984b159e07fe2043d0e5d16` and requested merge, release, M3 signed desktop verification, and full release verification. The PR was marked ready, triggering [required PR checks](https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41775964235). The separate Gmail and Team Rules Retry holds still apply.
+
+Required Checks 41775964235 passed. #1348 merged at `24a757c9a8d3f771e8ed31006a4af47c3d188d65`. The full reviewed diff and squash merge share patch ID `46943cbc1ff7c8aefd83a3f7c6f7ea1127d81428`; all ten changed blobs match. Main Checks 41777521771 started automatically. The existing designated publisher owns the next release.
+
+The published 1.0.179 baseline verified Connect service status on M3 and M1, both reporting installed and running 1.0.179. The canonical verifier at umbrella origin/main returned six passes and two fails. The M3 service local forward returned HTTP 000, and its pinned SSH desktop fallback timed out. M4 and M1 signed apps passed the required signature and Gatekeeper checks. These are baseline results for the current published release, separate from post-release acceptance of #1348. See studio-1.0.179-full-verify.json and studio-1.0.179-connect-readback.json.
+
+Main Checks 41777521771 settled successfully (2 successful jobs and 13 path/event skips). The latest private release readback still showed 1.0.179. No release including the merge was observed, and the designated publisher's ownership was preserved. The merged source checkout was retained pending the release verification gate.

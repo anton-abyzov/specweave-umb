@@ -1,0 +1,63 @@
+{
+  "track": "studio",
+  "version": "1.0.179",
+  "checks": [
+    {
+      "name": "private release",
+      "kind": "gh_release",
+      "blocking": true,
+      "status": "pass",
+      "detail": "v1.0.179 published with 27 assets"
+    },
+    {
+      "name": "public mirror release",
+      "kind": "gh_release",
+      "blocking": true,
+      "status": "pass",
+      "detail": "v1.0.179 published with 28 assets"
+    },
+    {
+      "name": "M4 service",
+      "kind": "fleet_endpoint",
+      "blocking": true,
+      "status": "pass",
+      "detail": "serverVersion 1.0.179"
+    },
+    {
+      "name": "M1 service",
+      "kind": "fleet_endpoint",
+      "blocking": true,
+      "status": "pass",
+      "detail": "serverVersion 1.0.179"
+    },
+    {
+      "name": "M3 service",
+      "kind": "fleet_endpoint",
+      "blocking": true,
+      "status": "fail",
+      "detail": "http://127.0.0.1:28319/.well-known/studio/environment answered HTTP 000, want 200"
+    },
+    {
+      "name": "M4 app",
+      "kind": "desktop_app",
+      "blocking": true,
+      "status": "pass",
+      "detail": "SpecWithCode.app 1.0.179, signed with the release's designated requirement, accepted by Gatekeeper"
+    },
+    {
+      "name": "M1 app",
+      "kind": "desktop_app",
+      "blocking": true,
+      "status": "pass",
+      "detail": "SpecWithCode.app 1.0.179, signed with the release's designated requirement, accepted by Gatekeeper"
+    },
+    {
+      "name": "M3 app",
+      "kind": "desktop_app",
+      "blocking": true,
+      "status": "fail",
+      "detail": "m3 unreachable over ssh: ssh: connect to host antons-macbook-pro.tailff1ae0.ts.net port 22: Operation timed out\r"
+    }
+  ],
+  "result": "fail"
+}
