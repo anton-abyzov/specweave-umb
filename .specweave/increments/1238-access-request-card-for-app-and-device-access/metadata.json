@@ -1,0 +1,15 @@
+{
+  "id": "1238-access-request-card-for-app-and-device-access",
+  "uuid": "e2059651-8687-4731-b5ec-65204d7ce9b2",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-04T16:52:40.277Z",
+  "updated": "2026-11-04T23:14:42.825Z",
+  "lastActivity": "2026-11-04T23:14:42.825Z",
+  "title": "Access request card for app and device access",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-04T23:14:42.824Z",
+  "approvedAt": "2026-11-04T23:14:42.825Z"
+}
