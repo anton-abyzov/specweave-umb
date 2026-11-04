@@ -1,0 +1,23 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-03-aide-proactive/swc/packages/shared && npx vp test run src/routineTemplates && cd /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-03-aide-proactive/swc/apps/server && npx vp test run src/project/ProjectWorkspaceService
+# exit 0 — 2026-11-03T06:57:42.353Z
+
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-03-aide-proactive/swc/packages/shared
+
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  01:57:38
+   Duration  795ms (transform 59%, import 40%)
+
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-03-aide-proactive/swc/apps/server
+
+(node:82353) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  1 passed (1)
+      Tests  16 passed (16)
+   Start at  01:57:39
+   Duration  2.34s (transform 60%, import 21%, tests 18%)
+
