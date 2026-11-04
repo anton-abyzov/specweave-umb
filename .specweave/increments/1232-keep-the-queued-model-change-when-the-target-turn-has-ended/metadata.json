@@ -1,13 +1,15 @@
 {
   "id": "1232-keep-the-queued-model-change-when-the-target-turn-has-ended",
   "uuid": "7404e2f4-3a1a-44a4-8892-34a77cfd3782",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-03T23:46:28.910Z",
-  "updated": "2026-11-03T23:50:45.230Z",
-  "lastActivity": "2026-11-03T23:50:45.230Z",
+  "updated": "2026-11-04T00:54:26.214Z",
+  "lastActivity": "2026-11-04T00:54:26.214Z",
   "title": "Keep the queued model change when the target turn has ended",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-04T00:54:26.213Z",
+  "approvedAt": "2026-11-04T00:54:26.214Z"
 }

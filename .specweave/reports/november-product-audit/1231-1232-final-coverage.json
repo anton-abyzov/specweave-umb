@@ -1,0 +1,13 @@
+{
+  "head": "5d8e4c9e20bd7880237f473a00e298e09509f85e",
+  "suites": 25,
+  "passedTests": 321,
+  "exit": 0,
+  "lines": {
+    "total": 2756,
+    "covered": 1742,
+    "skipped": 0,
+    "pct": 63.2
+  },
+  "threshold": 60
+}

@@ -19,3 +19,6 @@ Seven 1.0.175 source verifications passed at c70a90e702. All seven initial sourc
 [Coverage reconciliation](product-coverage-reconciliation.md) · [GitHub merge receipts](source-merge-receipts.json) · [Current Connect identity/service receipt](current-connect-service-receipt.json)
 
 The isolated product review checkout was removed after a clean Git check, an ownership check with no bindings, and a process working-directory check with no matches. The active release, Phase 3, and Gmail candidate worktrees remain with their owners. Private receipts are committed on local umbrella branch `codex/november-product-audit-receipts`; the umbrella remote is public.
+
+Increments 1231 and 1232 closed after 321 tests passed and the two-file line coverage reached 63.20% against the unchanged 60% gate. This is not whole-server coverage.
+The separate coverage worktree was removed after ownership and process checks.
