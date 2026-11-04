@@ -1,0 +1,80 @@
+{
+  "ok": true,
+  "ranAt": "2026-11-04T00:18:50.965Z",
+  "increment": "1235-recent-review-phase3-team-rules-repairs",
+  "commands": [
+    {
+      "cmd": "python3 /Users/antonabyzov/.specwithcode/m4/evidence/recent-features-review-20261103/team-rules-followup-probe/verify-candidate.py",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 4,
+    "done": 4,
+    "skippedAccepted": 0,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-03",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-04",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 2,
+    "done": 2,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "acceptedSkips": [],
+  "ledgerMalformed": 0
+}

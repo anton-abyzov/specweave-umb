@@ -1,14 +1,16 @@
 {
   "id": "1199-resolve-iphone-thread-links-by-exact-identity-before-titles",
   "uuid": "6ffea821-f1af-4855-9db3-932deed81cc3",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-03T07:29:27.466Z",
-  "updated": "2026-11-03T07:35:22.199Z",
-  "lastActivity": "2026-11-03T07:35:22.199Z",
+  "updated": "2026-11-04T00:08:01.810Z",
+  "lastActivity": "2026-11-04T00:08:01.810Z",
   "title": "Resolve iPhone thread links by exact identity before titles",
   "project": "specweave-umb",
   "parent": "1175-phone-opens-coordinator-thread-links-and-attaches-photos",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-04T00:08:01.809Z",
+  "approvedAt": "2026-11-04T00:08:01.810Z"
 }

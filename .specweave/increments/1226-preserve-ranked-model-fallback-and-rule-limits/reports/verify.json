@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "ranAt": "2026-11-04T00:09:39.541Z",
+  "increment": "1226-preserve-ranked-model-fallback-and-rule-limits",
+  "commands": [
+    {
+      "cmd": "cd \"$HOME/.specwithcode/m4/worktrees/specwithcode-dev/recent-features-followup-20261103/packages/shared\" && test \"$(git rev-parse --short=10 HEAD)\" = b015bf91bb && node ../../node_modules/vite-plus/bin/vp test run --config ../../vite.config.ts --dir . src/providerFallback.test.ts && node_modules/.bin/tsc --noEmit --checkers 2",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 1,
+    "done": 1,
+    "skippedAccepted": 0,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 1,
+    "done": 1,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "acceptedSkips": [],
+  "ledgerMalformed": 0
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "machine": "m1",
+    "transport": "connect",
+    "identityMatched": true,
+    "serverVersion": "1.0.177"
+  },
+  {
+    "machine": "m3",
+    "transport": "connect",
+    "identityMatched": true,
+    "serverVersion": "1.0.177"
+  }
+]

@@ -1,0 +1,194 @@
+[
+  {
+    "headRefOid": "bbd691e70e504d573207e7cd7884e17f3da0c474",
+    "isDraft": false,
+    "mergeCommit": {
+      "oid": "616fac5b7f6db7fb630a193167368e803982cbf9"
+    },
+    "mergedAt": "2026-11-03T18:56:23Z",
+    "number": 1284,
+    "state": "MERGED",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/pull/1284",
+    "checks": {
+      "SUCCESS": 26,
+      "SKIPPED": 9,
+      "FAILURE": 0,
+      "CANCELLED": 0,
+      "pending": 0
+    }
+  },
+  {
+    "headRefOid": "1803192c3a96e07dc8611795a80fd43ff82fcedd",
+    "isDraft": false,
+    "mergeCommit": {
+      "oid": "c70a90e7023f93c411755b822dfb6a8bf871d579"
+    },
+    "mergedAt": "2026-11-03T19:44:13Z",
+    "number": 1310,
+    "state": "MERGED",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/pull/1310",
+    "checks": {
+      "SUCCESS": 2,
+      "SKIPPED": 21,
+      "FAILURE": 0,
+      "CANCELLED": 0,
+      "pending": 0
+    }
+  },
+  {
+    "headRefOid": "7d47e700b476afd0044890e9b1a67e5beee4d70b",
+    "isDraft": false,
+    "mergeCommit": {
+      "oid": "9334c7ac2a24f1a7d11dbca3cd8fa6e6567c9e1e"
+    },
+    "mergedAt": "2026-11-03T23:55:24Z",
+    "number": 1327,
+    "state": "MERGED",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/pull/1327",
+    "checks": {
+      "SUCCESS": 25,
+      "SKIPPED": 9,
+      "FAILURE": 0,
+      "CANCELLED": 0,
+      "pending": 0
+    }
+  },
+  {
+    "headRefOid": "861dc55e00713c05631b16c15d085ffcb86adbc2",
+    "isDraft": false,
+    "mergeCommit": {
+      "oid": "a95fe360ab1172666832aa4f5845edf51ad676bb"
+    },
+    "mergedAt": "2026-11-03T23:51:02Z",
+    "number": 1330,
+    "state": "MERGED",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/pull/1330",
+    "checks": {
+      "SUCCESS": 19,
+      "SKIPPED": 26,
+      "FAILURE": 0,
+      "CANCELLED": 0,
+      "pending": 0
+    }
+  },
+  {
+    "headRefOid": "b015bf91bb2ea944eea9aeb05521937d33eb1ef6",
+    "isDraft": false,
+    "mergeCommit": {
+      "oid": "cb8791b95719b5044141bc7eda31a0ae2679b801"
+    },
+    "mergedAt": "2026-11-04T00:25:24Z",
+    "number": 1333,
+    "state": "MERGED",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/pull/1333",
+    "checks": {
+      "SUCCESS": 18,
+      "SKIPPED": 10,
+      "FAILURE": 0,
+      "CANCELLED": 0,
+      "pending": 0
+    }
+  },
+  {
+    "headRefOid": "da8cb7ede2c1054efe5fc94f2a79f6ea479e78ec",
+    "isDraft": false,
+    "mergeCommit": {
+      "oid": "ceaa6299ebb7c8cd768bff90066e81f4bfd831ef"
+    },
+    "mergedAt": "2026-11-04T00:12:25Z",
+    "number": 1334,
+    "state": "MERGED",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/pull/1334",
+    "checks": {
+      "SUCCESS": 17,
+      "SKIPPED": 25,
+      "FAILURE": 0,
+      "CANCELLED": 0,
+      "pending": 0
+    }
+  },
+  {
+    "headRefOid": "5d8e4c9e20bd7880237f473a00e298e09509f85e",
+    "isDraft": false,
+    "mergeCommit": {
+      "oid": "ca754e7e8eb8c6c86f5880a2cdfa9efa2e597b03"
+    },
+    "mergedAt": "2026-11-04T00:26:05Z",
+    "number": 1335,
+    "state": "MERGED",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/pull/1335",
+    "checks": {
+      "SUCCESS": 15,
+      "SKIPPED": 12,
+      "FAILURE": 0,
+      "CANCELLED": 0,
+      "pending": 0
+    }
+  },
+  {
+    "headRefOid": "2a52f98eefc768a7ed214425064ba43b5f0f6c4c",
+    "isDraft": true,
+    "mergeCommit": null,
+    "mergedAt": null,
+    "number": 1336,
+    "state": "OPEN",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/pull/1336",
+    "checks": {
+      "SUCCESS": 3,
+      "SKIPPED": 18,
+      "FAILURE": 0,
+      "CANCELLED": 0,
+      "pending": 0
+    }
+  },
+  {
+    "headRefOid": "9251fe80b3dae3466d4cfe991186ee0e1fb397fb",
+    "isDraft": false,
+    "mergeCommit": {
+      "oid": "2d483ae77c05b770bec6fa2f0a78c144977dde41"
+    },
+    "mergedAt": "2026-11-04T00:21:17Z",
+    "number": 1337,
+    "state": "MERGED",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/pull/1337",
+    "checks": {
+      "SUCCESS": 18,
+      "SKIPPED": 26,
+      "FAILURE": 0,
+      "CANCELLED": 0,
+      "pending": 0
+    }
+  },
+  {
+    "headRefOid": "6fd89366d4e752131024cdcad3a6a983ff988963",
+    "isDraft": true,
+    "mergeCommit": null,
+    "mergedAt": null,
+    "number": 1339,
+    "state": "OPEN",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/pull/1339",
+    "checks": {
+      "SUCCESS": 3,
+      "SKIPPED": 18,
+      "FAILURE": 0,
+      "CANCELLED": 0,
+      "pending": 0
+    }
+  },
+  {
+    "headRefOid": "b339513efe7bff1bc80403b2ebb0d88eb63d5a90",
+    "isDraft": true,
+    "mergeCommit": null,
+    "mergedAt": null,
+    "number": 1341,
+    "state": "OPEN",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/pull/1341",
+    "checks": {
+      "SUCCESS": 4,
+      "SKIPPED": 15,
+      "FAILURE": 0,
+      "CANCELLED": 0,
+      "pending": 5
+    }
+  }
+]

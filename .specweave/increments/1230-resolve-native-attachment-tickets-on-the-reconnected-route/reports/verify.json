@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "ranAt": "2026-11-04T00:04:54.702Z",
+  "increment": "1230-resolve-native-attachment-tickets-on-the-reconnected-route",
+  "commands": [
+    {
+      "cmd": "cd \"/Users/antonabyzov/.specwithcode/m4/worktrees/specwithcode-dev/recent-features-followup-20261103\" && test \"$(git rev-parse --short=10 HEAD)\" = da8cb7ede2 && swift test --package-path apps/ios/SWCKit --filter attachmentURLUsesTheSocketRouteEvenWhenPublishedStatusLags",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 1,
+    "done": 1,
+    "skippedAccepted": 0,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 1,
+    "done": 1,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "acceptedSkips": [],
+  "ledgerMalformed": 0
+}

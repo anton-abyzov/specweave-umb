@@ -1,14 +1,16 @@
 {
   "id": "1222-recheck-team-rules-on-cached-fleet-routes",
   "uuid": "9973a5db-92b7-4a1a-b002-1370021f9bdb",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-03T23:08:19.436Z",
-  "updated": "2026-11-03T23:10:08.756Z",
-  "lastActivity": "2026-11-03T23:10:08.756Z",
+  "updated": "2026-11-04T00:22:22.367Z",
+  "lastActivity": "2026-11-04T00:22:22.367Z",
   "title": "Recheck Team Rules on cached fleet routes",
   "project": "specweave-umb",
   "parent": "1178-team-rules-phase-2-reach-tools-carried-ceiling-and-fingerprints",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-04T00:22:22.366Z",
+  "approvedAt": "2026-11-04T00:22:22.367Z"
 }
