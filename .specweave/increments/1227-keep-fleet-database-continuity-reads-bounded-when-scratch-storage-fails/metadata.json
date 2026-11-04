@@ -1,0 +1,13 @@
+{
+  "id": "1227-keep-fleet-database-continuity-reads-bounded-when-scratch-storage-fails",
+  "uuid": "7e7753b7-84f8-4ea4-aae8-6627e0548c98",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T23:43:45.067Z",
+  "updated": "2026-11-03T23:47:50.751Z",
+  "lastActivity": "2026-11-03T23:47:50.751Z",
+  "title": "Keep fleet database continuity reads bounded when scratch storage fails",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

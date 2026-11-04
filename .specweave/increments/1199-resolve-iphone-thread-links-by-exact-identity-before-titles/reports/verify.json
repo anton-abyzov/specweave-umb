@@ -1,0 +1,54 @@
+{
+  "ok": true,
+  "ranAt": "2026-11-03T23:57:39.604Z",
+  "increment": "1199-resolve-iphone-thread-links-by-exact-identity-before-titles",
+  "commands": [
+    {
+      "cmd": "cd \"$HOME/.specwithcode/m4/worktrees/specwithcode-dev/recent-features-followup-20261103/apps/ios/SWCKit\" && test \"$(git rev-parse --short=10 HEAD)\" = c70a90e702 && swift test --jobs 2 --filter ThreadLinkResolverTests",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 2,
+    "done": 2,
+    "skippedAccepted": 0,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 1,
+    "done": 1,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "acceptedSkips": [],
+  "ledgerMalformed": 0
+}

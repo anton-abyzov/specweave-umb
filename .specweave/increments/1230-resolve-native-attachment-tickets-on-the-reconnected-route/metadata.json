@@ -1,0 +1,13 @@
+{
+  "id": "1230-resolve-native-attachment-tickets-on-the-reconnected-route",
+  "uuid": "e73ea69e-8d09-4ef4-8c36-d696c3ed4c48",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T23:46:25.072Z",
+  "updated": "2026-11-03T23:50:41.799Z",
+  "lastActivity": "2026-11-03T23:50:41.799Z",
+  "title": "Resolve native attachment tickets on the reconnected route",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

@@ -1,0 +1,16 @@
+{
+  "id": "1221-recognize-configured-specweave-projects-before-the-first-increment",
+  "uuid": "b488304f-71f9-4302-8626-4c8d3f74505e",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T23:05:49.108Z",
+  "updated": "2026-11-03T23:57:15.677Z",
+  "lastActivity": "2026-11-03T23:57:15.677Z",
+  "title": "Recognize configured SpecWeave projects before the first increment",
+  "project": "specweave-umb",
+  "parent": "1195-suggest-an-increment-before-substantial-unplanned-work",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T23:57:15.676Z",
+  "approvedAt": "2026-11-03T23:57:15.677Z"
+}

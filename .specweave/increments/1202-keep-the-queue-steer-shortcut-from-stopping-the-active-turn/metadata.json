@@ -1,0 +1,14 @@
+{
+  "id": "1202-keep-the-queue-steer-shortcut-from-stopping-the-active-turn",
+  "uuid": "635d3632-a63c-4baf-a02b-68c831d1aef4",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T07:36:40.955Z",
+  "updated": "2026-11-03T07:40:42.691Z",
+  "lastActivity": "2026-11-03T07:40:42.691Z",
+  "title": "Keep the queue steer shortcut from stopping the active turn",
+  "project": "specweave-umb",
+  "parent": "1182-model-changes-keep-one-thread",
+  "externalLinks": {}
+}

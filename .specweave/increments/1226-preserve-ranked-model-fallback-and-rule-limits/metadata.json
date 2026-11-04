@@ -1,0 +1,13 @@
+{
+  "id": "1226-preserve-ranked-model-fallback-and-rule-limits",
+  "uuid": "3d98ea5c-3368-447e-a76b-238d43eae7a5",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T23:43:43.392Z",
+  "updated": "2026-11-03T23:47:47.701Z",
+  "lastActivity": "2026-11-03T23:47:47.701Z",
+  "title": "Preserve ranked model fallback and rule limits",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

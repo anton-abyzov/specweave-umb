@@ -1,0 +1,15 @@
+{
+  "id": "1218-share-the-final-result-of-concurrent-file-transfer-retries",
+  "uuid": "5e4474b0-39eb-4731-93c0-531c965a7464",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T23:01:38.498Z",
+  "updated": "2026-11-03T23:57:13.353Z",
+  "lastActivity": "2026-11-03T23:57:13.353Z",
+  "title": "Share the final result of concurrent file transfer retries",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T23:57:13.352Z",
+  "approvedAt": "2026-11-03T23:57:13.353Z"
+}

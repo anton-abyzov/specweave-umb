@@ -1,0 +1,14 @@
+{
+  "id": "1198-keep-folder-copy-previews-scoped-to-their-source-machine",
+  "uuid": "a6355bb7-e215-437f-92e9-feecac606a6b",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T07:27:14.968Z",
+  "updated": "2026-11-03T07:36:01.497Z",
+  "lastActivity": "2026-11-03T07:36:01.497Z",
+  "title": "Keep folder copy previews scoped to their source machine",
+  "project": "specweave-umb",
+  "parent": "1161-keep-machines-current-with-git",
+  "externalLinks": {}
+}

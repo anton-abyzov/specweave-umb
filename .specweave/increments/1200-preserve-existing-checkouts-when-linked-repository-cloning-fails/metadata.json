@@ -1,0 +1,16 @@
+{
+  "id": "1200-preserve-existing-checkouts-when-linked-repository-cloning-fails",
+  "uuid": "b7258f4d-1442-4120-b161-1ed7b6bdb88d",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T07:30:45.300Z",
+  "updated": "2026-11-03T23:59:10.135Z",
+  "lastActivity": "2026-11-03T23:59:10.135Z",
+  "title": "Preserve existing checkouts when linked repository cloning fails",
+  "project": "specweave-umb",
+  "parent": "1164-hand-off-a-project-by-sharing-it-not-copying-it",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T23:59:10.134Z",
+  "approvedAt": "2026-11-03T23:59:10.135Z"
+}

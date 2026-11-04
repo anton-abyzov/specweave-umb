@@ -1,0 +1,15 @@
+{
+  "id": "1223-stop-product-releases-when-required-checks-cannot-be-read",
+  "uuid": "4097a4ea-022b-4d9b-b777-5cd7f4325a29",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T23:17:25.001Z",
+  "updated": "2026-11-03T23:51:13.712Z",
+  "lastActivity": "2026-11-03T23:51:13.712Z",
+  "title": "Stop product releases when required checks cannot be read",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T23:51:13.711Z",
+  "approvedAt": "2026-11-03T23:51:13.712Z"
+}
