@@ -541,6 +541,8 @@ jq '.tracks.desk.release = ["bash", "notag.sh"]' "$T/manifest-post.json" >"$T/ma
 ship_rc=0
 RELEASE_MANIFEST="$T/manifest-notag.json" bash "$RELEASE_SH" ship desk >"$T/ship.out" 2>"$T/ship.err" || ship_rc=$?
 check "post-ship: a ship that tagged nothing new fails verify" "1|yes" "$ship_rc|$(grep -q 'FAIL  drift: stale: 1 of 1 commits on origin/main since tag desk-v1.0.2' "$T/ship.err" && echo yes || echo no)"
+post_ship_log="$(jq -r '.tracks.desk.log' "$RELEASE_STATE_FILE")"
+check "post-ship: failed verification details survive in the ship log" yes "$(grep -q 'FAIL  drift: stale: 1 of 1 commits on origin/main since tag desk-v1.0.2' "$post_ship_log" && echo yes || echo no)"
 unset STUB_RELEASES_FILE
 
 # A version inside an HTTP error response cannot satisfy the fleet gate.

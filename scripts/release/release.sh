@@ -1110,7 +1110,7 @@ ship_track() {
   fi
   state_set "$track" verify
   verify_track "$track" "" 0 >"$WORK/ship-verify-$track.json"
-  print_verify_table "$WORK/ship-verify-$track.json"
+  print_verify_table "$WORK/ship-verify-$track.json" 2>&1 | tee -a "$log_file" >&2
   local vr=0
   result_code "$WORK/ship-verify-$track.json" || vr=$?
   if [ "$vr" -eq 2 ]; then
