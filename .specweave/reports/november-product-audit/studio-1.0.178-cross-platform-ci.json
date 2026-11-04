@@ -1,0 +1,71 @@
+{
+  "conclusion": "failure",
+  "headSha": "44e31fa92963151b5b87168e7c2c3f0746db30fc",
+  "jobs": [
+    {
+      "name": "Plan",
+      "databaseId": 126313100330,
+      "conclusion": "success",
+      "url": "https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41750197586/job/126313100330"
+    },
+    {
+      "name": "Linux arm64",
+      "databaseId": 126313142866,
+      "conclusion": "success",
+      "url": "https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41750197586/job/126313142866"
+    },
+    {
+      "name": "Windows x64",
+      "databaseId": 126313142893,
+      "conclusion": "success",
+      "url": "https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41750197586/job/126313142893"
+    },
+    {
+      "name": "Windows arm64",
+      "databaseId": 126313143069,
+      "conclusion": "success",
+      "url": "https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41750197586/job/126313143069"
+    },
+    {
+      "name": "Linux x64",
+      "databaseId": 126313143103,
+      "conclusion": "success",
+      "url": "https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41750197586/job/126313143103"
+    },
+    {
+      "name": "Linux update proof / Update 1.0.178 on clean ubuntu-24.04",
+      "databaseId": 126316994292,
+      "conclusion": "success",
+      "url": "https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41750197586/job/126316994292"
+    },
+    {
+      "name": "Linux update proof / Update 1.0.178 on clean ubuntu-22.04",
+      "databaseId": 126316994314,
+      "conclusion": "failure",
+      "url": "https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41750197586/job/126316994314"
+    },
+    {
+      "name": "needs.plan.outputs.dry_run == 'true' && 'Check (dry run)' || 'Attach to the release'",
+      "databaseId": 126319597286,
+      "conclusion": "skipped",
+      "url": "https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41750197586/job/126319597286"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41750197586",
+  "candidateVersion": "1.0.178",
+  "failure": "Ubuntu 22.04 successfully updated 1.0.176 to 1.0.178. The initial relaunch for the Retry fixture did not answer the app readiness probe at 1.0.178 within 180 seconds (TypeError: fetch failed). The harness did not log downloaded 1.0.179, failure recorded, or clicked Retry, so it did not reach those proof steps. Runner journal records repeated DesktopLocalServicePairingError (pair command printed no token); root cause remains unresolved. Ubuntu 24.04 and all four build jobs passed; attachment skipped.",
+  "failureSource": {
+    "file": "scripts/linux-update-proof.mjs",
+    "workflowHead": "44e31fa92963151b5b87168e7c2c3f0746db30fc",
+    "relaunchOnFeedLines": [
+      237,
+      242
+    ],
+    "retryPhaseLines": [
+      302,
+      309
+    ],
+    "diagnosticArtifact": "linux-update-proof-1.0.178-ubuntu-22.04"
+  }
+}

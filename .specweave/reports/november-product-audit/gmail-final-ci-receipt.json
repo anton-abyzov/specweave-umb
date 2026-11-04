@@ -1,0 +1,20 @@
+{
+  "run": {
+    "conclusion": "success",
+    "headSha": "1962cad03285859037bbc66feb0c5e91043438a3",
+    "status": "completed",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41749320674",
+    "counts": {
+      "success": 19,
+      "skipped": 1,
+      "failure": 0,
+      "cancelled": 0
+    }
+  },
+  "pr": {
+    "headRefOid": "1962cad03285859037bbc66feb0c5e91043438a3",
+    "isDraft": true,
+    "state": "OPEN"
+  },
+  "authorization": "pending"
+}

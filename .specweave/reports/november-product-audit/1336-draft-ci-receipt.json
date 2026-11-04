@@ -1,0 +1,13 @@
+{
+  "pr": 1336,
+  "draft": true,
+  "authorization": "pending",
+  "head": "4e0d5c79c622c46fe55b71743a0093c5fbed4287",
+  "parent": "2a52f98eefc768a7ed214425064ba43b5f0f6c4c",
+  "mergedFixturePrerequisite": "44e31fa929",
+  "fixtureOnly": true,
+  "stablePatchId": "87b9de4abaf04748fdb380d5536c17ba0b0c6988",
+  "localTestsPassed": 22,
+  "workflowDispatch": 41751821802,
+  "status": "queued"
+}

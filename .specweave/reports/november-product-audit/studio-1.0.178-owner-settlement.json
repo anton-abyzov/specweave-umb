@@ -1,0 +1,98 @@
+{
+  "release": "1.0.178",
+  "releasePR": {
+    "headRefOid": "e38626e8f2f9b5674d7a0eb3bb4c855161041939",
+    "mergeCommit": {
+      "oid": "da4a812e7f792ce0a577c6d746663e6a62f7e160"
+    },
+    "state": "MERGED",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/pull/1342"
+  },
+  "ownerState": {
+    "phase": "failed",
+    "result": "shipped but verify failed",
+    "log": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/state/release-logs/studio-20261104T003534Z.log"
+  },
+  "m4UpdatePhase": "verified",
+  "m4Desktop": {
+    "version": "1.0.178",
+    "codeSignatureVerified": true,
+    "team": "NMCB2JZ7QG"
+  },
+  "ownerWorkerRollout": {
+    "version": "1.0.178",
+    "result": "installed",
+    "hosts": {
+      "annas-macbook-air": {
+        "identity": "annas-macbook-air",
+        "result": "skipped",
+        "reason": "no SSH, and it has no SpecWithCode Connect address"
+      },
+      "ministorm": {
+        "identity": "ministorm",
+        "result": "installed",
+        "requests": 1,
+        "seconds": 13,
+        "route": "connect",
+        "desktopApp": {
+          "result": "skipped",
+          "reason": "needs SSH"
+        }
+      },
+      "m1": {
+        "identity": "m1",
+        "result": "installed",
+        "requests": 1,
+        "seconds": 54,
+        "route": "ssh",
+        "desktopApp": {
+          "result": "updater-on-quit",
+          "before": "1.0.177",
+          "after": "1.0.178",
+          "relaunched": "yes"
+        }
+      },
+      "m3": {
+        "identity": "m3",
+        "result": "installed",
+        "requests": 1,
+        "seconds": 118,
+        "route": "connect",
+        "desktopApp": {
+          "result": "skipped",
+          "reason": "needs SSH"
+        }
+      }
+    }
+  },
+  "publicTagCommit": "38e2ec16c205541349004e2c7c431dcff18e6ee3",
+  "umbrellaVerification": {
+    "wrapper": "scripts/release/release.sh ship studio (post-ship verify)",
+    "invocation": "verify_track \"studio\" \"\" 0",
+    "resultCode": 1,
+    "state": "shipped but verify failed",
+    "failedRowsRetained": false,
+    "checks": [
+      "private release",
+      "public mirror release",
+      "M4 service",
+      "M1 service",
+      "M3 service",
+      "M4 app",
+      "M1 app",
+      "M3 app"
+    ],
+    "excludedFromVerifier": [
+      "ministorm",
+      "annas-macbook-air"
+    ],
+    "details": "Only the child release stdout/stderr goes to the retained owner log. The post-ship table prints to the caller, and EXIT cleanup removes ship-verify-studio.json. The release log, state, evidence and available terminal records did not preserve the failed rows. M3 service was confirmed through Connect in the owner receipt; canonical service check uses a local forwarded HTTP endpoint. M3 desktop remains unverified and requires pinned SSH in this verifier. These are evidenced differences in coverage, not a reconstruction of which rows failed. No new inaccessible-device probes were run."
+  },
+  "crossPlatformWorkflow": {
+    "run": 41750197586,
+    "conclusion": "failure",
+    "failedJob": 126316994314,
+    "attachment": "skipped",
+    "separateFromUmbrellaVerification": true
+  }
+}
