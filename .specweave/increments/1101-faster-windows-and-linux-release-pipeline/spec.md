@@ -46,19 +46,19 @@ Risks: release_tag mode and the release workflow cannot run on a pull request. T
 ## Tasks
 
 ### T-01 Per-version publish lock
-- AC: AC-01, AC-04 | Files: .github/workflows/release-windows-linux.yml, scripts/release-windows-linux.test.ts | Test: npx vitest run scripts/release-windows-linux.test.ts
+- AC: AC-01, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/.github/workflows/release-windows-linux.yml, repositories/anton-abyzov/specwithcode-dev/scripts/release-windows-linux.test.ts | Test: npx vitest run scripts/release-windows-linux.test.ts
 
 ### T-02 OS-specific dependency store caches
-- AC: AC-02, AC-04 | Files: .github/workflows/release-windows-linux.yml, .github/workflows/desktop-windows-linux.yml, scripts/release-windows-linux.test.ts | Test: npx vitest run scripts/release-windows-linux.test.ts; PR run of desktop-windows-linux.yml
+- AC: AC-02, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/.github/workflows/release-windows-linux.yml, repositories/anton-abyzov/specwithcode-dev/.github/workflows/desktop-windows-linux.yml, repositories/anton-abyzov/specwithcode-dev/scripts/release-windows-linux.test.ts | Test: npx vitest run scripts/release-windows-linux.test.ts; PR run of desktop-windows-linux.yml
 
 ### T-03 Verification builds only the CLI inputs on Linux
-- AC: AC-03, AC-04 | Files: .github/workflows/desktop-windows-linux.yml, scripts/desktop-windows-linux-workflow.test.ts | Test: npx vitest run scripts/desktop-windows-linux-workflow.test.ts
+- AC: AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/.github/workflows/desktop-windows-linux.yml, repositories/anton-abyzov/specwithcode-dev/scripts/desktop-windows-linux-workflow.test.ts | Test: npx vitest run scripts/desktop-windows-linux-workflow.test.ts
 
 ### T-04 Timings, comparison, PR, review
 - AC: AC-05 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/wl-pipeline-speed-20261027/REPORT.md | Test: actionlint on both workflows; fresh-context review SHIP at the exact head
 
 ### T-06 Reject incomplete release integrity and optional OS gates; repair portable validation
-- AC: AC-01, AC-03, AC-04 | Files: scripts/release-windows-linux.ts, scripts/release-windows-linux.test.ts, scripts/desktop-windows-linux-workflow.test.ts, scripts/studio-toolchain/reviewed-lock-changes.json, scripts/studio-toolchain/preservation-audit.mjs | Test: focused release/workflow tests with empty/missing checksum, draft/prerelease and skipped-dependency negative controls; lock preservation tests; actionlint; scripts native typecheck; applicable CI
+- AC: AC-01, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/scripts/release-windows-linux.ts, repositories/anton-abyzov/specwithcode-dev/scripts/release-windows-linux.test.ts, repositories/anton-abyzov/specwithcode-dev/scripts/desktop-windows-linux-workflow.test.ts, repositories/anton-abyzov/specwithcode-dev/scripts/studio-toolchain/reviewed-lock-changes.json, repositories/anton-abyzov/specwithcode-dev/scripts/studio-toolchain/preservation-audit.mjs | Test: focused release/workflow tests with empty/missing checksum, draft/prerelease and skipped-dependency negative controls; lock preservation tests; actionlint; scripts native typecheck; applicable CI
 
 ### T-05 Verify and close 1101
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: none | Test: specweave verify 1101-faster-windows-and-linux-release-pipeline

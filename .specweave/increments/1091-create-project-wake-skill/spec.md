@@ -48,7 +48,7 @@ Risk: the coordinator composer may list only certain skill sources; the composer
 ## Tasks
 
 ### T-01 Write the project-wake skill
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: vskill `plugins/productivity/skills/project-wake/SKILL.md`, `plugins/productivity/skills/project-wake/evals/evals.json` | Test: `vskill scan plugins/productivity/skills/project-wake/SKILL.md`
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: `repositories/anton-abyzov/vskill/plugins/productivity/skills/project-wake/SKILL.md`, `repositories/anton-abyzov/vskill/plugins/productivity/skills/project-wake/evals/evals.json` | Test: `vskill scan plugins/productivity/skills/project-wake/SKILL.md`
 
 ### T-02 Merge and publish through Skill Studio
 - AC: AC-07 | Files: vskill PR | Test: `vskill find project-wake` lists `anton-abyzov/vskill/project-wake`

@@ -31,7 +31,7 @@ Add a Connect action to the dialog header/description (new callback prop from Pa
 ## Tasks
 
 ### T-01 Connect-first pairing dialog
-- AC: AC-01, AC-02, AC-03 | Files: apps/web/src/components/settings/PhoneSetupDialog.tsx, apps/web/src/components/settings/PairPhoneSettings.tsx | Test: cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio && node node_modules/typescript/bin/tsc --noEmit --project apps/web/tsconfig.json
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/PhoneSetupDialog.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/PairPhoneSettings.tsx | Test: cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio && node node_modules/typescript/bin/tsc --noEmit --project apps/web/tsconfig.json
 
 ## Receipts
 
