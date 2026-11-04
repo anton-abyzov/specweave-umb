@@ -1,0 +1,12 @@
+{
+  "id": "1239-staged-gated-release-pipeline",
+  "uuid": "139d2bae-64d2-4ef5-9c93-a07cfbcf6875",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-04T16:52:55.187Z",
+  "updated": "2026-11-04T16:52:55.187Z",
+  "lastActivity": "2026-11-04T16:52:55.187Z",
+  "title": "Staged, gated release pipeline with canary and fleet acks",
+  "project": "specweave-umb"
+}
