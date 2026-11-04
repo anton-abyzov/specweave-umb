@@ -221,10 +221,18 @@ check_fleet_connect() {
   if ! command -v "$cli" >/dev/null 2>&1; then
     C_STATUS=fail; C_DETAIL="$cli not found, so $machine cannot be read over SpecWithCode Connect"; return
   fi
-  out="$(with_timeout "${RELEASE_CONNECT_TIMEOUT:-90}" "$cli" fleet update "$machine" --status --connect-only --json \
+  # `status` (quick mode) keeps its short budget; a ship's verify waits for a slow round trip.
+  local budget="${RELEASE_CONNECT_TIMEOUT:-90}"
+  [ "${V_QUICK:-0}" -ne 1 ] || budget="${RELEASE_CONNECT_QUICK_TIMEOUT:-15}"
+  out="$(with_timeout "$budget" "$cli" fleet update "$machine" --status --connect-only --json \
     </dev/null 2>/dev/null)" || rc=$?
-  last="$( { grep -v '^[[:space:]]*$' <<<"$out" || true; } | tail -1)"
-  reply="$(jq -c 'select(type == "object")' <<<"$last" 2>/dev/null)" || reply=""
+  # The whole output as one JSON document (compact or pretty-printed), else its last non-empty line
+  # (progress lines before a compact reply).
+  reply="$(jq -cs 'if length == 1 and (.[0] | type) == "object" then .[0] else empty end' <<<"$out" 2>/dev/null)" || reply=""
+  if [ -z "$reply" ]; then
+    last="$( { grep -v '^[[:space:]]*$' <<<"$out" || true; } | tail -1)"
+    reply="$(jq -c 'select(type == "object")' <<<"$last" 2>/dev/null)" || reply=""
+  fi
   if [ -z "$reply" ]; then
     C_STATUS=fail; C_DETAIL="$machine gave no SpecWithCode Connect status (exit $rc)"; return
   fi
@@ -251,7 +259,9 @@ check_fleet_connect() {
   if [ "$installed" = "$VERSION" ] && { [ -z "$served" ] || [ "$served" = "$VERSION" ]; }; then
     C_STATUS=pass; C_DETAIL="transport connect, installedVersion $installed, ${status:-status unknown}"; return
   fi
-  if { [ "$down" = "$VERSION" ] || [ "$asked" = "$VERSION" ] || [ "$installed" = "$VERSION" ]; } && [ "$phase" != idle ]; then
+  # Pending only while the updater is busy with this version; idle, failed or no phase is a result.
+  if { [ "$down" = "$VERSION" ] || [ "$asked" = "$VERSION" ] || [ "$installed" = "$VERSION" ]; } &&
+    [ -n "$phase" ] && ! [[ $phase =~ ^(idle|failed|error|cancelled)$ ]]; then
     C_STATUS=pending; C_DETAIL="transport connect, installedVersion ${installed:-none}, served ${served:-unknown}; updater $phase with $VERSION"; return
   fi
   C_STATUS=fail
@@ -372,6 +382,22 @@ SH
 # {id: {host, user, home}}) and read over the pinned fleet ssh. The self-test overrides
 # RELEASE_DESKTOP_APP (the app's path on every Mac), RELEASE_SSH, RELEASE_PLISTBUDDY,
 # RELEASE_CODESIGN and RELEASE_SPCTL.
+# rollout_app_skip <host>: the reason this release's fleet rollout recorded for skipping <host>'s
+# desktop app step (a Connect-only rollout cannot reach the app; its own updater installs the
+# version when the app quits), or nothing. It reads fleet_rollout.py's last result line for
+# $VERSION from this ship's log (SHIP_LOG) or the track's last recorded log.
+rollout_app_skip() {
+  local id="$1" log_path="${SHIP_LOG:-}"
+  if [ -z "$log_path" ] && [ -s "$RELEASE_STATE" ]; then
+    log_path="$(jq -r --arg t "$TRACK" '.tracks[$t].log // empty' "$RELEASE_STATE" 2>/dev/null)" || log_path=""
+  fi
+  [ -n "$log_path" ] && [ -f "$log_path" ] || return 0
+  { grep -E '^\{"version": ?"' "$log_path" || true; } | jq -Rr --arg v "$VERSION" --arg id "$id" '
+    fromjson? | select(type == "object" and .version == $v and (.hosts | type) == "object" and (.hosts | has($id)))
+    | .hosts[$id].desktopApp // {} | if .result == "skipped" then (.reason // "skipped" | tostring) else "" end' 2>/dev/null |
+    tail -1 | cut -c1-120
+}
+
 check_desktop_app() {
   local id app where inventory key known entry user host out rc=0 line last missing=0 version="" signature=""
   local requirement designated="" satisfies="" gatekeeper=""
@@ -417,7 +443,12 @@ check_desktop_app() {
   fi
   last="${out%$'\n'}"
   last="${last##*$'\n'}"
+  local skipped=""
+  [ "$id" = local ] || skipped="$(rollout_app_skip "$id")"
   if [ "$rc" -eq 255 ] && [ "$id" != local ]; then
+    if [ -n "$skipped" ]; then
+      C_STATUS=pending; C_DETAIL="pending: updates on quit (the rollout skipped $id's app: $skipped; not reachable over ssh to confirm)"; return
+    fi
     C_STATUS=fail; C_DETAIL="$id unreachable over ssh: ${last:0:160}"; return
   fi
   if [ "$rc" -ne 0 ]; then
@@ -436,7 +467,9 @@ check_desktop_app() {
   if [ "$missing" -eq 1 ]; then
     C_STATUS=fail; C_DETAIL="no $app on $where"; return
   fi
-  if [ "$version" != "$VERSION" ]; then
+  if [ "$version" != "$VERSION" ] && [ -n "$skipped" ] && [ -n "$version" ] && [ "$signature" = ok ]; then
+    C_STATUS=pending; C_DETAIL="pending: updates on quit (SpecWithCode.app on $where is $version; the rollout skipped its app: $skipped)"
+  elif [ "$version" != "$VERSION" ]; then
     C_STATUS=fail; C_DETAIL="SpecWithCode.app on $where is ${version:-unreadable}, want $VERSION"
   elif [ "$signature" != ok ]; then
     C_STATUS=fail; C_DETAIL="SpecWithCode.app $version on $where fails codesign --verify --deep --strict: ${signature#bad }"
@@ -1132,6 +1165,7 @@ ship_track() {
   # up to origin/<default> as it is now, before the release script tags it, so
   # a PR merged during the build does not fail this release (dynamic scope).
   local DRIFT_SHIP_HEAD=""
+  local SHIP_LOG="$log_file"  # verify's desktop_app checks read the rollout's app-step results here.
   if [ "$dry" -eq 0 ] && [ "$(mf '[.tracks[$t].verify // [] | .[] | select(.kind == "tag_drift")] | length' --arg t "$track")" -gt 0 ]; then
     local def0 src0
     def0="$(repo_field "$repo" default_branch)"

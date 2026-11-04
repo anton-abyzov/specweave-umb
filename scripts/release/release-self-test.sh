@@ -366,6 +366,41 @@ check "app: another team's build of the release fails" "1|fail|SpecWithCode.app 
 make_app 1.2.3 rejected
 verify_app local
 check "app: a build Gatekeeper rejects fails" "1|fail|SpecWithCode.app 1.2.3 on this Mac is not accepted by Gatekeeper (spctl -a -t exec): $APP: rejected" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+# A Connect-only rollout skips a worker's app step (its own updater installs the release on quit):
+# that app check is pending "updates on quit", never pass and never fail; anything else still fails.
+rollout_log() {  # rollout_log <version> <m1 desktopApp JSON>: a ship log with fleet_rollout's result line.
+  printf 'other output\n{"version": "%s", "result": "installed", "hosts": {"m1": {"identity": "m1", "result": "installed", "route": "connect", "desktopApp": %s}}, "notUpdated": []}\n' \
+    "$1" "$2" >"$T/ship-apps.log"
+  jq -n --arg log "$T/ship-apps.log" '{tracks: {apps: {phase: "verify", log: $log}}}' >"$T/state-apps.json"
+}
+verify_app_rollout() { RELEASE_STATE_FILE="$T/state-apps.json" verify_app "$@"; }
+SKIP='{"result": "skipped", "reason": "needs SSH"}'
+rollout_log 1.2.3 "$SKIP"
+make_app 1.2.2
+verify_app_rollout m1
+check "app: a skipped app step on an older app is pending, updates on quit" "2|pending|pending: updates on quit (SpecWithCode.app on m1 is 1.2.2; the rollout skipped its app: needs SSH)" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.2.3
+verify_app_rollout m1
+check "app: a skipped app step that is already on the release passes" "0|pass" "$APP_RC|$APP_STATUS"
+make_app 1.2.2 bad
+verify_app_rollout m1
+check "app: a skipped app step with a bad signature still fails" "1|fail" "$APP_RC|$APP_STATUS"
+make_app 1.2.2
+STUB_SSH_DOWN=m1.example verify_app_rollout m1
+check "app: a skipped app step on a worker ssh cannot reach is pending" "2|pending" "$APP_RC|$APP_STATUS"
+rollout_log 1.2.0 "$SKIP"
+verify_app_rollout m1
+check "app: a skip recorded for another version does not count" "1|fail|SpecWithCode.app on m1 is 1.2.2, want 1.2.3" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+rollout_log 1.2.3 '{"result": "failed", "error": "swap failed"}'
+verify_app_rollout m1
+check "app: a failed app step still fails" "1|fail" "$APP_RC|$APP_STATUS"
+STUB_SSH_DOWN=m1.example verify_app_rollout m1
+check "app: an unreachable worker whose app step was not skipped fails" "1|fail" "$APP_RC|$APP_STATUS"
+rollout_log 1.2.3 "$SKIP"
+make_app 1.2.2
+verify_app_rollout m3
+check "app: a skip recorded for m1 does not cover m3" "1|fail" "$APP_RC|$APP_STATUS"
+rm -f "$T/ship-apps.log" "$T/state-apps.json"
 make_app 1.2.3
 verify_app local 1.2.3 none
 check "app: a track that names no requirement fails" "1|fail|track apps names no desktop_app.requirement, the designated requirement its app is signed with" "$APP_RC|$APP_STATUS|$APP_DETAIL"
@@ -570,7 +605,8 @@ check "fleet: HTTP 200 can attest the expected version" "0|pass" "$(run_fleet 20
 cat >"$T/bin/studio-connect" <<'SH'
 #!/bin/bash
 printf '%s\n' "$*" >"$STUB_CONNECT_ARGS"
-[ -z "$STUB_CONNECT_OUT" ] || printf 'progress line\n%s\n' "$STUB_CONNECT_OUT"
+if [ -n "${STUB_CONNECT_PRETTY:-}" ]; then jq . <<<"$STUB_CONNECT_OUT"
+elif [ -n "$STUB_CONNECT_OUT" ]; then printf 'progress line\n%s\n' "$STUB_CONNECT_OUT"; fi
 exit "${STUB_CONNECT_RC:-0}"
 SH
 chmod +x "$T/bin/studio-connect"
@@ -593,8 +629,29 @@ r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersi
 check "connect: a worker installing the release is pending" "2|pending" "$(connect_row "$r" | cut -d'|' -f1-2)"
 r="$(run_connect '{"transport":"connect","installedVersion":"1.2.3","serverVersion":"1.2.2","phase":"restarting"}')"
 check "connect: installed but not yet served is pending" "2|pending" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","installRequest":{"version":"1.2.3"},"phase":"failed"}')"
+check "connect: a failed update of the release fails, not pending" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","downloadedVersion":"1.2.3"}')"
+check "connect: a downloaded release with no updater phase fails, not pending" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+cat >"$T/bin/studio-connect-slow" <<'SH'
+#!/bin/bash
+sleep 30
+SH
+chmod +x "$T/bin/studio-connect-slow"
+printf '%s\n' '{"repos":[],"groups":{"all":["fleet"]},"tracks":{"fleet":{"verify":[{"name":"M3 service","kind":"fleet_connect","machine":"m3"}]}}}' >"$T/manifest-connect-status.json"
+quick_status() {  # quick_status <quick budget>: seconds `release.sh status` takes on a worker that never answers.
+  local started=$SECONDS
+  RELEASE_CONNECT_QUICK_TIMEOUT="$1" RELEASE_STUDIO_CLI="$T/bin/studio-connect-slow" RELEASE_MANIFEST="$T/manifest-connect-status.json" \
+    bash "$RELEASE_SH" status >"$T/connect-status.json" 2>/dev/null || true
+  echo $((SECONDS - started))
+}
+q="$(quick_status 2)"
+check "connect: status (quick mode) gives a slow worker the short budget" "yes|fail" \
+  "$([ "$q" -ge 2 ] && [ "$q" -lt 20 ] && echo yes || echo "no (${q}s)")|$(jq -r '.tracks[0].checks[0].status' "$T/connect-status.json")"
 r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","status":"up-to-date","phase":"idle"}')"
 check "connect: an idle worker on an older version fails" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(STUB_CONNECT_PRETTY=1 run_connect '{"transport":"connect","installedVersion":"1.2.3","serverVersion":"1.2.3","status":"up-to-date","phase":"idle"}')"
+check "connect: a pretty-printed reply is read whole" "0|pass" "$(connect_row "$r" | cut -d'|' -f1-2)"
 r="$(run_connect '' 0)"
 check "connect: no status at all fails" "1|fail|m3 gave no SpecWithCode Connect status (exit 0)" "$(connect_row "$r")"
 r="$(run_connect '{"transport":"connect","installedVersion":"1.2.3","serverVersion":"1.2.3","phase":"idle"}' 3)"
