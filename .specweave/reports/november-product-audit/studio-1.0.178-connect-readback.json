@@ -1,0 +1,21 @@
+{
+  "observedAt": "2026-11-04T01:26:37.532150+00:00",
+  "checks": [
+    {
+      "identity": "m3",
+      "transport": "connect",
+      "installedVersion": "1.0.178",
+      "serverVersion": "1.0.178",
+      "status": "up-to-date",
+      "phase": "idle"
+    },
+    {
+      "identity": "m1",
+      "transport": "connect",
+      "installedVersion": "1.0.178",
+      "serverVersion": "1.0.178",
+      "status": "up-to-date",
+      "phase": "idle"
+    }
+  ]
+}
