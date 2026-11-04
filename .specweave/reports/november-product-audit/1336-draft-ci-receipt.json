@@ -9,5 +9,13 @@
   "stablePatchId": "87b9de4abaf04748fdb380d5536c17ba0b0c6988",
   "localTestsPassed": 22,
   "workflowDispatch": 41751821802,
-  "status": "queued"
+  "status": "completed",
+  "conclusion": "success",
+  "url": "https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41751821802",
+  "jobCounts": {
+    "success": 19,
+    "skipped": 1,
+    "failure": 0,
+    "cancelled": 0
+  }
 }
