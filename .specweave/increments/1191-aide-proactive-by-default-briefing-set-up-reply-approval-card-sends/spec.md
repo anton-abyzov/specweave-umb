@@ -36,16 +36,16 @@ In: the briefing routine is set up automatically for this machine's Aide once Gm
 ## Tasks
 
 ### T-01 Gmail draft read and send in the Google service
-- AC: AC-03 | Files: apps/server/src/integrations/google/GoogleApi.ts, apps/server/src/integrations/google/GoogleAccountService.ts, apps/server/src/integrations/google/googleAccountLogic.ts, apps/server/src/integrations/google/GoogleAccountService.test.ts | Test: pnpm --filter @specweave-studio/server exec vitest run src/integrations/google
+- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/integrations/google/GoogleApi.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/integrations/google/GoogleAccountService.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/integrations/google/googleAccountLogic.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/integrations/google/GoogleAccountService.test.ts | Test: pnpm --filter @specweave-studio/server exec vitest run src/integrations/google
 
 ### T-02 Reply approval card and approved-only send tools
-- AC: AC-02, AC-03 | Files: apps/server/src/mcp/toolkits/google/sendApproval.ts, apps/server/src/mcp/toolkits/google/tools.ts, apps/server/src/mcp/toolkits/google/handlers.ts, apps/server/src/mcp/toolkits/google/sendApproval.test.ts | Test: pnpm --filter @specweave-studio/server exec vitest run src/mcp/toolkits/google
+- AC: AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/mcp/toolkits/google/sendApproval.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/mcp/toolkits/google/tools.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/mcp/toolkits/google/handlers.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/mcp/toolkits/google/sendApproval.test.ts | Test: pnpm --filter @specweave-studio/server exec vitest run src/mcp/toolkits/google
 
 ### T-03 Briefing set up automatically for Aide
-- AC: AC-01 | Files: apps/server/src/project/AideBriefingSetup.ts, apps/server/src/project/AideBriefingSetup.test.ts, apps/server/src/server.ts | Test: pnpm --filter @specweave-studio/server exec vitest run src/project/AideBriefingSetup
+- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/AideBriefingSetup.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/AideBriefingSetup.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/server.ts | Test: pnpm --filter @specweave-studio/server exec vitest run src/project/AideBriefingSetup
 
 ### T-04 Briefing prompt and Aide instructions use the card
-- AC: AC-04 | Files: packages/shared/src/routineTemplates.ts, packages/shared/src/routineTemplates.test.ts, apps/server/src/project/ProjectWorkspaceService.ts | Test: pnpm --filter @specweave-studio/shared exec vitest run src/routineTemplates && pnpm --filter @specweave-studio/server exec vitest run src/project/ProjectWorkspaceService
+- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/packages/shared/src/routineTemplates.ts, repositories/anton-abyzov/specwithcode-dev/packages/shared/src/routineTemplates.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/ProjectWorkspaceService.ts | Test: pnpm --filter @specweave-studio/shared exec vitest run src/routineTemplates && pnpm --filter @specweave-studio/server exec vitest run src/project/ProjectWorkspaceService
 
 ### T-05 Verify and close 1191
 - AC: AC-01, AC-02, AC-03, AC-04 | Files: none | Test: specweave verify 1191
