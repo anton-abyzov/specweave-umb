@@ -32,3 +32,17 @@
 {"t":"T-19","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-04T22:52:28.000Z","evidence":"36c46d2f5613016343dbc8dc84d796edcb189c9b","note":"specwithcode-dev PR #1394; Test passed on main 36c46d2f56"}
 {"t":"T-20","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-04T22:52:28.000Z"}
 {"t":"T-20","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-04T22:52:28.000Z","evidence":"36c46d2f5613016343dbc8dc84d796edcb189c9b","note":"specwithcode-dev PR #1394; Test passed on main 36c46d2f56"}
+{"t":"T-07","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z"}
+{"t":"T-07","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z","evidence":"87d8e193be09dac251f363b68c8511fbecf1c93d","note":"SpecWithCode 1.0.192 released (PR #1401, includes phases 1-5); verified on M4, M1, M3; Test passed on main 87d8e193be"}
+{"t":"T-13","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z"}
+{"t":"T-13","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z","evidence":"87d8e193be09dac251f363b68c8511fbecf1c93d","note":"SpecWithCode 1.0.192 released (PR #1401, includes phases 1-5); verified on M4, M1, M3; Test passed on main 87d8e193be"}
+{"t":"T-17","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z"}
+{"t":"T-17","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z","evidence":"87d8e193be09dac251f363b68c8511fbecf1c93d","note":"SpecWithCode 1.0.192 released (PR #1401, includes phases 1-5); verified on M4, M1, M3; Test passed on main 87d8e193be"}
+{"t":"T-21","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z"}
+{"t":"T-21","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z","evidence":"87d8e193be09dac251f363b68c8511fbecf1c93d","note":"SpecWithCode 1.0.192 released (PR #1401, includes phases 1-5); verified on M4, M1, M3; Test passed on main 87d8e193be"}
+{"t":"T-22","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z"}
+{"t":"T-22","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z","evidence":"0194e206ac075587c1aae818969aac22bef51078","note":"specwithcode-dev PR #1399; Test passed on main 87d8e193be"}
+{"t":"T-23","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z"}
+{"t":"T-23","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z","evidence":"0194e206ac075587c1aae818969aac22bef51078","note":"specwithcode-dev PR #1399; Test passed on main 87d8e193be"}
+{"t":"T-24","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z"}
+{"t":"T-24","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z","evidence":"0194e206ac075587c1aae818969aac22bef51078","note":"specwithcode-dev PR #1399; Test passed on main 87d8e193be"}

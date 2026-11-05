@@ -58,9 +58,9 @@ As the owner, I want builds to reach a candidate channel and one canary machine 
 
 ### US-05 Show the graph (phase 5)
 As the owner, I want to see the release as a stage graph with a row per machine, both in GitHub Actions and in SpecWithCode, so that I can tell at a glance what passed, what runs and which machine did not update.
-- [ ] AC-21: Each release writes one run record (`updates/runs/release-<v>-<runId>.json`, `kind: "release"`) with stage ids, states, times and log paths, plus per-host rows (asked, acked, installed, verified or not-updated with a reason). Writes are atomic, and a resume keeps prior rows.
-- [ ] AC-22: `.github/workflows/release.yml` expresses the stages as a `needs:` graph. Every job runs `release.sh <v> --stage <id> --resume`, and the server suite runs as an 8-shard matrix with a merge job.
-- [ ] AC-23: The SpecWithCode web app has a Releases view: the stage graph with live states, plus a per-machine table for canary and fleet, read from the run record through a server endpoint.
+- [x] AC-21: Each release writes one run record (`updates/runs/release-<v>-<runId>.json`, `kind: "release"`) with stage ids, states, times and log paths, plus per-host rows (asked, acked, installed, verified or not-updated with a reason). Writes are atomic, and a resume keeps prior rows.
+- [x] AC-22: `.github/workflows/release.yml` expresses the stages as a `needs:` graph. Every job runs `release.sh <v> --stage <id> --resume`, and the server suite runs as an 8-shard matrix with a merge job.
+- [x] AC-23: The SpecWithCode web app has a Releases view: the stage graph with live states, plus a per-machine table for canary and fleet, read from the run record through a server endpoint.
 
 ## Approach
 
@@ -159,6 +159,10 @@ Process: one PR per phase on its own branch, built outside the shared checkout's
 
 ### T-24 Releases view in SpecWithCode
 - AC: AC-23 | Files: apps/server/src/releases/ReleaseRunService.ts, apps/server/src/releases/ReleaseRunService.test.ts, apps/web/src/components/releases/ReleasesView.tsx, apps/web/src/components/releases/ReleasesView.test.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/releases apps/web/src/components/releases
+
+### T-26 Releases view shows the run as it happened
+- AC: AC-21, AC-23 | Files: scripts/release/run_record.py, scripts/studio-fleet/rollout_record.py, apps/web/src/components/releases/ReleasesView.tsx | Test: python3 scripts/release/test-run-record.py && node node_modules/vite-plus/bin/vp test run apps/web/src/components/releases
+- Found rendering the 1.0.192 run signed in (~/.specwithcode/release-pipeline-releases-view.png): workers show "1.0.40 -> 1.0.192" instead of 1.0.191; worker Asked/Acked show the release start; Resolve shows 27m 44s; stages that never run on the channel show Waiting on a released run, and github-channel stages carry candidate labels; the last column clips at 1440 px.
 
 ### T-25 Verify and close 1239
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11, AC-12, AC-13, AC-14, AC-15, AC-16, AC-17, AC-18, AC-19, AC-20, AC-21, AC-22, AC-23 | Files: none | Test: bash scripts/release/release-self-test.sh
