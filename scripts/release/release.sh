@@ -767,26 +767,35 @@ cmd_status() {
 # anyway ("no going back from here" in git's remove_worktree), and the next
 # release's trees stage refuses the leftover as "not a git work tree".
 # Finish only when git can list worktrees and no longer lists this one, and either
-# git reported that it failed while deleting this folder (so it had passed its
-# clean check and was deleting everything in it), or only .DS_Store files are
+# git reported that it failed while deleting this very folder (so it had passed
+# its clean check and was deleting everything in it), or only .DS_Store files are
 # left. Any doubt keeps the folder.
 finish_worktree_removal() {
-  local path="$1" wt="$2" err="${3:-}" i listed left git_was_deleting=0
+  local path="$1" wt="$2" err="${3:-}" i listed left trash
   # Read the list whole (not piped into grep -q, which pipefail turns into a skip).
   listed="$(git -C "$path" worktree list --porcelain 2>/dev/null)" || return 1
   grep -qxF "worktree $wt" <<<"$listed" && return 1
-  [ -n "$err" ] && [ -f "$err" ] && grep -qF "failed to delete '$wt'" "$err" && git_was_deleting=1
-  for i in 1 2 3 4 5; do
+  [ -e "$wt" ] || return 0
+  if [ -n "$err" ] && [ -f "$err" ] && grep -qF "failed to delete '$wt'" "$err"; then
+    # Move what git left out of the way first, so the retries below can only
+    # delete that and never a worktree or folder made at this path meanwhile.
+    trash="$(dirname "$wt")/.$(basename "$wt").removing-$$"
+    [ -e "$trash" ] && return 1
+    mv "$wt" "$trash" 2>/dev/null || return 1
+    for i in 1 2 3 4 5; do
+      rm -rf "$trash" 2>/dev/null || true
+      [ -e "$trash" ] || return 0
+      sleep 1
+    done
+    return 1
+  fi
+  for i in 1 2 3; do
     [ -e "$wt" ] || return 0
-    if [ "$git_was_deleting" -eq 1 ]; then
-      rm -rf "$wt" 2>/dev/null || true
-    else
-      # A find that cannot read part of the folder fails, and the folder is kept.
-      left="$(find "$wt" -mindepth 1 ! -type d ! -name .DS_Store -print -quit 2>/dev/null)" || return 1
-      [ -z "$left" ] || return 1
-      find "$wt" -mindepth 1 -type f -name .DS_Store -delete 2>/dev/null || return 1
-      find "$wt" -depth -type d -empty -delete 2>/dev/null || true
-    fi
+    # A find that cannot read part of the folder fails, and the folder is kept.
+    left="$(find "$wt" -mindepth 1 ! -type d ! -name .DS_Store -print -quit 2>/dev/null)" || return 1
+    [ -z "$left" ] || return 1
+    find "$wt" -mindepth 1 -type f -name .DS_Store -delete 2>/dev/null || return 1
+    find "$wt" -depth -type d -empty -delete 2>/dev/null || true
     [ -e "$wt" ] || return 0
     sleep 1
   done

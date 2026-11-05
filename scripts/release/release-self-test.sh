@@ -258,10 +258,14 @@ if [ "\$3 \$4" = "worktree remove" ] && [ -n "\${STUB_RACE_FILE:-}" ]; then
   # STUB_REMOVE_NOOP: git refuses and still lists the worktree; its .git file is
   # gone too, so only the "still listed" check can keep the folder.
   if [ -n "\${STUB_REMOVE_NOOP:-}" ]; then rm -f "\$5/.git"; else "$REAL_GIT" "\$@" || exit \$?; fi
-  mkdir -p "\$5/sub" && touch "\$5/\$STUB_RACE_FILE" "$T/racebin/removed"
+  mkdir -p "\$5/sub/deep" && touch "\$5/\$STUB_RACE_FILE" "$T/racebin/removed"
+  # STUB_RACE_NESTED: real files left deeper in the tree too, as git leaves them.
+  [ -n "\${STUB_RACE_NESTED:-}" ] && touch "\$5/sub/deep/index.ts" "\$5/sub/.hidden"
   # STUB_RACE_ERR: another error than git's own "failed to delete" while deleting.
   if [ -n "\${STUB_RACE_ERR:-}" ]; then echo "\$STUB_RACE_ERR" >&2; exit 128; fi
-  echo "error: failed to delete '\$5': Directory not empty" >&2; exit 255
+  # Git translates its messages; only LC_ALL=C gives the English text.
+  if [ "\${LC_ALL:-}" != C ]; then echo "erreur : échec de la suppression de '\$5'" >&2; exit 255; fi
+  echo "error: failed to delete '\${STUB_RACE_PATH:-\$5}': Directory not empty" >&2; exit 255
 fi
 # STUB_LIST_FAIL: once a worktree was removed, git cannot list worktrees.
 [ "\$3 \$4" = "worktree list" ] && [ -n "\${STUB_LIST_FAIL:-}" ] && [ -e "$T/racebin/removed" ] && exit 128
@@ -277,8 +281,13 @@ check "finder race: branch deleted" no "$(has_branch raced)"
 fresh_repo
 add_wt "$T/wt/raced-partial" raced-partial
 : >"$STUB_DB_FILE"
-PATH="$T/racebin:$PATH" STUB_RACE_FILE=README.md run_cleanup
-check "git failed while deleting, files left: removal finished" "removed|no" "$(action_of "$T/wt/raced-partial")|$(exists "$T/wt/raced-partial")"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=README.md STUB_RACE_NESTED=1 LC_ALL=fr_FR.UTF-8 run_cleanup
+check "git failed while deleting, files left: removal finished" "removed|no|" "$(action_of "$T/wt/raced-partial")|$(exists "$T/wt/raced-partial")|$(ls -A "$T/wt")"
+fresh_repo
+add_wt "$T/wt/raced-elsewhere" raced-elsewhere
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=README.md STUB_RACE_PATH="$T/wt/other" run_cleanup
+check "failed to delete names another folder: kept" "keep|yes" "$(action_of "$T/wt/raced-elsewhere")|$([ -f "$T/wt/raced-elsewhere/README.md" ] && echo yes || echo no)"
 fresh_repo
 add_wt "$T/wt/raced-other" raced-other
 : >"$STUB_DB_FILE"
