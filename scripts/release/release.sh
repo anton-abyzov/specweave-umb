@@ -768,8 +768,11 @@ cmd_status() {
 # Finish that removal only when git no longer lists the worktree and nothing but
 # macOS folder metadata is left in it.
 finish_worktree_removal() {
-  local path="$1" wt="$2" i
-  git -C "$path" worktree list --porcelain 2>/dev/null | grep -qxF "worktree $wt" && return 1
+  local path="$1" wt="$2" i listed
+  # Read the list whole (not piped into grep -q, which pipefail turns into a skip)
+  # and keep the folder when git cannot list its worktrees.
+  listed="$(git -C "$path" worktree list --porcelain 2>/dev/null)" || return 1
+  grep -qxF "worktree $wt" <<<"$listed" && return 1
   for i in 1 2 3; do
     [ -e "$wt" ] || return 0
     find "$wt" -mindepth 1 ! -type d ! -name .DS_Store ! -name '._*' -print -quit 2>/dev/null | grep -q . && return 1

@@ -256,9 +256,11 @@ cat >"$T/racebin/git" <<SH
 #!/bin/bash
 if [ "\$3 \$4" = "worktree remove" ] && [ -n "\${STUB_RACE_FILE:-}" ]; then
   "$REAL_GIT" "\$@" || exit \$?
-  mkdir -p "\$5/sub" && touch "\$5/\$STUB_RACE_FILE"
+  mkdir -p "\$5/sub" && touch "\$5/\$STUB_RACE_FILE" "$T/racebin/removed"
   echo "error: failed to delete '\$5': Directory not empty" >&2; exit 255
 fi
+# STUB_LIST_FAIL: once a worktree was removed, git cannot list worktrees.
+[ "\$3 \$4" = "worktree list" ] && [ -n "\${STUB_LIST_FAIL:-}" ] && [ -e "$T/racebin/removed" ] && exit 128
 exec "$REAL_GIT" "\$@"
 SH
 chmod +x "$T/racebin/git"
@@ -273,6 +275,12 @@ add_wt "$T/wt/raced-file" raced-file
 : >"$STUB_DB_FILE"
 PATH="$T/racebin:$PATH" STUB_RACE_FILE=notes.txt run_cleanup
 check "race leaves a real file: kept" "keep|git worktree remove refused: error: failed to delete '$T/wt/raced-file': Directory not empty|yes" "$(action_of "$T/wt/raced-file")|$(reason_of "$T/wt/raced-file")|$([ -f "$T/wt/raced-file/notes.txt" ] && echo yes || echo no)"
+fresh_repo
+add_wt "$T/wt/raced-unlisted" raced-unlisted
+: >"$STUB_DB_FILE"
+rm -f "$T/racebin/removed"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store STUB_LIST_FAIL=1 run_cleanup
+check "race, git cannot list worktrees: kept" "keep|yes" "$(action_of "$T/wt/raced-unlisted")|$(exists "$T/wt/raced-unlisted")"
 
 # ---- 7. dry run reports and touches nothing
 fresh_repo
