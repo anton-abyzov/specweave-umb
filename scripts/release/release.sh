@@ -762,6 +762,29 @@ cmd_status() {
 
 # ---------------------------------------------------------------- cleanup
 
+# Finder can write .DS_Store into a folder while `git worktree remove` deletes it.
+# Git has then deregistered the worktree and deleted its files, but the folder
+# stays, and the next release's trees stage refuses it as "not a git work tree".
+# Finish that removal only when git can list worktrees and no longer lists this
+# one, and nothing but .DS_Store files is left; any doubt keeps the folder.
+finish_worktree_removal() {
+  local path="$1" wt="$2" i listed left
+  # Read the list whole (not piped into grep -q, which pipefail turns into a skip).
+  listed="$(git -C "$path" worktree list --porcelain 2>/dev/null)" || return 1
+  grep -qxF "worktree $wt" <<<"$listed" && return 1
+  for i in 1 2 3; do
+    [ -e "$wt" ] || return 0
+    # A find that cannot read part of the folder fails, and the folder is kept.
+    left="$(find "$wt" -mindepth 1 ! -type d ! -name .DS_Store -print -quit 2>/dev/null)" || return 1
+    [ -z "$left" ] || return 1
+    find "$wt" -mindepth 1 -type f -name .DS_Store -delete 2>/dev/null || return 1
+    find "$wt" -depth -type d -empty -delete 2>/dev/null || true
+    [ -e "$wt" ] || return 0
+    sleep 1
+  done
+  return 1
+}
+
 real_path() { python3 -c 'import os, sys; print(os.path.realpath(os.path.expanduser(sys.argv[1])))' "$1"; }
 
 # studio_has_owners_cmd: true when this specweave-studio has `worktree owners`.
@@ -1061,7 +1084,7 @@ cmd_cleanup() {
       [ "$apply" -eq 1 ] || [ -z "$branch_keep" ] || reason="$reason; branch $branch will be kept: $branch_keep"
     fi
     if [ "$action" = remove ] && [ "$apply" -eq 1 ]; then
-      if git -C "$path" worktree remove "$wt" 2>"$err"; then
+      if git -C "$path" worktree remove "$wt" 2>"$err" || finish_worktree_removal "$path" "$wt"; then
         if [ -n "$branch_keep" ]; then
           action=removed-worktree; reason="$reason; branch $branch kept: $branch_keep"
         elif git -C "$path" branch -d "$branch" >/dev/null 2>&1; then

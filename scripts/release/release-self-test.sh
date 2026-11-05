@@ -247,6 +247,53 @@ STUB_DB_NEXT=fail run_cleanup
 check "second read failed: worktree kept" "keep|thread bindings unavailable on the second read" "$(action_of "$T/wt/late-fail")|$(reason_of "$T/wt/late-fail")"
 check "second read failed: folder still there" yes "$(exists "$T/wt/late-fail")"
 
+# ---- 6b. Finder writes .DS_Store while git removes a worktree
+# The git shim runs the real removal, then leaves the folder behind holding
+# $STUB_RACE_FILE and fails the way git does when rmdir loses that race.
+REAL_GIT="$(command -v git)"
+mkdir -p "$T/racebin"
+cat >"$T/racebin/git" <<SH
+#!/bin/bash
+if [ "\$3 \$4" = "worktree remove" ] && [ -n "\${STUB_RACE_FILE:-}" ]; then
+  # STUB_REMOVE_NOOP: git refuses and still lists the worktree; its .git file is
+  # gone too, so only the "still listed" check can keep the folder.
+  if [ -n "\${STUB_REMOVE_NOOP:-}" ]; then rm -f "\$5/.git"; else "$REAL_GIT" "\$@" || exit \$?; fi
+  mkdir -p "\$5/sub" && touch "\$5/\$STUB_RACE_FILE" "$T/racebin/removed"
+  echo "error: failed to delete '\$5': Directory not empty" >&2; exit 255
+fi
+# STUB_LIST_FAIL: once a worktree was removed, git cannot list worktrees.
+[ "\$3 \$4" = "worktree list" ] && [ -n "\${STUB_LIST_FAIL:-}" ] && [ -e "$T/racebin/removed" ] && exit 128
+exec "$REAL_GIT" "\$@"
+SH
+chmod +x "$T/racebin/git"
+fresh_repo
+add_wt "$T/wt/raced" raced
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store run_cleanup
+check "finder race: only .DS_Store left, removal finished" "removed|no" "$(action_of "$T/wt/raced")|$(exists "$T/wt/raced")"
+check "finder race: branch deleted" no "$(has_branch raced)"
+fresh_repo
+add_wt "$T/wt/raced-file" raced-file
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=notes.txt run_cleanup
+check "race leaves a real file: kept" "keep|git worktree remove refused: error: failed to delete '$T/wt/raced-file': Directory not empty|yes" "$(action_of "$T/wt/raced-file")|$(reason_of "$T/wt/raced-file")|$([ -f "$T/wt/raced-file/notes.txt" ] && echo yes || echo no)"
+fresh_repo
+add_wt "$T/wt/raced-unlisted" raced-unlisted
+: >"$STUB_DB_FILE"
+rm -f "$T/racebin/removed"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store STUB_LIST_FAIL=1 run_cleanup
+check "race, git cannot list worktrees: kept" "keep|yes" "$(action_of "$T/wt/raced-unlisted")|$(exists "$T/wt/raced-unlisted")"
+fresh_repo
+add_wt "$T/wt/still-listed" still-listed
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store STUB_REMOVE_NOOP=1 run_cleanup
+check "remove refused, worktree still listed: kept" "keep|yes|yes" "$(action_of "$T/wt/still-listed")|$(exists "$T/wt/still-listed")|$(has_branch still-listed)"
+fresh_repo
+add_wt "$T/wt/raced-apple" raced-apple
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=._notes run_cleanup
+check "race leaves a ._ file: kept" "keep|yes" "$(action_of "$T/wt/raced-apple")|$([ -f "$T/wt/raced-apple/._notes" ] && echo yes || echo no)"
+
 # ---- 7. dry run reports and touches nothing
 fresh_repo
 add_wt "$T/wt/recorded" recorded
