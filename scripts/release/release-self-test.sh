@@ -255,7 +255,9 @@ mkdir -p "$T/racebin"
 cat >"$T/racebin/git" <<SH
 #!/bin/bash
 if [ "\$3 \$4" = "worktree remove" ] && [ -n "\${STUB_RACE_FILE:-}" ]; then
-  "$REAL_GIT" "\$@" || exit \$?
+  # STUB_REMOVE_NOOP: git refuses and still lists the worktree; its .git file is
+  # gone too, so only the "still listed" check can keep the folder.
+  if [ -n "\${STUB_REMOVE_NOOP:-}" ]; then rm -f "\$5/.git"; else "$REAL_GIT" "\$@" || exit \$?; fi
   mkdir -p "\$5/sub" && touch "\$5/\$STUB_RACE_FILE" "$T/racebin/removed"
   echo "error: failed to delete '\$5': Directory not empty" >&2; exit 255
 fi
@@ -281,6 +283,16 @@ add_wt "$T/wt/raced-unlisted" raced-unlisted
 rm -f "$T/racebin/removed"
 PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store STUB_LIST_FAIL=1 run_cleanup
 check "race, git cannot list worktrees: kept" "keep|yes" "$(action_of "$T/wt/raced-unlisted")|$(exists "$T/wt/raced-unlisted")"
+fresh_repo
+add_wt "$T/wt/still-listed" still-listed
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store STUB_REMOVE_NOOP=1 run_cleanup
+check "remove refused, worktree still listed: kept" "keep|yes|yes" "$(action_of "$T/wt/still-listed")|$(exists "$T/wt/still-listed")|$(has_branch still-listed)"
+fresh_repo
+add_wt "$T/wt/raced-apple" raced-apple
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=._notes run_cleanup
+check "race leaves a ._ file: kept" "keep|yes" "$(action_of "$T/wt/raced-apple")|$([ -f "$T/wt/raced-apple/._notes" ] && echo yes || echo no)"
 
 # ---- 7. dry run reports and touches nothing
 fresh_repo

@@ -765,19 +765,20 @@ cmd_status() {
 # Finder can write .DS_Store into a folder while `git worktree remove` deletes it.
 # Git has then deregistered the worktree and deleted its files, but the folder
 # stays, and the next release's trees stage refuses it as "not a git work tree".
-# Finish that removal only when git no longer lists the worktree and nothing but
-# macOS folder metadata is left in it.
+# Finish that removal only when git can list worktrees and no longer lists this
+# one, and nothing but .DS_Store files is left; any doubt keeps the folder.
 finish_worktree_removal() {
-  local path="$1" wt="$2" i listed
-  # Read the list whole (not piped into grep -q, which pipefail turns into a skip)
-  # and keep the folder when git cannot list its worktrees.
+  local path="$1" wt="$2" i listed left
+  # Read the list whole (not piped into grep -q, which pipefail turns into a skip).
   listed="$(git -C "$path" worktree list --porcelain 2>/dev/null)" || return 1
   grep -qxF "worktree $wt" <<<"$listed" && return 1
   for i in 1 2 3; do
     [ -e "$wt" ] || return 0
-    find "$wt" -mindepth 1 ! -type d ! -name .DS_Store ! -name '._*' -print -quit 2>/dev/null | grep -q . && return 1
-    find "$wt" -mindepth 1 -type f \( -name .DS_Store -o -name '._*' \) -delete 2>/dev/null
-    find "$wt" -depth -type d -empty -delete 2>/dev/null
+    # A find that cannot read part of the folder fails, and the folder is kept.
+    left="$(find "$wt" -mindepth 1 ! -type d ! -name .DS_Store -print -quit 2>/dev/null)" || return 1
+    [ -z "$left" ] || return 1
+    find "$wt" -mindepth 1 -type f -name .DS_Store -delete 2>/dev/null || return 1
+    find "$wt" -depth -type d -empty -delete 2>/dev/null || true
     [ -e "$wt" ] || return 0
     sleep 1
   done
