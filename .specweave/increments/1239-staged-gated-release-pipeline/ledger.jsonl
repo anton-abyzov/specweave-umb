@@ -46,3 +46,7 @@
 {"t":"T-23","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z","evidence":"0194e206ac075587c1aae818969aac22bef51078","note":"specwithcode-dev PR #1399; Test passed on main 87d8e193be"}
 {"t":"T-24","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z"}
 {"t":"T-24","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-05T00:59:04.000Z","evidence":"0194e206ac075587c1aae818969aac22bef51078","note":"specwithcode-dev PR #1399; Test passed on main 87d8e193be"}
+{"t":"T-26","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-05T02:18:50.000Z"}
+{"t":"T-26","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-05T02:18:50.000Z","evidence":"7b99cde8dd7844243718d99fa3fe339665b816b0","note":"specwithcode-dev PR #1405, shipped in 1.0.194; Test passed on main 2d62717311"}
+{"t":"T-25","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-05T02:19:40.000Z"}
+{"t":"T-25","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-05T02:19:40.000Z","evidence":"6d5008381c1b8da49ea4b85f17030bfdc3ba25b0","note":"release-self-test 141 passed; 1.0.192, 1.0.193, 1.0.194 shipped and verified on M4, M1, M3"}

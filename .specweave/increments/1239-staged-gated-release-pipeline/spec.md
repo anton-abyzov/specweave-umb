@@ -82,9 +82,9 @@ Process: one PR per phase on its own branch, built outside the shared checkout's
 - D-03 A release counts as done only when M4, M1 and M3 are all `verified`. Any other state fails the run with a per-machine report. Ministorm and other machines are optional.
 - D-04 Canary soak stays at 15 minutes.
 - D-05 npm CLI publishing is dropped from `finalize` (this track does not ship a CLI).
-### Open
-- Which runner `ship studio` dispatches `release.yml` to (M1 `swc-release` plus an M4 `m4` label, or a local graph walk with Actions as the fallback). This is decided in phase 5.
-- Whether activation should wait for the post-restart proof (the held-rollback case in failures a and b). This is decided in phase 2.
+### Decided while building (recorded at close, 2026-11-05)
+- D-06 Runner (phase 5): `ship studio` keeps walking the stage graph locally on M4. `.github/workflows/release.yml` expresses the same graph (`needs:` jobs, each `release.sh <v> --stage <id> --resume`, 8-shard server suite) and runs on dispatch. Finalize dispatches only `release-windows-linux.yml`. 1.0.192, 1.0.193 and 1.0.194 shipped this way.
+- D-07 Activation does not wait for the post-restart proof (phase 2). The proof runs after the restart. A failed proof leaves the new database held for review and never restores over post-activation writes (`update_apply.PageMode`). The blocking pre-publish rehearsal on a clone of M4's real database (AC-12) catches a failing proof before any machine activates.
 
 ## Tasks
 
@@ -149,7 +149,7 @@ Process: one PR per phase on its own branch, built outside the shared checkout's
 - AC: AC-19, AC-20 | Files: scripts/release/release.sh, scripts/studio-fleet/fleet_rollout.py, scripts/release/release-self-test.sh | Test: bash scripts/release/release-self-test.sh
 
 ### T-21 Release phase 4
-- AC: AC-17, AC-18, AC-19, AC-20 | Files: CHANGELOG.md, ../../../.specweave/release/manifest.json | Test: bash scripts/release/release-self-test.sh
+- AC: AC-17, AC-18, AC-19, AC-20 | Files: CHANGELOG.md, .specweave/release/manifest.json | Test: bash scripts/release/release-self-test.sh
 
 ### T-22 Release run record
 - AC: AC-21 | Files: scripts/release/run_record.py, scripts/release/test-run-record.py, scripts/release/release.sh, scripts/studio-fleet/fleet_rollout.py | Test: python3 scripts/release/test-run-record.py
