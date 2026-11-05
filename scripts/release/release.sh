@@ -772,6 +772,7 @@ cmd_status() {
 # left. Any doubt keeps the folder.
 finish_worktree_removal() {
   local path="$1" wt="$2" err="${3:-}" i listed left trash
+  FINISH_REMOVAL_NOTE=""
   # Read the list whole (not piped into grep -q, which pipefail turns into a skip).
   listed="$(git -C "$path" worktree list --porcelain 2>/dev/null)" || return 1
   grep -qxF "worktree $wt" <<<"$listed" && return 1
@@ -787,6 +788,7 @@ finish_worktree_removal() {
       [ -e "$trash" ] || return 0
       sleep 1
     done
+    FINISH_REMOVAL_NOTE="git's leftover could not be deleted and is at $trash; remove it by hand"
     return 1
   fi
   for i in 1 2 3; do
@@ -1111,7 +1113,7 @@ cmd_cleanup() {
           action=removed-worktree; reason="$reason; branch $branch kept: git branch -d refused (not merged locally)"
         fi
       else
-        action=keep; reason="git worktree remove refused: $(tail -1 "$err")"; rc=1
+        action=keep; reason="git worktree remove refused: $(tail -1 "$err")${FINISH_REMOVAL_NOTE:+; $FINISH_REMOVAL_NOTE}"; rc=1
       fi
     fi
     jq -cn --arg path "$wt" --arg branch "$branch" --arg action "$action" --arg reason "$reason" \

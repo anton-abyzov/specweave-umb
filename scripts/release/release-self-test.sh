@@ -261,6 +261,8 @@ if [ "\$3 \$4" = "worktree remove" ] && [ -n "\${STUB_RACE_FILE:-}" ]; then
   mkdir -p "\$5/sub/deep" && touch "\$5/\$STUB_RACE_FILE" "$T/racebin/removed"
   # STUB_RACE_NESTED: real files left deeper in the tree too, as git leaves them.
   [ -n "\${STUB_RACE_NESTED:-}" ] && touch "\$5/sub/deep/index.ts" "\$5/sub/.hidden"
+  # STUB_RACE_LOCK: a file nothing can delete (macOS immutable flag).
+  [ -n "\${STUB_RACE_LOCK:-}" ] && touch "\$5/sub/locked" && chflags uchg "\$5/sub/locked"
   # STUB_RACE_ERR: another error than git's own "failed to delete" while deleting.
   if [ -n "\${STUB_RACE_ERR:-}" ]; then echo "\$STUB_RACE_ERR" >&2; exit 128; fi
   # Git translates its messages; only LC_ALL=C gives the English text.
@@ -288,6 +290,16 @@ add_wt "$T/wt/raced-elsewhere" raced-elsewhere
 : >"$STUB_DB_FILE"
 PATH="$T/racebin:$PATH" STUB_RACE_FILE=README.md STUB_RACE_PATH="$T/wt/other" run_cleanup
 check "failed to delete names another folder: kept" "keep|yes" "$(action_of "$T/wt/raced-elsewhere")|$([ -f "$T/wt/raced-elsewhere/README.md" ] && echo yes || echo no)"
+if command -v chflags >/dev/null 2>&1; then
+  fresh_repo
+  add_wt "$T/wt/raced-locked" raced-locked
+  : >"$STUB_DB_FILE"
+  PATH="$T/racebin:$PATH" STUB_RACE_FILE=README.md STUB_RACE_LOCK=1 run_cleanup
+  locked_trash="$(find "$T/wt" -maxdepth 1 -name '.raced-locked.removing-*' | head -1)"
+  check "leftover that cannot be deleted: kept, reported with its new path" "keep|yes|yes" \
+    "$(action_of "$T/wt/raced-locked")|$([ -n "$locked_trash" ] && echo yes || echo no)|$(reason_of "$T/wt/raced-locked" | grep -qF "is at $locked_trash; remove it by hand" && echo yes || echo no)"
+  [ -n "$locked_trash" ] && chflags -R nouchg "$locked_trash" && rm -rf "$locked_trash"
+fi
 fresh_repo
 add_wt "$T/wt/raced-other" raced-other
 : >"$STUB_DB_FILE"
