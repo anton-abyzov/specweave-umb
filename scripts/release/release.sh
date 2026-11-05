@@ -762,23 +762,31 @@ cmd_status() {
 
 # ---------------------------------------------------------------- cleanup
 
-# Finder can write .DS_Store into a folder while `git worktree remove` deletes it.
-# Git has then deregistered the worktree and deleted its files, but the folder
-# stays, and the next release's trees stage refuses it as "not a git work tree".
-# Finish that removal only when git can list worktrees and no longer lists this
-# one, and nothing but .DS_Store files is left; any doubt keeps the folder.
+# Finder can write .DS_Store into folders while `git worktree remove` deletes them.
+# Git has then checked the worktree clean, deleted part of it and deregistered it
+# anyway ("no going back from here" in git's remove_worktree), and the next
+# release's trees stage refuses the leftover as "not a git work tree".
+# Finish only when git can list worktrees and no longer lists this one, and either
+# git reported that it failed while deleting this folder (so it had passed its
+# clean check and was deleting everything in it), or only .DS_Store files are
+# left. Any doubt keeps the folder.
 finish_worktree_removal() {
-  local path="$1" wt="$2" i listed left
+  local path="$1" wt="$2" err="${3:-}" i listed left git_was_deleting=0
   # Read the list whole (not piped into grep -q, which pipefail turns into a skip).
   listed="$(git -C "$path" worktree list --porcelain 2>/dev/null)" || return 1
   grep -qxF "worktree $wt" <<<"$listed" && return 1
-  for i in 1 2 3; do
+  [ -n "$err" ] && [ -f "$err" ] && grep -qF "failed to delete '$wt'" "$err" && git_was_deleting=1
+  for i in 1 2 3 4 5; do
     [ -e "$wt" ] || return 0
-    # A find that cannot read part of the folder fails, and the folder is kept.
-    left="$(find "$wt" -mindepth 1 ! -type d ! -name .DS_Store -print -quit 2>/dev/null)" || return 1
-    [ -z "$left" ] || return 1
-    find "$wt" -mindepth 1 -type f -name .DS_Store -delete 2>/dev/null || return 1
-    find "$wt" -depth -type d -empty -delete 2>/dev/null || true
+    if [ "$git_was_deleting" -eq 1 ]; then
+      rm -rf "$wt" 2>/dev/null || true
+    else
+      # A find that cannot read part of the folder fails, and the folder is kept.
+      left="$(find "$wt" -mindepth 1 ! -type d ! -name .DS_Store -print -quit 2>/dev/null)" || return 1
+      [ -z "$left" ] || return 1
+      find "$wt" -mindepth 1 -type f -name .DS_Store -delete 2>/dev/null || return 1
+      find "$wt" -depth -type d -empty -delete 2>/dev/null || true
+    fi
     [ -e "$wt" ] || return 0
     sleep 1
   done
@@ -1084,7 +1092,8 @@ cmd_cleanup() {
       [ "$apply" -eq 1 ] || [ -z "$branch_keep" ] || reason="$reason; branch $branch will be kept: $branch_keep"
     fi
     if [ "$action" = remove ] && [ "$apply" -eq 1 ]; then
-      if git -C "$path" worktree remove "$wt" 2>"$err" || finish_worktree_removal "$path" "$wt"; then
+      # LC_ALL=C: finish_worktree_removal reads git's English "failed to delete" message.
+      if LC_ALL=C git -C "$path" worktree remove "$wt" 2>"$err" || finish_worktree_removal "$path" "$wt" "$err"; then
         if [ -n "$branch_keep" ]; then
           action=removed-worktree; reason="$reason; branch $branch kept: $branch_keep"
         elif git -C "$path" branch -d "$branch" >/dev/null 2>&1; then
