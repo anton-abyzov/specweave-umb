@@ -258,8 +258,16 @@ if [ "\$3 \$4" = "worktree remove" ] && [ -n "\${STUB_RACE_FILE:-}" ]; then
   # STUB_REMOVE_NOOP: git refuses and still lists the worktree; its .git file is
   # gone too, so only the "still listed" check can keep the folder.
   if [ -n "\${STUB_REMOVE_NOOP:-}" ]; then rm -f "\$5/.git"; else "$REAL_GIT" "\$@" || exit \$?; fi
-  mkdir -p "\$5/sub" && touch "\$5/\$STUB_RACE_FILE" "$T/racebin/removed"
-  echo "error: failed to delete '\$5': Directory not empty" >&2; exit 255
+  mkdir -p "\$5/sub/deep" && touch "\$5/\$STUB_RACE_FILE" "$T/racebin/removed"
+  # STUB_RACE_NESTED: real files left deeper in the tree too, as git leaves them.
+  [ -n "\${STUB_RACE_NESTED:-}" ] && touch "\$5/sub/deep/index.ts" "\$5/sub/.hidden"
+  # STUB_RACE_LOCK: a file nothing can delete (macOS immutable flag).
+  [ -n "\${STUB_RACE_LOCK:-}" ] && touch "\$5/sub/locked" && chflags uchg "\$5/sub/locked"
+  # STUB_RACE_ERR: another error than git's own "failed to delete" while deleting.
+  if [ -n "\${STUB_RACE_ERR:-}" ]; then echo "\$STUB_RACE_ERR" >&2; exit 128; fi
+  # Git translates its messages; only LC_ALL=C gives the English text.
+  if [ "\${LC_ALL:-}" != C ]; then echo "erreur : échec de la suppression de '\$5'" >&2; exit 255; fi
+  echo "error: failed to delete '\${STUB_RACE_PATH:-\$5}': Directory not empty" >&2; exit 255
 fi
 # STUB_LIST_FAIL: once a worktree was removed, git cannot list worktrees.
 [ "\$3 \$4" = "worktree list" ] && [ -n "\${STUB_LIST_FAIL:-}" ] && [ -e "$T/racebin/removed" ] && exit 128
@@ -273,10 +281,35 @@ PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store run_cleanup
 check "finder race: only .DS_Store left, removal finished" "removed|no" "$(action_of "$T/wt/raced")|$(exists "$T/wt/raced")"
 check "finder race: branch deleted" no "$(has_branch raced)"
 fresh_repo
+add_wt "$T/wt/raced-partial" raced-partial
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=README.md STUB_RACE_NESTED=1 LC_ALL=fr_FR.UTF-8 run_cleanup
+check "git failed while deleting, files left: removal finished" "removed|no|" "$(action_of "$T/wt/raced-partial")|$(exists "$T/wt/raced-partial")|$(ls -A "$T/wt")"
+fresh_repo
+add_wt "$T/wt/raced-elsewhere" raced-elsewhere
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=README.md STUB_RACE_PATH="$T/wt/other" run_cleanup
+check "failed to delete names another folder: kept" "keep|yes" "$(action_of "$T/wt/raced-elsewhere")|$([ -f "$T/wt/raced-elsewhere/README.md" ] && echo yes || echo no)"
+if command -v chflags >/dev/null 2>&1; then
+  fresh_repo
+  add_wt "$T/wt/raced-locked" raced-locked
+  : >"$STUB_DB_FILE"
+  PATH="$T/racebin:$PATH" STUB_RACE_FILE=README.md STUB_RACE_LOCK=1 run_cleanup
+  locked_trash="$(find "$T/wt" -maxdepth 1 -name '.raced-locked.removing-*' | head -1)"
+  check "leftover that cannot be deleted: kept, reported with its new path" "keep|yes|yes" \
+    "$(action_of "$T/wt/raced-locked")|$([ -n "$locked_trash" ] && echo yes || echo no)|$(reason_of "$T/wt/raced-locked" | grep -qF "is at $locked_trash; remove it by hand" && echo yes || echo no)"
+  [ -n "$locked_trash" ] && chflags -R nouchg "$locked_trash" && rm -rf "$locked_trash"
+fi
+fresh_repo
+add_wt "$T/wt/raced-other" raced-other
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store STUB_RACE_ERR="fatal: unexpected" run_cleanup
+check "other error, only .DS_Store left: removal finished" "removed|no" "$(action_of "$T/wt/raced-other")|$(exists "$T/wt/raced-other")"
+fresh_repo
 add_wt "$T/wt/raced-file" raced-file
 : >"$STUB_DB_FILE"
-PATH="$T/racebin:$PATH" STUB_RACE_FILE=notes.txt run_cleanup
-check "race leaves a real file: kept" "keep|git worktree remove refused: error: failed to delete '$T/wt/raced-file': Directory not empty|yes" "$(action_of "$T/wt/raced-file")|$(reason_of "$T/wt/raced-file")|$([ -f "$T/wt/raced-file/notes.txt" ] && echo yes || echo no)"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=notes.txt STUB_RACE_ERR="fatal: unexpected" run_cleanup
+check "other error leaves a real file: kept" "keep|git worktree remove refused: fatal: unexpected|yes" "$(action_of "$T/wt/raced-file")|$(reason_of "$T/wt/raced-file")|$([ -f "$T/wt/raced-file/notes.txt" ] && echo yes || echo no)"
 fresh_repo
 add_wt "$T/wt/raced-unlisted" raced-unlisted
 : >"$STUB_DB_FILE"
@@ -291,8 +324,8 @@ check "remove refused, worktree still listed: kept" "keep|yes|yes" "$(action_of 
 fresh_repo
 add_wt "$T/wt/raced-apple" raced-apple
 : >"$STUB_DB_FILE"
-PATH="$T/racebin:$PATH" STUB_RACE_FILE=._notes run_cleanup
-check "race leaves a ._ file: kept" "keep|yes" "$(action_of "$T/wt/raced-apple")|$([ -f "$T/wt/raced-apple/._notes" ] && echo yes || echo no)"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=._notes STUB_RACE_ERR="fatal: unexpected" run_cleanup
+check "other error leaves a ._ file: kept" "keep|yes" "$(action_of "$T/wt/raced-apple")|$([ -f "$T/wt/raced-apple/._notes" ] && echo yes || echo no)"
 
 # ---- 7. dry run reports and touches nothing
 fresh_repo
