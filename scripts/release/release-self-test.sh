@@ -247,6 +247,33 @@ STUB_DB_NEXT=fail run_cleanup
 check "second read failed: worktree kept" "keep|thread bindings unavailable on the second read" "$(action_of "$T/wt/late-fail")|$(reason_of "$T/wt/late-fail")"
 check "second read failed: folder still there" yes "$(exists "$T/wt/late-fail")"
 
+# ---- 6b. Finder writes .DS_Store while git removes a worktree
+# The git shim runs the real removal, then leaves the folder behind holding
+# $STUB_RACE_FILE and fails the way git does when rmdir loses that race.
+REAL_GIT="$(command -v git)"
+mkdir -p "$T/racebin"
+cat >"$T/racebin/git" <<SH
+#!/bin/bash
+if [ "\$3 \$4" = "worktree remove" ] && [ -n "\${STUB_RACE_FILE:-}" ]; then
+  "$REAL_GIT" "\$@" || exit \$?
+  mkdir -p "\$5/sub" && touch "\$5/\$STUB_RACE_FILE"
+  echo "error: failed to delete '\$5': Directory not empty" >&2; exit 255
+fi
+exec "$REAL_GIT" "\$@"
+SH
+chmod +x "$T/racebin/git"
+fresh_repo
+add_wt "$T/wt/raced" raced
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store run_cleanup
+check "finder race: only .DS_Store left, removal finished" "removed|no" "$(action_of "$T/wt/raced")|$(exists "$T/wt/raced")"
+check "finder race: branch deleted" no "$(has_branch raced)"
+fresh_repo
+add_wt "$T/wt/raced-file" raced-file
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=notes.txt run_cleanup
+check "race leaves a real file: kept" "keep|git worktree remove refused: error: failed to delete '$T/wt/raced-file': Directory not empty|yes" "$(action_of "$T/wt/raced-file")|$(reason_of "$T/wt/raced-file")|$([ -f "$T/wt/raced-file/notes.txt" ] && echo yes || echo no)"
+
 # ---- 7. dry run reports and touches nothing
 fresh_repo
 add_wt "$T/wt/recorded" recorded
