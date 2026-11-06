@@ -102,7 +102,7 @@
       "path": "repositories/anton-abyzov/specwithcode-dev",
       "default_branch": "main",
       "visibility": "private",
-      "actions_enabled": false,
+      "actions_enabled": true,
       "merge": { "method": "squash", "admin": false, "gh_needs_repo_flag": true },
       "version_file": "apps/server/package.json",
       "tag_prefix": "v"
