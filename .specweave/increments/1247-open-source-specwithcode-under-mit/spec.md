@@ -54,8 +54,9 @@ Risks: published history exposes any secret or private value that gitleaks misse
 - D-05 Code of conduct → Contributor Covenant 2.1 (reversible).
 - D-06 Website claims "open source" only after the repository is public (reversible).
 - D-08 `LINUX_UPDATE_SIGNING_KEY` → generate a new key for `specwithcode`, private half in Keychain and the repository secret, because no copy exists outside GitHub and PR #1256, the only user of the key, is unmerged, so no installed app pins it yet (defaulted, reversible until #1256 ships).
+- D-09 `RELEASE_GH_TOKEN` → new fine-grained token `specwithcode-release` for `anton-abyzov/specwithcode` (contents, pull requests, workflows write; expires November 6, 2027), created in Anton's Chrome after his passkey (Anton, November 6, 2026).
 ### Open
-- D-09 `RELEASE_GH_TOKEN` is a fine-grained token scoped to `specwithcode-dev`; the new repository needs a new token made in GitHub settings.
+- none
 
 ## Tasks
 
