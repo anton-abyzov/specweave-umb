@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-29T05:05:02.391Z",
   "title": "Finish complete usage-limit account delivery",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

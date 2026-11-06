@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-28T04:18:02.550Z",
   "title": "Consolidate workspace lifecycle and handoff settings",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

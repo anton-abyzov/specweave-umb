@@ -29,5 +29,7 @@
       "approvedAt": "2026-10-28T03:12:39.174Z",
       "readyForReviewAt": "2026-10-28T03:12:39.173Z"
     }
-  ]
+  ],
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

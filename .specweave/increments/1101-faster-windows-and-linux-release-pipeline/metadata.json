@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-28T03:34:27.828Z",
   "title": "Faster Windows and Linux release pipeline",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

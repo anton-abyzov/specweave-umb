@@ -22,13 +22,13 @@ Use existing Apple team NMCB2JZ7QG and store bundle id com.specwithcode.ios. Bui
 ## Tasks
 
 ### T-01 Reconcile ownership and candidate provenance
-- AC: AC-01 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/iphone-latest-20261028/receipt.md | Test: source and device readback
+- AC: AC-01 | Files: .specweave/increments/1112-install-latest-iphone-app-with-current-mobile-features/reports/private-evidence/review-closure.md | Test: source and device readback
 
 ### T-02 Test candidate on simulator
-- AC: AC-02 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/iphone-latest-20261028/ | Test: Swift core tests, simulator build and focused UI checks
+- AC: AC-02 | Files: .specweave/increments/1112-install-latest-iphone-app-with-current-mobile-features/reports/private-evidence/ | Test: Swift core tests, simulator build and focused UI checks
 
 ### T-03 Install and verify physical candidate
-- AC: AC-03, AC-04 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/iphone-latest-20261028/ | Test: signing, install, independent readback and launch/screenshots
+- AC: AC-03, AC-04 | Files: .specweave/increments/1112-install-latest-iphone-app-with-current-mobile-features/reports/private-evidence/ | Test: signing, install, independent readback and launch/screenshots
 
 ### T-04 Verify and close 1112
-- AC: AC-01, AC-02, AC-03, AC-04 | Files: reports/ | Test: specweave verify and fresh-context review
+- AC: AC-01, AC-02, AC-03, AC-04 | Files: .specweave/increments/1112-install-latest-iphone-app-with-current-mobile-features/reports/ | Test: specweave verify and fresh-context review

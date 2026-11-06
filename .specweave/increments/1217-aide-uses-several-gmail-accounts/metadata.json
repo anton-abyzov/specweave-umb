@@ -12,5 +12,7 @@
   "externalLinks": {},
   "readyForReviewAt": "2026-11-03T20:14:12.405Z",
   "closeReason": "AC-01 is delivered by T-01 (unit test 'an update keeps the one saved account' plus headless verify); T-02 is the closing verify task and only listed AC-01 for its format, so it cannot tick it before verify passes. PR #1315 merged.",
-  "approvedAt": "2026-11-03T20:14:12.406Z"
+  "approvedAt": "2026-11-03T20:14:12.406Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

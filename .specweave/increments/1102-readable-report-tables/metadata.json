@@ -10,5 +10,7 @@
   "title": "Readable report tables",
   "project": "specweave-umb",
   "parent": "1035-redesign-report-and-artifact-experience",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

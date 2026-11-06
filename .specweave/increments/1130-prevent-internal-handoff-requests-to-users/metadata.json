@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-29T05:20:52.646Z",
   "title": "Prevent internal handoff requests to users",
   "project": "specweave",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

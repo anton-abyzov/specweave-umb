@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-28T05:31:25.322Z",
   "title": "Install latest iPhone app with current mobile features",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

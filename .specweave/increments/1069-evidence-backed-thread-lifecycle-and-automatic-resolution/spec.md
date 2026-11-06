@@ -21,8 +21,13 @@ Out: underlying task recovery, bulk resolution, archives, Stop release, auth cha
 
 - [ ] AC-10: Explicit user-requested self-resolution persists an exact-run intent and resolves only after its successful final turn, independently of automatic activation, PR snapshots and delivery receipts. Stop, pending work, children, supersession and restart races remain guarded; the response distinguishes scheduled resolution from verified delivery.
 
+- [ ] AC-11: An independently verified code receipt for an app-owned delegated worker can resolve the current turn when deployment is explicitly outside its assignment. An expired or superseded receipt, a Stop or reopen, pending work, or an unverified required gate keeps the thread unresolved. Current eligible stored receipts are applied after restart without a second report.
+- [ ] AC-12: The coordinator completion flow directs an independent verifier to record the exact completed run and its scoped evidence, including later follow-ups, without starting a receipt-only chain of workers.
+
 ## Approach
 First reconcile owner inventories and inspect current lifecycle contracts, projection candidates, settlement service, orchestrator guards and presentation. Define the smallest durable evidence contract before implementation; do not derive acceptance from final-text heuristics. Extend existing commands/events and settlement locking rather than a second sweeper. Keep runtime status separate from delivery disposition. Use isolated synthetic state for tests. Coordinate shared presentation files before edits and retain existing owner boundaries.
+
+The verified-delivery follow-up applies still-current receipts from the existing sweep and checks the thread event sequence in the settlement transaction. A scoped app-owned worker can resolve after an independent verifier confirms why deployment is outside its assignment. The coordinator reuses verification that is already needed for the assignment. [Source PR #1356](https://github.com/anton-abyzov/specwithcode-dev/pull/1356).
 
 ## Decisions
 ### Asked
@@ -66,3 +71,9 @@ First reconcile owner inventories and inspect current lifecycle contracts, proje
 
 ### T-08 Verify and close 1069
 - AC: AC-10 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/project-attention-1040/explicit-resolve-followup.md | Test: fresh exact-head review, green required CI, merge and installed explicit Resolve acceptance through existing release owner; specweave verify 1069 and specweave complete 1069 after all original tasks and gates are satisfied
+
+### T-09 Apply scoped worker delivery receipts
+- AC: AC-11 | Files: repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/orchestrationV2.ts, repositories/anton-abyzov/specwithcode-dev/packages/shared/src/threadLifecycleEvidence.ts, repositories/anton-abyzov/specwithcode-dev/packages/shared/src/threadLifecycleEvidence.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProjectionStore.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ThreadSettlementService.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ThreadSettlementService.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/Orchestrator.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/Orchestrator.lifecycle-receipt.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/EventSink.ts | Test: pnpm exec vp test run apps/server/src/orchestration-v2/ThreadSettlementService.test.ts apps/server/src/orchestration-v2/Orchestrator.lifecycle-receipt.test.ts packages/shared/src/threadLifecycleEvidence.test.ts
+
+### T-10 Record independently verified worker closeouts
+- AC: AC-12 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/DelegatedCompletionText.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/DelegatedCompletionText.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/mcp/toolkits/thread/tools.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/provider/RuntimeInstructions.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/provider/RuntimeInstructions.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/ProjectWorkspaceService.ts | Test: pnpm exec vp test run apps/server/src/orchestration-v2/DelegatedCompletionText.test.ts apps/server/src/provider/RuntimeInstructions.test.ts apps/server/src/mcp/toolkits/thread/recordDelivery.test.ts apps/server/src/project/ProjectWorkspaceService.test.ts

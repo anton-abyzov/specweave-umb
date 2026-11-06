@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-28T06:39:39.301Z",
   "title": "Produce and publish original agent convergence ad",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

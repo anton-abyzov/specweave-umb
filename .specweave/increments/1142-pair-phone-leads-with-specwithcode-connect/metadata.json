@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-29T13:34:41.150Z",
   "title": "Pair phone leads with SpecWithCode Connect",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

@@ -11,5 +11,7 @@
   "project": "specweave-umb",
   "externalLinks": {},
   "readyForReviewAt": "2026-11-02T21:27:22.904Z",
-  "approvedAt": "2026-11-02T21:27:22.905Z"
+  "approvedAt": "2026-11-02T21:27:22.905Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

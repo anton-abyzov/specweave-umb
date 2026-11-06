@@ -12,5 +12,7 @@
   "externalLinks": {},
   "readyForReviewAt": "2026-11-02T07:13:34.359Z",
   "closeReason": "User approved closing November 2, 2026: verify fails only on vskill src/webmcp/enumerate.e2e.test.ts, a repo PR #1179 never touched. Fresh review passed 8/8 ACs. Fix follows in its own thread.",
-  "approvedAt": "2026-11-02T07:13:34.360Z"
+  "approvedAt": "2026-11-02T07:13:34.360Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

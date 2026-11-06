@@ -12,5 +12,7 @@
   "externalLinks": {},
   "readyForReviewAt": "2026-10-28T18:24:12.943Z",
   "closeReason": "PR #953 merged; Checks run 40735990433 green on the PR head (PR Gate, typecheck, fleet, web). Two fresh-context reviews, findings fixed. Live push to M1/M3/ministorm waits for a SpecWithCode release that includes it.",
-  "approvedAt": "2026-10-28T18:24:13.000Z"
+  "approvedAt": "2026-10-28T18:24:13.000Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

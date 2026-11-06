@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-28T05:08:16.081Z",
   "title": "Recover pre-clipping folder-copy partials",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

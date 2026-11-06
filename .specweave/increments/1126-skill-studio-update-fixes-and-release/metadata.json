@@ -12,5 +12,7 @@
   "externalLinks": {},
   "readyForReviewAt": "2026-10-28T17:38:38.653Z",
   "closeReason": "Shipped: vskill #215 merged, npm 1.2.16 and desktop 1.0.68 released and release.sh verify vskill PASS (incl. tag_drift); vskill ci.yml green on 1be04c9. Local full suite fails only on host-load timing (load avg 250) and a test reading the host OPENROUTER key; same commit green in CI.",
-  "approvedAt": "2026-10-28T17:38:38.656Z"
+  "approvedAt": "2026-10-28T17:38:38.656Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

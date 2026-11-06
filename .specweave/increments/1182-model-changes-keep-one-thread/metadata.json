@@ -12,5 +12,7 @@
   "externalLinks": {},
   "readyForReviewAt": "2026-11-02T23:28:50.584Z",
   "closeReason": "Only failing verify rows are npm test in vskill and vskill-platform, sibling repos PR #1227 did not touch; specwithcode-dev required checks passed on the merged head",
-  "approvedAt": "2026-11-02T23:28:50.588Z"
+  "approvedAt": "2026-11-02T23:28:50.588Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

@@ -57,4 +57,4 @@ Follow-up (review F2): a wake turn that never reaches the CLI should not record 
 - AC: AC-05 | Files: PR on anton-abyzov/specwithcode-dev | Test: fresh exact-head review SHIP, CI green
 
 ### T-03 Verify and close 1076
-- AC: AC-05 | Files: reports/ | Test: `specweave verify 1076-start-a-fresh-claude-session-when-the-native-one-is-gone`
+- AC: AC-05 | Files: .specweave/increments/1076-start-a-fresh-claude-session-when-the-native-one-is-gone/reports/ | Test: `specweave verify 1076-start-a-fresh-claude-session-when-the-native-one-is-gone`

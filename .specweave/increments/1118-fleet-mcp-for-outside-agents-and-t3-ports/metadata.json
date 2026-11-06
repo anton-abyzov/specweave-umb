@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-29T05:53:50.600Z",
   "title": "Fleet MCP for outside agents and T3 ports",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

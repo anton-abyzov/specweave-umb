@@ -12,5 +12,7 @@
   "externalLinks": {},
   "readyForReviewAt": "2026-10-28T17:54:32.406Z",
   "closeReason": "PR #954 merged with required checks green (PR Gate, typecheck, web 1/2 and 2/2); Windows job cancelled on runner timeout. Reviewed by two fresh-context reviewers, findings fixed.",
-  "approvedAt": "2026-10-28T17:54:32.408Z"
+  "approvedAt": "2026-10-28T17:54:32.408Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

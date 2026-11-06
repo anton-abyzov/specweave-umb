@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-28T22:08:24.529Z",
   "title": "Audit GitHub Actions costs and alerts",
   "project": "specweave",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

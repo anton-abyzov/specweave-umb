@@ -9,5 +9,7 @@
   "lastActivity": "2026-10-28T03:56:21.016Z",
   "title": "Refresh landing visuals and replace agent tutorials",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

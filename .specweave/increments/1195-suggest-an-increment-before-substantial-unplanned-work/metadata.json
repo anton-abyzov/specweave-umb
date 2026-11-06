@@ -12,5 +12,7 @@
   "externalLinks": {},
   "readyForReviewAt": "2026-11-03T07:44:56.354Z",
   "closeReason": "All 6 ACs met (fresh-context review SHIP on merged app PR 1277 and specweave PR 2224, both CI green). Umbrella verify failed only on 5000ms timeouts in unrelated specweave/vskill suites under machine load.",
-  "approvedAt": "2026-11-03T07:44:56.356Z"
+  "approvedAt": "2026-11-03T07:44:56.356Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

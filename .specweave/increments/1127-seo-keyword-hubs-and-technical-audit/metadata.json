@@ -12,5 +12,7 @@
   "externalLinks": {},
   "readyForReviewAt": "2026-10-28T17:39:37.885Z",
   "closeReason": "Shipped via PRs: docs CI build and verify-seo pass (#2184), platform npm test and release verify pass (#200); umbrella-wide specweave/vskill suites run on unrelated stale checkouts",
-  "approvedAt": "2026-10-28T17:39:37.901Z"
+  "approvedAt": "2026-10-28T17:39:37.901Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
