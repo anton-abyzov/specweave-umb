@@ -1,0 +1,3 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-06T22:38:14.743Z","note":"session 14a7ddc1-818f-4294-8ad8-84fa84913a04","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-06T22:38:14.744Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-06T22:38:14.745Z","evidence":"test -s .specweave/increments/1247-open-source-specwithcode-under-mit/reports/audit.md → exit 0\nlog: .specweave/increments/1247-open-source-specwithcode-under-mit/reports/task-T-01.txt\nHEAD 1f6542ba7","line":"Audit: no live secrets; private values and PR refs block publishing dev history","model":"claude-opus-5-5[1m]"}
