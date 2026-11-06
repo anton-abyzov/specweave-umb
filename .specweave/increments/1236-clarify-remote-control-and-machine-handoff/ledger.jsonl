@@ -50,3 +50,5 @@
 {"t":"T-24","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-04T11:21:43.431Z","evidence":"f0d590621b84bb87d0afba27f07fab11f2bbf44b; /Users/antonabyzov/.specwithcode/m4/evidence/1236-implementation/t24-web-typecheck.log exit 0; /Users/antonabyzov/.specwithcode/m4/evidence/1236-implementation/t24-focused-tests.log 51 passed\nHEAD 27ca3527a"}
 {"t":"T-25","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-04T11:36:40.578Z"}
 {"t":"T-25","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-04T11:38:18.158Z","evidence":"6c3624c69bb6092163f6d06a4ad0d00f53d1d873; /Users/antonabyzov/.specwithcode/m4/evidence/1236-implementation/t25-focused-tests.log: 17 passed; /Users/antonabyzov/.specwithcode/m4/evidence/1236-implementation/exact-head-review-6c3624c6.md: SHIP\nHEAD 27ca3527a"}
+{"t":"T-08","e":"claim","by":"copilot@antons-macbook-m4max","at":"2026-11-06T19:56:03.346Z"}
+{"t":"T-08","e":"done","by":"copilot@antons-macbook-m4max","at":"2026-11-06T19:56:03.350Z","evidence":"PR #1357 merge edb090dc; released v1.0.186, ancestor of v1.0.205; reports/implementation-delivery.md\nHEAD 186018317"}
