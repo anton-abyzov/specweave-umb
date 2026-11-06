@@ -1,0 +1,15 @@
+{
+  "id": "1156-model-picker-placement-and-reset-label",
+  "uuid": "c0ad473b-0e05-458d-a1dd-74ff5f0e4e40",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-31T20:33:49.708Z",
+  "updated": "2026-11-02T03:51:19.428Z",
+  "lastActivity": "2026-11-02T03:51:19.428Z",
+  "title": "Model picker placement and Reset label",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

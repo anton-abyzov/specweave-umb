@@ -1,0 +1,3 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-05T11:50:20.714Z","note":"session 01a1ab89-ab62-76a3-9d4d-6691070d9308"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-05T11:50:20.715Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-05T11:50:20.716Z","evidence":"Extension tests 13 passed; recovery and error preservation verified\nHEAD 68f31c671"}

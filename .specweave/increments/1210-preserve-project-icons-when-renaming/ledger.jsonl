@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"rename-icon","at":"2026-11-03T15:01:14.878Z","note":"session 01a1a1ea-2686-7960-9137-e23848306274"}
+{"t":"T-01","e":"claim","by":"rename-icon","at":"2026-11-03T15:01:14.880Z","line":"Preserve project badge identity on rename"}
+{"t":"T-01","e":"done","by":"rename-icon","at":"2026-11-03T15:05:30.130Z","evidence":"ac3efa18fb9041f8e36d9a7ce0bc383eaa65d4f0; 70 server and 99 web tests passed; server and web production builds exit 0; /Users/antonabyzov/.specwithcode/m4/evidence/1210-rename-icon\nHEAD 0f512e71d","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1290"}
+{"t":"T-02","e":"claim","by":"rename-icon","at":"2026-11-03T15:05:30.948Z","line":"Fresh-context review and exact-head CI before merge"}
+{"t":"T-02","e":"done","by":"rename-icon","at":"2026-11-03T16:51:24.840Z","evidence":"Merged PR1290 as b2ee5a5950c7ad025dd6b1559c868779655bc940 after exact-head SHIP and all applicable CI green; /Users/antonabyzov/.specwithcode/m4/evidence/1210-rename-icon/merge.json\nHEAD 0c12b3ca9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1290"}

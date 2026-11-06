@@ -1,0 +1,12 @@
+{
+  "id": "1242-show-available-and-used-skills-in-coordinator-windows",
+  "uuid": "d6848b40-4b5c-448d-91a4-292b7e95d6da",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-05T22:54:02.131Z",
+  "updated": "2026-11-05T22:54:02.131Z",
+  "lastActivity": "2026-11-05T22:54:02.131Z",
+  "title": "Show available and used skills in coordinator windows",
+  "project": "specweave"
+}

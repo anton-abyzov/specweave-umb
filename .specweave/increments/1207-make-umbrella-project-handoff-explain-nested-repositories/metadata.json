@@ -1,0 +1,15 @@
+{
+  "id": "1207-make-umbrella-project-handoff-explain-nested-repositories",
+  "uuid": "aa458ff8-afdd-4577-9383-5c6da16d64b7",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T14:39:03.694Z",
+  "updated": "2026-11-03T14:47:25.082Z",
+  "lastActivity": "2026-11-03T14:47:25.082Z",
+  "title": "Make umbrella project handoff explain nested repositories",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

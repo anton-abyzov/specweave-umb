@@ -1,0 +1,15 @@
+{
+  "id": "1186-team-rules-phase-3-repository-rules-zones-companion-records-connections-and-updates",
+  "uuid": "0869bab8-5441-4447-abd5-b2d5a13bf26a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T23:28:04.558Z",
+  "updated": "2026-11-03T00:45:45.326Z",
+  "lastActivity": "2026-11-03T00:45:45.326Z",
+  "title": "Team rules phase 3: repository rules, zones, companion, records, connections and updates",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

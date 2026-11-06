@@ -1,0 +1,17 @@
+{
+  "id": "1201-clarify-machine-connections-routes-and-permissions",
+  "uuid": "eeb8c6bc-449b-441d-858c-d8d456f94c37",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T07:34:42.007Z",
+  "updated": "2026-11-03T14:39:33.657Z",
+  "lastActivity": "2026-11-03T14:39:33.657Z",
+  "title": "Clarify machine connections, routes and permissions",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T14:39:33.656Z",
+  "approvedAt": "2026-11-03T14:39:33.657Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

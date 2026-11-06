@@ -1,0 +1,15 @@
+{
+  "id": "1209-create-publish-and-apply-skills-in-specwithcode",
+  "uuid": "45079e1c-d655-453e-9452-37910ae4b0f4",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T14:47:01.127Z",
+  "updated": "2026-11-04T08:57:17.598Z",
+  "lastActivity": "2026-11-04T08:57:17.598Z",
+  "title": "Create, publish, and apply skills in SpecWithCode",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

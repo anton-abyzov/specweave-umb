@@ -1,0 +1,15 @@
+{
+  "id": "1168-update-install-reports-the-real-failure-reason",
+  "uuid": "61b36df4-dd10-43d7-9c1c-028ff7438e11",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T06:53:47.994Z",
+  "updated": "2026-11-02T06:53:47.994Z",
+  "lastActivity": "2026-11-02T06:53:47.994Z",
+  "title": "Update install reports the real failure reason",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

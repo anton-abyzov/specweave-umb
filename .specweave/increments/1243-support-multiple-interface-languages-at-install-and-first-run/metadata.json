@@ -1,0 +1,12 @@
+{
+  "id": "1243-support-multiple-interface-languages-at-install-and-first-run",
+  "uuid": "3d412c51-cbc0-40c4-82fc-1b6d30d2af6a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-05T23:06:58.052Z",
+  "updated": "2026-11-05T23:06:58.052Z",
+  "lastActivity": "2026-11-05T23:06:58.052Z",
+  "title": "Support multiple interface languages at install and first run",
+  "project": "specweave-umb"
+}

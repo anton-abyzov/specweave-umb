@@ -1,0 +1,18 @@
+{
+  "id": "1203-keep-undelivered-relay-notes-visible-after-unrelated-direct-messages",
+  "uuid": "d5bff0b3-10bc-4644-befa-303af08f088c",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T07:40:21.698Z",
+  "updated": "2026-11-03T23:59:10.500Z",
+  "lastActivity": "2026-11-03T23:59:10.500Z",
+  "title": "Keep undelivered relay notes visible after unrelated direct messages",
+  "project": "specweave-umb",
+  "parent": "1187-a-message-typed-in-a-remote-thread-reaches-that-thread",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T23:59:10.499Z",
+  "approvedAt": "2026-11-03T23:59:10.500Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

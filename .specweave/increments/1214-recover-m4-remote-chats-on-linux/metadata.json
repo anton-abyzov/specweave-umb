@@ -1,0 +1,17 @@
+{
+  "id": "1214-recover-m4-remote-chats-on-linux",
+  "uuid": "5945ef1e-9f10-4b2d-acc4-af81cb120ff0",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T17:12:59.387Z",
+  "updated": "2026-11-04T08:49:48.745Z",
+  "lastActivity": "2026-11-04T08:49:48.745Z",
+  "title": "Recover M4 remote chats on Linux",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-04T08:49:48.739Z",
+  "approvedAt": "2026-11-04T08:49:48.745Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

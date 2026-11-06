@@ -1,0 +1,13 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:03.997Z","note":"session 5eeb5d4f-1f40-4166-9217-ea0efa91aa6c","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:03.998Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:03.999Z","evidence":"5d3698f800: server connection, config and transport tests, 13+ passed\nHEAD cbb2f027d","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1263","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:04.724Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:04.725Z","evidence":"5d3698f800: ProjectWorkspaceService.test.ts passed\nHEAD cbb2f027d","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1263","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:05.456Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:05.458Z","evidence":"5d3698f800: web shell, terms and model tests passed\nHEAD cbb2f027d","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1263","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:06.183Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:06.184Z","evidence":"5d3698f800: assistantServices and ProjectWorkspace tests passed; fixture check ok\nHEAD cbb2f027d","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1263","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:06.938Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:06.940Z","evidence":"5d3698f800: swift test SWCKit 556 passed\nHEAD cbb2f027d","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1263","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:07.704Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-03T05:22:07.706Z","evidence":"5d3698f800: aide-topics-check.mjs ok, headless, screenshots in /Users/antonabyzov/.specwithcode/m4/evidence/aide-topics-1190\nHEAD cbb2f027d","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1263","model":"claude-opus-5-5[1m]"}

@@ -1,0 +1,12 @@
+{
+  "id": "1241-ship-chrome-no-window-recovery",
+  "uuid": "c01f4824-2ac5-4e86-9ca8-1d39b440cae7",
+  "status": "active",
+  "type": "hotfix",
+  "priority": "P1",
+  "created": "2026-11-05T11:49:02.973Z",
+  "updated": "2026-11-05T11:50:20.716Z",
+  "lastActivity": "2026-11-05T11:50:20.716Z",
+  "title": "Ship Chrome no-window recovery",
+  "project": "specweave-umb"
+}

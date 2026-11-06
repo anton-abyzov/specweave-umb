@@ -1,0 +1,15 @@
+{
+  "id": "1185-service-request-path-stays-responsive-under-load",
+  "uuid": "a2732f50-be94-45d9-aaff-7faab1ddaad0",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T23:02:21.218Z",
+  "updated": "2026-11-02T23:02:21.218Z",
+  "lastActivity": "2026-11-02T23:02:21.218Z",
+  "title": "Service request path stays responsive under load",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

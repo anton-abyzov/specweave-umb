@@ -1,0 +1,15 @@
+{
+  "id": "1190-aide-topics-personal-memory-and-connected-services",
+  "uuid": "80618c06-f829-4034-b6fa-4b990521fd70",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T05:05:12.757Z",
+  "updated": "2026-11-03T05:22:07.706Z",
+  "lastActivity": "2026-11-03T05:22:07.706Z",
+  "title": "Aide topics, personal memory and connected services",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -1,0 +1,15 @@
+{
+  "id": "1155-connect-devices-behind-one-address-do-not-lock-each-other-out",
+  "uuid": "7b9d962e-8e50-429a-9454-5092b3e28a00",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-31T08:12:17.309Z",
+  "updated": "2026-11-02T03:33:31.265Z",
+  "lastActivity": "2026-11-02T03:33:31.265Z",
+  "title": "Connect devices behind one address do not lock each other out",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

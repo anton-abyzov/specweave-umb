@@ -1,0 +1,18 @@
+{
+  "id": "1204-keep-automatic-git-sync-from-changing-checked-out-branches",
+  "uuid": "39972cff-51d5-45bd-ba5b-e85846895282",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T14:10:28.635Z",
+  "updated": "2026-11-03T23:59:11.026Z",
+  "lastActivity": "2026-11-03T23:59:11.026Z",
+  "title": "Keep automatic Git sync from changing checked out branches",
+  "project": "specweave-umb",
+  "parent": "1161-keep-machines-current-with-git",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T23:59:11.025Z",
+  "approvedAt": "2026-11-03T23:59:11.026Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

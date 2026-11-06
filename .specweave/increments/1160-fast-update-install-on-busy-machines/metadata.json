@@ -1,0 +1,15 @@
+{
+  "id": "1160-fast-update-install-on-busy-machines",
+  "uuid": "23c4d996-309b-4da4-9767-c0e09d10e27d",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T03:47:37.830Z",
+  "updated": "2026-11-02T05:45:14.291Z",
+  "lastActivity": "2026-11-02T05:45:14.291Z",
+  "title": "Fast update install on busy machines",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

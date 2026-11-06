@@ -1,0 +1,18 @@
+{
+  "id": "1175-phone-opens-coordinator-thread-links-and-attaches-photos",
+  "uuid": "f051b505-3d0b-42b2-971b-780bbdf9be6a",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-02T16:44:02.982Z",
+  "updated": "2026-11-02T19:38:45.234Z",
+  "lastActivity": "2026-11-02T19:38:45.234Z",
+  "title": "Phone opens coordinator thread links and attaches photos",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T19:38:45.232Z",
+  "closeReason": "verify failed only on specweave, vskill and vskill-platform suites in other repos; this change is apps/ios in specwithcode-dev, merged as e305a1b9eb with its CI and tests passing",
+  "approvedAt": "2026-11-02T19:38:45.234Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

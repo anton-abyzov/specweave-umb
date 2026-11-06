@@ -1,0 +1,17 @@
+{
+  "id": "1234-fix-large-folder-storage-notices-and-investigate-backup-retention",
+  "uuid": "4cce22a5-36e9-4419-9968-9f58853d7a5c",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T23:59:13.222Z",
+  "updated": "2026-11-04T00:08:08.348Z",
+  "lastActivity": "2026-11-04T00:08:08.348Z",
+  "title": "Fix large folder storage notices and investigate backup retention",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-04T00:08:08.346Z",
+  "approvedAt": "2026-11-04T00:08:08.348Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -1,0 +1,8 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-03T14:52:05.004Z","note":"session 01a1a1e0-3aab-76e1-a0ed-f9e4712179cb"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-03T14:52:05.005Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-03T14:52:05.006Z","evidence":"Source research in spec.md and evidence.md; decision.html headless previews at 390/728 light/dark, no overflow or console errors. Design only; remaining implementation tasks await approval.\nHEAD 0f512e71d"}
+{"t":"T-05","e":"skip","by":"codex@antons-macbook-m4max","at":"2026-11-03T23:48:32.948Z","note":"Anton approved manual creation first and opt-in suggestions later on November 3, 2026. Suggestions are deferred from this v1 delivery."}
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-04T08:54:29.609Z","note":"session 01a1a5c3-4d25-7313-b4cc-364a70db7557"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-04T08:54:29.612Z"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-04T08:57:16.191Z"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-04T08:57:17.598Z"}

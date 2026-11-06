@@ -1,0 +1,15 @@
+{
+  "id": "1157-duplicate-greet-app-projects-in-sidebar",
+  "uuid": "18cda112-23d2-404d-987d-98b76a8ac789",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-31T20:36:01.071Z",
+  "updated": "2026-10-31T21:26:53.826Z",
+  "lastActivity": "2026-10-31T21:26:53.826Z",
+  "title": "Duplicate greet-app projects in sidebar",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

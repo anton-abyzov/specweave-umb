@@ -1,0 +1,15 @@
+{
+  "id": "1152-40-minute-specwithcode-demo-video",
+  "uuid": "8f93a799-8ad8-4a4f-90c7-28ab72dec990",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-31T06:55:34.474Z",
+  "updated": "2026-10-31T20:33:52.665Z",
+  "lastActivity": "2026-10-31T20:33:52.665Z",
+  "title": "40-minute SpecWithCode demo video",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

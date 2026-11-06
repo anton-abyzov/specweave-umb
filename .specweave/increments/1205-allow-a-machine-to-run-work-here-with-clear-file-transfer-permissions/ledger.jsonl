@@ -1,0 +1,9 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-03T14:36:05.373Z","note":"session 01a1a052-b608-7b60-970e-ffd653be31dd"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-03T14:36:05.374Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-03T14:36:05.375Z","evidence":"reports/diagnosis.md; current M4 fleet confirms outgoing full-access M1 grant; coordinator confirms no actual failed transfer supplied\nHEAD 0f512e71d"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-03T14:36:06.806Z"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-03T14:42:35.927Z","evidence":"a63167159e23d573cbe8c2c0be044f986acbfb82; 29 web tests and 16 existing file-transfer tests pass; production web build and isolated UI interactions pass; reports/verification.md\nHEAD 0f512e71d"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-04T08:58:47.743Z"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-04T08:58:47.748Z","evidence":"reports/closure.md reconciles native1.0.180 receipt, tests, CI, release and cleanup\nHEAD dbd80eee4"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-04T08:59:03.190Z"}
+{"t":"T-04","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-04T08:59:03.193Z","evidence":"reports/closure.md; final verify and fresh closure review follow\nHEAD dbd80eee4"}

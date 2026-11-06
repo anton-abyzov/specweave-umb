@@ -1,0 +1,15 @@
+{
+  "id": "1154-linux-app-header-layout-polish",
+  "uuid": "d533a12a-d169-42a5-9dbb-33c809a9c256",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-31T07:03:23.410Z",
+  "updated": "2026-10-31T08:31:32.495Z",
+  "lastActivity": "2026-10-31T08:31:32.495Z",
+  "title": "Linux app header layout polish",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

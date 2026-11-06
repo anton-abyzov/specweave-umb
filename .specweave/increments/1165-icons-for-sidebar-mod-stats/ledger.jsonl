@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-02T05:46:02.851Z","note":"session f89f0c11-96dd-4dbe-b187-80b4f4be2cb6","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T05:46:02.853Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T05:46:03.552Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T05:46:04.356Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T05:46:05.161Z","evidence":"52af56a0a7: protocol.test.ts and modStatsRuntime.test.ts pass\nHEAD c3538819b","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T05:46:06.113Z","evidence":"52af56a0a7: apps/web/tests/mod-status/shoot.mjs all cases pass, screenshots in /Users/antonabyzov/.specwithcode/m4/evidence/mod-status-glyphs/after\nHEAD c3538819b","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T05:46:07.026Z","evidence":"52af56a0a7: scripts/studio-mods/verify.mjs passes, evidence in /Users/antonabyzov/.specwithcode/m4/evidence/mod-status-glyphs/verify\nHEAD c3538819b","model":"claude-opus-5-5[1m]"}

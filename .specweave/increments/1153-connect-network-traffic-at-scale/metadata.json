@@ -1,0 +1,15 @@
+{
+  "id": "1153-connect-network-traffic-at-scale",
+  "uuid": "e57764eb-6274-4b8a-9604-32ebf7bb0cd7",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-31T06:59:52.955Z",
+  "updated": "2026-11-02T03:33:28.604Z",
+  "lastActivity": "2026-11-02T03:33:28.604Z",
+  "title": "Connect network traffic at scale",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

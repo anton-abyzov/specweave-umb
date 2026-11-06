@@ -1,0 +1,15 @@
+{
+  "id": "1188-duo-wide-layout-list-column-and-thread-chrome",
+  "uuid": "351d4ae7-fd3f-48b8-b649-a805e53b933a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T03:28:30.447Z",
+  "updated": "2026-11-03T07:00:54.782Z",
+  "lastActivity": "2026-11-03T07:00:54.782Z",
+  "title": "Duo wide layout: list column and thread chrome",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

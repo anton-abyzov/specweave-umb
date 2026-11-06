@@ -1,0 +1,15 @@
+{
+  "id": "1192-coordinator-voice-on-linux-and-mac-with-a-shared-vocabulary",
+  "uuid": "8c5b51dd-8418-489e-985e-ecab2db10c49",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T06:26:24.446Z",
+  "updated": "2026-11-03T06:46:59.356Z",
+  "lastActivity": "2026-11-03T06:46:59.356Z",
+  "title": "Coordinator voice on Linux and Mac with a shared vocabulary",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

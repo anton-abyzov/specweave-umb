@@ -1,0 +1,15 @@
+{
+  "id": "1213-fix-pop-up-display-and-audit-presentation",
+  "uuid": "b7f7c275-47f4-4be4-b268-0b901a42fccc",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T17:09:30.335Z",
+  "updated": "2026-11-03T17:25:57.757Z",
+  "lastActivity": "2026-11-03T17:25:57.757Z",
+  "title": "Fix pop-up display and audit presentation",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

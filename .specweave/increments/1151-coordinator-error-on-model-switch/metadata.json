@@ -1,0 +1,15 @@
+{
+  "id": "1151-coordinator-error-on-model-switch",
+  "uuid": "1a83784f-c8af-4600-b01c-7fc7415e6515",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-31T06:44:41.725Z",
+  "updated": "2026-10-31T06:50:50.003Z",
+  "lastActivity": "2026-10-31T06:50:50.003Z",
+  "title": "Coordinator error on model switch",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

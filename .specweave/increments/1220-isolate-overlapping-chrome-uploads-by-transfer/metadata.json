@@ -1,0 +1,18 @@
+{
+  "id": "1220-isolate-overlapping-chrome-uploads-by-transfer",
+  "uuid": "e953e339-5b14-422c-ad75-227e93d13407",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T23:04:14.425Z",
+  "updated": "2026-11-03T23:57:14.822Z",
+  "lastActivity": "2026-11-03T23:57:14.822Z",
+  "title": "Isolate overlapping Chrome uploads by transfer",
+  "project": "specweave-umb",
+  "parent": "1193-chrome-extension-uploads-files-so-agents-can-post-carousels",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T23:57:14.821Z",
+  "approvedAt": "2026-11-03T23:57:14.822Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

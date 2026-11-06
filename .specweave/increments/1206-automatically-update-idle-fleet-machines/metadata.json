@@ -1,0 +1,17 @@
+{
+  "id": "1206-automatically-update-idle-fleet-machines",
+  "uuid": "f8bb14a6-e566-4af8-a3d6-fd79cd35bed6",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T14:34:58.034Z",
+  "updated": "2026-11-04T08:45:49.424Z",
+  "lastActivity": "2026-11-04T08:45:49.424Z",
+  "title": "Automatically update idle fleet machines",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-04T08:45:49.419Z",
+  "approvedAt": "2026-11-04T08:45:49.424Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

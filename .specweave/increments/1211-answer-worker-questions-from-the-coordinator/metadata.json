@@ -1,0 +1,17 @@
+{
+  "id": "1211-answer-worker-questions-from-the-coordinator",
+  "uuid": "c5ec7b14-277a-4641-943d-8f157da90555",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T15:12:39.982Z",
+  "updated": "2026-11-03T15:35:21.211Z",
+  "lastActivity": "2026-11-03T15:35:21.211Z",
+  "title": "Answer worker questions from the coordinator",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T15:35:21.210Z",
+  "approvedAt": "2026-11-03T15:35:21.211Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
