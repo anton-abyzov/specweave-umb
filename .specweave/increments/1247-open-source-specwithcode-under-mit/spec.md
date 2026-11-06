@@ -53,8 +53,8 @@ Risks: published history exposes any secret or private value that gitleaks misse
 - D-06 Website claims "open source" only after the repository is public (reversible).
 - D-03 Fresh history in `anton-abyzov/specwithcode`: the cleaned tree lands as an ordinary commit on top of its snapshots (no force-push), it becomes the development repository, and `specwithcode-dev` stays private and is archived (Anton, November 6, 2026).
 - D-07 Secrets → only the public repository's encrypted Actions secrets, sourced from Keychain, Obsidian or local release files, never printed or committed; fork PRs can never read them (no `pull_request_target` with secrets, release jobs in a protected environment) (Anton, November 6, 2026).
+- D-08 `LINUX_UPDATE_SIGNING_KEY` → generate a new key for `specwithcode`, private half in Keychain and the repository secret, because no copy exists outside GitHub and PR #1256, the only user of the key, is unmerged, so no installed app pins it yet (defaulted, reversible until #1256 ships).
 ### Open
-- D-08 `LINUX_UPDATE_SIGNING_KEY` has no copy outside GitHub that I could find; installed Linux apps pin its public key.
 - D-09 `RELEASE_GH_TOKEN` is a fine-grained token scoped to `specwithcode-dev`; the new repository needs a new token made in GitHub settings.
 
 ## Tasks
