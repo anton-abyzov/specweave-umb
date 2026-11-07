@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:03:03.683Z","note":"session d6b3e116-5159-47a9-aa50-bc4b84b83533","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:03:03.684Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:03:03.685Z","evidence":"PR #41 afe8756935: --ignore-scripts=false on managed npm install; 599 ACP tests pass\nHEAD a57223106","link":"https://github.com/anton-abyzov/specwithcode/pull/41","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:03:04.508Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:03:04.510Z","evidence":"PR #41 ab81b8660c+: inspectNpmGlobalPackage miss reasons; Grok miss test\nHEAD a57223106","link":"https://github.com/anton-abyzov/specwithcode/pull/41","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:13:26.412Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:13:26.416Z","evidence":"PR #41 merged cb7afea224; fresh-context review clean; real Grok turn on M1\nHEAD a57223106","model":"claude-opus-5-5[1m]"}
