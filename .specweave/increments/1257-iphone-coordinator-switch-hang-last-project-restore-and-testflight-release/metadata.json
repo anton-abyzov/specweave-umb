@@ -1,0 +1,15 @@
+{
+  "id": "1257-iphone-coordinator-switch-hang-last-project-restore-and-testflight-release",
+  "uuid": "d92bbdbc-102c-4bcb-82fb-da97eea915cd",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T06:37:54.414Z",
+  "updated": "2026-11-07T10:49:10.834Z",
+  "lastActivity": "2026-11-07T10:49:10.834Z",
+  "title": "iPhone coordinator switch hang, last-project restore and TestFlight release",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-07T10:49:10.834Z",
+  "approvedAt": "2026-11-07T10:49:10.834Z"
+}
