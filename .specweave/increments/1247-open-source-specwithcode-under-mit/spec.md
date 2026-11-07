@@ -21,14 +21,14 @@ Out:
 
 ## Acceptance Criteria
 
-- [ ] AC-01: An audit report under this increment's folder lists the gitleaks findings for all commits of `specwithcode-dev` (count by rule, file paths, redacted), the commits that touch any value in the mirror's private scrub list (counts only, never values), sensitive files ever added (`.env`, keys, certificates, databases, user data), and the same checks for `anton-abyzov/specwithcode`, and ends with one recommendation and its evidence.
-- [ ] AC-02: `LICENSE` at the root of the repository is the MIT License with `Copyright (c) 2026 Anton Abyzov`; GitHub reports the repository license as MIT; the workspace `package.json` files declare `"license": "MIT"`.
-- [ ] AC-03: `THIRD_PARTY_NOTICES.md` keeps T3 Code's MIT notice verbatim (`Copyright (c) 2026 T3 Tools Inc.`) and every other existing notice; no file still says "no new project-wide license grant", "source available" or "never open source" about SpecWithCode.
-- [ ] AC-04: No marketing surface (README pitch, specwithcode.com, store copy) says SpecWithCode is built on, based on or a fork of T3 Code; `THIRD_PARTY_NOTICES.md` and `UPSTREAM.md` still state the provenance.
-- [ ] AC-05: The README opens with a one-line pitch, a demo GIF, download buttons for macOS, Windows and Linux, and a GitHub stars badge; `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, issue templates and a PR template exist; the repository has a description, at least 6 topics and at least 10 open issues labelled `good first issue`, each with the files to change and how to test.
-- [ ] AC-06: The first-run screen and the About section show a "Star on GitHub" link to the public repository that opens in the system browser; dismissing it on the first-run screen keeps it hidden after a restart; About always shows it. A test covers both.
-- [ ] AC-07: specwithcode.com shows one "Star on GitHub" link and says "open source (MIT)" wherever it said "source available"; the landing test asserts the new wording.
-- [ ] AC-08: The development repository is public (after Anton's yes), its default branch builds in CI, and the public URL that has the stars either is that repository or redirects to it.
+- [x] AC-01: An audit report under this increment's folder lists the gitleaks findings for all commits of `specwithcode-dev` (count by rule, file paths, redacted), the commits that touch any value in the mirror's private scrub list (counts only, never values), sensitive files ever added (`.env`, keys, certificates, databases, user data), and the same checks for `anton-abyzov/specwithcode`, and ends with one recommendation and its evidence.
+- [x] AC-02: `LICENSE` at the root of the repository is the MIT License with `Copyright (c) 2026 Anton Abyzov`; GitHub reports the repository license as MIT; the workspace `package.json` files declare `"license": "MIT"`.
+- [x] AC-03: `THIRD_PARTY_NOTICES.md` keeps T3 Code's MIT notice verbatim (`Copyright (c) 2026 T3 Tools Inc.`) and every other existing notice; no file still says "no new project-wide license grant", "source available" or "never open source" about SpecWithCode.
+- [x] AC-04: No marketing surface (README pitch, specwithcode.com, store copy) says SpecWithCode is built on, based on or a fork of T3 Code; `THIRD_PARTY_NOTICES.md` and `UPSTREAM.md` still state the provenance.
+- [x] AC-05: The README opens with a one-line pitch, a demo GIF, download buttons for macOS, Windows and Linux, and a GitHub stars badge; `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, issue templates and a PR template exist; the repository has a description, at least 6 topics and at least 10 open issues labelled `good first issue`, each with the files to change and how to test.
+- [x] AC-06: The first-run screen and the About section show a "Star on GitHub" link to the public repository that opens in the system browser; dismissing it on the first-run screen keeps it hidden after a restart; About always shows it. A test covers both.
+- [x] AC-07: specwithcode.com shows one "Star on GitHub" link and says "open source (MIT)" wherever it said "source available"; the landing test asserts the new wording.
+- [x] AC-08: The development repository is public (after Anton's yes), its default branch builds in CI, and the public URL that has the stars either is that repository or redirects to it.
 
 ## Approach
 
