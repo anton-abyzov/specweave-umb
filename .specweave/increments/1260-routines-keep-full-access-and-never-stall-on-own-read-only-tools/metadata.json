@@ -1,0 +1,15 @@
+{
+  "id": "1260-routines-keep-full-access-and-never-stall-on-own-read-only-tools",
+  "uuid": "ec6c912b-6195-43b6-a186-497efed2d02e",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T17:41:58.121Z",
+  "updated": "2026-11-07T19:16:22.450Z",
+  "lastActivity": "2026-11-07T19:16:22.450Z",
+  "title": "Routines keep full access and never stall on own read-only tools",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-07T19:16:22.449Z",
+  "approvedAt": "2026-11-07T19:16:22.450Z"
+}
