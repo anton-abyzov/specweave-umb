@@ -177,10 +177,15 @@ check_wrangler_deployments() {
 }
 
 check_fleet_endpoint() {
-  local url state got st_status st_down st_msg
+  local url state got st_status st_down st_msg body code
   url="$(jq -r '.url' <<<"$CHECK")"
   state="$(expand_home "$(jq -r '.state_file // empty' <<<"$CHECK")")"
-  got="$(curl -s -m 5 "$url" | jq -r '.serverVersion // empty' 2>/dev/null)" || got=""
+  body="$(mktemp "$WORK/fleet.XXXXXX")"
+  code="$(curl -s -m 5 -o "$body" -w '%{http_code}' "$url")" || code="000"
+  got=""
+  if [ "$code" = "200" ]; then
+    got="$(jq -r '.serverVersion // empty' "$body" 2>/dev/null)" || got=""
+  fi
   if [ -n "$got" ] && { [ -z "$VERSION" ] || [ "$got" = "$VERSION" ]; }; then
     C_STATUS=pass; C_DETAIL="serverVersion $got"; return
   fi
@@ -192,11 +197,75 @@ check_fleet_endpoint() {
       C_STATUS=pending; C_DETAIL="serverVersion ${got:-unreachable}; updater $st_status with $VERSION downloaded: $st_msg"; return
     fi
   fi
-  if [ -z "$got" ]; then
+  if [ "$code" != "200" ]; then
+    C_STATUS=fail; C_DETAIL="$url answered HTTP $code, want 200"
+  elif [ -z "$got" ]; then
     C_STATUS=fail; C_DETAIL="$url unreachable"
   else
     C_STATUS=fail; C_DETAIL="serverVersion $got, want $VERSION"
   fi
+}
+
+# check_fleet_connect: a fleet worker's service, read over SpecWithCode Connect with M4's
+# installed CLI (`fleet update <machine> --status --connect-only --json`), not over an SSH
+# tunnel. Pass when the route is attested as connect and the machine reports the released
+# version installed (and served, when it says); pending while that version is downloaded or
+# requested and the updater is still busy; fail otherwise, naming why.
+check_fleet_connect() {
+  local machine cli out rc=0 last reply transport installed served status phase down asked err reason
+  machine="$(jq -r '.machine // empty' <<<"$CHECK")"
+  if ! [[ $machine =~ ^[a-z0-9][a-z0-9_-]{0,63}$ ]]; then
+    C_STATUS=fail; C_DETAIL="machine must be a fleet name such as m3, not '$machine'"; return
+  fi
+  cli="${RELEASE_STUDIO_CLI:-specweave-studio}"
+  if ! command -v "$cli" >/dev/null 2>&1; then
+    C_STATUS=fail; C_DETAIL="$cli not found, so $machine cannot be read over SpecWithCode Connect"; return
+  fi
+  # `status` (quick mode) keeps its short budget; a ship's verify waits for a slow round trip.
+  local budget="${RELEASE_CONNECT_TIMEOUT:-90}"
+  [ "${V_QUICK:-0}" -ne 1 ] || budget="${RELEASE_CONNECT_QUICK_TIMEOUT:-15}"
+  out="$(with_timeout "$budget" "$cli" fleet update "$machine" --status --connect-only --json \
+    </dev/null 2>/dev/null)" || rc=$?
+  # The whole output as one JSON document (compact or pretty-printed), else its last non-empty line
+  # (progress lines before a compact reply).
+  reply="$(jq -cs 'if length == 1 and (.[0] | type) == "object" then .[0] else empty end' <<<"$out" 2>/dev/null)" || reply=""
+  if [ -z "$reply" ]; then
+    last="$( { grep -v '^[[:space:]]*$' <<<"$out" || true; } | tail -1)"
+    reply="$(jq -c 'select(type == "object")' <<<"$last" 2>/dev/null)" || reply=""
+  fi
+  if [ -z "$reply" ]; then
+    C_STATUS=fail; C_DETAIL="$machine gave no SpecWithCode Connect status (exit $rc)"; return
+  fi
+  err="$(jq -r '.error // empty | tostring' <<<"$reply" | cut -c1-120)"
+  reason="$(jq -r '.reason // empty | tostring' <<<"$reply" | cut -c1-60)"
+  if [ "$rc" -ne 0 ] || [ -n "$err" ]; then
+    C_STATUS=fail; C_DETAIL="$machine unreachable over SpecWithCode Connect: ${err:-exit $rc}${reason:+ ($reason)}"; return
+  fi
+  transport="$(jq -r '.transport // empty | tostring' <<<"$reply")"
+  if [ "$transport" != connect ]; then
+    C_STATUS=fail; C_DETAIL="$machine status did not attest the SpecWithCode Connect route (transport ${transport:-none})"; return
+  fi
+  installed="$(jq -r '.installedVersion // empty | tostring' <<<"$reply")"
+  served="$(jq -r '.serverVersion // empty | tostring' <<<"$reply")"
+  status="$(jq -r '.status // empty | tostring' <<<"$reply" | cut -c1-40)"
+  phase="$(jq -r '.phase // empty | tostring' <<<"$reply" | cut -c1-40)"
+  down="$(jq -r '.downloadedVersion // empty | tostring' <<<"$reply")"
+  asked="$(jq -r '.installRequest.version // empty | tostring' <<<"$reply")"
+  if [ -z "$VERSION" ]; then
+    if [ -n "$installed" ]; then C_STATUS=pass; C_DETAIL="transport connect, installedVersion $installed, $status"
+    else C_STATUS=fail; C_DETAIL="$machine reports no installed version"; fi
+    return
+  fi
+  if [ "$installed" = "$VERSION" ] && { [ -z "$served" ] || [ "$served" = "$VERSION" ]; }; then
+    C_STATUS=pass; C_DETAIL="transport connect, installedVersion $installed, ${status:-status unknown}"; return
+  fi
+  # Pending only while the updater is busy with this version; idle, failed or no phase is a result.
+  if { [ "$down" = "$VERSION" ] || [ "$asked" = "$VERSION" ] || [ "$installed" = "$VERSION" ]; } &&
+    [ -n "$phase" ] && ! [[ $phase =~ ^(idle|failed|error|cancelled)$ ]]; then
+    C_STATUS=pending; C_DETAIL="transport connect, installedVersion ${installed:-none}, served ${served:-unknown}; updater $phase with $VERSION"; return
+  fi
+  C_STATUS=fail
+  C_DETAIL="transport connect, installedVersion ${installed:-none}, served ${served:-unknown}, want $VERSION (${status:-status unknown}, ${phase:-phase unknown})"
 }
 
 # check_tag_drift: fail when the default branch has commits under the check's
@@ -313,6 +382,22 @@ SH
 # {id: {host, user, home}}) and read over the pinned fleet ssh. The self-test overrides
 # RELEASE_DESKTOP_APP (the app's path on every Mac), RELEASE_SSH, RELEASE_PLISTBUDDY,
 # RELEASE_CODESIGN and RELEASE_SPCTL.
+# rollout_app_skip <host>: the reason this release's fleet rollout recorded for skipping <host>'s
+# desktop app step (a Connect-only rollout cannot reach the app; its own updater installs the
+# version when the app quits), or nothing. It reads fleet_rollout.py's last result line for
+# $VERSION from this ship's log (SHIP_LOG) or the track's last recorded log.
+rollout_app_skip() {
+  local id="$1" log_path="${SHIP_LOG:-}"
+  if [ -z "$log_path" ] && [ -s "$RELEASE_STATE" ]; then
+    log_path="$(jq -r --arg t "$TRACK" '.tracks[$t].log // empty' "$RELEASE_STATE" 2>/dev/null)" || log_path=""
+  fi
+  [ -n "$log_path" ] && [ -f "$log_path" ] || return 0
+  { grep -E '^\{"version": ?"' "$log_path" || true; } | jq -Rr --arg v "$VERSION" --arg id "$id" '
+    fromjson? | select(type == "object" and .version == $v and (.hosts | type) == "object" and (.hosts | has($id)))
+    | .hosts[$id].desktopApp // {} | if .result == "skipped" then (.reason // "skipped" | tostring) else "" end' 2>/dev/null |
+    tail -1 | cut -c1-120
+}
+
 check_desktop_app() {
   local id app where inventory key known entry user host out rc=0 line last missing=0 version="" signature=""
   local requirement designated="" satisfies="" gatekeeper=""
@@ -358,7 +443,12 @@ check_desktop_app() {
   fi
   last="${out%$'\n'}"
   last="${last##*$'\n'}"
+  local skipped=""
+  [ "$id" = local ] || skipped="$(rollout_app_skip "$id")"
   if [ "$rc" -eq 255 ] && [ "$id" != local ]; then
+    if [ -n "$skipped" ]; then
+      C_STATUS=pending; C_DETAIL="pending: updates on quit (the rollout skipped $id's app: $skipped; not reachable over ssh to confirm)"; return
+    fi
     C_STATUS=fail; C_DETAIL="$id unreachable over ssh: ${last:0:160}"; return
   fi
   if [ "$rc" -ne 0 ]; then
@@ -377,7 +467,12 @@ check_desktop_app() {
   if [ "$missing" -eq 1 ]; then
     C_STATUS=fail; C_DETAIL="no $app on $where"; return
   fi
-  if [ "$version" != "$VERSION" ]; then
+  local older=0  # Only an app behind the release waits for its updater; a newer or odd version fails.
+  [ -z "$version" ] || [ "$version" = "$VERSION" ] ||
+    [ "$(printf '%s\n%s\n' "$version" "$VERSION" | sort -V | head -1)" != "$version" ] || older=1
+  if [ "$older" -eq 1 ] && [ -n "$skipped" ] && [ "$signature" = ok ]; then
+    C_STATUS=pending; C_DETAIL="pending: updates on quit (SpecWithCode.app on $where is $version; the rollout skipped its app: $skipped)"
+  elif [ "$version" != "$VERSION" ]; then
     C_STATUS=fail; C_DETAIL="SpecWithCode.app on $where is ${version:-unreadable}, want $VERSION"
   elif [ "$signature" != ok ]; then
     C_STATUS=fail; C_DETAIL="SpecWithCode.app $version on $where fails codesign --verify --deep --strict: ${signature#bad }"
@@ -431,6 +526,7 @@ verify_track() {
       gh_run) check_gh_run ;;
       wrangler_deployments) check_wrangler_deployments ;;
       fleet_endpoint) check_fleet_endpoint ;;
+      fleet_connect) check_fleet_connect ;;
       tag_drift) check_tag_drift ;;
       desktop_app) check_desktop_app ;;
       *) C_STATUS=fail; C_DETAIL="unknown check kind $kind" ;;
@@ -665,6 +761,48 @@ cmd_status() {
 }
 
 # ---------------------------------------------------------------- cleanup
+
+# Finder can write .DS_Store into folders while `git worktree remove` deletes them.
+# Git has then checked the worktree clean, deleted part of it and deregistered it
+# anyway ("no going back from here" in git's remove_worktree), and the next
+# release's trees stage refuses the leftover as "not a git work tree".
+# Finish only when git can list worktrees and no longer lists this one, and either
+# git reported that it failed while deleting this very folder (so it had passed
+# its clean check and was deleting everything in it), or only .DS_Store files are
+# left. Any doubt keeps the folder.
+finish_worktree_removal() {
+  local path="$1" wt="$2" err="${3:-}" i listed left trash
+  FINISH_REMOVAL_NOTE=""
+  # Read the list whole (not piped into grep -q, which pipefail turns into a skip).
+  listed="$(git -C "$path" worktree list --porcelain 2>/dev/null)" || return 1
+  grep -qxF "worktree $wt" <<<"$listed" && return 1
+  [ -e "$wt" ] || return 0
+  if [ -n "$err" ] && [ -f "$err" ] && grep -qF "failed to delete '$wt'" "$err"; then
+    # Move what git left out of the way first, so the retries below can only
+    # delete that and never a worktree or folder made at this path meanwhile.
+    trash="$(dirname "$wt")/.$(basename "$wt").removing-$$"
+    [ -e "$trash" ] && return 1
+    mv "$wt" "$trash" 2>/dev/null || return 1
+    for i in 1 2 3 4 5; do
+      rm -rf "$trash" 2>/dev/null || true
+      [ -e "$trash" ] || return 0
+      sleep 1
+    done
+    FINISH_REMOVAL_NOTE="git's leftover could not be deleted and is at $trash; remove it by hand"
+    return 1
+  fi
+  for i in 1 2 3; do
+    [ -e "$wt" ] || return 0
+    # A find that cannot read part of the folder fails, and the folder is kept.
+    left="$(find "$wt" -mindepth 1 ! -type d ! -name .DS_Store -print -quit 2>/dev/null)" || return 1
+    [ -z "$left" ] || return 1
+    find "$wt" -mindepth 1 -type f -name .DS_Store -delete 2>/dev/null || return 1
+    find "$wt" -depth -type d -empty -delete 2>/dev/null || true
+    [ -e "$wt" ] || return 0
+    sleep 1
+  done
+  return 1
+}
 
 real_path() { python3 -c 'import os, sys; print(os.path.realpath(os.path.expanduser(sys.argv[1])))' "$1"; }
 
@@ -965,7 +1103,8 @@ cmd_cleanup() {
       [ "$apply" -eq 1 ] || [ -z "$branch_keep" ] || reason="$reason; branch $branch will be kept: $branch_keep"
     fi
     if [ "$action" = remove ] && [ "$apply" -eq 1 ]; then
-      if git -C "$path" worktree remove "$wt" 2>"$err"; then
+      # LC_ALL=C: finish_worktree_removal reads git's English "failed to delete" message.
+      if LC_ALL=C git -C "$path" worktree remove "$wt" 2>"$err" || finish_worktree_removal "$path" "$wt" "$err"; then
         if [ -n "$branch_keep" ]; then
           action=removed-worktree; reason="$reason; branch $branch kept: $branch_keep"
         elif git -C "$path" branch -d "$branch" >/dev/null 2>&1; then
@@ -974,7 +1113,7 @@ cmd_cleanup() {
           action=removed-worktree; reason="$reason; branch $branch kept: git branch -d refused (not merged locally)"
         fi
       else
-        action=keep; reason="git worktree remove refused: $(tail -1 "$err")"; rc=1
+        action=keep; reason="git worktree remove refused: $(tail -1 "$err")${FINISH_REMOVAL_NOTE:+; $FINISH_REMOVAL_NOTE}"; rc=1
       fi
     fi
     jq -cn --arg path "$wt" --arg branch "$branch" --arg action "$action" --arg reason "$reason" \
@@ -1072,6 +1211,7 @@ ship_track() {
   # up to origin/<default> as it is now, before the release script tags it, so
   # a PR merged during the build does not fail this release (dynamic scope).
   local DRIFT_SHIP_HEAD=""
+  local SHIP_LOG="$log_file"  # verify's desktop_app checks read the rollout's app-step results here.
   if [ "$dry" -eq 0 ] && [ "$(mf '[.tracks[$t].verify // [] | .[] | select(.kind == "tag_drift")] | length' --arg t "$track")" -gt 0 ]; then
     local def0 src0
     def0="$(repo_field "$repo" default_branch)"
@@ -1103,7 +1243,7 @@ ship_track() {
   fi
   state_set "$track" verify
   verify_track "$track" "" 0 >"$WORK/ship-verify-$track.json"
-  print_verify_table "$WORK/ship-verify-$track.json"
+  print_verify_table "$WORK/ship-verify-$track.json" 2>&1 | tee -a "$log_file" >&2
   local vr=0
   result_code "$WORK/ship-verify-$track.json" || vr=$?
   if [ "$vr" -eq 2 ]; then

@@ -29,14 +29,26 @@
       "integration": 90,
       "e2e": 100
     },
+    "strictClose": true,
     "commands": [
-      "npm --prefix repositories/anton-abyzov/specweave run test:unit:fast",
-      "npm --prefix repositories/anton-abyzov/vskill test",
-      "npm --prefix repositories/anton-abyzov/vskill-platform test",
       "python3 scripts/fleet-project-sync.py --self-test",
       "python3 -m unittest discover -s tests -p test_handoff_evidence.py",
       "python3 scripts/release/timing.py --self-test"
-    ]
+    ],
+    "ownerCommands": {
+      "repositories/anton-abyzov/specweave": ["npm run test:unit:fast"],
+      "repositories/anton-abyzov/vskill": ["npm test"],
+      "repositories/anton-abyzov/vskill-platform": ["npm test"],
+      "repositories/anton-abyzov/specweave-status": ["npm test", "npm run build"],
+      "repositories/anton-abyzov/specwithcode-dev": [
+        "npm run verify:pr -- --jobs 1 --no-server",
+        "npm run test:server:sharded -- --shards 2"
+      ],
+      "repositories/anton-abyzov/specweave-studio": [
+        "npm run verify:pr -- --jobs 1 --no-server",
+        "npm run test:server:sharded -- --shards 2"
+      ]
+    }
   },
   "limits": {
     "activeIncrements": 7

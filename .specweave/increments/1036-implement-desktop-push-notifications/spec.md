@@ -55,4 +55,4 @@ Worktree: `/Users/antonabyzov/.specwithcode/m4/worktrees/desktop-notifications-1
 Dependency: PR #655 `ce10160adb07188234039c609aab30a148729471`, stacked without rewriting previous notification commits. User-action candidates come from the shared classifier and revalidate immediately before delivery. Revision-based plan/held shell actions notify only on explicit transitions, never on first snapshot or unrelated revision updates. Operational/history notifications remain separate. Final reviewer and CI must bind the resulting head; signed-app OS acceptance remains open.
 
 ### T-04 Verify and close 1036
-- AC: AC-06, AC-07 | Files: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1036-implement-desktop-push-notifications/spec.md, /Users/antonabyzov/.specwithcode/m4/evidence/notifications-1036/review.md | Test: npx --yes specweave@3.1.7 verify 1036
+- AC: AC-06, AC-07 | Files: .specweave/increments/1036-implement-desktop-push-notifications/spec.md, /Users/antonabyzov/.specwithcode/m4/evidence/notifications-1036/review.md | Test: npx --yes specweave@3.1.7 verify 1036

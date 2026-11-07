@@ -8,13 +8,14 @@
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 RELEASE_SH="$HERE/release.sh"
+REPO_ROOT="$(cd "$HERE/../.." && pwd)"
 
 T="$(cd "$(mktemp -d "${TMPDIR:-/tmp}/release-self-test.XXXXXX")" && pwd -P)"
 trap 'rm -rf "$T"' EXIT
 
 # What release.sh reads from the environment for the desktop_app check, besides HOME: an inventory
 # or tool override exported in the calling shell must not point the fixtures elsewhere.
-unset STUDIO_FLEET_HOSTS RELEASE_DESKTOP_APP RELEASE_SSH RELEASE_PLISTBUDDY RELEASE_CODESIGN RELEASE_SPCTL
+unset STUDIO_FLEET_HOSTS RELEASE_DESKTOP_APP RELEASE_SSH RELEASE_PLISTBUDDY RELEASE_CODESIGN RELEASE_SPCTL RELEASE_STUDIO_CLI RELEASE_CONNECT_TIMEOUT
 export HOME="$T/home" GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_NOSYSTEM=1
 export GIT_AUTHOR_NAME=test GIT_AUTHOR_EMAIL=test@example.com GIT_COMMITTER_NAME=test GIT_COMMITTER_EMAIL=test@example.com
 export RELEASE_MANIFEST="$T/manifest.json" SW_REPOS_BASE="$T/base" RELEASE_STATE_FILE="$T/state.json"
@@ -246,6 +247,86 @@ STUB_DB_NEXT=fail run_cleanup
 check "second read failed: worktree kept" "keep|thread bindings unavailable on the second read" "$(action_of "$T/wt/late-fail")|$(reason_of "$T/wt/late-fail")"
 check "second read failed: folder still there" yes "$(exists "$T/wt/late-fail")"
 
+# ---- 6b. Finder writes .DS_Store while git removes a worktree
+# The git shim runs the real removal, then leaves the folder behind holding
+# $STUB_RACE_FILE and fails the way git does when rmdir loses that race.
+REAL_GIT="$(command -v git)"
+mkdir -p "$T/racebin"
+cat >"$T/racebin/git" <<SH
+#!/bin/bash
+if [ "\$3 \$4" = "worktree remove" ] && [ -n "\${STUB_RACE_FILE:-}" ]; then
+  # STUB_REMOVE_NOOP: git refuses and still lists the worktree; its .git file is
+  # gone too, so only the "still listed" check can keep the folder.
+  if [ -n "\${STUB_REMOVE_NOOP:-}" ]; then rm -f "\$5/.git"; else "$REAL_GIT" "\$@" || exit \$?; fi
+  mkdir -p "\$5/sub/deep" && touch "\$5/\$STUB_RACE_FILE" "$T/racebin/removed"
+  # STUB_RACE_NESTED: real files left deeper in the tree too, as git leaves them.
+  [ -n "\${STUB_RACE_NESTED:-}" ] && touch "\$5/sub/deep/index.ts" "\$5/sub/.hidden"
+  # STUB_RACE_LOCK: a file nothing can delete (macOS immutable flag).
+  [ -n "\${STUB_RACE_LOCK:-}" ] && touch "\$5/sub/locked" && chflags uchg "\$5/sub/locked"
+  # STUB_RACE_ERR: another error than git's own "failed to delete" while deleting.
+  if [ -n "\${STUB_RACE_ERR:-}" ]; then echo "\$STUB_RACE_ERR" >&2; exit 128; fi
+  # Git translates its messages; only LC_ALL=C gives the English text.
+  if [ "\${LC_ALL:-}" != C ]; then echo "erreur : échec de la suppression de '\$5'" >&2; exit 255; fi
+  echo "error: failed to delete '\${STUB_RACE_PATH:-\$5}': Directory not empty" >&2; exit 255
+fi
+# STUB_LIST_FAIL: once a worktree was removed, git cannot list worktrees.
+[ "\$3 \$4" = "worktree list" ] && [ -n "\${STUB_LIST_FAIL:-}" ] && [ -e "$T/racebin/removed" ] && exit 128
+exec "$REAL_GIT" "\$@"
+SH
+chmod +x "$T/racebin/git"
+fresh_repo
+add_wt "$T/wt/raced" raced
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store run_cleanup
+check "finder race: only .DS_Store left, removal finished" "removed|no" "$(action_of "$T/wt/raced")|$(exists "$T/wt/raced")"
+check "finder race: branch deleted" no "$(has_branch raced)"
+fresh_repo
+add_wt "$T/wt/raced-partial" raced-partial
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=README.md STUB_RACE_NESTED=1 LC_ALL=fr_FR.UTF-8 run_cleanup
+check "git failed while deleting, files left: removal finished" "removed|no|" "$(action_of "$T/wt/raced-partial")|$(exists "$T/wt/raced-partial")|$(ls -A "$T/wt")"
+fresh_repo
+add_wt "$T/wt/raced-elsewhere" raced-elsewhere
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=README.md STUB_RACE_PATH="$T/wt/other" run_cleanup
+check "failed to delete names another folder: kept" "keep|yes" "$(action_of "$T/wt/raced-elsewhere")|$([ -f "$T/wt/raced-elsewhere/README.md" ] && echo yes || echo no)"
+if command -v chflags >/dev/null 2>&1; then
+  fresh_repo
+  add_wt "$T/wt/raced-locked" raced-locked
+  : >"$STUB_DB_FILE"
+  PATH="$T/racebin:$PATH" STUB_RACE_FILE=README.md STUB_RACE_LOCK=1 run_cleanup
+  locked_trash="$(find "$T/wt" -maxdepth 1 -name '.raced-locked.removing-*' | head -1)"
+  check "leftover that cannot be deleted: kept, reported with its new path" "keep|yes|yes" \
+    "$(action_of "$T/wt/raced-locked")|$([ -n "$locked_trash" ] && echo yes || echo no)|$(reason_of "$T/wt/raced-locked" | grep -qF "is at $locked_trash; remove it by hand" && echo yes || echo no)"
+  [ -n "$locked_trash" ] && chflags -R nouchg "$locked_trash" && rm -rf "$locked_trash"
+fi
+fresh_repo
+add_wt "$T/wt/raced-other" raced-other
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store STUB_RACE_ERR="fatal: unexpected" run_cleanup
+check "other error, only .DS_Store left: removal finished" "removed|no" "$(action_of "$T/wt/raced-other")|$(exists "$T/wt/raced-other")"
+fresh_repo
+add_wt "$T/wt/raced-file" raced-file
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=notes.txt STUB_RACE_ERR="fatal: unexpected" run_cleanup
+check "other error leaves a real file: kept" "keep|git worktree remove refused: fatal: unexpected|yes" "$(action_of "$T/wt/raced-file")|$(reason_of "$T/wt/raced-file")|$([ -f "$T/wt/raced-file/notes.txt" ] && echo yes || echo no)"
+fresh_repo
+add_wt "$T/wt/raced-unlisted" raced-unlisted
+: >"$STUB_DB_FILE"
+rm -f "$T/racebin/removed"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store STUB_LIST_FAIL=1 run_cleanup
+check "race, git cannot list worktrees: kept" "keep|yes" "$(action_of "$T/wt/raced-unlisted")|$(exists "$T/wt/raced-unlisted")"
+fresh_repo
+add_wt "$T/wt/still-listed" still-listed
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=.DS_Store STUB_REMOVE_NOOP=1 run_cleanup
+check "remove refused, worktree still listed: kept" "keep|yes|yes" "$(action_of "$T/wt/still-listed")|$(exists "$T/wt/still-listed")|$(has_branch still-listed)"
+fresh_repo
+add_wt "$T/wt/raced-apple" raced-apple
+: >"$STUB_DB_FILE"
+PATH="$T/racebin:$PATH" STUB_RACE_FILE=._notes STUB_RACE_ERR="fatal: unexpected" run_cleanup
+check "other error leaves a ._ file: kept" "keep|yes" "$(action_of "$T/wt/raced-apple")|$([ -f "$T/wt/raced-apple/._notes" ] && echo yes || echo no)"
+
 # ---- 7. dry run reports and touches nothing
 fresh_repo
 add_wt "$T/wt/recorded" recorded
@@ -365,6 +446,44 @@ check "app: another team's build of the release fails" "1|fail|SpecWithCode.app 
 make_app 1.2.3 rejected
 verify_app local
 check "app: a build Gatekeeper rejects fails" "1|fail|SpecWithCode.app 1.2.3 on this Mac is not accepted by Gatekeeper (spctl -a -t exec): $APP: rejected" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+# A Connect-only rollout skips a worker's app step (its own updater installs the release on quit):
+# that app check is pending "updates on quit", never pass and never fail; anything else still fails.
+rollout_log() {  # rollout_log <version> <m1 desktopApp JSON>: a ship log with fleet_rollout's result line.
+  printf 'other output\n{"version": "%s", "result": "installed", "hosts": {"m1": {"identity": "m1", "result": "installed", "route": "connect", "desktopApp": %s}}, "notUpdated": []}\n' \
+    "$1" "$2" >"$T/ship-apps.log"
+  jq -n --arg log "$T/ship-apps.log" '{tracks: {apps: {phase: "verify", log: $log}}}' >"$T/state-apps.json"
+}
+verify_app_rollout() { RELEASE_STATE_FILE="$T/state-apps.json" verify_app "$@"; }
+SKIP='{"result": "skipped", "reason": "needs SSH"}'
+rollout_log 1.2.3 "$SKIP"
+make_app 1.2.2
+verify_app_rollout m1
+check "app: a skipped app step on an older app is pending, updates on quit" "2|pending|pending: updates on quit (SpecWithCode.app on m1 is 1.2.2; the rollout skipped its app: needs SSH)" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+make_app 1.9.0
+verify_app_rollout m1
+check "app: a skipped app step on a newer app still fails" "1|fail" "$APP_RC|$APP_STATUS"
+make_app 1.2.3
+verify_app_rollout m1
+check "app: a skipped app step that is already on the release passes" "0|pass" "$APP_RC|$APP_STATUS"
+make_app 1.2.2 bad
+verify_app_rollout m1
+check "app: a skipped app step with a bad signature still fails" "1|fail" "$APP_RC|$APP_STATUS"
+make_app 1.2.2
+STUB_SSH_DOWN=m1.example verify_app_rollout m1
+check "app: a skipped app step on a worker ssh cannot reach is pending" "2|pending" "$APP_RC|$APP_STATUS"
+rollout_log 1.2.0 "$SKIP"
+verify_app_rollout m1
+check "app: a skip recorded for another version does not count" "1|fail|SpecWithCode.app on m1 is 1.2.2, want 1.2.3" "$APP_RC|$APP_STATUS|$APP_DETAIL"
+rollout_log 1.2.3 '{"result": "failed", "error": "swap failed"}'
+verify_app_rollout m1
+check "app: a failed app step still fails" "1|fail" "$APP_RC|$APP_STATUS"
+STUB_SSH_DOWN=m1.example verify_app_rollout m1
+check "app: an unreachable worker whose app step was not skipped fails" "1|fail" "$APP_RC|$APP_STATUS"
+rollout_log 1.2.3 "$SKIP"
+make_app 1.2.2
+verify_app_rollout m3
+check "app: a skip recorded for m1 does not cover m3" "1|fail" "$APP_RC|$APP_STATUS"
+rm -f "$T/ship-apps.log" "$T/state-apps.json"
 make_app 1.2.3
 verify_app local 1.2.3 none
 check "app: a track that names no requirement fails" "1|fail|track apps names no desktop_app.requirement, the designated requirement its app is signed with" "$APP_RC|$APP_STATUS|$APP_DETAIL"
@@ -541,7 +660,94 @@ jq '.tracks.desk.release = ["bash", "notag.sh"]' "$T/manifest-post.json" >"$T/ma
 ship_rc=0
 RELEASE_MANIFEST="$T/manifest-notag.json" bash "$RELEASE_SH" ship desk >"$T/ship.out" 2>"$T/ship.err" || ship_rc=$?
 check "post-ship: a ship that tagged nothing new fails verify" "1|yes" "$ship_rc|$(grep -q 'FAIL  drift: stale: 1 of 1 commits on origin/main since tag desk-v1.0.2' "$T/ship.err" && echo yes || echo no)"
+post_ship_log="$(jq -r '.tracks.desk.log' "$RELEASE_STATE_FILE")"
+check "post-ship: failed verification details survive in the ship log" yes "$(grep -q 'FAIL  drift: stale: 1 of 1 commits on origin/main since tag desk-v1.0.2' "$post_ship_log" && echo yes || echo no)"
 unset STUB_RELEASES_FILE
+
+# A version inside an HTTP error response cannot satisfy the fleet gate.
+cat >"$T/bin/curl" <<'SH'
+#!/bin/bash
+while [ "$#" -gt 0 ] && [ "$1" != -o ]; do shift; done
+[ "$#" -ge 2 ] || exit 1
+printf '{"serverVersion":"1.2.3"}\n' >"$2"
+printf '%s' "$STUB_HTTP_STATUS"
+SH
+chmod +x "$T/bin/curl"
+cat >"$T/manifest-fleet.json" <<'JSON'
+{"tracks":{"fleet":{"verify":[{"name":"service","kind":"fleet_endpoint","url":"http://fixture.invalid"}]}}}
+JSON
+run_fleet() {
+  STUB_HTTP_STATUS="$1" RELEASE_MANIFEST="$T/manifest-fleet.json" \
+    bash "$RELEASE_SH" verify fleet --version 1.2.3 >"$T/fleet.json" 2>"$T/fleet.err" && echo 0 || echo $?
+}
+check "fleet: HTTP 503 cannot attest the expected version" "1|fail" "$(run_fleet 503)|$(jq -r .result "$T/fleet.json")"
+check "fleet: HTTP 200 can attest the expected version" "0|pass" "$(run_fleet 200)|$(jq -r .result "$T/fleet.json")"
+
+
+# Fleet workers are read over SpecWithCode Connect with M4's CLI, never an SSH tunnel.
+cat >"$T/bin/studio-connect" <<'SH'
+#!/bin/bash
+printf '%s\n' "$*" >"$STUB_CONNECT_ARGS"
+if [ -n "${STUB_CONNECT_PRETTY:-}" ]; then jq . <<<"$STUB_CONNECT_OUT"
+elif [ -n "$STUB_CONNECT_OUT" ]; then printf 'progress line\n%s\n' "$STUB_CONNECT_OUT"; fi
+exit "${STUB_CONNECT_RC:-0}"
+SH
+chmod +x "$T/bin/studio-connect"
+cat >"$T/manifest-connect.json" <<'JSON'
+{"tracks":{"fleet":{"verify":[{"name":"M3 service","kind":"fleet_connect","machine":"m3"}]}}}
+JSON
+run_connect() {
+  STUB_CONNECT_OUT="$1" STUB_CONNECT_RC="${2:-0}" STUB_CONNECT_ARGS="$T/connect.args" RELEASE_STUDIO_CLI="$T/bin/studio-connect" \
+    RELEASE_MANIFEST="$T/manifest-connect.json" bash "$RELEASE_SH" verify fleet --version 1.2.3 >"$T/connect.json" 2>"$T/connect.err" && echo 0 || echo $?
+}
+connect_row() { printf '%s|%s|%s' "$1" "$(jq -r .result "$T/connect.json")" "$(jq -r '.checks[0].detail' "$T/connect.json")"; }
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.3","serverVersion":"1.2.3","status":"up-to-date","phase":"idle"}')"
+check "connect: a worker on the release over Connect passes" "0|pass|transport connect, installedVersion 1.2.3, up-to-date" "$(connect_row "$r")"
+check "connect: the worker is asked read-only over Connect only" "fleet update m3 --status --connect-only --json" "$(cat "$T/connect.args")"
+r="$(run_connect '{"transport":"ssh","installedVersion":"1.2.3","serverVersion":"1.2.3","phase":"idle"}')"
+check "connect: a status that did not come over Connect fails" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '{"error":"m3 did not answer","reason":"unreachable"}' 1)"
+check "connect: an unreachable worker fails and says why" "1|fail|m3 unreachable over SpecWithCode Connect: m3 did not answer (unreachable)" "$(connect_row "$r")"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","downloadedVersion":"1.2.3","phase":"installing"}')"
+check "connect: a worker installing the release is pending" "2|pending" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.3","serverVersion":"1.2.2","phase":"restarting"}')"
+check "connect: installed but not yet served is pending" "2|pending" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","installRequest":{"version":"1.2.3"},"phase":"failed"}')"
+check "connect: a failed update of the release fails, not pending" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","downloadedVersion":"1.2.3"}')"
+check "connect: a downloaded release with no updater phase fails, not pending" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+cat >"$T/bin/studio-connect-slow" <<'SH'
+#!/bin/bash
+sleep 30
+SH
+chmod +x "$T/bin/studio-connect-slow"
+printf '%s\n' '{"repos":[],"groups":{"all":["fleet"]},"tracks":{"fleet":{"verify":[{"name":"M3 service","kind":"fleet_connect","machine":"m3"}]}}}' >"$T/manifest-connect-status.json"
+quick_status() {  # quick_status <quick budget>: seconds `release.sh status` takes on a worker that never answers.
+  local started=$SECONDS
+  RELEASE_CONNECT_QUICK_TIMEOUT="$1" RELEASE_STUDIO_CLI="$T/bin/studio-connect-slow" RELEASE_MANIFEST="$T/manifest-connect-status.json" \
+    bash "$RELEASE_SH" status >"$T/connect-status.json" 2>/dev/null || true
+  echo $((SECONDS - started))
+}
+q="$(quick_status 2)"
+check "connect: status (quick mode) gives a slow worker the short budget" "yes|fail" \
+  "$([ "$q" -ge 2 ] && [ "$q" -lt 20 ] && echo yes || echo "no (${q}s)")|$(jq -r '.tracks[0].checks[0].status' "$T/connect-status.json")"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","status":"up-to-date","phase":"idle"}')"
+check "connect: an idle worker on an older version fails" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(STUB_CONNECT_PRETTY=1 run_connect '{"transport":"connect","installedVersion":"1.2.3","serverVersion":"1.2.3","status":"up-to-date","phase":"idle"}')"
+check "connect: a pretty-printed reply is read whole" "0|pass" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '' 0)"
+check "connect: no status at all fails" "1|fail|m3 gave no SpecWithCode Connect status (exit 0)" "$(connect_row "$r")"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.3","serverVersion":"1.2.3","phase":"idle"}' 3)"
+check "connect: a non-zero CLI exit fails even with a good-looking reply" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(RELEASE_STUDIO_CLI="$T/bin/does-not-exist" RELEASE_MANIFEST="$T/manifest-connect.json" bash "$RELEASE_SH" verify fleet --version 1.2.3 >"$T/connect.json" 2>/dev/null && echo 0 || echo $?)"
+check "connect: a missing CLI fails" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+printf '%s\n' '{"tracks":{"fleet":{"verify":[{"name":"x","kind":"fleet_connect","machine":"m3; rm -rf /"}]}}}' >"$T/manifest-connect-bad.json"
+r="$(STUB_CONNECT_ARGS="$T/connect-bad.args" RELEASE_STUDIO_CLI="$T/bin/studio-connect" RELEASE_MANIFEST="$T/manifest-connect-bad.json" \
+  bash "$RELEASE_SH" verify fleet --version 1.2.3 >"$T/connect.json" 2>/dev/null && echo 0 || echo $?)"
+check "connect: a machine name that is not a plain fleet name is refused before any call" "1|fail|no" \
+  "$(connect_row "$r" | cut -d'|' -f1-2)|$([ -e "$T/connect-bad.args" ] && echo yes || echo no)"
+check "connect: the studio track reads M1 and M3 over Connect, not the SSH tunnels" "fleet_connect m1|fleet_connect m3|0" \
+  "$(jq -r '.tracks.studio.verify[] | select(.name == "M1 service" or .name == "M3 service") | "\(.kind) \(.machine)"' "$REPO_ROOT/.specweave/release/manifest.json" | paste -sd'|' -)|$(grep -c '127.0.0.1:[12]8319' "$REPO_ROOT/.specweave/release/manifest.json")"
 
 printf '\n%d passed, %d failed\n' "$PASSES" "$FAILS"
 [ "$FAILS" -eq 0 ]

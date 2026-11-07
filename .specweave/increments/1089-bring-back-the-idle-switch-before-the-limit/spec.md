@@ -26,7 +26,7 @@ Let `providerLimitStep` fall through to the idle branch of `providerFallbackComm
 ## Tasks
 
 ### T-01 Reach the idle pre-switch from the sweep
-- AC: AC-01, AC-02, AC-03 | Files: apps/server/src/orchestration-v2/ProviderFallbackWorker.ts | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/1089-idle-preswitch/apps/server && pnpm exec vp test run src/orchestration-v2/ProviderFallbackWorker
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProviderFallbackWorker.ts | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/1089-idle-preswitch/apps/server && pnpm exec vp test run src/orchestration-v2/ProviderFallbackWorker
 
 ### T-02 Scenario tests
 - AC: AC-04 | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/1089-idle-preswitch/apps/server && pnpm exec vp test run src/orchestration-v2

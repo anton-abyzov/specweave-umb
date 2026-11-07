@@ -27,39 +27,39 @@ Use an isolated worktree /tmp/swc-iphone-duo, branch codex/iphone-duo, based on 
 ## Tasks
 
 ### T-01 Research and implement adaptive navigation
-- AC: AC-01, AC-02, AC-04 | Files: apps/ios/SWCKit/Sources/Weave/Components/DrawerContainer.swift, apps/ios/SWCKit/Sources/SWCFeatures/RootView.swift, apps/ios/SWCKit/Sources/SWCFeatures/Support/Chrome.swift, apps/ios/project.yml, apps/ios/docs/IPHONE-DUO.md, apps/ios/Tools/duo-readiness.sh | Test: cd /tmp/swc-iphone-duo/apps/ios && make sim-build SIM_NAME=SWC-1079-Compact
+- AC: AC-01, AC-02, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/Weave/Components/DrawerContainer.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/SWCFeatures/RootView.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/SWCFeatures/Support/Chrome.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/project.yml, repositories/anton-abyzov/specwithcode-dev/apps/ios/docs/IPHONE-DUO.md, repositories/anton-abyzov/specwithcode-dev/apps/ios/Tools/duo-readiness.sh | Test: cd /tmp/swc-iphone-duo/apps/ios && make sim-build SIM_NAME=SWC-1079-Compact
 
 ### T-02 Verify native simulator behavior
-- AC: AC-01, AC-02, AC-03 | Files: apps/ios/UITests/AdaptiveLayoutUITests.swift, apps/ios/App/Tests/AdaptiveDrawerTests.swift, apps/ios/Tools/test-duo-readiness.py, apps/ios/Tools/duo-readiness.sh, apps/ios/docs/IPHONE-DUO.md | Test: cd /tmp/swc-iphone-duo/apps/ios && make sim-test SIM_NAME=SWC-1079-Compact ONLY=SpecWithCodeUITests/AdaptiveLayoutUITests
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/ios/UITests/AdaptiveLayoutUITests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/App/Tests/AdaptiveDrawerTests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/Tools/test-duo-readiness.py, repositories/anton-abyzov/specwithcode-dev/apps/ios/Tools/duo-readiness.sh, repositories/anton-abyzov/specwithcode-dev/apps/ios/docs/IPHONE-DUO.md | Test: cd /tmp/swc-iphone-duo/apps/ios && make sim-test SIM_NAME=SWC-1079-Compact ONLY=SpecWithCodeUITests/AdaptiveLayoutUITests
 
 ### T-03 Verify and close 1079
 - AC: AC-01, AC-02, AC-03, AC-04 | Files: .specweave/increments/1079-optimize-iphone-duo-adaptive-layouts/evidence | Test: specweave verify 1079
 
 ### T-04 Fix Xcode 27.1 compilation and verify on M1
-- AC: AC-03, AC-04 | Files: apps/ios/SWCKit/Sources/Weave/Components/AppearanceTile.swift, apps/ios/SWCKit/Sources/SWCFeatures/RootView.swift, apps/ios/SWCKit/Sources/SWCFeatures/Navigation/Router.swift, apps/ios/SWCKit/Sources/SWCFeatures/Support/Chrome.swift, apps/ios/SWCKit/Sources/Weave/Components/DrawerContainer.swift, apps/ios/App/Tests/AdaptiveDrawerTests.swift, apps/ios/SWCKit/Tests/SWCFeaturesTests/ScreenLogicTests.swift, apps/ios/docs/IPHONE-DUO.md, apps/ios/Tools/duo-readiness.sh, apps/ios/UITests/AdaptiveLayoutUITests.swift | Test: python3 /tmp/swc-duo-m1.py /tmp/swc-duo-m1-verify.py
+- AC: AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/Weave/Components/AppearanceTile.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/SWCFeatures/RootView.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/SWCFeatures/Navigation/Router.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/SWCFeatures/Support/Chrome.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/Weave/Components/DrawerContainer.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/App/Tests/AdaptiveDrawerTests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Tests/SWCFeaturesTests/ScreenLogicTests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/docs/IPHONE-DUO.md, repositories/anton-abyzov/specwithcode-dev/apps/ios/Tools/duo-readiness.sh, repositories/anton-abyzov/specwithcode-dev/apps/ios/UITests/AdaptiveLayoutUITests.swift | Test: python3 /tmp/swc-duo-m1.py /tmp/swc-duo-m1-verify.py
 
 ### T-05 Correct composer tap targets found by full native audit
-- AC: AC-03 | Files: apps/ios/SWCKit/Sources/SWCFeatures/Chat/ChatView.swift | Test: cd /tmp/swc-iphone-duo/apps/ios && make sim-test SIM_NAME=SWC-1079-Compact ONLY=SpecWithCodeUITests/HitTargetAuditUITests
+- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/SWCFeatures/Chat/ChatView.swift | Test: cd /tmp/swc-iphone-duo/apps/ios && make sim-test SIM_NAME=SWC-1079-Compact ONLY=SpecWithCodeUITests/HitTargetAuditUITests
 
 
 ### T-06 Preserve accessible sender identity and current navigation assertions
-- AC: AC-03 | Files: apps/ios/SWCKit/Sources/Weave/Components/MessageBubble.swift, apps/ios/UITests/ThreadUITests.swift, apps/ios/UITests/ThreadMenuUITests.swift | Test: cd /tmp/swc-iphone-duo/apps/ios && make sim-test SIM_NAME=SWC-1079-Compact ONLY=SpecWithCodeUITests/ThreadUITests
+- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/Weave/Components/MessageBubble.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/UITests/ThreadUITests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/UITests/ThreadMenuUITests.swift | Test: cd /tmp/swc-iphone-duo/apps/ios && make sim-test SIM_NAME=SWC-1079-Compact ONLY=SpecWithCodeUITests/ThreadUITests
 
 The full send check found the message present, but sought a removed legacy `You:` text prefix. Preserve Markdown/link descendants; label the existing user-message container once, give it a stable author-role identifier, and require the sent text inside that user container. This retains both sender and exact-content assertions rather than matching arbitrary assistant text.
 
 The delete check already returned to the overview; its failure tree uses the current “Waiting on you” heading. Refresh that renamed heading selector and retain deleted-row absence and Working-count assertions; no navigation implementation change is needed.
 
 ### T-07 Deliver native UI test taps to visible target centers
-- AC: AC-03 | Files: apps/ios/UITests/SWCUITestCase.swift, apps/ios/UITests/AdaptiveLayoutUITests.swift, apps/ios/docs/IPHONE-DUO.md | Test: cd /tmp/swc-iphone-duo/apps/ios && make sim-test SIM_NAME=SWC-1079-Compact ONLY=SpecWithCodeUITests/AdaptiveLayoutUITests
+- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/ios/UITests/SWCUITestCase.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/UITests/AdaptiveLayoutUITests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/docs/IPHONE-DUO.md | Test: cd /tmp/swc-iphone-duo/apps/ios && make sim-test SIM_NAME=SWC-1079-Compact ONLY=SpecWithCodeUITests/AdaptiveLayoutUITests
 
 Independent M1 diagnostics showed UIKit and SwiftUI counter buttons accepting XCTest taps. The real app Menu element tap failed, while a public XCUICoordinate tap at that exact element's center passed. Use the visible target center after existence/hittability checks; retain drawer, accessibility, draft and geometry assertions.
 
 ### T-08 Verify wide compact traits independently of screen width
-- AC: AC-01, AC-03 | Files: apps/ios/App/Tests/AdaptiveDrawerTests.swift, apps/ios/UITests/AdaptiveLayoutUITests.swift, apps/ios/docs/IPHONE-DUO.md | Test: cd /tmp/swc-iphone-duo/apps/ios && make sim-test SIM_NAME=SWC-1079-Compact ONLY=SpecWithCodeTests/AdaptiveDrawerTests
+- AC: AC-01, AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/ios/App/Tests/AdaptiveDrawerTests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/UITests/AdaptiveLayoutUITests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/docs/IPHONE-DUO.md | Test: cd /tmp/swc-iphone-duo/apps/ios && make sim-test SIM_NAME=SWC-1079-Compact ONLY=SpecWithCodeTests/AdaptiveDrawerTests
 
 A 678-point landscape outer display remains compact. Width alone cannot predict its navigation mode. Native component tests explicitly supply wide compact and regular traits; UI tests must verify the presented navigation mode and its outcome without treating every wide viewport as regular.
 
 ### T-09 Verify Duo background, deep-link and drawer timing outcomes
-- AC: AC-03 | Files: apps/ios/UITests/AideHistoryUITests.swift, apps/ios/UITests/DrawerUITests.swift, apps/ios/docs/IPHONE-DUO.md | Test: cd /tmp/swc-iphone-duo/apps/ios && SIM_NAME=SWC-1079-Compact bash Tools/sim.sh test -only-testing:SpecWithCodeUITests/AideHistoryUITests -only-testing:SpecWithCodeUITests/DrawerUITests
+- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/ios/UITests/AideHistoryUITests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/UITests/DrawerUITests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/docs/IPHONE-DUO.md | Test: cd /tmp/swc-iphone-duo/apps/ios && SIM_NAME=SWC-1079-Compact bash Tools/sim.sh test -only-testing:SpecWithCodeUITests/AideHistoryUITests -only-testing:SpecWithCodeUITests/DrawerUITests
 
 The exact-source Duo full run exposed background-state, short-landscape approval visibility and immediate post-dismissal assertions. Preserve lifecycle, exact-draft, approval and composer usability outcomes; account for legitimate suspended background state, scrolling and asynchronous hit-test updates. Record actual states and failure details rather than relaxing outcome checks.

@@ -21,14 +21,14 @@ Out:
 
 ## Acceptance Criteria
 
-- [ ] AC-01: An audit report under this increment's folder lists the gitleaks findings for all commits of `specwithcode-dev` (count by rule, file paths, redacted), the commits that touch any value in the mirror's private scrub list (counts only, never values), sensitive files ever added (`.env`, keys, certificates, databases, user data), and the same checks for `anton-abyzov/specwithcode`, and ends with one recommendation and its evidence.
-- [ ] AC-02: `LICENSE` at the root of the repository is the MIT License with `Copyright (c) 2026 Anton Abyzov`; GitHub reports the repository license as MIT; the workspace `package.json` files declare `"license": "MIT"`.
-- [ ] AC-03: `THIRD_PARTY_NOTICES.md` keeps T3 Code's MIT notice verbatim (`Copyright (c) 2026 T3 Tools Inc.`) and every other existing notice; no file still says "no new project-wide license grant", "source available" or "never open source" about SpecWithCode.
-- [ ] AC-04: No marketing surface (README pitch, specwithcode.com, store copy) says SpecWithCode is built on, based on or a fork of T3 Code; `THIRD_PARTY_NOTICES.md` and `UPSTREAM.md` still state the provenance.
-- [ ] AC-05: The README opens with a one-line pitch, a demo GIF, download buttons for macOS, Windows and Linux, and a GitHub stars badge; `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, issue templates and a PR template exist; the repository has a description, at least 6 topics and at least 10 open issues labelled `good first issue`, each with the files to change and how to test.
-- [ ] AC-06: The first-run screen and the About section show a "Star on GitHub" link to the public repository that opens in the system browser; dismissing it on the first-run screen keeps it hidden after a restart; About always shows it. A test covers both.
-- [ ] AC-07: specwithcode.com shows one "Star on GitHub" link and says "open source (MIT)" wherever it said "source available"; the landing test asserts the new wording.
-- [ ] AC-08: The development repository is public (after Anton's yes), its default branch builds in CI, and the public URL that has the stars either is that repository or redirects to it.
+- [x] AC-01: An audit report under this increment's folder lists the gitleaks findings for all commits of `specwithcode-dev` (count by rule, file paths, redacted), the commits that touch any value in the mirror's private scrub list (counts only, never values), sensitive files ever added (`.env`, keys, certificates, databases, user data), and the same checks for `anton-abyzov/specwithcode`, and ends with one recommendation and its evidence.
+- [x] AC-02: `LICENSE` at the root of the repository is the MIT License with `Copyright (c) 2026 Anton Abyzov`; GitHub reports the repository license as MIT; the workspace `package.json` files declare `"license": "MIT"`.
+- [x] AC-03: `THIRD_PARTY_NOTICES.md` keeps T3 Code's MIT notice verbatim (`Copyright (c) 2026 T3 Tools Inc.`) and every other existing notice; no file still says "no new project-wide license grant", "source available" or "never open source" about SpecWithCode.
+- [x] AC-04: No marketing surface (README pitch, specwithcode.com, store copy) says SpecWithCode is built on, based on or a fork of T3 Code; `THIRD_PARTY_NOTICES.md` and `UPSTREAM.md` still state the provenance.
+- [x] AC-05: The README opens with a one-line pitch, a demo GIF, download buttons for macOS, Windows and Linux, and a GitHub stars badge; `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, issue templates and a PR template exist; the repository has a description, at least 6 topics and at least 10 open issues labelled `good first issue`, each with the files to change and how to test.
+- [x] AC-06: The first-run screen and the About section show a "Star on GitHub" link to the public repository that opens in the system browser; dismissing it on the first-run screen keeps it hidden after a restart; About always shows it. A test covers both.
+- [x] AC-07: specwithcode.com shows one "Star on GitHub" link and says "open source (MIT)" wherever it said "source available"; the landing test asserts the new wording.
+- [x] AC-08: The development repository is public (after Anton's yes), its default branch builds in CI, and the public URL that has the stars either is that repository or redirects to it.
 
 ## Approach
 
@@ -47,12 +47,16 @@ Risks: published history exposes any secret or private value that gitleaks misse
 ### Asked
 - D-01 License → MIT, the license T3 Code uses (Anton, November 6, 2026).
 - D-02 Rewrite/force-push history, and the visibility flip → each needs Anton's explicit yes on that single step (Anton, November 6, 2026).
+- D-03 Fresh history in `anton-abyzov/specwithcode`: the cleaned tree lands as an ordinary commit on top of its snapshots (no force-push), it becomes the development repository, and `specwithcode-dev` stays private and is archived (Anton, November 6, 2026).
+- D-07 Secrets → only the public repository's encrypted Actions secrets, sourced from Keychain, Obsidian or local release files, never printed or committed; fork PRs can never read them (no `pull_request_target` with secrets, release jobs in a protected environment) (Anton, November 6, 2026).
 ### Defaulted (change any before sw-do)
 - D-04 Copyright holder → "Anton Abyzov" (reversible).
 - D-05 Code of conduct → Contributor Covenant 2.1 (reversible).
 - D-06 Website claims "open source" only after the repository is public (reversible).
+- D-08 `LINUX_UPDATE_SIGNING_KEY` → generate a new key for `specwithcode`, private half in Keychain and the repository secret, because no copy exists outside GitHub and PR #1256, the only user of the key, is unmerged, so no installed app pins it yet (defaulted, reversible until #1256 ships).
+- D-09 `RELEASE_GH_TOKEN` → new fine-grained token `specwithcode-release` for `anton-abyzov/specwithcode` (contents, pull requests, workflows write; expires November 6, 2027), created in Anton's Chrome after his passkey (Anton, November 6, 2026).
 ### Open
-- D-03 Publish the cleaned real history or a fresh history, and which repository becomes the public development repository (see audit report).
+- none
 
 ## Tasks
 
@@ -72,7 +76,9 @@ Risks: published history exposes any secret or private value that gitleaks misse
 - AC: AC-07 | Files: specweave docs-site/src/pages/code.tsx, docs-site/src/pages/code/download.tsx, docs-site/src/theme/Footer/index.tsx, docs-site/i18n/, docs-site/docs/guides/, docs-site/src/__tests__/code-landing.test.ts | Test: `cd docs-site && npx vitest run src/__tests__/code-landing.test.ts`
 
 ### T-06 Switch the public repository to the development repository
-- AC: AC-08 | Files: none (GitHub settings), .github/workflows/, scripts/install.sh, scripts/install.ps1 | Test: `gh repo view anton-abyzov/specwithcode-dev --json visibility,licenseInfo`
+- AC: AC-08 | Files: .github/workflows/, scripts/release/, scripts/public-mirror/publish.mjs, scripts/build-desktop-artifact.ts | Test: `gh repo view anton-abyzov/specwithcode --json licenseInfo --jq .licenseInfo.spdxId` prints MIT and a PR on anton-abyzov/specwithcode runs the PR Gate green
+- Done before the checkout was free: the `release` (10 secrets) and `production` (2 secrets, 9 variables) environments, fork-PR approval for all outside contributors, the repository variables, Discussions, topics, the `needs-triage` label and a new Linux update signing key.
+- Cutover, in order: (1) a private PR that keeps `.github/workflows` and `.github/dependabot.yml` in the published tree, puts every secret-using release and deploy job behind `environment: release` or `production`, drops the public-mirror PR Gate job, and makes `release.sh`/`release_tools.py`/`build-desktop-artifact.ts` treat `anton-abyzov/specwithcode` as the only repository; (2) export the excluded private files (fleet runbooks, `reports/`, verification notes) to `~/.specwithcode/private-docs/` before they leave the source; (3) run `publish.mjs` once more, without `--push`, into a scratch clone of the public repository, review the commit, then push it as an ordinary commit on top of the public `main` (no force-push); (4) re-point the shared checkout's `origin` to the public repository and reset its `main` to the public `main`; (5) register the M1 release runner (`swc-release`) on the public repository and remove it from the private one; (6) delete `scripts/public-mirror/` in the public repository; (7) re-open still-wanted open PRs against the public repository; (8) archive `specwithcode-dev`.
 
 ### T-07 Verify and close 1247
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08 | Files: none | Test: `specweave verify 1247-open-source-specwithcode-under-mit`

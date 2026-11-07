@@ -45,4 +45,4 @@ Out: pre-switch policy and its composer tooltip and banner copy (1075); fallback
 - AC: AC-03 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/design-create-reuse-1041/header-chip-hover/preswitch-tip | Test: gh pr checks on the exact head; merge commit; released version readback; installed bundle check
 
 ### T-03 Verify and close 1088
-- AC: AC-03 | Files: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1088-thread-chip-tooltip-tells-a-usage-pre-switch-from-a-limit-stop/ledger.jsonl | Test: specweave verify 1088; fresh-context review; specweave complete 1088
+- AC: AC-03 | Files: .specweave/increments/1088-thread-chip-tooltip-tells-a-usage-pre-switch-from-a-limit-stop/ledger.jsonl | Test: specweave verify 1088; fresh-context review; specweave complete 1088

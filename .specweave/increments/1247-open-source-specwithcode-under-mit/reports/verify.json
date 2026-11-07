@@ -1,0 +1,184 @@
+{
+  "ok": true,
+  "ranAt": "2026-11-07T02:40:56.552Z",
+  "increment": "1247-open-source-specwithcode-under-mit",
+  "commands": [
+    {
+      "cmd": "npm --prefix repositories/anton-abyzov/specweave run test:unit:fast",
+      "exit": 0
+    },
+    {
+      "cmd": "npm --prefix repositories/anton-abyzov/vskill test",
+      "exit": 0
+    },
+    {
+      "cmd": "npm --prefix repositories/anton-abyzov/vskill-platform test",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 scripts/fleet-project-sync.py --self-test",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 -m unittest discover -s tests -p test_handoff_evidence.py",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 scripts/release/timing.py --self-test",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 8,
+    "done": 8,
+    "skippedAccepted": 0,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-03",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-04",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-05",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-03",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-06",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-04",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-07",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-05",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-08",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-06",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 7,
+    "done": 7,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "acceptedSkips": [],
+  "ledgerMalformed": 0
+}

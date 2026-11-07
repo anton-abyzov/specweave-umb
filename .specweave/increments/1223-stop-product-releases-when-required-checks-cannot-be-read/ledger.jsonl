@@ -1,3 +1,5 @@
 {"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-03T23:29:04.175Z","note":"session 01a1a049-6b90-78d0-99b0-a9c037b1afc4"}
 {"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-03T23:29:04.176Z"}
 {"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-03T23:37:30.395Z","evidence":"861dc55e00713c05631b16c15d085ffcb86adbc2; bash scripts/release/release-self-test.sh: 97 passed, 0 failed; product-release-gate-final-tests.log\nHEAD dbd80eee4","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1330"}
+{"t":"T-01","e":"claim","by":"codex","at":"2026-11-03T23:29:04.176Z"}
+{"t":"T-01","e":"done","by":"codex","at":"2026-11-03T23:37:30.395Z","evidence":"Reviewed 861dc55e00713c05631b16c15d085ffcb86adbc2. Release self-tests: 97 passed, 0 failed. Product PR #1330 merged as a95fe360ab1172666832aa4f5845edf51ad676bb.","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1330"}

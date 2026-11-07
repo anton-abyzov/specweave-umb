@@ -51,7 +51,7 @@ Follow-up (review F2): a wake turn that never reaches the CLI should not record 
 ## Tasks
 
 ### T-01 Check the native transcript before a Claude resume
-- AC: AC-01, AC-02, AC-03, AC-04 | Files: apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.ts, apps/server/src/orchestration-v2/ProviderTurnStartService.ts, apps/server/src/orchestration-v2/ProviderAdapter.ts | Test: `npx vp test run src/orchestration-v2/Adapters/ClaudeAdapterV2.test.ts -t "native session identity"` and `src/orchestration-v2/ProviderTurnStartService.test.ts` in apps/server
+- AC: AC-01, AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProviderTurnStartService.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProviderAdapter.ts | Test: `npx vp test run src/orchestration-v2/Adapters/ClaudeAdapterV2.test.ts -t "native session identity"` and `src/orchestration-v2/ProviderTurnStartService.test.ts` in apps/server
 
 ### T-02 Review, PR and CI
 - AC: AC-05 | Files: PR on anton-abyzov/specwithcode-dev | Test: fresh exact-head review SHIP, CI green

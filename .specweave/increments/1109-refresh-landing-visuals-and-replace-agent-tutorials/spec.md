@@ -37,23 +37,23 @@ Use the existing clean managed worktree at /Users/antonabyzov/.specwithcode/m4/w
 ## Tasks
 
 ### T-01 Produce visual direction and naming research
-- AC: AC-01 | Files: docs-site/marketing/landing-refresh-1109, /Users/antonabyzov/specwithcode-promo/landing-refresh-20261027 | Test: node /Users/antonabyzov/specwithcode-promo/landing-refresh-20261027/verify-direction.mjs
+- AC: AC-01 | Files: repositories/anton-abyzov/specweave/docs-site/marketing/landing-refresh-1109, /Users/antonabyzov/specwithcode-promo/landing-refresh-20261027 | Test: node /Users/antonabyzov/specwithcode-promo/landing-refresh-20261027/verify-direction.mjs
 
 ### T-02 Implement landing visuals and responsive motion
-- AC: AC-02 | Files: docs-site/src/pages/code.tsx, docs-site/src/pages/code.module.css, docs-site/src/components/ecosystem, docs-site/static/img/studio, docs-site/scripts/verify-seo.mjs | Test: npm --prefix docs-site run build; npx tsc --noEmit -p .; headless desktop/mobile/reduced-motion/no-JavaScript checks
+- AC: AC-02 | Files: repositories/anton-abyzov/specweave/docs-site/src/pages/code.tsx, repositories/anton-abyzov/specweave/docs-site/src/pages/code.module.css, repositories/anton-abyzov/specweave/docs-site/src/components/ecosystem, repositories/anton-abyzov/specweave/docs-site/static/img/studio, repositories/anton-abyzov/specweave/docs-site/scripts/verify-seo.mjs | Test: npm --prefix docs-site run build; npx tsc --noEmit -p .; headless desktop/mobile/reduced-motion/no-JavaScript checks
 - **Dependencies**: T-01
 
 ### T-03 Establish voice provenance and guarded generation
-- AC: AC-03 | Files: video/tutorials, /Users/antonabyzov/specwithcode-promo/tutorial-refresh-20261027 | Test: generation preflight rejects wrong voice and stale cache without making a billed call; save catalog and cache audit evidence
+- AC: AC-03 | Files: repositories/anton-abyzov/specweave/video/tutorials, /Users/antonabyzov/specwithcode-promo/tutorial-refresh-20261027 | Test: generation preflight rejects wrong voice and stale cache without making a billed call; save catalog and cache audit evidence
 
 ### T-04 Recreate five tutorials and update playback metadata
-- AC: AC-04 | Files: video/tutorials, docs-site/src/data/tutorials.json, docs-site/static/video/tutorials, /Users/antonabyzov/specwithcode-promo/tutorial-refresh-20261027 | Test: full media decode, voice receipts, captions/timing and human-readable current-flow evidence; npm --prefix docs-site run build
+- AC: AC-04 | Files: repositories/anton-abyzov/specweave/video/tutorials, repositories/anton-abyzov/specweave/docs-site/src/data/tutorials.json, repositories/anton-abyzov/specweave/docs-site/static/video/tutorials, /Users/antonabyzov/specwithcode-promo/tutorial-refresh-20261027 | Test: full media decode, voice receipts, captions/timing and human-readable current-flow evidence; npm --prefix docs-site run build
 - **Dependencies**: T-03
 
 ### T-05 Deliver reviewed page and tutorial assets
-- AC: AC-05 | Files: docs-site/marketing/landing-refresh-1109, /Users/antonabyzov/specwithcode-promo/landing-refresh-20261027 | Test: exact-head fresh review; green PR checks; merged deployment; public headless and exact-byte media verification
+- AC: AC-05 | Files: repositories/anton-abyzov/specweave/docs-site/marketing/landing-refresh-1109, /Users/antonabyzov/specwithcode-promo/landing-refresh-20261027 | Test: exact-head fresh review; green PR checks; merged deployment; public headless and exact-byte media verification
 - **Dependencies**: T-02, T-04
 
 ### T-06 Verify and close 1109
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1109-refresh-landing-visuals-and-replace-agent-tutorials/reports | Test: specweave verify 1109 with scoped absolute-worktree commands; fresh-context review; specweave complete 1109
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: .specweave/increments/1109-refresh-landing-visuals-and-replace-agent-tutorials/reports | Test: specweave verify 1109 with scoped absolute-worktree commands; fresh-context review; specweave complete 1109
 - **Dependencies**: T-05

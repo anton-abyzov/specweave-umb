@@ -1,0 +1,12 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-03-aide-proactive/swc/apps/server && npx vp test run src/integrations/google
+# exit 0 — 2026-11-03T06:57:20.782Z
+
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-03-aide-proactive/swc/apps/server
+
+
+ Test Files  5 passed (5)
+      Tests  46 passed (46)
+   Start at  01:57:18
+   Duration  2.40s (import 67%, transform 28%, tests 3%, setup 2%)
+

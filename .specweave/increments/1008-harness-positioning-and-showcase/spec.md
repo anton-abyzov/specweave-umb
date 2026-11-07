@@ -40,7 +40,7 @@ Keep downloads, frames and renders under `/Volumes/KINGSTON/SpecWithCode/harness
 - AC: AC-01 | Files: /Volumes/KINGSTON/SpecWithCode/harness-showcase-20261023/references, /Volumes/KINGSTON/SpecWithCode/harness-showcase-20261023/analysis.md | Test: Check archive metadata, complete transcript ranges and timestamped frame index.
 
 ### T-02 Audit claims and revise landing positioning
-- AC: AC-02, AC-03 | Files: docs-site/src/pages/code.tsx, /Volumes/KINGSTON/SpecWithCode/harness-showcase-20261023/claims.md | Test: Review claim citations, scoped diff and docs build/typecheck.
+- AC: AC-02, AC-03 | Files: repositories/anton-abyzov/specweave/docs-site/src/pages/code.tsx, /Volumes/KINGSTON/SpecWithCode/harness-showcase-20261023/claims.md | Test: Review claim citations, scoped diff and docs build/typecheck.
 
 ### T-03 Produce script, demo plan and local video
 - AC: AC-04 | Files: /Volumes/KINGSTON/SpecWithCode/harness-showcase-20261023/video, /Volumes/KINGSTON/SpecWithCode/harness-showcase-20261023/SCRIPT.md, /Volumes/KINGSTON/SpecWithCode/harness-showcase-20261023/STORYBOARD.md | Test: HyperFrames checks, inspected captures, ffprobe and media provenance.

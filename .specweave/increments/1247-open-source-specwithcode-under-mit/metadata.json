@@ -1,12 +1,15 @@
 {
   "id": "1247-open-source-specwithcode-under-mit",
   "uuid": "929e6f00-29cb-48e5-8ba1-cb8088dc83c2",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-06T22:29:01.488Z",
-  "updated": "2026-11-06T22:38:14.745Z",
-  "lastActivity": "2026-11-06T22:38:14.745Z",
+  "updated": "2026-11-07T02:40:57.330Z",
+  "lastActivity": "2026-11-07T02:40:57.330Z",
   "title": "Open source SpecWithCode under MIT",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-07T02:40:57.330Z",
+  "approvedAt": "2026-11-07T02:40:57.330Z"
 }
