@@ -1,0 +1,15 @@
+{
+  "id": "1259-restart-dialog-warns-only-for-running-work",
+  "uuid": "a203d234-a393-4cca-8f69-7c053068b4a1",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T17:40:57.258Z",
+  "updated": "2026-11-07T18:15:22.020Z",
+  "lastActivity": "2026-11-07T18:15:22.020Z",
+  "title": "Restart dialog warns only for running work",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-07T18:15:22.019Z",
+  "approvedAt": "2026-11-07T18:15:22.020Z"
+}
