@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1250 Overrides redesign</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: var(--font-sans, system-ui, sans-serif); font-size: 15px; line-height: 1.5; color: var(--foreground, #222); background: var(--background, #fff); margin: 0; padding: 20px 16px 32px; }
+  h1 { font-size: 24px; margin: 0 0 6px; font-weight: 600; }
+  h2 { font-size: 16px; margin: 28px 0 10px; font-weight: 600; }
+  p.lead { margin: 0 0 18px; color: var(--muted-foreground, #666); max-width: 62ch; }
+  .facts { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; font-size: 14px; margin: 0 0 8px; }
+  .facts dt { color: var(--muted-foreground, #666); }
+  .facts dd { margin: 0; }
+  .panel { border: 1px solid var(--border, #ddd); border-radius: 12px; background: var(--card, #fafafa); overflow: hidden; }
+  .sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 16px 6px; flex-wrap: wrap; }
+  .sec-head b { font-size: 15px; }
+  .sec-head span { font-size: 13px; color: var(--muted-foreground, #666); }
+  .row { padding: 12px 16px; border-top: 1px solid var(--border, #ddd); }
+  .row-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .title { font-weight: 600; font-size: 14px; }
+  .page { font-size: 12px; color: var(--muted-foreground, #666); margin-left: 6px; font-weight: 400; }
+  .line { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 8px 12px; align-items: center; margin-top: 8px; padding: 8px 10px; border-radius: 8px; background: var(--background, #fff); border: 1px solid var(--border, #ddd); }
+  .machines { font-size: 13px; }
+  .chip { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border, #ccc); margin: 0 4px 2px 0; }
+  .vals { font-size: 13px; margin-top: 2px; }
+  .vals .proj { font-weight: 600; }
+  .vals .app { color: var(--muted-foreground, #666); }
+  .ctrls { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+  .btn { font: inherit; font-size: 12.5px; padding: 4px 10px; border-radius: 7px; border: 1px solid var(--border, #ccc); background: var(--card, #fff); color: var(--foreground, #222); }
+  .select { font: inherit; font-size: 12.5px; padding: 4px 26px 4px 10px; border-radius: 7px; border: 1px solid var(--input, #ccc); background: var(--background, #fff); color: var(--foreground, #222); position: relative; }
+  .select::after { content: "▾"; position: absolute; right: 9px; color: var(--muted-foreground, #888); }
+  .link { color: var(--primary, #5b4bd6); font-size: 12.5px; text-decoration: underline; text-underline-offset: 2px; }
+  .done { margin-top: 8px; font-size: 13px; padding: 8px 10px; border-radius: 8px; background: var(--accent-surface, #efeafd); color: var(--accent-surface-foreground, #322); display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .toast { margin-top: 14px; max-width: 380px; margin-left: auto; border: 1px solid var(--border, #ccc); border-radius: 10px; background: var(--popover, #fff); color: var(--popover-foreground, #222); padding: 10px 12px; font-size: 13px; box-shadow: 0 4px 18px rgb(0 0 0 / .18); }
+  .toast b { display: block; margin-bottom: 2px; }
+  .toast .t-row { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+  .before { font-size: 13px; }
+  .before .row { opacity: .85; }
+  .bad { color: var(--destructive, #c33); font-size: 12px; }
+  ul.notes { margin: 6px 0 0; padding-left: 18px; font-size: 14px; }
+  ul.notes li { margin: 3px 0; }
+  .muted { color: var(--muted-foreground, #666); }
+  @media (max-width: 520px) { .line { grid-template-columns: 1fr; } .ctrls { justify-content: flex-start; } }
+</style>
+</head>
+<body>
+<h1>Overrides you can actually manage</h1>
+<p class="lead">One row per setting, machines grouped, the project value next to the app value, a direct edit control, and every change confirmed with Undo.</p>
+
+<dl class="facts">
+  <dt>His clicks</dt><dd>Reverted nothing on M4 or Ministorm: both settings files were last written at 1:20 PM, when "Providers for the recommended model" was set on this project. M1Max still shows its "When a thread finishes" override in his screenshot.</dd>
+  <dt>Why it felt broken</dt><dd>A successful click shows nothing (only failures toast), values are raw (<code>auto_merge</code>), and there is no undo anywhere.</dd>
+</dl>
+
+<h2>After</h2>
+<div class="panel" role="img" aria-label="Redesigned Overrides section mockup">
+  <div class="sec-head"><b>Overrides</b><span>4 settings differ from the app settings on 3 machines</span></div>
+
+  <div class="row">
+    <div class="row-top"><span class="title">When a thread finishes <span class="page">Source Control</span></span></div>
+    <div class="line">
+      <div>
+        <div class="machines"><span class="chip">M1Max</span></div>
+        <div class="vals"><span class="proj">Open PR and auto-merge</span> <span class="app">· App: Open PR</span></div>
+      </div>
+      <div class="ctrls"><span class="select">Open PR and auto-merge</span><button class="btn">Use app setting</button></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="row-top"><span class="title">Providers for the recommended model <span class="page">General</span></span><span class="link">Use app setting everywhere</span></div>
+    <div class="line">
+      <div>
+        <div class="machines"><span class="chip">M4MAX</span><span class="chip">Ministorm</span></div>
+        <div class="vals"><span class="proj">Devin, Copilot, Copilot 0889</span> <span class="app">· App: Any provider</span></div>
+      </div>
+      <div class="ctrls"><button class="btn">Edit</button><button class="btn">Use app setting</button></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="row-top"><span class="title">Permissions for new threads <span class="page">General</span></span></div>
+    <div class="line">
+      <div>
+        <div class="machines"><span class="chip">Ministorm</span></div>
+        <div class="vals"><span class="proj">Full access</span> <span class="app">· App: Ask for approval</span></div>
+      </div>
+      <div class="ctrls"><span class="select">Full access</span><button class="btn">Use app setting</button></div>
+    </div>
+    <div class="done"><span><i>Example:</i> Changed to Full access just now on Ministorm. Was: Accept edits.</span><span class="link">Undo</span></div>
+  </div>
+
+  <div class="row">
+    <div class="row-top"><span class="title">Fallback order <span class="page">Providers</span></span></div>
+    <div class="done"><span><i>Example:</i> Now follows the app setting (None) on M4MAX.</span><span class="link">Undo</span></div>
+  </div>
+</div>
+
+<div class="toast" role="status">
+  <div class="t-row"><div><b>Fallback order follows the app setting</b>On M4MAX. Was: Claude Opus 5.5, GPT-6.1 Sol.</div><button class="btn">Undo</button></div>
+</div>
+
+<h2>App settings: "Reset all" asks first</h2>
+<div class="toast" style="margin-left:0">
+  <b>Reset "When a thread finishes" for 23 projects on M4MAX?</b>
+  <span class="muted">They will follow the app setting (Open PR). You can undo right after.</span>
+  <div class="t-row" style="margin-top:8px; justify-content:flex-end"><button class="btn">Cancel</button><button class="btn" style="border-color:var(--destructive,#c33)">Reset 23 projects</button></div>
+</div>
+
+<h2>Before (today)</h2>
+<div class="panel before">
+  <div class="sec-head"><b>Overrides</b></div>
+  <div class="row"><div class="row-top"><span class="title">When a thread finishes</span><button class="btn">Use app setting</button></div><div class="muted">auto_merge for this project on Anton's MacBook Pro M1Max (190). App setting (Source Control): pull_request.</div></div>
+  <div class="row"><div class="row-top"><span class="title">Providers for the recommended model</span><button class="btn">Use app setting</button></div><div class="muted">3 items for this project on ministorm. App setting (General): 0 items.</div></div>
+  <div class="row"><div class="row-top"><span class="title">Providers for the recommended model</span><button class="btn">Use app setting</button></div><div class="muted">3 items for this project on Anton's MacBook M4MAX. App setting (General): 0 items.</div></div>
+  <div class="row"><span class="bad">Click: row vanishes, no message, no undo.</span></div>
+</div>
+
+<h2>Environment &gt; Repositories</h2>
+<div class="panel">
+  <div class="sec-head"><b>Repositories</b><span>1 entry needs attention</span></div>
+  <div class="row">
+    <div class="row-top"><code>https://github.com/anton-abyzov/specwithcode-dev.git</code><span class="ctrls"><button class="btn">Edit URL</button><button class="btn">Remove</button></span></div>
+    <div class="done" style="background:var(--warning-surface,#fff4d6);color:var(--foreground)"><span>This checkout's origin is <code>https://github.com/anton-abyzov/specwithcode.git</code>.</span><button class="btn">Update URL to specwithcode.git</button></div>
+    <div style="margin-top:10px;font-size:13px">Checkout path</div>
+    <div class="line" style="grid-template-columns:1fr;border-color:var(--destructive,#c33)"><code>https://github.com/anton-abyzov/specwithcode.git</code></div>
+    <div class="bad" style="margin-top:4px">This is a folder path, not a URL. <span class="link">Use as repository URL</span></div>
+  </div>
+  <div class="row">
+    <div class="row-top"><span class="title">Editing URL <span class="page">ID and checkout path stay</span></span></div>
+    <div class="line"><div><code>https://github.com/anton-abyzov/specwithcode.git</code><div class="vals app">Was: specwithcode-dev.git</div></div><div class="ctrls"><button class="btn">Cancel</button><button class="btn">Done</button></div></div>
+  </div>
+</div>
+<p class="muted" style="font-size:13px">If the server still rejects an entry, its message appears under that entry and the field is focused; the footer only says how many entries need attention.</p>
+
+<h2>What changes in code</h2>
+<ul class="notes">
+  <li>One key-aware value formatter shared by Overrides and the inheritance popover (exists in <code>SettingInheritance.tsx</code>, unused by Overrides).</li>
+  <li>Rows grouped by setting; lines grouped by machines with the same value.</li>
+  <li>Inline Select for enum and boolean keys; Edit jumps to the setting's own row for lists and models.</li>
+  <li>Success toast with Undo for every override change, plus a session marker on the row; "Reset all" confirms first.</li>
+  <li>Overrides: no server change. A persisted settings history is a follow-up.</li>
+  <li>Repositories: the read result gains the checkout origin (credential-free only) and save errors name their entry; both optional fields, so older servers keep working.</li>
+</ul>
+</body>
+</html>

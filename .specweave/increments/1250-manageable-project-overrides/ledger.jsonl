@@ -1,0 +1,13 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:13:27.422Z","note":"session 4e5ccf5f-b02f-4092-ad85-0e332e1b88d0","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:13:27.424Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:19:11.438Z","evidence":"d547572ce0; projectOverrideRows/SettingInheritance tests pass; tsc clean\nHEAD fe792c2f0","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:19:12.343Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:19:13.330Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:19:14.238Z","evidence":"ca6848d613; scopedSettings 30 tests pass\nHEAD fe792c2f0","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:19:15.201Z","evidence":"747b1fd6e8; ProjectOverrides 5 tests, settings suite 1359 pass\nHEAD fe792c2f0","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:19:16.091Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:23:37.741Z","evidence":"e8658bba8f; server+contract: origin on mismatch (credential-free only), entry on ProjectEnvironmentError and ProjectMutationError; 56 server tests pass\nHEAD fe792c2f0","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:23:38.651Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-07T07:27:55.480Z","evidence":"4986dbeff8+64ae2cdb13; Edit URL, inline path check, Update URL from origin, entry-scoped save error; studio suite 1443 pass; tsc clean\nHEAD fe792c2f0","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-07T08:51:02.221Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-07T08:51:02.222Z","evidence":"PR #43 merged 29d4ec7807; CI green; headless evidence ~/.specwithcode/scratch/1250-evidence-023747; re-review SHIP\nHEAD fe792c2f0","model":"claude-opus-5-5[1m]"}
