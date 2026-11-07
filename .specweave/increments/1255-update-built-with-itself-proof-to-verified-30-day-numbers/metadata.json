@@ -1,0 +1,15 @@
+{
+  "id": "1255-update-built-with-itself-proof-to-verified-30-day-numbers",
+  "uuid": "8211d916-eda6-4bb4-821e-abe0adea63bf",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T06:17:50.838Z",
+  "updated": "2026-11-07T06:52:36.769Z",
+  "lastActivity": "2026-11-07T06:52:36.769Z",
+  "title": "Update Built with itself proof to verified 30-day numbers",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-07T06:52:36.768Z",
+  "approvedAt": "2026-11-07T06:52:36.769Z"
+}
