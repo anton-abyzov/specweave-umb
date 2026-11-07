@@ -1,0 +1,15 @@
+{
+  "id": "1251-per-increment-multi-repo-worktrees",
+  "uuid": "b06e0858-5c98-42cc-8381-f3a5c3244d9e",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T04:10:36.489Z",
+  "updated": "2026-11-07T05:53:26.708Z",
+  "lastActivity": "2026-11-07T05:53:26.708Z",
+  "title": "Per-increment multi-repo worktrees",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-07T05:53:26.707Z",
+  "approvedAt": "2026-11-07T05:53:26.708Z"
+}
