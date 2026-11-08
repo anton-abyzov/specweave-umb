@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-08T20:52:48.333Z","note":"session 4368d619-ca7e-4f7c-9d9b-db0d6188fb1c","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-08T20:52:48.334Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-08T20:52:48.336Z","evidence":"anton-abyzov/specwithcode#87 at 14b780f0c4: unit 1987 passed; project-artifacts verify 17 checks headless; shots /Users/antonabyzov/scratch/1264/shelf-before.png and shelf-after.png\nHEAD ec6211b7b","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-08T20:52:49.366Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-08T20:52:49.368Z","evidence":"anton-abyzov/specwithcode#87 at 14b780f0c4: unit 1987 passed; project-artifacts verify 17 checks headless; shots /Users/antonabyzov/scratch/1264/shelf-before.png and shelf-after.png\nHEAD ec6211b7b","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-08T20:52:50.324Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-08T20:52:50.325Z","evidence":"anton-abyzov/specwithcode#87 at 14b780f0c4: unit 1987 passed; project-artifacts verify 17 checks headless; shots /Users/antonabyzov/scratch/1264/shelf-before.png and shelf-after.png\nHEAD ec6211b7b","model":"claude-opus-5-5[1m]"}

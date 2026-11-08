@@ -1,0 +1,15 @@
+{
+  "id": "1264-artifact-shelf-shows-deliverables-not-task-logs",
+  "uuid": "9914fabe-1973-48d1-88e7-c3124def0708",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-08T20:44:30.632Z",
+  "updated": "2026-11-08T21:07:25.743Z",
+  "lastActivity": "2026-11-08T21:07:25.743Z",
+  "title": "Artifact shelf shows deliverables, not task logs",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-08T21:07:25.742Z",
+  "approvedAt": "2026-11-08T21:07:25.743Z"
+}
