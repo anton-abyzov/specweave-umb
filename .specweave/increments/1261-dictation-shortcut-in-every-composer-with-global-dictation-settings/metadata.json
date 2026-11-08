@@ -1,0 +1,15 @@
+{
+  "id": "1261-dictation-shortcut-in-every-composer-with-global-dictation-settings",
+  "uuid": "a63ba029-aeaa-48bc-85c2-32074de6697b",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-08T07:01:08.344Z",
+  "updated": "2026-11-08T07:40:30.537Z",
+  "lastActivity": "2026-11-08T07:40:30.537Z",
+  "title": "Dictation shortcut in every composer with global dictation settings",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-08T07:40:30.536Z",
+  "approvedAt": "2026-11-08T07:40:30.537Z"
+}

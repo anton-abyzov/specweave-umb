@@ -1,0 +1,13 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:20:38.587Z","note":"session 8951b8a7-2c66-458e-89c8-9b9dbcc67d12","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:20:38.588Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:20:38.589Z","evidence":"commit 5e35603013, PR anton-abyzov/specwithcode#72; unit tests pass; headless 9/9 ~/.specwithcode/m4/evidence/dictation-hotkey-20261108/summary.json\nHEAD 9598674d7","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:20:39.321Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:20:39.323Z","evidence":"commit 5e35603013, PR anton-abyzov/specwithcode#72; unit tests pass; headless 9/9 ~/.specwithcode/m4/evidence/dictation-hotkey-20261108/summary.json\nHEAD 9598674d7","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:20:40.072Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:20:40.074Z","evidence":"commit 5e35603013, PR anton-abyzov/specwithcode#72; unit tests pass; headless 9/9 ~/.specwithcode/m4/evidence/dictation-hotkey-20261108/summary.json\nHEAD 9598674d7","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:20:40.830Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:20:40.832Z","evidence":"commit 5e35603013, PR anton-abyzov/specwithcode#72; unit tests pass; headless 9/9 ~/.specwithcode/m4/evidence/dictation-hotkey-20261108/summary.json\nHEAD 9598674d7","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:20:41.573Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:20:41.574Z","evidence":"commit 5e35603013, PR anton-abyzov/specwithcode#72; unit tests pass; headless 9/9 ~/.specwithcode/m4/evidence/dictation-hotkey-20261108/summary.json\nHEAD 9598674d7","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:35:12.250Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-08T07:35:12.251Z","evidence":"PR #72 merged 3e0dad05b8, all required CI green\nHEAD e27eea97e","model":"claude-opus-5-5[1m]"}
