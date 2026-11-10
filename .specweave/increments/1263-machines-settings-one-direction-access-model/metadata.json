@@ -1,0 +1,16 @@
+{
+  "id": "1263-machines-settings-one-direction-access-model",
+  "uuid": "f1eb6d30-325d-4406-a664-a9b2bf391312",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-08T06:27:22.118Z",
+  "updated": "2026-11-08T08:36:36.974Z",
+  "lastActivity": "2026-11-08T08:36:36.974Z",
+  "title": "Machines settings: one-direction access model",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-08T08:36:36.973Z",
+  "closeReason": "All tasks done; verify fails only on unrelated umbrella repos without installed deps (exit 127); AC-07 covered by T-05/T-06 evidence",
+  "approvedAt": "2026-11-08T08:36:36.974Z"
+}
