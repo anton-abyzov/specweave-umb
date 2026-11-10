@@ -1,0 +1,12 @@
+{
+  "id": "1276-umbrella-project-default-worktree-repository-and-picker",
+  "uuid": "2e08c301-8d7c-4acd-8b9c-42a95699c473",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-10T21:35:44.303Z",
+  "updated": "2026-11-10T21:35:44.303Z",
+  "lastActivity": "2026-11-10T21:35:44.303Z",
+  "title": "Umbrella project: default worktree repository and picker",
+  "project": "specweave-umb"
+}
