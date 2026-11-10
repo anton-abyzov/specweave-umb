@@ -1,0 +1,13 @@
+{"t":"*","e":"session","by":"claude@ministorm","at":"2026-11-07T21:36:01.429Z","note":"session 8edc277d-9161-413f-9d59-bb0d33c39728","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@ministorm","at":"2026-11-07T21:36:01.430Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@ministorm","at":"2026-11-07T21:36:01.430Z","evidence":"docs/transcript-detail.md + packages/shared/src/transcriptDetail.cases.json in PR 64\nHEAD bef988624","link":"https://github.com/anton-abyzov/specwithcode/pull/64","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@ministorm","at":"2026-11-07T21:36:02.521Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@ministorm","at":"2026-11-07T21:36:02.523Z","evidence":"Swift 6.2 harness: 14/14 pass; old code fails 5 shared cases (ios-cases-before.txt)\nHEAD bef988624","link":"https://github.com/anton-abyzov/specwithcode/pull/64","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@ministorm","at":"2026-11-07T21:36:03.625Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@ministorm","at":"2026-11-07T21:36:03.626Z","evidence":"unnamedToolsReadFromTheirOwnName passes\nHEAD bef988624","link":"https://github.com/anton-abyzov/specwithcode/pull/64","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@ministorm","at":"2026-11-07T21:36:04.735Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@ministorm","at":"2026-11-07T21:36:04.736Z","evidence":"web vitest 12/12 shared cases, 200 timeline tests, tsc+lint clean\nHEAD bef988624","link":"https://github.com/anton-abyzov/specwithcode/pull/64","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@ministorm","at":"2026-11-07T22:47:18.833Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@ministorm","at":"2026-11-07T22:47:18.834Z","evidence":"web/desktop: ~/.specwithcode/ministorm/evidence/1148/{before,after}; iOS: ios-before / ios-after device-matrix running.png\nHEAD bef988624","link":"https://github.com/anton-abyzov/specwithcode/pull/64","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@ministorm","at":"2026-11-07T22:47:19.982Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@ministorm","at":"2026-11-07T22:47:19.983Z","evidence":"PR 64 merged aed9c4fa57; fresh review SHIP on 7690c66649\nHEAD bef988624","model":"claude-opus-5-5[1m]"}
