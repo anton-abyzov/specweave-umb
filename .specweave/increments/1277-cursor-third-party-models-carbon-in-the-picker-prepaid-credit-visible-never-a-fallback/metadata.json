@@ -1,0 +1,12 @@
+{
+  "id": "1277-cursor-third-party-models-carbon-in-the-picker-prepaid-credit-visible-never-a-fallback",
+  "uuid": "3c0bc78b-3fa8-460a-aa8c-019dae189739",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-10T22:07:40.509Z",
+  "updated": "2026-11-10T22:10:39.505Z",
+  "lastActivity": "2026-11-10T22:10:39.505Z",
+  "title": "Cursor third-party models: Carbon in the picker, prepaid credit visible, never a fallback",
+  "project": "specweave-umb"
+}
