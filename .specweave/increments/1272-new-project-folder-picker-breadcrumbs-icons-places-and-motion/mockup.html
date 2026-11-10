@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New project location: proposed</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:20px 16px 28px;font-family:var(--font-sans,system-ui,sans-serif);font-size:15px;line-height:1.45;color:var(--foreground);background:var(--background)}
+  h1{font-size:24px;font-weight:600;margin:0 0 4px;letter-spacing:-.01em}
+  .lead{margin:0 0 18px;color:var(--muted-foreground);max-width:62ch}
+  svg{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+  :focus-visible{outline:2px solid var(--ring);outline-offset:2px}
+
+  .dialog{border:1px solid var(--border);border-radius:16px;background:var(--popover,var(--card));padding:18px;max-width:640px}
+  .sec{font-size:14px;font-weight:600;margin:0}
+  .hint{font-size:13px;color:var(--muted-foreground);margin:2px 0 8px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+  .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);border-radius:9px;padding:6px 10px;font-size:14px}
+  .chip[aria-pressed=true]{border-color:var(--primary);background:var(--accent-surface,var(--accent))}
+  .chip small{color:var(--muted-foreground);font-size:12px}
+  .why{font-size:13px;color:var(--muted-foreground);margin:0 0 14px}
+
+  .panel{border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .crumbs{display:flex;align-items:center;gap:2px;padding:8px 8px 8px 10px;border-bottom:1px solid var(--border);min-width:0}
+  .crumbs ol{display:flex;align-items:center;gap:1px;list-style:none;margin:0;padding:0;min-width:0;flex:1;overflow:hidden}
+  .crumbs li{display:flex;align-items:center;gap:1px;min-width:0}
+  .crumbs li svg{width:13px;height:13px;color:var(--muted-foreground);opacity:.7}
+  .crumb{padding:3px 6px;border-radius:6px;font-size:13.5px;color:var(--muted-foreground);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .crumb:hover{background:var(--muted);color:var(--foreground)}
+  li:last-child .crumb{color:var(--foreground);font-weight:600}
+  .tool{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:7px;font-size:13px;color:var(--muted-foreground);white-space:nowrap}
+  .tool:hover{background:var(--muted);color:var(--foreground)}
+
+  .body{display:grid;grid-template-columns:168px 1fr}
+  .places{border-right:1px solid var(--border);padding:8px 6px;display:flex;flex-direction:column;gap:1px}
+  .places p{font-size:12px;color:var(--muted-foreground);margin:8px 8px 3px}
+  .places p:first-child{margin-top:2px}
+  .place{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:7px;font-size:13.5px;text-align:left;min-width:0}
+  .place span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .place:hover{background:var(--muted)}
+  .place svg{color:var(--muted-foreground)}
+
+  .list{height:224px;overflow:auto;padding:6px;position:relative}
+  .rows{display:flex;flex-direction:column;gap:1px}
+  .row{display:flex;align-items:center;gap:10px;width:100%;padding:6px 8px;border-radius:7px;font-size:14px;text-align:left}
+  .row:hover{background:var(--muted)}
+  .row[aria-selected=true]{background:var(--muted);box-shadow:inset 2px 0 0 var(--primary)}
+  .row .name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .row .tag{font-size:12px;color:var(--muted-foreground);white-space:nowrap}
+  .row .go{width:14px;height:14px;color:var(--muted-foreground);opacity:0}
+  .row:hover .go,.row[aria-selected=true] .go{opacity:.8}
+  .ico-folder{color:var(--muted-foreground)}
+  .ico-git{color:var(--chart-2,var(--info-foreground,var(--primary)))}
+  .ico-proj{color:var(--primary)}
+  .newrow{display:flex;align-items:center;gap:10px;padding:5px 8px;border-radius:7px;background:var(--muted)}
+  .newrow input{flex:1;min-width:0;font:inherit;font-size:14px;color:var(--foreground);background:var(--background);border:1px solid var(--input,var(--border));border-radius:6px;padding:3px 7px}
+  .newrow .err{font-size:12px;color:var(--destructive-foreground,var(--destructive));white-space:nowrap}
+  .empty{font-size:13.5px;color:var(--muted-foreground);padding:14px 8px}
+
+  .foot{display:flex;align-items:center;gap:12px;border-top:1px solid var(--border);padding:10px 12px}
+  .foot p{margin:0;font-size:13px;color:var(--muted-foreground);flex:1;min-width:0;overflow-wrap:anywhere}
+  .foot b{color:var(--foreground);font-weight:600}
+  .cta{background:var(--primary);color:var(--primary-foreground);border-radius:8px;padding:7px 12px;font-size:14px;font-weight:600;white-space:nowrap}
+  .keys{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--muted-foreground);margin:10px 2px 0}
+  kbd{font:inherit;border:1px solid var(--border);border-radius:5px;padding:0 5px;margin-right:4px;background:var(--muted)}
+
+  @media (prefers-reduced-motion:no-preference){
+    .rows.in-fwd{animation:fwd .17s cubic-bezier(.2,.7,.2,1)}
+    .rows.in-back{animation:back .17s cubic-bezier(.2,.7,.2,1)}
+    .newrow{animation:grow .16s ease-out}
+    .row,.place,.crumb,.tool{transition:background-color .1s}
+    @keyframes fwd{from{opacity:0;transform:translateX(14px)}}
+    @keyframes back{from{opacity:0;transform:translateX(-14px)}}
+    @keyframes grow{from{opacity:0;transform:scaleY(.6)}}
+  }
+
+  h2{font-size:16px;font-weight:600;margin:24px 0 8px}
+  table{border-collapse:collapse;width:100%;max-width:640px;font-size:14px}
+  th,td{text-align:left;vertical-align:top;padding:7px 10px 7px 0;border-bottom:1px solid var(--border)}
+  th{font-weight:600;color:var(--muted-foreground);font-size:13px}
+  td:first-child{white-space:nowrap;font-weight:600}
+
+  @media (max-width:520px){
+    .body{grid-template-columns:1fr}
+    .places{flex-direction:row;overflow:auto;border-right:0;border-bottom:1px solid var(--border)}
+    .places p{display:none}
+    .place{flex:none}
+    .foot{flex-direction:column;align-items:stretch}
+    .tool span{display:none}
+  }
+</style>
+</head>
+<body>
+<h1>New project location, proposed</h1>
+<p class="lead">Live mockup: click folders, breadcrumb segments and places, try New folder, or use the arrow keys in the list.</p>
+
+<div class="dialog">
+  <p class="sec">Machine</p>
+  <p class="hint">Where the project's files live and its threads run</p>
+  <div class="chips" id="chips"></div>
+  <p class="why" id="why"></p>
+
+  <div class="panel" role="group" aria-label="Project location">
+    <div class="crumbs">
+      <nav aria-label="Current folder" style="flex:1;min-width:0;display:flex"><ol id="crumbs"></ol></nav>
+      <button class="tool" id="newBtn"><svg><use href="#i-folder-plus"/></svg><span>New folder</span></button>
+    </div>
+    <div class="body">
+      <div class="places" id="places"></div>
+      <div class="list" id="list" role="listbox" aria-label="Folders" tabindex="0"><div class="rows" id="rows"></div></div>
+    </div>
+    <div class="foot">
+      <p id="outcome"></p>
+      <button class="cta">Create project here</button>
+    </div>
+  </div>
+  <div class="keys">
+    <span><kbd>↑</kbd><kbd>↓</kbd>Move</span><span><kbd>→</kbd>Open</span><span><kbd>←</kbd>Parent</span><span><kbd>/</kbd>Type a path</span><span><kbd>N</kbd>New folder</span>
+  </div>
+</div>
+
+<h2>What changes</h2>
+<table>
+  <tr><th>Today</th><th>Proposed</th></tr>
+  <tr><td>"Up one folder" row</td><td>Breadcrumb; every segment opens that folder. Left arrow goes to the parent.</td></tr>
+  <tr><td>Plain text rows</td><td>Folder, Git repository and existing-project icons (Lucide, same set as the app).</td></tr>
+  <tr><td>Path field + Browse</td><td>Places: projects folder, recent parents, home. Press / to type a path.</td></tr>
+  <tr><td>No way to add a folder</td><td>New folder, inline, on any machine, with name checks.</td></tr>
+  <tr><td>Helper paragraph</td><td>One live line: the exact folder that will be created or used.</td></tr>
+  <tr><td>m1 preselected</td><td>This device, always, with the reason shown under the chips.</td></tr>
+  <tr><td>~/.specwithcode/m1/projects</td><td>The machine's normal projects folder (~/Projects where it exists).</td></tr>
+</table>
+
+<svg style="display:none">
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+  <symbol id="i-git" viewBox="0 0 24 24"><path d="M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5"/><circle cx="13" cy="12" r="2"/><path d="M18 19c-2.8 0-5-2.2-5-5v8"/><circle cx="20" cy="19" r="2"/></symbol>
+  <symbol id="i-proj" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="m9 13 2 2 4-4"/></symbol>
+  <symbol id="i-folder-plus" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="M12 10v6M9 13h6"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<script>
+const NAME = "fable-test";
+const tree = {
+  "~": {Desktop:"f", Documents:"f", Movies:"f", Projects:"f"},
+  "~/Projects": {github:"f", Obsidian:"f", "sw-easychamp":"f"},
+  "~/Projects/github": {"hack26-openai":"g", "specweave-umb":"p:specweave", vskill:"g", playground:"f"},
+  "~/Projects/github/hack26-openai": {api:"f", docs:"f", machine:"f", scripts:"f", static:"f"},
+  "~/Projects/github/playground": {},
+};
+const machines = [["m4","laptop","This device"],["linux-mini","monitor",""],["m1","laptop",""],["m3","laptop",""]];
+let machine = "m4", path = "~/Projects/github", sel = 0, adding = false;
+const $ = (id) => document.getElementById(id);
+const ico = (n, c="") => `<svg class="${c}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+const kids = () => Object.entries(tree[path] ?? {});
+
+function chips(){
+  $("chips").innerHTML = machines.map(([m,i,t]) => `<button class="chip" aria-pressed="${m===machine}" data-m="${m}">${ico(i)}${m}${t?`<small>${t}</small>`:""}${m===machine?ico("check"):""}</button>`).join("");
+  $("why").textContent = machine==="m4" ? "Preselected because it is this device." : `You chose ${machine}. New projects start on this device unless you pick another here.`;
+}
+function places(){
+  const p = [["Suggested"],["folder","Projects","~/Projects"],["home","Home","~"],["Recent"],["clock","github","~/Projects/github"],["clock","sw-easychamp","~/Projects"]];
+  $("places").innerHTML = p.map(x => x.length===1 ? `<p>${x[0]}</p>` : `<button class="place" data-p="${x[2]}" title="${x[2]} on ${machine}">${ico(x[0])}<span>${x[1]}</span></button>`).join("");
+}
+function render(dir){
+  const parts = path.split("/");
+  $("crumbs").innerHTML = parts.map((s,i) => `<li>${i?ico("chev"):""}<button class="crumb" data-p="${parts.slice(0,i+1).join("/")}">${i===0?"Home":s}</button></li>`).join("");
+  const k = kids();
+  sel = Math.min(sel, Math.max(0,k.length-1));
+  let html = adding ? `<div class="newrow">${ico("folder-plus","ico-folder")}<input id="nf" aria-label="New folder name" placeholder="Folder name"><span class="err" id="nferr" role="alert"></span></div>` : "";
+  html += k.map(([n,t],i) => {
+    const kind = t[0], tag = kind==="p" ? `Project: ${t.slice(2)}` : kind==="g" ? "Git repository" : "";
+    return `<button class="row" role="option" tabindex="-1" aria-selected="${i===sel}" data-p="${path}/${n}">${ico(kind==="p"?"proj":kind==="g"?"git":"folder", kind==="p"?"ico-proj":kind==="g"?"ico-git":"ico-folder")}<span class="name">${n}</span><span class="tag">${tag}</span>${ico("chev","go")}</button>`;
+  }).join("");
+  if(!k.length && !adding) html += `<p class="empty">No folders here yet. The project folder is made when you create the project.</p>`;
+  const rows = $("rows");
+  rows.className = "rows"; void rows.offsetWidth;
+  rows.innerHTML = html;
+  if(dir) rows.classList.add(dir>0?"in-fwd":"in-back");
+  const self = path.split("/").pop(), isProj = /hack26-openai|specweave-umb|vskill/.test(self);
+  $("outcome").innerHTML = isProj ? `Uses <b>${path}</b> as the project on ${machine}. It is already a Git repository.` : `Creates <b>${path}/${NAME}</b> on ${machine}.`;
+  if(adding){ const f=$("nf"); f.focus(); f.onkeydown=(e)=>{ e.stopPropagation();
+    if(e.key==="Escape"){adding=false;render();}
+    if(e.key==="Enter"){ const v=f.value.trim(); const err = !v?"Enter a name": /[\/\\]/.test(v)||v==="."||v===".."?"Not a valid folder name": (tree[path]??{})[v]?"Already exists":"";
+      if(err){$("nferr").textContent=err;return;}
+      (tree[path]??= {})[v]="f"; tree[`${path}/${v}`]={}; adding=false; go(`${path}/${v}`,1);} }; }
+}
+function go(p,dir){ if(!(p in tree)) tree[p]={}; dir ??= p.length>=path.length?1:-1; path=p; sel=0; adding=false; render(dir); }
+document.addEventListener("click",(e)=>{
+  const t = e.target.closest("[data-p],[data-m],#newBtn"); if(!t) return;
+  if(t.id==="newBtn"){adding=true;render();return;}
+  if(t.dataset.m){machine=t.dataset.m;chips();places();render();return;}
+  go(t.dataset.p);
+});
+$("list").addEventListener("keydown",(e)=>{
+  const k=kids(); let used=true;
+  if(e.key==="ArrowDown") sel=Math.min(sel+1,k.length-1);
+  else if(e.key==="ArrowUp") sel=Math.max(sel-1,0);
+  else if((e.key==="ArrowRight"||e.key==="Enter")&&k[sel]) return e.preventDefault(), go(`${path}/${k[sel][0]}`,1);
+  else if((e.key==="ArrowLeft"||e.key==="Backspace")&&path!=="~") return e.preventDefault(), go(path.split("/").slice(0,-1).join("/"),-1);
+  else if(e.key.toLowerCase()==="n"){adding=true;}
+  else used=false;
+  if(used){e.preventDefault();render();}
+});
+chips();places();render();
+</script>
+</body>
+</html>
