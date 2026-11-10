@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-09T06:22:06.022Z",
-  "updated": "2026-11-10T07:01:58.467Z",
-  "lastActivity": "2026-11-10T07:01:58.467Z",
+  "updated": "2026-11-10T21:52:05.718Z",
+  "lastActivity": "2026-11-10T21:52:05.718Z",
   "title": "Away mode: leave a machine and hand its threads, routines and coordinator to an always-on machine",
   "project": "specweave-umb",
   "externalLinks": {}

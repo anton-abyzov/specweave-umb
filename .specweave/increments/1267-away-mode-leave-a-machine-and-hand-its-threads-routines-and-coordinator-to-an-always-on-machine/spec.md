@@ -49,9 +49,10 @@ The pieces exist, but nothing joins them, and the gaps are real (all in `specwit
 - [ ] AC-12: A routine's owner is its runner's copy: the copy on the machine whose coordinator holds the current epoch. Routines made under an `own` grant carry `grantedBy.kind = own` and count as the owner's. No separate owner column (per D-12).
 - [ ] AC-13: Under an `own` grant, the other machine's work may change, run and delete a routine whose owner matches. `team` grants keep today's `grantedBy` rule. A routine made on the M4 can be edited from Ministorm's work and the reverse, with no setting changed by hand.
 - [ ] AC-14: New `own` grants default to `routines: true`. Existing non-legacy grants between the same owner's machines are upgraded once with an audit line (per D-09). `team` grants stay off.
-- [ ] AC-15: Coordinator-owned routines replicate from the runner to every linked `own` machine over the authenticated lease route, not only to the standby. An edit, run or delete made on a resting copy is forwarded to the runner under the `own` grant and returns with the next beat; the next beat never overwrites an unforwarded edit. If the runner is unreachable, the edit is refused with "Runner offline: <machine>. Run here first." A copied database row never fires (per D-12).
+- [ ] AC-15: A page showing a copy that is not the runner reads and changes the runner's routines over that machine's connection, so an edit is made on the runner and comes back with the next replica. On a resting copy, the scheduler's update, enable, delete and run refuse coordinator-owned routines with a message naming where to change them, for the web and for agents' tools, so no edit is overwritten. Failover copies keep going to the armed standby over the authenticated lease route. A copied database row never fires (per D-12).
 - [ ] AC-16: The runner is the copy whose coordinator holds the current epoch; only it fires (`ScheduledTaskCoordinatorGate`). Away, Bring back and Run here move it with the coordinator claim at epoch+1, in the AC-06 order and with run state. A routine never fires on two machines (per D-12).
-- [ ] AC-17: When a routine's runner has been unreachable for more than 2 intervals, other machines show "Runner offline: <machine>" with a one-click Run here. Automatic failover only happens for routines opted in (per D-10).
+- [ ] AC-17: When the runner is unreachable, the Routines section on other machines shows "Runner offline: <machine>" with this machine's copies read-only and a Run here button that opens Take over coordinator here. Automatic failover only happens through the project's armed standby, which is an opt-in (per D-10).
+- [ ] AC-18: The project composer has one machine control. Its menu lists the project's machines and offers "Add to another machine…" (link and clone, this copy keeps running; today "Prepare project on machine…"), "Move to another machine…" (handoff; today the separate "Move project execution" button) and "Leave this machine…" (Away). The separate Move button is gone, and a thread's draft keeps "Run on". The labels are the same in every locale file. Web only (per D-13).
 
 ## Approach
 
@@ -111,6 +112,7 @@ The pieces exist, but nothing joins them, and the gaps are real (all in `specwit
 - D-08 Routine sync mechanism → B: owner-signed copies peer-to-peer, one runner lease per routine (user, November 10, 2026). Research: `routine-sync.html` in this folder.
 - D-09 Routine permission between your own machines → on for new `own` grants, plus a one-time upgrade of existing same-owner grants with an audit line (user)
 - D-10 Runner offline → show it, one-click Run here; automatic takeover only as a per-routine opt-in (user)
+- D-13 Machine actions naming → one machine menu: "Add to another machine…", "Move to another machine…", "Leave this machine…"; "Run on" stays for a thread (coordinator, November 10, 2026; T3 Code uses "Add to another machine" and "Run on" and has no move)
 - D-12 Routine edits → single writer: only the runner's copy is written, edits on other machines are forwarded to it, and the runner is the coordinator epoch. This replaces the signed edit-anywhere copies of D-08 (user, November 10, 2026)
 
 ### Defaulted (change any before sw-do)
@@ -181,3 +183,6 @@ D-12, single writer: the runner's copy is the only one written. An edit on a res
 
 ### T-13 Runner offline and Run here
 - AC: AC-17 | Files: apps/server/src/scheduledTasks/RoutineRunner.ts, apps/web/src/components/scheduledTasks/RoutineRunnerBadge.tsx | Test: cd repositories/anton-abyzov/specwithcode-dev && pnpm exec vp test run apps/server/src/scheduledTasks/RoutineRunner.test.ts
+
+### T-14 One machine menu: Add, Move, Leave
+- AC: AC-18 | Files: apps/web/src/components/chat/DraftMachinePicker.tsx, apps/web/src/components/studio/MachineHandoffDialog.tsx, apps/web/src/components/studio/ProjectMachineHandoff.tsx, apps/web/src/i18n/phrases | Test: cd repositories/anton-abyzov/specwithcode-dev && pnpm exec vp test run apps/web/src/components/chat apps/web/src/components/studio apps/web/src/i18n

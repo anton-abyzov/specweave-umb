@@ -17,3 +17,11 @@
 {"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:57.550Z","evidence":"Shipped in specwithcode PR #99 (cc222c4974) and #102 (25e991394b), CI green\nHEAD d5e619695","model":"claude-opus-5-5[1m]"}
 {"t":"T-07","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:58.466Z","model":"claude-opus-5-5[1m]"}
 {"t":"T-07","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:58.467Z","evidence":"Shipped in specwithcode PR #99 (cc222c4974) and #102 (25e991394b), CI green\nHEAD d5e619695","model":"claude-opus-5-5[1m]"}
+{"t":"T-14","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T21:41:41.306Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-14","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T21:41:41.308Z","evidence":"specwithcode PR #124 squash 7dbf65b3db; OrchestratorSwitcher.test.tsx, ProjectWorkspace.threads.test.tsx; 4045 web tests; typecheck gate pass\nHEAD b1f999e56","model":"claude-opus-5-5[1m]"}
+{"t":"T-11","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T21:52:03.818Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-11","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T21:52:03.820Z","evidence":"specwithcode PR #125 squash 35a82476b1; coordinatorGate, routineRunner, ProjectRoutines tests; 1097 server + 4577 web tests; typecheck gate pass\nHEAD b1f999e56","model":"claude-opus-5-5[1m]"}
+{"t":"T-12","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T21:52:04.782Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-12","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T21:52:04.783Z","evidence":"specwithcode PR #125 squash 35a82476b1; coordinatorGate, routineRunner, ProjectRoutines tests; 1097 server + 4577 web tests; typecheck gate pass\nHEAD b1f999e56","model":"claude-opus-5-5[1m]"}
+{"t":"T-13","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T21:52:05.717Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-13","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T21:52:05.718Z","evidence":"specwithcode PR #125 squash 35a82476b1; coordinatorGate, routineRunner, ProjectRoutines tests; 1097 server + 4577 web tests; typecheck gate pass\nHEAD b1f999e56","model":"claude-opus-5-5[1m]"}
