@@ -1,0 +1,12 @@
+{
+  "id": "1287-add-to-machine-for-agents-unlinked-copy-loop-clone-timeout-and-no-origin-worktrees",
+  "uuid": "cc46c88b-25fb-4276-b4d7-cf9cd1528931",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-10T23:56:43.157Z",
+  "updated": "2026-11-10T23:56:43.157Z",
+  "lastActivity": "2026-11-10T23:56:43.157Z",
+  "title": "Add to machine for agents: unlinked-copy loop, clone timeout and no-origin worktrees",
+  "project": "specweave-umb"
+}
