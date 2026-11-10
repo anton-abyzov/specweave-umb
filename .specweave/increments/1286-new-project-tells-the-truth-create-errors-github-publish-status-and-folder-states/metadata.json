@@ -1,0 +1,12 @@
+{
+  "id": "1286-new-project-tells-the-truth-create-errors-github-publish-status-and-folder-states",
+  "uuid": "4f22ef4c-0788-4d07-a0c2-62a21caed07f",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-10T23:56:42.341Z",
+  "updated": "2026-11-10T23:56:42.341Z",
+  "lastActivity": "2026-11-10T23:56:42.341Z",
+  "title": "New project tells the truth: create errors, GitHub publish status and folder states",
+  "project": "specweave-umb"
+}
