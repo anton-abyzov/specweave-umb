@@ -1,12 +1,15 @@
 {
   "id": "1244-source-thread-links-in-coordinator-replies",
   "uuid": "5cb1bbe8-0fe7-476b-bbc7-2e9e01be1b5f",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-06T14:27:58.218Z",
-  "updated": "2026-11-06T14:27:58.218Z",
-  "lastActivity": "2026-11-06T14:27:58.218Z",
+  "updated": "2026-11-07T00:17:55.228Z",
+  "lastActivity": "2026-11-07T00:17:55.228Z",
   "title": "Source thread links in coordinator replies",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-07T00:17:55.227Z",
+  "approvedAt": "2026-11-07T00:17:55.228Z"
 }

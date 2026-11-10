@@ -13,7 +13,7 @@ In: durable trigger provenance, visible reply source links, worker messages, tas
 - [ ] AC-01: A reply triggered by a worker message or task result displays a compact clickable source label above its text, including while streaming and after reload.
 - [ ] AC-02: Multiple triggers consumed by one turn produce distinct source links deduplicated by environment and thread, without attributing unrelated earlier or later messages to the turn.
 - [ ] AC-03: Source links open the correct worker through existing environment-aware navigation; archived threads remain archived, and unavailable or unauthorized remote sources show an honest unavailable state without navigating to a same-ID local thread.
-- [ ] AC-04: A PR event with an originating thread links to it; an event without a thread shows a validated PR link or plain event label and never invents a thread.
+- [ ] AC-04: A PR event links to a real originating thread only when that requester is retained; watches without requester provenance show a validated PR link or plain event label, never the receiving thread as an invented source.
 - [ ] AC-05: Web, desktop and native mobile use the same provenance semantics and compact source-label pattern; narrow layouts wrap labels without obscuring reply text, with accessible names and keyboard activation on web.
 - [ ] AC-06: Ordinary user-triggered turns have no invented source; existing historical messages without structured provenance remain readable, and untrusted message text cannot supply navigation targets.
 
@@ -35,18 +35,18 @@ Trace event ingestion and run association before extending the shared contract. 
 
 ### Open
 
-- Implementation waits for checkout ownership: Use worktrees is off and the shared app checkout remains on fix/1205-incoming-retry-key, with other workers not released. Do not switch it or bypass the project worktree guard.
+- None. User released the clean checkout; implementation uses feat/1244-source-thread-links from fresh origin/main including #1436.
 
 ## Tasks
 
-### T-01 Persist consumed trigger sources
+### T-01 Retain structured trigger provenance and shared derivation
+- AC: AC-01, AC-02, AC-03, AC-04, AC-06 | Files: packages/contracts/src/orchestrationV2.ts, packages/shared/package.json, packages/shared/src/coordinatorReplySources.ts, packages/shared/src/coordinatorReplySources.test.ts, apps/server/src/project/**, apps/server/src/orchestration-v2/**, apps/server/src/studio/Capacity.test.ts, apps/server/src/fleet/remoteWorkerMatching.ts, apps/server/src/fleet/remoteWorkerMatching.test.ts, apps/server/src/fleet/RemoteWorkerFollower.ts, apps/server/src/fleet/RemoteWorkerFollower.test.ts | Test: focused provenance behavior suites and relevant server build
 
-- AC: AC-01, AC-02, AC-04, AC-06 | Files: packages/contracts/src/**, apps/server/src/orchestration/** (narrow after tracing event owners) | Test: focused existing orchestration tests extended for trigger batching, task results, PR-only events and reload persistence
+### T-02 Web and desktop source links
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: apps/web/src/**, apps/web/tests/coordinator-source-links/** | Test: focused coordinator behavior tests, production web build and headless screenshots/navigation checks
 
-### T-02 Render and navigate source labels across clients
+### T-03 Native mobile source links
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: apps/mobile/src/** | Test: focused mobile behavior tests and scoped mobile validation
 
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: apps/web/src/components/studio/CoordinatorConversation.tsx, apps/web/src/components/studio/ProjectWorkspace.test.tsx, apps/mobile/src/features/threads/ThreadFeed.tsx, apps/mobile/src/lib/threadActivity.ts, apps/mobile/src/lib/threadActivity.test.ts | Test: focused coordinator and mobile behavior suites; headless light/dark desktop and narrow viewport fixture with navigation assertions; relevant production builds
-
-### T-03 Verify and close 1244
-
+### T-04 Verify and close 1244
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: reports/ | Test: specweave verify 1244; fresh-context review; required PR checks; specweave complete 1244

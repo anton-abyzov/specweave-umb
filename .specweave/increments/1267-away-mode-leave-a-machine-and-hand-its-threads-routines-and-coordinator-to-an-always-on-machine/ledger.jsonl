@@ -1,0 +1,19 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:42.332Z","note":"session 4bee386d-addd-4d47-9433-40e1aeaaec9b","model":"claude-opus-5-5[1m]"}
+{"t":"T-09","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:42.333Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-09","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:42.334Z","evidence":"PR #108 squash 7d833a9f07; WorkGrants.own.test.ts, routineOwnership.test.ts; 1259 tests + typecheck gate pass\nHEAD d5e619695","model":"claude-opus-5-5[1m]"}
+{"t":"T-10","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:43.295Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-10","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:43.297Z","evidence":"PR #108 squash 7d833a9f07; WorkGrants.own.test.ts, routineOwnership.test.ts; 1259 tests + typecheck gate pass\nHEAD d5e619695","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:53.001Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:53.002Z","evidence":"Shipped in specwithcode PR #99 (cc222c4974) and #102 (25e991394b), CI green\nHEAD d5e619695","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:53.919Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:53.920Z","evidence":"Shipped in specwithcode PR #99 (cc222c4974) and #102 (25e991394b), CI green\nHEAD d5e619695","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:54.841Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:54.843Z","evidence":"Shipped in specwithcode PR #99 (cc222c4974) and #102 (25e991394b), CI green\nHEAD d5e619695","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:55.725Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:55.726Z","evidence":"Shipped in specwithcode PR #99 (cc222c4974) and #102 (25e991394b), CI green\nHEAD d5e619695","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:56.633Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:56.634Z","evidence":"Shipped in specwithcode PR #99 (cc222c4974) and #102 (25e991394b), CI green\nHEAD d5e619695","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:57.549Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:57.550Z","evidence":"Shipped in specwithcode PR #99 (cc222c4974) and #102 (25e991394b), CI green\nHEAD d5e619695","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:58.466Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-10T07:01:58.467Z","evidence":"Shipped in specwithcode PR #99 (cc222c4974) and #102 (25e991394b), CI green\nHEAD d5e619695","model":"claude-opus-5-5[1m]"}

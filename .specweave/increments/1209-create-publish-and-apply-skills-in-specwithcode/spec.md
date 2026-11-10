@@ -97,3 +97,24 @@ The implementation uses three disjoint lanes under `sw:do`: authoring service an
 T-02 authoring plumbing additionally owns `apps/server/src/textGeneration/TextGeneration.ts`, `apps/server/src/textGeneration/TextGenerationOperations.ts`, `apps/server/src/textGeneration/TextGenerationOperations.test.ts`, `apps/server/src/project/SkillAuthoringService.test.ts`, `apps/server/src/project/ProjectSkillsActionsRpc.ts`, `packages/contracts/src/skillAuthoring.ts`, `packages/contracts/src/index.ts`, `packages/contracts/src/projectWorkspaceRpc.ts`, `packages/contracts/src/clientRpcPermissions.ts`, and `packages/client-runtime/src/state/projectWorkspace.ts`. The plumbing owner integrates the other lanes' handlers in the existing RPC module.
 
 T-03 publication additionally owns `packages/contracts/src/skillPublication.ts`, `apps/server/src/project/SkillPublishingService.test.ts`, and `apps/server/src/project/SkillPublishingAdapter.ts`. T-04 uses that adapter for publication-bound installation. These paths are relative to the owned app worktree named above. The planned validations remain unchanged; added files make the approved flows reachable and testable.
+
+
+### Server-lifetime integration repair, November 6, 2026
+
+T-02 additionally owns `apps/server/src/server.ts` in the assigned app worktree to construct the authoring service once per server. WebSocket clients must share draft revision locks and installation serialization. The existing RPC module consumes that server-owned service. Verification includes an isolated built-server probe with competing saves over separate WebSocket connections; no live stores, provider turns or publication are used.
+
+T-02 also includes a minimal `apps/server/src/ws.ts` composition edit using the already-imported Skills RPC module to capture the server-owned service before request context creation. No imports are added to `ws.ts`.
+
+T-02 regression scope includes `apps/server/scripts/skill-authoring-rpc-check.mjs`: a retained isolated live-server check for real authoring read/save and revision conflicts across 20 independent WebSocket connections.
+
+T-06 includes the minimal `scripts/release-workflow.test.ts` CI portability repair: use `fileURLToPath` rather than URL pathname when passing the Python script to a Windows subprocess. The Windows packages gate failed on the inherited drive-letter path; current main still has the same bug. No release behavior is changed.
+
+T-06 also includes `scripts/release/run_record.py` and `scripts/release/test-run-record.py`: defer the POSIX locking import until a write so the read-only graph command runs on Windows. Keep write locking unchanged and test graph execution with fcntl unavailable.
+
+T-06 includes Windows fixture corrections in `apps/server/src/workspace/WorkspaceSearchRoots.test.ts`, `apps/server/src/provider/acp/AcpRegistryAuth.test.ts`, and `apps/server/src/homeUsage/walkTree.test.ts`: use the actual host platform for real symlink resolution and native path construction for mocked filesystem and credential expectations. Preserve all existing assertions.
+
+T-06 includes `scripts/release/verify-built-app.test.mjs` portability under the release owner’s explicit handoff: preserve Windows refusal of proofs/upgraded mode, use native expected paths, and restrict POSIX shell fake suites to their supported hosts. Production verifier stays unchanged; macOS CI retains the full proof suites.
+
+T-06 includes `apps/server/src/homeUsage/homeUsage.test.ts` and `apps/server/src/workspace/WorkspaceSearchFinder.test.ts` Windows fixture fixes: native paths for filesystem results and a POSIX-only wrapper for the macOS lsof executable fixture. Retain the Windows unknown-process assertion and cross-platform parser coverage.
+
+T-06 also covers `apps/server/src/project/CoordinatorRearmStore.test.ts` POSIX permission assertion portability and the Linux-mock Path layer in `apps/server/src/project/SkillPublishingAdapter.test.ts`.

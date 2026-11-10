@@ -1,15 +1,17 @@
 {
   "id": "1205-allow-a-machine-to-run-work-here-with-clear-file-transfer-permissions",
   "uuid": "51a26375-9712-4b11-8eb2-9a131662ed50",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-03T14:33:54.209Z",
-  "updated": "2026-11-04T08:59:03.193Z",
-  "lastActivity": "2026-11-04T08:59:03.193Z",
+  "updated": "2026-11-06T18:24:56.490Z",
+  "lastActivity": "2026-11-06T18:24:56.490Z",
   "title": "Allow a machine to run work here with clear file-transfer permissions",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-06T18:24:56.489Z",
+  "approvedAt": "2026-11-06T18:24:56.490Z"
 }

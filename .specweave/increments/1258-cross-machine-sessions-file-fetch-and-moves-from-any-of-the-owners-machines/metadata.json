@@ -1,0 +1,13 @@
+{
+  "id": "1258-cross-machine-sessions-file-fetch-and-moves-from-any-of-the-owners-machines",
+  "uuid": "60bdad4c-851b-4762-9564-796976314e6c",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T06:41:32.667Z",
+  "updated": "2026-11-08T07:01:54.530Z",
+  "lastActivity": "2026-11-08T07:01:54.530Z",
+  "title": "Cross-machine sessions, file fetch and moves from any of the owner's machines",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

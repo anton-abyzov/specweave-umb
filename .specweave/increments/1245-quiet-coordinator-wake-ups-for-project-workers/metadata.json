@@ -1,0 +1,16 @@
+{
+  "id": "1245-quiet-coordinator-wake-ups-for-project-workers",
+  "uuid": "9d82cf17-41ee-4b39-a44c-3e9b7bf8b29e",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-06T17:56:08.563Z",
+  "updated": "2026-11-06T18:41:45.794Z",
+  "lastActivity": "2026-11-06T18:41:45.794Z",
+  "title": "Quiet coordinator wake-ups for project workers",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-06T18:41:45.793Z",
+  "closeReason": "Verify fails only in umbrella suites outside 1245's files: specweave test:unit:fast (12 tests in session/pickup and pre-compact hooks) and vskill-platform scripts/release.test.mjs (1 test). 1245 changed only specwithcode-dev; its tests pass and PR #1436 merged green as f23987ed05 after two fresh-context reviews returned SHIP.",
+  "approvedAt": "2026-11-06T18:41:45.794Z"
+}

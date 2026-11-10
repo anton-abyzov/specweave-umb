@@ -6,3 +6,11 @@
 {"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-04T08:54:29.612Z"}
 {"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-04T08:57:16.191Z"}
 {"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-04T08:57:17.598Z"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-07T01:20:47.515Z"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-07T01:20:47.517Z","evidence":"Merged PR #1430 c8192f8c5599ff9f19d9c636cfd20018293e5ceb; authoring tests, web build and cross-connection CAS check: /Users/antonabyzov/.specwithcode/m4/evidence/1209-final/rpc-lifetime-retained.log\nHEAD 054a8f432"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-07T01:20:47.590Z"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-07T01:20:47.591Z","evidence":"Merged PR #1430; publication service and adapter regression tests plus Sonnet review: /Users/antonabyzov/.specwithcode/m4/evidence/1209-final/review-3397802386.md. Live staging publication not performed; no real publication authorized.\nHEAD 054a8f432"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-07T01:20:47.671Z"}
+{"t":"T-04","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-07T01:20:47.672Z","evidence":"Merged PR #1430; scoped apply regressions and headless UI evidence: /Users/antonabyzov/.specwithcode/m4/evidence/1209-final/rebased-web-tests.log and /Users/antonabyzov/.specwithcode/m4/evidence/1209-final/apply-desktop.png\nHEAD 054a8f432"}
+{"t":"T-06","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-07T01:20:47.731Z"}
+{"t":"T-06","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-07T01:20:47.808Z","evidence":"Implementation checks and CI repairs passed; exact-head review SHIP: /Users/antonabyzov/.specwithcode/m4/evidence/1209-final/review-3397802386.md. Closure verification and fresh review being recorded in reports.\nHEAD 054a8f432"}

@@ -45,3 +45,5 @@
 {"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-25T07:02:02.155Z","note":"session 01a15f84-0c11-73f2-98db-7bab50fa8f4f"}
 {"t":"T-19","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-25T07:02:02.157Z","line":"Repairing PR 571 under explicit October 25 takeover"}
 {"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-10-25T07:02:03.442Z","note":"Explicit October 25 instruction authorizes repair takeover of #571 in fresh worktree, choosing merge-main path (a). T-19 reclaim records ownership of closure and its review fixes; original external checkout preserved."}
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-06T18:42:28.379Z","note":"session 01a1b141-eac4-7651-9aac-372a10b63b81"}
+{"t":"*","e":"pickup","by":"codex@antons-macbook-m4max","at":"2026-11-06T18:42:28.381Z","note":"from claude@antons-macbook-m4max, snapshot 1d70405"}

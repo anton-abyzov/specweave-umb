@@ -1,0 +1,16 @@
+{
+  "id": "1248-manage-skills-across-machines",
+  "uuid": "0530ed22-8d2a-46e6-b634-463155c4284a",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T01:24:56.743Z",
+  "updated": "2026-11-07T05:51:51.469Z",
+  "lastActivity": "2026-11-07T05:51:51.469Z",
+  "title": "Manage skills across machines",
+  "project": "specweave-umb",
+  "parent": "1209-create-publish-and-apply-skills-in-specwithcode",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-07T05:51:51.468Z",
+  "approvedAt": "2026-11-07T05:51:51.469Z"
+}

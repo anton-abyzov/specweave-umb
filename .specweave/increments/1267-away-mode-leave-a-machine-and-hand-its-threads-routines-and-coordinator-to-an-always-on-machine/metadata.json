@@ -1,0 +1,13 @@
+{
+  "id": "1267-away-mode-leave-a-machine-and-hand-its-threads-routines-and-coordinator-to-an-always-on-machine",
+  "uuid": "8bf8298a-8686-4e6f-9ead-fee578f8cb38",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-09T06:22:06.022Z",
+  "updated": "2026-11-10T07:01:58.467Z",
+  "lastActivity": "2026-11-10T07:01:58.467Z",
+  "title": "Away mode: leave a machine and hand its threads, routines and coordinator to an always-on machine",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

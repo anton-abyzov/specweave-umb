@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-06T18:05:18.948Z","note":"session 3920a8c7-71b0-4cdf-aa18-fc29bd8e0d9a","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-06T18:05:18.952Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-06T18:05:18.953Z","evidence":"85467127ae; LaunchedWorkerWake.test.ts 6 passed\nHEAD 82e0de7f8","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1436","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-06T18:05:19.841Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-06T18:05:19.842Z","evidence":"4ef861e7cb; 87 web tests passed; headless ~/.specwithcode/m4/evidence/1245-checked-wakes-final\nHEAD 82e0de7f8","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1436","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-06T18:36:33.141Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-06T18:36:33.143Z","evidence":"PR #1436 merged f23987ed05; fresh-context reviews SHIP\nHEAD 82e0de7f8","model":"claude-opus-5-5[1m]"}

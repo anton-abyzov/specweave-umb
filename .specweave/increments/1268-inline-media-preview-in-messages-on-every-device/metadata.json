@@ -1,0 +1,13 @@
+{
+  "id": "1268-inline-media-preview-in-messages-on-every-device",
+  "uuid": "e6aec39d-3d99-4f48-b691-4fd4bddafbfc",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-09T14:03:42.633Z",
+  "updated": "2026-11-09T14:03:42.633Z",
+  "lastActivity": "2026-11-09T14:03:42.633Z",
+  "title": "Inline media preview in messages on every device",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

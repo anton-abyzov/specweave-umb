@@ -1,0 +1,93 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{font:15px/1.55 var(--font-sans);color:var(--foreground);background:var(--background);margin:0;padding:20px 18px 28px;max-width:760px}
+h1{font-size:26px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+.lead{color:var(--muted-foreground);margin:0 0 20px;max-width:62ch}
+h2{font-size:17px;margin:28px 0 10px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:4px 0 6px}
+.step{flex:1 1 128px;border:1px solid var(--border);border-radius:var(--radius);padding:10px 11px;background:var(--card);position:relative}
+.step b{display:block;font-size:13px;margin-bottom:3px}
+.step span{font-size:12.5px;color:var(--muted-foreground);line-height:1.4;display:block}
+.step .n{font:600 11px var(--font-mono);color:var(--accent);margin-bottom:4px}
+.step.gate{border-color:var(--warning);background:var(--warning-surface)}
+.step.back{border-style:dashed}
+.note{font-size:13px;color:var(--muted-foreground);margin:6px 0 0}
+.choice{border:1px solid var(--border);border-radius:var(--radius);padding:14px 14px 10px;margin:12px 0;background:var(--card)}
+.choice h3{margin:0 0 4px;font-size:15.5px}
+.choice p.q{margin:0 0 10px;color:var(--muted-foreground);font-size:13.5px}
+.opt{display:grid;grid-template-columns:22px 1fr;gap:4px 8px;padding:7px 0;border-top:1px solid var(--border);font-size:14px}
+.opt .k{font:600 12px var(--font-mono);color:var(--muted-foreground);padding-top:2px}
+.opt.rec .k{color:var(--success)}
+.badge{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;background:var(--success);color:var(--success-foreground);margin-left:6px;vertical-align:1px}
+.opt small{display:block;color:var(--muted-foreground);font-size:12.5px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-size:12px;color:var(--muted-foreground);font-weight:600}
+td.st{white-space:nowrap}
+.ok{color:var(--success)}.new{color:var(--accent)}
+code{font:12.5px var(--font-mono);background:var(--code-background);color:var(--code-foreground);padding:1px 4px;border-radius:4px}
+ul.d{margin:6px 0 0;padding-left:18px;font-size:13.5px}ul.d li{margin:3px 0}
+a{color:var(--accent)}
+</style></head><body>
+<h1>Leave this machine: Away mode</h1>
+<p class="lead">You take one action (menu, <code>⌥⌘L</code>, <code>/away</code> or <code>$away</code>) and get one plan. Running and queued threads, routines and the coordinator move to Ministorm. You get one summary, and <b>Bring back</b> undoes it when the laptop returns. Missing grants are found before anything moves.</p>
+
+<h2>The flow</h2>
+<div class="flow" role="list" aria-label="Away mode steps">
+ <div class="step" role="listitem"><div class="n">1</div><b>Plan</b><span>Target is preselected (remembered). Every thread, routine and coordinator gets a row: moves, stays (with reason) or paused.</span></div>
+ <div class="step gate" role="listitem"><div class="n">2 · gate</div><b>Access check</b><span>Missing grants, including routines on Ministorm, project links, sign-ins and .env files. One <b>Request access</b> button covers all of them.</span></div>
+ <div class="step" role="listitem"><div class="n">3</div><b>Coordinator</b><span>Planned handover: Ministorm takes over, the M4 gives way and workers are adopted. Never two active copies.</span></div>
+ <div class="step" role="listitem"><div class="n">4</div><b>Routines</b><span>Run state and output files go along. The M4 copy is disabled before the Ministorm copy is enabled.</span></div>
+ <div class="step" role="listitem"><div class="n">5</div><b>Threads</b><span>Running and queued threads move, queue included. One that can't move stays handoff-ready with a reason.</span></div>
+ <div class="step" role="listitem"><div class="n">6</div><b>Summary</b><span>Moved, stayed and why. Saved on the server, so it shows on wake and on your phone.</span></div>
+ <div class="step back" role="listitem"><div class="n">↩</div><b>Bring back</b><span>Reverses all of it and re-arms Ministorm as standby. Grants are never revoked.</span></div>
+</div>
+<p class="note">Lid close: the M4 has 5 seconds before sleep, so it only records an "away intent" on Ministorm. Ministorm finishes the move from its side after the grace period, even with no window open.</p>
+
+<h2>Three choices for you</h2>
+
+<div class="choice">
+ <h3>1. Closing the lid</h3>
+ <p class="q">When should sleep start Away mode by itself?</p>
+ <div class="opt rec"><div class="k">A</div><div><b>On battery only, after 2 minutes</b><span class="badge">Recommended</span><small>Closing the lid at your desk on power changes nothing. Away from the desk, work moves if the lid stays shut for 2 minutes.</small></div></div>
+ <div class="opt"><div class="k">B</div><div><b>Every sleep, after 2 minutes</b><small>The most coverage. A lid closed at your desk also moves work.</small></div></div>
+ <div class="opt"><div class="k">C</div><div><b>Never automatically</b><small>Only the menu, hotkey or <code>/away</code> start it.</small></div></div>
+</div>
+
+<div class="choice">
+ <h3>2. Bringing work back</h3>
+ <p class="q">What happens when the M4 wakes up after Away?</p>
+ <div class="opt rec"><div class="k">A</div><div><b>Ask on wake, one click</b><span class="badge">Recommended</span><small>A card shows the summary and a "Bring back" button. Work you leave on Ministorm keeps running there.</small></div></div>
+ <div class="opt"><div class="k">B</div><div><b>Automatically on power</b><small>Once the M4 has been awake on power for 5 minutes, everything returns. Every return adds another move to each thread.</small></div></div>
+ <div class="opt"><div class="k">C</div><div><b>Only when I ask</b><small>Menu or <code>/back</code>. No prompt.</small></div></div>
+</div>
+
+<div class="choice">
+ <h3>3. Which coordinators move</h3>
+ <p class="q">Each project's coordinator move needs a project link and a grant on Ministorm.</p>
+ <div class="opt rec"><div class="k">A</div><div><b>Only projects with live work</b><span class="badge">Recommended</span><small>Projects with running or queued threads or enabled routines. Idle projects stay on the M4 and need no new grants.</small></div></div>
+ <div class="opt"><div class="k">B</div><div><b>Every project on this machine</b><small>Fully hands off, but the first run asks for links and grants for every project.</small></div></div>
+</div>
+
+<h2>What exists and what is new</h2>
+<table>
+<thead><tr><th>Piece</th><th>Today</th><th>Away mode adds</th></tr></thead>
+<tbody>
+<tr><td>Thread moves</td><td class="st ok">Exists</td><td>Queued threads and threads with handoff mode off, queue carried, reason <code>away</code></td></tr>
+<tr><td>Routines</td><td class="st">Copies, no state</td><td>A <code>routines</code> grant capability, state transfer, disable-before-enable</td></tr>
+<tr><td>Coordinator</td><td class="st">Failover only</td><td>Planned handover with epoch claim and worker adoption</td></tr>
+<tr><td>Grants</td><td class="st">Text, mid-move</td><td>One preflight and one request, approved on any device</td></tr>
+<tr><td>Lid close</td><td class="st">Renderer, 5 s</td><td>Main process plus target-side finish, battery check, grace</td></tr>
+<tr><td>Summary and Bring back</td><td class="st new">None</td><td>A saved Away session, a wake card, reverse run</td></tr>
+</tbody></table>
+
+<h2>Already decided (reversible)</h2>
+<ul class="d">
+<li>One remembered target, shared with the existing "When this machine sleeps" setting. The first ready always-on machine is suggested.</li>
+<li><code>/away</code>, <code>$away</code> and <code>/back</code> are built into the app, so they work in every chat and on every machine without installing a skill.</li>
+<li>Webhook routines stay paused here: their URL belongs to the machine.</li>
+<li>A thread that can't move is never stopped, only left handoff-ready with a reason.</li>
+</ul>
+<p class="note"><a href="/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1267-away-mode-leave-a-machine-and-hand-its-threads-routines-and-coordinator-to-an-always-on-machine/spec.md">Spec 1267</a></p>
+</body></html>
