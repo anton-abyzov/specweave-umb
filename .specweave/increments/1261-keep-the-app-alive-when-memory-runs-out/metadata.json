@@ -1,0 +1,16 @@
+{
+  "id": "1261-keep-the-app-alive-when-memory-runs-out",
+  "uuid": "74ab5452-35d1-433c-bb9e-18ee4a0b8ca0",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T00:05:13.217Z",
+  "updated": "2026-11-03T01:03:57.670Z",
+  "lastActivity": "2026-11-03T01:03:57.670Z",
+  "title": "Keep the app alive when memory runs out",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T01:03:57.669Z",
+  "closeReason": "PR 1235 merged with exact-head CI green and fresh-context SHIP. Verify's exit 127 failures are other repos' test commands in a checkout without node_modules.",
+  "approvedAt": "2026-11-03T01:03:57.670Z"
+}
