@@ -1,0 +1,15 @@
+{
+  "id": "1270-support-claude-fable-and-mythos-52",
+  "uuid": "f86ecec6-aa32-4995-82eb-0e48cb3ac2a2",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-10T02:55:52.350Z",
+  "updated": "2026-11-10T06:28:37.338Z",
+  "lastActivity": "2026-11-10T06:28:37.338Z",
+  "title": "Support Claude Fable and Mythos 5.2",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-10T06:28:37.337Z",
+  "approvedAt": "2026-11-10T06:28:37.338Z"
+}
