@@ -57,5 +57,5 @@ In: Settings > Machines card wording and layout in `apps/web`, the coordinator e
 ### T-05 Screenshots, typecheck, PR, merge, release
 - AC: AC-07 | Files: none | Test: bun typecheck; headless screenshots
 
-### T-06 Verify and close 1263
-- AC: AC-07 | Files: none | Test: specweave verify 1263
+### T-06 Verify and close 1281
+- AC: AC-07 | Files: none | Test: specweave verify 1281

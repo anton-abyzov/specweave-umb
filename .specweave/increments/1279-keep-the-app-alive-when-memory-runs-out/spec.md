@@ -43,5 +43,5 @@ Risk: a large known build in a thread's terminal can be ended. Accepted: the ker
 ### T-02 Memory guard and victim ordering
 - AC: AC-01, AC-02, AC-03, AC-05 | Files: apps/server/src/resourceTelemetry/MemoryGuard.ts, apps/server/src/resourceTelemetry/MemoryGuard.test.ts, apps/server/src/server.ts | Test: pnpm exec vp test run apps/server/src/resourceTelemetry/MemoryGuard.test.ts
 
-### T-03 Verify and close 1261
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: none | Test: specweave verify 1261-keep-the-app-alive-when-memory-runs-out
+### T-03 Verify and close 1279
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: none | Test: specweave verify 1279-keep-the-app-alive-when-memory-runs-out
