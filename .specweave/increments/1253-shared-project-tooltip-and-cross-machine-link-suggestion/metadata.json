@@ -1,0 +1,15 @@
+{
+  "id": "1253-shared-project-tooltip-and-cross-machine-link-suggestion",
+  "uuid": "c1480c31-8ea1-40a0-90e5-241799265536",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T06:16:30.027Z",
+  "updated": "2026-11-10T06:51:55.911Z",
+  "lastActivity": "2026-11-10T06:51:55.911Z",
+  "title": "Shared project tooltip and cross-machine link suggestion",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-10T06:51:55.910Z",
+  "approvedAt": "2026-11-10T06:51:55.911Z"
+}
