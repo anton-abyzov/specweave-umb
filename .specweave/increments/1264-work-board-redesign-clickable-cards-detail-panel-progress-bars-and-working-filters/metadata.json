@@ -1,0 +1,16 @@
+{
+  "id": "1264-work-board-redesign-clickable-cards-detail-panel-progress-bars-and-working-filters",
+  "uuid": "eb0ba3a8-4c18-47bf-bbd4-a64f4205e7b8",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-10T16:58:53.865Z",
+  "updated": "2026-11-10T17:42:01.265Z",
+  "lastActivity": "2026-11-10T17:42:01.265Z",
+  "title": "Work board redesign: clickable cards, detail panel, progress bars and working filters",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-10T17:42:01.264Z",
+  "closeReason": "Umbrella verify commands exit 127 because the main checkouts have no node_modules; the same unit suite and the headless e2e passed in CI on PR #2268 and the release PR #2269, and 3.1.22 is published",
+  "approvedAt": "2026-11-10T17:42:01.265Z"
+}
