@@ -21,14 +21,14 @@ Facts checked on November 11, 2026:
 
 ## Scope
 
-In: one setting that turns Ultracode on by default for Claude Code threads and leaves coordinators off; the launch rule that applies it; the settings row; the composer chip and model menu showing the effective state; a pause when Claude usage is high; a one-time notice; docs.
+In: one setting that turns Ultracode on by default for Claude Code threads, delegated workers included, and leaves coordinators off; the launch rule that applies it; the settings row; the composer chip and model menu showing the effective state; a pause when Claude usage is high; a one-time notice; docs.
 
 Out: Ultracode for GitHub Copilot, Cursor, Devin or any non-Claude-Code provider (they do not offer it, and the app does not fake it with `/fleet`, Autopilot or Max effort); an equivalent "strongest mode by default" for Codex, Muse or others; a per-model list; an app-level cap on workflow size (Claude Code's own Dynamic workflow size setting stays as the user set it); the phone app's thread settings, which keep showing the stored toggle (the worker machine still applies the default).
 
 ## Acceptance Criteria
 
 - [ ] AC-01: A project thread on a Claude Code model that offers Ultracode, with the toggle not set, starts with Claude's `ultracode` setting on. Its chip reads, for example, "High · Ultracode" and the menu marks On with a Default badge.
-- [ ] AC-02: With the toggle not set, coordinators (project and personal assistant), routine threads and delegated tasks start with Ultracode off under "Threads" and on under "All chats".
+- [ ] AC-02: With the toggle not set, a worker thread a coordinator delegates (`delegate_task`, `studio_thread_launch`, `create_threads`) starts with Ultracode on, like a thread a person starts. Coordinators (project and personal assistant), routine threads and nested subagents (a task delegated by a thread that is not a coordinator) start with it off under "Threads" and on under "All chats".
 - [ ] AC-03: A toggle set in the chat (On or Off) wins over the default. Workflows Disabled turns Ultracode off everywhere. "Ultracode by default: Off" in Settings › Agents, or in one project's settings, restores today's behavior.
 - [ ] AC-04: Models and providers without Ultracode (Claude Haiku 4.5, Opus 4.6; every GitHub Copilot, Cursor and Devin model) start exactly as before, show no Ultracode chip and raise no "dropped" notice. A thread that falls back from Claude to another provider and returns gets the default again without any stored option.
 - [ ] AC-05: A Claude instance signed in with an API key stays off by default; the chat toggle still turns it on.
@@ -68,7 +68,9 @@ One pure function in `packages/shared/src/ultracodeDefault.ts`, used by the serv
 2. The chat's toggle is set: that value.
 3. The model has no Ultracode toggle: off, nothing is sent.
 4. Default is `off`: off.
-5. Chat kind: a thread (a chat a person or a coordinator starts in a project) is on. A coordinator, a routine thread or a delegated task (a child whose parent is not a coordinator) is on only under `all`.
+5. Chat kind: a thread is on. A thread is a chat a person starts in a project, or a worker a coordinator starts or delegates (`lineage.relationshipToParent` is `subagent` and the parent is a coordinator, the same test `isProjectCoordinatorThreadId` already serves). A coordinator, a routine thread or a nested subagent (a `subagent` child whose parent is not a coordinator) is on only under `all`.
+
+A launch that names the option decides for itself: `ultracode: false` in a `delegate_task` or `studio_thread_launch` target keeps a delegated worker off, for example a read-only review on a cheaper model.
 6. The Claude instance bills an API key: off.
 7. Claude session or weekly usage at or above 80%: off, shown as paused.
 
@@ -89,7 +91,7 @@ Risk: the default changes what every Claude thread costs without the user choosi
 
 Guards, in order of weight:
 
-1. Coordinators, routines and delegated tasks stay off. A coordinator routes; a routine runs unattended and repeatedly; a delegated task inside an Ultracode thread would multiply a fan-out by another fan-out.
+1. Coordinators, routines and nested subagents stay off. A coordinator routes; a routine runs unattended and repeatedly; a subagent of an Ultracode thread would multiply a fan-out by another fan-out. Workers a coordinator delegates are threads and get the default.
 2. The chip always shows the effective state ("· Ultracode", or "· Ultracode paused"), and the menu says why ("on by default for threads").
 3. The default pauses at 80% of a Claude limit and resumes at the reset.
 4. API-key instances are excluded, because there the extra tokens are money, not quota.
@@ -108,7 +110,7 @@ Other risks: the first turn of each existing idle Claude thread after the update
 
 ### Defaulted (change any before sw-do)
 - D-01 Where the default lives → one machine setting with a per-project override, resolved at launch, default "Threads". Alternative: per model or per provider instance; rejected as more switches for the same effect (reversible).
-- D-02 Which chats count as threads → chats a person or a coordinator starts in a project. Coordinators, the personal assistant, routines and delegated tasks stay off. Alternative: include delegated tasks; costs a fan-out inside a fan-out (reversible, it is one line of the rule).
+- D-02 Which chats count as threads → chats a person starts in a project and workers a coordinator starts or delegates. Coordinators, the personal assistant, routines and nested subagents stay off. Confirmed by the coordinator on November 11, 2026: the owner said "at least for threads" and delegated workers are threads. Known cost: a coordinator's read-only review delegates run Ultracode too unless the launch passes `ultracode: false` (reversible, it is one line of the rule).
 - D-03 Which models → every Claude Code model that offers the toggle (10 of 15 today), Haiku 5.5 included. No per-model list; the chat toggle covers exceptions (reversible).
 - D-04 GitHub Copilot → not included. Copilot 1.0.105 offers no such option for its Claude models, and `/fleet` or Autopilot plus Max is not the same thing. If Copilot adds an option, it is a small follow-up (reversible).
 - D-05 "All models" → Claude Code only. No other provider has a multi-agent session switch to default on (reversible).
