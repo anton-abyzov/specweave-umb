@@ -98,7 +98,7 @@ Choosing a folder:
 - [ ] AC-03: Typing completes from the folders in the current directory like a browser address bar: the completion is selected, one Backspace removes it, and a name with no match is left alone. Matching ignores case on macOS and Windows machines.
 - [ ] AC-04: Pasting takes what people copy: quoted paths, `file://` links, a trailing newline, shell-escaped spaces, `~`, and drive or UNC paths for a Windows machine. A path of the wrong kind for the target machine is refused in the bar with the reason, before any request.
 - [ ] AC-05: Under the bar one status line states what the folder is: found (with "Git repository" or "empty"), will be created, not found on <machine>, cannot be read (1286's error), or already the project <title>. A folder with no subfolders says "No folders inside. <name> itself becomes the project."
-- [ ] AC-06: Recent lists up to 5 folders per machine, newest first: folders added or chosen through any address bar, then parents of existing projects. It survives a restart, and a folder that is gone drops out when the list is read.
+- [ ] AC-06: Recent lists up to 5 folders per machine, newest first: folders added or chosen through any address bar, then parents of existing projects. It survives a restart, and a folder drops out the first time its machine reports it missing.
 - [ ] AC-07: In the desktop app, dropping a folder from the file manager onto the panel fills the bar and adds nothing. A dropped file uses its folder and says so. When the target is another machine, or in a browser, the drop is refused with one sentence: type or paste the path instead.
 - [ ] AC-08: The system-dialog button is a labelled button beside the bar on macOS, Windows and Linux when the target is this device (and WSL, as today): "Choose…" on macOS, "Browse…" on Windows and Linux, with Cmd+O or Ctrl+O. The dialog has the title "Choose a project folder", a confirm button that names the action, and opens in the folder shown. For another machine the button is disabled and says why.
 - [ ] AC-09: New project and the clone destination use the same bar. Without focus it shows 1272's breadcrumb, each segment a button; a click on its empty part, `/`, Cmd+L or Ctrl+L, or a paste turns it into the editable path, and Escape turns it back.
@@ -258,6 +258,9 @@ Risks:
 - D-14 0987 (unstarted) is folded into T-24 and closes as superseded → yes, if the coordinator agrees.
 - D-15 The page stays "Providers"; sentences and buttons say "agent" → yes (reversible).
 - D-16 The fast sign-in re-check runs only while a row that is not signed in is on screen → yes (reversible).
+- D-17 Recent folders are not probed when the list opens (up to 5 extra requests per machine); one drops out when its machine reports it missing → yes (reversible).
+- D-18 A listing that fails or is refused does not block Enter: the machine checks the folder again when it is added. Only a folder the machine reports as unreadable blocks → yes (reversible).
+- D-19 PR A is folder choice (T-01, T-04 to T-08, plus the platform module and key labels of T-02); the dialog and wizard button order and T-03 ship in PR B → approved by the coordinator, November 11, 2026.
 
 ### Open
 - none
