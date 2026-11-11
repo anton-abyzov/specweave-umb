@@ -5,8 +5,9 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-11T14:56:52.482Z",
-  "updated": "2026-11-11T22:57:00.676Z",
-  "lastActivity": "2026-11-11T22:57:00.676Z",
+  "updated": "2026-11-11T23:16:15.613Z",
+  "lastActivity": "2026-11-11T23:16:15.613Z",
   "title": "Easy folder choice and first-run setup: type a path and press Enter, reviewed steps, native feel on macOS, Windows and Linux",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {}
 }
