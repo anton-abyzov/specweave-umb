@@ -1,0 +1,12 @@
+{
+  "id": "1294-recommend-full-access-at-first-run-and-in-the-composer",
+  "uuid": "2fc87d80-9af8-409f-bd81-f59ee028f71a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-11T14:27:21.556Z",
+  "updated": "2026-11-11T14:27:21.556Z",
+  "lastActivity": "2026-11-11T14:27:21.556Z",
+  "title": "Recommend Full access at first run and in the composer",
+  "project": "specweave-umb"
+}
