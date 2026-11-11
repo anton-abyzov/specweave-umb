@@ -34,7 +34,7 @@ Out: joining machines across Connect accounts (owned by the "Cross-account machi
 - [ ] AC-02: A session with no line a person typed (a bot wake-up, a setup-only rollout) is not imported. The wizard's count reports it as skipped.
 - [ ] AC-03: An imported thread's age is the time of the last message in its transcript, so a session from October 18 reads "3w", not the minutes since the import.
 - [ ] AC-04: After the update, threads imported earlier whose title is markup are retitled by the same rule, once, without the user doing anything. Threads a person renamed keep their title. Imported threads with no typed line are archived, not deleted.
-- [ ] AC-05: The iPhone row reads as the desktop row does: "Claude Code · Opus 5.5", the machine by its short name only when the project has more than one machine, the age at the right. Two lines per row.
+- [ ] AC-05: The iPhone row reads as the desktop row does: "Claude Code · Opus 5.5" under the title, the age at the right. A quiet thread on the project's only machine takes two lines. A third line appears only when it says something: the machine by its short name when the project has more than one machine (or the thread runs on another one), plan progress, a failure, or what the thread waits for. No line wraps into the next.
 - [ ] AC-06: Every thread the desktop Threads panel lists for a project is on the iPhone Threads screen, in the same group (Needs you, Working, Offline, Idle, Resolved). One fixture snapshot is checked by both the web test and the Swift test, and it includes Elena's case: a fresh project, imported Claude Code and Codex threads and one idle thread the coordinator started.
 - [ ] AC-07: Headless captures show the desktop panel and the iPhone screen (simulator) on that fixture, light and dark, before and after.
 - [ ] AC-08: Shipped: PR reviewed and green, merged; desktop released on all platforms through the release thread; iPhone build installed on Anton's iPhone and submitted to the App Store.
@@ -92,6 +92,7 @@ A one-time startup pass in `apps/server/src/project/AgentSessionImporter.ts` (`r
 
 - D-05: The repair of earlier imports is its own start-up step (`ImportedThreadTitleRepair.ts`, one registration line in `server.ts`), not part of the importer. It reads the first typed line from the thread's stored messages, renames with a fixed command id per thread so a second start does nothing, and archives a thread with no typed line.
 - D-06: The shared list cases live in `packages/shared/src/threadList.cases.json`, next to `transcriptDetail.cases.json`, which web and iPhone tests already share the same way. The server checks the title cases too, so the iPhone's "Imported session" fallback and the server's rename agree on what counts as markup.
+- D-07: The simulator capture of a two-machine project showed the machine name wrapping the model line and cutting the status. The machine and status moved to their own single line (a `note` on the shared row component), so AC-05 reads "two lines when quiet, a third only when it says something" instead of "two lines per row".
 
 ## Tasks
 
