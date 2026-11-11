@@ -68,6 +68,7 @@ Risks: Docusaurus swizzled Navbar drift on upgrade; the navbar GitHub link is be
 - D-06 The shell lives in the existing Weave system: `design/weave/weave.css` and `design/weave/weave-shell.js`, with `design/weave/checksums.json`, instead of a new `shell.css`.
 - D-07 The SpecWithCode hero demo (FlowStage) stays the page's one self-playing sequence and keeps its documented slower variant under reduced motion; idle float, breathe and glow loops and section fade-ups are removed.
 - D-08 Footer on spec-weave.com is trimmed from 33 to about 30 links in four columns; 7 guide links leave the footer and stay reachable from docs.
+- D-09 Fresh-context review (November 10, 2026) said fix first: navbar not sticky on spec-weave.com, section heading weights 600/650, 44px mobile page title, footer "Help" vs "Guides", home hero parallax drift, theme carry clearing a stored choice. Fixed in anton-abyzov/specweave#2272 and anton-abyzov/vskill-platform#211, released and re-measured live (`~/.specwithcode/m4/scratch/2026-11-10-design-consolidation/live2/`, `~/.specwithcode/m4/scratch/2026-11-10-design-consolidation/live2-vs/`). Left as is: the theme toggle has three states on spec-weave.com and two on verified-skill.com.
 ### Open
 - none
 
@@ -79,23 +80,23 @@ Risks: Docusaurus swizzled Navbar drift on upgrade; the navbar GitHub link is be
 ### T-02 Record the picked direction and revise T-03 onward for it
 - AC: AC-01 | Files: [.specweave/increments/1271-one-design-system-and-shared-shell-for-specweave-specwithcode-and-verified-skill/spec.md] | Test: `grep -q "D-01.*→ [ABC]" spec.md`
 
-### T-03 shell.css: tokens, type scale, button, motion tokens, product bar, navbar, footer
-- AC: AC-06 | Files: [docs-site/src/css/shell.css, docs-site/src/css/tokens.css, docs-site/src/css/weave.css, tests/unit/docs-site/shell-checksum.test.ts] | Test: `npx vitest run tests/unit/docs-site/shell-checksum.test.ts`
+### T-03 Weave shell: tokens, type scale, button, motion tokens, product bar, navbar, footer (D-06)
+- AC: AC-06 | Files: [design/weave/weave.css, design/weave/weave-shell.js, design/weave/tokens.json, design/weave/checksums.json, design/weave/README.md, docs-site/src/css/weave.css, docs-site/src/css/weave-shell.js, docs-site/src/css/__tests__/weave-copy.test.ts] | Test: `cd repositories/anton-abyzov/specweave/docs-site && npx vitest run src/css/__tests__/weave-copy.test.ts`
 
 ### T-04 Docusaurus shell: navbar with per-product brand slot, product bar thread, footer
-- AC: AC-02, AC-03, AC-05 | Files: [docs-site/src/theme/Navbar/index.tsx, docs-site/src/theme/Navbar/FamilyBar.tsx, docs-site/src/theme/Footer/index.tsx, docs-site/docusaurus.config.ts, docs-site/src/css/custom.css] | Test: `cd docs-site && npx playwright test e2e/shell.spec.ts`
+- AC: AC-02, AC-03, AC-05 | Files: [docs-site/src/theme/Navbar/index.tsx, docs-site/src/theme/Navbar/FamilyBar.tsx, docs-site/src/theme/Navbar/Logo/index.tsx, docs-site/src/theme/Footer/index.tsx, docs-site/docusaurus.config.ts, docs-site/src/css/custom.css] | Test: `cd ~/.specwithcode/m4/scratch/2026-11-10-design-consolidation && node measure.mjs https://spec-weave.com live / /code/ /code/download/ && node check-shell.mjs live/metrics.json home=SpecWeave code=SpecWithCode`
 
 ### T-05 Theme: system default and cross-domain carry on spec-weave.com
-- AC: AC-04 | Files: [docs-site/src/theme/Navbar/FamilyBar.tsx, docs-site/src/theme/Layout/index.tsx] | Test: `cd docs-site && npx playwright test e2e/theme-carry.spec.ts`
+- AC: AC-04 | Files: [design/weave/weave-shell.js, docs-site/src/css/weave-shell.js, docs-site/docusaurus.config.ts] | Test: `cd ~/.specwithcode/m4/scratch/2026-11-10-design-consolidation && OUT=live node extra.mjs https://spec-weave.com /code/ / | node check-extra.mjs`
 
 ### T-06 Landings on spec-weave.com: family front door and SpecWithCode with the skills chapter
-- AC: AC-07, AC-08, AC-09, AC-10 | Files: [docs-site/src/pages/index.tsx, docs-site/src/pages/code.tsx, docs-site/src/pages/code.module.css, docs-site/src/components/home/, docs-site/src/css/animations.css] | Test: `cd docs-site && npx playwright test e2e/landing-motion.spec.ts`
+- AC: AC-07, AC-08, AC-09, AC-10 | Files: [docs-site/src/pages/code.tsx, docs-site/src/pages/code.module.css, docs-site/src/components/code/FlowStage.tsx, docs-site/src/components/code/FlowStage.module.css, docs-site/src/components/code/FreeLanding.module.css, docs-site/src/components/home/] | Test: `cd repositories/anton-abyzov/specweave/docs-site && npx vitest run src/__tests__/sidebars.test.ts src/theme/Footer` and `curl -s https://spec-weave.com/code/ | grep -q 'id="skills"'`
 
-### T-07 vskill-platform shell: same shell.css, navbar, footer, theme carry
-- AC: AC-02, AC-03, AC-04, AC-05, AC-06 | Files: [vskill-platform/src/app/shell.css, vskill-platform/src/app/globals.css, vskill-platform/src/app/layout.tsx, vskill-platform/src/app/components/LayoutShell.tsx, vskill-platform/src/app/components/ThemeToggle.tsx, vskill-platform/src/app/components/MobileNav.tsx] | Test: `cd vskill-platform && npx vitest run src/app/__tests__/shell-checksum.test.ts && npx playwright test e2e/shell.spec.ts`
+### T-07 vskill-platform shell: same Weave files, navbar, footer, theme carry
+- AC: AC-02, AC-03, AC-04, AC-05, AC-06 | Files: [vskill-platform/src/app/weave.css, vskill-platform/src/app/weave-shell.js, vskill-platform/src/app/globals.css, vskill-platform/src/app/layout.tsx, vskill-platform/src/app/__tests__/weave-sync.test.ts] | Test: `cd repositories/anton-abyzov/vskill-platform && npx vitest run src/app/__tests__/weave-sync.test.ts`
 
 ### T-08 Verified Skill landing and inner page headers
-- AC: AC-06, AC-07, AC-08, AC-09, AC-10 | Files: [vskill-platform/src/app/page.tsx, vskill-platform/src/app/home.module.css, vskill-platform/src/app/components/home/, vskill-platform/src/app/claude-code-skills/, vskill-platform/src/app/skill-studio/] | Test: `cd vskill-platform && npx playwright test e2e/landing-motion.spec.ts`
+- AC: AC-06, AC-07, AC-08, AC-09, AC-10 | Files: [vskill-platform/src/app/page.tsx, vskill-platform/src/app/home.module.css, vskill-platform/src/app/claude-code-skills/, vskill-platform/src/app/studio/] | Test: `cd ~/.specwithcode/m4/scratch/2026-11-10-design-consolidation && node measure.mjs https://verified-skill.com live-vs / /claude-code-skills /studio && node check-shell.mjs live-vs/metrics.json "=Verified Skill"`
 
 ### T-09 Ship both PRs and verify live
-- AC: AC-11 | Files: [docs-site/scripts/verify-live.mjs, vskill-platform/e2e/shell.spec.ts] | Test: `node docs-site/scripts/verify-live.mjs --browser` plus the cross-site shell measurement script, screenshots saved
+- AC: AC-11 | Files: [~/.specwithcode/m4/scratch/2026-11-10-design-consolidation/live/, ~/.specwithcode/m4/scratch/2026-11-10-design-consolidation/live-vs/] | Test: both live checks above plus `cd ~/.specwithcode/m4/scratch/2026-11-10-design-consolidation && OUT=live-vs node extra.mjs https://verified-skill.com / /claude-code-skills | node check-extra.mjs`; PRs anton-abyzov/specweave#2271 and anton-abyzov/vskill-platform#210 merged

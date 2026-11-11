@@ -1,13 +1,15 @@
 {
   "id": "1271-one-design-system-and-shared-shell-for-specweave-specwithcode-and-verified-skill",
   "uuid": "0d2eeec7-40fd-499c-9c07-cafdf62e4523",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-10T19:46:39.319Z",
-  "updated": "2026-11-10T19:46:39.319Z",
-  "lastActivity": "2026-11-10T19:46:39.319Z",
+  "updated": "2026-11-11T00:43:07.247Z",
+  "lastActivity": "2026-11-11T00:43:07.247Z",
   "title": "One design system and shared shell for SpecWeave, SpecWithCode and Verified Skill",
   "project": "specweave",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-11T00:43:07.246Z",
+  "approvedAt": "2026-11-11T00:43:07.247Z"
 }
