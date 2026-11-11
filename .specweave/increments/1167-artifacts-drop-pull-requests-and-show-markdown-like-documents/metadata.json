@@ -1,15 +1,17 @@
 {
   "id": "1167-artifacts-drop-pull-requests-and-show-markdown-like-documents",
   "uuid": "3a7932a8-5b44-4cff-b705-535b10cffb0d",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-02T06:52:24.679Z",
-  "updated": "2026-11-02T21:54:15.760Z",
-  "lastActivity": "2026-11-02T21:54:15.760Z",
+  "updated": "2026-11-11T05:11:12.755Z",
+  "lastActivity": "2026-11-11T05:11:12.755Z",
   "title": "Artifacts drop pull requests and show Markdown like documents",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-11T05:11:12.754Z",
+  "approvedAt": "2026-11-11T05:11:12.755Z"
 }
