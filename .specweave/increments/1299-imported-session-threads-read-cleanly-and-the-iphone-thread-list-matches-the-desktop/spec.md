@@ -35,7 +35,7 @@ Out: joining machines across Connect accounts (owned by the "Cross-account machi
 - [ ] AC-03: An imported thread's age is the time of the last message in its transcript, so a session from October 18 reads "3w", not the minutes since the import.
 - [ ] AC-04: After the update, threads imported earlier whose title is markup are retitled by the same rule, once, without the user doing anything. Threads a person renamed keep their title. Imported threads with no typed line are archived, not deleted.
 - [ ] AC-05: The iPhone row reads as the desktop row does: "Claude Code · Opus 5.5", the machine by its short name only when the project has more than one machine, the age at the right. Two lines per row.
-- [ ] AC-06: Every thread the desktop Threads panel lists for a project is on the iPhone Threads screen, in the same group (Needs you, Working, Offline, Idle, Resolved). One fixture snapshot is checked by both the web test and the Swift test, and it includes Elena's case: a fresh project, 12 imported threads and one idle thread the coordinator spawned.
+- [ ] AC-06: Every thread the desktop Threads panel lists for a project is on the iPhone Threads screen, in the same group (Needs you, Working, Offline, Idle, Resolved). One fixture snapshot is checked by both the web test and the Swift test, and it includes Elena's case: a fresh project, imported Claude Code and Codex threads and one idle thread the coordinator started.
 - [ ] AC-07: Headless captures show the desktop panel and the iPhone screen (simulator) on that fixture, light and dark, before and after.
 - [ ] AC-08: Shipped: PR reviewed and green, merged; desktop released on all platforms through the release thread; iPhone build installed on Anton's iPhone and submitted to the App Store.
 
