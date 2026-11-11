@@ -1,0 +1,12 @@
+{
+  "id": "1303-thread-plan-follows-its-increment-outside-the-project-folder-and-on-other-machines",
+  "uuid": "d45f4b53-978a-4d97-89bb-e841f711e369",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-11T21:28:24.717Z",
+  "updated": "2026-11-11T21:34:55.411Z",
+  "lastActivity": "2026-11-11T21:34:55.411Z",
+  "title": "Thread plan follows its increment outside the project folder and on other machines",
+  "project": "specweave-umb"
+}
