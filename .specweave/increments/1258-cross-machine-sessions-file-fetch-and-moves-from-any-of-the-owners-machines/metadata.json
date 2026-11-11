@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-07T06:41:32.667Z",
-  "updated": "2026-11-08T07:01:54.530Z",
-  "lastActivity": "2026-11-08T07:01:54.530Z",
+  "updated": "2026-11-11T03:28:57.370Z",
+  "lastActivity": "2026-11-11T03:28:57.370Z",
   "title": "Cross-machine sessions, file fetch and moves from any of the owner's machines",
   "project": "specweave-umb",
   "externalLinks": {}
