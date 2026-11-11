@@ -1,0 +1,12 @@
+{
+  "id": "1301-stale-limit-blocker-a-subscription-change-or-the-users-answer-unblocks-the-coordinator-on-any-machine",
+  "uuid": "d41b282f-4379-4120-a57d-866f85d8cd5e",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-11T20:49:14.833Z",
+  "updated": "2026-11-11T22:37:27.397Z",
+  "lastActivity": "2026-11-11T22:37:27.397Z",
+  "title": "Stale limit blocker: a subscription change or the user's answer unblocks the coordinator on any machine",
+  "project": "specweave-umb"
+}
