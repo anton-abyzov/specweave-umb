@@ -27,6 +27,11 @@ Causes, read from the code:
   - Cause of the lost sign-ins, checked in code: each control on the card sends one field (`MachineWorkGrants.tsx:253-358`). Changing Projects keeps Sign-ins. Changing Whose machine to "Someone else's machine" sets Sign-ins to None on the server with no warning (`WorkGrants.ts:497-503`), and switching back to "My machine" does not restore them. So the grant lost its sign-ins when Whose machine was switched, not when Projects was widened.
   - "Allow m1" and its access select were disabled with the reason as muted text under a primary-coloured button (`IncomingWorkerSetup.tsx:273-353`); Anton read it as a Linux bug.
   - The "Machine sending work" list leaves out machines that already have a grant, with no hint (`IncomingWorkerSetup.tsx:122`, `:172`).
+- **A main machine can make a join line that points the wrong way.** On November 11, 2026 Anton set up a new M5 on his own Connect account. On the M4, which already starts work on four machines, he used Join a main machine, named the M5 as the main machine and carried the line to the M5. Read from the M4:
+  - The M4 made one line at 3:17:34 PM for main machine `0c69470d…` (the M5), good for an hour. It was never redeemed: no request to `/api/studio/fleet/invitation/redeem` reached the M4, over Connect or Tailscale.
+  - The M4's app knows the M5 from Connect (it asks the relay for its status) but never opened a connection to it, so the M5 has no card, and `studio_machine_list` on the M4 has no M5 row.
+  - Nothing in the dialog says which way a line works, and Join a main machine sits directly under Add a machine on the main machine. An unused line is shown nowhere on either machine.
+  - What the M5 showed when the line was entered there is not known from the M4.
 - **Smaller traps.** The line is spent before the main machine is checked, so a wrong ID costs a new line (`studioFleetHttp.ts:620-625`). The join dialog still says "Settings > Connections > Add a machine" (`FleetInvite.tsx:242`). CLI times are UTC ISO strings. Nothing warns that linking a machine to another Connect account changes its address, because the hostname is a hash of stage, Clerk user and environment (`infra/relay/src/deploymentConfig.ts:119-125`).
 
 - **A fresh install warns about a service the user does not have.** Photo from Elena's Mac, November 11, 2026 at 9:05 AM: the Overview's Hosts & capacity card shows an amber "The local Switch service is unavailable." under "Independent capacity unknown · 0 eligible · 0 unverified". Switch is a separate local account-switching service the app reads at `http://127.0.0.1:8318` (`apps/server/src/studio/SwitchClient.ts:9`). When nothing answers there, `Capacity.ts:409-420` reports `switch-unavailable` and `CapacityFleet.tsx:239-240` shows it as a problem. A new user never installed Switch, so the first screen after setup looks broken and names a tool they have never heard of. Anton: "Why do I also see this on that message after my setup?"
@@ -117,6 +122,12 @@ Who can run work here (from the Minisforum, November 11, 2026):
 - [ ] AC-39: Under Allow another machine, when the controls cannot be used the reason comes first as a labelled notice ("To allow m1, first:") with numbered steps. The access select and the button are hidden or plainly inactive, never primary-coloured, until the steps are done.
 - [ ] AC-40: The "Machine sending work" list shows machines that already have a grant as "m4: already allowed, change it on its card above" instead of leaving them out.
 
+Direction of a join line (from the M5, November 11, 2026):
+
+- [ ] AC-41: On a machine that already starts work on others, Join a main machine warns before and after the line is made: it names those machines, says the line lets the chosen machine start work on this one, and says to make the line on the new machine to add it here. A machine that starts work on no other shows no warning.
+- [ ] AC-42: A line that was made and not yet used is listed on the machine that made it, with the machine it names, when it expires and Revoke, so "I made a line and nothing happened" has a place to look.
+- [ ] AC-43: A machine on the same Connect account that this app can see but has not added shows on Settings > Machines as "Not added yet" with one Add button that connects, adds and offers Allow, with nothing to copy.
+
 Quality:
 
 - [ ] AC-23: The new screens pass in light and dark at desktop width and 390 px with no horizontal scroll, work by keyboard with focus on the safe action, and every new string exists in all nine language files.
@@ -172,6 +183,7 @@ Risks:
 ### Asked
 - D-08 Bugs and improvements from the test on Elena's Mac → one so far (Anton, November 11, 2026): the "The local Switch service is unavailable" notice on her Overview after setup. Added as AC-24, AC-25 and T-11. Second item, same day: the sidebar read "Not signed in" after she had signed in during setup. Added as AC-26 to AC-30 and T-12. More may follow.
 
+- D-13 The M5 join that went nowhere, November 11, 2026 → AC-41 shipped ahead of the rest as pull request 158 on `anton-abyzov/specwithcode` (branch `1296-join-direction-notice`, web only), because it is a small warning that would have stopped this failure. AC-42 and AC-43 wait for the guided flow.
 - D-12 Six gaps in Who can run work here, routed from the 1275 thread on November 11, 2026 → all six placed here as AC-35 to AC-40 and T-15 to T-17, because they are the same card and the same whose-machine choice this increment changes. Item 4 is not a field-rewrite bug: the sign-ins were withdrawn by switching Whose machine, as coded, and no release is needed for it.
 
 ### Defaulted (change any before sw-do)
@@ -238,5 +250,11 @@ Risks:
 ### T-17 Allow another machine: reason first, and machines already allowed
 - AC: AC-39, AC-40 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/IncomingWorkerSetup.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/IncomingWorkerSetup.test.tsx | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run apps/web/src/components/settings/IncomingWorkerSetup.test.tsx
 
-### T-18 Two-account acceptance, verify and close 1296
+### T-18 Join a main machine warns on a machine that already starts work on others
+- AC: AC-41 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/FleetInvite.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/FleetInvite.test.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/StudioFleetConnections.tsx, repositories/anton-abyzov/specwithcode-dev/CHANGELOG.md | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run apps/web/src/components/settings/FleetInvite.test.tsx
+
+### T-19 Unused lines listed, and one Add for a same-account machine
+- AC: AC-42, AC-43 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/StudioFleetConnections.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/StudioFleetConnections.test.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/MachinesSettings.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/cloud/CloudEnvironmentConnectList.tsx, repositories/anton-abyzov/specwithcode-dev/apps/server/src/studioFleetHttp.ts | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run apps/web/src/components/settings/StudioFleetConnections.test.tsx
+
+### T-20 Two-account acceptance, verify and close 1296
 - AC: AC-03, AC-06, AC-12, AC-26 | Files: .specweave/increments/1296-join-machines-across-connect-accounts-guided-join-identity-check-and-whose-machine-choice/reports/acceptance.md | Test: specweave verify 1296-join-machines-across-connect-accounts-guided-join-identity-check-and-whose-machine-choice
