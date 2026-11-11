@@ -186,7 +186,7 @@ Risks:
 - D-11 Installs from before this change get one notice, not a silent install → yes.
 
 ### Open
-- D-09 Publish the current release to npm now, before this increment ships, so `npm i -g specwithcode` stops serving 1.0.47. It needs the release owner; recommended yes.
+- D-09 Publish the current release to npm now, so `npm i -g specwithcode` stops serving 1.0.47 → done by the release thread on November 11, 2026: `npm view specwithcode version` returns 1.0.234. T-09 still has to make the publish part of every release.
 
 ## Tasks
 
