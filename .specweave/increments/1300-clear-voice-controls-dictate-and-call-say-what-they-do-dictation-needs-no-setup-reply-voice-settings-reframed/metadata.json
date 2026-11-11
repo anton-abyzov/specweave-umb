@@ -1,0 +1,12 @@
+{
+  "id": "1300-clear-voice-controls-dictate-and-call-say-what-they-do-dictation-needs-no-setup-reply-voice-settings-reframed",
+  "uuid": "06f5bc1f-12fb-4b30-ad19-b5903d377e23",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-11T15:03:47.029Z",
+  "updated": "2026-11-11T15:03:47.029Z",
+  "lastActivity": "2026-11-11T15:03:47.029Z",
+  "title": "Clear voice controls: Dictate and Call say what they do, dictation needs no setup, reply voice settings reframed",
+  "project": "specweave-umb"
+}
