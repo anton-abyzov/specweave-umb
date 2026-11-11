@@ -27,7 +27,7 @@ In: the server reader and service (`ThreadIncrementProgress.ts`, `ThreadIncremen
 
 - [ ] AC-01: A thread whose claim file names a root outside its project shows that increment, bound as "claim", when the thread's own recorded file changes lie inside that root.
 - [ ] AC-02: A claim file naming a root where the thread changed nothing stays refused, so another thread or a forged file cannot aim a plan card at a foreign folder.
-- [ ] AC-03: A thread that wrote `<root>/.specweave/increments/<id>/spec.md` itself is bound to that increment without a claim file, the newest such spec first; a hand-made link, a claim file and a branch binding still outrank it.
+- [ ] AC-03: A thread that wrote `<root>/.specweave/increments/<id>/spec.md` itself is bound to that increment without a claim file, the newest such spec first, when nothing else names an increment; a hand-made link, a claim file, a branch, a checkpoint and a name binding outrank it.
 - [ ] AC-04: Link increment lists the increments of the folders the thread worked in and accepts a link to one of them; a link to an increment in a folder the thread never touched is still refused.
 - [ ] AC-05: The evidence comes from the server's own projection, incrementally: after the first read of a thread, a poll reads only turn items newer than the last one seen.
 - [ ] AC-06: The Threads pane shows increment progress for threads on other machines, each read from its own machine.
@@ -52,9 +52,12 @@ Risk: a thread that edits one increment's spec in passing binds to it until a cl
 ### Asked
 - none
 ### Defaulted (change any before sw-do)
-- D-01 A spec the thread wrote binds it → yes, below manual, claim and branch (reversible).
+- D-01 A spec the thread wrote binds it → yes, as the last fallback: below manual, claim, branch, checkpoint and name (reversible). Moved below checkpoint and name after the round 1 SHIP review: a thread named for one increment that edits another's spec keeps its own.
 - D-02 No new binding literal → reuse "claim" (skew-safe).
 - D-03 Workflow progress stays out of the plan card → the ledger carries it.
+- D-04 Only completed file changes are evidence; failed, cancelled and interrupted edits prove nothing. A rolled-back run's completed edits still count, because the question is whether the thread itself wrote there (round 1 review).
+- D-05 Paths are compared as text after resolving `.` and `..`; relative paths, links and other spellings answer no. A relative spec path is taken from the thread's checkout.
+- D-06 The Threads pane issues its own query per other machine, like both sidebars; no shared atom.
 ### Open
 - none
 
