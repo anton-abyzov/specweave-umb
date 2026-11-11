@@ -1,0 +1,12 @@
+{
+  "id": "1296-join-machines-across-connect-accounts-guided-join-identity-check-and-whose-machine-choice",
+  "uuid": "37f394ed-4356-4a16-920b-c17448416f2b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-11T14:43:06.662Z",
+  "updated": "2026-11-11T14:43:06.662Z",
+  "lastActivity": "2026-11-11T14:43:06.662Z",
+  "title": "Join machines across Connect accounts: guided join, identity check and whose-machine choice",
+  "project": "specweave-umb"
+}
