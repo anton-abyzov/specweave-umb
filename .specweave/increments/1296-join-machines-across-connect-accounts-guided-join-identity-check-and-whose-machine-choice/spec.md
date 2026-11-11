@@ -23,6 +23,11 @@ Causes, read from the code:
 
 - **A fresh install warns about a service the user does not have.** Photo from Elena's Mac, November 11, 2026 at 9:05 AM: the Overview's Hosts & capacity card shows an amber "The local Switch service is unavailable." under "Independent capacity unknown · 0 eligible · 0 unverified". Switch is a separate local account-switching service the app reads at `http://127.0.0.1:8318` (`apps/server/src/studio/SwitchClient.ts:9`). When nothing answers there, `Capacity.ts:409-420` reports `switch-unavailable` and `CapacityFleet.tsx:239-240` shows it as a problem. A new user never installed Switch, so the first screen after setup looks broken and names a tool they have never heard of. Anton: "Why do I also see this on that message after my setup?"
 
+- **A machine signed in at setup later says "Not signed in".** Photo from Elena's Mac, November 11, 2026 at 9:04 AM: the sidebar account button reads "Not signed in" although she signed in to Connect in the first-run setup. Anton: "it still showed that I need to sign in, which is kind of a nasty bug. Make sure… it's always updated, and we don't have to log in again or click this button again." Three things in the code produce this, and without her Mac's logs it is not known which one fired:
+  - The button shows only this window's Clerk session, never the machine's link. A linked machine with no window session is labelled "Not signed in" (`apps/web/src/components/account/accountMenuModel.ts:53-62`), and the link state carries a user id but no name or email to show instead (`packages/contracts/src/environmentHttp.ts:651-665`).
+  - The app signs the window out by itself. `ConnectSessionGuard` runs whenever the window is signed in and calls `signOut()` when listing machines is refused twice for "authentication" (`apps/web/src/cloud/ConnectSessionGuard.tsx:28-69`). That reason covers every token the relay rejects, including one that only looks expired because the computer's clock is off, and three failures that never reach the relay: a local key that will not load and two proof-creation errors (`packages/client-runtime/src/connection/errors.ts:38-47`, `:110-117`). The only trace is a `console.warn` in the window, which is gone after a restart.
+  - The saved sign-in is one encrypted file, `clerk-tokens.json`, and the store deletes a value it cannot open (`apps/desktop/src/app/DesktopClerkTokenStorage.ts:25-35`). A refused or failed Keychain read after a restart or update signs the window out with no message.
+
 Anton, November 11, 2026: "Why is it using Tailscale? Tailscale is only the backup. You must rework it… connect through Cloudflare, right? Through Clerk." And: "maybe we need to suggest installing this command line for a new machine, similar to SpecWeave." And: "how it's going to work when one Linux machine is going to be used by two different SWC Connect emails? How can I see on that machine what the projects are and what the execution is?"
 
 ## Scope
@@ -35,6 +40,7 @@ In: the join and add flows in the desktop and web app, the `fleet` CLI, the serv
 - The Connect account shown on machines, and a "started from" label, filter and running count on a shared machine.
 - A one-click install of the `specwithcode` command from the app, version-aware CLI errors, and the npm command kept current.
 - No Switch warning on a machine that never had Switch; the Overview's capacity card reads plainly on a fresh install.
+- One Connect sign-in per machine that survives restarts and updates, shown from the machine's link, with no automatic sign-out.
 
 Out: Clerk organizations, teams and seats; tunnel limits and billing per account; phone pairing; folder copy and handoff between accounts; the mobile apps; making the Connect sign-in itself the credential that controls a machine.
 
@@ -82,6 +88,14 @@ Fresh install (from the test on Elena's Mac):
 - [ ] AC-24: On a machine where the Switch service has never answered, the Overview shows no Switch warning and no amber notice. The host card lists each signed-in provider with the usage the model picker already shows, or "No providers signed in yet" with a Set up providers link when there are none.
 - [ ] AC-25: "The local Switch service is unavailable", "timed out" and "could not be verified" appear only on a machine where Switch answered before, and then say what to do. On a machine without it the summary line does not read "Independent capacity unknown · 0 eligible · 0 unverified".
 
+Stay signed in (from the test on Elena's Mac):
+
+- [ ] AC-26: After one Connect sign-in on a machine, in first-run setup or in Settings, the sidebar account button shows that account after every restart, update, sleep and wake, in the main window and in project windows, with no click. Checked by relaunching the packaged app three times and by an update install.
+- [ ] AC-27: A machine linked to Connect never shows "Not signed in". The button shows the linked account's name or email, stored with the link when it is made and filled in for existing links the next time the window is signed in. When only the window's own session is missing, the menu says "Sign in again to manage your account" and nothing else changes.
+- [ ] AC-28: The app never signs a window out by itself. A relay refusal, a local key or proof error, a clock that is off, or a saved sign-in that cannot be read shows "Connect needs attention" with Retry, keeps the saved sign-in on disk, and retries on its own. Only the person's Sign out, or Clerk reporting the session ended, signs out.
+- [ ] AC-29: Listing the machines on the account, join codes and the Connect rows in Settings read the machine's link, so they work when the window's session is missing.
+- [ ] AC-30: Every time a window's Connect session ends or cannot be restored, the desktop log records when and why (the person signed out, Clerk ended it, the relay refused with its code, the saved sign-in was unreadable), with no token in the line.
+
 Quality:
 
 - [ ] AC-23: The new screens pass in light and dark at desktop width and 390 px with no horizontal scroll, work by keyboard with focus on the safe action, and every new string exists in all nine language files.
@@ -113,7 +127,8 @@ What changes, in order:
 6. **Command line.** The desktop app writes a small launcher (`~/.local/bin/specwithcode` on macOS and Linux, a `.cmd` in the user's app-data `bin` on Windows) that runs the app's bundled CLI, and adds that folder to the shell profile only when asked. The CLI reads the running server's version before changing anything. `decodeFleetJoinCode` reports an unknown `v` separately. The redeem handler checks the main machine before spending the credential.
 7. **npm.** A `publish-npm` stage in `scripts/release/release.sh` after the public release, a `status` check, and `npm deprecate` for versions that cannot read current lines.
 8. **Fresh install.** The capacity service remembers whether Switch has ever answered on this machine. Until it has, a refused connection is "not installed", not an error: the snapshot carries the providers the registry already knows and no `error`, and `CapacityFleet` renders them without the notice.
-9. **Docs.** `docs/user/add-a-machine.md` leads with the code flow and the app, and installs the npm command at the app's version.
+9. **Stay signed in.** `CloudLink` stores the account's display name and email with the link and returns them in `EnvironmentCloudLinkStateResult`; the account menu reads them, so the button no longer depends on the window. `ConnectSessionGuard` stops calling `signOut()`: it sets a "needs attention" state and retries with backoff, and it ignores the three local errors. The token store wrapper keeps an unreadable file and reports it. Session-ending events go to the desktop log through the existing preload bridge.
+10. **Docs.** `docs/user/add-a-machine.md` leads with the code flow and the app, and installs the npm command at the app's version.
 
 Rejected:
 
@@ -132,7 +147,7 @@ Risks:
 ## Decisions
 
 ### Asked
-- D-08 Bugs and improvements from the test on Elena's Mac → one so far (Anton, November 11, 2026): the "The local Switch service is unavailable" notice on her Overview after setup. Added as AC-24, AC-25 and T-11. More may follow.
+- D-08 Bugs and improvements from the test on Elena's Mac → one so far (Anton, November 11, 2026): the "The local Switch service is unavailable" notice on her Overview after setup. Added as AC-24, AC-25 and T-11. Second item, same day: the sidebar read "Not signed in" after she had signed in during setup. Added as AC-26 to AC-30 and T-12. More may follow.
 
 ### Defaulted (change any before sw-do)
 - D-01 Keys stay the credential; Clerk is shown as identity and attested by the relay → yes (reversible only before release).
@@ -181,5 +196,8 @@ Risks:
 ### T-11 No Switch warning on a machine without Switch
 - AC: AC-24, AC-25 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/studio/Capacity.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/studio/Capacity.test.ts, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/studio.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/CapacityFleet.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/CapacityFleet.test.tsx | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run apps/server/src/studio/Capacity.test.ts apps/web/src/components/studio/CapacityFleet.test.tsx
 
-### T-12 Two-account acceptance, verify and close 1296
-- AC: AC-03, AC-06, AC-12 | Files: .specweave/increments/1296-join-machines-across-connect-accounts-guided-join-identity-check-and-whose-machine-choice/reports/acceptance.md | Test: specweave verify 1296-join-machines-across-connect-accounts-guided-join-identity-check-and-whose-machine-choice
+### T-12 One Connect sign-in per machine that stays
+- AC: AC-26, AC-27, AC-28, AC-29, AC-30 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/cloud/ConnectSessionGuard.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/cloud/ConnectSessionGuard.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/account/accountMenuModel.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/account/accountMenuModel.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/clerk/ConnectSidebarAccountMenu.tsx, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/app/DesktopClerkTokenStorage.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/app/DesktopClerkTokenStorage.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/cloud/CloudLink.ts, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/environmentHttp.ts | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run apps/web/src/cloud/ConnectSessionGuard.test.ts apps/web/src/components/account/accountMenuModel.test.ts apps/desktop/src/app/DesktopClerkTokenStorage.test.ts apps/server/src/cloud/CloudLink.test.ts
+
+### T-13 Two-account acceptance, verify and close 1296
+- AC: AC-03, AC-06, AC-12, AC-26 | Files: .specweave/increments/1296-join-machines-across-connect-accounts-guided-join-identity-check-and-whose-machine-choice/reports/acceptance.md | Test: specweave verify 1296-join-machines-across-connect-accounts-guided-join-identity-check-and-whose-machine-choice
