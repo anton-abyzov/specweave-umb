@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-11T15:00:10.533Z",
-  "updated": "2026-11-11T15:00:10.533Z",
-  "lastActivity": "2026-11-11T15:00:10.533Z",
+  "updated": "2026-11-11T15:05:39.308Z",
+  "lastActivity": "2026-11-11T15:05:39.308Z",
   "title": "Imported session threads read cleanly and the iPhone thread list matches the desktop",
   "project": "specweave-umb"
 }

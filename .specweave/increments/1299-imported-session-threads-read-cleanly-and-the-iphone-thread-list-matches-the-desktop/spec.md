@@ -20,11 +20,11 @@ Causes found on November 11, 2026:
 | Why were automated sessions imported at all? | The scanner imports any session with one user-role record. A session a bot woke, with no line a person typed, counts. | `AgentSessionScanner.ts:539` |
 | Why "28m" on a session from October 18? | The row age comes from the thread's update time, which the importer sets from the transcript file's modification time, not from the last message in it. On a machine whose `~/.claude` and `~/.codex` were just copied, every file is "new". To confirm in T-01. | `AgentSessionScanner.ts:343,554` |
 | Why does the iPhone label differ? | The iPhone prints the provider's catalog name and the model's catalog name ("Claude · Claude Opus 5.5"). The desktop names the harness and drops the repeated maker ("Claude Code · Opus 5.5"). The iPhone also prints the raw host name on its own line. | `apps/ios/SWCKit/Sources/SWCSync/ThreadIdentity.swift:33-45`; `apps/web/src/studio/shellModel.ts:60-160`; `apps/ios/SWCKit/Sources/SWCFeatures/Overview/ProjectOverviewView.swift:122` |
-| Why is the Idle row missing on the iPhone? | Not reproduced yet. Ruled out on M4 with real data: the list rules agree (1,019 threads, 15 projects, 0 threads the desktop lists and the iPhone drops), and a resumed phone stream does deliver new coordinator subagent threads (5 of 5). The installed build (0.1.6, 44) has the rule that lists coordinator workers (#103). What is left is specific to a fresh install: T-01 reproduces it in a private test home. | `~/.specwithcode/m4/scratch/2026-11-11-elena-threads/tools/parity.mjs`, `resume-check.mjs` |
+| Why is the Idle row missing on the iPhone? | The phone in the photo runs the App Store build, 0.1.5 (November 7). That build hides every subagent thread, including one the coordinator spawned. The desktop lists those. The fix is #103 (`c0c1f5dd20`, November 9), part of 0.1.6, which has been in App Store review since November 9 and is not live. On main the two list rules agree (1,019 real threads, 0 differences). | `reports/repro.md`; `asc versions list --app 6824245458` |
 
 ## Scope
 
-In: session import (which sessions, their titles, their times); a one-time repair of threads already imported; the iPhone thread row and its labels; one shared list fixture that the desktop rule and the iPhone rule must both satisfy; the fix for the missing Idle row once T-01 names its cause; a desktop release and an iPhone release.
+In: session import (which sessions, their titles, their times); a one-time repair of threads already imported; the iPhone thread row and its labels; one shared list fixture that the desktop rule and the iPhone rule must both satisfy; getting the phone build that lists coordinator threads into the App Store (0.1.6 is stuck in review; a newer build replaces it); a desktop release and an iPhone release.
 
 Out: joining machines across Connect accounts (owned by the "Cross-account machine connect (Elena's M2)" thread); the Android app; redesigning the desktop Threads panel; importing sessions outside the wizard.
 
@@ -63,7 +63,8 @@ A one-time startup pass in `apps/server/src/project/AgentSessionImporter.ts` (`r
 - `ThreadIdentity`: port `providerShortLabel` and `modelLabel` (harness name, no repeated maker), with the same test table as `shellModel.test.ts`.
 - `ProjectOverviewView.row`: two lines. Line 1 title; line 2 "Claude Code · Opus 5.5" plus the short machine name when `machines.count > 1`; age trailing, before the status marks. `shortMachineName` ported.
 - A title that is still markup (an older desktop) shows as "Imported session".
-- The missing Idle row: fixed where T-01 finds it. The fix lands with a fixture that fails before it.
+- The missing Idle row needs no new rule: main already lists a coordinator's workers (#103). It needs that build in the App Store, and the parity fixture below so the lists cannot drift again.
+- `ShellSnapshot` decodes its threads one by one, so one unreadable thread no longer drops the whole list (`SWCWire/Shell.swift:27`). No real thread fails today; this is a guard.
 
 ### Parity fixture
 
@@ -73,7 +74,7 @@ A one-time startup pass in `apps/server/src/project/AgentSessionImporter.ts` (`r
 
 - Stripping too much: a person whose prompt is a pasted XML block gets "Imported session" as the title. Accepted; the message text is unchanged.
 - The repair archives bot sessions. They stay in the archive and can be restored.
-- T-01 may find the Idle row cause outside these files (for example the Connect relay). Then the fix is added to this increment's tasks if it is in the app, or handed to the owning thread if it is the cross-account path.
+- 0.1.6 is in App Store review. Submitting a newer build means cancelling that submission first; the review clock restarts.
 
 ## Decisions
 
@@ -84,10 +85,10 @@ A one-time startup pass in `apps/server/src/project/AgentSessionImporter.ts` (`r
 - D-01 Bot-only sessions are not imported, and ones already imported are archived (reversible: restore from the archive).
 - D-02 Markup titles are repaired on the server once, and the iPhone also hides markup titles from older desktops.
 - D-03 The iPhone row follows the desktop's wording instead of the catalog's names.
-- D-04 iPhone version 0.1.7.
+- D-04 The iPhone ships as 0.1.7: the 0.1.6 submission in review is cancelled and replaced, so users get one update with both fixes.
 
 ### Open
-- The cause of the missing Idle row (T-01).
+- none
 
 ## Tasks
 
@@ -103,8 +104,8 @@ A one-time startup pass in `apps/server/src/project/AgentSessionImporter.ts` (`r
 ### T-04 iPhone row and labels
 - AC: AC-05 | Files: repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/SWCSync/ThreadIdentity.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/SWCFeatures/Overview/ProjectOverviewView.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Tests/SWCSyncTests/ThreadIdentityTests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Tests/SWCFeaturesTests/ScreenLogicTests.swift | Test: cd repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit && DEVELOPER_DIR=/Applications/Xcode-27.2.app swift test --filter "ThreadIdentityTests|ScreenLogicTests"
 
-### T-05 One list fixture for desktop and iPhone, and the Idle row fix
-- AC: AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/packages/contracts/fixtures/thread-list-parity.json, repositories/anton-abyzov/specwithcode-dev/apps/web/src/studio/threadListParity.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Tests/SWCSyncTests/ThreadListParityTests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/SWCSync/ShellSummaries.swift | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run apps/web/src/studio/threadListParity.test.ts && cd apps/ios/SWCKit && DEVELOPER_DIR=/Applications/Xcode-27.2.app swift test --filter ThreadListParityTests
+### T-05 One list fixture for desktop and iPhone, and a snapshot that survives one unreadable thread
+- AC: AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/packages/contracts/fixtures/thread-list-parity.json, repositories/anton-abyzov/specwithcode-dev/apps/web/src/studio/threadListParity.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Tests/SWCSyncTests/ThreadListParityTests.swift, repositories/anton-abyzov/specwithcode-dev/apps/ios/SWCKit/Sources/SWCWire/Shell.swift | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run apps/web/src/studio/threadListParity.test.ts && cd apps/ios/SWCKit && DEVELOPER_DIR=/Applications/Xcode-27.2.app swift test --filter ThreadListParityTests
 
 ### T-06 Captures before and after
 - AC: AC-07 | Files: .specweave/increments/1299-imported-session-threads-read-cleanly-and-the-iphone-thread-list-matches-the-desktop/reports/after-desktop-light.png, .specweave/increments/1299-imported-session-threads-read-cleanly-and-the-iphone-thread-list-matches-the-desktop/reports/after-iphone-light.png | Test: test -s .specweave/increments/1299-imported-session-threads-read-cleanly-and-the-iphone-thread-list-matches-the-desktop/reports/after-desktop-light.png && test -s .specweave/increments/1299-imported-session-threads-read-cleanly-and-the-iphone-thread-list-matches-the-desktop/reports/after-iphone-light.png

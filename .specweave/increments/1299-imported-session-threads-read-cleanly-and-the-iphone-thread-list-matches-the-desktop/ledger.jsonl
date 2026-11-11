@@ -1,0 +1,3 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-11T15:05:38.415Z","note":"session b8b4a179-5868-47ec-9925-dec831137216","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-11T15:05:38.417Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-11T15:05:39.308Z","evidence":"test -s .specweave/increments/1299-imported-session-threads-read-cleanly-and-the-iphone-thread-list-matches-the-desktop/reports/repro.md → exit 0\nlog: .specweave/increments/1299-imported-session-threads-read-cleanly-and-the-iphone-thread-list-matches-the-desktop/reports/task-T-01.txt\nHEAD 76fbabe0f","model":"claude-fable-5-2[1m]"}
