@@ -28,8 +28,8 @@ Out: restarting native tasks inside the provider process (not possible: they die
 
 - [ ] AC-01: After a service restart, a thread whose turn had settled while a background shell, subagent or Workflow was still running gets one automatic turn that lists the lost work and tells the agent to check what landed and resume. Nobody sends a message.
 - [ ] AC-02: The same happens while the service keeps running: a roster whose provider process is gone (process exit between turns, idle release) is cleared after two sweeps in a row agree, the lost tasks are recorded, and the thread gets the same automatic turn.
-- [ ] AC-03: No automatic turn starts when a person stopped the run, when a later run or queued message exists, when the thread is archived, deleted, settled by a person, on another machine or a provider-native subagent, when its project is paused, archived, fenced or has "Continue threads after restart" off, when the run ended more than 24 hours ago, or while an update holds the service.
-- [ ] AC-04: A thread is woken once per source run. Lost shells and monitors alone wake it once per person-started turn; lost subagents or Workflows wake it at most 3 times in a row without a person's message.
+- [ ] AC-03: No automatic turn starts when a person stopped the run, when a later run or queued message exists, when the thread is archived, deleted, settled by a person, on another machine or a provider-native subagent, when it is a delegated task that is over or whose parent a person stopped, when an agent stopped the run, when its project is paused, archived, fenced or has "Continue threads after restart" off, when the run ended more than 24 hours ago, or while an update holds the service.
+- [ ] AC-04: A thread is woken once per source run. Lost shells and monitors alone wake it once per person-started turn; lost subagents or Workflows wake it at most 3 times in a row without a person's message. At most 3 threads are woken per sweep, and a wake the provider failed before taking is sent once more after 3 minutes.
 - [ ] AC-05: A limit stop with no fallback target resumes at the reset time by default (`autoResumeLimitedThreads` defaults to true); turning it off in Settings keeps such threads waiting.
 - [ ] AC-06: The automatic turn reads "Resumed after restart" in the timeline, and for Claude Code names the native routes: SendMessage to the agent id, Workflow `resumeFromRunId`, the shell's output file.
 
@@ -67,15 +67,23 @@ Risks: a thread that left a dev server running is woken once after a restart (bo
 - D-03: `autoResumeLimitedThreads` defaults to true. A value saved as off stays off; an install that never touched the switch now resumes at the reset. The per-project `autoResume` still turns it on for one project.
 - D-04: Gate on the existing `continueThreadsAfterServerUpdate` switch instead of a new setting.
 - D-05: Limits on wakes: 24 hours, once per source run, shells and monitors once, subagents and Workflows 3 in a row.
+- D-07: After the round 1 review (NO-SHIP on `f1f218d20b`): shell-only losses still wake once, because the owner's goal names background commands; wakes are capped at 3 per sweep; a wake that failed before any provider turn is retried once, never for a usage limit, permission or validation failure; a delegated thread is woken only while its parent has an active task for it and was not stopped; the roster is re-read right before it is cleared.
 - D-06: Work out of tree (the shared checkout is held by feat/1284-calm-model-picker): edits and tests in a scratch export of `origin/main`, commit through a temporary index.
 
 ### Open
 - none
 
+### Follow-ups from the round 2 review (SHIP on `afefa0fed0`, none blocking)
+- A delegated child whose process dies while the service keeps running: clearing its roster lets the parent task finalize with the child's old "waiting" message, and the wake is then skipped. Fix: do not clear a delegated child's roster before the lost-work note reaches the parent.
+- The wake does not check a pending `effect:restart-continuation:<run>`; in the first sweep both can dispatch and the agent gets two turns. Fix: re-read message ids right before dispatch and skip while that effect is pending.
+- A run still preparing with no provider thread id does not block roster clearing.
+- A source run that was a native maintenance command (`/compact`) can be woken; reuse `isNativeMaintenanceCommand`.
+- The turn reads "Resumed after restart" when no restart happened.
+
 ## Tasks
 
 ### T-01 Wake rule and sweeper
-- AC: AC-01, AC-03, AC-04, AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/LostBackgroundWorkWake.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/LostBackgroundWorkWake.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProjectionStore.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProjectionRecovery.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/runtimeLayer.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/testkit/OrchestratorReplayRestartBackgroundNote.integration.test.ts | Test: cd ~/.specwithcode/m4/scratch/2026-11-11-1302-cutoff/tree && node node_modules/vite-plus/bin/vp test run apps/server/src/orchestration-v2/LostBackgroundWorkWake.test.ts apps/server/src/orchestration-v2/ProjectionRecovery.test.ts apps/server/src/orchestration-v2/testkit/OrchestratorReplayRestartBackgroundNote.integration.test.ts
+- AC: AC-01, AC-03, AC-04, AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/LostBackgroundWorkWake.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/LostBackgroundWorkWake.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProjectionStore.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProjectionRecovery.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/runtimeLayer.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/testkit/OrchestratorReplayRestartBackgroundNote.integration.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/SettingsPanels.restore.test.tsx | Test: cd ~/.specwithcode/m4/scratch/2026-11-11-1302-cutoff/tree && node node_modules/vite-plus/bin/vp test run apps/server/src/orchestration-v2/LostBackgroundWorkWake.test.ts apps/server/src/orchestration-v2/ProjectionRecovery.test.ts apps/server/src/orchestration-v2/testkit/OrchestratorReplayRestartBackgroundNote.integration.test.ts
 
 ### T-02 Clear rosters whose process is gone
 - AC: AC-02 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/LostBackgroundWorkWake.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/LostBackgroundWorkWake.test.ts | Test: cd ~/.specwithcode/m4/scratch/2026-11-11-1302-cutoff/tree && node node_modules/vite-plus/bin/vp test run apps/server/src/orchestration-v2/LostBackgroundWorkWake.test.ts

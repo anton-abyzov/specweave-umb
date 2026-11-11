@@ -1,12 +1,15 @@
 {
   "id": "1302-work-cut-off-mid-turn-continues-on-its-own-background-tasks-subagents-workflows-crashes-and-limits",
   "uuid": "6d0ef99f-25f4-4f08-8905-99c3da49f79c",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-11T21:19:54.493Z",
-  "updated": "2026-11-11T21:19:54.493Z",
-  "lastActivity": "2026-11-11T21:19:54.493Z",
+  "updated": "2026-11-11T23:15:56.892Z",
+  "lastActivity": "2026-11-11T23:15:56.892Z",
   "title": "Work cut off mid-turn continues on its own: background tasks, subagents, Workflows, crashes and limits",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-11T23:15:56.890Z",
+  "approvedAt": "2026-11-11T23:15:56.892Z"
 }
