@@ -1,0 +1,12 @@
+{
+  "id": "1298-help-assistant-ask-how-specwithcode-works-answers-from-the-docs-with-take-me-there-links",
+  "uuid": "86f5bfeb-3f40-4ba9-9053-816857771be7",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-11T14:58:07.667Z",
+  "updated": "2026-11-11T14:58:07.667Z",
+  "lastActivity": "2026-11-11T14:58:07.667Z",
+  "title": "Help assistant: ask how SpecWithCode works, answers from the docs with Take me there links",
+  "project": "specweave-umb"
+}
