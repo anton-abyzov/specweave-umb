@@ -1,13 +1,15 @@
 {
   "id": "1272-new-project-folder-picker-breadcrumbs-icons-places-and-motion",
   "uuid": "f0cf4211-2819-4ebe-a784-7f909461436b",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-10T19:54:25.531Z",
-  "updated": "2026-11-10T19:54:25.531Z",
-  "lastActivity": "2026-11-10T19:54:25.531Z",
+  "updated": "2026-11-11T00:28:05.644Z",
+  "lastActivity": "2026-11-11T00:28:05.644Z",
   "title": "New project folder picker: breadcrumbs, icons, places and motion",
   "project": "specweave",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-11T00:28:05.643Z",
+  "approvedAt": "2026-11-11T00:28:05.644Z"
 }
