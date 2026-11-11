@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-11T21:28:24.717Z",
-  "updated": "2026-11-11T21:59:12.140Z",
-  "lastActivity": "2026-11-11T21:59:12.140Z",
+  "updated": "2026-11-11T22:55:47.725Z",
+  "lastActivity": "2026-11-11T22:55:47.725Z",
   "title": "Thread plan follows its increment outside the project folder and on other machines",
   "project": "specweave-umb"
 }

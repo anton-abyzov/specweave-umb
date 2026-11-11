@@ -58,6 +58,19 @@ Risk: a thread that edits one increment's spec in passing binds to it until a cl
 - D-04 Only completed file changes are evidence; failed, cancelled and interrupted edits prove nothing. A rolled-back run's completed edits still count, because the question is whether the thread itself wrote there (round 1 review).
 - D-05 Paths are compared as text after resolving `.` and `..`; relative paths, links and other spellings answer no. A relative spec path is taken from the thread's checkout.
 - D-06 The Threads pane issues its own query per other machine, like both sidebars; no shared atom.
+
+## Follow-ups
+
+Low findings the round 3 SHIP review left open; none blocks. Details in `reports/ship.md`.
+
+- `writtenSpecIncrements` resolves `..` in a written spec path as text; refuse such paths as `isInsideAny` does.
+- Subagents are looked up one level deep; a subagent of a subagent does not count for the root thread.
+- `subagentsOf` returns an empty map on a failed lookup instead of the last known one.
+- `docs/studio/plan-progress.md` does not mention the first project-wide subagent listing after a server start.
+
+## Closure
+
+Merged as `6aa0ac06` (PR #163). `specweave verify 1303` runs the product gate in `repositories/anton-abyzov/specwithcode-dev`, which must be checked out at main `6aa0ac06` or later and free of another thread's run. On November 11, 2026 that checkout sat at `0e2f3a9034`, before the merge, with another increment's verify running, so T-06 waits for a checkout slot from the coordinator.
 ### Open
 - none
 
@@ -79,4 +92,4 @@ Risk: a thread that edits one increment's spec in passing binds to it until a cl
 - AC: AC-01, AC-06 | Files: .specweave/increments/1303-thread-plan-follows-its-increment-outside-the-project-folder-and-on-other-machines/reports/ship.md | Test: test -s .specweave/increments/1303-thread-plan-follows-its-increment-outside-the-project-folder-and-on-other-machines/reports/ship.md
 
 ### T-06 Verify and close 1303
-- AC: AC-08 | Files: .specweave/increments/1303-thread-plan-follows-its-increment-outside-the-project-folder-and-on-other-machines/spec.md | Test: specweave status 1303
+- AC: AC-08 | Files: .specweave/increments/1303-thread-plan-follows-its-increment-outside-the-project-folder-and-on-other-machines/spec.md | Test: specweave task list 1303
