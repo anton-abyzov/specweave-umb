@@ -1,0 +1,15 @@
+{
+  "id": "1314-linux-desktop-apps-install-updates-like-mac-ones",
+  "uuid": "d6029dfe-2c92-4e55-aab0-44c23b65f37c",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-12T22:48:31.649Z",
+  "updated": "2026-11-12T23:20:52.365Z",
+  "lastActivity": "2026-11-12T23:20:52.365Z",
+  "title": "Linux desktop apps install updates like Mac ones",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-12T23:20:52.361Z",
+  "approvedAt": "2026-11-12T23:20:52.365Z"
+}
