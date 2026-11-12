@@ -210,9 +210,11 @@ check_fleet_endpoint() {
 # installed CLI (`fleet update <machine> --status --connect-only --json`), not over an SSH
 # tunnel. Pass when the route is attested as connect and the machine reports the released
 # version installed (and served, when it says); pending while that version is downloaded or
-# requested and the updater is still busy; fail otherwise, naming why.
+# requested and the updater is still busy; fail otherwise, naming why. A machine whose own
+# "Pause running work for updates" is off is left for later while it is busy: that is pending
+# with the reason, never a failure, also when its boot service gave up waiting as busy.
 check_fleet_connect() {
-  local machine cli out rc=0 last reply transport installed served status phase down asked err reason
+  local machine cli out rc=0 last reply transport installed served status phase down asked err reason later=""
   machine="$(jq -r '.machine // empty' <<<"$CHECK")"
   if ! [[ $machine =~ ^[a-z0-9][a-z0-9_-]{0,63}$ ]]; then
     C_STATUS=fail; C_DETAIL="machine must be a fleet name such as m3, not '$machine'"; return
@@ -259,10 +261,16 @@ check_fleet_connect() {
   if [ "$installed" = "$VERSION" ] && { [ -z "$served" ] || [ "$served" = "$VERSION" ]; }; then
     C_STATUS=pass; C_DETAIL="transport connect, installedVersion $installed, ${status:-status unknown}"; return
   fi
+  [ "$(jq -r '.pauseWorkForUpdates | tostring' <<<"$reply")" != false ] ||
+    later="left for later: \"Pause running work for updates\" is off on $machine"
   # Pending only while the updater is busy with this version; idle, failed or no phase is a result.
   if { [ "$down" = "$VERSION" ] || [ "$asked" = "$VERSION" ] || [ "$installed" = "$VERSION" ]; } &&
     [ -n "$phase" ] && ! [[ $phase =~ ^(idle|failed|error|cancelled)$ ]]; then
-    C_STATUS=pending; C_DETAIL="transport connect, installedVersion ${installed:-none}, served ${served:-unknown}; updater $phase with $VERSION"; return
+    C_STATUS=pending; C_DETAIL="transport connect, installedVersion ${installed:-none}, served ${served:-unknown}; updater $phase with $VERSION${later:+; $later}"; return
+  fi
+  # Its owner's setting kept it on its version while it was busy: it installs once it is quiet.
+  if [ -n "$later" ] && [ "$phase" = failed ] && [ "$(jq -r '.lastErrorReason // empty | tostring' <<<"$reply")" = busy ]; then
+    C_STATUS=pending; C_DETAIL="transport connect, installedVersion ${installed:-none}, served ${served:-unknown}; $later"; return
   fi
   C_STATUS=fail
   C_DETAIL="transport connect, installedVersion ${installed:-none}, served ${served:-unknown}, want $VERSION (${status:-status unknown}, ${phase:-phase unknown})"

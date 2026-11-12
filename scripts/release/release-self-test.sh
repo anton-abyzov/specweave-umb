@@ -716,6 +716,16 @@ r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersi
 check "connect: a failed update of the release fails, not pending" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
 r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","downloadedVersion":"1.2.3"}')"
 check "connect: a downloaded release with no updater phase fails, not pending" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","installRequest":{"version":"1.2.3"},"phase":"requested","pauseWorkForUpdates":false}')"
+check "connect: a busy worker whose owner turned pausing off is pending and says it is left for later" \
+  '2|pending|transport connect, installedVersion 1.2.2, served 1.2.2; updater requested with 1.2.3; left for later: "Pause running work for updates" is off on m3' "$(connect_row "$r")"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","phase":"failed","lastErrorReason":"busy","pauseWorkForUpdates":false}')"
+check "connect: a boot service that gave up as busy with pausing off is left for later, not failed" \
+  '2|pending|transport connect, installedVersion 1.2.2, served 1.2.2; left for later: "Pause running work for updates" is off on m3' "$(connect_row "$r")"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","phase":"failed","lastErrorReason":"busy","pauseWorkForUpdates":true}')"
+check "connect: the same give-up with pausing on is a failure" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
+r="$(run_connect '{"transport":"connect","installedVersion":"1.2.2","serverVersion":"1.2.2","phase":"failed","lastErrorReason":"failed","pauseWorkForUpdates":false}')"
+check "connect: a real failure with pausing off still fails" "1|fail" "$(connect_row "$r" | cut -d'|' -f1-2)"
 cat >"$T/bin/studio-connect-slow" <<'SH'
 #!/bin/bash
 sleep 30
