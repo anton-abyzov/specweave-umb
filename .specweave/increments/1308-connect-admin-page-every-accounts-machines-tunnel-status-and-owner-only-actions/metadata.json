@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-12T06:13:22.402Z",
-  "updated": "2026-11-12T07:07:02.963Z",
-  "lastActivity": "2026-11-12T07:07:02.963Z",
+  "updated": "2026-11-12T08:11:20.571Z",
+  "lastActivity": "2026-11-12T08:11:20.571Z",
   "title": "Connect admin page: every account's machines, tunnel status and owner-only actions",
   "project": "specweave-umb"
 }
