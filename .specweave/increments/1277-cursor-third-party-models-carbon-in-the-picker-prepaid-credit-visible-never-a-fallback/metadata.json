@@ -5,8 +5,9 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-10T22:07:40.509Z",
-  "updated": "2026-11-10T22:10:39.505Z",
-  "lastActivity": "2026-11-10T22:10:39.505Z",
+  "updated": "2026-11-11T06:10:22.640Z",
+  "lastActivity": "2026-11-11T06:10:22.640Z",
   "title": "Cursor third-party models: Carbon in the picker, prepaid credit visible, never a fallback",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {}
 }

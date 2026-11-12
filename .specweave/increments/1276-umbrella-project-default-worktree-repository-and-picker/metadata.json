@@ -5,8 +5,9 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-10T21:35:44.303Z",
-  "updated": "2026-11-10T21:35:44.303Z",
-  "lastActivity": "2026-11-10T21:35:44.303Z",
+  "updated": "2026-11-12T07:24:54.089Z",
+  "lastActivity": "2026-11-12T07:24:54.089Z",
   "title": "Umbrella project: default worktree repository and picker",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {}
 }

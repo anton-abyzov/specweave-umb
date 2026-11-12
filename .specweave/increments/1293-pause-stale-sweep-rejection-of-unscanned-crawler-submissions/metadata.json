@@ -1,0 +1,13 @@
+{
+  "id": "1293-pause-stale-sweep-rejection-of-unscanned-crawler-submissions",
+  "uuid": "abb7c07d-b090-48ef-99b3-8d19fe580f13",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-11T07:08:18.892Z",
+  "updated": "2026-11-11T07:14:35.318Z",
+  "lastActivity": "2026-11-11T07:14:35.318Z",
+  "title": "Pause stale-sweep rejection of unscanned crawler submissions",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

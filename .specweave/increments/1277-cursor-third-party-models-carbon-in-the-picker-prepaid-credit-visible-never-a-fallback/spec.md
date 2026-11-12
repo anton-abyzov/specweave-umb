@@ -16,8 +16,8 @@ In:
 - A live check, on Anton's signed-in Cursor account, that Carbon and its effort options reach the picker and a turn on it runs and bills prepaid credit.
 - Per-model billing for Cursor: third-party models on a current plan report `api` billing.
 - No automatic path (tier fallback, limit failback, same-model-elsewhere, task routing, machine fallback) ever picks a prepaid-credit Cursor model. A Gemini-family model billed per token is never automatic even when named in a fallback order.
+- Gemini 4 Carbon in the Gemini CLI hidden-model list now (Vertex has it GA; the CLI's own catalog does not).
 - Prepaid credit balance and this month's spend next to the weekly pool in the picker usage band, the host limits popover and the Usage limits page.
-- `gemini-4-carbon` in the Gemini CLI hidden-model list once Google ships CLI support.
 
 Out:
 - Buying a Cursor plan or credit. Anton decides that.
@@ -31,7 +31,7 @@ Out:
 - [ ] AC-02: On a current (merged, non-enterprise) Cursor plan, every listed model that is not Cursor's own (Composer, `auto`/`default`) or Grok reports billing `api`; Cursor's own models and Grok report `subscription`. On a legacy plan (not merged), all models report `subscription`. When plan info is missing, third-party models report `api`.
 - [ ] AC-03: `resolveProviderFallbackPass`, `resolveSameModelElsewhere`, `resolveCoordinatorTurnSelection`, the tier chain, `resolveTaskRouting` and `machineFallback` never pick a Cursor model billed `api`, with or without room in the weekly pool. A Gemini-family model (slug or display name matching `gemini`) billed `api` or `paid-router` stays `never-automatic` even when the person named it in the fallback order. Choosing Carbon by hand in the picker still works.
 - [ ] AC-04: With a Cursor sign-in on a current plan, the picker usage band, the host limits popover and the Usage limits page show the prepaid credit balance and this month's spend in dollars next to the weekly pool, plus the monthly spend limit when one is set. When Cursor returns no credit data the row is hidden, never shown as $0.
-- [ ] AC-05: Once Gemini CLI lists or accepts `gemini-4-carbon`, the Gemini CLI picker offers Gemini 4 Carbon after a catalog probe, without duplicates, and it stays out of automatic fallback.
+- [ ] AC-05: The Gemini CLI picker offers Gemini 4 Carbon (`gemini-4-carbon`) after a catalog probe, next to Gemini 4 Argon, without duplicates when the CLI or `customModels` already lists it, and it stays `never-automatic` (Vertex per-token). Verified November 11, 2026: no Gemini CLI release up to 0.69.0-preview.0 lists Carbon (`VALID_GEMINI_MODELS` at v0.68.0 has no Gemini 4 model), while Vertex model garden reports `publishers/google/models/gemini-4-carbon` as GA, so it is reachable the same way as Argon.
 
 ## Approach
 
@@ -68,8 +68,8 @@ Risks: Cursor may bill SDK runs differently from the editor, and the credit endp
 ### T-03 Prepaid credit and monthly spend in the usage chip
 - AC: AC-04 | Files: packages/contracts/src/providerUsageLimits.ts, packages/contracts/src/providerUsageLimits.test.ts, apps/server/src/provider/cursorUsageLimits.ts, apps/server/src/provider/cursorUsageLimits.test.ts, apps/server/src/provider/providerUsageLimits.ts, apps/server/src/provider/providerUsageLimits.test.ts, packages/shared/src/usageLimits.ts, apps/web/src/components/chat/ModelUsage.tsx, apps/web/src/components/chat/ModelUsage.test.tsx, apps/web/src/components/studio/shell/HostLimits.tsx, apps/web/src/studio/hostLimitsModel.ts, apps/web/src/studio/hostLimitsModel.test.ts, apps/web/src/components/usage/UsageLimitsPooled.tsx, apps/web/src/components/usage/UsageLimitsPooled.identity.test.tsx | Test: cd repositories/anton-abyzov/specwithcode-dev && pnpm vitest run packages/contracts/src/providerUsageLimits.test.ts apps/server/src/provider/cursorUsageLimits.test.ts apps/server/src/provider/providerUsageLimits.test.ts apps/web/src/components/chat/ModelUsage.test.tsx apps/web/src/studio/hostLimitsModel.test.ts apps/web/src/components/usage/UsageLimitsPooled.identity.test.tsx, plus a headless screenshot of the picker band with a fixture snapshot
 
-### T-04 Gemini 4 Carbon in the Gemini CLI hidden-model list (waiting on Google)
-- AC: AC-05 | Files: apps/server/src/provider/Drivers/AcpRegistryDriver.ts, apps/server/src/provider/Drivers/AcpRegistryDriver.test.ts | Test: cd repositories/anton-abyzov/specwithcode-dev && pnpm vitest run apps/server/src/provider/Drivers/AcpRegistryDriver.test.ts. Blocked until Gemini CLI supports Carbon (google-gemini/gemini-cli#30125); skip if Gemini CLI lists it natively by then.
+### T-04 Gemini 4 Carbon in the Gemini CLI hidden-model list
+- AC: AC-05 | Files: apps/server/src/provider/Drivers/AcpRegistryDriver.ts, apps/server/src/provider/Drivers/AcpRegistryDriver.test.ts | Test: cd repositories/anton-abyzov/specwithcode-dev && pnpm vitest run apps/server/src/provider/Drivers/AcpRegistryDriver.test.ts. Change: add `{ id: "gemini-4-carbon", name: "Gemini 4 Carbon" }` to `UNLISTED_AGENT_MODELS.gemini` (`AcpRegistryDriver.ts:126-130`), extend the Argon test at `AcpRegistryDriver.test.ts:340-397`, and update the JSDoc (lines 119-125). No paid live turn without Anton's OK. Drop the entry once a Gemini CLI release lists Carbon (google-gemini/gemini-cli#30125).
 
 ### T-05 Live check on Anton's Cursor account (waiting on Anton)
 - AC: AC-01 | Files: none | Test: on a dev server from the branch, with Anton signed in to Cursor on a current plan with prepaid credit: read the Cursor provider catalog headless and confirm Carbon and its effort values; run one short Carbon turn at high effort; confirm the charge on Cursor's usage page; record the dashboard method and response shape that return prepaid balance and monthly spend for T-03. Waits on Anton buying a plan and signing in; nothing is bought by an agent.
