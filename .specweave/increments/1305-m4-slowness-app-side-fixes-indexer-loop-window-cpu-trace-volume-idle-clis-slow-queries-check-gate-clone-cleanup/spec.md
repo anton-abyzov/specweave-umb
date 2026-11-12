@@ -1,0 +1,92 @@
+# M4 slowness: app-side fixes (indexer loop, window CPU, trace volume, idle CLIs, slow queries, check gate, clone cleanup)
+
+## Problem
+
+Anton's M4 (16 cores) is slow. The November 11, 2026 investigation (thread "Why the M4 is slow", evidence in `~/.specwithcode/m4/scratch/2026-11-11-m4-slow/`) found these app-side causes. Fresh baseline readings taken November 11, 2026 9:29 PM EST are in `~/.specwithcode/m4/scratch/2026-11-12-m4-slow-fixes/before/`.
+
+1. **Search indexer loop.** The server (PID 55207) uses 111-300% of a core while idle (median about 150%). A native `fff-watcher-own` thread is busy in every sample, re-running libgit2 `git_status` and re-parsing the 1.09 MB umbrella `.git/index`. The scan thread also read every file of an untracked 291,461-file clone in `scratch/`. fff 0.9.4 has no ignore option and its watcher has no debounce.
+2. **Window CPU.** The renderer (PID 73700) uses 104-111% of a core with its main thread busy in 1969 of 1973 samples, while no one is typing.
+3. **Trace volume.** `server.trace.ndjson` rotates a 10 MB file every 40-65 seconds: 12-16 MB a minute, about 60 spans a second, dominated by `sql.execute`, `ProviderFallbackWorker.refreshStaleTargets`, `apiCreditReturnPlan`, `ThreadSettlementServiceV2.settleThread` and `WorktreeOwnership.canonicalPath`.
+4. **Idle provider CLIs.** 7-11 Claude CLI children of the server sit idle (0-4% CPU, up to 2 h 12 min old) and hold 3.7-5.2 GB, while one run is active.
+5. **Two slow queries.** `stdout.log` holds 17,665 "slow SQLite statement" warnings. Two statements cause 95% of them: the subagent `projection_nodes JOIN projection_runs` lookup in `ServiceUpdatePreparation.ts` (11,176 warnings, 3,112 s) and the thread payload plus run `modelSelection` subquery at `ProjectionStore.ts:5863` (5,612 warnings, 5,231 s). p50 282 ms, max 1958 ms, on the event loop.
+6. **Overlapping check runs.** Load reached 54 on 16 cores when four threads ran full lint, test and typecheck suites at once, each in its own copy of the app (27 copies in 7 days, 13 with their own `node_modules`).
+7. **Review clones.** Clones made for PR review stay after the PR merges: 16 were removed by hand (9.7 GiB, 1.2 million files), and one of them sat inside the project root where the indexer scanned it.
+
+## Scope
+
+In: server search index, trace sink and background loop cadence, provider session reaping, the two queries, renderer idle work, a machine-wide heavy-check gate with one reusable verification copy, automatic removal of merged review and scratch clones. Measurements on this M4 before and after.
+
+Out: Finder, simulators, Chrome, disk offload, stale routines (owner's decisions in the investigation report). Turning worktrees back on (1276). The update readiness time.
+
+## Acceptance Criteria
+
+- [ ] AC-01: With the umbrella project open and no search in flight, the server process averages at most 25% of a core over 60 s on the M4 (before: about 150%), and a 5 s `sample` shows no fff thread in `git_status` or file reads in more than 5% of samples (before: 100%).
+- [ ] AC-02: The search index never walks `scratch/`, `.artifacts/`, `node_modules/` or a nested clone (a subfolder holding its own `.git` that is not a registered project repository), and a burst of 200 file changes in 1 s causes at most one rescan.
+- [ ] AC-03: The desktop window's renderer averages at most 20% of a core over 60 s while idle on a settled thread with other threads running (before: 104-111%).
+- [ ] AC-04: Idle trace volume is at most 2 MB a minute on the M4 (before: 12-16 MB). Spans that end in error, spans slower than the slow threshold, and the update, restart, release and provider-session lifecycle spans are still written in full.
+- [ ] AC-05: A provider session with no active run, no pending request and no queued turn is closed 15 minutes after its last activity (setting, per machine), and the thread resumes its native session on the next message. On the M4, no idle Claude CLI child of the server is older than 20 minutes (before: 7-11 children, 3.7-5.2 GB).
+- [ ] AC-06: The two statements each run under 50 ms at p95 on a database with at least 3,500 threads and 15,000 runs (before: p50 282 ms), and the M4 logs zero slow-statement warnings for them over 30 minutes (before: about 240 in 30 minutes).
+- [ ] AC-07: `specweave-studio checks run -- <command>` holds a machine-wide lock: a second caller waits and starts only after the first exits, a dead holder's lock is taken over, and waiting prints who holds it. With three full suites requested at once, at most one runs at a time and the 1-minute load average stays under 20 (before: 54).
+- [ ] AC-08: `specweave-studio checks copy <repository> <ref>` returns one reusable verification copy per repository and machine, moved to the requested ref, and reinstalls dependencies only when the lockfile changed. Thread instructions tell agents to run full lint, test and typecheck suites through the gate in that copy.
+- [ ] AC-09: Review and scratch clones whose pull request is merged are removed automatically, only when the clone is clean, has no unpushed commit or stash, is not bound to a non-archived thread or project, and no process has files open in it. Anything else is kept and listed with the reason.
+
+## Approach
+
+Work happens out of tree in one clone, `~/.specwithcode/m4/scratch/2026-11-12-m4-slow-fixes/repo` (branch `perf/1305-m4-slowness`, one `node_modules`), because the shared checkout is held by picker-redesign. Task `Files` name the product paths from the umbrella root; edits land in the clone at the same relative path. Lanes have disjoint files and share that clone and branch; each lane commits only its own files. One pull request.
+
+- **Indexer (T-01).** Create the finder with `disableWatch: true`, so fff's own watcher and its per-event `git_status` are gone. The service drives refreshes: one recursive `fs.watch` per indexed root, events under ignored folders dropped, trailing debounce 2 s with a 10 s floor between rescans, and the watch released with the index (idle TTL). Ignoring folders: check whether fff 0.11.0 (September 21, 2026) has an exclude option; otherwise extend the existing patch or refuse to hand fff those folders by indexing allowed top-level children. Nested clones are found by a bounded walk for `.git` entries below the root.
+- **Trace volume (T-02).** Head sampling by span name in the local trace sink: always keep error spans, slow spans, and an allowlist of lifecycle names; keep 1 in N of the high-frequency names (`sql.execute` and the four loops above), with a counter span every minute so totals stay visible. Lower the cadence of `ProviderFallbackWorker.refreshStaleTargets` and `settleThread` loops where they poll about 20 times a second.
+- **Idle sessions (T-03).** `ProviderSessionManager` tracks last activity per session and closes sessions that are idle past the timeout; resume uses the existing native resume path.
+- **Queries (T-04).** Add expression or covering indexes for the `json_extract` filters, or denormalized columns, in a migration; rewrite the correlated subquery to a join on the latest run.
+- **Renderer (T-05).** Profile with a headless fixture under simulated updates, find the hot component, and stop idle re-render or animation work.
+- **Gate and copy (T-06).** New CLI commands under `apps/server/src/cli`, lock file in `~/.specwithcode/locks/heavy-checks.lock` (PID, start time, command, thread), plus one line in the thread instructions.
+- **Clone cleanup (T-07).** A sweep in the server's storage maintenance, dry-run report first, reusing the binding check; never forces removal.
+
+Risks: `disableWatch` makes new files appear in search up to 10 s late. Sampling hides individual fast spans; the allowlist must cover what release tooling reads (`restartTrace`, `TraceDiagnostics`, `triagePrompt`). Closing an idle session costs a prompt-cache miss on resume, hence 15 minutes.
+
+After numbers for AC-01, 03, 04, 05 and 06 on the installed app need the release; T-08 records them after the M4 installs it. Before that they are measured on an isolated server with a private test home.
+
+## Decisions
+
+### Asked
+- none
+### Defaulted (change any before sw-do)
+- D-01 Idle session timeout → 15 minutes, per-machine setting, 0 turns it off (reversible).
+- D-02 Gate enforcement → an explicit wrapper command plus thread instructions; the app does not intercept `vp`, `pnpm` or `tsc` (reversible).
+- D-03 Clone cleanup → automatic removal only under all AC-09 conditions; everything else is report-only (removal is irreversible, so the conditions are strict).
+- D-04 One pull request for all lanes → one review and one CI run.
+- D-05 Trace sampling → 1 in 50 for the listed high-frequency names; errors, slow spans and lifecycle spans always kept.
+### Open
+- none
+
+## Tasks
+
+### T-01 Stop the search indexer loop
+- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/workspace/WorkspaceSearchIndex.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/workspace/WorkspaceSearchIndex.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/workspace/WorkspaceSearchFinder.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/workspace/WorkspaceSearchFinder.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/workspace/WorkspaceSearchRoots.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/workspace/WorkspaceSearchRoots.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/workspace/WorkspaceSearchRefresh.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/workspace/WorkspaceSearchRefresh.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/workspace/WorkspaceEntries.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/workspace/WorkspaceEntries.test.ts | Test: cd "$HOME/.specwithcode/m4/scratch/2026-11-12-m4-slow-fixes/repo/apps/server" && node ../../node_modules/vite-plus/bin/vp test run src/workspace
+
+### T-02 Cut trace volume and loop cadence
+- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/packages/shared/src/observability.ts, repositories/anton-abyzov/specwithcode-dev/packages/shared/src/observability.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/config.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProviderFallbackWorker.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProviderFallbackWorker.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ThreadSettlementService.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ThreadSettlementService.test.ts | Test: cd "$HOME/.specwithcode/m4/scratch/2026-11-12-m4-slow-fixes/repo" && node node_modules/vite-plus/bin/vp test run packages/shared/src/observability.test.ts apps/server/src/orchestration-v2/ProviderFallbackWorker.test.ts apps/server/src/orchestration-v2/ThreadSettlementService.test.ts apps/server/src/diagnostics/TraceDiagnostics.test.ts
+
+### T-03 Reap idle provider sessions
+- AC: AC-05 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProviderSessionManager.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProviderSessionManager.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProviderSessionIdleReaper.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProviderSessionIdleReaper.test.ts | Test: cd "$HOME/.specwithcode/m4/scratch/2026-11-12-m4-slow-fixes/repo/apps/server" && node ../../node_modules/vite-plus/bin/vp test run src/orchestration-v2/ProviderSessionManager.test.ts src/orchestration-v2/ProviderSessionIdleReaper.test.ts
+
+### T-04 Make the two slow queries fast
+- AC: AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProjectionStore.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/serviceUpdate/ServiceUpdatePreparation.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/serviceUpdate/ServiceUpdatePreparation.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/persistence/Migrations, repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/ProjectionStore.slowQueries.test.ts | Test: cd "$HOME/.specwithcode/m4/scratch/2026-11-12-m4-slow-fixes/repo/apps/server" && node ../../node_modules/vite-plus/bin/vp test run src/orchestration-v2/ProjectionStore.slowQueries.test.ts src/serviceUpdate/ServiceUpdatePreparation.test.ts
+
+### T-05 Stop idle renderer work
+- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/idle-cpu | Test: cd "$HOME/.specwithcode/m4/scratch/2026-11-12-m4-slow-fixes/repo" && node node_modules/vite-plus/bin/vp build --config apps/web/tests/idle-cpu/vite.config.ts && node apps/web/tests/idle-cpu/verify.mjs "$HOME/.specwithcode/m4/scratch/2026-11-12-m4-slow-fixes/after/idle-cpu"
+
+### T-06 Machine-wide heavy-check gate and one verification copy
+- AC: AC-07, AC-08 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/cli/checks.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/cli/checks.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/cli/heavyCheckLock.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/cli/heavyCheckLock.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/cli/verificationCopy.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/cli/verificationCopy.test.ts, repositories/anton-abyzov/specwithcode-dev/docs/operations/heavy-checks.md | Test: cd "$HOME/.specwithcode/m4/scratch/2026-11-12-m4-slow-fixes/repo/apps/server" && node ../../node_modules/vite-plus/bin/vp test run src/cli/checks.test.ts src/cli/heavyCheckLock.test.ts src/cli/verificationCopy.test.ts
+
+### T-07 Remove merged review and scratch clones
+- AC: AC-09 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/storage/MergedCloneSweep.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/storage/MergedCloneSweep.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/cli/clones.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/cli/clones.test.ts | Test: cd "$HOME/.specwithcode/m4/scratch/2026-11-12-m4-slow-fixes/repo/apps/server" && node ../../node_modules/vite-plus/bin/vp test run src/storage/MergedCloneSweep.test.ts src/cli/clones.test.ts
+
+### T-08 Measure before and after on the M4
+- AC: AC-01, AC-03, AC-04, AC-05, AC-06, AC-07 | Files: .specweave/increments/1305-m4-slowness-app-side-fixes-indexer-loop-window-cpu-trace-volume-idle-clis-slow-queries-check-gate-clone-cleanup/reports/measurements.md | Test: test -s .specweave/increments/1305-m4-slowness-app-side-fixes-indexer-loop-window-cpu-trace-volume-idle-clis-slow-queries-check-gate-clone-cleanup/reports/measurements.md
+
+### T-09 Ship: pull request, SHIP review on the exact head, required CI, merge, release request
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09 | Files: .specweave/increments/1305-m4-slowness-app-side-fixes-indexer-loop-window-cpu-trace-volume-idle-clis-slow-queries-check-gate-clone-cleanup/reports/ship.md | Test: test -s .specweave/increments/1305-m4-slowness-app-side-fixes-indexer-loop-window-cpu-trace-volume-idle-clis-slow-queries-check-gate-clone-cleanup/reports/ship.md
+
+### T-10 Verify and close 1305
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09 | Files: .specweave/increments/1305-m4-slowness-app-side-fixes-indexer-loop-window-cpu-trace-volume-idle-clis-slow-queries-check-gate-clone-cleanup/reports/close.md | Test: test -s .specweave/increments/1305-m4-slowness-app-side-fixes-indexer-loop-window-cpu-trace-volume-idle-clis-slow-queries-check-gate-clone-cleanup/reports/close.md

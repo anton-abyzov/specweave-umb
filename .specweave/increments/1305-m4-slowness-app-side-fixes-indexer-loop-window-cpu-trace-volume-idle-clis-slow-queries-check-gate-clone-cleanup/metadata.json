@@ -1,0 +1,12 @@
+{
+  "id": "1305-m4-slowness-app-side-fixes-indexer-loop-window-cpu-trace-volume-idle-clis-slow-queries-check-gate-clone-cleanup",
+  "uuid": "a6eba8b4-e976-4615-9ae1-ca0e5d47860f",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-12T02:28:18.214Z",
+  "updated": "2026-11-12T02:28:18.214Z",
+  "lastActivity": "2026-11-12T02:28:18.214Z",
+  "title": "M4 slowness: app-side fixes (indexer loop, window CPU, trace volume, idle CLIs, slow queries, check gate, clone cleanup)",
+  "project": "specweave-umb"
+}
