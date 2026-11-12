@@ -226,7 +226,10 @@
         { "name": "M3 service", "kind": "fleet_connect", "machine": "m3" },
         { "name": "M4 app", "kind": "desktop_app", "host": "local" },
         { "name": "M1 app", "kind": "desktop_app", "host": "m1" },
-        { "name": "M3 app", "kind": "desktop_app", "host": "m3" }
+        { "name": "M3 app", "kind": "desktop_app", "host": "m3" },
+        { "name": "latest download link", "kind": "download_latest", "url": "https://github.com/anton-abyzov/specwithcode/releases/latest/download/SpecWithCode-arm64.dmg", "repo": "anton-abyzov/specwithcode", "asset": "SpecWithCode-arm64.dmg" },
+        { "name": "website Mac button", "kind": "site_latest_link", "urls": ["https://spec-weave.com/", "https://spec-weave.com/code/", "https://spec-weave.com/code/download/"], "repo": "anton-abyzov/specwithcode", "asset": "SpecWithCode-arm64.dmg" },
+        { "name": "website pages rebuilt", "kind": "site_release", "blocking": false, "urls": ["https://spec-weave.com/code/", "https://spec-weave.com/code/download/"], "repo": "anton-abyzov/specwithcode", "grace_minutes": 30, "desktop_grace_minutes": 90 }
       ]
     }
   }
