@@ -1,0 +1,15 @@
+{
+  "id": "1315-fix-auth-storage-races-and-service-token-exposure",
+  "uuid": "090cf38d-225c-427b-ac94-12b360a48dfc",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-12T23:21:27.163Z",
+  "updated": "2026-11-12T23:33:07.828Z",
+  "lastActivity": "2026-11-12T23:33:07.828Z",
+  "title": "Fix auth storage races and service token exposure",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-12T23:33:07.822Z",
+  "approvedAt": "2026-11-12T23:33:07.828Z"
+}
