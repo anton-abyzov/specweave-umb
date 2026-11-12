@@ -14,6 +14,24 @@ In: a "Find agents" (Rescan) button in Settings > Providers that probes Grok, Op
 - [ ] AC-02: Startup discovery also covers Pi (installed, 0.80.5 or newer, `--list-models` lists a model) and Cursor (`CURSOR_API_KEY` set); a Pi off that older files stored only as a stripped default is never overridden (Pi auto-enables at startup only on a fresh settings file).
 - [ ] AC-03: Settings > Providers has a "Find agents" button; after a scan it lists each provider that is off with its state and a next step (Turn on, the login command, update Pi), and Turn on enables the provider through the normal settings write.
 
+## Already delivered (1297 T-24, PR 231)
+
+1297 T-24 shipped a Find agents block in Settings > Providers as anton-abyzov/specwithcode PR 231 (merged `01440fbdf1`, November 12, 2026). It covers most of this increment; build only the Pi pieces below.
+
+Delivered:
+- An on-demand search over Grok, OpenCode, Pi, Cursor and other agents, whatever their on/off state, with the startup probe's guarantees (CI=1, BROWSER=/usr/bin/false, hard timeouts, force-kill, Cursor by `CURSOR_API_KEY` presence only), one search at a time (`apps/server/src/provider/providerDiscovery.ts`, contract in `packages/contracts/src/server.ts` and `rpc.ts`).
+- Startup discovery runs the Pi probe (`pi --list-models` must list a model) and the Cursor key check.
+- The Find agents button and result rows with Turn on (`apps/web/src/components/settings/FoundAgents.tsx`, in `ProviderSettingsPanel.tsx`). States: ready, signed-out, installed, not-installed, unknown.
+- Pi auto-enabling only on a fresh settings file predates PR 231; confirm it still holds rather than rebuild it.
+
+Still to build (the rest of AC-01 to AC-03):
+- The Pi 0.80.5-or-newer version check in `probePi`, at startup and in Find agents.
+- An "outdated" state in `ProviderDiscoveryState`.
+- Each agent's version in `AgentDiscoveryResult` and on its Find agents row.
+- The next step on a row: "update Pi" for an outdated Pi, and the sign-in (login) command for a signed-out agent. Today a signed-out row only says "Installed, not signed in."
+
+Task Files below still name the old `specweave-studio` paths; the code now lives in `repositories/anton-abyzov/specwithcode-dev/` (FoundAgents.tsx replaces the planned new component).
+
 ## Approach
 
 - Contract: `packages/contracts/src/providerDiscovery.ts` (`server.rescanProviders`, own RPC group in rpc.ts).
