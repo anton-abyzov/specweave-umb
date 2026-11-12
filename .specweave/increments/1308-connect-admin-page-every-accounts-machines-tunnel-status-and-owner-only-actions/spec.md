@@ -12,7 +12,7 @@ Out: connecting to or reading from another person's machine (the admin routes ne
 
 ## Acceptance Criteria
 
-- [ ] AC-01: Every admin route requires a Clerk session token of the kind the app already sends (a session JWT with a session id; the headless CLI's OAuth token is refused) and a caller whose Clerk user id is in the relay variable `RELAY_ADMIN_USER_IDS`. With the variable unset or empty, or for any other caller, every admin route answers 404 with an empty body, the same answer as a path that does not exist. A request with no or an invalid token answers 401 like other client routes.
+- [ ] AC-01: Every admin route requires a Clerk session token of the kind the app already sends (an interactive session JWT; the headless CLI's OAuth token is refused) and a caller whose Clerk user id is in the relay variable `RELAY_ADMIN_USER_IDS`. With the variable unset or empty no token is looked at. Every other request (no token, an invalid token, another account, a session removed with a phone, any failure while checking) answers 404 with an empty body, the same answer as a path that does not exist.
 - [ ] AC-02: `GET /v1/admin/me` answers 200 for an allowlisted caller. The app asks it once per signed-in Connect session and shows "Connect admin" in Settings only on 200.
 - [ ] AC-03: `GET /v1/admin/overview` returns totals: accounts, linked machines, managed tunnels allocated and ready, phones, founder seats granted and the cap, the free machine limit and the global tunnel cap.
 - [ ] AC-04: `GET /v1/admin/accounts` lists accounts newest first, 50 per page with a cursor, each with the Clerk user id, email and name (read from Clerk for that page; missing identity shows the id only and never fails the page), founder number, machine limit and where it comes from (default, founder, override, unlimited), linked machine count, phone count, first seen and last seen. `query` filters by an exact Clerk user id or by email through Clerk.
@@ -50,6 +50,8 @@ Rejected: a standalone HTML page served by the relay (a second sign-in surface, 
 - D-04 First actions: change machine limit, unlink a machine, remove a phone. Not built: delete an account, block an account, connect to a person's machine.
 - D-05 Only interactive Clerk sessions may use admin routes; the CLI's OAuth token is refused.
 - D-06 Non-owners get 404, not 403.
+- D-08 The gate answers 404 for every request that is not an owner's, also one without a token (stricter than the first draft's 401), and keys on the token being a session JWT, not on a session id claim: the production JWT template carries only `aud`.
+- D-09 Read routes (T-01, T-02) → pull request 190 on `anton-abyzov/specwithcode`, branch `1308-connect-admin-read-routes`, head `c4985ae3a9e939e53c7e590cb83296f930d62927` on main `4fad9e20e5`. An account is any user id with a Connect account row, a machine link, a phone or a client key. Limits for a page come from five queries and are tested against `ManagedTunnelLimits.resolve`. Every admin request is logged as `connect_admin_request`. Checks: relay suite 580 tests, contracts and client relay 1067 tests, `tsc` relay, contracts, client-runtime and web clean. Review running.
 - D-07 Actions need an audit table, which is a D1 migration (one new empty table). It ships with T-04, not with the read-only routes.
 ### Open
 - Anton's Clerk user id for `RELAY_ADMIN_USER_IDS` (T-06). It is read from his signed-in app or the Clerk dashboard, never guessed.
