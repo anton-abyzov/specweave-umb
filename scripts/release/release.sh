@@ -150,8 +150,9 @@ except ValueError: pass' "${1:-}" 2>/dev/null
 
 # download_latest: the public version-free installer link (the README and the website's Mac
 # button) must redirect to this release. GitHub answers it with a 302 to the Latest release's
-# file, so a release that is published but not Latest, or lacks the file, fails here. A newer
-# release that became Latest in the meantime passes: the link serves the newest one.
+# file, so a release that is published but not Latest fails here. GitHub sends that 302 even
+# when the Latest release has no such file, so the file itself is asked for too (headers only).
+# A newer release that became Latest in the meantime passes: the link serves the newest one.
 check_download_latest() {
   local url slug asset hdr code loc got
   hdr="$(mktemp "$WORK/dl-hdr.XXXXXX")"
@@ -175,6 +176,12 @@ check_download_latest() {
   else
     C_STATUS=pass; C_DETAIL="serves v$got, a later release than v$VERSION"
   fi
+  [ "$C_STATUS" = pass ] || return 0
+  code="$(curl -s -I -m 20 -o /dev/null -w '%{http_code}' "$loc")" || code="000"
+  case "$code" in
+    200|302) ;;
+    *) C_STATUS=fail; C_DETAIL="the Latest release v$got has no $asset to download (HTTP $code)" ;;
+  esac
 }
 
 # fetch_site_pages: downloads every page in the check's `urls` (cache-busted) into

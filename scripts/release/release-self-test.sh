@@ -832,6 +832,8 @@ dl_row() { jq -r --arg n "$1" '.checks[] | select(.name == $n) | .status' "$T/dl
 dl_detail() { jq -r --arg n "$1" '.checks[] | select(.name == $n) | .detail' "$T/dl.json"; }
 
 serve "$DL_LATEST" 302 "" "https://github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg"
+serve "https://github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg" 302 "" "https://objects.example/App-arm64.dmg"
+serve "https://github.com/$DL_REPO/releases/download/v2.0.1/App-arm64.dmg" 302 "" "https://objects.example/App-arm64.dmg"
 serve "$DL_PAGE" 200 "$(page 2.0.0 2.0.0)"
 serve "$DL_HOME" 200 "$(page 2.0.0 2.0.0)"
 release_view 120 100
@@ -854,6 +856,11 @@ check "downloads: a latest link to another file fails" "1|fail" "$r|$(dl_row lat
 serve "$DL_LATEST" 404
 r="$(run_dl)"
 check "downloads: a latest link that answers 404 fails" "1|fail" "$r|$(dl_row latest)"
+serve "$DL_LATEST" 302 "" "https://github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg"
+serve "https://github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg" 404
+r="$(run_dl)"
+check "downloads: a Latest release without the installer fails" "1|fail|the Latest release v2.0.0 has no App-arm64.dmg to download (HTTP 404)" "$r|$(dl_row latest)|$(dl_detail latest)"
+serve "https://github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg" 302 "" "https://objects.example/App-arm64.dmg"
 serve "$DL_LATEST" 302 "" "https://github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg"
 
 serve "$DL_HOME" 200 "$(page 2.0.0 2.0.0 pinned)"
