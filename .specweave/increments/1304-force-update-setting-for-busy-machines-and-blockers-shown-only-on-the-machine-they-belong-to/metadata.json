@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-12T00:49:30.251Z",
-  "updated": "2026-11-12T00:49:30.251Z",
-  "lastActivity": "2026-11-12T00:49:30.251Z",
+  "updated": "2026-11-12T03:41:40.189Z",
+  "lastActivity": "2026-11-12T03:41:40.189Z",
   "title": "Force-update setting for busy machines, and blockers shown only on the machine they belong to",
   "project": "specweave-umb"
 }
