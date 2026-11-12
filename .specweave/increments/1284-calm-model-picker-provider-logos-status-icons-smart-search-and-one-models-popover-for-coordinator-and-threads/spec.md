@@ -58,6 +58,9 @@ Out:
 - [ ] AC-24: Limit and fallback messages (the composer usage banner, the approaching and recovery banners, the fallback card and the limit toast) lead with the provider logo and account header, say the state in one short line ("Limit reached · back in 2d"), and offer the usage-page link where AC-20 has one.
 - [ ] AC-25: The Usage page's Limits tab and Settings > Usage use the same account header and wording as the popover, so one account looks the same on every page.
 - [ ] AC-26: The headless fixture captures "Limits by account" scrolled to its end, the composer chip with two accounts of one provider, and each banner, in light and dark at 390px and desktop width, before (main) and after; an axe run reports no contrast or name violations.
+- [ ] AC-27: A machine chip that runs out of room drops its icon before its text and never shows the icon alone: it keeps a short label of at least two characters inside the machine's color tint, and the full name stays in the tooltip and the accessible name. This holds for every machine chip that can collapse: the composer's machine chip on a sent thread, the draft's "Run on" picker, and the shared `MachineChip` (send target, thread header, sidebar).
+- [ ] AC-28: The short label is the machine's name when it is short enough (M4, M1, M3, up to 3 characters). Otherwise it is a two-letter abbreviation that is unique across the fleet ("LM" for linux-mini; initials of the words, then first letters, then first letter plus a later letter until no other machine shares it). A short name the user sets on the machine card wins, is stored with the nickname, color and icon, and syncs the same way (a peer on an older build never erases it).
+- [ ] AC-29: The headless fixture captures the composer and draft machine chips at narrow widths (390px and the composer's narrowest step) in light and dark, showing the short label in the tint with no icon-only chip; an axe run reports no name or contrast violations.
 
 ## Approach
 
@@ -98,7 +101,11 @@ Risks: capability words depend on a hand-kept `sizeClass`; a new family without 
 - D-09: Usage links are a fixed map of the providers' own public pages, opened in the system browser; no account id is put in the URL → nothing private leaves the app.
 - D-08: No `machineIdentity` capability flag → the merge itself never drops a color or icon (same stamp, or a newer rename that states none), which covers an older peer without new plumbing.
 ### Open
-- none
+- The fallback rank mark in `AccountHeader.tsx` is a focusable span with `aria-label` but no role, so screen readers may read only the number (review r1 finding 3, not fixed in #219). Give it `role="img"`.
+- Fallback cards in Limits by account show a numbered badge but no provider logo.
+- Settings > Machines still shows "Account not reported" (AC-21).
+- The movable thread's "Runs on" dropdown chip has no narrow-width screenshot; its chevron may clip at the minimum width (PR #235 review round 4).
+- Short labels are unique only among machines a device knows, and follow each device's name for a machine without a nickname.
 
 ## Tasks
 
@@ -149,3 +156,12 @@ Risks: capability words depend on a hand-kept `sizeClass`; a new family without 
 
 ### T-16 Before and after screenshots, contrast check
 - AC: AC-26 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/tests/picker-calm/fixture.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/picker-calm/verify.mjs, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/picker-calm/verify-usage.mjs, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/picker-calm/mocks.tsx | Test: cd repositories/anton-abyzov/specwithcode-dev && node apps/web/tests/picker-calm/verify-usage.mjs (headless: true; light and dark, 390px and desktop; before with --before on main, after on the branch; axe clean)
+
+### T-17 Machine short label: derived abbreviation and user-set short name
+- AC: AC-28 | Files: repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/settings.ts, repositories/anton-abyzov/specwithcode-dev/packages/shared/src/machineNicknames.ts, repositories/anton-abyzov/specwithcode-dev/packages/shared/src/machineNicknames.test.ts, repositories/anton-abyzov/specwithcode-dev/packages/shared/src/machineShortLabel.ts, repositories/anton-abyzov/specwithcode-dev/packages/shared/src/machineShortLabel.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/studio/machineIdentity.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/studio/machineIdentity.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/RenameMachineDialog.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/studio/useRenameMachine.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/fleet/MachineNicknameSync.ts | Test: cd repositories/anton-abyzov/specwithcode-dev && pnpm vitest run packages/shared/src/machineShortLabel.test.ts packages/shared/src/machineNicknames.test.ts apps/web/src/studio/machineIdentity.test.ts
+
+### T-18 Collapsing machine chips keep the short label, drop the icon first
+- AC: AC-27 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/chat/ThreadMachineComposerChip.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/chat/threadMachine.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/chat/DraftMachinePicker.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/MachineChip.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/index.css | Test: cd repositories/anton-abyzov/specwithcode-dev && pnpm vitest run apps/web/src/components/chat/DraftMachinePicker.test.tsx apps/web/src/studio/machineIdentity.test.ts
+
+### T-19 Narrow machine chip screenshots
+- AC: AC-29 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/tests/picker-calm/fixture.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/picker-calm/mocks.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/picker-calm/verify-machine-chip.mjs | Test: cd repositories/anton-abyzov/specwithcode-dev && node apps/web/tests/picker-calm/verify-machine-chip.mjs (headless: true; light and dark, 390px and the narrowest composer step; axe clean)
