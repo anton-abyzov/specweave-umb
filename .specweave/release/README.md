@@ -22,7 +22,7 @@ Tracks and their scripts (each script supports `--dry-run`):
 | vskill-npm | anton-abyzov/vskill | `bash scripts/release/release-npm.sh [<v>]` |
 | vskill-desktop | anton-abyzov/vskill | `bash scripts/release/release-desktop.sh [<v>]`: tag `desktop-v<next>` on green main, no bump PR |
 | platform | anton-abyzov/vskill-platform (private) | `bash scripts/release.sh [--sha X] [--migrate\|--no-migrate]` |
-| studio | anton-abyzov/specwithcode-dev, mirror anton-abyzov/specwithcode | `bash scripts/release/release.sh <version> [--resume]` |
+| studio | anton-abyzov/specwithcode | `bash scripts/release/request-release.sh --by "<who asks>" [--wait]`: asks Release macOS for a release; the workflow picks the version, queues every request and ends green when main is already released. Never pass or compute a version; continue a failed one with `gh workflow run release-macos.yml -R anton-abyzov/specwithcode -f version=X.Y.Z -f resume=true` |
 
 ## Policy
 
