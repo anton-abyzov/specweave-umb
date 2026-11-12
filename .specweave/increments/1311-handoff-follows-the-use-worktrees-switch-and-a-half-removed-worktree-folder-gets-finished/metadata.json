@@ -1,13 +1,15 @@
 {
   "id": "1311-handoff-follows-the-use-worktrees-switch-and-a-half-removed-worktree-folder-gets-finished",
   "uuid": "6cb47cf8-9751-483e-bc2e-10d30c77b434",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-12T18:14:11.742Z",
-  "updated": "2026-11-12T18:49:23.187Z",
-  "lastActivity": "2026-11-12T18:49:23.187Z",
+  "updated": "2026-11-12T22:03:11.446Z",
+  "lastActivity": "2026-11-12T22:03:11.446Z",
   "title": "Handoff follows the Use worktrees switch, and a half-removed worktree folder gets finished",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-12T22:03:11.445Z",
+  "approvedAt": "2026-11-12T22:03:11.446Z"
 }
