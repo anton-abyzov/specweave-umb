@@ -1,13 +1,15 @@
 {
   "id": "1278-desktop-notifications-only-on-the-active-machine",
   "uuid": "73d078ce-550b-4462-af6b-01785ee86d35",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-10T22:09:21.827Z",
-  "updated": "2026-11-10T22:09:21.827Z",
-  "lastActivity": "2026-11-10T22:09:21.827Z",
+  "updated": "2026-11-12T19:48:09.121Z",
+  "lastActivity": "2026-11-12T19:48:09.121Z",
   "title": "Desktop notifications only on the active machine",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-12T19:48:09.120Z",
+  "approvedAt": "2026-11-12T19:48:09.121Z"
 }

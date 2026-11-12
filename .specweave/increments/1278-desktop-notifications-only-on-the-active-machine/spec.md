@@ -112,6 +112,8 @@ Risks:
 - D-04 Fallback for an old or unreachable server is the app on the thread's own machine, then everyone (reversible).
 - D-05 Handed-off (fenced) copies never alert (reversible).
 - D-06 No "always notify on this device" override in this increment (reversible).
+- D-08 From the ship review, November 12, 2026: a focused window also asks before its sound. An app left in front on a computer nobody is at is focused too, and it played the sound on every computer. A focused window with real input in the last 45 s plays at once without asking; one without asks like a window out of focus and stays silent when another app is named. Its toast always shows (reversible).
+- D-09 From the ship review: AC-05's "only the app on E alerts" holds only when the read says E's app is connected. An older server's leases carry no host, and a failed or timed-out read carries nothing, so in those cases every app alerts as before this increment. A duplicate is better than a lost alert (reversible).
 ### Open
 - none
 
@@ -137,3 +139,6 @@ Risks:
 
 ### T-07 Counts and badges follow the raise rule; rows stay in place
 - AC: AC-12, AC-13, AC-14, AC-16 | Files: apps/web/src/studio/useProjectAttention.ts, apps/web/src/components/studio/shell/StudioSidebar.tsx, apps/web/src/components/studio/StudioOverview.tsx, apps/web/src/studio/overviewModel.ts, apps/web/src/components/ThreadNotificationCoordinator.tsx, apps/web/tests/project-workspace/attention-fixture.tsx, scripts/studio-logical-projects/notify-active.mjs | Test: `npx vitest run apps/web/src/studio && node scripts/studio-logical-projects/notify-active.mjs`
+
+### T-08 A focused window asks before its sound
+- AC: AC-03, AC-04 | Files: apps/web/src/components/ThreadNotificationCoordinator.tsx, apps/web/src/components/ThreadNotificationCoordinator.test.tsx, apps/web/src/components/ThreadNotificationCoordinator.badge.test.tsx, apps/web/src/lib/backgroundActivityReporter.ts, apps/web/src/lib/backgroundActivityReporter.test.ts | Test: `npx vitest run apps/web/src/components/ThreadNotificationCoordinator.test.tsx apps/web/src/components/ThreadNotificationCoordinator.badge.test.tsx apps/web/src/lib/backgroundActivityReporter.test.ts`
