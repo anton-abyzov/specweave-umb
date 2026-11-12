@@ -1,0 +1,290 @@
+$ npm --prefix repositories/anton-abyzov/vskill-platform test -- src/app/queue src/app/submit
+# exit 0 — 2026-11-12T22:58:19.144Z
+
+
+> vskill-platform@0.0.2 test
+> vitest run src/app/queue src/app/submit
+
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.7 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > falls back to published when active queue is empty but published data exists
+[stats-refresh] getCloudflareContext failed: 
+
+ERROR: `getCloudflareContext` has been called without having called `initOpenNextCloudflareForDev` from the Next.js config file.
+You should update your Next.js config file as shown below:
+
+   ```
+   // next.config.mjs
+
+   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+   initOpenNextCloudflareForDev();
+
+   const nextConfig = { ... };
+   export default nextConfig;
+   ```
+
+
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > falls back to published when active queue is empty but published data exists
+[stats-refresh] All caches empty — returning LAST_KNOWN_GOOD fallback
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > returns a degraded boot state when stats exist but list cache is unavailable
+[stats-refresh] getCloudflareContext failed: 
+
+ERROR: `getCloudflareContext` has been called without having called `initOpenNextCloudflareForDev` from the Next.js config file.
+You should update your Next.js config file as shown below:
+
+   ```
+   // next.config.mjs
+
+   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+   initOpenNextCloudflareForDev();
+
+   const nextConfig = { ... };
+   export default nextConfig;
+   ```
+
+
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > returns a degraded boot state when stats exist but list cache is unavailable
+[stats-refresh] All caches empty — returning LAST_KNOWN_GOOD fallback
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > ignores empty list cache snapshots during SSR boot
+[stats-refresh] getCloudflareContext failed: 
+
+ERROR: `getCloudflareContext` has been called without having called `initOpenNextCloudflareForDev` from the Next.js config file.
+You should update your Next.js config file as shown below:
+
+   ```
+   // next.config.mjs
+
+   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+   initOpenNextCloudflareForDev();
+
+   const nextConfig = { ... };
+   export default nextConfig;
+   ```
+
+
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > ignores empty list cache snapshots during SSR boot
+[stats-refresh] All caches empty — returning LAST_KNOWN_GOOD fallback
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > ignores legacy active SSR list cache without _cachedAt
+[stats-refresh] getCloudflareContext failed: 
+
+ERROR: `getCloudflareContext` has been called without having called `initOpenNextCloudflareForDev` from the Next.js config file.
+You should update your Next.js config file as shown below:
+
+   ```
+   // next.config.mjs
+
+   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+   initOpenNextCloudflareForDev();
+
+   const nextConfig = { ... };
+   export default nextConfig;
+   ```
+
+
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > ignores legacy active SSR list cache without _cachedAt
+[stats-refresh] All caches empty — returning LAST_KNOWN_GOOD fallback
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > 0757: stats nullability when degraded+zero (cold-worker empty) > preserves the real stats object when the snapshot is healthy
+[stats-refresh] getCloudflareContext failed: 
+
+ERROR: `getCloudflareContext` has been called without having called `initOpenNextCloudflareForDev` from the Next.js config file.
+You should update your Next.js config file as shown below:
+
+   ```
+   // next.config.mjs
+
+   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+   initOpenNextCloudflareForDev();
+
+   const nextConfig = { ... };
+   export default nextConfig;
+   ```
+
+
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > 0757: stats nullability when degraded+zero (cold-worker empty) > preserves the real stats object when the snapshot is healthy
+[stats-refresh] All caches empty — returning LAST_KNOWN_GOOD fallback
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > 0757: stats nullability when degraded+zero (cold-worker empty) > preserves degraded-but-real stats (degraded:true with total > 0)
+[stats-refresh] getCloudflareContext failed: 
+
+ERROR: `getCloudflareContext` has been called without having called `initOpenNextCloudflareForDev` from the Next.js config file.
+You should update your Next.js config file as shown below:
+
+   ```
+   // next.config.mjs
+
+   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+   initOpenNextCloudflareForDev();
+
+   const nextConfig = { ... };
+   export default nextConfig;
+   ```
+
+
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > 0757: stats nullability when degraded+zero (cold-worker empty) > preserves degraded-but-real stats (degraded:true with total > 0)
+[stats-refresh] All caches empty — returning LAST_KNOWN_GOOD fallback
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > skips the list fetch when ?q= is present in params
+[stats-refresh] getCloudflareContext failed: 
+
+ERROR: `getCloudflareContext` has been called without having called `initOpenNextCloudflareForDev` from the Next.js config file.
+You should update your Next.js config file as shown below:
+
+   ```
+   // next.config.mjs
+
+   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+   initOpenNextCloudflareForDev();
+
+   const nextConfig = { ... };
+   export default nextConfig;
+   ```
+
+
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > skips the list fetch when ?q= is present in params
+[stats-refresh] All caches empty — returning LAST_KNOWN_GOOD fallback
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > does NOT skip the list fetch when q is too short to be a real query
+[stats-refresh] getCloudflareContext failed: 
+
+ERROR: `getCloudflareContext` has been called without having called `initOpenNextCloudflareForDev` from the Next.js config file.
+You should update your Next.js config file as shown below:
+
+   ```
+   // next.config.mjs
+
+   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+   initOpenNextCloudflareForDev();
+
+   const nextConfig = { ... };
+   export default nextConfig;
+   ```
+
+
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > does NOT skip the list fetch when q is too short to be a real query
+[stats-refresh] All caches empty — returning LAST_KNOWN_GOOD fallback
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > accepts a last-page SSR list cache snapshot when rows < limit is expected at that offset
+[stats-refresh] getCloudflareContext failed: 
+
+ERROR: `getCloudflareContext` has been called without having called `initOpenNextCloudflareForDev` from the Next.js config file.
+You should update your Next.js config file as shown below:
+
+   ```
+   // next.config.mjs
+
+   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+   initOpenNextCloudflareForDev();
+
+   const nextConfig = { ... };
+   export default nextConfig;
+   ```
+
+
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > accepts a last-page SSR list cache snapshot when rows < limit is expected at that offset
+[stats-refresh] All caches empty — returning LAST_KNOWN_GOOD fallback
+
+ ✓ src/app/queue/__tests__/data.initial-data.test.ts (12 tests) 30ms
+ ✓ src/app/submit/__tests__/outcomes.test.ts (9 tests) 15ms
+ ✓ src/app/submit/__tests__/repoPrefill.test.ts (9 tests) 4ms
+ ✓ src/app/submit/__tests__/viewQueueLink.test.tsx (5 tests) 2ms
+ ✓ src/app/queue/__tests__/AdminQueueActions.test.tsx (3 tests) 33ms
+ ✓ src/app/submit/[id]/__tests__/RejectionReasonCard.test.tsx (6 tests) 39ms
+ ✓ src/app/queue/__tests__/useQueuePolling.test.tsx (4 tests) 12ms
+ ✓ src/app/queue/__tests__/KeyboardShortcutOverlay.test.tsx (6 tests) 70ms
+ ✓ src/app/queue/__tests__/QueueStatusBar.test.tsx (8 tests) 64ms
+stderr | src/app/queue/__tests__/page.test.tsx > QueuePageClient > admin user sees Submit Skills button
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+stderr | src/app/queue/__tests__/page.test.tsx > QueuePageClient > non-admin user does NOT see Submit Skills button
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+stderr | src/app/queue/__tests__/page.test.tsx > QueuePageClient > renders stat cards
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+stderr | src/app/queue/__tests__/page.test.tsx > QueuePageClient > renders search input
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+ ✓ src/app/submit/[id]/__tests__/statusPolling.test.tsx (11 tests) 203ms
+ ✓ src/app/queue/__tests__/data-warmup.test.ts (4 tests) 4ms
+stderr | src/app/queue/__tests__/page.test.tsx > QueuePageClient > renders status bar
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+stderr | src/app/queue/__tests__/QueuePageClient.test.tsx > QueuePageClient TAB_CONFIG default sort (T-021 / AC-US5-04) > falls back from an empty implicit active view to published when cached active counts are stale
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+stderr | src/app/queue/__tests__/page.test.tsx > QueuePageClient > renders shortcuts hint
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+stderr | src/app/queue/__tests__/QueuePageClient.highlight.test.tsx > QueuePageClient ?highlight= deep-link (0773) > triggers exactly one filter=all fallback fetch when the highlight id is not in the rendered list (AC-US1-04)
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+ ✓ src/app/queue/__tests__/page.test.tsx (8 tests) 244ms
+ ✓ src/app/submit/__tests__/submitPage.test.tsx (5 tests) 330ms
+ ✓ src/app/queue/__tests__/choose-boot-candidates.test.ts (7 tests) 6ms
+stderr | src/app/queue/__tests__/SubmissionTable.test.tsx > SubmissionTable accessibility > shows 'position unknown' for an active row with a null position
+Not implemented: navigation to another Document
+
+ ✓ src/app/queue/__tests__/SubmissionTable.test.tsx (18 tests) 436ms
+ ✓ src/app/queue/__tests__/QueuePageClient.highlight.test.tsx (5 tests) 392ms
+stderr | src/app/queue/__tests__/QueuePageClient.test.tsx > 0757 / US-001: em-dash placeholders when stats are unavailable > renders em-dash '—' on all 6 StatCards when initialData.stats is null
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+stderr | src/app/queue/__tests__/QueuePageClient.resilience.test.tsx > QueuePageClient resilience > times out a hung list request and shows an alert with Retry
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+stderr | src/app/queue/__tests__/QueuePageClient.test.tsx > 0757 / US-001: em-dash placeholders when stats are unavailable > retries fetchStats on HTTP 503 and replaces placeholder with real numbers on success
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+stderr | src/app/queue/__tests__/QueuePageClient.test.tsx > 0757 / US-001: em-dash placeholders when stats are unavailable > caps retries at 3 attempts (1s/3s/7s) when the API keeps returning 503
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+stderr | src/app/queue/__tests__/QueuePageClient.test.tsx > 0757 / US-001: em-dash placeholders when stats are unavailable > retries when API returns 200 with {total:0,degraded:true} body (treated as cold-worker)
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+Updating a style property during rerender (border) when a conflicting property is set (borderLeft) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values.
+
+ ✓ src/app/queue/__tests__/QueuePageClient.test.tsx (12 tests) 552ms
+ ✓ src/app/queue/__tests__/QueuePageClient.sse.test.tsx (4 tests) 611ms
+   ✓ QueuePageClient SSE optimistic stats (F-M03) > active -> blocked transition decrements active and increments blocked  336ms
+ ✓ src/app/queue/__tests__/QueuePageClient.resilience.test.tsx (13 tests) 730ms
+
+ Test Files  19 passed (19)
+      Tests  149 passed (149)
+   Start at  17:58:17
+   Duration  1.73s (transform 876ms, setup 1.66s, collect 2.27s, tests 3.78s, environment 6.72s, prepare 949ms)
+
