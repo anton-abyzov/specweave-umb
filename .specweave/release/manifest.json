@@ -183,10 +183,11 @@
     },
     "studio": {
       "repo": "specweave-studio",
-      "release": ["bash", "scripts/release/release.sh"],
+      "release": ["bash", "scripts/release/request-release.sh"],
       "run_script_from": "origin",
-      "default_args": ["{next_patch}"],
-      "args_help": "<version> [--dry-run] [--resume]",
+      "default_args": ["--by", "umbrella ship studio", "--wait"],
+      "args_help": "[--by NAME] [--wait] [--dry-run]",
+      "release_note": "Asks the app repository's Release macOS workflow for a release. The workflow picks the version and queues every request, so nothing here computes one; a request that finds main already released ends green.",
       "dry_run_flag": "--dry-run",
       "expect_version": "latest_tag:v",
       "env": {
