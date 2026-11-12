@@ -1,6 +1,6 @@
 # Blocker count gate, routed to increment 1278
 
-Decision: Anton, November 12, 2026 (1304 D-10, recorded in 1278 as D-07): **one owner, counted once**.
+Decision: Anton, November 11, 2026 (1304 D-10, recorded in 1278 as D-07): **one owner, counted once**.
 
 - A blocker stays visible wherever its thread is opened, with its machine named.
 - Only the owner machine's app raises badges and "Needs you".
@@ -47,7 +47,7 @@ Why the target and not "O has no foreground lease": the target is already "the d
 
 ## Conflict to settle in 1278
 
-1278 D-01 (November 10) says "Other machines badge". D-10 (November 12) says only the owner machine's app raises badges. 1278 AC-14 records the newer answer: an app that is neither target nor owner adds no badge entry. AC-04 and the Minisforum line of AC-07 ("only badges") need that reading.
+1278 D-01 (November 10) says "Other machines badge". D-10 (November 11) says only the owner machine's app raises badges. 1278 AC-14 records the newer answer: an app that is neither target nor owner adds no badge entry. AC-04 and the Minisforum line of AC-07 ("only badges") need that reading.
 
 ## Found on the way, not routed as criteria
 

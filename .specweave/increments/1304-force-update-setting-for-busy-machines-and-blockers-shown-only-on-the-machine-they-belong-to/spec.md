@@ -4,7 +4,7 @@ Repo: `anton-abyzov/specwithcode`, read at `origin/main` `05b4d5477e` (1.0.242).
 
 ## Problem
 
-Anton, November 12, 2026:
+Anton, November 11, 2026:
 
 > "I believe for the plan view blocker, it should be like a configuration: whether we want to force these updates or not. By default, I would keep it as not forcing. Also, once we see a blocker, it should only be visible on that machine where this blocker is coming from, right? Or if this is a blocker in a thread, then it should be visible on the machine where the coordinator is running. We think that this... Maybe I am wrong."
 
@@ -95,13 +95,13 @@ Anton chose this (D-10).
 
 "Nobody in front of it" needs to know which app a person is using. Increment 1278 (desktop notifications only on the active machine, planned, not built, owned by its own thread) specifies exactly that: each app reports `hostEnvironmentId` and `lastInteractionAt`, and the thread's server elects one `notificationTarget` (1278 AC-01, AC-02). The count gate must read the same election, or popups and badges would disagree. So this part depends on 1278's election and is built on it, not beside it.
 
-The coordinator routed it there (November 12, 2026): the count gate is 1278's AC-11 to AC-16 and its tasks T-06 and T-07. The rule, the surfaces with their file lines, and the one conflict with 1278's earlier answer ("other machines badge") are in `reports/blocker-count-gate.md`. This increment ships no blocker code.
+The coordinator routed it there (November 11, 2026): the count gate is 1278's AC-11 to AC-16 and its tasks T-06 and T-07. The rule, the surfaces with their file lines, and the one conflict with 1278's earlier answer ("other machines badge") are in `reports/blocker-count-gate.md`. This increment ships no blocker code.
 
 ## Decisions
 
 ### Asked
-- D-10: Blocker placement: strict "only on the owner machine", or "one owner, shown in place, counted once"? → **One owner, counted once** (Anton, November 12, 2026). A blocker stays visible wherever its thread is opened, with its machine named. Only the owner machine's app raises badges and "Needs you"; another app does only when the owner has nobody in front of it. The phone is unchanged.
-- D-07: M4 follows its own setting, so the rollout stops draining M4 unless the setting is on there. Turn it on for M4? → **On for the M4 only** (Anton, November 12, 2026). M1, M3 and the Minisforum stay off. The switch is turned on on the M4 once it runs a release that has the setting.
+- D-10: Blocker placement: strict "only on the owner machine", or "one owner, shown in place, counted once"? → **One owner, counted once** (Anton, November 11, 2026). A blocker stays visible wherever its thread is opened, with its machine named. Only the owner machine's app raises badges and "Needs you"; another app does only when the owner has nobody in front of it. The phone is unchanged.
+- D-07: M4 follows its own setting, so the rollout stops draining M4 unless the setting is on there. Turn it on for M4? → **On for the M4 only** (Anton, November 11, 2026). M1, M3 and the Minisforum stay off. The switch is turned on on the M4 once it runs a release that has the setting.
 
 ### Defaulted (change any before sw-do)
 - D-01: The setting lives in the machine's server settings. It works on Linux, a paired machine can edit it, and the agent, the rollout and the fleet endpoint all read it from the service.
