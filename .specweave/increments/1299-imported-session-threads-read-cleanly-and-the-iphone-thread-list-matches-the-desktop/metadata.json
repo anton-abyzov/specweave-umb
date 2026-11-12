@@ -1,12 +1,15 @@
 {
   "id": "1299-imported-session-threads-read-cleanly-and-the-iphone-thread-list-matches-the-desktop",
   "uuid": "9669cda7-7dda-4027-8247-e5f72090d6dd",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-11T15:00:10.533Z",
-  "updated": "2026-11-11T15:05:39.308Z",
-  "lastActivity": "2026-11-11T15:05:39.308Z",
+  "updated": "2026-11-12T08:55:01.465Z",
+  "lastActivity": "2026-11-12T08:55:01.465Z",
   "title": "Imported session threads read cleanly and the iPhone thread list matches the desktop",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-12T08:55:01.464Z",
+  "approvedAt": "2026-11-12T08:55:01.465Z"
 }
