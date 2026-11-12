@@ -8,5 +8,6 @@
   "updated": "2026-11-11T14:40:21.210Z",
   "lastActivity": "2026-11-11T14:40:21.210Z",
   "title": "Ultracode on by default for Claude worker threads, off for coordinators",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {}
 }

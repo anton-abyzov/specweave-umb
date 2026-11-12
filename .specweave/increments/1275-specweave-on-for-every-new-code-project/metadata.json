@@ -5,8 +5,9 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-10T21:10:23.369Z",
-  "updated": "2026-11-10T21:10:23.369Z",
-  "lastActivity": "2026-11-10T21:10:23.369Z",
+  "updated": "2026-11-11T06:02:41.759Z",
+  "lastActivity": "2026-11-11T06:02:41.759Z",
   "title": "SpecWeave on for every new code project",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {}
 }
