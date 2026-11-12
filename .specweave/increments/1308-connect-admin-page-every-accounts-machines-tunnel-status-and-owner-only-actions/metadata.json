@@ -1,0 +1,12 @@
+{
+  "id": "1308-connect-admin-page-every-accounts-machines-tunnel-status-and-owner-only-actions",
+  "uuid": "fbe9fa11-79af-415c-9a0e-6147ca0c2db2",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-12T06:13:22.402Z",
+  "updated": "2026-11-12T06:13:22.402Z",
+  "lastActivity": "2026-11-12T06:13:22.402Z",
+  "title": "Connect admin page: every account's machines, tunnel status and owner-only actions",
+  "project": "specweave-umb"
+}

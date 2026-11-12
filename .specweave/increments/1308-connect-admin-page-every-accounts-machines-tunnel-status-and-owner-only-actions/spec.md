@@ -1,0 +1,78 @@
+# Connect admin page: every account's machines, tunnel status and owner-only actions
+
+## Problem
+
+SpecWithCode Connect (the relay at `relay.spec-weave.com`) has no way for its owner to see who uses it. The relay's D1 database knows every account, its linked machines, managed tunnels, phones and machine limit, but the only tools are raw D1 queries and the read-only script `infra/relay/scripts/tunnel-census.ts`, which counts Cloudflare tunnels by stage and names no account. The relay has no admin routes. When a person reports "my machine does not connect" or needs a higher machine limit, the owner (Anton) has to open the Cloudflare dashboard and write SQL by hand. Anton asked on November 12, 2026 for a dashboard to control all machines connected to Connect, with actions, and asked whether it signs in through Clerk.
+
+## Scope
+
+In: owner-only admin routes on the relay behind the existing Clerk sign-in plus an allowlist; a "Connect admin" page in the app (web and desktop) that lists accounts, their machines, tunnels, phones and limits; three actions (change an account's machine limit, unlink a machine, remove a phone) with a record of who did what; turning it on in production for Anton's account.
+
+Out: connecting to or reading from another person's machine (the admin routes never issue connection credentials); deleting accounts; billing; a page for anyone other than allowlisted owners; a native iOS or Android screen; Cloudflare Access in front of the routes (can be added later as a second lock).
+
+## Acceptance Criteria
+
+- [ ] AC-01: Every admin route requires a Clerk session token of the kind the app already sends (a session JWT with a session id; the headless CLI's OAuth token is refused) and a caller whose Clerk user id is in the relay variable `RELAY_ADMIN_USER_IDS`. With the variable unset or empty, or for any other caller, every admin route answers 404 with an empty body, the same answer as a path that does not exist. A request with no or an invalid token answers 401 like other client routes.
+- [ ] AC-02: `GET /v1/admin/me` answers 200 for an allowlisted caller. The app asks it once per signed-in Connect session and shows "Connect admin" in Settings only on 200.
+- [ ] AC-03: `GET /v1/admin/overview` returns totals: accounts, linked machines, managed tunnels allocated and ready, phones, founder seats granted and the cap, the free machine limit and the global tunnel cap.
+- [ ] AC-04: `GET /v1/admin/accounts` lists accounts newest first, 50 per page with a cursor, each with the Clerk user id, email and name (read from Clerk for that page; missing identity shows the id only and never fails the page), founder number, machine limit and where it comes from (default, founder, override, unlimited), linked machine count, phone count, first seen and last seen. `query` filters by an exact Clerk user id or by email through Clerk.
+- [ ] AC-05: `GET /v1/admin/accounts/:userId` returns that account's machines (label, environment id, tunnel hostname, linked and updated times, unlinked or not, tunnel ready or released, and the live Cloudflare tunnel status with when its connection last changed; "unknown" when Cloudflare does not answer in 3 seconds) and phones (label, platform, model, app version, last seen), plus the limit.
+- [ ] AC-06: No admin response contains a public key, credential, credential hash, push token, DPoP key thumbprint, Clerk session id or anything that lets the caller connect to a machine. A test fails if a response schema gains such a field.
+- [ ] AC-07: The page shows the totals, a searchable account list and, for a chosen account, its machines and phones with the states from AC-05 in plain words. It works at phone width, in light and dark, and in all eight languages. A failed read says so and offers Retry; it never shows an empty list as if there were no accounts.
+- [ ] AC-08: Change machine limit: an owner sets a number from 0 to 1000, unlimited, or back to the default for one account. The account's next link is checked against the new limit; machines already linked stay linked.
+- [ ] AC-09: Unlink a machine: the owner unlinks one machine of one account. The relay does what the account's own unlink does (link revoked, credentials revoked, tunnel released); the person can link it again.
+- [ ] AC-10: Remove a phone: the owner removes one phone of one account, with the same effect as the account's own "Remove phone".
+- [ ] AC-11: Every action asks for confirmation in the page, naming the account and the machine or phone, and writes one row to `relay_admin_actions` (who, what, which account and target, before and after, when) in the same request. The page lists the last 100 actions. An action whose audit row cannot be written does not run.
+- [ ] AC-12: In production, `RELAY_ADMIN_USER_IDS` holds Anton's Clerk user id only, the deploy is verified by a 200 from `/v1/admin/me` for him and a 404 for a second account, and Anton has opened the page and confirmed it.
+
+## Approach
+
+Relay first, read-only, then the page, then actions.
+
+1. `infra/relay/src/Config.ts`: `adminUserIds: ReadonlySet<string>` from `RELAY_ADMIN_USER_IDS` (comma separated, trimmed, blank means none). Plumbed like `RELAY_CONNECT_FREE_TUNNEL_LIMIT`: `worker.ts` settings, `.github/workflows/deploy-relay.yml`, `infra/relay/.env.example`, `docs/operations/connect-launch.md`.
+2. `packages/contracts/src/relayAdmin.ts` (new; `relay.ts` is at 1495 lines): the `admin` group under `RelayClientAuth` and its schemas. `relay.ts` only adds the group to `RelayApi`.
+3. `infra/relay/src/admin/ConnectAdmin.ts` (new): the gate and the read queries over `relay_connect_accounts`, `relay_environment_links`, `relay_managed_endpoint_allocations`, `relay_managed_tunnel_limits`, `relay_mobile_devices`, `relay_client_keys`, `relay_connect_promos`. `infra/relay/src/admin/AdminIdentities.ts`: Clerk Backend API user lookup for one page, 3 second budget, failure means ids only. Live tunnel status through the Cloudflare credentials `ManagedEndpointProvider` already holds.
+4. The gate is one function every handler calls first. It fails with a 404 response, not `RelayAuthInvalidError`, so a non-owner cannot tell the routes exist.
+5. App: `packages/client-runtime/src/relay/relayAdmin.ts` for the calls, `apps/web/src/components/settings/ConnectAdminSettings.tsx` and a `/settings/connect-admin` route, shown from the Settings navigation only after `/v1/admin/me` answered 200 for this Connect session.
+6. Actions reuse the existing services (`ManagedTunnelLimits`, the unlink flow in `EnvironmentUnlink.ts`, `PhoneRemovals`), called with the target account's user id. New table `relay_admin_actions` with a D1 migration (additive, empty).
+
+Risks: this is a new way into every account's machine list, and `deploy-relay` ships the relay on every push to main. The allowlist is empty until T-06, so merged code answers 404 for everyone. The app page ships with app releases; the relay routes ship on merge.
+
+Rejected: a standalone HTML page served by the relay (a second sign-in surface, no design system, no tests harness); a Clerk `publicMetadata` role claim (needs JWT template changes and trusts a claim instead of a relay variable); Cloudflare Access as the only lock (ties the page to a browser session outside the app and to a Cloudflare seat).
+
+## Decisions
+
+### Asked
+- D-01 Build the owner-only admin page for Connect? → Yes: "Go ahead and do it. Maybe add that there should be some actions on that page as well." (Anton, November 12, 2026). Read-only first, then actions.
+- D-02 "Are we going to use this Cloudflare Clerk?" → Recommended and taken as the default: yes, the same Clerk sign-in Connect already uses, plus a relay-side allowlist of Clerk user ids. No second password and no Cloudflare Access in the first version.
+### Defaulted (change any before sw-do)
+- D-03 The page lives in the app under Settings, not on the relay's own domain.
+- D-04 First actions: change machine limit, unlink a machine, remove a phone. Not built: delete an account, block an account, connect to a person's machine.
+- D-05 Only interactive Clerk sessions may use admin routes; the CLI's OAuth token is refused.
+- D-06 Non-owners get 404, not 403.
+- D-07 Actions need an audit table, which is a D1 migration (one new empty table). It ships with T-04, not with the read-only routes.
+### Open
+- Anton's Clerk user id for `RELAY_ADMIN_USER_IDS` (T-06). It is read from his signed-in app or the Clerk dashboard, never guessed.
+
+## Tasks
+
+### T-01 Owner gate and relay variable
+- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode-dev/infra/relay/src/Config.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/Config.test.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/worker.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/admin/ConnectAdmin.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/admin/ConnectAdmin.test.ts, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/relayAdmin.ts, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/relay.ts, repositories/anton-abyzov/specwithcode-dev/.github/workflows/deploy-relay.yml, repositories/anton-abyzov/specwithcode-dev/infra/relay/.env.example, repositories/anton-abyzov/specwithcode-dev/docs/operations/connect-launch.md | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run infra/relay/src/admin infra/relay/src/Config.test.ts
+
+### T-02 Read routes: overview, accounts, one account
+- AC: AC-03, AC-04, AC-05, AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/infra/relay/src/admin/ConnectAdmin.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/admin/ConnectAdminQueries.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/admin/ConnectAdminQueries.test.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/admin/AdminIdentities.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/admin/AdminIdentities.test.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/admin/ConnectAdmin.test.ts, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/relayAdmin.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/worker.ts | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run infra/relay/src/admin
+
+### T-03 Connect admin page, read-only
+- AC: AC-02, AC-07 | Files: repositories/anton-abyzov/specwithcode-dev/packages/client-runtime/src/relay/relayAdmin.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/ConnectAdminSettings.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/ConnectAdminSettings.test.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/routes/settings.connect-admin.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/SettingsSidebarNav.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/i18n/phrases/de.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/i18n/phrases/es.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/i18n/phrases/fr.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/i18n/phrases/ja.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/i18n/phrases/ko.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/i18n/phrases/pt.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/i18n/phrases/ru.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/i18n/phrases/zh.ts, repositories/anton-abyzov/specwithcode-dev/CHANGELOG.md | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run apps/web/src/components/settings/ConnectAdminSettings.test.tsx apps/web/src/i18n
+
+### T-04 Actions and their record on the relay
+- AC: AC-08, AC-09, AC-10, AC-11 | Files: repositories/anton-abyzov/specwithcode-dev/infra/relay/src/admin/ConnectAdminActions.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/admin/ConnectAdminActions.test.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/persistence/schema.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/migrations/d1, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/relayAdmin.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/worker.ts | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run infra/relay/src/admin infra/relay/src/persistence
+
+### T-05 Actions in the page
+- AC: AC-08, AC-09, AC-10, AC-11 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/ConnectAdminSettings.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/ConnectAdminActions.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/ConnectAdminActions.test.tsx, repositories/anton-abyzov/specwithcode-dev/packages/client-runtime/src/relay/relayAdmin.ts | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run apps/web/src/components/settings/ConnectAdminActions.test.tsx apps/web/src/components/settings/ConnectAdminSettings.test.tsx
+
+### T-06 Turn it on in production for the owner
+- AC: AC-12 | Files: repositories/anton-abyzov/specwithcode-dev/docs/operations/connect-launch.md | Test: curl -s -o /dev/null -w "%{http_code}" https://relay.spec-weave.com/v1/admin/me
+
+### T-07 Verify and close 1308
+- AC: AC-01, AC-12 | Files: .specweave/increments/1308-connect-admin-page-every-accounts-machines-tunnel-status-and-owner-only-actions/spec.md | Test: specweave verify 1308-connect-admin-page-every-accounts-machines-tunnel-status-and-owner-only-actions
