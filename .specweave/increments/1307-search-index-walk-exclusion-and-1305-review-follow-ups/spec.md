@@ -11,6 +11,8 @@ Increment 1305 (PR 179, merged as `bf574d7837`) stopped the search indexer loop 
 5. Heavy-check gate: the shared verification copy can move between `checks copy` and `checks run`; a holder recorded under another hostname is never taken over; PID reuse is not detected on Windows.
 6. Clone sweep: removes ignored files with a clone; scans tmp folders other homes share; archived threads do not protect a clone; removes nothing on Windows.
 7. A `fs.watch` error leaves an index without refresh until its idle TTL.
+8. Installed on the M4 (1.0.247, under load), the thread list still logged 2 slow statements in 4.5 minutes, and server and window CPU were 46-56% and 43-44% of a core. Readings on a quiet machine are owed (1305 T-08).
+9. The update page proof refuses every auto-vacuum database, so the M4 takes the full read (about 175 s) on every update; with an additive migration the refusal reads `schema` instead of `auto-vacuum`.
 
 ## Scope
 
