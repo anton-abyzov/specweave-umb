@@ -759,5 +759,153 @@ check "connect: a machine name that is not a plain fleet name is refused before 
 check "connect: the studio track reads M1 and M3 over Connect, not the SSH tunnels" "fleet_connect m1|fleet_connect m3|0" \
   "$(jq -r '.tracks.studio.verify[] | select(.name == "M1 service" or .name == "M3 service") | "\(.kind) \(.machine)"' "$REPO_ROOT/.specweave/release/manifest.json" | paste -sd'|' -)|$(grep -c '127.0.0.1:[12]8319' "$REPO_ROOT/.specweave/release/manifest.json")"
 
+# ---- download links: the latest installer link and what the website offers ----
+# curl serves fixtures by URL (the cache-busting ?ts= is dropped): <key>.code, <key>.hdr and
+# <key>.body under $STUB_CURL_DIR, where <key> is the URL with every other character as "_".
+cat >"$T/bin/curl" <<'SH'
+#!/bin/bash
+out="" hdr="" url=""
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    -o) out="$2"; shift 2 ;;
+    -D) hdr="$2"; shift 2 ;;
+    -m|-w) shift 2 ;;
+    -*) shift ;;
+    *) url="$1"; shift ;;
+  esac
+done
+key="$(printf '%s' "${url%%\?ts=*}" | tr -c 'A-Za-z0-9' '_')"
+[ -f "$STUB_CURL_DIR/$key.code" ] || { printf '000'; exit 7; }
+if [ -n "$hdr" ]; then cat "$STUB_CURL_DIR/$key.hdr" 2>/dev/null >"$hdr" || : >"$hdr"; fi
+if [ -n "$out" ] && [ "$out" != /dev/null ]; then cat "$STUB_CURL_DIR/$key.body" 2>/dev/null >"$out" || : >"$out"; fi
+cat "$STUB_CURL_DIR/$key.code"
+SH
+# gh: `release view` prints $STUB_RELEASE_VIEW (a file), or fails when it is unset.
+cat >"$T/bin/gh" <<'SH'
+#!/bin/bash
+case "$1 $2" in
+  "release view") [ -n "${STUB_RELEASE_VIEW:-}" ] && [ -f "$STUB_RELEASE_VIEW" ] || exit 1; cat "$STUB_RELEASE_VIEW" ;;
+esac
+exit 0
+SH
+chmod +x "$T/bin/curl" "$T/bin/gh"
+export STUB_CURL_DIR="$T/curl"
+mkdir -p "$STUB_CURL_DIR"
+DL_REPO="example/app"
+DL_LATEST="https://github.com/$DL_REPO/releases/latest/download/App-arm64.dmg"
+DL_PAGE="https://site.invalid/download/"
+DL_HOME="https://site.invalid/"
+cat >"$T/manifest-dl.json" <<JSON
+{"tracks":{"dl":{"verify":[
+  {"name":"latest","kind":"download_latest","url":"$DL_LATEST","repo":"$DL_REPO","asset":"App-arm64.dmg"},
+  {"name":"button","kind":"site_latest_link","urls":["$DL_PAGE","$DL_HOME"],"repo":"$DL_REPO","asset":"App-arm64.dmg"},
+  {"name":"baked","kind":"site_release","blocking":false,"urls":["$DL_PAGE"],"repo":"$DL_REPO","grace_minutes":30,"desktop_grace_minutes":90}
+]}}}
+JSON
+curl_key() { printf '%s' "$1" | tr -c 'A-Za-z0-9' '_'; }
+# serve <url> <code> [<body>] [<location>]
+serve() {
+  local key; key="$(curl_key "$1")"
+  printf '%s' "$2" >"$STUB_CURL_DIR/$key.code"
+  printf '%s\n' "${3:-}" >"$STUB_CURL_DIR/$key.body"
+  if [ -n "${4:-}" ]; then printf 'HTTP/2 302 \r\nLocation: %s\r\n\r\n' "$4" >"$STUB_CURL_DIR/$key.hdr"; else printf 'HTTP/2 %s \r\n\r\n' "$2" >"$STUB_CURL_DIR/$key.hdr"; fi
+}
+# page <mac shown> <desktop linked> [pinned]: a download page; "pinned" names the release in the Mac link.
+page() {
+  local mac_link="https://github.com/$DL_REPO/releases/latest/download/App-arm64.dmg"
+  [ "${3:-}" = pinned ] && mac_link="https://github.com/$DL_REPO/releases/download/v$1/App-arm64.dmg"
+  printf '<script type="application/ld+json">{"softwareVersion":"%s"}</script><a href="%s">Mac</a><a href="https://github.com/%s/releases/download/v%s/SpecWithCode-%s-x64.exe">Windows</a>' \
+    "$1" "$mac_link" "$DL_REPO" "$2" "$2"
+}
+iso_ago() { python3 -c 'import sys,datetime;print((datetime.datetime.now(datetime.timezone.utc)-datetime.timedelta(minutes=int(sys.argv[1]))).strftime("%Y-%m-%dT%H:%M:%SZ"))' "$1"; }
+# release_view <published minutes ago> [<installers attached minutes ago>]
+release_view() {
+  local assets='[{"name":"App-arm64.dmg","updatedAt":"'"$(iso_ago "$1")"'"}]'
+  [ -z "${2:-}" ] || assets='[{"name":"App-arm64.dmg","updatedAt":"'"$(iso_ago "$1")"'"},{"name":"SpecWithCode-2.0.0-x64.exe","updatedAt":"'"$(iso_ago "$2")"'"}]'
+  printf '{"publishedAt":"%s","assets":%s}\n' "$(iso_ago "$1")" "$assets" >"$T/release-view.json"
+}
+run_dl() {
+  STUB_RELEASE_VIEW="${STUB_RELEASE_VIEW-$T/release-view.json}" RELEASE_MANIFEST="$T/manifest-dl.json" \
+    bash "$RELEASE_SH" verify dl --version 2.0.0 >"$T/dl.json" 2>"$T/dl.err" && echo 0 || echo $?
+}
+dl_row() { jq -r --arg n "$1" '.checks[] | select(.name == $n) | .status' "$T/dl.json"; }
+dl_detail() { jq -r --arg n "$1" '.checks[] | select(.name == $n) | .detail' "$T/dl.json"; }
+
+serve "$DL_LATEST" 302 "" "https://github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg"
+serve "https://github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg" 302 "" "https://objects.example/App-arm64.dmg"
+serve "https://github.com/$DL_REPO/releases/download/v2.0.1/App-arm64.dmg" 302 "" "https://objects.example/App-arm64.dmg"
+serve "$DL_PAGE" 200 "$(page 2.0.0 2.0.0)"
+serve "$DL_HOME" 200 "$(page 2.0.0 2.0.0)"
+release_view 120 100
+r="$(run_dl)"
+check "downloads: latest link, buttons and baked pages all on the release pass" "0|pass|pass|pass" "$r|$(dl_row latest)|$(dl_row button)|$(dl_row baked)"
+check "downloads: the pass says what the pages show" "pages show Mac v2.0.0 and link Windows and Linux v2.0.0" "$(dl_detail baked)"
+
+serve "$DL_LATEST" 302 "" "https://github.com/$DL_REPO/releases/download/v1.9.9/App-arm64.dmg"
+r="$(run_dl)"
+check "downloads: a latest link that still serves the previous release fails" "1|fail" "$r|$(dl_row latest)"
+serve "$DL_LATEST" 302 "" "https://github.com/$DL_REPO/releases/download/v2.0.1/App-arm64.dmg"
+r="$(run_dl)"
+check "downloads: a later release behind the latest link passes" "0|pass|serves v2.0.1, a later release than v2.0.0" "$r|$(dl_row latest)|$(dl_detail latest)"
+serve "$DL_LATEST" 302 "" "https://github.com/other/app/releases/download/v2.0.0/App-arm64.dmg"
+r="$(run_dl)"
+check "downloads: a latest link that leaves the repository fails" "1|fail" "$r|$(dl_row latest)"
+serve "$DL_LATEST" 302 "" "https://github.com/$DL_REPO/releases/download/v2.0.0/Other.dmg"
+r="$(run_dl)"
+check "downloads: a latest link to another file fails" "1|fail" "$r|$(dl_row latest)"
+serve "$DL_LATEST" 404
+r="$(run_dl)"
+check "downloads: a latest link that answers 404 fails" "1|fail" "$r|$(dl_row latest)"
+serve "$DL_LATEST" 302 "" "https://github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg"
+serve "https://github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg" 404
+r="$(run_dl)"
+check "downloads: a Latest release without the installer fails" "1|fail|the Latest release v2.0.0 has no App-arm64.dmg to download (HTTP 404)" "$r|$(dl_row latest)|$(dl_detail latest)"
+serve "https://github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg" 302 "" "https://objects.example/App-arm64.dmg"
+serve "$DL_LATEST" 302 "" "https://github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg"
+
+serve "$DL_HOME" 200 "$(page 2.0.0 2.0.0 pinned)"
+r="$(run_dl)"
+check "downloads: a page that pins the installer to a release fails, even to this one" "1|fail|$DL_HOME pins the installer to a release (github.com/$DL_REPO/releases/download/v2.0.0/App-arm64.dmg)" "$r|$(dl_row button)|$(dl_detail button)"
+serve "$DL_HOME" 200 "<p>no download here</p>"
+r="$(run_dl)"
+check "downloads: a page without the latest link fails" "1|fail" "$r|$(dl_row button)"
+serve "$DL_HOME" 503
+r="$(run_dl)"
+check "downloads: a page that cannot be read fails" "1|fail|$DL_HOME answered HTTP 503" "$r|$(dl_row button)|$(dl_detail button)"
+serve "$DL_HOME" 200 "$(page 2.0.0 2.0.0)"
+
+# The baked check is informational: it never changes the track's result.
+serve "$DL_PAGE" 200 "$(page 1.9.9 1.9.9)"
+release_view 10
+r="$(run_dl)"
+check "downloads: pages one release behind are pending while the rebuild has time" "0|pending" "$r|$(dl_row baked)"
+release_view 45
+r="$(run_dl)"
+check "downloads: pages still behind after the rebuild time fail, as information" "0|fail|pass" "$r|$(dl_row baked)|$(jq -r .result "$T/dl.json")"
+serve "$DL_PAGE" 200 "$(page 2.0.0 1.9.9)"
+release_view 45
+r="$(run_dl)"
+check "downloads: a release without Windows and Linux installers yet is pending" "pending|v2.0.0 has no Windows and Linux installers 45 min after publishing (allowed 90 min); pages link v1.9.9" "$(dl_row baked)|$(dl_detail baked)"
+release_view 120
+r="$(run_dl)"
+check "downloads: a release that never got Windows and Linux installers fails" "fail" "$(dl_row baked)"
+release_view 120 10
+r="$(run_dl)"
+check "downloads: installers attached a moment ago leave the pages time to rebuild" "pending" "$(dl_row baked)"
+release_view 120 60
+r="$(run_dl)"
+check "downloads: pages that still link the old installers after that fail" "fail|pages link Windows and Linux v1.9.9, v2.0.0 installers were attached 60 min ago (rebuild allowed 30 min)" "$(dl_row baked)|$(dl_detail baked)"
+serve "$DL_PAGE" 200 "$(page 2.0.1 2.0.1)"
+r="$(run_dl)"
+check "downloads: pages already on a later release pass" "pass" "$(dl_row baked)"
+serve "$DL_PAGE" 200 "<a href=\"https://github.com/$DL_REPO/releases/latest/download/App-arm64.dmg\">Mac</a>"
+r="$(run_dl)"
+check "downloads: a page that states no version fails" "fail|$DL_PAGE states no softwareVersion" "$(dl_row baked)|$(dl_detail baked)"
+serve "$DL_PAGE" 200 "$(page 2.0.0 2.0.0)"
+r="$(STUB_RELEASE_VIEW="" run_dl)"
+check "downloads: a release that cannot be read fails" "fail|cannot read release v2.0.0 of $DL_REPO" "$(dl_row baked)|$(dl_detail baked)"
+check "downloads: the studio track checks the latest link and the website" "download_latest true|site_latest_link true|site_release false" \
+  "$(jq -r '.tracks.studio.verify[] | select(.kind == "download_latest" or .kind == "site_latest_link" or .kind == "site_release") | "\(.kind) \(.blocking != false)"' "$REPO_ROOT/.specweave/release/manifest.json" | paste -sd'|' -)"
+
 printf '\n%d passed, %d failed\n' "$PASSES" "$FAILS"
 [ "$FAILS" -eq 0 ]

@@ -136,6 +136,153 @@ check_latest_json() {
   C_STATUS=pass; C_DETAIL="serves $got${header:+ with $header}"
 }
 
+# version_older <a> <b>: true when release version a is older than b.
+version_older() {
+  [ "$1" != "$2" ] && [ "$(printf '%s\n%s\n' "$1" "$2" | sort -V | head -1)" = "$1" ]
+}
+
+# iso_epoch <2026-11-12T16:16:51Z>: seconds since the epoch, empty when it is not such a time.
+iso_epoch() {
+  python3 -c 'import sys,datetime
+try: print(int(datetime.datetime.strptime(sys.argv[1],"%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=datetime.timezone.utc).timestamp()))
+except ValueError: pass' "${1:-}" 2>/dev/null
+}
+
+# download_latest: the public version-free installer link (the README and the website's Mac
+# button) must redirect to this release. GitHub answers it with a 302 to the Latest release's
+# file, so a release that is published but not Latest fails here. GitHub sends that 302 even
+# when the Latest release has no such file, so the file itself is asked for too (headers only).
+# A newer release that became Latest in the meantime passes: the link serves the newest one.
+check_download_latest() {
+  local url slug asset hdr code loc got
+  hdr="$(mktemp "$WORK/dl-hdr.XXXXXX")"
+  url="$(jq -r '.url' <<<"$CHECK")"
+  slug="$(jq -r '.repo' <<<"$CHECK")"
+  asset="$(jq -r '.asset' <<<"$CHECK")"
+  code="$(curl -s -I -m 20 -D "$hdr" -o /dev/null -w '%{http_code}' "$url")" || code="000"
+  if [ "$code" != "302" ]; then
+    C_STATUS=fail; C_DETAIL="$url answered HTTP $code, want a 302 to the release"; return
+  fi
+  loc="$(tr -d '\r' <"$hdr" | sed -n 's/^[Ll]ocation: *//p' | head -1)"
+  got="${loc#"https://github.com/$slug/releases/download/v"}"
+  if [ "$got" = "$loc" ] || [ "${got#*/}" != "$asset" ] || ! [[ "${got%%/*}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    C_STATUS=fail; C_DETAIL="redirects to '${loc:-nothing}', not to $asset of a $slug release"; return
+  fi
+  got="${got%%/*}"
+  if [ -z "$VERSION" ] || [ "$got" = "$VERSION" ]; then
+    C_STATUS=pass; C_DETAIL="serves v$got"
+  elif version_older "$got" "$VERSION"; then
+    C_STATUS=fail; C_DETAIL="serves v$got, want v$VERSION: is v$VERSION published and marked Latest?"
+  else
+    C_STATUS=pass; C_DETAIL="serves v$got, a later release than v$VERSION"
+  fi
+  [ "$C_STATUS" = pass ] || return 0
+  code="$(curl -s -I -m 20 -o /dev/null -w '%{http_code}' "$loc")" || code="000"
+  case "$code" in
+    200|302) ;;
+    *) C_STATUS=fail; C_DETAIL="the Latest release v$got has no $asset to download (HTTP $code)" ;;
+  esac
+}
+
+# fetch_site_pages: downloads every page in the check's `urls` (cache-busted) into
+# $SITE_PAGES/<n>.html. Returns 1 with C_STATUS/C_DETAIL set when one cannot be read.
+fetch_site_pages() {
+  local url code n=0
+  SITE_PAGES="$(mktemp -d "$WORK/site.XXXXXX")"
+  while IFS= read -r url; do
+    [ -n "$url" ] || continue
+    n=$((n + 1))
+    code="$(curl -s -L -m 30 -o "$SITE_PAGES/$n.html" -w '%{http_code}' "$url?ts=$(now_epoch)")" || code="000"
+    if [ "$code" != "200" ]; then
+      C_STATUS=fail; C_DETAIL="$url answered HTTP $code"; return 1
+    fi
+    printf '%s\n' "$url" >"$SITE_PAGES/$n.url"
+  done < <(jq -r '.urls // [] | .[]' <<<"$CHECK")
+  if [ "$n" -eq 0 ]; then
+    C_STATUS=fail; C_DETAIL="the check lists no urls"; return 1
+  fi
+  SITE_PAGE_COUNT="$n"
+}
+
+# site_latest_link: every listed page must offer the installer through the version-free latest
+# link and never through a link that names a release. A pinned link is what served an old build
+# from the website for days: it is only as new as the page's last build.
+check_site_latest_link() {
+  local slug asset n page pinned
+  slug="$(jq -r '.repo' <<<"$CHECK")"
+  asset="$(jq -r '.asset' <<<"$CHECK")"
+  fetch_site_pages || return 0
+  n=1
+  while [ "$n" -le "$SITE_PAGE_COUNT" ]; do
+    page="$(cat "$SITE_PAGES/$n.url")"
+    pinned="$(grep -oE "github\.com/$slug/releases/download/v[0-9.]+/$asset" "$SITE_PAGES/$n.html" | head -1 || true)"
+    if [ -n "$pinned" ]; then
+      C_STATUS=fail; C_DETAIL="$page pins the installer to a release ($pinned)"; return
+    fi
+    if ! grep -qF "github.com/$slug/releases/latest/download/$asset" "$SITE_PAGES/$n.html"; then
+      C_STATUS=fail; C_DETAIL="$page has no latest link to $asset"; return
+    fi
+    n=$((n + 1))
+  done
+  C_STATUS=pass; C_DETAIL="$SITE_PAGE_COUNT pages link $asset through releases/latest"
+}
+
+# site_release: what the listed pages have baked in (the version shown, and the Windows and Linux
+# links a visitor without JavaScript gets) must reach this release. The pages are rebuilt after
+# each release, and the Windows and Linux installers are attached to it later, so both get time:
+# pending inside `grace_minutes` of the files being ready (`desktop_grace_minutes` for the
+# installers to appear at all), fail after.
+check_site_release() {
+  local slug grace desktop_grace body published attached now age shown_mac="" shown_desktop="" n v page
+  if [ -z "$VERSION" ]; then
+    C_STATUS=skip; C_DETAIL="no release version"; return
+  fi
+  slug="$(jq -r '.repo' <<<"$CHECK")"
+  grace="$(jq -r '.grace_minutes // 30' <<<"$CHECK")"
+  desktop_grace="$(jq -r '.desktop_grace_minutes // 90' <<<"$CHECK")"
+  body="$(gh release view "v$VERSION" -R "$slug" --json publishedAt,assets 2>/dev/null)" || body=""
+  published="$(iso_epoch "$(jq -r '.publishedAt // empty' <<<"${body:-null}" 2>/dev/null)")"
+  if [ -z "$published" ]; then
+    C_STATUS=fail; C_DETAIL="cannot read release v$VERSION of $slug"; return
+  fi
+  attached="$(iso_epoch "$(jq -r --arg name "SpecWithCode-$VERSION-x64.exe" \
+    '[.assets[]? | select(.name == $name) | (.updatedAt // .createdAt // empty)] | first // empty' <<<"$body" 2>/dev/null)")"
+  fetch_site_pages || return 0
+  n=1
+  while [ "$n" -le "$SITE_PAGE_COUNT" ]; do
+    page="$(cat "$SITE_PAGES/$n.url")"
+    v="$(grep -oE '"softwareVersion": *"[0-9]+\.[0-9]+\.[0-9]+"' "$SITE_PAGES/$n.html" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | sort -V | head -1 || true)"
+    if [ -z "$v" ]; then
+      C_STATUS=fail; C_DETAIL="$page states no softwareVersion"; return
+    fi
+    if [ -z "$shown_mac" ] || version_older "$v" "$shown_mac"; then shown_mac="$v"; fi
+    v="$(grep -oE "github\.com/$slug/releases/download/v[0-9.]+/SpecWithCode-[0-9.]+-x64\.exe" "$SITE_PAGES/$n.html" \
+      | sed -E 's|.*/download/v([0-9.]+)/.*|\1|' | sort -V | head -1 || true)"
+    if [ -z "$v" ]; then
+      C_STATUS=fail; C_DETAIL="$page has no Windows installer link"; return
+    fi
+    if [ -z "$shown_desktop" ] || version_older "$v" "$shown_desktop"; then shown_desktop="$v"; fi
+    n=$((n + 1))
+  done
+  now="$(now_epoch)"
+  if version_older "$shown_mac" "$VERSION"; then
+    age=$(( (now - published) / 60 ))
+    if [ "$age" -lt "$grace" ]; then C_STATUS=pending; else C_STATUS=fail; fi
+    C_DETAIL="pages show Mac v$shown_mac, v$VERSION was published ${age} min ago (rebuild allowed ${grace} min)"; return
+  fi
+  if [ -z "$attached" ]; then
+    age=$(( (now - published) / 60 ))
+    if [ "$age" -lt "$desktop_grace" ]; then C_STATUS=pending; else C_STATUS=fail; fi
+    C_DETAIL="v$VERSION has no Windows and Linux installers ${age} min after publishing (allowed ${desktop_grace} min); pages link v$shown_desktop"; return
+  fi
+  if version_older "$shown_desktop" "$VERSION"; then
+    age=$(( (now - attached) / 60 ))
+    if [ "$age" -lt "$grace" ]; then C_STATUS=pending; else C_STATUS=fail; fi
+    C_DETAIL="pages link Windows and Linux v$shown_desktop, v$VERSION installers were attached ${age} min ago (rebuild allowed ${grace} min)"; return
+  fi
+  C_STATUS=pass; C_DETAIL="pages show Mac v$shown_mac and link Windows and Linux v$shown_desktop"
+}
+
 check_gh_run() {
   local slug wf branch body status conclusion url
   slug="$(jq -r '.repo' <<<"$CHECK")"
@@ -524,13 +671,16 @@ verify_track() {
     C_STATUS=skip
     C_DETAIL=""
     if [ "$quick" -eq 1 ]; then
-      case "$kind" in gh_run|gh_release|wrangler_deployments) continue ;; esac
+      case "$kind" in gh_run|gh_release|wrangler_deployments|site_release) continue ;; esac
     fi
     case "$kind" in
       npm_version) check_npm_version ;;
       gh_release) check_gh_release ;;
       http) check_http ;;
       latest_json) check_latest_json ;;
+      download_latest) check_download_latest ;;
+      site_latest_link) check_site_latest_link ;;
+      site_release) check_site_release ;;
       gh_run) check_gh_run ;;
       wrangler_deployments) check_wrangler_deployments ;;
       fleet_endpoint) check_fleet_endpoint ;;
