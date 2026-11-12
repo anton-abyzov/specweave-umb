@@ -1,13 +1,15 @@
 {
   "id": "1288-agent-project-creation-matches-the-dialog-machine-parent-folder-and-github",
   "uuid": "16033bfd-3c32-46fa-bf9f-36cb186f112c",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-10T23:56:43.975Z",
-  "updated": "2026-11-10T23:56:43.975Z",
-  "lastActivity": "2026-11-10T23:56:43.975Z",
+  "updated": "2026-11-12T21:47:08.513Z",
+  "lastActivity": "2026-11-12T21:47:08.513Z",
   "title": "Agent project creation matches the dialog: machine, parent folder and GitHub",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-12T21:47:08.512Z",
+  "approvedAt": "2026-11-12T21:47:08.513Z"
 }
