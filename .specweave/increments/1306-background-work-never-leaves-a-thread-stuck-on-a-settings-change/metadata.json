@@ -1,0 +1,12 @@
+{
+  "id": "1306-background-work-never-leaves-a-thread-stuck-on-a-settings-change",
+  "uuid": "01e99975-3161-44e3-962a-6999450d2e19",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-12T04:02:25.228Z",
+  "updated": "2026-11-12T04:35:17.165Z",
+  "lastActivity": "2026-11-12T04:35:17.165Z",
+  "title": "Background work never leaves a thread stuck on a settings change",
+  "project": "specweave-umb"
+}
