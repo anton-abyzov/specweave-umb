@@ -5,3 +5,7 @@
 {"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-12T18:20:09.076Z","evidence":"vp test run src/vcs/GitVcsDriverCore.test.ts -> 163 tests passed; the halfway test fails with the fix disabled; commit 2cdfe1de96 on PR 243\nHEAD 7a2204f0b","model":"opus[1m]"}
 {"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-12T18:49:23.186Z","model":"opus[1m]"}
 {"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-12T18:49:23.187Z","evidence":"gh pr view 243 --repo anton-abyzov/specwithcode --json state --jq .state → exit 0\nlog: .specweave/increments/1311-handoff-follows-the-use-worktrees-switch-and-a-half-removed-worktree-folder-gets-finished/reports/task-T-03.txt\nMERGED\n915c196aba\nHEAD 7a2204f0b","model":"opus[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-12T19:57:06.838Z","model":"opus[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-12T19:57:08.227Z","evidence":"specweave-studio --version → exit 0\nlog: .specweave/increments/1311-handoff-follows-the-use-worktrees-switch-and-a-half-removed-worktree-folder-gets-finished/reports/task-T-04.txt\nspecweave-studio v1.0.262\n915c196aba\nHEAD 86c327a32","model":"opus[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-12T19:57:19.650Z","model":"opus[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-12T20:15:38.788Z","evidence":"915c196aba\nHEAD 86c327a32","model":"opus[1m]"}
