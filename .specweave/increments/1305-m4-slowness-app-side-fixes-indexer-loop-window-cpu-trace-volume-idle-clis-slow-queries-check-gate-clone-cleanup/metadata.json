@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-12T02:28:18.214Z",
-  "updated": "2026-11-12T03:14:33.993Z",
-  "lastActivity": "2026-11-12T03:14:33.993Z",
+  "updated": "2026-11-12T05:10:04.764Z",
+  "lastActivity": "2026-11-12T05:10:04.764Z",
   "title": "M4 slowness: app-side fixes (indexer loop, window CPU, trace volume, idle CLIs, slow queries, check gate, clone cleanup)",
   "project": "specweave-umb"
 }
