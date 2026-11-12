@@ -74,6 +74,12 @@ Out:
 - [ ] AC-08: Settings > Notifications says "Shown on the device you are using. Your other computers show a badge." The notification test button still posts on the device it is pressed on.
 - [ ] AC-09: Phone pushes are unchanged. No change in `apps/server/src/relay/`, `infra/relay/` or `apps/mobile`, and the relay tests pass.
 - [ ] AC-10: Unit tests cover the election order and ties. Coordinator tests cover target, non-target, old server, timeout and fenced cases. A two-server headless proof shows exactly one OS-notification call across two apps for one question, plus the switch after interaction on the other device.
+- [ ] AC-11 (from 1304 D-10): A blocker or "needs you" item has one owner machine: the machine of the coordinator that launched its thread (a remote worker known to that coordinator), else the thread's `ownerMachineId`, else the machine that serves it. One pure function decides it, with tests for a local thread, a handed-off thread and a remote worker.
+- [ ] AC-12 (from 1304 D-10): An app raises an item, meaning it counts it in the sidebar project badge, the project page count and the Overview "Needs you" count and list, only when (a) its own machine is the item's owner, or (b) it is the `notificationTarget` of the server that serves the thread. With one person this is one app; the owner's app always counts its own.
+- [ ] AC-13 (from 1304 D-10): An item an app does not raise stays visible in place: its row keeps "Blocked", "Answer needed" or the approval word in the Threads pane, the chat list (the "Needs you" filter still finds it) and the open thread, with its machine named. Overview shows one quiet line under "Needs you", "N more on <machine>, in use there", which scopes Overview to that machine. Nothing is hidden.
+- [ ] AC-14 (from 1304 D-10, amends AC-04 and the Minisforum line of AC-07): An app that is neither the target nor the owner machine's app adds no dock, taskbar or favicon badge entry for the item. The target app and the owner machine's app badge. Popups and sound stay with the target alone.
+- [ ] AC-15 (from 1304 D-10): Never hide on doubt. When the serving machine is too old to return `notificationTarget`, the read fails or times out, or the target is `null`, every app counts and badges the item as it does today. An item whose owner machine is unreachable from this app is raised here.
+- [ ] AC-16 (from 1304 D-10): The phone is unchanged. Tests cover the raise rule (owner, target, neither, unknown target, unreachable owner), and the two-server proof shows one question counted in one app's sidebar badge and Overview while both apps still show its row.
 
 ## Approach
 
@@ -99,6 +105,7 @@ Risks:
 
 ### Asked
 - D-01 Where should desktop popups show? Only on the device the user is active on: the thread's owner machine when it is in use, otherwise the most recently active device. Other machines badge, and the phone stays as configured (user).
+- D-07 Where should a thread's blocker show (asked in increment 1304 as its D-10, November 12, 2026)? One owner, counted once: it stays visible wherever the thread is opened, with its machine named; only the owner machine's app raises badges and "Needs you"; another app does only when the owner has nobody in front of it; the phone is unchanged (user). This narrows D-01's "other machines badge" to the owner machine's app (AC-14). The coordinator routed the count gate here so badges and popups read one election; the rule and the surfaces with their file lines are in `.specweave/increments/1304-force-update-setting-for-busy-machines-and-blockers-shown-only-on-the-machine-they-belong-to/reports/blocker-count-gate.md`.
 ### Defaulted (change any before sw-do)
 - D-02 The election runs on the thread's own server from existing activity leases, with no new presence service (reversible).
 - D-03 A foreground phone suppresses desktop popups but never takes over the "recent" slot once backgrounded, because a phone that has notifications off must not swallow every desktop popup (reversible).
@@ -124,3 +131,9 @@ Risks:
 
 ### T-05 Two-server proof and phone non-regression
 - AC: AC-07, AC-09, AC-10 | Files: scripts/studio-logical-projects/notify-active.mjs, docs/studio/logical-projects.md | Test: `node scripts/studio-logical-projects/notify-active.mjs && npx vitest run infra/relay`
+
+### T-06 Owner machine and the raise rule
+- AC: AC-11, AC-12, AC-15 | Files: packages/client-runtime/src/state/attentionOwner.ts, packages/client-runtime/src/state/attentionOwner.test.ts, packages/client-runtime/src/state/projectAttention.ts, apps/web/src/notificationTarget.ts | Test: `npx vitest run packages/client-runtime/src/state/attentionOwner.test.ts packages/client-runtime/src/state/projectAttention.test.ts`
+
+### T-07 Counts and badges follow the raise rule; rows stay in place
+- AC: AC-12, AC-13, AC-14, AC-16 | Files: apps/web/src/studio/useProjectAttention.ts, apps/web/src/components/studio/shell/StudioSidebar.tsx, apps/web/src/components/studio/StudioOverview.tsx, apps/web/src/studio/overviewModel.ts, apps/web/src/components/ThreadNotificationCoordinator.tsx, apps/web/tests/project-workspace/attention-fixture.tsx, scripts/studio-logical-projects/notify-active.mjs | Test: `npx vitest run apps/web/src/studio && node scripts/studio-logical-projects/notify-active.mjs`

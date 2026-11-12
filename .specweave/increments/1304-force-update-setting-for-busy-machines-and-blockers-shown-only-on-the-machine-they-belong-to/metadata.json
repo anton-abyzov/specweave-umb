@@ -1,0 +1,12 @@
+{
+  "id": "1304-force-update-setting-for-busy-machines-and-blockers-shown-only-on-the-machine-they-belong-to",
+  "uuid": "66b164f1-5510-4b5f-905c-a76f72eb7f7b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-12T00:49:30.251Z",
+  "updated": "2026-11-12T00:49:30.251Z",
+  "lastActivity": "2026-11-12T00:49:30.251Z",
+  "title": "Force-update setting for busy machines, and blockers shown only on the machine they belong to",
+  "project": "specweave-umb"
+}
