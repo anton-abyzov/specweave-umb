@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-12T18:20:08.919Z","note":"session d5e2fc39-62fd-4f9f-b8d6-5d748032fc1b","model":"opus[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-12T18:20:08.922Z","model":"opus[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-12T18:20:08.924Z","evidence":"scratch copy of main at 1ade7fa72d: vp test run src/handoff/ -> 16 files, 188 tests passed; commit 2cdfe1de96 on PR 243\nHEAD 7a2204f0b","model":"opus[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-12T18:20:09.074Z","model":"opus[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-12T18:20:09.076Z","evidence":"vp test run src/vcs/GitVcsDriverCore.test.ts -> 163 tests passed; the halfway test fails with the fix disabled; commit 2cdfe1de96 on PR 243\nHEAD 7a2204f0b","model":"opus[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-12T18:49:23.186Z","model":"opus[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-12T18:49:23.187Z","evidence":"gh pr view 243 --repo anton-abyzov/specwithcode --json state --jq .state → exit 0\nlog: .specweave/increments/1311-handoff-follows-the-use-worktrees-switch-and-a-half-removed-worktree-folder-gets-finished/reports/task-T-03.txt\nMERGED\n915c196aba\nHEAD 7a2204f0b","model":"opus[1m]"}

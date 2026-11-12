@@ -127,8 +127,20 @@ Risks: the agent edits a project-folder clone instead of adding it (notice plus 
 - D-22 Where a clone is specified, one answer per case, no new setting: a new project from a URL names the URL and the folder in Add project; a repository added to an existing project names both in Environment > "Add a repository that is not in this folder" (AC-17); another machine clones the project folder's own remote and then each repository in the folder from its own remote (`addToMachine.ts`, `ProjectRepositoryPresence.ts`), so nobody lists them twice. A worktree is never a clone (AC-21).
 - D-23 The specweave project's switch stays on. It was turned on by hand on November 7, 2026 (the coordinator told a blocked worker at 06:27 UTC "Anton turned on Use worktrees for all projects"), when the project folder was the single repository `repositories/anton-abyzov/specweave`, where on is the recommendation. The folder moved to the umbrella on November 11 and the switch was not re-evaluated, because nothing does that today (AC-30 closes it). No agent can write this value: `studio_project_update` writes a different field, which is empty for this project, and new-project seeding came after the project was created. Settings changes keep no history, so the click itself is not on record. After this increment "on" is the recommendation for this folder (AC-25).
 - D-24 Until this increment ships, on in an umbrella means: a thread for an increment gets a worktree of each repository it changes, any other thread works in the project folder, and the composer's "Use worktree" still cuts a worktree of the umbrella with no child code. The row's "Recommended here: off" text describes only that last case.
+- D-25 Use worktrees is off for the specweave project (Anton, November 12, 2026, after this shipped: "we should turn off the work trees, I believe, for this project"). This replaces D-23 for this project only; the switch is still the person's choice per project (D-21), and the General row keeps offering "Use recommended" (AC-31). D-18 holds for the product: worktrees stay a feature. Two gaps found the same day are follow-up work, not part of this increment: a handoff taken over from another machine lands in a new worktree even when the project's switch is off, and a worktree removal that stops halfway leaves its folder behind.
 ### Open
 - none
+
+## Closing review (2026-11-12)
+
+Fresh-context read of PR 196 (merge 34a2dbdf70): ship, no critical or high defect. The two gaps named in D-25 are increment 1311. Left as follow-up work, none of it data loss:
+
+- The agent's add-repository tool and the person's "Add repository" hold different locks (`mcp/WorktreeMcpService.ts`, `project/ThreadRepositories.ts`), so two adds to one thread at the same moment can lose a manifest entry; the worktree then exists but cleanup does not know it.
+- `resolveWorktreeSetRepositories` (`git/worktreeSetGit.ts`) resolves names without `realpath`, so a link to a clone already found passes as a second repository until `createWorktree` refuses it.
+- `originDefaultBranch` reads only the loose `refs/remotes/origin/HEAD`; with packed refs it falls back to `main` or `master`.
+- `workspaceStrategy {type:"existing_worktree", repository}` still accepts saved ids only (`mcp/toolkits/project/handlers.ts`), not the new names (AC-01 covers the other launch paths).
+- The project-context listing of found repositories is skipped for a project with no goal, instructions, files or saved folders (`project/ProjectWorkspaceService.ts`); the launch notice and `studio_environment_read` list them.
+- The manual-worktree guard covers `sh` and Git Bash only on Windows, not cmd.exe or PowerShell (AC-23; the code comment says so).
 
 ## Tasks
 

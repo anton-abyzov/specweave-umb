@@ -55,6 +55,16 @@ Risks: an older server sends neither reasons nor outcomes, so every new message 
 ### Open
 - none
 
+## Review items with no AC yet
+
+From the 2026-11-10 New project review (code read on the 1272 branch; the report file is no longer kept). Not checked in the app at HEAD. Whoever picks this increment up either adds an AC and a task for each, or drops it with a reason.
+
+- Checkbox tick is low contrast in both themes (seen in the fixture; check once in the app).
+- The name field carries a magnifier icon because the dialog reuses the command palette, so it reads as search.
+- Create is an outline button while the hand-off dialog uses a filled primary; the main action is the quietest control.
+- At 390 px the footer's "Navigate" and "Esc Close" hints mean nothing on touch and cover the Options heading until scrolled.
+- Folder copy for a non-Git folder leaves out anything named like build output (`out`, `build`, `bin`, `dist`) by default and shows only a count (`apps/server/src/fleet/folderTransfer/classify.ts`). Belongs with 1285 if that increment owns folder copy.
+
 ## Tasks
 
 ### T-01 Contracts: create error reasons, browse permission error, folder outcome
