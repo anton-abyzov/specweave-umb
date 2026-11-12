@@ -1,0 +1,13 @@
+{
+  "id": "1312-duo-coordinator-beside-thread",
+  "uuid": "50781f99-6e0e-4a30-a912-2914421f3298",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T23:40:27.708Z",
+  "updated": "2026-11-10T18:04:31.654Z",
+  "lastActivity": "2026-11-10T18:04:31.654Z",
+  "title": "Duo coordinator beside thread",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

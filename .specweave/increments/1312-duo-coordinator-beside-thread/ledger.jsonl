@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@ministorm","at":"2026-11-02T23:44:46.986Z","note":"session 9ac74fef-11a2-4713-98bc-d32db77be785","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@ministorm","at":"2026-11-02T23:44:46.987Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@ministorm","at":"2026-11-02T23:44:46.988Z","evidence":"PR 1232, run 41547466914: swift test 559 passed\nHEAD 79ba4c664","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@ministorm","at":"2026-11-03T02:12:31.923Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@ministorm","at":"2026-11-03T02:12:31.924Z","evidence":"Run 41563809559: new test passes on Duo simulator; 2 failures identical on base 6579f97914. Tap flow not exercised.\nHEAD bef988624","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@minisforum","at":"2026-11-10T18:04:31.652Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@minisforum","at":"2026-11-10T18:04:31.654Z","evidence":"Build 38 (0.1.5) from anton-abyzov/specwithcode main 9c8ba5a, which contains the layout (1.0.169) and the final review fixes (1.0.177), installed on the iPhone Duo 00008160-00166C840A80000A by M4 on November 9, 2026; device reported com.specwithcode.ios 0.1.5 38 and launched\nHEAD 06b2da725","model":"claude-opus-5-5[1m]"}
