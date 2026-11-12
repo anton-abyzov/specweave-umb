@@ -23,9 +23,29 @@ Why it is unclear:
 - **No choice of how it answers.** A call always reads the answer aloud. There is no way to talk and get text back.
 - **Settings are in three places.** The dialog behind the waveform, and three rows in Settings > General (`SettingsPanels.tsx:2604`, `DictationSettings.tsx`).
 
+### Added November 12, 2026: recognition on Linux, and our own words
+
+Anton: "Also, make sure to research and improve dictation and calls, especially on Linux. It's not working well. You could research the logs, find out the reason, and address it. Think about using a dictionary if you could access it on this machine for this flow. The dictionary of words is specific to our language."
+
+Measured on the Minisforum (deb 1.0.245, whisper.cpp v1.9.5 with `ggml-small-q5_1`, 8 threads, USB microphone) in three rounds through a launched thread. Nothing was broken: every speech file was present, no library was missing, the microphone level was healthy and no voice process had crashed. The faults are in how the engine is driven. The report and test recordings are on that machine in `~/.specwithcode/evidence/voice-linux-20261112/`.
+
+| Finding | Evidence |
+|---|---|
+| Sounds that are not speech come back as fluent sentences | Typing returned "We are going to be working on a new project, which is going to be a little bit more interesting."; a breath "You can also use the same tool to create a new project."; silence, a hum and a thump "you"; two clicks "Thank you for watching." In a call each of these is sent to the coordinator as a message. |
+| Whisper's own confidence cannot tell them apart | Mean token probability: "you" on silence 0.907, an invented sentence 0.833, the real word "Okay." 0.569. |
+| The language is detected on every phrase | Calls always ran `-l auto`, and dictation did unless a language was chosen; the Minisforum has none chosen. Detection runs the encoder twice: 3.0 to 3.4 s a phrase against 1.7 to 2.0 s with `-l en`. With no hint, faint noise returned Georgian characters. |
+| A short phrase is encoded as 30 seconds | The encoder took 1.4 s whether the recording was 0.85 s or 3.96 s, 70 to 80% of the total. Sizing the window to the recording (`-ac 512`) gave 0.74 to 0.94 s with identical text. |
+| Product words are misheard, and the vocabulary did not help | "SpecWithCode" became "spec with code" and "worktree" "work tree" under every hint tried; "SpecWeave" became "spec we" and "Minisforum" "Minus Forum" without one. The list on both machines is 352 terms copied from Wispr Flow on November 3, in Wispr's order and casing. The 500 characters Whisper can take from it start with "stdio, azurite, Rotbart" and hold none of SpecWithCode's own words in their spelling; it has `specwithcode` and `specweave` in lowercase and no Fable, Devin, worktree, increment or coordinator. |
+| The correction pass enforced the list's casing | A lowercase `claude` in the list rewrote a correctly heard "Claude" to "claude". |
+| Nothing was logged | The desktop trace had only the IPC span of each request, always `Success`, with no engine, language, duration, level or failure cause. `runHelper` discards the cause by design, because a helper's error quotes the command line. |
+
+What already exists on the M4: Wispr Flow's dictionary (378 live entries, the source of the 352), four generic macOS text replacements (nothing of ours), and no vocabulary in project memory.
+
 ## Scope
 
 In: the web and desktop app (`apps/web`, `packages/client-runtime`, `packages/contracts`) on macOS and Linux, where voice exists today. Named Dictate and Call controls with explanatory tips. Dictation with no in-app setup. A Call card with a one-line explanation and the answer choice. A Settings > Voice page that replaces the Voice dialog and the General rows. An answer mode (text only, voice and text, voice). A pronunciation list. A headless fixture with light and dark captures.
+
+Also in (added November 12, 2026): speech recognition quality and speed in the Linux app, a built-in product vocabulary on both platforms, and voice diagnostics in the desktop trace (`apps/desktop/src/voice`, `apps/desktop/src/ipc/methods/voice.ts`). This part ships first, in its own pull request, because it touches none of the composer files 1284 and 1294 hold.
 
 Out: voice on Windows, browsers and phones (still no controls). Calls in thread composers. Reading typed-chat replies aloud. A new speech engine, new languages or streaming speech. The desktop microphone gate (`apps/desktop/src/voice/voicePermission.ts`). ElevenLabs model, speed and voice-library browsing. Mobile and iOS apps.
 
@@ -43,7 +63,28 @@ Out: voice on Windows, browsers and phones (still no controls). Calls in thread 
 - [ ] AC-10: A "Say it like this" list of `written => spoken` lines changes how those words are read aloud by either voice, matching whole words without regard to case. It never changes the text in the chat or what dictation writes.
 - [ ] AC-11: A headless fixture renders the composer controls (wide and narrow), both tips, the dictation strip, the Call card (ready and ElevenLabs incomplete) and the Voice page in light and dark, with no clipped or overflowing element, every control reachable by keyboard, and no contrast or accessible-name violation in an axe run. Captures are saved to this increment's `reports/`.
 
+- [ ] AC-12: On Linux a recording with no speech in it (typing, a breath, a hum, a click, silence) writes nothing into the message box and sends nothing in a call. A speech detector hears each recording before Whisper; it is one more pinned, hash-checked speech file, and voice still works when it is missing.
+- [ ] AC-13: Dictation and calls on Linux listen in the language chosen in Settings, or the computer's language when none is chosen, instead of detecting it on every phrase. "Detect from speech" is an explicit choice in the Dictation language list, on Linux only, and says it is slower.
+- [ ] AC-14: On Linux the encoder window is sized to the recording, so a phrase of a few seconds returns in about a second on the Minisforum instead of two to three and a half, with the same text.
+- [ ] AC-15: The product's own words (SpecWithCode, SpecWeave, worktree, increment, coordinator, Claude Code, Codex and the like) are recognized on a new install with an empty list, on macOS and Linux: they lead the recognizer's hint and run in the correction pass, so "spec with code" is written "SpecWithCode" and "work tree" "worktree".
+- [ ] AC-16: The person's own list stays editable in Voice settings and wins over a built-in word when it says something (a replacement, or its own capitals). An all-lowercase copy of a product word does not undo the product's spelling, and a lowercase term never lowercases an ordinary capital ("Kubernetes" stays). The editor shows the built-in words, read-only.
+- [ ] AC-17: Stock text Whisper invents (a lone "you", sound tags, video sign-offs), text in another alphabet than the chosen language, and anything from a recording with no speech level are dropped; a recording with no speech level never reaches the engine.
+- [ ] AC-18: Each phrase and each spoken reply records engine, language, audio length, level, engine time, outcome and, on failure, a cause that never quotes the command line, on its span in the desktop trace. The words and the audio are never written.
+
 ## Approach
+
+Recognition on Linux and the vocabulary (pull request first, files under `apps/desktop/src/voice` and `apps/desktop/src/ipc/methods/voice.ts`):
+
+- **Speech detector.** whisper.cpp already carries Silero voice activity detection (`--vad --vad-model`). The model (`ggml-silero-v5.1.2.bin`, 885,098 bytes, pinned to a Hugging Face commit and a SHA-256) joins the speech files. On the Minisforum it returned nothing for all eight non-speech recordings in 0.17 s each and the same text for every speech recording, including quiet speech and speech in noise, at thresholds 0.3, 0.5 and 0.7. It is optional at run time: an install without it recognizes speech as before and is asked for it at the next setup.
+- **Language.** The desktop passes the chosen language, else the system locale, to `whisper-cli -l`. `und` (BCP 47 "undetermined") in the dictation language setting means detect; a language the model does not know also falls back to detection instead of failing. Calls read the same setting as dictation.
+- **Encoder window.** `-ac max(512, ceil(seconds x 50) + 128)`, and the full window from 27 seconds up. Measured identical text on recordings of 0.85 to 24.6 s, with and without the detector.
+- **Vocabulary.** `productVocabulary.ts` holds the built-in terms: plain terms, `heard => written` pairs for known mishearings, and hint-only terms for words that are also ordinary ones (increment, fable). `withProductVocabulary` puts them ahead of the person's list, which is the order the hint is cut in, and resolves a clash by what the person's line says. Hints raise the odds of a word; the correction pass is what guarantees the spelling, and it is where "spec with code" and "work tree" are fixed, since no hint fixed them.
+- **What is dropped.** `judgeTranscript` returns the text and a reason (`quiet`, `invented`, `script`, `echo`) for the trace.
+- **Diagnostics.** Attributes on the request's own span (`voice.engine`, `voice.language`, `voice.audioMs`, `voice.peak`, `voice.engineMs`, `voice.outcome`, `voice.characters`, `voice.hintCharacters`, `voice.error`).
+
+Rejected for this part: gating on Whisper's token probability (it does not separate speech from noise, see the table); greedy decoding (0.1 to 0.3 s faster, and beam search is worth more on real speech); a longer or reworded hint (three wordings gave the same misses); a bigger model (none on disk to measure, and the time budget is already the complaint); rewriting Anton's own list in place (the built-in words and the casing rules fix what it broke, and the list stays his).
+
+The composer and settings redesign:
 
 Mockups (static HTML, not app code) and headless captures are in `reports/mockups/`, each as `-light.png` and `-dark.png`:
 
@@ -86,6 +127,11 @@ Risks: removing the in-app dialog changes what 1192 AC-05 promised (see D-01). O
 - D-08 The answer mode and the pronunciation list are stored in the server's `settings.voice`, one value per machine for every project, like the rest of the reply voice. Dictation language and mode stay client settings (reversible).
 - D-09 `voiceCallsAllowed` is no longer read. The key stays in the schema so older clients still decode settings (reversible).
 
+- D-10 With no language chosen, Linux listens in the computer's language instead of detecting one. This amends 1261 AC-06 ("with System it stays auto"): detection cost half again as long on every phrase and let noise come back in other alphabets. Someone who dictates in more than one language picks "Detect from speech" or a language (reversible, a setting).
+- D-11 The speech detector is one more downloaded speech file, not bundled in the package. An install set up before it is asked once for a 1 MB download by the dialog it already knows; if that fails, voice works without it and asks again. Alternative: bundle it with `whisper-cli` at build time (reversible).
+- D-12 The built-in list holds only words the product itself uses, since it ships in a public repository. Words of one person's own (EasyChamp, Minisforum, "Devon => Devin") belong in their list.
+- D-13 A lowercase term in the list never lowercases an ordinary capital, and an all-lowercase copy of a product word loses to the product's spelling. This changes what an imported list does today, on purpose (reversible in `vocabulary.ts`).
+
 ### Open
 - none
 
@@ -106,5 +152,11 @@ Risks: removing the in-app dialog changes what 1192 AC-05 promised (see D-01). O
 ### T-05 Headless fixture, light and dark captures
 - AC: AC-11 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/tests/voice-ux/index.html, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/voice-ux/main.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/voice-ux/mocks.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/voice-ux/vite.config.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/voice-ux/verify.mjs, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/coordinator-call-readiness/mocks.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/coordinator-call-readiness/verify.mjs, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/dictation-shortcut/mocks.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/dictation-shortcut/verify.mjs, repositories/anton-abyzov/specwithcode-dev/AGENTS.md | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp build --config apps/web/tests/voice-ux/vite.config.ts && node apps/web/tests/voice-ux/verify.mjs ../../../.specweave/increments/1300-clear-voice-controls-dictate-and-call-say-what-they-do-dictation-needs-no-setup-reply-voice-settings-reframed/reports/fixture
 
+### T-07 Linux recognition: speech detector, language, encoder window, diagnostics
+- AC: AC-12, AC-13, AC-14, AC-17, AC-18 | Files: repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/voice/linuxSpeech.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/voice/linuxSpeech.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/voice/vocabulary.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/voice/vocabulary.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/ipc/methods/voice.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/VoiceCall.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/VoiceCall.test.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/DictationSettings.tsx, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/desktopVoice.ts, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/settings.ts, repositories/anton-abyzov/specwithcode-dev/docs/voice-calls.md | Test: cd repositories/anton-abyzov/specwithcode-dev/apps/desktop && node ../../node_modules/vite-plus/bin/vp test run src/voice && cd ../web && node ../../node_modules/vite-plus/bin/vp test run src/components/studio/VoiceCall.test.tsx src/components/studio/VoiceDictation.test.tsx
+
+### T-08 Product vocabulary ahead of the person's list, shown in the editor
+- AC: AC-15, AC-16 | Files: repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/voice/productVocabulary.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/voice/vocabulary.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/voice/vocabulary.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/ipc/methods/voice.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/VoiceSettings.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/voice-vocabulary/index.html, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/voice-vocabulary/main.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/voice-vocabulary/mocks.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/voice-vocabulary/fixture.css, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/voice-vocabulary/vite.config.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/voice-vocabulary/verify.mjs | Test: cd repositories/anton-abyzov/specwithcode-dev/apps/desktop && node ../../node_modules/vite-plus/bin/vp test run src/voice/vocabulary.test.ts
+
 ### T-06 Verify and close 1300
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11 | Files: .specweave/increments/1300-clear-voice-controls-dictate-and-call-say-what-they-do-dictation-needs-no-setup-reply-voice-settings-reframed/spec.md | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/typescript/bin/tsc --noEmit --project apps/web/tsconfig.json && cd apps/web && node ../../node_modules/vite-plus/bin/vp build
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11, AC-12, AC-13, AC-14, AC-15, AC-16, AC-17, AC-18 | Files: .specweave/increments/1300-clear-voice-controls-dictate-and-call-say-what-they-do-dictation-needs-no-setup-reply-voice-settings-reframed/spec.md | Test: cd repositories/anton-abyzov/specwithcode-dev && node node_modules/typescript/bin/tsc --noEmit --project apps/web/tsconfig.json && cd apps/web && node ../../node_modules/vite-plus/bin/vp build
