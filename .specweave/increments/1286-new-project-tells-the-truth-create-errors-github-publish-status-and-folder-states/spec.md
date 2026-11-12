@@ -65,6 +65,14 @@ From the 2026-11-10 New project review (code read on the 1272 branch; the report
 - At 390 px the footer's "Navigate" and "Esc Close" hints mean nothing on touch and cover the Options heading until scrolled.
 - Folder copy for a non-Git folder leaves out anything named like build output (`out`, `build`, `bin`, `dist`) by default and shows only a count (`apps/server/src/fleet/folderTransfer/classify.ts`). Belongs with 1285 if that increment owns folder copy.
 
+## Review items with no AC yet (decided 2026-11-12)
+
+- Name field magnifier: replaced with a folder icon in the New project form.
+- Create as filled primary: dropped. `ProjectCreationAction.tsx` already renders a filled primary button; only the fixture's stand-in was outline.
+- Footer "Navigate" and "Esc Close" hints: hidden below the small breakpoint in form mode.
+- Checkbox tick contrast: fixed; the tick now uses the primary foreground color in both themes.
+- Folder copy build-output names: handled in 1285 (the agent copy lists left-out rebuildable folders for non-Git folders).
+
 ## Tasks
 
 ### T-01 Contracts: create error reasons, browse permission error, folder outcome

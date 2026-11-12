@@ -22,7 +22,7 @@ Out: SpecWeave setup on this route (1275); public repositories; creating on a ma
 - [ ] AC-01: `studio_project_create {title, parentPath}` creates `<parentPath>/<slug>` with git init, README and a first commit, exactly as the dialog does, and returns the final path including any `-2` suffix. Without `parentPath` it uses the machine's suggested projects folder (`suggestedProjectsRoot`), not managed storage.
 - [ ] AC-02: `studio_project_create {machine}` creates the project on that fleet machine through the existing remote MCP client, subject to the same grant checks as `studio_project_add_to_machine`. The result names the machine and the project id there.
 - [ ] AC-03: A project created on another machine is usable at once from the caller: the tool result includes the call that starts a thread there, and that call works without a further add or link step.
-- [ ] AC-04: `github: true` (or `{account}`) publishes a private repository after the first commit using that machine's GitHub sign-in. The result reports `published`, `remote_added` or the failure reason; a publish failure does not fail the create.
+- [ ] AC-04: `github: true` (or `{account}`) publishes a private repository after the first commit using that machine's GitHub sign-in. The result reports `published`, `remote_added` or the failure reason; a publish failure does not fail the create. (On another machine `github` is refused before anything is sent: see D-04.)
 - [ ] AC-05: Calling it for a folder that is already a registered project returns that project with `existing: true` and creates nothing.
 - [ ] AC-06: Refusals name the fix: unknown or offline machine, grant missing or limited to some projects, parent folder missing or denied, older SpecWithCode on the target ("update SpecWithCode on <machine>").
 - [ ] AC-07: Calls with only `title` or `workspaceRoot` that work today keep working, except the default location in AC-01; `handlers.test.ts` cases for create pass with that one change.
@@ -51,6 +51,9 @@ Risks: changing the default location for title-only calls moves where agents' pr
 - D-01 Title-only creates go to the suggested projects folder, as in the dialog.
 - D-02 GitHub repositories are private only.
 - D-03 A remote create does not make a local copy or a link.
+### Defaulted after review (2026-11-12)
+- D-04 A create on another machine takes `parentPath`, under a grant that covers all projects there (denied-folder checks apply, and a parent that already is or holds a project is refused). `github` stays with that machine's user, because publishing uses its own GitHub sign-in; the caller is told before anything is sent.
+
 ### Open
 - none
 

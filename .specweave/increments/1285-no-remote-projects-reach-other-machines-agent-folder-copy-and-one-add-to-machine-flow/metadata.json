@@ -1,13 +1,15 @@
 {
   "id": "1285-no-remote-projects-reach-other-machines-agent-folder-copy-and-one-add-to-machine-flow",
   "uuid": "6347f68c-8bda-43ee-be25-9b423a7a4190",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-10T23:56:41.513Z",
-  "updated": "2026-11-10T23:56:41.513Z",
-  "lastActivity": "2026-11-10T23:56:41.513Z",
+  "updated": "2026-11-12T21:47:04.927Z",
+  "lastActivity": "2026-11-12T21:47:04.927Z",
   "title": "No-remote projects reach other machines: agent folder copy and one Add to machine flow",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-12T21:47:04.925Z",
+  "approvedAt": "2026-11-12T21:47:04.927Z"
 }
