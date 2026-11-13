@@ -58,5 +58,5 @@ Rejected filters:
 ### T-03 Headless visual check
 - AC: AC-08 | Files: apps/web/tests/project-workspace/thread-filter-check.mjs, apps/web/tests/project-workspace/machine-column-check.mjs | Test: node apps/web/tests/project-workspace/thread-filter-check.mjs
 
-### T-04 Verify and close 1313
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08 | Files: none | Test: specweave verify 1313
+### T-04 Verify and close 1320
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08 | Files: none | Test: specweave verify 1320
