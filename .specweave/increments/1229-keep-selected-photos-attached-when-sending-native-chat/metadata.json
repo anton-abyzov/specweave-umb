@@ -1,15 +1,17 @@
 {
   "id": "1229-keep-selected-photos-attached-when-sending-native-chat",
   "uuid": "7c660bc4-aef2-4053-9e19-3184a672bd35",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-03T23:46:21.712Z",
-  "updated": "2026-11-03T23:50:40.209Z",
-  "lastActivity": "2026-11-03T23:50:40.209Z",
+  "updated": "2026-11-13T23:29:55.382Z",
+  "lastActivity": "2026-11-13T23:29:55.382Z",
   "title": "Keep selected photos attached when sending native chat",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-13T23:29:55.379Z",
+  "approvedAt": "2026-11-13T23:29:55.382Z"
 }
