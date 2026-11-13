@@ -1,0 +1,12 @@
+{
+  "id": "1317-personal-assistant-is-named-percy-everywhere-not-aide",
+  "uuid": "77379403-77b6-4a90-823f-f938863c5a65",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-13T06:49:06.318Z",
+  "updated": "2026-11-13T09:15:29.870Z",
+  "lastActivity": "2026-11-13T09:15:29.870Z",
+  "title": "Personal assistant is named Percy everywhere, not Aide",
+  "project": "specweave-umb"
+}
