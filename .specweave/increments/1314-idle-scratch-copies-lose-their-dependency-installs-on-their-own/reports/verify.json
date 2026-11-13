@@ -3,7 +3,7 @@
   "strictClose": {
     "errors": []
   },
-  "ranAt": "2026-11-13T07:50:16.618Z",
+  "ranAt": "2026-11-13T19:10:23.508Z",
   "increment": "1314-idle-scratch-copies-lose-their-dependency-installs-on-their-own",
   "commands": [
     {
@@ -26,13 +26,13 @@
     },
     {
       "cmd": "npm run verify:pr -- --jobs 1 --no-server",
-      "exit": 143,
+      "exit": 0,
       "cwd": "repositories/anton-abyzov/specwithcode-dev",
       "source": "config testing.ownerCommands"
     },
     {
       "cmd": "npm run test:server:sharded -- --shards 6 --out \"$(mktemp -d)\"",
-      "exit": 143,
+      "exit": 1,
       "cwd": "repositories/anton-abyzov/specwithcode-dev",
       "source": "config testing.ownerCommands"
     }
@@ -54,7 +54,7 @@
           },
           {
             "id": "T-04",
-            "status": "open"
+            "status": "claimed"
           }
         ],
         "acceptance": "open",
