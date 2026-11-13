@@ -1,0 +1,49 @@
+$ cd ~/.specwithcode/m4/verify/specwithcode && specweave-studio checks run -- ~/.specwithcode/m4/scratch/2026-11-12-restart-list/run-gated.sh "cd apps/web && npx vp test run --project unit src/components/sidebar/RestartRunningWorkList.test.tsx"
+# exit 0 — 2026-11-12T20:42:52.553Z
+
+Warning: Route file "/Users/antonabyzov/.specwithcode/m4/verify/specwithcode/apps/web/src/routes/projectReturnRoute.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "/Users/antonabyzov/.specwithcode/m4/verify/specwithcode/apps/web/src/routes/-projectReturnRoute.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.1 [39m[90m/Users/antonabyzov/.specwithcode/m4/verify/specwithcode/apps/web[39m
+
+[90mstderr[2m | src/components/sidebar/RestartRunningWorkList.test.tsx[2m > [22m[2mRestartRunningWorkList[2m > [22m[2mlists one row per thread with its current step and machine, five until asked for all
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/components/sidebar/RestartRunningWorkList.test.tsx[2m > [22m[2mRestartRunningWorkList[2m > [22m[2mopens a thread from its row, on the machine it lives on
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/components/sidebar/RestartRunningWorkList.test.tsx[2m > [22m[2mRestartRunningWorkList[2m > [22m[2msays all is quiet once nothing would be cut off
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/components/sidebar/RestartRunningWorkList.test.tsx[2m > [22m[2mLiveRestartRunningWorkList[2m > [22m[2mfollows what runs while the dialog is open
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+The current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/components/sidebar/RestartRunningWorkList.test.tsx[2m > [22m[2mLiveRestartRunningWorkList[2m > [22m[2mfollows what runs while the dialog is open
+[22m[39mThe current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/components/sidebar/RestartRunningWorkList.test.tsx[2m > [22m[2mLiveRestartRunningWorkList[2m > [22m[2mfollows what runs while the dialog is open
+[22m[39mThe current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/components/sidebar/RestartRunningWorkList.test.tsx[2m > [22m[2mLiveRestartRunningWorkList[2m > [22m[2mfollows what runs while the dialog is open
+[22m[39mThe current testing environment is not configured to support act(...)
+
+ [32m✓[39m [30m[42m unit [49m[39m src/components/sidebar/RestartRunningWorkList.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 57[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m5 passed[39m[22m[90m (5)[39m
+[2m   Start at [22m 15:42:47
+[2m   Duration [22m 3.82s[2m (transform 64%, import 34%, tests 2%)[22m
+
+restored to 774d5966526e9dd215b05a82e5546c37194fe8f0 (774d596652), 0 changed

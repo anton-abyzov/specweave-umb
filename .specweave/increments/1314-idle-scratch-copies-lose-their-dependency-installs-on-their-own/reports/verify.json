@@ -1,0 +1,113 @@
+{
+  "ok": false,
+  "strictClose": {
+    "errors": []
+  },
+  "ranAt": "2026-11-13T07:50:16.618Z",
+  "increment": "1314-idle-scratch-copies-lose-their-dependency-installs-on-their-own",
+  "commands": [
+    {
+      "cmd": "python3 scripts/fleet-project-sync.py --self-test",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "python3 -m unittest discover -s tests -p test_handoff_evidence.py",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "python3 scripts/release/timing.py --self-test",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "npm run verify:pr -- --jobs 1 --no-server",
+      "exit": 143,
+      "cwd": "repositories/anton-abyzov/specwithcode-dev",
+      "source": "config testing.ownerCommands"
+    },
+    {
+      "cmd": "npm run test:server:sharded -- --shards 6 --out \"$(mktemp -d)\"",
+      "exit": 143,
+      "cwd": "repositories/anton-abyzov/specwithcode-dev",
+      "source": "config testing.ownerCommands"
+    }
+  ],
+  "acs": {
+    "total": 4,
+    "done": 3,
+    "skippedAccepted": 0,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "open"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-03",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-03",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-04",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 4,
+    "done": 3,
+    "skipped": 0,
+    "open": 1
+  },
+  "skipped": [],
+  "acceptedSkips": [],
+  "ledgerMalformed": 0
+}

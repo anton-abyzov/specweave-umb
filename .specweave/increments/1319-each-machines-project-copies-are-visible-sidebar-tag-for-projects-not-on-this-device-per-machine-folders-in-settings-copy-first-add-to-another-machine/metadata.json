@@ -1,0 +1,12 @@
+{
+  "id": "1319-each-machines-project-copies-are-visible-sidebar-tag-for-projects-not-on-this-device-per-machine-folders-in-settings-copy-first-add-to-another-machine",
+  "uuid": "37644817-3e75-497a-8920-e814ade4d5fd",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-13T18:45:05.449Z",
+  "updated": "2026-11-13T18:45:05.449Z",
+  "lastActivity": "2026-11-13T18:45:05.449Z",
+  "title": "Each machine's project copies are visible: sidebar tag for projects not on this device, per-machine folders in settings, copy-first Add to another machine",
+  "project": "specweave-umb"
+}

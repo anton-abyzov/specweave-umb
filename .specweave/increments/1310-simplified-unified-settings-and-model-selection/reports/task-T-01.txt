@@ -1,0 +1,100 @@
+$ cd repositories/anton-abyzov/specwithcode-dev/apps/web && node ../../node_modules/vite-plus/bin/vp test run --project unit src/components/settings/ModelLanesSettings.test.tsx src/components/settings/AdversarialReviewSettings.test.tsx src/components/settings/settingsSearch.test.ts src/components/settings/settingsNavGroups.test.ts src/components/settings/ProviderSettingsPanel.environment.test.tsx src/components/settings/DecisionModelSettings.test.ts
+# exit 0 — 2026-11-12T16:45:53.444Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+Warning: Route file "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev/apps/web/src/routes/projectReturnRoute.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev/apps/web/src/routes/-projectReturnRoute.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.1 [39m[90m/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev/apps/web[39m
+
+ [32m✓[39m [30m[42m unit [49m[39m src/components/settings/settingsSearch.test.ts [2m([22m[2m85 tests[22m[2m)[22m[32m 33[2mms[22m[39m
+[90mstderr[2m | src/components/settings/AdversarialReviewSettings.test.tsx[2m > [22m[2mAdversarialReviewSettings[2m > [22m[2mis off by default and writes only the switch when turned on
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+
+[90mstderr[2m | src/components/settings/AdversarialReviewSettings.test.tsx[2m > [22m[2mAdversarialReviewSettings[2m > [22m[2mwrites only the review depth
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+
+[90mstderr[2m | src/components/settings/AdversarialReviewSettings.test.tsx[2m > [22m[2mAdversarialReviewSettings[2m > [22m[2mshows the default order as steps, other families first, and customizes it
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+
+[90mstderr[2m | src/components/settings/AdversarialReviewSettings.test.tsx[2m > [22m[2mAdversarialReviewSettings[2m > [22m[2madds, moves and clears the whole reviewer list
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+react-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+
+[90mstderr[2m | src/components/settings/AdversarialReviewSettings.test.tsx[2m > [22m[2mAdversarialReviewSettings stored duplicates[2m > [22m[2mshows a repeated model once and saves the list without the repeat
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+
+[90mstderr[2m | src/components/settings/AdversarialReviewSettings.test.tsx[2m > [22m[2mAdversarialReviewSettings project wording[2m > [22m[2msays a project without its own list uses the app-wide order
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+
+[90mstderr[2m | src/components/settings/AdversarialReviewSettings.test.tsx[2m > [22m[2mAdversarialReviewSettings project wording[2m > [22m[2msays a project with a different list has its own order
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+
+[90mstderr[2m | src/components/settings/AdversarialReviewSettings.test.tsx[2m > [22m[2mProviderModelTiersSettings[2m > [22m[2mshows the built-in tier models of each provider
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+
+[90mstderr[2m | src/components/settings/AdversarialReviewSettings.test.tsx[2m > [22m[2mProviderModelTiersSettings[2m > [22m[2mwrites the whole tiers object for one provider and resets it
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+
+ [32m✓[39m [30m[42m unit [49m[39m src/components/settings/AdversarialReviewSettings.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m [30m[42m unit [49m[39m src/components/settings/DecisionModelSettings.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+[90mstderr[2m | src/components/settings/ModelLanesSettings.test.tsx[2m > [22m[2mModelLanesSettings[2m > [22m[2mcomponent rendering[2m > [22m[2mrenders empty state when no models or learned preferences are set
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+The current testing environment is not configured to support act(...)
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+
+[90mstderr[2m | src/components/settings/ModelLanesSettings.test.tsx[2m > [22m[2mModelLanesSettings[2m > [22m[2mcomponent rendering[2m > [22m[2mrenders empty state when no models or learned preferences are set
+[22m[39mThe current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/components/settings/ModelLanesSettings.test.tsx[2m > [22m[2mModelLanesSettings[2m > [22m[2mcomponent rendering[2m > [22m[2mrenders configured lane models and learned preferences
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+The current testing environment is not configured to support act(...)
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+
+[90mstderr[2m | src/components/settings/ModelLanesSettings.test.tsx[2m > [22m[2mModelLanesSettings[2m > [22m[2mcomponent rendering[2m > [22m[2mrenders configured lane models and learned preferences
+[22m[39mThe current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/components/settings/ModelLanesSettings.test.tsx[2m > [22m[2mModelLanesSettings[2m > [22m[2mcomponent rendering[2m > [22m[2mseeds favorites into hardest work when clicked
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+The current testing environment is not configured to support act(...)
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+
+[90mstderr[2m | src/components/settings/ModelLanesSettings.test.tsx[2m > [22m[2mModelLanesSettings[2m > [22m[2mcomponent rendering[2m > [22m[2mseeds favorites into hardest work when clicked
+[22m[39mThe current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/components/settings/ModelLanesSettings.test.tsx[2m > [22m[2mModelLanesSettings[2m > [22m[2mcomponent rendering[2m > [22m[2mdeletes a learned preference when trash button is clicked
+[22m[39mreact-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+The current testing environment is not configured to support act(...)
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+
+[90mstderr[2m | src/components/settings/ModelLanesSettings.test.tsx[2m > [22m[2mModelLanesSettings[2m > [22m[2mcomponent rendering[2m > [22m[2mdeletes a learned preference when trash button is clicked
+[22m[39mThe current testing environment is not configured to support act(...)
+
+ [32m✓[39m [30m[42m unit [49m[39m src/components/settings/ModelLanesSettings.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m [30m[42m unit [49m[39m src/components/settings/settingsNavGroups.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m [30m[42m unit [49m[39m src/components/settings/ProviderSettingsPanel.environment.test.tsx [2m([22m[2m23 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m6 passed[39m[22m[90m (6)[39m
+[2m      Tests [22m [1m[32m131 passed[39m[22m[90m (131)[39m
+[2m   Start at [22m 11:45:50
+[2m   Duration [22m 2.50s[2m (transform 63%, import 36%, tests 1%)[22m
+

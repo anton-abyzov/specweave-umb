@@ -1,0 +1,13 @@
+$ cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run apps/web/src/components/chat/pickerScrollLock.test.ts
+# exit 0 — 2026-11-12T14:58:49.012Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  09:58:48
+   Duration  591ms (environment 93%, tests 3%, transform 2%, setup 1%)
+

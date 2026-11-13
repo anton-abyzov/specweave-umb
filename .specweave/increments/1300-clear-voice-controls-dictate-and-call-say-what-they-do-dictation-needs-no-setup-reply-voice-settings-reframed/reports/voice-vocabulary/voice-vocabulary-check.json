@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "mode": "linux",
+      "theme": "light",
+      "detectOffered": true,
+      "builtInWords": true
+    },
+    {
+      "mode": "linux",
+      "theme": "dark",
+      "detectOffered": true,
+      "builtInWords": true
+    },
+    {
+      "mode": "darwin",
+      "theme": "light",
+      "detectOffered": false,
+      "builtInWords": true
+    },
+    {
+      "mode": "darwin",
+      "theme": "dark",
+      "detectOffered": false,
+      "builtInWords": true
+    },
+    {
+      "mode": "darwin",
+      "carriedDetectReadsAs": "System"
+    }
+  ]
+}

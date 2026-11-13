@@ -1,0 +1,9 @@
+$ cd ~/.specwithcode/m4/scratch/2026-11-12-scratch-deps-prune/app/apps/server && npx vp test run src/mergedCloneSweep.test.ts src/cli/clones.test.ts 2>&1 | tail -6
+# exit 0 — 2026-11-12T22:00:53.373Z
+
+
+ Test Files  2 passed (2)
+      Tests  31 passed (31)
+   Start at  16:59:54
+   Duration  58.88s (tests 74%, transform 20%, import 5%)
+

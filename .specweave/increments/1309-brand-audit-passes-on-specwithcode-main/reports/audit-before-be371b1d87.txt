@@ -1,0 +1,183 @@
+{
+  "product": "SpecWithCode",
+  "checksPassed": 14,
+  "checksFailed": 7,
+  "checks": [
+    "independent runtime values",
+    "CLI package and alpha version",
+    "hosted services and telemetry opt in only",
+    "legal pages name the owner and state the telemetry default truthfully",
+    "security policy reaches a real inbox",
+    "owned runtime has no original brand, env or origin",
+    "real first-party mark replaced",
+    "no upstream store, invite or signing identifier",
+    "upstream wordmark outline absent from every text file",
+    "brand-bearing images are not upstream artwork",
+    "build scripts use owned artifact identity",
+    "workspace source exports resolve on disk",
+    "workspace protocol imports use owned package names",
+    "approval default and propagated headless policy"
+  ],
+  "failed": [
+    "upstream MIT provenance retained exactly",
+    "project terms remain separate from inherited notices",
+    "reference trees and unlisted fixtures preserved; reviewed fixture migrations hash-verified",
+    "self update only from an owned feed and original update endpoints absent",
+    "no upstream product, vendor or domain name outside the documented references",
+    "no publishable key outside tests and none issued for an upstream host",
+    "pinned registry, patch and encoded payload bytes preserved"
+  ],
+  "root": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev",
+  "upstream": "10f39eb9ac80c9a4b7f5097575dd2addc3b6f631",
+  "runtimeNode": "v22.20.0",
+  "genericUpstreamArtworkKept": [
+    {
+      "path": "assets/dev/app-icon.icon/Assets/background.svg",
+      "depicts": "blueprint paper: a blue gradient, a square grid, a frame line and corner hatching",
+      "comparedWithUpstream": "byte-identical at the same path"
+    },
+    {
+      "path": "assets/nightly/app-icon.icon/Assets/cloud-lower-left.svg",
+      "depicts": "one soft blue-to-violet cloud",
+      "comparedWithUpstream": "byte-identical at the same path"
+    },
+    {
+      "path": "assets/nightly/app-icon.icon/Assets/cloud-upper-right.svg",
+      "depicts": "the same cloud, mirrored",
+      "comparedWithUpstream": "byte-identical at the same path"
+    },
+    {
+      "path": "apps/marketing/public/nightly-sky.svg",
+      "depicts": "a wide navy-to-violet night sky strip with a few stars and two blurred clouds",
+      "comparedWithUpstream": "byte-identical at the same path"
+    },
+    {
+      "path": "assets/nightly/app-icon.icon/Assets/background.svg",
+      "depicts": "night sky: a navy-to-violet gradient, two soft glows, five dot stars, two cross stars and two horizon bands",
+      "comparedWithUpstream": "two comments reworded; it draws what upstream's layer at this path draws"
+    },
+    {
+      "path": "apps/mobile/assets/android-icon-background-nightly.png",
+      "depicts": "that night sky, full bleed, under the two clouds",
+      "comparedWithUpstream": "this checkout's render of the three nightly layers"
+    },
+    {
+      "path": "apps/mobile/assets/android-icon-background-dev.png",
+      "depicts": "the blueprint paper, full bleed",
+      "comparedWithUpstream": "this checkout's render of the development background layer"
+    },
+    {
+      "path": "apps/mobile/assets/android-splash-icon-nightly.png",
+      "depicts": "the page-and-prompt brand mark over that night sky and the two clouds",
+      "comparedWithUpstream": "Studio's mark composed over a render of the three nightly layers"
+    },
+    {
+      "path": "apps/mobile/assets/android-splash-icon-dev.png",
+      "depicts": "the page-and-prompt brand mark over the blueprint paper",
+      "comparedWithUpstream": "Studio's mark composed over a render of the development background layer"
+    }
+  ],
+  "noServiceOrAuthActions": true
+}
+
+FAILED: upstream MIT provenance retained exactly
+Expected values to be strictly equal:
++ actual - expected
+... Skipped lines
+
+  'MIT License\n' +
+    '\n' +
+    'Copyright (c) 2026 T3 Tools Inc.\n' +
+    '\n' +
+    'Permission is hereby granted, free of charge, to any person obtaining a copy\n' +
+...
+    'OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n' +
++   'SOFTWARE.\n' +
++   '\n' +
++   '## Linux voice\n' +
++   '\n' +
++   "The Linux app bundles `whisper-cli` from [whisper.cpp](https://github.com/ggml-org/whisper.cpp) (MIT License, Copyright (c) 2023-2026 The ggml authors), built from tag `v1.9.5`. The license text is in that repository's `LICENSE` file.\n" +
++   '\n' +
++   "With the user's consent, the app downloads these on first use. They are not distributed with SpecWithCode and keep their own terms:\n" +
++   '\n' +
++   '- the OpenAI Whisper `small` model in ggml form (MIT License), from `huggingface.co/ggerganov/whisper.cpp`;\n' +
++   '- [Piper](https://github.com/rhasspy/piper) 2023.11.14-2 (MIT License), whose archive includes eSpeak NG (GPL-3.0-or-later) and ONNX Runtime (MIT License);\n' +
++   '- the Piper voice `en_US-lessac-medium`, from `huggingface.co/rhasspy/piper-voices`, under the terms in its model card.\n'
+-   'SOFTWARE.\n'
+
+
+FAILED: project terms remain separate from inherited notices
+Expected values to be strictly equal:
+
+true !== false
+
+
+FAILED: reference trees and unlisted fixtures preserved; reviewed fixture migrations hash-verified
+Reviewed fixture bytes changed: apps/server/src/orchestration-v2/testkit/fixtures/message_steering/cursor_output.ts
++ actual - expected
+
++ '3ffb390d1d817f0df7dce4a6c5f7318751bf9dd621a24cdaa3a62c252054a50e'
+- 'd2c44850ac04f67f3958e709d1d2fa3fec5042167001f1f5a1f5a54162fa0b50'
+
+
+FAILED: self update only from an owned feed and original update endpoints absent
+the update guard refuses pingdotgg
+
+FAILED: no upstream product, vendor or domain name outside the documented references
+2 upstream name(s) left in the tree:
+  scripts/lib/third-party-licenses.test.ts: unused allowance /github\.com\/Yash-Singh1\/ghostty\/tree\/t3code\/custom-io-ordered-feed/g
+  third-party-licenses.config.json: unused allowance /github\.com\/Yash-Singh1\/ghostty\/tree\/t3code\/custom-io-ordered-feed/g
+
+FAILED: no publishable key outside tests and none issued for an upstream host
+10 publishable key(s) to remove:
+  apps/android/transport/src/main/kotlin/com/specwithcode/transport/ConnectConfig.kt:24: publishable key outside a test
+  apps/ios/SWCKit/Sources/SWCTransport/ConnectConfig.swift:68: publishable key outside a test
+  apps/ios/SWCKit/Tests/SWCSyncTests/ConnectEngineTests.swift:118: publishable key outside a test
+  apps/ios/SWCKit/Tests/SWCSyncTests/ConnectEngineTests.swift:9: publishable key outside a test
+  apps/ios/SWCKit/Tests/SWCTransportTests/ConnectTests.swift:20: publishable key outside a test
+  apps/ios/SWCKit/Tests/SWCTransportTests/ConnectTests.swift:345: publishable key outside a test
+  apps/ios/SWCKit/Tests/SWCTransportTests/ConnectTests.swift:358: publishable key outside a test
+  apps/ios/SWCKit/Tests/SWCTransportTests/ConnectTests.swift:363: publishable key outside a test
+  apps/ios/SWCKit/Tests/SWCTransportTests/ConnectTests.swift:367: publishable key outside a test
+  infra/relay/src/testing/connectAdminFixtures.ts:27: publishable key outside a test
+
+FAILED: pinned registry, patch and encoded payload bytes preserved
+Inherited patch payload changed: patches/@legendapp__list@3.3.5.patch
++ actual - expected
+... Skipped lines
+
+  'diff --git a/keyboard.d.ts b/keyboard.d.ts\n' +
++   'index 367945cdfa8a8c260b7a127657a75c016c9ab46f..0ac7bf8b8e9c386058b2374199e58fe8c92d39b3 100644\n' +
+-   'index 367945c..0ac7bf8 100644\n' +
+    '--- a/keyboard.d.ts\n' +
+    '+++ b/keyboard.d.ts\n' +
+    '@@ -279,7 +279,7 @@ type KeyboardChatComposerInsetListRef = {\n' +
+    ' type KeyboardChatComposerRef = {\n' +
+    '     current: Pick<View, "measure"> | null;\n' +
+...
+    'diff --git a/keyboard.js b/keyboard.js\n' +
++   'index 6645bcbb1f77c36c432035eaf8b2d6d924fc8bda..321c4c305129dd3ce3f06127c47d51720a73fb83 100644\n' +
+-   'index 6645bcb..321c4c3 100644\n' +
+    '--- a/keyboard.js\n' +
+    '+++ b/keyboard.js\n' +
+    '@@ -33,19 +33,22 @@ if (typeof __DEV__ !== "undefined" && __DEV__ && !reactNativeKeyboardController.\n' +
+    '     "[legend-list] KeyboardAwareLegendList requires a recent react-native-keyboard-controller with KeyboardChatScrollView. Please upgrade react-native-keyboard-controller to at least 1.21.7."\n' +
+    '   );\n' +
+...
+    'diff --git a/keyboard.mjs b/keyboard.mjs\n' +
++   'index 87b38b9607c2eba6b407c2acfd520633bdb0e7c2..111eb242ba9d9ade1cb912550f7df85cf4f361ee 100644\n' +
+-   'index 87b38b9..111eb24 100644\n' +
+    '--- a/keyboard.mjs\n' +
+    '+++ b/keyboard.mjs\n' +
+    '@@ -1,7 +1,7 @@\n' +
+    " import * as React from 'react';\n" +
+    " import { useRef, useEffect, useMemo, useCallback, useLayoutEffect } from 'react';\n" +
+...
+    '     var _a;\n' +
++   '     '... 99635 more characters
+-   '     (_a = refLegendList.current) == null ? void 0 : _a.reportContentInset(insets);\n' +
+-   '@@ -102,6 +112,8 @@ var KeyboardAwareLegendList = typedForwardRef(function KeyboardAwareLegendList2(\n' +
+-   '         KeyboardC'... 89205 more characters
+
+
+7 of 21 checks failed.

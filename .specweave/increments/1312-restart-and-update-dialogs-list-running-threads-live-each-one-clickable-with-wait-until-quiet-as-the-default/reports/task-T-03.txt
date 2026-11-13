@@ -1,0 +1,4 @@
+$ ls .specweave/increments/1312-restart-and-update-dialogs-list-running-threads-live-each-one-clickable-with-wait-until-quiet-as-the-default/reports/after-dialog.png
+# exit 0 — 2026-11-12T20:43:43.098Z
+
+.specweave/increments/1312-restart-and-update-dialogs-list-running-threads-live-each-one-clickable-with-wait-until-quiet-as-the-default/reports/after-dialog.png
