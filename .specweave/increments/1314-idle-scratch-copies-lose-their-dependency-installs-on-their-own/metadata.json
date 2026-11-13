@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-12T21:17:05.945Z",
-  "updated": "2026-11-13T18:44:54.373Z",
-  "lastActivity": "2026-11-13T18:44:54.373Z",
+  "updated": "2026-11-13T19:11:13.593Z",
+  "lastActivity": "2026-11-13T19:11:13.593Z",
   "title": "Idle scratch copies lose their dependency installs on their own",
   "project": "specweave-umb",
   "externalLinks": {}
