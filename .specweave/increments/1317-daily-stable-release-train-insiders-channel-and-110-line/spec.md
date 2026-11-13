@@ -46,7 +46,7 @@ Risks: agents already installed (1.0.276 and older) ignore the prerelease flag a
 ## Decisions
 
 ### Asked
-- D-01 When to cut 1.1.0 → waits for Anton (open below).
+- D-01 When to cut 1.1.0 → Anton, November 13, 2026: yes. Cut Monday, November 16, 2026; the train promotes it Tuesday, November 17 at 15:00 UTC. 1.0.x keeps the current schedule (every merge, Latest) through the weekend for hotfixes; the train applies only from 1.1.0, so no guard change is needed.
 ### Defaulted (change any before sw-do)
 - D-02 Cut time → 15:00 UTC daily (reversible: the cron line).
 - D-03 Soak → 24 hours on insiders (VS Code recovery rule), all three platform manifests present, not held.
@@ -54,7 +54,7 @@ Risks: agents already installed (1.0.276 and older) ignore the prerelease flag a
 - D-05 Hotfix approver → Anton; the `hotfix` label is applied only on his yes.
 - D-06 Release owner → the train workflow for stable; any session may still request insiders builds through request-release.sh.
 ### Open
-- D-01 Date for 1.1.0.
+- none
 
 ## Tasks
 
