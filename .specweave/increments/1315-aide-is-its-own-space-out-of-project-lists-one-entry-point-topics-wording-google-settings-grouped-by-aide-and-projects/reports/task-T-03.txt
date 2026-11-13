@@ -1,0 +1,3 @@
+$ gh pr view 298 -R anton-abyzov/specwithcode --json state -q .state | grep -q MERGED
+# exit 0 — 2026-11-13T06:44:09.772Z
+
