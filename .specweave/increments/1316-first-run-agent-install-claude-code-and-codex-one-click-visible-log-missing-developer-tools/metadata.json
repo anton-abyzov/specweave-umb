@@ -1,13 +1,15 @@
 {
   "id": "1316-first-run-agent-install-claude-code-and-codex-one-click-visible-log-missing-developer-tools",
   "uuid": "73a0bc91-f5e5-4271-872e-c4aeee925f30",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-12T23:07:58.902Z",
-  "updated": "2026-11-13T01:12:27.241Z",
-  "lastActivity": "2026-11-13T01:12:27.241Z",
+  "updated": "2026-11-13T01:33:03.491Z",
+  "lastActivity": "2026-11-13T01:33:03.491Z",
   "title": "First-run agent install: Claude Code and Codex one click, visible log, missing developer tools",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-13T01:33:03.490Z",
+  "approvedAt": "2026-11-13T01:33:03.491Z"
 }

@@ -1,11 +1,9 @@
 {
-  "ok": false,
+  "ok": true,
   "strictClose": {
-    "errors": [
-      "No testing.ownerCommands configured for repositories/anton-abyzov/specwithcode"
-    ]
+    "errors": []
   },
-  "ranAt": "2026-11-13T01:12:36.699Z",
+  "ranAt": "2026-11-13T01:32:47.264Z",
   "increment": "1316-first-run-agent-install-claude-code-and-codex-one-click-visible-log-missing-developer-tools",
   "commands": [
     {
@@ -25,6 +23,18 @@
       "exit": 0,
       "cwd": ".",
       "source": "config testing.commands"
+    },
+    {
+      "cmd": "npm run verify:pr -- --jobs 1 --no-server",
+      "exit": 0,
+      "cwd": "repositories/anton-abyzov/specwithcode-dev",
+      "source": "config testing.ownerCommands"
+    },
+    {
+      "cmd": "npm run test:server:sharded -- --shards 6 --out \"$(mktemp -d)\"",
+      "exit": 0,
+      "cwd": "repositories/anton-abyzov/specwithcode-dev",
+      "source": "config testing.ownerCommands"
     }
   ],
   "acs": {
