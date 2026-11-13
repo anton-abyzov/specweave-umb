@@ -1,0 +1,4 @@
+$ cd repositories/anton-abyzov/specwithcode-dev && node node_modules/typescript/bin/tsc --noEmit --project apps/web/tsconfig.json
+# exit 0 — 2026-11-11T18:50:45.228Z
+
+apps/web/src/components/studio/CapacityFleet.test.tsx(88,21): suggestion TS377112: This input is already assignable to the schema's Encoded type. Use `decodeSync` to preserve compile-time type checking instead of discarding the input type through `decodeUnknownSync`. effect(preferTypedSchemaDecoder)

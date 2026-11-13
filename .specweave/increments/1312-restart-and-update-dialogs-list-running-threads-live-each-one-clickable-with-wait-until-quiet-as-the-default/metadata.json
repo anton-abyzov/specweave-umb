@@ -1,0 +1,13 @@
+{
+  "id": "1312-restart-and-update-dialogs-list-running-threads-live-each-one-clickable-with-wait-until-quiet-as-the-default",
+  "uuid": "72f0bef1-7cf3-44c3-aa72-e0ea84e19675",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-12T20:00:05.459Z",
+  "updated": "2026-11-12T20:43:43.139Z",
+  "lastActivity": "2026-11-12T20:43:43.139Z",
+  "title": "Restart and update dialogs list running threads live, each one clickable, with Wait until quiet as the default",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

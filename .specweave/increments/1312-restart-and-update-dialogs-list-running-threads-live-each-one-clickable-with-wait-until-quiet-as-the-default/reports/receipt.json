@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "name": "before (light): text only, two buttons, no list",
+      "ok": true
+    },
+    {
+      "name": "after (light): count, rows with step and machine, three choices",
+      "ok": true
+    },
+    {
+      "name": "before (dark): text only, two buttons, no list",
+      "ok": true
+    },
+    {
+      "name": "after (dark): count, rows with step and machine, three choices",
+      "ok": true
+    },
+    {
+      "name": "after: a row opens its thread and closes the dialog",
+      "ok": true
+    },
+    {
+      "name": "after: the list follows what runs while open",
+      "ok": true
+    },
+    {
+      "name": "remote: the same list for another machine, Update now",
+      "ok": true
+    }
+  ]
+}

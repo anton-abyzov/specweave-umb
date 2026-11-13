@@ -1,0 +1,19 @@
+$ cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp build --config apps/web/tests/picker-calm/vite.config.ts && PLAYWRIGHT_BROWSERS_PATH=/Users/antonabyzov/Library/Caches/ms-playwright node apps/web/tests/picker-calm/verify-usage.mjs /Users/antonabyzov/.specwithcode/m4/evidence/usage-surfaces-20261112/after-main
+# exit 0 — 2026-11-12T14:59:16.623Z
+
+note: You are running `vp build` as a Vite+ built-in command. If you meant to run the build npm script, use `vpr build` instead.
+transforming...
+✓ 3315 modules transformed.
+rendering chunks...
+computing gzip size...
+.artifacts/picker-calm/site/index.html                     0.44 kB │ gzip:     0.29 kB
+.artifacts/picker-calm/site/assets/index-C-RFNWx6.css    758.36 kB │ gzip:   107.57 kB
+.artifacts/picker-calm/site/assets/index-CiQzHswV.js   4,708.17 kB │ gzip: 1,468.07 kB
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 1.03s
+usage-surfaces: 12 screenshots in /Users/antonabyzov/.specwithcode/m4/evidence/usage-surfaces-20261112/after-main
