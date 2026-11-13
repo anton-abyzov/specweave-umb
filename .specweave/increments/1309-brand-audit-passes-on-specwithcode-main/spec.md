@@ -20,7 +20,7 @@ The audit runs only in the on-demand `ci.yml`, never on pull requests, so nothin
 
 In: make the audit pass on main without loosening what it protects (inherited license text, notices, reference trees, inherited fixture and patch bytes, upstream names, keys); unit tests for each rule that changes; PR, review, merge; hand the shared checkout back.
 
-Out: any change to `LICENSE`, `THIRD_PARTY_NOTICES.md` or `UPSTREAM.md` text. The license field of generated manifests (asked, T-05, its own PR). Running the audit on every pull request (recommended follow-up).
+Out: any change to `LICENSE`, `THIRD_PARTY_NOTICES.md` or `UPSTREAM.md` text. The license field of generated manifests is T-05, in its own PR (D-01). Running the audit on every pull request (recommended follow-up).
 
 ## Acceptance Criteria
 
@@ -46,8 +46,8 @@ Risk: scanning owned fixtures for upstream names may surface real leftovers; fix
 
 ## Decisions
 
-### Asked
-- D-01 License field of the generated npm, runtime and desktop manifests, the Linux metainfo and two podspecs (`UNLICENSED` / `LicenseRef-proprietary` after the MIT release) → asked November 12, 2026; answer pending. Not part of the audit-fix PR.
+### Answered
+- D-01 License field of the generated npm, runtime and desktop manifests, the Linux metainfo and two podspecs (`UNLICENSED` / `LicenseRef-proprietary` after the MIT release) → asked November 12, 2026; answered by Anton on November 13, 2026: "go, let's avoid those contradictions, so go ahead and update it all." Every license marker becomes MIT to match `LICENSE`, plus the desktop copyright string and the workspace manifests that had no license field; the brand audit asserts it. Shipped in its own PR (anton-abyzov/specwithcode#330), not the audit-fix PR. Third-party notices, `THIRD_PARTY_NOTICES.md`, `UPSTREAM.md` and the Apache-2.0 Chrome extension stay as they are. Anton also asked for the npm package `specwithcode` to show MIT on its next published version.
 
 ### Defaulted (change any before sw-do)
 - D-02 Studio-owned fixture files → not hash-pinned, scanned for upstream names instead (reversible).
@@ -56,6 +56,10 @@ Risk: scanning owned fixtures for upstream names may surface real leftovers; fix
 
 ### Open
 - none
+
+## Notes
+
+- November 13, 2026: T-06 is blocked in agent shells. `specweave verify` runs the server shards, and 37 tests that create linked git checkouts in temp repos fail there because the session's git guard refuses them while Use worktrees is off. The same shards passed in PR #330's CI. Close by running verify outside an agent shell (or after the guard stops applying to temp test repos), then `specweave task done T-06` and `specweave complete`. Review: `reports/review-claude-sonnet-5-5.md` (local); release evidence: `~/.specwithcode/m4/evidence/1309-mit-license/1.0.283/README.md`.
 
 ## Tasks
 
@@ -72,7 +76,7 @@ Risk: scanning owned fixtures for upstream names may surface real leftovers; fix
 - AC: AC-01, AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode-dev/AGENTS.md | Test: cd repositories/anton-abyzov/specwithcode-dev && git fetch origin main && test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)" && test -z "$(git status --porcelain)" && node scripts/studio-brand-audit.mjs
 
 ### T-05 License field of generated manifests, per Anton's answer
-- AC: AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/npm-package.mjs, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/npm-package.test.mjs, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/runtime-package.mjs, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/runtime-package.test.mjs, repositories/anton-abyzov/specwithcode-dev/scripts/build-desktop-artifact.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/resources/linux/com.specweave.studio.metainfo.xml, repositories/anton-abyzov/specwithcode-dev/apps/mobile/modules/studio-review-diff/StudioReviewDiffNative.podspec, repositories/anton-abyzov/specwithcode-dev/apps/mobile/modules/studio-terminal/StudioTerminalNative.podspec, repositories/anton-abyzov/specwithcode-dev/scripts/studio-brand-audit.mjs | Test: cd repositories/anton-abyzov/specwithcode-dev && node --test scripts/studio-fleet/npm-package.test.mjs scripts/studio-fleet/runtime-package.test.mjs && node scripts/studio-brand-audit.mjs
+- AC: AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/npm-package.mjs, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/npm-package.test.mjs, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/runtime-package.mjs, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/runtime-package.test.mjs, repositories/anton-abyzov/specwithcode-dev/scripts/build-desktop-artifact.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/resources/linux/com.specweave.studio.metainfo.xml, repositories/anton-abyzov/specwithcode-dev/apps/mobile/modules/studio-review-diff/StudioReviewDiffNative.podspec, repositories/anton-abyzov/specwithcode-dev/apps/mobile/modules/studio-terminal/StudioTerminalNative.podspec, repositories/anton-abyzov/specwithcode-dev/scripts/studio-brand-audit.mjs, repositories/anton-abyzov/specwithcode-dev/scripts/build-desktop-artifact.test.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/package.json, repositories/anton-abyzov/specwithcode-dev/oxlint-plugin-studio/package.json, repositories/anton-abyzov/specwithcode-dev/scripts/package.json | Test: bash .specweave/increments/1309-brand-audit-passes-on-specwithcode-main/t05-mit-check.sh
 
 ### T-06 Verify and close 1309
 - AC: AC-01 | Files: .specweave/increments/1309-brand-audit-passes-on-specwithcode-main/spec.md | Test: specweave verify 1309-brand-audit-passes-on-specwithcode-main
