@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-12T20:00:05.459Z",
-  "updated": "2026-11-12T20:43:43.139Z",
-  "lastActivity": "2026-11-12T20:43:43.139Z",
+  "updated": "2026-11-13T20:35:52.798Z",
+  "lastActivity": "2026-11-13T20:35:52.798Z",
   "title": "Restart and update dialogs list running threads live, each one clickable, with Wait until quiet as the default",
   "project": "specweave-umb",
   "externalLinks": {}
