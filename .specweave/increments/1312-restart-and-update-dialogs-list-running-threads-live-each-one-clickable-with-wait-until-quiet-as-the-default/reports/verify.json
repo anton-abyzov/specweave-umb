@@ -1,0 +1,142 @@
+{
+  "ok": false,
+  "strictClose": {
+    "errors": []
+  },
+  "ranAt": "2026-11-13T20:35:12.563Z",
+  "increment": "1312-restart-and-update-dialogs-list-running-threads-live-each-one-clickable-with-wait-until-quiet-as-the-default",
+  "commands": [
+    {
+      "cmd": "python3 scripts/fleet-project-sync.py --self-test",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "python3 -m unittest discover -s tests -p test_handoff_evidence.py",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "python3 scripts/release/timing.py --self-test",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "npm run verify:pr -- --jobs 1 --no-server",
+      "exit": 0,
+      "cwd": "repositories/anton-abyzov/specwithcode-dev",
+      "source": "config testing.ownerCommands"
+    },
+    {
+      "cmd": "npm run test:server:sharded -- --shards 6 --out \"$(mktemp -d)\"",
+      "exit": 1,
+      "cwd": "repositories/anton-abyzov/specwithcode-dev",
+      "source": "config testing.ownerCommands"
+    }
+  ],
+  "acs": {
+    "total": 5,
+    "done": 0,
+    "skippedAccepted": 0,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "claimed"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-02",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "claimed"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-03",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "claimed"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-04",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "claimed"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-05",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-03",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "claimed"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 4,
+    "done": 3,
+    "skipped": 0,
+    "open": 1
+  },
+  "skipped": [],
+  "acceptedSkips": [],
+  "ledgerMalformed": 0
+}
