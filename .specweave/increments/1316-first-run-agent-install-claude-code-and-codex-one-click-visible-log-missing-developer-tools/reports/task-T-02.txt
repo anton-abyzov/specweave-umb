@@ -1,0 +1,4 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-12-agent-install/app && bash scripts/release/request-release.sh --released 6fd605abd7a835a543e68eee4a0e0bf7c04ea4ed
+# exit 0 — 2026-11-13T01:12:11.089Z
+
+6fd605abd7a835a543e68eee4a0e0bf7c04ea4ed is released in v1.0.273

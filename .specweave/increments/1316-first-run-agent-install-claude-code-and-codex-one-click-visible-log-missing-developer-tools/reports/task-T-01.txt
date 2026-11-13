@@ -1,0 +1,34 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-12-agent-install/app/apps/web && pnpm exec vp test run --project unit src/onboarding src/components/onboarding src/i18n && cd ../server && pnpm exec vp test run src/provider/providerDiscovery.test.ts
+# exit 0 — 2026-11-13T00:04:41.335Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+Warning: Route file "/Users/antonabyzov/.specwithcode/m4/scratch/2026-11-12-agent-install/app/apps/web/src/routes/projectReturnRoute.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "/Users/antonabyzov/.specwithcode/m4/scratch/2026-11-12-agent-install/app/apps/web/src/routes/-projectReturnRoute.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-12-agent-install/app/apps/web
+
+
+ Test Files  17 passed (17)
+      Tests  609 passed (609)
+   Start at  19:04:17
+   Duration  7.60s (transform 77%, import 13%, environment 7%, tests 2%)
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-12-agent-install/app/apps/server
+
+(node:11487) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  1 passed (1)
+      Tests  38 passed (38)
+   Start at  19:04:26
+   Duration  15.09s (tests 81%, transform 13%, import 6%)
+
