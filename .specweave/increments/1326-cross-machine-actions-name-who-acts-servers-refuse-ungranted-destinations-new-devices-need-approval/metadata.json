@@ -1,0 +1,12 @@
+{
+  "id": "1326-cross-machine-actions-name-who-acts-servers-refuse-ungranted-destinations-new-devices-need-approval",
+  "uuid": "ceeb3366-b48f-40b7-8426-25a631064005",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-13T22:10:54.891Z",
+  "updated": "2026-11-13T22:10:54.891Z",
+  "lastActivity": "2026-11-13T22:10:54.891Z",
+  "title": "Cross-machine actions name who acts, servers refuse ungranted destinations, new devices need approval",
+  "project": "specweave-umb"
+}

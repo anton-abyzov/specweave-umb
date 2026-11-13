@@ -1,0 +1,12 @@
+{
+  "id": "1328-folder-copy-carries-a-safe-git-config-and-flags-tracked-secrets",
+  "uuid": "3bcdbe3b-ac46-4817-8f90-354b12023cdb",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-13T22:25:29.783Z",
+  "updated": "2026-11-13T22:25:29.783Z",
+  "lastActivity": "2026-11-13T22:25:29.783Z",
+  "title": "Folder copy carries a safe git config and flags tracked secrets",
+  "project": "specweave-umb"
+}
