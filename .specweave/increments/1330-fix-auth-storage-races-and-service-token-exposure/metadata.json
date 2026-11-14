@@ -1,5 +1,5 @@
 {
-  "id": "1315-fix-auth-storage-races-and-service-token-exposure",
+  "id": "1330-fix-auth-storage-races-and-service-token-exposure",
   "uuid": "090cf38d-225c-427b-ac94-12b360a48dfc",
   "status": "completed",
   "type": "bug",
