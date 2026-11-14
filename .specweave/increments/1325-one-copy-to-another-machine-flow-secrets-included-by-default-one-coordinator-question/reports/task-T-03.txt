@@ -1,0 +1,22 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-copy-flow/app/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/studio/HandoffFolderCopy.wizard.test.tsx src/components/studio/ProjectMachineHandoff.test.tsx
+# exit 0 — 2026-11-13T22:52:50.696Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+Warning: Route file "/Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-copy-flow/app/apps/web/src/routes/projectReturnRoute.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "/Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-copy-flow/app/apps/web/src/routes/-projectReturnRoute.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-copy-flow/app/apps/web
+
+
+ Test Files  2 passed (2)
+      Tests  94 passed (94)
+   Start at  17:52:40
+   Duration  10.47s (transform 77%, import 9%, tests 9%, environment 4%)
+

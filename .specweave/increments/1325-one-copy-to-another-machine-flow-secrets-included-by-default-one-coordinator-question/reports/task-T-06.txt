@@ -1,0 +1,4 @@
+$ ls .specweave/increments/1325-one-copy-to-another-machine-flow-secrets-included-by-default-one-coordinator-question/reports/after-setup-light.png
+# exit 0 — 2026-11-13T22:53:24.940Z
+
+.specweave/increments/1325-one-copy-to-another-machine-flow-secrets-included-by-default-one-coordinator-question/reports/after-setup-light.png

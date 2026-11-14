@@ -1,13 +1,15 @@
 {
   "id": "1325-one-copy-to-another-machine-flow-secrets-included-by-default-one-coordinator-question",
   "uuid": "04c0d72b-ce9e-43d5-a315-fb4c6de89978",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-13T22:07:19.410Z",
-  "updated": "2026-11-14T01:16:10.574Z",
-  "lastActivity": "2026-11-14T01:16:10.574Z",
+  "updated": "2026-11-14T04:10:30.436Z",
+  "lastActivity": "2026-11-14T04:10:30.436Z",
   "title": "One Copy to another machine flow: secrets included by default, one coordinator question",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-14T04:10:30.435Z",
+  "approvedAt": "2026-11-14T04:10:30.436Z"
 }

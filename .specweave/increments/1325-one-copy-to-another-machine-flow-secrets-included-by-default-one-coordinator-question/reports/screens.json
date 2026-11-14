@@ -1,0 +1,12 @@
+{
+  "headless": true,
+  "saved": [
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1325-one-copy-to-another-machine-flow-secrets-included-by-default-one-coordinator-question/reports/after-setup-light.png",
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1325-one-copy-to-another-machine-flow-secrets-included-by-default-one-coordinator-question/reports/after-setup-dark.png",
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1325-one-copy-to-another-machine-flow-secrets-included-by-default-one-coordinator-question/reports/after-setup-move.png",
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1325-one-copy-to-another-machine-flow-secrets-included-by-default-one-coordinator-question/reports/after-setup-details.png",
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1325-one-copy-to-another-machine-flow-secrets-included-by-default-one-coordinator-question/reports/after-review-secrets.png",
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1325-one-copy-to-another-machine-flow-secrets-included-by-default-one-coordinator-question/reports/after-git-only.png"
+  ],
+  "base": "synthetic fixture, no live state"
+}
