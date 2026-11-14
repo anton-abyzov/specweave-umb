@@ -1,0 +1,15 @@
+{
+  "id": "1322-machine-readiness-git-nodejs-github-cli-and-specweave-checked-at-first-run-in-projects-after-updates-and-for-remote-machines",
+  "uuid": "ca78d6bf-3e0d-4ec0-9202-e3377d7bba49",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-13T19:35:47.245Z",
+  "updated": "2026-11-14T09:29:33.489Z",
+  "lastActivity": "2026-11-14T09:29:33.489Z",
+  "title": "Machine readiness: Git, Node.js, GitHub CLI and SpecWeave checked at first run, in projects, after updates and for remote machines",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-14T09:29:33.488Z",
+  "approvedAt": "2026-11-14T09:29:33.489Z"
+}

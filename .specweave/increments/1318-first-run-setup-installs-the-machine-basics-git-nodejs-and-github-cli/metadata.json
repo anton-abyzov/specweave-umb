@@ -1,12 +1,15 @@
 {
   "id": "1318-first-run-setup-installs-the-machine-basics-git-nodejs-and-github-cli",
   "uuid": "43d3367e-1327-4ba4-b8e2-e6903f366c39",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-13T17:28:39.398Z",
-  "updated": "2026-11-13T18:22:55.471Z",
-  "lastActivity": "2026-11-13T18:22:55.471Z",
+  "updated": "2026-11-14T09:29:36.990Z",
+  "lastActivity": "2026-11-14T09:29:36.990Z",
   "title": "First-run setup installs the machine basics: Git, Node.js and GitHub CLI",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-14T09:29:36.989Z",
+  "approvedAt": "2026-11-14T09:29:36.990Z"
 }
