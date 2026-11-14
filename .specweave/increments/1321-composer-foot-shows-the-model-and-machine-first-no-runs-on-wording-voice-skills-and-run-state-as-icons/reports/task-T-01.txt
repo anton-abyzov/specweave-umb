@@ -1,0 +1,3 @@
+$ test -s .specweave/increments/1321-composer-foot-shows-the-model-and-machine-first-no-runs-on-wording-voice-skills-and-run-state-as-icons/reports/composer-foot-mockups.html
+# exit 0 — 2026-11-13T19:26:54.596Z
+

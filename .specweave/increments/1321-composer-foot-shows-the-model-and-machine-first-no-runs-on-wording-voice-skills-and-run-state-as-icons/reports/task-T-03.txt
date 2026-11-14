@@ -1,0 +1,12 @@
+$ specweave-studio checks run --label 1321 -- bash -c 'cd ~/.specwithcode/m4/verify/specwithcode && test "$(git rev-parse HEAD)" = 25f75f2ff1a2297977bc17f45b769ca104b1d901 && node node_modules/vite-plus/bin/vp build --config apps/web/tests/composer-foot/vite.config.ts > /dev/null && node apps/web/tests/composer-foot/verify.mjs ~/.specwithcode/m4/scratch/2026-11-13-composer-footer/evidence'
+# exit 0 — 2026-11-13T19:28:16.816Z
+
+note: You are running `vp build` as a Vite+ built-in command. If you meant to run the build npm script, use `vpr build` instead.
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0mapps/web/src/lib/attachmentUploadQueue.ts is dynamically imported by apps/web/src/components/studio/coordinatorRecovery.ts, apps/web/src/studio/projectMessageRouting.tsx but also statically imported by apps/web/src/components/chat/ChatComposer.tsx, apps/web/src/components/studio/shell/CoordinatorAttachments.tsx, apps/web/src/questionAttachments.ts, dynamic import will not move module into another chunk.
+
+composer-foot after: 24 scenarios, screenshots in /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-composer-footer/evidence

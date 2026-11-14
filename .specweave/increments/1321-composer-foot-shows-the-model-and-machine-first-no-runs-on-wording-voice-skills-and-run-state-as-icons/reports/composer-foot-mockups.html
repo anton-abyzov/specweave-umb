@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>1321 Composer foot: model and machine first</title>
+<style>
+  :root {
+    --bg: #1b1b1c; --pane: #212122; --card: #2a2a2c; --border: #3a3a3d; --fg: #ececec; --muted: #9a9aa0;
+    --rose: #cc3a66; --blue: #2f6fd6; --primary: #8b6cf0; --claude: #d97757;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 32px 40px 60px; background: #151516; color: var(--fg);
+    font: 14px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif; }
+  h1 { font: 600 24px/1.2 Georgia, "Times New Roman", serif; margin: 0 0 6px; }
+  h2 { font: 600 17px/1.3 -apple-system, sans-serif; margin: 34px 0 4px; }
+  p.lead { color: var(--muted); max-width: 900px; margin: 4px 0 18px; }
+  .note { color: var(--muted); font-size: 13px; margin: 2px 0 12px; max-width: 980px; }
+  .pick { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #2f8040; color: #fff; margin-left: 8px; vertical-align: 2px; }
+  .reject { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #3a3a3d; color: var(--muted); margin-left: 8px; vertical-align: 2px; }
+  .row { display: flex; gap: 22px; align-items: flex-start; flex-wrap: wrap; }
+  .w { color: var(--muted); font-size: 12px; margin: 0 0 6px; font-variant-numeric: tabular-nums; }
+  /* composer */
+  .composer { background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 12px 12px 10px 14px; }
+  .composer.m-rose { border-color: color-mix(in srgb, var(--rose) 72%, var(--border)); box-shadow: inset 3px 0 0 var(--rose), 0 0 0 3px color-mix(in srgb, var(--rose) 11%, transparent); }
+  .composer.m-blue { border-color: color-mix(in srgb, var(--blue) 72%, var(--border)); box-shadow: inset 3px 0 0 var(--blue), 0 0 0 3px color-mix(in srgb, var(--blue) 11%, transparent); }
+  .ph { color: var(--muted); height: 44px; }
+  .foot { display: flex; align-items: center; gap: 6px; min-width: 0; white-space: nowrap; }
+  .left { display: flex; align-items: center; gap: 4px; min-width: 0; flex: 1; overflow: hidden; }
+  .right { display: flex; align-items: center; gap: 4px; flex: none; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; height: 28px; padding: 0 8px; border-radius: 8px; font-size: 13px; color: var(--fg); min-width: 0; }
+  .chip svg { width: 15px; height: 15px; flex: none; }
+  .chip .chev { width: 11px; height: 11px; opacity: .7; }
+  .mach { font-weight: 600; border: 1px solid; }
+  .mach.rose { color: color-mix(in srgb, var(--rose) 42%, var(--fg)); background: color-mix(in srgb, var(--rose) 14%, transparent); border-color: color-mix(in srgb, var(--rose) 72%, var(--border)); }
+  .mach.blue { color: color-mix(in srgb, var(--blue) 42%, var(--fg)); background: color-mix(in srgb, var(--blue) 14%, transparent); border-color: color-mix(in srgb, var(--blue) 72%, var(--border)); }
+  .sep { width: 1px; height: 16px; background: var(--border); flex: none; margin: 0 2px; }
+  .icon { width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--muted); flex: none; }
+  .icon svg { width: 16px; height: 16px; }
+  .send { width: 32px; height: 32px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; background: var(--primary); color: #fff; flex: none; }
+  .send svg { width: 16px; height: 16px; }
+  .send.named { width: auto; padding: 0 12px 0 9px; gap: 5px; font-weight: 600; font-size: 13px; }
+  .send.named.blue { background: var(--blue); }
+  .muted { color: var(--muted); }
+  .trunc { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .dot { width: 7px; height: 7px; border-radius: 99px; flex: none; }
+  .dot.working { background: #4a90e2; } .dot.idle { border: 1.5px solid var(--muted); width: 8px; height: 8px; }
+  .dot.bg { border: 1.5px solid #4a90e2; width: 8px; height: 8px; }
+  /* option A split chip */
+  .split { display: inline-flex; align-items: center; height: 28px; border-radius: 8px; border: 1px solid; min-width: 0; overflow: hidden; }
+  .split.blue { border-color: color-mix(in srgb, var(--blue) 72%, var(--border)); }
+  .split .seg { display: inline-flex; align-items: center; gap: 5px; padding: 0 8px; height: 100%; font-size: 13px; min-width: 0; }
+  .split .seg svg { width: 15px; height: 15px; flex: none; }
+  .split .seg.m { background: color-mix(in srgb, var(--blue) 14%, transparent); color: color-mix(in srgb, var(--blue) 42%, var(--fg)); font-weight: 600; border-right: 1px solid color-mix(in srgb, var(--blue) 40%, var(--border)); }
+  /* option C tab */
+  .tabwrap { position: relative; padding-top: 12px; }
+  .tab { position: absolute; top: 0; left: 18px; height: 22px; padding: 0 9px; display: inline-flex; gap: 5px; align-items: center; border-radius: 7px; font-size: 12px; font-weight: 600; background: #1c2a40; color: color-mix(in srgb, var(--blue) 42%, var(--fg)); border: 1px solid color-mix(in srgb, var(--blue) 72%, var(--border)); }
+  .tab svg { width: 13px; height: 13px; }
+  /* window mock */
+  .win { width: 1180px; height: 430px; border: 1px solid #333; border-radius: 10px; overflow: hidden; display: flex; position: relative; background: var(--bg); }
+  .topbar { position: absolute; inset: 0 0 auto; height: 3px; background: color-mix(in srgb, var(--blue) 78%, transparent); }
+  .side { width: 190px; background: #19191a; border-right: 1px solid #2d2d30; padding: 16px 12px; color: var(--muted); font-size: 12.5px; }
+  .side div { padding: 5px 4px; }
+  .pane { position: relative; display: flex; flex-direction: column; padding: 14px 18px 16px; min-width: 0; }
+  .pane.coord { flex: 1.25; border-right: 1px solid #2d2d30; }
+  .pane.thread { flex: 1; background: var(--pane); }
+  .pane .head { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 13px; margin-bottom: 10px; }
+  .pane .body { flex: 1; color: var(--muted); font-size: 12.5px; }
+  .pane .body .ln { height: 9px; border-radius: 4px; background: #2c2c2f; margin: 9px 0; }
+  .edge-rose { box-shadow: inset 3px 0 0 color-mix(in srgb, var(--rose) 80%, transparent); }
+  .edge-blue { box-shadow: inset 3px 0 0 color-mix(in srgb, var(--blue) 80%, transparent); }
+  .banner { font-size: 12px; color: var(--muted); border: 1px solid var(--border); border-radius: 12px; padding: 6px 10px; margin-bottom: 6px; }
+  .legend { display: flex; gap: 18px; margin: 8px 0 0; font-size: 12.5px; color: var(--muted); }
+  .sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; vertical-align: -1px; margin-right: 5px; }
+  table { border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+  td, th { border-bottom: 1px solid #2d2d30; padding: 7px 14px 7px 0; text-align: left; vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="laptop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z"/><path d="M20.054 15.987H3.946"/></symbol>
+  <symbol id="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="audio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 10v3M6 6v11M10 3v18M14 8v7M18 5v13M22 10v3"/></symbol>
+  <symbol id="clip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7M12 19V5"/></symbol>
+  <symbol id="plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5v14"/></symbol>
+  <symbol id="claude" viewBox="0 0 24 24"><g stroke="#d97757" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1M7.5 2.8l9 18.4M16.5 2.8l-9 18.4"/></g></symbol>
+  <symbol id="dial" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 14l4-4M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+</svg>
+
+<h1>Composer foot: model and machine first</h1>
+<p class="lead">Increment 1321, November 13, 2026. Thread composer shown with a linux-mini thread (blue) and Claude Opus 5.5. Widths are the composer card's own width: a full window, a half-screen pane, a phone.</p>
+
+<h2>Before (today)</h2>
+<p class="note">"Runs on linux-mini" keeps its full width, Voice, attach and "Skills 50" keep theirs on the right, and the model is cut to "Op".</p>
+<div class="row">
+  <div><p class="w">390 px</p>
+    <div class="composer" style="width:390px"><div class="ph">Ask anything…</div>
+      <div class="foot"><div class="left">
+        <span class="chip mach blue" style="flex:none"><svg><use href="#monitor"/></svg>Runs on linux-mini<svg class="chev"><use href="#chev"/></svg></span><span class="sep"></span>
+        <span class="chip" style="flex:none"><svg><use href="#claude"/></svg>Op</span></div>
+        <div class="right"><span class="chip muted"><svg><use href="#audio"/></svg>Voice<svg class="chev"><use href="#chev"/></svg></span><span class="icon"><svg><use href="#clip"/></svg></span><span class="chip muted"><svg><use href="#spark"/></svg>50</span><span class="send"><svg><use href="#up"/></svg></span></div></div>
+    </div></div>
+  <div><p class="w">480 px</p>
+    <div class="composer" style="width:480px"><div class="ph">Ask anything…</div>
+      <div class="foot"><div class="left">
+        <span class="chip mach blue" style="flex:none"><svg><use href="#monitor"/></svg>Runs on linux-mini<svg class="chev"><use href="#chev"/></svg></span><span class="sep"></span>
+        <span class="chip" style="flex:none"><svg><use href="#claude"/></svg>Op</span></div>
+        <div class="right"><span class="chip muted"><svg><use href="#audio"/></svg>Voice<svg class="chev"><use href="#chev"/></svg></span><span class="icon"><svg><use href="#clip"/></svg></span><span class="chip muted"><svg><use href="#spark"/></svg>Skills 50</span><span class="send named blue"><svg><use href="#up"/></svg>Send to linux-mini</span></div></div>
+    </div></div>
+</div>
+
+<h2>Option A: one split chip, machine | model <span class="reject">not picked</span></h2>
+<p class="note">Reads as one "where and what". Two menus behind one pill are hard to hit on a phone, and the model chip's fit logic measures its own trigger, so the pill would need its own measuring.</p>
+<div class="row">
+  <div><p class="w">720 px</p><div class="composer m-blue" style="width:720px"><div class="ph">Ask anything…</div>
+    <div class="foot"><div class="left"><span class="split blue"><span class="seg m"><svg><use href="#monitor"/></svg>linux-mini</span><span class="seg"><svg><use href="#claude"/></svg>Opus 5.5<svg class="chev" style="width:11px;height:11px;opacity:.7"><use href="#chev"/></svg></span></span>
+      <span class="chip muted"><svg><use href="#dial"/></svg>Full access</span></div>
+      <div class="right"><span class="icon"><svg><use href="#audio"/></svg></span><span class="icon"><svg><use href="#clip"/></svg></span><span class="icon"><svg><use href="#spark"/></svg></span><span class="send named blue"><svg><use href="#up"/></svg>Send to linux-mini</span></div></div></div></div>
+  <div><p class="w">390 px</p><div class="composer m-blue" style="width:390px"><div class="ph">Ask anything…</div>
+    <div class="foot"><div class="left"><span class="split blue"><span class="seg m"><svg><use href="#monitor"/></svg>LM</span><span class="seg"><svg><use href="#claude"/></svg>Opus 5.5</span></span></div>
+      <div class="right"><span class="icon"><svg><use href="#audio"/></svg></span><span class="icon"><svg><use href="#clip"/></svg></span><span class="icon"><svg><use href="#spark"/></svg></span><span class="send blue" style="background:var(--blue)"><svg><use href="#up"/></svg></span></div></div></div></div>
+</div>
+
+<h2>Option B: machine tag, then model; everything else an icon <span class="pick">picked, then revised</span></h2>
+<p class="note">The machine keeps its own chip and menu (icon and name in its color, no "Runs on"), the model sits right after it, and voice, attach and skills are icons with tooltips. Narrow, the machine gives way to its short label ("LM") before the model's name is cut. Smallest change to tested fit code; every control keeps a full-size hit target.</p>
+<div class="row">
+  <div><p class="w">720 px</p><div class="composer m-blue" style="width:720px"><div class="ph">Ask anything…</div>
+    <div class="foot"><div class="left"><span class="chip mach blue"><svg><use href="#monitor"/></svg>linux-mini<svg class="chev"><use href="#chev"/></svg></span><span class="sep"></span>
+      <span class="chip"><svg><use href="#claude"/></svg>Opus 5.5</span><span class="sep"></span><span class="chip muted"><svg><use href="#dial"/></svg>Full access</span></div>
+      <div class="right"><span class="icon"><svg><use href="#audio"/></svg></span><span class="icon"><svg><use href="#clip"/></svg></span><span class="icon"><svg><use href="#spark"/></svg></span><span class="send named blue"><svg><use href="#up"/></svg>Send to linux-mini</span></div></div></div></div>
+  <div><p class="w">480 px</p><div class="composer m-blue" style="width:480px"><div class="ph">Ask anything…</div>
+    <div class="foot"><div class="left"><span class="chip mach blue"><svg><use href="#monitor"/></svg>linux-mini<svg class="chev"><use href="#chev"/></svg></span><span class="sep"></span>
+      <span class="chip"><svg><use href="#claude"/></svg>Opus 5.5</span></div>
+      <div class="right"><span class="icon"><svg><use href="#audio"/></svg></span><span class="icon"><svg><use href="#clip"/></svg></span><span class="icon"><svg><use href="#spark"/></svg></span><span class="send named blue"><svg><use href="#up"/></svg>LM</span></div></div></div></div>
+  <div><p class="w">390 px</p><div class="composer m-blue" style="width:390px"><div class="ph">Ask anything…</div>
+    <div class="foot"><div class="left"><span class="chip mach blue">LM<svg class="chev"><use href="#chev"/></svg></span><span class="sep"></span>
+      <span class="chip"><svg><use href="#claude"/></svg>Opus 5.5</span></div>
+      <div class="right"><span class="icon"><svg><use href="#audio"/></svg></span><span class="icon"><svg><use href="#clip"/></svg></span><span class="icon"><svg><use href="#spark"/></svg></span><span class="send named blue"><svg><use href="#up"/></svg>LM</span></div></div></div></div>
+</div>
+<p class="note">Coordinator, same rule: <b>+ · [m4] · Opus 5.5 · Full access</b> on one row where it fits, then the voice icon and a status dot; the dot gets words only for "Needs you" and "Run failed".</p>
+<div class="row">
+  <div><p class="w">Coordinator, 760 px</p><div class="composer m-rose" style="width:760px"><div class="ph">Ask the coordinator a question or start a task…</div>
+    <div class="foot"><div class="left"><span class="icon"><svg><use href="#plus"/></svg></span><span class="chip mach rose"><svg><use href="#laptop"/></svg>m4<svg class="chev"><use href="#chev"/></svg></span>
+      <span class="chip"><svg><use href="#claude"/></svg>Opus 5.5</span><span class="chip muted"><svg><use href="#dial"/></svg>Full access<svg class="chev"><use href="#chev"/></svg></span></div>
+      <div class="right"><span class="icon"><svg><use href="#audio"/></svg></span><span class="icon" title="Waiting for background work"><span class="dot bg"></span></span><span class="send"><svg><use href="#up"/></svg></span></div></div></div></div>
+</div>
+
+<h2>Option C: machine on the composer's top edge <span class="reject">not picked</span></h2>
+<p class="note">Frees the whole bottom line for the model. The tab collides with the banners that sit on that edge ("Resume with less context", subagents) and moves the machine away from the model it pairs with.</p>
+<div class="row">
+  <div><p class="w">480 px</p><div class="tabwrap"><span class="tab"><svg><use href="#monitor"/></svg>linux-mini</span><div class="composer m-blue" style="width:480px"><div class="ph">Ask anything…</div>
+    <div class="foot"><div class="left"><span class="chip"><svg><use href="#claude"/></svg>Opus 5.5</span><span class="sep"></span><span class="chip muted"><svg><use href="#dial"/></svg>Full access</span></div>
+      <div class="right"><span class="icon"><svg><use href="#audio"/></svg></span><span class="icon"><svg><use href="#clip"/></svg></span><span class="icon"><svg><use href="#spark"/></svg></span><span class="send named blue"><svg><use href="#up"/></svg>LM</span></div></div></div></div></div>
+</div>
+
+<h2>Machine color: one window-wide line vs each pane</h2>
+<p class="note">Today the window's top line takes the machine of the view in front, and a thread outranks its project (<code>apps/web/src/studio/windowMachine.ts</code>). With the M4 coordinator in the middle and a linux-mini thread on the right, the whole top line is blue. The thread's composer also drops its blue border while a banner sits above it.</p>
+<div class="row">
+  <div><p class="w">Before</p>
+  <div class="win"><div class="topbar"></div>
+    <div class="side"><div>New chat</div><div>Search</div><div>specweave</div></div>
+    <div class="pane coord"><div class="head">specweave <span class="chip mach rose" style="height:22px;font-size:12px"><svg><use href="#laptop"/></svg>m4</span></div><div class="body"><div class="ln" style="width:70%"></div><div class="ln" style="width:85%"></div><div class="ln" style="width:55%"></div></div>
+      <div class="composer m-rose"><div class="ph" style="height:22px">Ask the coordinator…</div><div class="foot"><div class="left"><span class="chip mach rose" style="font-size:12px">Runs on m4<svg class="chev"><use href="#chev"/></svg></span><span class="chip muted" style="font-size:12px"><svg><use href="#audio"/></svg>Voice</span><span class="chip muted" style="font-size:12px">Waiting for background work</span></div></div></div></div>
+    <div class="pane thread"><div class="head">Sweep stale increments <span class="chip mach blue" style="height:22px;font-size:12px"><svg><use href="#monitor"/></svg>linux-mini</span></div><div class="body"><div class="ln" style="width:80%"></div><div class="ln" style="width:60%"></div></div>
+      <div class="banner">Resume with less context · 169k tokens</div>
+      <div class="composer"><div class="ph" style="height:22px">Ask anything…</div><div class="foot"><div class="left"><span class="chip mach blue" style="font-size:12px">Runs on linux-mini</span><span class="chip" style="font-size:12px"><svg><use href="#claude"/></svg>Op</span></div></div></div></div>
+  </div></div>
+  <div><p class="w">After (picked): no window-wide line; each pane's leading edge, composer border and Send wear the machine that runs it</p>
+  <div class="win">
+    <div class="side"><div>New chat</div><div>Search</div><div>specweave</div></div>
+    <div class="pane coord edge-rose"><div class="head">specweave <span class="chip mach rose" style="height:22px;font-size:12px"><svg><use href="#laptop"/></svg>m4</span></div><div class="body"><div class="ln" style="width:70%"></div><div class="ln" style="width:85%"></div><div class="ln" style="width:55%"></div></div>
+      <div class="composer m-rose"><div class="ph" style="height:22px">Ask the coordinator…</div><div class="foot"><div class="left"><span class="icon"><svg><use href="#plus"/></svg></span><span class="chip mach rose" style="font-size:12px"><svg><use href="#laptop"/></svg>m4<svg class="chev"><use href="#chev"/></svg></span><span class="chip" style="font-size:12px"><svg><use href="#claude"/></svg>Opus 5.5</span><span class="chip muted" style="font-size:12px"><svg><use href="#dial"/></svg>Full access</span></div><div class="right"><span class="icon"><svg><use href="#audio"/></svg></span><span class="icon"><span class="dot bg"></span></span><span class="send"><svg><use href="#up"/></svg></span></div></div></div></div>
+    <div class="pane thread edge-blue"><div class="head">Sweep stale increments <span class="chip mach blue" style="height:22px;font-size:12px"><svg><use href="#monitor"/></svg>linux-mini</span></div><div class="body"><div class="ln" style="width:80%"></div><div class="ln" style="width:60%"></div></div>
+      <div class="banner">Resume with less context · 169k tokens</div>
+      <div class="composer m-blue"><div class="ph" style="height:22px">Ask anything…</div><div class="foot"><div class="left"><span class="chip mach blue" style="font-size:12px"><svg><use href="#monitor"/></svg>linux-mini</span><span class="chip" style="font-size:12px"><svg><use href="#claude"/></svg>Opus 5.5</span></div><div class="right"><span class="icon"><svg><use href="#audio"/></svg></span><span class="icon"><svg><use href="#clip"/></svg></span><span class="icon"><svg><use href="#spark"/></svg></span><span class="send named blue" style="font-size:12px"><svg><use href="#up"/></svg>LM</span></div></div></div></div>
+  </div>
+  <div class="legend"><span><span class="sw" style="background:var(--rose)"></span>m4: the coordinator pane</span><span><span class="sw" style="background:var(--blue)"></span>linux-mini: the open thread</span></div></div>
+</div>
+
+<h2>Why B</h2>
+<table>
+  <tr><th></th><th>A split chip</th><th>B machine tag + model</th><th>C top-edge tab</th></tr>
+  <tr><td>Model readable at 390 px</td><td>yes</td><td>yes</td><td>yes</td></tr>
+  <tr><td>Machine next to the model</td><td>yes</td><td>yes</td><td>no</td></tr>
+  <tr><td>Separate hit targets on a phone</td><td>tight</td><td>yes</td><td>yes</td></tr>
+  <tr><td>Works with banners above the box</td><td>yes</td><td>yes</td><td>collides</td></tr>
+  <tr><td>Reuses tested fit code (1284, PR 235)</td><td>no</td><td>yes</td><td>partly</td></tr>
+</table>
+
+<h2>Revision, same day: "Runs on" stays <span class="pick">shipped</span></h2>
+<p class="note">Anton, November 13, 2026: keep "Runs on &lt;machine&gt;", put the model right next to it, both readable at every width, and let the rest give way. So the chip keeps its words and its full width; below 560 px the thread composer's foot wraps, with the machine and the model on the first row and voice, attach, skills and Send on the second. Below 720 px Send drops "to &lt;machine&gt;". Real app components, headless captures from <code>apps/web/tests/composer-foot/verify.mjs</code>.</p>
+<p class="w">Desktop window 1100 px: coordinator on m4 (left), thread on linux-mini (right)</p>
+<img src="before-after-1100.png" alt="Before: LM and O... in the thread composer. After: Runs on linux-mini and Opus 5.5 side by side, icons and Send on a second row" style="max-width:100%;border:1px solid var(--border);border-radius:8px">
+<div class="row" style="margin-top:18px">
+  <div><p class="w">860 px window, light, banner above the thread's box</p><img src="after-window-860-light-banner.png" alt="Narrow window with a banner; the thread box keeps its blue border" style="width:520px;border:1px solid var(--border);border-radius:8px"></div>
+  <div><p class="w">Coordinator, 390 px</p><img src="after-coordinator-390-dark.png" alt="Coordinator at phone width: Runs on m4 and Opus 5.5 on one row" style="width:260px;border:1px solid var(--border);border-radius:8px"></div>
+  <div><p class="w">Thread, 390 px (compact phone composer)</p><img src="after-thread-390-dark.png" alt="Thread at phone width: Runs on linux-mini and Opus 5.5" style="width:260px;border:1px solid var(--border);border-radius:8px"></div>
+</div>
+</body>
+</html>
