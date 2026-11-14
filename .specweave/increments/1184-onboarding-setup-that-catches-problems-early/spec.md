@@ -52,16 +52,16 @@ Out: reordering the wizard, a first-task step, contextual concept hints and iOS 
 ## Tasks
 
 ### T-01 Agents step verdict and no dead ends
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/onboarding/agentReadiness.logic.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/onboarding/agentReadiness.logic.test.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/onboarding/useAgentReadiness.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/onboarding/WelcomeWizard.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/onboarding/WelcomeWizard.terminal.test.tsx | Test: `pnpm exec vp test run apps/web/src/onboarding/agentReadiness.logic.test.ts apps/web/src/components/onboarding/WelcomeWizard.terminal.test.tsx`
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/onboarding/agentReadiness.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/onboarding/agentReadiness.logic.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/onboarding/useAgentReadiness.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/onboarding/WelcomeWizard.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/onboarding/WelcomeWizard.terminal.test.tsx | Test: `pnpm exec vp test run apps/web/src/onboarding/agentReadiness.logic.test.ts apps/web/src/components/onboarding/WelcomeWizard.terminal.test.tsx`
 
 ### T-02 Connect row says optional and reports a failed load
-- AC: AC-06, AC-07 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/onboarding/WelcomeWizard.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/onboarding/WelcomeWizard.machineRole.test.tsx | Test: `pnpm exec vp test run apps/web/src/components/onboarding/WelcomeWizard.machineRole.test.tsx`
+- AC: AC-06, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/onboarding/WelcomeWizard.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/onboarding/WelcomeWizard.machineRole.test.tsx | Test: `pnpm exec vp test run apps/web/src/components/onboarding/WelcomeWizard.machineRole.test.tsx`
 
 ### T-03 Empty Overview summary
-- AC: AC-08 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/StudioOverview.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/StudioOverview.test.tsx | Test: `pnpm exec vp test run apps/web/src/components/studio/StudioOverview.test.tsx`
+- AC: AC-08 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/StudioOverview.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/StudioOverview.test.tsx | Test: `pnpm exec vp test run apps/web/src/components/studio/StudioOverview.test.tsx`
 
 ### T-04 Headless walk and design page
-- AC: AC-09 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/tests/setup-checks/walk.mjs | Test: `node apps/web/tests/setup-checks/walk.mjs <origin> <token> <out> <playwright-core>`
+- AC: AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/web/tests/setup-checks/walk.mjs | Test: `node apps/web/tests/setup-checks/walk.mjs <origin> <token> <out> <playwright-core>`
 
 ### T-05 Verify and close 1184
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09 | Files: none | Test: `specweave verify 1184-onboarding-setup-that-catches-problems-early`

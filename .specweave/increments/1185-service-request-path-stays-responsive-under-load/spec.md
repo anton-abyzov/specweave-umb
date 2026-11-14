@@ -40,10 +40,10 @@ Rejected: moving SQLite to a worker (too large for an urgent fix), slowing the s
 ## Tasks
 
 ### T-01 Batch linked memory reads
-- AC: AC-01, AC-02, AC-03 | Files: [apps/server/src/project/ProjectWorkspaceService.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/ProjectLink.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/project/LinkedMemorySync.ts] | Test: pnpm exec vitest run apps/server/src/project
+- AC: AC-01, AC-02, AC-03 | Files: [apps/server/src/project/ProjectWorkspaceService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/ProjectLink.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/LinkedMemorySync.ts] | Test: pnpm exec vitest run apps/server/src/project
 
 ### T-02 Bound confirmed polling and sweep load
-- AC: AC-04 | Files: [apps/server/src/orchestration-v2/ThreadSettlementService.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/mods/SpecweaveProgress.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/studio/fleet.ts] | Test: pnpm exec vitest run on the changed files
+- AC: AC-04 | Files: [apps/server/src/orchestration-v2/ThreadSettlementService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mods/SpecweaveProgress.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/fleet.ts] | Test: pnpm exec vitest run on the changed files
 
 ### T-03 Ship through required checks
 - AC: AC-05 | Files: [none] | Test: gh pr checks --required

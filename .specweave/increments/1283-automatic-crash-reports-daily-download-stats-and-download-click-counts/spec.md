@@ -33,16 +33,16 @@ Shared payload, sanitizer and validator in packages/shared/src/crashReport.ts us
 ## Tasks
 
 ### T-01 Shared payload, relay endpoints, server and desktop reporters, settings UI and docs
-- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/packages/shared/src/crashReport.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/reports/Reports.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/telemetry/CrashReporter.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/telemetry/DesktopCrashReporter.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/settings/PrivacySettings.tsx, repositories/anton-abyzov/specwithcode-dev/apps/mobile/src/features/diagnostics/crashReporting.ts | Test: cd repositories/anton-abyzov/specwithcode-dev && ./node_modules/.bin/vp test run packages/shared/src/crashReport.test.ts infra/relay/src/reports apps/server/src/telemetry apps/desktop/src/telemetry/DesktopCrashReporter.test.ts apps/web/src/components/settings/PrivacySettings.test.tsx
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/crashReport.ts, repositories/anton-abyzov/specwithcode/infra/relay/src/reports/Reports.ts, repositories/anton-abyzov/specwithcode/apps/server/src/telemetry/CrashReporter.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/telemetry/DesktopCrashReporter.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/PrivacySettings.tsx, repositories/anton-abyzov/specwithcode/apps/mobile/src/features/diagnostics/crashReporting.ts | Test: cd repositories/anton-abyzov/specwithcode && ./node_modules/.bin/vp test run packages/shared/src/crashReport.test.ts infra/relay/src/reports apps/server/src/telemetry apps/desktop/src/telemetry/DesktopCrashReporter.test.ts apps/web/src/components/settings/PrivacySettings.test.tsx
 
 ### T-02 Daily download snapshot action
-- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/.github/workflows/download-stats.yml, repositories/anton-abyzov/specwithcode-dev/scripts/download-stats/lib.mjs | Test: cd repositories/anton-abyzov/specwithcode-dev && node --test scripts/download-stats/lib.test.mjs
+- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode/.github/workflows/download-stats.yml, repositories/anton-abyzov/specwithcode/scripts/download-stats/lib.mjs | Test: cd repositories/anton-abyzov/specwithcode && node --test scripts/download-stats/lib.test.mjs
 
 ### T-03 Download click counts on the sites
-- AC: AC-05 | Files: repositories/anton-abyzov/specweave/docs-site/src/lib/siteEvents.ts, repositories/anton-abyzov/specwithcode-dev/apps/marketing/src/lib/siteEvents.ts | Test: cd repositories/anton-abyzov/specwithcode-dev && ./node_modules/.bin/vp test run apps/marketing/src/lib
+- AC: AC-05 | Files: repositories/anton-abyzov/specweave/docs-site/src/lib/siteEvents.ts, repositories/anton-abyzov/specwithcode/apps/marketing/src/lib/siteEvents.ts | Test: cd repositories/anton-abyzov/specwithcode && ./node_modules/.bin/vp test run apps/marketing/src/lib
 
 ### T-04 Release, deploy and verify on this Mac
-- AC: AC-01, AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode-dev/docs/operations/relay-observability.md | Test: cd repositories/anton-abyzov/specwithcode-dev && node scripts/download-stats/today.mjs
+- AC: AC-01, AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/docs/operations/relay-observability.md | Test: cd repositories/anton-abyzov/specwithcode && node scripts/download-stats/today.mjs
 
 ### T-05 Verify and close 1283
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: .specweave/increments/1283-automatic-crash-reports-daily-download-stats-and-download-click-counts/spec.md | Test: specweave verify 1283

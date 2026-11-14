@@ -37,13 +37,13 @@ Rejected: letting mods ship SVG, because the host renders nothing from a mod exc
 ## Tasks
 
 ### T-01 Stats protocol and sandbox
-- AC: AC-01, AC-07 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/mods/protocol.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/mods/sandbox.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/mods/modsStore.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/mods/ModsHost.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/mods/protocol.test.ts | Test: vitest apps/web/src/mods
+- AC: AC-01, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/mods/protocol.ts, repositories/anton-abyzov/specwithcode/apps/web/src/mods/sandbox.ts, repositories/anton-abyzov/specwithcode/apps/web/src/mods/modsStore.ts, repositories/anton-abyzov/specwithcode/apps/web/src/mods/ModsHost.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/mods/protocol.test.ts | Test: vitest apps/web/src/mods
 
 ### T-02 Chip, popover and glyphs
-- AC: AC-02, AC-03, AC-04, AC-05, AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/mods/ModStatGlyph.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/mods/ModPanes.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/tests/mod-status | Test: headless fixture screenshots
+- AC: AC-02, AC-03, AC-04, AC-05, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/mods/ModStatGlyph.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/mods/ModPanes.tsx, repositories/anton-abyzov/specwithcode/apps/web/tests/mod-status | Test: headless fixture screenshots
 
 ### T-03 Example mods, docs and verify script
-- AC: AC-04, AC-07 | Files: repositories/anton-abyzov/specwithcode-dev/examples/mods, repositories/anton-abyzov/specwithcode-dev/docs/studio/mods.md, repositories/anton-abyzov/specwithcode-dev/scripts/studio-mods/verify.mjs | Test: node scripts/studio-mods/verify.mjs
+- AC: AC-04, AC-07 | Files: repositories/anton-abyzov/specwithcode/examples/mods, repositories/anton-abyzov/specwithcode/docs/studio/mods.md, repositories/anton-abyzov/specwithcode/scripts/studio-mods/verify.mjs | Test: node scripts/studio-mods/verify.mjs
 
 ### T-04 Merge, release and installed check
 - AC: AC-08 | Files: none | Test: installed M4 headless check

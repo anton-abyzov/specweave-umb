@@ -29,7 +29,7 @@ Reuse the quota shape SpecWithCode already reads per account and the Claude `get
 ## Tasks
 
 ### T-01 Local daily usage summary with the field allowlist
-- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specweave-studio | Test: summary allowlist unit test
+- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode | Test: summary allowlist unit test
 
 ### T-02 Team endpoint storing summaries per tenant
 - AC: AC-04 | Files: repositories/anton-abyzov/vskill-platform | Test: endpoint auth and schema tests

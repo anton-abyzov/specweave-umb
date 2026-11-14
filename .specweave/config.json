@@ -43,14 +43,6 @@
       "repositories/anton-abyzov/specwithcode": [
         "npm run verify:pr -- --jobs 1 --no-server",
         "npm run test:server:sharded -- --shards 6 --out \"$(mktemp -d)\""
-      ],
-      "repositories/anton-abyzov/specwithcode-dev": [
-        "npm run verify:pr -- --jobs 1 --no-server",
-        "npm run test:server:sharded -- --shards 6 --out \"$(mktemp -d)\""
-      ],
-      "repositories/anton-abyzov/specweave-studio": [
-        "npm run verify:pr -- --jobs 1 --no-server",
-        "npm run test:server:sharded -- --shards 6 --out \"$(mktemp -d)\""
       ]
     }
   },

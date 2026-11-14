@@ -22,7 +22,7 @@ Out: OrchestratorSwitcher.tsx (owned by another thread), server changes, the Mov
 
 ## Approach
 
-Web only, in `repositories/anton-abyzov/specwithcode-dev/apps/web/src` (the nested `specwithcode` checkout is held by PR #321's thread, so commits are built out of tree from `origin/main` with a temporary index and a scratch work tree; heavy checks run in the `specweave-studio checks copy`).
+Web only, in `repositories/anton-abyzov/specwithcode/apps/web/src` (the nested `specwithcode` checkout is held by PR #321's thread, so commits are built out of tree from `origin/main` with a temporary index and a scratch work tree; heavy checks run in the `specweave-studio checks copy`).
 
 1. Sidebar: a pure helper `remoteOnlyMachines` beside `sidebarProjectGrouping.ts`; `ProjectRow` renders the tag with the `sws-row-machine` style and `data-elsewhere` mutes the label. "Add to this machine…" mounts the existing `AddToMachineDialog` (Git remote) or `DraftFolderCopy` (no remote) with `usePrimaryEnvironmentId()` as destination, so no project-page plumbing and no overlap with PR #327.
 2. Share view (`HandoffShare.tsx`): the two choices become a visible pair; order by `addToMachineRoute` and nested repositories; long notes move into an `InfoHint` (Popover trigger button, works by keyboard and touch).
@@ -44,16 +44,16 @@ Rejected: greying rows out completely and making them inert. The row still opens
 ## Tasks
 
 ### T-01 Sidebar tag, muted name and Add to this machine
-- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/SidebarProjectList.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/shell.css, repositories/anton-abyzov/specwithcode-dev/apps/web/src/sidebarProjectGrouping.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/SidebarProjectList.test.tsx | Test: bash /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-per-machine-folders/web-test.sh src/components/studio/shell/SidebarProjectList src/sidebarProjectGrouping
+- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/shell/SidebarProjectList.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/shell/shell.css, repositories/anton-abyzov/specwithcode/apps/web/src/sidebarProjectGrouping.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/shell/SidebarProjectList.test.tsx | Test: bash /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-per-machine-folders/web-test.sh src/components/studio/shell/SidebarProjectList src/sidebarProjectGrouping
 
 ### T-02 Share view: both choices visible, copy first without a remote, short text with hints
-- AC: AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/HandoffShare.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/HandoffShare.test.tsx | Test: bash /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-per-machine-folders/web-test.sh src/components/studio/HandoffShare
+- AC: AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffShare.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffShare.test.tsx | Test: bash /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-per-machine-folders/web-test.sh src/components/studio/HandoffShare
 
 ### T-03 Browse beside the destination folder
-- AC: AC-05 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/chat/AddToMachineDialog.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/chat/AddToMachineDialog.test.tsx | Test: bash /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-per-machine-folders/web-test.sh src/components/chat/AddToMachineDialog
+- AC: AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/AddToMachineDialog.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/AddToMachineDialog.test.tsx | Test: bash /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-per-machine-folders/web-test.sh src/components/chat/AddToMachineDialog
 
 ### T-04 Project folder on each machine in Project settings
-- AC: AC-06, AC-07 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/ProjectFolderChange.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/ProjectFolderChange.test.tsx | Test: bash /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-per-machine-folders/web-test.sh src/components/studio/ProjectFolderChange
+- AC: AC-06, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectFolderChange.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectFolderChange.test.tsx | Test: bash /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-per-machine-folders/web-test.sh src/components/studio/ProjectFolderChange
 
 ### T-05 Released build check
 - AC: AC-08 | Files: .specweave/increments/1319-each-machines-project-copies-are-visible-sidebar-tag-for-projects-not-on-this-device-per-machine-folders-in-settings-copy-first-add-to-another-machine/reports/ | Test: ls .specweave/increments/1319-each-machines-project-copies-are-visible-sidebar-tag-for-projects-not-on-this-device-per-machine-folders-in-settings-copy-first-add-to-another-machine/reports/*.png

@@ -35,10 +35,10 @@ Reuse 0993 T-09 (PR #763): `after_proof._Reader` for the pinned snapshot and the
 ## Tasks
 
 ### T-01 Held reader from the before read through the mark
-- AC: AC-01 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/after_proof.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-after-proof.py | Test: cd repositories/anton-abyzov/specweave-studio/scripts/studio-fleet && python3 -B test-after-proof.py && python3 -B test-update.py
+- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/after_proof.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-after-proof.py | Test: cd repositories/anton-abyzov/specwithcode/scripts/studio-fleet && python3 -B test-after-proof.py && python3 -B test-update.py
 
 ### T-02 Re-read by pages against the snapshot's reference image
-- AC: AC-02, AC-03 | Files: repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/read_delta.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update-read-delta.py, repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/update.py | Test: cd repositories/anton-abyzov/specweave-studio/scripts/studio-fleet && python3 -B test-update-read-delta.py && bash run-tests.sh --out "$(mktemp -d)"
+- AC: AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/read_delta.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-update-read-delta.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update.py | Test: cd repositories/anton-abyzov/specwithcode/scripts/studio-fleet && python3 -B test-update-read-delta.py && bash run-tests.sh --out "$(mktemp -d)"
 
 ### T-03 Measure on M4's clone and on an installed release
-- AC: AC-04, AC-05 | Files: repositories/anton-abyzov/specweave-studio/docs/studio/updates.md | Test: python3 -B repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/test-update-read-delta.py --measure ~/.specwithcode/m4/userdata
+- AC: AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/docs/studio/updates.md | Test: python3 -B repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-update-read-delta.py --measure ~/.specwithcode/m4/userdata
