@@ -5,8 +5,9 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-13T22:07:19.410Z",
-  "updated": "2026-11-13T22:53:24.970Z",
-  "lastActivity": "2026-11-13T22:53:24.970Z",
+  "updated": "2026-11-14T01:16:10.574Z",
+  "lastActivity": "2026-11-14T01:16:10.574Z",
   "title": "One Copy to another machine flow: secrets included by default, one coordinator question",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {}
 }
