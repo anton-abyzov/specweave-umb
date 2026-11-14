@@ -1,0 +1,12 @@
+{
+  "id": "1335-slow-worker-fewer-false-drops-honest-timeout-reason-last-seen-keeps-counting",
+  "uuid": "1cced9d0-bd7a-453f-aea5-fd8a9c1d00ba",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-14T22:07:13.450Z",
+  "updated": "2026-11-14T22:26:35.497Z",
+  "lastActivity": "2026-11-14T22:26:35.497Z",
+  "title": "Slow worker: fewer false drops, honest timeout reason, last seen keeps counting",
+  "project": "specweave-umb"
+}
