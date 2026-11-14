@@ -1,0 +1,11 @@
+$ specweave verify 1324-cross-family-review-policy
+# exit 1 — 2026-11-13T23:31:24.708Z
+
+▶ python3 scripts/fleet-project-sync.py --self-test
+▶ python3 -m unittest discover -s tests -p test_handoff_evidence.py
+▶ python3 scripts/release/timing.py --self-test
+▶ npm run test:unit:fast
+▶ npm run verify:pr -- --jobs 1 --no-server
+▶ npm run test:server:sharded -- --shards 6 --out "$(mktemp -d)"
+
+[timeout after 20 min]

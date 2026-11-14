@@ -1,0 +1,4 @@
+$ cd repositories/anton-abyzov/specweave && grep -q 'Required: yes' skills/sw-increment/SKILL.md && grep -q 'specweave review --record' skills/sw-review/SKILL.md && grep -q '## Review' skills/sw-done/SKILL.md && grep -qi 'who reviews it' skills/sw-grill-me/SKILL.md && node scripts/build/generate-skills.mjs --check
+# exit 0 — 2026-11-13T22:50:41.319Z
+
+generate-skills: 11 plugin skills match skills/

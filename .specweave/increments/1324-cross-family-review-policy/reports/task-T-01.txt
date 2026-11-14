@@ -1,0 +1,13 @@
+$ cd repositories/anton-abyzov/specweave && npx vitest run tests/unit/review/policy.test.ts
+# exit 0 — 2026-11-13T22:47:15.973Z
+
+
+ RUN  v4.1.11 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave
+
+ ✓ tests/unit/review/policy.test.ts (10 tests) 21ms
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  17:47:15
+   Duration  268ms (transform 121ms, setup 35ms, import 113ms, tests 21ms, environment 0ms)
+

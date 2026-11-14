@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1324 Cross-family review policy: two options</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; font-family: var(--font-sans, system-ui, sans-serif); font-size: 15px; line-height: 1.55; color: var(--foreground, #1b1b1f); background: var(--background, #fff); }
+  main { max-width: 760px; margin: 0 auto; padding: 20px 18px 32px; }
+  h1 { font-size: 26px; line-height: 1.25; margin: 0 0 6px; font-weight: 650; }
+  h2 { font-size: 18px; margin: 28px 0 8px; }
+  h3 { font-size: 15px; margin: 0 0 6px; }
+  p { margin: 0 0 10px; }
+  .lead { color: var(--muted-foreground, #555); margin-bottom: 18px; }
+  .verdict { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; border: 1px solid var(--border, #ddd); border-radius: 10px; padding: 12px 14px; background: var(--card, transparent); }
+  .verdict b { white-space: nowrap; }
+  .no { color: var(--destructive, #c62828); font-weight: 650; }
+  .ok { color: var(--success, #2e7d32); }
+  .warn { color: var(--warning, #b26a00); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 6px 0 4px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border, #ddd); vertical-align: top; }
+  th { font-weight: 600; color: var(--muted-foreground, #555); font-size: 13px; }
+  .options { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  @media (min-width: 640px) { .options { grid-template-columns: 1fr 1fr; } }
+  .opt { border: 1px solid var(--border, #ddd); border-radius: 10px; padding: 12px 14px; background: var(--card, transparent); }
+  .opt.chosen { border-color: var(--primary, #4f46e5); box-shadow: 0 0 0 1px var(--primary, #4f46e5) inset; }
+  .tag { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border, #ccc); margin-left: 6px; vertical-align: 1px; }
+  .opt.chosen .tag { background: var(--primary, #4f46e5); color: var(--primary-foreground, #fff); border-color: transparent; }
+  ul { margin: 6px 0 0; padding-left: 18px; }
+  li { margin: 2px 0; }
+  pre, code { font-family: var(--font-mono, ui-monospace, monospace); font-size: 13px; }
+  pre { background: var(--code-background, #f4f4f6); color: var(--code-foreground, inherit); padding: 10px 12px; border-radius: 8px; overflow-x: auto; margin: 8px 0; }
+  .mock { border: 1px solid var(--border, #ddd); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; margin-top: 10px; background: var(--background, #fff); }
+  .mock .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .mock .muted { color: var(--muted-foreground, #666); }
+  .chip { border: 1px solid var(--border, #ccc); border-radius: 999px; padding: 0 7px; font-size: 11.5px; }
+  svg text { font-family: var(--font-sans, system-ui, sans-serif); }
+  .flow { width: 100%; height: auto; margin: 6px 0; }
+  .small { font-size: 13px; color: var(--muted-foreground, #555); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Cross-family review: is it working, and the fix</h1>
+  <p class="lead">Increment 1324, November 13, 2026. Two options for a review policy that is set per app, per project and per increment, enforced at closure and shown on the plan card.</p>
+
+  <div class="verdict">
+    <b>Working today?</b><span class="no">No.</span>
+    <b>Why</b><span>The pieces exist (app reviewer order, <code>specweave review</code>, <code>review.crossModel</code>) but nothing connects them. <code>delegate_task</code> ignored the reviewer order, the closure gate accepted any <code>Verdict: ship</code> with no family or commit check, and spec.md had no way to ask for a review.</span>
+    <b>Evidence</b><span>39 increments closed since 1250: 17 have a review file, 0 have an OpenAI <code>specweave review</code> record, 2 mention Sol or Codex. PR 345 was reviewed by Sonnet 5.5 (Claude on Claude).</span>
+    <b>Quota now</b><span>Codex on M4 and M1 (one account) 100% until December 5; linux-mini Codex 3% with <code>gpt-6.1-sol</code>; Sol via Copilot (copilot-0889) 100% until December 1.</span>
+  </div>
+
+  <h2>Where the policy comes from</h2>
+  <svg class="flow" viewBox="0 0 680 210" role="img" aria-label="Policy layers: app default, project override, increment spec section; then reviewer pick, record, closure gate, plan card">
+    <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor" opacity=".6"/></marker></defs>
+    <g fill="none" stroke="currentColor" stroke-opacity=".35">
+      <rect x="10" y="10" width="190" height="44" rx="8"/>
+      <rect x="10" y="70" width="190" height="44" rx="8"/>
+      <rect x="10" y="130" width="190" height="60" rx="8" stroke-opacity=".8"/>
+      <rect x="250" y="70" width="170" height="44" rx="8"/>
+      <rect x="470" y="10" width="200" height="44" rx="8"/>
+      <rect x="470" y="70" width="200" height="44" rx="8"/>
+      <rect x="470" y="130" width="200" height="60" rx="8"/>
+      <path d="M105 54 V70 M105 114 V130" marker-end="url(#a)"/>
+      <path d="M200 160 C225 160 225 92 250 92" marker-end="url(#a)"/>
+      <path d="M420 92 C445 92 445 32 470 32" marker-end="url(#a)"/>
+      <path d="M420 92 H470" marker-end="url(#a)"/>
+      <path d="M420 92 C445 92 445 160 470 160" marker-end="url(#a)"/>
+    </g>
+    <g font-size="12.5" fill="currentColor">
+      <text x="22" y="30" font-weight="600">App default</text><text x="22" y="46" opacity=".7">Settings › Adversarial review</text>
+      <text x="22" y="90" font-weight="600">Project override</text><text x="22" y="106" opacity=".7">project settings, review.policy</text>
+      <text x="22" y="150" font-weight="600">Increment spec.md</text><text x="22" y="166" opacity=".7">## Review · Reviewer · Depth</text><text x="22" y="181" opacity=".7">Required: yes (complex work)</text>
+      <text x="262" y="90" font-weight="600">Reviewer pick</text><text x="262" y="106" opacity=".7">other family, has quota</text>
+      <text x="482" y="30" font-weight="600">No reviewer → refuse</text><text x="482" y="46" opacity=".7">reasons shown, nothing swapped</text>
+      <text x="482" y="90" font-weight="600">Record</text><text x="482" y="106" opacity=".7">model, family, commit</text>
+      <text x="482" y="150" font-weight="600">Closure + plan card</text><text x="482" y="166" opacity=".7">ship by required family</text><text x="482" y="181" opacity=".7">at the code being closed</text>
+    </g>
+  </svg>
+
+  <h2>Two options</h2>
+  <div class="options">
+    <section class="opt chosen">
+      <h3>A. Spec-owned, SpecWeave enforces <span class="tag">Chosen</span></h3>
+      <p>The policy travels in spec.md. SpecWeave's closure gate checks family, verdict and reviewed commit. The app routes reviews and shows the result.</p>
+      <pre>## Review
+- Reviewer: openai (gpt-6.1-sol)
+- Depth: deep
+- Required: yes</pre>
+      <ul>
+        <li class="ok">Holds from any tool: Codex, Claude Code, CLI, app.</li>
+        <li class="ok">Visible in the plan that agents and reviewers already read.</li>
+        <li class="ok">Records are files in the increment, reviewable in git.</li>
+        <li class="warn">Reviewer model is self-reported in <code>--record</code>; the card shows it.</li>
+      </ul>
+      <div class="mock" aria-label="Plan card mockup, option A">
+        <div class="row"><b>1324 Cross-family review policy</b><span class="muted">· active · verify passed</span></div>
+        <div class="row" style="margin-top:4px">Reviewed by <u>gpt-6.1-sol</u> at <code>3f9a2c1</code> (OpenAI) · <span class="ok">ship</span></div>
+        <div class="row" style="margin-top:6px;border-top:1px dashed var(--border,#ddd);padding-top:6px"><span class="muted">Before a matching review:</span></div>
+        <div class="row">Reviewed by <u>claude-sonnet-5-5</u> at <code>4444444</code> (Claude) · <span class="ok">ship</span> · <span class="warn">same family as the author · OpenAI review required</span></div>
+      </div>
+    </section>
+    <section class="opt">
+      <h3>B. App-owned review stage</h3>
+      <p>The app stores verdicts in its database and its Close action waits for one. The policy lives only in Settings.</p>
+      <ul>
+        <li class="ok">One click per review; strong UI.</li>
+        <li class="no" style="font-weight:400">Closing from the CLI, Codex or Claude Code outside the app skips it.</li>
+        <li class="no" style="font-weight:400">No per-increment ask; the spec cannot say "this one needs Sol".</li>
+        <li class="no" style="font-weight:400">State tied to one machine's database; handoffs lose it.</li>
+      </ul>
+      <div class="mock" aria-label="Plan card mockup, option B">
+        <div class="row"><b>1324 Cross-family review policy</b><span class="chip">Review: pending</span></div>
+        <div class="row" style="margin-top:4px"><span class="muted">Close is disabled until a review stage passes in this app.</span></div>
+      </div>
+    </section>
+  </div>
+
+  <h2>What ships with A</h2>
+  <table>
+    <thead><tr><th>Where</th><th>Change</th><th>PR</th></tr></thead>
+    <tbody>
+      <tr><td>SpecWeave</td><td><code>## Review</code> parser and layers; <code>specweave review</code> follows it (deep = Codex xhigh); <code>specweave review --record</code>; closure refuses a missing, same-family, fix-first, pre-verify or stale-commit review when Required</td><td>specweave #2286</td></tr>
+      <tr><td>App</td><td><code>delegate_task</code> reviews pick another family from the reviewer order, refuse with reasons when none can run, warn on a named same-family model; plan card review line; 8 catalogs</td><td>specwithcode #348</td></tr>
+      <tr><td>Skills</td><td>sw-review, sw-done, sw-increment, sw-grill-me name the section, recommend Required for complex work, end every review with <code>--record</code></td><td>specweave #2286</td></tr>
+    </tbody>
+  </table>
+  <p class="small">Out of scope: launching a reviewer on another machine automatically (the refusal tells the coordinator to pass <code>machine</code>); Settings layout changes; mobile clients.</p>
+
+  <h2>Reviewed under its own policy</h2>
+  <p>GPT-6.1 Sol (Codex on linux-mini, the only machine with Sol quota) reviewed both PRs at exact heads over 8 rounds. All 16 findings from rounds 1 and 2 were fixed before merge.</p>
+  <table>
+    <thead><tr><th>Round</th><th>Heads</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>specweave <code>5006fc0</code>, app <code>9cc926d</code></td><td class="warn">fix first · 3 high, 7 medium</td></tr>
+      <tr><td>2</td><td>specweave <code>5e3d1c3</code>, app <code>617947a</code></td><td class="warn">fix first · 2 high, 4 medium</td></tr>
+      <tr><td>3</td><td>specweave <code>bbbcfb8</code>, app <code>213372d</code></td><td class="ok">ship · 2 medium, then fixed</td></tr>
+      <tr><td>4 to 6</td><td>app <code>612aa21</code>, <code>34e7d8a</code>, merge <code>20027a5</code></td><td class="ok">ship · 1 medium, then fixed</td></tr>
+      <tr><td>7</td><td>merged: specweave <code>b6b1640</code>, app <code>9bf434f</code></td><td class="ok">ship · 0 findings</td></tr>
+      <tr><td>8</td><td>app at closure <code>6d95936</code></td><td class="ok">ship · 0 findings</td></tr>
+    </tbody>
+  </table>
+
+  <h2>State</h2>
+  <table>
+    <thead><tr><th>Where</th><th>PR</th><th>Release</th></tr></thead>
+    <tbody>
+      <tr><td>SpecWeave</td><td>#2286 merged (<code>c7722c7</code>)</td><td class="ok">3.1.23 on npm, verified</td></tr>
+      <tr><td>SpecWithCode</td><td>#348 merged (<code>9bf434f</code>)</td><td class="ok">v1.0.290 released (Release macOS run 43523953709)</td></tr>
+      <tr><td>SpecWeave tests</td><td>#2289, #2290 merged (test-only)</td><td>ride the next SpecWeave release</td></tr>
+      <tr><td>Increment 1324</td><td>verify passed, 6/6 ACs, 7/7 tasks</td><td class="ok">closed; records in umbrella <code>288deef</code></td></tr>
+    </tbody>
+  </table>
+</main>
+</body>
+</html>

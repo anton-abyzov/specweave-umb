@@ -1,0 +1,25 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-review-policy/app && test "$(git rev-parse HEAD)" = 9bf434ff20862df30d892ed6e50e803cbdf1e50d && node node_modules/vite-plus/bin/vp test run packages/shared/src/reviewPolicy.test.ts apps/server/src/review/reviewDelegation.test.ts apps/server/src/mcp/OrchestratorMcpTaskRouting.test.ts apps/server/src/mcp/OrchestratorMcpDelegateTask.test.ts apps/server/src/orchestration-v2/ProviderFallbackWorker.test.ts apps/server/src/orchestration-v2/MachineLimitHandoff.test.ts
+# exit 0 — 2026-11-13T23:02:07.904Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-13-review-policy/app
+
+(node:21300) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:21322) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:21304) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:21315) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  6 passed (6)
+      Tests  153 passed (153)
+   Start at  18:02:00
+   Duration  7.55s (transform 65%, import 32%, tests 3%)
+
+  Transform  transforming modules took 20.15s · 65% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+

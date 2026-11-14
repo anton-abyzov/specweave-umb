@@ -1,0 +1,124 @@
+$ cd repositories/anton-abyzov/specweave && npx vitest run tests/unit/review/review-policy-gate.test.ts && npm run build && npx vitest run tests/integration/strict-close.test.ts
+# exit 0 — 2026-11-13T22:51:51.507Z
+
+
+ RUN  v4.1.12 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave
+
+ ✓ tests/unit/review/review-policy-gate.test.ts (18 tests) 31692ms
+     ✓ round-trips the header and groups task Files by repository, leaving bookkeeping out  1614ms
+     ✓ --record stamps a review written elsewhere with model, family, author, repository and commit  2073ms
+     ✓ --record refuses without --model, without a verdict line, or with a --head that is not a commit id  2505ms
+     ✓ refuses with no review, naming the policy and the next command  1884ms
+     ✓ refuses a same-family review and names it  1974ms
+     ✓ refuses a fix first verdict and a review older than verification  1519ms
+     ✓ passes a squash-merged review and refuses when the reviewed files changed after it  3189ms
+     ✓ refuses a reviewed commit the repository does not have  1353ms
+     ✓ a cross-family policy takes any other family; without Required nothing changes  1394ms
+     ✓ orders by the recorded time, not checkout file times  1264ms
+     ✓ a review recorded before verify fails even when its file is newer  1586ms
+     ✓ an unclassified family or a Fable author never makes a review cross-family  1467ms
+     ✓ a deep policy refuses a standard review; a pinned model matches across provider spellings  1271ms
+     ✓ keeps a repository path with spaces and cannot be cut short by a value  1390ms
+     ✓ checks wildcard task Files and takes a path starting with a colon literally  2546ms
+     ✓ keeps underscores inside a model id and strips only the marks around it  1301ms
+     ✓ with a required policy, an older same-family fix first does not block a newer matching ship  1831ms
+     ✓ review.reviewer yields to an increment policy; an explicit --reviewer runs with a warning  1529ms
+
+ Test Files  1 passed (1)
+      Tests  18 passed (18)
+   Start at  17:51:05
+   Duration  32.04s (transform 221ms, setup 31ms, import 224ms, tests 31.69s, environment 0ms)
+
+
+> specweave@3.1.23 build
+> npm run generate:skills && tsc && npm run build:dashboard && npm run copy:locales && npm run copy:plugins && npm run copy:hook-deps && npm run copy:adapters && npm run stamp:plugin-version
+
+
+> specweave@3.1.23 generate:skills
+> node scripts/build/generate-skills.mjs
+
+generate-skills: 11 skills, 0 file(s) changed
+
+> specweave@3.1.23 build:dashboard
+> npx vite build --config src/dashboard/client/vite.config.ts
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 525 modules transformed.
+rendering chunks...
+computing gzip size...
+../../../dist/dashboard/index.html                               1.14 kB │ gzip:   0.65 kB
+../../../dist/dashboard/assets/web-6-CuVUMDWO.woff2              5.54 kB
+../../../dist/dashboard/assets/work-board-empty-kjBH07tD.webp    7.66 kB
+../../../dist/dashboard/assets/web-3-tuJ4lY6O.woff2              9.61 kB
+../../../dist/dashboard/assets/web-9-CjmLAiqB.woff2             11.85 kB
+../../../dist/dashboard/assets/web-7-B2O-dwcv.woff2             15.25 kB
+../../../dist/dashboard/assets/web-2-Cuw1d432.woff2             16.30 kB
+../../../dist/dashboard/assets/web-0-CXU3YvQl.woff2             19.68 kB
+../../../dist/dashboard/assets/web-8-b0I-AwbV.woff2             24.41 kB
+../../../dist/dashboard/assets/web-1-CnEgTPdE.woff2             25.41 kB
+../../../dist/dashboard/assets/web-4-KUPCjGsn.woff2             25.87 kB
+../../../dist/dashboard/assets/web-10-ppjp2k5c.woff2            36.33 kB
+../../../dist/dashboard/assets/web-5-BD64o3ke.woff2             40.24 kB
+../../../dist/dashboard/assets/web-11-T5L87s1n.woff2            58.15 kB
+../../../dist/dashboard/assets/work-board-weave-BHmTeqkl.webp  137.78 kB
+../../../dist/dashboard/assets/index-Dx1VM1hD.css              113.77 kB │ gzip:  19.80 kB
+../../../dist/dashboard/assets/index-ZBWM0tPk.js               668.88 kB │ gzip: 196.93 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 1.47s
+
+> specweave@3.1.23 copy:locales
+> node scripts/build/copy-locales.js
+
+✓ Locales copied successfully
+
+> specweave@3.1.23 copy:plugins
+> node scripts/build/copy-plugin-js.js
+
+📦 Transpiling plugin TypeScript files with esbuild...
+✓ Transpiled 9 plugin files (29 skipped, already up-to-date)
+
+> specweave@3.1.23 copy:hook-deps
+> node scripts/build/copy-hook-dependencies.js
+
+🔧 Copying hook dependencies to plugin vendor directories...
+
+
+📦 Copying dependencies for plugin: specweave
+   ✅ Copied: utils/logger.js
+   ✅ Copied: utils/credential-masker.js
+   ✅ Copied: utils/feature-id-derivation.js
+   ✅ Copied: utils/execFileNoThrow.js
+   ✅ Copied: utils/clean-env.js
+   ✅ Copied: utils/auth-helpers.js
+   ✅ Copied: sync/provider-router.js
+   ✅ Copied: sync/status-mapper.js
+   ✅ Copied: sync/config.js
+   📊 Copied 9/9 files
+
+✅ All hook dependencies copied successfully!
+
+> specweave@3.1.23 copy:adapters
+> node scripts/build/copy-adapters.js
+
+✓ Adapter assets copied successfully
+
+> specweave@3.1.23 stamp:plugin-version
+> node scripts/build/stamp-plugin-version.cjs
+
+✓ plugin/marketplace versions already aligned at 3.1.23
+
+ RUN  v4.1.12 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave
+
+ ✓ tests/integration/strict-close.test.ts (1 test) 2657ms
+   ✓ requires real owning product checks and a fresh ship review only under strict closure  2656ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  17:51:48
+   Duration  2.84s (transform 27ms, setup 28ms, import 8ms, tests 2.66s, environment 0ms)
+
