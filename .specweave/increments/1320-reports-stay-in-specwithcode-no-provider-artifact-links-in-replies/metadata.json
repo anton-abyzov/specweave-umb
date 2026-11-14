@@ -1,0 +1,13 @@
+{
+  "id": "1320-reports-stay-in-specwithcode-no-provider-artifact-links-in-replies",
+  "uuid": "e015713e-3411-487c-9706-d6e0777a20e6",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-13T18:53:31.622Z",
+  "updated": "2026-11-13T20:35:42.645Z",
+  "lastActivity": "2026-11-13T20:35:42.645Z",
+  "title": "Reports stay in SpecWithCode: no provider artifact links in replies",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

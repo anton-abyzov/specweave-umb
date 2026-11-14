@@ -1,0 +1,13 @@
+$ cd repositories/anton-abyzov/specwithcode-dev/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/provider/ClaudeWorkflowPolicy.test.ts
+# exit 0 — 2026-11-13T19:20:10.422Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev/apps/server
+
+
+ Test Files  1 passed (1)
+      Tests  24 passed (24)
+   Start at  14:20:09
+   Duration  795ms (transform 58%, import 38%, tests 2%, setup 1%)
+
