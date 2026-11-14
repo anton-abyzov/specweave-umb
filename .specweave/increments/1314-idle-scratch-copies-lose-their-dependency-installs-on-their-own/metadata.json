@@ -1,13 +1,15 @@
 {
   "id": "1314-idle-scratch-copies-lose-their-dependency-installs-on-their-own",
   "uuid": "7c1e1780-ab43-48ee-a4bd-efaff8f5f325",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-12T21:17:05.945Z",
-  "updated": "2026-11-13T19:11:13.593Z",
-  "lastActivity": "2026-11-13T19:11:13.593Z",
+  "updated": "2026-11-14T02:42:31.326Z",
+  "lastActivity": "2026-11-14T02:42:31.326Z",
   "title": "Idle scratch copies lose their dependency installs on their own",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-14T02:42:31.325Z",
+  "approvedAt": "2026-11-14T02:42:31.326Z"
 }
