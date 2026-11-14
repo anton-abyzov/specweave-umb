@@ -1,9 +1,9 @@
 {
-  "ok": false,
+  "ok": true,
   "strictClose": {
     "errors": []
   },
-  "ranAt": "2026-11-13T19:10:23.508Z",
+  "ranAt": "2026-11-14T02:41:40.312Z",
   "increment": "1314-idle-scratch-copies-lose-their-dependency-installs-on-their-own",
   "commands": [
     {
@@ -32,21 +32,21 @@
     },
     {
       "cmd": "npm run test:server:sharded -- --shards 6 --out \"$(mktemp -d)\"",
-      "exit": 1,
+      "exit": 0,
       "cwd": "repositories/anton-abyzov/specwithcode-dev",
       "source": "config testing.ownerCommands"
     }
   ],
   "acs": {
     "total": 4,
-    "done": 3,
+    "done": 4,
     "skippedAccepted": 0,
     "mixed": 0,
     "items": [
       {
         "id": "AC-01",
-        "done": false,
-        "via": "none",
+        "done": true,
+        "via": "ledger",
         "tasks": [
           {
             "id": "T-01",
@@ -54,10 +54,10 @@
           },
           {
             "id": "T-04",
-            "status": "claimed"
+            "status": "done"
           }
         ],
-        "acceptance": "open",
+        "acceptance": "met",
         "waivers": []
       },
       {
@@ -103,9 +103,9 @@
   },
   "tasks": {
     "total": 4,
-    "done": 3,
+    "done": 4,
     "skipped": 0,
-    "open": 1
+    "open": 0
   },
   "skipped": [],
   "acceptedSkips": [],

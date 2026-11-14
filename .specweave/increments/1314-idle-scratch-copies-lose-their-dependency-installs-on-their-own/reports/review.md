@@ -50,3 +50,7 @@ Owners, processes and open files are read (729-745) before the walk of up to 200
 - **Clones.** A clone with a registered origin passed the `.git`-is-a-folder check in `decideClone`; one with another or no origin must also have `.git` as a folder and a registered `package.json` name (696-713). Tracked files in a `node_modules` keep it (579-582). Unpushed commits, stashes and dirty trees are not touched since only `node_modules` goes.
 - **Setting.** The same `removeMergedClones` switch is read again before pruning (`storageCleanup.ts:1105`), and the context is rebuilt right before (1106).
 - **Event loop.** Walk and removal use `fs.promises`; only a few cheap `lstatSync`/`existsSync` calls are synchronous.
+
+## Re-review after the passing verify
+
+November 14, 2026, Sonnet 5.5, against `reports/verify.json` `ok: true` (all commands exit 0, server shards included, 4 of 4 ACs). Since PR 280 merged as `936300a7`, only `AGENTS.md` changed among the task Files (`4eb214269`, `9168bfae3`, a Releases paragraph); the AC-04 scratch-copy rule is unchanged. Verdict still SHIP; minors F-1 to F-6 stand.
