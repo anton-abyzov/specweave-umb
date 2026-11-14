@@ -1,0 +1,15 @@
+{
+  "id": "1321-composer-foot-shows-the-model-and-machine-first-no-runs-on-wording-voice-skills-and-run-state-as-icons",
+  "uuid": "062f1878-0f17-42d6-a258-69384a178754",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-13T18:57:47.562Z",
+  "updated": "2026-11-14T02:05:53.455Z",
+  "lastActivity": "2026-11-14T02:05:53.455Z",
+  "title": "Composer foot keeps the machine and model readable first; voice, skills and run state as icons",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-14T02:05:53.454Z",
+  "approvedAt": "2026-11-14T02:05:53.455Z"
+}
