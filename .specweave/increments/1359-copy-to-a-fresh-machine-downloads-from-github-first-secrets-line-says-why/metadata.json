@@ -1,0 +1,15 @@
+{
+  "id": "1359-copy-to-a-fresh-machine-downloads-from-github-first-secrets-line-says-why",
+  "uuid": "b0509f32-5baa-4247-a201-301bec3b04f7",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T20:16:13.988Z",
+  "updated": "2026-11-15T22:17:17.737Z",
+  "lastActivity": "2026-11-15T22:17:17.737Z",
+  "title": "Copy to a fresh machine downloads from GitHub first; secrets line says why",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-15T22:17:17.736Z",
+  "approvedAt": "2026-11-15T22:17:17.737Z"
+}
