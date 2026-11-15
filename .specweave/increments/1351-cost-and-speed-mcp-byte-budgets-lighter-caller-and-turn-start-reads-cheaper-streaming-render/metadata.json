@@ -1,0 +1,12 @@
+{
+  "id": "1351-cost-and-speed-mcp-byte-budgets-lighter-caller-and-turn-start-reads-cheaper-streaming-render",
+  "uuid": "ae734db4-1899-4302-bcd9-57f500d3a7e1",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T04:05:36.827Z",
+  "updated": "2026-11-15T04:05:36.827Z",
+  "lastActivity": "2026-11-15T04:05:36.827Z",
+  "title": "Cost and speed: MCP byte budgets, lighter caller and turn-start reads, cheaper streaming render",
+  "project": "specweave-umb"
+}
