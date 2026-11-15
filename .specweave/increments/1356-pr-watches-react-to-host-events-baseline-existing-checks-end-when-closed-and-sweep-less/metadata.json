@@ -1,0 +1,12 @@
+{
+  "id": "1356-pr-watches-react-to-host-events-baseline-existing-checks-end-when-closed-and-sweep-less",
+  "uuid": "d0491b3d-4dbd-4604-9302-f811c15a7f65",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T07:04:18.615Z",
+  "updated": "2026-11-15T07:04:18.615Z",
+  "lastActivity": "2026-11-15T07:04:18.615Z",
+  "title": "PR watches react to host events, baseline existing checks, end when closed, and sweep less",
+  "project": "specweave-umb"
+}
