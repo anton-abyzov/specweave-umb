@@ -1,0 +1,12 @@
+{
+  "id": "1355-commands-specwithcode-installs-work-in-a-new-terminal",
+  "uuid": "744cc440-122f-480a-87e7-0fd5f33eae07",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T06:39:10.378Z",
+  "updated": "2026-11-15T06:39:10.378Z",
+  "lastActivity": "2026-11-15T06:39:10.378Z",
+  "title": "Commands SpecWithCode installs work in a new Terminal",
+  "project": "specweave-umb"
+}
