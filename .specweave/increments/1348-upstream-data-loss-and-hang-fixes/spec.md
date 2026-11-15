@@ -21,7 +21,7 @@ The upstream triage of November 14, 2026 (`.specweave/increments/1346-t3-code-ch
 
 ## Scope
 
-In: hand ports of R1 to R4 and R6 to R15, each with a test that fails before the fix, in reviewable PRs, merged and released. Out: R5 (`4c8cb0445d`, queue order) is a behaviour decision for Anton. R16 (lost delegated results) is increment 1349.
+In: hand ports of R1 to R4 and R6 to R15, each with a test that fails before the fix, in reviewable PRs, merged and released. R5 (`4c8cb0445d`, queue order) was added on November 14, 2026 after Anton decided to adopt it. Out: R16 (lost delegated results) is increment 1349.
 
 ## Acceptance Criteria
 
@@ -39,6 +39,7 @@ In: hand ports of R1 to R4 and R6 to R15, each with a test that fails before the
 - [ ] AC-12: Storage cleanup keeps a worktree that contains a nested repository or files marked assume-unchanged or skip-worktree with edits; two spellings of one checkout through a symlink count as one.
 - [ ] AC-13: A relative Markdown image in a remote thread is read only from that thread's machine; it never falls back to a local file.
 - [ ] AC-14: A send interrupted by a socket drop is resent after reconnect with the same command id, twice at most; a send the host never answers fails after 60 seconds with an error the composer shows.
+- [ ] AC-17: Queued runs are ordered by merging delegated completions and user messages by `requestedAt`, each kind keeping its `queuePosition` order, a tie going to the completion; a user's message on a busy coordinator no longer waits behind every delegated completion, and a delegated result that survives a restart-by-stop still runs ahead of the restart message. A dev-server run of a parent with three delegates and a queued message records the observed order in `reports/queue-order-live.md`.
 - [ ] AC-15: Every port has a test that fails on the pre-fix code, recorded in `reports/red-green.md`; every PR has green CI and a ship verdict from another model family at its merged head; the fixes are in a release.
 - [ ] AC-16: The public repository gains no mention of the upstream project in files, commits, branches or PR text.
 
@@ -48,7 +49,7 @@ Same method as 1347: one app worktree, ports written in parallel on an integrati
 
 PRs: (1) settings, logs and effect slots (R1 to R3), (2) delegate wait and failed-delegate report (R4, R12 part), (3) Codex (R6, R12 part), (4) git and revert (R8, R9, R12 part), (5) storage cleanup (R13), (6) file editor encoding (R7), (7) chunk reload and remote image (R10, R14), (8) send resend and timeout (R15), (9) ACP protocol (R11, plus 1347 AC-08).
 
-Release: after the PRs merge, `bash scripts/release/request-release.sh --by "Port T3 security and data-loss fixes"` in the app repository, then `--released <commit>` to confirm.
+Release: after the PRs merge, `bash scripts/release/request-release.sh --by "Port security and data-loss fixes"` in the app repository (the `--by` text becomes the public Actions run title, so it carries no upstream name), then `--released <commit>` to confirm.
 
 Risks: R13 and R15 are medium (our cleanup and connection supervisor are our own designs). R2 changes effect worker scheduling for every thread.
 
@@ -60,7 +61,7 @@ Risks: R13 and R15 are medium (our cleanup and connection supervisor are our own
 ## Decisions
 
 ### Asked
-- D-01 R5 queue order → left out; Anton decides (user, November 14, 2026).
+- D-01 R5 queue order → adopt: "yes, adopt all, do what's recommended" (Anton, November 14, 2026, relayed from the upstream review thread). `QueuedRunOrder.test.ts` pinned inherited behaviour, not a decision of ours, so it is rewritten.
 - D-02 Merge and release without asking → yes for this increment (user, November 14, 2026).
 ### Defaulted (change any before sw-do)
 - D-03 A row that needs a design choice our code already made differently is adapted to our design, with the choice recorded here.
@@ -96,8 +97,11 @@ Risks: R13 and R15 are medium (our cleanup and connection supervisor are our own
 ### T-09 ACP parser, refused turns, allow-once
 - AC: AC-10 | Files: repositories/anton-abyzov/specwithcode/packages/effect-acp/src/protocol.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/AcpAdapterV2.ts | Test: cd repositories/anton-abyzov/specwithcode/packages/effect-acp && npx vp test run src/protocol
 
+### T-12 Queue order: completions and messages merged by request time
+- AC: AC-17 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/QueuedRunOrder.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/QueuedRunOrder.test.ts, .specweave/increments/1348-upstream-data-loss-and-hang-fixes/reports/queue-order-live.md | Test: cd repositories/anton-abyzov/specwithcode/apps/server && npx vp test run src/orchestration-v2/QueuedRunOrder
+
 ### T-10 Red-green evidence, reviews, merge and release
 - AC: AC-15, AC-16 | Files: .specweave/increments/1348-upstream-data-loss-and-hang-fixes/reports/red-green.md | Test: test -s .specweave/increments/1348-upstream-data-loss-and-hang-fixes/reports/red-green.md
 
 ### T-11 Verify and close 1348
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11, AC-12, AC-13, AC-14, AC-15, AC-16 | Files: .specweave/increments/1348-upstream-data-loss-and-hang-fixes/ | Test: specweave verify 1348
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11, AC-12, AC-13, AC-14, AC-15, AC-16, AC-17 | Files: .specweave/increments/1348-upstream-data-loss-and-hang-fixes/ | Test: specweave verify 1348

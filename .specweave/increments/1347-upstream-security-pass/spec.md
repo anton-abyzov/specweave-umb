@@ -17,9 +17,9 @@ The upstream triage of November 14, 2026 (`.specweave/increments/1346-t3-code-ch
 
 ## Scope
 
-In: hand ports of the listed upstream fixes onto our code, each with a test that fails before the fix, split into reviewable PRs. Out: the dependency audit, S10 to S12, anything in sections 3 and 4 of the report.
+In: hand ports of the listed upstream fixes onto our code, each with a test that fails before the fix, split into reviewable PRs. Out: the dependency audit and sections 3 and 4 of the report (another worker). Hardening rows S10 to S12 were added on November 14, 2026 after Anton's "yes, adopt all".
 
-Release rule: PRs that change permissions, auth or access (AC-01, AC-02, AC-06, AC-10) wait for Anton's acceptance before any release contains them. The rest ship with the data-loss fixes of 1348.
+Release rule: PRs that change permissions, auth or access (AC-01, AC-02, AC-06, AC-10, AC-15) wait for Anton's acceptance before any release contains them. The rest ship with the data-loss fixes of 1348.
 
 ## Acceptance Criteria
 
@@ -33,6 +33,9 @@ Release rule: PRs that change permissions, auth or access (AC-01, AC-02, AC-06, 
 - [ ] AC-08: The ACP MCP stdio bridge answers a server request (for example `ping`) that arrives before the tool result and still returns the result. If our MCP server never sends such requests mid-call, the task records that with evidence and adds the regression test only.
 - [ ] AC-09: The preview browser pins Chrome 157.0.8103.78 with sizes and hashes from our own downloads; the desktop app pins Electron 44.10.1; Linux packages carry no group or world write bits.
 - [ ] AC-10: Desktop IPC handlers answer only senders that are app windows (every window in `appWindows`, including project windows, PiP and permission windows); a preview guest gets no reply.
+- [ ] AC-13: The secret request field is a real password input, still ignored by password managers (`SecretRequestCard.tsx:139`).
+- [ ] AC-14: MCP authentication runs in its own span that ends before the tool call; per-tool spans carry no arguments (`McpHttpServer.ts:239`).
+- [ ] AC-15: An idle MCP token expires after its idle limit even when the wall clock steps back and stays expired; a record restored after a restart is judged by wall time from its persisted `lastAliveAt` and is expired when the clock reads earlier than that (`McpSessionRegistry.ts:251`).
 - [ ] AC-11: Every port has a test that fails on the pre-fix code, recorded in `reports/red-green.md`; every PR has green CI and a ship verdict from another model family at its merged head.
 - [ ] AC-12: The public repository gains no mention of the upstream project in files, commits, branches or PR text; the MIT copyright line stays.
 
@@ -56,6 +59,8 @@ Risks: the IPC guard must trust all of `appWindows` (`ElectronWindow.ts:126`), n
 ### Defaulted (change any before sw-do)
 - D-02 Held PRs stay unmerged until Anton accepts. Any thread may request a release at any time and a release takes all of main, so a merged PR could ship before acceptance.
 - D-03 Reviewer is Meta Muse (user's preference). If Muse cannot run, the review waits; no same-family substitute.
+- D-04 MCP token records restored after a restart have no monotonic reading: judge them by wall time from `lastAliveAt`, and treat a clock that reads earlier than `lastAliveAt` as expired (fail closed). Held for Anton with the other auth changes.
+- D-05 Upstream commit ids are recorded only in this umbrella increment, not in the app repository's `UPSTREAM.md`, because the user asked that the public repository gain no mention of the upstream project.
 ### Open
 - none
 
@@ -85,8 +90,14 @@ Risks: the IPC guard must trust all of `appWindows` (`ElectronWindow.ts:126`), n
 ### T-08 ACP MCP bridge answers interleaved server requests
 - AC: AC-08 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/mcp/AcpMcpStdioBridge.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/AcpMcpStdioBridge.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && npx vp test run src/mcp/AcpMcpStdioBridge
 
+### T-11 Secret field is a password input; MCP auth span ends before the tool call
+- AC: AC-13, AC-14 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/SecretRequestCard.tsx, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/McpHttpServer.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && npx vp test run src/mcp/McpHttpServer
+
+### T-12 MCP token expiry survives a clock step back
+- AC: AC-15 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/mcp/McpSessionRegistry.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/McpSessionRegistry.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && npx vp test run src/mcp/McpSessionRegistry
+
 ### T-09 Red-green evidence, reviews, merge of shippable PRs, held PRs handed to Anton
 - AC: AC-11, AC-12 | Files: .specweave/increments/1347-upstream-security-pass/reports/red-green.md | Test: test -s .specweave/increments/1347-upstream-security-pass/reports/red-green.md
 
 ### T-10 Verify and close 1347
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11, AC-12 | Files: .specweave/increments/1347-upstream-security-pass/ | Test: specweave verify 1347
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11, AC-12, AC-13, AC-14, AC-15 | Files: .specweave/increments/1347-upstream-security-pass/ | Test: specweave verify 1347
