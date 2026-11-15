@@ -53,6 +53,7 @@ Risks: agents already installed (1.0.276 and older) ignore the prerelease flag a
 - D-04 Fleet machines (m4, linux-mini, m1) run the Insiders track; they are the canary ring.
 - D-05 Hotfix approver → Anton; the `hotfix` label is applied only on his yes.
 - D-06 Release owner → the train workflow for stable; any session may still request insiders builds through request-release.sh.
+- D-07 1.0.x cadence until 1.1.0 → Anton, November 15, 2026, after 1.0.304 to 1.0.310 shipped within hours: "why are we releasing so often? I would wait for several features to be completed". Replaces D-01's "every merge" for the weekend. Merged features wait for one batched 1.0.x release; at most one more before the 1.1.0 cut, only after the in-flight PRs from both machines land (#437, #440, #441 from linux-mini, plus m4's open ones). Only real hotfixes ship at once: security, data loss, a broken update or install, or a crash in a core flow. Nobody dispatches Release macOS for a single merge.
 ### Open
 - none
 
