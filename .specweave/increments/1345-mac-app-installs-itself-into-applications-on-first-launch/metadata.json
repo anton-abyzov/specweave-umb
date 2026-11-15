@@ -1,0 +1,15 @@
+{
+  "id": "1345-mac-app-installs-itself-into-applications-on-first-launch",
+  "uuid": "6a87e5a3-01be-4fa7-ac1a-27d9b2e109ec",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T03:25:36.135Z",
+  "updated": "2026-11-15T06:03:10.431Z",
+  "lastActivity": "2026-11-15T06:03:10.431Z",
+  "title": "Mac app installs itself into Applications on first launch",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-15T06:03:10.430Z",
+  "approvedAt": "2026-11-15T06:03:10.431Z"
+}
