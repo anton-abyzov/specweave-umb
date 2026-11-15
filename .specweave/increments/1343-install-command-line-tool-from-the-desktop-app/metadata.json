@@ -1,0 +1,15 @@
+{
+  "id": "1343-install-command-line-tool-from-the-desktop-app",
+  "uuid": "ee2f19d8-a684-43d7-9720-c131dc3f4946",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T03:24:43.180Z",
+  "updated": "2026-11-15T09:57:41.863Z",
+  "lastActivity": "2026-11-15T09:57:41.863Z",
+  "title": "Install command-line tool from the desktop app",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-15T09:57:41.862Z",
+  "approvedAt": "2026-11-15T09:57:41.863Z"
+}
