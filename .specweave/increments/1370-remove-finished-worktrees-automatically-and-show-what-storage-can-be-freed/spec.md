@@ -29,6 +29,8 @@ The app's own cleanup (worktree rules, an hourly orphan sweep, an hourly merged-
 
 A second remover made things worse. The launchd job `com.specwithcode.cleanup` (every 30 minutes) checks ownership by the nested repository path, which no thread records, so on November 15 and 16 it ran `git worktree remove` on nested worktrees of 11 folders that open threads use. Git deleted the registration and left the files ("Directory not empty"). Five of those folders then pointed at another thread's registration once Git reused the name, so Git commands there acted on another thread's branch.
 
+The scratch-clone sweep stopped working on November 13, 2026. Repositories inside a project folder no longer need a saved entry, and `registeredRepositories` (`mergedCloneSweep.ts:206`) reads only saved entries and the project folder's own origin. `specweave-studio clones sweep` keeps all 20 app-repository clones in scratch as "origin is not a registered project's repository", four of them with merged pull requests.
+
 Settings > Storage shows no list of what cleanup would remove or why a folder stays.
 
 ## Scope
@@ -66,6 +68,7 @@ Out:
 - [ ] AC-12: `server.getStorageCleanupPlan` returns, without removing anything, every chat worktree and every leftover-download item with action, reason, size outside dependency installs and the owning chat. The sweep and the plan share one decision function.
 - [ ] AC-13: Settings > Storage shows "What cleanup would remove": a Check button, the list grouped into "Would be removed" and "Kept" with a plain reason per row, a total ("at least N GB"), and "Clean up now", which runs one sweep and shows the result. The new setting has a switch. Both RPCs are refused without the settings scope.
 - [ ] AC-14: `docs/operations/worktree-cleanup.md` and `docs/operations/heavy-checks.md` describe the new rules, and the Settings copy no longer promises that open chats always keep their folder.
+- [ ] AC-16: A scratch clone of a repository that sits inside a project folder (an umbrella's `repositories/<owner>/<name>`) counts as a registered project's repository, so `clones sweep` removes it once its pull request merged.
 - [ ] AC-15: On the M4, the one-off cleanup ran with the shipped planner, the report lists before and after `df` and `du` figures, and everything kept has its reason.
 
 ## Approach
@@ -128,8 +131,11 @@ Adversarial review by Muse Wonderful (`muse`, `muse-wonder-1.0`, extra high effo
 ### T-06 Settings > Storage: the setting, the plan list and Clean up now
 - AC: AC-13, AC-14 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/StorageSettings.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/StorageCleanupPlanSection.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/StorageCleanupPlanSection.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/lib/storageCleanupPlan.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases, repositories/anton-abyzov/specwithcode/docs/operations/worktree-cleanup.md | Test: cd apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/settings/StorageCleanupPlanSection.test.tsx src/components/settings/StorageSettings.test.tsx
 
+### T-09 Scratch-clone sweep recognizes repositories inside a project folder
+- AC: AC-16 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/mergedCloneSweep.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mergedCloneSweep.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/mergedCloneSweep.test.ts
+
 ### T-07 Review, merge and release
-- AC: AC-01 to AC-14 | Files: repositories/anton-abyzov/specwithcode | Test: gh pr checks <number> --repo anton-abyzov/specwithcode
+- AC: AC-01 to AC-14, AC-16 | Files: repositories/anton-abyzov/specwithcode | Test: gh pr checks <number> --repo anton-abyzov/specwithcode
 
 ### T-08 One-off cleanup of the M4 and the report
 - AC: AC-15 | Files: .specweave/increments/1370-remove-finished-worktrees-automatically-and-show-what-storage-can-be-freed/reports | Test: df -h ~ && specweave-studio db query "select count(*) from orchestration_v2_projection_threads"
