@@ -1,0 +1,15 @@
+{
+  "id": "1361-every-clickable-action-looks-clickable-copy-dialog-buttons-and-an-app-wide-sweep-of-bare-text-actions",
+  "uuid": "d87642a5-02f0-4b9d-a4a4-7575f9c64d6c",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-16T05:53:57.008Z",
+  "updated": "2026-11-16T07:00:31.488Z",
+  "lastActivity": "2026-11-16T07:00:31.488Z",
+  "title": "Every clickable action looks clickable: copy dialog buttons and an app-wide sweep of bare-text actions",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-16T07:00:31.487Z",
+  "approvedAt": "2026-11-16T07:00:31.488Z"
+}
