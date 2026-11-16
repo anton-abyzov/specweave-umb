@@ -5,8 +5,8 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-16T14:13:04.560Z",
-  "updated": "2026-11-16T16:05:39.548Z",
-  "lastActivity": "2026-11-16T16:05:39.548Z",
+  "updated": "2026-11-16T16:24:40.851Z",
+  "lastActivity": "2026-11-16T16:24:40.851Z",
   "title": "HTML file links open rendered in a sandboxed preview, and every file link in a reply opens its native preview",
   "project": "specweave-umb"
 }
