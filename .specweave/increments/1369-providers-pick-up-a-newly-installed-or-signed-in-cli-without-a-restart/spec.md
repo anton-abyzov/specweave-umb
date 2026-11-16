@@ -2,7 +2,7 @@
 
 ## Problem
 
-Settings > Providers on m3 shows Muse Code as "Not found · Muse Code did not start on this machine", with the detail "Not installed. Muse Code did not start on this machine. muse: installed binary is missing; rerun the installer. Sign in with muse here, then refresh Providers.", Command `~/.local/bin/muse` and a "Check again" button. Anton asked how the row refreshes once the CLI is installed and whether that is automatic.
+Settings > Providers on a second Mac shows Muse Code as "Not found · Muse Code did not start on this machine", with the detail "Not installed. Muse Code did not start on this machine. muse: installed binary is missing; rerun the installer. Sign in with muse here, then refresh Providers.", Command `~/.local/bin/muse` and a "Check again" button. Anton asked how the row refreshes once the CLI is installed and whether that is automatic.
 
 What refreshes a provider today (app repository at `013d05387`):
 
@@ -22,9 +22,16 @@ So a provider that is not installed is picked up only by a click or by the 5-min
 3. The Muse text stacks four instructions: the web headline "Not installed", the server's "did not start", the launcher's own stderr ("installed binary is missing; rerun the installer") and a fixed "Sign in with muse here, then refresh Providers." (`MuseConnection.ts:137`). The launcher was found; its program was missing.
 4. A not-installed provider other than Claude and Codex gets only "Check again": no install command is shown anywhere for Grok, Muse, OpenCode or Pi.
 
+Second case, reported on November 16, 2026 after Muse Code was installed on a second Mac: the row found `muse` 1.4.20 and said "Needs attention · Sign in with muse and refresh", while `muse` in a terminal on a second Mac was signed in to "Muse Code Max Usage". Reproduced on the main Mac with the same version and an empty Muse data folder:
+
+5. The app decided "signed in" from the host's model list alone (`MuseDriver.ts`, `authenticated = models.length > 0`). `muse serve` lists models only from a catalog cached on disk, and only `muse exec` downloads that catalog; a served turn and the terminal app do not. A machine where `muse exec` never ran answers `model/list` with `source: "bundledCatalog"` and no models, exactly as a signed-out machine does. the second Mac has no such cache; m1, M5 and linux-mini list no Muse models either.
+6. The fallback read of the plan, `muse usage --json`, changed shape in 1.4.20: the numbers moved from `usage` to `allowance`, stamped `asOfMs`. The parser found nothing, so the plan and its limits were dropped.
+
+It is not a different home folder, a stale cache or an environment difference: the same check gives the same answer from a login shell.
+
 ## Scope
 
-In: server-side automatic detection for every CLI and ACP provider (Claude, Codex, Grok, Muse, OpenCode, Pi, ACP registry agents run from a local command); login-shell PATH re-read; the install step in the provider row; one clear message for Muse; focus re-check on the Providers page; tests, a headless fixture and a live check on a private test server.
+In: server-side automatic detection for every CLI and ACP provider (Claude, Codex, Grok, Muse, OpenCode, Pi, ACP registry agents run from a local command); login-shell PATH re-read; the install step in the provider row; one clear message for Muse; focus re-check on the Providers page; Muse Code's sign-in, plan and model list read from its own command line; tests, a headless fixture and a live check on a private test server.
 
 Out: Cursor (SDK only, never "not installed"), Antigravity and managed Codex (installed inside the app, which already re-reads when its install ends); the mobile app's provider list (it receives the same pushed status and needs no change); installing a CLI without the person's click; any read of Keychain or of a credential file.
 
@@ -32,8 +39,8 @@ Out: Cursor (SDK only, never "not installed"), Antigravity and managed Codex (in
 
 - [ ] AC-01: While a provider is on and its last check said not installed or failed to start, the server reads a mark of its command every 3 s when a client window is in the foreground. The mark is built from `stat` alone: the configured command path, or the command name in each PATH folder and each known installer folder, plus the files a driver names beside it. A changed mark runs the full check and publishes the result, so the row flips with no click and no restart.
 - [ ] AC-02: The same mark is read again when a file changes in the folder that holds the command (a watch on that folder, 500 ms debounce), with no window in the foreground. A folder that cannot be watched leaves AC-01 in charge and nothing fails.
-- [ ] AC-03: The mark never opens a file: a test file system that fails every read and directory listing still yields a mark. No code added here calls `security`, reads a login or credential file, or adds a Keychain access.
-- [ ] AC-04: `server.refreshProviders` re-reads the login shell's PATH before it probes: always for Check again (`fresh`), the header refresh and a fresh Find agents, and otherwise only when a shell startup file changed since the last read. The read is asynchronous, one at a time, and limited to 5 s. New folders are merged into the server's PATH together with the known installer folders (`~/.local/bin` among them); nothing is removed. A provider instance with its own environment variables sees the new PATH unless it sets PATH itself.
+- [ ] AC-03: The mark is `stat` alone (files, and the folder a found command sits in): a test file system that fails every read and directory listing still yields a mark. Looking up the known installer folders may list version-manager folder names, as it does at server start; it reads no file. No code added here calls `security`, reads a login or credential file, or adds a Keychain access.
+- [ ] AC-04: `server.refreshProviders` re-reads the login shell's PATH before it probes: always for Check again (`fresh`), the header refresh (`refreshModels`) and a fresh Find agents, and otherwise only when a shell startup file changed since server start or the last read. A shell that did not answer is asked again after a minute, or at once on a click. The read is asynchronous, one at a time, and limited to 5 s. New folders are merged into the server's PATH together with the known installer folders (`~/.local/bin` among them); nothing is removed. A provider instance with its own environment variables sees the new PATH unless it sets PATH itself.
 - [ ] AC-05: The automatic loop in AC-01 notices a changed shell startup file, re-reads PATH, and then finds a CLI installed into a folder that was not on PATH at server start.
 - [ ] AC-06: A not-installed row for Claude, Codex, Grok, Muse, OpenCode or Pi shows the install command for its machine's system, a Copy button, a "Run in terminal" button that runs it in the setup terminal on that machine, and the line "Waiting for the install. This page updates by itself." An ACP registry agent keeps "Install / update agent". A provider with no known command says to install it from its own site. Check again stays as a second button.
 - [ ] AC-07: The server reports `cli: { state: "missing" | "broken", command, path? }` on a not-installed provider. "broken" (the file is there and does not start) reads "Installed, but it does not start" with one step, "Run its installer again", and the same command. The field is optional: an older server gets today's row, and an older window ignores it.
@@ -43,6 +50,9 @@ Out: Cursor (SDK only, never "not installed"), Antigravity and managed Codex (in
 - [ ] AC-11: A headless fixture renders the real status row in each new state (waiting for install, needs reinstall, no known command, registry agent, older server) in light and dark, with screenshots saved to the increment's `reports/`.
 - [ ] AC-12: On a private test server with a throwaway home, a fake CLI dropped into a folder on PATH turns its row from "Not installed" to ready within 10 s with no click, and a second fake CLI installed into a new folder added to the shell profile does the same. Evidence is saved to `reports/`.
 - [ ] AC-13: Muse Wonderful (`muse`, `muse-wonder-1.0`, xhigh) reviews the pull request adversarially, every finding is fixed or answered, CI is green, the pull request is merged and the release is requested.
+- [ ] AC-14: A Muse Code check reads the account from `muse usage --json`: exit 0 with an answer is signed in, with the plan name as the sign-in's label and its session and week limits; "not logged in" is signed out, with the one line "Muse Code is not signed in. Run `muse login` in a terminal on this machine."; anything else decides nothing. The 1.4.20 `allowance` shape and the earlier `usage` shapes both parse. An API key route is not asked.
+- [ ] AC-15: When the account is signed in and the host lists no models, the check has Muse Code download its model catalog once (`muse exec` with a model id no account has, in an empty folder of the app's own, 30 s limit: no turn runs), then asks a new host. It is asked again only on Check again, the header refresh, a changed login or a server restart, never on a timer.
+- [ ] AC-16: Check again on a row passes `fresh` to the instance, so Muse Code's sign-in read and model list are taken again. On a private test server with the real `muse` and an empty Muse data folder, the row ends "Authenticated · Muse Code Max Usage" with its models. Evidence is saved to `reports/`.
 
 ## Approach
 
@@ -96,6 +106,9 @@ Reviewer: Muse Wonderful, provider `muse`, model `muse-wonder-1.0`, effort xhigh
 - D-03 "Run in terminal" is the app's setup terminal on the provider's own machine, as Install is for Claude and Codex today. No outside terminal app is opened, so it also works for a remote machine.
 - D-04 Install commands live in the web app, chosen by the machine's system, beside the Claude and Codex ones.
 - D-05 The server's PATH only grows until restart.
+- D-07 The model catalog download uses a refused request rather than a real turn: it costs nothing from the plan. It leaves one empty session in Muse Code's own list each time, which is why it is not repeated on a timer.
+- D-08 The command line's word on the sign-in wins over a model list still cached from an earlier login.
+- D-09 Every driver that runs a program a person installs passes the probe: Claude, Codex (CLI mode), Grok, Muse, OpenCode (local server), Pi, a local or overridden ACP registry command, and an Antigravity executable on PATH or set as a custom path. Cursor runs through an SDK inside the app and managed Codex through a runtime the app installs itself, so neither has a command to wait for.
 - D-06 A program-missing Muse launcher stays `installed: false` with `cli.state: "broken"`, so older windows still read "Not installed".
 
 ### Open
@@ -120,3 +133,6 @@ Reviewer: Muse Wonderful, provider `muse`, model `muse-wonder-1.0`, effort xhigh
 
 ### T-06 Adversarial review, merge, release, verify and close
 - AC: AC-13 | Files: .specweave/increments/1369-providers-pick-up-a-newly-installed-or-signed-in-cli-without-a-restart/reports/ | Test: `gh pr checks <pr> --repo anton-abyzov/specwithcode` green, then `bash scripts/release/request-release.sh --released <merge commit>`
+
+### T-07 Muse Code sign-in, plan and model list from its own command line
+- AC: AC-14, AC-15, AC-16 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/provider/muse/MuseAccount.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/muse/MuseAccount.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/muse/MuseDiscovery.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/Drivers/MuseDriver.ts, repositories/anton-abyzov/specwithcode/apps/server/src/ws.ts | Test: `node ../../node_modules/vite-plus/bin/vp test run src/provider/muse/MuseAccount.test.ts src/provider/muse/MuseDiscovery.test.ts src/provider/muse/MuseRuntime.test.ts src/provider/Drivers/MuseDriver.test.ts` (from `apps/server`)
