@@ -113,6 +113,8 @@ Risks: a chat resumes after its folder went (covered by restore, tested for sets
 
 Adversarial review by Muse Wonderful (`muse`, `muse-wonder-1.0`, extra high effort): deletion is hard to undo.
 
+Outcome, November 16, 2026: four rounds. Round 1 (`30737aad1`) DO NOT SHIP: 1 critical, 4 high. Round 2 (`a72050fbf`) DO NOT SHIP: 1 high (members not re-read before their own removal). Round 3 (`56bfd8c44`) DO NOT SHIP: 1 high (reflog-only commits missing from the member recheck). Round 4 (`064d72030`) SHIP, one low accepted: a media file rewritten at the same size with its modification time preserved passes the recheck. Reports in `reports/review-muse-wonder-1.0-round-1.md` to `-round-4.md`. A plan over a database snapshot on the M4 kept every at-risk folder (`reports/dry-run-2026-11-16.md`). Merged as PR #514, `83e811eb9`.
+
 ## Tasks
 
 ### T-01 Contracts: plan schema and the resolved-chats setting
