@@ -1,0 +1,12 @@
+{"t":"T-01","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:36.848Z"}
+{"t":"T-01","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:37.238Z","evidence":"apps/server HtmlFilePreview.test.ts and AssetAccess.test.ts: 49 passed\nHEAD 8f171d1669"}
+{"t":"T-02","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:37.601Z"}
+{"t":"T-02","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:37.977Z","evidence":"BrowserDocumentFrame.test.tsx: 4 passed\nHEAD 8f171d1669"}
+{"t":"T-03","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:38.339Z"}
+{"t":"T-03","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:38.732Z","evidence":"LinkedFileBody.test.tsx, ViewerLinkedPane.test.tsx, i18n.test.ts passed\nHEAD 8f171d1669"}
+{"t":"T-04","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:39.097Z"}
+{"t":"T-04","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:39.488Z","evidence":"ThreadArtifacts.test.tsx and FilePreviewPanel.test.ts passed\nHEAD 8f171d1669"}
+{"t":"T-05","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:39.848Z"}
+{"t":"T-05","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:40.241Z","evidence":"MarkdownPathList.test.tsx passed\nHEAD 8f171d1669"}
+{"t":"T-06","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:40.610Z"}
+{"t":"T-06","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:41.012Z","evidence":"node scripts/studio-verify/html-file-sandbox.mjs exit 0; screenshots in reports/\nHEAD 8f171d1669"}
