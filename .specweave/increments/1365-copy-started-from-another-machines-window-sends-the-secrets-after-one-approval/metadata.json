@@ -1,0 +1,12 @@
+{
+  "id": "1365-copy-started-from-another-machines-window-sends-the-secrets-after-one-approval",
+  "uuid": "c0104574-7c25-44c6-9aaf-89e752ea6776",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-16T07:13:09.541Z",
+  "updated": "2026-11-16T09:15:25.681Z",
+  "lastActivity": "2026-11-16T09:15:25.681Z",
+  "title": "Copy started from another machine's window sends the secrets after one approval",
+  "project": "specweave-umb"
+}
