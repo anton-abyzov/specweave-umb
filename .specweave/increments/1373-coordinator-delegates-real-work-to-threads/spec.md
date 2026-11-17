@@ -53,3 +53,7 @@ Rejected: stronger coordinator prose only. The prose already says it and the wor
 
 ### T-04 Release
 - AC: AC-04 | Files: none | Test: specweave-studio checks run for server tests, then PR and release through the dispatcher per reference_release_and_merge_protocol
+
+### T-05 Post-merge review follow-ups
+- AC: AC-01, AC-03 | Files: apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.ts, apps/server/src/provider/StudioOrchestrationInstructions.ts, apps/server/src/orchestration-v2/Adapters/piStudioMcpInjection.ts | Test: ClaudeAdapterV2.test.ts, StudioOrchestrationInstructions.test.ts, piStudioMcpInjection.test.ts
+- A post-merge review of PR #522 confirmed three gaps: the Claude live-query reuse key ignored the role, Cursor got the routing line on run 1 only, and Pi workers could inherit `STUDIO_PI_COORDINATOR`. Fixed in PR #523.
