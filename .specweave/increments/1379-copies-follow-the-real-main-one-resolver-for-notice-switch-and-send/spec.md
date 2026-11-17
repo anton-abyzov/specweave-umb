@@ -53,6 +53,10 @@ Out:
   - Round 1 NOT YET at `f2e8a485f`: a side coordinator kept for a join could leave and strand the joiner; test gaps.
   - Round 2 NOT YET at `4616ba717`: the `keptForJoin` mark was lost on revert and restart, never cleared, and stripped by older servers.
   - Round 3 SHIP at `0b81ca82d`: the mark was dropped; the new path strands no more than the shipped unlink of a relinquished copy. The follower-blind unlink is in the open product gaps.
+- PR #551 (the chip names main), muse-wonder-1.0 xhigh:
+  - Round 1 NOT YET: the chip fell back to the copy when its own machine was offline; the menu took main's name; header tag and tests.
+  - Round 2 NOT YET at `f67254f17`: the header tooltip could read "runs on null"; the fixture hand-wrote the formula and only routed.
+  - Round 3 SHIP at `a6c238d8d`. Merged as `9a0f1ebf` (PR #551). Lows kept: the tooltip shows main's full label where the chip may show its nickname (same machine); the `main=lost` fixture case does not assert the placeholder.
 - Left open, non-blocking:
   - The other `logicalCoordinator` callers (rename owner, machines settings, duplicate-link anchor, routine runner) pass no retired records.
   - `plannedRevert` racing a delayed takeover.
