@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-17T22:05:06.509Z",
-  "updated": "2026-11-17T22:05:06.509Z",
-  "lastActivity": "2026-11-17T22:05:06.509Z",
+  "updated": "2026-11-17T22:37:37.508Z",
+  "lastActivity": "2026-11-17T22:37:37.508Z",
   "title": "Delegated workers say when their provider cannot run the asked mode",
   "project": "specweave-umb"
 }
