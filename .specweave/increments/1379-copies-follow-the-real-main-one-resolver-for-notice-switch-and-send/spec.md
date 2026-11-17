@@ -30,6 +30,7 @@ Out:
 - [x] AC-02: After the switch (the new main is followed by the old one, and the side coordinator still has a higher epoch), the new main stays main. A copy that took over by naming a predecessor still leads over the main it replaced. With nothing naming a main, the newest epoch decides as before.
 - [x] AC-03: On a copy whose main is connected and may run work from this window, the message box is on. The placeholder reads "Message {machine}'s coordinator for {project}.", Send names main's machine, and Send delivers the text to main's coordinator (`projects.coordinatorSend` on main's machine), then opens main's page. The notice says so instead of "Nothing is sent from here". With main offline or read-only, the box stays off as before.
 - [x] AC-04: A headless repro builds the M5 records (m4 epoch 0 main, m5 its copy, m1 a side coordinator at epoch 2), runs the real resolver, and checks: main m4 in the notice and the hint, the move source m4, and a typed "time now?" routed to m4. Light and dark, plus all eight languages for the existing strings.
+- [ ] AC-05: A copy that started its own coordinator beside main can be unlinked from Settings > Machines. It leaves with a fresh identity at epoch 0. Main and a copy alone in its list are still refused. m1's specweave copy is unlinked this way.
 
 ## Approach
 
@@ -58,8 +59,7 @@ Out:
 - D-01 Every copy should be able to start work, or at least route to main → route to main (Anton's request, November 17, 2026). Reverses 1372's Out item.
 ### Defaulted (change any before sw-do)
 - D-02 A routed send carries text only, and opens main's page after the send → default.
-### Open
-- D-03 Repair m1's stale record (`mcp:d580ecec`, epoch 2 active): ask Anton. It is a data migration.
+- D-03 Repair m1's stale record (`mcp:d580ecec`, epoch 2 active) → unlink m1's copy (Anton's answer, November 17, 2026). No path unlinked a coordinator started beside main, so T-05 adds one.
 
 ## Tasks
 
@@ -74,3 +74,6 @@ Out:
 
 ### T-04 Review, release and check on the M5
 - AC: AC-01, AC-03 | Files: none | Test: muse-wonder-1.0 xhigh review; `bash scripts/release/request-release.sh --by` then `--released`; on the M5, Make M5 main opens the move from m4 and a typed message reaches m4's coordinator
+
+### T-05 Unlink a coordinator started beside main, then unlink m1
+- AC: AC-05 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/projectLink.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/ProjectLink.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/ProjectLink.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProjectCommands.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectMachinesSettings.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectMachinesSettings.test.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/project/ProjectLink.test.ts apps/server/src/orchestration-v2/ProjectCommands.test.ts; cd apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/studio/ProjectMachinesSettings.test.tsx. Then, once m1 runs the release: Unlink on m1's row in specweave Settings > Machines, and m1's copy holds a fresh identity
