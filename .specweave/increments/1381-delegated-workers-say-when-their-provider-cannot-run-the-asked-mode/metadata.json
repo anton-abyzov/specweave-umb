@@ -1,0 +1,12 @@
+{
+  "id": "1381-delegated-workers-say-when-their-provider-cannot-run-the-asked-mode",
+  "uuid": "73ea69e9-b6f0-4a42-9125-8280be4848e8",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-17T22:05:06.509Z",
+  "updated": "2026-11-17T22:05:06.509Z",
+  "lastActivity": "2026-11-17T22:05:06.509Z",
+  "title": "Delegated workers say when their provider cannot run the asked mode",
+  "project": "specweave-umb"
+}
