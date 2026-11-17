@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-16T17:04:26.726Z",
-  "updated": "2026-11-16T20:34:43.122Z",
-  "lastActivity": "2026-11-16T20:34:43.122Z",
+  "updated": "2026-11-17T04:37:53.831Z",
+  "lastActivity": "2026-11-17T04:37:53.831Z",
   "title": "Remove finished worktrees automatically and show what storage can be freed",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
