@@ -19,7 +19,7 @@ In: `delegate_task` returns a `warning` naming the mode the worker will really r
 
 ## Approach
 
-New `apps/server/src/mcp/delegatedRuntimeMode.ts` reuses `providerRuntimeMode` so the warning matches what turns really run. `OrchestratorMcpService.delegateTask` looks up the target's snapshot in the providers it already loaded and joins the warning into the result's existing `warning` field. Rejected: refusing the launch (breaks attended Muse work); silently clamping the stored mode (a later provider switch would lose Auto); auto-approving under Muse (a permission change for the owner).
+New `apps/server/src/mcp/delegatedRuntimeMode.ts` reuses `providerRuntimeMode` so the warning matches what turns really run. After dispatch, `OrchestratorMcpService.delegateTask` (`withModeWarning`) reads the created or replayed child's stored runtime mode and a fresh provider list, finds the task's provider, and joins the warning into the result's existing `warning` field on all three return paths. This follows Muse review round 1: the pre-resolution provider list can be stale, and a `clientRequestId` retry replays the first child. Rejected: refusing the launch (breaks attended Muse work); silently clamping the stored mode (a later provider switch would lose Auto); auto-approving under Muse (a permission change for the owner).
 
 ## Decisions
 
