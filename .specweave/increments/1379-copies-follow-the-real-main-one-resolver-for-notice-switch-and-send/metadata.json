@@ -1,0 +1,12 @@
+{
+  "id": "1379-copies-follow-the-real-main-one-resolver-for-notice-switch-and-send",
+  "uuid": "6a37d282-6e2a-4823-8926-101180675b7a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-17T20:47:45.564Z",
+  "updated": "2026-11-17T20:47:45.564Z",
+  "lastActivity": "2026-11-17T20:47:45.564Z",
+  "title": "Copies follow the real main: one resolver for notice, switch and send",
+  "project": "specweave-umb"
+}
