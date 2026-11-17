@@ -42,7 +42,7 @@ Out:
 - [x] AC-06: The sidebar link offer appears for two or more unlinked copies of one repository (EasyChamp: m1, m3, m4), not only exactly two.
 - [x] AC-07: Settings > Machines labels an unlinked copy that exists elsewhere "Not linked · also on {machines}", never "Not shared" or "No other machine has a copy of this project".
 - [x] AC-08: Headless captures, light and dark: the menu on a copy with "Make M5 main", the copy's message box, an unlinked trio with "Link…", and the Settings label. They are saved in `reports/screens/`.
-- [ ] AC-09: The "Copy to another machine" dialog has no "Copy or move" radio for the folder method. A copy is always copy-only and Main stays where it was (Git only still moves Main). The header names the real current Main: "From {source}. Main stays on {main}." When {source} is not linked to the project the destination belongs to, the dialog says so and never moves Main or relinks the destination silently. Copying into a machine that already holds a linked copy offers "Make {machine} main" on the done screen (`makeMain`).
+- [x] AC-09: The "Copy to another machine" dialog has no "Copy or move" radio for the folder method. A copy is always copy-only and Main stays where it was (Git only still moves Main). The header names the real current Main: "From {source}. Main stays on {main}." When {source} is not linked to the project the destination belongs to, the dialog says so and never moves Main or relinks the destination silently. Copying into a machine that already holds a linked copy offers "Make {machine} main" on the done screen (`makeMain`).
 
 ## Approach
 
@@ -57,6 +57,17 @@ Order: the switch (T-01 to T-03) ships first, and the dialog thread drops the ra
 - **Risks:**
   - The online move needs write scopes on the old main. A window holding only a Connect read session there gets a refusal that says so. The test covers the message.
   - An offline old main can start local work until it reconnects. This is accepted and stated in the decision.
+
+## Reviews
+
+- muse-wonder-1.0 xhigh: PR #512 SHIP at `c7e40fb70d`; PR #516 NOT YET at `a6b33d8bb` (both blockers resolved on main); PR #536 SHIP at `bf8c722b`, merged as `6075780c`; closure review SHIP on main `6075780c` (`reports/review.md`).
+
+Follow-ups left open (all minor, from the PR #536 and closure reviews):
+- A dialog opened with "Make X main" dead-ends when the person re-picks Main's copy or another project's copy; it offers no switch back to a plain copy.
+- `useCopyLink` can lose a race when the destination project's record loads after the copy finishes.
+- `SendSummary` plan lines, the existing-copy line and the finished-copy title are English-only.
+- `DraftFolderCopy` never offers "Make {machine} main" on the done screen.
+- The What-step freshness test counts only the freshness line's buttons, not the footer's.
 
 ## Decisions
 
