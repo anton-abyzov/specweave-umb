@@ -1,0 +1,15 @@
+{
+  "id": "1372-one-main-per-project-switch-any-time",
+  "uuid": "a6b4e28b-592b-4532-9ed1-ed2b17210243",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-16T19:33:29.512Z",
+  "updated": "2026-11-17T15:28:21.232Z",
+  "lastActivity": "2026-11-17T15:28:21.232Z",
+  "title": "One main per project, switch any time",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}
