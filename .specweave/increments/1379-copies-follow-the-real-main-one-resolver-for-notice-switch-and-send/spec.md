@@ -48,6 +48,10 @@ Out:
   - Round 1 NOT YET at `e53800031`: a stale endorsement, routed files dropped, duplicate sends, a non-live target, slash commands, test gaps.
   - Round 2 NOT YET at `5fe105f39`: a main that gave way two moves ago, retired sources in `logicalCoordinators`.
   - Round 3 SHIP at `4f8b22fae`. Merged as `546f18a3` (PR #540).
+- PR #544 (unlink a coordinator started beside main), muse-wonder-1.0 xhigh:
+  - Round 1 NOT YET at `f2e8a485f`: a side coordinator kept for a join could leave and strand the joiner; test gaps.
+  - Round 2 NOT YET at `4616ba717`: the `keptForJoin` mark was lost on revert and restart, never cleared, and stripped by older servers.
+  - Round 3 SHIP at `0b81ca82d`: the mark was dropped; the new path strands no more than the shipped unlink of a relinquished copy. The follower-blind unlink is in the open product gaps.
 - Left open, non-blocking:
   - The other `logicalCoordinator` callers (rename owner, machines settings, duplicate-link anchor, routine runner) pass no retired records.
   - `plannedRevert` racing a delayed takeover.
