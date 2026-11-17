@@ -907,5 +907,68 @@ check "downloads: a release that cannot be read fails" "fail|cannot read release
 check "downloads: the studio track checks the latest link and the website" "download_latest true|site_latest_link true|site_release false" \
   "$(jq -r '.tracks.studio.verify[] | select(.kind == "download_latest" or .kind == "site_latest_link" or .kind == "site_release") | "\(.kind) \(.blocking != false)"' "$REPO_ROOT/.specweave/release/manifest.json" | paste -sd'|' -)"
 
+# ---- ship from origin: a track with run_script_from=origin reads its version
+# from origin/main, not from a shared checkout that is behind it.
+fresh_repo
+R="$T/base/repo"
+export RELEASE_SCRIPT_TREES="$T/script-trees"
+printf 'old\n' >"$R/VERSION.txt"
+git -C "$R" add VERSION.txt; git -C "$R" commit -q -m old; git -C "$R" push -q origin main
+git clone -q "$T/origin.git" "$T/other2" 2>/dev/null
+printf 'new\n' >"$T/other2/VERSION.txt"
+printf '#!/bin/bash\n# accepts --dry-run\ncat VERSION.txt >>"%s/ran-version"\n' "$T" >"$T/other2/ver.sh"
+git -C "$T/other2" add VERSION.txt ver.sh; git -C "$T/other2" commit -q -m new; git -C "$T/other2" push -q origin main
+cat >"$T/manifest-origin.json" <<'JSON'
+{"repos": [{"name": "fx", "slug": "example/fx", "path": "repo", "default_branch": "main"}],
+ "policy": {"release": true},
+ "tracks": {"fromorigin": {"repo": "fx", "run_script_from": "origin", "release": ["bash", "ver.sh"], "dry_run_flag": "--dry-run"}},
+ "groups": {"all": ["fromorigin"]},
+ "cleanup": {"protected_globs": ["rel-*"], "min_idle_minutes": 0}}
+JSON
+rm -f "$T/ran-version"
+RELEASE_MANIFEST="$T/manifest-origin.json" bash "$RELEASE_SH" ship fromorigin --dry-run >"$T/ship.out" 2>"$T/ship.err" || true
+check "ship: run_script_from=origin reads the version from origin/main, not the behind checkout" new "$(cat "$T/ran-version" 2>/dev/null)"
+check "ship: the real vskill tracks run their scripts from origin" "origin|origin" \
+  "$(jq -r '.tracks["vskill-npm"].run_script_from + "|" + .tracks["vskill-desktop"].run_script_from' "$REPO_ROOT/.specweave/release/manifest.json")"
+
+# ---- npm verify: published but latest not moved yet waits for the publish run.
+cat >"$T/bin/npm" <<'SH'
+#!/bin/bash
+# npm view <pkg> dist-tags.latest -> $STUB_NPM_LATEST_FILE; <pkg>@<v> version -> exact when it matches.
+if [ "$1" = view ]; then
+  case "$2" in
+    *@*) v="${2##*@}"; [ "$v" = "$(cat "$STUB_NPM_EXACT_FILE" 2>/dev/null)" ] && printf '%s\n' "$v"; exit 0 ;;
+    *) cat "$STUB_NPM_LATEST_FILE" 2>/dev/null; exit 0 ;;
+  esac
+fi
+exit 0
+SH
+cat >"$T/bin/ci-wait-stub" <<'SH'
+#!/bin/bash
+[ "${STUB_CI_WAIT_SET_LATEST:-0}" = 1 ] && printf '%s' "$STUB_NPM_VERSION" >"$STUB_NPM_LATEST_FILE"
+exit "${STUB_CI_WAIT_RC:-0}"
+SH
+chmod +x "$T/bin/npm" "$T/bin/ci-wait-stub"
+export STUB_NPM_LATEST_FILE="$T/npm-latest.txt" STUB_NPM_EXACT_FILE="$T/npm-exact.txt"
+export STUB_NPM_VERSION="2.0.0" RELEASE_CI_WAIT="$T/bin/ci-wait-stub" RELEASE_NPM_WAIT_SECONDS=1
+printf '1.9.9' >"$STUB_NPM_LATEST_FILE"; printf '2.0.0' >"$STUB_NPM_EXACT_FILE"
+cat >"$T/manifest-npm.json" <<'JSON'
+{"repos": [{"name": "fx", "slug": "example/fx", "path": "repo", "default_branch": "main"}],
+ "tracks": {"npmt": {"repo": "fx", "expect_version": "default_branch_version",
+   "verify": [{"name": "npm latest", "kind": "npm_version", "package": "vskill", "repo": "example/fx", "workflow": "npm-release.yml"}]}},
+ "groups": {"all": ["npmt"]}}
+JSON
+run_npm() { RELEASE_MANIFEST="$T/manifest-npm.json" bash "$RELEASE_SH" verify npmt --version 2.0.0 >"$T/npm.json" 2>/dev/null && echo 0 || echo $?; }
+npm_row() { jq -r '.checks[0].status' "$T/npm.json"; }
+export STUB_CI_WAIT_RC=2; r="$(run_npm)"
+check "npm: publish run still running is pending, not a failure" "2|pending" "$r|$(npm_row)"
+export STUB_CI_WAIT_RC=1; r="$(run_npm)"
+check "npm: a failed publish run fails verify" "1|fail" "$r|$(npm_row)"
+export STUB_CI_WAIT_RC=0 STUB_CI_WAIT_SET_LATEST=1; r="$(run_npm)"
+check "npm: publish run done and latest moved passes" "0|pass" "$r|$(npm_row)"
+printf '1.9.9' >"$STUB_NPM_LATEST_FILE"; export STUB_CI_WAIT_SET_LATEST=0; r="$(run_npm)"
+check "npm: publish run done but latest still stale fails" "1|fail" "$r|$(npm_row)"
+unset RELEASE_CI_WAIT
+
 printf '\n%d passed, %d failed\n' "$PASSES" "$FAILS"
 [ "$FAILS" -eq 0 ]
