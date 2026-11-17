@@ -1,0 +1,9 @@
+$ cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/settings/UpdatePreferencesSection.logic.test.ts src/components/sidebar/SidebarRestartToUpdate.logic.test.ts 2>&1 | tail -6
+# exit 0 — 2026-11-17T12:17:49.252Z
+
+
+ Test Files  2 passed (2)
+      Tests  81 passed (81)
+   Start at  07:17:48
+   Duration  392ms (tests 29%, transform 29%, import 19%, setup 18%, worker 6%)
+

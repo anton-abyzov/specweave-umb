@@ -1,0 +1,15 @@
+{
+  "id": "1376-say-when-a-downloaded-update-will-not-install-and-guide-denied-tool-calls",
+  "uuid": "5f710ebb-641b-4b43-bb0c-7e2a0516d128",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-17T12:06:38.091Z",
+  "updated": "2026-11-17T13:57:26.420Z",
+  "lastActivity": "2026-11-17T13:57:26.420Z",
+  "title": "Say when a downloaded update will not install, and guide denied tool calls",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-17T13:57:26.420Z",
+  "approvedAt": "2026-11-17T13:57:26.420Z"
+}
