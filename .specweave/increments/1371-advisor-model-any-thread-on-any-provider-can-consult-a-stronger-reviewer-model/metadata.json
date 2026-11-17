@@ -1,12 +1,17 @@
 {
   "id": "1371-advisor-model-any-thread-on-any-provider-can-consult-a-stronger-reviewer-model",
   "uuid": "98e7f84b-738e-47b3-8acd-96832b949979",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-16T17:21:53.429Z",
-  "updated": "2026-11-16T17:21:53.429Z",
-  "lastActivity": "2026-11-16T17:21:53.429Z",
+  "updated": "2026-11-17T07:44:13.973Z",
+  "lastActivity": "2026-11-17T07:44:13.973Z",
   "title": "Advisor model: any thread on any provider can consult a stronger reviewer model",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-17T07:44:13.971Z",
+  "approvedAt": "2026-11-17T07:44:13.973Z"
 }
