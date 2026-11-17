@@ -41,6 +41,17 @@ Out:
   - Changing `startCoordinator`'s epoch on the server. A wire and fencing change, out of scope.
 - Risk: a person who started a coordinator on purpose to lead loses "main" to the followed one. "Make main" (move or takeover) is the way to lead, per 1372.
 
+## Reviews
+
+- muse-wonder-1.0, xhigh:
+  - Round 1 NOT YET at `e53800031`: a stale endorsement, routed files dropped, duplicate sends, a non-live target, slash commands, test gaps.
+  - Round 2 NOT YET at `5fe105f39`: a main that gave way two moves ago, retired sources in `logicalCoordinators`.
+  - Round 3 SHIP at `4f8b22fae`. Merged as `546f18a3` (PR #540).
+- Left open, non-blocking:
+  - The other `logicalCoordinator` callers (rename owner, machines settings, duplicate-link anchor, routine runner) pass no retired records.
+  - `plannedRevert` racing a delayed takeover.
+  - Joining a side coordinator names it at the kept epoch.
+
 ## Decisions
 
 ### Asked

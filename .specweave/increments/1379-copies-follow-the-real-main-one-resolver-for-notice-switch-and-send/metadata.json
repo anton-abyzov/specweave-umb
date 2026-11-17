@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-17T20:47:45.564Z",
-  "updated": "2026-11-17T20:47:45.564Z",
-  "lastActivity": "2026-11-17T20:47:45.564Z",
+  "updated": "2026-11-17T21:34:47.350Z",
+  "lastActivity": "2026-11-17T21:34:47.350Z",
   "title": "Copies follow the real main: one resolver for notice, switch and send",
   "project": "specweave-umb"
 }
