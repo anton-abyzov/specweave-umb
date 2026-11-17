@@ -1,15 +1,17 @@
 {
   "id": "1370-remove-finished-worktrees-automatically-and-show-what-storage-can-be-freed",
   "uuid": "210273db-149b-4e74-8814-7f0e8b499cbe",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-16T17:04:26.726Z",
-  "updated": "2026-11-17T04:37:53.831Z",
-  "lastActivity": "2026-11-17T04:37:53.831Z",
+  "updated": "2026-11-17T08:24:01.611Z",
+  "lastActivity": "2026-11-17T08:24:01.611Z",
   "title": "Remove finished worktrees automatically and show what storage can be freed",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-17T08:24:01.610Z",
+  "approvedAt": "2026-11-17T08:24:01.611Z"
 }
