@@ -21,7 +21,7 @@ The SpecWeave ledger is not a source: no row status reads a blocked task.
 
 In: which signals put a row under Needs you; the row's words for a report blocker and an open card; the plain-words ask on each Needs you row; the worktree-move pause for delegated children; clearing the stale card found here.
 
-Out: naming a child's open cards in the wake text itself (`task_status` carries them); iOS and Android rows (they mirror `ThreadAttention` and keep today's behaviour; recorded as an open gap); answering any of the owner's real questions.
+Out: naming a child's open cards in the wake text itself (`task_status` carries them); report blockers of a coordinator that goes by a custom id (`reportsToParentAgent` knows coordinators by their default prefix, as on `main`; no project uses a custom id); iOS and Android rows (they mirror `ThreadAttention` and keep today's behaviour; recorded as an open gap); answering any of the owner's real questions.
 
 ## Acceptance Criteria
 
