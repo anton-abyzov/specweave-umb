@@ -80,7 +80,7 @@ Out:
 ### Session behaviour (accepted by Anton, November 18, 2026)
 
 - [ ] AC-11: From 24 hours before the window's Connect session ends (`session.expireAt`), the account button shows "Sign-in ends in {time}" and its menu offers **Sign in again now**. From 2 hours before, the Threads panel banner says "Your Connect sign-in ends at {time}. Sign in again to keep reaching {machines}." The warning shows only when a saved machine depends on the sign-in: it has no session-free route (a bearer route without `authorization: "studio-connect"`, SSH, or the primary), computed from its routes.
-- [ ] AC-12: **Sign in again now** renews without emptying the window. It signs out of Clerk, then opens the sign-in again by itself, after the reload where there is one. Account cleanup keeps the saved machines (AC-16). A cancelled renew leaves the saved machines in place and shows the signed-out banner (AC-07), never a silent or emptied state. After a renew, the Connect onboarding dialog does not open again. Spike result (clerk-js 6.32.1, in `node_modules`):
+- [ ] AC-12: **Sign in again now** renews without emptying the window. It signs out of Clerk, then opens the sign-in again by itself, after the reload where there is one. Account cleanup keeps the saved machines (AC-16). A cancelled renew leaves the saved machines in place and shows the signed-out banner (AC-07), never a silent or emptied state. When the renewed account signs in again, the Connect onboarding dialog does not open again. The renew's sign-in takes any account: another account, or one the window cannot tell, gets what follows a first sign-in. Spike result (clerk-js 6.32.1, in `node_modules`):
   - In single-session mode, `openSignIn` is a no-op while signed in (`cannot_render_single_session_enabled`).
   - Multi-session mode would not help: signing in the same account on the same client fails with `identifier_already_signed_in`.
   - Nothing on the client extends `expireAt`.
@@ -91,7 +91,8 @@ Out:
 - [ ] AC-16: An expired or renewed sign-in keeps the saved machines, and keeps them across a reload, so "Needs sign-in" (AC-07) has machines to name.
   - While signed in, the window stores `{accountId, expireAt}` in local storage. A renew adds the time it started.
   - At a settled sign-out, the relay machines are kept only if that record shows the session passed `expireAt` (one minute of skew), or a renew started. Every other sign-out removes them as today: a person's sign-out, a revoked or removed session, and a window with no record.
-  - A different account signing in removes the kept machines before its session starts, so account B never sees account A's machines or cached threads.
+  - A renew mark counts at a sign-out this window saw happen only within 10 minutes of being set; an older one was left over. A load that starts signed out honours it at any age, since it cannot tell when the sign-out was.
+  - A different account signing in removes the kept machines before its session starts, and no request runs as account B against them. Until that removal lands, B can see their names and cached thread titles for a moment (known limit).
   - Trade: a signed-out window keeps the cached threads of the machines it keeps.
 
 ## Approach
@@ -109,11 +110,11 @@ Labels, in order:
 8. The signed-out banner (`signedOutBannerModel.ts`, `ConnectSignedOutBanner.tsx` behind the lazy `SignedOutBanner.tsx`) and the account button tone, reusing `useStudioConnectAuthPrompt().openAuthPrompt`.
 9. Phrases in `apps/web/src/i18n/phrases/*.ts`.
 
-Session behaviour (PR #632, accepted November 18, 2026; ships after a SHIP review at its exact head and green CI):
+Session behaviour (PR #632, accepted November 18, 2026; SHIP in review round 8 at `57ce45718`, merged as specwithcode `563680a58`, released in v1.0.366):
 - AC-16: `cloud/connectSessionRecord.ts` stores `{accountId, expireAt, renewStartedAt?}`; `managedAuth.tsx` skips `removeRelayEnvironments` only when the record says expired or renewing, and cleans up before a different account's session starts.
 - AC-11: `cloud/connectSessionEnd.ts` (stages, recheck, `dependsOnConnectSignIn`), `useConnectSessionEnd` (one timer, plus focus and visibility), the account button's `sessionEndsIn`, and `sessionEndingBanner`.
-- AC-12: `useConnectRenew` writes the renew mark and the open note, then `clerk.signOut`; `ConnectRenewResume` opens the sign-in with origin `renew`, which the onboarding dialog does not follow.
-- AC-13: `ConnectSessionGuard` sets `connectSessionRejectedAtom` instead of `signOut()`, and latches on the error it last answered. `connectSessionRefused` is set only on the relay's bearer and removed-device refusals.
+- AC-12: `useConnectRenew` writes the renew mark and the open note (with the account), then `clerk.signOut`; `ConnectRenewResume` opens the sign-in with origin `renew` and the renewed account. The onboarding dialog skips its follow-up only when that account comes back.
+- AC-13: `ConnectSessionGuard` sets `connectSessionRejectedAtom` instead of `signOut()`, latches on the error it last answered, and drops the result of a check that ends after its account's guard unmounted. `connectSessionRefused` is set only on the relay's bearer and removed-device refusals.
 - AC-14: `readConnectClerkToken` extracted from `platform.ts` and tested.
 
 Rejected:
@@ -129,6 +130,12 @@ Risks:
 - 1412 edits `shellModel.ts` and `ThreadsPane.tsx`; rebase after it merges.
 - The fleet snapshot is polled every ten seconds, so "Not reachable from here" and "is running" can lag by one fleet read.
 - Down words wait out the 60-second reconnect grace (`reach.ts:18`) as today.
+
+Known limits (review rounds 6 to 8, accepted):
+- A different account signing in can see the kept machines' names and cached thread titles until their async removal lands (`managedAuth.tsx`).
+- The 10-minute renew-mark cap reads wall-clock time: a backward clock step, or sleep of over 10 minutes between the click and the settled sign-out, removes the machines a renew meant to keep.
+- The account button's warning ("Sign-in ends in …" and its hint) is English in every locale, like the rest of the account menu.
+- Proof: nothing was tried in the installed app; the fixture stubs the renew; no end-to-end test goes from a kept machine to "Needs sign-in"; why M5 was removed is unproven.
 
 ## Mockup
 
