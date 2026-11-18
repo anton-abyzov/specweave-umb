@@ -1,0 +1,15 @@
+{
+  "id": "1408-keep-the-iphone-approval-wait-steady-and-clear",
+  "uuid": "bb18c302-ae38-48c1-9579-6471c5d30447",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T08:50:22.520Z",
+  "updated": "2026-11-18T10:23:25.048Z",
+  "lastActivity": "2026-11-18T10:23:25.048Z",
+  "title": "Keep the iPhone approval wait steady and clear",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
