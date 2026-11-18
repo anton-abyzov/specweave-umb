@@ -1,0 +1,15 @@
+{
+  "id": "1412-needs-you-only-for-decisions-only-the-person-can-make",
+  "uuid": "9b42bdde-ad81-42f0-bba8-cf317f5c34bf",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T14:54:34.494Z",
+  "updated": "2026-11-18T15:51:54.931Z",
+  "lastActivity": "2026-11-18T15:51:54.931Z",
+  "title": "Needs you only for decisions only the person can make",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
