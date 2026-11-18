@@ -77,7 +77,7 @@ Out:
 - [ ] AC-09: After signing in, machines that needed sign-in reconnect without restarting the app, and the banner and labels clear. The blocked connection wakes on `credentials-changed` (`supervisor.ts:1117`, test `supervisor.test.ts:1081`). An Electron sign-in may reload the window.
 - [ ] AC-10: New strings exist in all eight phrase files.
 
-### Session behaviour (held for Anton's acceptance)
+### Session behaviour (accepted by Anton, November 18, 2026)
 
 - [ ] AC-11: From 24 hours before the window's Connect session ends (`session.expireAt`), the account button shows "Sign-in ends in {time}" and its menu offers **Sign in again now**. From 2 hours before, the Threads panel banner says "Your Connect sign-in ends at {time}. Sign in again to keep reaching {machines}." The warning shows only when a saved machine depends on the sign-in: it has no session-free route (a bearer route without `authorization: "studio-connect"`, SSH, or the primary), computed from its routes.
 - [ ] AC-12: **Sign in again now** renews without emptying the window. It signs out of Clerk, then opens the sign-in again by itself, after the reload where there is one. Account cleanup keeps the saved machines (AC-16). A cancelled renew leaves the saved machines in place and shows the signed-out banner (AC-07), never a silent or emptied state. After a renew, the Connect onboarding dialog does not open again. Spike result (clerk-js 6.32.1, in `node_modules`):
@@ -109,7 +109,7 @@ Labels, in order:
 8. The signed-out banner (`signedOutBannerModel.ts`, `ConnectSignedOutBanner.tsx` behind the lazy `SignedOutBanner.tsx`) and the account button tone, reusing `useStudioConnectAuthPrompt().openAuthPrompt`.
 9. Phrases in `apps/web/src/i18n/phrases/*.ts`.
 
-Session behaviour (built in draft PR #632, held for acceptance):
+Session behaviour (PR #632, accepted November 18, 2026; ships after a SHIP review at its exact head and green CI):
 - AC-16: `cloud/connectSessionRecord.ts` stores `{accountId, expireAt, renewStartedAt?}`; `managedAuth.tsx` skips `removeRelayEnvironments` only when the record says expired or renewing, and cleans up before a different account's session starts.
 - AC-11: `cloud/connectSessionEnd.ts` (stages, recheck, `dependsOnConnectSignIn`), `useConnectSessionEnd` (one timer, plus focus and visibility), the account button's `sessionEndsIn`, and `sessionEndingBanner`.
 - AC-12: `useConnectRenew` writes the renew mark and the open note, then `clerk.signOut`; `ConnectRenewResume` opens the sign-in with origin `renew`, which the onboarding dialog does not follow.
@@ -148,7 +148,7 @@ Adversarial reviewer: Muse Wonderful (`muse-wonder-full-1.0`, xhigh, full access
 - D-04 The signed-out banner shows only when a saved machine needs the sign-in → default.
 - D-05 Labels (AC-01 to AC-10) ship after review and green CI; AC-11 to AC-14 wait for Anton's acceptance → default.
 - D-06 "Needs sign-in" waits for Clerk's settled signed-out state (review round 1) → default.
-- D-07 Saved machines are kept only after an expiry or a renew; every other sign-out removes them as today (fail-closed) → default, held with AC-16 for Anton.
+- D-07 Keep saved machines after an expiry or a renew; every other sign-out removes them as today (fail-closed) → **keep them** (Anton, November 18, 2026). Asked together with the session changes: **all three ship** (warning, renew, no silent sign-out).
 ### Open
 - none
 
