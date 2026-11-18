@@ -121,7 +121,7 @@ Risks
 ## Decisions
 
 ### Asked
-- D-01 Build order and look: Anton accepts the mockup first (his instruction, November 18, 2026). Pending his answer on the mockup.
+- D-01 Build order and look: Anton accepts the mockup first (his instruction, November 18, 2026). Accepted November 18, 2026 ("Accept, build it"), including dropping "All environments" on Integrations.
 
 ### Defaulted (change any before sw-do)
 - D-02 Four tabs inside Integrations instead of new sidebar entries.

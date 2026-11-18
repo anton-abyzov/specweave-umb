@@ -5,8 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T08:14:03.601Z",
-  "updated": "2026-11-18T09:23:22.938Z",
-  "lastActivity": "2026-11-18T09:23:22.938Z",
+  "updated": "2026-11-18T13:29:01.286Z",
+  "lastActivity": "2026-11-18T13:29:01.286Z",
   "title": "Integrations settings in tabs: guided MCP add, built-in tools, device setup steps",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
