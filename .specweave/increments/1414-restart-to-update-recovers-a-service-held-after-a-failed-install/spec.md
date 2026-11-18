@@ -54,13 +54,13 @@ Risks: on a service older than 1.0.345 the newer-release attempt can race a rout
 ## Tasks
 
 ### T-01 Offer the service update for a held failed install
-- AC: AC-01, AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.heldFailure.logic.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.heldFailure.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/UpdatePreferencesSection.logic.test.ts, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-update-agent-recovery.py | Test: `npx vitest run src/components/sidebar/SidebarRestartToUpdate.heldFailure src/components/settings/UpdatePreferencesSection.logic.test.ts` in apps/web
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.heldFailure.logic.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.heldFailure.test.tsx | Test: `cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/sidebar/SidebarRestartToUpdate.heldFailure`
 
 ### T-02 Say why an app install waits for the service
-- AC: AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.heldFailure.logic.test.ts | Test: `npx vitest run src/components/sidebar/SidebarRestartToUpdate` in apps/web
+- AC: AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.heldFailure.logic.test.ts | Test: `cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/sidebar/SidebarRestartToUpdate.heldFailure.logic.test.ts`
 
 ### T-03 A newer release gets one attempt after a refusal that changed nothing
-- AC: AC-06, AC-08 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update_agent_recovery.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-update-agent-recovery.py | Test: `python3 scripts/studio-fleet/test-update-agent-recovery.py`
+- AC: AC-04, AC-06, AC-08 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update_agent_recovery.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-update-agent-recovery.py | Test: `cd repositories/anton-abyzov/specwithcode/scripts/studio-fleet && python3 test-update-agent-recovery.py HeldRefusalRecovery AutomaticRecovery NewerReleaseRecovery`
 
 ### T-04 Recovery for machines stuck on old builds
 - AC: AC-07 | Files: repositories/anton-abyzov/specwithcode/docs/studio/updates.md | Test: read the section against `fleet_rollout.py --dry-run` output
