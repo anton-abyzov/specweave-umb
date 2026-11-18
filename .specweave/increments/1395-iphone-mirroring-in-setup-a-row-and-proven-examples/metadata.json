@@ -1,0 +1,17 @@
+{
+  "id": "1395-iphone-mirroring-in-setup-a-row-and-proven-examples",
+  "uuid": "6fa45aea-09c2-495d-a2f3-3fd60208157c",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T06:57:50.460Z",
+  "updated": "2026-11-18T14:22:05.333Z",
+  "lastActivity": "2026-11-18T14:22:05.333Z",
+  "title": "iPhone Mirroring in setup: a row and proven examples",
+  "project": "specweave-umb",
+  "parent": "1387-first-run-setup-rethought-one-working-agent-models-by-role-chrome-and-mac-access-machines-and-phone",
+  "externalLinks": {},
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

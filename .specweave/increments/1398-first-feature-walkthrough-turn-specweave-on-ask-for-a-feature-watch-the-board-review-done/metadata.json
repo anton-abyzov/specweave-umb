@@ -1,0 +1,17 @@
+{
+  "id": "1398-first-feature-walkthrough-turn-specweave-on-ask-for-a-feature-watch-the-board-review-done",
+  "uuid": "be2c70ca-d063-4897-8b40-a7cfe6acac16",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T08:04:15.056Z",
+  "updated": "2026-11-18T14:22:01.377Z",
+  "lastActivity": "2026-11-18T14:22:01.377Z",
+  "title": "First feature walkthrough: turn SpecWeave on, ask for a feature, watch the Board, review, Done",
+  "project": "specweave-umb",
+  "parent": "1387-first-run-setup-rethought-one-working-agent-models-by-role-chrome-and-mac-access-machines-and-phone",
+  "externalLinks": {},
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
