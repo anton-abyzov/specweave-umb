@@ -11,3 +11,7 @@
 {"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:27.228Z","evidence":"0b391ee79; swift test --filter DeviceShortID 3/3 pass; App-target label tests added, run by CI\nHEAD a17ee9ea70","model":"claude-fable-5-2[1m]"}
 {"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:28.087Z","model":"claude-fable-5-2[1m]"}
 {"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:28.089Z","evidence":"a8eb561de 02125c969; i18n.test.ts pass; verify.mjs 15/15 scenes, screenshots in reports/screens\nHEAD a17ee9ea70","model":"claude-fable-5-2[1m]"}
+{"t":"T-10","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:28:18.549Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-10","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:28:18.557Z","evidence":"877a5c0df on fix/device-approval-code-lifetime, PR 586 (draft, stacked on 582); ConnectDeviceTrust tests 25/25 incl. 3 new lifetime tests\nHEAD 0c64005c95","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T10:46:59.628Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T10:46:59.633Z","evidence":"PR 582 merged 0c880f95a after Muse Wonderful SHIP (c3bf70444) and 28/28 checks green on cb8728106; released in v1.0.354 (run 44283541672)\nHEAD 0c64005c95","model":"claude-opus-5-5[1m]"}
