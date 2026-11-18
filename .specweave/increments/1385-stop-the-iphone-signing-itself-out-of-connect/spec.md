@@ -12,11 +12,11 @@ iOS app only (`apps/ios`). No relay or server change. The socket-drop half (back
 
 ## Acceptance Criteria
 
-- [ ] AC-01: An inferred session rejection never ends the Clerk session by itself. The app asks Clerk again (`refreshClient`), and signs out and shows "Sign in" only when Clerk confirms the session is gone.
-- [ ] AC-02: When Clerk still holds the session, the phone stays signed in, clears its relay tokens and retries the affected computers at most once every 30 s, with no loop.
-- [ ] AC-03: A rejection raised before a newer sign-in finished is ignored. A sign-in generation is captured when the rejection starts and checked after every await.
-- [ ] AC-04: A relay 401 with reason `invalid_dpop` is treated as a token or proof problem, not as the account being signed out.
-- [ ] AC-05: `make test-core` passes, including new tests for AC-01 to AC-04.
+- [x] AC-01: An inferred session rejection never ends the Clerk session by itself. The app asks Clerk again (`refreshClient`), and signs out and shows "Sign in" only when Clerk confirms the session is gone.
+- [x] AC-02: When Clerk still holds the session, the phone stays signed in, clears its relay tokens and retries the affected computers at most once every 30 s, with no loop.
+- [x] AC-03: A rejection raised before a newer sign-in finished is ignored. A sign-in generation is captured when the rejection starts and checked after every await.
+- [x] AC-04: A relay 401 with reason `invalid_dpop` is treated as a token or proof problem, not as the account being signed out.
+- [x] AC-05: `make test-core` passes, including new tests for AC-01 to AC-04.
 
 ## Approach
 

@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:07:34.831Z","note":"session 784c8313-fe3c-4854-ab3c-55f50fec08c1","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:07:34.833Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:07:34.834Z","evidence":"specwithcode PR #561 merged fa217a2a8; make test-core 845/845 at ff6a9ceee, focused 53/53 at 4f8624251; CI green; review SHIP x2 (reports/review.md)\nHEAD 516bceab02","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:07:36.172Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:07:36.174Z","evidence":"specwithcode PR #561 merged fa217a2a8; make test-core 845/845 at ff6a9ceee, focused 53/53 at 4f8624251; CI green; review SHIP x2 (reports/review.md)\nHEAD 516bceab02","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:07:36.664Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:07:36.666Z","evidence":"specwithcode PR #561 merged fa217a2a8; make test-core 845/845 at ff6a9ceee, focused 53/53 at 4f8624251; CI green; review SHIP x2 (reports/review.md)\nHEAD 516bceab02","model":"claude-opus-5-5[1m]"}
