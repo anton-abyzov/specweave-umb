@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sync and hand off: the new machine menu and flows</title>
+<style>
+  body { font-family: var(--font-sans, system-ui, sans-serif); font-size: 15px; line-height: 1.5; color: var(--foreground); background: var(--background); margin: 0; padding: 4px 2px 24px; }
+  h1 { font-size: 26px; line-height: 1.2; margin: 0 0 6px; font-weight: 650; }
+  h2 { font-size: 18px; margin: 34px 0 4px; font-weight: 650; }
+  h3 { font-size: 13px; margin: 0 0 8px; font-weight: 600; color: var(--muted-foreground); text-transform: uppercase; letter-spacing: .04em; }
+  p { margin: 6px 0; max-width: 68ch; }
+  .lead { color: var(--muted-foreground); }
+  .verbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0 4px; }
+  .verb { border: 1px solid var(--border); border-radius: var(--radius, 10px); padding: 12px 14px; background: var(--card); }
+  .verb b { display: block; font-size: 16px; margin-bottom: 2px; }
+  .verb span { color: var(--muted-foreground); font-size: 14px; }
+  .verb i { font-style: normal; display: inline-block; font-size: 12px; padding: 1px 7px; border-radius: 99px; background: var(--accent-surface, var(--secondary)); color: var(--accent-surface-foreground, var(--foreground)); margin-bottom: 6px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; align-items: start; }
+  .panel { border: 1px solid var(--border); border-radius: var(--radius, 10px); background: var(--popover, var(--card)); color: var(--popover-foreground, var(--foreground)); padding: 10px; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  .panel.old { opacity: .78; }
+  .tag { font-size: 12px; font-weight: 600; margin: 0 0 6px 4px; color: var(--muted-foreground); }
+  .tag.new { color: var(--success, var(--accent)); }
+  .glabel { font-size: 12.5px; color: var(--muted-foreground); padding: 6px 8px 2px; font-weight: 600; }
+  .note { font-size: 12.5px; color: var(--muted-foreground); padding: 0 8px 6px; }
+  .row { display: flex; align-items: center; gap: 8px; padding: 7px 8px; border-radius: 7px; font-size: 14.5px; }
+  .row.sel { background: var(--secondary); }
+  .row.off { color: var(--muted-foreground); opacity: .62; }
+  .row .m { font-weight: 600; min-width: 74px; }
+  .row .s { color: var(--muted-foreground); font-size: 13.5px; flex: 1; min-width: 0; }
+  .row .act { font-size: 12.5px; border: 1px solid var(--border); border-radius: 6px; padding: 1px 8px; white-space: nowrap; background: var(--background); color: var(--foreground); }
+  .strike { text-decoration: line-through; text-decoration-color: var(--destructive); }
+  .sep { height: 1px; background: var(--border); margin: 6px 4px; }
+  .pill { display: inline-block; font-size: 12px; padding: 0 7px; border-radius: 99px; border: 1px solid var(--border); white-space: nowrap; }
+  .pill.ok { color: var(--success); border-color: var(--success); }
+  .pill.warn { color: var(--warning-foreground, var(--warning)); background: var(--warning-surface, transparent); border-color: var(--warning); }
+  .pill.co { background: var(--accent-surface, var(--secondary)); color: var(--accent-surface-foreground, var(--foreground)); border-color: transparent; }
+  .box { border: 1px solid var(--border); border-radius: var(--radius, 10px); padding: 12px; background: var(--card); margin-top: 10px; }
+  .box .line { font-size: 14px; margin-bottom: 8px; }
+  .box .state { font-size: 12px; font-weight: 600; color: var(--muted-foreground); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
+  .composer { display: flex; align-items: center; gap: 8px; border: 1px solid var(--input, var(--border)); border-radius: 10px; padding: 8px 10px; color: var(--muted-foreground); font-size: 14px; background: var(--background); }
+  .composer span { flex: 1; }
+  .btn { display: inline-block; font-size: 13.5px; padding: 4px 11px; border-radius: 7px; border: 1px solid var(--border); background: var(--background); color: var(--foreground); white-space: nowrap; }
+  .btn.pri { background: var(--primary); color: var(--primary-foreground); border-color: transparent; }
+  .btn.dis { opacity: .5; }
+  .chip { display: inline-block; font-size: 12.5px; padding: 1px 9px; border-radius: 99px; border: 1px solid var(--border); margin-top: 8px; }
+  .dlg { border: 1px solid var(--border); border-radius: 12px; background: var(--card); padding: 14px 16px; margin-top: 12px; }
+  .dlg h4 { margin: 0 0 2px; font-size: 16px; }
+  .dlg .sub { color: var(--muted-foreground); font-size: 13.5px; margin-bottom: 10px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th { text-align: left; font-weight: 600; color: var(--muted-foreground); font-size: 12.5px; padding: 5px 8px 5px 0; border-bottom: 1px solid var(--border); }
+  td { padding: 6px 8px 6px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  code { font-family: var(--font-mono, ui-monospace, monospace); font-size: 12.5px; background: var(--code-background, var(--secondary)); color: var(--code-foreground, inherit); padding: 0 4px; border-radius: 4px; }
+  .chk { display: flex; gap: 8px; align-items: flex-start; padding: 5px 0; font-size: 14px; }
+  .chk .b { width: 15px; height: 15px; border-radius: 4px; border: 1.5px solid var(--border); flex: none; margin-top: 3px; }
+  .chk .b.on { background: var(--primary); border-color: var(--primary); position: relative; }
+  .chk .b.on::after { content: ""; position: absolute; left: 4px; top: 1px; width: 4px; height: 8px; border: solid var(--primary-foreground); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+  .chk small, .dim { color: var(--muted-foreground); font-size: 13px; }
+  .foot { display: flex; gap: 8px; justify-content: flex-end; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+  .foot .dim { flex: 1; min-width: 180px; }
+  .flow { display: flex; gap: 6px; align-items: stretch; flex-wrap: wrap; margin-top: 10px; }
+  .step { flex: 1; min-width: 132px; border: 1px solid var(--border); border-radius: 9px; padding: 8px 10px; font-size: 13.5px; background: var(--card); }
+  .step b { display: block; font-size: 13.5px; }
+  .step span { color: var(--muted-foreground); }
+  .scroll { overflow-x: auto; }
+  @media (max-width: 620px) { .verbs, .two { grid-template-columns: 1fr; } h1 { font-size: 23px; } .row .m { min-width: 62px; } }
+</style>
+</head>
+<body>
+<h1>Machines sync files. Work is handed off.</h1>
+<p class="lead">Proposal for increment 1390. The words Main and Copy leave the interface. A project lives on several machines as equals, and three verbs cover everything you do between them. Mockup with specweave's machines and the M4's Git state of November 18. Nothing here is built.</p>
+
+<div class="verbs" role="list">
+  <div class="verb" role="listitem"><i>files</i><b>Sync</b><span>Git first: pull on both machines, fast-forward only, clone a repository that is missing. Work Git does not carry is offered as extras.</span></div>
+  <div class="verb" role="listitem"><i>files, first time</i><b>Add</b><span>Put the project on a machine that does not have it: download from GitHub, plus optional extras from the source machine.</span></div>
+  <div class="verb" role="listitem"><i>work</i><b>Hand off</b><span>Threads, unsaved work and the coordinator conversation continue on another machine. By hand, or by itself on sleep or at a limit.</span></div>
+</div>
+
+<h2>1. The machine menu</h2>
+<p>The chip names the machine you are looking at. A row either opens that machine or is greyed with the reason on it. The coordinator is a fact on one row, not a role you assign.</p>
+<div class="two">
+  <div>
+    <div class="tag">Today, 1.0.346 · chip "Runs on m4" even with M5 picked</div>
+    <div class="panel old" aria-label="Machine menu today">
+      <div class="glabel">View this project on</div>
+      <div class="note">Viewing moves nothing: work stays on each machine. Adding or moving the project asks first.</div>
+      <div class="row"><span class="m">m4</span><span class="s strike">Main</span></div>
+      <div class="row"><span class="m">linux-mini</span><span class="s strike">Copy · main on m4</span></div>
+      <div class="row"><span class="m">M5</span><span class="s strike">Copy · main on m4</span></div>
+      <div class="row sel"><span class="m">m1</span><span class="s strike">Copy · main on m4</span><span>✓</span></div>
+      <div class="sep"></div>
+      <div class="glabel">This project</div>
+      <div class="row"><span class="strike">Send to another machine…</span></div>
+      <div class="row"><span class="strike">Make M5 main</span></div>
+      <div class="sep"></div>
+      <div class="glabel">On m1</div>
+      <div class="row"><span class="strike">Move running threads…</span></div>
+      <div class="row"><span class="strike">Leave this machine…</span></div>
+      <div class="sep"></div>
+      <div class="row">Machine access settings</div>
+    </div>
+  </div>
+  <div>
+    <div class="tag new">Proposed · chip "On M5"</div>
+    <div class="panel" aria-label="Machine menu proposed">
+      <div class="glabel">specweave on your machines</div>
+      <div class="note">Pick a machine to see its threads and files. Nothing moves until you sync or hand off.</div>
+      <div class="row"><span class="m">m4</span><span class="s"><span class="pill co">Coordinator</span> 179 uncommitted files</span></div>
+      <div class="row sel"><span class="m">M5</span><span class="s"><span class="pill warn">12 commits behind</span></span><span class="act">Sync</span><span>✓</span></div>
+      <div class="row off"><span class="m">linux-mini</span><span class="s">This window cannot open linux-mini · Connect…</span></div>
+      <div class="row"><span class="m">m1</span><span class="s"><span class="pill warn">Second coordinator</span></span><span class="act">Fix…</span></div>
+      <div class="sep"></div>
+      <div class="row">Sync all machines…</div>
+      <div class="row">Add to another machine…</div>
+      <div class="sep"></div>
+      <div class="glabel">Work on M5</div>
+      <div class="row">Continue the coordinator here</div>
+      <div class="row">Hand off work…</div>
+      <div class="sep"></div>
+      <div class="row">Machine access settings</div>
+    </div>
+  </div>
+</div>
+<div class="scroll" style="margin-top:12px">
+<table>
+  <tr><th>A row reads</th><th>When</th><th>Click</th></tr>
+  <tr><td><span class="pill co">Coordinator</span></td><td>The coordinator conversation is on this machine</td><td>Opens it</td></tr>
+  <tr><td><span class="pill ok">Up to date</span></td><td>Every repository matches the newest commits</td><td>Opens it</td></tr>
+  <tr><td><span class="pill warn">12 commits behind</span> · <span class="pill">3 uncommitted files</span></td><td>Sync would change something, or work exists only there</td><td>Opens it · Sync</td></tr>
+  <tr><td class="dim">Offline · last seen 2 hours ago · read-only</td><td>Offline, and this window saved what it last had</td><td>Opens that, actions greyed</td></tr>
+  <tr><td class="dim">This window cannot open linux-mini · Connect…</td><td>Never opened here, refused, or not registered</td><td>Greyed, with the one step that fixes it</td></tr>
+  <tr><td class="dim">Needs update · 1.0.329</td><td>Too old for sync or hand off</td><td>Opens it, actions greyed</td></tr>
+  <tr><td><span class="pill warn">Second coordinator</span></td><td>It still runs a coordinator of its own (m1 today, shown as "Copy · main on m4")</td><td>Opens it · Fix…: retire it, or unlink</td></tr>
+  <tr><td><span class="pill">Separate project</span></td><td>Same repository, registered on its own</td><td>Opens it · Link…</td></tr>
+</table>
+</div>
+
+<h2>2. The message box on a machine without the coordinator</h2>
+<p>Today this box says "Main for specweave is m4. This copy takes work from there", and a send jumps to m4's page. The proposal keeps you on the machine you picked, in every state.</p>
+<div class="two">
+  <div class="box">
+    <div class="state">m4 answers</div>
+    <div class="line">The coordinator for specweave is on m4. Your message goes there and the answer shows here.</div>
+    <div class="composer"><span>Ask the coordinator…</span><b class="btn pri">Send</b></div>
+    <div style="margin-top:8px"><span class="btn">Continue here</span> <span class="dim">Syncs M5, then moves the conversation.</span></div>
+    <span class="chip">On M5 ▾</span>
+  </div>
+  <div class="box">
+    <div class="state">m4 silent for 3 minutes</div>
+    <div class="line">m4 is not answering. Your message is kept and sent when it is back.</div>
+    <div class="composer"><span>time now?</span><b class="btn pri">Send when m4 is back</b></div>
+    <div style="margin-top:8px"><span class="btn dis">Continue here</span> <span class="dim">Available in 7 minutes if m4 stays silent.</span></div>
+    <span class="chip">On M5 ▾</span>
+  </div>
+</div>
+<div class="box">
+  <div class="state">m4 offline for 14 minutes</div>
+  <div class="line">m4 has been offline for 14 minutes. Continue here: the coordinator starts on M5 from the shared plan and memory. Its conversation on m4 stays readable there, and m4 gives way when it is back.</div>
+  <div class="composer"><span>time now?</span><b class="btn pri">Continue here and send</b></div>
+  <span class="chip">On M5 ▾</span>
+</div>
+
+<h2>3. Sync</h2>
+<p>One dialog for a project that already exists on both machines. Pulling is symmetric and safe. Whatever lives on one machine only is listed, never taken silently.</p>
+<div class="dlg" aria-label="Sync dialog">
+  <h4>Sync specweave: m4 and M5</h4>
+  <div class="sub">Git first. Each repository moves forward to the newest commits, fast-forward only. Nothing is overwritten.</div>
+  <div class="scroll">
+  <table>
+    <tr><th>Repository</th><th>m4</th><th>M5</th><th>Sync does</th></tr>
+    <tr><td>specwithcode</td><td>main · 99 behind GitHub</td><td>main · up to date</td><td>Pull on m4</td></tr>
+    <tr><td>vskill</td><td>main · 2 behind</td><td>main · 2 behind</td><td>Pull on both</td></tr>
+    <tr><td>specweave-status</td><td>codex/1196-status-evidence</td><td class="dim">not there</td><td>Download from GitHub on M5</td></tr>
+    <tr><td>vskill-platform</td><td>main</td><td>main · 2 uncommitted files</td><td class="dim">Skipped: M5 has uncommitted changes</td></tr>
+    <tr><td>specweave-umb</td><td>fix/coordinator-delegates-work</td><td>main</td><td class="dim">Skipped: different branches. See below</td></tr>
+  </table>
+  </div>
+  <h3 style="margin-top:14px">Only on m4 · Git does not carry these</h3>
+  <div class="chk"><span class="b"></span><div>10 commits on <code>fix/coordinator-delegates-work</code> that were never pushed<br><small>Sent straight to M5 as the same branch. Nothing is pushed to GitHub.</small></div></div>
+  <div class="chk"><span class="b"></span><div>11 branches that exist only on m4</div></div>
+  <div class="chk"><span class="b"></span><div>179 uncommitted files in specweave-umb<br><small>Arrive on M5 as branch <code>swc/from-m4/uncommitted-2026-11-18</code>. Nothing is committed on m4.</small></div></div>
+  <div class="chk"><span class="b"></span><div>1 secret: <code>.specweave/project/credentials.json</code><br><small>Sent sealed to M5 only. Never part of a Git snapshot.</small></div></div>
+  <div class="foot"><span class="dim">Files outside Git on either side? <u>Compare all files…</u> is the slow, complete way.</span><span class="btn">Cancel</span><span class="btn pri">Sync</span></div>
+</div>
+
+<h2>4. Hand off</h2>
+<p>One dialog replaces Move running threads, Leave this machine and Make M5 main. Tick what goes. Files are synced first, and the coordinator conversation moves last.</p>
+<div class="dlg" aria-label="Hand off dialog">
+  <h4>Hand off work from m4</h4>
+  <div class="sub">To <b>M5</b> ▾ &nbsp;·&nbsp; <span class="pill warn">Same Claude account as m4: adds no usage</span> &nbsp;·&nbsp; Scope: <b>specweave</b> ▾ / Every project on m4</div>
+  <div class="chk"><span class="b on"></span><div>Running (2)<br><small>Each stops at a safe point, travels with its commits and uncommitted files, and continues on M5.</small></div></div>
+  <div class="chk"><span class="b on"></span><div>Waiting for you (1)</div></div>
+  <div class="chk"><span class="b on"></span><div>Not running, with unsaved work (3)<br><small>Idle threads whose folders hold uncommitted files or commits that were never pushed.</small></div></div>
+  <div class="chk"><span class="b on"></span><div>Project folder: 179 uncommitted files, 11 branches only on m4<br><small>Arrive as branch <code>swc/from-m4/uncommitted-2026-11-18</code>. Nothing is committed or deleted on m4.</small></div></div>
+  <div class="chk"><span class="b on"></span><div>Coordinator conversation<br><small>Moves after the threads, once M5's repositories are synced.</small></div></div>
+  <div class="chk"><span class="b"></span><div class="dim">Stays (2)<br><small>"PR 516 review": reviews finish where they started. · <code>fix-windows-tests-green</code>: its Git data is broken. <u>Copy as plain files</u></small></div></div>
+  <div class="foot"><span class="dim"><span class="b" style="display:inline-block;width:13px;height:13px;border:1.5px solid var(--border);border-radius:3px;vertical-align:-2px"></span> Also do this when m4 goes to sleep</span><span class="btn">Cancel</span><span class="btn pri">Hand off to M5</span></div>
+</div>
+
+<h3 style="margin-top:18px">What a hand off does, in order</h3>
+<div class="flow" role="list" aria-label="Hand off steps">
+  <div class="step" role="listitem"><b>1 Check</b><span>M5 reachable, signed in, room for the files. Anything that cannot go is named before you press.</span></div>
+  <div class="step" role="listitem"><b>2 Sync</b><span>M5 pulls. A repository that cannot fast-forward holds only the threads that need it.</span></div>
+  <div class="step" role="listitem"><b>3 Threads</b><span>Each thread's work travels as a hidden checkpoint. A thread across several repositories goes whole or stays.</span></div>
+  <div class="step" role="listitem"><b>4 Coordinator</b><span>Conversation moves last. m4 stops starting work.</span></div>
+  <div class="step" role="listitem"><b>5 Keep</b><span>m4 keeps every file and a read-only copy of each thread. "Bring work back" reverses it.</span></div>
+</div>
+
+<h2>5. By itself, for one or two threads</h2>
+<p>Off unless you turn it on. A thread's ⋯ menu gets "Hand off automatically", which replaces "Keep ready to move".</p>
+<div class="dlg" aria-label="Automatic hand off settings">
+  <h4>Settings › Machines › Hand off</h4>
+  <div class="scroll">
+  <table>
+    <tr><th>When</th><th>Choice</th><th>What happens</th></tr>
+    <tr><td>This machine goes to sleep</td><td><b>Do nothing</b> ▾ / Hand off to M5 after 2 minutes</td><td>Threads set to hand off automatically keep a standby copy on M5, so M5 can continue with the lid already closed.</td></tr>
+    <tr><td>A usage limit stops a thread</td><td><b>Ask me</b> ▾ / Hand off to a machine with usage left</td><td>A model switch on the same machine is tried first. A machine on the same account never counts. Review threads stay.</td></tr>
+    <tr><td>One thread</td><td>⋯ › Hand off automatically: Project default / On / Off</td><td>The thread shows "Standby on M5 · saved 2 minutes ago".</td></tr>
+  </table>
+  </div>
+</div>
+
+<h2>6. Wording, old to new</h2>
+<div class="scroll">
+<table>
+  <tr><th>Where</th><th>Today</th><th>Proposed</th></tr>
+  <tr><td>Chip</td><td>Runs on m4</td><td>On M5 (the machine you are viewing)</td></tr>
+  <tr><td>Row badge</td><td>Main</td><td>Coordinator</td></tr>
+  <tr><td>Row badge</td><td>Copy · main on m4</td><td>Up to date / 12 commits behind / Offline…</td></tr>
+  <tr><td>Row badge</td><td>not linked</td><td>Separate project</td></tr>
+  <tr><td>Row note</td><td>not connected (pressable)</td><td>This window cannot open linux-mini · Connect… (greyed)</td></tr>
+  <tr><td>Menu</td><td>Send to another machine…</td><td>Sync (it is there) · Add to another machine… (it is not)</td></tr>
+  <tr><td>Menu, box, dialog</td><td>Make M5 main</td><td>Continue the coordinator here · Continue here</td></tr>
+  <tr><td>Menu</td><td>Move running threads…</td><td rowspan="2">Hand off work…</td></tr>
+  <tr><td>Menu</td><td>Leave this machine…</td></tr>
+  <tr><td>File menu, tray, <code>/away</code></td><td>Leave this machine…</td><td>Hand off everything on this machine…</td></tr>
+  <tr><td>Thread ⋯</td><td>Move thread…</td><td>Hand off to another machine…</td></tr>
+  <tr><td>Thread ⋯</td><td>Keep ready to move</td><td>Hand off automatically</td></tr>
+  <tr><td>Limit banner</td><td>Move to M5</td><td>Hand off to M5</td></tr>
+  <tr><td>Box notice</td><td>Main for specweave is m4. This copy takes work from there.</td><td>The coordinator for specweave is on m4. Your message goes there and the answer shows here.</td></tr>
+  <tr><td>Send dialog</td><td>Git only · Copy everything</td><td>Sync (Git first) · Compare all files…</td></tr>
+  <tr><td>Settings</td><td>Away target · Keep threads ready to move</td><td>Hand off machine · Hand off new threads automatically</td></tr>
+</table>
+</div>
+</body>
+</html>
