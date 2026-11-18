@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T06:51:02.840Z",
-  "updated": "2026-11-18T08:21:08.181Z",
-  "lastActivity": "2026-11-18T08:21:08.181Z",
+  "updated": "2026-11-18T09:03:18.163Z",
+  "lastActivity": "2026-11-18T09:03:18.163Z",
   "title": "Board panel: collapsible state groups, machine legend and filter, denser cards",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
