@@ -1,0 +1,12 @@
+{
+  "id": "1409-readable-block-reasons-when-agents-write-them",
+  "uuid": "787aa5a0-e5dc-45ed-9329-3bbf7c56eaac",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T11:10:23.702Z",
+  "updated": "2026-11-18T11:10:23.702Z",
+  "lastActivity": "2026-11-18T11:10:23.702Z",
+  "title": "Readable block reasons when agents write them",
+  "project": "specweave-umb"
+}
