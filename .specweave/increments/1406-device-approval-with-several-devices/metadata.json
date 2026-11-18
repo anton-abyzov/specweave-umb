@@ -5,8 +5,8 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-18T08:41:37.789Z",
-  "updated": "2026-11-18T14:05:10.591Z",
-  "lastActivity": "2026-11-18T14:05:10.591Z",
+  "updated": "2026-11-18T14:11:16.433Z",
+  "lastActivity": "2026-11-18T14:11:16.433Z",
   "title": "Device approval with several devices: the dialog stays open after Allow and devices look alike",
   "project": "specweave-umb",
   "repositories": [
