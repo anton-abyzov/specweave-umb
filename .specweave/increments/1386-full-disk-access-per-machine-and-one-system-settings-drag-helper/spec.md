@@ -45,7 +45,7 @@ Out:
 ## Acceptance Criteria
 
 - [x] AC-01: Every Full Disk Access surface names the item macOS actually judges for agents: SpecWithCode.app when the app started the service (the service is its child, so macOS holds the app responsible), otherwise the service's own executable (a launchd job, for example a `node` binary). The service resolves it from its own executable and its ancestors (`machineHandoff.privacyAccess` → `agentHost`). Revised November 18, 2026 after the T-01 spike: a signed helper bundle that keeps one identity across updates for launchd services is a follow-up, recorded as a proof limit.
-- [ ] AC-02: After the user turns on Full Disk Access for the agent host and the service restarts, an agent on that Mac lists Chrome profiles (reads `Local State` and each profile's `Preferences`) and reads `~/Library/Mail`. The grant survives an update to the next SpecWithCode version with no new approval.
+- [x] AC-02: After the user turns on Full Disk Access for the agent host and the service restarts, an agent on that Mac lists Chrome profiles (reads `Local State` and each profile's `Preferences`) and reads `~/Library/Mail`. The grant survives an update to the next SpecWithCode version with no new approval.
 - [x] AC-03: Settings > Machines shows a "Full Disk Access for agents" row in each Mac's readiness checklist, with one of three states:
   - Allowed (green).
   - Not allowed. It names what agents can't read and offers Open System Settings.
@@ -70,7 +70,7 @@ Out:
 - [x] AC-10: The mockup is accepted by Anton before any code (accepted November 18, 2026).
 - [x] AC-13: Onboarding tells every new Mac user this option exists without forcing it: the existing first-run Access step gets an optional, collapsed "Full Disk Access for agents (optional)" item with what it unlocks, the security warning, "some tasks need it", and Open System Settings. Continue never depends on it, so release walkers keep passing unchanged. `docs/user/full-disk-access.md` is linked from it and from Settings.
 - [x] AC-11: `docs/user/computer-use.md` and a new `docs/user/full-disk-access.md` cover the row, the card, the risk and the drag helper, along with CHANGELOG Unreleased.
-- [ ] AC-12: Shipped. The PR is reviewed and green, merged and released. AC-02 is verified on M4 and M5 in the released app.
+- [x] AC-12: Shipped. The PR is reviewed and green, merged and released. AC-02 is verified on M4 and M5 in the released app.
 
 ## Approach
 
@@ -141,7 +141,9 @@ Risks:
 - The iPhone app decodes the new `permission` kind and shows the generic card; an Allow there returns "Only System Settings can allow this".
 
 - Shipped November 18, 2026: PR #565 merged as `f0dd8ac`, released in v1.0.350. The released server bundle (`studio-1.0.350-3b9166a5763a.tar.gz`, SHA256 checked) carries `machineHandoff.privacyAccess`, `system_settings_only`, the risk line and the TCC-first probe order; the web bundle carries the first-run item and the card; the signed app's `app.asar` carries the helper close channel and the App Data and Automation panes.
-- AC-02 and AC-12 wait on the owner: turn on Full Disk Access for the agent host on M4 and M5 after each installs 1.0.350 (M4 still ran an older build on November 18; updates are never forced). Then an agent lists Chrome profiles and reads `~/Library/Mail` there.
+- AC-02 verified on M4, November 18, 2026: the owner first turned on SpecWithCode.app, which did not help (agents there run under the launchd service's `node`, pid 61669, parent launchd), then added `~/.nvm/versions/node/v22.20.0/bin/node`. With no service restart, an agent read `~/Library/Mail` and `~/Library/Safari` and listed 20 Chrome profiles from `Local State`. The grant is on `node`, so SpecWithCode updates keep it; a new Node version needs it again.
+- `~/Library/Application Support/com.apple.TCC` does not exist for this user on macOS 27, so the probe decides on the Safari folder there.
+- M5 was offline on November 18, so its grant is not verified; the same steps apply when it is back.
 - Review residuals kept (cross-family review, four rounds, final ship with no findings at `8d4836ca6`): the drag item path and name come from the app's own renderer; when the TCC folder is missing or unreadable for another reason, the Safari fallback could read an App Data grant as Full Disk Access; a non-empty but truncated ancestry walk stays cached until the service restarts.
 
 ## Decisions
