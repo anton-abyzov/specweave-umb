@@ -132,7 +132,7 @@
   <tr><td class="dim">Handing off the coordinator…</td><td>A hand off is under way</td><td>Opens it</td></tr>
   <tr><td><span class="pill co">Coordinator</span></td><td>The coordinator conversation is on this machine</td><td>Opens it</td></tr>
   <tr><td class="dim">(no role word)</td><td>Any other machine with the project</td><td>Opens it</td></tr>
-  <tr><td class="dim">+ Offline · last seen 2 hours ago · read-only</td><td>A note on any row above: the machine is offline and this window saved what it last had</td><td>Opens that, every action greyed</td></tr>
+  <tr><td class="dim">+ Offline · last seen 2 hours ago</td><td>A note on any row above: the machine is offline and this window saved what it last had</td><td>Opens that. The menu's actions for that machine are greyed</td></tr>
 </table>
 </div>
 <p>From the Sync release on, a row for another machine than the one shown adds one fact: <span class="pill ok">Same as M5</span>, <span class="pill warn">3 of 5 repositories differ</span> or <span class="pill">Not checked yet</span>. It is read from local Git on both machines and makes no network call. A machine without the project is not a row.</p>
@@ -184,7 +184,7 @@
   <tr><th>Other states</th><th>Line above the box</th><th>Send</th><th>Continue here</th></tr>
   <tr><td>The draft has files</td><td>Files stay on this machine. Remove them to send the text, or open specweave on m4 to attach them there.</td><td>Greyed</td><td>Enabled</td></tr>
   <tr><td>This window can only read m4</td><td>This window can only read m4, so it cannot send there. Open SpecWithCode on m4, or connect to it with full access.</td><td>Greyed</td><td>Greyed</td></tr>
-  <tr><td>The coordinator is not running</td><td>The coordinator on m4 is not running.</td><td>Greyed</td><td>Enabled</td></tr>
+  <tr><td>m4 refused the send</td><td>m4 did not take the message: (its reason). Nothing was sent.</td><td>Enabled</td><td>Enabled</td></tr>
   <tr><td>It moved while you typed</td><td>The coordinator moved to linux-mini. Nothing was sent.</td><td>Enabled</td><td>Enabled</td></tr>
 </table>
 </div>
@@ -262,7 +262,7 @@
 <div class="scroll" style="margin-top:12px">
 <table>
   <tr><th>If it stops part way</th><th>Where things are</th><th>Offered</th></tr>
-  <tr><td>M5 cannot take the coordinator</td><td>Nothing has left m4. The threads are paused</td><td>Hand off the threads without the coordinator · Cancel</td></tr>
+  <tr><td>M5 cannot take the coordinator</td><td>Nothing was taken over. Copies of the ticked threads are on M5, not running</td><td>Hand off the threads without the coordinator · Cancel</td></tr>
   <tr><td>The window closed during steps 1 to 3</td><td>Paused threads are released after 10 minutes. Nothing restarts on its own</td><td>Continue the hand off · Resume them here</td></tr>
   <tr><td>The files could not go into M5's folder</td><td>They are a branch on M5</td><td>The branch name, and "check it out or merge it"</td></tr>
   <tr><td>A routine did not arrive</td><td>It is off on both machines, never on both</td><td>Try the routines again</td></tr>
