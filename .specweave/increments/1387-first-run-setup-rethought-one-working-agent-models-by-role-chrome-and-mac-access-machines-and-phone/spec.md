@@ -103,7 +103,7 @@ Out:
   - The row reads `browserExtension.status` every 3 s while it is open, turns to Paired within 3 s of a profile connecting, and closes its steps. Continue stays enabled the whole time.
   - The steps are one component that Settings > Chrome and the row both render.
 - [ ] AC-19: The extension (next store version; `manifest.json` permissions unchanged):
-  - On a first install, and only then (`onInstalled` with `reason === "install"`, not an update), it opens its own pairing page in that profile with the code field focused, so paste and Enter pair. Nobody has to find the icon. A test covers install, update and a browser update.
+  - On a first install, and only then (`onInstalled` with `reason === "install"`, not an update), it opens its own pairing page in that profile with the code field focused, so paste, one press on a name and Enter pair. Enter in the code field with no name moves focus to the name field and pairs nothing (amended November 18, 2026 after the PR C review). Nobody has to find the icon. A test covers install, update and a browser update.
   - The page and the popup say "Copy the code from SpecWithCode: first-run setup, or Settings > Chrome."
   - There is no default name. The field starts empty with one-press suggestions Personal, Work and Agents, and Pair stays off until there is a name. Only one pairing tab is open at a time. "Chrome" and "EasyChamp admin" are gone from the UI and the defaults.
   - A profile already paired as "Chrome" or "Chrome (n)" shows "Give it a name agents can tell apart" in the app's list and in its popup.
