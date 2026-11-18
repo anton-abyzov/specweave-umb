@@ -136,7 +136,7 @@ Risks
 
 ## Review
 
-Mockup and spec: adversarial review by Muse Wonderful (`muse-wonder-full-1.0`) at xhigh before Anton sees it. Round 1 (November 18, 2026): fix first, 7 high and 11 medium findings. Round 2: fix first, 1 high, 8 medium and 3 low. Both are answered in this revision; see `reports/review-muse-wonder-full-1.0.md`, `reports/reviews/review-muse-wonder-full-1.0-2.md` and `reports/review-response.md`. Code: independent review from another model family before merge.
+Mockup and spec: adversarial review by Muse Wonderful (`muse-wonder-full-1.0`) at xhigh before Anton sees it. Round 1 (November 18, 2026): fix first, 7 high and 11 medium findings. Round 2: fix first, 1 high, 8 medium and 3 low. Both are answered in this revision; see `reports/review-muse-wonder-full-1.0.md`, `reports/reviews/review-muse-wonder-full-1.0-2.md` and `reports/review-response.md`. Round 3, at `046f360d0d`: ship, all 12 round 2 findings resolved (`reports/reviews/review-muse-wonder-full-1.0-3.md`). It found two low slips in the mockup only, left undrawn: a ticked "Also add on" machine stays ticked after Cancel, and a used Undo stays "Removed again" on a later visit. The app must not repeat them: every new add opens with all machines unticked (AC-17, tested in T-06), and a result row shows its state from the last apply (AC-11, tested in T-05). Code: independent review from another model family before merge.
 
 ## Tasks
 
