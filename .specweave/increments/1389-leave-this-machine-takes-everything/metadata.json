@@ -1,12 +1,15 @@
 {
   "id": "1389-leave-this-machine-takes-everything",
   "uuid": "c2fab138-8aa0-406c-b9cb-436dca5f13b1",
-  "status": "planned",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T06:18:58.519Z",
-  "updated": "2026-11-18T06:18:58.519Z",
-  "lastActivity": "2026-11-18T06:18:58.519Z",
+  "updated": "2026-11-18T06:43:01.763Z",
+  "lastActivity": "2026-11-18T06:43:01.763Z",
   "title": "Leave this machine takes everything to another machine",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "abandonedReason": "Superseded: Anton redesigns Main and copies around sync and handoff (thread Rethink copies, sync and handing off work)",
+  "abandonedAt": "2026-11-18T06:43:01.763Z"
 }
