@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T08:16:40.649Z",
-  "updated": "2026-11-18T08:16:40.649Z",
-  "lastActivity": "2026-11-18T08:16:40.649Z",
+  "updated": "2026-11-18T09:41:35.629Z",
+  "lastActivity": "2026-11-18T09:41:35.629Z",
   "title": "Sleek popups: one popup standard across the desktop and iPhone apps",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
