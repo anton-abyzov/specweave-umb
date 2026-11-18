@@ -5,11 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T05:26:31.830Z",
-  "updated": "2026-11-18T13:35:35.454Z",
-  "lastActivity": "2026-11-18T13:35:35.454Z",
+  "updated": "2026-11-18T13:39:37.988Z",
+  "lastActivity": "2026-11-18T13:39:37.988Z",
   "title": "Full Disk Access per machine and one System Settings drag helper",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "externalLinks": {}
 }
