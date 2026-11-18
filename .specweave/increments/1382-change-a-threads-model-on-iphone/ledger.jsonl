@@ -1,0 +1,8 @@
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-17T22:35:17.387Z","note":"review by muse-wonder-full-1.0 (meta) at 4cdb394ebe64: fix first · reports/reviews/review-muse-wonder-full-1.0-1.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-17T22:48:36.742Z","note":"review by muse-wonder-full-1.0 (meta) at da5c693625fe: fix first · reports/reviews/review-muse-wonder-full-1.0-2.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-17T23:30:27.355Z","note":"review by muse-wonder-full-1.0 (meta) at 16d44a34eae1: fix first · reports/reviews/review-muse-wonder-full-1.0-3.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-17T23:43:50.148Z","note":"review by muse-wonder-full-1.0 (meta) at c299894c7381: fix first · reports/reviews/review-muse-wonder-full-1.0-4.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-17T23:55:23.239Z","note":"review by muse-wonder-full-1.0 (meta) at 0e96016c799d: ship · reports/reviews/review-muse-wonder-full-1.0-5.md"}
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-18T00:59:17.564Z","note":"session bd3fe497-9f22-4cb5-bc8d-4f696e0d000b","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T00:59:17.566Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T00:59:17.566Z","evidence":"PR #546 merged d4366d998; swift test 834 pass; ModelOptionsUITests 2 pass; reports/evidence.md\nHEAD b61984b01e","link":"https://github.com/anton-abyzov/specwithcode/pull/546","model":"claude-opus-5-5[1m]"}

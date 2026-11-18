@@ -1,0 +1,12 @@
+{
+  "id": "1382-change-a-threads-model-on-iphone",
+  "uuid": "eabf283f-6bef-42df-a2ab-45f0f710cb5b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-17T22:12:04.114Z",
+  "updated": "2026-11-18T00:59:17.566Z",
+  "lastActivity": "2026-11-18T00:59:17.566Z",
+  "title": "Change a thread's model on iPhone",
+  "project": "specweave-umb"
+}
