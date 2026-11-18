@@ -68,7 +68,7 @@ Risks: the spike may say no, and then this increment ships only AC-03. The exten
 ## Decisions
 
 ### Asked
-- D-01, for Anton: spend the spike? Recommended **A. Yes, the spike only, with the kill rule of AC-02. Nothing is promised until it passes.** B. Stop at 1387's copy path. **Decided November 18, 2026: A.**
+- D-01, for Anton: spend the spike? Recommended **A. Yes, the spike only, with the kill rule of AC-02. Nothing is promised until it passes.** B. Stop at 1387's copy path. **Decided November 18, 2026: A, then B later the same day.** The spike was not run: two worker runs were stopped by the provider's safety check before any check started, and a stopped step is not retried or handed to another worker. Asked whether to drop "Pair in Chrome" and keep the copy path, Anton answered: "Yes, do what's recommended." So no "Pair in Chrome" ships and 1387's copy path is the only way to pair. T-02, T-04 and T-05 are skipped with that as the reason. T-06 closes this increment the normal way with AC-03 alone, not as abandoned; `reports/spike.md` records that nothing was run.
 - D-02, for Anton: the relay. Recommended **A. Accept only the store extension, with a developer switch for hand-loaded copies.** B. Leave it as it is. A is recommended because today any other extension in the same Chrome that learns the code can connect. It is asked because it changes who may connect. **Decided November 18, 2026: A.**
 
 ### Defaulted (change any before sw-do)

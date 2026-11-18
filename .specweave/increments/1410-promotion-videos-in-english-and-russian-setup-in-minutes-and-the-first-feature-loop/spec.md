@@ -102,9 +102,9 @@ Projects live in `~/.specwithcode/m4/scratch/2026-11-18-setup-promo/<cut>/`, one
 ## Decisions
 
 ### Asked
-- D-01, for Anton: which storyline. Recommended **A. "Ten minutes on a new Mac"**, with B's card as its proof section. B. "One card, start to Done". C. "The thread".
-- D-02, for Anton: the voice. Recommended **A. Anton's ElevenLabs voice on every cut, one paid pass per language once the scripts are locked.** B. Music and on-screen text only, which costs nothing and loses the creator's voice.
-- D-03, for Anton: timing. Recommended **A. Scripts, storyboard and a prototype animatic now; each final is captured and rendered when its screens are released.** B. Also publish a teaser from the prototype now, tagged "prototype".
+- D-01, for Anton: which storyline. Recommended **A. "Ten minutes on a new Mac"**, with B's card as its proof section. B. "One card, start to Done". C. "The thread". **Storyline picked by Anton on November 18, 2026: A, with B's card as its proof section.** He was shown "The promo storyline pick (A recommended) with the paid voice pass" and answered: "Yes, do what's recommended."
+- D-02, for Anton: the voice. Recommended **A. Anton's ElevenLabs voice on every cut, one paid pass per language once the scripts are locked.** B. Music and on-screen text only, which costs nothing and loses the creator's voice. **Decided November 18, 2026: A**, by the same answer. The choice of voice is settled. No paid pass is run until the scripts are locked and Anton has seen the cost.
+- D-03, for Anton: timing. Recommended **A. Scripts, storyboard and a prototype animatic now; each final is captured and rendered when its screens are released.** B. Also publish a teaser from the prototype now, tagged "prototype". **Not answered by name. Work goes on under A as the default; nothing from the prototype is published.**
 
 ### Defaulted (change any before sw-do)
 - D-04: Two cuts per language: a vertical reel in two hook variants, and a wide cut. The 15 s loop stays silent.

@@ -1,13 +1,14 @@
 {
   "id": "1410-promotion-videos-in-english-and-russian-setup-in-minutes-and-the-first-feature-loop",
   "uuid": "c313cc42-60ac-4941-8678-0e05e2d8058f",
-  "status": "planned",
+  "status": "active",
   "type": "feature",
   "priority": "P2",
   "created": "2026-11-18T14:15:48.386Z",
-  "updated": "2026-11-18T14:15:48.386Z",
-  "lastActivity": "2026-11-18T14:15:48.394Z",
+  "updated": "2026-11-18T15:25:28.786Z",
+  "lastActivity": "2026-11-18T15:25:28.786Z",
   "title": "Promotion videos in English and Russian: setup in minutes and the first feature loop",
   "project": "specweave-umb",
-  "parent": "1387-first-run-setup-rethought-one-working-agent-models-by-role-chrome-and-mac-access-machines-and-phone"
+  "parent": "1387-first-run-setup-rethought-one-working-agent-models-by-role-chrome-and-mac-access-machines-and-phone",
+  "externalLinks": {}
 }

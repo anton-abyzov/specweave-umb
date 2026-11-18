@@ -225,7 +225,7 @@ Accepted by Anton on November 18, 2026. His words: "Yes, I really loved all of t
 - D-01, for Anton: the Access step. Today its filled button and Enter turn on Full access (1294). With three or more things on the page, recommended **A. A list where each row has its own button, and Continue and Enter grant nothing.** B. Keep Full access as its own question first, with Enter accepting, and show the other rows after it. A is recommended because a default that grants one of several things is a surprise, and A gives the release walkers one rule for every step. A reverses what 1294 shipped. **Decided November 18, 2026: A.**
 - D-02: moved to 1396 (SpecWeave's default, and asking before setting it up).
 - D-03: moved to 1395 (posting from the phone).
-- D-04: moved to 1394 (pairing with no code to paste, and the relay's origin rule). This increment ships the copy path either way.
+- D-04: moved to 1394 (pairing with no code to paste, and the relay's origin rule). This increment ships the copy path either way. Later on November 18, 2026 Anton dropped "Pair in Chrome" (1394 D-01 is now B), so this copy path is the only way to pair a Chrome profile. The relay change of 1394 still ships.
 
 ### Defaulted (change any before sw-do)
 - D-05: Four stages. The browser and the Mac inside Access; Models, iPhone and SpecWeave in their own increments.
