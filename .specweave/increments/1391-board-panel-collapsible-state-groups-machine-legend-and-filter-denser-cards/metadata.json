@@ -1,0 +1,18 @@
+{
+  "id": "1391-board-panel-collapsible-state-groups-machine-legend-and-filter-denser-cards",
+  "uuid": "b72d0f59-18d5-4e11-9243-a1680cfa2957",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T06:51:02.840Z",
+  "updated": "2026-11-18T10:56:45.576Z",
+  "lastActivity": "2026-11-18T10:56:45.576Z",
+  "title": "Board panel: collapsible state groups, machine legend and filter, denser cards",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-18T10:56:45.574Z",
+  "approvedAt": "2026-11-18T10:56:45.576Z"
+}
