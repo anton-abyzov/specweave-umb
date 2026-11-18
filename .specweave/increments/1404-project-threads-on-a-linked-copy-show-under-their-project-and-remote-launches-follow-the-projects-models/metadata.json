@@ -1,0 +1,12 @@
+{
+  "id": "1404-project-threads-on-a-linked-copy-show-under-their-project-and-remote-launches-follow-the-projects-models",
+  "uuid": "e740b7c6-4ab4-409f-95d6-4a83a854ac27",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T08:29:17.594Z",
+  "updated": "2026-11-18T08:29:17.594Z",
+  "lastActivity": "2026-11-18T08:29:17.594Z",
+  "title": "Project threads on a linked copy show under their project, and remote launches follow the project's models",
+  "project": "specweave-umb"
+}
