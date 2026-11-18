@@ -32,7 +32,7 @@ Out: the copy path, the profile picker, the extension's install page and names (
 
 ### The relay, whatever the spike says
 
-- [ ] AC-03: The relay turns away other extensions and websites. `relayRequestAllowed` requires `Origin` to be exactly `chrome-extension://okoinngelinfjfkmkcnbgndapeiofgbb`. This is a gate for browsers, not proof of who is calling: a local program can send any `Origin` (`apps/server/src/browserExtension/BrowserExtension.ts:71`), so the pairing token stays the only authentication, and a request with the store origin and no valid token can neither pair nor connect. A copy loaded by hand connects only while a developer switch in Settings > Chrome is on, and its profile is labelled "not from the Chrome Web Store" as today (`fromStore`, `packages/contracts/src/browserExtension.ts:54`). Tests: another extension's origin is refused; the prefix alone is refused; the switch admits a hand-loaded id; the store origin with a missing or wrong token is refused for pairing and for connecting. This changes who may connect, so it ships only with Anton's yes (D-02).
+- [x] AC-03: The relay turns away other extensions and websites. `relayRequestAllowed` requires `Origin` to be exactly `chrome-extension://okoinngelinfjfkmkcnbgndapeiofgbb`. This is a gate for browsers, not proof of who is calling: a local program can send any `Origin` (`apps/server/src/browserExtension/BrowserExtension.ts:71`), so the pairing token stays the only authentication, and a request with the store origin and no valid token can neither pair nor connect. A copy loaded by hand connects only while a developer switch in Settings > Chrome is on, and its profile is labelled "not from the Chrome Web Store" as today (`fromStore`, `packages/contracts/src/browserExtension.ts:54`). Tests: another extension's origin is refused; the prefix alone is refused; the switch admits a hand-loaded id; the store origin with a missing or wrong token is refused for pairing and for connecting. This changes who may connect, so it ships only with Anton's yes (D-02).
 
 ### Pair in Chrome, only if the spike passes
 
@@ -46,7 +46,7 @@ Out: the copy path, the profile picker, the extension's install page and names (
 ### Gate, review, shipping
 
 - [ ] AC-10: No code before Anton accepts. The gate is the line "Accepted by Anton on <date>" in 1387's spec, with D-01 and D-02 answered here.
-- [ ] AC-11: Muse Wonder Full 1.0 at Extra High, with full access, reviews `reports/spike.md` before AC-04 starts, and each PR at its head, as a security review first. Every finding is fixed or answered in `reports/reviews/`. Each PR is green, merged and released. The extension update goes through store review.
+- [x] AC-11: Muse Wonder Full 1.0 at Extra High, with full access, reviews `reports/spike.md` before AC-04 starts, and each PR at its head, as a security review first. Every finding is fixed or answered in `reports/reviews/`. Each PR is green, merged and released. The extension update goes through store review.
 
 ## Approach
 

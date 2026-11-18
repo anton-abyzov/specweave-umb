@@ -1,17 +1,19 @@
 {
   "id": "1394-pair-a-chrome-profile-without-pasting-a-code",
   "uuid": "4424be78-d25b-45d0-b071-1322e1f87d47",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T06:57:50.294Z",
-  "updated": "2026-11-18T14:21:45.362Z",
-  "lastActivity": "2026-11-18T14:21:45.362Z",
+  "updated": "2026-11-18T23:38:04.809Z",
+  "lastActivity": "2026-11-18T23:38:04.809Z",
   "title": "Pair a Chrome profile without pasting a code",
   "project": "specweave-umb",
   "parent": "1387-first-run-setup-rethought-one-working-agent-models-by-role-chrome-and-mac-access-machines-and-phone",
   "externalLinks": {},
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "readyForReviewAt": "2026-11-18T23:38:04.808Z",
+  "approvedAt": "2026-11-18T23:38:04.809Z"
 }
