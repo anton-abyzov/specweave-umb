@@ -238,7 +238,7 @@ Accepted by Anton on November 18, 2026. His words: "Yes, I really loved all of t
 - D-12: Six increments under one acceptance, not one increment with six PRs.
 - D-13: The pairing code stays one per machine. The row says what it is and the clipboard is cleared after use.
 - D-14 (November 18, 2026, from the whole-flow review, finding 5): AC-09 and AC-11 conflicted. The Mac checklist is shared with Settings and the access card and stays unchanged, filled Allow included; AC-09 now limits "only filled" to the footer and the rows' own actions. No first-run-only variant of the checklist.
-- D-15 (November 18, 2026, finding 3): with several Chrome profiles none starts picked, in setup and in Settings > Chrome alike. Installing into the wrong profile only shows later as missing sign-ins.
+- D-15 (November 18, 2026, finding 3): with several Chrome profiles none starts picked in first-run setup, the only place that shows the list. Installing into the wrong profile only shows later as missing sign-ins. Narrowed the same day after PR 647's review round 2: the first wording said "in setup and in Settings > Chrome alike", but Settings > Chrome shows no profile list and opens the store in the profile used last, as `docs/user/chrome.md` step 2 now says. Giving Settings a list is not part of this increment.
 - D-16 (November 18, 2026, finding 8): the Projects sentence names no provider ("No existing agent projects found."), in all nine catalogs, so AC-44 has nothing to mark there. The overview's "Sign in to Claude, Codex or another provider." is outside setup and is logged as an open product gap.
 
 ### Open
