@@ -20,13 +20,13 @@ Out: rewriting old ledger lines; reading or replaying the ledger (old notes stil
 
 ## Acceptance Criteria
 
-- [ ] AC-01: A reason written by `task block`, `task skip` or `card wait` keeps its words, spaces and punctuation; runs of whitespace (newlines, tabs) become one space, and a missing space after a comma or semicolon is added (`valid;113/148` becomes `valid; 113/148`, `recovered,35unresolved` becomes `recovered, 35unresolved`), but never inside a number (`1,000`), a URL or text in backticks.
-- [ ] AC-02: A reason with glued words (the 0952 note: `offline37profileattestation`, `exactartifactcopies`, `35unresolved`) is refused with exit 2, nothing is appended to the ledger or branch card file, and the error names the glued words and asks for one short plain sentence with code in backticks.
-- [ ] AC-03: Normal reasons pass unchanged: all 373 calibration notes except the 0952 one, plus words like `SystemAdmin`, `API-equivalent`, `HTTPX`, hex SHAs (`d65dffec9`), paths, URLs, increment slugs, model ids (`claude-opus-5-5`, `qwen3-coder-30b`), camelCase identifiers, long real words (`internationalization`) and non-Latin text.
-- [ ] AC-04: A reason longer than 280 characters is stored with a warning on stderr that suggests one short sentence; no reason is ever cut or refused for length.
-- [ ] AC-05: Loading a ledger never applies the new rules: an existing line with glued words still loads and shows as written.
-- [ ] AC-06: `specweave task --help` and `specweave card --help` say a reason is one short plain sentence a person reads on the Board, with spaces, and code in backticks; the sw-do and sw-done skills say the same where they show `--reason`.
-- [ ] AC-07: The change ships in a SpecWeave release from `bash scripts/release/release.sh`, after a review by Muse Wonderful (`muse-wonder-full-1.0`, xhigh) and green CI.
+- [x] AC-01: A reason written by `task block`, `task skip` or `card wait` keeps its words, spaces and punctuation; runs of whitespace (newlines, tabs) become one space, and a missing space after a comma or semicolon is added (`valid;113/148` becomes `valid; 113/148`, `recovered,35unresolved` becomes `recovered, 35unresolved`), but never inside a number (`1,000`), a URL or text in backticks.
+- [x] AC-02: A reason with glued words (the 0952 note: `offline37profileattestation`, `exactartifactcopies`, `35unresolved`) is refused with exit 2, nothing is appended to the ledger or branch card file, and the error names the glued words and asks for one short plain sentence with code in backticks.
+- [x] AC-03: Normal reasons pass unchanged: all 373 calibration notes except the 0952 one, plus words like `SystemAdmin`, `API-equivalent`, `HTTPX`, hex SHAs (`d65dffec9`), paths, URLs, increment slugs, model ids (`claude-opus-5-5`, `qwen3-coder-30b`), camelCase identifiers, long real words (`internationalization`) and non-Latin text.
+- [x] AC-04: A reason longer than 280 characters is stored with a warning on stderr that suggests one short sentence; no reason is ever cut or refused for length.
+- [x] AC-05: Loading a ledger never applies the new rules: an existing line with glued words still loads and shows as written.
+- [x] AC-06: `specweave task --help` and `specweave card --help` say a reason is one short plain sentence a person reads on the Board, with spaces, and code in backticks; the sw-do and sw-done skills say the same where they show `--reason`.
+- [x] AC-07: The change ships in a SpecWeave release from `bash scripts/release/release.sh`, after a review by Muse Wonderful (`muse-wonder-full-1.0`, xhigh) and green CI.
 
 ## Approach
 

@@ -1,16 +1,19 @@
 {
   "id": "1409-readable-block-reasons-when-agents-write-them",
   "uuid": "787aa5a0-e5dc-45ed-9329-3bbf7c56eaac",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T11:10:23.702Z",
-  "updated": "2026-11-18T11:48:58.935Z",
-  "lastActivity": "2026-11-18T11:48:58.935Z",
+  "updated": "2026-11-18T15:28:57.632Z",
+  "lastActivity": "2026-11-18T15:28:57.632Z",
   "title": "Readable block reasons when agents write them",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specweave"
   ],
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-18T15:28:57.630Z",
+  "closeReason": "Owner approved bypass on November 18, 2026: local verify suite hits 5000ms test timeouts under machine load (15-888 from concurrent verifies); same suite green in PR CI on exact head 88408f2f5 (15/15 checks), review verdict ship (review-fix-r2), released in SpecWeave 3.1.27 (npm latest, release run 44296614830 success)",
+  "approvedAt": "2026-11-18T15:28:57.632Z"
 }
