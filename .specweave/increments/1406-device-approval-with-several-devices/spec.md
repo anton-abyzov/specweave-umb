@@ -73,7 +73,7 @@ Risks: the dialog now lists devices, which 1327 avoided for click-to-approve des
 - D-05 The first pull request holds `[label]` ACs only and ships after Muse Wonderful's review and green CI, as the task allows for dismiss and labelling fixes → default.
 
 ### Open
-- D-06 [access] Keep a waiting device's code and request when the 10 minutes run out and it is still asking, so the code on the phone does not change while the owner walks to the machine. Recommended: yes, with a 30 minute ceiling. Needs Anton.
+- D-06 [access] Keep a waiting device's code and request when the 10 minutes run out and it is still asking, so the code on the phone does not change while the owner walks to the machine. Recommended: yes, with a 30 minute ceiling. The code also changes when the machine's server restarts, because the readable code lives only in memory (the file keeps its hash); keeping it across a restart means storing it, so it belongs to the same decision. Recommended: no, a restart is rare and a stored code is one more secret on disk. Needs Anton.
 - D-07 [access] Refresh an allowed device's stored name from its later sessions, so phones allowed before this release show their model too. Recommended: yes; the key-derived ID stays fixed. Needs Anton.
 - D-08 [access] One approval covering the same device on the owner's other machines. Recommended: no; 1327 keeps one list per machine.
 
