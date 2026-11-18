@@ -1,12 +1,15 @@
 {
   "id": "1384-routines-wait-while-an-automatic-update-installs",
   "uuid": "4cf74535-4230-4fd0-b5a6-1da9943564f8",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T04:20:54.735Z",
-  "updated": "2026-11-18T05:07:59.229Z",
-  "lastActivity": "2026-11-18T05:07:59.229Z",
+  "updated": "2026-11-18T06:15:42.285Z",
+  "lastActivity": "2026-11-18T06:15:42.285Z",
   "title": "Routines wait while an automatic update installs",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-18T06:15:42.284Z",
+  "approvedAt": "2026-11-18T06:15:42.285Z"
 }
