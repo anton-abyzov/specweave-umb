@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1417 mockup: signed out of Connect</title>
+<style>
+  :root {
+    --bg: var(--background, #1f1f1f);
+    --fg: var(--foreground, #ececec);
+    --mute: var(--muted-foreground, #9a9a9a);
+    --card-bg: var(--card, #2a2a2a);
+    --line: var(--border, #3a3a3a);
+    --warn: var(--warning, #e0a63a);
+    --warn-surface: var(--warning-surface, rgba(224,166,58,.12));
+    --accent-c: var(--accent, #a78bfa);
+    --ok: var(--success, #5fb878);
+    --radius-c: var(--radius, 10px);
+  }
+  html, body { background: var(--bg); color: var(--fg); font: 15px/1.45 var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif); margin: 0; }
+  main { max-width: 1120px; margin: 0 auto; padding: 24px 20px 40px; }
+  h1 { font-size: 26px; font-weight: 600; margin: 0 0 6px; }
+  .lead { color: var(--mute); margin: 0 0 22px; max-width: 760px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 18px; }
+  figure { margin: 0; }
+  figcaption { font-size: 13px; color: var(--mute); margin: 0 0 8px; letter-spacing: .02em; text-transform: uppercase; }
+  .pane { background: var(--card-bg); border: 1px solid var(--line); border-radius: var(--radius-c); padding: 10px 12px 12px; }
+  .group { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.04); border-radius: 8px; padding: 7px 10px; margin: 8px 0 4px; font-weight: 500; }
+  .group .n { color: var(--mute); font-weight: 400; }
+  .chev { color: var(--mute); font-size: 11px; }
+  .row { display: grid; grid-template-columns: 14px 1fr auto auto; gap: 4px 10px; align-items: center; padding: 8px 6px; border-radius: 8px; }
+  .row .t { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .row .s { grid-column: 2; font-size: 13px; color: var(--mute); }
+  .row .m { color: var(--accent-c); font-size: 13px; }
+  .row .a { color: var(--mute); font-size: 13px; min-width: 22px; text-align: right; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; border: 1.5px dashed var(--mute); }
+  .word-bad { color: var(--warn); }
+  .word-why { color: var(--warn); font-weight: 500; }
+  .banner { display: flex; gap: 10px; align-items: flex-start; background: var(--warn-surface); border: 1px solid color-mix(in srgb, var(--warn) 45%, transparent); border-radius: 10px; padding: 10px 12px; margin: 2px 0 8px; }
+  .banner .ic { color: var(--warn); font-size: 16px; line-height: 1.2; }
+  .banner b { display: block; font-weight: 600; }
+  .banner p { margin: 2px 0 8px; font-size: 13.5px; color: var(--fg); opacity: .9; }
+  .btn { display: inline-block; background: var(--primary, #ececec); color: var(--primary-foreground, #1f1f1f); border-radius: 7px; padding: 4px 12px; font-size: 13px; font-weight: 600; }
+  .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); font-weight: 500; }
+  .acct { display: flex; align-items: center; gap: 8px; border-top: 1px solid var(--line); margin-top: 10px; padding-top: 10px; font-size: 14px; }
+  .avatar { width: 22px; height: 22px; border-radius: 50%; background: #444; display: grid; place-items: center; font-size: 11px; }
+  .acct.warn .label { color: var(--warn); font-weight: 600; }
+  .pip { width: 7px; height: 7px; border-radius: 50%; background: var(--warn); }
+  .chat { background: var(--card-bg); border: 1px solid var(--line); border-radius: var(--radius-c); padding: 14px; }
+  .chat .bubble { color: var(--mute); font-size: 13.5px; margin-bottom: 12px; }
+  .note { font-size: 13px; color: var(--mute); margin-top: 8px; }
+  .held { position: relative; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .03em; padding: 1px 7px; border-radius: 99px; border: 1px solid var(--line); color: var(--mute); margin-left: 6px; text-transform: none; }
+  .tag.ship { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 50%, transparent); }
+  .tag.wait { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 50%, transparent); }
+  .menu { background: var(--popover, #2f2f2f); border: 1px solid var(--line); border-radius: 10px; padding: 8px; margin-top: 8px; font-size: 13.5px; }
+  .menu .hd { color: var(--mute); padding: 4px 6px 8px; border-bottom: 1px solid var(--line); margin-bottom: 6px; }
+  .menu .it { padding: 6px; border-radius: 6px; }
+  .menu .it.on { background: rgba(255,255,255,.06); font-weight: 600; }
+  @media (prefers-reduced-motion: no-preference) { .pip { animation: none; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Signed out of Connect: say so, and say why each machine is out of reach</h1>
+  <p class="lead">m4's window sign-in expired after Clerk's fixed 7 days. M5 is reached only through Connect, so its threads went to "Offline" while it was running. Left: today. Middle: the label fix. Right: the held warning before a sign-in ends.</p>
+
+  <div class="grid">
+    <figure>
+      <figcaption>Today</figcaption>
+      <div class="pane">
+        <div class="group"><span class="chev">▾</span>Offline <span class="n">5</span></div>
+        <div class="row"><span class="dot"></span><span class="t">Read M5 device approval state</span><span class="m">M5</span><span class="a">2h</span><span class="s"><span class="word-bad">Not connected</span> · Codex · GPT-6-Luna</span></div>
+        <div class="row"><span class="dot"></span><span class="t">Read M5 device list with short IDs</span><span class="m">M5</span><span class="a">5h</span><span class="s"><span class="word-bad">Not connected</span> · Claude Code · Sonnet 5.5</span></div>
+        <div class="row"><span class="dot"></span><span class="t">Verify firstproject gets SpecWeave on M5</span><span class="m">M5</span><span class="a">6h</span><span class="s"><span class="word-bad">Not connected</span> · Claude Code · Opus 5.5</span></div>
+        <div class="acct"><span class="avatar">N</span><span>Not signed in</span></div>
+      </div>
+      <p class="note">Nothing says M5 is running, or that one sign-in fixes it.</p>
+    </figure>
+
+    <figure>
+      <figcaption>Labels and banner <span class="tag ship">ships after review and CI</span></figcaption>
+      <div class="pane">
+        <div class="banner" role="status">
+          <span class="ic">⚠</span>
+          <div>
+            <b>Signed out of SpecWithCode Connect</b>
+            <p>M5 can't be opened from this window. Agents keep running there; m1, m3 and linux-mini are not affected.</p>
+            <span class="btn">Sign in</span>
+          </div>
+        </div>
+        <div class="group"><span class="chev">▾</span>Not reachable from here <span class="n">5</span></div>
+        <div class="row"><span class="dot"></span><span class="t">Read M5 device approval state</span><span class="m">M5</span><span class="a">2h</span><span class="s"><span class="word-why">Needs sign-in</span> · Codex · GPT-6-Luna</span></div>
+        <div class="row"><span class="dot"></span><span class="t">Read M5 device list with short IDs</span><span class="m">M5</span><span class="a">5h</span><span class="s"><span class="word-why">Needs sign-in</span> · Claude Code · Sonnet 5.5</span></div>
+        <div class="row"><span class="dot"></span><span class="t">Example thread on m3</span><span class="m">m3</span><span class="a">1d</span><span class="s">Not reachable from here · Claude Code · Sonnet 5.5</span></div>
+        <div class="acct warn"><span class="avatar">N</span><span class="label">Signed out</span><span class="pip" aria-hidden="true"></span></div>
+      </div>
+      <p class="note">The example m3 row shows the other new word: m4's server reaches m3, this window doesn't.</p>
+    </figure>
+
+    <figure>
+      <figcaption>Opening an M5 thread <span class="tag ship">ships after review and CI</span></figcaption>
+      <div class="chat">
+        <div class="bubble">Read M5 device approval state</div>
+        <div class="banner" role="status">
+          <span class="ic">⚠</span>
+          <div>
+            <b>Sign in to reach M5</b>
+            <p>M5 is reached through SpecWithCode Connect and this window is signed out. Work there keeps running.</p>
+            <span class="btn">Sign in</span>
+          </div>
+        </div>
+        <div class="note">Composer picker and Settings &gt; Machines: "M5 · Needs sign-in".</div>
+      </div>
+    </figure>
+
+    <figure class="held">
+      <figcaption>Before it ends <span class="tag wait">waits for Anton (D-01)</span></figcaption>
+      <div class="pane">
+        <div class="banner" role="status">
+          <span class="ic">⏱</span>
+          <div>
+            <b>Your Connect sign-in ends at 11:38 AM</b>
+            <p>Sign in again to keep reaching M5 from this window.</p>
+            <span class="btn">Sign in again now</span> <span class="btn ghost">Later</span>
+          </div>
+        </div>
+        <div class="acct warn"><span class="avatar">A</span><span class="label">Sign-in ends in 1h 40m</span></div>
+        <div class="menu">
+          <div class="hd">Anton · m4</div>
+          <div class="it on">Sign in again now</div>
+          <div class="it">Manage account</div>
+          <div class="it">Sign out</div>
+        </div>
+      </div>
+      <p class="note">From 24 hours before: the account button. From 2 hours before: the banner. Only when a machine depends on the sign-in.</p>
+    </figure>
+  </div>
+</main>
+</body>
+</html>
