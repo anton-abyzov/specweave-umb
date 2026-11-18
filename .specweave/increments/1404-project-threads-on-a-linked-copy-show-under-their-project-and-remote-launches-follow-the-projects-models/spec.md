@@ -23,7 +23,7 @@ Out: settling the 13 threads (the "M5 threads: verify, finish or move" thread ow
 - [ ] AC-03: An unlinked copy without a coordinator behaves as before: its agent threads stay in Chats.
 - [ ] AC-04: With no model named, a thread on another machine starts on the project's own saved model when it has one, whatever model the calling thread runs on.
 - [ ] AC-05: With no model named and no saved project model, `taskLane` or `taskClass`, or a project on tracks, picks the model through the same routing a launch on this machine uses; without them a worker's thread keeps the caller's model. Under a work grant the pick follows the local rules: a grant that excludes the project model's sign-in keeps the caller's model, and a grant that lists accounts is never routed.
-- [ ] AC-06: A named model is sent as named. When routing on this machine refuses, the launch keeps its baseline model and is not refused, except on tracks with a baseline billed per use here: then no model is sent and the other machine uses its default. A scratch launch and a server without settings inherit as before.
+- [ ] AC-06: A named model is sent as named. When routing on this machine refuses, the launch keeps its baseline model and is not refused, except on tracks with a baseline held back here (billed per use, or billing unknown): then the app picks nothing, the caller's own model is still sent as before, and with none (a coordinator on this host's default) the other machine uses its default. A scratch launch and a server without settings inherit as before.
 - [ ] AC-07: The model the app picks (the project's saved model, a track or Auto pick, a coordinator's host default) never starts on the other machine on a sign-in its grant excludes, or on a model that machine holds back (billed per use, or billing unknown). The model the caller itself runs on is tried next, exactly as before this change, so no launch that ran before fails. A named model is unaffected.
 - [ ] AC-08: The model is picked once per launch request, however many machines placement tries.
 
@@ -57,6 +57,8 @@ Adversarial review by Muse Wonderful (`muse-wonder-full-1.0`) at Extra High, of 
 Round 1 (commit `f237584de`): fix first, 2 major and 2 minor. Fixed in `04dfb68ab`: the pick follows the caller's work grant; an unnamed model never lands on per-use billing or a grant-excluded sign-in there (AC-07); an id-less logical project no longer counts as the same project; the pick runs once per request (AC-08).
 
 Round 2 (commit `04dfb68ab`): fix first, 1 major and 2 minor. Fixed in `3673b08f7`: machines report `held` models and the pick is never started on one; the guard covers only the pick, so the inherited model runs as before and a launch cannot fail because of it; an empty logical id is not an id.
+
+Round 3 (commit `3673b08f7`): SHIP, 2 minor. Fixed in the next commit: AC-06 reworded to the round 3 design and its test retitled; the capabilities test now asserts the `held` flag, including an unknown-billing model.
 
 ## Tasks
 
