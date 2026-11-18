@@ -12,7 +12,8 @@ What happened, from Clerk's records and the window's traces (`reports/2026-11-18
 2. **The 22 seconds.** Clerk noticed the expiry on its next token refresh and flipped the window to signed out. `ManagedRelayAuthProvider` then cleared the relay account, which emits `credentials-changed`. The supervisor replaced the live relay lease (`supervisor.ts:704`), and the new attempt was refused with `ConnectionBlockedError{reason:"authentication"}`: "Your cloud sign-in changed. Sign in again to authorize the environment."
 3. **Why only M5.** M5 is reached from this window only through the Connect relay (`RelayConnectionTarget`). m1, m3 and linux-mini are also saved with a direct paired route (`BearerConnectionTarget`, a stored credential over Tailscale or the LAN), which needs no Connect sign-in. A learned bearer route can also borrow the Connect credential (`authorization: "studio-connect"`, `routes.ts:248`) and dies with the session the same way. It is not the `identity-mismatch` pattern.
 4. **Why "Offline / Not connected".** A blocked connection stops retrying, its phase becomes `error`, its reach state `stopped`, and `hostDownWord` maps `stopped` to "Not connected". The Threads panel groups every down host's threads under "Offline". Nothing on the row says the fix is one sign-in.
-5. **It will happen again every week on every window.** The account has 11 more active Electron window sessions; one ends today at 2:43 PM and four on November 19. Each window signs out on its own 7-day clock.
+5. **The merged labels likely miss the relay-only case (found after #621 and #628 merged).** `ManagedRelayAuthProvider` runs account cleanup on every settled sign-out, including a natural expiry and a cold load that starts signed out. The provider's first observed account is `undefined`, and the test is `!== null`. A probe of the provider counted one `removeRelayEnvironments` call on a cold signed-out load and one on signed-in to signed-out. That cleanup deletes every machine whose only route is the relay, with its cache and its data (`registry.test.ts`, "removes all relay-owned data"). So a machine like M5 can be gone before any surface says "Needs sign-in". Two things are unproven. It is unknown why M5 still showed after the incident: either its row came from another source, or the cleanup did not finish. A platform-owned entry fails `removeRoute` with `PlatformEnvironmentRemovalError`, which `removeRelayEnvironments` does not catch. AC-16 keeps the machines.
+6. **It will happen again every week on every window.** The account has 11 more active Electron window sessions; one ends today at 2:43 PM and four on November 19. Each window signs out on its own 7-day clock.
 
 Side findings, handed to their owners:
 - linux-mini is `grant_revoked` in the fleet, yet the window still connects by bearer (device trust, 1416).
@@ -79,14 +80,19 @@ Out:
 ### Session behaviour (held for Anton's acceptance)
 
 - [ ] AC-11: From 24 hours before the window's Connect session ends (`session.expireAt`), the account button shows "Sign-in ends in {time}" and its menu offers **Sign in again now**. From 2 hours before, the Threads panel banner says "Your Connect sign-in ends at {time}. Sign in again to keep reaching {machines}." The warning shows only when a saved machine depends on the sign-in: it has no session-free route (a bearer route without `authorization: "studio-connect"`, SSH, or the primary), computed from its routes.
-- [ ] AC-12: **Sign in again now** renews without emptying the window. Today, signing out runs account cleanup, which removes relay environments and resets the token cache (`managedAuth.tsx:89`). A spike decides between two options before implementation:
-  - Clerk single-session re-sign-in without an explicit sign-out;
-  - a same-account renew that skips cleanup.
-
-  A cancelled renew leaves the saved machines in place and shows the signed-out banner (AC-07), never a silent or emptied state.
+- [ ] AC-12: **Sign in again now** renews without emptying the window. It signs out of Clerk, then opens the sign-in again by itself, after the reload where there is one. Account cleanup keeps the saved machines (AC-16). A cancelled renew leaves the saved machines in place and shows the signed-out banner (AC-07), never a silent or emptied state. After a renew, the Connect onboarding dialog does not open again. Spike result (clerk-js 6.32.1, in `node_modules`):
+  - In single-session mode, `openSignIn` is a no-op while signed in (`cannot_render_single_session_enabled`).
+  - Multi-session mode would not help: signing in the same account on the same client fails with `identifier_already_signed_in`.
+  - Nothing on the client extends `expireAt`.
+  - So a renew is a sign-out, then a sign-in.
 - [ ] AC-13: `ConnectSessionGuard` never signs out by itself. When the relay refuses a fresh token twice, the window shows "SpecWithCode Connect did not accept this sign-in" with **Sign in again**; signing out stays a person's choice. A local key or proof error (`ManagedRelayDpopKeyLoadError`, proof creation) never counts as a refusal. That needs a structured marker on the discovery error (`errors.ts:112`), because both collapse into blocked `authentication` today.
 - [ ] AC-14: A token refresh that fails for a network reason keeps reading as reconnecting, never as signed out (regression test on today's mapping).
 - ~~AC-15: The Clerk instance's maximum session lifetime matches D-01.~~ Dropped by D-01: the lifetime stays 7 days.
+- [ ] AC-16: An expired or renewed sign-in keeps the saved machines, and keeps them across a reload, so "Needs sign-in" (AC-07) has machines to name.
+  - While signed in, the window stores `{accountId, expireAt}` in local storage. A renew adds the time it started.
+  - At a settled sign-out, the relay machines are kept only if that record shows the session passed `expireAt` (one minute of skew), or a renew started. Every other sign-out removes them as today: a person's sign-out, a revoked or removed session, and a window with no record.
+  - A different account signing in removes the kept machines before its session starts, so account B never sees account A's machines or cached threads.
+  - Trade: a signed-out window keeps the cached threads of the machines it keeps.
 
 ## Approach
 
@@ -103,10 +109,12 @@ Labels, in order:
 8. The signed-out banner (`signedOutBannerModel.ts`, `ConnectSignedOutBanner.tsx` behind the lazy `SignedOutBanner.tsx`) and the account button tone, reusing `useStudioConnectAuthPrompt().openAuthPrompt`.
 9. Phrases in `apps/web/src/i18n/phrases/*.ts`.
 
-Session behaviour (after acceptance):
-- read `useSession().session.expireAt` in `ConnectSidebarAccountMenu.tsx`;
-- add the renew action after the AC-12 spike;
-- make `ConnectSessionGuard.tsx` report instead of calling `signOut()`, with a marker in `errors.ts`.
+Session behaviour (built in draft PR #632, held for acceptance):
+- AC-16: `cloud/connectSessionRecord.ts` stores `{accountId, expireAt, renewStartedAt?}`; `managedAuth.tsx` skips `removeRelayEnvironments` only when the record says expired or renewing, and cleans up before a different account's session starts.
+- AC-11: `cloud/connectSessionEnd.ts` (stages, recheck, `dependsOnConnectSignIn`), `useConnectSessionEnd` (one timer, plus focus and visibility), the account button's `sessionEndsIn`, and `sessionEndingBanner`.
+- AC-12: `useConnectRenew` writes the renew mark and the open note, then `clerk.signOut`; `ConnectRenewResume` opens the sign-in with origin `renew`, which the onboarding dialog does not follow.
+- AC-13: `ConnectSessionGuard` sets `connectSessionRejectedAtom` instead of `signOut()`; `localProofFailure` on the three local proof errors.
+- AC-14: `readConnectClerkToken` extracted from `platform.ts` and tested.
 
 Rejected:
 
@@ -140,6 +148,7 @@ Adversarial reviewer: Muse Wonderful (`muse-wonder-full-1.0`, xhigh, full access
 - D-04 The signed-out banner shows only when a saved machine needs the sign-in → default.
 - D-05 Labels (AC-01 to AC-10) ship after review and green CI; AC-11 to AC-14 wait for Anton's acceptance → default.
 - D-06 "Needs sign-in" waits for Clerk's settled signed-out state (review round 1) → default.
+- D-07 Saved machines are kept only after an expiry or a renew; every other sign-out removes them as today (fail-closed) → default, held with AC-16 for Anton.
 ### Open
 - none
 
@@ -161,7 +170,10 @@ Adversarial reviewer: Muse Wonderful (`muse-wonder-full-1.0`, xhigh, full access
 - AC: AC-02, AC-05, AC-07, AC-09 | Files: none in the repository; evidence in reports/ | Test: headless fixture with a relay-only machine and no Connect session: screenshots of the signed-out panel, a signed-in cold start with no "Needs sign-in" flash, and the panel after sign-in
 
 ### T-06 Warn before a sign-in ends and renew in one click
-- AC: AC-11, AC-12 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/clerk/ConnectSidebarAccountMenu.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/account/accountMenuModel.ts, repositories/anton-abyzov/specwithcode/apps/web/src/cloud/managedAuth.tsx, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/connection/routes.ts | Test: `node node_modules/vite-plus/bin/vp test run apps/web/src/components/account/accountMenuModel.test.ts`
+- AC: AC-11, AC-12 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/clerk/ConnectSidebarAccountMenu.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/clerk/useConnectRenew.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/clerk/useStudioConnectAuthPrompt.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/clerk/ConnectSignedOutBanner.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/shell/signedOutBannerModel.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/shell/signedOutBannerModel.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/account/accountMenuModel.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/account/accountMenuModel.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/account/AccountMenu.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/clerk/useConnectSessionEnd.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AccountJoinCard.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/MachineSummary.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/tests/connect-signed-out, repositories/anton-abyzov/specwithcode/apps/web/src/cloud/connectSessionEnd.ts, repositories/anton-abyzov/specwithcode/apps/web/src/cloud/connectSessionEnd.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/cloud/connectSignInStarted.ts, repositories/anton-abyzov/specwithcode/apps/web/src/cloud/connectSignInStarted.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/cloud/ConnectRenewResume.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases | Test: `node node_modules/vite-plus/bin/vp test run apps/web/src/cloud/connectSessionEnd.test.ts apps/web/src/components/account/accountMenuModel.test.ts apps/web/src/components/studio/shell/signedOutBannerModel.test.ts apps/web/src/cloud/connectSignInStarted.test.ts`
+
+### T-08 Keep saved machines across an expiry and a renew
+- AC: AC-16 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/cloud/connectSessionRecord.ts, repositories/anton-abyzov/specwithcode/apps/web/src/cloud/connectSessionRecord.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/cloud/managedAuth.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/cloud/managedAuth.accountState.test.tsx | Test: `node node_modules/vite-plus/bin/vp test run apps/web/src/cloud/connectSessionRecord.test.ts apps/web/src/cloud/managedAuth.accountState.test.tsx`
 
 ### T-07 No silent sign-out by the relay guard
-- AC: AC-13, AC-14 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/cloud/ConnectSessionGuard.tsx, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/connection/errors.ts | Test: `node node_modules/vite-plus/bin/vp test run apps/web/src/cloud/ConnectSessionGuard.test.ts`
+- AC: AC-13, AC-14 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/cloud/ConnectSessionGuard.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/cloud/ConnectSessionGuard.test.ts, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/connection/errors.ts, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/connection/errors.test.ts, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/connection/model.ts, repositories/anton-abyzov/specwithcode/apps/web/src/connection/platform.ts, repositories/anton-abyzov/specwithcode/apps/web/src/connection/platform.test.ts | Test: `node node_modules/vite-plus/bin/vp test run apps/web/src/cloud/ConnectSessionGuard.test.ts`
