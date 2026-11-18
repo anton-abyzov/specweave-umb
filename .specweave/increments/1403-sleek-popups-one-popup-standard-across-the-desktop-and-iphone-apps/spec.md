@@ -30,12 +30,12 @@ Out:
 
 ## The popup standard
 
-1. **Width.** Menus size to their rows from a 10 rem minimum up to a cap: `sm` 16 rem, `md` 20 rem (default), `lg` 24 rem, `xl` 32 rem. Popovers keep fixed `sm`/`md`/`lg`, get `xl`, and `auto` is capped at 32 rem. Selects and comboboxes cap at 24 rem. Dialogs keep `max-w-lg` (32 rem) by default and Tailwind `max-w-*` up to 48 rem; wider ones are viewers or workspaces listed as exempt with a reason. Below 640 px a dialog is a bottom sheet. Every popup is also capped at `100vw - 2rem`.
+1. **Width.** Menus size to their rows from a 10 rem minimum up to a cap: `sm` 16 rem, `md` 20 rem (default), `lg` 24 rem, `xl` 32 rem. Popovers keep fixed `sm`/`md`/`lg`, get `xl`, and `auto` is capped at 32 rem. Selects, comboboxes and autocompletes are their trigger's width and grow past it for long rows only up to 24 rem. Dialogs keep `max-w-lg` (32 rem) by default and Tailwind `max-w-*` up to 48 rem; wider ones are viewers or workspaces listed as exempt with a reason. Below 640 px a dialog is a bottom sheet. Every popup is also capped at `100vw - 2rem`.
 2. **Padding.** Menus: 4 px frame, rows 8 px inline padding, 28 px row height on desktop, 40 px touch. Popovers: 16 px default, 12 px compact. Dialogs: 24 px.
 3. **Section headers.** One style: 11-12 px, medium weight, muted, 8 px top gap above every header after the first, separators only between groups that are not already headed.
 4. **Icons.** Rows in one group either all carry a 16 px leading icon or none do; status words sit trailing and muted.
-5. **Helper text.** At most one short line (about 60 characters) under a header, wrapping inside the width cap, never setting the popup width. Longer explanations go behind an info affordance that is keyboard reachable.
-6. **Keyboard focus.** Menus: arrow keys move through items, Escape closes and returns focus to the trigger, Home/End jump. Popovers and dialogs trap focus and restore it. A visible focus ring on every focusable element.
+5. **Helper text.** At most one short line (about 60 characters) under a header, wrapping inside the width cap, never setting the popup width. Longer explanations go behind an info affordance that is keyboard reachable and never takes a menu's first focus.
+6. **Keyboard focus.** Menus: open on their first real row, arrow keys move through items, Escape closes and returns focus to the trigger (also with the pointer resting on a row), Home/End jump. Popovers and dialogs trap focus and restore it. A visible focus ring on every focusable element.
 7. **Placement.** Every popup stays inside the window with an 8 px margin, flips side when it would overflow, and scrolls inside itself when taller than the window.
 8. **Themes.** Light and dark, with WCAG AA contrast for text (axe clean on the captured states).
 
@@ -43,7 +43,7 @@ Out:
 
 - [ ] AC-01: An inventory report in this increment's `reports/` lists every popup call site (file:line, kind, width override, owner surface) for the desktop app, every toast variant, and every iPhone sheet, alert, menu and popover. It leads with captured-versus-listed counts and gives each row a status (captured, captured by its component fixture, listed only with a reason).
 - [ ] AC-02: The popup standard above is written into the app's design guidelines (`docs/studio/design-guidelines.md`, section Popups) and enforced by the primitives' defaults, so a call site that passes no width gets the standard.
-- [ ] AC-03: `MenuPopup` has width tokens and a default 20 rem cap; a menu with a 180-character helper line measures at most 320 px wide and wraps the line. `MenuGroupLabel`, a new `MenuHint` and a new `MenuInfoLabel` (a label with a keyboard- and touch-reachable info button that shows longer text in place) give one header and helper style.
+- [ ] AC-03: `MenuPopup` has width tokens and a default 20 rem cap; a menu with a 180-character helper line measures at most 320 px wide and wraps the line. `MenuGroupLabel`, a new `MenuHint` and a new `MenuInfoGroup` (a group whose label carries a keyboard- and touch-reachable info button that shows longer text in place, after the group's rows in focus order) give one header and helper style.
 - [ ] AC-04: The machine menu ("Runs on <machine>") measures at most 320 px wide at 2000 px and at 840 px windows, stays inside the window with 8 px margin, keeps every existing item and phrase key (wording unchanged), moves its two helper lines behind the first label's info button (D-03), uses the standard headers, and gives every row in a group a leading icon.
 - [ ] AC-05: Every call site that overrode a width, minimum width or maximum width on a menu, popover or dialog is decided on purpose: it uses a token, or is listed as exempt with a reason in the inventory. No popup in the gallery or the real-app capture exceeds 48 rem (non-exempt) or leaves the viewport.
 - [ ] AC-06: Keyboard: in the machine menu and the gallery menus, ArrowDown/ArrowUp/Home/End move through items, Escape closes and focus returns to the trigger; dialogs trap and restore focus. A headless test asserts this.
@@ -77,7 +77,9 @@ Risks: the default cap can truncate a wide picker that relied on content width (
 - D-02: Window sizes for evidence: 840 px (desktop minimum window width, `ElectronWindow`), 2000 px wide desktop, and 390 px phone web.
 - D-03: The machine menu's two helper lines keep their wording and phrase keys and move behind an info button that works from the keyboard and on touch. Agreed with the "Rethink copies, sync and handing off work" thread on November 18, 2026, which owns the wording (1390 replaces both lines later) and asked that rows can wrap to two lines and carry a trailing action and short pills inside the 20 rem width.
 - D-04: Tooltips out of scope (not in Anton's list); toasts covered by variant, not by caller.
-- D-05: The light theme's destructive button fill is the error token mixed 16% toward black, because white text on the token measured 4.03:1 (axe, alert dialog). Dark keeps the token.
+- D-05: Solid destructive buttons use the existing `--destructive-solid` token (the error color with OKLCH lightness capped at 0.55) under white text in light and dark, because white on the raw token measured 4.03:1 in light and 3.53:1 in dark. Changed from a light-only 84% mix after the Muse review; the fixture checks both the themed and unthemed tokens.
+- D-06: AC-01's per-row status for desktop call sites is the width decision (standard or exempt with its reason) in `reports/popup-call-sites.md`; capture status is per popup in the real-app capture (107 popups) and per row for iPhone (`ios-audit.json`). Decided after the Muse review.
+- D-07: Escape returns focus to the menu's opener from the shared `MenuPopup` when Base UI 1.5 leaves it on the page body (it skips its own return when the row under the pointer holds focus at close). Found by the Muse review; affects every menu, not only the machine menu.
 ### Open
 - none
 
