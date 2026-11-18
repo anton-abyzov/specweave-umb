@@ -30,7 +30,7 @@ Out:
 
 ## The popup standard
 
-1. **Width.** Menus default to a 20 rem (320 px) maximum and a 12 rem minimum; tokens `sm` 16 rem, `md` 20 rem (default), `lg` 24 rem, `xl` 32 rem for pickers with long rows. Popovers keep `sm`/`md`/`lg` and get `xl`. Dialogs: `sm` 24 rem, `md` 32 rem (default today: `max-w-lg`), `lg` 40 rem, `xl` 48 rem. Every popup is also capped at `100vw - 2rem`. No popup is wider than 48 rem except full-screen viewers (file, image, report), which are listed as exempt.
+1. **Width.** Menus size to their rows from a 10 rem minimum up to a cap: `sm` 16 rem, `md` 20 rem (default), `lg` 24 rem, `xl` 32 rem. Popovers keep fixed `sm`/`md`/`lg`, get `xl`, and `auto` is capped at 32 rem. Selects and comboboxes cap at 24 rem. Dialogs keep `max-w-lg` (32 rem) by default and Tailwind `max-w-*` up to 48 rem; wider ones are viewers or workspaces listed as exempt with a reason. Below 640 px a dialog is a bottom sheet. Every popup is also capped at `100vw - 2rem`.
 2. **Padding.** Menus: 4 px frame, rows 8 px inline padding, 28 px row height on desktop, 40 px touch. Popovers: 16 px default, 12 px compact. Dialogs: 24 px.
 3. **Section headers.** One style: 11-12 px, medium weight, muted, 8 px top gap above every header after the first, separators only between groups that are not already headed.
 4. **Icons.** Rows in one group either all carry a 16 px leading icon or none do; status words sit trailing and muted.
@@ -42,9 +42,9 @@ Out:
 ## Acceptance Criteria
 
 - [ ] AC-01: An inventory report in this increment's `reports/` lists every popup call site (file:line, kind, width override, owner surface) for the desktop app, every toast variant, and every iPhone sheet, alert, menu and popover. It leads with captured-versus-listed counts and gives each row a status (captured, captured by its component fixture, listed only with a reason).
-- [ ] AC-02: The popup standard above is written into the app repository next to the primitives (`apps/web/src/components/ui/POPUPS.md`) and enforced by the primitives' defaults, so a call site that passes no width gets the standard.
-- [ ] AC-03: `MenuPopup` has width tokens and a default 20 rem cap; a menu with a 180-character helper line measures at most 320 px wide and wraps the line. `MenuGroupLabel` and a new `MenuHint` give one header and helper style.
-- [ ] AC-04: The machine menu ("Runs on <machine>") measures at most 320 px wide at 2000 px and at 840 px windows, stays inside the window with 8 px margin, keeps every existing item and phrase (wording unchanged unless D-03 says otherwise), uses the standard headers, and gives every row in a group a leading icon.
+- [ ] AC-02: The popup standard above is written into the app's design guidelines (`docs/studio/design-guidelines.md`, section Popups) and enforced by the primitives' defaults, so a call site that passes no width gets the standard.
+- [ ] AC-03: `MenuPopup` has width tokens and a default 20 rem cap; a menu with a 180-character helper line measures at most 320 px wide and wraps the line. `MenuGroupLabel`, a new `MenuHint` and a new `MenuInfoLabel` (a label with a keyboard- and touch-reachable info button that shows longer text in place) give one header and helper style.
+- [ ] AC-04: The machine menu ("Runs on <machine>") measures at most 320 px wide at 2000 px and at 840 px windows, stays inside the window with 8 px margin, keeps every existing item and phrase key (wording unchanged), moves its two helper lines behind the first label's info button (D-03), uses the standard headers, and gives every row in a group a leading icon.
 - [ ] AC-05: Every call site that overrode a width, minimum width or maximum width on a menu, popover or dialog is decided on purpose: it uses a token, or is listed as exempt with a reason in the inventory. No popup in the gallery or the real-app capture exceeds 48 rem (non-exempt) or leaves the viewport.
 - [ ] AC-06: Keyboard: in the machine menu and the gallery menus, ArrowDown/ArrowUp/Home/End move through items, Escape closes and focus returns to the trigger; dialogs trap and restore focus. A headless test asserts this.
 - [ ] AC-07: Headless screenshots, light and dark, at 840 px and 2000 px desktop widths and 390 px phone width, before (origin/main) and after, for the machine menu, the gallery of primitives, and each popup the real-app capture reaches. axe reports no contrast or name violations on the captured popups.
@@ -75,8 +75,9 @@ Risks: the default cap can truncate a wide picker that relied on content width (
 ### Defaulted (change any before sw-do)
 - D-01: Menu default cap 20 rem, popover and dialog tokens as above. Reversible by token.
 - D-02: Window sizes for evidence: 840 px (desktop minimum window width, `ElectronWindow`), 2000 px wide desktop, and 390 px phone web.
-- D-03: The machine menu's two helper lines keep their wording and wrap inside the 20 rem cap; moving them behind an info affordance waits for the "Rethink copies, sync and handing off work" thread (asked November 18, 2026).
+- D-03: The machine menu's two helper lines keep their wording and phrase keys and move behind an info button that works from the keyboard and on touch. Agreed with the "Rethink copies, sync and handing off work" thread on November 18, 2026, which owns the wording (1390 replaces both lines later) and asked that rows can wrap to two lines and carry a trailing action and short pills inside the 20 rem width.
 - D-04: Tooltips out of scope (not in Anton's list); toasts covered by variant, not by caller.
+- D-05: The light theme's destructive button fill is the error token mixed 16% toward black, because white text on the token measured 4.03:1 (axe, alert dialog). Dark keeps the token.
 ### Open
 - none
 
@@ -86,7 +87,7 @@ Risks: the default cap can truncate a wide picker that relied on content width (
 - AC: AC-01, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/tests/popup-standard/inventory.mjs, repositories/anton-abyzov/specwithcode/apps/web/tests/popup-standard/main.tsx, repositories/anton-abyzov/specwithcode/apps/web/tests/popup-standard/verify.mjs, repositories/anton-abyzov/specwithcode/apps/web/tests/popup-standard/vite.config.ts, repositories/anton-abyzov/specwithcode/apps/web/tests/popup-standard/index.html | Test: node apps/web/tests/popup-standard/inventory.mjs && node apps/web/tests/popup-standard/verify.mjs --before
 
 ### T-02 Popup standard in the primitives
-- AC: AC-02, AC-03, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/ui/menu.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/ui/popover.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/ui/dialog.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/ui/POPUPS.md, repositories/anton-abyzov/specwithcode/apps/web/src/components/ui/menu.test.tsx | Test: vp test run src/components/ui (from apps/web)
+- AC: AC-02, AC-03, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/ui/menu.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/ui/popover.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/ui/dialog.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/ui/select.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/ui/button.tsx, repositories/anton-abyzov/specwithcode/docs/studio/design-guidelines.md | Test: vp test run src/components/ui (from apps/web)
 
 ### T-03 Machine menu shell
 - AC: AC-04, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/OrchestratorSwitcher.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/OrchestratorSwitcher.test.tsx | Test: vp test run src/components/studio/OrchestratorSwitcher.test.tsx && node apps/web/tests/popup-standard/verify.mjs
