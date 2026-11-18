@@ -1,6 +1,6 @@
 # 1390 Sync projects across machines and hand off work, without Main and Copy
 
-Status: design only, revised after two review rounds (both said fix first; every finding is answered in "Round 1 responses" and "Round 2 responses"; the changes made after round 2 have not been reviewed again). Nothing is built until Anton accepts, because this changes data flow between machines. Mockup: `reports/mockup.html`.
+Status: accepted by Anton on November 18, 2026, with every recommended choice ("I accept all proposals. Just go ahead and implement all, one by one"; "do another review - yes, all decision"). Revised after two review rounds (both said fix first; every finding is answered in "Round 1 responses" and "Round 2 responses"). Round 3 reviews the whole spec as accepted; Phase 1 builds meanwhile, and no Phase 2 server change merges before the round 3 findings are answered. Mockup: `reports/mockup.html`.
 
 ## Problem
 
@@ -20,7 +20,7 @@ What is wrong, with evidence:
 4. **Five entries move work and none moves all of it.** From the M5 thread's report (`.specweave/reports/threads/2026-11-18-how-one-project-runs-across-machines-d53e8d-35b8ae.md`): Make main moves the coordinator and refuses while a thread runs or waits (`makeProjectIdleCheck`, `apps/server/src/fleet/folderCopyPreparation.ts:73`); Leave this machine moves running and queued threads but not threads in a worktree set, not idle threads with unsaved work, and only the coordinator's role; Move running threads lists only threads with "Keep ready to move" on, which is off by default; Move thread moves one. In specweave all 35 unarchived worktree threads on the M4 are worktree sets, so Leave this machine moves none of them.
 5. **The automatic paths exist but are off and scattered.** A usage-limit hand off (0968) and a lid-close hand off (1267) are built. Their settings sit under three names (Handoff mode, Away target, provider limit action). The limit path already skips a machine on the same provider account; Away and a move by hand say nothing about it, although moving to the same account adds no usage.
 6. **Real machines are not clean.** On November 18 the M4 had 179 uncommitted umbrella files, 11 umbrella branches with commits on no remote, an untracked `.specweave/project/credentials.json`, three worktrees whose Git data is gone, and repositories 2 to 99 commits behind (`~/.specwithcode/m4/evidence/m4-git-state/2026-11-18-m4-git-state.md`). Any flow that assumes a clean, pushed checkout either refuses or strands that work.
-7. **A second coordinator reads as a healthy copy.** m1 holds an old coordinator record (epoch 2, active, no predecessor, left by "Start a coordinator here"). A copy with a live coordinator of its own has the role `also-main` and wears the same badge as a plain copy, "Copy · main on m4" (`apps/web/src/studio/workersOnlyCopy.ts:59`), so nothing tells him it needs a fix. The only Unlink control is in project settings (`ProjectMachinesSettings.tsx:525`).
+7. **An extra coordinator reads as a healthy copy.** m1 holds an old coordinator record (epoch 2, active, no predecessor, left by "Start a coordinator here"). A copy with a live coordinator of its own has the role `also-main` and wears the same badge as a plain copy, "Copy · main on m4" (`apps/web/src/studio/workersOnlyCopy.ts:59`), so nothing tells him it needs a fix. The only Unlink control is in project settings (`ProjectMachinesSettings.tsx:525`).
 
 Facts checked on `origin/main` of `repositories/anton-abyzov/specwithcode` at `af7b77f05` (1.0.346):
 
@@ -45,7 +45,7 @@ Facts checked on `origin/main` of `repositories/anton-abyzov/specwithcode` at `a
 In:
 
 - New words everywhere a person or an agent reads them: machine menu, chip, message box, dialogs, Settings, thread menu, limit banner, command palette, tray and File menu, slash commands, iOS, translations, server messages and MCP tool descriptions. The table is in Wording.
-- A machine menu whose rows say what is true (coordinator here, sync fact, offline, cannot open, second coordinator, separate project) and are greyed when they cannot be opened.
+- A machine menu whose rows say what is true (coordinator here, sync fact, offline, cannot open, extra coordinator, separate project) and are greyed when they cannot be opened.
 - A message box that tells the truth on a machine without the coordinator and offers "Continue here".
 - Entries are renamed in the phase that makes the new name true, never before (AC-01).
 - **Sync**: Git first for a project that exists on both machines. **Add**: clone first for a machine that lacks it. The existing full compare stays as the slow path.
@@ -101,7 +101,7 @@ Where an AC depends on a decision Anton has not made, it says "(D-xx)" and is wr
   |---|---|---|---|
   | 1 | This window never opened the machine, or the machine refuses this window | This window cannot open {machine} · Connect… | No, greyed |
   | 2 | `independent` | Separate project (in its own group, with "Link {machine} to this project…") | Yes |
-  | 3 | `also-main` | Second coordinator · Fix… | Yes |
+  | 3 | `also-main` | Extra coordinator · Fix… | Yes |
   | 4 | `moving` | Handing off the coordinator… | Yes |
   | 5 | `main` | Coordinator | Yes |
   | 6 | `copy` | (no role word) | Yes |
@@ -116,7 +116,7 @@ Where an AC depends on a decision Anton has not made, it says "(D-xx)" and is wr
   | Not checked yet | This window holds no status for one of the two machines |
 
   The window reads a status when the menu opens and keeps it in memory with its time for 60 seconds. For an offline machine it shows the last status it read in this session with "as of {time}"; after the window restarts that is "Not checked yet". The row of the machine shown has no sync fact. Before Phase 2 no row has one.
-- [ ] AC-05: The "Second coordinator" row (m1 on November 18) has "Fix…". It opens a dialog that reads "{machine} also runs a coordinator for {project}. The project's coordinator is on {main}." and offers one action, "Unlink {project} on {machine}", which is the existing unlink of project settings (`unlinkMember`, `ProjectMachinesSettings.tsx:299`) with its confirmation, its notes and its "Update SpecWithCode on {machine}" case. It is offered under the existing guard only (`mayLeave`, `ProjectMachinesSettings.tsx:61`): when a loaded machine names this one as its coordinator's successor, the action is greyed with "{other} still follows the coordinator on {machine}. Continue the coordinator on another machine first." The dialog adds "To make {machine} part of this project again, link it afterwards. Linking makes it give way to the coordinator on {main}." (true today: `accept` relinquishes the joining copy, `ProjectLink.ts:671`; a link can refuse while that coordinator is in a turn, and says so). Nothing touches threads or files, and no server code changes. "Start a coordinator here" is removed (D-06).
+- [ ] AC-05: The "Extra coordinator" row (m1 on November 18) has "Fix…". It opens a dialog titled "Extra coordinator on {machine}" that reads "{machine} also runs a coordinator for {project}. The project's coordinator is on {main}." and offers one action, "Unlink {project} on {machine}", which is the existing unlink of project settings (`unlinkMember`, `ProjectMachinesSettings.tsx:299`) with its confirmation, its notes and its "Update SpecWithCode on {machine}" case. It is offered under the existing guard only (`mayLeave`, `ProjectMachinesSettings.tsx:61`): when a loaded machine names this one as its coordinator's successor, the action is greyed with "{other} still follows the coordinator on {machine}. Continue the coordinator on another machine first." The dialog adds "To make {machine} part of this project again, link it afterwards. Linking makes it give way to the coordinator on {main}." (true today: `accept` relinquishes the joining copy, `ProjectLink.ts:671`; a link can refuse while that coordinator is in a turn, and says so). Nothing touches threads or files, and no server code changes. "Start a coordinator here" is removed (D-06).
 - [ ] AC-06: The menu's entries change with the phase that makes them true.
 
   | Phase | Under the rows | Group "Work on {machine}" |
@@ -253,7 +253,7 @@ Every string below was read at `origin/main` `af7b77f05` (1.0.346) of `repositor
 | Group note (`:266`) | Viewing moves nothing: work stays on each machine. Adding or moving the project asks first. | Pick a machine to see its threads and files. Nothing moves until you sync or hand off. |
 | Row badge (`web/studio/workersOnlyCopy.ts:56`) | Main | Coordinator |
 | Row badge (`workersOnlyCopy.ts:59`, also worn by a copy that runs a coordinator of its own) | Copy · main on {machine} / Copy | (no role word). From Phase 2 one sync fact: Same as {shown} / {k} of {n} repositories differ / Not checked yet |
-| Row badge, copy with a live coordinator of its own (role `also-main`) | Copy · main on {machine} | Second coordinator · Fix… |
+| Row badge, copy with a live coordinator of its own (role `also-main`) | Copy · main on {machine} | Extra coordinator · Fix… |
 | Row badge (`workersOnlyCopy.ts:57`) | Moving main | Handing off the coordinator… |
 | Row note (`OrchestratorSwitcher.tsx:294`) | coordinator paused | Old conversation kept |
 | Row tooltip (`:300`) | {machine} kept its coordinator conversation from before as history. View it to read that conversation. | (unchanged) |
@@ -285,7 +285,7 @@ Every string below was read at `origin/main` `af7b77f05` (1.0.346) of `repositor
 | Sidebar row (`web/components/studio/shell/SidebarProjectList.tsx:667`) | Runs on {machine}. No copy on this device. | On {machine}. Not on this device. |
 | Sidebar menu (`SidebarProjectList.tsx:960`) | Add to this machine… | (unchanged) |
 | Settings button (`web/components/studio/ProjectMachinesSettings.tsx:494`; hook `useStartCoordinator`, `OrchestratorSwitcher.tsx:610`) | Start a coordinator here | (removed, D-06) |
-| Fix dialog (new, opened by "Fix…" on a Second coordinator row) | (none) | {machine} also runs a coordinator for {project}. The project's coordinator is on {main}. · Unlink {project} on {machine} · To make {machine} part of this project again, link it afterwards. Linking makes it give way to the coordinator on {main}. · {other} still follows the coordinator on {machine}. Continue the coordinator on another machine first. |
+| Fix dialog (new, opened by "Fix…" on a Extra coordinator row) | (none) | Extra coordinator on {machine} · {machine} also runs a coordinator for {project}. The project's coordinator is on {main}. · Unlink {project} on {machine} · To make {machine} part of this project again, link it afterwards. Linking makes it give way to the coordinator on {main}. · {other} still follows the coordinator on {machine}. Continue the coordinator on another machine first. |
 
 ### 2. Message box on a machine without the coordinator
 
@@ -557,7 +557,7 @@ Four phases, each its own pull request and release, built from the tasks that ca
 - *Threads first, then the coordinator* (1389's order). The destination refuses to start a coordinator while the threads that just arrived work there.
 - *The coordinator first while its threads keep running, with the idle check told to ignore them* (this spec after round 1). Running threads keep committing, so the move refuses with `source_changed`, and the check that was relaxed is the one that keeps the move still.
 - *The server runs the coordinator's move.* It would need a new peer route with its own authentication, consent and replay rules. The window runs it, as today.
-- *"Retire" a second coordinator in place.* `supersede` (`ProjectLink.ts:1177`) needs the predecessor to be the caller and an epoch at or above the binding's, which m1's record cannot meet. Unlink, then link again, reaches the same end over existing calls.
+- *"Retire" an extra coordinator in place.* `supersede` (`ProjectLink.ts:1177`) needs the predecessor to be the caller and an epoch at or above the binding's, which m1's record cannot meet. Unlink, then link again, reaches the same end over existing calls.
 - *Rename every entry in the first release.* For one release "Sync…" would open a folder copy that can overwrite, and "Hand off work…" a dialog that lists only threads set to move.
 - *Push before every sync.* A push publishes work. Sync sends unpushed commits directly, and only when ticked.
 - *Commit uncommitted work on the person's branch.* A snapshot branch on the target is reversible; a commit on his branch is not his choice.
@@ -589,7 +589,7 @@ Review round 1: `reports/reviews/review-muse-wonder-full-1.0-1.md`, verdict "fix
 | C7 | New cross-machine write calls have no scopes | Accepted. AC-33 (R2-14) |
 | H1 | Phase 1 is not free of new data flow | Accepted. The sync fact is Phase 2; the in-place conversation and the held message are gone; Phase 1 has no server work (R2-08) |
 | H2 | Row states contradict each other and cannot be decided | Accepted. One state per row by precedence with notes (AC-03), one sync fact with its reference and age (AC-04) |
-| H3 | "Start a coordinator here" still creates second coordinators | Accepted as a question for Anton, recommended to remove (D-06) |
+| H3 | "Start a coordinator here" still creates extra coordinators | Accepted as a question for Anton, recommended to remove (D-06) |
 | H4 | Wording table misses strings; the test must grep source | Accepted. Rows added in every table; exact retired strings per phase (AC-01; R2-06) |
 | H5 | Task files incomplete | Accepted. Each task lists its files and its phase (R2-13) |
 | H6 | Sync table misses states | Accepted. AC-11 has ahead, fetch failure, not on a branch and the in-use rule; AC-10 names how repositories are found |
@@ -642,18 +642,19 @@ Reviewer: muse, model `muse-wonder-full-1.0`, effort xhigh, adversarial, named b
 
 - Round 1: fix first. `reports/reviews/review-muse-wonder-full-1.0-1.md`.
 - Round 2: fix first. `reports/reviews/review-muse-wonder-full-1.0-2.md`. Its remaining criticals are all in the hand off engine of Phase 3.
-- Round 3: planned inside Phase 3, on the Phase 3 design with the results of the two-machine proof (AC-32, T-08).
+- Round 3: asked for by Anton on November 18, 2026 ("do another review - yes"), on the whole spec as accepted. `reports/reviews/review-muse-wonder-full-1.0-3.md`.
+- Round 4: inside Phase 3, on the Phase 3 design with the results of the two-machine proof (AC-32, T-08).
 
 ## Decisions
 
-### Asked (waiting for Anton; each has a recommended choice, and the ACs are written for it)
+### Accepted by Anton on November 18, 2026, each as recommended ("yes, all decision")
 
 - D-01 Typing on a machine without the coordinator. Recommended: Send opens the coordinator where it is, and "Continue here" is one click away (today's mechanism, new words). This does not make the M5 run the coordinator because you typed there; the page still changes to the M4's, and only "Continue here" brings it over. Alternative A, closest to "you should be able to proceed there": Send brings the coordinator to the machine you type on whenever the project is idle on the other one; each switch pushes commits and moves a conversation, and it refuses while threads work there. Alternative B: the answer shows on this page without leaving it; one page would read two machines, which is a new data flow not designed here.
 - D-02 Automatic hand off defaults. Recommended: off (the November 12 decision), offered at the moment it helps: the limit banner and the "Also do this when {machine} goes to sleep" tick. Alternative, which is 1389's AC-08: once a sleep machine is chosen, every running thread keeps a standby copy and continues there on sleep, at the cost of a checkpoint after every turn.
 - D-03 The coordinator move pushes commits to origin under a hidden ref, as shipped in PR #560. Recommended: keep it, with the consent line. Alternative: build a transport that sends them directly, like a thread hand off; that is a fifth phase.
 - D-04 Uncommitted project folder files in a hand off. Recommended: ticked, and put into the working folder on the target when that is safe. Alternative: unticked, so they stay unless chosen. In Sync they are always unticked and arrive as a branch.
 - D-05 The 10 minute wait before "Continue here" when the coordinator's machine is silent. Recommended: keep it (1372). Alternative: allow at once behind a confirm that both machines may run the coordinator until the old one is back.
-- D-06 "Start a coordinator here" in a project's machine settings, kept by 1372 as the way to revive a coordinator. It is what left m1 with a second coordinator, and keeping it will create the "Second coordinator" row again. Recommended: remove it; "Continue the coordinator here" does the reviving. Alternative: keep it in Settings.
+- D-06 "Start a coordinator here" in a project's machine settings, kept by 1372 as the way to revive a coordinator. It is what left m1 with an extra coordinator, and keeping it will create the "Extra coordinator" row again. Recommended: remove it; "Continue the coordinator here" does the reviving. Alternative: keep it in Settings.
 - D-10 Review threads in a hand off. Recommended: they stay on their machine, by hand and automatically, because the reviewer lock does not travel. Alternative: allow by hand with a warning.
 - D-11 Secrets. Recommended: one missing on the destination is ticked, one that differs there is unticked (the November 13 default). Alternative: every secret unticked.
 - D-15 Extras when adding a project to a machine. Recommended: ticked, as today's Add already brings local changes from the source (the November 15 default). Alternative: unticked, as in Sync.
@@ -661,12 +662,12 @@ Reviewer: muse, model `muse-wonder-full-1.0`, effort xhigh, adversarial, named b
 - D-18 A coordinator that cannot move with its conversation. Recommended: by hand it stays and says why; on sleep, with the source gone, the target takes the role only, as today. Alternative, which is 1389's AC-03: fall back to the role-only handover by hand too.
 - D-19 Coordinators in the scope "Every project on {machine}". Recommended: ticked for projects with unfinished work, listed unticked for the rest. Alternative, which is 1389's AC-04: one switch between "projects with live work" and "every linked project".
 
-### Defaulted (change any before sw-do)
+### Defaulted (accepted with the plan on November 18, 2026)
 
 - D-07 The verb is "Hand off" (two words; "hand off" in sentences; the settings group is "Hand off").
 - D-08 The coordinator's location reads "Coordinator" on a row and "Coordinator on {machine}" in sentences. The words Main and Copy are not used as roles anywhere. "Copy" stays as an ordinary word ("standby copy", "Copy the whole folder").
 - D-09 `/away` and `mod+alt+l` stay as shortcuts to the wide scope. From Phase 3 the project menu has one entry, "Hand off work…".
-- D-12 "Fix…" on a second coordinator is a person's click, never automatic.
+- D-12 "Fix…" on an extra coordinator is a person's click, never automatic.
 - D-13 A same-account or unknown-usage target is allowed by hand with its line, and never chosen automatically.
 - D-14 The sync fact reads local Git only. Only the Sync dialog fetches from the remote.
 - D-17 An offline machine with saved state stays openable, read-only. Only a machine this window cannot open is greyed.
@@ -677,6 +678,7 @@ Reviewer: muse, model `muse-wonder-full-1.0`, effort xhigh, adversarial, named b
 - D-24 No message is held to be sent later. Text stays in the box until a button is pressed while the other machine answers.
 - D-25 "Took over" stays as the past-tense report of an offline takeover ("m5 took over from m4 at 14:02"). The buttons and titles that start one read "Continue here".
 - D-26 Tracked files are checked for secrets by name only; untracked files also by content (AC-14).
+- D-27 A linked machine that still runs a coordinator of its own is labelled "Extra coordinator", not "Second coordinator" (Anton, November 18, 2026: "I'm not sure we need to name it second or third"). No ordinal, so it reads the same with one such machine or three, and "extra" says it is surplus, which is what "Fix…" removes.
 
 ### Reverses
 
@@ -702,7 +704,7 @@ Paths are from the umbrella root. Each title starts with its phase.
 - AC: AC-07, AC-08, AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/studio/coordinatorBoxState.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/coordinatorBoxState.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/CoordinatorBlockedNotice.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/useRouteToMain.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/CoordinatorComposer.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/useMakeMain.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/studio/makeMain.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/makeMain.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/studio/coordinatorBoxState.test.ts src/studio/makeMain.test.ts
 
 ### T-03 Phase 1: "Continue the coordinator here", the Fix dialog, and no "Start a coordinator here"
-- AC: AC-05, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/OrchestratorSwitcher.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/SecondCoordinatorFix.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/useUnlinkMember.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/useUnlinkMember.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectMachinesSettings.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/CoordinatorStandbySettings.tsx | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/studio/useUnlinkMember.test.ts
+- AC: AC-05, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/OrchestratorSwitcher.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ExtraCoordinatorFix.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/useUnlinkMember.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/useUnlinkMember.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectMachinesSettings.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/CoordinatorStandbySettings.tsx | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/studio/useUnlinkMember.test.ts
 
 ### T-04 Phase 1: role words out of every string, in eight languages, iOS and agent text, with the retired-string tests
 - AC: AC-01, AC-30 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/de.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/es.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/fr.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/ja.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/ko.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/pt.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/ru.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/zh.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/retiredPhrases.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/retiredPhrases.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/retiredPhrases.test.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/retiredPhrases.test.ts, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Tests/SWCSyncTests/RetiredPhrasesTests.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Tests/SWCSyncTests/LinkedProjectResolverTests.swift, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/MachineHandoffDialog.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectMachineHandoff.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/studio/sendToMachine.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectMoveOptions.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffCopyDone.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/handoffCopySteps.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectLinkDialog.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectLinkCandidates.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/shell/SidebarProjectList.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/shell/useProjectLinkSuggestions.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/studio/linkedMachines.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/machinesSettings.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/away/awayAccessRequests.logic.ts, repositories/anton-abyzov/specwithcode/apps/server/src/away/AwayPlanner.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/reconcile.ts, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCSync/Handoff.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCSync/LinkedProjects.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCFeatures/Chat/OrchestratorSwitcher.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCFeatures/Linked/LinkedProjectViews.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCFeatures/Linked/LinkedProjectState.swift, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/toolkits/project/addToMachine.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/toolkits/project/remoteLaunch.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/i18n/retiredPhrases.test.ts src/i18n/i18n.test.ts && cd ../.. && node node_modules/vite-plus/bin/vp test run apps/server/src/retiredPhrases.test.ts apps/desktop/src/retiredPhrases.test.ts

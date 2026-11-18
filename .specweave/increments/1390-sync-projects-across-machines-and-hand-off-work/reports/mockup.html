@@ -70,7 +70,7 @@
 </head>
 <body>
 <h1>Machines sync files. Work is handed off.</h1>
-<p class="lead">Proposal for increment 1390, revised after two review rounds. The words Main and Copy leave the interface. A project lives on several machines as equals, and three verbs cover everything you do between them. Mockup with specweave's machines and the M4's Git state of November 18. Nothing here is built.</p>
+<p class="lead">Plan for increment 1390, accepted by Anton on November 18, 2026 after two review rounds. The words Main and Copy leave the interface. A project lives on several machines as equals, and three verbs cover everything you do between them. Mockup with specweave's machines and the M4's Git state of November 18. Nothing here is built.</p>
 
 <div class="verbs" role="list">
   <div class="verb" role="listitem"><i>files</i><b>Sync</b><span>Git first: each machine fetches and fast-forwards, and a missing repository is cloned. Nothing is pushed. Work Git does not carry is offered as extras and arrives as branches.</span></div>
@@ -110,7 +110,7 @@
       <div class="row"><span class="m">m4</span><span class="s"><span class="pill co">Coordinator</span> <span class="pill warn">3 of 5 repositories differ</span></span></div>
       <div class="row sel"><span class="m">M5</span><span class="s"></span><span>✓</span></div>
       <div class="row off"><span class="m">linux-mini</span><span class="s">This window cannot open linux-mini · Connect…</span></div>
-      <div class="row"><span class="m">m1</span><span class="s"><span class="pill warn">Second coordinator</span></span><span class="act">Fix…</span></div>
+      <div class="row"><span class="m">m1</span><span class="s"><span class="pill warn">Extra coordinator</span></span><span class="act">Fix…</span></div>
       <div class="sep"></div>
       <div class="row">Sync…</div>
       <div class="sep"></div>
@@ -128,7 +128,7 @@
   <tr><th>A row shows (first that matches)</th><th>When</th><th>Click</th></tr>
   <tr><td class="dim">This window cannot open linux-mini · Connect…</td><td>This window never opened the machine, or the machine refuses it</td><td>Greyed. The one step that fixes it is on the row</td></tr>
   <tr><td><span class="pill">Separate project</span></td><td>Same repository, added there on its own</td><td>Opens it · Link…</td></tr>
-  <tr><td><span class="pill warn">Second coordinator</span></td><td>It still runs a coordinator of its own (m1 today, shown as "Copy · main on m4")</td><td>Opens it · Fix…</td></tr>
+  <tr><td><span class="pill warn">Extra coordinator</span></td><td>It still runs a coordinator of its own (m1 today, shown as "Copy · main on m4")</td><td>Opens it · Fix…</td></tr>
   <tr><td class="dim">Handing off the coordinator…</td><td>A hand off is under way</td><td>Opens it</td></tr>
   <tr><td><span class="pill co">Coordinator</span></td><td>The coordinator conversation is on this machine</td><td>Opens it</td></tr>
   <tr><td class="dim">(no role word)</td><td>Any other machine with the project</td><td>Opens it</td></tr>
@@ -137,8 +137,8 @@
 </div>
 <p>From the Sync release on, a row for another machine than the one shown adds one fact: <span class="pill ok">Same as M5</span>, <span class="pill warn">3 of 5 repositories differ</span> or <span class="pill">Not checked yet</span>. It is read from local Git on both machines and makes no network call. A machine without the project is not a row.</p>
 
-<div class="dlg" aria-label="Fix dialog for a second coordinator" style="max-width:520px">
-  <h4>m1 runs a second coordinator for specweave</h4>
+<div class="dlg" aria-label="Fix dialog for an extra coordinator" style="max-width:520px">
+  <h4>Extra coordinator on m1</h4>
   <div class="sub">m1 also runs a coordinator for specweave. The project's coordinator is on m4.</div>
   <p class="dim" style="margin:0">To make m1 part of this project again, link it afterwards. Linking makes it give way to the coordinator on m4. Threads and files are not touched.</p>
   <div class="foot"><span class="btn">Cancel</span><span class="btn pri">Unlink specweave on m1</span></div>
@@ -285,7 +285,7 @@
   </div>
 </div>
 
-<h2>6. Twelve choices that are yours</h2>
+<h2>6. Twelve choices, accepted as recommended on November 18, 2026</h2>
 <p>The design is written for the recommended choice in each row. Say which to change.</p>
 <div class="scroll">
 <table>
@@ -295,7 +295,7 @@
   <tr><td class="id">D-03</td><td>Moving the coordinator pushes commits to a hidden ref on GitHub</td><td>Keep, with the consent line</td><td>Build a direct route (a fifth release)</td></tr>
   <tr><td class="id">D-04</td><td>Uncommitted project folder files in a hand off</td><td>Ticked, and put into the folder there when safe</td><td>Unticked</td></tr>
   <tr><td class="id">D-05</td><td>10 minute wait before Continue here when a machine is silent</td><td>Keep</td><td>Allow at once behind a confirm</td></tr>
-  <tr><td class="id">D-06</td><td>"Start a coordinator here" in Settings (it made m1's second coordinator, and would again)</td><td>Remove</td><td>Keep</td></tr>
+  <tr><td class="id">D-06</td><td>"Start a coordinator here" in Settings (it made m1's extra coordinator, and would again)</td><td>Remove</td><td>Keep</td></tr>
   <tr><td class="id">D-10</td><td>Review threads in a hand off</td><td>Stay</td><td>Allow by hand with a warning</td></tr>
   <tr><td class="id">D-11</td><td>Secrets</td><td>Missing there: ticked. Different there: unticked</td><td>All unticked</td></tr>
   <tr><td class="id">D-15</td><td>Extras when adding a project to a machine</td><td>Ticked, as Add does today</td><td>Unticked, as in Sync</td></tr>
