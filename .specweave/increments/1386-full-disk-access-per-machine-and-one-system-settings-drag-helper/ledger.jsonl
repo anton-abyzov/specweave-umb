@@ -19,3 +19,5 @@
 {"t":"T-07","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:58.569Z","evidence":"8d4836ca6: docs/user/full-disk-access.md, computer-use.md, CHANGELOG\nHEAD 29ab86d64b","link":"https://github.com/anton-abyzov/specwithcode/pull/565","model":"claude-opus-5-5[1m]"}
 {"t":"T-09","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:58.997Z","model":"claude-opus-5-5[1m]"}
 {"t":"T-09","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:58.999Z","evidence":"8d4836ca6: FirstRunFullDiskAccess in AccessStep; onboarding tests pass\nHEAD 29ab86d64b","link":"https://github.com/anton-abyzov/specwithcode/pull/565","model":"claude-opus-5-5[1m]"}
+{"t":"T-08","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T13:35:35.451Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-08","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T13:35:35.454Z","evidence":"PR 565 merged f0dd8ac, released v1.0.350 (bundles checked); AC-02 live on M4: Mail, Safari, 20 Chrome profiles read\nHEAD ec078d2011","link":"https://github.com/anton-abyzov/specwithcode/releases/tag/v1.0.350","model":"claude-opus-5-5[1m]"}
