@@ -135,6 +135,9 @@ Known limits (review rounds 6 to 8, accepted):
 - A different account signing in can see the kept machines' names and cached thread titles until their async removal lands (`managedAuth.tsx`).
 - The 10-minute renew-mark cap reads wall-clock time: a backward clock step, or sleep of over 10 minutes between the click and the settled sign-out, removes the machines a renew meant to keep.
 - The account button's warning ("Sign-in ends in …" and its hint) is English in every locale, like the rest of the account menu.
+- If removing the kept machines fails when a different account signs in, the failure is reported and that account's session still starts (`managedAuth.tsx`, the same as an in-place account switch).
+- The Overview's machine line keeps a generic word after "is" for a machine that needs sign-in (`overviewMachines.ts`).
+- Three sign-in sentences in `projectWorkspaceModel.ts` are English in every locale.
 - Proof: nothing was tried in the installed app; the fixture stubs the renew; no end-to-end test goes from a kept machine to "Needs sign-in"; why M5 was removed is unproven.
 
 ## Mockup
