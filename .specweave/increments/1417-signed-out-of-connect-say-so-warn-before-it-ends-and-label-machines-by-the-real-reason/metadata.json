@@ -5,8 +5,11 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-18T17:19:58.031Z",
-  "updated": "2026-11-18T17:19:58.031Z",
-  "lastActivity": "2026-11-18T17:19:58.031Z",
+  "updated": "2026-11-18T17:56:45.580Z",
+  "lastActivity": "2026-11-18T17:56:45.580Z",
   "title": "Signed out of Connect: say so plainly, warn before it ends, and label each machine by the real reason",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
