@@ -5,11 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T11:10:23.702Z",
-  "updated": "2026-11-18T11:17:28.440Z",
-  "lastActivity": "2026-11-18T11:17:28.440Z",
+  "updated": "2026-11-18T11:48:58.935Z",
+  "lastActivity": "2026-11-18T11:48:58.935Z",
   "title": "Readable block reasons when agents write them",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specweave"
-  ]
+  ],
+  "externalLinks": {}
 }
