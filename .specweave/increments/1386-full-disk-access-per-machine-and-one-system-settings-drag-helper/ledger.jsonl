@@ -1,0 +1,21 @@
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-18T07:03:51.732Z","note":"review by muse-wonder-full-1.0 (meta) at 95412ff3b: ship · reports/reviews/review-muse-wonder-full-1.0-1.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-18T07:14:13.982Z","note":"review by muse-wonder-full-1.0 (meta) at df71d90da: ship · reports/reviews/review-muse-wonder-full-1.0-2.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-18T07:18:50.037Z","note":"review by muse-wonder-full-1.0 (meta) at 70c69b94e: ship · reports/reviews/review-muse-wonder-full-1.0-3.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-18T07:22:49.393Z","note":"review by muse-wonder-full-1.0 (meta) at 8d4836ca6: ship · reports/reviews/review-muse-wonder-full-1.0-4.md"}
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:55.987Z","note":"session 680da8fb-b274-482c-a9af-feb139c2680a","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:56.011Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:56.018Z","evidence":"8d4836ca6: privacyAccess.test.ts 12 pass; live probe on M4 not-allowed, host node\nHEAD 29ab86d64b","link":"https://github.com/anton-abyzov/specwithcode/pull/565","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:56.489Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:56.491Z","evidence":"8d4836ca6: privacyAccess RPC; privacyAccess.test.ts 12 pass\nHEAD 29ab86d64b","link":"https://github.com/anton-abyzov/specwithcode/pull/565","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:56.938Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:56.940Z","evidence":"8d4836ca6: MacPermissionHelper.test 3 pass; desktop typecheck clean\nHEAD 29ab86d64b","link":"https://github.com/anton-abyzov/specwithcode/pull/565","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:57.352Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:57.354Z","evidence":"8d4836ca6: FullDiskAccess.test.tsx 8 pass, MachineReadinessChecklist test pass\nHEAD 29ab86d64b","link":"https://github.com/anton-abyzov/specwithcode/pull/565","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:57.819Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:57.830Z","evidence":"8d4836ca6: requestAccess 14, AccessRequests, OrchestratorMcpService.requestAccess, AccessRequestCard pass; swift AccessRequest 31 pass\nHEAD 29ab86d64b","link":"https://github.com/anton-abyzov/specwithcode/pull/565","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:58.186Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:58.187Z","evidence":"8d4836ca6: not-applicable off macOS test pass; first-run hidden on Win/Linux test\nHEAD 29ab86d64b","link":"https://github.com/anton-abyzov/specwithcode/pull/565","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:58.567Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:58.569Z","evidence":"8d4836ca6: docs/user/full-disk-access.md, computer-use.md, CHANGELOG\nHEAD 29ab86d64b","link":"https://github.com/anton-abyzov/specwithcode/pull/565","model":"claude-opus-5-5[1m]"}
+{"t":"T-09","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:58.997Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-09","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T07:24:58.999Z","evidence":"8d4836ca6: FirstRunFullDiskAccess in AccessStep; onboarding tests pass\nHEAD 29ab86d64b","link":"https://github.com/anton-abyzov/specwithcode/pull/565","model":"claude-opus-5-5[1m]"}
