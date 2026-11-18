@@ -8,3 +8,5 @@
 {"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T17:56:42.769Z","evidence":"specwithcode a2fa56790 2b24ef8cb; ThreadsPane and Chats list heading; tests passed\nHEAD 9e4c225c2b","model":"claude-opus-5-5[1m]"}
 {"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T17:56:45.578Z","model":"claude-opus-5-5[1m]"}
 {"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T17:56:45.580Z","evidence":"specwithcode bc6c3a846 2b24ef8cb; banner model, account tone, 8 phrase files; web build ok\nHEAD 9e4c225c2b","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T18:08:26.943Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T18:08:26.946Z","evidence":"specwithcode b3fb4dfaa; apps/web/tests/connect-signed-out/shoot.mjs all states pass (signed out and startup race, light and dark); screenshots and receipt in reports/fixture-2026-11-18; proof limit: notes given directly, gate proven by connectAccountState.test.ts\nHEAD 706e2c86fa","model":"claude-opus-5-5[1m]"}
