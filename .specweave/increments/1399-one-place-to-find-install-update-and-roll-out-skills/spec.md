@@ -38,7 +38,7 @@ In:
 - One Skills page that searches installed skills, connected repos and Obsidian notes.
 - Connect a skill repo, public or private.
 - Version and Update for each skill, with honest "Use now" readiness.
-- An explicit "Also add on" rollout from one source, with "Keep updated on these machines" and a result row for each machine (wording shared with Integrations, 1400).
+- An explicit "Also add on" rollout from one source, with "Keep updated on these machines" and a result row for each machine (wording shared with Integrations, 1402 D-03).
 - Adopting untracked and `npx skills` installs into one lock.
 - A generated Obsidian catalog note.
 - Fixes for the filter bug, the empty-agent explanation and the misleading "All environments" option on the Skills page.
@@ -57,8 +57,8 @@ Gate: AC-01 to AC-03 are local and read-only and may ship now. The review of Nov
 
 - [ ] AC-01: An Agent, Level or Tier filter value with no matching option on this machine still renders as a selected chip with count 0, so one click clears it. With a filter seeded from the composer link (`?agent=claudeAgent`) on a machine with only Codex skills, the page shows a selected "Claude 0" chip next to "Codex 6", never a hidden filter. The chip uses the agent's display name ("Claude"), never the raw id (`claudeAgent`). The filter row also renders when the machine has zero rows but a filter is active, since today it is gated on `rows.length > 0` (`ProjectSkillsSettings.tsx:975`). Clear filters restores all rows.
 - [ ] AC-02: When an agent the machine has reports zero skills, the footer names it and says why, for example "Claude: no skills installed on M5". Skills Claude loads from claude.ai sync are listed read-only with the source "claude.ai", and no toggle or edit is offered. On M5 this shows the 35 synced skills instead of "Claude 0".
-- [ ] AC-03: The Skills page shows exactly one machine, with one picker for the whole page and none inside sections. The picker is the shared `SettingsScopeSentence.tsx`, so it needs a per-page option that hides "All environments" for Skills only. The scope line reads "Set up on [M5 v]", captioned "Each machine keeps its own. Changes here only affect M5." Copy says "machine", never "environment". "All environments" is gone from the Skills page and stays on Usage. A read-only view labelled "Across machines" replaces it. It shows one row per skill and one column per reachable machine, with the version or a status chip in each cell and the time each machine was read. It reuses the per-machine reads behind 1248's "Available on" and does not add a second fleet read. It has no toggles that write to every machine, and it never reports unknown as missing.
-- [ ] AC-03a: Each skill uses the status chips shared with Integrations (1400): "On this machine", "Not on M5", "Needs sign-in" (a private repo with no GitHub access) and "Offline". Skills add one more, "Update available x.y.z". Claude.ai-synced and Codex system skills sit in a "Built into the agent" block, which is never installable or editable.
+- [ ] AC-03: The Skills page shows exactly one machine, with one picker for the whole page and none inside sections. The picker is the shared `SettingsScopeSentence.tsx`, so it needs a per-page option that hides "All environments" for Skills only. The scope line reads "Set up for [firstproject v] on [M5 v]" (Skills is project-scoped in `settingsPageScope.ts`; the user level reads "Set up for [All projects v] on [M5 v]"), captioned "Each machine keeps its own. Changes here only affect M5." Copy says "machine", never "environment". "All environments" is gone from the Skills page and stays on Usage. A read-only view labelled "Across machines" replaces it. It shows one row per skill and one column per reachable machine, with the version or a status chip in each cell and the time each machine was read. It reuses the per-machine reads behind 1248's "Available on" and does not add a second fleet read. It has no toggles that write to every machine, and it never reports unknown as missing.
+- [ ] AC-03a: Each skill uses the status chips shared with Integrations (1402, D-03): "On this machine", "Not on M5", "Needs sign-in" (a private repo with no GitHub access) and "Offline". Skills add one more, "Update available x.y.z". Claude.ai-synced and Codex system skills sit in a "Built into the agent" block, which is never installable or editable.
 - [ ] AC-04: One search box on the Skills page returns three groups:
   - Installed (any agent, this machine);
   - Available in a connected repo (not installed), with that repo's version;
@@ -119,7 +119,7 @@ Risks:
 
 ### Defaulted (change any before sw-do)
 - D-02: Install location → `~/.agents/skills` canonical with agent links, the current vskill layout (reversible).
-- D-04: "All environments" → removed from the Skills page only and replaced by the read-only "Across machines" view. Usage keeps it. Wording matches 1400: "machine", never "environment".
+- D-04: "All environments" → removed from the Skills page only and replaced by the read-only "Across machines" view. Usage keeps it. Wording matches 1402 D-03: "machine", never "environment".
 - D-05: Version → `metadata.version` plus source commit, because vskill installs read GitHub main and the version alone can hide changes.
 
 ### Open
