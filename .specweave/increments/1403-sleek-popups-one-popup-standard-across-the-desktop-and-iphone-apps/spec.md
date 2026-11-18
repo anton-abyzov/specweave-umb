@@ -79,7 +79,7 @@ Risks: the default cap can truncate a wide picker that relied on content width (
 - D-04: Tooltips out of scope (not in Anton's list); toasts covered by variant, not by caller.
 - D-05: Solid destructive buttons use the existing `--destructive-solid` token (the error color with OKLCH lightness capped at 0.55) under white text in light and dark, because white on the raw token measured 4.03:1 in light and 3.53:1 in dark. Changed from a light-only 84% mix after the Muse review; the fixture checks both the themed and unthemed tokens.
 - D-06: AC-01's per-row status for desktop call sites is the width decision (standard or exempt with its reason) in `reports/popup-call-sites.md`; capture status is per popup in the real-app capture (107 popups) and per row for iPhone (`ios-audit.json`). Decided after the Muse review.
-- D-07: Escape returns focus to the menu's opener from the shared `MenuPopup` when Base UI 1.5 leaves it on the page body (it skips its own return when the row under the pointer holds focus at close). Found by the Muse review; affects every menu, not only the machine menu.
+- D-07: Escape returns focus to the menu's opener from the shared `MenuPopup` when Base UI 1.5 leaves it on the page body (it skips its own return when the row under the pointer holds focus at close). Covers submenus too (focus returns to the row that opened the submenu). Found by the Muse review; affects every menu, not only the machine menu. `keepMounted` menus are not covered (no call site uses one).
 ### Open
 - none
 
