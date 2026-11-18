@@ -1,0 +1,12 @@
+{
+  "id": "1416-the-joining-machine-shows-its-code-and-later-holds-across-restarts",
+  "uuid": "448ad1da-5be4-4b82-bb9e-d05a28d1e9e6",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-18T16:47:36.139Z",
+  "updated": "2026-11-18T16:47:36.139Z",
+  "lastActivity": "2026-11-18T16:47:36.139Z",
+  "title": "The joining machine shows its code, and Later holds across restarts",
+  "project": "specweave-umb"
+}
