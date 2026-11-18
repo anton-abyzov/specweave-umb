@@ -106,7 +106,7 @@ Out:
 
 - [ ] AC-19: Strings follow each surface's practice on the day. `docs/user/` gains a page on plans and the board: what SpecWeave adds, the card, the three states, a folder without Git. CHANGELOG Unreleased has the entries, in both repositories.
 - [ ] AC-20: No code before Anton accepts. The gate is the line "Accepted by Anton on <date>" in 1387's spec, with D-01 and D-02 answered here.
-- [ ] AC-21: Muse Wonder Full 1.0 at Extra High, with full access, reviews each PR at its head. Every finding is fixed or answered in `reports/reviews/`. Each PR is green, merged and released, and the scenario of AC-10 is then run once by hand in firstproject on M5. The press is Anton's.
+- [ ] AC-21: Muse Wonder Full 1.0 at Extra High, with full access, reviews each PR at its head. Every finding is fixed or answered in `reports/reviews/`. Each PR is green, merged and released, and the scenario of AC-10 is then run once by hand on M5, in a plain folder with at least one file and no Git that is added as an existing folder (D-11; amended November 18, 2026, the first wording said "in firstproject on M5"). The press is Anton's.
 
 ## Approach
 
@@ -179,6 +179,7 @@ If 1392 changes before it merges, T-03 and T-04 are re-read against what merged,
 - D-08, settled by the increment's lead on November 18, 2026: the card is kept per project on the server and shown through the workspace snapshot, with one new call, `projects.specweaveAnswer`, for "Plan without it", "Not now" and the composer line. That call reuses an existing access scope that a window without file-write access holds; a new scope would go to Anton. A real timeline item was weighed and left out, because it adds about 20 files across the orchestration layer and the phone app. T-05's Files are widened for it.
 - D-09, same day: `--project-root` prints the AC-04 message too, so `bin/specweave.js` joins T-02's Files and one CLI release is enough.
 - D-10, same day: the launch tools keep AC-06's result, `{ launched: false, needs: "specweave" }`, and do not turn it into a tool error. An error reaches the agent as a bad request and invites a retry without a plan.
+- D-11, same day: the M5 hand run moves from firstproject to a new plain folder on M5. firstproject got Git and `config.json` at 5:02 AM EST on November 18, 2026, when 1392's check pressed the Board's "Set up Git and SpecWeave" there (`.specweave/increments/1392-set-up-git-and-specweave-in-one-click-for-new-projects/reports/m5-verification.md`; read back on M5 the same evening: one empty commit `297070b`, `config.json` from 5:02:39). A request there now plans 0002 with no card, so it would not show AC-10, and the folder is not stripped to bring the old state back. The new folder holds one file and no Git and is added as an existing folder, because a project made in New project gets SpecWeave by default (D-02, A). Its coordinator runs on Codex while Claude on M5 is at its limit (until about 9 PM Eastern on November 19, 2026): a launch with `"new"` answers `model_unavailable` before `needs: "specweave"` when no model can be routed.
 
 ### Open
 - none
@@ -226,5 +227,5 @@ Rounds 1 and 2 were on 1387 before the split. Their findings on this part and th
 ### T-11 Docs and the changelogs
 - AC: AC-19 | Files: repositories/anton-abyzov/specwithcode/docs/user/plans-and-board.md, repositories/anton-abyzov/specwithcode/CHANGELOG.md | Test: grep -q "Set up SpecWeave" repositories/anton-abyzov/specwithcode/docs/user/plans-and-board.md
 
-### T-12 Review each PR, ship, run the scenario in firstproject on M5, verify and close
+### T-12 Review each PR, ship, run the scenario on M5 (D-11), verify and close
 - AC: AC-21 | Files: none | Test: specweave verify 1396-plans-and-a-board-out-of-the-box-specweave-when-a-project-is-made-when-a-plan-is-asked-for-and-on-the-board
