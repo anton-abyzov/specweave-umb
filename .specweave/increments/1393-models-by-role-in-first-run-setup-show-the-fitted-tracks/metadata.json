@@ -1,14 +1,17 @@
 {
   "id": "1393-models-by-role-in-first-run-setup-show-the-fitted-tracks",
   "uuid": "3f7ec4f2-9db4-4748-972a-b4b82377849d",
-  "status": "planned",
+  "status": "active",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T06:57:50.133Z",
-  "updated": "2026-11-18T06:57:50.133Z",
-  "lastActivity": "2026-11-18T06:57:50.140Z",
+  "updated": "2026-11-18T20:56:27.620Z",
+  "lastActivity": "2026-11-18T20:56:27.620Z",
   "title": "Models by role in first-run setup: show the fitted tracks",
   "project": "specweave-umb",
   "parent": "1387-first-run-setup-rethought-one-working-agent-models-by-role-chrome-and-mac-access-machines-and-phone",
-  "externalLinks": {}
+  "externalLinks": {},
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
