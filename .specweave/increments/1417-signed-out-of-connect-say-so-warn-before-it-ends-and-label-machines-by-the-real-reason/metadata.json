@@ -1,15 +1,18 @@
 {
   "id": "1417-signed-out-of-connect-say-so-warn-before-it-ends-and-label-machines-by-the-real-reason",
   "uuid": "783f4aee-439d-4b54-a070-4d82af5b904f",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-18T17:19:58.031Z",
-  "updated": "2026-11-18T21:26:50.503Z",
-  "lastActivity": "2026-11-18T21:26:50.503Z",
+  "updated": "2026-11-18T23:56:03.338Z",
+  "lastActivity": "2026-11-18T23:56:03.338Z",
   "title": "Signed out of Connect: say so plainly, warn before it ends, and label each machine by the real reason",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-18T23:56:03.337Z",
+  "approvedAt": "2026-11-18T23:56:03.338Z"
 }
