@@ -25,7 +25,7 @@ What is wrong, beyond the confusing moment:
 
 In: the approval dialog and the Settings > Machines device list on desktop and web; a short device ID derived from the device's key, shown on the machine and on the device; a default iPhone name that carries the model; the waiting card on a web or desktop window; the same facts handed to the iPhone waiting screen, whose layout the thread "Mobile app disconnects often" owns (branch `fix/ios-approval-wait-loop`).
 
-Out: who may approve, what a code approves, how long a request or a code lives, the per-machine lists (approving on m1 never clears M5), the relay, notices to other devices. The iPhone reload and disconnect loop and the waiting screen's layout belong to "Mobile app disconnects often".
+Out: who may approve, what a code approves, how long a request or a code lives beyond AC-12, the per-machine lists (approving on m1 never clears M5), the relay, notices to other devices. The iPhone reload and disconnect loop and the waiting screen's layout belong to "Mobile app disconnects often".
 
 Lanes. Every AC is tagged. `[label]` changes only what is shown or which card is open, and ships after review and green CI. `[access]` changes who gets access or for how long, and waits for Anton's acceptance. This increment's first pull request holds `[label]` ACs only; the reviewer confirms the split.
 
@@ -42,8 +42,9 @@ Lanes. Every AC is tagged. `[label]` changes only what is shown or which card is
 - [ ] AC-09 [label]: An older machine's list (no short ID) and an older device (no model name) still render: names fall back to today's, the ID is left out, and `connect-devices.json` written by 1.0.343 to 1.0.349 loads unchanged. The file format does not change.
 - [ ] AC-10 [label]: Every new string goes through the translation function with entries for the eight shipped languages, and the texts quoted here match the built ones.
 - [ ] AC-11 [label]: Checked on real machines after release: on M5 and on m4 once it runs a build with device approval, and on m1 and linux-mini if agents can reach them. The live check reads each machine's device list and shows that devices with the same name carry different IDs. The two-phones-waiting case is proven by the tests of AC-01 and AC-02 and the browser scene, not staged live: staging it would mean removing one of Anton's allowed devices or signing a phone in again.
+- [ ] AC-12 [access]: A device that keeps asking keeps its request and its code. While the same key asks again, the machine moves the request's expiry to 10 minutes from that ask (written at most once per 5 minutes per device), never past 30 minutes after the request was created. A device that stops asking still expires 10 minutes after its last ask; after 30 minutes it gets a new request and a new code. Matching a code, Deny, the caps of 3 per account and 20 in total, and the new code after a server restart do not change. The readable codes kept in memory are dropped with their requests. Built in a second pull request; released only after Muse Wonderful's review and Anton's acceptance. Evidence for the need: on November 18, 2026 a phone that polled without a break saw its code for one machine change between 3:36 AM and 3:40 AM, 10 minutes after it first asked at 3:28 AM.
 
-Deferred, each `[access]`, not built here without Anton's acceptance (see Decisions): keeping a waiting device's code when its request expires and it asks again; refreshing an allowed device's stored name from its later sessions; one approval covering the same device on other machines.
+Deferred, each `[access]`, not built here without Anton's acceptance (see Decisions): keeping a code across a server restart; refreshing an allowed device's stored name from its later sessions; one approval covering the same device on other machines.
 
 ## Approach
 
@@ -73,7 +74,7 @@ Risks: the dialog now lists devices, which 1327 avoided for click-to-approve des
 - D-05 The first pull request holds `[label]` ACs only and ships after Muse Wonderful's review and green CI, as the task allows for dismiss and labelling fixes → default.
 
 ### Open
-- D-06 [access] Keep a waiting device's code and request when the 10 minutes run out and it is still asking, so the code on the phone does not change while the owner walks to the machine. Recommended: yes, with a 30 minute ceiling. The code also changes when the machine's server restarts, because the readable code lives only in memory (the file keeps its hash); keeping it across a restart means storing it, so it belongs to the same decision. Recommended: no, a restart is rare and a stored code is one more secret on disk. Needs Anton.
+- D-06 [access] Keep a waiting device's code and request when the 10 minutes run out and it is still asking, so the code on the phone does not change while the owner walks to the machine. Recommended: yes, with a 30 minute ceiling. Built as AC-12 in the second pull request after the mobile thread saw the code change on a phone that never stopped asking; its release waits for Anton. The code also changes when the machine's server restarts, because the readable code lives only in memory (the file keeps its hash); keeping it across a restart means storing it, so it belongs to the same decision. Recommended: no, a restart is rare and a stored code is one more secret on disk. Needs Anton.
 - D-07 [access] Refresh an allowed device's stored name from its later sessions, so phones allowed before this release show their model too. Recommended: yes; the key-derived ID stays fixed. Needs Anton.
 - D-08 [access] One approval covering the same device on the owner's other machines. Recommended: no; 1327 keeps one list per machine.
 
@@ -107,5 +108,11 @@ Reviewer: Muse Wonderful, `muse-wonder-full-1.0`, effort xhigh, full access, nam
 ### T-08 Check on the machines and the phones
 - AC: AC-11 | Files: .specweave/increments/1406-device-approval-with-several-devices/reports/ | Test: read the installed version and the device list on each reachable machine; screenshots of two waiting phones
 
+### T-10 A device that keeps asking keeps its code
+- AC: AC-12 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/ConnectDeviceTrust.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/ConnectDeviceTrust.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/fleet/ConnectDeviceTrust.test.ts
+
+### T-11 Review the access lane, get Anton's acceptance, release
+- AC: AC-12 | Files: .specweave/increments/1406-device-approval-with-several-devices/reports/ | Test: Muse Wonderful SHIP on the exact head, Anton's acceptance recorded, then cd repositories/anton-abyzov/specwithcode && bash scripts/release/request-release.sh --released <merge commit>
+
 ### T-09 Verify and close 1406
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11 | Files: .specweave/increments/1406-device-approval-with-several-devices/ | Test: specweave verify 1406
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11, AC-12 | Files: .specweave/increments/1406-device-approval-with-several-devices/ | Test: specweave verify 1406
