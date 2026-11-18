@@ -20,7 +20,15 @@ In: while the update agent reports `installing` (fresh, within the apply timeout
 
 ## Approach
 
-`apps/server/src/serviceUpdate/ServiceUpdateHold.ts` gains `automaticInstallApplying` (optional on the shape, so existing fakes compile; `false` in the view when absent). It reads the agent state: status `installing` and `updatedAtMs` within the apply bound. `ScheduledTaskService.runDueTasks` returns at once while it is true.
+`apps/server/src/serviceUpdate/ServiceUpdateHold.ts` gains `automaticInstallApplying`, optional on the shape so existing fakes compile. It is exposed on the view as `installApplying`, read lazily, and `false` when it is absent or throws (logged). It reads the agent state: status `installing` with `updatedAtMs` within the apply bound.
+
+`apps/server/src/scheduling/Scheduler.ts` treats it like a hold. Scheduled tasks, usage-limit recovery and provider fallback all sit out the tick, and the span counts as held. A fixed-time routine due meanwhile therefore fires late through `heldMsBetween`, not skipped as missed. Review round 1 found that gating inside `runDueTasks` lost such runs.
+
+Known limits (review round 1):
+
+- A routine firing in the seconds between the agent's admission snapshot and its `installing` write can still refuse.
+- A tick already past its check when `installing` lands can still write.
+- Linked memory and plan sync gate on `isHeld` only; this is a follow-up.
 
 Version skew: the fix protects installs from the release that ships it onward. m4's next install still runs on the 1.0.338 service, so that install can race again unless it runs held (Update now).
 
@@ -42,4 +50,4 @@ Rejected alternatives:
 ## Tasks
 
 ### T-01 Scheduler waits while an automatic install applies
-- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/serviceUpdate/ServiceUpdateHold.ts, repositories/anton-abyzov/specwithcode/apps/server/src/scheduledTasks/ScheduledTaskService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/scheduledTasks/ScheduledTaskService.installWait.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/serviceUpdate/ServiceUpdateHold.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/scheduledTasks/ScheduledTaskService.installWait.test.ts apps/server/src/serviceUpdate/ServiceUpdateHold.test.ts
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/serviceUpdate/ServiceUpdateHold.ts, repositories/anton-abyzov/specwithcode/apps/server/src/scheduling/Scheduler.ts, repositories/anton-abyzov/specwithcode/apps/server/src/scheduling/Scheduler.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/serviceUpdate/ServiceUpdateHold.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/scheduling/Scheduler.test.ts apps/server/src/serviceUpdate/ServiceUpdateHold.test.ts apps/server/src/scheduledTasks
