@@ -1,0 +1,12 @@
+{
+  "id": "1385-stop-the-iphone-signing-itself-out-of-connect",
+  "uuid": "8666dc47-84e8-4a0c-bf0b-755a35c0209e",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T05:17:31.500Z",
+  "updated": "2026-11-18T05:17:31.500Z",
+  "lastActivity": "2026-11-18T05:17:31.500Z",
+  "title": "Stop the iPhone signing itself out of Connect",
+  "project": "specweave-umb"
+}
