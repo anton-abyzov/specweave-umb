@@ -14,8 +14,10 @@ In 1.0.345 the answer is spread over five entries that each move a different sli
 
 Two gaps make Away, the decided one-action path (increment 1267), unusable for this project:
 
-1. A thread in a worktree set (several repositories in one thread folder) never moves (`WORKTREE_SET_HANDOFF_MESSAGE` in `HandoffMoves.ts`). The specweave project has Use worktrees on, and the M4 has 40 worktree-set manifests under `~/.specwithcode/m4/worktrees/specweave-umb/`. Away lists those threads as "Stays: Finish it here", so most of Anton's real work stays on the M4.
+1. A thread in a worktree set (several repositories in one thread folder) never moves (`WORKTREE_SET_HANDOFF_MESSAGE` in `HandoffMoves.ts`). The specweave project has Use worktrees on. On November 18, 2026, all 35 unarchived specweave threads with their own worktree on the M4 were worktree sets (checked by a read-only query against the manifests on disk). Away lists them as "Stays: Finish it here", so in this project it moves no worktree thread at all.
 2. Idle and finished threads are not in the plan, even when their worktrees hold uncommitted or unpushed work. Closing the laptop strands that work.
+
+On a lid close: Away target is Off by default (`sleepTarget: null`). With a target set, the target takes the coordinators after the grace time (2 minutes) but continues only threads already replicated to it, which are those with Keep ready to move on (`defaultMode: "off"`). So closing the lid moves no threads by default.
 
 On tokens: every move checks only that the M5's provider is installed, on and signed in (`handoffPreflight.ts`). If both Macs use the same Claude or Codex account, the limit is shared, and the move gains no tokens. Only the limit banner's "Move to {machine}" (Settings > Models > Other machines) skips a machine on the same account. Away and Move thread say nothing.
 
@@ -43,6 +45,7 @@ Out:
 - [ ] AC-04: The Leave this machine dialog has "Coordinators: projects with live work / every linked project", and the choice reaches `away.preflight` and `away.start` as `coordinatorScope`.
 - [ ] AC-05: When the target's provider account for a moving thread is the same account as the source's, and the source's usage for that provider is at or over the switch threshold, the plan row and the Move thread dialog say "{target} uses the same {provider} account, so this does not add usage". The move is still allowed.
 - [ ] AC-06: In the machine chip menu, "Leave this machine…" carries the hint "Threads, unsaved work, routines and Main go to the machine you pick". "Move running threads…" says how many threads it would list, and shows "None set to Keep ready to move" when it lists none.
+- [ ] AC-08: With an Away target set and the lid closed, the target continues every thread the Leave plan would have moved, not only threads with Keep ready to move on: the source replicates them within the sleep notice, or the target pulls their checkpoints when it acts.
 - [ ] AC-07: A headless fixture shows the plan for the scenario: two running threads (one in a worktree set), one idle thread with uncommitted files, a coordinator, and a same-account target. Captures are taken light and dark at 1280 and 390 px.
 
 ## Approach
@@ -84,8 +87,8 @@ Risks:
 ### T-01 Worktree-set threads move as one
 - AC: AC-01 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/handoff/checkpointGit.ts, repositories/anton-abyzov/specwithcode/apps/server/src/handoff/bundleGit.ts, repositories/anton-abyzov/specwithcode/apps/server/src/handoff/HandoffMoves.ts, repositories/anton-abyzov/specwithcode/apps/server/src/handoff/HandoffReceiver.ts, repositories/anton-abyzov/specwithcode/apps/server/src/handoff/HandoffMoves.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/handoff/HandoffMoves.test.ts
 
-### T-02 Away plans unsaved idle threads, same-account rows and coordinator scope
-- AC: AC-02, AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/away/AwayPlanner.ts, repositories/anton-abyzov/specwithcode/apps/server/src/away/AwayPlanner.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/away.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/away/AwayPlanner.test.ts
+### T-02 Away plans unsaved idle threads, same-account rows, coordinator scope and lid-close replication
+- AC: AC-02, AC-04, AC-05, AC-08 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/away/AwayPlanner.ts, repositories/anton-abyzov/specwithcode/apps/server/src/away/AwayPlanner.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/away.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/away/AwayPlanner.test.ts
 
 ### T-03 Away hands coordinators over by the Make-main path after threads
 - AC: AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/away/AwayRunner.ts, repositories/anton-abyzov/specwithcode/apps/server/src/away/AwayRunner.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/away/AwayRunner.test.ts
@@ -97,4 +100,4 @@ Risks:
 - AC: AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/tests/away-mode/mocks.tsx, repositories/anton-abyzov/specwithcode/apps/web/tests/away-mode/main.tsx, repositories/anton-abyzov/specwithcode/apps/web/tests/away-mode/verify.mjs | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp build --config apps/web/tests/away-mode/vite.config.ts && node apps/web/tests/away-mode/verify.mjs
 
 ### T-06 Verify and close 1389
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07 | Files: .specweave/increments/1389-leave-this-machine-takes-everything/reports/closure.md | Test: specweave verify 1389-leave-this-machine-takes-everything
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08 | Files: .specweave/increments/1389-leave-this-machine-takes-everything/reports/closure.md | Test: specweave verify 1389-leave-this-machine-takes-everything
