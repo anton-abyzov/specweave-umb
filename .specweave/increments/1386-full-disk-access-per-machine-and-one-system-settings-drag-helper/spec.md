@@ -44,32 +44,32 @@ Out:
 
 ## Acceptance Criteria
 
-- [ ] AC-01: Every Full Disk Access surface names the item macOS actually judges for agents: SpecWithCode.app when the app started the service (the service is its child, so macOS holds the app responsible), otherwise the service's own executable (a launchd job, for example a `node` binary). The service resolves it from its own executable and its ancestors (`machineHandoff.privacyAccess` → `agentHost`). Revised November 18, 2026 after the T-01 spike: a signed helper bundle that keeps one identity across updates for launchd services is a follow-up, recorded as a proof limit.
+- [x] AC-01: Every Full Disk Access surface names the item macOS actually judges for agents: SpecWithCode.app when the app started the service (the service is its child, so macOS holds the app responsible), otherwise the service's own executable (a launchd job, for example a `node` binary). The service resolves it from its own executable and its ancestors (`machineHandoff.privacyAccess` → `agentHost`). Revised November 18, 2026 after the T-01 spike: a signed helper bundle that keeps one identity across updates for launchd services is a follow-up, recorded as a proof limit.
 - [ ] AC-02: After the user turns on Full Disk Access for the agent host and the service restarts, an agent on that Mac lists Chrome profiles (reads `Local State` and each profile's `Preferences`) and reads `~/Library/Mail`. The grant survives an update to the next SpecWithCode version with no new approval.
-- [ ] AC-03: Settings > Machines shows a "Full Disk Access for agents" row in each Mac's readiness checklist, with one of three states:
+- [x] AC-03: Settings > Machines shows a "Full Disk Access for agents" row in each Mac's readiness checklist, with one of three states:
   - Allowed (green).
   - Not allowed. It names what agents can't read and offers Open System Settings.
   - Allowed, restart needed. The grant exists but the running service started before it, so it offers Restart agents.
 
   The agent host's own probe on that machine sets the state and reaches Settings over RPC. On a remote Mac's card the row shows the status and the step to take on that Mac, with no deep link.
-- [ ] AC-04: Open System Settings opens Privacy & Security > Full Disk Access with the drag helper. The helper offers the agent host to drag and closes by itself once the agent-host probe reports access. The row then rechecks every 2 s for up to 2 minutes and on window focus.
-- [ ] AC-05: The service never restarts on its own after a grant. When new agent runs have access but the long-lived service process does not, the row says "allowed, restart running threads" and explains that threads already running get it after they restart. Revised: no Restart button; restarting the service is the existing update and service controls' job.
-- [ ] AC-06: One shared helper serves every pane the app sends the user to: Full Disk Access, App Data, Screen & System Audio Recording, Accessibility, Automation.
+- [x] AC-04: Open System Settings opens Privacy & Security > Full Disk Access with the drag helper. The helper offers the agent host to drag and closes by itself once the agent-host probe reports access. The row then rechecks every 2 s for up to 2 minutes and on window focus.
+- [x] AC-05: The service never restarts on its own after a grant. When new agent runs have access but the long-lived service process does not, the row says "allowed, restart running threads" and explains that threads already running get it after they restart. Revised: no Restart button; restarting the service is the existing update and service controls' job.
+- [x] AC-06: One shared helper serves every pane the app sends the user to: Full Disk Access, App Data, Screen & System Audio Recording, Accessibility, Automation.
   - It deep-links to the pane, floats a draggable icon of the right item (SpecWithCode.app for computer use and SnapShot, the agent host for agent panes) inside the Settings window, and closes when that pane's grant is detected.
   - Panes that don't accept a drag get a one-line instruction in the same panel instead of the icon.
   - The four defects listed in Problem are fixed, with a test each.
-- [ ] AC-07: Every place that tells the user to open a TCC pane goes through the helper. No UI string or agent prompt tells the user to open System Settings by hand.
-- [ ] AC-08: An agent refused a protected path calls `request_access` with a new `permission` subject (`full-disk-access`) and a reason. The thread shows the existing card shell with the following:
+- [x] AC-07: Every place that tells the user to open a TCC pane goes through the helper. No UI string or agent prompt tells the user to open System Settings by hand.
+- [x] AC-08: An agent refused a protected path calls `request_access` with a new `permission` subject (`full-disk-access`) and a reason. The thread shows the existing card shell with the following:
   - "<Agent> needs Full Disk Access on <machine>" and the agent's reason
   - what it unlocks: Chrome and Safari profiles and history, Mail, Messages, Notes, Photos library, Time Machine, other apps' containers
   - the risk line: "Every agent on <machine>, in every project and with every provider, gets this until you turn it off in System Settings."
   - Open System Settings (opens the helper) and Not now
 
   There are no "this session" or "always" choices, because an OS grant can't be scoped per thread. The card resolves `allowed` when the probe sees the grant after a restart, `denied` on Not now, and `timed_out` after 10 minutes. A routing line in the orchestration prose replaces text blockers with this call.
-- [ ] AC-09: Windows and Linux show no row and no card. `request_access` for `full-disk-access` returns `not_applicable` with the reason: same-user processes can already read other apps' data. Elevated (admin or root) access stays out of scope.
+- [x] AC-09: Windows and Linux show no row and no card. `request_access` for `full-disk-access` returns `not_applicable` with the reason: same-user processes can already read other apps' data. Elevated (admin or root) access stays out of scope.
 - [x] AC-10: The mockup is accepted by Anton before any code (accepted November 18, 2026).
-- [ ] AC-13: Onboarding tells every new Mac user this option exists without forcing it: the existing first-run Access step gets an optional, collapsed "Full Disk Access for agents (optional)" item with what it unlocks, the security warning, "some tasks need it", and Open System Settings. Continue never depends on it, so release walkers keep passing unchanged. `docs/user/full-disk-access.md` is linked from it and from Settings.
-- [ ] AC-11: `docs/user/computer-use.md` and a new `docs/user/full-disk-access.md` cover the row, the card, the risk and the drag helper, along with CHANGELOG Unreleased.
+- [x] AC-13: Onboarding tells every new Mac user this option exists without forcing it: the existing first-run Access step gets an optional, collapsed "Full Disk Access for agents (optional)" item with what it unlocks, the security warning, "some tasks need it", and Open System Settings. Continue never depends on it, so release walkers keep passing unchanged. `docs/user/full-disk-access.md` is linked from it and from Settings.
+- [x] AC-11: `docs/user/computer-use.md` and a new `docs/user/full-disk-access.md` cover the row, the card, the risk and the drag helper, along with CHANGELOG Unreleased.
 - [ ] AC-12: Shipped. The PR is reviewed and green, merged and released. AC-02 is verified on M4 and M5 in the released app.
 
 ## Approach
@@ -139,6 +139,10 @@ Risks:
 - Whether the Full Disk Access list accepts a dragged bare executable on macOS 27, and the `Privacy_AppData` deep link, are not verified here; the "+" picker is the documented fallback and no flow opens App Data.
 - AC-02 needs the owner to grant Full Disk Access on a Mac; the card, row and probe are verified by tests and by the live probe on M4 reading `not-allowed` with `agentHost` = the service's `node`.
 - The iPhone app decodes the new `permission` kind and shows the generic card; an Allow there returns "Only System Settings can allow this".
+
+- Shipped November 18, 2026: PR #565 merged as `f0dd8ac`, released in v1.0.350. The released server bundle (`studio-1.0.350-3b9166a5763a.tar.gz`, SHA256 checked) carries `machineHandoff.privacyAccess`, `system_settings_only`, the risk line and the TCC-first probe order; the web bundle carries the first-run item and the card; the signed app's `app.asar` carries the helper close channel and the App Data and Automation panes.
+- AC-02 and AC-12 wait on the owner: turn on Full Disk Access for the agent host on M4 and M5 after each installs 1.0.350 (M4 still ran an older build on November 18; updates are never forced). Then an agent lists Chrome profiles and reads `~/Library/Mail` there.
+- Review residuals kept (cross-family review, four rounds, final ship with no findings at `8d4836ca6`): the drag item path and name come from the app's own renderer; when the TCC folder is missing or unreadable for another reason, the Safari fallback could read an App Data grant as Full Disk Access; a non-empty but truncated ancestry walk stays cached until the service restarts.
 
 ## Decisions
 
