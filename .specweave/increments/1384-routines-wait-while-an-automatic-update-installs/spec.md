@@ -14,9 +14,9 @@ In: while the update agent reports `installing` (fresh, within the apply timeout
 
 ## Acceptance Criteria
 
-- [ ] AC-01: While the agent state says `installing` and was written within `AGENT_APPLY_TIMEOUT_MS + AGENT_RETRY_MS`, a scheduler tick writes no `scheduled_tasks` or occurrence row, and a due routine is still due afterwards.
-- [ ] AC-02: Once the status leaves `installing`, or an `installing` state is older than that bound (a dead agent), the next tick fires the due routine as before.
-- [ ] AC-03: Services built without an update hold (tests, tools) and fakes of the hold shape behave as before.
+- [x] AC-01: While the agent state says `installing` and was written within `AGENT_APPLY_TIMEOUT_MS + AGENT_RETRY_MS`, a scheduler tick writes no `scheduled_tasks` or occurrence row, and a due routine is still due afterwards.
+- [x] AC-02: Once the status leaves `installing`, or an `installing` state is older than that bound (a dead agent), the next tick fires the due routine as before.
+- [x] AC-03: Services built without an update hold (tests, tools) and fakes of the hold shape behave as before.
 
 ## Approach
 
@@ -29,6 +29,8 @@ Known limits (review round 1):
 - A routine firing in the seconds between the agent's admission snapshot and its `installing` write can still refuse.
 - A tick already past its check when `installing` lands can still write.
 - Linked memory and plan sync gate on `isHeld` only; this is a follow-up.
+
+Review round 2 (ship) added two more limits. The held span is kept in memory, so a fixed-time routine due in an install longer than 10 minutes can still be skipped across the restart, as with any held install. Startup recovery of interrupted runs also gates on `isHeld` only.
 
 Version skew: the fix protects installs from the release that ships it onward. m4's next install still runs on the 1.0.338 service, so that install can race again unless it runs held (Update now).
 
