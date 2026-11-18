@@ -1,0 +1,13 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:24.662Z","note":"session 12565d72-708b-4b03-bcb3-6f526faa96e2","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:24.663Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:24.665Z","evidence":"477f4a5e4; shared 4/4, server ConnectDeviceTrust + connectDevicesHttp 22/22 pass\nHEAD a17ee9ea70","model":"claude-fable-5-2[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:25.312Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:25.314Z","evidence":"a8eb561de; ConnectDeviceViews.test.tsx 13/13 pass\nHEAD a17ee9ea70","model":"claude-fable-5-2[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:26.104Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:26.106Z","evidence":"a8eb561de; ConnectDevicesSection.test.tsx pass (353 web tests in 3 files)\nHEAD a17ee9ea70","model":"claude-fable-5-2[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:26.586Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:26.588Z","evidence":"a8eb561de; DeviceWaitingList + own ID tests pass; fixture waiting-three-machines ok\nHEAD a17ee9ea70","model":"claude-fable-5-2[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:27.203Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:27.228Z","evidence":"0b391ee79; swift test --filter DeviceShortID 3/3 pass; App-target label tests added, run by CI\nHEAD a17ee9ea70","model":"claude-fable-5-2[1m]"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:28.087Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-18T09:07:28.089Z","evidence":"a8eb561de 02125c969; i18n.test.ts pass; verify.mjs 15/15 scenes, screenshots in reports/screens\nHEAD a17ee9ea70","model":"claude-fable-5-2[1m]"}
