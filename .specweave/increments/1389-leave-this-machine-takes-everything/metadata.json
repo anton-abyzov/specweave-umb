@@ -1,0 +1,12 @@
+{
+  "id": "1389-leave-this-machine-takes-everything",
+  "uuid": "c2fab138-8aa0-406c-b9cb-436dca5f13b1",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T06:18:58.519Z",
+  "updated": "2026-11-18T06:18:58.519Z",
+  "lastActivity": "2026-11-18T06:18:58.519Z",
+  "title": "Leave this machine takes everything to another machine",
+  "project": "specweave-umb"
+}
