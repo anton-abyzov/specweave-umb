@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T08:29:17.594Z",
-  "updated": "2026-11-18T08:29:17.594Z",
-  "lastActivity": "2026-11-18T08:29:17.594Z",
+  "updated": "2026-11-18T09:48:15.160Z",
+  "lastActivity": "2026-11-18T09:48:15.160Z",
   "title": "Project threads on a linked copy show under their project, and remote launches follow the project's models",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
