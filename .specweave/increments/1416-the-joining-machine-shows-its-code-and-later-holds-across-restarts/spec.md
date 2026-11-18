@@ -24,7 +24,7 @@ Where the code shows on the asking Mac today: the card at the top of its SpecWit
 
 ## Scope
 
-In: the machine rows of the Connect lists show a waiting machine's code, this device's ID and the machine; the floating card stays readable over dialogs; Later is remembered on the approving machine across restarts; restart tests on the server; checks on real Macs after release.
+In: the machine rows of the Connect lists show a waiting machine's code, this device's ID and the machine; the floating card stays readable over dialogs, and comes back whenever a row's code is out of view or covered (PR #622); Later is remembered on the approving machine across restarts; restart tests on the server; checks on real Macs after release.
 
 Out: who may approve, what a code approves, sharing an approval between machines (D-01), the snapshot the first start takes, the iPhone waiting screen (1408), the relay.
 
@@ -55,11 +55,11 @@ Risks: an inline code mounted but scrolled out of view hides the floating card f
 ## Decisions
 
 ### Asked
-- D-01 Should an approval on one of Anton's machines count on his other machines (so m1, allowed on M5, would not ask m4)? → pending Anton. Recommended: no, each machine keeps its own list (November 17 decision: the account join is not exempt; a machine approves each new device once). Building it would be `[access]`.
+- D-01 Should an approval on one of Anton's machines count on his other machines (so m1, allowed on M5, would not ask m4)? → No, each Mac approves once (Anton, November 18, 2026). Each machine keeps its own list; nothing is built for sharing.
 ### Defaulted (change any before sw-do)
 - D-02 Later is kept for 30 days from the last Later, at most 100 per machine; no prune on allow, since an allowed device no longer asks → default (reversible).
 ### Open
-- D-01
+- none
 
 ## Tasks
 
