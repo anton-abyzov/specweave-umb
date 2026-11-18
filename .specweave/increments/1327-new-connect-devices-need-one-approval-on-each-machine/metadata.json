@@ -5,9 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-13T22:25:28.597Z",
-  "updated": "2026-11-13T23:45:00.638Z",
-  "lastActivity": "2026-11-13T23:45:00.638Z",
+  "updated": "2026-11-18T00:18:00.480Z",
+  "lastActivity": "2026-11-18T00:18:00.480Z",
   "title": "New Connect devices need one approval on each machine",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
