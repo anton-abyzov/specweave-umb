@@ -5,8 +5,11 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-18T08:30:42.036Z",
-  "updated": "2026-11-18T08:57:29.471Z",
-  "lastActivity": "2026-11-18T08:57:29.471Z",
+  "updated": "2026-11-18T09:50:10.363Z",
+  "lastActivity": "2026-11-18T09:50:10.363Z",
   "title": "Agents ask before changing a project's model, and a model switch keeps effort and Ultracode",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }

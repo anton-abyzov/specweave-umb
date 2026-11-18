@@ -35,14 +35,14 @@ Out:
 
 ## Acceptance Criteria
 
-- [ ] AC-01: `studio_project_update` refuses a `defaultModelSelection` that differs from a saved one, and a `workspaceSettings.coordinatorModelSelection` that differs from a saved one, including clearing either. The refusal names `studio_project_request` with action `change_model`, and nothing is written. A thread model saved as a Project settings override (Settings scoped to the project, "no model" included) counts as saved. On a project whose threads start from model tracks the refusal says so and names no card.
-- [ ] AC-02: `studio_project_update` still sets either model when none is saved, accepts a value identical to the saved one, and still applies other fields (goal, icon, title). A first model names each option once and, for another machine's work, uses a sign-in its grant allows. `studio_project_create` with `workspaceRoot` and `defaultModelSelection` saves that model with the creation.
-- [ ] AC-03: `studio_project_request` with action `change_model`, a `role` (`threads` or `coordinator`) and a `modelSelection` shows an approval card that names the project, the role, the current model and the new model, each with its options (effort, Ultracode, context window, Thinking, Fast mode), and lists the options the new choice leaves off.
-- [ ] AC-04: Approving the card saves exactly the selection the card named and makes it the model new threads start on, removing an older Project settings override; declining changes nothing. If the saved model changed after the card was shown, or between the check and the write, approval changes nothing and says so.
-- [ ] AC-05: A `change_model` request is refused before any card when the selection equals the saved one; names a provider, model, option or option value this machine does not list; names an option twice; when the machine's model list is not loaded; for the threads role on a project that uses model tracks; for a project outside the caller's work grant; or for a sign-in the grant does not allow.
-- [ ] AC-06: Picking another model in the project's threads-model picker (Project settings and the Models popover) and in the coordinator picker keeps the options the new model offers (Ultracode on, effort, 1M context, Thinking, Fast mode) and reports the ones it does not. Going back to a model that offers them restores the ones a model in between could not run.
-- [ ] AC-07: The tool descriptions for `studio_project_update` and `studio_project_request`, and the owner table in `docs/internals/agent-instructions.md`, say that a project's saved models are the user's to change and how an agent asks.
-- [ ] AC-08: An adversarial review by `muse-wonder-full-1.0` at xhigh effort in full-access mode ends in SHIP, or every blocker is fixed and rechecked; then the PR merges on green CI and a release is requested through `request-release.sh`.
+- [x] AC-01: `studio_project_update` refuses a `defaultModelSelection` that differs from a saved one, and a `workspaceSettings.coordinatorModelSelection` that differs from a saved one, including clearing either. The refusal names `studio_project_request` with action `change_model`, and nothing is written. A thread model saved as a Project settings override (Settings scoped to the project, "no model" included) counts as saved. On a project whose threads start from model tracks the refusal says so and names no card.
+- [x] AC-02: `studio_project_update` still sets either model when none is saved, accepts a value identical to the saved one, and still applies other fields (goal, icon, title). A first model names each option once and, for another machine's work, uses a sign-in its grant allows. `studio_project_create` with `workspaceRoot` and `defaultModelSelection` saves that model with the creation.
+- [x] AC-03: `studio_project_request` with action `change_model`, a `role` (`threads` or `coordinator`) and a `modelSelection` shows an approval card that names the project, the role, the current model and the new model, each with its options (effort, Ultracode, context window, Thinking, Fast mode), and lists the options the new choice leaves off.
+- [x] AC-04: Approving the card saves exactly the selection the card named and makes it the model new threads start on, removing an older Project settings override; declining changes nothing. If the saved model changed after the card was shown, or between the check and the write, approval changes nothing and says so.
+- [x] AC-05: A `change_model` request is refused before any card when the selection equals the saved one; names a provider, model, option or option value this machine does not list; names an option twice; when the machine's model list is not loaded; for the threads role on a project that uses model tracks; for a project outside the caller's work grant; or for a sign-in the grant does not allow.
+- [x] AC-06: Picking another model in the project's threads-model picker (Project settings and the Models popover) and in the coordinator picker keeps the options the new model offers (Ultracode on, effort, 1M context, Thinking, Fast mode) and reports the ones it does not. Going back to a model that offers them restores the ones a model in between could not run.
+- [x] AC-07: The tool descriptions for `studio_project_update` and `studio_project_request`, and the owner table in `docs/internals/agent-instructions.md`, say that a project's saved models are the user's to change and how an agent asks.
+- [x] AC-08: An adversarial review by `muse-wonder-full-1.0` at xhigh effort in full-access mode ends in SHIP, or every blocker is fixed and rechecked; then the PR merges on green CI and a release is requested through `request-release.sh`.
 
 ## Approach
 
@@ -97,3 +97,14 @@ Risks:
 
 ### T-05 Review, merge, release, verify and close
 - AC: AC-08 | Files: .specweave/increments/1405-agents-ask-before-changing-a-projects-model-and-a-model-switch-keeps-effort-and-ultracode/reports/ | Test: gh pr view --repo anton-abyzov/specwithcode --json state,mergedAt
+
+## Follow-ups
+
+Round 2 review (`reports/reviews/review-muse-wonder-full-1.0-2.md`) returned SHIP with minor findings, left for a later increment:
+
+- An update identical to the effective override model rewrites the masked project field and drops the override.
+- The approval compare-and-set pins the field, not the override, so a user save inside the approval window can be removed; the direct first-model write has the same race.
+- A failed override removal after a successful field write reports "nothing changed".
+- `studio_project_create` saves its model without the duplicate-option check.
+- Direct first-model writes are not checked against the catalog.
+- Picker held options are keyed by the selection value, not the project.
