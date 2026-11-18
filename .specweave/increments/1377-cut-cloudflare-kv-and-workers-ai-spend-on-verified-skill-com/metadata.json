@@ -1,0 +1,15 @@
+{
+  "id": "1377-cut-cloudflare-kv-and-workers-ai-spend-on-verified-skill-com",
+  "uuid": "3333584d-158a-4900-833b-19be01883197",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-17T14:39:53.071Z",
+  "updated": "2026-11-17T15:26:06.196Z",
+  "lastActivity": "2026-11-17T15:26:06.196Z",
+  "title": "Cut Cloudflare KV and Workers AI spend on verified-skill-com",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-17T15:26:06.195Z",
+  "approvedAt": "2026-11-17T15:26:06.196Z"
+}
