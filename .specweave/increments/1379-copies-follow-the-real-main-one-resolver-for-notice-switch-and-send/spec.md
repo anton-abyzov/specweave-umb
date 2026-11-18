@@ -31,7 +31,7 @@ Out:
 - [x] AC-03: On a copy whose main is connected and may run work from this window, the message box is on. The placeholder reads "Message {machine}'s coordinator for {project}.", Send names main's machine, and Send delivers the text to main's coordinator (`projects.coordinatorSend` on main's machine), then opens main's page. The notice says so instead of "Nothing is sent from here". With main offline or read-only, the box stays off as before.
 - [x] AC-04: A headless repro builds the M5 records (m4 epoch 0 main, m5 its copy, m1 a side coordinator at epoch 2), runs the real resolver, and checks: main m4 in the notice and the hint, the move source m4, and a typed "time now?" routed to m4. Light and dark, plus all eight languages for the existing strings.
 - [ ] AC-05: A copy that started its own coordinator beside main can be unlinked from Settings > Machines. It leaves with a fresh identity at epoch 0. Main and a copy alone in its list are still refused. m1's specweave copy is unlinked this way.
-- [ ] AC-06: On a copy whose main is elsewhere, the machine chip under the message box names main, as Send does ("Runs on m4" beside "Send to m4"); the two never name different machines (Anton, November 17, 2026, M5 on 1.0.340).
+- [x] AC-06: On a copy whose main is elsewhere, the machine chip under the message box names main, as Send does ("Runs on m4" beside "Send to m4"); the two never name different machines (Anton, November 17, 2026, M5 on 1.0.340).
 
 ## Approach
 
