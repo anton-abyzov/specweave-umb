@@ -234,19 +234,25 @@
   <div class="chk"><span class="b on"></span><div>179 uncommitted files <small>· 22 MB</small><br><small>Put into specweave's folder on M5 as uncommitted files, as they are here. 1 secret is left out and listed. Nothing is committed or deleted on m4.</small></div></div>
   <div class="chk"><span class="b on"></span><div>11 branches only on m4<br><small>Arrive as <code>swc/from-m4/…</code> branches.</small></div></div>
   <h3 style="margin-top:10px">Coordinator conversation</h3>
-  <div class="chk"><span class="b on"></span><div>Coordinator for specweave<br><small>Check passed: M5 was synced and every repository there can move forward to m4's commits.</small></div></div>
-  <div class="chk" style="padding-left:23px"><span class="b on"></span><div><small>Push these commits and continue the coordinator on M5. <span class="dim">(m4 has 10 commits that are not on GitHub; they go to a hidden ref there.)</span></small></div></div>
+  <div class="chk"><span class="b" style="opacity:.35"></span><div class="dim">Coordinator for specweave · stays on m4<br><small>M5 cannot take it yet: vskill-platform there has 2 uncommitted files. Commit or discard them on M5, then check again.</small></div></div>
   <h3 style="margin-top:10px">Routines</h3>
-  <div class="chk"><span class="b on"></span><div>4 routines of the coordinator<br><small>Each is turned off here before it is turned on there.</small></div></div>
+  <div class="chk"><span class="b" style="opacity:.35"></span><div class="dim">4 routines of the coordinator · stay with it</div></div>
   <h3 style="margin-top:10px">Stays</h3>
   <p class="dim" style="margin:0">"PR 516 review": a review finishes where it started. · "Connect sign-in": it asked you a question. Answer it first. · <code>fix-windows-tests-green</code>: its Git data is broken (<code>~/.specwithcode/m4/worktrees/specweave-umb/fix-windows-tests-green</code>).</p>
   <div class="foot"><span class="dim"><span class="b" style="display:inline-block;width:13px;height:13px;border:1.5px solid var(--border);border-radius:3px;vertical-align:-2px"></span> Also do this when m4 goes to sleep</span><span class="btn">Cancel</span><span class="btn pri">Hand off to M5</span></div>
 </div>
 
+<div class="dlg" aria-label="Coordinator row when the check passes" style="max-width:560px">
+  <div class="sub" style="margin-bottom:6px">The same rows when M5 can take the coordinator</div>
+  <div class="chk"><span class="b on"></span><div>Coordinator for specweave<br><small>Check passed: every repository on M5 can move forward to m4's commits.</small></div></div>
+  <div class="chk" style="padding-left:23px"><span class="b on"></span><div><small>Push these commits and continue the coordinator on M5. <span class="dim">(m4 has 10 commits that are not on GitHub; they go to a hidden ref there.)</span></small></div></div>
+  <div class="chk"><span class="b on"></span><div>4 routines of the coordinator<br><small>Each is turned off here before it is turned on there.</small></div></div>
+</div>
+
 <h3 style="margin-top:18px">What a hand off does, in order</h3>
 <div class="flow" role="list" aria-label="Hand off steps">
-  <div class="step" role="listitem"><b>1 Check</b><span>Nothing moves. Sizes are measured, and every check the coordinator's move needs runs now.</span></div>
-  <div class="step" role="listitem"><b>2 Hold</b><span>The ticked threads pause. Nothing in this hand off runs or commits on m4 from here.</span></div>
+  <div class="step" role="listitem"><b>1 Check</b><span>Nothing moves and nothing is sent. Sizes are measured, and every check the coordinator's move needs runs now.</span></div>
+  <div class="step" role="listitem"><b>2 Hold</b><span>After you press Hand off: the ticked threads pause and their work is copied to M5. Nothing in this hand off runs or commits on m4 from here.</span></div>
   <div class="step" role="listitem"><b>3 Coordinator</b><span>The conversation moves, as "Make main" does today. If M5 cannot take it, nothing has left m4.</span></div>
   <div class="step" role="listitem"><b>4 Folder work</b><span>The uncommitted files land in M5's folder, so the coordinator there reads the same files.</span></div>
   <div class="step" role="listitem"><b>5 Routines</b><span>Off here, then on there, with their run state.</span></div>
