@@ -8,6 +8,5 @@
   "updated": "2026-11-15T03:43:26.620Z",
   "lastActivity": "2026-11-15T03:43:26.620Z",
   "title": "Security pass from the upstream review: approval scope, Always-allow key, installer, sign-in links, framing, DPoP, browser bumps",
-  "project": "specweave-umb",
-  "externalLinks": {}
+  "project": "specweave-umb"
 }

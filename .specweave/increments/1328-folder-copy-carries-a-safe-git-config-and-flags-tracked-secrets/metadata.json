@@ -8,6 +8,5 @@
   "updated": "2026-11-13T22:25:29.783Z",
   "lastActivity": "2026-11-13T22:25:29.783Z",
   "title": "Folder copy carries a safe git config and flags tracked secrets",
-  "project": "specweave-umb",
-  "externalLinks": {}
+  "project": "specweave-umb"
 }

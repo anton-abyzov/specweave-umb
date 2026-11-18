@@ -8,6 +8,5 @@
   "updated": "2026-11-14T22:26:35.497Z",
   "lastActivity": "2026-11-14T22:26:35.497Z",
   "title": "Slow worker: fewer false drops, honest timeout reason, last seen keeps counting",
-  "project": "specweave-umb",
-  "externalLinks": {}
+  "project": "specweave-umb"
 }
