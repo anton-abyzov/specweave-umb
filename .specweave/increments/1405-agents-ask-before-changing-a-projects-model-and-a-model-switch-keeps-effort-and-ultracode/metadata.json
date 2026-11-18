@@ -1,0 +1,12 @@
+{
+  "id": "1405-agents-ask-before-changing-a-projects-model-and-a-model-switch-keeps-effort-and-ultracode",
+  "uuid": "d8699768-cae6-440d-8224-1ffc5193b51f",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-18T08:30:42.036Z",
+  "updated": "2026-11-18T08:30:42.036Z",
+  "lastActivity": "2026-11-18T08:30:42.036Z",
+  "title": "Agents ask before changing a project's model, and a model switch keeps effort and Ultracode",
+  "project": "specweave-umb"
+}
