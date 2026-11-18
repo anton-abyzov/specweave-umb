@@ -1,15 +1,18 @@
 {
   "id": "1405-agents-ask-before-changing-a-projects-model-and-a-model-switch-keeps-effort-and-ultracode",
   "uuid": "d8699768-cae6-440d-8224-1ffc5193b51f",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-18T08:30:42.036Z",
-  "updated": "2026-11-18T09:50:10.363Z",
-  "lastActivity": "2026-11-18T09:50:10.363Z",
+  "updated": "2026-11-18T12:29:11.134Z",
+  "lastActivity": "2026-11-18T12:29:11.134Z",
   "title": "Agents ask before changing a project's model, and a model switch keeps effort and Ultracode",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-18T12:29:11.133Z",
+  "approvedAt": "2026-11-18T12:29:11.134Z"
 }
