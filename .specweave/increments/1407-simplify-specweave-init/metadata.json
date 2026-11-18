@@ -1,0 +1,16 @@
+{
+  "id": "1407-simplify-specweave-init",
+  "uuid": "13d51ee0-019b-41e3-b8b4-55b9d1204b85",
+  "status": "active",
+  "type": "refactor",
+  "priority": "P1",
+  "created": "2026-11-18T08:42:49.121Z",
+  "updated": "2026-11-18T15:57:14.684Z",
+  "lastActivity": "2026-11-18T15:57:14.684Z",
+  "title": "Simplify specweave init",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specweave"
+  ],
+  "externalLinks": {}
+}
