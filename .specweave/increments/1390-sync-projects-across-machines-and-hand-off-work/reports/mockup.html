@@ -70,10 +70,10 @@
 </head>
 <body>
 <h1>Machines sync files. Work is handed off.</h1>
-<p class="lead">Proposal for increment 1390, revised after the first review. The words Main and Copy leave the interface. A project lives on several machines as equals, and three verbs cover everything you do between them. Mockup with specweave's machines and the M4's Git state of November 18. Nothing here is built.</p>
+<p class="lead">Proposal for increment 1390, revised after two review rounds. The words Main and Copy leave the interface. A project lives on several machines as equals, and three verbs cover everything you do between them. Mockup with specweave's machines and the M4's Git state of November 18. Nothing here is built.</p>
 
 <div class="verbs" role="list">
-  <div class="verb" role="listitem"><i>files</i><b>Sync</b><span>Git first: each machine fetches and fast-forwards, and a missing repository is cloned. Nothing is pushed. Work Git does not carry is offered as extras.</span></div>
+  <div class="verb" role="listitem"><i>files</i><b>Sync</b><span>Git first: each machine fetches and fast-forwards, and a missing repository is cloned. Nothing is pushed. Work Git does not carry is offered as extras and arrives as branches.</span></div>
   <div class="verb" role="listitem"><i>files, first time</i><b>Add</b><span>Put the project on a machine that does not have it: download from GitHub, plus optional extras from the source machine.</span></div>
   <div class="verb" role="listitem"><i>work</i><b>Hand off</b><span>Threads, unsaved work, the coordinator conversation and its routines continue on another machine. By hand, or by itself on sleep or at a limit.</span></div>
 </div>
@@ -120,7 +120,7 @@
       <div class="sep"></div>
       <div class="row">Machine access settings</div>
     </div>
-    <p class="dim" style="margin-top:6px">"Add to another machine…" appears under Sync… only when a paired machine does not have the project.</p>
+    <p class="dim" style="margin-top:6px">The menu after all four releases. "Add to another machine…" appears under Sync… only when a paired machine does not have the project.</p>
   </div>
 </div>
 <div class="scroll" style="margin-top:12px">
@@ -128,20 +128,31 @@
   <tr><th>A row shows (first that matches)</th><th>When</th><th>Click</th></tr>
   <tr><td class="dim">This window cannot open linux-mini · Connect…</td><td>This window never opened the machine, or the machine refuses it</td><td>Greyed. The one step that fixes it is on the row</td></tr>
   <tr><td><span class="pill">Separate project</span></td><td>Same repository, added there on its own</td><td>Opens it · Link…</td></tr>
-  <tr><td class="dim">Offline · last seen 2 hours ago · read-only</td><td>Offline, and this window saved what it last had</td><td>Opens that, every action greyed</td></tr>
   <tr><td><span class="pill warn">Second coordinator</span></td><td>It still runs a coordinator of its own (m1 today, shown as "Copy · main on m4")</td><td>Opens it · Fix…</td></tr>
   <tr><td class="dim">Handing off the coordinator…</td><td>A hand off is under way</td><td>Opens it</td></tr>
   <tr><td><span class="pill co">Coordinator</span></td><td>The coordinator conversation is on this machine</td><td>Opens it</td></tr>
   <tr><td class="dim">(no role word)</td><td>Any other machine with the project</td><td>Opens it</td></tr>
+  <tr><td class="dim">+ Offline · last seen 2 hours ago · read-only</td><td>A note on any row above: the machine is offline and this window saved what it last had</td><td>Opens that, every action greyed</td></tr>
 </table>
 </div>
 <p>From the Sync release on, a row for another machine than the one shown adds one fact: <span class="pill ok">Same as M5</span>, <span class="pill warn">3 of 5 repositories differ</span> or <span class="pill">Not checked yet</span>. It is read from local Git on both machines and makes no network call. A machine without the project is not a row.</p>
 
 <div class="dlg" aria-label="Fix dialog for a second coordinator" style="max-width:520px">
   <h4>m1 runs a second coordinator for specweave</h4>
-  <div class="sub">It last ran 6 days ago and started 3 threads. The project's coordinator is on m4.</div>
+  <div class="sub">m1 also runs a coordinator for specweave. The project's coordinator is on m4.</div>
   <p class="dim" style="margin:0">To make m1 part of this project again, link it afterwards. Linking makes it give way to the coordinator on m4. Threads and files are not touched.</p>
   <div class="foot"><span class="btn">Cancel</span><span class="btn pri">Unlink specweave on m1</span></div>
+</div>
+
+<h3 style="margin-top:18px">What ships when</h3>
+<div class="scroll">
+<table>
+  <tr><th>Release</th><th>You get</th><th>Keeps today's name until then</th></tr>
+  <tr><td class="id">1</td><td>Honest rows and chip, greyed rows, the message box, "Continue the coordinator here", Fix…, no Main or Copy anywhere</td><td>Send to another machine… · Move running threads… · Leave this machine…</td></tr>
+  <tr><td class="id">2</td><td>Sync… and Add to another machine…, the sync fact on rows</td><td>Move running threads… · Leave this machine…</td></tr>
+  <tr><td class="id">3</td><td>Hand off work…, after a proof on two machines and one more review of its engine</td><td>Keep ready to move</td></tr>
+  <tr><td class="id">4</td><td>Hand off automatically, on sleep and at a limit</td><td></td></tr>
+</table>
 </div>
 
 <h2>2. The message box on a machine without the coordinator</h2>
@@ -194,34 +205,39 @@
   </table>
   </div>
   <h3 style="margin-top:14px">Only on m4 · Git does not carry these</h3>
-  <div class="chk"><span class="b"></span><div>10 commits on <code>fix/coordinator-delegates-work</code> that were never pushed<br><small>Sent straight to M5 over the link between the machines. Nothing goes to GitHub.</small></div></div>
+  <div class="chk"><span class="b"></span><div>10 commits on <code>fix/coordinator-delegates-work</code> that were never pushed<br><small>Sent straight to M5 over the link between the machines, as branch <code>swc/from-m4/fix/coordinator-delegates-work</code>. Nothing goes to GitHub.</small></div></div>
   <div class="chk"><span class="b"></span><div>11 branches that exist only on m4</div></div>
-  <div class="chk"><span class="b"></span><div>179 uncommitted files in specweave-umb<br><small>Arrive on M5 as branch <code>swc/from-m4/uncommitted-20261118-141502-a3f9c1</code>. Includes the 10 commits above. Nothing is committed on m4.</small></div></div>
-  <div class="chk"><span class="b" style="opacity:.35"></span><div class="dim">2 stashes<br><small>Stashes stay. Compare all files… can bring them.</small></div></div>
+  <div class="chk"><span class="b"></span><div>179 uncommitted files in specweave-umb<br><small>Arrive on M5 as branch <code>swc/from-m4/uncommitted-20261118-141502-a3f9c1</code>, not as files in its folder. Includes the 10 commits above. Nothing is committed on m4.</small></div></div>
   <h3 style="margin-top:14px">Secrets and files left out</h3>
   <div class="chk"><span class="b on"></span><div><code>.specweave/project/credentials.json</code> · missing on M5<br><small>Sent sealed to M5 only. Not part of any Git snapshot.</small></div></div>
-  <p class="dim" style="margin:4px 0 0">Checked by file name and by the first 64 KB of each file. Look through the list before you send.</p>
+  <div class="chk"><span class="b"></span><div class="dim"><code>apps/server/src/fixtures/sample-key.pem</code> · looks like a key <span class="act" style="font-size:12px;border:1px solid var(--border);border-radius:6px;padding:0 6px">Send anyway</span></div></div>
+  <p class="dim" style="margin:4px 0 0">Checked by file name, and untracked files by their first 64 KB. Look through the list before you send.</p>
   <div class="foot"><span class="dim">Files outside Git on either side? <u>Compare all files…</u> is the slow, complete way.</span><span class="btn">Cancel</span><span class="btn pri">Sync</span></div>
 </div>
 
 <h2>4. Hand off</h2>
-<p>One dialog replaces Move running threads, Leave this machine and Make M5 main. Tick what goes. It checks everything first, and the coordinator moves before the threads.</p>
+<p>One dialog replaces Move running threads, Leave this machine and Make M5 main. Tick what goes. It checks everything first, pauses the threads, moves the coordinator, then continues the threads on the other machine.</p>
 <div class="dlg" aria-label="Hand off dialog">
   <h4>Hand off work from m4</h4>
   <div class="sub">To <b>M5</b> ▾ &nbsp;·&nbsp; <span class="pill warn">Same Claude account as m4: adds no usage</span> &nbsp;·&nbsp; Scope: <b>specweave</b> ▾ / Every project on m4</div>
   <h3>Running</h3>
   <div class="chk"><span class="b on"></span><div>Release tooling self-test <small>· 3 repositories · 4.1 MB</small></div></div>
   <div class="chk"><span class="b on"></span><div>Overview start page redesign <small>· 1 repository · 0.6 MB</small></div></div>
+  <h3 style="margin-top:10px">Queued</h3>
+  <div class="chk"><span class="b on"></span><div>Status page evidence <small>· 1 repository · 0.2 MB</small></div></div>
   <h3 style="margin-top:10px">Waiting for your next message</h3>
   <div class="chk"><span class="b on"></span><div>Skills across machines <small>· 2 repositories · 1.2 MB</small></div></div>
   <h3 style="margin-top:10px">Not running, with unsaved work</h3>
   <div class="chk"><span class="b on"></span><div>Signed Windows builds <small>· 14 uncommitted files, 2 commits not pushed · 0.9 MB</small></div></div>
   <div class="chk"><span class="b"></span><div>Docs refs lint <small>· 3 uncommitted files · 0.1 MB</small></div></div>
   <h3 style="margin-top:10px">Project folder work</h3>
-  <div class="chk"><span class="b on"></span><div>179 uncommitted files and 11 branches only on m4 <small>· 22 MB</small><br><small>Arrive as branch <code>swc/from-m4/uncommitted-20261118-141502-a3f9c1</code>. 1 secret is left out and listed. Nothing is committed or deleted on m4.</small></div></div>
-  <h3 style="margin-top:10px">Coordinator conversation and routines</h3>
-  <div class="chk"><span class="b on"></span><div>Coordinator for specweave, with 4 routines<br><small>Moves first, once M5's repositories are synced.</small></div></div>
+  <div class="chk"><span class="b on"></span><div>179 uncommitted files <small>· 22 MB</small><br><small>Put into specweave's folder on M5 as uncommitted files, as they are here. 1 secret is left out and listed. Nothing is committed or deleted on m4.</small></div></div>
+  <div class="chk"><span class="b on"></span><div>11 branches only on m4<br><small>Arrive as <code>swc/from-m4/…</code> branches.</small></div></div>
+  <h3 style="margin-top:10px">Coordinator conversation</h3>
+  <div class="chk"><span class="b on"></span><div>Coordinator for specweave<br><small>Check passed: M5 was synced and every repository there can move forward to m4's commits.</small></div></div>
   <div class="chk" style="padding-left:23px"><span class="b on"></span><div><small>Push these commits and continue the coordinator on M5. <span class="dim">(m4 has 10 commits that are not on GitHub; they go to a hidden ref there.)</span></small></div></div>
+  <h3 style="margin-top:10px">Routines</h3>
+  <div class="chk"><span class="b on"></span><div>4 routines of the coordinator<br><small>Each is turned off here before it is turned on there.</small></div></div>
   <h3 style="margin-top:10px">Stays</h3>
   <p class="dim" style="margin:0">"PR 516 review": a review finishes where it started. · "Connect sign-in": it asked you a question. Answer it first. · <code>fix-windows-tests-green</code>: its Git data is broken (<code>~/.specwithcode/m4/worktrees/specweave-umb/fix-windows-tests-green</code>).</p>
   <div class="foot"><span class="dim"><span class="b" style="display:inline-block;width:13px;height:13px;border:1.5px solid var(--border);border-radius:3px;vertical-align:-2px"></span> Also do this when m4 goes to sleep</span><span class="btn">Cancel</span><span class="btn pri">Hand off to M5</span></div>
@@ -230,19 +246,22 @@
 <h3 style="margin-top:18px">What a hand off does, in order</h3>
 <div class="flow" role="list" aria-label="Hand off steps">
   <div class="step" role="listitem"><b>1 Check</b><span>Nothing moves. Sizes are measured, and every check the coordinator's move needs runs now.</span></div>
-  <div class="step" role="listitem"><b>2 Sync</b><span>M5 fetches and fast-forwards.</span></div>
-  <div class="step" role="listitem"><b>3 Coordinator</b><span>The conversation moves. If M5 cannot take it, nothing has moved yet and you choose.</span></div>
-  <div class="step" role="listitem"><b>4 Routines</b><span>With their run state, so none repeats or skips a run.</span></div>
-  <div class="step" role="listitem"><b>5 Threads</b><span>One at a time, each as a hidden checkpoint. A thread across several repositories goes whole or stays.</span></div>
-  <div class="step" role="listitem"><b>6 Folder work</b><span>The snapshot branch. m4 keeps every file; "Bring work back" reverses it.</span></div>
+  <div class="step" role="listitem"><b>2 Hold</b><span>The ticked threads pause. Nothing in this hand off runs or commits on m4 from here.</span></div>
+  <div class="step" role="listitem"><b>3 Coordinator</b><span>The conversation moves, as "Make main" does today. If M5 cannot take it, nothing has left m4.</span></div>
+  <div class="step" role="listitem"><b>4 Folder work</b><span>The uncommitted files land in M5's folder, so the coordinator there reads the same files.</span></div>
+  <div class="step" role="listitem"><b>5 Routines</b><span>Off here, then on there, with their run state.</span></div>
+  <div class="step" role="listitem"><b>6 Threads</b><span>Each continues on M5. m4 keeps every file; "Bring work back" reverses it.</span></div>
 </div>
+<p class="dim">This window runs steps 1 to 3 (about a minute). m4 finishes steps 4 to 6 on its own.</p>
 <div class="scroll" style="margin-top:12px">
 <table>
   <tr><th>If it stops part way</th><th>Where things are</th><th>Offered</th></tr>
-  <tr><td>M5 cannot take the coordinator</td><td>Nothing has moved</td><td>Hand off the threads without the coordinator · Cancel</td></tr>
-  <tr><td>The routines did not arrive</td><td>They stay on m4, paused. They never run on both</td><td>Try the routines again</td></tr>
-  <tr><td>One thread did not move</td><td>It keeps working on m4 for the coordinator on M5</td><td>Try again</td></tr>
-  <tr><td>A thread you did not tick keeps working</td><td>The coordinator row is greyed: "Stays while 1 thread keeps working or waiting on m4"</td><td>Tick it, or hand off without the coordinator</td></tr>
+  <tr><td>M5 cannot take the coordinator</td><td>Nothing has left m4. The threads are paused</td><td>Hand off the threads without the coordinator · Cancel</td></tr>
+  <tr><td>The window closed during steps 1 to 3</td><td>Paused threads are released after 10 minutes. Nothing restarts on its own</td><td>Continue the hand off · Resume them here</td></tr>
+  <tr><td>The files could not go into M5's folder</td><td>They are a branch on M5</td><td>The branch name, and "check it out or merge it"</td></tr>
+  <tr><td>A routine did not arrive</td><td>It is off on both machines, never on both</td><td>Try the routines again</td></tr>
+  <tr><td>One thread did not move</td><td>It stays on m4, paused</td><td>Try again · Continue it on m4</td></tr>
+  <tr><td>A thread you did not tick keeps working</td><td>The coordinator row is greyed: "Stays while 1 thread keeps working or waiting"</td><td>Tick it, wait, or hand off without the coordinator</td></tr>
 </table>
 </div>
 
@@ -255,24 +274,26 @@
     <tr><th>When</th><th>Choice</th><th>What happens</th></tr>
     <tr><td>This machine goes to sleep</td><td><b>Do nothing</b> ▾ / Hand off to M5 after 2 minutes</td><td>M5 continues the threads set to hand off automatically, each from its last standby copy. A turn that was cut off is not repeated blindly: the thread is told to check what it already did. m4 starts nothing in them when it wakes.</td></tr>
     <tr><td>A usage limit stops a thread</td><td><b>Ask me</b> ▾ / Hand off to a machine with usage left</td><td>A machine on the same account, or with unknown usage, never counts. Review threads stay.</td></tr>
-    <tr><td>One thread</td><td>⋯ › Hand off automatically: Project default / On / Off</td><td>The thread shows "Standby on M5 · saved 2 minutes ago".</td></tr>
+    <tr><td>One thread</td><td>⋯ › Hand off automatically: Project default / On / Off</td><td>A standby copy is kept on your other machines that have the project. The thread shows "Standby on M5 · saved 2 minutes ago", and "3 files left out" when the secret check held some back.</td></tr>
   </table>
   </div>
 </div>
 
-<h2>6. Ten choices that are yours</h2>
+<h2>6. Twelve choices that are yours</h2>
 <p>The design is written for the recommended choice in each row. Say which to change.</p>
 <div class="scroll">
 <table>
   <tr><th></th><th>Question</th><th>Recommended</th><th>Alternative</th></tr>
-  <tr><td class="id">D-01</td><td>Typing on a machine without the coordinator</td><td>Send opens the coordinator where it is; Continue here is one click</td><td>Send brings the coordinator to the machine you type on when the other is idle · or the answer shows in place</td></tr>
+  <tr><td class="id">D-01</td><td>Typing on a machine without the coordinator</td><td>Send opens the coordinator where it is; Continue here is one click. Typing on M5 does not make M5 run it</td><td>Send brings the coordinator to the machine you type on when the other is idle · or the answer shows in place</td></tr>
   <tr><td class="id">D-02</td><td>Automatic hand off</td><td>Off until you turn it on</td><td>On for every running thread once a sleep machine is chosen</td></tr>
   <tr><td class="id">D-03</td><td>Moving the coordinator pushes commits to a hidden ref on GitHub</td><td>Keep, with the consent line</td><td>Build a direct route (a fifth release)</td></tr>
-  <tr><td class="id">D-04</td><td>Uncommitted project folder files in a hand off</td><td>Ticked</td><td>Unticked</td></tr>
+  <tr><td class="id">D-04</td><td>Uncommitted project folder files in a hand off</td><td>Ticked, and put into the folder there when safe</td><td>Unticked</td></tr>
   <tr><td class="id">D-05</td><td>10 minute wait before Continue here when a machine is silent</td><td>Keep</td><td>Allow at once behind a confirm</td></tr>
-  <tr><td class="id">D-06</td><td>"Start a coordinator here" in Settings (it made m1's second coordinator)</td><td>Remove</td><td>Keep</td></tr>
+  <tr><td class="id">D-06</td><td>"Start a coordinator here" in Settings (it made m1's second coordinator, and would again)</td><td>Remove</td><td>Keep</td></tr>
   <tr><td class="id">D-10</td><td>Review threads in a hand off</td><td>Stay</td><td>Allow by hand with a warning</td></tr>
   <tr><td class="id">D-11</td><td>Secrets</td><td>Missing there: ticked. Different there: unticked</td><td>All unticked</td></tr>
+  <tr><td class="id">D-15</td><td>Extras when adding a project to a machine</td><td>Ticked, as Add does today</td><td>Unticked, as in Sync</td></tr>
+  <tr><td class="id">D-16</td><td>Today the first Leave makes its target the sleep machine</td><td>A hand off no longer does; only its own tick or Settings</td><td>Keep the side effect</td></tr>
   <tr><td class="id">D-18</td><td>A coordinator that cannot move with its conversation</td><td>By hand it stays and says why</td><td>Move the role only, leaving the conversation</td></tr>
   <tr><td class="id">D-19</td><td>Coordinators in "Every project on m4"</td><td>Ticked where there is unfinished work, listed unticked elsewhere</td><td>One switch for all linked projects</td></tr>
 </table>
