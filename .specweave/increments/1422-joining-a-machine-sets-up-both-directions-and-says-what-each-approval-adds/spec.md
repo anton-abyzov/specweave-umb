@@ -74,6 +74,186 @@ D-01's vouch reverses a property project memory lists as sound ("A management ke
 
 Wording first (AC-01 to AC-04, AC-07), then D-01 and D-02 as decided. Each side words only what it knows for certain: a window knows which machine it waits on, and a machine knows which machine it just allowed. A device request carries no machine identity (`packages/contracts/src/connectDevices.ts`), so the pop-up never claims "this is M5".
 
+### Design
+
+Design only, written November 19, 2026. Code was read at `origin/main` `3eafbca0c9` of `repositories/anton-abyzov/specwithcode` (PR 712 merged; the files cited are the same at `ee92ef7b0e` except `ConnectDeviceViews.tsx`). Path prefixes: `S/` is `apps/server/src/`, `W/` is `apps/web/src/`, `C/` is `packages/contracts/src/`, `R/` is `packages/client-runtime/src/`. J is the joined machine (M5), N is the new machine (Windows).
+
+#### Facts the design rests on
+
+- Order today: N's app picks J, which opens J over the relay at once (`W/components/settings/AccountJoinCard.tsx:235-262`). J has not approved N's app, so N shows J's code where Allow would be (`W/components/settings/IncomingWorkerSetup.tsx:258-263`). The code is typed on J before Allow, not after. Allow then mints N's line on N and posts it to J (`W/studio/fleet.ts:404-426`).
+- A device is its relay proof key, `jkt:<thumbprint>` (`S/fleet/ConnectDeviceTrust.ts:126`, `:162-171`). The code approves that key as a full device: `approve` writes a `DeviceRecord` (`:993-1040`), and every later session of the key passes the gate (`:912-913`, `S/auth/EnvironmentAuth.ts:642-665`).
+- `accountJoinFleetWorkers` needs only `orchestration:operate` and a Connect subject (`S/studioFleetHttp.ts:777-821`). It has no join-specific approval; it relies on the device gate above.
+- Scopes cannot make a session join-only. Of 60 authenticated HTTP endpoints, 8 check no scope: the websocket ticket (`S/auth/http.ts:650-663`) and the six `connect-devices` routes, where an approved device is an approver whatever its scopes (`S/auth/connectDevicesHttp.ts:40-61`). `orchestration:operate` alone also opens `/ws` RPCs and project changes.
+- The join gives J two credentials on N: a management token (subject `fleet-invitation`, coordinator principal J, Standard scopes plus `access:write`, bound to J's fleet key, 365 days, never renewed; `S/studioFleetHttp.ts:614-693`, `S/fleet/fleetRedemption.ts:24-29`) and a worker grant (subject `mcp-client`, 30 days, renewed; `S/fleet/workerGrantMint.ts:348-395`). Neither can approve devices today (`S/auth/connectDevicesHttp.ts:28-31`, `:51-52`).
+- J's server never sees its own app's proof key. The local app signs in with a bearer or a cookie, and the approver is recorded as `key: null`, "this machine" (`S/auth/connectDevicesHttp.ts:58-60`). The key lives in the app's IndexedDB (`studio:cloud-auth`, id `relay-dpop-proof-key`, private half not extractable; `W/cloud/dpop.ts:24-27`, `:135`), one per install and OS user, shared by its windows. It is used only towards other machines (`W/cloud/managedRelayLayer.ts:16-37`). The span `relay.connection.deviceIdentity.resolve` (`R/authorization/service.ts:423-425`) resolves a relay device ID that the web and desktop app never send (`W/connection/platform.ts:341-343`); it does not name the key.
+- N does not bound the grant's access level. J sends the level it wants at mint (`S/fleet/workerGrantMint.ts:277`), N copies it into the session (`S/auth/McpOAuth.ts:613-623`, `S/auth/EnvironmentAuth.ts:1654-1656`), and the level lives only in the signed token (`S/auth/SessionStore.ts:575-587`, claim `rtc`). The owner's choice in the Allow card is sent to J and never stored on N. `runtimeCap` in `work-grants.json` is copied from the caller's token on its first `/mcp` call (`S/fleet/WorkGrants.ts:519-523`). Project and account limits are different: only N's owner can change them (`S/studioFleetHttp.ts:227-241`, `:447-455`).
+- Stop on N revokes every session of coordinator J, the management token included, and Restore does not bring it back (`S/fleet/WorkGrants.ts:650-665`, `S/persistence/AuthSessions.ts:317-341`). Remove on J revokes the management token on N (`S/studioFleetJoin.ts:586-639`).
+- Older builds drop unknown keys on decode (Effect's default) and lose them on the next write. `connect-devices.json` is decoded that way (`S/fleet/ConnectDeviceTrust.ts:327-343`). Exact input structs refuse unknown keys with an empty 400: approve (`C/connectDevices.ts:11-17`, `:101`) and account-join (`C/studioFleet.ts:124-127`, `:158-161`). `/oauth/token` ignores unknown form fields (`C/auth.ts:323-332`). The descriptor is readable with no credential and the client reads it before the token exchange (`C/environmentHttp.ts:722-726`, `R/authorization/service.ts:454-463`).
+
+Two corrections to this spec, facts only:
+
+- The window that opened N by itself is `W/cloud/GrantedAccountMachines.tsx:253-256` (selection in `W/studio/grantedAccountMachines.ts:30-77`): it saves a Connect route for each account machine that granted this one. `AutoConnectPrivateMachines.tsx` and `fleetAutoConnect.ts` are the Tailscale path (`W/studio/fleetAutoConnect.ts:155-161`, `:180`) and did not act in this join.
+- T-08, T-03 and T-04 need files outside their lists; they are named per task under "Test plan".
+
+#### 1. D-03: the code approves the join only
+
+**Who declares it.** N's app, in the token exchange on J: a new optional form field `client_purpose=join` on `POST /oauth/token` (`S/auth/http.ts:571-649`). Nothing changes at the relay, which is out of scope. N sends it only when J's descriptor carries the new capability `deviceJoinApproval`; an older J would ignore the field and approve a full device, so against an older J the new N uses today's flow and today's words.
+
+**What the server enforces.** The claim can only narrow, so it needs no proof.
+
+- The session J issues carries a signed claim `pur: "join"` (a new optional key in `SessionClaims`, `S/auth/SessionStore.ts:575-587`) and one scope, the new `fleet:join`, which maps to no RPC, like `fleet:update` (`C/auth.ts:102-113`). `DeviceSessionFacts` (`S/fleet/ConnectDeviceTrust.ts:91-102`) gains `purpose`.
+- A waiting request has a kind. The entry is first written at the relay mint from the thumbprint alone (`S/cloud/CloudLink.ts:1820-1825`) with kind "device". The kind becomes "join" when a join session asks (`ensureWaiting`, `S/fleet/ConnectDeviceTrust.ts:744-812`). The code is only ever revealed to a session (`:920-925`), so the kind is set before the code can be read. If a session of the other kind asks for the same key, the kind changes and the code is replaced: a code approves exactly the kind it was shown with.
+- `approve` on a join request (`:993-1040`) writes no `DeviceRecord` and no "new device" notice. It writes a join approval into a new top-level array `joins` of `connect-devices.json`: `{ key, approval, approvedAt, expiresAt, approverAppKey? }`. A separate array fails closed: an older build drops it and the key is unapproved again. `isApproved`, `bindingFor` and `deviceApprover` never read `joins`, so the key cannot approve devices, mint bound credentials or pair anything.
+- The gate (`check`, `:892-931`) lets a key with a live join approval in only for a session whose claim says join, and marks the verdict join-only. A session without the claim finds no `DeviceRecord` and waits for a full-device code as today. A join approval never becomes a device approval.
+- Deny by default at the source. `authenticateHttpRequest` and `authenticateWebSocketUpgrade` (`S/auth/EnvironmentAuth.ts:1489-1527`) refuse a join-only session. Two callers opt in: `layerAuthenticatedAuth` when the endpoint is `accountJoinFleetWorkers` (the middleware is handed the endpoint and ignores it today, `S/auth/http.ts:436-471`), and `getSessionState` for `GET /api/auth/session` (`S/auth/EnvironmentAuth.ts:874-899`). So no websocket ticket, no `/ws`, no media, no raw route, no `connect-devices` route. `/mcp` already refuses the subject (`:1576-1577`).
+- `accountJoinFleetWorkers` accepts `fleet:join` from a join-only session, or `orchestration:operate` from a fully approved device as today (`S/studioFleetHttp.ts:781`). Its other refusals stay.
+
+**What the approval gets, and when it ends.** One successful `accountJoinFleetWorkers` call. The handler spends the join approval and revokes the session when `addAndAllowWorkers` succeeds. Unspent, the approval ends 10 minutes after it was typed; the session itself lasts at most 1 hour (`S/auth/EnvironmentAuth.ts:1137-1141`). After that N's app has nothing on J. A machine joined before 1422 has a `DeviceRecord` and keeps it until the owner removes it.
+
+**N's app.** It must not save a route to J. For a J with `deviceJoinApproval` the join card holds an in-memory join handle instead of `environmentCatalog.register` (`W/components/settings/AccountJoinCard.tsx:235-262`): a proof-bound token from the same mint and exchange, kept out of the saved token cache (`R/authorization/service.ts:502-665`, cache key gains the purpose), and a poll of `GET /api/auth/session` on J every 4 seconds for the code and then for "approved". `throughAccount` (`W/components/settings/IncomingWorkerSetup.tsx:256-257`) takes "join approved" in place of `operateThere`, and `joinAccountMachineForWorkers` (`W/studio/fleet.ts:404-426`) posts with that handle. The handle is dropped after the join, on failure and when the card closes, so N stops asking J. If the approval ran out before Allow, the next poll starts a new request with a new code. An N whose app is already a full device on J keeps today's path.
+
+**An older new machine.** It sends no purpose, so its request is an ordinary device request: J's pop-up says so, and the code approves a full device as today. D-03 cannot be enforced against a client that cannot declare the join, short of refusing it; the stated fallback is the code as today.
+
+**What each screen says** (T-07; every string through `tx` with eight languages).
+
+- J's pop-up for a join request (`C/connectDevices.ts:46-68` gains optional `purpose`; `W/components/devices/ConnectDeviceViews.tsx:236-261`, `:327`): "{device} wants to join {machine}. Typing its code lets it hand over a line, so agents on {machine} can run work on it. It does not let that device open {machine}." The line that the name is the device's own word stays. A plain device request keeps PR 712's wording.
+- J after the code: "{device} can now join. Press Allow on it." in place of "{device} can now use {machine}" (`W/components/devices/ConnectDeviceHosts.tsx:165-189`). The approve result keeps status "approved" and adds optional `join: true`; a new status literal would break an older window's decode.
+- N's card while waiting: today's code line, plus "This lets {machine} join you to it. It does not let this app open {machine}." Against an older J the second sentence is left out.
+- J's joined notice and N's Allow: see 2 and 3.
+
+#### 2. D-01: the joined machine vouches for its own app
+
+**The key.** The relay proof key of the SpecWithCode app on J in which the owner typed the join's code: `jkt:<thumbprint>` of the key in that app's IndexedDB. It is proven, not claimed. The app adds a `dpop` header to its own approve request, a proof over `POST <its server>/api/auth/connect-devices/approve` signed with that key. The header is already in the contract (`C/environmentHttp.ts:162-165`), the signer signs any URL (`W/cloud/dpop.ts:145-184`), and a server from before 1422 ignores the header on a bearer or cookie request (`S/auth/EnvironmentAuth.ts:768-794`). The approve handler (`S/auth/connectDevicesHttp.ts:137-153`) calls `verifyRequestProof` (`S/auth/EnvironmentAuth.ts:1777-1782`; it checks method, URL, signature and age, and refuses a replayed proof) only when the caller is this machine's owner and the matched request is a join, and stores the thumbprint as `approverAppKey` on the join approval. A device that typed the code remotely is never vouched: it is not J's app, and its proof was already spent by the auth layer.
+
+**The chain.** Code typed in J's app (proof of key K) → join approval for N's app key → that key's join-only session hands over N's line → J redeems it and holds the management token on N → J vouches K on N. `accountJoinFleetWorkers` does the last step itself, after `addAndAllowWorkers` and before it records the join or answers, with `fleetRequest` and the management token (`S/fleet/fleetTransport.ts:358-403`, as `S/studioFleetHttp.ts:875-886` does for self-allow), and only when N's descriptor carries the capability `deviceJoinVouch` (`checkIdentity`, as `:846-856`). J vouches once per join and never on its own later. A failed vouch never fails the join; the code remains.
+
+**The route on N.** New `POST /api/auth/connect-devices/vouch`, exact body `{ thumbprint }`. N accepts it only when all of these hold:
+
+- the caller's subject is `fleet-invitation` with a coordinator principal, the session is bound to a proof key, and it holds `access:write`;
+- N's grant to that coordinator is full access to all projects right now (the predicate below);
+- the key is not one N's owner removed or denied (`isTurnedAway`, `S/fleet/ConnectDeviceTrust.ts:881-890`): after Remove only a typed code brings it back;
+- team rules allow machine links and Connect, as for the join (`S/studioFleetHttp.ts:797-798`); the route is rate-limited like redeem (`:618`).
+
+One key per coordinator: a new vouch replaces the earlier one and ends its sessions. If that key waits on N, the waiting request is cleared so N's pop-up closes.
+
+**The record.** A new top-level array `vouched` in N's `connect-devices.json`, never `devices`: `{ key, coordinator: <J's environment ID>, session: <ID of the management session that vouched>, vouchId, vouchedAt, label, system, app }`. A field on a `DeviceRecord` would fail open, because an older build would read it as a plain approved device and erase the field; a separate array is dropped and the key waits for a code again.
+
+**The binding.** The vouch stands only while all three hold, read on every request and every 5 seconds on an open socket (`S/auth/EnvironmentAuth.ts:1529-1536`):
+
+1. the management session named in the record is live on N;
+2. N's work grant for that coordinator is not stopped or ended, covers all projects and all accounts (`projects.kind` and `accounts.kind` are "all", `S/fleet/workGrantPolicy.ts:103-108`), and its owner-chosen level is full access;
+3. the key is not removed.
+
+For the level N needs a record it does not have. T-03 adds it: N's app sends the level the owner chose with the line it mints (`C/studioFleet.ts:215-226` gains optional `access`; the request goes to N's own server), N stores it on the grant policy as `ownerCap`, created at that moment rather than on the first `/mcp` call, and N refuses a worker grant above `ownerCap` at `S/auth/McpOAuth.ts:530-550`. Without this, "full access" would be J's word.
+
+When any of the three stops holding, the gate treats the key as unapproved: the record is deleted, the device waits for a code like any new device, and what it minted stops (below). Nothing revives it: after narrowing and widening again, J would have to vouch again, and the route checks the bounds again.
+
+| Event | Effect on the vouch |
+|---|---|
+| Owner narrows projects or accounts on N | ends within 5 seconds; J's app is asked for a code |
+| Stop on N | ends at once: every session of J's principal is revoked, the management session included; Restore does not revive it |
+| Stop workers on J, or the grant lapses | the grant is gone, so the vouch ends |
+| Remove N on J | the management session is revoked on N, so the vouch ends |
+| Remove the device on N | ends, sessions ended (`endSessions`, `S/auth/connectDevicesHttp.ts:94-121`), and the key cannot be vouched again |
+| The management token reaches 365 days | ends; the code, or a new join |
+
+**What a vouched app is on N.** A device for use, never for approving. The gate allows it, and `bindingFor` and `checkBinding` (`S/fleet/ConnectDeviceTrust.ts:826-848`) honour it with `vouchId` as the approval, so `RequestDevice` (`:500-503`), asset URLs and uploads work (`S/fleet/deviceBoundTransfers.ts:30-52`) and die with the vouch, as `trackCredential`, `boundIds` and `creatorDeviceKey` already arrange for an approved device (`S/auth/EnvironmentAuth.ts:1214-1221`, `:1662-1667`). `deviceApprover` does not honour it: a vouched app cannot approve, deny, remove, confirm or repair on N. Otherwise a management key would approve devices through the app it vouched.
+
+**Settings > Machines.** On N, "Devices that can use this machine" (`W/components/devices/ConnectDeviceViews.tsx:578-618`) lists the vouched app with its ID and "Let in by {machine}'s join, no code. Stays while {machine} has full access to all projects here.", with Remove. `ConnectDevice` (`C/connectDevices.ts:22-43`) gains optional `vouchedBy`. J's card on N gets a line under "can start work here": "Its SpecWithCode app can open this machine without a code." (`W/components/settings/machineDirections.logic.ts:37-110`).
+
+**Saying it only when true.** The answer of `accountJoinFleetWorkers` and the recorded join (`C/studioFleet.ts:92-96`) gain optional `appOpens: "no-code" | "code"`. N's Allow promises "no second code" (AC-03) only when the level chosen is full access, both capabilities are present and J's join session state says the approving app proved its key; otherwise it says "{machine}'s app will ask for a code here."
+
+**Timing.** J's window may reach N before the vouch lands. N then shows its pop-up for a moment; the vouch clears the request, the pop-up closes at its next 4 second poll, and J's waiting connection gets in on its next 4 second try (`R/connection/errors.ts:132-150`).
+
+**Where it falls back to the code by itself.** The code was typed in a browser tab or a development build and the installed app opens N (different keys); two windows that each made a key at first start (`W/cloud/managedRelayLayer.ts:20-36`, last write wins); a proxy in front of J's server changes the URL the proof names; the level chosen is below full access.
+
+#### 3. D-02: one way, the reverse offered
+
+The join mints nothing on J for N: `accountJoinFleetWorkers` only runs `grants.allow` on J against N (`S/studioFleetHttp.ts:368-391`). T-04 pins that with tests and changes no grant code.
+
+The offer is on J's joined notice (`W/components/FleetJoinNotice.tsx:42-49`, `W/studio/fleetJoinNotice.ts:10-26`), which has no action today. New text: "{label} joined. Agents on this machine can run work on it, and this app can open it. It cannot use this machine." With `appOpens: "code"` the middle part reads "and this app can open it after its code is typed there." Action: "Let {label} run work here…".
+
+J gives the reverse, by the owner's Allow on J, through the existing flow: the action opens N's card at "Let {there} start work here" (`AllowBack`, `W/components/settings/MachinesSettings.tsx:1105-1145`), which calls `allowIncomingFleetWorkers` on J's own server (`S/studioFleetHttp.ts:825-923`; owner only, same-origin, invite maker). J mints its own line for N and sends it to N's `selfAllowFleetWorkers` (`:738-770`) with the management token the join gave J. N redeems it and then holds a management token and a worker grant on J. The confirm dialog already says what that hands over.
+
+Two changes make the offer usable. `canAllowBack` and `unavailable` require this app to be connected to the other machine (`W/components/settings/machinesSettings.logic.ts:776-788`, `W/components/settings/IncomingWorkerSetup.tsx:258-263`), though the request needs only the fleet ID on J's own server; that is relaxed for a machine J's server lists, so the offer also works when the vouch fell back. And the reverse grant does not renew: a fresh self-allow saves no `access:write` (`S/studioFleetJoin.ts:398-404`, `S/fleet/workerGrantMint.ts:397-399`), so it ends after 30 days and the card must say "until {date}".
+
+#### 4. Threats
+
+| Threat | Answer |
+|---|---|
+| Stolen Connect sign-in | It still needs a code typed by the owner on the machine it wants. Claiming a join gets it less than today: it can hand over a line for the attacker's own machine and gets nothing on J. The owner then sees "{label} joined" with a name the attacker chose, so the notice says agents here can now run work on it and offers Remove. It cannot be vouched: a vouch names only the key proven in an approve request made by J's owner session. |
+| Stolen or replayed join credential | The line is spent once (`S/auth/EnvironmentAuth.ts:1303-1333`); if a thief redeems it first, J's redeem fails and the join fails in view. A thief who redeems it holds a management token as coordinator J (`S/studioFleetHttp.ts:679-686` logs it) and can then vouch its own app. That adds project-unbounded use for the vouched app, which the predicate allows only while the owner's limits are already "all", and it dies with that token. The management token and the join-only token are bound to proof keys, so a copy without the key is refused. Proofs are single use (`S/auth/dpop.ts:94-131`). |
+| A management key minting devices outside the bounds | One route, one key per coordinator, the predicate at vouch time and on every request, refused for a removed or denied key, tied to the vouching session, and the vouched app is not an approver. `deviceApprover` still refuses every coordinator. A coordinator cannot change project or account limits, and with `ownerCap` it cannot raise the level. |
+| A device request claiming to be a join | It gets the join-only session: one route, one use, 10 minutes. Without the claim it gets today's full-device request with today's wording. A code approves only the kind it was shown with. The kind is in the signed session, so it cannot change after issue. |
+| An older client on either side | See the table below. Every case lands on the code as today, with wording that is true for that case. |
+
+| N | J | Result |
+|---|---|---|
+| new | new | join-only code, vouch, no second code |
+| old app | new | full-device request and approval as today; J still vouches if N's server has `deviceJoinVouch`, else second code |
+| new | old (no `deviceJoinApproval`) | today's flow and wording; second code |
+| new, old server on N | new | join-only code; no vouch; second code |
+| any | J's window older than its server | no proof with the approve, no vouch; second code |
+
+#### 5. Test plan
+
+Failing tests first. Each task tests the server refusal and the UI gate.
+
+**T-08** (also `S/auth/EnvironmentAuth.ts`, `S/auth/http.ts`, `S/auth/SessionStore.ts`, `S/auth/connectDevicesHttp.ts`, `S/environment/ServerEnvironment.ts`, `C/auth.ts`, `C/connectDevices.ts`, `C/environment.ts`, `R/authorization/service.ts`, `R/authorization/remote.ts`, `W/studio/fleet.ts`, `W/components/settings/IncomingWorkerSetup.tsx`, `W/components/devices/ConnectDeviceViews.tsx`):
+
+- `S/fleet/ConnectDeviceTrust.test.ts`: a join request approved by code writes `joins` and no device; `isApproved` and `bindingFor` stay false; a session without the claim still waits and gets a different code; the kind change replaces the code; the approval ends after 10 minutes and after one use; a file with `joins` read by a build without it leaves the key unapproved.
+- `S/auth/deviceApproval.test.ts` (real auth layer, `:31-38`): a join-only session gets 403 on the websocket ticket, on each `connect-devices` route, on a scoped route, on the `/ws` upgrade and on a media route; `GET /api/auth/session` answers join-only; a token without the claim for the same key is refused with a code.
+- `S/studioFleetHttp.test.ts` (account-join block, `:888-1076`): a join-only session hands over its line once; the second call is refused; the approval is spent and the session revoked; a fully approved device still joins; a machine joined before keeps its device record.
+- Web: `IncomingWorkerSetup.test.tsx` and `AccountJoinCard.test.tsx`: against a J with the capability the card registers no saved route, shows the code from the join handle, enables Allow on "join approved" and drops the handle after; against a J without it today's path and words. `ConnectDeviceViews.test.tsx`: join wording for a join request, PR 712 wording otherwise.
+
+**T-03** (also `S/auth/connectDevicesHttp.ts`, `S/auth/McpOAuth.ts`, `S/fleet/WorkGrants.ts`, `S/environment/ServerEnvironment.ts`, `C/connectDevices.ts`, `C/environmentHttp.ts`, `C/studioFleet.ts`, `W/studio/connectDevices.ts`, `W/components/devices/ConnectDeviceViews.tsx`):
+
+- Approve with a valid proof from the owner stores `approverAppKey`; a bad, replayed or missing proof approves without it; a device approver's proof is never read.
+- `vouch` on N: accepted from the bound management session with a full grant; 403 for a Connect session, the owner, a worker grant, an unbound token, another coordinator's grant, a project-limited or account-limited grant, an `ownerCap` below full access, a stopped or ended grant, a removed or denied key; a second vouch replaces the first and ends its sessions.
+- Binding over time (`TestClock`): narrow projects, Stop, Stop then Restore, revoke the management session, Remove the device: each makes the next request wait for a code and ends an open socket; nothing revives it.
+- A vouched session gets 403 on every `connect-devices` route; its asset URL works and stops with the vouch.
+- A worker grant above `ownerCap` is refused at the decision.
+- Account-join on J: vouches after the grant, skips it for an N without the capability or a join without `approverAppKey`, and answers `appOpens` truthfully; a failed vouch leaves the join done.
+- Web: the approve request carries the proof; the devices list shows the vouched row with Remove; Allow says "no second code" only under the three conditions.
+
+**T-04** (also `W/components/FleetJoinNotice.tsx`, `W/studio/fleetJoinNotice.ts`, `W/components/settings/MachinesSettings.tsx`, `W/components/settings/machinesSettings.logic.ts`, `W/components/settings/IncomingWorkerSetup.tsx`):
+
+- `S/studioFleetHttp.test.ts`: after account-join, J has no work-grant policy and no `fleet-invitation` session for N; `allowIncomingFleetWorkers` from J's owner sets up the reverse; the same call from a Connect session, a coordinator or a join-only session gets 403.
+- Web: the notice has the action (the assertion at `W/components/FleetJoinNotice.test.tsx:59` flips); the action opens N's card; "Let {there} start work here" is offered for a listed machine this app is not connected to; the reverse grant shows its end date.
+
+**T-07** (also `W/components/devices/ConnectDeviceViews.tsx`, `W/components/devices/ConnectDeviceHosts.tsx`):
+
+- `FleetJoinNotice.test.tsx`: both `appOpens` texts and the one-way sentence. `AccountJoinCard.test.tsx` and `IncomingWorkerSetup.test.tsx`: Allow's text for each row of the version table. Each new string has entries in the eight languages (the phrase tests in `W/i18n/phrases/`).
+- Server side of the same gate: the tests of T-08 and T-03 that the screen's sentence is true (no access to J; no code on N only when vouched). T-07's strings merge with T-08 and T-03, never ahead.
+
+#### 6. Routes and RPCs that change
+
+All are HTTP. No WebSocket RPC method is added or changed, so `RPC_REQUIRED_SCOPES` (`S/auth/RpcAuthorization.ts:48-298`) and `CLIENT_GUARDED_RPC_SCOPES` (`C/clientRpcPermissions.ts:22-285`) need no entry; that table does not apply to HTTP routes. The new scope `fleet:join` maps to no RPC.
+
+| Route | Change |
+|---|---|
+| `POST /oauth/token` | optional form field `client_purpose` |
+| `GET /api/auth/session` | answers a join-only session, with whether the approving app proved its key |
+| `POST /api/auth/connect-devices/approve` | reads the optional `dpop` header; answer gains optional `join` |
+| `POST /api/auth/connect-devices/list` | requests gain optional `purpose`; devices gain optional `vouchedBy` |
+| `POST /api/auth/connect-devices/vouch` | new, on the new machine, for the joined machine's management token |
+| `POST /api/auth/connect-devices/remove` | also removes a vouched key |
+| `POST /api/studio/fleet/invite` | optional `access`, stored as `ownerCap` |
+| `POST /api/studio/fleet/workers/account-join` | accepts a join-only session; vouches; answer gains optional `appOpens` |
+| `GET /api/studio/fleet` | recorded joins gain optional `appOpens` |
+| `POST /oauth/mcp/decision` | refuses a level above `ownerCap` |
+| `GET /.well-known/studio/environment` | capabilities `deviceJoinApproval`, `deviceJoinVouch` |
+
+Every added response field is optional and no status literal is added, so an older window still decodes. Every added request field goes only to a server that advertises the capability, or to the app's own server.
+
+#### Open for the owner
+
+1. AC-05 says a capped grant falls back to the code, but the new machine does not know the cap today: the joined machine names the level and can name a higher one later. The design stores the owner's choice on the new machine (`ownerCap`) and refuses grants above it. That tightens every join, not only the vouch. Without it the cap half of AC-05 rests on the joined machine's word. Recommended: keep `ownerCap` in T-03.
+2. The predicate also requires all accounts, which AC-05 does not say. A vouched app can use every sign-in on the new machine, so an account-limited grant should not carry it. Say if accounts should not count.
+3. D-03 holds only when the new machine's app is new enough to declare the join. An older app is approved as a full device, with wording that says so. The alternative is to refuse joins from older apps.
+4. The reverse Allow (D-02) brings the second code back the other way: N's window opens J by itself once J granted N, and J asks for N's code. Typing it makes N's app a full device on J, which D-03 just took away. Either the reverse Allow says so and keeps the code, or that automatic open is skipped for a machine whose only tie is the reverse grant. Recommended: skip the automatic open; the reverse is about agents.
+5. The vouch ends when the management token does, after 365 days, since that token never renews. Then the code is asked once. Accept, or renew the token in a later increment.
+
 ## Tasks
 
 ### T-01 The device pop-up says what Allow adds
