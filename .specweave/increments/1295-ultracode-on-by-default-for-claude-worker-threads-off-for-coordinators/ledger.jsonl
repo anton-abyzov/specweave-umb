@@ -1,0 +1,9 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-15T01:56:22.140Z","note":"session 8ae64545-1efb-45db-a189-38b191421a21","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-15T01:56:22.145Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-15T02:05:22.869Z","evidence":"cd repositories/anton-abyzov/specwithcode/packages/shared && ../../node_modules/.bin/vp test run src/ultracodeDefault.test.ts → exit 0\nlog: .specweave/increments/1295-ultracode-on-by-default-for-claude-worker-threads-off-for-coordinators/reports/task-T-01.txt\nnote: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.\n\n RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-umb/1295-ultracode-default-threads/repositories/anton-abyzov/specwithcode/packages/shared\n\n\n Test Files  1 passed (1)\n      Tests  20 passed (20)\n   Start at  21:05:20\n   Duration  2.09s (transform 68%, import 32%)\nHEAD fc9135f1e","model":"claude-fable-5-2[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-15T02:06:17.968Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-15T02:06:22.007Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-15T02:06:23.717Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-15T02:06:26.019Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-15T02:06:28.259Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-07","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-15T02:06:30.158Z","model":"claude-fable-5-2[1m]"}
