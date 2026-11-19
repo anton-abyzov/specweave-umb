@@ -32,10 +32,11 @@ Find or add a durable item ordinal (run ordinal plus item position) on historica
 ## Tasks
 
 ### T-01 Caller-level reachability test
-- AC: AC-01 | Files: apps/server/src/orchestration-v2/ContextHandoffService.test.ts | Test: pnpm exec vp test run apps/server/src/orchestration-v2/ContextHandoffService.test.ts
+- AC: AC-01 | Files: apps/server/src/orchestration-v2/testkit/ProviderSwitch.integration.test.ts | Test: pnpm exec vp test run apps/server/src/orchestration-v2/testkit/ProviderSwitch.integration.test.ts
+- Files changed from `ContextHandoffService.test.ts` on November 19, 2026: the pending list is assembled in `ProviderTurnStartService.ts` (resume-fallback summary prepended, missed-run retry appended), so the caller-level test drives a real switch in the switch harness.
 
 ### T-02 Chronological merge of pending histories
-- AC: AC-02, AC-03 | Files: apps/server/src/orchestration-v2/ContextHandoffDelivery.ts, apps/server/src/orchestration-v2/ContextHandoffBudget.test.ts | Test: pnpm exec vp test run apps/server/src/orchestration-v2/ContextHandoff
+- AC: AC-02, AC-03 | Files: apps/server/src/orchestration-v2/ContextHandoffDelivery.ts, apps/server/src/orchestration-v2/ContextHandoffBudget.ts, apps/server/src/orchestration-v2/ContextHandoffBudget.test.ts, packages/contracts/src/orchestrationV2.ts | Test: pnpm exec vp test run apps/server/src/orchestration-v2/ContextHandoff
 
 ### T-03 Verify and close 1065
 - AC: AC-01, AC-02, AC-03 | Files: .specweave/increments/1065-keep-handoff-history-chronological-across-overlapping-handoffs | Test: specweave verify 1065 and fresh-context review
