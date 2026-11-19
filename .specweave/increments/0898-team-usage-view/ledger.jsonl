@@ -1,3 +1,5 @@
 {"t":"*","e":"note","by":"project-thread","at":"2026-10-12T22:39:23.000Z","note":"Spec written by 0897 T-08 as the enterprise value follow-up. Not started; open questions need Anton."}
 {"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-19T06:34:26.462Z","note":"session b520540f-6fa1-4ef0-8530-e676030eeac3","model":"claude-opus-5-5[1m]"}
 {"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-19T06:34:26.464Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-19T06:46:55.056Z","model":"claude-opus-5-5[1m]"}
+{"t":"*","e":"note","by":"claude@antons-macbook-m4max","at":"2026-11-19T06:51:07.567Z","note":"T-01 code on specwithcode PR #677, T-02 on vskill-platform PR #226 (migration approved D-04); waiting on CI, local gate queue too deep. T-05 and T-03 next.","model":"claude-opus-5-5[1m]"}
