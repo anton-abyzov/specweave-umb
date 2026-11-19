@@ -1,0 +1,15 @@
+{
+  "id": "1419-per-thread-adversarial-review-like-advisor",
+  "uuid": "1fc04092-8832-4104-bfa7-1bfcd17f9ab6",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T23:45:15.224Z",
+  "updated": "2026-11-19T00:32:25.059Z",
+  "lastActivity": "2026-11-19T00:32:25.059Z",
+  "title": "Per-thread adversarial review, the way Advisor works",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
