@@ -5,12 +5,15 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-10-26T23:30:00.000Z",
-  "updated": "2026-10-26T23:30:00.000Z",
-  "lastActivity": "2026-10-26T23:30:00.000Z",
+  "updated": "2026-11-19T06:37:11.863Z",
+  "lastActivity": "2026-11-19T06:37:11.863Z",
   "title": "Bring back the idle switch before the limit",
   "project": "specweave-umb",
   "parent": "1075",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }

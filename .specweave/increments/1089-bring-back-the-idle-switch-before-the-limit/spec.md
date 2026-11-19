@@ -1,6 +1,6 @@
 # Bring back the idle switch before the limit
 
-Follow-up to 1075. Reconciled October 26, 2026 against main `0ed403feeb`.
+Follow-up to 1075. Reconciled October 26, 2026 against main `0ed403feeb`; re-checked November 19, 2026 against `origin/main` `1d47f5078` of `repositories/anton-abyzov/specwithcode`: the gate is unchanged (`providerLimitStep` at line 494, its `!stoppedOnLimit` return at line 566, the `limit-preswitch:` id at line 281). Anton chose "fix the code" on November 19, 2026, so `docs/user/usage.md` ("Switch before the limit") stays as written.
 
 ## Problem
 
@@ -23,13 +23,31 @@ Out: the chip tooltip (1088), the way back itself (1075), new settings.
 
 Let `providerLimitStep` fall through to the idle branch of `providerFallbackCommand` when the thread did not stop on the limit and the action is `switch`, returning it as a `switch` step, and audit every sweep consumer of `switch` steps for a `thread.model-selection.set` command.
 
+Found in the November 19 re-check, and part of the fix:
+
+- A person's pick wins. The idle move needs the thread's latest run (option `latestRun`, read by the sweep only for a free thread on a provider at the threshold, once per run) and skips a selection that differs from that run's, unless an earlier pre-switch set it (`modelIdentity.preswitched`). The top `pickedSinceStop` guard applies to limit stops only, since `stoppedRun` is filled for completed threads only when another thread has a limit stop.
+- A person's Stop is read on the latest run whatever its status (`stopHoldsLatestRun`), before the move and again at commit; `stopHoldsThread` answers only for failed runs.
+- One try per window. A retry id (`:retry-N`) would break `preswitchWindowResetAt`, which the way back reads, so a failed model-selection move stays sent and is never resent; it adds no failed target. An already-sent move leaves the thread as one with no step, so the way back still runs and the sweep reads nothing more each time. Accepted ids also persist as command receipts across a restart.
+- The 1075 way back no longer reads a pre-switched selection as a person's pick (`pickedSinceRun`).
+- Settings and defaults do not change.
+
+Test lines run from the umbrella root of a worktree or verification copy with the app's dependencies installed; on the M4, only through `specweave-studio checks run`.
+
+## Review
+
+- Reviewer: openai (gpt-6.1-sol)
+- Depth: deep
+- Required: yes
+
+Run on Copilot Enterprise (`acpRegistry_copilot`, model `gpt-6.1-sol`) under Anton's standing rule of November 18, 2026: when Muse and Codex are both out, Claude-written code is reviewed there without asking again.
+
 ## Tasks
 
 ### T-01 Reach the idle pre-switch from the sweep
-- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.ts | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/1089-idle-preswitch/apps/server && pnpm exec vp test run src/orchestration-v2/ProviderFallbackWorker
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/orchestration-v2/ProviderFallbackWorker
 
 ### T-02 Scenario tests
-- AC: AC-04 | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/1089-idle-preswitch/apps/server && pnpm exec vp test run src/orchestration-v2
+- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.idlePreswitch.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.preswitchReturn.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/orchestration-v2/ProviderFallbackWorker.idlePreswitch src/orchestration-v2/ProviderFallbackWorker.preswitchReturn src/orchestration-v2/MachineLimitHandoff
 
 ### T-03 PR, exact-head CI, review, merge and release
 
