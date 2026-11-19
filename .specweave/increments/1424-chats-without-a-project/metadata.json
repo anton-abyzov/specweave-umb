@@ -1,0 +1,12 @@
+{
+  "id": "1424-chats-without-a-project",
+  "uuid": "9fe0aea8-e44a-4c23-89ce-036f71a1dd26",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-19T16:14:15.063Z",
+  "updated": "2026-11-19T16:44:44.491Z",
+  "lastActivity": "2026-11-19T16:44:44.491Z",
+  "title": "Chats without a project: no project settings, chat settings instead",
+  "project": "specweave-umb"
+}
