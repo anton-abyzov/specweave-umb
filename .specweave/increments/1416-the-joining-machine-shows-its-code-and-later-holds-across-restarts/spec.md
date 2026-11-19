@@ -39,6 +39,7 @@ Lanes. `[label]` changes only what is shown or which card is open and ships afte
 - [ ] AC-05 [label]: Server tests prove the restart path without changing it: an approved device is still allowed after a restart (a new service over the same file) and asks for nothing; a device the update kept is still allowed after a later restart; a later start with the marker present never takes a new snapshot; a waiting device keeps its request across a restart with a new code, and the old code no longer allows it.
 - [ ] AC-06 [label]: Every new string goes through the translation function with entries for the eight shipped languages. (Built with no new strings: "Waiting for approval" and the code block's lines already have entries in all eight catalogs.)
 - [ ] AC-07 [label]: Checked after release on two real Macs: the joining Mac's setup dialog shows its code, its ID and the machine, and the approving Mac shows the same ID; screenshots of both. Typing the code on the approving Mac is Anton's step, or done with his explicit yes. After a real restart of the approving app, a device put off with Later does not bring the pop-up back.
+  - Accepted by Anton on November 19, 2026 on m4's records (`reports/real-join-m3-m4.md`): m3 allowed once on m4 by its typed code and connecting since. He skipped the screenshots and the live Later-then-restart check; Later across restarts rests on the Later store tests and the headless fixture.
 
 ## Approach
 
