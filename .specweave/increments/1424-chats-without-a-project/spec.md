@@ -90,3 +90,4 @@ Risk: an agent in a chat that relied on scratch memory loses it. There is none o
 
 - App PR: https://github.com/anton-abyzov/specwithcode/pull/723 (branch `feat/1424-chats-without-a-project`).
 - Screenshots (minisforum): before `~/.specwithcode/minisforum/evidence/1424/before/2-shortcut.png` (Project settings "No project"), after `~/.specwithcode/minisforum/evidence/1424/after/2-shortcut.png` (Chat settings) and `after/3-palette.png`. The fresh headless state has no provider, so a sent chat is covered by unit tests, not a screenshot.
+- Merged: squash `45119dfdccdd46202c043b2dee2843b9db15d922` on November 19, 2026, after CI passed on `c528a7c62`. Reviews: `reports/reviews/review-gpt-6.1-sol-1.md` to `-4.md` (round 4: ship).
