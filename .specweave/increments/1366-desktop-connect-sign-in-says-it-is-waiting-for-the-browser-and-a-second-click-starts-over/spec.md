@@ -55,16 +55,16 @@ Risks:
 ## Decisions
 
 ### Asked
-- none
+- Anton accepted the auth change on November 16, 2026 ("yes, complete the job"), after the pull request and its report; the same answer covers the changed waiting sentence in D-04.
 
 ### Defaulted (change any before sw-do)
 - D-01 A second click replaces the waiting sign-in and opens the browser again, instead of being refused. Reversible.
 - D-02 The 180 second limit stays.
 - D-03 The notice is a toast in the window that asked, not a change to Clerk's modal.
-- D-04 Wording. Waiting: "Finish signing in in your browser" / "The sign-in page opened in your browser. If you don't see it, look for a new browser tab or window. Click the button again to open it again." Browser did not open: "Couldn't open your browser" / "Open a browser on this computer, then click the button again." Timed out: "Sign-in didn't finish" / "The browser didn't come back within 3 minutes. Click the button again to retry."
+- D-04 Wording. Waiting: "Finish signing in in your browser" / "The sign-in page opened in your browser. If you don't see it, look for a new browser tab or window. To open it again, close this window and sign in again." (Changed November 16, 2026: Clerk disables its sign-in buttons while a sign-in waits, so a second click needs the dialog closed and opened again.) Browser did not open: "Couldn't open your browser" / "Open a browser on this computer, then click the button again." Timed out: "Sign-in didn't finish" / "The browser didn't come back within 3 minutes. Click the button again to retry."
 
 ### Open
-- Anton's acceptance of the auth change before it is released (project rule).
+- none
 
 ## Tasks
 
