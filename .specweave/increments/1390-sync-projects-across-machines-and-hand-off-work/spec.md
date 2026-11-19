@@ -349,7 +349,7 @@ Every string below was read at `origin/main` `af7b77f05` (1.0.346) of `repositor
 
 | Surface | Today | New |
 |---|---|---|
-| Trigger (`web/components/studio/MachineHandoffDialog.tsx:83`, `:86`) | Send this project to another machine / Send to another machine | Phase 2: Sync or add this project on another machine / Sync… |
+| Trigger (`web/components/studio/MachineHandoffDialog.tsx:83`, `:86`) | Send this project to another machine / Send to another machine | Phase 2: Add this project to another machine / Add to another machine… (the dialog's own trigger, which no screen shows since the settings mount opens the dialog from its own button; "Sync…" lives in the machine menu and opens the Sync dialog) |
 | Title (`:297` to `304`) | Move {project} to {machine} / Copy {project} to {machine} / Move {project} to another machine / Copy {project} to another machine | Continue the coordinator on {machine} / Add {project} to {machine} / Add {project} to another machine |
 | Title (`:295`) | Make {machine} main for {project} | Continue the coordinator on {machine} |
 | Title, sync mode (`:286` to `291`; no caller opens it today) | Sync {project} to {machine} / {project} is synced to {machine} / {project} is on {machine} (copied {when}) | Sync {project}: {source} and {machine} / {project} is in sync on {source} and {machine} / {project} is on {machine} (added {when}) |
