@@ -250,7 +250,8 @@ Accepted by Anton on November 18, 2026. His words: "Yes, I really loved all of t
 
 ## Review
 
-- Reviewer: meta (muse-wonder-full-1.0)
+- Reviewer: openai (gpt-6.1-sol)
+  - Changed November 19, 2026 from `meta (muse-wonder-full-1.0)` for the close (T-13): Muse is at 99% of its usage until November 23, 2026 and Codex is out until December 5. Anton's standing rule of November 18, 2026 covers it: when Muse and Codex are both out, Claude-written code is reviewed on Copilot Enterprise with GPT-6.1 Sol. His words: "Yes, as a standing rule."
 - Depth: deep
 - Required: yes
 
