@@ -1,0 +1,17 @@
+{
+  "id": "1428-one-way-join-between-machines-on-1-1",
+  "uuid": "4c8a8283-788d-4b3d-9f0e-dfbbf140534c",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-19T22:52:08.660Z",
+  "updated": "2026-11-19T22:52:08.660Z",
+  "lastActivity": "2026-11-19T22:52:08.666Z",
+  "title": "One-way join between machines on 1.1",
+  "project": "specweave-umb",
+  "parent": "1422-joining-a-machine-sets-up-both-directions-and-says-what-each-approval-adds",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {}
+}

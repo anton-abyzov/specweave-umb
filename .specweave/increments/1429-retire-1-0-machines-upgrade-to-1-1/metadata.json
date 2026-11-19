@@ -1,0 +1,13 @@
+{
+  "id": "1429-retire-1-0-machines-upgrade-to-1-1",
+  "uuid": "49540cd2-643f-4a9b-b0ff-702beddd231c",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-19T22:52:09.276Z",
+  "updated": "2026-11-19T22:52:09.276Z",
+  "lastActivity": "2026-11-19T22:52:09.276Z",
+  "title": "Retire 1.0: machines upgrade to 1.1",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

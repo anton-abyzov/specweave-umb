@@ -1,8 +1,8 @@
 # How joining a machine works
 
-November 19, 2026. Example: a new Windows machine joins M5. "Today" is the released app (1.0.386). "After 1422" is the design under review, not built yet.
+November 19, 2026. Example: a new Windows machine joins M5. "Today" is the released app (1.0.386). "After 1428" is the access design in increment 1428, not built yet; it needs both machines on 1.1.
 
-## The flow after 1422
+## The flow after 1428
 
 ```mermaid
 sequenceDiagram
@@ -23,7 +23,7 @@ sequenceDiagram
 
 ## What each step gives
 
-| Step | Where | Kind | Today | After 1422 |
+| Step | Where | Kind | Today | After 1428 |
 |---|---|---|---|---|
 | Code typed on M5 | M5 | Device approval | Windows's app becomes a full device on M5 | Join only: one call, 10 minutes, no access to M5 |
 | Allow on Windows | Windows | Machine-access grant | M5's agents run work on Windows | Same, and Windows remembers the level you picked |
@@ -43,7 +43,7 @@ sequenceDiagram
 ## Other lifetimes
 
 - M5's worker grant on Windows lasts 30 days and renews by itself.
-- M5's management key on Windows lasts one year and does not renew. After 1422 the vouch ends with it, and the code is asked once.
+- M5's management key on Windows lasts one year and does not renew. After 1428 the vouch ends with it, and the code is asked once.
 - A Connect sign-in lasts 7 days.
 
 ## Status
@@ -51,4 +51,6 @@ sequenceDiagram
 - Pop-up wording (what Allow opens): PR 712 merged, ships in the next release.
 - 1406 (several devices at once, code lifetime): closed.
 - 1416 (code shown on the joining machine, Later kept): closed.
-- 1422 (this design): three design reviews said fix first (7, 9, then 7 findings). Round 3's critical is today's behaviour, not new: M5's one-year management key on Windows is never asked for a device code and can open a window there (`design-review-3.md`). How 1422 is split is your call; nothing in the design is built.
+- 1422: wording only, true to today: the joined notice and the Allow say what each gives and announce the second code (Anton, November 19, 2026: "Wording now, access later").
+- 1428: the access design above (one code, the code only joins, remembered level with a menu to lower it, no automatic open, Remove ends the vouch within a day), between machines on 1.1. It starts from a written baseline and waits for Muse Wonderful after November 23 and your acceptance.
+- 1429: retire 1.0, upgrade only, at a quiet moment. Draft with open questions for you.
