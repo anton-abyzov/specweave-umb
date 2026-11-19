@@ -12,9 +12,18 @@ In: a caller-level test showing whether production paths create overlapping pend
 
 ## Acceptance Criteria
 
-- [ ] AC-01: A caller-level regression establishes whether the provider-switch, recovery and missed-item paths can produce overlapping pending histories.
-- [ ] AC-02: Combined delivery orders items chronologically by a real ordinal (not lexical IDs or run IDs); the probe passes.
-- [ ] AC-03: Cross-thread and fork attribution and the 4,096-byte pointer floor behave as before (existing ContextHandoff tests stay green).
+- [x] AC-01: A caller-level regression establishes whether the provider-switch, recovery and missed-item paths can produce overlapping pending histories.
+- [x] AC-02: Combined delivery orders items chronologically by a real ordinal (not lexical IDs or run IDs); the probe passes.
+- [x] AC-03: Cross-thread and fork attribution and the 4,096-byte pointer floor behave as before (existing ContextHandoff tests stay green).
+
+## Results
+
+Fixed in PR 671 (merge `b8f9c0bcc`), released in 1.0.378. The audit probe reproduced on pre-fix main `1d47f5078`: `["item:later","item:earlier"]`.
+
+- AC-01: the caller-level regression in `testkit/ProviderSwitch.integration.test.ts` (Claude run, failed Claude start, Codex detour, back to Claude) passes on the tests-only commit `cb478f865` too, so that production path already delivers the missed run before the detour; the reorder was not reached through it. The merge is kept as a guard (D-01 stays P2).
+- AC-02: `ContextHandoffBudget.test.ts` "pending handoff chronology" (probe, same-thread ordinal order, delivered bridge, 2,000 histories); the probe and ordinal cases fail on `cb478f865` and pass in PR 671 CI.
+- AC-03: single and fork-source histories keep their order; existing ContextHandoff suites green in PR 671 CI (server shards and typecheck).
+- Review: Copilot Enterprise `gpt-6.1-sol`, three rounds, ship at `651c6fc1e`.
 
 ## Approach
 

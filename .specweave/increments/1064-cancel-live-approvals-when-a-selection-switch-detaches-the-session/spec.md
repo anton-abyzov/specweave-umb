@@ -12,9 +12,17 @@ In: detach of an exclusive session cancels (marks non-live) runtime requests own
 
 ## Acceptance Criteria
 
-- [ ] AC-01: The audit probe, moved into the regular session-manager suite, passes: after detach the request is no longer `pending`/`live`.
-- [ ] AC-02: Requests of a replacement session and of other threads on a shared session are untouched (new tests).
-- [ ] AC-03: The thread shows no stale approval after a Claude-to-Codex selection switch in a headless or installed check.
+- [x] AC-01: The audit probe, moved into the regular session-manager suite, passes: after detach the request is no longer `pending`/`live`.
+- [x] AC-02: Requests of a replacement session and of other threads on a shared session are untouched (new tests).
+- [x] AC-03: The thread shows no stale approval after a Claude-to-Codex selection switch in a headless or installed check.
+
+## Results
+
+Fixed in PR 669 (merge `cf3d8e99a`), released in 1.0.378. Still reproduced on `origin/main` before the fix: on the tests-only commit the probe test, the retry test and the race test fail (`expected 'pending' to equal 'cancelled'`, `expected 'live' to equal 'not_resumable'`) and the selection switch test fails (`expected 'pending' to not equal 'pending'`); all pass in PR 669 CI.
+
+- AC-01, AC-02: `ProviderSessionManager.test.ts` (probe, other-session request, failed-write retry sparing a replacement, a release that wins the race with detach, shared session).
+- AC-03: headless command-level check in `testkit/ProviderSwitch.integration.test.ts` through `thread.model-selection.set`. Proof limit: the approval is injected as events (the test adapter has no approval flow) and the installed UI was not checked. A message started at once on Codex does not detach the Claude session (`Orchestrator.ts` near line 8043), so its approval keeps a live callback; not a stale record.
+- Review: Copilot Enterprise `gpt-6.1-sol`, four rounds, ship at `f01da938e`.
 
 ## Approach
 
