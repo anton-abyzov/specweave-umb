@@ -3,6 +3,7 @@ increment: 1056-token-usage-audit-and-per-harness-optimization
 title: Token usage audit and per-harness optimization
 type: improvement
 priority: P1
+status: completed
 ---
 
 # Token usage audit and per-harness optimization
