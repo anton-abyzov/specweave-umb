@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-19T17:52:30.585Z",
-  "updated": "2026-11-19T17:52:30.585Z",
-  "lastActivity": "2026-11-19T17:52:30.585Z",
+  "updated": "2026-11-19T20:45:50.455Z",
+  "lastActivity": "2026-11-19T20:45:50.455Z",
   "title": "Merged worktrees retire automatically and storage stays bounded",
   "project": "specweave-umb"
 }

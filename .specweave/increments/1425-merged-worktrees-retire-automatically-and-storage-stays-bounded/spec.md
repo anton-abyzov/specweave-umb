@@ -37,16 +37,16 @@ Out:
 - [ ] AC-07: `.specweave/state/.gc-last`, `__pycache__` folders and `.pyc` files count as rebuildable when Git ignores them (an untracked one still keeps the folder: plain `git worktree remove` refuses it). Other ignored files still keep the folder, except those copied under AC-08.
 - [ ] AC-08: Before removal, ignored media, ignored files in a `reports` folder and ignored files under `.specweave/` are copied to `<baseDir>/evidence/removed-worktrees/` and checked by size, within the existing limits (2,000 files, 1 GiB). A failed copy keeps the folder.
 - [ ] AC-09: Removal is plain `git worktree remove` per member, deepest first. Nothing in the sweep passes `--force` or deletes recursively: folders left empty go with a non-recursive remove, a lone `.DS_Store` in them is unlinked by name, and evidence a cancelled removal copied is deleted file by file.
-- [ ] AC-10: After a folder's members are removed, each repository runs `git worktree prune`, but only when every worktree Git calls prunable lies under a folder that exists. Otherwise the prune is skipped and logged, so a worktree on an unmounted drive keeps its registration.
+- [ ] AC-10: The sweep never runs `git worktree prune`. A plain `git worktree remove` unregisters what it removes, and a prune would also drop the registration of a worktree on a drive that is not attached (review round 2 of PR 731 showed no listing guard closes that race).
 - [ ] AC-11: When Git fails to remove a member, the sweep deletes nothing more and leaves the folder as it is. It records Git's message and the processes holding files open in it (`lsof +D`, at most 10 seconds; "not known" on Windows or a timeout), keeps the record in `<stateDir>/worktree-removal-failures.json`, and Settings > Storage lists the folder under Kept with "Git could not remove it" and that detail until the folder is gone or removed cleanly. A folder Git half removed is never retried by the sweep (Git no longer knows it); a refusal that changed nothing is retried after 6 hours.
 - [ ] AC-12: A member folder that holds no `.git` and no entry other than `.DS_Store` counts as already gone, not as a broken registration.
 - [ ] AC-13: A folder's size walk has 20 seconds, and the plan's walks 3 minutes in total. A folder without a size reads "size unknown" in its row, and the plan stays complete. The plan is incomplete only when ownership or a folder could not be checked.
 - [ ] AC-14: A chat's run completing, its pull request newly merging, and a chat being resolved or archived each ask for a pass over that chat's folders only. The hourly pass checks every folder. Settings changes and low disk still ask for a full pass.
 - [ ] AC-15: A full pass asked for by low disk backs off while passes remove nothing: 2 minutes, then doubling to at most 1 hour, reset when a pass removes something or the disk level returns to ok. Passes for one chat are never delayed by that backoff. (The disk monitor asks only when the level turns from ok to low; the back-to-back passes measured in the Problem came from chat events, which AC-14 narrows.)
 - [ ] AC-16: Adding a repository the thread already lists, whose folder is missing or holds no `.git`, creates it again: from the thread's branch when the repository still has it, else as a new member would be cut. A resumed chat's missing members come back from the thread's branch as before; the sweep never retires a member whose repository no longer has that branch (AC-05), so a branch a person deleted afterwards is the only case left answering "branch missing".
-- [ ] AC-17: A checks copy (`<baseDir>/verify/<name>`) untouched for 7 days is retired by the hourly pass when its tree is clean, no commit was made in it (read from its reflogs: a copy fetches by commit, so every checked-out commit counts as unpushed and cannot be the test), it has no stash, no process works in it and the heavy-check gate is not held from inside it. `checks copy` and `checks run` record each use. One copy per repository stays the layout.
-- [ ] AC-18: Logs of ended terminals and agent sessions (`logs/terminals/*.log`, `logs/provider/*.log` except `events.log`) not written for "Delete rotated logs after" days (14 by default) are removed with the rotated logs. Live trace and server logs are never removed.
-- [ ] AC-19: `docs/operations/worktree-cleanup.md` and `docs/operations/heavy-checks.md` describe the new rules, and no changed file passes 1,500 lines.
+- [ ] AC-17: Deferred to a follow-up increment: retiring checks copies (`<baseDir>/verify/<name>`). Review rounds 1 and 2 of PR 731 found that a copy can hold work nowhere else (ignored files inside `node_modules` or build output, commits reachable only through the `source` remote of a removed checkout) and that `checks copy` refreshes run outside the gate. This increment deletes no checks copy. One copy per repository stays the layout.
+- [ ] AC-18: Only rotated logs (`*.log.N`, `*.ndjson.N`) are removed after "Delete rotated logs after" days (14 by default). Logs of terminals and agent sessions are kept: one quiet for weeks can still be open and written. Live trace and server logs are never removed.
+- [ ] AC-19: `docs/operations/worktree-cleanup.md` describes the new rules, and no changed file passes 1,500 lines.
 
 ## Approach
 
@@ -59,14 +59,14 @@ Order of work, all under `repositories/anton-abyzov/specwithcode`:
 5. **Triggers** (`storageCleanup.ts`, new `storageCleanupTriggers.ts`): a set of chat ids per event pass, `thread.run-completed`-style events as a trigger, the low-disk backoff. The sweep takes an optional set of chat ids and assesses only their folders.
 6. **Plan and UI** (`packages/contracts/src/storageCleanupPlan.ts`, `apps/web/src/lib/storageCleanupPlan.ts`, `StorageCleanupPlanSection.tsx`, the eight locale catalogs): "size unknown", the removal-failed sentence.
 7. **Restore** (`git/worktreeSetGit.ts`): a listed member without `.git` is created again.
-8. **Checks copies** (new `checksCopyRetention.ts`, `cli/verificationCopy.ts`, `cli/checks.ts`, `storageCleanup.ts`) and **session logs** (`storageCleanup.ts`).
+8. **Rotated logs** (`storageLogRetention.ts`, `storageCleanup.ts`). Checks-copy retirement is deferred to a follow-up increment (AC-17).
 9. **Docs.**
 
 Risks and how they are held:
 
 - **Removing a folder someone returns to.** The branch stays and every member is restorable (AC-16), so a resumed chat gets its folder back; only the dependency install is lost. Everything that exists only in the folder still keeps it (AC-05).
 - **Host rate limit.** More folders reach the pull request lookup. The 50-minute reuse per branch head stays, merged stays final, and event passes look at one chat's folders, so lookups per hour are bounded by the number of finished, unmerged folders.
-- **Prune.** The owner asked for a prune; 1370 left it out because a prune drops worktrees on an unmounted drive. AC-10 prunes only when that cannot happen.
+- **Prune.** The owner asked for a prune; it is left out (AC-10) because no check makes it safe for worktrees on an unmounted drive, and plain removal already unregisters.
 - **Older clients.** The plan's reason is a closed list, so a new literal would fail to decode on an older window. The failure is sent as reason `unknown` with the sentence in `detail`; no literal is added.
 
 ### Proposal: pnpm store link mode (not built)
@@ -83,10 +83,10 @@ Each worktree install is mostly clones or hard links of the pnpm store already (
 - D-02: A folder with no work of its own (every member on the default branch, no merged pull request) waits 6 quiet hours. Removing it at once would cost a reinstall each time a person answers a chat that only asked a question.
 - D-03: Ignored files under `.specweave/` and in `reports` folders are copied to evidence, not exempted: nothing is lost, and they hold no credentials. `.env` files and any other ignored file still keep the folder.
 - D-04: A lone `.DS_Store` in an emptied container folder is unlinked by name so the folder can go. This happens only after Git removed every member; after a Git failure nothing is touched.
-- D-05: Prune runs only when no prunable worktree sits under a missing folder (AC-10).
+- D-05: No prune (AC-10).
 - D-06: A removal failure is carried as reason `unknown` plus detail, so windows older than this build still read the plan.
 - D-07: Pre-update backups get no second pruner; the update agent's rule already keeps one.
-- D-08: A checks copy is a clone, so retiring it deletes its folder. It reuses the merged-clone removal, which checks the same facts again right before it removes.
+- D-08: Checks-copy retirement moves to a follow-up increment (AC-17).
 
 ### Open
 - Idle agent processes that keep a finished chat's folder "in use" need their own increment.
@@ -114,11 +114,11 @@ Each worktree install is mostly clones or hard links of the pnpm store already (
 ### T-07 A retired repository comes back
 - AC: AC-16 | Files: [repositories/anton-abyzov/specwithcode/apps/server/src/git/worktreeSetGit.ts, repositories/anton-abyzov/specwithcode/apps/server/src/git/worktreeSetGit.test.ts] | Test: specweave-studio checks run -- node node_modules/vite-plus/bin/vp test run apps/server/src/git/worktreeSetGit.test.ts
 
-### T-08 Unused checks copies and ended session logs
-- AC: AC-17, AC-18 | Files: [repositories/anton-abyzov/specwithcode/apps/server/src/checksCopyRetention.ts, repositories/anton-abyzov/specwithcode/apps/server/src/checksCopyRetention.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/cli/verificationCopy.ts, repositories/anton-abyzov/specwithcode/apps/server/src/cli/checks.ts, repositories/anton-abyzov/specwithcode/apps/server/src/storageCleanup.ts, repositories/anton-abyzov/specwithcode/apps/server/src/storageLogRetention.ts, repositories/anton-abyzov/specwithcode/apps/server/src/storageLogRetention.test.ts] | Test: specweave-studio checks run -- node node_modules/vite-plus/bin/vp test run apps/server/src/checksCopyRetention.test.ts apps/server/src/storageLogRetention.test.ts
+### T-08 Rotated logs (checks-copy retirement deferred)
+- AC: AC-18 | Files: [repositories/anton-abyzov/specwithcode/apps/server/src/storageCleanup.ts, repositories/anton-abyzov/specwithcode/apps/server/src/storageLogRetention.ts, repositories/anton-abyzov/specwithcode/apps/server/src/storageLogRetention.test.ts] | Test: specweave-studio checks run -- node node_modules/vite-plus/bin/vp test run apps/server/src/storageLogRetention.test.ts
 
 ### T-09 Docs, typecheck, builds and the pull request
-- AC: AC-19 | Files: [repositories/anton-abyzov/specwithcode/docs/operations/worktree-cleanup.md, repositories/anton-abyzov/specwithcode/docs/operations/heavy-checks.md] | Test: specweave-studio checks run -- node node_modules/typescript/bin/tsc --noEmit --project apps/server/tsconfig.json
+- AC: AC-19 | Files: [repositories/anton-abyzov/specwithcode/docs/operations/worktree-cleanup.md] | Test: specweave-studio checks run -- node node_modules/typescript/bin/tsc --noEmit --project apps/server/tsconfig.json
 
 ### T-10 Independent review, merge, release, verify and close
 - AC: AC-01 | Files: [.specweave/increments/1425-merged-worktrees-retire-automatically-and-storage-stays-bounded/reports/review.md] | Test: gh pr view --json state,mergeCommit
