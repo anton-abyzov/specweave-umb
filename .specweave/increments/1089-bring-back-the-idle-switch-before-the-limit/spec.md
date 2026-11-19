@@ -23,7 +23,7 @@ Out: the chip tooltip (1088), the way back itself (1075), new settings.
 
 Let `providerLimitStep` fall through to the idle branch of `providerFallbackCommand` when the thread did not stop on the limit and the action is `switch`, returning it as a `switch` step, and audit every sweep consumer of `switch` steps for a `thread.model-selection.set` command.
 
-Found in the November 19 re-check and two review rounds, and part of the fix:
+Found in the November 19 re-check and six review rounds, and part of the fix:
 
 - The move goes to a free thread between turns, after a turn that completed: never mid-turn, never for a provider-spawned subagent, a session still hosting background work (`activityRunStatus`, `hostsBackgroundWork`), a snoozed thread or a thread with held sends (`heldQueuedCount`). `idlePreswitchId` decides this and names the window's `limit-preswitch:` id.
 - Queued sends keep main's behaviour: the move never rewrites a queued run. A thread with queued sends is not moved; held ones are skipped when planning, and any queued run refuses the move as it lands, unrecorded, so it goes out after they have run. Carrying queued sends with the move was tried in review rounds 2 to 4 and dropped in round 6: each carry rule let a later pick be undone.
