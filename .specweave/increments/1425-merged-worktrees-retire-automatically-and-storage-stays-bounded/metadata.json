@@ -1,0 +1,12 @@
+{
+  "id": "1425-merged-worktrees-retire-automatically-and-storage-stays-bounded",
+  "uuid": "3e44e9f1-94e2-4df5-986c-0c2464554736",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-19T17:52:30.585Z",
+  "updated": "2026-11-19T17:52:30.585Z",
+  "lastActivity": "2026-11-19T17:52:30.585Z",
+  "title": "Merged worktrees retire automatically and storage stays bounded",
+  "project": "specweave-umb"
+}
