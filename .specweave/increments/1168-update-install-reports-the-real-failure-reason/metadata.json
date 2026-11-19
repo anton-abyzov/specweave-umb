@@ -5,11 +5,14 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-02T06:53:47.994Z",
-  "updated": "2026-11-02T06:53:47.994Z",
-  "lastActivity": "2026-11-02T06:53:47.994Z",
+  "updated": "2026-11-19T06:35:58.021Z",
+  "lastActivity": "2026-11-19T06:35:58.021Z",
   "title": "Update install reports the real failure reason",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }

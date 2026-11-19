@@ -66,7 +66,7 @@ Muse and Codex are out (November 19, 2026); the standing fallback (Anton, Novemb
 
 ### T-06 Keep a failed install's state copy until it is read
 
-- AC: AC-07, AC-08 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/release_retention.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/state_backup_prune.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-unread-failure-copy.py, repositories/anton-abyzov/specwithcode/docs/studio/updates.md | Test: `cd repositories/anton-abyzov/specwithcode/scripts/studio-fleet && python3 -B test-unread-failure-copy.py && python3 -B test-release-retention.py && python3 -B test-state-backup-prune.py`
+- AC: AC-07, AC-08 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/release_retention.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/state_backup_prune.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-unread-failure-copy.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-state-backup-prune.py, repositories/anton-abyzov/specwithcode/docs/studio/updates.md | Test: `cd repositories/anton-abyzov/specwithcode/scripts/studio-fleet && python3 -B test-unread-failure-copy.py && python3 -B test-release-retention.py && python3 -B test-state-backup-prune.py`
 
 ### T-03 Release and read back
 
