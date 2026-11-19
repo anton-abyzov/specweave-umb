@@ -1,16 +1,18 @@
 {
   "id": "1420-advisor-on-the-same-model-as-the-thread",
   "uuid": "82e7fb7b-97ed-4450-8591-7e9bc51fdc04",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P2",
   "created": "2026-11-19T04:28:00.359Z",
-  "updated": "2026-11-19T06:57:48.430Z",
-  "lastActivity": "2026-11-19T06:57:48.430Z",
+  "updated": "2026-11-19T10:23:24.539Z",
+  "lastActivity": "2026-11-19T10:23:24.539Z",
   "title": "Advisor on the same model as the thread",
   "project": "specweave-umb",
   "externalLinks": {},
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "readyForReviewAt": "2026-11-19T10:23:24.538Z",
+  "approvedAt": "2026-11-19T10:23:24.539Z"
 }
