@@ -417,3 +417,5 @@ New in round 4, from design review 1:
 ## Review
 
 Reviewer: Muse Wonderful, `muse-wonder-full-1.0`, effort high, for anything touching device approval or grants. It confirms that no `[label]` change alters who gets access.
+
+Design reviews, November 19, 2026: Muse Wonderful was out on every machine (rate limit until November 23; on M5 the run ended at once with no details), so the design ran on Codex GPT-6.2 Sol, effort high, on M5, under Anton's standing rule of November 18, 2026 ("Yes, as a standing rule": when Muse is out, the next reviewer in order, Codex, then Copilot Enterprise with GPT-6.1 Sol). Round 1 (`reports/design-review-1.md`) and round 2 (`reports/design-review-2.md`) said fix first. Muse Wonderful still reviews each pull request head for T-08, T-03 and T-04 when it is back.
