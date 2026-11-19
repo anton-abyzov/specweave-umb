@@ -1,15 +1,20 @@
 {
   "id": "0898-team-usage-view",
-  "status": "planned",
+  "status": "active",
   "type": "feature",
   "priority": "P2",
   "created": "2026-10-12T22:39:23.000Z",
-  "updated": "2026-10-12T22:39:23.000Z",
-  "lastActivity": "2026-10-12T22:39:23.000Z",
+  "updated": "2026-11-19T06:34:26.464Z",
+  "lastActivity": "2026-11-19T06:34:26.464Z",
   "title": "Team usage view",
   "project": "specweave-umb",
   "parent": "0897-free-first-pricing-and-launch",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specweave",
+    "repositories/anton-abyzov/specwithcode",
+    "repositories/anton-abyzov/vskill-platform"
+  ]
 }

@@ -24,10 +24,12 @@ Out: prompts, code, file names, thread titles or any content leaving a machine; 
 - D-01 (Anton, November 19, 2026): the team view is hosted on verified-skill.com tenants (vskill-platform), not a separate SpecWithCode service. Seats and billing (0840/0841) carry over.
 - D-02 (Anton, November 19, 2026): Cursor seats are listed and show "usage not readable yet" while the machine has no Cursor usage reading. When 1415's Cursor reader is switched on and reads, the same row fills in with no change here.
 
+- D-03 (Anton, November 19, 2026, "Member's vsk_ token"): AC-04's "pairing" is the member's own verified-skill.com `vsk_` API token, the one `vskill auth login` stores and the app already reads for skill publishing, with the existing `write` scope; the platform checks the token's user is an `OrgMember` of the tenant. No new token kind or scope. A self-hosted endpoint is an HTTPS URL with its own bearer credential in the app's secret store; the `vsk_` token and the `gh auth token` fallback are never sent to any host but verified-skill.com. Connect (Clerk) is not used: it knows no tenants.
+- D-04 (Anton, November 19, 2026, "Yes, migrate"): T-02 adds the `TeamUsageSummary` table described under Approach, "Platform storage", and ships with `release.sh ship platform --migrate` once its PR is reviewed and green. No existing table or row changes.
+
 ### Open
 
-- D-03 (asked November 19, 2026): AC-04 says "authenticate the machine with its pairing", but no machine-to-platform pairing exists today. Recommended mapping: hosted = the member's own verified-skill.com `vsk_` API token, the one `vskill auth login` already stores and the app already reads for skill publishing (`SkillPublishingAdapter.ts`), with the existing `write` scope; the platform checks the token's user is an `OrgMember` of the tenant. No new token kind or scope. Self-hosted = an HTTPS URL plus its own bearer credential kept in the app's secret store; the `vsk_` token and the `gh auth token` fallback are never sent to any host but verified-skill.com. Connect (relay.spec-weave.com, Clerk) is a separate identity that knows no tenants, so it is not used.
-- D-04 (asked November 19, 2026): T-02 needs one new Postgres table on the platform database (additive; no existing table or row changes). It ships only with `release.sh ship platform --migrate`, which needs Anton's yes. Exact change in Approach, "Platform storage".
+(none)
 
 ## Approach
 
@@ -74,8 +76,8 @@ Muse is out until November 23, 2026 and Codex is at 100%, so each PR is reviewed
 - **Dependencies**: T-01
 
 ### T-02 Team endpoint storing summaries per tenant
-- AC: AC-04 | Files: repositories/anton-abyzov/vskill-platform/prisma/tenancy.prisma [exists], repositories/anton-abyzov/vskill-platform/prisma/migrations/ [new folder], repositories/anton-abyzov/vskill-platform/src/app/api/v1/tenants/[tenantId]/usage-summaries/ [new], repositories/anton-abyzov/vskill-platform/src/lib/team-usage/ [new] | Test: endpoint auth and schema tests (`npx vitest run src/lib/team-usage src/app/api/v1/tenants/[tenantId]/usage-summaries`)
-- **Dependencies**: T-01; merge and ship wait for D-03 and D-04
+- AC: AC-04 | Files: repositories/anton-abyzov/vskill-platform/prisma/tenancy.prisma [exists], repositories/anton-abyzov/vskill-platform/prisma/migrations/ [new folder], repositories/anton-abyzov/vskill-platform/src/app/api/v1/tenants/[tenantId]/usage-summaries/ [new], repositories/anton-abyzov/vskill-platform/src/app/api/v1/tenants/usage-orgs/ [new], repositories/anton-abyzov/vskill-platform/src/lib/team-usage/ [new] | Test: endpoint auth and schema tests (`npx vitest run src/lib/team-usage src/app/api/v1/tenants/[tenantId]/usage-summaries`)
+- **Dependencies**: T-01
 
 ### T-03 Admin page and CSV export
 - AC: AC-03 | Files: repositories/anton-abyzov/vskill-platform/src/app/orgs/[orgSlug]/usage/ [new], repositories/anton-abyzov/vskill-platform/src/lib/team-usage/ [new] | Test: page renders filters and CSV from fixture data
