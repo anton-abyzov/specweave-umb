@@ -1,12 +1,12 @@
 {
   "id": "1008-harness-positioning-and-showcase",
   "uuid": "d2587b8f-0ca4-4a92-ac59-ca1b4cde7fe2",
-  "status": "active",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-23T05:10:06.385Z",
-  "updated": "2026-11-19T06:17:04.115Z",
-  "lastActivity": "2026-11-19T06:17:04.115Z",
+  "updated": "2026-11-19T06:30:14.874Z",
+  "lastActivity": "2026-11-19T06:30:14.874Z",
   "title": "Harness positioning and showcase",
   "project": "specweave",
   "externalLinks": {},
@@ -14,5 +14,7 @@
   "coverageTarget": 80,
   "repositories": [
     "repositories/anton-abyzov/specweave"
-  ]
+  ],
+  "abandonedReason": "Close as is: landing harness and increments FAQ shipped (specweave PR #2137) and the explainer; showcase video dropped. strictClose refused complete --reason. Anton approved, November 19, 2026",
+  "abandonedAt": "2026-11-19T06:30:14.874Z"
 }
