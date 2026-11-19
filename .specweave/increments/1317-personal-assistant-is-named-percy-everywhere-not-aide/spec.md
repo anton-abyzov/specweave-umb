@@ -30,6 +30,12 @@ Rename strings only, by hand per hit, never identifiers or stored keys. The defa
 ### Open
 - none
 
+## Follow-ups
+
+Found by the closing review (GPT-6.1 Sol on Copilot Enterprise, November 19, 2026), medium, not fixed here:
+
+- Gap in AC 02, edge case: while another project is named Percy (any case), the start step skips an assistant titled exactly "Aide" on every start (`apps/server/src/project/PersonalAssistantDefaultName.ts:69-81`) and logs nothing for it (`apps/server/src/serverRuntimeStartup.ts:740-747`). Renaming the other project silently is not the fix; it needs a stated collision policy or a note to the person.
+
 ## Tasks
 
 ### T-01 App, server and translations
