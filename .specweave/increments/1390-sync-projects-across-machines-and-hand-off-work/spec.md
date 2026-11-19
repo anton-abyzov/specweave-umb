@@ -384,7 +384,7 @@ Every string below was read at `origin/main` `af7b77f05` (1.0.346) of `repositor
 | Done (`web/components/studio/HandoffCopyDone.tsx:145`, `:146`) | {machine} has a copy. Main stays on {main}. / {target} has a copy. The coordinator stays here. | {project} is on {machine}. The coordinator stays on {main}. / …stays here. |
 | Done (`HandoffCopyDone.tsx:128`) | The files are on {target}, but {problem}. Copy again: it compares first and moves only what changed. | The files are on {target}, but {problem}. Sync again: it compares first and moves only what changed. |
 | Done (`:143`) | Files are copied. Hand off the coordinator once work here is idle. | (unchanged) |
-| Done buttons (`:648`, `:676`, `:692`) | Copy again / Copy changes again | Sync again |
+| Done buttons (`:648`, `:676`, `:692`) | Copy again / Copy changes again | Sync again (held move, or files changed while copying) / Sync again… (outline button on a finished copy, opens the form) / Run the same sync again (menu item, repeats the copy at once). Never two controls with one name and different actions. |
 | Done button (`:653`) | Hand off coordinator now | Continue the coordinator on {target} |
 | Done button (`:671`) | Make {machine} main | Continue the coordinator on {machine} |
 | Done button (`:465`) | Hand off anyway | Continue on {target} anyway, on its older commits |
