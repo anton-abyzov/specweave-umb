@@ -23,12 +23,14 @@ Shipped in SpecWithCode 1.0.379 (`request-release.sh --released 87572d101` → v
 
 ## Screenshots
 
-Headless Chromium, fixture `apps/web/tests/subscription-resets/` at the merge of PR 691, clock fixed at November 15, 2026 01:00 UTC, New York time zone. The fixture builds rows by hand, so these show how rows are drawn; AC-01 and AC-03 rest on the tests above.
+Headless Chromium, fixture `apps/web/tests/subscription-resets/` at `87572d101` (PR 670's merge), clock fixed at November 15, 2026 01:00 UTC, New York time zone. The fixture builds rows by hand, so these show how rows are drawn; AC-01 and AC-03 rest on the tests above.
 
 - `screenshots/subscription-rows-light.png`: a Claude, two Codex and a Copilot row with amounts and a day set by you, then a row with no reading (Devin) and a signed-out Codex row.
 - `screenshots/subscription-row-copilot-light.png`: Copilot's amounts, its monthly note and the day set under its subscription.
 - `screenshots/subscriptions-light-1280.png`, `subscriptions-dark-1280.png`, `subscriptions-light-390.png`, `subscriptions-dark-390.png`: the whole page with the header line.
 - `screenshots/subscriptions-empty.png`: before any reading.
+
+In these shots the Copilot row's window title reads "0-hour": the fixture gave that window a 0-minute length, which Copilot's reader never sends. PR 691 fixed the fixture and its verifier (title "Premium requests", reviewed ship); a re-shoot at its merge `acd84fffd` is queued under the heavy-check gate and replaces these files in place.
 
 ## Proof limits
 
