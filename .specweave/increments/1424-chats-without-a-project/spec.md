@@ -36,7 +36,7 @@ B's one real benefit, chats that can see each other's context, is already covere
 
 In: web (desktop renders the same web UI) and server, in `anton-abyzov/specwithcode`.
 
-Out: iOS (already right), React Native (no such screen), deleting or moving any existing chat folder or data, the scratch folder location, a per-machine "data folder" setting.
+Out: choosing an arbitrary folder for a chat (needs a server launch change; the chat's own folder covers it today), iOS (already right), React Native (no such screen), deleting or moving any existing chat folder or data, the scratch folder location, a per-machine "data folder" setting.
 
 ## Acceptance Criteria
 
@@ -46,6 +46,7 @@ Out: iOS (already right), React Native (no such screen), deleting or moving any 
 - [ ] AC-04: Chat settings shows the chat's machine, its own folder (with Copy) and its model, says that a chat shares nothing with other chats, and offers Move to project… and Switch model… where the thread supports them.
 - [ ] AC-05: The server sends a chat no project goal, instructions, memory or knowledge; it sends one short section saying the chat has no project and shares nothing.
 - [ ] AC-06: The server refuses project memory reads, writes and deletes for the Scratch project with a message that names Move to project, lists no memory for it and offers no knowledge search; a goal or instructions saved for it are never sent; existing rows are left in place.
+- [ ] AC-08: Choosing another machine for a chat draft keeps it a chat there (that machine's "No project") without showing a project list; where a project list is shown for a chat, "No project" leads it and is marked current.
 - [ ] AC-07: Before and after headless screenshots of a chat's settings on a seeded server, and an adversarial review by another model family.
 
 ## Approach
@@ -63,7 +64,7 @@ Risk: an agent in a chat that relied on scratch memory loses it. There is none o
 ## Decisions
 
 ### Asked
-- none: A changes no earlier decision of Anton's and deletes or moves no chat data.
+- D-00 Is a chat part of a project? → No (Anton, November 19, 2026, on M5): "chats are disconnected from projects". Switching machines keeps a chat without a project and never asks for a project or folder; the chat's folder is its own ("Chat folder"); moving into a project is the explicit "Move to project…". This settles option A.
 ### Defaulted (change any before sw-do)
 - D-01 Recommendation A over B and C → A, with pointers to Move to project and Percy (reversible: the shared rows are kept).
 - D-02 Existing Scratch memory rows → kept in place, not shown to chats (reversible).
@@ -78,6 +79,9 @@ Risk: an agent in a chat that relied on scratch memory loses it. There is none o
 
 ### T-02 Web: Chat settings replaces Project settings for chats
 - AC: AC-01, AC-02, AC-03, AC-04 | Files: apps/web/src/components/threadActionMenu.logic.ts, apps/web/src/components/chat/ChatSettingsDialog.tsx, apps/web/src/hooks/useThreadActionMenu.ts, apps/web/src/components/CommandPalette.tsx, apps/web/src/components/ProjectSettingsShortcut.tsx | Test: cd apps/web && node ../../node_modules/vite-plus/bin/vp test run --project unit src/components/threadActionMenu.logic.test.ts src/components/chat/ChatSettingsDialog.test.tsx
+
+### T-04 Machine picker keeps a chat a chat
+- AC: AC-08 | Files: apps/web/src/components/chat/DraftMachinePicker.tsx, apps/web/src/components/chat/DraftMachinePicker.test.tsx | Test: cd apps/web && node ../../node_modules/vite-plus/bin/vp test run --passWithNoTests --project unit src/components/chat/DraftMachinePicker.test.tsx
 
 ### T-03 Screenshots, review, PR
 - AC: AC-07 | Files: apps/web/tests/chat-settings/verify.mjs | Test: node apps/web/tests/chat-settings/verify.mjs <report dir>
