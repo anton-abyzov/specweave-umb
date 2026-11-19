@@ -15,6 +15,8 @@ How the advisor model is picked today (app repository `repositories/anton-abyzov
   - Both studio-code consults were refused with "off".
   - So every Fable-on-Fable consult measured came from pass-through, not from the app.
 
+Anton's answer on the fallback (November 19, 2026), replying to "fall back to Muse, as today": "or another model in the list of models for Complex tasks I believe! we have a list Daily, Complex, Review!" So the advisor falls back along the Complex track, not the Review track. On m4 the saved Complex track is Fable 5.2 on Claude, then GPT-6 Astra on GitHub Copilot at Extra High.
+
 What the m4 data says (November 16 to 18, 2026). The method is in the report `.specweave/reports/threads/2026-11-19-advisor-on-the-same-model-as-the-thread-7ab1d9-4900ed.md`, and the scripts and labels are in `~/.specwithcode/m4/evidence/advisor-same-model/`.
 
 - **Advisor model.** The advisor is `claude-fable-5-2`, per the advisor usage entries in 176 Claude session logs, counted once per message: 118 Fable-on-Fable, 223 Opus-on-Fable, 2 Opus-on-Opus and 2 Sonnet advising Haiku. The logs include sessions outside SpecWithCode and were not joined to the labelled consults.
@@ -40,21 +42,20 @@ What the m4 data says (November 16 to 18, 2026). The method is in the report `.s
 ## Scope
 
 In:
-- **Same model when the thread is on the top of the order.** A thread on the first model of the advisor order is advised by that same model. Under the context limit that happens through Claude's own advisor, with the whole transcript; past it, on the studio-code brief (D-02). Today the thread jumps to the Review track.
+- **The advisor order follows the Complex track.** The order becomes the saved advisor model, then the project's Complex track. It replaces "Fable 5.2, then the Review track".
+- **Same model when the thread is on the top of the order.** A Claude thread on the first model of the order is advised by that same model through Claude's own advisor, while its context is under the limit. Past the limit, it gets the next Complex track model on the brief (D-02). Today it jumps to the Review track.
 - **Show the advisor.** The thread's Advisor row and each consult name the model that answers, and say when it is the thread's own model.
 - **Show pass-through.** The Advisor row stops reading "Off" while Claude's own advisor is answering on that thread.
 
 Out:
 - Changing what the app's Off does to Claude's own advisor (D-03).
-- The Review track inside the advisor order (D-04).
 - Muse advisor effort (D-05).
 - The time note text from PR 644.
 
 ## Acceptance Criteria
 
-- [ ] AC-01: With the app's advisor on, a thread whose model is the first entry of the advisor order is advised by that same model, and the Review track is not used for it. On the default order, that is a Fable 5.2 thread advised by Fable 5.2.
-  - Under the context limit, a Claude thread on Claude Code with a plan has its session started with `advisorModel` set to that model.
-  - Past the limit, the consult goes to that same model on the studio-code brief (D-02).
+- [ ] AC-01: With the app's advisor on, a Claude thread on Claude Code with a plan, whose model is the first entry of the advisor order and whose context is under the limit, is advised by that same model through Claude's own advisor. Its session is started with `advisorModel` set to that model. On the default order, that is a Fable 5.2 thread advised by Fable 5.2.
+  - Past the limit, the consult goes on the studio-code brief to the next model of the order that is not the thread's own (D-02). On m4 that is GPT-6 Astra on GitHub Copilot, at its entry's Extra High.
 - [ ] AC-02: Every other pair resolves as before:
   - an Opus 5.5 thread gets Fable 5.2;
   - a thread whose own model sits later in the order still skips it;
@@ -62,6 +63,10 @@ Out:
 - [ ] AC-03: The thread's Advisor row in the composer options menu names the advisor that would answer the next consult ("Advisor: Fable 5.2"), and adds "same model as this thread" when it is.
 - [ ] AC-04: A consult of Claude's own advisor is titled with the model that answered, read from the reply's advisor usage entry, for example "Asked the advisor (Fable 5.2)". This holds in pass-through too.
 - [ ] AC-05: In pass-through, once Claude's own advisor has answered on a thread, that thread's Advisor row says the advice came from Claude's own setting and names the model, instead of only "Follow project (off)". No consult starts or stops because of this change.
+- [ ] AC-07: The advisor order is the saved advisor model, then the project's Complex track, with each entry at its saved effort. The Review track is no longer part of it.
+  - With no Complex track saved, the order is the built-in Complex track: Fable 5.2, then GPT-6 Astra.
+  - Billing rules are unchanged: built-in entries never pick per-token, Vertex, paid-router or unknown-billing sources.
+  - Settings > Models > Advisor shows the default model as "The Complex track".
 - [ ] AC-06: Wording is in all 8 catalogs. Headless screenshots of the menu show three states, light and dark at 1280 px and light at 390 px:
   - a Fable thread on the same model;
   - an Opus thread advised by Fable;
@@ -70,9 +75,10 @@ Out:
 ## Approach
 
 - **Shared rule** (`packages/shared/src/advisor.ts`):
+  - `advisorOrder` takes the project's Complex track (`modelLanes.complex`, expanded like the Complex track itself) instead of `reviewers`. Its callers pass that track: `RuntimePolicy.ts` and `OrchestratorMcpService.ts` (`resolveAdvisor`).
   - `claudeAdvisorPairAllowed` allows equal identity.
   - `preferredAdvisor` takes the thread's own model when it is the first entry of `advisorOrder` and the thread is on Claude Code with a plan.
-  - `resolveAdvisor` stops skipping the thread's own model when it is the first entry, on both routes.
+  - `resolveAdvisor` keeps skipping the thread's own model on the brief, so a thread past the limit moves to the next Complex track model.
   - A new `threadAdvisorPreview` returns `{ model, sameModel, route }` for the menu, built from the same functions so the menu and the session never disagree.
 - **Server:**
   - `RuntimePolicy.ts` needs no new input.
@@ -82,7 +88,8 @@ Out:
   - Skip the advisor when the models match. That throws away the consults that changed course most often.
   - Move to the next stronger or other-family model. There is nothing stronger than Fable 5.2, so the next entry is Muse Wonder Full on a lossy brief at Extra High. Owner rules say Muse only does adversarial review and runs at High, and the reviewer would then check work its own family steered.
   - The same model at a higher effort. Claude's advisor has no effort setting.
-- **Adversarial review:** unchanged. The reviewer is still from another family than the author. With D-02 accepted, a Fable thread's advisor stays on Fable on both routes, which keeps Muse out of the work it reviews later. Without D-02, the 46% of long Fable threads past the limit still reach Muse.
+- **Adversarial review:** the rule itself is unchanged; the reviewer is still from another family than the author. The advisor now draws from the Complex track, never the Review track, so Muse no longer advises the work it reviews later.
+  - One overlap is left. A long Claude thread's advisor is GPT-6 Astra (OpenAI). If Muse cannot review, the next reviewer on m4 is GPT-6.1 Sol, which is the same family (D-04).
 - **Risk:** a same-model consult costs the same as an Opus thread's consult (about 180,000 tokens of Fable). Fable advice on a subscription draws usage credits (1371 report).
 
 ## Decisions
@@ -90,10 +97,9 @@ Out:
 ### Asked
 
 - D-01 Keep the advisor when the thread is already on the advisor's model? Recommended: keep it and say so in the menu. This reverses 1371 AC-12 for that case. Waiting for Anton.
-- D-02 What happens past the 200,000-token limit, where 46% of measured same-model consults were? Waiting for Anton. Options:
-  - the same model on the 24,000-token brief, a truly fresh context (recommended: keeps Muse out and keeps the cost cap; no data on brief quality either way);
-  - raise the limit for the same-model case (full transcript, but each consult re-reads 200,000+ tokens of Fable on usage credits);
-  - let long threads reach the Review track as today.
+- D-02 What happens past the 200,000-token limit, where 46% of measured same-model consults were? Anton, November 19: fall back along the Complex track, not to Muse. Applied as AC-07, and AC-01's past-the-limit case.
+  - On m4 the next model is GPT-6 Astra on Copilot at Extra High.
+  - This replaces my recommendation, the same model on the brief.
 
 ### Defaulted (change any before sw-do)
 
@@ -102,19 +108,19 @@ Out:
 ### Open
 
 - D-03 Should the app's Advisor Off also switch off Claude's own advisor named in `~/.claude/settings.json`? Today pass-through gives every Claude thread on m4 a Fable advisor while the app says Off. Recommended: not now. AC-05 makes it visible first; switching it off would take the advisor away from every Claude thread on m4.
-- D-04 When the advisor order still reaches the Review track (Fable 5.2 unavailable), skip the family that will review the thread? There is no data. Proposed as a follow-up.
-- D-05 A Muse advisor starts at the Review entry's Extra High. The owner's November 18 rule says Muse runs at High. Should the advisor follow it?
+- D-04 The advisor order no longer reaches the Review track. One overlap remains: an Astra advisor, and then a GPT-6.1 Sol reviewer when Muse cannot review. Should the reviewer skip the advisor's family as well? There is no data. Proposed as a follow-up.
+- D-05 is moot by default, since Muse is not in the order. It applies only when someone saves Muse as the advisor model.
 
 ## Tasks
 
 ### T-01 Shared rule and preview
-- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/advisor.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/advisor.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run packages/shared/src/advisor.test.ts apps/server/src/orchestration-v2/RuntimePolicy.advisor.test.ts
+- AC: AC-01, AC-02, AC-07 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/advisor.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/advisor.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/advisor.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/RuntimePolicy.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/OrchestratorMcpService.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run packages/shared/src/advisor.test.ts apps/server/src/orchestration-v2/RuntimePolicy.advisor.test.ts
 
 ### T-02 Consult title and pass-through record
 - AC: AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.advisor.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.advisor.test.ts
 
 ### T-03 Menu line, catalogs and fixture
-- AC: AC-03, AC-05, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/ThreadAdvisorMenu.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/ThreadAdvisorMenu.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases, repositories/anton-abyzov/specwithcode/apps/web/tests/advisor | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/chat/ThreadAdvisorMenu.test.tsx src/i18n/i18n.test.ts
+- AC: AC-03, AC-05, AC-06, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AdvisorSettings.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/ThreadAdvisorMenu.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/ThreadAdvisorMenu.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases, repositories/anton-abyzov/specwithcode/apps/web/tests/advisor | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/chat/ThreadAdvisorMenu.test.tsx src/i18n/i18n.test.ts
 
 ### T-04 Review, merge, release
 - AC: AC-06 | Files: none | Test: gh pr list --repo anton-abyzov/specwithcode --search "1420 in:title" --state merged --json number --jq length | grep -qv '^0$'
