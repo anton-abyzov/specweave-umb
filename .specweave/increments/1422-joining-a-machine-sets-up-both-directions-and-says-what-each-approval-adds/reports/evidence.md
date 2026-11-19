@@ -29,7 +29,7 @@ m4's traces never mention PRCTY-AABYZOV, so only the machine that was joined (M5
 ## Code (main at `cb2963143`)
 
 - `apps/server/src/studioFleetHttp.ts`, `accountJoinFleetWorkers`: the new machine's app hands its own join line to the other machine through its approved Connect session; that machine redeems it (`addAndAllowWorkers`, renewing) and records the join for the notice.
-- `apps/web/src/components/AutoConnectPrivateMachines.tsx`, `apps/web/src/studio/fleetAutoConnect.ts`: a window pairs itself with the machines its server lists.
+- `apps/web/src/cloud/GrantedAccountMachines.tsx` (selection in `apps/web/src/studio/grantedAccountMachines.ts`): a window saves a Connect route (`RelayConnectionRegistration`) for each account machine that granted this one. This is what opened Windows from M5. Corrected on November 19, 2026 at `origin/main` `c924fa8340`: `apps/web/src/components/AutoConnectPrivateMachines.tsx` and `apps/web/src/studio/fleetAutoConnect.ts`, named here before, are the Tailscale path (`.ts.net` addresses only) and did not act in this join.
 - `apps/server/src/fleet/ConnectDeviceTrust.ts`: each machine keeps its own device list; an unknown proof key gets a request and a code shown only on the asking device.
 - `packages/contracts/src/connectDevices.ts`: a request carries a label, system, app, short ID and device hash; no machine identity (only `via` for a phone's hub).
 
