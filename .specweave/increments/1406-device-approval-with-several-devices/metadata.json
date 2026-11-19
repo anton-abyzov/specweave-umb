@@ -1,16 +1,18 @@
 {
   "id": "1406-device-approval-with-several-devices",
   "uuid": "a711ece3-f949-4a41-9aaf-1c138ba26a2b",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-18T08:41:37.789Z",
-  "updated": "2026-11-19T06:42:13.076Z",
-  "lastActivity": "2026-11-19T06:42:13.076Z",
+  "updated": "2026-11-19T18:44:21.402Z",
+  "lastActivity": "2026-11-19T18:44:21.402Z",
   "title": "Device approval with several devices: the dialog stays open after Allow and devices look alike",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
   ],
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-19T18:44:21.399Z",
+  "approvedAt": "2026-11-19T18:44:21.402Z"
 }
