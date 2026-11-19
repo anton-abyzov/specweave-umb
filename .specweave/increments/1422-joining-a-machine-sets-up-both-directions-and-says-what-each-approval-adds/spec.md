@@ -50,20 +50,22 @@ Lanes. `[label]` changes only what is shown and ships after review and green CI.
 ## Acceptance Criteria
 
 - [ ] AC-01 [label]: The device pop-up says what Allow adds and that letting a machine's agents run work is separate: Allow lets the SpecWithCode app on that device open this machine (chats, terminals, files, settings, sign-ins). No reassurance keys on the device's own name; the line that the name is the device's own word stays.
-- [ ] AC-02 [label]: While a window waits for a code on a machine that just joined this one, the joined notice says so: what the join already allows, and that to open that machine from this window too, the code this window shows is typed there. Without such a wait the notice reads as today.
-- [ ] AC-03 [label]: After Allow on the new machine, the join step says what comes next on this screen: the other machine's window may ask for a code here, and that code is read on the other machine.
+- [ ] AC-02 [label]: The joined notice on the machine that was joined says the join is one way: its agents can run work on the new machine and its app can open it; the new machine cannot use this machine. It offers Allow for the reverse direction (D-02), which nothing grants by itself.
+- [ ] AC-03 [label]: The Allow on the new machine says what it covers: the other machine's agents may run work here and its SpecWithCode app may open this machine, with no second code; this machine gets no access to the other one.
 - [ ] AC-09 [label]: The join's done card names the next step with 1390's verbs (Add a project to this machine) instead of sending the owner to the other machine's Settings.
 - [ ] AC-04 [label]: First run names no main machine: the row reads as joining one of your machines (wording agreed with the 1390 owner so join, Sync and Hand off read as one concept).
-- [ ] AC-05 [access]: Built as Anton decides D-01.
-- [ ] AC-06 [access]: Built as Anton decides D-02.
+- [ ] AC-05 [access]: After a join, the joined machine's own app opens the new machine with no code and no pop-up: the joined machine vouches for its own app with the credential the join gave it, and the new machine checks that proof. Only the machine's own local app gets a vouch, never another device approved there; a request without a valid proof still needs its code; Remove and revoking the grant end it. (D-01)
+- [ ] AC-06 [access]: A join grants agents one way only. The reverse is offered on the joined machine (AC-02) and set up only by the owner's Allow there. (D-02)
+- [ ] AC-10 [access]: The code typed on the joined machine lets the new machine join and hand over its line; it gives the new machine's app no lasting access to the joined machine. A machine joined before this change keeps what it has until the owner removes it. (D-03)
 - [ ] AC-07 [label]: Every new string goes through the translation function with entries for the eight shipped languages.
 - [ ] AC-08 [label]: Checked after release with two real machines by Anton: the join's screens, then what each machine can open and run on the other.
 
 ## Decisions
 
-- D-01 [access], for Anton: should the join stop asking for the second code? (a) Keep it and explain it (AC-01 to AC-03). (b) When Allow is pressed on the new machine, the new machine also lets in the window that typed its code on the other machine, on that machine's word over the channel the join already uses. That machine's agents get full access through the same Allow, so this widens nothing it can reach. It is a narrow exception to 1416 D-01. Recommended: (b), five steps as decided.
-  Options weighed for Anton's "a code sounds tricky" (November 19): a one-click Allow for any device signed in to the same account would drop the guarantee the code gives, because a stolen sign-in is also the same account and the name is the device's own word (why 1327 kept the code, November 17). Comparing a code shown on both screens and clicking Allow is lighter but easier to click through. What keeps the guarantee and drops the typing is proof from a machine already trusted: the joined machine vouches for its own app with the credential the join gave it, which an attacker with only a sign-in does not have. So one typed code stays per new machine, the one that lets a brand-new machine in, and every later prompt between the two machines is covered by that proof.
-- D-02 [access], for Anton: should a join let agents run work both ways? (a) Yes, by default, with a visible choice on the join card to keep it one way. (b) No; the joined notice offers a second Allow for the reverse direction. Recommended: (a), so Hand off works either way between equal machines.
+- D-01 [access] Should the join stop asking for the second code? → Drop it; Allow covers it, and the Allow says so (Anton, November 19, 2026: "drop it. I think allow covers it, but just explain this"). Built as AC-05 and AC-03.
+  Options weighed for Anton's "a code sounds tricky" (November 19): a one-click Allow for any device signed in to the same account would drop the guarantee the code gives, because a stolen sign-in is also the same account and the name is the device's own word (why 1327 kept the code, November 17). Comparing a code shown on both screens and clicking Allow is lighter but easier to click through. What keeps the guarantee and drops the typing is proof from a machine already trusted: the joined machine vouches for its own app with the credential the join gave it, which an attacker with only a sign-in does not have. So one typed code stays per new machine, and every later prompt between the two machines is covered by that proof.
+- D-02 [access] Should a join let agents run work both ways? → One way; offer the reverse (Anton, November 19, 2026). Built as AC-06 and AC-02.
+- D-03 [access] Should the code typed on the joined machine give the new machine's app access to it? → No. Anton, November 19, 2026, on "Your first code let Windows's app into M5": "I think this Windows machine has no access to M5. I never intended this to be." Today that code approves the new machine's app as a full device on the joined machine (1327), because its app hands the join line over through that session (`accountJoinFleetWorkers`). It follows from D-02's one way that the code approves the join only. Built as AC-10; replaces the November 17 reading in `decision_machine_join_flow` that the code is an ordinary device approval.
 
 ## Approach
 
@@ -74,23 +76,26 @@ Wording first (AC-01 to AC-04, AC-07), then D-01 and D-02 as decided. Each side 
 ### T-01 The device pop-up says what Allow adds
 - AC: AC-01, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/devices/ConnectDeviceViews.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/devices/ConnectDeviceViews.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/ | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run --passWithNoTests --project unit src/components/devices
 
-### T-07 Joined notice and join step explain the second code (only if D-01 keeps it)
+### T-07 Joined notice and Allow say the join is one way and what Allow covers
 - AC: AC-02, AC-03, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/FleetJoinNotice.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AccountJoinCard.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/ | Test: focused web tests for both components
 
 ### T-02 First-run row and done card use 1390's words
 - AC: AC-04, AC-07, AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/onboarding/SignInFirstStep.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AccountJoinCard.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/ | Test: focused web test; wording agreed with the 1390 owner
 
-### T-03 Build D-01 as decided
+### T-08 The join's code approves the join only (D-03)
+- AC: AC-10 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/studioFleetHttp.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/ConnectDeviceTrust.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AccountJoinCard.tsx | Test: server tests that the joining app can hand over its line and nothing else; Muse Wonderful review
+
+### T-03 The joined machine vouches for its own app (D-01)
 - AC: AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/studioFleetHttp.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/ConnectDeviceTrust.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AccountJoinCard.tsx | Test: server tests for the binding and its refusals; Muse Wonderful review
 
-### T-04 Build D-02 as decided
+### T-04 One-way grant with the reverse offered (D-02)
 - AC: AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/studioFleetHttp.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AccountJoinCard.tsx | Test: server tests for both directions; Muse Wonderful review
 
 ### T-05 Check on real machines after release
 - AC: AC-08 | Files: .specweave/increments/1422-joining-a-machine-sets-up-both-directions-and-says-what-each-approval-adds/reports/ | Test: Anton's screens of the join on both machines
 
 ### T-06 Verify and close
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09 | Files: .specweave/increments/1422-joining-a-machine-sets-up-both-directions-and-says-what-each-approval-adds/ | Test: specweave verify 1422
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10 | Files: .specweave/increments/1422-joining-a-machine-sets-up-both-directions-and-says-what-each-approval-adds/ | Test: specweave verify 1422
 
 ## Review
 
