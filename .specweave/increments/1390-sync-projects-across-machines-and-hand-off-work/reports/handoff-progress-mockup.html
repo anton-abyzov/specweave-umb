@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Hand off specweave</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1c1c1e;
+    --muted: #6e6e73;
+    --line: #e6e6ea;
+    --soft: #f5f5f7;
+    --card: #ffffff;
+    --blue: #3a5bd9;
+    --green: #1f7a4d;
+    --red: #c4342d;
+    --amber-bg: #fff6e8;
+    --amber: #8a5a12;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #ececee;
+    font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+  }
+  .card {
+    width: 560px;
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+  }
+  .body { padding: 22px 22px 8px; }
+  h1 {
+    margin: 0 0 6px;
+    font-size: 17px;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mark {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: #3a5bd9;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .why {
+    margin: 10px 0 14px;
+    background: var(--amber-bg);
+    color: var(--amber);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .bar-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .track { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; }
+  .fill { width: 46%; height: 100%; background: var(--blue); border-radius: 99px; }
+  ul { list-style: none; margin: 16px 0 8px; padding: 0; }
+  li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+  }
+  .name { font-size: 14px; }
+  .state { font-size: 13px; color: var(--muted); text-align: right; }
+  .state.done { color: var(--green); }
+  .state.fail { color: var(--red); }
+  .state.now { color: var(--blue); }
+  .foot {
+    background: var(--soft);
+    padding: 12px 22px 16px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+  <article class="card">
+    <div class="body">
+      <h1><span class="mark">S</span> Hand off “specweave” to M5</h1>
+      <div class="why">Complex track out of tokens on m4. Fable 5.2 and GPT-6 Astra were tried here first.</div>
+      <div class="bar-row"><span>2 of 4 threads on M5</span><span>Packing, sending, received, resumed</span></div>
+      <div class="track"><div class="fill"></div></div>
+      <ul>
+        <li>
+          <div class="name">Rethink copies and handoff</div>
+          <div class="state done">Done · resumed on M5</div>
+        </li>
+        <li>
+          <div class="name">Sync dialog</div>
+          <div class="state now">Received by M5’s coordinator</div>
+        </li>
+        <li>
+          <div class="name">Thread send wording</div>
+          <div class="state now">Sending</div>
+        </li>
+        <li>
+          <div class="name">Phase 3 proof follow-up</div>
+          <div class="state fail">Failed · M5 has no sign-in for this account</div>
+        </li>
+      </ul>
+    </div>
+    <div class="foot">Same view when you press Hand off. That one says “You asked to hand off to M5”. Closing the laptop does not start this.</div>
+  </article>
+</body>
+</html>
