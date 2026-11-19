@@ -46,8 +46,8 @@ Out:
 - [ ] AC-22: The switch to Connect is saved in the destination record before the first Connect request. The Connect address and credentials come only from the original offer's record, never from a LAN response. Unverified partial data is discarded, and after a wrong pin or wrong identity a staged chunk is kept only if the manifest fetched over Connect names its hash (S-4).
 - [ ] AC-23: The LAN listener serves `GET hello`, `GET manifest` and `POST chunks` for its own operation and nothing else. Every other method and route, including `POST manifest`, `validate`, `stat`, `refresh`, `ancestry`, `secrets`, `secret`, `release` and `commit`, answers 404 before a body is read and changes nothing (S-5).
 - [ ] AC-24: A selection outside the frozen ceiling is refused on the control path and stops the copy. On the LAN a chunk hash outside the operation's manifest returns no bytes, and no request field is resolved as a source path (S-5).
-- [ ] AC-25: A manifest with an absolute path, a parent escape, a Windows reserved or stream name, an alias under the destination volume's rules, or sizes over the staging limit is refused before any chunk is requested, and nothing is written outside staging (S-6).
-- [ ] AC-26: If the approved target folder, or any folder under it on a write path, is replaced by a link, a junction or a different folder after approval, the next check stops the copy, nothing is written through the replacement, and every file outside the approved folder is untouched. The LAN path is offered only when the target and its parent are owned by the app's user and writable by no one else. Add still requires a missing or empty target, and Sync still writes only what was reviewed, on both paths (S-6).
+- [ ] AC-25: A manifest with an absolute path, a parent escape, a Windows reserved or stream name, an alias under the destination volume's rules, or sizes over the staging limit is refused before any chunk is requested, and nothing is written outside staging. Before any final write, every folder from the approved target down to the written entry must pass the exclusive-control rule of S-6; a write that fails it is refused before anything is changed, with a reason that names the folder. Gate: in an existing reviewed tree with a group-writable or other-owned folder below the target, that write is refused and files outside the target are byte-for-byte unchanged, over the LAN and over Connect (S-6).
+- [ ] AC-26: No final write happens through a folder that another local user could change: the exclusive-control rule of S-6 holds for the whole chain before each write and is checked again after it, and a change found afterwards stops the copy and is reported. A link, junction, other reparse point or different folder on the chain refuses the write, and every file outside the approved folder is untouched. The rule belongs to apply and is the same over the LAN and over Connect; a switch of transport never widens what apply may write. Root and the app's own user are outside this promise. Add still requires a missing or empty target, and Sync still writes only what was reviewed (S-6).
 - [ ] AC-27: The source opens no body reader until the method, route, operation, LAN token, generation and grant have passed, and an unauthenticated connection never moves the idle timer (S-2, S-8).
 - [ ] AC-28: Every source limit in S-8 is enforced and tested at one past its value: generations, addresses, handshakes, failed handshakes, sockets, concurrent reads, header and body sizes, and each deadline.
 - [ ] AC-29: Every destination limit in S-8 is enforced with streamed, counted reads. A source that sends an oversized or highly compressed manifest or chunk batch is cut off at the limit, memory stays bounded, and the copy switches to Connect.
@@ -282,7 +282,7 @@ Secrets never travel the LAN in this release. The secret list and secret files s
 
 ### S-6 Destination path confinement
 
-TLS proves who sent the manifest. It does not make the manifest's paths safe. These rules apply on both paths; the LAN changes none of them.
+TLS proves who sent the manifest. It does not make the manifest's paths safe. These rules are transport-independent: they live in apply (`apply.ts`) and bind every final write, whether the bytes came over the LAN or over Connect. Switching transport never widens filesystem authority. Amended after the second security review (November 19, 2026), which found the earlier ownership check on the target and its parent too weak.
 
 Manifest validation, before any chunk is requested. One bad entry refuses the whole manifest:
 
@@ -304,10 +304,20 @@ Staging:
 
 Final writes:
 - The destination freezes the target when the copy is approved: the canonical path, the kind (`empty` or `reviewed`) and, once the folder exists, its directory identity (device and inode, or the volume serial and file id on Windows). `targetSha256` carries the path and kind into the offer.
-- Apply walks from the approved folder down. Every existing part must be a real folder: not a symbolic link, not a junction, not any other reparse point. This extends the existing link check to all reparse points on Windows.
-- Apply checks the approved folder's identity, and each folder on a write path, before each batch and again after it. A link, junction or different folder found by a check stops the copy before the next write, and nothing is written through it.
-- Who could swap a folder between a check and a write: the LAN path is offered only when the target (for Add, its nearest existing parent) and the target's parent are owned by the app's user and writable by no one else. On Windows that means the owner is the user and no other non-administrator principal has write access. If this cannot be read, `lanCheck` answers `{ lan: null }`. Folders that apply creates are made with mode 0700 until the copy commits. That leaves only a process already running as the same user, which holds the app's own write access and needs no race to write those files.
-- If an after-batch check still fails, the copy stops and the journal names what that batch wrote, so Undo can remove it.
+- Exclusive-control rule. Before any final mutation (create, write, rename, delete, mode change), apply reads with `lstat`, never following a link, every folder on the chain from the approved target root down to the folder that holds the written entry. Each one must be:
+  - a real folder: not a symbolic link, not a junction, not any other reparse point;
+  - owned by the app's user;
+  - not writable by group or others (no `g+w`, no `o+w`);
+  - free of any ACL entry that grants another principal write, append, delete or delete-child access. On Windows this reads the DACL: only the user, SYSTEM and Administrators may hold such rights. If the ACL cannot be read, the folder fails.
+- The approved root must itself be anchored: each of its ancestors is owned by the app's user or by root (SYSTEM or Administrators on Windows) and is not writable by anyone else, or is a sticky folder in which the next part is owned by the app's user. Otherwise another user could swap the root, and the copy is refused before it starts.
+- Why this is enough: with the rule holding on the whole chain, no principal other than the app's user and root can add, rename or replace an entry in any folder on it. So nobody else can redirect a pathname between the check and the write. The check establishes exclusive control; it does not merely look at identities.
+- Refusal comes first. The chain is checked for every entry before the first final mutation. An entry whose chain fails is refused, nothing in or below the failing folder is changed, and the result names the folder and the reason (not owned by you, writable by group, writable by others, another user's ACL entry, a link or reparse point). Entries whose chains pass are applied.
+- Check again after. After each write apply repeats the chain check and compares each folder's identity (device and inode, or volume serial and file id) with the one read before. Any change stops the copy and is reported with the folder and what the batch wrote, so Undo can remove it.
+- The final entry itself is never opened through a link. A file is put in place by a rename onto its name; an existing link at that name is replaced as a name, not followed.
+- Folders that apply creates are made with mode 0700, owned by the app's user, and get their final mode only when the copy commits.
+- Threat model: other local users and their processes. Root, Administrators acting as such, and processes running as the app's own user are out of scope. They hold the app's write access already and need no race.
+- A handle-relative native helper would make the same guarantee without refusing shared folders. It is not required for this design and can replace the refusal later, under its own review.
+- Cost, stated plainly: a reviewed Sync into a tree with a group-writable or other-owned folder no longer writes into that folder, on either transport. The person sees which folder and why.
 - Renames go from staging to a path built only from the approved folder and validated parts.
 - Add still requires a missing or empty target and never writes into `~/.ssh`, app state or the other refused folders. Sync still writes only what the person reviewed. Both rules are enforced in apply, on both paths.
 
@@ -437,9 +447,9 @@ The setting's help text states all three in plain words.
 
 These belong to findings 1 to 4. They are not accepted risks.
 
-- Check-then-write in apply (S-6). Node has no handle-relative rename, so a check and a write are two steps. The design answers this with the ownership precondition, the before and after checks and the journal. The next review should say whether that closes finding 3 or whether a native helper is required.
-- Control route (S-1). The LAN path needs a machine-to-machine call from the source to the destination under a work grant. Agent-run Add has one today. Whether every measured Sync and every dialog-run Add has one was not traced. Where there is none, there is no LAN path and the copy runs on Connect.
-- Relay records (S-10). Stated as a requirement, not yet shown.
+- Check-then-write in apply (S-6). The second review found the first answer too weak. S-6 now requires exclusive control of the whole chain before each write and refuses the write otherwise (D-09). The next review confirms or overrules this.
+- Control route (S-1). Accepted by the second review: without a source-to-destination control route there is no LAN offer and no listener, and the copy uses Connect only if Connect authorizes it. Follow-up note: when the implementation is traced, document which dialog paths (measured Sync, dialog-run Add, agent-run Add) have authenticated machine-to-machine control. This is coverage information, not a reason to widen the LAN path.
+- Relay records (S-10). Accepted by the second review as an implementation gate: test-relay records must show no part of the block or any credential before the setting is turned on.
 
 ## Decisions
 
@@ -454,9 +464,9 @@ These belong to findings 1 to 4. They are not accepted risks.
 - D-06: Secret files stay on Connect in this release (S-5, AC-13) → Connect only (reversible).
 - D-07: The LAN serves three read routes; selection, refresh, stat, ancestry, commit and release stay on Connect (S-5) → three routes (reversible).
 - D-08: The numeric budgets and deadlines are the S-8 tables → as listed (reversible).
-- D-09: The check-then-write window in apply is answered by an ownership precondition on the LAN path, not a native helper (S-6) → precondition (the next review confirms or overrules).
+- D-09: Final writes are confined by the exclusive-control rule in apply: every folder from the approved target down to the written entry is owned by the app's user, not writable by group or others, with no ACL write for another principal, and no link or reparse point; otherwise that write is refused before anything changes. The rule is the same over the LAN and over Connect. A native handle-relative helper is not required (amended November 19, 2026 after the second security review, S-6) → refuse without exclusive control (the next review confirms or overrules).
 ### Open
-- none. Three points wait for the next review; see "For the next review to confirm" in the security amendments.
+- none. One point waits for the next review (D-09); see "For the next review to confirm" in the security amendments.
 
 ## Tasks
 
