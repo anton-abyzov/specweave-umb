@@ -1,0 +1,12 @@
+{
+  "id": "1420-advisor-on-the-same-model-as-the-thread",
+  "uuid": "82e7fb7b-97ed-4450-8591-7e9bc51fdc04",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-11-19T04:28:00.359Z",
+  "updated": "2026-11-19T04:28:00.359Z",
+  "lastActivity": "2026-11-19T04:28:00.359Z",
+  "title": "Advisor on the same model as the thread",
+  "project": "specweave-umb"
+}
