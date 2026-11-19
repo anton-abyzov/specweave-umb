@@ -1,0 +1,12 @@
+{
+  "id": "1421-board-shows-each-increments-current-state",
+  "uuid": "342722dc-9353-4a7d-a04a-2441d7cfa47e",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-19T05:59:34.253Z",
+  "updated": "2026-11-19T05:59:34.253Z",
+  "lastActivity": "2026-11-19T05:59:34.253Z",
+  "title": "Board shows each increment's current state and a not-done count",
+  "project": "specweave-umb"
+}
