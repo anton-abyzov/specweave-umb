@@ -5,8 +5,8 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-18T15:43:25.488Z",
-  "updated": "2026-11-18T16:21:06.116Z",
-  "lastActivity": "2026-11-18T16:21:06.116Z",
+  "updated": "2026-11-19T05:43:25.334Z",
+  "lastActivity": "2026-11-19T05:43:25.334Z",
   "title": "Restart to update recovers a service held after a failed install",
   "project": "specweave-umb",
   "repositories": [
