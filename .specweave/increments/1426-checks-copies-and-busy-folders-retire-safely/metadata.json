@@ -1,0 +1,12 @@
+{
+  "id": "1426-checks-copies-and-busy-folders-retire-safely",
+  "uuid": "3a8ecab4-f5ae-44c3-abcb-a162320d0111",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-11-19T22:04:06.883Z",
+  "updated": "2026-11-19T22:04:06.883Z",
+  "lastActivity": "2026-11-19T22:04:06.883Z",
+  "title": "Checks copies and busy chat folders retire safely",
+  "project": "specweave-umb"
+}
