@@ -5,8 +5,11 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-19T05:59:34.253Z",
-  "updated": "2026-11-19T05:59:34.253Z",
-  "lastActivity": "2026-11-19T05:59:34.253Z",
+  "updated": "2026-11-19T06:21:09.832Z",
+  "lastActivity": "2026-11-19T06:21:09.832Z",
   "title": "Board shows each increment's current state and a not-done count",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
