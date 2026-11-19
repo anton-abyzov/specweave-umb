@@ -20,9 +20,9 @@ In: a caller-level test showing whether production paths create overlapping pend
 
 Fixed in PR 671 (merge `b8f9c0bcc`), released in 1.0.378. The audit probe reproduced on pre-fix main `1d47f5078`: `["item:later","item:earlier"]`.
 
-- AC-01: the caller-level regression in `testkit/ProviderSwitch.integration.test.ts` (Claude run, failed Claude start, Codex detour, back to Claude) passes on the tests-only commit `cb478f865` too, so that production path already delivers the missed run before the detour; the reorder was not reached through it. The merge is kept as a guard (D-01 stays P2).
-- AC-02: `ContextHandoffBudget.test.ts` "pending handoff chronology" (probe, same-thread ordinal order, delivered bridge, 2,000 histories); the probe and ordinal cases fail on `cb478f865` and pass in PR 671 CI.
-- AC-03: single and fork-source histories keep their order; existing ContextHandoff suites green in PR 671 CI (server shards and typecheck).
+- Proof for AC-01: the caller-level regression in `testkit/ProviderSwitch.integration.test.ts` (Claude run, failed Claude start, Codex detour, back to Claude) passes on the tests-only commit `cb478f865` too, so that production path already delivers the missed run before the detour; the reorder was not reached through it. The merge is kept as a guard (D-01 stays P2).
+- Proof for AC-02: `ContextHandoffBudget.test.ts` "pending handoff chronology" (probe, same-thread ordinal order, delivered bridge, 2,000 histories); the probe and ordinal cases fail on `cb478f865` and pass in PR 671 CI.
+- Proof for AC-03: single and fork-source histories keep their order; existing ContextHandoff suites green in PR 671 CI (server shards and typecheck).
 - Review: Copilot Enterprise `gpt-6.1-sol`, three rounds, ship at `651c6fc1e`.
 
 ## Approach

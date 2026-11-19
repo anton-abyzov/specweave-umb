@@ -20,8 +20,8 @@ In: detach of an exclusive session cancels (marks non-live) runtime requests own
 
 Fixed in PR 669 (merge `cf3d8e99a`), released in 1.0.378. Still reproduced on `origin/main` before the fix: on the tests-only commit the probe test, the retry test and the race test fail (`expected 'pending' to equal 'cancelled'`, `expected 'live' to equal 'not_resumable'`) and the selection switch test fails (`expected 'pending' to not equal 'pending'`); all pass in PR 669 CI.
 
-- AC-01, AC-02: `ProviderSessionManager.test.ts` (probe, other-session request, failed-write retry sparing a replacement, a release that wins the race with detach, shared session).
-- AC-03: headless command-level check in `testkit/ProviderSwitch.integration.test.ts` through `thread.model-selection.set`. Proof limit: the approval is injected as events (the test adapter has no approval flow) and the installed UI was not checked. A message started at once on Codex does not detach the Claude session (`Orchestrator.ts` near line 8043), so its approval keeps a live callback; not a stale record.
+- Proof for AC-01, AC-02: `ProviderSessionManager.test.ts` (probe, other-session request, failed-write retry sparing a replacement, a release that wins the race with detach, shared session).
+- Proof for AC-03: headless command-level check in `testkit/ProviderSwitch.integration.test.ts` through `thread.model-selection.set`. Proof limit: the approval is injected as events (the test adapter has no approval flow) and the installed UI was not checked. A message started at once on Codex does not detach the Claude session (`Orchestrator.ts` near line 8043), so its approval keeps a live callback; not a stale record.
 - Review: Copilot Enterprise `gpt-6.1-sol`, four rounds, ship at `f01da938e`.
 
 ## Approach
