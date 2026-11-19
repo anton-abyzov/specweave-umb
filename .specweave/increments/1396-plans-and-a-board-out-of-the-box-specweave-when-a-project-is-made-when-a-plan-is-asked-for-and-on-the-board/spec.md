@@ -106,7 +106,7 @@ Out:
 
 - [ ] AC-19: Strings follow each surface's practice on the day. `docs/user/` gains a page on plans and the board: what SpecWeave adds, the card, the three states, a folder without Git. CHANGELOG Unreleased has the entries, in both repositories.
 - [ ] AC-20: No code before Anton accepts. The gate is the line "Accepted by Anton on <date>" in 1387's spec, with D-01 and D-02 answered here.
-- [ ] AC-21: Muse Wonder Full 1.0 at Extra High, with full access, reviews each PR at its head. Every finding is fixed or answered in `reports/reviews/`. Each PR is green, merged and released, and the scenario of AC-10 is then run once by hand on M5, in a plain folder with at least one file and no Git that is added as an existing folder (D-11; amended November 18, 2026, the first wording said "in firstproject on M5"). The press was Anton's; on November 18, 2026 he handed it to the increment's lead ("do it yourself on m5!"), so the request is typed and the card pressed through the M5 app's own pages, headless, with a sign-in made for the check and revoked after it (D-12).
+- [x] AC-21: Muse Wonder Full 1.0 at Extra High, with full access, reviews each PR at its head. Every finding is fixed or answered in `reports/reviews/`. Each PR is green, merged and released, and the scenario of AC-10 is then run once by hand on M5, in a plain folder with at least one file and no Git that is added as an existing folder (D-11; amended November 18, 2026, the first wording said "in firstproject on M5"). The press was Anton's; on November 18, 2026 he handed it to the increment's lead ("do it yourself on m5!"), so the request is typed and the card pressed through the M5 app's own pages, headless, with a sign-in made for the check and revoked after it (D-12).
 
 ## Approach
 

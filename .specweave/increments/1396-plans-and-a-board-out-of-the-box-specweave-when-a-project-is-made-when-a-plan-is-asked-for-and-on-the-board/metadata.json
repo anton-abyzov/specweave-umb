@@ -1,12 +1,12 @@
 {
   "id": "1396-plans-and-a-board-out-of-the-box-specweave-when-a-project-is-made-when-a-plan-is-asked-for-and-on-the-board",
   "uuid": "f0e22190-32b7-4e34-9fd6-b1a910a1513c",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T06:57:50.680Z",
-  "updated": "2026-11-18T21:19:24.394Z",
-  "lastActivity": "2026-11-18T21:19:24.394Z",
+  "updated": "2026-11-19T01:40:43.632Z",
+  "lastActivity": "2026-11-19T01:40:43.632Z",
   "title": "Plans and a board out of the box: SpecWeave when a project is made, when a plan is asked for, and on the Board",
   "project": "specweave-umb",
   "parent": "1387-first-run-setup-rethought-one-working-agent-models-by-role-chrome-and-mac-access-machines-and-phone",
@@ -14,5 +14,7 @@
   "repositories": [
     "repositories/anton-abyzov/specweave",
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "readyForReviewAt": "2026-11-19T01:40:43.631Z",
+  "approvedAt": "2026-11-19T01:40:43.632Z"
 }
