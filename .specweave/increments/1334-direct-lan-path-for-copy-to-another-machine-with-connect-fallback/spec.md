@@ -138,7 +138,7 @@ The `lan` block, version 1:
 | `lanToken` | `swclan_` plus 32 random bytes, base64url | Bearer for this generation on the LAN only. |
 | `bindingSha256` | 64 lowercase hex | Hash over all bound fields (below). |
 
-Only certificate hashes cross the wire. This settles the "certificate and fingerprint" wording: the hash is the one wire format, and no certificate body is sent.
+Only certificate hashes cross the wire. This settles the "certificate and fingerprint" wording: the hash is the one wire format, and no certificate body is sent. Amended by S-12: the recipient certificate body also crosses, in the `lanCheck` answer.
 
 Hashes are SHA-256 over a domain tag, then the fields in the order given. Each field is written as its UTF-8 byte length (4 bytes, big-endian) followed by its bytes, so no path or name can run into the next field.
 
@@ -433,6 +433,26 @@ The setting stays off by default and hidden behind the review gate until all of 
 4. Anton's acceptance of each accepted risk below (AC-35).
 
 A week of use is not evidence and is not a gate.
+
+### S-12 Amendments from the first implementation review (November 19, 2026)
+
+Round 1 of the T-17 security review of the LAN transport found seven high findings at `645f98573`. Closing them needs these changes to the wire and to the wording above. Where this section and an earlier one disagree, this section wins.
+
+Control channel (`studio_folder_copy_receive`):
+- `lanProbe` `{ operationId, purpose }` comes before `lanCheck`. The destination answers yes or no only: whether it supports the LAN path and has opted in for that copy. A probe creates no key, saves no generation and returns no hash or address. The source sends candidate addresses only after a yes. An older destination refuses the unknown action, so it never sees an address.
+- `lanRetire` `{ operationId, generation }`, source to destination, ends a generation for any cause but rotation.
+- The `lanCheck` answer also carries the recipient certificate's DER bytes next to `recipientCertificateSha256`. The source listener makes it the only trust anchor. This replaces "no certificate body is sent" in S-1 for the recipient certificate only. The source certificate still crosses as a hash only. The recipient certificate keeps the S-2 profile, so its body names no machine, account or address, and it is useless without its key, which never leaves the destination's memory.
+
+Connect route on the source: `POST /api/folder-transfer/v1/{operationId}/lan-retire`, authorized by the transfer token. A destination that latches to Connect or turns the setting off uses it to end the source's generation within 1 second (S-9). It can only end a generation, never create, renew or extend one. It is idempotent, takes at most 1 KiB of body, reads and serves nothing, and answers the same way for a known, unknown or already ended generation.
+
+What the TLS layer can prove in Node 22 (S-2):
+- No client certificate: the handshake fails with a `certificate_required` alert.
+- A wrong client certificate: Node finishes the handshake in OpenSSL and then destroys the socket before `secureConnection`. The client sees a completed handshake and then a close. The requirement is therefore: no `secureConnection`, no HTTP parser, zero request bytes read and zero response bytes written. The exact constant-time hash compare stays as a second check.
+- Session tickets: TLS 1.3 tickets cannot be turned off in Node 22. The listener issues them and never honours them: it stores no session and refuses every resume lookup. A real ticket from the real listener must lead to a full handshake on both ends. No accepted PSK means no early data. This replaces "Session tickets, resumption and 0-RTT are off on both ends".
+
+Latch (S-4, S-9): a generation that was accepted and then ended in this process (idle, the 2-hour limit, the setting turned off, a network or route change, or retirement) latches the copy to Connect at its first Connect `manifest` or `chunks` request, under the operation lock, unless a newer generation was accepted first. After a restart with an accepted block on record and no key in memory, the copy latches before any Connect request, and a higher `lanCheck` cannot get in first.
+
+Scope (S-5): the source saves the root's identity when the offer is made and the selection ceiling at the copy's first selection. The ceiling is the set of file classes the person approved in the dialog, which the destination holds in its own record. The destination recomputes `scopeSha256` from that record, so a source ceiling that differs from what the person approved makes the destination refuse the block without connecting. A later selection outside the ceiling stops the copy as `scope_changed`. This replaces "when the offer is approved" for the ceiling in S-5.
 
 ### Accepted risks
 
