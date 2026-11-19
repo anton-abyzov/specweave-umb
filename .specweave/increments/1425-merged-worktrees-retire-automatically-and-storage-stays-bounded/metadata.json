@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-19T17:52:30.585Z",
-  "updated": "2026-11-19T20:45:50.455Z",
-  "lastActivity": "2026-11-19T20:45:50.455Z",
+  "updated": "2026-11-19T21:58:30.003Z",
+  "lastActivity": "2026-11-19T21:58:30.003Z",
   "title": "Merged worktrees retire automatically and storage stays bounded",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
