@@ -23,15 +23,14 @@ Out: the chip tooltip (1088), the way back itself (1075), new settings.
 
 Let `providerLimitStep` fall through to the idle branch of `providerFallbackCommand` when the thread did not stop on the limit and the action is `switch`, returning it as a `switch` step, and audit every sweep consumer of `switch` steps for a `thread.model-selection.set` command.
 
-Found in the November 19 re-check, and part of the fix:
+Found in the November 19 re-check and two review rounds, and part of the fix:
 
-- A person's pick wins. The idle move needs the thread's latest run (option `latestRun`, read by the sweep only for a free thread on a provider at the threshold, once per run) and skips a selection that differs from that run's, unless an earlier pre-switch set it (`modelIdentity.preswitched`). The top `pickedSinceStop` guard applies to limit stops only, since `stoppedRun` is filled for completed threads only when another thread has a limit stop.
-- A person's Stop is read on the latest run whatever its status (`stopHoldsLatestRun`), before the move and again at commit; `stopHoldsThread` answers only for failed runs.
-- One try per window. A retry id (`:retry-N`) would break `preswitchWindowResetAt`, which the way back reads, so a failed model-selection move stays sent and is never resent; it adds no failed target. An already-sent move leaves the thread as one with no step, so the way back still runs and the sweep reads nothing more each time. Accepted ids also persist as command receipts across a restart.
-- The 1075 way back no longer reads a pre-switched selection as a person's pick (`pickedSinceRun`).
-- Only after a completed turn, never for a provider-spawned subagent or a session still hosting background work (`activityRunStatus`, `hostsBackgroundWork`).
-- The Orchestrator judges a `limit-preswitch:` move again as it lands (`preswitchMoveRefusal` in `limitPreswitchGuard.ts`, then the Stop check), so a pick, Stop or new turn made after the sweep's checks wins.
-- An idle thread at the threshold with no target reads stale fallback usage again through the existing throttled `refreshStaleTargets`.
+- The move goes to a free thread between turns, after a turn that completed: never mid-turn, never for a provider-spawned subagent or a session still hosting background work (`activityRunStatus`, `hostsBackgroundWork`). `idlePreswitchId` decides this and names the window's `limit-preswitch:` id.
+- Pick-wins is the documented contract: one move per usage window, and a hand switch back is kept until the window resets. A model picked while its provider is at the threshold is moved once per window between turns, then returned to when it has room. The latest-run pick heuristic was dropped in review round 2 (it blocked legitimate moves after a way back).
+- A pick that lands after the sweep planned the move wins: the command carries `expectedModelSelection`, and the Orchestrator refuses a move whose thread selection changed since. It also refuses a `limit-preswitch:` move once a turn started or the latest one did not complete, and on a person's Stop on the latest turn (`limitPreswitchGuard.ts`, `stopHoldsLimitResume`). The sweep also reads the Stop on the latest run whatever its status (`stopHoldsLatestRun`), before the move and again at commit.
+- One try per window. A retry id (`:retry-N`) would break `preswitchWindowResetAt`, which the way back reads, so a failed model-selection move stays sent and is never resent; it adds no failed target. An already-sent move leaves the thread as one with no step, so the way back still runs and the sweep reads nothing more each time. Accepted ids persist as command receipts across a restart.
+- An idle thread at the threshold whose fallback readings are old reads them again through the existing throttled `refreshStaleTargets`, unless this window's move already went out.
+- The top `pickedSinceStop` guard applies to limit stops only, and the 1075 way back no longer reads a pre-switched selection as a person's pick (`pickedSinceRun`).
 - Settings and defaults do not change.
 
 Test lines run from the umbrella root of a worktree or verification copy with the app's dependencies installed; on the M4, only through `specweave-studio checks run`.
@@ -47,10 +46,10 @@ Run on Copilot Enterprise (`acpRegistry_copilot`, model `gpt-6.1-sol`) under Ant
 ## Tasks
 
 ### T-01 Reach the idle pre-switch from the sweep
-- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/limitPreswitchGuard.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/orchestration-v2/ProviderFallbackWorker
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/limitPreswitchGuard.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/orchestrationV2.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/orchestration-v2/ProviderFallbackWorker
 
 ### T-02 Scenario tests
-- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.idlePreswitch.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.preswitchReturn.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/limitPreswitchGuard.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/orchestration-v2/ProviderFallbackWorker.idlePreswitch src/orchestration-v2/ProviderFallbackWorker.preswitchReturn src/orchestration-v2/MachineLimitHandoff src/orchestration-v2/limitPreswitchGuard
+- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.idlePreswitch.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.preswitchReturn.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/limitPreswitchGuard.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.preswitchOrigin.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/orchestration-v2/ProviderFallbackWorker.idlePreswitch src/orchestration-v2/ProviderFallbackWorker.preswitchReturn src/orchestration-v2/MachineLimitHandoff src/orchestration-v2/limitPreswitchGuard src/orchestration-v2/Orchestrator.preswitchOrigin
 
 ### T-03 PR, exact-head CI, review, merge and release
 
