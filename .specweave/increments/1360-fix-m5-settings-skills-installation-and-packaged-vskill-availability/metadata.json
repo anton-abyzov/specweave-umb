@@ -1,0 +1,15 @@
+{
+  "id": "1360-fix-m5-settings-skills-installation-and-packaged-vskill-availability",
+  "uuid": "8f104d30-d262-43fd-a995-1dfe825fe1da",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-19T23:04:20.728Z",
+  "updated": "2026-11-19T23:07:43.921Z",
+  "lastActivity": "2026-11-19T23:07:43.921Z",
+  "title": "Fix M5 Settings Skills installation and packaged vskill availability",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
