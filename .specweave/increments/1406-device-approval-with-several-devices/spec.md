@@ -82,6 +82,8 @@ Risks: the dialog now lists devices, which 1327 avoided for click-to-approve des
 
 Reviewer: Muse Wonderful, `muse-wonder-full-1.0`, effort xhigh, full access, named by the owner for device authorization. It reviews the exact pull request head and confirms that no `[label]` change alters who gets access. Any `[access]` change waits for Anton's acceptance before release.
 
+Closing review, November 19, 2026: Muse was rate-limited (HTTP 429, quota resets November 23) and Codex stood at 100%, so it ran on Copilot Enterprise with GPT-6.1 Sol under Anton's standing rule of November 18, 2026 ("Yes, as a standing rule": whenever Muse and Codex are both out, Copilot Enterprise with GPT-6.1 Sol, no more asking). Round 1 (`reports/reviews/review-gpt-6.1-sol-1.md`) found no access change and two UI gaps, fixed in T-12.
+
 ## Tasks
 
 ### T-01 Short ID on the server and in the contract
@@ -113,6 +115,10 @@ Reviewer: Muse Wonderful, `muse-wonder-full-1.0`, effort xhigh, full access, nam
 
 ### T-11 Review the access lane, get Anton's acceptance, release
 - AC: AC-12 | Files: .specweave/increments/1406-device-approval-with-several-devices/reports/ | Test: Muse Wonderful SHIP on the exact head, Anton's acceptance recorded, then cd repositories/anton-abyzov/specwithcode && bash scripts/release/request-release.sh --released <merge commit>
+
+### T-12 Fix the two gaps from the closing review
+- AC: AC-02, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/devices/ConnectDeviceHosts.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/devices/ConnectDeviceHosts.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/devices/ConnectDeviceViews.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/studio/connectDevices.logic.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/devices src/studio/connectDevices && node tests/device-approval/verify.mjs
+- The waiting card reads this device's ID when it appears, so a key made at sign-in after the window opened still shows (AC-06). After Later on one device, a new device reopens the pop-up and it stays open while devices it showed still wait: allowing the new one names it and leaves the earlier one listed; Later, close or nothing waiting ends it (AC-02).
 
 ### T-09 Verify and close 1406
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11, AC-12 | Files: .specweave/increments/1406-device-approval-with-several-devices/ | Test: specweave verify 1406
