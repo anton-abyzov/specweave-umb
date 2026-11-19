@@ -1,6 +1,26 @@
 # 1390 Sync projects across machines and hand off work, without Main and Copy
 
-Status: accepted by Anton on November 18, 2026, with every recommended choice ("I accept all proposals. Just go ahead and implement all, one by one"; "do another review - yes, all decision"). Revised after two review rounds (both said fix first; every finding is answered in "Round 1 responses" and "Round 2 responses"). Round 3 reviewed the whole spec as accepted and also said fix first; every finding is answered in "Round 3 responses", and those answers have not been reviewed again. Phase 1 is being built. Phase 3 starts with the two-machine proof (T-08) and round 4. Mockup: `reports/mockup.html`.
+Status: accepted by Anton on November 18, 2026, then revised by him on November 19, 2026. The revision section below wins where it disagrees with the rest. Phase 1 shipped (1.0.368). Phase 3 code does not start. The November 19 handoff is a proposal until he accepts it after the Muse review.
+
+## Revision of November 19, 2026
+
+Anton, 1:34 AM, 1:38 AM and 1:43 AM Eastern. This section wins over every older sentence that disagrees with it. Older acceptance criteria stay as the history of what already shipped. Do not build the new handoff until he accepts the proposal after the Muse review.
+
+**Equal coordinators.** Every machine that has the project runs its own coordinator, and they are equals. There is no main coordinator and no extra coordinator. Rows do not say "Coordinator", "Extra coordinator" or "Handing off the coordinator…". "Fix…" is gone. "Unlink" is not a way to make a coordinator give way. "Continue the coordinator here" is gone. "Start a coordinator here" stays removed. A dialog always shows the project name, with its icon or in quotes, so the name reads as the project.
+
+Typing on a machine talks to that machine's coordinator. A handoff does not move a coordinator role.
+
+**How a handoff talks.** The coordinator on the machine you are leaving sends one message to the coordinator on the machine you named. The message names the project, the threads, and the latest context. The receiving coordinator creates a thread or updates the one it already has, and resumes it. It answers done or failed for each thread, with the reason. The window shows one progress view: an overall bar, and a row per thread through packing, sending, received, resumed, done or failed.
+
+**Two ways it starts.**
+
+1. You press Hand off, or you tell the coordinator, for example "hand off to M5". Closing the laptop does not start it. Sleep handoff stays off (`decision_handoff_mode.md`).
+2. The existing usage-limit setting. `providerLimitSwitchAtPercent` defaults to 99 (`packages/contracts/src/settings.ts:1591`), which is about 1% of the subscription left. The action is the project's `providerLimitAction` of `switch`, with its machine targets. Order on this machine first, which is the track rule in `decision_model_tracks.md`: the same model on its other sources, then the next models on that thread's track (Daily, Complex or Review). Only when that track has no model left with tokens on this machine, and another machine still has tokens on the same track, the threads of that track hand off there. The progress view says why, for example "Complex track out of tokens on m4". A provider instance fails on its own before it is held. A handoff is not forced when `supportsProviderSwitchingViaHandoff` is false. A machine whose account for that track is also out is not a target.
+
+**What already shipped, and what is held.** Phase 1 shipped the Extra coordinator dialog in 1.0.368 (specwithcode PR #612). It is still on `origin/main`: `apps/web/src/components/studio/ExtraCoordinatorFix.tsx` and `copyRoleLabel` in `apps/web/src/studio/workersOnlyCopy.ts`. Removal is T-18 and does not start until this proposal is accepted. Phase 3 tasks T-09 to T-13 do not start. They move one coordinator, and the two-machine proof showed that move failing. specwithcode PR #653 stays unmerged: its menu tests still require "Extra coordinator" and "Fix…". specwithcode PR #658 stays unmerged for the AC-11 review. It does not add those words. Sync and Add are unchanged.
+
+Proposal and mockup: `reports/equal-coordinators-handoff.md` and `reports/handoff-progress-mockup.html`.
+
 
 ## Problem
 
@@ -68,15 +88,15 @@ Out:
 
 ## The concept
 
-A project lives on several machines as equals. Three verbs cover what happens between them:
+A project lives on several machines as equals. Each machine that has it runs its own coordinator. Three verbs cover what happens between them:
 
 | Verb | Moves | Used when |
 |---|---|---|
 | **Sync** | Files in Git. Each machine fetches from the remote and fast-forwards; what is missing is cloned. Nothing is pushed. Work Git does not carry is offered as extras, ticked by hand, and arrives as branches, not as files in a working folder. | The project is on both machines |
 | **Add** | Files, first time. Download from GitHub, plus the same extras. | A machine does not have the project |
-| **Hand off** | Work. Threads, unsaved work, the coordinator conversation and its routines continue on another machine. Unsaved project files are put into the working folder there when that is safe. | Closing the laptop, a usage limit, or simply working elsewhere |
+| **Hand off** | Work. The coordinator here sends the unfinished threads to the coordinator on the other machine, which creates or updates them and resumes them. The window shows progress per thread. | You ask, or a track has no tokens left on this machine after its own fallback |
 
-One fact replaces the roles: **"Coordinator on {machine}"**. The coordinator is the project's one planning conversation. It is work, so it is handed off like a thread. A person never assigns a role to a machine.
+There is no role label on a machine. See the revision of November 19, 2026.
 
 ## Acceptance Criteria
 
@@ -116,7 +136,7 @@ Where an AC depends on a decision Anton has not made, it says "(D-xx)" and is wr
   | Not checked yet | This window holds no status for one of the two machines |
 
   The window reads a status when the menu opens and keeps it in memory with its time for 60 seconds. For an offline machine it shows the last status it read in this session with "as of {time}"; after the window restarts that is "Not checked yet". The row of the machine shown has no sync fact. Before Phase 2 no row has one.
-- [ ] AC-05: The "Extra coordinator" row (m1 on November 18) has "Fix…". It opens a dialog titled "Extra coordinator on {machine}" that reads "{machine} also runs a coordinator for {project}. The project's coordinator is on {main}." and offers one action, "Unlink {project} on {machine}", which is the existing unlink of project settings (`unlinkMember`, `ProjectMachinesSettings.tsx:299`) with its confirmation, its notes and its "Update SpecWithCode on {machine}" case. It is offered under the existing guard only (`mayLeave`, `ProjectMachinesSettings.tsx:61`): when a loaded machine names this one as its coordinator's successor, the action is greyed with "{other} still follows the coordinator on {machine}. Continue the coordinator on another machine first." The dialog adds "To make {machine} part of this project again, link it afterwards. Linking makes it give way to the coordinator on {main}." (true today: `accept` relinquishes the joining copy, `ProjectLink.ts:671`; a link can refuse while that coordinator is in a turn, and says so). The unlink action follows the Settings button exactly: it is disabled while Settings' `busy` or `problem` is set (`ProjectMachinesSettings.tsx:520`, `:532`) and shows that problem's sentence. When `mayLeave` is false for another reason (the binding was not started beside the coordinator, or the machine is alone in its list; `coordinatorMayLeave`, `packages/contracts/src/logicalProject.ts:137`), Settings offers no unlink either, so the dialog shows no unlink action and reads "{machine} cannot be unlinked from this window." with "Open project settings". Nothing touches threads or files, and no server code changes. "Start a coordinator here" is removed (D-06).
+- [ ] AC-05: SUPERSEDED November 19, 2026. Do not build and do not keep. The "Extra coordinator" row (m1 on November 18) has "Fix…". It opens a dialog titled "Extra coordinator on {machine}" that reads "{machine} also runs a coordinator for {project}. The project's coordinator is on {main}." and offers one action, "Unlink {project} on {machine}", which is the existing unlink of project settings (`unlinkMember`, `ProjectMachinesSettings.tsx:299`) with its confirmation, its notes and its "Update SpecWithCode on {machine}" case. It is offered under the existing guard only (`mayLeave`, `ProjectMachinesSettings.tsx:61`): when a loaded machine names this one as its coordinator's successor, the action is greyed with "{other} still follows the coordinator on {machine}. Continue the coordinator on another machine first." The dialog adds "To make {machine} part of this project again, link it afterwards. Linking makes it give way to the coordinator on {main}." (true today: `accept` relinquishes the joining copy, `ProjectLink.ts:671`; a link can refuse while that coordinator is in a turn, and says so). The unlink action follows the Settings button exactly: it is disabled while Settings' `busy` or `problem` is set (`ProjectMachinesSettings.tsx:520`, `:532`) and shows that problem's sentence. When `mayLeave` is false for another reason (the binding was not started beside the coordinator, or the machine is alone in its list; `coordinatorMayLeave`, `packages/contracts/src/logicalProject.ts:137`), Settings offers no unlink either, so the dialog shows no unlink action and reads "{machine} cannot be unlinked from this window." with "Open project settings". Nothing touches threads or files, and no server code changes. "Start a coordinator here" is removed (D-06).
 - [ ] AC-06: The menu's entries change with the phase that makes them true.
 
   | Phase | Under the rows | Group "Work on {machine}" |
@@ -759,6 +779,8 @@ Reviewer: muse, model `muse-wonder-full-1.0`, effort xhigh, adversarial, named b
 
 Paths are from the umbrella root. Each title starts with its phase.
 
+Held on November 19, 2026: T-09, T-10, T-11, T-12 and T-13 do not start. They move one coordinator. T-18 removes the shipped Extra coordinator words and does not start until Anton accepts the November 19 proposal.
+
 ### T-01 Phase 1: row states, greyed rows and the chip
 - AC: AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/studio/machineRowState.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/machineRowState.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/projectCoordinatorMachine.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/projectDomain.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/workersOnlyCopy.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/routeToMain.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/routeToMain.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/OrchestratorSwitcher.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectWorkspace.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectWorkspaceSurface.tsx, repositories/anton-abyzov/specwithcode/apps/web/tests/coordinator-menu/main.tsx, repositories/anton-abyzov/specwithcode/apps/web/tests/coordinator-menu/verify.mjs | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/studio/machineRowState.test.ts src/studio/routeToMain.test.ts
 
@@ -812,3 +834,8 @@ Paths are from the umbrella root. Each title starts with its phase.
 - AC: 1334's AC-01 to AC-14, read with Sync and Add in place of Copy. The LAN path is only the measured folder copy ("Compare all files…") and Add's whole-folder copy. A failure falls back to Connect. The setting is off until the review's findings are fixed or accepted.
 - Design: `.specweave/increments/1334-direct-lan-path-for-copy-to-another-machine-with-connect-fallback/spec.md` on `origin/main` (folded in November 19, 2026).
 - Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/folderCopy.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/lanListener.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceClient.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/destinationService.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectSyncDialog.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/MachineHandoffDialog.tsx | Test: the 1334 real-socket impostor test (AC-07) and the production-fetch pin test (AC-08), run from repositories/anton-abyzov/specwithcode
+
+### T-18 Remove the shipped Extra coordinator, Fix and Unlink-to-give-way
+- Does not start until Anton accepts the November 19 proposal. Phase 1 already shipped this in 1.0.368 (specwithcode PR #612).
+- Removes the "Extra coordinator" row, the Fix dialog (`ExtraCoordinatorFix.tsx`) and any Unlink whose purpose is to make a coordinator give way. Project settings may still unlink a machine from the project, and that dialog names the project. No row shows a coordinator role.
+- AC: the revision of November 19, 2026 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ExtraCoordinatorFix.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/studio/workersOnlyCopy.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/machineRowState.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/OrchestratorSwitcher.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/OrchestratorSwitcher.test.tsx | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/studio/OrchestratorSwitcher.test.tsx src/studio/machineRowState.test.ts
