@@ -5,6 +5,7 @@
 Anton's photos, converted from `/Users/antonabyzov/Downloads/IMG_9554.DNG` and `IMG_9555.DNG` (originals untouched):
 
 - `m5-joined-notice.jpg`: M5's Overview, toast "PRCTY-AABYZOV joined. Its app was approved here with a code, so it can use this machine, and agents on this machine can now run work on it. You can change or remove it in Settings > Machines."
+- `windows-machines-settings.jpg`: Windows, 10:13 AM, Settings > Advanced connections: "M5 can start work here · All projects · until you stop it", "This machine can't start work on M5 · Not set up" (Set up…), and the join's done card "M5 can run work here · Full access · renews by itself".
 - `windows-asks-for-m5-window.jpg`: Windows, 9:58 AM, "A new device wants to use PRCTY-AABYZOV. Anton M5MAX PROLED is asking. It signed in to SpecWithCode Connect as [the account]." Row: Anton M5MAX PROLED, ID VEE7, macOS · SpecWithCode 1.0.386 · Asked at 9:54 AM. Code box, Allow, Deny, Later.
 
 Version: both machines run 1.0.386 (Anton said "3.8.6"). M5's version was read from `/Applications/SpecWithCode.app`; Windows's from the pop-up.
