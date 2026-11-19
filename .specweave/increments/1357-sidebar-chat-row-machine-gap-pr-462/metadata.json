@@ -1,0 +1,12 @@
+{
+  "id": "1357-sidebar-chat-row-machine-gap-pr-462",
+  "uuid": "6dd7d540-d615-45ba-8172-041480cfa481",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-15T07:04:36.765Z",
+  "updated": "2026-11-15T07:05:06.206Z",
+  "lastActivity": "2026-11-15T07:05:06.206Z",
+  "title": "Sidebar chat row machine gap (PR 462)",
+  "project": "specweave-umb"
+}
