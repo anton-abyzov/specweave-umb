@@ -42,12 +42,12 @@ Out:
 - [ ] AC-18: With two copies running at once, the token and recipient certificate of one read nothing from the other's listener (S-2).
 - [ ] AC-19: Only the control channel creates or renews a LAN offer. No LAN route and no LAN response can create, renew or extend an offer, generation, token, address or deadline, and the browser-relayed `FolderCopyOffer` never carries the `lan` block (S-1).
 - [ ] AC-20: Every LAN connection goes through the one LAN connector: TLS 1.3, ALPN `swc-folder-lan/1`, no resumption or 0-RTT, no redirects, no proxy settings, no plaintext, no environment probe, a pool of at most 4 connections owned by one operation generation. The first request on each connection is `hello`, and it must match the environment, operation, generation and binding (S-3).
-- [ ] AC-21: Each row of the S-4 decision table is tested on real sockets. Unreachable, wrong pin and wrong identity switch once to Connect. Revoked, refused, changed scope and a failed Connect identity check stop the copy, and it does not continue on Connect.
+- [ ] AC-21: Each row of the S-4 decision table is tested on real sockets. Unreachable, wrong pin and wrong identity switch once to Connect. Revoked, refused, changed scope and a failed Connect identity check stop the copy, and it does not continue on Connect. Each denial is saved on the operation record before the generation's sockets close, so a destination that sees only a reset is stopped by its first Connect request.
 - [ ] AC-22: The switch to Connect is saved in the destination record before the first Connect request. The Connect address and credentials come only from the original offer's record, never from a LAN response. Unverified partial data is discarded, and after a wrong pin or wrong identity a staged chunk is kept only if the manifest fetched over Connect names its hash (S-4).
 - [ ] AC-23: The LAN listener serves `GET hello`, `GET manifest` and `POST chunks` for its own operation and nothing else. Every other method and route, including `POST manifest`, `validate`, `stat`, `refresh`, `ancestry`, `secrets`, `secret`, `release` and `commit`, answers 404 before a body is read and changes nothing (S-5).
 - [ ] AC-24: A selection outside the frozen ceiling is refused on the control path and stops the copy. On the LAN a chunk hash outside the operation's manifest returns no bytes, and no request field is resolved as a source path (S-5).
 - [ ] AC-25: A manifest with an absolute path, a parent escape, a Windows reserved or stream name, an alias under the destination volume's rules, or sizes over the staging limit is refused before any chunk is requested, and nothing is written outside staging (S-6).
-- [ ] AC-26: If the approved target folder, or any folder under it on a write path, is replaced by a link, a junction or a different folder after approval, the copy stops and every file outside the approved folder is untouched. Add still requires a missing or empty target, and Sync still writes only what was reviewed, on both paths (S-6).
+- [ ] AC-26: If the approved target folder, or any folder under it on a write path, is replaced by a link, a junction or a different folder after approval, the next check stops the copy, nothing is written through the replacement, and every file outside the approved folder is untouched. The LAN path is offered only when the target and its parent are owned by the app's user and writable by no one else. Add still requires a missing or empty target, and Sync still writes only what was reviewed, on both paths (S-6).
 - [ ] AC-27: The source opens no body reader until the method, route, operation, LAN token, generation and grant have passed, and an unauthenticated connection never moves the idle timer (S-2, S-8).
 - [ ] AC-28: Every source limit in S-8 is enforced and tested at one past its value: generations, addresses, handshakes, failed handshakes, sockets, concurrent reads, header and body sizes, and each deadline.
 - [ ] AC-29: Every destination limit in S-8 is enforced with streamed, counted reads. A source that sends an oversized or highly compressed manifest or chunk batch is cut off at the limit, memory stays bounded, and the copy switches to Connect.
@@ -57,7 +57,7 @@ Out:
 - [ ] AC-33: The 15 minute authenticated-idle limit and the 2 hour absolute limit end a generation whatever the transfer grant's own lifetime is. After a wake nothing is served until a new generation arrives on the control channel (S-8, S-9).
 - [ ] AC-34: AC-12 and AC-30 to AC-33 are verified on macOS, Windows and Linux separately, on signed builds, with the evidence in reports/. The setting cannot be turned on for an OS without its evidence.
 - [ ] AC-35: The setting's help text states risks R-01 to R-03. The setting cannot be turned on until Anton's acceptance of each is recorded in reports/. Refusing a firewall prompt changes no firewall policy and blocks no authorized Connect copy.
-- [ ] AC-36: AC-07, AC-08, AC-11, AC-17 and AC-21 run on the production transport with real sockets, and AC-11 and AC-16 also across a restart of each machine. A mock result does not count for any of them.
+- [ ] AC-36: AC-07, AC-08, AC-11, AC-13, AC-17 and AC-21 run on the production transport with real sockets, and AC-11, AC-13 and AC-16 also across a restart of each machine, the secret step included. A mock result does not count for any of them.
 
 ## Approach
 
@@ -93,7 +93,7 @@ No listener code is written until a second review of this section says DESIGN OK
 
 Words used here:
 - Source: the machine that holds the files. Destination: the machine that pulls them.
-- Control channel: the machine-to-machine call the copy already uses (`studio_folder_copy_receive`, proxied over Connect and checked against the caller's machine grant). It is authenticated on both ends today.
+- Control channel: the machine-to-machine call the copy already uses (`studio_folder_copy_receive`, proxied over Connect and checked against the caller's machine grant). It is authenticated on both ends today: the destination serves it only to a paired machine whose work grant covers the project and is not revoked, under the team rules, and only for an operation whose recorded source is the calling machine. `lanCheck` and `lanOffer` need exactly that grant, the one `start` needs. They do not need the full-access grant that secrets need. Reaching a private address proves none of this.
 - Operation: one copy, with its existing operation id.
 - Generation: one LAN attempt for an operation. It has its own keys, token, listener and lifetime.
 - LAN purposes: `sync-measured` (the measured copy behind "Compare all files…") and `add-whole-folder` (Add's whole-folder copy). No other copy gets a LAN path.
@@ -140,7 +140,7 @@ The `lan` block, version 1:
 
 Only certificate hashes cross the wire. This settles the "certificate and fingerprint" wording: the hash is the one wire format, and no certificate body is sent.
 
-Hashes are SHA-256 over UTF-8 text: a domain tag, then the fields in the order given, joined with a newline.
+Hashes are SHA-256 over a domain tag, then the fields in the order given. Each field is written as its UTF-8 byte length (4 bytes, big-endian) followed by its bytes, so no path or name can run into the next field.
 
 - `scopeSha256`: tag `swc-folder-lan-scope-v1`, then `sourceProjectId`, `copyRoot` (the canonical source root), `projectRelativePath`, `mode`, and the selection ceiling as a sorted, comma-joined list of file classes. The ceiling never contains `secret`.
 - `targetSha256`: tag `swc-folder-lan-target-v1`, then the destination's canonical target path and the target kind (`empty` for Add, `reviewed` for Sync). The destination computes it. The source carries it without reading it.
@@ -183,7 +183,11 @@ Order of checks on the source, for every accepted socket:
 1. Accept. The remote address must be inside the listening interface's own on-link prefix, and the connection budgets (S-8) must allow it. Otherwise the socket is destroyed.
 2. TLS 1.3 handshake with the recipient certificate check. Deadline 5 s.
 3. Request line and headers. At most 8 KiB, within 2 s.
-4. Authorization from headers only: the method and route are on the allow list (S-5), the operation id in the path is this listener's operation, the LAN token matches, the generation is current, and the grant and approvals are still valid. A failure answers 401 or 404 with a fixed body and closes the socket.
+4. Authorization from headers only, in this order, each with one fixed answer, after which the socket is closed:
+   - The method and route are not on the allow list (S-5), or the operation id in the path is not this listener's: 404 `not_found`.
+   - The LAN token is missing or wrong: 401 `unauthorized`.
+   - The operation carries a recorded denial (S-4): 403 with `revoked`, `refused` or `scope_changed`.
+   - A generation that is no longer current never answers. Its sockets are already destroyed (S-9), so a stale generation cannot be mistaken for a denial.
 5. Only now is a body reader opened. At most 128 KiB, within 10 s.
 6. The response is served under the read budgets and stall deadline (S-8).
 
@@ -221,6 +225,8 @@ Two outcomes exist besides success.
 
 One rule sorts every case: an authenticated answer about authorization stops the copy. Everything else switches once.
 
+A denial never depends on the LAN delivering it. Every denial is first saved on the source's operation record as a revoked transfer grant with its reason: `revoked` (grant revoked or withdrawn, machines unpaired), `refused` (an approval refused or withdrawn) or `scope_changed` (the frozen scope or the source root's identity changed). Only after that save does the source end the generation (S-9). Connect reads the same record. So a destination that sees only a reset switches to Connect, gets the denial on its first request there, and stops. The LAN's own 403 is a faster way to the same end, not the only one.
+
 | What the destination sees on the LAN | Class | Action |
 |---|---|---|
 | No route, connection refused, connect timeout, 5 s setup deadline passed | Unreachable | Switch once |
@@ -230,10 +236,11 @@ One rule sorts every case: an authenticated answer about authorization stops the
 | `hello` names another environment, operation, generation or binding | Wrong identity | Switch once |
 | Generation superseded or expired, listener gone | Unreachable | Use the newer accepted generation if one exists and the operation is not latched. Otherwise switch once |
 | Destination restarted and the recipient key is lost after a block was accepted | Unreachable | Switch once |
-| Authenticated 401 or 403 `revoked` | Denied | Stop |
+| Authenticated 403 `revoked` | Denied | Stop |
 | Authenticated 403 `refused` (an approval was refused or withdrawn) | Denied | Stop |
-| Authenticated 409 `scope_changed` | Denied | Stop |
+| Authenticated 403 `scope_changed` | Denied | Stop |
 | Any other authenticated 401 or 403 | Denied | Stop |
+| Reset or closed socket because the source ended the generation on a denial | Unreachable | Switch once; Connect then answers the recorded denial and the copy stops |
 | Authenticated 400, 404, 413, 429, 5xx, 503 `service_updating`, any 3xx | Not about authorization | Switch once |
 | A response over a size limit (S-8), a bad frame, a chunk whose hash is wrong | Not about authorization | Switch once |
 | Anything not listed | Default | Switch once |
@@ -241,7 +248,7 @@ One rule sorts every case: an authenticated answer about authorization stops the
 | What the destination sees on Connect, after a switch or from the start | Action |
 |---|---|
 | Connect identity check fails (`wrong_machine`) | Stop, as today |
-| Grant revoked or expired, approval refused, scope changed | Stop, as today |
+| Transfer grant revoked for any reason, including the recorded `refused` and `scope_changed`, or expired | Stop. The revoked-grant refusal exists today; the `refused` and `scope_changed` reasons are written by this design |
 | Network error or 5xx | Retry on Connect by today's rules. Never back to the LAN |
 
 Rules that go with the table:
@@ -269,7 +276,7 @@ Source-side scope:
 - The selection is chosen with `POST manifest` on Connect. A selection outside the ceiling is refused there and the copy stops as "changed scope".
 - The LAN serves only indexed content: the one manifest of this operation, and chunks whose hashes that manifest names. A hash outside it gets the existing "unknown" frame with no bytes.
 - No LAN request carries a path. No field of a LAN request is ever resolved as a source path.
-- If the source root's identity or the frozen scope changes during the copy, the source ends the generation and answers `scope_changed`.
+- If the source root's identity or the frozen scope changes during the copy, the source first records the `scope_changed` denial on the operation, which Connect enforces too, and then ends the generation (S-4).
 
 Secrets never travel the LAN in this release. The secret list and secret files stay on Connect with today's per-file approval and recipient sealing. A LAN failure cannot affect the secret step, because that step never uses the LAN.
 
@@ -287,7 +294,7 @@ Manifest validation, before any chunk is requested. One bad entry refuses the wh
 | On Windows: no reserved device name (`CON`, `PRN`, `AUX`, `NUL`, `COM1` to `COM9`, `LPT1` to `LPT9`, with or without an extension), no part ending in a dot or a space | New |
 | No part longer than 255 bytes in UTF-8 | New |
 | No two entries that land on one file under the destination volume's rules (case folding and Unicode normalization), and no entry that is both a file and a folder of another entry | Required before the first chunk request; uses the existing alias key in `paths.ts` |
-| Declared sizes are whole numbers, and their sum is within the staging limit (S-8) | New |
+| Declared sizes are whole numbers, and their sum is within the staging limit fixed at approval (S-8) | New |
 | A link entry is written as a link, never followed, and its target text passes the same path rules or it is refused | Existing link checks kept |
 
 Staging:
@@ -298,7 +305,9 @@ Staging:
 Final writes:
 - The destination freezes the target when the copy is approved: the canonical path, the kind (`empty` or `reviewed`) and, once the folder exists, its directory identity (device and inode, or the volume serial and file id on Windows). `targetSha256` carries the path and kind into the offer.
 - Apply walks from the approved folder down. Every existing part must be a real folder: not a symbolic link, not a junction, not any other reparse point. This extends the existing link check to all reparse points on Windows.
-- Apply checks the approved folder's identity before each batch and again after it. If it changed, the copy stops and the journal names what that batch wrote, so Undo can remove it.
+- Apply checks the approved folder's identity, and each folder on a write path, before each batch and again after it. A link, junction or different folder found by a check stops the copy before the next write, and nothing is written through it.
+- Who could swap a folder between a check and a write: the LAN path is offered only when the target (for Add, its nearest existing parent) and the target's parent are owned by the app's user and writable by no one else. On Windows that means the owner is the user and no other non-administrator principal has write access. If this cannot be read, `lanCheck` answers `{ lan: null }`. Folders that apply creates are made with mode 0700 until the copy commits. That leaves only a process already running as the same user, which holds the app's own write access and needs no race to write those files.
+- If an after-batch check still fails, the copy stops and the journal names what that batch wrote, so Undo can remove it.
 - Renames go from staging to a path built only from the approved folder and validated parts.
 - Add still requires a missing or empty target and never writes into `~/.ssh`, app state or the other refused folders. Sync still writes only what the person reviewed. Both rules are enforced in apply, on both paths.
 
@@ -362,7 +371,7 @@ Destination client:
 | Chunk batch | 65 MiB on the wire and 65 MiB expanded (64 MiB of data plus framing) |
 | Manifest | 256 MiB on the wire, 2 GiB expanded, 2,000,000 entries, 64 KiB per line |
 | `hello` and 202 answers | 16 KiB |
-| Staging disk | The manifest's declared total plus 5 percent, and at least 1 GiB must stay free on the volume |
+| Staging disk | The total size fixed at approval (the scan total the person saw in the dialog, saved in the destination record) plus 5 percent, and at least 1 GiB must stay free on the volume. A manifest that declares more is refused. The manifest never sets its own limit |
 
 Destination reads are streamed and counted. A body is cut off at its limit. The manifest is inflated and parsed line by line, never as one buffer. Memory stays bounded however small the wire bytes are. Crossing a limit is a switch to Connect (S-4), where the same limits apply.
 
@@ -383,6 +392,8 @@ A generation ends, on both machines, when any of these happens:
 - An address, interface or route changes, or the machine sleeps or wakes.
 - The server process shuts down.
 
+When the cause is a denial, the source saves the denial on the operation record first (S-4), then ends the generation.
+
 Ending a generation means all of this, within 1 second:
 - Stop listening on every socket of that generation.
 - Destroy every accepted socket, including ones mid-response. Closing the listener alone is not enough.
@@ -398,7 +409,7 @@ After a sleep, a wake or a network change nothing rebinds by itself. A LAN path 
 - The destination's 0600 record stores the highest generation, the path latch with its reason class, and the bytes received per path. The source's record stores the generation counter. Both are removed with the record.
 - The `lan` block, the `lanCheck` body, LAN addresses, ports, certificate hashes and the LAN token appear in no log, error text, crash report or telemetry on either machine. Errors name the class from S-4, never the address.
 - The browser never receives the block. The dialog gets the path label and byte counts only.
-- Connect relay records never contain the block: it is carried only in a request body, and the relay does not record bodies. The implementation review checks this against a test relay.
+- Requirement: Connect relay records must never contain the block. It is carried only in a request body, never in a URL, header or query. Whether the relay records bodies has not been checked for this design. The implementation review must show, on a test relay, that no relay record holds any part of the block; until then this line is unproven and the setting stays off.
 - The `lan` block alone grants nothing. Without the recipient key, which never leaves the destination's memory, the token cannot be used.
 
 ### S-11 Turning the setting on
@@ -422,9 +433,13 @@ These are the residual risks the review named as eligible for acceptance. None i
 
 The setting's help text states all three in plain words.
 
-### Open for the next review
+### For the next review to confirm
 
-- Apply checks the approved folder's identity before and after each batch (S-6). Between a check and a rename there is a short window in which a local process on the destination could swap a folder for a link. Node has no handle-relative rename to close it. The design limits the damage to one batch and records it for Undo. The next review should say whether that is enough or whether a native helper is required. This is part of finding 3 and is not an accepted risk.
+These belong to findings 1 to 4. They are not accepted risks.
+
+- Check-then-write in apply (S-6). Node has no handle-relative rename, so a check and a write are two steps. The design answers this with the ownership precondition, the before and after checks and the journal. The next review should say whether that closes finding 3 or whether a native helper is required.
+- Control route (S-1). The LAN path needs a machine-to-machine call from the source to the destination under a work grant. Agent-run Add has one today. Whether every measured Sync and every dialog-run Add has one was not traced. Where there is none, there is no LAN path and the copy runs on Connect.
+- Relay records (S-10). Stated as a requirement, not yet shown.
 
 ## Decisions
 
@@ -439,8 +454,9 @@ The setting's help text states all three in plain words.
 - D-06: Secret files stay on Connect in this release (S-5, AC-13) → Connect only (reversible).
 - D-07: The LAN serves three read routes; selection, refresh, stat, ancestry, commit and release stay on Connect (S-5) → three routes (reversible).
 - D-08: The numeric budgets and deadlines are the S-8 tables → as listed (reversible).
+- D-09: The check-then-write window in apply is answered by an ownership precondition on the LAN path, not a native helper (S-6) → precondition (the next review confirms or overrules).
 ### Open
-- The check-then-rename window in apply, listed under "Open for the next review" in the security amendments.
+- none. Three points wait for the next review; see "For the next review to confirm" in the security amendments.
 
 ## Tasks
 
@@ -448,10 +464,10 @@ The setting's help text states all three in plain words.
 - AC: AC-06 | Files: .specweave/increments/1334-direct-lan-path-for-copy-to-another-machine-with-connect-fallback/reports/security-review.md | Test: test -s .specweave/increments/1334-direct-lan-path-for-copy-to-another-machine-with-connect-fallback/reports/security-review.md
 
 ### T-02 LAN listener with a pinned certificate per operation generation
-- AC: AC-03, AC-04, AC-09, AC-10, AC-12, AC-16, AC-17, AC-18, AC-23, AC-24, AC-27, AC-28, AC-30, AC-31, AC-32, AC-33 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/lanListener.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/lanListener.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceService.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/fleet/folderTransfer/lanListener
+- AC: AC-03, AC-04, AC-09, AC-10, AC-12, AC-16, AC-17, AC-18, AC-23, AC-24, AC-27, AC-28, AC-30, AC-31, AC-32, AC-33 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/lanListener.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/lanListener.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/transferGrant.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/fleet/folderTransfer/lanListener
 
 ### T-03 Offer carries the LAN address; destination pins, tries it first, falls back to Connect
-- AC: AC-01, AC-02, AC-05, AC-07, AC-08, AC-11, AC-13, AC-14, AC-15, AC-19, AC-20, AC-21, AC-22, AC-25, AC-26, AC-29, AC-36 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/folderCopy.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceClient.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/destinationService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/twoServer.lan.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/fleet/folderTransfer/twoServer.lan
+- AC: AC-01, AC-02, AC-05, AC-07, AC-08, AC-11, AC-13, AC-14, AC-15, AC-19, AC-20, AC-21, AC-22, AC-25, AC-26, AC-29, AC-36 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/folderCopy.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceClient.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/destinationService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/twoServer.lan.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/lanConnector.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/agentCopy.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/apply.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/paths.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/manifest.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/pullWorker.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/fleet/folderTransfer/twoServer.lan
 
 ### T-04 Setting and the path line in the copy dialog
 - AC: AC-01, AC-02, AC-35 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/CopyProgressPanel.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/ | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/studio/CopyProgressPanel
