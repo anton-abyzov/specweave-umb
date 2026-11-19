@@ -131,3 +131,31 @@ Run ids are `run:thread:<thread id, URL-encoded>:ordinal:<n>`.
 M1 sign-in `2f58744d-a693-4999-8739-b595acc25f0f`, issued 12:45:14 AM, revoked 1:21:48 AM; `specweave-studio auth session list` on M1 then showed it absent. m4 sign-ins `4869a868-e914-41bb-a2be-7d182e99a105` and `999d1fce-48d0-464c-b805-e18abb5a37ca` revoked 1:21:38 AM; the m4 session list then showed no T-08 session (`cleanup-01-m4-sessions.txt`). No sign-in was made on the M5.
 
 **Incident.** While checking M1 for leftover headless sign-ins I revoked five that belonged to another thread's "1419 headless check" windows, not to mine (`INCIDENT-m1-sign-ins-revoked-by-mistake.txt`). I stopped at once. No project, thread, grant or setting changed.
+
+## Cleanup
+
+Done on November 19, 2026, 2:15 AM to 2:20 AM Eastern, after the owner's go-ahead. Each item was checked by a read on its own machine (`cleanup-01` to `cleanup-05`).
+
+| Item | Action | Check |
+|---|---|---|
+| Project on m4 (`mcp:fbb5c7be…`) | `specweave-studio project remove … --force`, 2:15:40 AM | Row `deleted_at` set, 0 open threads, 0 routines |
+| Project on M1 (`mcp:f4efd07f…`) | Same, 2:16:06 AM | Row `deleted_at` set, 0 open threads, 0 routines |
+| Project on M5 (`mcp:ddb15547…`) | Same, through the app's bundled CLI, 2:18:44 AM | Row `deleted_at` set, 0 open threads, 0 routines |
+| Routine `t08-routine` | Deleted on m4, 1:21 AM | 0 routine rows on all three machines |
+| Project folders | Removed on m4 and M1 after `worktree owners --path` exit 1; on M5 moved to the Trash (`~/.Trash/t08-handoff-proof-scratch-20261119`) because the shell refused `rm -rf` | `ls` of each old path: no such file |
+| m4 sign-ins `4869a868…`, `999d1fce…` | Revoked, 1:21 AM | m4 session list: none with the T-08 label or these ids |
+| M1 sign-in `2f58744d…` | Revoked, 1:21 AM | M1 session list: absent (read again 2:16 AM) |
+| M5 sign-ins | None was made | M5 session list: no T-08 or headless sign-in since 12:00 AM |
+| Saved browser storage | Profiles and pairing files deleted on m4 | `rig/profile-*` and `rig/private` absent; no process uses them |
+| Headless windows | Stopped by PID | No process with a `rig/profile-` path |
+| Repository `anton-abyzov/t08-handoff-proof-20261119` | Deleted (not archived), with its handoff branch | GitHub API returns 404 |
+| `/tmp/t08-routine-fires.log` | Removed on m4; never existed on M1 | `ls`: no such file on both |
+| Scratch threads on M1 (`mcp:ee477243…`) and M5 (`mcp:2df2b7f8…`) | Archived; no tool an agent can call deletes a thread | Thread reads show `archived: true` |
+
+**Left in place.**
+
+- m4's `handoff-mode.json` still holds the handoff records of five deleted threads, including `wC-worker` in `handing-off`. Removing them means editing the app's live state file, which I did not do.
+- `machine-handoffs` records (`source-`, `destination-`, `context-`) for operations `b303309f`, `fe3f78b1` and `869c02a3` on m4 and M1.
+- The two archived scratch threads and their scratch folders.
+- The rig folder on m4 (`~/.specwithcode/m4/scratch/2026-11-19-1390-phase-3-proof/rig/`), which holds only scripts and the message files this report names.
+- The five sign-ins of the other check revoked by mistake (see Incident) cannot be restored; that check's windows connect again on their own.
