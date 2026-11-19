@@ -452,6 +452,10 @@ What the TLS layer can prove in Node 22 (S-2):
 
 Latch (S-4, S-9): a generation that was accepted and then ended in this process (idle, the 2-hour limit, the setting turned off, a network or route change, or retirement) latches the copy to Connect at its first Connect `manifest` or `chunks` request, under the operation lock, unless a newer generation was accepted first. After a restart with an accepted block on record and no key in memory, the copy latches before any Connect request, and a higher `lanCheck` cannot get in first.
 
+Chunks (S-4, S-5): a LAN copy is always `copy-only` and is served from the pack captured for it, so a later refresh never adds a chunk it needs. A hash that a later refresh added is unknown on the LAN. A LAN `CHUNK_UNKNOWN` is not asked again over Connect; the copy makes its one switch to Connect as for any other LAN failure. Accepted by the round 2 security review.
+
+Proof of no request bytes for a wrong certificate (S-2): Node's HTTP parser reads the TLS handle directly, so a byte counter on the socket proves nothing. The proof is that no socket from that peer is ever handed to the HTTP parser (`parserSockets: 0`), together with no `secureConnection`, nothing routed, no response written, and zero bytes received by the client. Accepted by the round 2 security review.
+
 Scope (S-5): the source saves the root's identity when the offer is made and the selection ceiling at the copy's first selection. The ceiling is the set of file classes the person approved in the dialog, which the destination holds in its own record. The destination recomputes `scopeSha256` from that record, so a source ceiling that differs from what the person approved makes the destination refuse the block without connecting. A later selection outside the ceiling stops the copy as `scope_changed`. This replaces "when the offer is approved" for the ceiling in S-5.
 
 ### Accepted risks
