@@ -50,5 +50,5 @@ sequenceDiagram
 
 - Pop-up wording (what Allow opens): PR 712 merged, ships in the next release.
 - 1406 (several devices at once, code lifetime): closed.
-- 1416 (code shown on the joining machine, Later kept): verify running.
-- 1422 (this design): first design review said fix first, with five high findings; round 4 is being written. Code starts after a passing review, and release waits for your acceptance.
+- 1416 (code shown on the joining machine, Later kept): closed.
+- 1422 (this design): three design reviews said fix first (7, 9, then 7 findings). Round 3's critical is today's behaviour, not new: M5's one-year management key on Windows is never asked for a device code and can open a window there (`design-review-3.md`). How 1422 is split is your call; nothing in the design is built.
