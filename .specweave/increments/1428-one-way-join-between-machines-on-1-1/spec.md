@@ -250,7 +250,7 @@ Decided on 1422's cards since round 5: item 11 is 1422 D-11 (within a day), item
 ## Tasks
 
 ### T-01 Write today's access baseline
-- AC: AC-01 | Files: .specweave/increments/1428-one-way-join-between-machines-on-1-1/reports/ | Test: the baseline cites code at `origin/main` for each row, and `design-review-3.md`'s findings are sorted against it
+- AC: AC-01 | Files: .specweave/increments/1428-one-way-join-between-machines-on-1-1/reports/ | Test: the baseline cites code at `origin/main` for each row, and the findings of `design-review-3.md` (1422) and `reports/design-review-4.md` (this increment) are sorted against it
 
 ### T-02 Rework the design from the baseline and pass a Muse Wonderful design review
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07 | Files: .specweave/increments/1428-one-way-join-between-machines-on-1-1/spec.md, .specweave/increments/1428-one-way-join-between-machines-on-1-1/reports/ | Test: Muse Wonderful design review says pass
