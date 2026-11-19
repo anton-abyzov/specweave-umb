@@ -173,7 +173,7 @@ Where an AC depends on a decision Anton has not made, it says "(D-xx)" and is wr
 
   | State on a machine | Action | Sync says |
   |---|---|---|
-  | Clean, behind its upstream, no commits of its own | `fast-forward` (`git merge --ff-only`) | Moved forward {n} commits |
+  | Clean, behind its upstream, no commits of its own | `fast-forward` (a guarded ref move that names the branch and its expected commit, then the files; no `git merge`) | Moved forward {n} commits |
   | Up to date | `none` | Up to date |
   | Clean, has commits its upstream lacks, not behind | `none` | {n} commits not pushed (listed as an extra) |
   | Has commits of its own and is behind | `fetch` | Has {a} commits of its own and is {b} behind. Not moved |
@@ -206,7 +206,7 @@ Where an AC depends on a decision Anton has not made, it says "(D-xx)" and is wr
   1. That `origin` still has the branch or the commit when `run` executes.
   2. A limit on the total time local Git work takes across a batch. Each Git call has its own limit.
   3. Anything on Windows, or about a push address.
-  4. Protection against another program writing to the same checkout in the same instant as Sync's own write, unless the write itself can name the branch and the commit it expects. Whether Git offers such a write is tried first (a short trial on real repositories); if it does, Sync uses it and this line goes; if it does not, the gap between Sync's last check and Git's write is kept as short as one read, the result says truthfully what moved, and this line stays.
+  4. That other programs' writes are prevented. Git guards the branch ref and its expected old commit, and Sync checks the checked-out branch under that guard, so Sync never advances a different branch and never moves from a commit it did not record. Git cannot hold files, the index, config and worktree registrations in the same transaction, so an editor or terminal writing at the same moment is not prevented. Sync reports the differences it observes afterwards, not every passing edit or who made it. A refusal before any file changes leaves the checkout as it was (the index compared by its staged entries). If Sync or Git dies mid-move, or a write fails, the result says the checkout needs a look; a server that died sends no result, and the next Sync reads the state again.
 
 - [ ] AC-12: Work that Git does not carry is listed per machine under "Only on {machine}", each line unticked: commits not pushed (one line per branch), branches that exist only there, and uncommitted and untracked files (count per repository). Stashes, when there are any, are listed and cannot be ticked ("Stashes stay. Compare all files… can bring them"). Secrets are a separate group (AC-14). Nothing in this list travels unless its line is ticked.
 - [ ] AC-13: Ticked extras travel between the two servers over the peer route a thread hand off uses (negotiate, then replicate, under the work grant between the machines; `apps/server/src/handoff/HandoffReceiver.ts:302` to 352), never through the remote and never through the folder copy. Rules:
