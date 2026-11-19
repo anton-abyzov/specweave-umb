@@ -75,7 +75,7 @@ Out:
 - Found, not fixed here: `MetadataManager.read` in SpecWeave creates a default `metadata.json` (`status: planned`, no title) in any increment folder that has none, also one that holds only `reports/`. Proposed fix: do not persist the default when `spec.md` is missing.
 - Found: an umbrella launch with Use worktrees on and no `repositories` gives an empty folder with no Git; only `repositories: ["."]` works. An app-only thread cannot add the umbrella with `studio_worktree_add_repository`.
 - The remote branch is as last fetched; the Board never fetches.
-- The remote branch is found from Git's files (loose refs, `packed-refs`); `git rev-parse` answers only when `origin/HEAD` exists in a form the files do not resolve (for example reftable), and that answer is kept for 30 seconds.
+- The remote branch is found from Git's files (loose refs, `packed-refs`); `git rev-parse` answers, for `origin/HEAD`, then `origin/main`, then `origin/master`, only when `origin/HEAD` exists in a form the files do not resolve or the refs are kept in reftable; that answer is kept for 30 seconds. In a reftable repository the project folder's own commit is not read, so the Board shows no "behind" line there.
 - Cached remote copies the branch no longer holds are removed once unused for 10 minutes. A copy removed under a reader that still holds the older branch is written again on that reader's next read.
 - A project whose planning root is not the top of a Git checkout reads only its folders.
 
