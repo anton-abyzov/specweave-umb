@@ -31,3 +31,9 @@ m4's traces never mention PRCTY-AABYZOV, so only the machine that was joined (M5
 - `apps/web/src/components/AutoConnectPrivateMachines.tsx`, `apps/web/src/studio/fleetAutoConnect.ts`: a window pairs itself with the machines its server lists.
 - `apps/server/src/fleet/ConnectDeviceTrust.ts`: each machine keeps its own device list; an unknown proof key gets a request and a code shown only on the asking device.
 - `packages/contracts/src/connectDevices.ts`: a request carries a label, system, app, short ID and device hash; no machine identity (only `via` for a phone's hub).
+
+## Windows's side (through M5, about 10:11 AM)
+
+- M5's agents launched two read-only Claude threads on PRCTY-AABYZOV. Each workspace was prepared, and each run ended at once with "The Claude process stopped before this turn finished, for example because SpecWithCode restarted for an update. Send your message again to continue." No other detail.
+- M5's machine list shows Windows's providers: `claudeAgent` and `codex` available, signed in, both at 100% usage; cursor, grok, opencode, antigravity, muse and pi not available; GitHub Copilot not signed in. So no agent can finish a run on Windows until a limit resets, and the Claude failure most likely is that limit, reported as a process stop (a misleading message, separate from this increment).
+- A third read-only thread on Codex was accepted and was preparing at 10:11 AM.
