@@ -37,6 +37,15 @@ Rejected: moving SQLite to a worker (too large for an urgent fix), slowing the s
 ### Open
 - none
 
+## Follow-ups
+
+Found by the closing review (GPT-6.1 Sol on Copilot Enterprise, November 19, 2026) on app `f08a5830b`; Anton chose to close 1185 (T-02 dropped, AC-01 test skipped), so these are recorded, not fixed here.
+
+- Gap in AC 01, budget: `ProjectLink.readContent` (`apps/server/src/project/ProjectLink.ts:461-468`) calls `readWorkspace` and then `readMemoryFiles`, so it issues 2 project reads and 2 memory queries, and a digest cache miss 3 and 3. Constant in the note count (the per-note loop is gone), but not the one-and-one the AC names.
+- Gap in AC 02, race (medium): `contentDigest` (`ProjectLink.ts:490-500`) keys the cache on one `readWorkspace` snapshot and hashes a second one from `readContent`. A goal or instructions edit that is reverted between the two reads stores a digest under a signature it does not match, and it stays until the next signature change or a restart. Fix: hash and key one snapshot.
+- Later regression (medium): `readWorkspace` now awaits `specweaveFactsOf` (`ProjectWorkspaceService.ts:342-346`, from `ce517249a`) with no timeout, so a slow setup-file write for one project delays digest reads for every linked project.
+- Low: the revision-keyed hash caches in `LinkedMemorySync.ts` and `ProjectLink.ts` never drop deleted notes or projects; they grow with names seen since start.
+
 ## Tasks
 
 ### T-01 Batch linked memory reads
