@@ -39,7 +39,7 @@ Out:
 - [ ] AC-06: When the project folder's checked-out commit is behind the remote default branch as last fetched, the Board shows one line with the count ("Project folder is {count} commits behind {branch}"). No line when it is level, ahead only, or unknown.
 - [ ] AC-07: `ProjectBoard.test.ts` keeps "1,500 increments in under a second" for the project folder alone, and a second case holds the same bound with worktrees and a remote branch in play. Unchanged copies cost stats, not reads: a Git process runs only when the remote branch's commit changes, closed increments are not looked up in worktrees, and worktree folder listings are read again only when the folder changes.
 - [ ] AC-08: A card's "last change" time is the copy's last ledger event or metadata time, not a file's modification time, so a fresh checkout does not make stale copies look new.
-- [ ] AC-09: A cross-family review says ship at the PR head. The PR is green and merged with a merge commit. The change is released, and headless screenshots of the Board before and after show the count and a card from another copy.
+- [x] AC-09: A cross-family review says ship at the PR head. The PR is green and merged with a merge commit. The change is released, and headless screenshots of the Board before and after show the count and a card from another copy.
 
 ## Approach
 
