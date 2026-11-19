@@ -797,9 +797,19 @@ Reviewer: muse, model `muse-wonder-full-1.0`, effort xhigh, adversarial, named b
 
 Paths are from the umbrella root. Each title starts with its phase.
 
+**Accepted on November 19, 2026, with the round 2 amendments.** Anton asked at about 2:15 AM Eastern to complete this without asking him. The design review round 2 (`reports/reviews/review-gpt-6.2-astra-9.md`) keeps the equal coordinators, both starts, local fallback first and the common progress view, and asks for nine changes, each confined to one task. They are part of that task's scope, and its code review gates on them:
+
+- EC2-01 (follow row awaits a real run; idle is not a completion): T-19.
+- EC2-02 (a manual pull takes the same exclusive fence as a push), EC2-03 (legacy holds stay held unless non-acceptance is proven; `sent` persisted before dispatch), EC2-04 (`handoff.v2` is the T-20 base only; each later wire feature needs its own capability at both ends, absent means Needs update or Stayed): T-20, and T-24, T-10 and T-09 for their own capabilities.
+- EC2-05 (disarm previously armed old peers and drain old intents before promising zero silent starts): T-23.
+- EC2-06 (keep the legacy routine exclusion until old replicas confirm disarm; no explicit runner move to a peer without idempotent enable): T-21.
+- EC2-07 (migrate `transferring` and outstanding role operations; clear coordinator-only holds, never thread holds): T-22.
+- EC2-08 (the automatic start carries trigger key, reason, intended run and disposition through the production adapter): T-13 ships only with a one-thread T-20 operation, or after T-11.
+- EC2-09 (each shipping task's Test includes a version-pinned compatibility case in both directions; T-08 checks every case positively, and missing or inconclusive is not a pass; T-14 and T-15 exercise the surviving scenarios): every task, T-08, T-14, T-15 and T-16.
+
 Build order of the new handoff (AC-49), one pull request and release each. Bugs users hit today come first:
 
-1. T-19: a handed-off worker's result reaches its launcher (proofs 3 and 5).
+1. T-19: a handed-off worker's result reaches its launcher (proof 5).
 2. T-20: the transfer record, fence and replay (proof 6's stuck hold), with `handoff.v2`.
 3. T-23: sleep and silence are never a start (saved sleep triggers still move work).
 4. T-21: one durable runner per routine (proof 4).
