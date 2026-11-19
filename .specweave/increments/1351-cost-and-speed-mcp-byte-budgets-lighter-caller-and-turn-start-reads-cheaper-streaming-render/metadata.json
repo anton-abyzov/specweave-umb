@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-15T04:05:36.827Z",
-  "updated": "2026-11-15T04:05:36.827Z",
-  "lastActivity": "2026-11-15T04:05:36.827Z",
+  "updated": "2026-11-15T05:47:10.204Z",
+  "lastActivity": "2026-11-15T05:47:10.204Z",
   "title": "Cost and speed: MCP byte budgets, lighter caller and turn-start reads, cheaper streaming render",
   "project": "specweave-umb"
 }
