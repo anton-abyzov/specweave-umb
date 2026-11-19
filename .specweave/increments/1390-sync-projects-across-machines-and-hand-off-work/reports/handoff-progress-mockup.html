@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Hand off specweave</title>
+<title>Hand off "specweave": progress view (1390, revised for EC-12)</title>
 <style>
   :root {
     color-scheme: light;
@@ -16,108 +16,160 @@
     --red: #c4342d;
     --amber-bg: #fff6e8;
     --amber: #8a5a12;
+    --slate: #4a5568;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    min-height: 100vh;
     background: #ececee;
     font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     color: var(--ink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 16px;
+    padding: 32px 24px;
   }
-  .card {
-    width: 560px;
-    background: var(--card);
-    border-radius: 16px;
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
-    overflow: hidden;
-  }
-  .body { padding: 22px 22px 8px; }
-  h1 {
-    margin: 0 0 6px;
-    font-size: 17px;
-    font-weight: 650;
-    letter-spacing: -0.01em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .mark {
-    width: 22px;
-    height: 22px;
-    border-radius: 6px;
-    background: #3a5bd9;
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .why {
-    margin: 10px 0 14px;
-    background: var(--amber-bg);
-    color: var(--amber);
-    border-radius: 10px;
-    padding: 8px 10px;
-    font-size: 13px;
-  }
-  .bar-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .page { display: grid; grid-template-columns: repeat(3, 440px); gap: 24px; justify-content: center; align-items: start; }
+  .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 8px 4px; }
+  .card { background: var(--card); border-radius: 16px; box-shadow: 0 18px 50px rgba(0,0,0,0.12); overflow: hidden; }
+  .body { padding: 20px 20px 6px; }
+  h1 { margin: 0 0 6px; font-size: 16px; font-weight: 650; display: flex; align-items: center; gap: 8px; }
+  .mark { width: 22px; height: 22px; border-radius: 6px; background: var(--blue); color: #fff; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  .why { margin: 10px 0 14px; background: var(--amber-bg); color: var(--amber); border-radius: 10px; padding: 8px 10px; font-size: 13px; }
+  .why.manual { background: #eef1fb; color: #2d438f; }
+  .summary { font-size: 13px; color: var(--ink); margin-bottom: 6px; font-weight: 550; }
   .track { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; }
-  .fill { width: 46%; height: 100%; background: var(--blue); border-radius: 99px; }
-  ul { list-style: none; margin: 16px 0 8px; padding: 0; }
-  li {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 12px;
-    align-items: baseline;
-    padding: 10px 0;
-    border-top: 1px solid var(--line);
-  }
+  .fill { height: 100%; background: var(--blue); border-radius: 99px; }
+  ul { list-style: none; margin: 14px 0 6px; padding: 0; }
+  li { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 10px 0; border-top: 1px solid var(--line); }
   .name { font-size: 14px; }
-  .state { font-size: 13px; color: var(--muted); text-align: right; }
-  .state.done { color: var(--green); }
-  .state.fail { color: var(--red); }
-  .state.now { color: var(--blue); }
-  .foot {
-    background: var(--soft);
-    padding: 12px 22px 16px;
-    color: var(--muted);
-    font-size: 13px;
-  }
+  .state { font-size: 12px; font-weight: 600; text-align: right; white-space: nowrap; display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .detail { grid-column: 1 / 2; font-size: 12px; color: var(--muted); }
+  .action { grid-column: 2 / 3; font-size: 12px; text-align: right; color: var(--blue); }
+  .action.none { color: var(--muted); }
+  .s-pending { color: var(--muted); } .s-pending .dot { background: transparent; border: 1.5px solid var(--muted); }
+  .s-held { color: var(--slate); } .s-held .dot { background: var(--slate); }
+  .s-waiting { color: var(--amber); } .s-waiting .dot { background: #e0a43a; }
+  .s-resumed { color: var(--green); } .s-resumed .dot { background: var(--green); }
+  .s-ready { color: var(--green); } .s-ready .dot { background: transparent; border: 2px solid var(--green); }
+  .s-stayed { color: var(--slate); } .s-stayed .dot { background: transparent; border: 2px dashed var(--slate); }
+  .s-failed { color: var(--red); } .s-failed .dot { background: var(--red); }
+  .out { padding: 6px 0 14px; }
+  .out .big { font-size: 15px; font-weight: 600; margin: 4px 0; }
+  .out .reset { font-size: 13px; color: var(--muted); margin: 2px 0; }
+  .variant { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 12px; }
+  .foot { background: var(--soft); padding: 10px 20px 14px; color: var(--muted); font-size: 12px; }
+  .legend { margin: 28px auto 0; max-width: 1368px; background: #fff; border-radius: 12px; padding: 14px 18px; font-size: 12px; color: var(--muted); }
+  .legend b { color: var(--ink); }
 </style>
 </head>
 <body>
-  <article class="card">
-    <div class="body">
-      <h1><span class="mark">S</span> Hand off “specweave” to M5</h1>
-      <div class="why">Complex track out of tokens on m4. Fable 5.2 and GPT-6 Astra were tried here first.</div>
-      <div class="bar-row"><span>2 of 4 threads on M5</span><span>Packing, sending, received, resumed</span></div>
-      <div class="track"><div class="fill"></div></div>
-      <ul>
-        <li>
-          <div class="name">Rethink copies and handoff</div>
-          <div class="state done">Done · resumed on M5</div>
-        </li>
-        <li>
-          <div class="name">Sync dialog</div>
-          <div class="state now">Received by M5’s coordinator</div>
-        </li>
-        <li>
-          <div class="name">Thread send wording</div>
-          <div class="state now">Sending</div>
-        </li>
-        <li>
-          <div class="name">Phase 3 proof follow-up</div>
-          <div class="state fail">Failed · M5 has no sign-in for this account</div>
-        </li>
-      </ul>
-    </div>
-    <div class="foot">Same view when you press Hand off. That one says “You asked to hand off to M5”. Closing the laptop does not start this.</div>
-  </article>
+<div class="page">
+  <section>
+    <p class="label">Automatic start</p>
+    <article class="card" data-batch="auto">
+      <div class="body">
+        <h1><span class="mark">S</span> Hand off “specweave” to M5</h1>
+        <div class="why">Complex track out of tokens on m4. Fable 5.2 and GPT-6 Astra were tried here first.</div>
+        <div class="summary"></div>
+        <div class="track"><div class="fill"></div></div>
+        <ul></ul>
+      </div>
+      <div class="foot">Waiting is not failed. m4 runs none of these threads while M5 has not answered.</div>
+    </article>
+  </section>
+
+  <section>
+    <p class="label">Started by hand</p>
+    <article class="card" data-batch="manual">
+      <div class="body">
+        <h1><span class="mark">S</span> Hand off “specweave” to M5</h1>
+        <div class="why manual">You asked to hand off to M5.</div>
+        <div class="summary"></div>
+        <div class="track"><div class="fill"></div></div>
+        <ul></ul>
+      </div>
+      <div class="foot">Ready means installed idle: nothing starts on M5 until you write.</div>
+    </article>
+  </section>
+
+  <section>
+    <p class="label">No machine has the track</p>
+    <article class="card">
+      <div class="body">
+        <h1><span class="mark">S</span> Hand off “specweave”</h1>
+        <div class="why">Complex track out of tokens on m4.</div>
+        <div class="out">
+          <div class="big">Complex track is out on every machine</div>
+          <div class="reset">2 threads stay on m4. Nothing moves.</div>
+          <div class="reset"><b style="color:var(--ink)">Next reset: M5 at 4:10 AM</b> (Claude, Fable 5.2). Checked again then.</div>
+        </div>
+        <div class="variant out">
+          <div class="big">Complex track is out on every machine</div>
+          <div class="reset">2 threads stay on m4. Nothing moves.</div>
+          <div class="reset"><b style="color:var(--ink)">Reset unknown.</b> No eligible sign-in reports when it resets.</div>
+        </div>
+      </div>
+      <div class="foot">Same-account and unknown-usage machines are never chosen automatically, and no other track is used.</div>
+    </article>
+  </section>
+</div>
+
+<div class="legend">
+  <b>Counting.</b> Finished = resumed + ready + stayed + failed. The summary line and the bar width are both computed in this page from the same rows in each card; nothing is typed by hand.
+  Pending, held and waiting for confirmation are not finished. A failed or stayed row means the summary never says “all on M5”.
+</div>
+
+<script>
+  const STATES = {
+    pending: { label: "Pending", finished: false },
+    held: { label: "Held on m4", finished: false },
+    waiting: { label: "Waiting for confirmation", finished: false },
+    resumed: { label: "Resumed on M5", finished: true },
+    ready: { label: "Ready on M5", finished: true },
+    stayed: { label: "Stayed", finished: true },
+    failed: { label: "Failed", finished: true },
+  };
+  const BATCHES = {
+    auto: [
+      { name: "Rethink copies and handoff", state: "resumed", detail: "Its interrupted run continues there", action: "Open on M5" },
+      { name: "Phase 3 proof follow-up", state: "failed", detail: "M5 refused it: no Fable 5.2 sign-in there. Runs on m4 again", action: "Try again" },
+      { name: "Sync dialog", state: "waiting", detail: "Sent at 2:41 AM. M5 has not answered yet", action: "Wait", none: true },
+      { name: "Thread send wording", state: "held", detail: "Paused on m4, not sent yet", action: "Resume here" },
+    ],
+    manual: [
+      { name: "Fixture repair", state: "ready", detail: "Idle. Installed on M5; nothing started", action: "Open on M5" },
+      { name: "Question about the release notes", state: "stayed", detail: "A question is waiting for you. Answer it first", action: "Answer it" },
+      { name: "Worktree set: app and docs", state: "pending", detail: "Not held yet", action: "Cancel" },
+    ],
+  };
+  const summaryOf = (rows) => {
+    const finished = rows.filter((r) => STATES[r.state].finished);
+    const parts = ["resumed", "ready", "stayed", "failed"]
+      .map((s) => [s, finished.filter((r) => r.state === s).length])
+      .filter(([, n]) => n > 0)
+      .map(([s, n]) => `${n} ${s}`);
+    const allOn = finished.length === rows.length && rows.every((r) => r.state === "resumed" || r.state === "ready");
+    const text = allOn
+      ? `All ${rows.length} on M5`
+      : `${finished.length} of ${rows.length} finished${parts.length ? ": " + parts.join(", ") : ""}`;
+    return { text, percent: (finished.length / rows.length) * 100 };
+  };
+  for (const card of document.querySelectorAll("[data-batch]")) {
+    const rows = BATCHES[card.dataset.batch];
+    const { text, percent } = summaryOf(rows);
+    card.querySelector(".summary").textContent = text;
+    card.querySelector(".fill").style.width = `${percent}%`;
+    card.querySelector(".fill").dataset.percent = String(Math.round(percent));
+    card.querySelector("ul").innerHTML = rows
+      .map(
+        (r) => `<li>
+          <div class="name">${r.name}</div>
+          <div class="state s-${r.state}"><span class="dot"></span>${STATES[r.state].label}</div>
+          <div class="detail">${r.detail}</div>
+          <div class="action${r.none ? " none" : ""}">${r.action}</div>
+        </li>`,
+      )
+      .join("");
+  }
+</script>
 </body>
 </html>
