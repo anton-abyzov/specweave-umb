@@ -170,6 +170,24 @@ Where an AC depends on a decision Anton has not made, it says "(D-xx)" and is wr
   A checkout that is level with its upstream reports `none` ("Up to date", or the not-pushed row) even when it has uncommitted files or a running thread: the fetch has already happened and nothing would move. Its step still carries the uncommitted count and the thread's name, and the dialog never shows a bare "Up to date" for it (T-07). An unfinished merge, rebase, cherry-pick, revert or bisect counts as uncommitted changes.
 
   A thread running in its own worktree does not block the project's main checkout (today's `notInUse`, `handoffGit.ts:713`, blocks on any linked worktree; Sync gets its own check). The plan type has exactly four actions: `none`, `fetch`, `fast-forward`, `clone`. Sync never resets, rebases, merges with a merge commit, stashes, switches a branch, deletes, pushes or commits, and never calls the reconcile paths that stash or reset. A server test on real repositories covers each row and asserts that the working tree, index, stash list and branch list of every repository that was not fast-forwarded are identical before and after.
+  **What a fast-forward by Sync guarantees** (written November 19, 2026, after three review rounds of the server; every review of the server gates on this text, and on nothing wider).
+
+  Sync promises:
+
+  1. A fast-forward moves exactly the branch the fetch answer showed for that checkout, from exactly the commit it showed, to exactly the commit that same fetch brought for the upstream it showed. `run` names the fetch by its id. If the id is missing, unknown or expired, or the branch, its commit or its upstream differs from what that fetch recorded, nothing moves and the result says to sync again.
+  2. `run` never chooses a target. It compares and moves, or declines. It does not ask `origin` again: when `origin` moved after the fetch, the checkout still moves to the commit the person was shown, and the next Sync brings the rest.
+  3. The write is a fast-forward and nothing else: no merge commit, no squash, no stash, no switch of branch, whatever the repository's or the person's Git settings say. A setting Sync cannot switch off declines the move before any write.
+  4. A read that fails is reported as "could not be read" for that checkout in every answer (the fetch facts, the status, the list of extras, the result). It is never turned into clean, up to date, not on a branch, "only here" or a count.
+  5. A result claims a move, and a number of commits, only when the recorded branch was at the recorded commit before and is at the recorded target after. Anything else is reported as what was observed, with no count claimed.
+  6. Sync deletes only refs it wrote itself in that same call.
+
+  Sync does not promise:
+
+  1. That `origin` still has the branch or the commit when `run` executes.
+  2. A limit on the total time local Git work takes across a batch. Each Git call has its own limit.
+  3. Anything on Windows, or about a push address.
+  4. Protection against another program writing to the same checkout in the same instant as Sync's own write, unless the write itself can name the branch and the commit it expects. Whether Git offers such a write is tried first (a short trial on real repositories); if it does, Sync uses it and this line goes; if it does not, the gap between Sync's last check and Git's write is kept as short as one read, the result says truthfully what moved, and this line stays.
+
 - [ ] AC-12: Work that Git does not carry is listed per machine under "Only on {machine}", each line unticked: commits not pushed (one line per branch), branches that exist only there, and uncommitted and untracked files (count per repository). Stashes, when there are any, are listed and cannot be ticked ("Stashes stay. Compare all files… can bring them"). Secrets are a separate group (AC-14). Nothing in this list travels unless its line is ticked.
 - [ ] AC-13: Ticked extras travel between the two servers over the peer route a thread hand off uses (negotiate, then replicate, under the work grant between the machines; `apps/server/src/handoff/HandoffReceiver.ts:302` to 352), never through the remote and never through the folder copy. Rules:
 
