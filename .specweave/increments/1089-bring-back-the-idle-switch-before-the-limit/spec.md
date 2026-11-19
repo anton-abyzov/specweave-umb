@@ -29,6 +29,9 @@ Found in the November 19 re-check, and part of the fix:
 - A person's Stop is read on the latest run whatever its status (`stopHoldsLatestRun`), before the move and again at commit; `stopHoldsThread` answers only for failed runs.
 - One try per window. A retry id (`:retry-N`) would break `preswitchWindowResetAt`, which the way back reads, so a failed model-selection move stays sent and is never resent; it adds no failed target. An already-sent move leaves the thread as one with no step, so the way back still runs and the sweep reads nothing more each time. Accepted ids also persist as command receipts across a restart.
 - The 1075 way back no longer reads a pre-switched selection as a person's pick (`pickedSinceRun`).
+- Only after a completed turn, never for a provider-spawned subagent or a session still hosting background work (`activityRunStatus`, `hostsBackgroundWork`).
+- The Orchestrator judges a `limit-preswitch:` move again as it lands (`preswitchMoveRefusal` in `limitPreswitchGuard.ts`, then the Stop check), so a pick, Stop or new turn made after the sweep's checks wins.
+- An idle thread at the threshold with no target reads stale fallback usage again through the existing throttled `refreshStaleTargets`.
 - Settings and defaults do not change.
 
 Test lines run from the umbrella root of a worktree or verification copy with the app's dependencies installed; on the M4, only through `specweave-studio checks run`.
@@ -44,10 +47,10 @@ Run on Copilot Enterprise (`acpRegistry_copilot`, model `gpt-6.1-sol`) under Ant
 ## Tasks
 
 ### T-01 Reach the idle pre-switch from the sweep
-- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/orchestration-v2/ProviderFallbackWorker
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/limitPreswitchGuard.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/orchestration-v2/ProviderFallbackWorker
 
 ### T-02 Scenario tests
-- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.idlePreswitch.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.preswitchReturn.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/orchestration-v2/ProviderFallbackWorker.idlePreswitch src/orchestration-v2/ProviderFallbackWorker.preswitchReturn src/orchestration-v2/MachineLimitHandoff
+- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.idlePreswitch.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.preswitchReturn.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/limitPreswitchGuard.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/orchestration-v2/ProviderFallbackWorker.idlePreswitch src/orchestration-v2/ProviderFallbackWorker.preswitchReturn src/orchestration-v2/MachineLimitHandoff src/orchestration-v2/limitPreswitchGuard
 
 ### T-03 PR, exact-head CI, review, merge and release
 
