@@ -77,7 +77,7 @@ Muse is out until November 23, 2026 and Codex is at 100%, so each PR is reviewed
 
 ### T-02 Team endpoint storing summaries per tenant
 - AC: AC-04 | Files: repositories/anton-abyzov/vskill-platform/prisma/tenancy.prisma [exists], repositories/anton-abyzov/vskill-platform/prisma/migrations/ [new folder], repositories/anton-abyzov/vskill-platform/src/app/api/v1/tenants/[tenantId]/usage-summaries/ [new], repositories/anton-abyzov/vskill-platform/src/app/api/v1/tenants/usage-orgs/ [new], repositories/anton-abyzov/vskill-platform/src/lib/team-usage/ [new] | Test: endpoint auth and schema tests (`npx vitest run src/lib/team-usage src/app/api/v1/tenants/[tenantId]/usage-summaries`)
-- **Dependencies**: T-01
+- The wire contract is the one under Approach, "The summary"; it does not wait for T-01's code.
 
 ### T-03 Admin page and CSV export
 - AC: AC-03 | Files: repositories/anton-abyzov/vskill-platform/src/app/orgs/[orgSlug]/usage/ [new], repositories/anton-abyzov/vskill-platform/src/lib/team-usage/ [new] | Test: page renders filters and CSV from fixture data
