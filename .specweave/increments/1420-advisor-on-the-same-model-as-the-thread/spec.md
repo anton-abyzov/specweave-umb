@@ -84,6 +84,11 @@ Out:
   - `RuntimePolicy.ts` needs no new input.
   - `ClaudeAdapterV2.ts` reads the advisor model from `usage.iterations[].model` where `type` is `advisor_message`, for the item title (AC-04). In pass-through it records the model on the thread's latest consult so the menu can say so (AC-05). It does not parse `~/.claude/settings.json`.
 - **Web** (`ThreadAdvisorMenu.tsx`): the Advisor group shows the preview line. The fixture in `apps/web/tests/advisor` gains the three states.
+- **Known limits** (review round 1, GPT-6.1 Sol):
+  - The menu reads the usage the web sees. A hold the server keeps after a run stopped on a limit with no usage reading is not sent to the web, so for a thread on the brief the menu can name a model the consult then skips.
+  - The pass-through note reads the loaded history. A long thread whose last consult from Claude's settings is outside the loaded window shows no note until that consult loads.
+  - The consult title's model is the latest one Claude reported in the session (review round 3). A consult whose reply carries no advisor usage entry, or a subagent reply held and replayed after another one, can take the model of the previous answer. Parent and subagents share one process and one advisor setting, so the models differ only in contrived cases. It affects the title, not which advisor runs.
+  - A consult is marked as from Claude's settings by its title ("Asked the advisor (model) from Claude's settings"). An older client reads no model from that title and shows "Claude built-in".
 - **Rejected options:**
   - Skip the advisor when the models match. That throws away the consults that changed course most often.
   - Move to the next stronger or other-family model. There is nothing stronger than Fable 5.2, so the next entry is Muse Wonder Full on a lossy brief at Extra High. Owner rules say Muse only does adversarial review and runs at High, and the reviewer would then check work its own family steered.
@@ -96,14 +101,15 @@ Out:
 
 ### Asked
 
-- D-01 Keep the advisor when the thread is already on the advisor's model? Recommended: keep it and say so in the menu. This reverses 1371 AC-12 for that case. Waiting for Anton.
+- D-01 Keep the advisor when the thread is already on the advisor's model? → Yes (Anton, November 19, 2026): keep it and say so in the menu. This reverses 1371 AC-12 for that case.
 - D-02 What happens past the 200,000-token limit, where 46% of measured same-model consults were? Anton, November 19: fall back along the Complex track, not to Muse. Applied as AC-07, and AC-01's past-the-limit case.
   - On m4 the next model is GPT-6 Astra on Copilot at Extra High.
   - This replaces my recommendation, the same model on the brief.
 
 ### Defaulted (change any before sw-do)
 
-- none
+- D-06 Saved Complex track entries count as the person's choice, like a saved advisor model. So an advisor on a source with unknown billing runs when the person listed it there. Built-in entries and accounts added by expansion still never pick per-token or unknown-billing sources (reversible).
+- D-07 The menu names the advisor for a short thread, then "Past {limit} tokens: {model}" when a long thread would get another model. It does not read the live context size (reversible).
 
 ### Open
 
@@ -114,13 +120,13 @@ Out:
 ## Tasks
 
 ### T-01 Shared rule and preview
-- AC: AC-01, AC-02, AC-07 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/advisor.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/advisor.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/advisor.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/RuntimePolicy.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/OrchestratorMcpService.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run packages/shared/src/advisor.test.ts apps/server/src/orchestration-v2/RuntimePolicy.advisor.test.ts
+- AC: AC-01, AC-02, AC-07 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/advisor.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/advisor.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/advisor.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/RuntimePolicy.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/OrchestratorMcpService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/AdvisorConsult.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/RuntimePolicy.advisor.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run packages/shared/src/advisor.test.ts apps/server/src/orchestration-v2/RuntimePolicy.advisor.test.ts
 
 ### T-02 Consult title and pass-through record
-- AC: AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.advisor.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.advisor.test.ts
+- AC: AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.advisor.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.advisor.test.ts
 
 ### T-03 Menu line, catalogs and fixture
-- AC: AC-03, AC-05, AC-06, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AdvisorSettings.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/ThreadAdvisorMenu.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/ThreadAdvisorMenu.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases, repositories/anton-abyzov/specwithcode/apps/web/tests/advisor | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/chat/ThreadAdvisorMenu.test.tsx src/i18n/i18n.test.ts
+- AC: AC-03, AC-05, AC-06, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AdvisorSettings.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/ThreadAdvisorMenu.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/ThreadAdvisorMenu.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases, repositories/anton-abyzov/specwithcode/apps/web/tests/advisor, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/work-log/presentation.ts, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/work-log/presentation.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/TraitsPicker.advisor.test.tsx | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/chat/ThreadAdvisorMenu.test.tsx src/i18n/i18n.test.ts
 
 ### T-04 Review, merge, release
 - AC: AC-06 | Files: none | Test: gh pr list --repo anton-abyzov/specwithcode --search "1420 in:title" --state merged --json number --jq length | grep -qv '^0$'

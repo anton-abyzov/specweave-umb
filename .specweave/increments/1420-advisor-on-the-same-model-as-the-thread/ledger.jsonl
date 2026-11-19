@@ -1,0 +1,9 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-19T04:54:24.838Z","note":"session abc2c915-3242-4b55-872d-d153be51b5a5","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-19T04:54:24.840Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-19T05:02:08.016Z","evidence":"app 3d519586b; checks copy: vp test run advisor.test.ts RuntimePolicy.advisor.test.ts AdvisorConsult.test.ts -> 3 files, 98 tests passed\nHEAD 5ff34cc193","line":"Complex-track order, same-model built-in advisor, preview","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-19T05:02:08.382Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-19T05:04:14.416Z","evidence":"app 5d6cfe09e; checks copy: ClaudeAdapterV2.advisor.test.ts + ClaudeAdapterV2.test.ts -t advisor -> 17 passed\nHEAD 5ff34cc193","line":"Consult title names the model from usage.iterations","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-19T05:04:14.796Z","model":"claude-opus-5-5[1m]"}
+{"t":"*","e":"note","by":"copilot@antons-macbook-m4max","at":"2026-11-19T05:17:01.721Z","note":"review by gpt-6.1-sol (openai) at 40a28de6df55: fix first · reports/reviews/review-gpt-6.1-sol-1.md"}
+{"t":"*","e":"note","by":"copilot@antons-macbook-m4max","at":"2026-11-19T05:24:58.448Z","note":"review by gpt-6.1-sol (openai) at 0b961cd74d02: ship · reports/reviews/review-gpt-6.1-sol-3.md"}
+{"t":"*","e":"note","by":"copilot@antons-macbook-m4max","at":"2026-11-19T06:01:27.588Z","note":"review by gpt-6.1-sol (openai) at 8e7c5e535345: ship · reports/reviews/review-gpt-6.1-sol-4.md"}
