@@ -1,16 +1,18 @@
 {
   "id": "1387-first-run-setup-rethought-one-working-agent-models-by-role-chrome-and-mac-access-machines-and-phone",
   "uuid": "dc5c5415-3db2-4adc-a116-5e8afa19b12b",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T05:39:22.660Z",
-  "updated": "2026-11-19T03:28:41.673Z",
-  "lastActivity": "2026-11-19T03:28:41.673Z",
+  "updated": "2026-11-19T21:32:01.808Z",
+  "lastActivity": "2026-11-19T21:32:01.808Z",
   "title": "First-run setup rethought: one working agent, models by role, Chrome and Mac access, machines and phone",
   "project": "specweave-umb",
   "externalLinks": {},
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "readyForReviewAt": "2026-11-19T21:32:01.807Z",
+  "approvedAt": "2026-11-19T21:32:01.808Z"
 }
