@@ -436,11 +436,11 @@ A week of use is not evidence and is not a gate.
 
 ### Accepted risks
 
-These are the residual risks the review named as eligible for acceptance. None is accepted yet. The setting is off by default, and it stays off until each line has Anton's acceptance recorded in the increment's reports. None of these replaces a fix for findings 1 to 4.
+These are the residual risks the review named as eligible for acceptance. Anton accepted all three on November 19, 2026 (`reports/lan-risk-acceptance.md`). The setting is still off by default and stays off until the other S-11 gates are met. None of these replaces a fix for findings 1 to 4.
 
-- R-01: An opted-in destination learns the source's offered private addresses. Status: pending Anton's acceptance. Setting: off by default.
-- R-02: Local observers on the network can see a temporary TLS endpoint and how much traffic it carries. Status: pending Anton's acceptance. Setting: off by default.
-- R-03: An OS firewall prompt or client isolation on the network can prevent the LAN path. The copy then runs on Connect at Connect speed. Refusing the prompt changes no firewall policy and blocks no authorized Connect copy. Status: pending Anton's acceptance. Setting: off by default.
+- R-01: An opted-in destination learns the source's offered private addresses. Status: accepted by Anton on November 19, 2026. Setting: off by default.
+- R-02: Local observers on the network can see a temporary TLS endpoint and how much traffic it carries. Status: accepted by Anton on November 19, 2026. Setting: off by default.
+- R-03: An OS firewall prompt or client isolation on the network can prevent the LAN path. The copy then runs on Connect at Connect speed. Refusing the prompt changes no firewall policy and blocks no authorized Connect copy. Status: accepted by Anton on November 19, 2026. Setting: off by default.
 
 The setting's help text states all three in plain words.
 
