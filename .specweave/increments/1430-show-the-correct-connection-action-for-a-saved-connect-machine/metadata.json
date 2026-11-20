@@ -1,0 +1,15 @@
+{
+  "id": "1430-show-the-correct-connection-action-for-a-saved-connect-machine",
+  "uuid": "70779837-4677-4930-8db0-eeccbc12fba2",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-20T04:52:23.924Z",
+  "updated": "2026-11-20T04:52:23.924Z",
+  "lastActivity": "2026-11-20T04:52:23.924Z",
+  "title": "Show the correct connection action for a saved Connect machine",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

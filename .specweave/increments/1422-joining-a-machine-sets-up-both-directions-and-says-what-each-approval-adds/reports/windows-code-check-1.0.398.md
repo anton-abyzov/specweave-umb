@@ -12,4 +12,4 @@ The agent grant, device approval and app connection have separate records. The m
 
 Source at tag `v1.0.398`: `apps/web/src/studio/fleetAutoConnect.ts` (`savedRouteOrigins`, `fleetMachineSaved`), `packages/client-runtime/src/connection/routes.ts` (`routeHttpBaseUrl`) and `apps/web/src/components/settings/machinesSettings.logic.ts` (`buildMachineRows`, `canAllowBack`).
 
-The owner’s code entry is recorded as manual evidence. The post-code session check and the post-release wording check on both screens remain open.
+On November 19, 2026 at 11:34:07 PM EST, Windows recorded the Mac as approved by “this machine.” A worker on Windows read the matching approval after the owner entered the code. The same evening, a worker on the Mac successfully contacted the Windows evidence thread. The work grant and device approval both worked. The Windows worker could not locate the supported database CLI to check for a subsequent desktop session. Whether the Mac’s window opened Windows and whether both released screens showed the revised wording remain unverified.
