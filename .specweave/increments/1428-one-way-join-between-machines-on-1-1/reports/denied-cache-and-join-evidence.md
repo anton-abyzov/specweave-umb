@@ -36,6 +36,8 @@ The 1431 worker independently reproduced the defect at `8ad73fe68f10f3d4afcfd76b
 
 An independent rerun at that final commit passed the retained regression (1/1) and 119 tests across six suites. The independent selection included the shell tests. The owner’s selection included the thread-atom tests. The evidence bundle records the exact commit before and after the independent run and a clean verification copy.
 
+GitHub completed all 26 checks on that commit. Fourteen passed and twelve were skipped. PR 787 is open for the 1428 review and release decision.
+
 The 1431 baseline also records 142 passing existing worker-grant, revocation, registry and visibility tests. Those tests did not detect the cached-window exposure. Live reverse discovery, direct chat reads, fresh-install behavior and behavior after revocation on installed machines remain unverified.
 
 Owner test output is `/Users/antonabyzov/.specwithcode/m4/scratch/2026-11-20-1428-denied-cache/final-focused.log`. Independent evidence is in `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1431-verify-joined-machine-resources-and-one-way-project-and-chat-privacy/reports/investigation.md`. The wider 1428 one-way join design and its review and release gates remain open.
