@@ -8,5 +8,6 @@
   "updated": "2026-11-16T13:57:52.267Z",
   "lastActivity": "2026-11-16T13:57:52.267Z",
   "title": "MCP endpoint and MCP clients cap request and response size, with the dependency bumps from the m8ven scan",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {}
 }
