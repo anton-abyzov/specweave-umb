@@ -23,6 +23,9 @@ Use the existing relay target identity alongside direct origins in the shared sa
 ### T-01 Recognize saved Connect routes on the machine card
 - AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/studio/fleetAutoConnect.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/fleetAutoConnect.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/usePrimaryFleet.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/machinesSettings.logic.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/StudioFleetConnections.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/StudioFleetConnections.test.tsx | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run --project unit src/studio/fleetAutoConnect.test.ts src/components/settings/machinesSettings.logic.test.ts src/components/settings/StudioFleetConnections.test.tsx
 
+### T-02 Cover machines advertising both Connect and Tailscale
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/studio/fleetAutoConnect.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/fleetAutoConnect.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/machinesSettings.logic.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/StudioFleetConnections.test.tsx | Test: Run the T-01 suites. Both Settings views recognize a valid saved Connect route when Tailscale is the primary address. Automatic Tailscale pairing still checks the primary address.
+
 ## Review
 
 Independent review of the candidate checks both Settings views, errors, moved addresses and the boundary between saved routes, live sessions and permissions. Release the display fix after the review and green CI. Verify and close 1430.

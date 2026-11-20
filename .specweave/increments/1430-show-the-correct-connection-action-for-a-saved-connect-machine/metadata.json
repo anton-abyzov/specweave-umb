@@ -5,8 +5,8 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-20T04:52:23.924Z",
-  "updated": "2026-11-20T05:09:45.592Z",
-  "lastActivity": "2026-11-20T05:09:45.592Z",
+  "updated": "2026-11-20T05:16:27.380Z",
+  "lastActivity": "2026-11-20T05:16:27.380Z",
   "title": "Show the correct connection action for a saved Connect machine",
   "project": "specweave-umb",
   "repositories": [
