@@ -54,14 +54,15 @@ Compatibility
 
 ## Approach
 
-How the prompt works (to be proven first in T-01):
+How the prompt works (proven in T-01, see `reports/spike.md`):
 
-1. The server, never the window, decides. `terminal.open` gains an optional `elevation: "prompt"` flag that the window sets only when its classifier (AC-01) matched and the user confirmed. The server honours the flag only for code-block run terminals (`run-` ids). It does not need to trust the caller: the flag only makes sudo ask through the Mac's prompt, and nothing is elevated until a person there types the password.
-2. The server writes a helper script (mode 0700, in the server's private run folder) that asks for the password with a macOS dialog (`osascript ... display dialog ... with hidden answer`) and prints it to sudo's pipe. The helper holds the label for AC-05 from its own argument file; it takes nothing from the command's output.
-3. The pty runs `sudo -n true || SUDO_ASKPASS=<helper> sudo -A -v` first, then the block unchanged, then `sudo -k`. sudo's ticket is tied to that pty, so the block's own `sudo` lines find it and no other shell does. `SUDO_ASKPASS` is set for the first command only, never exported to the block.
-4. The helper reports "shown", "cancelled" or "no desktop session" to the server over a status file, which becomes the panel states in AC-08, AC-10 and AC-11.
+1. `terminal.open` gains an optional `elevation` object that the window sets only when its classifier (AC-01) matched and the user confirmed, and only for servers reporting the `terminalElevationPrompt` capability. The server honours it only for code-block run terminals (`run-` ids). It does not need to trust the caller: the flag only makes sudo ask through the Mac's prompt, and nothing is elevated until a person there types the password.
+2. The server writes a private folder (mode 0700) with a wrapper script, the block, a label file and a helper that asks with a macOS dialog (`osascript ... display dialog ... with hidden answer`) and prints the answer to sudo's pipe. The label (machine, thread title, asking device, start of the block) reaches the dialog as a file it reads, never as script source. Thread title and asking device come from the window; anyone who can open a terminal can already run anything as that user, so this adds no new reach.
+3. The pty runs the wrapper: `sudo -n true`, else `SUDO_ASKPASS=<helper> sudo -A -v`, then the block unchanged in the same login shell, then `sudo -k`, and exits with the block's own code. sudo's ticket is tied to that pty, so the block's own `sudo` lines find it and no other shell does. `SUDO_ASKPASS` is set for that one command only.
+4. The wrapper reports its state (waiting, started, cancelled, timeout, denied, unavailable) as an invisible terminal marker (OSC 7717) in the run's own output, which the panel reads. No new stream or RPC. A block can print the marker itself; all it can change is the panel's wording.
+5. Windows: the flag is ignored and the block runs as today. `sudo` on Windows raises the system's own approval prompt.
 
-Files, in order: contracts (`packages/contracts/src/terminal.ts`: the flag, a `runElevation` state on the session snapshot, an environment capability so AC-15 holds); the classifier in `packages/shared` so window and server share one copy; a new server module `apps/server/src/terminal/elevatedRun.ts` (Manager.ts is 3,417 lines, over the 1,500 limit, so it gets one call and no new logic); "Open in Terminal" as its own RpcGroup with handlers provided in `server.ts` (ws.ts cannot take another import); then `InlineShellRun.tsx`.
+Files, in order: contracts (`packages/contracts/src/terminal.ts`: the `elevation` field and the marker; `environment.ts`: the capability); the classifier in `packages/shared`; a new server module `apps/server/src/terminal/elevatedRun.ts` (Manager.ts is 3,417 lines, over the 1,500 limit, so it gets one call and no new logic); "Open in Terminal" as its own RpcGroup with handlers provided in `server.ts` (ws.ts cannot take another import); then `InlineShellRun.tsx`.
 
 Rejected:
 
@@ -84,6 +85,7 @@ Mockup: `reports/mockup.html` and `reports/mockup.png` in this folder (five stat
 - D-03 The ticket is dropped (`sudo -k`) when the block ends, so one password covers one run.
 - D-04 Linux and Windows get the AC-11 message only. A graphical prompt there (pkexec, UAC) is a later increment.
 - D-05 The blocked-file note (AC-13) is read from the output text. It only adds a note; it starts nothing.
+- D-09 The app is built in a scratch copy (`~/.specwithcode/m5/scratch/2026-11-20-1438-admin-run/specwithcode`, branch `1438-admin-run`) because the shared checkout is on another thread's branch. Task Files name the repository path; tests run in the scratch copy.
 - D-06 No offer to turn on Touch ID for sudo in this increment.
 - D-08 The confirmation is the block's existing inline row, not the elevated access card (`AccessRequestCard`). That card grants something to remember ("this session", "always on this machine"); here nothing is granted or remembered, each run asks again. The Full Disk Access step in AC-13 does reuse the 1386 card.
 
@@ -97,10 +99,10 @@ Mockup: `reports/mockup.html` and `reports/mockup.png` in this folder (five stat
 - The user types the password once per case on M5. Records: the 1386 probe's own answer for Full Disk Access on M5; prompt shown from an app-started and a launchd-started service; ticket valid in the same pty and absent in another; `sudo -k` drops it; Touch ID sheet practical or not; D-07.
 
 ### T-02 Shared classifier and contract
-- AC: AC-01, AC-02, AC-03, AC-15 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/shellRunElevation.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/shellRunElevation.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/terminal.ts | Test: pnpm --dir repositories/anton-abyzov/specwithcode/packages/shared test -- shellRunElevation
+- AC: AC-01, AC-02, AC-03, AC-15 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/shellRunElevation.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/shellRunElevation.test.ts, repositories/anton-abyzov/specwithcode/packages/shared/package.json, repositories/anton-abyzov/specwithcode/packages/contracts/src/terminal.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/terminal.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/environment.ts | Test: pnpm --dir repositories/anton-abyzov/specwithcode/packages/shared test -- shellRunElevation
 
 ### T-03 Server: helper, prelude and run states
-- AC: AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/terminal/elevatedRun.ts, repositories/anton-abyzov/specwithcode/apps/server/src/terminal/elevatedRun.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/terminal/Manager.ts | Test: pnpm --dir repositories/anton-abyzov/specwithcode/apps/server test -- src/terminal/elevatedRun.test.ts
+- AC: AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/terminal/elevatedRun.ts, repositories/anton-abyzov/specwithcode/apps/server/src/terminal/elevatedRun.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/terminal/Manager.ts, repositories/anton-abyzov/specwithcode/apps/server/src/environment/ServerEnvironment.ts | Test: pnpm --dir repositories/anton-abyzov/specwithcode/apps/server test -- src/terminal/elevatedRun.test.ts
 
 ### T-04 Server: Open in Terminal
 - AC: AC-12 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/terminal/openInTerminal.ts, repositories/anton-abyzov/specwithcode/apps/server/src/terminal/openInTerminal.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/terminalHandoff.ts, repositories/anton-abyzov/specwithcode/apps/server/src/server.ts | Test: pnpm --dir repositories/anton-abyzov/specwithcode/apps/server test -- src/terminal/openInTerminal.test.ts
