@@ -1,0 +1,13 @@
+{
+  "id": "1334-direct-lan-path-for-copy-to-another-machine-with-connect-fallback",
+  "uuid": "87eb7885-95ae-42b9-bdad-0bb2a9abe5dc",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-14T08:01:59.373Z",
+  "updated": "2026-11-14T08:01:59.373Z",
+  "lastActivity": "2026-11-14T08:01:59.373Z",
+  "title": "Direct LAN path for Copy to another machine, with Connect fallback",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}
