@@ -4,3 +4,6 @@
 {"t":"T-07","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-19T23:44:30.504Z","note":"PR 761: join screens say what each approval gives","model":"claude-opus-5-5[1m]"}
 {"t":"*","e":"note","by":"copilot@antons-macbook-m4max","at":"2026-11-19T23:52:15.852Z","note":"review by gpt-6.1-sol (openai) at faec58aca303: ship · reports/reviews/review-gpt-6.1-sol-1.md"}
 {"t":"T-07","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-20T00:08:29.632Z","evidence":"PR 761 merged as abe3b99ed (head faec58aca, review rounds 1 and 2 ship on Copilot GPT-6.1 Sol, CI 26/26 green); ConnectDeviceViews 20/20 and i18n 357/357 tests pass; release run 44643376251 requested\nHEAD 5ad7c85341","line":"Join screens say what each step gives; PR 761 merged","link":"https://github.com/anton-abyzov/specwithcode/pull/761","model":"claude-opus-5-5[1m]"}
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-20T04:36:16.636Z","note":"session 01a1f6ff-386b-7b20-9a49-a99202bcc733"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-20T04:36:16.639Z","note":"1390 owner approved the first-run title and the project Add action."}
+{"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-20T04:36:17.415Z","note":"Record the M5 screen and Windows code entry, then verify the resulting app session."}
