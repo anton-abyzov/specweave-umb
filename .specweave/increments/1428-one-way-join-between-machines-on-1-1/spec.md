@@ -43,6 +43,8 @@ Lane: `[access]`. Every task waits for a Muse Wonderful review and Anton's accep
 - [ ] AC-08 [label]: Every new string goes through the translation function with entries for the eight shipped languages.
 - [ ] AC-09 [access]: Checked after release with two real machines by Anton: the join's screens, then what each machine can open and run on the other.
 
+- [ ] AC-10 [privacy]: An explicit authentication or permission denial hides cached project and chat metadata and content, clears the environment’s persisted projections, and discards warm thread resumes. Ordinary offline use keeps its cache. A successful new session can show fresh data.
+
 ## Approach
 
 Start from the baseline (T-01), not from the round 5 design: write down today's access, then rework the design below against it so a review can tell new exposure from shipped behaviour. Muse Wonderful reviews the reworked design, after November 23, 2026 when it is back; code starts only after a passing design review, and tests fail first. Builds on 1422's wording, which ships first and is true to today; this increment updates those strings as each behaviour lands, never ahead of it.
@@ -269,6 +271,9 @@ Decided on 1422's cards since round 5: item 11 is 1422 D-11 (within a day), item
 
 ### T-07 Verify and close
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09 | Files: .specweave/increments/1428-one-way-join-between-machines-on-1-1/ | Test: specweave verify 1428
+
+### T-08 Clear previously authorized local projections on explicit denial
+- AC: AC-10 | Files: repositories/anton-abyzov/specwithcode/packages/client-runtime/src/connection/registry.ts, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/connection/projectionAccess.ts, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/state/authorizedProjection.ts, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/state/shell.ts, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/state/threads.ts, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/state/projectionPrivacy.test.ts, .specweave/increments/1428-one-way-join-between-machines-on-1-1/reports/ | Test: 1431’s retained privacy fixture plus blocked startup, active revocation, cached thread content, offline use and reauthorization. The existing independent verifier checks the exact commit. This correction applies to current clients without changing server grants or the separate 1.1 join design.
 
 ## Review
 
