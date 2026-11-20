@@ -89,7 +89,7 @@ Risks:
 ## Decisions
 
 ### Asked
-- none yet.
+- D-01 When two machines are both in use, where does a thread's popup show? On both: the app touched last, as today, plus the thread's own machine (user, November 20, 2026: "on both!"). This amends 1278 D-01 and its AC-07.
 
 ### Defaulted (change any before sw-do)
 - D-02 "In use" for the thread's own machine means keyboard or pointer input on that computer within 120 s, in any program, with the screen unlocked (reversible).
@@ -99,7 +99,6 @@ Risks:
 - D-04 The delivery record holds ids, kinds and reasons only, no message text and no thread titles, and stays on the machine in its existing trace files (reversible).
 
 ### Open
-- D-01 When two machines are both in use, where does a thread's popup show? It changes what Anton decided in 1278 (D-01 and AC-07 there), so it is his. Recommended: on both, the app touched last as today plus the thread's own machine. Alternatives: only the thread's own machine; or leave it, the last-touched app alone. AC-01 to AC-04 and AC-07 are written for the recommended answer and wait for it; AC-05 and AC-08 to AC-10 do not.
 - Which state M5's window was in at 18:24:21 UTC (finding 5). Not recoverable; AC-03 covers the unfocused state, the focused-on-the-thread state needs no change, and the focused-elsewhere state would be a separate fault that AC-05's record is there to catch.
 
 ## Tasks
