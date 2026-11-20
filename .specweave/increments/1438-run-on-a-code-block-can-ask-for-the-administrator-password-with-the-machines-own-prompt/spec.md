@@ -77,7 +77,7 @@ Mockup: `reports/mockup.html` and `reports/mockup.png` in this folder (five stat
 ## Decisions
 
 ### Asked
-- none yet
+- D-01 Where may the password be typed? → only in the prompt macOS shows on the machine that runs the block; never inside SpecWithCode. From another device the prompt appears on that Mac and gives up after 2 minutes (user, November 20, 2026).
 
 ### Defaulted (change any before sw-do)
 - D-02 Administrator and system-settings blocks ask before running even under Full access. 0936 D-01 says Full access never asks; that was about workers waiting on approvals, and this is a person's own click. Precedent: the `fleet invite` warning already asks under Full access.
@@ -88,7 +88,6 @@ Mockup: `reports/mockup.html` and `reports/mockup.png` in this folder (five stat
 - D-08 The confirmation is the block's existing inline row, not the elevated access card (`AccessRequestCard`). That card grants something to remember ("this session", "always on this machine"); here nothing is granted or remembered, each run asks again. The Full Disk Access step in AC-13 does reuse the 1386 card.
 
 ### Open
-- D-01 (user) Where may the password be typed? Recommended: only in the prompt macOS shows on that machine; from another device you walk to that machine or it times out. Alternative: also allow typing it in the thread's terminal drawer or a masked field in the panel, which works from a phone and on Linux and Windows but sends the password through the app and the Connect relay. The ACs above assume the recommended answer.
 - D-07 (measured in T-01) Is `/Library/Preferences/com.apple.networkextension.plist` unlocked by Full Disk Access or protected by macOS regardless? On M5 an agent shell could read it; the refused step was a write under root in Terminal. AC-13 is worded to hold either way.
 
 ## Tasks
