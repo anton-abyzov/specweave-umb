@@ -34,6 +34,8 @@ The previous client displayed cached project and chat data after an explicit aut
 
 The 1431 worker independently reproduced the defect at `8ad73fe68f10f3d4afcfd76b3a6948ca4944a0f8`, then verified its original regression and both scoped tests passed at `0201a11d399ff4eaec9858a770d4f105abb29796`. The package typecheck passed on that implementation. The final test-only change at `9997f601d885968fd8fcb51e0c2ec53dcd127427` uses two distinct RPC sessions with different project titles and chat bodies. The owner’s six suites passed 127 tests on that commit.
 
+An independent rerun at that final commit passed the retained regression (1/1) and 119 tests across six suites. The independent selection included the shell tests. The owner’s selection included the thread-atom tests. The evidence bundle records the exact commit before and after the independent run and a clean verification copy.
+
 The 1431 baseline also records 142 passing existing worker-grant, revocation, registry and visibility tests. Those tests did not detect the cached-window exposure. Live reverse discovery, direct chat reads, fresh-install behavior and behavior after revocation on installed machines remain unverified.
 
 Owner test output is `/Users/antonabyzov/.specwithcode/m4/scratch/2026-11-20-1428-denied-cache/final-focused.log`. Independent evidence is in `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1431-verify-joined-machine-resources-and-one-way-project-and-chat-privacy/reports/investigation.md`. The wider 1428 one-way join design and its review and release gates remain open.

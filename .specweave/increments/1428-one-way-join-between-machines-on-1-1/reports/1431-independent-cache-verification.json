@@ -1,0 +1,31 @@
+{
+  "commit": "9997f601d885968fd8fcb51e0c2ec53dcd127427",
+  "postRunCommit": "9997f601d885968fd8fcb51e0c2ec53dcd127427",
+  "exactHead": true,
+  "clean": true,
+  "retainedOracle": {
+    "passed": 1,
+    "exitCode": 0
+  },
+  "focused": {
+    "passed": 119,
+    "files": 6,
+    "exitCode": 0,
+    "suites": [
+      "projectionPrivacy",
+      "shell",
+      "shell-sync",
+      "shell-resync",
+      "threads-sync",
+      "connection/registry"
+    ]
+  },
+  "scope": "independent source and synthetic regression proof only",
+  "notEstablished": [
+    "live identity or worker directions for candidate",
+    "installed correction",
+    "release acceptance"
+  ],
+  "copy": "/Users/antonabyzov/.specwithcode/m4/verify/specwithcode",
+  "copyReleased": true
+}
