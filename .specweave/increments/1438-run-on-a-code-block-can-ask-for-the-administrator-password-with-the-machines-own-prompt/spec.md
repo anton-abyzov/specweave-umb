@@ -40,7 +40,7 @@ When the prompt cannot be shown
 
 - [ ] AC-10: Run pressed from another device (another machine's window, a phone, a browser) still raises the prompt on the block's own Mac, and the panel on the pressing device says "Enter the password on <machine>'s screen". It times out after 2 minutes with "Nobody answered on <machine>" and nothing has run.
 - [ ] AC-11: On Linux, Windows, or a Mac service with no desktop session (started over SSH), when sudo does need a password the block does not start. The panel says "This needs an administrator password. Run it in a terminal on <machine>." with Copy. No `Password:` line and no "Stopped".
-- [ ] AC-12: On a Mac viewed from its own window, the panel also offers "Open in Terminal". It opens Terminal on that Mac with the block ready to run in the thread's folder. The panel says the output will stay in Terminal.
+- [ ] AC-12: On a Mac viewed from its own window, the panel also offers "Open in Terminal". It opens Terminal on that Mac and runs the block there, in the thread's folder. The panel says the output will stay in Terminal.
 
 After the run
 
@@ -62,7 +62,7 @@ How the prompt works (proven in T-01, see `reports/spike.md`):
 4. The wrapper reports its state (waiting, started, cancelled, timeout, denied, unavailable) as an invisible terminal marker (OSC 7717) in the run's own output, which the panel reads. No new stream or RPC. A block can print the marker itself; all it can change is the panel's wording.
 5. Windows: the flag is ignored and the block runs as today. `sudo` on Windows raises the system's own approval prompt.
 
-Files, in order: contracts (`packages/contracts/src/terminal.ts`: the `elevation` field and the marker; `environment.ts`: the capability); the classifier in `packages/shared`; a new server module `apps/server/src/terminal/elevatedRun.ts` (Manager.ts is 3,417 lines, over the 1,500 limit, so it gets one call and no new logic); "Open in Terminal" as its own RpcGroup with handlers provided in `server.ts` (ws.ts cannot take another import); then `InlineShellRun.tsx`.
+Files, in order: contracts (`packages/contracts/src/terminal.ts`: the `elevation` field and the marker; `environment.ts`: the capability); the classifier in `packages/shared`; a new server module `apps/server/src/terminal/elevatedRun.ts` (Manager.ts is 3,417 lines, over the 1,500 limit, so it gets one call and no new logic); "Open in Terminal" in `apps/server/src/terminal/openInTerminal.ts` (D-10); then `InlineShellRun.tsx`.
 
 Rejected:
 
@@ -86,6 +86,7 @@ Mockup: `reports/mockup.html` and `reports/mockup.png` in this folder (five stat
 - D-04 Linux and Windows get the AC-11 message only. A graphical prompt there (pkexec, UAC) is a later increment.
 - D-05 The blocked-file note (AC-13) is read from the output text. It only adds a note; it starts nothing.
 - D-09 The app is built in a scratch copy (`~/.specwithcode/m5/scratch/2026-11-20-1438-admin-run/specwithcode`, branch `1438-admin-run`) because the shared checkout is on another thread's branch. Task Files name the repository path; tests run in the scratch copy.
+- D-10 "Open in Terminal" is the same `terminal.open` call with `elevation.openIn: "terminal-app"`. The server writes the block to a private `.command` file that removes itself and opens it in Terminal, so the block starts there at once, in the thread's folder. No new RPC, and ws.ts is untouched.
 - D-06 No offer to turn on Touch ID for sudo in this increment.
 - D-08 The confirmation is the block's existing inline row, not the elevated access card (`AccessRequestCard`). That card grants something to remember ("this session", "always on this machine"); here nothing is granted or remembered, each run asks again. The Full Disk Access step in AC-13 does reuse the 1386 card.
 
@@ -105,13 +106,14 @@ Mockup: `reports/mockup.html` and `reports/mockup.png` in this folder (five stat
 - AC: AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/terminal/elevatedRun.ts, repositories/anton-abyzov/specwithcode/apps/server/src/terminal/elevatedRun.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/terminal/Manager.ts, repositories/anton-abyzov/specwithcode/apps/server/src/environment/ServerEnvironment.ts | Test: pnpm --dir repositories/anton-abyzov/specwithcode/apps/server test -- src/terminal/elevatedRun.test.ts
 
 ### T-04 Server: Open in Terminal
-- AC: AC-12 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/terminal/openInTerminal.ts, repositories/anton-abyzov/specwithcode/apps/server/src/terminal/openInTerminal.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/terminalHandoff.ts, repositories/anton-abyzov/specwithcode/apps/server/src/server.ts | Test: pnpm --dir repositories/anton-abyzov/specwithcode/apps/server test -- src/terminal/openInTerminal.test.ts
+- AC: AC-12 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/terminal/openInTerminal.ts, repositories/anton-abyzov/specwithcode/apps/server/src/terminal/openInTerminal.test.ts | Test: pnpm --dir repositories/anton-abyzov/specwithcode/apps/server test -- src/terminal/openInTerminal.test.ts
+- Built as a variant of the same run (`elevation.openIn: "terminal-app"`), not a new RPC: see D-10.
 
 ### T-05 Window: confirm row, waiting states, notes
 - AC: AC-01, AC-02, AC-03, AC-08, AC-10, AC-11, AC-12, AC-13, AC-14, AC-15, AC-16 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/InlineShellRun.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/InlineShellRun.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/shellCodeBlocks.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases | Test: pnpm --dir repositories/anton-abyzov/specwithcode/apps/web test -- src/components/chat/InlineShellRun.test.tsx
 
 ### T-06 Headless page check and a real run on M5
-- AC: AC-04, AC-06, AC-08, AC-13 | Files: repositories/anton-abyzov/specwithcode/apps/web/tests/shell-code-run/main.tsx, repositories/anton-abyzov/specwithcode/apps/web/tests/shell-code-run/stubs.ts, repositories/anton-abyzov/specwithcode/scripts/studio-verify/shell-code-run.mjs | Test: node repositories/anton-abyzov/specwithcode/scripts/studio-verify/shell-code-run.mjs ~/.specwithcode/m4/evidence/1438-elevated-run
+- AC: AC-04, AC-06, AC-08, AC-13 | Files: repositories/anton-abyzov/specwithcode/apps/web/tests/shell-code-run/main.tsx, repositories/anton-abyzov/specwithcode/apps/web/tests/shell-code-run/stubs.ts, repositories/anton-abyzov/specwithcode/apps/web/tests/shell-code-run/vite.config.ts, repositories/anton-abyzov/specwithcode/scripts/studio-verify/shell-code-run.mjs | Test: node repositories/anton-abyzov/specwithcode/scripts/studio-verify/shell-code-run.mjs ~/.specwithcode/m4/evidence/1438-elevated-run
 - Then, on M5 with the released build: run the November 20 block from the screenshot, signed in to a throwaway administrator account whose password is the marker, give it in the prompt, and search the history file, server log and thread for the marker (AC-06). The user's own password is never used for this check.
 
 ### T-07 Verify and close 1438

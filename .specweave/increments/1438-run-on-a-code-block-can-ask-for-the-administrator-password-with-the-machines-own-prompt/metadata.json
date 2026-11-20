@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-20T19:20:23.233Z",
-  "updated": "2026-11-20T20:03:36.239Z",
-  "lastActivity": "2026-11-20T20:03:36.239Z",
+  "updated": "2026-11-20T20:17:41.097Z",
+  "lastActivity": "2026-11-20T20:17:41.097Z",
   "title": "Run on a code block can ask for the administrator password with the machine's own prompt",
   "project": "specweave-umb",
   "repositories": [
