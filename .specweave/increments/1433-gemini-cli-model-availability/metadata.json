@@ -1,0 +1,15 @@
+{
+  "id": "1433-gemini-cli-model-availability",
+  "uuid": "3b041b2a-a20c-4995-99d7-32ccdd72b985",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T13:41:03.960Z",
+  "updated": "2026-11-20T13:45:20.781Z",
+  "lastActivity": "2026-11-20T13:45:20.781Z",
+  "title": "Gemini CLI model availability",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

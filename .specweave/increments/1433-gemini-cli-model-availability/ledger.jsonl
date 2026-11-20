@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-20T13:42:13.763Z","note":"session 01a1f92f-e426-7bf0-a8aa-417bb503fef5"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-20T13:42:13.764Z"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-20T13:43:17.035Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-20T13:44:58.976Z","evidence":"reports/investigation.md: primary docs, stable source, runtime catalog and four metadata GETs; no inference\nHEAD 4df4f47f51"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-20T13:45:20.781Z","evidence":"3ed57025ec23d6243e7cce7de8f04e3d23fca27d; 40 focused tests and server build passed via checks runner, reports/tests.log and server-build.log\nHEAD 4df4f47f51"}

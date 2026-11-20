@@ -73,3 +73,7 @@ Risks: Cursor may bill SDK runs differently from the editor, and the credit endp
 
 ### T-05 Live check on Anton's Cursor account (waiting on Anton)
 - AC: AC-01 | Files: none | Test: on a dev server from the branch, with Anton signed in to Cursor on a current plan with prepaid credit: read the Cursor provider catalog headless and confirm Carbon and its effort values; run one short Carbon turn at high effort; confirm the charge on Cursor's usage page; record the dashboard method and response shape that return prepaid balance and monthly spend for T-03. Waits on Anton buying a plan and signing in; nothing is bought by an agent.
+
+## Gemini catalog scope reconciliation, November 20, 2026
+
+AC-05's Gemini CLI catalog implementation is owned solely by increment 1433 (`../1433-gemini-cli-model-availability/spec.md`). Its bounded files are `repositories/anton-abyzov/specwithcode/apps/server/src/provider/Drivers/AcpRegistryDriver.ts` and its catalog tests. Evidence is retained in `../1433-gemini-cli-model-availability/reports/investigation.md` and delivery/review reports there. It reconciles the missing Carbon supplement and newer Neon/Hydrogen IDs; publisher metadata proves published IDs, not this account's inference entitlement. Access remains unverified without paid inference. This cross-reference does not accept or close AC-05 or any other 1277 AC and does not transfer Cursor billing, credit, or research ownership.
