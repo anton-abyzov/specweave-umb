@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-20T05:33:22.989Z",
-  "updated": "2026-11-20T05:33:22.989Z",
-  "lastActivity": "2026-11-20T05:33:22.989Z",
+  "updated": "2026-11-20T06:18:19.133Z",
+  "lastActivity": "2026-11-20T06:18:19.133Z",
   "title": "Clearer skills management in Settings and the composer popover: scope, discovery, provenance and paged lists",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
