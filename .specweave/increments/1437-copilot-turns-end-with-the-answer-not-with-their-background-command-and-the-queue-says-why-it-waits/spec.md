@@ -12,7 +12,7 @@ On M5, messages typed into a GitHub Copilot thread often sit in the queue behind
 
 ## Scope
 
-In: the Copilot ACP adapter tracks the background commands a turn started; a turn that has answered and only waits on them gives way to a queued message; Stop on such a turn does not hold the queue; Steer now on Copilot by interrupt-and-restart when no background agent is running (if D-02 is accepted and the probe allows it); the queue header and live row say what is true.
+In: the Copilot ACP adapter tracks the background commands a turn started; a turn that has answered and only waits on them gives way to a queued message; Stop on such a turn does not hold the queue; Steer now on Copilot by interrupt-and-restart when no background agent is running (if the probe allows it); the queue header and live row say what is true.
 
 In also: Resume starts the queued messages themselves; a typed message sent to a stopped thread keeps its place behind older queued messages (D-05). Out: mid-turn delivery inside a running Claude or Codex command (a steered message is read when the command returns); prompt text telling agents how to run watchers (the standing rule is to enforce in code); other ACP agents; the 45-minute silent-run watchdog.
 
@@ -23,7 +23,7 @@ In also: Resume starts the queued messages themselves; a typed message sent to a
 - [ ] AC-03: A Copilot turn gives way to the queue when all of these hold: it has written an answer, no tool call, request or background agent is open, it has been quiet for 30 seconds, a background command is still running in the session (started by this turn or an earlier one), and a message is waiting in the queue. The turn ends as completed, the background command keeps running, and the first queued message starts within 2 seconds. With an empty queue the turn stays open and Copilot reports the command's result itself, as today.
 - [ ] AC-04: The prompt of the message that starts after AC-03 names the background commands still running and their shell ids. If the probe (AC-01 c) finds a signal for a command ending outside a prompt, the thread also gets one automatic delivery when it ends; if not, no wake is promised and the probe report says so.
 - [ ] AC-05: Stop on a turn that has written its answer and only waits on a background command ends it without holding the queue. Stop on a turn that is still working holds the queue as today.
-- [ ] AC-06: (Only if D-02 is accepted and AC-01 d gives a reliable way to see a running background agent.) On a Copilot thread with no background agent running, Steer now is enabled on a typed message: it cancels the current step and starts the message at once in the same session, and the queue order behind it is kept. With a background agent running it stays disabled and says "A background agent is running. Steering would stop it." Messages are never steered into a Copilot turn automatically.
+- [ ] AC-06: (Only if AC-01 d gives a reliable way to see a running background agent.) On a Copilot thread with no background agent running, Steer now is enabled on a typed message: it cancels the current step and starts the message at once in the same session, and the queue order behind it is kept. With a background agent running it stays disabled and says "A background agent is running. Steering would stop it." Messages are never steered into a Copilot turn automatically.
 - [ ] AC-07: Where a provider cannot steer this turn for a lasting reason, the queue header shows the reason in words ("Sends when this turn ends · GitHub Copilot can't take a message mid-turn") instead of "Can't steer now", and the rows show no Steer now button. A temporary reason (turn starting, saving its checkpoint) keeps the disabled button and its tooltip.
 - [ ] AC-08: While a running turn is quiet and a background command is running in its session, the live row says "Waiting on a background command (X) · 4m" in the normal colour. "No new events" stays for a quiet turn with nothing known to be running.
 - [ ] AC-09: On M5 with the released build, in a Copilot thread that starts a 5-minute background command and answers, a message typed after the answer starts within 35 seconds of the answer, and the command is still running. Screenshots and the run rows are in `reports/`.
@@ -48,14 +48,14 @@ Risks: giving way may cut off a Copilot that was about to write more without a t
 ## Decisions
 
 ### Asked
-- none
+- D-01 May the app end a Copilot turn that has answered and only waits on a background command, as soon as a message is waiting? → Yes, automatically (user, November 20, 2026). The command keeps running; the agent's own report of its result may be lost unless the probe finds a signal.
+- D-02 May Steer now be offered on Copilot as a manual press when no background agent is running? → Yes, manual only (user, November 20, 2026). It discards the step in progress and partly reverses 1146.
+- D-05 After Stop, should Resume start the queued messages directly, and should a newly typed message wait behind the older queued ones? → Yes to both (user, November 20, 2026). Run now on a row still starts that row first.
 ### Defaulted (change any before sw-do)
 - D-03 Stop on a turn that has already answered and only waits on a background command does not hold the queue.
 - D-04 Quiet window is 30 seconds. With an empty queue the turn stays open so Copilot can report the result itself.
 ### Open
-- D-05 (user) After Stop, should Resume start your queued messages directly instead of first sending "Continue where you left off.", and should a newly typed message wait behind the older queued ones? Recommended: yes to both. Today the newest message runs first and the older ones wait for it to end.
-- D-01 (user) May the app end a Copilot turn that has answered and only waits on its own background command, as soon as a message is waiting? Recommended: yes, automatically. The command keeps running; the agent's own report of its result may be lost unless the probe finds a signal.
-- D-02 (user) May Steer now be offered on Copilot as a manual press when no background agent is running? It discards the step in progress and partly reverses 1146. Recommended: yes, manual only. This is what shortens the 8 of 11 typed waits that sat behind a turn that was really working.
+- none
 
 ## Tasks
 
