@@ -30,22 +30,23 @@ Before the run
 The password
 
 - [ ] AC-04: On a Mac whose service runs in the user's desktop session, pressing Run on an administrator block shows one macOS password prompt on that Mac's screen before any line of the block runs. After a correct password the block runs to its end with no second prompt for at least 5 minutes, and each line keeps its own user: lines without `sudo` run as the signed-in user, `sudo -u <name>` runs as that name.
-- [ ] AC-05: The prompt names SpecWithCode, the machine, the thread title, the device that pressed Run when it is not this Mac, and the first 120 characters of the block.
-- [ ] AC-06: The password never reaches a SpecWithCode process other than the helper sudo itself starts. It is absent from: the WebSocket, the terminal history file, the server log, the trace, the thread, and every provider request. Checked by running with a marker password in a test and searching those places for the marker.
-- [ ] AC-07: The prompt is started only by a person's Run click on a block that AC-01 classifies. Output text never starts it. An agent's shell never has the helper in its environment, and after an elevated run finishes `sudo -n true` from an agent shell on that machine still fails.
+- [ ] AC-05: The prompt names SpecWithCode, the machine, the thread title, the device that pressed Run when it is not this Mac, and the first 120 characters of the block. The title and the block are agent-written text: they reach the dialog as data with line breaks removed, never as script source.
+- [ ] AC-06: The password never reaches a SpecWithCode process other than the helper sudo itself starts. It is absent from: the WebSocket, the terminal history file, the server log, the trace, the thread, and every provider request. Checked in tests with a stand-in `sudo` and a marker password, searching those places for the marker. Nobody but the user ever handles the real password: the real-machine check uses a throwaway administrator account.
+- [ ] AC-07: Only `terminal.open` for a code-block run can start the prompt, and no tool an agent has calls it. Output text never starts it. Provider processes and agent shells never have the helper in their environment. After an elevated run ends, by finishing, failing, Stop or `exit`, the ticket is dropped and `sudo -n true` from an agent shell on that machine still fails. The real gate is the person: nothing runs as administrator until someone at that Mac types the password into a prompt that says who asked.
 - [ ] AC-08: While the prompt is up the panel shows "Waiting for your password on <machine>" with Cancel. Cancel in the panel closes the prompt; Cancel in the prompt ends the run with "Password not given" and nothing from the block has run. Three wrong passwords end it with "Password not accepted".
-- [ ] AC-09: When sudo needs no password (a valid ticket in that terminal, or a `NOPASSWD` rule), no prompt appears and the block runs.
+- [ ] AC-09: When sudo needs no password (a `NOPASSWD` rule), no prompt appears and the block runs, on every platform. The exit code shown is the block's own. If a block runs so long that sudo asks again (after 5 minutes by default), the panel shows AC-16's offer instead of a bare `Password:`.
 
 When the prompt cannot be shown
 
 - [ ] AC-10: Run pressed from another device (another machine's window, a phone, a browser) still raises the prompt on the block's own Mac, and the panel on the pressing device says "Enter the password on <machine>'s screen". It times out after 2 minutes with "Nobody answered on <machine>" and nothing has run.
-- [ ] AC-11: On Linux, Windows, or a Mac service with no desktop session (started over SSH), the block does not start. The panel says "This needs an administrator password. Run it in a terminal on <machine>." with Copy. No `Password:` line and no "Stopped".
+- [ ] AC-11: On Linux, Windows, or a Mac service with no desktop session (started over SSH), when sudo does need a password the block does not start. The panel says "This needs an administrator password. Run it in a terminal on <machine>." with Copy. No `Password:` line and no "Stopped".
 - [ ] AC-12: On a Mac viewed from its own window, the panel also offers "Open in Terminal". It opens Terminal on that Mac with the block ready to run in the thread's folder. The panel says the output will stay in Terminal.
 
 After the run
 
 - [ ] AC-13: When a run on a Mac ends with a non-zero exit and its output contains "Operation not permitted", the panel adds one note under the output. If the 1386 probe says Full Disk Access is off for the service's host process: "macOS blocked a protected file. <host process> does not have Full Disk Access on <machine>." with the 1386 card's "Open System Settings". If the probe says it is on: "macOS blocked this file even for an administrator. Some system files are protected by macOS itself." The note never claims that turning the switch on will fix this command.
 - [ ] AC-14: "Open in Terminal" states that Terminal has its own Full Disk Access switch, separate from SpecWithCode's.
+- [ ] AC-16: A block the AC-01 check does not catch, because sudo is called inside a script (`./install.sh`, `brew install --cask`), no longer dead-ends. When its output stops at sudo's password line, the panel says "This command is asking for an administrator password" with "Stop and run again with the Mac's prompt" and "Open in Terminal". The prompt appears only after the person presses that button.
 
 Compatibility
 
@@ -55,7 +56,7 @@ Compatibility
 
 How the prompt works (to be proven first in T-01):
 
-1. The server, never the window, decides. `terminal.open` gains an optional `elevation: "prompt"` flag that the window sets only when its classifier (AC-01) matched and the user confirmed. The server re-runs the same classifier on `command` and ignores the flag when it does not match.
+1. The server, never the window, decides. `terminal.open` gains an optional `elevation: "prompt"` flag that the window sets only when its classifier (AC-01) matched and the user confirmed. The server honours the flag only for code-block run terminals (`run-` ids). It does not need to trust the caller: the flag only makes sudo ask through the Mac's prompt, and nothing is elevated until a person there types the password.
 2. The server writes a helper script (mode 0700, in the server's private run folder) that asks for the password with a macOS dialog (`osascript ... display dialog ... with hidden answer`) and prints it to sudo's pipe. The helper holds the label for AC-05 from its own argument file; it takes nothing from the command's output.
 3. The pty runs `sudo -n true || SUDO_ASKPASS=<helper> sudo -A -v` first, then the block unchanged, then `sudo -k`. sudo's ticket is tied to that pty, so the block's own `sudo` lines find it and no other shell does. `SUDO_ASKPASS` is set for the first command only, never exported to the block.
 4. The helper reports "shown", "cancelled" or "no desktop session" to the server over a status file, which becomes the panel states in AC-08, AC-10 and AC-11.
@@ -71,7 +72,7 @@ Rejected:
 
 Risks: the dialog is drawn by `osascript`, so it has no Touch ID and looks like any script's dialog; T-01 checks whether a signed helper with the system authorization sheet is practical and records the answer. A service started by launchd may be unable to draw a dialog in some session types; T-01 measures the app-started and launchd-started cases on M5 and M4. If the ticket turns out not to be tied to the pty on this sudo build, AC-07 fails and the design changes before T-03.
 
-Mockup: `reports/mockup.html` in this folder (five states: confirm row, waiting, pressed from another device, no prompt available, blocked-file note).
+Mockup: `reports/mockup.html` and `reports/mockup.png` in this folder (five states: confirm row, waiting, pressed from another device, no prompt available, blocked-file note).
 
 ## Decisions
 
@@ -84,6 +85,7 @@ Mockup: `reports/mockup.html` in this folder (five states: confirm row, waiting,
 - D-04 Linux and Windows get the AC-11 message only. A graphical prompt there (pkexec, UAC) is a later increment.
 - D-05 The blocked-file note (AC-13) is read from the output text. It only adds a note; it starts nothing.
 - D-06 No offer to turn on Touch ID for sudo in this increment.
+- D-08 The confirmation is the block's existing inline row, not the elevated access card (`AccessRequestCard`). That card grants something to remember ("this session", "always on this machine"); here nothing is granted or remembered, each run asks again. The Full Disk Access step in AC-13 does reuse the 1386 card.
 
 ### Open
 - D-01 (user) Where may the password be typed? Recommended: only in the prompt macOS shows on that machine; from another device you walk to that machine or it times out. Alternative: also allow typing it in the thread's terminal drawer or a masked field in the panel, which works from a phone and on Linux and Windows but sends the password through the app and the Connect relay. The ACs above assume the recommended answer.
@@ -93,7 +95,7 @@ Mockup: `reports/mockup.html` in this folder (five states: confirm row, waiting,
 
 ### T-01 Prove the prompt and the ticket on real Macs
 - AC: AC-04, AC-07, AC-09 | Files: .specweave/increments/1438-run-on-a-code-block-can-ask-for-the-administrator-password-with-the-machines-own-prompt/reports/spike.md, repositories/anton-abyzov/specwithcode/scripts/studio-verify/elevated-run-spike.sh | Test: bash repositories/anton-abyzov/specwithcode/scripts/studio-verify/elevated-run-spike.sh --check-report .specweave/increments/1438-run-on-a-code-block-can-ask-for-the-administrator-password-with-the-machines-own-prompt/reports/spike.md
-- The user types the password once per case on M5. Records: prompt shown from an app-started and a launchd-started service; ticket valid in the same pty and absent in another; `sudo -k` drops it; Touch ID sheet practical or not; D-07.
+- The user types the password once per case on M5. Records: the 1386 probe's own answer for Full Disk Access on M5; prompt shown from an app-started and a launchd-started service; ticket valid in the same pty and absent in another; `sudo -k` drops it; Touch ID sheet practical or not; D-07.
 
 ### T-02 Shared classifier and contract
 - AC: AC-01, AC-02, AC-03, AC-15 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/shellRunElevation.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/shellRunElevation.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/terminal.ts | Test: pnpm --dir repositories/anton-abyzov/specwithcode/packages/shared test -- shellRunElevation
@@ -105,11 +107,11 @@ Mockup: `reports/mockup.html` in this folder (five states: confirm row, waiting,
 - AC: AC-12 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/terminal/openInTerminal.ts, repositories/anton-abyzov/specwithcode/apps/server/src/terminal/openInTerminal.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/terminalHandoff.ts, repositories/anton-abyzov/specwithcode/apps/server/src/server.ts | Test: pnpm --dir repositories/anton-abyzov/specwithcode/apps/server test -- src/terminal/openInTerminal.test.ts
 
 ### T-05 Window: confirm row, waiting states, notes
-- AC: AC-01, AC-02, AC-03, AC-08, AC-10, AC-11, AC-12, AC-13, AC-14, AC-15 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/InlineShellRun.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/InlineShellRun.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/shellCodeBlocks.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases | Test: pnpm --dir repositories/anton-abyzov/specwithcode/apps/web test -- src/components/chat/InlineShellRun.test.tsx
+- AC: AC-01, AC-02, AC-03, AC-08, AC-10, AC-11, AC-12, AC-13, AC-14, AC-15, AC-16 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/InlineShellRun.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/InlineShellRun.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/shellCodeBlocks.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases | Test: pnpm --dir repositories/anton-abyzov/specwithcode/apps/web test -- src/components/chat/InlineShellRun.test.tsx
 
 ### T-06 Headless page check and a real run on M5
 - AC: AC-04, AC-06, AC-08, AC-13 | Files: repositories/anton-abyzov/specwithcode/apps/web/tests/shell-code-run/main.tsx, repositories/anton-abyzov/specwithcode/apps/web/tests/shell-code-run/stubs.ts, repositories/anton-abyzov/specwithcode/scripts/studio-verify/shell-code-run.mjs | Test: node repositories/anton-abyzov/specwithcode/scripts/studio-verify/shell-code-run.mjs ~/.specwithcode/m4/evidence/1438-elevated-run
-- Then, on M5 with the released build: run the November 20 block from the screenshot, give the password in the prompt, and search the history file, server log and thread for the marker password (AC-06).
+- Then, on M5 with the released build: run the November 20 block from the screenshot, signed in to a throwaway administrator account whose password is the marker, give it in the prompt, and search the history file, server log and thread for the marker (AC-06). The user's own password is never used for this check.
 
 ### T-07 Verify and close 1438
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11, AC-12, AC-13, AC-14, AC-15 | Files: .specweave/increments/1438-run-on-a-code-block-can-ask-for-the-administrator-password-with-the-machines-own-prompt/reports/verify.md | Test: specweave verify 1438-run-on-a-code-block-can-ask-for-the-administrator-password-with-the-machines-own-prompt
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11, AC-12, AC-13, AC-14, AC-15, AC-16 | Files: .specweave/increments/1438-run-on-a-code-block-can-ask-for-the-administrator-password-with-the-machines-own-prompt/reports/verify.md | Test: specweave verify 1438-run-on-a-code-block-can-ask-for-the-administrator-password-with-the-machines-own-prompt
