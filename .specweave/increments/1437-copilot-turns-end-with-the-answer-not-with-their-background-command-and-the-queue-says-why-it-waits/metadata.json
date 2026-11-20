@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-20T18:44:03.024Z",
-  "updated": "2026-11-20T18:44:03.024Z",
-  "lastActivity": "2026-11-20T18:44:03.024Z",
+  "updated": "2026-11-20T19:09:28.140Z",
+  "lastActivity": "2026-11-20T19:09:28.140Z",
   "title": "Copilot turns end with the answer, not with their background command, and the queue says why it waits",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
