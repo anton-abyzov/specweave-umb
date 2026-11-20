@@ -1,0 +1,12 @@
+{
+  "id": "1434-background-computer-use-without-interrupting-human-pointer-input",
+  "uuid": "3b6abd46-b173-45fc-b8e2-e3e9861f8674",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T17:50:43.509Z",
+  "updated": "2026-11-20T17:50:43.509Z",
+  "lastActivity": "2026-11-20T17:50:43.509Z",
+  "title": "Background computer use without interrupting human pointer input",
+  "project": "specweave-umb"
+}
