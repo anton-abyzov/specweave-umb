@@ -14,4 +14,10 @@ Source at tag `v1.0.398`: `apps/web/src/studio/fleetAutoConnect.ts` (`savedRoute
 
 Windows recorded M5's approval on November 19, 2026 at 11:34:07 PM EST (November 20 at 04:34:07 UTC). The Windows worker confirmed the approved device with the bundled CLI. A worker on M5 also contacted the Windows evidence thread successfully, confirming the work grant in that direction.
 
-The corrected Windows query found no recorded Connect WebSocket timestamp for the approved device. It establishes that Windows accepted the code. It leaves the desktop session and the cause of “Connecting…” unconfirmed. The available M5 screenshot showed OBS Studio, so there is no post-approval view of the Windows card or the released join wording in this check.
+The corrected Windows query found no recorded Connect WebSocket timestamp for the approved device. The query alone left the desktop session unconfirmed.
+
+## Desktop connection confirmed on M5
+
+On November 20, 2026, Anton supplied a screenshot from M5's saved connections after entering the code on Windows. The **win** row reads **SpecWithCode Connect · Connected** with **Connect from this device** switched on. That confirms M5's desktop connected to Windows. The **Update status unavailable** message belongs to the separate Updates panel. The screenshot stays in the private thread.
+
+The time of the transition from “Connecting…” to “Connected” and the wording of the join prompts are unverified.
