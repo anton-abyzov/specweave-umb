@@ -47,3 +47,6 @@
 {"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-10-25T07:02:03.442Z","note":"Explicit October 25 instruction authorizes repair takeover of #571 in fresh worktree, choosing merge-main path (a). T-19 reclaim records ownership of closure and its review fixes; original external checkout preserved."}
 {"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-06T18:42:28.379Z","note":"session 01a1b141-eac4-7651-9aac-372a10b63b81"}
 {"t":"*","e":"pickup","by":"codex@antons-macbook-m4max","at":"2026-11-06T18:42:28.381Z","note":"from claude@antons-macbook-m4max, snapshot 1d70405"}
+{"t":"*","e":"session","by":"claude@minisforum","at":"2026-11-20T19:49:46.716Z","note":"session 1453e101-bb7e-4f8b-b6a9-56a877afd6ee","model":"claude-opus-5-5[1m]"}
+{"t":"T-19","e":"claim","by":"claude@minisforum","at":"2026-11-20T19:49:46.718Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-19","e":"done","by":"claude@minisforum","at":"2026-11-20T19:49:46.719Z","evidence":"Stale claim, work shipped: specwithcode-dev #503/#533/#536 merged (8e15999da4, 15ed773275, 41aa72273a); in specwithcode cb281f127 (SpecWithCode 1.0.65), released v1.0.65\nHEAD 97a1267e","model":"claude-opus-5-5[1m]"}
