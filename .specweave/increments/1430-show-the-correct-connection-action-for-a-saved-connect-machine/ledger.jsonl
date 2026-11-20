@@ -4,3 +4,4 @@
 {"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-11-20T05:13:32.063Z","note":"review by claude-opus-5-5 (claude) at 9bc9b82cef5f: ship · reports/reviews/review-claude-opus-5-5-1.md"}
 {"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-20T05:14:49.993Z","note":"Reproduce and fix the dual-address case from independent review."}
 {"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-20T05:16:27.380Z","evidence":"App commit e37236bbd. Four assertions failed on 9bc9b82ce in the two Settings views and the route helper. All 134 targeted tests pass with dual-address handling; automatic pairing still checks the primary direct route.\nHEAD 571da469e9"}
+{"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-11-20T05:21:30.411Z","note":"review by claude-opus-5.5 (claude) at e37236bbd9a1: ship · reports/reviews/review-claude-opus-5.5-1.md"}
