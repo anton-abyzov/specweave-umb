@@ -1,0 +1,18 @@
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-16T15:03:30.246Z","note":"review by muse-wonder-1.0 (meta) at 5328a7a0b154: ship · reports/reviews/review-muse-wonder-1.0-1.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-17T01:19:31.107Z","note":"review by muse-wonder-1.0 (meta) at 71af2ff673: ship · reports/reviews/review-muse-wonder-1.0-2.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-17T01:20:27.601Z","note":"review by muse-wonder-1.0 (meta) at 71af2ff67350: ship · reports/reviews/review-muse-wonder-1.0-3.md"}
+{"t":"T-01","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-17T01:29:39.835Z"}
+{"t":"T-01","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-17T01:29:39.837Z","evidence":"46e19297e; preservation-audit tests in the bump commit; PR 505 merged 10c72d5ad\nHEAD 8eed059bf1"}
+{"t":"T-02","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-17T01:29:40.639Z"}
+{"t":"T-02","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-17T01:29:40.640Z","evidence":"04cb61cfe and 71af2ff67; AgentSessionJson 12 passed; Checks 43994029771 green\nHEAD 8eed059bf1"}
+{"t":"T-03","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-17T01:29:41.487Z"}
+{"t":"T-03","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-17T01:29:41.489Z","evidence":"74cf0bc24 and 5328a7a0b; bootstrap-pnpmfile 5 passed; Scripts on macOS green on 5328a7a0b\nHEAD 8eed059bf1"}
+{"t":"T-04","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-17T01:29:42.352Z"}
+{"t":"T-04","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-17T01:29:42.353Z","evidence":"5a77fb3ae and 71af2ff67; body-limit 5 passed; Checks 43994029771 green\nHEAD 8eed059bf1"}
+{"t":"T-05","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-17T01:29:43.138Z"}
+{"t":"T-05","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-17T01:29:43.139Z","evidence":"5a77fb3ae; client, fleet, figma and connection tests passed before merge; Checks 43994029771 green\nHEAD 8eed059bf1"}
+{"t":"T-06","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-17T01:29:43.958Z"}
+{"t":"T-06","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-17T01:29:43.959Z","evidence":"5a77fb3ae; fleetOrigin 26 passed; security.md LAN answer\nHEAD 8eed059bf1"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-17T02:06:28.652Z","note":"review by muse-wonder-1.0 (meta) at 1ebd3c8851b9: ship · reports/reviews/review-muse-wonder-1.0-5.md"}
+{"t":"T-07","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-17T02:51:06.026Z"}
+{"t":"T-07","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-17T02:51:06.027Z","evidence":"v1.0.329 holds 2742a6cff; --released exited 0; run 44002304333 success; tag 687a177e84\nHEAD 8eed059bf1","link":"https://github.com/anton-abyzov/specwithcode/actions/runs/44002304333"}

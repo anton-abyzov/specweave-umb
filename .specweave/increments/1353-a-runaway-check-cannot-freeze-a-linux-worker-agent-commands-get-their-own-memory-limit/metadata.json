@@ -1,0 +1,15 @@
+{
+  "id": "1353-a-runaway-check-cannot-freeze-a-linux-worker-agent-commands-get-their-own-memory-limit",
+  "uuid": "f6a3faae-c4e4-413c-9b70-fdc8f5ee3913",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T05:50:28.924Z",
+  "updated": "2026-11-15T07:06:44.533Z",
+  "lastActivity": "2026-11-15T07:06:44.533Z",
+  "title": "A runaway check cannot freeze a Linux worker: agent commands get their own memory limit",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

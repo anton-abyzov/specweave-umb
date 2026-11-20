@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-13T20:24:39.605Z",
   "title": "Brand audit passes on specwithcode main",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

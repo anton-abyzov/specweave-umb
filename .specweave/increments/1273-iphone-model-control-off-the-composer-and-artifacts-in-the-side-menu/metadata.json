@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-10T20:03:23.004Z",
   "title": "iPhone model control off the composer and Artifacts in the side menu",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

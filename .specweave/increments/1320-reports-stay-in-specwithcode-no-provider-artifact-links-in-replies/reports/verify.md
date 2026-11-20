@@ -1,6 +1,6 @@
 # Verify — 1320-reports-stay-in-specwithcode-no-provider-artifact-links-in-replies
 
-FAIL · 2026-11-13T21:12:44.898Z · commands from config testing.commands
+PASS · 2026-11-14T03:16:42.784Z · commands from config testing.commands
 
 ## Commands
 
@@ -23,7 +23,7 @@ test_unpushed_commit_preserved (__main__.SafetyTests.test_unpushed_commit_preser
 test_unsafe_paths_urls_and_symlinks (__main__.SafetyTests.test_unsafe_paths_urls_and_symlinks) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 9.967s
+Ran 13 tests in 9.435s
 
 OK
 ```
@@ -34,117 +34,73 @@ OK
 ```
 ..............................................
 ----------------------------------------------------------------------
-Ran 46 tests in 0.327s
+Ran 46 tests in 0.358s
 
 OK
 ```
 
 - Working directory: . (config testing.commands)
-### `python3 scripts/release/timing.py --self-test` → exit 1 (0s)
+### `python3 scripts/release/timing.py --self-test` → exit 0 (0s)
 
 ```
-    import yaml
-ModuleNotFoundError: No module named 'yaml'
-
-======================================================================
-ERROR: test_invalid_yaml_has_its_own_rule (__main__.SelfTest.test_invalid_yaml_has_its_own_rule)
+.................
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 854, in test_invalid_yaml_has_its_own_rule
-    findings, count = scan_repo(tmp)
-                      ~~~~~~~~~^^^^^
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 519, in scan_repo
-    import yaml  # PyYAML; only scan-ci needs it.
-    ^^^^^^^^^^^
-ModuleNotFoundError: No module named 'yaml'
+Ran 17 tests in 0.080s
 
-======================================================================
-ERROR: test_on_key_parsed_as_boolean (__main__.SelfTest.test_on_key_parsed_as_boolean)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 774, in test_on_key_parsed_as_boolean
-    import yaml
-ModuleNotFoundError: No module named 'yaml'
-
-======================================================================
-ERROR: test_tag_only_rust_cache_without_shared_key (__main__.SelfTest.test_tag_only_rust_cache_without_shared_key)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 782, in test_tag_only_rust_cache_without_shared_key
-    rules = [f['rule'] for f in self.scan(BAD_TAG_WORKFLOW)]
-                                ~~~~~~~~~^^^^^^^^^^^^^^^^^^
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 751, in scan
-    import yaml
-ModuleNotFoundError: No module named 'yaml'
-
-======================================================================
-ERROR: test_vitest_rule_only_for_private_repos (__main__.SelfTest.test_vitest_rule_only_for_private_repos)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 790, in test_vitest_rule_only_for_private_repos
-    self.assertNotIn('vitest-private-workers', {f['rule'] for f in self.scan(BAD_WORKFLOW, private=False)})
-                                                                   ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 751, in scan
-    import yaml
-ModuleNotFoundError: No module named 'yaml'
-
-----------------------------------------------------------------------
-Ran 17 tests in 0.060s
-
-FAILED (errors=7)
+OK
 recorded
 ```
 
 - Working directory: repositories/anton-abyzov/specwithcode-dev (config testing.ownerCommands)
-### `npm run verify:pr -- --jobs 1 --no-server` → exit 0 (602s)
+### `npm run verify:pr -- --jobs 1 --no-server` → exit 0 (583s)
 
 ```
 
 > verify:pr
 > bash scripts/studio-verify/pr-gate.sh --jobs 1 --no-server
 
-PR gate: HEAD 9c295249c5 against origin/main (merge base 9c295249c5); logs in /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T//studio-pr-gate.qiRKvs
+PR gate: HEAD 6d9593696 against origin/main (merge base 6d9593696); logs in /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T//studio-pr-gate.mZQA6v
 Stage 1: 18 jobs, 1 at a time
 STAGE 1                                      RESULT     SECS
-contrast                                     pass          4
-typecheck                                    pass         33
-fleet                                        pass        222
+contrast                                     pass          3
+typecheck                                    pass         32
+fleet                                        pass        221
 apps/chrome-extension                        pass          2
-apps/desktop                                 pass         16
+apps/desktop                                 pass         15
 apps/marketing                               pass          0
 apps/mobile                                  pass         16
-apps/web                                     pass        221
-infra/relay                                  pass         15
-oxlint-plugin-studio                         pass         11
-packages/client-runtime                      pass         15
-packages/contracts                           pass          5
+apps/web                                     pass        215
+infra/relay                                  pass         13
+oxlint-plugin-studio                         pass          9
+packages/client-runtime                      pass         13
+packages/contracts                           pass          4
 packages/effect-acp                          pass          3
-packages/effect-codex-app-server             pass          2
+packages/effect-codex-app-server             pass          1
 packages/shared                              pass         10
 packages/ssh                                 pass          7
 packages/tailscale                           pass          1
-scripts                                      pass         19
+scripts                                      pass         17
 Stage 2: not run here (--no-server); the server suite runs in jobs of its own
-PR gate: stage 1 passed, server passed, 602s
+PR gate: stage 1 passed, server passed, 584s
 ```
 
 - Working directory: repositories/anton-abyzov/specwithcode-dev (config testing.ownerCommands)
-### `npm run test:server:sharded -- --shards 6 --out "$(mktemp -d)"` → exit 0 (498s)
+### `npm run test:server:sharded -- --shards 6 --out "$(mktemp -d)"` → exit 0 (426s)
 
 ```
 
 > test:server:sharded
-> node scripts/release/test-sharded.mjs --shards 6 --out /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/tmp.DNGTTc9QUF
+> node scripts/release/test-sharded.mjs --shards 6 --out /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/tmp.Qr76qicJAe
 
-Running the server suite as 6 shards; logs in /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/tmp.DNGTTc9QUF
+Running the server suite as 6 shards; logs in /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/tmp.Qr76qicJAe
 SHARD  EXIT  SECONDS  FILES  TESTS  FAILED
-1      0         337    190    2583        0
-2      0         460    205    2882        0
-3      0       498.2    203    2464        0
-4      0       452.5    205    2811        0
-5      0       493.3    203    2636        0
-6      0       478.7    205    2878        0
-Server shards: passed in 498.2s
+1      0       280.8    190    2725        0
+2      0       391.6    205    2745        0
+3      0       416.9    204    2333        0
+4      0       362.1    205    2855        0
+5      0       425.6    204    2754        0
+6      0       400.9    206    2868        0
+Server shards: passed in 425.6s
 ```
 
 ## Acceptance criteria

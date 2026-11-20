@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-12T20:42:52.250Z",
   "title": "Easy folder choice and first-run setup: type a path and press Enter, reviewed steps, native feel on macOS, Windows and Linux",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

@@ -47,6 +47,8 @@ Rejected: a separate "Open" item for machines that already run a coordinator (du
 - muse-wonder-full-1.0 (Max): NOT YET at `0a52a41150` (one blocker and four should-fix items, all fixed in `8f4e73daa9`), SHIP at `8f4e73daa9`. Reports are in `reports/review.md` and `reports/reviews/`.
 - Merged as `550427fbcd` (PR #383); release requested on November 14, 2026.
 
+- Follow-up PR #424, merged as `7121f2a758` (November 15, 2026): "Open coordinator on X" duplicated X's row in "View this project on" (Anton, from m5), so it is gone. Each machine appears once, and its note reads coordinator, workers only, coordinator paused, not linked or move pending. A paused machine gets no menu item; its own page still offers "Run X's coordinator again". "separate project" is now "not linked". Muse: SHIP at `994fd400f8`, NOT YET at `ef1e963626`, SHIP at `0038070438` (`reports/reviews/review-muse-wonder-full-1.0-4.md` to `-6.md`).
+
 Follow-ups left open (all low, from Muse round 2):
 - `keptCoordinatorCopies` checks only the direct successor; `coordinatorElsewhere` follows the whole chain. Not reproduced.
 - A superseded coordinator copy has role workers, so its machine still gets Move; the handoff then refuses with a conflict.

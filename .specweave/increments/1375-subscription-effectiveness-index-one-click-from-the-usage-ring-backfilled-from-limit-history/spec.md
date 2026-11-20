@@ -51,7 +51,3 @@ Rejected: a new full-page view (the Subscriptions dashboard already is the full 
 
 ### T-05 Verify and close 1375
 - AC: AC-05 | Files: none | Test: specweave verify
-
-### T-06 Count one reset once across machines and history
-- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/usageResetLedger.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/usageResetLedger.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/usageResetLedger.ts, repositories/anton-abyzov/specwithcode/apps/server/src/usage/usageResetLedgerStore.ts, repositories/anton-abyzov/specwithcode/apps/server/src/usage/usageResetLedgerStore.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/usage/UsageResetLedger.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/usage/subscriptions/usageResetLedgerState.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run packages/shared/src/usageResetLedger.test.ts apps/server/src/usage/usageResetLedgerStore.test.ts apps/server/src/usage/UsageResetLedger.test.ts
-- Records keep the reset time their window announced; two records of one window are one reset when those are within 5 minutes, else by read spans. Known limits: two resets under 5 minutes apart read as one; records without an announced time that neither overlap nor include a late read stay apart.

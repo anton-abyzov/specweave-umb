@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-11T14:58:07.667Z",
   "title": "Help assistant: ask how SpecWithCode works, answers from the docs with Take me there links",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

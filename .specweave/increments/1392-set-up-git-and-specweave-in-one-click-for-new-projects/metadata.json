@@ -1,0 +1,18 @@
+{
+  "id": "1392-set-up-git-and-specweave-in-one-click-for-new-projects",
+  "uuid": "ef52a4a1-4a29-45d3-a850-a6502a7e71a5",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T06:53:12.494Z",
+  "updated": "2026-11-18T11:14:21.435Z",
+  "lastActivity": "2026-11-18T11:14:21.435Z",
+  "title": "Set up Git and SpecWeave in one click for new projects",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-18T11:14:21.433Z",
+  "approvedAt": "2026-11-18T11:14:21.435Z"
+}

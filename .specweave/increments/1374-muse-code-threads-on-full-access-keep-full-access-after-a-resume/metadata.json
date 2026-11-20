@@ -1,15 +1,10 @@
 {
   "id": "1374-muse-code-threads-on-full-access-keep-full-access-after-a-resume",
-  "uuid": "42953056-2fa5-4f4d-9427-34ce82137199",
-  "status": "completed",
+  "status": "planned",
   "type": "feature",
-  "priority": "P1",
-  "created": "2026-11-17T08:18:35.900Z",
-  "updated": "2026-11-17T11:44:45.587Z",
-  "lastActivity": "2026-11-17T11:44:45.587Z",
-  "title": "Muse Code threads on Full access keep full access after a resume",
-  "project": "specweave-umb",
+  "created": "2026-11-17T15:26:06.260Z",
+  "lastActivity": "2026-11-17T15:26:06.260Z",
   "externalLinks": {},
-  "readyForReviewAt": "2026-11-17T11:44:45.586Z",
-  "approvedAt": "2026-11-17T11:44:45.587Z"
+  "priority": "medium",
+  "updated": "2026-11-17T15:26:06.260Z"
 }

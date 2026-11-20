@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-11T04:15:04.812Z",
   "title": "Automatic crash reports, daily download stats and download click counts",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }
