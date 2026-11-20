@@ -1,0 +1,12 @@
+$ cd /srv/work/github/specweave-umb/repositories/anton-abyzov/specweave-studio-threads-filter && pnpm exec vp test run apps/web/src/studio/threadPaneFilters.test.ts
+# exit 0 — 2026-11-03T00:04:36.806Z
+
+
+ RUN  v5.0.1 /srv/work/github/specweave-umb/repositories/anton-abyzov/specweave-studio-threads-filter
+
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  19:04:36
+   Duration  126ms (transform 43%, setup 22%, tests 20%, import 9%, worker 6%)
+

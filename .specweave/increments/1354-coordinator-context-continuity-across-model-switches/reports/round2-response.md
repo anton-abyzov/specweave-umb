@@ -1,0 +1,25 @@
+# Round 2 response
+
+Head: `6382a0967f6216be6869aeac32cc4c1f20b8efed` on PR 521. Checkout: `/srv/specwithcode/minisforum/worktrees/env-worktree-setting`.
+
+The absolute eight-worker cutoff is removed. Eight remains the priority-pass limit after conversational anchors; remaining deduplicated workers are considered after prose and before tool pointers. Omitted unique worker references are counted separately and the context names studio_thread_list and studio_thread_read(view=activity) for recovery. The optional omittedWorkers field carries that count through preparation, subsequent delivery budgeting and pointer-only fallback.
+
+Regression coverage uses 12 running workers and 30 tool pointers at 64,000 and 4,096 bytes. All 12 survive at 64,000; the larger fixture reports worker omissions at 4,096. Both retain original constraints/latest answer/latest request, obey budget, and carry omissions through a second selection. Existing dedupe and 1,700-byte answer tests pass. The wrapper was shortened to preserve the tight-budget anchor.
+
+Validation: 105 tests passed across four focused files; two startup SQL/memory tests initially failed only on the changed coverage wording, then both passed after updating their text assertion. Total final coverage: 107 passing tests across five files. Server build passed (web dist absent, client bundle skipped). The independent probe3 now retains 12 workers at 64,000 and 16,000 bytes with all anchors, zero duplicate launch records and 30 tool pointers. Its smaller worker strings also let all 12 fit at 4,096. At 2,048 it retains three workers and all anchors.
+
+Evidence: `/srv/specwithcode/minisforum/evidence/1354-context-continuity/r3-tests.log`, `/srv/specwithcode/minisforum/evidence/1354-context-continuity/r3-startup-tests.log`, `/srv/specwithcode/minisforum/evidence/1354-context-continuity/r3-probe.log`, `/srv/specwithcode/minisforum/evidence/1354-context-continuity/r3-build.log`.
+
+The shared verification edit remains untouched; its prior owner has been asked to establish ownership and preserve/hand back the copy through the supported workflow. Full local suites remain pending that handback. No merge or deployment has occurred. Fresh independent review and required CI must pass before merge/release; installed behavior verification remains pending. Original incident attribution remains unverified. No known unresolved objection to the round 2 fix; independent clearance is not claimed.
+
+## CI follow-up
+
+Latest head: `23657666cdd2c3dcf37722784e08fd36e847edfb`. The prior-head CI artifact found three branded-ID assertion errors and one insufficiently narrowed fixture union. Corrected in test files only; 77 affected tests pass. Evidence: `/srv/specwithcode/minisforum/evidence/1354-context-continuity/r3-ci-fixture-tests.log`. The verification copy became clean without this worker changing the foreign edit; supported checks copy now succeeds. Server typecheck is running through checks run; log `/srv/specwithcode/minisforum/evidence/1354-context-continuity/typecheck-23657666.log`. Fresh review must include this head.
+
+Verification-copy ownership resolved: the prior owner confirmed the formatting edit was byte-identical to pushed/merged PR 467 commit `a2096285`, saved it as `/srv/specwithcode/minisforum/worktrees/pr467-verify-copy-fmt-backup.patch`, and restored it himself. This worker did not remove the edit. Supported checks copy succeeded and the clean verification copy now holds `23657666cdd2c3dcf37722784e08fd36e847edfb`; server typecheck is running through the heavy-check gate.
+
+Server typecheck gate completed with exit 0 at `23657666cdd2c3dcf37722784e08fd36e847edfb`, through supported checks copy/run. Evidence: `/srv/specwithcode/minisforum/evidence/1354-context-continuity/typecheck-23657666.log`. Required remote CI and independent review remain pending before merge, release and installed verification.
+
+Query-plan provenance comparison completed: `ProjectionStore.slowQueries.test.ts` passes on both base `cb61c42bf4032f504cb4bb119fb61d5f3b0ad7cf` and reviewed head `23657666cdd2c3dcf37722784e08fd36e847edfb`, using the same supported verification copy, Node 22.20.0, checks copy/run and focused command. Evidence: `/srv/specwithcode/minisforum/evidence/1354-context-continuity/base-query-plan.log` and `/srv/specwithcode/minisforum/evidence/1354-context-continuity/head-query-plan.log`. The reviewer failure is not reproduced in the supported production toolchain; its exact environmental cause remains unverified. No claim that it fails on base. Required CI still gates merge.
+
+CI server 1/3 failed at reviewed head on a timing assertion, not the missing-index assertion: `AssertionError: expected 54.75375800000256 to be below 50`. Log: `/srv/specwithcode/minisforum/evidence/1354-context-continuity/ci-server1-23657666.log`. With focused base/head comparisons both passing under Node 22, requested one unchanged-head retry via `gh run rerun 44033331395 --job 133870426584`. No threshold change or gate bypass. Required CI still pending; repeated failure requires further diagnosis.

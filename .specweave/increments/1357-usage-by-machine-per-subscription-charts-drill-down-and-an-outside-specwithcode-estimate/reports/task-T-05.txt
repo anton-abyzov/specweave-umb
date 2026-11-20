@@ -1,0 +1,7 @@
+$ cd /home/anton/.specwithcode/minisforum/worktrees/subscription-usage-by-machine && export PATH=~/.local/share/fnm/node-versions/v22.20.0/installation/bin:$PATH && STUDIO_PLAYWRIGHT_MODULE=/home/anton/.specwithcode/minisforum/worktrees/subscription-usage-by-machine/node_modules/.pnpm/playwright-core@1.60.0/node_modules/playwright-core/index.mjs STUDIO_CHROMIUM_EXECUTABLE=$HOME/.cache/ms-playwright/chromium-1254/chrome-linux64/chrome node apps/web/tests/usage-machine-share/verify.mjs /tmp/ubm-shots/evidence-t05 | tail -4
+# exit 0 — 2026-11-20T18:22:17.499Z
+
+    "/tmp/ubm-shots/evidence-t05/machines-dark-390-table.png",
+    "/tmp/ubm-shots/evidence-t05/machines-dark-320.png"
+  ]
+}

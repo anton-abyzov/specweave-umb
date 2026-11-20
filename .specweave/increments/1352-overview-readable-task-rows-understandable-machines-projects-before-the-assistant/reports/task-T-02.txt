@@ -1,0 +1,13 @@
+$ cd /srv/specwithcode/ministorm/worktrees/overview-tasks-machines && pnpm --dir packages/shared exec vp test run src/orchestrationV2RunHealth.test.ts 2>&1 | tail -5 && pnpm --dir apps/web exec vp test run src/studio/overviewModel.test.ts 2>&1 | tail -5
+# exit 0 — 2026-11-15T04:29:01.743Z
+
+ Test Files  1 passed (1)
+      Tests  14 passed (14)
+   Start at  23:28:52
+   Duration  2.01s (transform 69%, import 31%)
+
+ Test Files  1 passed (1)
+      Tests  28 passed (28)
+   Start at  23:28:56
+   Duration  5.09s (transform 75%, import 24%, tests 1%)
+

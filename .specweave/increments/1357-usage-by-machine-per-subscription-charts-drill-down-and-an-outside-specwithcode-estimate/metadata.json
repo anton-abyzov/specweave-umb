@@ -1,0 +1,12 @@
+{
+  "id": "1357-usage-by-machine-per-subscription-charts-drill-down-and-an-outside-specwithcode-estimate",
+  "uuid": "91e72766-364d-4084-995b-44844679d46d",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T16:56:05.000Z",
+  "updated": "2026-11-20T18:22:17.523Z",
+  "lastActivity": "2026-11-20T18:22:17.523Z",
+  "title": "Usage by machine per subscription: charts, drill-down and an outside-SpecWithCode estimate",
+  "project": "specweave-umb"
+}

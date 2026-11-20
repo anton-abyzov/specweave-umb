@@ -1,0 +1,105 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Reviewer order mock</title>
+<style>
+  body{font-family:var(--font-sans,system-ui);font-size:15px;line-height:1.45;padding:12px 4px 24px}
+  h1{font-size:24px;margin:0 0 6px}
+  h2{font-size:17px;margin:28px 0 8px}
+  p.lead{color:var(--muted-foreground);margin:0 0 14px;max-width:62ch}
+  .card{border:1px solid var(--border);border-radius:12px;background:var(--card);overflow:hidden}
+  .hdr{display:flex;align-items:center;gap:12px;padding:10px 12px;border-bottom:1px solid color-mix(in oklab,var(--border) 70%,transparent)}
+  .hdr h3{margin:0;font-size:14px}
+  .hint{flex:1;font-size:12px;color:var(--muted-foreground)}
+  .sw{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted-foreground)}
+  .tog{width:26px;height:15px;border-radius:9px;background:var(--input);position:relative}
+  .tog::after{content:"";position:absolute;left:2px;top:2px;width:11px;height:11px;border-radius:50%;background:var(--muted-foreground)}
+  ol{list-style:none;margin:0;padding:0}
+  li.row{display:flex;gap:8px;align-items:flex-start;padding:9px 12px;border-bottom:1px solid color-mix(in oklab,var(--border) 70%,transparent)}
+  .grip{color:var(--muted-foreground);font-size:12px;width:14px;padding-top:2px}
+  .pos{width:14px;font-size:12px;color:var(--muted-foreground);padding-top:2px}
+  .main{flex:1;min-width:0}
+  .name{font-size:14px;font-weight:600;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .src{margin-top:3px;font-size:12px;color:var(--muted-foreground);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+  .src b{font-weight:500;color:var(--foreground)}
+  .b{display:inline-block;font-size:11px;font-weight:500;padding:1px 6px;border-radius:5px;border:1px solid transparent;white-space:nowrap}
+  .ok{background:color-mix(in oklab,var(--success) 18%,transparent);color:var(--success)}
+  .warn{background:color-mix(in oklab,var(--warning) 18%,transparent);color:var(--warning)}
+  .info{background:color-mix(in oklab,var(--info) 18%,transparent);color:var(--info)}
+  .out{border-color:var(--border);color:var(--muted-foreground)}
+  .skip{border-color:color-mix(in oklab,var(--warning) 45%,transparent);color:var(--warning)}
+  .why{font-size:12px;color:var(--muted-foreground);margin-top:3px}
+  .why a{color:var(--foreground);text-decoration:underline;text-underline-offset:2px;text-decoration-color:var(--border)}
+  .x{color:var(--muted-foreground);font-size:12px}
+  .foot{display:flex;gap:8px;align-items:center;padding:8px 12px;border-top:1px solid color-mix(in oklab,var(--border) 70%,transparent);font-size:12px;color:var(--muted-foreground)}
+  .btn{border:1px solid var(--input);border-radius:6px;padding:2px 8px;font-size:12px;color:var(--foreground);background:var(--background)}
+  .rule{padding:9px 12px;border-top:1px solid color-mix(in oklab,var(--border) 70%,transparent);font-size:13px}
+  .rule .t{font-size:12px;font-weight:600;color:var(--muted-foreground);margin-bottom:4px}
+  .rule div{margin:2px 0}
+  .arrow{color:var(--muted-foreground);padding:0 4px}
+  .muted{color:var(--muted-foreground);font-size:12px}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .ba .cap{font-size:12px;color:var(--muted-foreground);margin-bottom:4px}
+  .ba img{width:100%;border-radius:8px;border:1px solid var(--border)}
+  .chip-after{border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;color:var(--muted-foreground)}
+  .note{font-size:13px;color:var(--muted-foreground);max-width:66ch}
+  .note li{margin:3px 0}
+</style></head><body>
+<h1>Reviewer order: the family rule, visible</h1>
+<p class="lead">Mock for 1351. Same Review card on Settings › Models and Project settings › Adversarial review (web and desktop; iOS has no review settings screen).</p>
+
+<h2>A. Settings › Models › Review</h2>
+<div class="card">
+  <div class="hdr"><h3>Review</h3><span class="hint">A different model family checks finished work</span>
+    <span class="sw">Review finished features <span class="tog"></span></span></div>
+  <ol>
+    <li class="row"><span class="grip">⋮⋮</span><span class="pos">1</span><div class="main">
+      <div class="name">Claude Opus 5.5 <span class="b out">Claude family</span> <span class="b skip">Skipped for Claude work</span></div>
+      <div class="src"><b>Claude Code</b> <span class="b info">Usage unknown</span> then <b>GitHub Copilot</b> <span class="b ok">Ready</span> then <b>Cursor</b> <span class="b ok">Ready</span> then <b>OpenCode</b> <span class="b ok">Ready</span></div>
+      <div class="why">Usage unknown: no reading in the last 5 minutes, so a ready model below is picked first. <a href="#">Check now</a></div>
+    </div><span class="x">✕</span></li>
+    <li class="row"><span class="grip">⋮⋮</span><span class="pos">2</span><div class="main">
+      <div class="name">muse-wonder-full-1.0 <span class="b out">Meta family</span></div>
+      <div class="src"><b>Muse Code</b> <span class="b ok">Ready</span></div>
+    </div><span class="x">✕</span></li>
+    <li class="row"><span class="grip">⋮⋮</span><span class="pos">3</span><div class="main">
+      <div class="name">GPT-6.1 Sol <span class="b out">OpenAI family</span></div>
+      <div class="src"><b>Copilot personal</b> <span class="b warn">Limit until Mon 7:00 PM</span> then <b>Codex</b> <span class="b ok">Ready</span></div>
+    </div><span class="x">✕</span></li>
+    <li class="row"><span class="grip">⋮⋮</span><span class="pos">4</span><div class="main">
+      <div class="name">muse-wonder-1.0 <span class="b out">Meta family</span></div>
+      <div class="src"><b>Muse Code</b> <span class="b ok">Ready</span> then <b>Cursor</b> <span class="b ok">Ready</span></div>
+    </div><span class="x">✕</span></li>
+  </ol>
+  <div class="rule"><div class="t">Who reviews now</div>
+    <div>Work by Opus 5.5 or Fable 5.2 <span class="arrow">→</span> <b>muse-wonder-full-1.0</b> <span class="muted">· Claude Opus 5.5 is skipped</span></div>
+    <div>Work by GPT-6 Astra <span class="arrow">→</span> <b>muse-wonder-full-1.0</b> <span class="muted">· Claude Opus 5.5 first once its usage is read</span></div>
+  </div>
+  <div class="foot"><span class="btn">Add model</span><span class="btn">Use the built-in order</span></div>
+</div>
+
+<h2>B. Project settings › Adversarial review</h2>
+<div class="card">
+  <div class="hdr"><h3>Review</h3><span class="hint">This project uses the app-wide order for this machine.</span>
+    <span class="sw">Review finished features <span class="tog"></span></span></div>
+  <ol>
+    <li class="row"><span class="grip">⋮⋮</span><span class="pos">1</span><div class="main">
+      <div class="name">Claude Opus 5.5 <span class="b out">Claude family</span> <span class="b skip">Skipped for Claude work</span></div>
+      <div class="src"><b>Claude Code</b> <span class="b info">Usage unknown</span> then <b>GitHub Copilot</b> <span class="b ok">Ready</span> <span>+2 more</span></div>
+    </div></li>
+    <li class="row"><span class="grip">⋮⋮</span><span class="pos">2</span><div class="main"><div class="name">muse-wonder-full-1.0 <span class="b out">Meta family</span></div><div class="src"><b>Muse Code</b> <span class="b ok">Ready</span></div></div></li>
+    <li class="row"><span class="grip">⋮⋮</span><span class="pos">3</span><div class="main"><div class="name">GPT-6.1 Sol <span class="b out">OpenAI family</span></div><div class="src"><b>Copilot personal</b> <span class="b warn">Limit until Mon 7:00 PM</span> then <b>Codex</b> <span class="b ok">Ready</span></div></div></li>
+  </ol>
+  <div class="rule"><div class="t">Who reviews now</div>
+    <div>Work by Opus 5.5 or Fable 5.2 <span class="arrow">→</span> <b>muse-wonder-full-1.0</b> <span class="muted">· Claude Opus 5.5 is skipped</span></div></div>
+  <div class="foot"><span class="btn">Customize for this project</span><span>Review depth: Regular model</span></div>
+</div>
+
+<h2>C. The icon chip: before and after</h2>
+<div class="ba">
+  <div><div class="cap">Before: stacked logos, “+4”</div><img src="/home/anton/.specwithcode/ministorm/userdata/attachments/project-coordinator-9ce25d03-eb07-42ab-a343-c298a6051f30-04443a4d-c21b-45cb-8b8f-796bfd44023e.png" alt="Old chip of stacked provider icons with +4"></div>
+  <div><div class="cap">After: the same routes, in words</div><div class="chip-after"><b style="color:var(--foreground)">Claude Code</b> <span class="b info">Usage unknown</span> then <b style="color:var(--foreground)">GitHub Copilot</b> <span class="b ok">Ready</span> then <b style="color:var(--foreground)">Cursor</b> …</div></div>
+</div>
+<ul class="note">
+  <li>The chip meant “the same model on other sources here”: Opus 5.5 also runs on Copilot, Cursor, OpenCode and Droid, tried right after Claude Code. It goes; the row's source line already says this.</li>
+  <li>Selection already skips the author's family first (Fable 5.2 and Opus 5.5 are both Claude), even with Opus at #1. The mock only makes it visible.</li>
+</ul>
+</body></html>

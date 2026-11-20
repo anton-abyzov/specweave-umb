@@ -1,0 +1,12 @@
+{
+  "id": "1354-coordinator-context-continuity-across-model-switches",
+  "uuid": "a8120ac3-0cbc-4419-b272-744edc2549fd",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-17T06:01:00.409Z",
+  "updated": "2026-11-17T06:48:47.253Z",
+  "lastActivity": "2026-11-17T06:48:47.253Z",
+  "title": "Coordinator context continuity across model switches",
+  "project": "specweave"
+}

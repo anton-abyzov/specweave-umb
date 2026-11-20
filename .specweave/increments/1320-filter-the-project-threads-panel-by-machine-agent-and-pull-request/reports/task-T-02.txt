@@ -1,0 +1,16 @@
+$ cd /srv/work/github/specweave-umb/repositories/anton-abyzov/specweave-studio-threads-filter && pnpm exec vp test run apps/web/src/components/studio/ProjectWorkspace.test.tsx
+# exit 0 — 2026-11-03T00:04:47.642Z
+
+
+ RUN  v5.0.1 /srv/work/github/specweave-umb/repositories/anton-abyzov/specweave-studio-threads-filter
+
+
+ Test Files  1 passed (1)
+      Tests  64 passed (64)
+   Start at  19:04:38
+   Duration  8.82s (transform 41%, tests 35%, import 19%, environment 5%)
+
+  Transform  transforming modules took 3.63s · 41% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+

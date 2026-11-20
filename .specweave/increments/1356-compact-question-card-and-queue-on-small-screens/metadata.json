@@ -1,0 +1,12 @@
+{
+  "id": "1356-compact-question-card-and-queue-on-small-screens",
+  "uuid": "cb8d3211-35a9-41b9-9fce-baf9fca40338",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T19:18:18.740Z",
+  "updated": "2026-11-18T19:18:18.740Z",
+  "lastActivity": "2026-11-18T19:18:18.740Z",
+  "title": "Compact question card and queue on small screens",
+  "project": "specweave-umb"
+}

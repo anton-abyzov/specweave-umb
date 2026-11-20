@@ -1,0 +1,9 @@
+$ cd /home/anton/.specwithcode/minisforum/worktrees/subscription-usage-by-machine && export PATH=~/.local/share/fnm/node-versions/v22.20.0/installation/bin:$PATH && node node_modules/vite-plus/bin/vp test run packages/shared/src/usageMachineShare.test.ts packages/shared/src/usageOutsideEstimate.test.ts 2>&1 | tail -6
+# exit 0 — 2026-11-20T17:55:29.508Z
+
+
+ Test Files  2 passed (2)
+      Tests  25 passed (25)
+   Start at  12:55:28
+   Duration  697ms (import 71%, transform 25%, tests 2%, setup 1%, worker 1%)
+

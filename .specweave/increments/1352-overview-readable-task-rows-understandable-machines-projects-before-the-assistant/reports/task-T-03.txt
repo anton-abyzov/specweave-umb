@@ -1,0 +1,8 @@
+$ cd /srv/specwithcode/ministorm/worktrees/overview-tasks-machines && pnpm --dir apps/web exec vp test run src/components/studio/StudioOverview.test.tsx src/studio/overviewMachines.test.ts 2>&1 | tail -5
+# exit 0 — 2026-11-15T04:29:17.221Z
+
+ Test Files  2 passed (2)
+      Tests  45 passed (45)
+   Start at  23:29:04
+   Duration  12.60s (transform 77%, tests 9%, import 9%, environment 4%)
+

@@ -1,0 +1,8 @@
+$ cd /srv/specwithcode/ministorm/worktrees/overview-tasks-machines && pnpm --dir apps/web exec vp test run src/components/SlowRpcRequestToastCoordinator src/components/ProviderUpdates src/components/settings/MachinesSettings 2>&1 | tail -5
+# exit 0 — 2026-11-15T04:29:27.471Z
+
+ Test Files  3 passed (3)
+      Tests  66 passed (66)
+   Start at  23:29:20
+   Duration  7.19s (transform 69%, import 28%, tests 2%)
+

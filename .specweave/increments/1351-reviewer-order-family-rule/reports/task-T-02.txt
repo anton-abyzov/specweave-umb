@@ -1,0 +1,21 @@
+$ cd /srv/specwithcode/ministorm/worktrees/reviewer-order-family/apps/web && npx vp test run src/components/settings/ModelTracksSettings.test.tsx
+# exit 0 — 2026-11-15T04:15:39.177Z
+
+Warning: Route file "/srv/specwithcode/ministorm/worktrees/reviewer-order-family/apps/web/src/routes/projectReturnRoute.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "/srv/specwithcode/ministorm/worktrees/reviewer-order-family/apps/web/src/routes/-projectReturnRoute.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+
+ RUN  v5.0.1 /srv/specwithcode/ministorm/worktrees/reviewer-order-family/apps/web
+
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  23:15:35
+   Duration  3.51s (transform 70%, import 28%, tests 1%, setup 1%)
+
