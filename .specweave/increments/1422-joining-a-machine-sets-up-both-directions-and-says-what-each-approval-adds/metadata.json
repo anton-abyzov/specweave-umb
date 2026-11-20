@@ -5,8 +5,8 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-19T15:08:26.000Z",
-  "updated": "2026-11-20T06:29:24.208Z",
-  "lastActivity": "2026-11-20T06:29:24.208Z",
+  "updated": "2026-11-20T06:31:53.108Z",
+  "lastActivity": "2026-11-20T06:31:53.108Z",
   "title": "Joining a machine is one way, and says what each approval adds",
   "project": "specweave-umb",
   "repositories": [
