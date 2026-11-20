@@ -92,6 +92,9 @@ The access design (rounds 2 to 5) moved to 1428 on November 19, 2026 (D-07). Des
 ### T-02 First-run row and done card use 1390's words
 - AC: AC-04, AC-07, AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/onboarding/SignInFirstStep.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/onboarding/SignInFirstStep.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AccountJoinCard.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AccountJoinCard.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/ | Test: focused web test; wording agreed with the 1390 owner
 
+### T-08 Identify the requesting device in the German, Russian and French Allow prompts
+- AC: AC-01, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/de.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/ru.ts, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/fr.ts | Test: Render the live approval phrase with a machine name in all three locales, check which device gets access, and run the device view and i18n unit suites.
+
 ### T-05 Check on real machines after release
 - AC: AC-08 | Files: .specweave/increments/1422-joining-a-machine-sets-up-both-directions-and-says-what-each-approval-adds/reports/ | Test: Anton's screens of the join on both machines
 
@@ -100,6 +103,6 @@ The access design (rounds 2 to 5) moved to 1428 on November 19, 2026 (D-07). Des
 
 ## Review
 
-Reviewer: another model family for each pull request head. Muse Wonderful is out until November 23, 2026, so by Anton's standing rule of November 18, 2026 the reviews run on Copilot Enterprise with GPT-6.1 Sol while Muse and Codex are both out. Each review confirms that no `[label]` change alters who gets access. Muse Wonderful reviews 1428's access work.
+Reviewer: another model family for each pull request head. New wording reviews use Gemini 4 Neon on Copilot Enterprise at high effort under Anton's November 20, 2026 reviewer order. Earlier wording reviews used the November 18 fallback while Muse was unavailable. Each review checks that the labels describe the existing permissions. Access changes belong to 1428.
 
 Design reviews, November 19, 2026: Muse Wonderful was out on every machine (rate limit until November 23; on M5 the run ended at once with no details), so the design ran on Codex GPT-6.2 Sol, effort high, on M5, following the reviewer order behind Anton's standing rule of November 18, 2026 ("Yes, as a standing rule": whenever Muse and Codex are both out, Copilot Enterprise with GPT-6.1 Sol, no more asking); Muse was out and Codex on M5 was not, so Codex ran. Round 1 (`reports/design-review-1.md`) and round 2 (`reports/design-review-2.md`) said fix first. Round 3 (`reports/design-review-3.md`) said fix first too, and sorted its findings against today's baseline; the design then moved to 1428 (D-07).
