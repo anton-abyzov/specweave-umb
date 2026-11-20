@@ -1,0 +1,12 @@
+{
+  "id": "1435-machine-menu-says-what-differs-per-repository-and-sync-sees-every-nested-repository",
+  "uuid": "3080ffb9-a516-4d5c-a3fe-33680060125c",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T16:59:23.504Z",
+  "updated": "2026-11-20T16:59:23.504Z",
+  "lastActivity": "2026-11-20T16:59:23.504Z",
+  "title": "Machine menu says what differs per repository, and Sync sees every nested repository",
+  "project": "specweave-umb"
+}
