@@ -38,7 +38,7 @@ Out: mid-turn delivery inside a running Claude or Codex command (a steered messa
 
 Rejected: ending the turn on a timer with an empty queue (it would drop Copilot's own report when the command ends, and the app may have no signal to replace it); telling Copilot in its instructions to detach watchers (prose the app cannot enforce, and the agent followed Copilot's own tool advice); switching interrupt-and-restart back on for every Copilot turn (stops background agents, the reason it was turned off in 1146); a shorter silent-run watchdog (would also end turns that are really working).
 
-Risks: giving way may cut off a Copilot that was about to write more without a tool call. Measured on M5: in 304 places where a Copilot turn continued after an assistant message with nothing open, 4 pauses were 15 to 22 s and none longer, so the window is 30 s, and it applies only with a background command running and a message waiting. AC-01 e may replace the timer with a real signal. The parsing depends on Copilot's result wording; an unrecognized form leaves today's behaviour.
+Risks: giving way may cut off a Copilot that was about to write more without a tool call. Measured on M5: in 302 places where a working Copilot turn continued after an assistant message with nothing open, 4 pauses were 15 to 22 s and none longer (the two held-open waits of 461 s and 611 s aside), so the window is 30 s, and it applies only with a background command running and a message waiting. AC-01 e may replace the timer with a real signal. The parsing depends on Copilot's result wording; an unrecognized form leaves today's behaviour.
 
 ## Decisions
 
