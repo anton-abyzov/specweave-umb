@@ -7,6 +7,10 @@
   "created": "2026-11-20T20:13:23.351Z",
   "updated": "2026-11-20T20:13:23.351Z",
   "lastActivity": "2026-11-20T20:13:23.351Z",
-  "title": "Choose User or This project when installing a skill on this machine",
-  "project": "specweave-umb"
+  "title": "Skill install: scope, machines and any agent (including custom agents)",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode",
+    "repositories/anton-abyzov/vskill"
+  ]
 }
