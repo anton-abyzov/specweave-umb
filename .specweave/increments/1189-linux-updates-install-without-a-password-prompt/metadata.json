@@ -1,15 +1,17 @@
 {
   "id": "1189-linux-updates-install-without-a-password-prompt",
   "uuid": "3042cbf0-a955-40c9-b273-490ce49e642e",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-03T03:32:50.478Z",
-  "updated": "2026-11-20T19:57:34.157Z",
-  "lastActivity": "2026-11-20T19:57:34.157Z",
+  "updated": "2026-11-20T20:01:20.995Z",
+  "lastActivity": "2026-11-20T20:01:20.995Z",
   "title": "Linux updates install without a password prompt",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-20T20:01:20.994Z",
+  "approvedAt": "2026-11-20T20:01:20.995Z"
 }
