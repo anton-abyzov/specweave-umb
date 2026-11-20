@@ -239,3 +239,7 @@ ENTERPRISE-PRIVATE-SKILLS-TEST-REPORT.md
 .specweave/reports/twitter-replies/
 .specweave/reports/seo-measured-data.md
 .specweave/reports/**/*.png
+
+# Generated thread reports and machine-local project secrets stay local
+.specweave/reports/threads/
+.specweave/project/credentials.json
