@@ -1,0 +1,15 @@
+{
+  "id": "1362-provider-sign-in-step-shows-verified-state-real-failure-reasons-and-a-working-copilot-check",
+  "uuid": "b855d1d3-0125-4a1a-80df-caacd3d6c367",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T14:44:05.921Z",
+  "updated": "2026-11-20T14:58:21.680Z",
+  "lastActivity": "2026-11-20T14:58:21.680Z",
+  "title": "Provider sign-in step shows verified state, real failure reasons and a working Copilot check",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
