@@ -1,0 +1,12 @@
+{
+  "id": "1438-run-on-a-code-block-can-ask-for-the-administrator-password-with-the-machines-own-prompt",
+  "uuid": "69b00ac5-ff47-45c0-b264-3fb01117662b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T19:20:23.233Z",
+  "updated": "2026-11-20T19:20:23.233Z",
+  "lastActivity": "2026-11-20T19:20:23.233Z",
+  "title": "Run on a code block can ask for the administrator password with the machine's own prompt",
+  "project": "specweave-umb"
+}
