@@ -16,3 +16,4 @@
 {"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-20T19:59:31.301Z","note":"session 01a1fa89-cd6f-74b2-8667-d3cc5c4747f2"}
 {"t":"T-07","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-20T19:59:31.302Z"}
 {"t":"T-07","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-20T19:59:31.303Z","evidence":"specwithcode-dev PR #475 merged c975eee926; shipped in specwithcode 5883a2d13 (SpecWithCode 1.0.63), released v1.0.63\nHEAD 5f22e2e4"}
+{"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-11-21T07:00:29.255Z","note":"review by gemini-4-neon (google) at 4b8220a644e9: ship · reports/reviews/review-gemini-4-neon-1.md"}
