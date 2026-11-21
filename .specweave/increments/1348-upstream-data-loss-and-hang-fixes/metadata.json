@@ -5,9 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-15T03:43:30.001Z",
-  "updated": "2026-11-15T03:43:30.001Z",
-  "lastActivity": "2026-11-15T03:43:30.001Z",
+  "updated": "2026-11-21T14:08:17.408Z",
+  "lastActivity": "2026-11-21T14:08:17.408Z",
   "title": "Data loss and hang fixes from the upstream review",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
