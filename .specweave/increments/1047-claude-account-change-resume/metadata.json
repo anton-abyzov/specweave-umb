@@ -5,11 +5,14 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-10-24T04:52:35.078Z",
-  "updated": "2026-10-24T12:25:17.414Z",
-  "lastActivity": "2026-10-24T12:25:17.414Z",
+  "updated": "2026-11-21T07:36:07.983Z",
+  "lastActivity": "2026-11-21T07:36:07.983Z",
   "title": "Resume limit-paused Claude threads after an account change",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
