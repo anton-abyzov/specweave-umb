@@ -5,3 +5,5 @@
 {"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-21T07:00:54.413Z","evidence":"stale claim; work merged in specwithcode-dev PR #649 b73c5e584e, released v1.0.77\nHEAD e891d076"}
 {"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-21T07:00:54.827Z"}
 {"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-21T07:00:54.829Z","evidence":"PR #649 merged b73c5e584e (October 24, 2026), released v1.0.77\nHEAD e891d076"}
+{"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-11-21T07:35:16.871Z","note":"review by gemini-4-neon (google) at 4b8220a644e9: fix first · reports/reviews/review-gemini-4-neon-1.md"}
+{"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-11-21T07:35:16.989Z","note":"Strict verify passed at 4b8220a644e9. Keep active: high finding at apps/server/src/mcp/OrchestratorMcpService.ts:3237-3274 and apps/server/src/scheduledTasks/ScheduledTaskService.ts:1825. Rebinding an own-thread routine to a worker retains ownThread and applies coordinator ownership and routine runtime mode to the worker."}
