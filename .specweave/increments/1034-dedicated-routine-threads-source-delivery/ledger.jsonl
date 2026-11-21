@@ -1,2 +1,7 @@
 {"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-23T17:39:29.463Z","note":"session 01a169d5-f98a-7113-86e5-715f0be4da80"}
 {"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T17:39:29.464Z"}
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-21T07:00:54.411Z","note":"session 01a1fc77-8d00-7402-ba7e-2f93ee1a169a"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-21T07:00:54.412Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-21T07:00:54.413Z","evidence":"stale claim; work merged in specwithcode-dev PR #649 b73c5e584e, released v1.0.77\nHEAD e891d076"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-21T07:00:54.827Z"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-21T07:00:54.829Z","evidence":"PR #649 merged b73c5e584e (October 24, 2026), released v1.0.77\nHEAD e891d076"}
