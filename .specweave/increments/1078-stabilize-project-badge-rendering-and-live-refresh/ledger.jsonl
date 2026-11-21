@@ -9,3 +9,4 @@
 {"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-21T00:12:13.376Z","note":"session 01a1fb70-1598-7dc0-9592-6024ab897ec8"}
 {"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-21T00:12:13.377Z"}
 {"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-21T00:12:13.378Z","evidence":"specwithcode-dev PR #781 merged 8ff9576520, released v1.0.93; Anton's layout acceptance recorded in T-03; fleet runs later releases\nHEAD 8633dc65"}
+{"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-11-21T04:11:39.396Z","note":"review by gemini-4-neon (google) at 4b8220a644e9: ship · reports/reviews/review-gemini-4-neon-1.md"}
