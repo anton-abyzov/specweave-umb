@@ -1,12 +1,12 @@
 {
   "id": "1076-start-a-fresh-claude-session-when-the-native-one-is-gone",
   "uuid": "be961290-39d4-4e4d-b8d2-a4ba793ee160",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-10-25T19:31:07.083Z",
-  "updated": "2026-11-21T00:12:12.859Z",
-  "lastActivity": "2026-11-21T00:12:12.859Z",
+  "updated": "2026-11-21T03:35:21.769Z",
+  "lastActivity": "2026-11-21T03:35:21.769Z",
   "title": "Start a fresh Claude session when the native one is gone",
   "project": "specweave-umb",
   "externalLinks": {},
@@ -14,5 +14,7 @@
   "coverageTarget": 80,
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "readyForReviewAt": "2026-11-21T03:35:21.768Z",
+  "approvedAt": "2026-11-21T03:35:21.769Z"
 }

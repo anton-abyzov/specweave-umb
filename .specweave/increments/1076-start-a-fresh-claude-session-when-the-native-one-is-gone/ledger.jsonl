@@ -6,3 +6,4 @@
 {"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-21T00:12:12.327Z","evidence":"specwithcode-dev PR #754 merged 6adda67e6f, all checks green, released v1.0.88\nHEAD 8633dc65"}
 {"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-21T00:12:12.857Z"}
 {"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-21T00:12:12.859Z","evidence":"Verify and close: #754 released v1.0.88\nHEAD 8633dc65"}
+{"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-11-21T03:35:21.147Z","note":"review by gemini-4-neon (google) at 4b8220a644e9: ship · reports/reviews/review-gemini-4-neon-1.md"}
