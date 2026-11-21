@@ -5,11 +5,14 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-26T03:20:46.100Z",
-  "updated": "2026-10-26T04:10:26.446Z",
-  "lastActivity": "2026-10-26T04:10:26.446Z",
+  "updated": "2026-11-21T00:12:13.378Z",
+  "lastActivity": "2026-11-21T00:12:13.378Z",
   "title": "Stabilize project badge rendering and live refresh",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
