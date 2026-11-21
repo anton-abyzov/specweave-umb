@@ -1,12 +1,12 @@
 {
   "id": "1088-thread-chip-tooltip-tells-a-usage-pre-switch-from-a-limit-stop",
   "uuid": "68c2b7ef-34c6-4edf-8e38-378272634d45",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P2",
   "created": "2026-10-26T22:14:32.191Z",
-  "updated": "2026-11-21T00:12:14.369Z",
-  "lastActivity": "2026-11-21T00:12:14.369Z",
+  "updated": "2026-11-21T05:00:52.125Z",
+  "lastActivity": "2026-11-21T05:00:52.125Z",
   "title": "Thread chip tooltip tells a usage pre-switch from a limit stop",
   "project": "specweave-umb",
   "parent": "1041-fix-design-creation-and-reuse",
@@ -15,5 +15,7 @@
   "coverageTarget": 80,
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "readyForReviewAt": "2026-11-21T05:00:52.124Z",
+  "approvedAt": "2026-11-21T05:00:52.125Z"
 }

@@ -6,3 +6,4 @@
 {"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-21T00:12:13.894Z","evidence":"specwithcode-dev PR #854 merged 20e1d9d725, CI green, released v1.0.96. Installed SpecWithCode 1.0.401: 2 matches in /Applications/SpecWithCode.app/Contents/Resources/app.asar for \"neared its usage limit, so this thread moved before its next turn.\"\nHEAD 8633dc65"}
 {"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-21T00:12:14.368Z"}
 {"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-21T00:12:14.369Z","evidence":"Verify and close: #854 released v1.0.96\nHEAD 8633dc65"}
+{"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-11-21T05:00:51.610Z","note":"review by gemini-4-neon (google) at 4b8220a644e9: ship · reports/reviews/review-gemini-4-neon-1.md"}
