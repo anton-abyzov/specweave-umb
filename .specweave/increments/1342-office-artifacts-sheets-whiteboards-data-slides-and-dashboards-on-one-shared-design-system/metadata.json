@@ -5,9 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-15T02:12:05.612Z",
-  "updated": "2026-11-15T02:12:05.612Z",
-  "lastActivity": "2026-11-15T02:12:05.612Z",
+  "updated": "2026-11-22T19:47:20.993Z",
+  "lastActivity": "2026-11-22T19:47:20.993Z",
   "title": "Office artifacts: sheets, whiteboards, data, slides and dashboards on one shared design system",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
