@@ -1,0 +1,18 @@
+{
+  "id": "1337-credentials-this-project-uses-checklist-in-the-copy-dialog",
+  "uuid": "3794df60-77d4-46de-9901-f38dac86356b",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T00:40:22.615Z",
+  "updated": "2026-11-22T21:08:09.423Z",
+  "lastActivity": "2026-11-22T21:08:09.423Z",
+  "title": "Credentials this project uses: checklist in the copy dialog",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-22T21:08:09.422Z",
+  "approvedAt": "2026-11-22T21:08:09.423Z"
+}
