@@ -1,0 +1,12 @@
+{
+  "id": "1452-specweave-setup-finds-nodejs-on-windows",
+  "uuid": "0e09121a-0047-440b-8720-ba310f2cee57",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-23T17:38:24.478Z",
+  "updated": "2026-11-23T17:38:24.478Z",
+  "lastActivity": "2026-11-23T17:38:24.478Z",
+  "title": "SpecWeave setup finds Node.js on Windows",
+  "project": "specweave-umb"
+}
