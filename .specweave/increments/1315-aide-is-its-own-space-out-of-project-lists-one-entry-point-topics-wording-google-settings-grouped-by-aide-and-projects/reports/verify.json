@@ -1,11 +1,9 @@
 {
-  "ok": false,
+  "ok": true,
   "strictClose": {
-    "errors": [
-      "No testing.ownerCommands configured for repositories/anton-abyzov/specwithcode"
-    ]
+    "errors": []
   },
-  "ranAt": "2026-11-13T06:45:03.248Z",
+  "ranAt": "2026-11-20T21:03:21.105Z",
   "increment": "1315-aide-is-its-own-space-out-of-project-lists-one-entry-point-topics-wording-google-settings-grouped-by-aide-and-projects",
   "commands": [
     {
@@ -25,6 +23,18 @@
       "exit": 0,
       "cwd": ".",
       "source": "config testing.commands"
+    },
+    {
+      "cmd": "npm run verify:pr -- --jobs 1 --no-server",
+      "exit": 0,
+      "cwd": "repositories/anton-abyzov/specwithcode",
+      "source": "config testing.ownerCommands"
+    },
+    {
+      "cmd": "npm run test:server:sharded -- --shards 6 --out \"$(mktemp -d)\"",
+      "exit": 0,
+      "cwd": "repositories/anton-abyzov/specwithcode",
+      "source": "config testing.ownerCommands"
     }
   ],
   "acs": {

@@ -1,6 +1,6 @@
 # Verify — 1320-reports-stay-in-specwithcode-no-provider-artifact-links-in-replies
 
-FAIL · 2026-11-13T21:12:44.898Z · commands from config testing.commands
+PASS · 2026-11-21T06:21:55.873Z · commands from config testing.commands
 
 ## Commands
 
@@ -23,7 +23,7 @@ test_unpushed_commit_preserved (__main__.SafetyTests.test_unpushed_commit_preser
 test_unsafe_paths_urls_and_symlinks (__main__.SafetyTests.test_unsafe_paths_urls_and_symlinks) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 9.967s
+Ran 13 tests in 10.165s
 
 OK
 ```
@@ -34,117 +34,73 @@ OK
 ```
 ..............................................
 ----------------------------------------------------------------------
-Ran 46 tests in 0.327s
+Ran 46 tests in 0.351s
 
 OK
 ```
 
 - Working directory: . (config testing.commands)
-### `python3 scripts/release/timing.py --self-test` → exit 1 (0s)
+### `python3 scripts/release/timing.py --self-test` → exit 0 (0s)
 
 ```
-    import yaml
-ModuleNotFoundError: No module named 'yaml'
-
-======================================================================
-ERROR: test_invalid_yaml_has_its_own_rule (__main__.SelfTest.test_invalid_yaml_has_its_own_rule)
+.................
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 854, in test_invalid_yaml_has_its_own_rule
-    findings, count = scan_repo(tmp)
-                      ~~~~~~~~~^^^^^
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 519, in scan_repo
-    import yaml  # PyYAML; only scan-ci needs it.
-    ^^^^^^^^^^^
-ModuleNotFoundError: No module named 'yaml'
+Ran 17 tests in 0.094s
 
-======================================================================
-ERROR: test_on_key_parsed_as_boolean (__main__.SelfTest.test_on_key_parsed_as_boolean)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 774, in test_on_key_parsed_as_boolean
-    import yaml
-ModuleNotFoundError: No module named 'yaml'
-
-======================================================================
-ERROR: test_tag_only_rust_cache_without_shared_key (__main__.SelfTest.test_tag_only_rust_cache_without_shared_key)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 782, in test_tag_only_rust_cache_without_shared_key
-    rules = [f['rule'] for f in self.scan(BAD_TAG_WORKFLOW)]
-                                ~~~~~~~~~^^^^^^^^^^^^^^^^^^
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 751, in scan
-    import yaml
-ModuleNotFoundError: No module named 'yaml'
-
-======================================================================
-ERROR: test_vitest_rule_only_for_private_repos (__main__.SelfTest.test_vitest_rule_only_for_private_repos)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 790, in test_vitest_rule_only_for_private_repos
-    self.assertNotIn('vitest-private-workers', {f['rule'] for f in self.scan(BAD_WORKFLOW, private=False)})
-                                                                   ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/antonabyzov/Projects/github/specweave-umb/scripts/release/timing.py", line 751, in scan
-    import yaml
-ModuleNotFoundError: No module named 'yaml'
-
-----------------------------------------------------------------------
-Ran 17 tests in 0.060s
-
-FAILED (errors=7)
+OK
 recorded
 ```
 
-- Working directory: repositories/anton-abyzov/specwithcode-dev (config testing.ownerCommands)
-### `npm run verify:pr -- --jobs 1 --no-server` → exit 0 (602s)
+- Working directory: repositories/anton-abyzov/specwithcode (config testing.ownerCommands)
+### `npm run verify:pr -- --jobs 1 --no-server` → exit 0 (670s)
 
 ```
 
 > verify:pr
 > bash scripts/studio-verify/pr-gate.sh --jobs 1 --no-server
 
-PR gate: HEAD 9c295249c5 against origin/main (merge base 9c295249c5); logs in /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T//studio-pr-gate.qiRKvs
+PR gate: HEAD 4b8220a64 against origin/main (merge base 4b8220a64); logs in /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T//studio-pr-gate.dqESR3
 Stage 1: 18 jobs, 1 at a time
 STAGE 1                                      RESULT     SECS
-contrast                                     pass          4
-typecheck                                    pass         33
-fleet                                        pass        222
+contrast                                     pass          3
+typecheck                                    pass         39
+fleet                                        pass        225
 apps/chrome-extension                        pass          2
 apps/desktop                                 pass         16
 apps/marketing                               pass          0
-apps/mobile                                  pass         16
-apps/web                                     pass        221
-infra/relay                                  pass         15
-oxlint-plugin-studio                         pass         11
-packages/client-runtime                      pass         15
+apps/mobile                                  pass         17
+apps/web                                     pass        269
+infra/relay                                  pass         19
+oxlint-plugin-studio                         pass         12
+packages/client-runtime                      pass         16
 packages/contracts                           pass          5
 packages/effect-acp                          pass          3
-packages/effect-codex-app-server             pass          2
-packages/shared                              pass         10
-packages/ssh                                 pass          7
-packages/tailscale                           pass          1
-scripts                                      pass         19
+packages/effect-codex-app-server             pass          1
+packages/shared                              pass         12
+packages/ssh                                 pass          8
+packages/tailscale                           pass          0
+scripts                                      pass         23
 Stage 2: not run here (--no-server); the server suite runs in jobs of its own
-PR gate: stage 1 passed, server passed, 602s
+PR gate: stage 1 passed, server passed, 670s
 ```
 
-- Working directory: repositories/anton-abyzov/specwithcode-dev (config testing.ownerCommands)
-### `npm run test:server:sharded -- --shards 6 --out "$(mktemp -d)"` → exit 0 (498s)
+- Working directory: repositories/anton-abyzov/specwithcode (config testing.ownerCommands)
+### `npm run test:server:sharded -- --shards 6 --out "$(mktemp -d)"` → exit 0 (759s)
 
 ```
 
 > test:server:sharded
-> node scripts/release/test-sharded.mjs --shards 6 --out /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/tmp.DNGTTc9QUF
+> node scripts/release/test-sharded.mjs --shards 6 --out /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/tmp.KkK26mDk2B
 
-Running the server suite as 6 shards; logs in /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/tmp.DNGTTc9QUF
+Running the server suite as 6 shards; logs in /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/tmp.KkK26mDk2B
 SHARD  EXIT  SECONDS  FILES  TESTS  FAILED
-1      0         337    190    2583        0
-2      0         460    205    2882        0
-3      0       498.2    203    2464        0
-4      0       452.5    205    2811        0
-5      0       493.3    203    2636        0
-6      0       478.7    205    2878        0
-Server shards: passed in 498.2s
+1      0       438.2    221    2970        0
+2      0       674.1    235    3317        0
+3      0       715.7    236    3010        0
+4      0       529.4    236    3362        0
+5      0       758.3    237    3711        0
+6      0       704.9    238    2858        0
+Server shards: passed in 758.4s
 ```
 
 ## Acceptance criteria
