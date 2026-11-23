@@ -1,16 +1,18 @@
 {
   "id": "1347-upstream-security-pass",
   "uuid": "7c27e76a-a5a3-4d68-b79e-fb9f2da50acb",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-15T03:43:26.620Z",
-  "updated": "2026-11-21T11:43:25.127Z",
-  "lastActivity": "2026-11-21T11:43:25.127Z",
+  "updated": "2026-11-23T01:44:53.148Z",
+  "lastActivity": "2026-11-23T01:44:53.148Z",
   "title": "Security pass from the upstream review: approval scope, Always-allow key, installer, sign-in links, framing, DPoP, browser bumps",
   "project": "specweave-umb",
   "externalLinks": {},
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "readyForReviewAt": "2026-11-23T01:44:53.147Z",
+  "approvedAt": "2026-11-23T01:44:53.148Z"
 }
