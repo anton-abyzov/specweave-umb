@@ -1,0 +1,18 @@
+{
+  "id": "1446-specwithcode-connect-tutorial-hub",
+  "uuid": "23917775-041c-4267-a051-fef1148b5fa6",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-23T04:04:37.842Z",
+  "updated": "2026-11-23T06:03:54.396Z",
+  "lastActivity": "2026-11-23T06:03:54.396Z",
+  "title": "SpecWithCode Connect tutorial hub",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specweave"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-23T06:03:54.395Z",
+  "approvedAt": "2026-11-23T06:03:54.396Z"
+}
