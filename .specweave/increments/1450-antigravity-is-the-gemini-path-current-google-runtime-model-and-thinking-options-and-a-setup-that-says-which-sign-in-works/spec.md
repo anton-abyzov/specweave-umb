@@ -10,6 +10,7 @@ Google stopped serving Gemini CLI to personal accounts on June 18, 2026, and poi
 - The manifest's compatibility policy for Antigravity still says `=1.1.1` (`apps/server/src/provider/model-manifest.json:81-85`), so the app's own install reads as "unknown".
 - The provider form offers four sign-in methods (`packages/contracts/src/settings.ts:1125-1130`) with one line of help. It does not say that a Workspace account has no Antigravity plan, that only Agent Platform can draw on Google Cloud credits, or that Google's terms (section 6) forbid third-party tools on the subscription sign-in.
 - Enabling Antigravity needs the Settings page. On a machine an agent sets up, there is no command for it: on M5 it took a hand edit of `settings.json`.
+- Signed out, the provider looks ready. On M5 the app reported Antigravity with no constraints, `canRunChildTask: true` and `signedIn: true` while it had no models, and a delegated task failed with "Provider antigravity has no model available for inheritance." Gemini CLI in the same state says "Provider is not authenticated."
 - Upstream T3 Code moved from `agy_acp_server` to the native `agy acp` CLI (1.5+) and now refuses runtimes below 1.5.
 
 ## Scope
@@ -34,8 +35,9 @@ Out:
 - [ ] AC-04: With a 1.3.0 runtime the picker and turns behave as today. A test runs both shapes through `applyAntigravityAcpModelSelection`.
 - [ ] AC-05: The provider card shows the tier name from `_meta.antigravity.tier` when present, and a "See plans" link to its `upgradeUri` when the tier id is `free-tier`. With no tier data the card is unchanged.
 - [ ] AC-06: Each sign-in method in the Antigravity form has one sentence saying who it is for and who pays: Google account (a personal account with Google AI Pro or Ultra; a Workspace account gets a small starter quota), Gemini Enterprise (a company licence, needs project and location), Gemini API key (AI Studio, billed to the key's project), Agent Platform (a Google Cloud project, the only method Cloud credits can pay for). The phrases exist in all nine locales.
-- [ ] AC-07: Choosing Google account shows a notice before sign-in: Google's terms restrict third-party tools on this sign-in to one person working interactively, and Google can suspend the account. Background and delegated threads never start on an Antigravity instance that uses this method unless the user turned on a per-instance switch, off by default. A server test covers the refusal and its message.
+- [ ] AC-07: Choosing Google account shows a notice before sign-in with a link to https://antigravity.google/terms: clause 6 calls using third-party software with this sign-in a breach that may be grounds for suspension, and an API key or Agent Platform falls under Google Cloud terms instead. Background and delegated threads never start on an Antigravity instance that uses this method unless the user turned on a per-instance switch, off by default. A server test covers the refusal and its message.
 - [ ] AC-08: `specweave-studio provider enable antigravity --install` enables the provider on this machine, starts the managed install and prints its progress and final state. It never signs in. A CLI test covers an already-enabled provider and a failed download.
+- [ ] AC-10: An Antigravity instance with no sign-in reports the constraint "Provider is not authenticated.", `canRunChildTask: false` and `signedIn: false` in `orchestrator_capabilities`, and a launch or delegated task on it fails with "Sign in to Antigravity in Settings before you continue." A server test covers both.
 - [ ] AC-09: The bundled compatibility policy marks the installed 1.5 line supported and 1.3.0 graceful, and the policy test covers both.
 
 ## Approach
@@ -47,9 +49,11 @@ Out:
 5. `apps/server/src/cli/`: the `provider enable` command, calling the same install service as the Settings button.
 6. `model-manifest.json`: compatibility ranges.
 
+Order: T-03 and T-04 touch files that increment 1449 (PR 828) edits (`packages/contracts/src/server.ts`, `apps/web/src/components/settings/`). Start them after PR 828 merges.
+
 Risks:
 - Google changes the runtime weekly. Pin a version and keep the hashes; never follow "latest".
-- The terms reading comes from Google's published terms plus unofficial forum replies. Keep the notice factual and link the terms.
+- Clause 6 was read on November 23, 2026; the page carries no date. The "one person, interactive" allowance comes only from unofficial forum replies, so the notice quotes the terms and promises nothing.
 - Upstream's sign-in through `agy acp --login` uses a pasted code; that flow needs its own design if D-01 picks the CLI.
 
 Rejected:
@@ -81,5 +85,8 @@ Rejected:
 ### T-04 Sign-in guidance, terms notice and the background refusal
 - AC: AC-06, AC-07 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/settings.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/antigravityAuthSupport.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/AntigravityAdapterV2.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/AntigravityAdapterV2.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/ | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/orchestration-v2/Adapters/AntigravityAdapterV2.test.ts
 
+### T-06 Signed-out Antigravity says so
+- AC: AC-10 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/provider/Drivers/AntigravityDriver.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/Drivers/AntigravityDriver.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/OrchestratorMcpService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/OrchestratorMcpService.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/provider/Drivers/AntigravityDriver.test.ts apps/server/src/mcp/OrchestratorMcpService.test.ts
+
 ### T-05 Enable and install a provider from the CLI
-- AC: AC-08 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/cli/provider.ts, repositories/anton-abyzov/specwithcode/apps/server/src/cli/provider.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/cli.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/cli/provider.test.ts
+- AC: AC-08 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/cli/provider.ts, repositories/anton-abyzov/specwithcode/apps/server/src/cli/provider.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/cli/ | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/cli/provider.test.ts
