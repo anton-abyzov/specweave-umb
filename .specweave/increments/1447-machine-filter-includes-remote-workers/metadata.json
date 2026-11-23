@@ -1,0 +1,16 @@
+{
+  "id": "1447-machine-filter-includes-remote-workers",
+  "uuid": "4a25e356-11ac-4cee-9448-5fab9bef4c26",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-23T06:39:43.744Z",
+  "updated": "2026-11-23T08:06:56.324Z",
+  "lastActivity": "2026-11-23T08:06:56.324Z",
+  "title": "Machine filter includes remote workers",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {}
+}
