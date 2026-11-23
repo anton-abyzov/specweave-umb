@@ -1,6 +1,6 @@
 # A waiting phone shows its approval code on every screen, and the machine's popup says where to find it
 
-Repo: `anton-abyzov/specwithcode` (checkout `repositories/anton-abyzov/specwithcode`). Code was read on `origin/main` `1c78231e4` (November 23, 2026), not on the checked-out branch. Plan only: nothing is built. This is an auth area, so building waits for Anton's approval (AGENTS.md).
+Repo: `anton-abyzov/specwithcode` (checkout `repositories/anton-abyzov/specwithcode`). Code was read on `origin/main` `1c78231e4` (November 23, 2026), not on the checked-out branch. Anton approved the build on November 23, 2026 (D-00). The iPhone tasks (T-02, T-03, the iPhone part of T-06) run in a thread on m4, which has Xcode; the popup and server tasks run from M5.
 
 ## Problem
 
@@ -66,7 +66,7 @@ Risks: the version is what the phone says about itself, so it only picks which h
 ## Decisions
 
 ### Asked
-- none yet
+- D-00: build it, and how far does an approval reach? → "Yes, go with the recommended. Keep one approval permission." (Anton, November 23, 2026, 2:01 AM). Read as: build 1447; approval stays one typed code per machine, with every waiting machine's code shown in one place on the phone; no approval shared between machines and no new cross-machine access. Confirms D-01.
 
 ### Defaulted (change any before sw-do)
 - D-01: approval stays per machine; the phone shows every waiting machine's code in one place instead of one request covering all machines → keep (1416 D-01; changing it is an access decision for Anton).
