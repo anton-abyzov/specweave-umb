@@ -1,0 +1,12 @@
+{
+  "id": "1443-prevent-main-process-crashes-from-settypeofservice-and-network-errors",
+  "uuid": "14e903f2-b701-4aea-9273-e7593777106f",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-23T03:19:44.965Z",
+  "updated": "2026-11-23T03:19:44.965Z",
+  "lastActivity": "2026-11-23T03:19:44.965Z",
+  "title": "Prevent main-process crashes from setTypeOfService and network errors",
+  "project": "specweave-umb"
+}
