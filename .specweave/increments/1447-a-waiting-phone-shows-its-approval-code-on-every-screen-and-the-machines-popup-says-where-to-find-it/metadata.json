@@ -1,0 +1,12 @@
+{
+  "id": "1447-a-waiting-phone-shows-its-approval-code-on-every-screen-and-the-machines-popup-says-where-to-find-it",
+  "uuid": "e81513b9-5feb-4548-b9bc-187b6a35ec3a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-23T06:51:35.464Z",
+  "updated": "2026-11-23T06:51:35.464Z",
+  "lastActivity": "2026-11-23T06:51:35.464Z",
+  "title": "A waiting phone shows its approval code on every screen, and the machine's popup says where to find it",
+  "project": "specweave-umb"
+}
