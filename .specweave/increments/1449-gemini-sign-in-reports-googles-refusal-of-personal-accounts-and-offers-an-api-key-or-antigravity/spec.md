@@ -36,8 +36,8 @@ Out:
 
 - [ ] AC-01: The server marks the refusal with a new `refusal: "personal_account_unsupported"` on the probe error. The reason stays `authentication_failed`, so routing still skips the instance. It matches the ACP error code or data `UNSUPPORTED_CLIENT` when present, and falls back to the message ("no longer supported for Gemini Code Assist for individuals" or "migrate to the Antigravity"). Unit tests cover both shapes. A plain `-32000` login error still classifies as `authentication_failed`.
 - [ ] AC-02: For that reason the provider snapshot reports `auth.status: "unauthenticated"` with a new optional `auth.refusal: "personal_account_unsupported"`. Older clients ignore it. Fallback and routing keep skipping the instance as they do today (`AcpRegistryDriver.ts:749`). It never shows as signed in.
-- [ ] AC-03: A sign-in flow that ends in this refusal publishes `phase: "failed"`, `retryable: false` and `refusal: "personal_account_unsupported"`. The message reads: "Google accepted the sign-in, but no longer serves Gemini CLI on personal Google accounts (free, Google AI Pro or Ultra). Use a Gemini API key or a Gemini Code Assist Standard or Enterprise licence, or add Antigravity."
-- [ ] AC-04: Settings and the Add provider dialog show "Installed on {machine}. Google refused this account for Gemini CLI." instead of "Not signed in yet". **Retry sign-in** is hidden for the browser method. **Use an API key** starts the agent's credentials (API-key) method. **About Antigravity** opens antigravity.google. Opening Add provider preset to Antigravity is a follow-up (D-03). A web test covers the state and both buttons.
+- [ ] AC-03: A sign-in flow that ends in this refusal publishes `phase: "failed"`, `retryable: false` and `refusal: "personal_account_unsupported"`. The message reads: "Google accepted the sign-in, but no longer serves Gemini CLI on personal Google accounts (free, Google AI Pro or Ultra). Sign in with a Gemini API key, Vertex AI, or a Gemini Code Assist Standard or Enterprise licence."
+- [ ] AC-04: Settings and the Add provider dialog show "Installed on {machine}. Google refused this account for Gemini CLI." instead of "Not signed in yet". **Retry sign-in** is hidden for the browser method. **Use an API key** starts the agent's credentials (API-key) method. Picking another method in the list (Vertex AI, a licensed Google login) still shows **Sign in**. Antigravity is not offered (D-03). A web test covers the state and both buttons.
 - [ ] AC-05: A thread turn on such an instance fails with the same plain sentence, with code `provider_account_refused` and `retryable: false`, not Google's raw text. Routing already skips the instance because its status is `unauthenticated`. A server test covers it.
 - [ ] AC-06: All new phrases exist in the nine locale files under `apps/web/src/i18n/phrases/providerSignIn/`.
 
@@ -64,7 +64,7 @@ Rejected:
 ### Defaulted (change any before sw-do)
 - D-01 Hide **Retry sign-in** for the refused Google method and keep the method picker → default (reversible)
 - D-02 Offer API key and Antigravity as the two actions, and mention the Code Assist licence only in text → default (reversible)
-- D-03 The Antigravity action is a link to antigravity.google; opening Add provider preset to Antigravity needs plumbing through five callers and is a follow-up → default (reversible)
+- D-03 No Antigravity action: its desktop app gives no working provider here and its terms forbid third-party tools on the Google sign-in (1450 research); the Antigravity provider path belongs to 1450 → default
 - D-04 Turn failures read only the already-chosen failure message, never other cause fields (ProviderFailure's privacy tests) → default
 ### Open
 - none
@@ -79,3 +79,7 @@ Rejected:
 
 ### T-03 Status line, actions and translations
 - AC: AC-04, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/providerSignInState.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/providerSignInState.logic.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/ProviderAuthenticationSection.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/providerSignIn/ | Test: cd apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/settings/providerSignInState.logic.test.ts
+
+## Delivery
+
+PR https://github.com/anton-abyzov/specwithcode/pull/828, merged as `32b4a28d7`. Neon review: round 1 changes requested, round 2 approve; one low finding left (stale `retryable` label after a failed method refresh). Release requested: joined run 45137865621.
