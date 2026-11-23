@@ -34,11 +34,11 @@ Out:
 
 ## Acceptance Criteria
 
-- [ ] AC-01: The server classifies the refusal into a new probe reason, `provider_refused_account`, separate from `authentication_failed`. It matches the ACP error code or data `UNSUPPORTED_CLIENT` when present, and falls back to the message ("no longer supported for Gemini Code Assist for individuals" or "migrate to the Antigravity"). Unit tests cover both shapes. A plain `-32000` login error still classifies as `authentication_failed`.
+- [ ] AC-01: The server marks the refusal with a new `refusal: "personal_account_unsupported"` on the probe error. The reason stays `authentication_failed`, so routing still skips the instance. It matches the ACP error code or data `UNSUPPORTED_CLIENT` when present, and falls back to the message ("no longer supported for Gemini Code Assist for individuals" or "migrate to the Antigravity"). Unit tests cover both shapes. A plain `-32000` login error still classifies as `authentication_failed`.
 - [ ] AC-02: For that reason the provider snapshot reports `auth.status: "unauthenticated"` with a new optional `auth.refusal: "personal_account_unsupported"`. Older clients ignore it. Fallback and routing keep skipping the instance as they do today (`AcpRegistryDriver.ts:749`). It never shows as signed in.
 - [ ] AC-03: A sign-in flow that ends in this refusal publishes `phase: "failed"`, `retryable: false` and `refusal: "personal_account_unsupported"`. The message reads: "Google accepted the sign-in, but no longer serves Gemini CLI on personal Google accounts (free, Google AI Pro or Ultra). Use a Gemini API key or a Gemini Code Assist Standard or Enterprise licence, or add Antigravity."
-- [ ] AC-04: Settings and the Add provider dialog show "Installed on {machine}. Google refused this account for Gemini CLI." instead of "Not signed in yet". **Retry sign-in** is hidden for the browser method. **Use an API key** opens the existing Gemini API-key credentials method. **Add Antigravity** opens Add provider on Antigravity for the same machine. A web test covers the state and both buttons.
-- [ ] AC-05: A thread turn on such an instance fails with the same plain sentence, as a structured `unavailable` (`signed_out`), not a generic error, so the track fallback moves on. A server test covers it.
+- [ ] AC-04: Settings and the Add provider dialog show "Installed on {machine}. Google refused this account for Gemini CLI." instead of "Not signed in yet". **Retry sign-in** is hidden for the browser method. **Use an API key** starts the agent's credentials (API-key) method. **About Antigravity** opens antigravity.google. Opening Add provider preset to Antigravity is a follow-up (D-03). A web test covers the state and both buttons.
+- [ ] AC-05: A thread turn on such an instance fails with the same plain sentence, with code `provider_account_refused` and `retryable: false`, not Google's raw text. Routing already skips the instance because its status is `unauthenticated`. A server test covers it.
 - [ ] AC-06: All new phrases exist in the nine locale files under `apps/web/src/i18n/phrases/providerSignIn/`.
 
 ## Approach
@@ -64,16 +64,18 @@ Rejected:
 ### Defaulted (change any before sw-do)
 - D-01 Hide **Retry sign-in** for the refused Google method and keep the method picker → default (reversible)
 - D-02 Offer API key and Antigravity as the two actions, and mention the Code Assist licence only in text → default (reversible)
+- D-03 The Antigravity action is a link to antigravity.google; opening Add provider preset to Antigravity needs plumbing through five callers and is a follow-up → default (reversible)
+- D-04 Turn failures read only the already-chosen failure message, never other cause fields (ProviderFailure's privacy tests) → default
 ### Open
 - none
 
 ## Tasks
 
 ### T-01 Classify the refusal on the server
-- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/server.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpRegistryProbe.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpRegistryProbe.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/Drivers/AcpRegistryDriver.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/provider/acp/AcpRegistryProbe.test.ts
+- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/server.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpRegistryProbe.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpRegistryProbe.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/Drivers/AcpRegistryDriver.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/providerAccountRefusal.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/providerAccountRefusal.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/acpRegistry.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/provider/acp/AcpRegistryProbe.test.ts
 
 ### T-02 Sign-in flow and turn start report the refusal
-- AC: AC-03, AC-05 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/providerSetup.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpRegistryAuth.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpRegistryAuth.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFailure.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/provider/acp/AcpRegistryAuth.test.ts
+- AC: AC-03, AC-05 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/providerSetup.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpRegistryAuth.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpRegistryAuth.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFailure.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ProviderAuthFlow.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/provider/acp/AcpRegistryAuth.test.ts
 
 ### T-03 Status line, actions and translations
 - AC: AC-04, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/providerSignInState.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/providerSignInState.logic.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/ProviderAuthenticationSection.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/providerSignIn/ | Test: cd apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/settings/providerSignInState.logic.test.ts
