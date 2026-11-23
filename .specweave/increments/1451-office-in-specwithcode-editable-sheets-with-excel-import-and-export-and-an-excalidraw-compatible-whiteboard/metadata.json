@@ -1,0 +1,12 @@
+{
+  "id": "1451-office-in-specwithcode-editable-sheets-with-excel-import-and-export-and-an-excalidraw-compatible-whiteboard",
+  "uuid": "6d1e78e0-01ce-4895-b5fe-da87a807a62b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-23T08:24:28.148Z",
+  "updated": "2026-11-23T08:24:28.148Z",
+  "lastActivity": "2026-11-23T08:24:28.148Z",
+  "title": "Office in SpecWithCode: editable sheets with Excel import and export, and an Excalidraw-compatible whiteboard",
+  "project": "specweave-umb"
+}
