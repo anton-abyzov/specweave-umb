@@ -102,13 +102,12 @@ Risks: a machine name that is also a common word in a report ("mini") could coun
 ## Decisions
 
 ### Asked
-- none
+- D-03 When to hide the button → only on facts about the thread itself (assistant chat, coordinator, a provider's own subagent); steps and tool use warn and never hide, because this button is the only way forward while the machine is down (Anton, November 23, 2026: "The best approach you recommend").
+- D-04 The screenshot's case → the button stays, with m4 suggested and a note on M5; the fixture is a `delegate_task` worker thread (Anton, November 23, 2026: "Yes, also go with recommended").
 
 ### Defaulted (change any before sw-do)
 - D-01 Button label → "Continue on…", never a machine name, even when one machine can take it; the chooser then has one Ready row (reversible).
 - D-02 Suggested row → the work's home, else the window's machine, else first by name. The window's machine is where the person sits; no "least busy" ranking (reversible).
-- D-03 (put to Anton in the report) Hide the button only on facts about the thread itself (assistant chat, coordinator, a provider's own subagent). Steps and tool use warn and never hide, because this button is the only way forward while the machine is down (reversible).
-- D-04 (put to Anton in the report) The screenshot's case keeps the button, with m4 suggested and a note on M5 (reversible; the alternative is to treat "waiting for your step" as a reason to hide it). The fixture is a `delegate_task` worker thread, as most coordinator-started threads are.
 - D-05 Verdict → computed in the window from cached data, no model call, no server field (reversible).
 - D-06 Related threads → listed with machine and state, opened by a press, never continued together (reversible).
 - D-07 No files comparison in the rows; one sentence says unpushed changes are not carried (reversible).
