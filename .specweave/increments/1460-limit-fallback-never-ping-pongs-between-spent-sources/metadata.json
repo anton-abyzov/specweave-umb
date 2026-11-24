@@ -1,0 +1,12 @@
+{
+  "id": "1460-limit-fallback-never-ping-pongs-between-spent-sources",
+  "uuid": "42c1e209-58ac-46d4-80c5-44ac7cf570f9",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-24T15:23:11.755Z",
+  "updated": "2026-11-24T15:23:11.755Z",
+  "lastActivity": "2026-11-24T15:23:11.755Z",
+  "title": "Limit fallback never ping-pongs between spent sources",
+  "project": "specweave-umb"
+}
