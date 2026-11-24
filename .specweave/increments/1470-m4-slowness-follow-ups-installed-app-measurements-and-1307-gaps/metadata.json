@@ -1,0 +1,13 @@
+{
+  "id": "1470-m4-slowness-follow-ups-installed-app-measurements-and-1307-gaps",
+  "uuid": "414e89cc-6c2f-4692-ab1e-4d1b441b4556",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-24T16:34:32.605Z",
+  "updated": "2026-11-24T16:34:32.605Z",
+  "lastActivity": "2026-11-24T16:34:32.614Z",
+  "title": "M4 slowness follow-ups: installed-app measurements and the 1307 gaps",
+  "project": "specweave-umb",
+  "parent": "1305-m4-slowness-app-side-fixes-indexer-loop-window-cpu-trace-volume-idle-clis-slow-queries-check-gate-clone-cleanup"
+}

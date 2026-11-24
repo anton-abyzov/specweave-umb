@@ -5,11 +5,14 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-12T02:28:18.214Z",
-  "updated": "2026-11-12T05:10:04.764Z",
-  "lastActivity": "2026-11-12T05:10:04.764Z",
+  "updated": "2026-11-24T16:47:40.176Z",
+  "lastActivity": "2026-11-24T16:47:40.176Z",
   "title": "M4 slowness: app-side fixes (indexer loop, window CPU, trace volume, idle CLIs, slow queries, check gate, clone cleanup)",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
