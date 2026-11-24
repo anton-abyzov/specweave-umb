@@ -1,0 +1,16 @@
+{
+  "id": "1352-overview-readable-task-rows-understandable-machines-projects-before-the-assistant",
+  "uuid": "70bd2876-32b4-4783-a0d7-115fef8c4841",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T03:53:20.578Z",
+  "updated": "2026-11-15T05:39:45.447Z",
+  "lastActivity": "2026-11-15T05:39:45.447Z",
+  "title": "Overview: readable task rows, understandable machines, projects before the assistant",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {}
+}

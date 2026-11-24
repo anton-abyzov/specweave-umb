@@ -1,0 +1,12 @@
+{
+  "id": "1358-prevent-runaway-specwithcode-database-snapshots",
+  "uuid": "a4a7c70f-b1e3-42b7-ba43-d4bcbd9a57a9",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-23T06:13:42.452Z",
+  "updated": "2026-11-23T06:21:58.887Z",
+  "lastActivity": "2026-11-23T06:21:58.887Z",
+  "title": "Prevent runaway SpecWithCode database snapshots",
+  "project": "specweave"
+}

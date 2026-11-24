@@ -1,0 +1,64 @@
+{
+  "id": "0875-studio-publish-rebase-and-model",
+  "name": "studio-publish-rebase-and-model",
+  "title": "Studio publish: auto-reconcile non-fast-forward pushes + show/use the default model",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "testMode": "TDD",
+  "created": "2026-06-16",
+  "repos": [
+    "repositories/anton-abyzov/vskill"
+  ],
+  "summary": "Fix two Skill Studio publish-drawer problems: (1) 'Publish failed … non-fast-forward' — the commit+push handler now auto pull --rebase --autostash and retries the push, surfacing real conflicts clearly instead of dumping the raw git error; (2) 'Generate with AI' now uses AND displays the studio's selected default model.",
+  "externalLinks": {
+    "github": {
+      "issues": {
+        "US-001": {
+          "issueNumber": 1899,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1899",
+          "status": "active"
+        },
+        "US-002": {
+          "issueNumber": 1900,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1900",
+          "status": "active"
+        },
+        "US-003": {
+          "issueNumber": 1901,
+          "issueUrl": "https://github.com/anton-abyzov/specweave/issues/1901",
+          "status": "active"
+        }
+      },
+      "milestone": 256,
+      "syncedAt": "2026-06-16T21:12:51.175Z"
+    }
+  },
+  "lastActivity": "2026-06-16T21:12:26.979Z",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-06-16T21:07:16.222Z",
+  "approvedAt": "2026-06-16T21:12:26.979Z",
+  "github": {
+    "issues": [
+      {
+        "userStory": "US-001",
+        "number": 1899,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1899",
+        "createdAt": "2026-06-16T21:12:37.562Z"
+      },
+      {
+        "userStory": "US-002",
+        "number": 1900,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1900",
+        "createdAt": "2026-06-16T21:12:44.392Z"
+      },
+      {
+        "userStory": "US-003",
+        "number": 1901,
+        "url": "https://github.com/anton-abyzov/specweave/issues/1901",
+        "createdAt": "2026-06-16T21:12:51.175Z"
+      }
+    ],
+    "lastSync": "2026-06-16T21:12:51.175Z"
+  }
+}
