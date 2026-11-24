@@ -32,7 +32,7 @@ Read existing specs and source, inventory only selected artifact directories wit
 ### T-03 Independent review and reconciliation
 - AC: AC-04 | Files: reports/neon-review.md, reports/research.md | Test: verify reviewer receipt and respond to each finding
 
-Verify and close 1435 after review and owner acceptance.
+Verify and close 1464 after review and owner acceptance.
 
 ## Scoped acceptance and limits
 On November 20, 2026, the requester acknowledged receipt and authorized recording acceptance of the research deliverable using the existing independent Neon receipt. This is not self-certification or acceptance of a wider implementation. Neon round 2 returned ship for research at supported high effort (requested xhigh). Its three medium documentation findings were subsequently corrected by the author; those changes are documented in reports/research.md, not claimed as independently re-reviewed. Remote availability, native Office application round-trip fidelity and full live ownership reconciliation remain unverified. No implementation, publication, grants, sync or deletion is accepted by this research receipt. The parent must record delivery because a thread and its descendants cannot record that thread's own delivery.
