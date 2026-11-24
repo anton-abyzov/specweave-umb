@@ -3,3 +3,5 @@
 {"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-24T13:42:40.255Z","evidence":"bd7e81927ae3413e3800b4311566b7c4113745b6; 437 web and 16 walker tests; web build; 9 headless card checks\nHEAD 7a5d86045e"}
 {"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-24T13:42:40.983Z"}
 {"t":"*","e":"note","by":"claude@antons-macbook-m4max","at":"2026-11-24T13:46:40.501Z","note":"review by claude-opus-5-5 (claude) at bd7e81927ae3: ship · reports/reviews/review-claude-opus-5-5-1.md","model":"claude-opus-5-5[1m]"}
+{"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-11-24T13:51:04.671Z","note":"review by claude-opus-5-5 (claude) at b50aad60ef9e: ship · reports/reviews/review-claude-opus-5-5-2.md"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-24T14:00:30.219Z","evidence":"App PR #866 merged at c7663aba9f7e15af8124cdf866ddafb32f2ccad8; exact-head CI 45407371499 and Claude Opus 5.5 round 2; reports/onboarding-status.md\nHEAD d7a96a1e39"}
