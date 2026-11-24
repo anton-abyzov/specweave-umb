@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-23T17:38:24.478Z",
-  "updated": "2026-11-24T05:26:27.534Z",
-  "lastActivity": "2026-11-24T05:26:27.534Z",
+  "updated": "2026-11-24T07:58:07.592Z",
+  "lastActivity": "2026-11-24T07:58:07.592Z",
   "title": "SpecWeave setup finds Node.js on Windows",
   "project": "specweave-umb",
   "repositories": [

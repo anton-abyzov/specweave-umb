@@ -23,7 +23,7 @@ Out: the web card's wording, and Machine basics (its lookup reads the host envir
 - [x] AC-02: The server's config provider reads `process.env` live: a variable set or changed after the provider was made is read on the next lookup.
 - [x] AC-03: SpecWeave setup reads PATH on each press, so a `specweave` (or `node`) that appears on PATH after the service started is found without a restart, and Retry clears the Node.js card.
 - [x] AC-04: On Windows, SpecWeave setup also looks in `%ProgramFiles%\nodejs`, `NVM_SYMLINK` and `%LOCALAPPDATA%\Volta\bin` when they are not on PATH.
-- [ ] AC-05: After the release reaches win, the Board card there no longer says Node.js is missing.
+- [x] AC-05: After the release reaches win, the Board card there no longer says Node.js is missing.
 
 ## Approach
 
