@@ -48,6 +48,8 @@ Everything else PR 851 built stays: the own-machine sync policy, peer settings s
 
 - The phone's behaviour is proven in the simulator and by tests, not on the owner's iPhone.
 - The trust boundary rests on the owner's own grants; a machine the owner wrongly confirmed and that holds an own grant would receive Percy's memory.
+- The server cannot ask SpecWithCode Connect which machines belong to its account: the relay lists them only for the user's sign-in token, which a server does not hold. So a peer's Connect user id is its own word and can only refuse; memory goes to a peer only when this machine's owner listed it in the switch or a seat already linked here vouches for it. In the window, Settings pre-ticks only machines the relay lists under the signed-in account.
+- A linked seat whose Connect link cannot be read pauses sync and stays a member; it never leaves or merges again on its own.
 - The second release (chat copies) ships after the first; until then a chat is unreadable while its machine is off.
 
 ## Problem
