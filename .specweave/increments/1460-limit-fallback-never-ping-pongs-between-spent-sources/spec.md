@@ -51,9 +51,12 @@ Risk: a source whose refusal was transient now waits up to 60 minutes. A complet
 - D-01 Unknown-reset backoff 60 minutes (owner asked for "a backoff"; the old no-usage hold used 5 hours, which parks a transient refusal too long).
 - D-02 Hop cap 4 per chain; after it the thread parks on the existing card instead of a new one.
 - D-03 Holds are per instance and model, not per instance.
-- D-04 (review round 1) After parking, the project's machine handoff may still move the thread to another machine. The owner's brief lists "another machine" as an allowed single action; the move ends the loop on this machine.
+- D-04 (review round 2, replaces round 1's) A parked chain makes no automatic move of any kind, including a handoff to another machine. The card's "Continue on …" is the one way to another machine. Round 1 allowed one handoff after parking, but the chain lives on one machine and the arrived thread is a new thread there, so "once" could not be enforced across machines.
 - D-05 (review round 1) A fresh usage read releases a hold only on Claude and Codex, whose reads cover each model. Resellers (Copilot, Cursor, ACP agents) are released only by a completed run or the hold's end.
 - D-06 (review round 1) The holds are shared process-wide, so a coordinator turn and a worker launch skip a held source too, not only the fallback sweep.
+- D-07 (review round 2) A hop counts when the stopped run was started by the sweep's continuation of the previous stop, directly or as `limit-fallback:<thread>:hop-N:<stop>` after a target that could not open (parsed with `fallbackMove`).
+- D-08 (review round 2) A read releases a Claude or Codex hold only if it is a usage read (not unavailable) taken after the stop that reads that model's percent. The release is recorded, so the old stop never holds again.
+- D-09 (review round 2) The web names a refusal with the server's own rule (`isUsageLimitReply`, `packages/shared/src/usageLimitReply.ts`). For "resolved", text from a run that itself stopped on a limit counts only when it is longer than any notice (400 characters), or when the run did tool work.
 ### Open
 - none
 
