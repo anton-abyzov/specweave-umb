@@ -5,8 +5,9 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-13T22:10:54.891Z",
-  "updated": "2026-11-13T22:10:54.891Z",
-  "lastActivity": "2026-11-13T22:10:54.891Z",
+  "updated": "2026-11-14T01:13:32.100Z",
+  "lastActivity": "2026-11-14T01:13:32.100Z",
   "title": "Cross-machine actions name who acts, servers refuse ungranted destinations, new devices need approval",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {}
 }

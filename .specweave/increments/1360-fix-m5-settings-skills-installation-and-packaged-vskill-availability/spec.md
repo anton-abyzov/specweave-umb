@@ -48,3 +48,6 @@ Independent adversarial review: codex/gpt-6.2-sol, explicitly requested. No subs
 
 ### T-06 Bound installer process termination
 - AC: AC-03, AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/processRunner.ts | Test: packaged installer regression with an npm leader ignoring SIGTERM and immediate retry
+
+### T-07 Fix strict typecheck findings in installer boundary
+- AC: AC-03, AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/machineTools/vskillTool.ts, repositories/anton-abyzov/specwithcode/apps/server/src/machineTools/vskillTool.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/SkillUpdateRpc.ts | Test: strict typecheck gate plus focused installer and SkillUpdate suites

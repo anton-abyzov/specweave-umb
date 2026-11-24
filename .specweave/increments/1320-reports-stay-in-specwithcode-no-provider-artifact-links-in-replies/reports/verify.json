@@ -1,9 +1,9 @@
 {
-  "ok": false,
+  "ok": true,
   "strictClose": {
     "errors": []
   },
-  "ranAt": "2026-11-13T21:12:44.898Z",
+  "ranAt": "2026-11-14T03:16:42.784Z",
   "increment": "1320-reports-stay-in-specwithcode-no-provider-artifact-links-in-replies",
   "commands": [
     {
@@ -20,7 +20,7 @@
     },
     {
       "cmd": "python3 scripts/release/timing.py --self-test",
-      "exit": 1,
+      "exit": 0,
       "cwd": ".",
       "source": "config testing.commands"
     },
