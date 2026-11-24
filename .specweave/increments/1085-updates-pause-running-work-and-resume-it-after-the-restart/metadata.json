@@ -1,15 +1,17 @@
 {
   "id": "1085-updates-pause-running-work-and-resume-it-after-the-restart",
   "uuid": "f5a73b5d-770a-4244-8a9e-6b32d2d46064",
-  "status": "active",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-26T17:17:36.611Z",
-  "updated": "2026-10-26T17:17:36.611Z",
-  "lastActivity": "2026-10-26T17:17:36.611Z",
+  "updated": "2026-11-24T17:54:23.293Z",
+  "lastActivity": "2026-11-24T17:54:23.293Z",
   "title": "Updates pause running work and resume it after the restart",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "abandonedReason": "Superseded by 1304 (completed November 11): code shipped in v1.0.95 (b84760b35), 1304 made pausing an opt-in setting off by default. Owner, November 24, 2026: yes, do what's recommended.",
+  "abandonedAt": "2026-11-24T17:54:23.293Z"
 }

@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-24T06:36:20.467Z",
-  "updated": "2026-11-24T06:43:36.635Z",
-  "lastActivity": "2026-11-24T06:43:36.635Z",
+  "updated": "2026-11-24T15:48:54.205Z",
+  "lastActivity": "2026-11-24T15:48:54.205Z",
   "title": "Keep awake respects battery and counts only this machine's work",
   "project": "specweave-umb",
   "repositories": [

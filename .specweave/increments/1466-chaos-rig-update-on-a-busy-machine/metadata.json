@@ -1,0 +1,12 @@
+{
+  "id": "1466-chaos-rig-update-on-a-busy-machine",
+  "uuid": "b067d7df-2b36-413d-a165-2b48d06c5faa",
+  "status": "planned",
+  "type": "experiment",
+  "priority": "P1",
+  "created": "2026-11-24T15:57:13.588Z",
+  "updated": "2026-11-24T15:57:13.588Z",
+  "lastActivity": "2026-11-24T15:57:13.588Z",
+  "title": "Chaos rig: update on a busy machine",
+  "project": "specweave-umb"
+}

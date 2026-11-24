@@ -1,0 +1,262 @@
+{
+  "ok": true,
+  "strictClose": {
+    "errors": []
+  },
+  "ranAt": "2026-11-24T15:50:14.203Z",
+  "increment": "1092-refresh-and-revalidate-folder-copy-scans",
+  "commands": [
+    {
+      "cmd": "python3 scripts/fleet-project-sync.py --self-test",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "python3 -m unittest discover -s tests -p test_handoff_evidence.py",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "python3 scripts/release/timing.py --self-test",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "python3 scripts/fleet-project-sync.py --self-test",
+      "exit": 0,
+      "cwd": ".",
+      "source": "explicit"
+    },
+    {
+      "cmd": "python3 -m unittest discover -s tests -p test_handoff_evidence.py",
+      "exit": 0,
+      "cwd": ".",
+      "source": "explicit"
+    },
+    {
+      "cmd": "python3 scripts/release/timing.py --self-test",
+      "exit": 0,
+      "cwd": ".",
+      "source": "explicit"
+    }
+  ],
+  "acs": {
+    "total": 7,
+    "done": 6,
+    "skippedAccepted": 1,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          },
+          {
+            "id": "T-10",
+            "status": "done"
+          },
+          {
+            "id": "T-11",
+            "status": "done"
+          },
+          {
+            "id": "T-12",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-03",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          },
+          {
+            "id": "T-10",
+            "status": "done"
+          },
+          {
+            "id": "T-12",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-04",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-03",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "skipped"
+          },
+          {
+            "id": "T-08",
+            "status": "done"
+          },
+          {
+            "id": "T-09",
+            "status": "skipped"
+          },
+          {
+            "id": "T-10",
+            "status": "done"
+          },
+          {
+            "id": "T-12",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-05",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-05",
+            "status": "done"
+          },
+          {
+            "id": "T-08",
+            "status": "done"
+          },
+          {
+            "id": "T-11",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-06",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-06",
+            "status": "skipped"
+          },
+          {
+            "id": "T-09",
+            "status": "skipped"
+          }
+        ],
+        "acceptance": "skipped-accepted",
+        "waivers": [
+          {
+            "check": "Ministorm migration through supported controls with screenshots",
+            "reason": "Superseded: Ministorm has run the specweave project since the real M4 to ministorm move on released 1.0.110 (increment 1117, evidence ~/.specwithcode/m4/evidence/handoff-ux/real-move-1.0.110-run2), and 1390 Sync and Add replaced this copy flow. No migration performed, nothing discarded. Untested: the October 27 reconciliation, integrity and continuation screenshots for this flow were never captured. Basis: Anton's standing rule feedback_use_recommended_options (November 22, 2026), applied by the coordinator on November 24, 2026.",
+            "acceptedBy": "Anton (standing rule)",
+            "acceptedAt": "2026-11-24T15:30:49.719Z",
+            "authorization": "\"Do use all recommended. Where you wanted me to ask, just use recommended. That's my confirmed approach.\" (Anton, November 22, 2026, memory feedback_use_recommended_options); recommended option 'Skipped (accepted), superseded' applied by the coordinator, November 24, 2026",
+            "by": "claude@anton-m5max-proled",
+            "at": "2026-11-24T15:30:49.721Z"
+          }
+        ]
+      },
+      {
+        "id": "AC-07",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-12",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 12,
+    "done": 10,
+    "skipped": 2,
+    "open": 0
+  },
+  "skipped": [
+    {
+      "id": "T-06",
+      "by": "claude@anton-m5max-proled",
+      "reason": "Superseded: Ministorm has run the specweave project since the real M4 to ministorm move on released 1.0.110 (increment 1117, evidence ~/.specwithcode/m4/evidence/handoff-ux/real-move-1.0.110-run2), and 1390 Sync and Add replaced this copy flow. No migration performed, nothing discarded. Untested: the October 27 reconciliation, integrity and continuation screenshots for this flow were never captured. Basis: Anton's standing rule feedback_use_recommended_options (November 22, 2026), applied by the coordinator on November 24, 2026."
+    },
+    {
+      "id": "T-09",
+      "by": "claude@anton-m5max-proled",
+      "reason": "Duplicate closing task of T-03; its migration gate is T-06, skipped as superseded. Superseded: Ministorm has run the specweave project since the real M4 to ministorm move on released 1.0.110 (increment 1117, evidence ~/.specwithcode/m4/evidence/handoff-ux/real-move-1.0.110-run2), and 1390 Sync and Add replaced this copy flow. No migration performed, nothing discarded. Untested: the October 27 reconciliation, integrity and continuation screenshots for this flow were never captured. Basis: Anton's standing rule feedback_use_recommended_options (November 22, 2026), applied by the coordinator on November 24, 2026."
+    }
+  ],
+  "acceptedSkips": [
+    {
+      "ac": "AC-06",
+      "check": "Ministorm migration through supported controls with screenshots",
+      "reason": "Superseded: Ministorm has run the specweave project since the real M4 to ministorm move on released 1.0.110 (increment 1117, evidence ~/.specwithcode/m4/evidence/handoff-ux/real-move-1.0.110-run2), and 1390 Sync and Add replaced this copy flow. No migration performed, nothing discarded. Untested: the October 27 reconciliation, integrity and continuation screenshots for this flow were never captured. Basis: Anton's standing rule feedback_use_recommended_options (November 22, 2026), applied by the coordinator on November 24, 2026.",
+      "acceptedBy": "Anton (standing rule)",
+      "acceptedAt": "2026-11-24T15:30:49.719Z",
+      "authorization": "\"Do use all recommended. Where you wanted me to ask, just use recommended. That's my confirmed approach.\" (Anton, November 22, 2026, memory feedback_use_recommended_options); recommended option 'Skipped (accepted), superseded' applied by the coordinator, November 24, 2026",
+      "by": "claude@anton-m5max-proled",
+      "at": "2026-11-24T15:30:49.721Z"
+    }
+  ],
+  "ledgerMalformed": 0
+}

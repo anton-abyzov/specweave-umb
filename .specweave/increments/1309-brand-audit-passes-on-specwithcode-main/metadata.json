@@ -1,15 +1,20 @@
 {
   "id": "1309-brand-audit-passes-on-specwithcode-main",
   "uuid": "c7492903-cc06-463c-8048-422ea4e6d38f",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-12T13:00:49.177Z",
-  "updated": "2026-11-13T20:24:39.605Z",
-  "lastActivity": "2026-11-13T20:24:39.605Z",
+  "updated": "2026-11-24T18:55:20.379Z",
+  "lastActivity": "2026-11-24T18:55:20.379Z",
   "title": "Brand audit passes on specwithcode main",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "readyForReviewAt": "2026-11-24T18:55:20.378Z",
+  "approvedAt": "2026-11-24T18:55:20.379Z"
 }

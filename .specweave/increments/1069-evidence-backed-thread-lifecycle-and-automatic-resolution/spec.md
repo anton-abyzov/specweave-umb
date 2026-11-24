@@ -31,6 +31,7 @@ The verified-delivery follow-up applies still-current receipts from the existing
 
 ## Decisions
 ### Asked
+- D-12: Anton chose to close 1069 with `LifecycleEvidenceActivation` left off (November 24, 2026, board triage: "yes, do what's recommended"). Activation is not part of this increment; closure still needs the remaining tasks checked against main, verify and a review record on m4.
 - D-11: Anton chose to keep PR #708's version (77260fe25e, 957bffb0e4) and port the missing fixes onto it (2026-10-26). Evidence-gated automatic settlement stays behind the server-side default-off `LifecycleEvidenceActivation` flag; receipts are recorded, shown and resolve threads either way. T-01 is skipped (no owner inventories or receipts exist); T-04 installed acceptance waits on the next release.
 - D-10: 1070 ships its dependency seam behind a server-side default-off flag after exact-head SHIP and green CI. Only 1069/#708 may activate it with integrated acceptance checks; unrelated releases remain unblocked.
 - D-08: 1070 owns concurrent changes to ProjectionStore.ts, Orchestrator.ts, DeferredThreadResolution.ts and thread MCP handlers/tools. Sequence 1069 shared persistence changes after its merge; coordinate receipt contracts before editing overlapping files.
