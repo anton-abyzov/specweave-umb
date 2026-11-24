@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-24T04:48:51.908Z",
-  "updated": "2026-11-24T05:09:33.803Z",
-  "lastActivity": "2026-11-24T05:09:33.803Z",
+  "updated": "2026-11-24T05:33:23.973Z",
+  "lastActivity": "2026-11-24T05:33:23.973Z",
   "title": "ACP Registry usage by agent and model, and a working Effectiveness view",
   "project": "specweave-umb",
   "repositories": [
