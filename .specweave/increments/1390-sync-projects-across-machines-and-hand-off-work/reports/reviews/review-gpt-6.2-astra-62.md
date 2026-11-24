@@ -1,0 +1,11 @@
+<!-- specweave review: reviewer=gpt-6.2-astra model=gpt-6.2-astra family=openai author=claude depth=standard repo=repositories/anton-abyzov/specwithcode base=8ad73fe68f10f3d4afcfd76b3a6948ca4944a0f8 head=d0ee933c6a6591cbef2330adb306472bd8b3c241 at=2026-11-19T16:21:07.654Z -->
+FIX FIRST
+Verdict: fix first
+
+Reviewed `d0ee933c6a6591cbef2330adb306472bd8b3c241` against `ce39d9ce7e8f3e6021e3c69e68ed32157ba93236`. Citations below are Git objects under `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/server/src/handoff/`.
+
+1. **Partly closed [high]: Ready after downgrade.** A v2-only peer now gets no status query (`HandoffTransferRunner.ts:616-633`). But if it first loses v2 as well, lines 600-607 persist `sequence: null`. Subsequent ticks go straight to legacy status at lines 585-587 and 491-499, even when the peer returns on a v2-only build. At `bf30578fa`, `HandoffTransferStore.ts:336-338` finds the original acceptance by lineage even with a null operation ID, and `HandoffReceiver.ts:1379-1392` finishes the cut launch without the Ready disposition. Preserve the sequence and check batch support before legacy fallback.
+
+2. **Partly closed [high]: folder replay.** Recovery checks capabilities. But before the receipt, the journal stores only path, kind and branch; an uncommitted item has no snapshot identity (`HandoffBatch.ts:464-479`). A crash after delivery leaves the row failed with no way to identify the landed snapshot (`HandoffBatch.ts:449-458`). A pending row from the previous head has no journal at all, even if its send completed (`ce39d9ce7:HandoffBatch.ts:832-845`); on a capable peer recovery re-inventories and may send later edits or claim nothing moved (`HandoffBatch.ts:1103-1115,461-475`). Persist the snapshot ref before sending or reconcile the original receipt; never treat an unversioned pending row as proof of no send.
+
+No separate new blocker. `f713619b6` changes only `HandoffBatchRecovery.test.ts`; lines 522-560 exercise the accepted-before-launch v2-only cut using a simulated downgrade, and lines 729-841 cover folder capability, receipts and interrupted sends. Tests were inspected, not run. `HandoffMoves.ts`: 1,371 lines; `HandoffReceiver.ts`: 1,475.

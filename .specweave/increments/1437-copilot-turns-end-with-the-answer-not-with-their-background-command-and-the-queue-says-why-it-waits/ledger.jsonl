@@ -1,0 +1,3 @@
+{"t":"*","e":"session","by":"claude@antonm5axproled","at":"2026-11-20T19:09:28.139Z","note":"session 52392b46-9beb-4bec-a12e-a5353180f826","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antonm5axproled","at":"2026-11-20T19:09:28.139Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"done","by":"claude@antonm5axproled","at":"2026-11-20T19:09:28.140Z","evidence":"test -s .specweave/increments/1437-copilot-turns-end-with-the-answer-not-with-their-background-command-and-the-queue-says-why-it-waits/reports/copilot-acp-probe.md → exit 0\nlog: .specweave/increments/1437-copilot-turns-end-with-the-answer-not-with-their-background-command-and-the-queue-says-why-it-waits/reports/task-T-01.txt\nHEAD d6eba1516","model":"claude-fable-5-2[1m]"}

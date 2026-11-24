@@ -1,0 +1,12 @@
+{
+  "id": "1462-adversarial-review-of-stream-clips-wave-3-scripts",
+  "uuid": "7103868e-401e-445e-a77d-37a08c760e83",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-24T08:43:18.928Z",
+  "updated": "2026-11-24T08:43:24.480Z",
+  "lastActivity": "2026-11-24T08:43:24.480Z",
+  "title": "Adversarial review of stream clips wave 3 scripts",
+  "project": "specweave-umb"
+}

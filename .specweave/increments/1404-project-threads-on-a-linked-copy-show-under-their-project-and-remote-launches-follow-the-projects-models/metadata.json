@@ -1,0 +1,18 @@
+{
+  "id": "1404-project-threads-on-a-linked-copy-show-under-their-project-and-remote-launches-follow-the-projects-models",
+  "uuid": "e740b7c6-4ab4-409f-95d6-4a83a854ac27",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T08:29:17.594Z",
+  "updated": "2026-11-18T11:20:35.263Z",
+  "lastActivity": "2026-11-18T11:20:35.263Z",
+  "title": "Project threads on a linked copy show under their project, and remote launches follow the project's models",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-18T11:20:35.262Z",
+  "approvedAt": "2026-11-18T11:20:35.263Z"
+}

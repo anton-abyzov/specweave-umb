@@ -239,3 +239,9 @@ ENTERPRISE-PRIVATE-SKILLS-TEST-REPORT.md
 .specweave/reports/twitter-replies/
 .specweave/reports/seo-measured-data.md
 .specweave/reports/**/*.png
+
+# Thread reports, sheets, designs and system skills written by SpecWithCode stay on the machine (public repo)
+.specweave/reports/threads/
+.specweave/artifacts/
+.specweave/design/
+skills/system/

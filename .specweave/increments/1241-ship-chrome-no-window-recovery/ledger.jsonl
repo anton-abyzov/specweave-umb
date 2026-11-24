@@ -1,3 +1,9 @@
 {"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-05T11:50:20.714Z","note":"session 01a1ab89-ab62-76a3-9d4d-6691070d9308"}
 {"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-05T11:50:20.715Z"}
 {"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-05T11:50:20.716Z","evidence":"Extension tests 13 passed; recovery and error preservation verified\nHEAD 68f31c671"}
+{"t":"*","e":"session","by":"claude@minisforum","at":"2026-11-20T19:57:34.868Z","note":"session 1453e101-bb7e-4f8b-b6a9-56a877afd6ee","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@minisforum","at":"2026-11-20T19:57:34.870Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@minisforum","at":"2026-11-20T19:57:34.871Z","evidence":"specwithcode-dev PR #1419 merged 1e1b34c8 (extension 1.0.6), in app v1.0.198; Chrome Web Store item okoinngelinfjfkmkcnbgndapeiofgbb serves 1.0.7 (checked November 20, 2026)\nHEAD 1d477c6a","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@minisforum","at":"2026-11-20T19:57:35.670Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@minisforum","at":"2026-11-20T19:57:35.673Z","evidence":"Verify and close: PR #1419 merged 1e1b34c8, released v1.0.198, store 1.0.7\nHEAD 1d477c6a","model":"claude-opus-5-5[1m]"}
+{"t":"*","e":"note","by":"claude@minisforum","at":"2026-11-20T20:01:21.815Z","note":"review by gemini-4-neon (Copilot Enterprise on m4) at specwithcode 4b8220a64: ship; no findings","model":"claude-opus-5-5[1m]"}

@@ -1,0 +1,4 @@
+$ test $(grep -c '10 quiet minutes' /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1374-muse-code-threads-on-full-access-keep-full-access-after-a-resume/reports/2026-11-17-what-the-screenshot-shows-c2b8f2-d297cd.md) = 0 && test $(grep -c 'published release is not an installed one' repositories/anton-abyzov/specwithcode/docs/studio/releasing.md) = 1 && echo both-hold
+# exit 0 — 2026-11-17T12:17:55.313Z
+
+both-hold

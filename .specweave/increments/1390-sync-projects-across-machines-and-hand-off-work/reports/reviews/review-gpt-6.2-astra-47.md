@@ -1,0 +1,27 @@
+<!-- specweave review: reviewer=gpt-6.2-astra model=gpt-6.2-astra family=openai author=claude depth=standard repo=repositories/anton-abyzov/specwithcode base=8ad73fe68f10f3d4afcfd76b3a6948ca4944a0f8 head=bf30578fab35cfd50eb8a190ce1c1a537c61c551 at=2026-11-19T15:33:57.745Z -->
+FIX FIRST
+Verdict: fix first
+
+Reviewed `anton-abyzov/specwithcode#702`, T-10, at `bf30578fab35cfd50eb8a190ce1c1a537c61c551`. Four high findings closed; one partly closed. The remaining failure is a manual handoff to a machine that has no matching track.
+
+## Round 1 dispositions
+
+1. **Closed · AC-38 · Named track on a fixed-model target.** `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/server/src/handoff/HandoffReceiver.ts:656` passes no entries for a fixed-model project. `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/server/src/handoff/handoffPlan.ts:211` now refuses a named track in that case, for either start.
+2. **Partly closed · high · AC-38 · Ambiguous source track.** `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/server/src/handoff/handoffPlan.ts:883` honors the routing decision. Without one, a model on both Daily and Complex gets `{ track: null, ambiguous: true }`. At line 741 only an *automatic* handoff stays. By hand, line 208 treats that null as genuinely untracked. A fixed-model target with the same model signed in can therefore qualify despite offering **neither** possible track. In an in-memory probe of the reviewed functions, with passing grant, provider and usage checks, the receiver returned `failures: []` and the running thread's row returned `ticked: true, disposition: "resume"`. `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/server/src/handoff/handoffPlan.test.ts:735` expects that manual Resume. AC-38 permits a manual exception for account or usage evidence, not for track membership. Keep the row under Stays for both starts until its track can be established; retain model-only fallback for genuinely untracked threads.
+3. **Closed · AC-22, AC-38 · Depleted pool on another provider.** `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/packages/shared/src/machineFallback.ts:288` checks the fingerprint against the entire depleted set. `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/server/src/handoff/handoffPlan.ts:287` prefers the next automatically eligible sign-in.
+4. **Closed · AC-19, AC-41 · Settled thread restarting.** `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/server/src/handoff/handoffPlan.ts:772` excludes settled threads from Resume regardless of the previous ending. A settled thread selected for its files is Ready; a waiting thread continuing after a limit stop can still Resume.
+5. **Closed · AC-17, AC-34 · Unmeasured rows.** `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/server/src/handoff/handoffPlan.ts:748` and line 813 put unmeasured thread and folder work under Stays, unticked and not selectable.
+
+## Red evidence and scope
+
+GitHub identifies run `44551467653` as head `c5274848e663c25065a25ebe25ac5ff3d24e5dc0` (cancelled overall). `/Users/antonabyzov/.specwithcode/m4/scratch/2026-11-19-1390-t10/red-round-1-ci-44551467653.log` contains assertion failures for all five original defects: no refusal on a fixed-model target, Complex guessed instead of Daily or ambiguous, acceptance of the depleted pool, Resume instead of Ready, and an unmeasured row offered instead of Stays. The timeout and compatibility-list failure in the extract are not evidence for those fixes.
+
+`/Users/antonabyzov/.specwithcode/m4/scratch/2026-11-19-1390-t10/red-round-1.log` reports 13 failures and 61 passes against the pre-rebase source. Its planner (`085c1fac2736f7ecac826fa65e73e9c018516b1c`) and account (`a41cb77ca11af89c7e9f655c604bfb4f77e5387d`) test blobs match `c5274848` exactly. Its peer blob does **not**: logged `b051f66aa658025fc108f3878e0517e6d5a05181`, committed `a694311b2c68cb7a01cd25458b1f6baac998b55d`. The local peer pass is not proof for that committed blob. An assertion that failed first does not establish red for later assertions in the same test.
+
+The four-commit range-diff shows rebase context only. Reviewed `b5c7a3b9..bf30578f`, not the T-20 base. `git diff --check` passed. No checkout, install, build, suite run, source change or PR comment.
+
+## Round 1 follow-ups (non-blocking)
+
+- **Scratch-ref cleanup:** `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/server/src/handoff/handoffPlan.ts:427` acquires before entering cleanup; line 479 deletes only at the expected commit.
+- **Limit explanations:** `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/server/src/handoff/handoffPlan.ts:458` counts past the capped skips list; line 467 looks up historical blob size. If lookup fails, it still reports the limit plus one rather than a lower bound. Refusal is unaffected.
+- **Old target:** `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/server/src/handoff/handoffPeers.test.ts:289` now sends the check through the peer client, receives the previous release's HTTP 404 and asserts an unticked Needs update row.

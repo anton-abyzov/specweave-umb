@@ -1,13 +1,18 @@
 {
   "id": "1386-full-disk-access-per-machine-and-one-system-settings-drag-helper",
   "uuid": "936159ab-9a03-4bf9-b884-966c8ef67164",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T05:26:31.830Z",
-  "updated": "2026-11-18T05:26:31.830Z",
-  "lastActivity": "2026-11-18T05:26:31.830Z",
+  "updated": "2026-11-18T14:12:17.504Z",
+  "lastActivity": "2026-11-18T14:12:17.504Z",
   "title": "Full Disk Access per machine and one System Settings drag helper",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-18T14:12:17.503Z",
+  "approvedAt": "2026-11-18T14:12:17.504Z"
 }

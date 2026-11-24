@@ -1,15 +1,20 @@
 {
   "id": "1078-stabilize-project-badge-rendering-and-live-refresh",
   "uuid": "a0ca0973-4aa6-4f31-aa62-16eaaf879bab",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-26T03:20:46.100Z",
-  "updated": "2026-10-26T04:10:26.446Z",
-  "lastActivity": "2026-10-26T04:10:26.446Z",
+  "updated": "2026-11-21T04:11:39.944Z",
+  "lastActivity": "2026-11-21T04:11:39.944Z",
   "title": "Stabilize project badge rendering and live refresh",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "readyForReviewAt": "2026-11-21T04:11:39.943Z",
+  "approvedAt": "2026-11-21T04:11:39.944Z"
 }

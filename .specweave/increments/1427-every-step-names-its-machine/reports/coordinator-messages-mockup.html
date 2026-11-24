@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coordinator messages mockup</title>
+<style>
+  :root {
+    --bg: #f6f5f2; --panel: #ffffff; --ink: #1d1d1f; --muted: #6b6b70; --line: #e4e2dc;
+    --m5: #3b6fd8; --m5-soft: #e8effc; --lm: #0f8f7a; --lm-soft: #e2f4f0;
+    --warn: #b4560b; --warn-soft: #fdf1e5;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 14px/1.45 -apple-system, "SF Pro Text", "Inter", system-ui, sans-serif; color: var(--ink); background: var(--bg); }
+  .stage { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px; max-width: 1280px; margin: 0 auto; }
+  .caption { grid-column: 1 / -1; font-size: 13px; color: var(--muted); margin: 0 0 -8px; }
+  .caption b { color: var(--ink); }
+  .window { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05); }
+  .titlebar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: #fbfaf8; }
+  .dots { display: flex; gap: 6px; } .dots i { width: 10px; height: 10px; border-radius: 50%; background: #d9d7d1; display: block; }
+  .proj { font-weight: 600; }
+  .pill { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 500; }
+  .pill .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .pill.m5 { background: var(--m5-soft); color: var(--m5); } .pill.m5 .dot { background: var(--m5); }
+  .pill.lm { background: var(--lm-soft); color: var(--lm); } .pill.lm .dot { background: var(--lm); }
+  .spacer { flex: 1; }
+  .window-of { font-size: 12px; color: var(--muted); }
+  .conv { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 14px; }
+  .label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .label b { font-weight: 600; }
+  .label .m5c { color: var(--m5); } .label .lmc { color: var(--lm); }
+  .message { border: 1px solid var(--line); border-left: 4px solid var(--lm); border-radius: 10px; padding: 12px 14px; background: #fff; }
+  .message.out { border-left-color: var(--m5); background: #fcfdff; }
+  .message-head { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .message-head .from { font-weight: 600; }
+  .kind { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; padding: 1px 6px; border-radius: 4px; background: var(--warn-soft); color: var(--warn); font-weight: 600; }
+  .kind.finding { background: #eef0f3; color: #4b5563; }
+  .subject { font-weight: 600; margin: 0 0 4px; }
+  .text { margin: 0 0 10px; color: #333; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; font-size: 12px; background: #fafaf8; }
+  .chip .s { width: 7px; height: 7px; border-radius: 50%; } .s.fail { background: #d33; } .s.ok { background: #2a9d55; } .s.run { background: #e0a000; }
+  .chip .mach { font-weight: 600; } .chip .mach.m5 { color: var(--m5); } .chip .mach.lm { color: var(--lm); }
+  .step { display: flex; align-items: center; gap: 10px; border-radius: 8px; padding: 10px 12px; background: var(--m5-soft); border: 1px solid #c9d8f6; }
+  .step .on { font-weight: 700; color: var(--m5); white-space: nowrap; }
+  .step .what { flex: 1; }
+  .btn { border: 1px solid var(--m5); background: var(--m5); color: #fff; border-radius: 6px; padding: 5px 10px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .btn.ghost { background: #fff; color: var(--m5); }
+  .meta { font-size: 12px; color: var(--muted); margin-top: 8px; display: flex; gap: 10px; align-items: center; }
+  .merged { font-size: 11px; background: #f1f0ec; border-radius: 999px; padding: 1px 7px; color: #555; }
+  .reply { border-radius: 10px; padding: 10px 14px; background: #f7f7f5; }
+  .reply p { margin: 0; }
+  .re { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .fold { font-size: 12px; color: var(--muted); border: 1px dashed var(--line); border-radius: 8px; padding: 6px 10px; }
+  .state { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; }
+  .state.ans { color: #2a9d55; }
+  .user { align-self: flex-end; max-width: 80%; background: #1d1d1f; color: #fff; border-radius: 12px; padding: 8px 12px; }
+  .toast { grid-column: 1 / -1; display: flex; gap: 24px; align-items: flex-start; }
+  .notif { width: 380px; background: rgba(255,255,255,.96); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; box-shadow: 0 8px 24px rgba(0,0,0,.08); display: flex; gap: 10px; }
+  .notif .ico { width: 32px; height: 32px; border-radius: 8px; background: var(--m5); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 12px; }
+  .notif .t { font-weight: 600; } .notif .b { color: var(--muted); font-size: 12px; }
+  .legend { flex: 1; font-size: 12px; color: var(--muted); }
+  .legend li { margin-bottom: 3px; }
+  .stage > * { min-width: 0; }
+  .note-head { flex-wrap: wrap; }
+  code { overflow-wrap: anywhere; }
+  @media (max-width: 700px) {
+    .titlebar { flex-wrap: wrap; }
+    .stage { grid-template-columns: 1fr; padding: 12px; gap: 16px; }
+    .toast { flex-direction: column; } .notif { width: 100%; }
+    .step { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+  <p class="caption"><b>Left:</b> the window on M5, showing M5's coordinator, receives a message. <b>Right:</b> the window on linux-mini, showing linux-mini's coordinator, after sending it.</p>
+
+  <section class="window" aria-label="Window on M5">
+    <div class="titlebar">
+      <div class="dots"><i></i><i></i><i></i></div>
+      <span class="proj">specweave</span>
+      <span class="pill m5"><span class="dot"></span>Coordinator on M5</span>
+      <span class="spacer"></span>
+      <span class="window-of">Window: M5</span>
+    </div>
+    <div class="conv">
+      <div>
+        <div class="message" id="message-n-7f3a">
+          <div class="message-head">
+            <span class="pill lm"><span class="dot"></span><span class="from">From linux-mini's coordinator</span></span>
+            <span class="kind">Problem</span>
+            <span>5:44 PM</span>
+            <span class="merged">×2 · latest 5:44 PM</span>
+          </div>
+          <p class="subject">Codex sign-in expired on M5</p>
+          <p class="text">PS5 OBS stopped on M5 at 5:02 PM with <code>token_expired</code>. I retried once from linux-mini; it failed the same way. A sign-in on M5 fixes it, then a Continue in PS5 OBS.</p>
+          <div class="chips">
+            <span class="chip"><span class="s fail"></span>PS5 OBS · <span class="mach m5">M5</span> · failed ↗</span>
+            <span class="chip"><span class="s ok"></span>Codex token_expired on M5 · <span class="mach lm">linux-mini</span> ↗</span>
+            <span class="chip">Report · <span class="mach lm">linux-mini</span> · 6 KB</span>
+          </div>
+          <div class="step">
+            <span class="on">On M5:</span>
+            <span class="what">Sign in to Codex in Settings &gt; Providers</span>
+            <button class="btn">Open Settings on M5</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="label"><b class="m5c">Coordinator on M5</b> · Claude Code · Opus 5.5</div>
+        <div class="reply">
+          <div class="re">re: message from linux-mini ↗</div>
+          <p>Read PS5 OBS here: it fails on the Codex sign-in, nothing else. <b>On M5:</b> sign in to Codex in Settings &gt; Providers. I continue PS5 OBS as soon as the sign-in is back, and I told linux-mini's coordinator.</p>
+        </div>
+      </div>
+      <div class="fold">Results view: M5's status-only follow-up to this message folded</div>
+    </div>
+  </section>
+
+  <section class="window" aria-label="Window on linux-mini">
+    <div class="titlebar">
+      <div class="dots"><i></i><i></i><i></i></div>
+      <span class="proj">specweave</span>
+      <span class="pill lm"><span class="dot"></span>Coordinator on linux-mini</span>
+      <span class="spacer"></span>
+      <span class="window-of">Window: linux-mini</span>
+    </div>
+    <div class="conv">
+      <div class="user">Why did PS5 OBS stop?</div>
+      <div>
+        <div class="label"><b class="lmc">Coordinator on linux-mini</b> · Claude Code · Opus 5.5</div>
+        <div class="reply"><p>PS5 OBS runs on <b>M5</b> and failed there on an expired Codex sign-in. I sent the problem to M5's coordinator, which shows you the step on M5 and continues the thread after it.</p></div>
+      </div>
+      <div class="message out">
+        <div class="message-head">
+          <span class="pill m5"><span class="dot"></span><span class="from">To M5's coordinator</span></span>
+          <span class="kind">Problem</span>
+          <span>5:44 PM</span>
+          <span class="spacer"></span>
+          <span class="state ans">● Answered</span>
+        </div>
+        <p class="subject">Codex sign-in expired on M5</p>
+        <div class="meta">Step sent to M5's coordinator · Delivered 5:44 PM · Read 5:45 PM</div>
+      </div>
+      <div>
+        <div class="message" style="border-left-color: var(--m5)">
+          <div class="message-head">
+            <span class="pill m5"><span class="dot"></span><span class="from">From M5's coordinator</span></span>
+            <span class="kind finding">Reply</span>
+            <span>5:46 PM</span>
+          </div>
+          <p class="text" style="margin:0">Confirmed: only the Codex sign-in. I continue PS5 OBS after the owner signs in on M5. Nothing needed from linux-mini.</p>
+          <div class="meta">Reply to message: Codex sign-in expired on M5 ↗ · cannot be answered</div>
+        </div>
+      </div>
+      <div class="message out">
+        <div class="message-head">
+          <span class="pill m5"><span class="dot"></span><span class="from">To M5's coordinator</span></span>
+          <span class="kind finding">Finding</span>
+          <span>4:41 PM</span>
+          <span class="spacer"></span>
+          <span class="state" style="color:#b4560b">● Queued · M5 offline since 4:40 PM</span>
+        </div>
+        <p class="subject" style="margin:0">Flaky web test is a fixture clock, not the PR</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast">
+    <div class="notif" role="img" aria-label="Desktop and phone notification">
+      <div class="ico">M5</div>
+      <div><div class="t">On M5: sign in to Codex</div><div class="b">From linux-mini's coordinator · specweave</div></div>
+    </div>
+    <ul class="legend">
+      <li>Only a message with a step notifies; a merged repeat (×2) does not fire again.</li>
+      <li>Each machine keeps its own copy: incoming on M5, outgoing on linux-mini. Chips link across.</li>
+      <li>Colours: M5 blue, linux-mini teal, from <code>machineColorProps</code>.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

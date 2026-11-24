@@ -1,0 +1,9 @@
+$ cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/provider/StudioOrchestrationInstructions.test.ts src/mcp/AcpMcpStdioBridge.callFailure.test.ts 2>&1 | tail -6
+# exit 0 — 2026-11-17T12:17:54.575Z
+
+
+ Test Files  2 passed (2)
+      Tests  23 passed (23)
+   Start at  07:17:50
+   Duration  4.10s (import 59%, transform 40%, setup 1%, tests 1%)
+

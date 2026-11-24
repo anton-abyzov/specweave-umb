@@ -1,15 +1,20 @@
 {
   "id": "1327-new-connect-devices-need-one-approval-on-each-machine",
   "uuid": "3cd796b9-fe96-4191-a282-31f52036e288",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-13T22:25:28.597Z",
-  "updated": "2026-11-18T00:18:00.480Z",
-  "lastActivity": "2026-11-18T00:18:00.480Z",
+  "updated": "2026-11-19T11:48:02.239Z",
+  "lastActivity": "2026-11-19T11:48:02.239Z",
   "title": "New Connect devices need one approval on each machine",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "readyForReviewAt": "2026-11-19T11:48:02.238Z",
+  "approvedAt": "2026-11-19T11:48:02.239Z"
 }

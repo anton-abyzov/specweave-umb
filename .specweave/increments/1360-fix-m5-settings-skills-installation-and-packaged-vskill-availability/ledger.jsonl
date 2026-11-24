@@ -1,0 +1,22 @@
+{"t":"*","e":"session","by":"codex@antonm5axproled","at":"2026-11-19T23:07:14.187Z","note":"session 01a1f60d-8b83-7d83-ae38-aed5054c3d54"}
+{"t":"T-01","e":"claim","by":"codex@antonm5axproled","at":"2026-11-19T23:07:14.188Z"}
+{"t":"T-02","e":"claim","by":"codex@antonm5axproled","at":"2026-11-19T23:07:43.921Z"}
+{"t":"*","e":"note","by":"codex@antonm5axproled","at":"2026-11-19T23:16:37.690Z","note":"review by gpt-6.2-sol (openai) at bb90fa147839: fix first · reports/reviews/review-gpt-6.2-sol-1.md"}
+{"t":"T-04","e":"claim","by":"codex@antonm5axproled","at":"2026-11-19T23:19:41.530Z"}
+{"t":"T-05","e":"claim","by":"codex@antonm5axproled","at":"2026-11-19T23:21:01.707Z"}
+{"t":"*","e":"note","by":"codex@antonm5axproled","at":"2026-11-19T23:31:50.336Z","note":"review by gpt-6.2-sol (openai) at 11fa0dc75e4b: fix first · reports/reviews/review-gpt-6.2-sol-2.md"}
+{"t":"T-06","e":"claim","by":"codex@antonm5axproled","at":"2026-11-19T23:32:34.743Z"}
+{"t":"*","e":"note","by":"codex@antonm5axproled","at":"2026-11-19T23:40:54.927Z","note":"review by gpt-6.2-sol (openai) at b94f9e47ee08: fix first · reports/reviews/review-gpt-6.2-sol-3.md"}
+{"t":"*","e":"note","by":"codex@antonm5axproled","at":"2026-11-19T23:47:54.504Z","note":"review by gpt-6.2-sol (openai) at ca5f244c2325: ship · reports/reviews/review-gpt-6.2-sol-4.md"}
+{"t":"T-03","e":"claim","by":"codex@antonm5axproled","at":"2026-11-19T23:50:15.466Z"}
+{"t":"T-01","e":"done","by":"codex@antonm5axproled","at":"2026-11-19T23:50:16.220Z","evidence":"User-supplied pre-patch 6:07 PM Settings screenshot independently viewed; app inventory 1.0.12; Codex/Copilot/Enterprise synthetic query passes; reports/recovery-and-provider-checks.md. Original absence unknown.\nHEAD 7c9e700b6"}
+{"t":"*","e":"note","by":"codex@antonm5axproled","at":"2026-11-19T23:52:54.950Z","note":"review by gpt-6.2-sol (openai) at 733d7ea0f53c: ship · reports/reviews/review-gpt-6.2-sol-5.md"}
+{"t":"T-02","e":"done","by":"codex@antonm5axproled","at":"2026-11-19T23:53:29.306Z","evidence":"733d7ea0f; packaged runtime regression plus Actions suites pass; reports/reconciled-validation.md and sol-review-5.md\nHEAD 7c9e700b6"}
+{"t":"T-04","e":"done","by":"codex@antonm5axproled","at":"2026-11-19T23:53:29.959Z","evidence":"733d7ea0f; real SkillUpdate runtime fixture installs synthetic skill, timed-out managed CLI reaped and subsequent write succeeds; 69 focused tests plus 30 affected retest passed\nHEAD 7c9e700b6"}
+{"t":"T-05","e":"done","by":"codex@antonm5axproled","at":"2026-11-19T23:53:30.615Z","evidence":"733d7ea0f; bootstrap errors retained and version timeout reported accurately; exact assertion passes\nHEAD 7c9e700b6"}
+{"t":"T-06","e":"done","by":"codex@antonm5axproled","at":"2026-11-19T23:53:31.269Z","evidence":"733d7ea0f; non-cooperative npm leader force-killed, PID gone, lock retry succeeds; processRunner suite passes\nHEAD 7c9e700b6"}
+{"t":"T-03","e":"done","by":"codex@antonm5axproled","at":"2026-11-19T23:53:31.907Z","evidence":"733d7ea0f; exact live-catalog gpt-6.2-sol independent round5 ship, no open findings; focused suites and server build independently passed; closure verify follows\nHEAD 7c9e700b6"}
+{"t":"T-03","e":"block","by":"codex@antonm5axproled","at":"2026-11-20T00:17:14.318Z","note":"Strict verification not yet green: PR gate environment retry running; full server gate exceeded 20-minute verifier limit and one completed shard lacks headless Chromium. Final-head Sol review passed; shipping held."}
+{"t":"T-07","e":"claim","by":"codex@antonm5axproled","at":"2026-11-20T00:18:04.252Z"}
+{"t":"T-07","e":"done","by":"codex@antonm5axproled","at":"2026-11-20T00:22:55.510Z","evidence":"fcd52b9dbcc8716c81b5158f1288eca980d0e632; 33 focused tests pass; strict typecheck gate all 15 packages, zero new diagnostics, exit 0; /var/folders/jx/h60xy9hx45744vg4cqhx842r0000gn/T/studio-typecheck.ZCqEkQ\nHEAD 907330420"}
+{"t":"*","e":"note","by":"codex@antonm5axproled","at":"2026-11-20T00:25:38.828Z","note":"review by gpt-6.2-sol (openai) at fcd52b9dbcc8: ship · reports/reviews/review-gpt-6.2-sol-6.md"}

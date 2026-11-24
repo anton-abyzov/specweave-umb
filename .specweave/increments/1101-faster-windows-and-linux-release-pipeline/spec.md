@@ -55,7 +55,7 @@ Risks: release_tag mode and the release workflow cannot run on a pull request. T
 - AC: AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode/.github/workflows/desktop-windows-linux.yml, repositories/anton-abyzov/specwithcode/scripts/desktop-windows-linux-workflow.test.ts | Test: npx vitest run scripts/desktop-windows-linux-workflow.test.ts
 
 ### T-04 Timings, comparison, PR, review
-- AC: AC-05 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/wl-pipeline-speed-20261027/REPORT.md | Test: actionlint on both workflows; fresh-context review SHIP at the exact head
+- AC: AC-05 | Test: actionlint on both workflows; fresh-context review SHIP at the exact head
 
 ### T-06 Reject incomplete release integrity and optional OS gates; repair portable validation
 - AC: AC-01, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode/scripts/release-windows-linux.ts, repositories/anton-abyzov/specwithcode/scripts/release-windows-linux.test.ts, repositories/anton-abyzov/specwithcode/scripts/desktop-windows-linux-workflow.test.ts, repositories/anton-abyzov/specwithcode/scripts/studio-toolchain/reviewed-lock-changes.json, repositories/anton-abyzov/specwithcode/scripts/studio-toolchain/preservation-audit.mjs | Test: focused release/workflow tests with empty/missing checksum, draft/prerelease and skipped-dependency negative controls; lock preservation tests; actionlint; scripts native typecheck; applicable CI

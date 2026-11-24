@@ -1,0 +1,14 @@
+<!-- specweave review: reviewer=gpt-6.2-astra model=gpt-6.2-astra family=openai author=claude depth=standard repo=repositories/anton-abyzov/specwithcode base=8ad73fe68f10f3d4afcfd76b3a6948ca4944a0f8 head=092cd291c86eea1c2b2cdc17b5e48313d84d191b at=2026-11-19T19:37:38.077Z -->
+# Review: 1390 T-13 Bring back and automatic move notifications
+Verdict: fix first
+Reviewer context: fresh session, Git objects only. Reviewed `092cd291c86eea1c2b2cdc17b5e48313d84d191b` against `d147f4126`. Two high findings.
+
+## [high] Bring back can substitute a third machine for the source
+
+`/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/web/src/components/handoff/BringBack.tsx:75-78` passes the source as an initial choice, not a required destination. Open Bring back to A on a thread running on B. If A goes offline or is classified as needing an update while C is reachable, `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/web/src/components/handoff/HandoffResults.tsx:181-185` selects C without the user choosing C. The dialog displays C, checks C, and submits C on confirmation (`/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/web/src/components/handoff/HandOffThreadDialog.tsx:384-392,436-446`). Pin A for Bring back; if A cannot take it, refuse rather than offering another destination.
+
+## [high] A pending interaction does not prevent submission or interruption
+
+`/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/web/src/components/handoff/bringBack.logic.ts:41-42` checks only questions and approvals, not a pending sign-in. Those flags disable the opener, not an already-open dialog. If a question or approval arrives after opening, confirmation still calls the same RPC with only thread, destination and model (`/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/web/src/components/handoff/HandOffThreadDialog.tsx:353,436-446`). The transfer is manual by default; even after reading the held shell, the runner only revalidates automatic starts and can interrupt the waiting run (`/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode/apps/server/src/handoff/HandoffTransferRunner.ts:214,668,887-917`). Refuse all three live wait states at the authoritative transfer boundary before interruption or takeover.
+
+No separate wrong-thread or duplicate-transfer path found: the RPC uses the scoped thread and the runner locks by thread ID and handles an already-continued thread. No manual-move or wrong-thread notification found: the notice requires a noted handoff link, produced for an automatic trigger, and opens the observed shell's environment, project and thread.

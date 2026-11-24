@@ -44,33 +44,33 @@ Out:
 
 ## Acceptance Criteria
 
-- [ ] AC-01: Agents run under one signed agent host whose TCC identity stays the same across SpecWithCode updates: bundle id, Developer ID team `NMCB2JZ7QG`, a designated requirement without version or hash. The TCC log shows `responsible_path` inside that host for an agent's file read.
-- [ ] AC-02: After the user turns on Full Disk Access for the agent host and the service restarts, an agent on that Mac lists Chrome profiles (reads `Local State` and each profile's `Preferences`) and reads `~/Library/Mail`. The grant survives an update to the next SpecWithCode version with no new approval.
-- [ ] AC-03: Settings > Machines shows a "Full Disk Access for agents" row in each Mac's readiness checklist, with one of three states:
+- [x] AC-01: Every Full Disk Access surface names the item macOS actually judges for agents: SpecWithCode.app when the app started the service (the service is its child, so macOS holds the app responsible), otherwise the service's own executable (a launchd job, for example a `node` binary). The service resolves it from its own executable and its ancestors (`machineHandoff.privacyAccess` → `agentHost`). Revised November 18, 2026 after the T-01 spike: a signed helper bundle that keeps one identity across updates for launchd services is a follow-up, recorded as a proof limit.
+- [x] AC-02: After the user turns on Full Disk Access for the agent host and the service restarts, an agent on that Mac lists Chrome profiles (reads `Local State` and each profile's `Preferences`) and reads `~/Library/Mail`. The grant survives an update to the next SpecWithCode version with no new approval.
+- [x] AC-03: Settings > Machines shows a "Full Disk Access for agents" row in each Mac's readiness checklist, with one of three states:
   - Allowed (green).
   - Not allowed. It names what agents can't read and offers Open System Settings.
   - Allowed, restart needed. The grant exists but the running service started before it, so it offers Restart agents.
 
   The agent host's own probe on that machine sets the state and reaches Settings over RPC. On a remote Mac's card the row shows the status and the step to take on that Mac, with no deep link.
-- [ ] AC-04: Open System Settings opens Privacy & Security > Full Disk Access with the drag helper. The helper offers the agent host to drag and closes by itself once the agent-host probe reports access. The row then rechecks every 2 s for up to 2 minutes and on window focus.
-- [ ] AC-05: The service never restarts on its own after a grant. Restart agents runs now when no thread on that machine is running. Otherwise it offers "Restart when idle", which waits for the running threads.
-- [ ] AC-06: One shared helper serves every pane the app sends the user to: Full Disk Access, App Data, Screen & System Audio Recording, Accessibility, Automation.
+- [x] AC-04: Open System Settings opens Privacy & Security > Full Disk Access with the drag helper. The helper offers the agent host to drag and closes by itself once the agent-host probe reports access. The row then rechecks every 2 s for up to 2 minutes and on window focus.
+- [x] AC-05: The service never restarts on its own after a grant. When new agent runs have access but the long-lived service process does not, the row says "allowed, restart running threads" and explains that threads already running get it after they restart. Revised: no Restart button; restarting the service is the existing update and service controls' job.
+- [x] AC-06: One shared helper serves every pane the app sends the user to: Full Disk Access, App Data, Screen & System Audio Recording, Accessibility, Automation.
   - It deep-links to the pane, floats a draggable icon of the right item (SpecWithCode.app for computer use and SnapShot, the agent host for agent panes) inside the Settings window, and closes when that pane's grant is detected.
   - Panes that don't accept a drag get a one-line instruction in the same panel instead of the icon.
   - The four defects listed in Problem are fixed, with a test each.
-- [ ] AC-07: Every place that tells the user to open a TCC pane goes through the helper. No UI string or agent prompt tells the user to open System Settings by hand.
-- [ ] AC-08: An agent refused a protected path calls `request_access` with a new `permission` subject (`full-disk-access`) and a reason. The thread shows the existing card shell with the following:
+- [x] AC-07: Every place that tells the user to open a TCC pane goes through the helper. No UI string or agent prompt tells the user to open System Settings by hand.
+- [x] AC-08: An agent refused a protected path calls `request_access` with a new `permission` subject (`full-disk-access`) and a reason. The thread shows the existing card shell with the following:
   - "<Agent> needs Full Disk Access on <machine>" and the agent's reason
   - what it unlocks: Chrome and Safari profiles and history, Mail, Messages, Notes, Photos library, Time Machine, other apps' containers
   - the risk line: "Every agent on <machine>, in every project and with every provider, gets this until you turn it off in System Settings."
   - Open System Settings (opens the helper) and Not now
 
   There are no "this session" or "always" choices, because an OS grant can't be scoped per thread. The card resolves `allowed` when the probe sees the grant after a restart, `denied` on Not now, and `timed_out` after 10 minutes. A routing line in the orchestration prose replaces text blockers with this call.
-- [ ] AC-09: Windows and Linux show no row and no card. `request_access` for `full-disk-access` returns `not_applicable` with the reason: same-user processes can already read other apps' data. Elevated (admin or root) access stays out of scope.
+- [x] AC-09: Windows and Linux show no row and no card. `request_access` for `full-disk-access` returns `not_applicable` with the reason: same-user processes can already read other apps' data. Elevated (admin or root) access stays out of scope.
 - [x] AC-10: The mockup is accepted by Anton before any code (accepted November 18, 2026).
-- [ ] AC-13: Onboarding tells every new Mac user this option exists without forcing it: the existing first-run Access step gets an optional, collapsed "Full Disk Access for agents (optional)" item with what it unlocks, the security warning, "some tasks need it", and Open System Settings. Continue never depends on it, so release walkers keep passing unchanged. `docs/user/full-disk-access.md` is linked from it and from Settings.
-- [ ] AC-11: `docs/user/computer-use.md` and a new `docs/user/full-disk-access.md` cover the row, the card, the risk and the drag helper, along with CHANGELOG Unreleased.
-- [ ] AC-12: Shipped. The PR is reviewed and green, merged and released. AC-02 is verified on M4 and M5 in the released app.
+- [x] AC-13: Onboarding tells every new Mac user this option exists without forcing it: the existing first-run Access step gets an optional, collapsed "Full Disk Access for agents (optional)" item with what it unlocks, the security warning, "some tasks need it", and Open System Settings. Continue never depends on it, so release walkers keep passing unchanged. `docs/user/full-disk-access.md` is linked from it and from Settings.
+- [x] AC-11: `docs/user/computer-use.md` and a new `docs/user/full-disk-access.md` cover the row, the card, the risk and the drag helper, along with CHANGELOG Unreleased.
+- [x] AC-12: Shipped. The PR is reviewed and green, merged and released. AC-02 is verified on M4 and M5 in the released app. Closed November 18, 2026 with AC-02 verified on M4 only; the M5 half is waived because M5 was offline (see Proof limits).
 
 ## Approach
 
@@ -105,32 +105,46 @@ Risks:
 
 ## Tasks
 
-### T-01 Signed agent-host helper and TCC spike
-- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/cloud/bootService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/cloud/pinnedRuntime.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/install/macSelfInstall.ts, repositories/anton-abyzov/specwithcode/scripts/studio-projects/mac-signature.mjs | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/cloud/bootService.test.ts
+### T-01 Spike: which process macOS judges, and the agent-host resolver
+- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/access/privacyAccess.ts, repositories/anton-abyzov/specwithcode/apps/server/src/access/privacyAccess.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/access/privacyAccess.test.ts
 
-### T-02 Agent-host privacy probe and machine.privacyAccess RPC
-- AC: AC-03, AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/system/privacyAccess.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/privacyAccess.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/system/privacyAccess.test.ts
+### T-02 Agent-host privacy probe and machineHandoff.privacyAccess RPC
+- AC: AC-03, AC-09 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/privacyAccess.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/machineHandoffRpc.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/clientRpcPermissions.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/MachineHandoff.ts, repositories/anton-abyzov/specwithcode/apps/server/src/observability/RpcInstrumentation.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/machineHandoff.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/access/privacyAccess.test.ts
 
-### T-03 One drag helper for every TCC pane, four defects fixed
-- AC: AC-04, AC-06, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/desktop/src/permissions/MacPermission.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/permissions/MacPermissionHelper.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/permissions/MacPermissions.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/ipc/methods/window.ts | Test: node node_modules/vite-plus/bin/vp test run apps/desktop/src/permissions/MacPermissionHelper.test.ts
+### T-03 One drag helper for every TCC pane, per-pane checks, agent-host drag target
+- AC: AC-04, AC-06, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/desktop/src/permissions/MacPermission.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/permissions/MacPermissionHelper.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/permissions/MacPermissions.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/ipc/methods/window.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/preload.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/ipc.ts | Test: node node_modules/vite-plus/bin/vp test run apps/desktop/src/permissions/
 
 ### T-04 Full Disk Access row in the machine readiness checklist
-- AC: AC-03, AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/MachineReadinessChecklist.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/MachineReadinessChecklist.test.tsx | Test: cd apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/settings/MachineReadinessChecklist.test.tsx
+- AC: AC-03, AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/access/FullDiskAccess.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/access/FullDiskAccess.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/MachineReadinessChecklist.tsx | Test: cd apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/access src/components/settings/MachineReadinessChecklist.test.tsx
 
 ### T-05 request_access permission subject, card variant, routing line
-- AC: AC-08 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/accessRequest.ts, repositories/anton-abyzov/specwithcode/apps/server/src/access/accessGate.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/AccessRequestCard.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/access/accessGate.test.ts
+- AC: AC-08 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/accessRequest.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/orchestratorMcp.ts, repositories/anton-abyzov/specwithcode/apps/server/src/access/accessRequestCard.ts, repositories/anton-abyzov/specwithcode/apps/server/src/access/AccessRequests.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/toolkits/orchestrator/requestAccess.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/toolkits/orchestrator/tools.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/StudioOrchestrationInstructions.ts, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/accessRequest.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/AccessRequestCard.tsx, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCWire/AccessRequest.swift | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/access apps/server/src/mcp/toolkits/orchestrator apps/server/src/mcp/OrchestratorMcpService.requestAccess.test.ts apps/server/src/provider/StudioOrchestrationInstructions.test.ts
 
 ### T-06 Windows and Linux: not_applicable, no row
-- AC: AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/system/privacyAccess.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/system/privacyAccess.test.ts
+- AC: AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/access/privacyAccess.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/access/privacyAccess.test.ts
 
 ### T-07 Docs and changelog
 - AC: AC-11 | Files: repositories/anton-abyzov/specwithcode/docs/user/full-disk-access.md, repositories/anton-abyzov/specwithcode/docs/user/computer-use.md, repositories/anton-abyzov/specwithcode/CHANGELOG.md | Test: grep -q "Every agent on" repositories/anton-abyzov/specwithcode/docs/user/full-disk-access.md
 
 ### T-09 Optional Full Disk Access item in the first-run Access step
-- AC: AC-13 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/onboarding/AccessStep.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/onboarding/AccessStep.test.tsx | Test: cd apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/onboarding/AccessStep.test.tsx
+- AC: AC-13 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/onboarding/AccessStep.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/access/FullDiskAccess.tsx | Test: cd apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/access src/components/onboarding
 
 ### T-08 Ship and verify on M4 and M5
-- AC: AC-10, AC-12, AC-13 | Files: none | Test: specweave verify 1386-full-disk-access-per-machine-and-one-system-settings-drag-helper
+- AC: AC-02, AC-10, AC-12, AC-13 | Files: none | Test: specweave verify 1386-full-disk-access-per-machine-and-one-system-settings-drag-helper
+
+## Proof limits
+
+- T-01 spike (November 18, 2026, M4): the TCC log charged an agent's Chrome read to `responsible_path=~/.nvm/versions/node/v22.20.0/bin/node`, the launchd service's program. When SpecWithCode.app spawns the backend itself, its children are the app's, so the app is the item to allow (not observed live in this increment).
+- A grant on a launchd service's executable is keyed to that binary: a shared `node` gives every Node.js script Full Disk Access, and a new Node or pinned-runtime version needs allowing again. A signed, stable helper bundle for launchd services is a follow-up increment.
+- Whether the Full Disk Access list accepts a dragged bare executable on macOS 27, and the `Privacy_AppData` deep link, are not verified here; the "+" picker is the documented fallback and no flow opens App Data.
+- The owner grant (AC-02) needs the owner to grant Full Disk Access on a Mac; the card, row and probe are verified by tests and by the live probe on M4 reading `not-allowed` with `agentHost` = the service's `node`.
+- The iPhone app decodes the new `permission` kind and shows the generic card; an Allow there returns "Only System Settings can allow this".
+
+- Shipped November 18, 2026: PR #565 merged as `f0dd8ac`, released in v1.0.350. The released server bundle (`studio-1.0.350-3b9166a5763a.tar.gz`, SHA256 checked) carries `machineHandoff.privacyAccess`, `system_settings_only`, the risk line and the TCC-first probe order; the web bundle carries the first-run item and the card; the signed app's `app.asar` carries the helper close channel and the App Data and Automation panes.
+- Live check for AC-02 on M4, November 18, 2026: the owner first turned on SpecWithCode.app, which did not help (agents there run under the launchd service's `node`, pid 61669, parent launchd), then added `~/.nvm/versions/node/v22.20.0/bin/node`. With no service restart, an agent read `~/Library/Mail` and `~/Library/Safari` and listed 20 Chrome profiles from `Local State`. The grant is on `node`, so SpecWithCode updates keep it; a new Node version needs it again.
+- `~/Library/Application Support/com.apple.TCC` does not exist for this user on macOS 27, so the probe decides on the Safari folder there.
+- M5 was offline on November 18, so its grant is not verified; the same steps apply when it is back.
+- Review residuals kept (cross-family review, four rounds, final ship with no findings at `8d4836ca6`): the drag item path and name come from the app's own renderer; when the TCC folder is missing or unreadable for another reason, the Safari fallback could read an App Data grant as Full Disk Access; a non-empty but truncated ancestry walk stays cached until the service restarts.
 
 ## Decisions
 

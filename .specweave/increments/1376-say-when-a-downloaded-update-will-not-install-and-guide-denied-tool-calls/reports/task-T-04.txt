@@ -1,0 +1,4 @@
+$ cd repositories/anton-abyzov/specwithcode && bash scripts/release/request-release.sh --released 3a39ec27f0bde80226deb51b2f6b2d70a244dfe3
+# exit 0 — 2026-11-17T13:11:25.169Z
+
+3a39ec27f0bde80226deb51b2f6b2d70a244dfe3 is released in v1.0.335

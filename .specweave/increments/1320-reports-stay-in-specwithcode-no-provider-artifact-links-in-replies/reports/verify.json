@@ -3,7 +3,7 @@
   "strictClose": {
     "errors": []
   },
-  "ranAt": "2026-11-14T03:16:42.784Z",
+  "ranAt": "2026-11-21T06:21:55.873Z",
   "increment": "1320-reports-stay-in-specwithcode-no-provider-artifact-links-in-replies",
   "commands": [
     {
@@ -27,13 +27,13 @@
     {
       "cmd": "npm run verify:pr -- --jobs 1 --no-server",
       "exit": 0,
-      "cwd": "repositories/anton-abyzov/specwithcode-dev",
+      "cwd": "repositories/anton-abyzov/specwithcode",
       "source": "config testing.ownerCommands"
     },
     {
       "cmd": "npm run test:server:sharded -- --shards 6 --out \"$(mktemp -d)\"",
       "exit": 0,
-      "cwd": "repositories/anton-abyzov/specwithcode-dev",
+      "cwd": "repositories/anton-abyzov/specwithcode",
       "source": "config testing.ownerCommands"
     }
   ],

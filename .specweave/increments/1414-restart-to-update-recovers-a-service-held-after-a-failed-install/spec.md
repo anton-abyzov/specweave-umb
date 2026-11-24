@@ -24,8 +24,8 @@ Out: the helper's guarded-prestate check (unchanged); the activation gate's rule
 - [ ] AC-02: In the same state Settings offers "Install now" for the service, and the text beside the sidebar button does not tell the person to choose a button that is not there.
 - [ ] AC-03: The agent's first-failure message ("SpecWithCode X did not install; SpecWithCode stayed on Y. See the update receipt.") with a newer release on disk is offered the same way. Other `error` messages (failed check, rejected download, agent start failure) still offer only a check.
 - [ ] AC-04: A test pins the web matchers to the agent's exact wording in `update_agent_recovery.py` and `update_agent.py`.
-- [ ] AC-05: When an app install is still refused as `service-behind`, the toast names what the service is doing or why it cannot update (from `swapGate.serviceStatus` and `serviceMessage`) instead of only "installs after the service updates".
-- [ ] AC-06: After an automatic install refused in preflight with every pointer unchanged and a retryable refusal, a newer verified release gets one automatic attempt; if that fails too, the hold moves to it. A receipt with any other key, phase, pointer state or error keeps the hold.
+- [ ] AC-05: When an app install is still refused as `service-behind` while the service is in error, needs a manual step, waits for quiet, installs, downloads or has the update, the toast names what the service is doing or why it cannot update (from `swapGate.serviceStatus` and `serviceMessage`) instead of only "installs after the service updates".
+- [ ] AC-06: After an automatic install refused in preflight with every pointer unchanged and a retryable refusal, a newer verified release gets one automatic attempt; if that fails too, the hold moves to it, and a retryable refusal of the newer release may use that release's own bounded retry budget (at most three applies). A receipt with any other key, phase, pointer state or error keeps the hold.
 - [ ] AC-07: `docs/studio/updates.md` gives the recovery for a machine stuck on an old build whose agent holds a failed install: the command from the newest helper tree, with and without `--wait-for-idle`, what each interrupts, and why it must run outside SpecWithCode threads.
 - [ ] AC-08: A test drives the agent shipped since 1.0.338 (unchanged on main) from m4's exact `state.json` and `config.json` shape and shows that a version-bound forced request is served (the failure hold does not apply), while an automatic pass stays held.
 
@@ -48,19 +48,29 @@ Risks: on a service older than 1.0.345 the newer-release attempt can race a rout
 ### Defaulted (change any before sw-do)
 - D-01 Busy machine → the press asks Restart now, Wait for work to finish (the existing hold window, which says when it restarts) or Later; it never stops work without that question.
 - D-02 m4 itself → not restarted from a thread; Anton runs the rollout command in Terminal at a quiet moment (see the report).
+- D-03 AC-05 and AC-06 reworded to what shipped, after the closing review (Anton, November 19, 2026): the toast covers the statuses listed in AC-05, and a newer release's retryable refusal keeps its own bounded retry budget.
 ### Open
 - none
+
+## Follow-ups
+
+Found by the closing review (GPT-6.1 Sol on Copilot Enterprise, November 19, 2026) on app `3ea7b49c8`; recorded, not fixed here:
+
+- Gap in AC 06, retry budget (medium): `record_refusal` (`scripts/studio-fleet/update_agent_recovery.py:410-430`) starts a fresh `MAX_ATTEMPTS = 3` budget for the newer release, so it can get two more automatic applies after its one attempt. The test (`test-update-agent-recovery.py:849-859`) does not run a second agent pass.
+- Gap in AC 05, disabled service (medium): `describeServiceBehind` (`apps/web/src/components/sidebar/SidebarRestartToUpdate.logic.ts:405-428`) has no `disabled` branch, so with automatic checks off the toast omits the reason; it also calls `available` "downloading" when background download is off.
+- Low: a newer release whose admission snapshot keeps failing never records `lastInstall`, so the attempt is not used up and the snapshot repeats each pass (`update_agent.py:1035-1058`).
+- Unowned: the 1.0.361 install failure on m4 (November 18, 2026) began with a refused fast page proof (`pageFallback: "Refused:auth-heartbeat:Protected rows or counts changed"`), not with low disk alone; the full read then ran out of scratch space and the agent held 1.0.362 to 1.0.374. The receipt names no table or counts. Tracked in project memory `project_open_product_gaps.md` under Updates; outside this increment's scope (the helper's guarded-prestate check).
 
 ## Tasks
 
 ### T-01 Offer the service update for a held failed install
-- AC: AC-01, AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.heldFailure.logic.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.heldFailure.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/UpdatePreferencesSection.logic.test.ts, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-update-agent-recovery.py | Test: `npx vitest run src/components/sidebar/SidebarRestartToUpdate.heldFailure src/components/settings/UpdatePreferencesSection.logic.test.ts` in apps/web
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.heldFailure.logic.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.heldFailure.test.tsx | Test: `cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/sidebar/SidebarRestartToUpdate.heldFailure`
 
 ### T-02 Say why an app install waits for the service
-- AC: AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.heldFailure.logic.test.ts | Test: `npx vitest run src/components/sidebar/SidebarRestartToUpdate` in apps/web
+- AC: AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.heldFailure.logic.test.ts | Test: `cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/sidebar/SidebarRestartToUpdate.heldFailure.logic.test.ts`
 
 ### T-03 A newer release gets one attempt after a refusal that changed nothing
-- AC: AC-06, AC-08 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update_agent_recovery.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-update-agent-recovery.py | Test: `python3 scripts/studio-fleet/test-update-agent-recovery.py`
+- AC: AC-04, AC-06, AC-08 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update_agent_recovery.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-update-agent-recovery.py | Test: `cd repositories/anton-abyzov/specwithcode/scripts/studio-fleet && python3 test-update-agent-recovery.py HeldRefusalRecovery AutomaticRecovery NewerReleaseRecovery`
 
 ### T-04 Recovery for machines stuck on old builds
 - AC: AC-07 | Files: repositories/anton-abyzov/specwithcode/docs/studio/updates.md | Test: read the section against `fleet_rollout.py --dry-run` output

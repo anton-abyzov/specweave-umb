@@ -1,12 +1,11 @@
 # Verify — 1315-aide-is-its-own-space-out-of-project-lists-one-entry-point-topics-wording-google-settings-grouped-by-aide-and-projects
 
-FAIL · 2026-11-13T06:45:03.248Z · commands from config testing.commands
+PASS · 2026-11-20T21:03:21.105Z · commands from config testing.commands
 
 ## Commands
 
-- FAIL: No testing.ownerCommands configured for repositories/anton-abyzov/specwithcode
 - Working directory: . (config testing.commands)
-### `python3 scripts/fleet-project-sync.py --self-test` → exit 0 (30s)
+### `python3 scripts/fleet-project-sync.py --self-test` → exit 0 (11s)
 
 ```
 test_absent_and_idempotent (__main__.SafetyTests.test_absent_and_idempotent) ... ok
@@ -24,18 +23,18 @@ test_unpushed_commit_preserved (__main__.SafetyTests.test_unpushed_commit_preser
 test_unsafe_paths_urls_and_symlinks (__main__.SafetyTests.test_unsafe_paths_urls_and_symlinks) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 30.169s
+Ran 13 tests in 11.029s
 
 OK
 ```
 
 - Working directory: . (config testing.commands)
-### `python3 -m unittest discover -s tests -p test_handoff_evidence.py` → exit 0 (4s)
+### `python3 -m unittest discover -s tests -p test_handoff_evidence.py` → exit 0 (1s)
 
 ```
 ..............................................
 ----------------------------------------------------------------------
-Ran 46 tests in 3.599s
+Ran 46 tests in 0.422s
 
 OK
 ```
@@ -46,10 +45,62 @@ OK
 ```
 .................
 ----------------------------------------------------------------------
-Ran 17 tests in 0.284s
+Ran 17 tests in 0.097s
 
 OK
 recorded
+```
+
+- Working directory: repositories/anton-abyzov/specwithcode (config testing.ownerCommands)
+### `npm run verify:pr -- --jobs 1 --no-server` → exit 0 (733s)
+
+```
+
+> verify:pr
+> bash scripts/studio-verify/pr-gate.sh --jobs 1 --no-server
+
+PR gate: HEAD 4b8220a644e against origin/main (merge base 8b381ad512c); logs in /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T//studio-pr-gate.TXW9Z4
+Stage 1: 18 jobs, 1 at a time
+STAGE 1                                      RESULT     SECS
+contrast                                     pass          4
+typecheck                                    pass         45
+fleet                                        pass        258
+apps/chrome-extension                        pass          2
+apps/desktop                                 pass         18
+apps/marketing                               pass          0
+apps/mobile                                  pass         20
+apps/web                                     pass        279
+infra/relay                                  pass         15
+oxlint-plugin-studio                         pass         10
+packages/client-runtime                      pass         15
+packages/contracts                           pass          5
+packages/effect-acp                          pass          4
+packages/effect-codex-app-server             pass          0
+packages/shared                              pass         13
+packages/ssh                                 pass          7
+packages/tailscale                           pass          1
+scripts                                      pass         35
+Stage 2: not run here (--no-server); the server suite runs in jobs of its own
+PR gate: stage 1 passed, server passed, 732s
+```
+
+- Working directory: repositories/anton-abyzov/specwithcode (config testing.ownerCommands)
+### `npm run test:server:sharded -- --shards 6 --out "$(mktemp -d)"` → exit 0 (1035s)
+
+```
+
+> test:server:sharded
+> node scripts/release/test-sharded.mjs --shards 6 --out /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/tmp.ZeA2qj4aZk
+
+Running the server suite as 6 shards; logs in /var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/tmp.ZeA2qj4aZk
+SHARD  EXIT  SECONDS  FILES  TESTS  FAILED
+1      0       525.3    221    2970        0
+2      0       897.8    235    3317        0
+3      0       969.2    236    3010        0
+4      0         624    236    3362        0
+5      0      1035.3    237    3711        0
+6      0         971    238    2858        0
+Server shards: passed in 1035.3s
 ```
 
 ## Acceptance criteria

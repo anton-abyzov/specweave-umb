@@ -1,13 +1,15 @@
 {
   "id": "1411-all-subscriptions-and-limits-in-one-place-what-is-left-when-it-resets-and-when-it-renews-for-every-provider",
   "uuid": "176b9925-465f-44ef-9f7b-80a690b48893",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-18T14:31:47.726Z",
-  "updated": "2026-11-18T16:44:07.574Z",
-  "lastActivity": "2026-11-18T16:44:07.574Z",
+  "updated": "2026-11-19T11:05:12.197Z",
+  "lastActivity": "2026-11-19T11:05:12.197Z",
   "title": "All subscriptions and limits in one place: what is left, when it resets and when it renews, for every provider",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-19T11:05:12.191Z",
+  "approvedAt": "2026-11-19T11:05:12.197Z"
 }

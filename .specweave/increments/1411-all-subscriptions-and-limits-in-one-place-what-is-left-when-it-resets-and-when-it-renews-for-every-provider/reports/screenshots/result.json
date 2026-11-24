@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "checks": [
+    "390 light: no sideways scroll",
+    "390 dark: no sideways scroll",
+    "1280 light: no sideways scroll",
+    "1280 dark: no sideways scroll",
+    "the banner names the expiring account, then the early reset",
+    "the boost starts for the picked projects, is named with its end, and ends",
+    "reset announcements list the kind and link, and say the feed looks stopped",
+    "the account about to lose quota is first and its window is marked",
+    "banked resets, set renewal day and the last loss show on the Codex row",
+    "a reported renewal date names its vendor and still offers Set day",
+    "the header line counts subscriptions, limits, the next reset and rows without a reading",
+    "Copilot shows its amounts, its monthly note and the day set under its subscription",
+    "rows without a reading come last, with the reason and no renewal editor",
+    "an offline machine keeps its reading, its age, and an upper-bound loss",
+    "the renewal day editor accepts 1 to 31 only",
+    "the score, what was left unused and what resets soon lead the page",
+    "twelve columns, four in range, and grouping by provider, account or machine",
+    "a plan takes 1 to 100 percent only",
+    "a column reads out its groups and scopes the resets table",
+    "a reset opens in place with how exact it is and use through the period",
+    "twelve weeks page ten resets at a time, newest first",
+    "a month with no reset is reachable by keyboard and says so",
+    "with no readings it says so, and never shows a zero"
+  ],
+  "errors": []
+}

@@ -129,19 +129,21 @@
     },
     "vskill-npm": {
       "repo": "vskill",
+      "run_script_from": "origin",
       "release": ["bash", "scripts/release/release-npm.sh"],
       "default_args": [],
       "args_help": "[<version>] [--dry-run]",
       "dry_run_flag": "--dry-run",
       "expect_version": "default_branch_version",
       "verify": [
-        { "name": "npm latest", "kind": "npm_version", "package": "vskill" },
+        { "name": "npm latest", "kind": "npm_version", "package": "vskill", "repo": "anton-abyzov/vskill", "workflow": "npm-release.yml" },
         { "name": "GitHub release", "kind": "gh_release", "repo": "anton-abyzov/vskill", "tag": "v{version}" },
         { "name": "CI on main", "kind": "gh_run", "repo": "anton-abyzov/vskill", "workflow": "ci.yml", "branch": "main", "blocking": false }
       ]
     },
     "vskill-desktop": {
       "repo": "vskill",
+      "run_script_from": "origin",
       "release": ["bash", "scripts/release/release-desktop.sh"],
       "default_args": [],
       "args_help": "[<version>] [--dry-run]",

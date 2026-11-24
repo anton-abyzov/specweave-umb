@@ -19,3 +19,6 @@
 {"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-18T16:05:48.276Z","note":"review by muse-wonder-full-1.0 (meta) at c22a5dbfccbf: ship · reports/reviews/review-muse-wonder-full-1.0-11.md"}
 {"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-18T16:16:43.465Z","note":"review by muse-wonder-full-1.0 (meta) at bc55c0ec5005: fix first · reports/reviews/review-muse-wonder-full-1.0-12.md"}
 {"t":"*","e":"note","by":"copilot@antons-macbook-m4max","at":"2026-11-20T20:02:27.357Z","note":"review by gemini-4-neon (google) at 38a096bcbd55: ship · reports/reviews/review-gemini-4-neon-1.md"}
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-22T19:47:18.507Z","note":"session 01a1fa77-8ee1-7132-adec-7c2035200240"}
+{"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-22T19:47:18.508Z"}
+{"t":"T-05","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-22T19:47:18.509Z","evidence":"Merged 37dbc05c74df3c9f0d00fe5c51eca07fb2b9fff4. Gemini 4 Neon approved cf954ac28. All 27 checks passed. Headless settings and project screenshots are attached to #606. Included in v1.0.407.\nHEAD 7d59bf54f7","line":"Merged the MCP servers tab in #606","link":"https://github.com/anton-abyzov/specwithcode/pull/606"}
