@@ -119,6 +119,11 @@ Risks:
 - D-04 Limits range → stays reset-aligned (1W/4W/12W/1Y). Cutting reset windows at arbitrary dates would misstate "left unused". It says so on screen.
 - D-05 "Delivered" states → Closed (metadata closed states), Merged (a ledger merge note or a merged PR in the range), In progress (tasks done in the range or spend, not closed or merged). Status alone is not enough.
 - D-06 Attribution → one increment per thread, using the existing resolver order and then the parent thread. Coordinators and other threads get their own rows and are never spread.
+- D-07 (review) Past 24h on Machines and Delivered → whole days (yesterday and today), labelled with the real days and a scope note; Cost keeps the rolling 24 hours.
+- D-08 (review) Delivered needs diagnostics:read and filesystem:read, on the server and in the UI, because it shows increment titles, tasks and merges like the increment RPCs.
+- D-09 (review) "Delivered" counts increments closed or merged inside the range (`deliveredInRange`); the row still shows the current state. Fully unpriced deliveries stay out of the median and highest; the median is "per priced delivery" and a lower bound when partly unpriced.
+- D-10 (review) Overlap → machines with exactly the same transcript folder set count once and are named; a partial overlap keeps both, warns, and blanks the combined Tied and median figures. Known limit: two hosts reading one mounted folder have different fingerprints and count twice, as on Cost and Machines; a host-independent source identity is a follow-up.
+- D-11 (review) Cursor account history is left out of Delivered and disclosed.
 ### Open
 - none
 
