@@ -15,11 +15,11 @@ In: the crash fix for every Usage sheet entry point; registry agents shown per a
 
 ## Acceptance Criteria
 
-- [ ] AC-01: Effectiveness and All accounts in Limits by account open the Usage sheet over the current page without an error; the sheet's section list renders and switches sections when no `SidebarProvider` is above it. A test renders the real sheet navigation outside a provider.
-- [ ] AC-02: In "Used before reset", each registry agent is its own row named and drawn as the agent (GitHub Copilot with the Copilot mark), never "ACP Registry" or "AR"; two accounts of one agent share its row. The Subscriptions dashboard's "Provider" grouping uses the same names.
-- [ ] AC-03: A provider whose account-wide window is spent on every live account says "at its limit until <reset>", whatever its history. A provider with no recorded reset shows its reading ("40% used · resets Nov 30") and no projected bar. Providers with recorded resets keep the projection.
-- [ ] AC-04: Usage > Limits > Subscriptions has an "Agents and models" section: for the last 30 days, per registry agent (and Antigravity) its turns, tokens when reported, and share by model, plus a by-day chart of turns stacked by model, merged across every machine that answers `usage.machineReport`. With no registry turns it says so in one line; a machine that cannot answer is named, not counted as zero.
-- [ ] AC-05: A headless screenshot shows the summary and the new section with the correct logos, and a headless run of the built app opens Effectiveness without the error.
+- [x] AC-01: Effectiveness and All accounts in Limits by account open the Usage sheet over the current page without an error; the sheet's section list renders and switches sections when no `SidebarProvider` is above it. A test renders the real sheet navigation outside a provider.
+- [x] AC-02: In "Used before reset", each registry agent is its own row named and drawn as the agent (GitHub Copilot with the Copilot mark), never "ACP Registry" or "AR"; two accounts of one agent share its row. The Subscriptions dashboard's "Provider" grouping uses the same names.
+- [x] AC-03: A provider whose account-wide window is spent on every live account says "at its limit until <reset>", whatever its history. A provider with no recorded reset shows its reading ("40% used · resets Nov 30") and no projected bar. Providers with recorded resets keep the projection.
+- [x] AC-04: Usage > Limits > Subscriptions has an "Agents and models" section: for the last 30 days, per registry agent (and Antigravity) its turns, tokens when reported, and share by model, plus a by-day chart of turns stacked by model, merged across every machine that answers `usage.machineReport`. With no registry turns it says so in one line; a machine that cannot answer is named, not counted as zero.
+- [x] AC-05: A headless screenshot shows the summary and the new section with the correct logos, and a headless run of the built app opens Effectiveness without the error.
 
 ## Approach
 
