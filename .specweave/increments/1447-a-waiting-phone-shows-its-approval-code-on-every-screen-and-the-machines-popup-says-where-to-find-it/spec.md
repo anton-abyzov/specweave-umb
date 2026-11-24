@@ -74,6 +74,8 @@ Risks: the version is what the phone says about itself, so it only picks which h
 - D-03: Later moves from the window to the machine → yes, with the per-window fallback for older machines.
 - D-04: "Stop asking" reuses Disconnect instead of a new server call that withdraws the request → reuse (no new auth surface; the request runs out in at most 10 minutes).
 - D-05: the Hide rule on the phone copies PR #793 (closed stays closed for the unchanged request; 30 days) → copy.
+- D-07: who ends Later (from review, November 23, 2026) → the machine alone. Allow, Deny and Remove end Later for that device, so a request it makes afterwards shows again. A machine that keeps Later is the only word on it: a window stores nothing for such a machine and ignores what an older build stored, so a device put off before the update prompts once more. If the machine cannot be told, the popup stays closed in that window for that request only. A machine that keeps no Later keeps the 30-day window store.
+- D-08: the desktop step names where the code really is → "on a card in the app, and in Settings > Machines under “Waiting to join”". A browser on an iPhone and an iPad get the general steps, not the iPhone app's.
 
 ### Open
 - D-06: should the phone's block also appear as a Live Activity or lock-screen line while the app is in the background? Not planned; the phone does not ask in the background.
