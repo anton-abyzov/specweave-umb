@@ -27,8 +27,8 @@ In: hold the exact source (instance and model) a limit stop came from until its 
 
 - [ ] AC-01: A thread stopped on a usage limit holds its source (instance and model) until the reset the stop names, or for 60 minutes when it names none. The hold applies whether or not the provider reports usage, and other models on the same instance stay usable.
 - [ ] AC-02: No automatic limit fallback, for any thread on the machine, moves onto a held source. With two spent sources of one model on a Tracks project, the second stop moves the thread to the track's next model with room (reproduction: Copilot → Cursor → Claude Opus 5.5, never back to Copilot).
-- [ ] AC-03: A hold ends early only when a run on that same source starts after the stop and completes.
-- [ ] AC-04: Automatic limit fallback makes at most 4 hops in one chain (consecutive limit stops without a completed run). After the cap the thread parks: no further automatic switch, and the existing limit card stays the one place to act.
+- [ ] AC-03: A hold ends early only when a run on that same source starts after the stop and completes, or, for a maker's own harness whose read covers each model (Claude, Codex), when a usage read taken after the stop shows room for that model.
+- [ ] AC-04: Automatic limit fallback makes at most 4 hops in one chain (each stop on a run the sweep's own continuation of the previous stop started). After the cap the thread parks: no further automatic switch, and the existing limit card stays the one place to act.
 - [ ] AC-05: A usage-limit row reads "resolved" only when a later run completed or did tool work; a later run that itself failed (its text is the provider's refusal) does not resolve it.
 - [ ] AC-06: Consecutive limit hops in the timeline show as one collapsed line naming the hop count and the sources tried, expandable to the individual rows.
 
@@ -51,13 +51,16 @@ Risk: a source whose refusal was transient now waits up to 60 minutes. A complet
 - D-01 Unknown-reset backoff 60 minutes (owner asked for "a backoff"; the old no-usage hold used 5 hours, which parks a transient refusal too long).
 - D-02 Hop cap 4 per chain; after it the thread parks on the existing card instead of a new one.
 - D-03 Holds are per instance and model, not per instance.
+- D-04 (review round 1) After parking, the project's machine handoff may still move the thread to another machine. The owner's brief lists "another machine" as an allowed single action; the move ends the loop on this machine.
+- D-05 (review round 1) A fresh usage read releases a hold only on Claude and Codex, whose reads cover each model. Resellers (Copilot, Cursor, ACP agents) are released only by a completed run or the hold's end.
+- D-06 (review round 1) The holds are shared process-wide, so a coordinator turn and a worker launch skip a held source too, not only the fallback sweep.
 ### Open
 - none
 
 ## Tasks
 
 ### T-01 Hold the refusing source and cap hops in the fallback sweep
-- AC: AC-01, AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/limitSourceHolds.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/limitSourceHolds.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.pingPong.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/orchestration-v2/ProviderFallbackWorker.pingPong.test.ts apps/server/src/orchestration-v2/limitSourceHolds.test.ts
+- AC: AC-01, AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/limitSourceHolds.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/limitSourceHolds.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.pingPong.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderFallbackWorker.pingPongSweep.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/UnopenableHolds.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/limitHandoffTrack.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/providerFallback.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/ProjectCoordinatorService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/WorkerLaunchRoom.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/orchestration-v2/ProviderFallbackWorker.pingPong.test.ts apps/server/src/orchestration-v2/ProviderFallbackWorker.pingPongSweep.test.ts apps/server/src/orchestration-v2/limitSourceHolds.test.ts packages/shared/src/providerFallback.heldSources.test.ts
 
 ### T-02 A failed later run never resolves a limit row
 - AC: AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/usageWarningResolution.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/usageWarningResolution.test.ts | Test: cd apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/chat/usageWarningResolution.test.ts

@@ -25,11 +25,11 @@ Evidence: 918 runs between 8:34 and 10:16 AM EST, November 24, 2026 (runs 1 to 9
 ## After the fix (PR #875)
 
 1. **The run fails**, as before.
-2. **The source is held.** Its exact instance and model (Copilot / Gemini 4 Neon) are held until the reset the stop names, or for 60 minutes when it names none, **whatever the usage read says**. The hold covers every thread on the machine, so other threads stay off it. Other models on that instance (Cursor's Grok, Claude's other models) stay usable.
+2. **The source is held.** Its exact instance and model (Copilot / Gemini 4 Neon) are held until the reset the stop names, or for 60 minutes when it names none, **whatever a reseller's usage read says**. The hold covers every thread on the machine, including coordinator turns and new worker launches, so other threads stay off it. Other models on that instance (Cursor's Grok, Claude's other models) stay usable.
 3. **Held sources are skipped** in every limit fallback step, including "same model elsewhere" and the track chain.
 4. **Second stop** (Cursor): both Gemini 4 Neon sources are held, so the track's next model with room takes the thread. In the reproduction that is Claude Opus 5.5. Copilot is never tried again.
-5. **Hop cap.** A chain of consecutive limit stops with no completed run gets at most 4 automatic hops. On the next stop the thread **parks**: no more automatic switches, and the existing limit card ("Continue with …", "Other models", "Continue on …") is the one place to act. A completed run, or an hour with no stop, starts a new chain.
-6. **A hold ends early** only when a run on that same source starts after the stop and completes.
+5. **Hop cap.** A chain gets at most 4 automatic hops; a hop counts only when the stopped run was started by the sweep's own continuation of the previous stop. On the next stop the thread **parks**: no more automatic model switches, and the existing limit card ("Continue with …", "Other models", "Continue on …") is the one place to act. A person's message or any run the sweep did not start begins a new chain. If the project's usage-limit handoff is on, the thread may still move to another machine once (D-04).
+6. **A hold ends early** only when a run on that same source starts after the stop and completes, or, on Claude and Codex, whose reads cover each model, when a fresh usage read shows room for it.
 7. **The timeline.** A run that itself stopped on a limit no longer marks the earlier stop "resolved". Two or more consecutive hops fold into one line, such as "Usage limits · switched 14 times between Copilot and Cursor", which opens to the original rows.
 
 ## Still open
