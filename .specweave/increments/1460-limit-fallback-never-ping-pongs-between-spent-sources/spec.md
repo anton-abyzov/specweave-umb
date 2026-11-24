@@ -57,6 +57,9 @@ Risk: a source whose refusal was transient now waits up to 60 minutes. A complet
 - D-07 (review round 2) A hop counts when the stopped run was started by the sweep's continuation of the previous stop, directly or as `limit-fallback:<thread>:hop-N:<stop>` after a target that could not open (parsed with `fallbackMove`).
 - D-08 (review round 2) A read releases a Claude or Codex hold only if it is a usage read (not unavailable) taken after the stop that reads that model's percent. The release is recorded, so the old stop never holds again.
 - D-09 (review round 2) The web names a refusal with the server's own rule (`isUsageLimitReply`, `packages/shared/src/usageLimitReply.ts`). For "resolved", text from a run that itself stopped on a limit counts only when it is longer than any notice (400 characters), or when the run did tool work.
+- D-10 (review round 3) A parked chain sends no way back home either, even once the home's hold runs out; the card is the one place to act.
+- D-11 (review round 3) The last check before a handoff applies D-08's read release to the providers it reads again, so a usage read that came in while the other machine answered keeps the thread here.
+- D-12 (review round 3) Text from a stopped run also folds as a refusal when it repeats that run's own recorded limit failure (Cursor's refusal arrives as the run's error).
 ### Open
 - none
 
