@@ -1,0 +1,13 @@
+{
+  "id": "1355-copilot-sign-in-on-a-fresh-machine-version-read-in-place-install-enterprise-host",
+  "uuid": "e0cd6f31-17c6-4a37-a133-bf4da78ed951",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-18T15:45:48.446Z",
+  "updated": "2026-11-18T15:45:48.446Z",
+  "lastActivity": "2026-11-18T15:45:48.446Z",
+  "title": "Copilot sign-in on a fresh machine: version read, in-place install, enterprise host",
+  "project": "specweave",
+  "externalLinks": {}
+}

@@ -1,0 +1,9 @@
+{"t":"*","e":"session","by":"codex@minisforum","at":"2026-11-17T06:12:15.003Z","note":"session 01a1e818-0792-75a1-894c-e7e4f86d736a"}
+{"t":"T-01","e":"claim","by":"codex@minisforum","at":"2026-11-17T06:12:15.006Z"}
+{"t":"T-01","e":"done","by":"codex@minisforum","at":"2026-11-17T06:12:15.007Z","evidence":"/srv/specwithcode/minisforum/evidence/1354-context-continuity/findings.md\nHEAD 6d8892f95"}
+{"t":"T-02","e":"claim","by":"codex@minisforum","at":"2026-11-17T06:12:15.126Z"}
+{"t":"T-02","e":"done","by":"codex@minisforum","at":"2026-11-17T06:13:24.968Z","evidence":"a82734d5cac876f00a009f0798ccc5fe36ef8523; 100 focused tests passed; /srv/specwithcode/minisforum/evidence/1354-context-continuity/focused-tests.log\nHEAD 6d8892f95"}
+{"t":"*","e":"note","by":"claude@minisforum","at":"2026-11-17T06:25:14.405Z","note":"review by claude-opus-5-5 (claude) at 095bab6a2365: fix first · reports/reviews/review-claude-opus-5-5-1.md","model":"claude-opus-5-5[1m]"}
+{"t":"*","e":"note","by":"claude@minisforum","at":"2026-11-17T06:35:17.972Z","note":"review by claude-opus-5-5 (claude) at a5abee453528: fix first · reports/reviews/review-claude-opus-5-5-2.md","model":"claude-opus-5-5[1m]"}
+{"t":"*","e":"note","by":"claude@minisforum","at":"2026-11-17T06:47:27.293Z","note":"review by claude-opus-5-5 (claude) at 23657666cdd2: ship · reports/review-claude-opus-pr521-r3.md (also covers 6382a096; 2 low; specweave review --record unavailable in 3.1.22)","model":"claude-opus-5-5[1m]"}
+{"t":"*","e":"note","by":"codex@minisforum","at":"2026-11-17T06:48:47.253Z","note":"review by claude-opus-5-5 (claude) at 23657666cdd2: ship · reports/reviews/review-claude-opus-5-5-3.md"}
