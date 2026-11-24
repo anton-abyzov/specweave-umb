@@ -1,0 +1,12 @@
+{
+  "id": "1453-connect-sign-in-returns-to-a-spec-weavecom-page-instead-of-leaving-the-google-tab-loading",
+  "uuid": "2c2f73af-5316-424b-beac-74082e190034",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-24T04:01:43.236Z",
+  "updated": "2026-11-24T04:01:43.236Z",
+  "lastActivity": "2026-11-24T04:01:43.236Z",
+  "title": "Connect sign-in returns to a spec-weave.com page instead of leaving the Google tab loading",
+  "project": "specweave-umb"
+}
