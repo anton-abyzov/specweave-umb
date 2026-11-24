@@ -1,0 +1,68 @@
+# Fix folder-copy approval binding and snapshot review defects
+
+## Problem
+
+Two GPT-6.2 Sol reviews of the folder-copy code shipped in SpecWithCode v1.0.420 (`bdc54e3ab280b900bcd10e66d7433508efdaadca`) found defects that block closing 1092 (records: `.specweave/increments/1092-refresh-and-revalidate-folder-copy-scans/reports/reviews/review-gpt-6.2-sol-1.md` and `review-gpt-6.2-sol-2.md`). Approval can transfer a plan the person never saw, a captured copy can carry a secret or bytes from outside the selected tree, a damaged record can fall back to live files, and several refresh and recovery paths leave stale state. The 1092 ACs (AC-01, AC-02, AC-03, AC-07) are the behaviour contract.
+
+## Scope
+
+In: the 11 review findings in the app repository (server folder-copy services, contracts, copy dialog), each with a regression test that fails before and passes after. Out: 1092's own files and closure (a separate worker closes it), the legacy live-file `hashSelected` path, Windows ancestor anchoring.
+
+## Acceptance Criteria
+
+- [ ] AC-01: Approval names the preview revision the window saw; the destination refuses an approval whose revision differs from its current previewed plan and choices. Statuses carry the revision only in `previewed`; an older destination omits it and an older window omits it, and both stay unbound as before. "Replace everything" approves a re-compared plan only when the plan keeps the click's choices and decisions, lists no row or file conflict the click did not see, and no row has gained conflicts.
+- [ ] AC-02: Capture re-checks the bytes of every file the scan classified by content (`.envrc`, small config files), and of every file the scan saw too big to probe that is now small enough. Each open routes by the size found at that open. A file that now holds secret values, or grew past the probe limit, refuses the capture with a compare-again message; no such bytes reach the pack.
+- [ ] AC-03: On macOS and Linux each captured file is proven, after opening, to be the same inode the copy root's pinned identity reaches (`/.vol/<dev>/<ino>/…`, `/proc/self/fd/<fd>/…`); a swapped-and-restored ancestor above the root cannot redirect capture. The scanned root's dev and inode must match the pin, and each selected link, with every folder above it, is looked up from the pin and must hold the manifest's target. Windows keeps the existing path checks.
+- [ ] AC-04: A record without `capturedSource` whose manifest has `capturedAt` is refused (`snapshot_unavailable`) for approval and chunk reads instead of reading live files.
+- [ ] AC-05: The drift shortcut measures a file's timestamp age against the moment its read finished, not after waiting on the pack writer.
+- [ ] AC-06: Every terminal or failed save records pending snapshot cleanup with the state, so a crash before cleanup is cleaned by the next read or sweep.
+- [ ] AC-07: Capture opens source files non-blocking: a FIFO in place of a scanned file is refused at once and cancellation finishes.
+- [ ] AC-08: Refresh never adds a newly found secret file to the travelling list: files in the fresh summary that the saved summary lacked start unticked.
+- [ ] AC-09: A registered worktree whose parent is replaced by a file is labelled missing; the scan does not abort.
+- [ ] AC-10: After Refresh, saved "missing worktree registration" notices are replaced by the fresh inventory's notices.
+- [ ] AC-11: A recorded disk shortage clears when the comparison is recomputed, and it no longer disables Copy: approving measures space again and refuses only if it is still short.
+
+## Approach
+
+Approval binding: `previewRevision(record, plan)` (sha256 of the plan plus decisions, clone, skip, mirror and `capturedAt`) in a new small destination module; `copyStatus` emits it in `previewed`; `approve()` compares it with the plan read at its start, before any revalidation; windows pass the revision of the status they acted on, read synchronously before any await. Capture: an anchor module pins each source root (dev/ino, plus a directory descriptor on Linux) at capture start and checks every opened descriptor against the anchored lookup; content re-check uses the scan's in-memory `contentProbed` set so a file the scan skipped on budget never refuses repeatedly. Source record: `ready()` refuses a captured manifest without `capturedSource`; `save()` adds `snapshotCleanupPending: true` to terminal and failed saves. Web: pure helpers for new-secret unticking and notice filtering, wired with no growth in `HandoffFolderCopy.tsx` past 1,500 lines. Rejected: refusing approvals without a revision (would break every older window); reading files through `/.vol` paths (changes every read; the anchored lookup is only a check).
+
+## Decisions
+
+### Asked
+- none
+### Defaulted (change any before sw-do)
+- D-01 Missing `previewRevision` from an older window or destination → approval proceeds unbound as before; reported as a compatibility limit.
+- D-02 Anchoring unavailable on macOS or Linux (no `/.vol` or `/proc`) → capture refuses as an unsupported filesystem (a moving copy falls back to live checks, as for other refused filesystems).
+- D-03 Windows ancestor swap above the root → unchanged, reported as a limit.
+- D-04 A disk shortage is shown as a note, not a blocker; approval re-measures.
+- D-05 The scan's inventory is still taken by path, so a folder above the root swapped during the walk and put back before capture can leave scan-only facts from the other tree (tracked Git class, mode bits, empty folders, the path set). Capture closes the byte-level part: files are read through the pin, probed files are re-checked, and links and their parent folders are looked up from the pin. Binding the walk and Git classification to the pin is a `scanFolder` redesign outside the 11 findings, tracked in [1473](../1473-bind-the-folder-copy-scan-inventory-to-the-pinned-source-root/spec.md).
+
+### Open
+- none
+
+## Tasks
+
+### T-01 Bind approval to the reviewed preview
+- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/folderCopy.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/destinationPreviewRevision.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/destinationService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/destinationService.previewRevision.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/FolderCopyHandoff.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/MachineHandoff.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/copySecretsPolicy.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/copySecretsPolicy.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/studio/addToMachineCopy.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffFolderCopy.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffFolderCopyWatcher.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/AddToMachineJobRunner.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/AddToMachineConsolidate.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/fleet/folderTransfer/destinationService.previewRevision.test.ts apps/web/src/studio/copySecretsPolicy.test.ts
+
+### T-02 Make capture re-check content, anchor to the root and open non-blocking
+- AC: AC-02, AC-03, AC-05, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceSnapshot.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceCaptureAnchor.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/secretContent.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/manifest.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceSnapshot.review.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/fleet/folderTransfer/sourceSnapshot.review.test.ts apps/server/src/fleet/folderTransfer/sourceSnapshot.test.ts
+
+### T-03 Refuse captured records without their capture and clean after a crash
+- AC: AC-04, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceService.review.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceService.snapshot.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceService.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/twoServer.snapshot.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/fleet/folderTransfer/sourceService.review.test.ts apps/server/src/fleet/folderTransfer/sourceService.snapshot.test.ts apps/server/src/fleet/folderTransfer/sourceService.test.ts
+
+### T-04 Label a worktree with a file parent missing
+- AC: AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/manifest.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/manifest.missingWorktree.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/fleet/folderTransfer/manifest.missingWorktree.test.ts
+
+### T-05 Keep Refresh from ticking new secrets or keeping stale missing notices
+- AC: AC-08, AC-10 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/handoffCopyScanRecovery.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/handoffCopyRefresh.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/useCopySecrets.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffFolderCopy.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/handoffCopyNotices.ts | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/studio/handoffCopyRefresh.test.ts
+
+### T-06 Clear a disk shortage on recompute and let Copy measure again
+- AC: AC-11 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/destinationService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/destinationService.previewRevision.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffCopyFooter.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffCopyFooter.test.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/fleet/folderTransfer/destinationService.previewRevision.test.ts apps/web/src/components/studio/HandoffCopyFooter.test.tsx
+
+### T-07 Review, merge and request the release
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09, AC-10, AC-11 | Files: reports and evidence | Test: red run at the tests commit, green run at the head, server and web typecheck and build in the checks copy, adversarial review, green PR CI
+
+## Review
+
+GPT-6.2 Sol (Codex), effort high. Gemini 4 Neon was asked first and refused ("Gemini 4 Neon is not included in your weekly usage"). Ten rounds: rounds 1 to 9 said fix first, and every finding was fixed with a regression test. Round 10 said ship at `6a5ec17874174c8c34b3b518955698e495e78da0`, the head merged in anton-abyzov/specwithcode#884 (merge commit `fbd360fc8dfbceeab02b2bf92ed39ca89c2d4043`). Records: `reports/reviews/review-gpt-6.2-sol-1.md` to `review-gpt-6.2-sol-10.md`. Follow-ups: D-05 in 1473; low, the Linux EIO fixture can also pass on an earlier open failure (round 10).

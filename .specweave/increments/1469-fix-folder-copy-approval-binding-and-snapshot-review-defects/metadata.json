@@ -1,0 +1,12 @@
+{
+  "id": "1469-fix-folder-copy-approval-binding-and-snapshot-review-defects",
+  "uuid": "98537660-4af2-43fc-8584-00439368e5a9",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-24T16:30:58.023Z",
+  "updated": "2026-11-24T20:04:19.635Z",
+  "lastActivity": "2026-11-24T20:04:19.635Z",
+  "title": "Fix folder-copy approval binding and snapshot review defects",
+  "project": "specweave-umb"
+}
