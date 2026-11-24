@@ -1,0 +1,12 @@
+{
+  "id": "1458-claude-ship-run-ship-and-steward-from-a-thread-through-a-claude-terminal-session",
+  "uuid": "d7087524-0c8b-4995-abc0-1528a3f02c20",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-24T07:26:35.027Z",
+  "updated": "2026-11-24T07:26:35.027Z",
+  "lastActivity": "2026-11-24T07:26:35.027Z",
+  "title": "Claude Ship: run /ship and /steward from a thread through a Claude terminal session",
+  "project": "specweave-umb"
+}
