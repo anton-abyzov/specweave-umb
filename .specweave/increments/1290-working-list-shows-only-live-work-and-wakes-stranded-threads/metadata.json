@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-11T04:27:23.013Z",
   "title": "Working list shows only live work and wakes stranded threads",
   "project": "specweave",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

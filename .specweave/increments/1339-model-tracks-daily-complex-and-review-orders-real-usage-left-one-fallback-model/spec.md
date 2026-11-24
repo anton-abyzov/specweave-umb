@@ -169,6 +169,9 @@ Risks: the Copilot CLI may keep its token only in the system keyring, where the 
 ### Open
 - none
 
+### Follow-ups
+- F-01 Count banked resets when deciding fallback (owner, November 22, 2026). The track resolver treats an account with an available Codex full reset (`usageLimits.resetCredits.availableCount > 0`, read from `account/rateLimits/read`) as having one more full window. Whether it may redeem it stays behind the existing `providerLimitRedeemResets` opt-in. A reset that expires before the window would reset anyway is worth using first. Source: `.specweave/reports/threads/2026-11-23-codex-full-resets-and-credits-can-specwithcode-r-995523-d02eea.md`. The expiry warning itself ships in its own increment.
+
 ## Tasks
 
 ### T-01 Track contract, defaults and resolver

@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-12T17:10:17.490Z",
   "title": "Simplified unified settings and model selection",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

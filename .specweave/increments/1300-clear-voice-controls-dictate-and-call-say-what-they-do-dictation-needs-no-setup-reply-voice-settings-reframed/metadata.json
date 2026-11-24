@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-12T17:10:54.896Z",
   "title": "Clear voice controls: Dictate and Call say what they do, dictation needs no setup, reply voice settings reframed",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

@@ -38,7 +38,7 @@ In:
 - One Skills page that searches installed skills, connected repos and Obsidian notes.
 - Connect a skill repo, public or private.
 - Version and Update for each skill, with honest "Use now" readiness.
-- An explicit "Also add on" rollout from one source, with "Keep updated on these machines" and a result row for each machine (wording shared with Integrations, 1400).
+- An explicit "Also add on" rollout from one source, with "Keep updated on these machines" and a result row for each machine (wording shared with Integrations, 1402 D-03).
 - Adopting untracked and `npx skills` installs into one lock.
 - A generated Obsidian catalog note.
 - Fixes for the filter bug, the empty-agent explanation and the misleading "All environments" option on the Skills page.
@@ -51,14 +51,14 @@ Out:
 - Plugin bundle publishing.
 - Editing the claude.ai-synced skills, which are managed on claude.ai.
 
-Gate: AC-01 to AC-03 are local and read-only and may ship now. The review of November 18, 2026 (`reports/review-muse-wonder-full-1.0.md`, verdict SHIP after listed fixes) is folded in below. AC-04 to AC-07 change only the machine they run on. AC-08 to AC-11 write to other machines over Connect and wait for Anton's acceptance of this spec (D-01, D-03).
+Gate: Anton approved everything on November 18, 2026 (D-01, D-03, D-06, D-07), so every AC may ship. AC-01 to AC-03 are local and read-only. The review of November 18, 2026 (`reports/review-muse-wonder-full-1.0.md`, verdict SHIP after listed fixes) is folded in below. AC-04 to AC-07 change only the machine they run on. AC-08 to AC-11 write to other machines over Connect and wait for Anton's acceptance of this spec (D-01, D-03).
 
 ## Acceptance Criteria
 
 - [ ] AC-01: An Agent, Level or Tier filter value with no matching option on this machine still renders as a selected chip with count 0, so one click clears it. With a filter seeded from the composer link (`?agent=claudeAgent`) on a machine with only Codex skills, the page shows a selected "Claude 0" chip next to "Codex 6", never a hidden filter. The chip uses the agent's display name ("Claude"), never the raw id (`claudeAgent`). The filter row also renders when the machine has zero rows but a filter is active, since today it is gated on `rows.length > 0` (`ProjectSkillsSettings.tsx:975`). Clear filters restores all rows.
 - [ ] AC-02: When an agent the machine has reports zero skills, the footer names it and says why, for example "Claude: no skills installed on M5". Skills Claude loads from claude.ai sync are listed read-only with the source "claude.ai", and no toggle or edit is offered. On M5 this shows the 35 synced skills instead of "Claude 0".
-- [ ] AC-03: The Skills page shows exactly one machine, with one picker for the whole page and none inside sections. The picker is the shared `SettingsScopeSentence.tsx`, so it needs a per-page option that hides "All environments" for Skills only. The scope line reads "Set up on [M5 v]", captioned "Each machine keeps its own. Changes here only affect M5." Copy says "machine", never "environment". "All environments" is gone from the Skills page and stays on Usage. A read-only view labelled "Across machines" replaces it. It shows one row per skill and one column per reachable machine, with the version or a status chip in each cell and the time each machine was read. It reuses the per-machine reads behind 1248's "Available on" and does not add a second fleet read. It has no toggles that write to every machine, and it never reports unknown as missing.
-- [ ] AC-03a: Each skill uses the status chips shared with Integrations (1400): "On this machine", "Not on M5", "Needs sign-in" (a private repo with no GitHub access) and "Offline". Skills add one more, "Update available x.y.z". Claude.ai-synced and Codex system skills sit in a "Built into the agent" block, which is never installable or editable.
+- [ ] AC-03: The Skills page shows exactly one machine, with one picker for the whole page and none inside sections. The picker is the shared `SettingsScopeSentence.tsx`, so it needs a per-page option that hides "All environments" for Skills only. The scope line reads "Set up for [firstproject v] on [M5 v]" (Skills is project-scoped in `settingsPageScope.ts`; the user level reads "Set up for [All projects v] on [M5 v]"), captioned "Each machine keeps its own. Changes here only affect M5." Copy says "machine", never "environment". "All environments" is gone from the Skills page and stays on Usage. A read-only view labelled "Across machines" replaces it. It shows one row per skill and one column per reachable machine, with the version or a status chip in each cell and the time each machine was read. It reuses the per-machine reads behind 1248's "Available on" and does not add a second fleet read. It has no toggles that write to every machine, and it never reports unknown as missing.
+- [ ] AC-03a: Chips shared with Integrations (1402): "Added" and "Offline", plus the per-machine result words. Skills keep their own chips "On this machine", "Not on <machine>", "Needs sign-in" (a private repo this machine has no GitHub access to, which can be detected) and "Update available x.y.z". Claude.ai-synced and Codex system skills sit in a "Built into the agent" block, which is never installable or editable. When the setup is for another machine, the page says "You are on m4". An offline machine shows one card: "<machine> is offline. Its settings show when it reconnects." A view-only sign-in keeps each row's real disabled state under one line: "You can look at <machine>'s settings from this sign-in, but not change them."
 - [ ] AC-04: One search box on the Skills page returns three groups:
   - Installed (any agent, this machine);
   - Available in a connected repo (not installed), with that repo's version;
@@ -73,10 +73,10 @@ Gate: AC-01 to AC-03 are local and read-only and may ship now. The review of Nov
   - Update installs the latest from the recorded source with vskill and reads the version back from the lock.
   - Update all updates every outdated, tracked skill on this machine and lists each result.
 - [ ] AC-07: After Install or Update, the composer offers the skill at once (`$name`) without restarting the app. Each agent shows a readiness, never assumed: Loaded now, Next message, or Next session. Codex is read back from its app-server skills probe (`CodexDriver.ts:331`). Claude has no live probe, because the app mirrors its folders (`ClaudeSkills.ts:16`), so Claude shows "Next session" unless a running session reports the skill. This extends 1248 AC-06's installed-versus-ready readback and does not replace it.
-- [ ] AC-08 (gated): Rolling out is an explicit action after an install or update, never a scope. The action reads "Also add on: [ ] m4 [ ] linux-mini [ ] m1", the same wording as Integrations. The source is one connected repo at one version. Each checked machine gets that exact version over Connect, through the existing guarded fleet path. That path is extended to GitHub sources, which today pass only the registry gate (`ProjectSkillsFleet.ts:148`). A GitHub source carries `expectedHash`, the normalized content hash the destination already checks (`fleetSkills.ts:68`), plus the source commit as a new contract field. The destination refuses unless the same repo is connected there. The argv stays fixed. Skills add an option, "Keep updated on these machines". It is stored on the machine that made the change, as one record per skill (source repo, skill, scope user or project, machine list), in that machine's SpecWithCode settings, and is never pushed to the other machines. When it is on, a later Update of the source offers the same machines again, pre-checked, behind one confirmation. Nothing rolls out without that click.
-- [ ] AC-09 (gated): Rollout shows one result row per machine: "Added x.y.z", "Updated to x.y.z", "Offline, not added", "No access" (no GitHub access to a private repo), "Added via npx vskill" (vskill not installed; ran `npx --yes vskill@latest`), "vskill and npx missing", or "Failed" with the error text. An offline machine is never queued silently. Retry failed skips verified successes. Installing vskill on another machine is out of scope until Anton decides it (D-06).
-- [ ] AC-10 (gated): "Adopt" on an untracked or `npx skills`-tracked skill records it in `vskill.lock` with its source when the folder matches a connected repo's skill under the same normalized content match the fleet path uses (`fleetSkills.ts:68`). That way, legitimate `--copy` installs with Claude-only fields stripped still match. After the vskill entry reads back, Adopt removes that skill's entry from `~/.agents/.skill-lock.json`, so only one CLI owns the folder. It never deletes the folder. A skill that matches nothing offers "Add to anton-personal-skills", which opens a pull request: an outward GitHub write that needs its own confirmation each time (D-07).
-- [ ] AC-11 (gated): On machines with the vault, a generated note `003 Resources/AI Skills/Skills catalog.md` lists each skill with source repo, version, agents and machines in sync. It is regenerated after installs and marked "generated, edit the source repo instead". Obsidian is an index, never the source.
+- [ ] AC-08: Rolling out is an explicit action after an install or update, never a scope. It follows 1402 AC-05 and AC-08. "Also add on: [ ] m4 [ ] linux-mini [ ] m1" starts with every machine unticked. A line above it names where the change goes: "On M5 only.", then "On M5 and m4." once a box is ticked. The Save button names the machines too: "Save on M5 and m4". A machine that is offline, on a version that cannot preview, or where the sign-in cannot write is listed disabled with its reason ("linux-mini is offline"), and nothing is ever sent to it. Before Save, the review shows each ticked machine's own result: the skill version and files it will get, or that machine's reason it cannot be added. The source is one connected repo at one version. Each ticked machine gets that exact version over Connect, through the existing guarded fleet path. That path is extended to GitHub sources, which today pass only the registry gate (`ProjectSkillsFleet.ts:148`). A GitHub source carries `expectedHash`, the normalized content hash the destination already checks (`fleetSkills.ts:68`), plus the source commit as a new contract field. The destination refuses unless the same repo is connected there. The argv stays fixed. Skills add an option, "Keep updated on these machines". It is stored on the machine that made the change, as one record per skill (source repo, skill, scope user or project, machine list), in that machine's SpecWithCode settings, and is never pushed to the other machines. When it is on, a later Update of the source offers the same machines again, ticked, behind the same review and Save. Nothing rolls out without that click.
+- [ ] AC-09: Results are one row per ticked machine, each with its own Undo. Shared words: "Added" and "Skipped, the name is already used there". Skill-only words: "Updated to x.y.z", "Added via npx vskill" (vskill is not installed there, so `npx --yes vskill@latest` ran), "vskill and npx missing", "No access" (no GitHub access to a private repo), and "Failed: <error text>". Undo restores that machine's previous version, or removes the skill if it was new there. Retry failed skips verified successes. Installing vskill on another machine is out of scope (D-06).
+- [ ] AC-10: "Adopt" on an untracked or `npx skills`-tracked skill records it in `vskill.lock` with its source when the folder matches a connected repo's skill under the same normalized content match the fleet path uses (`fleetSkills.ts:68`). That way, legitimate `--copy` installs with Claude-only fields stripped still match. After the vskill entry reads back, Adopt removes that skill's entry from `~/.agents/.skill-lock.json`, so only one CLI owns the folder. It never deletes the folder. A skill that matches nothing offers "Add to anton-personal-skills", which opens a pull request: an outward GitHub write that needs its own confirmation each time (D-07).
+- [ ] AC-11: On machines with the vault, a generated note `003 Resources/AI Skills/Skills catalog.md` lists each skill with source repo, version, agents and machines in sync. It is regenerated after installs and marked "generated, edit the source repo instead". Obsidian is an index, never the source.
 - [ ] AC-12: Focused tests cover filters, empty-agent states, compare, search groups, repo connect refusal paths, update readback and fleet partial failure. Headless light and dark screenshots at 1440px and 390px cover each new state. `ProjectSkillsSettings.tsx` and `fleetSkills.ts` stay under 1,500 lines by splitting new parts into their own files.
 
 ## Approach
@@ -115,18 +115,18 @@ Risks:
 ## Decisions
 
 ### Asked
-- none yet (Anton reviews this spec before the gated work)
+- D-01 → yes. Anton approved the model on November 18, 2026: author skills in two GitHub repos, install them with vskill on each machine, and roll out with "Also add on". AC-08 to AC-11 are no longer gated.
+- D-03 → sign in to GitHub once on each machine (`gh auth login`), with no token copying (Anton, November 18, 2026). Signing in stays Anton's step on each machine.
+- D-06 → no. SpecWithCode never installs vskill on another machine. It keeps the `npx --yes vskill@latest` fallback and shows "Added via npx vskill" (Anton, November 18, 2026).
+- D-07 → yes. "Add to anton-personal-skills" may open a pull request, with a confirmation each time and no auto-merge (Anton, November 18, 2026).
 
 ### Defaulted (change any before sw-do)
 - D-02: Install location → `~/.agents/skills` canonical with agent links, the current vskill layout (reversible).
-- D-04: "All environments" → removed from the Skills page only and replaced by the read-only "Across machines" view. Usage keeps it. Wording matches 1400: "machine", never "environment".
+- D-04: "All environments" → removed from the Skills page only and replaced by the read-only "Across machines" view. Usage keeps it. Wording matches 1402 D-03: "machine", never "environment".
 - D-05: Version → `metadata.version` plus source commit, because vskill installs read GitHub main and the version alone can hide changes.
 
 ### Open
-- D-01 (Anton): Accept the model "author in two GitHub repos, install with vskill on each machine, sync per skill" before AC-08 to AC-11 start. Recommended: yes.
-- D-06 (Anton): May SpecWithCode install vskill on another machine, globally with npm, as a confirmed step? Recommended: no. Keep the `npx --yes vskill@latest` fallback and show "Added via npx vskill".
-- D-07 (Anton): "Add to anton-personal-skills" opens a pull request on GitHub. Recommended: allowed, with a confirmation each time and no auto-merge.
-- D-03 (Anton, auth): Private repo access on other machines. Recommended: sign in to GitHub once on each machine (`gh auth login`), with no token copying. Alternative: publish private skills as `hosted-private` on verified-skill.com and install from there.
+- none
 
 ## Tasks
 
@@ -145,11 +145,19 @@ Risks:
 ### T-05 Version, Update, Update all and Use now readiness
 - AC: AC-06, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/project/ProjectSkillsActions.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillDetailPanel.tsx | Test: update reads the new version and commit back from the lock; readiness comes from each agent's list
 
-### T-06 "Also add on" rollout with a result row per machine (gated on D-01, D-03)
+### T-06 "Also add on" rollout with a result row per machine
 - AC: AC-08, AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/fleetSkills.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/fleetSkillsGithubSource.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/ProjectSkillsFleet.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillAvailability.tsx | Test: fleet partial failure, vskill missing, no repo access, retry failed only
 
-### T-07 Adopt untracked skills and generate the Obsidian catalog (gated on D-01)
+### T-07 Adopt untracked skills and generate the Obsidian catalog
 - AC: AC-10, AC-11 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/project/SkillAdopt.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/SkillCatalogNote.ts | Test: adopt keeps the folder until the lock reads back; catalog note regenerates and carries the generated marker
 
 ### T-08 Verify and close 1399
 - AC: AC-12 | Files: .specweave/increments/1399-one-place-to-find-install-update-and-roll-out-skills/reports/ | Test: `specweave verify 1399`, headless screenshots, fresh review, `specweave complete 1399`
+
+## Delivery lanes (November 18, 2026)
+
+Each lane opens its own PR from its own worktree. Lanes A and B own disjoint new files. Each one rebases on main before merging.
+
+- **Lane A** (T-02, T-03, after T-01 merges): the read-only page. It owns `ProjectSkillsSettings.tsx`, `SettingsScopeSentence.tsx`, `settingsScope.ts`, `ClaudeSkills.ts` and `packages/contracts/src/projectSkills.ts`.
+- **Lane B** (T-04, T-05): local management. It owns the new `packages/contracts/src/projectSkillRepos.ts`, `apps/server/src/project/SkillRepoSources.ts`, `apps/web/src/components/skills/SkillSearch.tsx` and `SkillUpdate*`. It mounts its UI with one slot in `ProjectSkillsSettings.tsx` after Lane A merges.
+- **Lane C** (T-06, T-07, after Lane B merges): fleet rollout, Adopt and the catalog note. After release it runs live acceptance: it adopts on m4 and adds the vskill skills on M5 with "Also add on".

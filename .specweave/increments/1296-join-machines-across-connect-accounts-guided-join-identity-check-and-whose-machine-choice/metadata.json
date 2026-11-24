@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-15T03:29:49.262Z",
   "title": "Join machines across Connect accounts: guided join, identity check and whose-machine choice",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

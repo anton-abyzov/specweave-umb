@@ -61,6 +61,7 @@ Order: the switch (T-01 to T-03) ships first, and the dialog thread drops the ra
 ## Reviews
 
 - muse-wonder-1.0 xhigh: PR #512 SHIP at `c7e40fb70d`; PR #516 NOT YET at `a6b33d8bb` (both blockers resolved on main); PR #536 SHIP at `bf8c722b`, merged as `6075780c`; closure review SHIP on main `6075780c` (`reports/review.md`).
+- Released in 1.0.337 (published November 17, 2026); `request-release.sh --released 6075780c` confirms it.
 
 Follow-ups left open (all minor, from the PR #536 and closure reviews):
 - A dialog opened with "Make X main" dead-ends when the person re-picks Main's copy or another project's copy; it offers no switch back to a plain copy.

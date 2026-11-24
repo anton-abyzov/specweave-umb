@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-11T03:28:57.370Z",
   "title": "Cross-machine sessions, file fetch and moves from any of the owner's machines",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

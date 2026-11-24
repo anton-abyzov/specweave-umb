@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-15T07:06:44.533Z",
   "title": "A runaway check cannot freeze a Linux worker: agent commands get their own memory limit",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

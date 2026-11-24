@@ -15,5 +15,7 @@
   ],
   "externalLinks": {},
   "readyForReviewAt": "2026-11-14T03:01:19.027Z",
-  "approvedAt": "2026-11-14T03:01:19.027Z"
+  "approvedAt": "2026-11-14T03:01:19.027Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

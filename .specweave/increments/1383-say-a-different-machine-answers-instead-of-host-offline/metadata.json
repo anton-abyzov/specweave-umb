@@ -1,0 +1,13 @@
+{
+  "id": "1383-say-a-different-machine-answers-instead-of-host-offline",
+  "uuid": "2c1181f6-95fa-44ed-98cf-3df5fd84d69b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-17T22:24:29.947Z",
+  "updated": "2026-11-17T23:14:29.650Z",
+  "lastActivity": "2026-11-17T23:14:29.650Z",
+  "title": "Say a different machine answers instead of Host offline",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

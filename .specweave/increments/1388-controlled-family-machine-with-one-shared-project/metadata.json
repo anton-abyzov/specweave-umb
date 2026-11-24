@@ -1,0 +1,13 @@
+{
+  "id": "1388-controlled-family-machine-with-one-shared-project",
+  "uuid": "248c243e-6ae2-4fa1-b0d6-893b478bf360",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T05:44:28.633Z",
+  "updated": "2026-11-18T06:16:37.166Z",
+  "lastActivity": "2026-11-18T06:16:37.166Z",
+  "title": "Controlled family machine with one shared project",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

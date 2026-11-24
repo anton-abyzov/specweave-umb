@@ -12,5 +12,7 @@
   "externalLinks": {},
   "readyForReviewAt": "2026-11-03T01:03:57.669Z",
   "closeReason": "PR 1235 merged with exact-head CI green and fresh-context SHIP. Verify's exit 127 failures are other repos' test commands in a checkout without node_modules.",
-  "approvedAt": "2026-11-03T01:03:57.670Z"
+  "approvedAt": "2026-11-03T01:03:57.670Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

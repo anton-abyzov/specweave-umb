@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-13T23:02:54.088Z",
   "title": "Folder copy carries a safe git config and flags tracked secrets",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

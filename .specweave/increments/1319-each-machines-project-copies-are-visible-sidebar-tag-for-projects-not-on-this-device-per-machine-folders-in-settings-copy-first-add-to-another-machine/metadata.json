@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-13T19:30:17.278Z",
   "title": "Each machine's project copies are visible: sidebar tag for projects not on this device, per-machine folders in settings, copy-first Add to another machine",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

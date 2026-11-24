@@ -2,11 +2,11 @@
 
 ## Problem
 
-SpecWithCode's 1342 Office sheet viewer (`packages/shared/src/officeSheet/`, `apps/web/src/components/office/`) and 1435 research (`1435-artifact-storage-and-portable-documents`) leave four concrete gaps for users who want Claude Code-grade interactive charts, polished spreadsheets, Word/Office documents, and portable outputs:
+SpecWithCode's 1342 Office sheet viewer (`packages/shared/src/officeSheet/`, `apps/web/src/components/office/`) and 1435 research (`1464-artifact-storage-and-portable-documents`) leave four concrete gaps for users who want Claude Code-grade interactive charts, polished spreadsheets, Word/Office documents, and portable outputs:
 
 1. **Static, single-series charts**: `SheetChart` only draws static `bar`, `line`, and `donut` SVGs from a raw `labels` + `values` range—no interactive parameters/filters, no group-by aggregation (`sum`/`avg`/`count`/`min`/`max`), no sorting, and no smooth motion with accessible `prefers-reduced-motion` support.
 2. **Read-only, rigid spreadsheet presentation**: `SheetView` has 15 basic formula functions, no column sorting, no interactive column width resizing, no column organization (reorder/hide-show without breaking formula addresses), and no row-group expand/collapse.
-3. **Concurrent write hazard (identified in 1435)**: `OfficeArtifacts.ts` uses a process-local `Map` with no cross-process lock and no `expectedRevision` compare-and-set, and `SheetFileView.tsx` overwrites via `projects.writeFile` without checking if an agent or another window changed the file.
+3. **Concurrent write hazard (identified in 1464)**: `OfficeArtifacts.ts` uses a process-local `Map` with no cross-process lock and no `expectedRevision` compare-and-set, and `SheetFileView.tsx` overwrites via `projects.writeFile` without checking if an agent or another window changed the file.
 4. **No portable standalone export or Markdown embedding**: Users cannot export a `.sheet.json` (with its charts and formatted tables) to a self-contained, zero-CDN, private-by-default HTML file or safe Markdown summary, and wider Office/Word/Excalidraw/motion capabilities lack a concrete compatibility and loss-disclosure matrix.
 
 Clean-room shipped-product evidence from Claude.app `6.28899.2` (`rea analyze-javascript-application`, evidence `ev_c1eeb43dcc62f2ff66fcde996b0a6e6831b831e4553254bab1f6e962c5b12a3f`) confirms local zero-CDN chart/table/diagram libraries (`chart.js`, `gridjs`, `mermaid`), dedicated Word and Slides file viewers, an embed runtime, and a clean separation between local data-only artifacts and external Office bridges.
@@ -61,7 +61,7 @@ Extend the existing 1342 Office owners in place without duplicating editors or a
 ## Decisions
 
 ### Asked
-- none (authorized under user's phased implementation directive from accepted research 1435)
+- none (authorized under user's phased implementation directive from accepted research 1464)
 ### Defaulted (change any before sw-do)
 - D-01: Keep `.sheet.json` data-only and zero-CDN; use pure CSS/SVG motion with `@media (prefers-reduced-motion: reduce)` rather than external JS runtime scripts in exported HTML (reversible).
 - D-02: Implement revision guard via deterministic content hash (`sha256` 16-hex prefix) + cross-process lockfile so existing `.sheet.json` files need zero schema migration (reversible).

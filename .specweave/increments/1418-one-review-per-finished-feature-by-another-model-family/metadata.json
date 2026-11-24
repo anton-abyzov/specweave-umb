@@ -1,0 +1,14 @@
+{
+  "id": "1418-one-review-per-finished-feature-by-another-model-family",
+  "uuid": "79f793b9-b509-46e4-984f-dad3093ccc6f",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T19:23:30.526Z",
+  "updated": "2026-11-18T19:23:30.526Z",
+  "lastActivity": "2026-11-18T19:23:30.536Z",
+  "title": "One review per finished feature, by another model family",
+  "project": "specweave-umb",
+  "parent": "1387-first-run-setup-rethought-one-working-agent-models-by-role-chrome-and-mac-access-machines-and-phone",
+  "externalLinks": {}
+}

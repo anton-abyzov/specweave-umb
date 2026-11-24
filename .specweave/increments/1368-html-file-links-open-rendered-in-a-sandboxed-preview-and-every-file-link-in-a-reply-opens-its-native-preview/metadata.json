@@ -1,0 +1,15 @@
+{
+  "id": "1368-html-file-links-open-rendered-in-a-sandboxed-preview-and-every-file-link-in-a-reply-opens-its-native-preview",
+  "uuid": "0f8b1a81-45ad-4e6f-b5a0-d5e9ee9c7125",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-16T14:13:04.560Z",
+  "updated": "2026-11-16T14:13:04.560Z",
+  "lastActivity": "2026-11-16T14:13:04.560Z",
+  "title": "HTML file links open rendered in a sandboxed preview, and every file link in a reply opens its native preview",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -12,5 +12,7 @@
   "externalLinks": {},
   "readyForReviewAt": "2026-11-07T22:47:39.189Z",
   "closeReason": "Umbrella verify fails only on unrelated repos (specweave, vskill, vskill-platform test commands exit 127: npm not found in the verify shell); 1148 changed only anton-abyzov/specwithcode, where web 12/12 shared cases, PR Gate and Swift 14/14 pass",
-  "approvedAt": "2026-11-07T22:47:39.190Z"
+  "approvedAt": "2026-11-07T22:47:39.190Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

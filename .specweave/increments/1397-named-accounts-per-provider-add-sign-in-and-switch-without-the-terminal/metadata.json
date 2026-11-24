@@ -1,0 +1,13 @@
+{
+  "id": "1397-named-accounts-per-provider-add-sign-in-and-switch-without-the-terminal",
+  "uuid": "3c436827-5c4b-4589-9fd1-3569c91b949a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T07:37:22.918Z",
+  "updated": "2026-11-18T07:37:22.918Z",
+  "lastActivity": "2026-11-18T07:37:22.918Z",
+  "title": "Named accounts per provider: add, sign in and switch without the terminal",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

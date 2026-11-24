@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-23T03:38:25.728Z","note":"session 01a20679-7087-7da1-8495-7f90afa59fc7"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-23T03:38:25.730Z"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-23T03:38:26.983Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-23T03:44:03.909Z","evidence":"922d903cf: checks copy apps/server pnpm test src/provider/codexUsageLimits.test.ts passed 62 tests; reports/checks-922d903cf.log\nHEAD 892a8c6fdc"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-23T03:44:05.362Z","evidence":"922d903cf: checks copy apps/web pnpm test passed 33 tests covering eligibility, persistence, message and confirmation; reports/checks-922d903cf.log\nHEAD 892a8c6fdc"}
+{"t":"*","e":"note","by":"copilot@antons-macbook-m4max","at":"2026-11-23T03:49:34.629Z","note":"review by gemini-4-neon (google) at 922d903cf5b2: fix first · reports/reviews/review-gemini-4-neon-1.md"}
+{"t":"*","e":"note","by":"copilot@antons-macbook-m4max","at":"2026-11-23T03:58:46.352Z","note":"review by gemini-4-neon (google) at 17036c8bdad7: ship · reports/reviews/review-gemini-4-neon-2.md"}

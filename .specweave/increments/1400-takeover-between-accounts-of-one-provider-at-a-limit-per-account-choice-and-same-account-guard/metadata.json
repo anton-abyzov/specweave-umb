@@ -1,0 +1,13 @@
+{
+  "id": "1400-takeover-between-accounts-of-one-provider-at-a-limit-per-account-choice-and-same-account-guard",
+  "uuid": "520fc9df-2659-4672-9f7d-4bd0191849f1",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T08:09:29.066Z",
+  "updated": "2026-11-18T08:09:29.066Z",
+  "lastActivity": "2026-11-18T08:09:29.066Z",
+  "title": "Takeover between accounts of one provider at a limit: per-account choice and same-account guard",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}
