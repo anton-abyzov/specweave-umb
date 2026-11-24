@@ -1,15 +1,17 @@
 {
   "id": "1086-opt-in-automatic-coordinator-takeover",
   "uuid": "d4701c5c-e131-4f4f-be7c-79ae92d672e4",
-  "status": "active",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-26T19:35:55.171Z",
-  "updated": "2026-10-29T02:23:41.707Z",
-  "lastActivity": "2026-10-29T02:23:41.707Z",
+  "updated": "2026-11-24T17:54:23.923Z",
+  "lastActivity": "2026-11-24T17:54:23.923Z",
   "title": "Opt-in automatic coordinator takeover",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "abandonedReason": "Superseded by 1390 PR #707 (merged d38774aa1, v1.0.391), which removed standby takeover. Owner, November 24, 2026: yes, do what's recommended.",
+  "abandonedAt": "2026-11-24T17:54:23.923Z"
 }
