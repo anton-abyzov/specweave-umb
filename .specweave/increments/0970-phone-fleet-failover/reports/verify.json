@@ -1,0 +1,224 @@
+{
+  "ok": true,
+  "strictClose": {
+    "errors": []
+  },
+  "ranAt": "2026-11-24T21:00:39.220Z",
+  "increment": "0970-phone-fleet-failover",
+  "commands": [
+    {
+      "cmd": "python3 scripts/fleet-project-sync.py --self-test",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "python3 -m unittest discover -s tests -p test_handoff_evidence.py",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "python3 scripts/release/timing.py --self-test",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "test $(git -C /Users/antonabyzov/.specwithcode/m4/verify/specwithcode rev-parse HEAD) = 29d788d8cc51b30ec619acdb626ad31bebc10460",
+      "exit": 0,
+      "cwd": ".",
+      "source": "explicit"
+    },
+    {
+      "cmd": "swift test --no-parallel --package-path /Users/antonabyzov/.specwithcode/m4/verify/specwithcode/apps/ios/SWCKit --filter 'FleetEngineTests|FleetSummariesTests|FleetFixtureTests'",
+      "exit": 0,
+      "cwd": ".",
+      "source": "explicit"
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/.specwithcode/m4/verify/specwithcode/apps/server && /Users/antonabyzov/.specwithcode/m4/verify/specwithcode/node_modules/.bin/vp test run src/fleet/phoneLinks.test.ts",
+      "exit": 0,
+      "cwd": ".",
+      "source": "explicit"
+    }
+  ],
+  "acs": {
+    "total": 10,
+    "done": 9,
+    "skippedAccepted": 1,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-02",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-03",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-03",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-03",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-04",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-05",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-04",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-06",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-05",
+            "status": "skipped"
+          }
+        ],
+        "acceptance": "skipped-accepted",
+        "waivers": [
+          {
+            "check": "two physical Macs on LAN with M4 off",
+            "reason": "Cannot be run as written: fleet addresses must be HTTPS tailnet or Connect (fleetOrigin.ts:40-68), the owner decided on October 20, 2026 not to build a LAN mode, Connect replaced the hub as the phone route (1139), and a hub-off run would need live Tailscale Serve or Connect changes. Simulator and live two-server runs passed October 20; physical hub-off stays untested.",
+            "acceptedBy": "Anton Abyzov",
+            "acceptedAt": "2026-11-24T00:00:00Z",
+            "authorization": "Anton Abyzov, November 24, 2026, M5 thread 0970: \"If it's superseded, record it as skipped with the evidence, the way the closure rules allow.\" and \"once T-05's check passes, or is recorded as superseded with evidence, unblock T-10 and close 0970.\"",
+            "by": "claude@antons-macbook-m4max",
+            "at": "2026-11-24T15:34:23.269Z"
+          }
+        ]
+      },
+      {
+        "id": "AC-07",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-06",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-08",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-09",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-08",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-10",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-09",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 10,
+    "done": 8,
+    "skipped": 1,
+    "open": 1
+  },
+  "skipped": [
+    {
+      "id": "T-05",
+      "by": "claude@antons-macbook-m4max",
+      "reason": "Two-Mac LAN M4-off run superseded: fleet links refuse LAN, Connect is the phone route; see report"
+    }
+  ],
+  "acceptedSkips": [
+    {
+      "ac": "AC-06",
+      "check": "two physical Macs on LAN with M4 off",
+      "reason": "Cannot be run as written: fleet addresses must be HTTPS tailnet or Connect (fleetOrigin.ts:40-68), the owner decided on October 20, 2026 not to build a LAN mode, Connect replaced the hub as the phone route (1139), and a hub-off run would need live Tailscale Serve or Connect changes. Simulator and live two-server runs passed October 20; physical hub-off stays untested.",
+      "acceptedBy": "Anton Abyzov",
+      "acceptedAt": "2026-11-24T00:00:00Z",
+      "authorization": "Anton Abyzov, November 24, 2026, M5 thread 0970: \"If it's superseded, record it as skipped with the evidence, the way the closure rules allow.\" and \"once T-05's check passes, or is recorded as superseded with evidence, unblock T-10 and close 0970.\"",
+      "by": "claude@antons-macbook-m4max",
+      "at": "2026-11-24T15:34:23.269Z"
+    }
+  ],
+  "ledgerMalformed": 0
+}
