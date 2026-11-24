@@ -28,6 +28,12 @@ Build on 1465's fake-provider control file and invariant-checker pattern. A Pyth
 
 Risk: `update_agent.py` assumes launchd paths; the rig may need a narrow, test-only path override that already exists or is added as a parameter, not a behaviour change.
 
+Orientation (November 24, 2026, after 1465 merged):
+- `scripts/studio-fleet/update_agent.py` uses only the standard library plus its sibling modules. It already takes a test-only `--home`, so it can run on M5 too.
+- The real path is not self-contained. `quiet_then_install` runs the verified release's helper (`update.py --snapshot`), which checks the service against its launchd job (label, `kickstart`, `bootout`), the listener on port 8319 and the installation owner. The apply then restarts through launchd.
+- Driving all of that for real would load a scratch job into the user's own launchd domain. `rehearse_update.py` avoids this by using the fleet tests' sandbox transport (`test-update.py` ApplyRecovery) for exactly those seams.
+- A verified release also needs `verified.json`, a runtime asset with a matching sha256, and helpers. `scripts/mock-update-server.ts` serves releases for tests.
+
 ## Decisions
 
 ### Asked
@@ -35,6 +41,8 @@ Risk: `update_agent.py` assumes launchd paths; the rig may need a narrow, test-o
 ### Defaulted (change any before sw-do)
 - D-01 Report-only first; no CI gate until three clean nightly runs → default (reversible).
 - D-02 Runs on m4 (has PyYAML and pnpm) → default.
+- D-03 Keep the sandbox transport for launchd, the listener and the installation owner, as `rehearse_update.py` does. Run the real quiet loop, snapshot reads and refusals against a live scratch server with fake-agent turns. No scratch job is ever loaded into the user's launchd domain → default.
+- D-04 The scheduled run (AC-05) is a `macos-15` job in `chaos-nightly.yml`, installing PyYAML in the job. D-02's m4 applies to local runs → default.
 ### Open
 - none
 

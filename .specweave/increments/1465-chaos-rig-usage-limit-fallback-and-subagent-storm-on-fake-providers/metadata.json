@@ -5,8 +5,11 @@
   "type": "experiment",
   "priority": "P1",
   "created": "2026-11-24T15:57:13.218Z",
-  "updated": "2026-11-24T15:57:13.218Z",
-  "lastActivity": "2026-11-24T15:57:13.218Z",
+  "updated": "2026-11-24T17:14:24.688Z",
+  "lastActivity": "2026-11-24T17:14:24.688Z",
   "title": "Chaos rig: usage-limit fallback and subagent storm on fake providers",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
