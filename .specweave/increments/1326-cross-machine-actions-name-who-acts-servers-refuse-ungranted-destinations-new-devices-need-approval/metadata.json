@@ -1,15 +1,17 @@
 {
   "id": "1326-cross-machine-actions-name-who-acts-servers-refuse-ungranted-destinations-new-devices-need-approval",
   "uuid": "ceeb3366-b48f-40b7-8426-25a631064005",
-  "status": "active",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-13T22:10:54.891Z",
-  "updated": "2026-11-14T01:13:32.100Z",
-  "lastActivity": "2026-11-14T01:13:32.100Z",
+  "updated": "2026-11-24T15:59:37.290Z",
+  "lastActivity": "2026-11-24T15:59:37.290Z",
   "title": "Cross-machine actions name who acts, servers refuse ungranted destinations, new devices need approval",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "abandonedReason": "Superseded by 1390 Sync and Add (PR #653); shipped in v1.0.292 to v1.0.322. Owner agreed November 24, 2026.",
+  "abandonedAt": "2026-11-24T15:59:37.290Z"
 }
