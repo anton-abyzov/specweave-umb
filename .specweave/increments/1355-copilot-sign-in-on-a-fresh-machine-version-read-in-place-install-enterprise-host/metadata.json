@@ -5,8 +5,8 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-18T15:45:48.446Z",
-  "updated": "2026-11-18T15:45:48.446Z",
-  "lastActivity": "2026-11-18T15:45:48.446Z",
+  "updated": "2026-11-24T15:53:46.399Z",
+  "lastActivity": "2026-11-24T15:53:46.399Z",
   "title": "Copilot sign-in on a fresh machine: version read, in-place install, enterprise host",
   "project": "specweave",
   "externalLinks": {}
