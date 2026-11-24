@@ -5,11 +5,14 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-11T15:03:47.029Z",
-  "updated": "2026-11-12T17:10:54.896Z",
-  "lastActivity": "2026-11-12T17:10:54.896Z",
+  "updated": "2026-11-24T16:33:51.745Z",
+  "lastActivity": "2026-11-24T16:33:51.745Z",
   "title": "Clear voice controls: Dictate and Call say what they do, dictation needs no setup, reply voice settings reframed",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
