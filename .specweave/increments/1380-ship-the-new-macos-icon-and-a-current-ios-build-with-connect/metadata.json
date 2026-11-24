@@ -5,9 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-17T21:56:00.713Z",
-  "updated": "2026-11-17T21:56:00.713Z",
-  "lastActivity": "2026-11-17T21:56:00.713Z",
+  "updated": "2026-11-23T06:20:22.882Z",
+  "lastActivity": "2026-11-23T06:20:22.882Z",
   "title": "Ship the new macOS icon and a current iOS build with Connect",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
