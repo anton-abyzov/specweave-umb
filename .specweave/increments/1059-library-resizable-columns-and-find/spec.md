@@ -71,7 +71,7 @@ Rejected:
 ## Decisions
 
 ### Asked
-- none (awaits Anton's review of the proposal)
+- D-04: Anton approved the proposal with the corrections above (November 24, 2026, board triage: "yes, do what's recommended"). T-02 may start; re-run the `LibraryPane.tsx` worktree scan first, as the ownership note says.
 ### Defaulted (change any before sw-do)
 - D-01: Defaults are main's 118/70/92px. Resize bounds are the proposal's Name 220-900, Modified 112-260, Size 64-160 and Kind 80-220, to be checked at 200% zoom.
 - D-02: Find defaults to Current folder. Loaded folders is opt-in.
