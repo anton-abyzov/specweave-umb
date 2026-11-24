@@ -1,0 +1,4 @@
+$ python3 -c "import json,sys;j=json.load(open('.specweave/increments/0970-phone-fleet-failover/reports/verify.json'));print('verify ok', j['ok'], 'ranAt', j['ranAt'], 'verified app commit 29d788d8cc51b30ec619acdb626ad31bebc10460');sys.exit(0 if j['ok'] is True else 1)"
+# exit 0 — 2026-11-24T21:01:25.100Z
+
+verify ok True ranAt 2026-11-24T21:00:39.220Z verified app commit 29d788d8cc51b30ec619acdb626ad31bebc10460
