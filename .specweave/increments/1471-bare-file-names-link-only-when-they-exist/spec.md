@@ -14,14 +14,14 @@ In: inline code that names a bare file (no `/` or `\` in what was written, optio
 
 - [ ] AC-01: A bare file name in inline code that the thread's machine does not have renders as plain code, not a chip; clicking it shows no toast.
 - [ ] AC-02: A bare file name the host has (in the workspace root, a folder the message names, or found uniquely by search) still renders as a chip that opens the file, with `file:line` keeping its line.
-- [ ] AC-03: Until the host answers, a bare name renders as plain code; a name already confirmed on that machine renders as a chip on the next mount without a code-to-chip flash; a name that was missing is checked again, so a file created later starts linking.
+- [ ] AC-03: Until the host answers, a bare name renders as plain code, on every mount; nothing confirmed earlier is reused, so a file deleted since never shows a chip and a file created since starts linking.
 - [ ] AC-04: Paths containing `/` keep today's behaviour, including the not-found notice for a missing one.
 - [ ] AC-05: A remote thread checks the name on its own machine (the thread's environment), never on the viewer's.
 
 ## Approach
 
 1. `markdown-links.ts`: mark a bare-name meta with `requiresHost: true` in `settleInlineCodeFileLink`, carry it onto a following `:12` span, and export `confirmedFileLink(meta)` that returns null for a `requiresHost` meta the host has not found. Export `isBareFileNameSpan` for the inline fallback.
-2. `useExistingFileLinks.ts`: host-check every `requiresHost` meta; keep a module cache per environment and link of settled results, seed from it on mount, and re-check entries that were missing. A found file drops `requiresHost` through `fileLinkMetaAtPath`.
+2. `useExistingFileLinks.ts`: host-check every `requiresHost` meta on every mount with fresh reads (`refresh: true`), sharing only reads in flight and reading each folder once per pass; answers keyed by machine and link. A found file drops `requiresHost` through `fileLinkMetaAtPath`.
 3. `ChatMarkdown.tsx`: filter the settled inline map through `confirmedFileLink` before `viewerLinks` and `MarkdownCode` read it; the inline fallback skips bare names.
 4. Tests: render `ChatMarkdown` with the host listing mocked (`ChatMarkdown.bare-names.test.tsx`); pure tests in `markdown-links` for the flag.
 
@@ -34,7 +34,7 @@ Remote threads already resolve on their own machine: `environmentId` comes from 
 ### Asked
 - none
 ### Defaulted (change any before sw-do)
-- D-01 Unconfirmed bare names render as plain code while the host answers → default (reversible), the cache hides the delay on later mounts.
+- D-01 Unconfirmed bare names render as plain code while the host answers, on every mount → default (reversible). A cache that showed earlier confirmations at once was tried and dropped after review: it showed deleted files as chips until the host answered.
 - D-02 A bare `name.ts:12` follows the same rule as `name.ts` → default.
 ### Open
 - none
