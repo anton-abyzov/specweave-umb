@@ -1,0 +1,13 @@
+{"t":"*","e":"session","by":"claude@minisforum","at":"2026-11-13T16:36:03.261Z","note":"session 360069d4-4a68-4b44-8de9-b9785e880cf7","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@minisforum","at":"2026-11-13T16:36:03.262Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@minisforum","at":"2026-11-13T16:36:03.263Z","evidence":"release-flags.test.mjs 6/6 pass; commit b9cd60db amended on release-train\nHEAD 803d14d90","link":"https://github.com/anton-abyzov/specwithcode/pull/314","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@minisforum","at":"2026-11-13T16:36:04.076Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@minisforum","at":"2026-11-13T16:36:04.077Z","evidence":"test-release-plan.py 62 OK; plan notice marks 1.1+ as Insiders; stable only via release_train.py\nHEAD 803d14d90","link":"https://github.com/anton-abyzov/specwithcode/pull/314","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@minisforum","at":"2026-11-13T16:36:04.884Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@minisforum","at":"2026-11-13T16:36:04.886Z","evidence":"test-release-train.py 15 OK; release-train.yml cron 0 15 * * *\nHEAD 803d14d90","link":"https://github.com/anton-abyzov/specwithcode/pull/314","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@minisforum","at":"2026-11-13T16:36:05.691Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@minisforum","at":"2026-11-13T16:36:05.692Z","evidence":"test-update-agent.py 74 OK incl. stable skips/preview takes 1.1 prerelease\nHEAD 803d14d90","link":"https://github.com/anton-abyzov/specwithcode/pull/314","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@minisforum","at":"2026-11-13T16:36:06.468Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@minisforum","at":"2026-11-13T16:36:06.469Z","evidence":"vitest platformFeed, githubReleaseFeed, DesktopUpdates, cliRelease, i18n: 414 pass; tsc clean shared+desktop\nHEAD 803d14d90","link":"https://github.com/anton-abyzov/specwithcode/pull/314","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@minisforum","at":"2026-11-13T16:36:07.327Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@minisforum","at":"2026-11-13T16:36:07.328Z","evidence":"request-release.sh --hotfix; docs/studio/release-train.md; releasing.md; AGENTS.md\nHEAD 803d14d90","link":"https://github.com/anton-abyzov/specwithcode/pull/314","model":"claude-opus-5-5[1m]"}
