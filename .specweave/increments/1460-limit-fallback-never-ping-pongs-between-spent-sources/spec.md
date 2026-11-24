@@ -60,6 +60,7 @@ Risk: a source whose refusal was transient now waits up to 60 minutes. A complet
 - D-10 (review round 3) A parked chain sends no way back home either, even once the home's hold runs out; the card is the one place to act.
 - D-11 (review round 3) The last check before a handoff applies D-08's read release to the providers it reads again, so a usage read that came in while the other machine answered keeps the thread here.
 - D-12 (review round 3) Text from a stopped run also folds as a refusal when it repeats that run's own recorded limit failure (Cursor's refusal arrives as the run's error).
+- D-13 (review round 4) A refusal must equal the run's whole recorded failure once normalized (lower case, single spaces, no `Error:` opening, request id or closing punctuation). Part of it, or the failure inside an answer, is an answer.
 ### Open
 - none
 
@@ -77,3 +78,5 @@ Risk: a source whose refusal was transient now waits up to 60 minutes. A complet
 ## Review
 
 Adversarial review on GPT-6.2 Sol (Codex). Never Grok; Gemini 4 Neon is out of quota.
+
+Result: 5 rounds on m4. Round 5 was CLEAN at `dad226959`. PR #875 merged as `525b3b2c0` on November 24, 2026.
