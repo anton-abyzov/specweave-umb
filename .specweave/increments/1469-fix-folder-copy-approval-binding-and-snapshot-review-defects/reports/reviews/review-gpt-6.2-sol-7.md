@@ -1,0 +1,21 @@
+<!-- specweave review: reviewer=gpt-6.2-sol model=gpt-6.2-sol family=openai author=unknown depth=standard repo=repositories/anton-abyzov/specwithcode base=bf2021f9e971e6940da089ff7c971f5c5b1b9a7e head=68c1f70ea4443570f7817b89f85a3798087c5e7a at=2026-11-24T19:13:10.494Z -->
+# Review: 1469 Folder-copy approval binding and snapshot capture, round 7
+Verdict: fix first
+
+GPT-6.2-Sol on Codex reviewing Claude Opus 5.5 work in PR #884. Head `68c1f70ea4443570f7817b89f85a3798087c5e7a`, delta `89c3a889c..68c1f70ea`. Read-only source review. Diff whitespace check passed. Tests were inspected, with no execution.
+
+## [high] apps/server/src/fleet/folderTransfer/sourceCaptureAnchor.ts:45 A changed root can downgrade a move to live reads
+
+An untracked `.envrc` is selected as ordinary after scanning. If the copy root is briefly a symlink when the pin checks it, `pinSourceRoot` throws `CaptureFilesystemRefused` before comparing the scanned identity. A move catches that error and uses `hashSelected` (`apps/server/src/fleet/folderTransfer/sourceService.ts:968` and `:979`). If the original directory returns and `.envrc` has gained a literal secret, the fallback hashes those bytes under the saved ordinary class (`apps/server/src/fleet/folderTransfer/manifest.ts:1063`). The live validation detects the change, but approval allows a stale source into an empty destination (`apps/server/src/fleet/folderTransfer/destinationService.ts:666`). The `.envrc` exception in `ready()` and the live chunk read then allow those newly hashed bytes (`apps/server/src/fleet/folderTransfer/sourceService.ts:1217` and `:1291`). The PR base refuses a symlinked root at its ancestor check (`bf2021f9e`, `apps/server/src/fleet/folderTransfer/sourceSnapshot.ts:94`). This downgrade was introduced by PR #884 and survives the round-7 delta. Treat a changed root type or identity as a source change that requires a new comparison. Re-verified by tracing the source and destination branches at the head and base.
+
+## Original findings and round-7 delta
+
+- AC-01 is closed on inspection. The caller's revision is compared before approval and the plan is checked again under lock (`apps/server/src/fleet/folderTransfer/destinationService.ts:653` and `:735`). Replace everything checks shaping choices and listed conflicts (`apps/web/src/components/studio/handoffCopyAuto.ts:146`).
+- AC-02 and AC-03 are addressed on the captured path. The secret check runs before appending buffered bytes, and an opened descriptor must match the pinned lookup (`apps/server/src/fleet/folderTransfer/sourceSnapshot.ts:539` and `:195`). The new downgrade above leaves AC-02 open end to end.
+- AC-04 through AC-07 are closed on inspection. A missing capture refuses, read time is recorded before waiting for the pack, terminal saves store cleanup debt, and capture opens non-blocking (`apps/server/src/fleet/folderTransfer/sourceService.ts:1209` and `:508`, `apps/server/src/fleet/folderTransfer/sourceSnapshot.ts:452` and `:175`).
+- AC-08 through AC-11 are closed on inspection. Refresh unticks new secrets and replaces stale registration notices, ENOTDIR counts as missing, and recompute clears the disk note before approval measures again (`apps/web/src/components/studio/handoffCopyScanRecovery.ts:58`, `apps/web/src/components/studio/handoffCopyNotices.ts:46`, `apps/server/src/fleet/folderTransfer/manifest.ts:315`, `apps/server/src/fleet/folderTransfer/destinationService.ts:703` and `:1236`).
+- The round-6 symlink-parent fixture now refuses when the parent is already a symlink. The link pass checks cancellation for each link (`apps/server/src/fleet/folderTransfer/sourceCaptureAnchor.ts:97`, `apps/server/src/fleet/folderTransfer/sourceSnapshot.ts:335`, and `apps/server/src/fleet/folderTransfer/sourceSnapshot.review.test.ts:199`). Re-verified by reading.
+
+## Follow-ups
+
+- D-05 / 1471. The scan still collects the path set, Git class and metadata through the mutable path (`apps/server/src/fleet/folderTransfer/manifest.ts:632`, `:664`, `:753`). The base already trusted these facts during capture. The net delta adds checks on links and their parents and leaves the scan unchanged. A root change-time check would miss a swap above the root that leaves the root inode untouched. Re-verified by comparing base and head.
