@@ -19,10 +19,10 @@ Out: the web card's wording, and Machine basics (its lookup reads the host envir
 
 ## Acceptance Criteria
 
-- [ ] AC-01: On Windows, a server whose environment names the variable `Path` (any case) reads it through `Config.String("PATH")`, and through `PATHEXT`/`APPDATA` in any case.
-- [ ] AC-02: The server's config provider reads `process.env` live: a variable set or changed after the provider was made is read on the next lookup.
-- [ ] AC-03: SpecWeave setup reads PATH on each press, so a `specweave` (or `node`) that appears on PATH after the service started is found without a restart, and Retry clears the Node.js card.
-- [ ] AC-04: On Windows, SpecWeave setup also looks in `%ProgramFiles%\nodejs`, `NVM_SYMLINK` and `%LOCALAPPDATA%\Volta\bin` when they are not on PATH.
+- [x] AC-01: On Windows, a server whose environment names the variable `Path` (any case) reads it through `Config.String("PATH")`, and through `PATHEXT`/`APPDATA` in any case.
+- [x] AC-02: The server's config provider reads `process.env` live: a variable set or changed after the provider was made is read on the next lookup.
+- [x] AC-03: SpecWeave setup reads PATH on each press, so a `specweave` (or `node`) that appears on PATH after the service started is found without a restart, and Retry clears the Node.js card.
+- [x] AC-04: On Windows, SpecWeave setup also looks in `%ProgramFiles%\nodejs`, `NVM_SYMLINK` and `%LOCALAPPDATA%\Volta\bin` when they are not on PATH.
 - [ ] AC-05: After the release reaches win, the Board card there no longer says Node.js is missing.
 
 ## Approach
@@ -32,6 +32,12 @@ Out: the web card's wording, and Machine basics (its lookup reads the host envir
 - `nodeToolDirs.ts`: Windows-only folders from `ProgramFiles`, `NVM_SYMLINK` and `LOCALAPPDATA`.
 - Rejected: patching each `Config.String("PATH")` call to also try `Path`. It fixes casing but not staleness, and leaves the next reader to repeat the bug.
 - Risk: every `Config` read in the server becomes live. Only values that change while the server runs behave differently, and PATH is the one the server changes on purpose.
+
+## Review
+
+Codex GPT-6.2 Sol (Copilot Enterprise was at 100%). Round 1 ended when Codex's sign-in expired; its note (cached miss for 30 s) was fixed in `2d49ecbfa`. Round 2: typecheck blocker (ConfigError escaping `setUp`) and nvm order on Unix, both fixed in `29485e9fb`; the cached-miss test gap is not covered by a test. Windows CI: the new tests pass; 46 failures in files this change does not touch (ProjectSync, worktreeCleanupSweep, terminal, handoffGit and others) predate it.
+
+Shipped in PR 837 (`a739fcde5`), release 1.0.415 (macOS, Windows, Linux) on November 24, 2026.
 
 ## Decisions
 

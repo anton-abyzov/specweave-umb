@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-23T17:38:24.478Z",
-  "updated": "2026-11-23T17:38:24.478Z",
-  "lastActivity": "2026-11-23T17:38:24.478Z",
+  "updated": "2026-11-24T05:26:27.534Z",
+  "lastActivity": "2026-11-24T05:26:27.534Z",
   "title": "SpecWeave setup finds Node.js on Windows",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
