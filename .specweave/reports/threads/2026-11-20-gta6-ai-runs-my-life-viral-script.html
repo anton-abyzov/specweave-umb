@@ -1,0 +1,91 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{font:15.5px/1.55 var(--font-sans);color:var(--foreground);background:var(--background);margin:0;padding:20px 22px 40px;max-width:900px}
+h1{font-size:27px;line-height:1.2;margin:0 0 6px}h2{font-size:19px;margin:30px 0 10px;border-top:1px solid var(--border);padding-top:18px}
+.lead{font-size:17px;color:var(--foreground);margin:6px 0 14px}.mut{color:var(--muted-foreground);font-size:13.5px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.k{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px}.k b{display:block;font-size:22px;color:var(--accent)}.k span{font-size:12.5px;color:var(--muted-foreground)}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0}th,td{border-bottom:1px solid var(--border);padding:7px 8px;text-align:left;vertical-align:top}th{color:var(--muted-foreground);font-weight:600;font-size:12.5px}
+.win{background:var(--accent-surface);color:var(--accent-surface-foreground)}
+.bar{display:inline-block;height:8px;border-radius:4px;background:var(--chart-1);vertical-align:middle;margin-right:6px}
+.say{background:var(--card);border-left:3px solid var(--accent);padding:8px 12px;margin:6px 0;border-radius:4px}
+.t{font-family:var(--font-mono);font-size:12.5px;color:var(--muted-foreground);white-space:nowrap}
+.chip{display:inline-block;font-size:12px;padding:1px 8px;border-radius:10px;background:var(--secondary);color:var(--secondary-foreground);margin-right:4px}
+.ok{background:transparent;border:1px solid var(--success);color:var(--success)}.warn{background:var(--warning-surface);color:var(--warning)}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0}.flow div{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:13.5px}.flow i{color:var(--muted-foreground);font-style:normal}
+img{max-width:100%;border-radius:8px}a{color:var(--accent)}
+</style></head><body>
+<h1>AI Runs My Life in GTA 6: the script, checked line by line</h1>
+<p class="lead"><b>Version 2.</b> I checked every line of the first script against what exists. I built the missing parts, then cut or reworded every promise the stream can't keep. Each beat is marked <span class="chip ok">Tested</span>, <span class="chip">Built, not tested live</span> or <span class="chip warn">Your call live</span>.</p>
+<div class="kpis">
+<div class="k"><b>3.3 to 5.2 s</b><span>per AI call, measured tonight with the live loop on saved frames</span></div>
+<div class="k"><b>281 lines / 25 s</b><span>of real Twitch chat read by the vote counter (anonymous, read-only)</span></div>
+<div class="k"><b>Corridor</b><span>where yesterday's save stops: the cell and the crossword are already played</span></div>
+<div class="k"><b>25 calls</b><span>hard cap for the stream, to stay inside your Claude plan</span></div>
+</div>
+<img src="/Users/anton/Projects/github/specweave-umb/.specweave/reports/threads/2026-11-19-gta6-live/obs-ai-overlay.jpg" alt="AI line and chat votes in OBS" style="max-width:640px">
+<p class="mut">The real OBS scene "PS5 Remote Window" with the two new text sources. Black because the PS5 isn't connected.</p>
+
+<h2>What to focus on today</h2>
+<p>Start at <b>12:00 PM ET</b>, which is when YouTube is scheduled. Plan to stream until about 4 PM.</p>
+<ol><li><b>Before noon, on M5:</b> connect Remote Play and do a 5-minute dry run that isn't live, with one AI line on screen. Nothing else matters more.</li>
+<li><b>On air:</b> read every AI line out loud and do it. The show is you reacting to the AI, so talk the whole time.</li>
+<li><b>Chat:</b> point at the VETO count often, and when VETO wins, make a moment of it.</li>
+<li><b>Clips:</b> press Clip in Twitch on the button prompt, the arrest and any wrong AI call.</li></ol>
+<p><b>How the stream is built:</b> PS5 to PS Remote Play on M5. OBS captures the Remote Play window and your camera. OBS sends the stream to Twitch, and the obs-multi-rtmp plugin sends it to YouTube and X. <code>ai-call.py</code> takes a screenshot of the game about every 20 s, asks Claude (Fable 5.2) for one move and writes it to the OBS text "AI Call". <code>chat-vote.py</code> reads Twitch chat and writes VETO/KEEP to "Chat Votes".</p>
+<p><img src="2026-11-19-gta6-live/thumb-real-G2.jpg" style="max-width:100%;border-radius:8px" alt="Thumbnail"></p>
+<h2>What the show really is</h2>
+<div class="flow"><div>Game window</div><i>→</i><div>AI line on screen, every ~20 s</div><i>→</i><div>Twitch chat: VETO or KEEP (counted)</div><i>→</i><div>Anton plays it, or the opposite</div></div>
+<p>You hold the controller the whole time; the AI never presses a button. YouTube and X chat can't be counted automatically, so read them out loud.</p>
+
+<h2>Line-by-line check of the first script</h2>
+<table><tr><th>First script said</th><th>Real?</th><th>Version 2</th></tr>
+<tr><td>AI makes every call, on screen</td><td><span class="chip ok">Tested</span> ai-call.py: window capture, Fable 5.2, OBS text</td><td>Kept</td></tr>
+<tr><td>Chat can overrule: VETO</td><td><span class="chip ok">Tested</span> Twitch only; one vote per person, reset per AI call</td><td>Kept; YouTube and X aloud</td></tr>
+<tr><td>Score overlay, AI vs chat</td><td><span class="chip warn">No</span> can't update it while holding the pad</td><td>Cut</td></tr>
+<tr><td>"Loser picks my next stream"</td><td><span class="chip warn">No</span> not your decision</td><td>Cut</td></tr>
+<tr><td>Cell and crossword "planet of love"</td><td><span class="chip warn">No</span> already played; save is in the corridor</td><td>Cut</td></tr>
+<tr><td>Guard: "Alright, come on"</td><td><span class="chip ok">Tested</span> AI right every time</td><td>Opener, if the game resumes there</td></tr>
+<tr><td>AI quiet in cutscenes</td><td><span class="chip ok">Tested</span> shows "watching…"</td><td>Kept</td></tr>
+<tr><td>"The AI told me to rob a store"</td><td><span class="chip warn">No</span> the story does</td><td>"The story makes me rob it. The AI just calls how."</td></tr>
+<tr><td>Ask the AI which button</td><td><span class="chip warn">No</span> 3 to 5 s vs a ~1 s prompt</td><td>"The AI is too slow for this, that's why I hold the pad."</td></tr>
+<tr><td>"The AI got me arrested"</td><td><span class="chip warn">No</span> the arrest is scripted</td><td>"Scripted arrest. Even the AI can't talk me out of it."</td></tr>
+<tr><td>"Next stream the AI holds the controller"</td><td><span class="chip warn">No</span> not built</td><td>Chat poll: YES or NO</td></tr>
+<tr><td>5 clips cut the same day</td><td><span class="chip ok">Checked</span> Twitch keeps broadcasts 7 days, clips on</td><td>Clip in Twitch, no ffmpeg needed</td></tr>
+<tr><td>Thumbnail "AI: ROB THE STORE?"</td><td><span class="chip warn">No</span> the AI never says it</td><td>New real-face thumbnail G2 ("I LET AI RUN MY LIFE"); kie-B retired</td></tr></table>
+
+<h2>The script, in order (times are rough; follow the game)</h2>
+<table><tr><th>#</th><th>On screen</th><th>You say or do</th><th>Status</th></tr>
+<tr><td class="t">1</td><td>Starting Soon, then game</td><td><div class="say">"Everyone's playing GTA 6. I'm letting an AI run my life in it. It watches my screen and calls every move, up there. I hold the controller. Twitch chat: type VETO and I do the opposite."</div></td><td><span class="chip warn">Your call live</span></td></tr>
+<tr><td class="t">2</td><td>First AI line</td><td>Read it, do it. "Every 20 seconds, one decision."</td><td><span class="chip">Built, not tested live</span></td></tr>
+<tr><td class="t">3</td><td>Corridor, guard</td><td>AI: "Follow the guard." "Easy one, robot."</td><td><span class="chip ok">Tested</span></td></tr>
+<tr><td class="t">4</td><td>Cutscene</td><td>AI: "watching…" "It knows when to shut up. Unlike you, chat."</td><td><span class="chip ok">Tested</span></td></tr>
+<tr><td class="t">5</td><td>Counselor cutscene</td><td>30 s on how it works: "Screenshot in, three to five seconds, one move out."</td><td><span class="chip ok">Measured</span></td></tr>
+<tr><td class="t">6</td><td>Robbery flashback</td><td>"Lucia robs a store. Not the AI's idea, but it'll tell me how." <b>Clip</b></td><td><span class="chip warn">Your call live</span></td></tr>
+<tr><td class="t">7</td><td>Button prompt</td><td>Press it yourself. "The AI takes four seconds. That prompt gave me one." <b>Clip</b></td><td><span class="chip ok">Measured</span></td></tr>
+<tr><td class="t">8</td><td>Police chase</td><td>Let late lines show. "It's narrating the past." <b>Clip</b></td><td><span class="chip">Built</span></td></tr>
+<tr><td class="t">9</td><td>Arrest</td><td>"Scripted. Even the AI can't talk me out of it." <b>Clip</b></td><td><span class="chip ok">Fact</span></td></tr>
+<tr><td class="t">10</td><td>After the Prologue</td><td>Real choices: where to go, whom to talk to. If VETO wins: "Chat overruled the machine." <b>Clip</b></td><td><span class="chip">Built; needs viewers</span></td></tr>
+<tr><td class="t">11</td><td>End</td><td>"Should the AI get the controller one day? YES or NO." Thank, raid or end.</td><td><span class="chip warn">Your call live</span></td></tr></table>
+<p class="mut">When the AI fails it shows "no signal, I'm on my own": say "the AI rage-quit" and keep playing. Do not start a new game; it could overwrite yesterday's save.</p>
+
+<h2>Clips (vertical, cut in Twitch; only if it happens)</h2>
+<table><tr><th>Title</th><th>Honest when</th></tr>
+<tr><td>The AI is too slow for GTA 6</td><td>Always: measured</td></tr>
+<tr><td>My AI narrates GTA 6 five seconds late</td><td>If late lines show on screen</td></tr>
+<tr><td>Even the AI couldn't stop this arrest</td><td>Always: scripted</td></tr>
+<tr><td>My chat overruled the AI in GTA 6</td><td>Only if a VETO really wins</td></tr>
+<tr><td>The AI's worst call in GTA 6</td><td>Only for a real wrong call</td></tr></table>
+
+<h2>Run sheet</h2>
+<table><tr><th>Step</th><th>Who</th><th>Status</th></tr>
+<tr><td>Twitch title "I Let AI Run My Life in GTA 6 (Chat Can Overrule It) 🔴"</td><td>Me</td><td><span class="chip ok">Done, checked after reload</span></td></tr>
+<tr><td>OBS "AI Call" and "Chat Votes" text, top of screen</td><td>Me</td><td><span class="chip ok">Done</span></td></tr>
+<tr><td>On M5: PS Remote Play, connect, full screen</td><td>You</td><td></td></tr>
+<tr><td>Point OBS capture at the new window: fix-capture.py</td><td>Me</td><td><span class="chip ok">Tested</span></td></tr>
+<tr><td>Start AI: python3 ai-call.py --every 20 --max 25</td><td>Me or you</td><td><span class="chip ok">Tested on frames</span></td></tr>
+<tr><td>Start votes: python3 chat-vote.py aabyzov</td><td>Me or you</td><td><span class="chip ok">Tested on live chat</span></td></tr>
+<tr><td>5-minute dry run, not live</td><td>You and me</td><td><span class="chip warn">Not done</span></td></tr>
+<tr><td>YouTube title, description, G2 thumbnail (12:00 PM). On M5: X key, caffeinate</td><td>Me (YouTube); you (X, caffeinate)</td><td>YouTube done</td></tr>
+<tr><td>Posts</td><td>You approve</td><td><span class="chip">Drafts v2 ready</span></td></tr></table>
+<p class="mut">Commands run from ~/.specwithcode/m4/scratch/2026-11-20-gta6-viral/. touch pause.flag pauses the AI. Nobody can promise viral; this bets on record GTA 6 demand, a proven chat-controls format and measured AI behaviour. Nothing was posted or streamed.</p>
+</body></html>

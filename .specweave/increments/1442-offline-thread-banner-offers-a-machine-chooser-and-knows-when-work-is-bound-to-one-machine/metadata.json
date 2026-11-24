@@ -1,0 +1,12 @@
+{
+  "id": "1442-offline-thread-banner-offers-a-machine-chooser-and-knows-when-work-is-bound-to-one-machine",
+  "uuid": "87d1c828-af0c-4a88-908a-a0e4f0ca501d",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-23T06:29:25.455Z",
+  "updated": "2026-11-23T06:29:25.455Z",
+  "lastActivity": "2026-11-23T06:29:25.455Z",
+  "title": "Offline thread banner offers a machine chooser and knows when work is bound to one machine",
+  "project": "specweave-umb"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "1434-switching-the-connect-account-on-a-machine-drops-the-previous-accounts-machines-and-chats",
+  "uuid": "4fe6c83e-ca60-48a3-84b0-4ef912ae3893",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T15:05:40.241Z",
+  "updated": "2026-11-20T17:58:02.661Z",
+  "lastActivity": "2026-11-20T17:58:02.661Z",
+  "title": "Switching the Connect account on a machine drops the previous account's machines and chats",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
