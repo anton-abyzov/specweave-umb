@@ -47,7 +47,7 @@ emit() {
 expand() { printf '%s\n' "${1//\{version\}/$2}"; }
 
 check_npm_version() {
-  local pkg latest exact
+  local pkg latest exact slug wf wait_rc=0
   pkg="$(jq -r '.package' <<<"$CHECK")"
   latest="$(npm view "$pkg" dist-tags.latest --prefer-online 2>/dev/null)" || latest=""
   if [ -z "$VERSION" ]; then
@@ -57,11 +57,30 @@ check_npm_version() {
     C_STATUS=pass; C_DETAIL="$pkg@$latest is latest"; return
   fi
   exact="$(npm view "$pkg@$VERSION" version --prefer-online 2>/dev/null)" || exact=""
-  if [ "$exact" = "$VERSION" ]; then
-    C_STATUS=fail; C_DETAIL="$pkg@$VERSION is published but latest is ${latest:-unknown}"
-  else
-    C_STATUS=pending; C_DETAIL="$pkg@$VERSION not on the registry yet (latest ${latest:-unknown})"
+  if [ "$exact" != "$VERSION" ]; then
+    C_STATUS=pending; C_DETAIL="$pkg@$VERSION not on the registry yet (latest ${latest:-unknown})"; return
   fi
+  # Published, but the dist-tag has not moved yet. That is the publish
+  # workflow still finishing, not a failure: wait for its run (ci-wait tag)
+  # and only fail when the run is over and latest still has not moved.
+  slug="$(jq -r '.repo // empty' <<<"$CHECK")"
+  wf="$(jq -r '.workflow // empty' <<<"$CHECK")"
+  if [ -z "$slug" ] || [ -z "$wf" ]; then
+    C_STATUS=fail; C_DETAIL="$pkg@$VERSION is published but latest is ${latest:-unknown}"; return
+  fi
+  "${RELEASE_CI_WAIT:-$RELEASE_LIB_DIR/ci-wait.sh}" tag "$slug" "v$VERSION" "$wf" \
+    --budget "${RELEASE_NPM_WAIT_SECONDS:-120}" >/dev/null 2>&1 || wait_rc=$?
+  case "$wait_rc" in
+    0)
+      latest="$(npm view "$pkg" dist-tags.latest --prefer-online 2>/dev/null)" || latest=""
+      if [ "$latest" = "$VERSION" ]; then
+        C_STATUS=pass; C_DETAIL="$pkg@$latest is latest"
+      else
+        C_STATUS=fail; C_DETAIL="$pkg@$VERSION is published but latest is ${latest:-unknown}"
+      fi ;;
+    1) C_STATUS=fail; C_DETAIL="$pkg@$VERSION publish run failed ($wf on v$VERSION)" ;;
+    *) C_STATUS=pending; C_DETAIL="$pkg@$VERSION publish run still running ($wf on v$VERSION); latest is ${latest:-unknown}" ;;
+  esac
 }
 
 check_gh_release() {
