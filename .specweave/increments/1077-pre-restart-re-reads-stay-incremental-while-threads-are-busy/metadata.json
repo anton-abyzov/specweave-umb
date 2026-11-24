@@ -1,15 +1,17 @@
 {
   "id": "1077-pre-restart-re-reads-stay-incremental-while-threads-are-busy",
   "uuid": "a06c730a-fe94-4bab-bf6d-88f145731716",
-  "status": "active",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-26T01:52:21.518Z",
-  "updated": "2026-10-26T01:52:21.518Z",
-  "lastActivity": "2026-10-26T01:52:21.518Z",
+  "updated": "2026-11-24T16:30:12.476Z",
+  "lastActivity": "2026-11-24T16:30:12.476Z",
   "title": "Pre-restart re-reads stay incremental while threads are busy",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "abandonedReason": "Superseded by 1116 and 1134 (completed); busy-machine installs continue in 1160. Owner approved November 24, 2026 (\"do recommended, yes!\"), board triage b-m5-02.",
+  "abandonedAt": "2026-11-24T16:30:12.476Z"
 }
