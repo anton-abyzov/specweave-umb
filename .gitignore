@@ -210,3 +210,22 @@ scripts/.cf-monitor.env
 # (documents attack vectors + internal infra IDs; keep local or in a private repo)
 ENTERPRISE-PRIVATE-SKILLS-TEST-REPORT.md
 *-TEST-REPORT.md
+
+# SpecWeave (added by specweave update)
+.handoff/
+.specweave/state/handoff-latest.*
+.specweave/backups/
+.specweave/increments/**/reports/artifacts/
+.claude/worktrees/
+**/reports/*.mp4
+**/reports/*.png
+**/reports/*.jpg
+**/reports/*.aab
+**/reports/*.ipa
+**/reports/*.dSYM/
+
+# SpecWeave (added by specweave update)
+.worktrees/
+
+# SpecWeave (added by specweave update)
+/.specweave.backup-*/
