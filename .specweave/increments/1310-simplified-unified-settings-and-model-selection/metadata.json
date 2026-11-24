@@ -5,11 +5,14 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-12T14:42:56.076Z",
-  "updated": "2026-11-12T17:10:17.490Z",
-  "lastActivity": "2026-11-12T17:10:17.490Z",
+  "updated": "2026-11-24T16:47:41.674Z",
+  "lastActivity": "2026-11-24T16:47:41.674Z",
   "title": "Simplified unified settings and model selection",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
