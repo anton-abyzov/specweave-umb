@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-23T08:24:28.148Z",
-  "updated": "2026-11-23T08:24:28.148Z",
-  "lastActivity": "2026-11-23T08:24:28.148Z",
+  "updated": "2026-11-24T04:31:12.875Z",
+  "lastActivity": "2026-11-24T04:31:12.875Z",
   "title": "Office in SpecWithCode: editable sheets with Excel import and export, and an Excalidraw-compatible whiteboard",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
